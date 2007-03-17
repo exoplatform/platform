@@ -1,0 +1,74 @@
+<% import org.exoplatform.portal.config.model.Page; %>
+<% import org.exoplatform.webui.component.UIPopupWindow; %>
+
+<%
+	Page page  = uicomponent.getPage();    
+	String owner = "";
+	String name = "";
+	String viewPermission = "";
+	String editPermission = "";
+	String pageId = "" ;
+	if(page != null) {
+	  owner = page.getOwner();
+	  name = page.getName();
+	  pageId = owner + ":/" + name ;
+	  viewPermission = page.getViewPermission();
+	  editPermission = page.getEditPermission();
+	  if (owner == null) owner = "" ;
+	  if (name == null) name = "" ;
+	  if (viewPermission == null) viewPermission = "" ;
+	  if (editPermission == null) editPermission = "" ;
+	}
+   
+  UIPopupWindow uipopup = uicomponent.getChild(UIPopupWindow.class) ;
+  
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.importJavascript('eXo.webui.UIPopupWindow');
+    
+%>
+<div class="UIPageSelector">
+	<div class="UIToolbar">
+	  <div class="Style2Toolbar">
+	    <div class="LeftBar">
+	      <div class="RightBar">
+	        <div class="MiddleBar">
+	          <div class="SelectPageIcon" title="<%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>" onclick="eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');"><span></span></div>
+            <div class="SearchText">
+              <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
+                <%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>
+              </a>
+            </div>	          
+          </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="UIFormInfo">
+	  <div class="FormInfoBG">
+		  <div class="FormInfoIcon">
+		    <div class="UIPropertyInfo">
+			    <div class="OverflowContainer">
+				    <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
+				    <div class="SelectedPageText"><%=_ctx.appRes(uicomponent.getId()+".label.currentSelectedPage")%></div>
+			    </div>
+			    <div class="OverflowContainer">
+			      <div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".header.id")%>:</div>
+			      <div class="PropertyValue">$pageId</div>
+			    </div>
+			    <div class="OverflowContainer">
+			      <div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".label.name")%>:</div>
+			      <div class="PropertyValue">$name</div>
+			    </div>
+			    <div class="OverflowContainer">
+			      <div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".label.viewPermission")%>:</div>
+			      <div class="PropertyValue">$viewPermission</div>
+			    </div>
+			    <div class="OverflowContainer">
+			      <div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".label.editPermission")%>:</div>
+			      <div class="PropertyValue">$editPermission</div>
+			    </div>
+			  </div>
+		  </div>
+		</div>
+	</div>
+</div>

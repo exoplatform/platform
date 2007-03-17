@@ -1,0 +1,89 @@
+<%import org.exoplatform.portal.config.model.PageNode;%>
+<%
+	def navigations = uicomponent.getNavigations() ;
+  public void renderNextLevelNode(children, int intLevel) {
+  	for(PageNode node in children) {
+	    String actionLink = uicomponent.url("SelectNode", node.getUri()) ;
+	    println """
+	  	  <div class="Item">
+		      <div class="Level$intLevel">
+		        <div class="OverflowContainer">
+		          <a class="Icon Level${intLevel}16x16Icon" href="$actionLink"><span></span></a>
+		          <div class="Label"><a href="$actionLink">$node.label</a></div>
+		        </div>
+		      </div>
+		    </div>
+		  """ ;
+	    if (node.getChildren() != null) {
+	  	  renderNextLevelNode(node.getChildren(), intLevel + 1) ;
+	  	}
+	  }
+  }
+%>
+<div class="UISitemap">
+  <div class="DecoratorBox">
+    <div class="GrayRoundedFillBoxStyle">    
+		  <div class="TopLeftCornerBoxDecorator">
+		    <div class="TopRightCornerBoxDecorator">
+		      <div class="TopCenterBoxDecorator"><span></span></div>
+		    </div>
+		  </div>		  
+		  <div class="MiddleLeftSideBoxDecorator">
+		    <div class="MiddleRightSideBoxDecorator">
+		      <div class="CenterBoxDecorator">
+			      <div class="SitemapContainer">
+			        <%
+				        boolean even = true ;
+				        for(nav in navigations) { 
+				          for(node in nav.getNodes()) { 
+				            String blockFloat = "LeftBlock" ;
+				            actionLink = uicomponent.url("SelectNode", node.getUri()) ;
+			        %>
+							      <div class="SitemapItemBox">
+							        <%//Title SiteMap %>
+									    <div class="TitleBar">
+							      	  <div class="Icon OrangeBoxPage16x16Icon"><span></span></div>
+	                      <div class="Title"><a href="<%=actionLink%>">$node.label</a></div>
+	                      <div style="clear: left;"><span></span></div>
+							        </div>
+							        <%//End Title SiteMap %>
+							        <%if(node.getChildren() == null) { %>
+							            <div class="NestedSitemapItemBox">
+											      <div class="SitemapItemBoxSelector BorderBox">											
+												      <div class="Item">
+													      <div class="SubItem">
+											            <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
+											            <div class="Message"><%=_ctx.appRes("UISitemap.label.message")%></div>
+											            <div style="clear: both"></div>
+											          </div>
+											        </div>
+											      </div>
+											    </div> 
+						  			  <%} else { %>
+						  			      <div class="NestedSitemapItemBox">
+						                <div class="SitemapItemBoxSelector">
+						                	<div class="ItemContainer">
+									  			     <% renderNextLevelNode(node.getChildren(), 1); %>
+									  			    </div>
+									  			  </div>
+											    </div> 						  			      
+			      	        <%}%>
+							      </div>
+					    <%
+						            even = !even ;
+						      }
+					      }
+					    %>
+					    <div style="clear: left;"></div>        
+			      </div>
+			    </div>  
+			  </div>
+			</div>
+		  <div class="BottomLeftCornerBoxDecorator">
+		    <div class="BottomRightCornerBoxDecorator">
+		      <div class="BottomCenterBoxDecorator"><span></span></div>      
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>

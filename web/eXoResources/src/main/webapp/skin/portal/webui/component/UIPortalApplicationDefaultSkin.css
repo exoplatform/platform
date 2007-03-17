@@ -1,0 +1,99 @@
+@import url(control/DefaultStylesheet.css) ;
+@import url(customization/DefaultStylesheet.css) ;
+@import url(view/DefaultStylesheet.css) ;
+@import url(widget/DefaultStylesheet.css) ;
+div {
+	padding:	0px ; margin: 0px ;
+}
+
+table {
+  width: 100% ;
+	padding: 0px ; margin: 0px ;
+	border-spacing:	0px ;
+	/*border-collapse: collapse ;*/
+}
+
+th, td {
+	padding: 0px ; margin: 0px ;
+}
+
+img {
+	padding: 0px ; margin: 0px ; border: none ;
+}
+
+form {
+	padding: 0px ; margin: 0px ;
+}
+
+body {
+	background: white ;
+	margin: 0px ; padding: 0px;
+	font-family: Verdana, Arial, Helvetica, sans-serif ;
+	font-size: 12px;
+}
+
+a {
+	text-decoration: none;
+}
+/*###############################################################################################*/
+.OverflowContainer {
+	overflow: hidden;
+	width: 100%;
+}
+
+.LeftBlock {
+	float: left;
+}
+
+.RightBlock {
+	float: right;
+}
+
+.InlineContainer {
+  width: 100%;
+	overflow: hidden;
+}
+
+.InlineLeft {
+	float:left;
+}
+
+.InlineRight {
+	float:right;
+}
+
+.AjaxLoadingMask {
+  width: 180px; height: 95px;
+  background: white;
+  border: 1px solid #66667e;
+  padding: 1px;
+}
+
+.AjaxLoadingMask .LoadingContainer {
+  height: 93px;
+  background: #e0dfe3;
+  border: solid 1px #a8a9bb;
+}
+
+.AjaxLoadingMask .LoadingText {
+  text-align: center;
+  font-size: 11px;
+  padding: 10px 0px 5px 0px;
+}
+
+.AjaxLoadingMask .LoadingProgressBar {
+  width: 129px ; height: 20px ;
+  background: url('/eXoResources/background/DefaultSkin/LoadingProgressBar.gif') no-repeat ;
+  border: solid 1px white ;
+  margin: auto ;
+}
+
+.AjaxLoadingMask .UIAction {
+  padding: 8px 0px 10px 0px ;
+}
+
+.AjaxLoadingMask .UIAction .ActionContainer .ActionButton {
+  float: none;
+  width: 50px;
+  margin: auto;
+}

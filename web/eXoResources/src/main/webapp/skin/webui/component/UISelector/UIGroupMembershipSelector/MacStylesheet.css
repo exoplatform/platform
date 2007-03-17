@@ -1,0 +1,100 @@
+.UIGroupMembershipSelector {
+  padding: 7px 4px 4px 4px;
+  width: 500px;
+  margin: auto;
+  background: white;
+}
+
+ .UIGroupMembershipSelector .UIBreadcumbs {
+  font-size: 11px; font-weight: normal;
+  margin-bottom: 2px; 
+}
+
+ .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
+	float: left;
+  margin: 5px 2px 5px 2px ;
+  width: 26px; height: 16px;
+  background: url('MacSkin/background/MacGroup.gif') no-repeat;
+}
+
+ .UIGroupMembershipSelector .UIBreadcumbs .RightBlackGridArrow16x16Icon {
+	float: left;
+  margin: 5px 2px 5px 1px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/OrangeRightArrow.gif') no-repeat;
+}
+
+ .UIGroupMembershipSelector .UITree {
+  width: 280px; height: 170px; 
+  border: none; background: none;
+  margin-left: 3px; padding: 0px;
+  float: left;
+}
+
+ .UIGroupMembershipSelector .UITree .TreeContainer{
+  height: 160px; 
+  overflow: auto;
+  margin: 0px;
+}
+
+ .UIGroupMembershipSelector .BlueLevelUpArrow24x24Icon {
+  margin-left: 7px;
+}
+
+ .UIGroupMembershipSelector .UITree .Node {
+  width: auto;
+  margin: 0px 0px 2px 3px ; padding-left: 3px;
+  color: black;
+}
+
+ .UIGroupMembershipSelector .MembershipSelector {
+  width: 200px;
+  font-weight: normal;
+  background-color: white;
+  padding: 1px ;
+  border: 1px #cdcdcd solid; 
+  float: left;
+  margin-left: 10px;
+}
+
+ .UIGroupMembershipSelector .MembershipSelector .MembershipTitle{
+  font-weight: normal;
+  background: url('MacSkin/background/TitleBG1x20.gif') repeat-x;
+  border-bottom: 1px #cdcdcd solid; 
+  height: 20px; line-height: 20px; vertical-align: middle;
+  text-align: center;
+}
+
+ .UIGroupMembershipSelector .MembershipSelector .Label {
+  float: left;
+  height: 24px; vertical-align: middle;  line-height: 24px ;
+  font-size: 12px; color: black;
+}
+
+ .UIGroupMembershipSelector .MembershipSelector  a {
+  color: black;
+}
+
+ .UIGroupMembershipSelector .MembershipSelector  a:hover {
+  color: blue; font-weight: normal; font-size: 12px;
+}
+
+ .UIGroupMembershipSelector  .MembershipSelector .OddRow {
+  height: 26px ;  vertical-align: middle;  line-height: 26px ;
+  background: #e9ebf5 ;
+  margin: 1px ;
+  font-size: 12px;
+}
+
+ .UIGroupMembershipSelector  .MembershipSelector .EvenRow {
+  height: 26px ; vertical-align: middle;  line-height: 26px ;
+  background: #e9ebf5 ;
+  margin: 1px ;
+  font-size: 12px;
+}
+
+ .UIGroupMembershipSelector .MembershipSelector .ItemIcon {
+  margin: 5px 5px 0px 7px ;  
+  float: left ;
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/GrayNextArrow.gif') no-repeat;  
+}

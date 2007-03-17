@@ -1,0 +1,32 @@
+<div id="UIPortalToolPanel">
+  <div class="UIPortalToolPanel">
+	 	<div class="Banner">
+		  <div class="OverflowContainer">
+		    <div class="BannerLeft"><span></span></div>
+		   	<div class="BannerRight"><span></span></div>
+		  	<div class="BannerMiddle"><span></span></div>
+		 	</div>
+		</div>
+		
+		<div class="Body">
+	    <% uicomponent.renderChildren() %>
+	  </div>
+	  
+	  <div class="Footer">
+		  <div class="LeftFooter">
+		    <div class="RightFooter">
+		      <div class="MiddleFooter">
+	          <div class="FooterInfoContainer">
+			        <div class="CopyrightInfo">
+						    <div class="CopyrightText"><%=_ctx.appRes("UIPortalToolPanel.label.copyrightText")%></div>
+						    <div class="CompanyTitleText"><%=_ctx.appRes("UIPortalToolPanel.label.companyTitleText")%></div>
+						    <div style="clear: both;"><span></span></div>
+			        </div>
+			      </div>
+	        </div>
+		    </div>
+		  </div>
+		</div>
+		
+  </div>
+</div>

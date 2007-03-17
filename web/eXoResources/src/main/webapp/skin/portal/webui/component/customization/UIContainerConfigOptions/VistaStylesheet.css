@@ -1,0 +1,131 @@
+.UIContainerConfigOptions {
+  background:url('VistaSkin/background/UIContainerConfigOptions.png');
+  padding: 5px ;
+  margin-left:10px;
+  border:1px #5f6062 solid;
+
+	
+}
+
+.UIContainerConfigOptions .TabContent {
+  border:solid 1px #5f90ba; background: white; padding-bottom: 10px
+ 
+}
+
+.UIContainerConfigOptions .Title {
+  text-align: center; 
+  font-size:11px ; font-weight: bold ;
+  height: 22px ; line-height: 22px ;
+  vertical-align: middle;
+  background: url('VistaSkin/background/TitleBackground1X22.png') repeat;
+  border:1px solid white;
+  margin-bottom: 6px;
+   
+ }
+ 
+.UIContainerConfigOptions .Title .TitleContainer {
+	padding-right: 10px;
+}
+
+.UIContainerConfigOptions .Title .TitleContainer .Icon {
+	margin: 3px 5px 0px 7px;
+	float: left;
+	width: 16px; height: 16px;
+}
+
+.UIContainerConfigOptions .Title .TitleContainer .LabelText {
+	padding-left: 7px;
+	height: 22px; line-height: 22px; vertical-align: middle;
+}
+
+.UIContainerConfigOptions .Title .TitleContainer .ArrowButton {
+	float: right;
+	margin-top: 8px;
+	cursor: pointer ;
+	
+}
+.UIContainerConfigOptions .UIVTabContent {
+  overflow:auto;
+  padding:1px;
+  background:#ffffff;
+ 
+}
+
+.UIContainerConfigOptions .OneRowContainerLayout {
+  width:105px ; 
+  height:56px ;
+  margin:auto ; 
+  margin-top: 10px ;
+  cursor: move ;
+  background:url('VistaSkin/background/1RowContainerBg105x56.png') no-repeat;
+  
+}
+
+.UIContainerConfigOptions .TwoRowContainerLayout {
+  width:105px;  height:56px;
+  margin:auto;  margin-top: 10px;
+  cursor: move;
+  background:url('VistaSkin/background/2RowContainerBg105x56.png') no-repeat;
+  
+}
+
+.UIContainerConfigOptions .ThreeRowContainerLayout {
+  width:105px;  height:56px;
+  margin:auto; margin-top: 10px;
+  cursor: move;
+  background:url('VistaSkin/background/3RowContainerBg105x56.png') no-repeat;
+}
+
+.UIContainerConfigOptions .TwoColumnContainerLayout {
+  width:105px;  height:56px;
+  margin:auto;  margin-top: 10px;
+  cursor: move;
+  background:url('VistaSkin/background/2ColumnContainerBg105x56.png') no-repeat;
+}
+
+.UIContainerConfigOptions .ThreeColumnContainerLayout {
+  width:105px;  height:56px;
+  margin:auto;  margin-top: 10px;
+  cursor: move;
+  background:url('VistaSkin/background/3ColumnContainerBg105x56.png') no-repeat;
+}
+
+.UIContainerConfigOptions .TwoTabContainerLayout {
+  width:105px;  height:56px;
+  margin:auto;  margin-top: 10px;
+  cursor: move;
+  background:url('VistaSkin/background/2TabContainerBg105x56.png') no-repeat;
+}
+
+.UIContainerConfigOptions .ThreeTabContainerLayout {
+  width:105px;  height:56px;
+  margin:auto; margin-top: 10px;
+  cursor: move;
+  background:url('VistaSkin/background/3TabContainerBg105x56.png') no-repeat;
+}
+
+.UIContainerConfigOptions .TwoColumnOneRowContainerLayout {
+  width:105px;  height:56px;
+  margin:auto; margin-top: 10px;
+  cursor: move;
+  background:url('VistaSkin/background/2Col1RowBg105x56.png') no-repeat;
+}
+
+.UIContainerConfigOptions .OneRowTwoColumnContainerLayout {
+  width:105px; height:56px;
+  margin:auto; margin-top: 10px;
+  cursor: move;
+  background:url('VistaSkin/background/1Row2ColBg105x56.png') no-repeat;
+}
+
+.UIContainerConfigOptions .OneRow2Column1RowContainerLayout {
+  width:105px;
+  height:56px;
+  margin:auto; margin-top: 10px;
+  cursor: move;
+  background:url('VistaSkin/background/1Row2Col1RowBg105x56.png') no-repeat;
+}
+
+.UIContainerConfigOptions .CategoryContainer {
+
+}

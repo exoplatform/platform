@@ -1,0 +1,247 @@
+.UIPortlet .LAYOUT-PORTLET {
+  font-size: 11px ;
+  margin: 0px 7px 8px 10px ;
+}
+
+.UIPortlet .CONTROL-PORTLET {
+  margin: 0px 10px 1px 10px;
+}
+
+.UIPortlet .CONTROL-PORTLET .DragControlArea {
+  float: left ; 
+  width: 45px ; height: 16px ; 
+  background: url('DefaultSkin/background/DragBg1x18.gif') repeat-x ;
+  cursor: move ;
+  margin: 3px 0px 0px 5px ;
+  border: solid 1px white ;
+}
+
+.UIPortlet {
+}
+
+.UIPortlet .WindowBarLeft {
+  height: 24px ;
+  background: url('DefaultSkin/background/InfoBarL4x24.gif') no-repeat left ;
+  padding: 0px 0px 0px 4px ;
+}
+
+.UIPortlet .WindowBarRight {
+  height: 24px ;
+  background: url('DefaultSkin/background/InfoBarR4x24.gif') no-repeat right ;
+  padding: 0px 4px 0px 0px ;
+}
+
+.UIPortlet .WindowBarCenter {
+  height: 24px ;
+  background: url('DefaultSkin/background/InfoBarM1x24.gif') repeat-x ;
+}
+
+.UIPortlet .WindowBarAction {
+  float: right ;
+  height: 24px ;
+  display: block ;
+}
+
+.UIPortlet .WindowBarLabel {
+  height: 24px ;
+  margin: 0px 85px 0px 0px ;
+}
+
+.UIPortlet .ControlIcon {
+  float: left;
+  width: 16px ; height: 16px ;
+  margin: 4px 2px 0px 2px ;
+  cursor: pointer ;  
+}
+
+.UIPortlet .ArrowDownIcon {
+  background: url('DefaultSkin/icons/16x16/ArrowDown.gif') no-repeat ;
+}
+
+.UIPortlet .OverArrowDownIcon {
+  background: url('DefaultSkin/icons/16x16/ArrowDownOver.gif') no-repeat ;
+}
+
+.UIPortlet .MinimizedIcon {
+  background: url('DefaultSkin/icons/16x16/Minimize.gif') no-repeat ;
+}
+
+.UIPortlet .OverMinimizedIcon {
+  background: url('DefaultSkin/icons/16x16/MinimizeOver.gif') no-repeat ;
+}
+
+.UIPortlet .MaximizedIcon {
+  background: url('DefaultSkin/icons/16x16/Maximize.gif') no-repeat ;
+}
+
+.UIPortlet .OverMaximizedIcon {
+  background: url('DefaultSkin/icons/16x16/MaximizeOver.gif') no-repeat ;
+}
+
+.UIPortlet .PortletIcon {
+  float: left ;
+  width: 16px ; height: 16px ;
+  background: url('DefaultSkin/icons/16x16/PortletIcon.gif') no-repeat ;
+  margin: 4px 5px 0px 5px ;
+}
+
+.UIPortlet .PortletLabel {
+  float: left ;
+  margin: 5px 0px 0px 0px ;
+  font-size: 11px ; font-weight: bold ;
+}
+
+.UIPortlet .ViewPortletIcon {
+  float: left;
+  width: 16px; height: 16px; 
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueBoxLight.gif') no-repeat;
+  margin: 3px 5px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .EditPortletPropertiesIcon {
+	float: right;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat left;
+  margin: 4px 10px 2px 0px;
+}
+
+.UIPortlet .DeletePortletIcon {
+	float:right;
+	width: 16px; height:16px; 
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
+  margin: 4px 8px 2px 0px;
+}
+/*##############################- PortletLayoutDecorator  -################################*/
+.PortletLayoutDecorator {
+	width: 100%;
+}
+
+.PortletLayoutDecorator .TopLeft {
+  height: 4px ;
+  background: url('DefaultSkin/background/LayoutTL4x4.gif') no-repeat left ;
+  padding: 0px 0px 0px 4px ;
+}
+
+.PortletLayoutDecorator .TopMiddle {
+  height: 4px ;
+  background: url('DefaultSkin/background/LayoutTC1x4.gif') repeat-x ;
+}
+
+.PortletLayoutDecorator .TopRight {
+  height: 4px ;
+  background: url('DefaultSkin/background/LayoutTR7x4.gif') no-repeat right ;
+  padding: 0px 7px 0px 0px ;
+}
+
+.PortletLayoutDecorator .MiddleLeft {
+  background: url('DefaultSkin/background/LayoutML4x1.gif') repeat-y left;
+  padding: 0px 0px 0px 4px;
+}
+
+.PortletLayoutDecorator .MiddleRight {
+  background: url('DefaultSkin/background/LayoutMR7x1.gif') repeat-y right;
+  padding: 0px 7px 0px 0px ;
+}
+
+.PortletLayoutDecorator .CenterBackground {
+  background: white;
+}
+
+.PortletLayoutDecorator .GardientBackground {
+  height: 40px;
+  background: url('DefaultSkin/background/LayoutCBg1x32.gif') repeat-x bottom;
+  padding: 6px;
+  border: solid 1px #dfe7fb;
+}
+
+.PortletLayoutDecorator .BottomLeft {
+  height: 8px ;
+  background: url('DefaultSkin/background/LayoutBL4x8.gif') no-repeat left ;
+  padding: 0px 0px 0px 4px ;
+}
+
+.PortletLayoutDecorator .BottomMiddle {
+  height: 8px ;
+  background: url('DefaultSkin/background/LayoutBC1x8.gif') repeat-x ;
+}
+
+.PortletLayoutDecorator .BottomRight {
+  background: url('DefaultSkin/background/LayoutBR7x8.gif') no-repeat right ;
+  padding: 0px 7px 0px 0px ;
+}
+/*############### End Decorator ###################################################*/
+.UIContainer {
+ }
+
+.UIContainer .LAYOUT-CONTAINER {
+  height: 100%;
+  background: #e7e7e7 ;
+  border: solid 2px #73a8e8 ;
+  padding: 8px 0px 0px 0px ;
+  margin: 0px 10px 10px 10px;
+}
+
+.UIContainer .CONTROL-CONTAINER {
+  margin: 0px 10px 1px 10px;
+}
+
+.UIContainer .CONTROL-CONTAINER .DragControlArea {
+  float: left ;
+  width: 40px; height: 16px ;
+  background: url('DefaultSkin/background/DragBg1x18.gif') repeat-x ;
+  cursor: move ;
+  border: solid 1px white ;
+  margin: 3px 0px 0px 5px ;
+}
+
+.UIContainer .LAYOUT-CONTAINER .UITableColumnContainer {
+  background: none ;
+  border: none ;
+}
+
+.UIContainer .LAYOUT-CONTAINER .UITableColumnContainer td {
+}
+
+.UIContainer .EditContainerIcon {
+	float: right;
+	width: 16px; height: 16px;	
+	background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat left;
+  margin: 4px 10px 2px 0px;
+}
+
+.UIContainer .DeleteContainerIcon {
+	float: right;
+	width: 16px; height: 16px;	
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') ;
+  margin: 4px 10px 2px 0px;
+}
+
+.UIContainer .ContainerIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultContainerIcon.gif') no-repeat ;
+  margin: auto;
+}
+
+.UIPortal .LAYOUT-PORTAL {
+  background: url('DefaultSkin/background/PortalBg.gif');
+  padding: 8px 0px ;
+  border: solid 3px #d2d1d1 ;
+}
+
+.UIPortal {
+  background: #f4f4f4 ;
+}
+
+.DragAndDropPreview {
+  width: auto ;
+  height: 80px ;
+	background: #e9e9e9 ;
+  border: 1px solid #cdcdcd;
+  margin: 0px 12px 10px 12px;
+}
+
+.UIPage .LAYOUT-PAGE {
+  width: 98%;
+  margin: 10px 7px 7px 10px ;
+}

@@ -1,0 +1,14 @@
+<%function myfunc(param) { %>
+<%  return 'call myfunc with param' + param; %>
+<%}%>
+  	   
+<html>
+  <body style="height: 200px">
+    <%for(var i = 0 ; i < 10; i++) { %>
+      this is a test <%=context.value%> html
+      <%=context.value%> , nested test <%=context.test.nested%>
+    <%}%>
+    <%= myfunc(context.value)%>
+    <%= eXo.core.TemplateEngine.merge('eXo/core/IncludeTemplate.jstmpl', context)%>
+  </body>
+</html>

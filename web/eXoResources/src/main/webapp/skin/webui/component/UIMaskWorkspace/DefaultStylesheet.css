@@ -1,0 +1,215 @@
+.UIMaskWorkspace {
+  width: 700px ;
+  background: #f2f2f2 ;
+  border: none;
+}
+
+.UIMaskWorkspace .ContentContainer {
+  height: 400px ;
+}
+
+.UIMaskWorkspace .TopLeftDecorator {
+  background: url('DefaultSkin/background/TopLeftDecorator6x6.gif') left no-repeat;
+  padding: 0px 0px 0px 4px ;
+}
+
+.UIMaskWorkspace .TopRightDecorator {
+  background: url('DefaultSkin/background/TopRightDecorator6x6.gif') right no-repeat;
+  padding: 0px 4px 0px 0px ;
+}
+
+.UIMaskWorkspace .TopLeftDecorator .TopCenterDecorator {
+  height: 4px ;
+  background: url('DefaultSkin/background/TopCenterDecorator1x6.gif') repeat-x;
+}
+
+.UIMaskWorkspace .MiddleLeftDecorator {
+  background: url('DefaultSkin/background/MiddleLeftDecorator6x1.gif') repeat-y left;
+  padding: 0px 0px 0px 4px ;
+}
+
+.UIMaskWorkspace .MiddleRightDecorator {
+  background: url('DefaultSkin/background/MiddleRightDecorator6x1.gif') repeat-y right;
+  padding: 0px 4px 0px 0px ;
+}
+
+.UIMaskWorkspace .BottomLeftDecorator {
+  background: url('DefaultSkin/background/BottomLeftDecorator6x6.gif') left no-repeat;
+  padding: 0px 0px 0px 4px ;
+}
+
+.UIMaskWorkspace .BottomRightDecorator {
+  padding: 0px 4px 0px 0px ;
+  background: url('DefaultSkin/background/BottomRightDecorator6x6.gif') right no-repeat;
+}
+
+.UIMaskWorkspace .BottomLeftDecorator .BottomCenterDecorator {
+  height: 4px ;
+  background: url('DefaultSkin/background/BottomCenterDecorator1x6.gif') repeat-x;
+}
+
+.UIMaskWorkspace .TitleBarContainer {
+  width: 400px ;
+  padding: 15px 0px 0px 0px;
+  margin: auto ;
+}
+
+.UIMaskWorkspace .TitleBarContainer .LeftTitleBar {
+  background: url('DefaultSkin/background/LeftTitleBar33x32.gif') no-repeat left;
+  padding: 0px 0px 0px 32px ;
+}
+
+.UIMaskWorkspace .TitleBarContainer .RightTitleBar {
+  background: url('DefaultSkin/background/RightTitleBar11x32.gif') no-repeat right;
+  padding: 0px 11px 0px 0px ;
+}
+
+.UIMaskWorkspace .TitleBarContainer .CenterTitleBar {
+  height: 32px ;
+  line-height: 32px ; vertical-align: middle ;
+  font-weight: bold ; text-align: center ;
+  background: url('DefaultSkin/background/CenterTitleBar1x32.gif') repeat-x;
+}
+
+.UIMaskWorkspace .ContentContainerDetail {
+  padding: 15px ;
+}
+
+.UIMaskWorkspace .UITabContentContainer {
+  background: #f2f2f2 ;
+  padding: 1px;
+  border: solid 1px gray;
+}
+
+.UIMaskWorkspace .UITabContentContainer .UITabContent {
+  height: 276px ;
+}
+
+.UIAddApplication .UITabContentContainer .UITabContent {
+	height: 244px;
+}
+
+.UIMaskWorkspace .ContentContainerDetail .TabsContainer {
+	width: 99%; 
+}
+
+.UIMaskWorkspace .RefreshButtonLabel a {
+	color: black;
+}
+
+.UIMaskWorkspace .RefreshButtonLabel a:hover {
+	color: blue;
+}
+
+.UIMaskWorkspace .ApplicationListContainer {
+	height: 235px ;
+	overflow: auto ;
+}
+
+.UIMaskWorkspace .Application {
+  margin: 10px 10px 5px 10px ;
+	border: solid 1px #d6d6d6 ;
+}
+
+.UIMaskWorkspace .TitleBarApplication {
+	height: 27px ;
+	background: #dee4f5 ;
+}
+
+.UIMaskWorkspace .IconLayout {
+	float: left ;
+	margin: 4px 5px 0px 5px ;
+}
+
+.UIMaskWorkspace .ApplicationLabel {
+	float: left ;
+	height: 27px ;
+	line-height: 27px; 
+	font-weight: bold ;
+	vertical-align: middle ;
+}
+
+.UIMaskWorkspace .CheckButton {
+	float: right ; 
+	width: 16px ; height: 27px ;
+	background: url("DefaultSkin/icons/16x16/Check.gif") no-repeat center;
+	margin: 0px 10px ;
+	cursor: pointer ;
+}
+
+.UIMaskWorkspace .AddButton {
+	float: right ; 
+	width: 16px ; height: 27px ;
+	background: url("DefaultSkin/icons/16x16/Add.gif") no-repeat center;
+	margin: 0px 10px ;
+	cursor: pointer ;
+}
+
+.UIMaskWorkspace .ApplicationDescription {
+	background: white ;
+	padding: 10px 15px ;
+}
+
+.UIMaskWorkspace .UIAction {
+  width: 230px ;
+  margin: auto ;
+  margin-top: 10px;
+}
+
+.UIMaskWorkspace .UIAction .ActionButton {
+  width: 100px ;
+}
+
+.UIMaskWorkspace .UIAction .ActionButton .Icon {
+  margin: 4px 0px 0px 10px ;
+}
+
+.UIMaskWorkspace .UIFormTabPane {
+	padding: 10px;
+}
+/**************************** UIAddApplication ******************************************/
+.UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
+  height: 206px ;
+  overflow: auto ;
+  background: #ffffff;
+}
+
+.UIAddApplication .ContentContainerDetail .TabsContainer .RefreshButtonContent {
+	float: right;
+	width: 105px;
+}
+
+.UIAddApplication .ItemList .RefreshButtonContent {
+	width: 140px;
+	margin: auto;
+}
+
+.UIAddApplication .RefreshButtonContent .RefreshButtonLeft {
+	background:url('DefaultSkin/background/RefreshButtonLeft8x22.gif') no-repeat top left; 
+	padding: 0px 0px 0px 8px;
+}
+
+.UIAddApplication .RefreshButtonContent .RefreshButtonRight {
+	background:url('DefaultSkin/background/RefreshButtonRight8x22.gif') no-repeat top right; 
+	padding: 0px 8px 0px 0px ;
+}
+
+.UIAddApplication .RefreshButtonContent .MiddleRefreshButton {
+	height: 22px;
+	background:url('DefaultSkin/background/MiddleRefreshButton1x22.gif') repeat-x top; 
+}
+
+.UIAddApplication .RefreshButtonContent .IconRefreshButton {
+	float: left;
+	width: 24px; height: 22px; 
+	background:url('DefaultSkin/icons/16x16/RefreshButton.gif') no-repeat center; 
+	padding: 0px 0px 0px 3px;
+	cursor: pointer ;
+}
+
+.UIAddApplication .RefreshButtonContent .RefreshButtonLabel {
+	line-height: 21px; font-weight: bold;
+	padding: 0px 8px;
+	cursor: pointer ;	
+	text-align: center;
+}

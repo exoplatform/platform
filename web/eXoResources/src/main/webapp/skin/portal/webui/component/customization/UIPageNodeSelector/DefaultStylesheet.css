@@ -1,0 +1,80 @@
+/*########################- UIPageNodeSelector -######################*/
+.UIPageNodeSelector {
+}
+
+.UIPageNodeSelector .PageNodeSelectorContainer {
+  background: #f3f3f3 ;
+  padding: 5px ;
+  border: 1px solid #c6c6c9 ;
+}
+
+.UIPageNodeSelector .UIVerticalSlideTabs {
+  border: none; 
+}
+
+/*###############################- UITree -############################*/
+.UIPageNodeSelector .TreeSelectorTitle {
+  text-align: center; 
+  font-size:11px; font-weight: bold;
+  height: 20px; line-height: 20px; 
+  vertical-align: middle ;
+  background: white ;
+  border: 1px solid #b7b7b7 ; 
+  margin-bottom: 5px;
+}
+
+.UIPageNodeSelector .TabLabel {
+  font-size: 11px ;
+  margin-left: 10px;
+}
+
+.UIPageNodeSelector .UITree {
+  padding: 3px;
+  background: white;
+  border: 1px gray solid;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer {
+  padding: 6px 0px 6px 0px ;
+  border: 1px #b7b7b7 solid;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .TreeLevelContainer {
+  margin: 0px 0px 4px 0px;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .ExpandIcon {
+  margin: 3px 0px 0px 0px ;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .CollapseIcon {
+  margin: 2px 2px 0px 2px ;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .Icon {
+  width: 16px;  height: 16px ;
+  margin: 3px 2px 0px 2px;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .NodeSelected {
+ color: blue;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .NodeLabel  {
+  cursor: pointer ;
+  float: left ;
+  height: 17px; line-height: 17px; vertical-align: middle ;
+  font-size: 11px; color: black; font-weight: bold;
+}
+
+.UIPageNodeSelector .OrganizationIcon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/MiniOrangeBoxPage.gif') no-repeat;
+}
+
+.UIPageNodeSelector .PortalAdminIcon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/16x16/PortalAdmin.gif') no-repeat;
+}
+
+.UIPageNodeSelector .NavigationPortalIcon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/MiniOrangeBoxPage.gif') no-repeat;
+}

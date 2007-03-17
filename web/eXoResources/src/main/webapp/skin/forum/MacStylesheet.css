@@ -1,0 +1,199 @@
+/**
+ * Created by The eXo Platform SARL
+ * Author : Vu Duy Tu
+ *          duytucntt@gmail.com
+ * December 18, 2006
+ * version: $Id$
+ */
+
+.UIWorkflowPortlet {
+}
+
+.UIWorkflowPortlet .Toolbar {
+	height: 29px;
+	padding: 0px 8px;
+	border: solid 1px #b7b7b7;
+	background-color: #ebebeb;
+}
+
+.UIWorkflowPortlet .Toolbar .Separator {
+	float: left;
+  border-left: solid 1px #fdfdfd;
+  border-right: solid 1px #b7b7b7;
+  height: 29px;
+}
+
+.UIWorkflowPortlet .Toolbar .ToolbarIcon {
+	float: left;
+	margin: 3px 6px;
+}
+
+.UIWorkflowPortlet .Toolbar .TextAdmin {
+	float: left;
+  font: 12px bold;
+  line-height:29px;
+  padding: 0px 15px 0px 10px;
+}
+
+.UIWorkflowPortlet .Toolbar .ButtonContainer {
+	float: left;
+	height: 29px;
+	background: url('DefaultSkin/background/ButtonContainerBG3x29.gif') repeat-x;
+}
+
+.UIWorkflowPortlet .Toolbar .ButtonContainer a {
+  color: black;
+	padding: 0px 6px;
+  font-weight: bold;
+  line-height: 29px;
+}
+
+.UIWorkflowPortlet .Toolbar .ButtonContainerSelected {
+	float: left;
+	height: 29px;
+	background: url('DefaultSkin/background/ButtonContainerSelectedBG3x29.gif') repeat-x;
+}
+
+.UIWorkflowPortlet .Toolbar .ButtonContainerSelected a {
+	padding: 0px 6px;
+	font-weight: bold;
+  line-height: 29px;
+}
+
+.UIWorkflowPortlet .Toolbar .SeparatorRight {
+	float: right;
+}
+
+/*********************************************** Begin Icon16x16 ***********************************/
+
+.ManageStartIcon {
+	width: 16px; height: 16px;
+	background: url('DefaultSkin/icons/Execute.gif') no-repeat;
+}
+
+Transition16x16Icon {
+	width: 16px; height: 16px;
+	background: url('DefaultSkin/icons/Execute.gif') no-repeat;
+}
+/*********************************************** End Icon16x16 *****************************************/
+/*********************************************** Begin Icon24x24 ***********************************/
+.Monitor24x24Icon {
+	width: 24px; height: 24px;
+	background: url('DefaultSkin/icons/IconMonitor24x24.gif') no-repeat;
+}
+
+.Controller24x24Icon {
+	width: 24px; height: 24px;
+	background: url('DefaultSkin/icons/Controller24x24.gif') no-repeat;
+}
+/*********************************************** End Icon24x24 *****************************************/
+
+
+.UIWorkflowPortlet .DecoratorBox {
+  margin: 7px;
+}
+
+.UIWorkflowPortlet .UIPopupWindow .Content {
+  padding: 10px;
+}
+
+/*###########################################    ########################################*/
+.UIWorkflowPortlet .UIDocumentContent {
+  background: white;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .TopLeftCornerDecorator {
+  background: url('DefaultSkin/background/LeftTop27x35.gif') no-repeat left;
+  height: 35px;
+  padding-left: 27px;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .TopCenterDecorator {
+  background: url('DefaultSkin/background/CenterTop1x10.gif') repeat-x top;
+  height: 35px;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .TopRightCornerDecorator {
+  background: url('DefaultSkin/background/RightTop41x35.gif') no-repeat right ;
+  height: 35px;
+  padding-right: 41px;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .MiddleLeftSideDecorator {
+  background: url('DefaultSkin/background/LeftMiddle11x1.gif') repeat-y left;
+  padding-left: 13px ;  
+}
+
+.UIWorkflowPortlet .UIDocumentContent .MiddleCenterDecorator {
+  padding: 0px 10px 25px 10px;
+  background: url('DefaultSkin/background/CenterMiddleGB.gif') repeat-x bottom;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .MiddleRightSideDecorator {
+  background: url('DefaultSkin/background/RightMiddle13x1.gif') repeat-y right;
+  padding-right: 15px ;  
+}
+
+.UIWorkflowPortlet .UIDocumentContent .BottomLeftCornerDecorator {
+  background: url('DefaultSkin/background/LeftBottom13x16.gif') no-repeat left ;
+  height: 16px;
+  padding-left: 13px;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .BottomCenterDecorator {
+  background: url('DefaultSkin/background/CenterBottom1x14.gif') repeat-x bottom;
+  height: 16px;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .BottomRightCornerDecorator {
+  background: url('DefaultSkin/background/RightBottom15x16.gif') no-repeat right ;
+  height: 16px;
+  padding-right: 15px ;  
+}
+
+/*##############################- End Decorator -################################*/
+.UIWorkflowPortlet .UIDocumentContent .Banner {
+  height: 100px;
+  background: url('DefaultSkin/background/BannerBG.gif') repeat-x bottom;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .Banner .TopLeftLabel {
+  padding-left: 10px;
+  border-bottom: solid 1px #e5e5e5;
+  font: normal bold 19px Verdana;
+  color: #ffb502;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .Banner .BannerIcon {
+  float: right;
+  width: 155px; height: 100px;
+  background: url('DefaultSkin/background/BannerIcon.gif') no-repeat right bottom;
+}
+.UIWorkflowPortlet .UIDocumentContent .Banner .BannerTitle {
+  text-align: center;
+  font: normal bold 40px Verdana;
+  color: #efefef;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .EventFrame {
+  margin-top: 10px;
+  border: solid 1px #bdbdbd;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .EventFrame .TitleLabel {
+  height: 18px;
+  padding: 2px 0px 0px 15px;
+  font: normal bold 11px Verdana;
+  background: url('DefaultSkin/background/EventFrameBG.gif') repeat-x;
+}
+
+.UIWorkflowPortlet .UIDocumentContent .EventFrame .FrameContent {
+  padding: 10px;
+}
+/*###########################################    ########################################*/
+
+.UIWorkflowPortlet .UITask {
+}
+
+.UIWorkflowPortlet .UITask .TitleBar {
+}

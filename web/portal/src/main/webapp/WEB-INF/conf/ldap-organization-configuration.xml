@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>  
+  <component>
+    <key>org.exoplatform.services.organization.OrganizationService</key>
+    <type>org.exoplatform.services.organization.ldap.OrganizationServiceImpl</type>
+    <component-plugins>
+	    <component-plugin>
+	      <name>init.service.listener</name>
+	      <set-method>addListenerPlugin</set-method>
+	      <type>org.exoplatform.services.organization.ldap.OrganizationLdapInitializer</type>
+	      <description>this listener populate organization ldap service create default dn</description>      
+	    </component-plugin>  
+    </component-plugins> 
+    <init-params>           
+      <object-param>
+        <name>ldap.attribute.mapping</name>
+        <description>ldap attribute mapping</description>
+        <object type="org.exoplatform.services.organization.ldap.LDAPAttributeMapping">                
+          <field  name="userLDAPClasses"><string>top,person,organizationalPerson,inetOrgPerson</string></field>
+          <field  name="profileLDAPClasses"><string>top,organizationalPerson</string></field>
+          <field  name="groupLDAPClasses"><string>top,organizationalUnit</string></field>
+          <field  name="membershipTypeLDAPClasses"><string>top,organizationalRole</string></field>
+          <field  name="membershipLDAPClasses"><string>top,groupOfNames</string></field>
+          
+          <field  name="baseURL"><string>dc=exoplatform,dc=org</string></field>
+          <field  name="groupsURL"><string>ou=groups,ou=portal,dc=exoplatform,dc=org</string></field>
+          <field  name="membershipTypeURL"><string>ou=memberships,ou=portal,dc=exoplatform,dc=org</string></field>
+          <field  name="userURL"><string>ou=users,ou=portal,dc=exoplatform,dc=org</string></field>
+          <field  name="profileURL"><string>ou=profiles,ou=portal,dc=exoplatform,dc=org</string></field>
+          
+          <field  name="userAuthenticationAttr"><string>uid</string></field>
+          <field  name="userUsernameAttr"><string>uid</string></field>
+          <field  name="userPassword"><string>userPassword</string></field>
+          <field  name="userFirstNameAttr"><string>givenName</string></field>
+          <field  name="userLastNameAttr"><string>sn</string></field>
+          <field  name="userDisplayNameAttr"><string>displayName</string></field>
+          <field  name="userMailAttr"><string>mail</string></field>
+          <field  name="userObjectClassFilter"><string>objectClass=person</string></field>
+          
+          <field  name="membershipTypeMemberValue"><string>member</string></field>
+          <field  name="membershipTypeRoleNameAttr"><string>cn</string></field>
+          <field  name="membershipTypeNameAttr"><string>cn</string></field>
+          <field  name="membershipTypeObjectClassFilter"><string>objectClass=organizationalRole</string></field>
+          <field  name="membershiptypeObjectClass"><string>organizationalRole</string></field>
+          
+          <field  name="groupObjectClass"><string>organizationalUnit</string></field>
+          <field  name="groupObjectClassFilter"><string>objectClass=organizationalUnit</string></field>
+          
+          <field  name="membershipObjectClass"><string>groupOfNames</string></field>
+          <field  name="membershipObjectClassFilter"><string>objectClass=groupOfNames</string></field>
+
+          <field  name="ldapCreatedTimeStampAttr"><string>createdTimeStamp</string></field>
+          <field  name="ldapModifiedTimeStampAttr"><string>modifiedTimeStamp</string></field>
+          <field  name="ldapDescriptionAttr"><string>description</string></field>
+        </object>
+      </object-param>        
+    </init-params>     
+  </component>  
+  
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.database.HibernateService</target-component>
+    <component-plugin> 
+      <name>add.hibernate.mapping</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.database.impl.AddHibernateMappingPlugin</type>
+      <init-params>
+        <values-param>
+          <name>hibernate.mapping</name>          
+          <value>org/exoplatform/services/organization/impl/UserProfileData.hbm.xml</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+   </external-component-plugins>
+   
+   <import>classpath:/conf/portal/organization-configuration.xml</import>   
+</configuration>

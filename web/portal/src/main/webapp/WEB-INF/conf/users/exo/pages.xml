@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page-set>  
+  <page>    
+		<owner>exo</owner>
+    <name>content</name>
+    <title>Content</title>
+    <view-permission>*:/guest</view-permission>
+    <portlet>
+      <window-id>exo:/content/ContentPortlet/contentportlet</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+      <show-portlet-mode>true</show-portlet-mode>
+    </portlet>  
+  </page>    
+  
+  <page>
+    <owner>exo</owner>
+    <name>myaccount</name>
+    <title>My Account</title>
+    <view-permission>*:/guest</view-permission>
+    <portlet>
+      <window-id>exo:/exoadmin/AccountPortlet/Account</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>  
+  </page>
+  
+  <page>  
+    <owner>exo</owner>
+    <name>registry-portlet</name>
+    <title>Registry Portlet</title>
+    <view-permission>*:/guest</view-permission>
+    <portlet>
+      <window-id>exo:/exoadmin/PortletRegistryPortlet/registry</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>  
+  </page>
+  
+  <page>
+    <owner>exo</owner>
+    <name>sitemap</name>
+    <title>Site Map</title>
+    <view-permission>*:/guest</view-permission>        
+    <portlet>
+      <window-id>exo:/web/SiteMapPortlet/sitemapportlet</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>  
+  </page>
+ 
+  <page>
+		<owner>exo</owner>
+		<name>workflowcontroller</name>
+		<title>Workflow Controller Portlet</title>
+		<view-permission>*:/guest</view-permission>        
+		<portlet>
+			<window-id>exo:/workflow/WorkflowControllerPortlet/workflowcontroller</window-id>
+      <show-info-bar>false</show-info-bar>
+		</portlet>  
+  </page>
+  
+  <page>
+    <factory-id>Desktop</factory-id>
+    <owner>exo</owner>
+    <name>desktop</name>
+    <title>Desktop</title>
+    <view-permission>*:/guest</view-permission>        
+    <show-max-window>true</show-max-window>
+    
+    <portlet>
+      <window-id>exo:/exoadmin/PortletRegistryPortlet/RegistryPortlet</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+      <show-portlet-mode>true</show-portlet-mode>
+    </portlet>
+     
+    <portlet>
+      <window-id>exo:/web/SiteMapPortlet/SitemapPortlet</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>  
+    
+    <portlet>
+      <window-id>exo:/exoadmin/OrganizationPortlet/Organization</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+      <show-portlet-mode>true</show-portlet-mode>
+    </portlet>
+    
+    <portlet>
+      <window-id>exo:/content/ContentPortlet/content</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>
+  </page>
+  
+</page-set>

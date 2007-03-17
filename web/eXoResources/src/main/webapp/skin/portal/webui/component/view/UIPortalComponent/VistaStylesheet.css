@@ -1,0 +1,356 @@
+.UIPortlet .LAYOUT-PORTLET {
+  margin: 0px 10px 8px 10px;
+  font-size: 11px;
+}
+
+.UIPortlet .CONTROL-PORTLET {
+  margin: 2px 10px -1px 10px;
+}
+
+.UIPortlet .CONTROL-PORTLET .DragControlArea {
+  cursor: move ;
+  height: 18px ; width: 36px;
+  float: left ; 
+  margin-top: 4px;
+  /*border: 1px white solid;*/
+  /*background: url('MacSkin/background/DragBG4x4.gif');*/
+}
+
+.UIPortlet .PortletInfoBar {
+
+}
+
+.UIPortlet .PortletInfoBar .InfoBarLeft {
+  padding-left: 10px ;margin: 0px 1px 0px 2px;
+  background: url('VistaSkin/background/InfoBarL10x28.png') no-repeat left ;
+}
+
+.UIPortlet .PortletInfoBar .InfoBarRight {
+  padding-right: 11px ;
+  background: url('VistaSkin/background/InfoBarR14x28.png') no-repeat right ;
+}
+
+.UIPortlet .PortletInfoBar .InfoBarCenter {
+  height: 28px ;
+  background: url('VistaSkin/background/InfoBarM1x28.png') repeat-x ;
+}
+
+.UIPortlet .PortletInfoBar .InfobarAction {
+  float: right ;
+  display: block ;
+  position: relative;
+}
+
+.UIPortlet .PortletInfoBar .InfobarLabel {
+  margin-right: 85px ;
+  line-height: 20px ;
+}
+
+.UIPortlet .PortletInfoBar .ControlIcon {
+  width: 30px ;
+  height: 19px ;
+  float: left;
+  margin: 4px 0px ;
+  cursor: pointer ;  
+}
+
+.UIPageBody .UIPortlet .PortletInfoBar .PArrowDownIcon {
+  height: 20px; width: 33px;margin-top: 3px;
+  background: url('VistaSkin/icons/16x16/PArrowDown.png') no-repeat ;
+}
+
+.UIPageBody .UIPortlet .PortletInfoBar .POverArrowDownIcon {
+  height: 20px; width: 33px;margin-top: 3px;
+  background: url('VistaSkin/icons/16x16/PArrowDownOver.png') no-repeat ;
+}
+
+.UIPortlet .PortletInfoBar .ArrowDownIcon {
+  background: url('VistaSkin/icons/16x16/ArrowDown.png') no-repeat ;
+}
+
+.UIPortlet .PortletInfoBar .OverArrowDownIcon {
+  background: url('VistaSkin/icons/16x16/ArrowDownOver.png') no-repeat ;
+}
+
+.UIPortlet .PortletInfoBar .MinimizedIcon {
+  background: url('VistaSkin/icons/16x16/Minimize.png') no-repeat ;
+}
+
+.UIPortlet .PortletInfoBar .OverMinimizedIcon {
+  background: url('VistaSkin/icons/16x16/MinimizeOver.png') no-repeat ;
+}
+
+.UIPortlet .PortletInfoBar .MaximizedIcon {
+  background: url('VistaSkin/icons/16x16/Maximize.png') no-repeat ;
+}
+
+.UIPortlet .PortletInfoBar .OverMaximizedIcon {
+  background: url('VistaSkin/icons/16x16/MaximizeOver.png') no-repeat ;
+}
+
+.UIPortlet .PortletInfoBar .PortletIcon {
+  float: left ;
+  margin: 5px;
+  width: 16px ;
+  height: 16px ;
+  background: url('VistaSkin/icons/16x16/PortletIcon.png') no-repeat ;
+}
+
+.UIPortlet .PortletInfoBar .PortletLabel {
+  float: left ;
+  margin-top: 5px ;
+  font-size: 11px ;
+  font-weight: bold ;
+}
+
+
+.UIPortlet .MaximizedPortletIcon {
+  float: left;
+  height: 16px;  width: 16px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/Maximize.gif') no-repeat;
+  margin: 3px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .MinimizedPortletIcon {
+  float: left;
+  height: 16px;  width: 16px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/Minimize.gif') no-repeat;
+  margin: 3px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .ConfigPortletIcon {
+  float: left;
+  height: 16px; width: 16px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/Config.gif') no-repeat;
+  margin: 3px 10px 0px 5px;
+}
+
+.UIPortlet .EditPortletIcon {
+  float: left;
+  height: 16px;  width: 16px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat;
+  margin: 4px 10px 0px 5px;
+  cursor: pointer;
+}
+
+.UIPortlet .ViewPortletIcon {
+  float: left;
+  height: 16px;  width: 16px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/PortletView.gif') no-repeat;
+  margin: 3px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .HelpPortletIcon {
+  float: left;
+  height: 16px;  width: 16px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/PortletHelp.gif') no-repeat;
+  margin: 4px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .EditPortletPropertiesIcon {
+	background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat ;
+	height: 20px;	width:20px;
+  margin: 6px 10px 2px 0px;
+	float:right;
+}
+
+.UIPortlet .NormalPortletIcon {
+  float: left ;
+  height: 16px ;  width: 16px ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/Restore.gif') no-repeat ;
+  margin: 3px 10px 0px 0px ;
+  cursor: pointer ;
+}
+
+.UIPortlet .DeletePortletIcon {
+  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') ;
+	height:20px;	width:20px;
+  margin: 6px 8px 2px 0px;
+	float:right;
+}
+
+.UIPortlet .OnShow {
+  display: block;
+}
+
+.UIPortlet .OnHide {
+  display: none;
+}
+
+.UIPortlet .PortletIcon {
+  margin: auto;
+  width: 20px; height:20px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/DefaultPortletIcon.png') no-repeat ;
+}
+
+.UIPortlet {
+	width: 100%;
+}
+
+/*##############################- PortletLayoutDecorator  -################################*/
+.PortletLayoutDecorator {
+}
+
+.PortletLayoutDecorator .TopLeft {
+  background: url('VistaSkin/background/LayoutTL14x13.png') no-repeat left top;
+  padding-left: 14px ;
+  height: 13px ;
+}
+
+.PortletLayoutDecorator .TopMiddle {
+  background: url('VistaSkin/background/LayoutTM1x13.png') repeat-x top;
+  height: 13px ;
+}
+
+.PortletLayoutDecorator .TopRight {
+  background: url('VistaSkin/background/LayoutTR20x13.png') no-repeat right top;
+  padding-right: 20px ;
+  height: 13px ;
+}
+
+.PortletLayoutDecorator .MiddleLeft {
+  background: url('VistaSkin/background/LayoutML14x1.png') repeat-y left;
+  padding-left: 14px;
+}
+
+.PortletLayoutDecorator .MiddleRight {
+  background: url('VistaSkin/background/LayoutMR20x1.png') repeat-y right;
+  padding-right: 20px ;
+}
+
+.PortletLayoutDecorator .CenterBackground {
+  background: white;
+  border-top: none;
+}
+
+.PortletLayoutDecorator .GardientBackground {
+  background: url('VistaSkin/background/LayoutBG1x40.png');
+  height:40px;
+  padding: 6px;
+  border-top: none;
+}
+
+.PortletLayoutDecorator .BottomLeft {
+  background: url('VistaSkin/background/LayoutBL14x22.png') no-repeat left bottom;
+  padding-left: 14px ;
+  height: 22px ;
+}
+
+.PortletLayoutDecorator .BottomMiddle {
+  background: url('VistaSkin/background/LayoutBM1x22.png') repeat-x bottom;
+  height: 22px ;
+}
+
+.PortletLayoutDecorator .BottomRight {
+  background: url('VistaSkin/background/LayoutBR21x22.png') no-repeat right bottom;
+  padding-right: 21px ;
+}
+
+/*############### End Decorator ###################################################*/
+
+.UIContainer .LAYOUT-CONTAINER {
+  background: url('VistaSkin/background/ContainerBG3x3.png') repeat;
+  border: solid 1px #585858;
+  margin: 1px 18px 10px 14px; 
+  padding-top: 5px;
+  height: 100%;
+}
+
+.UIContainer .CONTROL-CONTAINER {
+  margin: 0px 10px -1px 10px;
+}
+
+.UIContainer .CONTROL-CONTAINER .DragControlArea {
+  cursor: move ;
+  height: 18px ; width: 36px;
+  float: left ; 
+  margin-top: 4px;
+  /*border: 1px white solid;
+  background: url('VistaSkin/background/DragBG4x4.gif');*/
+}
+
+.UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer {
+  background:none ;
+  border: none ;
+}
+
+.UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer td {
+}
+
+.UIContainer .EditContainerIcon {
+	background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat left;
+	height: 20px;	width: 20px;
+  margin: 2px 10px 2px 0px;
+	float: right;
+}
+
+.UIContainer .DeleteContainerIcon {
+  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') ;
+	height:16px;	width:16px;
+  margin: 2px 10px 2px 0px;
+	float:right;
+}
+
+.UIContainer .ContainerIcon {
+  margin: auto;
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/DefaultContainerIcon.gif') no-repeat ;
+}
+
+.UIPortal .LAYOUT-PORTAL {
+  border: solid 1px #2e2e2e;
+  background: url('VistaSkin/background/LayoutPortalBG.png') repeat;
+  padding-top: 8px;
+}
+
+.UIPortal {
+  background: none;
+}
+
+.DragAndDropPreview {
+  width: auto ;
+  height: 80px ;
+  background: url('DefaultSkin/background/PortalBg.gif');
+  border: 1px solid #cdcdcd;
+  margin: 0px 12px 10px 12px;
+  
+}
+
+.UIPage .CONTROL-PAGE .DragControlArea {
+  border: solid 1px blue ;
+  cursor: move;
+  width: 200px ; height: 18px ;
+  float: left ; 
+}
+
+.UIPage .CONTROL-PAGE .RoundedStyle .LeftBar {
+  background-color: #bdcccc;
+}
+
+.UIPage .CONTROL-PAGE .RoundedStyle .RightBar {
+  background-color: #bdcccc;
+}
+
+.UIPage .UIRowContainer {
+  margin: 6px;
+}
+
+.UIPage .EditPageIcon {
+	background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat left;
+	height: 16px;	width: 16px;
+  margin: 2px 10px 2px 0px;
+	float: right;
+}
+
+.UIPage .DeletePageIcon {
+  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') ;
+	height: 16px;	width: 16px;
+  margin: 2px 10px 2px 0px;
+	float: right;
+}
+
+

@@ -1,0 +1,32 @@
+<configuration>
+  <component>
+    <key>org.exoplatform.services.portletregistery.PortletRegisteryService</key>
+    <type>org.exoplatform.services.portletregistery.JCRPortletRegisteryService</type>
+    <init-params>
+      <object-param>
+        <name>default.portlet.permission.1</name>
+        <description>Default portlet permission when importing the portlet</description>
+        <object type="org.exoplatform.services.portletregistery.PortletPermission">
+          <field  name="membership"><string>member</string></field>
+          <field  name="groupId"><string>/user</string></field>
+          <field  name="description"><string>default user permission</string></field>
+        </object>
+      </object-param>
+    </init-params>
+  </component>
+  
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+    <component-plugin> 
+	    <name>add.nodeType</name>
+	    <set-method>addPlugin</set-method>
+	    <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+	    <init-params>
+	      <values-param>
+	        <name>nodeTypesFiles</name>           
+	        <value>jar:/conf/portal/portlet-registry-nodetypes.xml</value> 
+	      </values-param>
+	    </init-params>
+    </component-plugin>
+  </external-component-plugins>  
+</configuration>

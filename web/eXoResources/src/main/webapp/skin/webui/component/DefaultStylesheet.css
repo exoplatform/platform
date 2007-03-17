@@ -1,0 +1,22 @@
+@import url(/eXoResources/skin/UIIconStylesheet/DefaultStylesheet.css) ;
+
+@import url(UIBreadcumbs/DefaultStylesheet.css) ;
+@import url(UIDescription/DefaultStylesheet.css) ;
+@import url(UIMouseActionBackground/DefaultStylesheet.css) ;
+@import url(UIGrid/DefaultStylesheet.css) ;
+@import url(UIPageIterator/DefaultStylesheet.css) ;
+@import url(UISearch/DefaultStylesheet.css) ;
+@import url(UITree/DefaultStylesheet.css) ;
+@import url(UIQuickHelp/DefaultStylesheet.css) ;
+@import url(UIWizard/DefaultStylesheet.css) ;
+
+@import url(UIForms/DefaultStylesheet.css) ;
+@import url(UITabSystem/DefaultStylesheet.css) ;
+@import url(UISelector/DefaultStylesheet.css) ;
+@import url(UIBarDecorator/DefaultStylesheet.css) ;
+@import url(UIPopup/DefaultStylesheet.css) ;
+@import url(UIUpload/DefaultStylesheet.css) ;
+@import url(UIToolbar/DefaultStylesheet.css) ;
+@import url(UIDebug/DefaultStylesheet.css) ;
+@import url(UIAddApplication/DefaultStylesheet.css) ;
+@import url(UIMaskWorkspace/DefaultStylesheet.css) ;

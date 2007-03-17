@@ -1,0 +1,75 @@
+
+<div class="UIForumCategories">	
+  <table class="UIGrid">
+    <thead>
+	    <tr>
+		    <th>&nbsp;</th>
+		    <th>Forums</th>
+		    <th>Last post</th>		    
+		    <th>Threads</th>
+		    <th>Posts</th>
+	    </tr>
+    </thead>
+    <tbody>
+     
+      <tr class="ForumTitleContainer">
+        <td><div class="ButtonRight ExpandButton16x16Icon"><span></span></div></td>
+        <td colspan="3">
+          <div class="CategoryLabel">
+            <div class="ForumLabel">Java Developer Forums</div>
+            <div class="ForumDescription">Java Developer Forums Description</div>
+          </div>          
+        </td>
+        <td class="CollapseIconPosition"><div class="CollapseIcon"><span></span> </div> </td>
+      </tr>
+	    
+  	  <tr class="EvenRow">
+	      <td class="ForumIcon">
+	        <div class="Forum24x24Icon"><span></span></div>
+	      </td>
+		    <td>
+		      <div class="ChildForumName"><a href="SwitchToThreads">ForumName</a></div>
+		      <div class="ViewerNumber">(100 Viewing)</div>
+		      <div style="clear:left;"><span></span></div>
+		      <div class="TextNote">Dicussing and supporting of Java programing for Apllication</div>
+		    </td>		    
+		    <td>
+          <div class="PostByLabel">Last post by: <a href="#">ThuaneXo</a></div>
+		      <div class="DateAndTime">Today, 22/1/2007, 08:20 AM</div>
+        </td>	      	    
+		    <td class="ThreadsNumber">
+		      <div class="NumberText">200</div>
+		    </td>
+		    <td class="PostsNumber">
+		      <div class="NumberText">500</div>
+		    </td>
+	    </tr>
+	  
+	    <tr class="OddRow">
+	      <td class="ForumIcon">
+	        <div class="Forum24x24Icon"><span></span></div>
+	      </td>
+		    <td>
+		      <div class="ChildForumName"><a href="SwitchToThreads">ForumName</a></div>
+		      <div class="ViewerNumber">(100 Viewing)</div>
+		      <div style="clear:left;"><span></span></div>
+		      <div class="TextNote">Dicussing and supporting of Java programing for Apllication</div>
+		    </td>		    
+		    <td>
+          <div class="PostByLabel">Last post by: <a href="#">ThuaneXo</a></div>
+		      <div class="DateAndTime">Today, 22/1/2007, 08:20 AM</div>
+        </td>      	    
+		    <td>
+		      <div class="NumberText">200</div>
+		    </td>
+		    <td>
+		      <div class="NumberText">500</div>
+		    </td>
+	    </tr>	 
+	    
+	    <tr>
+        <td class="TBottom" colspan="5">&nbsp;</td>
+      </tr>	      	    
+    </tbody>    
+  </table>
+</div>

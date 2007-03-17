@@ -1,0 +1,156 @@
+.UIForumApplication .UIForumCategoriesAdmin {
+}
+/*############################# BEGIN ToolBarAdmin ##################################*/
+.UIForumApplication .UIForumCategoriesAdmin .UIToolBarAdmin {
+  padding: 0px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .UIToolBarAdmin .AdminButton {
+  width: 142px;  
+  float: left;  
+  padding: 0px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .AdminButton .AdminButtonLeft {
+  padding-left: 6px;
+  background: url('DefaultSkin/background/AdminButtonLeft6x24.jpg') no-repeat left;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .AdminButton .AdminButtonRight {
+  padding-right: 5px;
+  background: url('DefaultSkin/background/AdminButtonRight5x24.jpg') no-repeat right;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .AdminButton .AdminButtonMiddle {
+  height: 24px;
+  background: url('DefaultSkin/background/AdminButtonRepeat1x24.jpg') repeat-x;  
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .AdminButtonMiddle .AdminButtonIcon {
+  height: 16px;
+  width: 16px;
+  margin: 4px 5px;
+  float: left;   
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .AdminButtonMiddle .AdminButtonLabel {
+  line-height: 24px;
+  font-size: 11px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .UIToolBarAdmin .PageNavigation {
+  width: 403px;
+  float: right;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .PageNavigation .PageNavigationLeft {
+  padding-left: 3px;
+  background: url('DefaultSkin/background/PageNavigationLeft3x24.jpg') no-repeat left;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .PageNavigation .PageNavigationRight {
+  padding-right: 3px;
+  background: url('DefaultSkin/background/PageNavigationRight3x24.jpg') no-repeat right;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .PageNavigation .PageNavigationMiddle {
+  height: 24px;
+  background: url('DefaultSkin/background/PageNaviagionRepeat1x24.jpg') repeat-x ;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .PageNavigationMiddle .PageNavigationLabel {
+  float: left;
+  margin-left: 20px;
+  font-size: 11px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .PageNavigationMiddle .ArrowRightPage {
+  height: 16px;
+  width: 16px;
+  margin-right: 20px;
+  padding: 4px 0px;
+  float: right;  
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowRightPage.gif') no-repeat right;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .PageNavigationMiddle .ArrowRight {
+  height: 16px;
+  width: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowRight.gif') no-repeat right;
+  padding: 4px 0px;
+  float: right;
+  margin-right: 13px;  
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .PageNavigationMiddle .PageNumberText {
+  text-align: center;
+  line-height: 24px;
+  margin: 0px 16px;
+  float: right;
+  font-weight: bold; 
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .PageNavigationMiddle .ArrowLeft {
+  height: 16px;
+  width: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowLeft.gif') no-repeat right;
+  padding: 4px 0px;
+  float: right; 
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .PageNavigationMiddle .ArrowLeftPage {
+  height: 16px;
+  width: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowLeftPage.gif') no-repeat right;
+  padding: 4px 0px;
+  float: right; 
+  margin-right: 13px;
+}
+/*############################# BEGIN ToolBarAdmin ##################################*/
+.UIForumApplication .UIForumCategoriesAdmin .UIGrid .IconColumn {
+  width: 24px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .UIGrid .OrderColumn {
+  width: 120px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .OrderColumn .LeftOrder { 
+  float: left;
+  margin-left: 15px; 
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .OrderColumn .RightOrder { 
+  float: right; 
+  margin-right: 15px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .UIGrid .ActionColumn {
+  width: 120px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .ActionColumn .AddForum {  
+  float: right;
+  margin-right: 10px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .ActionColumn .EditCategory {  
+  float: right;
+  margin-right: 10px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .ActionColumn .DeleteCategory {
+  float: right;
+  margin-right: 10px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .ActionColumn .DeleteForum {
+  float: right;
+  margin-right: 10px;
+}
+
+.UIForumApplication .UIForumCategoriesAdmin .ActionColumn .EditForum {
+  float: right;
+  margin-right: 20px;
+}
+

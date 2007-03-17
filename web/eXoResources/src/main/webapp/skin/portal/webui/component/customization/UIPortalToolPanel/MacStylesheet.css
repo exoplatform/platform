@@ -1,0 +1,144 @@
+/**
+ * Created by The eXo Platform SARL
+ * Modifile : Vu Duy Tu
+ *           duytucntt@gmail.com
+ * December 14, 2006
+ * version: $Id$
+ */
+
+.UIPortalToolPanel {
+}
+
+.UIPortalToolPanel .Banner {
+  background: url('MacSkin/background/EditBannerRepeat1x121.jpg') repeat-x ;
+  height: 121px ;
+  vertical-align: middle ;
+  line-height: 121px ; text-align: center;
+}
+
+.UIPortalToolPanel .BannerLeft {
+  background: url('MacSkin/background/EditLeftBanner242x121.jpg') no-repeat left ;
+  float: left ;
+  height: 121px ; width: 35%;
+}
+
+.UIPortalToolPanel .BannerMiddle {
+  background: url('MacSkin/background/EditMiddleBanner111x121.jpg') no-repeat center ;
+  float: left ;
+  height: 121px ; width: 32%;
+}
+
+.UIPortalToolPanel .BannerRight {
+  background: url('MacSkin/background/EditRightBanner220x121.jpg') no-repeat right ;
+  float: right ;
+  height: 121px ; width: 220px;
+}
+
+.UIPortalToolPanel .Body {
+  padding: 7px 0px 5px 10px;
+  background: url('MacSkin/background/LightGrayLinedBG1x4.gif');
+}
+
+.UIPortalToolPanel .Body .UIPage {
+  width: 99%;
+}
+
+.UIPortalToolPanel .Footer {
+  font-size: 11px ;
+  height: 32px ;
+  line-height: 32px ;
+  vertical-align: middle ;
+}
+
+.UIPortalToolPanel .Footer .LeftFooter {
+  background: url('MacSkin/background/LeftFooter28x32.gif') no-repeat left;
+  padding-left: 28px;
+  height: 32px;
+}
+
+.UIPortalToolPanel .Footer .RightFooter {
+  background: url('MacSkin/background/RightFooter28x32.gif') no-repeat right;
+  padding-right: 28px;
+  height: 32px;
+}
+
+.UIPortalToolPanel .Footer .MiddleFooter {
+  background: url('MacSkin/background/FooterRepeat1x32.gif') repeat-x;
+  height: 32px;
+}
+
+.UIPortalToolPanel .Footer .FooterInfoContainer {
+  width: 400px ;
+  margin: auto ;
+}
+
+.UIPortalToolPanel .Footer .CopyrightInfo {
+  width: 398px ;
+  margin-right: 5px ;
+}
+
+.UIPortalToolPanel .Footer .CopyrightInfo .CopyrightText {
+  float: left;
+  line-height: 24px ;
+  text-align: center ; 
+  width: 260px ;
+  font-size: 11px ;
+}
+
+.UIPortalToolPanel .Footer .CopyrightInfo .CompanyTitleText {
+  float: right ;
+  line-height: 24px ; 
+  text-align: center ;
+  width: 124px ;
+  font-size: 11px ;
+  margin-right: 5px;
+}
+
+.UIPortalToolPanel .Footer .Footer .CopyrightText {
+  font-size: 11px ;
+  height: 20px ; width: 380px;  line-height: 20px ;  vertical-align: middle ;
+  text-align: center;
+  border: 1px solid #5f90ba ;
+  background: white;
+}
+
+.UIPortalToolPanel .UIAction{
+  margin-top: 5px;
+}
+
+/**################################ ItemDetailList ######################*/
+.UIPortalToolPanel .UIFormTabPane .UIAction .ActionButton {
+  width: 70px ;
+}
+
+.UIPortalToolPanel .UIItemSelector .ItemDetailList .ItemDetail {
+  height: 250px ;
+  padding: 8px ;
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle {
+  height: 100% ;
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer {
+	height: 100% ;
+	width: 247px ;
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemList {
+	border: 1px #b7b7b7 solid;
+	height: 264px ;	
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .TemplateImage{
+	height: 240px; 
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemListTitle{
+	height: 28px ; 
+	line-height: 27px ; 
+	vertical-align: middle;
+	font-weight: bold;
+	margin: 0px 0px 0px 0px;
+	background: url('MacSkin/background/TitleBG1x28.gif') repeat-x ;
+}

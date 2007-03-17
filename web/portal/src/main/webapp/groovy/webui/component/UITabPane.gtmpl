@@ -1,0 +1,51 @@
+<%
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.importJavascript('eXo.webui.UIHorizontalTabs');
+%>
+
+<%//Begin UITabPane%>
+<div class="UITabPane">
+  <%//Begin TabPaneContent%>
+  <div class="TabPaneContent"> 
+    <%//Begin WorkingArea%>
+    <div class="WorkingAreaWithHelp">
+    	<%//Begin Tabs%>
+      <div class="UIHorizontalTabs">
+        <div class="TabsContainer">
+          <%
+            for(uiChild in uicomponent.getChildren()) {
+              String style = "NormalTabStyle" ;
+              if(uiChild.isRendered()) style = "HighlightTabStyle" ;
+          %>
+            <div class="UITab">
+              <div class="$style">
+                <div class="LeftTab">
+                  <div class="RightTab">                
+                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=_ctx.appRes(uiChild.id + ".title");%></div>
+                  </div>
+                </div>
+              </div>
+            </div>              
+          <%}%>
+        </div>
+      </div>
+      <%//End UIHorizontalTabs%>
+      <%//Start UITabContentContainer%>
+      <div class="UITabContentContainer">
+        <%
+          for(uiChild in uicomponent.getChildren()) { 
+            String display = "none" ;
+            if(uiChild.isRendered()) display="block" ;
+            println "<div class=\"UITabContent\" style=\"display: $display\">" ;
+            uicomponent.renderUIComponent(uiChild) ;
+            println "</div>" ;
+          }
+        %>
+      </div>  
+      <%//End UITabContentContainer%>
+    </div>  
+    <%//End WorkingArea%>
+  </div>  
+  <%//End TabPaneContent%>
+</div>  
+<%//End UITabPane%>

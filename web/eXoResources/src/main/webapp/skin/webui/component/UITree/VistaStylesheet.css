@@ -1,0 +1,86 @@
+.UITree {
+  border: solid #526d82 1px ;
+}
+
+.UITree .BottomDecorator {
+	border-top: 1px solid #526d82 ;
+}
+
+.UITree .TreeContainer {
+  overflow: auto ;
+  background: #ffffff;
+  padding: 3px 0px 7px 0px;
+}
+
+.UITree .TreeLevelContainer {
+  padding-left: 7px;
+  float: left;
+}
+
+.UITree .TreeContainer .Node {
+  margin: 3px 0px 0px 0px ;
+  overflow: hidden ;
+  padding-left: 9px;
+  width: 95%;
+  clear: both ;
+  
+}
+
+.UITree .TreeContainer .Node .ExpandIcon {
+  cursor: pointer ;
+  margin-top: 3px ;
+  float: left ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/GreenArrowTree.png') no-repeat ;
+  width: 16px ;  height: 16px ;
+ 
+}
+  
+.UITree .TreeContainer .Node .ColapseIcon {
+  cursor: pointer ;
+  margin-top: 3px ;
+  float: left ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/GreenArrowTree.png') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.UITree .TreeContainer .Node .EmptyIcon {
+  margin-right: 1px ;
+  float: left ;
+  width: 16px ;  height: 16px ;
+}
+
+.UITree .TreeContainer .Node .Icon {
+  width: 24px ;  height: 24px ;
+  float: left ;
+  margin-left: 3px;
+}
+
+.UITree .TreeContainer .Node .NodeLabel a {
+  cursor: pointer ;
+  margin-left: 4px ; margin-top: 2px;
+  float: left ;
+  height: 16px ; vertical-align: middle ; line-height: 16px ;
+  font-size: 11px; color: black;
+}
+
+.UITree .TreeContainer .Node .NodeLabel a:hover {
+  font-size: 11px; color: orange; 
+}
+
+.UITree .TreeContainer .NodeSelected {
+  height: 20px ; line-height: 20px;
+  color: blue; font-size: 11px;
+}
+
+/** ################# Icons ###################*/
+.UITree .TreeContainer .GroupAdminIcon {
+  background: url('/eXoResources/icons/24x24/VistaSkin/NormalGroup.png') no-repeat ;
+ 
+}
+
+.UITree .TreeContainer .PortalIcon {
+  background: url('/eXoResources/icons/24x24/VistaSkin/SelectedGroup.gif') no-repeat ; 
+   
+}
+
+

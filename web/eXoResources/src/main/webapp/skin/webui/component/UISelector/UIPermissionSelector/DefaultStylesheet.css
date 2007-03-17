@@ -1,0 +1,97 @@
+.UIPermissionSelector {
+	width: 500px;
+	margin: auto;
+  font-size: 11px ;
+}
+
+.UIPermissionSelector .UIToolbar {
+  margin: 5px 0px 0px 5px; 
+}
+
+.UIPermissionSelector .UIToolbar .PermissionIcon {
+  background: url('/eXoResources/icons/24x24/DefaultSkin/PermissionIcon.gif') no-repeat;
+  width: 24px; height: 24px;
+  margin: 3px 10px 0px 10px;
+  float: left;
+}
+
+.UIPermissionSelector .UIToolbar .Title {
+  font-size: 11px; font-weight: bold;
+  float: left;
+}
+
+.UIPermissionSelector .PermissionInfoContainer {
+  padding: 5px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .InfoContentContainer {
+  border: solid 1px #aeaeae ;
+  padding: 20px 0px 10px 0px;
+  margin-left: 5px;
+  background: #efefef;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .PermissionTypeBar {
+  height: 22px; line-height: 22px; vertical-align: middle;
+  background: url('DefaultSkin/background/TypeBarBG1x22.gif') repeat-x; 
+  border: solid 1px #b7b7b7; border-bottom: none;
+  margin: 0px 10px;
+}
+
+.UIPermissionSelector .PermissionTypeBar .SeparateLine {
+  float: left;
+  width: 2px; height: 22px;
+  background: url('DefaultSkin/background/GrayLine2x2.gif') repeat-y ;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .PermissionButton {
+  color: black;
+  float: left ;
+  margin: 0px 20px 0px 20px ;
+  cursor: pointer ;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo {
+  border: solid 1px #b7b7b7 ;
+  background: white ;
+  margin: 0px 10px;
+  padding: 15px 0px 15px 0px ;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Icon{
+  margin: 0px 5px 0px 15px ;
+  float: left;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .PermissionInfoTitle{
+  margin-left: 5px ;
+  float: left;
+  font-size: 11px; font-weight: bold;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Label {
+  margin: 8px 0px 5px 40px ;
+  float: left ;
+  width: 150px ;
+  font-size: 12px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Info {
+  float: left ;
+  margin: 8px 0px 5px 15px ;
+  color: #0749c4 ;
+  font-size: 12px;
+}
+
+.UIPermissionSelector .UIAction  {
+  width: 160px;
+  margin: auto;
+  padding-top: 0px;
+} 
+
+.UIPermissionSelector .PermissionInfoContainer .UIAction .ActionButton {
+  width: 155px;
+} 
+
+
+

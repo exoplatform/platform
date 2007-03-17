@@ -1,0 +1,24 @@
+<div class="$uicomponent.id" id="$uicomponent.id">
+  <div class="UIToolbar">
+    <div class="<%=uicomponent.getToolbarStyle();%>">
+      <div class="LeftBar">
+        <div class="RightBar">
+          <div class="MiddleBar">
+            <%
+              def events = uicomponent.getEvents() ;
+              for(event in events) {
+               
+                if(event.getName().equals(uicomponent.getEventName())) {
+            %>
+                  <a class="<%=event.getName();%>Icon" <%=uicomponent.getJavascript();%> title="<%=_ctx.appRes(uicomponent.id + ".tooltip." + event.getName())%>"><span></span></a>
+            <%  } else {  %>
+                  <a class="<%=event.getName();%>Icon" href="<%=uicomponent.event(event.getName())%>" title="<%=_ctx.appRes(uicomponent.id + ".tooltip." + event.getName())%>"><span></span></a>
+            <%  } %>
+            <%}%>
+            <div style="clear: both"><span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

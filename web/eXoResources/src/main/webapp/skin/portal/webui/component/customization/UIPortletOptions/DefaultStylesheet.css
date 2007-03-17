@@ -1,0 +1,76 @@
+.UIPortletOptions {
+  background: #efefef;  border: solid 1px #afaeae ;
+  padding: 5px;
+  margin: 0px 2px 0px 2px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs {
+  padding: 5px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 {
+  margin: 5px 5px 0px 5px ;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .SelectedVTabStyle3 {
+  margin: 5px 5px 0px 5px ;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .UIVTab .UIVTabContent {
+  margin: 1px 6px 5px 6px ;
+  padding: 3px ;
+  border: solid 1px #958f8f ;
+  font-size: 11px ;
+}
+
+.UIPortletOptions .PortletTitle { 
+  float: left ;
+  font-size: 11px ;
+  font-weight: bold ;
+}
+
+.UIPortletOptions .PortletTitle a { 
+  color: #000000;
+  text-decoration: none;
+}
+
+.UIPortletOptions .PortletTitle a:hover { 
+  color: blue;
+  text-decoration: none;
+}
+
+.UIPortletOptions .CategoryContainer {
+  border:solid 1px #b7b7b7; 
+  background: white;
+  overflow: auto;
+}
+
+.UIPortletOptions .Title {
+  background: white ; 
+  border: 1px solid gray ;
+  margin-bottom: 5px ;
+  background: url('DefaultSkin/background/PopupCategoryBG1x24.png') repeat-x;
+}
+
+.UIPortletOptions .Title .TitleContainer {
+	padding-right: 10px;
+	border: 1px solid white ;
+}
+
+.UIPortletOptions .Title .TitleContainer .Icon {
+	margin: 3px 0px 0px 7px;
+	float: left;
+	width: 16px; height: 16px;
+}
+
+.UIPortletOptions .Title .TitleContainer .LabelText {
+	padding-left: 7px;
+	float: left;
+	height: 22px; line-height: 22px; vertical-align: middle;
+}
+
+.UIPortletOptions .Title .TitleContainer .ArrowButton {
+	float: right;
+	margin-top: 8px;
+	cursor: pointer ;
+}

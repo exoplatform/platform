@@ -1,0 +1,112 @@
+.UIPortalManagement {
+  padding: 0px 9px 5px 5px ;
+}
+
+.UIPortalManagement .TopTitleBar {
+  margin-bottom: 10px;
+  padding: 0px 12px 0px 12px;
+}
+
+.UIPortalManagement .RollbackBar {
+  width: 130px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.UIPortalManagement .ViewModeIcon {
+  float: left;
+  width: 38px;  height: 28px;
+  margin: 4px 7px 0px 10px;
+  background: url('MacSkin/background/ViewMode.gif') no-repeat;  
+}
+
+.UIPortalManagement .EditModeIcon {
+  float: left; 
+  width: 38px;  height: 28px;
+  margin: 4px 7px 0px 7px;
+  background: url('MacSkin/background/EditMode.gif') no-repeat;
+}
+
+.UIPortalManagement .RollbackIcon {
+  float: left;
+  width: 38px;  height: 28px;
+  margin: 4px 7px 0px 6px;
+  background: url('MacSkin/background/RollBack.gif') no-repeat;
+}
+
+.UIPortalManagement .UIPortalManagementEditBar {
+}
+
+.UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
+  float: left;
+  margin: 4px 7px 0px 7px;
+  width: 31px;  height: 24px;
+  background: url('MacSkin/background/ShowContainerControl.gif') no-repeat;
+}
+
+
+.UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
+  float: left;
+  margin: 4px 7px 0px 7px;
+  width: 31px;  height: 24px;
+  background: url('MacSkin/background/ShowPortletControl.gif') no-repeat;
+}
+
+.UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
+  float: left;
+  margin: 4px 7px;
+  width: 29px;  height: 24px;
+  cursor : pointer;
+  background: url('MacSkin/background/LayoutMode.gif') no-repeat;
+}
+
+
+.UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
+  float: left;
+  margin: 4px 7px;
+  width: 29px;  height: 24px;  
+  cursor : pointer;
+  background: url('MacSkin/background/Preview.gif') no-repeat;
+}
+
+
+.UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
+  float:left;
+  margin: 4px 6px;
+  width: 30px;  height: 24px;
+  background: url('MacSkin/background/EditPortalProperties.gif') no-repeat;
+}
+
+.UIPortalManagement .UIPortalManagementEditBar .SavePortalIcon {
+  float: left;
+  width: 25px;  height: 24px;
+  margin: 4px 0px 0px 7px;
+  background: url('MacSkin/background/Save.gif') no-repeat;
+}
+
+.UIPortalManagement .UIHorizontalTabs {
+  width: 100%;
+}
+
+.UIPortalManagement .UIHorizontalTabs .TabsContainer {
+  margin-left: 0px;
+}
+
+.UIPortalManagement .PortalConfigIcon { 
+  width: 38px;  height: 28px;
+  background: url('MacSkin/background/PortalCommunityConfig.gif') no-repeat;
+  cursor: pointer;
+  float: left;
+  margin: 5px 6px 0px 9px;
+}
+
+.UIPortalManagement .RollbackIcon {
+  float: left;
+  width: 25px; height: 25px;
+  background: url('MacSkin/background/RollBack.png') no-repeat;
+  margin: 5px 8px 0px 0px;
+}
+
+.UIPortalManagement .UIToolbar .PolyToolbar .MiddleBar {
+  padding: 0px 0px 0px 18px;
+}

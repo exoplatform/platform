@@ -1,0 +1,35 @@
+.UITabPane {
+}
+
+.UITabPane .TabPaneContent {
+  width: 100%;overflow: hidden ;
+}
+
+.UITabPane .TabPaneContent .WorkingArea {
+}
+
+.UITabPane .TabPaneContent .WorkingAreaWithHelp {  
+}
+
+.UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
+  border: 1px solid gray;  background: #f4f4f4;
+  padding: 1px;
+}
+
+.UITabPane .TabPaneContent .WorkingArea .UITabContentContainer .UITabContent {
+  border:solid 1px #b7b7b7;
+  background: #efefef;
+  padding: 10px ;
+}
+
+.UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer {
+  border: solid 1px #b7b7b7;
+  padding: 1px;
+  background: white;
+}
+
+.UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {
+  background: #efefef;
+  border: solid 1px #cdcdcd;
+  padding: 7px ;
+}

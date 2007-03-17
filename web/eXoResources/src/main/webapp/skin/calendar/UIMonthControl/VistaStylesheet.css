@@ -1,0 +1,37 @@
+/**
+ * Created by The eXo Platform SARL
+ * Author : Luong Trung Hieu 
+ *          hieu2b1@yahoo.com         
+ * March, 6 , 2007
+ * version: $Id$
+ */
+ 
+ /*===================Start Calendar Table===========================*/
+.UIMonthControl .MonthSelector {
+	height: 24px;
+}
+
+.UIMonthControl .PreviousSelectorButton {
+	float: left;
+	width: 22px; height: 24px;
+	background: url('VistaSkin/background/Back22x24.gif') no-repeat;
+	cursor: pointer;
+}
+
+.UIMonthControl .NextSelectorButton {
+	float: right;
+	width: 20px; height: 24px;
+	background: url('VistaSkin/background/Next20x24.gif') no-repeat;
+	cursor: pointer;
+}
+
+.UIMonthControl .CurrentSelectedMonth {
+  float: left;
+  width: 194px; height: 24px;
+  background: url('VistaSkin/background/CurrentSelectedMonth1x24.gif') repeat-x;
+	font-weight: bold; color: #1475e1; 
+	text-align: center; 
+  line-height: 24px;
+}
+
+ 

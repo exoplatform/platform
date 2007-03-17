@@ -1,0 +1,59 @@
+<div class="UILoginForm">
+  <div class="DecoratorBox">
+    <div class="WhiteRoundedBoxStyle">
+      <div class="TopLeftCornerBoxDecorator">
+        <div class="TopRightCornerBoxDecorator">
+          <div class="TopCenterBoxDecorator"><span></span></div>
+        </div>
+      </div>
+      <div class="MiddleLeftSideBoxDecorator">
+        <div class="MiddleRightSideBoxDecorator">
+          <div class="DecoratorBackground">
+            <div class="OverflowContainer">
+			        <div class="LoginIcon"><span></span></div>
+			        <div class="WelcomeMessage">
+			          <div><%=_ctx.appRes("UILoginForm.label.welcome")%></div>
+			          <div class="OrangeMessage"><%=_ctx.appRes("UILoginForm.label.login")%></div>
+			        </div>
+            </div>
+            <div class="LoginDetailBox">
+              <% uiform.begin() %>
+                <div class="VerticalLayout">
+                  <label><%=_ctx.appRes("UILoginForm.label.user")%>:</label>
+                  <% uiform.renderChild(0) %>
+                  <label><%=_ctx.appRes("UILoginForm.label.password")%>:</label>
+                  <% uiform.renderChild(1)%>  
+	                <div class="UIAction">
+	                  <div class="ActionContainer">
+	                    <div class="ActionButton">
+	                      <div class="LightBlueStyle">
+			                    <div class="ButtonLeft">
+			                      <div class="ButtonRight">
+			                        <div class="ButtonMiddle">
+		                             <% 
+											             String link = uicomponent.url("Login") ;
+									               %>
+									               <a class="Login" href="$link"><%=_ctx.appRes("UILoginForm.label.login")%></a>
+			                        </div>
+			                      </div>
+			                    </div>
+		                    </div>
+	                    </div>
+                    </div>
+                  </div>
+                </div>
+              <%uiform.end()%>
+              <a class="ForgotMessage"><%=_ctx.appRes("UILoginForm.label.forgot")%></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="BottomLeftCornerBoxDecorator">
+        <div class="BottomRightCornerBoxDecorator">
+          <div class="BottomCenterBoxDecorator"><span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+

@@ -1,0 +1,143 @@
+<%
+/**
+ * Created by The eXo Platform SARL
+ * Author : Pham Tuan
+ *          phamtuanchip@yahoo.de
+ * Jul 26, 2006  
+ */
+%>
+<%
+	def isExpand = [1,1,1];
+	def tabList = ['Entertainment','Software','Sports'];
+	def iconList =['Entertainment16x16Icon','Software16x16Icon','FootBall16x16Icon'];
+	def insideEntertainment =['BBC','CNN','Dan Tri','VnExpress'];	
+	def	insideSoftware =['Adobe','FPT','MAC','Microsoft'];
+	def insiteSports =['Fifa','Olympc','Star Sport','VnExpress'];
+	def insiteAll =[insideEntertainment,insideSoftware,insiteSports];
+	countI=0;
+	j=0;
+	styleSkin	='';
+	expandIcon='';
+%>
+<div class="UICrawlerMonitoring">
+	
+	<div class="UIBarStyle">	
+		<div class="NavyBluePolygonBar32Style">
+			<div class="LeftBar">
+				<div class="RightBar">	
+					<div class="MiddleBar">
+						<div class="OverflowContainer">
+							<div class="MonitoringIconHolder">
+								<a href="#" title="...">
+									<div class="GreenPlusDataBox24x24Icon"></div>
+								</a>
+							</div>
+							<div class="MonitoringIconHolder">
+								<a href="#" title="...">
+									<div class="DataBoxDusBin24x24Icon"></div>
+								</a>
+							</div>
+							<div class="MonitoringIconHolder">
+								<a href="#" title="...">
+									<div class="NavyBlueRecycleBin24x24Icon"></div>
+								</a>
+							</div>
+							<div class="MonitoringIconHolder">
+								<a href="#" title="...">
+									<div class="DusBinFull24x24Icon"></div>
+								</a>
+							</div>
+							<div class="MonitoringIconHolder">
+								<a href="#" title="...">
+									<div class="YellowHammer24x24Icon"></div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<%//----Begin Render ----%>
+  <% 
+  	for(i in tabList){
+  	
+  	if (isExpand[j]==1) {
+  		styleSkin ='PolygonNavyVioletStyle';
+  		expandIcon ='ExpandButton';
+  	}
+  	if (isExpand[j]==0) {
+  		styleSkin ='PolygonNavyBlueStyle';
+  		expandIcon ='CollapseButton';
+  	}
+  	
+  %>
+  
+  <div class="UIVerticalSlideTabs">				
+		<div class="UIVTab">
+			<div class="<%=styleSkin%>">	
+				<div class="TabLeft">
+					<div class="TabRight">
+						<div class="TabRepeat">
+							<div class="OverflowContainer">
+								<div class="LeftBlock NavigationIcon <%=iconList[j]%>"><span></span></div>
+									<a href="" class="LeftBlock" >$i</a>
+								<div class="RightBlock CollapseExpandIcon <%=expandIcon%>"><span></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% if (isExpand[j]==1)  { %>
+	<%//-----Begin show Rss---- %>	
+	<div class="Tabshow">			
+		<div class="TabshowHolder">			
+			<div class="UIVTabContent">
+					<%
+						for(k in insiteAll[countI]){
+					%>
+					<div class="UIBarStyle">
+						<div class="SmoothRounded26Style">
+							<div class="LeftBar">
+							  <div class="RightBar">
+								  <div class="MiddleBar">
+									  <div class="OverflowContainer">
+										  <div class="LeftBlock NavigationIcon BlueSquare16x16Icon"><span></span></div>
+												<a href="<%=uicomponent.event('ConfigActionListener', 'UICrawlerMonitoring');%>" class="PortletLabel">$k</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<% }%>					
+			</div>							
+		</div>	
+			
+	</div>
+	<%//-----End show Rss---- %>		
+	<%}%>
+	<% j++;countI++; } %>
+ 	<%//----End Render ----%>
+ 		
+	<div class="Showpage">
+		<div class="PageDivisionBlock">
+		  <div class="UIBarStyle">
+		    <div class="WhiteRoundedBarStyle">
+		      <div class="LeftBar">
+		        <div class="RightBar">		
+		          <div class="MiddleBar">		            		            
+			            <a href=""> Total sources: 10</a>	            
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+	  </div>	 
+	</div>
+
+</div>
+	

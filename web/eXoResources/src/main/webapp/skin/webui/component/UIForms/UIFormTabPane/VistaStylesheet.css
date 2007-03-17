@@ -1,0 +1,50 @@
+.UIFormTabPane  {
+  padding: 5px ;
+  border:1px white solid;
+}
+
+.UIFormTabPane .FormTabPaneContainer {
+  background: white ;
+  border-left: solid 1px #638294 ; border-right: solid 1px #638294 ;
+}
+
+.UIFormTabPane .TabPaneContainer {
+  border: none;
+  padding: 0px;  
+}
+
+.UIFormTabPane .UITabPane {
+  border: none;
+  margin-bottom: 4px; padding: 0px;
+}
+
+.UIFormTabPane .UITabPane .TabPaneContent .HorizontalLayout {
+  border: none;
+  margin: 0px; padding: 0px;  
+}
+
+.UIFormTabPane .UITabPane .TabPaneContent .UITabContentContainer {
+  border: 1px solid #b7b7b7;
+}
+
+.UIFormTabPane .UITabPane .TabPaneContent .UITabContentContainer .UITabContent {
+  border: 1px solid #b7b7b7; 
+  background: white;
+  margin: 0px;
+}
+
+.UIFormTabPane .UIBoxDecorator .DecoratorBox {
+	width: 400px ;  height: 220px ;	
+	
+}
+
+.UIFormTabPane .UITabPane .TabPaneContent .UIAction {
+	margin-right: 0px;
+}
+
+.UIFormTabPane .UITabPane .TabPaneContent .ActionButton .ButtonMiddle {
+	padding-top: 1px;
+}
+
+
+

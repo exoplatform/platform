@@ -1,0 +1,175 @@
+/**
+ * Created by The eXo Platform SARL
+ * Author : Hoang Van Anh
+ *          hoanganhites@yahoo.com.vn
+ * March, 6 , 2007
+ * version: $Id$
+ */
+ 
+ .UIMailApplication .UIAccountManagement {
+	width: 250px;
+}
+
+.UIAccountManagement .AccountLabel {
+	font-weight: bold;
+	padding: 0px 8px;
+}
+
+.UIAccountManagement .AccountContainerBorder {
+	border: 1px solid #939393;	
+}
+
+.UIAccountManagement .AccountContainer {
+}
+
+.UIAccountManagement .AccountItemContainer {
+  margin: 0px 0px 0px 30px;
+}
+
+.UIAccountManagement .ItemLabel {
+  color: #373737 ;
+  margin: 0px 0px 0px 30px;
+	line-height: 23px;
+  padding: 5px 0px 0px 5px;
+  cursor: pointer;
+}
+
+.UIAccountManagement .ItemLabelSelected {
+  color: #1475e1;
+  margin: 0px 0px 0px 30px;
+	line-height: 23px;
+  padding: 5px 0px 0px 5px;
+  cursor: pointer;
+}
+
+.UIAccountManagement .UIVTab .UIVTabContent {
+	background: none;
+}
+
+.UIAccountManagement .UIVerticalSlideTabs {
+  width: 244px;
+	background: #ffffff;
+}
+/*###############################-UIAddAccount-###############################*/
+.UIAddAccount {
+	border: solid 1px #b7b7b7;
+	padding: 1px;
+}
+
+.UIAddAccount .AddAccountConponent {
+	border: solid 1px #b7b7b7;
+	padding: 4px 8px 0px 8px;
+	height: 350px;
+}
+
+.UIAddAccount .UITabContent .MiddleTabContent {
+	width: 410px;
+	margin: auto;
+}
+
+.UIAddAccount .UITabContent .FieldContainer {
+  margin: 5px 0px;
+}
+
+.UIAddAccount .UITabContent .FieldContainer .Label {
+	float: left;
+	width: 120px; height: 20px;
+  text-align: left;
+  line-height: 20px;
+}
+
+.UIAddAccount .UITabContent .FieldContainer input {
+	width: 265px;
+}
+
+.UIAddAccount .UITabContent .FieldContainer textarea {
+	width: 265px;
+}
+
+.UIAddAccount .UIAction {
+	margin: 0px;
+}
+
+.UIAddAccount .UIAction .ActionContainer {
+	width: 220px;
+	margin: auto;
+}
+
+.UIAddAccount .UIAction .ActionButton {
+	width: 95px;
+	margin: 0px 5px;
+}
+
+.UIAddAccount .UIAction .ButtonLabel {
+  width: 50px;
+	text-align: left; 
+	padding: 0px 0px 0px 5px;
+}
+
+.UIAddAccount .UITabContentContainer {
+  border: 1px solid gray;  
+  background: #f4f4f4;
+  padding: 1px;
+}
+
+.UIAddAccount .UITabContentContainer .UITabContent {
+  border: solid 1px #b7b7b7;
+  background: #efefef;
+  padding: 10px ;
+}
+/***********************************Icons***********************************/
+.UIMailApplication .UIAccountManagement .AddAccountIcon {
+  float: right;
+  width: 24px; height: 24px;
+	background: url('../DefaultSkin/icons/24x24/BlueAddFolder.gif') no-repeat;
+	cursor: pointer;
+	margin: 2px 4px 0px 2px;
+}
+
+.UIMailApplication .UIAccountManagement .SelectedVTabStyle4 .BlueFolderIcon {
+	width: 24px; height: 24px;
+	background: url('../VistaSkin/icons/24x24/BlueOpenFolder.gif') no-repeat center;
+	cursor: pointer;
+}
+
+.UIMailApplication .UIAccountManagement .VTabStyle4 .BlueFolderIcon {
+	width: 24px; height: 24px;
+	background: url('../VistaSkin/icons/24x24/BlueClosedFolder.gif') no-repeat center;
+	cursor: pointer;
+}
+
+.UIMailApplication .UIAccountManagement .ActionIcon {
+	float: right;
+	width: 24px; height: 24px;
+	background: url('..VistaSkin/icons/24x24/GrayDownButton.gif') no-repeat center;
+	cursor: pointer;
+	margin: 4px 5px 0px 0px;
+}
+
+.UIMailApplication .UIAccountManagement .InboxIcon {
+  float: left;
+  width: 32px; height: 32px;
+	background: url('../VistaSkin/icons/32x32/BlueInboxFolder.gif') no-repeat;
+	cursor: pointer;
+}
+
+.UIMailApplication .UIAccountManagement .DraftsIcon {
+  float: left;
+  width: 32px; height: 32px;
+	background: url('../VistaSkin/icons/32x32/BlueDraftFodler.gif') no-repeat;
+	cursor: pointer;
+}
+
+.UIMailApplication .UIAccountManagement .SentIcon {
+  float: left;
+  width: 32px; height: 32px;
+	background: url('../VistaSkin/icons/32x32/BlueSendFolder.gif') no-repeat;
+	cursor: pointer;
+}
+
+.UIMailApplication .UIAccountManagement .TrashIcon {
+  float: left;
+  width: 32px; height: 32px;
+	background: url('../VistaSkin/icons/32x32/BlueTrashFolder.gif') no-repeat;
+	cursor: pointer;
+}

@@ -1,0 +1,39 @@
+<%
+	/**
+	 * Created by The eXo Platform SARL
+	 * Author : Pham Dung Ha
+	 *          ha.pham@exoplatform.com
+	 * March 13, 2006
+	 * version: $Id$
+	 */
+%>
+<%
+  component = uicomponent.getUIComponent();
+  String maskId = uicomponent.getId() ;
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.importJavascript('eXo.portal.UIMaskWorkspace');	
+%>
+
+<div class="UIMaskWorkspace" id="$maskId" style=" display: none;">
+  <div class="TopLeftDecorator">
+    <div class="TopRightDecorator">
+      <div class="TopCenterDecorator"><span></span></div>
+    </div>
+  </div>
+  
+  <div class="MiddleLeftDecorator">
+    <div class="MiddleRightDecorator">
+      <div class="ContentContainer">
+      
+        <% uicomponent.renderChildren(); %>
+   
+   		</div>
+    </div>
+  </div>
+  
+  <div class="BottomLeftDecorator">
+    <div class="BottomRightDecorator">
+      <div class="BottomCenterDecorator"><span></span></div>
+    </div>
+  </div>
+</div>

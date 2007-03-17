@@ -1,0 +1,51 @@
+<div class="UIForumApplication UIApplication">
+	<div class="ApplicationMinWidth">
+		<div class="ForumHeader">
+		  <div class="RepeatedBanner">
+		    <div class="SearchContent">
+		    
+		      <div class="FieldContainer">
+			      <div class="Magnifier24x24Icon"><span></span></div>
+			      <div class="Nolabel"><span></span></div>
+			      <div class="Search24x24Icon"><span></span></div>
+			      <div class="SearchLabel">Advanced Search</div>
+			      <div style="clear:left;"><span></span></div>
+		      </div>	
+		            
+	        <div class="FieldContainer">    
+			        <label>Search:</label>  
+	  	      <div class="Input">
+	  	        <input type="text" id="inputValue" name="inputValue"/>
+			      </div>
+			      <div class="Input">
+			        <select onchange="" name="option" class="selectbox">
+				        <option  value="Select" selected="selected" >Selected</option>
+				        <option value="NoSelect">NoSelect</option>
+			        </select>
+			      </div>
+			      <div style="clear:left;"><span></span></div>
+			    </div>		    
+			    
+		      <div style="clear:right;"><span></span></div>
+		      
+		    </div>
+		  </div>      
+		</div>
+		  
+		<div class="UIForumBreadcumbs">
+			<div class="ForumNavigationLeft">
+			  <div class="ForumNavigationRight">
+			    <div class="MiddleForumNavigation">
+			      <div class="Navigation24x24Icon"><span></span></div>
+			      <div class="NavigationLabel">eXo Forum</div>
+			      <div class="Icon16x16 RedLeftArrow16x16Icon"><span></span></div>
+			      <div style="clear:left;"><span></span></div>
+			    </div>
+			  </div>
+			</div>
+		</div>
+		
+	<%=eXo.core.TemplateEngine.merge('eXo/application/forum/UIForumCategories.jstmpl', context) ;%>	
+		
+	</div>
+</div>

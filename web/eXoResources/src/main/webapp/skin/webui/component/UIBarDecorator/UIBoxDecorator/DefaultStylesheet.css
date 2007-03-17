@@ -1,0 +1,231 @@
+/**
+ * Created by The eXo Platform SAS
+ * Modifile : Vu Duy Tu
+ *           duytucntt@gmail.com
+ * December 15, 2006
+ * version: $Id$
+ */
+ 
+.DecoratorBox {
+}
+
+/*##############################- WhiteRoundedBox Style -################################*/
+.DecoratorBox .WhiteRoundedBoxStyle {
+  width: 99%;
+  margin: 7px 7px 0px 7px;
+}
+
+.DecoratorBox .WhiteRoundedBoxStyle .DecoratorBackground {
+  background-color: white ;
+  margin: 0px 7px 0px 0px ;
+}
+
+.DecoratorBox .WhiteRoundedBoxStyle .TopLeftCornerBoxDecorator {
+  background: url('DefaultSkin/background/WhiteRoundedBoxLeftTop7x7.gif') no-repeat left ;
+  padding: 0px 0px 0px 7px ;
+}
+
+.DecoratorBox .WhiteRoundedBoxStyle .TopCenterBoxDecorator {
+  height: 7px ;
+  background-color: white ;
+  border-top: solid 1px #acacac;
+}
+
+.DecoratorBox .WhiteRoundedBoxStyle .TopRightCornerBoxDecorator {
+  background: url('DefaultSkin/background/WhiteRoundedBoxRightTop7x7.gif') no-repeat right ;
+  padding: 0px 7px 0px 0px ;
+}
+
+.DecoratorBox .WhiteRoundedBoxStyle .MiddleLeftSideBoxDecorator {
+  background-color: white ;
+  padding: 0px 0px 0px 7px;
+  border-left: solid 1px #acacac;
+}
+
+.DecoratorBox .WhiteRoundedBoxStyle .MiddleRightSideBoxDecorator {
+  background: white ;
+  padding: 0px 7px 0px 0px ;
+  border-right: solid 1px #acacac ;
+  border-bottom: solid 1px white;  /*fix bug on IE*/
+}
+
+.DecoratorBox .WhiteRoundedBoxStyle .MiddleRightSideBoxDecorator .CenterSideBoxDecorator {
+   padding: 5px
+}
+
+.DecoratorBox .WhiteRoundedBoxStyle .BottomLeftCornerBoxDecorator {
+  height: 7px ;
+  background: url('DefaultSkin/background/WhiteRoundedBoxLeftBottom7x7.gif') no-repeat left ;
+  padding: 0px 0px 0px 7px ;
+}
+
+.DecoratorBox .WhiteRoundedBoxStyle .BottomCenterBoxDecorator {
+  height: 6px ;
+  background: white ;
+  border-bottom: solid 1px #acacac;
+}
+
+.DecoratorBox .WhiteRoundedBoxStyle .BottomRightCornerBoxDecorator {
+  background: url('DefaultSkin/background/WhiteRoundedBoxRightBottom7x7.gif') no-repeat right ;
+  padding: 0px 7px 0px 0px ;
+}
+
+/*##############################- GrayRoundedFillBox Style -################################*/
+.DecoratorBox .GrayRoundedFillBoxStyle {
+}
+
+.DecoratorBox .GrayRoundedFillBoxStyle .TopLeftCornerBoxDecorator {
+  background: url('DefaultSkin/background/GrayRoundedCornerLT8x8.gif') no-repeat left ;
+  padding: 0px 0px 0px 8px;
+}
+
+.DecoratorBox .GrayRoundedFillBoxStyle .TopRightCornerBoxDecorator {
+  background: url('DefaultSkin/background/GrayRoundedCornerRT8x8.gif') no-repeat right ;
+  padding: 0px 8px 0px 0px ;
+}
+
+.DecoratorBox .GrayRoundedFillBoxStyle .TopCenterBoxDecorator {
+  height: 8px;
+  background: url('DefaultSkin/background/GrayRoundedCornerTM1x8.gif') repeat-x ;
+  margin: 0px;
+}
+
+.DecoratorBox .GrayRoundedFillBoxStyle .MiddleLeftSideBoxDecorator {
+  height: auto;
+  background: url('DefaultSkin/background/GrayRoundedCornerML8x1.gif') repeat-y left ;
+  padding: 0px 0px 0px 8px;
+}
+
+.DecoratorBox .GrayRoundedFillBoxStyle .CenterBoxDecorator {
+  height: auto;
+  background: #efefef;
+}
+
+.DecoratorBox .GrayRoundedFillBoxStyle .MiddleRightSideBoxDecorator {
+  height: auto;
+  background: url('DefaultSkin/background/GrayRoundedCornerMR8x1.gif') repeat-y right ;
+  padding: 0px 8px 0px 0px ;
+}
+
+.DecoratorBox .GrayRoundedFillBoxStyle .BottomLeftCornerBoxDecorator {
+  background: url('DefaultSkin/background/GrayRoundedCornerLB8x8.gif') no-repeat left ;
+  padding: 0px 0px 0px 8px;
+}
+
+.DecoratorBox .GrayRoundedFillBoxStyle .BottomRightCornerBoxDecorator {
+  background: url('DefaultSkin/background/GrayRoundedCornerRB8x8.gif') no-repeat right ;
+  padding: 0px 8px 0px 0px ;
+}
+
+.DecoratorBox .GrayRoundedFillBoxStyle .BottomCenterBoxDecorator {
+  height: 8px;
+  background: url('DefaultSkin/background/GrayRoundedCornerBM1x8.gif') repeat-x;
+}
+
+/*##############################- WhiteRoundedBox Style Nested-################################*/
+.DecoratorBoxNested {
+}
+
+.DecoratorBoxNested .WhiteRoundedBoxStyleNested {
+}
+
+.DecoratorBoxNested .WhiteRoundedBoxStyleNested .DecoratorBackgroundNested {
+  background: white ;
+}
+
+.DecoratorBoxNested .WhiteRoundedBoxStyleNested .TopLeftCornerBoxDecoratorNested {
+  height: 7px;
+  background: url('DefaultSkin/background/WhiteRoundedBoxLeftTop7x7.gif') no-repeat left ;
+  padding: 0px 0px 0px 7px;
+}
+
+.DecoratorBoxNested .WhiteRoundedBoxStyleNested .TopCenterBoxDecoratorNested {
+  height: 6px ;
+  background: white ;
+  border-top: solid 1px #acacac;
+}
+
+.DecoratorBoxNested .WhiteRoundedBoxStyleNested .TopRightCornerBoxDecoratorNested {
+  height: 7px;
+  background: url('DefaultSkin/background/WhiteRoundedBoxRightTop7x7.gif') no-repeat right ;
+  padding: 0px 7px 0px 0px;
+}
+
+.DecoratorBoxNested .WhiteRoundedBoxStyleNested .MiddleLeftSideBoxDecoratorNested {
+  background: white ;
+  padding: 0px 0px 0px 7px ;
+  border-left: solid 1px #acacac;
+}
+
+.DecoratorBoxNested .WhiteRoundedBoxStyleNested .MiddleRightSideBoxDecoratorNested {
+  background: white ;
+  padding: 0px 7px 0px 0px ;
+  border-right: solid 1px #acacac ;
+}
+
+.DecoratorBoxNested .WhiteRoundedBoxStyleNested .BottomLeftCornerBoxDecoratorNested {
+  height: 7px ;
+  background: url('DefaultSkin/background/WhiteRoundedBoxLeftBottom7x7.gif') no-repeat left ;
+  padding: 0px 0px 0px 7px ;
+}
+
+.DecoratorBoxNested .WhiteRoundedBoxStyleNested .BottomCenterBoxDecoratorNested {
+  height: 6px ;
+  background: white ;
+  border-bottom: solid 1px #acacac;
+}
+
+.DecoratorBoxNested .WhiteRoundedBoxStyleNested .BottomRightCornerBoxDecoratorNested {
+  background: url('DefaultSkin/background/WhiteRoundedBoxRightBottom7x7.gif') no-repeat right ;
+  padding: 0px 7px 0px 0px ;
+}
+/*##############################- LightBlueRoundedBoxStyleNested-################################*/
+.DecoratorBoxNested .LightBlueBoxNested {
+}
+
+.DecoratorBoxNested .LightBlueBoxNested  .CenterDecoratorNestedBG {
+  background: #d9d9eb ;
+}
+
+.DecoratorBoxNested .LightBlueBoxNested  .TopLeftCornerNested {
+  height: 10px;
+  background: url('DefaultSkin/background/LightBlueTL.gif') no-repeat left ;
+  padding: 0px 0px 0px 10px;
+}
+
+.DecoratorBoxNested .LightBlueBoxNested  .TopCenterNested {
+  height: 10px ;
+  background: url('DefaultSkin/background/LightBlueTC.gif') repeat-x ;
+}
+
+.DecoratorBoxNested .LightBlueBoxNested  .TopRightCornerNested {
+  height: 10px;
+  background: url('DefaultSkin/background/LightBlueTR.gif') no-repeat right ;
+  padding: 0px 10px 0px 0px ;
+}
+
+.DecoratorBoxNested .LightBlueBoxNested  .MiddleLeftSideNested {
+  background: url('DefaultSkin/background/LightBlueML.gif') repeat-y ;
+  padding: 0px 0px 0px 10px ;
+}
+
+.DecoratorBoxNested .LightBlueBoxNested  .MiddleRightSideNested {
+  background: url('DefaultSkin/background/LightBlueMR.gif') repeat-y right;
+  padding: 0px 10px 0px 0px ;
+}
+
+.DecoratorBoxNested .LightBlueBoxNested  .BottomLeftCornerNested {
+  width: auto; height: 10px ; 
+  background: url('DefaultSkin/background/LightBlueBL.gif') no-repeat left ;
+  padding: 0px 0px 0px 10px ;
+}
+
+.DecoratorBoxNested .LightBlueBoxNested  .BottomCenterNested {
+  height: 10px ;
+  background: url('DefaultSkin/background/LightBlueBC.gif') repeat-x ;
+}
+
+.DecoratorBoxNested .LightBlueBoxNested  .BottomRightCornerNested {
+  background: url('DefaultSkin/background/LightBlueBR.gif') no-repeat right ;
+  padding: 0px 10px 0px 0px ;
+}

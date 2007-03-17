@@ -1,0 +1,411 @@
+.UIWindow .UISitePortlet {
+  overflow: auto ;
+}
+
+.UICommunityPortlet {
+  background: white ;
+}
+
+.UICommunityPortlet .UICommunityBanner {
+  height: 101px ;
+  background: url('images/background/CommunityBannerM1x101.jpg') repeat-x;
+}
+
+.UICommunityPortlet .UICommunityBanner .LeftBanner {
+  height: 101px ; width: 436px;
+  background: url('images/background/CommunityBannerL436x101.jpg') no-repeat left;
+  float:left;
+}
+
+.UICommunityPortlet .UICommunityBanner .RightBanner {
+  height: 101px ; width: 226px ;
+  float: right ;
+  background: url('images/background/CommunityBannerR226x101.jpg') no-repeat right;
+}
+
+.UICommunityPortlet .CommunityNavigation {
+  height: 48px ;
+}
+
+.UICommunityPortlet .CommunityNavigation .LeftNavigation {
+  height: 48px ; line-height: 48px;
+  background: url('images/background/NavigationRepeatBG1x48.jpg') repeat-x;
+}
+
+.UICommunityPortlet .CommunityNavigation .RightNavigation {
+  height: 48px ; line-height: 48px;
+  background: url('images/background/NavigationRBG236x48.jpg') no-repeat right;
+}
+
+.UICommunityPortlet .Breacumbs {
+  height: 18px;
+  background: white;
+  padding-left: 18px;
+}
+
+.UICommunityPortlet .Breacumbs .RightBreacumbs {
+  height: 18px ; width: 233px ;
+  float: right;
+  background: url('images/background/CommunityBreacumbs233x18.jpg') no-repeat right;  
+}
+
+.UICommunityPortlet .UICommunityBody {  
+}
+
+.UICommunityPortlet .UICommunityBody .ContentBody{
+  
+  margin-right: 240px;
+  height: 560px; width:auto;
+}
+
+.UICommunityPortlet .UICommunityBody .Title {
+ height: 34px;
+}
+
+.UICommunityPortlet .UICommunityBody .TitleLeft{  
+  height: 34px;  
+  background: url('images/background/TitleBarL22x34.jpg') no-repeat left;
+}
+
+.UICommunityPortlet .UICommunityBody .TitleRight{  
+  margin-left: 22px;
+  height: 34px; 
+  background: url('images/background/TitleBarR131x34.jpg') no-repeat right;
+}
+
+.UICommunityPortlet .UICommunityBody .TitleMiddle{   
+  margin-right: 131px;
+  line-height: 34px;
+  vertical-align: middle ;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Arial;
+  background: url('images/background/TitleBarM1x34.jpg') repeat-x;  
+}
+
+.UICommunityPortlet .UICommunityBody .Content {
+  background: white;
+}
+
+.UICommunityPortlet .UICommunityBody .ContentLeft {
+  margin-left: 4px;
+  background: url('images/background/BodyBarL6x1.jpg') repeat-y left ;  
+}
+
+.UICommunityPortlet .UICommunityBody .ContentRight {
+  margin-left: 10px;
+  background: url('images/background/BodyBarR4x1.jpg') repeat-y right;  
+}
+
+.UICommunityPortlet .UICommunityBody .ContentMiddle {
+  margin-right: 10px;
+  padding-top: 10px ;
+}
+
+.UICommunityPortlet .UICommunityBody .ContentContainer {
+  height: 470px ;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UICommunityPortlet .UICommunityBody .Bottom {
+ height: 14px;
+}
+
+.UICommunityPortlet .UICommunityBody .BottomLeft {
+  margin-left: 4px;
+  height: 14px;
+  background: url('images/background/BodyBarBL14x14.jpg') no-repeat left ;
+}
+
+.UICommunityPortlet .UICommunityBody .BottomRight {
+  height: 14px;
+  margin-left: 14px;
+  background: url('images/background/BodyBarBR12x14.jpg') no-repeat right;  
+}
+
+.UICommunityPortlet .UICommunityBody .BottomMiddle {
+  height: 14px;
+  margin-right: 12px;
+  background: url('images/background/BodyBarBM1x14.jpg') repeat-x ;  
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation {
+  width: 231px; 
+  height: 560px;
+  float: right; 
+  background: url('images/background/RightNavigationBG1x231.jpg') repeat-y;
+
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .ExoLable {
+  height: 35px;
+  background: url('images/background/ExoLable231x41.jpg') no-repeat right;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .FlashProduct {
+  height: 189px;
+  padding: 10px 15px 10px 10px;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .FlashProductContener {
+  height: 179px;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .FlashProductTop {
+  height: 8px;
+  background: #ffffff;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .FlashProductTopLeft {
+  height: 8px;
+  background: url('images/background/FlashProductBarTL9x8.jpg') no-repeat left;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .FlashProductTopRight {
+  height: 8px;
+  background: url('images/background/FlashProductBarTR9x8.jpg') no-repeat right;
+  margin-left: 9px;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .FlashProductTopCenter {
+  height: 6px;
+  border-top: solid 1px #b7b7b7;
+  margin-right: 9px;  
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .FlashProductMiddle {
+  border-right: solid 1px #b7b7b7;
+  border-left: solid 1px #b7b7b7;
+  background: #ffffff;
+  height: 159px;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .FlashProductBottom {
+  height: 8px;
+  background: #ffffff;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .FlashProductBottomLeft {
+  height: 8px;
+  background: url('images/background/FlashProductBarBL9x8.jpg') no-repeat left;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .FlashProductBottomRight {
+  height: 8px;
+  background: url('images/background/FlashProductBarBR9x8.jpg') no-repeat right;
+  margin-left: 9px;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .FlashProductBottomCenter {
+  height: 6px;
+  border-bottom: solid 1px #b7b7b7;
+  margin-right: 9px;  
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .VarticalNavigationContener {
+  height: 222px;
+  border: solid 1px #b7b7b7;
+  margin: 0px 10px 0px 4px;
+  border-top: solid 0px red;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .NormalRightTab   {
+  line-height: 31px;
+  vertical-align: middle; 
+  border-top: solid 1px #b7b7b7;
+  background: url('images/background/NormalRightNavigation1x36.jpg') repeat-x;
+  padding: 2px 0px 2px 0px;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .NormalRightTab a {
+  color: #6f6d6d;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none ;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .NormalRightTab a:hover {
+  color: #fd9d05;  
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .SelectRightTab {
+  line-height: 31px;
+  vertical-align: middle;
+  border-top: solid 1px #b7b7b7;
+  background: url('images/background/SelectRightNavigation1x36.jpg') repeat-x;
+  padding: 2px 0px 2px 0px;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .SelectRightTab a {
+  color: #000000;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none ;  
+
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .SelectRightTab a:hover {
+  color: #fd9d05;  
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .GetSupports{
+  height: 40px;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .GetSupportsButton {
+  height : 40px;
+  width: 157px; margin: auto;
+  margin-top: 22px;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .GetSupportsLeft{  
+  height: 40px;
+  background: url('images/background/SupportBarL39x40.gif') no-repeat left;
+  padding-left: 39px;  
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .GetSupportsRight{
+  height: 40px;
+  background: url('images/background/SupportBarR20x40.gif') no-repeat right;
+  padding-right: 20px;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .GetSupportsMiddle{
+  border-top: solid 1px #b7b7b7;
+  border-bottom: solid 1px #b7b7b7;  
+  height: 38px; line-height: 38px; vertical-align: middle;
+  background: white;
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .GetSupports a:hover {
+  color: #fd9d05;  
+}
+
+.UICommunityPortlet .UICommunityBody .RightVerticalNavigation .GetSupports a {
+  color: #0000ff;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none ;
+}
+
+.UICommunityPortlet .UICommunityFooter {
+  height: 63px ;
+  background: url('images/background/ExoCopyrightBG1x63.jpg') repeat-x ;
+}
+
+.UICommunityPortlet .UICommunityFooter .ExoLableFooter {
+  float: left;
+  width: 228px;
+  height: 63px;
+  background: url('images/background/ExoLableFooter228x63.jpg') no-repeat left;  
+}
+
+.UICommunityPortlet .UICommunityFooter .ExoCopyright {
+  margin-left : 228px;
+  height: 63px;
+  font-size: 11px;
+  padding-top: 10px;
+}  
+
+.UICommunityPortlet .UIHorizontalTabs .UITab .NormalCommunityTab a {
+  color: #6f6d6d;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none ;  
+}
+
+.UICommunityPortlet .UIHorizontalTabs .UITab .NormalCommunityTab a:hover {
+   color: #fd9d05; 
+}
+
+.UICommunityPortlet .UIHorizontalTabs .UITab .SelectedCommunityTab a {
+  color: #000000;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none ;  
+}
+
+.UICommunityPortlet .UIHorizontalTabs .UITab .SelectedCommunityTab a:hover {
+   color: #fd9d05; 
+}
+
+.UICommunityPortlet .Breacumbs b {
+  float: left;  
+}
+
+/*############################-ICON 24-############################*/
+
+.UICommunityPortlet .NewsIcon {
+  margin: 5px 10px 0px 0px ;
+  width: 24px ;
+  height: 24px ;
+  float: left ;
+  background: url('images/icons/NormalCommunityNews24.gif') no-repeat ;
+}
+
+.UICommunityPortlet .EventsIcon {
+  margin: 5px 10px 0px 0px ;
+  width: 24px ;
+  height: 24px ;
+  float: left ;
+  background: url('images/icons/RedFlagIcon24.gif') no-repeat ;
+}
+
+/*############################-ICON 32-############################*/
+
+.UICommunityPortlet .FlashIcon {
+  margin-right: 5px;
+  margin-left: 3px;
+  width: 32px ;
+  height: 32px ;
+  float: left ;
+  background: url('images/icons/Flash32.gif') no-repeat ;
+}
+
+.UICommunityPortlet .AdobeIcon {
+  margin-right: 5px ;
+  margin-left: 3px ;
+  width: 32px ;
+  height: 32px ;
+  float: left ;
+  background: url('images/icons/Adobe32.gif') no-repeat ;
+}
+
+.UICommunityPortlet .ObjectWebIcon {
+  margin-right: 5px;
+  margin-left: 3px;
+  width: 32px ;
+  height: 32px ;
+  float: left ;
+  background: url('images/icons/ObjectWeb32.gif') no-repeat ;
+}
+
+.UICommunityPortlet .DownloadIcon {
+  margin-right: 5px ;
+  margin-left: 3px ;
+  width: 32px ;
+  height: 32px ;
+  float: left ;
+  background: url('images/icons/Download32.gif') no-repeat ;
+}
+
+.UICommunityPortlet .CompanyPortalIcon {
+  margin-right: 5px;
+  margin-left: 3px;
+  width: 32px ;
+  height: 32px ;
+  float: left ;
+  background: url('images/icons/CompanyPortal32.gif') no-repeat ;
+}
+
+.UICommunityPortlet .TechnicalIcon {
+  margin-right: 5px;
+  margin-left: 3px;
+  width: 32px ;
+  height: 32px ;
+  float: left ;
+  background: url('images/icons/Technical32.gif') no-repeat ;
+}

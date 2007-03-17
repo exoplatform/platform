@@ -1,0 +1,146 @@
+<% int step = uicomponent.getCurrentStep(); %>
+<div class="UIWizard" id="$uicomponent.id">
+  <div class="WizardDecorator">
+    <div class="WizardTopLeft">
+      <div class="WizardTopRight">
+        <div class="WizardTopCenter"><span></span></div>
+      </div>
+    </div>
+  
+	  <div class="WizardMiddleLeft">
+	    <div class="WizardMiddleRight">
+	      <div class="WizardMiddleCenter">
+	        <div class="UIWizardContent">
+	        
+	          <%/*WizardStepTitle*/%>	
+	          <div class="WizardStepTitleBar">
+	            <div class="OverflowContainer">
+		            <div class="WizardIcon"><span></span></div>
+						    <div class="WizardTitle">
+						      <%=_ctx.appRes(uicomponent.getId() + ".label.pageCreateWizard")%>:
+						    </div>
+		            <div class="StepTitle">
+	                <%=_ctx.appRes(uicomponent.getId() + ".label.step"+String.valueOf(step)+".title")%>
+	              </div>
+		          </div>
+	          </div>
+	          
+						<%/*Begin WizardStepContent*/%>	  
+						<div class="WizardStepContent"><% uicomponent.renderChildren(); %></div>
+						
+						<div class="WizardControlBar">
+						  <div class="OverflowContainer">
+						    <div class="StepNavigationBar">	       
+						      <div class="StepNavigationTitle">
+						        <%=_ctx.appRes(uicomponent.getId() + ".label.wizardSteps")%>:
+						      </div>
+						      <%                
+  						      List children  = uicomponent.getChildren();    
+  						      String actionLink = "#";        					        
+						        
+						        for(i in 1..children.size()){ 
+						          strStep = _ctx.appRes(uicomponent.getId() + ".label.step") + String.valueOf(i) ;
+						          if(i != step) {
+						            actionLink = uicomponent.url("ViewStep" + String.valueOf(i));
+						            print "<a href=\"$actionLink\" title=\"$strStep\">" ;
+						          }
+						          else print "<a href=\"#\" class=\"SelectedStep\" title=\"$strStep\">" ;
+						          print String.valueOf(i);
+						          println "</a>";
+						        }
+							  	%>    	        
+						    </div>
+						    
+						    <%/*Begin UIWizardActionBar*/%>	   
+					      <div class="ActionBar">
+					        <div class="UIAction">
+							      <div class="ActionContainer">
+							        <div class="ActionButton">
+				                <%  
+						              if(step > 1) {
+						                actionLink = uicomponent.url("ViewStep" + String.valueOf(step-1));
+						              }
+						              else{
+  				                  actionLink = "#";     
+						              }
+				                  String display = "LightBlueStyle";
+				                  String backIcon = "BlueBackArrow16x16Icon";
+				                  if(step==1){
+				                    display = "DisabledStyle";
+				                    backIcon = "GrayBackArrow16x16Icon";
+				                  }
+				                %> 
+							          <div class="${display}">
+							            <div class="ButtonLeft">
+							              <div class="ButtonRight">
+							                <div class="ButtonMiddle">
+							                  <div class="Icon ${backIcon}"><span></span></div>			      			                            
+								                <a href="$actionLink"><%=_ctx.appRes(uicomponent.getId() + ".label.back")%></a>
+								              </div>
+							              </div>
+							            </div>
+							          </div>							          
+							        </div>
+							      </div>
+							    </div>
+							    
+							    <div class="UIAction">
+							      <div class="ActionContainer">
+							        <div class="ActionButton">
+							          <div class="LightBlueStyle">
+							            <div class="ButtonLeft">
+							              <div class="ButtonRight">
+							                <div class="ButtonMiddle">
+							                  <div class="Icon BlueNextArrow16x16Icon"><span></span></div>
+							                  <%
+							                    String action = "next";
+							                    if(step == children.size()){
+							                      action = "done";			      
+							                      actionLink = uicomponent.event("ViewStep" + String.valueOf(step+1), "");
+							                    }else{
+											            	actionLink = uicomponent.url("ViewStep" + String.valueOf(step+1));
+											            }
+											          %>  			                  
+								                <a href="$actionLink"><%=_ctx.appRes(uicomponent.getId() + ".label."+action)%></a>
+								              </div>
+							              </div>
+							            </div>
+							          </div>
+							        </div>
+							      </div>
+							    </div>
+							    
+							    <div class="UIAction">
+							      <div class="ActionContainer">
+							        <div class="ActionButton">
+							          <div class="LightBlueStyle">
+							            <div class="ButtonLeft">
+							              <div class="ButtonRight">
+							                <div class="ButtonMiddle">
+							                  <div class="Icon CancelIcon"><span></span></div>
+								                <a href="<%=uicomponent.event("Abort", "");%>"><%=_ctx.appRes(uicomponent.getId() + ".label.abort")%></a>
+								              </div>
+							              </div>
+							            </div>
+							          </div>
+							        </div>
+							      </div>
+							    </div>  
+							      
+								</div>    
+								<%/*End UIWizardActionBar*/%> 
+						  </div> 
+						</div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	   
+	  <div class="WizardBottomLeft">
+	    <div class="WizardBottomRight">
+	      <div class="WizardBottomCenter"><span></span></div>
+	    </div>
+	  </div>
+	   
+	</div>
+</div>

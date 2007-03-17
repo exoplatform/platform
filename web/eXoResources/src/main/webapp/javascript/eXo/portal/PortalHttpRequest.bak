@@ -1,0 +1,192 @@
+/***********************************************************************************************
+ *    Portal  Ajax  Response Data Structure
+ * {PortalResponse}
+ *      |
+ *      |--->{PortletResponse}
+ *      |
+ *      |--->{PortletResponse}
+        |          |-->{portletId}
+        |          |
+ *      |          |-->{BlocksToUpdate}
+ *      |                    |
+ *      |                    |--->{BlockToUpdate}
+        |                    |         |-->{blockId}
+        |                    |         |-->{data}
+ *      |                    |
+ *      |                    |--->{BlockToUpdate}
+ *      |                    |--->{SKin}
+ *      |                    |--->{Script}
+ *      |
+ *      |--->{BlocksToUpdate}
+ *      |           |
+ *      |           |--->{BlockToUpdate}
+ *      |           |         |-->{blockId}
+ *      |           |         |-->{data}
+ *      |           |
+ *      |           |--->{BlockToUpdate}
+ *      |--->{SKin}
+ *      |--->{Script}
+ *
+ **************************************************************************************************/
+eXo.require('eXo.desktop.UIDesktop') ;
+eXo.require('eXo.core.UIMaskLayer') ;
+eXo.require('eXo.core.Skin') ;
+function AjaxResponse(ajaxResponseDiv) {
+  this.blocksToUpdate = new Array() ;
+  blocks = eXo.core.DOMUtil.findChildrenByClass(ajaxResponseDiv, "div", "BlockToUpdate") ;
+  for(i = 0 ; i < blocks.length; i++) {
+    obj = new Object() ; 
+    div = eXo.core.DOMUtil.getChildrenByTagName(blocks[i], "div") ;
+    metaData =  div[0] ;
+    obj.data = div[1] ;
+    obj.id = eXo.core.DOMUtil.findDescendantsByClass(metaData, "div",  "blockId")[0].firstChild.nodeValue ;
+    this.blocksToUpdate[i] = obj ;
+  }
+  this.jscode = eXo.core.DOMUtil.findFirstChildByClass(ajaxResponseDiv, "div", "JavascriptCode") ;
+};
+
+AjaxResponse.prototype.getBlocksToUpdate = function() { return this.blocksToUpdate ; }
+/*****************************************************************************************/
+function AjaxRequest() { };
+
+AjaxRequest.prototype.get = function(url) {
+  this.request = eXo.core.Browser.createHttpRequest() ;
+  this.request.open("GET", url , true);
+  eXo.portal.CurrentRequest = this ;
+  this.request.onreadystatechange =  function() {
+    eXo.portal.CurrentRequest.onUpdate() ;
+  }
+  this.request.send(null);
+} ;
+
+AjaxRequest.prototype.post = function(formElement) {
+  this.request = eXo.core.Browser.createHttpRequest() ;
+  var size =  formElement.elements.length;
+  var  elements = formElement.elements ;
+  var queryString = this.parseFormElements(formElement) ;
+  this.request.open("POST", formElement.action + "&ajaxRequest=true" , true);
+  this.request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+  eXo.portal.CurrentRequest = this ;
+  this.request.onreadystatechange =  function() {
+    eXo.portal.CurrentRequest.onUpdate() ;
+  }
+  
+  this.request.send(queryString);
+} ;
+
+AjaxRequest.prototype.abort = function() {
+  this.request.abort();
+} ;
+
+AjaxRequest.prototype.parseFormElements = function(formElement) {
+  var queryString = "";
+  var elementValue = "";
+  var elementName = "";
+  var element = "";
+  for(var i = 0; i < formElement.elements.length; i++) {
+    element = formElement.elements[i];
+    elementValue = element.value;    
+    elementName = element.name;
+    switch(element.type) {
+      case "text":
+      case "hidden":
+      case "password":
+      case "textarea":    
+        queryString += elementName + "=" + encodeURIComponent(elementValue) + "&";
+        break; 
+  
+      case "checkbox":
+      case "radio":
+        if(element.checked) queryString += elementName + "=" + encodeURIComponent(elementValue) + "&";
+        break;  
+  
+      case "select-one":
+        if(element.selectedIndex > -1){
+          queryString += elementName + "=" +
+          element.options[element.selectedIndex].value + "&";
+        }
+        break;
+    } // switch
+   } // for
+   queryString = queryString.substr(0,(queryString.length - 1));
+   return queryString;
+}
+
+
+AjaxRequest.prototype.onUpdate = function() {
+  var mask = document.getElementById("AjaxLoadingMask") ;
+  
+  if(this.request.readyState == 4) {
+    var temp =  document.createElement("div") ;
+    temp.innerHTML =  this.request.responseText ;
+    var ajaxResponseDiv = eXo.core.DOMUtil.findFirstDescendantByClass(temp, "div", "AjaxResponse") ;
+    var response = new AjaxResponse(ajaxResponseDiv)  ;
+    
+    this.handleAjaxResponse(response) ;    
+    eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
+    eXo.portal.AjaxRequest.maskLayer = null ;
+    
+    if(response.jscode.innerHTML != "") {
+      try {
+        eval(response.jscode.innerHTML) ;       
+      } catch(err) {        
+        var elements = response.jscode.innerHTML.split(';') ;
+        alert(elements.length + "105" ) ;
+        for(i = 0; i < elements.length; i++) {
+          try {
+            eval(elements[i]) ;
+          } catch(err) {
+            alert(err +" : "+elements[i] + "  --" + i) ;
+          }
+        }      
+      }
+    }
+  } else {
+  	if(eXo.portal.AjaxRequest.maskLayer == null) {
+  		eXo.portal.AjaxRequest.maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", mask, 30) ;
+  		eXo.core.Browser.addOnScrollCallback("5439383", eXo.core.UIMaskLayer.setPosition) ;
+//  		var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
+//  		if(uiControlWorkspace == null) {
+//	  		eXo.portal.AjaxRequest.maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", mask, 40) ;
+//  		} else {
+//  			eXo.portal.AjaxRequest.maskLayer = eXo.core.UIMaskLayer.createMask("UIWorkingWorkspace", mask, 40) ;
+//  		}
+  	}
+  }
+} ;
+
+AjaxRequest.prototype.handleAjaxResponse = function(response) {
+  var blocksToUpdate = response.getBlocksToUpdate() ;
+  for(var i = 0; i < blocksToUpdate.length; i++) {
+    target = document.getElementById(blocksToUpdate[i].id) ;
+    if(target == null) alert(blocksToUpdate[i].id);
+    newData =  eXo.core.DOMUtil.findDescendantById(blocksToUpdate[i].data, blocksToUpdate[i].id) ;
+    if(newData == null) alert(blocksToUpdate[i].id);
+    target.innerHTML = newData.innerHTML ;   
+  }  
+} ;
+
+AjaxRequest.prototype.onCommit = function() {
+
+} ;
+
+function ajaxGet(url) {
+  request = new AjaxRequest() ;
+  request.get(url) ;
+}
+
+function ajaxPost(formElement) {
+  request = new AjaxRequest() ;
+  request.post(formElement) ;
+}
+
+function ajaxAbort() {
+	var mask = document.getElementById("AjaxLoadingMask") ;
+  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
+  eXo.portal.AjaxRequest.maskLayer = null ;
+
+  this.request.abort();
+  
+}
+
+eXo.portal.AjaxRequest = AjaxRequest.prototype.constructor ;

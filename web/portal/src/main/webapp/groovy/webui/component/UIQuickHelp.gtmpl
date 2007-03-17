@@ -1,0 +1,51 @@
+<div class="UIQuickHelp">
+	<div class="TopBar">
+		<div class="TopBarLeft">
+		  <div class="TopBarRight">
+		    <div class="TopBarMiddle">
+		      <div class="OverflowContainer">
+		        <div class="TitleBar">
+			        <div class="BarLeft">
+			          <div class="BarRight">
+			            <div class="BarMiddle">
+			              <div class="Icon">
+		                  <div class="BrownBook16x16Icon"><span></span></div>
+		                </div>
+		                <div class="Title"><%=_ctx.appRes(uicomponent.getId() + ".label.quickHelp")%></div>
+			            </div>
+			          </div>
+			        </div>
+			      </div>
+		      </div>
+		    </div>
+	  	</div>
+		</div>
+	</div>
+  <div class="ContentContainer">
+    <div class="Content">
+      <div class="ScrollArea">
+      <%=uicomponent.getHelpContent()%>
+      </div>
+    </div>
+  </div>
+  <div class="BottomBar">
+    <div class="BottomBarLeft">
+      <div class="BottomBarRight">
+        <div class="BottomBarMiddle">
+	        <div class="ButtonBar">
+	          <div class="OverflowContainer">
+	            <div class="ButtonBarLeft">
+	              <div class="ButtonBarRight">
+	                <div class="ButtonBarMiddle">
+	                  <div class="BackButton GrayBackArrow16x16Icon" onclick="eXo.webui.UIQuickHelp.switchPage(this, false);"><span></span></div>
+	                  <div class="ForwardButton BlueNextArrow16x16Icon" onclick="eXo.webui.UIQuickHelp.switchPage(this, true);"><span></span></div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+        </div>
+      </div>  
+    </div>  
+  </div>
+</div>

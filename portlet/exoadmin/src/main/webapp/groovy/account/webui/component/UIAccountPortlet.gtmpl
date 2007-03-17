@@ -1,0 +1,5 @@
+<div class="$uicomponent.id UIApplication" id="$uicomponent.id">
+  <div class="ApplicationMinWidth">
+    <%uicomponent.renderChildren();%>
+  </div>
+</div>

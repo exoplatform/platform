@@ -1,0 +1,144 @@
+.UIWindow .UIAccountPortlet {
+  overflow: auto ;
+}
+
+.UIAccountPortlet {
+  border: 1px #424345 solid ; 
+  background: url('VistaSkin/background/UIAccountPortletBG1x3.png') repeat ;
+  margin: 0px 2px 6px 6px ; 
+}
+
+.UIAccountPortlet .AccountContainer {
+ 
+}
+
+.UIAccountPortlet .UIFormTabPane .UITabPane {
+  padding: 1px 2px 3px 2px;  margin: 5px;
+  
+}
+
+.UIAccountPortlet .UIAction  {
+  width: 80px;
+  margin-top: 6px;
+  float: right;
+}
+
+.UIAccountPortlet .UIAction .ActionContainer .ButtonMiddle {
+	padding-top: 3px ;
+}
+
+.UIAccountPortlet .UIAction .ActionContainer .ActionButton {
+  width: 70px;
+}
+
+.UIAccountPortlet .UIMembership .UIAction  {
+  margin: auto ; 
+  width: 160px;
+  float: none;
+} 
+
+.UIAccountPortlet .UIMembership .UIAction .ActionContainer .ActionButton{
+  width: 150px;
+} 
+
+.UIAccountPortlet .UIMembership .UIAction .ActionContainer a {
+  margin: 0px 0px 0px 5px;
+} 
+
+/*########################-UIPersonalInfo-###########################*/
+
+
+.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
+  width: 400px;
+  margin: auto; margin-top: 12px; margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer label {
+  margin-left: 0px; width: 140px; text-align: left;
+  float: left; font-size: 11px;
+}
+
+.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer input{
+  border: 1px gray solid;
+  width: 220px; height: 18px;
+  font-size: 11px;
+  padding-left: 5px;  
+}
+
+.UIAccountPortlet .UIItemSelector .UIFormInputSet {
+  padding-top: 10px;
+  font-size: 11px;
+}
+
+.UIAccountPortlet .UIItemSelector .UIFormInputSet .FieldContainer {
+  width: 400px;
+  margin: auto;  margin-top: 12px; margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.UIAccountPortlet .UIItemSelector .UIFormInputSet label {
+  float: left;
+  height: 22px; line-height: 22px;
+  margin-right: 4px; padding-left: 5px;
+  white-space: nowrap; 
+  font-size: 11px;
+}
+
+.UIAccountPortlet .UIItemSelector .UIFormInputSet input {
+  width: 240px;
+  margin-left: 10px;
+  float: right;
+  font-size: 11px;
+  padding-left: 5px;
+}
+
+/*########################-Template Selector-###########################*/
+
+.UIAccountPortlet .UIItemSelector .NormalStyle .ItemList {
+  height: 220px;
+
+}
+
+.UIAccountPortlet .UIItemSelector .NormalStyle .ItemList .Item {
+  margin-top: 15px; margin-bottom: 10px;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .Template {
+  height: 215px;
+  margin: auto;
+}
+
+.UIAccountPortlet .UIItemSelector .NormalStyle .TemplateImage {
+  height: 350px;
+  background: url('VistaSkin/background/TemplateImage.gif') no-repeat bottom;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .DefaultAccountImage{
+  width: 330px;
+  height: 195px;
+  margin: auto;
+  background: url('VistaSkin/background/DefaultAccountImage.jpg') no-repeat;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .AdminAccountImage{
+  width: 330px;
+  height: 195px;
+  margin: auto;
+  background: url('VistaSkin/background/AdminAccountImage.jpg') no-repeat;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .CommunityAccountImage{
+  width: 330px;
+  height: 195px;
+  margin: auto;
+  background: url('VistaSkin/background/CommunityAccountImage.jpg') no-repeat;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .CompanyAccountImage{
+  width: 330px;
+  height: 195px;
+  margin: auto;
+  background: url('VistaSkin/background/CompanyAccountImage.jpg') no-repeat;
+}
+

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+	<component>
+   <key>org.exoplatform.services.portletcontainer.persistence.PortletPreferencesPersister</key>
+   <type>org.exoplatform.portal.portlet.JCRPortletPreferencesPersister</type>
+  </component>  
+  
+  <component>
+    <key>org.exoplatform.portal.config.PortalDAO</key>
+    <type>org.exoplatform.portal.config.JCRPortalDAO</type> 
+  </component>  
+  
+  <component>
+    <key>org.exoplatform.portal.config.SharedConfigDAO</key>
+    <type>org.exoplatform.portal.config.JCRSharedConfigDAO</type> 
+  </component> 
+ 
+  <component>
+    <key>org.exoplatform.portal.config.UserACL</key>
+    <type>org.exoplatform.portal.config.UserACL</type> 
+  </component>  
+  
+  <component>
+    <key>org.exoplatform.portal.content.ContentDAO</key>
+    <type>org.exoplatform.portal.content.JCRContentDAO</type>     
+  </component>
+  
+  <component>
+    <key>org.exoplatform.portal.config.UserPortalConfigService</key>
+    <type>org.exoplatform.portal.config.UserPortalConfigService</type>     
+    <init-params>	
+      <value-param>
+        <name>default.user.template</name>
+        <description>If user configs are null, user configs will load configs from this default user</description>
+        <value>exo</value>
+      </value-param>
+			<value-param>
+	    	<name>templateLocation</name>
+	    	<value>war:/conf/users</value>
+	    </value-param>
+	    
+	    <!--<object-param>
+        <name>community.portal.1</name>
+        <description>configuration for the portal communities</description>
+        <object type="org.exoplatform.portal.config.SharedPortal">
+          <field  name="groupId"><string>/portal/share</string></field>
+          <field  name="membership"><string>member</string></field>
+          <field  name="portal"><string>exo</string></field>
+          <field  name="priority"><int>5</int></field>
+          <field  name="description">
+            <string>use 'portal' configuration if user in group portal and have the 
+              'member' membership</string>
+          </field>
+        </object>
+      </object-param>     --> 
+      
+      <object-param>
+        <name>admin.navigation.configuration</name>
+        <description>configuration for the portal admin</description>
+        <object type="org.exoplatform.portal.config.SharedNavigation">
+          <field  name="groupId"><string>/portal/admin</string></field>
+          <field  name="membership"><string>member</string></field>
+          <field  name="navigation"><string>exoadmin</string></field>
+          <field  name="description"><string>portal navigation</string></field>
+        </object>             
+      </object-param>
+      
+      <object-param>
+        <name>community.navigation.configuration</name>
+        <description>configuration for the portal communities</description>
+        <object type="org.exoplatform.portal.config.SharedNavigation">
+          <field  name="groupId"><string>/portal/community</string></field>
+          <field  name="membership"><string>member</string></field>
+          <field  name="navigation"><string>community</string></field>
+          <field  name="description"><string>community navigation</string></field>
+        </object>
+      </object-param>
+      
+      <object-param>
+        <name>company.navigation.configuration</name>
+        <description>configuration for the portal company</description>
+        <object type="org.exoplatform.portal.config.SharedNavigation">
+          <field  name="groupId"><string>/portal/company</string></field>
+          <field  name="membership"><string>member</string></field>
+          <field  name="navigation"><string>company</string></field>
+          <field  name="description"><string>company navigation</string></field>
+        </object>        
+      </object-param>
+      
+	  </init-params>    
+  </component>   
+
+	<component>
+   <key>org.exoplatform.services.portletcontainer.bundle.ResourceBundleDelegate</key>
+   <type>org.exoplatform.portal.portlet.ResourceBundleDelegateImpl</type>
+  </component> 
+  
+  <external-component-plugins>  
+    <target-component>org.exoplatform.portal.content.ContentDAO</target-component>      
+    <component-plugin>
+      <name>rssreader.listener</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.portal.content.RSSContentPlugin</type>
+      <description>rss reader plugin</description>     
+    </component-plugin>
+    
+    <component-plugin>
+      <name>description.listener</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.portal.content.DescriptionPlugin</type>
+      <description>Description plugin</description>     
+    </component-plugin>
+  </external-component-plugins>    
+
+  <import>classpath:/conf/portal/testjcr/test-jcr-configuration.xml</import> 
+</configuration>

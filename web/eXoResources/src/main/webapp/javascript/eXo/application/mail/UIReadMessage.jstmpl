@@ -1,0 +1,96 @@
+<div class="UIReadMessage">
+  <div class="ReadMessageContainer">
+    <div class="ReadMessageContainerBorder">
+	  	<div class="ReadMessageTop">
+	  	  <div class="TopMessagesBackIcon"><span></span></div>
+	  	  <div class="TopMessagesLabel">Back to Messages</div>
+	  	  <div class="TopMessagesSpace"><span></span></div>
+	  	  <div class="TopMailDeleteIcon"><span></span></div>
+	  	  <div class="TopMailForwardIcon"><span></span></div>
+	  	  <div class="TopMailForwardAllIcon"><span></span></div>
+	  	  <div class="TopMailNoForwardIcon"><span></span></div>
+	  	  <div class="TopMailPrintIcon"><span></span></div>
+	  	  <div style="clear: left"><span></span></div>
+	  	</div>
+	  	<div class="ReadMessageNavigation">
+	  	  <div class="DecoratorBox">
+	        <div class="GrayRoundedFillBoxStyle">
+	          <div class="TopLeftCornerBoxDecorator">
+	            <div class="TopRightCornerBoxDecorator">
+	              <div class="TopCenterBoxDecorator"><span></span></div>
+	            </div>
+	          </div>
+	          <div class="MiddleLeftSideBoxDecorator">
+	            <div class="MiddleRightSideBoxDecorator">	            	
+	            	<div class="BoxDecoratorContainer">
+	            		<div class="Subject">
+			  	          <div class="SubjectDownIcon" onclick="eXo.application.mail.UIMailApplication.expandAndCollapseMail(this)"><span></span></div>
+			  	          <div class="SubjectLabel BoldFont">Subject</div>
+			  	          <div class="ContainerFromLabel">Design screenshot for Portal</div>
+			  	          <div style="clear: left"><span></span></div>
+	  	         		</div>
+	  	         		<div class="SubjectContainer">
+		  	         		<div class="Subject">
+				  	          <div class="SubjectLabel BoldFont">From:</div>
+				  	          <div class="ContainerFromLabel">TuanNguyen (tuan08@gmail.com)</div>
+				  	          <div style="clear: left"><span></span></div>
+		  	         		</div>
+		  	         		<div class="Subject">
+				  	          <div class="SubjectLabel BoldFont">To:</div>
+				  	          <div class="ContainerFromLabel">phuong.pham@exoplatform.com</div>
+				  	          <div style="clear: left"><span></span></div>
+		  	         		</div>
+		  	         		<div class="Subject">
+				  	          <div class="SubjectLabel BoldFont">CC:</div>
+				  	          <div class="ContainerFromLabel">Hieult(hieult@yahoo.com), Nguyet(anhnguyet_unk@yahoo.com)</div>
+				  	          <div style="clear: left"><span></span></div>
+		  	         		</div>
+		  	         		<div class="Subject">
+				  	          <div class="SubjectLabel BoldFont">Date:</div>
+				  	          <div class="ContainerFromLabel">Mon 22 Jan 2007 10:30am</div>
+				  	          <div style="clear: left"><span></span></div>
+		  	         		</div>
+		  	         		<div class="Subject">
+				  	          <div class="SubjectLabel BoldFont">Attachments:</div>
+				  	          <div class="FromAttachIcon"><span></span></div>
+				  	          <div class="SubjectLinkLabel">Mail Screenshot.jpg</div>
+				  	          <div class="FromAttachIcon"><span></span></div>
+				  	          <div class="SubjectLinkLabel">Forum Screenshot.jpg</div>
+				  	          <div class="FromAttachIcon"><span></span></div>
+				  	          <div class="SubjectLinkLabel">Screenshot 2.jpg</div>
+				  	          <div style="clear: left"><span></span></div>
+		  	         		</div>
+	  	         		</div>
+	            	</div>
+	            	<div class="BoxDecoratorContent" style="display: none">
+			  	        <div class="Subject">
+			  	          <div class="SubjectLeftIcon" onclick="eXo.application.mail.UIMailApplication.expandAndCollapseMail(this)"><span></span></div>
+			  	          <div class="SubjectLabel BoldFont">Subject</div>
+			  	          <div class="ContainerFromLabel">Design screenshot for Portal</div>
+			  	          <div class="BoldFont Label">From:</div>
+			  	          <div class="Label">TuanNguyen (tuan08@gmail.com) (3)</div>
+			  	          <div class="FromAttach"><span></span></div>
+					          <div style="clear: left"><span></span></div>
+			  	        </div>
+					  	  </div>
+	            	<div><span></span></div>
+	            </div>
+	          </div>
+	          <div class="BottomLeftCornerBoxDecorator">
+	            <div class="BottomRightCornerBoxDecorator">
+	              <div class="BottomCenterBoxDecorator"><span></span></div>
+	            </div>
+	          </div>
+	      	</div>
+	  		</div>
+	  	</div>
+	  	<div class="MiddleReadMessage">
+	  	  <div class="MiddleText">Hi Phuong,<br>Have you had time to work on the screenshoot for portal?<br>
+	  	  We don't have much time left and the release need to start on the late of this month<br>
+	  	  Thank you in advance for you answer and your work on this!<br>
+	  	  Best regards, Tuan Nguyen.
+	  	  </div>
+	  	</div>
+  	</div>
+  </div>
+</div>

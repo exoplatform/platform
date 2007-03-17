@@ -1,0 +1,48 @@
+.UIFooterPortlet {
+  height: 32px ; line-height: 32px; vertical-align: middle ;  
+  margin-top: 3px; padding-top: 4px;
+}
+
+.UIFooterPortlet .LeftFooter {
+  background: url('MacSkin/background/LeftFooter28x32.gif') no-repeat left;
+  padding-left: 28px;
+  height: 32px;
+}
+
+.UIFooterPortlet .RightFooter {
+  background: url('MacSkin/background/RightFooter28x32.gif') no-repeat right;
+  padding-right: 28px;
+  height: 32px;
+}
+
+.UIFooterPortlet .RepeatFooter {
+  background: url('MacSkin/background/FooterRepeat1x32.gif') repeat-x;
+  height: 32px;
+}
+
+.UIFooterPortlet .FooterInfoContainer {
+  width: 400px ;
+  margin: auto ;
+}
+
+.UIFooterPortlet .CopyrightInfo {
+  width: 398px ;
+  margin-right: 5px ;
+}
+
+.UIFooterPortlet .CopyrightInfo .CopyrightText {
+  float: left;
+  line-height: 24px ;
+  text-align: center ; 
+  width: 260px ;
+  font-size: 11px ;
+}
+
+.UIFooterPortlet .CopyrightInfo .CompanyTitleText {
+  float: right ;
+  line-height: 24px ; 
+  text-align: center ;
+  width: 124px ;
+  font-size: 11px ;
+  margin-right: 5px;
+}

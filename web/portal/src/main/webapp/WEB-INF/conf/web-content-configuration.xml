@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+  <external-component-plugins>  
+    <target-component>org.exoplatform.portal.content.ContentDAO</target-component>      
+    <component-plugin>
+      <name>content.new.user.listener</name>
+      <set-method>initListener</set-method>
+      <type>org.exoplatform.portal.content.UserContentNavigationInitListener</type>
+      <description>this listener create the content navigation configuration for the new user</description>
+      <init-params>
+        <value-param>
+          <name>check.user</name>
+          <description>The check user for checking db is empty or not</description>
+          <value>exo</value>          
+        </value-param>
+        <object-param>
+          <name>configuration</name>
+          <description>description</description>
+          <object type="org.exoplatform.portal.config.NewPortalConfig">
+            <field  name="predefinedUser">
+              <collection type="java.util.HashSet">                
+                <value><string>exo</string></value>
+                <value><string>community</string></value>
+                <value><string>exoadmin</string></value>      
+              </collection>
+            </field>
+            <field  name="templateUser"><string>template</string></field>
+            <field  name="templateLocation"><string>war:/conf/users</string></field> 
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>    
+  </external-component-plugins>
+</configuration>
+

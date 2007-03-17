@@ -1,0 +1,49 @@
+<div id="<%=context.appId%>" class="UIWindow UIDragObject" style="visibility: hidden;">
+  <div class="WindowBarLeft">
+    <div class="WindowBarRight">
+      <div class="WindowBarCenter">
+        <div class="WindowPortletControl">
+          <div class="ControlIcon MinimizedIcon" 
+               onmouseover="eXo.desktop.UIWindow.onControlOver(this, true);"
+               onmouseout="eXo.desktop.UIWindow.onControlOver(this, false);"><span></span></div>
+          <div class="ControlIcon MaximizedIcon" 
+               onmouseover="eXo.desktop.UIWindow.onControlOver(this, true);" 
+               onmouseout="eXo.desktop.UIWindow.onControlOver(this, false);"><span></span></div>
+          <a class="ControlIcon CloseButtonIcon" 
+             onmouseover="eXo.desktop.UIWindow.onControlOver(this, true);"
+             onmouseout="eXo.desktop.UIWindow.onControlOver(this, false);" 
+             onclick="<%=context.window.removeApplication%>"><span></span></a>
+          <div style="clear: left"><span></span></div>
+        </div>
+        <div class="WindowPortletInfo">
+          <div class="WindowPortletIcon"><span></span></div>
+          <div class="PortletName"><%=context.application.appName%></div>
+          <div style="clear: left"><span></span></div>
+        </div>
+        <div style="clear: right"><span></span></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="TopDecoratorLeft">
+    <div class="TopDecoratorRight">
+      <div class="TopDecoratorCenter"><span></span></div>
+    </div>
+  </div>
+  
+  <div class="MiddleDecoratorLeft">
+    <div class="MiddleDecoratorRight">
+      <div class="MiddleDecoratorCenter"><%=context.window.content%></div>
+    </div>
+  </div>
+  
+  <div class="BottomDecoratorLeft">
+    <div class="BottomDecoratorRight">
+      <div class="BottomDecoratorCenter">
+        <div class="ResizeArea" title="Resize Window"><span></span></div>
+        <div class="Information">Done</div>
+        <div style="clear: right"><span></span></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app version="1.0" xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"> 
+  <portlet>
+    <description xml:lang="EN">Organization Portlet</description>
+    <portlet-name>OrganizationPortlet</portlet-name>
+    <display-name xml:lang="EN">Organization Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/OrganizationPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    <resource-bundle>locale.portlet.exoadmin.OrganizationPortlet</resource-bundle>
+    <portlet-info>
+      <title>Organization Portlet</title>
+      <short-title>Organization Portlet</short-title>
+      <keywords>Organization</keywords>
+    </portlet-info>
+  </portlet>  
+  
+  <portlet>
+    <description xml:lang="EN">Account Portlet</description>
+    <portlet-name>AccountPortlet</portlet-name>
+    <display-name xml:lang="EN">Account Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/AccountPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    
+    <resource-bundle>locale.portlet.exoadmin.AccountPortlet</resource-bundle>
+    <portlet-info>
+      <title>Account Portlet</title>
+      <short-title>Account Portlet</short-title>
+      <keywords>Account</keywords>
+    </portlet-info>
+
+    <security-role-ref>
+      <role-name>admin</role-name>
+      <role-link>admin</role-link>
+    </security-role-ref>
+  </portlet>  
+  
+  <portlet>
+    <description xml:lang="EN">Portlet Registry</description>
+    <portlet-name>PortletRegistryPortlet</portlet-name>
+    <display-name xml:lang="EN">Portlet Registry</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/PortletRegistryPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    
+    <resource-bundle>locale.portlet.exoadmin.PortletRegistryPortlet</resource-bundle>
+    <portlet-info>
+      <title>Portlet Registry Portlet</title>
+      <short-title>Registry</short-title>
+      <keywords>portlet, registry</keywords>
+    </portlet-info>
+  </portlet>  
+  
+  <portlet>
+    <description xml:lang="EN">JMX Portlet</description>
+    <portlet-name>JMXPortlet</portlet-name>
+    <display-name xml:lang="EN">JMX Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/JMXPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    <resource-bundle>locale.portlet.exoadmin.JMXPortlet</resource-bundle>
+    
+    <portlet-info>
+      <title>JMX Portlet</title>
+      <short-title>JMX Portlet</short-title>
+      <keywords>jmx</keywords>     
+    </portlet-info>     
+  </portlet>
+  
+    <!-- 
+  <portlet>
+    <description xml:lang="EN">Portlet Cms content</description>
+    <portlet-name>JCRExplorerPortlet</portlet-name>
+    <display-name xml:lang="EN">Cmscontent Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/CmscontentPortlets/JCRExplorerPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>    
+    <resource-bundle>locale.portlet.exoadmin.JCRExplorerPortlet</resource-bundle>    																														
+    
+    <portlet-info>
+      <title>Cms Content Portlet</title>
+      <short-title>Cms content</short-title>
+      <keywords>portlet, cmscontent</keywords>
+    </portlet-info>
+  </portlet>  
+  -->
+  <!--
+  <portlet>
+    <description xml:lang="EN">Portlet Component</description>
+    <portlet-name>ComponentPortlet</portlet-name>
+    <display-name xml:lang="EN">Portlet Component</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/ComponentPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    
+    <resource-bundle>locale.portlet.exoadmin.ComponentPortlet</resource-bundle>
+    <portlet-info>
+      <title>Component Portlet</title>
+      <short-title>Component</short-title>
+      <keywords>component,portlet</keywords>
+    </portlet-info>
+  </portlet>  
+  -->
+  
+</portlet-app>

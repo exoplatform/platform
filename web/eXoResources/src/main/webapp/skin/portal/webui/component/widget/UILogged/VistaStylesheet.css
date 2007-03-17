@@ -1,0 +1,180 @@
+.UILogged {
+  padding: 5px 0px 0px 0px;
+}
+
+.UILogged .WelcomeImage {  
+  width: 231px; height: 28px;
+  background: url('VistaSkin/background/WelcomeImage.png') no-repeat ;
+  margin: auto;
+
+}
+
+.UILogged .UserWelcomeBox {
+  background: white;
+  line-height: 20px; 
+  padding: 5px 0px 7px 0px;
+  border: solid 1px #686868 ; 
+}
+
+.UILogged .UserWelcomeBox .StateMessage {
+  font-size: 11px; 
+  text-align: center;
+  line-height: 20px; 
+}
+
+.UILogged .UserWelcomeBox .LoggedUserName {
+  color: #fa8006 ;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.UILogged .OrangeMessage {
+  float: left ;
+  height: 24px; 
+  font-size: 11px; font-weight: normal;
+  line-height: 24px; vertical-align: middle;
+  color: #fa8006 ;
+}
+
+.UILogged .DecoratorBox {
+  margin: 10px 6px 10px 6px;
+}
+
+.UILogged .DecoratorBox .DecoratorBackground{
+  width: auto; height: auto;
+  background: url('VistaSkin/background/DecoratorBackground.png') repeat;
+  margin: 0px 0px 0px 10px ;
+}
+
+.UILogged .DashboardTitle {
+  height: 23px; 
+  line-height: 23px;
+}
+
+.UILogged .LeftDashboardBar {
+  height: 23px; 
+  line-height: 23px;
+ /*	 background: url('VistaSkin/background/WidgetTitleBarL44x38.png') no-repeat left;*/
+}
+
+.UILogged .RightDashboardBar {
+  height: 23px;
+  background: url('VistaSkin/background/WidgetTitleBarR1x38.gif') no-repeat right;
+}
+
+.UILogged .MiddleDashboardBar {
+  height: 23px;
+}
+
+.UILogged .MiddleDashboardBar .Label{
+  height: 23px; line-height: 25px;
+  font-weight: bold;
+  font-size: 11px;
+  text-align: center ;
+}
+
+.UILogged .DecoratorBox .LoginDetailBox {
+  background: white;
+  padding: 1px;
+  border-top: none;
+}
+
+.UILogged .DecoratorBox .WidgetBoxContainer {
+  background: white; 
+  border: solid 1px #e9e9e9; 
+}
+
+.UILogged .WidgetBox {
+  background: white;
+  padding: 10px;
+  border: solid 1px #686868 ;
+}
+
+.UILogged .WidgetBox .WidgetBoxTitle {
+  height: 18px; 
+  text-align: center; font-size: 11px;
+  line-height: 18px; vertical-align: middle;
+  background: url('VistaSkin/background/WidgetBoxTitle1x18.gif') repeat;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UILogged .WidgetBox .WidgetItemContainer {
+  line-height: 20px;
+  font-size: 11px;
+  text-align: justify;
+  padding: 10px;
+ 
+}
+
+.UILogged .WidgetBox .WidgetDecorImage {
+  width: 189px; height: 67px;
+  background: url('VistaSkin/background/WidgetDecorImage.png') no-repeat ;
+  margin: auto;
+  margin-top: 8px;
+ 
+}
+.UILogged .BrowserSupport {
+	font-size: 11px;
+	background: url('VistaSkin/background/BrowserSupport1x1.png') repeat;
+	margin: 5px 10px;
+	border: solid 1px #5a5a5a;
+	border-top: none;
+}
+
+.UILogged .BrowserSupport .BrowserSupportContainet{
+	border: solid 1px #ffffff;
+	border-top:none;
+}
+
+.UILogged .BrowserSupport .BrowserSupportTitle{
+	height: 23px; 
+	line-height: 23px; vertical-align: middle; 
+	text-align: center; font-weight: bold;
+	background: url('VistaSkin/background/BrowserSupport1x23.png') repeat-x top;
+	padding: 0px;
+}
+
+.UILogged .BrowserSupport .BrowserIconContainer {
+	padding: 0px 10px;
+}
+
+.UILogged .BrowserSupport .BrowserIconContainer .SubTitle{
+	float: left;
+	width: 90px;
+	line-height:48px; vertical-align: middle;
+}
+.UILogged .BrowserSupport .BrowserIconContainer .Icon{
+	width: 48px; height: 48px;
+}
+.UILogged .BrowserSupport .BrowserIconContainer .FirefoxIcon{
+	float: left;
+	background: url('VistaSkin/background/FireFox48x48.png') no-repeat;
+}
+.UILogged .BrowserSupport .BrowserIconContainer .IE7Icon{
+	float: left;
+	background: url('VistaSkin/background/IE748x48.png') no-repeat;
+}
+
+.UILogged .BrowserSupport .BrowserIconContainer .IE6Icon{
+	float: left;
+	background: url('VistaSkin/background/IE648x48.png') no-repeat;
+}
+.UILogged .BrowserSupport .BrowserIconContainer .SafariIcon{
+	float: left;
+	background: url('VistaSkin/background/Safari48x48.png') no-repeat;
+}
+
+.UILogged .DownloadBar {
+	width: 160px ;
+  padding: 5px;
+  margin: auto;
+  margin-top: 10px ;
+}
+
+.UILogged .DownloadBar .DownloadIcon {
+	float: left;
+	width: 24px; height: 22px;
+	background: url('VistaSkin/background/Download.png') no-repeat;
+	margin: 5px 0px 0px 0px;
+} 

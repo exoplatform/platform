@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page-set>
+  <page>
+    <owner>exo</owner>
+    <name>home</name>
+    <title>Home</title>
+    <view-permission>*:/guest</view-permission>
+    <container template="ContainerColumnRenderer" width="100%" height="100%">
+      <container template="ContainerRowRenderer" width="394px" height="100%">
+        <container template="ContainerColumnRenderer" width="100%" height="160px">
+          <portlet width="100%" height="100%">
+            <title>Download</title>
+            <window-id>exo:/content/DisplayStaticContent/teaser</window-id>
+            <portlet-style>exo-config-content</portlet-style>
+            <show-info-bar>true</show-info-bar>
+            <show-window-state>false</show-window-state>                    
+            <show-portlet-mode>false</show-portlet-mode>          
+          </portlet>
+        </container>  
+        <portlet width="*">
+          <title>Home</title>
+          <window-id>exo:/content/DisplayStaticContent/news</window-id>
+          <portlet-style>exo-config-content</portlet-style>
+          <show-info-bar>false</show-info-bar>          
+        </portlet>                
+      </container>
+      <container template="ContainerRowRenderer" width="100%" height="100%">
+        <container template="ContainerColumnRenderer" width="100%" height="160px">        
+          <portlet width="50%" height="100%">
+            <title>News</title>
+            <window-id>exo:/cms-content/Articles/homenews</window-id>
+            <portlet-style>articles</portlet-style>
+            <show-info-bar>true</show-info-bar>
+            <show-window-state>true</show-window-state>
+            <show-portlet-mode>true</show-portlet-mode>
+          </portlet>            
+          <portlet width="50%" height="100%">
+            <title>Events</title>
+            <window-id>exo:/cms-content/Articles/homeevents</window-id>
+            <portlet-style>articles</portlet-style>
+            <show-info-bar>true</show-info-bar>
+            <show-window-state>true</show-window-state>
+            <show-portlet-mode>true</show-portlet-mode>
+          </portlet>         
+        </container>      
+        <portlet width="*">
+          <title>Home</title>
+          <window-id>exo:/cms-content/DisplayContent/summary</window-id>
+          <portlet-style>exo-config-content</portlet-style>
+          <show-info-bar>false</show-info-bar>
+        </portlet>                    
+      </container> 
+    </container>
+  </page>
+</page-set>

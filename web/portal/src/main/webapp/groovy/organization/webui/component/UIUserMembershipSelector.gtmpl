@@ -1,0 +1,72 @@
+<% 
+  import org.exoplatform.organization.webui.component.UIGroupMembershipSelector;
+  import org.exoplatform.webui.component.UIPopupWindow; 
+  import org.exoplatform.webui.component.UIGrid;
+  def membership = uicomponent.getMembership();
+  
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.importJavascript('eXo.webui.UIPopupWindow');
+%>
+<div class="UIMembership" id="UIUserMembershipSelector" style="width: 98%; margin: auto; padding: 10px 0px 10px 0px">
+	<%//Begin Membership List%>
+	<div class="MembershipList">   
+	  <table class="UIGrid" style="width: 99%">
+	    <thead>
+	     <tr>                    
+	        <%
+	          def labels = ["userName", "groupId", "membershipType", "action"];
+	          for(label in labels){
+	        %>
+	          <th><%=_ctx.appRes(uicomponent.getId() + ".header." + label)%></th>            
+	        <%}%>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    	<%
+	    		String rowClass = null ;
+	    		boolean even = true ;    
+	    		//TODO:  Do not use the  syntax
+	    		membership.eachWithIndex() {        			
+	    		  member, i ->  
+	    		  if(even) rowClass = "OddRow" ;
+	      	  else rowClass = "EvenRow" ;
+	      		  even = !even ;
+	  		%>
+	          <tr class="<%=rowClass%>">
+	            <td>$member.userName</td>
+	            <td>$member.groupId</td>
+	            <td>$member.membershipType</td>
+	            <td>
+	              <div class="ActionContainer" style="width: 16px; margin: auto">
+	                <div class="OverflowContainer">
+	                  <a class="DustBin16x16Icon" href="<%=uicomponent.event("DeleteMembership", String.valueOf(i))%>"><span></span></a>
+	                </div>  
+	              </div>
+	            </td>
+	          </tr>
+	      <%}%>
+	    </tbody>
+	  </table>  
+	</div>
+	<%//End Membership List%>
+	<% if(uicomponent.isAdmin()) { %>
+	<div class="UIAction">
+	  <div class="ActionContainer">
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	              <div class="Icon SelectPermissionIcon" onclick="eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');"><span></span></div>
+	              <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
+	                <%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%>
+	              </a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>   
+	<% }%>	
+</div>

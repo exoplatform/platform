@@ -1,0 +1,253 @@
+<div class="UICalendarControl">
+	<div class="CalendarDecorator">
+	
+  	<div class="CalendarDecoratorTopLeft">
+  		<div class="CalendarDecoratorTopRight">
+  			<div class="CalendarDecoratorTopCenter"><span></span></div>
+  		</div>
+  	</div>
+  	  			
+  	<div class="CalendarDecoratorMiddleLeft">
+  		<div class="CalendarDecoratorMiddleRight">
+  			<div class="CalendarDecoratorCenterBG">
+  				<div class="CalendarBlackTitle">Calendars</div>	
+  				<div class="UIVerticalSlideTabs">
+  				 	
+						<div class="UIVTab">  	
+  						<div class="CalendarSelectedFlatStyle">
+  							<div class="CheckBox"><input type="checkbox"/></div>
+  							<div class="CalendarFlatStyleTitle" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'CalendarNomalFlatStyle', 'CalendarSelectedFlatStyle')">My Calendar</div>
+  							<div title="Manage This Calendar" class="GrayDownBottonIcon"><span></span></div>
+  							<div style="clear: both"><span></span></div>
+  						</div>	
+  							
+  						<div class="UIVTabContent" style="display: block">
+  							<div class="CalendarItem">
+	  							<div class="LightCyanColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Private</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon" "ActionIcon" onclick="eXo.application.calendar.UICalendarApplication.showPopUpActionMenu(this,'PopUpCalendarItem')"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="DarkNaryBlueColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Home</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="CreamColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Work</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="PingVioletColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Fun</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>	
+	  						</div>
+	  						<div class="CalendarItem">	  							
+	  							<div class="RedColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Holiday</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+  							</div>
+  							
+  						</div>
+	  				</div>	
+	  				
+  					<div class="UIVTab">	
+  						<div class="CalendarNomalFlatStyle">
+  							<div class="CheckBox"><input type="checkbox"/></div>
+  							<div class="CalendarFlatStyleTitle" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'CalendarNomalFlatStyle', 'CalendarSelectedFlatStyle')">Company Calendar</div>
+  							<div title="Manage This Calendar" class="GrayDownBottonIcon"><span></span></div>
+  							<div style="clear: both"><span></span></div>
+	  					</div>
+	  					
+	  					<div class="UIVTabContent" style="display: none">
+  							<div class="CalendarItem">
+	  							<div class="LightCyanColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Private</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="DarkNaryBlueColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Home</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="CreamColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Work</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="PingVioletColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Fun</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>	
+	  						</div>
+	  						<div class="CalendarItem">	  							
+	  							<div class="RedColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Holiday</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+  							</div>
+  							
+  						</div>	
+	  				</div>
+	  				
+	  				<div class="UIVTab">	
+	  					<div class="CalendarNomalFlatStyle">
+  							<div class="CheckBox"><input type="checkbox"/></div>
+  							<div class="CalendarFlatStyleTitle" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'CalendarNomalFlatStyle', 'CalendarSelectedFlatStyle')">Friend’s Calendar</div>
+  							<div title="Manage This Calendar" class="GrayDownBottonIcon"><span></span></div>
+  							<div style="clear: both"><span></span></div>
+	  					</div>
+		  					
+	  					<div class="UIVTabContent" style="display: none">
+  							<div class="CalendarItem">
+	  							<div class="LightCyanColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Private</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="DarkNaryBlueColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Home</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="CreamColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Work</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="PingVioletColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Fun</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>	
+	  						</div>
+	  						<div class="CalendarItem">	  							
+	  							<div class="RedColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Holiday</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+  							</div>
+  							
+  						</div>	
+	  				</div>
+	  				
+	  				<div class="UIVTab">
+	  					<div class="CalendarNomalFlatStyle">
+  							<div class="CheckBox"><input type="checkbox"/></div>
+  							<div class="CalendarFlatStyleTitle" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'CalendarNomalFlatStyle', 'CalendarSelectedFlatStyle')">Sports Calendar</div>
+  							<div title="Manage This Calendar" class="GrayDownBottonIcon"><span></span></div>
+  							<div style="clear: both"><span></span></div>
+	  					</div>
+	  					
+	  					<div class="UIVTabContent" style="display: none">
+  							<div class="CalendarItem">
+	  							<div class="LightCyanColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Private</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="DarkNaryBlueColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Home</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="CreamColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Work</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+	  						</div>
+	  						<div class="CalendarItem">		  							
+	  							<div class="PingVioletColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Fun</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>	
+	  						</div>
+	  						<div class="CalendarItem">	  							
+	  							<div class="RedColor">
+	  								<div class="CheckBox"><input type="checkbox"/></div>
+	  								<div class="BlackTitle">Holiday</div>
+	  								<div title="actions" class="GrayDownBottonMiniIcon"><span></span></div>
+	  								<div style="clear: both"><span></span></div>
+	  							</div>
+  							</div>
+  							
+  						</div>
+	  				</div>
+
+  				</div>
+  						
+  				<div class="CalendarButtonLeft">
+  					<div class="CalendarButtonRight">
+  						<div class="CalendarButtonMiddle">
+  							<div class="ButtonBlackTitle" >Manage Calendars</div>
+  							<div title="actions" class="GrayDownBottonIcon"><span></span></div>
+  							<div style="clear: both"><span></span></div>
+  						</div>
+  					</div>
+  				</div>
+	
+  			</div>
+  		</div>
+  	</div>
+  			
+  	<div class="CalendarDecoratorBottomLeft">
+  		<div class="CalendarDecoratorBottomRight">
+  			<div class="CalendarDecoratorBottomMiddle"><span></span></div>
+  		</div>
+  	</div>
+  			
+  </div> 			
+</div>
+
+	

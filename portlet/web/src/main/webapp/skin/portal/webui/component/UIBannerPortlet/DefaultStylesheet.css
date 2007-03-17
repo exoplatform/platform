@@ -1,0 +1,25 @@
+.UIBannerPortlet {
+  background: url('DefaultSkin/background/BannerRepeat4x92.jpg') repeat-x ;
+  height: 92px ;
+  vertical-align: middle ;
+  line-height: 92px ;
+  text-align: center ;
+}
+
+.UIBannerPortlet .BannerLeft {
+  float: left ;
+  background: url('DefaultSkin/background/BannerLeft184x92.jpg') no-repeat left ;
+  width: 25% ;
+}
+
+.UIBannerPortlet .BannerMiddle {
+  float: left ;
+  background: url('DefaultSkin/background/BannerMiddle192x92.jpg') no-repeat center ;
+  width: 49% ;
+}
+
+.UIBannerPortlet .BannerRight {
+  float: right ;
+  background: url('DefaultSkin/background/BannerRight165x92.jpg') no-repeat right ;
+  width: 25% ;
+}

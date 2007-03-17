@@ -1,0 +1,25 @@
+.UIBannerPortlet {
+  background: url('MacSkin/background/BannerRepeat1x103.jpg') repeat-x ;
+  height: 103px ;
+  vertical-align: middle ;
+  line-height: 103px ;
+  text-align: center ;
+}
+
+.UIBannerPortlet .BannerLeft {
+  float: left ;
+  background: url('MacSkin/background/LeftBanner242x103.jpg') no-repeat left ;
+  width: 25% ;
+}
+
+.UIBannerPortlet .BannerMiddle {
+  float: left ;
+  background: url('MacSkin/background/MiddleBanner144x103.jpg') no-repeat center ;
+  width: 49% ;
+}
+
+.UIBannerPortlet .BannerRight {
+  float: right ;
+  background: url('MacSkin/background/RightBanner207x103.jpg') no-repeat right ;
+  width: 25% ;
+}

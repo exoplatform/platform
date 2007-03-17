@@ -1,0 +1,172 @@
+.UILoginPortlet {
+ 	width: 548px; height: 348px;
+	font-family: verdana; font-size: 12px;
+	margin: auto;
+	margin-top: 100px;
+}
+  
+.UILoginPortlet .LoginHeader {
+	width: 548px; height: 103px;
+	background: url('../skin/images/LoginHeader548x103.jpg') no-repeat;
+}
+  
+.UILoginPortlet .LoginContent {
+	height: 207px;
+}
+
+.UILoginPortlet .LoginContent .LeftLoginContent {
+  height: 207px;
+  background: url('../skin/images/SigninPaper162x207.jpg') no-repeat left;
+  padding-left: 162px;
+  overflow: hidden;
+}
+
+.UILoginPortlet .LoginContent .RightLoginContent {
+  height: 207px;
+  background: url('../skin/images/LoginRightRepeat27x1.gif') repeat-y right;
+  padding-right: 27px;
+}
+
+.UILoginPortlet .LoginContent .CenterLoginContent {
+  height: 207px;
+  background: #f6f6f6;
+}
+
+.UILoginPortlet .LoginContent .FieldContainer {
+  width: 320px ;
+  overflow: hidden ;
+  padding-top: 9px ;
+  margin: auto ;
+}
+
+.UILoginPortlet .LoginContent .FieldContainer label {
+  float: left;
+  width: 80px ; height: 20px; 
+  line-height: 20px; vertical-align: middle;
+	text-align: left; font-size: 11px; font-weight: bold ;
+	margin-right: 5px;
+}
+
+.UILoginPortlet .LoginContent .FieldContainer input {
+  float: left;
+  width: 200px ;  height: 18px;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UILoginPortlet .TextHelp {
+  font-size: 11px; color: #3c78b5;
+  margin-top: 7px; 
+  padding-left: 50px;
+}
+
+.UILoginPortlet .LoginContent .OverflowContainer {
+  width: 250px;
+  overflow: hidden;
+  margin: auto;  margin-top: 11px;
+}
+
+.UILoginPortlet .LoginContent .OverflowContainer input {
+  float: left;
+  margin-left: 10px;
+}
+
+.UILoginPortlet .LoginContent .ForgotMessage {
+  float: right;
+  font-size: 11px;
+  line-height: 18px; vertical-align: middle;
+}
+
+.UILoginPortlet .LoginContent .LoginButton {
+  height: 26px ;
+  padding: 10px 0px;
+  margin-left: 30px;
+}
+
+.UILoginPortlet .LoginContent .LoginButtonContainer {
+  width: 60px ;
+  margin: auto; 
+}
+
+.UILoginPortlet .LoginContent .Button {
+  width: 60px ; height: 26px ;
+  margin: auto; 
+}
+
+.UILoginPortlet .LoginContent .Button a {
+  color: black; text-decoration: none;
+}
+
+.UILoginPortlet .LoginContent .Button a:hover {
+  color: blue; text-decoration: none;
+}
+
+.UILoginPortlet .LoginContent .LoginButton .Button .ButtonLeft {
+  line-height: 26px;
+  padding-left: 4px;
+  background: url('../skin/images/LightBlueStyleButtonLeft4x26.gif') no-repeat left;
+}
+
+.UILoginPortlet .LoginContent .LoginButton .Button .ButtonRight {
+  line-height: 26px;
+  padding-right: 4px;
+  background: url('../skin/images/LightBlueStyleButtonRight4x26.gif') no-repeat right;
+}
+
+.UILoginPortlet .LoginContent .LoginButton .Button .ButtonMiddle {
+  height: 26px; 
+  line-height: 26px; vertical-align: middle;
+	background: url('../skin/images/LightBlueStyleButtonMiddle1x26.gif') repeat-x;
+}
+
+.UILoginPortlet .LoginContent .MessageContainer {
+  width: 250px; 
+  padding-left: 16px;
+  margin: auto; 
+}
+
+.UILoginPortlet .LoginContent .SignupMessage {
+  width: 250px; height: 24px; 
+  line-height: 24px; vertical-align: bottom;
+  color: blue ; text-align: center;
+  margin: auto;
+  border-top: solid 1px #828dc3 ;
+  border-bottom: solid 1px #828dc3 ;
+}
+
+.UILoginPortlet .LoginContent .SignupMessage a {
+  color: orange; font-size: 12px; font-weight: bold ; text-decoration: none;
+  cursor: pointer ;
+}
+
+.UILoginPortlet .LoginContent .SignupMessage a:hover {
+  color: blue; font-size: 12px; font-weight: bold; text-decoration: none;
+  cursor: pointer;
+}
+
+.UILoginPortlet .LoginFooter {
+  width: 548px; height: 28px; 
+  line-height: 28px;
+}
+  
+.UILoginPortlet .LoginFooter .LoginLeftFooter  {
+  height: 28px;
+  background: url('../skin/images/LoginLeftFooter60x28.gif') no-repeat left;
+  padding-left: 60px;
+}
+  
+.UILoginPortlet .LoginFooter .LoginRightFooter  {
+  height: 28px ;
+  background: url('../skin/images/LoginRightFooter45x28.gif') no-repeat right ;
+  padding-right: 45px ;
+}
+  
+.UILoginPortlet .LoginFooter .LoginRepeatFooter {
+  height: 28px ;
+  background: url('../skin/images/LoginRepeatFooter1x28.gif') repeat-x ;
+}
+
+.UILoginPortlet .CopyrightInfo {
+  height: 24px; line-height: 24px; vertical-align: middle;
+  text-align: center;
+  font-size: 11px;
+}

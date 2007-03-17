@@ -1,0 +1,26 @@
+.UIBannerPortlet {
+  background: url('VistaSkin/background/BannerRepeat2x92.jpg') repeat-x ;
+  height: 92px ;
+  vertical-align: middle ;
+  line-height: 92px ;
+  text-align: center ; 
+}
+
+.UIBannerPortlet .BannerLeft {
+  float: left ;
+  background: url('VistaSkin/background/BannerLeft450x92.png') no-repeat left ;
+  width: 44.5% ;
+
+}
+
+.UIBannerPortlet .BannerMiddle {
+  float: left ;
+  background: url('VistaSkin/background/BannerMiddle260x92.png') no-repeat center ;
+  width: 25% ;
+}
+
+.UIBannerPortlet .BannerRight {
+  float: right ;
+  background: url('VistaSkin/background/BannerRight310x92.jpg') no-repeat right ;
+  width: 30.5% ;
+}

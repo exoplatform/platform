@@ -1,0 +1,165 @@
+.UIControlWorkspace {
+  width: 10px ;
+  padding: 0px ;
+  top: 0px ;
+}
+
+.UIControlWorkspace .TopLineDecorator {
+  height: 7px ;
+  background: url('MacSkin/background/LineControlPanelTop1x7.gif') repeat-x ;
+}
+
+.UIControlWorkspace .UIWorkspacePanel {
+  height: 100%;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .UIMyPortal .ControlPanelWorkingArea {
+  background: none;
+}
+/*########################### Tab ###########################*/
+.UIControlWorkspace .UIWorkspacePanel .TabPortalIcon {
+  float: left;  
+  width: 34px ; height: 28px ; 
+  background: url('MacSkin/background/PortalManagementIcon.gif') no-repeat ;
+  margin: 13px 7px 0px 3px;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .TabPageIcon {
+  float: left;
+  width: 29px ; height: 29px ;
+  background: url('MacSkin/background/PageManagementIcon.gif') no-repeat ;
+  margin: 10px 10px 0px 3px;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .UIPortalControlPanel .HideContentVTab {
+  display: none ;
+  background: #f8f8f8 ; 
+  border: solid 1px #a3abb6 ;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .ShowContent {
+  display: block ;
+  background: #f8f8f8 ;
+  border: solid 1px #a3abb6 ;
+}
+/*########################### End Tab ###########################*/
+/*########## Tab BasicCustomization - PageCreationWizard ############*/
+.UIBasicCustomization .PageWizardTabContent {
+  text-align: center ;
+  border: 1px solid #5f90ba; 
+  padding: 10px;
+}
+/*########################### Slidebar ###########################*/
+.UIControlWorkspace .Slidebar {
+  float: right;  
+  width: 10px ; 
+  background: url('MacSkin/background/ExpandPanel10x1.gif') repeat-y ;
+}
+
+.UIControlWorkspace .UIWorkspaceContainer {
+	float: left ;
+}
+
+.UIControlWorkspace .Slidebar .FixHeightTop {
+  width: 10px ;
+}
+
+.UIControlWorkspace .Slidebar .SlidebarButtonShow {
+  width: 10px ;  height: 67px ;
+  background: url('MacSkin/background/ExpandPanelNext10x67.gif') ;
+  cursor: pointer;
+}
+
+.UIControlWorkspace .Slidebar .SlidebarButtonHide {
+  width: 10px ;  height: 67px ;
+  background: url('MacSkin/background/ExpandPanelBack10x67.gif') ;
+  cursor: pointer;
+}
+/*########################### End Slidebar ###########################*/
+/*##################################- CPButton -##############################*/
+.UIControlWorkspace .CPButton {
+  float: right ;
+  line-height: 33px ;
+  margin: 5px 1px 0px 0px;
+}
+/*##################################- NormalStyle -##############################*/
+.UIControlWorkspace .CPButton .NormalStyle .ButtonLeft {
+  line-height: 33px ;
+  background: url('MacSkin/background/CPButtonL5x33.gif') no-repeat left ;
+  padding: 0px 0px 0px 5px ;
+}
+
+.UIControlWorkspace .CPButton .NormalStyle .ButtonMiddle {
+  background: url('MacSkin/background/CPButtonRepeat1x33.gif') ;
+  line-height: 33px ;
+}
+
+.UIControlWorkspace .CPButton .NormalStyle .ButtonRight {
+  line-height: 33px ;
+  background: url('MacSkin/background/CPButtonR5x33.gif') no-repeat right ;
+  padding: 0px 5px 0px 0px ;
+}
+
+.UIControlWorkspace .CPButton .NormalStyle .ButtonTitle {
+  line-height: 30px ; vertical-align: middle; 
+  font-weight: bold; color: #525252;
+  margin: 0px 8px 0px 8px;
+}
+/*##################################- HighlightStyle -##############################*/
+.UIControlWorkspace .CPButton .HighlightStyle .ButtonLeft {
+  background: url('MacSkin/background/CPButtonLSelect5x33.gif') no-repeat left ;
+  line-height: 33px ;
+  padding: 0px 0px 0px 5px ;
+}
+
+.UIControlWorkspace .CPButton .HighlightStyle .ButtonMiddle {
+  background: url('MacSkin/background/CPButtonRepeatSelect1x33.gif') ;
+  line-height: 33px ;
+}
+
+.UIControlWorkspace .CPButton .HighlightStyle .ButtonRight {
+  background: url('MacSkin/background/CPButtonRSelect5x33.gif') no-repeat right ;
+  line-height: 33px ;
+  padding: 0px 5px 0px 0px ;
+}
+
+.UIControlWorkspace .CPButton .HighlightStyle .ButtonTitle {
+  line-height: 30px ; vertical-align: middle;
+  font-weight: bold; color: blue;
+  margin: 0px 8px 0px 8px;
+}
+
+.UIControlWorkspace .Icon {
+  float:left;
+  width: 16px ; height: 16px ;
+  display: block ;
+  margin: 7px 4px 4px 4px ;
+}
+
+.UIWorkingWorkspace {
+	margin-left: 10px ;
+}
+
+.MaskLayer {
+	background: #000 ;
+	text-align: center ;
+	position: absolute ;
+}
+
+.WarningLayer {
+	width: 300px ; height: 100px ;
+	background: white ;
+	line-height: 100px ;	vertical-align: middle ;
+	text-align: center ;
+	position: absolute ;
+	opacity: 0.5 !important ;
+	filter: alpha(opacity=50) ;
+}
+
+.PreviewMode {
+	width: 159px ; height: 37px ;
+	background: url("DefaultSkin/background/PreviewMode159x37.gif") no-repeat ;
+	position: absolute ;
+	cursor: pointer ;
+}
+

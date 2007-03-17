@@ -1,0 +1,212 @@
+<%
+  import org.exoplatform.portal.component.view.UIPage;
+  
+  def rcontext = _ctx.getRequestContext() ;
+  
+  rcontext.importJavascript('eXo.desktop.UIDesktop');
+  rcontext.importJavascript('eXo.webui.UIPopupSelectCategory') ;
+  rcontext.importJavascript('eXo.desktop.UIWindow') ;
+  
+  String showCategory = "eXo.webui.UIPopupSelectCategory.show(this, 120);"
+  String setDefault     = "eXo.webui.UIPopupSelectCategory.setDefault(this);" ;
+  
+  String onControlOver  = "eXo.desktop.UIWindow.onControlOver(this, true);" ;
+  String onControlOut    = "eXo.desktop.UIWindow.onControlOver(this, false);" ;
+  
+  String onMouseOver     = "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
+  String onMouseOut      = "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
+  String onMouseUp      = "eXo.webui.UIPopupSelectCategory.onMouseUp(this);" ;
+  
+  boolean isWindow = "Window".equals(uicomponent.getPortletStyle());  
+  
+  if(!isWindow) {
+%>
+	  <div class="UIPortlet" id="UIPortlet-${uicomponent.id}">
+		  <div class="META-DATA-BLOCK" style="display: none">
+		    <div class="id"><%=uicomponent.getId();%></div>
+		    <div class="title"><%=_ctx.appRes("UIPortlet.label.title");%></div>
+		    <div class="description"><%=_ctx.appRes("UIPortlet.label.description");%></div>
+		  </div>
+		   
+		  <div class="CONTROL-PORTLET CONTROL-BLOCK" style="display: none">
+		   	<%/*Begin InfoBar*/%>
+		   	<div class="UIInfoBar">
+		      <div class="BlueRoundedStyle">
+		        <div class="LeftBar">
+		          <div class="RightBar">
+				        <div class="MiddleBar">
+				          <div class="DragControlArea" title="Drag Portlet here">
+				            <div class="Icon <%=uicomponent.getIcon()%>Icon" ><span></span></div>
+		              </div>
+		              <div class="Title">$portletTitle</div>
+			            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeletePortletIcon" title="Delete Portlet"><span></span></a>
+			            <a href="<%=uicomponent.event("EditPortlet","$uicomponent.id")%>" class="EditPortletPropertiesIcon" title="Edit Portlet"><span></span></a>
+			            <div style="clear: both"><span></span></div>
+				        </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		    <%/*End InfoBar*/ %>
+		  </div>
+		  
+		  <div class="LAYOUT-PORTLET" style="display: none">
+		    <div class="PortletLayoutDecorator">
+		    
+		      <%/*Begin Top Portlet Layout Decorator*/%>
+		      <div class="TopLeft">
+		        <div class="TopRight">
+		          <div class="TopMiddle">
+		            <div class="TopMiddleCenter"><span></span></div>
+		          </div>
+		        </div>
+		      </div>
+		      
+		      <%/*Begin Middle Portlet Layout Decorator*/%>
+		      <div class="MiddleLeft">
+		        <div class="MiddleRight">
+		          <div class="CenterBackground">
+		            <div class="GardientBackground"><%=_ctx.appRes("UIPortlet.label.portletContent")%></div>
+		          </div>
+		        </div>
+		      </div>
+		      
+		      <%/*Begin Bottom Portlet Layout Decorator*/%>
+		      <div class="BottomLeft">
+		        <div class="BottomRight">
+		          <div class="BottomMiddle"><span></span></div>
+		        </div>
+		      </div>
+		      
+		    </div>
+		  </div>
+		  
+		  <div class="VIEW-PORTLET">
+
+<% 
+  }
+	if(uicomponent.getShowInfoBar()){ 
+    String  popupId = uicomponent.getId() ;
+  	String title = uicomponent.getTitle() ;
+    if(title == null || title.trim().length() < 1) title = popupId;
+%>
+
+	  
+	    <%/*Begin Window Portlet Bar*/ %>
+	    <%
+	      String visibility = "visible" ;
+	      if(isWindow) visibility = "hidden" ;
+	    %>
+    		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}-portlet-window" style="visibility: $visibility">
+		      <div class="WindowBarLeft">
+		        <div class="WindowBarRight">
+		          <div class="WindowBarCenter">
+		            <div class="WindowPortletControl CategoryDetectPosition">
+		              <div class="ControlIcon ArrowDownIcon" onclick="$showCategory; $setDefault;" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+		              <%if(uicomponent.getShowWindowState() || isWindow) {%>
+	                		<div class="ControlIcon MinimizedIcon" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+	                		<div class="ControlIcon MaximizedIcon" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+	                <%}%>    
+	                <%
+	                  if(isWindow) {
+		                  String removeChildAction = uicomponent.getParent().event("RemoveChild", popupId) ;
+	                %>
+	                		<a class="ControlIcon CloseButtonIcon" href="$removeChildAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></a>
+	                <%}%>	
+		              <div style="clear: left"><span></span></div>  
+		            </div>
+		            <div class="WindowPortletInfo">
+		              <div class="WindowPortletIcon"><span></span></div>
+		              <div class="PortletName">$title</div>
+		              <div style="clear: left"><span></span></div>
+		            </div>
+		            <div style="clear: right"><span></span></div>
+		          </div>
+		        </div>
+		      </div>
+		      <%/*End Window Portlet Bar*/ %>
+		      
+		      <% /*Begin Popup Menu*/ %>
+		      <div class="UIPopupCategory" style="display: none;">
+		        <div class="PopupCategoryDecorator">
+		          <div class="PopupCategoryTL">
+		            <div class="PopupCategoryTR">
+		              <div class="PopupCategoryTC"><span></span></div>
+		            </div>
+		          </div>
+		          <div class="PopupCategoryML">
+		            <div class="PopupCategoryMR">
+		              <div class="PopupCategoryMC">
+		                <% 
+		                  List supportModes = uicomponent.getSupportModes();                  
+		                  for(String mode in supportModes) {
+		                    String actionLink = uicomponent.event("ChangePortletMode", mode);
+		                    String upper = mode.charAt(0).toString();
+		                    mode = mode.replaceFirst(upper, upper.toUpperCase());
+		                %>
+		                    <div class="CategoryItem" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onmouseup="$onMouseUp">
+		                      <div class="Icon ModifiedIcon"><span></span></div>
+		                      <a class="CategoryItemLabel" href="$actionLink">$mode</a>
+		                      <div style="clear: left"><span></span></div>
+		                    </div>
+		                <%        
+		                  }
+		                  if(supportModes != null && supportModes.size() > 0) {
+		                %> 
+		                  	<div class="CategoryItem" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onmouseup="$onMouseUp">
+		                    	<div class="Icon ModifiedIcon"><span></span></div>
+		                    	<a class="CategoryItemLabel" href="<%=uicomponent.event("ChangePortletMode", "view")%>">
+		                    		<%=_ctx.appRes("UIPageDesktop.label.View")%>
+		                    	</a>
+		                    	<div style="clear: left"><span></span></div>
+		                  	</div>                       
+		                 <%}%> 	
+		              </div>
+		            </div>
+		          </div>
+		          <div class="PopupCategoryBL">
+		            <div class="PopupCategoryBR">
+		              <div class="PopupCategoryBC"><span></span></div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		      <% /*End Popup Menu*/ %>
+		      
+		      <%//Begin Top Decorator %>
+		      <div class="TopDecoratorLeft">
+		        <div class="TopDecoratorRight">
+		          <div class="TopDecoratorCenter"><span></span></div>
+		        </div>
+		      </div>
+		      <%//End Top Decorator %>
+				
+		      <div class="MiddleDecoratorLeft">
+		        <div class="MiddleDecoratorRight">
+		          <div class="MiddleDecoratorCenter">
+		            $portletContent
+		          </div>
+		        </div>
+		      </div>
+		      
+		      <%//Begin Bottom Decorator %>
+		      <div class="BottomDecoratorLeft">
+		        <div class="BottomDecoratorRight">
+		          <div class="BottomDecoratorCenter">
+		            <div class="ResizeArea" title="Resize Window"><span></span></div>
+		            <div class="Information">Done</div>
+		            <div style="clear: right"><span></span></div>
+		          </div>
+		        </div>
+		      </div>
+	      </div>
+		      <%//End Bottom Decorator %>
+	<%} else { %>
+			    $portletContent
+	<%
+	  }  
+	  if(!isWindow) {
+	%>  
+	    </div>
+		</div>
+<%} %>

@@ -1,0 +1,423 @@
+.UIToolbar {
+}
+
+.UIToolbar .ToolbarContainer {
+}
+
+.UIToolbar .Button {
+  cursor: pointer ;
+  float: left ;
+  padding: 0px 15px 0px 15px; margin: 1px 2px 0px 2px;
+  height: 64px; line-height: 64px; vertical-align: middle;
+}
+
+.UIToolbar .Button .ButtonLabel {
+}
+
+.UIToolbar .HorizontalSeparator {
+  float: left ;
+  margin: 6px 2px 0px 0px;
+  width: 2px; height: 54px ;
+  background: url('MacSkin/background/SeparateLineBg2x3.gif') repeat-y ;
+}
+
+/*##############################- LargeToolbar style -#########################*/
+
+.UIToolbar .LargeToolbar {
+  height: 63px ; line-height: 63px ;
+}
+
+.UIToolbar .LargeToolbar .LeftToolbar {
+  height: 63px ; line-height: 63px;
+  background: url('MacSkin/background/LargeBarL10x63.gif') no-repeat left;
+  padding-left: 10px;
+}
+
+.UIToolbar .LargeToolbar .RightToolbar {
+  height: 63px ; line-height: 63px;
+  background: url('MacSkin/background/LargeBarR84x63.gif') no-repeat right;
+  padding-right: 84px;
+}
+
+.UIToolbar .LargeToolbar .MiddleToolbar {
+  height: 63px ; line-height: 63px;
+  background: url('MacSkin/background/LargeBarM1x63.gif') repeat-x;
+}
+
+.UIToolbar .LargeToolbar a {
+  color: #333333;
+  height: 51px ; line-height: 51px;
+  margin-top: 3px;
+}
+
+.UIToolbar .LargeToolbar a:hover{
+  color: blue;
+  background: #efefef;
+  height: 51px ; line-height: 51px;
+  margin-top: 3px;
+}
+
+.UIToolbar .LargeToolbar .ButtonLabel {
+  height: 18px ; line-height: 18px ;
+  vertical-align: middle ;  
+}
+
+.UIToolbar .LargeToolbar .ButtonLabel a {
+  color: black;
+  text-decoration: none;
+}
+
+/*##############################- StandardToolbar style -#########################*/
+.UIToolbar .StandardToolbar {
+  background: url('MacSkin/background/StandardToolbarRepeatBg1x42.gif') repeat-x ;
+  height: 42px ;
+  margin-bottom: 5px ;
+}
+
+.UIToolbar .StandardToolbar .LeftToolbar {
+  float: left ;
+  background: url('MacSkin/background/StandardToolbarLBg3x42.gif') no-repeat ;
+  background-color: #d6e7ee ;
+  width: 3px ;  height: 42px ;
+}
+
+.UIToolbar .StandardToolbar .MiddleToolbar {
+	width: 90% ;
+  padding: 5px 0px 0px 15px ;
+  float: left ;
+  height: 42px ;
+}
+
+.UIToolbar .StandardToolbar .RightToolbar {
+  float: right ;
+  background: url('MacSkin/background/StandardToolbarRBg3x42.gif') no-repeat ;
+  background-color: #d6e7ee ;
+  width: 3px ;  height: 42px ;
+}
+
+.UIToolbar .StandardToolbar .ButtonLabel {
+  height: 32px ;
+  vertical-align: middle ;  line-height: 32px ;
+  margin-left: 5px ;
+}
+
+
+.UIToolbar .StandardToolbar .Button .SelectedButton {
+  font-weight: bold;
+}
+
+.UIToolbar .StandardToolbar .Button .DeselectedButton {
+  font-weight: 100;
+}
+
+/*##############################- SmallToolbar style -#########################*/
+.UIToolbar .SmallToolbar {
+  background: url('MacSkin/background/SmallToolBarBg1x23.gif') repeat-x ;
+  height: 23px ;
+  border: solid 1px #5e5e5e ;
+  padding-left: 20px ; 
+  margin: 1px 0px 1px 0px ;
+}
+
+.UIToolbar .SmallToolbar a {
+  width: 16px ;  height: 16px ;
+  float: left ;
+  margin: 4px 13px 0px 0px ;
+}
+
+/*#################################- DarkToolbar -##############################*/
+.UIToolbar .DarkToolbar {
+  border: solid 1px #2c4e5e;
+  height: 28px;
+  background: url('MacSkin/background/DarkToolbarRepeatBg1x28.gif') repeat-x ;
+  padding-left: 30px ;
+}
+.UIToolbar .DarkToolbar a {
+  width: 24px ;  height: 24px ;
+  float: left ;
+  margin: 2px 20px 0px 0px ;
+}
+
+/*#################################- LightToolbar -##############################*/
+
+.UIToolbar .LightToolbar {
+  height: 40px;
+}
+
+.UIToolbar .LightToolbar .LeftBar {
+  height: 40px;
+  padding-left: 3px;
+  background: url('MacSkin/background/LightBarL3x40.gif') no-repeat left;
+}
+
+.UIToolbar .LightToolbar .RightBar {
+  height: 40px;
+  padding-right: 3px;
+  background: url('MacSkin/background/LightBarR3x40.gif') no-repeat right;
+}
+
+.UIToolbar .LightToolbar .MiddleBar {
+  height: 40px;
+  line-height: 40px;
+  background: url('MacSkin/background/LightBarM1x40.gif') repeat-x ;
+}
+
+/*#################################- LightPolyToolbar -##############################*/
+
+.UIToolbar .PolyToolbar {
+  height: 36px;
+  margin-bottom: 2px;
+}
+
+.UIToolbar .PolyToolbar .LeftBar {
+  height: 36px;
+  padding-left: 7px;
+  background: url('MacSkin/background/LightPolyBarL7x36.gif') no-repeat left;
+}
+
+.UIToolbar .PolyToolbar .RightBar {
+  height: 36px;
+  padding-right: 7px;
+  background: url('MacSkin/background/LightPolyBarR7x36.gif') no-repeat right;
+}
+
+.UIToolbar .PolyToolbar .MiddleBar {
+  height: 36px;
+  line-height: 36px;
+  background: url('MacSkin/background/LightPolyBarM1x36.gif') repeat-x ;
+}
+
+/*#################################- Poly2Toolbar -##############################*/
+
+.UIToolbar .Poly2Toolbar {
+  height: 36px;
+  margin-bottom: 2px;
+}
+
+.UIToolbar .Poly2Toolbar .LeftBar {
+  height: 36px;
+  padding-left: 7px;
+  background: url('MacSkin/background/LightPolyBarL7x36.gif') no-repeat left;
+}
+
+.UIToolbar .Poly2Toolbar .RightBar {
+  height: 36px;
+  padding-right: 7px;
+  background: url('MacSkin/background/LightPolyBarR7x36.gif') no-repeat right;
+}
+
+.UIToolbar .Poly2Toolbar .MiddleBar {
+  height: 36px;
+  line-height: 36px;
+  background: url('MacSkin/background/LightPolyBarM1x36.gif') repeat-x ;
+}
+
+/*#################################- Style1Toolbar -##############################*/
+.UIToolbar .Style1Toolbar {
+  height: 28px; line-height: 28px;
+}
+
+.UIToolbar .Style1Toolbar .LeftBar {
+  height: 28px ; line-height: 28px;
+  padding-left: 8px ;
+  background: url('MacSkin/background/GrayRoundedToolbarL8x28.gif') no-repeat left ;
+}
+
+.UIToolbar .Style1Toolbar .RightBar {
+  height: 28px ; line-height: 28px;
+  padding-right: 8px ;
+  background: url('MacSkin/background/GrayRoundedToolbarR8x28.gif') no-repeat right ;
+}
+
+.UIToolbar .Style1Toolbar .MiddleBar {
+  height: 28px ;
+  line-height: 28px ;
+  vertical-align: middle ;
+  background: url('MacSkin/background/GrayRoundedToolbarM1x28.gif') repeat-x ;
+}
+
+/*#################################- IceBlueToolbar -##############################*/
+.UIToolbar .IceBlueToolbar {
+  height: 36px;
+}
+
+.UIToolbar .IceBlueToolbar .LeftBar {
+  height: 36px;
+  padding-left: 7px;
+  background: url('MacSkin/background/LightPolyBarL7x36.gif') no-repeat left;
+}
+
+.UIToolbar .IceBlueToolbar  .RightBar {
+  height: 36px;
+  padding-right: 7px;
+  background: url('MacSkin/background/LightPolyBarR7x36.gif') no-repeat right;
+}
+
+.UIToolbar .IceBlueToolbar .MiddleBar {
+  height: 36px;
+  line-height: 36px;
+  background: url('MacSkin/background/LightPolyBarM1x36.gif') repeat-x ;
+}
+
+/*#################################- GrayBevelToolbar-##############################*/
+.UIToolbar .GrayBevelRoundedBar35Style {
+  height: 35px;
+}
+
+.UIToolbar .GrayBevelRoundedBar35Style .LeftBar {
+  height: 35px ;
+  padding-left: 15px ;
+  background: url('MacSkin/background/GrayBevel35Left15x35.gif') no-repeat left ;
+}
+
+.UIToolbar .GrayBevelRoundedBar35Style .RightBar {
+  height: 35px ;
+  padding-right: 15px ;
+  background: url('MacSkin/background/GrayBevel35Right15x35.gif') no-repeat right ;
+}
+
+.UIToolbar .GrayBevelRoundedBar35Style .MiddleBar {
+  height: 35px ;
+  line-height: 35px ;
+  vertical-align: middle ;
+  background: url('MacSkin/background/GrayBevel35Center1x35.gif') repeat-x ;
+}
+
+.UIToolbar .GrayBevelRoundedBar35Style .Button {
+  float: left;
+  height: 33px ; line-height: 33px ;
+  vertical-align: middle ;
+}
+
+.UIToolbar .GrayBevelRoundedBar35Style .ButtonLabel {
+  height: 33px ; line-height: 33px ;
+  vertical-align: middle ;
+  font-weight: bold; color: black; font-size: 11px;
+}
+
+/*#################################- NavyBluePolyToolbar-##############################*/
+.UIToolbar .GrayBevelBar {
+  height: 35px;
+}
+
+.UIToolbar .GrayBevelBar .LeftBar {
+  height: 35px ;
+  padding-left: 9px ;
+  background: url('MacSkin/background/GrayBevelBarL9x35.gif') no-repeat left ;
+}
+
+.UIToolbar .GrayBevelBar .RightBar {
+  height: 35px ;
+  padding-right: 9px ;
+  background: url('MacSkin/background/GrayBevelBarR9x35.gif') no-repeat right ;
+}
+
+.UIToolbar .GrayBevelBar .MiddleBar {
+  height: 35px ;
+  line-height: 35px ;
+  vertical-align: middle ;
+  background: url('MacSkin/background/GrayBevelBarRepeat1x35.gif') repeat-x ;
+}
+
+.UIToolbar .NavyBluePoly44 {
+  height: 44px;
+}
+
+.UIToolbar .NavyBluePoly44 .LeftBar {
+  height: 44px ;
+  padding-left: 7px ;
+  background: url('MacSkin/background/NavyBluePolyStyleL7x44.gif') no-repeat left ;
+}
+
+.UIToolbar .NavyBluePoly44 .RightBar {
+  height: 44px ;
+  padding-right: 7px ;
+  background: url('MacSkin/background/NavyBluePolyStyleR7x44.gif') no-repeat right ;
+}
+
+.UIToolbar .NavyBluePoly44 .MiddleBar {
+  height: 44px ;
+  line-height: 44px ;
+  vertical-align: middle ;
+  background: url('MacSkin/background/NavyBluePolyStyleRepeat1x44.gif') repeat-x ;
+}
+
+.UIToolbar .NavyBluePoly44 .Button {
+  float: left;
+  height: 44px ; line-height: 44px ;
+  vertical-align: middle ;
+}
+
+.UIToolbar .NavyBluePoly44 .ButtonLabel {
+  height: 44px ; line-height: 44px ;
+  vertical-align: middle ;
+  font-weight: bold; color: black; font-size: 11px;
+}
+
+/*#################################- Style2Toolbar-##############################*/
+.UIToolbar .Style2Toolbar {
+  height: 31px; line-height: 31px;
+}
+
+.UIToolbar .Style2Toolbar .LeftBar {
+  height: 31px ; line-height: 31px;
+  padding-left: 6px ;
+  background: url('MacSkin/background/Style2BarL6x31.gif') no-repeat left ;
+}
+
+.UIToolbar .Style2Toolbar .RightBar {
+  height: 31px ; line-height: 31px;
+  padding-right: 6px ;
+  background: url('MacSkin/background/Style2BarR6x31.gif') no-repeat right ;
+}
+
+.UIToolbar .Style2Toolbar .MiddleBar {
+  height: 31px ;
+  line-height: 31px ;
+  vertical-align: middle ;
+  background: url('MacSkin/background/Style2BarM1x31.gif') repeat-x ;
+}
+
+.UIToolbar .Style2Toolbar .Title {
+  height: 31px ; line-height: 31px ; vertical-align: middle ;
+  font-size: 11px; font-weight: bold;
+  float: left;
+  padding-left: 3px;
+}
+
+.UIToolbar .Style2Toolbar .Icon {
+  width: 24px; height: 24px ;
+  float: left;
+  margin: 3px 6px 0px 5px;
+}
+
+.UIToolbar .Style2Toolbar .IconHolder{
+  float: right;
+  margin: 8px 7px 0px 3px;
+  cursor: pointer;
+}
+
+.UIToolbar .RollbackIcon {
+	float: left;
+	margin: 5px 8px 0px 12px;
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/RollbackB.png') no-repeat;
+}
+
+.UIToolbar .FinishIcon {
+	float: left; margin: 5px 8px;
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/Finish.gif') no-repeat;
+}
+
+.UIToolbar .SaveIcon {
+	float: left; margin: 5px 8px;
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/SaveB.gif') no-repeat;
+}
+
+.UIToolbar .AbortIcon {
+	float: left; margin: 5px 8px;
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/AbortB.gif') no-repeat;
+}

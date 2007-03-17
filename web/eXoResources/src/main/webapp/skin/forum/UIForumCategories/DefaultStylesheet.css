@@ -1,0 +1,89 @@
+/**
+ * Created by The eXo Platform SARL
+ * Author : Lai Van Khoi
+ *          khoilv80@gmail.com
+ * January 22, 2007
+ * version: $Id$
+ */
+ 
+.UIForumApplication .UIForumCategories {  
+}
+
+.UIForumApplication .UIForumCategories .CategoryLabel {
+  float: left;
+}
+
+.UIForumApplication .UIForumCategories .ButtonRight {
+  width: 24px;
+  margin: 3px 5px 0px 0px;
+  cursor: pointer;  
+}
+
+.UIForumApplication .UIForumCategories .ChildForumName {
+  float: left;
+  font-weight: bold;
+  color: #0b33e0;
+  padding: 2px 7px;
+}
+
+.UIForumApplication .UIForumCategories .ViewerNumber {
+  float: left;
+  font-size: 11px;
+  padding-top: 2px;
+}
+
+.UIForumApplication .UIForumCategories .TextNote {
+  font-size: 11px;
+  padding-left: 7px;
+}
+
+.UIForumApplication .UIForumCategories .PostByLabel {
+  font-size: 11px;
+  padding: 2px 7px;
+}
+
+.UIForumApplication .UIForumCategories .DateAndTime {
+  font-size: 11px;
+  padding-left: 7px;
+}
+
+.UIForumApplication .UIForumCategories .NumberText {
+  font-size: 11px;
+  text-align: center;
+}
+
+.UIForumApplication .UIForumCategories .TBottom {
+  background: #d4defc;
+  height: 24px;
+  border: 1px solid #bcbcbc;
+  border-left: none;
+}
+
+.UIForumApplication .UIForumCategories .ForumIcon {
+  width: 24px; 
+}
+
+.UIForumApplication .UIForumCategories .ThreadsNumber {
+  width: 122px;
+}
+
+.UIForumApplication .UIForumCategories .PostsNumber {
+  width: 130px;
+}
+
+.UIForumApplication .UIForumCategories .CollapseIcon {
+	background: url("../DefaultSkin/icons/16x16/DefaultSkin/CollapseIcon.jpg");
+	width: 16px;
+	height: 16px;	
+}
+
+.UIForumApplication .UIForumCategories .CollapseIconPosition {
+	float: right;
+}
+
+.UIForumApplication .UIForumCategories .Forum24x24Icon {
+	background: url("../DefaultSkin/icons/24x24/DefaultSkin/ForumIcon.gif");
+	width: 24px;
+	height: 24px;	
+}
+/*##################### End ForumBody  ###########################################*/

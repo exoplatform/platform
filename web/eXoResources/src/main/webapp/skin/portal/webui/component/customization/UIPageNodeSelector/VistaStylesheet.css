@@ -1,0 +1,83 @@
+/*########################- UIPageNodeSelector -######################*/
+.UIPageNodeSelector {
+}
+
+.UIPageNodeSelector .PageNodeSelectorContainer {
+  background: #f3f3f3 ;
+  padding: 5px ;
+  border: 1px solid #c6c6c9 ;
+}
+
+.UIPageNodeSelector .UIVerticalSlideTabs {
+  border: none; 
+}
+
+/*###############################- UITree -############################*/
+.UIPageNodeSelector .TreeSelectorTitle {
+  text-align: center; 
+  font-size:11px; font-weight: normal;
+  height: 20px; line-height: 20px; 
+  vertical-align: middle ;
+  background: white ;
+  border: 1px solid #b7b7b7 ; 
+  margin-bottom: 5px;
+  
+}
+
+.UIPageNodeSelector .TabLabel {
+  font-size: 11px ;
+  margin-left: 10px;
+ 
+}
+
+.UIPageNodeSelector .UITree {
+  border: 1px #ffffff solid;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer {
+  padding: 6px 0px 6px 0px ;
+  border: 1px #6c6c6c solid;
+  
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .TreeLevelContainer {
+  margin: 0px 0px 4px 0px;  
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .ExpandIcon {
+  margin: 3px 0px 0px 0px ;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .CollapseIcon {
+  margin: 2px 2px 0px 2px ;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .Icon {
+  width: 24px;  height: 24px ;
+  margin: 3px 2px 0px 2px;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .NodeSelected {
+ color: blue;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .NodeLabel  {
+  cursor: pointer ;
+  float: left ;
+  height:20px; line-height: 20px; vertical-align: middle ;
+  font-size: 11px; color: black; 
+  
+}
+
+.UIPageNodeSelector .OrganizationIcon {
+  background: url('/eXoResources/icons/24x24/VistaSkin/MiniOrangeBoxPage.png') no-repeat;
+}
+
+.UIPageNodeSelector .PortalAdminIcon {
+  background: url('/eXoResources/icons/16x16/VistaSkin/16x16/PortalAdmin.gif') no-repeat;
+  
+}
+
+.UIPageNodeSelector .NavigationPortalIcon {
+  background: url('/eXoResources/icons/24x24/VistaSkin/MiniOrangeBoxPage.png') no-repeat;
+}

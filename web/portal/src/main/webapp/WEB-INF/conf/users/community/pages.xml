@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page-set>
+  <page>
+    <factory-id>Desktop</factory-id>
+    <owner>community</owner>
+    <name>home</name>
+    <title>Home</title>
+    <view-permission>*:/guest</view-permission>
+    <show-max-window>true</show-max-window>
+    <portlet>
+      <window-id>community:/site/SitePortlet/siteportlet</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>
+    <portlet>
+      <window-id>community:/content/ContentPortlet/contentportlet</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+      <show-portlet-mode>true</show-portlet-mode>
+    </portlet>
+
+    <portlet>
+      <window-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</window-id>
+      <show-info-bar>true</show-info-bar>
+    </portlet>
+
+    <portlet>
+      <window-id>community:/exoadmin/AccountPortlet/Account</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>  
+  </page>
+
+  <page>
+    <factory-id>Desktop</factory-id>
+    <owner>community</owner>
+    <name>management</name>
+    <title>Management</title>
+    <view-permission>owner:/user</view-permission>
+    <show-max-window>true</show-max-window>
+    <portlet>
+      <window-id>community:/exoadmin/OrganizationPortlet/Organization</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+    </portlet>  
+
+    <portlet>
+      <window-id>community:/exoadmin/AccountPortlet/Account</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>  
+  </page>
+</page-set>

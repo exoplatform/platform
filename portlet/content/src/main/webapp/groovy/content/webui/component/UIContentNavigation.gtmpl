@@ -1,0 +1,100 @@
+<%
+  navigations = uicomponent.getSibbingNodes();
+  def selectedNode = uicomponent.getSelectedNode() ;
+%>
+
+<%//The class UIContentNavigationContainer for fix bug %>
+<div class="UIContentNavigationContainer">
+  <div class="OverflowContainer">
+    <div class="UIToolbar">
+      <div class="Style2Toolbar">
+        <div class="LeftBar">
+          <div class="RightBar">
+            <div class="MiddleBar">
+              <div class="OverflowContainer">
+                <%
+                  String removeLink = "#" ;
+                  String editLink = "#" ;
+                  if(selectedNode != null) {
+                    removeLink = uicomponent.event("RemoveNode") ;
+                    editLink = uicomponent.event("EditNode") ;
+                  }
+                %>
+                <div class="RSSReaderSymbol"><span></span></div>
+                <%if(uicomponent.isLogon()) { %>
+	                <a href="<%=uicomponent.event("AddNode")%>" class="NavigationControlIcon AddCatergory24x24Icon" title="Add node"><span></span></a>
+	                <a href="<%=editLink%>" class="NavigationControlIcon EditCatergory24x24Icon" title="Edit node"><span></span></a>
+	                <a href="<%=removeLink%>" class="NavigationControlIcon Delete24x24Icon" title="Remove node"><span></span></a>
+                <%}%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="NewsCategory">
+    <div class="UIVerticalSlideTabs">
+      <div class="UpArrowBar" title="Up Level">
+        <%
+          String upLevelLink = "#" ;
+          if(selectedNode != null) upLevelLink = uicomponent.event("UpLevel") ;                
+        %>
+        <a href="<%=upLevelLink%>">
+          <div class="NavigationUpArrowIcon"><span></span></div>
+        </a>
+      </div>
+      <div class="UIVTab">
+        <%
+          for(node in navigations) {
+            String cTab = "VTabStyle3" ; 
+            String cButton = "SwitchButton" ;
+            String cIcon = "NavigationIcon ClosedFolderIcon" ;
+            String cLabel = "NavigationLabel" ;
+            if(uicomponent.isSelectedNode(node) || uicomponent.isParentNode(node)) {   
+              cTab = "SelectedVTabStyle3" ;
+              cButton = "SwitchButton" ;
+              cIcon = "NavigationIcon OpenFolderIcon" ;
+               cLabel = "NavigationLabel NavigationSelected" ;               
+            }
+            String actionLink = uicomponent.event("ChangeNode", node.getId());
+        %>            
+            <div class="$cTab">
+              <div class="TabLeft">
+                <div class="TabRight">
+                  <div class="TabRepeat">
+                    <div class="<%=cIcon%>"><span></span></div>
+                    <a href="<%=actionLink%>" class="<%=cLabel%>"><%=node.getLabel()%></a>
+                    <a href="<%=actionLink%>" class="<%=cButton%>"><span></span></a>
+                    <div style="clear: both"><span></span></div>
+                  </div>
+                </div>
+              </div>              
+              <%
+                if(node.getChildren() == null || 
+                   (!uicomponent.isSelectedNode(node) && !uicomponent.isParentNode(node))){
+              %>
+            </div>
+              <%     
+                  continue ;
+                }
+                 for(child in node.getChildren()) {
+                  String actionChildLink = uicomponent.event("ChangeNode", child.id) ;
+                  String labelClass = "PortletLabel" ;                      
+                  if(uicomponent.isSelectedNode(child)) labelClass = "PortletLabel NavigationSelected" ;                
+              %>                  
+                  <div class="NodeLevel2">
+                    <div class="OverflowContainer">
+                      <div class="NavigationIcon BlueSquare16x16Icon"><span></span></div>
+                      <a href="<%=actionChildLink%>" class="<%=labelClass%>">
+                        <%=child.getLabel()%>
+                      </a>
+                    </div>
+                  </div>
+              <%}%>
+            </div>
+        <%}%>
+      </div>
+    </div>
+  </div>    
+</div>

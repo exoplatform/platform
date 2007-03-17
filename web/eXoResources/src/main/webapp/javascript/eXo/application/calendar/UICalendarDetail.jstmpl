@@ -1,0 +1,1621 @@
+<div class="UICalendarDetail">
+	<div class="DecoratorBox">
+		<div class="GrayRoundedFillBoxStyle">
+ 
+		  <div class="TopLeftCornerBoxDecorator">
+    	  <div class="TopRightCornerBoxDecorator">
+      		<div class="TopCenterBoxDecorator"><span></span></div>
+    		</div>
+  		</div>
+		
+			<div class="MiddleLeftSideBoxDecorator">
+    		<div class="MiddleRightSideBoxDecorator">	
+					<div class="CenterBackgroundDecorator">
+					
+						<div class="UIHorizontalTabs">
+	          	<div class="TabsContainer">	
+
+	              <div class="UITab">
+	                <div class="HighlightTabStyle">
+	                  <div class="LeftTab">
+	                    <div class="RightTab">
+			                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Day</div>
+			                </div>
+	                  </div>
+	                </div>
+	              </div>
+	              <div class="UITab">
+	                <div class="NormalTabStyle">
+	                  <div class="LeftTab">
+	                    <div class="RightTab">
+			                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Week</div>
+			                </div>
+	                  </div>
+	                </div>
+	              </div>
+	              <div class="UITab">
+	                <div class="NormalTabStyle">
+	                  <div class="LeftTab">
+	                    <div class="RightTab">
+			                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Month</div>
+			                </div>
+	                  </div>
+	                </div>
+	              </div>
+	              <div class="UITab">
+	                <div class="NormalTabStyle">
+	                  <div class="LeftTab">
+	                    <div class="RightTab">
+			                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Year</div>
+			                </div>
+	                  </div>
+	                </div>
+	              </div>
+	              <div class="UITab">
+	                <div class="NormalTabStyle">
+	                  <div class="LeftTab">
+	                    <div class="RightTab">
+			                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Events</div>
+			                </div>
+	                  </div>
+	                </div>
+	              </div>
+	              <div class="NextMonthContent">
+	              	<div class="TodayLebel">[<label>To Day</label>]</div>
+	              	<div class="MonthLabel">Feb 1, 2007</div>
+	              	<div title="Last Day/Week/Month" class="ButtonBack"><span></span></div>
+	              	<div title="Next Day/Week/Month" class="ButtonNext"><span></span></div>
+	              	<div style="clear: both"><span></span></div>
+	              </div>			              
+              	<div style="clear: both"><span></span></div>				                            
+	          	</div>
+	        	</div>
+
+		        <div class="HorizontalLayout">		          
+						<div class="UITabContentContainer">
+						
+							<div class="UITabContent" style="display: block">
+		        					      				        
+									<div class="DayWorkingAreaBorder">
+										<div class="DayWorkingArea">
+										
+											<div class="NewCreatedEvenContent">
+												<div class="NewCreatedEvenBar">Thursday, February 1, 2007</div>
+												<div class="NewCreatedEvenTitle"> New created event goes here</div>
+											</div>
+	
+											<div class="DayEventList">
+						        		<table class="UIGrid" id="DayList" cellspacing="0" borderspacing="0">
+						        			<col width="60"><col>
+					        				<tbody>
+					        					<tr class="EvenRow">
+					        						<td><div class="BlackLabel">6:00</div></td>
+					        						<td >sfsdfdhf</td>	                						
+					        					</tr>
+					        					<tr class="OddRow">
+					        						<td><div class="BlackLabel">7:00</div></td>
+					        						<td >sfsdfdhf</td>	                						
+					        					</tr>
+					        					<tr class="EvenRow">
+					        						<td><div class="BlackLabel">8:00</div></td>	                						
+					        						<td class="blueSuburd">[8:00 - 8:45] Have a breakfast with Tuan</td>	                						
+					        					</tr>
+					        					<tr class="OddRow">
+					        						<td><div class="BlackLabel">9:00</div></td>
+					        						<td >sfsdfdhf</td>	                						
+					        					</tr>
+					        					<tr class="EvenRow">
+					        						<td><div class="BlackLabel">10:00</div></td>	                						
+					        						<td >sfsdfdhf</td>	                						
+					        					</tr>
+					        				</tbody>
+					        			</table>
+					        		</div>
+	
+										</div>
+									</div>
+																			
+								</div>
+						
+								<div class="UITabContent" style="display: none;">
+        					<div class="DayWorkingAreaBorder">
+										<div class="DayWorkingArea">
+										
+											<div class="DayEventList">
+					        			<table class="UIGrid" id="DayList" cellspacing="0" borderspacing="0">
+					        			<col width="40"><col width="13%"><col width="13%"><col width="13%"><col width="13%"><col width="13%"><col width="13%"><col width="13%"><col>
+					        				<thead>
+					        					<tr>
+					        						<th>&nbsp;</th>	                						
+					        						<th ><div class="NormalLabel">Sun, 28/1</div></th>
+					        						<th  ><div class="NormalLabel">Mon, 29/1</div></th>
+					        						<th ><div class="NormalLabel">Tue, 30/1</div></th>
+					        						<th  ><div class="NormalLabel">Web, 31/1</div></th>
+					        						<th  ><div class="NormalLabel">Thu, 1/2</div></th>
+					        						<th  class="BlueWeekSuburd"><div class="NormalLabel">Fri, 2/2</div></th>	                					
+					        						<th ><div class="NormalLabel">Sat, 3/2</div></th>
+					        						<th>&nbsp;</th>
+					        					</tr>					        			
+					        				</thead>
+					        				<tbody>
+					        					<tr>
+					        						<td class="WhiteSuburd">&nbsp;</td>
+					        						<td class="WhiteSuburd">&nbsp;</td>
+					        						<td class="WhiteSuburd">&nbsp;</td>
+					        						<td class="blueSuburd">Event...</td>
+					        						<td class="WhiteSuburd">&nbsp;</td>
+					        						<td class="WhiteSuburd">&nbsp;</td>
+					        						<td class="RedSuburd">&nbsp;</td>
+					        						<td class="WhiteSuburd">&nbsp;</td>
+					        						<td class="WhiteSuburd">&nbsp;</td>	                						
+					        					</tr>							        					
+					        				</tbody>
+					        			</table>
+					        		</div>
+	
+											<div class="DayEventList">
+						        		<table class="UIGrid" id="DayList" cellspacing="0" borderspacing="0">
+						        			<col width="40"><col width="13%"><col width="13%"><col width="13%"><col width="13%"><col width="13%"><col width="13%"><col width="13%"><col>
+					        				<tbody>
+					        					<tr class="EvenRow">
+					        						<td class="BlackLabel">0:00</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td class="blueSuburd">sfsdfdhf</td>
+					        						<td class="RedSuburd">sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >&nbsp;</td>	                						
+					        					</tr>
+					        					<tr class="OddRow">
+					        						<td><div class="BlackLabel">0:01</div></td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td class="RedSuburd">sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >&nbsp;</td>	                						
+					        					</tr>
+					        					<tr class="EvenRow">
+					        						<td><div class="BlackLabel">0:02</div></td>	                						
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td class="blueSuburd">sfsdfdhf</td>
+					        						<td class="RedSuburd">sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >&nbsp;</td>	                						
+					        					</tr>
+					        					<tr class="OddRow">
+					        						<td><div class="BlackLabel">0:03</div></td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td class="RedSuburd">sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >&nbsp;</td>	                						
+					        					</tr>
+					        					<tr class="EvenRow">
+					        						<td><div class="BlackLabel">0:04</div></td>	                						
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td class="RedSuburd">sfsdfdhf</td>
+					        						<td >sfsdfdhf</td>
+					        						<td >&nbsp;</td>	                						
+					        					</tr>
+					        				</tbody>
+					        			</table>							        		
+					        		</div>
+	
+										</div>
+									</div>
+        				</div>
+        				
+        				<div class="UITabContent" style="display: none;">
+        					<div class="DayWorkingAreaBorder">
+										<div class="DayWorkingArea">
+											<div class="WeekList">
+				  							<div class="WeekTitle">Sunday</div>
+				  							<div class="WeekTitle">Monday</div>
+				  							<div class="WeekTitle">Tuesday</div>
+				  							<div class="WeekTitle">Wednesday</div>
+				  							<div class="WeekTitle">Thursday</div>
+				  							<div class="CurrentWeek">Friday</div>
+				  							<div class="WeekTitle">Saturday</div>
+				  							<div style="clear: left"><span></span></div>
+				  						</div>
+
+											<div class="RowContainerDay">
+					        			<table class="UIGrid" id="RowContainerDay" cellspacing="0" borderspacing="0">
+					        				<col width="14%"><col width="14%"><col width="14%"><col width="14%"><col width="14%"><col width="14%"><col width="14%">
+					        				
+					        				<tbody>
+					        					<tr>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">28</div>
+					        							<div style="height:72px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">29</div>
+																<div class="EventOnDayContent">
+																	<div class="EventOnDayLabel">[1 Event]</div>
+																</div>
+																<div class="EventOnDayDetailsIcon"><span></span></div>
+																<div style="clear: both"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">30</div>
+																<div style="height:72px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">31</div>
+																<div style="height:72px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">1</div>
+																<div class="EventOnDayContent">
+																	<div class="EventOnDayLabel">[5 Event]</div>
+																</div>
+																<div class="EventOnDayDetailsIcon"><span></span></div>
+																<div style="clear: both"><span></span></div>
+															</td>
+					        						<td class="CalendarMatchedEventContent">
+																<div class="BlueWeekSuburdbar" style="text-align: right">2</div>
+																<div style="height:72px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">3</div>
+																<div style="height:72px"><span></span></div>
+															</td>					        						        						
+					        					</tr>							        					
+					        				
+					        					<tr>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">4</div>
+					        							<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">5</div>
+					        							<div style="height:69px"><span></span></div>															
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">6</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">7</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">8</div>
+					        							<div style="height:69px"><span></span></div>																
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">9</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">10</div>
+																<div style="height:69px"><span></span></div>
+															</td>					        						        						
+					        					</tr>						        					
+					        				
+					        					<tr>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">11</div>
+					        							<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">12</div>
+					        							<div style="height:69px"><span></span></div>																
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">13</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">14</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">15</div>
+					        							<div style="height:69px"><span></span></div>																
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">16</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">17</div>
+																<div style="height:69px"><span></span></div>
+															</td>					        						        						
+					        					</tr>					        					
+					        				
+					        					<tr>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">18</div>
+					        							<div style="height:69px"><span></span></div>					        			
+															</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">19</div>
+					        							<div style="height:69px"><span></span></div>																
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">20</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">21</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">22</div>
+					        							<div style="height:69px"><span></span></div>																
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">23</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">24</div>
+																<div style="height:69px"><span></span></div>
+															</td>					        						        						
+					        					</tr>					        					
+					        				
+					        					<tr>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">25</div>
+					        							<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">26</div>
+					        							<div style="height:69px"><span></span></div>																
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">27</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">28</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar" style="text-align: right">1</div>
+					        							<div style="height:69px"><span></span></div>																
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">2</div>
+																<div style="height:69px"><span></span></div>
+															</td>
+					        						<td class="CalendarContentNomal">
+																<div class="WhiteWeekSuburdbar" style="text-align: right">3</div>
+																<div style="height:69px"><span></span></div>
+															</td>					        						        						
+					        					</tr>							        					
+					        				</tbody>
+					        				
+					        			</table>
+					        		</div>
+
+										</div>
+									</div>
+								</div>
+								
+								<div class="UITabContent" style="display: none;">
+									<div class="DayWorkingAreaBorder">
+										<div class="DayWorkingArea">
+										
+		        					<div class="RowContainerDay">
+					        			<table class="UIGrid" id="RowContainerDay" cellspacing="0" borderspacing="0">
+					        				<col width="33%"><col width="33%"><col width="33%">
+					   
+					        				<tbody>
+					        					<tr>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar">January</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarNomalDay">1</div>
+																				<div class="CalendarBoldDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarBoldDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div class="CalendarBoldDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarBoldDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div class="CalendarBoldDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarNomalDay">29</div>
+																				<div class="CalendarNomalDay">30</div>
+																				<div class="CalendarNomalDay">31</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>
+					        						<td class="CalendarMatchedEventContent">
+					        							<div class="BlueWeekSuburdbar">February</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarCurrentDay">1</div>
+																				<div class="CalendarNomalDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarNomalDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarNomalDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar">march</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarNomalDay">1</div>
+																				<div class="CalendarNomalDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarNomalDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarNomalDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>					        						        						
+					        					</tr>							        					
+					        				
+					        					<tr>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar">April</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarNomalDay">1</div>
+																				<div class="CalendarNomalDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarNomalDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarNomalDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar">May</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarNomalDay">1</div>
+																				<div class="CalendarNomalDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarNomalDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarNomalDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar">Jun</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarNomalDay">1</div>
+																				<div class="CalendarNomalDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarNomalDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarNomalDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>					        						        						
+					        					</tr>							        					
+					        				
+					        					<tr>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar">July</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarNomalDay">1</div>
+																				<div class="CalendarNomalDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarNomalDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarNomalDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar">August</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarNomalDay">1</div>
+																				<div class="CalendarNomalDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarNomalDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarNomalDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar">September</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarNomalDay">1</div>
+																				<div class="CalendarNomalDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarNomalDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarNomalDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>					        						        						
+					        					</tr>							        					
+					        				
+					        					<tr>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar">October</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarNomalDay">1</div>
+																				<div class="CalendarNomalDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarNomalDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarNomalDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar">November</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarNomalDay">1</div>
+																				<div class="CalendarNomalDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarNomalDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarNomalDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>
+					        						<td class="CalendarContentNomal">
+					        							<div class="WhiteWeekSuburdbar">December</div>
+					        							<div class="WeekList">
+									  							<div class="SundayTitle">S</div>
+									  							<div class="DayTitle">M</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">W</div>
+									  							<div class="DayTitle">T</div>
+									  							<div class="DayTitle">F</div>
+									  							<div class="DayTitle">S</div>
+									  							<div style="clear: both"><span></span></div>
+									  						</div>
+									  						
+									  						<div class="DayList">
+									  						
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarNomalDay">1</div>
+																				<div class="CalendarNomalDay">2</div>
+																				<div class="CalendarNomalDay">3</div>
+																				<div style="clear: both"><span></span></div>
+									  									</div>
+									  								</div>
+									  							</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">4</div>
+																				<div class="CalendarNomalDay">5</div>
+																				<div class="CalendarNomalDay">6</div>
+																				<div class="CalendarNomalDay">7</div>
+																				<div class="CalendarNomalDay">8</div>
+																				<div class="CalendarNomalDay">9</div>
+																				<div class="CalendarNomalDay">10</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+										  						<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">11</div>
+																				<div class="CalendarNomalDay">12</div>
+																				<div class="CalendarNomalDay">13</div>
+																				<div class="CalendarNomalDay">14</div>
+																				<div class="CalendarNomalDay">15</div>
+																				<div class="CalendarNomalDay">16</div>
+																				<div class="CalendarNomalDay">17</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">18</div>
+																				<div class="CalendarNomalDay">19</div>
+																				<div class="CalendarNomalDay">20</div>
+																				<div class="CalendarNomalDay">21</div>
+																				<div class="CalendarNomalDay">22</div>
+																				<div class="CalendarNomalDay">23</div>
+																				<div class="CalendarNomalDay">24</div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							<div class="DayListRowLeft">
+																		<div class="DayListRowRight">
+																			<div class="DayListRowCenter">
+																				<div class="CalendarNomalDay">25</div>
+																				<div class="CalendarNomalDay">26</div>
+																				<div class="CalendarNomalDay">27</div>
+																				<div class="CalendarNomalDay">28</div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div class="CalendarHiddenDay"><span></span></div>
+																				<div style="clear: both"><span></span></div>
+										  								</div>
+										  							</div>
+										  						</div>
+									  							
+									  						</div>
+					        						</td>				        						        						
+					        					</tr>							        					
+					        				</tbody>			        				
+					        				
+					        			</table>
+					        		</div>
+					        		
+					        	</div>					        
+					        </div>
+        				</div>
+
+								<div class="UITabContent" style="display: none;">
+
+									<div class="DayWorkingAreaBorder">
+										<div class="DayWorkingArea">
+										
+											<div class="EventsListTitle">Events List</div>
+											<div class="DayEventList">
+					        			<table class="UIGrid" id="DayList" cellspacing="0" borderspacing="0">
+					        			<col width="40%"><col><col width="70">
+					        				<thead>
+					        					<tr>	                						
+					        						<th><div class="NormalLabel">Date And Time</div></th>
+					        						<th><div class="NormalLabel">Event Title</div></th>
+					        						<th><div class="NormalLabel">Actions</div></th>					        						
+					        					</tr>					        			
+					        				</thead>
+					        				<tbody>
+					        					<tr class="EvenRow">
+					        						<td class="Bluelabel">0:00</td>
+					        						<td class="Bluelabel">sfsdfdhf</td>
+					        						<td >
+																<div class="ContainerEventActions">
+																	<div title="View Event" class="ViewEventIcon"><span></span></div>
+																	<div title="Edit Event" class="EditEventIcon"><span></span></div>
+																	<div title="Delete Event" class="DeleteEventIcon"><span></span></div>
+																	<div style="clear: both"><span></span></div>
+																</div>
+															</td>	                						
+					        					</tr>
+					        					<tr class="OddRow">
+					        						<td><div class="BlackLabel">0:01</div></td>
+					        						<td class="BlackLabel">sfsdfdhf</td>
+					        						<td >
+																<div class="ContainerEventActions">
+																	<div title="View Event" class="ViewEventIcon"><span></span></div>
+																	<div title="Edit Event" class="EditEventIcon"><span></span></div>
+																	<div title="Delete Event" class="DeleteEventIcon"><span></span></div>
+																	<div style="clear: both"><span></span></div>
+																</div>
+															</td>	                						
+					        					</tr>
+					        					<tr class="EvenRow">
+					        						<td><div class="BlackLabel">0:02</div></td>	                						
+					        						<td class="BlackLabel">sfsdfdhf</td>
+					        						<td >
+																<div class="ContainerEventActions">
+																	<div title="View Event" class="ViewEventIcon"><span></span></div>
+																	<div title="Edit Event" class="EditEventIcon"><span></span></div>
+																	<div title="Delete Event" class="DeleteEventIcon"><span></span></div>
+																	<div style="clear: both"><span></span></div>
+																</div>
+															</td>                						
+					        					</tr>
+					        					<tr class="OddRow">
+					        						<td><div class="BlackLabel">0:03</div></td>
+					        						<td class="BlackLabel">sfsdfdhf</td>
+					        						<td >
+																<div class="ContainerEventActions">
+																	<div title="View Event" class="ViewEventIcon"><span></span></div>
+																	<div title="Edit Event" class="EditEventIcon"><span></span></div>
+																	<div title="Delete Event" class="DeleteEventIcon"><span></span></div>
+																	<div style="clear: both"><span></span></div>
+																</div>
+															</td>	                						
+					        					</tr>
+					        					<tr class="EvenRow">
+					        						<td><div class="BlackLabel">0:04</div></td>	                						
+					        						<td class="BlackLabel">sfsdfdhf</td>
+					        						<td >
+																<div class="ContainerEventActions">
+																	<div title="View Event" class="ViewEventIcon"><span></span></div>
+																	<div title="Edit Event" class="EditEventIcon"><span></span></div>
+																	<div title="Delete Event" class="DeleteEventIcon"><span></span></div>
+																	<div style="clear: both"><span></span></div>
+																</div>
+															</td>	                						
+					        					</tr>
+					        				</tbody>
+					        			</table>
+					        		</div>
+
+											<div class="UIPageIterator">
+									      <div class="NormalPage">
+										      Events Page<span>1-15</span>
+										      on page<span>1</span>
+										      of<span>5</span>
+									      </div>
+									      <div class="RightBlock">
+									    	  <div class="Icon LastTopPageIcon"></div>        
+									    	  <div class="Icon LastPageIcon"><span></span></div>
+											    <div class="Number">
+								            <div class="PageSelected">1</div>
+								            <div class="NormalPage">2 3 4</div>
+								            <div style="clear: left"><span></span></div>
+											    </div>
+						    	        <div class="Icon NextPageIcon"><span></span></div>
+								    	    <div class="Icon NextTopPageIcon"><span></span></div>
+								    	    <div style="clear: left"><span></span></div>
+										    </div>
+										    <div style="clear: both"><span></span></div>
+											</div>
+
+										</div>
+									</div>
+
+        				</div>
+	
+							</div>
+						</div>
+
+					</div>
+					<div><span></span></div>
+				</div>
+			</div>
+
+			<div class="BottomLeftCornerBoxDecorator">
+	    	<div class="BottomRightCornerBoxDecorator">
+	      	<div class="BottomCenterBoxDecorator"><span></span></div>
+	    	</div>
+	  	</div>
+  	
+  	</div>
+  </div>
+</div>	

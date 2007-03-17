@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+  <component>
+   <key>org.exoplatform.portal.skin.SkinService</key>
+   <type>org.exoplatform.portal.skin.SkinService</type>
+  </component>  
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.portletcontainer.PortletApplicationRegister</target-component>
+    <component-plugin>
+      <name>skin.deployer.listener</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.portal.skin.SkinListener</type>
+      <description>this listener register the skin config with the skin service</description>
+    </component-plugin>
+  </external-component-plugins>
+</configuration>

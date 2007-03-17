@@ -1,0 +1,62 @@
+<div class="AcountFolderContenner">
+	<div class="AcountFolderContennerBar">
+		<div class="LeftAccountBar">
+			<div class="RightAccountBar">
+				<div class="MiddleAccountBar">
+					<div class="AccountLabel">Account Folders</div>
+					<div class="AccountStatusIcon">
+		      	<div href="#" title="Add New Account" class="AddNewAccount"><span></span></div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="AccountMiddleBorder">
+		<div class="AccountMiddle">			
+			<div class="Accountcontainner">
+				<div class="AccountFolderStatus">
+					<div  class="AccountFolder1Icon "><span></span></div>
+					<div class="AccountLabel1">Account Folders 1</div>
+					<div href="#" title="Actions" class="ActionIcon"><span></span></div>							
+				</div>
+				<div class="FolderStatus">
+					<div class="InboxIcon"><span></span></div>
+					<div class="InboxLabel">Inbox (5)</div>
+					<div style="clear: left"><span></span></div>
+				</div>
+  			<div class="FolderStatus">
+					<div class="DraftsIcon"><span></span></div>
+					<div class="DraftsLabel">Drafts</div>
+					<div style="clear: left"><span></span></div>
+				</div>
+				<div class="FolderStatus">
+					<div class="SentIcon"><span></span></div>
+					<div class="DraftsLabel">Sent</div>
+					<div style="clear: left"><span></span></div>
+				</div>
+				<div class="FolderStatus">
+					<div class="TrashIcon"><span></span></div>
+					<div class="DraftsLabel">Trash</div>
+					<div style="clear: left"><span></span></div>
+				</div>
+				<div style="clear: both"><span></span></div>
+			</div>
+			<div class="Accountcontainner">
+				<div class="AccountFolderStatus">
+				  <div  class="AccountFolderIcon"><span></span></div>
+				  <div class="AccountLabel">Account Folders 2</div>	
+				  <div href="#" title="Actions" class="ActionIcon"><span></span></div>								
+				</div>
+			</div>
+			<div class="Accountcontainner">
+				<div class="AccountFolderStatus">
+				  <div  class="AccountFolderIcon"><span></span></div>
+				  <div class="AccountLabel">Account Folders 3</div>	
+				  <div href="#" title="Actions" class="ActionIcon"><span></span></div>								
+				</div>
+			</div>
+			<div style="clear: both"><span></span></div>
+		</div>
+	</div>
+</div>
+			

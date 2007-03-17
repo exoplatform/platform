@@ -1,0 +1,179 @@
+.UILogged {
+  padding: 5px 0px 0px 0px ;
+}
+
+.UILogged .WelcomeImage {  
+  width: 232px; height: 32px ;
+  background: url('DefaultSkin/background/WelcomeImage.gif') no-repeat ;
+  margin: auto;
+}
+
+.UILogged .UserWelcomeBox {
+  padding: 5px 0px 7px 0px;
+  background: white;
+  line-height: 20px; 
+  border: solid 1px #b7b7b7 ;
+}
+
+.UILogged .UserWelcomeBox .StateMessage {
+  font-size: 11px; 
+  text-align: center;
+  line-height: 20px; 
+}
+
+.UILogged .UserWelcomeBox .LoggedUserName {
+  color: #fa8006 ;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold; 
+}
+
+.UILogged .OrangeMessage {
+  float: left ;
+  height: 24px; 
+  color: #fa8006 ;
+  font-size: 11px; font-weight: normal;
+  line-height: 24px; vertical-align: middle;
+}
+
+.UILogged .DecoratorBox {
+  margin: 10px 4px 10px 6px;
+}
+
+.UILogged .DecoratorBox .DecoratorBackground{
+  width: auto; height: auto;
+  background: #efefef;
+}
+
+.UILogged .DashboardTitle {
+  height: 36px; 
+  line-height: 36px;
+}
+
+.UILogged .LeftDashboardBar {
+  height: 36px; 
+  line-height: 36px;
+  background: url('DefaultSkin/background/WidgetTitleBarL50x36.gif') no-repeat left;
+  padding: 0px 0px 0px 50px;
+}
+
+.UILogged .RightDashboardBar {
+  height: 36px; 
+  line-height: 36px;
+  background: url('DefaultSkin/background/WidgetTitleBarR6x36.gif') no-repeat right;
+  padding: 0px 6px 0px 0px;
+}
+
+.UILogged .MiddleDashboardBar {
+  height: 36px;
+  background: url('DefaultSkin/background/WidgetTitleBarM1x36.gif') repeat-x ;
+}
+
+.UILogged .MiddleDashboardBar .Label{
+  height: 26px; line-height: 26px;
+  font-size: 11px; font-weight: bold;
+  padding: 10px 0px 0px 15px;
+}
+
+.UILogged .DecoratorBox .LoginDetailBox {
+  background: white;
+  padding: 1px;
+  border-top: none;
+}
+
+.UILogged .DecoratorBox .WidgetBoxContainer {
+  background: white;
+  padding: 1px;
+  border: solid 1px #b7b7b7;
+  border-top: none;
+}
+
+.UILogged .WidgetBox {
+  background: white;
+  padding: 7px;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UILogged .WidgetBox .WidgetBoxTitle {
+  height: 18px;
+  background: white;
+  text-align: center; font-size: 11px;
+  line-height: 18px; vertical-align: middle;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UILogged .WidgetBox .WidgetItemContainer {
+  line-height: 20px;
+  font-size: 11px;
+  text-align: justify;
+  padding: 4px;
+}
+
+.UILogged .WidgetBox .WidgetDecorImage {
+  width: 95px; height: 95px;
+  background: url('DefaultSkin/background/WidgetDecorImage.gif') no-repeat ;
+  margin: auto; 
+}
+
+.UILogged .BrowserSupport {
+	background: white;
+	font-size: 11px;
+	margin: 5px 10px;
+	border: solid 1px gray;
+}
+
+.UILogged .BrowserSupport .BrowserSupportTitle {
+	height: 20px; 
+	line-height: 20px; vertical-align: middle; 
+	text-align: center; font-weight: bold;
+	background: url('DefaultSkin/background/BrowserSupport1x20.gif') repeat-x;
+}
+
+.UILogged .BrowserSupport .BrowserIconContainer {
+	padding: 0px 10px 0px 10px;
+	margin: 5px 0px 5px 0px;
+}
+
+.UILogged .BrowserSupport .BrowserIconContainer .SubTitle {
+	float: left;
+	width: 90px;
+	line-height: 32px; vertical-align: middle;
+}
+
+.UILogged .BrowserSupport .BrowserIconContainer .Icon {
+	width: 48px; height: 32px;
+}
+
+.UILogged .BrowserSupport .BrowserIconContainer .FirefoxIcon {
+	float: left;
+	background: url('DefaultSkin/background/FirefoxIcon.gif') no-repeat;
+}
+
+.UILogged .BrowserSupport .BrowserIconContainer .IE7Icon {
+	float: left;
+	background: url('DefaultSkin/background/IE7Icon.gif') no-repeat;
+}
+
+.UILogged .BrowserSupport .BrowserIconContainer .IE6Icon {
+	float: left;
+	background: url('DefaultSkin/background/IE6Icon.gif') no-repeat;
+}
+
+.UILogged .BrowserSupport .BrowserIconContainer .SafariIcon {
+	float: left;
+	background: url('DefaultSkin/background/SafariIcon.gif') no-repeat;
+}
+
+.UILogged .DownloadBar {
+  width: 150px;
+  margin: auto;
+  padding: 5px;
+}
+
+.UILogged .DownloadBar .DownloadIcon {
+	float: left;
+	width: 24px; height: 24px;
+	background: url('DefaultSkin/background/Download.gif') no-repeat;
+	margin: 3px 0px 0px 0px;
+}
+

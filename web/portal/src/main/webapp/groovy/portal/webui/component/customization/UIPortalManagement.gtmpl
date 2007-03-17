@@ -1,0 +1,53 @@
+<%
+	import org.exoplatform.portal.component.customization.UIPortalManagementEditBar;	
+	import org.exoplatform.portal.component.customization.UIContainerConfigOptions;
+	import org.exoplatform.portal.component.customization.UIPortalManagementControlBar;
+	import org.exoplatform.portal.component.customization.UIPortletOptions;	
+	import org.exoplatform.webui.component.UIDescription;
+
+%>
+<div class="UIPortalManagement" id="UIPortalManagement">  
+  <div class="TopTitleBar">
+    <div class="UIBarStyle">
+      <div class="Style4">
+        <div class="LeftBar">
+          <div class="RightBar">
+            <div class="MiddleBar">
+              <%= _ctx.appRes(uicomponent.getId() + ".title."+ uicomponent.getMode())%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ControlArea">   
+   <%uicomponent.renderChild(UIPortalManagementEditBar.class)%>	   
+  </div> 
+   	 
+  <%if(uicomponent.getChild(UIContainerConfigOptions.class).isRendered()) {%>      
+    <!-- Select Container Layout Block -->
+    <div id="UIContainerConfigOptions">
+      <%uicomponent.renderChild(UIContainerConfigOptions.class)%>
+    </div>   
+  <%}%>  
+ 
+  <%if(uicomponent.getChild(UIPortletOptions.class).isRendered()) {%>
+    <div id="UIPortletOptions">
+      <%uicomponent.renderChild(UIPortletOptions.class);%>
+    </div> 
+  <%}%>
+ 
+  <%if(uicomponent.getChild(UIDescription.class).isRendered()) {%>
+    <div id="UIDescription">
+      <%uicomponent.renderChild(UIDescription.class);%>
+    </div> 
+  <%}%>
+  <%if(uicomponent.getChild(UIPortalManagementControlBar.class) != null) {%>
+	<div class="ControlArea" >
+    	
+	  <% uicomponent.getChild(UIPortalManagementControlBar.class).setRendered(true);
+	  uicomponent.renderChild(UIPortalManagementControlBar.class);%>
+	</div> 
+  <%} %>
+</div>
+ 

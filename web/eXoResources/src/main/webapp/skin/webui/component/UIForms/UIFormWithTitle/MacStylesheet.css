@@ -1,0 +1,42 @@
+.UIFormWithTitle {
+  width: 450px ;
+  margin: auto ;
+  border: 1px solid #b7b7b7;
+  background: url('/eXoResources/background/MacSkin/PortletBG.gif');
+}
+
+.UIFormWithTitle .TitleBar {
+  background: url('/eXoResources/background/MacSkin/TitleBG1x19.gif') repeat-x;
+  height: 19px; line-height: 19px; vertical-align: middle; 
+  font-size: 11px; 
+  padding-left: 15px;
+  border-bottom: 1px solid #b7b7b7;
+}
+
+.UIForm .HorizontalLayout {
+  border: 1px white solid;
+}
+
+.UIFormWithTitle .UIForm input {
+  margin-left: 8px ;
+  width: 215px;
+}
+
+.UIFormWithTitle .UIForm select {
+  margin-left: 10px ;
+  width: 220px;
+}
+
+.UIFormWithTitle .UIForm textarea {
+  margin-left: 8px ;
+  width: 220px;
+}
+
+.UITestForm {
+	width: 500px;
+}
+
+.UITestForm .ActionContainer {
+	width: 380px;
+	padding: 10px 0px;
+}

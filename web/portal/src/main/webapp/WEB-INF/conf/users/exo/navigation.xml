@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+  <owner>exo</owner>
+  <access-permission>*:/guest</access-permission>  
+  <edit-permission>member:/user</edit-permission>
+  <page-nodes>
+    <node>
+      <uri>home</uri>
+      <name>home</name>
+      <label>Home</label>
+      <access-permission>*:/guest</access-permission>
+      <page-reference>exo:/content</page-reference>
+      <description>Content page</description> 
+    </node> 
+    
+    <node>
+      <uri>registry-portlet</uri>
+      <name>registry-portlet</name>
+      <label>Registry Portlet</label>
+      <access-permission>*:/guest</access-permission>
+      <page-reference>exo:/registry-portlet</page-reference>
+      <description>Registry portlet des</description>       
+    </node>    
+
+    <node>
+      <uri>site</uri>
+      <name>sitemap</name>
+      <label>Site Map</label>
+      <access-permission>*:/guest</access-permission>
+      <page-reference>exo:/sitemap</page-reference>
+      <description>Site Map Portlet Page</description>       
+    </node>
+    
+    <node>
+      <uri>desktop</uri>
+      <name>desktop</name>
+      <label>Desktop</label>
+      <access-permission>*:/guest</access-permission>
+      <page-reference>exo:/desktop</page-reference>
+      <description>Desktop Test Page</description>
+    </node>
+    
+    <node>
+      <uri>myaccount</uri>
+      <name>myaccount</name>
+      <label>My Account</label>
+      <access-permission>*:/guest</access-permission>
+      <page-reference>exo:/myaccount</page-reference>
+      <description>My Account Page</description>    
+    </node>   
+  </page-nodes>
+</node-navigation>

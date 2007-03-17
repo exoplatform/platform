@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+  <owner>company</owner>
+  <access-permission>*:/guest</access-permission>
+  <edit-permission>member:/portal/company</edit-permission>
+  <page-nodes>
+    <node>
+      <uri>company</uri>
+      <name>company</name>
+      <label>Company</label>
+      <access-permission>*:/guest</access-permission>
+      <page-reference>company:/home</page-reference>
+      <description>Company homepage</description>
+    </node>
+    
+    <node>
+      <uri>organization</uri>
+      <name>organization</name>
+      <label>Organization</label>
+      <access-permission>owner:/portal/company</access-permission>
+      <page-reference>company:/organization</page-reference>
+      <description>Organization page</description>
+    </node>
+    
+    <node>
+      <uri>myaccount</uri>
+      <name>myaccount</name>
+      <label>My Account</label>
+      <access-permission>owner:/portal/company</access-permission>
+      <page-reference>company:/myaccount</page-reference>
+      <description>My Portal Page</description>
+    </node>       
+  </page-nodes>  
+</node-navigation>

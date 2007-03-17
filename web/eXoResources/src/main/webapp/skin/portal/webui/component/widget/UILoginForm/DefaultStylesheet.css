@@ -1,0 +1,50 @@
+.UILoginForm .LoginIcon {
+  float: left ;
+  width: 42px ;  height: 35px ;
+  background: url('DefaultSkin/background/LoginIcon42x35.gif') no-repeat ;
+  margin: 5px 10px 0px 5px ;
+}
+
+.UILoginForm .DecoratorBox {
+  margin: 10px 0px 15px 0px ;
+}
+
+.UILoginForm .WelcomeMessage {
+  margin: 5px 5px ;
+}
+
+.UILoginForm .LoginDetailBox .VerticalLayout label {
+  font-size: 11px;  
+}
+
+.UILoginForm .LoginDetailBox .VerticalLayout input {
+  width: 180px;
+  margin: 4px 0px 6px 0px ; 
+  border: solid 1px #b7b7b7 ;
+}
+
+.UILoginForm .LoginDetailBox .VerticalLayout .UIAction {
+  float: none;
+  padding: 8px 0px 0px 0px ; 
+  margin: 0px 0px 7px 0px;
+}
+
+.UILoginForm .VerticalLayout .UIAction .ActionButton {
+  float: none;
+  width: 52px;
+  margin: auto; 
+}
+
+.UILoginForm .ForgotMessage {
+  height: 26px;
+  font-size: 11px; text-align: center; color: blue ;
+  line-height: 26px; vertical-align: bottom;
+  white-space: nowrap;
+  margin: 0px 5px 10px 5px; 
+  padding: 5px 0px 5px 0px;
+  border-top: solid 1px #b7b7b7 ; 
+  border-bottom: solid 1px #b7b7b7;
+  cursor: pointer;
+}
+
+

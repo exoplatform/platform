@@ -1,0 +1,44 @@
+<%
+  import org.exoplatform.webui.component.UIRightClickPopupMenu ;
+  
+  def selected = uicomponent.getSelected();
+  def sibling = uicomponent.getSibbling();
+  def children = uicomponent.getChildren();  
+  
+  UIRightClickPopupMenu uiPopupMenu = uicomponent.getUIRightClickPopupMenu();
+
+  if(uiPopupMenu != null){
+	  def rcontext = _ctx.getRequestContext() ;
+    String id = uicomponent.getParent().getId();
+  
+  	rcontext.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
+  	rcontext.addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
+  	
+    uicomponent.renderUIComponent(uiPopupMenu) ; 
+  }
+%>
+<div class="UITree">
+  <div class="TreeContainer ScrollArea">
+    <div class="TreeLevelContainer">
+	    <a class="LevelUpArrowIcon" href="<%=uicomponent.getActionLink();%>" title="Up Level" style="display: block;"><span></span></a>
+  	</div>
+    <%         
+ 		  for(object in sibling) { 			    
+ 	  %>		
+		    <div class="Node" style="padding-top: 2px;">
+		    <%=uicomponent.renderNode(object);%>		      	      		
+		    <%  
+				  if(uicomponent.isSelected(object)){
+				    for(child in children) { 
+				%>					      		 
+					    <div class="Node" style="padding-top: 2px; margin-left: 10px; ">
+					      <%=uicomponent.renderNode(child); %>
+					    </div>
+			  <%
+			      } 				    							  	
+			    }	
+			  %>						   
+			  </div>
+		<%}%>
+  </div>  
+</div>

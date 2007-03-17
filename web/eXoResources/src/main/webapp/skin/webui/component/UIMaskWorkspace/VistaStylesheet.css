@@ -1,0 +1,204 @@
+.UIMaskWorkspace {
+   width: 700px ;
+}
+
+.UIMaskWorkspace .ContentContainer {
+  height: 393px ;
+  background:#ffffff;
+  border: solid 1px #424345 ;
+ /*  background: url('VistaSkin/background/UIAddApplicationBG.png') repeat;*/
+}
+
+.UIMaskWorkspace .TopLeftDecorator {
+  background: url('VistaSkin/background/TopLeftDecorator15x14.png') left no-repeat;
+  padding: 0px 0px 0px 15px ;
+}
+
+.UIMaskWorkspace .TopRightDecorator {
+  background: url('VistaSkin/background/TopRightDecorator15x14.png') right no-repeat;
+  padding: 0px 15px 0px 0px ;
+}
+
+.UIMaskWorkspace .TopLeftDecorator .TopCenterDecorator {
+  height: 14px ;
+  background: url('VistaSkin/background/TopCenterDecorator1x14.png') repeat-x;
+}
+
+.UIMaskWorkspace .MiddleLeftDecorator {
+  background: url('VistaSkin/background/MiddleLeftDecorator15x1.png') repeat-y left;
+  padding: 0px 0px 0px 15px ;
+}
+
+.UIMaskWorkspace .MiddleRightDecorator {
+  background: url('VistaSkin/background/MiddleRightDecorator15x1.png') repeat-y right;
+  padding: 0px 15px 0px 0px ;
+}
+
+.UIMaskWorkspace .BottomLeftDecorator {
+  background: url('VistaSkin/background/BottomLeftDecorator15x17.png') left no-repeat;
+  padding: 0px 0px 0px 15px ;
+}
+
+.UIMaskWorkspace .BottomRightDecorator {
+  background: url('VistaSkin/background/BottomRightDecorator15x17.png') right no-repeat;
+  padding: 0px 15px 0px 0px ;
+}
+
+.UIMaskWorkspace .BottomLeftDecorator .BottomCenterDecorator {
+  height: 17px ;
+  background: url('VistaSkin/background/BottomCenterDecorator1x17.png') repeat-x;
+}
+
+.UIMaskWorkspace .TitleBarContainer {
+  width: 400px ;
+  margin: auto ;
+  padding: 8px 0px 0px 0px ;
+}
+
+.UIMaskWorkspace .TitleBarContainer .LeftTitleBar {
+  background: url('VistaSkin/background/LeftTitleBar26x33.png') no-repeat left;
+  padding: 0px 0px 0px 26px ;
+}
+
+.UIMaskWorkspace .TitleBarContainer .RightTitleBar {
+  background: url('VistaSkin/background/RightTitleBar26x33.png') no-repeat right;
+  padding: 0px 26px 0px 0px ;
+}
+
+.UIMaskWorkspace .TitleBarContainer .CenterTitleBar {
+  height: 33px ;
+  line-height: 26px ;
+  font-weight: bold ; text-align: center ;
+  background: url('VistaSkin/background/CenterTitleBar1x33.png') repeat-x top;
+}
+
+.UIMaskWorkspace .ContentContainerDetail {
+  padding: 10px 15px ;
+}
+
+.UIMaskWorkspace .UITabContentContainer {
+  background: #f2f2f2 ;
+  padding: 1px;
+  border: solid 1px gray;
+}
+
+.UIMaskWorkspace .UITabContentContainer .UITabContent {
+  height: 243px ;
+  background: #f2f2f2;
+  padding: 8px ;
+  border: solid 1px #b7b7b7;
+}
+
+.UIMaskWorkspace .ContentContainerDetail .TabsContainer {
+	width: 99%; 
+}
+
+.UIMaskWorkspace .ContentContainerDetail .TabsContainer .RefreshButtonContent {
+	float: right;
+	width: 105px;
+}
+
+.UIMaskWorkspace .TabsContainer .RefreshButtonContent .RefreshButtonLeft {
+	background: url('VistaSkin/background/RefreshButtonleft6x29.png') no-repeat top left; 
+	padding: 0px 0px 0px 6px;
+}
+
+.UIMaskWorkspace .TabsContainer .RefreshButtonContent .RefreshButtonRight {
+	background: url('VistaSkin/background/RefreshButtonRight9x29.png') no-repeat top right; 
+	padding: 0px 9px 0px 0px ;
+}
+
+.UIMaskWorkspace .TabsContainer .RefreshButtonContent .MiddleRefreshButton {
+	height: 27px;
+	background: url('VistaSkin/background/MiddleRefreshButton1x29.png') repeat-x top; 
+}
+
+.UIMaskWorkspace .TabsContainer .RefreshButtonContent .IconRefreshButton {
+	float: left;
+	width: 24px; height: 24px; 
+	background: url('VistaSkin/icons/16x16/RefreshButton.png') no-repeat center; 
+	padding: 0px 0px 0px 3px;
+	cursor: pointer ;
+}
+
+.UIMaskWorkspace .TabsContainer .RefreshButtonContent .RefreshButtonLabel {
+	line-height: 24px;
+	font-weight: bold;
+	padding: 0px 8px;
+	cursor: pointer ;		
+}
+
+.UIMaskWorkspace .TabsContainer .RefreshButtonLabel a {
+	color: black;
+}
+
+.UIMaskWorkspace .TabsContainer .RefreshButtonLabel a:hover {
+	color: blue;
+}
+
+.UIMaskWorkspace .UIItemSelector .FloatRightStyle .ItemListContainer .ItemList {
+  height: 206px ;
+  overflow: auto ;
+}
+
+.UIMaskWorkspace .ApplicationListContainer {
+	height: 235px ;
+	overflow: auto ;
+}
+
+.UIMaskWorkspace .Application {
+  margin: 10px 10px 5px 10px ;
+	border: solid 1px #d6d6d6 ;
+}
+
+.UIMaskWorkspace .TitleBarApplication {
+	height: 27px ;
+	background: url('VistaSkin/background/TitleBarApplicationBG1x25.png') repeat ;
+}
+
+.UIMaskWorkspace .IconLayout {
+	float: left ;
+	margin: 8px 5px 0px 5px ;
+}
+
+.UIMaskWorkspace .ApplicationLabel {
+	float: left ;
+	height: 27px ;
+	line-height: 27px; 
+	font-weight: bold ;
+	vertical-align: middle ;
+}
+
+.UIMaskWorkspace .CheckButton {
+	float: right ; 
+	width: 18px ; height: 27px ;
+	background: url("VistaSkin/icons/16x16/Check.png") no-repeat center;
+	margin: 0px 3px ;
+	cursor: pointer ;
+}
+
+.UIMaskWorkspace .AddButton {
+	float: right ; 
+	width: 17px ; height: 27px ;
+	background: url("VistaSkin/icons/16x16/Add.png") no-repeat center;
+	margin: 0px 10px ;
+	cursor: pointer ;
+}
+
+.UIMaskWorkspace .ApplicationDescription {
+	background: white ;
+	padding: 10px 15px ;
+}
+
+.UIMaskWorkspace .UIAction {
+  width: 110px ;
+  margin: auto ;
+}
+
+.UIMaskWorkspace .UIAction .ActionButton {
+  width: 100px ;
+}
+
+.UIMaskWorkspace .UIAction .ActionButton .Icon {
+  margin: 0px 0px 0px 10px ;
+}

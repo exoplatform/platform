@@ -1,0 +1,136 @@
+@import url("UIAccountManagement/DefaultStylesheet.css") ;
+@import url("UIMessageManagement/DefaultStylesheet.css") ;
+@import url("UIComposeForm/DefaultStylesheet.css") ;
+@import url("UIReadMessage/DefaultStylesheet.css") ;
+/*##########################################################*/
+.UIWindow .UIMailApplication {
+	overflow: auto;
+}
+
+.UIMailApplication {
+	background: #f4f4f4;
+}
+
+.UIMailApplication .MailApplicationContainer {
+	margin: 0px 0px 0px 10px;
+}
+
+.UIMailApplication .MailContainerLeft {
+	float: left;
+  width: 250px;
+}
+
+.UIMailApplication .MailContainerRight {
+  width: auto;
+	margin: 0px 0px 0px 250px;
+}
+
+.UIMailApplication .MailContainerLeft .LogoMail {
+  width: 250px; height: 66px;
+  background: url('DefaultSkin/background/LogoBannerMail250x66.jpg') no-repeat;
+}
+
+.UIMailApplication .MailContainerRight .WelcomeTitle {
+	float: left;
+	font-size: 16px; font-weight: bold;
+	font-family: Arial; 
+	color: #2b88f0;
+	line-height: 40px;
+	margin: 0px 0px 0px 8px;
+}
+
+.UIMailApplication .MailContainerRight .PowerFulTitle {
+	float: right;
+	line-height: 40px;
+	font-weight: bold;
+	color: #f5a202;
+	padding: 0px 10px 0px 0px;
+}
+
+.UIMailApplication .MailContainerRight .BannerBackground {
+	height: 41px;
+	background: url('DefaultSkin/background/BannerInboxR1x41.gif') repeat-x;
+	margin: 0px 5px 0px 10px;
+}
+/************************************UIPopUpMenu*********************************/
+.PopUpActionMenu {
+  width: 230px;
+	border: solid 1px #919192;
+	background: #ffffff;
+	white-space: nowrap;
+}
+
+.UIMailApplication .PopUpAccount {
+	width: 200px;
+}
+
+.UIMailApplication .PopUpMessage {
+	width: 210px;
+}
+
+.PopUpActionMenu .FolderStatus {
+	height: 24px;
+	padding: 0px 0px 0px 5px;
+}
+
+.PopUpActionMenu .FolderStatus .EditAccountIcon {
+	float: left;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat center;
+	cursor: pointer;
+}
+
+.PopUpActionMenu .FolderStatus .DeleteAccountIcon {
+	float: left;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat center;
+	cursor: pointer;
+}
+
+.PopUpActionMenu .FolderStatus .AddFolderIcon {
+	float: left;
+  width: 16px; height: 16px;
+	background: url('DefaultSkin/icons/16x16/AddNewFolder.gif') no-repeat center;
+	cursor: pointer;
+}
+
+.PopUpActionMenu .FolderStatus .DeleteFolderIcon {
+	float: left;
+	width: 16px; height: 16px;
+	background: url('DefaultSkin/icons/16x16/DeleteSelectedFolder.gif') no-repeat center;
+	cursor: pointer;
+}
+
+.PopUpActionMenu .FolderStatus .EditFolderLabelIcon {
+	float: left;
+	width: 16px; height: 16px;
+	background: url('DefaultSkin/icons/16x16/EditFolder.gif') no-repeat center;
+	cursor: pointer;
+}
+
+.PopUpActionMenu .FolderStatus .EmptyTrashFolderIcon {
+	float: left;
+	width: 16px; height: 16px;
+	background: url('DefaultSkin/icons/16x16/EmptyTrashFolder.gif') no-repeat center;
+	cursor: pointer;
+}
+
+.PopUpActionMenu .FolderStatus .BlueSquare16x16Icon {
+	float: left;
+	width: 16px; height: 16px;
+	background: url('DefaultSkin/icons/16x16/BlueSquareIcon.gif') no-repeat center;
+	cursor: pointer;
+	margin: 3px 0px 0px 0px;
+}
+
+.PopUpActionMenu .FolderStatus .PopUpActionMenuLabel {
+	line-height: 20px; 
+	margin: 0px 0px 0px 25px;
+	cursor: pointer;
+}
+
+.PopUpActionMenu .PopUpActionMenuLine {
+	height: 1px;
+	background: #919192;
+	margin: 0px 5px 3px 5px;
+}

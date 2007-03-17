@@ -1,0 +1,61 @@
+/**
+ * Created by The eXo Platform SARL
+ * Modifile : Lai Van Khoi
+ *           khoilv80@gmail.com
+ * January 24, 2007
+ * version: $Id$
+ */
+.Documents24x24Icon {
+  height: 24px; width: 24px;
+  background: url('DefaultSkin/DocumentsIcon.gif') no-repeat ;
+}
+
+.PlusIcon24x24Icon {
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/PlusIcon.gif') no-repeat;
+}
+
+.PostIcon24x24Icon {
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/PostIcon.gif') no-repeat left;
+}
+
+.EditPost24x24Icon {
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/EditIcon.jpg') no-repeat;
+}
+
+.ReplyPost24x24Icon {
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/ReplyIcon.gif') no-repeat right;
+}
+
+.Forum24x24Icon {
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/ForumIcon.gif') no-repeat;
+}
+
+.AddForum24x24Icon {
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/AddForumIcon.gif') no-repeat;
+}
+
+.DeleteCategory24x24Icon {
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/DeleteCategoryIcon.gif') no-repeat;
+}
+
+.EditCategory24x24Icon {
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/EditCategoryIcon.gif') no-repeat;
+}
+
+.AscendCategoryOrder24x24Icon {
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/AscendingCategoryIcon.gif') no-repeat;  
+}
+
+.DescendCategoryOrder24x24Icon {
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/DesendingCategoryIcon.gif') no-repeat;  
+}

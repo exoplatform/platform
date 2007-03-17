@@ -1,0 +1,203 @@
+/*########################### Begin ToolBar ######################################################*/
+.UIForumApplication .UIForumPosts .UIPostToolBar {
+  height: 25px;
+  margin: 2px 0px;
+}
+
+.UIPostToolBar .AddPostButton {
+  width: 104px;
+  height: 24px;
+  float: left;  
+}
+
+.UIPostToolBar .AddPostButton .AddPostButtonLeft {
+  padding-left: 6px;
+  height: 24px;
+  background: url('DefaultSkin/background/AddPostButtonLeft6x24.jpg') no-repeat left;
+}
+
+.UIPostToolBar .AddPostButton .AddPostButtonRight {
+  padding-right: 6px;
+  height: 24px;
+  background: url('DefaultSkin/background/AddPostButtonRight6x24.jpg') no-repeat right;
+}
+
+.UIPostToolBar .AddPostButton .AddPostButtonMiddle {
+  height: 24px;
+  background: url('DefaultSkin/background/AddPostButtonRepeat1x24.jpg') repeat-x;
+}
+
+.UIPostToolBar .AddPostButton .AddPostIcon {
+  float: left;  
+  width: 20px;
+  height: 20px;  
+}
+
+.UIPostToolBar .AddPostButton .AddPostButtonLabel {
+  float: right;
+  text-align: center;
+  line-height: 24px;  
+}
+
+.UIPostToolBar .PageNavigation {
+  width: 404px;
+  height: 24px;
+  float: right;
+}
+
+.UIPostToolBar .PageNavigation .PageNavigationLeft {
+  padding-left: 9px;
+  height: 24px;
+  background: url('DefaultSkin/background/PageNavigationLeft9x24.jpg') no-repeat left;
+}
+
+.UIPostToolBar .PageNavigation .PageNavigationRight {
+  padding-right: 12px;
+  height: 24px;
+  background: url('DefaultSkin/background/PageNavigationRight12x24.jpg') no-repeat right;
+}
+
+.UIPostToolBar .PageNavigation .PageNavigationMiddle {
+  height: 24px;
+  background: url('DefaultSkin/background/PageNavigationRepeat1x24.jpg') repeat-x; 
+}
+
+.PageNavigationMiddle .ArrowRightPage {
+  height: 16px;
+  width: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowRightPage.gif') no-repeat right;
+  padding: 4px 0px;
+  float: right;  
+}
+
+.PageNavigationMiddle .ArrowRight {
+  height: 16px;
+  width: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowRight.gif') no-repeat right;
+  padding: 4px 0px;
+  float: right;
+  margin-right: 13px;  
+}
+
+.PageNavigationMiddle .PageNumberText {
+  text-align: center;
+  line-height: 24px;
+  margin: 0px 16px;
+  float: right; 
+}
+
+.PageNavigationMiddle .ArrowLeft {
+  height: 16px;
+  width: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowLeft.gif') no-repeat right;
+  padding: 4px 0px;
+  float: right; 
+}
+
+.PageNavigationMiddle .ArrowLeftPage {
+  height: 16px;
+  width: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowLeftPage.gif') no-repeat right;
+  padding: 4px 0px;
+  float: right; 
+  margin-right: 13px;
+}
+
+.PageNavigationMiddle .PageNavigationLabel {
+  text-align: center;
+  line-height: 24px;
+  margin: 0px 7px;
+  float: left;
+}
+
+.PageNavigationMiddle .PageCount {
+  color: red;
+  text-align: center;
+  line-height: 24px;
+  float: left;
+}
+/*########################### Begin ToolBar ######################################################*/
+
+
+/*############################# Begin ThreadTitle ################################################*/
+.UIForumApplication .UIForumPosts .ThreadTitle {
+  background-color: #d4defc;
+  height: 23px;
+  border: solid 1px #bbbbbb;
+  margin-bottom: 2px;
+}
+
+.UIForumApplication .UIForumPosts .ThreadTitle .ThreadTitleLabel {
+  font-weight: bold;
+  line-height: 23px;
+  margin-left: 8px;
+}
+/*############################# End ThreadTitle ################################################*/
+
+.UIForumApplication .UIForumPosts .UIGrid {
+  background: #edf2f8 ;    
+}
+
+.UIForumApplication .UIForumPosts .UIGrid .Post{
+  border: solid 1px #c4c4c4;
+}
+
+.UIForumApplication .UIForumPosts .Post .PostUserInfo {
+  width: 140px;
+  border: solid 1px #c4c4c4;
+}
+
+.UIForumApplication .UIForumPosts .PostUserInfo .MemberName{
+  font-weight: bold;
+  text-decoration: underline;
+  color: blue;
+  margin-bottom: 8px;
+}
+
+.UIForumApplication .UIForumPosts .Post .PostInfor {
+  border: solid 1px #c4c4c4;
+  padding-left: 8px;
+  vertical-align: top ;
+}
+
+.UIForumApplication .UIForumPosts .PostInfor .PostInforHead {
+  border-bottom: dotted 1px #c3c3c3;
+  padding-right: 20px;
+}
+
+.UIForumApplication .UIForumPosts .PostInforHead .PostIcon {
+  float: left;
+  width: 24px;
+}
+
+.UIForumApplication .UIForumPosts .PostInforHead .PostSubject {
+  float: left;
+  text-align: left;
+  line-height: 24px;
+}
+
+.UIForumApplication .UIForumPosts .PostInforHead .ReplyIcon {
+  width: 65px;
+  float: right; 
+  margin-right: 2px;  
+}
+
+.UIForumApplication .UIForumPosts .PostInforHead .ReplyIconLabel {
+  float: right;
+  line-height: 24px;
+  color: blue;
+}
+
+.UIForumApplication .UIForumPosts .PostInfor .PostInforBody {
+  padding: 20px 0px;
+}
+
+.UIForumApplication .UIForumPosts .PostInfor .PostInforFoot {
+  border-top: dotted 1px #c3c3c3;
+  padding: 15px 0px;
+}
+
+.UIForumApplication .UIForumPosts .VerticalSpaces {
+  margin-bottom: 8px;
+}
+

@@ -1,0 +1,139 @@
+.UIPageManagement {
+  padding: 0px 7px 7px 7px ;
+}
+
+.UIPageManagement .TopTitleBar {
+  margin-bottom: 10px;
+  padding: 0px 10px 0px 10px;
+}
+
+/*############################- UIPageManagementControlBar Icons -#####################*/
+
+.UIPageManagement .RollbackBar {
+  width: 125px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+
+/*############################- UIPageManagementEditBar Icons -#####################*/
+.UIPageManagement .AddNodeIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 6px 3px 0px 0px;
+  background: url('DefaultSkin/icons/AddPage.gif') no-repeat;
+}
+
+.UIPageManagement .EditSelectedNodeIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 6px 1px 0px 1px;
+  background: url('DefaultSkin/icons/EditNode.gif') no-repeat;
+}
+
+.UIPageManagement .EditNavigationIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 6px 2px 0px 1px;
+  background: url('DefaultSkin/icons/EditPageNavigation.gif') no-repeat;
+}
+
+.UIPageManagement .EditPageNodeIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 6px 2px 0px 0px;
+  background: url('DefaultSkin/icons/EditPage.gif') no-repeat;
+}
+
+.UIPageManagement .CopyNodeIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 6px 2px 0px 1px;
+  background: url('DefaultSkin/icons/Copy.gif') no-repeat;
+}
+
+.UIPageManagement .PasteNodeIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 6px 1px 0px 1px;
+  background: url('DefaultSkin/icons/Paste.gif') no-repeat;
+}
+
+.UIPageManagement .DeleteNodeIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 7px 1px 0px 1px;
+  background: url('DefaultSkin/icons/NavyBlueTrashBin.gif') ;
+}
+
+.UIPageManagement .SaveNavigationIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 7px 2px 0px 1px;
+  background: url('DefaultSkin/icons/BlackSaveFloppyDisk.gif') ;
+}
+
+/*##########################Edit Page Control Bar#############################*/
+.UIPageManagement .UIPageManagementEditBar .PolyToolbar {
+  margin-top: 15px;
+}
+
+.UIPageManagement .EditContainerIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 4px 10px 0px 8px;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/ShowContainerControl.gif') no-repeat ;
+}
+
+.UIPageManagement .EditPortletIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 4px 10px 0px 10px;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/ShowPortletControl.gif') no-repeat ;
+}
+
+.UIPageManagement .EditPageIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 4px 10px 0px 8px;
+  background: url('DefaultSkin/icons/EditPageProperties.gif') no-repeat;
+}
+
+.UIPageManagement .PageLayoutModeIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 4px 7px 0px 10px;
+  background: url('DefaultSkin/icons/PageLayout.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageManagement .PagePreviewIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 4px 7px 0px 10px;
+  background: url('DefaultSkin/icons/PagePreview.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageManagement .NavigationConfigIcon{
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/icons/NavigationCommunityConfig.gif') no-repeat ;
+  cursor: pointer ;
+  float: left;
+  margin: 5px 7px 0px 12px;
+}
+
+.UIPageManagement .RollbackIcon {
+  float: left;
+  width: 24px; height: 24px;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueBackArrow.gif') no-repeat;
+  margin: 5px 2px 0px 6px;
+}
+
+.UIPageManagement .SavePageIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 4px 0px 0px 8px; 
+  background: url('DefaultSkin/icons/SavePage.gif') no-repeat;
+}
+

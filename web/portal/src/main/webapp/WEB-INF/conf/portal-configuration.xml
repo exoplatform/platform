@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+  <component>
+    <key>org.exoplatform.portal.community.CommunityConfigService</key>
+    <type>org.exoplatform.portal.community.CommunityConfigService</type>
+    <init-params>
+      <object-param>
+        <name>community.portal.1</name>
+        <description>configuration for the portal communities</description>
+        <object type="org.exoplatform.portal.community.CommunityPortal">
+          <field  name="groupId"><string>/portal/share</string></field>
+          <field  name="membership"><string>member</string></field>
+          <field  name="portal"><string>exoportal</string></field>
+          <field  name="priority"><int>5</int></field>
+          <field  name="description">
+            <string>use 'portal' configuration if user in group portal and have the 
+              'member' membership</string>
+          </field>
+        </object>
+      </object-param>
+
+      <object-param>
+        <name>configuration</name>
+        <description>configuration for the portal communities</description>
+        <object type="org.exoplatform.portal.community.CommunityNavigation">
+          <field  name="groupId"><string>/portal/share</string></field>
+          <field  name="membership"><string>member</string></field>
+          <field  name="navigation"><string>exoportal</string></field>
+          <field  name="description"><string>test</string></field>
+        </object>
+      </object-param>
+    </init-params>
+  </component> 
+  <!--
+  <component>
+    <type>org.exoplatform.portal.config.impl.UserConfigTemplate</type>
+	  <init-params>
+	    <object-param>
+	      <name>configuration</name>
+	      <description>description</description>
+	      <object type="org.exoplatform.portal.config.impl.NewPortalConfig">
+	        <field  name="predefinedUser">
+	          <collection type="java.util.HashSet">
+	            <value><string>exoadmin</string></value>
+	            <value><string>exo</string></value>
+	            <value><string>exoportal</string></value>
+	            <value><string>exotest</string></value>
+	            <value><string>community</string></value>
+	            <value><string>company</string></value>
+	          </collection>
+	        </field>
+	        <field  name="templateUser"><string>template</string></field>
+	        <field  name="templateLocation"><string>war:/conf/users</string></field>
+	      </object>
+	    </object-param>
+	  </init-params>
+	</component>
+	
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.organization.OrganizationService</target-component>
+    <component-plugin>
+      <name>portal.new.user.event.listener</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.portal.config.impl.PortalUserEventListenerImpl</type>
+      <description>this listener create the portal configuration for the new user</description>
+      <init-params>
+        <object-param>
+          <name>configuration</name>
+          <description>description</description>
+          <object type="org.exoplatform.portal.config.impl.NewPortalConfig">
+            <field  name="predefinedUser">
+              <collection type="java.util.HashSet">
+                <value><string>exoadmin</string></value>
+                <value><string>exo</string></value>
+                <value><string>company</string></value>
+                <value><string>community</string></value>
+                <value><string>exoportal</string></value>
+                <value><string>exotest</string></value>
+              </collection>
+            </field>
+            <field  name="templateUser"><string>template</string></field>
+            <field  name="templateLocation"><string>war:/conf/users</string></field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+    <component-plugin>
+      <name>portal.membership.event.listener</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.portal.config.impl.PortalMembershipEventListener</type>
+      <description>this listener create the portal configuration for the new user</description>
+    </component-plugin>
+    <component-plugin>
+      <name>community.group.event.listener</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.portal.community.CommunityGroupEventListener</type>
+      <description>listen to the delete group event and remove the community configuration for that group</description>
+    </component-plugin>
+  </external-component-plugins> -->
+</configuration>

@@ -1,0 +1,122 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.exoplatform.portal</groupId>
+  <artifactId>config</artifactId>
+  <name>eXo Core Config</name>
+  <version>2.0</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>component/xml-parser</module>
+    <module>component/resources</module>
+    <module>component/portlet-registry</module>
+    <module>component/data</module>
+
+    <module>webui/core</module>
+    <module>webui/portal</module>
+
+    <module>portlet/content</module>
+    <module>portlet/exoadmin</module>
+    <module>portlet/site</module>
+    <module>portlet/web</module>
+
+    <module>web/eXoResources</module>
+    <module>web/portal</module>
+  </modules>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>src/test/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+      </testResource>
+    </testResources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration> <source>1.5</source><target>1.5</target><optimize>true</optimize></configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.0.2</version>
+        <configuration>
+	  <warSourceExcludes>WEB-INF/lib/*.jar</warSourceExcludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <skip>${test.skip}</skip>
+          <useFile>false</useFile>
+          <forkMode>pertest</forkMode><!--once , pertest -->
+          <testFailureIgnore>false</testFailureIgnore>
+          <includes>
+            <include implementation="java.lang.String">**/${test.classes}*.java</include>
+          </includes>
+          <systemProperties>
+            <property>
+              <name>maven.exoplatform.dir</name>
+              <value>${exo.directory.base}/projects/exo-platform</value>
+            </property>
+            <property>
+              <name>mock.portal.dir</name>
+              <value>${exo.projects.directory.src}/portal/trunk/web/portal/src/main/webapp</value>
+            </property>
+            <property>
+              <name>org.apache.commons.logging.Log</name>
+              <value>org.apache.commons.logging.impl.SimpleLog</value>
+            </property>
+            <property>
+              <name>org.apache.commons.logging.simplelog.defaultlog</name>
+              <value>info</value>
+            </property>
+            <property>
+              <name>org.apache.commons.logging.simplelog.log.[eXo]</name>
+              <value>debug</value>
+            </property>
+            <property>
+              <name>org.apache.commons.logging.simplelog.log.net.hibernate</name>
+              <value>warn</value>
+            </property>
+          </systemProperties>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>default</id>  
+      <activation>
+        <property><name>default</name></property>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <exo.platform.version>2.0.3</exo.platform.version>
+
+        <org.exoplatform.kernel.version>2.0.3</org.exoplatform.kernel.version>
+        <org.exoplatform.core.version>2.0.3</org.exoplatform.core.version>
+        <org.exoplatform.portal.version>2.0</org.exoplatform.portal.version>
+        <org.exoplatform.jcr.version>1.5</org.exoplatform.jcr.version>
+        <org.exoplatform.pc.version>1.5</org.exoplatform.pc.version>
+        <test.classes>Test</test.classes>
+        <test.skip>true</test.skip>
+      </properties>
+    </profile>
+  </profiles>
+</project>

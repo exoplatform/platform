@@ -1,0 +1,293 @@
+/**
+ * Cated by The eXo Platform SAS
+ * Modifile : Vu Duy Tu
+ *           duytucntt@gmail.com
+ * December 15, 2006
+ * version: $Id$
+ */
+
+.UIWindow .UIContentPortlet {
+  overflow: auto ;
+}
+
+.UIContentPortlet {
+ padding: 5px 7px;
+ overflow: auto ; /* Fix bug on FireFox*/
+}
+
+.UIContentPortlet .UIContentNavigation {
+  float: left;
+  width: 250px;
+}
+
+.UIContentPortlet .UIContentWorkingArea {
+  margin-left: 260px ;
+}
+
+
+.UIContentPortlet .UIContentNavigation .UIContentNavigationContainer {
+}
+
+.UIContentPortlet .UIContentNavigation .UIToolbar{
+  margin-top: 0px;
+}
+
+.UIContentPortlet .UIContentNavigation .NewsCategory {
+  border: 1px solid #b7b7b7;
+  background: #f4f4f4;
+  padding: 1px;
+}
+
+.UIContentPortlet .UIContentNavigation .NewsCategory .UIVerticalSlideTabs {
+  border: 1px solid #cdcdcd;
+  padding: 7px; padding-bottom: 10px;
+  background: url('/eXoResources/background/DefaultSkin/NavigationBG.gif');
+}
+
+.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .VTabStyle3{
+  margin-top: 4px;
+}
+
+.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .SelectedVTabStyle3{
+  margin-top: 4px;
+}
+
+.UIContentPortlet .UIContentNavigation .UpArrowBar {
+  width: 24px; height: 20px;
+  padding-left: 8px;
+}
+
+.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NavigationUpArrowIcon {
+  width: 24px; height: 19px;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/UpFolder.gif') no-repeat ;
+}
+
+.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NodeLevel2 {
+	border: 1px #cdcdcd solid; border-top: none;
+	margin: 0px 3px 0px 3px;
+	background: white;
+}
+
+.UIContentPortlet .UIContentNavigation .NavigationControlIcon{
+	float: left ;
+	margin-left: 12px ;
+	margin-top: 4px ;
+}
+
+.UIContentPortlet .UIContentNavigation .RSSReaderSymbol {
+	float: left ;
+	margin-left: 3px ;
+	margin-top: 5px ;
+	width: 112px; height: 22px;
+	background: url('DefaultSkin/background/RSSReaderIcon.gif') no-repeat;
+}
+
+.UIContentPortlet .UIContentNavigation .NavigationIcon{
+	float: left ;
+	margin: 4px 5px 0px 5px ;
+}
+
+.UIContentPortlet .UIContentNavigation .OpenFolderIcon {
+	background: url('DefaultSkin/background/BlueOpenFolder.gif') no-repeat;
+	width: 20px; height: 16px;
+	margin-top: 5px;
+}
+
+.UIContentPortlet .UIContentNavigation .ClosedFolderIcon {
+	background: url('DefaultSkin/background/BlueClosedFolder.gif') no-repeat;
+	width: 20px; height: 16px;
+}
+
+.UIContentPortlet .UIContentNavigation .NavigationLabel {
+  float: left ;
+	height: 25px ;
+	line-height: 25px ;
+	vertical-align: middle ;
+	font-weight: bold ; font-size: 11px ;
+  color: black ;
+  margin-left: 5px
+}
+
+.UIContentPortlet .UIContentNavigation .PortletLabel {
+  float: left ;
+	height: 25px ;
+	line-height: 25px ;
+	vertical-align: middle ;
+	font-size: 11px ;
+  color: black ;
+}
+
+.UIContentPortlet .UIContentNavigation .PortletLabel a {
+	text-decoration: none;
+	color: black ;
+  line-height: 18px ;
+}
+
+
+.UIContentPortlet .UIContentNavigation .NavigationLabel a {
+	text-decoration: none ;
+	color: black ;
+}
+
+.UIContentPortlet .UIContentNavigation .VTabStyle3 a:hover {
+	text-decoration: none ;
+	color: orange ;
+}
+
+.UIContentPortlet .UIContentNavigation .NavigationSelected {
+	color: #3607d1 ;
+}
+
+.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs {
+  margin-right: 30px ;
+  font-size: 11px; 
+  border: 1px solid #b7b7b7;
+  margin-bottom: 3px;
+}
+
+.UIContentPortlet .UIContentWorkingArea .UIDescription{
+ padding: 0px;
+ margin: 0px;
+}
+
+.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .BreadcumbsContainer {
+  padding: 3px 5px 1px 10px;
+  font-size: 11px; 
+  height: 18px;
+  border: 1px solid #efefef;
+  background: white;
+}
+
+.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/NewsIcon.gif') no-repeat;
+}
+
+.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .CategoryName {
+  float: left;
+  color: #fd7426;
+  margin-left: 10px ;
+  line-height: 18px; vertical-align: middle;
+}
+
+.UIContentPortlet .UIContentWorkingArea .RefreshBar {
+  float: right;
+}
+
+.UIContentPortlet .UIContentWorkingArea .RefreshIcon {
+	float: left ;
+	margin: 2px 0px 0px 3px;
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/MetalSync.gif') no-repeat;
+}
+
+.UIContentPortlet .UIContentWorkingArea .NewsDetailLayout {
+  margin-top:  2px ;
+  padding: 1px;
+  border: 1px solid #b7b7b7;
+  background: white;
+}
+
+.UIContentPortlet .UIContentWorkingArea .NewsDetailContainer {
+  padding: 10px 10px 5px 10px;
+  border: 1px solid #cdcdcd;
+  background: #f4f4f4;
+}
+
+.UIContentPortlet  .UIContentWorkingArea .NewsDetail {
+  border: 1px solid #cdcdcd;
+  background: white;
+  padding: 10px 10px 10px 5px;
+  margin-bottom: 5px;
+}
+
+.UIContentPortlet .UIContentWorkingArea .ContentDetailTitle a {
+	color: #3607d1 ;
+	font-size: 11px ;
+	font-weight: bold ;
+}
+
+.UIContentPortlet .UIContentWorkingArea .ContentDetailImage {
+	float: left ;
+	padding: 5px ;
+}
+
+.UIContentPortlet .UIContentWorkingArea img {
+	border: 0px ;
+}
+
+.UIContentPortlet .UIContentWorkingArea .UIFormWithTitle {
+	width: 460px;
+}
+
+.UIContentPortlet .UIContentWorkingArea .UIFormWithTitle .UIAction{
+	width: 170px;
+	margin: auto;
+	margin-right: 100px;
+}
+
+.UIContentPortlet .UIContentWorkingArea .UIFormWithTitle .UIAction .ActionButton {
+	width: 80px;
+}
+
+.UIContentPortlet .UIContentWorkingArea .DateTime {
+	color: #5d5d5e;
+	font-size: 11px;
+	padding: 10px 5px 3px 5px;
+	text-align: right;
+}
+
+.UIContentPortlet .UIContentWorkingArea .ContentDetailImageDescription {
+	color: #1d28fb ;
+	text-align: center ;
+	font-size: 11px ;
+}
+
+.UIContentPortlet .UIContentWorkingArea .ContentDetailDescription {
+	padding-left: 20px ;
+}
+
+.UIContentPortlet .UIContentWorkingArea .ContentPageIterator {
+  width: 340px;
+  height: 30px;
+  margin-left: auto;
+  margin-top: 3px;
+}
+
+.UIContentPortlet .ContentPageIterator .BackIcon {
+  width: 16px; height: 16px;
+  margin-top: 4px;
+  float: left;
+}
+
+.UIContentPortlet .ContentPageIterator .NextIcon {
+  width: 16px; height: 16px;
+  margin-top: 4px;
+  float: right;
+}
+
+.UIContentPortlet .UIContentWorkingArea .Number {
+  float: left ;
+  text-align: center;
+  height: 20px; line-height: 20px; vertical-align: middle;
+  width: 280px;
+  
+}
+
+.UIContentPortlet .UIContentWorkingArea .Number a {
+  margin: 0px 3px 0px 5px ;
+  color: black ;
+  font-weight: bold ;
+  font-size: 11px ;
+}
+
+.UIContentPortlet .UIContentWorkingArea .Number a:hover {
+  color: blue ;
+}
+
+
+.UIContentPortlet .UIContentWorkingArea .Number a.PageSelected {
+  color: red ;
+}
+

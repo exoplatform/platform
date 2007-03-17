@@ -1,0 +1,134 @@
+.UIWindow .UIPortletRegistryPortlet {
+  overflow: auto ;
+	padding: 5px;
+}
+
+.UIPageBody .UIPortletRegistryPortlet {
+	padding: 7px;
+	background:url('VistaSkin/background/PortletRegistryBG.png') repeat ;
+	border: solid 1px black;
+}
+
+/*################################Portlet Registry Control################################*/
+.UIPortletRegistryPortlet .PortletRegistryControlArea {
+	float: left;
+	width: 225px;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .CategoryControlBar {
+	width: 225px;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .CategoryControlBar .CategoryControlIcon {
+	float: left;
+	margin-left: 15px;
+	margin-top: 1px;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList {
+	border: solid 1px #b2b1b1;
+	background-color: #ffffff;
+	padding: 5px;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryIcon {
+	float: left;
+	margin: 4px 10px 0px 5px;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryListContainer{
+	background: #ffffff;
+	padding:2px;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryIcon {
+	float: left;
+	margin: 4px 10px 0px 5px;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .OpenFolderIcon {
+  background: url('VistaSkin/icons/YellowOpenFolder.gif') no-repeat;
+  width: 20px; height:20px;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .ClosedFolderIcon {
+  background: url('VistaSkin/icons/YellowClosedFolder.gif') no-repeat;
+  width: 20px; height: 20px;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryLabel {
+	float: left;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+	font-weight: bold;
+	font-size: 11px;
+  color: black;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryLabel a {
+	text-decoration: none;
+	color: black;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList a.CategorySelected{
+	color: #005cff;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .PortletLabel {
+	float: left;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+	font-size: 11px;
+  color: black;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .PortletLabel a {
+	text-decoration: none;
+	color: black;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .PortletSelected {
+	color: #005cff;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CollapseExpandIcon {
+	float: right;
+}
+.UIPortletRegistryPortlet .PortletRegistryControlArea .UIVTabContent {
+  margin: 1px 8px;
+  border: 1px #b7b7b7 solid;
+  background: white;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletControlBar {
+  background: url('VistaSkin/background/TitleBG1x20.png') repeat-x;
+  height: 20px;
+  border-bottom: 1px #b7b7b7 solid;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletControlBar .PortletControlIcon {
+	float: left;
+	margin-top: 3px;
+	margin-left: 25px;
+}
+
+/*################################Portlet Registry Working################################*/
+
+.UIPortletRegistryPortlet .PortletRegistryWorkingArea {
+	margin-left: 235px;
+	background: #e8e8e8;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormInputSet {
+  margin: 10px 5px 5px 10px ; 
+}
+
+.UIPortletRegistryPortlet .UIVerticalSlideTabs {
+	margin: 0px; padding: 0px;
+}
+
+.UIPortletRegistryPortlet .UIVerticalSlideTabs .CategoryContent {
+  border-bottom: 1px #b7b7b7 solid;
+}

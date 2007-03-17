@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page-set>
+  <page>
+    <owner>company</owner>
+    <name>home</name>
+    <title>Home</title>
+    <view-permission>*:/guest</view-permission>        
+    <show-max-window>true</show-max-window>
+    <portlet>
+	    <window-id>company:/site/SitePortlet/siteportlet</window-id>
+	    <show-info-bar>false</show-info-bar>
+	  </portlet>
+  </page>  
+  
+  <page>
+    <owner>company</owner>
+    <name>organization</name>
+    <title>Organization</title>
+    <view-permission>member:/portal/company</view-permission>
+    <portlet>
+      <window-id>company:/exoadmin/OrganizationPortlet/Organization</window-id>
+	  	<show-info-bar>true</show-info-bar>
+	  	<show-window-state>true</show-window-state>
+		</portlet>	
+  </page>
+  
+  <page>
+    <owner>company</owner>
+    <name>myaccount</name>
+    <title>My Portal</title>
+    <view-permission>member:/portal/company</view-permission>
+    <portlet>
+      <window-id>company:/exoadmin/AccountPortlet/Account</window-id>
+      <show-info-bar>false</show-info-bar>
+     </portlet>  
+  </page> 
+</page-set>

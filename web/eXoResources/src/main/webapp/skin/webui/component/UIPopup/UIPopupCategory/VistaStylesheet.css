@@ -1,0 +1,95 @@
+.UIPopupCategory {
+}
+
+.UIPopupCategory .PopupCategoryDecorator {
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
+  height: 16px;
+  background: url('VistaSkin/background/PopupCategoryTL12x16.png') no-repeat left;
+  padding-left:12px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTC {
+  height:16px;
+  background: url('VistaSkin/background/PopupCategoryTC1x16.png') repeat-x;
+  
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
+  height: 16px;
+  background: url('VistaSkin/background/PopupCategoryTR45x16.png') no-repeat right;
+  padding-right: 45px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryML {
+  background: url('VistaSkin/background/PopupCategoryML12x1.png') repeat-y left;
+  padding-left: 12px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryMC {
+  background: #efefef;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryMR {
+  background: url('VistaSkin/background/PopupCategoryMR14x1.png') repeat-y right;
+  padding-right:14px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
+  height:18px;
+  background: url('VistaSkin/background/PopupCategoryBL12x18.png') no-repeat left;
+  padding-left:12px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBC {
+  height: 18px;
+  background: url('VistaSkin/background/PopupCategoryBC1x18.png') repeat-x;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
+  height:18px;
+  background: url('VistaSkin/background/PopupCategoryBR14x18.png') no-repeat right;
+  padding-right:14px;
+}
+
+.UIPopupCategory .CategoryItem {
+  height: 22px; line-height: 22px;
+  background: url('VistaSkin/background/NormalItemBG1x22.png') repeat-x;
+  border-bottom: 1px #b1b5c0 solid;
+  font-size: 11px;
+  cursor: pointer ;
+  
+}
+
+.UIPopupCategory .CategoryItem .Icon {
+  width: 16px; height: 16px;
+  float: left;
+  margin: 3px 0px 0px 6px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif') no-repeat center;
+}
+
+.UIPopupCategory .CategoryItem .ModifiedIcon {
+
+}
+
+.UIPopupCategory .CategoryItem .CategoryItemLabel {
+  line-height: 14px;
+  font-size: 11px;
+  margin: 0px;
+}
+
+.UIPopupCategory .CategoryItem a {
+  color: black;
+  text-decoration: none ;
+  cursor: pointer;
+}
+
+.UIPopupCategory .CategoryItem a:hover {
+  color: blue;
+}
+
+.UIPopupCategory .OverCategoryItem {
+	background: url('VistaSkin/background/OverItemBG1x22.png') repeat-x;
+	
+}

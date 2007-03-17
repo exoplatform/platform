@@ -1,0 +1,23 @@
+.UIPageBrowser {
+  border: solid 1px #f5f5f5;
+}
+
+.UIPageBrowser .UIAction {
+	width: 140px;
+	padding: 5px 5px;
+}
+
+.UIPageBrowser .UIAction .ActionContainer .ActionButton {
+	width: 140px;
+	margin: auto;
+}
+
+.UIPageBrowser .UIGrid .ActionContainer {  
+  margin: auto ;
+  width: 100px; height: 16px;
+}
+
+.UIPageBrowser .UIPageSelector .UIGrid .ActionContainer {  
+  margin: auto ;
+  width: 20px; height: 16px;
+}

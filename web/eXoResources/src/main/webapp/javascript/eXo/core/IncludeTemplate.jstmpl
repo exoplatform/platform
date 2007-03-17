@@ -1,0 +1,1 @@
+This is an included template <%=context.value%> , nested test <%=context.test.nested%>

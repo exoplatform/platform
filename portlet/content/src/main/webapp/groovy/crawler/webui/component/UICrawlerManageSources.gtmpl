@@ -1,0 +1,170 @@
+<%
+/**
+ * Created by The eXo Platform SARL
+ * Author : Pham Tuan
+ *          phamtuanchip@yahoo.de
+ * Jul 26, 2006  
+ */
+%>
+<%
+	def isExpand = [1,0,0,0,0,0,0,1,0,0,0];
+	def tabList = ['Entertainment','Finance','Health','Hot News','Law','Politic','Science','Software','Social','Sports','Wolrd'];
+	def iconList = ['Entertainment16x16Icon','Finance16x16Icon','Medical16x16Icon','HotNews16x16Icon','BlueBalanced16x16Icon','Politic16x16Icon','BlueCogWheel16x16Icon','Software16x16Icon','Social16x16Icon','FootBall16x16Icon','Earth16x16Icon'];
+	def insideEntertainment = ['BBC','CNN','Dan Tri','VnExpress'];	
+	def insideFinance = [];
+	def insideHealth = [];
+	def insideHotNews = [];
+	def insideLaw = [];
+	def insidePolitic = [];
+	def insideScience = [];
+	def	insideSoftware = [];	
+	def insideSocial = [];
+	def insiteSports = ['Fifa','Olympc','Star Sport','VnExpress'];
+	def insideWolrd = [];	
+	def insiteAll = [insideEntertainment,insideFinance,insideHealth,insideHotNews,insideLaw,insidePolitic,insideScience,insideSoftware,insideSocial,insiteSports,insideWolrd];
+	countI=0;
+	j=0;
+	styleSkin	='';
+	expandIcon='';
+%>
+
+<div class="UICrawlerManageSources">
+	<div class="UIBarStyle">	
+		<div class="NavyBluePolygonBar32Style">
+			<div class="LeftBar">
+				<div class="RightBar">	
+					<div class="MiddleBar">
+						<div class="OverflowContainer">
+							<div class="ManageSourcesControlIcon">							 
+							   
+							   <div class="LeftBlock ManageSourcesControlIconHolder">
+							   	 <div class="OnMouseOver24x24Icon">
+							   	 	 <div class="GreenPlusBrownBox24x24Icon" onclick="window.location.href=('<%=uicomponent.event('ControlBarActionListener', 'UICategoryForm');%>')">
+							   	 	   <span></span>
+							   	 	 </div>
+							   	 </div>
+							   </div>							   
+							   <div class="ManageSourcesControlIconHolder">	
+							   	<div class="YellowPenBrownBox24x24Icon" onclick="window.location.href=('<%=uicomponent.event('ControlBarActionListener', 'UICategoryForm');%>')">
+							   		<span></span>
+							   	</div>
+							   </div>
+							   <div class="ManageSourcesControlIconHolder">
+							   	<div class="NavyBlueRecycleBin24x24Icon">
+							   		<span></span>
+							   	</div>
+							   </div>							   
+							   <div class="ManageSourcesControlIconHolder">							   		
+						   		 <div class="Selected24x24Icon">
+						   			 <div class="NavyBlueDocument24x24Icon" onclick="window.location.href=('<%=uicomponent.event('ControlBarActionListener', 'UIDescription');%>')">
+						   			   <span></span>
+						   			 </div>							   		
+						   		 </div>
+							   </div>							 			
+							   
+							</div>						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+	
+	<%//----Begin Render ----%>
+  <% 
+  	for(i in tabList)	{  	
+	  	if (isExpand[j]==1) {
+	  		styleSkin ='PolygonNavyVioletStyle';
+	  		expandIcon ='ExpandButton';
+	  	}
+	  	if (isExpand[j]==0) {
+	  		styleSkin ='PolygonNavyBlueStyle';
+	  		expandIcon ='CollapseButton';
+	  }  	
+  %>  
+  <div class="UIVerticalSlideTabs">			
+		<div class="UIVTab">
+			<div class="<%=styleSkin%>">		
+				<div class="TabLeft">
+					<div class="TabRight">
+						<div class="TabRepeat">
+							<div class="OverflowContainer">
+								<div class="LeftBlock NavigationIcon <%=iconList[j]%>"><span></span></div>
+								<a href="" class="LeftBlock" >$i</a>
+								<div class="RightBlock CollapseExpandIcon <%=expandIcon%>"><span></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% if (isExpand[j]==1)  { %>
+			<%//-----Begin show Rss---- %>	
+			<div class="Tabshow">	
+				<div class="UIVTabContent">			
+					<div class="UIInfoBar">
+						<div class="SmoothStyle26">
+						  <div class="LeftBar">
+								<div class="RightBar">
+								  <div class="MiddleBar">
+									  <div class="OverflowContainer">							  	
+									  	<div class="TabControlIconHolder">
+									  		<a href="<%=uicomponent.event('SourceFormAction')%>" title="Add new source">
+									  			<div class="TabControlIcon GreenPlusDataBox16x16Icon"><span></span></div>															  			
+									  		</a>
+									  	</div>		  	
+											<div class="TabControlIconHolder">	
+												<a href="<%=uicomponent.event('SourceFormAction')%>" title="Edit Source">
+									  			<div class="TabControlIcon OrangePencilSourceBox16x16Icon"><span></span></div>
+									  		</a>
+									  	</div>
+									  	<div class="TabControlIconHolder">
+									  		<a href="" title="Delete source">
+									  			<div class="TabControlIcon DustBin16x16Icon"><span></span></div>
+									  		</a>
+									  	</div>							  	
+										</div>
+									</div>
+								</div>
+							</div>	
+						</div>
+					</div>			
+					<% if (insiteAll[countI].size()>0) {%>
+							<div class="TabshowHolder">						
+								<div class="UIVTabContent">
+										<%
+											for(k in insiteAll[countI]){
+										%>
+												<div class="UIBarStyle">
+													<div class="SmoothRounded26Style">
+														<div class="LeftBar">
+														  <div class="RightBar">
+															  <div class="MiddleBar">
+																  <div class="OverflowContainer">
+																	  <div class="LeftBlock NavigationIcon BlueSquare16x16Icon"><span></span></div>									
+																	  <a href="#">$k</a>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>						
+										<%}%>					
+								</div>							
+							</div>			
+					<%} else {%>	
+							<div class="Infomation" >
+								<div class="LeftBlock CircleInfo16x16Icon" ><span></span></div>
+								<div class="Content">
+									There is no source in this category. Click Add source Icon to add the new source to this category.
+								</div>			
+							</div>
+					<%}%>
+				</div>	
+			</div>
+			<%//-----End show Rss---- %>		
+	<%}%>
+	<% j++;countI++; } %>
+ 	<%//----End Render ----%>		
+</div>

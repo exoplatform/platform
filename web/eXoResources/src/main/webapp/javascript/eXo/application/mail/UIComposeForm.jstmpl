@@ -1,0 +1,172 @@
+<% var expandAddCC = 'eXo.application.mail.UIMailApplication.expandAndCollapse(this,\'CCBoldLabel\',\'WorkingAreaContent\',\'InputAddCCContent\')'%>
+<% var collapseAddCCC = 'eXo.application.mail.UIMailApplication.expandAndCollapse(this,\'CCLabel\',\'WorkingAreaContent\',\'InputAddCCContent\')'%>
+<% var expandAddBBC = 'eXo.application.mail.UIMailApplication.expandAndCollapse(this,\'BBCBoldLabel\',\'WorkingAreaContent\',\'InputAddBBCContent\')'%>
+<% var collapseAddBBC = 'eXo.application.mail.UIMailApplication.expandAndCollapse(this,\'BBCLabel\',\'WorkingAreaContent\',\'InputAddBBCContent\')'%>
+<div class="UIComposeForm">
+	<div class="MailComposeContainer">
+    <div class="MailComposeContainerBorder">
+      <div class="ComposeControlBar">
+        <div class="ComposeDiscard">
+      		<div class="BackIcon"><span></span></div>
+      		<div class="DiscardLabel">Back to Message</div>
+      		<div style="clear:left"><span></span></div>
+      	</div>
+        <div class="SeperatorLine"><span></span></div>
+        <div class="ComposeControlAction">
+        	<div class="SendMailIcon"><span></span></div>
+        	<a class="LabelMail">[Send Mail]</a>
+        	<div style="clear:left"><span></span></div>
+        </div>
+        <div class="ComposeControlAction">
+        	<div class="SaveMailIcon"><span></span></div>
+        	<a class="LabelMail">[Save Mail]</a>
+        	<div style="clear:left"><span></span></div>
+        </div>
+    	<div style="clear:left"><span></span></div>
+      </div>
+      <div class="ComposeWorkingArea">
+	      <div class="DecoratorBox">
+	        <div class="GrayRoundedFillBoxStyle">
+		        <div class="TopLeftCornerBoxDecorator">
+		          <div class="TopRightCornerBoxDecorator">
+		            <div class="TopCenterBoxDecorator"><span></span></div>
+		          </div>
+		        </div>	        
+		        <div class="MiddleLeftSideBoxDecorator">
+		          <div class="MiddleRightSideBoxDecorator">
+		            <div class="WorkingAreaContent">
+	                <div class="WorkingAreaMRContainer">
+			              <div class="InputLabel">To:</div>
+			              <div class="InPutContent">
+		                  <input type="text" value="gjslgjdf"/>
+		                </div>
+			              <div class="WorkingAreaOpenIcon"><span></span></div>
+			              <div style="clear:left"><span></span></div>
+			              <div class="WorkingAreaLink">
+				              <div class="CCLabel" onclick="<%=expandAddCC%>">Add CC</div>
+				              <div class="CCBoldLabel" style="display: none" onclick="<%=collapseAddCCC%>">Remove CC</div>
+				              <div class="SeperatorLineLink"><span></span></div>
+				              <div class="BBCLabel" onclick="<%=expandAddBBC%>">Add BBC</div>
+				              <div class="BBCBoldLabel" style="display: none" onclick="<%=collapseAddBBC%>">Remove BBC</div>
+				              <div style="clear:left"><span></span></div>
+			              </div>
+			            </div>
+			            <div class="InputAddCCContent" style="display: none">
+			              <div class="InputLabel">CC:</div>
+			              <div class="InPutAddContent">
+		                  <input type="text" value="gjslgjdf"/>
+		                </div>
+			              <div style="clear:left"><span></span></div>
+			            </div>
+			            <div class="InputAddBBCContent" style="display: none">
+			              <div class="InputLabel">BBC:</div>
+			              <div class="InPutAddContent">
+		                  <input type="text" value="gjslgjdf"/>
+		                </div>
+			              <div style="clear:left"><span></span></div>
+			            </div>
+			            <div class="WorkingAreaMRContainer">
+			              <div class="InputLabel">Subject:</div>
+			              <div class="InPutContent">
+		                  <input type="text" value="gjslgjdf"/>
+		                </div>
+			              <div style="clear:left"><span></span></div>
+			            </div>
+			            <div class="WorkingAreaMRContainer">
+			              <div class="InputLabel">Attach File:</div>
+		                <div class="ContainerButtonBrowser">                 
+					            <div class="ButtonBrowser">
+					              <input type="file" value="Browser..."/>
+					            </div>
+					            <div class="RecycleMailIcon"><span></span></div>
+					            <div class="WorkingAreaAttach">
+					              <div class="WorkingAreaAttachLeft">
+					                <div class="WorkingAreaAttachRight">
+					                  <div class="WorkingAreaAttachMiddle">
+					                    <div class="AttachFileMailIcon"><span></span></div>
+					                    <a class="Label">Attach another Files</a>
+					                    <div style="clear:left"><span></span></div>	
+					                  </div>
+					                </div>
+					              </div>
+					            </div>
+					          </div>
+			              <div style="clear:left"><span></span></div>
+			            </div>
+			            <div><span></span></div>
+		            </div>		            
+	            </div>
+	          </div>        
+	          <div class="BottomLeftCornerBoxDecorator">
+	            <div class="BottomRightCornerBoxDecorator">
+	              <div class="BottomCenterBoxDecorator"><span></span></div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="ComposeAreaMessage">
+	        <div class="ComposeAreaMessageBar">
+	          <div class="ComposeAMBarOne">
+	            <div class="TextTIcon"><span></span></div>
+	            <div class="TextLinkIcon"><span></span></div>
+	            <div class="TextFIcon"><span></span></div>
+	            <div class="TextLinkIcon"><span></span></div>
+	            <div class="TextFColorIcon"><span></span></div>
+	            <div class="TextLinkIcon"><span></span></div>
+	            <div class="TextABCIcon"><span></span></div>
+	            <div class="SeperatorLineCompose"><span></span></div>
+	            <div style="clear:left"><span></span></div>
+	          </div>
+	          <div class="ComposeAMBarOne">
+	            <div class="TextBoldIcon"><span></span></div>
+	            <div class="TextItalicIcon"><span></span></div>
+	            <div class="TextUnderLineIcon"><span></span></div>
+	            <div class="SeperatorLineCompose"><span></span></div>
+	            <div style="clear:left"><span></span></div>
+	          </div>
+	          <div class="ComposeAMBarOne">
+	            <div class="TextCenterIcon"><span></span></div>
+	            <div class="TextLineIcon"><span></span></div>
+	            <div class="TextLeftIcon"><span></span></div>
+	            <div class="TextLinkIcon"><span></span></div>
+	            <div class="TextContainerLeftIcon"><span></span></div>
+	            <div class="TextContainerRightIcon"><span></span></div>
+	            <div class="SeperatorLineCompose"><span></span></div>
+	            <div style="clear:left"><span></span></div>
+	          </div>
+	          <div class="ComposeAMBarOne">
+	            <div class="ScreenshotIcon"><span></span></div>
+	            <div class="TextLinkIcon"><span></span></div>
+	            <div class="YahooSmileIcon"><span></span></div>
+	            <div class="TextLinkIcon"><span></span></div>
+	            <div style="clear:left"><span></span></div>
+	          </div>
+	          <div style="clear:left"><span></span></div>
+	        </div>
+	        <div class="ComposeAreaMessageWorking">
+	          <textarea name="aaa"></textarea>
+	        </div>
+        </div>
+	    </div>
+	    <div class="ComposeControlBar">
+      	<div class="ComposeDiscard">
+      		<div class="BackIcon"><span></span></div>
+      		<div class="DiscardLabel">Back to Message</div>
+      		<div style="clear:left"><span></span></div>
+      	</div>
+        <div class="SeperatorLine"><span></span></div>
+        <div class="ComposeControlAction">
+        	<div class="SendMailIcon"><span></span></div>
+        	<a class="LabelMail">[Send Mail]</a>
+        	<div style="clear:left"><span></span></div>
+        </div>
+        <div class="ComposeControlAction">
+        	<div class="SaveMailIcon"><span></span></div>
+        	<a class="LabelMail">[Save Mail]</a>
+        	<div style="clear:left"><span></span></div>
+        </div>
+    	  <div style="clear:left"><span></span></div>
+      </div>      
+	  </div>
+  </div>
+</div>

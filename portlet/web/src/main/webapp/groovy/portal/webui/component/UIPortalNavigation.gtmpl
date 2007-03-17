@@ -1,0 +1,81 @@
+<% 
+  import org.exoplatform.portal.config.model.PageNode ;
+  
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.importJavascript('eXo.webui.UIHorizontalTabs');
+   
+  String mouseOver = "eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, true)" ;
+  String mouseOut = "eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, false)" ;
+  String itemMouseOver = "eXo.webui.UIHorizontalTabs.itemOver(this, true)" ;
+  String itemMouseOut = "eXo.webui.UIHorizontalTabs.itemOver(this, false)" ;
+
+
+  navigations = uicomponent.getNavigations();
+  
+  public void renderPageNode(PageNode node){
+    String itemClass = "MenuItem" ;
+    def children = node.getChildren() ;
+    if(children != null) itemClass = "MenuItem MenuItemExpand" ;
+    def actionLink = uicomponent.event("SelectNode", node.getUri()) ;
+    println "    <div class=\"$itemClass\" onmouseover=\"$itemMouseOver\" onmouseout=\"$itemMouseOut\">" ;
+    println "       <div onclick=\"window.location=\'$actionLink\'\" class=\"MenuItemEntry\">";
+    println "          <div class=\"MenuItemLeftIcon\"><div class=\"Portlet16x16Icon\"><span></span></div></div>";
+    println "       <div class=\"MenuItemText\"><a href=\"$actionLink\">$node.label</a></div>";
+    if(children != null) {
+      println "  <div class=\"MenuItemRightIcon\"><div class=\"BlueGridRightArrowIcon\"><span></span></div></div>";
+    }
+    println "        </div>";
+    renderChildrenNode(children) ;
+    println "    </div>";
+  }
+
+  public void renderChildrenNode(children){
+    if(children == null) return ;
+    println "<div class=\"UIPopupMenu\">";
+    println "  <div class=\"MiddleBar\">";
+    for(PageNode child in children){
+      renderPageNode(child) ;
+    }
+    println "  </div>"; 
+    println "</div>";
+  }
+%>
+  
+ <div class="UINavigationPortlet" id="UINavigationPortlet">
+    <div class="UIHorizontalTabs">
+      <div class="TabsContainer">
+      <%
+        if(navigations != null) {
+          PageNode selectedNode = uicomponent.getSelectedPageNode() ;
+          for(nav in navigations) {
+            def pageNodes = nav.getNodes() ;
+            for(PageNode node in pageNodes) {
+              def actionLink = uicomponent.event("SelectNode", node.getUri()) ;
+              
+              String tabStyleNavigation = "NormalNavigationTab" ;
+              if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
+                tabStyleNavigation = "SelectedNavigationTab" ;
+              }
+      %>      
+        
+        <div class="UITab">
+          <div class="$tabStyleNavigation">
+            <div class="LeftTab">
+              <div class="RightTab">
+                <div class="MiddleTab" onmouseover="$mouseOver" onmouseout="$mouseOut">
+                  <a href="$actionLink">$node.label</a>
+                </div>
+              </div>
+            </div>
+          </div>  
+          <%/*Render Popup Menu*/%>
+        </div>
+        
+       <%       
+            }
+          }
+        }
+       %>
+      </div>
+    </div>   
+ </div>

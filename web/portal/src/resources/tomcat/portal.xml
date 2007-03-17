@@ -1,0 +1,23 @@
+<Context path="/portal" docBase="../../../projects/v2.x/experiments/exo-portal/web/portal/src/webapp" 
+  debug="0" reloadable="true" crossContext="true">
+
+  <Logger className="org.apache.catalina.logger.SystemOutLogger"
+    prefix="localhost_portal_log." suffix=".txt"
+    timestamp="true"/>
+  <!--
+  <Logger className="org.apache.catalina.logger.FileLogger"
+    prefix="exo_portal." suffix=".txt" timestamp="true"/>          
+  -->
+  <!--
+  Remove this if you want to use the default StandarManager. The standard 
+  manager try to save the the session when you restart the tomcat it may cause
+  problem as not all of your session attribute is not serializable
+  -->
+  <Manager className="org.apache.catalina.session.PersistentManager" saveOnRestart="false"/>
+
+  <Realm className="org.apache.catalina.realm.JAASRealm"
+    appName="exo-domain"
+    userClassNames="org.exoplatform.services.security.impl.UserPrincipalImpl"
+    roleClassNames="org.exoplatform.services.security.impl.RolePrincipalImpl"
+    debug="0" cache="false"/>
+</Context>

@@ -1,0 +1,66 @@
+.UIPageSelector {
+	padding: 10px ;
+	width: 96% ;
+	
+}
+
+.UIPageSelector .SearchText {
+  float: left;
+  font-weight: bold; font-size: 11px;
+  margin-left: 10px;
+}
+
+.UIPageSelector .SearchText a:link, a:visited {
+  color: #2e06cc;
+}
+
+.UIPageSelector .SearchText a:hover {
+  color: orange;
+}
+
+.UIPageSelector .UIFormInfo {
+  background: white ;
+  border: 1px solid #b7b7b7;
+  margin-top: 1px;
+  padding-left: 20px;
+}
+
+.UIPageSelector .UIFormInfo .Icon{
+  float: left;
+  margin-right: 7px;
+}
+
+.UIPageSelector .FormInfoBG {
+  background: url('VistaSkin/background/FormInfoBG360x1.gif') repeat-y right ;
+  padding-right: 30px;
+}
+
+.UIPageSelector .FormInfoIcon {
+  background: url('VistaSkin/background/FormInfoIcon80x80.gif') no-repeat center right ;
+  padding: 15px 15px 20px 15px;
+}
+
+.UIPageSelector .SelectPageIcon {
+  float: left;
+  width: 28px; height: 24px;
+  margin: 4px 5px 0px 14px;
+  background: url('VistaSkin/background/SelectPage.gif') no-repeat ;
+  cursor: pointer;
+}
+
+.UIPageSelector .UIFormInfo .SelectedPageText {
+  font-weight: bold; font-size: 11px;
+  margin-top: 2px;
+}
+
+.UIPageSelector .UIFormInfo .PropertyName {
+  float: left;
+  width: 150px;
+  padding: 12px 0px 0px 23px;
+}
+
+.UIPageSelector .UIFormInfo .PropertyValue {
+  color: #3176e3;
+  font-size: 11px;
+  margin-left: 150px; margin-top: 10px;
+}

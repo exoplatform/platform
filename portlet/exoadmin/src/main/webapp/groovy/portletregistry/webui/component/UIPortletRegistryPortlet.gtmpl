@@ -1,0 +1,21 @@
+<%
+  import org.exoplatform.portletregistry.webui.component.UIPortletRegistryCategory ;
+  import org.exoplatform.portletregistry.webui.component.UIWorkingArea ;  
+%>
+<div class="UIPortletRegistryPortlet UIApplication" id="UIPortletRegistryPortlet">
+  <div class="ApplicationMinWidth">
+	  <div class="UIPortletRegistryContainer">
+		  <%// Begin Portlet Registry Control %>
+			<div class="PortletRegistryControlArea">
+			  <% uicomponent.renderChild(UIPortletRegistryCategory.class);%>
+			</div>
+		  <%// End Portlet Registry Control %>		  
+			<div class="PortletRegistryWorkingArea">
+			  <div class="RegistryWorkingAreaContainer">
+				  <% uicomponent.renderChild(UIWorkingArea.class);%>
+				</div>
+			</div>
+			<div style="clear: left"><span></span></div>
+		</div>
+	</div>
+</div>

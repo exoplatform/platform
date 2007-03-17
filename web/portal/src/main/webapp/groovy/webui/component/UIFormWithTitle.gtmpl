@@ -1,0 +1,55 @@
+<% String fieldName; %>
+<div class="UIFormWithTitle $uicomponent.id">
+  <div class="TitleBar"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
+  <% uiform.begin() %>
+  <div class="HorizontalLayout">
+    <div class="FormContainer">
+    
+      <% 
+        for(field in uiform.getChildren()) { 
+          if(field.isRendered()) {
+      %>
+            <div class="FieldContainer">
+              <%fieldName = uicomponent.getLabel(field.getName());%>
+              <%if(!fieldName.equals(uicomponent.getId())) { %>                        
+                  <label>
+                    <%if(fieldName != null && fieldName.length() > 0) {%> 
+                      <%=uicomponent.getLabel(field.getName())+": " %>
+                    <%}%>
+                  </label>
+              <%}%>
+              <% uiform.renderField(field) %>
+            </div>
+      <%
+          }
+        }
+      %>
+      <%//Rerender this  component with the new structure%>
+      <%// start render action%>
+      <div class="UIAction"> 
+        <div class="ActionContainer">
+          <% for(action in uicomponent.getActions()) { %>
+            <div class="ActionButton">
+              <div class="LightBlueStyle">
+                <div class="ButtonLeft">
+                  <div class="ButtonRight">
+                    <div class="ButtonMiddle">
+                      <div class="Icon ${action}16x16Icon"><span></span></div>
+                      <% 
+                        String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) 
+                        String link = uicomponent.event(action) ;
+                      %>
+                      <a href="$link">$actionLabel</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <%}%>          
+        </div>
+      </div>
+      <%// end render action%>
+    </div>
+  </div>
+  <%uiform.end()%>
+</div>

@@ -1,0 +1,154 @@
+<%
+	/**
+	 * Created by The eXo Platform SARL
+	 * Author : Tran The Trong
+	 *          trongtt@gmail.com
+	 * Aug 14, 2006
+	 * version: $Id$
+	 */  
+%>
+<%
+  String popupId = uicomponent.getId() ;
+  
+  def rcontext = _ctx.getRequestContext() ;
+  rcontext.importJavascript('eXo.webui.UIHorizontalTabs');
+	rcontext.importJavascript('eXo.webui.UIPopupWindow');
+  
+  def errors = uicomponent.getErrors();
+  def warnings = uicomponent.getWarnings();
+  def infos = uicomponent.getInfos();
+  void printTab(List messages, String title, boolean isSelected) {
+    String cssClass = "NormalTabStyle" ;
+    if(isSelected)  cssClass = "HighlightTabStyle" ;
+    String label = "Error";
+  
+    println "<div class=\"UITab\">";
+	  println "  <div class=\"$cssClass\">";
+  	println "    <div class=\"LeftTab\">";
+	  println "      <div class=\"RightTab\">";
+		println "        <div class=\"MiddleTab\" onclick=\"eXo.webui.UIHorizontalTabs.displayTabContent(this)\">$title</div>";
+    println "      </div>";
+	  println "    </div>";
+	  println "  </div>";
+  	println "</div>";
+  }
+  void printMessages(List messages, String className, String iconLarge, String iconSmall, String title, boolean isSelected) {
+    println "<div class=\"UITabContent\">";
+  	println "  <div class=\"PopupMessageFrame\">";
+		println "    <div class=\"PopupMessagePanel\">";
+		println "      <div class=\"PopupMessageBox\">";
+	  println "        <div class=\"$className\">";
+		println "			     <div class=\"PopupMessageIcon $iconLarge\"><span></span></div>";
+		println "		       <div class=\"PopupMessageTitle\">$title</div>";
+		println "		       <div style=\"clear:left;\"><span></span></div>";
+		println "		       <div class=\"PopupMessageContainer\">";
+    for(mess in messages) {
+      println "		        <div class=\"MessageContainer\">";
+			println "		          <div class=\"OverflowContainer\" style=\"width: 99%\">";
+			println "		            <div class=\"PopupIcon $iconSmall\"><span></span></div>";
+			println "		            <div class=\"PopupMessage\">";
+		  String msgValue = _ctx.appRes(mess.messageKey);
+			Object[] msgArguments = mess.getMessageAruments();
+			if(msgArguments != null && msgArguments.length > 0) {
+  		  for(i in 0..msgArguments.length-1){ 
+	  		 msgValue = msgValue.replaceAll("\\{" + i + "\\}", msgArguments [i]);
+		    }
+		  }
+			println msgValue;
+			println "               </div>";
+	    println "             </div>";
+	    println "           </div>";
+    }
+ 		println "	         </div>";
+		println "        </div>";
+		println "      </div>";
+		println "    </div>";
+		println "  </div>";
+		println "</div>";
+  }
+%>
+  <div class="UIPopupWindow UIDragObject" id="$popupId" style="width: 480px; display: none;">
+  
+	  <div class="TopLeftCornerDecorator">
+	    <div class="TopRightCornerDecorator">
+	      <div class="TopCenterDecorator">
+	        <div class="OverflowContainer">
+		        <div class="PopupTitleIcon"><span></span></div>
+		        <div class="CloseButton" title="Close Window" onclick="<%=uicomponent.event("Close")%>"><span></span></div>
+		        <div class="PopupTitle"><%=_ctx.appRes("UIPopupMessages.title.exoMessages")%></div>
+		      </div>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="MiddleLeftSideDecorator">
+		  <div class="MiddleRightSideDecorator">
+		    <div class="MiddleCenterDecorator">
+	        
+	        <div class="UIWindowContent">
+	          <div class="Content">
+		          <div class="UIPopupMessages">	
+		          	          
+							  <div class="UIHorizontalTabs">
+							    <div class="TabsContainer">
+						      <%  
+						        boolean flag = true;
+						        if ( errors.size() > 0 ) printTab(errors, "Error", flag);
+						        if ( warnings.size() > 0 ) printTab(warnings, "Warning", flag);
+						        if ( infos.size() > 0 ) printTab(infos, "Info", flag);
+						      %>
+							    </div>
+							  </div>
+							  
+							  <div class="UITabContentContainer">
+									<%
+									  flag = true;
+				            if (errors.size() > 0 ) printMessages(errors, "ErrorMessage", "MinusSign32x32Icon", "RedSquare16x16Icon", "Error !", true);
+				            if (warnings.size() > 0 ) printMessages(warnings, "WarningMessage", "WarningSign32x32Icon", "YellowSquare16x16Icon", "Warning !", flag);
+				            if (infos.size() > 0 ) printMessages(infos, "InfoMessage", "CircleInfo32x32Icon", "BlueSquare16x16Icon",  "Infomation !",flag);
+			            %>
+							  </div>
+							  
+			          <div class="UIAction">
+				          <div class="ActionContainer" style="margin: auto;">
+							      <div class="ActionButton">
+								      <div class="LightBlueStyle">
+								      	<div class="ButtonLeft">
+								      		<div class="ButtonRight">
+								      			<div class="ButtonMiddle">
+							      					<a href="<%=uicomponent.event("Close")%>">
+							      					  <%=_ctx.appRes("UIPopupMessages.button.ok")%>
+							      					</a>	
+								      			</div>
+								      		</div>
+								      	</div>
+								      </div>
+							      </div>
+								  </div>
+								</div>
+								
+		          </div>
+	          </div>	          
+	        </div>
+	        
+	        <div class="BottomBar">
+	          <div class="ResizeButton"><span></span></div>
+	        </div>
+	        
+		    </div>
+		  </div>
+	  </div>
+	  
+	  <div class="BottomLeftCornerDecorator">
+		  <div class="BottomRightCornerDecorator">
+		    <div class="BottomCenterDecorator"><span></span></div>
+		  </div>
+	  </div>
+	  
+	</div>
+<%
+	rcontext.addJavascript("eXo.webui.UIPopupWindow.init('$popupId', false);") ;
+	if(uicomponent.hasMessage()){
+	  rcontext.addJavascript("eXo.webui.UIPopupWindow.show('$popupId', true);") ;
+	}
+%>

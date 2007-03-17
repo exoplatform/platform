@@ -1,0 +1,57 @@
+.UILoginForm .LoginIcon {
+  float: left ;
+  width: 42px ;  height: 35px ;
+  background: url('MacSkin/background/LoginIcon42x35.gif') no-repeat ;
+  padding: 0px 0px 5px 0px ;
+  margin: 5px 5px 0px 5px; ;
+}
+
+.UILoginForm .DecoratorBox {
+  margin: 10px 0px 15px 0px;
+}
+
+.UILoginForm .WelcomeMessage {
+  margin: 5px 5px;
+}
+
+.UILoginForm .LoginDetailBox .VerticalLayout label {
+  font-size: 11px;  font-weight: normal;
+}
+
+.UILoginForm .LoginDetailBox .VerticalLayout input {
+  width: 180px;
+  margin: 4px 0px 6px 0px ;  
+  border: solid 1px gray;
+}
+
+.UILoginForm .LoginDetailBox .VerticalLayout .UIAction {
+  float: none;
+  padding: 0px;
+  margin: auto; margin: 8px 0px 15px 0px;
+}
+
+.UILoginForm .VerticalLayout .UIAction .ActionContainer {
+  float: none; 
+  width: 70px ; 
+  margin: auto; 
+}
+
+.UILoginForm .ForgotMessage {
+  height: 26px; 
+  color: blue ; font-size: 11px; text-align: center ;
+  line-height: 26px; vertical-align: bottom ;
+  margin: 7px; 
+  padding: 5px 0px 5px 0px;
+  border-top: solid 1px blue ; 
+  border-bottom: solid 1px blue ;
+  cursor: pointer;
+}
+
+.UILoginForm .UIAction .ActionContainer .ActionButton{
+  float: none;
+  width: 66px ;
+  margin: auto;
+}
+
+
+

@@ -1,0 +1,101 @@
+@import url(control/MacStylesheet.css) ;
+@import url(customization/MacStylesheet.css) ;
+@import url(view/MacStylesheet.css) ;
+@import url(widget/MacStylesheet.css) ;
+div {
+	padding:	0px ; margin: 0px ;
+}
+
+table {
+  width:	100% ;
+	padding:	0px ; margin: 0px ;
+	border-spacing:	0px ;
+	border-collapse: collapse ;
+}
+
+th, td {
+	padding: 0px ; margin: 0px ;
+}
+
+img {
+	padding: 0px ; margin: 0px ;
+	border: none ;
+}
+
+form {
+	padding:	0px ; margin: 0px ;
+}
+
+body {
+	background: white ;
+	font-family: Verdana, Arial, Helvetica, sans-serif ;
+	font-size: 12px;
+	margin: 0px ; padding: 0px;
+}
+
+a {
+	text-decoration:none;
+}
+/*###############################################################################################*/
+
+.OverflowContainer {
+  width: 100%;
+	overflow: hidden;
+}
+
+.LeftBlock {
+	float: left;
+}
+
+.RightBlock {
+	float: right;
+}
+
+.InlineContainer {
+  width: 100%;
+	overflow: hidden ;
+}
+
+.InlineLeft {
+	float:left;
+}
+
+.InlineRight {
+	float:right;
+}
+
+.AjaxLoadingMask {
+  width: 200px; height: 95px;
+  background: white;
+  padding: 1px;
+  border: 1px solid #66667e;
+}
+
+.AjaxLoadingMask .LoadingContainer {
+  height: 93px;
+  background: url('/eXoResources/background/MacSkin/PortletBG.gif');
+  border: 1px solid #a8a9bb;
+}
+
+.AjaxLoadingMask .LoadingText {
+  font-size: 11px;
+  text-align: center;
+  padding: 10px 0px 5px 0px;
+}
+
+.AjaxLoadingMask .LoadingProgressBar {
+  width: 140px; height: 10px;
+  background: url('/eXoResources/background/MacSkin/LoadingProgressBar.gif') no-repeat;
+  border: solid 1px gray;
+  margin: auto;
+}
+
+.AjaxLoadingMask .UIAction {
+  padding: 5px 0px 10px 0px;
+}
+
+.AjaxLoadingMask .UIAction .ActionContainer .ActionButton {
+  float: none;
+  width: 70px;
+  margin: auto;
+}

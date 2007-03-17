@@ -1,0 +1,122 @@
+package org.exoplatform.account.webui.component;
+
+import java.util.List;
+
+import org.exoplatform.account.webui.component.model.UIAccountTemplateConfigOption;
+import org.exoplatform.organization.webui.component.UIAccountInputSet;
+import org.exoplatform.organization.webui.component.UIUserMembershipSelector;
+import org.exoplatform.organization.webui.component.UIUserProfileInputSet;
+import org.exoplatform.organization.webui.component.UIUserMembershipSelector.Membership;
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.component.UIFormInputItemSelector;
+import org.exoplatform.webui.component.UIFormInputSet;
+import org.exoplatform.webui.component.UIFormTabPane;
+import org.exoplatform.webui.component.UIPopupWindow;
+import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
+import org.exoplatform.webui.component.model.SelectItemCategory;
+import org.exoplatform.webui.config.InitParams;
+import org.exoplatform.webui.config.Param;
+import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.config.annotation.ParamConfig;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
+
+@ComponentConfig(
+    lifecycle = UIFormLifecycle.class,
+    template =  "system:/groovy/webui/component/UIFormTabPane.gtmpl",
+    initParams = {   
+      @ParamConfig(
+          name = "AccountTemplateConfigOption", 
+          value = "app:/WEB-INF/conf/uiconf/account/webui/component/model/AccountTemplateConfigOption.groovy"
+      ),
+      @ParamConfig(
+          name = "help.UIAccountFormQuickHelp",
+          value = "app:/WEB-INF/conf/uiconf/account/webui/component/model/UIAccountFormQuickHelp.xhtml"
+      )
+    },
+    events = {
+      @EventConfig(listeners = UIAccountForm.SaveActionListener.class ),
+      @EventConfig(listeners = UIAccountForm.SelectItemOptionActionListener.class, phase = Phase.DECODE)
+    }
+)
+public class UIAccountForm extends UIFormTabPane {
+
+  
+  @SuppressWarnings("unchecked")
+  public UIAccountForm(InitParams initParams) throws Exception{
+    super("UIAccountForm") ;
+    
+    UIFormInputItemSelector templateInput = new  UIFormInputItemSelector("AccountTemplate", null);    
+    addUIFormInput(templateInput) ;   
+    UIFormInputSet accountInputSet = new UIAccountInputSet("AccountInputSet") ;
+    accountInputSet.setRendered(false) ;
+    addUIFormInput(accountInputSet) ;
+
+    UIFormInputSet userProfileSet = new UIUserProfileInputSet("UIUserProfileInputSet") ;
+    userProfileSet.setRendered(false) ;
+    addUIFormInput(userProfileSet) ;
+    if(initParams == null) return ;  
+    UIUserMembershipSelector uiUserMembershipSelector = new UIUserMembershipSelector();
+    uiUserMembershipSelector.setRendered(false);
+    addUIFormInput(uiUserMembershipSelector);
+    RequestContext context = RequestContext.getCurrentInstance() ;
+    boolean isRoleAdmin = context.isUserInRole("admin"); 
+    
+    Param param = initParams.getParam("AccountTemplateConfigOption");
+    List<SelectItemCategory> itemConfigs = (List<SelectItemCategory>)param.getMapGroovyObject(context);
+    for(SelectItemCategory itemCategory: itemConfigs){
+      if(!"AdminAccount".equalsIgnoreCase(itemCategory.getName()) || isRoleAdmin){
+        templateInput.getItemCategories().add(itemCategory);
+      }
+    }
+    if(isRoleAdmin) {
+      uiUserMembershipSelector.setIsAdmin(true);
+    }
+    templateInput.getItemCategories().get(0).setSelected(true);
+    setActions(new String[]{"Save"});
+  }
+
+  public String getSelectPortalTemplate(){  return "SelectPortalTemplate";  }
+  
+  public void processRender(RequestContext context) throws Exception {
+    super.processRender(context);
+    UIUserMembershipSelector uiUserMembershipSelector = getChild(UIUserMembershipSelector.class);    
+    if(uiUserMembershipSelector == null) return;
+    UIPopupWindow uiPopupWindow = uiUserMembershipSelector.getChild(UIPopupWindow.class);
+    uiPopupWindow.processRender(context);
+  }
+
+  static  public class SaveActionListener extends EventListener<UIAccountForm> {
+    public void execute(Event<UIAccountForm> event) throws Exception {
+      UIAccountForm uiForm = event.getSource();
+      OrganizationService service =  uiForm.getApplicationComponent(OrganizationService.class);
+      UIAccountInputSet uiAccountInput = uiForm.getChild(UIAccountInputSet.class) ;  
+      String userName = uiAccountInput.getUserName();
+      uiAccountInput.save(service, true);
+      uiForm.getChild(UIUserProfileInputSet.class).save(service, userName);
+      UIUserMembershipSelector uiMembershipSelector = uiForm.getChild(UIUserMembershipSelector.class);
+      if(uiMembershipSelector == null) return ;
+      uiMembershipSelector.setUserName(userName);
+      uiMembershipSelector.save(service, true);   
+    }
+  }
+  
+  static  public class SelectItemOptionActionListener extends EventListener<UIAccountForm> {
+    public void execute(Event<UIAccountForm> event) throws Exception {
+      UIAccountForm uiForm = event.getSource();
+      UIFormInputItemSelector templateInput = uiForm.getChild(UIFormInputItemSelector.class);
+      UIAccountTemplateConfigOption selectItem = 
+        (UIAccountTemplateConfigOption)templateInput.getSelectedCategory().getSelectItemOptions().get(0);      
+      List<Membership> memberships = selectItem.getMemberships();      
+      UIUserMembershipSelector uiMembershipSelector =  uiForm.getChild(UIUserMembershipSelector.class);
+      uiMembershipSelector.getMembership().clear();
+      for(Membership mem : memberships){
+        uiMembershipSelector.addMembership(mem);
+      }
+    }
+  }
+
+}

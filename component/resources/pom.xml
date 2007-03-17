@@ -1,0 +1,84 @@
+<project>
+  <parent>
+    <groupId>org.exoplatform.portal</groupId>
+    <artifactId>config</artifactId>
+    <version>2.0</version>
+  </parent> 
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>exo.portal.component.resources</artifactId>
+  <packaging>jar</packaging>
+  <version>${org.exoplatform.portal.version}</version>
+  <name>XML Parser</name>
+  <description>Services  to parse  different xml format  such html ,  rss...</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.component.common</artifactId>
+      <version>${org.exoplatform.kernel.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.exoplatform.kernel</groupId>
+      <artifactId>exo.kernel.component.command</artifactId>
+      <version>${org.exoplatform.kernel.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.exoplatform.core</groupId>
+      <artifactId>exo.core.component.database</artifactId>
+      <version>${org.exoplatform.core.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.exoplatform.core</groupId>
+      <artifactId>exo.core.component.security</artifactId>
+      <version>${org.exoplatform.core.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.exoplatform.core</groupId>
+      <artifactId>exo.core.component.document</artifactId>
+      <version>${org.exoplatform.core.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>lucene</groupId>
+      <artifactId>lucene</artifactId>
+      <version>1.4.3</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>exo-jcr</groupId>
+      <artifactId>exo-jcr.services.jcr.impl</artifactId>
+      <version>${org.exoplatform.jcr.version}</version>
+      <exclusions>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.commons</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.container</artifactId></exclusion>
+
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.common.api</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.common.impl</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.cache.api</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.cache.impl</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.indexing.api</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.indexing.impl</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.database.api</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.database.impl</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.organization.api</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.organization.impl</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.security.api</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.security.impl</artifactId></exclusion>
+
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.document.api</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.document.impl</artifactId></exclusion>
+
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.xml-processing.api</artifactId></exclusion>
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.xml-processing.impl</artifactId></exclusion>
+
+        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.command</artifactId></exclusion>
+      </exclusions>
+    </dependency>	
+  </dependencies>   
+</project>

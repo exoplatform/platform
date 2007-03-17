@@ -1,0 +1,33 @@
+.UIRightClickPopupMenu {
+  width: 150px;
+  display: none;
+  position: absolute;
+  background: #c4c4c4;
+  border: 1px solid #7e7e7f;
+}
+
+.UIRightClickPopupMenu .UIRightPopupMenuContainer {
+  margin: 1px;
+  padding: 5px 0px;
+  background: #f6f6f6;
+}
+
+.UIRightClickPopupMenu .MenuItem {
+  clear: both;
+  cursor: pointer;
+  line-height: 26px;
+}
+
+.UIRightClickPopupMenu .SelectedMenuItem {
+  clear: both;
+  cursor: pointer;
+  line-height: 26px;
+  background: #dee4f2;
+}
+
+.UIRightClickPopupMenu .ItemIcon {
+  margin: 5px;
+  float: left;
+}
+
+.UIRightClickPopupMenu .ItemLabel {}

@@ -1,0 +1,186 @@
+/**
+ * Created by The eXo Platform SARL
+ * Author : Hoang Van Anh
+ *          hoanganhites@yahoo.com.vn
+ * March, 6 , 2007
+ * version: $Id$
+ */
+ 
+.UIReadMessage {
+	padding: 5px;
+	font-size: 11px;
+}
+
+.UIReadMessage .ReadMessageContainer {
+  border: solid 1px #929292;
+  padding: 1px;
+  margin: 0px;
+}
+
+.UIReadMessage .ReadMessageContainer .ReadMessageContainerBorder {
+  border: solid 1px #c3c3c3;
+  padding: 0px 0px 2px 0px;
+}
+
+.UIReadMessage .ReadMessageTop {
+  height: 30px;
+  padding: 0px 3px 0px 0px;
+  background: url('DefaultSkin/backgruond/TitleBG1x30.gif') repeat-x top;
+  border: solid 1px #ffffff;
+  border-bottom: none;
+}
+
+.UIReadMessage .TopMessagesLabel {
+  float: left;
+  padding: 8px 0px 0px 0px;
+  cursor: pointer;
+}
+
+.UIReadMessage .TopMessagesSpace {
+  float: left;
+  width: 2px; height: 22px;
+  padding: 8px 5px 0px 15px;
+  background: url('DefaultSkin/backgruond/BoderTopMailNew2x2.gif') no-repeat center;
+}
+
+.UIReadMessage .ReadMessageNavigation {
+  padding: 3px;
+}
+
+.UIReadMessage .ReadMessageNavigation .BoxDecoratorContainer {
+	background: #eeeeee;
+	padding: 1px;
+}
+
+.UIReadMessage .ReadMessageNavigation .BoxDecoratorContent {
+	background: #eeeeee;
+	padding: 1px;
+}
+
+.UIReadMessage .ReadMessageNavigation .Subject {
+  line-height: 22px;
+}
+
+.UIReadMessage .BoldFont {
+  float: left;
+  font-weight: bold;
+}
+
+.UIReadMessage .Subject .SubjectLabel {
+  width: 95px;
+}
+
+.UIReadMessage .Subject .ContainerFromLabel {
+  float: left;
+  color: blue;
+  padding: 0px 8px 0px 15px;
+}
+
+.UIReadMessage .ReadMessageNavigation .SubjectContainer {
+  padding: 0px 0px 0px 35px;
+}
+
+.UIReadMessage .ReadMessageNavigation .SubjectContainer .SubjectLinkLabel {
+  float: left;
+  color: blue;
+  padding: 0px 15px 0px 0px; 
+  text-decoration: underline;
+  cursor: pointer;
+}
+.UIReadMessage .ContainerFromLabel{
+  float: left;
+  padding: 0px 25px 0px 8px;
+}
+
+.UIReadMessage .FromHunter {
+  float: left;
+  padding: 0px 5px 0px 8px;
+}
+
+.UIReadMessage .ReadMessageContainerBorder .MiddleReadMessage {
+  border: solid 1px #b7b7b7;
+}
+
+.UIReadMessage .MiddleText {
+  height: 110px;
+  padding: 10px;
+}
+
+.UIReadMessage .Subject .Label {
+	float: left;
+	margin: 0px 0px 0px 10px;
+}
+
+/******************************Icons****************************/
+
+.UIReadMessage .TopMessagesBackIcon {
+  float: left;
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowLeft.gif') no-repeat center;
+  cursor: pointer;
+  padding: 15px 5px 0px 8px;
+}
+
+.UIReadMessage .FromAttachIcon {
+  float: left;
+  width: 16px; height: 16px;
+  background: url('../DefaultSkin/icons/16x16/AttachFile.gif') no-repeat center;
+  cursor: pointer;
+  margin: 3px 0px 0px 0px;
+}
+
+.UIReadMessage .Subject .SubjectDownIcon {
+  float: left;
+  width: 24px; height: 24px;
+  background: url('../DefaultSkin/icons/24x24/SubjectDown.gif') no-repeat center;
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+.UIReadMessage .Subject .SubjectLeftIcon {
+  float: left;
+  width: 24px; height: 22px;
+  background: url('../DefaultSkin/icons/24x24/SubjectLeft.gif') no-repeat center;
+  cursor: pointer;
+  padding: 0px 10px 0px 0px;
+}
+
+.UIReadMessage .TopMailDeleteIcon {
+  float: left;
+  width: 32px; height: 29px;
+  background: url('../DefaultSkin/icons/32x32/DeleteEmail.gif') no-repeat;
+  cursor: pointer;
+  padding: 0px 10px;
+}
+
+.UIReadMessage .TopMailForwardIcon {
+  float: left;
+  width: 32px; height: 29px; 
+  background: url('../DefaultSkin/icons/32x32/ForwardEmail.gif') no-repeat;
+  cursor: pointer;
+  padding: 0px 10px;
+}
+
+.UIReadMessage .TopMailForwardAllIcon {
+  float: left;
+  width: 32px; height: 29px; 
+  background: url('../DefaultSkin/icons/32x32/ForwardAllEmail.gif') no-repeat;
+  cursor: pointer;
+  padding: 0px 10px;
+} 
+
+.UIReadMessage .TopMailNoForwardIcon {
+  float: left;
+  width: 32px; height: 29px;
+  background: url('../DefaultSkin/icons/32x32/NoForwardEmail.gif') no-repeat;
+  cursor: pointer;
+  padding: 0px 10px;
+}
+
+.UIReadMessage .TopMailPrintIcon {
+  float: left;
+  width: 32px; height: 29px; 
+  background: url('../DefaultSkin/icons/32x32/PrintEmail.gif') no-repeat;
+  cursor: pointer;
+  padding: 0px 10px;
+}

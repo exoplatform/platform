@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+  <owner>exoadmin</owner>
+  <access-permission>*:/guest</access-permission>
+  <edit-permission>member:/portal/admin</edit-permission>  
+  <page-nodes>
+    <node>
+      <uri>home</uri>
+      <name>home</name>
+      <label>Home</label>      
+      <access-permission>*:/guest</access-permission>
+      <page-reference>exoadmin:/web</page-reference>
+      <description>Web gagets</description>   
+      <creator>exoadmin</creator>
+      <modifier>exoadmin</modifier>        
+    </node>      
+    
+    <node>
+      <uri>administration</uri>
+      <name>administration</name>
+      <label>Administration</label>     
+      <access-permission>*:/guest</access-permission>
+      <page-reference>exoadmin:/administration</page-reference>
+      <description>Administration Page</description>    
+    </node> 
+
+    <node>
+      <uri>ecm</uri>
+      <name>ECM</name>
+      <label>ECM</label>
+      <access-permission>*:/guest</access-permission>
+      <page-reference>exoadmin:/ecmdesktop</page-reference>
+      <description>ECM Page</description>
+
+      <node>
+        <uri>ecm/ecmadmin</uri>
+        <name>ecmadmin</name>
+        <label>ECMAdmin</label>
+        <access-permission>*:/guest</access-permission>
+        <page-reference>exoadmin:/ecmadmin</page-reference>
+        <description>ECM Page</description>   
+      </node>
+
+      <node>
+        <uri>ecm/jcrexplorer</uri>
+        <name>jcrexplorer</name>
+        <label>JCRExplorer</label>
+        <access-permission>*:/guest</access-permission>
+        <page-reference>exoadmin:/jcrexplorer</page-reference>
+        <description>ECM Page</description>   
+      </node>
+      
+      <node>
+        <uri>ecm/browsecontent</uri>
+        <name>browsecontent</name>
+        <label>Browse Content</label>
+        <access-permission>*:/guest</access-permission>
+        <page-reference>exoadmin:/browsecontent</page-reference>
+        <description>ECM Page</description>   
+      </node>
+      
+      <node>
+        <uri>workflow/controller</uri>
+        <name>workflowcontroller</name>
+        <label>Workflow Controller</label>
+        <access-permission>*:/guest</access-permission>
+        <page-reference>exoadmin:/workflowcontroller</page-reference>
+        <description>Workflow Page</description>   
+      </node>
+      
+      <node>
+        <uri>workflow/monitoring</uri>
+        <name>workflowmonitoring</name>
+        <label>Workflow Monitoring</label>
+        <access-permission>*:/guest</access-permission>
+        <page-reference>exoadmin:/workflowmonitoring</page-reference>
+        <description>Workflow Page</description>   
+      </node>
+    </node>
+    
+    <node>
+      <uri>groupware</uri>
+      <name>GROUPWARE</name>
+      <label>GROUPWARE</label>
+      <access-permission>*:/guest</access-permission>
+      <page-reference>exoadmin:/groupwaredesktop</page-reference>
+      <description>GROUPWARE Page</description>
+      
+      <node>
+        <uri>groupware/forum</uri>
+        <name>forum</name>
+        <label>Forum</label>
+        <access-permission>*:/guest</access-permission>
+        <page-reference>exoadmin:/forum</page-reference>
+        <description>Forum Page</description>   
+      </node>
+
+      <node>
+        <uri>groupware/mail</uri>
+        <name>mail</name>
+        <label>Mail</label>
+        <access-permission>*:/guest</access-permission>
+        <page-reference>exoadmin:/mail</page-reference>
+        <description>Mail Page</description>   
+      </node>
+    </node>
+    
+  </page-nodes>
+</node-navigation>

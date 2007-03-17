@@ -1,0 +1,118 @@
+/**
+ * Cated by The eXo Platform SAS
+ * Modifile : Vu Duy Tu
+ *           duytucntt@gmail.com
+ * January 10, 2007
+ * version: $Id$
+ */
+
+.UIWindow .UISitemapPortlet {
+	overflow: auto ;
+} 
+
+.UISitemap {
+  padding: 10px ;
+}
+
+.UISitemap .TitleBar {
+  background: url('DefaultSkin/background/NavyGadient1x22.gif') repeat-x;
+  height: 22px; line-height: 22px; vertical-align: middle;
+  border: 1px solid #7eaad0;
+  border-bottom: none;
+}
+
+.UISitemap .TitleBar a {
+  text-align: center; font-size: 11px; color: black;
+  margin-left: 5px;
+}
+
+.UISitemap .TitleBar a:hover {
+  color: blue;
+}
+
+.UISitemap .TitleBar .Icon {
+  margin: 3px 0px 0px 8px;
+  float: left;
+}
+v
+.UISitemap .TitleBar .Title {
+  margin-left: 6px;
+  float: left;
+}
+
+.UISitemap .SitemapContainer {
+  width: 600px;
+  margin: auto;
+  padding-top: 10px;
+  overflow: hidden;
+}
+
+.UISitemap .SitemapItemBox {
+  width: 250px ;
+  float: left;
+  margin: 5px 15px 10px 20px ;
+}
+
+.UISitemap .SitemapItemBox .NestedSitemapItemBox {
+  border: solid 1px #7eaad0 ; background: white ;
+  padding: 5px ; width: 95%;
+}
+
+.UISitemap .SitemapItemBox .NestedSitemapItemBox .SitemapItemBoxSelector {
+  border: solid 1px #b7b7b7 ;
+  border-bottom: none;
+}
+
+.UISitemap .SitemapItemBox .NestedSitemapItemBox .BorderBox {
+	border-bottom: 1px #b7b7b7 solid; 
+	padding: 5px;
+}
+
+.UISitemap .SitemapItemBox .Item a {
+  color: black; font-size: 11px;
+}
+
+.UISitemap .SitemapItemBox .Item a:hover {
+  color: blue; font-size: 11px; 
+}
+
+.UISitemap .SitemapItemBox .Item .Label {
+  float: left ;
+  line-height: 22px ;
+  vertical-align: middle ;
+  color: black ;
+}
+
+.UISitemap .SitemapItemBox .Item .Icon {
+  float: left ;
+  width: 16px ;  height: 16px ;
+  margin: 4px 5px 0px 5px ;
+}
+
+.UISitemap .SitemapItemBox .Message {
+  float: left; margin-left: 10px; 
+  width: 170px;
+  text-align: center; font-size: 11px;
+}
+
+.UISitemap .SitemapItemBox .Level1 {
+  height: 26px ;
+  border: solid 1px white ; border-right: none; border-bottom: solid 1px #b7b7b7;
+  background: #e0e0de ;
+}
+
+.UISitemap .SitemapItemBox .Level2 {
+  height: 22px ;
+  border: solid 1px #c7b7b7 ;
+  background: #efefef ;
+  margin: 2px 3px 1px 3px ;
+}
+
+.UISitemap .SitemapItemBox .Level3 {
+  height: 22px ;
+  border: solid 1px #c7c7c7 ;
+  background: white ;
+  margin: 0px 6px 3px 6px ;
+}
+
+

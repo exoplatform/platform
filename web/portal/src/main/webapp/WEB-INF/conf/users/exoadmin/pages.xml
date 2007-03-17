@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page-set>  
+  <page>    
+    <factory-id>Desktop</factory-id>
+    <owner>exoadmin</owner>
+    <name>web</name>
+    <title>Web</title>
+    <view-permission>*:/guest</view-permission>        
+    <show-max-window>true</show-max-window>
+    <portlet>
+      <window-id>exoadmin:/content/ContentPortlet/contentportlet</window-id>
+      <show-info-bar>false</show-info-bar>       
+    </portlet>  
+
+    <portlet>
+      <window-id>exoadmin:/web/SiteMapPortlet/sitemapportlet</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>  
+    
+    <portlet>
+      <window-id>exoadmin:/exoadmin/OrganizationPortlet/Organization</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+    </portlet>  
+  </page>
+  
+  <page>
+    <factory-id>Desktop</factory-id>
+    <owner>exoadmin</owner>
+    <name>administration</name>
+    <title>Portal Administration</title>
+    <view-permission>*:/guest</view-permission>        
+    <show-max-window>true</show-max-window>
+    <portlet>
+      <window-id>exoadmin:/exoadmin/OrganizationPortlet/Organization</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+    </portlet>  
+
+    <portlet>
+      <window-id>exoadmin:/exoadmin/AccountPortlet/Account</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>  
+
+    <portlet>
+      <window-id>exoadmin:/exoadmin/PortletRegistryPortlet/PortletRegistry</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>  
+
+  </page>  
+  
+  <page>
+    <owner>exoadmin</owner>
+    <name>ecmadmin</name>
+    <title>ECMAdmin</title>
+    <view-permission>*:/guest</view-permission>        
+    <portlet>
+      <window-id>exoadmin:/ecm/ECMAdminPortlet/ecmadmin</window-id>
+      <show-info-bar>true</show-info-bar>
+    </portlet>  
+  </page>  
+
+  <page>
+    <owner>exoadmin</owner>
+    <name>jcrexplorer</name>
+    <title>JCRRExplorer</title>
+    <view-permission>*:/guest</view-permission>        
+    <portlet>
+      <window-id>exoadmin:/ecm/JCRExplorerPortlet/jcrexplorer</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+    </portlet>  
+  </page>
+  
+  <page>
+    <owner>exoadmin</owner>
+    <name>browsecontent</name>
+    <title>BrowseContentPortlet</title>
+    <view-permission>*:/guest</view-permission>        
+    <portlet>
+      <window-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+    </portlet>  
+  </page>
+
+  <page>
+    <owner>exoadmin</owner>
+    <name>workflowcontroller</name>
+    <title>Workflow Controller Portlet</title>
+    <view-permission>*:/guest</view-permission>        
+    <portlet>
+      <window-id>exoadmin:/workflow/WorkflowControllerPortlet/workflowcontroller</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+    </portlet>  
+  </page>
+  
+  <page>
+    <owner>exoadmin</owner>
+    <name>workflowmonitoring</name>
+    <title>Workflow Monitoring Portlet</title>
+    <view-permission>*:/guest</view-permission>        
+    <portlet>
+      <window-id>exoadmin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+    </portlet>  
+  </page>
+  
+  <page>
+    <owner>exoadmin</owner>
+    <name>forum</name>
+    <title>Forum Portlet</title>
+    <view-permission>*:/guest</view-permission>        
+    <portlet>
+      <window-id>exoadmin:/forum/ForumPortlet/forum</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+    </portlet>  
+  </page>
+  
+  <page>
+    <owner>exoadmin</owner>
+    <name>mail</name>
+    <title>Mail Portlet</title>
+    <view-permission>*:/guest</view-permission>        
+    <portlet>
+      <window-id>exoadmin:/mail/MailPortlet/mail</window-id>
+      <show-info-bar>true</show-info-bar>
+      <show-window-state>true</show-window-state>
+    </portlet>  
+  </page>
+  
+  <page>
+    <factory-id>Desktop</factory-id>
+    <owner>exoadmin</owner>
+    <name>ecmdesktop</name>
+    <title>ECM Desktop</title>
+    <view-permission>*:/guest</view-permission>        
+    <show-max-window>true</show-max-window>
+
+    <portlet>
+      <window-id>exoadmin:/ecm/ECMAdminPortlet/ecmadmin</window-id>
+      <show-info-bar>true</show-info-bar>
+    </portlet>  
+
+    <portlet>
+      <window-id>exoadmin:/ecm/JCRExplorerPortlet/jcrexplorer</window-id>
+      <show-info-bar>true</show-info-bar>
+    </portlet>    
+  
+    <portlet>
+      <window-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</window-id>
+      <show-info-bar>true</show-info-bar>
+    </portlet>
+        
+    <portlet>
+      <window-id>exoadmin:/workflow/WorkflowControllerPortlet/workflowcontroller</window-id>
+      <show-info-bar>true</show-info-bar>
+    </portlet>    
+
+    <portlet>
+      <window-id>exoadmin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</window-id>
+      <show-info-bar>true</show-info-bar>
+    </portlet>    
+  </page>
+  
+  <page>
+    <factory-id>Desktop</factory-id>
+    <owner>exoadmin</owner>
+    <name>groupwaredesktop</name>
+    <title>Groupware Desktop</title>
+    <view-permission>*:/guest</view-permission>        
+    <show-max-window>true</show-max-window>
+
+    <portlet>
+      <window-id>exoadmin:/forum/ForumPortlet/forum</window-id>
+      <show-info-bar>true</show-info-bar>
+    </portlet>    
+
+    <portlet>
+      <window-id>exoadmin:/mail/MailPortlet/mail</window-id>
+      <show-info-bar>true</show-info-bar>
+    </portlet>
+   </page>
+</page-set>

@@ -1,0 +1,7 @@
+<div style="height: 450px; width: 100%" >
+  <div style="height: 30px; width: 100%"> control </div>
+  <iframe style="height: 400px; width: 100%" 
+          src="http://www.google.com.vn" scrolling="auto" frameborder="0">
+  </iframe>
+</div>
+

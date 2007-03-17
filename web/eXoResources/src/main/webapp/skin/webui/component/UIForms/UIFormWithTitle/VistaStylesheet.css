@@ -1,0 +1,54 @@
+.UIFormWithTitle {
+  width: 500px ;
+  border: solid 1px #939393;
+  margin-left: auto ;
+  margin-right: auto ;
+  overflow: auto;
+}
+
+.UIFormWithTitle .TitleBar {
+  padding-left: 15px ;
+  background: url('VistaSkin/background/TitleBG1x20.gif') repeat-x ;
+  height: 19px ;
+  vertical-align: middle ;  line-height: 16px ;
+  border: solid 1px white; 
+  border-bottom: solid 1px #bbbbbb;
+  font-size: 11px ;
+}
+
+.UIFormWithTitle .HorizontalLayout {
+  padding: 0px;
+}
+
+.UIFormWithTitle .HorizontalLayout .FormContainer {
+  padding: 10px 6px 6px 18px;
+  background: url('VistaSkin/background/FormContainerBG4x4.png') repeat ;
+  font-size: 11px;
+}
+
+.UIFormWithTitle .HorizontalLayout .FormContainer label {
+  width:100px;
+  line-height: 20px;
+}
+
+.UIFormWithTitle .UIForm .UIAction {  
+  margin-left: 100px;
+  width: auto;
+}
+
+.UIFormWithTitle .UIForm .UIAction .ActionContainer {
+  margin: auto; 
+}
+
+.UIFormWithTitle .UIForm .UIAction .ActionContainer .ActionButton {
+  float: left;
+}
+
+.UITestForm .UIAction {
+	height: 30px;
+	/*Debug IE*/
+}
+
+.UITestForm .UIAction .ActionContainer {
+  width: 300px;
+}

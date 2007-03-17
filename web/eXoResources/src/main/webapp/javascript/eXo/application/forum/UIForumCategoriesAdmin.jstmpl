@@ -1,0 +1,137 @@
+<div class="UIForumCategoriesAdmin">        
+  <div class="UIToolBarAdmin">
+    <div class="AdminButton">
+      <div class="AdminButtonLeft">
+        <div class="AdminButtonRight">
+          <div class="AdminButtonMiddle">
+           
+	            <div class="AdminButtonIcon Forum16x16Icon"><span></span></div>
+	            <div class="AdminButtonLabel BoldText">Add Category</div>
+            </a>
+            <div style="clear: left;"><span></span></div>
+          </div>
+        </div>
+      </div>      
+    </div>    
+    <div style="clear: both;"><span></span></div>
+  </div>  
+  
+  <table class="UIGrid">
+    <thead>
+	    <tr>
+		    <th>&nbsp;</th>
+		    <th>Forums</th>
+		    <th>Creator</th>		    
+		    <th>Order</th>
+		    <th>&nbsp;</th>
+	    </tr>
+    </thead>
+    <tbody>
+     
+      <tr class="ForumTitleContainer">
+        <td><div class="ButtonRight ExpandButton16x16Icon"><span></span></div></td>
+        <td colspan="2">
+          <div class="CategoryLabel">
+            <div class="ForumLabel">Java Developer Forums</div>
+            <div class="ForumDescription">Java Developer Forums Description</div>
+          </div>          
+        </td>
+        <td class="OrderColumn">
+          <div class="LeftOrder AscendCategoryOrder24x24Icon"><span></span></div>
+          <div class="RightOrder DescendCategoryOrder24x24Icon"><span></span></div>
+          <div style="clear: both;"><span></span></div>
+        </td>
+        <td class="ActionColumn">
+          <div class="DeleteCategory DeleteCategory24x24Icon"><span></span></div>
+         
+            <div class="EditCategory EditCategory24x24Icon"><span></span></div>
+          </a>
+       
+            <div class="AddForum AddForum24x24Icon"><span></span></div>
+          </a>          
+          <div style="clear: right;"><span></span></div>
+        </td>
+      </tr>
+	    
+  	  <tr class="EvenRow">
+	      <td class="IconColumn">
+	        <div class="Forum24x24Icon"><span></span></div>
+	      </td>
+		    <td>
+		      <div class="ChildForumName BoldText">
+		       
+		        <span class="NormalText">(100 Viewing)</span>
+		      </div>
+		      <div class="TextNote">Dicussing and supporting of Java programing for Apllication</div>
+		    </td>		    
+		    <td>
+          <div class="PostByLabel">Created by: <a href="#">ThuaneXo</a></div>
+		      <div class="DateAndTime">Today, 22/1/2007, 08:20 AM</div>
+        </td>	      	    
+		    <td class="OrderColumn">
+		      <div class="LeftOrder ForumAscending16x16Icon"><span></span></div>
+          <div class="RightOrder ForumDescending16x16Icon"><span></span></div>
+          <div style="clear: both;"><span></span></div>
+		    </td>
+        <td class="ActionColumn">
+		      <div class="DeleteForum DeleteForum16x16Icon"><span></span></div>
+		     
+            <div class="EditForum EditForum16x16Icon"><span></span></div>
+          </a>
+          <div style="clear: right;"></div>
+        </td>
+	    </tr>	  
+	    <tr class="OddRow">
+	      <td class="IconColumn">
+	        <div class="Forum24x24Icon"><span></span></div>
+	      </td>
+		    <td>
+		      <div class="ChildForumName BoldText">
+		       
+		        <span class="NormalText">(100 Viewing)</span>
+	        </div>
+		      <div class="TextNote">Dicussing and supporting of Java programing for Apllication</div>
+		    </td>		    
+		    <td>
+          <div class="PostByLabel">Created by: <a href="#">ThuaneXo</a></div>
+		      <div class="DateAndTime">Today, 22/1/2007, 08:20 AM</div>
+        </td>	      	    
+		    <td class="OrderColumn">
+		      <div class="LeftOrder ForumAscending16x16Icon"><span></span></div>
+          <div class="RightOrder ForumDescending16x16Icon"><span></span></div>
+          <div style="clear: both;"><span></span></div>
+		    </td>
+		    <td class="ActionColumn">
+		      <div class="DeleteForum DeleteForum16x16Icon"><span></span></div>
+		     
+            <div class="EditForum EditForum16x16Icon"><span></span></div>
+          </a>
+          <div style="clear: right;"></div>
+        </td>
+	    </tr>	 
+	   
+	    <tr>
+        <td class="TBottom" colspan="5">&nbsp;</td>
+      </tr>	      	    
+    </tbody>    
+  </table>  
+  
+  
+  <div class="UIToolBarAdmin">
+    <div class="AdminButton">
+      <div class="AdminButtonLeft">
+        <div class="AdminButtonRight">
+          <div class="AdminButtonMiddle">
+           
+	            <div class="AdminButtonIcon Forum16x16Icon"><span></span></div>
+	            <div class="AdminButtonLabel BoldText">Add Category</div>
+            </a>
+            <div style="clear: left;"><span></span></div>
+          </div>
+        </div>
+      </div>      
+    </div>    
+    <div style="clear: both;"><span></span></div>
+  </div>
+  
+</div>

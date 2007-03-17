@@ -1,0 +1,93 @@
+<%
+/**
+ * Created by The eXo Platform SARL
+ * Author : Pham Tuan
+ *          phamtuanchip@yahoo.de
+ * Jul 26, 2006  
+ */
+%>
+<%
+  String tabName = uicomponent.getTabName() ;
+	tabStyle1 = "NavyBluePolygonTab36Style" ;
+	tabStyle2 = "GrayPolygonTab36Style" ;
+	tabStyle3 = "GrayPolygonTab36Style" ;
+  if (tabName != null) {
+	  if(tabName.equals("UICrawlerManageSources")) {
+	    tabStyle1 = "GrayPolygonTab36Style" ;
+	    tabStyle2 = "NavyBluePolygonTab36Style" ;
+	    tabStyle3 = "GrayPolygonTab36Style" ;
+	  } else if (tabName.equals("UICrawlerMonitoring")) {
+	    tabStyle1 = "GrayPolygonTab36Style" ;
+	    tabStyle2 = "GrayPolygonTab36Style" ;
+	    tabStyle3 = "NavyBluePolygonTab36Style" ;
+	  }  
+	}
+%>
+<div class="UICrawlerNavigation">
+	<div class="CrawlerPortletTitleContainer">
+		<div class="CrawlerPortletTitle">
+			Crawler Portlet management 
+		</div>
+	</div>
+	<div class="CrawlerPortletTabControl">
+		<div class="UIHorizontalTabs">
+			<div class="TabsContainer">
+				<div class="UITab">
+					<div class="$tabStyle1">
+						<div class="LeftTab">
+			        <div class="RightTab">
+				      	<div class="MiddleTab">
+				      		<a href="<%=uicomponent.event('controlTab');%>">
+				      			<div class="GlassesNavyBlueNewspaper32x32Icon"><span></span></div>
+				      		</a>
+				      	</div>
+				      </div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="UITab">
+					<div class="$tabStyle2">
+						<div class="LeftTab">
+			        <div class="RightTab">
+				      	<div class="MiddleTab">
+				      		<a href="<%=uicomponent.event('controlTab','UICrawlerManageSources');%>">
+										<div class="GrayGearBrownBox32x32Icon"><span></span></div>
+									</a>
+				      	</div>
+				      </div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="UITab">
+					<div class="$tabStyle3">
+						<div class="LeftTab">
+			        <div class="RightTab">
+				      	<div class="MiddleTab">
+				      		<a href="<%=uicomponent.event('controlTab','UICrawlerMonitoring');%>">
+				      			<div class="GreenDownArrowBlueMonitor32x32Icon"><span></span></div>
+				      		</a>
+				      	</div>
+				      </div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>	
+	</div>
+	
+	<div class="UITabContentContainer">
+		<%
+		  for(uiChild in uicomponent.getChildren()) { 
+		    String display = "none" ;
+		    if(uiChild.isRendered()) display="block" ;
+		
+		    println "<div class=\"UITabContent\" style=\"display: $display\">" ;
+		    uicomponent.renderUIComponent(uiChild) ;
+		    println "</div>" ;
+		  }
+	  %>
+	</div>
+</div>

@@ -1,0 +1,228 @@
+/*##########################################################*/
+.UIPageDesktop .UIWindow {
+  width: 720px ;	
+}
+
+.UIPageDesktop .UIWindow .UIApplication {
+  height: 350px ;
+}
+
+.UIWindow .UICommunityPortlet {
+  overflow: auto ;
+}
+
+.UIWindow .UICompanyPortlet {
+  overflow: auto ;
+}
+
+.UIWindow .UIOrganizationPortlet {
+  overflow: auto ;
+}
+
+.UIWindow .UIContentPortlet {
+	margin: 0px;
+  overflow: auto ;
+}
+
+.UIWindow .UIPortletRegistryPortlet {
+  overflow: auto ;
+}
+
+.UIWindow .UIAccountPortlet {
+  overflow: auto ;
+}
+
+.UIWindow .UISitemapPortlet {
+	overflow: auto ;
+}
+
+.UIWindow .UIFormTabPane {
+  overflow: auto ;
+}
+
+.UIWindow .UISitemap {
+	overflow: auto ;
+}
+
+.UIWindow .UIAddPortletPortlet {
+	overflow: auto ;
+}
+
+.UIWindow .UITestFormPortlet {
+	overflow: auto ;
+}
+
+/*##########################################################*/
+
+.UIWindow .WindowPortletControl {
+  float: right ;
+  height: 24px ;
+}
+
+.UIPageDesktop .UIWindow .WindowPortletInfo {
+  margin-right: 100px ;
+  height: 24px ;
+  cursor: move ;
+}
+
+.UIWindow .WindowPortletInfo .WindowPortletIcon {
+  float: left ;
+  margin: 6px 5px 0px 5px ;
+  width: 18px ;
+  height: 18px ;
+  background: url('VistaSkin/icons/16x16/WindowPortletIcon.png') no-repeat ;
+}
+
+.UIWindow .WindowPortletInfo .PortletName {
+  float: left ;
+  margin-top: 8px ;
+  font-size: 11px ;
+}
+
+.UIWindow .WindowPortletControl .ControlIcon {
+  width: 30px ;
+  height:19px ;
+  float: left;
+  margin: 3px 0px 0px 0px ;
+  cursor: pointer ;  
+}
+
+.UIWindow .WindowPortletControl .ArrowDownIcon {
+  background: url('VistaSkin/icons/16x16/ArrowDown.png') no-repeat ;
+}
+
+.UIWindow .WindowPortletControl .OverArrowDownIcon {
+  background: url('VistaSkin/icons/16x16/ArrowDownOver.png') no-repeat ;
+}
+
+.UIWindow .WindowPortletControl .MinimizedIcon {
+  background: url('VistaSkin/icons/16x16/Minimize.png') no-repeat ;
+}
+
+.UIWindow .WindowPortletControl .OverMinimizedIcon {
+  background: url('VistaSkin/icons/16x16/MinimizeOver.png') no-repeat ;
+}
+
+.UIWindow .WindowPortletControl .MaximizedIcon {
+  background: url('VistaSkin/icons/16x16/Maximize.png') no-repeat ;
+}
+
+.UIWindow .WindowPortletControl .OverMaximizedIcon {
+  background: url('VistaSkin/icons/16x16/MaximizeOver.png') no-repeat ;
+}
+
+.UIWindow .WindowPortletControl .RestoreIcon {
+  background: url('VistaSkin/icons/16x16/Restore.png') no-repeat ;
+}
+
+.UIWindow .WindowPortletControl .OverRestoreIcon {
+  background: url('VistaSkin/icons/16x16/RestoreOver.png') no-repeat ;
+}
+
+.UIWindow .WindowPortletControl .CloseButtonIcon {
+  background: url('VistaSkin/icons/16x16/CloseOver.png') no-repeat ;
+}
+
+.UIWindow .WindowPortletControl .OverCloseButtonIcon {
+  background: url('VistaSkin/icons/16x16/CloseOver.png') no-repeat ;
+}
+
+.UIWindow .Information {
+  margin-right: 18px ;
+  padding-left: 5px ;
+  height: 18px ;
+  line-height: 18px ;
+  vertical-align: middle ;
+  font-size: 10px ;
+}
+
+.UIWindow .MiddleDecoratorCenter {
+  /*background: url('VistaSkin/background/PortletWindowBG1x1.png');*/
+  background: #ffffff;
+  border: solid 1px #444444;
+}
+
+.UIPageDesktop .UIWindow .ResizeArea {
+  float: right ;
+  width: 9px ;
+  height: 12px ;
+  cursor: nw-resize ;
+  background: url('VistaSkin/icons/16x16/ResizeBG.gif') no-repeat bottom right;
+}
+
+.UIWindow .MiddleDecoratorLeft {
+  padding-left: 10px ;
+  background: url('VistaSkin/background/MiddleDecoratorL10x1.png') repeat-y left ;
+}
+
+.UIWindow .MiddleDecoratorRight {
+  padding-right: 14px ;
+  background: url('VistaSkin/background/MiddleDecoratorR14x1.png') repeat-y right ;
+}
+
+.UIPageBody .MiddleDecoratorCenter {
+  background: url('VistaSkin/background/PortletWindowBG1x1.png');
+}
+
+.UIWindow .BottomDecoratorLeft {
+  height: 25px ;
+  padding-left: 10px ;
+  background: url('VistaSkin/background/BottomDecoratorL10x25.png') no-repeat left ;
+}
+
+.UIWindow .BottomDecoratorRight {
+  height: 25px ;
+  padding-right: 14px ;
+  background: url('VistaSkin/background/BottomDecoratorR14x25.png') no-repeat right ;
+}
+
+.UIWindow .BottomDecoratorCenter {
+  height: 25px ;
+  background: url('VistaSkin/background/BottomDecoratorCenter1x25.png') repeat-x ;
+}
+
+.UIWindow .WindowPortletInfo .PortletName {
+  float: left ;
+  margin: 7px 0px 0px 3px;
+  font-size: 11px ;
+  font-weight: bold;
+}
+
+.UIWindow .WindowBarLeft {
+  height: 28px ;
+  padding-left: 10px ;
+  background: url('VistaSkin/background/TopBarL10x28.png') no-repeat left ;
+}
+
+.UIWindow .WindowBarRight {
+  height: 28px ;
+  padding-right: 14px ;
+  background: url('VistaSkin/background/TopBarR14x28.png') no-repeat right ;
+}
+
+/**************************** UIPageBody ************************************/
+
+.UIPageBody .UIWindow {
+  width: auto ; height: auto;
+}
+
+.UIPageBody .UIWindow .UIApplication {
+  height: auto ;
+}
+
+.UIWindow .WindowBarCenter {
+  height: 28px ;
+  background: url('VistaSkin/background/TopBarCenter1x28.png') repeat-x ;
+}
+
+.UIPageBody .WindowPortletControl {
+  float: right ;
+  height: 24px ;
+}
+
+.UIPageBody .UIWindow .ResizeArea {
+  float: right ;
+  width: 0px ;
+  height: 0px ;
+  background: url('null') repeat bottom right;
+}

@@ -1,0 +1,153 @@
+<binding>
+  <mapping class="org.exoplatform.portal.config.model.Component" label="component" abstract="true">
+    <value name="id" usage="optional" field="id" style="attribute"/>
+     <value name="factory-id" field="factoryId" usage="optional"/>
+    <value name="template" field="template" usage="optional" style="attribute"/>
+    <value name="decorator" field="decorator" usage="optional" style="attribute"/>
+    <value name="width" usage="optional" field="width" style="attribute" />
+    <value name="height" usage="optional" field="height" style="attribute"/>
+  </mapping>
+  
+  <mapping name="portlet" label="portlet"
+           class="org.exoplatform.portal.config.model.Portlet" 
+           extends="org.exoplatform.portal.config.model.Component">
+    <structure map-as="org.exoplatform.portal.config.model.Component"/>
+    <value name="title" usage="optional" field="title"/>
+    <value name="window-id" field="windowId"/>
+    <value name="portlet-style" field="portletStyle" usage="optional"/>
+    <value name="show-info-bar" field="showInfoBar" usage="optional" />
+    <value name="show-window-state" field="showWindowState" usage="optional" />
+    <value name="show-portlet-mode" field="showPortletMode" usage="optional" />
+    <value name="description" field="description" usage="optional"/>
+    <value name="icon" field="icon" usage="optional"/>
+  </mapping>
+  
+  <mapping name="page-body" label="pageBody"
+           class="org.exoplatform.portal.config.model.PageBody" 
+           extends="org.exoplatform.portal.config.model.Component">
+  </mapping>
+  
+  <mapping name="container" label="container"
+           class="org.exoplatform.portal.config.model.Container" 
+           extends="org.exoplatform.portal.config.model.Component">
+    <structure map-as="org.exoplatform.portal.config.model.Component"/>
+    <value name="title" usage="optional" field="title"/>
+    
+    <collection field="children" ordered="false">
+      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.Portlet" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
+    </collection>
+  </mapping>
+
+  <mapping name="page" label="page"
+           class="org.exoplatform.portal.config.model.Page" 
+           extends="org.exoplatform.portal.config.model.Component">
+    <structure map-as="org.exoplatform.portal.config.model.Component"/>
+    <value name="owner" field="owner" usage="optional"/>
+    <value name="name" field="name"/>
+    <value name="title" field="title" usage="optional"/>
+    <value name="icon" field="icon" usage="optional"/>
+    <value name="view-permission" field="viewPermission" usage="optional"/>
+    <value name="edit-permission" field="editPermission" usage="optional"/>
+    <value name="show-max-window" field="showMaxWindow" usage="optional"/>
+    
+    <collection field="children" ordered="false">
+      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.Portlet" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
+    </collection>
+  </mapping>
+
+  <mapping name="node" label="node"
+           class="org.exoplatform.portal.config.model.PageNode">
+    <value name="uri" field="uri"/>
+    <value name="name" field="name"/>
+    <value name="label" field="label" usage="optional"/>
+    <value name="access-permission" field="accessPermission" usage="optional"/>
+    <value name="icon" field="icon" usage="optional"/>
+    <value name="page-reference" field="pageReference" usage="optional"/>
+    <value name="description" field="description" usage="optional"/>
+    <value name="type" field="type" usage="optional"/>
+    <value name="creator" field="creator" usage="optional"/>
+    <value name="modifier" field="modifier" usage="optional"/>
+    <collection field="children" usage="optional" item-type="org.exoplatform.portal.config.model.PageNode"/>
+  </mapping>
+  
+  <mapping name="portal-config" 
+           class="org.exoplatform.portal.config.model.PortalConfig"
+           extends="org.exoplatform.portal.config.model.Component">
+    <structure map-as="org.exoplatform.portal.config.model.Component"/>
+    <value name="owner" field="owner"/>
+    <value name="locale" field="locale"/>    
+    <value name="view-permission" field="viewPermission" usage="optional"/>
+    <value name="edit-permission" field="editPermission" usage="optional"/>
+    <value name="skin" field="skin" usage="optional"/>
+    <value name="title" field="title" usage="optional"/>
+    <collection field="children" ordered="false">
+      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.Portlet" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
+    </collection>
+  </mapping>
+
+  <mapping name="page-set" class="org.exoplatform.portal.config.model.Page$PageSet">
+    <collection field="pages" 
+                item-type="org.exoplatform.portal.config.model.Page"/>
+  </mapping>
+
+  <mapping name="node-navigation" class="org.exoplatform.portal.config.model.PageNavigation">
+    <value name="owner" field="owner"/>
+    <value name="priority" field="priority" usage="optional"/>
+    <value name="access-permission" field="accessPermission" usage="optional"/>
+    <value name="edit-permission" field="editPermission" usage="optional"/>
+    <value name="description" field="description" usage="optional"/>
+    <collection name="page-nodes" field="pageNodes" usage="optional"
+                    item-type="org.exoplatform.portal.config.model.PageNode"/>
+  </mapping>
+  
+  <mapping name="portlet-preferences-set"
+          class="org.exoplatform.portal.portlet.PortletPreferences$PortletPreferencesSet">
+    <collection field="portlets" 
+                item-type="org.exoplatform.portal.portlet.PortletPreferences"/>
+  </mapping>  
+  
+  <mapping class="org.exoplatform.portal.portlet.Preference" 
+           name="preference" label="preference">
+    <value name="name"  field="name"/>
+    <collection field="values">
+      <value name="value" style="element"/>
+    </collection>
+    <value name="read-only" field="readOnly" usage="optional"/>
+  </mapping>
+
+  <mapping class="org.exoplatform.portal.portlet.PortletPreferences" 
+           name="portlet-preferences" label="portlet-preferences">
+    <value name="window-id" field="windowId"/>
+    <collection field="preferences" 
+                item-type="org.exoplatform.portal.portlet.Preference"/>    
+    <value name="preferences-validator" field="preferencesValidator" usage="optional"/>
+    <value name="creator" field="creator" usage="optional"/>
+    <value name="modifier" field="modifier" usage="optional"/>
+  </mapping>
+  
+  
+  <mapping name="content-navigation" class="org.exoplatform.portal.content.model.ContentNavigation">
+    <value name="owner" field="owner"/>
+    <value name="description" field="description" usage="optional"/>
+    <collection name="content-nodes" field="contentNodes" usage="optional"
+                    item-type="org.exoplatform.portal.content.model.ContentNode"/>
+  </mapping>
+  
+  <mapping name="content-node" label="content-node"
+           class="org.exoplatform.portal.content.model.ContentNode">
+    <value name="id" field="id"/>
+    <value name="url" field="url" usage="optional"/>
+    <value name="label" field="label" usage="optional"/>
+    <value name="icon" field="icon" usage="optional"/>
+    <value name="description" field="description" usage="optional"/>
+    <value name="type" field="type" usage="optional"/>
+    <collection field="children" usage="optional" item-type="org.exoplatform.portal.content.model.ContentNode"/>
+  </mapping>
+  
+</binding>

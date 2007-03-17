@@ -1,0 +1,55 @@
+.UIPageSelector {
+	padding: 10px;
+	width: 96%;
+}
+
+.UIPageSelector .SearchText {
+  float: left;
+  margin-left: 5px;
+}
+
+.UIPageSelector .SearchText a {
+  color: black;
+}
+
+.UIPageSelector .SearchText a:hover {
+  color: blue;
+}
+
+.UIPageSelector .PageMagnifier32x32Icon {
+  float: left;
+  margin: 5px 4px 0px 10px;
+  cursor: pointer;
+  background: url('MacSkin/background/PageBrowser.gif') no-repeat;
+}
+
+.UIPageSelector .UIFormInfo {
+  background: url('MacSkin/background/LinedBG1x4.gif') ;
+  border: 1px solid #b7b7b7;
+  border-top: none;
+}
+
+.UIPageSelector .UIFormInfoIcon {
+  padding: 15px 15px 35px 15px;
+}
+
+.UIPageSelector .UIFormInfo .PageTicker16x16Icon {
+  float: left;
+  margin-right: 5px; margin-left: 13px;
+}
+
+.UIPageSelector .UIFormInfo .SelectedPageText {
+  color: black;
+  margin-left: 20px;
+}
+
+.UIPageSelector .UIFormInfo .PropertyName {
+  float: left;
+  margin: 13px 5px 0px 25px ;
+}
+
+.UIPageSelector .UIFormInfo .PropertyValue {
+  color: #3176e3;
+  margin: 13px 0px 0px 1px 
+}
+

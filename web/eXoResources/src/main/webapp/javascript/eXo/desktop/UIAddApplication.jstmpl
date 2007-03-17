@@ -1,0 +1,196 @@
+<div class="UIAddApplication">
+	<div class="TitleBarContainer">
+	  <div class="LeftTitleBar">
+	    <div class="RightTitleBar">
+	      <div class="CenterTitleBar">Add Portlet or Javascript Applications</div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="ContentContainerDetail">
+	  <div class="CategoryContainer">
+	    
+	    <div class="UIHorizontalTabs">
+	      <div class="TabsContainer">
+	        <div class="UITab">
+	              <div class="HighlightTabStyle">
+	                <div class="LeftTab">
+	                  <div class="RightTab">                
+	                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Portlets</div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	            
+	            <div class="UITab">
+	              <div class="NormalTabStyle">
+	                <div class="LeftTab">
+	                  <div class="RightTab">
+	                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">JS Applications</div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	            
+	          <div class="RefreshButtonContent">
+	          	<div class="RefreshButtonLeft">
+	          		<div class="RefreshButtonRight">
+	          			<div class="MiddleRefreshButton">
+	          				<div class="IconRefreshButton"><span></span></div>
+	          				<div class="RefreshButtonLabel">
+	          					<div onClick="eXo.desktop.UIAddApplication.loadPortlets(true);" title="Refresh News">
+	          					  Refresh
+	          					</div>
+	          				</div>
+	          				<div style="clear: left"><span></span></div>
+	          			</div>
+	          		</div>
+	          	</div>
+	          </div>
+	          <div style="clear: both"><span></span></div>
+	      </div>
+	    </div>
+	    
+	    <div class="UITabContentContainer">
+	      <div class="UITabContent" style="display: block">
+	      	
+	      	<div class="UIItemSelector">
+	      	  <div class="FloatRightStyle">
+          	  <div class="ItemListContainer">
+          	    <div class="ItemListTitle">Portlet Category</div>
+          	    <div class="ItemList"><span></span></div>
+          	  </div>          	  
+          	  <div class="ItemDetailList"><span></span></div>
+	            <div style="clear: left"><span></span></div>
+	      	  </div>
+	      	</div>
+	      	
+	      </div>
+	      
+	      <div class="UITabContent" style="display: none">
+	        <div class="UIItemSelector">
+	      	  <div class="FloatRightStyle">
+	          	  <div class="ItemListContainer">
+	          	    <div class="ItemListTitle">Javascript Application</div>
+	          	    <div class="ItemList">
+	          	    
+	          	      <div class="ItemSelected Item" onclick="eXo.webui.UIItemSelector.onClick(this)"
+	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">
+	          	        <div class="ItemIcon">
+	          	          <div class="ItemName">
+											  	  <div class="ItemTitle">eXo Browser</div>
+						              </div>
+	          	        </div>
+	          	      </div>
+	          	      
+	          	      <div class="Item" onclick="eXo.webui.UIItemSelector.onClick(this)"
+	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">
+	          	        <div class="ItemIcon">
+	          	          <div class="ItemName">  
+											  	  <div class="ItemTitle">Accessories</div>
+						              </div>
+	          	        </div>
+	          	      </div>
+	          	      
+	          	    </div>
+	          	  </div>
+	          	  
+	          	  <div class="ItemDetailList">
+	          	    <div class="ItemDetail" style="display: block">
+	          	      <div class="ApplicationListContainer">
+	              	      <div class="Application">
+				              		<div class="TitleBarApplication">
+				              			<div class="IconLayout BlueSquare16x16Icon"><span></span></div>
+				              			<div class="ApplicationLabel">eXo Browser</div>
+				              			<div class="CheckButton"><span></span></div>
+				              			<div class="AddButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication', 'eXoBrowser')">
+				              			  <span></span>
+			              			  </div>
+				              			<div style="clear: both"><span></span></div>
+				              		</div>
+				              		<div class="ApplicationDescription">eXo Browser</div>
+				              	</div>
+				              	
+				              	<div class="Application">
+				              		<div class="TitleBarApplication">
+				              			<div class="IconLayout BlueSquare16x16Icon"><span></span></div>
+				              			<div class="ApplicationLabel">eXo Mail</div>
+				              			<div class="CheckButton"><span></span></div>
+				              			<div class="AddButton" 
+				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.mail.UIMailApplication', 
+				              			                                                            'eXoMail', 
+				              			                                                            '/mail/javascript/');">
+				              			  <span></span>
+				              			</div>
+				              			<div style="clear: both"><span></span></div>
+				              		</div>
+				              		<div class="ApplicationDescription">eXo Mail</div>
+				              	</div>
+				              	
+				              	<div class="Application">
+				              		<div class="TitleBarApplication">
+				              			<div class="IconLayout BlueSquare16x16Icon"><span></span></div>
+				              			<div class="ApplicationLabel">Calendar</div>
+				              			<div class="CheckButton"><span></span></div>
+				              			<div class="AddButton" 
+						              			 onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.calendar.UICalendarApplication',
+						              			                                                        'eXoCalendar',
+	  			                                                                              '/calendar/javascript/');">
+	              			        <span></span>
+	              			      </div>
+				              			<div style="clear: both"><span></span></div>
+				              		</div>
+				              		<div class="ApplicationDescription">Calendar</div>
+				              	</div>
+				              	
+				              	<div class="Application">
+				              		<div class="TitleBarApplication">
+				              			<div class="IconLayout BlueSquare16x16Icon"><span></span></div>
+				              			<div class="ApplicationLabel">Forum</div>
+				              			<div class="CheckButton"><span></span></div>
+				              			<div class="AddButton" 
+				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.forum.UIForumApplication', 
+				              			                                                            'eXoForum',
+				              			                                                            '/forum/javascript/');">
+	              			        <span></span>
+	              			      </div>
+				              			<div style="clear: both"><span></span></div>
+				              		</div>
+				              		<div class="ApplicationDescription">Forum</div>
+				              	</div>					              	
+				              	
+			              	</div>
+	          	    </div>
+	          	    <div class="ItemDetail" style="display: none">
+	          	      <div class="ApplicationListContainer">
+	          	        Accessories
+	          	      </div>
+	          	    </div>
+	          	  </div>
+	          	  <div style="clear: left"><span></span></div>
+	      	  </div>
+	      	</div>
+	      </div>
+	    </div>
+	    
+	  </div>
+	</div>
+	
+	<div class="UIAction">
+	  <div class="ActionContainer">
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	              <div class="Icon Cancel16x16Icon"><span></span></div>
+			  				    <a href="javascript:eXo.desktop.UIAddApplication.removeAddApplication() ;">Close</a>
+			  				    <div style="clear: left"><span></span></div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>       
+</div>

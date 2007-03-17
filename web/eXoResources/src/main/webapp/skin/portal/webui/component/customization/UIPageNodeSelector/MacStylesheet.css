@@ -1,0 +1,75 @@
+/*########################- UIPageNodeSelector -######################*/
+.UIPageNodeSelector {
+}
+
+.UIPageNodeSelector .UIVerticalSlideTabs {
+  padding-bottom: 0px;
+  margin: 0px;
+  border: none;
+}
+
+/*###############################- UITree -############################*/
+
+.UIPageNodeSelector .UITree {
+  border: none; background: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.UIPageNodeSelector .UITree .TreeLevelContainer {
+  padding-left: 0px;
+  margin: 2px 0px 3px 3px; background: none; border: none;
+  height: 21px; 
+}
+
+.UIPageNodeSelector .UITree .TreeLevelContainer .LevelUpArrowIcon {
+  background: url('MacSkin/background/AquaBlueUpLevel.gif') no-repeat;
+  width: 26px; line-height: 18px;
+  margin-left: 8px;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer {
+  overflow: visible;
+  padding: 7px 0px 10px 0px;
+  margin: 0px;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node {
+  margin: 5px 5px 0px 0px ;
+  padding-left: 10px;
+  font-size: 11px; color: black; 
+  width: auto;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .NodeSelected {
+  height: 16px ; line-height: 16px; vertical-align: middle;
+  width: auto;
+  color: red; 
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .CollapseIcon {
+  margin-right: 2px ;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .Icon {
+  width: 16px;  height: 16px ;
+  margin: 2px 5px 0px 1px;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .NodeLabel a {
+  margin-left: 0px ; padding-left: 2px; 
+  height: 16px ; width: auto;
+  vertical-align: middle ; line-height: 16px ;
+}
+
+.UIPageNodeSelector .OrganizationIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Organization.gif') no-repeat;  
+}
+
+.UIPageNodeSelector .PortalAdminIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/PortalAdmin.gif') no-repeat;
+}
+
+.UIPageNodeSelector .NavigationPortalIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/PageNode.gif') no-repeat;
+}

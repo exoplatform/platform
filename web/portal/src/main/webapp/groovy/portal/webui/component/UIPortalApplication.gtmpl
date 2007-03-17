@@ -1,0 +1,84 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<%
+  def rcontext = _ctx.getRequestContext() ;
+  String docBase =  rcontext.getRequestContextPath() ;
+  String skin = uicomponent.getSkin();
+  def portalSkin = uicomponent.getSkin("PortalSkin") ;
+  def coreSkin = uicomponent.getSkin("CoreSkin") ;
+  def portletSkins = uicomponent.getPortletSkins() ;
+%>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>eXo Portal</title>
+    
+    <link id="PortalSkin" rel="stylesheet" type="text/css" href="$portalSkin.CSSPath" />
+    <link id="CoreSkin" rel="stylesheet" type="text/css" href="$coreSkin.CSSPath"/>
+    
+    <link id="company" rel="stylesheet" type="text/css" href="/site/company/skin/Stylesheet.css" />
+    <link id="community" rel="stylesheet" type="text/css" href="/site/community/skin/Stylesheet.css" />
+        
+    <% 
+      for(portletSkin in portletSkins) { 
+    %> 
+      <link id="$portletSkin.id" rel="stylesheet" type="text/css" href= "$portletSkin.CSSPath" />
+    <%}%>    
+    
+    <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
+    <script type="text/javascript">
+      eXo.env.developing = <%=uicomponent.DEVELOPING%> ;
+      eXo.env.server.context = '<%=docBase%>' ;
+      eXo.env.server.portalBaseURL = '<%=rcontext.getBaseURL()%>' ;
+      
+      eXo.env.client.skin = '$skin' ;
+    </script>
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/Util.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/DOMUtil.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/Browser.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/PortalHttpRequest.js"></script>
+    
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/WebUI.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIForm.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIPopup.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIDebugWindow.js"></script>
+  </head>
+
+  <body>
+    <div class="$uicomponent.skin" id="UIPortalApplication">
+      <% uicomponent.renderChildren(); %>
+      <div style="clear: left"><span></span></div>
+    </div>      
+
+    <div class="AjaxLoadingMask" id="AjaxLoadingMask"  style="display: none;">
+      <div class="LoadingContainer">
+        <div class="CenterLoadingContainer">
+          <div class="LoadingText"><%=_ctx.appRes("UIPortalApplication.label.Loading")%></div>
+          <div class="LoadingProgressBar"><span></span></div>
+          <div class="UIAction">
+            <div class="ActionContainer">
+              <div class="ActionButton">
+                <div class="LightBlueStyle">
+                  <div class="ButtonLeft">
+                    <div class="ButtonRight">
+                      <div class="ButtonMiddle">
+                        <a href="javascript:ajaxAbort();"><%=_ctx.appRes("UIPortalApplication.label.Abort")%></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
+         </div>
+       </div>
+    </div>
+    
+    <script type="text/javascript">      
+      <%=rcontext.getJavascript()%>
+      eXo.core.Browser.onLoad();
+      <%=rcontext.getCustomizedOnLoadScript();%>
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<%
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.importJavascript('eXo.portal.PortalDragDrop') ;
+%>
+
+<div class="UIPortal" id="UIPortal-$uicomponent.id">
+  <div class="META-DATA-BLOCK" style="display: none">
+	  <div class="id">$uicomponent.id</div>
+	  <div class="title"><%=_ctx.appRes("UIPortal.label.title")%></div>
+    <div class="description"><%=_ctx.appRes("UIPortal.label.description")%></div>
+  </div>	
+	<div class="CONTROL-PORTAL CONTROL-BLOCK" style="display: none;"><span></span></div>
+	<div class="LAYOUT-PORTAL" style="display: none;"></div>
+  <div class="VIEW-PORTAL">
+    <div id="$uicomponent.id">
+	    <div class="UIRowContainer">
+	      <%uicomponent.renderChildren()%>
+	    </div>
+	  </div>
+  </div>
+</div>

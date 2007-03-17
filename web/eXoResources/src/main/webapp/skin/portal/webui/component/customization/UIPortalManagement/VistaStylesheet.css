@@ -1,0 +1,92 @@
+.UIPortalManagement {
+  padding: 0px 1px 1px 1px ;
+}
+
+.UIPortalManagement .ViewModeIcon {
+  float: left ;
+  width: 30px ; height: 25px ;
+  margin: 5px 10px 4px 20px ;
+  background: url('VistaSkin/background/ViewMode.gif') no-repeat ;
+}
+
+.UIPortalManagement .EditModeIcon {
+  float: left; 
+  width: 30px;  height: 25px;
+  margin: 5px 10px 4px 14px;
+  background: url('VistaSkin/background/EditMode.gif') no-repeat;
+}
+.UIPortalManagement .RollbackBar {
+  width: 125px;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.UIPortalManagement .BrowserPortalIcon {
+  float: left; 
+  width: 31px;  height: 25px;
+  margin: 5px 10px 4px 14px;
+  background: url('VistaSkin/background/BrowsePortal.gif') no-repeat;
+}
+
+.UIPortalManagement .RollbackIcon {
+  float: left;
+  width: 30px;  height: 25px;
+  margin: 2px 0px 0px 0px;
+  background: url('VistaSkin/background/BlueCircleBackArrow.png') no-repeat;
+
+}
+
+.UIPortalManagement .UIPortalManagementEditBar {
+ margin-top: 20px;
+}
+
+.UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
+  float: left;
+  margin: 4px 7px;
+  width: 30px;  height: 24px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControlIcon.png') no-repeat;
+}
+
+
+.UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
+  float: left;
+  margin: 4px 7px;
+  width: 30px;  height: 24px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControlIcon.png') no-repeat;
+}
+
+.UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
+  float: left;
+  margin: 4px 7px;
+  width: 24px;  height: 24px;
+  cursor : pointer;
+  background: url('/eXoResources/icons/24x24/VistaSkin/LayoutMode.gif') no-repeat;
+}
+
+
+.UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
+  float: left;
+  margin: 4px 7px;
+  width: 30px;  height: 24px;  
+  cursor : pointer;
+  background: url('/eXoResources/icons/24x24/VistaSkin/Preview.png') no-repeat;
+}
+
+.UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
+  float:left;
+  margin: 4px 7px;
+  width: 30px;  height: 24px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortalControl.png');
+
+}
+
+.UIPortalManagement .UIPortalManagementEditBar .SavePortalIcon {
+  float: left;
+  width: 30px;  height: 24px;
+  margin: 4px 7px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlackFloppyDisk.png') no-repeat;
+}
+
+.UIPortalManagement .UIToolbar .PolyToolbar .MiddleBar {
+  padding: 2px 0px 0px 20px;
+}

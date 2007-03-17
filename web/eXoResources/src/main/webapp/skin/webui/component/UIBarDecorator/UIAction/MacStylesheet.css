@@ -1,0 +1,102 @@
+.UIAction{
+  margin: auto;
+  margin-top: 8px;
+}
+
+.UIAction .ActionContainer {
+  overflow: hidden ;
+}
+
+.UIAction .ActionContainer .ActionButton {
+	float: right;
+	width: 74px;
+	margin: 0px 0px 0px 3px ;
+}
+
+.UIAction .ActionContainer .ActionButton  a {
+  line-height: 21px ; vertical-align: middle;
+  text-decoration: none ; text-align: center;
+  color: black ; font-weight: normal ; font-size: 11px ;
+}
+
+.UIAction .ActionContainer .ActionButton  a:hover {
+  line-height: 21px ; vertical-align: middle ;
+  text-decoration: none ; text-align: center;
+  color: blue; font-weight: normal ; font-size: 11px ;
+}
+
+.UIAction .ActionContainer .Save16x16Icon {
+	display:none;
+}
+
+.UIAction .ActionContainer .ActionButton .Icon {
+  display:none;
+}
+
+.UIAction .ActionContainer .Cancel16x16Icon {
+	display:none;
+}
+
+.UIAction .ActionContainer .Back16x16Icon {
+	display:none;
+}
+
+/*##############################-LightBlueStyle ActionButton-################################*/
+.UIAction .ActionContainer .ActionButton .LightBlueStyle {
+}
+
+.UIAction .ActionContainer .ActionButton .LightBlueStyle .ButtonLeft {
+	height: 25px; 
+	line-height: 25px;
+  background: url('MacSkin/background/BlueAquaButtonL12x25.png') no-repeat left;
+  padding: 0px 0px 0px 12px;
+}
+
+.UIAction .ActionContainer .ActionButton .LightBlueStyle .ButtonRight {
+	height: 25px; 
+	line-height: 25px;
+  background: url('MacSkin/background/BlueAquaButtonR12x25.png') no-repeat right;
+  padding: 0px 12px 0px 0px ;
+}
+
+.UIAction .ActionContainer .ActionButton .LightBlueStyle .ButtonMiddle {
+  height: 25px;	
+  line-height: 19px; vertical-align: middle;
+  text-align: center;
+	background: url('MacSkin/background/BlueAquaButtonM1x25.png') repeat-x;
+}
+
+/*##############################-Disabled ActionButton-################################*/
+.UIAction .ActionContainer .ActionButton .DisabledStyle {
+}
+
+.UIAction .ActionContainer .ActionButton .DisabledStyle .ButtonLeft {
+	height: 25px; 
+	line-height: 25px;
+  background: url('MacSkin/background/GrayAquaButtonL12x25.png') no-repeat left;
+  padding: 0px 0px 0px 12px;
+}
+
+.UIAction .ActionContainer .ActionButton .DisabledStyle .ButtonRight {
+	height: 25px; 
+	line-height: 25px;
+  background: url('MacSkin/background/GrayAquaButtonR12x25.png') no-repeat right;
+  padding: 0px 12px 0px 0px ;
+}
+
+.UIAction .ActionContainer .ActionButton .DisabledStyle .ButtonMiddle {
+	height: 25px; 
+	line-height: 19px; vertical-align: middle;
+	text-align: center;
+	background: url('MacSkin/background/GrayAquaButtonM1x25.png') repeat-x;
+}
+
+.UIAction .ActionContainer .ActionButton .DisabledStyle a {
+	color: gray;
+	cursor: default;
+}
+
+.UIAction .ActionContainer .ActionButton .DisabledStyle a:hover {
+	color: gray;
+	cursor: default;
+}

@@ -1,0 +1,130 @@
+.UICalendarControl .CalendarNomalFlatStyle .CalendarFlatStyleTitle {
+	float: left;
+	font-weight: bold;
+	line-height: 20px;
+	color: #555555;
+	cursor: pointer; 
+	margin: 0px 0px 0px 4px;  
+}
+
+.UICalendarControl .CalendarSelectedFlatStyle .CalendarFlatStyleTitle {
+	float: left;
+	font-weight: bold;
+	line-height: 20px;
+	color: #1475e1;
+	cursor: pointer;
+	margin: 0px 0px 0px 4px; 
+}
+
+.UICalendarControl .BlackTitle {
+	float: left;
+	line-height: 20px;
+	cursor: pointer; 
+	margin: 0px 0px 0px 4px; 
+}
+
+.UICalendarControl .ButtonBlackTitle {
+	float: left;
+	line-height: 26px;
+	cursor: pointer; 
+	margin: 0px 0px 0px 7px; 
+}
+
+.UICalendarControl .CalendarBlackTitle {
+	font-size: 15px; font-weight: bold; 
+	line-height: 20px;
+	text-align: center;
+	color: #000000;  
+}
+
+.UICalendarControl .CheckBox {
+	float: left;
+}
+
+.UICalendarControl .GrayDownBottonIcon {
+	float: right;
+	width: 16px; height: 16px;
+	background: url('DefaultSkin/icons/16x16/GrayDownBotton.gif') no-repeat right;
+	cursor: pointer;
+	margin: 3px;
+}
+
+.UICalendarControl .GrayDownBottonMiniIcon {
+	float: right;
+	width: 16px; height: 16px;
+	background: url('DefaultSkin/icons/16x16/GrayDownBottonMini.gif') no-repeat right;
+	cursor: pointer;
+	margin: 2px;
+}
+
+.UICalendarControl .CalendarDecoratorCenterBG .CalendarSelectedFlatStyle {
+  height: 21px;
+	background: url('DefaultSkin/background/SelectedFlatStyleBar1x21.gif') repeat-x;
+	border: 1px #8a8a8a solid;
+	margin: 3px 0px 0px 0px;
+}
+
+.UICalendarControl  .CalendarNomalFlatStyle {
+  height: 21px;
+	background: url('DefaultSkin/background/NomalFlatStyleBar1x21.gif') repeat-x;
+	border: 1px #b7b7b7 solid;
+	margin: 3px 0px 0px 0px; 
+}
+
+.UICalendarControl .UIVTabContent {
+	background: #ffffff;
+	border: solid 1px #b7b7b7;
+	border-top: solid 1px #ffffff;
+	padding: 5px;
+}
+
+.UICalendarControl .CalendarItem {
+	height: 20px;
+}
+
+.UICalendarControl .CalendarItem .LightCyanColor {
+	height: 20px;
+	background: #49e3d2;
+	margin: 3px 0px; 
+}
+
+.UICalendarControl .CalendarItem .DarkNaryBlueColor {
+	height: 20px;
+	background: #5fa8ce;
+	margin: 3px 0px;
+}
+
+.UICalendarControl .CalendarItem .CreamColor {
+  height: 20px;
+	background: #fce177;
+	margin: 3px 0px; 
+}
+
+.UICalendarControl  .CalendarItem .PingVioletColor {
+  height: 20px;
+	background: #d385ce;
+	margin: 3px 0px; 
+}
+
+.UICalendarControl  .CalendarItem .RedColor {
+  height: 20px;
+	background: #ee7166;
+	margin: 3px 0px; 
+}
+
+.UICalendarControl  .CalendarButtonLeft {
+  width: 161px;
+	background: url('DefaultSkin/background/CalendarButtonL3x26.gif') no-repeat left;
+	padding: 0px 0px 0px 3px;
+	margin: auto; 
+}
+
+.UICalendarControl  .CalendarButtonRight {
+	background: url('DefaultSkin/background/CalendarButtonR3x26.gif') no-repeat right;
+	padding: 0px 3px 0px 0px;
+}
+
+.UICalendarControl  .CalendarButtonMiddle {
+  height: 26px;
+	background: url('DefaultSkin/background/CalendarButtonM3x26.gif') repeat-x;
+}

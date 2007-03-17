@@ -1,0 +1,48 @@
+<%
+  import org.exoplatform.portal.component.control.UIExoStart ;
+  import org.exoplatform.portal.component.control.UIControlWorkspace ;
+	
+	def rcontext = _ctx.getRequestContext() ;
+	
+	rcontext.importJavascript('eXo.portal.UIWorkspace');
+	
+  rcontext.addOnLoadJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
+  rcontext.addOnResizeJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
+  rcontext.addOnScrollJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
+%>
+
+<div id="UIControlWorkspace" class="UIControlWorkspace UIWorkspace" style="float:left; position: relative; z-index: 1">
+	<div class="UIWorkspaceContainer" id="UIWorkspaceContainer" style="display: none">
+	  <%/*Top Line Decorator*/%>
+	  <div class="TopLineDecorator"><span></span></div>
+	 
+	  <%/*Begin UIControlWorkspacePanel*/%>
+	  <div class="UIWorkspacePanel" id="UIWorkspacePanel">
+	    <% uicomponent.renderChild(UIControlWorkspace.WORKING_AREA_ID); %>
+	  </div> 
+	  <%/*End UIControlWorkspacePanel*/%>
+	  
+	  <%/*Begin UIControlWorkspaceControl*/%>
+	  <div class="UIWorkspaceControl" id="UIWorkspaceControl">
+	    <%uicomponent.renderChild(UIExoStart.class)%>
+	  </div>
+	  <%/*End UIControlWorkspaceControl*/%>
+	</div>
+	
+	<%/*Begin Slidebar*/%>
+	<div class="Slidebar" id="ControlWorkspaceSlidebar">
+	  <div class="FixHeightTop"><span></span></div>
+	  <div class="SlidebarButtonShow" id="ControlWorkspaceSlidebarButton" onclick="eXo.portal.UIControlWorkspace.showWorkspace();">
+	  	<span></span>
+	  </div>
+	</div>
+	<%/*End Slidebar*/%>
+	<div style="clear: both"><span></span></div>
+</div>
+<%
+  rcontext.addJavascript(""
+      + "var Slidebar = document.getElementById('ControlWorkspaceSlidebar') ;"
+      + "var fixHeightTop = eXo.core.DOMUtil.findFirstChildByClass(Slidebar, 'div', 'FixHeightTop') ;"
+      + "fixHeightTop.style.height = '45%' ;"
+      + "eXo.portal.UIControlWorkspace.onResizeDefault() ; ") ;
+%>

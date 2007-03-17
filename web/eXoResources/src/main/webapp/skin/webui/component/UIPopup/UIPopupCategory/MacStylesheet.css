@@ -1,0 +1,76 @@
+.UIPopupCategory {
+}
+
+.UIPopupCategory .PopupCategoryDecorator {
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
+  height: 19px;
+  background: url('MacSkin/background/PopupCategoryTL5x19.png') no-repeat left;
+  padding-left: 5px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTC {
+  height: 19px;
+  background: url('MacSkin/background/PopupCategoryTC1x19.png') repeat-x;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
+  height: 19px;
+  background: url('MacSkin/background/PopupCategoryTR47x19.png') no-repeat right;
+  padding-right: 47px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryML {
+  background: url('MacSkin/background/PopupCategoryML5x4.png') repeat-y left;
+  padding-left: 5px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryMC {
+  background: url('MacSkin/background/PopupCategoryMC1x4.png');
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryMR {
+  background: url('MacSkin/background/PopupCategoryMR5x4.png') repeat-y right;
+  padding-right: 5px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
+  height: 9px;
+  background: url('MacSkin/background/PopupCategoryBL9x9.png') no-repeat left;
+  padding-left: 9px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBC {
+  height: 9px;
+  background: url('MacSkin/background/PopupCategoryBC1x9.png') repeat-x;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
+  height: 9px;
+  background: url('MacSkin/background/PopupCategoryBR8x9.png') no-repeat right;
+  padding-right: 8px;
+}
+
+.UIPopupCategory .CategoryItem {
+  height: 22px; line-height: 22px;
+  font-size: 11px;
+  cursor: pointer ;
+}
+
+.UIPopupCategory .CategoryItem .Icon {
+  width: 16px; height: 16px;
+  float: left;
+  margin: 3px 7px 0px 7px;
+  background: url('MacSkin/background/CategoryItem.png') no-repeat;
+}
+
+.UIPopupCategory .CategoryItem .CategoryItemLabel {
+  height: 22px; line-height: 22px;
+  font-size: 11px;
+}
+
+.UIPopupCategory .OverCategoryItem {
+	background: #4079be;
+	color: white;
+}

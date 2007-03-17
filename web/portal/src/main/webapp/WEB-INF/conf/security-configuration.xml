@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<configuration>
+  <component>
+  	<key>org.exoplatform.services.security.SecurityService</key>
+  	<type>org.exoplatform.services.security.impl.SecurityServiceImpl</type>
+    <init-params>
+      <value-param>
+        <name>security.authentication</name>
+        <value>sso</value>
+      </value-param>
+      <value-param>
+        <name>security.sso-authentication</name>
+        <value>cas</value>
+      </value-param>
+    </init-params>
+  </component>
+</configuration>

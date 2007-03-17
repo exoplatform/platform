@@ -1,0 +1,117 @@
+<div class="UIMailApplication UIApplication">
+  <div class="ApplicationMinWidth">
+		<div class="MailApplicationContainer">
+			<div class="MailContainerLeft">
+				<div class="LogoMail"><span></span></div>
+			  <%=eXo.core.TemplateEngine.merge('eXo/application/mail/UIAccountManagement.jstmpl', context) ;%>
+			</div> 
+			<div class="MailContainerRight">
+				<div class="BannerBackground">
+					<div class="WelcomeTitle">Welcome to eXo Mail</div>
+					<div class="PowerFulTitle">Powerful and Open-source Mail</div>
+					<div style="clear: both"><span></span></div>
+				</div>
+				<%=eXo.core.TemplateEngine.merge('eXo/application/mail/UIMessageManagement.jstmpl', context) ;%>
+			</div>
+			<div style="clear: left"><span></span></div>
+		</div>
+		
+		<div class="PopUpActionMenu" style="display: none">
+			<div class="UIPopUpMenuTopLeft">
+				<div class="UIPopUpMenuTopRight">
+					<div class="UIPopUpMenuTopCenter"><span></span></div>
+				</div>
+			</div>
+			<div class="UIPopUpMenuMiddleLeft">
+				<div class="UIPopUpMenuMiddleRight">
+					<div class="PopUpAccount">
+	
+							<div class="PopUpActionMenuBorder">
+	
+							  	<div class="FolderStatus">
+										<div class="EditAccountIcon"><span></span></div>
+										<div class="PopUpActionMenuLabel">Edit This Account</div>
+										<div style="clear: left"><span></span></div>
+									</div>
+									<div class="FolderStatus">
+										<div class="DeleteAccountIcon"><span></span></div>
+										<div class="PopUpActionMenuLabel">Delete This Account</div>
+										<div style="clear: left"><span></span></div>
+									</div>
+									<div class="PopUpActionMenuLine"><span></span></div>			
+									<div class="FolderStatus">
+										<div class="AddFolderIcon"><span></span></div>
+										<div class="PopUpActionMenuLabel">Add New Folder</div>
+										<div style="clear: left"><span></span></div>
+									</div>			
+									<div class="FolderStatus">
+										<div class="DeleteFolderIcon"><span></span></div>
+										<div class="PopUpActionMenuLabel">Delete Selected Folder</div>
+										<div style="clear: left"><span></span></div>
+									</div>			
+									<div class="FolderStatus">
+										<div class="EditFolderLabelIcon"><span></span></div>
+										<div class="PopUpActionMenuLabel">Edit Selected Folder Label</div>
+										<div style="clear: left"><span></span></div>
+									</div>			
+									<div class="FolderStatus">
+										<div class="EmptyTrashFolderIcon"><span></span></div>
+										<div class="PopUpActionMenuLabel">Empty Trash Folder</div>
+										<div style="clear: left"><span></span></div>
+									</div>
+	
+							</div>
+	
+					</div>
+				</div>
+			</div>
+			<div class="UIPopUpMenuBottomLeft">
+				<div class="UIPopUpMenuBottomRight">
+					<div class="UIPopUpMenuBottomCenter"><span></span></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="PopUpActionMenu" style="display: none">
+			<div class="UIPopUpMenuTopLeft">
+				<div class="UIPopUpMenuTopRight">
+					<div class="UIPopUpMenuTopCenter"><span></span></div>
+				</div>
+			</div>
+			<div class="UIPopUpMenuMiddleLeft">
+				<div class="UIPopUpMenuMiddleRight">
+					<div class="PopUpMessage">
+	
+							<div class="PopUpActionMenuBorder">
+	
+								  
+							  	<div class="FolderStatus">
+										<div class="BlueSquare16x16Icon"><span></span></div>
+										<div class="PopUpActionMenuLabel">All Messages</div>
+										<div style="clear: left"><span></span></div>
+									</div>
+									<div class="FolderStatus">
+										<div class="BlueSquare16x16Icon"><span></span></div>
+										<div class="PopUpActionMenuLabel">Unread Messages</div>
+										<div style="clear: left"><span></span></div>
+									</div>			
+									<div class="FolderStatus">
+										<div class="BlueSquare16x16Icon"><span></span></div>
+										<div class="PopUpActionMenuLabel">Messages With Attachments</div>
+										<div style="clear: left"><span></span></div>
+									</div>						
+	
+							</div>
+	
+					</div>
+				</div>
+			</div>
+			<div class="UIPopUpMenuBottomLeft">
+				<div class="UIPopUpMenuBottomRight">
+					<div class="UIPopUpMenuBottomCenter"><span></span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,140 @@
+.UIForm  {
+
+}
+
+/*####################- HorizontalLayout -#################*/
+
+.UIForm .HorizontalLayout {
+  border: 1px solid white;
+  padding-top: 15px; 
+}
+
+.UIForm .HorizontalLayout .FieldContainer {
+  overflow: hidden  ;
+  margin-top: 15px ;
+  width: 100% ;
+}
+
+
+.UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
+  margin-top: 15px ;
+  margin-left: 150px ;
+}
+
+.UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {
+	float: left ;
+	margin: 4px 10px 0px 5px ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet {
+	width: 97% ;
+  padding-bottom: 10px ; margin-right: 0px ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .Title {
+  margin: 10px 0px 0px 10px ;
+  color: #5f7fd6 ;
+  font-size: 11px ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .ItemLabel {
+  float: left ;
+  font-weight: bold ;
+  width: 100px ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .ItemValue {
+  margin-left: 5px ;
+  float: left ;
+  color: #2f76e2 ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .ItemValueDescription {
+  margin-top: 10px ;
+  height: 50px ;
+  border: solid 1px gray ;
+  background: white ;
+}
+
+.UIForm .HorizontalLayout .UIAction {
+  padding: 15px 0px 15px 15px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+.UIForm .HorizontalLayout .UIAction .ActionContainer .Button {
+}
+
+.UIForm .HorizontalLayout label {
+	float:left;
+  width: 140px ;
+	text-align: right;
+	margin: 0px 10px ;
+}
+
+.UIForm .HorizontalLayout input {
+	float:left;
+  width: 230px ;
+  border: 1px solid gray ;
+}
+
+.UIForm .HorizontalLayout input.checkbox {
+  width:  15px ; height:  15px ;
+  border:  1px  solid gray ;
+}
+
+.UIForm .HorizontalLayout  input.radio {
+	float:left;
+}
+
+.UIForm .HorizontalLayout textarea {
+  width: 230px ;  height: 75px ;
+  border: 1px solid gray ;
+}
+
+
+.UIForm .HorizontalLayout select {
+	float:left;
+  width: 230px ;
+  border: 1px solid gray ;
+}
+
+/*####################- VerticalLayout -#################*/
+.UIForm .VerticalLayout {
+ 
+}
+
+.UIForm .VerticalLayout .UIAction {
+  padding: 15px 0px 15px 15px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+.UIForm .VerticalLayout .UIAction .ActionContainer .Button {
+  float: none;
+}
+
+.UIForm .VerticalLayout  label {
+	text-align: left ;
+  font-weight: bold ;
+  margin-bottom: 15px ;
+}
+
+.UIForm .VerticalLayout input {
+  width: 170px ;
+  border:  1px  solid gray ;
+}
+
+.UIForm .VerticalLayout input.checkbox {
+  width:  15px ; height:  15px ;
+  border:  1px  solid gray ;
+}
+
+.UIForm .VerticalLayout textarea {
+  width: 170px ;  height: 75px ;
+  border: 1px solid gray ;
+}
+
+.UIForm .VerticalLayout select {
+  width: 170px ;
+}

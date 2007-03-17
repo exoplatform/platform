@@ -1,0 +1,89 @@
+<%
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.importJavascript('eXo.webui.UIHorizontalTabs') ;
+%>
+
+<div class="UIFormTabPane">
+  <div class="UITabPane">
+		<div class="TabPaneContent">
+      <%String workingAreaCssClass =  "WorkingArea" ;%>
+	    <div class="$workingAreaCssClass">
+	     	<div class="UIHorizontalTabs">
+	        <div class="TabsContainer">
+            <%
+              for(inputSet in uicomponent.getChildren()) {
+		        		String className="NormalTabStyle" ;
+		        		if(inputSet.isRendered()) className="HighlightTabStyle" ;
+		        		
+		        		boolean renderResource = uicomponent.hasRenderResourceTabName(); 
+	              String tabName = inputSet.getName() ; 
+	              if(renderResource) {
+	                tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name) ;
+	              }
+	              
+		        		boolean renderTab = uicomponent.hasWithRenderTab();
+	              if(renderTab){
+            %>
+	              <div class="UITab">
+	                <div class="$className">
+	                  <div class="LeftTab">
+	                    <div class="RightTab">
+			                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id')">$tabName</div>
+			                </div>
+	                  </div>
+	                </div>
+	              </div>
+            <%  }
+              }
+            %>
+	        </div>
+	      </div>
+        <%uiform.begin()%>
+        <input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.renderTabId">
+	    	<div class="HorizontalLayout">
+          
+	        <div class="UITabContentContainer">
+            <%
+              for(formInput in uicomponent.getChildren()) { 
+                String display = "none" ;
+                if(formInput.isRendered()) display="block" ;
+            %>
+                <div class="UITabContent" id="UITabContent" style="display: $display;">
+                  <%
+                  	uicomponent.renderUIComponent(formInput) ;
+                  %>
+                </div>
+            <%}%>
+          </div>
+			    <div class="UIAction" style="padding: 5px 0px 3px 0px;">
+            <div class="ActionContainer">
+              <%for(action in uicomponent.getActions()) { %>
+		            <div class="ActionButton">
+		              <div class="LightBlueStyle">
+									  <div class="ButtonLeft">
+										  <div class="ButtonRight">
+										    <div class="ButtonMiddle">
+											    <div class="Icon ${action}16x16Icon"><span></span></div>
+											    <% 
+											      String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
+											      String link = uicomponent.event(action) ;
+									        %>
+									        <a href="$link">$actionLabel</a>
+										    </div>
+									    </div>
+										</div>
+									</div>
+								</div>
+	            <%}%>
+            </div>
+ 	        </div>
+ 	        
+          <%uiform.end()%>
+		    </div>
+		  </div>
+		</div>  
+  </div>  
+  <%
+    rcontext.addOnLoadJavascript('eXo.webui.UIForm.onFixSize');  
+  %>
+</div>

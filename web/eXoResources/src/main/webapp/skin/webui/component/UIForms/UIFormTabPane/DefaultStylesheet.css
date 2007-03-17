@@ -1,0 +1,36 @@
+.UIFormTabPane  {
+  padding-top: 5px ;
+}
+
+.UIFormTabPane .FormTabPaneContainer {
+  background: white ;
+  border-left: solid 1px #638294 ; border-right: solid 1px #638294 ;
+}
+
+.UIFormTabPane .TabPaneContainer {
+  border: none;
+  padding: 0px;
+}
+
+.UIFormTabPane .UITabPane {
+  border: none;
+  padding: 0px;
+}
+
+.UIFormTabPane .UITabPane .TabPaneContent .HorizontalLayout {
+  border: none;
+  margin: 0px; padding: 0px;
+}
+
+.UIFormTabPane .UITabPane .TabPaneContent .UITabContentContainer {
+  border: 1px solid gray;  background: #f4f4f4;
+  padding: 1px;
+}
+
+.UIFormTabPane .UIAction {
+  padding: 0px;
+}
+
+
+
+

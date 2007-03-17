@@ -1,0 +1,123 @@
+.UIPortalToolPanel {
+  background: none; 
+}
+
+.UIPortalToolPanel .Banner {
+  background: url('VistaSkin/background/EditBannerRepeatBg4x92.png') repeat-x ;
+  height: 92px ;
+  vertical-align: middle ;
+  line-height: 92px ; text-align: center ;
+}
+
+.UIPortalToolPanel .BannerLeft {
+  background: url('VistaSkin/background/EditBannerLBg410x92.png') no-repeat left ;
+  float: left ;
+  height: 92px ; width: 40%;
+}
+
+.UIPortalToolPanel .BannerMiddle {
+  background: url('VistaSkin/background/EditBannerMBg250x92.png') no-repeat center ;
+  float: left ;
+  height: 92px ; width:25%;
+}
+
+.UIPortalToolPanel .BannerRight {
+  background: url('VistaSkin/background/EditBannerRBg260x92.png') no-repeat right ;
+  float: right ;
+  height: 92px ; width: 26%;
+}
+
+.UIPortalToolPanel .Body {
+  
+}
+
+.UIPortalToolPanel .Body .UIPageBrowser {
+  background: url('VistaSkin/background/OpaqueBG.png');
+  margin: 5px;
+  border: solid 1px #797979;
+}
+
+.UIPortalToolPanel .Footer {
+  background: url('VistaSkin/background/FooterRepeat1x32.png') repeat-x ;
+  font-size: 11px ;
+  height: 32px ;
+  padding: 4px 0px 0px 0px ;
+  line-height:32px ;
+  vertical-align: middle ;
+}
+
+.UIPortalToolPanel .Footer .FooterInfoContainer {
+  height: 18px ; 
+  width: 400px ;
+  margin: auto ;
+  margin-top: 1px;  
+}
+
+.UIPortalToolPanel .Footer .CopyrightInfo {
+  height: 18px ; width: 398px ;
+}
+
+.UIPortalToolPanel .Footer .CopyrightInfo .CopyrightText {
+  float: left;
+  height: 18px ; line-height: 18px ; vertical-align: middle; 
+  width: 260px ;
+  font-size: 11px ;
+  padding-left: 5px ;
+}
+
+.UIPortalToolPanel .Footer .CopyrightInfo .CompanyTitleText {
+  float: right ;
+  height: 18px ; 
+  line-height: 18px ; vertical-align: middle; 
+  width: 124px ;
+  font-size: 10px ;
+  padding-left: 5px ;
+}
+
+.UIPortalToolPanel .UIAction {
+  margin-top: 5px;
+}
+
+.UIPortalToolPanel .UIAccountPortlet {
+  margin-top: 7px;
+}
+
+.UIPortalToolPanel .UIFormTabPane .UIAction .ActionButton {
+  width: 70px ;
+}
+/**################################ ItemDetailList ######################*/
+.UIPortalToolPanel .UIFormTabPane .UIAction .ActionButton {
+  width: 70px ;
+}
+
+.UIPortalToolPanel .UIItemSelector .ItemDetailList .ItemDetail {
+  height: 250px ;
+  padding: 8px ;
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle {
+  height: 100% ;
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer {
+	height: 100% ;
+	width: 247px ;
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemList {
+	border: 1px #b7b7b7 solid;
+	height: 264px ;	
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .TemplateImage{
+	height: 240px; 
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemListTitle{
+	height: 28px ; 
+	line-height: 27px ; 
+	vertical-align: middle;
+	font-weight: bold;
+	margin: 0px 0px 0px 0px;
+	background: url('VistaSkin/background/TitleBG1x28.gif') repeat-x ;
+	}

@@ -1,0 +1,52 @@
+/***************************************************************************
+ * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
+ * Please look at license.txt in info directory for more license detail.   *
+ **************************************************************************/
+package org.exoplatform.webui.component;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.exoplatform.webui.component.validator.Validator;
+/**
+ * Created by The eXo Platform SARL
+ * Author : Tuan Nguyen
+ *          tuan08@users.sourceforge.net
+ * Jun 6, 2006
+ */
+abstract public class UIFormInputContainer<T> extends UIContainer implements UIFormInput<T> {
+
+  public String name ;
+  public String bindingField ;
+  private List<Validator>  validators ;
+  protected T value_;
+
+  public UIFormInputContainer(String name, String bindingField) {
+    this.name = name ;
+    this.bindingField =  bindingField ;
+    setId(name);
+  }
+  
+  public T getValue(){ return value_; }    
+  public UIFormInput setValue(T value) throws Exception {
+    this.value_ = value;
+    return this;
+  }
+
+  public String getName()  { return name ; }
+  public void   setName(String name) { this.name = name ; }
+
+  public String getBindingField() { return bindingField ; }
+  public void setBindingField(String s) {  this.bindingField = s ; }
+
+  public UIFormInputContainer addValidator(Class clazz) throws Exception {
+    if(validators == null)  validators = new ArrayList<Validator>(3) ;
+    validators.add((Validator)clazz.newInstance()) ;
+    return this ;
+  }
+
+  public List<Validator>  getValidators() { return validators ; }
+  
+  public void reset() {}
+  
+}

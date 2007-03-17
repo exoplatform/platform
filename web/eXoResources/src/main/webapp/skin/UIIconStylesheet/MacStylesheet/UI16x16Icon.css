@@ -1,0 +1,634 @@
+/*##############- 16x16 Icons -#############*/
+.Reset16x16Icon {
+	background: url('/eXoResources/icons/16x16/MacSkin/ResetCircleIcon.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Next16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueNextArrow.gif');
+}
+
+.BCHome16x16Icon {	
+  background: url('/eXoResources/icons/16x16/MacSkin/HomeIcon.gif');
+  width: 16px ;  height: 16px ;  
+}
+
+.RightBlackGridArrow16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('../images/icons/16x16/navigation/RightBlackGridArrow.gif');  
+}
+
+.DefaultPortlet16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueAquaCircleDot.gif') no-repeat;
+}
+
+.DefaultContainer16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/RedAquaCircleDot.gif') no-repeat;
+}
+
+.AddNewNodeIcon {
+  margin: 3px 5px 0px 0px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/AddNodeIcon.gif') ;
+  width: 16px ;  height: 16px ;
+  float: left ;
+}
+
+.SelectPage16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/PageTicker.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.PreviewIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/LightBulbOn.gif') no-repeat ;
+}
+
+.SaveIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/FloppyDisk.gif') no-repeat ;
+}
+
+.OrangeBoxPage16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/SmallPage.gif') no-repeat ;
+}
+
+.CancelIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/CancelIcon.gif') no-repeat ;
+}
+
+.GreenArrowPage16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/GreenRightArrowPage.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.SelectPageIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/PageTicker.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+.SelectPortalIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/SelectPage.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.OnLightPage16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/OrangeLightPage.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Save16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/FloppyDisk.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Cancel16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/RedCrossCircle.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+
+.Back16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueBackArrow.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.CloseFolder16x16Icon {
+	width: 16px;	height: 16px;
+	background: url('/eXoResources/icons/16x16/MacSkin/CloseFolder.gif');
+}
+
+.OpenFolder16x16Icon {
+	width: 16px;	height: 16px;
+	background: url('/eXoResources/icons/16x16/MacSkin/OpenFolder.gif');
+}
+
+.Pencil16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat ;
+}
+
+.DustBin16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DustBin.gif') no-repeat ;   
+}
+
+.CircleInfo16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/CircleInfo.gif') no-repeat ;
+}
+
+.Lock16x16Icon {
+	width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/Lock.gif') no-repeat ;
+}
+
+.PastePalate16x16Icon {
+	width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/PastePalate.gif') no-repeat ;
+}
+
+.BlueNote16x16Icon {
+	width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueNote.gif') no-repeat ;
+}
+
+.DoublePaper16x16Icon {
+	width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DoublePaper.gif') no-repeat ;
+}
+
+.LoadingInfo16x16Icon{
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/LoadingInfo.gif') no-repeat ;
+}
+.BlueArrowFloppy16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueArrowBlackFloppy.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.BlueInfoBox16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueInfoBox.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.HandPoint16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/HandPoint.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.TripleBox16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/TripleBox.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Config16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Config.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Node16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Node.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Level16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Level.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.UISitemap .Level116x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/AquaBlueNextArrow.gif') no-repeat ;
+}
+
+.Level216x16Icon {
+	width: 16px ; height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/GrayNextArrow.gif') no-repeat ;
+}
+
+.Level316x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/GrayNextArrow.gif') no-repeat ;
+}
+
+.Level416x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/GrayNextArrow.gif') no-repeat ;
+}
+
+.Level516x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/GrayNextArrow.gif') no-repeat ;
+}
+
+.Feature16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Feature.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.RSS16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/RSS.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Earth16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Earth.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.AdminView16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/admin-view.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Briefcase16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Briefcase.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.AddNode16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/BluePlusCircle.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.ShowContainerControl16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/GreenArrowShape.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.ShowPageControl16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/YellowArrowShape.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.ShowPortletControl16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueArrowShape.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Decorator16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Decorator.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.ViewPage16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/PageYellowLight.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.LayoutMode16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/LayoutMode.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Organization16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Organization.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.UserRegistration16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/UserRegistration.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Management16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Management.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.PortalAdmin16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/PortalAdmin.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Duplicate16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Duplicate.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Portal16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Portal.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.Monitoring16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Monitor.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.SiteMap16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/SiteMap.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.SearchPage16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/SearchPage.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
+.ShieldGreenPlus16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/ShieldGreenPlus.gif') no-repeat ;
+}
+
+.BlueSquare16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/SmallCircleBlue.gif') no-repeat ;
+}
+
+.YellowSquare16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/YellowSquare.gif') no-repeat ;
+}
+
+.RedSquare16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/RedSquare.gif') no-repeat ;
+}
+
+.DoubleBrownNoteIcon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/DoubleBrownNote.gif') no-repeat ;
+}
+
+.GrayWallet16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/GrayWallet.gif') no-repeat ;
+}
+
+.Execute16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin//Execute.gif') no-repeat ;
+}
+
+.OrangePencilSourceBox16x16Icon {
+	width: 16px;
+	height: 16px;
+	background: url('/eXoResources/icons/16x16/MacSkin/OrangePencilSourceBox.gif');	
+}
+
+.Home16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin//Home.gif') no-repeat ;
+}
+
+.ColorPen16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/ColorPen.gif') no-repeat ;
+}
+
+.NestedSquare16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/NestedSquare.gif') no-repeat ;
+}
+
+.VioletInfoWindow16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/VioletInfoWindow.gif') no-repeat ;
+}
+
+.PageTicker16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/PageTicker.gif') no-repeat ;
+}
+
+.GreenPlusPage16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/GreenPlusPage.gif') no-repeat ;
+}
+
+.BlueBoxGreenArrow16x16Icon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueBoxGreenArrow.gif') no-repeat ;
+}
+
+.BlackBorderSquareBlueBall16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlackBorderSquareBlueBall.gif') no-repeat ;
+}
+
+.GreenPlusDataBox16x16Icon {
+	width: 16px; height: 16px;
+	background-image: url('/eXoResources/icons/16x16/MacSkin/GreenPlusDatabox.gif');
+}
+
+.BlueCirclePlus16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/AquaBlueAddSign.gif') no-repeat ;
+}
+
+.BlueBackArrow16x16Icon {
+	width: 17px ;	height: 17px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/SingleLeftArrow.gif') no-repeat ;
+  cursor: pointer;
+}
+
+.BlueNextArrow16x16Icon {
+	width: 17px ;	height: 17px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/SingleRightArrow.gif') no-repeat ;
+  cursor: pointer;  
+}
+
+.GrayNextArrow16x16Icon {
+	width: 25px ;	height: 19px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/AquaDisableNextButton.gif') no-repeat ;
+}
+
+.GrayBackArrow16x16Icon {
+	width: 25px ;	height: 19px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/AquaDisableBackButton.gif') no-repeat ;
+}
+
+.BlueCircleLeftArrow16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueCircleLeftArrow.gif') no-repeat ;
+}
+
+.BlueCircleRightArrow16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueCircleRightArrow.gif') no-repeat ;
+}
+
+.Remove16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/RedRemoveSign.gif') no-repeat ;   
+}
+
+.BlueGridRightArrow16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueGridRightArrow.gif') no-repeat ;
+}
+
+.GrayDoubleGridDownArrow16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/GrayDoubleGridDownArrow.gif') no-repeat ;
+}
+
+.GrayFillRightArrow16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/GrayFillRightArrow.gif') no-repeat ;  
+}
+
+.BlueSquareRightArrow16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/AquaSquareNextArrow.gif') no-repeat ;  
+}
+
+.DotArrowRight16x16Icon {
+  width: 16px;  height: 16px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/DotArrowRight.gif') no-repeat ;  
+}
+
+.BlackGridRightArrow16x16Icon {
+  width: 16px;  height: 16px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/BlackGridRightArrow.gif') no-repeat ;  
+}
+
+.BlueCloseButton16x16Icon {
+  width: 22px;  height: 12px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/CloseWindow.gif') no-repeat ;
+}
+
+.TreeNode16x16Icon {
+  width: 16px;  height: 16px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/TreeNodeIcon.gif') no-repeat ;
+}
+
+.CyanDownArrow16x16Icon {
+  width: 16px;  height: 16px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/CyanDownArrow.gif') no-repeat ;
+}
+
+.CyanUpArrow16x16Icon {
+  width: 16px;  height: 16px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/CyanUpArrow.gif') no-repeat ;
+}
+
+.S1NextArrow16x16Icon {
+  width: 16px;  height: 16px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/OrangeCircleNextArrow.gif') no-repeat ;
+}
+
+.S1BackArrow16x16Icon {
+  width: 16px;  height: 16px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/OrangeCircleBackArrow.gif') no-repeat ;
+}
+
+.YellowLock16x16Icon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/YellowLock.gif') no-repeat ;
+}
+
+.LightBulbOn16x16Icon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/LightBulbOn.gif') no-repeat ;
+}
+
+.YellowBulb16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/YellowBulb.gif') no-repeat ;
+}
+
+.VioletBulb16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/VioletBulb.gif') no-repeat ;
+}
+
+
+.LightBlueGlobal16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/LightBlueGlobal.gif') no-repeat ;
+}
+
+.BlueActionWheel16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueActionWheel.gif') no-repeat ;
+}
+
+.LockedKey16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/LockedKey.gif') no-repeat ;
+}
+
+.Scissors16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Scissors.gif') no-repeat ;
+}
+
+.BlueBalanced16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueBalanced.gif') no-repeat ;
+}
+
+.Entertainment16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Entertainment.gif') no-repeat ;
+}
+
+.BlueCogWheel16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueCogWheel.gif') no-repeat ;  
+}
+
+.Earth16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Earth.gif') no-repeat;
+}
+
+.Finance16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Earth.gif') no-repeat;
+}
+
+.FootBall16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/FootBall.gif') no-repeat;
+}
+
+.HotNews16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/HotNews.gif') no-repeat;
+}
+
+.Medical16x16Icon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Medical.gif') no-repeat;
+}
+
+.Politic16x16Icon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Politic.gif') no-repeat;  
+}
+
+.RainyCloud16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/RainyCloud.gif') no-repeat;
+}
+
+.Social16x16Icon {
+  width: 16px;  height: 16px;
+  background:  url('/eXoResources/icons/16x16/MacSkin/Social.gif') no-repeat;
+}
+
+.YellowTriangleFace16x16Icon {
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/YellowTriangleFace.gif') no-repeat;
+}
+
+.Software16x16Icon {
+	width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Software.gif') no-repeat;
+}
+
+.Hand16x16Icon {
+	width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Hand.gif') no-repeat;
+}
+
+.BrownBook16x16Icon {
+  width: 16px; height:16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BrownBook.gif') no-repeat;
+}
+
+.ArrowS1Down16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/GrayAquaDownArrow.png') no-repeat ;
+}
+
+.ArrowS1Up16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('/eXoResources/icons/16x16/MactSkin/GrayAquaUpArrow.png') no-repeat ;
+}
+
+.Portlet16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat ;
+}
+
+.Container16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DefaultContainerIcon.gif') no-repeat ;
+}

@@ -1,0 +1,62 @@
+<%
+	/**
+	 * Created by The eXo Platform SARL
+	 * Author : Tran The Trong
+	 *          trongtt@gmail.com
+	 * Aug 11, 2006
+	 * version: $Id$
+	 */
+%>
+<%
+  component = uicomponent.getUIComponent();
+  String popupId = uicomponent.getId() ;
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.importJavascript('eXo.webui.UIPopupWindow');
+  rcontext.addJavascript("eXo.webui.UIPopupWindow.init('$popupId', $uicomponent.show);") ;
+    
+  String title = popupId ;
+  if(component != null)  title = component.getId() ;
+  
+  int width = uicomponent.getWindowWidth() ;
+  int height = uicomponent.getWindowHeight() - 40 ;
+  def String widthStyle = "" ;
+  def String heightStyle = "" ;
+  if(width > 0) widthStyle = "width:" + width + "px;" ;
+  if(height > 0) heightStyle = "height:" + height + "px;" ;
+  String show = "none";
+  if(uicomponent.isShow()) show = "block";
+%>
+
+<div class="UIPopupWindow UIDragObject" id="$popupId" style="$widthStyle display: $show;">
+	<div class="NormalStyle">
+	  <div class="TopLeftCornerDecorator">
+	    <div class="TopRightCornerDecorator">
+	      <div class="TopCenterDecorator">
+	        <div class="OverflowContainer">
+		        <div class="PopupTitleIcon"><span></span></div>
+		        <div class="CloseButton" title="Close Window" onclick="<%=uicomponent.event("Close")%>"><span></span></div>
+		        <div class="PopupTitle"><%=_ctx.appRes(popupId + ".title."+ title)%></div>
+		      </div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="MiddleLeftSideDecorator">
+		  <div class="MiddleRightSideDecorator">
+		    <div class="MiddleCenterDecorator">
+	        <div class="UIWindowContent">
+	          <div class="Content" style="$heightStyle"><% uicomponent.renderChildren(); %></div>
+	        </div>
+	        <div class="BottomBar">
+	          <div class="ResizeButton"><span></span></div>
+	        </div>
+		    </div>
+		  </div>
+	  </div>
+	  <div><span></span></div>
+	  <div class="BottomLeftCornerDecorator">
+		  <div class="BottomRightCornerDecorator">
+		    <div class="BottomCenterDecorator"><span></span></div>
+		  </div>
+	  </div>
+	</div>
+</div>

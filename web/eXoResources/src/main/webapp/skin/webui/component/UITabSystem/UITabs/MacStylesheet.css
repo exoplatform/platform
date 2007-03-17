@@ -1,0 +1,264 @@
+.UIHorizontalTabs {
+  background: url('MacSkin/background/LineDecorator1x7.gif') repeat-x bottom;
+  width: 100%;
+}
+
+.UIHorizontalTabs .TabsContainer {
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.UIHorizontalTabs .PreviousTabButton  {
+  float: left;
+  width: 14px; height: 24px;
+  margin-right: 1px;
+  cursor : pointer;
+  background: url('MacSkin/background/YellowLastTabButton14x24.gif') no-repeat;
+}
+
+.UIHorizontalTabs .NextTabButton  {
+  float: left;
+  width: 14px; height: 24px;
+  cursor : pointer;
+  background: url('MacSkin/background/YellowNextTabButton14x24.gif') no-repeat;
+}
+
+.UIHorizontalTabs .UITab {
+  float: left;
+  font-size: 12px;
+  text-align: center;
+}
+
+/*###########################--NavigationTabTab--############################*/
+
+
+.UIHorizontalTabs .UITab .NormalNavigationTab {
+  line-height: 28px;
+  margin-top: 4px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab a {
+  color: #2d2d2d;
+  text-decoration: none;
+  margin: 0px 5px 0px 5px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab a:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .LeftTab {
+  padding-left: 5px;
+  line-height: 28px;
+  background: url('MacSkin/background/GrayAquaNaviTabL.gif') no-repeat left;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .RightTab {
+  line-height: 28px;
+  padding-right: 5px;
+  background: url('MacSkin/background/GrayAquaNaviTabR.gif') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
+  line-height: 28px;
+  background: url('MacSkin/background/GrayAquaNaviTabM.gif') repeat-x;
+  cursor: pointer;
+}
+
+/*###############-Hightlight Navigation Tab-################*/
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab {
+  line-height: 28px;
+  margin-top: 4px; 
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab a {
+  color: #2d2c2c;
+  text-decoration: none;
+  margin: 0px 5px 0px 5px;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab a:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
+  padding-left: 5px;
+  line-height: 28px;
+  background: url('MacSkin/background/LightBlueNaviTabL.gif') no-repeat left;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .RightTab {
+  line-height: 28px;
+  padding-right: 5px;
+  background: url('MacSkin/background/LightBlueNaviTabR.gif') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
+  line-height: 28px;
+  background: url('MacSkin/background/LightBlueNaviTabM.gif') repeat-x;
+  cursor: pointer;
+}
+
+/*###############-Selected Navigation Tab-################*/
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab {
+  line-height: 28px;
+  margin-top: 4px; 
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab a {
+  color: #2d2c2c;
+  text-decoration: none;
+  margin: 0px 5px 0px 5px;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab a:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
+  padding-left: 5px;
+  line-height: 28px;
+  background: url('MacSkin/background/BlueAquaNaviTabL.gif') no-repeat left;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .RightTab {
+  line-height: 28px;
+  padding-right: 5px;
+  background: url('MacSkin/background/BlueAquaNaviTabR.gif') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
+  line-height: 28px;
+  background: url('MacSkin/background/BlueAquaNaviTabM.gif') repeat-x;
+  cursor: pointer;
+}
+
+/*###########################--NormalTab--############################*/
+
+.UIHorizontalTabs .UITab .NormalTabStyle {
+  line-height: 25px;
+  margin-right: 1px; margin-bottom: 6px;
+  font-size: 11px; color: #474849;
+  
+}
+
+.UIHorizontalTabs .UITab .NormalTabStyle a {
+  color: #979798;
+  text-decoration: none;
+}
+
+.UIHorizontalTabs .UITab .NormalTabStyle a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.UIHorizontalTabs .UITab .NormalTabStyle .LeftTab {
+  padding-left: 6px;
+  line-height: 25px;
+  background: url('MacSkin/background/NormalTabLBg6x25.gif') no-repeat left;
+}
+
+.UIHorizontalTabs .UITab .NormalTabStyle .RightTab {
+  line-height: 25px;
+  padding-right: 6px;
+  background: url('MacSkin/background/NormalTabRBg6x25.gif') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .NormalTabStyle .MiddleTab {
+  line-height: 25px;
+  vertical-align: middle;
+  background: url('MacSkin/background/NormalTabRepeatBg1x25.gif') repeat-x;
+  cursor: pointer;
+  padding: 0px 4px 0px 4px;
+}
+
+.UIHorizontalTabs .UITab .HighlightTabStyle {
+  line-height: 25px;
+  font-size: 11px; color: black;
+  margin-right: 1px; margin-bottom: 6px;
+}
+
+.UIHorizontalTabs .UITab .HighlightTabStyle a:hover{
+  color: blue;
+  text-decoration: none;
+}
+
+
+.UIHorizontalTabs .UITab .HighlightTabStyle .LeftTab {
+  line-height: 25px;
+  padding-left: 6px;
+  background: url('MacSkin/background/HighlightTabLBg6x25.gif') no-repeat left;;
+}
+
+.UIHorizontalTabs .UITab .HighlightTabStyle .RightTab {
+  line-height: 25px;
+  padding-right: 6px;
+  background: url('MacSkin/background/HighlightTabRBg6x25.gif') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .HighlightTabStyle .MiddleTab {
+  line-height: 25px;
+  vertical-align: middle;
+  background: url('MacSkin/background/HighlightTabRepeatBg1x25.gif') repeat-x;
+  cursor: pointer;
+  padding: 0px 4px 0px 4px;
+}
+
+/*###########################--GrayPolygonTab36Style--############################*/
+
+.UIHorizontalTabs .UITab .GrayPolygonTab36Style {
+  height: 36px;
+  margin: 0px 1px;  
+}
+
+.UIHorizontalTabs .UITab .GrayPolygonTab36Style .LeftTab {
+  height: 36px;
+  padding-left: 4px;
+  background: url('MacSkin/background/GrayPolygonBigBarLBg4x36.gif') no-repeat left;
+}
+
+.UIHorizontalTabs .UITab .GrayPolygonTab36Style .RightTab {
+  height: 36px;
+  padding-right: 4px;
+  background: url('MacSkin/background/GrayPolygonBigBarRBg4x36.gif') no-repeat right;  
+}
+
+.UIHorizontalTabs .UITab .GrayPolygonTab36Style .MiddleTab {
+  height: 36px;
+  line-height: 36px;
+  vertical-align: middle;
+  background: url('MacSkin/background/GrayPolygonBigBarCBg1x36.gif') repeat-x;
+}
+
+/*###########################--NavyBluePolygonTab36Style--############################*/
+
+.UIHorizontalTabs .UITab .NavyBluePolygonTab36Style {
+  height: 36px;
+  margin: 0px 1px;
+  
+}
+
+.UIHorizontalTabs .UITab .NavyBluePolygonTab36Style .LeftTab {
+  height: 36px;
+  padding-left: 4px;
+  background: url('MacSkin/background/BluePolygonBigBarLBg4x36.gif') no-repeat left;
+}
+
+.UIHorizontalTabs .UITab .NavyBluePolygonTab36Style .RightTab {
+  height: 36px;
+  padding-right: 4px;
+  background: url('MacSkin/background/BluePolygonBigBarRBg4x36.gif') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .NavyBluePolygonTab36Style .MiddleTab {
+  height: 36px;
+  line-height: 36px;
+  vertical-align: middle;
+  background: url('MacSkin/background/BluePolygonBigBarCBg1x36.gif') repeat-x;
+}
+

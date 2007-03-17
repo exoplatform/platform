@@ -1,0 +1,154 @@
+<div class="UICommunityPortlet">
+  <div class="UICommunityBanner">  
+    <div class="LeftBanner"><span></span></div>
+    <div class="RightBanner"><span></span></div>    
+    <div style="clear: both"><span></span></div>
+  </div>
+  <div class="CommunityNavigation">
+    <div class="LeftNavigation">
+      <div class="RightNavigation">
+        <div class="UIHorizontalTabs">
+          <div class="TabsContainer">
+            <div class="UITab">
+              <div class="NormalCommunityTab">
+                <div class="LeftTab">
+                  <div class="RightTab">
+                    <div class="MiddleTab">
+                      <div class="NewsIcon"><span></span></div>
+                      <a href="#">News</a>
+                      <div style="clear: left"><span></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="UITab">
+              <div class="SelectedCommunityTab">
+                <div class="LeftTab">
+                  <div class="RightTab">
+                    <div class="MiddleTab">
+                      <div class="EventsIcon"><span></span></div>
+                      <a href="#">Events</a>
+                      <div style="clear: left"><span></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+  <div class="Breacumbs">
+    <b style="color: blue">News</b>
+    <div class="RightBreacumbs"><span></span></div>    
+    <div style="clear: both"><span></span></div>  
+  </div>
+
+  <div class="UICommunityBody">
+   <div class="RightVerticalNavigation" >
+     <div class="ExoLable"></div>
+     <div class="FlashProduct">
+       <div class="FlashProductContener">
+       <div class="FlashProductTop">
+         <div class="FlashProductTopLeft">
+           <div class="FlashProductTopRight">
+             <div class="FlashProductTopCenter"><span></span> </div>
+           </div>
+         </div>
+       </div>
+       <div class="FlashProductMiddle"></div>
+       <div class="FlashProductBottom">
+         <div class="FlashProductBottomLeft">
+           <div class="FlashProductBottomRight">
+             <div class="FlashProductBottomCenter"><span></span> </div>
+           </div>
+         </div>
+       </div>
+       </div>
+     </div>  
+     <div class="VarticalNavigationContener">
+       <div class="NormalRightTab">
+         <div class="FlashIcon"><span></span></div>
+         <a href="#">Flash</a>
+         <div style="clear: left"><span></span></div>
+       </div>
+       
+       <div class="NormalRightTab">
+         <div class="AdobeIcon"><span></span></div>
+         <a href="#">Download PDF</a>
+         <div style="clear: left"><span></span></div>
+       </div>
+       <div class="NormalRightTab">
+         <div class="ObjectWebIcon"><span></span></div>
+         <a href="#">ObjectWeb</a>       
+         <div style="clear: left"><span></span></div>
+       </div>
+       <div class="NormalRightTab">
+         <div class="DownloadIcon"><span></span></div>
+         <a href="#">Download</a>       
+         <div style="clear: left"><span></span></div>
+       </div>
+       <div class="SelectRightTab">
+         <div class="CompanyPortalIcon"><span></span></div>
+         <a href="#">Company Portal</a>       
+         <div style="clear: left"><span></span></div>
+       </div>
+       <div class="NormalRightTab">
+         <div class="TechnicalIcon"><span></span></div>
+         <a href="#">Technical Documentation</a>    
+         <div style="clear: left"><span></span></div>   
+       </div>
+     </div>
+     <div class="GetSupports">
+       <div class="GetSupportsButton">
+         <div class="GetSupportsLeft">
+           <div class="GetSupportsRight">
+             <div class="GetSupportsMiddle">
+               <a href="#">Get Support</a>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+    <div class="ContentBody" >
+      <div class="Title">
+        <div class="TitleLeft">
+          <div class="TitleRight">
+            <div class="TitleMiddle">eXo News</div>
+          </div>
+        </div>        
+      </div>
+      <div class="Content">
+        <div class="ContentLeft">
+          <div class="ContentRight">
+            <div class="ContentMiddle">
+              <div class="ContentContainer"><span></span></div>
+            </div>
+          </div>
+        </div>          
+      </div>
+      <div class="Bottom">
+        <div class="BottomLeft">
+          <div class="BottomRight">
+            <div class="BottomMiddle"><span></span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>     
+    
+    <div style="clear: both"><span></span></div>  
+  </div>
+  
+  <div class="UICommunityFooter"> 
+    <div class="ExoLableFooter"><span></span></div>
+    <div class="ExoCopyright"><span>Copyright C 2000 - 2006, Alright reserved - eXo Platform SAS</span></div>
+  </div>
+</div>

@@ -1,0 +1,191 @@
+.UIPopupWindow {
+ /* position: absolute;*/
+ /* visibility: hidden;*/
+}
+
+.UIPopupWindow .PopupTitleIcon {
+  float: left;
+  margin-top: 5px; margin-left: 3px;
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/background/PopupWindowIcon16x16.gif') no-repeat;
+}
+
+.UIPopupWindow .PopupTitle {
+  margin-top: 4px; 
+  text-align: center;
+  font-weight: bold; font-size: 11px;
+  line-height: 20px; vertical-align: middle;
+  cursor: move;
+}
+
+.UIPopupWindow .CloseButton {
+  float: right;
+  margin-top: 2px;
+  cursor: pointer;
+  width: 40px; height: 22px;
+  background: url('VistaSkin/background/CloseMessage.png') no-repeat;
+}
+
+.UIPopupWindow .TopLeftCornerDecorator {
+  background: url('../UIWindow/VistaSkin/background/TopBarL10x28.png') no-repeat left top;
+  height: 25px;
+  padding-left: 10px;
+}
+
+.UIPopupWindow .TopCenterDecorator {
+  background: url('../UIWindow/VistaSkin/background/TopBarCenter1x28.png') repeat-x top;
+  height: 25px;
+}
+
+.UIPopupWindow .TopRightCornerDecorator {
+  background: url('../UIWindow/VistaSkin/background/TopBarR14x28.png') no-repeat right top;
+  height: 25px;
+  padding-right: 14px;
+}
+
+.UIPopupWindow .MiddleLeftSideDecorator {
+  background: url('../UIWindow/VistaSkin/background/MiddleDecoratorL10x1.png') repeat-y left;
+  padding-left: 10px ;  
+}
+
+.UIPopupWindow .MiddleCenterDecorator {
+  background: url('VistaSkin/background/DecoratorBG1x1.png');
+}
+
+.UIPopupWindow .MiddleRightSideDecorator {
+  background: url('../UIWindow/VistaSkin/background/MiddleDecoratorR14x1.png') repeat-y right;
+  padding-right: 14px ;  
+}
+
+.UIPopupWindow .UIWindowContent {
+  border: solid 1px #ffffff;
+}
+
+.UIPopupWindow .Content {
+  overflow: auto;
+  /*border: solid 1px black;*/
+  padding:0px;
+  margin:0px;
+  background: white;
+}
+
+.UIPopupWindow .Content .UIPopupMessages {
+  overflow: auto;
+}
+
+.UIPopupWindow .BottomBar {
+  height:9px;
+  width: auto;
+  background: url('VistaSkin/background/BottomBarBG1x13.png') repeat-x bottom;
+}
+
+.UIPopupWindow .BottomBar .ResizeButton {
+  width: 9px; height:9px; 
+  float: right;
+  background: url('VistaSkin/background/ResizeBG.gif') no-repeat ;
+  cursor: nw-resize;
+}
+
+.UIPopupWindow .BottomLeftCornerDecorator {
+  background: url('VistaSkin/background/BottomMessagesL10x25.png') no-repeat left bottom;
+  height: 12px;
+  padding-left: 10px;
+}
+
+.UIPopupWindow .BottomCenterDecorator {
+  background: url('VistaSkin/background/BottomMessagesCenter1x25.png') repeat-x bottom;
+  height: 12px;
+  width: 100%;
+}
+
+.UIPopupWindow .BottomRightCornerDecorator {
+  background: url('VistaSkin/background/BottomMessagesR14x25.png') no-repeat right bottom;
+  height: 12px;
+  padding-right: 14px ;  
+}
+
+/***************************Begin PoupWindow Caledar**********************************/
+.UIPopupWindow .CaledarStyle .TopLeftCornerDecorator {
+	background: url('VistaSkin/background/TopPopupWDLeft17x32.png') no-repeat left; 
+	padding-left: 17px;
+	height: 32px;
+}
+
+.UIPopupWindow .CaledarStyle .TopRightCornerDecorator {
+	background: url('VistaSkin/background/TopPopupWDRight19x32.png') no-repeat right; 
+	padding-right: 19px;
+	height: 32px;
+}
+
+.UIPopupWindow .CaledarStyle .TopCenterDecorator {
+	background: url('VistaSkin/background/TopMiddlePoupWD1x32.png') repeat-x ; 
+	height: 32px;
+}
+
+.UIPopupWindow .CaledarStyle .PopupTitle {
+	background: none;
+}
+
+.UIPopupWindow .CaledarStyle .PopupTitleIcon {
+	width: 16px;	height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/AddNewEventIcon.gif') no-repeat;
+	float: left;
+	margin: 5px 0px 0px 4px;
+}
+
+.UIPopupWindow .CaledarStyle .MiddleLeftSideDecorator {
+	background: url('VistaSkin/background/CenterPoupWDLeft17x1.png') repeat-y left; 
+	padding-left: 17px;
+}
+
+.UIPopupWindow .CaledarStyle .MiddleRightSideDecorator {
+	background: url('VistaSkin/background/CenterPoupWDRight19x1.png') repeat-y right; 
+	padding-right: 19px;
+}
+
+.UIPopupWindow .CaledarStyle .MiddleCenterDecorator {
+	background: #ffffff;
+	padding: 0px;
+}
+
+.UIPopupWindow .CaledarStyle .UIWindowContent {
+	padding: 0px; margin:0px;
+	background: url('null') no-repeat;
+}
+
+.UIPopupWindow .CaledarStyle .UIWindowContent .Content {
+	padding: 0px; margin:0px;
+	border: none;
+	background: url('null') no-repeat;
+}
+
+.UIPopupWindow .CaledarStyle .CloseButton {
+	margin-top: 4px;
+	width: 35px;
+}
+
+.UIPopupWindow .CaledarStyle .BottomBar {
+	height: 0px; 
+	padding: 0px; margin:0px;
+}
+
+.UIPopupWindow .CaledarStyle .BottomBar .ResizeButton {
+	background: url('null') no-repeat;
+	height: 0px;
+}
+
+.UIPopupWindow .CaledarStyle .BottomLeftCornerDecorator {
+	background: url('VistaSkin/background/ButtomPoupWDLeft17x19.png') no-repeat left; 
+	padding-left: 17px; height: 19px;
+}
+
+.UIPopupWindow .CaledarStyle .BottomRightCornerDecorator {
+	background: url('VistaSkin/background/ButtomPoupWDRight19x19.png') no-repeat right; 
+	padding-right: 19px;height: 19px;
+}
+
+.UIPopupWindow .CaledarStyle .BottomCenterDecorator {
+	background: url('VistaSkin/background/ButtomMiddlePoupWD1x19.png') repeat-x ; 
+	height: 19px;
+}
+/***************************End PoupWindow Caledar**********************************/

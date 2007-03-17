@@ -1,0 +1,30 @@
+<div class="UIPageBrowser">
+	<div class="DecoratorBox">
+	  <div class="WhiteRoundedBoxStyle" style="margin: 0px">
+		  <%/*Begin Top Decorator*/%>
+		  <div class="TopLeftCornerBoxDecorator">
+		    <div class="TopRightCornerBoxDecorator">
+		      <div class="TopCenterBoxDecorator"><span></span></div>
+		    </div>
+		  </div>
+		  <%/*End Top Decorator*/%>
+		  <%/*Begin the Middle Decorator*/%>
+		  <div class="MiddleLeftSideBoxDecorator">
+		    <div class="MiddleRightSideBoxDecorator">
+			    <%/*Begin UIPageBrowser Content*/%>
+			    <div class="CenterSideBoxDecorator"><%uicomponent.renderChildren() %></div>
+	        <%/*End UIPageBrowser Content */%>	        
+		    </div>
+		  </div>
+		  <%/*End Middle Decorator */%>
+		  
+		  <%/*Begin Bottom Decorator */%>
+		  <div class="BottomLeftCornerBoxDecorator">
+		    <div class="BottomRightCornerBoxDecorator">
+		      <div class="BottomCenterBoxDecorator"><span></span></div>
+		    </div>
+		  </div>
+		  <%/*End Bottom Decorator */%>
+	  </div>
+	</div>
+</div>

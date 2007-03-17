@@ -1,0 +1,134 @@
+/**
+ * Cated by The eXo Platform SAS
+ * Modifile : Vu Duy Tu
+ *           duytucntt@gmail.com
+ * January 10, 2007
+ * version: $Id$
+ */
+
+.UIWindow .UISitemapPortlet {
+	overflow: auto ;
+} 
+
+.UISitemap {
+  padding: 6px ;
+}
+
+.UISitemap .TitleBar {
+  background: url('/eXoResources/background/MacSkin/TitleBG1x19.gif') repeat-x;
+  height: 19px; line-height: 19px; vertical-align: middle;
+  border: 1px solid #aeaeae;
+  border-bottom: none;
+}
+
+.UISitemap .TitleBar a {
+  text-align: center; font-size: 11px; color: black;
+  margin-left: 5px;
+}
+
+.UISitemap .TitleBar a:hover {
+  color: blue;
+}
+
+.UISitemap .TitleBar .Icon {
+  margin: 2px 0px 0px 6px;
+  float: left;
+}
+
+.UISitemap .TitleBar .Title {
+  float: left;
+  width: 85%;
+  text-align: center;
+}
+
+.UISitemap .SitemapContainer {
+  width: 600px;
+  margin: auto;
+  padding-top: 30px; padding-bottom: 30px;
+  overflow: hidden;
+}
+
+.UISitemap .SitemapItemBox {
+  width: 250px ;
+  float: left;
+  margin: 5px 15px 10px 20px ;
+}
+
+.UISitemap .SitemapItemBox .NestedSitemapItemBox {
+  border: solid 1px #aeaeae ; background: #efefef ;
+  padding: 1px ;
+}
+
+.UISitemap .SitemapItemBox .NestedSitemapItemBox .SitemapItemBoxSelector {
+  border: solid 1px #cdcdcd ;
+  background: white;
+  border-bottom: none;
+}
+
+.UISitemap .SitemapItemBox .NestedSitemapItemBox .BorderBox {
+	border-bottom: 1px #b7b7b7 solid; 
+	padding: 5px;
+}
+
+.UISitemap .SitemapItemBox .Item a {
+  color: black; font-size: 11px;
+}
+
+.UISitemap .SitemapItemBox .Item a:hover {
+  color: blue; font-size: 11px; 
+}
+
+.UISitemap .SitemapItemBox .Item .Label {
+  float: left ;
+  line-height: 22px ;
+  vertical-align: middle ;
+  color: black ;
+}
+
+.UISitemap .SitemapItemBox .Item .Icon {
+  float: left ;
+  width: 16px ;  height: 16px ;
+  margin: 4px 5px 0px 5px ;
+}
+
+.UISitemap .SitemapItemBox .Message {
+  float: left; margin-left: 10px; 
+  width: 170px;
+  text-align: center; font-size: 11px;
+}
+
+.UISitemap .SitemapItemBox .Level1 {
+  height: 26px ;
+  border: solid 1px white ; border-right: none; border-bottom: solid 1px #b7b7b7;
+  background: #e0e0de ;
+}
+
+.UISitemap .SitemapItemBox .Level2 {
+  height: 22px ;
+  border: solid 1px #c7b7b7 ;
+  background: #efefef ;
+  margin: 2px 3px 1px 3px ;
+}
+
+.UISitemap .SitemapItemBox .Level3 {
+  height: 22px ;
+  border: solid 1px #c7c7c7 ;
+  background: white ;
+  margin: 0px 6px 3px 6px ;
+}
+
+.UISitemap .SitemapItemBox .Level4 {
+  height: 20px ; line-height: 20px; vertical-align: middle;
+  border: solid 1px #b7b7b7 ;
+  background: white ;
+  margin: 0px 15px 2px 15px ;
+}
+
+.UISitemap .SitemapItemBox .Level5 {
+  height: 20px ; line-height: 20px; vertical-align: middle;
+  border: solid 1px #c7c7c7 ;
+  background: white ;
+  margin: 0px 20px 2px 20px ;
+}
+
+

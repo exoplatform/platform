@@ -1,0 +1,76 @@
+.UIPageIterator {    
+  width: 390px ;  height: 22px ;
+  font-size: 11px ;
+  margin-top: 1px ;
+  margin-left: auto ;
+  border: 1px solid #747474;
+  background: url('VistaSkin/background/PageIteratorBG1x22.png') repeat-x ;
+}
+
+.UIPageIterator .PageIteratorContainer {    
+  border-right: 1px solid white ;
+  float: right ;
+  line-height: 22px ;  vertical-align: middle ;
+  height: 22px ;
+  padding: 0px 10px 0px 15px ;
+}
+
+.UIPageIterator .Icon {
+  float: left ;
+  width: 18px ;  height: 18px ;
+}
+
+.UIPageIterator .RefreshIcon {
+  margin: 2px 10px ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/Refresh.gif') no-repeat ;
+  line-height: 16px ;
+  vertical-align: middle ;
+  cursor: pointer ;
+}
+
+.UIPageIterator .LastTopPageIcon {
+  vertical-align: middle ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/ArrowLeft.png') no-repeat ;
+  margin: 3px 5px 0px 7px ;
+  cursor: pointer ;
+}
+
+.UIPageIterator .NextTopPageIcon {
+  margin: 3px 5px 0px 7px ;
+  vertical-align: middle ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/ArrowRight.png') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageIterator .LastPageIcon {
+  vertical-align: middle ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/ArrowLeftPage.png') no-repeat ;
+  margin: 3px 5px 0px 7px ;
+  cursor: pointer ; 
+}
+
+.UIPageIterator .NextPageIcon {
+  margin: 3px 5px 0px 7px ;
+  vertical-align: middle ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/ArrowRightPage.png') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageIterator .Text {
+  padding-left: 10px ; 
+}
+.UIPageIterator .Number {
+  float: left ;
+  padding: 0px 4px 0px 4px ;
+  color: red ;
+}
+
+.UIPageIterator .Number a.PageSelected {
+  color: black ;
+}
+
+.UIPageIterator .Number a {
+  margin: 0px 3px 0px 3px ;
+  color: red ;
+  font-weight: bold;
+}

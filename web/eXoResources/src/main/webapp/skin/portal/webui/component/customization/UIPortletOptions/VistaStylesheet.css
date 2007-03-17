@@ -1,0 +1,92 @@
+.UIPortletOptions {
+  border: solid 1px #5d5e60;
+  margin: 5px;
+  background: url('VistaSkin/background/UIPortletOptionsBackground.png') repeat ;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs {
+  padding: 5px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 {
+  
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .SelectedVTabStyle3 {
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .UIVTab .UIVTabContent {
+  margin: 1px 8px 5px 8px ;
+  padding: 3px ;
+  border: solid 1px #958f8f ;
+  font-size: 11px ;
+}
+
+.UIPortletOptions .PortletTitle { 
+  float: left ;
+  font-size: 11px ;
+  font-weight: bold ;
+}
+
+.UIPortletOptions .PortletTitle a { 
+  color: #000000;
+  text-decoration: none;
+}
+
+.UIPortletOptions .PortletTitle a:hover { 
+  color: blue;
+  text-decoration: none;
+}
+
+.UIPortletOptions .CategoryContainer {
+  border:solid 1px white; 
+  border-top:none;
+  overflow: auto;
+}
+
+.UIPortletOptions .Title {
+
+  margin-bottom: 5px ;
+  background: url('VistaSkin/background/PopupCategoryBG1x24.png') repeat-x;
+}
+
+.UIPortletOptions .Title .TitleContainer {
+	padding-right: 10px;
+	border: 1px solid white ;
+}
+
+.UIPortletOptions .Title .TitleContainer .Icon {
+	margin: 3px 0px 0px 7px;
+	float: left;
+	width: 16px; height: 16px;
+}
+
+.UIPortletOptions .Title .TitleContainer .LabelText {
+	padding-left: 7px;
+	float: left;
+	height: 22px; line-height: 22px; vertical-align: middle;
+}
+
+.UIPortletOptions .Title .TitleContainer .ArrowButton {
+	float: right;
+	margin-top: 8px;
+	cursor: pointer ;
+}
+
+/*######################-Override VerticalSlideTab-######################*/
+.UIPortletOptions .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLeft {
+	height: 27px ; 
+  padding-left: 3px ;
+  margin:0px 3px 0px 3px;
+  background: url('/eXoResources/skin/webui/component/UITabSystem/UIVerticalSlideTabs/VistaSkin/background/SmoothRoundedLeftBar3x27.gif') no-repeat left ; 
+}
+.UIPortletOptions .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRight{
+  height: 27px ; width: auto ;
+  padding-right: 4px ;
+  background: url('/eXoResources/skin/webui/component/UITabSystem/UIVerticalSlideTabs/VistaSkin/background/SmoothRoundedRightBar3x27.gif') no-repeat right ; 
+}
+.UIPortletOptions .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRepeat{
+  height: 27px ;
+  background: url('/eXoResources/skin/webui/component/UITabSystem/UIVerticalSlideTabs/VistaSkin/background/SmoothRoundedRepeatBar1x27.gif') repeat-x ;
+}
+  

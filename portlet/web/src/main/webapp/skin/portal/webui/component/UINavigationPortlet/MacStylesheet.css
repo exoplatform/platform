@@ -1,0 +1,14 @@
+.UINavigationPortlet {
+  height: 38px;
+}
+
+.UINavigationPortlet .UIHorizontalTabs  {
+  background: none;
+  margin-left: 5px;
+}
+
+.UINavigationPortlet .UIHorizontalTabs .TabsContainer {
+  width: 95%;
+  overflow: hidden;
+  margin-left: 1px;
+}

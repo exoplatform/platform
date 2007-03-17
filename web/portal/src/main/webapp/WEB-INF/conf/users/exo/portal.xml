@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<portal-config decorator="exo" width="100%" height="100%">
+  <factory-id>office</factory-id>
+  <owner>exo</owner>
+  <locale>en</locale>
+  <view-permission>*:/guest</view-permission>
+  
+  <portlet>
+    <window-id>exo:/web/BannerPortlet/banner</window-id>
+    <show-info-bar>false</show-info-bar>
+  </portlet>
+	
+  <container template="war:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl">
+    <portlet>
+      <window-id>exo:/web/NavigationPortlet/toolbar</window-id>
+	    <show-info-bar>false</show-info-bar>
+	  </portlet>
+	  <portlet>
+      <window-id>exo:/web/WelcomePortlet/welcome</window-id>
+      <show-info-bar>false</show-info-bar>
+	  </portlet>
+  </container>
+	
+  <portlet>
+    <window-id>exo:/web/BreadcumbsPortlet/breacumbs</window-id>
+    <show-info-bar>false</show-info-bar>
+  </portlet>
+  
+
+  <page-body>    
+  </page-body>
+  
+  <portlet>
+    <window-id>exo:/web/FooterPortlet/footer</window-id>
+    <show-info-bar>false</show-info-bar>
+  </portlet>
+  
+</portal-config>

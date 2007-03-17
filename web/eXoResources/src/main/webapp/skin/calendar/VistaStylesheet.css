@@ -1,0 +1,474 @@
+@import url("UICalendarControl/VistaStylesheet.css") ;
+@import url("UICalendarCreatEvent/VistaStylesheet.css") ;
+@import url("UIMonthControl/VistaStylesheet.css") ;
+@import url("UICalendarDetail/VistaStylesheet.css") ;
+/*///////////////////////////////////////////////////*/
+
+.UIWindow .UICalendarApplication {
+	overflow: auto;
+	background: #ffffff;
+}
+
+.UICalendarApplication .CalendarApplicationContainer {
+	font-size: 11px;
+	margin: 0px 6px;
+}
+
+/*=================Start Calendar Banner================*/
+.UICalendarApplication .CalendarBanner {
+	padding: 0px;	 
+}
+
+.UICalendarApplication .CalendarBanner .CalendarBannerLeft {
+	background: url('VistaSkin/background/BannerL241x70.gif') no-repeat left; 
+	padding-left: 241px;
+}
+
+.UICalendarApplication .CalendarBanner .CalendarBannerRight {
+	background: url('VistaSkin/background/BannerR10x70.gif') no-repeat Right;
+	padding-right: 10px;
+}
+
+.UICalendarApplication .CalendarBanner .CalendarBannerMiddle {
+	background: url('VistaSkin/background/BannerM1x70.gif') repeat-x ;
+	height: 70px;
+}
+
+/*===================== Start QuickSearch======================*/
+.UICalendarApplication .CalendarBannerMiddle .QuickSearch {
+	padding: 25px 10px 0px 0px;
+	height: 25px;
+	float: right;
+}
+
+.UICalendarApplication .CalendarBannerMiddle .QuickSearch .CalendarButtonSreach {
+	float: left;
+	cursor: pointer;
+	margin: 10px 15px 0px 0px;
+}
+
+.UICalendarApplication .CalendarBannerMiddle .QuickSearch .Input {
+	float: left;
+	line-height: 25px;
+}
+
+.UICalendarApplication .CalendarBannerMiddle .QuickSearch  input {
+	height: 16px;	width: 150px;
+}
+
+.UICalendarApplication .CalendarBannerMiddle .QuickSearch .SearchLabel {
+	float: left;
+ 	font-weight: bold;
+	line-height: 25px;
+	margin: 0px 15px 0px 0px;
+}
+
+.UICalendarApplication .CalendarBannerMiddle .QuickSearch .SearchOptionsLabel {
+	line-height: 25px;
+}
+
+.UICalendarApplication .CalendarBannerMiddle .QuickSearch .SearchOptionsLabel label {
+	cursor: pointer;
+	color: blue;
+}
+
+.UICalendarApplication .CalendarBannerMiddle .QuickSearch .SearchIcon {
+	float: left;
+	height: 24px;	width: 24px;
+	background: url('VistaSkin/icons/24x24/FindIcon.gif') no-repeat center;
+	margin: 0px 3px 0px 3px;
+	cursor: pointer;
+}
+
+/*=================End Calendar Banner================*/
+/*=================Start Calendar Working Area================*/
+
+.UICalendarApplication .CalendarWorkingArea {
+	background: #ffffff;
+}
+
+.UICalendarApplication .CalendarWorkingAreaLeft {
+	width: 250px;
+	float: left;
+}
+
+.UICalendarApplication .CalendarDecorator .CalendarDecoratorTopLeft {
+  background: url('VistaSkin/background/DecoratorTL23x21.gif') no-repeat left top;
+	padding-left: 23px;
+	margin: 3px 0px 0px 0px;
+}
+
+.UICalendarApplication .CalendarDecorator .CalendarDecoratorTopRight {
+	background: url('VistaSkin/background/DecoratorTR23x21.gif') no-repeat right top;
+	padding-right: 23px;
+}
+
+.UICalendarApplication .CalendarDecorator .CalendarDecoratorTopCenter {
+	background: url('VistaSkin/background/DecoratorTC1x21.gif') repeat-x ;
+	height: 21px;
+}
+
+.UICalendarApplication .CalendarDecorator .CalendarDecoratorMiddleLeft {
+	background: url('VistaSkin/background/DecoratorML2x1.gif') repeat-y left ;
+	padding-left: 2px;
+}
+
+.UICalendarApplication .CalendarDecorator .CalendarDecoratorMiddleRight {
+	background: url('VistaSkin/background/DecoratorMR2x1.gif') repeat-y right ;
+	padding-right: 2px;
+}
+
+.UICalendarApplication .CalendarDecorator .CalendarDecoratorCenterBG {
+	background: #ffffff;
+	padding: 0px 5px 5px 5px;
+}
+
+.UICalendarApplication .CalendarDecorator .CalendarDecoratorBottomLeft {
+	background: url('VistaSkin/background/DecoratorBL2x2.gif') no-repeat left top;
+	padding-left: 2px;
+	margin: 0px 0px 5px 0px;
+}
+
+.UICalendarApplication .CalendarDecorator .CalendarDecoratorBottomRight {
+	background: url('VistaSkin/background/DecoratorBR2x2.gif') no-repeat right;
+	padding-right: 2px;
+}
+
+.UICalendarApplication .CalendarDecorator .CalendarDecoratorBottomMiddle {
+	background: url('VistaSkin/background/DecoratorBC1x2.gif') repeat-x;
+	height: 2px;
+}
+
+/*================Start Calendar Working Area Right==============*/
+
+.UICalendarApplication .CalendarWorkingAreaRight {
+	margin: 0px  0px 0px 250px;		
+}
+
+/*-----------------Start Calendar Table Middle---------------*/
+
+.UICalendarApplication .WeekList {
+	background: url('VistaSkin/background/WeekListBG1x19.gif') repeat-x;
+	height: 19px;
+	padding: 0px 10px 0px 10px; margin: 3px;
+	border: 1px solid #a4c0dc;
+}
+
+.UICalendarApplication .WeekList .DayTitle {
+	float: left;
+	width: 14%;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: center;
+}
+
+.UICalendarApplication .WeekList .SundayTitle {
+	float: left;
+	width: 14%;
+	font-weight: bold; color: red;
+	line-height: 20px;	
+	text-align: center;
+}
+
+.UICalendarApplication .DayList {
+	width: auto;
+	background: url('VistaSkin/background/DayListBG1x122.gif') repeat-x;
+	height: 115px;
+	border: 1px solid #a4c0dc;
+	padding: 3px 5px 3px 5px; margin: 3px;
+}
+
+.UICalendarApplication .DayList .DayListRowLeft {
+	margin: 4px 0px ;
+}
+
+.UICalendarApplication .DayList .DayListRowCenter {
+	height: 18px;
+}
+
+.UICalendarApplication .CalendarCurrentDay {
+	float: left;
+	width: 14%; height: 20px;
+	background: #abc7fe;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: center;
+}
+
+.UICalendarApplication .CalendarMatchedEventDay {
+	float: left;
+	width: 14%; height: 20px;
+	background: #fce177;
+	line-height: 20px;
+	text-align: center;
+}
+
+.UICalendarApplication .CalendarHiddenDay {
+	float: left;
+	width: 14%; height: 20px;
+}
+
+.UICalendarApplication .CalendarNomalDay {
+	float: left;
+	width: 14%; height: 20px;
+	line-height: 20px;
+	text-align: center;
+}
+
+.UICalendarApplication .CalendarBoldDay {
+	float: left;
+	width: 14%; height: 20px;
+	line-height: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.UICalendarApplication .UIGrid {
+	margin: auto;
+}
+/*====================================*/
+
+.PopUpCalendarItem {
+	width: 200px;
+}
+.PopUpCalendarItem .FolderStatus {
+	height: 24px;
+}
+
+.PopUpCalendarItem .FolderStatusDefault {
+	height: 24px;
+	background: #e4eaf5;
+}
+
+.PopUpCalendarItem .FolderStatus .EditEventIcon {
+	float: left;
+	height: 16px; width: 16px;
+	background:  url('DefaultSkin/icons/16x16/EditEvent.gif') no-repeat center ;
+	line-height: 24px;
+	margin: 4px 0px 0px 5px;
+	cursor: pointer;
+}
+
+.PopUpCalendarItem .FolderStatus .DeleteEventIcon {
+	float: left;
+	height: 16px; width: 16px;
+	background:  url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat center ;
+	line-height: 24px;
+	margin: 4px 0px 0px 5px;
+	cursor: pointer;
+}
+
+.PopUpCalendarItem .FolderStatus .CreatEventIcon {
+	float: left;
+	height: 16px; width: 16px;
+	background:  url('DefaultSkin/icons/16x16/AddNewEventIcon.gif') no-repeat center ;
+	line-height: 24px;
+	margin: 4px 0px 0px 5px;
+	cursor: pointer;
+}
+
+.PopUpCalendarItem .FolderStatus .PopUpCalendarItemLabel {
+	line-height: 24px; 
+	margin: 0px 0px 0px 25px;
+	cursor: pointer;
+}
+
+.PopUpCalendarItem .CalendarTableColor {
+	background: #e4eaf5;
+	padding: 5px;
+}
+
+.PopUpCalendarItem .CalendarTableColor .LightCyanColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #49e3d2;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .NaryBlueColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #61a9e9;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .DarkNaryBlueColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #5fa7ce;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .VioletColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #ac6fe9;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .PingVioletColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #d385ce;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .PingColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #f589b6;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .RedColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #ee7166;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .BlueColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #6f66ed;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .DarkOrangeColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #f4992f;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .LightOrangeColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #fbc62c;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .CreamColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #fce177;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .EarthColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #d9d840;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .LightGreenColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #add996;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .GreenColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #00cc44;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .BlueSkyColorSuburd {
+	float: left;
+	width: 15px; height: 15px;
+	background: #bde7ee;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .c9a54a {
+	float: left;
+	width: 15px; height: 15px;
+	background: #c9a54a;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .ddc69c {
+	float: left;
+	width: 15px; height: 15px;
+	background: #ddc69c;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .c5c493 {
+	float: left;
+	width: 15px; height: 15px;
+	background: #c5c493;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .c97c6c3 {
+	float: left;
+	width: 15px; height: 15px;
+	background: #97c6c3;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .c1d3f3 {
+	float: left;
+	width: 15px; height: 15px;
+	background: #c1d3f3;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .a2b4c3 {
+	float: left;
+	width: 15px; height: 15px;
+	background: #a2b4c3;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .c8afc6 {
+	float: left;
+	width: 15px; height: 15px;
+	background: #c8afc6;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .dab2b1 {
+	float: left;
+	width: 15px; height: 15px;
+	background: #dab2b1;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+.PopUpCalendarItem .CalendarTableColor .b2b1da {
+	float: left;
+	width: 15px; height: 15px;
+	background: #b2b1da;
+	margin: 3px;
+	border: 1px solid #ffffff;
+}
+
+/*=================End Calendar Working Area================*/
+

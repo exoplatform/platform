@@ -1,0 +1,108 @@
+<% 
+  //Fixed by Phuong 12/08/2006  
+  import org.exoplatform.organization.webui.component.UIGroupMembershipSelector;
+  import org.exoplatform.webui.component.UIForm;
+  import org.exoplatform.webui.component.UIPopupWindow; 
+
+	List permissions =  uicomponent.getPermissions();
+	UIForm uiForm = uicomponent.getParent();
+	
+	def rcontext = _ctx.getRequestContext() ;
+	rcontext.importJavascript('eXo.webui.UIPopupWindow');
+  rcontext.importJavascript('eXo.webui.UIPermissionSelectorTab');
+%>
+<div class="UIPermissionSelector" id="UIPermissionSelector">  
+	<div class="PermissionInfoContainer">
+	  <%/*Begin UIToolbar*/%>
+	  <div class="UIToolbar">
+		  <div class="Style2Toolbar">
+		    <div class="LeftBar">
+		      <div class="RightBar">
+		        <div class="MiddleBar">
+		          <div class="OverflowContainer">
+			          <div class="PermissionIcon"><span></span></div>
+			          <div class="Title">
+			            <%=_ctx.appRes(uicomponent.getId() + ".label.addEditPermission")%>
+			          </div>
+			        </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	  <%/*End UIToolbar*/%>
+	  <%/*Begin UIToolbarContentContainer*/%>
+	  <div class="InfoContentContainer">
+  	  <div class="PermissionTypeBar">
+			  <%
+	  		  boolean separator = false;	
+			    for(permission in permissions) {
+		 			  String name  = permission.getName();
+		 	      String bfont = "font-weight: normal;" ;
+				    if(permissions.size() > 1) {
+					    if(permission.isSelected())  bfont = "font-weight: bold;" ;
+					  }	                    
+					  if(separator) {
+				%> 
+		 			    <div class="SeparateLine"><span></span></div>
+		 		<%
+		 		    }
+		 				if(permission.isSelected()) {
+		 	  %>
+		  	      <input type="hidden" name="SelectedPermission" value ="$name">
+		 		<%  
+		 		    }	 		    
+		 		%>
+	  	 		  <div class="PermissionButton"  onclick="eXo.webui.UIPermissionSelectorTab.displayBlockContent(this) ;
+	  	 		    eXo.webui.UIForm.setHiddenValue('<%=uiForm.getName();%>', 'SelectedPermission', '$name');" style="$bfont">
+	  	 		    <%=_ctx.appRes(uicomponent.getId() + ".label." + name)%>
+	  	 		  </div>  	 			  	 		  
+		 		<%
+	  	 		  separator = !separator;
+		 		  }
+		 		%>
+ 		    <div style="clear: left"><span></span></div>
+      </div>
+		  <% 
+		    for(permission in permissions){  
+		      String style = "display:none" ;
+		      if(permission.isSelected()) style = "display:block;" ;
+		  %>
+		      <div class="SelectedPermissionInfo" style="$style">
+		        <div class="OverflowContainer">
+	            <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
+	            <div class="PermissionInfoTitle"><%=_ctx.appRes(uicomponent.getId() + ".label.currentSelectedPermissionInfo")%></div>
+		        </div>
+			      <div class="OverflowContainer">
+			        <div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.groupId")%> :</div>
+			        <div class="Info"><%=permission.getGroupId() %></div>
+			      </div>         
+			      <div class="OverflowContainer">
+			        <div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.membershipMember")%> :</div>
+			        <div class="Info"><%=permission.getMembership()%></div>
+			      </div>
+			    </div>
+	    <%}%>
+	    <%/*Click on this action button will pop up the permission selector*/%>
+	    <div class="UIAction">
+	      <div class="ActionContainer">
+	        <div class="ActionButton">
+	          <div class="LightBlueStyle">
+	            <div class="ButtonLeft">
+	              <div class="ButtonRight">
+	                <div class="ButtonMiddle">
+	                  <div class="Icon SelectPermissionIcon" onclick="eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');"><span></span></div>
+                    <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
+                      <%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%>
+                    </a>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+		    </div>
+		  </div>    	      
+    </div>
+	  <%/*End UIToolbarContentContainer*/%>
+	</div>
+</div>

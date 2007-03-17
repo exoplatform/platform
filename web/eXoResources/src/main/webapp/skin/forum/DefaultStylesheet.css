@@ -1,0 +1,348 @@
+/**
+ * Created by The eXo Platform SARL
+ * Author : Lai Van Khoi
+ *          khoilv80@gmail.com
+ * January 22, 2007
+ * version: $Id$
+ */
+@import url("../../icons/DefaultStylesheet.css") ;
+@import url("UIForumCategories/DefaultStylesheet.css") ;
+@import url("UIForumThreads/DefaultStylesheet.css") ;
+@import url("UIForumPosts/DefaultStylesheet.css") ;
+@import url("UIForumCategoriesAdmin/DefaultStylesheet.css");
+
+.UIWindow .UIForumApplication {
+	padding-bottom: 10px;
+	overflow: auto ;
+}
+
+.UIForumApplication {
+	padding-bottom: 10px;
+
+}
+
+.UIForumPortlet .Icon16x16 {
+  float: left;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+/*##################### Begin ForumHeader  ###########################################*/
+/*UIBannner*/
+.UIForumApplication .ForumHeader {
+  height: 78px;
+  background: url('DefaultSkin/background/ForumBanner336x78.jpg') no-repeat;
+  padding-left: 336px;
+}
+
+.UIForumApplication .ForumHeader .RepeatedBanner {
+  height: 78px;
+  background: url('DefaultSkin/background/ForumBannerBG1x78.gif') repeat-x;
+}
+
+.UIForumApplication .ForumHeader .AdminBannerText {
+  height: 32px;
+  width: 188px;
+  margin-right: 10px;
+  margin-top: 46px; 
+  float: right;
+  background: url('DefaultSkin/background/AdminTextBanne188x32.jpg') no-repeat right;
+}
+
+
+/*UISearch*/
+.UIForumApplication .SearchContent {
+  padding-top: 45px;
+  padding-right: 5px;
+}
+
+.UIForumApplication .Magnifier24x24Icon {
+  float: left;
+  width: 25px; height: 25px;
+  margin-left: 7px;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/BlackMagnifier.gif') no-repeat left center;
+  cursor: pointer;
+}
+
+.UIForumApplication .Search24x24Icon {
+  float: left;
+  width: 25px; height: 25px;
+  margin-left: 10px;
+  cursor: pointer; 
+  background: url('/eXoResources/icons/24x24/DefaultSkin/AdvancedSearch.gif') no-repeat right center;
+}
+
+.UIForumApplication .SearchLabel {
+  float: left;
+  font-size: 11px; font-weight: bold;
+  margin: 0px 7px;
+  cursor: pointer;
+  line-height: 22px;
+}
+
+.UIForumApplication .SearchContent .FieldContainer {
+  float:right;
+}
+
+.UIForumApplication .SearchContent .Input {
+  float: left;
+  padding-left: 5px;
+}
+
+.UIForumApplication .SearchContent label {
+  float:left;
+	text-align: right;
+	margin-right: 5px; margin-left: 10px;
+	font-size: 12px;font-weight: bold;
+	line-height: 22px;
+}
+
+.UIForumApplication .SearchContent .Nolabel {
+  float:left;
+  width: 2px ;
+  border-left: #ffffff solid 1px;
+  border-right: #7b7b7b  solid 1px;
+  height: 27px;
+  margin: 0px 10px;
+}
+
+.UIForumApplication .SearchContent a {
+  font-size: 12px; 
+  color: black;
+}
+
+.UIForumApplication .SearchContent a:hover{
+  color: blue;
+}
+
+.UIForumApplication select {
+  width: 90px;
+}
+/*##################### End ForumHeader  ###########################################*/
+
+
+
+/*##################### Begin UIForumBreadcumbs  ###########################################*/
+.UIForumApplication .UIForumBreadcumbs .ForumNavigationLeft {
+  background: url('DefaultSkin/background/NavigationLeft3x27.gif') no-repeat left;
+  padding-left: 3px;
+  margin: 0px 10px;
+}
+
+.UIForumApplication .UIForumBreadcumbs .ForumNavigationRight {
+  background: url('DefaultSkin/background/NavigationRight4x27.gif') no-repeat right;
+  padding-right: 4px;
+}
+
+.UIForumApplication .UIForumBreadcumbs .MiddleForumNavigation {
+  background: url('DefaultSkin/background/MiddleNavigation1x27.gif') repeat-x ;
+  height: 27px;
+}
+
+.UIForumApplication .UIForumBreadcumbs .MiddleForumNavigation .Navigation24x24Icon {
+  float: left;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/LightBlueOpenFolder.gif') no-repeat ;
+  height: 24px;
+  width: 24px;
+  margin: 2px 0px 0px 5px;
+  cursor: pointer;
+}
+
+.UIForumApplication .UIForumBreadcumbs .MiddleForumNavigation .NavigationLabel {
+  float: left;
+  line-height: 27px;
+  font-size: 11px;
+  padding: 0px 1px 0px 6px;
+}
+/*##################### End UIForumBreadcumbs  ###########################################*/
+
+
+
+/*##################### Begin ForumBody  ###########################################*/
+.UIForumApplication .ForumBody {
+  padding: 10px;
+}
+
+/*##################### Begin ForumFooter  ###########################################*/
+.UIForumApplication .ForumFooter {
+  border: solid 1px #bcbcbc;
+  margin: 0px 10px;
+  padding-bottom: 10px;
+}
+
+.UIForumApplication .ForumFooter .TitleFooter {
+  height: 19px;
+  background: url('DefaultSkin/background/TitleForumBodyBG1x19.gif') repeat-x ;
+  line-height: 19px;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.UIForumApplication .ForumFooter .BodyFooter {
+  border-top: 1px solid #bcbcbc;
+  padding: 8px 0px 0px 16px;
+}
+
+.UIForumApplication .ForumFooter .BodyFooter .Content {
+  height: 25px;
+}
+
+.UIForumApplication .ForumFooter .BodyFooter .NormalFont {
+  float: left;
+  height: 25px;
+  line-height: 25px;
+  font-size: 11px; font-weight: bold;
+  padding-right: 7px;
+}
+
+.UIForumApplication .ForumFooter .BodyFooter .BlueFont {
+  height: 25px;
+  line-height: 25px;
+  font-size: 11px; font-weight: bold;
+  color: #0b33e0;
+}
+
+.UIForumApplication .ForumFooter .BlueFont label {
+  float: left;
+}
+
+.UIForumApplication .RedText {
+  color: red;  
+}
+
+.UIForumApplication .BoldText {
+  font-weight: bold;
+}
+
+/*##################### End ForumFooter  ###########################################*/
+
+
+
+
+/*##################### Begin UIForumGrid  ###########################################*/
+.UIForumApplication .UIGrid {
+  border-collapse: collapse;
+  margin: 2px 0px;
+}
+
+.UIForumApplication .UIGrid .NormalText {
+  font-weight: normal;
+}
+
+.UIForumApplication .UIGrid th {
+  line-height: 19px;  
+  border: solid 1px #bababa; /*#bbbbbb;*/
+  background: url('DefaultSkin/background/TitleForumBodyBG1x19.gif') repeat-x ;
+  text-align: center;
+  font-weight: bold ;
+}
+
+.UIForumApplication .UIGrid .ForumTitleContainer {
+  background: #d4defc; 
+  /*border: solid 1px #bababa;/*#bcbcbc;*/
+  padding: 3px 10px;
+  text-align: left ;  
+}
+
+.UIForumApplication .UIGrid .ForumLabel {
+  line-height: 16px;
+  font-size: 11px;
+  font-weight: bold ;
+}
+
+.UIForumApplication .UIGrid .ForumDescription {
+  font-size: 11px;
+  font-weight: normal ;
+}
+
+.UIForumApplication .UIGrid td {
+  /*border: 1px solid #bbbbbb;*/
+  padding: 5px ;
+}
+
+
+.UIForumApplication .UIGrid .EvenRow {
+  height: 42px;
+  background: #f1f3fb;
+}
+
+.UIForumApplication .UIGrid .OddRow {
+  height: 42px;
+  background: #eaebfa;
+}
+
+.UIForumApplication .UIGrid .Checkbox {
+  text-align: center ;
+}
+
+.UIForumApplication .UIGrid .TBottom {
+  background: #d4defc;
+  height: 24px;
+  border: 1px solid #bcbcbc;
+  border-left: none;
+}
+/*##################### End UIForumGrid  ###########################################*/
+
+
+
+
+/*##################### OVERIDED UICOMPONENTS #########################################*/
+/*=============================================> UIAction*/
+.UIForumApplication .PageToolBar .UIAction {
+  width: 160px;
+  float: left;
+}
+
+.UIForumApplication .PageToolBar .UIAction .ActionContainer .ActionButton {
+  width: 160px;
+	line-height: 26px;
+  float: left;
+  margin-left: 0px;
+}
+.UIForumApplication .PageToolBar .UIPageIterator {
+  float: right;
+  margin: 0px;
+}
+
+/*==============================================> UIPopupWindow*/
+.UIForumApplication .UIPopupWindow .UIAction .ActionContainer .ActionButton {
+  width: 100px ;
+}
+.UIForumApplication .UIPopupWindow .PopupTitle {
+  text-align: left;
+}
+/*==============================================> UIFormWithoutTitle*/
+.UIForumApplication .UIFormWithTitle .TitleBar {
+  display: none;
+}
+
+.UIForumApplication .UIFormWithTitle {
+  width: 660px ;
+  height: 250px;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+/*=============================================> UIFormInput*/
+.UIForumApplication .UIForm .HorizontalLayout label {
+  float: none;
+  width: 600px ;
+	text-align: left;
+	margin: 2px 10px ;
+	display: block ;
+}
+
+.UIForumApplication .UIForm .HorizontalLayout input {
+  float: none;
+  width: 600px ;
+  border: 1px solid gray ;
+ 	margin: 2px 10px ; 	
+}
+
+.UIForumApplication .UIForm .HorizontalLayout textarea {
+  width: 600px ;  
+  height: 200px ;
+  border: 1px solid gray ;
+  margin: 2px 10px ;
+}
+

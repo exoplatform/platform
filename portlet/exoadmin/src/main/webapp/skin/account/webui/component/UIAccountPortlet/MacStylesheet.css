@@ -1,0 +1,126 @@
+.UIWindow .UIAccountPortlet {
+  overflow: auto ;
+}
+
+.UIAccountPortlet {
+  padding: 6px;
+  padding-bottom: 0px;
+}
+
+.UIAccountPortlet .UIFormTabPane .UITabPane {
+  background: none; 
+  padding-top: 5px;
+}
+
+.UIAccountPortlet .UIFormTabPane .UIAction .ActionButton{
+  width: 65px;
+}
+
+.UIAccountPortlet .UIMembership .UIAction {
+  padding-top: 5px;
+  width: 140px;
+}
+
+.UIAccountPortlet .UIMembership .UIAction .ActionButton {
+  width: 140px; 
+}
+
+/*########################-UIPersonalInfo-###########################*/
+.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
+  width: 400px;
+  margin: auto; margin-top: 12px; margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer label {
+  margin-left: 0px; width: 140px; text-align: left;
+  float: left;
+}
+
+.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer input{
+  border: 1px gray solid;
+  width: 220px; height: 18px;
+  font-size: 11px;
+  padding-left: 5px;
+}
+
+.UIAccountPortlet .UIItemSelector .UIFormInputSet {
+  padding-top: 10px;
+  font-size: 11px;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet .FieldContainer {
+  width: 370px;
+  margin: auto;  margin-top: 12px; margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet label {
+  float: left;
+  height: 20px; line-height: 20px; vertical-align: middle;
+  padding-left: 10px; margin-right: 0px;
+  white-space: nowrap; 
+  width: 120px;
+  font-size: 11px;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet input {
+  width: 230px;
+  float: left;
+  font-size: 11px;
+  margin-left: 0px;
+  padding-left: 5px;
+}
+
+/*########################-Template Selector-###########################*/
+.UIAccountPortlet .UIItemSelector .NormalStyle .ItemList {
+  height: 258px;
+}
+
+.UIAccountPortlet .UIItemSelector .NormalStyle .ItemList .Item{
+  margin-top: 10px;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .Template {
+  margin: auto;
+}
+
+.UIPersonalInfo {
+  padding: 6px;
+}
+
+.UIPersonalInfo .UIItemSelector .ItemDetailList {
+  margin-right: 230px;
+  border: 1px solid #b7b7b7;
+}
+
+.UIAccountPortlet  .UIItemSelector .ItemDetailList {
+  margin-right: 240px;
+  border: 1px solid #b7b7b7;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .DefaultAccountImage{
+  width: 330px; height: 225px;
+  margin: auto;
+  background: url('MacSkin/background/DefaultAccountImage.jpg') no-repeat;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .AdminAccountImage{
+  width: 330px; height: 225px;
+  margin: auto;
+  background: url('MacSkin/background/AdminAccountImage.jpg') no-repeat;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .CommunityAccountImage{
+  width: 330px;  height: 225px;
+  margin: auto;
+  background: url('MacSkin/background/CommunityAccountImage.jpg') no-repeat;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .CompanyAccountImage{
+  width: 330px;  height: 225px;
+  margin: auto;
+  background: url('MacSkin/background/CompanyAccountImage.jpg') no-repeat;
+}
+
+

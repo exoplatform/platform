@@ -1,0 +1,77 @@
+.UIPortletOptions {
+  background: url('MacSkin/background/PortletBG.gif');  
+  padding: 3px;
+  border: solid 1px #afaeae ;
+  padding: 5px ;
+  margin: 0px 2px 0px 2px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs {
+  padding: 0px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 {
+  margin: 5px 0px 1px 0px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .SelectedVTabStyle3 {
+  margin: 5px 0px 1px 0px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .UIVTab .UIVTabContent {
+  margin: 1px 2px 5px 2px ;
+  padding: 3px ;
+  border: solid 1px #958f8f ;
+  font-size: 11px ;
+}
+
+.UIPortletOptions .CategoryContainer {
+  border:solid 1px #b7b7b7; 
+  background: white;
+  padding-top: 5px;
+  overflow: auto;
+}
+
+.UIPortletOptions .Title {
+  border: 1px solid #b7b7b7 ;
+  margin-bottom: 2px;
+}
+
+.UIPortletOptions .Title .TitleContainer {
+	padding-right: 13px;
+	border: 1px solid white ;
+	background: url('MacSkin/background/TitleBG1x22.gif') repeat-x;
+}
+
+.UIPortletOptions .Title .TitleContainer .Icon {
+	margin: 3px 5px 0px 7px;
+	float: left;
+	width: 16px; height: 16px;
+}
+
+.UIPortletOptions .Title .TitleContainer .LabelText {
+	padding-left: 10px; 
+	height: 22px; line-height: 22px; vertical-align: middle;
+}
+.UIPortletOptions .Title .TitleContainer .ArrowButton {
+	float: right;
+	margin-top: 3px;
+	cursor: pointer ;
+}
+
+.UIPortletOptions .PortletTitle { 
+  float: left;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.UIPortletOptions .PortletTitle a { 
+  color: #000000;
+  text-decoration: none;
+}
+
+.UIPortletOptions .PortletTitle a:hover { 
+  color: blue;
+  text-decoration: none;
+}
+

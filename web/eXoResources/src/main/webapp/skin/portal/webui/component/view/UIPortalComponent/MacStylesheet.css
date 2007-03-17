@@ -1,0 +1,339 @@
+.UIPortlet .LAYOUT-PORTLET {
+  font-size: 11px;
+  margin: 0px 10px 8px 10px;
+}
+
+.UIPortlet .CONTROL-PORTLET {
+  margin: 2px 10px -1px 10px;
+}
+
+.UIPortlet .CONTROL-PORTLET .DragControlArea {
+  float: left ; 
+  width: 36px; height: 18px ;
+  cursor: move ;
+  margin: 4px 0px 0px 0px;
+  /*border: 1px white solid;*/
+  /*background: url('MacSkin/background/DragBG4x4.gif');*/
+}
+
+.UIPortlet .MaximizedPortletIcon {
+  float: left;
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Maximize.gif') no-repeat;
+  margin: 3px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .MinimizedPortletIcon {
+  float: left;
+  width: 16px; height: 16px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/Minimize.gif') no-repeat;
+  margin: 3px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .ConfigPortletIcon {
+  float: left;
+  width: 16px; height: 16px; 
+  background: url('/eXoResources/icons/16x16/MacSkin/Config.gif') no-repeat;
+  margin: 3px 10px 0px 5px;
+}
+
+.UIPortlet .EditPortletIcon {
+  float: left;
+  width: 16px; height: 16px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat;
+  margin: 4px 10px 0px 5px;
+  cursor: pointer;
+}
+
+.UIPortlet .ViewPortletIcon {
+  float: left;
+  width: 16px; height: 16px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/PortletView.gif') no-repeat;
+  margin: 3px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .HelpPortletIcon {
+  float: left;
+  width: 16px; height: 16px;  
+  background: url('/eXoResources/icons/16x16/MacSkin/PortletHelp.gif') no-repeat;
+  margin: 4px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIPortlet .EditPortletPropertiesIcon {
+	float:right;
+	width: 16px; height: 16px;	
+	background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat ;
+  margin: 4px 10px 2px 0px;
+}
+
+.UIPortlet .NormalPortletIcon {
+  float: left ;
+  width: 16px ; height: 16px ;  
+  background: url('/eXoResources/icons/16x16/MacSkin/Restore.gif') no-repeat ;
+  margin: 3px 10px 0px 0px ;
+  cursor: pointer ;
+}
+
+.UIPortlet .DeletePortletIcon {
+	float:right;
+	width: 16px; height: 16px;	
+  background: url('/eXoResources/icons/16x16/MacSkin/DustBin.gif') ;
+  margin: 4px 8px 2px 0px;
+}
+
+.UIPortlet .OnShow {
+  display: block;
+}
+
+.UIPortlet .OnHide {
+  display: none;
+}
+
+.UIPortlet .PortletIcon {
+  width: 16px; height: 16px;
+  margin: auto;
+  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat ;
+}
+
+.UIPortlet {
+	width: 99.9%;
+}
+/*##############################- PortletLayoutDecorator  -################################*/
+.PortletLayoutDecorator {
+}
+
+.PortletLayoutDecorator .TopLeft {
+  height: 14px ;
+  background: url('MacSkin/background/LayoutTL14x14.gif') no-repeat left ;
+  padding: 0px 0px 0px 14px ;
+}
+
+.PortletLayoutDecorator .TopMiddle {
+  height: 14px ;
+  background: url('MacSkin/background/LayoutTC1x14.gif') repeat-x ;
+}
+
+.PortletLayoutDecorator .TopRight {
+  height: 14px ;
+  background: url('MacSkin/background/LayoutTR14x14.gif') no-repeat right ;
+  padding: 0px 14px 0px 0px ;
+}
+
+.PortletLayoutDecorator .MiddleLeft {
+  background: url('MacSkin/background/LayoutML14x4.gif') repeat-y left;
+  padding: 0px 0px 0px 14px;
+}
+
+.PortletLayoutDecorator .MiddleRight {
+  background: url('MacSkin/background/LayoutMR14x4.gif') repeat-y right;
+  padding: 0px 14px 0px 0px ;
+}
+
+.PortletLayoutDecorator .CenterBackground {
+  background: white;
+}
+
+.PortletLayoutDecorator .GardientBackground {
+  height: 36px;
+  background: url('MacSkin/background/LayoutBG1x40.gif');
+  padding: 6px;
+}
+
+.PortletLayoutDecorator .BottomLeft {
+  height: 17px ;
+  background: url('MacSkin/background/LayoutBL14x17.gif') no-repeat left ;
+  padding: 0px 0px 0px 14px ;
+}
+
+.PortletLayoutDecorator .BottomMiddle {
+  height: 17px ;
+  background: url('MacSkin/background/LayoutBC1x17.gif') repeat-x ;
+}
+
+.PortletLayoutDecorator .BottomRight {
+  background: url('MacSkin/background/LayoutBR14x17.gif') no-repeat right ;
+  padding: 0px 14px 0px 0px ;
+}
+/*############### End Decorator ###################################################*/
+.UIContainer .LAYOUT-CONTAINER {
+  height: 100%;
+  background: url('MacSkin/background/ContainerBG4x4.gif') repeat;
+  padding: 8px 0px 0px 0px ;
+  margin: 0px 10px 10px 10px; 
+  border: solid 2px #b7b7b7;
+}
+
+.UIContainer .CONTROL-CONTAINER {
+  margin: 0px 10px -1px 10px;
+}
+
+.UIContainer .CONTROL-CONTAINER .DragControlArea {
+  float: left ; 
+  width: 36px; height: 18px ;
+  cursor: move ;
+  margin: 4px 0px 0px 0px ;
+  /*border: 1px white solid;
+  background: url('MacSkin/background/DragBG4x4.gif');*/
+}
+
+.UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer {
+  background: none ;
+  border: none ;
+}
+
+.UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer td {
+}
+
+.UIContainer .EditContainerIcon {
+	float: right;
+	width: 16px; height: 16px;	
+	background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat left;
+  margin: 2px 10px 2px 0px;
+}
+
+.UIContainer .DeleteContainerIcon {
+	float: right;
+  background: url('/eXoResources/icons/16x16/MacSkin/DustBin.gif') ;
+	width: 16px; height: 16px;	
+  margin: 2px 10px 2px 0px;
+}
+
+.UIContainer .ContainerIcon {
+  width: 16px; height: 16px;
+  margin: auto;
+  background: url('/eXoResources/icons/16x16/MacSkin/DefaultContainerIcon.gif') no-repeat ;
+}
+
+.UIPortal .LAYOUT-PORTAL {
+  background: white;
+  padding: 8px 0px 0px 0px;
+  border: solid 3px #cdcdcd;
+}
+
+.UIPage {
+}
+
+.UIPortal {
+  background: white;
+}
+
+.DragAndDropPreview {
+  width: auto ; height: 80px ;
+  background: url('DefaultSkin/background/PortalBg.gif');
+  border: solid 1px #cdcdcd;
+  margin: 0px 12px 10px 12px;
+}
+
+.UIPage .LAYOUT-PAGE {
+  margin: 8px 5px 8px 5px ;
+}
+
+.UIPage .CONTROL-PAGE .DragControlArea {
+  float: left ; 
+  width: 200px ; height: 18px ;
+  cursor: move;
+  border: solid 1px blue ;
+}
+
+.UIPortlet .PortletInfoBar {	
+}
+
+.UIPortlet .PortletInfoBar .InfoBarLeft {
+  height: 23px ;
+  background: url('MacSkin/background/InfoBarL12x23.png') no-repeat left ;
+  padding: 0px 0px 0px 12px ;
+}
+
+.UIPortlet .PortletInfoBar .InfoBarRight {
+  height: 23px ;
+  background: url('MacSkin/background/InfoBarR12x23.png') no-repeat right ;
+  padding: 0px 12px 0px 0px ;
+}
+
+.UIPortlet .PortletInfoBar .InfoBarCenter {
+  height: 23px ;
+  background: url('MacSkin/background/InfoBarM1x23.png') repeat-x ;
+}
+
+.UIPortlet .PortletInfoBar .InfobarAction {
+  float: right ;
+  height: 23px ;
+  display: block ;
+}
+
+.UIPortlet .PortletInfoBar .InfobarLabel {
+  height: 23px ;
+  margin: 0px 85px 0px 0px;
+}
+
+.UIPortlet .PortletInfoBar .ControlIcon {
+  float: left;
+	width: 16px; height: 16px ;
+  margin: 4px 2px 0px 2px ;
+  cursor: pointer ;  
+}
+
+.UIPortlet .PortletInfoBar .ArrowDownIcon {
+	width: 21px;
+  background: url('/eXoResources/icons/16x16/MacSkin/ArrowDown.gif') no-repeat center right;
+}
+
+.UIPortlet .PortletInfoBar .OverArrowDownIcon {
+	width: 21px;
+  background: url('/eXoResources/icons/16x16/MacSkin/ArrowDownOver.gif') no-repeat center right;
+}
+
+.UIPortlet .PortletInfoBar .MinimizedIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Minimize.gif') no-repeat center;
+}
+
+.UIPortlet .PortletInfoBar .OverMinimizedIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/MinimizeOver.gif') no-repeat center;
+}
+
+.UIPortlet .PortletInfoBar .MaximizedIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Maximize.gif') no-repeat center;
+}
+
+.UIPortlet .PortletInfoBar .OverMaximizedIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/MaximizeOver.gif') no-repeat center;
+}
+
+.UIPortlet .PortletInfoBar .PortletIcon {
+  float: left ;
+  width: 16px;  height: 16px ;
+  background: url('MacSkin/icons/16x16/PortletIcon.png') no-repeat ;
+  margin: 3px 5px 0px 5px ;
+}
+
+.UIPortlet .PortletInfoBar .PortletLabel {
+  float: left ;
+  font-size: 11px ;  font-weight: bold ;
+  margin: 5px 0px 0px 0px ;
+}
+
+.UIPage .CONTROL-PAGE .RoundedStyle .LeftBar {
+  background-color: #bdcccc;
+}
+
+.UIPage .CONTROL-PAGE .RoundedStyle .RightBar {
+  background-color: #bdcccc;
+}
+
+.UIPage .EditPageIcon {
+	float: right;
+	width: 16px; height: 16px;	
+	background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat left;
+  margin: 2px 10px 2px 0px;
+}
+
+.UIPage .DeletePageIcon {
+	float: right;
+	width: 16px; height: 16px;	
+  background: url('/eXoResources/icons/16x16/MacSkin/DustBin.gif') ;
+  margin: 2px 10px 2px 0px;
+}

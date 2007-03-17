@@ -1,0 +1,364 @@
+.UIExoStart {
+}
+
+.UIExoStart .StartBarContainer {
+  height: 39px ;
+  background: url('MacSkin/background/StartBarBG1x39.gif') repeat-x ;
+}
+
+.UIExoStart .ExoStartButton {
+  float: left ;
+  width: 103px ; height: 39px ;
+  cursor: pointer ;
+}
+
+.UIExoStart .ButtonNormal {
+  background: url('MacSkin/background/ExoStartNormal95x39.gif') no-repeat left ;
+}
+
+.UIExoStart .ButtonOver {
+  background: url('MacSkin/background/ExoStartOver95x39.gif') no-repeat left;
+}
+
+.UIExoStart .ButtonClicked {
+  background: url('MacSkin/background/ExoStartSelected95x39.gif') no-repeat left;
+}
+
+.UIExoStart .StatusIcon {
+  float: right;
+  width: 24px ; height: 24px ;
+  background: url('MacSkin/icons/24x24/RedFlag.gif') no-repeat ;
+  cursor: pointer ;
+  margin: 5px 5px 0px 2px ;
+}
+
+.UIExoStart .VLineSeparator {
+  float: right ;
+  width: 2px ; height: 33px ;
+  background: url('MacSkin/background/SeparateLineBg2x3.gif') repeat-y ;
+  margin: 3px 4px 0px 4px ;
+}
+
+.UIExoStart .DigitalClockContainer {
+  float: right;
+  height: 25px;
+  font-size: 11px ; text-align: center ;
+  background: url('MacSkin/background/StatusBG1x28.gif') repeat-x ;
+  margin: 4px 5px 0px 5px; 
+  padding: 1px 8px 2px 8px;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UIExoStart .DigitalClock {
+  margin: 7px 0px 0px 0px ;
+}
+
+.UIExoStart .StartMenuContainer {
+}
+
+.UIExoStart .StartMenuContainer .LoginContainer {
+  height: 35px ;
+  background: url('MacSkin/background/LoginBg1x35.gif') repeat-x ;
+  border: solid 1px #5a5a5a;
+  border-left: none; 
+  border-right: none;
+}
+
+.UIExoStart .StartMenuContainer .LabelItem {
+  height: 38px ;
+  padding: 0px 5px 0px 2px ;
+  cursor: pointer ;
+}
+
+.UIExoStart .StartMenuContainer .PortalIcon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/PortalManagement.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .AdministrationIcon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/Administration.png') no-repeat left ;
+  padding: 0px 0px 0px 34px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .PageCreationWizardIcon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/AddPage.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .EditCurrentPageIcon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/EditPage.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .EditCurrentPortalIcon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/EditPortal.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;  
+}
+
+.UIExoStart .StartMenuContainer .BrowsePortalsIcon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/BrowsePortal.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .EditNavigationIcon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/EditPageNavigation.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .BrowsePagesIcon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/BrowsePage.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .PageIcon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/Page.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .SystemIcon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/System.png') no-repeat left ;
+  padding: 0px 0px 0px 34px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .LabelText {
+  white-space: nowrap ;
+  font-size: 11px ;
+  padding: 10px 5px 0px 4px ;
+}
+
+.UIExoStart .StartMenuContainer .LabelText a {
+  color: #201e1e ;
+}
+
+.UIExoStart .StartMenuContainer .MySpaceIcon {
+  height: 35px ;  
+  background: url('DefaultSkin/icons/32x32/MySpace.gif') no-repeat left ;
+  padding: 0px 0px 0px 34px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .Web20Icon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/Web20.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .DebugIcon {
+  height: 38px ;  
+  background: url('MacSkin/icons/32x32/Debug.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .SupportIcon {
+  height: 38px ;  
+  background: url('MacSkin/icons/32x32/HelpIcon.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .RefreshIcon {
+  height: 38px ;  
+  background: url('MacSkin/icons/32x32/Refresh.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .LogoutIcon {
+  height: 35px ;  
+  background: url('MacSkin/icons/32x32/LogoutIcon.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 120px ;
+}
+
+.UIExoStart .StartMenuContainer .LoginIcon {
+  height: 35px ;  
+  background: url('DefaultSkin/icons/24x24/BlueLoginIcon.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 120px ;
+}
+
+.UIExoStart .StartMenuContainer .HLineSeparator {
+  height: 1px ;
+  background: url('DefaultSkin/background/HLineSeparator165x1.jpg') no-repeat center ;
+  margin: 3px 0px 5px 0px ;
+}
+
+.UIExoStart .StartMenuContainer .BlackArrowIcon {
+  height: 35px ;
+  background: url('MacSkin/icons/16x16/BlackArrow.gif') no-repeat right ;
+  padding: 0px 25px 0px 0px ;
+}
+
+.UIExoStart .StartMenuContainer .NavigationBackground {
+  padding: 3px 30px 0px 0px ;
+}
+
+.UIExoStart .StartMenuContainer .NavigationBackground .LabelText {
+  font-weight: bold ;
+  text-align: right ;
+  padding: 7px 0px 0px 0px ;
+}
+
+.UIExoStart .StartMenuContainer .NavigationArrowIcon {
+  height: 30px ;
+  vertical-align: middle ;
+  background: url('MacSkin/icons/24x24/GrayAquaArrow.png') no-repeat right ;
+  padding: 0px 30px 0px 0px ;
+}
+
+.UIExoStart .StartMenuContainer .MenuItemContainer {
+  padding: 1px 1px 0px 1px ; 
+  position: relative ;
+}
+
+.UIExoStart .StartMenuContainer .NavigationContainer {
+  width: 220px ;
+}
+
+.UIExoStart .StartMenuContainer .DecoratorBlock {
+  background: #efefef;
+  border: solid 1px #a4b0b0 ;
+}
+
+.UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
+  height: 19px ; 
+  line-height: 19px; vertical-align: middle;
+  font-size: 11px ;
+  background: url('MacSkin/background/TitleBG1x19.gif') repeat-x ;
+  padding: 0px 0px 0px 10px ;
+  border-bottom: solid 1px #a4b0b0 ;
+}
+
+.UIExoStart .StartMenuContainer .BasicIcon {
+  height: 38px ;
+  background: url('MacSkin/icons/32x32/BasicCustomization.png') no-repeat left ;
+  padding: 0px 0px 0px 34px ; 
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .AdvancedIcon {
+  height: 38px ;  
+  background: url('MacSkin/icons/32x32/AdvancedCustomization.png') no-repeat left ;
+  padding: 0px 0px 0px 34px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .ChangeSkinIcon {
+  height: 38px ;  
+  background: url('MacSkin/icons/32x32/ChangeSkin.png') no-repeat left ;
+  padding: 0px 0px 0px 34px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .DefaultSkinIcon {
+  height: 37px ;  
+  background: url('MacSkin/icons/32x32/ExoSkin.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .MacSkinIcon {
+  height: 37px ;  
+  background: url('MacSkin/icons/32x32/MacSkin.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .VistaSkinIcon {
+  height: 37px ;  
+  background: url('MacSkin/icons/32x32/VistaSkin.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .ChangeLanguageIcon {
+  height: 38px ;  
+  background: url('MacSkin/icons/32x32/ChangeLanguage.png') no-repeat left ;
+  padding: 0px 0px 0px 34px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .LanguageItemIcon {
+  height: 35px ;  
+  background: url('MacSkin/icons/16x16/LanguageIcon.png') no-repeat left ;
+  padding: 0px 0px 0px 16px ;
+  margin: 0px 0px 0px 4px;
+}
+/*========================Start Menu Decorator======================*/
+.UIExoStart .StartMenuDecorator {
+}
+
+.UIExoStart .StartMenuDecorator .TopDecorator {
+  width: 236px ; height: 35px ;
+  background: url('MacSkin/background/TopMenuDecorator236x35.png') bottom no-repeat ;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuTL {
+  height:6px;
+  background: url('MacSkin/background/MenuDecoratorTL2x6.png') no-repeat left;
+  padding: 0px 0px 0px 2px;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuTC {
+  height:6px;
+  background: url('MacSkin/background/MenuDecoratorTC1x6.png') repeat-x;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuTR {
+  height:6px;
+  background: url('MacSkin/background/MenuDecoratorTR6x6.png') no-repeat right;
+  padding: 0px 6px 0px 0px ;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuML {
+  background: url('MacSkin/background/MenuDecoratorML2x1.png') repeat-y left;
+  padding: 0px 0px 0px 2px;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuMR {
+  background: url('MacSkin/background/MenuDecoratorMR6x1.png') repeat-y right;
+  padding: 0px 6px 0px 0px ;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuBG {
+  background: url('MacSkin/background/MenuDecoratorMC1x4.png');
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuBL {
+  height: 6px;
+  background: url('MacSkin/background/MenuDecoratorBL6x6.png') no-repeat left;
+  padding: 0px 0px 0px 6px;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuBR {
+  height: 6px;
+  background: url('MacSkin/background/MenuDecoratorBR7x6.png') no-repeat right;
+  padding: 0px 7px 0px 0px ;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuBC {
+  height: 6px;
+  background: url('MacSkin/background/MenuDecoratorBC1x6.png') repeat-x ;
+}

@@ -1,0 +1,83 @@
+.UIWelcomePortlet {
+  height: 30px ; line-height: 30px ;
+  float: right ;
+  width: 380px ;
+  }
+
+.UIWelcomePortlet .WelcomeText {
+  color: black; font-size: 12px ;
+  height: 24px; line-height: 24px; vertical-align: middle ;
+  text-align: right;
+  float: left;
+}
+
+.UIWelcomePortlet .LoggedUser {
+  float:left ;
+  height: 24px ; line-height: 24px ;
+  vertical-align: middle ;
+  text-align: left ; color:black; font-size: 12px ;
+  margin-left: 5px ;
+}
+
+.UIWelcomePortlet .LogOut a {
+  padding-right: 15px;
+  float: right;
+  margin-left: 10px;
+}
+
+.UIWelcomePortlet .LogOutIcon {
+  width: 42px ; height: 32px ;
+  background: url('VistaSkin/background/Logout.png') no-repeat ;
+  cursor: pointer ;
+
+
+}
+
+.UIWelcomePortlet .UILoginForm {
+  width: 380px;
+  margin-left: auto;
+  height: 26px; line-height: 26px; vertical-align: middle;
+  padding-right: 5px ;
+  float: right ;
+}
+
+.UIWelcomePortlet .UILoginForm  a {
+  width: 26px ; height: 26px ;
+  background: url('VistaSkin/background/BlueLoginIcon.gif') no-repeat center ;
+  cursor: pointer ;
+  float: left;
+}
+
+.UIWelcomePortlet .UILoginForm a:hover {
+  float: left;
+  width: 26px ; height: 26px ;
+  background: url('VistaSkin/background/OverBlueLoginIcon.gif') no-repeat center ;
+  cursor: pointer ;
+}
+
+.UIWelcomePortlet .UIForm {
+  overflow: hidden;
+  width: 100% ;  
+}
+
+.UIWelcomePortlet .UILoginForm .UIForm .FieldContainer {
+  float: left ;
+  width: auto ;
+  padding: 0px ;
+  margin-top: 0px ;
+  margin-right: 10px;
+}
+
+.UIWelcomePortlet .UILoginForm .UIForm label {
+  color: black ;
+  margin-left: 2px ;
+  font-size: 11px ;
+  width: auto ;
+  
+}
+
+.UIWelcomePortlet .UILoginForm .UIForm input {
+  width: 100px;
+  font-size: 11px ;
+  color:black;
+}

@@ -1,0 +1,36 @@
+.UIDescription {
+  margin: 5px;
+}
+
+.UIDescription .DecoratorBox .DecoratorBackground{
+  background: #efefef;
+}
+
+.UIDescription .DecriptionContainer {
+  padding: 2px;
+}
+
+.UIDescription .DescriptionTitle {
+  border: 1px #b7b7b7 solid;
+  background: white;
+  text-align: center; font-size: 11px; font-weight: bold;
+  height: 20px; line-height: 20px; vertical-align: middle;
+  background: url('DefaultSkin/background/TitleBG1x20.gif') repeat-x;
+}
+
+.UIDescription .DescriptionContent {
+  padding: 1px;
+  border: 1px #b7b7b7 solid; border-top: none;
+  background: white;
+}
+
+.UIDescription .DescriptionContentContainer {
+  line-height: 20px;
+  font-size: 11px;
+  text-align: justify;
+  padding: 7px;
+  border: 1px #cdcdcd solid;
+  background: white;
+  height: 300px;
+  overflow: auto;
+}

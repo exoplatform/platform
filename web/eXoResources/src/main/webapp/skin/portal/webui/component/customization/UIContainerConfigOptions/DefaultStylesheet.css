@@ -1,0 +1,119 @@
+.UIContainerConfigOptions {
+  background: #efefef ;
+  border: solid 1px #afaeae ;
+  padding: 5px ;
+  margin: 0px 1px 0px 2px;
+}
+
+.UIContainerConfigOptions .CategoryContainer {
+  border:solid 1px gray; 
+  background: white; 
+  padding: 10px 0px 20px 0px ;
+}
+
+.UIContainerConfigOptions .Title {
+  background: white ; 
+  border: 1px solid gray ;
+  margin-bottom: 5px ;
+  background: url('DefaultSkin/background/PopupCategoryBG1x24.png') repeat-x;
+}
+
+.UIContainerConfigOptions .Title .TitleContainer {
+	padding-right: 10px;
+	border: 1px solid white ;
+}
+
+.UIContainerConfigOptions .Title .TitleContainer .Icon {
+	margin: 3px 5px 0px 7px;
+	float: left;
+	width: 16px; height: 16px;
+}
+
+.UIContainerConfigOptions .Title .TitleContainer .LabelText {
+	padding-left: 7px;
+	height: 22px; line-height: 22px; vertical-align: middle;
+}
+.UIContainerConfigOptions .Title .TitleContainer .ArrowButton {
+	float: right;
+	margin-top: 8px;
+	cursor: pointer ;
+}
+
+.UIContainerConfigOptions .UIVTabContent {
+  overflow:auto;
+  padding:1px;
+  background:#ffffff;
+}
+
+.UIContainerConfigOptions .OneRowContainerLayout {
+  width:105px ; 
+  height:56px ;
+  margin:auto ; 
+  margin-top: 12px ;
+  cursor: move ;
+  background:url('DefaultSkin/background/1RowContainerBg105x56.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .TwoRowContainerLayout {
+  width:105px;  height:56px;
+  margin:auto;  margin-top: 12px;
+  cursor: move;
+  background:url('DefaultSkin/background/2RowContainerBg105x56.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .ThreeRowContainerLayout {
+  width:105px;  height:56px;
+  margin:auto; margin-top: 12px;
+  cursor: move;
+  background:url('DefaultSkin/background/3RowContainerBg105x56.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .TwoColumnContainerLayout {
+  width:105px;  height:56px;
+  margin:auto;  margin-top: 12px;
+  cursor: move;
+  background:url('DefaultSkin/background/2ColumnContainerBg105x56.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .ThreeColumnContainerLayout {
+  width:105px;  height:56px;
+  margin:auto;  margin-top: 12px;
+  cursor: move;
+  background:url('DefaultSkin/background/3ColumnContainerBg105x56.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .TwoTabContainerLayout {
+  width:105px;  height:56px;
+  margin:auto;  margin-top: 12px;
+  cursor: move;
+  background:url('DefaultSkin/background/2TabContainerBg105x56.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .ThreeTabContainerLayout {
+  width:105px;  height:56px;
+  margin:auto; margin-top: 12px;
+  cursor: move;
+  background:url('DefaultSkin/background/3TabContainerBg105x56.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .TwoColumnOneRowContainerLayout {
+  width:105px;  height:56px;
+  margin:auto; margin-top: 12px;
+  cursor: move;
+  background:url('DefaultSkin/background/2Col1RowBg105x56.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .OneRowTwoColumnContainerLayout {
+  width:105px; height:56px;
+  margin:auto; margin-top: 12px;
+  cursor: move;
+  background:url('DefaultSkin/background/1Row2ColBg105x56.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .OneRow2Column1RowContainerLayout {
+  width:105px;
+  height:56px;
+  margin:auto; margin-top: 12px;
+  cursor: move;
+  background:url('DefaultSkin/background/1Row2Col1RowBg105x56.gif') no-repeat;
+}

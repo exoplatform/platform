@@ -1,0 +1,14 @@
+<div class="UILoginForm" id="ChildTest">
+  <%uiform.begin()%>
+    <div class="FieldContainer">
+      <label for="userName"><%=_ctx.appRes("UILoginForm.label.login")%></label>
+      <% uiform.renderChild(0); %>
+    </div>
+    <div class="FieldContainer">
+      <label for="password"><%=_ctx.appRes("UILoginForm.label.password")%></label>
+      <% uiform.renderChild(1); %>
+    </div>
+    <%String link = uicomponent.url("Login") ;%>
+    <a class="Button" href="$link"><span></span></a>
+  <%uiform.end()%>
+</div>

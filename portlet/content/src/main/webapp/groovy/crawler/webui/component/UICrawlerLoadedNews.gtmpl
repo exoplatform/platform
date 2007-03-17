@@ -1,0 +1,55 @@
+<div class="UICrawlerLoadedNews">
+  
+  <div class="LoadingInfoTitle">
+   	<div class="LoadingInfoTitleContainer">
+     	 <div class="Icon LoadingInfo16x16Icon"><span></span></div>
+      <div class="LoadingInfoText">Loaded New</div>
+   	</div>
+	</div>
+  <div class="DecoratorBoxNested">
+	  <%/*UI grid*/%>
+	  <table class="UIGrid">
+		  <thead>
+		    <tr>
+			        <th>Loaded Order</th>
+			        <th>New Title</th>
+			        <th>Loaded Time</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr class="OddRow">
+		      <td class="Number">1</td>
+		      <td class="text">New Title1</td>
+		      <td class="Datetime">hh:mm:ss</td>
+		    </tr>
+		    <tr class="EvenRow">
+		      <td class="Number">2</td>
+		      <td class="text">New Tilte2</td>
+		      <td class="Datetime">hh:mm:ss</td>
+		    </tr>
+		    <tr class="OddRow">
+		      <td class="Number">3</td>
+		      <td class="text">New Title3</td>
+		      <td class="Datetime">hh:mm:ss</td>
+		    </tr>
+		    <tr class="EvenRow">
+		      <td class="Number">4</td>
+		      <td class="text">New Tilte4</td>
+		      <td class="Datetime">hh:mm:ss</td>
+		    </tr>
+		    <tr class="OddRow">
+		      <td class="Number">5</td>
+		      <td class="text">New Title5</td>
+		      <td class="Datetime">hh:mm:ss</td>
+		    </tr>
+		    <tr class="EvenRow">
+		      <td class="Number">6</td>
+		      <td class="text">New Title6</td>
+		      <td class="Datetime">hh:mm:ss</td>
+		    </tr>
+		  </tbody>
+	  </table> <!--End UIGrid-->
+    <%/*UI grid*/%>
+  
+  </div>
+</div>  

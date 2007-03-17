@@ -1,0 +1,118 @@
+.UIControlWorkspace {
+  width: 9px ;
+  padding: 0px ;
+  top: 0px ;
+}
+
+.UIControlWorkspace .UIVerticalSlideTabs {
+  padding: 3px; 
+}
+
+.UIControlWorkspace .TopLineDecorator {
+  height: 7px ;
+  background: url('VistaSkin/background/LineControlPanel1x7.png') repeat-x ;
+}
+
+.UIControlWorkspace .UIWorkspacePanel {
+  height: 100%; 
+}
+
+.UIControlWorkspace .UIWorkspaceControl {
+  height: 39px ; 
+}
+
+.UIControlWorkspace .UIWorkspacePanel .WhiteRoundedBoxStyle {
+  margin: 2px 4px 5px 4px;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .UIMyPortal {
+  background: none;
+  border: solid 1px #dbe4e4 ;  /*Fix Bug On IE*/  
+}
+/*########################### Tab ###########################*/
+.UIControlWorkspace .UIWorkspacePanel .TabPortalIcon {
+  float: left;  
+  width: 30px ; height: 25px ;
+  background: url('VistaSkin/background/PortalManagement.gif') no-repeat ;
+  margin: 7px 10px 0px 5px; 
+}
+
+.UIControlWorkspace .UIWorkspacePanel .ControlPanelExpandContainer {
+  margin: 10px 4px;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .TabPageIcon {
+  float: left;
+  width: 30px ; height: 25px ;
+  background: url('VistaSkin/background/PageManagement.gif') no-repeat center;
+  margin: 6px 10px 0px 5px;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .HideContentVTab {
+  display: none ;
+  background: #f8f8f8 ; 
+  border: solid 1px #a3abb6 ;
+  margin: 2px 0px ;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .ShowContent {
+  display: block ;
+  background: #f8f8f8 ;
+  border: solid 1px #a3abb6 ;
+  margin: 2px 0px ;
+}
+/*########################### End Tab ###########################*/
+
+/*########################### Slidebar ###########################*/
+.UIControlWorkspace .Slidebar {
+  float: right ;
+  width: 9px ;
+  background: url('VistaSkin/background/ExpandPanel1x9.png') repeat-y ;
+}
+
+.UIControlWorkspace .UIWorkspaceContainer {
+	float: left ;
+}
+
+.UIControlWorkspace .Slidebar .FixHeightTop {
+  width: 9px ;
+}
+
+.UIControlWorkspace .Slidebar .SlidebarButtonShow {
+  width: 8px ;  height: 49px ;
+  background: url('VistaSkin/background/ExpandPanelBack8x49.gif') ;
+  cursor: pointer;
+}
+
+.UIControlWorkspace .Slidebar .SlidebarButtonHide {
+  width: 8px ;  height: 49px ;
+  background: url('VistaSkin/background/ExpandPanel8x49.gif') ;
+  cursor: pointer;
+}
+/*########################### End Slidebar ###########################*/
+.UIWorkingWorkspace {
+	margin: 0px 0px 0px 9px ;
+}
+
+.MaskLayer {
+	background: #000 ;
+	text-align: center ;
+	position: absolute ;
+}
+
+.WarningLayer {
+	width: 300px ;	height: 100px ;
+	background: white ;
+	line-height: 100px ;	vertical-align: middle ;
+	text-align: center ;
+	position: absolute ;
+	opacity: 0.5 !important ;
+	filter: alpha(opacity=50) ;
+}
+
+.PreviewMode {
+	width: 159px ;	height: 37px ;
+	background: url("DefaultSkin/background/PreviewMode159x37.gif") no-repeat ;
+	position: absolute ;
+	cursor: pointer ;
+}

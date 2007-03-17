@@ -1,0 +1,65 @@
+<%  import  org.exoplatform.webui.component.UIForm; %>
+<%
+  String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true)";
+  String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";
+  String onClick = "eXo.webui.UIItemSelector.onClick(this)";
+  
+  options = uicomponent.getItemCategories();
+  UIForm form = uicomponent.getAncestorOfType(UIForm.class);
+%>
+<div class="UIItemSelector">  
+  <div class="NormalStyle" style="width: 99.5%;">
+    <div class="OverflowContainer">
+    <input type="hidden" name="$uicomponent.name" value ="">
+      <%/*Begin ItemList*/%>
+      <div class="ItemListContainer">
+        <div class="ItemListTitle"><%=uicomponent.getName();%></div>
+        <div class="ItemList">
+          <%
+            for(opt in options) {
+              String itemSelected = "Item" ;
+              String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$opt.name')";
+              String submitEvent = "eXo.webui.UIForm.submitEvent('$form.id','SelectItemOption', '')";
+              if (opt.isSelected()) itemSelected = "ItemSelected Item" ;
+           %>
+              <div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;$submitEvent">
+                <div class="ItemIcon">
+                  <div class="ItemName">  
+                    <div class="ItemTitle">$opt.name</div>
+                  </div>
+                </div>
+              </div>
+          <%}%>
+        </div>
+      </div>
+      <%/*End ItemList*/%>
+            
+      <%/*Begin ItemDetailList*/%>
+      <div class="ItemDetailList">
+        <%          
+          for(opt in options) {
+            String display = "none";
+            temps = opt.getSelectItemOptions();
+            if(opt.isSelected()) display = "block";                 
+        %>
+            <div class="ItemDetail" style="display: $display;">
+            <%               
+              for(temp in temps){               
+               String label = "" ;
+               if(temp != null) {
+                 label = temp.getLabel();
+               }
+            %>
+              <div class="TemplateContainer">
+                <div class="Template">
+                  <div class="<%=temp.getIcon();%>Image"><span></span></div>
+                </div>
+              </div>
+            <%}%>
+            </div> 
+        <%}%>
+      </div>  
+      <%/*End ItemDetailList*/%>      
+    </div>
+  </div>
+</div>

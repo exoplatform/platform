@@ -1,0 +1,150 @@
+.UIQuickHelp {
+}
+
+.UIQuickHelp .TopBar {
+  height: 22px ;
+}
+
+.UIQuickHelp .TopBar .TopBarLeft {
+  height: 22px ;
+  padding-left: 7px;
+  background: url('VistaSkin/background/QuickHelpBarTLBg7x22.gif') no-repeat left;
+}
+
+.UIQuickHelp .TopBar .TopBarRight {
+  height: 22px ;
+  padding-right: 9px;
+  background: url('VistaSkin/background/QuickHelpBarTRBg9x22.gif') no-repeat right;
+}
+
+.UIQuickHelp .TopBar .TopBarMiddle {
+  height: 22px ;
+  background: url('VistaSkin/background/QuickHelpBarTRepeatBg1x22.gif') repeat-x;
+}
+
+.UIQuickHelp .TopBar .TopBarMiddle .TitleBar {
+  float: left;
+  width: 130px;
+  height: 20px ;
+}
+
+.UIQuickHelp .TopBar .TopBarMiddle .TitleBar .BarLeft {
+  height: 20px ;
+  padding-left: 1px;
+  background: url('VistaSkin/background/QuickHelpTitleBarLBg1x20.gif') no-repeat left;
+}
+
+.UIQuickHelp .TopBar .TopBarMiddle .TitleBar .BarRight {
+  height: 20px ;
+  padding-right: 16px;
+  margin-top: 1px;
+  background: url('VistaSkin/background/QuickHelpTitleBarRBg16x20.gif') no-repeat right;
+}
+
+.UIQuickHelp .TopBar .TopBarMiddle .TitleBar .BarMiddle {
+  height: 20px ;
+  line-height: 20px;
+  background: url('VistaSkin/background/QuickHelpTitleBarLBg1x20.gif') repeat-x;
+}
+
+.UIQuickHelp .TopBar .TopBarMiddle .TitleBar .Title {
+  height: 20px ;
+  line-height: 20px;
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.UIQuickHelp .TopBar .TopBarMiddle .TitleBar .Icon {
+  float: left;
+  height: 16px ;
+  width: 16px;
+  margin: 2px 7px 0px 3px;
+}
+
+.UIQuickHelp .ContentContainer {
+  background-color: white ;
+  border-right: solid #5f90ba 1px ;
+  border-left: solid #5f90ba 1px ;
+}
+
+.UIQuickHelp .Content {
+  padding: 3px;
+}
+
+.UIQuickHelp .ContentContainer .Content .ScrollArea {
+  overflow: auto;
+  border:  solid 1px #6aa4d5;
+}
+
+.UIQuickHelp .ContentContainer .Content .ScrollArea .UIQuickHelpContentContainer {
+  padding: 8px;
+}
+
+.UIQuickHelp .BottomBar {
+  height: 22px;
+  border: none;
+}
+
+.UIQuickHelp .BottomBar .BottomBarLeft {
+  height: 22px; 
+  padding-left: 3px;
+  background: url('VistaSkin/background/QuickHelpBarBLBg3x22.gif') no-repeat left;
+}
+
+.UIQuickHelp .BottomBar .BottomBarRight {
+  height: 22px;
+  padding-right: 3px;
+  background: url('VistaSkin/background/QuickHelpBarBRBg3x22.gif') no-repeat right;
+}
+
+.UIQuickHelp .BottomBar .BottomBarMiddle {
+  height: 22px;
+  background: url('VistaSkin/background/QuickHelpBarBRepeatBg1x22.gif') repeat-x;
+}
+
+.UIQuickHelp .BottomBar .ButtonBar {
+  margin-left: auto;
+  width: 80px;
+  height: 20px ;
+}
+
+.UIQuickHelp .BottomBar .ButtonBar .ButtonBarLeft {
+  height: 21px ;
+  padding-left: 16px ;
+  background: url('VistaSkin/background/QHButtonBarLBg16x21.gif') no-repeat left;
+}
+
+.UIQuickHelp .BottomBar .ButtonBar .ButtonBarRight {
+  height: 21px ;
+  padding-right: 1px ;
+  background: url('VistaSkin/background/QHButtonBarRepeatBg1x21.gif') repeat-x;
+}
+
+.UIQuickHelp .BottomBar .BackButton {
+  float: left ;
+  margin: 3px 7px 0px 5px ;
+}
+
+.UIQuickHelp .BottomBar .ForwardButton {
+  float: right ;
+  margin: 3px 7px 0px 5px ;
+}
+
+.UIQuickHelp .UIQuickHelpContentPage .Icon {
+  float: left ;
+}
+
+.UIQuickHelp .UIQuickHelpContentPage ul {
+   list-style-image: url('VistaSkin/background/BlueSquareBg.gif');
+}
+
+.UIQuickHelp .UIQuickHelpContentPage li {
+   margin-top: 10px;
+   margin-left: -20px;
+}
+
+.UIQuickHelp .UIQuickHelpContentPage a{
+   font-size: 11px; font-weight: bold;
+}
+
+

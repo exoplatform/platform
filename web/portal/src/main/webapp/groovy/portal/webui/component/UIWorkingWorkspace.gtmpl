@@ -1,0 +1,12 @@
+<%
+  def rcontext = _ctx.getRequestContext() ;
+  
+  rcontext.importJavascript('eXo.portal.UIWorkspace');
+  
+  rcontext.importJavascript('eXo.portal.UIWorkingWorkspace') ;
+  rcontext.addOnLoadJavascript('eXo.portal.UIWorkingWorkspace.onResizeDefault') ;
+  rcontext.addOnResizeJavascript('eXo.portal.UIWorkingWorkspace.onResizeDefault') ;
+%>
+<div id="UIWorkingWorkspace" class="UIWorkingWorkspace UIWorkspace" style="position: relative; z-index: 0">
+	<%uicomponent.renderChildren()%>
+</div>

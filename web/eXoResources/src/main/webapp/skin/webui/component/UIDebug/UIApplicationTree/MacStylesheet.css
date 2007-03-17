@@ -1,0 +1,54 @@
+ .UIApplicationTree {
+
+}
+
+ .UIApplicationTree .DecoratorBox .DecoratorBackground {
+  border: 1px solid white ;
+}
+
+ .UIApplicationTree .UIApplicationTreeDetail{
+	margin-left: 260px;
+}
+
+/*####################-- UIApplicationTreeNavigation --####################*/
+
+ .UIApplicationTree .UIApplicationTreeNavigation {
+  float: left ;
+  width: 250px ; 
+}
+
+ .UIApplicationTree .UIApplicationTreeNavigation .NavigationUpArrowIcon {
+  margin: auto;
+}
+
+ .UIApplicationTree .UIApplicationTreeNavigation .EntireTab {
+  width:178px; 
+  margin-left: 2px;
+}
+
+ .UIApplicationTree .UIApplicationTreeNavigation .EntireTabTitle {
+  margin-left: 40px; 
+  padding-top: 5px;
+}
+
+ .UIApplicationTree .UIApplicationTreeNavigation .UIBarStyle {
+	margin-left: 1px; 
+	width: 224px;
+}
+
+ .UIApplicationTree .UIApplicationTreeNavigation .UIVTab {
+	margin-left: 2px;
+	width: 226px;
+}
+
+ .UIApplicationTree .UIApplicationTreeNavigation .UIApplicationTreeList .NavigationIcon {
+ 	margin :5px 0px 0px 5px;
+}
+
+ .UIApplicationTree .UIApplicationTreeNavigation .UIApplicationTreeList .TabTitle {
+  margin: 4px 0px 0px 5px; 
+}
+ 
+ .UIApplicationTree .UIApplicationTreeNavigation .UIApplicationTreeList .UpArrowBar {
+  width:50px;
+} 

@@ -1,0 +1,59 @@
+.UIPageDesktop {
+  position: relative ;
+  z-index: 0 ;
+  top: 0px; left: 0px ;
+  overflow: hidden ;
+}
+
+.UIPageDesktop .UIDockBar {
+  margin: auto ;
+  height: auto ;
+  z-index: 30 ;
+  cursor: pointer ;
+}
+
+.UIPageDesktop .UIDockBar .Icon {
+  width: 40px ;  height: 40px ;
+}
+
+.UIPageDesktop .UIDockBar .DockbarLeft {
+  background: url('VistaSkin/background/DockbarLeft4x49.png') no-repeat left bottom ;
+  padding: 0px 0px 0px 4px ;
+}
+
+.UIPageDesktop .UIDockBar .DockbarRight {
+  background: url('VistaSkin/background/DockbarRight8x49.png') no-repeat right bottom ;
+  padding: 0px 8px 0px 0px;
+}
+
+.UIPageDesktop .UIDockBar .DockbarCenter {
+  height: 49px ;
+  background: url('VistaSkin/background/DockbarCenterBG1x49.png') repeat-x bottom ;
+}
+
+.UIPageDesktop .UIDockBar .IconContainer {
+  vertical-align: bottom ;
+	padding: 3px 0px 0px 0px ;
+  margin: auto ;
+}
+
+.UIPageDesktop .UIDockBar .Separator { 
+	width: 2px; height: 40px;
+	margin: 0px 5px ;
+}
+
+.UIPageDesktop .UIDockBar .Tooltip {
+	height: 20px ;
+	position: absolute ;
+	background: #ededed ;
+	white-space: nowrap ;
+	padding: 2px 5px 0px 5px ;
+	border: solid 1px black ;
+}
+
+.UIPageDesktop .MoveResizeArea {
+  float: right ;
+  width: 12px ; height: 18px ;
+  background: blue ; 
+  cursor: nw-resize ;
+}
