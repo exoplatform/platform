@@ -1,2 +1,0 @@
-<%=eXo.core.TemplateEngine.merge('eXo/application/forum/UIForumUserMode.jstmpl', context) ;%>	
-
