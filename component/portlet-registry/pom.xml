@@ -29,7 +29,9 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.0</version>
         <executions>
           <execution>
             <phase>compile<!--process-classes--></phase>
@@ -53,5 +55,5 @@
         </executions>
       </plugin>
     </plugins>
-  </build>  
+  </build> 
 </project>
