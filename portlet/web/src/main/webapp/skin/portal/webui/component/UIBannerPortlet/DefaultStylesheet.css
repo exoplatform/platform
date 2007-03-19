@@ -4,6 +4,7 @@
   vertical-align: middle ;
   line-height: 92px ;
   text-align: center ;
+  border: solid red 1px ;
 }
 
 .UIBannerPortlet .BannerLeft {

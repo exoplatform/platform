@@ -65,18 +65,18 @@
   cursor: move ;
 }
 
-.UIWindow .WindowPortletInfo .WindowPortletIcon {
-  float: left ;
-  margin: 6px 5px 0px 5px ;
-  width: 18px ;
-  height: 18px ;
-  background: url('VistaSkin/icons/16x16/WindowPortletIcon.png') no-repeat ;
-}
-
 .UIWindow .WindowPortletInfo .PortletName {
   float: left ;
   margin-top: 8px ;
   font-size: 11px ;
+}
+
+.UIWindow .WindowPortletInfo .WindowPortletIcon {
+  float: left ;
+  margin: 4px 5px 0px 5px ;
+  width: 16px ;
+  height: 16px ;
+  background: url('DefaultSkin/icons/16x16/PortletIcon.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .ControlIcon {

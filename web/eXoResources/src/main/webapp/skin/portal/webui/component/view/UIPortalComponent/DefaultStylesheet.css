@@ -19,23 +19,6 @@
 .UIPortlet {
 }
 
-.UIPortlet .WindowBarLeft {
-  height: 24px ;
-  background: url('DefaultSkin/background/InfoBarL4x24.gif') no-repeat left ;
-  padding: 0px 0px 0px 4px ;
-}
-
-.UIPortlet .WindowBarRight {
-  height: 24px ;
-  background: url('DefaultSkin/background/InfoBarR4x24.gif') no-repeat right ;
-  padding: 0px 4px 0px 0px ;
-}
-
-.UIPortlet .WindowBarCenter {
-  height: 24px ;
-  background: url('DefaultSkin/background/InfoBarM1x24.gif') repeat-x ;
-}
-
 .UIPortlet .WindowBarAction {
   float: right ;
   height: 24px ;
@@ -45,44 +28,6 @@
 .UIPortlet .WindowBarLabel {
   height: 24px ;
   margin: 0px 85px 0px 0px ;
-}
-
-.UIPortlet .ControlIcon {
-  float: left;
-  width: 16px ; height: 16px ;
-  margin: 4px 2px 0px 2px ;
-  cursor: pointer ;  
-}
-
-.UIPortlet .ArrowDownIcon {
-  background: url('DefaultSkin/icons/16x16/ArrowDown.gif') no-repeat ;
-}
-
-.UIPortlet .OverArrowDownIcon {
-  background: url('DefaultSkin/icons/16x16/ArrowDownOver.gif') no-repeat ;
-}
-
-.UIPortlet .MinimizedIcon {
-  background: url('DefaultSkin/icons/16x16/Minimize.gif') no-repeat ;
-}
-
-.UIPortlet .OverMinimizedIcon {
-  background: url('DefaultSkin/icons/16x16/MinimizeOver.gif') no-repeat ;
-}
-
-.UIPortlet .MaximizedIcon {
-  background: url('DefaultSkin/icons/16x16/Maximize.gif') no-repeat ;
-}
-
-.UIPortlet .OverMaximizedIcon {
-  background: url('DefaultSkin/icons/16x16/MaximizeOver.gif') no-repeat ;
-}
-
-.UIPortlet .PortletIcon {
-  float: left ;
-  width: 16px ; height: 16px ;
-  background: url('DefaultSkin/icons/16x16/PortletIcon.gif') no-repeat ;
-  margin: 4px 5px 0px 5px ;
 }
 
 .UIPortlet .PortletLabel {

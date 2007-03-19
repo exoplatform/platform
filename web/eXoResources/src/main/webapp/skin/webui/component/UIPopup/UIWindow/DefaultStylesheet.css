@@ -32,55 +32,55 @@
 }
 
 .UIWindow .WindowPortletInfo .InactivePortletName {
-  font-size: 1px ;
+  font-size: 11px ;
 }
 
 .UIWindow .WindowPortletControl .ControlIcon {
-  width: 16px ;
-  height: 16px ;
+  width: 24px ;
+  height: 24px ;
   float: left;
-  margin: 4px 2px 0px 2px ;
+  margin: 0px 4px 0px 0px ;
   cursor: pointer ;  
 }
 
 .UIWindow .WindowPortletControl .ArrowDownIcon {
-  background: url('DefaultSkin/icons/16x16/ArrowDown.gif') no-repeat ;
+  background: url('DefaultSkin/icons/24x24/ArrowDown.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverArrowDownIcon {
-  background: url('DefaultSkin/icons/16x16/ArrowDownOver.gif') no-repeat ;
+  background: url('DefaultSkin/icons/24x24/ArrowDownOver.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .MinimizedIcon {
-  background: url('DefaultSkin/icons/16x16/Minimize.gif') no-repeat ;
+  background: url('DefaultSkin/icons/24x24/Minimize.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverMinimizedIcon {
-  background: url('DefaultSkin/icons/16x16/MinimizeOver.gif') no-repeat ;
+  background: url('DefaultSkin/icons/24x24/MinimizeOver.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .MaximizedIcon {
-  background: url('DefaultSkin/icons/16x16/Maximize.gif') no-repeat ;
+  background: url('DefaultSkin/icons/24x24/Maximize.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverMaximizedIcon {
-  background: url('DefaultSkin/icons/16x16/MaximizeOver.gif') no-repeat ;
+  background: url('DefaultSkin/icons/24x24/MaximizeOver.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .RestoreIcon {
-  background: url('DefaultSkin/icons/16x16/Restore.gif') no-repeat ;
+  background: url('DefaultSkin/icons/24x24/Restore.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverRestoreIcon {
-  background: url('DefaultSkin/icons/16x16/RestoreOver.gif') no-repeat ;
+  background: url('DefaultSkin/icons/24x24/RestoreOver.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .CloseButtonIcon {
-  background: url('DefaultSkin/icons/16x16/Close.gif') no-repeat ;
+  background: url('DefaultSkin/icons/24x24/Close.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverCloseButtonIcon {
-  background: url('DefaultSkin/icons/16x16/CloseOver.gif') no-repeat ;
+  background: url('DefaultSkin/icons/24x24/CloseOver.gif') no-repeat ;
 }
 
 .UIWindow .MiddleDecoratorCenter {
@@ -143,46 +143,47 @@
 
 .UIWindow .TopDecoratorLeft {
   height: 3px ;
-  padding-left: 4px ;
-  background: url('DefaultSkin/background/WindowTL4x3.gif') no-repeat left ;
+  padding-left: 5px ;
+  background: url('DefaultSkin/background/WindowTL5x3.gif') no-repeat left ;
 }
 
 .UIWindow .TopDecoratorRight {
   height: 3px ;
-  padding-right: 4px ;
-  background: url('DefaultSkin/background/WindowTR4x3.gif') no-repeat right ;
+  padding-right: 5px ;
+  background: url('DefaultSkin/background/WindowTR5x3.gif') no-repeat right ;
 }
 
 .UIWindow .TopDecoratorCenter {
   height: 3px ;
   background: url('DefaultSkin/background/WindowTC1x3.gif') repeat-x ;
+  height: 3px;
 }
 
 .UIWindow .MiddleDecoratorLeft {
-  padding-left: 4px ;
-  background: url('DefaultSkin/background/WindowML4x1.gif') repeat-y left ;
+  padding-left: 5px ;
+  background: url('DefaultSkin/background/WindowML5x1.gif') repeat-y left ;
 }
 
 .UIWindow .MiddleDecoratorRight {
-  padding-right: 4px ;
-  background: url('DefaultSkin/background/WindowMR4x1.gif') repeat-y right ;
+  padding-right: 5px ;
+  background: url('DefaultSkin/background/WindowMR5x1.gif') repeat-y right ;
 }
 
 .UIWindow .BottomDecoratorLeft {
-  height: 22px ;
-  padding-left: 4px ;
-  background: url('DefaultSkin/background/WindowBL4x22.gif') no-repeat left ;
+  height: 23px ;
+  padding-left: 5px ;
+  background: url('DefaultSkin/background/WindowBL5x23.gif') no-repeat left ;
 }
 
 .UIWindow .BottomDecoratorRight {
-  height: 22px ;
-  padding-right: 4px ;
-  background: url('DefaultSkin/background/WindowBR4x22.gif') no-repeat right ;
+  height: 23px ;
+  padding-right: 5px ;
+  background: url('DefaultSkin/background/WindowBR5x23.gif') no-repeat right ;
 }
 
 .UIWindow .BottomDecoratorCenter {
-  height: 22px ;
-  background: url('DefaultSkin/background/WindowBC1x22.gif') repeat-x ;
+  height: 23px ;
+  background: url('DefaultSkin/background/WindowBC1x23.gif') repeat-x ;
 }
 
 .UIWindow .WindowPortletInfo .PortletName {
@@ -193,20 +194,20 @@
 }
 
 .UIWindow .WindowBarLeft {
-  height: 24px ;
-  padding-left: 4px ;
-  background: url('DefaultSkin/background/WindowControlBarL4x24.gif') no-repeat left ;
+  height: 23px ;
+  padding-left: 3px ;
+  background: url('DefaultSkin/background/WindowControlBarL3x23.gif') no-repeat left ;
 }
 
 .UIWindow .WindowBarRight {
-  height: 24px ;
-  padding-right: 4px ;
-  background: url('DefaultSkin/background/WindowControlBarR4x24.gif') no-repeat right ;
+  height: 23px ;
+  padding-right: 3px ;
+  background: url('DefaultSkin/background/WindowControlBarR3x23.gif') no-repeat right ;
 }
 
 .UIWindow .WindowBarCenter {
-  height: 24px ;
-  background: url('DefaultSkin/background/WindowControlBarM1x24.gif') repeat-x ;
+  height: 23px ;
+  background: url('DefaultSkin/background/WindowControlBarM1x23.gif') repeat-x ;
 }
 
 .UIWindow .WindowPortletControl {
