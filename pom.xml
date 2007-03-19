@@ -22,6 +22,9 @@
 
     <module>web/eXoResources</module>
     <module>web/portal</module>
+
+    <module>server/tomcat/patch</module>
+    <module>server/jboss/patch</module>
   </modules>
 
   <build>

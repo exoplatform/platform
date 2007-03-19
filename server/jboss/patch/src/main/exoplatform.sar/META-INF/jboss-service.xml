@@ -1,0 +1,19 @@
+<server>
+  <mbean code="org.jboss.security.auth.login.DynamicLoginConfig"
+         name="jboss:service=DynamicLoginConfig">
+    <attribute name="AuthConfig">META-INF/login-config.xml</attribute>
+    <!-- The service which supports dynamic processing of login-config.xml
+    configurations.
+    -->
+    <depends optional-attribute-name="LoginConfigService">
+      jboss.security:service=XMLLoginConfig
+    </depends>
+    <!-- Optionally specify the security mgr service to use when
+    this service is stopped to flush the auth caches of the domains
+    registered by this service.
+    -->
+    <depends optional-attribute-name="SecurityManagerService">
+      jboss.security:service=JaasSecurityManager
+    </depends>
+  </mbean>
+</server>
