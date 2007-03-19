@@ -1,34 +1,48 @@
 <div class="UILogged">
+	<div class="WelcomeImage">
+		<div class="UserIcon"><span></span></div>
+		<div class="WelcomeIcon"><span></span></div>
+		<div style="clear: left"><span></span></div>
+	</div>
 	<div class="DecoratorBox">
-    <div class="GrayRoundedFillBoxStyle">
-      <div class="WelcomeImage"><span></span></div>
-      <div class="MiddleLeftSideBoxDecorator">
-        <div class="MiddleRightSideBoxDecorator">
-          <div class="DecoratorBackground" style="padding-top: 5px">
-            <div class="WelcomeBox">
-						  <%if(uicomponent.getAccessibility() == 0) { %>
-						  <% uicomponent.renderChild(0) %>
-						  <%} else if(uicomponent.getAccessibility() == 1) {%>     
-						  <div class="UserWelcomeBox">
-						    <div class="StateMessage"><%=_ctx.appRes("UILogged.note.loggedUser")%></div>
-						    <div class="LoggedUserName">$uicomponent.remoteUser</div>
-						  </div>
-					  </div>            
-						<%} else if(uicomponent.getAccessibility() == 2) {%>
-						   admin
-						<%} else {%>
-						<%}%>
-	        </div>
-	        <div><span></span></div> 
-        </div>
-      </div>
-      <div class="BottomLeftCornerBoxDecorator">
-        <div class="BottomRightCornerBoxDecorator">
-          <div class="BottomCenterBoxDecorator"><span></span></div>
-        </div>
-      </div>
-    </div>
+    <div class="TopDecoratorLeft">
+      <div class="TopDecoratorRight">
+        <div class="MiddleTopDecorator"><span></span></div>
+			</div>
+		</div>
+		<div class="CenterDecoratorLeft">
+		  <div class="CenterDecoratorRight">
+        <div class="DecoratorBackground">
+        
+        	<div class="AvatarImageContent">
+        		<div class="AvatarImage"><span></span></div>
+        	</div>
+        
+          <div class="WelcomeBox">
+				    <%if(uicomponent.getAccessibility() == 0) { %>
+					  <% uicomponent.renderChild(0) %>
+					  <%} else if(uicomponent.getAccessibility() == 1) {%>     
+						<div class="UserWelcomeBox">
+						  <div class="StateMessage"><%=_ctx.appRes("UILogged.note.loggedUser")%></div>
+						  <div class="LoggedUserName">$uicomponent.remoteUser</div>
+		 					<%} else if(uicomponent.getAccessibility() == 2) {%>
+							   <div class="LoggedUserName">admin</div>
+							<%} else {%>
+							<%}%>
+						</div>
+						<div class="LabelSignout">Sign out</div>
+					</div>
+					<div style="clear: left"><span></span></div>
+	      </div>
+	    </div>
+	  </div> 
+	  <div class="BottomDecoratorLeft">
+	    <div class="BottomDecoratorRight">
+	      <div class="MiddleBottomDecorator"><span></span></div>
+	    </div>
+	  </div>
   </div>
+  
   <div class="DecoratorBox">
     <div class="GrayRoundedFillBoxStyle">
       <div class="TopLeftCornerBoxDecorator">

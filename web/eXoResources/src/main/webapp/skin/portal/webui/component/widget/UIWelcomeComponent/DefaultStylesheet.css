@@ -2,10 +2,6 @@
   
 }
 
-.UIWelcomeComponent .DecoratorBox {
-  margin: 7px 0px 0px 0px ;
-}
-
 .UIWelcomeComponent .WelcomeMessage {
   float: left ;
 }
