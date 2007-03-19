@@ -200,7 +200,7 @@
 	    
 	    <content-node>
 	      <id>dantri</id>
-	      <url>http://www.dantri.com.vn/Home.rss</url>
+	      <url>http://www2.dantri.com.vn/Home.rss</url>
 	      <label>Dan tri</label>
 	      <description></description>
 	      <type>rss</type>      
