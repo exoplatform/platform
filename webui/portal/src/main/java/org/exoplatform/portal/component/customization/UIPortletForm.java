@@ -4,8 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.component.customization;
 
-import java.util.List;
-
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
@@ -14,16 +12,13 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.Portlet;
-import org.exoplatform.webui.application.RequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
-import org.exoplatform.webui.component.UIFormInputDecoratorSelector;
 import org.exoplatform.webui.component.UIFormInputIconSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTabPane;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
 import org.exoplatform.webui.component.validator.NumberFormatValidator;
 import org.exoplatform.webui.config.InitParams;

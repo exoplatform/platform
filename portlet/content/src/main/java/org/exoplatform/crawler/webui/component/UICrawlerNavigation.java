@@ -37,7 +37,6 @@ public class UICrawlerNavigation  extends UIContainer {
   
   static public class ControlTabListener extends EventListener<UICrawlerNavigation> {
     public void execute(Event<UICrawlerNavigation> event) throws Exception {
-      System.out.println("run control tab");
       UICrawlerNavigation uicom = event.getSource() ;
       String tabname = event.getRequestContext().getRequestParameter(OBJECTID) ;
       uicom.setTabName(tabname) ;
