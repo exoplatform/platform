@@ -1,27 +1,11 @@
 <webui-configuration> 
-  <!--ui-component-config id="UIBannerPortlet">
+  <ui-component-config id="UIBannerPortlet">
     <type>org.exoplatform.groovy.webui.component.UIGroovyPortlet</type>
     <lifecycle>org.exoplatform.groovy.webui.component.lifecycle.UIGroovyPortletLifecycle</lifecycle>
-    <template>app:/groovy/webui/component/UIBannerPortlet.gtmpl</template>
-    <events>
-      <event>
-        <event-name>signin</event-name>
-        <execution-phase>action</execution-phase>
-        <listener>org.exoplatform.portal.component.widget.UILoginForm.SigninActionListener</listener>
-      </event>
-    </events>
   </ui-component-config>
 
   <application> 
     <ui-component-root>org.exoplatform.groovy.webui.component.UIGroovyPortlet</ui-component-root>
     <state-manager>org.exoplatform.webui.application.portlet.ParentAppStateManager</state-manager>    
-  </application-->
-  
-  <annotation-classes>   
-  </annotation-classes>  
-  
-  <application>     
-    <ui-component-root>org.exoplatform.portal.webui.component.UIBannerPortlet</ui-component-root>    
-    <state-manager>org.exoplatform.webui.application.portlet.ParentAppStateManager</state-manager>
-  </application>
+   </application>
 </webui-configuration>
