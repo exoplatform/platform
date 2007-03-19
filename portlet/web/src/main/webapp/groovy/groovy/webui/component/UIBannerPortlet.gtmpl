@@ -2,11 +2,6 @@
   <div class="InlineContainer">
     <div class="BannerLeft InlineLeft"><br/></div>
     <div class="BannerRight InlineRight"><br/></div>
-      <%
-        System.out.println("\n\n\n ===== > ac ac \n\n\n" );
-        String link = uicomponent.url("signin") ;
-        
-      %>
-      <a class="ButtonLogin" href="$link"><span>Sign In</span></a>
+    <div class="BannerMiddle InlineLeft"><br/></div>
   </div>
 </div>
