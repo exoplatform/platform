@@ -7,36 +7,11 @@
  */
 
 .UIPortalToolPanel {
-}
-
-.UIPortalToolPanel .Banner {
-  background: url('DefaultSkin/background/EditBannerRepeatBg4x98.jpg') repeat-x ;
-  height: 98px ;
-  vertical-align: middle ;
-  line-height: 98px ; text-align: center ;
-}
-
-.UIPortalToolPanel .BannerLeft {
-  background: url('DefaultSkin/background/EditBannerLBg184x98.jpg') no-repeat left ;
-  float: left ;
-  height: 98px ; width: 35%;
-}
-
-.UIPortalToolPanel .BannerMiddle {
-  background: url('DefaultSkin/background/EditBannerMBg236x98.jpg') no-repeat center ;
-  float: left ;
-  height: 98px ; width: 32%;
-}
-
-.UIPortalToolPanel .BannerRight {
-  background: url('DefaultSkin/background/EditBannerRBg150x98.jpg') no-repeat right ;
-  float: right ;
-  height: 98px ; width: 25%;
+  
 }
 
 .UIPortalToolPanel .Body {
   padding: 7px 0px 5px 10px;
-	background: url('DefaultSkin/background/BlankBg2x2.gif') ;
 }
 
 .UIPortalToolPanel .Body .UIPage {
@@ -44,40 +19,29 @@
 }
 
 .UIPortalToolPanel .Footer {
-  background: url('DefaultSkin/background/FooterBG1x36.gif') repeat-x ;
+  background: url('DefaultSkin/background/BgFooter1x25.gif') repeat-x ;
   font-size: 11px ;
-  height: 36px ;
-  padding: 5px 0px 0px 0px ;
-  line-height: 26px ;
+  line-height: 25px;
   vertical-align: middle ;
 }
 
 .UIPortalToolPanel .Footer .FooterInfoContainer {
-  height: 18px ; 
-  width: 400px ;
-  margin: auto ;
-  background: white ;
-  border: 1px solid #aeaeae ;
+  
+  height: 25px;
 }
 
 .UIPortalToolPanel .Footer .CopyrightInfo {
-  height: 18px ; width: 398px ;
+  width: 398px ; height:25px;
+  margin: auto;
 }
 
 .UIPortalToolPanel .Footer .CopyrightInfo .CopyrightText {
   float: left;
-  height: 18px ; line-height: 18px ; vertical-align: middle; 
-  width: 260px ;
-  font-size: 11px ;
   padding-left: 5px ;
 }
 
 .UIPortalToolPanel .Footer .CopyrightInfo .CompanyTitleText {
   float: right ;
-  height: 18px ; 
-  line-height: 18px ; vertical-align: middle; 
-  width: 124px ;
-  font-size: 10px ;
   padding-left: 5px ;
 }
 

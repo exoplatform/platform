@@ -1,17 +1,8 @@
 <div id="UIPortalToolPanel">
-  <div class="UIPortalToolPanel">
-	 	<div class="Banner">
-		  <div class="OverflowContainer">
-		    <div class="BannerLeft"><span></span></div>
-		   	<div class="BannerRight"><span></span></div>
-		  	<div class="BannerMiddle"><span></span></div>
-		 	</div>
-		</div>
-		
+  <div class="UIPortalToolPanel">	
 		<div class="Body">
 	    <% uicomponent.renderChildren() %>
-	  </div>
-	  
+	  </div>	
 	  <div class="Footer">
 		  <div class="LeftFooter">
 		    <div class="RightFooter">
@@ -26,7 +17,6 @@
 	        </div>
 		    </div>
 		  </div>
-		</div>
-		
+		</div>	
   </div>
 </div>

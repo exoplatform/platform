@@ -217,6 +217,10 @@
 }
 
 /**************************** UIPageBody ************************************/
+.UIPageBody {
+  padding-bottom: 10px;
+}
+
 .UIPageBody .WindowPortletControl {
 	width: auto; float: right;
 	height: 24px;
