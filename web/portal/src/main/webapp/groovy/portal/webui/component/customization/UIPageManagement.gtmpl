@@ -3,7 +3,7 @@
   import  org.exoplatform.portal.component.customization.UIPageNodeSelector;
   import  org.exoplatform.portal.component.customization.UIContainerConfigOptions;
   import  org.exoplatform.portal.component.customization.UIPortletOptions;
-  import  org.exoplatform.portal.component.customization.UIPageManagementControlBar;
+  import  org.exoplatform.portal.component.customization.UIPageNavigationControlBar;
   import org.exoplatform.webui.component.UIDescription;
 %>
 <div class="UIPageManagement" id="UIPageManagement">
@@ -48,11 +48,9 @@
   <% uicomponent.renderChild(UIDescription.class) %>
     </div> 
   <%}%>
-  <%if(uicomponent.getChild(UIPageManagementControlBar.class) != null) {%>
-	<div class="ControlArea" >
-    	
-	  <% uicomponent.getChild(UIPageManagementControlBar.class).setRendered(true);
-	  uicomponent.renderChild(UIPageManagementControlBar.class);%>
-	</div> 
+  <%if(uicomponent.getChild(UIPageNavigationControlBar.class).isRendered()) {%>
+		<div class="ControlArea" >
+	  	<%uicomponent.renderChild(UIPageNavigationControlBar.class);%>
+		</div> 
   <%} %>
 </div>

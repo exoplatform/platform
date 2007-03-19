@@ -25,14 +25,13 @@ import org.exoplatform.webui.event.Event.Phase;
 )
 public class UIPortalManagement extends UIManagement {
   
-  @SuppressWarnings("unused")
 	public UIPortalManagement() throws Exception {
 		addChild(UIPortalManagementEditBar.class, null, null);
     addChild(UIDescription.class, null, "portalManagement").setRendered(false);
     addChild(UIWelcomeComponent.class,null, null);
     addChild(UIContainerConfigOptions.class, null, null).setRendered(false);
     addChild(UIPortletOptions.class, null, null).setRendered(false);
-    addChild(UIPortalManagementControlBar.class, null, null).setRendered(true);
+    addChild(UIPortalManagementControlBar.class, null, null);
   }   
   
   public <T extends UIComponent> T setRendered(boolean b) { 
@@ -48,6 +47,7 @@ public class UIPortalManagement extends UIManagement {
       return;
     } 
     getChild(UIPortalManagementEditBar.class).setRendered(false);
+    getChild(UIPortalManagementControlBar.class).setRendered(false);
     getChild(UIDescription.class).setRendered(true); 
     
     UIWorkspace uiWorkingWS = Util.updateUIApplication(event);

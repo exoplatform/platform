@@ -75,8 +75,8 @@ public class UIPageEditBar extends UIToolbar {
       uiEditBar.showUIPage();      
 
       UIPageManagement uiPManagement = uiEditBar.getParent();
-      Class [] childrenToRender = {UIPageEditBar.class, UIContainerConfigOptions.class}; 
-
+      Class [] childrenToRender = {UIPageEditBar.class, 
+                                   UIContainerConfigOptions.class, UIPageNavigationControlBar.class}; 
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       Util.updateUIApplication(event);
     }
@@ -89,9 +89,9 @@ public class UIPageEditBar extends UIToolbar {
       uiEditBar.showUIPage();
 
       UIPageManagement uiPManagement = uiEditBar.getParent();       
-      Class [] childrenToRender = {UIPageEditBar.class, UIPortletOptions.class}; 
+      Class [] childrenToRender = {UIPageEditBar.class, 
+                                   UIPortletOptions.class, UIPageNavigationControlBar.class}; 
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
-      
       Util.updateUIApplication(event);
     }
   }
@@ -102,7 +102,8 @@ public class UIPageEditBar extends UIToolbar {
       uiEditBar.showUIPage();
 
       UIPageManagement uiPManagement = uiEditBar.getParent();      
-      Class [] childrenToRender ={UIPageEditBar.class, UIPageNodeSelector.class }; 
+      Class [] childrenToRender ={UIPageEditBar.class, 
+                                  UIPageNodeSelector.class , UIPageNavigationControlBar.class}; 
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
 
       UIPageForm uiPageForm =  Util.showComponentOnWorking(event.getSource(), UIPageForm.class);

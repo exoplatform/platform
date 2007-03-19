@@ -17,14 +17,9 @@ public class UIPageCreateDescription extends UIContainer{
   private String title_ = "Page Creation Wizard";
   
   public UIPageCreateDescription() throws Exception{   
-           
   } 
   
-  public void setTitle(String title){
-    title_ = title;
-  }
+  public void setTitle(String title){ title_ = title; }
   
-  public String getTitle(){
-    return title_;
-  }
+  public String getTitle(){ return title_; }
 }

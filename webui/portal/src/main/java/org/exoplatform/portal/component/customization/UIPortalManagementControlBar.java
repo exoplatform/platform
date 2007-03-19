@@ -45,6 +45,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
     setToolbarStyle("PolyToolbar") ;
     setJavascript("Preview","onClick='eXo.portal.UIPortal.switchMode(this);'") ;
   }
+  
   public void save(Event<UIPortalManagementControlBar> event) throws Exception {
     UIPortal uiPortal = Util.getUIPortal();     
     PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal, true);
@@ -52,7 +53,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
     dataService.savePortalConfig(portalConfig);
     Util.updateUIApplication(event);
   }
-  // TODO xem lai co the thua
+  
   public void abort(Event<UIPortalManagementControlBar> event) throws Exception {
     UIPortal portal = Util.getUIPortal();
     portal.setMode(UIPortal.COMPONENT_VIEW_MODE);
@@ -65,7 +66,6 @@ public class UIPortalManagementControlBar extends UIToolbar {
   }
   
   static public class RollbackActionListener  extends EventListener<UIPortalManagementControlBar> {
-    @SuppressWarnings("cast")
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalManagementControlBar uiPortalManagement = event.getSource();      
       UIWorkspace uiWorkingWS = Util.updateUIApplication(event);
@@ -88,7 +88,6 @@ public class UIPortalManagementControlBar extends UIToolbar {
   }
   
   static public class SaveActionListener  extends EventListener<UIPortalManagementControlBar> {
-    @SuppressWarnings("unused")
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalManagementControlBar uiPortalManagement = event.getSource(); 
       uiPortalManagement.save(event);
@@ -96,7 +95,6 @@ public class UIPortalManagementControlBar extends UIToolbar {
   }  
   
   static public class FinishActionListener  extends EventListener<UIPortalManagementControlBar> {
-    @SuppressWarnings("cast")
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalManagementControlBar uiPortalManagement = event.getSource();   
       uiPortalManagement.save(event);
@@ -105,10 +103,15 @@ public class UIPortalManagementControlBar extends UIToolbar {
   }
   
   static public class AbortActionListener  extends EventListener<UIPortalManagementControlBar> {
-    @SuppressWarnings("cast")
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
-      UIPortalManagementControlBar uiPortalManagement = event.getSource(); 
-      uiPortalManagement.abort(event);
+      UIPortal portal = Util.getUIPortal();
+      portal.setMode(UIPortal.COMPONENT_VIEW_MODE);
+      portal.setRenderSibbling(UIPortal.class) ;    
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      pcontext.setForceFullUpdate(true);
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);  ;
+      uiExoStart.setUIControlWSWorkingComponent(UIWelcomeComponent.class) ;
     }
   }
 }

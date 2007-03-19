@@ -4,36 +4,20 @@
  **************************************************************************/
 package org.exoplatform.portal.component.customization;
 
-import java.util.List;
-
-import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
-import org.exoplatform.portal.component.control.UIControlWorkspace;
-import org.exoplatform.portal.component.control.UIExoStart;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
-import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.component.widget.UIWelcomeComponent;
-import org.exoplatform.portal.config.PortalDAO;
-import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIRightClickPopupMenu;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
-    template = "app:/groovy/portal/webui/component/customization/UIPageManagement.gtmpl"
-    
+  template = "app:/groovy/portal/webui/component/customization/UIPageManagement.gtmpl"
 )
 public class UIPageManagement extends UIManagement {
 
@@ -44,7 +28,7 @@ public class UIPageManagement extends UIManagement {
     addChild(UIDescription.class, null, "pageManagement").setRendered(false);
     addChild(UIContainerConfigOptions.class, null, null).setRendered(false);
     addChild(UIPortletOptions.class, null, null).setRendered(false);
-    addChild(UIPageManagementControlBar.class, null, null).setRendered(true);
+    addChild(UIPageNavigationControlBar.class, null, null);
     update();
   }
 
@@ -58,7 +42,7 @@ public class UIPageManagement extends UIManagement {
     PageNode node = uiNodeSelector.getSelectedPageNode();
     if (node == null) return;
 
-    Class[] childrenToRender = { UIPageNodeSelector.class };
+    Class[] childrenToRender = { UIPageNodeSelector.class, UIPageNavigationControlBar.class};
     setRenderedChildrenOfTypes(childrenToRender);
 
     UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
@@ -87,6 +71,7 @@ public class UIPageManagement extends UIManagement {
     
     UIWorkspace uiWorkingWS = Util.updateUIApplication(event);
     getChild(UIPageNodeSelector.class).setRendered(false);
+    getChild(UIPageNavigationControlBar.class).setRendered(false);
     getChild(UIDescription.class).setRendered(true);
     
     UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);

@@ -203,7 +203,7 @@ public class UIPageNodeSelector extends UIContainer {
       UserACL userACL = uiEditBar.getApplicationComponent(UserACL.class);
       String accessUser = pcontext.getRemoteUser();     
       if(page == null || !userACL.hasPermission(page.getOwner(), accessUser, page.getEditPermission())){
-        Class [] childrenToRender = {UIPageNodeSelector.class };      
+        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
@@ -212,12 +212,13 @@ public class UIPageNodeSelector extends UIContainer {
       UIPage uiPage  = Util.toUIPage(node, Util.getUIPortalToolPanel());
       Util.getUIPortalToolPanel().setUIComponent(uiPage);
       if(uiPage.isShowMaxWindow()) {
-        Class [] childrenToRender = {UIPageNodeSelector.class };      
+        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
       uiEditBar.setUIPage(uiPage);
-      Class [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class };      
+      Class [] childrenToRender = {UIPageEditBar.class, 
+                                   UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
       uiParent.setRenderedChildrenOfTypes(childrenToRender);
     }
   }

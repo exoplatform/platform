@@ -42,12 +42,10 @@
       <%uicomponent.renderChild(UIDescription.class);%>
     </div> 
   <%}%>
-  <%if(uicomponent.getChild(UIPortalManagementControlBar.class) != null) {%>
-	<div class="ControlArea" >
-    	
-	  <% uicomponent.getChild(UIPortalManagementControlBar.class).setRendered(true);
-	  uicomponent.renderChild(UIPortalManagementControlBar.class);%>
-	</div> 
+  <%if(uicomponent.getChild(UIPortalManagementControlBar.class).isRendered()) {%>
+		<div class="ControlArea" >
+	  	<%uicomponent.renderChild(UIPortalManagementControlBar.class);%>
+		</div> 
   <%} %>
 </div>
  

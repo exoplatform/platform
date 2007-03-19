@@ -9,12 +9,9 @@ import java.util.List;
 
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.PortalDAO;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIToolbar;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -63,32 +60,24 @@ public class UIPortalManagementEditBar extends UIToolbar {
   
   static public class EditPortalActionListener  extends EventListener<UIPortalManagementEditBar> {
     public void execute(Event<UIPortalManagementEditBar> event) throws Exception {
-      UIPortalManagementEditBar uiEditBar = event.getSource();
       UIPortal uiPortal = Util.getUIPortal();
-      
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       
-      
-//      UIPortalForm uiPortalForm = uiApp.setUIControlWSPopupComponent(UIPortalForm.class);
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalForm.getParent());
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       UIPortalForm uiForm = uiMaskWS.createUIComponent(UIPortalForm.class, null, null);
       uiMaskWS.setUIComponent(uiForm) ;
       uiForm.setValues(uiPortal.getUserPortalConfig().getPortalConfig());
-      //uiPopup.setRendered(true) ;
      
       uiMaskWS.setShow(true) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       
-      
+//      UIPortalForm uiPortalForm = uiApp.setUIControlWSPopupComponent(UIPortalForm.class);
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalForm.getParent());
 //      UIPortalForm uiPortalForm = Util.showComponentOnWorking(uiEditBar, UIPortalForm.class);
-      
-      
 //      UIPortalManagement uiPManagement = uiEditBar.getParent();
 //      Class [] childrenToRender = { UIPortalManagementEditBar.class  }; 
 //      uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
 //      uiPortalForm.setValues(uiPortal.getUserPortalConfig().getPortalConfig());
-      
 //      Util.updateUIApplication(event);
     }
   }
@@ -100,7 +89,8 @@ public class UIPortalManagementEditBar extends UIToolbar {
       uiPortal.setRenderSibbling(UIPortal.class);   
       
       UIPortalManagement uiPManagement = uiEditBar.getParent();
-      Class [] childrenToRender = {UIPortalManagementEditBar.class, UIContainerConfigOptions.class };
+      Class [] childrenToRender = {UIPortalManagementEditBar.class,
+                                   UIContainerConfigOptions.class, UIPortalManagementControlBar.class};
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       
       Util.updateUIApplication(event);
@@ -114,7 +104,8 @@ public class UIPortalManagementEditBar extends UIToolbar {
       uiPortal.setRenderSibbling(UIPortal.class);
       
       UIPortalManagement uiPManagement = uiEditBar.getParent();
-      Class [] childrenToRender = {UIPortalManagementEditBar.class, UIPortletOptions.class};
+      Class [] childrenToRender = {UIPortalManagementEditBar.class, 
+                                   UIPortletOptions.class, UIPortalManagementControlBar.class};
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       
       Util.updateUIApplication(event);

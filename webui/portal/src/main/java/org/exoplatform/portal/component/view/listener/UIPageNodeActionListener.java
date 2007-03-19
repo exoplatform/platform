@@ -9,6 +9,7 @@ import java.util.List;
 import org.exoplatform.portal.component.customization.UIPageEditBar;
 import org.exoplatform.portal.component.customization.UIPageForm;
 import org.exoplatform.portal.component.customization.UIPageManagement;
+import org.exoplatform.portal.component.customization.UIPageNavigationControlBar;
 import org.exoplatform.portal.component.customization.UIPageNodeForm;
 import org.exoplatform.portal.component.customization.UIPageNodeSelector;
 import org.exoplatform.portal.component.customization.UIPageTemplateOptions;
@@ -72,7 +73,7 @@ public class UIPageNodeActionListener {
       UIPage uiPage  = Util.toUIPage(page, uiToolPanel);
       
       if("Desktop".equals(page.getFactoryId())) {
-        Class [] childrenToRender ={UIPageNodeSelector.class }; 
+        Class [] childrenToRender ={UIPageNodeSelector.class, UIPageNavigationControlBar.class}; 
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
 
         UIPageForm uiPageForm =  Util.showComponentOnWorking(event.getSource(), UIPageForm.class);
@@ -93,12 +94,12 @@ public class UIPageNodeActionListener {
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;  
       uiToolPanel.setUIComponent(uiPage);
       if(uiPage.isShowMaxWindow()) {
-        Class [] childrenToRender = {UIPageNodeSelector.class };      
+        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
 
-      Class [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class };      
+      Class [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);
 
       UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
@@ -116,8 +117,9 @@ public class UIPageNodeActionListener {
       UIPageManagement uiPageManagement = uiPageNodeSelector.getParent();
 
       if(uiPageNodeSelector.getSelectedPageNode() == null) return;
-
-      uiPageManagement.setRenderedChild(UIPageNodeSelector.class);
+      
+      Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+      uiPageManagement.setRenderedChildrenOfTypes(childrenToRender);
 
       UIPageNodeForm uiNodeForm = Util.showComponentOnWorking(uiPageNodeSelector, UIPageNodeForm.class);         
       uiNodeForm.setValues(uiPageNodeSelector.findPageNodeByUri(uri));
@@ -147,7 +149,7 @@ public class UIPageNodeActionListener {
       if(pageNodes == null) return;      
       pageNodes.remove(selectedPageNode);
 
-      Class [] childrenToRender = {UIPageNodeSelector.class }; 
+      Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class}; 
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);
 
       if(pageNodes.size() > 0) return;    
@@ -192,7 +194,7 @@ public class UIPageNodeActionListener {
       if(selectedPageNode == null)   return;      
       PageNode pageNode = new PageNode(selectedPageNode);
       uiPageNodeSelector.setCopyPageNote(pageNode) ;
-      Class [] childrenToRender = new Class[]{UIPageNodeSelector.class };
+      Class [] childrenToRender = new Class[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class };
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
     }
@@ -228,7 +230,7 @@ public class UIPageNodeActionListener {
         PageNavigation targetNav = uiPageNodeSelector.getSelectedNavigation();
         if(!isChild(targetNav.getNodes(), srcNode)) targetNav.addNode(srcNode);
       }
-      Class [] childrenToRender = new Class[]{UIPageNodeSelector.class };      
+      Class [] childrenToRender = new Class[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
       uiPageManagement.setRenderedChildrenOfTypes(childrenToRender);      
       uiPageNodeSelector.setCopyPageNote(null);     
 
