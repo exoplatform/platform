@@ -8,9 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.webui.component.UIBannerPortlet;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.application.ApplicationMessage;
+import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -31,7 +36,7 @@ import org.exoplatform.webui.exception.MessageException;
 @ComponentConfig(  
   lifecycle = UIFormLifecycle.class,
   template = "system:/groovy/portal/webui/component/widget/UILoginForm.gtmpl" ,
-  events = @EventConfig(listeners = UILoginForm.LoginActionListener.class )
+  events = @EventConfig(listeners = UILoginForm.LoginActionListener.class)
 )
 public class UILoginForm extends UIForm {
   
@@ -64,6 +69,21 @@ public class UILoginForm extends UIForm {
       String redirect = request.getContextPath() + "/private/" + username + ":/";
       prContext.getResponse().sendRedirect(redirect);      
     }    
+  }
+  
+  static  public class SigninActionListener extends EventListener<UIComponent> {
+    public void execute(Event<UIComponent> event) throws Exception {
+      System.out.println(" \n\n\n == > "+event.getSource() +"\n\n\n");
+//      @SuppressWarnings("unused")
+//      UIBannerPortlet uicom = event.getSource();
+//      UIPortal uiPortal = Util.getUIPortal();
+//      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+//      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+//      UILoginForm uiForm = uiMaskWS.createUIComponent(UILoginForm.class, null, null);
+//      uiMaskWS.setUIComponent(uiForm) ;
+//      uiMaskWS.setShow(true) ;
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+    }
   }
   
 }
