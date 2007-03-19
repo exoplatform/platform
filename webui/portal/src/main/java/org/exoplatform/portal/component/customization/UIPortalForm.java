@@ -81,9 +81,9 @@ public class UIPortalForm extends UIFormTabPane {
                                 addValidator(EmptyFieldValidator.class))
                  ;
     List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-    ls.add(new SelectItemOption<String>("default", "default")) ;
-    ls.add(new SelectItemOption<String>("mac", "mac")) ;
-    ls.add(new SelectItemOption<String>("vista", "vista")) ;
+    ls.add(new SelectItemOption<String>("Default", "Default")) ;
+    ls.add(new SelectItemOption<String>("Mac", "Mac")) ;
+    ls.add(new SelectItemOption<String>("Vista", "Vista")) ;
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(SKIN, SKIN, ls) ;
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);    

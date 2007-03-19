@@ -73,6 +73,12 @@ public class UIPortalApplication extends UIApplication {
     } else {
       initPrivatePortal(config, context) ;
     }
+    
+    String currentSkin = config.getPortalConfig().getSkin();
+    if(currentSkin != null && currentSkin.trim().length() > 0) {
+      skin = currentSkin;
+    } 
+    
     setOwner(context.getPortalOwner());    
     UIPopupWindow uiWindow = addChild(UIPopupWindow.class, null, POPUP_WINDOW_ID);
     uiWindow.setWindowSize(800, -1) ;
