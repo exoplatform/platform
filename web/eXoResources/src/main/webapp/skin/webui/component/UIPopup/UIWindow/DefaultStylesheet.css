@@ -1,6 +1,6 @@
 /*##########################################################*/
 .UIPageDesktop .UIWindow {
-  width: 780px ;
+  width: 780px ; 
 }
 
 .UIPageDesktop .UIWindow .UIApplication {
@@ -229,6 +229,7 @@
 
 .UIPageBody .UIWindow {
   width: auto ; height: auto;
+  padding-left: 6px;
 }
 
 .UIPageBody .UIWindow .UIApplication {
