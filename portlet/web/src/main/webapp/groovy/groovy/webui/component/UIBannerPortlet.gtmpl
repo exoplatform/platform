@@ -3,7 +3,17 @@
     <div class="BannerLeft">
       <div class="BannerRight">
         <div class="BannerMiddle">
-        fojsdfosdfo
+        	<div class="BannerTitle">
+        		<div class="TitleLabel">eXo Enterprise WebOS</div>
+        	</div>
+					<div class="LoginContainer">
+						<div class="LoginContent">
+							<div class="LoginLabel">Sign in:<label></label></div>
+							<div class="LoginIcon" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'Login',  true)) ;"><span></span></div>
+							<div style="clear: left;"><span></span></div>
+						</div>
+						<div style="clear: right;"><span></span></div>
+					</div>
         </div>
       </div>   
     </div>

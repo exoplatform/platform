@@ -3,44 +3,52 @@
 }
 
 .UIBannerPortlet .BannerLeft {
+	padding-left: 186px;
   background: url('DefaultSkin/background/LeftBanner186x73.jpg') no-repeat ;
 }
 
 .UIBannerPortlet .BannerMiddle {
-  border: solid 1px red;
-  width: 100%;
   background: url('DefaultSkin/background/MiddleBanner9x73.jpg') repeat-x ;
 }
 
 .UIBannerPortlet .BannerRight {
-  line-height: 73px;
+  height: 73px;
   background: url('DefaultSkin/background/RightBanner30x73.jpg') no-repeat right;
-  padding-right: 30px;border: solid 1px red;
+  padding-right: 30px;
 }
 
 .UIBannerPortlet .BannerTitle {
-  float: left;
+  padding-top: 24px;
+}
+
+.UIBannerPortlet .BannerTitle .TitleLabel {
   font-weight: bold; color: #3088eb;
   font-size: 14px;
-  padding: 20px 0px 0px 10px;
+  padding-left: 20px;
 }
 
-.UIBannerPortlet .Signin {
+.UIBannerPortlet .LoginContainer {
+	height: 33px;
+}
+
+.UIBannerPortlet .LoginContainer .LoginContent {
   float: right;
-  padding: 49px 0px 0px 0px;
   font-size: 11px;
+  width: 200px;
+  padding-top: 10px;
 }
 
-.UIBannerPortlet .Signin label {
+.UIBannerPortlet .LoginContent .LoginLabel {
+	float: left;
+	padding-right: 10px;
+}
+
+.UIBannerPortlet .LoginContent .LoginLabel label {
+	padding-right: 10px;
   float: left;
 }
 
-.UIBannerPortlet .Signin .TitleName {
-  color: #f88f06; font-weight: bold;
-  padding-left: 2px; padding-right: 12px;
-}
-
-.UIBannerPortlet .Signin .SiginIcon {
+.UIBannerPortlet .LoginContent .LoginIcon {
   float: left;
   width: 19px; height: 15px;
   background: url('DefaultSkin/background/Signin.gif') no-repeat top;
