@@ -43,7 +43,7 @@ eXo.portal.UIControlWorkspace.onResizeDefault = function() {
 	
 	cws.slidebar = document.getElementById("ControlWorkspaceSlidebar") ;
 	cws.slidebarWidth = eXo.portal.UIControlWorkspace.slidebar.offsetWidth ;
-	alert("WIDTH Test: " + cws.slidebarWidth);
+//	alert("WIDTH Test: " + cws.slidebarWidth);
 	if(cws.showControlWorkspace) {
 		cws.onResize(cws.defaultWidth, eXo.core.Browser.getBrowserHeight()) ;
 	} else {
