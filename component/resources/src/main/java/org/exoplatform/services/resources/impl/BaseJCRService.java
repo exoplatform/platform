@@ -20,7 +20,7 @@ import org.exoplatform.services.resources.ResourceBundleData;
 abstract class BaseJCRService extends BaseResourceBundleService {
   
   final static String SYSTEM_WS = "production".intern();
-  final static String HOME = "home";
+  final static String APPLICATION_DATA = "AppData";
   final static String RESOURCE_BUNDLE = "resources";
   final static String LOCALES =  "locales";
   final static String LOCALE =  "locale";
@@ -68,7 +68,7 @@ abstract class BaseJCRService extends BaseResourceBundleService {
   }
   
    Node getResourceBundleNode(boolean autoCreate) throws Exception {
-    Node node = getNode(getSession().getRootNode(), HOME, autoCreate);
+    Node node = getNode(getSession().getRootNode(), APPLICATION_DATA, autoCreate);
     if((node = getNode(node, RESOURCE_BUNDLE, autoCreate)) == null && !autoCreate) return null;
     if((node = getNode(node, LOCALES, autoCreate)) == null && !autoCreate) return null;
     return node;
