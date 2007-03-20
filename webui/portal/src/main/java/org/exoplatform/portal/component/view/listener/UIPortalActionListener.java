@@ -42,12 +42,13 @@ public class UIPortalActionListener {
   static public class LoginActionListener  extends EventListener<UIPortal> {    
     public void execute(Event<UIPortal> event) throws Exception {
       //create UILogin component then put it in to UIMaksLayer, show UIMaskLayer
-      System.out.println("\n\n\n create login component and update here \n\n\n");
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      if(prContext.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS) return;
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      if(uiMaskWS  == null) { System.out.println("\n\n\n()()()()()()()()()()"); return; }
+      if(uiMaskWS  == null) { return; }
       UILoginForm uiForm = uiMaskWS.createUIComponent(UILoginForm.class, null, null);
       uiMaskWS.setUIComponent(uiForm) ;
       uiMaskWS.setShow(true) ;

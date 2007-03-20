@@ -42,6 +42,25 @@
                     </div>
                   </div>
                 </div>
+                <div class="UIAction">
+	                  <div class="ActionContainer">
+	                    <div class="ActionButton">
+	                      <div class="LightBlueStyle">
+			                    <div class="ButtonLeft">
+			                      <div class="ButtonRight">
+			                        <div class="ButtonMiddle">
+		                             <% 
+											             String linkCancel = uicomponent.url("Cancel") ;
+									               %>
+									               <a class="Login" href="$linkCancel"><%=_ctx.appRes("UILoginForm.label.cancel")%></a>
+			                        </div>
+			                      </div>
+			                    </div>
+		                    </div>
+	                    </div>
+                    </div>
+                  </div>
+                </div>
               <%uiform.end()%>
               <a class="ForgotMessage"><%=_ctx.appRes("UILoginForm.label.forgot")%></a>
             </div>

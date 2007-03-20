@@ -10,16 +10,10 @@
     <show-info-bar>false</show-info-bar>
   </portlet>
 	
-  <container template="war:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl">
-    <portlet>
-      <window-id>exo:/web/NavigationPortlet/toolbar</window-id>
-	    <show-info-bar>false</show-info-bar>
-	  </portlet>
-	  <portlet>
-      <window-id>exo:/web/WelcomePortlet/welcome</window-id>
-      <show-info-bar>false</show-info-bar>
-	  </portlet>
-  </container>
+  <portlet>
+  <window-id>exo:/web/NavigationPortlet/toolbar</window-id>
+    <show-info-bar>false</show-info-bar>
+  </portlet>
 	
   <portlet>
     <window-id>exo:/web/BreadcumbsPortlet/breacumbs</window-id>

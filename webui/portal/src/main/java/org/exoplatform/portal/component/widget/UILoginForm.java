@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.UIWorkspace;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.customization.UIPortalManagementEditBar;
+import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.application.ApplicationMessage;
@@ -32,7 +37,10 @@ import org.exoplatform.webui.exception.MessageException;
 @ComponentConfig(  
   lifecycle = UIFormLifecycle.class,
   template = "system:/groovy/portal/webui/component/widget/UILoginForm.gtmpl" ,
-  events = @EventConfig(listeners = UILoginForm.LoginActionListener.class)
+  events = {
+    @EventConfig(listeners = UILoginForm.LoginActionListener.class),
+    @EventConfig(listeners = UILoginForm.CancelActionListener.class)
+    }
 )
 public class UILoginForm extends UIForm {
   
@@ -67,18 +75,20 @@ public class UILoginForm extends UIForm {
     }    
   }
   
-  static  public class SigninActionListener extends EventListener<UIComponent> {
+  static  public class CancelActionListener extends EventListener<UIComponent> {
     public void execute(Event<UIComponent> event) throws Exception {
       System.out.println(" \n\n\n == > "+event.getSource() +"\n\n\n");
-//      @SuppressWarnings("unused")
-//      UIBannerPortlet uicom = event.getSource();
-//      UIPortal uiPortal = Util.getUIPortal();
-//      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-//      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-//      UILoginForm uiForm = uiMaskWS.createUIComponent(UILoginForm.class, null, null);
-//      uiMaskWS.setUIComponent(uiForm) ;
-//      uiMaskWS.setShow(true) ;
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      uiMaskWS.setUIComponent(null) ;
+      uiMaskWS.setShow(false);
+     
+      UIWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
+//      uiWorkingWS.set
     }
   }
   
