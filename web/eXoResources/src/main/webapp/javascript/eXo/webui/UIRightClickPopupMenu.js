@@ -69,9 +69,11 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, menuId, objId,
 	var intTop = eXo.core.Mouse.mouseyInPage;
 	var intLeft = eXo.core.Mouse.mousexInPage;
   if(document.getElementById("UIPageDesktop")) {
-	  popupWindow = eXo.core.DOMUtil.findAncestorByClass(contextMenu, "UIDragObject");
-    intTop = intTop - eXo.core.Browser.findPosY(popupWindow) ;
-    intLeft = intLeft - eXo.core.Browser.findPosX(popupWindow) ;
+	  var popupWindow = eXo.core.DOMUtil.findAncestorByClass(contextMenu, "UIDragObject");
+	  if(popupWindow) {
+	    intTop = intTop - eXo.core.Browser.findPosY(popupWindow) ;
+	    intLeft = intLeft - eXo.core.Browser.findPosX(popupWindow) ;
+	  }
   }
 	contextMenu.style.top = intTop + "px";
 	contextMenu.style.left = intLeft + "px";
