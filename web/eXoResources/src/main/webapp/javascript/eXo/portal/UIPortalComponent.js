@@ -22,8 +22,4 @@ UIPortalComponent.prototype.showHidePortletControl = function(objClicked) {
   }
 };
 
-UIPortalComponent.prototype.createUILogin = function() {
-  alert("yahoo");
-};
-
 eXo.portal.UIPortalComponent = new UIPortalComponent();
