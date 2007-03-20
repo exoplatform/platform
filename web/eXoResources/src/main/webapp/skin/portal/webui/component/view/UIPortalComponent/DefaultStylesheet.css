@@ -186,6 +186,10 @@
   margin: 0px 12px 10px 12px;
 }
 
+.UIPage .VIEW-PAGE {
+	padding: 0px 6px ;
+}
+
 .UIPage .LAYOUT-PAGE {
   width: 98%;
   margin: 10px 7px 7px 10px ;

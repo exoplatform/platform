@@ -1,5 +1,5 @@
 .UIControlWorkspace {
-  width: 8px ; height: 100% ;
+  width: 6px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
 }
@@ -8,10 +8,24 @@
   padding: 3px;
 }
 
-.UIControlWorkspace .TopLineDecorator {
-  height: 5px ;
-  background: url('DefaultSkin/background/LineControlPanel1x5.gif') repeat-x ;
-  border-bottom: solid 1px #404c52;
+.UIControlWorkspace .UserWorkspaceTitle {
+  height: 22px ;
+  background: url('DefaultSkin/background/UserWorkspaceTitleBG1x22.gif') repeat-x ;
+  border-bottom: solid 1px #ffffff;
+  color: #3b34ba ;
+  font-size: 11px ;
+  font-weight: bold ;
+  line-height: 22px ;
+  vertical-align: middle ;
+  padding-left: 13px ;
+}
+
+.UIControlWorkspace .CloseControlWorkspace {
+	width: 24px ;
+	height: 24px ;
+	float: right ;
+	background: url('DefaultSkin/icons/24x24/CloseControlWorkspace.gif') no-repeat ;
+	cursor: pointer ;
 }
 
 .UIControlWorkspace .UIWorkspacePanel {
@@ -64,32 +78,24 @@
 /*########################### Slidebar ###########################*/
 .UIControlWorkspace .Slidebar {
 	float: right ;
-  width: 8px ; height: 100% ;
-  background: url('DefaultSkin/background/ExpandPanel1x8.gif') repeat-y ;
+  width: 6px ; height: 100% ;
+  background: url("DefaultSkin/background/SlidebarBackground6x1.gif") repeat-y ;
+  cursor: pointer ;
+}
+
+.UIControlWorkspace .SlidebarButton {
+	height: 100% ;
+	width: 6px ;
+	background: url("DefaultSkin/background/SlidebarButton6x61.gif") no-repeat center center ;
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
 	float: left ;
 }
 
-.UIControlWorkspace .Slidebar .FixHeightTop {
-  width: 8px ;
-}
-
-.UIControlWorkspace .Slidebar .SlidebarButtonShow {
-  width: 8px ;  height: 55px ;
-  background: url('DefaultSkin/background/ExpandPanelBack8x55.gif') ;
-  cursor: pointer;
-}
-
-.UIControlWorkspace .Slidebar .SlidebarButtonHide {
-  width: 8px ;  height: 55px ;
-  background: url('DefaultSkin/background/ExpandPanel8x55.gif') ;
-  cursor: pointer ;
-}
 /*########################### End Slidebar ###########################*/
 .UIWorkingWorkspace {
-	margin: 0px 0px 0px 8px ;
+	margin: 0px 0px 0px 6px ;
 }
 
 .MaskLayer {

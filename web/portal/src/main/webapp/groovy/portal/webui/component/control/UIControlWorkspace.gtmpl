@@ -13,8 +13,12 @@
 
 <div id="UIControlWorkspace" class="UIControlWorkspace UIWorkspace" style="float:left; position: relative; z-index: 1">
 	<div class="UIWorkspaceContainer" id="UIWorkspaceContainer" style="display: none">
-	  <%/*Top Line Decorator*/%>
-	  <div class="TopLineDecorator"><span></span></div>
+	  <%/*User Workspace Title*/%>
+	  <div class="UserWorkspaceTitle">
+	  	<div class="CloseControlWorkspace" onclick="eXo.portal.UIControlWorkspace.showWorkspace();"><span></span></div>
+	  	<div>User Workspace</div>
+	  	<div style="clear: right"><span></span></div>
+	  </div>
 	 
 	  <%/*Begin UIControlWorkspacePanel*/%>
 	  <div class="UIWorkspacePanel" id="UIWorkspacePanel">
@@ -30,19 +34,20 @@
 	</div>
 	
 	<%/*Begin Slidebar*/%>
-	<div class="Slidebar" id="ControlWorkspaceSlidebar">
-	  <div class="FixHeightTop"><span></span></div>
-	  <div class="SlidebarButtonShow" id="ControlWorkspaceSlidebarButton" onclick="eXo.portal.UIControlWorkspace.showWorkspace();">
-	  	<span></span>
-	  </div>
+	<div class="Slidebar" id="ControlWorkspaceSlidebar" onclick="eXo.portal.UIControlWorkspace.showWorkspace();">
+		<div class="SlidebarButton"><span></span></div>
 	</div>
 	<%/*End Slidebar*/%>
 	<div style="clear: both"><span></span></div>
+	
+	<%
+		//<div class="FixHeightTop"><span></span></div>
+		//<div class="SlidebarButtonShow" id="ControlWorkspaceSlidebarButton" onclick="eXo.portal.UIControlWorkspace.showWorkspace();">
+	  //	<span></span>
+	  //</div>
+	%>
 </div>
 <%
   rcontext.addJavascript(""
-      + "var Slidebar = document.getElementById('ControlWorkspaceSlidebar') ;"
-      + "var fixHeightTop = eXo.core.DOMUtil.findFirstChildByClass(Slidebar, 'div', 'FixHeightTop') ;"
-      + "fixHeightTop.style.height = '45%' ;"
       + "eXo.portal.UIControlWorkspace.onResizeDefault() ; ") ;
 %>
