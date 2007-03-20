@@ -329,6 +329,10 @@ UIPortal.prototype.hideMaskLayer = function() {
 	}
 } ;
 
+UIPortal.prototype.createUILogin = function() {
+  ajaxGet(eXo.env.server.createPortalURL("UIPortal", "Login",  true)) ;
+};
+
 eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;
 eXo.portal.UIPortal = new UIPortal() ;
 eXo.portal.UIComponent = UIPortal.prototype.constructor ;

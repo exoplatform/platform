@@ -4,8 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view.listener;
 
-import java.util.Collection;
-
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
@@ -19,8 +17,6 @@ import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
-import org.exoplatform.services.portletregistery.PortletRegisteryService;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -30,15 +26,24 @@ import org.exoplatform.webui.event.EventListener;
  * Jun 20, 2006
  */
 public class UIPortalActionListener { 
-  static public class ImportCategoryActionListener extends EventListener<UIPortal> {
+  
+//  static public class ImportCategoryActionListener extends EventListener<UIPortal> {
+//    public void execute(Event<UIPortal> event) throws Exception {
+//      UIPortal uiPortal = event.getSource();
+//      PortletContainerMonitor monitor = uiPortal.getApplicationComponent(PortletContainerMonitor.class);
+//      Collection portletDatas = monitor.getPortletRuntimeDataMap().values();    
+//      PortletRegisteryService service = uiPortal.getApplicationComponent(PortletRegisteryService.class) ;
+//      if(portletDatas != null) service.importPortlets(portletDatas);
+//    }
+//  }
+  
+  static public class LoginActionListener  extends EventListener<UIPortal> {    
     public void execute(Event<UIPortal> event) throws Exception {
-      UIPortal uiComp = event.getSource();
-      PortletContainerMonitor monitor = uiComp.getApplicationComponent(PortletContainerMonitor.class);
-      Collection portletDatas = monitor.getPortletRuntimeDataMap().values();    
-      PortletRegisteryService service = uiComp.getApplicationComponent(PortletRegisteryService.class) ;
-      if(portletDatas != null) service.importPortlets(portletDatas);
+      //create UILogin component then put it in to UIMaksLayer, show UIMaskLayer
+      System.out.println("\n\n\n create login component and update here \n\n\n");
     }
   }
+  
   static public class EditPortalActionListener  extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {
       UIPortal uiPortal = event.getSource();

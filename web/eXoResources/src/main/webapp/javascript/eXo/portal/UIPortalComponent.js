@@ -7,7 +7,6 @@ UIPortalComponent.prototype.init = function() {
 };
 
 UIPortalComponent.prototype.showHidePortletControl = function(objClicked) {
-  
   if(objClicked.className == "ExpandButton") {
     objClicked.className = "CollapseButton";
   } else {
@@ -21,6 +20,10 @@ UIPortalComponent.prototype.showHidePortletControl = function(objClicked) {
   } else {
     objShowHide.className = "OnHide";
   }
+};
+
+UIPortalComponent.prototype.createUILogin = function() {
+  alert("yahoo");
 };
 
 eXo.portal.UIPortalComponent = new UIPortalComponent();
