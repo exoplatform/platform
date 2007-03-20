@@ -120,7 +120,9 @@ public class UIPortalApplication extends UIApplication {
   private  void  initPublicPortal(UserPortalConfig config, PortalRequestContext context, InitParams initParams) throws Exception {
     if("true".equals(initParams.getParam("public.showControlWorkspace").getValue())) {
       addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
+      
     }
+    addChild(UIMaskWorkspace.class,    UIPortalApplication.UI_MASK_WS_ID, null) ;
     addWorkingWorkspace(config, context) ;
   }
   

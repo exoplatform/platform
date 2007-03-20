@@ -7,6 +7,7 @@ package org.exoplatform.portal.component.view.listener;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIPortalForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
@@ -15,6 +16,7 @@ import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.component.widget.UILoginForm;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.event.Event;
@@ -41,6 +43,15 @@ public class UIPortalActionListener {
     public void execute(Event<UIPortal> event) throws Exception {
       //create UILogin component then put it in to UIMaksLayer, show UIMaskLayer
       System.out.println("\n\n\n create login component and update here \n\n\n");
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      if(uiMaskWS  == null) { System.out.println("\n\n\n()()()()()()()()()()"); return; }
+      UILoginForm uiForm = uiMaskWS.createUIComponent(UILoginForm.class, null, null);
+      uiMaskWS.setUIComponent(uiForm) ;
+      uiMaskWS.setShow(true) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
   
