@@ -310,13 +310,13 @@ public class JCRPortletRegisteryService extends BaseJCRService implements Portle
   }
 
   public void clearRepository() throws Exception {
-    Node homeNode = getSession().getRootNode().getNode(HOME);
-    Node portletNode = homeNode.getNode(PORTLET_TYPE);
-    portletNode.remove();
-    homeNode.save();
+    Node homeNode = getPortletRegistryNode(false);
+    Node parentNode = homeNode.getParent();
+    homeNode.remove();
+    parentNode.save();
     getSession().save();
-    homeNode.addNode(PORTLET_TYPE);
-    homeNode.save();
+    parentNode.addNode(PORTLET_TYPE);
+    parentNode.save();
     getSession().save();
   }
 }

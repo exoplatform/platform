@@ -22,7 +22,9 @@ import org.exoplatform.services.jcr.RepositoryService;
 abstract class BaseJCRService {
   
   final static String SYSTEM_WS = "production".intern();
-  final static String HOME = "home";
+  final static String REGISTRY = "registry";
+  final static String JCR_SYSTEM = "jcr:system";
+  final static String APPLICATION_DATA = "appData";
   final static String ID = "id" ;
   
   final static String CREATED_DATE = "createdDate";
@@ -63,7 +65,9 @@ abstract class BaseJCRService {
   }
   
   Node getPortletRegistryNode(boolean autoCreate) throws Exception {
-    Node node = getNode(getSession().getRootNode(), HOME, autoCreate);
+    Node node = getNode(getSession().getRootNode(), JCR_SYSTEM, autoCreate);
+    if((node = getNode(node, APPLICATION_DATA, autoCreate)) == null && !autoCreate) return null;
+    if((node = getNode(node, REGISTRY, autoCreate)) == null && !autoCreate) return null;
     if((node = getNode(node, PORTLETS, autoCreate)) == null && !autoCreate) return null;
     return node;
   }

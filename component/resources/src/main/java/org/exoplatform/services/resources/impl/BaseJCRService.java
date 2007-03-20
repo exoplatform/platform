@@ -21,7 +21,7 @@ abstract class BaseJCRService extends BaseResourceBundleService {
   
   final static String SYSTEM_WS = "production".intern();
   final static String JCR_SYSTEM = "jcr:system";
-  final static String APPLICATION_DATA = "appData";
+  final static String APPLICATION_DATA = "AppData";
   final static String RESOURCE_BUNDLE = "resources";
   final static String LOCALES =  "locales";
   final static String LOCALE =  "locale";
