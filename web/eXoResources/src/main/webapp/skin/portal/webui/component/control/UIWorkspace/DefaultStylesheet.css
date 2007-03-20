@@ -2,6 +2,7 @@
   width: 6px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
+  background: url("DefaultSkin/background/SlidebarBackground6x1.gif") repeat-y right;
 }
 
 .UIControlWorkspace .UIVerticalSlideTabs {
@@ -9,31 +10,26 @@
 }
 
 .UIControlWorkspace .UserWorkspaceTitle {
-  height: 22px ;
-  background: url('DefaultSkin/background/UserWorkspaceTitleBG1x22.gif') repeat-x ;
-  border-bottom: solid 1px #ffffff;
+  height: 23px ;
+  background: url('DefaultSkin/background/UserWorkspaceTitleBG1x23.gif') repeat-x ;
   color: #3b34ba ;
-  font-size: 11px ;
-  font-weight: bold ;
-  line-height: 22px ;
-  vertical-align: middle ;
-  padding-left: 13px ;
+  font-size: 11px ; font-weight: bold ;
+  line-height: 22px ; vertical-align: middle ;
+  padding-left: 13px ; margin-right: 2px ;
 }
 
 .UIControlWorkspace .CloseControlWorkspace {
-	width: 24px ;
-	height: 24px ;
+	width: 21px ;
+	height: 15px ;
 	float: right ;
-	background: url('DefaultSkin/icons/24x24/CloseControlWorkspace.gif') no-repeat ;
+	background: url('DefaultSkin/background/CloseControlWorkspace21x15.gif') no-repeat ;
 	cursor: pointer ;
-}
-
-.UIControlWorkspace .UIWorkspacePanel {
-  border-top: solid 1px #dbe4e4 ;
+	margin: 3px 5px 0px 0px ;
 }
 
 .UIControlWorkspace .UIWorkspaceControl {
   height: 39px ;
+  margin-right: 2px ;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .WhiteRoundedBoxStyle {
@@ -79,7 +75,6 @@
 .UIControlWorkspace .Slidebar {
 	float: right ;
   width: 6px ; height: 100% ;
-  background: url("DefaultSkin/background/SlidebarBackground6x1.gif") repeat-y ;
   cursor: pointer ;
 }
 

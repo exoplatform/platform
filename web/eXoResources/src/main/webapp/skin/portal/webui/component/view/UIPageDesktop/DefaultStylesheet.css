@@ -2,8 +2,6 @@
   position: relative ;
   z-index: 0 ;
   top: 0px; left: 0px ;
-  background: url('DefaultSkin/background/eXoDesktopBG.jpg') no-repeat ;
-  background-color: #3881cb ;
   overflow: hidden ;
 }
 

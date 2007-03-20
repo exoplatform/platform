@@ -22,7 +22,7 @@ eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 	uiWorkspace.style.height = height + "px" ;
 	
 	/*	In case uiWorkspaceContainer is setted display to none, uiWorkspaceControl.offsetHeight equal 0 
-	 * 	22 is the height of User Workspace Title.
+	 * 	23 is the height of User Workspace Title.
 	 * */
 	
 	if(eXo.portal.UIControlWorkspace.showControlWorkspace == true) {
@@ -30,11 +30,11 @@ eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 		uiWorkspaceContainer.style.width = (eXo.portal.UIControlWorkspace.defaultWidth - 
 																				eXo.portal.UIControlWorkspace.slidebarWidth) + "px" ;
 	}
-	uiWorkspacePanel.style.height = (height - this.uiWorkspaceControl.offsetHeight - 22) + "px" ;
+	uiWorkspacePanel.style.height = (height - this.uiWorkspaceControl.offsetHeight - 23) + "px" ;
 	
 	/*Fix Bug on IE*/
 	eXo.portal.UIControlWorkspace.slidebar.style.height = height + "px" ;
-	uiWorkspace.style.top = document.documentElement.scrollTop + "px" ;		
+	uiWorkspace.style.top = document.documentElement.scrollTop + "px" ;
 } ;
 
 eXo.portal.UIControlWorkspace.onResizeDefault = function() {
@@ -70,15 +70,17 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 		eXo.portal.UIControlWorkspace.slidebar.style.display = "none" ;
 		uiWorkspaceContainer.style.display = "block" ;
 		uiWorkspace.style.width = eXo.portal.UIControlWorkspace.defaultWidth + "px" ;
+		
 		uiWorkspaceContainer.style.width = (eXo.portal.UIControlWorkspace.defaultWidth - 
 																				eXo.portal.UIControlWorkspace.slidebar.offsetWidth) + "px" ;
 		
 		uiWorkspacePanel.style.height = (eXo.portal.UIControlWorkspace.height - 
-																		 eXo.portal.UIControlWorkspace.uiWorkspaceControl.offsetHeight - 22) + "px" ;
-		/*22 is height of User Workspace Title*/																
+																		 eXo.portal.UIControlWorkspace.uiWorkspaceControl.offsetHeight - 23) + "px" ;
+		/*23 is height of User Workspace Title*/																
 		
 		eXo.portal.UIControlWorkspace.width = eXo.portal.UIControlWorkspace.defaultWidth ;
 		eXo.portal.UIWorkingWorkspace.onResize(null, null) ;
+		eXo.portal.UIControlWorkspace.slidebar.style.display = "none" ;
 		this.showControlWorkspace = true ;
 	} else {
 		uiWorkspaceContainer.style.display = "none" ;
