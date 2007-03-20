@@ -32,6 +32,10 @@ body {
 	font-size: 12px;
 }
 
+html {
+	margin: 0px ; padding: 0px;
+}
+
 a {
 	text-decoration: none;
 }

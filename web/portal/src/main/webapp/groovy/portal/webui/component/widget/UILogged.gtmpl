@@ -1,7 +1,9 @@
 <div class="UILogged">
 	<div class="WelcomeImage">
-		<div class="UserIcon"><span></span></div>
-		<div class="WelcomeIcon"><span></span></div>
+		<div class="UserSelectIcon"><span></span></div>
+		<div class="UserIcon" style="display: none"><span></span></div>
+		<div class="WelcomIcon"><span></span></div>
+		<div class="WelcomSelectIcon" style="display: none"><span></span></div>
 		<div style="clear: left"><span></span></div>
 	</div>
 	<div class="DecoratorBox">
@@ -14,25 +16,37 @@
 		  <div class="CenterDecoratorRight">
         <div class="DecoratorBackground">
         
-        	<div class="AvatarImageContent">
-        		<div class="AvatarImage"><span></span></div>
-        	</div>
-        
-          <div class="WelcomeBox">
-				    <%if(uicomponent.getAccessibility() == 0) { %>
-					  <% uicomponent.renderChild(0) %>
-					  <%} else if(uicomponent.getAccessibility() == 1) {%>     
-						<div class="UserWelcomeBox">
-						  <div class="StateMessage"><%=_ctx.appRes("UILogged.note.loggedUser")%></div>
-						  <div class="LoggedUserName">$uicomponent.remoteUser</div>
-		 					<%} else if(uicomponent.getAccessibility() == 2) {%>
-							   <div class="LoggedUserName">admin</div>
-							<%} else {%>
-							<%}%>
+	        <div class="UserContent" style="display: none">
+	        	<div class="AvatarImageContent">
+	        		<div class="AvatarImage"><span></span></div>
+	        	</div>        
+	          
+	          <div class="WelcomeBox">
+					    <%if(uicomponent.getAccessibility() == 0) { %>
+						  <% uicomponent.renderChild(0) %>
+						  <%} else if(uicomponent.getAccessibility() == 1) {%>     
+							<div class="UserWelcomeBox">
+							  <div class="StateMessage"><%=_ctx.appRes("UILogged.note.loggedUser")%></div>
+							  <div class="LoggedUserName">$uicomponent.remoteUser</div>
+			 					<%} else if(uicomponent.getAccessibility() == 2) {%>
+								   <div class="LoggedUserName">admin</div>
+								<%} else {%>
+								<%}%>
+							</div>
+							<div class="LabelSignout">Sign out</div>
 						</div>
-						<div class="LabelSignout">Sign out</div>
-					</div>
-					<div style="clear: left"><span></span></div>
+						<div style="clear: left"><span></span></div>
+		    	</div>
+	        
+	        <div class="NotificationContent" style="display: block">
+	        	<div class="IconContent">
+	        		<div class="EMailIcon"><span></span></div>
+	        	</div>
+	        	<div class="UserLabel">You have:</div>
+	        	<div class="UserLabel"><span>10 unread messages inbox</span></div>
+	        </div>
+	        
+	        
 	      </div>
 	    </div>
 	  </div> 
@@ -43,77 +57,57 @@
 	  </div>
   </div>
   
-  <div class="DecoratorBox">
-    <div class="GrayRoundedFillBoxStyle">
-      <div class="TopLeftCornerBoxDecorator">
-        <div class="TopRightCornerBoxDecorator">
-          <div class="TopCenterBoxDecorator"><span></span></div>
-        </div>
-      </div>
-      <div class="MiddleLeftSideBoxDecorator">
-        <div class="MiddleRightSideBoxDecorator">
-          <div class="DecoratorBackground">
-            <div class="DashboardTitle">
-              <div class="LeftDashboardBar">
-                <div class="RightDashboardBar">
-                  <div class="MiddleDashboardBar">
-                    <div class="Label"><%=_ctx.appRes("UILogged.title.widgetNews")%></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-	          <div class="WidgetBoxContainer" style="width: auto">
-	            <div class="WidgetBox">
-	              <div class="WidgetBoxTitle"><%=_ctx.appRes("UILogged.title.widgetCategory")%></div>
-	              <div class="WidgetItemContainer"><%=_ctx.appRes("UILogged.note.ItemContainer")%></div>
-	              <div class="WidgetDecorImage"><span></span></div>
-	            </div>
-	          </div>
-	        </div>
-	        <div><span></span></div> 
-        </div>
-      </div>
-      <div class="BottomLeftCornerBoxDecorator">
-        <div class="BottomRightCornerBoxDecorator">
-          <div class="BottomCenterBoxDecorator"><span></span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="BrowserSupport">	  
-  	<div class="BrowserSupportTitle"><%=_ctx.appRes("UILogged.title.BrowsersSupport")%></div>
-  	<div class="BrowserSupportContainet">
-	  	<div class="BrowserIconContainer">
-	  		<div class="SubTitle"><%=_ctx.appRes("UILogged.label.Workbeston")%></div>
-	  		<div class="Icon FirefoxIcon" title="Firefox 1.5 and latest"><span></span></div>
-	  		<div class="Icon IE7Icon" title="Internet Explorer 7"><span></span></div>
-	  		<div style="clear: left"><span></span></div>
-	  	</div>
-	  	<div class="BrowserIconContainer">
-	  		<div class="SubTitle"><%=_ctx.appRes("UILogged.label.Workableon")%></div>
-	  		<div class="Icon IE6Icon" title="Internet Explorer 6"><span></span></div>
-	  		<div class="Icon SafariIcon" title="Safari"><span></span></div>
-	  		<div style="clear: left"><span></span></div>
-	  	</div>
+  <div class="UIWidgets">
+  	<div class="TopLeftWidgets">
+  		<div class="TopRightWidgets">
+  			<div class="TopMiddleWidgets"><span></span></div>
+  		</div>
   	</div>
+  	
+  	<div class="CenterLeftWidgets">
+  		<div class="CenterRightWidgets">
+  		
+  		<div class="UICaegorySelector">
+  			<div class="IconLabelContent">
+  				<div class="WidgetIcon"><span></span></div>
+  				<div class="WidgetLabel">fdsfdsf</div>
+	  			<div class="EditIcon"><span></span></div>
+	  			<div class="SelectedIcon"><span></span></div>
+	  			<div style="clear: both"><span></span></div>
+	  		</div>
+  		</div>
+  		
+  		<div class="UIWidgetContainer">
+  			<div class="WidgetControl">
+	  			<div class="WidgetControlContent" style="display: block">
+	  				<div class="EditWidgetIcon" title="Edit"><span></span></div>
+	  				<div class="CloseWidgetIcon" title="Close"><span></span></div>
+	  				<div style="clear: left"><span></span></div>
+	  			</div>
+  			</div>
+  			  		
+  			<div class="WidgetContnet">
+  				<div class="eXoInfoWidgetImage">
+  					<div class="TopWidgetImage"><span></span></div>
+  					<div class="Download" title="Download now"><span></span></div>
+  				</div>
+  			</div>
+  			<div class="WidgetContnet">
+  			
+  			</div>
+  		</div>
+  		
+  		</div>
+  	</div>
+  	<div><span></span></div>		
+  	<div class="BottomLeftWidgets">
+  		<div class="BottomRightWidgets">
+  			<div class="BottomMiddleWidgets"><span></span></div>
+  		</div>
+  	</div>  			
   </div>
   
-  <div class="DownloadBar">
-	  <div class="UIBarStyle">
-	    <div class="Style5">
-	      <div class="LeftBar">
-	        <div class="RightBar">
-            <div class="MiddleBar">
-              <a class="DownloadIcon" href="http://download.forge.objectweb.org/exoplatform/exo-tomcat.zip" title="Download Now"><span></span></a>
-             	<a class="Label" href="http://download.forge.objectweb.org/exoplatform/exo-tomcat.zip" title="Download Now"><%=_ctx.appRes("UILogged.label.DownloadNow")%></a>
-             	<div style="clear: left"><span></span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-	  </div>
-  </div>
+ 
   
 </div>  
 
