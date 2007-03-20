@@ -14,7 +14,7 @@
 
 /*========================== Wizard Decorator ==========================*/
 
-.UIWizard .WizardDecorator .WizardMiddleRight {
+/*.UIWizard .WizardDecorator .WizardMiddleRight {
   padding-right: 7px;
 }
 
@@ -38,8 +38,7 @@
 
 /*========================== Wizard Content ==============================*/
 .UIWizard .UIWizardContent {
-  padding: 5px;
-  border: solid 1px gray;
+  
   background: white;
 }
 

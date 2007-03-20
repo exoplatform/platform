@@ -6,41 +6,32 @@
  * version: $Id$
  */
 
-.UIPortalToolPanel {}
+.UIPortalToolPanel {
+ 
+}
 
 .UIPortalToolPanel .Body {
-  padding: 7px 0px 5px 10px;
+  padding: 7px 6px 5px 6px;
+  height: 100%;
 }
+
+.UIPortalToolPanel .Body .PageDecoratorContainer {
+  background: #f7f7f7;
+  padding: 1px;
+}
+
+.UIPortalToolPanel .Body .PageDecoratorContent {
+  border-top: 1px #a5a5a5 solid;
+  border-left: 1px #a5a5a5 solid; 
+  border-bottom: 1px #d0d0d0 solid;
+  border-right: 1px #d0d0d0 solid;
+  padding: 10px 5px 10px 10px;
+}
+
+
 
 .UIPortalToolPanel .Body .UIPage {
   width: 99%;
-}
-
-.UIPortalToolPanel .Footer {
-  background: url('DefaultSkin/background/BgFooter1x25.gif') repeat-x ;
-  font-size: 11px ;
-  line-height: 25px;
-  vertical-align: middle ;
-}
-
-.UIPortalToolPanel .Footer .FooterInfoContainer {
-  
-  height: 25px;
-}
-
-.UIPortalToolPanel .Footer .CopyrightInfo {
-  width: 398px ; height:25px;
-  margin: auto;
-}
-
-.UIPortalToolPanel .Footer .CopyrightInfo .CopyrightText {
-  float: left;
-  padding-left: 5px ;
-}
-
-.UIPortalToolPanel .Footer .CopyrightInfo .CompanyTitleText {
-  float: right ;
-  padding-left: 5px ;
 }
 
 .UIPortalToolPanel .UIAction {

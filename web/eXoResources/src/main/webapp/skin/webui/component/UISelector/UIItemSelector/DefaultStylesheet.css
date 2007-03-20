@@ -445,6 +445,10 @@
   background: url('DefaultSkin/background/EmptyLayout.jpg') no-repeat;
   width: 250px; height: 170px;
 }
+.UIItemSelector .DesktopLayout {
+  background: url('DefaultSkin/background/DesktopLayout.jpg') no-repeat;
+  width: 250px; height: 170px;
+}
 
 .UIItemSelector .TwoColumnsLayout {
   background: url('DefaultSkin/background/TwoColumnsLayout.jpg') no-repeat;

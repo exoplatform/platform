@@ -1,7 +1,7 @@
 <div class="UIPageBrowser" id="UIPageBrowser">
 	
 	<%/*Begin UIPageBrowser Content*/%>
-	<div style="padding: 8px"><% uicomponent.renderChildren() %></div>
+	<div style="padding-right: 3px"><% uicomponent.renderChildren() %></div>
 	<%/*End UIPageBrowser Content */%>
 	
 	<% if(uicomponent.isShowAddNewPage()) { %>

@@ -3,7 +3,7 @@
 	rcontext.importJavascript('eXo.portal.PortalDragDrop');
 %>
 
-<div class="UIPage" id="UIPage-${uicomponent.id}" style="width: 99.8%">
+<div class="UIPage" id="UIPage-${uicomponent.id}" style="width: 99.5%;">
   <div class="META-DATA-BLOCK" style="display: none">
     <div class="id">$uicomponent.id</div>
     <div class="title"><%=_ctx.appRes("UIPage.label.title")%></div>
@@ -17,16 +17,16 @@
 			<%/*Begin Top Decorator*/%>
 			<div class="TopLeftPage">
 				<div class="TopRightPage">
-					<div class="TopCenterPage">
-					  <div class="PageContent"><%=_ctx.appRes("UIPage.label.pageContent")%></div>
-					</div>												
+					<div class="TopCenterPage"><span></span></div>												
 				</div>
 			</div>
 			
 			<%/*Begin Middle Decorator*/%>
 			<div class="MiddleLeftPage">
 				<div class="MiddleRightPage">
-				  <div class="MiddlePageBG"><span></span></div>
+				  <div class="MiddlePageBG">
+						<div class="PageContent"><%=_ctx.appRes("UIPage.label.pageContent")%></div>
+					</div>
 				</div>
 			</div>
 			
