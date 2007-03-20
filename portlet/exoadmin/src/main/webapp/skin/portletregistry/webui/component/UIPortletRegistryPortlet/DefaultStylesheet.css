@@ -25,20 +25,20 @@
 	width: 225px;
 }
 
-.UIPortletRegistryPortlet .UIVerticalSlideTabs{
- margin: 1px;
- padding-bottom: 2px;
+.UIPortletRegistryPortlet .UIVerticalSlideTabs {
+  margin: 1px;
+  padding-bottom: 2px;
 }
 
-.UIPortletRegistryPortlet .UIVTab .VTabStyle3{
+.UIPortletRegistryPortlet .UIVTab .VTabStyle3 {
   margin-top: 4px;
 }
 
-.UIPortletRegistryPortlet .UIVTab .SelectedVTabStyle3{
+.UIPortletRegistryPortlet .UIVTab .SelectedVTabStyle3 {
   margin-top: 4px;
 }
 
-.UIPortletRegistryPortlet .UIVTab a:hover{
+.UIPortletRegistryPortlet .UIVTab a:hover {
   color: orange;
 }
 
@@ -52,14 +52,14 @@
 }
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList {
-	border: solid 1px #b7b7b7;
 	background-color: #efefef;
+	border: solid 1px #b7b7b7;
 	padding: 1px;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryListContainer{
-	border: solid 1px #cdcdcd;
 	background: url('/eXoResources/background/DefaultSkin/NavigationBG.gif');
+	border: solid 1px #cdcdcd;
 	padding: 4px;
 }
 
@@ -69,23 +69,20 @@
 }
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .OpenFolderIcon {
-  background: url('DefaultSkin/icons/BlueOpenFolder.gif') no-repeat;
   width: 20px; height: 16px;
+  background: url('DefaultSkin/icons/BlueOpenFolder.gif') no-repeat;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .ClosedFolderIcon {
-  background: url('DefaultSkin/icons/BlueClosedFolder.gif') no-repeat;
   width: 20px; height: 16px;
+  background: url('DefaultSkin/icons/BlueClosedFolder.gif') no-repeat;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryLabel {
 	float: left;
-	height: 25px;
-	line-height: 25px;
+	height: 25px; line-height: 25px;
 	vertical-align: middle;
-	font-weight: bold;
-	font-size: 11px;
-  color: black;
+	font-weight: bold; font-size: 11px; color: black;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryLabel a {
@@ -99,11 +96,9 @@
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .PortletLabel {
 	float: left;
-	height: 25px;
-	line-height: 25px;
+	height: 25px; line-height: 25px;
 	vertical-align: middle;
-	font-size: 11px;
-  color: black;
+	font-size: 11px; color: black;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .PortletLabel a {
@@ -120,29 +115,28 @@
 }
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea .UIVTabContent {
-  margin: 1px 2px;
-  border: 1px #b7b7b7 solid;
   background: white;
+  border: 1px #b7b7b7 solid;
+  margin: 1px 2px;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea  .UIVTabContent .PortletControlBar {
-  background: url('DefaultSkin/background/TitleBG1x20.png') repeat-x;
   height: 22px;
+  background: url('DefaultSkin/background/TitleBG1x20.png') repeat-x;
   border-bottom: 1px #b7b7b7 solid;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea .PortletControlBar .PortletControlIcon {
 	float: left;
-	margin-top: 3px;
-	margin-left: 26px;
+	margin-top: 3px; margin-left: 26px;
 }
 
 /*################################Portlet Registry Working################################*/
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea  {
-	margin-left: 235px;
 	background: white;
 	border: 1px solid gray;
+	margin-left: 235px;
 	padding: 1px;
 }
 
@@ -153,8 +147,8 @@
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormWithTitle .UIAction{
-  padding: 10px 0px 10px 0px ;
   width: 200px;
+  padding: 10px 0px 10px 0px ;
   margin: auto; margin-right: 125px;
 }
 
@@ -163,19 +157,18 @@
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid {
- width: 100%;
- border:none;
- border-bottom: 1px solid #7eaad0;
- border-top: 1px solid #7eaad0;
+  width: 100%;
+  border:none;
+  border-bottom: 1px solid #7eaad0; border-top: 1px solid #7eaad0;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIDescription{
- padding: 0px;
- margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
 
- .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid thead {
+.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid thead {
   border: 1px solid #7eaad0;
 }
 
@@ -184,17 +177,15 @@
   
 }
 
-UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid td {
+.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid td {
   height: 26px ;
-  border-right: none;
-  border-left: none;
-  border-top: 1px solid white;
+  border-right: none; border-left: none; border-top: 1px solid white;
   padding-left: 7px;
 }
 
- .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid tbody {
-  padding-bottom: 1px;
+.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid tbody {
   width: 100%;
+  padding-bottom: 1px;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormInputSet {

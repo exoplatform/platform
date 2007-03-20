@@ -4,9 +4,6 @@
   overflow: auto ;
 }
 
-.UIOrganizationPortlet {
-}
-
 .UIOrganizationPortlet .OrganizationPortletContainer {
   padding: 5px 8px ;
 }
@@ -19,22 +16,22 @@
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .UserButton {
   float: left ;
-  padding-top: 3px ;
   width: 120px ;
+  padding-top: 3px ;
   cursor: pointer;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .GroupButton {
   float: left;
-  padding-top: 3px;
   width: 130px;
+  padding-top: 3px;
   cursor: pointer;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
   float: left;
-  padding-top: 3px;
   width: 170px;
+  padding-top: 3px;
   cursor: pointer;
 }
 
@@ -43,41 +40,37 @@
 }
 
 .UIOrganizationPortlet .ManagementIconContainer {
-  margin-left: 5px;
   font-size: 11px;
   padding-top: 4px;
+  margin-left: 5px;
 }
 
 .UIOrganizationPortlet .UserManagementIcon {
   width: 32px; height: 32px; 
-  margin: auto;
   background: url('/eXoResources/icons/32x32/DefaultSkin/UserManagement.gif') no-repeat center;
+  margin: auto;
 }
 
 .UIOrganizationPortlet .GroupManagementIcon {
   width: 32px; height: 32px; 
-  margin: auto;
   background: url('/eXoResources/icons/32x32/DefaultSkin/GroupManagement.gif') no-repeat center;
+  margin: auto;
 }
 
 .UIOrganizationPortlet .MembershipManagementIcon {
   width: 32px; height: 32px; 
-  margin: auto;
   background: url('/eXoResources/icons/32x32/DefaultSkin/MembershipManagement.gif') no-repeat center ;
+  margin: auto;
 }
 
 .UIOrganizationPortlet .UIFormWithTitle  {
 	margin: auto ; margin-top: 10px ;
 }
 
-.UIOrganizationPortlet .UIFormTabPane .UIAction {
-  
-}
-
 .UIOrganizationPortlet .UIMembership .UIAction  {
-  margin-left: auto ; 
-  width: 155px;
   float: none;
+  width: 155px;
+  margin-left: auto ; 
 } 
 
 .UIOrganizationPortlet .UIMembership .UIAction .ActionContainer .ActionButton {
@@ -106,13 +99,14 @@
 }
 
 .UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer label {
-  margin-left: 0px; text-align: left;
   width: 130px; 
+  text-align: left;
+  margin-left: 0px; 
 }
 
 .UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer input {
-  width: 220px; height: 18px; line-height: 18px; 
-  vertical-align: middle;
+  width: 220px; height: 18px; 
+  line-height: 18px;  vertical-align: middle;
   font-size: 11px;
   padding-left: 5px; 
   border: 1px gray solid;
@@ -131,16 +125,15 @@
 
 .UIOrganizationPortlet .UIItemSelector .ItemDetailList .UIFormInputSet label {
   float: left;
-  height: 20px; line-height: 20px; vertical-align: middle;
+  width: 120px; height: 20px; 
+  line-height: 20px; vertical-align: middle;
   padding-left: 10px; margin-right: 0px;
-  white-space: nowrap; 
-  width: 120px;
-  font-size: 12px;
+  font-size: 12px; white-space: nowrap; 
 }
 
 .UIOrganizationPortlet .UIItemSelector .ItemDetailList .UIFormInputSet input {
-  width: 230px;
   float: left;
+  width: 230px;
   font-size: 11px;
   margin-left: 0px;
   padding-left: 5px;
@@ -152,9 +145,9 @@
 
 .UIOrganizationPortlet .UIUserManagement .UIAction .SelectPermissionIcon {
   float: left ;
-  margin: 3px 0px 5px 10px ;
   width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/SelectPermission.gif') no-repeat;
+  margin: 3px 0px 5px 10px ;
 }
 
 .UIOrganizationPortlet .UIUserManagement .UIGrid {
@@ -168,46 +161,39 @@
 }
 
 .UIOrganizationPortlet .PersonalInfoIcon {
-  width: 32px ;  height: 32px ;
   float: left ;
+  width: 32px ;  height: 32px ;
   background: url('/eXoResources/icons/32x32/DefaultSkin/PersonalInfo.gif') ;
 }
 
 .UIOrganizationPortlet .HomeInfoIcon {
-  width: 32px ;  height: 32px ;
   float: left ;
+  width: 32px ;  height: 32px ;
   background: url('/eXoResources/icons/32x32/DefaultSkin/HomeInfo.gif') ;
 }
 
 .UIOrganizationPortlet .BusinessInfoIcon {
-  width: 32px ;  height: 32px ;
   float: left ;
+  width: 32px ;  height: 32px ;
   background: url('/eXoResources/icons/32x32/DefaultSkin/BusinessInfo.gif') ;
 }
 
 /*#######################  UIGroupManagement #################################*/
 
-.UIOrganizationPortlet .UIGroupManagement {
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs {
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGroup.gif') no-repeat;
   height: 16px; width: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGroup.gif') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
-  margin-top: 7px ;
   overflow: hidden ;
-  margin-left: auto ;
-  margin-right: auto ;
+  margin-top: 7px ;
+  margin-left: auto ; margin-right: auto ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation {
-  width: 220px ;
   float: left ;
+  width: 220px ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITree {
@@ -218,8 +204,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
   border: 1px #b7b7b7 solid;
-  padding-bottom: 10px;
-  
+  padding-bottom: 10px;  
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {
@@ -236,20 +221,17 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon  {
-	width: 28px;
-	height: 22px;
+	width: 28px; height: 22px;
 	background: url("DefaultSkin/background/RemoveGroup.gif") no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon  {
-	width: 28px;
-	height: 22px;
+	width: 28px; height: 22px;
 	background: url("DefaultSkin/background/AddGroup.gif") no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon  {
-	width: 28px;
-	height: 22px;
+	width: 28px; height: 22px;
 	background: url("DefaultSkin/background/EditGroup.gif") no-repeat;
 }
 
@@ -262,8 +244,8 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGrid .ActionContainer {  
-  margin: auto ;
   width: 22px; height: 16px;
+  margin: auto ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormWithTitle .UIAction {
@@ -280,7 +262,7 @@
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle .UIAction {  
   width: 100px;
 	margin: auto ; margin-right: 110px;
-	padding: 15px 0px 15px 0px;
+	padding: 15px 0px ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle .ActionContainer .ActionButton {  
@@ -297,14 +279,14 @@
 }
 
 .UIOrganizationPortlet .UIGrid .ActionContainer {  
-  margin: auto ;
   width: 46px;
+  margin: auto ;
 }
 
 .UIOrganizationPortlet .ManagementTabContent .UIFormWithTitle .UIAction {
 	width: 100px;
 	margin: auto ; margin-right: 90px;
-	padding: 10px 0px 10px 0px;
+	padding: 10px 0px;
 }
 
 .UIOrganizationPortlet .ManagementTabContent .UIFormWithTitle .UIAction .ActionButton{

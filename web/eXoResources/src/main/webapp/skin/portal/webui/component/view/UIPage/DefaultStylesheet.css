@@ -1,56 +1,59 @@
 /*##############################-Page Layout Decorator-################################*/
-.UIPage .PageLayoutDecorator { 
-}
 
 .UIPage .PageLayoutDecorator .MiddlePageBG {
   background: white ;
 }
 
 .UIPage .PageLayoutDecorator .TopLeftPage {
-  background: url('DefaultSkin/background/PageLayoutTL56x55.gif') no-repeat left ;
-  padding: 0px 0px 0px 56px ;
+  background: url('DefaultSkin/background/TLPageLayout142x114.gif') no-repeat left ;
+  padding: 0px 0px 0px 142px ;
 }
 
 .UIPage .PageLayoutDecorator .TopRightPage {
-  background: url('DefaultSkin/background/PageLayoutTR75x55.gif') no-repeat right ;
-  padding: 0px 75px 0px 0px ; 
+  background: url('DefaultSkin/background/TRPageLayout72x114.gif') no-repeat right ;
+  padding: 0px 72px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage {
-  height: 55px ;   
-  background: url('DefaultSkin/background/PageLayoutTC1x55.gif') repeat-x center ;  
+  height: 114px ;   
+  background: url('DefaultSkin/background/TCPageLayout1x114.gif') repeat-x center ;  
 }
 
 .UIPage .PageLayoutDecorator .MiddleLeftPage {
-  background: url('DefaultSkin/background/PageLayoutML50x1.gif') repeat-y left ;
-  padding: 0px 0px 0px 50px ;   
+  background: url('DefaultSkin/background/MLPageLayout21x1.gif') repeat-y left ;
+  height: 80px;   
+  padding: 0px 0px 0px 21px ;
 }
 
 .UIPage .PageLayoutDecorator .MiddleRightPage {
- background: url('DefaultSkin/background/PageLayoutMR50x1.gif') repeat-y right;
- padding: 0px 50px 0px 0px ;
+ height: 80px; 
+ background: url('DefaultSkin/background/MRPageLayout26x1.gif') repeat-y right;
+ padding: 0px 26px 0px 0px ;
+}
+
+.UIPage .PageLayoutDecorator .MiddlePageBG {
+ height: 80px; 
+ background: white;
 }
 
 .UIPage .PageLayoutDecorator .PageContent {
- height: 80px; 
- background: white; 
- padding: 10px;
- border: solid 1px #b7b7b7 ;
+ color: #525252; text-align: center;
+ font-weight: bold; font-size: 10px;
+ padding: 60px 0px 0px 0px;
 }
 
-.UIPage .PageLayoutDecorator .BottomLeftPage {
-  height: 60px;  
-  background: url('DefaultSkin/background/PageLayoutBL70x60.gif') no-repeat left ;
-  padding: 0px 0px 0px 70px ;
+.UIPage .PageLayoutDecorator .BottomLeftPage {  
+  background: url('DefaultSkin/background/BLPageLayout44x39.gif') no-repeat left ;
+  padding: 0px 0px 0px 44px ;
 }
 
 .UIPage .PageLayoutDecorator .BottomRightPage {
-  background: url('DefaultSkin/background/PageLayoutBR60x60.gif') no-repeat right ;
-  padding: 0px 60px 0px 0px ; 
+  background: url('DefaultSkin/background/BRPageLayout72x39.gif') no-repeat right ;
+  padding: 0px 72px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .BottomCenterPage {
-  height: 60px ;   
-  background: url('DefaultSkin/background/PageLayoutBC1x60.gif') repeat-x center ; 
+  height: 39px ;   
+  background: url('DefaultSkin/background/BCPageLayout1x39.gif') repeat-x ; 
 }
 

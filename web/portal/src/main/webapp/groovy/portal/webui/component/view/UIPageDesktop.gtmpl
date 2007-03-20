@@ -24,18 +24,18 @@
       <%/*Begin Top Decorator*/%>
       <div class="TopLeftPage">
         <div class="TopRightPage">
-          <div class="TopCenterPage"><span></span></div>
+          <div class="TopCenterPage">
+            <%decorator.start("DecoratorBox", "WhiteRoundedBoxStyle")%>
+              <div class="PageContent"><%=_ctx.appRes("UIPageDesktop.label.PageContent")%></div>
+            <%decorator.end()%>
+          </div>
         </div>
       </div>
       
       <%/*Begin Middle Decorator*/%>
       <div class="MiddleLeftPage">
         <div class="MiddleRightPage">
-          <div class="MiddlePageBG">
-            <%decorator.start("DecoratorBox", "WhiteRoundedBoxStyle")%>
-              <div class="PageContent"><%=_ctx.appRes("UIPageDesktop.label.PageContent")%></div>
-            <%decorator.end()%>
-          </div>
+          <div class="MiddlePageBG"><span></span></div>
         </div>
       </div>
       

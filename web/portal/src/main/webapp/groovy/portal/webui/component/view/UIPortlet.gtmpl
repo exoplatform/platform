@@ -35,9 +35,8 @@
 		        <div class="LeftBar">
 		          <div class="RightBar">
 				        <div class="MiddleBar">
-				          <div class="DragControlArea" title="Drag Portlet here">
-				            <div class="Icon <%=uicomponent.getIcon()%>Icon" ><span></span></div>
-		              </div>
+				          <div class="DragControlArea" title="Drag Portlet here"><span></span></div>
+		              <div class="Icon <%=uicomponent.getIcon()%>Icon" ><span></span></div>
 		              <div class="Title">$portletTitle</div>
 			            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeletePortletIcon" title="Delete Portlet"><span></span></a>
 			            <a href="<%=uicomponent.event("EditPortlet","$uicomponent.id")%>" class="EditPortletPropertiesIcon" title="Edit Portlet"><span></span></a>

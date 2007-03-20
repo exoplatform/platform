@@ -1,8 +1,11 @@
 <div class="UIBannerPortlet">
   <div class="InlineContainer">
-    <div class="BannerLeft InlineLeft"><br/></div>
-    <div class="BannerRight InlineRight" 
-         onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'Login',  true)) ;">Login</div>
-    <div class="BannerMiddle InlineLeft"><br/></div>
+    <div class="BannerLeft">
+      <div class="BannerRight">
+        <div class="BannerMiddle">
+        fojsdfosdfo
+        </div>
+      </div>   
+    </div>
   </div>
 </div>

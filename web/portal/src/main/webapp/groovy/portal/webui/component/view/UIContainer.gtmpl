@@ -13,7 +13,7 @@
           <div class="RightBar">
 		        <div class="MiddleBar">
 		          <div class="DragControlArea" title="Drag Container here">
-	              <div class="ContainerIcon"><span></span></div>
+	              <div class="ContainerIcon" ><span></span></div>
 	            </div>             
               <div class="Title">
 	              <% 

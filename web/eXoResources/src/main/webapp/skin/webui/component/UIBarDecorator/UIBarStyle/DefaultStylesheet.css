@@ -10,6 +10,7 @@
   height: 25px;
   background: url('DefaultSkin/background/WhiteRoundedBarL8x25.gif') no-repeat left;
   padding: 0px 0px 0px 8px;
+  border: solid 1px blue;
 }
 
 .UIBarStyle .RoundedBarStyle .RightBar {
