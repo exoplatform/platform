@@ -6,12 +6,12 @@
   </parent> 
 
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>exo.portal.webui.core</artifactId>
+  <artifactId>exo.portal.component.web</artifactId>
   <packaging>jar</packaging>
   <version>${org.exoplatform.portal.version}</version>
-  <name>eXo portal webui core</name>
+  <name>eXo portal component web</name>
   <url>http://www.exoplatform.org</url>
-  <description>eXo portal webui core</description>
+  <description>eXo portal component web</description>
 
   <dependencies>
     <dependency>
@@ -19,13 +19,7 @@
       <artifactId>exo.portal.component.data</artifactId>
       <version>${org.exoplatform.portal.version}</version>
     </dependency>
-    
-    <dependency>
-      <groupId>org.exoplatform.portal</groupId>
-      <artifactId>exo.portal.component.web</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
-    </dependency>
-    
+
     <dependency>
       <groupId>groovy</groupId>
       <artifactId>groovy-all</artifactId>
@@ -33,6 +27,7 @@
     </dependency>
   </dependencies>
 
+  <!--
   <build>
     <plugins>
       <plugin>
@@ -57,4 +52,5 @@
       </plugin>
     </plugins>
   </build>  
+  -->
 </project>

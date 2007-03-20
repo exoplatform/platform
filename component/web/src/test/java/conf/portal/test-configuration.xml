@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+  <component>
+    <key>org.exoplatform.download.DownloadService</key>
+    <type>org.exoplatform.download.DownloadService</type>
+    <init-params>
+      <value-param>
+        <name>download.resource.cache.size</name>
+        <description>Maximun number of the download can be in the cache</description>
+        <value>3</value>
+      </value-param>
+    </init-params>        
+  </component>       
+</configuration>

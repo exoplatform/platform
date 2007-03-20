@@ -11,6 +11,7 @@
     <module>component/resources</module>
     <module>component/portlet-registry</module>
     <module>component/data</module>
+    <module>component/web</module>
 
     <module>webui/core</module>
     <module>webui/portal</module>
