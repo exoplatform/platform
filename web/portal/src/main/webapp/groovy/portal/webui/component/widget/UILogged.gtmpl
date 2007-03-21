@@ -1,11 +1,11 @@
 <div class="UILogged">
 	<div class="ImageContent">
 		<div class="UserSelectIcon"><span></span></div>
-		<div class="WelcomIcon" onclick="eXo.webui.UIItemSelector.showHiddenContent(this,'UILogged','ImageContent','ImageContents','UserContent','NotificationContent')"><span></span></div>
+		<div class="WelcomIcon" onclick="eXo.portal.UIPortalComponent.showHiddenContent(this,'UILogged','ImageContent','ImageContents','UserContent','NotificationContent')"><span></span></div>
 		<div style="clear: left"><span></span></div>
 	</div>
 	<div class="ImageContents" style="display: none">
-		<div class="UserIcon" onclick="eXo.webui.UIItemSelector.showHiddenContent(this,'UILogged','ImageContents','ImageContent','NotificationContent','UserContent')"><span></span></div>
+		<div class="UserIcon" onclick="eXo.portal.UIPortalComponent.showHiddenContent(this,'UILogged','ImageContents','ImageContent','NotificationContent','UserContent')"><span></span></div>
 		<div class="WelcomSelectIcon"><span></span></div>
 		<div style="clear: left"><span></span></div>
 	</div>
@@ -109,8 +109,6 @@
   		</div>
   	</div>  			
   </div>
-  
- 
-  
+
 </div>  
 

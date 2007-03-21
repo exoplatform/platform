@@ -1,18 +1,17 @@
 .UIExoStart {
 	border-top: solid 1px #ababab;
   background: url('DefaultSkin/background/BottomControlBg1x1.gif') repeat-x top;
-  padding-top: 1px;
+  padding: 1px 0px 0px 0px;
 }
 
 .UIExoStart .StartBarContainer {
-  height: 39px ;
   background: #bfceed;
 }
 
 .UIExoStart .ExoStartButton {
   float: left ;
   width: 103px ; height: 34px ;
-  margin: 3px 0px 0px 0px ;
+  margin: 0px ;
   cursor: pointer ;
 }
 
@@ -33,13 +32,13 @@
   float: right ;
   width: 2px ; height: 33px ;
   background: url('DefaultSkin/background/LineSeparator2x33.gif') no-repeat ;
-  margin: 3px 4px 0px 4px ;
+  margin: 0px 4px 0px 4px ;
 }
 
 .UIExoStart .DigitalClockContainer {
   float: right ;
   font-size: 11px ; text-align: center ;
-  margin: 6px 9px 0px 0px;
+  margin: 6px 9px 0px 9px;
 }
 
 .UIExoStart .DigitalClock {
