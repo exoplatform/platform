@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
-import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.organization.OrganizationService;
@@ -80,8 +79,7 @@ public class UILoginForm extends UIForm {
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       uiMaskWS.setUIComponent(null) ;
       uiMaskWS.setShow(false);     
-      UIWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
   
