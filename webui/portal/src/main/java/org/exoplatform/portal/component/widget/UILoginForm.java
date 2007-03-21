@@ -11,7 +11,6 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.customization.UIPortalManagementEditBar;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.organization.OrganizationService;
@@ -26,6 +25,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.exception.MessageException;
 
 /**
@@ -39,8 +39,8 @@ import org.exoplatform.webui.exception.MessageException;
   template = "system:/groovy/portal/webui/component/widget/UILoginForm.gtmpl" ,
   events = {
     @EventConfig(listeners = UILoginForm.LoginActionListener.class),
-    @EventConfig(listeners = UILoginForm.CancelActionListener.class)
-    }
+    @EventConfig(phase = Phase.DECODE, listeners = UILoginForm.CancelActionListener.class)
+  }
 )
 public class UILoginForm extends UIForm {
   
@@ -77,18 +77,12 @@ public class UILoginForm extends UIForm {
   
   static  public class CancelActionListener extends EventListener<UIComponent> {
     public void execute(Event<UIComponent> event) throws Exception {
-      System.out.println(" \n\n\n == > "+event.getSource() +"\n\n\n");
-      
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      
+      UIPortalApplication uiApp = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       uiMaskWS.setUIComponent(null) ;
-      uiMaskWS.setShow(false);
-     
+      uiMaskWS.setShow(false);     
       UIWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
-//      uiWorkingWS.set
     }
   }
   
