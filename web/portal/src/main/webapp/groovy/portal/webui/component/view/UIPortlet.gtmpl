@@ -25,7 +25,13 @@
 		  <div class="META-DATA-BLOCK" style="display: none">
 		    <div class="id"><%=uicomponent.getId();%></div>
 		    <div class="title"><%=_ctx.appRes("UIPortlet.label.title");%></div>
-		    <div class="description"><%=_ctx.appRes("UIPortlet.label.description");%></div>
+		    <div class="description">
+		      <%if(uicomponent.getDescription() != null) {%>
+  		      <%=uicomponent.getDescription();%>
+		      <%} else {%>
+		        <%=_ctx.appRes("UIPortlet.label.description");%>adasdsa
+		      <%}%>
+		    </div>
 		  </div>
 		   
 		  <div class="CONTROL-PORTLET CONTROL-BLOCK" style="display: none">
@@ -65,7 +71,12 @@
 		      <div class="MiddleLeft">
 		        <div class="MiddleRight">
 		          <div class="CenterBackground">
-		            <div class="GardientBackground"><%=_ctx.appRes("UIPortlet.label.portletContent")%></div>
+		            <div class="GardientBackground">
+		            <%//if(uicomponent.getDescription() != null) {%>
+  		            <%//=uicomponent.getDescription();%>
+		            <%//} else {%>
+		            <%=_ctx.appRes("UIPortlet.label.portletContent")%></div>
+      		      <%//}%>
 		          </div>
 		        </div>
 		      </div>

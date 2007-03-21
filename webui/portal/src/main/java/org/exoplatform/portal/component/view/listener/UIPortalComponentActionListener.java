@@ -12,6 +12,7 @@ import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.customization.UIContainerConfigOptions;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
+import org.exoplatform.portal.component.customization.UIPortletOptions;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortalComponent;
@@ -112,7 +113,6 @@ public class UIPortalComponentActionListener {
       
       if(uiSource == null){        
         UIContainerConfigOptions uiContainerConfig = uiApp.findFirstComponentOfType(UIContainerConfigOptions.class);
-        
         if(uiContainerConfig != null && uiContainerConfig.isRendered()){
           org.exoplatform.portal.component.view.UIContainer uiContainer =  
             uiTarget.createUIComponent(org.exoplatform.portal.component.view.UIContainer.class, null, null);
@@ -121,7 +121,15 @@ public class UIPortalComponentActionListener {
           PortalDataModelUtil.toUIContainer(uiContainer, container, true);      
           uiSource = uiContainer;         
         }else {
+          UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);
+          org.exoplatform.services.portletregistery.Portlet portlet = uiPortletOptions.getPortlet(sourceId);
           UIPortlet uiPortlet =  uiTarget.createUIComponent(UIPortlet.class, null, null);
+          if(portlet.getDisplayName() != null) {
+            uiPortlet.setTitle(portlet.getDisplayName());
+          } else if(portlet.getPortletName() != null) {
+            uiPortlet.setTitle(portlet.getPortletName());
+          }
+          uiPortlet.setDescription(portlet.getDescription());
           StringBuilder windowId = new StringBuilder();
           windowId.append(Util.getUIPortal().getOwner()).append(":/");
           windowId.append(sourceId).append('/');

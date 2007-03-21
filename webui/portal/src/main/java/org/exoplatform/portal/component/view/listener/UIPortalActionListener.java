@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view.listener;
 
+import java.util.List;
+
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
@@ -19,6 +21,9 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UILoginForm;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
+import org.exoplatform.services.portletregistery.Portlet;
+import org.exoplatform.services.portletregistery.PortletCategory;
+import org.exoplatform.services.portletregistery.PortletRegisteryService;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -86,6 +91,17 @@ public class UIPortalActionListener {
       StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
       windowId.append(":/").append(portletId).append('/').append(uiPortlet.hashCode());
       uiPortlet.setWindowId(windowId.toString());
+      
+      Portlet portlet = getPortlet(uiPortal, portletId);
+      if(portlet != null){
+        if(portlet.getDisplayName() != null) {
+          uiPortlet.setTitle(portlet.getDisplayName());
+        } else if(portlet.getPortletName() != null) {
+          uiPortlet.setTitle(portlet.getPortletName());
+        }
+        uiPortlet.setDescription(portlet.getDescription());
+      }
+      
       uiPage.addChild(uiPortlet);
       
       Page page = PortalDataModelUtil.toPageModel(uiPage, true); 
@@ -96,6 +112,20 @@ public class UIPortalActionListener {
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
       pcontext.setForceFullUpdate(true);
+    }
+    
+    @SuppressWarnings("unchecked")
+    private Portlet getPortlet(UIPortal uiPortal, String id) throws Exception {
+      PortletRegisteryService service = uiPortal.getApplicationComponent(PortletRegisteryService.class) ;
+      List<PortletCategory> pCategories = service.getPortletCategories() ;    
+
+      for(PortletCategory pCategory : pCategories) {
+        List<Portlet> portlets = service.getPortlets(pCategory.getId()) ;
+        for(Portlet portlet : portlets){
+          if(portlet.getId().equals(id)) return portlet;
+        }  
+      }    
+      return null;
     }
   }
   
