@@ -329,6 +329,6 @@ UIPortal.prototype.hideMaskLayer = function() {
 	}
 } ;
 
-//eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;
+eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;
 eXo.portal.UIPortal = new UIPortal() ;
 eXo.portal.UIComponent = UIPortal.prototype.constructor ;
