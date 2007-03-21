@@ -480,3 +480,27 @@
   vertical-align: middle ;
   background: url('DefaultSkin/background/BlueBevelBarRepeat1x36.gif') repeat-x ;
 }
+
+/*###########################-ControlBar-###########################*/
+.UIBarStyle .ControlBar {
+  height: 36px;
+}
+
+.UIBarStyle .ControlBar .LeftBar {
+  height: 36px ;
+  background: url('DefaultSkin/background/BlueBevelBarL9x36.gif') no-repeat left ;
+  padding: 0px 0px 0px 9px ;
+}
+
+.UIBarStyle .ControlBar .RightBar {
+  height: 36px ;
+  background: url('DefaultSkin/background/BlueBevelBarR9x36.gif') no-repeat right ;
+  padding: 0px 9px 0px 0px ;
+}
+
+.UIBarStyle .ControlBar .MiddleBar {
+  height: 36px ;
+  line-height: 36px ;
+  vertical-align: middle ;
+  background: url('DefaultSkin/background/BlueBevelBarRepeat1x36.gif') repeat-x ;
+}
