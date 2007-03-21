@@ -41,41 +41,53 @@
   }
 %>
   
- <div class="UINavigationPortlet" id="UINavigationPortlet">
-    <div class="UIHorizontalTabs">
-      <div class="TabsContainer">
-      <%
-        if(navigations != null) {
-          PageNode selectedNode = uicomponent.getSelectedPageNode() ;
-          for(nav in navigations) {
-            def pageNodes = nav.getNodes() ;
-            for(PageNode node in pageNodes) {
-              def actionLink = uicomponent.event("SelectNode", node.getUri()) ;
-              
-              String tabStyleNavigation = "NormalNavigationTab" ;
-              if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
-                tabStyleNavigation = "SelectedNavigationTab" ;
-              }
-      %>      
-        
-        <div class="UITab">
-          <div class="$tabStyleNavigation">
-            <div class="LeftTab">
-              <div class="RightTab">
-                <div class="MiddleTab" onmouseover="$mouseOver" onmouseout="$mouseOut">
-                  <a href="$actionLink">$node.label</a>
-                </div>
-              </div>
-            </div>
-          </div>  
-          <%/*Render Popup Menu*/%>
-        </div>
-        
-       <%       
-            }
-          }
-        }
-       %>
-      </div>
-    </div>   
- </div>
+<div class="UINavigationPortlet" id="UINavigationPortlet">
+  <div class="UINavigationBar">
+    <div class="LeftNavigationBar">
+      <div class="RightNavigationBar">
+        <div class="MiddleNavigationBar">
+   
+			    <div class="UIHorizontalTabs">
+			      <div class="TabsContainer">
+			      <%
+			        if(navigations != null) {
+			          PageNode selectedNode = uicomponent.getSelectedPageNode() ;
+			          for(nav in navigations) {
+			            def pageNodes = nav.getNodes() ;
+			            for(PageNode node in pageNodes) {
+			              def actionLink = uicomponent.event("SelectNode", node.getUri()) ;
+			              
+			              String tabStyleNavigation = "NormalNavigationTab" ;
+			              if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
+			                tabStyleNavigation = "SelectedNavigationTab" ;
+			              }
+			      %>      
+			        
+			        <div class="UITab">
+			          <div class="$tabStyleNavigation">
+			            <div class="LeftTab">
+			              <div class="RightTab">
+			                <div class="MiddleTab" onmouseover="$mouseOver" onmouseout="$mouseOut">
+			                  <div  class="TabIcon"><span></span></div>
+			                  <a href="$actionLink">$node.label</a>
+			                  <div style="clear: left"><span></span></div>
+			                </div>
+			              </div>
+			            </div>
+			          </div>  
+			          <%/*Render Popup Menu*/%>
+			        </div>
+			        
+			       <%       
+			            }
+			          }
+			        }
+			       %>
+			      </div>
+			    </div>
+			    
+		    </div>
+	    </div>
+    </div>  
+  </div>        
+</div>

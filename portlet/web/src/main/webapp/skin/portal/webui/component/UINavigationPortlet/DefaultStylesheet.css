@@ -7,5 +7,37 @@
  */
 
 .UINavigationPortlet {
-  height: 30px ;
+  height: 28px;
+  margin-bottom: 10px;
+  font-size: 11px;
 }
+
+.UINavigationPortlet .UINavigationBar {
+  height: 28px;
+}
+
+.UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
+  height: 28px;
+}
+
+.UINavigationPortlet .UINavigationBar .LeftNavigationBar{
+  line-height: 28px;
+  background: url('DefaultSkin/background/BgNomalNavTop1x28.gif') repeat-x top;
+  
+}
+
+.UINavigationPortlet .UINavigationBar .RightNavigationBar{
+  line-height: 28px;
+  background: url('DefaultSkin/background/RightNavTop112x28.gif') no-repeat right top;
+  padding-right: 112px;
+}
+
+.UINavigationPortlet .UINavigationBar .MiddleNavigationBar{
+  line-height: 28px;
+  background: url('DefaultSkin/background/BgNomalNavTop1x28.gif') repeat-x top;
+}
+
+
+
+
+
