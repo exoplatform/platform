@@ -72,11 +72,12 @@
 		        <div class="MiddleRight">
 		          <div class="CenterBackground">
 		            <div class="GardientBackground">
-		            <%//if(uicomponent.getDescription() != null) {%>
-  		            <%//=uicomponent.getDescription();%>
-		            <%//} else {%>
-		            <%=_ctx.appRes("UIPortlet.label.portletContent")%></div>
-      		      <%//}%>
+		            <%if(uicomponent.getDescription() != null) {%>
+  		            <%=uicomponent.getDescription();%>
+		            <%} else {%>
+		              <%=_ctx.appRes("UIPortlet.label.portletContent")%>
+      		      <%}%>
+      		      </div>
 		          </div>
 		        </div>
 		      </div>

@@ -130,13 +130,14 @@ public class UIPortalComponentActionListener {
             uiPortlet.setTitle(portlet.getPortletName());
           }
           uiPortlet.setDescription(portlet.getDescription());
+          System.out.println("\n\n\n\n == > ta tim thay portlet la  "+uiPortlet.getDescription()+"\n\n\n");
           StringBuilder windowId = new StringBuilder();
           windowId.append(Util.getUIPortal().getOwner()).append(":/");
           windowId.append(sourceId).append('/');
           windowId.append(uiPortlet.hashCode());
           uiPortlet.setWindowId(windowId.toString());
           uiPortlet.setShowEditControl(true);
-          uiSource = uiPortlet;        
+          uiSource = uiPortlet;
         }
         List<UIComponent> children = uiTarget.getChildren();
         uiSource.setParent(uiTarget);
