@@ -33,9 +33,7 @@ public class SimpleTemplateEngine extends TemplateEngine {
     this(false);
   }
 
-  public SimpleTemplateEngine(boolean verbose) {
-    this.verbose = verbose;
-  }
+  public SimpleTemplateEngine(boolean verbose) { this.verbose = verbose; }
 
   public Template createTemplate(Reader reader) throws CompilationFailedException, IOException {
     SimpleTemplate template = new SimpleTemplate();
@@ -109,7 +107,6 @@ public class SimpleTemplateEngine extends TemplateEngine {
       }
       StringWriter sw = new StringWriter();
       startScript(sw);
-      boolean start = false;
       int c;
       while ((c = reader.read()) != -1) {
         if (c == '<') {
@@ -117,22 +114,19 @@ public class SimpleTemplateEngine extends TemplateEngine {
           c = reader.read();
           if (c != '%') {
             sw.write('<');
+            reader.reset(); 
+            continue;
+          } 
+          reader.mark(1);
+          c = reader.read();
+          if (c == '=') groovyExpression(reader, sw);
+          else {
             reader.reset();
-          } else {
-            reader.mark(1);
-            c = reader.read();
-            if (c == '=') {
-              groovyExpression(reader, sw);
-            } else {
-              reader.reset();
-              groovySection(reader, sw);
-            }
+            groovySection(reader, sw);
           }
           continue; // at least '<' is consumed ... read next chars.
         }
-        if (c == '\"') {
-          sw.write('\\');
-        }
+        if (c == '\"') sw.write('\\');
         /*
          * Handle raw new line characters.
          */
@@ -140,9 +134,7 @@ public class SimpleTemplateEngine extends TemplateEngine {
           if (c == '\r') { // on Windows, "\r\n" is a new line.
             reader.mark(1);
             c = reader.read();
-            if (c != '\n') {
-              reader.reset();
-            }
+            if (c != '\n') reader.reset();
           }
           sw.write("\\n\");\nout.print(\"");
           continue;
@@ -176,15 +168,10 @@ public class SimpleTemplateEngine extends TemplateEngine {
       while ((c = reader.read()) != -1) {
         if (c == '%') {
           c = reader.read();
-          if (c != '>') {
-            sw.write('%');
-          } else {
-            break;
-          }
+          if (c == '>') break;
+          sw.write('%');
         }
-        if (c != '\n' && c != '\r') {
-          sw.write(c);
-        }
+        if (c != '\n' && c != '\r') sw.write(c);
       }
       sw.write("}\");\nout.print(\"");
     }
@@ -202,11 +189,8 @@ public class SimpleTemplateEngine extends TemplateEngine {
       while ((c = reader.read()) != -1) {
         if (c == '%') {
           c = reader.read();
-          if (c != '>') {
-            sw.write('%');
-          } else {
-            break;
-          }
+          if (c == '>') break;
+          sw.write('%');
         }
         /* Don't eat EOL chars in sections - as they are valid instruction separators.
          * See http://jira.codehaus.org/browse/GROOVY-980
