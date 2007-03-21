@@ -6,6 +6,7 @@
   rcontext.importJavascript('eXo.desktop.UIDesktop');
   rcontext.importJavascript('eXo.webui.UIPopupSelectCategory') ;
   rcontext.importJavascript('eXo.desktop.UIWindow') ;
+  rcontext.importJavascript('eXo.portal.UIPortalComponent');
   
   String showCategory = "eXo.webui.UIPopupSelectCategory.show(this, 120);"
   String setDefault     = "eXo.webui.UIPopupSelectCategory.setDefault(this);" ;
@@ -41,8 +42,9 @@
 		        <div class="LeftBar">
 		          <div class="RightBar">
 				        <div class="MiddleBar">
-				          <div class="DragControlArea" title="Drag Portlet here"><span></span></div>
-		              <div class="Icon <%=uicomponent.getIcon()%>Icon" ><span></span></div>
+				          <div class="DragControlArea" title="Drag Portlet here">
+				            <div class="Icon <%=uicomponent.getIcon()%>Icon" ><span></span></div>
+		              </div>
 		              <div class="Title">$portletTitle</div>
 			            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeletePortletIcon" title="Delete Portlet"><span></span></a>
 			            <a href="<%=uicomponent.event("EditPortlet","$uicomponent.id")%>" class="EditPortletPropertiesIcon" title="Edit Portlet"><span></span></a>
@@ -107,6 +109,9 @@
 	    <%
 	      String visibility = "visible" ;
 	      if(isWindow) visibility = "hidden" ;
+	      String windowId = popupId + "-portlet-window" ;
+	    
+	      rcontext.addJavascript("eXo.portal.UIPortalComponent.init('$windowId');");
 	    %>
     		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}-portlet-window" style="visibility: $visibility">
 		      <div class="WindowBarLeft">

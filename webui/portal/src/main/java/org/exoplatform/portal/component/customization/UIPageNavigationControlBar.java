@@ -142,5 +142,6 @@ public class UIPageNavigationControlBar extends UIToolbar {
     UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
     UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);  ;
     uiExoStart.setUIControlWSWorkingComponent(UIWelcomeComponent.class) ;
+    Util.showComponentOnWorking(portal, UIPortal.class);
   }
 }

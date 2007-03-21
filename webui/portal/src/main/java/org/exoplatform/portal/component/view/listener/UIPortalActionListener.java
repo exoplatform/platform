@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view.listener;
 
+import javax.servlet.http.HttpServletRequest;
+
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -21,6 +23,7 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UILoginForm;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
+import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.services.portletregistery.Portlet;
 import org.exoplatform.services.portletregistery.PortletCategory;
 import org.exoplatform.services.portletregistery.PortletRegisteryService;
@@ -34,30 +37,51 @@ import org.exoplatform.webui.event.EventListener;
  */
 public class UIPortalActionListener { 
   
-//  static public class ImportCategoryActionListener extends EventListener<UIPortal> {
-//    public void execute(Event<UIPortal> event) throws Exception {
-//      UIPortal uiPortal = event.getSource();
-//      PortletContainerMonitor monitor = uiPortal.getApplicationComponent(PortletContainerMonitor.class);
-//      Collection portletDatas = monitor.getPortletRuntimeDataMap().values();    
-//      PortletRegisteryService service = uiPortal.getApplicationComponent(PortletRegisteryService.class) ;
-//      if(portletDatas != null) service.importPortlets(portletDatas);
-//    }
-//  }
+  static public class MaximizeActionListener extends EventListener<UIComponent> {
+    public void execute(Event<UIComponent> event) throws Exception {
+      
+      UIPortal uiPortal = Util.getUIPortal();
+      String portletId = event.getRequestContext().getRequestParameter("portletId");
+      portletId = portletId.split("-")[0];
+      UIPortlet portlet = uiPortal.findComponentById(portletId);
+      if(portlet == null ) return ;
+      uiPortal.setMaximizedUIComponent(portlet);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortal);
+    }
+  }
+  
+  static public class MinimizeActionListener extends EventListener<UIComponent> {
+    public void execute(Event<UIComponent> event) throws Exception {
+      UIPortal uiPortal = Util.getUIPortal();
+      uiPortal.setMaximizedUIComponent(null);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortal);
+    }
+  }
   
   static public class LoginActionListener  extends EventListener<UIPortal> {    
     public void execute(Event<UIPortal> event) throws Exception {
-      //create UILogin component then put it in to UIMaksLayer, show UIMaskLayer
-      PortalRequestContext prContext = Util.getPortalRequestContext();
-      if(prContext.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS) return;
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      
       if(uiMaskWS  == null) { return; }
       UILoginForm uiForm = uiMaskWS.createUIComponent(UILoginForm.class, null, null);
+      
       uiMaskWS.setUIComponent(uiForm) ;
       uiMaskWS.setShow(true) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+    }
+  }
+  
+  static public class SignOutActionListener  extends EventListener<UIPortal> {    
+    public void execute(Event<UIPortal> event) throws Exception {
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      HttpServletRequest request = prContext.getRequest() ;
+      request.getSession().invalidate() ;
+      
+      prContext.setResponseComplete(true) ;
+      String redirect = request.getContextPath() ;
+      prContext.getResponse().sendRedirect(redirect) ;
     }
   }
   

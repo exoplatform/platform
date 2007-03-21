@@ -2,17 +2,14 @@ function UIPortalComponent() {
   
 };
 
-UIPortalComponent.prototype.init = function() {
+UIPortalComponent.prototype.init = function(objectId) {  
   var uiPageDesktop = document.getElementById("UIPageDesktop");
   if(!uiPageDesktop) {
-  	var uiPage = document.getElementById("UIPage"); 
-  	var uiWindows = eXo.core.DOMUtil.findDescendantsByClass(uiPage, "div", "UIWindow");
-  	for(var i = 0; i < uiWindows.length; i++) {
-  		var maxIcon = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindows[i], "div", "MaximizedIcon");
-			maxIcon.onclick = eXo.portal.UIPortalComponent.maximizeWindow;
-  		var miniIcon = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindows[i], "div", "MinimizedIcon");
-			miniIcon.onclick = eXo.portal.UIPortalComponent.minimizeWindow;
-  	}
+  	var uiWindow = document.getElementById(objectId);
+  	var maxIcon = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "MaximizedIcon");
+		maxIcon.onclick = eXo.portal.UIPortalComponent.maximizeWindow;
+  	var miniIcon = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "MinimizedIcon");
+		miniIcon.onclick = eXo.portal.UIPortalComponent.minimizeWindow;
   }
 };
 
@@ -33,12 +30,13 @@ UIPortalComponent.prototype.init = function() {
 //};
 
 UIPortalComponent.prototype.maximizeWindow = function() {
-  alert("max");
+  var uiWindows = eXo.core.DOMUtil.findAncestorByClass(this, "UIWindow");
+  var params = [{name: "portletId", value: uiWindows.id}] ;
+	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "Maximize", params,  true)) ;
 };
 
-
 UIPortalComponent.prototype.minimizeWindow = function() {
-  alert("mini");
+	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "Minimize",   true)) ;
 };
 
 /* Create Funtion by Duy Tu */
