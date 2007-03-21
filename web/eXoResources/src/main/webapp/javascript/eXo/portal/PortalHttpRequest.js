@@ -63,9 +63,7 @@ function PortletResponse(responseDiv) {
   //alert("portlet State: " +  this.portletState) ;
   //alert("portlet Data: " +  this.portletData) ;
 };
-
 /*****************************************************************************************/
-
 function PortalResponse(responseDiv) {
   var  DOMUtil = eXo.core.DOMUtil ;
   this.portletResponses = new Array() ;
@@ -90,9 +88,7 @@ function PortalResponse(responseDiv) {
     }
   }
 };
-
 /*****************************************************************************************/
-
 function AjaxRequest(method, url, queryString) {	
 	var instance = new Object();
 	

@@ -20,7 +20,7 @@ abstract public class UIPortletApplication extends  UIApplication {
     RequestContext pContext = context.getParentAppRequestContext();
     if(context.isAjaxRequest() && !pContext.isForceFullUpdate()) {
       Writer w =  context.getWriter() ;
-      w.write("<div class=\"PortletResponse\">") ;
+      w.write("<div class=\"PortletResponse\" style=\"display: none\">") ;
       w.  append("<div class=\"PortletResponsePortletId\"></div>") ;
       w.  append("<div class=\"PortletResponsePortletTitle\"></div>") ;
       w.  append("<div class=\"PortletResponsePortletMode\"></div>") ;
