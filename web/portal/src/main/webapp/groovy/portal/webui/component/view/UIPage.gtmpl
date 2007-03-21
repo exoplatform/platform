@@ -41,7 +41,7 @@
   </div>
   
   <div class="VIEW-PAGE">
-    <div id="UIPage">
+    <div id="UIPage" class="Test">
 	    <div class="UIRowContainer">
 	      <%uicomponent.renderChildren()%>
 	    </div>

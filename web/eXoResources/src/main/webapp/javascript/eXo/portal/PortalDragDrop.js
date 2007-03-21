@@ -1,5 +1,4 @@
 eXo.require('eXo.core.DragDrop');
-eXo.require('eXo.portal.UIPortalComponent');
 eXo.require('eXo.portal.UIPortal');
 
 function PortalDragDrop() { 

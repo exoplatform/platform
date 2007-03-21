@@ -3,7 +3,7 @@ function UIWorkspace(id) {
   this.showControlWorkspace = false ;
 }
 
-if(eXo.portal.Workspace == undefined){
+if(eXo.portal.Workspace == undefined) {
   eXo.portal.Workspace = new UIWorkspace("UIWorkspace") ;
 }
 if(eXo.portal.UIControlWorkspace == undefined) {
@@ -65,14 +65,12 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 //	var slidebarButton = document.getElementById("ControlWorkspaceSlidebarButton") ;
 	var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
 	var uiWorkspacePanel = document.getElementById("UIWorkspacePanel") ;
-
+	eXo.portal.UIControlWorkspace.slidebar.style.display = "none" ;
 	if(eXo.portal.UIControlWorkspace.showControlWorkspace == false) {
-		eXo.portal.UIControlWorkspace.slidebar.style.display = "none" ;
 		uiWorkspaceContainer.style.display = "block" ;
 		uiWorkspace.style.width = eXo.portal.UIControlWorkspace.defaultWidth + "px" ;
 		
-		uiWorkspaceContainer.style.width = (eXo.portal.UIControlWorkspace.defaultWidth - 
-																				eXo.portal.UIControlWorkspace.slidebar.offsetWidth) + "px" ;
+		uiWorkspaceContainer.style.width = (eXo.portal.UIControlWorkspace.defaultWidth) + "px" ;
 		
 		uiWorkspacePanel.style.height = (eXo.portal.UIControlWorkspace.height - 
 																		 eXo.portal.UIControlWorkspace.uiWorkspaceControl.offsetHeight - 23) + "px" ;
@@ -80,7 +78,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 		
 		eXo.portal.UIControlWorkspace.width = eXo.portal.UIControlWorkspace.defaultWidth ;
 		eXo.portal.UIWorkingWorkspace.onResize(null, null) ;
-		eXo.portal.UIControlWorkspace.slidebar.style.display = "none" ;
+		
 		this.showControlWorkspace = true ;
 	} else {
 		uiWorkspaceContainer.style.display = "none" ;

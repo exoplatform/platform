@@ -1,6 +1,8 @@
 <%
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.importJavascript('eXo.portal.PortalDragDrop') ;
+	rcontext.importJavascript('eXo.portal.UIPortalComponent');
+	rcontext.addJavascript('eXo.portal.UIPortalComponent.init()');
 %>
 
 <div class="UIPortal" id="UIPortal-$uicomponent.id">
