@@ -1,9 +1,9 @@
 function UIPortalComponent() {
-  
+  alert("Portal Component");
 };
 
 UIPortalComponent.prototype.init = function() {
-
+  alert("dkjsfhsdfhgjsdjsdfsdf");
 };
 
 UIPortalComponent.prototype.showHidePortletControl = function(objClicked) {
@@ -20,6 +20,10 @@ UIPortalComponent.prototype.showHidePortletControl = function(objClicked) {
   } else {
     objShowHide.className = "OnHide";
   }
+};
+
+UIPortalComponent.prototype.maximizeWindow = function() {
+   
 };
 
 eXo.portal.UIPortalComponent = new UIPortalComponent();
