@@ -35,7 +35,6 @@ public class UIControlWorkspace extends UIWorkspace {
 
   public UIControlWorkspace() throws Exception {
     //addChild(UIPortalControlPanel.class, null, "UIPortalControlPanel").setRendered(false) ;
-
     addChild(UIExoStart.class, null, null) ;
 
     UIControlWSWorkingArea uiWorking = addChild(UIControlWSWorkingArea.class, null, WORKING_AREA_ID);
