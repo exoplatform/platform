@@ -4,7 +4,12 @@
   padding: 5px 0px 0px 0px ;
 }
 
-.UILogged .WelcomeImage {  
+.UILogged .ImageContent {  
+  padding: 0px 0px 0px 25px;
+  height: 32px;
+}
+
+.UILogged .ImageContents {  
   padding: 0px 0px 0px 25px;
   height: 32px;
 }
@@ -59,7 +64,7 @@
 }
 
 .UILogged .UserContent {
-  height: 88px;
+	height: 100px;
 }
 
 .UILogged .UserContent .AvatarImageContent {
@@ -108,7 +113,7 @@
 }
 
 .UILogged .NotificationContent {
-	height: 88px;
+	height: 100px;
 }
 
 .UILogged .NotificationContent .IconContent {
@@ -131,27 +136,27 @@
 
 /****************************** Icon *********************************/
 
-.UILogged .WelcomeImage .UserSelectIcon {  
+.UILogged .UserSelectIcon {  
 	float: left;
 	height: 32px; width: 32px;
 	background: url('DefaultSkin/background/UserSelectIcon.gif') no-repeat center;
 }
 
-.UILogged .WelcomeImage .UserIcon {  
+.UILogged .UserIcon {  
 	float: left;
 	height: 32px; width: 32px;
 	cursor: pointer;
 	background: url('DefaultSkin/background/UserIcon.gif') no-repeat center;
 }
 
-.UILogged .WelcomeImage .WelcomIcon {  
+.UILogged .WelcomIcon {  
 	float: left;
 	height: 32px; width: 32px;
 	cursor: pointer;
 	background: url('DefaultSkin/background/WelcomeIcon.gif') no-repeat center;
 }
 
-.UILogged .WelcomeImage .WelcomSelectIcon {  
+.UILogged .WelcomSelectIcon {  
 	float: left;
 	height: 32px; width: 32px;
 	background: url('DefaultSkin/background/WelcomeSelectIcon.gif') no-repeat center;
@@ -161,28 +166,4 @@
 	width: 36px; height: 36px;
 	margin: auto;
 	background: url('DefaultSkin/background/EMailIcon.gif') no-repeat bottom;
-}
-
-.UILogged .Icon {
-	width: 48px; height: 32px;
-}
-
-.UILogged .FirefoxIcon {
-	float: left;
-	background: url('DefaultSkin/background/FirefoxIcon.gif') no-repeat;
-}
-
-.UILogged .IE7Icon {
-	float: left;
-	background: url('DefaultSkin/background/IE7Icon.gif') no-repeat;
-}
-
-.UILogged .IE6Icon {
-	float: left;
-	background: url('DefaultSkin/background/IE6Icon.gif') no-repeat;
-}
-
-.UILogged .SafariIcon {
-	float: left;
-	background: url('DefaultSkin/background/SafariIcon.gif') no-repeat;
 }

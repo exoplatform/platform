@@ -215,7 +215,6 @@
     <div class="DigitalClockContainer">
       <div class="DigitalClock" id="DigitalClock"><span></span></div>
     </div>
-    <div class="StatusIcon" title="Status"><span></span></div>
     <div class="VLineSeparator"><span></span></div>
     <div style="clear: both"><span></span></div>
   </div>

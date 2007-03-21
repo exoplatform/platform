@@ -1,9 +1,12 @@
 .UIExoStart {
+	border-top: solid 1px #ababab;
+  background: url('DefaultSkin/background/BottomControlBg1x1.gif') repeat-x top;
+  padding-top: 1px;
 }
 
 .UIExoStart .StartBarContainer {
   height: 39px ;
-  background: url('DefaultSkin/background/BottomControlBg1x39.gif') repeat-x ;
+  background: #bfceed;
 }
 
 .UIExoStart .ExoStartButton {
@@ -25,13 +28,6 @@
   background: url('DefaultSkin/background/ExoStartSelected.gif') ;
 }
 
-.UIExoStart .StatusIcon {
-  float: right ;
-  width: 24px ; height: 24px ;
-  background: url('DefaultSkin/icons/24x24/YellowFlag.gif') no-repeat ;
-  margin: 7px 7px 0px 3px ;
-  cursor: pointer ;
-}
 
 .UIExoStart .VLineSeparator {
   float: right ;

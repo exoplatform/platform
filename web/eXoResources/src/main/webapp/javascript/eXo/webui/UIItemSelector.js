@@ -133,5 +133,23 @@ UIItemSelector.prototype.findIndex = function(object) {
 	}
 };
 
+/* Create Funtion by Duy Tu */
+UIItemSelector.prototype.showHiddenContent = function(selectedElement, ancestorByClass, hiParent, showParent, hiContent, ShowContent) {
+	var DOMUtil = eXo.core.DOMUtil ;
+	var ancestorClass = DOMUtil.findAncestorByClass(selectedElement, ancestorByClass);
+	
+	var hidParent = DOMUtil.findAncestorByClass(selectedElement, hiParent);
+	var shParent = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", showParent);
+	var hiCont = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", hiContent);
+	var ShowCont = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", ShowContent);
+
+	hidParent.style.display = "none";
+	hiCont.style.display = "none";
+	
+	shParent.style.display = "block";
+	ShowCont.style.display = "block";
+	
+}
+
 
 eXo.webui.UIItemSelector = new UIItemSelector() ;

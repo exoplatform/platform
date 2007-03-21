@@ -1,9 +1,12 @@
 <div class="UILogged">
-	<div class="WelcomeImage">
+	<div class="ImageContent">
 		<div class="UserSelectIcon"><span></span></div>
-		<div class="UserIcon" style="display: none"><span></span></div>
-		<div class="WelcomIcon"><span></span></div>
-		<div class="WelcomSelectIcon" style="display: none"><span></span></div>
+		<div class="WelcomIcon" onclick="eXo.webui.UIItemSelector.showHiddenContent(this,'UILogged','ImageContent','ImageContents','UserContent','NotificationContent')"><span></span></div>
+		<div style="clear: left"><span></span></div>
+	</div>
+	<div class="ImageContents" style="display: none">
+		<div class="UserIcon" onclick="eXo.webui.UIItemSelector.showHiddenContent(this,'UILogged','ImageContents','ImageContent','NotificationContent','UserContent')"><span></span></div>
+		<div class="WelcomSelectIcon"><span></span></div>
 		<div style="clear: left"><span></span></div>
 	</div>
 	<div class="DecoratorBox">
@@ -16,7 +19,7 @@
 		  <div class="CenterDecoratorRight">
         <div class="DecoratorBackground">
         
-	        <div class="UserContent" style="display: none">
+	        <div class="UserContent" style="display: block">
 	        	<div class="AvatarImageContent">
 	        		<div class="AvatarImage"><span></span></div>
 	        	</div>        
@@ -38,7 +41,7 @@
 						<div style="clear: left"><span></span></div>
 		    	</div>
 	        
-	        <div class="NotificationContent" style="display: block">
+	        <div class="NotificationContent" style="display: none">
 	        	<div class="IconContent">
 	        		<div class="EMailIcon"><span></span></div>
 	        	</div>
