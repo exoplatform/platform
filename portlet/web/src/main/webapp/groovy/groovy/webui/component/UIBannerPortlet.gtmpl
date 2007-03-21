@@ -1,14 +1,12 @@
 <div class="UIBannerPortlet">
   <div class="InlineContainer">
-    <div class="BannerLeft">
-      <div class="BannerRight">
-        <div class="BannerMiddle">
-        	<div class="BannerTitle">
-        		<div class="TitleLabel">eXo Enterprise WebOS</div>
-        	</div>
+    <div class="LeftBanner">
+      <div class="RightBanner">
+        <div class="MiddleBanner">
+        	<div class="BannerTitle"><span></span></div>
 					<div class="LoginContainer">
 						<div class="LoginContent">
-							<div class="LoginLabel">Sign in:<label></label></div>
+							<a class="LoginLabel" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'Login',  true)) ;">Sign in</a>
 							<div class="LoginIcon" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'Login',  true)) ;"><span></span></div>
 							<div style="clear: left;"><span></span></div>
 						</div>

@@ -1,6 +1,6 @@
 .Reset16x16Icon {
-	background: url('/eXoResources/icons/16x16/DefaultSkin/ResetCircleIcon.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/ResetCircleIcon.gif') no-repeat ;
 }
 
 .Next16x16Icon {
@@ -9,45 +9,41 @@
 }
 
 .BCHome16x16Icon {	
+  width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Home.gif') ;
-  width: 16px ;
-  height: 16px ;
 }
 
 .RightBlackGridArrow16x16Icon {
-  width: 16px ;
-  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/RightBlackGridArrow.gif') ;
+  width: 16px ; height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BreadcumbsArrowIcon.gif') ;
 }
 
 .DefaultPortlet16x16Icon {
-  width: 16px ;
-  height: 16px ;
+  width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/TriBlueRightArrow.gif') no-repeat;
 }
 
 .DefaultContainer16x16Icon {
-  width: 16px ;
-  height: 16px ;
+  width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueContainer.gif') no-repeat;
 }
 
 .AddNewNodeIcon {
+  float: left ;
+  width: 16px ;  height: 16px ;
   margin: 3px 5px 0px 0px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif') ;
-  width: 16px ;  height: 16px ;
-  float: left ;
 }
 
 .BlueCirclePlusIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif') ;
   width: 16px ;  height: 16px ;
-  margin-left: 5px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif') ;
+  margin: 0px 0px 0px 5px;
 }
 
 .SelectPage16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectPage.gif') ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectPage.gif') ;
 }
 
 .PreviewIcon {
@@ -70,109 +66,101 @@
 }
 
 .AddPage16x16Icon{
-  background: url('/eXoResources/icons/16x16/DefaultSkin/AddPage.gif') no-repeat;
   width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/AddPage.gif') no-repeat;
 }
 .GreenArrowPage16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/GreenRightArrowPage.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GreenRightArrowPage.gif') no-repeat ;
 }
 
 .GreenPlusPage16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/GreenPlusPage.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GreenPlusPage.gif') no-repeat ;
 }
 
 .SelectPageIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectPage.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectPage.gif') no-repeat ;
 }
 
 .SelectPortalIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectPage.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectPage.gif') no-repeat ;
 }
 
 .OnLightPage16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/OrangeLightPage.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/OrangeLightPage.gif') no-repeat ;
 }
 
 .Save16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/FloppyDisk.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/FloppyDisk.gif') no-repeat ;
 }
 
 .Remove16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
 }
 
 .Cancel16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/RedCrossCircle.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/RedCrossCircle.gif') no-repeat ;
 }
 
 .Refresh16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Refresh.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Refresh.gif') no-repeat ;
 }
 
 .Update16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Refresh.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Refresh.gif') no-repeat ;
 }
 
 .Back16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueBackArrow.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueBackArrow.gif') no-repeat ;
 }
 
 .CloseFolder16x16Icon {
-	width: 16px;
-	height: 16px;
+	width: 16px;	height: 16px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/CloseFolder.gif');
 }
 
 .OpenFolder16x16Icon {
-	width: 16px;
-	height: 16px;
+	width: 16px; height: 16px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/OpenFolder.gif');
 }
 
 .Pencil16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat ;
 }
 
 .DustBin16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;   
 }
 
 .Level116x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ;	height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/SmallArrowBox.gif') no-repeat ;
 }
 
 .Level216x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ;	height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueSquare.gif') no-repeat ;
 }
 
 .Level316x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/GreenMiniBox.gif') no-repeat ;
 }
 
 .CircleInfo16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/CircleInfo.gif') no-repeat ;
 }
 
@@ -197,83 +185,79 @@
 }
 
 .LoadingInfo16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/LoadingInfo.gif') no-repeat ;
 }
 
 .ScissorsEraser16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/ScissorsEraser.gif') no-repeat ;
 }
 
 .ScissorsEraserWarning16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/ScissorsEraserWarning.gif') no-repeat ;
 }
 
 .OrangeNote16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/OrangeNote.gif') no-repeat ;
 }
 
 /*##############- Misc Icons -#############*/
 .BlueArrowFloppy16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueArrowBlackFloppy.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueArrowBlackFloppy.gif') no-repeat ;
 }
 
 .BlueInfoBox16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueInfoBox.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueInfoBox.gif') no-repeat ;
 }
 
 .HandPoint16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/HandPoint.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/HandPoint.gif') no-repeat ;
 }
 
 .TripleBox16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/TripleBox.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/TripleBox.gif') no-repeat ;
 }
 
 .Config16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Config.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Config.gif') no-repeat ;
 }
 
 .EditPortlet16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/EditPenBox.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/EditPenBox.gif') no-repeat ;
 }
 
 .View16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueBoxLight.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BoxButton.gif') no-repeat ;
 }
 
 .Help16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueHelpBox.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/HelpBoxButton.gif') no-repeat ;
 }
 
 .Minimize16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueMinimizeBox.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/MinimizeBox.gif') no-repeat ;
 }
 
 .Maximize16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueMaximizeBox.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/MaximizeBox.gif') no-repeat ;
 }
 
 .Restore16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Restore.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Restore.gif') no-repeat ;
 }
 
 .SelectPermissionIcon {
@@ -282,118 +266,118 @@
 }
 
 .Node16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Node.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Node.gif') no-repeat ;
 }
 
 .Level16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Level.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Level.gif') no-repeat ;
 }
 
 .Feature16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Feature.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Feature.gif') no-repeat ;
 }
 
 .RSS16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/RSS.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/RSS.gif') no-repeat ;
 }
 
 .Earth16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Earth.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Earth.gif') no-repeat ;
 }
 
 .AdminView16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/AdminView.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/AdminView.gif') no-repeat ;
 }
 
 .Briefcase16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Briefcase.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Briefcase.gif') no-repeat ;
 }
 
 .AddNode16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BluePlusCircle.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PlusCircle.gif') no-repeat ;
 }
 
 .ShowContainerControl16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/GreenArrowShape.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GreenArrowShape.gif') no-repeat ;
 }
 
 .ShowPageControl16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/YellowArrowShape.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowShape.gif') no-repeat ;
 }
 
 .ShowPortletControl16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueArrowShape.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowShapeButton.gif') no-repeat ;
 }
 
 .Decorator16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Decorator.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Decorator.gif') no-repeat ;
 }
 
 .ViewPage16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/PageYellowLight.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PageYellowLight.gif') no-repeat ;
 }
 
 .LayoutMode16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/LayoutMode.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/LayoutMode.gif') no-repeat ;
 }
 
 .Organization16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Organization.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Organization.gif') no-repeat ;
 }
 
 .UserRegistration16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/UserRegistration.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/UserRegistration.gif') no-repeat ;
 }
 
 .Management16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Management.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Management.gif') no-repeat ;
 }
 
 .PortalAdmin16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalAdmin.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalAdmin.gif') no-repeat ;
 }
 
 .Duplicate16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Duplicate.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Duplicate.gif') no-repeat ;
 }
 
 .Portal16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Portal.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Portal.gif') no-repeat ;
 }
 
 .Monitoring16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Monitor.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Monitor.gif') no-repeat ;
 }
 
 .SiteMap16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SiteMap.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SiteMap.gif') no-repeat ;
 }
 
 .SearchPage16x16Icon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SearchPage.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SearchPage.gif') no-repeat ;
 }
 
 .BlueCirclePlus16x16Icon {
@@ -402,26 +386,22 @@
 }
 
 .ShieldGreenPlus16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/ShieldGreenPlus.gif') no-repeat ;
 }
 
 .BlueSquare16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueSquare.gif') no-repeat ;
 }
 
 .YellowSquare16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/YellowSquare.gif') no-repeat ;
 }
 
 .RedSquare16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/RedSquare.gif') no-repeat ;
 }
 
@@ -441,8 +421,7 @@
 }
 
 .OrangePencilSourceBox16x16Icon {
-	width: 16px;
-	height: 16px;
+	width: 16px; height: 16px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/OrangePencilSourceBox.gif');	
 }
 
@@ -507,8 +486,7 @@
 }
 
 .Remove16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;   
 }
 
@@ -534,94 +512,78 @@
 }
 
 .BlueGridRightArrow16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueGridRightArrow.gif') no-repeat ;
 }
 
 .GrayDoubleGridDownArrow16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/GrayDoubleGridDownArrow.gif') no-repeat ;
 }
 
 .GrayFillRightArrow16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/GrayFillRightArrow.gif') no-repeat ;  
 }
 
 .BlueSquareRightArrow16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueSquareRightArrow.gif') no-repeat ;  
 }
 
 .DotArrowRight16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px; height: 16px;  
   background: url('/eXoResources/icons/16x16/DefaultSkin/DotArrowRight.gif') no-repeat ;  
 }
 
 .BlackGridRightArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px; height: 16px;  
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlackGridRightArrow.gif') no-repeat ;  
 }
 
 .BlueCloseButton16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px; height: 16px;  
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCloseButton.gif') no-repeat ;
 }
 
 .Logout16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px; height: 16px;  
   background: url('/eXoResources/icons/16x16/DefaultSkin/RedLogoutIcon.gif') no-repeat ;
 }
 
-
 .TreeNode16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px; height: 16px;  
   background: url('/eXoResources/icons/16x16/DefaultSkin/TreeNodeIcon.gif') no-repeat ;
 }
 
 /*Need to be changed to S1*/
 .CyanDownArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px; height: 16px;  
   background: url('/eXoResources/icons/16x16/DefaultSkin/CyanDownArrow.gif') no-repeat ;
 }
 
 .CyanUpArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px; height: 16px;  
   background: url('/eXoResources/icons/16x16/DefaultSkin/CyanUpArrow.gif') no-repeat ;
 }
 
 .CyanNextArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px; height: 16px;  
   background: url('/eXoResources/icons/16x16/DefaultSkin/CyanNextArrow.gif') no-repeat ;
 }
 
 .CyanBackArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px; height: 16px;  
   background: url('/eXoResources/icons/16x16/DefaultSkin/CyanBackArrow.gif') no-repeat ;
 }
 
 .S1NextArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px; height: 16px;  
   background: url('/eXoResources/icons/16x16/DefaultSkin/CyanNextArrow.gif') no-repeat ;
 }
 
 .S1BackArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px; height: 16px;  
   background: url('/eXoResources/icons/16x16/DefaultSkin/CyanBackArrow.gif') no-repeat ;
 }
 
@@ -637,129 +599,107 @@
 }
 
 .YellowBulb16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/YellowBulb.gif') no-repeat ;
 }
 
 .VioletBulb16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/VioletBulb.gif') no-repeat ;
 }
 
-
 .LightBlueGlobal16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/LightBlueGlobal.gif') no-repeat ;
 }
 
 .BlueActionWheel16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueActionWheel.gif') no-repeat ;
 }
 
 .LockedKey16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/LockedKey.gif') no-repeat ;
 }
 
 .Scissors16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Scissors.gif') no-repeat ;
 }
 
 .BlueBalanced16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueBalanced.gif') no-repeat ;
 }
 
 .Entertainment16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Entertainment.gif') no-repeat ;
 }
 
 .BlueCogWheel16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCogWheel.gif') no-repeat ;  
 }
 
 .Earth16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Earth.gif') no-repeat ;
 }
 
 .Finance16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Earth.gif') no-repeat ;
 }
 
 .FootBall16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/FootBall.gif') no-repeat ;
 }
 
 .HotNews16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/HotNews.gif') no-repeat ;
 }
 
 .Medical16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Medical.gif') no-repeat ;
 }
 
 .Politic16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Politic.gif') no-repeat ;  
 }
 
 .RainyCloud16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/RainyCloud.gif') no-repeat ;
 }
 
 .Social16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background:  url('/eXoResources/icons/16x16/DefaultSkin/Social.gif') no-repeat ;
 }
 
 .YellowTriangleFace16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/YellowTriangleFace.gif') no-repeat ;
 }
 
 .Software16x16Icon {
-	width: 16px ;
-  height: 16px ;
+	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Software.gif') no-repeat ;
 }
 
 .Hand16x16Icon {
-	width: 16px ;
-  height: 16px ;
+	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Hand.gif') no-repeat ;
 }
 
 .BrownBook16x16Icon {
-  width: 16px ;
-  height:16px ;
+  width: 16px ; height:16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BrownBook.gif') no-repeat ;
 }
 
@@ -782,5 +722,3 @@
   width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultContainerIcon.gif') no-repeat ;
 }
-
-

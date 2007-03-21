@@ -1,25 +1,60 @@
 .UIBannerPortlet {
-  background: url('MacSkin/background/BannerRepeat1x103.jpg') repeat-x ;
-  height: 103px ;
-  vertical-align: middle ;
-  line-height: 103px ;
-  text-align: center ;
+  height: 74px;
 }
 
-.UIBannerPortlet .BannerLeft {
-  float: left ;
-  background: url('MacSkin/background/LeftBanner242x103.jpg') no-repeat left ;
-  width: 25% ;
+.UIBannerPortlet .LeftBanner {
+	height: 74px;
+	padding: 0px 0px 0px 157px;
+  background: url('MacSkin/background/LeftBanner157x74.jpg') no-repeat left;
 }
 
-.UIBannerPortlet .BannerMiddle {
-  float: left ;
-  background: url('MacSkin/background/MiddleBanner144x103.jpg') no-repeat center ;
-  width: 49% ;
+.UIBannerPortlet .MiddleBanner{
+	height: 74px;
+  background: url('MacSkin/background/MiddleBanner1x74.jpg') repeat-x ;
 }
 
-.UIBannerPortlet .BannerRight {
-  float: right ;
-  background: url('MacSkin/background/RightBanner207x103.jpg') no-repeat right ;
-  width: 25% ;
+.UIBannerPortlet .RightBanner {
+  height: 74px;
+  padding: 0px 84px 0px 0px ;
+  background: url('MacSkin/background/RightBanner84x74.jpg') no-repeat right;
 }
+
+.UIBannerPortlet .BannerTitle {
+  height: 35px;
+  background: url('MacSkin/background/eXoWebOSSlogan179x17.gif') no-repeat left bottom;
+  padding: 8px 0px 0px 0px;
+}
+
+.UIBannerPortlet .LoginContainer {
+}
+
+.UIBannerPortlet .LoginContainer .LoginContent {
+  float: right;
+  font-size: 11px;
+  padding: 0px 13px 0px 0px;
+}
+
+.UIBannerPortlet .LoginContainer .LoginContent a {
+  font-size: 11px;
+  font-weight: bold;
+  color: orange;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.UIBannerPortlet .LoginContainer .LoginContent a:hover {
+  color: #5098eb;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.UIBannerPortlet .LoginContent .LoginLabel {
+	float: left;
+	padding: 0px 8px 0px 0px;
+}
+
+.UIBannerPortlet .LoginContent .LoginIcon {
+  float: left;
+  width: 19px; height: 15px;
+  background: url('DefaultSkin/background/SigninButton.gif') no-repeat top;
+  cursor: pointer;

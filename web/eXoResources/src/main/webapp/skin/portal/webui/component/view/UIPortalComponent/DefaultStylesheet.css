@@ -28,8 +28,8 @@
 
 .UIPortlet .PortletLabel {
   float: left ;
-  margin: 5px 0px 0px 0px ;
   font-size: 11px ; font-weight: bold ;
+  margin: 5px 0px 0px 0px ;
 }
 
 .UIPortlet .ViewPortletIcon {
@@ -42,15 +42,15 @@
 
 .UIPortlet .EditPortletPropertiesIcon {
 	float: right;
-	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat left;
-  margin: 4px 10px 2px 0px;
+	width: 24px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/PencilButton.gif') no-repeat left;
+  margin: 4px 5px 2px 0px;
 }
 
 .UIPortlet .DeletePortletIcon {
 	float:right;
-	width: 16px; height:16px; 
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
+	width: 24px; height:16px; 
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBinButton.gif') no-repeat ;
   margin: 4px 8px 2px 0px;
 }
 /*##############################- PortletLayoutDecorator  -################################*/
@@ -166,7 +166,6 @@
 }
 
 .UIPortal {
-
 }
 
 .DragAndDropPreview {

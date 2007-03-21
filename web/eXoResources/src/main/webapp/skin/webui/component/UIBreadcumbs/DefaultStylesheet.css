@@ -4,8 +4,7 @@
 
 .UIBreadcumbs {
   height: 26px ;  line-height: 26px ;
-  vertical-align: middle ;
-  font-size: 11px ;
+  vertical-align: middle ; font-size: 11px ;
 }
 
 .UIBreadcumbs a {
@@ -14,33 +13,33 @@
 }
 
 .UIBreadcumbs a.Selected {
-	color: blue ; 
+	color: #fc7605 ; 
 }
 
 .UIBreadcumbs .HomeIcon {
 	float: left;
-  margin: 5px 7px 5px 3px ;
+  margin: 5px 5px 0px 3px ;
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {
-  height: 26px ;
-  padding-left: 5px ;
-  background: url('DefaultSkin/background/BreadcumsBarL5x26.gif') no-repeat left;
+  height: 25px ;
+  padding: 0px 0px 0px 5px ;
+  background: url('DefaultSkin/background/LeftBreadcumbsBar5x25.gif') no-repeat left;
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
-  height: 26px;
-  padding-right: 5px;
-  background: url('DefaultSkin/background/BreadcumsBarR5x26.gif') no-repeat right;
+  height: 25px;
+  padding: 0px 5px 0px 0px;
+  background: url('DefaultSkin/background/RightBreadcumbsBar5x25.gif') no-repeat right;
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {
-  background: url('DefaultSkin/background/BreadcumsBarRP1x26.gif') repeat-x;
-  height: 26px; line-height: 26px; vertical-align: middle;
+  height: 25px; line-height: 25px; vertical-align: middle;
+  background: url('DefaultSkin/background/MiddleBreadcumbsBar1x25.gif') repeat-x;
 }
 
 .UIBreadcumbs .RightBlackGridArrowIcon {
   float: left;
-  margin: 5px;
+  margin: 5px 0px 0px 0px;
 }
 

@@ -1,56 +1,61 @@
 .UIBannerPortlet {
-  
+  height: 73px;
 }
 
-.UIBannerPortlet .BannerLeft {
-	padding-left: 186px;
-  background: url('DefaultSkin/background/LeftBanner186x73.jpg') no-repeat ;
+.UIBannerPortlet .LeftBanner {
+	height: 73px;
+	padding: 0px 0px 0px 186px;
+  background: url('DefaultSkin/background/LeftBanner186x73.jpg') no-repeat left;
 }
 
-.UIBannerPortlet .BannerMiddle {
+.UIBannerPortlet .MiddleBanner{
+	height: 73px;
   background: url('DefaultSkin/background/MiddleBanner9x73.jpg') repeat-x ;
 }
 
-.UIBannerPortlet .BannerRight {
+.UIBannerPortlet .RightBanner {
   height: 73px;
+  padding: 0px 30px 0px 0px ;
   background: url('DefaultSkin/background/RightBanner30x73.jpg') no-repeat right;
-  padding-right: 30px;
 }
 
 .UIBannerPortlet .BannerTitle {
-  padding-top: 24px;
-}
-
-.UIBannerPortlet .BannerTitle .TitleLabel {
-  font-weight: bold; color: #3088eb;
-  font-size: 14px;
-  padding-left: 20px;
+  height: 39px;
+  background: url('DefaultSkin/background/eXoWebOSSlogan160x16.gif') no-repeat left bottom;
+  margin: 0px 0px 0px 15px;
 }
 
 .UIBannerPortlet .LoginContainer {
-	height: 33px;
 }
 
 .UIBannerPortlet .LoginContainer .LoginContent {
   float: right;
   font-size: 11px;
-  width: 200px;
-  padding-top: 10px;
+  padding: 9px 13px 0px 0px;
+}
+
+.UIBannerPortlet .LoginContainer .LoginContent a {
+  font-size: 11px;
+  font-weight: bold;
+  color: orange;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.UIBannerPortlet .LoginContainer .LoginContent a:hover {
+  color: #5098eb;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .UIBannerPortlet .LoginContent .LoginLabel {
 	float: left;
-	padding-right: 10px;
-}
-
-.UIBannerPortlet .LoginContent .LoginLabel label {
-	padding-right: 10px;
-  float: left;
+	padding: 0px 8px 0px 0px;
 }
 
 .UIBannerPortlet .LoginContent .LoginIcon {
   float: left;
   width: 19px; height: 15px;
-  background: url('DefaultSkin/background/Signin.gif') no-repeat top;
+  background: url('DefaultSkin/background/SigninButton.gif') no-repeat top;
   cursor: pointer;
 }

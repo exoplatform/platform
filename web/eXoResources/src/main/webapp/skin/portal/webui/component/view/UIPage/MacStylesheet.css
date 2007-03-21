@@ -8,18 +8,18 @@
 }
 
 .UIPage .PageLayoutDecorator .TopLeftPage {
-  background: url('MacSkin/background/PageLayoutTL65x48.gif') no-repeat left ;
+  background: url('MacSkin/background/TLPageLayout65x48.gif') no-repeat left ;
   padding: 0px 0px 0px 65px ;
 }
 
 .UIPage .PageLayoutDecorator .TopRightPage {
-  background: url('MacSkin/background/PageLayoutTR71x48.gif') no-repeat right ;
+  background: url('MacSkin/background/TRPageLayout71x48.gif') no-repeat right ;
   padding: 0px 71px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage {
   height: 48px ;   
-  background: url('MacSkin/background/PageLayoutTC1x48.gif') repeat-x center ;  
+  background: url('MacSkin/background/TMageLayout1x48.gif') repeat-x center ;  
 }
 
 .UIPage .PageLayoutDecorator .MiddleLeftPage {
