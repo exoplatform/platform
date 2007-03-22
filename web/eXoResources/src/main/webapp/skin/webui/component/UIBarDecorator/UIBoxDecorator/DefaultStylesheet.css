@@ -9,67 +9,6 @@
 .DecoratorBox {
 }
 
-/*##############################- WhiteRoundedBox Style -################################*/
-.DecoratorBox .WhiteRoundedBoxStyle {
-  width: 99%;
-  margin: 7px 7px 0px 7px;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .DecoratorBackground {
-  background-color: white ;
-  margin: 0px 7px 0px 0px ;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .TopLeftCornerBoxDecorator {
-  background: url('DefaultSkin/background/WhiteRoundedBoxLeftTop7x7.gif') no-repeat left ;
-  padding: 0px 0px 0px 7px ;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .TopCenterBoxDecorator {
-  height: 7px ;
-  background-color: white ;
-  border-top: solid 1px #acacac;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .TopRightCornerBoxDecorator {
-  background: url('DefaultSkin/background/WhiteRoundedBoxRightTop7x7.gif') no-repeat right ;
-  padding: 0px 7px 0px 0px ;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .MiddleLeftSideBoxDecorator {
-  background-color: white ;
-  padding: 0px 0px 0px 7px;
-  border-left: solid 1px #acacac;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .MiddleRightSideBoxDecorator {
-  background: white ;
-  padding: 0px 7px 0px 0px ;
-  border-right: solid 1px #acacac ;
-  border-bottom: solid 1px white;  /*fix bug on IE*/
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .MiddleRightSideBoxDecorator .CenterSideBoxDecorator {
-   padding: 5px
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .BottomLeftCornerBoxDecorator {
-  height: 7px ;
-  background: url('DefaultSkin/background/WhiteRoundedBoxLeftBottom7x7.gif') no-repeat left ;
-  padding: 0px 0px 0px 7px ;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .BottomCenterBoxDecorator {
-  height: 6px ;
-  background: white ;
-  border-bottom: solid 1px #acacac;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .BottomRightCornerBoxDecorator {
-  background: url('DefaultSkin/background/WhiteRoundedBoxRightBottom7x7.gif') no-repeat right ;
-  padding: 0px 7px 0px 0px ;
-}
-
 /*##############################- GrayRoundedFillBox Style -################################*/
 .DecoratorBox .GrayRoundedFillBoxStyle {
 }

@@ -1,78 +1,86 @@
 <div class="UILoginForm">
-  <div class="DecoratorBox">
-    <div class="WhiteRoundedBoxStyle">
-      <div class="TopLeftCornerBoxDecorator">
-        <div class="TopRightCornerBoxDecorator">
-          <div class="TopCenterBoxDecorator"><span></span></div>
-        </div>
-      </div>
-      <div class="MiddleLeftSideBoxDecorator">
-        <div class="MiddleRightSideBoxDecorator">
-          <div class="DecoratorBackground">
-            <div class="OverflowContainer">
-			        <div class="LoginIcon"><span></span></div>
-			        <div class="WelcomeMessage">
-			          <div><%=_ctx.appRes("UILoginForm.label.welcome")%></div>
-			          <div class="OrangeMessage"><%=_ctx.appRes("UILoginForm.label.login")%></div>
+  <div class="LoginDecorator">
+	  <div class="TopLeftLoginDecorator">
+	    <div class="TopRightLoginDecorator">
+	      <div class="TopCenterLoginDecorator">
+	      	<div class="SigninTitle">Sign in</div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="MiddleLeftLoginDecorator">
+	    <div class="MiddleRightLoginDecorator">
+	      <div class="LoginDecoratorBackground">
+	        <div class="LoginDetailBox">
+	          <% uiform.begin() %>
+	          	<div class="VerticalLayout">
+		            <div class="UserNameField">
+		              <label><%=_ctx.appRes("UILoginForm.label.user")%>:</label>
+		              <% uiform.renderChild(0)%>
+		            </div>
+		            <div class="PasswordField">
+		              <label><%=_ctx.appRes("UILoginForm.label.password")%>:</label>
+		              <% uiform.renderChild(1)%>
+		            </div>  
+			          <div class="Message"><a href="#"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
+			          <div class="CheckField">
+			            <input type="checkbox"/>
+			            <div class="RememberLoginTitle">Remember My Login</div>
+			            <div style="clear:left;"><span></span></div>
+			          </div>
+				          
+			          <div class="UIAction">
+			          	<div class="ActionContainer">
+			          		<div class="ActionButton">
+			          			<div class="SimpleStyle">
+			          				<div class="ButtonLeft">
+			          					<div class="ButtonRight">
+			          						<div class="ButtonMiddle">
+			          							<a href="#">Sign in</a>
+			          						</div>
+			          					</div>
+			          				</div>
+			          			</div>
+			          		</div>
+			          	</div>
+			          </div>
 			        </div>
-            </div>
-            <div class="LoginDetailBox">
-              <% uiform.begin() %>
-                <div class="VerticalLayout">
-                  <label><%=_ctx.appRes("UILoginForm.label.user")%>:</label>
-                  <% uiform.renderChild(0) %>
-                  <label><%=_ctx.appRes("UILoginForm.label.password")%>:</label>
-                  <% uiform.renderChild(1)%>  
-	                <div class="UIAction">
-	                  <div class="ActionContainer">
-	                    <div class="ActionButton">
-	                      <div class="LightBlueStyle">
-			                    <div class="ButtonLeft">
-			                      <div class="ButtonRight">
-			                        <div class="ButtonMiddle">
-		                             <% 
-											             String link = uicomponent.url("Login") ;
-									               %>
-									               <a class="Login" href="$link"><%=_ctx.appRes("UILoginForm.label.login")%></a>
-			                        </div>
-			                      </div>
-			                    </div>
-		                    </div>
-	                    </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="UIAction">
-	                  <div class="ActionContainer">
-	                    <div class="ActionButton">
-	                      <div class="LightBlueStyle">
-			                    <div class="ButtonLeft">
-			                      <div class="ButtonRight">
-			                        <div class="ButtonMiddle">
-		                             <% 
-											             String linkCancel = uicomponent.url("Cancel") ;
-									               %>
-									               <a class="Login" href="$linkCancel"><%=_ctx.appRes("UILoginForm.label.cancel")%></a>
-			                        </div>
-			                      </div>
-			                    </div>
-		                    </div>
-	                    </div>
-                    </div>
-                  </div>
-                </div>
-              <%uiform.end()%>
-              <a class="ForgotMessage"><%=_ctx.appRes("UILoginForm.label.forgot")%></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="BottomLeftCornerBoxDecorator">
-        <div class="BottomRightCornerBoxDecorator">
-          <div class="BottomCenterBoxDecorator"><span></span></div>
-        </div>
-      </div>
-    </div>
+	          <%uiform.end()%>
+	          
+	          <div class="SignUpBar">
+	          	<div class="LeftSignUpBar">
+		          	<div class="SignUpBackground">
+		          		<div >
+		          			Not a member?
+		          			<span><a class="SignUpLink" href="#">  Sign up now for an account</a></span>
+		          		</div>
+		          	</div>
+		          </div>
+	          </div>
+	          
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="BottomLeftLoginDecorator">
+	    <div class="BottomRightLoginDecorator">
+	      <div class="BottomCenterLoginDecorator"><span></span></div>
+	    </div>
+	  </div>
+	</div>
+	<div class="UIAction">
+  	<div class="ActionContainer">
+  		<div class="ActionButton">
+  			<div class="SimpleStyle">
+  				<div class="ButtonLeft">
+  					<div class="ButtonRight">
+  						<div class="ButtonMiddle">
+  							<a href="#">Discard</a>
+  						</div>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
   </div>
 </div>  
 

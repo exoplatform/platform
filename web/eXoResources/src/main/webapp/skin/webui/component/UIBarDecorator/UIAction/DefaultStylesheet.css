@@ -15,12 +15,7 @@
 }
 
 .UIAction .ActionContainer .ActionButton  a {
-  float: left;
-  height: 26px ;
-  line-height: 26px ;
-  color: black ; font-weight: normal ; font-size: 11px ;
-  vertical-align: middle ;  text-decoration: none ;
-  margin: 0px 0px 0px 4px;
+  font-weight: normal ; color: black; font-size: 11px;
 }
 
 .UIAction .ActionContainer .ActionButton  a:hover {
@@ -99,4 +94,26 @@
   height: 26px;	
   line-height: 26px;
 	background: url('DefaultSkin/background/LightBlueStyleButtonMiddle1x26.gif') repeat-x;	
+}
+
+/*##############################-SimpleStyle ActionButton-################################*/
+.UIAction .ActionContainer .ActionButton .SimpleStyle {
+
+}
+
+.UIAction .ActionContainer .ActionButton .SimpleStyle .ButtonLeft {
+  background: url('DefaultSkin/background/SignInBottonLeft9x22.gif') no-repeat left;
+  padding: 0px 0px 0px 9px;
+}
+
+.UIAction .ActionContainer .ActionButton .SimpleStyle .ButtonRight {
+  background: url('DefaultSkin/background/SignInBottonRight9x22.gif') no-repeat right;
+  padding: 0px 9px 0px 0px ;
+}
+
+.UIAction .ActionContainer .ActionButton .SimpleStyle .ButtonMiddle {
+  height: 22px;	
+  line-height: 22px;
+	background: url('DefaultSkin/background/SignInBottonCenter1x22.gif') repeat-x;
+	text-align: center;	
 }

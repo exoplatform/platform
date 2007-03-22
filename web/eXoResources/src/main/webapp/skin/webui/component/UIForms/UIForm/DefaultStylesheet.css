@@ -61,9 +61,6 @@
   margin-right: auto ;
 }
 
-.UIForm .HorizontalLayout .UIAction .ActionContainer .Button {
-}
-
 .UIForm .HorizontalLayout label {
 	float:left;
   width: 100px ;
@@ -103,7 +100,7 @@
 }
 
 .UIForm .VerticalLayout .UIAction {
-  padding: 15px 0px 15px 15px ;
+  padding: 15px 0px 17px 15px ;
   margin-left: auto ;
   margin-right: auto ;
 }
@@ -111,6 +108,8 @@
 .UIForm .VerticalLayout .UIAction .ActionContainer .Button {
   float: none;
 }
+
+
 
 .UIForm .VerticalLayout  label {
 	text-align: left ;
