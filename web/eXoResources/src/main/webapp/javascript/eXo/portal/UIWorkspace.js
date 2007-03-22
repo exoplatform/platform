@@ -1,4 +1,4 @@
-function UIWorkspace(id) {	
+function UIWorkspace(id) {
   this.id = id ;
   this.showControlWorkspace = false ;
 }
@@ -27,8 +27,7 @@ eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 	
 	if(eXo.portal.UIControlWorkspace.showControlWorkspace == true) {
 		uiWorkspaceContainer.style.display = "block" ;
-		uiWorkspaceContainer.style.width = (eXo.portal.UIControlWorkspace.defaultWidth - 
-																				eXo.portal.UIControlWorkspace.slidebarWidth) + "px" ;
+		uiWorkspaceContainer.style.width = eXo.portal.UIControlWorkspace.defaultWidth + "px" ;
 	}
 	uiWorkspacePanel.style.height = (height - this.uiWorkspaceControl.offsetHeight - 23) + "px" ;
 	
@@ -69,7 +68,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 		uiWorkspaceContainer.style.display = "block" ;
 		uiWorkspace.style.width = eXo.portal.UIControlWorkspace.defaultWidth + "px" ;
 		
-		uiWorkspaceContainer.style.width = (eXo.portal.UIControlWorkspace.defaultWidth) + "px" ;
+		uiWorkspaceContainer.style.width = eXo.portal.UIControlWorkspace.defaultWidth + "px" ;
 		
 		uiWorkspacePanel.style.height = (eXo.portal.UIControlWorkspace.height - 
 																		 eXo.portal.UIControlWorkspace.uiWorkspaceControl.offsetHeight - 23) + "px" ;
@@ -100,7 +99,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 
 /*#############################-Working Workspace-##############################*/
 if(eXo.portal.UIWorkingWorkspace == undefined) {
-   eXo.portal.UIWorkingWorkspace = new UIWorkspace("UIWorkingWorkspace") ;
+  eXo.portal.UIWorkingWorkspace = new UIWorkspace("UIWorkingWorkspace") ;
 }
 
 eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {

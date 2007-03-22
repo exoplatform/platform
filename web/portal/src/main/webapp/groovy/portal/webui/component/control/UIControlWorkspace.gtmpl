@@ -48,6 +48,5 @@
 	%>
 </div>
 <%
-  rcontext.addJavascript(""
-      + "eXo.portal.UIControlWorkspace.onResizeDefault() ; ") ;
+  rcontext.addJavascript("eXo.portal.UIControlWorkspace.onResizeDefault() ; ") ;
 %>
