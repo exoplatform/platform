@@ -15,8 +15,11 @@
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage {
-  height: 114px ;   
+  height: 114px ; line-height: 100px;  
   background: url('DefaultSkin/background/TCPageLayout1x114.gif') repeat-x center ;  
+  color: #525252; text-align: center;
+  font-weight: bold; font-size: 10px;
+  padding: 0px 0px 0px 10px;
 }
 
 .UIPage .PageLayoutDecorator .MiddleLeftPage {
@@ -34,12 +37,6 @@
 .UIPage .PageLayoutDecorator .MiddlePageBG {
  height: 80px; 
  background: white;
-}
-
-.UIPage .PageLayoutDecorator .PageContent {
- color: #525252; text-align: center;
- font-weight: bold; font-size: 10px;
- padding: 60px 0px 0px 0px;
 }
 
 .UIPage .PageLayoutDecorator .BottomLeftPage {  

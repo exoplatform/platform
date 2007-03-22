@@ -17,16 +17,16 @@
 			<%/*Begin Top Decorator*/%>
 			<div class="TopLeftPage">
 				<div class="TopRightPage">
-					<div class="TopCenterPage"><span></span></div>												
+					<div class="TopCenterPage">
+					  <%=_ctx.appRes("UIPage.label.pageContent")%>s
+					</div>												
 				</div>
 			</div>
 			
 			<%/*Begin Middle Decorator*/%>
 			<div class="MiddleLeftPage">
 				<div class="MiddleRightPage">
-				  <div class="MiddlePageBG">
-						<div class="PageContent"><%=_ctx.appRes("UIPage.label.pageContent")%></div>
-					</div>
+				  <div class="MiddlePageBG"><span></span></div>
 				</div>
 			</div>
 			

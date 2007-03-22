@@ -8,27 +8,27 @@
 }
 
 .UIPage .PageLayoutDecorator .TopLeftPage {
-  background: url('MacSkin/background/TLPageLayout65x48.gif') no-repeat left ;
+  background: url('MacSkin/background/TopLeftPageLayout65x48.gif') no-repeat left ;
   padding: 0px 0px 0px 65px ;
 }
 
 .UIPage .PageLayoutDecorator .TopRightPage {
-  background: url('MacSkin/background/TRPageLayout71x48.gif') no-repeat right ;
+  background: url('MacSkin/background/TopRightPageLayout71x48.gif') no-repeat right ;
   padding: 0px 71px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage {
   height: 48px ;   
-  background: url('MacSkin/background/TMageLayout1x48.gif') repeat-x center ;  
+  background: url('MacSkin/background/TopMiddlePageLayout1x48.gif') repeat-x center ;  
 }
 
 .UIPage .PageLayoutDecorator .MiddleLeftPage {
-  background: url('MacSkin/background/PageLayoutML13x1.gif') repeat-y left ;
+  background: url('MacSkin/background/MiddleLeftPageLayout13x1.gif') repeat-y left ;
   padding: 0px 0px 0px 13px ;   
 }
 
 .UIPage .PageLayoutDecorator .MiddleRightPage {
-  background: url('MacSkin/background/PageLayoutMR14x1.gif') repeat-y right;
+  background: url('MacSkin/background/MiddleRightPageLayout14x1.gif') repeat-y right;
   padding: 0px 14px 0px 0px ;
 }
 
@@ -40,17 +40,17 @@
 
 .UIPage .PageLayoutDecorator .BottomLeftPage {
   height: 17px;  
-  background: url('MacSkin/background/PageLayoutBL17x17.gif') no-repeat left ;
+  background: url('MacSkin/background/BottomLeftPageLayout17x17.gif') no-repeat left ;
   padding: 0px 0px 0px 17px ;
 }
 
 .UIPage .PageLayoutDecorator .BottomRightPage {
-  background: url('MacSkin/background/PageLayoutBR17x17.gif') no-repeat right ;
+  background: url('MacSkin/background/BottomRightPageLayout17x17.gif') no-repeat right ;
   padding: 0px 17px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .BottomCenterPage {
   height: 17px ;   
-  background: url('MacSkin/background/PageLayoutBC1x17.gif') repeat-x center ; 
+  background: url('MacSkin/background/BottomMiddlePageLayout1x17.gif') repeat-x center ; 
 }
 

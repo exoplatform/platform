@@ -3,9 +3,8 @@
 }
 
  .UIBreadcumbs {
-  height: 28px ;
+  height: 28px ;  line-height: 24px ;
   vertical-align: middle ;
-  line-height: 24px ;
   font-size: 11px;
 }
 
@@ -15,14 +14,14 @@
 }
 
  .UIBreadcumbs a.Selected {
-	color: blue ; 
+	color: #0574db  ; 
 }
 
  .UIBreadcumbs .HomeIcon {
 	float: left;
 	width: 24px; height: 24px;
-  margin: 1px 7px 0px 3px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/MacHomeIcon.gif') no-repeat;
+  margin: 3px 3px 0px 3px ;
+  background: url('/eXoResources/icons/24x24/MacSkin/BreadcumbsHomeIcon.gif') no-repeat;
 }
 
  .UIBreadcumbs .Home16x16Icon {
@@ -30,26 +29,26 @@
 }
 
  .UIBreadcumbs .LeftBreadcumbsBar {
-  height: 31px ;
-  padding-left: 6px ;
-  background: url('MacSkin/background/BreadcumbsBarL6x31.gif') no-repeat left;
+  height: 32px ;
+  padding: 0px 0px 0px 4px ;
+  background: url('MacSkin/background/LeftBreadcumbsBar4x32.png') no-repeat left;
 }
 
- .UIBreadcumbs .RightBreadcumbsBar {
-  height: 31px;
-  padding-right: 6px;
-  background: url('MacSkin/background/BreadcumbsBarR6x31.gif') no-repeat right;
+.UIBreadcumbs .RightBreadcumbsBar {
+  height: 32px;
+  padding: 0px 6px 0px 0px;
+  background: url('MacSkin/background/RightBreadcumbsBar6x32.png') no-repeat right;
 }
 
- .UIBreadcumbs .BreadcumbsInfoBar {
-  background: url('MacSkin/background/BreadcumbsBarM1x31.gif') repeat-x;
-  height: 31px; line-height: 27px; vertical-align: middle;
+.UIBreadcumbs .BreadcumbsInfoBar {
+  height: 32px; line-height: 32px; vertical-align: middle;
+  background: url('MacSkin/background/MiddleBreadcumbsBar1x32.png') repeat-x;
 }
 
  .UIBreadcumbs .RightBlackGridArrowIcon {
   float: left;
+  width: 16px; height: 16px;
   margin: 7px 2px 0px 2px;
   background: url('/eXoResources/icons/16x16/MacSkin/OrangeRightArrow.gif') no-repeat;
-  width: 16px; height: 16px;
 }
 

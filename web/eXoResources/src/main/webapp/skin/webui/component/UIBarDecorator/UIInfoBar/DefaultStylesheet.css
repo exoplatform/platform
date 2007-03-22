@@ -65,7 +65,9 @@
 
 .UIInfoBar .BlueRoundedStyle .Icon {
   float: left ;
-  margin: 0px 5px 0px 5px;  
+  width: 16px; height: 16px;
+  margin: 3px 5px 0px 5px;  
+  border: solid 1px yellow;
 }
 
 /*######################-Simple Style-######################*/
