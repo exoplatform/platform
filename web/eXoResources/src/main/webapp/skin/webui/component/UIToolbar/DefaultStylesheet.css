@@ -161,20 +161,20 @@
 }
 
 .UIToolbar .PolyToolbar .LeftBar {
-  height: 37px;
-  padding-left: 7px;
-  background: url('DefaultSkin/background/PolyBarL7x37.gif') no-repeat left;
+  height: 30px;
+  padding-left: 2px;
+  background: url('DefaultSkin/background/PolyBarL2x30.gif') no-repeat left;
 }
 
 .UIToolbar .PolyToolbar .RightBar {
-  height: 37px;
-  padding-right: 7px;
-  background: url('DefaultSkin/background/PolyBarR7x37.gif') no-repeat right;
+  height: 30px;
+  padding-right: 2px;
+  background: url('DefaultSkin/background/PolyBarR2x30.gif') no-repeat right;
 }
 
 .UIToolbar .PolyToolbar .MiddleBar {
-  height: 37px; line-height: 37px; vertical-align: middle;
-  background: url('DefaultSkin/background/PolyBarM1x37.gif') repeat-x ;
+  height: 30px; line-height: 30px; vertical-align: middle;
+  background: url('DefaultSkin/background/PolyBarM1x30.gif') repeat-x ;
 }
 
 /*#################################- Poly2Toolbar -##############################*/

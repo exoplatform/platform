@@ -14,7 +14,8 @@
 .UILoginForm .LoginDecorator .LoginDecoratorBackground {
   background-color: white ;
   font-size: 11px;
-  padding: 10px 0px 0px 0px;
+  padding: 15px 0px 0px 0px;
+  height: 190px;
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
@@ -72,7 +73,7 @@
 }
 
 .UILoginForm .LoginDetailBox .UserNameField {
-  height: 25px;
+  height: 28px;
   width: 300px;
   margin: auto;
   text-align: right;
@@ -88,7 +89,7 @@
 .UILoginForm .LoginDetailBox .CheckField {
   height: 20px;
   width: 190px;
-  margin: auto 35px 0px auto;
+  margin: auto 40px 0px auto;
   padding-left: 30px;
 }
 
@@ -124,7 +125,7 @@
 
 .UILoginForm .LoginDetailBox .Message {
   width: 300px; margin: auto; 
-  height: 26px; line-height: 22px; vertical-align: middle; text-align: right;
+  height: 26px; line-height: 26px; text-align: right;
   color: blue ;
   white-space: nowrap;
   padding: 0px 10px 0px 0px;
@@ -156,6 +157,10 @@
 	font-weight: bold; color: #ee8804;
 	margin: 0px 25px 0px 0px;
 	cursor: pointer;
+}
+
+.UIMaskWorkspace .UILoginForm .UIAction {
+	margin: 0px auto 0px auto;
 }
 
 .UILoginForm .UIAction .ActionContainer .ActionButton {
