@@ -92,7 +92,7 @@ function PortalResponse(responseDiv) {
 function AjaxRequest(method, url, queryString) {	
 	var instance = new Object();
 	
-	instance.timeout = 5000;	
+	instance.timeout = 10000;	
 	instance.aborted = false;
 	
 	if(method != null) instance.method = method; else	instance.method = "GET";	

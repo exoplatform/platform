@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.widget.UILoginForm;
-import org.exoplatform.portal.component.widget.UILoginForm.LoginActionListener;
+import org.exoplatform.portal.component.widget.UILoginForm.SigninActionListener;
 import org.exoplatform.webui.application.RequestContext;
 import org.exoplatform.webui.component.UIPortletApplication;
 import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
@@ -33,7 +33,7 @@ import org.exoplatform.webui.event.EventListener;
     type = UILoginForm.class,     
     lifecycle = UIFormLifecycle.class ,
     template = "app:/groovy/portal/webui/component/UILoginForm.gtmpl" ,
-    events = @EventConfig(listeners = LoginActionListener.class)
+    events = @EventConfig(listeners = SigninActionListener.class)
   )    
 })
 

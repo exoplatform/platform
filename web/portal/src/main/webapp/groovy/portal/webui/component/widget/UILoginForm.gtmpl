@@ -34,11 +34,10 @@
 			          			<div class="SimpleStyle">
 			          				<div class="ButtonLeft">
 			          					<div class="ButtonRight">
-			          						<div class="ButtonMiddle">
-			          						  <% 
-											             String link = uicomponent.url("Login") ;
-									            %>
-			          							<a href="$link"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>
+			          						<div class="ButtonMiddle">			          						 
+			          							<a href="<%=uicomponent.url("Signin");%>">
+			          								<%=_ctx.appRes("UILoginForm.label.Signin")%>
+			          						  </a>
 			          						</div>
 			          					</div>
 			          				</div>
@@ -54,7 +53,11 @@
 		          	<div class="SignUpBackground">
 		          		<div >
 		          			<%=_ctx.appRes("UILoginForm.label.NotMember")%>
-		          			<span><a class="SignUpLink" href="#"><%=_ctx.appRes("UILoginForm.label.ForAccount")%></a></span>
+		          			<span>
+		          				<a class="SignUpLink" href="#">
+		          					<%=_ctx.appRes("UILoginForm.label.ForAccount")%>
+		          				</a>
+		          		  </span>
 		          		</div>
 		          	</div>
 		          </div>
@@ -76,11 +79,10 @@
   			<div class="SimpleStyle">
   				<div class="ButtonLeft">
   					<div class="ButtonRight">
-  						<div class="ButtonMiddle">
-  						  <% 
-										String linkCancel = uicomponent.url("Cancel") ;
-								%>
-  							<a href="$linkCancel"><%=_ctx.appRes("UILoginForm.label.Discard")%></a>
+  						<div class="ButtonMiddle">  						  
+  							<a href="<%=uicomponent.event("Discard");%>">
+  								<%=_ctx.appRes("UILoginForm.label.Discard")%>
+  						  </a>
   						</div>
   					</div>
   				</div>

@@ -36,8 +36,8 @@ import org.exoplatform.webui.exception.MessageException;
   lifecycle = UIFormLifecycle.class,
   template = "system:/groovy/portal/webui/component/widget/UILoginForm.gtmpl" ,
   events = {
-    @EventConfig(listeners = UILoginForm.LoginActionListener.class),
-    @EventConfig(phase = Phase.DECODE, listeners = UILoginForm.CancelActionListener.class)
+    @EventConfig(listeners = UILoginForm.SigninActionListener.class),
+    @EventConfig(phase = Phase.DECODE, listeners = UILoginForm.DiscardActionListener.class)
   }
 )
 public class UILoginForm extends UIForm {
@@ -50,7 +50,7 @@ public class UILoginForm extends UIForm {
                    addValidator(EmptyFieldValidator.class));
   }
 
-  static public class LoginActionListener  extends EventListener<UILoginForm> {
+  static public class SigninActionListener  extends EventListener<UILoginForm> {
     public void execute(Event<UILoginForm> event) throws Exception {
       UILoginForm uiForm = event.getSource();
       String username = uiForm.getUIStringInput("username").getValue();
@@ -73,7 +73,7 @@ public class UILoginForm extends UIForm {
     }    
   }
   
-  static  public class CancelActionListener extends EventListener<UIComponent> {
+  static  public class DiscardActionListener extends EventListener<UIComponent> {
     public void execute(Event<UIComponent> event) throws Exception {
       UIPortalApplication uiApp = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;

@@ -3,7 +3,7 @@ package org.exoplatform.account.webui.component;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UILoginForm;
-import org.exoplatform.portal.component.widget.UILoginForm.LoginActionListener;
+import org.exoplatform.portal.component.widget.UILoginForm.SigninActionListener;
 import org.exoplatform.webui.component.UIPortletApplication;
 import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -21,7 +21,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
     type = UILoginForm.class,     
     lifecycle = UIFormLifecycle.class ,
     template = "app:/groovy/account/webui/component/UILoginForm.gtmpl" ,
-    events = @EventConfig(listeners = LoginActionListener.class )
+    events = @EventConfig(listeners = SigninActionListener.class )
   )    
 })
 

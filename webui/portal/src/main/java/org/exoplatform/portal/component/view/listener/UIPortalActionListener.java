@@ -58,7 +58,7 @@ public class UIPortalActionListener {
     }
   }
   
-  static public class LoginActionListener  extends EventListener<UIPortal> {    
+  static public class ShowLoginFormActionListener  extends EventListener<UIPortal> {    
     public void execute(Event<UIPortal> event) throws Exception {
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);

@@ -1,7 +1,7 @@
 <%
 	import org.exoplatform.portal.application.PortalRequestContext;
-	import org.exoplatform.portal.component.view.Util;
-	PortalRequestContext prContext = Util.getPortalRequestContext();
+	
+	def prContext = _ctx.getRequestContext();
 %>
 
 <div class="UIBannerPortlet">
@@ -17,10 +17,10 @@
 								<div class="LoginIcon" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'SignOut',  true)) ;"><span></span></div>
 								<div style="clear: left;"><span></span></div>
 							<% } else { %>
-							  <a class="LoginLabel" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'Login',  true)) ;">Sign in</a>
-								<div class="LoginIcon" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'Login',  true)) ;"><span></span></div>
+							  <a class="LoginLabel" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm',  true)) ;">Sign in</a>
+								<div class="LoginIcon" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm',  true)) ;"><span></span></div>
 								<div style="clear: left;"><span></span></div>
-							 <% } %> 
+							<% } %> 
 						</div>
 						<div style="clear: right;"><span></span></div>
 					</div>
