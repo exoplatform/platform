@@ -229,7 +229,6 @@
 
 .UIPageBody .UIWindow {
   width: auto ; height: auto;
-  padding-left: 6px;
 }
 
 .UIPageBody .UIWindow .UIApplication {
