@@ -1,16 +1,14 @@
 .UIExoStart {
-  height: 34px;
-  background: #bfceed;
 }
 
 .UIExoStart .StartBarContainer {
-  background: url('DefaultSkin/background/ControlBg1x2.gif') repeat-x top;
-  padding-top: 2px;
+  height: 38px;
+  background: url('DefaultSkin/background/ControlBg1x38.gif') repeat-x top;
 }
 
 .UIExoStart .ExoStartButton {
   float: left ;
-  width: 103px ; height: 34px ;
+  width: 103px ; height: 38px ;
   margin: 0px ;
   cursor: pointer ;
 }
@@ -30,8 +28,8 @@
 
 .UIExoStart .VLineSeparator {
   float: right ;
-  width: 2px ; height: 31px ;
-  background: url('DefaultSkin/background/LineSeparator2x33.gif') no-repeat ;
+  width: 2px ; height: 38px ;
+  background: url('DefaultSkin/background/LineSeparator2x38.gif') no-repeat ;
   margin: 0px 4px 0px 4px ;
 }
 
