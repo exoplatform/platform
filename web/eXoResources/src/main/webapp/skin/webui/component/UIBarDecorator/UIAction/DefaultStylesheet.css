@@ -93,6 +93,7 @@
 .UIAction .ActionContainer .ActionButton .LightBlueStyle .ButtonMiddle {
   height: 26px;	
   line-height: 26px;
+  text-align: center;
 	background: url('DefaultSkin/background/LightBlueStyleButtonMiddle1x26.gif') repeat-x;	
 }
 
