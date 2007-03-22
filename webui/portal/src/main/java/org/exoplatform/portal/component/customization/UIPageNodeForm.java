@@ -21,6 +21,7 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIFormInputIconSelector;
 import org.exoplatform.webui.component.UIFormInputInfo;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -124,6 +125,78 @@ public class UIPageNodeForm extends UIFormTabPane {
     public void execute(Event<UIPageNodeForm> event) throws Exception {
       UIPageNodeForm uiPageNodeForm = event.getSource();
       PortalRequestContext pcontext = Util.getPortalRequestContext();
+      PageNode pageNode = uiPageNodeForm.getPageNode();
+      if (pageNode == null) pageNode = new PageNode();
+      uiPageNodeForm.invokeSetBindingBean(pageNode);
+      if (pageNode.getCreator() == null) pageNode.setCreator(pcontext.getRemoteUser());
+      pcontext.addUIComponentToUpdateByAjax(uiPageNodeForm);
+      UIPortalApplication uiPortalApp  = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      pcontext.addUIComponentToUpdateByAjax(uiControl);
+      
+      pageNode.setModifier(pcontext.getRemoteUser());
+      
+      UIPermissionSelector uiPermissionSelector = uiPageNodeForm.getChild(UIPermissionSelector.class);
+      if (uiPermissionSelector != null) {
+        Permission permission = uiPermissionSelector.getPermission("AccessPermission");
+        if (permission != null) pageNode.setAccessPermission(permission.getValue());
+        else pageNode.setAccessPermission(null);        
+      }
+      
+      UIPageSelector uiPageSelector = uiPageNodeForm.getChild(UIPageSelector.class);
+      if (uiPageSelector != null) {
+        Object pageReference = uiPageSelector.getUIInputValue();
+        if (pageReference != null) pageNode.setPageReference(String.valueOf(pageReference));
+        else {
+          String id = pageNode.getCreator() + ":/" + pageNode.getName();
+          PortalDAO dataService = uiPageNodeForm.getApplicationComponent(PortalDAO.class);
+          Page page = dataService.getPage(id);
+          if (page == null) {
+            page = new Page();
+            page.setId(id);
+            page.setName(pageNode.getName());
+            page.setChildren(new ArrayList<Component>(0));
+            page.setOwner(pageNode.getCreator());
+            dataService.savePage(page);            
+          }
+          pageNode.setPageReference(page.getId());
+        }
+      }
+      
+      Object selectedParent = uiPageNodeForm.getSelectedParent();
+      
+      if (selectedParent == null) {
+        PageNavigation pageNavigation = new PageNavigation();
+        pageNavigation.setOwner(Util.getPortalRequestContext().getRemoteUser());
+        List<PageNavigation> navs = Util.getUIPortal().getNavigations();
+        if (navs == null) navs = new ArrayList<PageNavigation>();
+        navs.add(pageNavigation);
+        Util.getUIPortal().setNavigation(navs);
+        selectedParent = pageNavigation;
+      }
+      if (selectedParent instanceof PageNavigation) {
+        ((PageNavigation) selectedParent).addNode(pageNode);
+        pageNode.setUri(pageNode.getName());        
+      } else if (selectedParent instanceof PageNode) {
+        PageNode parentNode = (PageNode) selectedParent;
+        List<PageNode> children = parentNode.getChildren();
+        if (children == null ) children = new ArrayList<PageNode>();
+        children.add(pageNode);
+        parentNode.setChildren((ArrayList<PageNode>) children);
+        pageNode.setUri(parentNode.getUri() + "/" + pageNode.getName());
+      }
+       
+      UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);
+      uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri());
+      
+      UIComponentDecorator uiParent = uiPageNodeForm.getParent();
+      uiParent.setUIComponent(null);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
+      
+      Util.updateUIApplication(event);
+      
+      /*UIPageNodeForm uiPageNodeForm = event.getSource();
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
       
       PageNode pageNode = uiPageNodeForm.getPageNode();
       if(pageNode == null) pageNode  = new PageNode();
@@ -188,13 +261,19 @@ public class UIPageNodeForm extends UIFormTabPane {
       }
       
       UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
-      uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri());
+      uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri());*/
     }
   }
 
   static public class BackActionListener  extends EventListener<UIPageNodeForm> {
     public void execute(Event<UIPageNodeForm> event) throws Exception {
-      UIPageNodeForm uiForm = event.getSource() ;
+      UIPageNodeForm pageNodeForm = event.getSource();
+      UIComponentDecorator uiParent = pageNodeForm.getParent();
+      uiParent.setUIComponent(null);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
+      
+      Util.updateUIApplication(event);
+/*      UIPageNodeForm uiForm = event.getSource() ;
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
       
@@ -206,7 +285,7 @@ public class UIPageNodeForm extends UIFormTabPane {
       if(node == null || node.getPageReference() == null) return;
       Page page  = portalConfigService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
       UIPage uiPage  = Util.toUIPage(page, uiToolPanel);
-      uiToolPanel.setUIComponent(uiPage);
+      uiToolPanel.setUIComponent(uiPage);*/
     }
   }
 

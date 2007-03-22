@@ -8,11 +8,15 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.UIContainer;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Portlet;
 import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIComponentDecorator;
+
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputIconSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -116,7 +120,7 @@ public class UIPortletForm extends UIFormTabPane {
   }
   
 	static public class SaveActionListener extends EventListener<UIPortletForm> {
-    public void execute(Event<UIPortletForm> event) throws Exception {
+    public void execute(Event<UIPortletForm> event) throws Exception {      
       UIPortletForm uiPortletForm = event.getSource() ;
       UIPortlet uiPortlet = uiPortletForm.getUIPortlet() ;
       Portlet portlet = new Portlet() ;
@@ -124,13 +128,24 @@ public class UIPortletForm extends UIFormTabPane {
       portlet.setIcon(iconSelector.getSelectedIcon());
       uiPortletForm.invokeSetBindingBean(portlet) ;
       PortalDataModelUtil.toUIPortlet(uiPortlet, portlet);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortletForm.getParent());
+      
+      UIComponentDecorator uiFormParent = uiPortletForm.getParent(); 
+      uiFormParent.setUIComponent(null);
+      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortletForm.getParent());      
     }
   }
     
   static public class BackActionListener extends EventListener<UIPortletForm> {
-    public void execute(Event<UIPortletForm> event) throws Exception {
-      UIPortletForm uiForm = event.getSource() ;
+    public void execute(Event<UIPortletForm> event) throws Exception {     
+      UIPortletForm containerForm = event.getSource();
+      UIComponentDecorator uiParent = containerForm.getParent();
+      uiParent.setUIComponent(null);      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
+      
+      Util.updateUIApplication(event);
+      
+/*      UIPortletForm uiForm = event.getSource() ;
       UIComponent uiComp = uiForm.getBackComponent() ;     
       UIPortalApplication uiApp = uiForm.getAncestorOfType(UIPortalApplication.class) ;
       UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID) ;
@@ -148,7 +163,7 @@ public class UIPortletForm extends UIFormTabPane {
       UIPortalToolPanel uiToolpanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
       uiToolpanel.setUIComponent(uiComp) ;
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
-      Util.showPageComponentLayoutMode(uiApp);
+      Util.showPageComponentLayoutMode(uiApp);*/
     }
   }
   

@@ -11,6 +11,7 @@ import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -95,7 +96,8 @@ public class UIPageNavigationForm extends UIFormTabPane {
   }
 
   static public class SaveActionListener extends EventListener<UIPageNavigationForm> {
-    public void execute(Event<UIPageNavigationForm> event) throws Exception {
+    public void execute(Event<UIPageNavigationForm> event) throws Exception {   
+     
       UIPageNavigationForm uiForm = event.getSource();
       PageNavigation pageNav = uiForm.getPageNavigation();
       uiForm.invokeSetBindingBean(pageNav) ;
@@ -110,6 +112,11 @@ public class UIPageNavigationForm extends UIFormTabPane {
 
       permission = uiPermissionSelector.getPermission("EditPermission");
       if(permission != null) pageNav.setEditPermission(permission.getValue());
+      
+      UIComponentDecorator uiFormParent = uiForm.getParent(); 
+      uiFormParent.setUIComponent(null);
+
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiFormParent);    
     }
   }
   

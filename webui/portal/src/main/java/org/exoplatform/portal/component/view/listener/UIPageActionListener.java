@@ -87,7 +87,7 @@ public class UIPageActionListener {
   }
 
   static public class EditPageActionListener  extends EventListener<UIPage> {
-    public void execute(Event<UIPage> event) throws Exception {
+    public void execute(Event<UIPage> event) throws Exception {      
       UIPage uiPage = event.getSource();
       UIPageForm uiForm = uiPage.createUIComponent(UIPageForm.class, null, null);
       uiForm.setValues(uiPage);

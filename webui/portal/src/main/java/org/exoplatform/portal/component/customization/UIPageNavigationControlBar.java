@@ -11,9 +11,12 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIExoStart;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
+import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.component.widget.UIPageNavigation;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.UserPortalConfig;
@@ -81,7 +84,23 @@ public class UIPageNavigationControlBar extends UIToolbar {
   
   static public class EditNavigationActionListener extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-      UIPageNavigationControlBar uiManagement = event.getSource();
+      UIPageNavigationControlBar bar = event.getSource();
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
+      
+      UIPageNavigationForm navigationForm = uiMaskWS.createUIComponent(UIPageNavigationForm.class, null, null);
+      UIPageManagement management = bar.getParent();
+      UIPageNodeSelector uiNavigationSelector = management.findFirstComponentOfType(UIPageNodeSelector.class);      
+      navigationForm.setValues(uiNavigationSelector.getSelectedNavigation());
+     
+      uiMaskWS.setUIComponent(navigationForm);      
+      
+      uiMaskWS.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      Util.updateUIApplication(event);     
+      
+/*      UIPageNavigationControlBar uiManagement = event.getSource();
       UIPageManagement management = uiManagement.getParent();
       Util.updateUIApplication(event); 
       UIPageNodeSelector uiNavigationSelector = management.findFirstComponentOfType(UIPageNodeSelector.class);
@@ -89,7 +108,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
       management.setRenderedChild(UIPageNodeSelector.class);
       UIPageNavigationForm uiNavigationForm =
         Util.showComponentOnWorking(event.getSource(), UIPageNavigationForm.class);      
-      uiNavigationForm.setValues(uiNavigationSelector.getSelectedNavigation());
+      uiNavigationForm.setValues(uiNavigationSelector.getSelectedNavigation());*/
     }
   }
   

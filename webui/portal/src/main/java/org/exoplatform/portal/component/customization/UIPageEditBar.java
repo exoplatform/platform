@@ -7,8 +7,11 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
+import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.PortalDAO;
@@ -70,7 +73,7 @@ public class UIPageEditBar extends UIToolbar {
   }
 
   static public class EditContainerActionListener  extends EventListener<UIPageEditBar> {
-    public void execute(Event<UIPageEditBar> event) throws Exception {
+    public void execute(Event<UIPageEditBar> event) throws Exception {      
       UIPageEditBar uiEditBar = event.getSource();
       uiEditBar.showUIPage();      
 
