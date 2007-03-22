@@ -75,6 +75,7 @@ public class UIPortalActionListener {
   
   static public class SignOutActionListener  extends EventListener<UIPortal> {    
     public void execute(Event<UIPortal> event) throws Exception {
+      System.out.println("\n\n\n\n\n*************************************");
       PortalRequestContext prContext = Util.getPortalRequestContext();
       HttpServletRequest request = prContext.getRequest() ;
       request.getSession().invalidate() ;

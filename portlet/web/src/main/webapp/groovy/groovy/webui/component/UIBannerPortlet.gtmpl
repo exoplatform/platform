@@ -1,3 +1,9 @@
+<%
+	import org.exoplatform.portal.application.PortalRequestContext;
+	import org.exoplatform.portal.component.view.Util;
+	PortalRequestContext prContext = Util.getPortalRequestContext();
+%>
+
 <div class="UIBannerPortlet">
   <div class="InlineContainer">
     <div class="LeftBanner">
@@ -6,9 +12,15 @@
         	<div class="BannerTitle"><span></span></div>
 					<div class="LoginContainer">
 						<div class="LoginContent">
-							<a class="LoginLabel" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'Login',  true)) ;">Sign in</a>
-							<div class="LoginIcon" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'Login',  true)) ;"><span></span></div>
-							<div style="clear: left;"><span></span></div>
+						  <% if(prContext.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS) { %>
+								<a class="LoginLabel" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'SignOut',  true)) ;">Sign out</a>
+								<div class="LoginIcon" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'SignOut',  true)) ;"><span>sfg</span></div>
+								<div style="clear: left;"><span></span></div>
+							<% } else { %>
+							  <a class="LoginLabel" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'Login',  true)) ;">Sign in</a>
+								<div class="LoginIcon" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'Login',  true)) ;"><span></span></div>
+								<div style="clear: left;"><span></span></div>
+							 <% } %> 
 						</div>
 						<div style="clear: right;"><span></span></div>
 					</div>
