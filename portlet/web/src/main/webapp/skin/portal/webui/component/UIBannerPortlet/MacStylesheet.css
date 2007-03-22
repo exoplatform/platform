@@ -22,7 +22,7 @@
 .UIBannerPortlet .BannerTitle {
   height: 35px;
   background: url('MacSkin/background/eXoWebOSSlogan179x17.gif') no-repeat left bottom;
-  padding: 8px 0px 0px 0px;
+  padding: 8px 0px 0px 3px;
 }
 
 .UIBannerPortlet .LoginContainer {

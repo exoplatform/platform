@@ -30,19 +30,19 @@
 
  .UIBreadcumbs .LeftBreadcumbsBar {
   height: 32px ;
-  padding: 0px 0px 0px 4px ;
-  background: url('MacSkin/background/LeftBreadcumbsBar4x32.png') no-repeat left;
+  padding: 0px 0px 0px 5px ;
+  background: url('MacSkin/background/LeftBreadcumbsBar5x33.png') no-repeat left;
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
-  height: 32px;
-  padding: 0px 6px 0px 0px;
-  background: url('MacSkin/background/RightBreadcumbsBar6x32.png') no-repeat right;
+  height: 33px;
+  padding: 0px 7px 0px 0px;
+  background: url('MacSkin/background/RightBreadcumbsBar7x33.png') no-repeat right;
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {
-  height: 32px; line-height: 32px; vertical-align: middle;
-  background: url('MacSkin/background/MiddleBreadcumbsBar1x32.png') repeat-x;
+  height: 33px; line-height: 33px; vertical-align: middle;
+  background: url('MacSkin/background/MiddleBreadcumbsBar1x33.png') repeat-x;
 }
 
  .UIBreadcumbs .RightBlackGridArrowIcon {
