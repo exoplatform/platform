@@ -14,7 +14,7 @@
 	          <% uiform.begin() %>
 	          	<div class="VerticalLayout">
 		            <div class="UserNameField">
-		              <label><%=_ctx.appRes("UILoginForm.label.user")%>:</label>
+		              <label><%=_ctx.appRes("UILoginForm.label.UserName")%>:</label>
 		              <% uiform.renderChild(0)%>
 		            </div>
 		            <div class="PasswordField">

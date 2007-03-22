@@ -68,7 +68,7 @@
 /* ============================End LoginDecorator============================== */
 
 .UILoginForm .LoginDetailBox .VerticalLayout {
-  padding: 5px 20px 0px 20px;
+  padding: 5px 60px 0px 0px;
 }
 
 .UILoginForm .LoginDetailBox .UserNameField {
@@ -88,7 +88,7 @@
 .UILoginForm .LoginDetailBox .CheckField {
   height: 20px;
   width: 190px;
-  margin: auto 50px 0px auto;
+  margin: auto 35px 0px auto;
   padding-left: 30px;
 }
 
@@ -127,7 +127,7 @@
   height: 26px; line-height: 22px; vertical-align: middle; text-align: right;
   color: blue ;
   white-space: nowrap;
-  padding: 0px 20px 0px 0px;
+  padding: 0px 10px 0px 0px;
   cursor: pointer;
 }
 
