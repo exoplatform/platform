@@ -1,7 +1,7 @@
 <%
 	import org.exoplatform.portal.application.PortalRequestContext;
 	
-	def prContext = _ctx.getRequestContext();
+	def prContext = _ctx.getRequestContext().getParentAppRequestContext();
 %>
 
 <div class="UIBannerPortlet">

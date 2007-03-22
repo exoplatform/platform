@@ -80,7 +80,7 @@
   				<div class="ButtonLeft">
   					<div class="ButtonRight">
   						<div class="ButtonMiddle">  						  
-  							<a href="<%=uicomponent.event("Discard");%>">
+  							<a href="<%=uicomponent.event("Close");%>">
   								<%=_ctx.appRes("UILoginForm.label.Discard")%>
   						  </a>
   						</div>

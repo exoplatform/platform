@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portal.component.control;
 
+import javax.faces.component.UIOutput;
+
 import org.exoplatform.webui.application.RequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
@@ -58,6 +60,7 @@ public class UIMaskWorkspace extends UIComponentDecorator {
     public void execute(Event<UIMaskWorkspace> event) throws Exception {
       UIMaskWorkspace uiMaskWorkspace = event.getSource() ;
       uiMaskWorkspace.setShow(false);
+      uiMaskWorkspace.setUIComponent(null);
       RequestContext context =  event.getRequestContext() ;
       context.addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
     }

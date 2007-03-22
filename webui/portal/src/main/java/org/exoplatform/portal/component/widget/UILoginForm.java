@@ -8,12 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.application.ApplicationMessage;
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -37,7 +35,7 @@ import org.exoplatform.webui.exception.MessageException;
   template = "system:/groovy/portal/webui/component/widget/UILoginForm.gtmpl" ,
   events = {
     @EventConfig(listeners = UILoginForm.SigninActionListener.class),
-    @EventConfig(phase = Phase.DECODE, listeners = UILoginForm.DiscardActionListener.class)
+    @EventConfig(phase = Phase.DECODE, listeners = UIMaskWorkspace.CloseActionListener.class)
   }
 )
 public class UILoginForm extends UIForm {
@@ -72,15 +70,4 @@ public class UILoginForm extends UIForm {
       prContext.getResponse().sendRedirect(redirect);      
     }    
   }
-  
-  static  public class DiscardActionListener extends EventListener<UIComponent> {
-    public void execute(Event<UIComponent> event) throws Exception {
-      UIPortalApplication uiApp = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class);      
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      uiMaskWS.setUIComponent(null) ;
-      uiMaskWS.setShow(false);     
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-    }
-  }
-  
 }
