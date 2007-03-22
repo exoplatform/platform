@@ -13,8 +13,8 @@
 					<div class="LoginContainer">
 						<div class="LoginContent">
 						  <% if(prContext.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS) { %>
-								<a class="LoginLabel" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'SignOut',  true)) ;">Sign out</a>
-								<div class="LoginIcon" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'SignOut',  true)) ;"><span></span></div>
+								<a class="LoginLabel" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout',  true);">Sign out</a>
+								<div class="LoginIcon" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout',  true);"><span></span></div>
 								<div style="clear: left;"><span></span></div>
 							<% } else { %>
 							  <a class="LoginLabel" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm',  true)) ;">Sign in</a>

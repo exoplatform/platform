@@ -15,8 +15,8 @@ import org.exoplatform.portal.component.view.listener.UIPortalActionListener.Sho
 import org.exoplatform.portal.component.view.listener.UIPortalActionListener.MaximizeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalActionListener.MinimizeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalActionListener.RemoveJSApplicationToDesktopActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalActionListener.SignOutActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.MoveChildActionListener;
+import org.exoplatform.portal.component.widget.UILogged.LogoutActionListener;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -39,7 +39,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
       @EventConfig(listeners = MaximizeActionListener.class),
       @EventConfig(listeners = MinimizeActionListener.class),
       @EventConfig(listeners = ShowLoginFormActionListener.class),
-      @EventConfig(listeners = SignOutActionListener.class),
+      @EventConfig(listeners = LogoutActionListener.class),
       @EventConfig(listeners = AddPortletToDesktopActionListener.class),
       @EventConfig(listeners = AddJSApplicationToDesktopActionListener.class),
       @EventConfig(listeners = RemoveJSApplicationToDesktopActionListener.class)

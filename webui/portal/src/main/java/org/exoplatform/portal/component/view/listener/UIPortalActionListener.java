@@ -73,19 +73,6 @@ public class UIPortalActionListener {
     }
   }
   
-  static public class SignOutActionListener  extends EventListener<UIPortal> {    
-    public void execute(Event<UIPortal> event) throws Exception {
-      System.out.println("\n\n\n\n\n*************************************");
-      PortalRequestContext prContext = Util.getPortalRequestContext();
-      HttpServletRequest request = prContext.getRequest() ;
-      request.getSession().invalidate() ;
-      
-      prContext.setResponseComplete(true) ;
-      String redirect = request.getContextPath() ;
-      prContext.getResponse().sendRedirect(redirect) ;
-    }
-  }
-  
   static public class EditPortalActionListener  extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {
       UIPortal uiPortal = event.getSource();
