@@ -479,7 +479,6 @@
 
 /*###########################-ControlBar-###########################*/
 .WidgetNavigator .UIBarStyle {
-  height: 27px;
 }
 
 .UIBarStyle .ControlBar .LeftBar {
@@ -492,6 +491,7 @@
 }
 
 .UIBarStyle .ControlBar .MiddleBar {
-  line-height: 27px ;
   background: url('DefaultSkin/background/MiddleControlBar1x27.gif') repeat-x ;
+  padding: 0px 5px 0px 0px;
+  height: 27px;
 }

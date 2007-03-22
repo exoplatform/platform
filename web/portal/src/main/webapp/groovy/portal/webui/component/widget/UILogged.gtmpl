@@ -1,12 +1,7 @@
 <div class="UILogged">
 	<div class="ImageContent">
-		<div class="UserSelectIcon"><span></span></div>
-		<div class="WelcomIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this,'UILogged','ImageContent','ImageContents','UserContent','NotificationContent')"><span></span></div>
-		<div style="clear: left"><span></span></div>
-	</div>
-	<div class="ImageContents" style="display: none">
-		<div class="UserIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this,'UILogged','ImageContents','ImageContent','NotificationContent','UserContent')"><span></span></div>
-		<div class="WelcomSelectIcon"><span></span></div>
+		<div class="UserIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this)"><span></span></div>
+		<div class="WelcomIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this)"><span></span></div>
 		<div style="clear: left"><span></span></div>
 	</div>
 	<div class="DecoratorBox">
@@ -104,12 +99,14 @@
   						<div class="LeftBar">
   							<div class="RightBar">
   								<div class="MiddleBar">
-  									<div class="Icon24x24 AddIcon"><span></span></div>
-  									<div class="Icon24x24 DownBrownArrowIcon"><span></span></div>
-  									<div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
-  									<div class="Icon24x24 UpBlueArrowIcon"><span></span></div>
-  									<div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
-				  					<div style="clear: right"><span></span></div>
+  									<div class="ContentIcon">
+  										<div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
+  									  <div class="Icon24x24 DownBrownArrowIcon"><span></span></div>
+  									  <div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
+  									  <div class="Icon24x24 UpBlueArrowIcon"><span></span></div>
+  									  <div class="Icon24x24 AddIcon"><span></span></div>
+   					          <div style="clear: right"><span></span></div>
+  									</div>
   								</div>
   							</div>
   						</div>

@@ -110,34 +110,42 @@
 	cursor: pointer;	
 }
 
+.UIWidgetContainer .WidgetNavigator {
+	height: 27px;
+	margin: 2px 0px 0px 0px;
+}
+
+.UIWidgets .ContentIcon {
+	padding-top: 1px;
+}
 
 .UIWidgets .ControlBar {
+	width: 93px;
 	float: right;
-	border: solid 1px red;
 }
 
 .UIWidgets .ControlBar .Icon24x24 {
 	float: right;
 	width: 24px; height: 24px;
-	border: solid 1px red;
+	cursor: pointer;
 }
 
 .UIWidgets .ControlBar .AddIcon {
-	background: url('DefaultSkin/icon/WidgetControl.gif') no-repeat center;
+	background: url('DefaultSkin/icon/AddIcon.gif') no-repeat center;
 }
 
 .UIWidgets .ControlBar .DownBrownArrowIcon {
-	background: url('DefaultSkin/icon/WidgetControl.gif') no-repeat center;
+	background: url('DefaultSkin/icon/DownBrownArrowIcon.gif') no-repeat center;
 }
 
 .UIWidgets .ControlBar .DownBlueArrowIcon {
-	background: url('DefaultSkin/icon/WidgetControl.gif') no-repeat center;
+	background: url('DefaultSkin/icon/DownBlueArrowIcon.gif') no-repeat center;
 }
 
 .UIWidgets .ControlBar .UpBlueArrowIcon {
-	background: url('DefaultSkin/icon/WidgetControl.gif') no-repeat center;
+	background: url('DefaultSkin/icon/UpBlueArrowIcon.gif') no-repeat center;
 }
 
 .UIWidgets .ControlBar .UpBrownArrowIcon {
-	background: url('DefaultSkin/icon/WidgetControl.gif') no-repeat center;
+	background: url('DefaultSkin/icon/UpBrownArrowIcon.gif') no-repeat center;
 }

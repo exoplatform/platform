@@ -1,12 +1,11 @@
 .UIExoStart {
-	border-top: solid 1px #ababab;
-  background: url('DefaultSkin/background/BottomControlBg1x1.gif') repeat-x top;
   height: 34px;
+  background: #bfceed;
 }
 
 .UIExoStart .StartBarContainer {
-  border-top: solid 1px #ffffff;
-  background: #bfceed;
+  background: url('DefaultSkin/background/ControlBg1x2.gif') repeat-x top;
+  padding-top: 2px;
 }
 
 .UIExoStart .ExoStartButton {

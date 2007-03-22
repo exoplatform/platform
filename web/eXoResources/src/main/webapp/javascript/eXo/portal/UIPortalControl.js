@@ -24,20 +24,26 @@ UIPortalControl.prototype.minimizeWindow = function() {
 };
 
 /* Create Funtion by Duy Tu */
-UIPortalControl.prototype.showHiddenContent = function(selectedElement, ancestorByClass, hiParent, showParent, hiContent, ShowContent) {
+UIPortalControl.prototype.showHiddenContent = function(selectedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
-	var ancestorClass = DOMUtil.findAncestorByClass(selectedElement, ancestorByClass);
+	var ancestorClass = DOMUtil.findAncestorByClass(selectedElement, "UILogged");
+	var parentByclass = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", "ImageContent");
+	var userContent = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", "UserContent");
+	var notificationContent;
 	
-	var hidParent = DOMUtil.findAncestorByClass(selectedElement, hiParent);
-	var shParent = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", showParent);
-	var hiCont = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", hiContent);
-	var ShowCont = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", ShowContent);
-
-	hidParent.style.display = "none";
-	hiCont.style.display = "none";
+	if(parentByclass != null){
+		parentByclass.className = "ImageContents";
+		userContent.style.display = "none";
+		notificationContent = DOMUtil.findNextElementByTagName(userContent, "div");
+		notificationContent.style.display = "block";
+	} else {
+		parentByclass = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", "ImageContents");
+		parentByclass.className = "ImageContent";
+		notificationContent = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", "NotificationContent");
+		notificationContent.style.display = "none";
+		userContent.style.display = "block";
+	}
 	
-	shParent.style.display = "block";
-	ShowCont.style.display = "block";
 }
 
 eXo.portal.UIPortalControl = new UIPortalControl();

@@ -136,27 +136,27 @@
 
 /****************************** Icon *********************************/
 
-.UILogged .UserSelectIcon {  
+.UILogged .ImageContent .UserIcon {  
 	float: left;
 	height: 32px; width: 32px;
 	background: url('DefaultSkin/background/UserSelectIcon.gif') no-repeat center;
 }
 
-.UILogged .UserIcon {  
+.UILogged .ImageContents .UserIcon {  
 	float: left;
 	height: 32px; width: 32px;
 	cursor: pointer;
 	background: url('DefaultSkin/background/UserIcon.gif') no-repeat center;
 }
 
-.UILogged .WelcomIcon {  
+.UILogged .ImageContent .WelcomIcon {  
 	float: left;
 	height: 32px; width: 32px;
 	cursor: pointer;
 	background: url('DefaultSkin/background/WelcomeIcon.gif') no-repeat center;
 }
 
-.UILogged .WelcomSelectIcon {  
+.UILogged .ImageContents .WelcomIcon {  
 	float: left;
 	height: 32px; width: 32px;
 	background: url('DefaultSkin/background/WelcomeSelectIcon.gif') no-repeat center;
