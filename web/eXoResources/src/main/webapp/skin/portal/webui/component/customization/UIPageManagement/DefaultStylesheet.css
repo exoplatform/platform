@@ -1,5 +1,5 @@
 .UIPageManagement {
-  padding: 0px 0px 7px 0px ;
+
 }
 
 .UIPageManagement .TopTitleBar {
@@ -124,7 +124,7 @@
 }
 
 .UIPageManagement .RollbackIcon {
-  float: left;
+  float: left;              
   width: 24px; height: 24px;
   background: url('/eXoResources/icons/24x24/DefaultSkin/BlueBackArrow.gif') no-repeat;
   margin: 5px 2px 0px 6px;

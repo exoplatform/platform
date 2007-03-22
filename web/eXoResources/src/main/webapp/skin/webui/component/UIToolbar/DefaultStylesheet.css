@@ -164,6 +164,7 @@
   height: 30px;
   padding-left: 2px;
   background: url('DefaultSkin/background/PolyBarL2x30.gif') no-repeat left;
+  margin: 0px 7px;
 }
 
 .UIToolbar .PolyToolbar .RightBar {
@@ -187,6 +188,7 @@
   height: 35px;
   padding-left: 6px;
   background: url('DefaultSkin/background/Poly2BarL6x35.gif') no-repeat left;
+  margin: 0px 5px;
 }
 
 .UIToolbar .Poly2Toolbar .RightBar {

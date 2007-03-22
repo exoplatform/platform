@@ -59,7 +59,8 @@ UIExoStartMenu.prototype.showStartMenu = function() {
 
 		startMenuContainer.style.top = startMenuContainerTop + "px" ;
 		startMenuContainer.style.left = (startBarContainerX + 1) + "px" ;
-		startMenuContainer.style.width = (startBarContainerW - 4) + "px" ;
+		startMenuContainer.style.width = (startBarContainerW - 10) + "px" ;
+		//alert(startMenuContainer.style.width);
 		startMenuContainer.style.height = startMenuContainerH + "px" ;
 		var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(startMenuContainer, "div", "MenuItemContainer") ;
 				
