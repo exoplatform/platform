@@ -12,9 +12,8 @@
         <div class="LeftBar">
           <div class="RightBar">
 		        <div class="MiddleBar">
-		          <div class="DragControlArea" title="Drag Container here">
-	              <div class="ContainerIcon" style="border: solid 1px red; width: 15px;"><span></span></div>
-	            </div>             
+		          <div class="DragControlArea" title="Drag Container here"><span></span></div>
+		          <div class="ContainerIcon"><span></span></div>             
               <div class="Title">
 	              <% 
 	                if(uicomponent.getTitle() != null) {

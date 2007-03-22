@@ -94,6 +94,12 @@
   margin: 0px 7px 0px 7px;
 }
 
+.UIInfoBar .BlueRoundedStyle .Icon {
+  float: left ;
+  width: 16px; height: 16px;
+  margin: 3px 5px 0px 5px;  
+}
+
 /*######################-Simple Style-######################*/
 .UIInfoBar .SimpleStyle {
   overflow: hidden ; 

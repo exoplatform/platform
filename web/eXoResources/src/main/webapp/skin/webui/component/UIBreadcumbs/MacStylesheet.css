@@ -1,11 +1,10 @@
  .UIBreadcumbsPortlet {
-	padding: 0px 3px 2px 4px;
+	padding: 0px 8px 4px 1px;
 }
 
  .UIBreadcumbs {
-  height: 28px ;  line-height: 24px ;
-  vertical-align: middle ;
-  font-size: 11px;
+  height: 33px ;  line-height: 29px ;
+  vertical-align: middle ; font-size: 11px;
 }
 
  .UIBreadcumbs a {

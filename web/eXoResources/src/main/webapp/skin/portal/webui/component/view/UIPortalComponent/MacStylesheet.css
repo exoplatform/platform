@@ -85,20 +85,6 @@
   margin: 4px 8px 2px 0px;
 }
 
-.UIPortlet .OnShow {
-  display: block;
-}
-
-.UIPortlet .OnHide {
-  display: none;
-}
-
-.UIPortlet .PortletIcon {
-  width: 16px; height: 16px;
-  margin: auto;
-  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat ;
-}
-
 .UIPortlet {
 	width: 99.9%;
 }
