@@ -1,6 +1,5 @@
 <div class = "UIDescription">
   <div class="DecriptionContainer">
-	  <div class="DescriptionTitle"><%=_ctx.appRes("UIDescription.title." + uicomponent.getId());%></div>
 	  <div class="DescriptionContent">
 	  	<div class="DescriptionContentContainer">
 	  		<%=_ctx.appRes("UIDescription.content." + uicomponent.getId());%>

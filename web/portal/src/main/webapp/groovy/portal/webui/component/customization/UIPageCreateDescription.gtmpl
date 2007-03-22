@@ -1,6 +1,6 @@
 <%	import org.exoplatform.webui.component.UIDescription; %>
 
-<div class="TopTitleBar" style="margin-bottom: 10px; padding: 0px 10px;">
+<div class="TopTitleBar" >
 	<div class="UIBarStyle">
 	  <div class="Style4">
 	    <div class="LeftBar">

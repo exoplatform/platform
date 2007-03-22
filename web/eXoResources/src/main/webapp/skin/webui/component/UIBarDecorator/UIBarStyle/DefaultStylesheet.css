@@ -273,27 +273,23 @@
 
 /*###########################-Style4Bar-###########################*/
 .UIBarStyle .Style4 {
-  height: 28px;
-}
-
-.UIBarStyle .Style4 .LeftBar {
-  height: 28px ;
-  background: url('DefaultSkin/background/Style4BarL7x28.gif') no-repeat left ;
-  padding: 0px 0px 0px 7px ;
+  height: 22px;
+  margin: 11px 0px;
+  padding-right: 45px;
 }
 
 .UIBarStyle .Style4 .RightBar {
-  height: 28px ;
-  background: url('DefaultSkin/background/Style4BarR6x28.gif') no-repeat right ;
-  padding: 0px 6px 0px 0px ;
+  height: 22px ;
+  background: url('DefaultSkin/background/Style4BarRight11x22.gif') no-repeat right ;
+  padding-right: 11px;
 }
 
 .UIBarStyle .Style4 .MiddleBar {
-  height: 28px ;
+  height: 22px ;
   line-height: 22px ;
-  vertical-align: middle ;
-  text-align: center; font-weight: bold;
-  background: url('DefaultSkin/background/Style4BarM1x28.gif') repeat-x ;
+  font-size: 11px; color: white; font-weight: bold;
+  padding-left: 15px;
+  background: url('DefaultSkin/background/Style4BarMiddle1x22.gif') repeat-x ;
 }
 
 /*###########################-Style5Bar-###########################*/

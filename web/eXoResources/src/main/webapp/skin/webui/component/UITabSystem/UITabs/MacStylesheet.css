@@ -25,7 +25,7 @@
 
 .UIHorizontalTabs .UITab {
   float: left;
-  font-size: 12px;
+  font-size: 11px;
   text-align: center;
 }
 
@@ -33,108 +33,94 @@
 
 
 .UIHorizontalTabs .UITab .NormalNavigationTab {
-  line-height: 28px;
-  margin-top: 4px;
+  line-height: 24px;
+  margin-top: 8px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
   color: #2d2d2d;
   text-decoration: none;
-  margin: 0px 5px 0px 5px;
-}
-
-.UIHorizontalTabs .UITab .NormalNavigationTab a:hover {
-  color: blue;
-  text-decoration: none;
+  margin: 0px 10px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .LeftTab {
-  padding-left: 5px;
-  line-height: 28px;
-  background: url('MacSkin/background/GrayAquaNaviTabL.gif') no-repeat left;
+  padding-left: 6px;
+  line-height: 24px;
+  background: url('MacSkin/background/NormalTabLeft6x24.png') no-repeat left;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .RightTab {
-  line-height: 28px;
-  padding-right: 5px;
-  background: url('MacSkin/background/GrayAquaNaviTabR.gif') no-repeat right;
+  line-height: 24px;
+  padding-right: 6px;
+  background: url('MacSkin/background/NormalTabRight6x24.png') no-repeat right;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
-  line-height: 28px;
-  background: url('MacSkin/background/GrayAquaNaviTabM.gif') repeat-x;
+  line-height: 24px;
+  background: url('MacSkin/background/NormalTabMiddle1x24.png') repeat-x;
   cursor: pointer;
 }
 
 /*###############-Hightlight Navigation Tab-################*/
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab {
-  line-height: 28px;
-  margin-top: 4px; 
+  line-height: 24px;
+  margin-top: 8px; 
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
-  color: #2d2c2c;
+  color: #0f33c6;
   text-decoration: none;
-  margin: 0px 5px 0px 5px;
-}
-
-.UIHorizontalTabs .UITab .HighlightNavigationTab a:hover {
-  color: blue;
-  text-decoration: none;
+  margin: 0px 10px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
-  padding-left: 5px;
-  line-height: 28px;
-  background: url('MacSkin/background/LightBlueNaviTabL.gif') no-repeat left;
+  padding-left: 6px;
+  line-height: 24px;
+  background: url('MacSkin/background/HighlightTabLeft6x24.png') no-repeat left;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .RightTab {
-  line-height: 28px;
-  padding-right: 5px;
-  background: url('MacSkin/background/LightBlueNaviTabR.gif') no-repeat right;
+  line-height: 24px;
+  padding-right: 6px;
+  background: url('MacSkin/background/HighlightTabRight6x24.png') no-repeat right;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
-  line-height: 28px;
-  background: url('MacSkin/background/LightBlueNaviTabM.gif') repeat-x;
+  line-height: 24px;
+  background: url('MacSkin/background/HighlightTabMiddle1x24.png') repeat-x;
   cursor: pointer;
 }
 
 /*###############-Selected Navigation Tab-################*/
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab {
-  line-height: 28px;
-  margin-top: 4px; 
+  line-height: 24px;
+  margin-top: 8px; 
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab a {
   color: #2d2c2c;
   text-decoration: none;
-  margin: 0px 5px 0px 5px;
+  margin: 0px 10px;
 }
 
-.UIHorizontalTabs .UITab .SelectedNavigationTab a:hover {
-  color: blue;
-  text-decoration: none;
-}
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
-  padding-left: 5px;
-  line-height: 28px;
-  background: url('MacSkin/background/BlueAquaNaviTabL.gif') no-repeat left;
+  padding-left: 6px;
+  line-height: 24px;
+  background: url('MacSkin/background/SelectedTabLeft6x24.png') no-repeat left;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .RightTab {
-  line-height: 28px;
-  padding-right: 5px;
-  background: url('MacSkin/background/BlueAquaNaviTabR.gif') no-repeat right;
+  line-height: 24px;
+  padding-right: 6px;
+  background: url('MacSkin/background/SelectedTabRight6x24.png') no-repeat right;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
-  line-height: 28px;
-  background: url('MacSkin/background/BlueAquaNaviTabM.gif') repeat-x;
+  line-height: 24px;
+  background: url('MacSkin/background/SelectedTabMiddle1x24.png') repeat-x;
   cursor: pointer;
 }
 
