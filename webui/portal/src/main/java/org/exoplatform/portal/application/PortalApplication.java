@@ -100,6 +100,7 @@ public class PortalApplication extends Application {
   public ExoContainer getApplicationServiceContainer() { return PortalContainer.getInstance() ; }
   
   public void service(HttpServletRequest req, HttpServletResponse res)   {
+    System.out.println("\n\n\n == > no chay den day truoc nay\n\n");
     RootContainer rootContainer = RootContainer.getInstance() ;
     try {
       PortalContainer portalContainer = 

@@ -23,7 +23,7 @@
 		            </div>  
 			          <div class="Message"><a href="#"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
 			          <div class="CheckField">
-			            <input type="checkbox"/>
+			            <% uiform.renderChild(2)%>
 			            <div class="RememberLoginTitle"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></div>
 			            <div style="clear:left;"><span></span></div>
 			          </div>

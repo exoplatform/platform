@@ -39,7 +39,6 @@ public class UIPortalActionListener {
   
   static public class MaximizeActionListener extends EventListener<UIComponent> {
     public void execute(Event<UIComponent> event) throws Exception {
-      
       UIPortal uiPortal = Util.getUIPortal();
       String portletId = event.getRequestContext().getRequestParameter("portletId");
       portletId = portletId.split("-")[0];
