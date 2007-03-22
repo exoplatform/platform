@@ -29,6 +29,11 @@
   height: 230px;
 }
 
+.UIItemSelector .ItemDetailList .TemplateContainer .DefaultImage {
+  background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center;
+  height: 230px;
+}
+
 .UIItemSelector .ItemDetailList .ItemDescription {
   background: white;
   border: solid 1px #b7b7b7;
@@ -441,6 +446,12 @@
 /*###########################- End RightItemListStyle -#########################*/
 
 /*###########################- Layout Template -#########################*/
+
+.UIItemSelector .DefaultTemplate {
+  background: url('DefaultSkin/background/PageFormDefault.jpg') no-repeat center;
+  width: 250px; height: 170px;
+}  
+
 .UIItemSelector .EmptyLayout {
   background: url('DefaultSkin/background/EmptyLayout.jpg') no-repeat;
   width: 250px; height: 170px;
