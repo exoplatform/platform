@@ -33,14 +33,21 @@
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
   float: left;
-  margin: 6px 10px;
+  margin: 3px 10px;
   width: 24px;  height: 24px;
   background: url('/eXoResources/icons/24x24/DefaultSkin/ShowContainerControl.gif') no-repeat;
 }
 
+.UIPortalManagement .UIPortalManagementEditBar .SaveContainerIcon {
+  float: left;
+  margin: 3px 10px;
+  width: 24px;  height: 24px;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/SaveControl.gif') no-repeat;
+}
+
 .UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
   float: left;
-  margin: 6px 9px;
+  margin: 3px 9px;
   width: 24px;  height: 24px;
   background: url('/eXoResources/icons/24x24/DefaultSkin/ShowPortletControl.gif') no-repeat;
 }
@@ -54,14 +61,14 @@
 }
 .UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
   float: left;
-  margin: 6px 9px;
+  margin: 3px 9px;
   width: 24px;  height: 24px;  
   cursor : pointer;
   background: url('/eXoResources/icons/24x24/DefaultSkin/Preview.gif') no-repeat;
 }
 .UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
   float:left;
-  margin: 6px 9px;
+  margin: 3px 9px;
   width: 24px;  height: 24px;
   background: url('/eXoResources/icons/24x24/DefaultSkin/ShowPortalControl.gif');
 }

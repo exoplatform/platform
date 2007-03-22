@@ -105,8 +105,9 @@
   margin-right: auto ;
 }
 
-.UIForm .VerticalLayout .UIAction .ActionContainer .Button {
+.UIForm .VerticalLayout .UIAction .ActionButton a {
   float: none;
+  font-weight: bold;
 }
 
 

@@ -111,14 +111,14 @@
 
 .UILoginForm .LoginDetailBox .UserNameField input {
   background: url('DefaultSkin/background/UsernameIcon20x20.gif') no-repeat left ;
-  width: 180px; 
+  width: 180px; height: 18px;
   border: solid 1px #b7b7b7 ;
   padding: 0px 0px 0px 22px;
 }
 
 .UILoginForm .LoginDetailBox .PasswordField input {
   background: url('DefaultSkin/background/PasswordIcon20x20.gif') no-repeat left ;
-  width: 180px; 
+  width: 180px; height: 18px;
   border: solid 1px #b7b7b7 ;
   padding: 0px 0px 0px 22px;
 }
