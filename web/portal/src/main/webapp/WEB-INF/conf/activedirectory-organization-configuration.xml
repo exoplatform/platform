@@ -58,7 +58,7 @@
     </init-params>     
   </component>  
   
-  <external-component-plugins>
+  <!--external-component-plugins>
     <target-component>org.exoplatform.services.database.HibernateService</target-component>
     <component-plugin> 
       <name>add.hibernate.mapping</name>
@@ -71,7 +71,7 @@
         </values-param>
       </init-params>
     </component-plugin>
-   </external-component-plugins>
+   </external-component-plugins-->
    
    <import>classpath:/conf/portal/organization-configuration.xml</import>   
 </configuration>
