@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
-import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.component.UIPortalApplication;
-import org.exoplatform.portal.component.UIWorkspace;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
@@ -38,7 +36,7 @@ import org.exoplatform.webui.event.Event.Phase;
     template =  "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
     events = {
       @EventConfig(listeners = UIPageForm.SaveActionListener.class),
-      @EventConfig(listeners = UIPageForm.BackActionListener.class, phase = Phase.DECODE)      
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
     },
     initParams = @ParamConfig(
       name = "PageTemplate",
@@ -159,24 +157,6 @@ public class UIPageForm extends UIFormTabPane {
       PortalDAO configService = uiPageForm.getApplicationComponent(PortalDAO.class);
       configService.savePage(page);      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm) ;
-    }
-  }
-
-  static public class BackActionListener extends EventListener<UIPageForm> {
-    public void execute(Event<UIPageForm> event) throws Exception {
-      UIPageForm uiForm = event.getSource() ;      
-      UIComponent uiComp = uiForm.getBackUIComponent() ;      
-      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();   
-      if(uiComp != null) uiToolPanel.setUIComponent(uiComp) ;
-      else uiToolPanel.setUIComponent(uiForm.getUIPage());
-      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
-      
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
-      pcontext.setForceFullUpdate(true);
     }
   }
 

@@ -4,19 +4,11 @@
  **************************************************************************/
 package org.exoplatform.portal.component.customization;
 
-import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.component.UIPortalApplication;
-import org.exoplatform.portal.component.UIWorkspace;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
-import org.exoplatform.portal.component.view.UIContainer;
-import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
-import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Portlet;
 import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIComponentDecorator;
-
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputIconSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -25,10 +17,8 @@ import org.exoplatform.webui.component.UIFormTabPane;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
 import org.exoplatform.webui.component.validator.NumberFormatValidator;
-import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
@@ -40,7 +30,12 @@ import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
     template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",
-    initParams = {
+    events = {
+      @EventConfig(listeners = UIPortletForm.SaveActionListener.class ),
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)  
+    }
+)   
+/*initParams = {
       @ParamConfig(
           name = "PortletDecorator", 
           value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/PortletDecorator.groovy"
@@ -53,20 +48,14 @@ import org.exoplatform.webui.event.Event.Phase;
           name = "help.UIPortletFormQuickHelp",
           value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/UIPortletFormQuickHelp.xhtml"
       )
-    },
-    events = {
-      @EventConfig(listeners = UIPortletForm.SaveActionListener.class ),
-      @EventConfig(phase = Phase.DECODE, listeners = UIPortletForm.BackActionListener.class )      
-    }
-)   
-
+    },*/
 public class UIPortletForm extends UIFormTabPane {	
   
 	private UIPortlet uiPortlet_ ;
   private UIComponent backComponent_ ;
   
   @SuppressWarnings("unchecked")
-  public UIPortletForm(InitParams initParams) throws Exception {
+  public UIPortletForm() throws Exception {//InitParams initParams
   	super("UIPortletForm");
     UIFormInputSet uiSettingSet = new UIFormInputSet("PortletSetting") ;
   	uiSettingSet.
@@ -129,41 +118,9 @@ public class UIPortletForm extends UIFormTabPane {
       uiPortletForm.invokeSetBindingBean(portlet) ;
       PortalDataModelUtil.toUIPortlet(uiPortlet, portlet);
       
-      UIComponentDecorator uiFormParent = uiPortletForm.getParent(); 
-      uiFormParent.setUIComponent(null);
-      
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortletForm.getParent());      
-    }
-  }
-    
-  static public class BackActionListener extends EventListener<UIPortletForm> {
-    public void execute(Event<UIPortletForm> event) throws Exception {     
-      UIPortletForm containerForm = event.getSource();
-      UIComponentDecorator uiParent = containerForm.getParent();
-      uiParent.setUIComponent(null);      
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
-      
-      Util.updateUIApplication(event);
-      
-/*      UIPortletForm uiForm = event.getSource() ;
-      UIComponent uiComp = uiForm.getBackComponent() ;     
-      UIPortalApplication uiApp = uiForm.getAncestorOfType(UIPortalApplication.class) ;
-      UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID) ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;      
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
-      pcontext.setForceFullUpdate(true);
-      UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortletOptions.getParent());
-      
-      if(uiComp instanceof UIPortal) {
-        uiWorkingWS.setRenderedChild(UIPortal.class) ;
-        Util.showPortalComponentLayoutMode(uiApp);
-        return;
-      }      
-      UIPortalToolPanel uiToolpanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
-      uiToolpanel.setUIComponent(uiComp) ;
-      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
-      Util.showPageComponentLayoutMode(uiApp);*/
+      UIMaskWorkspace uiMaskWorkspace = uiPortletForm.getParent();
+      uiMaskWorkspace.setUIComponent(null);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
     }
   }
   

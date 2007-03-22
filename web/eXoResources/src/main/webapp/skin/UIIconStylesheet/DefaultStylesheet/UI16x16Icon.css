@@ -109,6 +109,11 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/RedCrossCircle.gif') no-repeat ;
 }
 
+.Close16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/RedCrossCircle.gif') no-repeat ;
+}
+
 .Refresh16x16Icon {
   width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Refresh.gif') no-repeat ;

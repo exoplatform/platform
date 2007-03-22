@@ -4,17 +4,11 @@
  **************************************************************************/
 package org.exoplatform.portal.component.customization;
 
-import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.component.UIPortalApplication;
-import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIContainer;
-import org.exoplatform.portal.component.view.UIPortal;
-import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -94,52 +88,15 @@ public class UIContainerForm extends UIForm {
 
   static public class SaveActionListener  extends EventListener<UIContainerForm> {
     public void execute(Event<UIContainerForm> event) throws Exception {
-      System.out.println("\n\n\n\nSaveActionListener in UIContainerForm\n\n\n\n");
       UIContainerForm uiForm = event.getSource() ;
       UIContainer uiContainer = uiForm.getContainer() ;
       Container container = new Container();
       uiForm.invokeSetBindingBean(container) ;
       PortalDataModelUtil.toUIContainer(uiContainer, container, true);
       
-      UIComponentDecorator uiParent = uiForm.getParent();
-      uiParent.setUIComponent(null);
-      
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
-      Util.updateUIApplication(event);
+      UIMaskWorkspace uiMaskWorkspace = uiForm.getParent();
+      uiMaskWorkspace.setUIComponent(null);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
     }
   }
-
-  static public class BackActionListener extends EventListener<UIContainerForm> {
-    public void execute(Event<UIContainerForm> event) throws Exception {
-      
-      UIContainerForm containerForm = event.getSource();
-      UIComponentDecorator uiParent = containerForm.getParent();
-      uiParent.setUIComponent(null);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
-      
-      Util.updateUIApplication(event);
-      
-      /*UIContainerForm uiForm = event.getSource() ;
-      UIComponent uiComp = uiForm.getBackComponent() ;
-      UIPortalApplication uiApp = uiForm.getAncestorOfType(UIPortalApplication.class) ;
-      UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID) ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;      
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
-      pcontext.setForceFullUpdate(true);   
-      UIContainerConfigOptions uiContainerConfigOptions = uiApp.findFirstComponentOfType(UIContainerConfigOptions.class);
-      pcontext.addUIComponentToUpdateByAjax(uiContainerConfigOptions.getParent());
-      
-      if(uiComp instanceof UIPortal) {
-        uiWorkingWS.setRenderedChild(UIPortal.class) ;
-        Util.showPortalComponentLayoutMode(uiApp);
-        return;
-      } 
-      UIPortalToolPanel uiToolpanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
-      uiToolpanel.setUIComponent(uiComp) ;
-      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
-      Util.showPageComponentLayoutMode(uiApp);*/
-
-    }
-  }
-
 }

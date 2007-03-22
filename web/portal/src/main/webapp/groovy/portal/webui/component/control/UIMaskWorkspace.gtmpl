@@ -23,10 +23,8 @@
   
   <div class="MiddleLeftDecorator">
     <div class="MiddleRightDecorator">
-      <div class="ContentContainer">
-      
+      <div class="ContentContainer">      
         <% uicomponent.renderChildren(); %>
-   
    		</div>
     </div>
   </div>

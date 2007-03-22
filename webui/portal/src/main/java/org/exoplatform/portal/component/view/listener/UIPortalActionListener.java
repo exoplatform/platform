@@ -62,12 +62,7 @@ public class UIPortalActionListener {
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      
-      if(uiMaskWS  == null) { return; }
-      UILoginForm uiForm = uiMaskWS.createUIComponent(UILoginForm.class, null, null);
-      
-      uiMaskWS.setUIComponent(uiForm) ;
-      uiMaskWS.setShow(true) ;
+      uiMaskWS.createUIComponent(UILoginForm.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }

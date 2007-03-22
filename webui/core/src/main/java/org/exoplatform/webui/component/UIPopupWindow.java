@@ -43,6 +43,7 @@ public class UIPopupWindow extends UIComponentDecorator {
   static  public class CloseActionListener extends EventListener<UIPopupWindow> {
     public void execute(Event<UIPopupWindow> event) throws Exception {
       UIPopupWindow uiPopupWindow = event.getSource() ;
+      if(!uiPopupWindow.isShow()) return;
       uiPopupWindow.setShow(false);
       RequestContext context =  event.getRequestContext() ;
       context.addUIComponentToUpdateByAjax(uiPopupWindow) ;

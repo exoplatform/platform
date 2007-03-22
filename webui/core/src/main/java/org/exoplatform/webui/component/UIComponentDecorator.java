@@ -18,7 +18,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 @ComponentConfig(  lifecycle = UIComponentDecorator.UIComponentDecoratorLifecycle.class )
 public class UIComponentDecorator extends UIComponent {
   
-  private  UIComponent uicomponent_ ;
+  protected  UIComponent uicomponent_ ;
   
   public UIComponent getUIComponent()  { return uicomponent_ ; }
   

@@ -65,21 +65,10 @@ public class UIPortalManagementEditBar extends UIToolbar {
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      UIPortalForm uiForm = uiMaskWS.createUIComponent(UIPortalForm.class, null, null);
-      uiMaskWS.setUIComponent(uiForm) ;
+      UIPortalForm uiForm = uiMaskWS.createUIComponent(UIPortalForm.class);
       uiForm.setValues(uiPortal.getUserPortalConfig().getPortalConfig());
-     
-      uiMaskWS.setShow(true) ;
+
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      
-//      UIPortalForm uiPortalForm = uiApp.setUIControlWSPopupComponent(UIPortalForm.class);
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalForm.getParent());
-//      UIPortalForm uiPortalForm = Util.showComponentOnWorking(uiEditBar, UIPortalForm.class);
-//      UIPortalManagement uiPManagement = uiEditBar.getParent();
-//      Class [] childrenToRender = { UIPortalManagementEditBar.class  }; 
-//      uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
-//      uiPortalForm.setValues(uiPortal.getUserPortalConfig().getPortalConfig());
-//      Util.updateUIApplication(event);
     }
   }
   

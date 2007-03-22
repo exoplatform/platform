@@ -122,19 +122,18 @@ public class UIPortalApplication extends UIApplication {
       addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
       
     }
-    addChild(UIMaskWorkspace.class,    UIPortalApplication.UI_MASK_WS_ID, null) ;
     addWorkingWorkspace(config, context) ;
   }
   
   @SuppressWarnings("hiding")
   private  void  initPrivatePortal(UserPortalConfig config, PortalRequestContext context) throws Exception {
     addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
-    addChild(UIMaskWorkspace.class,    UIPortalApplication.UI_MASK_WS_ID, null) ;
     addWorkingWorkspace(config, context) ;
   }
   
   @SuppressWarnings({"hiding","unused"})
   private void addWorkingWorkspace(UserPortalConfig config, PortalRequestContext context) throws Exception {
+    addChild(UIMaskWorkspace.class,    UIPortalApplication.UI_MASK_WS_ID, null) ;
     UIWorkspace uiWorkingWorkspace = 
       createUIComponent(UIWorkspace.class, UIPortalApplication.UI_WORKING_WS_ID, null) ;
     UIPortal uiPortal = createUIComponent(UIPortal.class, null, null);

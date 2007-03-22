@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
@@ -20,8 +21,6 @@ import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.application.Application;
 import org.exoplatform.webui.application.RequestContext;
-import org.exoplatform.webui.component.UIComponentDecorator;
-import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
@@ -43,11 +42,12 @@ import org.exoplatform.webui.event.EventListener;
  *          minhdv81@yahoo.com
  * Jun 19, 2006
  */
+import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
     template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
     events = {
-      @EventConfig(listeners = UIPortalForm.CancelActionListener.class),
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE),
       @EventConfig(listeners = UIPortalForm.SaveActionListener.class)
     }
 )
@@ -153,22 +153,15 @@ public class UIPortalForm extends UIFormTabPane {
       portalConfig.setViewPermission(uiPermissionSelector.getPermission("ViewPermission").getValue());
       portalConfig.setEditPermission(uiPermissionSelector.getPermission("EditPermission").getValue());
       
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
-      
       UIPortal uiPortal = Util.getUIPortal();
       uiPortal.getChildren().clear();
       UserPortalConfig userPortalConfig = uiPortal.getUserPortalConfig();
       userPortalConfig.setPortal(portalConfig);
       PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig, true);
-    }
-  }
-  
-  static public class CancelActionListener  extends EventListener<UIForm> {
-    public void execute(Event<UIForm> event) throws Exception {
-      UIForm uiForm = event.getSource();
-      UIComponentDecorator uiParent = uiForm.getParent();
-      uiParent.setUIComponent(null);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
+      
+      UIMaskWorkspace uiMaskWorkspace = uiForm.getParent();
+      uiMaskWorkspace.setUIComponent(null);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
     }
   }
 

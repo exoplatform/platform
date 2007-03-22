@@ -103,6 +103,11 @@
   width: 16px ;  height: 16px ;
 }
 
+.Close16x16Icon {
+  background: url('/eXoResources/icons/16x16/VistaSkin/RedCrossCircle.gif') no-repeat ;
+  width: 16px ;  height: 16px ;
+}
+
 .Refresh16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Refresh.gif') no-repeat ;
   width: 16px ;  height: 16px ;

@@ -81,6 +81,7 @@ public class UIPopupMessages extends UIPopupWindow {
         context.addUIComponentToUpdateByAjax(uiPopupMessage) ;
         return;
       }
+      if(!uiPopupMessage.isShow()) return;
       UIComponent uiParent = uiPopupMessage.getParent();
       context.addUIComponentToUpdateByAjax(uiParent) ;
       Event<UIComponent> pEvent = uiParent.createEvent("ClosePopup", event.getExecutionPhase(), event.getRequestContext());

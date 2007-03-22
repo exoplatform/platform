@@ -45,8 +45,17 @@ public class UIMaskWorkspace extends UIComponentDecorator {
 
   public boolean isShow() { return isShow;}
   
-  public void setShow(boolean isShow) { 
-    this.isShow = isShow;
+  public void setShow(boolean isShow) { this.isShow = isShow; }
+  
+  public <T extends UIComponent> T createUIComponent(Class<T> clazz, String configId, String id)throws Exception {
+    T uicomponent = super.createUIComponent(clazz, configId, id);
+    this.isShow = (uicomponent != null);
+    setUIComponent(uicomponent);
+    return uicomponent;
+  }
+  
+  public <T extends UIComponent> T createUIComponent(Class<T> clazz) throws Exception {
+    return createUIComponent(clazz, null, null);
   }
   
   public void setUIComponent(UIComponent uicomponent) { 
@@ -58,10 +67,9 @@ public class UIMaskWorkspace extends UIComponentDecorator {
     public void execute(Event<UIComponent> event) throws Exception {
       UIComponent uiSource = event.getSource();
       UIMaskWorkspace uiMaskWorkspace = uiSource.getAncestorOfType(UIMaskWorkspace.class);
-      uiMaskWorkspace.setShow(false);
+      if(!uiMaskWorkspace.isShow()) return;
       uiMaskWorkspace.setUIComponent(null);
-      RequestContext context =  event.getRequestContext() ;
-      context.addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
     }
   }
 }
