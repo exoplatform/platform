@@ -49,22 +49,7 @@
           <execution>
             <phase>compile<!--process-classes--></phase>
             <configuration>
-              <tasks>
-                <taskdef name="hibernatedoclet" classname="xdoclet.modules.hibernate.HibernateDocletTask" 
-                         classpathref="maven.dependency.classpath"/>
-                  <hibernatedoclet destdir="target/classes" excludedtags="@version,@author,@todo" 
-                                   mergedir="target/classes" force="true">
-                  <fileset dir="src/main/java">                   
-                    <include name="org/exoplatform/portal/config/Data.java"/>
-					          <include name="org/exoplatform/portal/config/DataDescription.java"/>					          
-                    <include name="org/exoplatform/portal/config/SharedPortal.java"/>
-                    <include name="org/exoplatform/portal/config/SharedNavigation.java"/>
-                    
-                    <include name="org/exoplatform/portal/content/model/ContentData.java"/>
-                  </fileset>
-                  <hibernate version="3.0"/>
-                </hibernatedoclet>
-                
+              <tasks>           
                 <taskdef name="bind" classname="org.jibx.binding.ant.CompileTask" 
                          classpathref="maven.dependency.classpath"/>
                 <bind load="true" binding="${basedir}/src/main/resources/binding.xml">

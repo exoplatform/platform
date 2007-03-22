@@ -144,22 +144,7 @@
       <type>org.exoplatform.portal.content.DescriptionPlugin</type>
       <description>Description plugin</description>     
     </component-plugin>
-  </external-component-plugins>    
-  
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.database.HibernateService</target-component>
-    <component-plugin> 
-      <name>add.hibernate.mapping</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.database.impl.AddHibernateMappingPlugin</type>
-      <init-params>
-        <values-param>
-          <name>hibernate.mapping</name>                  
-        	<value>org/exoplatform/portal/content/model/ContentData.hbm.xml</value> 
-        </values-param>        
-      </init-params>
-    </component-plugin>
-  </external-component-plugins>
+ </external-component-plugins>    
  
 </configuration>
 
