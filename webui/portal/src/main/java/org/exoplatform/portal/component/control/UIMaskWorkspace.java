@@ -4,8 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.component.control;
 
-import javax.faces.component.UIOutput;
-
 import org.exoplatform.webui.application.RequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
