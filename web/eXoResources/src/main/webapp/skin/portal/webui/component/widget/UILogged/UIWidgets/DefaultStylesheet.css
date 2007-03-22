@@ -39,7 +39,7 @@
 .UICaegorySelector .IconLabelContent .WidgetIcon {
 	float: left;
 	height: 19px; width: 20px; 
-	background: url('DefaultSkin/background/IconWidget.gif') no-repeat center;
+	background: url('DefaultSkin/icon/IconWidget.gif') no-repeat center;
 }
 
 .UICaegorySelector .IconLabelContent .WidgetLabel {
@@ -52,14 +52,14 @@
 .UICaegorySelector .SelectedIcon {
 	float: right; 
 	width: 21px; height: 20px;
-	background: url('DefaultSkin/background/SelectedIcon.gif') no-repeat center;
+	background: url('DefaultSkin/icon/SelectedIcon.gif') no-repeat center;
 	cursor: pointer;	
 }
 
 .UIWidgets .UICaegorySelector .EditIcon {
 	float: right;
 	width: 20px; height: 20px;
-	background: url('DefaultSkin/background/EditIcon.gif') no-repeat center;
+	background: url('DefaultSkin/icon/EditIcon.gif') no-repeat center;
 	cursor: pointer;		
 }
 
@@ -111,7 +111,33 @@
 }
 
 
+.UIWidgets .ControlBar {
+	float: right;
+	border: solid 1px red;
+}
 
+.UIWidgets .ControlBar .Icon24x24 {
+	float: right;
+	width: 24px; height: 24px;
+	border: solid 1px red;
+}
 
+.UIWidgets .ControlBar .AddIcon {
+	background: url('DefaultSkin/icon/WidgetControl.gif') no-repeat center;
+}
 
+.UIWidgets .ControlBar .DownBrownArrowIcon {
+	background: url('DefaultSkin/icon/WidgetControl.gif') no-repeat center;
+}
 
+.UIWidgets .ControlBar .DownBlueArrowIcon {
+	background: url('DefaultSkin/icon/WidgetControl.gif') no-repeat center;
+}
+
+.UIWidgets .ControlBar .UpBlueArrowIcon {
+	background: url('DefaultSkin/icon/WidgetControl.gif') no-repeat center;
+}
+
+.UIWidgets .ControlBar .UpBrownArrowIcon {
+	background: url('DefaultSkin/icon/WidgetControl.gif') no-repeat center;
+}

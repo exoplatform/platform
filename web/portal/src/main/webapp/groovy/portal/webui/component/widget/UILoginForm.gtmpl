@@ -3,7 +3,7 @@
 	  <div class="TopLeftLoginDecorator">
 	    <div class="TopRightLoginDecorator">
 	      <div class="TopCenterLoginDecorator">
-	      	<div class="SigninTitle">Sign in</div>
+	      	<div class="SigninTitle"><%=_ctx.appRes("UILoginForm.label.Signin")%></div>
 	      </div>
 	    </div>
 	  </div>
@@ -24,7 +24,7 @@
 			          <div class="Message"><a href="#"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
 			          <div class="CheckField">
 			            <input type="checkbox"/>
-			            <div class="RememberLoginTitle">Remember My Login</div>
+			            <div class="RememberLoginTitle"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></div>
 			            <div style="clear:left;"><span></span></div>
 			          </div>
 				          
@@ -35,7 +35,10 @@
 			          				<div class="ButtonLeft">
 			          					<div class="ButtonRight">
 			          						<div class="ButtonMiddle">
-			          							<a href="#">Sign in</a>
+			          						  <% 
+											             String link = uicomponent.url("Login") ;
+									            %>
+			          							<a href="$link"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>
 			          						</div>
 			          					</div>
 			          				</div>
@@ -50,8 +53,8 @@
 	          	<div class="LeftSignUpBar">
 		          	<div class="SignUpBackground">
 		          		<div >
-		          			Not a member?
-		          			<span><a class="SignUpLink" href="#">  Sign up now for an account</a></span>
+		          			<%=_ctx.appRes("UILoginForm.label.NotMember")%>
+		          			<span><a class="SignUpLink" href="#"><%=_ctx.appRes("UILoginForm.label.ForAccount")%></a></span>
 		          		</div>
 		          	</div>
 		          </div>
@@ -74,7 +77,10 @@
   				<div class="ButtonLeft">
   					<div class="ButtonRight">
   						<div class="ButtonMiddle">
-  							<a href="#">Discard</a>
+  						  <% 
+										String linkCancel = uicomponent.url("Cancel") ;
+								%>
+  							<a href="$linkCancel"><%=_ctx.appRes("UILoginForm.label.Discard")%></a>
   						</div>
   					</div>
   				</div>
