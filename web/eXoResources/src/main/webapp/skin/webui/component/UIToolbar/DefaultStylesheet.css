@@ -181,25 +181,25 @@
 /*#################################- Poly2Toolbar -##############################*/
 
 .UIToolbar .Poly2Toolbar {
-  height: 35px; 
+  height: 30px; 
 }
 
 .UIToolbar .Poly2Toolbar .LeftBar {
-  height: 35px;
-  padding-left: 6px;
-  background: url('DefaultSkin/background/Poly2BarL6x35.gif') no-repeat left;
-  margin: 0px 5px;
+  height: 30px;
+  padding-left: 2px;
+  background: url('DefaultSkin/background/PolyBarL2x30.gif') no-repeat left;
+  margin: 0px 7px;
 }
 
 .UIToolbar .Poly2Toolbar .RightBar {
-  height: 35px;
-  padding-right: 6px;
-  background: url('DefaultSkin/background/Poly2BarR6x35.gif') no-repeat right;
+  height: 30px;
+  padding-right: 2px;
+  background: url('DefaultSkin/background/PolyBarR2x30.gif') no-repeat right;
 }
 
 .UIToolbar .Poly2Toolbar .MiddleBar {
-  height: 35px; line-height: 35px; vertical-align: middle;
-  background: url('DefaultSkin/background/Poly2BarM1x35.gif') repeat-x ;
+  height: 30px; line-height: 30px; vertical-align: middle;
+  background: url('DefaultSkin/background/PolyBarM1x30.gif') repeat-x ;
 }
 
 /*#################################- IceBlueToolbar -##############################*/

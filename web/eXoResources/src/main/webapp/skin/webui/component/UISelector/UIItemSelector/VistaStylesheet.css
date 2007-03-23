@@ -27,6 +27,11 @@
   height: 240px;
 }
 
+.UIItemSelector .ItemDetailList .TemplateContainer .DefaultImage {
+  background: url('VistaSkin/background/DefaultImage.png') no-repeat center;
+  height: 230px;
+}
+
 .UIItemSelector .ItemDetailList .ItemDescription {
   background: white;
   border: solid 1px #b7b7b7;
