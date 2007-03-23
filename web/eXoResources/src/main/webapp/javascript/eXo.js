@@ -53,7 +53,6 @@ eXo.env.server.createPortalURL = function(targetComponentId, actionName, useAjax
       href += "&" +  params[i].name + "=" + params[i].value ;
     }
   }
-  alert(useAjax);
   if(useAjax) href += "&ajaxRequest=true" ;
   return  href ;
 }
