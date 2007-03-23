@@ -63,11 +63,7 @@
   background: #e6eef7;
 }
 
-.UILogged .UserContent {
-	height: 100px;
-}
-
-.UILogged .UserContent .AvatarImageContent {
+.UILogged .StyleContent .AvatarImageContent {
 	float: left;
 	width: 90px; height: 88px;
 	padding: 12px 0px 0px 10px;
@@ -79,31 +75,31 @@
 	border: solid 1px #ffffff;
 }
 
-.UILogged .UserContent .WelcomeBox {
+.UILogged .StyleContent .WelcomeBox {
 	margin: 0px 0px 0px 95px;
 }
 
-.UILogged .UserContent .UserWelcomeBox {
+.UILogged .StyleContent .UserWelcomeBox {
   padding: 5px 0px 7px 0px;
   background: #e6eef7;
   line-height: 30px; 
   height: 65px;
 }
 
-.UILogged .UserContent .UserWelcomeBox .StateMessage {
+.UILogged .StyleContent .UserWelcomeBox .StateMessage {
   font-size: 11px; 
   text-align: center;
   line-height: 25px; 
 }
 
-.UILogged .UserContent .UserWelcomeBox .LoggedUserName {
+.UILogged .StyleContent .UserWelcomeBox .LoggedUserName {
   color: #5aa5f8 ;
   text-align: center;
   line-height: 20px;
   font-weight: bold; 
 }
 
-.UILogged .UserContent .LabelSignout {
+.UILogged .StyleContent .LabelSignout {
 	text-align: right;
 	color: #f98e03;
 	font-weight: bold;
@@ -112,22 +108,22 @@
 	cursor: pointer;
 }
 
-.UILogged .NotificationContent {
+.UILogged .StyleContent {
 	height: 100px;
 }
 
-.UILogged .NotificationContent .IconContent {
+.UILogged .StyleContent .IconContent {
 	width: 90%;
 	margin: auto;
 }
 
-.UILogged .NotificationContent .UserLabel {
+.UILogged .StyleContent .UserLabel {
 	text-align: center;
 	font-weight: bold; font-size: 11px;
 	line-height: 20px;
 }
 
-.UILogged .NotificationContent .UserLabel span {
+.UILogged .StyleContent .UserLabel span {
 	text-align: center;
 	font-weight: bold; font-size: 11px;
 	line-height: 20px;
@@ -135,34 +131,28 @@
 }
 
 /****************************** Icon *********************************/
-
-.UILogged .ImageContent .UserIcon {  
+.UILogged .SelectedBG {
 	float: left;
-	height: 32px; width: 32px;
-	background: url('DefaultSkin/background/UserSelectIcon.gif') no-repeat center;
+	background: url('DefaultSkin/background/SelectedBG.gif') no-repeat center;
 }
 
-.UILogged .ImageContents .UserIcon {  
+.UILogged .NormalBG {
 	float: left;
+}
+
+.UILogged .UserIcon {  
 	height: 32px; width: 32px;
 	cursor: pointer;
 	background: url('DefaultSkin/background/UserIcon.gif') no-repeat center;
 }
 
-.UILogged .ImageContent .WelcomIcon {  
-	float: left;
+.UILogged .WelcomeIcon {  
 	height: 32px; width: 32px;
 	cursor: pointer;
 	background: url('DefaultSkin/background/WelcomeIcon.gif') no-repeat center;
 }
 
-.UILogged .ImageContents .WelcomIcon {  
-	float: left;
-	height: 32px; width: 32px;
-	background: url('DefaultSkin/background/WelcomeSelectIcon.gif') no-repeat center;
-}
-
-.UILogged .NotificationContent .EMailIcon {
+.UILogged .EMailIcon {
 	width: 36px; height: 36px;
 	margin: auto;
 	background: url('DefaultSkin/background/EMailIcon.gif') no-repeat bottom;

@@ -27,23 +27,23 @@ UIPortalControl.prototype.minimizeWindow = function() {
 UIPortalControl.prototype.showHiddenContent = function(selectedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var ancestorClass = DOMUtil.findAncestorByClass(selectedElement, "UILogged");
-	var parentByclass = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", "ImageContent");
-	var userContent = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", "UserContent");
-	var notificationContent;
-	
-	if(parentByclass != null){
-		parentByclass.className = "ImageContents";
-		userContent.style.display = "none";
-		notificationContent = DOMUtil.findNextElementByTagName(userContent, "div");
-		notificationContent.style.display = "block";
+	var classNormal = DOMUtil.findAncestorByClass(selectedElement, "NormalBG");
+	var classSelected = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", "SelectedBG");
+	var contentStyle = eXo.core.DOMUtil.findDescendantsByClass(ancestorClass, "div", "StyleContent") ;
+	if(classNormal != null){
+		classNormal.className = "SelectedBG";
+		classSelected.className = "NormalBG";
+		if(selectedElement.className == "UserIcon"){
+		  contentStyle[0].style.display = "block";
+			contentStyle[1].style.display = "none";
+		} else {
+		  contentStyle[0].style.display = "none";
+		  contentStyle[1].style.display = "block";
+		}
 	} else {
-		parentByclass = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", "ImageContents");
-		parentByclass.className = "ImageContent";
-		notificationContent = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", "NotificationContent");
-		notificationContent.style.display = "none";
-		userContent.style.display = "block";
+		return;
 	}
-	
+
 }
 
 eXo.portal.UIPortalControl = new UIPortalControl();
