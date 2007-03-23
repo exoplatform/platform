@@ -13,11 +13,13 @@ import java.util.HashMap;
  * Mar 20, 2007  
  */
 abstract public class ObjectToJSONConverterPlugin {
+  protected static final int NUMBER_SPACE = 2;
   abstract public <T> void  toJSONScript(HashMap<Class, ObjectToJSONConverterPlugin> converterPlugins, 
-                                                 T object, StringBuilder b, int indentLevel) ;
+                                                 T object, StringBuilder b, int indentLevel)  throws Exception;
   
   
   protected void appendIndentation(StringBuilder b,  int indentLevel) {
-    
+    char c = ' ';
+    for(int i = 0; i< indentLevel * NUMBER_SPACE; i ++) b.append(c);
   }
 }
