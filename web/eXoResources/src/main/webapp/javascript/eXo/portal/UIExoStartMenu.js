@@ -134,7 +134,7 @@ UIExoStartMenu.prototype.hideStartMenuContainer = function() {
 
 UIExoStartMenu.prototype.menuItemOver = function() {
 
-	eXo.portal.UIExoStartMenu.showMenuItemContainer();
+	eXo.portal.UIExoStartMenu.showMenuItemContainer() ;
 	
 	var selectedElement = this ;
 	var menuItemSelected = eXo.core.DOMUtil.findFirstDescendantByClass(selectedElement, "div", "LabelItem") ;
