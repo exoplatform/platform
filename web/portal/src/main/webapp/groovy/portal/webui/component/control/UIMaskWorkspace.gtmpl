@@ -13,7 +13,7 @@
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.importJavascript('eXo.portal.UIMaskWorkspace');	
 	
-	int width = uicomponent.getWindowWidth() ;
+	int width = uicomponent.getWindowWidth();
 	int height = uicomponent.getWindowHeight();
 	String style;
 	if(uicomponent.isShow()) style = "display: block;"; else style = "display: none;";

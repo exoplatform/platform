@@ -1,7 +1,6 @@
 .UILoginForm {
   margin: auto;
-  padding: 10px 17px 12px 10px ;
-  width: 600px;
+  padding: 15px 17px 12px 10px ;
 }
 
 /*##############################- LoginBox Style-################################*/
@@ -9,14 +8,12 @@
 .UILoginForm .LoginDecorator {
 	width: 540px;
 	margin: auto;
-	padding: 15px 15px 5px 10px ;
 }
 
 .UILoginForm .LoginDecorator .LoginDecoratorBackground {
   background-color: white ;
   font-size: 11px;
-  padding: 15px 0px 0px 0px;
-  height: 190px;
+  height: 198px;
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
@@ -32,7 +29,8 @@
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator .SigninTitle {
   color: blue ;
   font-size: 16px; font-family: arial; font-weight: bold;
-  padding: 8px 0px 0px 10px;
+	line-height: 30px;
+	padding: 4px 0px 0px 20px;
 }
 
 .UILoginForm .LoginDecorator .TopRightLoginDecorator {
@@ -43,13 +41,11 @@
 .UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
   background: url('DefaultSkin/background/WhiteRoundedBoxLeftMiddle136x198.gif') no-repeat left ;
   padding: 0px 0px 0px 136px ;
-  height: 198px;
 }
 
 .UILoginForm .LoginDecorator .MiddleRightLoginDecorator {
   background: url('DefaultSkin/background/WhiteRoundedBoxRightMiddle6x1.gif') repeat-y right ;
   padding: 0px 6px 0px 0px ;
-  height: 198px;
 }
 
 .UILoginForm .LoginDecorator .BottomLeftLoginDecorator {
@@ -70,18 +66,17 @@
 /* ============================End LoginDecorator============================== */
 
 .UILoginForm .LoginDetailBox .VerticalLayout {
-  padding: 5px 60px 0px 0px;
 }
 
 .UILoginForm .LoginDetailBox .UserNameField {
-  height: 28px;
+	padding: 20px 0px 5px 0px;
   width: 300px;
   margin: auto;
   text-align: right;
 }
 
 .UILoginForm .LoginDetailBox .PasswordField {
-  height: 20px;
+	padding: 5px;
   width: 300px;
   margin: auto;
   text-align: right;
@@ -139,7 +134,7 @@
 }
 
 .UILoginForm .LoginDecorator .SignUpBar {
-	padding: 0px 0px 0px 70px ;
+	padding: 0px 0px 2px 70px ;
 }
 
 .UILoginForm .LoginDecorator .LeftSignUpBar {
@@ -160,8 +155,9 @@
 	cursor: pointer;
 }
 
-.UIMaskWorkspace .UILoginForm .UIAction {
+.UIMaskWorkspace .UIForm .VerticalLayout .UIAction {
 	margin: 0px auto 0px auto;
+	padding: 10px 0px 10px 15px;
 }
 
 .UILoginForm .UIAction .ActionContainer .ActionButton {

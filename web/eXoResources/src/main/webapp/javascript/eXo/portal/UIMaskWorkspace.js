@@ -4,6 +4,10 @@ function UIMaskWorkspace() {
 
 UIMaskWorkspace.prototype.init = function(maskId, show) {
 	var maskWorkpace = document.getElementById(maskId);
+	var uiLoginForm = eXo.core.DOMUtil.findFirstDescendantByClass(maskWorkpace, "div", "UILoginForm");
+	 if(uiLoginForm != null){
+	 	 maskWorkpace.style.width = 630 + "px" ;
+	 }
 	if(show) {
 		maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", maskWorkpace, 30) ;
 		eXo.portal.UIMaskWorkspace.maskLayer = maskLayer;
