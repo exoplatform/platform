@@ -4,13 +4,13 @@
 
 .UIBannerPortlet .LeftBanner {
 	height: 73px;
-	padding: 0px 0px 0px 186px;
+	padding: 0px 0px 0px 184px;
   background: url('DefaultSkin/background/LeftBanner186x73.jpg') no-repeat left;
 }
 
 .UIBannerPortlet .MiddleBanner{
 	height: 73px;
-  background: url('DefaultSkin/background/MiddleBanner9x73.jpg') repeat-x ;
+  background: url('DefaultSkin/background/MiddleBanner10x73.jpg') repeat-x ;
 }
 
 .UIBannerPortlet .RightBanner {
