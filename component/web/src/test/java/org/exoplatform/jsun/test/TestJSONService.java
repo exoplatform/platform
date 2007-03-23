@@ -35,7 +35,11 @@ public class TestJSONService {
     Student student3 = new Student("Peter", 15, "abc");
     Student[] students = {student, student2, student3};
     Clazz clazz = new Clazz(students, teacher, "abc");
-    service_.toJSONScript(clazz, b, 2);
+    try {
+      service_.toJSONScript(clazz, b, 2);
+    }catch (Exception e) {
+      
+    }
     
     System.out.println("\n\n\n***************************************************************");
     System.out.println(b + "\n\n");

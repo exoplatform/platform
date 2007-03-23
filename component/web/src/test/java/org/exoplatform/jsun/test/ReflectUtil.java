@@ -26,6 +26,7 @@ public class ReflectUtil extends Clazz {
 //  String ddd  = "eeeeeeeeeeeeeeeeeee";
 //  String[] ss = {"asdf", "123431", ";lkj"};
 //  
+  
   private  void  getField(Class c, List<Field> allFields) {
     Field[] publicFields = c.getDeclaredFields();
     for(Field f: publicFields ) allFields.add(f);
