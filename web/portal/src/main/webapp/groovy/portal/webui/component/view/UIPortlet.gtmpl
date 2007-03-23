@@ -104,8 +104,6 @@
   	String title = uicomponent.getTitle() ;
     if(title == null || title.trim().length() < 1) title = popupId;
 %>
-
-	  
 	    <%/*Begin Window Portlet Bar*/ %>
 	    <%
 	      String visibility = "visible" ;

@@ -25,10 +25,8 @@ import org.exoplatform.services.portletregistery.Portlet;
 import org.exoplatform.services.portletregistery.PortletCategory;
 import org.exoplatform.services.portletregistery.PortletRegisteryService;
 import org.exoplatform.webui.application.RequestContext;
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.webui.event.Event.Phase;
 
 /**
  * Author : Dang Van Minh
@@ -42,30 +40,8 @@ public class UIPortalActionListener {
       UIPortal uiPortal  = event.getSource();
       String portletId = event.getRequestContext().getRequestParameter("portletId");
       UIPortlet uiPortlet = uiPortal.findComponentById(portletId);
-      Phase phase = event.getExecutionPhase();      
       RequestContext context = event.getRequestContext();
-      uiPortlet.createEvent("ChangeWindowState", phase, context).broadcast();
-    }
-  }
-  
-  
-  static public class MaximizeActionListener extends EventListener<UIComponent> {
-    public void execute(Event<UIComponent> event) throws Exception {
-      UIPortal uiPortal = Util.getUIPortal();
-      String portletId = event.getRequestContext().getRequestParameter("portletId");
-      portletId = portletId.split("-")[0];
-      UIPortlet portlet = uiPortal.findComponentById(portletId);
-      if(portlet == null ) return ;
-      uiPortal.setMaximizedUIComponent(portlet);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortal);
-    }
-  }
-  
-  static public class MinimizeActionListener extends EventListener<UIComponent> {
-    public void execute(Event<UIComponent> event) throws Exception {
-      UIPortal uiPortal = Util.getUIPortal();
-      uiPortal.setMaximizedUIComponent(null);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortal);
+      uiPortlet.createEvent("ChangeWindowState", event.getExecutionPhase(), context).broadcast();
     }
   }
   
