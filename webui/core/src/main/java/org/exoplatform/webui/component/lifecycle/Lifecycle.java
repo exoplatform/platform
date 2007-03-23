@@ -41,10 +41,9 @@ public class Lifecycle {
   
   public void processAction(UIComponent uicomponent , RequestContext context) throws Exception {
     String action =  context.getRequestParameter(context.getActionParameterName()) ;
-    if(action != null) {
-      Event<UIComponent> event = uicomponent.createEvent(action, Event.Phase.PROCESS, context) ;
-      if(event != null) event.broadcast()  ;
-    }
+    if(action == null) return ;
+    Event<UIComponent> event = uicomponent.createEvent(action, Event.Phase.PROCESS, context) ;
+    if(event != null) event.broadcast()  ;
   }
   
   public void processRender(UIComponent uicomponent , RequestContext context) throws Exception {

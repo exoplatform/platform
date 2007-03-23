@@ -1,5 +1,6 @@
 <%
   import org.exoplatform.portal.component.view.UIPage;
+  import javax.portlet.WindowState;
   
   def rcontext = _ctx.getRequestContext() ;
   
@@ -18,6 +19,7 @@
   String onMouseOut      = "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
   String onMouseUp      = "eXo.webui.UIPopupSelectCategory.onMouseUp(this);" ;
   
+  WindowState windowState = uicomponent.getCurrentWindowState();  
   boolean isWindow = "Window".equals(uicomponent.getPortletStyle());  
   
   if(!isWindow) {
@@ -35,7 +37,7 @@
 		    </div>
 		  </div>
 		   
-		  <div class="CONTROL-PORTLET CONTROL-BLOCK" style="display: none">
+		  <div class="CONTROL-PORTLET CONTROL-BLOCK" style="display: none;">
 		   	<%/*Begin InfoBar*/%>
 		   	<div class="UIInfoBar">
 		      <div class="BlueRoundedStyle">
@@ -109,8 +111,6 @@
 	      String visibility = "visible" ;
 	      if(isWindow) visibility = "hidden" ;
 	      String windowId = popupId + "-portlet-window" ;
-	    
-	      rcontext.addJavascript("eXo.portal.UIPortalControl.init('$windowId');");
 	    %>
     		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}-portlet-window" style="visibility: $visibility">
 		      <div class="WindowBarLeft">
@@ -118,9 +118,25 @@
 		          <div class="WindowBarCenter">
 		            <div class="WindowPortletControl CategoryDetectPosition">
 		              <div class="ControlIcon ArrowDownIcon" onclick="$showCategory; $setDefault;" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
-		              <%if(uicomponent.getShowWindowState() || isWindow) {%>
+		              <%if(isWindow) {%>
 	                		<div class="ControlIcon MinimizedIcon" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
 	                		<div class="ControlIcon MaximizedIcon" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+	                <%
+	                  } else if(uicomponent.getShowWindowState()) {	                    
+	                    String maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+popupId+"', 'maximized');" ;
+	                    String minimizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+popupId+"', 'minimized');";
+	                    String maximizedMode = "Maximized";
+	                    String minimizedMode = "Minimized";
+	                    if(windowState == WindowState.MAXIMIZED) {
+  	                    maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+popupId+"', 'normal');" ;
+  	                    maximizedMode = "Normal";
+	                    } else if(windowState == WindowState.MINIMIZED) {
+	                      minimizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+popupId+"', 'normal');" ;
+  	                    minimizedMode = "Normal";
+	                    }
+	                %>
+    	                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction"  onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+	                		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction"  onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	                <%}%>    
 	                <%
 	                  if(isWindow) {
@@ -199,7 +215,9 @@
 		      <div class="MiddleDecoratorLeft">
 		        <div class="MiddleDecoratorRight">
 		          <div class="MiddleDecoratorCenter">
-		            $portletContent
+		          <%if(windowState != WindowState.MINIMIZED){%>
+		              $portletContent
+		          <%}%>    
 		          </div>
 		        </div>
 		      </div>
@@ -215,10 +233,10 @@
 		        </div>
 		      </div>
 	      </div>
-		      <%//End Bottom Decorator %>
-	<%} else { %>
-			    $portletContent
+	      <%//End Bottom Decorator %>
 	<%
+	  } else {
+	    if(windowState != WindowState.MINIMIZED) out.println(portletContent);
 	  }  
 	  if(!isWindow) {
 	%>  

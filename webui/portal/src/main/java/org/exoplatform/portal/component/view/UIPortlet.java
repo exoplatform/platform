@@ -31,12 +31,12 @@ import org.exoplatform.webui.event.Event.Phase;
     lifecycle = UIPortletLifecycle.class,
     template = "system:/groovy/portal/webui/component/view/UIPortlet.gtmpl",
     events = {
-      @EventConfig(phase = Phase.PROCESS, listeners = ProcessActionActionListener.class),
       @EventConfig(listeners = RenderActionListener.class),
       @EventConfig(listeners = ChangePortletModeActionListener.class),
       @EventConfig(listeners = ChangeWindowStateActionListener.class),
       @EventConfig(listeners = DeleteComponentActionListener.class),
-      @EventConfig(listeners = EditPortletActionListener.class)
+      @EventConfig(listeners = EditPortletActionListener.class),
+      @EventConfig(phase = Phase.PROCESS, listeners = ProcessActionActionListener.class)
     }    
 )
 public class UIPortlet extends UIPortalComponent { 

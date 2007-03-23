@@ -4,8 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view.listener;
 
-import javax.servlet.http.HttpServletRequest;
-
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -23,12 +21,14 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UILoginForm;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.services.portletregistery.Portlet;
 import org.exoplatform.services.portletregistery.PortletCategory;
 import org.exoplatform.services.portletregistery.PortletRegisteryService;
+import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 
 /**
  * Author : Dang Van Minh
@@ -36,6 +36,18 @@ import org.exoplatform.webui.event.EventListener;
  * Jun 20, 2006
  */
 public class UIPortalActionListener { 
+  
+  static public class ChangeWindowStateActionListener extends EventListener<UIPortal> {
+    public void execute(Event<UIPortal> event) throws Exception {
+      UIPortal uiPortal  = event.getSource();
+      String portletId = event.getRequestContext().getRequestParameter("portletId");
+      UIPortlet uiPortlet = uiPortal.findComponentById(portletId);
+      Phase phase = event.getExecutionPhase();      
+      RequestContext context = event.getRequestContext();
+      uiPortlet.createEvent("ChangeWindowState", phase, context).broadcast();
+    }
+  }
+  
   
   static public class MaximizeActionListener extends EventListener<UIComponent> {
     public void execute(Event<UIComponent> event) throws Exception {

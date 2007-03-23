@@ -2,25 +2,12 @@ function UIPortalControl() {
   
 };
 
-UIPortalControl.prototype.init = function(objectId) {  
-  var uiPageDesktop = document.getElementById("UIPageDesktop");
-  if(!uiPageDesktop) {
-  	var uiWindow = document.getElementById(objectId);
-  	var maxIcon = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "MaximizedIcon");
-		maxIcon.onclick = eXo.portal.UIPortalControl.maximizeWindow;
-  	var miniIcon = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "MinimizedIcon");
-		miniIcon.onclick = eXo.portal.UIPortalControl.minimizeWindow;
-  }
-};
-
-UIPortalControl.prototype.maximizeWindow = function() {
-  var uiWindows = eXo.core.DOMUtil.findAncestorByClass(this, "UIWindow");
-  var params = [{name: "portletId", value: uiWindows.id}] ;
-	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "Maximize", params,  true)) ;
-};
-
-UIPortalControl.prototype.minimizeWindow = function() {
-	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "Minimize",   true)) ;
+UIPortalControl.prototype.changeWindowState = function(id, state) {
+  var params = [
+    {name: "portletId", value: id},
+    {name: "objectId", value: state}
+  ] ;
+	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "ChangeWindowState", true, params));
 };
 
 /* Create Funtion by Duy Tu */

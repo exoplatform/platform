@@ -14,10 +14,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.customization.UIContainerForm;
-import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.customization.UIPortletForm;
-import org.exoplatform.portal.component.view.UIContainer;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
@@ -81,7 +78,7 @@ public class UIPortletActionListener   {
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
       pcontext.setForceFullUpdate(true);
       
-      String windowState = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      String windowState = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID).trim();
       UIPortal uiPortal = uiPortlet.getAncestorOfType(UIPortal.class);
       if(windowState.equals(WindowState.MAXIMIZED.toString())){ 
         if(uiPortal !=  null){
