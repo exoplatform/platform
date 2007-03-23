@@ -1,6 +1,7 @@
 .UILoginForm {
-  margin: 0px;
+  margin: auto;
   padding: 10px 17px 12px 10px ;
+  width: 600px;
 }
 
 /*##############################- LoginBox Style-################################*/
