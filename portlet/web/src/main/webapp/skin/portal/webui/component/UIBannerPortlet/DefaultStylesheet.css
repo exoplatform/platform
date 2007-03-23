@@ -25,32 +25,21 @@
   margin: 0px 0px 0px 15px;
 }
 
-.UIBannerPortlet .LoginContainer {
-}
-
 .UIBannerPortlet .LoginContainer .LoginContent {
   float: right;
   font-size: 11px;
   padding: 9px 13px 0px 0px;
 }
 
-.UIBannerPortlet .LoginContainer .LoginContent a {
-  font-size: 11px;
-  font-weight: bold;
-  color: orange;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.UIBannerPortlet .LoginContainer .LoginContent a:hover {
-  color: #5098eb;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
 .UIBannerPortlet .LoginContent .LoginLabel {
+  font-size: 11px;
+  color: orange;
+  font-weight: bold;
 	float: left;
+  cursor: pointer;
+  text-decoration: underline;
 	padding: 0px 8px 0px 0px;
+	
 }
 
 .UIBannerPortlet .LoginContent .LoginIcon {
