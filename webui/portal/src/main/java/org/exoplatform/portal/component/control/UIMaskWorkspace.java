@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.component.control;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.webui.application.RequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
@@ -38,11 +39,6 @@ public class UIMaskWorkspace extends UIComponentDecorator {
     height_ = h ;
   }
   
-  public void processRender(RequestContext context) throws Exception {
-    super.processRender(context);
-    context.addJavascript("eXo.portal.UIMaskWorkspace.init('"+getId()+"', "+isShow+");");
-  }
-
   public boolean isShow() { return isShow;}
   
   public void setShow(boolean isShow) { this.isShow = isShow; }

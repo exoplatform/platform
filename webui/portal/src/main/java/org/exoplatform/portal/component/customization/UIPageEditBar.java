@@ -87,7 +87,7 @@ public class UIPageEditBar extends UIToolbar {
   
 
   static public class EditPortletActionListener  extends EventListener<UIPageEditBar> {
-    public void execute(Event<UIPageEditBar> event) throws Exception {
+    public void execute(Event<UIPageEditBar> event) throws Exception {     
       UIPageEditBar uiEditBar = event.getSource();
       uiEditBar.showUIPage();
 

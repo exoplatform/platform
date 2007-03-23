@@ -122,20 +122,22 @@ public class UIPortletActionListener   {
   
   static public class EditPortletActionListener extends EventListener<UIPortlet> {
     public void execute(Event<UIPortlet> event) throws Exception {
-      UIPortlet container = event.getSource();
+      System.out.println("\n\n\n EditPortletActionListener \n\n\n");   
+      
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;       
     
-      
+      UIPortlet container = event.getSource();
       UIPortletForm containerForm = uiMaskWS.createUIComponent(UIPortletForm.class, null, null); 
       containerForm.setValues(container);
-      uiMaskWS.setUIComponent(containerForm);      
-      
+      uiMaskWS.setUIComponent(containerForm);     
+      uiMaskWS.setWindowSize(640, 400);
       uiMaskWS.setShow(true);
+      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event);
-//      
+      Util.updateUIApplication(event);      
+//     
 //      UIPortlet uiPortlet = event.getSource();
 //      UIPortletForm uiForm = uiPortlet.createUIComponent(UIPortletForm.class, null, null);
 //      uiForm.setValues(uiPortlet) ;

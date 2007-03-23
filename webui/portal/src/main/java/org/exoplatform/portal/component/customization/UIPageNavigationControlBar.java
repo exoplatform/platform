@@ -83,7 +83,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
   }
   
   static public class EditNavigationActionListener extends EventListener<UIPageNavigationControlBar> {
-    public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
+    public void execute(Event<UIPageNavigationControlBar> event) throws Exception {      
       UIPageNavigationControlBar bar = event.getSource();
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
