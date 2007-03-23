@@ -9,6 +9,10 @@ import java.util.Collection;
 import java.util.List;
 
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
+import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.view.UIPortal;
+import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletregistery.Portlet;
 import org.exoplatform.services.portletregistery.PortletCategory;
@@ -106,6 +110,7 @@ public class UIPortletRegistryCategory extends UIContainer {
   
   static public class AddCategoryActionListener extends EventListener<UIPortletRegistryCategory>{
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception{
+      System.out.println("\n\n\n================== AddCategoryActionListener \n\n\n");
       UIPortletRegistryCategory uiRegistryCategory = event.getSource();
       UIPortletRegistryPortlet uiParent = uiRegistryCategory.getParent();
       UIWorkingArea uiWorkingArea = uiParent.getChild(UIWorkingArea.class);
@@ -117,6 +122,21 @@ public class UIPortletRegistryCategory extends UIContainer {
 
   static public class EditCategoryActionListener extends EventListener<UIPortletRegistryCategory>{
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception{
+      System.out.println("\n\n\n================== EditCategoryActionListener \n\n\n");
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
+      UICategoryForm uiForm = uiMaskWS.createUIComponent(UICategoryForm.class, null, null);
+      UIPortletRegistryCategory uiRegistryCategory = event.getSource();
+      PortletCategory selectedCategory = uiRegistryCategory.getSelectedPortletCategory() ;
+      if(selectedCategory == null) return ;
+      uiForm.setValue(selectedCategory);
+      uiMaskWS.setUIComponent(uiForm);
+      uiMaskWS.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      Util.updateUIApplication(event); 
+         
+      /*
       UIPortletRegistryCategory uiRegistryCategory = event.getSource();
       UIPortletRegistryPortlet uiParent = uiRegistryCategory.getParent();
       UIWorkingArea uiWorkingArea = uiParent.getChild(UIWorkingArea.class);
@@ -125,7 +145,7 @@ public class UIPortletRegistryCategory extends UIContainer {
       PortletCategory selectedCategory = uiRegistryCategory.getSelectedPortletCategory() ;
       if(selectedCategory == null) return ;
       uiForm.setValue(selectedCategory);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;*/
     }
   }
 
@@ -189,6 +209,7 @@ public class UIPortletRegistryCategory extends UIContainer {
 
   static public class AddPortletActionListener extends EventListener<UIPortletRegistryCategory> {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception {
+      System.out.println("\n\n\n================== AddPortletActionListener \n\n\n");
       UIPortletRegistryCategory uiComp = event.getSource();
       UIPortletRegistryPortlet uiParent = uiComp.getParent();
       UIWorkingArea uiWorkingArea = uiParent.getChild(UIWorkingArea.class);
@@ -200,6 +221,20 @@ public class UIPortletRegistryCategory extends UIContainer {
 
   static public class EditPortletActionListener extends EventListener<UIPortletRegistryCategory> {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception {
+      System.out.println("\n\n\n================== EditPortletActionListener \n\n\n");
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
+      UICategoryForm uiForm = uiMaskWS.createUIComponent(UICategoryForm.class, null, null);
+      UIPortletRegistryCategory uiRegistryCategory = event.getSource();
+      PortletCategory selectedCategory = uiRegistryCategory.getSelectedPortletCategory() ;
+      if(selectedCategory == null) return ;
+      uiForm.setValue(selectedCategory);
+      uiMaskWS.setUIComponent(uiForm);
+      uiMaskWS.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      Util.updateUIApplication(event); 
+/*      System.out.println("\n\n\n=================================EditCategoryActionListener in UIPortletRegistry\n\n\n");
       UIPortletRegistryCategory uicomp = event.getSource();
       Portlet portletSelected = uicomp.getSelectedPortlet() ;
       if(portletSelected == null) return;
@@ -207,7 +242,7 @@ public class UIPortletRegistryCategory extends UIContainer {
       UIWorkingArea uiWorkingArea = uiParent.getChild(UIWorkingArea.class);
       UIInfoPortletForm uiPortletForm = uiWorkingArea.getChild(UIInfoPortletForm.class) ;
       uiPortletForm.setValues(portletSelected) ;
-      uiWorkingArea.setRenderedChild(UIInfoPortletForm.class) ;
+      uiWorkingArea.setRenderedChild(UIInfoPortletForm.class) ;*/
     }
   }
 

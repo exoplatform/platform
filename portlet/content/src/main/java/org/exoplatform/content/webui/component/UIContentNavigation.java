@@ -7,6 +7,9 @@ package org.exoplatform.content.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.content.ContentDAO;
 import org.exoplatform.portal.content.model.ContentNavigation;
@@ -161,27 +164,53 @@ public class UIContentNavigation extends UIComponent {
 
   static  public class AddNodeActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
-      UIContentNavigation uiNav = event.getSource();
+      System.out.println("\n\n\n================ new AddNodeActionListener\n\n\n");
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;;
+      UIContentForm uiForm = uiMaskWS.createUIComponent(UIContentForm.class, null, null);
+      uiForm.setContentNode(null);
+      
+      uiMaskWS.setUIComponent(uiForm);  
+      uiMaskWS.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      Util.updateUIApplication(event);
+      
+/*      UIContentNavigation uiNav = event.getSource();
       UIContentPortlet uiParent = uiNav.getParent() ;
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
       UIContentForm uiForm = uiWorkingArea.getChild(UIContentForm.class) ;
       uiForm.setContentNode(null);
       uiWorkingArea.setRenderedChild(UIContentForm.class) ;
       Class [] childrenToRender = {UIContentNavigation.class, UIContentWorkingArea.class };
-      uiParent.setRenderedChildrenOfTypes(childrenToRender) ;
+      uiParent.setRenderedChildrenOfTypes(childrenToRender) ;*/
     }
   }
 
   static  public class EditNodeActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
       UIContentNavigation uiNav = event.getSource();
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      
+      UIContentForm uiForm = uiMaskWS.createUIComponent(UIContentForm.class, null, null);
+      ContentNode selectedNode = uiNav.getSelectedNode() ;
+      if(selectedNode == null)  return;
+      uiForm.setContentNode(selectedNode);
+      uiMaskWS.setUIComponent(uiForm);      
+
+      uiMaskWS.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      Util.updateUIApplication(event);
+/*      UIContentNavigation uiNav = event.getSource();
       UIContentPortlet uiParent = uiNav.getParent() ;
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
       UIContentForm uiForm = uiWorkingArea.getChild(UIContentForm.class) ;
       ContentNode selectedNode = uiNav.getSelectedNode() ;
       if(selectedNode == null)  return;
       uiForm.setContentNode(selectedNode);
-      uiWorkingArea.setRenderedChild(UIContentForm.class) ;
+      uiWorkingArea.setRenderedChild(UIContentForm.class) ;*/
     }
   }
 

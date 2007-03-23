@@ -6,8 +6,6 @@ package org.exoplatform.portal.component.view.listener;
 
 import java.util.List;
 
-import javax.faces.component.UIForm;
-
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIPageEditBar;
@@ -17,7 +15,6 @@ import org.exoplatform.portal.component.customization.UIPageNavigationControlBar
 import org.exoplatform.portal.component.customization.UIPageNodeForm;
 import org.exoplatform.portal.component.customization.UIPageNodeSelector;
 import org.exoplatform.portal.component.customization.UIPageTemplateOptions;
-import org.exoplatform.portal.component.customization.UIPortalForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;

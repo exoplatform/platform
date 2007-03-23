@@ -15,6 +15,7 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIPortletForm;
+
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
@@ -118,9 +119,7 @@ public class UIPortletActionListener   {
   }
   
   static public class EditPortletActionListener extends EventListener<UIPortlet> {
-    public void execute(Event<UIPortlet> event) throws Exception {
-      System.out.println("\n\n\n EditPortletActionListener \n\n\n");   
-      
+    public void execute(Event<UIPortlet> event) throws Exception {      
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;       
@@ -133,23 +132,7 @@ public class UIPortletActionListener   {
       uiMaskWS.setShow(true);
       
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event);      
-//     
-//      UIPortlet uiPortlet = event.getSource();
-//      UIPortletForm uiForm = uiPortlet.createUIComponent(UIPortletForm.class, null, null);
-//      uiForm.setValues(uiPortlet) ;
-//      UIPortalApplication uiPortalApp = uiPortlet.getAncestorOfType(UIPortalApplication.class);
-//      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-//      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
-//      if(Util.getUIPortal().isRendered()) {
-//        UIPortal uiPortal = Util.getUIPortal() ;
-//        uiForm.setBackComponent(uiPortal) ;
-//      } else {
-//        uiForm.setBackComponent(uiToolPanel.getUIComponent()) ;
-//      }
-//      uiToolPanel.setUIComponent(uiForm) ;
-//      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;    
+      Util.updateUIApplication(event);  
     }
   }
 }

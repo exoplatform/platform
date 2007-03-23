@@ -97,7 +97,8 @@ public class UIListUsers extends UISearch {
 	
 	static  public class ViewUserInfoActionListener extends EventListener<UIListUsers> {
     public void execute(Event<UIListUsers> event) throws Exception {
-    	String username = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      System.out.println("\n\n\nViewUserInfoActionListener in UIListUser\n\n\n");
+    /*	String username = event.getRequestContext().getRequestParameter(OBJECTID) ;
     	UIListUsers uiListUsers = event.getSource();
       OrganizationService service = uiListUsers.getApplicationComponent(OrganizationService.class);
       if(service.getUserHandler().findUserByName(username) == null ) {
@@ -112,7 +113,7 @@ public class UIListUsers extends UISearch {
     	uiUserInfo.setRendered(true);
       
     	UIComponent uiToUpdateAjax = uiListUsers.getAncestorOfType(UIUserManagement.class) ;
-    	event.getRequestContext().addUIComponentToUpdateByAjax(uiToUpdateAjax) ;
+    	event.getRequestContext().addUIComponentToUpdateByAjax(uiToUpdateAjax) ;*/
     }
   }
 
