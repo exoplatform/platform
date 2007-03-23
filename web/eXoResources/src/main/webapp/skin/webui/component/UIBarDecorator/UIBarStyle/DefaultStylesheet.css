@@ -150,26 +150,28 @@
 
 /*###########################-BarStyle2-###########################*/
 .UIBarStyle .BarStyle2 {
-  height: 36px;
+  height: 39px;
 }
 
 .UIBarStyle .BarStyle2 .LeftBar {
-  height: 36px;
-  background: url('DefaultSkin/background/BluePolygonBarLeft5x36.gif') no-repeat left;
-  padding: 0px 0px 0px 5px;
+  height: 39px; 
+  line-height: 39px;
+  background: url('DefaultSkin/background/BlueRoundedL6x39.gif') no-repeat left;
+  padding: 0px 0px 0px 6px;
 }
 
 .UIBarStyle .BarStyle2 .RightBar {
-  height: 36px;
-  background: url('DefaultSkin/background/BluePolygonBarRight5x36.gif') no-repeat right;
-  padding: 0px 5px 0px 0px ;
+  height: 39px; 
+  line-height: 39px;
+  background: url('DefaultSkin/background/BlueRoundedR6x39.gif') no-repeat right;
+  padding: 0px 6px 0px 0px ;
 }
 
 .UIBarStyle .BarStyle2 .MiddleBar {
-  height: 36px;
-  line-height: 36px;
+  height: 39px;
+  line-height: 39px;
   vertical-align: middle;
-  background: url('DefaultSkin/background/BluePolygonBarCenter1x36.gif') repeat-x;
+  background: url('DefaultSkin/background/BlueRoundedM1x39.gif') repeat-x;
 }
 
 /*###########################-NavyBluePolygonBar32Style-###########################*/
