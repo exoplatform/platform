@@ -16,7 +16,8 @@
 @import url(UIBarDecorator/DefaultStylesheet.css) ;
 @import url(UIPopup/DefaultStylesheet.css) ;
 @import url(UIUpload/DefaultStylesheet.css) ;
-@import url(UIToolbar/DefaultStylesheet.css) ;
 @import url(UIDebug/DefaultStylesheet.css) ;
 @import url(UIAddApplication/DefaultStylesheet.css) ;
 @import url(UIMaskWorkspace/DefaultStylesheet.css) ;
+
+@import url(UIToolbar/DefaultStylesheet.css) ;
