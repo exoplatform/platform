@@ -44,7 +44,7 @@ public class UIPageEditBar extends UIToolbar {
   transient UIPage uiPage_;
 
   public UIPageEditBar() throws Exception {
-    setToolbarStyle("Poly2Toolbar") ;
+    setToolbarStyle("EditToolbar") ;
     setJavascript("PagePreview","onClick='eXo.portal.UIPortal.switchModeForPage(this)';") ;
   }
   

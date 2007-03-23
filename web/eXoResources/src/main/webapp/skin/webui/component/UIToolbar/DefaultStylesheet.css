@@ -154,56 +154,36 @@
   background: url('DefaultSkin/background/PolyBarM1x33.gif') repeat-x ;
 }
 
-/*#################################- LightPolyToolbar -##############################*/
+/*#################################- EditToolbar -##############################*/
 
-.UIToolbar .PolyToolbar {
-  height: 37px;
+.UIToolbar .EditToolbar {
+  height: 32px;
 }
 
-.UIToolbar .PolyToolbar .LeftBar {
+.UIToolbar .EditToolbar .LeftBar {
   height: 30px;
   padding-left: 2px;
   background: url('DefaultSkin/background/PolyBarL2x30.gif') no-repeat left;
-  margin: 0px 7px;
+  margin: 0px 13px;
 }
 
-.UIToolbar .PolyToolbar .RightBar {
+.UIToolbar .EditToolbar .RightBar {
   height: 30px;
   padding-right: 2px;
   background: url('DefaultSkin/background/PolyBarR2x30.gif') no-repeat right;
 }
 
-.UIToolbar .PolyToolbar .MiddleBar {
+.UIToolbar .EditToolbar .MiddleBar {
   height: 30px; line-height: 30px; vertical-align: middle;
   background: url('DefaultSkin/background/PolyBarM1x30.gif') repeat-x ;
 }
 
-/*#################################- Poly2Toolbar -##############################*/
-
-.UIToolbar .Poly2Toolbar {
-  height: 30px; 
-}
-
-.UIToolbar .Poly2Toolbar .LeftBar {
-  height: 30px;
-  padding-left: 2px;
-  background: url('DefaultSkin/background/PolyBarL2x30.gif') no-repeat left;
-  margin: 0px 7px;
-}
-
-.UIToolbar .Poly2Toolbar .RightBar {
-  height: 30px;
-  padding-right: 2px;
-  background: url('DefaultSkin/background/PolyBarR2x30.gif') no-repeat right;
-}
-
-.UIToolbar .Poly2Toolbar .MiddleBar {
-  height: 30px; line-height: 30px; vertical-align: middle;
-  background: url('DefaultSkin/background/PolyBarM1x30.gif') repeat-x ;
-}
+.UIToolbar .EditToolbar .Icon {
+  float: left;
+  margin: 3px 10px 0px 10px;
+  cursor: pointer;
 
 /*#################################- IceBlueToolbar -##############################*/
-
 
 .UIToolbar .IceBlueToolbar {
   height: 30px;
@@ -226,6 +206,42 @@
   height: 30px;
   line-height: 30px;
   background: url('DefaultSkin/background/IceBlueToolBarRepeatBg1x30.gif') repeat-x ;
+}
+
+/*#################################- ControlToolbar -##############################*/
+
+.UIToolbar .ControlToolbar {
+  height: 27px;
+}
+
+.UIToolbar .ControlToolbar .LeftBar {
+  height: 27px;
+  padding-left: 12px;
+  background: url('DefaultSkin/background/LeftControlToolbar12x27.gif') no-repeat left;
+}
+
+.UIToolbar .ControlToolbar .RightBar {
+  height: 27px;
+  padding-right: 1px;
+  background: url('DefaultSkin/background/MiddleControlToolbar1x27.gif') repeat-x;
+}
+
+.UIToolbar .ControlToolbar .MiddleBar {
+  height: 27px;
+  line-height: 27px;
+  background: url('DefaultSkin/background/MiddleControlToolbar1x27.gif') repeat-x ;
+}
+
+.UIToolbar .ControlToolbar .SeparateLine{
+  width: 2px; height: 20px;
+  float: left;
+  margin: 2px 2px 0px 3px;
+  background: url('DefaultSkin/background/SeparateLine2x1.gif') repeat-y ;
+}
+
+.UIToolbar .ControlToolbar .Icon {
+  float: left;
+  margin: 1px 4px 0px 4px; 
 }
 
 /*#################################- GrayBevelRoundedToolbar-##############################*/
@@ -394,27 +410,4 @@
   font-weight: bold; color: black; font-size: 11px;
 }
 
-.UIToolbar .RollbackIcon {
-	float: left;
-	margin: 5px 8px 0px 12px;
-	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/RollbackB.png') no-repeat;
-}
 
-.UIToolbar .FinishIcon {
-	float: left; margin: 5px 8px;
-	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/Finish.gif') no-repeat;
-}
-
-.UIToolbar .SaveIcon {
-	float: left; margin: 5px 8px;
-	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/SaveB.gif') no-repeat;
-}
-
-.UIToolbar .AbortIcon {
-	float: left; margin: 5px 8px;
-	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/AbortB.gif') no-repeat;
-}

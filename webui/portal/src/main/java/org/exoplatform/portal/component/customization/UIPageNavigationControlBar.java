@@ -38,11 +38,14 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
     template = "system:/groovy/webui/component/UIToolbar.gtmpl",
     events = {   
-        @EventConfig(listeners = UIPageNavigationControlBar.RollbackActionListener.class),
-        @EventConfig(listeners = UIPageNavigationControlBar.FinishActionListener.class),
-        @EventConfig(listeners = UIPageNavigationControlBar.AbortActionListener.class),
         @EventConfig(listeners = UIPageNavigationControlBar.EditNavigationActionListener.class),
-        @EventConfig(listeners = UIPageNavigationControlBar.SaveNavigationActionListener.class)
+        @EventConfig(listeners = UIPageNavigationControlBar.SaveNavigationActionListener.class),
+        @EventConfig(listeners = UIPageNavigationControlBar.SeparateLineActionListener.class),
+        @EventConfig(listeners = UIPageNavigationControlBar.BackActionListener.class),
+        @EventConfig(listeners = UIPageNavigationControlBar.RollbackActionListener.class),
+        @EventConfig(listeners = UIPageNavigationControlBar.AbortActionListener.class),
+        @EventConfig(listeners = UIPageNavigationControlBar.FinishActionListener.class)
+        
       }
 )
 
@@ -50,7 +53,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
   
   public UIPageNavigationControlBar() throws Exception {
     super();
-    setToolbarStyle("PolyToolbar") ;
+    setToolbarStyle("ControlToolbar") ;
     setJavascript("Preview","onClick='eXo.portal.UIPortal.switchMode(this);'") ;
   }
 
@@ -79,6 +82,18 @@ public class UIPageNavigationControlBar extends UIToolbar {
       uiWorkingWS.setRenderedChild(UIPortal.class);
 
       Util.updateUIApplication(event);
+    }
+  }
+  
+  static public class BackActionListener extends EventListener<UIPageNavigationControlBar> {
+    public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
+     
+    }
+  }
+  
+  static public class SeparateLineActionListener extends EventListener<UIPageNavigationControlBar> {
+    public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
+      
     }
   }
   

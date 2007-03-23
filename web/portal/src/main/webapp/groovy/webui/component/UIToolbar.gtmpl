@@ -7,12 +7,17 @@
             <%
               def events = uicomponent.getEvents() ;
               for(event in events) {
-               
+                if(event.getName().equals("SeparateLine")) { %>
+                  <div class="SeparateLine"><span></span></div>
+              <%
+                  continue;
+                }
                 if(event.getName().equals(uicomponent.getEventName())) {
+                
             %>
-                  <a class="<%=event.getName();%>Icon" <%=uicomponent.getJavascript();%> title="<%=_ctx.appRes(uicomponent.id + ".tooltip." + event.getName())%>"><span></span></a>
+                  <a class="Icon <%=event.getName();%>Icon" <%=uicomponent.getJavascript();%> title="<%=_ctx.appRes(uicomponent.id + ".tooltip." + event.getName())%>"><span></span></a>
             <%  } else {  %>
-                  <a class="<%=event.getName();%>Icon" href="<%=uicomponent.event(event.getName())%>" title="<%=_ctx.appRes(uicomponent.id + ".tooltip." + event.getName())%>"><span></span></a>
+                  <a class="Icon <%=event.getName();%>Icon" href="<%=uicomponent.event(event.getName())%>" title="<%=_ctx.appRes(uicomponent.id + ".tooltip." + event.getName())%>"><span></span></a>
             <%  } %>
             <%}%>
             <div style="clear: both"><span></span></div>

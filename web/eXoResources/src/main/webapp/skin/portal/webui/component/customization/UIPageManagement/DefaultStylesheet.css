@@ -7,16 +7,7 @@
   padding: 0px 10px 0px 0px;
 }
 
-/*############################- UIPageManagementControlBar Icons -#####################*/
-
-.UIPageManagement .RollbackBar {
-  width: 125px;
-  margin: auto;
-  margin-top: 10px;
-}
-
-
-/*############################- UIPageManagementEditBar Icons -#####################*/
+/*############################- Page Navigation Context Menu Icons -#####################*/
 .UIPageManagement .AddNodeIcon {
   float: left;
   width: 24px; height: 24px;
@@ -29,13 +20,6 @@
   width: 24px; height: 24px;
   margin: 6px 1px 0px 1px;
   background: url('DefaultSkin/icons/EditNode.gif') no-repeat;
-}
-
-.UIPageManagement .EditNavigationIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 6px 2px 0px 1px;
-  background: url('DefaultSkin/icons/EditPageNavigation.gif') no-repeat;
 }
 
 .UIPageManagement .EditPageNodeIcon {
@@ -66,53 +50,39 @@
   background: url('DefaultSkin/icons/NavyBlueTrashBin.gif') ;
 }
 
-.UIPageManagement .SaveNavigationIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 7px 2px 0px 1px;
-  background: url('DefaultSkin/icons/BlackFloppyDisk.gif') ;
-}
-
-/*##########################Edit Page Control Bar#############################*/
-.UIPageManagement .UIPageManagementEditBar .PolyToolbar {
+/*================================= UIPageManagementEditBar Icons =================================*/
+.UIPageManagement .UIPageManagementEditBar .EditToolbar {
   margin-top: 15px;
 }
 
 .UIPageManagement .EditContainerIcon {
-  float: left;
   width: 24px; height: 24px;
-  margin: 4px 10px 0px 8px;
   background: url('/eXoResources/icons/24x24/DefaultSkin/ShowContainerControl.gif') no-repeat ;
 }
 
 .UIPageManagement .EditPortletIcon {
-  float: left;
   width: 24px; height: 24px;
-  margin: 4px 10px 0px 10px;
   background: url('/eXoResources/icons/24x24/DefaultSkin/ShowPortletControl.gif') no-repeat ;
 }
 
 .UIPageManagement .EditPageIcon {
-  float: left;
   width: 24px; height: 24px;
-  margin: 4px 10px 0px 8px;
   background: url('DefaultSkin/icons/EditPageProperties.gif') no-repeat;
 }
 
 .UIPageManagement .PageLayoutModeIcon {
-  float: left;
   width: 24px; height: 24px;
-  margin: 4px 7px 0px 10px;
   background: url('DefaultSkin/icons/PageLayout.gif') no-repeat ;
-  cursor: pointer ;
 }
 
 .UIPageManagement .PagePreviewIcon {
-  float: left;
   width: 24px; height: 24px;
-  margin: 4px 7px 0px 10px;
   background: url('DefaultSkin/icons/PagePreview.gif') no-repeat ;
-  cursor: pointer ;
+}
+
+.UIPageManagement .SavePageIcon {
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/icons/SavePage.gif') no-repeat ;
 }
 
 .UIPageManagement .NavigationConfigIcon{
@@ -123,17 +93,38 @@
   margin: 5px 7px 0px 12px;
 }
 
-.UIPageManagement .RollbackIcon {
-  float: left;              
-  width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueBackArrow.gif') no-repeat;
-  margin: 5px 2px 0px 6px;
+/*=================================Navigation Control Bar=================================*/
+.UIPageManagement .UIToolbar .ControlToolbar {
+	margin: 10px 2px 0px 34px; 
 }
 
-.UIPageManagement .SavePageIcon {
-  float: left;
+.UIPageManagement .RollbackIcon {
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/RollBackIcon.gif') no-repeat;
+}
+
+.UIPageManagement .FinishIcon {
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/FinishIcon.gif') no-repeat;
+}
+
+.UIPageManagement .SaveNavigationIcon  {
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/SaveIcon.gif') no-repeat;
+}
+
+.UIPageManagement .AbortIcon {
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/AbortIcon.gif') no-repeat;
+}
+
+.UIPageManagement .EditNavigationIcon {
   width: 24px; height: 24px;
-  margin: 4px 0px 0px 8px; 
-  background: url('DefaultSkin/icons/SavePage.gif') no-repeat;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/EditNavigationIcon.gif') no-repeat;
+}
+
+.UIPageManagement .BackIcon {
+  width: 24px; height: 24px;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/BackIcon.gif') no-repeat;
 }
 

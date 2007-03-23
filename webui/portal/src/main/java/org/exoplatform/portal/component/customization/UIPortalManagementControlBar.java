@@ -32,9 +32,9 @@ import org.exoplatform.webui.event.EventListener;
     template = "system:/groovy/webui/component/UIToolbar.gtmpl",
     events = {   
         @EventConfig(listeners = UIPortalManagementControlBar.RollbackActionListener.class),
-        @EventConfig(listeners = UIPortalManagementControlBar.FinishActionListener.class),
         @EventConfig(listeners = UIPortalManagementControlBar.AbortActionListener.class),
-        @EventConfig(listeners = UIPortalManagementControlBar.SaveActionListener.class)
+        @EventConfig(listeners = UIPortalManagementControlBar.SaveActionListener.class),
+        @EventConfig(listeners = UIPortalManagementControlBar.FinishActionListener.class)
       }
 )
 
@@ -42,7 +42,8 @@ public class UIPortalManagementControlBar extends UIToolbar {
   
   public UIPortalManagementControlBar() throws Exception {
     super();
-    setToolbarStyle("PolyToolbar") ;
+//    con
+    setToolbarStyle("ControlToolbar") ;
     setJavascript("Preview","onClick='eXo.portal.UIPortal.switchMode(this);'") ;
   }
   

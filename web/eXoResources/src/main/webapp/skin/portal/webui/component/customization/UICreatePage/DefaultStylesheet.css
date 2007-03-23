@@ -100,3 +100,11 @@
   vertical-align: middle ;
   font-size: 11px; color: black; font-weight: bold;
 }
+
+.UICreatePage .UIToolbar .EditToolbar {
+  margin-top: 10px;
+}
+
+.UICreatePage .UIToolbar .EditToolbar .Icon{
+	margin: 3px 12px 0px 27px;
+}

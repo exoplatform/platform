@@ -38,7 +38,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIPortalManagementEditBar extends UIToolbar { 
   
   public UIPortalManagementEditBar() throws Exception {
-    setToolbarStyle("PolyToolbar") ;
+    setToolbarStyle("EditToolbar") ;
     setJavascript("Preview","onClick='eXo.portal.UIPortal.switchMode(this);'") ;
   }
   

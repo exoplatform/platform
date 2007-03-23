@@ -7,94 +7,70 @@
   padding: 0px 10px 0px 0px;
 }
 
+.UIPortalManagement .UIToolbar .EditToolbar .Icon{
+	margin: 3px 12px 0px 19px;
+}
+
 .UIPortalManagement .ViewModeIcon {
-  float: left ;
   width: 30px ; height: 25px ;
-  margin: 5px 10px 4px 20px ;
   background: url('DefaultSkin/background/ViewMode.gif') no-repeat ;
 }
 
 .UIPortalManagement .EditModeIcon {
-  float: left; 
   width: 30px;  height: 25px;
-  margin: 5px 10px 4px 14px;
   background: url('DefaultSkin/background/EditMode.gif') no-repeat;
 }
 
-.UIPortalManagement .RollbackBar {
-  width: 125px;
-  margin: auto;
-  margin-top: 15px;
-}
-
 .UIPortalManagement .UIPortalManagementEditBar {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
-  float: left;
-  margin: 3px 10px;
   width: 24px;  height: 24px;
   background: url('/eXoResources/icons/24x24/DefaultSkin/ShowContainerControl.gif') no-repeat;
 }
 
-.UIPortalManagement .UIPortalManagementEditBar .SaveContainerIcon {
-  float: left;
-  margin: 3px 10px;
-  width: 24px;  height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/SaveControl.gif') no-repeat;
-}
-
 .UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
-  float: left;
-  margin: 3px 9px;
   width: 24px;  height: 24px;
   background: url('/eXoResources/icons/24x24/DefaultSkin/ShowPortletControl.gif') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
-  float: left;
-  margin: 6px 9px;
   width: 24px;  height: 24px;
-  cursor : pointer;
   background: url('/eXoResources/icons/24x24/DefaultSkin/LayoutMode.gif') no-repeat;
 }
 .UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
-  float: left;
-  margin: 3px 9px;
   width: 24px;  height: 24px;  
-  cursor : pointer;
   background: url('/eXoResources/icons/24x24/DefaultSkin/Preview.gif') no-repeat;
 }
+
 .UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
-  float:left;
-  margin: 3px 9px;
   width: 24px;  height: 24px;
   background: url('/eXoResources/icons/24x24/DefaultSkin/ShowPortalControl.gif');
 }
-.UIPortalManagement .UIPortalManagementEditBar .SavePortalIcon {
-  float: left;
-  width: 24px;  height: 24px;
-  margin: 6px 9px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/BlackFloppyDisk.gif') no-repeat;
-}
 
-.UIPortalManagement .PortalConfigIcon { 
-  width: 24px;  height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/PortalCommunityConfig.gif');
-  cursor: pointer;
-  float: left;
-  margin: 5px 7px 0px 12px;
+.UIPortalManagement .UIToolbar .ControlToolbar{
+	margin: 10px 2px 0px 95px; 
 }
 
 .UIPortalManagement .RollbackIcon {
-  float: left;
-  width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueBackArrow.gif') no-repeat;
-  margin: 5px 2px 0px 6px;
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/RollBackIcon.gif') no-repeat;
 }
 
-.UIPortalManagement .UIToolbar .PolyToolbar .MiddleBar {
-  padding: 0px 0px 0px 20px;
+.UIPortalManagement .FinishIcon {
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/FinishIcon.gif') no-repeat;
 }
+
+.UIPortalManagement .SaveIcon {
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/SaveIcon.gif') no-repeat;
+}
+
+.UIPortalManagement .AbortIcon {
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/AbortIcon.gif') no-repeat;
+}
+
 
