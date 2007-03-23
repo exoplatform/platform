@@ -26,18 +26,20 @@ public class UIPopupWindow extends UIComponentDecorator {
   private int width_  = -1 ;
   private int height_ =  -1 ;
   private boolean isShow = false ;
+  private boolean isResizable = false ;
   
   public int getWindowWidth() { return width_ ; }
-  
   public int getWindowHeight() { return height_ ; }
   
   public void setWindowSize(int w, int h) {
     width_ = w ;
     height_ = h ;
   }
+  
+  public boolean isResizable() { return isResizable ; }
+  public void setResizable(boolean isResizable) { this.isResizable = isResizable ; }
 
   public boolean isShow() { return isShow;}
-  
   public void setShow(boolean isShow) { this.isShow = isShow; }
   
   static  public class CloseActionListener extends EventListener<UIPopupWindow> {

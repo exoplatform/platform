@@ -75,12 +75,12 @@
 }
 
 .UIForm .HorizontalLayout input.checkbox {
-  width:  15px ; height:  15px ;
-  border:  1px  solid gray ;
+  width: auto;
 }
 
-.UIForm .HorizontalLayout  input.radio {
-	float:left;
+.UIForm .HorizontalLayout input.radio {
+	float: none;
+  width: auto;
 }
 
 .UIForm .HorizontalLayout textarea {
@@ -124,7 +124,7 @@
 }
 
 .UIForm .VerticalLayout input.checkbox {
-  width:  15px ; height:  15px ;
+  width: auto;
   border:  1px  solid gray ;
 }
 

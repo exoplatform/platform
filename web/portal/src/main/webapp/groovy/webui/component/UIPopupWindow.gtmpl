@@ -12,7 +12,7 @@
   String popupId = uicomponent.getId() ;
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.importJavascript('eXo.webui.UIPopupWindow');
-  rcontext.addJavascript("eXo.webui.UIPopupWindow.init('$popupId', $uicomponent.show);") ;
+  rcontext.addJavascript("eXo.webui.UIPopupWindow.init('$popupId', $uicomponent.show, $uicomponent.isResizable);") ;
     
   String title = popupId ;
   if(component != null)  title = component.getId() ;
