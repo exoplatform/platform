@@ -11,7 +11,7 @@
 	    <div class="MiddleRightLoginDecorator">
 	      <div class="LoginDecoratorBackground">
 	        <div class="LoginDetailBox">
-	          <% uiform.begin()%>
+	          <% uiform.begin() %>
 	          	<div class="VerticalLayout">
 		            <div class="UserNameField">
 		              <label><%=_ctx.appRes("UILoginForm.label.UserName")%>:</label>
@@ -21,7 +21,7 @@
 		              <label><%=_ctx.appRes("UILoginForm.label.password")%>:</label>
 		              <% uiform.renderChild(1)%>
 		            </div>  
-			          <div class="Message" onclick="javascript:#"><%=_ctx.appRes("UILoginForm.label.forgot")%></div>
+			          <div class="Message"><a href="#"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
 			          <div class="CheckField">
 			            <% uiform.renderChild(2)%>
 			            <div class="RememberLoginTitle"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></div>
@@ -54,9 +54,9 @@
 		          		<div >
 		          			<%=_ctx.appRes("UILoginForm.label.NotMember")%>
 		          			<span>
-		          				<div class="SignUpLink" onclick="#">
+		          				<a class="SignUpLink" href="#">
 		          					<%=_ctx.appRes("UILoginForm.label.ForAccount")%>
-		          				</div>
+		          				</a>
 		          		  </span>
 		          		</div>
 		          	</div>

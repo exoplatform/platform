@@ -3,7 +3,6 @@
 	
 	def prContext = _ctx.getRequestContext().getParentAppRequestContext();
 %>
-
 <div class="UIBannerPortlet">
   <div class="InlineContainer">
     <div class="LeftBanner">
@@ -12,19 +11,19 @@
         	<div class="BannerTitle"><span></span></div>
 					<div class="LoginContainer">
 						<div class="LoginContent">
-						  <% if(prContext.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS) { %>
-						  <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout',  true);">
+						<%if(prContext.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS) {%>
+						  <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
 								<div class="LoginLabel">Sign out</div>
 								<div class="LoginIcon"><span></span></div>
 								<div style="clear: left;"><span></span></div>
 							</div>
-							<% } else { %>
-							<div  onclick="ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm',  true)) ;">
+						<%} else {%>
+							<div  onclick="ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;">
 							  <div class="LoginLabel">Sign in</div>
 								<div class="LoginIcon"><span></span></div>
 								<div style="clear: left;"><span></span></div>
 							</div>
-							<% } %> 
+					  <%}%> 
 						</div>
 						<div style="clear: right;"><span></span></div>
 					</div>
