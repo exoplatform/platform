@@ -224,7 +224,7 @@ PortalDragDrop.prototype.doDropCallback = function(dndEvent) {
   	
   }
   
-  ajaxGet(eXo.env.server.createPortalURL("UIPortal", "MoveChild", params,  true)) ;
+  ajaxGet(eXo.env.server.createPortalURL("UIPortal", "MoveChild", true, params)) ;
 };
 
 /* Find components in dropable target */

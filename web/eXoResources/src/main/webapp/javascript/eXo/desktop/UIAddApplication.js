@@ -83,7 +83,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 
 UIAddApplication.prototype.addPortlet = function(id) {
 	var params = [{name: "portletId", value : id}] ;
-	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "AddPortletToDesktop", params,  true)) ;
+	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "AddPortletToDesktop", true, params)) ;
 };
 
 UIAddApplication.prototype.showAddApplication = function(object) {

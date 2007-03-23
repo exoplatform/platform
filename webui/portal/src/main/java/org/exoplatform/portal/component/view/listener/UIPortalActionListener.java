@@ -63,6 +63,7 @@ public class UIPortalActionListener {
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       uiMaskWS.createUIComponent(UILoginForm.class);
+      uiMaskWS.setWindowSize(630, -1);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }

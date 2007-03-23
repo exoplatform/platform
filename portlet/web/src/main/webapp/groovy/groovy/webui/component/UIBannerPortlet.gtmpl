@@ -17,8 +17,8 @@
 								<div class="LoginIcon" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout',  true);"><span></span></div>
 								<div style="clear: left;"><span></span></div>
 							<% } else { %>
-							  <div class="LoginLabel" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm',  true)) ;">Sign in</div>
-								<div class="LoginIcon" onclick=" ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm',  true)) ;"><span></span></div>
+							  <a class="LoginLabel" href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true));">Sign in</a>
+								<div class="LoginIcon" onclick="ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', '', true));"><span></span></div>
 								<div style="clear: left;"><span></span></div>
 							<% } %> 
 						</div>

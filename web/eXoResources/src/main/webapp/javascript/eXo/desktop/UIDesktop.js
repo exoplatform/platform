@@ -98,7 +98,7 @@ UIDesktop.prototype.saveJSApplication = function(application, applicationId, ins
   	{name: "jsInstanceId", value : instanceId},
   	{name: "jsApplicationLocation", value : appLocation}
   ] ;
-	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "AddJSApplicationToDesktop", params, true)) ;
+	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "AddJSApplicationToDesktop", true, params)) ;
 } ;
 
 UIDesktop.prototype.addApplicationToDesktop = function(application, appId, appLocation) {
@@ -165,7 +165,7 @@ UIDesktop.prototype.removeJSApplication = function(applicationNode) {
 	var params = [
   	{name: "jsInstanceId", value : applicationNode.id}
   ] ;
-	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "RemoveJSApplicationToDesktop", params,  true)) ;
+	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "RemoveJSApplicationToDesktop", true, params)) ;
 } ;
 
 eXo.desktop.UIDesktop = new UIDesktop() ;

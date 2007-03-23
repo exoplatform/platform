@@ -12,9 +12,16 @@
   String maskId = uicomponent.getId() ;
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.importJavascript('eXo.portal.UIMaskWorkspace');	
+	
+	int width = uicomponent.getWindowWidth() ;
+	int height = uicomponent.getWindowHeight();
+	String style;
+	if(uicomponent.isShow()) style = "display: block;"; else style = "display: none;";
+	if(width > -1) style += " width: ${width}px";
+	if(height > -1) style += " height: ${height}px";
 %>
 
-<div class="UIMaskWorkspace" id="$maskId" style=" display: none;">
+<div class="UIMaskWorkspace" id="$maskId" style="$style">
   <div class="TopLeftDecorator">
     <div class="TopRightDecorator">
       <div class="TopCenterDecorator"><span></span></div>
@@ -24,7 +31,7 @@
   <div class="MiddleLeftDecorator">
     <div class="MiddleRightDecorator">
       <div class="ContentContainer">      
-        <% uicomponent.renderChildren(); %>
+        <%uicomponent.renderChildren();%>
    		</div>
     </div>
   </div>

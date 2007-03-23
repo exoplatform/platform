@@ -285,7 +285,7 @@ function HttpResponseHandler(){
 
 /*****************************************************************************************/
 
-function ajaxGet(url) {
+function ajaxGet(url) {  
   doRequest("Get", url) ;
 }
 

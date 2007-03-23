@@ -42,7 +42,7 @@ public class ResourceRequestFilter implements Filter  {
         HttpServletResponse httpResponse = (HttpServletResponse)  response ;
         httpResponse.setHeader("Cache-Control", "no-cache");
       }
-      System.out.println("  Load Resource: " + uri);
+      System.out.println(" Load Resource: " + uri);
     }
     chain.doFilter(request, response) ;
   }
