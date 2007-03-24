@@ -14,15 +14,9 @@ public class Clazz {
   private Student[] students;
   private Teacher teacher;
   private String name;
-<<<<<<< .mine
+  
   public Clazz() {}
-=======
   
-  public Clazz(){
-    
-  }
-  
->>>>>>> .r13732
   public Clazz(Student[] s, Teacher t, String n) {
     students = s;
     teacher = t;

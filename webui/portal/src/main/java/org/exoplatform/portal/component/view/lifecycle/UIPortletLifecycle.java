@@ -108,14 +108,11 @@ public class UIPortletLifecycle extends Lifecycle {
       portletContent.append(ExceptionUtil.getStackTrace(ex, 100));      
       //TODO  Need to  find a way to use the log service
     }
-//    if (portletContent == null) portletContent = "" ;
-    
     if(output != null ) portletTitle = output.getTitle() ;
     if(portletTitle == null ) portletTitle = "Portlet" ;
     
     if(context.isAjaxRequest() && !uiPortlet.isShowEditControl() && !prcontext.isForceFullUpdate()) {
       context.getWriter().write(portletContent.toString()) ;
-//      System.out.println(">>>PORTLET RENDERER AJAX");
     } else {
       Application app = context.getApplication() ;
       ResourceResolver resolver =  app.getResourceResolver() ;
@@ -124,10 +121,23 @@ public class UIPortletLifecycle extends Lifecycle {
       bcontext.put("uicomponent", uicomponent) ;
       bcontext.put("portletContent", portletContent) ;
       bcontext.put("portletTitle", portletTitle) ;
-      renderTemplate(uicomponent.getTemplate(), bcontext) ;
-//      System.out.println(">>>PORTLET RENDERER NORMAL");
+      try { 
+        renderTemplate(uicomponent.getTemplate(), bcontext) ;
+      } catch (Throwable ex) {
+        ex = ExceptionUtil.getRootCause(ex) ;
+        portletContent.append(ExceptionUtil.getStackTrace(ex, 100));      
+        ex.printStackTrace();
+        //TODO  Need to  find a way to use the log service
+      }
     }
-    prcontext.getResponse().flushBuffer() ;
+    try { 
+      prcontext.getResponse().flushBuffer() ;
+    } catch (Throwable ex) {
+      ex = ExceptionUtil.getRootCause(ex) ;
+      portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
+      ex.printStackTrace();
+      //TODO  Need to  find a way to use the log service
+    }
   }
   
   @SuppressWarnings({ "unchecked" })

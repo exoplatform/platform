@@ -84,8 +84,10 @@ public class Lifecycle {
       Template groovyTemplate = service.getTemplate(template, resolver) ; 
       service.merge(groovyTemplate, bcontext) ;
     }catch (Exception e) {
+      //for log file
       System.out.println("\n\n template : " + template);
-      e.printStackTrace();
+      System.out.println(e.toString()+"\n\n");
+//      e.printStackTrace();
     }
   }
   
