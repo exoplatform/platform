@@ -35,7 +35,11 @@ public class JSONService {
   }
   
   public <T>  void toJSONScript(T object, StringBuilder b, int indentLevel) throws Exception {
-    if(!plugins_.containsKey(object.getClass())) return ; 
+    if(!plugins_.containsKey(object.getClass())){
+      ObjectToJSONConverterPlugin plugin = plugins_.get(Object.class);
+      plugin.toJSONScript(plugins_, object, b, indentLevel);
+      return ;
+    }
     ObjectToJSONConverterPlugin plugin = plugins_.get(object.getClass());
     plugin.toJSONScript(plugins_, object, b, indentLevel);
   }
