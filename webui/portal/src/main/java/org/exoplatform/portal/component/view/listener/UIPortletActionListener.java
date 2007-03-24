@@ -127,8 +127,8 @@ public class UIPortletActionListener   {
       UIPortlet container = event.getSource();
       UIPortletForm containerForm = uiMaskWS.createUIComponent(UIPortletForm.class, null, null); 
       containerForm.setValues(container);
-      uiMaskWS.setUIComponent(containerForm);     
-      uiMaskWS.setWindowSize(640, 400);
+      uiMaskWS.setUIComponent(containerForm);
+      uiMaskWS.setWindowSize(640, 600);
       uiMaskWS.setShow(true);
       
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);

@@ -14,6 +14,7 @@ import org.exoplatform.webui.component.UIFormInputIconSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTabPane;
+import org.exoplatform.webui.component.UIFormTextAreaInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
 import org.exoplatform.webui.component.validator.NumberFormatValidator;
@@ -70,7 +71,8 @@ public class UIPortletForm extends UIFormTabPane {
                      addValidator(NumberFormatValidator.class)).
   		addUIFormInput(new UIFormCheckBoxInput("showInfoBar", "showInfoBar", false)).
   		addUIFormInput(new UIFormCheckBoxInput("showPortletMode", "showPortletMode", false)).
-    	addUIFormInput(new UIFormCheckBoxInput("showWindowState", "showWindowState", false));
+    	addUIFormInput(new UIFormCheckBoxInput("showWindowState", "showWindowState", false)).
+      addUIFormInput(new UIFormTextAreaInput("description", "description", null));
     addUIFormInput(uiSettingSet);    
     
 //    UIFormInputDecoratorSelector uiDecorator = new UIFormInputDecoratorSelector("Decorator", "decorator");
