@@ -19,6 +19,7 @@ UIForm.prototype.onFixSize = function() {
   var scrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiQuickHelp, "div", "ScrollArea");
 
   scrollArea.style.height = (workingAreaWithHelp.offsetHeight - 78 ) + "px";
+
   scrollArea.style.overflow = "auto";
 };
 
