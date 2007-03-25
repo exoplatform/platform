@@ -25,7 +25,7 @@ public class TestJSONService {
     ReflectionConverterPlugin reflectionPlugin = new ReflectionConverterPlugin();
     StudentToJSON studentToJSON = new StudentToJSON();
     ClassToJSON classToJSON = new ClassToJSON();
-    service_.register(Object.class, reflectionPlugin);
+//    service_.register(Object.class, reflectionPlugin);
 //    service_.register(Teacher.class, tearchToJSON);
 //    service_.register(Student.class, studentToJSON);
 //    service_.register(Clazz.class, classToJSON);
@@ -36,6 +36,7 @@ public class TestJSONService {
     Student student3 = new Student("Peter", 15, "abc");
     Student[] students = {student, student2, student3};
     Clazz clazz = new Clazz(students, teacher, "abc");
+    service_.toJSONScript(teacher, b, 1);
     try {
       service_.toJSONScript(clazz, b, 2);
     }catch (Exception e) {

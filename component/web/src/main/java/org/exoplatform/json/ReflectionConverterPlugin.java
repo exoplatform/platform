@@ -6,6 +6,7 @@ package org.exoplatform.json;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +32,8 @@ public class ReflectionConverterPlugin extends ObjectToJSONConverterPlugin {
     for(Field f: fields) {
       String name = f.getName();
       f.setAccessible(true);
+      int modified  = f.getModifiers();
+      if(Modifier.isStatic(modified) || Modifier.isTransient(modified)) continue;
       appendIndentation(b, indentLevel);
       b.append("\"" + name + "\": ");
       Class typeClass = f.getType();

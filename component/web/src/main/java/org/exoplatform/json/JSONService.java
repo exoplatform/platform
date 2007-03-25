@@ -18,6 +18,8 @@ public class JSONService {
   
   public JSONService() throws Exception {
     plugins_ = new HashMap<Class, ObjectToJSONConverterPlugin>() ;
+    ReflectionConverterPlugin reflectionConverterPlugin = new ReflectionConverterPlugin();
+    register(Object.class, reflectionConverterPlugin);
   }
   
   public <T extends ObjectToJSONConverterPlugin>  void register(Class clazz, T plugin) {
