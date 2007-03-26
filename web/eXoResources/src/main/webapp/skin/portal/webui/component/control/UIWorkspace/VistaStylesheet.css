@@ -1,16 +1,29 @@
 .UIControlWorkspace {
-  width: 9px ;
+  width: 6px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
+  background: url("VistaSkin/background/SlidebarBackground6x1.png") repeat-y right;
 }
 
 .UIControlWorkspace .UIVerticalSlideTabs {
   padding: 3px; 
 }
 
-.UIControlWorkspace .TopLineDecorator {
-  height: 7px ;
-  background: url('VistaSkin/background/LineControlPanel1x7.png') repeat-x ;
+.UIControlWorkspace .UserWorkspaceTitle {
+  height: 23px ;
+  background: url('VistaSkin/background/UserWorkspaceTitleBG1x23.png') repeat-x ;
+  font-size: 11px ; font-weight: bold ;
+  line-height: 22px ; vertical-align: middle ;
+  margin-right: 2px ; text-align: center;
+}
+
+.UIControlWorkspace .CloseControlWorkspace {
+	width: 28px ;
+	height: 22px ;
+	float: right ;
+	background: url('VistaSkin/background/CloseControlWorkspace.png') no-repeat ;
+	cursor: pointer ;
+	margin: 0px 5px 0px 0px ;
 }
 
 .UIControlWorkspace .UIWorkspacePanel {
@@ -65,29 +78,19 @@
 
 /*########################### Slidebar ###########################*/
 .UIControlWorkspace .Slidebar {
-  float: right ;
-  width: 9px ;
-  background: url('VistaSkin/background/ExpandPanel1x9.png') repeat-y ;
+	float: right ;
+  width: 6px ; height: 100% ;
+  cursor: pointer ;
+}
+
+.UIControlWorkspace .SlidebarButton {
+	height: 100% ;
+	width: 6px ;
+	background: url("DefaultSkin/background/SlidebarButton6x61.gif") no-repeat center center ;
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
 	float: left ;
-}
-
-.UIControlWorkspace .Slidebar .FixHeightTop {
-  width: 9px ;
-}
-
-.UIControlWorkspace .Slidebar .SlidebarButtonShow {
-  width: 8px ;  height: 49px ;
-  background: url('VistaSkin/background/ExpandPanelBack8x49.gif') ;
-  cursor: pointer;
-}
-
-.UIControlWorkspace .Slidebar .SlidebarButtonHide {
-  width: 8px ;  height: 49px ;
-  background: url('VistaSkin/background/ExpandPanel8x49.gif') ;
-  cursor: pointer;
 }
 /*########################### End Slidebar ###########################*/
 .UIWorkingWorkspace {

@@ -62,7 +62,6 @@ UIDesktop.prototype.findPosXInDesktop = function(object) {
 	var uiPageDesktop = eXo.core.DOMUtil.findAncestorByClass(object, "UIPageDesktop") ;
 	var posXUIPageDesktop = eXo.core.Browser.findPosX(uiPageDesktop) ;
 	var posXObject = eXo.core.Browser.findPosX(object) ;
-	
 	return (posXObject - posXUIPageDesktop) ;
 } ;
 
@@ -70,7 +69,6 @@ UIDesktop.prototype.findPosYInDesktop = function(object) {
 	var uiPageDesktop = eXo.core.DOMUtil.findAncestorByClass(object, "UIPageDesktop") ;
 	var posYUIPageDesktop = eXo.core.Browser.findPosY(uiPageDesktop) ;
 	var posYObject = eXo.core.Browser.findPosY(object) ;
-	
 	return (posYObject - posYUIPageDesktop) ;
 } ;
 
