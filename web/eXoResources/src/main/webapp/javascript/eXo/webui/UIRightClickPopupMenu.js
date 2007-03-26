@@ -66,15 +66,16 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, menuId, objId,
 	eXo.core.Mouse.update(event) ;
 	this.superClass.show(contextMenu)
 	
-	var intTop = eXo.core.Mouse.mouseyInPage;
-	var intLeft = eXo.core.Mouse.mousexInPage;
-  if(document.getElementById("UIPageDesktop")) {
-	  var popupWindow = eXo.core.DOMUtil.findAncestorByClass(contextMenu, "UIDragObject");
-	  if(popupWindow) {
-	    intTop = intTop - eXo.core.Browser.findPosY(popupWindow) ;
-	    intLeft = intLeft - eXo.core.Browser.findPosX(popupWindow) ;
-	  }
-  }
+	var intTop = eXo.core.Mouse.mouseyInPage - (eXo.core.Browser.findPosY(contextMenu) - contextMenu.offsetTop);
+	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(contextMenu) - contextMenu.offsetLeft);
+//	var intLeft = eXo.core.Mouse.mousexInPage;
+//  if(document.getElementById("UIPageDesktop")) {
+//	  var popupWindow = eXo.core.DOMUtil.findAncestorByClass(contextMenu, "UIDragObject");
+//	  if(popupWindow) {
+//	    intTop = intTop - eXo.core.Browser.findPosY(popupWindow) ;
+//	    intLeft = intLeft - eXo.core.Browser.findPosX(popupWindow) ;
+//	  }
+//  }
 	contextMenu.style.top = intTop + "px";
 	contextMenu.style.left = intLeft + "px";
 	
