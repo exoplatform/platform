@@ -7,7 +7,7 @@ package org.exoplatform.portletregistry.webui.component;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.services.portletregistery.Portlet;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormTabPane;
 import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -42,7 +42,7 @@ public class UIPermissionForm extends UIFormTabPane{
     addUIComponentInput(uiPermissionSelector) ;
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);   
     UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
     if(uiPermissionSelector == null) return;

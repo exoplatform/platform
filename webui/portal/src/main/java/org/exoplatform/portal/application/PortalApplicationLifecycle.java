@@ -5,13 +5,13 @@ import javax.servlet.ServletContext;
 import org.exoplatform.container.PortalContainer ;
 import org.exoplatform.container.RootContainer ;
 import org.exoplatform.container.SessionContainer;
-import org.exoplatform.webui.application.Application;
-import org.exoplatform.webui.application.ApplicationLifecycle;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.web.application.ApplicationLifecycle;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 public class PortalApplicationLifecycle  implements  ApplicationLifecycle {
   
-  public void init(Application app) {
+  public void init(WebuiApplication app) {
     PortalApplication papp = (PortalApplication) app ;
     ServletContext context  = papp.getServletConfig().getServletContext();
     RootContainer rootContainer = RootContainer.getInstance();
@@ -20,7 +20,7 @@ public class PortalApplicationLifecycle  implements  ApplicationLifecycle {
     PortalContainer.setInstance(pcontainer) ;
   }
  
-  public void beginExecution(Application app, RequestContext rcontext) throws Exception {
+  public void beginExecution(WebuiApplication app, WebuiRequestContext rcontext) throws Exception {
     PortalApplication papp = (PortalApplication) app ;
     ServletContext context  = papp.getServletConfig().getServletContext();
     RootContainer rootContainer = RootContainer.getInstance();
@@ -30,12 +30,12 @@ public class PortalApplicationLifecycle  implements  ApplicationLifecycle {
   }
 
   @SuppressWarnings("unused")
-  public void endExecution(Application app, RequestContext rcontext) throws Exception {
+  public void endExecution(WebuiApplication app, WebuiRequestContext rcontext) throws Exception {
     SessionContainer.setInstance(null) ;
     PortalContainer.setInstance(null) ;
   }
   
-  public void destroy(Application app) {
+  public void destroy(WebuiApplication app) {
     PortalApplication papp = (PortalApplication) app ;
     ServletContext context  = papp.getServletConfig().getServletContext();
     RootContainer rootContainer = RootContainer.getInstance();

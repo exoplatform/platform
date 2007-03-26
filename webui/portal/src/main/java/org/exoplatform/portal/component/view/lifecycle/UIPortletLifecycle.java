@@ -20,8 +20,8 @@ import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.RenderInput;
 import org.exoplatform.services.portletcontainer.pci.RenderOutput;
 import org.exoplatform.templates.groovy.ResourceResolver;
-import org.exoplatform.webui.application.Application;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.lifecycle.Lifecycle;
 import org.exoplatform.webui.component.lifecycle.WebuiBindingContext;
@@ -34,7 +34,7 @@ import org.exoplatform.webui.event.Event;
  */
 public class UIPortletLifecycle extends Lifecycle {
   
-  public void processAction(UIComponent uicomponent, RequestContext context) throws Exception {
+  public void processAction(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
     String action =  context.getRequestParameter(PortalRequestContext.UI_COMPONENT_ACTION) ;
     if(action != null) {
       Event event = uicomponent.createEvent(action, Event.Phase.PROCESS, context) ;
@@ -70,7 +70,7 @@ public class UIPortletLifecycle extends Lifecycle {
     if(addUpdateComponent) context.addUIComponentToUpdateByAjax(uicomponent) ;
   }
   
-  public void processRender(UIComponent uicomponent , RequestContext context) throws Exception {    
+  public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {    
     UIPortlet  uiPortlet =  (UIPortlet)  uicomponent ;
     PortalRequestContext prcontext = (PortalRequestContext) context ;
     ExoContainer container = context.getApplication().getApplicationServiceContainer() ;
@@ -114,7 +114,7 @@ public class UIPortletLifecycle extends Lifecycle {
     if(context.isAjaxRequest() && !uiPortlet.isShowEditControl() && !prcontext.isForceFullUpdate()) {
       context.getWriter().write(portletContent.toString()) ;
     } else {
-      Application app = context.getApplication() ;
+      WebuiApplication app = context.getApplication() ;
       ResourceResolver resolver =  app.getResourceResolver() ;
       WebuiBindingContext bcontext = 
         new WebuiBindingContext(resolver, context.getWriter(), uicomponent, context) ;    

@@ -8,7 +8,7 @@ import java.io.Writer;
 
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -48,7 +48,7 @@ public class UIControlWorkspace extends UIWorkspace {
       super();
     }
 
-    public void processRender(RequestContext context) throws Exception {      
+    public void processRender(WebuiRequestContext context) throws Exception {      
       Writer w =  context.getWriter() ;
       w.write("<div id=\"") ; w.write(getId()); w.write("\">");
       super.renderChildren();

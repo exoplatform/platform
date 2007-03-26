@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormDateTimeInput;
 import org.exoplatform.webui.component.UIFormHiddenInput;
@@ -100,7 +100,7 @@ public class UITestForm  extends UIForm {
     public void execute(Event<UITestForm> event) throws Exception {
       event.getRequestContext().addUIComponentToUpdateByAjax(event.getSource());
       
-      RequestContext rcontext = event.getRequestContext().getParentAppRequestContext();
+      WebuiRequestContext rcontext = event.getRequestContext().getParentAppRequestContext();
       event.getRequestContext().addJavascript("window.location=\"http://www.vietnamnet.vn\"");
       System.out.println("\n\n\n == > "+rcontext +"\n\n");
 //      HttpServletResponse response = rcontext.getResponse();      

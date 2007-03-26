@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.exception;
 
-import org.exoplatform.webui.application.ApplicationMessage;
+import org.exoplatform.web.application.ApplicationMessage;
 
 /**
  * Created by The eXo Platform SARL

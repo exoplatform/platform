@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.component.lifecycle;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 /**
  * Created by The eXo Platform SARL
@@ -15,7 +15,7 @@ import org.exoplatform.webui.application.RequestContext;
 public class Decorator {
   //<%decorator.start(.., ..)%>
   final  public  void  start(String cssClass,  String style) throws Exception {
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     context.getWriter().
       append("<div class=\"").append(cssClass).append("\">").
         append("<div class=\"").append(style).append("\" style=\"margin: 0px\">").
@@ -31,7 +31,7 @@ public class Decorator {
   }
   
   final  public  void  end() throws Exception {
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     context.getWriter().
               append("</div>").
             append("</div>").

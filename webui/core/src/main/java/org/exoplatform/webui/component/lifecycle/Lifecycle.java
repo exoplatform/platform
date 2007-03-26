@@ -9,7 +9,7 @@ import groovy.text.Template;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.templates.groovy.GroovyTemplateService;
 import org.exoplatform.templates.groovy.ResourceResolver;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.event.Event;
 /**
@@ -30,23 +30,23 @@ public class Lifecycle {
   private Decorator decorator_ = new Decorator()   ;
   
   @SuppressWarnings("unused")
-  public void init(UIComponent uicomponent, RequestContext context) throws Exception {  
+  public void init(UIComponent uicomponent, WebuiRequestContext context) throws Exception {  
     
   }
   
   @SuppressWarnings("unused")
-  public void processDecode(UIComponent uicomponent , RequestContext context) throws Exception {  
+  public void processDecode(UIComponent uicomponent , WebuiRequestContext context) throws Exception {  
     
   }
   
-  public void processAction(UIComponent uicomponent , RequestContext context) throws Exception {
+  public void processAction(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     String action =  context.getRequestParameter(context.getActionParameterName()) ;
     if(action == null) return ;
     Event<UIComponent> event = uicomponent.createEvent(action, Event.Phase.PROCESS, context) ;
     if(event != null) event.broadcast()  ;
   }
   
-  public void processRender(UIComponent uicomponent , RequestContext context) throws Exception {
+  public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     String template = uicomponent.getTemplate() ;
     ResourceResolver resolver =  uicomponent.getTemplateResourceResolver(context, template); 
     WebuiBindingContext bcontext = 
@@ -63,14 +63,14 @@ public class Lifecycle {
    
   protected void renderTemplate(String template, WebuiBindingContext bcontext) throws Exception {
     bcontext.put("decorator", decorator_) ;
-    RequestContext context = bcontext.getRequestContext() ;
+    WebuiRequestContext context = bcontext.getRequestContext() ;
     ExoContainer pcontainer =  context.getApplication().getApplicationServiceContainer() ;
     GroovyTemplateService service = 
       (GroovyTemplateService) pcontainer.getComponentInstanceOfType(GroovyTemplateService.class) ;
     ResourceResolver resolver = bcontext.getResourceResolver() ;
     
     if(DEVELOPING) {
-      RequestContext rootContext = context.getParentAppRequestContext() ;
+      WebuiRequestContext rootContext = context.getParentAppRequestContext() ;
       if(rootContext == null)  rootContext = context ;
       //System.out.println(template + " modified: " + file.lastModified() + ", access " + rootContext.getUIApplication().getLastAccessApplication());
       long lastAccess =  rootContext.getUIApplication().getLastAccessApplication() ;

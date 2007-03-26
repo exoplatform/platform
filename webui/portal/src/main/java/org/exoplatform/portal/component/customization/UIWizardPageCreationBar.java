@@ -8,7 +8,7 @@ import java.io.Writer;
 
 import org.exoplatform.portal.component.view.UIContainer;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -48,7 +48,7 @@ public class UIWizardPageCreationBar extends UIContainer {
     getChild(UIPageEditBar.class).setRendered(false);
     return super.<T>setRendered(b);
   }
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     Writer w = context.getWriter();    
     w.append("<div class=\"UICreatePage\" id=\"UIWizardPageCreationBar\">") ;
     renderChildren() ;

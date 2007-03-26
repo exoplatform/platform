@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.component;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
  * Created by The eXo Platform SARL
@@ -27,7 +27,7 @@ public class UIFormTableInputSet extends UIFormInputSet {
 
   public void setColumns(String [] columns) { this.columns = columns; }
   
-  public void processDecode(RequestContext context) throws Exception {
+  public void processDecode(WebuiRequestContext context) throws Exception {
     for(UIComponent child : getChildren())  {
       child.processDecode(context) ;
     }

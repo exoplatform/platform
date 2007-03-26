@@ -10,7 +10,7 @@ import java.util.List;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
@@ -86,7 +86,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
     uiSelectBox.setValue(String.valueOf(pageNavigation.getPriority()));
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);   
     
     UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);

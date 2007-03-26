@@ -11,7 +11,7 @@ import javax.portlet.PortletRequest;
 
 import org.exoplatform.templates.groovy.FileResourceResolver;
 import org.exoplatform.templates.groovy.ResourceResolver;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -29,7 +29,7 @@ public class UISite extends UIComponent {
   private ResourceResolver resourceResolver_ = new FileResourceResolver() ;
   
   public UISite() {
-    PortletRequestContext pcontext = (PortletRequestContext)RequestContext.getCurrentInstance() ;
+    PortletRequestContext pcontext = (PortletRequestContext)WebuiRequestContext.getCurrentInstance() ;
     PortletRequest prequest = pcontext.getRequest() ;
     PortletPreferences prefs = prequest.getPreferences() ;
     String location = prefs.getValue("site.location", null) ;
@@ -48,7 +48,7 @@ public class UISite extends UIComponent {
   public String getTemplate() {  return realSiteLocation_ + "/template/SiteTemplate.gtmpl"; }
   
   @SuppressWarnings("unused")
-  public ResourceResolver getTemplateResourceResolver(RequestContext context, String template) {
+  public ResourceResolver getTemplateResourceResolver(WebuiRequestContext context, String template) {
     return  resourceResolver_ ;
   }
   

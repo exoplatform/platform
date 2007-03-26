@@ -17,7 +17,7 @@ import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIGrid;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -74,7 +74,7 @@ public class UIUserInGroup extends UIContainer {
     uiGrid.getUIPageIterator().setPageList(pagelist);
   }
 
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     Writer w =  context.getWriter() ;
     w.write("<div class=\"UIUserInGroup\">");
     renderChildren();

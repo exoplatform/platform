@@ -19,7 +19,7 @@ import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -155,7 +155,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       if(isDesktopPage) page.setShowMaxWindow(true);
       
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
-      RequestContext context = Util.getPortalRequestContext() ;  
+      WebuiRequestContext context = Util.getPortalRequestContext() ;  
       UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
       PortalDataModelUtil.toUIPage(uiPage, page, true);
       uiPagePreview.setUIComponent(uiPage);

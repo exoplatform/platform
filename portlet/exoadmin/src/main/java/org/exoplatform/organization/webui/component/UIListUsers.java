@@ -10,7 +10,7 @@ import java.util.List;
 
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
@@ -88,7 +88,7 @@ public class UIListUsers extends UISearch {
   public void advancedSearch(UIFormInputSet advancedSearchInput) throws Exception {
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     Writer w =  context.getWriter() ;
     w.write("<div class=\"UIListUsers\">");
     renderChildren();

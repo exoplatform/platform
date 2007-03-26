@@ -20,7 +20,7 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.services.portletregistery.Portlet;
 import org.exoplatform.services.portletregistery.PortletCategory;
 import org.exoplatform.services.portletregistery.PortletRegisteryService;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputInfo;
@@ -99,7 +99,7 @@ public class UIAddPortletForm extends UIFormTabPane {
 
   } 
 
-  public void processDecode(RequestContext context) throws Exception {
+  public void processDecode(WebuiRequestContext context) throws Exception {
     super.processDecode(context);
     for(UIComponent child : getChildren())  {
       child.processDecode(context) ;

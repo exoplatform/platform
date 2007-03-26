@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.component.validator;
 
-import org.exoplatform.webui.application.ApplicationMessage;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormInputBase;
 import org.exoplatform.webui.exception.MessageException;

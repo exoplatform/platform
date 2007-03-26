@@ -10,7 +10,7 @@ import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
@@ -70,7 +70,7 @@ public class UIPageForm extends UIFormTabPane {
     uiPermission.setRendered(false) ;
     addUIComponentInput(uiPermission) ;
     
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("PageTemplate");          
     List<SelectItemCategory>  itemCategories =  param.getMapGroovyObject(context) ;
     
@@ -129,7 +129,7 @@ public class UIPageForm extends UIFormTabPane {
     returnComponent_ = uiComp ;
   }   
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);  
     
     UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);

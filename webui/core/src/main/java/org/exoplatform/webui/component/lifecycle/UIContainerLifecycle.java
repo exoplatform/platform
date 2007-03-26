@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.component.lifecycle;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
 
@@ -16,7 +16,7 @@ import org.exoplatform.webui.component.UIContainer;
 public class UIContainerLifecycle extends Lifecycle {
   
   @SuppressWarnings("unused")
-  public void processRender(UIComponent uicomponent , RequestContext context) throws Exception {
+  public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     context.getWriter().append("<div class=\"").append(uicomponent.getId()).append("\" id=\"").append(uicomponent.getId()).append("\">");
     UIContainer uiContainer = (UIContainer) uicomponent;
     uiContainer.renderChildren(context);

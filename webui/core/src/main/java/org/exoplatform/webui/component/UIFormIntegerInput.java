@@ -6,7 +6,7 @@ package org.exoplatform.webui.component;
 
 import java.io.Writer;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 /**
  * Created by The eXo Platform SARL
@@ -24,11 +24,11 @@ public class UIFormIntegerInput extends UIFormInputBase<Integer> {
   }
 
   @SuppressWarnings("unused")
-  public void decode(Object input, RequestContext context) throws Exception {
+  public void decode(Object input, WebuiRequestContext context) throws Exception {
     value = Integer.parseInt(String.valueOf(context.getRequestParameter(getName())));
   }
 
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     Writer w =  context.getWriter() ;
     w.append("<input class='integer' name='").append(getName());
     w.append("' value='").append(value.toString()).append("'/>") ;

@@ -11,8 +11,8 @@ import org.exoplatform.groovy.webui.component.UIGroovyPortlet;
 import org.exoplatform.templates.groovy.BindingContext;
 import org.exoplatform.templates.groovy.GroovyTemplateService;
 import org.exoplatform.templates.groovy.ResourceResolver;
-import org.exoplatform.webui.application.Application;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.lifecycle.Lifecycle;
 import org.exoplatform.webui.component.lifecycle.WebuiBindingContext;
@@ -25,10 +25,10 @@ import org.exoplatform.webui.component.lifecycle.WebuiBindingContext;
  */
 public class UIGroovyPortletLifecycle  extends  Lifecycle {
   
-  public void processRender(UIComponent uicomponent , RequestContext context) throws Exception {
+  public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     UIGroovyPortlet uiPortlet =  (UIGroovyPortlet)  uicomponent ;    
     String template = uiPortlet.getTemplate() ;
-    Application app = context.getApplication() ;
+    WebuiApplication app = context.getApplication() ;
     ExoContainer pcontainer =  app.getApplicationServiceContainer() ;
     GroovyTemplateService service = 
       (GroovyTemplateService) pcontainer.getComponentInstanceOfType(GroovyTemplateService.class) ;

@@ -20,7 +20,7 @@ import org.exoplatform.portal.config.model.Component;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIFormInputIconSelector;
 import org.exoplatform.webui.component.UIFormInputInfo;
@@ -107,7 +107,7 @@ public class UIPageNodeForm extends UIFormTabPane {
   public Object getSelectedParent(){ return selectedParent; }  
   public void setSelectedParent(Object obj) { this.selectedParent = obj; }
 
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
     
     UIPageSelector uiPageSelector = getChild(UIPageSelector.class);    

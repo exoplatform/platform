@@ -14,7 +14,7 @@ import org.exoplatform.portal.config.UserACL.UserACLPlugin;
 public class CheckUserPlugin extends UserACLPlugin {
 
   public boolean hasRoleAdmin() {
-    RequestContext context = RequestContext.getCurrentInstance();
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     return context.isUserInRole("admin");
   }
 

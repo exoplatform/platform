@@ -8,7 +8,7 @@ import org.exoplatform.organization.webui.component.UIUserMembershipSelector;
 import org.exoplatform.organization.webui.component.UIUserProfileInputSet;
 import org.exoplatform.organization.webui.component.UIUserMembershipSelector.Membership;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormTabPane;
@@ -62,7 +62,7 @@ public class UIAccountForm extends UIFormTabPane {
     UIUserMembershipSelector uiUserMembershipSelector = new UIUserMembershipSelector();
     uiUserMembershipSelector.setRendered(false);
     addUIFormInput(uiUserMembershipSelector);
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     boolean isRoleAdmin = context.isUserInRole("admin"); 
     
     Param param = initParams.getParam("AccountTemplateConfigOption");
@@ -79,7 +79,7 @@ public class UIAccountForm extends UIFormTabPane {
 
   public String getSelectPortalTemplate(){  return "SelectPortalTemplate";  }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
     UIUserMembershipSelector uiUserMembershipSelector = getChild(UIUserMembershipSelector.class);    
     if(uiUserMembershipSelector == null) return;

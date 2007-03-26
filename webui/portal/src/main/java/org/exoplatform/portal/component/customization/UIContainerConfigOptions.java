@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
@@ -44,7 +44,7 @@ public class UIContainerConfigOptions extends UIContainer {
     setComponentConfig(UIContainerConfigOptions.class, null);    
     selectedCategory_ = null;
     if(initParams == null) return ;
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("ContainerConfigOption");          
     categories_ = param.getMapGroovyObject(context) ;
     if(categories_ == null) return ;
@@ -76,7 +76,7 @@ public class UIContainerConfigOptions extends UIContainer {
     return (Container) uctx.unmarshalDocument(is, null);
   }
   
-  public void processRender(RequestContext context) throws Exception {   
+  public void processRender(WebuiRequestContext context) throws Exception {   
     super.processRender(context);    
     Util.showComponentLayoutMode(UIContainer.class);
 //    context.addJavascript("eXo.webui.UIContainerConfigOptions.init();"); 

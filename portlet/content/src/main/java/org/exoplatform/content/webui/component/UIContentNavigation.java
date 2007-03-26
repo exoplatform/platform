@@ -14,7 +14,7 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.content.ContentDAO;
 import org.exoplatform.portal.content.model.ContentNavigation;
 import org.exoplatform.portal.content.model.ContentNode;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -143,7 +143,7 @@ public class UIContentNavigation extends UIComponent {
     return null;
   }
   
-  public boolean isLogon(){ return RequestContext.<RequestContext>getCurrentInstance().isLogon(); }
+  public boolean isLogon(){ return WebuiRequestContext.<WebuiRequestContext>getCurrentInstance().isLogon(); }
 
   static  public class ChangeNodeActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {

@@ -12,7 +12,7 @@ import java.nio.channels.FileChannel;
 
 import org.exoplatform.upload.UploadResource;
 import org.exoplatform.upload.UploadService;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
@@ -33,7 +33,7 @@ public class UIFormUploadInput extends UIFormInputBase<String> {
   }
   
   @SuppressWarnings("unused")
-  public void decode(Object input, RequestContext context) throws Exception {
+  public void decode(Object input, WebuiRequestContext context) throws Exception {
     uploadResource_ = null ;
     boolean hasUpload = "true".equals(input) ;
     if(hasUpload) {
@@ -68,8 +68,8 @@ public class UIFormUploadInput extends UIFormInputBase<String> {
   public String getUploadId() { return uploadId_; }
   
   public String getActionUpload(){
-    RequestContext context = RequestContext.getCurrentInstance();
-    RequestContext pcontext = context.getParentAppRequestContext();
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
+    WebuiRequestContext pcontext = context.getParentAppRequestContext();
     if(pcontext == null) pcontext = context;
     String uploadAction = pcontext.getRequestContextPath() + "/upload?uploadId=" + uploadId_+"&action=upload" ;
     return uploadAction;

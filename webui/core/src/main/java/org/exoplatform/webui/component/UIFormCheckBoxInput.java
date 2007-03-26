@@ -2,7 +2,7 @@ package org.exoplatform.webui.component;
 
 import java.io.Writer;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 @SuppressWarnings("hiding")
 public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
@@ -36,7 +36,7 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
   } 
   
   @SuppressWarnings("unused")
-  public void decode(Object input, RequestContext context)  throws Exception {
+  public void decode(Object input, WebuiRequestContext context)  throws Exception {
     if (!isEnable()) return ;    
     if (input == null) checked = false; else checked = true;
     if(typeValue_ == Boolean.class || typeValue_ == boolean.class){
@@ -44,7 +44,7 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
     }
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     Writer w =  context.getWriter() ;    
     w.write("<input type='checkbox' name='"); w.write(name); w.write("'") ;
     w.write(" value='"); 

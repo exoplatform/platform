@@ -3,8 +3,8 @@ package org.exoplatform.webui.component;
 import java.io.Writer;
 import java.util.List;
 
-import org.exoplatform.webui.application.Application;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 abstract public class UIPortletApplication extends  UIApplication {
   static public String VIEW_MODE = "ViewMode" ;
@@ -16,8 +16,8 @@ abstract public class UIPortletApplication extends  UIApplication {
     
   }
   
-  public void  processRender(Application app, RequestContext context) throws Exception {
-    RequestContext pContext = context.getParentAppRequestContext();
+  public void  processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
+    WebuiRequestContext pContext = context.getParentAppRequestContext();
     if(context.isAjaxRequest() && !pContext.isForceFullUpdate()) {
       Writer w =  context.getWriter() ;
       w.write("<div class=\"PortletResponse\" style=\"display: none\">") ;

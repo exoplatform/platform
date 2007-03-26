@@ -19,8 +19,8 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import org.exoplatform.services.log.LogUtil;
-import org.exoplatform.webui.application.ApplicationLifecycle;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.web.application.ApplicationLifecycle;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIPortletApplication;
 /**
@@ -43,9 +43,9 @@ public class PortletApplicationController extends GenericPortlet {
   }
   
   public void processAction(ActionRequest req, ActionResponse res) throws PortletException, IOException {
-    RequestContext parentAppRequestContext =  RequestContext.getCurrentInstance() ;
+    WebuiRequestContext parentAppRequestContext =  WebuiRequestContext.getCurrentInstance() ;
     PortletRequestContext context = createRequestContext(req, res, parentAppRequestContext)  ;
-    RequestContext.setCurrentInstance(context) ;
+    WebuiRequestContext.setCurrentInstance(context) ;
     List<ApplicationLifecycle> lifecycles = application.getApplicationLifecycle();
     try {
       for(ApplicationLifecycle lifecycle :  lifecycles)  {
@@ -61,14 +61,14 @@ public class PortletApplicationController extends GenericPortlet {
       LogUtil.getLog(getClass()).error("Error: ", exp);
     } finally {
       context.setProcessAction(true) ;
-      RequestContext.setCurrentInstance(parentAppRequestContext) ;
+      WebuiRequestContext.setCurrentInstance(parentAppRequestContext) ;
     }
   }
   
   public  void render(RenderRequest req,  RenderResponse res) throws PortletException, IOException {    
-    RequestContext parentAppRequestContext =  RequestContext.getCurrentInstance() ;
+    WebuiRequestContext parentAppRequestContext =  WebuiRequestContext.getCurrentInstance() ;
     PortletRequestContext context = createRequestContext(req, res, parentAppRequestContext)  ;
-    RequestContext.setCurrentInstance(context) ;
+    WebuiRequestContext.setCurrentInstance(context) ;
     List<ApplicationLifecycle> lifecycles = application.getApplicationLifecycle();
     try {
       if(context.hasProcessAction()) {
@@ -93,7 +93,7 @@ public class PortletApplicationController extends GenericPortlet {
       } catch (Exception exception){
         LogUtil.getLog(getClass()).error("Error: ", exception);
       }
-      RequestContext.setCurrentInstance(parentAppRequestContext) ;
+      WebuiRequestContext.setCurrentInstance(parentAppRequestContext) ;
     }
   }
   
@@ -106,7 +106,7 @@ public class PortletApplicationController extends GenericPortlet {
   }
   
   public PortletRequestContext createRequestContext(PortletRequest req, PortletResponse res,
-                                                    RequestContext parentAppRequestContext) throws IOException {
+                                                    WebuiRequestContext parentAppRequestContext) throws IOException {
     PortletRequestContext context = 
       (PortletRequestContext) parentAppRequestContext.getAttribute(application.getApplicationId()) ;
     Writer w  = null ;    

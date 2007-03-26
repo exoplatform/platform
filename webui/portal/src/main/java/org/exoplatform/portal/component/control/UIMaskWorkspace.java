@@ -5,7 +5,7 @@
 package org.exoplatform.portal.component.control;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;

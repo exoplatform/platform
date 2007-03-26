@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.widget.UILoginForm;
 import org.exoplatform.portal.component.widget.UILoginForm.SigninActionListener;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIPortletApplication;
 import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -43,7 +43,7 @@ public class UIWelcomePortlet extends UIPortletApplication {
   public String remoteUser_ ;
   
   public UIWelcomePortlet() throws Exception {
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     PortalRequestContext prcontext = (PortalRequestContext)context.getParentAppRequestContext() ;
     accessibility_ = prcontext.getAccessPath() ;
     if(accessibility_ == PortalRequestContext.PUBLIC_ACCESS) {
@@ -60,7 +60,7 @@ public class UIWelcomePortlet extends UIPortletApplication {
   
   static  public class LogoutActionListener extends EventListener {
     public void execute(Event event) throws Exception {
-      RequestContext context =  event.getRequestContext() ;
+      WebuiRequestContext context =  event.getRequestContext() ;
       PortalRequestContext prcontext = (PortalRequestContext) context.getParentAppRequestContext() ;
       HttpServletRequest request = prcontext.getRequest() ;
       request.getSession().invalidate() ;

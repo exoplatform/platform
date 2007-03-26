@@ -40,7 +40,7 @@ public class ConfigurationManager {
   private org.exoplatform.webui.config.Application application_ ;
 
   @SuppressWarnings("unused")
-  public ConfigurationManager(InputStream inputStream, Application app) throws Exception {   
+  public ConfigurationManager(InputStream inputStream, WebuiApplication app) throws Exception {   
     IBindingFactory bfact = BindingDirectory.getFactory(WebuiConfiguration.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
     WebuiConfiguration config = (WebuiConfiguration)uctx.unmarshalDocument(inputStream, null) ;  

@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.event;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
@@ -26,7 +26,7 @@ public class MonitorEvent<T> extends Event<T> {
   private long endExecutionTime_  ;
   private Throwable  error_ ;
   
-  public MonitorEvent(T source, String name, RequestContext context) {
+  public MonitorEvent(T source, String name, WebuiRequestContext context) {
     super(source, name, context);
   }
   

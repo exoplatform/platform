@@ -1,6 +1,6 @@
 package org.exoplatform.webui.component;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 abstract public class UIFormTabPane extends UIForm {
 	
@@ -23,7 +23,7 @@ abstract public class UIFormTabPane extends UIForm {
   public String getRenderTabId() { return renderTabId; }
   public void setRenderTabId(String renderTabId) { this.renderTabId = renderTabId; }
 
-  public void processDecode(RequestContext context) throws Exception {   
+  public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     String renderTab = context.getRequestParameter(RENDER_TAB) ;
     if(renderTab != null) renderTabId  = renderTab;

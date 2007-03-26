@@ -8,7 +8,7 @@ import java.io.InputStream;
 
 import org.exoplatform.commons.utils.IOUtil;
 import org.exoplatform.templates.groovy.ResourceResolver;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.lifecycle.Lifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
@@ -38,7 +38,7 @@ public class UIQuickHelp extends UIContainer {
     if(helpUri_ == null)  return "No Help Configuration" ;
     String helpContent =  helpUri_;
     //if(helpContent == null) {
-      RequestContext context = RequestContext.getCurrentInstance() ;
+      WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
       ResourceResolver resolver = context.getResourceResolver(helpUri_) ;
       InputStream is = resolver.getInputStream(helpUri_) ;
       helpContent =  new String( IOUtil.getStreamContentAsBytes(is)) ;

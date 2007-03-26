@@ -15,7 +15,7 @@ import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletregistery.Portlet;
 import org.exoplatform.services.portletregistery.PortletCategory;
 import org.exoplatform.services.portletregistery.PortletRegisteryService;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
@@ -89,7 +89,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     }
   } 
 
-  public void processDecode(RequestContext context) throws Exception {
+  public void processDecode(WebuiRequestContext context) throws Exception {
     super.processDecode(context);
     for(UIComponent child : getChildren())  {
       child.processDecode(context) ;

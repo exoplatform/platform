@@ -8,7 +8,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
@@ -46,7 +46,7 @@ public class UIApplicationTree extends UIContainer {
 
   public List<UIComponent> getFirstLevel() {
     if(selectedUIComponent_ == null) {
-      RequestContext context  = RequestContext.getCurrentInstance() ;
+      WebuiRequestContext context  = WebuiRequestContext.getCurrentInstance() ;
       selectedUIComponent_ = context.getUIApplication() ;
     }
     UIComponent parent = selectedUIComponent_.getParent() ;
@@ -75,7 +75,7 @@ public class UIApplicationTree extends UIContainer {
 
   public UIComponent getSelectedUIComponent() { 
     if(selectedUIComponent_ == null) {
-      RequestContext context  = RequestContext.getCurrentInstance() ;
+      WebuiRequestContext context  = WebuiRequestContext.getCurrentInstance() ;
       selectedUIComponent_ = context.getUIApplication() ;
     }
     return selectedUIComponent_; 

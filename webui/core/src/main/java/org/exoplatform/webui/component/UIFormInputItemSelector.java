@@ -7,7 +7,7 @@ package org.exoplatform.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -104,7 +104,7 @@ public class UIFormInputItemSelector extends UIFormInputBase<Object> {
   }
 
   @SuppressWarnings("unused")
-  public void decode(Object input, RequestContext context) throws Exception {   
+  public void decode(Object input, WebuiRequestContext context) throws Exception {   
     if(input == null || String.valueOf(input).length() < 1) return;    
     setValue(input) ;   
   }

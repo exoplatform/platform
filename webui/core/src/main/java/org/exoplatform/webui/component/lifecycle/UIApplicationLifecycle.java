@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.component.lifecycle;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 
 /**
@@ -14,7 +14,7 @@ import org.exoplatform.webui.component.UIComponent;
  */
 public class UIApplicationLifecycle  extends Lifecycle {  
 
-  public void processDecode(UIComponent uicomponent , RequestContext context) throws Exception { 
+  public void processDecode(UIComponent uicomponent , WebuiRequestContext context) throws Exception { 
     String componentId =  context.getRequestParameter(context.getUIComponentIdParameterName()) ;
     if(componentId != null) {
       UIComponent uiTarget = uicomponent.findComponentById(componentId);
@@ -23,7 +23,7 @@ public class UIApplicationLifecycle  extends Lifecycle {
     }
   }
   
-  public void processAction(UIComponent uicomponent, RequestContext context) throws Exception {
+  public void processAction(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
     String componentId =  context.getRequestParameter(context.getUIComponentIdParameterName()) ;   
     if(componentId != null) {
       UIComponent uiTarget =  uicomponent.findComponentById(componentId);      

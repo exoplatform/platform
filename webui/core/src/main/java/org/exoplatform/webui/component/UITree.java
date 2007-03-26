@@ -7,7 +7,7 @@ package org.exoplatform.webui.component;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.model.ReflectionUtil;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -129,7 +129,7 @@ public class UITree extends UIComponent {
   }
   
   public void renderUIComponent(UIComponent uicomponent) throws Exception {
-    uicomponent.processRender(RequestContext.getCurrentInstance()) ;
+    uicomponent.processRender(WebuiRequestContext.getCurrentInstance()) ;
   }
   
   @SuppressWarnings("unchecked")

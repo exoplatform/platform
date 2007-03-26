@@ -25,9 +25,9 @@ import org.exoplatform.portal.application.handler.UploadRequestHandler;
 import org.exoplatform.services.resources.ResourceBundleService;
 import org.exoplatform.templates.groovy.ApplicationResourceResolver;
 import org.exoplatform.templates.groovy.ServletResourceResolver;
-import org.exoplatform.webui.application.Application;
+import org.exoplatform.webui.application.WebuiApplication;
 
-public class PortalApplication extends Application {
+public class PortalApplication extends WebuiApplication {
   
   private ServletConfig sconfig_ ;
   private String applicationId_  ;

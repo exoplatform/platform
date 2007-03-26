@@ -8,9 +8,9 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
-import org.exoplatform.webui.application.Application;
+import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.ConfigurationManager;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.StateManager;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.component.UIApplication;
@@ -20,9 +20,9 @@ public class PortalStateManager extends StateManager {
   private Map<String, PortalApplicationState> uiApplications = new HashMap<String, PortalApplicationState>(); 
   
   @SuppressWarnings("unchecked")
-  public UIApplication restoreUIRootComponent(RequestContext context) throws Exception {
+  public UIApplication restoreUIRootComponent(WebuiRequestContext context) throws Exception {
     context.setStateManager(this) ;
-    Application app  = context.getApplication() ;
+    WebuiApplication app  = context.getApplication() ;
     if(context instanceof PortletRequestContext) {
       PortalApplicationState state = uiApplications.get(context.getParentAppRequestContext().getSessionId()) ;
       PortletRequestContext pcontext = (PortletRequestContext) context ;
@@ -69,11 +69,11 @@ public class PortalStateManager extends StateManager {
   }
 
   @SuppressWarnings("unused")
-  public void storeUIRootComponent(RequestContext context) {
+  public void storeUIRootComponent(WebuiRequestContext context) {
     
   }
 
-  public void expire(String sessionId, Application app) {
+  public void expire(String sessionId, WebuiApplication app) {
     PortalApplicationState state = uiApplications.remove(sessionId) ;
     if(state != null){
       System.out.println("SESSION EXPIRE, REMOVE APPLICATION STATE: " + state.getUIPortalApplication());

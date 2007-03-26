@@ -7,7 +7,7 @@ package org.exoplatform.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -72,7 +72,7 @@ public class UIFormInputIconSelector extends UIFormInputBase<String> {
     selectedIcon = null ;
     iconSets.clear() ;
     optionSets.clear() ;
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     for(Param param : getComponentConfig().getInitParams().getParams()) {
       if(param.getName().equals(paramName)) {
         CategoryIcon categoryIconSet =  param.getMapGroovyObject(context) ;
@@ -117,7 +117,7 @@ public class UIFormInputIconSelector extends UIFormInputBase<String> {
   }
 
   @SuppressWarnings("unused")
-  public void decode(Object input, RequestContext context) throws Exception {
+  public void decode(Object input, WebuiRequestContext context) throws Exception {
     if(input == null || String.valueOf(input).length() < 1) return;    
     selectedIcon = (String) input ;
   }

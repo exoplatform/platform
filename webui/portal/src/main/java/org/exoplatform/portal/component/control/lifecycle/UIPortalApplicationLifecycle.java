@@ -5,7 +5,7 @@
 package org.exoplatform.portal.component.control.lifecycle;
 
 import org.exoplatform.portal.component.UIPortalApplication;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.lifecycle.Lifecycle;
 
@@ -17,7 +17,7 @@ import org.exoplatform.webui.component.lifecycle.Lifecycle;
  */
 public class UIPortalApplicationLifecycle extends Lifecycle {  
   
-  public void processDecode(UIComponent uicomponent , RequestContext context) throws Exception {  
+  public void processDecode(UIComponent uicomponent , WebuiRequestContext context) throws Exception {  
     UIPortalApplication uiApp = (UIPortalApplication) uicomponent ;    
     String componentId =  context.getRequestParameter(context.getUIComponentIdParameterName()) ;    
     if(componentId == null)  return ;
@@ -27,7 +27,7 @@ public class UIPortalApplicationLifecycle extends Lifecycle {
     uiTarget.processDecode(context);
   }
   
-  public void processAction(UIComponent uicomponent, RequestContext context) throws Exception {
+  public void processAction(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
     UIPortalApplication uiApp = (UIPortalApplication) uicomponent ;
     String componentId =  context.getRequestParameter(context.getUIComponentIdParameterName()) ;
     if(componentId == null)  return;

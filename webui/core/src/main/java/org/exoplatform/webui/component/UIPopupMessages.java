@@ -7,8 +7,8 @@ package org.exoplatform.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.application.ApplicationMessage;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -50,7 +50,7 @@ public class UIPopupMessages extends UIPopupWindow {
 
   public void setWarnings(List<ApplicationMessage> warnings_) { this.warnings_ = warnings_; }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);    
   }
 
@@ -76,7 +76,7 @@ public class UIPopupMessages extends UIPopupWindow {
     public void execute(Event<UIPopupMessages> event) throws Exception {
       UIPopupMessages uiPopupMessage = event.getSource() ;
       uiPopupMessage.clearMessages();
-      RequestContext context =  event.getRequestContext() ;
+      WebuiRequestContext context =  event.getRequestContext() ;
       if(uiPopupMessage.getParent() == null){
         context.addUIComponentToUpdateByAjax(uiPopupMessage) ;
         return;

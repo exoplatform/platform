@@ -7,14 +7,14 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.RenderResponse;
 
-import org.exoplatform.webui.application.Application;
+import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.Parameter;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.Event;
 
-public class PortletRequestContext extends RequestContext {
+public class PortletRequestContext extends WebuiRequestContext {
   private int applicationMode_ ;
   private PortletRequest request_; 
   private PortletResponse response_ ;
@@ -22,7 +22,7 @@ public class PortletRequestContext extends RequestContext {
   private boolean hasProcessAction_ = false ;
   private String baseURL_ ;
   
-  public PortletRequestContext(Application app, Writer writer, 
+  public PortletRequestContext(WebuiApplication app, Writer writer, 
                                PortletRequest req, PortletResponse res) {
     super(app) ;
     init(writer, req, res) ;
@@ -131,7 +131,7 @@ public class PortletRequestContext extends RequestContext {
               .append(UIComponent.UICOMPONENT).append('=').append(uicomponent.getId()) ;
     if(event != null) {
       builderURL.append("&amp;")
-                .append(RequestContext.ACTION).append('=').append(event.getName()) ;
+                .append(WebuiRequestContext.ACTION).append('=').append(event.getName()) ;
     }
     if(beanId != null){
       builderURL.append("&amp;").append(UIComponent.OBJECTID).append('=').append(beanId) ;

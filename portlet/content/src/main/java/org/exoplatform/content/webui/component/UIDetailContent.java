@@ -11,7 +11,7 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.content.ContentDAO;
 import org.exoplatform.portal.content.model.ContentItem;
 import org.exoplatform.portal.content.model.ContentNode;
-import org.exoplatform.webui.application.ApplicationMessage;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIJSPageIterator;

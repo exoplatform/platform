@@ -8,8 +8,8 @@ import java.util.List;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.templates.groovy.ResourceResolver;
-import org.exoplatform.webui.application.Application;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.Component;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -55,7 +55,7 @@ abstract public class UIComponent {
     return (T)this ;
   } 
   
-  public void processInit(RequestContext context) throws Exception {
+  public void processInit(WebuiRequestContext context) throws Exception {
     MonitorEvent<UIComponent> mevent = createMonitorEvent(Event.Phase.INIT, context);
     config.getUIComponentLifecycle().init(this, context) ;
     if(mevent != null) {
@@ -64,7 +64,7 @@ abstract public class UIComponent {
     }
   }
   
-  public void processDecode(RequestContext context) throws Exception {
+  public void processDecode(WebuiRequestContext context) throws Exception {
     MonitorEvent<UIComponent> mevent = createMonitorEvent(Event.Phase.DECODE, context);
     config.getUIComponentLifecycle().processDecode(this, context) ;
     if(mevent != null) {
@@ -73,7 +73,7 @@ abstract public class UIComponent {
     }
   }
   
-  public void processAction(RequestContext context) throws Exception {
+  public void processAction(WebuiRequestContext context) throws Exception {
     MonitorEvent<UIComponent> mevent =  createMonitorEvent(Event.Phase.PROCESS, context);
     config.getUIComponentLifecycle().processAction(this, context) ;
     if(mevent != null) {
@@ -82,7 +82,7 @@ abstract public class UIComponent {
     }
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     MonitorEvent<UIComponent> mevent = createMonitorEvent(Event.Phase.RENDER, context);
     config.getUIComponentLifecycle().processRender(this, context) ;
     if(mevent != null) {
@@ -91,7 +91,7 @@ abstract public class UIComponent {
     }
   }
   
-  public void processDestroy(RequestContext context) throws Exception {
+  public void processDestroy(WebuiRequestContext context) throws Exception {
     MonitorEvent<UIComponent> mevent = createMonitorEvent(Event.Phase.DESTROY, context);
     config.getUIComponentLifecycle().init(this, context) ;
     if(mevent != null) {
@@ -113,13 +113,13 @@ abstract public class UIComponent {
   }
   
   public  void setComponentConfig(Class clazz, String id) {
-    RequestContext context =  RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context =  WebuiRequestContext.getCurrentInstance() ;
     this.config = context.getApplication().getConfigurationManager().getComponentConfig(clazz, id) ;
   }
   
   public String getTemplate() {  return config.getTemplate() ; }
   
-  public ResourceResolver getTemplateResourceResolver(RequestContext context, String template) {
+  public ResourceResolver getTemplateResourceResolver(WebuiRequestContext context, String template) {
     return  context.getResourceResolver(template) ;
   }
   
@@ -138,7 +138,7 @@ abstract public class UIComponent {
   public String event(String name, String beanId) throws Exception {
     org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
     if(event == null) return "??config??" ;
-    RequestContext context = RequestContext.getCurrentInstance();
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     return context.createURL(this, event, context.useAjax(), beanId).toString();
   }
   
@@ -147,7 +147,7 @@ abstract public class UIComponent {
   public String url(String name, String beanId) throws Exception {
     org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
     if(event == null) return "??config??" ;
-    RequestContext context = RequestContext.getCurrentInstance();
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     return context.createURL(this, event, false, beanId).toString();
   }
   
@@ -170,13 +170,13 @@ abstract public class UIComponent {
   
   public  <T extends UIComponent> T createUIComponent(
       Class<T> type, String configId, String componentId) throws Exception  {
-    RequestContext  context =  RequestContext.getCurrentInstance() ;
+    WebuiRequestContext  context =  WebuiRequestContext.getCurrentInstance() ;
     return createUIComponent(context, type, configId, componentId)  ;
   }
   
   public <T extends UIComponent> T createUIComponent(
-      RequestContext  context, Class<T> type, String configId, String componentId) throws Exception {
-    Application app  = context.getApplication() ;    
+      WebuiRequestContext  context, Class<T> type, String configId, String componentId) throws Exception {
+    WebuiApplication app  = context.getApplication() ;    
     T comp =  app.createUIComponent(type, configId, componentId, context) ;
     return comp ;
   }
@@ -208,12 +208,12 @@ abstract public class UIComponent {
   public String getUIComponentName() { return "uicomponent" ; }
   
   public <T> T getApplicationComponent(Class<T> type) {
-  	RequestContext context = RequestContext.getCurrentInstance() ;
+  	WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
   	ExoContainer container = context.getApplication().getApplicationServiceContainer() ;
   	return  type.cast(container.getComponentInstanceOfType(type)) ;
   }
   
-  public Event<UIComponent> createEvent(String name, Phase phase, RequestContext context) throws Exception {
+  public Event<UIComponent> createEvent(String name, Phase phase, WebuiRequestContext context) throws Exception {
     if(config == null)  return null ; 
     org.exoplatform.webui.config.Event econfig = config.getUIComponentEventConfig(name);
     if(econfig == null) return null ;
@@ -227,7 +227,7 @@ abstract public class UIComponent {
     return null ;
   }
   
-  private MonitorEvent<UIComponent> createMonitorEvent(Phase phase, RequestContext context) throws Exception {
+  private MonitorEvent<UIComponent> createMonitorEvent(Phase phase, WebuiRequestContext context) throws Exception {
     if(config == null)  return null ; 
     org.exoplatform.webui.config.Event econfig = 
       config.getUIComponentEventConfig(MonitorEvent.UICOMPONENT_LIFECYCLE_MONITOR_EVENT);

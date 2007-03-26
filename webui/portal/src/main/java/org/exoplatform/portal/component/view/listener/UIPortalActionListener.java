@@ -24,7 +24,7 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.services.portletregistery.Portlet;
 import org.exoplatform.services.portletregistery.PortletCategory;
 import org.exoplatform.services.portletregistery.PortletRegisteryService;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -40,7 +40,7 @@ public class UIPortalActionListener {
       UIPortal uiPortal  = event.getSource();
       String portletId = event.getRequestContext().getRequestParameter("portletId");
       UIPortlet uiPortlet = uiPortal.findComponentById(portletId);
-      RequestContext context = event.getRequestContext();
+      WebuiRequestContext context = event.getRequestContext();
       uiPortlet.createEvent("ChangeWindowState", event.getExecutionPhase(), context).broadcast();
     }
   }

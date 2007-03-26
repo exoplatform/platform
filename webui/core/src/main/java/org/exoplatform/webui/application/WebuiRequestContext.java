@@ -22,7 +22,7 @@ import org.exoplatform.webui.config.Event ;
  *          tuan08@users.sourceforge.net
  * May 7, 2006
  */
-abstract public class RequestContext {
+abstract public class WebuiRequestContext {
   static public int VIEW_MODE =  0 ;
   static public int EDIT_MODE =  1 ;
   static public int HELP_MODE =  2 ;
@@ -30,13 +30,13 @@ abstract public class RequestContext {
   
   final static public String ACTION   = "op"; 
   
-  private  static ThreadLocal<RequestContext> tlocal_ = new ThreadLocal<RequestContext>()  ;
+  private  static ThreadLocal<WebuiRequestContext> tlocal_ = new ThreadLocal<WebuiRequestContext>()  ;
   
-  private Application app_ ;
+  private WebuiApplication app_ ;
   protected UIApplication  uiApplication_ ;
   protected String sessionId_ ;
   protected ResourceBundle appRes_ ;
-  protected RequestContext parentAppRequestContext_ ;
+  protected WebuiRequestContext parentAppRequestContext_ ;
   private StateManager stateManager_ ;
   private boolean  responseComplete_ = false ;
   private boolean  processRender_ =  false ;
@@ -45,7 +45,7 @@ abstract public class RequestContext {
   private ArrayList<UIComponent>  uicomponentToUpdateByAjax ;
   protected StringBuilder builderURL = new StringBuilder(300);
   
-  public RequestContext(Application app) {
+  public WebuiRequestContext(WebuiApplication app) {
     app_ =  app ;
   }
   
@@ -60,7 +60,7 @@ abstract public class RequestContext {
     appRes_ = app_.getResourceBundle(uiApplication.getLocale()) ;   
   }
   
-  public Application getApplication() { return  app_ ; }
+  public WebuiApplication getApplication() { return  app_ ; }
   
   public ResourceBundle getApplicationResourceBundle() {  return appRes_ ; }
   
@@ -76,7 +76,7 @@ abstract public class RequestContext {
   
   abstract  public void setSessionAttribute(String name, Object value)  ;
   
-  public  String getActionParameterName() {  return RequestContext.ACTION ; }
+  public  String getActionParameterName() {  return WebuiRequestContext.ACTION ; }
   
   public  String getUIComponentIdParameterName() {  return UIComponent.UICOMPONENT; }
   
@@ -106,8 +106,8 @@ abstract public class RequestContext {
     setAttribute(type.getName(), value) ;
   }
   
-  public RequestContext getParentAppRequestContext() { return parentAppRequestContext_ ; }
-  public void setParentAppRequestContext(RequestContext context) { parentAppRequestContext_ = context ; }
+  public WebuiRequestContext getParentAppRequestContext() { return parentAppRequestContext_ ; }
+  public void setParentAppRequestContext(WebuiRequestContext context) { parentAppRequestContext_ = context ; }
   
   public int getApplicationMode() { throw new RuntimeException("Method is not supported") ; }
   
@@ -161,12 +161,12 @@ abstract public class RequestContext {
                                           boolean supportAjax, String beanId, Parameter ... params) ;
   
   public ResourceResolver getResourceResolver(String uri) {
-    Application app = app_ ;
+    WebuiApplication app = app_ ;
     while(app != null) {
       ApplicationResourceResolver appResolver = app.getResourceResolver() ;
       ResourceResolver resolver =  appResolver.getResourceResolver(uri) ;
       if(resolver  != null)  return resolver ;  
-      RequestContext pcontext = getParentAppRequestContext() ;
+      WebuiRequestContext pcontext = getParentAppRequestContext() ;
       if(pcontext != null) app = pcontext.getApplication() ;
       else app =null ;
     }
@@ -177,8 +177,8 @@ abstract public class RequestContext {
   public void  setStateManager(StateManager manager) { stateManager_ =  manager ; }
   
   @SuppressWarnings("unchecked")
-  public static <T extends RequestContext> T getCurrentInstance()  { return (T)tlocal_.get() ; }
+  public static <T extends WebuiRequestContext> T getCurrentInstance()  { return (T)tlocal_.get() ; }
   
-  public static void setCurrentInstance(RequestContext ctx) { tlocal_.set(ctx) ; }
+  public static void setCurrentInstance(WebuiRequestContext ctx) { tlocal_.set(ctx) ; }
   
 }

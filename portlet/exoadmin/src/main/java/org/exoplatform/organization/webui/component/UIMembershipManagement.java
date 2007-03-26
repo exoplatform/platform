@@ -6,7 +6,7 @@ package org.exoplatform.organization.webui.component;
 
 import org.exoplatform.organization.webui.component.UIOrganizationPortlet.UIViewMode;
 import org.exoplatform.services.organization.MembershipType;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
@@ -42,7 +42,7 @@ public class UIMembershipManagement extends UIContainer {
   }
 
   @SuppressWarnings("unused")
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     renderChildren();
   }
 

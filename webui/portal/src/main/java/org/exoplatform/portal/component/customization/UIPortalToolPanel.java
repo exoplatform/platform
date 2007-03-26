@@ -5,7 +5,7 @@
 package org.exoplatform.portal.component.customization;
 
 import org.exoplatform.portal.component.view.UIPage;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -33,7 +33,7 @@ public class UIPortalToolPanel extends UIComponentDecorator {
     setUIComponent(component) ;
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     UIComponent uiComponent = getUIComponent();
     if(uiComponent instanceof UIPage){
       UIPage uiPage = (UIPage) uiComponent;

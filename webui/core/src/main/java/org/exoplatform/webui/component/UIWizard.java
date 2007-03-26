@@ -6,7 +6,7 @@ package org.exoplatform.webui.component;
 
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 /**
  * Author : Nhu Dinh Thuan
@@ -46,7 +46,7 @@ abstract public class UIWizard  extends UIContainer {
         children.get(i).setRendered(false);
       }
     }
-    RequestContext context = RequestContext.getCurrentInstance() ;   
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;   
     context.addUIComponentToUpdateByAjax(this) ;
   }
 

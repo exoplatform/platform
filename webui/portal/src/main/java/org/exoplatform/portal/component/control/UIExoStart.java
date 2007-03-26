@@ -25,7 +25,7 @@ import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIContainer;
@@ -74,7 +74,7 @@ public class UIExoStart extends UIComponent {
   private boolean logged ;
   
   public UIExoStart(InitParams initParams) throws Exception {
-    PortalRequestContext context = RequestContext.getCurrentInstance() ;
+    PortalRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     logged = context.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS ;
     List<MenuItemContainer> menu  = null ;
     if(logged) {

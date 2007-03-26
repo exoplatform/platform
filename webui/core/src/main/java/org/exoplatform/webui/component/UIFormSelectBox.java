@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.model.SelectItemOption;
 
 public class UIFormSelectBox extends UIFormStringInput {
@@ -53,7 +53,7 @@ public class UIFormSelectBox extends UIFormStringInput {
     return uiForm.event(onchange_, null);
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     ResourceBundle res = context.getApplicationResourceBundle() ;
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
     String formId =  null ;

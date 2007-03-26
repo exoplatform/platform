@@ -19,7 +19,7 @@ import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.skin.SkinConfig;
 import org.exoplatform.portal.skin.SkinService;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
@@ -151,7 +151,7 @@ public class UIPortalApplication extends UIApplication {
     return uiComponent;
   }
   
-  public void  processRender(RequestContext context) throws Exception {
+  public void  processRender(WebuiRequestContext context) throws Exception {
     if(!context.isAjaxRequest()) {
       super.processRender(context) ;
       return;

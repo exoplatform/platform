@@ -6,7 +6,7 @@ package org.exoplatform.organization.webui.component;
 
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIForm;
@@ -28,7 +28,7 @@ abstract class UISelector extends UIFormInputContainer<String> {
   
   abstract void setMembership(String groupId, String membershipType);   
   
-  public void processDecode(RequestContext context) throws Exception {   
+  public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     UIForm uiForm  = getAncestorOfType(UIForm.class);
     String action =  null;

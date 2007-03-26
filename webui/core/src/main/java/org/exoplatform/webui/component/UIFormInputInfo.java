@@ -2,7 +2,7 @@ package org.exoplatform.webui.component;
 
 import java.io.Writer;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 public class UIFormInputInfo extends UIFormInputBase<String> {
   
@@ -12,10 +12,10 @@ public class UIFormInputInfo extends UIFormInputBase<String> {
   }
     
   @SuppressWarnings("unused")
-  public void decode(Object input,  RequestContext context) throws Exception {    
+  public void decode(Object input,  WebuiRequestContext context) throws Exception {    
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     Writer w =  context.getWriter() ;
     w.append("<span id=\"").append(getId()).append("\" class=\"").append(getId()).append("\">") ;
     if (value_ != null) w.write(value_);    

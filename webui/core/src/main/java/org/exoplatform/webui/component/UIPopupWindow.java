@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.component;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -47,7 +47,7 @@ public class UIPopupWindow extends UIComponentDecorator {
       UIPopupWindow uiPopupWindow = event.getSource() ;
       if(!uiPopupWindow.isShow()) return;
       uiPopupWindow.setShow(false);
-      RequestContext context =  event.getRequestContext() ;
+      WebuiRequestContext context =  event.getRequestContext() ;
       context.addUIComponentToUpdateByAjax(uiPopupWindow) ;
     }
   }

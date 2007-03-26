@@ -6,7 +6,7 @@ import groovy.lang.GroovyShell;
 import java.io.InputStream;
 
 import org.exoplatform.templates.groovy.ResourceResolver;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.xml.object.XMLObject;
 
 public class Param {
@@ -21,7 +21,7 @@ public class Param {
   public String getValue() { return value ; }
   public void setValue(String value) { this.value = value; }
   
-  public Object getMapXMLObject(RequestContext context)  throws Exception {
+  public Object getMapXMLObject(WebuiRequestContext context)  throws Exception {
     if(object != null)  return object ;
     ResourceResolver resolver = context.getResourceResolver(value) ;
     InputStream is = resolver.getInputStream(value) ;
@@ -31,7 +31,7 @@ public class Param {
   }
   
   @SuppressWarnings("unchecked")
-  public <T> T getMapGroovyObject(RequestContext context)  throws Exception {
+  public <T> T getMapGroovyObject(WebuiRequestContext context)  throws Exception {
     try {
       if(object != null)  return (T)object ;
       ResourceResolver resolver = context.getResourceResolver(value) ;

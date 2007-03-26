@@ -14,7 +14,7 @@ import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.event.Event;
@@ -27,7 +27,7 @@ import org.exoplatform.webui.event.Event;
 public class Util { 
   
   static public UIPortal getUIPortal(){
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     if(!(context instanceof PortalRequestContext)) {
       context =  context.getParentAppRequestContext() ;      
     }
@@ -36,7 +36,7 @@ public class Util {
   }  
 
   static public UIPortalToolPanel getUIPortalToolPanel(){
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     if(!(context instanceof PortalRequestContext)) {
       context =  context.getParentAppRequestContext() ;      
     }
@@ -45,7 +45,7 @@ public class Util {
   }  
 
   static public PortalRequestContext getPortalRequestContext() {
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     if(!(context instanceof PortalRequestContext)) {
       context =  context.getParentAppRequestContext() ;
     }
@@ -159,7 +159,7 @@ public class Util {
   static public UIPage toUIPage(Page page, UIComponent uiParent) throws Exception {   
     UIPage uiPage  = Util.getUIPortal().findFirstComponentOfType(UIPage.class);
     if(uiPage != null && uiPage.getId().equals(page.getId())) return uiPage;   
-    RequestContext  context = Util.getPortalRequestContext() ;  
+    WebuiRequestContext  context = Util.getPortalRequestContext() ;  
     uiPage = uiParent.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
     PortalDataModelUtil.toUIPage(uiPage, page, true);
     return uiPage;

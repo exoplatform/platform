@@ -7,7 +7,7 @@ package org.exoplatform.organization.webui.component;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
 import org.exoplatform.services.organization.User;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormInputContainer;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormTabPane;
@@ -66,7 +66,7 @@ public class UIUserInfo extends UIFormTabPane {
   
   public String getUserName() { return username_ ; } 
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
     UIUserMembershipSelector uiUserMembershipSelector = getChild(UIUserMembershipSelector.class);    
     if(uiUserMembershipSelector == null) return;

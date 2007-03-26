@@ -6,7 +6,7 @@ package org.exoplatform.webui.component;
 
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.lifecycle.Lifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
@@ -50,12 +50,12 @@ public class UIComponentDecorator extends UIComponent {
   
   public void renderChildren() throws Exception {
     if(uicomponent_ == null)  return ;
-    uicomponent_.processRender(RequestContext.getCurrentInstance()) ;
+    uicomponent_.processRender(WebuiRequestContext.getCurrentInstance()) ;
   }
   
   static public class UIComponentDecoratorLifecycle extends Lifecycle {
     @SuppressWarnings("unused")
-    public void processRender(UIComponent uicomponent , RequestContext context) throws Exception {
+    public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
       UIComponentDecorator uiContainer = (UIComponentDecorator) uicomponent;      
       if(uiContainer.uicomponent_ != null) {
         uiContainer.uicomponent_.processRender(context) ;

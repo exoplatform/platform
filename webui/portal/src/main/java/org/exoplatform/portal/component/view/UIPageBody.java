@@ -9,7 +9,7 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 
@@ -42,7 +42,7 @@ public class UIPageBody extends UIComponentDecorator {
   
   @SuppressWarnings("unused")
   public void setPageBody(PageNode pageNode, UIPortal uiPortal) throws Exception {
-    RequestContext  context = Util.getPortalRequestContext() ;
+    WebuiRequestContext  context = Util.getPortalRequestContext() ;
     ExoContainer appContainer  =  context.getApplication().getApplicationServiceContainer() ;
     UserPortalConfigService userPortalConfigService = 
       (UserPortalConfigService)appContainer.getComponentInstanceOfType(UserPortalConfigService.class);

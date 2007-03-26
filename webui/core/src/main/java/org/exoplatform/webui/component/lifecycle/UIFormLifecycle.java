@@ -7,8 +7,8 @@ package org.exoplatform.webui.component.lifecycle;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.application.ApplicationMessage;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
@@ -25,7 +25,7 @@ import org.exoplatform.webui.exception.MessageException;
  */
 public class UIFormLifecycle  extends Lifecycle {
 
-  public void processDecode(UIComponent uicomponent , RequestContext context) throws Exception {
+  public void processDecode(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     UIForm uiForm = (UIForm) uicomponent ;
 //    HttpServletRequest httpRequest = (HttpServletRequest)context.getRequest() ;
     uiForm.setSubmitAction(null) ;
@@ -43,7 +43,7 @@ public class UIFormLifecycle  extends Lifecycle {
     if(event != null)  event.broadcast() ;
   }
 
-  public void processAction(UIComponent uicomponent , RequestContext context) throws Exception {
+  public void processAction(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     UIForm uiForm = (UIForm) uicomponent ;
     String action = uiForm.getSubmitAction(); 
     if(action == null) action = uiForm.getSubmitAction();
@@ -81,7 +81,7 @@ public class UIFormLifecycle  extends Lifecycle {
     event.broadcast()  ;
   }
   
-  private void processNormalRequest(UIForm uiForm, RequestContext context) throws Exception {
+  private void processNormalRequest(UIForm uiForm, WebuiRequestContext context) throws Exception {
     List<UIFormInputBase> inputs = new ArrayList<UIFormInputBase>() ;
     uiForm.findComponentOfType(inputs, UIFormInputBase.class) ;
     uiForm.setSubmitAction(context.getRequestParameter(UIForm.ACTION)) ;
@@ -122,7 +122,7 @@ public class UIFormLifecycle  extends Lifecycle {
 //  }
   
   @SuppressWarnings("unchecked")
-  private void validateChildren(List<UIComponent>  children, UIApplication uiApp, RequestContext context) {
+  private void validateChildren(List<UIComponent>  children, UIApplication uiApp, WebuiRequestContext context) {
     for(UIComponent uiChild : children) {
       if(uiChild instanceof UIFormInputBase) {
         UIFormInputBase uiInput =  (UIFormInputBase) uiChild ;

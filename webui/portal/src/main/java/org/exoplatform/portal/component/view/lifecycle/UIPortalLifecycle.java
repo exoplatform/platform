@@ -5,7 +5,7 @@
 package org.exoplatform.portal.component.view.lifecycle;
 
 import org.exoplatform.portal.component.view.UIPortal;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.lifecycle.Lifecycle;
 
@@ -17,7 +17,7 @@ import org.exoplatform.webui.component.lifecycle.Lifecycle;
  */
 public class UIPortalLifecycle extends Lifecycle { 
   
-  public void processRender(UIComponent uicomponent , RequestContext context) throws Exception { 
+  public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception { 
     UIPortal uiPortal = (UIPortal) uicomponent;
     if(uiPortal.getMaximizedUIComponent() != null){
       UIComponent uiComponent = uiPortal.getMaximizedUIComponent();

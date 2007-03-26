@@ -12,7 +12,7 @@ import org.exoplatform.portal.component.control.UIExoStart;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIDescription;
@@ -38,7 +38,7 @@ public abstract class UIPageWizard extends UIWizard {
     uiHelpWindow.setId("help") ;
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
     uiHelpWindow.processRender(context);
   }

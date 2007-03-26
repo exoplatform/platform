@@ -7,14 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.exoplatform.portal.component.UIPortalApplication;
-import org.exoplatform.webui.application.Application;
+import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.Parameter;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.Event;
 
-public class PortalRequestContext extends RequestContext {
+public class PortalRequestContext extends WebuiRequestContext {
   
   final  static public int PUBLIC_ACCESS  =   0 ;
   final  static public int PRIVATE_ACCESS =   1 ;
@@ -39,7 +39,7 @@ public class PortalRequestContext extends RequestContext {
   private StringBuilder javascript = new StringBuilder(1000) ;
   private StringBuilder customizedOnloadJavascript ;
   
-  public PortalRequestContext(Application app, HttpServletRequest req, HttpServletResponse res) {
+  public PortalRequestContext(WebuiApplication app, HttpServletRequest req, HttpServletResponse res) {
     super(app);
     
     request_ = req ;

@@ -7,7 +7,7 @@ package org.exoplatform.portal.component.customization;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -65,7 +65,7 @@ public class UIWizardPageSetInfo extends UIForm {
   public PageNode getPageNode() {
     if(isEdit) return getSelectedPageNode() ;
     
-    RequestContext context = RequestContext.getCurrentInstance();
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     String user = context.getRemoteUser();
     if(user == null) user = Util.getUIPortal().getOwner();
     String name = this.<UIFormStringInput>getUIInput("pageName").getValue();
@@ -85,7 +85,7 @@ public class UIWizardPageSetInfo extends UIForm {
     return uip.getSelectedPageNode(); 
   } 
   
-  public void processDecode(RequestContext context) throws Exception {   
+  public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     String action = context.getRequestParameter(UIForm.ACTION);
     Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;   

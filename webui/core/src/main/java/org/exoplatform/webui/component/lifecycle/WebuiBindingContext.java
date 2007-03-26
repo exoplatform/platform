@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 
 import org.exoplatform.templates.groovy.BindingContext;
 import org.exoplatform.templates.groovy.ResourceResolver;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIContainer;
@@ -16,10 +16,10 @@ import org.exoplatform.webui.component.UIContainer;
 public class WebuiBindingContext extends BindingContext {
   
   private UIComponent uicomponent_ ;
-  private RequestContext rcontext_ ;
+  private WebuiRequestContext rcontext_ ;
   
   public WebuiBindingContext(ResourceResolver resolver, Writer w, 
-                             UIComponent uicomponent, RequestContext context) {
+                             UIComponent uicomponent, WebuiRequestContext context) {
     super(resolver, w) ;
     uicomponent_ =  uicomponent ;
     rcontext_ = context ;
@@ -27,7 +27,7 @@ public class WebuiBindingContext extends BindingContext {
   
   public UIComponent getUIComponent() {  return uicomponent_ ; }
   
-  public RequestContext getRequestContext() { return rcontext_ ; }
+  public WebuiRequestContext getRequestContext() { return rcontext_ ; }
   
   public BindingContext clone() {
     BindingContext newContext = new WebuiBindingContext(resolver_, writer_, uicomponent_,rcontext_);

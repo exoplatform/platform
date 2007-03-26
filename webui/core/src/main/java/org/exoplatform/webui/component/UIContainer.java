@@ -7,8 +7,8 @@ package org.exoplatform.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.application.Application;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.lifecycle.UIContainerLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
@@ -103,16 +103,16 @@ public class UIContainer extends UIComponent {
   @SuppressWarnings("unchecked")
   public <T extends UIComponent> T  replaceChild(
            String targetChildId, Class<T> type, String configId, String id) throws Exception  {
-    RequestContext  context =  RequestContext.getCurrentInstance() ;    
-    Application app  = context.getApplication() ;
+    WebuiRequestContext  context =  WebuiRequestContext.getCurrentInstance() ;    
+    WebuiApplication app  = context.getApplication() ;
     UIComponent comp =  app.createUIComponent(type, configId, id, context) ;
     comp =  replaceChild(targetChildId, comp) ;
     return (T)comp ;
   }
   
   public <T extends UIComponent> T addChild(Class<T> type, String configId, String id) throws Exception  {
-    RequestContext  context =  RequestContext.getCurrentInstance() ;
-    Application app  = context.getApplication() ;
+    WebuiRequestContext  context =  WebuiRequestContext.getCurrentInstance() ;
+    WebuiApplication app  = context.getApplication() ;
     T comp =  app.createUIComponent(type, configId, id, context) ;    
     addChild(comp) ;    
     return comp ;
@@ -179,34 +179,34 @@ public class UIContainer extends UIComponent {
   public void renderChild(String id) throws Exception {     
     UIComponent uiChild = getChildById(id) ;
     if(uiChild.isRendered()) {
-      uiChild.processRender(RequestContext.getCurrentInstance()) ;
+      uiChild.processRender(WebuiRequestContext.getCurrentInstance()) ;
     }
   }
   
   public <T extends UIComponent> void renderChild(Class<T> clazz) throws Exception {     
     UIComponent uiChild = getChild(clazz) ;
     if(uiChild.isRendered()) {
-      uiChild.processRender(RequestContext.getCurrentInstance()) ;
+      uiChild.processRender(WebuiRequestContext.getCurrentInstance()) ;
     }
   }
   
   public void renderUIComponent(UIComponent uicomponent) throws Exception {
-    uicomponent.processRender(RequestContext.getCurrentInstance()) ;
+    uicomponent.processRender(WebuiRequestContext.getCurrentInstance()) ;
   }
   
   public void renderChild(int index) throws Exception {
     UIComponent uiChild = getChild(index) ;
     if(uiChild.isRendered()) {
-      uiChild.processRender(RequestContext.getCurrentInstance()) ;
+      uiChild.processRender(WebuiRequestContext.getCurrentInstance()) ;
     }
   }
   
   public void renderChildren() throws Exception {
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     renderChildren(context) ;
   }
   
-  public void renderChildren(RequestContext context) throws Exception {
+  public void renderChildren(WebuiRequestContext context) throws Exception {
     List<UIComponent> list = getChildren() ;
     for(UIComponent child :  list) {
       if(child.isRendered()) child.processRender(context) ;

@@ -6,7 +6,7 @@ package org.exoplatform.webui.event;
 
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 /**
  * Wed, Dec 22, 2003 @ 22:50 
@@ -20,10 +20,10 @@ public class Event<T>  {
   private T source_ ;
   private Phase executionPhase_ =  Phase.PROCESS ;
   
-  private RequestContext context_;
+  private WebuiRequestContext context_;
   private List<EventListener> listeners_ ;
 
-  public Event(T source, String name, RequestContext context) {
+  public Event(T source, String name, WebuiRequestContext context) {
     name_ = name  ;
     source_ =  source ;
     context_ = context;
@@ -36,8 +36,8 @@ public class Event<T>  {
   public Phase  getExecutionPhase() { return executionPhase_ ; }
   public void setExecutionPhase(Phase phase) { executionPhase_ =  phase ; }
   
-  public RequestContext getRequestContext( ) { return context_ ; }
-  public void  setRequestContext(RequestContext context) { context_ = context ; }
+  public WebuiRequestContext getRequestContext( ) { return context_ ; }
+  public void  setRequestContext(WebuiRequestContext context) { context_ = context ; }
 
   public List<EventListener>  getEventListeners() { return listeners_ ; }
   public void  setEventListeners(List<EventListener> listeners) { listeners_ = listeners ; }

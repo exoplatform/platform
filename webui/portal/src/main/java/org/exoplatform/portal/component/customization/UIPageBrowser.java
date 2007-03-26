@@ -15,7 +15,7 @@ import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -71,7 +71,7 @@ public class UIPageBrowser extends UISearch {
 
   public void defaultValue(Query query) throws Exception {
     lastQuery_ = query ;
-    PortalRequestContext context = (PortalRequestContext) RequestContext.getCurrentInstance() ;
+    PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
     PortalDAO service = getApplicationComponent(PortalDAO.class) ;
 
     if(lastQuery_ == null){
@@ -89,7 +89,7 @@ public class UIPageBrowser extends UISearch {
     String name = input.getValue();
     if(name == null || name.equals("")) name = Util.getUIPortal().getOwner();
     String selectBoxValue = select.getValue();
-    PortalRequestContext context = (PortalRequestContext) RequestContext.getCurrentInstance() ;
+    PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
     Query query = new Query(context.getPortalOwner(), null, null, Page.class) ;
     if(selectBoxValue.equals("owner")) query.setOwner(name) ;
     if(selectBoxValue.equals("viewPermission")) query.setViewPermission(name) ;
@@ -105,7 +105,7 @@ public class UIPageBrowser extends UISearch {
   
   public void setShowAddNewPage(boolean showAddNewPage) { this.showAddNewPage = showAddNewPage; }
   
-  public void processDecode(RequestContext context) throws Exception {   
+  public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     UIForm uiForm  = getAncestorOfType(UIForm.class);
     String action =  null;

@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.exoplatform.web.application.ApplicationLifecycle;
 import org.exoplatform.webui.Util;
-import org.exoplatform.webui.application.ApplicationLifecycle;
 import org.exoplatform.webui.event.EventListener;
 /**
  * Created by The eXo Platform SARL

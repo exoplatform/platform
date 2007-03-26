@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.ViewChildActionListener;
-import org.exoplatform.webui.application.Application;
-import org.exoplatform.webui.application.ApplicationMessage;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIPopupMessages;
@@ -40,7 +40,7 @@ public class UIOrganizationPortlet extends UIPortletApplication {
     addChild(UIPopupMessages.class, null , UIPortletApplication.HELP_MODE) ;
   }
   
-  public void  processRender(Application app, RequestContext context) throws Exception {
+  public void  processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
     List<UIComponent>  children = getChildren() ;
     UIComponent view = null , edit = null, help = null ;
     for(UIComponent child : children) {
@@ -49,15 +49,15 @@ public class UIOrganizationPortlet extends UIPortletApplication {
       else if(child.getId() == EDIT_MODE) edit = child ;
       else if(child.getId() == HELP_MODE) help = child ;
     } 
-    if (context.getApplicationMode() == RequestContext.VIEW_MODE) {
+    if (context.getApplicationMode() == WebuiRequestContext.VIEW_MODE) {
       setRenderedComponent(view,  true) ;
       setRenderedComponent(edit,  false) ;
       setRenderedComponent(help,  false) ;
-    } else if(context.getApplicationMode() == RequestContext.EDIT_MODE) {
+    } else if(context.getApplicationMode() == WebuiRequestContext.EDIT_MODE) {
       setRenderedComponent(view,  false) ;
       setRenderedComponent(edit,  true) ;
       setRenderedComponent(help,  false) ;
-    } else if(context.getApplicationMode() == RequestContext.HELP_MODE) {
+    } else if(context.getApplicationMode() == WebuiRequestContext.HELP_MODE) {
       System.out.println("\n\n>>>>>>>>>>>>>>>>>>> IN HELP  MODE \n");
       UIPopupMessages uiPopup = (UIPopupMessages)help;
       ApplicationMessage message = new ApplicationMessage("Help document", new Object[]{});
@@ -87,7 +87,7 @@ public class UIOrganizationPortlet extends UIPortletApplication {
   
   static  public class ClosePopupActionListener extends EventListener<UIOrganizationPortlet> {
     public void execute(Event<UIOrganizationPortlet> event) throws Exception {
-      event.getRequestContext().setApplicationMode(RequestContext.VIEW_MODE);
+      event.getRequestContext().setApplicationMode(WebuiRequestContext.VIEW_MODE);
     }
   }
 }

@@ -5,7 +5,7 @@
 package org.exoplatform.portal.component.view;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 
 /**
@@ -26,7 +26,7 @@ public class UIJSApplication extends UIPortalComponent {
 
   public void setJSApplication(String jsApplication) { this.jsApplication = jsApplication; }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     PortalRequestContext pcontext = (PortalRequestContext)context;
     if(jsApplication == null) return;
     pcontext.addCustomizedOnLoadScript(jsApplication);

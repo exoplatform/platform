@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.portal.application.PortalApplication;
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.webui.application.ApplicationLifecycle;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.web.application.ApplicationLifecycle;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 
 /**
@@ -23,8 +23,8 @@ import org.exoplatform.webui.component.UIApplication;
  */
 public class PortalRequestHandler implements RequestHandler {
   public void execute(PortalApplication app, HttpServletRequest req, HttpServletResponse res) {
-    RequestContext context = new  PortalRequestContext(app, req, res) ;  ;
-    RequestContext.setCurrentInstance(context) ;
+    WebuiRequestContext context = new  PortalRequestContext(app, req, res) ;  ;
+    WebuiRequestContext.setCurrentInstance(context) ;
     List<ApplicationLifecycle> lifecycles = app.getApplicationLifecycle();
     try {
       for(ApplicationLifecycle lifecycle :  lifecycles)  {
@@ -52,7 +52,7 @@ public class PortalRequestHandler implements RequestHandler {
         //TODO: Need to use the log service
         exception.printStackTrace() ;
       }
-      RequestContext.setCurrentInstance(null) ;
+      WebuiRequestContext.setCurrentInstance(null) ;
     }
   }
 }

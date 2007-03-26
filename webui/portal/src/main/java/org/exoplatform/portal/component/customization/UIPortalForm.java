@@ -19,8 +19,8 @@ import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
-import org.exoplatform.webui.application.Application;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
@@ -88,7 +88,7 @@ public class UIPortalForm extends UIFormTabPane {
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);    
     
-    Application app  = RequestContext.<RequestContext>getCurrentInstance().getApplication() ; 
+    WebuiApplication app  = WebuiRequestContext.<WebuiRequestContext>getCurrentInstance().getApplication() ; 
     List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);    
     List<SelectItemCategory>  itemCategories = new ArrayList<SelectItemCategory>();
     for(Component ele : configs){      
@@ -118,7 +118,7 @@ public class UIPortalForm extends UIFormTabPane {
   
   public PortalConfig getPortalConfig() { return portalConfig_; }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);   
        
     UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    

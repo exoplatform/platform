@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.content.webui.component;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -25,7 +25,7 @@ public class UIContentWorkingArea extends UIContainer {
     addChild(UIDescription.class, null, "contentPortlet").setRendered(false) ;
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     renderChildren(context) ;
   }
 }

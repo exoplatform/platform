@@ -15,28 +15,6 @@
   
   <page>
     <owner>exo</owner>
-    <name>myaccount</name>
-    <title>My Account</title>
-    <view-permission>*:/guest</view-permission>
-    <portlet>
-      <window-id>exo:/exoadmin/AccountPortlet/Account</window-id>
-      <show-info-bar>false</show-info-bar>
-    </portlet>  
-  </page>
-  
-  <page>  
-    <owner>exo</owner>
-    <name>registry-portlet</name>
-    <title>Registry Portlet</title>
-    <view-permission>*:/guest</view-permission>
-    <portlet>
-      <window-id>exo:/exoadmin/PortletRegistryPortlet/registry</window-id>
-      <show-info-bar>false</show-info-bar>
-    </portlet>  
-  </page>
-  
-  <page>
-    <owner>exo</owner>
     <name>sitemap</name>
     <title>Site Map</title>
     <view-permission>*:/guest</view-permission>        
@@ -46,17 +24,6 @@
     </portlet>  
   </page>
  
-  <page>
-		<owner>exo</owner>
-		<name>workflowcontroller</name>
-		<title>Workflow Controller Portlet</title>
-		<view-permission>*:/guest</view-permission>        
-		<portlet>
-			<window-id>exo:/workflow/WorkflowControllerPortlet/workflowcontroller</window-id>
-      <show-info-bar>false</show-info-bar>
-		</portlet>  
-  </page>
-  
   <page>
     <factory-id>Desktop</factory-id>
     <owner>exo</owner>
@@ -88,6 +55,10 @@
       <window-id>exo:/content/ContentPortlet/content</window-id>
       <show-info-bar>false</show-info-bar>
     </portlet>
+
+    <portlet>
+      <window-id>exo:/exoadmin/AccountPortlet/Account</window-id>
+      <show-info-bar>false</show-info-bar>
+    </portlet>  
   </page>
-  
 </page-set>

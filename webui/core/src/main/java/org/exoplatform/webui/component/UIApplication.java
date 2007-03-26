@@ -7,8 +7,8 @@ package org.exoplatform.webui.component;
 import java.io.Writer;
 import java.util.Locale;
 
-import org.exoplatform.webui.application.ApplicationMessage;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.exception.MessageException;
 
 /**
@@ -57,11 +57,11 @@ abstract public class UIApplication  extends  UIContainer {
   public void renderChildren()  throws Exception {
     super.renderChildren();   
     if(uiPopupMessages_ == null)  return ;
-    RequestContext  context =  RequestContext.getCurrentInstance() ;
+    WebuiRequestContext  context =  WebuiRequestContext.getCurrentInstance() ;
     uiPopupMessages_.processRender(context);    
   }
   
-  public void processAction(RequestContext context) throws Exception {
+  public void processAction(WebuiRequestContext context) throws Exception {
     try {
       super.processAction(context) ;
     } catch (MessageException ex) {
@@ -75,7 +75,7 @@ abstract public class UIApplication  extends  UIContainer {
     }
   }
   
-  public void renderBlockToUpdate(UIComponent uicomponent, RequestContext context, Writer w) throws Exception {
+  public void renderBlockToUpdate(UIComponent uicomponent, WebuiRequestContext context, Writer w) throws Exception {
     w.write("<div class=\"BlockToUpdate\">") ;
     w.  append("<div class=\"BlockToUpdateId\">").append(uicomponent.getId()).append("</div>");
     w.  write("<div class=\"BlockToUpdateData\">") ;

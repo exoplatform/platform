@@ -18,7 +18,7 @@ import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.services.portletcontainer.pci.model.Supports;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 
 /**
@@ -250,7 +250,7 @@ public class PortalDataModelUtil {
   static private <T extends UIComponent> T buildChild(UIContainer uiParent, Component model, 
                                                       boolean recursive) throws Exception {
     UIComponent uiComponent = null;
-    RequestContext  context = Util.getPortalRequestContext() ;
+    WebuiRequestContext  context = Util.getPortalRequestContext() ;
     if(model instanceof PageBody){
       UIPageBody uiPageBody = uiParent.createUIComponent(context, UIPageBody.class, model.getFactoryId(), null);
       toUIPageBody(uiPageBody, (PageBody)model);

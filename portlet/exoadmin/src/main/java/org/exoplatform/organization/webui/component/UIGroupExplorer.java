@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.List;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UITree;
@@ -95,7 +95,7 @@ public class UIGroupExplorer extends UIContainer {
 	public void setChildGroup(Collection childrendGroup) { childrenGroup_ = childrendGroup ;	}
   
   @SuppressWarnings("unused")
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     renderChildren();
   }
 	

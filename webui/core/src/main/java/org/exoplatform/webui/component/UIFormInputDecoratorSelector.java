@@ -6,7 +6,7 @@ package org.exoplatform.webui.component;
 
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
@@ -68,7 +68,7 @@ public class UIFormInputDecoratorSelector extends UIFormInputBase<String> {
   }
   
   @SuppressWarnings("unused")
-  public void decode(Object input, RequestContext context) throws Exception {  
+  public void decode(Object input, WebuiRequestContext context) throws Exception {  
     setSelectOptionItem((String)input) ;
   }
   

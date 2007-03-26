@@ -14,7 +14,7 @@ import java.util.Map;
  * Created by The eXo Platform SARL
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
- * Oct 24, 2006  
+ * Oct 24, 2006
  */
 public class ApplicationResourceResolver extends ResourceResolver {
   private Map<String, ResourceResolver>  resolvers_ = new  HashMap<String, ResourceResolver>();

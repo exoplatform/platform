@@ -10,7 +10,7 @@ import java.util.List;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
@@ -77,7 +77,7 @@ public class UIGroupMembershipSelector extends UIContainer {
     uiBreadcumbs.setBreadcumbsStyle("UIExplorerHistoryPath") ;    
   }
   
-  public void processDecode(RequestContext context) throws Exception {   
+  public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     UIForm uiForm  = getAncestorOfType(UIForm.class);
     String action =  null;

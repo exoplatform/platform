@@ -14,24 +14,6 @@
     </node> 
     
     <node>
-      <uri>registry-portlet</uri>
-      <name>registry-portlet</name>
-      <label>Registry Portlet</label>
-      <access-permission>*:/guest</access-permission>
-      <page-reference>exo:/registry-portlet</page-reference>
-      <description>Registry portlet des</description>       
-    </node>    
-
-    <node>
-      <uri>site</uri>
-      <name>sitemap</name>
-      <label>Site Map</label>
-      <access-permission>*:/guest</access-permission>
-      <page-reference>exo:/sitemap</page-reference>
-      <description>Site Map Portlet Page</description>       
-    </node>
-    
-    <node>
       <uri>desktop</uri>
       <name>desktop</name>
       <label>Desktop</label>
@@ -41,12 +23,12 @@
     </node>
     
     <node>
-      <uri>myaccount</uri>
-      <name>myaccount</name>
-      <label>My Account</label>
+      <uri>site</uri>
+      <name>sitemap</name>
+      <label>Site Map</label>
       <access-permission>*:/guest</access-permission>
-      <page-reference>exo:/myaccount</page-reference>
-      <description>My Account Page</description>    
-    </node>   
+      <page-reference>exo:/sitemap</page-reference>
+      <description>Site Map Portlet Page</description>       
+    </node>
   </page-nodes>
 </node-navigation>

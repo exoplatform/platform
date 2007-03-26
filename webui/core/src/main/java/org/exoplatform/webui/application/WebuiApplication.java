@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.templates.groovy.ApplicationResourceResolver;
+import org.exoplatform.web.application.ApplicationLifecycle;
 import org.exoplatform.webui.Util;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
@@ -25,7 +26,7 @@ import org.exoplatform.webui.event.EventListener;
  *          tuan08@users.sourceforge.net
  * May 7, 2006
  */
-abstract public class Application {
+abstract public class WebuiApplication {
   
   private ConfigurationManager configManager_ ;
   private StateManager stateManager_ ;  
@@ -81,7 +82,7 @@ abstract public class Application {
   }
   
   
-  public <T extends UIComponent> T createUIComponent(Class<T> type, String configId, String id, RequestContext context)  throws Exception{
+  public <T extends UIComponent> T createUIComponent(Class<T> type, String configId, String id, WebuiRequestContext context)  throws Exception{
     Component config = configManager_.getComponentConfig(type, configId) ;
     
     if(config == null) {      
@@ -94,17 +95,17 @@ abstract public class Application {
     return type.cast(uicomponent) ;
   }
   
-  public void  processDecode(UIApplication uiApp, RequestContext context) throws Exception {
+  public void  processDecode(UIApplication uiApp, WebuiRequestContext context) throws Exception {
     context.setUIApplication(uiApp) ;
     uiApp.processDecode(context) ;
   }
   
-  public void  processAction(UIApplication uiApp, RequestContext context) throws Exception {
+  public void  processAction(UIApplication uiApp, WebuiRequestContext context) throws Exception {
     context.setUIApplication(uiApp) ;
     uiApp.processAction(context) ;
   }
   
-  public List<UIComponent> getDefaultUIComponentToUpdateByAjax(RequestContext context) {
+  public List<UIComponent> getDefaultUIComponentToUpdateByAjax(WebuiRequestContext context) {
     List<UIComponent> list = new ArrayList<UIComponent>(3) ;
     list.add(context.getUIApplication()) ;
     return list ;

@@ -6,7 +6,7 @@ package org.exoplatform.portal.component.customization;
 
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormInputContainer;
 import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.component.UIGrid;
@@ -54,7 +54,7 @@ public class UIPageSelector extends UIFormInputContainer {
   public void setPage(Page page) {   page_ = page ; }  
   public Page getPage(){ return page_; }
   
-  public void processDecode(RequestContext context) throws Exception {   
+  public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     UIPageBrowser uiPageBrowser = findFirstComponentOfType(UIPageBrowser.class);
     uiPageBrowser.processDecode(context);

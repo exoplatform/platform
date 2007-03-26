@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.model.BeanDataMapping;
 import org.exoplatform.webui.component.model.ReflectionDataMapping;
 import org.exoplatform.webui.component.validator.Validator;
@@ -109,7 +109,7 @@ public class UIForm extends UIContainer  {
   }
   
   public void begin() throws Exception {
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     StringBuilder b = context.createURL(this, null, false, null) ;   
     
     Writer writer = context.getWriter() ;
@@ -140,12 +140,12 @@ public class UIForm extends UIContainer  {
   
   public void renderField(String name) throws Exception {
     UIComponent uiInput = findComponentById(name);;
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     uiInput.processRender(context) ;
   }
   
   public void renderField(UIComponent uiInput) throws Exception {
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     uiInput.processRender(context) ;
   }  
   
@@ -172,12 +172,12 @@ public class UIForm extends UIContainer  {
   } 
   
   public void end() throws Exception {
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     context.getWriter().write("</form>") ;
   }
   
   public String getLabel(String id) throws Exception {
-     RequestContext context = RequestContext.getCurrentInstance() ;
+     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
      ResourceBundle res = context.getApplicationResourceBundle() ;     
      return getLabel(res, id);
   }

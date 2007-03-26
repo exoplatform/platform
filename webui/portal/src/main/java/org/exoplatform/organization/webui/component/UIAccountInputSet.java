@@ -6,8 +6,8 @@ package org.exoplatform.organization.webui.component;
 
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
-import org.exoplatform.webui.application.ApplicationMessage;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -58,7 +58,7 @@ public class UIAccountInputSet extends UIFormInputSet {
   }
   
   public void save(OrganizationService service, boolean newUser) throws Exception { 
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     UIApplication uiApp = context.getUIApplication() ;
     String pass1x = getUIStringInput(PASSWORD1X).getValue();
     String pass2x = getUIStringInput(PASSWORD2X).getValue();

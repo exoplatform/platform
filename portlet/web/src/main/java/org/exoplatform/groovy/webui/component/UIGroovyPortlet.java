@@ -3,7 +3,7 @@ package org.exoplatform.groovy.webui.component;
 import javax.portlet.PortletRequest;
 
 import org.exoplatform.groovy.webui.component.lifecycle.UIGroovyPortletLifecycle;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIPortletApplication;
@@ -16,7 +16,7 @@ public class UIGroovyPortlet extends UIPortletApplication {
   private String template_ ;
   
   public UIGroovyPortlet() throws Exception {
-    PortletRequestContext context = (PortletRequestContext)  RequestContext.getCurrentInstance() ;
+    PortletRequestContext context = (PortletRequestContext)  WebuiRequestContext.getCurrentInstance() ;
     PortletRequest prequest = context.getRequest() ;    
     template_ =  prequest.getPreferences().getValue("template", DEFAULT_TEMPLATE) ;
   }

@@ -8,7 +8,7 @@ import java.io.ByteArrayInputStream;
 
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
@@ -40,7 +40,7 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
   public UIPageTemplateOptions(InitParams initParams) throws Exception {
     super("UIPageTemplateOptions", null) ;
     if(initParams == null) return ;
-    RequestContext context = RequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("PageLayout");          
     categories_ = param.getMapGroovyObject(context) ;   
     
@@ -66,7 +66,7 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
   public SelectItemOption getSelectedItemOption() { return selectedItemOption_; }
   
   @SuppressWarnings("unused")
-  public void decode(Object input, RequestContext context) throws Exception {  
+  public void decode(Object input, WebuiRequestContext context) throws Exception {  
     setSelectOptionItem((String)input) ;
   }
   

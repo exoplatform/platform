@@ -7,7 +7,7 @@ package org.exoplatform.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.validator.Validator;
 import org.exoplatform.webui.event.Event;
 /**
@@ -79,16 +79,16 @@ abstract public class UIFormInputBase<T> extends UIComponent implements UIFormIn
   
   public List<Validator>  getValidators() { return validators ; }
   
-  final public void processDecode(RequestContext context) throws Exception {
+  final public void processDecode(WebuiRequestContext context) throws Exception {
     UIForm uiForm  = getAncestorOfType(UIForm.class);
     String action =  uiForm.getSubmitAction(); //context.getRequestParameter(UIForm.ACTION) ;
     Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;
     if(event != null) event.broadcast() ;   
   }
   
-  abstract public  void decode(Object input,  RequestContext context) throws Exception ;
+  abstract public  void decode(Object input,  WebuiRequestContext context) throws Exception ;
   
   @SuppressWarnings("unused")
-  public void decodeFromMultipartFields(RequestContext context, UIComponent component, List items) {}
+  public void decodeFromMultipartFields(WebuiRequestContext context, UIComponent component, List items) {}
  
 }

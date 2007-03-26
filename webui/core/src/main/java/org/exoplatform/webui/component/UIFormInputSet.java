@@ -8,7 +8,7 @@ import java.io.Writer;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.model.BeanDataMapping;
 import org.exoplatform.webui.component.model.ReflectionDataMapping;
 
@@ -82,13 +82,13 @@ public class UIFormInputSet extends  UIContainer {
     beanMapping.mapBean(bean, this);
   }
   
-	public void processDecode(RequestContext context) throws Exception {
+	public void processDecode(WebuiRequestContext context) throws Exception {
 		for(UIComponent child : getChildren()) 	{
       child.processDecode(context) ;
 		}
 	}
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     if(getComponentConfig() != null) {
       super.processRender(context) ;
       return ;

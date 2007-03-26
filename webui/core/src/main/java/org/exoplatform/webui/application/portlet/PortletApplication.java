@@ -16,13 +16,13 @@ import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.templates.groovy.ApplicationResourceResolver;
 import org.exoplatform.templates.groovy.PortletResourceResolver;
-import org.exoplatform.webui.application.Application;
+import org.exoplatform.webui.application.WebuiApplication;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com
  * May 26, 2006
  */
-public class PortletApplication extends Application {
+public class PortletApplication extends WebuiApplication {
   
   private PortletConfig portletConfig_ ;
   private String applicationId_ ;

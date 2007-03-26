@@ -9,7 +9,7 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.validator.Validator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -74,7 +74,7 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List<?>> {
     return this;
   } 
 
-  public void processDecode(RequestContext context) throws Exception {   
+  public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     UIForm uiForm  = getAncestorOfType(UIForm.class);
     String action =  uiForm.getSubmitAction();
@@ -83,7 +83,7 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List<?>> {
     event.broadcast() ;
   }
 
-  public void processRender(RequestContext context) throws Exception {   
+  public void processRender(WebuiRequestContext context) throws Exception {   
     if(getChildren() == null || getChildren().size() < 1) createUIFormInput(0);
     
     Writer writer = context.getWriter() ;    

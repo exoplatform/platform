@@ -2,7 +2,7 @@ package org.exoplatform.webui.component;
 
 import java.io.Writer;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 public class UIFormTextAreaInput extends UIFormStringInput {
   
@@ -10,7 +10,7 @@ public class UIFormTextAreaInput extends UIFormStringInput {
     super(name, bindingExpression, value);
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     Writer w =  context.getWriter() ;
     String value = getValue() ;
     if(value == null) value = getDefaultValue();

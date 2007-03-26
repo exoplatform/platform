@@ -4,7 +4,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.model.SelectItemOption;
 
 public class UIFormRadioBoxInput extends UIFormInputBase<String>  {
@@ -48,12 +48,12 @@ public class UIFormRadioBoxInput extends UIFormInputBase<String>  {
   }
     
   @SuppressWarnings("unused")
-  public void decode(Object input, RequestContext context) throws Exception {
+  public void decode(Object input, WebuiRequestContext context) throws Exception {
     if (!enable_ ) return ;
     if (input != null) value_ = (String) input ;
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     if(options_ == null) return ;
     Writer w =  context.getWriter() ;    
     if(value_ == null) {

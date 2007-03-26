@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.exoplatform.commons.utils.ISO8601;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 /**
  * Created by The eXo Platform SARL
@@ -89,7 +89,7 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
   }
 
   @SuppressWarnings("unused")
-  public void decode(Object input, RequestContext context) throws Exception {    
+  public void decode(Object input, WebuiRequestContext context) throws Exception {    
     String day = context.getRequestParameter(name+DAY_EXTENSION) ;
     String month = context.getRequestParameter(name+MONTH_EXTENSION) ;
     String year = context.getRequestParameter(name+YEAR_EXTENSION) ;
@@ -101,7 +101,7 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
     addTime(gCal.getTime());   
   }
 
-  public void processRender(RequestContext context) throws Exception{
+  public void processRender(WebuiRequestContext context) throws Exception{
     Writer w = context.getWriter();
     int day = calendar_.get(Calendar.DAY_OF_MONTH);
     int month = calendar_.get(Calendar.MONTH);

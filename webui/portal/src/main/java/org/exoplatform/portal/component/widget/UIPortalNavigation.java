@@ -11,7 +11,7 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -57,7 +57,7 @@ public class UIPortalNavigation extends UIComponent {
     return node.getUri().equals(pageNode.getUri());
   }
   
-  public void processRender(RequestContext context) throws Exception {
+  public void processRender(WebuiRequestContext context) throws Exception {
     UIPortal uiPortal = Util.getUIPortal(); 
     if(uiPortal.getSelectedNode() != selectedNode_){
       setSelectedPageNode(uiPortal.getSelectedNode().getUri()) ;      

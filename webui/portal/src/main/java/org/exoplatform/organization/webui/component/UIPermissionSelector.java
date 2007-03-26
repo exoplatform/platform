@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.config.UserACL.Permission;
-import org.exoplatform.webui.application.RequestContext;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -63,7 +63,7 @@ public class UIPermissionSelector extends UISelector {
     }
   }
   
-  public void processDecode(RequestContext context) throws Exception {   
+  public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     String selectedName =  context.getRequestParameter("SelectedPermission") ;
     if(permissions_ == null) permissions_ = new ArrayList<Permission>() ;
