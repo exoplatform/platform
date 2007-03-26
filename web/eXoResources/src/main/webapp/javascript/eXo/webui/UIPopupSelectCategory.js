@@ -27,10 +27,12 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width) {
 		uiPopupCategory.style.display = "none" ;
 	}
 	 var uiWindow = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "UIWindow") ;
-	 var uiRowContainer = eXo.core.DOMUtil.findAncestorByClass(uiWindow, "UIRowContainer") ;
-	 if(uiRowContainer != null) {
-	 		uiRowContainer.style.height = uiWindow.offsetHeight + "px" ;
-	 }
+	 if(uiWindow != null) {
+		 var uiRowContainer = eXo.core.DOMUtil.findAncestorByClass(uiWindow, "UIRowContainer") ;
+		 if(uiRowContainer != null) {
+		 		uiRowContainer.style.height = uiWindow.offsetHeight + "px" ;
+		 }
+	 } 
 } ;
 
 UIPopupSelectCategory.prototype.selectedCategoryIndex = function(selectedElement) {
