@@ -4,94 +4,63 @@
 
 /*######################-Rounded Style-######################*/
 .UIInfoBar .RoundedStyle .LeftBar {
-  height: 29px ;
-  margin: 0px;
-}  
-  
-.UIInfoBar .RoundedStyle .LeftBar {
-  height: 27px ;
-  background: url('MacSkin/background/RoundedBarL29x27.gif') no-repeat left ;
-  padding: 0px 0px 0px 29px ;
+  height: 25px ;
+  background: url('DefaultSkin/background/LRoundedBar6x25.gif') no-repeat left ;
+  padding: 0px 0px 0px 6px ;
 }
 
 .UIInfoBar .RoundedStyle .RightBar {
-  height: 27px ;
-  background: url('MacSkin/background/RoundedBarR9x27.gif') no-repeat right ;
-  padding: 0px 9px 0px 0px ;
+  height: 25px ;
+  background: url('DefaultSkin/background/RRoundedBar6x25.gif') no-repeat right ;
+  padding: 0px 6px 0px 0px ;
 }
 
 .UIInfoBar .RoundedStyle .MiddleBar {
-  height: 27px ;
-  background: url('MacSkin/background/RoundedBarM1x27.gif') repeat-x ;
+  height: 25px ;
+  background: url('DefaultSkin/background/MRoundedBar1x25.gif') repeat-x ;
+}
+
+.UIInfoBar .RoundedStyle .MiddleBar .Icon {
+  float: left;
+  margin: 5px 4px 0px 6px;
 }
 
 .UIInfoBar .RoundedStyle .Title {
   float: left ;
-  height: 26px; 
-  line-height: 26px; vertical-align: middle;
-  overflow: visible ;
-  margin: 0px 0px 0px 5px;
-}
-
-/*######################-GrayRounded-######################*/
-.UIInfoBar .GrayRounded .LeftBar {
-  height: 23px ;
-}  
-  
-.UIInfoBar .GrayRounded .LeftBar {
-  height: 23px ;
-  background: url('MacSkin/background/GrayRoundedL26x23.gif') no-repeat left ;
-  padding: 0px 0px 0px 26px ;
-}
-
-.UIInfoBar .GrayRounded .RightBar {
-  height: 23px ;
-  background: url('MacSkin/background/GrayRoundedR9x23.gif') no-repeat right ;
-  padding: 0px 9px 0px 0px ;
-}
-
-.UIInfoBar .GrayRounded .MiddleBar {
-  height: 23px ;
-  background: url('MacSkin/background/GrayRoundedM1x23.gif') repeat-x ;
-}
-
-.UIInfoBar .GrayRounded .TitleBar {
-  float: left ;
-  height: 23px; 
-  line-height: 23px; vertical-align: middle;
+  height: 24px; 
+  line-height: 24px; vertical-align: middle;
+  font-size: 11px ; font-weight: bold ;
   overflow: visible ;
   margin: 0px 0px 0px 5px;
 }
 
 /*######################-Blue Rounded Style-######################*/
-.UIInfoBar .BlueRoundedStyle{
+.UIInfoBar .BlueRoundedStyle {
   height: 22px ;
+  padding: 0px; margin: 0px;
 }
 
 .UIInfoBar .BlueRoundedStyle .LeftBar {
-  height: 22px ;
-  background: url('MacSkin/background/ControlBarL8x22.gif') no-repeat left ;
-  padding: 0px 0px 0px 8px ;
+  background: url('MacSkin/background/LeftControlBar11x23.png') no-repeat left ;
+  padding: 0px 0px 0px 11px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .RightBar {
-  height: 22px ;
-  background: url('MacSkin/background/ControlBarR8x22.gif') no-repeat right ;
-  padding: 0px 8px 0px 0px ;
+  background: url('MacSkin/background/RightControlBar12x23.png') no-repeat right ;
+  padding: 0px 12px 0px 0px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .MiddleBar {
-  height: 22px ;
-  text-align: left ;
-  background: url('MacSkin/background/ControlBarM1x22.gif') repeat-x ;
+  height: 23px ;
+  background: url('MacSkin/background/MiddleControlBar1x23.png') repeat-x ;
 }
 
 .UIInfoBar .BlueRoundedStyle .Title {
   float: left ; 
-  line-height: 22px; vertical-align: middle;
-  font-size: 11px; ; color: black;
-  text-align: center;
-  margin: 0px 7px 0px 7px;
+  font-size: 11px ; text-align: left ;
+  font-weight: bold ; color: black;
+  line-height: 15px; vertical-align: middle ;
+  margin: 3px 7px 0px 7px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .Icon {
@@ -102,10 +71,9 @@
 
 /*######################-Simple Style-######################*/
 .UIInfoBar .SimpleStyle {
+  background: url('DefaultSkin/background/MRoundedStyle1x21.gif') repeat-x ;
+  border-right: solid 1px #5f90ba ; border-left: solid 1px #5f90ba ;
   overflow: hidden ; 
-  background: url('MacSkin/background/RoundedStyleRP1x21.gif') repeat-x ;
-  border-right: solid 1px #5f90ba ;
-  border-left: solid 1px #5f90ba ;
 }
 
 .UIInfoBar .SimpleStyle .LeftBar {
@@ -117,8 +85,8 @@
 
 .UIInfoBar .SimpleStyle .RightBar {
   float: right ;
-  background: none ;
   height: 21px ;
+  background: none ;
   border-right: solid 1px #4e7180 ;
 }
 
@@ -130,82 +98,86 @@
 
 .UIInfoBar .SimpleStyle .Title {
   float: left ;
-  height: 21px ;
-  line-height: 21px ;  vertical-align: middle ;
-  font-size: 11px ;
-  text-align: left ;
+  height: 21px ; line-height: 21px ;  
+  vertical-align: middle ; text-align: left ; font-size: 11px ;
   margin: 0px 0px 0px 5px;
 }
 
 /*######################-Flat Style-######################*/
 .UIInfoBar .FlatStyle {
-  background: url('MacSkin/background/FlatStyleBG1x23.gif') repeat-x ;
+  background: url('DefaultSkin/background/MFlatStyle1x22.gif') repeat-x ;
   margin: 0px 6px 0px 6px;
 }
 
 .UIInfoBar .FlatStyle .LeftBar {
   float: left ;
-  width: 65px ; height: 23px ; 
-  background: url('MacSkin/background/FlatStyleL65x23.gif') no-repeat ;
+  width: 10px ; height: 22px ;
+  background: url('DefaultSkin/background/LFlatStyle10x22.gif') no-repeat ;
 }
 
 .UIInfoBar .FlatStyle .MiddleBar {
-  float: left ; 
-  width: 70%; height: 23px ; 
-  margin: 0% 0% 0% 5%;
+  float: left ;
+  height: 22px ;
+}
+
+.UIInfoBar .FlatStyle .MiddleBar .Title {
+  float: left ;
+  height: 16px ; 
+  line-height: 16px; vertical-align: middle;
+  font-weight: bold; color: black; 
+  padding: 0px 0px 0px 5px;
 }
 
 .UIInfoBar .FlatStyle .RightBar {
   float: right ;
-  height: 23px ;
-  background: url('MacSkin/background/FlatStyleRControl1x23.gif') repeat-x ;
-  border-right: solid 1px #7b7b7b ; 
+  height: 22px ;
+  background: url('DefaultSkin/background/FlatStyleRControle1x22.gif') repeat-x ;
+  border-right: solid 1px #4671ae ; 
 }
 
 .UIInfoBar .FlatStyle .Title {
-  width: 80%; height: 16px; 
-  line-height: 16px; vertical-align: middle;
-  color: black; text-align: center ;
-  margin: auto;
-  margin-top: 3px ;
+  float: left ;
+  font-size: 11px ; color: #0026c9 ;
+  text-align: left ;
+  margin: 3px 0px 0px 0px ;
 }
 
 .UIInfoBar .FlatStyle .ExpandButton {
   float: left ;
-  width: 15px ; height: 23px ;
-  background: url('MacSkin/background/FlatStyleExpand15x23.gif') no-repeat ;
+  width: 12px ; height: 22px ;
+  margin: 0px 10px 0px 0px ;
+  background: url('DefaultSkin/background/FlatStyleExpand12x22.gif') no-repeat ;
   cursor: pointer ;
-  margin: 0px 12px 0px 0px ;
 }
 
 .UIInfoBar .FlatStyle .CollapseButton {
   float: left ;
-  width: 15px ; height: 23px ;
-  background: url('MacSkin/background/FlatStyleCollapse15x23.gif') no-repeat ;
+  width: 12px ; height: 22px ;
+  background: url('DefaultSkin/background/FlatStyleCollapse12x22.gif') no-repeat ;
   cursor: pointer ;
-  margin: 0px 12px 0px 0px ;
+  margin: 0px 10px 0px 0px ;
 }
 
 /*######################-Polygon Navyblue Style-######################*/
 .UIInfoBar .PolygonNavyBlueStyle {
-	height: 26px;
+	height: 26px;  
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .LeftBar {
 	height: 26px;
-	background: url('MacSkin/background/PolygonNavyBlueL3x26.gif') no-repeat left;
+	background: url('DefaultSkin/background/LPolygonNavy3x26.gif') no-repeat left;
 	padding: 0px 0px 0px 3px;
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .RightBar {
 	height: 26px;
-	background: url('MacSkin/background/PolygonNavyBlueR3x26.gif') no-repeat right;
+	background: url('DefaultSkin/background/RPolygonNavy3x26.gif') no-repeat right;
 	padding: 0px 3px 0px 0px ;
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .MiddleBar {
   height: 26px;
-	background: url('MacSkin/background/PolygonNavyBlueRP1x26.gif') repeat-x;
+	background: url('DefaultSkin/background/MPolygonNavy1x26.gif') repeat-x;
   padding: 0px 0px 0px 2px;
 }
 
@@ -216,19 +188,19 @@
 
 .UIInfoBar .SmoothStyle .LeftBar {
 	height: 22px;
-	background: url('MacSkin/background/SmoothStyleL1x22.gif') no-repeat left;
+	background: url('MactSkin/background/LeftSmoothStyle1x22.gif') no-repeat left;
 	padding: 0px 0px 0px 1px;
 }
 
 .UIInfoBar .SmoothStyle .RightBar {
 	height: 22px;
-	background: url('MacSkin/background/SmoothStyleR1x22.gif') no-repeat right;
-	padding: 0px 1px 0px 0px ;
+	background: url('MacSkin/background/RightSmoothStyle1x22.gif') no-repeat right;
+	padding: 0px 1px 0px 0px;
 }
 
 .UIInfoBar .SmoothStyle .MiddleBar {
   height: 22px;
-	background: url('MacSkin/background/SmoothStyleRP1x22.gif') repeat-x;
+	background: url('MacSkin/background/MiddleSmoothStyle1x22.gif') repeat-x;
 }
 
 /*######################-Smooth Style 26 -######################*/
@@ -238,19 +210,19 @@
 
 .UIInfoBar .SmoothStyle26 .LeftBar {
 	height: 26px;
-	background: url('MacSkin/background/SmoothStyleBigL2x26.gif') no-repeat left;
+	background: url('MacSkin/background/LSmoothStyleBig2x26.gif') no-repeat left;
 	padding: 0px 0px 0px 1px;
 }
 
 .UIInfoBar .SmoothStyle26 .RightBar {
 	height: 26px;
-	background: url('MacSkin/background/SmoothStyleBigR2x26.gif') no-repeat right;
+	background: url('MacSkin/background/RSmoothStyleBig2x26.gif') no-repeat right;
 	padding: 0px 1px 0px 0px ;
 }
- 
+
 .UIInfoBar .SmoothStyle26 .MiddleBar {
   height: 26px;
-	background: url('MacSkin/background/SmoothStyleBigRP1x26.gif') repeat-x;
+	background: url('MacSkin/background/MSmoothStyleBig1x26.gif') repeat-x;
 }
 
 /*######################-GrayRoundedStyle-######################*/
@@ -260,20 +232,19 @@
 
 .UIInfoBar .GrayRoundedStyle .LeftBar {
 	height: 27px;
-	background: url('MacSkin/background/GrayRoundedL10x27.gif') no-repeat left;
+	background: url('DefaultSkin/background/LGrayRounded10x27.gif') no-repeat left;
 	padding: 0px 0px 0px 10px;
 }
 
 .UIInfoBar .GrayRoundedStyle .RightBar {
 	height: 27px;
-	background: url('MacSkin/background/GrayRoundedR10x27.gif') no-repeat right;
-	padding: 0px 10px 0px 0px ;
+	background: url('DefaultSkin/background/RGrayRounded10x27.gif') no-repeat right;
+	padding: 0px 10px 0px 0px;
 }
 
 .UIInfoBar .GrayRoundedStyle .MiddleBar {
-  height: 27px;
-	background: url('MacSkin/background/GrayRoundedRP1x27.gif') repeat-x;
-  margin: auto ;
+  margin: auto ; height: 27px;
+	background: url('DefaultSkin/background/MGrayRounded1x27.gif') repeat-x;
 }
 
 .UIInfoBar .GrayRoundedStyle .Icon {
@@ -288,41 +259,42 @@
   height: 27px ;
   line-height: 27px ;  vertical-align: middle ;
   color: #005cff ;
-  font-weight: bold ;
-  text-align: left ;
+  font-weight: bold ; text-align: left ;
 }
 
 /*######################-LightBlueBevelBarStyle-######################*/
 .UIInfoBar .LightBlueBevelStyle {
-	height: 23px;
-	margin: 0px 0px -1px 0px ;
+	height: 31px;
+	margin: 0px 0px 2px 0px;	
 }
 
 .UIInfoBar .LightBlueBevelStyle .LeftBar {
-	height: 23px;
-	background: url('MacSkin/background/GrayBarL15x23.gif') no-repeat left;
-	padding: 0px 0px 0px 15px;
+	height: 31px;
+	background: url('DefaultSkin/background/LBevelBarBg9x31.gif') no-repeat left;
+	padding: 0px 0px 0px 9px;
 }
 
 .UIInfoBar .LightBlueBevelStyle .RightBar {
-	height: 23px;
-	background: url('MacSkin/background/GrayBarR15x23.gif') no-repeat right;
-	padding: 0px 15px 0px 0px;
+	height: 31px;
+	background: url('DefaultSkin/background/RBevelBarBg9x31.gif') no-repeat right;
+	padding: 0px 9px 0px 0px ;
 }
 
 .UIInfoBar .LightBlueBevelStyle .MiddleBar {
-  height: 23px;
-	background: url('MacSkin/background/GrayBarM1x23.gif') repeat-x;
+  height: 31px;
+	background: url('DefaultSkin/background/MBevelBarBg1x31.gif') repeat-x;
   margin: auto ;
 }
 
 .UIInfoBar .LightBlueBevelStyle .Icon {
   float: left ;
-  width: 16px ;  height: 16px ;
-  margin: 3px 0px 0px 0px ;
+  width: 24px ;  height: 24px ;
+  margin: 3px 5px 0px 2px;
 }
 
 .UIInfoBar .LightBlueBevelStyle .Title {
-  height: 22px ;  
-  line-height: 22px ;  vertical-align: middle ;
+  float: left ;
+  height: 31px ; 
+  line-height: 31px ;  vertical-align: middle ;
+  font-weight: bold ; font-size: 12px;
 }

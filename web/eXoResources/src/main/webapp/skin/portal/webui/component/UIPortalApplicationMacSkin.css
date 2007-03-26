@@ -29,6 +29,7 @@ form {
 body {
 	background: white ;
 	font-family: Lucida, Verdana, Arial, Helvetica, sans-serif ;
+	background: url('/eXoResources/background/MacSkin/MacBackground.jpg');
 	font-size: 12px;
 	margin: 0px ; padding: 0px;
 }

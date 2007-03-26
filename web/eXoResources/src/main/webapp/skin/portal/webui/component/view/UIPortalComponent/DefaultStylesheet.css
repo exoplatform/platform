@@ -4,7 +4,7 @@
 }
 
 .UIPortlet .CONTROL-PORTLET {
-  margin: 0px 7px 1px 10px;
+  margin: 0px 7px -1px 10px;
 }
 
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
@@ -85,6 +85,8 @@
   cursor: pointer ;
 }
 
+.UIPortlet  {
+}
 
 /*##############################- PortletLayoutDecorator  -################################*/
 .PortletLayoutDecorator {
@@ -109,7 +111,7 @@
 
 .PortletLayoutDecorator .MiddleLeft {
   background: url('DefaultSkin/background/LayoutML7x1.gif') repeat-y left;
-  padding-left: 7px ;
+  padding: 0px 0px 0px 7px ;
 }
 
 .PortletLayoutDecorator .MiddleRight {
@@ -185,9 +187,9 @@
 
 .UIContainer .ContainerIcon {
 	float: left;
-  width: 16px; height: 16px;
+  width: 18px; height: 16px;
   margin: 3px 5px 0px 5px;
-  background: url('/eXoResources/icons/16x16/MacSkin/DefaultContainerIcon.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultContainerIcon.gif') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {
@@ -195,7 +197,6 @@
   border: solid 1px #1d5b9b ;
   padding: 8px 0px ;
 }
-
 
 .UIPage {
 }

@@ -3,54 +3,55 @@
 }
 
 .UIPage .PageLayoutDecorator .MiddlePageBG {
-  background: white;
-  padding: 0px 40px 20px 40px;
+  background: url('MacSkin/background/Pagebackground1x111.gif') repeat-x center ;
+  height: 111px;
+ 
 }
 
 .UIPage .PageLayoutDecorator .TopLeftPage {
-  background: url('MacSkin/background/TopLeftPageLayout65x48.gif') no-repeat left ;
-  padding: 0px 0px 0px 65px ;
+  background: url('MacSkin/background/TopLeftPageLayout142x114.png') no-repeat left ;
+  padding: 0px 0px 0px 142px ;
 }
 
 .UIPage .PageLayoutDecorator .TopRightPage {
-  background: url('MacSkin/background/TopRightPageLayout71x48.gif') no-repeat right ;
-  padding: 0px 71px 0px 0px ; 
+  background: url('MacSkin/background/TopRightPageLayout72x114.png') no-repeat right ;
+  padding: 0px 72px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage {
-  height: 48px ;   
-  background: url('MacSkin/background/TopMiddlePageLayout1x48.gif') repeat-x center ;  
+  height: 114px ; line-height: 104px; 
+  color: #1f2020;  text-align: center;
+  background: url('MacSkin/background/TopMiddlePageLayout1x114.png') repeat-x center ;  
 }
 
 .UIPage .PageLayoutDecorator .MiddleLeftPage {
-  background: url('MacSkin/background/MiddleLeftPageLayout13x1.gif') repeat-y left ;
-  padding: 0px 0px 0px 13px ;   
+  background: url('MacSkin/background/MiddleLeftPageLayout12x1.png') repeat-y left ;
+  padding: 0px 0px 0px 12px ; 
 }
 
 .UIPage .PageLayoutDecorator .MiddleRightPage {
-  background: url('MacSkin/background/MiddleRightPageLayout14x1.gif') repeat-y right;
-  padding: 0px 14px 0px 0px ;
+  background: url('MacSkin/background/MiddleRightPageLayout13x1.png') repeat-y right;
+  padding: 0px 13px 0px 0px ;
 }
 
 .UIPage .PageLayoutDecorator .PageContent {
-  height: 80px; 
   background: url('MacSkin/background/PageContentBG.gif');
   padding: 6px 10px 0px 10px; 
 }
 
 .UIPage .PageLayoutDecorator .BottomLeftPage {
   height: 17px;  
-  background: url('MacSkin/background/BottomLeftPageLayout17x17.gif') no-repeat left ;
-  padding: 0px 0px 0px 17px ;
+  background: url('MacSkin/background/BottomLeftPageLayout14x17.png') no-repeat left ;
+  padding: 0px 0px 0px 14px ;
 }
 
 .UIPage .PageLayoutDecorator .BottomRightPage {
-  background: url('MacSkin/background/BottomRightPageLayout17x17.gif') no-repeat right ;
-  padding: 0px 17px 0px 0px ; 
+  background: url('MacSkin/background/BottomRightPageLayout15x17.png') no-repeat right ;
+  padding: 0px 15px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .BottomCenterPage {
   height: 17px ;   
-  background: url('MacSkin/background/BottomMiddlePageLayout1x17.gif') repeat-x center ; 
+  background: url('MacSkin/background/BottomMiddlePageLayout1x17.png') repeat-x center ; 
 }
 
