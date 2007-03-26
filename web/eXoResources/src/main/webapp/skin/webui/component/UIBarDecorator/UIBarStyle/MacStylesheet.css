@@ -123,28 +123,29 @@
 
 /*###########################-Style4Bar-###########################*/
 .UIBarStyle .Style4 {
-  height: 30px;
+  height: 29px;
+  color: #6a6a6a;
+
 }
 
 .UIBarStyle .Style4 .LeftBar {
-  height: 30px ;
-  background: url('MacSkin/background/Style4BarL8x30.gif') no-repeat left ;
-  padding: 0px 0px 0px 8px ;
+  height: 29px ;
+  background: url('MacSkin/background/MiddleStyle4Bar1x29.png') no-repeat ;
+  padding: 0px 0px 0px 1px ;
 }
 
 .UIBarStyle .Style4 .RightBar {
-  height: 30px ;
-  background: url('MacSkin/background/Style4BarR8x30.gif') no-repeat right ;
-  padding: 0px 8px 0px 0px ;
+  height: 29px ;
+  background: url('MacSkin/background/RightStyle4Bar12x29.png') no-repeat right ;
+  padding: 0px 12px 0px 0px ;
 }
 
 .UIBarStyle .Style4 .MiddleBar {
-  height: 30px ;
-  line-height: 24px ;
-  vertical-align: middle ;
-  text-align: center;
+  height: 29px ;
+  line-height: 27px ;
   font-weight: bold; font-size: 11px;
-  background: url('MacSkin/background/Style4BarM1x30.gif') repeat-x ;
+  background: url('MacSkin/background/MiddleStyle4Bar1x29.png') repeat-x ;
+  padding: 0px 10px;
 }
 
 /*###########################-Style5Bar-###########################*/

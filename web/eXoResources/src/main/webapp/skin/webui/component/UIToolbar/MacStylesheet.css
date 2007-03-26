@@ -162,56 +162,6 @@
   background: url('MacSkin/background/LightBarM1x40.gif') repeat-x ;
 }
 
-/*#################################- LightPolyToolbar -##############################*/
-
-.UIToolbar .PolyToolbar {
-  height: 36px;
-  margin-bottom: 2px;
-}
-
-.UIToolbar .PolyToolbar .LeftBar {
-  height: 36px;
-  padding-left: 7px;
-  background: url('MacSkin/background/LightPolyBarL7x36.gif') no-repeat left;
-}
-
-.UIToolbar .PolyToolbar .RightBar {
-  height: 36px;
-  padding-right: 7px;
-  background: url('MacSkin/background/LightPolyBarR7x36.gif') no-repeat right;
-}
-
-.UIToolbar .PolyToolbar .MiddleBar {
-  height: 36px;
-  line-height: 36px;
-  background: url('MacSkin/background/LightPolyBarM1x36.gif') repeat-x ;
-}
-
-/*#################################- Poly2Toolbar -##############################*/
-
-.UIToolbar .Poly2Toolbar {
-  height: 36px;
-  margin-bottom: 2px;
-}
-
-.UIToolbar .Poly2Toolbar .LeftBar {
-  height: 36px;
-  padding-left: 7px;
-  background: url('MacSkin/background/LightPolyBarL7x36.gif') no-repeat left;
-}
-
-.UIToolbar .Poly2Toolbar .RightBar {
-  height: 36px;
-  padding-right: 7px;
-  background: url('MacSkin/background/LightPolyBarR7x36.gif') no-repeat right;
-}
-
-.UIToolbar .Poly2Toolbar .MiddleBar {
-  height: 36px;
-  line-height: 36px;
-  background: url('MacSkin/background/LightPolyBarM1x36.gif') repeat-x ;
-}
-
 /*#################################- Style1Toolbar -##############################*/
 .UIToolbar .Style1Toolbar {
   height: 28px; line-height: 28px;
@@ -397,27 +347,69 @@
   cursor: pointer;
 }
 
-.UIToolbar .RollbackIcon {
-	float: left;
-	margin: 5px 8px 0px 12px;
-	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/RollbackB.png') no-repeat;
+/*#################################- EditToolbar -##############################*/
+
+.UIToolbar .EditToolbar {
+  height: 39px;
+  margin: 0px 0px 2px 0px;
 }
 
-.UIToolbar .FinishIcon {
-	float: left; margin: 5px 8px;
-	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/Finish.gif') no-repeat;
+.UIToolbar .EditToolbar .LeftBar {
+  height: 39px;
+  padding-left: 7px;
+  background: url('MacSkin/background/LeftEditToolbar7x39.png') no-repeat left;
 }
 
-.UIToolbar .SaveIcon {
-	float: left; margin: 5px 8px;
-	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/SaveB.gif') no-repeat;
+.UIToolbar .EditToolbar .RightBar {
+  height: 39px;
+  padding-right: 8px;
+  background: url('MacSkin/background/RightEditToolbar8x39.png') no-repeat right;
 }
 
-.UIToolbar .AbortIcon {
-	float: left; margin: 5px 8px;
-	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/AbortB.gif') no-repeat;
+.UIToolbar .EditToolbar .MiddleBar {
+  height: 39px; line-height: 39px; vertical-align: middle;
+  background: url('MacSkin/background/MiddleEditToolbar1x39.png') repeat-x;
 }
+
+.UIToolbar .EditToolbar .Icon {
+  float: left;
+  margin: 3px 10px 0px 10px;
+  cursor: pointer;
+}
+
+/*#################################- ControlToolbar -##############################*/
+
+.UIToolbar .ControlToolbar {
+  margin-top: 15px;
+}
+
+.UIToolbar .ControlToolbar .LeftBar {
+  height: 40px;
+  padding-left: 8px;
+  background: url('MacSkin/background/LeftControlToolbar8x40.png') no-repeat left;
+}
+
+.UIToolbar .ControlToolbar .RightBar {
+  height: 40px;
+  padding-right: 8px;
+  background: url('MacSkin/background/RightControlToolbar8x40.png') no-repeat right;
+}
+
+.UIToolbar .ControlToolbar .MiddleBar {
+  height: 40px;
+  line-height: 40px;
+  background: url('MacSkin/background/MiddleControlToolbar1x40.png') repeat-x ;
+}
+
+.UIToolbar .ControlToolbar .SeparateLine{
+  width: 2px; height: 24px;
+  float: left;
+  margin: 7px 0px 0px 0px;
+  background: url('MacSkin/background/SeparateLine2x2.gif') repeat-y ;
+}
+
+.UIToolbar .ControlToolbar .Icon {
+  float: left;
+  margin: 3px 5px 0px 8px;
+}
+

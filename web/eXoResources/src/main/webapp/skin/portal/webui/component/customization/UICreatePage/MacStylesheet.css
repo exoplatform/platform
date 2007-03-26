@@ -1,5 +1,9 @@
 .UICreatePage {
-  padding: 10px 8px 5px 5px;
+  padding: 15px 0px 5px 0px;
+}
+
+.UICreatePage .UIToolbar {
+  padding: 0px 7px;
 }
 
 .UICreatePage .PageNodeSelectorContainer {

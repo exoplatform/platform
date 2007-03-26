@@ -39,6 +39,9 @@
   background: none;
   border: solid 1px #dbe4e4 ;  /*Fix Bug On IE*/
 }
+
+
+
 /*########################### Tab ###########################*/
 .UIControlWorkspace .UIWorkspacePanel .TabPortalIcon {
   float: left;  
