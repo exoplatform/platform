@@ -1,4 +1,4 @@
-<div class="UIMaskWorkspace" id="UIMaskWorkspaceJSTemplate">
+<div class="UIMaskWorkspace" id="UIMaskWorkspaceJSTemplate" style="width: 700px;">
   <div class="TopLeftDecorator">
     <div class="TopRightDecorator">
       <div class="TopCenterDecorator"><span></span></div>

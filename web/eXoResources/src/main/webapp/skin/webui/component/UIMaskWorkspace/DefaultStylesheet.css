@@ -208,3 +208,7 @@
 	cursor: pointer ;	
 	text-align: center;
 }
+
+.UIAddApplication .UIAction .ActionContainer {
+	padding: 0px 20px 15px 0px;
+}
