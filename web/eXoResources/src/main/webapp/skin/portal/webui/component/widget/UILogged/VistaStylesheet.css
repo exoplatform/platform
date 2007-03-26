@@ -59,24 +59,39 @@
 }
 
 .UILogged .DecoratorBox .DecoratorBackground{
-  width: auto; height: 92;
+  width: auto; height: 92px;
   background: url('VistaSkin/background/DecoratorBackground1x92.png') repeat-x;
 }
 
-.UILogged .StyleContent .AvatarImageContent {
+.UILogged .StyleContent .AvatarContainer {
 	float: left;
-	width: 90px; height: 88px;
-	padding: 12px 0px 0px 10px;
+	width: 70px; height: 72px;
+	padding: 20px 0px 0px 20px;
 }
 
-.UILogged .AvatarImageContent .AvatarImage {
-	width: 49px; height: 47px;
-	background: url('DefaultSkin/background/AvatarImage49x47.png') no-repeat center;
-	border: solid 1px #ffffff;
+.UILogged .StyleContent .LeftAvatarContainer {
+	width: 50px;
+	padding: 0px 0px 0px 5px;
+	background: url('VistaSkin/background/LeftAvatarContainer5x48.png') no-repeat left;
+}
+
+.UILogged .StyleContent .RightAvataContainer {
+	padding: 0px 6px 0px 0px;
+	background: url('VistaSkin/background/RightAvataContainer6x48.png') no-repeat right;
+}
+
+.UILogged .StyleContent .CenterAvataContainer {
+	height: 48px ;
+	background: url('VistaSkin/background/CenterAvataContainer1x48.png') repeat-x;
+}
+
+.UILogged .AvatarContainer .AvatarImage {
+	width: 38px; height: 41px;
+	background: url('VistaSkin/background/AvatarImage38x41.png') no-repeat center;
 }
 
 .UILogged .StyleContent .WelcomeBox {
-	margin: 0px 0px 0px 95px;
+	margin: 0px 0px 0px 85px;
 }
 
 .UILogged .StyleContent .UserWelcomeBox {
@@ -102,13 +117,13 @@
 	text-align: right;
 	color: #f98e03;
 	font-weight: bold;
-	padding-right: 20px;
+	padding-right: 25px;
 	text-decoration: underline;
 	cursor: pointer;
 }
 
 .UILogged .StyleContent {
-	height: 100px;
+	height: 92px;
 }
 
 .UILogged .StyleContent .IconContent {

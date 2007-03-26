@@ -63,13 +63,13 @@
   background: #e6eef7;
 }
 
-.UILogged .StyleContent .AvatarImageContent {
+.UILogged .StyleContent .AvatarContainer {
 	float: left;
 	width: 90px; height: 88px;
 	padding: 12px 0px 0px 10px;
 }
 
-.UILogged .AvatarImageContent .AvatarImage {
+.UILogged .AvatarContainer .AvatarImage {
 	width: 63px; height: 70px;
 	background: url('DefaultSkin/background/AvatarImage63x70.gif') no-repeat center;
 	border: solid 1px #ffffff;

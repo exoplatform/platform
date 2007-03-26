@@ -2,19 +2,44 @@
 	padding: 4px 10px;
 }
 
-.UIWidgets .BottomLeftWidgets {
-	background: url('DefaultSkin/background/BottomLeftWidgets4x4.gif') no-repeat left bottom;
+.UIWidgets .TopLeftWidgets {
+	background: url('VistaSkin/background/TopLeftWidgets7x14.png') no-repeat left bottom;
+	padding: 0px 0px 0px 7px;
+}
+
+.UIWidgets .TopRightWidgets {
+	background: url('VistaSkin/background/TopRightWidgets7x14.png') no-repeat right bottom;
+	padding: 0px 7px 0px 0px;
+}
+
+.UIWidgets .TopMiddleWidgets {
+	background: url('VistaSkin/background/TopMiddleWidgets1x14.png') repeat-x bottom;
+	height: 14px;
+}
+
+.UIWidgets .CenterLeftWidgets {
+	background: url('VistaSkin/background/CenterLeftWidgets4x1.png') repeat-y left;
 	padding: 0px 0px 0px 4px;
 }
 
+.UIWidgets .CenterRightWidgets {
+	background: url('VistaSkin/background/CenterRightWidgets5x1.png') repeat-y right;
+	padding: 0px 5px 0px 0px;
+}
+
+.UIWidgets .BottomLeftWidgets {
+	background: url('VistaSkin/background/BottomLeftWidgets6x9.png') no-repeat left bottom;
+	padding: 0px 0px 0px 6px;
+}
+
 .UIWidgets .BottomRightWidgets {
-	background: url('DefaultSkin/background/BottomRightWidgets4x4.gif') no-repeat right bottom;
-	padding: 0px 4px 0px 0px;
+	background: url('VistaSkin/background/BottomRightWidgets7x9.png') no-repeat right bottom;
+	padding: 0px 7px 0px 0px;
 }
 
 .UIWidgets .BottomMiddleWidgets {
-	background: url('DefaultSkin/background/BottomMiddleWidgets1x4.gif') repeat-x bottom;
-	height: 4px;
+	background: url('VistaSkin/background/BottomMiddleWidgets1x9.png') repeat-x bottom;
+	height: 9px;
 }
 
 /******************************* UICaegorySelector  **********************************/
@@ -38,8 +63,8 @@
 
 .UICaegorySelector .IconLabelContent .WidgetIcon {
 	float: left;
-	height: 19px; width: 20px; 
-	background: url('DefaultSkin/icon/IconWidget.gif') no-repeat center;
+	height: 16px; width: 16px; 
+	background: url('VistaSkin/icon/IconWidget.png') no-repeat center;
 }
 
 .UICaegorySelector .IconLabelContent .WidgetLabel {
@@ -52,7 +77,7 @@
 .UICaegorySelector .SelectedIcon {
 	float: right; 
 	width: 21px; height: 20px;
-	background: url('DefaultSkin/icon/SelectedIcon.gif') no-repeat center;
+	background: url('DefaultSkin/icon/SelectedIcon.png') no-repeat center;
 	cursor: pointer;	
 }
 
@@ -65,8 +90,6 @@
 
 /***************************************  UIWidgetContainer   **************************************/
 .UIWidgetContainer {
-	border-left: 1px solid white;
-	border-right: 1px solid white;
 	padding-top: 5px;
 }
 
