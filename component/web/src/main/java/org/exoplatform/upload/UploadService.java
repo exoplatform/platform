@@ -12,7 +12,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.PortalContainerInfo;
 
 /**
@@ -26,8 +25,7 @@ public class UploadService {
   private Map<String, UploadResource> uploadResources = new LinkedHashMap<String, UploadResource>() ;
   private String uploadLocation_ ;
   
-  @SuppressWarnings("unused")
-  public UploadService(PortalContainerInfo pinfo, InitParams params) throws Exception {
+  public UploadService(PortalContainerInfo pinfo) throws Exception {
     String tmpDir = System.getProperty("java.io.tmpdir") ;
     uploadLocation_ = tmpDir + "/" + pinfo.getContainerName() + "/eXoUpload" ;
     File uploadDir = new File(uploadLocation_) ;

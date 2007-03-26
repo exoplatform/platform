@@ -1,0 +1,110 @@
+/***************************************************************************
+ * Copyright 2001-2007 The eXo Platform SARL         All rights reserved.  *
+ * Please look at license.txt in info directory for more license detail.   *
+ **************************************************************************/
+package org.exoplatform.json;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.Collection;
+
+/**
+ * Created by The eXo Platform SARL
+ * Author : Le Bien Thuy
+ *          lebienthuy@gmail.com
+ * Mar 23, 2007  
+ */
+public class ReflectToJSONPlugin extends BeanToJSONPlugin<Object> {
+  
+  @SuppressWarnings("unchecked")
+  public void toJSONScript(Object object, StringBuilder builder, int indentLevel) throws Exception {
+    if(object instanceof Collection){
+      Collection collection = (Collection) object;
+      Object [] array = new Object[collection.size()];
+      collection.toArray(array);
+      object = array;
+    } 
+    
+    appendIndentation(builder, indentLevel);
+    builder.append('{').append('\n');
+    
+    if(object.getClass().isArray()) {
+      ArrayToJSONPlugin arrayToJSONPlugin = service_.getArrayToJSONPlugin();
+      arrayToJSONPlugin.toJSONScript(object, builder, indentLevel);
+    } else {
+      Field [] fields = object.getClass().getDeclaredFields();
+      for(Field field : fields) {
+        int modified  = field.getModifiers();
+        if(Modifier.isStatic(modified) || Modifier.isTransient(modified)) continue;
+        String name = field.getName();
+        if(name.startsWith("this")) continue;     
+        toJSONString(object, field, builder, indentLevel+1);      
+      }
+    }
+    builder.deleteCharAt(builder.length()-2);
+    builder.append('\n');
+    appendIndentation(builder, indentLevel);
+    builder.append('}');   
+  }
+
+  @SuppressWarnings("unchecked")
+  private void toJSONString(Object object, Field field, StringBuilder builder, int indentLevel) throws Exception {
+    Class type  = field.getType();
+    Object value = getValue(object, field);
+    appendIndentation(builder, indentLevel);
+    builder.append('\'').append(field.getName()).append('\'').append(':').append(' ');
+
+    if(type.isArray()){
+      ArrayToJSONPlugin arrayToJSONPlugin = service_.getArrayToJSONPlugin();
+      arrayToJSONPlugin.toJSONScript(value, builder, indentLevel);
+      return;
+    }
+
+    if(value instanceof Collection){
+      Collection collection = (Collection) value;
+      Object [] array = new Object[collection.size()];
+      collection.toArray(array);
+      ArrayToJSONPlugin arrayToJSONPlugin = service_.getArrayToJSONPlugin();
+      arrayToJSONPlugin.toJSONScript(array, builder, indentLevel);
+      return;
+    } 
+
+    if (isPrimitiveType(type)) {
+      builder.append(value).append(',').append('\n');
+      return ;
+    }
+
+    if (isCharacterType(type)){
+      String charValue = encode(value.toString());
+      builder.append('\'').append(charValue).append('\'').append(',').append('\n');
+      return ;
+    }
+    
+    BeanToJSONPlugin plugin = service_.getConverterPlugin(value);
+    plugin.toJSONScript(value, builder, indentLevel+1);
+  }
+ 
+  private Object getValue(Object bean, Field field) throws Exception {
+    Class clazz = bean.getClass();
+    Method method = getMethod("get", field, clazz);
+    if(method != null) return method.invoke(bean, new Object[]{});
+    method = getMethod("is", field, clazz);
+    if(method != null) return method.invoke(bean, new Object[]{});
+    field.setAccessible(true);
+    return field.get(bean);
+  }
+
+  private Method getMethod(String prefix, Field field, Class clazz) throws Exception {
+    StringBuilder name = new StringBuilder(field.getName());
+    name.setCharAt(0, Character.toUpperCase(name.charAt(0)));
+    name.insert(0, prefix);
+    try{
+      Method method = clazz.getDeclaredMethod(name.toString(), new Class[]{});
+      return method; 
+    }catch (Exception e) {
+    }
+    return null;
+  }
+
+}

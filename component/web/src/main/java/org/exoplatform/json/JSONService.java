@@ -5,6 +5,7 @@
 package org.exoplatform.json;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by The eXo Platform SARL
@@ -14,35 +15,55 @@ import java.util.HashMap;
  */
 
 public class JSONService {
-  private HashMap<Class, ObjectToJSONConverterPlugin> plugins_ ;
   
+  public static int NUMBER_SPACE = 3;
+
+  private HashMap<Class, BeanToJSONPlugin> plugins_ ;
+
   public JSONService() throws Exception {
-    plugins_ = new HashMap<Class, ObjectToJSONConverterPlugin>() ;
-    ReflectionConverterPlugin reflectionConverterPlugin = new ReflectionConverterPlugin();
-    register(Object.class, reflectionConverterPlugin);
+    plugins_ = new HashMap<Class, BeanToJSONPlugin>() ;
+    register(ReflectToJSONPlugin.class, new ReflectToJSONPlugin());
+    register(ArrayToJSONPlugin.class, new ArrayToJSONPlugin());
+    register(MapToJSONPlugin.class, new MapToJSONPlugin());
   }
-  
-  public <T extends ObjectToJSONConverterPlugin>  void register(Class clazz, T plugin) {
-    if(plugins_.containsKey(clazz)) {
-      plugins_.remove(clazz);
-      plugins_.put(clazz, plugin);
-    }else {
-      plugins_.put(clazz, plugin);
-    }
+
+  public void register(Class clazz, BeanToJSONPlugin plugin) {
+    plugin.setService(this);
+    plugins_.put(clazz, plugin);
   }
-  
+
   public  void unregister(Class clazz) {
     if(!plugins_.containsKey(clazz)) return ;
     plugins_.remove(clazz);
   }
+
+  @SuppressWarnings("unchecked")
+  public <T>  void toJSONScript(T bean, StringBuilder b, int indentLevel) throws Exception {
+    BeanToJSONPlugin plugin = getConverterPlugin(bean);
+    plugin.toJSONScript(bean, b, indentLevel);
+  }
   
-  public <T>  void toJSONScript(T object, StringBuilder b, int indentLevel) throws Exception {
-    if(!plugins_.containsKey(object.getClass())){
-      ObjectToJSONConverterPlugin plugin = plugins_.get(Object.class);
-      plugin.toJSONScript(plugins_, object, b, indentLevel);
-      return ;
+  public ArrayToJSONPlugin getArrayToJSONPlugin(){
+    return (ArrayToJSONPlugin)plugins_.get(ArrayToJSONPlugin.class);
+  }
+  
+  public BeanToJSONPlugin getConverterPlugin(Object object) throws Exception {
+    Class clazz = object.getClass();
+    BeanToJSONPlugin plugin = null;
+    if(plugins_.containsKey(clazz)) plugin = plugins_.get(clazz);
+    if(plugin != null) return plugin;
+    if(object instanceof Map || object instanceof JSONMap){
+      plugin = plugins_.get(MapToJSONPlugin.class);
     }
-    ObjectToJSONConverterPlugin plugin = plugins_.get(object.getClass());
-    plugin.toJSONScript(plugins_, object, b, indentLevel);
+    if(plugin != null) return plugin;
+    if(clazz.isArray()) plugin = plugins_.get(ArrayToJSONPlugin.class);   
+    if(plugin != null) return plugin;
+    return plugins_.get(ReflectToJSONPlugin.class);
+  }
+  
+  public BeanToJSONPlugin getConverterPlugin(Class clazz) throws Exception {
+    if(clazz.isArray()) return plugins_.get(ArrayToJSONPlugin.class);    
+    if(plugins_.containsKey(clazz)) return plugins_.get(clazz);
+    return plugins_.get(ReflectToJSONPlugin.class);
   }
 }

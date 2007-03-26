@@ -9,15 +9,13 @@
         </value-param>
       </init-params>
   </component>
+  
+  <component>
+    <type>org.exoplatform.json.JSONService</type>     
+  </component>
 
   <component>
-    <type>org.exoplatform.upload.UploadService</type>
-    <init-params>
-      <value-param>
-        <name>name</name>
-        <value>false</value>
-      </value-param>
-    </init-params>
+    <type>org.exoplatform.upload.UploadService</type>    
   </component>
   
   <component>
