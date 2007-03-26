@@ -74,14 +74,41 @@
   	<div class="CenterLeftWidgets">
   		<div class="CenterRightWidgets">
   		
-  		<div class="UICaegorySelector">
-  			<div class="IconLabelContent">
-  				<div class="WidgetIcon"><span></span></div>
-  				<div class="WidgetLabel">fdsfdsf</div>
-	  			<div class="EditIcon"><span></span></div>
-	  			<div class="SelectedIcon"><span></span></div>
-	  			<div style="clear: both"><span></span></div>
-	  		</div>
+  		<div class="UICaegorySelector AncestorPopupCategory">
+  			<div class="LeftCaegorySelector">
+  				<div class="RightCaegorySelector">
+  					<div class="MiddleCaegorySelector">
+			  			<div class="IconLabelContent">
+			  				<div class="WidgetIcon"><span></span></div>
+			  				<div class="WidgetLabel">My Widgets</div>
+				  			<div class="EditIcon"><span></span></div>
+				  			<div class="SelectedIcon" onclick="eXo.webui.UIPopupSelectCategory.show(this, 228);"><span></span></div>
+				  			<div style="clear: both"><span></span></div>
+				  		</div>
+				  	</div>
+				  </div>
+				</div>
+				<div class="UIPopupCategory" style="display: none;">
+			    <div class="PopupCategoryDecorator">
+				    <div class="PopupCategoryTL">
+						  <div class="PopupCategoryTR">
+							  <div class="PopupCategoryTC"><span></span></div>
+						  </div>
+					  </div>
+					  <div class="PopupCategoryML">
+					   	<div class="PopupCategoryMR" >
+					   		<div class="PopupCategoryMC">
+					   		fldfjd
+					   		</div>
+					   	</div>
+					  </div>
+					  <div class="PopupCategoryBL">
+				      <div class="PopupCategoryBR">
+				        <div class="PopupCategoryBC"><span></span></div>
+				      </div>
+		        </div>
+				  </div>
+				</div>
   		</div>
   		
   		<div class="UIWidgetContainer">
