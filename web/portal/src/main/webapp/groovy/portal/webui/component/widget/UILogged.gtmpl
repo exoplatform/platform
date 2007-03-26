@@ -35,7 +35,7 @@
 								<%} else {%>
 								<%}%>
 							</div>
-							<div class="LabelSignout">Sign out</div>
+							<div class="LabelSignout" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">Sign out</div>
 						</div>
 						<div style="clear: left"><span></span></div>
 		    	</div>
