@@ -69,13 +69,19 @@
   		<div class="CenterRightWidgets">
   		
   		<div class="UICaegorySelector">
-  			<div class="IconLabelContent">
-  				<div class="WidgetIcon"><span></span></div>
-  				<div class="WidgetLabel">fdsfdsf</div>
-	  			<div class="EditIcon"><span></span></div>
-	  			<div class="SelectedIcon"><span></span></div>
-	  			<div style="clear: both"><span></span></div>
-	  		</div>
+  			<div class="LeftCaegorySelector">
+  				<div class="RightCaegorySelector">
+  					<div class="MiddleCaegorySelector">
+			  			<div class="IconLabelContent">
+			  				<div class="WidgetIcon"><span></span></div>
+			  				<div class="WidgetLabel">My Widgets</div>
+				  			<div class="EditIcon"><span></span></div>
+				  			<div class="SelectedIcon"><span></span></div>
+				  			<div style="clear: both"><span></span></div>
+				  		</div>
+				  	</div>
+				  </div>
+				</div>
   		</div>
   		
   		<div class="UIWidgetContainer">

@@ -56,13 +56,15 @@
 	cursor: pointer;	
 }
 
+.UICaegorySelector .EditIcon {
+	float: right;		
+}
+
 .UIWidgets .UICaegorySelector .EditIcon {
-	float: right;
 	width: 20px; height: 20px;
 	background: url('DefaultSkin/icon/EditIcon.gif') no-repeat center;
 	cursor: pointer;		
 }
-
 /***************************************  UIWidgetContainer   **************************************/
 .UIWidgetContainer {
 	border-left: 1px solid white;
