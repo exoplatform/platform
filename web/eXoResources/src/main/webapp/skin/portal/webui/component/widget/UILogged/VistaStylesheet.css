@@ -88,6 +88,7 @@
 .UILogged .AvatarContainer .AvatarImage {
 	width: 38px; height: 41px;
 	background: url('VistaSkin/background/AvatarImage38x41.png') no-repeat center;
+	margin:0px 0px 0px 3px;
 }
 
 .UILogged .StyleContent .WelcomeBox {
@@ -97,7 +98,7 @@
 .UILogged .StyleContent .UserWelcomeBox {
   padding: 5px 0px 7px 0px;
   line-height: 30px; 
-  height: 65px;
+  height: 60px;
 }
 
 .UILogged .StyleContent .UserWelcomeBox .StateMessage {
@@ -170,5 +171,5 @@
 .UILogged .EMailIcon {
 	width: 36px; height: 36px;
 	margin: auto;
-	background: url('DefaultSkin/background/EMailIcon.gif') no-repeat bottom;
+	background: url('VistaSkin/background/EMailIcon.png') no-repeat bottom;
 }
