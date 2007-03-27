@@ -26,7 +26,7 @@ public class UIWelcomeComponent extends UIContainer {
     if(accessibility == PortalRequestContext.PUBLIC_ACCESS) {
       addChild(UILoginForm.class, null, "LoginWelcomeComponent");
     }else{
-      addChild(UILogged.class, null, null) ;
+      addChild(UIUserSpace.class, null, null) ;
     }   
   }  
 
