@@ -7,7 +7,9 @@ package org.exoplatform.portal.component.customization;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
+import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIExoStart;
+import org.exoplatform.portal.component.control.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
@@ -105,14 +107,19 @@ public class UIPortalManagementControlBar extends UIToolbar {
   
   static public class AbortActionListener  extends EventListener<UIPortalManagementControlBar> {
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
-      UIPortal portal = Util.getUIPortal();
-      portal.setMode(UIPortal.COMPONENT_VIEW_MODE);
-      portal.setRenderSibbling(UIPortal.class) ;    
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
-      pcontext.setForceFullUpdate(true);
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);  ;
-      uiExoStart.setUIControlWSWorkingComponent(UIWelcomeComponent.class) ;
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      PortalRequestContext prContext = Util.getPortalRequestContext();  
+      uiWorkingWS.setRenderedChild(UIPortal.class) ;
+      
+      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
+      uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
+      prContext.addUIComponentToUpdateByAjax(uiControl);
+      
+      prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
+      prContext.setForceFullUpdate(true);  
+      
     }
   }
 }

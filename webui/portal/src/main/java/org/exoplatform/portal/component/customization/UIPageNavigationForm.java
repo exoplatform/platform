@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
+import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -115,7 +116,8 @@ public class UIPageNavigationForm extends UIFormTabPane {
       
       UIComponentDecorator uiFormParent = uiForm.getParent(); 
       uiFormParent.setUIComponent(null);
-
+      PortalDAO configService = uiForm.getApplicationComponent(PortalDAO.class);
+      configService.savePageNavigation(pageNav);  
       event.getRequestContext().addUIComponentToUpdateByAjax(uiFormParent);    
     }
   }

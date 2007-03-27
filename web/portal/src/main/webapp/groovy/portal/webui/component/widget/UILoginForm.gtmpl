@@ -54,10 +54,9 @@
 		          		<div >
 		          			<%=_ctx.appRes("UILoginForm.label.NotMember")%>
 		          			<span>
-		          				<a class="SignUpLink" href="#">
-		          					<%=_ctx.appRes("UILoginForm.label.ForAccount")%>
-		          				</a>
-		          		  </span>
+		          			<div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
+											<%=_ctx.appRes("UILoginForm.label.ForAccount")%>
+										</div>
 		          		</div>
 		          	</div>
 		          </div>
