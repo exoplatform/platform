@@ -78,6 +78,7 @@
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
   height: 276px ;
+  overflow: auto;
 }
 
 .UIAddApplication .UITabContentContainer .UITabContent {
