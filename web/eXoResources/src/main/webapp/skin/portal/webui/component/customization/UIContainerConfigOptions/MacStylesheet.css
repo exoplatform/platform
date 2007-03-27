@@ -40,72 +40,71 @@
 }
 
 .UIContainerConfigOptions .OneRowContainerLayout {
-  width:105px;  height:56px;
-  margin:auto;  margin-top: 10px;
-  background: url('MacSkin/background/1RowContainerBg105x56.gif') no-repeat;
+  width: 109px;  height: 60px;
+  margin: auto;  margin-top: 9px;
+  background: url('MacSkin/background/1RowContainerBg109x60.png') no-repeat;
   cursor: move;
 }
 
 .UIContainerConfigOptions .TwoRowContainerLayout {
-  width:105px;  height:56px;
-  margin:auto;  margin-top: 10px;
-  background: url('MacSkin/background/2RowContainerBg105x56.gif') no-repeat;
+  width: 109px;  height: 60px;
+  margin: auto;  margin-top: 9px;
+  background: url('MacSkin/background/2RowContainerBg109x60.png') no-repeat;
   cursor: move;
 }
 
 .UIContainerConfigOptions .ThreeRowContainerLayout {
-  width:105px;  height:56px;
-  margin:auto; margin-top: 10px;
-  background: url('MacSkin/background/3RowContainerBg105x56.gif') no-repeat;
+  width: 109px;  height: 60px;
+  margin: auto; margin-top: 9px;
+  background: url('MacSkin/background/3RowContainerBg109x60.png') no-repeat;
   cursor: move;
 }
 
 .UIContainerConfigOptions .TwoColumnContainerLayout {
-  width:105px;  height:56px;
+  width: 109px;  height: 60px;
   margin:auto;  margin-top: 10px;
-  background: url('MacSkin/background/2ColumnContainerBg105x56.gif') no-repeat;
+  background: url('MacSkin/background/2ColumnContainerBg109x60.png') no-repeat;
   cursor: move;
 }
 
 .UIContainerConfigOptions .ThreeColumnContainerLayout {
-  width:105px;  height:56px;
+  width: 109px;  height: 60px;
   margin:auto;  margin-top: 10px;
-  background: url('MacSkin/background/3ColumnContainerBg105x56.gif') no-repeat;
+  background: url('MacSkin/background/3ColumnContainerBg109x60.png') no-repeat;
   cursor: move;
 }
 
 .UIContainerConfigOptions .TwoTabContainerLayout {
-  width:105px;  height:56px;
-  margin:auto;  margin-top: 10px;
-  background: url('MacSkin/background/2TabContainerBg105x56.gif') no-repeat;
+  width: 109px;  height: 60px;
+  margin: auto;  margin-top: 10px;
+  background: url('MacSkin/background/2TabContainerBg109x60.png') no-repeat;
   cursor: move;
 }
 
 .UIContainerConfigOptions .ThreeTabContainerLayout {
-  width:105px;  height:56px;
+  width: 109px;  height: 60px;
   margin:auto; margin-top: 10px;
-  background: url('MacSkin/background/3TabContainerBg105x56.gif') no-repeat;
+  background: url('MacSkin/background/3TabContainerBg159x60.png') no-repeat;
   cursor: move;
 }
 
 .UIContainerConfigOptions .TwoColumnOneRowContainerLayout {
-  width:105px;  height:56px;
+  width: 109px;  height: 60px;
   margin:auto; margin-top: 10px;
-  background: url('MacSkin/background/2Col1RowBg105x56.gif') no-repeat;
+  background: url('MacSkin/background/2Col1RowBg109x60.png') no-repeat;
   cursor: move;
 }
 
 .UIContainerConfigOptions .OneRowTwoColumnContainerLayout {
-  width:105px; height:56px;
+  width: 109px; height: 60px;
   margin:auto; margin-top: 10px;
-  background: url('MacSkin/background/1Row2ColBg105x56.gif') no-repeat;
+  background: url('MacSkin/background/1Row2ColBg109x60.png') no-repeat;
   cursor: move;
 }
 
 .UIContainerConfigOptions .OneRow2Column1RowContainerLayout {
-  width:105px;
-  height:56px;
+  width: 109px; height: 60px;
   margin:auto; margin-top: 10px;
-  background: url('MacSkin/background/1Row2Col1RowBg105x56.gif') no-repeat;
+  background: url('MacSkin/background/1Row2Col1RowBg109x60.png') no-repeat;
   cursor: move;
 }

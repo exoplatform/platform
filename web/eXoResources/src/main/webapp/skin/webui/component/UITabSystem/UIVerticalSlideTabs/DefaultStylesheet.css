@@ -52,24 +52,27 @@
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLeft {
   height: 26px ; 
-  padding-left: 3px ;
-  background: url('DefaultSkin/background/SmoothRoundedLeftBar3x26.gif') no-repeat left ;
+  padding-left: 4px ;
+  background: url('DefaultSkin/background/LeftSmoothRoundedBarS4x26.gif') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRight {
   height: 26px ; width: auto ;
-  padding-right: 3px ;
-  background: url('DefaultSkin/background/SmoothRoundedRightBar3x26.gif') no-repeat right ;
+  padding-right: 4px ;
+  background: url('DefaultSkin/background/RightSmoothRoundedBarS4x26.gif') no-repeat right ;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRepeat {
   height: 26px ;
-  background: url('DefaultSkin/background/SmoothRoundedRepeatBar1x26.gif') repeat-x ;
+  background: url('DefaultSkin/background/MiddleSmoothRoundedBarS1x26.gif') repeat-x ;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .LeftIcon {
   float: left ;
-  margin: 5px 5px 0px 5px;
+  margin: 6px 5px 0px 5px;
+  width: 16px;
+  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLabel {
@@ -102,23 +105,26 @@
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLeft {
   height: 26px ; 
   padding-left: 3px ;
-  background: url('DefaultSkin/background/SelectedVTabStyle3L.gif') no-repeat left ;
+  background: url('DefaultSkin/background/LeftSmoothRoundedBar4x26.gif') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabRight {
   height: 26px ; width: auto ;
   padding-right: 3px ;
-  background: url('DefaultSkin/background/SelectedVTabStyle3R.gif') no-repeat right ;
+  background: url('DefaultSkin/background/RightSmoothRoundedBar4x26.gif') no-repeat right ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabRepeat {
   height: 26px ;
-  background: url('DefaultSkin/background/SelectedVTabStyle3M.gif') repeat-x ;
+  background: url('DefaultSkin/background/MiddleSmoothRoundedBar1x26.gif') repeat-x ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .LeftIcon {
   float: left ;
-  margin: 5px 5px 0px 5px;
+  margin: 6px 5px 0px 5px;
+  width: 16px;
+  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackNextArrow.gif') no-repeat ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLabel {

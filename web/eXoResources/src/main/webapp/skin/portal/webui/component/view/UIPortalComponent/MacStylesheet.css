@@ -147,9 +147,9 @@
 /*############### End Decorator ###################################################*/
 .UIContainer .LAYOUT-CONTAINER {
   height: 100%;
-  /*background: #dedede url('DefaultSkin/background/ContainerBackground.gif') no-repeat center;*/
-  background: #dedede;
-  border: solid 1px #38acf3 ;
+  /*background: #dedede url('DefaultSkin/background/ContainerBackground1x4.gif') no-repeat center;*/
+  background: url('MacSkin/background/ContainerBackground1x4.gif') repeat;
+  border: solid 1px #7b7b7b ; border-bottom: solid 1px #1e1f1f;
   padding: 8px 0px 0px 0px ;
   margin: 0px 13px 10px 13px;
 }
@@ -187,9 +187,9 @@
 
 .UIContainer .ContainerIcon {
 	float: left;
-  width: 16px; height: 16px;
-  margin: 4px 5px 0px 5px;
-  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat ;
+  width: 18px; height: 18px;
+  margin: 3px 5px 0px 5px;
+  background: url('/eXoResources/icons/16x16/MacSkin/DefaultContainerIcon.png') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {
