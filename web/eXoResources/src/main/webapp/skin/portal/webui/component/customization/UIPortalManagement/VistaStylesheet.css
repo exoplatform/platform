@@ -28,6 +28,10 @@
   background: url('VistaSkin/background/BrowsePortal.gif') no-repeat;
 }
 
+.UIPortalManagement .UIToolbar .ControlToolbar {
+	margin: 10px 2px 0px 95px; 
+}
+
 .UIPortalManagement .RollbackIcon {
   float: left;
   width: 30px;  height: 25px;
@@ -41,16 +45,14 @@
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
-  float: left;
-  margin: 4px 7px;
+	margin: 8px 11px;
   width: 30px;  height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControlIcon.png') no-repeat;
 }
 
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
-  float: left;
-  margin: 4px 7px;
+	margin: 8px 11px;
   width: 30px;  height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControlIcon.png') no-repeat;
 }
@@ -65,16 +67,13 @@
 
 
 .UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
-  float: left;
-  margin: 4px 7px;
+  margin: 8px 11px;
   width: 30px;  height: 24px;  
-  cursor : pointer;
   background: url('/eXoResources/icons/24x24/VistaSkin/Preview.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
-  float:left;
-  margin: 4px 7px;
+  margin: 8px 11px;
   width: 30px;  height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortalControl.png');
 

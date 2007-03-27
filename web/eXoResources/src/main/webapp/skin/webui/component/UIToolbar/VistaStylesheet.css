@@ -5,13 +5,13 @@
 /*#################################- EditToolbar -##############################*/
 
 .UIToolbar .EditToolbar {
-  height: 31px;
+  height: 37px;
 }
 
 .UIToolbar .EditToolbar .LeftBar {
   padding-left: 7px;
   background: url('VistaSkin/background/PolyBarL7x37.png') no-repeat left;
-  margin: 0px 13px;
+  margin: 0px 10px;
 }
 
 .UIToolbar .EditToolbar .RightBar {
@@ -26,15 +26,12 @@
 
 .UIToolbar .EditToolbar .Icon {
   float: left;
-  margin: 7px 10px 0px 10px;
   cursor: pointer;
 }
 
 /*#################################- ControlToolbar -##############################*/
 
 .UIToolbar .ControlToolbar {
-	padding: 10px 0px 0px 95px;
-
 }
 
 .UIToolbar .ControlToolbar .LeftBar {
