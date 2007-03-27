@@ -7,8 +7,11 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
+import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.PortalDAO;
@@ -98,7 +101,20 @@ public class UIPageEditBar extends UIToolbar {
 
   static public class EditPageActionListener  extends EventListener<UIPageEditBar> {
     public void execute(Event<UIPageEditBar> event) throws Exception {
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       UIPageEditBar uiEditBar = event.getSource();
+      uiEditBar.showUIPage();
+      UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
+      uiPageForm.setValues(uiEditBar.getUIPage());
+      uiMaskWS.setUIComponent(uiPageForm);
+      uiMaskWS.setShow(true);
+      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      Util.updateUIApplication(event);  
+      
+    /*  UIPageEditBar uiEditBar = event.getSource();
       uiEditBar.showUIPage();
 
       UIPageManagement uiPManagement = uiEditBar.getParent();      
@@ -110,7 +126,7 @@ public class UIPageEditBar extends UIToolbar {
       uiPageForm.removeChild(UIPageTemplateOptions.class);
       uiPageForm.setValues(uiEditBar.getUIPage());
 
-      Util.updateUIApplication(event);
+      Util.updateUIApplication(event);*/
     }
   }
 

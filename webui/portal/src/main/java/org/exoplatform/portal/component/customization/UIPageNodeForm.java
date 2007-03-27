@@ -11,6 +11,7 @@ import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.PortalDAO;
@@ -46,7 +47,7 @@ import org.exoplatform.webui.event.Event.Phase;
     template = "system:/groovy/webui/component/UIFormTabPane.gtmpl" ,    
     events = {
       @EventConfig(listeners = UIPageNodeForm.SaveActionListener.class ),
-      @EventConfig(phase = Phase.DECODE, listeners = UIPageNodeForm.BackActionListener.class )
+      @EventConfig(phase = Phase.DECODE, listeners = UIMaskWorkspace.CloseActionListener.class )
     }
 )
 public class UIPageNodeForm extends UIFormTabPane {

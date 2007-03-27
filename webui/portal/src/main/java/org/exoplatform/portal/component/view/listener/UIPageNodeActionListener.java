@@ -68,7 +68,39 @@ public class UIPageNodeActionListener {
 
   static public class EditPageNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {   
+      
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      UIRightClickPopupMenu popupMenu = event.getSource();
+      UIComponent parent = popupMenu.getParent();
+      UIPageNodeSelector uiPageNodeSelector = parent.getParent();
+
+      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
+      UIPageManagement uiManagement = uiPageNodeSelector.getParent();
+      Util.updateUIApplication(event); 
+
+      PageNode node  = uiPageNodeSelector.findPageNodeByUri(uri);
+      
+      if(node == null) node = Util.getUIPortal().getSelectedNode();
+      if(node == null) return;
+
+      UserPortalConfigService portalConfigService = popupMenu.getApplicationComponent(UserPortalConfigService.class);
+      Page page  = portalConfigService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
+      UIPage uiPage  = Util.toUIPage(page, uiToolPanel);      
+      
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
+      uiPageForm.setValues(uiPage);
+      uiMaskWS.setUIComponent(uiPageForm);
+      uiMaskWS.setShow(true);
+      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      
+      Util.updateUIApplication(event);        
+     
+      
+      /* String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UIRightClickPopupMenu popupMenu = event.getSource();
       UIComponent parent = popupMenu.getParent();
       UIPageNodeSelector uiPageNodeSelector = parent.getParent();
@@ -119,7 +151,8 @@ public class UIPageNodeActionListener {
       UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
       uiPageEditBar.setUIPage(uiPage); 
       uiPageEditBar.showUIPage();
-    }   
+    }   */
+    }
   }
 
   static public class EditSelectedNodeActionListener extends EventListener<UIRightClickPopupMenu> {
