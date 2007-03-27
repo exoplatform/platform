@@ -9,8 +9,8 @@
   <artifactId>exo.portal.component.resources</artifactId>
   <packaging>jar</packaging>
   <version>${org.exoplatform.portal.version}</version>
-  <name>XML Parser</name>
-  <description>Services  to parse  different xml format  such html ,  rss...</description>
+  <name>Portal Resource</name>
+  <description>resources data service...</description>
 
   <dependencies>
     <dependency>

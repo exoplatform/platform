@@ -11,9 +11,8 @@ import java.io.Serializable;
  *          tuan08@users.sourceforge.net
  * Date: May 14, 2004
  * Time: 1:12:22 PM
- * @hibernate.class  table="RESOURCE_BUNDLE_DATA"
- *                   polymorphism="explicit"
  */
+@SuppressWarnings("serial")
 public class ResourceBundleData extends ResourceBundleDescription implements Serializable {
   
   private String data_ ;

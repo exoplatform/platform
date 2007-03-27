@@ -4,10 +4,6 @@
  **************************************************************************/
 package org.exoplatform.services.config;
 
-import java.util.Iterator;
-
-import org.exoplatform.container.xml.ObjectParam;
-import org.exoplatform.container.xml.ServiceConfiguration;
 import org.exoplatform.services.database.HibernateService;
 
 import com.thoughtworks.xstream.XStream;
