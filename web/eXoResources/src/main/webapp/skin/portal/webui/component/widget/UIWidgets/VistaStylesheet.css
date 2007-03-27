@@ -157,17 +157,17 @@
 }
 
 .UIWidgets .ControlBar .DownBrownArrowIcon {
-	background: url('VistaSkin/icon/DownBrownArrowIcon.png') no-repeat center;
+	background: url('VistaSkin/icon/DownNomalIcon.png') no-repeat center;
 }
 
 .UIWidgets .ControlBar .DownBlueArrowIcon {
-	background: url('VistaSkin/icon/DownBlueArrowIcon.png') no-repeat center;
+	background: url('VistaSkin/icon/DownSelectIcon.png') no-repeat center;
 }
 
 .UIWidgets .ControlBar .UpBlueArrowIcon {
-	background: url('VistaSkin/icon/UpBlueArrowIcon.png') no-repeat center;
+	background: url('VistaSkin/icon/UpSelectIcon.png') no-repeat center;
 }
 
 .UIWidgets .ControlBar .UpBrownArrowIcon {
-	background: url('VistaSkin/icon/UpBrownArrowIcon.png') no-repeat center;
+	background: url('VistaSkin/icon/UpNomalIcon.png') no-repeat center;
 }

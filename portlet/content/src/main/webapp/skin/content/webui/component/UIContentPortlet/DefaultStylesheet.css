@@ -7,7 +7,7 @@
  */
 
 .UIWindow .UIContentPortlet {
-  overflow: auto ; border: 1px solid red;
+  overflow: auto ;
 }
 
 .UIContentPortlet {
