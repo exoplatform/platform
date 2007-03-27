@@ -1,0 +1,17 @@
+<div class="UILogged" style="border: 1px solid red;">
+  <div class="WelcomeBox">
+    <%if(uicomponent.getAccessibility() == 0) { %>
+	  <% uicomponent.renderChild(0) %>
+	  <%} else if(uicomponent.getAccessibility() == 1) {%>     
+		<div class="UserWelcomeBox">
+		  <div class="StateMessage"><%=_ctx.appRes("UILogged.note.loggedUser")%></div>
+		  <div class="LoggedUserName">$uicomponent.remoteUser</div>
+ 					<%} else if(uicomponent.getAccessibility() == 2) {%>
+			   <div class="LoggedUserName">admin</div>
+			<%} else {%>
+			<%}%>
+		</div>
+		<div class="LabelSignout" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">Sign out</div>
+	</div>
+</div>  
+
