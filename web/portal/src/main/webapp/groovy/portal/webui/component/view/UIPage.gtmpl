@@ -18,7 +18,7 @@
 			<div class="TopLeftPage">
 				<div class="TopRightPage">
 					<div class="TopCenterPage">
-					  <%=_ctx.appRes("UIPage.label.pageContent")%>s
+					  <%=_ctx.appRes("UIPage.label.pageContent")%>
 					</div>												
 				</div>
 			</div>
