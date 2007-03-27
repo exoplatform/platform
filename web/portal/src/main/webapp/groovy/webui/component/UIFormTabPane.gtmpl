@@ -6,7 +6,7 @@
 <div class="UIFormTabPane">
   <div class="UITabPane">
 		<div class="TabPaneContent">
-      <%String workingAreaCssClass =  "WorkingArea" ;%>
+      <%String workingAreaCssClass="WorkingArea" ;%>
 	    <div class="$workingAreaCssClass">
 	     	<div class="UIHorizontalTabs">
 	        <div class="TabsContainer">
