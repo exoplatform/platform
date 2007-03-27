@@ -2,7 +2,7 @@
   width: 6px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
-  background: url("DefaultSkin/background/SlidebarBackground6x1.gif") repeat-y right;
+  background: url("DefaultSkin/background/ControlWorkspaceBG6x1.gif") repeat-y right;
 }
 
 .UIControlWorkspace .UIVerticalSlideTabs {
@@ -31,34 +31,10 @@
   margin-right: 2px ;
 }
 
-.UIControlWorkspace .UIWorkspacePanel .WhiteRoundedBoxStyle {
-  margin: 2px 4px 5px 4px;
-}
-
-.UIControlWorkspace .UIWorkspacePanel .UIMyPortal {
-  background: none;
-  border: solid 1px #dbe4e4 ;  /*Fix Bug On IE*/
-}
-
-
-
 /*########################### Tab ###########################*/
-.UIControlWorkspace .UIWorkspacePanel .TabPortalIcon {
-  float: left;  
-  width: 30px ; height: 25px ;
-  background: url('DefaultSkin/background/PortalManagement.gif') no-repeat ;
-  margin: 7px 10px 0px 5px; 
-}
 
 .UIControlWorkspace .UIWorkspacePanel .ControlPanelExpandContainer {
   margin: 10px 4px;
-}
-
-.UIControlWorkspace .UIWorkspacePanel .TabPageIcon {
-  float: left;
-  width: 30px ; height: 25px ;
-  background: url('DefaultSkin/background/PageManagement.gif') no-repeat center;
-  margin: 6px 10px 0px 5px;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .HideContentVTab {
@@ -77,13 +53,14 @@
 .UIControlWorkspace .Slidebar {
 	float: right ;
   width: 6px ; height: 100% ;
+  background: url("DefaultSkin/background/SlidebarBackground6x1.gif") repeat-y right;
   cursor: pointer ;
 }
 
 .UIControlWorkspace .SlidebarButton {
 	height: 100% ;
 	width: 6px ;
-	background: url("DefaultSkin/background/SlidebarButton6x61.gif") no-repeat center center ;
+	background: url("DefaultSkin/background/SlidebarButton6x160.gif") no-repeat center center ;
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
@@ -116,3 +93,5 @@
 	position: absolute ;
 	cursor: pointer ;
 }
+
+
