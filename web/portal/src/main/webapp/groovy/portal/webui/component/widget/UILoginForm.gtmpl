@@ -51,13 +51,13 @@
 	          <div class="SignUpBar">
 	          	<div class="LeftSignUpBar">
 		          	<div class="SignUpBackground">
-		          		<div >
-		          			<%=_ctx.appRes("UILoginForm.label.NotMember")%>
-		          			<span>
-		          			<div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
-											<%=_ctx.appRes("UILoginForm.label.ForAccount")%>
-										</div>
-		          		</div>
+		          		<div style="float: left ; margin-left: 10px">
+	          				<%=_ctx.appRes("UILoginForm.label.NotMember")%>
+	          			</div>
+	          			<div class="SignUpLink" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
+										<%=_ctx.appRes("UILoginForm.label.ForAccount")%>
+									</div>
+									<div style="clear: left"><span></span></div>
 		          	</div>
 		          </div>
 	          </div>
