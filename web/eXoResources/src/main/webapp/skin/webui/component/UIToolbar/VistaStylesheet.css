@@ -2,6 +2,66 @@
  
 }
 
+/*#################################- EditToolbar -##############################*/
+
+.UIToolbar .EditToolbar {
+  height: 31px;
+}
+
+.UIToolbar .EditToolbar .LeftBar {
+  padding-left: 7px;
+  background: url('VistaSkin/background/PolyBarL7x37.png') no-repeat left;
+  margin: 0px 13px;
+}
+
+.UIToolbar .EditToolbar .RightBar {
+  padding-right: 8px;
+  background: url('VistaSkin/background/PolyBarR8x37.png') no-repeat right;
+}
+
+.UIToolbar .EditToolbar .MiddleBar {
+  height: 37px; line-height: 37px; vertical-align: middle;
+  background: url('VistaSkin/background/PolyBarM1x37.png') repeat-x ;
+}
+
+.UIToolbar .EditToolbar .Icon {
+  float: left;
+  margin: 7px 10px 0px 10px;
+  cursor: pointer;
+}
+
+/*#################################- ControlToolbar -##############################*/
+
+.UIToolbar .ControlToolbar {
+	padding: 10px 0px 0px 95px;
+
+}
+
+.UIToolbar .ControlToolbar .LeftBar {
+  height: 28px;
+  padding-left: 11px;
+  background: url('VistaSkin/background/LeftControlToolbar11x28.png') no-repeat left;
+}
+
+.UIToolbar .ControlToolbar .MiddleBar {
+  height: 28px;
+  line-height: 28px;
+  background: url('VistaSkin/background/MiddleControlToolbar1x28.png') repeat-x ;
+}
+
+.UIToolbar .ControlToolbar .SeparateLine{
+  width: 2px; height: 20px;
+  float: left;
+  margin: 2px 2px 0px 3px;
+  background: url('DefaultSkin/background/SeparateLine2x1.gif') repeat-y ;
+}
+
+.UIToolbar .ControlToolbar .Icon {
+  float: left;
+  margin: 2px 4px 0px 4px; 
+}
+/*====================================================*/
+
 .UIToolbar .Button {
   cursor: pointer ;
   float: left ;
@@ -392,26 +452,21 @@
 }
 
 .UIToolbar .RollbackIcon {
-	float: left;
-	margin: 5px 8px 0px 12px;
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/RollbackB.png') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/RollbackB.png') no-repeat;
 }
 
 .UIToolbar .FinishIcon {
-	float: left; margin: 5px 8px;
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/Finish.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/Finish.png') no-repeat;
 }
 
 .UIToolbar .SaveIcon {
-	float: left; margin: 5px 8px;
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/SaveB.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/SaveB.png') no-repeat;
 }
 
 .UIToolbar .AbortIcon {
-	float: left; margin: 5px 8px;
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/AbortB.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/AbortB.png') no-repeat;
 }

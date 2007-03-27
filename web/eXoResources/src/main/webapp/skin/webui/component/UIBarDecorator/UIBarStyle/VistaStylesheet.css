@@ -124,20 +124,15 @@
 
 /*###########################-Style4Bar-###########################*/
 .UIBarStyle .Style4 {
-  width: 190px; height: 28px;
-  padding: 0px 0px 0px 25px;
-}
-
-.UIBarStyle .Style4 .LeftBar {
-  height: 28px ;
-  background: url('VistaSkin/background/Style4BarL7x28.png') no-repeat left ;
-  padding: 0px 0px 0px 7px ;
+	height:28px;
+	margin:11px 0px;
+	padding-right:45px;
 }
 
 .UIBarStyle .Style4 .RightBar {
   height:28px ;
-  background: url('VistaSkin/background/Style4BarR7x28.png') no-repeat right ;
-  padding: 0px 7px 0px 0px ;
+  background: url('VistaSkin/background/Style4BarR11x28.png') no-repeat right ;
+  padding: 0px 11px 0px 0px ;
 }
 
 .UIBarStyle .Style4 .MiddleBar {
