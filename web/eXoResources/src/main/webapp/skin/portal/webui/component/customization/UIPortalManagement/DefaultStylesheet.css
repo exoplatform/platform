@@ -7,17 +7,7 @@
 }
 
 .UIPortalManagement .UIToolbar .EditToolbar .Icon{
-	margin: 3px 12px 0px 19px;
-}
-
-.UIPortalManagement .ViewModeIcon {
-  width: 30px ; height: 25px ;
-  background: url('DefaultSkin/background/ViewMode.gif') no-repeat ;
-}
-
-.UIPortalManagement .EditModeIcon {
-  width: 30px;  height: 25px;
-  background: url('DefaultSkin/background/EditMode.gif') no-repeat;
+	margin: 4px 9px 0px 17px;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar {
@@ -25,27 +15,28 @@
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
-  width: 24px;  height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/ShowContainerControl.gif') no-repeat;
+  width: 27px;  height: 23px;
+  background: url('DefaultSkin/icons/EditContainer.gif') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
-  width: 24px;  height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/ShowPortletControl.gif') no-repeat;
+  width: 27px;  height: 23px;
+  background: url('DefaultSkin/icons/EditPortlet.gif') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
-  width: 24px;  height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/LayoutMode.gif') no-repeat;
+  width: 27px;  height: 23px;
+  background: url('DefaultSkin/icons/PortalLayoutMode.gif') no-repeat;
 }
+
 .UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
-  width: 24px;  height: 24px;  
-  background: url('/eXoResources/icons/24x24/DefaultSkin/Preview.gif') no-repeat;
+  width: 27px;  height: 23px;  
+  background: url('DefaultSkin/icons/PortalPreview.gif') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
-  width: 24px;  height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/ShowPortalControl.gif');
+  width: 27px;  height: 23px;
+  background: url('DefaultSkin/icons/EditPortal.gif');
 }
 
 .UIPortalManagement .UIToolbar .ControlToolbar {

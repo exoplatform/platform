@@ -7,95 +7,48 @@
   padding: 0px 10px 0px 0px;
 }
 
-/*############################- Page Navigation Context Menu Icons -#####################*/
-.UIPageManagement .AddNodeIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 6px 3px 0px 0px;
-  background: url('DefaultSkin/icons/AddPage.gif') no-repeat;
-}
-
-.UIPageManagement .EditSelectedNodeIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 6px 1px 0px 1px;
-  background: url('DefaultSkin/icons/EditNode.gif') no-repeat;
-}
-
-.UIPageManagement .EditPageNodeIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 6px 2px 0px 0px;
-  background: url('DefaultSkin/icons/EditPage.gif') no-repeat;
-}
-
-.UIPageManagement .CopyNodeIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 6px 2px 0px 1px;
-  background: url('DefaultSkin/icons/Copy.gif') no-repeat;
-}
-
-.UIPageManagement .PasteNodeIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 6px 1px 0px 1px;
-  background: url('DefaultSkin/icons/Paste.gif') no-repeat;
-}
-
-.UIPageManagement .DeleteNodeIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 7px 1px 0px 1px;
-  background: url('DefaultSkin/icons/NavyBlueTrashBin.gif') ;
-}
-
 /*================================= UIPageManagementEditBar Icons =================================*/
-.UIPageManagement .UIPageManagementEditBar .EditToolbar {
+.UIPageManagement .UIToolbar .EditToolbar {
   margin-top: 15px;
 }
 
+.UIPageManagement .UIToolbar .EditToolbar .Icon {
+  margin: 4px 3px 0px 12px;
+}
+
 .UIPageManagement .EditContainerIcon {
-  width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/ShowContainerControl.gif') no-repeat ;
+  width: 27px; height: 23px;
+  background: url('DefaultSkin/icons/EditContainer.gif') no-repeat ;
 }
 
 .UIPageManagement .EditPortletIcon {
-  width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/ShowPortletControl.gif') no-repeat ;
+  width: 27px; height: 23px;
+  background: url('DefaultSkin/icons/EditPortlet.gif') no-repeat ;
 }
 
 .UIPageManagement .EditPageIcon {
-  width: 24px; height: 24px;
+  width: 24px; height: 23px;
   background: url('DefaultSkin/icons/EditPageProperties.gif') no-repeat;
 }
 
 .UIPageManagement .PageLayoutModeIcon {
-  width: 24px; height: 24px;
-  background: url('DefaultSkin/icons/PageLayout.gif') no-repeat ;
+  width: 27px; height: 23px;
+  background: url('DefaultSkin/icons/PageLayout.gif') no-repeat right;
 }
 
 .UIPageManagement .PagePreviewIcon {
-  width: 24px; height: 24px;
-  background: url('DefaultSkin/icons/PagePreview.gif') no-repeat ;
+  width: 27px; height: 23px;
+  background: url('DefaultSkin/icons/PagePreview.gif') no-repeat right;
 }
 
 .UIPageManagement .SavePageIcon {
-  width: 24px; height: 24px;
+  width: 24px; height: 23px;
   background: url('DefaultSkin/icons/SavePage.gif') no-repeat ;
-}
-
-.UIPageManagement .NavigationConfigIcon{
-  width: 24px; height: 24px;
-  background: url('DefaultSkin/icons/NavigationCommunityConfig.gif') no-repeat ;
-  cursor: pointer ;
-  float: left;
-  margin: 5px 7px 0px 12px;
 }
 
 /*=================================Navigation Control Bar=================================*/
 .UIPageManagement .UIToolbar .ControlToolbar {
-	margin: 10px 2px 0px 34px; 
+	margin: 13px 2px 0px 34px; 
 }
 
 .UIPageManagement .RollbackIcon {

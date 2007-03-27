@@ -15,7 +15,7 @@
 	<div class="UIWorkspaceContainer" id="UIWorkspaceContainer" style="display: none;">
 	  <%/*User Workspace Title*/%>
 	  <div class="UserWorkspaceTitle">
-	  	<div class="CloseControlWorkspace" onclick="eXo.portal.UIControlWorkspace.showWorkspace();"><span></span></div>
+	  	<div class="CloseControlWorkspace" title="Close this workspace" onclick="eXo.portal.UIControlWorkspace.showWorkspace();"><span></span></div>
 	  	<div>User Workspace</div>
 	  	<div style="clear: right"><span></span></div>
 	  </div>
@@ -34,7 +34,7 @@
 	</div>
 	
 	<%/*Begin Slidebar*/%>
-	<div class="Slidebar" id="ControlWorkspaceSlidebar" onclick="eXo.portal.UIControlWorkspace.showWorkspace();">
+	<div class="Slidebar" id="ControlWorkspaceSlidebar" onclick="eXo.portal.UIControlWorkspace.showWorkspace();" title="Click to open Control Workspace">
 		<div class="SlidebarButton"><span></span></div>
 	</div>
 	<%/*End Slidebar*/%>

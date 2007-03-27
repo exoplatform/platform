@@ -1,5 +1,8 @@
 .UIPortletOptions {
-  background: #efefef;  border: solid 1px #afaeae ;
+  background: #efefef;  
+  border: solid 1px #bdbcbc ;
+  border-right: solid 1px #929292 ;
+  border-bottom: solid 1px #929292 ;
   padding: 5px;
   margin: 0px 13px;
 }

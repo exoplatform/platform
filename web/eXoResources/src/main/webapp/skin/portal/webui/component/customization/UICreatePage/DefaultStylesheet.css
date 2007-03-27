@@ -11,7 +11,7 @@
   float: left;
   width: 24px; height: 24px;
   margin: 4px 18px 0px 30px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/LayoutMode.gif') no-repeat ;
+  background: url('DefaultSkin/icons/PageLayout.gif') no-repeat ;
   cursor: pointer ;
 }
 
@@ -19,21 +19,21 @@
   float: left;
   width: 24px; height: 24px;
   margin: 4px 18px 0px 30px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/PagePreview.gif') no-repeat ;
+  background: url('DefaultSkin/icons/PagePreview.gif') no-repeat ;
 }
 
 .UICreatePage .EditContainerIcon {
   float: left;
   width: 24px; height: 24px;
   margin: 4px 18px 0px 18px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/ShowContainerControl.gif') no-repeat ;
+  background: url('DefaultSkin/icons/EditContainer.gif') no-repeat ;
 }
 
 .UICreatePage .EditPortletIcon {
   float: left;
   width: 24px; height: 24px;
   margin: 4px 0px 0px 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/ShowPortletControl.gif') no-repeat ;
+  background: url('DefaultSkin/icons/EditPortlet.gif') no-repeat ;
 }
 
 .UICreatePage .NavigationPortalIcon {
