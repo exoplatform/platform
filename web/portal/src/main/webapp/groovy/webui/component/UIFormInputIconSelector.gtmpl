@@ -27,8 +27,8 @@
 	rcontext.addJavascript("eXo.require('eXo.webui.UIPopupSelectCategory');");
 %>
 	<div class="NormalStyle">
-	  <div class="OverflowContainer">
-	    <input type="hidden" name="${uicomponent.name}" value ="$selectedIcon">
+	
+	    <input type="hidden" name="${uicomponent.name}" value ="$selectedIcon"/>
 			<%/*Begin Item List*/%>
 			<div class="ItemListContainer AncestorPopupCategory">
 			  <div class="UIToolbar">
@@ -124,7 +124,7 @@
 	    <%/*Begin Item Detail List*/%>
 	    <div class="ItemDetailList">
 	    	<%/*Template 1*/%>
-	      <div class="OverflowContainer" style="width: 99%;">
+	      
 	        <%
 	          for(iconset in listIconSet) {
 	            String display = "none" ;
@@ -146,8 +146,7 @@
 		      <%}%>
 		      
 		      <div class="SelectedNodeIcon">
-	          <div style="width: 99%">
-		          <div class="OverflowContainer">
+
 		            <div class="SelectedIconPreviewBox">
 		              <div class="Title"><%=_ctx.appRes("UIFormInputIconSelector.label.selectedIconPreview")%></div>
 		              <div class="IconPreviewBoxBG">
@@ -168,14 +167,13 @@
 	                  <div class="ItemValue"><%=uicomponent.getSelectedCategory().getSizeOption()%></div>
 	                </div>
 	              </div>
-		          </div>
-		        </div>
+		          
 	        </div>
 			     
-	      </div>
+
 	      <%/*End Template 1*/%>
 	    </div>
-	    <%/*Begin Item Detail List*/%>
-	  </div>    
+	    <%/*End Item Detail List*/%>
+  
 	</div>
 </div>

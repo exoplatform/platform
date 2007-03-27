@@ -1,5 +1,5 @@
 .UINodeIconSelector {
-	width: 99% ;
+  width: 820px;
 }
 
 .UINodeIconSelector .UIItemSelector .NormalStyle .ItemList{
@@ -17,7 +17,8 @@
   background: #efefef;
   margin-left: 230px;
   border: solid 1px #b7b7b7 ;
-  width: auto; height: 280px;
+  width: 290px; 
+  height: 280px;
   padding: 10px;
 }
 

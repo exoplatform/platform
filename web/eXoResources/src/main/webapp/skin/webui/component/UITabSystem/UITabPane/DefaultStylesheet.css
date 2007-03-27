@@ -32,4 +32,5 @@
   background: #efefef;
   border: solid 1px #cdcdcd;
   padding: 7px ;
+  overflow: auto;
 }
