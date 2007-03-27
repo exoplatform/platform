@@ -4,6 +4,9 @@
  **************************************************************************/
 package org.exoplatform.portal.portlet;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import javax.jcr.Node;
 
 import org.apache.commons.logging.Log;
@@ -41,8 +44,34 @@ public class JCRPortletPreferencesPersister extends JCRDataService implements Po
     return  portletPerferences.toExoPortletPreferences() ;
   }
 
-  @SuppressWarnings("unused")
-  public void savePortletPreferences(WindowID windowID, ExoPortletPreferences exoPref) throws Exception {  
+  public void savePortletPreferences(WindowID windowID, ExoPortletPreferences exoPref) throws Exception {
+    Node parentNode = getDataServiceNode(windowID.getOwner(), PORTLE_TPREFERENCES, true);
+    ExoWindowID exoWindowID = (ExoWindowID) windowID ;
+    PortletPreferences  preferences = new PortletPreferences(exoPref);
+    Data data = portletPreferencesConfigToData(preferences);
+    
+    Node node = getNode(parentNode, exoWindowID.getPersistenceId());
+    if(node == null) {
+      node = parentNode.addNode(exoWindowID.getPortletApplicationName());
+    }
+    dataToNode(data,node);
+    saveData(node, data, exoWindowID.getPersistenceId());
   }  
+  
+  private void saveData(Node parentNode, Data data, String name) throws Exception {
+    Date time = Calendar.getInstance().getTime();
+    data.setModifiedDate(time);
+    if(data.getCreatedDate() == null) data.setCreatedDate(time);
+    if(parentNode.hasNode(name)) {
+      Node node = parentNode.getNode(name);
+      dataToNode(data, node);
+      node.save();
+    } else {
+      Node node = parentNode.addNode(name, DATA_NODE_TYPE);
+      dataToNode(data, node);
+      parentNode.save();
+    }
+    getSession().save();
+  }
   
 }

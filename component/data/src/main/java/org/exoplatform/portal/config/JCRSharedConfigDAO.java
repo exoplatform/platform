@@ -24,7 +24,7 @@ public class JCRSharedConfigDAO extends JCRDataService implements SharedConfigDA
   final private static String NAVIGATION = "navigation";
   final private static String SHARED_PORTAL_TYPE = "exo:sharedPortal";
   final private static String SHARED_NAVIGATION_TYPE = "exo:sharedNavigation";
-
+  final private static String JCR_SYSTEM = "jcr:system";
   final private static String  GROUP_ID = "groupId";
   final private static String  MEMBERSHIP = "membership" ;
   final private static String  PRIORITY = "priority" ;
@@ -174,7 +174,7 @@ public class JCRSharedConfigDAO extends JCRDataService implements SharedConfigDA
   
 
   protected Node getSharedDataNode(String name, boolean autoCreate) throws Exception {
-    Node node = getNode(getSession().getRootNode(), HOME, autoCreate);
+    Node node = getNode(getSession().getRootNode(), JCR_SYSTEM, autoCreate);
     if((node = getNode(node, SHARED, autoCreate)) == null && !autoCreate) return null;
     if((node = getNode(node, APP_DATA, autoCreate)) == null && !autoCreate) return null;
     if((node = getNode(node, name, autoCreate)) == null && !autoCreate) return null;

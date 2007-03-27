@@ -79,4 +79,26 @@
   	</propertyDefinitions>
  	</nodeType> 
  	
+ 	<nodeType	name="exo:portletPreferences" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+  	  <supertype>nt:base</supertype>
+    </supertypes>
+  	<propertyDefinitions>
+  		<propertyDefinition name="groupId" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  	  </propertyDefinition>
+  		<propertyDefinition name="membership" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  	  </propertyDefinition>
+  		<propertyDefinition name="navigation" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+	    </propertyDefinition>
+  		<propertyDefinition name="priority" requiredType="Integer" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  		</propertyDefinition>
+  		<propertyDefinition name="description" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  		</propertyDefinition>
+  	</propertyDefinitions>
+ 	</nodeType> 
 </nodeTypes>    

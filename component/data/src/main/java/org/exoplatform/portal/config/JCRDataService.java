@@ -38,7 +38,7 @@ public abstract class JCRDataService extends BaseDataService {
   final public static String SHARED = "shared";
   
   final public static String PORTLE_TPREFERENCES = "portletPreferences";
-  
+  final public static String PORTLE_TPREFERENCES_TYPE = "exo:portletPreferences";
   final public static String ID = "id" ;
   
   final public static String DATA = "data";

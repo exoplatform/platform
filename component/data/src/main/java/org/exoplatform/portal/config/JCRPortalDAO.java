@@ -216,16 +216,15 @@ public class JCRPortalDAO extends JCRDataService implements PortalDAO {
   }
   
   private void saveData(Node parentNode, Data data, String name) throws Exception {
-    Node node;
     Date time = Calendar.getInstance().getTime();
     data.setModifiedDate(time);
     if(data.getCreatedDate() == null) data.setCreatedDate(time);
     if(parentNode.hasNode(name)) {
-      node = parentNode.getNode(name);
+      Node node = parentNode.getNode(name);
       dataToNode(data, node);
       node.save();
     } else {
-      node = parentNode.addNode(name, DATA_NODE_TYPE);
+      Node node = parentNode.addNode(name, DATA_NODE_TYPE);
       dataToNode(data, node);
       parentNode.save();
     }
