@@ -45,17 +45,17 @@ public class JCRPortletPreferencesPersister extends JCRDataService implements Po
   }
 
   public void savePortletPreferences(WindowID windowID, ExoPortletPreferences exoPref) throws Exception {
-    Node parentNode = getDataServiceNode(windowID.getOwner(), PORTLE_TPREFERENCES, true);
-    ExoWindowID exoWindowID = (ExoWindowID) windowID ;
-    PortletPreferences  preferences = new PortletPreferences(exoPref);
-    Data data = portletPreferencesConfigToData(preferences);
-    
-    Node node = getNode(parentNode, exoWindowID.getPersistenceId());
-    if(node == null) {
-      node = parentNode.addNode(exoWindowID.getPortletApplicationName());
-    }
-    dataToNode(data,node);
-    saveData(node, data, exoWindowID.getPersistenceId());
+//    Node parentNode = getDataServiceNode(windowID.getOwner(), PORTLE_TPREFERENCES, true);
+//    ExoWindowID exoWindowID = (ExoWindowID) windowID ;
+//    PortletPreferences  preferences = new PortletPreferences(exoPref);
+//    Data data = portletPreferencesConfigToData(preferences);
+//    
+//    Node node = getNode(parentNode, exoWindowID.getPersistenceId());
+//    if(node == null) {
+//      node = parentNode.addNode(exoWindowID.getPortletApplicationName());
+//    }
+//    dataToNode(data,node);
+//    saveData(node, data, exoWindowID.getPersistenceId());
   }  
   
   private void saveData(Node parentNode, Data data, String name) throws Exception {
