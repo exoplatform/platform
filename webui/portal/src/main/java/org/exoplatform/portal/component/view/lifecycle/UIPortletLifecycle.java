@@ -114,7 +114,7 @@ public class UIPortletLifecycle extends Lifecycle {
     if(context.isAjaxRequest() && !uiPortlet.isShowEditControl() && !prcontext.isForceFullUpdate()) {
       context.getWriter().write(portletContent.toString()) ;
     } else {
-      WebuiApplication app = context.getApplication() ;
+      WebuiApplication app = (WebuiApplication)context.getApplication() ;
       ResourceResolver resolver =  app.getResourceResolver() ;
       WebuiBindingContext bcontext = 
         new WebuiBindingContext(resolver, context.getWriter(), uicomponent, context) ;    

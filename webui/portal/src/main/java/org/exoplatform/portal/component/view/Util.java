@@ -29,7 +29,7 @@ public class Util {
   static public UIPortal getUIPortal(){
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     if(!(context instanceof PortalRequestContext)) {
-      context =  context.getParentAppRequestContext() ;      
+      context =  (WebuiRequestContext)context.getParentAppRequestContext() ;      
     }
     UIPortalApplication uiApp = (UIPortalApplication) context.getUIApplication() ;     
     return uiApp.findFirstComponentOfType(UIPortal.class) ;    
@@ -38,7 +38,7 @@ public class Util {
   static public UIPortalToolPanel getUIPortalToolPanel(){
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     if(!(context instanceof PortalRequestContext)) {
-      context =  context.getParentAppRequestContext() ;      
+      context =  (WebuiRequestContext)context.getParentAppRequestContext() ;      
     }
     UIPortalApplication uiApp = (UIPortalApplication) context.getUIApplication() ;     
     return uiApp.findFirstComponentOfType(UIPortalToolPanel.class) ;    
@@ -47,7 +47,7 @@ public class Util {
   static public PortalRequestContext getPortalRequestContext() {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     if(!(context instanceof PortalRequestContext)) {
-      context =  context.getParentAppRequestContext() ;
+      context =  (WebuiRequestContext)context.getParentAppRequestContext() ;
     }
     return (PortalRequestContext)context ;
   }
@@ -191,7 +191,7 @@ public class Util {
   }
   
   static public UIWorkspace updateUIApplication(Event<? extends UIComponent> event){
-    PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+    PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
     UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
     
     UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);

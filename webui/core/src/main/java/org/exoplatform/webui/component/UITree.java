@@ -129,7 +129,7 @@ public class UITree extends UIComponent {
   }
   
   public void renderUIComponent(UIComponent uicomponent) throws Exception {
-    uicomponent.processRender(WebuiRequestContext.getCurrentInstance()) ;
+    uicomponent.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;
   }
   
   @SuppressWarnings("unchecked")

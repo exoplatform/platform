@@ -69,7 +69,7 @@ public class UIFormUploadInput extends UIFormInputBase<String> {
   
   public String getActionUpload(){
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
-    WebuiRequestContext pcontext = context.getParentAppRequestContext();
+    WebuiRequestContext pcontext = (WebuiRequestContext)context.getParentAppRequestContext();
     if(pcontext == null) pcontext = context;
     String uploadAction = pcontext.getRequestContextPath() + "/upload?uploadId=" + uploadId_+"&action=upload" ;
     return uploadAction;

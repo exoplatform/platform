@@ -6,13 +6,9 @@ package org.exoplatform.webui.application;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
-import org.exoplatform.container.ExoContainer;
-import org.exoplatform.templates.groovy.ApplicationResourceResolver;
+import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.ApplicationLifecycle;
 import org.exoplatform.webui.Util;
 import org.exoplatform.webui.component.UIApplication;
@@ -26,13 +22,10 @@ import org.exoplatform.webui.event.EventListener;
  *          tuan08@users.sourceforge.net
  * May 7, 2006
  */
-abstract public class WebuiApplication {
+abstract public class WebuiApplication extends Application {
   
   private ConfigurationManager configManager_ ;
   private StateManager stateManager_ ;  
-  private List<ApplicationLifecycle>  lifecycleListeners_ ;
-  private ApplicationResourceResolver resourceResolver_ ;
-  private Hashtable<String, Object> attributes_ =  new Hashtable<String, Object>() ;
   
   public void init() throws Exception {        
     String configPath = getApplicationInitParam("webui.configuration") ;
@@ -41,36 +34,25 @@ abstract public class WebuiApplication {
     String stateManagerClass = configManager_.getApplication().getStateManager() ;
     StateManager stManager = (StateManager) Util.createObject(stateManagerClass, null) ;
     setStateManager(stManager) ;
-    lifecycleListeners_ = configManager_.getApplication().getApplicationLifecycleListeners() ;
-    for(ApplicationLifecycle lifecycle :  lifecycleListeners_) {
-      lifecycle.init(this) ;
-    }
+    List<ApplicationLifecycle> lifecycleListeners = 
+      configManager_.getApplication().getApplicationLifecycleListeners() ;
+    setApplicationLifecycle(lifecycleListeners) ;
+    for(ApplicationLifecycle lifecycle :  lifecycleListeners) lifecycle.init(this) ;
   }
 
   abstract public String getApplicationId() ;
   
-  public ApplicationResourceResolver getResourceResolver() { return resourceResolver_ ; }  
-  public void setResourceResolver(ApplicationResourceResolver resolver) { resourceResolver_ = resolver ; }
   
   public ConfigurationManager  getConfigurationManager() { return configManager_ ;}  
   
   public StateManager  getStateManager() { return stateManager_ ;}  
   public void setStateManager(StateManager sm) { stateManager_ =  sm ; }
   
-  public Object  getAttribute(String name) { return attributes_.get(name) ; }  
-  public void    setAttribute(String name, Object value) { attributes_.put(name, value) ; }
   
   public void destroy() throws Exception {
-    for(ApplicationLifecycle lifecycle :  lifecycleListeners_) lifecycle.destroy(this) ;
+    for(ApplicationLifecycle lifecycle :  getApplicationLifecycle()) lifecycle.destroy(this) ;
   }
   
-  abstract public String getApplicationName() ;
-  
-  abstract public ResourceBundle  getResourceBundle(Locale locale) throws Exception ;
-  
-  abstract public ResourceBundle  getOwnerResourceBundle(String username, Locale locale) throws Exception ;
-  
-  abstract public ExoContainer getApplicationServiceContainer() ;
   
   abstract public String getApplicationInitParam(String name) ;
   
@@ -84,11 +66,9 @@ abstract public class WebuiApplication {
   
   public <T extends UIComponent> T createUIComponent(Class<T> type, String configId, String id, WebuiRequestContext context)  throws Exception{
     Component config = configManager_.getComponentConfig(type, configId) ;
-    
     if(config == null) {      
       throw new Exception("Cannot find the configuration for the component " + type.getName() + ", configId " +configId) ;
     }
-    
     T uicomponent =   Util.createObject(type, config.getInitParams());
     uicomponent.setComponentConfig(id, config) ;
     config.getUIComponentLifecycle().init(uicomponent, context) ;
@@ -110,7 +90,4 @@ abstract public class WebuiApplication {
     list.add(context.getUIApplication()) ;
     return list ;
   }  
-  
-  public List<ApplicationLifecycle> getApplicationLifecycle(){ return lifecycleListeners_; }
-  
 }

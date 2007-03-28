@@ -114,7 +114,8 @@ abstract public class UIComponent {
   
   public  void setComponentConfig(Class clazz, String id) {
     WebuiRequestContext context =  WebuiRequestContext.getCurrentInstance() ;
-    this.config = context.getApplication().getConfigurationManager().getComponentConfig(clazz, id) ;
+    WebuiApplication app = (WebuiApplication) context.getApplication() ;
+    this.config = app.getConfigurationManager().getComponentConfig(clazz, id) ;
   }
   
   public String getTemplate() {  return config.getTemplate() ; }
@@ -175,8 +176,8 @@ abstract public class UIComponent {
   }
   
   public <T extends UIComponent> T createUIComponent(
-      WebuiRequestContext  context, Class<T> type, String configId, String componentId) throws Exception {
-    WebuiApplication app  = context.getApplication() ;    
+    WebuiRequestContext  context, Class<T> type, String configId, String componentId) throws Exception {
+    WebuiApplication app  = (WebuiApplication)context.getApplication() ;    
     T comp =  app.createUIComponent(type, configId, componentId, context) ;
     return comp ;
   }

@@ -50,7 +50,7 @@ public class UIComponentDecorator extends UIComponent {
   
   public void renderChildren() throws Exception {
     if(uicomponent_ == null)  return ;
-    uicomponent_.processRender(WebuiRequestContext.getCurrentInstance()) ;
+    uicomponent_.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;
   }
   
   static public class UIComponentDecoratorLifecycle extends Lifecycle {

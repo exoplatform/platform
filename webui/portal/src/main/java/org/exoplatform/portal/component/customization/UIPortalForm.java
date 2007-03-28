@@ -19,6 +19,7 @@ import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
+import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
@@ -88,7 +89,8 @@ public class UIPortalForm extends UIFormTabPane {
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);    
     
-    WebuiApplication app  = WebuiRequestContext.<WebuiRequestContext>getCurrentInstance().getApplication() ; 
+    WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
+    WebuiApplication app  = (WebuiApplication)currReqContext.getApplication() ; 
     List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);    
     List<SelectItemCategory>  itemCategories = new ArrayList<SelectItemCategory>();
     for(Component ele : configs){      

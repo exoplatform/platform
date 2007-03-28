@@ -17,7 +17,7 @@ abstract public class UIPortletApplication extends  UIApplication {
   }
   
   public void  processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
-    WebuiRequestContext pContext = context.getParentAppRequestContext();
+    WebuiRequestContext pContext = (WebuiRequestContext)context.getParentAppRequestContext();
     if(context.isAjaxRequest() && !pContext.isForceFullUpdate()) {
       Writer w =  context.getWriter() ;
       w.write("<div class=\"PortletResponse\" style=\"display: none\">") ;

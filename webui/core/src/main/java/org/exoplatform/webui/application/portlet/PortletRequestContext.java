@@ -42,7 +42,7 @@ public class PortletRequestContext extends WebuiRequestContext {
 
   public void  setUIApplication(UIApplication uiApplication) throws Exception { 
     uiApplication_ = uiApplication ;
-    appRes_ = getApplication().getResourceBundle(parentAppRequestContext_.getUIApplication().getLocale()) ;
+    appRes_ = getApplication().getResourceBundle(getParentAppRequestContext().getLocale()) ;
   }
   
   final public String getRequestParameter(String name) {
@@ -51,24 +51,6 @@ public class PortletRequestContext extends WebuiRequestContext {
 
   final public String[] getRequestParameterValues(String name) {
     return request_.getParameterValues(name);
-  }
-
-  final public Object getRequestAttribute(String name) {
-    return request_.getAttribute(name);
-  }
-
-  public void setRequestAttribute(String name, Object value) {
-    request_.setAttribute(name, value);
-  }
-  
-  @SuppressWarnings("unused")
-  public Object getSessionAttribute(String name) {
-    return null;
-  }
-  
-  @SuppressWarnings("unused")
-  public void setSessionAttribute(String arg0, Object arg1) {
-  
   }
 
   public String getRequestContextPath() { return  request_.getContextPath(); }

@@ -143,7 +143,10 @@ public class UIContentNavigation extends UIComponent {
     return null;
   }
   
-  public boolean isLogon(){ return WebuiRequestContext.<WebuiRequestContext>getCurrentInstance().isLogon(); }
+  public boolean isLogon(){ 
+    WebuiRequestContext  context = WebuiRequestContext.getCurrentInstance();
+    return context.isLogon(); 
+  }
 
   static  public class ChangeNodeActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {

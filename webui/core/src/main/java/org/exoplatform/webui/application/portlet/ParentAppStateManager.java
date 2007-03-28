@@ -8,7 +8,8 @@ import org.exoplatform.webui.component.UIApplication;
 public class ParentAppStateManager extends StateManager {
   @SuppressWarnings("unchecked")
   public UIApplication restoreUIRootComponent(WebuiRequestContext context) throws Exception {
-    return context.getParentAppRequestContext().getStateManager().restoreUIRootComponent(context) ;
+    WebuiRequestContext pcontext = (WebuiRequestContext)  context.getParentAppRequestContext() ;
+    return pcontext.getStateManager().restoreUIRootComponent(context) ;
   }
   
   @SuppressWarnings("unused")

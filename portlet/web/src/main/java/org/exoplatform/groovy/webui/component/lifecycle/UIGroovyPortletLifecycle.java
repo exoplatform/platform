@@ -28,7 +28,7 @@ public class UIGroovyPortletLifecycle  extends  Lifecycle {
   public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     UIGroovyPortlet uiPortlet =  (UIGroovyPortlet)  uicomponent ;    
     String template = uiPortlet.getTemplate() ;
-    WebuiApplication app = context.getApplication() ;
+    WebuiApplication app = (WebuiApplication)context.getApplication() ;
     ExoContainer pcontainer =  app.getApplicationServiceContainer() ;
     GroovyTemplateService service = 
       (GroovyTemplateService) pcontainer.getComponentInstanceOfType(GroovyTemplateService.class) ;

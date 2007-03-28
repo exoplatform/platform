@@ -104,7 +104,7 @@ public class UIContainer extends UIComponent {
   public <T extends UIComponent> T  replaceChild(
            String targetChildId, Class<T> type, String configId, String id) throws Exception  {
     WebuiRequestContext  context =  WebuiRequestContext.getCurrentInstance() ;    
-    WebuiApplication app  = context.getApplication() ;
+    WebuiApplication app  = (WebuiApplication)context.getApplication() ;
     UIComponent comp =  app.createUIComponent(type, configId, id, context) ;
     comp =  replaceChild(targetChildId, comp) ;
     return (T)comp ;
@@ -112,7 +112,7 @@ public class UIContainer extends UIComponent {
   
   public <T extends UIComponent> T addChild(Class<T> type, String configId, String id) throws Exception  {
     WebuiRequestContext  context =  WebuiRequestContext.getCurrentInstance() ;
-    WebuiApplication app  = context.getApplication() ;
+    WebuiApplication app  = (WebuiApplication)context.getApplication() ;
     T comp =  app.createUIComponent(type, configId, id, context) ;    
     addChild(comp) ;    
     return comp ;
@@ -179,25 +179,25 @@ public class UIContainer extends UIComponent {
   public void renderChild(String id) throws Exception {     
     UIComponent uiChild = getChildById(id) ;
     if(uiChild.isRendered()) {
-      uiChild.processRender(WebuiRequestContext.getCurrentInstance()) ;
+      uiChild.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;
     }
   }
   
   public <T extends UIComponent> void renderChild(Class<T> clazz) throws Exception {     
     UIComponent uiChild = getChild(clazz) ;
     if(uiChild.isRendered()) {
-      uiChild.processRender(WebuiRequestContext.getCurrentInstance()) ;
+      uiChild.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;
     }
   }
   
   public void renderUIComponent(UIComponent uicomponent) throws Exception {
-    uicomponent.processRender(WebuiRequestContext.getCurrentInstance()) ;
+    uicomponent.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;
   }
   
   public void renderChild(int index) throws Exception {
     UIComponent uiChild = getChild(index) ;
     if(uiChild.isRendered()) {
-      uiChild.processRender(WebuiRequestContext.getCurrentInstance()) ;
+      uiChild.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;
     }
   }
   

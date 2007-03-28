@@ -70,7 +70,7 @@ public class Lifecycle {
     ResourceResolver resolver = bcontext.getResourceResolver() ;
     
     if(DEVELOPING) {
-      WebuiRequestContext rootContext = context.getParentAppRequestContext() ;
+      WebuiRequestContext rootContext = (WebuiRequestContext)context.getParentAppRequestContext() ;
       if(rootContext == null)  rootContext = context ;
       //System.out.println(template + " modified: " + file.lastModified() + ", access " + rootContext.getUIApplication().getLastAccessApplication());
       long lastAccess =  rootContext.getUIApplication().getLastAccessApplication() ;

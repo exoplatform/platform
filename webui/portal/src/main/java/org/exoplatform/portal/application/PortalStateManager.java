@@ -22,9 +22,10 @@ public class PortalStateManager extends StateManager {
   @SuppressWarnings("unchecked")
   public UIApplication restoreUIRootComponent(WebuiRequestContext context) throws Exception {
     context.setStateManager(this) ;
-    WebuiApplication app  = context.getApplication() ;
+    WebuiApplication app  = (WebuiApplication)context.getApplication() ;
     if(context instanceof PortletRequestContext) {
-      PortalApplicationState state = uiApplications.get(context.getParentAppRequestContext().getSessionId()) ;
+      WebuiRequestContext preqContext = (WebuiRequestContext) context.getParentAppRequestContext() ;
+      PortalApplicationState state = uiApplications.get(preqContext.getSessionId()) ;
       PortletRequestContext pcontext = (PortletRequestContext) context ;
       String key =  pcontext.getApplication().getApplicationId() ;
       UIApplication uiApplication =  state.get(key) ;

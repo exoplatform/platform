@@ -1,27 +1,27 @@
 package org.exoplatform.webui.application.portlet;
 
+import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.ApplicationLifecycle;
-import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 
 public class PortletApplicationLifecycle  implements  ApplicationLifecycle {
   
   @SuppressWarnings("unused")
-  public void init(WebuiApplication app) {
+  public void init(Application app) {
     
   }
   
   @SuppressWarnings("unused")
-  public void beginExecution(WebuiApplication app, WebuiRequestContext context) throws Exception {
+  public void beginExecution(Application app, WebuiRequestContext context) throws Exception {
     
   }
   
   @SuppressWarnings("unused")
-  public void endExecution(WebuiApplication app, WebuiRequestContext context) throws Exception {
+  public void endExecution(Application app, WebuiRequestContext context) throws Exception {
   }
   
   @SuppressWarnings("unused")
-  public void destroy(WebuiApplication app) {
+  public void destroy(Application app) {
     
   }
 

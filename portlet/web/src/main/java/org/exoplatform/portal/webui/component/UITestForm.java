@@ -100,8 +100,9 @@ public class UITestForm  extends UIForm {
     public void execute(Event<UITestForm> event) throws Exception {
       event.getRequestContext().addUIComponentToUpdateByAjax(event.getSource());
       
-      WebuiRequestContext rcontext = event.getRequestContext().getParentAppRequestContext();
-      event.getRequestContext().addJavascript("window.location=\"http://www.vietnamnet.vn\"");
+      WebuiRequestContext rcontext = 
+        (WebuiRequestContext)event.getRequestContext().getParentAppRequestContext();
+      event.getRequestContext().getJavascriptManager().addJavascript("window.location=\"http://www.vietnamnet.vn\"");
       System.out.println("\n\n\n == > "+rcontext +"\n\n");
 //      HttpServletResponse response = rcontext.getResponse();      
 //      System.out.println("\n\n\n == response ==> "+response +"\n\n");
