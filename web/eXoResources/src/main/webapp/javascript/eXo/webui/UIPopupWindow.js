@@ -16,8 +16,6 @@ UIPopupWindow.prototype.init = function(popupId, isShow) {
 		contentBlock.style.height = (eXo.core.Browser.getBrowserHeight() - 100) + "px";
 	}
 
-	this.superClass.setAlign(popup) ;
-	
 	var popupBar = eXo.core.DOMUtil.findFirstDescendantByClass(popup, 'div' ,'PopupTitle') ;
 
 	popupBar.onmousedown = this.superClass.initDND ;
@@ -28,15 +26,18 @@ UIPopupWindow.prototype.init = function(popupId, isShow) {
 		eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject").style.display = "none" ;
 	}
 	popup.style.visibility = "visible" ;
-	if(isShow == true) this.superClass.show(popup);
-//	alert(popupId +" : "+popup+" : "+isShow);
+	if(isShow == true) this.show(popup);
 };
 
-UIPopupWindow.prototype.show = function(popupId, isShow) {
-	var popup = document.getElementById(popupId) ;
+UIPopupWindow.prototype.show = function(popup) {
+	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 	popup.style.visibility = "hidden";
 	this.superClass.show(popup) ;
-	this.superClass.setAlign(popup)
+	var offsetParent = popup.offsetParent ;
+	if(offsetParent) {
+		popup.style.top = ((offsetParent.offsetHeight - popup.offsetHeight) / 2) + "px" ;
+		popup.style.left = ((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
+	}
 	popup.style.visibility = "visible";
 };
 
