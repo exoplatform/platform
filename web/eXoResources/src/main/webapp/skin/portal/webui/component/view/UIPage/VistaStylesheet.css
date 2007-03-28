@@ -6,54 +6,53 @@
 }
 
 .UIPage .PageLayoutDecorator .MiddlePageBG {
-  background: white;
-  padding: 0px 40px 20px 40px;
+  height: 108px; 
+  background: url('VistaSkin/background/PageContentBG1x108.png'); 
 }
 
 .UIPage .PageLayoutDecorator .TopLeftPage {
-  background: url('VistaSkin/background/PageLayoutTL38x30.png') no-repeat left ;
-  padding: 0px 0px 0px 38px ;
+  background: url('VistaSkin/background/PageLayoutTL98x78.png') no-repeat left ;
+  padding: 0px 0px 0px 98px ;
 }
 
 .UIPage .PageLayoutDecorator .TopRightPage {
-  background: url('VistaSkin/background/PageLayoutTR71x30.png') no-repeat right ;
-  padding: 0px 71px 0px 0px ; 
+  background: url('VistaSkin/background/PageLayoutTR15x78.png') no-repeat right ;
+  padding: 0px 15px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage {
-  height: 30px ;   
-  background: url('VistaSkin/background/PageLayoutTC1x30.png') repeat-x center ;  
+  height: 78px ;   
+  background: url('VistaSkin/background/PageLayoutTC1x78.png') repeat-x center ;  
 }
 
 .UIPage .PageLayoutDecorator .MiddleLeftPage {
-  background: url('VistaSkin/background/PageLayoutML15x1.png') repeat-y left ;
-  padding: 0px 0px 0px 15px ;   
+  background: url('VistaSkin/background/PageLayoutML12x1.png') repeat-y left ;
+  padding: 0px 0px 0px 12px ;   
 }
 
 .UIPage .PageLayoutDecorator .MiddleRightPage {
-  background: url('VistaSkin/background/PageLayoutMR16x1.png') repeat-y right;
-  padding: 0px 16px 0px 0px ;
+  background: url('VistaSkin/background/PageLayoutMR15x1.png') repeat-y right;
+  padding: 0px 15px 0px 0px ;
 }
 
 .UIPage .PageLayoutDecorator .PageContent {
-  height: 80px; 
-  background: url('VistaSkin/background/PageContentBG.gif');
-  padding: 6px 10px 0px 10px; 
+  height: 108px; 
+  background: url('VistaSkin/background/PageContentBG1x108.png'); 
 }
 
 .UIPage .PageLayoutDecorator .BottomLeftPage {
-  height: 17px;  
-  background: url('VistaSkin/background/PageLayoutBL15x17.png') no-repeat left ;
-  padding: 0px 0px 0px 15px ;
+  height: 15px;  
+  background: url('VistaSkin/background/PageLayoutBL12x15.png') no-repeat left ;
+  padding: 0px 0px 0px 12px ;
 }
 
 .UIPage .PageLayoutDecorator .BottomRightPage {
-  background: url('VistaSkin/background/PageLayoutBR16x17.png') no-repeat right ;
-  padding: 0px 16px 0px 0px; 
+  background: url('VistaSkin/background/PageLayoutBR15x15.png') no-repeat right ;
+  padding: 0px 15px 0px 0px; 
 }
 
 .UIPage .PageLayoutDecorator .BottomCenterPage {
-  height: 17px ;   
-  background: url('VistaSkin/background/PageLayoutBC1x17.png') repeat-x center ; 
+  height: 15px ;   
+  background: url('VistaSkin/background/PageLayoutBC1x15.png') repeat-x center ; 
 }
 

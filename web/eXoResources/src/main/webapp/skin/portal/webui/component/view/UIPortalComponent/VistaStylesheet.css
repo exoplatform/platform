@@ -196,30 +196,30 @@
 }
 
 .PortletLayoutDecorator .TopLeft {
-  background: url('VistaSkin/background/LayoutTL14x13.png') no-repeat left top;
-  padding-left: 14px ;
-  height: 13px ;
+  background: url('VistaSkin/background/LayoutTL10x10.png') no-repeat left top;
+  padding-left: 10px ;
+  height: 10px ;
 }
 
 .PortletLayoutDecorator .TopMiddle {
-  background: url('VistaSkin/background/LayoutTM1x13.png') repeat-x top;
-  height: 13px ;
+  background: url('VistaSkin/background/LayoutTM1x10.png') repeat-x top;
+  height: 10px ;
 }
 
 .PortletLayoutDecorator .TopRight {
-  background: url('VistaSkin/background/LayoutTR20x13.png') no-repeat right top;
-  padding-right: 20px ;
-  height: 13px ;
+  background: url('VistaSkin/background/LayoutTR11x10.png') no-repeat right top;
+  padding-right: 11px ;
+  height: 10px ;
 }
 
 .PortletLayoutDecorator .MiddleLeft {
-  background: url('VistaSkin/background/LayoutML14x1.png') repeat-y left;
-  padding-left: 14px;
+  background: url('VistaSkin/background/LayoutML10x1.png') repeat-y left;
+  padding-left: 10px;
 }
 
 .PortletLayoutDecorator .MiddleRight {
-  background: url('VistaSkin/background/LayoutMR20x1.png') repeat-y right;
-  padding-right: 20px ;
+  background: url('VistaSkin/background/LayoutMR11x1.png') repeat-y right;
+  padding-right: 11px ;
 }
 
 .PortletLayoutDecorator .CenterBackground {
@@ -228,26 +228,25 @@
 }
 
 .PortletLayoutDecorator .GardientBackground {
-  background: url('VistaSkin/background/LayoutBG1x40.png');
-  height:40px;
-  padding: 6px;
+  background: url('VistaSkin/background/LayoutBG1x56.png');
+  height:56px;
   border-top: none;
 }
 
 .PortletLayoutDecorator .BottomLeft {
-  background: url('VistaSkin/background/LayoutBL14x22.png') no-repeat left bottom;
-  padding-left: 14px ;
-  height: 22px ;
+  background: url('VistaSkin/background/LayoutBL10x14.png') no-repeat left bottom;
+  padding-left: 10px ;
+  height: 14px ;
 }
 
 .PortletLayoutDecorator .BottomMiddle {
-  background: url('VistaSkin/background/LayoutBM1x22.png') repeat-x bottom;
-  height: 22px ;
+  background: url('VistaSkin/background/LayoutBM1x14.png') repeat-x bottom;
+  height: 14px ;
 }
 
 .PortletLayoutDecorator .BottomRight {
-  background: url('VistaSkin/background/LayoutBR21x22.png') no-repeat right bottom;
-  padding-right: 21px ;
+  background: url('VistaSkin/background/LayoutBR11x14.png') no-repeat right bottom;
+  padding-right: 11px ;
 }
 
 /*############### End Decorator ###################################################*/
