@@ -62,7 +62,6 @@ public class UIListUsers extends UISearch {
 	public void search(Query query) throws Exception {
     lastQuery_ = query ;
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
-//    uiGrid.getBeans().s
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     uiGrid.getUIPageIterator().setPageList(service.getUserHandler().findUsers(query)) ;
 	}
@@ -97,8 +96,7 @@ public class UIListUsers extends UISearch {
 	
 	static  public class ViewUserInfoActionListener extends EventListener<UIListUsers> {
     public void execute(Event<UIListUsers> event) throws Exception {
-      System.out.println("\n\n\nViewUserInfoActionListener in UIListUser\n\n\n");
-    /*	String username = event.getRequestContext().getRequestParameter(OBJECTID) ;
+    	String username = event.getRequestContext().getRequestParameter(OBJECTID) ;
     	UIListUsers uiListUsers = event.getSource();
       OrganizationService service = uiListUsers.getApplicationComponent(OrganizationService.class);
       if(service.getUserHandler().findUserByName(username) == null ) {
@@ -113,7 +111,7 @@ public class UIListUsers extends UISearch {
     	uiUserInfo.setRendered(true);
       
     	UIComponent uiToUpdateAjax = uiListUsers.getAncestorOfType(UIUserManagement.class) ;
-    	event.getRequestContext().addUIComponentToUpdateByAjax(uiToUpdateAjax) ;*/
+    	event.getRequestContext().addUIComponentToUpdateByAjax(uiToUpdateAjax) ;
     }
   }
 

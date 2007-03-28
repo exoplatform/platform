@@ -34,7 +34,6 @@ public class UIGroupInfo extends UITabPane {
     
     UISharedNavigationForm uiSharedNavigationForm = getChild(UISharedNavigationForm.class);
     uiSharedNavigationForm.setValues(group != null ? group.getId() : null);
-//    getChild(UIGroupSharedInfo.class).setGroup(group);    
   }
   
 }
