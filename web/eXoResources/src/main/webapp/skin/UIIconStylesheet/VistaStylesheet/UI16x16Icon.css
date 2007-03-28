@@ -774,8 +774,8 @@
 }
 
 .ArrowS1Down16x16Icon {
-  width: 13px ; height: 7px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/WhiteArrowDown.gif') no-repeat ;
+  width: 19px ; height: 20px ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/SelectedIcon.png') no-repeat ;
 }
 
 .ArrowS1Up16x16Icon {

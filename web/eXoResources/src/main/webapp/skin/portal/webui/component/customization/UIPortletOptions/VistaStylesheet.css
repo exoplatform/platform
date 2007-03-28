@@ -1,6 +1,4 @@
 .UIPortletOptions {
-  border: solid 1px #5d5e60;
-  margin: 5px;
   background: url('VistaSkin/background/UIPortletOptionsBackground.png') repeat ;
 }
 
@@ -45,31 +43,29 @@
 }
 
 .UIPortletOptions .Title {
-
-  margin-bottom: 5px ;
-  background: url('VistaSkin/background/PopupCategoryBG1x24.png') repeat-x;
+  background: url('/eXoResources/background/VistaSkin/IconLabelContentBG1x1.png') repeat;
+	padding-left: 8px;
+	border: 1px solid #6c767c;
+	height: 20px;
 }
 
 .UIPortletOptions .Title .TitleContainer {
-	padding-right: 10px;
-	border: 1px solid white ;
+	height: 20px;
 }
 
 .UIPortletOptions .Title .TitleContainer .Icon {
-	margin: 3px 0px 0px 7px;
 	float: left;
-	width: 16px; height: 16px;
+	width: 19px; height: 20px;
 }
 
 .UIPortletOptions .Title .TitleContainer .LabelText {
 	padding-left: 7px;
 	float: left;
-	height: 22px; line-height: 22px; vertical-align: middle;
+	height: 20px; line-height: 20px; vertical-align: middle;
 }
 
 .UIPortletOptions .Title .TitleContainer .ArrowButton {
 	float: right;
-	margin-top: 8px;
 	cursor: pointer ;
 }
 

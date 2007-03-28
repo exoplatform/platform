@@ -51,7 +51,7 @@
 }
 
 .UICaegorySelector .IconLabelContent {
-	background: url('VistaSkin/background/IconLabelContentBG1x1.png') repeat;
+	background: url('/eXoResources/background/VistaSkin/IconLabelContentBG1x1.png') repeat;
 	padding-left: 8px;
 	border: 1px solid #6c767c;
 	height: 20px;
@@ -154,6 +154,7 @@
 
 .UIWidgets .ControlBar .AddIcon {
 	background: url('VistaSkin/icon/AddIcon.png') no-repeat center;
+	margin: 1px 0px 0px 0px;
 }
 
 .UIWidgets .ControlBar .DownBrownArrowIcon {

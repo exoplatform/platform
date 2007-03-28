@@ -45,14 +45,14 @@
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
-	margin: 8px 11px;
+	margin: 8px 11px 0px 11px;
   width: 30px;  height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControlIcon.png') no-repeat;
 }
 
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
-	margin: 8px 11px;
+	margin: 8px 11px 0px 11px;
   width: 30px;  height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControlIcon.png') no-repeat;
 }
@@ -67,13 +67,13 @@
 
 
 .UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
-  margin: 8px 11px;
+  margin: 8px 11px 0px 11px;
   width: 30px;  height: 24px;  
   background: url('/eXoResources/icons/24x24/VistaSkin/Preview.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
-  margin: 8px 11px;
+  margin: 8px 11px 0px 11px;
   width: 30px;  height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortalControl.png');
 
@@ -88,4 +88,31 @@
 
 .UIPortalManagement .UIToolbar .PolyToolbar .MiddleBar {
   padding: 2px 0px 0px 20px;
+}
+
+.UIPortalManagement .MiddleLeftContainerConfigOptions {
+	background: url('VistaSkin/background/MiddleLeftContainerConfigOptions4x1.png') repeat-y left;
+	padding-left: 4px;
+	margin: 0px 10px;
+}
+
+.UIPortalManagement .MiddleRightContainerConfigOptions {
+	background: url('VistaSkin/background/MiddleRightContainerConfigOptions5x1.png') repeat-y right;
+	padding-right: 5px;
+}
+
+.UIPortalManagement .BottomLeftContainerConfigOptions {
+	background: url('VistaSkin/background/BottomLeftContainerConfigOptions7x9.png') no-repeat left;
+	padding-left: 7px;
+	margin: 0px 10px;
+}
+
+.UIPortalManagement .BottomRightContainerConfigOptions {
+	background: url('VistaSkin/background/BottomRightContainerConfigOptions8x9.png') no-repeat right;
+	padding-right: 8px;
+}
+
+.UIPortalManagement .BottomCenterContainerConfigOptions {
+	background: url('VistaSkin/background/BottomCenterContainerConfigOptions1x9.png') repeat-x ;
+	height: 9px;
 }
