@@ -2,40 +2,33 @@
 }
 
 .UIExoStart .StartBarContainer {
-  height: 39px ;
-  background: url('MacSkin/background/StartBarBG1x39.gif') repeat-x ;
+  height: 40px ;
+  background: url('MacSkin/background/StartBarBG1x40.png') repeat-x ;
 }
 
 .UIExoStart .ExoStartButton {
   float: left ;
-  width: 103px ; height: 39px ;
+  width: 97px ; height: 35px ;
   cursor: pointer ;
+  margin: 3px 0px 0px 5px;
 }
 
 .UIExoStart .ButtonNormal {
-  background: url('MacSkin/background/ExoStartNormal95x39.gif') no-repeat left ;
+  background: url('MacSkin/background/ExoStartNormal97x35.png') no-repeat left ;
 }
 
 .UIExoStart .ButtonOver {
-  background: url('MacSkin/background/ExoStartOver95x39.gif') no-repeat left;
+  background: url('MacSkin/background/ExoStartOver97x35.png') no-repeat left;
 }
 
 .UIExoStart .ButtonClicked {
-  background: url('MacSkin/background/ExoStartSelected95x39.gif') no-repeat left;
-}
-
-.UIExoStart .StatusIcon {
-  float: right;
-  width: 24px ; height: 24px ;
-  background: url('MacSkin/icons/24x24/RedFlag.gif') no-repeat ;
-  cursor: pointer ;
-  margin: 5px 5px 0px 2px ;
+  background: url('MacSkin/background/ExoStartSelected97x35.png') no-repeat left;
 }
 
 .UIExoStart .VLineSeparator {
   float: right ;
-  width: 2px ; height: 33px ;
-  background: url('MacSkin/background/SeparateLineBg2x3.gif') repeat-y ;
+  width: 2px ; height: 34px ;
+  background: url('MacSkin/background/SeparateLineBg2x2.gif') repeat-y ;
   margin: 3px 4px 0px 4px ;
 }
 
@@ -43,10 +36,8 @@
   float: right;
   height: 25px;
   font-size: 11px ; text-align: center ;
-  background: url('MacSkin/background/StatusBG1x28.gif') repeat-x ;
   margin: 4px 5px 0px 5px; 
   padding: 1px 8px 2px 8px;
-  border: solid 1px #b7b7b7 ;
 }
 
 .UIExoStart .DigitalClock {
@@ -59,9 +50,12 @@
 .UIExoStart .StartMenuContainer .LoginContainer {
   height: 35px ;
   background: url('MacSkin/background/LoginBg1x35.gif') repeat-x ;
-  border: solid 1px #5a5a5a;
-  border-left: none; 
-  border-right: none;
+  border: solid 1px #b7b7b7;
+  font-size: 12px;
+}
+
+.UIExoStart .StartMenuContainer .LoginContainer a:hover{
+ color: red;
 }
 
 .UIExoStart .StartMenuContainer .LabelItem {
@@ -150,13 +144,6 @@
   color: #201e1e ;
 }
 
-.UIExoStart .StartMenuContainer .MySpaceIcon {
-  height: 35px ;  
-  background: url('DefaultSkin/icons/32x32/MySpace.gif') no-repeat left ;
-  padding: 0px 0px 0px 34px ;
-  margin: 0px 0px 0px 5px ;
-}
-
 .UIExoStart .StartMenuContainer .Web20Icon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/Web20.png') no-repeat left ;
@@ -192,13 +179,6 @@
   margin: 0px 0px 0px 120px ;
 }
 
-.UIExoStart .StartMenuContainer .LoginIcon {
-  height: 35px ;  
-  background: url('DefaultSkin/icons/24x24/BlueLoginIcon.gif') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
-  margin: 0px 0px 0px 120px ;
-}
-
 .UIExoStart .StartMenuContainer .HLineSeparator {
   height: 1px ;
   background: url('DefaultSkin/background/HLineSeparator165x1.jpg') no-repeat center ;
@@ -222,10 +202,10 @@
 }
 
 .UIExoStart .StartMenuContainer .NavigationArrowIcon {
-  height: 30px ;
+  height: 32px ;
   vertical-align: middle ;
-  background: url('MacSkin/icons/24x24/GrayAquaArrow.png') no-repeat right ;
-  padding: 0px 30px 0px 0px ;
+  background: url('MacSkin/icons/32x32/GrayArrowButton.png') no-repeat right ;
+  padding: 0px 35px 0px 0px ;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer {
