@@ -136,14 +136,14 @@ UIPortal.prototype.switchLayoutModeToViewMode = function(uicomponent, swapConten
 //}
 
 UIPortal.prototype.switchMode = function(elemtClicked) {
-	if(elemtClicked.className == "PreviewIcon") {
-		elemtClicked.className = "LayoutModeIcon" ;
+	if(elemtClicked.className == "Icon PreviewIcon") {
+		elemtClicked.className = "Icon LayoutModeIcon" ;
 		this.showViewMode() ;
 		this.showMaskLayer() ;
 //		eXo.core.Browser.onScrollCallback("", eXo.portal.UIPortal.showMaskLayer()) ;
 	} else {
 		this.hideMaskLayer() ;
-		elemtClicked.className = "PreviewIcon" ;
+		elemtClicked.className = "Icon PreviewIcon" ;
 		this.showLayoutModeForPortal() ;
 	}
 } ;

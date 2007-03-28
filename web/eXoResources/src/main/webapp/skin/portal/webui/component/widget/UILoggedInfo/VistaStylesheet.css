@@ -1,120 +1,113 @@
-
-
-.UILogged {
+.UILoggedInfo {
   padding: 5px 0px 0px 0px ;
 }
 
-.UILogged .ImageContent {  
+.UILoggedInfo .LoggedInfoItems {  
   padding: 0px 0px 0px 25px;
-  height: 32px;
+  height: 37px;
 }
 
-.UILogged .ImageContents {  
-  padding: 0px 0px 0px 25px;
-  height: 32px;
+.UILoggedInfo .LoggedDecorator {
+	padding: 1px 0px 3px 0px;
 }
 
-.UILogged .DecoratorBox {
-	padding: 1px 8px 3px 8px;
-}
-
-.UILogged .DecoratorBox .TopDecoratorLeft {
-	background: url('VistaSkin/background/TopDecoratorLeft10x8.png') no-repeat left top;
+.UILoggedInfo .LoggedDecorator .LeftTopLoggedDecorator {
+	background: url('VistaSkin/background/LeftTopDecorator10x8.png') no-repeat left top;
 	padding: 0px 0px 0px 10px;
 }
 
-.UILogged .DecoratorBox .TopDecoratorRight {
-	background: url('VistaSkin/background/TopDecoratorRight10x8.png') no-repeat right top;
+.UILoggedInfo .LoggedDecorator .RightTopLoggedDecorator {
+	background: url('VistaSkin/background/RightTopDecorator10x8.png') no-repeat right top;
 	padding: 0px 10px 0px 0px;
 }
 
-.UILogged .DecoratorBox .MiddleTopDecorator {
-	background: url('VistaSkin/background/MiddleTopDecorator1x8.png') repeat-x top;
+.UILoggedInfo .LoggedDecorator .CenterTopLoggedDecorator {
+	background: url('VistaSkin/background/CenterTopDecorator1x8.png') repeat-x top;
 	height: 8px;
 }
 
-.UILogged .DecoratorBox .CenterDecoratorLeft {
+.UILoggedInfo .LoggedDecorator .LeftMiddleLoggedDecorator {
 	padding: 0px 0px 0px 5px;
-	background: url('VistaSkin/background/DecoratorCenterLeft5x1.png') repeat-y left;
+	background: url('VistaSkin/background/LeftMiddleDecorator5x1.png') repeat-y left;
 }
 
-.UILogged .DecoratorBox .CenterDecoratorRight {
+.UILoggedInfo .LoggedDecorator .RightMiddleLoggedDecorator {
 	padding: 0px 5px 0px 0px;
-	background: url('VistaSkin/background/DecoratorCenterRight5x1.png') repeat-y right;
+	background: url('VistaSkin/background/RightMiddleDecorator5x1.png') repeat-y right;
 }
 
-.UILogged .DecoratorBox .BottomDecoratorLeft {
+.UILoggedInfo .LoggedDecorator .LeftBottomLoggedDecorator {
 	padding: 0px 0px 0px 10px;
-	background: url('VistaSkin/background/BottomDecoratorLeft10x12.png') no-repeat left bottom;
+	background: url('VistaSkin/background/LeftBottomDecorator10x12.png') no-repeat left bottom;
 }
 
-.UILogged .DecoratorBox .BottomDecoratorRight {
+.UILoggedInfo .LoggedDecorator .RightBottomLoggedDecorator {
 	padding: 0px 10px 0px 0px;
-	background: url('VistaSkin/background/BottomDecoratorRight10x12.png') no-repeat bottom right;
+	background: url('VistaSkin/background/RightBottomDecorator0x12.png') no-repeat bottom right;
 }
 
-.UILogged .DecoratorBox .MiddleBottomDecorator {
+.UILoggedInfo .LoggedDecorator .CenterBottomLoggedDecorator {
   height: 12px;
-	background: url('VistaSkin/background/MiddleBottomDecorator1x12.png') repeat-x bottom;
+	background: url('VistaSkin/background/CenterBottomDecorator1x12.png') repeat-x bottom;
 }
 
-.UILogged .DecoratorBox .DecoratorBackground{
+.UILoggedInfo .LoggedDecorator .DecoratorBackground {
   width: auto; height: 92px;
   background: url('VistaSkin/background/DecoratorBackground1x92.png') repeat-x;
 }
 
-.UILogged .StyleContent .AvatarContainer {
+.UILoggedInfo .StyleContent .AvatarContainer {
 	float: left;
 	width: 70px; height: 72px;
 	padding: 20px 0px 0px 20px;
 }
 
-.UILogged .StyleContent .LeftAvatarContainer {
+.UILoggedInfo .StyleContent .LeftAvatarContainer {
 	width: 50px;
 	padding: 0px 0px 0px 5px;
 	background: url('VistaSkin/background/LeftAvatarContainer5x48.png') no-repeat left;
 }
 
-.UILogged .StyleContent .RightAvataContainer {
+.UILoggedInfo .StyleContent .RightAvataContainer {
 	padding: 0px 6px 0px 0px;
 	background: url('VistaSkin/background/RightAvataContainer6x48.png') no-repeat right;
 }
 
-.UILogged .StyleContent .CenterAvataContainer {
+.UILoggedInfo .StyleContent .CenterAvataContainer {
 	height: 48px ;
 	background: url('VistaSkin/background/CenterAvataContainer1x48.png') repeat-x;
 }
 
-.UILogged .AvatarContainer .AvatarImage {
+.UILoggedInfo .AvatarContainer .AvatarImage {
 	width: 38px; height: 41px;
 	background: url('VistaSkin/background/AvatarImage38x41.png') no-repeat center;
 	margin:0px 0px 0px 3px;
 }
 
-.UILogged .StyleContent .WelcomeBox {
+.UILoggedInfo .StyleContent .WelcomeBox {
 	margin: 0px 0px 0px 85px;
 }
 
-.UILogged .StyleContent .UserWelcomeBox {
+.UILoggedInfo .StyleContent .UserWelcomeBox {
   padding: 5px 0px 7px 0px;
   line-height: 30px; 
   height: 60px;
 }
 
-.UILogged .StyleContent .UserWelcomeBox .StateMessage {
+.UILoggedInfo .StyleContent .UserWelcomeBox .StateMessage {
   font-size: 11px; 
   text-align: center;
   line-height: 25px; 
 }
 
-.UILogged .StyleContent .UserWelcomeBox .LoggedUserName {
+.UILoggedInfo .StyleContent .UserWelcomeBox .LoggedUserName {
   color: #5aa5f8 ;
   text-align: center;
   line-height: 20px;
   font-weight: bold; 
 }
 
-.UILogged .StyleContent .LabelSignout {
+.UILoggedInfo .StyleContent .LabelSignout {
 	text-align: right;
 	color: #f98e03;
 	font-weight: bold;
@@ -123,22 +116,22 @@
 	cursor: pointer;
 }
 
-.UILogged .StyleContent {
+.UILoggedInfo .StyleContent {
 	height: 92px;
 }
 
-.UILogged .StyleContent .IconContent {
+.UILoggedInfo .StyleContent .IconContent {
 	width: 90%;
 	margin: auto;
 }
 
-.UILogged .StyleContent .UserLabel {
+.UILoggedInfo .StyleContent .UserLabel {
 	text-align: center;
 	font-weight: bold; font-size: 11px;
 	line-height: 20px;
 }
 
-.UILogged .StyleContent .UserLabel span {
+.UILoggedInfo .StyleContent .UserLabel span {
 	text-align: center;
 	font-weight: bold; font-size: 11px;
 	line-height: 20px;
@@ -146,29 +139,29 @@
 }
 
 /****************************** Icon *********************************/
-.UILogged .SelectedBG {
+.UILoggedInfo .SelectedBG {
 	float: left;
 	background: url('VistaSkin/background/SelectedBG.png') no-repeat center;
 }
 
-.UILogged .NormalBG {
+.UILoggedInfo .NormalBG {
 	float: left;
 	background: url('VistaSkin/background/NormalBG.png') no-repeat center;
 }
 
-.UILogged .UserIcon {  
+.UILoggedInfo .UserIcon {  
 	height: 36px; width: 36px;
 	cursor: pointer;
 	background: url('VistaSkin/background/UserIcon.png') no-repeat center;
 }
 
-.UILogged .WelcomeIcon {  
+.UILoggedInfo .WelcomeIcon {  
 	height: 36px; width: 36px;
 	cursor: pointer;
 	background: url('VistaSkin/background/WelcomeIcon.png') no-repeat center;
 }
 
-.UILogged .EMailIcon {
+.UILoggedInfo .EMailIcon {
 	width: 36px; height: 36px;
 	margin: auto;
 	background: url('VistaSkin/background/EMailIcon.png') no-repeat bottom;

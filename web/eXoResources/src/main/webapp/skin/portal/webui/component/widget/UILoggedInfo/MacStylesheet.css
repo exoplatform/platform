@@ -1,0 +1,157 @@
+.UILoggedInfo {
+  padding: 5px 0px 0px 0px ;
+}
+
+.UILoggedInfo .ImageContent {  
+  padding: 0px 0px 0px 25px;
+  height: 32px;
+}
+
+.UILoggedInfo .ImageContents {  
+  padding: 0px 0px 0px 25px;
+  height: 32px;
+}
+
+.UILoggedInfo .LoggedDecorator {
+	margin: 1px 0px 8px 0px;
+}
+
+.UILoggedInfo .LoggedDecorator .LeftTopLoggedDecorator {
+	background: url('DefaultSkin/background/LeftTopDecorator6x6.gif') no-repeat left top;
+	padding: 0px 0px 0px 6px;
+}
+
+.UILoggedInfo .LoggedDecorator .RightTopLoggedDecorator {
+	background: url('DefaultSkin/background/RightTopDecorator6x6.gif') no-repeat right top;
+	padding: 0px 6px 0px 0px;
+}
+
+.UILoggedInfo .LoggedDecorator .CenterTopLoggedDecorator {
+	background: url('DefaultSkin/background/CenterTopDecorator1x6.gif') repeat-x top;
+	height: 6px;
+}
+
+.UILoggedInfo .LoggedDecorator .MiddleLeftLoggedDecorator {
+	padding: 0px 0px 0px 6px;
+	background: url('DefaultSkin/background/LeftMiddleDecorator6x1.gif') repeat-y left;
+}
+
+.UILoggedInfo .LoggedDecorator .MiddleRightLoggedDecorator {
+	padding: 0px 6px 0px 0px;
+	background: url('DefaultSkin/background/RightMiddleDecorator6x1.gif') repeat-y right;
+}
+
+.UILoggedInfo .LoggedDecorator .LeftBottomLoggedDecorator {
+	padding: 0px 0px 0px 6px;
+	background: url('DefaultSkin/background/LeftBottomDecorator6x5.gif') no-repeat left bottom;
+}
+
+.UILoggedInfo .LoggedDecorator .RightBottomLoggedDecorator {
+	padding: 0px 6px 0px 0px;
+	background: url('DefaultSkin/background/RightBottomDecorator6x5.gif') no-repeat bottom right;
+}
+
+.UILoggedInfo .LoggedDecorator .CenterBottomLoggedDecorator {
+  height: 5px;
+	background: url('DefaultSkin/background/CenterBottomDecorator1x5.gif') repeat-x bottom;
+}
+
+.UILoggedInfo .LoggedDecorator .DecoratorBackground{
+  width: auto; height: auto;
+  background: #e6eef7;
+}
+
+.UILoggedInfo .StyleContent .AvatarContainer {
+	float: left;
+	width: 90px; height: 88px;
+	padding: 12px 0px 0px 10px;
+}
+
+.UILoggedInfo .AvatarContainer .AvatarImage {
+	width: 63px; height: 70px;
+	background: url('DefaultSkin/background/AvatarImage63x70.gif') no-repeat center;
+	border: solid 1px #ffffff;
+}
+
+.UILoggedInfo .StyleContent .WelcomeBox {
+	margin: 0px 0px 0px 95px;
+}
+
+.UILoggedInfo .StyleContent .UserWelcomeBox {
+  padding: 5px 0px 7px 0px;
+  background: #e6eef7;
+  line-height: 30px; 
+  height: 65px;
+}
+
+.UILoggedInfo .StyleContent .UserWelcomeBox .StateMessage {
+  font-size: 11px; 
+  text-align: center;
+  line-height: 25px; 
+}
+
+.UILoggedInfo .StyleContent .UserWelcomeBox .LoggedUserName {
+  color: #5aa5f8 ;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold; 
+}
+
+.UILoggedInfo .StyleContent .LabelSignout {
+	text-align: right;
+	color: #f98e03;
+	font-weight: bold;
+	padding-right: 20px;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.UILoggedInfo .StyleContent {
+	height: 100px;
+}
+
+.UILoggedInfo .StyleContent .IconContent {
+	width: 90%;
+	margin: auto;
+}
+
+.UILoggedInfo .StyleContent .UserLabel {
+	text-align: center;
+	font-weight: bold; font-size: 11px;
+	line-height: 20px;
+}
+
+.UILoggedInfo .StyleContent .UserLabel span {
+	text-align: center;
+	font-weight: bold; font-size: 11px;
+	line-height: 20px;
+	color: #f98e03;
+}
+
+/****************************** Icon *********************************/
+.UILoggedInfo .SelectedBG {
+	float: left;
+	background: url('DefaultSkin/background/SelectedBG.gif') no-repeat center;
+}
+
+.UILoggedInfo .NormalBG {
+	float: left;
+}
+
+.UILoggedInfo .UserIcon {  
+	height: 32px; width: 32px;
+	cursor: pointer;
+	background: url('DefaultSkin/background/UserIcon.gif') no-repeat center;
+}
+
+.UILoggedInfo .WelcomeIcon {  
+	height: 32px; width: 32px;
+	cursor: pointer;
+	background: url('DefaultSkin/background/WelcomeIcon.gif') no-repeat center;
+}
+
+.UILoggedInfo .EMailIcon {
+	width: 36px; height: 36px;
+	margin: auto;
+	background: url('DefaultSkin/background/EMailIcon.gif') no-repeat bottom;
+}
