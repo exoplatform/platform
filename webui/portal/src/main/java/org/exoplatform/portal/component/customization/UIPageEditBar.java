@@ -100,7 +100,7 @@ public class UIPageEditBar extends UIToolbar {
   }
 
   static public class EditPageActionListener  extends EventListener<UIPageEditBar> {
-    public void execute(Event<UIPageEditBar> event) throws Exception {
+    public void execute(Event<UIPageEditBar> event) throws Exception {      
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;

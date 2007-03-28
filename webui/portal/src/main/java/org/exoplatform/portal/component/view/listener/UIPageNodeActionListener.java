@@ -67,7 +67,29 @@ public class UIPageNodeActionListener {
   } 
 
   static public class EditPageNodeActionListener extends EventListener<UIRightClickPopupMenu> {
-    public void execute(Event<UIRightClickPopupMenu> event) throws Exception {   
+    public void execute(Event<UIRightClickPopupMenu> event) throws Exception {     
+/*      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      
+      String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      UIRightClickPopupMenu popupMenu = event.getSource();
+      UIComponent parent = popupMenu.getParent();
+      UIPageNodeSelector uiPageNodeSelector = parent.getParent();
+
+
+      PageNode node  = uiPageNodeSelector.findPageNodeByUri(uri);
+      
+      if(node == null) node = Util.getUIPortal().getSelectedNode();
+      if(node == null) return;
+      System.out.println("\n ===========> node name: " + node.getName() + "\n");
+      
+      UIPage uiPage = uiMaskWS.createUIComponent(UIPage.class);
+      UIPageForm uiPageForm  = uiMaskWS.createUIComponent(UIPageForm.class);
+      uiPageForm.setValues(uiPage);      
+      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      Util.updateUIApplication(event); */
       
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UIRightClickPopupMenu popupMenu = event.getSource();
@@ -85,46 +107,20 @@ public class UIPageNodeActionListener {
 
       UserPortalConfigService portalConfigService = popupMenu.getApplicationComponent(UserPortalConfigService.class);
       Page page  = portalConfigService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
-      UIPage uiPage  = Util.toUIPage(page, uiToolPanel);      
-      
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
-      uiPageForm.setValues(uiPage);
-      uiMaskWS.setUIComponent(uiPageForm);
-      uiMaskWS.setShow(true);
-      
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      
-      Util.updateUIApplication(event);        
-     
-      
-      /* String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      UIRightClickPopupMenu popupMenu = event.getSource();
-      UIComponent parent = popupMenu.getParent();
-      UIPageNodeSelector uiPageNodeSelector = parent.getParent();
-
-      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
-      UIPageManagement uiManagement = uiPageNodeSelector.getParent();
-      Util.updateUIApplication(event); 
-
-      PageNode node  = uiPageNodeSelector.findPageNodeByUri(uri);
-      
-      if(node == null) node = Util.getUIPortal().getSelectedNode();
-      if(node == null) return;
-
-      UserPortalConfigService portalConfigService = popupMenu.getApplicationComponent(UserPortalConfigService.class);
-      Page page  = portalConfigService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
       UIPage uiPage  = Util.toUIPage(page, uiToolPanel);
       
-      if("Desktop".equals(page.getFactoryId())) {
-        Class [] childrenToRender ={UIPageNodeSelector.class, UIPageNavigationControlBar.class}; 
-        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+      if ("Desktop".equals(page.getFactoryId())) {
+        UIPortal uiPortal = Util.getUIPortal();
+        UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+        UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;      
 
-        UIPageForm uiPageForm =  Util.showComponentOnWorking(event.getSource(), UIPageForm.class);
+        UIPageForm uiPageForm =  uiMaskWS.createUIComponent(UIPageForm.class);
         uiPageForm.removeChild(UIPageTemplateOptions.class);
         uiPageForm.setValues(uiPage);
+        uiMaskWS.setUIComponent(uiPageForm);
+        uiMaskWS.setWindowSize(640, 400);
+        uiMaskWS.setShow(true);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
         Util.updateUIApplication(event);
         return ;
       }
@@ -151,7 +147,7 @@ public class UIPageNodeActionListener {
       UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
       uiPageEditBar.setUIPage(uiPage); 
       uiPageEditBar.showUIPage();
-    }   */
+    
     }
   }
 
