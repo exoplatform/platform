@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -25,6 +26,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 
 /**
  * Author : Nguyen Thi Hoa  
@@ -35,14 +37,13 @@ import org.exoplatform.webui.event.EventListener;
     lifecycle = UIFormLifecycle.class,
     template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",   
     events = {
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE),
       @EventConfig(listeners = UIPageNavigationForm.SaveActionListener.class)
-//      @EventConfig(phase = Phase.DECODE, listeners = UIPageNavigationForm.BackActionListener.class)
     }
 )
 public class UIPageNavigationForm extends UIFormTabPane {
 
   public PageNavigation pageNav_;
-//  private UIComponent backComponent_ ;
   private String helpUri_ ;
 
   public UIPageNavigationForm() throws Exception {
@@ -67,11 +68,6 @@ public class UIPageNavigationForm extends UIFormTabPane {
   }
 
   public PageNavigation getPageNavigation(){ return pageNav_; }
-  
-//  public UIComponent getBackComponent() { return backComponent_ ; }
-//  public void setBackComponent(UIComponent uiComp) throws Exception {
-//    backComponent_ = uiComp ;
-//  }
   
   public void setUriForQuickHelp(String helpUri) { helpUri_ = helpUri ; }
   public String getUriForQuickHelp() { return helpUri_ ; }
@@ -121,28 +117,5 @@ public class UIPageNavigationForm extends UIFormTabPane {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiFormParent);    
     }
   }
-  
- /* static public class BackActionListener extends EventListener<UIPageNavigationForm> {
-    public void execute(Event<UIPageNavigationForm> event) throws Exception {
-      UIPageNavigationForm uiForm = event.getSource();
-//      System.out.println("Back roi neeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
-      UIComponent uiComp = uiForm.getBackComponent() ;
-      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
-      if(uiComp == null)  return;
-      if(uiComp instanceof UIQuickHelp) {
-        String helpUri = uiForm.getUriForQuickHelp() ;
-        UIQuickHelp uiQuickHelp = (UIQuickHelp) uiComp ;
-        uiQuickHelp.setHelpUri(helpUri) ;
-        uiToolPanel.setUIComponent(uiQuickHelp) ;
-      } else uiToolPanel.setUIComponent(uiComp) ;
-      
-      
-//      UIPageNavigationForm uiComponent = event.getSource();
-//      UIPortalApplication uiPortalApp = uiComponent.getAncestorOfType(UIPortalApplication.class);      
-//      Util.showPortalComponentLayoutMode(uiPortalApp);    
-//      Util.updateUIApplication(event);
-    }
-  }*/
 
 }

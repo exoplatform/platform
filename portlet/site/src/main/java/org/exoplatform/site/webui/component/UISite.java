@@ -60,7 +60,6 @@ public class UISite extends UIComponent {
       if(childFile.isDirectory()) {
         buildTree(childNode, childFile) ;
       }
-      System.out.println("create node: " + childNode.getPath()) ;
     }
   }
   

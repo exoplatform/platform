@@ -40,7 +40,6 @@ public class SkinListener extends BaseComponentPlugin
   
   public void preDeploy(String appName, PortletApp portletApp, ServletContext scontext) {
     try {
-//      System.out.println("\n##############################################################Deploy Portlet application");
       InputStream is = scontext.getResourceAsStream("/WEB-INF/conf/script/groovy/SkinConfigScript.groovy") ;
       if(is == null)  return ;
       
@@ -70,7 +69,6 @@ public class SkinListener extends BaseComponentPlugin
   public void postDestroy() { }
 
   public void preUndeploy(String appName, PortletApp portletApp, ServletContext scontext) {
-//    System.out.println("\n####################################################################Undeploy Portlet application");
   }
 
   public void postUndeploy(String appName, PortletApp portletApp, ServletContext arg2) {   }

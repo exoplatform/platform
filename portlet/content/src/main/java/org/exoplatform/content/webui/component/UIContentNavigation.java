@@ -164,7 +164,6 @@ public class UIContentNavigation extends UIComponent {
 
   static  public class AddNodeActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
-      System.out.println("\n\n\n================ new AddNodeActionListener\n\n\n");
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;;

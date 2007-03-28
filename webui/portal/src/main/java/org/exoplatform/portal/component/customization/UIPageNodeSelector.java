@@ -200,7 +200,6 @@ public class UIPageNodeSelector extends UIContainer {
       
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page  = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
-      System.out.println("\n\n\n****************" +page.getTemplate());
       UserACL userACL = uiEditBar.getApplicationComponent(UserACL.class);
       String accessUser = pcontext.getRemoteUser();     
       if(page == null || !userACL.hasPermission(page.getOwner(), accessUser, page.getEditPermission())){
