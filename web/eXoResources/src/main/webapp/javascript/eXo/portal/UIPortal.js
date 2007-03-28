@@ -315,7 +315,6 @@ UIPortal.prototype.showMaskLayer = function() {
 	}
 	
 	this.maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", object, 10, "BOTTOM-RIGHT") ;
-	
 	eXo.core.Browser.addOnScrollCallback("3743892", eXo.core.UIMaskLayer.setPosition) ;
 } ;
 
