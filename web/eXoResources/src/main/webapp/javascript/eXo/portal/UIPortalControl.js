@@ -13,7 +13,7 @@ UIPortalControl.prototype.changeWindowState = function(id, state) {
 /* Create Funtion by Duy Tu */
 UIPortalControl.prototype.showHiddenContent = function(selectedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
-	var ancestorClass = DOMUtil.findAncestorByClass(selectedElement, "UILogged");
+	var ancestorClass = DOMUtil.findAncestorByClass(selectedElement, "UILoggedInfo");
 	var classNormal = DOMUtil.findAncestorByClass(selectedElement, "NormalBG");
 	var classSelected = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", "SelectedBG");
 	var contentStyle = eXo.core.DOMUtil.findDescendantsByClass(ancestorClass, "div", "StyleContent") ;

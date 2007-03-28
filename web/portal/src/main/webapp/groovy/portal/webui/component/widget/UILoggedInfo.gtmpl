@@ -1,17 +1,67 @@
-<div class="UILogged" style="border: 1px solid red;">
-  <div class="WelcomeBox">
-    <%if(uicomponent.getAccessibility() == 0) { %>
-	  <% uicomponent.renderChild(0) %>
-	  <%} else if(uicomponent.getAccessibility() == 1) {%>     
-		<div class="UserWelcomeBox">
-		  <div class="StateMessage"><%=_ctx.appRes("UILogged.note.loggedUser")%></div>
-		  <div class="LoggedUserName">$uicomponent.remoteUser</div>
- 					<%} else if(uicomponent.getAccessibility() == 2) {%>
-			   <div class="LoggedUserName">admin</div>
-			<%} else {%>
-			<%}%>
+<div class="UILoggedInfo">
+  <div class="LoggedInfoItems">
+		<div class="SelectedBG">
+			<div class="UserIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this)"><span></span></div>
 		</div>
-		<div class="LabelSignout" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">Sign out</div>
+		<div class="NormalBG">
+			<div class="WelcomeIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this)"><span></span></div>
+		</div>
+		<div style="clear: left"><span></span></div>		
 	</div>
+	<div class="LoggedDecorator">
+    <div class="LeftTopLoggedDecorator">
+      <div class="RightTopLoggedDecorator">
+        <div class="CenterTopLoggedDecorator"><span></span></div>
+			</div>
+		</div>
+		<div class="LeftMiddleLoggedDecorator">
+		  <div class="RightMiddleLoggedDecorator">
+        <div class="DecoratorBackground">
+        
+	        <div class="StyleContent" style="display: block">
+	        	<div class="AvatarContainer">
+		        	<div class="LeftAvatarContainer">
+		        		<div class="RightAvataContainer">
+		        			<div class="CenterAvataContainer">
+		        				<div class="AvatarImage"><span></span></div>
+		        			</div>
+		        		</div>
+		        	</div>
+		        </div>        
+	          
+	          <div class="WelcomeBox">
+					    <%if(uicomponent.getAccessibility() == 0) { %>
+						  <% uicomponent.renderChild(0) %>
+						  <%} else if(uicomponent.getAccessibility() == 1) {%>     
+							<div class="UserWelcomeBox">
+							  <div class="StateMessage"><%=_ctx.appRes("UILogged.note.loggedUser")%></div>
+							  <div class="LoggedUserName">$uicomponent.remoteUser</div>
+			 					<%} else if(uicomponent.getAccessibility() == 2) {%>
+								   <div class="LoggedUserName">admin</div>
+								<%} else {%>
+								<%}%>
+							</div>
+							<div class="LabelSignout" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">Sign out</div>
+						</div>
+						<div style="clear: left"><span></span></div>
+		    	</div>
+	        
+	        <div class="StyleContent" style="display: none">
+	        	<div class="IconContent">
+	        		<div class="EMailIcon"><span></span></div>
+	        	</div>
+	        	<div class="UserLabel">You have:</div>
+	        	<div class="UserLabel"><span>10 unread messages inbox</span></div>
+	        </div>
+	        
+	      </div>
+	    </div>
+	  </div> 
+	  <div class="LeftBottomLoggedDecorator">
+	    <div class="RightBottomLoggedDecorator">
+	      <div class="CenterBottomLoggedDecorator"><span></span></div>
+	    </div>
+	  </div>
+  </div>
 </div>  
 

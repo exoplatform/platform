@@ -163,6 +163,10 @@
 .UIMaskWorkspace .UIFormTabPane {
 	padding: 10px;
 }
+
+.UIMaskWorkspace .UIFormWithTitle {
+	padding: 10px 0px;
+}
 /**************************** UIAddApplication ******************************************/
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
   height: 206px ;

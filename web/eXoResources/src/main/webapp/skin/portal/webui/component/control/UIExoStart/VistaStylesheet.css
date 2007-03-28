@@ -300,7 +300,7 @@
 
 .UIExoStart .StartMenuDecorator .TopDecorator {
   width: 240px ; height: 44px ;
-  background: url('VistaSkin/background/TopMenuDecorator240x44.png') bottom no-repeat ;
+  background: url('VistaSkin/background/TopMenuDecorator240x44.png') bottom no-repeat left;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuTL {

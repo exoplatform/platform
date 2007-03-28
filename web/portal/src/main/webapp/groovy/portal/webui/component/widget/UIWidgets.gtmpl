@@ -1,1 +1,98 @@
-<div class="UIWidgets" style="border: 1px solid red; ">Widgets</div>
+<div class="UIWidgets">
+ 	<div class="TopLeftWidgets">
+ 		<div class="TopRightWidgets">
+ 			<div class="TopMiddleWidgets"><span></span></div>
+ 		</div>
+ 	</div>
+  	
+ 	<div class="CenterLeftWidgets">
+ 		<div class="CenterRightWidgets">
+  		
+  		<div class="UICaegorySelector AncestorPopupCategory">
+  			<div class="LeftCaegorySelector">
+  				<div class="RightCaegorySelector">
+  					<div class="MiddleCaegorySelector">
+			  			<div class="IconLabelContent">
+			  				<div class="WidgetIcon"><span></span></div>
+			  				<div class="WidgetLabel">My Widgets</div>
+				  			<div class="EditIcon"><span></span></div>
+				  			<div class="SelectedIcon" onclick="eXo.webui.UIPopupSelectCategory.show(this, 228);"><span></span></div>
+				  			<div style="clear: both"><span></span></div>
+				  		</div>
+				  	</div>
+				  </div>
+				</div>
+				<div class="UIPopupCategory" style="display: none;">
+			    <div class="PopupCategoryDecorator">
+				    <div class="PopupCategoryTL">
+						  <div class="PopupCategoryTR">
+							  <div class="PopupCategoryTC"><span></span></div>
+						  </div>
+					  </div>
+					  <div class="PopupCategoryML">
+					   	<div class="PopupCategoryMR" >
+					   		<div class="PopupCategoryMC">
+					   		fldfjd
+					   		</div>
+					   	</div>
+					  </div>
+					  <div class="PopupCategoryBL">
+				      <div class="PopupCategoryBR">
+				        <div class="PopupCategoryBC"><span></span></div>
+				      </div>
+		        </div>
+				  </div>
+				</div>
+  		</div>
+  		
+  		<div class="UIWidgetContainer">
+  			<div class="WidgetControl">
+	  			<div class="WidgetControlContent" style="display: block">
+	  				<div class="EditWidgetIcon" title="Edit"><span></span></div>
+	  				<div class="CloseWidgetIcon" title="Close"><span></span></div>
+	  				<div style="clear: left"><span></span></div>
+	  			</div>
+  			</div>
+  			  		
+  			<div class="WidgetContnet">
+  				<div class="eXoInfoWidgetImage">
+  					<div class="TopWidgetImage"><span></span></div>
+  					<div class="Download" title="Download now"><span></span></div>
+  				</div>
+  			</div>
+  			<div class="WidgetContnet">
+  			  Clock
+  			</div>
+  			
+  			<div class="WidgetNavigator">
+  				<div class="UIBarStyle">
+  					<div class="ControlBar">
+  						<div class="LeftBar">
+  							<div class="RightBar">
+  								<div class="MiddleBar">
+  									<div class="ContentIcon">
+  										<div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
+  									  <div class="Icon24x24 DownBrownArrowIcon"><span></span></div>
+  									  <div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
+  									  <div class="Icon24x24 UpBlueArrowIcon"><span></span></div>
+  									  <div class="Icon24x24 AddIcon"><span></span></div>
+   					          <div style="clear: right"><span></span></div>
+  									</div>
+  								</div>
+  							</div>
+  						</div>
+  					</div>
+  					<div style="clear: right"><span></span></div>
+  				</div>
+  			</div>
+  		</div>
+  		
+ 		</div>
+ 	</div>
+ 	<div><span></span></div>		
+ 	<div class="BottomLeftWidgets">
+ 		<div class="BottomRightWidgets">
+ 			<div class="BottomMiddleWidgets"><span></span></div>
+ 		</div>
+ 	</div>  			
+</div>
