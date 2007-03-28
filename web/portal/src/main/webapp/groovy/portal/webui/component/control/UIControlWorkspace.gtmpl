@@ -12,7 +12,7 @@
 %>
 
 <div id="UIControlWorkspace" class="UIControlWorkspace UIWorkspace" style="float:left; position: relative; z-index: 1;">
-	<div class="UIWorkspaceContainer" id="UIWorkspaceContainer" style="display: none;">
+	<div class="UIWorkspaceContainer" id="UIWorkspaceContainer" style="display: none">
 	  <%/*User Workspace Title*/%>
 	  <div class="UserWorkspaceTitle">
 	  	<div class="CloseControlWorkspace" title="Close this workspace" onclick="eXo.portal.UIControlWorkspace.showWorkspace();"><span></span></div>
@@ -39,7 +39,6 @@
 	</div>
 	<%/*End Slidebar*/%>
 	<div style="clear: both"><span></span></div>
-	
 </div>
 <%
   rcontext.addJavascript("eXo.portal.UIControlWorkspace.onResizeDefault() ; ") ;

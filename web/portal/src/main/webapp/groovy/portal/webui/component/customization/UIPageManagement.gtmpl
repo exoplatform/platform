@@ -23,7 +23,7 @@
 	<div class="ControlArea">    
     <%
 		  if(uicomponent.getChild(UIPageEditBar.class).isRendered()) { 
-   	    uicomponent.renderChild(UIPageEditBar.class)   
+   	    uicomponent.renderChild(UIPageEditBar.class) ;
  	    }
     %>
   </div>

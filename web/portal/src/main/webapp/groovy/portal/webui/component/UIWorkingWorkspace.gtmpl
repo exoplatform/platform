@@ -10,3 +10,5 @@
 <div id="UIWorkingWorkspace" class="UIWorkingWorkspace UIWorkspace" style="position: relative; z-index: 0">
 	<%uicomponent.renderChildren()%>
 </div>
+
+<div style="clear: left"><span></span></div>
