@@ -20,12 +20,6 @@
   height: 28px;
 }
 
-.UINavigationPortlet .UINavigationBar .LeftNavigationBar{
-  line-height: 28px;
-  background: url('DefaultSkin/background/BgNomalNavTop1x28.gif') repeat-x top;
-  
-}
-
 .UINavigationPortlet .UINavigationBar .RightNavigationBar{
   line-height: 28px;
   background: url('DefaultSkin/background/RightNavTop112x28.gif') no-repeat right top;

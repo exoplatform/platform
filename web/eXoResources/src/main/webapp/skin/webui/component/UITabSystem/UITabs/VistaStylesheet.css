@@ -6,9 +6,7 @@
 .UIHorizontalTabs .TabsContainer {
   overflow: hidden;
   width: 95%;
-  background: #d8e0f8;
-  background: url('VistaSkin/background/TabLineRepeatBg1x4') no-repeat right;
-  
+  padding: 0px 0px 0px 4px;
 }
 
 .UIHorizontalTabs .PreviousTabButton  {
@@ -36,8 +34,7 @@
 
 
 .UIHorizontalTabs .UITab .NormalNavigationTab {
-  line-height: 23px;
-  margin: 8px 0px 0px 0px; 
+	margin: 4px 0px 0px 0px; 
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
@@ -52,28 +49,28 @@
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .LeftTab {
-  padding-left: 4px;
-  line-height: 28px;
-  background: url('VistaSkin/background/NormalNaviTabL5x26.gif') no-repeat left;
+  padding-left: 3px;
+  line-height: 24px;
+  background: url('VistaSkin/background/LeftNormalNaviTab3x24.gif') no-repeat left;
+  margin: 0px 2px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .RightTab {
-  line-height: 28px;
-  padding-right: 4px;
-  background: url('VistaSkin/background/NormalNaviTabR5x26.gif') no-repeat right;
+  line-height: 24px;
+  padding-right: 3px;
+  background: url('VistaSkin/background/RightNormalNaviTab3x24.gif') no-repeat right;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
-  line-height: 28px;
-  background: url('VistaSkin/background/NormalNaviTabRepeat1x26.gif') repeat-x;
+  line-height: 24px;
+  background: url('VistaSkin/background/CenterNormalNaviTab1x24.gif') repeat-x;
   cursor: pointer;
 }
 
 /*###############-Hightlight Navigation Tab-################*/
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab {
-  line-height: 28px;
-  margin: 8px 0px 0px 0px;
+	margin: 4px 0px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
@@ -83,38 +80,30 @@
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
-  line-height: 28px;
-  padding-left:4px;
-  background: url('VistaSkin/background/HighlightNaviTabL5x26.gif') no-repeat left; 
+  line-height: 24px;
+  padding-left:3px;
+  margin: 0px 2px 0px 0px;
+  background: url('VistaSkin/background/LeftHighlightNaviTab3x24.gif') no-repeat left; 
   
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .RightTab {
-  line-height: 28px;
-  padding-right: 4px;
-  background: url('VistaSkin/background/HighlightNaviTabR5x26.gif') no-repeat right;
+  line-height: 24px;
+  padding-right: 3px;
+  background: url('VistaSkin/background/RightHighlightNaviTab3x24.gif') no-repeat right;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
-  line-height: 28px;
+  line-height: 24px;
   vertical-align: middle;
-  background: url('VistaSkin/background/HighlightNaviTabM1x26.gif') repeat-x;
+  background: url('VistaSkin/background/CenterHighlightNaviTab1x24.gif') repeat-x;
   cursor: pointer;
 }
 
 /*###############-Selected Navigation Tab-################*/
 
-.UIHorizontalTabs .UITab .SelectedNavigationTab a {
-  color: #fd9300;
-  text-decoration: none;
- 
-}
-
 .UIHorizontalTabs .UITab .SelectedNavigationTab {
-  line-height: 28px;
-  margin-left: 2px; 
-  margin: 8px 0px 0px 0px;  
- 
+  margin: 4px 0px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab a {
@@ -124,21 +113,22 @@
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
-  line-height:28px;
-  padding-left:4px;
-  background: url('VistaSkin/background/SelectedNaviTabL5x26.png') no-repeat left;;
+  line-height:24px;
+  padding-left:3px;
+  margin: 0px 2px 0px 0px;
+  background: url('VistaSkin/background/LeftSelectedNaviTab3x24.gif') no-repeat left;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .RightTab {
-  line-height: 28px;
-  padding-right: 4px;
-  background: url('VistaSkin/background/SelectedNaviTabR5x26.png') no-repeat right;
+  line-height: 24px;
+  padding-right: 3px;
+  background: url('VistaSkin/background/RightSelectedNaviTab3x24.gif') no-repeat right;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
-  line-height: 28px;
+  line-height: 24px;
   vertical-align: middle;
-  background: url('VistaSkin/background/SelectedNaviTabM1x26.png') repeat-x;
+  background: url('VistaSkin/background/CenterSelectedNaviTab3x24.gif') repeat-x;
   cursor: pointer;
 }
 

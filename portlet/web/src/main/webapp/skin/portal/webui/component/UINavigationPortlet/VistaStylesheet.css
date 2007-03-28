@@ -1,15 +1,19 @@
+
 .UINavigationPortlet {
-  height: 38px;
+  height: 34px;
+  margin-bottom: 10px;
+  font-size: 11px;
 }
 
-.UINavigationPortlet .UIHorizontalTabs  {
-  background: none;
-  margin-left: 5px;
-
+.UINavigationPortlet .UINavigationBar {
+  height: 34px;
 }
 
-.UINavigationPortlet .UIHorizontalTabs .TabsContainer {
-  width: 95%;
-  overflow: hidden;
-  margin-left: 1px;
+.UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
+  height: 34px;
+}
+
+.UINavigationPortlet .UINavigationBar .MiddleNavigationBar{
+  line-height: 34px;
+  background: url('VistaSkin/background/BgNomalNavTop1x34.png') repeat-x top;
 }
