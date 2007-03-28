@@ -1,1 +1,18 @@
-This is UIDropDownItemSelector.gtmpl
+<div class="UICaegorySelector AncestorPopupCategory">
+  <div class="LeftCaegorySelector">
+  	<div class="RightCaegorySelector">
+  		<div class="MiddleCaegorySelector">
+  			<div class="IconLabelContent">
+  				<div class="WidgetIcon"><span></span></div>
+  				<div class="WidgetLabel">My Widgets</div>
+	  			<div class="EditIcon"><span></span></div>
+	  			<div class="SelectedIcon" onclick=""><span></span></div>
+	  			<div style="clear: both"><span></span></div>
+	  		</div>
+		  </div>
+		</div>
+	</div>
+	<div class="UIPopupCategory" style="display: none;">
+    PopupCategory
+	</div>
+</div>
