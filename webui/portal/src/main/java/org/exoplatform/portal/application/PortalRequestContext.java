@@ -128,6 +128,7 @@ public class PortalRequestContext extends WebuiRequestContext {
   
   public String getCustomizedOnLoadScript() {  return jsmanager_.getCustomizedOnLoadScript() ; }
   //=============================================================================================
+  public  JavascriptManager getJavascriptManager() { return jsmanager_ ; }
   
   public StringBuilder createURL(UIComponent uicomponent, Event event, 
                                  boolean supportAjax, String beanId, Parameter ... params) {
