@@ -51,10 +51,27 @@ abstract public class BeanToJSONPlugin<T> {
          );
   }
 
-  protected String encode(String value) {
-    String charValue = value.toString();
-    charValue = charValue.replace("\'", "\\\\\'");
-    return charValue.replace("\"", "\\\"");
+  protected String encode(CharSequence seq) {
+    StringBuilder builder = new StringBuilder();
+    int i = 0;
+    int start  = 0;
+    while(i < seq.length()) {
+      if(seq.charAt(i) == '\'') {
+        builder.append(seq.subSequence(start, i));
+        builder.append('\\').append('\\').append('\'');
+        start = i+1;
+      } else if (seq.charAt(i) == '\"') {
+        builder.append(seq.subSequence(start, i));
+        builder.append('\\').append('\"');
+        start = i+1;
+      }
+      i++;
+    }
+    if(start > 0 && start < seq.length()) {
+      builder.append(seq.subSequence(start, seq.length())); 
+    }
+    if(builder.length() < 1) return seq.toString(); 
+    return builder.toString();
   }
   
 }
