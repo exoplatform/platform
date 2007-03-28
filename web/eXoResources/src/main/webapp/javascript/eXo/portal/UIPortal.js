@@ -299,6 +299,7 @@ UIPortal.prototype.showMaskLayer = function() {
 	var object = document.createElement("div") ;
 	object.className = "PreviewMode" ;
 	object.style.display = "none" ;
+	object.title = "Click here to turn off preview mode";
 	uiPortalApplication.appendChild(object) ;
 	 
 	object.onclick = function() {
@@ -314,7 +315,7 @@ UIPortal.prototype.showMaskLayer = function() {
 		}
 	}
 	
-	this.maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", object, 10, "BOTTOM-RIGHT") ;
+	this.maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", object, 30, "TOP-RIGHT") ;
 	eXo.core.Browser.addOnScrollCallback("3743892", eXo.core.UIMaskLayer.setPosition) ;
 } ;
 

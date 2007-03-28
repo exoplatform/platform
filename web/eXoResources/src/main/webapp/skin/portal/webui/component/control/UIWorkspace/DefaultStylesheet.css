@@ -88,10 +88,12 @@
 }
 
 .PreviewMode {
-	width: 162px ;	height: 170px ;
-	background: url("DefaultSkin/background/PreviewMode.gif") no-repeat ;
+	width: 160px ;	height: 160px ;
+	background: transparent url("DefaultSkin/background/PreviewModeImage160x160.gif") no-repeat top right;
 	position: absolute ;
 	cursor: pointer ;
+	opacity: 0.7 !important ;
+	filter: alpha(opacity=80) ;
 }
 
 
