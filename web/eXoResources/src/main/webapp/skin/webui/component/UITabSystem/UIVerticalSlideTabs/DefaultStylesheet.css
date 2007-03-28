@@ -85,7 +85,7 @@
   margin: 6px 3px 0px 0px ;
   cursor: pointer ;
   width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackNextArrow.gif') no-repeat ;
   float: right;
 }
 
@@ -138,7 +138,7 @@
   margin: 6px 3px 0px 0px ;
   cursor: pointer ;
   width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackArrowDown.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat ;
   float: right;
 }
 
