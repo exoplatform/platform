@@ -21,7 +21,11 @@
 		              <label><%=_ctx.appRes("UILoginForm.label.password")%>:</label>
 		              <% uiform.renderChild(1)%>
 		            </div>  
-			          <div class="Message"><a href="#"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
+			          <div class="Message">
+			            <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
+			              <%=_ctx.appRes("UILoginForm.label.forgot")%>
+			            </div>
+		            </div>
 			          <div class="CheckField">
 			            <% uiform.renderChild(2)%>
 			            <div class="RememberLoginTitle"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></div>
@@ -53,10 +57,12 @@
 		          	<div class="SignUpBackground">
 		          		<div style="float: left ; margin-left: 10px">
 	          				<%=_ctx.appRes("UILoginForm.label.NotMember")%>
+	          				<% System.out.println("\n\n\n\n Ongroovy##############################################"); %>
 	          			</div>
-	          			<div class="SignUpLink" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
+	          			<a href="<%=uicomponent.url("SignUp");%>">
+	          			
 										<%=_ctx.appRes("UILoginForm.label.ForAccount")%>
-									</div>
+									</a>
 									<div style="clear: left"><span></span></div>
 		          	</div>
 		          </div>

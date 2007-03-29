@@ -34,6 +34,11 @@
   background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center;
 }
 
+.UIItemSelector .ItemDetailList .TemplateContainer .DesktopImage {
+  background: url('DefaultSkin/background/DesktopImage.jpg') no-repeat center;
+  height: 230px;
+}
+
 .UIItemSelector .ItemDetailList .ItemDescription {
   height: 100px; 
   background: white;
