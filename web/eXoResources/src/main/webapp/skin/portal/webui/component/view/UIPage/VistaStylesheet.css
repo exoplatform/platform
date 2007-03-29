@@ -22,7 +22,8 @@
 
 .UIPage .PageLayoutDecorator .TopCenterPage {
   height: 78px ;   
-  background: url('VistaSkin/background/PageLayoutTC1x78.png') repeat-x center ;  
+  background: url('VistaSkin/background/PageLayoutTC1x78.png') repeat-x center ; 
+  line-height: 40px; 
 }
 
 .UIPage .PageLayoutDecorator .MiddleLeftPage {

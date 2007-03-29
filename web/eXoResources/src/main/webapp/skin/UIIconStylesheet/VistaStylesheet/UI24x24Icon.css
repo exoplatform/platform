@@ -232,11 +232,6 @@
 	background: url('/eXoResources/icons/24x24/DefaultSkin/AddCatergory.gif') no-repeat;
 }
 
-.Catergory24x24Icon {
-	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/Catergory.gif') no-repeat;
-}
-
 .EditCatergory24x24Icon {
 	width: 24px; height: 24px;
 	background: url('/eXoResources/icons/24x24/DefaultSkin/EditCatergory.gif') no-repeat;
@@ -265,12 +260,6 @@
 .AddCatergory24x24Icon {
 	width: 27px;	height: 25px;
 	background: url('/eXoResources/icons/24x24/VistaSkin/AddCatergory.png') no-repeat;
-}
-
-.Catergory24x24Icon {
-	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/Catergory.gif') no-repeat;
-
 }
 
 .EditCatergory24x24Icon {

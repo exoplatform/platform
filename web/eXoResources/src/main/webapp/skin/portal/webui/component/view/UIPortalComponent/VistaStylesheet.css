@@ -9,11 +9,10 @@
 
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
   cursor: move ;
-  height: 18px ; width: 36px;
+  height: 20px ; width: 30px;
   float: left ; 
   margin-top: 4px;
-  /*border: 1px white solid;*/
-  /*background: url('MacSkin/background/DragBG4x4.gif');*/
+  background: url('VistaSkin/background/DragBG30x20.gif');
 }
 
 .UIPortlet .PortletInfoBar {
@@ -152,9 +151,9 @@
 }
 
 .UIPortlet .EditPortletPropertiesIcon {
-	background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat ;
-	height: 20px;	width:20px;
-  margin: 6px 10px 2px 0px;
+	background: url('/eXoResources/icons/16x16/VistaSkin/EditPortletIcon31x18.png') no-repeat ;
+	height: 18px;	width:31px;
+	margin: 3px 0px 0px 0px;
 	float:right;
 }
 
@@ -167,9 +166,9 @@
 }
 
 .UIPortlet .DeletePortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') ;
-	height:20px;	width:20px;
-  margin: 6px 8px 2px 0px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/DeletePortletIcon29x18.png') ;
+	height:18px;	width:29px;
+  margin: 3px 0px 0px 0px;
 	float:right;
 }
 
@@ -196,20 +195,20 @@
 }
 
 .PortletLayoutDecorator .TopLeft {
-  background: url('VistaSkin/background/LayoutTL10x10.png') no-repeat left top;
+  background: url('VistaSkin/background/LayoutTL10x9.png') no-repeat left top;
   padding-left: 10px ;
-  height: 10px ;
+  height: 9px ;
 }
 
 .PortletLayoutDecorator .TopMiddle {
-  background: url('VistaSkin/background/LayoutTM1x10.png') repeat-x top;
-  height: 10px ;
+  background: url('VistaSkin/background/LayoutTM1x9.png') repeat-x top;
+  height: 9px ;
 }
 
 .PortletLayoutDecorator .TopRight {
-  background: url('VistaSkin/background/LayoutTR11x10.png') no-repeat right top;
+  background: url('VistaSkin/background/LayoutTR11x9.png') no-repeat right top;
   padding-right: 11px ;
-  height: 10px ;
+  height: 9px ;
 }
 
 .PortletLayoutDecorator .MiddleLeft {

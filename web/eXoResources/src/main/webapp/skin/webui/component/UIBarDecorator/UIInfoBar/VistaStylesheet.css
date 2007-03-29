@@ -67,27 +67,27 @@
 }
 
 .UIInfoBar .BlueRoundedStyle .LeftBar {
-  height: 26px ;
-  background: url('VistaSkin/background/ControlBarL14x26.png') no-repeat left ;
-  padding-left:14px ;
+  height: 24px ;
+  background: url('VistaSkin/background/LeftControlBar10x24.png') no-repeat left ;
+  padding-left:10px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .RightBar {
-  height: 26px ;
-  background: url('VistaSkin/background/ControlBarR20x26.png') no-repeat right ;
-  padding-right: 20px ;
+  height: 24px ;
+  background: url('VistaSkin/background/RightControlBar10x24.png') no-repeat right ;
+  padding-right: 10px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .MiddleBar {
   text-align: left ;
-  height: 26px ;
-  background: url('VistaSkin/background/ControlBarM1x26.png') repeat-x ;
+  height: 24px ;
+  background: url('VistaSkin/background/CenterControlBar1x24.png') repeat-x ;
 }
 
 .UIInfoBar .BlueRoundedStyle .Title {
   font-size: 11px; ; color: black;
   text-align: center;
-  line-height: 28px; vertical-align: middle;
+  line-height: 24px; vertical-align: middle;
   float: left ; margin: 0px 7px ;
 }
 

@@ -9,44 +9,67 @@
   margin: 10px 0px 0px 8px;
 }
 
+.UIWizard .WizardDecorator .WizardTopLeft {
+  height: 4px;
+  background: url('VistaSkin/background/WizardTL4x4.png') no-repeat left;
+  padding-left: 4px;
+}
+
+.UIWizard .WizardDecorator .WizardTopRight{
+  height: 4px; 
+  background: url('VistaSkin/background/WizardTR7x4.png') no-repeat right;
+  padding-right: 7px;
+}
+
+.UIWizard .WizardDecorator .WizardTopCenter {
+  height: 4px; 
+  background: url('VistaSkin/background/WizardTC1x4.png') repeat-x;
+}
+
+.UIWizard .WizardDecorator .WizardMiddleLeft {
+  background: url('VistaSkin/background/WizardML4x1.png') repeat-y left;
+  padding-left: 4px;  
+}
+
 .UIWizard .WizardDecorator .WizardMiddleRight {
   background: url('VistaSkin/background/WizardMR7x1.png') repeat-y right;
   padding-right: 7px;  
 }
 
 .UIWizard .WizardDecorator .WizardMiddleCenter {
-  background: none;
-}
-
-.UIWizard .WizardDecorator .WizardBottomLeft {
-  height: 8px; line-height: 8px;
-  background: url('VistaSkin/background/WizardBL6x8.png') no-repeat left;
-  padding-left: 6px;
-}
-
-.UIWizard .WizardDecorator .WizardBottomRight{
-  height: 8px; line-height: 8px;
-  background: url('VistaSkin/background/WizardBR7x8.png') no-repeat right;
-  padding-right: 7px;
-}
-
-.UIWizard .WizardDecorator .WizardBottomCenter {
-  height: 8px; line-height: 8px;
-  background: url('VistaSkin/background/WizardBC1x8.png') repeat-x;
-}
-
-/*========================== Wizard Content ==============================*/
-.UIWizard .UIWizardContent {
   padding: 5px;
   border: solid 1px #434343;
   background: url('VistaSkin/background/UIWizardContentBG4x4.png') repeat;
 }
 
+.UIWizard .WizardDecorator .WizardBottomLeft {
+  height: 7px; 
+  background: url('VistaSkin/background/WizardBL4x7.png') no-repeat left;
+  padding-left: 4px;
+}
+
+.UIWizard .WizardDecorator .WizardBottomRight{
+  height: 7px; 
+  background: url('VistaSkin/background/WizardBR7x7.png') no-repeat right;
+  padding-right: 7px;
+}
+
+.UIWizard .WizardDecorator .WizardBottomCenter {
+  height: 7px; 
+  background: url('VistaSkin/background/WizardBC1x7.png') repeat-x;
+}
+
+/*========================== Wizard Content ==============================*/
+.UIWizard .UIWizardContent {
+  padding: 5px;
+  border: solid 1px #7e8284;
+  background: url('VistaSkin/background/LayoutPortalBG.png') repeat;
+}
+
 .UIWizard .UIWizardContent .WizardStepTitleBar {
-  height: 34px;
-  background: url('VistaSkin/background/Background1x34.png')  repeat-x;
-  border: solid 1px #aeaeae; 
-  border-bottom: none; border-top: none;
+  height: 30px;
+  background: url('VistaSkin/background/Background1x30.png')  repeat-x;
+  border: solid 1px #aeaeae; border-bottom: none; 
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {

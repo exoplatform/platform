@@ -8,7 +8,7 @@
 }
 
 .UIDescription .DecriptionContainer {
-  border:1px #5a5a5a solid;
+  padding: 0px 5px 5px 5px;
 }
 
 .UIDescription .DescriptionTitle {
@@ -25,9 +25,48 @@
   font-size: 11px;
   text-align: justify;
   padding: 8px;
-  border: 1px #f5f8ec solid; border-top: none;
+  border:1px #7e878f solid;
   background: url('VistaSkin/background/DescriptionContentBackgr.png') repeat;
   height: 300px;
   overflow: auto;
+}
 
+.UIDescription .LeftTopDescriptionDecorator {
+	background: url('VistaSkin/background/LeftTopDescriptionDecorator7x11.png') no-repeat left;
+	padding-left: 7px;
+}
+
+.UIDescription .RightTopDescriptionDecorator {
+	background: url('VistaSkin/background/RightTopDescriptionDecorator8x11.png') no-repeat Right;
+	padding-right: 8px;
+}
+
+.UIDescription .CenterTopDescriptionDecorator {
+	background: url('VistaSkin/background/CenterTopDescriptionDecorator1x11.png') repeat-x;
+	height: 11px;
+}
+
+.UIDescription .LeftMiddleDescriptionDecorator {
+	background: url('VistaSkin/background/LeftMiddleDescriptionDecorator3x1.png') repeat-y left;
+	padding-left: 3px;
+}
+
+.UIDescription .RightMiddleDescriptionDecorator {
+	background: url('VistaSkin/background/RightMiddleDescriptionDecorator4x1.png') repeat-y Right;
+	padding-right: 4px;
+}
+
+.UIDescription .LeftBottomDescriptionDecorator {
+	background: url('VistaSkin/background/LeftBottomDescriptionDecorator8x9.png') no-repeat left;
+	padding-left: 8px;
+}
+
+.UIDescription .RightBottomDescriptionDecorator {
+	background: url('VistaSkin/background/RightBottomDescriptionDecorator8x9.png') no-repeat Right;
+	padding-right: 8px;
+}
+
+.UIDescription .CenterBottomDescriptionDecorator {
+	background: url('VistaSkin/background/CenterBottomDescriptionDecorator1x9.png') repeat-x;
+	height: 9px;
 }
