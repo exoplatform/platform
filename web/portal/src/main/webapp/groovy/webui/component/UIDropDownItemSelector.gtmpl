@@ -1,18 +1,18 @@
-<div class="UICaegorySelector">
-  <div class="LeftCaegorySelector">
-  	<div class="RightCaegorySelector">
-  		<div class="MiddleCaegorySelector">
-  			<div class="IconLabelContent">
-  				<div class="WidgetIcon"><span></span></div>
-  				<div class="WidgetLabel">My Widgets</div>
-	  			<div class="EditIcon"><span></span></div>
-	  			<div class="SelectedIcon" onclick=""><span></span></div>
-	  			<div style="clear: both"><span></span></div>
-	  		</div>
-		  </div>
+<div class="UIDropDownItemSelector">
+	<div class="ItemInfoBar">
+	  <div class="LeftItemInfoBar">
+	  	<div class="RightItemInfoBar">
+	  		<div class="MiddleItemInfoBar">
+	  			<div class="Icon ComponentIcon"><span></span></div>
+	  			<div class="SelectedItemLabel">Item Name</div>
+	  			<div class="DropDownSelectIcon"><span></span></div>
+	  			<div style="clear: left"><span></span></div>
+			  </div>
+			</div>
 		</div>
 	</div>
-	<div class="UIPopupCategorySelector" style="display: none;">
-    PopupCategory
+		
+	<div class="UIItemList" style="display: none;">
+		UIItemList
 	</div>
 </div>
