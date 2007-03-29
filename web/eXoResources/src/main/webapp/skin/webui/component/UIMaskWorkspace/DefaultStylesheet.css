@@ -43,6 +43,10 @@
   background: url('DefaultSkin/background/BottomCenterDecorator1x6.gif') repeat-x;
 }
 
+.UIMaskWorkspace .UIHorizontalTabs {
+  height: 23px;
+}
+
 .UIMaskWorkspace .TitleBarContainer {
   width: 400px ;
   padding: 15px 0px 0px 0px;
