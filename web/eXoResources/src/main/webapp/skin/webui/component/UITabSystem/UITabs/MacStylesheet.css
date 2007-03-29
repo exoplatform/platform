@@ -198,6 +198,31 @@
   padding: 0px 4px 0px 4px;
 }
 
+.UIHorizontalTabs .UITab .SelectedTabStyle {
+  line-height: 25px;
+  font-size: 11px; color: black;
+  margin-right: 1px; margin-bottom: 6px;
+}
+
+.UIHorizontalTabs .UITab .SelectedTabStyle .LeftTab {
+  line-height: 24px;
+  padding-left: 6px;
+  background: url('MacSkin/background/LeftHighlightTab6x24.png') no-repeat left;;
+}
+
+.UIHorizontalTabs .UITab .SelectedTabStyle .RightTab {
+  line-height: 24px;
+  padding-right: 6px;
+  background: url('MacSkin/background/RightHighlightTab6x24.png') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .SelectedTabStyle .MiddleTab {
+  line-height: 24px;
+  vertical-align: middle;
+  background: url('MacSkin/background/MiddleHighlightTab1x24.png') repeat-x;
+  cursor: pointer;
+  padding: 0px 4px 0px 4px;
+}
 /*###########################--GrayPolygonTab36Style--############################*/
 
 .UIHorizontalTabs .UITab .GrayPolygonTab36Style {
