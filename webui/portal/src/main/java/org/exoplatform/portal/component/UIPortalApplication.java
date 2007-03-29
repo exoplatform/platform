@@ -133,7 +133,6 @@ public class UIPortalApplication extends UIApplication {
   
   @SuppressWarnings({"hiding","unused"})
   private void addWorkingWorkspace(UserPortalConfig config, PortalRequestContext context) throws Exception {
-    addChild(UIMaskWorkspace.class,    UIPortalApplication.UI_MASK_WS_ID, null) ;
     UIWorkspace uiWorkingWorkspace = 
       createUIComponent(UIWorkspace.class, UIPortalApplication.UI_WORKING_WS_ID, null) ;
     UIPortal uiPortal = createUIComponent(UIPortal.class, null, null);
@@ -141,6 +140,7 @@ public class UIPortalApplication extends UIApplication {
     uiWorkingWorkspace.addChild(uiPortal) ;    
     uiWorkingWorkspace.addChild(UIPortalToolPanel.class, null, null).setRendered(false) ;    
     addChild(uiWorkingWorkspace) ;
+    addChild(UIMaskWorkspace.class,    UIPortalApplication.UI_MASK_WS_ID, null) ;
   }
   
   public <T extends UIComponent> T setUIControlWSPopupComponent(Class<T> clazz) throws Exception {
