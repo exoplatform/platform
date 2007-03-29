@@ -7,33 +7,32 @@
  */
 
 .UINavigationPortlet {
-  height: 30px;
+  height: 28px;
   margin-bottom: 10px;
   font-size: 11px;
 }
 
 .UINavigationPortlet .UINavigationBar {
-  height: 30px;
+  height: 28px;
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
-  height: 30px;
+  height: 28px;
 }
 
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
-  line-height: 30px;
-  background: url('DefaultSkin/background/MiddleNavTopBg1x30.gif') repeat-x top;
-  padding-left: 6px;
+  line-height: 28px;
+  background: url('DefaultSkin/background/MiddleNavTopBg1x28.gif') repeat-x top;
+  padding-left: 4px;
 }
 
 .UINavigationPortlet .UINavigationBar .RightNavigationBar {
-  line-height: 30px;
-  background: url('DefaultSkin/background/RightNavTop56x30.gif') no-repeat right top;
-  padding-right: 56px;
+  line-height: 28px;
+  background: url('DefaultSkin/background/RightNavTop108x28.gif') no-repeat right top;
+  padding-right: 108px;
 }
 
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
-  line-height: 30px;
+  line-height: 28px;
   background: url('DefaultSkin/background/MiddleNavTopBg1x30.gif') repeat-x top;
-  padding-top: 3px;
 }
