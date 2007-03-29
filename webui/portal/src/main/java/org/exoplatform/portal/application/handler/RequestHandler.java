@@ -18,5 +18,5 @@ import org.exoplatform.portal.application.PortalApplication;
  * Dec 9, 2006  
  */
 public interface RequestHandler {
-  void execute(PortalApplication app, HttpServletRequest req, HttpServletResponse res) throws IOException;
+  void execute(PortalApplication app, HttpServletRequest req, HttpServletResponse res) throws Exception;
 }

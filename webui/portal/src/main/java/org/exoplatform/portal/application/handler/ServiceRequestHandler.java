@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.ExoContainer;
+import org.exoplatform.json.JSONService;
+import org.exoplatform.json.MapToJSONPlugin;
 import org.exoplatform.portal.application.PortalApplication;
 import org.exoplatform.services.portletregistery.Portlet;
 import org.exoplatform.services.portletregistery.PortletCategory;
@@ -42,6 +44,32 @@ public class ServiceRequestHandler implements RequestHandler {
 
   @SuppressWarnings("unchecked")
   private StringBuilder getPortlets(PortalApplication app) throws Exception {
+    ExoContainer container = app.getApplicationServiceContainer() ;
+    PortletRegisteryService registeryService = (PortletRegisteryService)container.getComponentInstanceOfType(PortletRegisteryService.class) ;    
+    List<PortletCategory> portletCategories = registeryService.getPortletCategories();
+
+    StringBuilder value = new StringBuilder();
+    JSONService jsonService = new JSONService();
+    jsonService.register(MapToJSONPlugin.class, new MapToJSONPlugin());
+    
+    if(portletCategories.size() < 1) return value;
+    
+/*    value.append("{\n").
+          append("  portletRegistry : {\n");*/
+
+    for(int i = 0; i < portletCategories.size(); i++) {
+      PortletCategory category = portletCategories.get(i); 
+      jsonService.toJSONScript(category, value, 0);
+      List<Portlet> portlets = registeryService.getPortlets(category.getId()) ;
+      for(int j = 0; j<portlets.size(); j++){
+        Portlet portlet = portlets.get(j);
+        jsonService.toJSONScript(portlet, value, 0);
+      }
+    }
+ /*   value.append("  }\n").
+    append("}\n");*/
+    return value; 
+   /* 
     ExoContainer container = app.getApplicationServiceContainer() ;
     PortletRegisteryService registeryService = (PortletRegisteryService)container.getComponentInstanceOfType(PortletRegisteryService.class) ;    
     List<PortletCategory> portletCategories = registeryService.getPortletCategories();
@@ -78,7 +106,7 @@ public class ServiceRequestHandler implements RequestHandler {
     }  
     value.append("  }\n").
           append("}\n");
-    return value;
+    return value;*/
   }
 
 }

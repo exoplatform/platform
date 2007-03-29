@@ -8,8 +8,10 @@ import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
+import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.Query;
@@ -144,6 +146,7 @@ public class UIPageBrowser extends UISearch {
   
   static public class EditInfoActionListener extends EventListener<UIPageBrowser> {    
     public void execute(Event<UIPageBrowser> event) throws Exception {
+      System.out.println("\n=============> EditInfoActionListener\n");
       UIPageBrowser uiPageBrowser = event.getSource();
       
       String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
@@ -170,7 +173,7 @@ public class UIPageBrowser extends UISearch {
   }
   
   static public class SelectPageActionListener extends EventListener<UIPageBrowser> {
-    public void execute(Event<UIPageBrowser> event) throws Exception {
+    public void execute(Event<UIPageBrowser> event) throws Exception {     
       UIPageBrowser uiPageBrowser = event.getSource() ;
       String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
       PortalDAO service = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
