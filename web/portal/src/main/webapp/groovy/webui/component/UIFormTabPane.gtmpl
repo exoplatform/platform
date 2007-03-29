@@ -8,35 +8,40 @@
 		<div class="TabPaneContent">
       <%String workingAreaCssClass="WorkingArea" ;%>
 	    <div class="$workingAreaCssClass">
-	     	<div class="UIHorizontalTabs">
-	        <div class="TabsContainer">
-            <%
-              for(inputSet in uicomponent.getChildren()) {
-		        		String className="NormalTabStyle" ;
-		        		if(inputSet.isRendered()) className="HighlightTabStyle" ;
-		        		
-		        		boolean renderResource = uicomponent.hasRenderResourceTabName(); 
-	              String tabName = inputSet.getName() ; 
-	              if(renderResource) {
-	                tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name) ;
-	              }
-	              
-		        		boolean renderTab = uicomponent.hasWithRenderTab();
-	              if(renderTab){
-            %>
-	              <div class="UITab">
-	                <div class="$className">
-	                  <div class="LeftTab">
-	                    <div class="RightTab">
-			                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id')">$tabName</div>
-			                </div>
-	                  </div>
-	                </div>
-	              </div>
-            <%  }
-              }
-            %>
-	        </div>
+	     	<div class="UIHorizontalTabs" >
+	     	  <div class="LeftHorizontalTabs">
+	     	    <div class="RightHorizontalTabs">
+	     	      <div class="CenterHorizontalTabs">
+				        <div class="TabsContainer">
+			            <%
+			              for(inputSet in uicomponent.getChildren()) {
+					        		String className="NormalTabStyle" ;
+					        		if(inputSet.isRendered()) className="SelectedTabStyle" ;
+					        		boolean renderResource = uicomponent.hasRenderResourceTabName(); 
+				              String tabName = inputSet.getName() ; 
+				              if(renderResource) {
+				                tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name) ;
+				              }
+				              
+					        		boolean renderTab = uicomponent.hasWithRenderTab();
+				              if(renderTab){
+			            %>
+				              <div class="UITab">
+				                <div class="$className">
+				                  <div class="LeftTab">
+				                    <div class="RightTab">
+						                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id')">$tabName</div>
+						                </div>
+				                  </div>
+				                </div>
+				              </div>
+			            <%  }
+			              }
+			            %>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
 	      </div>
         <%uiform.begin()%>
         <input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.renderTabId">

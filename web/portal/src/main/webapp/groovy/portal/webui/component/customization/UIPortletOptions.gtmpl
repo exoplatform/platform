@@ -19,6 +19,7 @@
 %>
 
 <div class="UIPortletOptions AncestorPopupCategory">	
+<div class="PortletOptions">
 	<div class="Title" >
   	<div class="TitleContainer">
   		<div class="ArrowButton ArrowS1Down16x16Icon" onclick="$showPortletCategory" ><span></span></div>
@@ -93,6 +94,6 @@
 			</div>
 	<%}%>
 </div>
-
+</div>
     
 

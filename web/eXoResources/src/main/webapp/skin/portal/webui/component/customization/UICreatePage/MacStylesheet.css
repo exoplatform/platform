@@ -6,6 +6,12 @@
   padding: 0px 7px;
 }
 
+.UICreatePage .UIToolbar .EditToolbar .Icon {
+  float: left;
+  cursor: pointer;
+  margin: 4px 10px 0px 25px;
+}
+
 .UICreatePage .PageNodeSelectorContainer {
   border: 1px #cdcdcd solid;
   background: url('MacSkin/background/GrayLinedBG.gif');
@@ -32,24 +38,18 @@
 }
 
 .UICreatePage .PagePreviewIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 4px 18px 0px 25px;
-  background: url('MacSkin/background/PagePreview.gif') no-repeat;
+  width: 32px; height: 32px;
+  background: url('/eXoResources/icons/32x32/MacSkin/PreviesPageButton.png') no-repeat;
 }
 
 .UICreatePage .EditContainerIcon {
-  float: left;
-  width: 31px; height: 24px;
-  margin: 4px 18px 0px 18px;
-  background: url('MacSkin/background/ShowContainerControl.gif') no-repeat;
+  width: 32px; height: 32px;
+  background: url('/eXoResources/icons/32x32/MacSkin/ShowContainerButton.png') no-repeat;
 }
 
 .UICreatePage .EditPortletIcon {
-  float: left;
-  width: 31px; height: 24px;
-  margin: 4px 18px 0px 18px;
-  background: url('MacSkin/background/ShowPortletControl.gif') no-repeat;
+  width: 32px; height: 32px;
+  background: url('/eXoResources/icons/32x32/MacSkin/ShowPortletButton.png') no-repeat;
 }
 
 .UICreatePage .TreeSelectorTitle {

@@ -12,7 +12,8 @@
 }
 
 .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
-  border: 1px solid gray;  background: #f4f4f4;
+  border: 1px solid 939393; border-top: none;
+  background: #f4f4f4;
   padding: 1px;
 }
 
@@ -23,7 +24,7 @@
 }
 
 .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer {
-  border: solid 1px #b7b7b7;
+  border: solid 1px #939393; border-top: none;
   padding: 1px;
   background: white;
 }

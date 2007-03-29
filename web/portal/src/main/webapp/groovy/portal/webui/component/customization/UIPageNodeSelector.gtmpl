@@ -18,7 +18,8 @@
 <div class="UIPageNodeSelector" id="UIPageNodeSelector">
   
   <%/*Begin PageNodeSelectorContainer*/%>
-  <div class="UIContainerConfigOptions AncestorPopupCategory">  
+  <div class="UIContainerConfigOptions AncestorPopupCategory"> 
+  <div class="ContainerConfigOptions"> 
 	  <div class="Title">
 	  	<div class="TitleContainer">
 	  		<div class="ArrowButton ArrowS1Down16x16Icon" onclick="$showCategory" title="<%=_ctx.appRes("UIPageNodeSelector.label.selectNavigation.tooltip")%>"><span></span></div>
@@ -74,6 +75,7 @@
 		%>
 		</div>
 <% /*************************************************************/ %>
+	</div>
 	</div>
 </div>
 

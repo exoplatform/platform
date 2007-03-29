@@ -11,23 +11,29 @@
     <div class="WorkingAreaWithHelp">
     	<%//Begin Tabs%>
       <div class="UIHorizontalTabs">
-        <div class="TabsContainer">
-          <%
-            for(uiChild in uicomponent.getChildren()) {
-              String style = "NormalTabStyle" ;
-              if(uiChild.isRendered()) style = "HighlightTabStyle" ;
-          %>
-            <div class="UITab">
-              <div class="$style">
-                <div class="LeftTab">
-                  <div class="RightTab">                
-                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=_ctx.appRes(uiChild.id + ".title");%></div>
-                  </div>
-                </div>
-              </div>
-            </div>              
-          <%}%>
-        </div>
+        <div class="LeftHorizontalTabs">
+	     	  <div class="RightHorizontalTabs">
+	     	    <div class="CenterHorizontalTabs">
+			        <div class="TabsContainer">
+			          <%
+			            for(uiChild in uicomponent.getChildren()) {
+			              String style = "NormalTabStyle" ;
+			              if(uiChild.isRendered()) style = "SelectedTabStyle" ;
+			          %>
+			            <div class="UITab">
+			              <div class="$style">
+			                <div class="LeftTab">
+			                  <div class="RightTab">                
+			                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=_ctx.appRes(uiChild.id + ".title");%></div>
+			                  </div>
+			                </div>
+			              </div>
+			            </div>              
+			          <%}%>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
       </div>
       <%//End UIHorizontalTabs%>
       <%//Start UITabContentContainer%>

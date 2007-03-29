@@ -85,6 +85,7 @@
 
  .UIPermissionSelector .PermissionInfoContainer .UIAction  {
   padding-top: 8px;
+  width: 200px;
 } 
 
  .UIPermissionSelector .PermissionInfoContainer .UIAction .ActionContainer .ActionButton {

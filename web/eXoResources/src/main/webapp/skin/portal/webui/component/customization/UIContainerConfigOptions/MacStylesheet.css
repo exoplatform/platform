@@ -1,8 +1,12 @@
 .UIContainerConfigOptions {
-  background: url('MacSkin/background/PortletBG.gif');  
-  padding: 3px;
-  border: solid 1px #afaeae ;
+  border: solid 1px white ;
   margin: 0px 10px 0px 10px;
+}
+
+.UIContainerConfigOptions .ContainerConfigOptions {
+  background: url('MacSkin/background/PortletBG.gif');  
+  border: solid 1px #afaeae ;
+  padding: 4px;
 }
 
 .UIContainerConfigOptions .CategoryContainer {
