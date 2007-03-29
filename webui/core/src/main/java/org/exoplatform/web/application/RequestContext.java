@@ -23,7 +23,6 @@ abstract public class RequestContext {
   private Application app_ ;
   protected RequestContext parentAppRequestContext_ ;
   private Map<String, Object> attributes ;
-  private Throwable executionError_ ;
   
   public RequestContext(Application app) {
     app_ =  app ;
@@ -33,31 +32,35 @@ abstract public class RequestContext {
   
   abstract public Locale getLocale()  ;
   public ResourceBundle getApplicationResourceBundle() { return null; }
-  public ResourceBundle getOwnerResourceBundle() { return null; }
   
   abstract  public String getRequestParameter(String name)  ;
   abstract  public String[] getRequestParameterValues(String name)  ;
   
+  //TODO: remove this and  use JavascriptManager object
   abstract public void addJavascript(CharSequence s) ;
   abstract public void importJavascript(CharSequence s) ;
   abstract public void importJavascript(String s, String location) ;
   abstract public void addOnLoadJavascript(CharSequence s) ;
   abstract public void addOnResizeJavascript(CharSequence s) ;
   abstract public void addOnScrollJavascript(CharSequence s); 
-  
+  //==============================================================
   public  JavascriptManager getJavascriptManager() { 
     return getParentAppRequestContext().getJavascriptManager() ;
   }
- 
-  abstract public  boolean isAjaxRequest() ;
+
+  //TODO:  create class URLBuilder with the method: getBaseURL(), createURL(String action),\
+  //createURL(String action, String objectId), createURL(Object targetComponent, String action, String objectId),
+  //TODOL 
   abstract public String getBaseURL() ;
+  
+  //TODO: remove isLogon() and use getRemoteUser()  to test
   abstract public boolean isLogon();
   abstract public String getRemoteUser()  ;
-  
   abstract public boolean isUserInRole(String roleUser);
+  //TODO:  rename this method to useAjax()
+  abstract public  boolean isAjaxRequest() ;
  
-  
-  public  boolean useAjax() {  return true ; }
+  //TODO: rename the method to getFullRender
   public boolean isForceFullUpdate() { return true; }
   
   public ApplicationSession getApplicationSession()  {
@@ -81,13 +84,6 @@ abstract public class RequestContext {
  
   public RequestContext getParentAppRequestContext() { return parentAppRequestContext_ ; }
   public void setParentAppRequestContext(RequestContext context) { parentAppRequestContext_ = context ; }
-  
-  public int getApplicationMode() { throw new RuntimeException("Method is not supported") ; }
-  
-  @SuppressWarnings("unused")
-  public void setApplicationMode(int mode) { throw new RuntimeException("Method is not supported") ; }
-  
-  public Throwable  getExecutionError()  { return executionError_ ; }
   
   @SuppressWarnings("unchecked")
   public static <T extends RequestContext> T getCurrentInstance()  { return (T)tlocal_.get() ; }

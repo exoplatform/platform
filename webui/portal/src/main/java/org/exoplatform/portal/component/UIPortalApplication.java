@@ -62,7 +62,6 @@ public class UIPortalApplication extends UIApplication {
   public  static String      POPUP_WINDOW_ID = "UIPortalApplicationPopupWindow" ;
   
   private String skin = "Default" ;
-  private boolean useAjax_ = true ;
   
   @SuppressWarnings("hiding")
   public  UIPortalApplication(InitParams initParams) throws Exception { 
@@ -112,9 +111,6 @@ public class UIPortalApplication extends UIApplication {
   }
   
   public void setSkin(String skin){ this.skin = skin; }
-  
-  public  boolean useAjax() {  return useAjax_ ; }
-  public  void    setUseAjax(boolean b) { useAjax_ =  b;  }
   
   @SuppressWarnings("hiding")
   private  void  initPublicPortal(UserPortalConfig config, PortalRequestContext context, InitParams initParams) throws Exception {

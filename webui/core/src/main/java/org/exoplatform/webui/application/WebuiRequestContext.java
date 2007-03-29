@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import org.exoplatform.templates.groovy.ApplicationResourceResolver;
 import org.exoplatform.templates.groovy.ResourceResolver;
 import org.exoplatform.web.application.Application;
+import org.exoplatform.web.application.Parameter;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
@@ -24,10 +25,6 @@ import org.exoplatform.webui.config.Event;
  * May 7, 2006
  */
 abstract public class WebuiRequestContext extends RequestContext {
-  static public int VIEW_MODE =  0 ;
-  static public int EDIT_MODE =  1 ;
-  static public int HELP_MODE =  2 ;
-  static public int CONFIG_MODE = 3 ;
   
   protected UIApplication  uiApplication_ ;
   protected String sessionId_ ;

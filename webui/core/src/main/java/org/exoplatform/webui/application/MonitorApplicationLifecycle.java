@@ -38,7 +38,6 @@ public class MonitorApplicationLifecycle implements  ApplicationLifecycle {
     MonitorEvent event = 
       (MonitorEvent)rcontext.getAttribute(MonitorEvent.PORTAL_EXECUTION_LIFECYCLE_EVENT) ;
     event.setEndExecutionTime(System.currentTimeMillis()) ;
-    event.setError(rcontext.getExecutionError()) ;
     webuiapp.broadcast(event) ;
   }
   

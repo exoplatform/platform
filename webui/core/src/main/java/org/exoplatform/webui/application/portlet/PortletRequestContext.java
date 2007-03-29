@@ -7,14 +7,19 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.RenderResponse;
 
+import org.exoplatform.web.application.Parameter;
 import org.exoplatform.webui.application.WebuiApplication;
-import org.exoplatform.webui.application.Parameter;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.Event;
 
 public class PortletRequestContext extends WebuiRequestContext {
+  static public int VIEW_MODE =  0 ;
+  static public int EDIT_MODE =  1 ;
+  static public int HELP_MODE =  2 ;
+  static public int CONFIG_MODE = 3 ;
+  
   private int applicationMode_ ;
   private PortletRequest request_; 
   private PortletResponse response_ ;
@@ -74,8 +79,6 @@ public class PortletRequestContext extends WebuiRequestContext {
   public Writer getWriter() throws Exception {  return writer_ ; }
 
   final public boolean isAjaxRequest() { return getParentAppRequestContext().isAjaxRequest(); } 
-  
-  public  boolean useAjax() { return parentAppRequestContext_.useAjax() ; }
   
   public  boolean hasProcessAction() { return hasProcessAction_ ;}
   

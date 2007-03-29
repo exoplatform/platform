@@ -140,7 +140,7 @@ abstract public class UIComponent {
     org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
     if(event == null) return "??config??" ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
-    return context.createURL(this, event, context.useAjax(), beanId).toString();
+    return context.createURL(this, event, true, beanId).toString();
   }
   
   public String url(String name) throws Exception { return url(name, null); }  

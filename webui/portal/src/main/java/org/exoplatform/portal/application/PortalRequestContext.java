@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.web.application.JavascriptManager;
-import org.exoplatform.webui.application.Parameter;
+import org.exoplatform.web.application.Parameter;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
@@ -60,11 +60,6 @@ public class PortalRequestContext extends WebuiRequestContext {
   
   public void  setUIApplication(UIApplication uiApplication) throws Exception { 
     super.setUIApplication(uiApplication) ;    
-  }
-  
-  public  boolean useAjax() {
-    UIPortalApplication uiPortalApp = (UIPortalApplication) getUIApplication();
-    return uiPortalApp.useAjax() ;
   }
   
   public String getRequestParameter(String name)  { return request_.getParameter(name) ; }

@@ -11,6 +11,7 @@ import org.exoplatform.portal.component.view.listener.UIPortalComponentActionLis
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIPopupMessages;
@@ -41,6 +42,7 @@ public class UIOrganizationPortlet extends UIPortletApplication {
   }
   
   public void  processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
+    PortletRequestContext portletReqContext = (PortletRequestContext)  context ;
     List<UIComponent>  children = getChildren() ;
     UIComponent view = null , edit = null, help = null ;
     for(UIComponent child : children) {
@@ -49,15 +51,16 @@ public class UIOrganizationPortlet extends UIPortletApplication {
       else if(child.getId() == EDIT_MODE) edit = child ;
       else if(child.getId() == HELP_MODE) help = child ;
     } 
-    if (context.getApplicationMode() == WebuiRequestContext.VIEW_MODE) {
+    
+    if (portletReqContext.getApplicationMode() == PortletRequestContext.VIEW_MODE) {
       setRenderedComponent(view,  true) ;
       setRenderedComponent(edit,  false) ;
       setRenderedComponent(help,  false) ;
-    } else if(context.getApplicationMode() == WebuiRequestContext.EDIT_MODE) {
+    } else if(portletReqContext.getApplicationMode() == PortletRequestContext.EDIT_MODE) {
       setRenderedComponent(view,  false) ;
       setRenderedComponent(edit,  true) ;
       setRenderedComponent(help,  false) ;
-    } else if(context.getApplicationMode() == WebuiRequestContext.HELP_MODE) {
+    } else if(portletReqContext.getApplicationMode() == PortletRequestContext.HELP_MODE) {
       System.out.println("\n\n>>>>>>>>>>>>>>>>>>> IN HELP  MODE \n");
       UIPopupMessages uiPopup = (UIPopupMessages)help;
       ApplicationMessage message = new ApplicationMessage("Help document", new Object[]{});
@@ -87,7 +90,8 @@ public class UIOrganizationPortlet extends UIPortletApplication {
   
   static  public class ClosePopupActionListener extends EventListener<UIOrganizationPortlet> {
     public void execute(Event<UIOrganizationPortlet> event) throws Exception {
-      event.getRequestContext().setApplicationMode(WebuiRequestContext.VIEW_MODE);
+      PortletRequestContext portletReqContext = (PortletRequestContext) event.getRequestContext() ;
+      portletReqContext.setApplicationMode(PortletRequestContext.VIEW_MODE);
     }
   }
 }

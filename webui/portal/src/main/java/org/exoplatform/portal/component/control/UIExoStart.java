@@ -283,7 +283,6 @@ public class UIExoStart extends UIComponent {
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uiStart = event.getSource() ;
       UIPortalApplication uiApp = uiStart.getAncestorOfType(UIPortalApplication.class);
-      uiApp.setUseAjax(!uiApp.useAjax()) ;
     }
   }
   

@@ -80,7 +80,6 @@ public class UIQuickBar extends UIComponent {
     public void execute(Event<UIQuickBar> event) throws Exception {
       UIQuickBar uiQuickBar = event.getSource() ;
       UIPortalApplication uiApp = uiQuickBar.getAncestorOfType(UIPortalApplication.class);
-      uiApp.setUseAjax(!uiApp.useAjax()) ;
     }
   }
   
