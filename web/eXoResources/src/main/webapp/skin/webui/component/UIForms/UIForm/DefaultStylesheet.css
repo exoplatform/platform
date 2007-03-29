@@ -10,7 +10,7 @@
 
 .UIForm .HorizontalLayout .FieldContainer {
   overflow: hidden  ;
-  margin-top: 15px ;
+  padding-top: 15px ;
   width: 100% ;
 }
 
@@ -65,7 +65,7 @@
 	float:left;
   width: 100px ;
 	text-align: right;
-	margin: 0px 10px ;
+	margin: 0px 10px 0px 25px;
 }
 
 .UIForm .HorizontalLayout input {

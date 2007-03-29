@@ -37,33 +37,33 @@
 }
 
 /*========================== Wizard Content ==============================*/
-.UIWizard .UIWizardContent {
-  
+.UIWizard .UIWizardContent { 
   background: white;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar {
-  height: 34px;
-  background: url('DefaultSkin/background/StepBarBG1x34.gif') repeat-x;
+  height: 29px;
+  background: url('DefaultSkin/background/StepBarBG1x29.gif') repeat-x;
   border: solid 1px #aeaeae; border-bottom: none;
+ 
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {
   float:left;
-  width: 28px; height: 24px; 
+  width: 25px; height: 28px; 
   background: url('DefaultSkin/icons/32x32/PageCreation.gif') no-repeat;
-  margin: 5px 8px 0px 8px;
+  margin: 0px 8px 0px 10px;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardTitle {
   float: left;
-  height: 32px; line-height: 32px;  vertical-align: middle;
+  height: 28px; line-height: 28px;  vertical-align: middle;
   font-weight: bold;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
   float: right;
-  width: 32px; height: 32px;
+  width: 28px; height: 28px;
   background:  url('DefaultSkin/icons/24x24/HelpIcon.gif') no-repeat;
   margin-right: 10px;
   cursor: pointer;
@@ -71,9 +71,9 @@
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .StepTitle {
   float: left;
-  height: 32px; line-height: 32px; vertical-align: middle;
+  height: 28px; line-height: 28px; vertical-align: middle;
   padding-left: 10px;
-  color: blue;
+  color: #0683f7;
 }
 
 .UIWizard .UIWizardContent .WizardStepContent {
@@ -102,7 +102,7 @@
   border: solid 1px gray;
 }
 
-.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a:hover{
+.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a:hover {
   height: 18px; line-height: 18px; vertical-align: middle;
   color: orange;
   background: #f8f8f8;
@@ -112,7 +112,6 @@
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a.SelectedStep {
   color: red;
 }
-
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationTitle {
   float: left;
@@ -166,8 +165,7 @@
 
 /*========================== Start UIWizard Step2 ==============================*/
 .UIWizard .UIWizardPageSetInfo {
-  padding: 10px;
-  padding-top: 15px;
+  padding: 15px 10px 10px 10px;
 }
 
 .UIWizard .UIWizardPageSetInfo .PageNodeContainer {
@@ -189,8 +187,8 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo {
-  width: 450px; height: 36px; 
-  line-height: 36px; vertical-align: middle; font-size: 11px; 
+  width: 450px; height: 25px; 
+  line-height: 25px; vertical-align: middle; font-size: 11px; 
   background: white;
   margin: auto;
   border: solid 1px #b7b7b7;
@@ -200,7 +198,7 @@
   float: left;
   background: url('/eXoResources/icons/16x16/DefaultSkin/MiniOrangeBoxPage.gif') no-repeat;
   width: 16px; height: 16px;
-  margin: 10px 0px 0px 5px;
+  margin: 5px 0px 0px 6px;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Label {
@@ -212,7 +210,7 @@
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Info {
   float: left;
   padding: 0px 5px;
-  color: blue; 
+  color: #0683f7; 
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
@@ -220,24 +218,23 @@
   width: 450px;
 }
 
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction{
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction {
   display: none;
 }
 
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .HorizontalLayout{
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .HorizontalLayout {
   padding: 1px;
   background: white;
   border: solid 1px #b7b7b7 ;
 }
 
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer{
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
   background: white;
   padding: 10px 0px 15px 0px;
 }
 
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FieldContainer {
-	padding-left: 15px;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle label{
@@ -262,10 +259,6 @@
   font-size: 11px; font-family: verdana;
   border: solid 1px gray ;
   padding-left: 5px;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FieldContainer {
-  margin-top: 15px;
 }
 
 /*========================== Start UIWizard Step 3 ==============================*/

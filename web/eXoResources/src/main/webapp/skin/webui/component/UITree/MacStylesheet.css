@@ -1,76 +1,77 @@
 .UITree {
-  border: solid #b7b7b7 1px ;    
   background: url('MacSkin/background/GrayLinedBG.gif');
+  border: solid #b7b7b7 1px ;    
   padding: 1px;
 }
 
 .UITree .TreeContainer {
   overflow: auto ;
   background: white; border: 1px #b7b7b7 solid;
-  padding-bottom: 7px ; padding-top: 7px ;
+  padding: 7px 0px ;
 }
 
 .UITree .TreeLevelContainer {
   height: 18px; line-height: 18px;
   padding-left: 12px;
-  margin-bottom: 10px;
+  margin: 0px 0px 10px 0px ;
 }
 
 .UITree .TreeLevelContainer .LevelUpArrowIcon {
-  background: url('MacSkin/background/AquaBlueUpLevel.gif') no-repeat;
-  width: 26px; line-height: 18px;
   float: left;
+  width: 26px; line-height: 18px;
+  background: url('MacSkin/background/AquaBlueUpLevel.gif') no-repeat;
 }
 
 .UITree .TreeContainer .Node {
-  margin: 3px 0px 5px 0px ;
-  overflow: hidden ;
-  padding-left: 9px;
   width: 93% ;
   clear: both ;
+  overflow: hidden ;
+  padding: 0px 0px 0px 9px;
+  margin: 3px 0px 5px 0px ;
 }
 
 .UITree .TreeContainer .Node .ExpandIcon {
-  cursor: pointer ;
-  margin-top: 2px ;
   float: left ;
-  background: url('/eXoResources/icons/16x16/MacSkin/GrayNextArrow.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlackDownArrow.gif') no-repeat ;
+  cursor: pointer ;
+  margin: 2px 0px 0px 0px;
 }
   
 .UITree .TreeContainer .Node .ColapseIcon {
-  cursor: pointer ;
-  margin-top: 2px ;
   float: left ;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackDownArrow.gif') no-repeat ;
   width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlackNextArrow.gif') no-repeat ;
+  cursor: pointer ;
+  margin: 2px 0px 0px 0px ;
 }
 
 .UITree .TreeContainer .Node .EmptyIcon {
-  margin-right: 1px ;
   float: left ;
   width: 16px ;  height: 16px ;
+  margin: 0px 1px 0px 0px;
 }
 
 .UITree .TreeContainer .Node .Icon {
-  width: 24px ;  height: 24px ;
   float: left ;
-  margin-left: 3px;
+  width: 24px ;  height: 24px ;
+  margin: 0px 0px 0px 3px;
 }
 
 .UITree .TreeContainer .Node .NoteLabel a {
-  cursor: pointer ;
-  margin-left: 1px ; padding-left: 4px ; padding-right: 5px;
   float: left ;
   height: 20px ; vertical-align: middle ; line-height: 20px ;
+  cursor: pointer ;
+  padding: 0px 5px 0px 4px ; 
+  margin: 0px 0px 0px 1px ;
   color: black;
 }
 
 .UITree .TreeContainer .Node .NoteLabel a:hover{
   color: blue;
   background: #e2e6ea;
-  padding-left: 4px ; padding-right: 5px;
-  margin-left: 1px ;
+  padding: 0px 5px 0px 4px ;
+  margin: 0px 0px 0px 1px ;
 }
 
 .UITree .TreeContainer .NodeSelected {
@@ -80,7 +81,7 @@
 
 .UITree .TreeContainer .Node .NoteLabel .NodeSelected {
   height: 20px ; line-height: 20px; vertical-align: middle;
-  margin-left: 1px ;
+  margin: 0px 0px 0px 1px ;
   color: blue;
 }
 

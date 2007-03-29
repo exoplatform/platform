@@ -6,9 +6,9 @@
 /*####################################- VerticalSlideTabs - FlatStyle -#################################*/
 .UIVerticalSlideTabs .UIVFlatTab {
   height: 24px ; line-height: 24px; vertical-align: middle;
+  background: url('MacSkin/background/BlueAquaBG1x24.gif') repeat-x ;
   border: solid 1px #3b1094 ;
   margin-bottom: 1px;
-  background: url('MacSkin/background/BlueAquaBG1x24.gif') repeat-x ;
 }
 
 .UIVerticalSlideTabs .UIVFlatTab .LeftIcon {
@@ -19,8 +19,8 @@
 
 .UIVerticalSlideTabs .UIVFlatTab .TabLabel {
   float: left;
-  font-size: 12px;
   height: 22px; width: 110px;
+  font-size: 12px;
   line-height: 22px; vertical-align: middle;  text-align: center;
 }
 
@@ -30,19 +30,19 @@
 }
 
 .UIVerticalSlideTabs .UIVFlatTab .ExpandButton {  
-  cursor: pointer ;
   float: right;
-  margin: 5px 7px 0px 5px ;
   width: 15px;  height: 15px;
   background: url('MacSkin/background/AquaExpandButton.gif') no-repeat;
+  cursor: pointer ;
+  margin: 5px 7px 0px 5px ;
 }
 
 .UIVerticalSlideTabs .UIVFlatTab .CollapseButton {  
   float: right;
-  cursor: pointer ;
-  margin: 5px 7px 0px 5px ;
   width: 15px ; height: 15px ;
   background: url('MacSkin/background/AquaCollapseButton.gif') no-repeat;
+  cursor: pointer ;
+  margin: 5px 7px 0px 5px ;
 }
 
 /*#######################-PolygonNavyBlue Style VerticalSlideTabs-######################*/
@@ -74,28 +74,27 @@
 
 .UIVerticalSlideTabs .PolygonNavyBlueStyle .UIVTab .TabLabel {
   float: left ;
-  line-height: 28px ;  vertical-align: middle ;
-  height: 28px ;
+  height: 28px ; line-height: 28px ;  vertical-align: middle ;
 }
 
 .UIVerticalSlideTabs .PolygonNavyBlueStyle .UIVTab .CollapseButton {
+  width: 16px;  height: 16px ;
   margin: 6px 3px 0px 0px ;
   cursor: pointer ;
-  width: 16px;  height: 16px ;
   /*background: url('/eXoResources/icons/16x16/MacSkin/CyanDownArrow.gif') ;*/
 }
 
 .UIVerticalSlideTabs .PolygonNavyBlueStyle .UIVTab .ExpandButton {
+  width: 16px;  height: 16px;
   margin: 6px 3px 0px 0px ;
   cursor: pointer ;
-  width: 16px;  height: 16px;
   /*background: url('/eXoResources/icons/16x16/MacSkin/CyanUpArrow.gif') ;*/
 }
 
 .UIVerticalSlideTabs .PolygonNavyBlueStyle .UIVTab .UIVTabContent {
-  margin: 1px 0px ;
-  border: solid 1px #b2b1b1 ;
   background: #ffffff ;
+  border: solid 1px #b2b1b1 ;
+  margin: 1px 0px ;
   padding: 5px ;
 }
 /*#######################-PolygonNavyViolet Style VerticalSlideTabs-######################*/
@@ -111,8 +110,8 @@
 .UIVerticalSlideTabs .PolygonNavyVioletStyle .UIVTab .TabLeft {
   float: none ;  /*Override LeftBar class properties*/
   height: 26px;  width: auto;
-  padding-left: 2px ;
   background: url('MacSkin/background/LightBottomDottedLBg2x26.gif') no-repeat left ;
+  padding-left: 2px ;
 }
 
 .UIVerticalSlideTabs .PolygonNavyVioletStyle .UIVTab .TabRight {
@@ -129,24 +128,21 @@
 
 .UIVerticalSlideTabs .PolygonNavyVioletStyle .UIVTab .TabLabel {
   float: left ;
-  line-height: 26px ;  vertical-align: middle ;
-  height: 26px ;
+  height: 26px ; line-height: 26px ;  vertical-align: middle ;
 }
 
 .UIVerticalSlideTabs .PolygonNavyVioletStyle .UIVTab .CollapseButton {
-  margin: 5px 5px 0px 0px ;
-  cursor: pointer ;
-  width: 16px ;
-  height: 16px ;
+  width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/MacSkin/GrayGridDownArrow.gif') ;
+  cursor: pointer ;
+  margin: 5px 5px 0px 0px ;
 }
 
 .UIVerticalSlideTabs .PolygonNavyVioletStyle .UIVTab .ExpandButton {
-  margin: 5px 5px 0px 0px ;
-  cursor: pointer ;
-  width: 16px ;
-  height: 16px ;
+  width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/MacSkin/GrayGridUpArrow.gif') ;
+  cursor: pointer ;
+  margin: 5px 5px 0px 0px ;
 }
 
 .UIVerticalSlideTabs .PolygonNavyVioletStyle .UIVTab .UIVTabContent {
@@ -168,16 +164,14 @@
 
 .UIVerticalSlideTabs .SmoothRoundedStyle .UIVTab .TabLeft {
   float: none ;  /*Override LeftBar class properties*/
-  height: 26px ;
-  width: auto ;
+  height: 26px ; width: auto ;
   padding-left: 3px ;
   /*background: url('MacSkin/background/SmoothRoundedBarLBg3x26.gif') no-repeat left ;*/
 }
 
 .UIVerticalSlideTabs .SmoothRoundedStyle .UIVTab .TabRight {
   float: none ;  /*Override RightBar class properties*/
-  height: 26px ;
-  width: auto ;
+  height: 26px ; width: auto ;
   padding-right: 3px ;
   /*background: url('MacSkin/background/SmoothRoundedBarRBg3x26.gif') no-repeat right ;*/
 }
@@ -188,18 +182,16 @@
 }
 
 .UIVerticalSlideTabs .SmoothRoundedStyle .UIVTab .CollapseButton {
+  width: 16px ;  height: 16px ;
   margin: 5px 5px 0px 0px ;
   cursor: pointer ;
-  width: 16px ;
-  height: 16px ;
   /*background: url('/eXoResources/icons/16x16/MacSkin/GrayFillDownArrow.gif') ;*/
 }
 
 .UIVerticalSlideTabs .SmoothRoundedStyle .UIVTab .ExpandButton {
+  width: 16px ;  height: 16px ;
   margin: 5px 5px 0px 0px ;
   cursor: pointer ;
-  width: 16px ;
-  height: 16px ;
   /*background: url('/eXoResources/icons/16x16/MacSkin/GrayFillUpArrow.gif') ;*/
 }
 
@@ -211,20 +203,19 @@
 
 /*#######################-NormalCustomizationTab VerticalSlideTabs-######################*/
 
-.UIVerticalSlideTabs .UIVTab {
-  
+.UIVerticalSlideTabs .UIVTab {  
 }
 
 .UIVerticalSlideTabs .UIVTab .NormalCustomizationTab {
-  margin-top: 2px;
   height: 50px;
   background: none ;
+  margin-top: 2px;
 }
 
 .UIVerticalSlideTabs .NormalCustomizationTab .TabLeft {
   height: 48px ;
-  padding-left: 11px ;
   background: url('MacSkin/background/NormalVTabL11x48.gif') no-repeat left ;
+  padding-left: 11px ;
 }
 
 .UIVerticalSlideTabs .NormalCustomizationTab .TabRight {
@@ -234,9 +225,7 @@
 }
 
 .UIVerticalSlideTabs .NormalCustomizationTab .TabRepeat {
-  height: 48px ;
-  line-height: 48px;
-  vertical-align: middle;
+  height: 48px ; line-height: 48px; vertical-align: middle;
   background: url('MacSkin/background/NormalVTabM1x48.gif') repeat-x ;
 }
 
@@ -246,22 +235,20 @@
 }
 
 .UIVerticalSlideTabs .NormalCustomizationTab .TabName a {
-  color: black ;
-  text-decoration: none;
+  color: black ; text-decoration: none;
 }
 
 .UIVerticalSlideTabs .NormalCustomizationTab .CollapseButton {
   float: right;
-  margin: 18px 3px 0px 0px;
-  cursor: pointer ;
   width: 17px ; height: 17px ;
   background: url('MacSkin/background/CollapseButton.gif') ;
+  cursor: pointer ;
+  margin: 18px 3px 0px 0px;
 }
 
 .UIVerticalSlideTabs .NormalCustomizationTab .UIVTabContent {
+  background: #ffffff ;  font-size: 11px ;
   border: solid 1px #958f8f ;
-  background: #ffffff ;
-  font-size: 11px ;
 }
 
 /*#######################-SelectedCustomizationTab VerticalSlideTabs-######################*/
@@ -270,27 +257,25 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab {
-  margin-top: 2px;
   height: 48px;
   background: none ;
+  margin-top: 2px;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab .TabLeft {
   height: 48px ;
-  padding-left: 11px ;
   background: url('MacSkin/background/SelectedVTabL11x48.gif') no-repeat left ;
+  padding-left: 11px ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab .TabRight {
   height: 48px ;
-  padding-right: 11px ;
   background: url('MacSkin/background/SelectedVTabR11x48.gif') no-repeat right ;
+  padding-right: 11px ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab .TabRepeat {
-  height: 48px ;
-  line-height: 48px;
-  vertical-align: middle;
+  height: 48px ;  line-height: 48px; vertical-align: middle;
   background: url('MacSkin/background/SelectedVTabM1x48.gif') repeat-x ;
 }
 
@@ -301,46 +286,41 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab .TabName a {
-  color: black;
-  text-decoration: none;
+  color: black; text-decoration: none;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab .ExpandButton {
   float: right;
+  width: 17px ; height: 17px ;
+  background: url('MacSkin/background/ExpandButton.gif') no-repeat;
   margin: 18px 3px 0px 0px;  
   cursor: pointer ;
-  width: 17px ;
-  height: 17px ;
-  background: url('MacSkin/background/ExpandButton.gif') no-repeat;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab .UIVTabContent {
   border: solid 1px #958f8f ;
-  background: #ffffff ;
-  font-size: 11px ;
+  background: #ffffff ; font-size: 11px ;
 }
 
 /*#######################- FlatStyle VerticalSlideTabs- ######################*/
 .UIVerticalSlideTabs .UIVTab .FlatStyle {
+  height: 28px; line-height: 28px; vertical-align: middle;
   background:url('MacSkin/background/PortletTemplateBG1x30.gif') repeat-x;
   border:solid 1px gray;
-  height: 28px; line-height: 28px; vertical-align: middle;
   margin-top: 8px;
 }
 
 .UIVerticalSlideTabs .UIVTab .FlatStyle .CollapseExpand {
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackDownArrow.gif') no-repeat;
   float: right;
-  margin: 5px 6px;
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlackDownArrow.gif') no-repeat;
   cursor: pointer;
+  margin: 5px 6px;
 }
 
 .UIVerticalSlideTabs .UIVTab .FlatStyle .LeftIcon { 
-  width: 16px;
-  height: 16px;
   float: left;
+  width: 16px; height: 16px;
   margin: 6px 0px 5px 4px;
 }
 
@@ -351,25 +331,23 @@
 
 /*#######################- SelectedFlatStyle VerticalSlideTabs- ######################*/
 .UIVerticalSlideTabs .UIVTab .SelectedFlatStyle {
-  background:url('MacSkin/background/PortletTemplateSBG1x30.gif') repeat-x;
-  border:solid 1px gray;
-  height:28px; line-height:28px; vertical-align:middle;
+  height: 28px; line-height:28px; vertical-align:middle;
+  background: url('MacSkin/background/PortletTemplateSBG1x30.gif') repeat-x;
+  border: solid 1px gray;
   margin-top: 8px ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedFlatStyle .CollapseExpand {
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackUpArrow.gif') no-repeat;
   float: right;
-  margin: 6px 6px;
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlackUpArrow.gif') no-repeat;
   cursor: pointer;
+  margin: 6px 6px;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedFlatStyle .LeftIcon { 
-  width: 16px;
-  height: 16px;
   float: left;
+  width: 16px; height: 16px;
   margin: 6px 0px 5px 4px;
 }
 
@@ -391,8 +369,8 @@
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRight {
   height: 27px ; width: auto ;
-  padding: 0px 4px 0px 0px ;
   background: url('MacSkin/background/RightSmoothRoundedBarS4x27.gif') no-repeat right ;
+  padding: 0px 4px 0px 0px ;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRepeat {
@@ -402,10 +380,9 @@
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .LeftIcon {
   float: left ;
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlackDownArrow.gif') no-repeat;
   margin: 8px 5px 0px 5px;
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackNextArrow.gif') no-repeat;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLabel {
@@ -414,17 +391,17 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .SwitchButton {
-  margin: 8px 3px 0px 0px ;
-  cursor: pointer ;
-  width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackNextArrow.gif') no-repeat;
   float: right;
+  width: 16px;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlackDownArrow.gif') no-repeat;
+  cursor: pointer ;
+  margin: 8px 3px 0px 0px ;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .UIVTabContent {
-  margin: 1px 0px ;
-  border: solid 1px #b2b1b1 ;
   background: #ffffff ;
+  border: solid 1px #b2b1b1 ;
+  margin: 1px 0px ;
   padding: 5px ;
 }
 
@@ -455,10 +432,9 @@
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .LeftIcon {
   float: left ;
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlackNextArrow.gif') no-repeat ;
   margin: 6px 5px 0px 5px;
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackDownArrow.gif') no-repeat ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLabel {
@@ -468,17 +444,17 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .SwitchButton {
-  margin: 5px 3px 0px 0px ;
-  cursor: pointer ;
-  width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackDownArrow.gif') no-repeat;
   float: right;
+  width: 16px;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlackNextArrow.gif') no-repeat;
+  cursor: pointer ;
+  margin: 5px 3px 0px 0px ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .UIVTabContent {
-  margin: 1px 0px ;
-  border: solid 1px #b2b1b1 ;
   background: #ffffff ;
+  border: solid 1px #b2b1b1 ;
+  margin: 1px 0px ;
   padding: 5px ;
 }
 
@@ -499,17 +475,15 @@
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle4 .TabLabel {
   float: left ;
-  color: #373737 ;
-  margin: 3px 0px 0px 0px ;
+  color: #373737 ; font-weight: bold ; font-size: 11px ;
   line-height: 26px ; vertical-align: middle ;
-  font-weight: bold ;
-  font-size: 11px ;
+  margin: 3px 0px 0px 0px ;
   cursor: pointer ;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle4 .UIVTabContent {
-  margin: 1px 0px ;
   border: solid 1px #b2b1b1 ;
+  margin: 1px 0px ;
   padding: 5px ;
 }
 

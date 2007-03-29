@@ -201,7 +201,8 @@
 .UIPage {
 }
 
-.UIPortal {
+.UIPortal .UIRowContainer .UITabContainer .UIHorizontalTabs {
+	padding: 0px 10px;
 }
 
 .DragAndDropPreview {

@@ -151,12 +151,12 @@
 }
 
 .UIMaskWorkspace .UIAction {
-  width: 110px ;
+  width: 140px ;
   margin: auto ;
 }
 
 .UIMaskWorkspace .UIAction .ActionButton {
-  width: 100px ;
+  width: 100px;
 }
 
 .UIMaskWorkspace .UIAction .ActionButton .Icon {
