@@ -86,8 +86,7 @@
 
 .UIInfoBar .BlueRoundedStyle .Title {
   font-size: 11px; ; color: black;
-  text-align: center;
-  line-height: 24px; vertical-align: middle;
+  line-height: 24px; 
   float: left ; margin: 0px 7px ;
 }
 

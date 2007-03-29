@@ -73,15 +73,15 @@
 
 
 .UIWidgets .EditIcon {
-	float: right;
-	width: 18px; height: 20px;
+	float: left;
+	width: 19px; height: 21px;
 	background: url('VistaSkin/icon/EditIcon.png') no-repeat center;
 	cursor: pointer;		
 }
 
 .UIWidgets .UIDropDownItemSelector {
 	float: left;
-	width: 205px;
+	width: 208px;
 }
 
 .UIWidgets .UIDropDownItemSelector .ComponentIcon {

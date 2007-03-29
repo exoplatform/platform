@@ -8,7 +8,7 @@
 }
 
 .UIDropDownItemSelector .ItemInfoBar {
-	background: white;
+	background: url('/eXoResources/background/VistaSkin/IconLabelContentBG1x1.png') repeat;
 	padding-left: 8px;
 	border-left: 1px solid #bdbcbc;
 	border-right: 1px solid #929292;
@@ -30,7 +30,7 @@
 
 .UIDropDownItemSelector .DropDownSelectIcon {
 	float: right; 
-	width: 21px; height: 19px;
-	background: url('DefaultSkin/icon/SelectedIcon.gif') no-repeat center;
+	width: 19px; height: 19px;
+	background: url('VistaSkin/icon/SelectedIcon.png') no-repeat center;
 	cursor: pointer;	
 }
