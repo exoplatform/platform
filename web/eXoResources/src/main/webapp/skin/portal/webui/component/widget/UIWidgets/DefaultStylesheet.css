@@ -17,62 +17,29 @@
 	height: 4px;
 }
 
-/******************************* UICaegorySelector  **********************************/
-.UICaegorySelector {
-}
-
-.UIWidgets .UICaegorySelector {
-	border-top: 1px solid #bdbcbc;
-	border-right: none;
-	border-bottom: 1px solid #ffffff;
-}
-
-.UICaegorySelector .IconLabelContent {
-	background: white;
-	padding-left: 8px;
-	border-left: 1px solid #bdbcbc;
-	border-right: 1px solid #929292;
-	border-bottom: 1px solid #929292;
-	height: 20px;
-}
-
-.UICaegorySelector .IconLabelContent .WidgetIcon {
+.UIWidgets .EditIcon {
 	float: left;
-	height: 19px; width: 20px; 
+	width: 20px; height: 21px;
+	background: url('DefaultSkin/icon/EditIcon.gif') no-repeat bottom;
+	cursor: pointer;
+}
+
+.UIWidgets .UIDropDownItemSelector {
+	float: left;
+	width: 215px;
+}
+
+.UIWidgets .UIDropDownItemSelector .ComponentIcon {
 	background: url('DefaultSkin/icon/IconWidget.gif') no-repeat center;
-}
-
-.UICaegorySelector .IconLabelContent .WidgetLabel {
-	float: left;
-	line-height: 19px;
-	font-size: 11px; font-weight: bold;
-	margin-left: 8px;
-}
-
-.UICaegorySelector .SelectedIcon {
-	float: right; 
-	width: 21px; height: 20px;
-	background: url('DefaultSkin/icon/SelectedIcon.gif') no-repeat center;
-	cursor: pointer;	
-}
-
-.UICaegorySelector .EditIcon {
-	float: right;		
-}
-
-.UIWidgets .UICaegorySelector .EditIcon {
-	width: 20px; height: 20px;
-	background: url('DefaultSkin/icon/EditIcon.gif') no-repeat center;
-	cursor: pointer;		
 }
 /***************************************  UIWidgetContainer   **************************************/
 .UIWidgetContainer {
-	border-left: 1px solid white;
-	border-right: 1px solid white;
+	border: 1px solid white;
+	border-bottom: none;
 	padding-top: 5px;
 }
 
-.UIWidgetContainer .WidgetContnet .eXoInfoWidgetImage {
+.UIWidgetContainer .WidgetContent .eXoInfoWidgetImage {
 	margin: auto;
 	width: 200px; height: 200px;
 	background: url('DefaultSkin/background/InfoImage200x200.png') no-repeat center;	

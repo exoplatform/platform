@@ -71,18 +71,21 @@
 	margin-left: 8px;
 }
 
-.UICaegorySelector .SelectedIcon {
-	float: right; 
-	width: 19px; height: 20px;
-	background: url('VistaSkin/icon/SelectedIcon.png') no-repeat center;
-	cursor: pointer;	
-}
 
-.UIWidgets .UICaegorySelector .EditIcon {
+.UIWidgets .EditIcon {
 	float: right;
 	width: 18px; height: 20px;
 	background: url('VistaSkin/icon/EditIcon.png') no-repeat center;
 	cursor: pointer;		
+}
+
+.UIWidgets .UIDropDownItemSelector {
+	float: left;
+	width: 205px;
+}
+
+.UIWidgets .UIDropDownItemSelector .ComponentIcon {
+	background: url('VistaSkin/icon/IconWidget.png') no-repeat center;
 }
 
 /***************************************  UIWidgetContainer   **************************************/

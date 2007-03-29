@@ -196,6 +196,7 @@
   background: url('DefaultSkin/background/PortalBackground4x4.gif');
   border: solid 1px #1d5b9b ;
   padding: 8px 0px ;
+  margin: auto;
 }
 
 .UIPage {

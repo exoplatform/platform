@@ -171,6 +171,21 @@
 .UIMaskWorkspace .UIFormWithTitle {
 	padding: 10px 0px;
 }
+
+.UIMaskWorkspace .UITabContent {
+	width: 650px;
+}
+
+.UIMaskWorkspace .UIItemSelector .ItemDetailList {
+  height: 252px ; 
+  margin-right: 255px; 
+  padding: 10px;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UIMaskWorkspace .UIItemSelector .ItemDetailList .ItemDetail {
+  overflow: hidden;
+}
 /**************************** UIAddApplication ******************************************/
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
   height: 206px ;
