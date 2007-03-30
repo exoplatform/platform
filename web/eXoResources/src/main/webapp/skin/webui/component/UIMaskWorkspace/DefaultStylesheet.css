@@ -80,11 +80,11 @@
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
   height: 276px ;
-  overflow: auto;
 }
 
-.UIMaskWorkspace .ContentContainerDetail .TabsContainer {
-	width: 99.9%; 
+.UIAddApplication .UITabContentContainer .UITabContent {
+	height: 244px;
+	overflow: auto;
 }
 
 .UIMaskWorkspace .RefreshButtonLabel a {
@@ -96,8 +96,7 @@
 }
 
 .UIMaskWorkspace .ApplicationListContainer {
-	height: 235px ;
-	overflow: auto ;
+	height: auto;
 }
 
 .UIMaskWorkspace .Application {
@@ -167,6 +166,11 @@
   margin-right: 255px; 
   padding: 10px;
   border: solid 1px #b7b7b7 ;
+}
+
+.UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
+  margin-right: 0px; 
+  height: auto;
 }
 
 .UIMaskWorkspace .UIItemSelector .ItemDetailList .ItemDetail {

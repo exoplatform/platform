@@ -5,7 +5,7 @@
 .UIAccountPortlet {
   border: 1px #424345 solid ; 
   background: url('VistaSkin/background/UIAccountPortletBG1x3.png') repeat ;
-  margin: 0px 2px 6px 6px ; 
+  margin: 0px 2px 0px 6px ; 
 }
 
 .UIAccountPortlet .AccountContainer {
