@@ -9,7 +9,7 @@ import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIPortletApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 
-@ComponentConfig( lifecycle = UIGroovyPortletLifecycle.class )
+@ComponentConfig()
 public class UIGroovyPortlet extends UIPortletApplication {
   
   private String DEFAULT_TEMPLATE = "app:/groovy/groovy/webui/component/UIGroovyPortlet.gtmpl" ;  
