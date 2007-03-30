@@ -9,6 +9,8 @@
 
 .UIDescription .DecriptionContainer {
   padding: 0px 5px 5px 5px;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
 }
 
 .UIDescription .DescriptionTitle {

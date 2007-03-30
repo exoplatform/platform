@@ -35,9 +35,9 @@
 
 .UICreatePage .EditPortletIcon {
   float: left;
-  width: 24px; height: 24px;
+  width: 28px; height: 24px;
   margin: 3px 5px 0px 10px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControl.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControlIcon.png') no-repeat ;
 }
 
 .UICreatePage .SavePageIcon {

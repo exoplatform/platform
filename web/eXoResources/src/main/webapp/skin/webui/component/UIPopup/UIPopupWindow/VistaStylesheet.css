@@ -27,25 +27,25 @@
 }
 
 .UIPopupWindow .TopLeftCornerDecorator {
-  background: url('../UIWindow/VistaSkin/background/TopBarL10x28.png') no-repeat left top;
+  background: url('../UIWindow/VistaSkin/background/LeftTopBar11x25.png') no-repeat left top;
   height: 25px;
-  padding-left: 10px;
+  padding-left: 11px;
 }
 
 .UIPopupWindow .TopCenterDecorator {
-  background: url('../UIWindow/VistaSkin/background/TopBarCenter1x28.png') repeat-x top;
+  background: url('../UIWindow/VistaSkin/background/CenterTopBar1x25.png') repeat-x top;
   height: 25px;
 }
 
 .UIPopupWindow .TopRightCornerDecorator {
-  background: url('../UIWindow/VistaSkin/background/TopBarR14x28.png') no-repeat right top;
+  background: url('../UIWindow/VistaSkin/background/RightTopBar16x25.png') no-repeat right top;
   height: 25px;
-  padding-right: 14px;
+  padding-right: 16px;
 }
 
 .UIPopupWindow .MiddleLeftSideDecorator {
-  background: url('../UIWindow/VistaSkin/background/MiddleDecoratorL10x1.png') repeat-y left;
-  padding-left: 10px ;  
+  background: url('../UIWindow/VistaSkin/background/LeftMiddleDecorator9x1.png') repeat-y left;
+  padding-left: 9px ;  
 }
 
 .UIPopupWindow .MiddleCenterDecorator {
@@ -53,8 +53,8 @@
 }
 
 .UIPopupWindow .MiddleRightSideDecorator {
-  background: url('../UIWindow/VistaSkin/background/MiddleDecoratorR14x1.png') repeat-y right;
-  padding-right: 14px ;  
+  background: url('../UIWindow/VistaSkin/background/RightMiddleDecorator13x1.png') repeat-y right;
+  padding-right: 13px ;  
 }
 
 .UIPopupWindow .UIWindowContent {
@@ -74,9 +74,9 @@
 }
 
 .UIPopupWindow .BottomBar {
-  height:9px;
+  height:12px;
   width: auto;
-  background: url('VistaSkin/background/BottomBarBG1x13.png') repeat-x bottom;
+  background: url('VistaSkin/background/BottomBarBG1x12.png') repeat-x bottom;
 }
 
 .UIPopupWindow .BottomBar .ResizeButton {
@@ -87,22 +87,23 @@
 }
 
 .UIPopupWindow .BottomLeftCornerDecorator {
-  background: url('VistaSkin/background/BottomMessagesL10x25.png') no-repeat left bottom;
-  height: 12px;
-  padding-left: 10px;
+  background: url('VistaSkin/background/BottomMessagesL6x11.png') no-repeat left bottom;
+  height: 11px;
+  padding-left: 6px;
 }
 
 .UIPopupWindow .BottomCenterDecorator {
-  background: url('VistaSkin/background/BottomMessagesCenter1x25.png') repeat-x bottom;
-  height: 12px;
+  background: url('VistaSkin/background/BottomMessagesCenter1x11.png') repeat-x bottom;
+  height: 11px;
   width: 100%;
 }
 
 .UIPopupWindow .BottomRightCornerDecorator {
-  background: url('VistaSkin/background/BottomMessagesR14x25.png') no-repeat right bottom;
-  height: 12px;
-  padding-right: 14px ;  
+  background: url('VistaSkin/background/BottomMessagesR9x11.png') no-repeat right bottom;
+  height: 11px;
+  padding-right: 9px ;  
 }
+
 
 /***************************Begin PoupWindow Caledar**********************************/
 .UIPopupWindow .CaledarStyle .TopLeftCornerDecorator {
