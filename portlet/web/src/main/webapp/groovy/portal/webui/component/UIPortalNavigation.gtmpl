@@ -2,7 +2,7 @@
   import org.exoplatform.portal.config.model.PageNode ;
   
   def rcontext = _ctx.getRequestContext() ;
-	rcontext.importJavascript('eXo.webui.UIHorizontalTabs');
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
    
   String mouseOver = "eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, true)" ;
   String mouseOut = "eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, false)" ;
