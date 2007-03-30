@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.json;
 
+import java.lang.reflect.Array;
+
 
 /**
  * Created by The eXo Platform SARL
@@ -13,34 +15,47 @@ package org.exoplatform.json;
  */
 public class ArrayToJSONPlugin extends BeanToJSONPlugin<Object>  {
 
-  public void toJSONScript(Object object, StringBuilder builder, int indentLevel) throws Exception {
-    if(!object.getClass().isArray()) throw new Exception("Object isn't intanceOf array");
-    if(object instanceof byte[]){
-      toJSON((byte[])object, builder);
-    } 
-    else if(object instanceof short[]) {
-      toJSON((short[])object, builder);
-    } 
-    else if(object instanceof int[]) {
-      toJSON((int[])object, builder);
-    } 
-    else if(object instanceof long[]) {
-      toJSON((long[])object, builder);
-    } 
-    else if(object instanceof float[]) {
-      toJSON((float[])object, builder);
-    } 
-    else if(object instanceof double[]) {
-      toJSON((double[])object, builder);
+  public void toJSONScript(Object objects, StringBuilder builder, int indentLevel) throws Exception {
+    if(!objects.getClass().isArray()) throw new Exception("Object isn't intanceOf array");
+    boolean newBuilder = builder.length() < 3;
+    if(newBuilder) {
+      indentLevel = indentLevel + 1;
+      appendIndentation(builder, indentLevel);
+      String name = "";
+      if(Array.getLength(objects) > 0){
+        name = Array.get(objects, 0).getClass().getSimpleName();
+      }else{
+        name = objects.getClass().getSimpleName();
+      }
+      builder.append('\'').append(name).append("s\': ");
     }
-    else if(object instanceof boolean[]) {
-      toJSON((boolean[])object, builder);
+    if(objects instanceof byte[]){
+      toJSON((byte[])objects, builder);
+    } 
+    else if(objects instanceof short[]) {
+      toJSON((short[])objects, builder);
+    } 
+    else if(objects instanceof int[]) {
+      toJSON((int[])objects, builder);
+    } 
+    else if(objects instanceof long[]) {
+      toJSON((long[])objects, builder);
+    } 
+    else if(objects instanceof float[]) {
+      toJSON((float[])objects, builder);
+    } 
+    else if(objects instanceof double[]) {
+      toJSON((double[])objects, builder);
     }
-    else if(object instanceof char[]) {
-      toJSON((char[])object, builder);
+    else if(objects instanceof boolean[]) {
+      toJSON((boolean[])objects, builder);
+    }
+    else if(objects instanceof char[]) {
+      toJSON((char[])objects, builder);
     } else {
-      objectToJSON((Object[])object, builder, indentLevel);
+      objectToJSON((Object[])objects, builder, indentLevel);
     }
+    if(newBuilder) appendIndentation(builder, indentLevel);
   }
 
   @SuppressWarnings("unchecked")

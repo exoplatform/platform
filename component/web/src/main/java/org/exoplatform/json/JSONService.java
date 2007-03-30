@@ -41,6 +41,9 @@ public class JSONService {
   public <T>  void toJSONScript(T bean, StringBuilder b, int indentLevel) throws Exception {
     BeanToJSONPlugin plugin = getConverterPlugin(bean);
     plugin.toJSONScript(bean, b, indentLevel);
+    int s = b.lastIndexOf(",");
+    int k = b.lastIndexOf(":");
+    if(s > k) b.deleteCharAt(s);
   }
   
   public ArrayToJSONPlugin getArrayToJSONPlugin(){

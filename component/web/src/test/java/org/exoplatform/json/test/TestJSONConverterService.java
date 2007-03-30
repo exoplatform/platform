@@ -69,6 +69,13 @@ public class TestJSONConverterService extends BasicTestCase {
     System.out.println(customJSONBuilder);
     System.out.println("\n\n");
     
+    List<Account> list = bean.getAccounts();
+    System.out.println("\n\n arrays format ===> ");
+    StringBuilder arrayJSONBuilder  = new StringBuilder();
+    service_.toJSONScript(list, arrayJSONBuilder, 0);
+    System.out.println(arrayJSONBuilder);
+    System.out.println("\n\n");
+    
     assertEquals(reflectJSONBuilder.toString(), customJSONBuilder.toString());
   }
   
