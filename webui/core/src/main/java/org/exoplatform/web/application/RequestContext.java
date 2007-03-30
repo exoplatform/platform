@@ -37,12 +37,12 @@ abstract public class RequestContext {
   abstract  public String[] getRequestParameterValues(String name)  ;
   
   //TODO: remove this and  use JavascriptManager object
-  abstract public void addJavascript(CharSequence s) ;
-  abstract public void importJavascript(CharSequence s) ;
-  abstract public void importJavascript(String s, String location) ;
-  abstract public void addOnLoadJavascript(CharSequence s) ;
-  abstract public void addOnResizeJavascript(CharSequence s) ;
-  abstract public void addOnScrollJavascript(CharSequence s); 
+//  abstract public void addJavascript(CharSequence s) ;
+//  abstract public void importJavascript(CharSequence s) ;
+//  abstract public void importJavascript(String s, String location) ;
+//  abstract public void addOnLoadJavascript(CharSequence s) ;
+//  abstract public void addOnResizeJavascript(CharSequence s) ;
+//  abstract public void addOnScrollJavascript(CharSequence s); 
   //==============================================================
   public  JavascriptManager getJavascriptManager() { 
     return getParentAppRequestContext().getJavascriptManager() ;

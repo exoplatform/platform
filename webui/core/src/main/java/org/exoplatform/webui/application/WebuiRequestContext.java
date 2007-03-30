@@ -109,21 +109,21 @@ abstract public class WebuiRequestContext extends RequestContext {
   public StateManager  getStateManager() { return stateManager_; }
   public void  setStateManager(StateManager manager) { stateManager_ =  manager ; }
   
-  public void addJavascript(CharSequence s) { jsmanager_.addJavascript(s);  }
-  
-  public void importJavascript(CharSequence s) { jsmanager_.importJavascript(s); }
-  
-  public void importJavascript(String s, String location) { jsmanager_.importJavascript(s, location) ;}
-  
-  public void addOnLoadJavascript(CharSequence s) { jsmanager_.addOnLoadJavascript(s) ; }
-  
-  public void addOnResizeJavascript(CharSequence s) { jsmanager_.addOnResizeJavascript(s) ; }
-  
-  public void addOnScrollJavascript(CharSequence s) { jsmanager_.addOnScrollJavascript(s) ; }
-  
-  public String getJavascript() { return jsmanager_.getJavascript() ; }
-  
-  public void addCustomizedOnLoadScript(CharSequence s) { jsmanager_.addCustomizedOnLoadScript(s) ; }
-  
-  public String getCustomizedOnLoadScript() {  return jsmanager_.getCustomizedOnLoadScript() ; }
+//  public void addJavascript(CharSequence s) { jsmanager_.addJavascript(s);  }
+//  
+//  public void importJavascript(CharSequence s) { jsmanager_.importJavascript(s); }
+//  
+//  public void importJavascript(String s, String location) { jsmanager_.importJavascript(s, location) ;}
+//  
+//  public void addOnLoadJavascript(CharSequence s) { jsmanager_.addOnLoadJavascript(s) ; }
+//  
+//  public void addOnResizeJavascript(CharSequence s) { jsmanager_.addOnResizeJavascript(s) ; }
+//  
+//  public void addOnScrollJavascript(CharSequence s) { jsmanager_.addOnScrollJavascript(s) ; }
+//  
+//  public String getJavascript() { return jsmanager_.getJavascript() ; }
+//  
+//  public void addCustomizedOnLoadScript(CharSequence s) { jsmanager_.addCustomizedOnLoadScript(s) ; }
+//  
+//  public String getCustomizedOnLoadScript() {  return jsmanager_.getCustomizedOnLoadScript() ; }
 }
