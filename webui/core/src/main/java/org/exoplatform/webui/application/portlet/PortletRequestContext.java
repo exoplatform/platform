@@ -84,20 +84,6 @@ public class PortletRequestContext extends WebuiRequestContext {
   
   public  void    setProcessAction(boolean b) { hasProcessAction_ = b ; }
   
-  public void addJavascript(CharSequence s) { getParentAppRequestContext().addJavascript(s); }
-  
-  public void importJavascript(CharSequence s) { getParentAppRequestContext().importJavascript(s) ;}
-  
-  public void importJavascript(String s, String location) {
-    getParentAppRequestContext().importJavascript(s, location) ;
-  }
-  
-  public void addOnLoadJavascript(CharSequence s) { getParentAppRequestContext().addOnLoadJavascript(s) ;} 
-  
-  public void addOnResizeJavascript(CharSequence s) {getParentAppRequestContext().addOnResizeJavascript(s) ;} 
-  
-  public void addOnScrollJavascript(CharSequence s) { getParentAppRequestContext().addOnScrollJavascript(s); }
-  
   public String getBaseURL() {
     if(baseURL_ != null)  return baseURL_;
     if(writer_ == null) {

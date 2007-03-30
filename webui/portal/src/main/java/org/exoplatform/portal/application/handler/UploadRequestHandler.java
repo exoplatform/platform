@@ -57,7 +57,7 @@ public class UploadRequestHandler implements RequestHandler {
         jsonService.toJSONScript(uploadBean, tmp, 0);
         System.out.println("\n********************************" + tmp + "\n*************************\n" );
       }       
-      jsonService.toJSONScript(uploadBeans.toArray(), value, 0);
+      jsonService.toJSONScript(uploadBeans, value, 0);
       System.out.println("\n+++++++++++++\n" + value + "\n++++++++++++++\n" );
       writer.append(value);
       

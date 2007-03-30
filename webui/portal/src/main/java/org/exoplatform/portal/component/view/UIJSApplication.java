@@ -29,7 +29,7 @@ public class UIJSApplication extends UIPortalComponent {
   public void processRender(WebuiRequestContext context) throws Exception {
     PortalRequestContext pcontext = (PortalRequestContext)context;
     if(jsApplication == null) return;
-    pcontext.addCustomizedOnLoadScript(jsApplication);
+    pcontext.getJavascriptManager().addCustomizedOnLoadScript(jsApplication);
   }
   
 }

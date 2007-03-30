@@ -15,7 +15,6 @@ import org.exoplatform.account.webui.component.UIAccountForm;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.customization.UIPortletForm;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.organization.OrganizationService;
@@ -113,19 +112,8 @@ public class UILoginForm extends UIForm {
   static public class SignUpActionListener  extends EventListener<UILoginForm> {
     public void execute(Event<UILoginForm> event) throws Exception {
       System.out.println("\n\n\n\n^^^^^^^^^^^^^^##############################################");
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
-      UILoginForm uiLoginForm = uiMaskWS.createUIComponent(UILoginForm.class, null, null);
-      uiMaskWS.setUIComponent(uiLoginForm);
-      uiMaskWS.setShow(true);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event);  
-      
-      
       // TODO BUG! exception in phase 'parsing' in source unit 'Script1.groovy' null
       // Ko hieu cach su dung Param nhu ben duoi thi co gi sai.
-/*      System.out.println("\n\n\n\n^^^^^^^^^^^^^^##############################################");
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
@@ -139,7 +127,7 @@ public class UILoginForm extends UIForm {
       UIAccountForm accountForm = new UIAccountForm(initParam);
       uiMaskWS.setUIComponent(accountForm);
       uiMaskWS.setWindowSize(630, -1);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);*/
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       
     }
   }

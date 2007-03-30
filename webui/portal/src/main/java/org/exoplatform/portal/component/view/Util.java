@@ -103,7 +103,7 @@ public class Util {
     else if(uiPage != null && uiPage.isShowEditControl())  name = "'UIPage'";
     else if(uiPortlet != null  && uiPortlet.isShowEditControl()) name = "'UIPortlet'";
 
-    getPortalRequestContext().addCustomizedOnLoadScript("eXo.portal.UIPortal.showLayoutModeForPortal("+name+");");
+    getPortalRequestContext().getJavascriptManager().addCustomizedOnLoadScript("eXo.portal.UIPortal.showLayoutModeForPortal("+name+");");
   }
 
   static public void showPageComponentLayoutMode(UIPortalApplication uiPortalApp){   
@@ -119,7 +119,7 @@ public class Util {
     if(uiContainer != null && uiContainer.isShowEditControl())  name = "UIContainer";      
     else if(uiPortlet != null  && uiPortlet.isShowEditControl()) name = "UIPortlet";
 
-    getPortalRequestContext().addCustomizedOnLoadScript("eXo.portal.UIPortal.showLayoutModeForPage('"+name+"');");
+    getPortalRequestContext().getJavascriptManager().addCustomizedOnLoadScript("eXo.portal.UIPortal.showLayoutModeForPage('"+name+"');");
   }
 
   static public UIComponent findUIComponent(UIComponent uiComponent, Class clazz, Class ignoreClazz){
@@ -184,9 +184,9 @@ public class Util {
     
     PortalRequestContext context = Util.getPortalRequestContext() ;
     if(uiParent instanceof UIPortal){
-      context.addCustomizedOnLoadScript("eXo.portal.UIPortal.showLayoutModeForPortal('"+layoutMode+"');") ;
+      context.getJavascriptManager().addCustomizedOnLoadScript("eXo.portal.UIPortal.showLayoutModeForPortal('"+layoutMode+"');") ;
     } else {
-      context.addCustomizedOnLoadScript("eXo.portal.UIPortal.showLayoutModeForPage('"+layoutMode+"');") ;
+      context.getJavascriptManager().addCustomizedOnLoadScript("eXo.portal.UIPortal.showLayoutModeForPage('"+layoutMode+"');") ;
     }
   }
   

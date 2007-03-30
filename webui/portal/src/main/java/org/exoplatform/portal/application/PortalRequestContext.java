@@ -5,7 +5,6 @@ import java.io.Writer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.web.application.Parameter;
 import org.exoplatform.webui.application.WebuiApplication;
@@ -15,7 +14,7 @@ import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.Event;
 
 public class PortalRequestContext extends WebuiRequestContext {
-  
+   
   final  static public int PUBLIC_ACCESS  =   0 ;
   final  static public int PRIVATE_ACCESS =   1 ;
   final  static public int ADMIN_ACCESS   =   2 ;
@@ -34,8 +33,6 @@ public class PortalRequestContext extends WebuiRequestContext {
   //private HttpSession session_ ;
   private boolean  ajaxRequest_ = true ;
   private boolean  forceFullUpdate = false;
-  
-  private JavascriptManager jsmanager_ = new  JavascriptManager() ;
   
   public PortalRequestContext(WebuiApplication app, HttpServletRequest req, HttpServletResponse res) {
     super(app);
@@ -105,25 +102,8 @@ public class PortalRequestContext extends WebuiRequestContext {
   final public void setForceFullUpdate(boolean forceFullUpdate) { this.forceFullUpdate = forceFullUpdate; }
   
   //TODO:  replace  by JavascriptManager
-  public void addJavascript(CharSequence s) { jsmanager_.addJavascript(s);  }
   
-  public void importJavascript(CharSequence s) { jsmanager_.importJavascript(s); }
-  
-  public void importJavascript(String s, String location) { jsmanager_.importJavascript(s, location) ;}
-  
-  public void addOnLoadJavascript(CharSequence s) { jsmanager_.addOnLoadJavascript(s) ; }
-  
-  public void addOnResizeJavascript(CharSequence s) { jsmanager_.addOnResizeJavascript(s) ; }
-  
-  public void addOnScrollJavascript(CharSequence s) { jsmanager_.addOnScrollJavascript(s) ; }
-  
-  public String getJavascript() { return jsmanager_.getJavascript() ; }
-  
-  public void addCustomizedOnLoadScript(CharSequence s) { jsmanager_.addCustomizedOnLoadScript(s) ; }
-  
-  public String getCustomizedOnLoadScript() {  return jsmanager_.getCustomizedOnLoadScript() ; }
   //=============================================================================================
-  public  JavascriptManager getJavascriptManager() { return jsmanager_ ; }
   
   public StringBuilder createURL(UIComponent uicomponent, Event event, 
                                  boolean supportAjax, String beanId, Parameter ... params) {

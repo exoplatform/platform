@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 import org.exoplatform.templates.groovy.ApplicationResourceResolver;
 import org.exoplatform.templates.groovy.ResourceResolver;
 import org.exoplatform.web.application.Application;
+import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.web.application.Parameter;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.component.UIApplication;
@@ -35,10 +36,12 @@ abstract public class WebuiRequestContext extends RequestContext {
   private Throwable executionError_ ;
   private ArrayList<UIComponent>  uicomponentToUpdateByAjax ;
   protected StringBuilder builderURL = new StringBuilder(300);
-  
+  protected JavascriptManager jsmanager_ = new  JavascriptManager() ;
   public WebuiRequestContext(Application app) {
     super(app) ;
   }
+  
+  public  JavascriptManager getJavascriptManager() { return jsmanager_ ; }
   
   public String getSessionId() {  return sessionId_  ; }  
   protected void setSessionId(String id) { sessionId_ = id ;}
@@ -106,4 +109,21 @@ abstract public class WebuiRequestContext extends RequestContext {
   public StateManager  getStateManager() { return stateManager_; }
   public void  setStateManager(StateManager manager) { stateManager_ =  manager ; }
   
+  public void addJavascript(CharSequence s) { jsmanager_.addJavascript(s);  }
+  
+  public void importJavascript(CharSequence s) { jsmanager_.importJavascript(s); }
+  
+  public void importJavascript(String s, String location) { jsmanager_.importJavascript(s, location) ;}
+  
+  public void addOnLoadJavascript(CharSequence s) { jsmanager_.addOnLoadJavascript(s) ; }
+  
+  public void addOnResizeJavascript(CharSequence s) { jsmanager_.addOnResizeJavascript(s) ; }
+  
+  public void addOnScrollJavascript(CharSequence s) { jsmanager_.addOnScrollJavascript(s) ; }
+  
+  public String getJavascript() { return jsmanager_.getJavascript() ; }
+  
+  public void addCustomizedOnLoadScript(CharSequence s) { jsmanager_.addCustomizedOnLoadScript(s) ; }
+  
+  public String getCustomizedOnLoadScript() {  return jsmanager_.getCustomizedOnLoadScript() ; }
 }

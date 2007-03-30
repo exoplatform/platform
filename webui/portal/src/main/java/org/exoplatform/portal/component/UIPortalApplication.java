@@ -177,9 +177,9 @@ public class UIPortalApplication extends UIApplication {
     String skin  = getAddSkinScript(list);
     w.  write("</div>");
     w.  write("<div class=\"PortalResponseScript\">"); 
-    w.    write(pcontext.getJavascript());
+    w.    write(pcontext.getJavascriptManager().getJavascript());
     w.    write("eXo.core.Browser.onLoad();\n"); 
-    w.    write(pcontext.getCustomizedOnLoadScript()) ;
+    w.    write(pcontext.getJavascriptManager().getCustomizedOnLoadScript()) ;
     if(skin != null){
       w.  write(skin) ;
     }
