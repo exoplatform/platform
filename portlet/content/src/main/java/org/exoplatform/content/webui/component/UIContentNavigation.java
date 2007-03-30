@@ -166,53 +166,63 @@ public class UIContentNavigation extends UIComponent {
   }
 
   static  public class AddNodeActionListener extends EventListener<UIContentNavigation> {
-    public void execute(Event<UIContentNavigation> event) throws Exception {
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;;
-      UIContentForm uiForm = uiMaskWS.createUIComponent(UIContentForm.class, null, null);
-      uiForm.setContentNode(null);
+    public void execute(Event<UIContentNavigation> event) throws Exception {     
+//      UIContentNavigation uiNav = event.getSource();
+//      UIContentPortlet uiParent = uiNav.getParent() ;
+//      UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
+//      UIContentForm uiForm = uiWorkingArea.getChild(UIContentForm.class) ;
+//      uiForm.setContentNode(null);
+//      UIPortal uiPortal = Util.getUIPortal();
+//      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+//      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;;
+//      UIContentForm uiForm = uiMaskWS.createUIComponent(UIContentForm.class, null, null);
+//      uiForm.setContentNode(null);
+//      
+//      UIContentNavigation uiNav = event.getSource();
+//      ContentNode selectedNode = uiNav.getSelectedNode() ;
+//      if(selectedNode == null)  return;
+//      
+//      uiMaskWS.setUIComponent(uiForm);
+//      uiMaskWS.setWindowSize(640, 400);
+//      uiMaskWS.setShow(true);
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+//      Util.updateUIApplication(event);
       
-      uiMaskWS.setUIComponent(uiForm);  
-      uiMaskWS.setShow(true);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event);
-      
-/*      UIContentNavigation uiNav = event.getSource();
+      UIContentNavigation uiNav = event.getSource();
       UIContentPortlet uiParent = uiNav.getParent() ;
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
       UIContentForm uiForm = uiWorkingArea.getChild(UIContentForm.class) ;
       uiForm.setContentNode(null);
       uiWorkingArea.setRenderedChild(UIContentForm.class) ;
       Class [] childrenToRender = {UIContentNavigation.class, UIContentWorkingArea.class };
-      uiParent.setRenderedChildrenOfTypes(childrenToRender) ;*/
+      uiParent.setRenderedChildrenOfTypes(childrenToRender) ;
     }
   }
 
   static  public class EditNodeActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
+//      UIContentNavigation uiNav = event.getSource();
+//      UIPortal uiPortal = Util.getUIPortal();
+//      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+//      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+//      
+//      UIContentForm uiForm = uiMaskWS.createUIComponent(UIContentForm.class, null, null);
+//      ContentNode selectedNode = uiNav.getSelectedNode() ;
+//      if(selectedNode == null)  return;
+//      uiForm.setContentNode(selectedNode);
+//      uiMaskWS.setUIComponent(uiForm);      
+//
+//      uiMaskWS.setShow(true);
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+//      Util.updateUIApplication(event);
       UIContentNavigation uiNav = event.getSource();
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      
-      UIContentForm uiForm = uiMaskWS.createUIComponent(UIContentForm.class, null, null);
-      ContentNode selectedNode = uiNav.getSelectedNode() ;
-      if(selectedNode == null)  return;
-      uiForm.setContentNode(selectedNode);
-      uiMaskWS.setUIComponent(uiForm);      
-
-      uiMaskWS.setShow(true);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event);
-/*      UIContentNavigation uiNav = event.getSource();
       UIContentPortlet uiParent = uiNav.getParent() ;
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
       UIContentForm uiForm = uiWorkingArea.getChild(UIContentForm.class) ;
       ContentNode selectedNode = uiNav.getSelectedNode() ;
       if(selectedNode == null)  return;
       uiForm.setContentNode(selectedNode);
-      uiWorkingArea.setRenderedChild(UIContentForm.class) ;*/
+      uiWorkingArea.setRenderedChild(UIContentForm.class) ;
     }
   }
 
