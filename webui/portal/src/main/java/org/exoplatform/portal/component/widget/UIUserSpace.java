@@ -7,7 +7,6 @@ package org.exoplatform.portal.component.widget;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIDropDownItemSelector;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-
 /**
  * Created by The eXo Platform SARL
  * Author : Le bien thuy, 
@@ -22,6 +21,5 @@ public class UIUserSpace extends UIContainer {
   public UIUserSpace() throws Exception{
     addChild(UILoggedInfo.class, null, null);
     addChild(UIWidgets.class, null, null);
-    addChild(UIDropDownItemSelector.class, null, null);
   }
 }

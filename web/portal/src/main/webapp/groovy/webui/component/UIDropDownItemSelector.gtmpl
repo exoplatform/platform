@@ -16,9 +16,4 @@
 	<div class="UIItemList" style="display: none;">
 		UIItemList
 	</div>
-	
-	<div class="ItemListContent">
-		Content
-	</div>
-
 </div>

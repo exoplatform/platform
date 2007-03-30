@@ -5,6 +5,7 @@
 package org.exoplatform.portal.component.widget;
 
 import org.exoplatform.webui.component.UIContainer;
+import org.exoplatform.webui.component.UIDropDownItemSelector;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 
 /**
@@ -18,5 +19,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 )
 public class UIWidgets extends UIContainer {
   
-    
+  public UIWidgets() throws Exception{
+    addChild(UIDropDownItemSelector.class, null, null);
+  }
 }

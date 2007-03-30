@@ -79,7 +79,7 @@
 	cursor: pointer;		
 }
 
-.UIWidgets .ItemSelectorContainer {
+.UIWidgets .UIDropDownItemSelector {
 	float: left;
 	width: 208px;
 }
