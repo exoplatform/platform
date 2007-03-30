@@ -7,6 +7,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	this.superClass = eXo.webui.UIPopup ;
 	var UIWindow = eXo.desktop.UIWindow ;
+	UIWindow.maximize = false;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 		
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
@@ -75,26 +76,29 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	var resizeArea = DOMUtil.findFirstDescendantByClass(popup, "div", "ResizeArea") ;
 	
 	resizeArea.onmousedown = function(e) {
-		if(eXo.core.Browser.isIE6()) {
-			popup.originalUIApplicationWidth = uiApplication.offsetWidth ;
+		// Can only resize when the window is NOT maximized
+		if (!UIWindow.maximize) {
+			if(eXo.core.Browser.isIE6()) {
+				popup.originalUIApplicationWidth = uiApplication.offsetWidth ;
+			}
+			
+			UIWindow.resizableObject = new Array() ;
+	    var uiResizableBlock = DOMUtil.findDescendantsByClass(popup, "div", "UIResizableBlock") ;
+	    if(uiApplication != null) UIWindow.resizableObject.push(uiApplication) ;
+	    if(uiResizableBlock.length > 0) {
+	      for(var i = 0; i < uiResizableBlock.length; i++) {
+	        eXo.desktop.UIWindow.resizableObject.push(uiResizableBlock[i]) ;
+	      }
+	    }
+	    
+	    UIWindow.originalMouseXInDesktop = eXo.core.Browser.findMouseRelativeX(uiPageDesktop, e) ;
+	    UIWindow.originalMouseYInDesktop = eXo.core.Browser.findMouseRelativeY(uiPageDesktop, e) ;
+	    
+	    UIWindow.backupObjectProperties(popup, UIWindow.resizableObject) ;
+	    
+	    UIWindow.dragObject = this ;
+	    uiPageDesktop.onmousemove = UIWindow.resizeWindow ;
 		}
-		
-		UIWindow.resizableObject = new Array() ;
-    var uiResizableBlock = DOMUtil.findDescendantsByClass(popup, "div", "UIResizableBlock") ;
-    if(uiApplication != null) UIWindow.resizableObject.push(uiApplication) ;
-    if(uiResizableBlock.length > 0) {
-      for(var i = 0; i < uiResizableBlock.length; i++) {
-        eXo.desktop.UIWindow.resizableObject.push(uiResizableBlock[i]) ;
-      }
-    }
-    
-    UIWindow.originalMouseXInDesktop = eXo.core.Browser.findMouseRelativeX(uiPageDesktop, e) ;
-    UIWindow.originalMouseYInDesktop = eXo.core.Browser.findMouseRelativeY(uiPageDesktop, e) ;
-    
-    UIWindow.backupObjectProperties(popup, UIWindow.resizableObject) ;
-    
-    UIWindow.dragObject = this ;
-    uiPageDesktop.onmousemove = UIWindow.resizeWindow ;
   } ;
   
   uiPageDesktop.onmouseup = function() {
@@ -124,6 +128,7 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
   }
   
   if(!UIWindow.maximize) {
+  	// Maximize...
   	if(applicationMinWidth) {
   		windowObject.backupApplicationMinWidth = applicationMinWidth.offsetWidth ;
     	applicationMinWidth.style.width = "auto" ;
@@ -153,6 +158,7 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
     }
 		
   } else {
+  	// Demaximize...
     windowObject.style.top = UIWindow.posY + "px" ;
     windowObject.style.left = UIWindow.posX + "px" ;
     windowObject.style.width = UIWindow.originalWidth + "px" ;
@@ -188,48 +194,51 @@ UIWindow.prototype.backupObjectProperties = function(windowPortlet, resizableCom
 } ;
 
 UIWindow.prototype.initDND = function(e) {
-  var DragDrop = eXo.core.DragDrop ;
-  var clickBlock = this ;
-  var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
-  
-  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-  var uiPageDesktopX = eXo.core.Browser.findPosX(uiPageDesktop) ;
-
-  DragDrop.initCallback = function (dndEvent) {
-  }
-
-  DragDrop.dragCallback = function (dndEvent) {
-    var dragObject = dndEvent.dragObject ;
-    var dragObjectY = eXo.core.Browser.findPosY(dragObject) ;
-    var browserHeight = eXo.core.Browser.getBrowserHeight() ;
-    var browserWidth = eXo.core.Browser.getBrowserWidth() ;
-    var mouseX = eXo.core.Browser.findMouseXInPage(dndEvent.backupMouseEvent) ;
-    
-    if(dragObjectY < 0) {
-      dragObject.style.top = "0px" ;
-      document.onmousemove = DragDrop.onDrop ; /*Fix Bug On IE6*/
-    }
-    
-    if(dragObjectY > (browserHeight - 25)) {
-      dragObject.style.top = (browserHeight - 25) + "px" ;
-      document.onmousemove = DragDrop.onDrop ; /*Fix Bug On IE6*/
-    }
-    
-    if((mouseX < uiPageDesktopX) || (mouseX > browserWidth)) {
-      document.onmousemove = DragDrop.onDrop ;
-    }
-    
-  }
-
-  DragDrop.dropCallback = function (dndEvent) {
-  }
-  
-  
-  DragDrop.init(null, clickBlock, dragBlock, e) ;
+	// Can drag n drop only when the window is NOT maximized
+	if (!eXo.desktop.UIWindow.maximize) {
+	  var DragDrop = eXo.core.DragDrop ;
+	  var clickBlock = this ;
+	  var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
+	  
+	  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+	  var uiPageDesktopX = eXo.core.Browser.findPosX(uiPageDesktop) ;
+	
+	  DragDrop.initCallback = function (dndEvent) {
+	  }
+	
+	  DragDrop.dragCallback = function (dndEvent) {
+	    var dragObject = dndEvent.dragObject ;
+	    var dragObjectY = eXo.core.Browser.findPosY(dragObject) ;
+	    var browserHeight = eXo.core.Browser.getBrowserHeight() ;
+	    var browserWidth = eXo.core.Browser.getBrowserWidth() ;
+	    var mouseX = eXo.core.Browser.findMouseXInPage(dndEvent.backupMouseEvent) ;
+	    
+	    if(dragObjectY < 0) {
+	      dragObject.style.top = "0px" ;
+	      document.onmousemove = DragDrop.onDrop ; /*Fix Bug On IE6*/
+	    }
+	    
+	    if(dragObjectY > (browserHeight - 25)) {
+	      dragObject.style.top = (browserHeight - 25) + "px" ;
+	      document.onmousemove = DragDrop.onDrop ; /*Fix Bug On IE6*/
+	    }
+	    
+	    if((mouseX < uiPageDesktopX) || (mouseX > browserWidth)) {
+	      document.onmousemove = DragDrop.onDrop ;
+	    }
+	    
+	  }
+	
+	  DragDrop.dropCallback = function (dndEvent) {
+	  }
+	  
+	  
+	  DragDrop.init(null, clickBlock, dragBlock, e) ;
+	}
 } ;
 
 UIWindow.prototype.resizeWindow = function(e) {
-	var UIWindow = eXo.desktop.UIWindow ;
+	var UIWindow = eXo.desktop.UIWindow;
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	var mouseXInDesktop = eXo.core.Browser.findMouseRelativeX(uiPageDesktop, e) ;
@@ -286,7 +295,6 @@ UIWindow.prototype.resizeWindow = function(e) {
 			UIWindow.resizableObject[i].style.height = (UIWindow.resizableObject[i].originalHeight + deltaY) + "px" ;
 		}		
 	}
-	
 } ;
 
 UIWindow.prototype.onControlOver = function(element, isOver) {
