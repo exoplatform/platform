@@ -33,7 +33,6 @@ UIPopup.prototype.show = function(popup) {
 	if(typeof(popup) == "string") {	
 		popup = document.getElementById(popup) ;
 	}
-	
 	popup.style.zIndex = ++zIndex ;
 	popup.style.display = "block" ;
 } ;
