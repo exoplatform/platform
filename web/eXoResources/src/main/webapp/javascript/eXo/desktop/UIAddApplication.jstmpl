@@ -11,53 +11,60 @@
 	  <div class="CategoryContainer">
 	    
 	    <div class="UIHorizontalTabs">
-	      <div class="TabsContainer">
-	        <div class="UITab">
-	              <div class="HighlightTabStyle">
-	                <div class="LeftTab">
-	                  <div class="RightTab">                
-	                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Portlets</div>
-	                  </div>
-	                </div>
-	              </div>
-	            </div>
-	            
-	            <div class="UITab">
-	              <div class="NormalTabStyle">
-	                <div class="LeftTab">
-	                  <div class="RightTab">
-	                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">JS Applications</div>
-	                  </div>
-	                </div>
-	              </div>
-	            </div>
-	            
-	          <div class="RefreshButtonContent">
-	          	<div class="RefreshButtonLeft">
-	          		<div class="RefreshButtonRight">
-	          			<div class="MiddleRefreshButton">
-	          				<div class="IconRefreshButton"><span></span></div>
-	          				<div class="RefreshButtonLabel">
-	          					<div onClick="eXo.desktop.UIAddApplication.loadPortlets(true);" title="Refresh News">
-	          					  Refresh
-	          					</div>
-	          				</div>
-	          				<div style="clear: left"><span></span></div>
-	          			</div>
-	          		</div>
-	          	</div>
-	          </div>
-	          <div style="clear: both"><span></span></div>
-	      </div>
+	    	<div class="LeftHorizontalTabs">
+	     	  <div class="RightHorizontalTabs">
+	     	    <div class="CenterHorizontalTabs">
+				      <div class="TabsContainer">
+				        <div class="UITab">
+				              <div class="SelectedTabStyle">
+				                <div class="LeftTab">
+				                  <div class="RightTab">                
+				                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Portlets</div>
+				                  </div>
+				                </div>
+				              </div>
+				            </div>
+				            
+				            <div class="UITab">
+				              <div class="NormalTabStyle">
+				                <div class="LeftTab">
+				                  <div class="RightTab">
+				                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">JS Applications</div>
+				                  </div>
+				                </div>
+				              </div>
+				            </div>
+				            
+				          <div class="RefreshButtonContent">
+				          	<div class="RefreshButtonLeft">
+				          		<div class="RefreshButtonRight">
+				          			<div class="MiddleRefreshButton">
+				          				<div class="RefreshButtonLabel">
+				          					<div onClick="eXo.desktop.UIAddApplication.loadPortlets(true);"><a>Refresh</a></div>
+				          				</div>
+				          				<div style="clear: left"><span></span></div>
+				          			</div>
+				          		</div>
+				          	</div>
+				          </div>
+				          <div style="clear: both"><span></span></div>
+				      </div>
+				  	</div>
+					</div>
+				</div>
 	    </div>
 	    
 	    <div class="UITabContentContainer">
 	      <div class="UITabContent" style="display: block">
 	      	
 	      	<div class="UIItemSelector">
-	      	  <div class="FloatRightStyle">
+	      	  <div class="LeftColumnStyle">
           	  <div class="ItemListContainer">
-          	    <div class="ItemListTitle">Portlet Category</div>
+          	    <div class="ItemListTitle">
+          	    	<div class="TitleIcon ItemListIcon"><span></span></div>
+          	    	<div class="Title">Categories</div>
+          	    	<div style="clear: left;"><span></span></div>
+          	    </div>
           	    <div class="ItemList"><span></span></div>
           	  </div>          	  
           	  <div class="ItemDetailList"><span></span></div>
@@ -69,15 +76,19 @@
 	      
 	      <div class="UITabContent" style="display: none">
 	        <div class="UIItemSelector">
-	      	  <div class="FloatRightStyle">
+	      	  <div class="LeftColumnStyle">
 	          	  <div class="ItemListContainer">
-	          	    <div class="ItemListTitle">Javascript Application</div>
+	          	    <div class="ItemListTitle">
+	          	    	<div class="TitleIcon ItemListIcon"><span></span></div>
+          	    		<div class="Title">Category</div>
+          	    		<div style="clear: left;"><span></span></div>
+	          	    </div>
 	          	    <div class="ItemList">
 	          	    
-	          	      <div class="ItemSelected Item" onclick="eXo.webui.UIItemSelector.onClick(this)"
+	          	      <div class="SelectedItem Item" onclick="eXo.webui.UIItemSelector.onClick(this)"
 	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">
-	          	        <div class="ItemIcon">
-	          	          <div class="ItemName">
+	          	        <div class="LeftItem">
+	          	          <div class="RightItem">
 											  	  <div class="ItemTitle">eXo Browser</div>
 						              </div>
 	          	        </div>
@@ -85,8 +96,8 @@
 	          	      
 	          	      <div class="Item" onclick="eXo.webui.UIItemSelector.onClick(this)"
 	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">
-	          	        <div class="ItemIcon">
-	          	          <div class="ItemName">  
+	          	        <div class="LeftItem">
+	          	          <div class="RightItem">  
 											  	  <div class="ItemTitle">Accessories</div>
 						              </div>
 	          	        </div>

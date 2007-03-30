@@ -39,14 +39,14 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
   for(id in category.portletRegistry) {  	
 		var cate = category.portletRegistry[id];
 		if(!selected){
-      items += '<div class="ItemSelected Item" onclick="eXo.webui.UIItemSelector.onClick(this)"';      
+      items += '<div class="SelectedItem Item" onclick="eXo.webui.UIItemSelector.onClick(this)"';      
 		} else {
 			items += '<div class="Item" onclick="eXo.webui.UIItemSelector.onClick(this)"';
 		}
-	  items += '     onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">' +
-	           '  <div class="ItemIcon">' +
-	           '    <div class="ItemName"> ' + 
-						 '		  <div class="ItemTitle" id="'+id+'">' + 
+	  items += 'onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">' +
+	           '  <div class="LeftItem">' +
+	           '    <div class="RightItem"> ' + 
+						 '		  	<div class="ItemTitle" id="'+id+'">' + 
 						          cate["name"]+ 
 						 '      </div>' +
 						 '    </div>' + 
@@ -64,7 +64,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 	  	portlet = portlets[id];
 	    itemDetails += '<div class="Application">' + 
 					           '	<div class="TitleBarApplication">' + 
-					           '		<div class="IconLayout BlueSquare16x16Icon"><span></span></div>' + 
+					           '		<div class="ApplicationItemIcon"><span></span></div>' + 
 					           '		<div class="ApplicationLabel">'+portlet["title"]+'</div>' + 
 					           ' 		<div class="AddButton"' +
 					           '         onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\')"><span></span></div>' + 

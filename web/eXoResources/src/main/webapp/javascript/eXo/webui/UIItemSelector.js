@@ -8,7 +8,7 @@ UIItemSelector.prototype.onOver = function(clickedElement, mouseOver) {
   
   if(mouseOver) {
     this.backupClass = clickedElement.className;
-    clickedElement.className = "ItemOver Item";
+    clickedElement.className = "OverItem Item";
     this.onChangeItemDetail(clickedElement, true);
   } else {
     clickedElement.className = this.backupClass;
@@ -27,8 +27,8 @@ UIItemSelector.prototype.onClick = function(clickedElement) {
       allItems[i].className = "Item";
 		  this.onChangeItemDetail(clickedElement, true);
     } else {
-      allItems[i].className = "ItemSelected Item";
-	    this.backupClass = "ItemSelected Item";
+      allItems[i].className = "SelectedItem Item";
+	    this.backupClass = " SelectedItem Item";
   		this.onChangeItemDetail(clickedElement, false);
     }
   }

@@ -81,7 +81,7 @@
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DarkBlueNextArrow.gif') no-repeat ;
   cursor: pointer ;
   margin: 6px 3px 0px 0px ;
 }
@@ -118,7 +118,7 @@
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .LeftIcon {
   float: left ;
   width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackNextArrow.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DarkBlueDownArrow.gif') no-repeat ;
   margin: 6px 5px 0px 5px;
 }
 
