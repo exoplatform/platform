@@ -61,7 +61,7 @@ import org.exoplatform.webui.event.EventListener;
 //    @EventConfig(listeners = UIExoStart.DebugActionListener.class),
     @EventConfig(listeners = UIExoStart.PageManagementActionListener.class),
     @EventConfig(listeners = UIExoStart.PortalManagementActionListener.class),
-    @EventConfig(listeners = UIExoStart.Web20ActionListener.class),
+//    @EventConfig(listeners = UIExoStart.Web20ActionListener.class),
     @EventConfig(listeners = UIExoStart.RefreshActionListener.class),
     @EventConfig(listeners = UIExoStart.ChangePageActionListener.class),
     @EventConfig(listeners = UIExoStart.LoginActionListener.class),
@@ -118,8 +118,7 @@ public class UIExoStart extends UIComponent {
     }
     
     public MenuItemContainer  add(MenuItem item) {      
-      if ((!item.getName().equals("Web20")) && (!item.getName().equals("Debug"))) {
-        System.out.println("\n======> MenuItem name: " + item.getName() + "====\n");
+      if ((!item.getName().equals("Web20")) && (!item.getName().equals("Debug"))) {        
         children.add(item) ;
       }
       return this ;
@@ -282,12 +281,12 @@ public class UIExoStart extends UIComponent {
   }
   
   
-  static  public class Web20ActionListener extends EventListener<UIExoStart> {
-    public void execute(Event<UIExoStart> event) throws Exception {
-      UIExoStart uiStart = event.getSource() ;
-      UIPortalApplication uiApp = uiStart.getAncestorOfType(UIPortalApplication.class);
-    }
-  }
+//  static  public class Web20ActionListener extends EventListener<UIExoStart> {
+//    public void execute(Event<UIExoStart> event) throws Exception {
+//      UIExoStart uiStart = event.getSource() ;
+//      UIPortalApplication uiApp = uiStart.getAncestorOfType(UIPortalApplication.class);
+//    }
+//  }
   
   static  public class RefreshActionListener extends EventListener<UIExoStart> {
     @SuppressWarnings("unused")
@@ -295,18 +294,18 @@ public class UIExoStart extends UIComponent {
     }
   }
   
- /* static  public class DebugActionListener extends EventListener<UIExoStart> {
-    public void execute(Event<UIExoStart> event) throws Exception {
-      UIExoStart uicomp = event.getSource() ;
-      UIPortalApplication uiControl = uicomp.getAncestorOfType(UIPortalApplication.class) ;
-      UIPopupWindow uiPopup = uiControl.getChildById(UIPortalApplication.POPUP_WINDOW_ID) ;
-      uiPopup.setUIComponent(uiPopup.createUIComponent(UIApplicationTree.class, null, null)) ;
-      uiPopup.setRendered(true) ;
-      uiPopup.setShow(true) ;
-      
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
-    }
-  }*/
+//  static  public class DebugActionListener extends EventListener<UIExoStart> {
+//    public void execute(Event<UIExoStart> event) throws Exception {
+//      UIExoStart uicomp = event.getSource() ;
+//      UIPortalApplication uiControl = uicomp.getAncestorOfType(UIPortalApplication.class) ;
+//      UIPopupWindow uiPopup = uiControl.getChildById(UIPortalApplication.POPUP_WINDOW_ID) ;
+//      uiPopup.setUIComponent(uiPopup.createUIComponent(UIApplicationTree.class, null, null)) ;
+//      uiPopup.setRendered(true) ;
+//      uiPopup.setShow(true) ;
+//      
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
+//    }
+//  }
   
   static  public class ChangePageActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {
