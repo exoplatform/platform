@@ -82,7 +82,7 @@
   padding-left: 9px;
 }
 
-/*###############-Hightlight Navigation Tab  color: #fd9300;-################*/
+/*###############-Hightlight Navigation Tab  -################*/
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab {
   line-height: 24px; 
@@ -171,17 +171,10 @@
 .UIHorizontalTabs .UITab .NormalTabStyle {
   line-height: 24px;
   margin-right: 1px;
-  font-size: 11px;
-  color: #474849;
+  font-size: 11px;color: #202020; font-weight: normal;
 }
 
 .UIHorizontalTabs .UITab .NormalTabStyle a {
-  color: #979798;
-  text-decoration: none;
-}
-
-.UIHorizontalTabs .UITab .NormalTabStyle a:hover {
-  color: black;
   text-decoration: none;
 }
 
@@ -208,14 +201,8 @@
 .UIHorizontalTabs .UITab .HighlightTabStyle {
   line-height: 24px;
   margin-right: 1px;
-  font-size: 11px;
-  color: #000000;
+  font-size: 11px;  color: #0666d2; font-weight: normal;
 }
-.UIHorizontalTabs .UITab .HighlightTabStyle a:hover{
-  color: blue;
-  text-decoration: none;
-}
-
 
 .UIHorizontalTabs .UITab .HighlightTabStyle .LeftTab {
   line-height: 24px;
@@ -241,13 +228,8 @@
   line-height: 24px;
   margin-right: 1px;
   font-size: 11px;
-  color: #000000;
+  color: #307dcc;
 }
-.UIHorizontalTabs .UITab .SelectedTabStyle a:hover{
-  color: blue;
-  text-decoration: none;
-}
-
 
 .UIHorizontalTabs .UITab .SelectedTabStyle .LeftTab {
   line-height: 24px;

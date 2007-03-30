@@ -64,7 +64,7 @@
 .UIMaskWorkspace .TitleBarContainer .CenterTitleBar {
   height: 50px ;
   line-height: 50px ; vertical-align: middle ;
-  font-weight: bold ; text-align: center ; font-family: arial; color: #0575CA; font-size: 14px;
+  font-weight: bold ; text-align: center ; font-family: arial; color: #0575CA; font-size: 13px;
   background: url('DefaultSkin/background/CenterTitleBar1x50.gif') repeat-x;
 }
 
@@ -79,16 +79,18 @@
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
-  height: 270px ;
+  height: 273px ;
+  overflow: auto;
 }
 
 .UIMaskWorkspace .ContentContainerDetail .TabsContainer {
 }
 
 .UIMaskWorkspace .ApplicationListContainer {
-	height: auto;
+	height: 240px;
 	border: 1px solid #a4a4a4;
 	background: white;
+	overflow: auto;
 }
 
 .UIMaskWorkspace .Application {
@@ -118,19 +120,19 @@
 	float: right ; 
 	width: 19px ; height: 19px ;
 	background: url("DefaultSkin/icons/16x16/AddIcon.gif") no-repeat center;
-	margin: 0px 10px ;
+	margin: 1px 10px ;
 	cursor: pointer ;
 }
 
 .UIMaskWorkspace .ApplicationDescription {
 	background: white ;
-	padding: 10px 15px ;
+	padding: 10px;
+	font-size: 11px;
 }
 
 .UIMaskWorkspace .UIAction {
   width: 230px ;
   margin: auto ;
-  margin-top: 10px;
 }
 
 .UIMaskWorkspace .UIAction .ActionButton {
@@ -138,7 +140,7 @@
 }
 
 .UIMaskWorkspace .UIFormTabPane {
-	padding: 10px;
+	padding: 10px 10px 5px 10px ;
 }
 
 .UIMaskWorkspace .UIFormWithTitle {
@@ -146,7 +148,8 @@
 }
 
 .UIMaskWorkspace .UITabContent {
-	width: 650px;
+	width: 630px;
+	padding-left: 3px;
 }
 
 .UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
@@ -154,9 +157,6 @@
   height: auto;
 }
 
-.UIMaskWorkspace .UIItemSelector .ItemDetailList .ItemDetail {
-  overflow: hidden;
-}
 /**************************** UIAddApplication ******************************************/
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
   height: 240px ;
@@ -172,7 +172,7 @@
 
 .UIAddApplication .ContentContainerDetail .TabsContainer .RefreshButtonContent {
 	float: right;
-	width: 105px;
+	width: 90px;
 }
 
 .UIAddApplication .RefreshButtonContent .RefreshButtonLeft {
@@ -195,14 +195,26 @@
 	padding: 0px 5px;
 	cursor: pointer ;	
 	text-align: center;
+	font-size: 11px;
+}
+
+.UIAddApplication  .UITabContent {
+	width: 653px;
+	padding-left: 3px;
 }
 
 .UIAddApplication .RefreshButtonContent a:hover {
 	color: #0575CA;
 }
 
-.UIAddApplication .UIAction .ActionContainer {
-	padding: 0px 20px 15px 0px;
+.UIAddApplication .UIAction {
+	width: 100px;
+	margin: auto;
+	padding-bottom: 15px;
+}
+
+.UIAddApplication .UIAction .ActionButton {
+  width: 80px ;
 }
 
 .UIAddApplication .ApplicationItemIcon {

@@ -11,26 +11,19 @@
   String selectCategory = "eXo.webui.UIItemSelector.selectCategory(this); " ;
 %>
 <div class="UIItemSelector">
-  <div class="NormalStyle" style="width: 99.5%;">
+  <div class="RightColumnStyle" style="width: 99.5%;">
     <div class="OverflowContainer AncestorPopupCategory">
 	    <input type="hidden" name="<%=uicomponent.getName();%>" value="">
 	    <%/*Begin ItemList*/ %>
 	    <div class="ItemListContainer">
-	      <div class="UIToolbar">
-	        <div class="Style2Toolbar">
-	          <div class="LeftBar">
-	            <div class="RightBar">
-	              <div class="MiddleBar">
-	                <div class="Icon Catergory24x24Icon"><span></span></div>
-	                <div class="Title"><%=_ctx.appRes("UIPageTemplateOptions.title.PageLayout")%></div>
-	                <div class="Button ArrowS1Down16x16Icon" onclick="$showPopupCategory"><span></span></div>
-	                <div style="clear: both"><span></span></div>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
+	      <div>
+          <div class="ItemListTitle">
+	  	    	<div class="Title" style="font-size: 11px; font-weight:normal;">UIDropDownItemSelector</div>
+	  	    	<div class="Button ArrowS1Down16x16Icon" onclick="$showPopupCategory" style="float:left; margin: 10px 0px 0px 23px ;"><span></span></div>
+	  	    	<div style="clear: left;"><span></span></div>
+  	      </div>
 	      </div>
-	      <div class="UIPopupCategory" style="display: none">
+	      <div class="UIPopupCategory" style="display: none;">
 	        <div class="PopupCategoryDecorator">	        
 	          <div class="PopupCategoryTL">
 	            <div class="PopupCategoryTR">
@@ -91,12 +84,12 @@
 			            String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true, '$template.icon')";
 			            String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false, '$template.icon')";
 			            String onClick = "eXo.webui.UIItemSelector.onClick(this, '$template.icon')";
-			            if (template.isSelected()) itemSelected = "ItemSelected Item" ;
+			            if (template.isSelected()) itemSelected = "SelectedItem Item" ;
 						  %>
 							    <div class="$itemSelected" onmouseover="$onMouseOver" 
 							      onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;" >
-								  	<div class="ItemIcon">
-								  	  <div class="ItemName">  
+								  	<div class="LeftItem">
+                      <div class="RightItem">  
 									  	  <div class="ItemTitle">$template.label</div>
 				              </div>
 				            </div>
@@ -114,10 +107,11 @@
 	    <%        
 			  for(category in categories) {
 			    String display = "none";
-			    if(category.isSelected()) display = "block";
+			    if(category.isSelected()) display = "block" ;
           templates = category.getSelectItemOptions();
 			%>
     			<div class="ItemDetailList" style="display: $display;">
+    			<div class="ItemDetailTitle">Sample Page Layout Templates View</div>
 			    <%    			     
 	          for(template in templates) {
 	            String label = template.getLabel();
@@ -130,8 +124,8 @@
 	      	    <%/*--Begin Layout Style--*/
 	      	    %>
 	      	    <div class="ItemDetail"  style="display: $display;">
-  					    <div class="LayoutHolder">
-  					    	<div class="LayoutLabel" style="text-align: center; margin-bottom: 10px;">$template.icon</div>
+  					    <div class="LayoutHolder" >
+  					    	<div class="LayoutLabel" style="text-align: center; margin: 10px 0px;">$template.icon</div>
 	    					  <div class="$template.icon" title="$template.label" style="margin: auto" ><span></span></div>
 		  				  </div> 
 			  	    </div> 

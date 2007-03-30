@@ -8,23 +8,26 @@
   UIForm form = uicomponent.getAncestorOfType(UIForm.class);
 %>
 <div class="UIItemSelector">  
-  <div class="NormalStyle" style="width: 99.5%;">
-    <div class="OverflowContainer">
+  <div class="RightColumnStyle" style="width: 99.5%;">
     <input type="hidden" name="$uicomponent.name" value ="">
       <%/*Begin ItemList*/%>
       <div class="ItemListContainer">
-        <div class="ItemListTitle"><%=uicomponent.getName();%></div>
+        <div class="ItemListTitle">
+  	    	<div class="TitleIcon ItemListIcon"><span></span></div>
+  	    	<div class="Title"><%=uicomponent.getName();%></div>
+  	    	<div style="clear: left;"><span></span></div>
+  	    </div>
         <div class="ItemList">
           <%
             for(opt in options) {
               String itemSelected = "Item" ;
               String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$opt.name')";
               String submitEvent = "eXo.webui.UIForm.submitEvent('$form.id','SelectItemOption', '')";
-              if (opt.isSelected()) itemSelected = "ItemSelected Item" ;
+              if (opt.isSelected()) itemSelected = "SelectedItem Item" ;
            %>
               <div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;$submitEvent">
-                <div class="ItemIcon">
-                  <div class="ItemName">  
+                <div class="LeftItem">
+                  <div class="RightItem">  
                     <div class="ItemTitle">$opt.name</div>
                   </div>
                 </div>
@@ -36,6 +39,7 @@
             
       <%/*Begin ItemDetailList*/%>
       <div class="ItemDetailList">
+        <div class="ItemDetailTitle">Sample<%=uicomponent.getName();%>View</div>
         <%          
           for(opt in options) {
             String display = "none";
@@ -60,6 +64,5 @@
         <%}%>
       </div>  
       <%/*End ItemDetailList*/%>      
-    </div>
   </div>
 </div>

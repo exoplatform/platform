@@ -2,7 +2,7 @@
 	<div class="TitleBarContainer">
 	  <div class="LeftTitleBar">
 	    <div class="RightTitleBar">
-	      <div class="CenterTitleBar">Add Portlet or Javascript Applications to Desktop Page</div>
+	      <div class="CenterTitleBar">Add Portlet or Javascript Applications to the Desktop Page</div>
 	    </div>
 	  </div>
 	</div>
@@ -170,9 +170,9 @@
 			              	</div>
 	          	    </div>
 	          	    <div class="ItemDetail" style="display: none">
-	          	    	<div class="ItemDetailTitle">Applications List</div>
-	          	      <div class="ApplicationListContainer">
-	          	        Accessories
+	          	    	<div class="ItemDetailTitle">Accessories List</div>
+	          	      <div class="ApplicationListContainer" style="line-height: 240px; vertical-align: middle; text-align: center; color: red">
+	          	        Accessories is now not available !
 	          	      </div>
 	          	    </div>
 	          	  </div>

@@ -45,6 +45,66 @@
   overflow: auto;
   border: none;
 }
+/*=================Right Column Style======================*/
+.UIItemSelector .RightColumnStyle {
+  width: 99.5%;
+  overflow: hidden;
+}
+
+.UIItemSelector .RightColumnStyle .ItemListContainer {
+  float: right;
+  width: 220px;
+}
+
+.UIItemSelector .RightColumnStyle .ItemListContainer .ItemList {
+  border: 1px #a4a4a4 solid;
+  background: white;
+  height: 240px;
+  overflow: auto;
+}
+
+.UIItemSelector .RightColumnStyle .ItemListContainer .CategoryContainer {
+  background: white url('DefaultSkin/background/ItemListBg165x127.gif') no-repeat right bottom;
+}
+
+.UIItemSelector .RightColumnStyle .ItemDetailList {
+  height: auto;
+  margin-right: 225px;
+  padding: 1px ;
+}
+
+.UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
+  height: 240px;
+  background: white;
+  border: 1px #a4a4a4 solid ;
+}
+
+.UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailTitle{
+  height: 22px; line-height: 22px; vertical-align: middle;
+  padding-left: 10px;
+  font-size: 11px; font-weight: bold; color: #5c5c5c;
+}
+
+.UIItemSelector .RightColumnStyle .ItemListContainer .ItemListTitle {
+	height: 23px;
+}
+
+.UIItemSelector .RightColumnStyle .ItemListContainer .TitleIcon {
+  float: left;
+  margin: 0px 5px 0px 5px;
+}
+
+.UIItemSelector .RightColumnStyle .ItemListContainer .Title {
+  line-height: 23px; vertical-align: middle;
+  font-weight: bold; color: #5c5c5c; font-size: 11px;
+  float: left;
+}
+
+.UIItemSelector .RightColumnStyle .ItemListContainer .ItemListIcon {
+	width: 16px; height: 16px;
+	background: url('DefaultSkin/icons/16x16/ItemListIcon.gif') no-repeat;
+	margin-top: 3px;
+}
 
 /*##########################- Default Item  -#########################*/
 
@@ -80,7 +140,7 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .LeftItem {
-  height: 23px;
+  height: 26px;
   background: url('DefaultSkin/background/LeftOverItem15x26.gif') no-repeat left;
   padding-left: 15px;
 }
@@ -102,7 +162,6 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem {
   height: 26px ;
-  margin: 8px 4px ;
   cursor: pointer ;
 }
 
@@ -301,7 +360,7 @@
 .UIItemSelector .LeftColumnStyle .ItemDetailList .ItemDetailTitle{
   height: 22px; line-height: 22px; vertical-align: middle;
   padding-left: 10px;
-  font-size: 12px; font-weight: bold; font-family: arial; color: #5c5c5c;
+  font-size: 11px; font-weight: bold; color: #5c5c5c;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemListContainer .ItemListTitle {
@@ -315,14 +374,14 @@
 
 .UIItemSelector .LeftColumnStyle .ItemListContainer .Title {
   line-height: 23px; vertical-align: middle;
-  font-size: 12px; font-weight: bold; font-family: arial; color: #5c5c5c;
+  font-weight: bold; color: #5c5c5c; font-size: 11px;
   float: left;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemListContainer .ItemListIcon {
 	width: 16px; height: 16px;
 	background: url('DefaultSkin/icons/16x16/ItemListIcon.gif') no-repeat;
-	margin-top: 2px;
+	margin-top: 3px;
 }
 
 /*##########################- Default Item  -#########################*/
