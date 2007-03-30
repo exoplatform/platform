@@ -43,6 +43,7 @@ public class UploadRequestHandler implements RequestHandler {
       service.createUploadResource(req) ;       
     }else if(action == UploadServiceAction.DELETE){
       String uploadId =  req.getParameter("uploadId") ;
+      
       service.removeUpload(uploadId);
     }else if(action == UploadServiceAction.ABORT){
       String uploadId =  req.getParameter("uploadId") ;
