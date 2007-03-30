@@ -39,7 +39,7 @@ eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 eXo.portal.UIControlWorkspace.onResizeDefault = function() {
 	var cws = eXo.portal.UIControlWorkspace ;
 	cws.defaultWidth = 250 ;
-	
+	cws.slidebarDefaultWidth = 6;
 	cws.slidebar = document.getElementById("ControlWorkspaceSlidebar") ;
 	if(cws.showControlWorkspace) {
 		cws.slidebar.style.display = "none" ;
@@ -66,6 +66,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace");
 	
 	if(eXo.portal.UIControlWorkspace.showControlWorkspace == false) {
+		// We want to show the workspace
 		this.showControlWorkspace = true ;
 		eXo.portal.UIControlWorkspace.slidebar.style.display = "none" ;
 		uiWorkspace.style.width = eXo.portal.UIControlWorkspace.defaultWidth + "px" ;
@@ -79,6 +80,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 		eXo.portal.UIWorkingWorkspace.onResize(null, null) ;
 //		this.showControlWorkspace = true ;
 	} else {
+		// We want to hide the workspace
 		uiWorkspaceContainer.style.display = "none" ;
 		eXo.portal.UIControlWorkspace.slidebar.style.display = "block" ;
 		uiWorkspace.style.width = eXo.portal.UIControlWorkspace.slidebar.offsetWidth + "px" ;
@@ -86,7 +88,8 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 		eXo.portal.UIWorkingWorkspace.onResize(null, null) ;
 		this.showControlWorkspace = false ;
 	}
-	
+	/* Reorganize opened windows */
+	eXo.portal.UIWorkingWorkspace.reorganizeWindows(this.showControlWorkspace);
 	/*Resize Dockbar*/
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	if(uiPageDesktop != null) eXo.desktop.UIDockbar.resizeDockBar() ;
@@ -118,4 +121,39 @@ eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {
 
 eXo.portal.UIWorkingWorkspace.onResizeDefault = function(event) {
   eXo.portal.UIWorkingWorkspace.onResize(null, null) ;
-}
+};
+
+eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace) {
+	var uiDesk = document.getElementById("UIPageDesktop");
+	var uiCtrl = document.getElementById("UIControlWorkspace");
+	var uiWindows = eXo.core.DOMUtil.findDescendantsByClass(uiDesk, "div", "UIWindow");
+	for (var k = 0; k < uiWindows.length; k++) {
+		if (uiWindows[k].style.display != "none") {
+			// We reorganize the opened windows (display != none) only
+			uiWindow = uiWindows[k];
+			if (showControlWorkspace) {
+				// When the ControlWorkspace is shown
+				uiWindow.oldW = uiWindow.offsetWidth;
+				uiWindow.oldX = uiWindow.offsetLeft;
+				if (uiWindow.offsetLeft > eXo.portal.UIControlWorkspace.defaultWidth) {
+					uiWindow.style.left = 
+					(uiWindow.offsetLeft-eXo.portal.UIControlWorkspace.defaultWidth+eXo.portal.UIControlWorkspace.slidebarDefaultWidth)+"px";
+				}
+				if ((uiWindow.offsetLeft+uiWindow.offsetWidth) > uiDesk.offsetWidth) {
+					uiWindow.style.width = 
+					(uiWindow.offsetWidth-eXo.portal.UIControlWorkspace.defaultWidth+eXo.portal.UIControlWorkspace.slidebarDefaultWidth)+"px";
+				}
+			} else {
+				// When the ControlWorkspace is hidden
+				if (uiWindow.maximized) {
+					// If the window is maximized, we set the size to its maximum : the desktop size
+					uiWindow.style.width = uiDesk.offsetWidth+"px";
+					uiWindow.style.left = uiDesk.offsetLeft+"px";
+				} else {
+					uiWindow.style.width = uiWindow.oldW+"px";
+					uiWindow.style.left = uiWindow.oldX+"px";
+				}
+			}
+		}
+	}
+};

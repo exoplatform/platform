@@ -7,7 +7,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	this.superClass = eXo.webui.UIPopup ;
 	var UIWindow = eXo.desktop.UIWindow ;
-	UIWindow.maximize = false;
+	popup.maximized = false;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 		
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
@@ -77,7 +77,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	
 	resizeArea.onmousedown = function(e) {
 		// Can only resize when the window is NOT maximized
-		if (!UIWindow.maximize) {
+		if (!popup.maximized) {
 			if(eXo.core.Browser.isIE6()) {
 				popup.originalUIApplicationWidth = uiApplication.offsetWidth ;
 			}
@@ -127,7 +127,7 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
     }
   }
   
-  if(!UIWindow.maximize) {
+  if(!windowObject.maximized) {
   	// Maximize...
   	if(applicationMinWidth) {
   		windowObject.backupApplicationMinWidth = applicationMinWidth.offsetWidth ;
@@ -136,8 +136,11 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
   	
     UIWindow.backupObjectProperties(windowObject, resizableObject) ;
     windowObject.style.top = "0px" ;
+    windowObject.oldY = 0;
     windowObject.style.left = "0px" ;
+    windowObject.oldX = 0;
     windowObject.style.width = desktopWidth + "px" ;
+    windowObject.oldW = desktopWidth;
     windowObject.style.height = "auto" ;
     
     for(var i = 0; i < resizableObject.length; i++) {
@@ -149,7 +152,7 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
       }
     }
     
-    UIWindow.maximize = true ;
+    windowObject.maximized = true ;
     clickedElement.className = "ControlIcon RestoreIcon" ;
     
     if(eXo.core.Browser.isIE6()) {
@@ -160,15 +163,16 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
   } else {
   	// Demaximize...
     windowObject.style.top = UIWindow.posY + "px" ;
+    windowObject.oldY = UIWindow.posY;
     windowObject.style.left = UIWindow.posX + "px" ;
+    windowObject.oldX = UIWindow.posX;
     windowObject.style.width = UIWindow.originalWidth + "px" ;
-    
+    windowObject.oldW = UIWindow.originalWidth;
+    windowObject.maximized = false;
     for(var i = 0; i < resizableObject.length; i++) {
 //      resizableObject[i].style.width = resizableObject[i].originalWidth + "px" ;
       resizableObject[i].style.height = resizableObject[i].originalHeight + "px" ;
     }
-    
-    UIWindow.maximize = false ;
     clickedElement.className = "ControlIcon MaximizedIcon" ;
     if(eXo.core.Browser.isIE6()) {
     	uiApplication.style.width = windowObject.backupUIApplicationWidth + "px" ;
@@ -194,12 +198,11 @@ UIWindow.prototype.backupObjectProperties = function(windowPortlet, resizableCom
 } ;
 
 UIWindow.prototype.initDND = function(e) {
-	// Can drag n drop only when the window is NOT maximized
-	if (!eXo.desktop.UIWindow.maximize) {
-	  var DragDrop = eXo.core.DragDrop ;
-	  var clickBlock = this ;
-	  var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
-	  
+  var DragDrop = eXo.core.DragDrop ;
+  var clickBlock = this ;
+  var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
+  if (!dragBlock.maximized) {
+  	// Can drag n drop only when the window is NOT maximized
 	  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	  var uiPageDesktopX = eXo.core.Browser.findPosX(uiPageDesktop) ;
 	
