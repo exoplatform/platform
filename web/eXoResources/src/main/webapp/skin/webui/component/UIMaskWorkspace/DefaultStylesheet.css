@@ -43,10 +43,6 @@
   background: url('DefaultSkin/background/BottomCenterDecorator1x6.gif') repeat-x;
 }
 
-.UIMaskWorkspace .UIHorizontalTabs {
-  height: 26px;
-}
-
 .UIMaskWorkspace .TitleBarContainer {
   padding: 10px 13px 0px 10px;
 }
@@ -72,19 +68,28 @@
   padding: 15px ;
 }
 
+/***********************************  UITabContent  ************************************/
+.UIMaskWorkspace .UIHorizontalTabs {
+  height: 26px;
+}
+
+.UIMaskWorkspace .UIFormTabPane {
+	padding: 10px 0px 5px 10px ;
+	overflow: auto;
+	width: 100%;
+}
+
 .UIMaskWorkspace .UITabContentContainer {
   background: #f2f2f2 ;
   padding: 6px 0px 0px 2px;
   border: solid 1px #a4a4a4; border-top:none;
 }
 
-.UIMaskWorkspace .UITabContentContainer .UITabContent {
-  height: 273px ;
-  overflow: auto;
+.UIMaskWorkspace .UITabContent {
+	padding-left: 3px;
 }
 
-.UIMaskWorkspace .ContentContainerDetail .TabsContainer {
-}
+/*********************************** End UITabContent  ************************************/
 
 .UIMaskWorkspace .ApplicationListContainer {
 	height: 240px;
@@ -139,25 +144,21 @@
   width: 100px ;
 }
 
-.UIMaskWorkspace .UIFormTabPane {
-	padding: 10px 10px 5px 10px ;
-}
-
 .UIMaskWorkspace .UIFormWithTitle {
-	padding: 10px 0px;
+	margin: auto;
+	padding-top: 50px;
 }
 
-.UIMaskWorkspace .UITabContent {
-	width: 630px;
-	padding-left: 3px;
+.UIMaskWorkspace .UIItemSelector .ItemListContainer {
+  float: right;
+  width: 240px;
 }
-
+/**************************** UIAddApplication ******************************************/
 .UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
   margin-right: 0px; 
   height: auto;
 }
 
-/**************************** UIAddApplication ******************************************/
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
   height: 240px ;
   overflow: auto ;

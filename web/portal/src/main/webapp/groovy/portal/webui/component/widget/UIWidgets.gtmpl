@@ -12,6 +12,7 @@
   		<div style="clear: both"><span></span></div>
 
   		<div class="UIWidgetContainer">
+  		
   			<div class="WidgetControl">
 	  			<div class="WidgetControlContent" style="display: block">
 	  				<div class="EditWidgetIcon" title="Edit"><span></span></div>
@@ -51,7 +52,7 @@
   					<div style="clear: right"><span></span></div>
   				</div>
   			</div>
-
+  			
 	  	</div>
   		
  		</div>
