@@ -58,7 +58,7 @@ import org.exoplatform.webui.event.EventListener;
     @EventConfig(listeners = UIExoStart.ChangeLanguageActionListener.class),
     @EventConfig(listeners = UIExoStart.PageCreationWizardActionListener.class),
     @EventConfig(listeners = UIExoStart.EditCurrentPageActionListener.class),
-    @EventConfig(listeners = UIExoStart.DebugActionListener.class),
+//    @EventConfig(listeners = UIExoStart.DebugActionListener.class),
     @EventConfig(listeners = UIExoStart.PageManagementActionListener.class),
     @EventConfig(listeners = UIExoStart.PortalManagementActionListener.class),
     @EventConfig(listeners = UIExoStart.Web20ActionListener.class),
@@ -117,8 +117,11 @@ public class UIExoStart extends UIComponent {
       super(name, icon) ;
     }
     
-    public MenuItemContainer  add(MenuItem item) {
-      children.add(item) ;
+    public MenuItemContainer  add(MenuItem item) {      
+      if ((!item.getName().equals("Web20")) && (!item.getName().equals("Debug"))) {
+        System.out.println("\n======> MenuItem name: " + item.getName() + "====\n");
+        children.add(item) ;
+      }
       return this ;
     }
     
@@ -292,7 +295,7 @@ public class UIExoStart extends UIComponent {
     }
   }
   
-  static  public class DebugActionListener extends EventListener<UIExoStart> {
+ /* static  public class DebugActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uicomp = event.getSource() ;
       UIPortalApplication uiControl = uicomp.getAncestorOfType(UIPortalApplication.class) ;
@@ -303,7 +306,7 @@ public class UIExoStart extends UIComponent {
       
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
     }
-  }
+  }*/
   
   static  public class ChangePageActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {

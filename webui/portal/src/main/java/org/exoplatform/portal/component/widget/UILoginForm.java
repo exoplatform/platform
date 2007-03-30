@@ -12,9 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.exoplatform.account.webui.component.UIAccountForm;
+import org.exoplatform.account.webui.component.UIAccountPortlet;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.customization.UIPageForm;
+import org.exoplatform.portal.component.customization.UIPortletForm;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.organization.OrganizationService;
@@ -55,19 +58,25 @@ import org.exoplatform.webui.exception.MessageException;
 public class UILoginForm extends UIForm {
   
   public UILoginForm() throws Exception{    
-    addUIFormInput(new UIFormStringInput("username", "username", null).
+    addUIFormInput(new UIFormStringInput("username", "username", null)).
+    addUIFormInput(new UIFormStringInput("password", "password", null).
+                   setType(UIFormStringInput.PASSWORD_TYPE)).
+    addUIFormInput(new UIFormCheckBoxInput<Boolean>("remember", "remember", null));
+    /*
+         addUIFormInput(new UIFormStringInput("username", "username", null).
                    addValidator(NameValidator.class)).
     addUIFormInput(new UIFormStringInput("password", "password", null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
                    addValidator(EmptyFieldValidator.class)).
     addUIFormInput(new UIFormCheckBoxInput<Boolean>("remember", "remember", null));
+     */
   }
 
   static public class SigninActionListener  extends EventListener<UILoginForm> {
     
     public void execute(Event<UILoginForm> event) throws Exception {
       UILoginForm uiForm = event.getSource();
-      System.out.println("\n\n\n\nSign up ##############################################");
+      System.out.println("\n\n\n\nSign in ##############################################");
       String username = uiForm.getUIStringInput("username").getValue();
       String password = uiForm.getUIStringInput("password").getValue();
       boolean remember = uiForm.<UIFormCheckBoxInput >getUIInput("remember").isChecked();
@@ -89,7 +98,7 @@ public class UILoginForm extends UIForm {
         response.addCookie(loadCookie(request, "authentication.username", username));
         response.addCookie(loadCookie(request, "authentication.password", password));
       }
-      prContext.setResponseComplete(true);
+      prContext.setResponseComplete(true);     
       String redirect = request.getContextPath() + "/private/" + username + ":/";
       prContext.getResponse().sendRedirect(redirect);      
     }   
@@ -112,8 +121,21 @@ public class UILoginForm extends UIForm {
   static public class SignUpActionListener  extends EventListener<UILoginForm> {
     public void execute(Event<UILoginForm> event) throws Exception {
       System.out.println("\n\n\n\n^^^^^^^^^^^^^^##############################################");
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
+      
+      UIAccountPortlet uiAccountPortlet = uiMaskWS.createUIComponent(UIAccountPortlet.class, null, null);    
+      uiMaskWS.setUIComponent(uiAccountPortlet);
+      uiMaskWS.setWindowSize(640, 400);
+      uiMaskWS.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      Util.updateUIApplication(event);  
+  
       // TODO BUG! exception in phase 'parsing' in source unit 'Script1.groovy' null
       // Ko hieu cach su dung Param nhu ben duoi thi co gi sai.
+     /* System.out.println("\n\n\n\n^^^^^^^^^^^^^^##############################################");
+
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
@@ -128,7 +150,7 @@ public class UILoginForm extends UIForm {
       uiMaskWS.setUIComponent(accountForm);
       uiMaskWS.setWindowSize(630, -1);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      
+      */
     }
   }
 }
