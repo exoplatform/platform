@@ -33,7 +33,8 @@ public class PortalRequestContext extends WebuiRequestContext {
   //private HttpSession session_ ;
   private boolean  ajaxRequest_ = true ;
   private boolean  forceFullUpdate = false;
-  
+  protected JavascriptManager jsmanager_ = new  JavascriptManager() ;
+  public  JavascriptManager getJavascriptManager() { return jsmanager_ ; }
   public PortalRequestContext(WebuiApplication app, HttpServletRequest req, HttpServletResponse res) {
     super(app);
     

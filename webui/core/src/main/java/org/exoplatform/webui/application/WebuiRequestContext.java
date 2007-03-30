@@ -13,7 +13,6 @@ import java.util.ResourceBundle;
 import org.exoplatform.templates.groovy.ApplicationResourceResolver;
 import org.exoplatform.templates.groovy.ResourceResolver;
 import org.exoplatform.web.application.Application;
-import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.web.application.Parameter;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.component.UIApplication;
@@ -36,12 +35,12 @@ abstract public class WebuiRequestContext extends RequestContext {
   private Throwable executionError_ ;
   private ArrayList<UIComponent>  uicomponentToUpdateByAjax ;
   protected StringBuilder builderURL = new StringBuilder(300);
-  protected JavascriptManager jsmanager_ = new  JavascriptManager() ;
+  
   public WebuiRequestContext(Application app) {
     super(app) ;
   }
   
-  public  JavascriptManager getJavascriptManager() { return jsmanager_ ; }
+  
   
   public String getSessionId() {  return sessionId_  ; }  
   protected void setSessionId(String id) { sessionId_ = id ;}
