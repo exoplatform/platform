@@ -74,7 +74,7 @@ UIItemSelector.prototype.onChangeItemDetail = function(itemSelected, mouseOver) 
     }
   } else {
     for(var i = 0; i < this.allItems.length; i++) {
-      if(this.allItems[i].className == "ItemSelected Item") {
+      if(this.allItems[i].className == "SelectedItem Item") {
         this.itemDetails[i].style.display = "block";
       } else {
         this.itemDetails[i].style.display = "none";

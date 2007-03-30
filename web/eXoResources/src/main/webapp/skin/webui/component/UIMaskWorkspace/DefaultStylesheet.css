@@ -44,7 +44,7 @@
 }
 
 .UIMaskWorkspace .UIHorizontalTabs {
-  height: 23px;
+  height: 26px;
 }
 
 .UIMaskWorkspace .TitleBarContainer {
@@ -74,29 +74,21 @@
 
 .UIMaskWorkspace .UITabContentContainer {
   background: #f2f2f2 ;
-  padding: 8px 2px 2px 2px;
+  padding: 6px 0px 0px 2px;
   border: solid 1px #a4a4a4; border-top:none;
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
-  height: 276px ;
+  height: 270px ;
 }
 
-.UIAddApplication .UITabContentContainer .UITabContent {
-	height: 244px;
-	overflow: auto;
-}
-
-.UIMaskWorkspace .RefreshButtonLabel a {
-	color: black;
-}
-
-.UIMaskWorkspace .RefreshButtonLabel a:hover {
-	color: blue;
+.UIMaskWorkspace .ContentContainerDetail .TabsContainer {
 }
 
 .UIMaskWorkspace .ApplicationListContainer {
 	height: auto;
+	border: 1px solid #a4a4a4;
+	background: white;
 }
 
 .UIMaskWorkspace .Application {
@@ -105,26 +97,26 @@
 }
 
 .UIMaskWorkspace .TitleBarApplication {
-	height: 27px ;
-	background: #dee4f5 ;
+	height: 22px ;
+	background: url("DefaultSkin/background/ApplicationTitleBar1x22.gif") repeat-x ;
 }
 
 .UIMaskWorkspace .IconLayout {
 	float: left ;
-	margin: 4px 5px 0px 5px ;
+	margin: 3px 5px 0px 5px ;
 }
 
 .UIMaskWorkspace .ApplicationLabel {
 	float: left ;
-	height: 27px ;
-	line-height: 27px; 
-	font-weight: bold ;
+	height: 22px ;
+	line-height: 22px; 
+	font-weight: bold ; font-size: 11px; color: #1465B9;
 	vertical-align: middle ;
 }
 
 .UIMaskWorkspace .AddButton {
 	float: right ; 
-	width: 19px ; height: 27px ;
+	width: 19px ; height: 19px ;
 	background: url("DefaultSkin/icons/16x16/AddIcon.gif") no-repeat center;
 	margin: 0px 10px ;
 	cursor: pointer ;
@@ -145,10 +137,6 @@
   width: 100px ;
 }
 
-.UIMaskWorkspace .UIAction .ActionButton .Icon {
-  margin: 4px 0px 0px 10px ;
-}
-
 .UIMaskWorkspace .UIFormTabPane {
 	padding: 10px;
 }
@@ -161,13 +149,6 @@
 	width: 650px;
 }
 
-.UIMaskWorkspace .UIItemSelector .ItemDetailList {
-  height: 252px ; 
-  margin-right: 255px; 
-  padding: 10px;
-  border: solid 1px #b7b7b7 ;
-}
-
 .UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
   margin-right: 0px; 
   height: auto;
@@ -178,10 +159,16 @@
 }
 /**************************** UIAddApplication ******************************************/
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
-  height: 250px ;
+  height: 240px ;
   overflow: auto ;
   background: #ffffff;
 }
+
+.UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {
+  background: none;
+  border: none;
+}
+
 
 .UIAddApplication .ContentContainerDetail .TabsContainer .RefreshButtonContent {
 	float: right;
@@ -222,5 +209,5 @@
 	width: 16px; height: 16px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/DarkBlueNextArrow.gif') no-repeat ;
 	float: left;
-	margin: 5px 5px 0px 5px;
+	margin: 3px 5px 0px 5px;
 }
