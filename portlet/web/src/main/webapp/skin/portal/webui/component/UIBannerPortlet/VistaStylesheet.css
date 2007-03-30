@@ -1,28 +1,28 @@
 .UIBannerPortlet {
-  height: 73px;
+  height: 78px;
 }
 
 .UIBannerPortlet .LeftBanner {
-	height: 73px;
-	padding: 0px 0px 0px 186px;
-  background: url('DefaultSkin/background/LeftBanner186x73.jpg') no-repeat left;
+	height: 78px;
+	padding: 0px 0px 0px 264px;
+  background: url('VistaSkin/background/LeftBanner264x78.jpg') no-repeat left;
 }
 
 .UIBannerPortlet .MiddleBanner{
-	height: 73px;
-  background: url('DefaultSkin/background/MiddleBanner9x73.jpg') repeat-x ;
+	height: 78px;
+  background: url('VistaSkin/background/MiddleBanner1x78.jpg') repeat-x ;
 }
 
 .UIBannerPortlet .RightBanner {
-  height: 73px;
-  padding: 0px 30px 0px 0px ;
-  background: url('DefaultSkin/background/RightBanner30x73.jpg') no-repeat right;
+  height: 78px;
+  padding: 0px 72px 0px 0px ;
+  background: url('VistaSkin/background/RightBanner72x78.jpg') no-repeat right;
 }
 
 .UIBannerPortlet .BannerTitle {
-  height: 39px;
-  background: url('DefaultSkin/background/eXoWebOSSlogan160x16.gif') no-repeat left bottom;
-  margin: 0px 0px 0px 15px;
+  height: 45px;
+  background: url('VistaSkin/background/eXoWebOSSlogan160x30.png') no-repeat left bottom;
+  margin: 0px 0px 0px 5px;
 }
 
 .UIBannerPortlet .LoginContainer {
@@ -50,12 +50,12 @@
 
 .UIBannerPortlet .LoginContent .LoginLabel {
 	float: left;
-	padding: 0px 8px 0px 0px;
+	padding: 0px 8px 5px 0px;
 }
 
 .UIBannerPortlet .LoginContent .LoginIcon {
   float: left;
-  width: 19px; height: 15px;
-  background: url('DefaultSkin/background/SigninButton.gif') no-repeat top;
+  width: 27px; height: 22px;
+  background: url('VistaSkin/background/SigninButton.png') no-repeat top;
   cursor: pointer;
 }
