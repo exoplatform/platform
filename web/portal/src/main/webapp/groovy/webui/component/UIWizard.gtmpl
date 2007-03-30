@@ -38,14 +38,14 @@
   						      List children  = uicomponent.getChildren();    
   						      String actionLink = "#";        					        
 						        
-						        for(i in 1..children.size()){ 
+						        for(i in 2..children.size()){ 
 						          strStep = _ctx.appRes(uicomponent.getId() + ".label.step") + String.valueOf(i) ;
 						          if(i != step) {
-						            actionLink = uicomponent.url("ViewStep" + String.valueOf(i));
+						            actionLink = uicomponent.url("ViewStep" + String.valueOf(i));0
 						            print "<a href=\"$actionLink\" title=\"$strStep\">" ;
 						          }
 						          else print "<a href=\"#\" class=\"SelectedStep\" title=\"$strStep\">" ;
-						          print String.valueOf(i);
+						          print String.valueOf(i-1);
 						          println "</a>";
 						        }
 							  	%>    	        

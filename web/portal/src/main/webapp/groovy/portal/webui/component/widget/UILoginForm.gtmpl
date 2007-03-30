@@ -60,7 +60,6 @@
 	          				<% System.out.println("\n\n\n\n Ongroovy##############################################"); %>
 	          			</div>
 	          			<a href="<%=uicomponent.url("SignUp");%>">
-	          			
 										<%=_ctx.appRes("UILoginForm.label.ForAccount")%>
 									</a>
 									<div style="clear: left"><span></span></div>
