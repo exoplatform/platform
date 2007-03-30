@@ -201,6 +201,32 @@
   padding: 0px 5px 0px 5px;
 }
 
+.UIHorizontalTabs .UITab .SelectedTabStyle {
+  line-height: 26px;
+  font-size: 11px;
+  color: #307dcc;
+}
+
+.UIHorizontalTabs .UITab .SelectedTabStyle .LeftTab {
+  line-height: 26px;
+  padding-left: 4px;
+  background: url('VistaSkin/background/LeftSelectedTab4x26.png') no-repeat left;;
+}
+
+.UIHorizontalTabs .UITab .SelectedTabStyle .RightTab {
+  line-height: 26px;
+  padding-right: 4px;
+  background: url('VistaSkin/background/RightSelectedTab4x26.png') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .SelectedTabStyle .MiddleTab {
+  line-height: 26px;
+  vertical-align: middle;
+  background: url('VistaSkin/background/MiddleSelectedTab1x26.png') repeat-x;
+  cursor: pointer;
+  padding: 0px 4px 0px 4px;
+}
+
 /*###########################--GrayPolygonTab36Style--############################*/
 
 .UIHorizontalTabs .UITab .GrayPolygonTab36Style {
