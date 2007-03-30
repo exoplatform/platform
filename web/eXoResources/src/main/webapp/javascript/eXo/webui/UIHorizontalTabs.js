@@ -33,18 +33,19 @@ UIHorizontalTabs.prototype.itemOver = function(selectedElement, over) {
 }
 
 UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
-  var uiSelectTab= eXo.core.DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
+	var DOMUtil = eXo.core.DOMUtil;
+  var uiSelectTab = DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
 
-  var uiHorizontalTabs = eXo.core.DOMUtil.findAncestorByClass(clickedEle, "UIHorizontalTabs") ;
+  var uiHorizontalTabs = DOMUtil.findAncestorByClass(clickedEle, "UIHorizontalTabs") ;
   var uiTab = eXo.core.DOMUtil.findDescendantsByClass(uiHorizontalTabs, "div", "UITab") ;
   var parentdHorizontalTab = uiHorizontalTabs.parentNode ;
 
-  var contentTabContainer = eXo.core.DOMUtil.findFirstDescendantByClass(parentdHorizontalTab, "div", "UITabContentContainer") ;
-  var uiTabContent = eXo.core.DOMUtil.getChildrenByTagName(contentTabContainer, "div") ;
+  var contentTabContainer = DOMUtil.findFirstDescendantByClass(parentdHorizontalTab, "div", "UITabContentContainer") ;
+  var uiTabContent = DOMUtil.getChildrenByTagName(contentTabContainer, "div") ;
   
   var index = 0 ;
   for(var i = 0; i < uiTab.length; i++) {
-    var styleTabDiv = eXo.core.DOMUtil.getChildrenByTagName(uiTab[i], "div")[0] ;
+    var styleTabDiv = DOMUtil.getChildrenByTagName(uiTab[i], "div")[0] ;
     if(uiSelectTab == uiTab[i]) {
       styleTabDiv.className = "SelectedTabStyle" ;
     	index = i ;
@@ -56,7 +57,7 @@ UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
   uiTabContent[index].style.display = "block" ;
   eXo.webui.WebUI.fixHeight(uiTabContent[index],'UIWorkspacePanel') ;
   // Used for UIFormTabPane
-  if(eXo.core.DOMUtil.findFirstDescendantByClass(document, "div", "UIFormTabPane")) eXo.webui.UIForm.onFixSize();
+  if(DOMUtil.findFirstDescendantByClass(document, "div", "UIFormTabPane")) eXo.webui.UIForm.onFixSize();
 
 };
 

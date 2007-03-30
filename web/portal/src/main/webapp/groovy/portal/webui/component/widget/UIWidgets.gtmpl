@@ -8,69 +8,70 @@
  	<div class="CenterLeftWidgets">
  		<div class="CenterRightWidgets">
  		
-  		<div>
-  		<div class="UIDropDownItemSelector">
-				<div class="ItemInfoBar">
-				  <div class="LeftItemInfoBar">
-				  	<div class="RightItemInfoBar">
-				  		<div class="MiddleItemInfoBar">
-				  			<div class="Icon ComponentIcon"><span></span></div>
-				  			<div class="SelectedItemLabel">My Widgets</div>
-				  			<div class="DropDownSelectIcon"><span></span></div>
-			  				<div style="clear: left"><span></span></div>
-						  </div>
+			<div class="UIDropDownItemSelector">
+	  		<div class="ItemSelectorContainer">
+					<div class="ItemInfoBar">
+					  <div class="LeftItemInfoBar">
+					  	<div class="RightItemInfoBar">
+					  		<div class="MiddleItemInfoBar">
+					  			<div class="Icon ComponentIcon"><span></span></div>
+					  			<div class="SelectedItemLabel">My Widgets</div>
+					  			<div class="DropDownSelectIcon"><span></span></div>
+				  				<div style="clear: left"><span></span></div>
+							  </div>
+							</div>
 						</div>
 					</div>
+					<div class="UIItemList" style="display: none;">
+						UIItemList
+					</div>
 				</div>
-				<div class="UIItemList" style="display: none;">
-					UIItemList
-				</div>
-			</div>
-  		<div class="EditIcon"><span></span></div>
-  		<div style="clear: both"><span></span></div>
-  		</div>
-  		<div><span></span></div>
-  		<div class="UIWidgetContainer">
-  			<div class="WidgetControl">
-	  			<div class="WidgetControlContent" style="display: block">
-	  				<div class="EditWidgetIcon" title="Edit"><span></span></div>
-	  				<div class="CloseWidgetIcon" title="Close"><span></span></div>
-	  				<div style="clear: left"><span></span></div>
+	  		<div class="EditIcon"><span></span></div>
+	  		<div style="clear: both"><span></span></div>
+
+	  		<div class="UIWidgetContainer">
+	  			<div class="WidgetControl">
+		  			<div class="WidgetControlContent" style="display: block">
+		  				<div class="EditWidgetIcon" title="Edit"><span></span></div>
+		  				<div class="CloseWidgetIcon" title="Close"><span></span></div>
+		  				<div style="clear: left"><span></span></div>
+		  			</div>
 	  			</div>
-  			</div>
-  			  		
-  			<div class="WidgetContent">
-  				<div class="eXoInfoWidgetImage">
-  					<div class="TopWidgetImage"><span></span></div>
-  					<div class="Download" title="Download now"><span></span></div>
-  				</div>
-  			</div>
-  			<div class="WidgetContent">
-  			  Clock
-  			</div>
-  			
-  			<div class="WidgetNavigator">
-  				<div class="UIBarStyle">
-  					<div class="ControlBar">
-  						<div class="LeftBar">
-  							<div class="RightBar">
-  								<div class="MiddleBar">
-  									<div class="ContentIcon">
-  										<div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
-  									  <div class="Icon24x24 DownBrownArrowIcon"><span></span></div>
-  									  <div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
-  									  <div class="Icon24x24 UpBlueArrowIcon"><span></span></div>
-  									  <div class="Icon24x24 AddIcon"><span></span></div>
-   					          <div style="clear: right"><span></span></div>
-  									</div>
-  								</div>
-  							</div>
-  						</div>
-  					</div>
-  					<div style="clear: right"><span></span></div>
-  				</div>
-  			</div>
-  		</div>
+	  			  		
+	  			<div class="ItemListContent">
+	  				<div class="eXoInfoWidgetImage">
+	  					<div class="TopWidgetImage"><span></span></div>
+	  					<div class="Download" title="Download now"><span></span></div>
+	  				</div>
+	  			</div>
+	  			<div class="ItemListContent">
+	  			  Clock
+	  			</div>
+	  			
+	  			<div class="WidgetNavigator">
+	  				<div class="UIBarStyle">
+	  					<div class="ControlBar">
+	  						<div class="LeftBar">
+	  							<div class="RightBar">
+	  								<div class="MiddleBar">
+	  									<div class="ContentIcon">
+	  										<div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
+	  									  <div class="Icon24x24 DownBrownArrowIcon"><span></span></div>
+	  									  <div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
+	  									  <div class="Icon24x24 UpBlueArrowIcon"><span></span></div>
+	  									  <div class="Icon24x24 AddIcon"><span></span></div>
+	   					          <div style="clear: right"><span></span></div>
+	  									</div>
+	  								</div>
+	  							</div>
+	  						</div>
+	  					</div>
+	  					<div style="clear: right"><span></span></div>
+	  				</div>
+	  			</div>
+	  			
+	  		</div>
+	  	</div>
   		
  		</div>
  	</div>

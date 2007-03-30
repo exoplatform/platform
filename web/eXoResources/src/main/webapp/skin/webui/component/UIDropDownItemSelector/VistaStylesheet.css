@@ -1,8 +1,8 @@
-/******************************* UICaegorySelector  **********************************/
+/******************************* UIDropDownItemSelector  **********************************/
 .UIDropDownItemSelector {
 }
 
-.UIDropDownItemSelector {
+.UIDropDownItemSelector .ItemSelectorContainer {
 	border-top: 1px solid #bdbcbc;
 	border-right: none;
 }

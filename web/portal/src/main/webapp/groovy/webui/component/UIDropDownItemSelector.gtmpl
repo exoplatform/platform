@@ -1,17 +1,18 @@
 <div class="UIDropDownItemSelector">
-	<div class="ItemInfoBar">
-	  <div class="LeftItemInfoBar">
-	  	<div class="RightItemInfoBar">
-	  		<div class="MiddleItemInfoBar">
-	  			<div class="Icon ComponentIcon"><span></span></div>
-	  			<div class="SelectedItemLabel">Item Name</div>
-	  			<div class="DropDownSelectIcon"><span></span></div>
-	  			<div style="clear: left"><span></span></div>
-			  </div>
+	<div class="ItemSelectorContainer">
+		<div class="ItemInfoBar">
+		  <div class="LeftItemInfoBar">
+		  	<div class="RightItemInfoBar">
+		  		<div class="MiddleItemInfoBar">
+		  			<div class="Icon ComponentIcon"><span></span></div>
+		  			<div class="SelectedItemLabel">Item Name</div>
+		  			<div class="DropDownSelectIcon"><span></span></div>
+		  			<div style="clear: left"><span></span></div>
+				  </div>
+				</div>
 			</div>
 		</div>
-	</div>
-		
+	</div>		
 	<div class="UIItemList" style="display: none;">
 		UIItemList
 	</div>

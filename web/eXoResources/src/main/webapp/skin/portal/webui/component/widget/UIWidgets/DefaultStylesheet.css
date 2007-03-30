@@ -24,7 +24,7 @@
 	cursor: pointer;
 }
 
-.UIWidgets .UIDropDownItemSelector {
+.UIWidgets .ItemSelectorContainer {
 	float: left;
 	width: 215px;
 }
@@ -39,7 +39,7 @@
 	padding-top: 5px;
 }
 
-.UIWidgetContainer .WidgetContent .eXoInfoWidgetImage {
+.UIWidgetContainer .eXoInfoWidgetImage {
 	margin: auto;
 	width: 200px; height: 200px;
 	background: url('DefaultSkin/background/InfoImage200x200.png') no-repeat center;	
