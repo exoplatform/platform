@@ -1,14 +1,16 @@
 <%
   import org.exoplatform.portal.component.control.UIExoStart ;
   import org.exoplatform.portal.component.control.UIControlWorkspace ;
-	
+  import org.exoplatform.web.application.JavascriptManager;
+
 	def rcontext = _ctx.getRequestContext() ;
+	JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	
-	rcontext.importJavascript('eXo.portal.UIWorkspace');
+	jsmanager.importJavascript('eXo.portal.UIWorkspace');
 	
-  rcontext.addOnLoadJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
-  rcontext.addOnResizeJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
-  rcontext.addOnScrollJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
+  jsmanager.addOnLoadJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
+  jsmanager.addOnResizeJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
+  jsmanager.addOnScrollJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
 %>
 
 <div id="UIControlWorkspace" class="UIControlWorkspace UIWorkspace" style="float:left; position: relative; z-index: 1;">
@@ -41,5 +43,5 @@
 	<div style="clear: both"><span></span></div>
 </div>
 <%
-  rcontext.addJavascript("eXo.portal.UIControlWorkspace.onResizeDefault() ; ") ;
+  jsmanager.addJavascript("eXo.portal.UIControlWorkspace.onResizeDefault() ; ") ;
 %>

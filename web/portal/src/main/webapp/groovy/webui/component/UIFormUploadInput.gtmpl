@@ -1,8 +1,8 @@
 <%  
   String uploadId = uicomponent.getUploadId() ;
   def rcontext = _ctx.getRequestContext() ;
-  rcontext.importJavascript('eXo.webui.UIUpload') ;
-  rcontext.addJavascript("eXo.webui.UIUpload.createUploadEntry('"+uploadId+"');") ;
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIUpload') ;
+  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIUpload.createUploadEntry('"+uploadId+"');") ;
 %>
 <div id="$uploadId">
   <input type="hidden" id="input$uploadId" name="<%=uicomponent.getName();%>" value="false"/>

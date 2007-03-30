@@ -11,8 +11,8 @@
   String popupId = uicomponent.getId() ;
   
   def rcontext = _ctx.getRequestContext() ;
-  rcontext.importJavascript('eXo.webui.UIHorizontalTabs');
-	rcontext.importJavascript('eXo.webui.UIPopupWindow');
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
   
   def errors = uicomponent.getErrors();
   def warnings = uicomponent.getWarnings();
@@ -147,8 +147,8 @@
 	  
 	</div>
 <%
-	rcontext.addJavascript("eXo.webui.UIPopupWindow.init('$popupId', false);") ;
+	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', false);") ;
 	if(uicomponent.hasMessage()){
-	  rcontext.addJavascript("eXo.webui.UIPopupWindow.show('$popupId', true);") ;
+	  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.show('$popupId', true);") ;
 	}
 %>

@@ -1,6 +1,6 @@
 <%
   def rcontext = _ctx.getRequestContext() ;
-	rcontext.importJavascript('eXo.webui.UIHorizontalTabs');
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
 %>
 
 <%//Begin UITabPane%>

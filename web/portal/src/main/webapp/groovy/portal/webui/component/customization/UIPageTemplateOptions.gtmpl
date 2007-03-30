@@ -1,8 +1,8 @@
 <%  import  org.exoplatform.webui.component.UIForm; %>
 <% 
 	def rcontext = _ctx.getRequestContext() ;
-  rcontext.importJavascript('eXo.webui.UIPopupSelectCategory') ;
-  rcontext.importJavascript('eXo.webui.UIItemSelector') ;
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory') ;
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIItemSelector') ;
 	
   def categories = uicomponent.getItemCategories() ;
   UIForm form = uicomponent.getParent() ;

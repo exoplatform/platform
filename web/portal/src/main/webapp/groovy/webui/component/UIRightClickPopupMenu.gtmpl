@@ -2,7 +2,7 @@
   import org.exoplatform.webui.component.UIComponent ;
 
   def rcontext = _ctx.getRequestContext() ;  
-  rcontext.addJavascript("eXo.webui.UIRightClickPopupMenu.init('" + uicomponent.getId() + "') ;");
+  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIRightClickPopupMenu.init('" + uicomponent.getId() + "') ;");
 %>
 <div class="UIRightClickPopupMenu" id="$uicomponent.id">
   <div class="UIRightPopupMenuContainer">

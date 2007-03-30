@@ -1,6 +1,6 @@
 <%
   def rcontext = _ctx.getRequestContext() ;
-	rcontext.importJavascript('eXo.webui.UIHorizontalTabs') ;
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs') ;
 %>
 
 <div class="UIFormTabPane">
@@ -89,6 +89,6 @@
 		</div>  
   </div>  
   <%
-    rcontext.addOnLoadJavascript('eXo.webui.UIForm.onFixSize');  
+    rcontext.getJavascriptManager().addOnLoadJavascript('eXo.webui.UIForm.onFixSize');  
   %>
 </div>

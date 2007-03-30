@@ -1,11 +1,13 @@
 <%
   import org.exoplatform.portal.component.view.UIPortlet;
+  import org.exoplatform.web.application.JavascriptManager;
   def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
-  rcontext.importJavascript('eXo.desktop.UIDesktop');
-  rcontext.importJavascript('eXo.webui.UIPopupSelectCategory') ;
-  rcontext.importJavascript('eXo.desktop.UIWindow') ;
-  rcontext.importJavascript('eXo.desktop.UIAddApplication') ;
+  jsmanager.importJavascript('eXo.desktop.UIDesktop');
+  jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory') ;
+  jsmanager.importJavascript('eXo.desktop.UIWindow') ;
+  jsmanager.importJavascript('eXo.desktop.UIAddApplication') ;
   
   String docBase =  rcontext.getRequestContextPath() ;
 %>
@@ -66,7 +68,7 @@
             uiChild.setShowInfoBar(true);
             uiChild.setPortletStyle("Window");
 	          uicomponent.renderUIComponent(uiChild);
-            rcontext.addJavascript("eXo.desktop.UIWindow.init('${popupId}-portlet-window', true, ${x}, ${y});") ;
+            jsmanager.addJavascript("eXo.desktop.UIWindow.init('${popupId}-portlet-window', true, ${x}, ${y});") ;
         %>
         <%  x += 10; y += 20 ;%>
         <%}%>
@@ -127,6 +129,6 @@
 </div>
 
 <%
-  rcontext.addOnLoadJavascript('eXo.desktop.UIDesktop.init');
-  rcontext.addOnResizeJavascript('eXo.desktop.UIDesktop.init');
+  jsmanager.addOnLoadJavascript('eXo.desktop.UIDesktop.init');
+  jsmanager.addOnResizeJavascript('eXo.desktop.UIDesktop.init');
 %>

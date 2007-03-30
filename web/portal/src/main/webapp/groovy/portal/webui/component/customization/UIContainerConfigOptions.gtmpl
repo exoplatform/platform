@@ -1,7 +1,11 @@
 <%
+  import org.exoplatform.web.application.JavascriptManager;
+
   def rcontext = _ctx.getRequestContext() ;
-  rcontext.importJavascript('eXo.webui.UIContainerConfigOptions');
-	rcontext.addOnLoadJavascript('eXo.webui.UIContainerConfigOptions.init');	
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  
+  jsmanager.importJavascript('eXo.webui.UIContainerConfigOptions');
+	jsmanager.addOnLoadJavascript('eXo.webui.UIContainerConfigOptions.init');	
 	
   def categories = uicomponent.getCategories();
   def categorySelected = uicomponent.getCategorySelected();

@@ -11,7 +11,7 @@
   component = uicomponent.getUIComponent();
   String maskId = uicomponent.getId() ;
   def rcontext = _ctx.getRequestContext() ;
-	rcontext.importJavascript('eXo.portal.UIMaskWorkspace');	
+	rcontext.getJavascriptManager().importJavascript('eXo.portal.UIMaskWorkspace');	
 	
 	int width = uicomponent.getWindowWidth();
 	int height = uicomponent.getWindowHeight();
@@ -19,7 +19,7 @@
 	String id = uicomponent.getId();
 	
 	String init = "eXo.portal.UIMaskWorkspace.init('"+id+"', "+isShow+", "+width+", "+height+");";
-	rcontext.addCustomizedOnLoadScript(init);
+	rcontext.getJavascriptManager().addCustomizedOnLoadScript(init);
 %>
 
 <div class="UIMaskWorkspace" id="$maskId" style="display: none;">

@@ -3,8 +3,8 @@
 %>
 <% 
   def rcontext = _ctx.getRequestContext() ;
-  rcontext.importJavascript('eXo.webui.UIPopupSelectCategory');
-  rcontext.importJavascript('eXo.webui.UIItemSelector');
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory');
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIItemSelector');
 
   def categories = uicomponent.getItemCategories();
   UIForm form = uicomponent.getParent();
@@ -17,7 +17,7 @@
 %>
 <div class="UIItemSelector">
 	<%
-		 rcontext.addJavascript("eXo.require('eXo.webui.UIPopupSelectCategory');");
+		 rcontext.getJavascriptManager().addJavascript("eXo.require('eXo.webui.UIPopupSelectCategory');");
 	%>
 	
   <div class="NormalStyle" style="width: 99.5%;">

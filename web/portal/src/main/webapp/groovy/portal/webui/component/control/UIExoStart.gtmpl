@@ -1,13 +1,16 @@
 <%
   import org.exoplatform.portal.component.control.UIExoStart ;
   import org.exoplatform.portal.config.model.PageNode ;
+  import org.exoplatform.web.application.JavascriptManager;
   import org.exoplatform.portal.config.model.PageNavigation ;
 
   def rcontext = _ctx.getRequestContext() ;
-  rcontext.importJavascript('eXo.portal.UIExoStartMenu') ;
-  rcontext.addOnLoadJavascript('eXo.portal.UIExoStartMenu.onLoad');
-  rcontext.addOnResizeJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
-  rcontext.addOnScrollJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  
+  jsmanager.importJavascript('eXo.portal.UIExoStartMenu') ;
+  jsmanager.addOnLoadJavascript('eXo.portal.UIExoStartMenu.onLoad');
+  jsmanager.addOnResizeJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
+  jsmanager.addOnScrollJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
   
   String docBase =  rcontext.getRequestContextPath() ;
   String onclick = "eXo.portal.UIExoStartMenu.showStartMenu()" ;

@@ -3,7 +3,7 @@
 %>
 <%
   def rcontext = _ctx.getRequestContext() ;
-  rcontext.importJavascript('eXo.webui.UIPopupSelectCategory');  
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory');  
   
   navigations = uicomponent.getNavigations();
   def selectedNav =  uicomponent.getSelectedNavigation();

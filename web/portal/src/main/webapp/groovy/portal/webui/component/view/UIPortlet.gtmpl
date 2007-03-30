@@ -1,13 +1,15 @@
 <%
   import org.exoplatform.portal.component.view.UIPage;
   import javax.portlet.WindowState;
+  import org.exoplatform.web.application.JavascriptManager;
   
   def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
-  rcontext.importJavascript('eXo.desktop.UIDesktop');
-  rcontext.importJavascript('eXo.webui.UIPopupSelectCategory') ;
-  rcontext.importJavascript('eXo.desktop.UIWindow') ;
-  rcontext.importJavascript('eXo.portal.UIPortalControl');
+  jsmanager.importJavascript('eXo.desktop.UIDesktop');
+  jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory') ;
+  jsmanager.importJavascript('eXo.desktop.UIWindow') ;
+  jsmanager.importJavascript('eXo.portal.UIPortalControl');
   
   String showCategory = "eXo.webui.UIPopupSelectCategory.show(this, 120);"
   String setDefault     = "eXo.webui.UIPopupSelectCategory.setDefault(this);" ;

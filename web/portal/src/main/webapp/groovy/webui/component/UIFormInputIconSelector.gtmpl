@@ -1,7 +1,10 @@
-<%  import  org.exoplatform.webui.component.UIForm; %>
 <%
+  import  org.exoplatform.webui.component.UIForm; 
+  import org.exoplatform.web.application.JavascriptManager;
+ 
   def rcontext = _ctx.getRequestContext() ;
-  rcontext.importJavascript('eXo.webui.UIPopupSelectCategory');  
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory');  
   
   //String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true);";
   //String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false);";
@@ -24,7 +27,7 @@
 
 <div class="UIItemSelector UINodeIconSelector">
 <%
-	rcontext.addJavascript("eXo.require('eXo.webui.UIPopupSelectCategory');");
+	jsmanager.addJavascript("eXo.require('eXo.webui.UIPopupSelectCategory');");
 %>
 	<div class="NormalStyle">
 	

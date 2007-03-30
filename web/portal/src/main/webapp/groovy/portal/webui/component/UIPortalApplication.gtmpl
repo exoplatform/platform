@@ -77,9 +77,9 @@
     </div>
     
     <script type="text/javascript">      
-      <%=rcontext.getJavascript()%>
+      <%=rcontext.getJavascriptManager().getJavascript()%>
       eXo.core.Browser.onLoad();
-      <%=rcontext.getCustomizedOnLoadScript();%>
+      <%=rcontext.getJavascriptManager().getCustomizedOnLoadScript();%>
     </script>
   </body>
 </html>

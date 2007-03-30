@@ -1,11 +1,14 @@
 <% 
   import org.exoplatform.services.portletregistery.PortletCategory;  
   import org.exoplatform.services.portletregistery.Portlet;
+  import org.exoplatform.web.application.JavascriptManager;
   
   def rcontext = _ctx.getRequestContext() ;
-  rcontext.importJavascript('eXo.webui.UIVerticalSlideTabs');
-  rcontext.importJavascript('eXo.webui.UIConfigOptions'); 
-	rcontext.addOnLoadJavascript('eXo.webui.UIConfigOptions.init'); 
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  
+  jsmanager.importJavascript('eXo.webui.UIVerticalSlideTabs');
+  jsmanager.importJavascript('eXo.webui.UIConfigOptions'); 
+	jsmanager.addOnLoadJavascript('eXo.webui.UIConfigOptions.init'); 
 %>
 
 <%
