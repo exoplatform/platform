@@ -21,7 +21,9 @@ import org.exoplatform.webui.config.annotation.EventConfig;
     type = UILoginForm.class,     
     lifecycle = UIFormLifecycle.class ,
     template = "app:/groovy/account/webui/component/UILoginForm.gtmpl" ,
-    events = @EventConfig(listeners = SigninActionListener.class )
+    events = { 
+      @EventConfig(listeners = UILoginForm.SigninActionListener.class )     
+    }
   )    
 })
 

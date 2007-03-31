@@ -12,7 +12,9 @@
 					<div class="LoginContainer">
 						<div class="LoginContent">
 						<%if(prContext.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS) {%>
-						  <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
+						  <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">				  	
+						  	
+						  	<div style="border: solid 1px red; float: left">Welcome user: <%= prContext.getPortalOwner() %> </div>
 								<div class="LoginLabel">Sign out</div>
 								<div class="LoginIcon"><span></span></div>
 								<div style="clear: left;"><span></span></div>
