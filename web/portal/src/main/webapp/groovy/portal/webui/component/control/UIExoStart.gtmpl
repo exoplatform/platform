@@ -167,8 +167,7 @@
     """ ;
   }
 
-  void renderMenuItemAction(UIExoStart.MenuItemAction item) {
-  	System.out.println("\n=====> item action in UIExoStart.MenuItemAction: " + item.getAction());
+  void renderMenuItemAction(UIExoStart.MenuItemAction item) {  	
     String name = item.getName() ;
     String label = _ctx.appRes(uicomponent.getId() + ".item."+name) ;
     String  href ;

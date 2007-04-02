@@ -14,7 +14,7 @@ UIExoStart.MenuItemContainer menu = new UIExoStart.MenuItemContainer("Administra
       add(new UIExoStart.MenuItemContainer("Page").
           add(new UIExoStart.MenuItemAction("Edit","EditNavigationIcon", "PageManagement", true)).
           add(new UIExoStart.MenuItemAction("Browse", "BrowsePagesIcon", "PageManagement", true)))).  
-  add(new UIExoStart.MenuItemContainer("Interface Settings"));
+  add(new UIExoStart.MenuItemAction("InterfaceSettings", "DefaultIcon", "InterfaceSettings", true));
  
 menus.add(menu) ;
 return menus ;
