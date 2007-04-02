@@ -57,7 +57,7 @@
 		          	<div class="SignUpBackground">
 		          		<div style="float: left ; margin-left: 10px">
 	          				<%=_ctx.appRes("UILoginForm.label.NotMember")%>
-	          				<% System.out.println("\n\n\n\n Ongroovy##############################################"); %>
+	          				<% System.out.println("\n\n\n\n On groovy##############################################"); %>
 	          			</div>
 	          			<a href="<%=uicomponent.url("SignUp");%>">
 										<%=_ctx.appRes("UILoginForm.label.ForAccount")%>
