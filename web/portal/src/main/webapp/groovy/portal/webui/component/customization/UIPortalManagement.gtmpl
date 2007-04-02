@@ -6,7 +6,7 @@
 	import org.exoplatform.webui.component.UIDescription;
 
 %>
-<div class="UIPortalManagement" id="UIPortalManagement">  
+<div class="UIPortalManagement" id="UIPortalManagement">
   <div class="TopTitleBar">
     <div class="UIBarStyle">
       <div class="Style4">
