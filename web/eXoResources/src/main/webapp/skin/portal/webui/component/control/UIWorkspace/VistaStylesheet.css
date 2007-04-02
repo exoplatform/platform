@@ -1,5 +1,5 @@
 .UIControlWorkspace {
-  width: 6px ; height: 100% ;
+  width: 3px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
   background: url("VistaSkin/background/SlidebarBackground6x1.png") repeat-y right;
@@ -94,7 +94,9 @@
 }
 /*########################### End Slidebar ###########################*/
 .UIWorkingWorkspace {
-	margin: 0px 0px 0px 9px ;
+	margin: 0px;
+	padding: 0px;
+	border-top: 1px solid #ffffff;
 }
 
 .MaskLayer {
