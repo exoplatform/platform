@@ -21,11 +21,11 @@
     </div>
   </div>
   <div class="ControlArea">   
-   <%uicomponent.renderChild(UIPortalManagementEditBar.class)%>	   
+   <%uicomponent.renderChild(UIPortalManagementEditBar.class)%>
   </div> 
    	 
   <%if(uicomponent.getChild(UIContainerConfigOptions.class).isRendered()) {%>      
-    <!-- Select Container Layout Block -->
+  	<%//Select Container Layout Block%>
     <div id="UIContainerConfigOptions">
     	<div class="MiddleLeftContainerConfigOptions">
 				<div class="MiddleRightContainerConfigOptions">

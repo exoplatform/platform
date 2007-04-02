@@ -9,7 +9,7 @@
 
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
   float: left ; 
-  width: 24px ; height: 15px ; 
+  width: 24px ; height: 15px ;
   background: url('DefaultSkin/background/DragBg2x2.gif');
   cursor: move ;
   margin: 4px 0px 0px 5px ;
@@ -194,12 +194,12 @@
 
 .UIPortal .LAYOUT-PORTAL {
   background: url('DefaultSkin/background/PortalBackground4x4.gif');
-  border: solid 1px #1d5b9b ;
   padding: 8px 0px ;
   margin: auto;
 }
 
 .UIPage {
+	
 }
 
 .UIPortal .UIRowContainer .UITabContainer .UIHorizontalTabs {

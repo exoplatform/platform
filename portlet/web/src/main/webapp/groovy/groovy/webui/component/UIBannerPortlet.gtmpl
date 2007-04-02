@@ -3,7 +3,7 @@
 	
 	def prContext = _ctx.getRequestContext().getParentAppRequestContext();
 %>
-<div class="UIBannerPortlet">
+<div class="UIBannerPortlet">	
   <div class="InlineContainer">
     <div class="LeftBanner">
       <div class="RightBanner">

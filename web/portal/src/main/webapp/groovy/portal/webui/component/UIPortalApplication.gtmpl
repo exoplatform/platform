@@ -52,7 +52,7 @@
     	<%uicomponent.renderChildren();%>
     </div>
    
-    <div class="AjaxLoadingMask" id="AjaxLoadingMask"  style="display: none;">
+    <div class="AjaxLoadingMask" id="AjaxLoadingMask" style="display: none;">
       <div class="LoadingContainer">
         <div class="CenterLoadingContainer">
           <div class="LoadingText"><%=_ctx.appRes("UIPortalApplication.label.Loading")%></div>

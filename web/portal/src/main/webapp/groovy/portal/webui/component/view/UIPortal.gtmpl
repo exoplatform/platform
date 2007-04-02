@@ -14,7 +14,7 @@
   <div class="VIEW-PORTAL">
     <div id="$uicomponent.id">
 	    <div class="UIRowContainer">
-	      <%uicomponent.renderChildren()%>
+      	<%uicomponent.renderChildren()%>
 	    </div>
 	  </div>
   </div>

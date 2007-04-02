@@ -2,6 +2,7 @@
   import org.exoplatform.portletregistry.webui.component.UIPortletRegistryCategory ;
   import org.exoplatform.portletregistry.webui.component.UIWorkingArea ;  
 %>
+
 <div class="UIPortletRegistryPortlet UIApplication" id="UIPortletRegistryPortlet">
   <div class="ApplicationMinWidth">
 	  <div class="UIPortletRegistryContainer">
