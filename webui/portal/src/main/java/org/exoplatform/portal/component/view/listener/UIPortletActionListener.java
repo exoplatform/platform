@@ -77,7 +77,7 @@ public class UIPortletActionListener   {
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
-      pcontext.setForceFullUpdate(true);
+      pcontext.setFullRender(true);
       
       String windowState = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID).trim();
       UIPortal uiPortal = uiPortlet.getAncestorOfType(UIPortal.class);

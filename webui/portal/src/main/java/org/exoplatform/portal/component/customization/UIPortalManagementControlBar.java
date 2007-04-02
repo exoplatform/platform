@@ -61,7 +61,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
     portal.setMode(UIPortal.COMPONENT_VIEW_MODE);
     portal.setRenderSibbling(UIPortal.class) ;    
     PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
-    pcontext.setForceFullUpdate(true);
+    pcontext.setFullRender(true);
     UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
     UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);  ;
     uiExoStart.setUIControlWSWorkingComponent(UIWelcomeComponent.class) ;
@@ -117,7 +117,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
       prContext.addUIComponentToUpdateByAjax(uiControl);
       
       prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
-      prContext.setForceFullUpdate(true);  
+      prContext.setFullRender(true);  
       
     }
   }

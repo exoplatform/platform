@@ -148,7 +148,7 @@ public class UIPortalApplication extends UIApplication {
   }
   
   public void  processRender(WebuiRequestContext context) throws Exception {
-    if(!context.isAjaxRequest()) {
+    if(!context.useAjax()) {
       super.processRender(context) ;
       return;
     }
@@ -165,7 +165,7 @@ public class UIPortalApplication extends UIApplication {
     }
     Writer w =  context.getWriter() ;
     w.write("<div class=\"PortalResponse\">") ;
-    if(!context.isForceFullUpdate()) {
+    if(!context.getFullRender()) {
       for(UIPortlet uiPortlet : uiPortlets) {
         uiPortlet.processRender(context) ;
       }

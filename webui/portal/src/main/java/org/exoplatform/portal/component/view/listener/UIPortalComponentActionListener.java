@@ -86,7 +86,7 @@ public class UIPortalComponentActionListener {
         UIControlWorkspace uiControl = uiPortalApp.findFirstComponentOfType(UIControlWorkspace.class) ;
         UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
         pcontext.addUIComponentToUpdateByAjax(uiWorkingArea);
-        pcontext.setForceFullUpdate(true);        
+        pcontext.setFullRender(true);        
       }
       
       String sourceId = pcontext.getRequestParameter("srcID");

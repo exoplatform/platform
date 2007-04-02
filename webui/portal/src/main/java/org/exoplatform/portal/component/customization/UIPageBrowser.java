@@ -211,7 +211,7 @@ public class UIPageBrowser extends UISearch {
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext(); 
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      pcontext.setForceFullUpdate(true);
+      pcontext.setFullRender(true);
     }
   }
   

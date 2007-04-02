@@ -71,7 +71,7 @@ public class UIPortalBrowser extends UIContainer {
       prContext.addUIComponentToUpdateByAjax(uiControl);
       
       prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
-      prContext.setForceFullUpdate(true);      
+      prContext.setFullRender(true);      
     }
   } 
 }

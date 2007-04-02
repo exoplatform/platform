@@ -56,7 +56,7 @@ public abstract class UIPageWizard extends UIWizard {
     UIPortal uiPortal = Util.getUIPortal();
     uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
     uiPortal.setRenderSibbling(UIPortal.class) ;    
-    pcontext.setForceFullUpdate(true);
+    pcontext.setFullRender(true);
     
     updateAjax();    
   }

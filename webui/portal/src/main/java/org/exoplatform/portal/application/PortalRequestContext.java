@@ -82,15 +82,13 @@ public class PortalRequestContext extends WebuiRequestContext {
   
   public int  getAccessPath() { return accessPath ;}
   
-  //TODO: Replace by AccessControl class
   final public String getRemoteUser() { return request_.getRemoteUser() ; }
   final public boolean isUserInRole(String roleUser){ return request_.isUserInRole(roleUser); }
   final public boolean isLogon() { return accessPath == PortalRequestContext.PRIVATE_ACCESS; }
-  //=========================================================================================
   
   final public Writer getWriter() throws Exception { return response_.getWriter() ; }
   
-  final public  boolean isAjaxRequest() {  return ajaxRequest_; }
+  final public  boolean useAjax() {  return ajaxRequest_; }
   
   @SuppressWarnings("unchecked")
   final public HttpServletRequest getRequest(){ return request_; }
@@ -98,13 +96,9 @@ public class PortalRequestContext extends WebuiRequestContext {
   @SuppressWarnings("unchecked")
   final public HttpServletResponse getResponse(){ return response_; }
   
-  final public boolean isForceFullUpdate() { return forceFullUpdate; }
+  final public boolean getFullRender() { return forceFullUpdate; }
 
-  final public void setForceFullUpdate(boolean forceFullUpdate) { this.forceFullUpdate = forceFullUpdate; }
-  
-  //TODO:  replace  by JavascriptManager
-  
-  //=============================================================================================
+  final public void setFullRender(boolean forceFullUpdate) { this.forceFullUpdate = forceFullUpdate; }
   
   public StringBuilder createURL(UIComponent uicomponent, Event event, 
                                  boolean supportAjax, String beanId, Parameter ... params) {

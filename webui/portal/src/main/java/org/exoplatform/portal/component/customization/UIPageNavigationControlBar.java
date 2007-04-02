@@ -180,6 +180,6 @@ public class UIPageNavigationControlBar extends UIToolbar {
     prContext.addUIComponentToUpdateByAjax(uiControl);
     
     prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
-    prContext.setForceFullUpdate(true); 
+    prContext.setFullRender(true); 
   }
 }

@@ -190,7 +190,7 @@ public class UIPageNodeSelector extends UIContainer {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      pcontext.setForceFullUpdate(true);
+      pcontext.setFullRender(true);
       
       UIContainer uiParent = uiPageNodeSelector.getParent();
       pcontext.addUIComponentToUpdateByAjax(uiParent) ;

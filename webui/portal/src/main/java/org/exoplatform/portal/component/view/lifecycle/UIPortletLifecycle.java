@@ -111,7 +111,7 @@ public class UIPortletLifecycle extends Lifecycle {
     if(output != null ) portletTitle = output.getTitle() ;
     if(portletTitle == null ) portletTitle = "Portlet" ;
     
-    if(context.isAjaxRequest() && !uiPortlet.isShowEditControl() && !prcontext.isForceFullUpdate()) {
+    if(context.useAjax() && !uiPortlet.isShowEditControl() && !prcontext.getFullRender()) {
       context.getWriter().write(portletContent.toString()) ;
     } else {
       WebuiApplication app = (WebuiApplication)context.getApplication() ;

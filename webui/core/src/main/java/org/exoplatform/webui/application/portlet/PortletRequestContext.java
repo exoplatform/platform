@@ -78,7 +78,7 @@ public class PortletRequestContext extends WebuiRequestContext {
   
   public Writer getWriter() throws Exception {  return writer_ ; }
 
-  final public boolean isAjaxRequest() { return getParentAppRequestContext().isAjaxRequest(); } 
+  final public boolean useAjax() { return getParentAppRequestContext().useAjax(); } 
   
   public  boolean hasProcessAction() { return hasProcessAction_ ;}
   

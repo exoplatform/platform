@@ -66,7 +66,7 @@ public class UIPageActionListener {
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       if(uiControl  != null) pcontext.addUIComponentToUpdateByAjax(uiControl);      
-      pcontext.setForceFullUpdate(true);
+      pcontext.setFullRender(true);
     }
 
     private PageNode searchPageNodeByUri(String uri, PageNode node){
@@ -112,7 +112,7 @@ public class UIPageActionListener {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      pcontext.setForceFullUpdate(true);
+      pcontext.setFullRender(true);
     }
   }
   

@@ -36,32 +36,24 @@ abstract public class RequestContext {
   abstract  public String getRequestParameter(String name)  ;
   abstract  public String[] getRequestParameterValues(String name)  ;
   
-  //TODO: remove this and  use JavascriptManager object
-//  abstract public void addJavascript(CharSequence s) ;
-//  abstract public void importJavascript(CharSequence s) ;
-//  abstract public void importJavascript(String s, String location) ;
-//  abstract public void addOnLoadJavascript(CharSequence s) ;
-//  abstract public void addOnResizeJavascript(CharSequence s) ;
-//  abstract public void addOnScrollJavascript(CharSequence s); 
-  //==============================================================
   public  JavascriptManager getJavascriptManager() { 
     return getParentAppRequestContext().getJavascriptManager() ;
   }
 
-  //TODO:  create class URLBuilder with the method: getBaseURL(), createURL(String action),\
-  //createURL(String action, String objectId), createURL(Object targetComponent, String action, String objectId),
-  //TODOL 
+  //TODO:  create class URLBuilder with the method: (Tuan)
+  //  getBaseURL(),
+  //  createURL(String action),
+  //  createURL(String action, String objectId),
+  //  createURL(Object targetComponent, String action, String objectId),
   abstract public String getBaseURL() ;
   
   //TODO: remove isLogon() and use getRemoteUser()  to test
   abstract public boolean isLogon();
   abstract public String getRemoteUser()  ;
   abstract public boolean isUserInRole(String roleUser);
-  //TODO:  rename this method to useAjax()
-  abstract public  boolean isAjaxRequest() ;
+  abstract public  boolean useAjax() ;
  
-  //TODO: rename the method to getFullRender
-  public boolean isForceFullUpdate() { return true; }
+  public boolean getFullRender() { return true; }
   
   public ApplicationSession getApplicationSession()  {
     throw  new RuntimeException("This method is not supported");
