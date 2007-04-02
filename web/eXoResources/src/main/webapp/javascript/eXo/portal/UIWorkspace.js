@@ -125,33 +125,35 @@ eXo.portal.UIWorkingWorkspace.onResizeDefault = function(event) {
 
 eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace) {
 	var uiDesk = document.getElementById("UIPageDesktop");
-	var uiCtrl = document.getElementById("UIControlWorkspace");
-	var uiWindows = eXo.core.DOMUtil.findDescendantsByClass(uiDesk, "div", "UIWindow");
-	for (var k = 0; k < uiWindows.length; k++) {
-		if (uiWindows[k].style.display != "none") {
-			// We reorganize the opened windows (display != none) only
-			uiWindow = uiWindows[k];
-			if (showControlWorkspace) {
-				// When the ControlWorkspace is shown
-				uiWindow.oldW = uiWindow.offsetWidth;
-				uiWindow.oldX = uiWindow.offsetLeft;
-				if (uiWindow.offsetLeft > eXo.portal.UIControlWorkspace.defaultWidth) {
-					uiWindow.style.left = 
-					(uiWindow.offsetLeft-eXo.portal.UIControlWorkspace.defaultWidth+eXo.portal.UIControlWorkspace.slidebarDefaultWidth)+"px";
-				}
-				if ((uiWindow.offsetLeft+uiWindow.offsetWidth) > uiDesk.offsetWidth) {
-					uiWindow.style.width = 
-					(uiWindow.offsetWidth-eXo.portal.UIControlWorkspace.defaultWidth+eXo.portal.UIControlWorkspace.slidebarDefaultWidth)+"px";
-				}
-			} else {
-				// When the ControlWorkspace is hidden
-				if (uiWindow.maximized) {
-					// If the window is maximized, we set the size to its maximum : the desktop size
-					uiWindow.style.width = uiDesk.offsetWidth+"px";
-					uiWindow.style.left = uiDesk.offsetLeft+"px";
+	if (uiDesk != null) {
+		var uiCtrl = document.getElementById("UIControlWorkspace");
+		var uiWindows = eXo.core.DOMUtil.findDescendantsByClass(uiDesk, "div", "UIWindow");
+		for (var k = 0; k < uiWindows.length; k++) {
+			if (uiWindows[k].style.display != "none") {
+				// We reorganize the opened windows (display != none) only
+				uiWindow = uiWindows[k];
+				if (showControlWorkspace) {
+					// When the ControlWorkspace is shown
+					uiWindow.oldW = uiWindow.offsetWidth;
+					uiWindow.oldX = uiWindow.offsetLeft;
+					if (uiWindow.offsetLeft > eXo.portal.UIControlWorkspace.defaultWidth) {
+						uiWindow.style.left = 
+						(uiWindow.offsetLeft-eXo.portal.UIControlWorkspace.defaultWidth+eXo.portal.UIControlWorkspace.slidebarDefaultWidth)+"px";
+					}
+					if ((uiWindow.offsetLeft+uiWindow.offsetWidth) > uiDesk.offsetWidth) {
+						uiWindow.style.width = 
+						(uiWindow.offsetWidth-eXo.portal.UIControlWorkspace.defaultWidth+eXo.portal.UIControlWorkspace.slidebarDefaultWidth)+"px";
+					}
 				} else {
-					uiWindow.style.width = uiWindow.oldW+"px";
-					uiWindow.style.left = uiWindow.oldX+"px";
+					// When the ControlWorkspace is hidden
+					if (uiWindow.maximized) {
+						// If the window is maximized, we set the size to its maximum : the desktop size
+						uiWindow.style.width = uiDesk.offsetWidth+"px";
+						uiWindow.style.left = uiDesk.offsetLeft+"px";
+					} else {
+						uiWindow.style.width = uiWindow.oldW+"px";
+						uiWindow.style.left = uiWindow.oldX+"px";
+					}
 				}
 			}
 		}

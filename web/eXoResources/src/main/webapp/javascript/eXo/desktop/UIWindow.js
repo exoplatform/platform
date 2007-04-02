@@ -205,8 +205,10 @@ UIWindow.prototype.initDND = function(e) {
   	// Can drag n drop only when the window is NOT maximized
 	  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	  var uiPageDesktopX = eXo.core.Browser.findPosX(uiPageDesktop) ;
-	
+		var uiContentPortlet = eXo.core.DOMUtil.findFirstDescendantByClass(dragBlock, "div", "UIContentPortlet");
+		
 	  DragDrop.initCallback = function (dndEvent) {
+	  	uiContentPortlet.style.overflow = "hidden";
 	  }
 	
 	  DragDrop.dragCallback = function (dndEvent) {
@@ -233,6 +235,7 @@ UIWindow.prototype.initDND = function(e) {
 	  }
 	
 	  DragDrop.dropCallback = function (dndEvent) {
+	  	uiContentPortlet.style.overflow = "auto";
 	  }
 	  
 	  
