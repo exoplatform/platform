@@ -145,7 +145,8 @@ public class UIContentNavigation extends UIComponent {
   
   public boolean isLogon(){ 
     WebuiRequestContext  context = WebuiRequestContext.getCurrentInstance();
-    return context.isLogon(); 
+    if(context.getRemoteUser() == null || context.getRemoteUser().length() < 1 ) return false;
+    return true;
   }
 
   static  public class ChangeNodeActionListener extends EventListener<UIContentNavigation> {

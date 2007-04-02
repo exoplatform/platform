@@ -133,7 +133,7 @@ public class UIAddPortletForm extends UIFormTabPane {
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      pcontext.setForceFullUpdate(true);
+      pcontext.setFullRender(true);
     }  
     
   }
