@@ -70,7 +70,7 @@ public class PortletRequestContext extends WebuiRequestContext {
   
   final public boolean isUserInRole(String roleUser){ return request_.isUserInRole(roleUser); }
   
-  final public boolean isLogon() { return getParentAppRequestContext().isLogon(); }
+//  final public boolean isLogon() { return getParentAppRequestContext().isLogon(); }
   
   public int getApplicationMode() { return applicationMode_ ; }
   
