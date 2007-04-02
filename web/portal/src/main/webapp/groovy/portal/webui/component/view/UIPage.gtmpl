@@ -13,7 +13,6 @@
 
   <div class="LAYOUT-PAGE" style="display: none;">
   	<div class="PageLayoutDecorator">
-  	
 			<%/*Begin Top Decorator*/%>
 			<div class="TopLeftPage">
 				<div class="TopRightPage">

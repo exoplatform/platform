@@ -1,5 +1,6 @@
 /*##############################-Page Layout Decorator-################################*/
 .UIPage .PageLayoutDecorator {
+	padding: 0px 5px 0px 10px ;
 }
 
 .UIPage .PageLayoutDecorator .MiddlePageBG {

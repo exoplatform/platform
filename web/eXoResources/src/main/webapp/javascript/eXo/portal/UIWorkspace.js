@@ -103,9 +103,9 @@ eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {
   var controlWorkspaceWidth = eXo.portal.UIControlWorkspace.width ;
     
 //  if(eXo.core.Browser.isIE6()) {
-//  	this.slidebar = document.getElementById("ControlWorkspaceSlidebar") ;
-//  	if(this.slidebar) {
-//  		uiWorkspace.style.width = (eXo.core.Browser.getBrowserWidth() - controlWorkspaceWidth - this.slidebar.offsetWidth) + "px";
+//  	var slidebar = document.getElementById("ControlWorkspaceSlidebar") ;
+//  	if(slidebar) {
+//  		uiWorkspace.style.width = (eXo.core.Browser.getBrowserWidth() - controlWorkspaceWidth - slidebar.offsetWidth) + "px";
 //  	}
 //  }
  
