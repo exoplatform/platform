@@ -156,5 +156,5 @@ eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace)
 				}
 			}
 		}
-	}
+	} else {return;}
 };

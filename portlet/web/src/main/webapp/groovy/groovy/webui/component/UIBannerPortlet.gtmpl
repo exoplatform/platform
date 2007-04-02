@@ -12,16 +12,22 @@
 					<div class="LoginContainer">
 						<div class="LoginContent">
 						<%if(prContext.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS) {%>
-						  <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">				  	
 						  	
-						  	<div style="border: solid 1px red; float: left">Welcome user: <%= prContext.getPortalOwner() %> </div>
-								<div class="LoginLabel">Sign out</div>
+					  	<div style="float: left">
+					  		<%=_ctx.appRes("UILogged.note.loggedUser")%>
+						  	<span style="padding: 0px 10px 0px 2px; color: #529ef1; font-weight:bold;"> 
+						  		<%= prContext.getPortalOwner() %> 
+						  	</span>
+					  	</div>
+						  <div style="float: left" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">				  	
+								<div class="LoginLabel"><%=_ctx.appRes("UILogged.action.signout")%></div>
 								<div class="LoginIcon"><span></span></div>
 								<div style="clear: left;"><span></span></div>
 							</div>
+							<div style="clear: left;"><span></span></div>
 						<%} else {%>
 							<div  onclick="ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;">
-							  <div class="LoginLabel">Sign in</div>
+							  <div class="LoginLabel"><%=_ctx.appRes("UILoginForm.label.Signin")%></div>
 								<div class="LoginIcon"><span></span></div>
 								<div style="clear: left;"><span></span></div>
 							</div>

@@ -41,7 +41,9 @@
 								<%} else {%>
 								<%}%>
 							</div>
-							<div class="LabelSignout" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">Sign out</div>
+							<div class="LabelSignout" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
+								<%=_ctx.appRes("UILogged.action.signout")%>
+							</div>
 						</div>
 						<div style="clear: left"><span></span></div>
 		    	</div>
@@ -50,7 +52,7 @@
 	        	<div class="IconContent">
 	        		<div class="EMailIcon"><span></span></div>
 	        	</div>
-	        	<div class="UserLabel">You have:</div>
+	        	<div class="UserLabel"><%=_ctx.appRes("UILogged.action.Youhave")%></div>
 	        	<div class="UserLabel"><span>10 unread messages inbox</span></div>
 	        </div>
 	        

@@ -10,7 +10,7 @@ UIPortalControl.prototype.changeWindowState = function(id, state) {
 	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "ChangeWindowState", true, params));
 };
 
-/* Create Funtion by Duy Tu */
+/* Created Function by Duy Tu */
 UIPortalControl.prototype.showHiddenContent = function(selectedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var ancestorClass = DOMUtil.findAncestorByClass(selectedElement, "UILoggedInfo");
