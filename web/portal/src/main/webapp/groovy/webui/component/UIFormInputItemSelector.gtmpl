@@ -12,11 +12,15 @@
     <input type="hidden" name="$uicomponent.name" value ="">
       <%/*Begin ItemList*/%>
       <div class="ItemListContainer">
-        <div class="ItemListTitle">
-  	    	<div class="TitleIcon ItemListIcon"><span></span></div>
-  	    	<div class="Title"><%=uicomponent.getName();%></div>
-  	    	<div style="clear: left;"><span></span></div>
-  	    </div>
+      	<div class="LeftItemListTitle">
+      		<div class="RightItemListTitle">
+		        <div class="ItemListTitle">
+		  	    	<div class="TitleIcon ItemListIcon"><span></span></div>
+		  	    	<div class="Title"><%=uicomponent.getName();%></div>
+		  	    	<div style="clear: left;"><span></span></div>
+		  	    </div>
+		  	   </div>
+		  	  </div>
         <div class="ItemList">
           <%
             for(opt in options) {

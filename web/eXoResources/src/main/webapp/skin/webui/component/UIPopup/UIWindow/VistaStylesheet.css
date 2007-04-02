@@ -118,6 +118,14 @@
   background: url('VistaSkin/icons/16x16/RestoreOver.png') no-repeat ;
 }
 
+.UIWindow .WindowPortletControl .NormalIcon {
+  background: url('VistaSkin/icons/16x16/Restore.png') no-repeat ;
+}
+
+.UIWindow .WindowPortletControl .OverNormalIcon {
+  background: url('VistaSkin/icons/16x16/RestoreOver.png') no-repeat ;
+}
+
 .UIWindow .WindowPortletControl .CloseButtonIcon {
   background: url('VistaSkin/icons/16x16/CloseOver.png') no-repeat ;
 }
@@ -160,7 +168,7 @@
 }
 
 .UIPageBody .MiddleDecoratorCenter {
-  background: url('VistaSkin/background/PortletWindowBG1x1.png');
+  background: #ffffff;
 }
 
 .UIWindow .BottomDecoratorLeft {

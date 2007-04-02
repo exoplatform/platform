@@ -75,6 +75,14 @@
   background: url('DefaultSkin/icons/24x24/RestoreOver.gif') no-repeat top;
 }
 
+.UIWindow .WindowPortletControl .NormalIcon {
+  background: url('DefaultSkin/icons/24x24/Restore.gif') no-repeat top;
+}
+
+.UIWindow .WindowPortletControl .OverNormalIcon {
+  background: url('DefaultSkin/icons/24x24/RestoreOver.gif') no-repeat top;
+}
+
 .UIWindow .WindowPortletControl .CloseButtonIcon {
   background: url('DefaultSkin/icons/24x24/Close.gif') no-repeat top;
 }
