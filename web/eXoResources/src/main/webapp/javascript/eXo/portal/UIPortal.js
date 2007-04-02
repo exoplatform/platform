@@ -150,12 +150,11 @@ UIPortal.prototype.switchMode = function(elemtClicked) {
 
 UIPortal.prototype.switchModeForPage = function(elemtClicked) {
 	this.showViewLayoutModeForPage();
-	
-	if(elemtClicked.className == "PagePreviewIcon") {
-		elemtClicked.className = "PageLayoutModeIcon" ;
+	if(elemtClicked.className == "Icon PagePreviewIcon") {
+		elemtClicked.className = "Icon PageLayoutModeIcon" ;
 		this.showMaskLayer() ;
 	} else {
-		elemtClicked.className = "PagePreviewIcon" ;
+		elemtClicked.className = "Icon PagePreviewIcon" ;
 		this.hideMaskLayer() ;
 	}
 } ;
