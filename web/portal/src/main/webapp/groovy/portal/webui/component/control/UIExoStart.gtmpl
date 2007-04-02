@@ -168,6 +168,7 @@
   }
 
   void renderMenuItemAction(UIExoStart.MenuItemAction item) {
+  	System.out.println("\n=====> item action in UIExoStart.MenuItemAction: " + item.getAction());
     String name = item.getName() ;
     String label = _ctx.appRes(uicomponent.getId() + ".item."+name) ;
     String  href ;
@@ -184,7 +185,7 @@
     """ ;
   }
   
-  void renderMenuItemAction(String name, String icon, String action) {
+  void renderMenuItemAction(String name, String icon, String action) {  	
     String  href = uicomponent.event(action, name) ;
     String label = _ctx.appRes(uicomponent.getId() + ".item."+name) ;
     print """
