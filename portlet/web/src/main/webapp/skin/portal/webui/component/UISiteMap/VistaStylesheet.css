@@ -21,16 +21,16 @@
 }
 
 .UISitemap .SitemapItemBox {
-  width: 302px ;
+  width: 295px ;
   float: left;
-  background: url('VistaSkin/background/BottomSitemap.png') no-repeat bottom;
-  padding-bottom: 19px;
+  background: url('VistaSkin/background/BottomSitemap295x16.png') no-repeat bottom;
+  padding-bottom: 16px;
   margin: 0px 10px 10px 0px;
 }
 
 .UISitemap .SitemapItemBox .TitleBar {
-  background: url('VistaSkin/background/TopSitemapp.png') no-repeat top;
-  height: 24px; line-height: 23px; vertical-align: middle;
+  background: url('VistaSkin/background/TopSitemapp295x22.png') no-repeat top;
+  height: 22px; line-height: 22px; vertical-align: middle;
 }
 
 .UISitemap .SitemapItemBox .TitleBar a {
@@ -52,12 +52,12 @@
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox { 
-  background: url('VistaSkin/background/LeftSitemap.png') repeat-y top left;
-  padding-left: 13px ;
+  background: url('VistaSkin/background/LeftSitemap9x61.png') repeat-y top left;
+  padding-left: 9px ;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox .SitemapItemBoxSelector {
-  background: url('VistaSkin/background/RightSitemap.png') repeat-y top right;
+  background: url('VistaSkin/background/RightSitemap13x61.png') repeat-y top right;
   padding-right: 13px;
 }
 

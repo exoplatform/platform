@@ -19,8 +19,37 @@
 		</div>
 	</div>
 	<div class="UIItemList"> <% /*style="display: none;"*/ %>
-		<div class="ItemSelector">Selector Item One</div>
-		<div class="ItemSelector">Selector Item Two</div>
-		<div class="ItemSelector">Selector Item Three</div>
+		<div class="ItemSelectorDecorator">
+			<div class="LTItemSelector">
+				<div class="TRItemSelector">
+					<div class="TCItemSelector"><span></span></div>
+				</div>
+			</div>
+			<div class="MLItemSelector">
+				<div class="MRItemSelector">
+					<div class="ItemSelector">
+						<div class="Icon"><span></span></div>
+            <a class="ItemSelectorLabel">Selector Item One</a>
+            <div style="clear: left"><span></span></div>
+					</div>
+					<div class="ItemSelector">
+						<div class="Icon"><span></span></div>
+            <a class="ItemSelectorLabel">Selector Item Two</a>
+            <div style="clear: left"><span></span></div>
+					</div>
+					<div class="OverItemSelector">
+						<div class="Icon"><span></span></div>
+            <a class="ItemSelectorLabel">Selector Item Three</a>
+            <div style="clear: left"><span></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="BLItemSelector">
+				<div class="BRItemSelector">
+					<div class="BCItemSelector"><span></span></div>
+				</div>
+			</div
+		</div>
+		
 	</div>
 </div>
