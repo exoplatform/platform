@@ -5,8 +5,7 @@
   String onClick = "eXo.webui.UIItemSelector.onClick(this)";
   
   options = uicomponent.getItemCategories();
-  UIForm form = uicomponent.getAncestorOfType(UIForm.class);
-  if(form == null)           	System.out.println("\n\n++++++++++++++++++++++++++ NULL");
+  UIForm form = uicomponent.getAncestorOfType(UIForm.class);  
 %>
 <div class="UIItemSelector">  
   <div class="RightColumnStyle" style="width: 99.5%;">
@@ -23,11 +22,8 @@
 		  	   </div>
 		  	  </div>
         <div class="ItemList">
-          <%
-          	
-          	System.out.println("\n\n++++++++++++++++++++++++++>>>>>>>");
-            for(opt in options) {
-            	System.out.println(">>>>>>>>> Size: " + options.size() + " - Name: " + opt.getName());
+          <%          	
+            for(opt in options) {            	
               String itemSelected = "Item" ;
               
               String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$opt.name')";
