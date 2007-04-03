@@ -107,9 +107,10 @@
 }
 
 .UIWizard .UIWizardContent .WizardControlBar {
-  height: 34px;
+  height: 38px;
   background: transparent;
   border: solid 1px #b7b7b7;
+  border-top:none;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar {
