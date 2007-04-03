@@ -8,10 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
-
-import org.exoplatform.portal.component.view.UIPortal;
-import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.component.customization.UIAddPortlet;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormDateTimeInput;
@@ -19,11 +16,9 @@ import org.exoplatform.webui.component.UIFormHiddenInput;
 import org.exoplatform.webui.component.UIFormMultiValueInputSet;
 import org.exoplatform.webui.component.UIFormRadioBoxInput;
 import org.exoplatform.webui.component.UIFormSelectBox;
-import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTextAreaInput;
 import org.exoplatform.webui.component.UIFormUploadInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -37,7 +32,7 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template =  "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
+    template = "system:/groovy/portal/webui/component/customization/UIAddApplication.gtmpl",
     events = {
       @EventConfig(listeners = UITestForm.SaveActionListener.class),
       @EventConfig(listeners = UITestForm.ResetActionListener.class),
@@ -56,35 +51,38 @@ public class UITestForm  extends UIForm {
   public static final String FIELD_MULTI_VALUE = "multiValue" ;
 
 
-  public UITestForm() throws Exception {    
-    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
-    ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
-
-    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
-    uiSelectBox.setOnChange("Onchange");
-    UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);
-    
-    addUIFormInput(uiSelectBox) ;
-    addUIFormInput(radioBoxInput);
-    addUIFormInput(new UIFormTextAreaInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, null));
-    addUIFormInput(new UIFormDateTimeInput(FIELD_DATE_TIME, FIELD_DATE_TIME, null));
-    addUIFormInput(new UIFormHiddenInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null));
-    addUIFormInput(new UIFormStringInput(FIELD_STRING_INPUT, FIELD_STRING_INPUT, null));
-    addUIFormInput(new UIFormUploadInput("upload", "upload")) ;
-    addUIFormInput(new UIFormUploadInput("upload2", "upload2")) ;
-    
-    UIFormMultiValueInputSet multiValueInputSet = 
-      new UIFormMultiValueInputSet(FIELD_MULTI_VALUE, FIELD_MULTI_VALUE);
-    multiValueInputSet.setType(UIFormDateTimeInput.class);
-    addUIFormInput(multiValueInputSet);
-
-    
-    UIFormMultiValueInputSet multiValueInputSet2 = new UIFormMultiValueInputSet("StringMultiValue", "StringMultiValue");
-    multiValueInputSet2.setType(UIFormStringInput.class);
-    addUIFormInput(multiValueInputSet2);
-    
-    setActions(new String[]{"Save", "Reset", "Cancel"}) ;
+  public UITestForm() throws Exception {  
+    System.out.println("\n\n\n__________=============\n+++++++++++++++++++++++++++\n\n");
+    addChild(UIAddPortlet.class, null, null).setRendered(true);
+//    addChild(UIAddJSApplication.class, null, null).setRendered(false);
+//    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
+//    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
+//    ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
+//
+//    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
+//    uiSelectBox.setOnChange("Onchange");
+//    UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);
+//    
+//    addUIFormInput(uiSelectBox) ;
+//    addUIFormInput(radioBoxInput);
+//    addUIFormInput(new UIFormTextAreaInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, null));
+//    addUIFormInput(new UIFormDateTimeInput(FIELD_DATE_TIME, FIELD_DATE_TIME, null));
+//    addUIFormInput(new UIFormHiddenInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null));
+//    addUIFormInput(new UIFormStringInput(FIELD_STRING_INPUT, FIELD_STRING_INPUT, null));
+//    addUIFormInput(new UIFormUploadInput("upload", "upload")) ;
+//    addUIFormInput(new UIFormUploadInput("upload2", "upload2")) ;
+//    
+//    UIFormMultiValueInputSet multiValueInputSet = 
+//      new UIFormMultiValueInputSet(FIELD_MULTI_VALUE, FIELD_MULTI_VALUE);
+//    multiValueInputSet.setType(UIFormDateTimeInput.class);
+//    addUIFormInput(multiValueInputSet);
+//
+//    
+//    UIFormMultiValueInputSet multiValueInputSet2 = new UIFormMultiValueInputSet("StringMultiValue", "StringMultiValue");
+//    multiValueInputSet2.setType(UIFormStringInput.class);
+//    addUIFormInput(multiValueInputSet2);
+//    
+//    setActions(new String[]{"Save", "Reset", "Cancel"}) ;
   }
   
   @SuppressWarnings("unused")

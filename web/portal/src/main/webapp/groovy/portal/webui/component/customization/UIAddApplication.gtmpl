@@ -1,0 +1,88 @@
+<div class="UIAddApplication">
+	<div class="TitleBarContainer">
+	  <div class="LeftTitleBar">
+	    <div class="RightTitleBar">
+	      <div class="CenterTitleBar">Add Portlet or Javascript Applications to the Desktop Page</div>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="ContentContainerDetail">
+	  <div class="CategoryContainer">
+	    
+	    <div class="UIHorizontalTabs">
+	    	<div class="LeftHorizontalTabs">
+	     	  <div class="RightHorizontalTabs">
+	     	    <div class="CenterHorizontalTabs">
+				      <div class="TabsContainer">
+				      <%
+		            for(uiChild in uicomponent.getChildren()) {
+		              String style = "NormalTabStyle" ;
+		              if(uiChild.isRendered()) style = "SelectedTabStyle" ;
+		          %>
+				        <div class="UITab">
+		              <div class="$style">
+		                <div class="LeftTab">
+		                  <div class="RightTab">                
+		                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Portlets</div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+	            <%}%>
+  		         
+			          <div class="RefreshButtonContent">
+			          	<div class="RefreshButtonLeft">
+			          		<div class="RefreshButtonRight">
+			          			<div class="MiddleRefreshButton">
+			          				<div class="RefreshButtonLabel">
+			          					<div onClick="eXo.desktop.UIAddApplication.loadPortlets(true);"><a>Refresh</a></div>
+			          				</div>
+			          				<div style="clear: left"><span></span></div>
+			          			</div>
+			          		</div>
+			          	</div>
+			          </div>
+			          <div style="clear: both"><span></span></div>
+			          
+				      </div>
+				  	</div>
+					</div>
+				</div>
+	    </div>
+	    <%//End UIHorizontalTabs%>   
+	    <div class="UITabContentContainer">
+		    <%
+			  status = "block";
+			  for(uiChild in uicomponent.getChildren()) {
+		  	%>
+					<div class="UITabContent" style="display: <%=status%>; height: 200px;">
+						<% uicomponent.renderUIComponent(uiChild);%>		  	
+					</div>		
+			  <%
+			    status = "none";
+			  }
+		      %>     			
+	    </div>
+	    
+	  </div>
+	</div>
+	
+	<div class="UIAction">
+	  <div class="ActionContainer">
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	              <div class="Icon Cancel16x16Icon"><span></span></div>
+			  				    <a href="javascript:eXo.desktop.UIAddApplication.removeAddApplication() ;">Close</a>
+			  				    <div style="clear: left"><span></span></div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>       
+</div>
