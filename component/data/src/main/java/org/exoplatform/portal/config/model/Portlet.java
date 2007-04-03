@@ -10,16 +10,22 @@ package org.exoplatform.portal.config.model;
  * @email:   tuan08@users.sourceforge.net
  * @version: $Id: Portlet.java,v 1.7 2004/09/30 01:00:05 tuan08 Exp $
  **/
+//TODO: Rename to Appication
 public class Portlet extends Component {
+  //Add field type,  type can be portlet ,  widget
+  //enum the suport type
   
   private String title;
+  //rename to applicationInstanceId
   private String windowId ;
   private String portletStyle ;
   private String icon ; 
   private String description;
 
   private boolean  showInfoBar = true ;
+  //rename to showApplicationState
   private boolean  showWindowState = true ;
+  //rename to showApplicationMode
   private boolean  showPortletMode = true ;
   
   public String getTitle() { return title ; }
