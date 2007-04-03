@@ -34,4 +34,14 @@
 	background: url('DefaultSkin/icon/SelectedIcon.gif') no-repeat center;
 	cursor: pointer;	
 }
+/********************************   UIItemList   ****************************************/
+.UIItemList {
+	border: solid 1px blue;
+}
 
+.UIItemList .ItemSelector {
+	border: solid 1px red;
+	margin: 1px 0px;
+	line-height: 25px;
+	width: 210px;
+}

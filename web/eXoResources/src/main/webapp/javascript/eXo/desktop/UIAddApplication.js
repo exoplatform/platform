@@ -32,53 +32,8 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
   if(category == null || category == undefined) return;
   var itemList = eXo.core.DOMUtil.findFirstDescendantByClass(uiAddApplicationContainer, "div", "ItemList") ;
   var itemDetailList = eXo.core.DOMUtil.findFirstDescendantByClass(uiAddApplicationContainer, "div", "ItemDetailList") ;
-  var items  = '';
-  var itemDetails = ''; 
-  var selected  = false;
-  /*TODO: move HTML code to a .jstmpl file*/
-  for(id in category.portletRegistry) {  	
-		var cate = category.portletRegistry[id];
-		if(!selected){
-      items += '<div class="SelectedItem Item" onclick="eXo.webui.UIItemSelector.onClick(this)"';      
-		} else {
-			items += '<div class="Item" onclick="eXo.webui.UIItemSelector.onClick(this)"';
-		}
-	  items += 'onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">' +
-	           '  <div class="LeftItem">' +
-	           '    <div class="RightItem"> ' + 
-						 '		  	<div class="ItemTitle" id="'+id+'">' + 
-						          cate["name"]+ 
-						 '      </div>' +
-						 '    </div>' + 
-	           '  </div>' + 
-	           '</div> ' ;
-	  if(!selected) {
- 	    itemDetails += '<div class="ItemDetail" style="display: block">';
-	  } else {
-	  	itemDetails += '<div class="ItemDetail" style="display: none">';
-	  }
-	  itemDetails += '  <div class="ApplicationListContainer">';
-	  var portlets = cate["portlets"];
-	    window.status = "Onload5";
-	  for(id in portlets) {
-	  	portlet = portlets[id];
-	    itemDetails += '<div class="Application">' + 
-					           '	<div class="TitleBarApplication">' + 
-					           '		<div class="ApplicationItemIcon"><span></span></div>' + 
-					           '		<div class="ApplicationLabel">'+portlet["title"]+'</div>' + 
-					           ' 		<div class="AddButton"' +
-					           '         onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\')"><span></span></div>' + 
-					           ' 		<div style="clear: both"></div>' + 
-					           ' 	</div>' + 
-					           '	<div class="ApplicationDescription">'+portlet["des"]+'</div>' + 
-					           '</div>';
-	  }
-    itemDetails += '  </div>' +
-									 '</div>';  
-		if(!selected) selected = true;							 
-  }
-  itemList.innerHTML = items;  
-  itemDetailList.innerHTML = itemDetails;
+
+  
 }
 
 UIAddApplication.prototype.addPortlet = function(id) {
