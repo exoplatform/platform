@@ -28,8 +28,7 @@
               
               String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$opt.name')";
               String submitEvent = "eXo.webui.UIForm.submitEvent('$form.id','SelectItemOption', '')";
-              if (opt.isSelected()) itemSelected = "SelectedItem Item" ;
-              System.out.println("\n\n++++++++++++++++++++++++++>>>>>>>");
+              if (opt.isSelected()) itemSelected = "SelectedItem Item" ;              
            %>
               <div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;$submitEvent">
                 <div class="LeftItem">
