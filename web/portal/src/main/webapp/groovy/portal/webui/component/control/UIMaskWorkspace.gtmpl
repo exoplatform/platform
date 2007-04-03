@@ -20,6 +20,7 @@
 	
 	String init = "eXo.portal.UIMaskWorkspace.init('"+id+"', "+isShow+", "+width+", "+height+");";
 	rcontext.getJavascriptManager().addCustomizedOnLoadScript(init);
+
 %>
 
 <div class="UIMaskWorkspace" id="$maskId" style="display: none;">
@@ -31,7 +32,8 @@
   
   <div class="MiddleLeftDecorator">
     <div class="MiddleRightDecorator">
-      <div class="ContentContainer">      
+      <div class="ContentContainer">    
+		<%       System.out.println("\n\n>>>>>>>>>On Groovy: " +uicomponent.getUIComponentName());   %>
         <%uicomponent.renderChildren();%>
    		</div>
     </div>

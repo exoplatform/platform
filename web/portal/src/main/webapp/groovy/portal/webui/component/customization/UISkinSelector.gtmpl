@@ -1,20 +1,74 @@
-<%/*TODO: use the properties and loop here*/%>
-<div class="TabChangeSkin ScrollArea">
-  <div class = "TabChangeSkinContainer">
-    <div class="SkinImage ExoDefaultIcon" onclick="window.location.href=('<%=uicomponent.event("ChangeSkin", "default");%>')"><span></span></div>
-	  <a class="SkinTitle" href="<%=uicomponent.event("ChangeSkin", "default")%>" title="eXo skin"><%=_ctx.appRes("UISkinSelector.title.DefaultSkine")%></a>
-  </div>
-  <div class = "TabChangeSkinContainer">
-    <div class="SkinImage MacIcon" onclick="window.location.href=('<%=uicomponent.event("ChangeSkin", "mac");%>')"><span></span></div>
-	  <a class="SkinTitle" href="<%=uicomponent.event("ChangeSkin", "mac")%>" title="Mac skin"><%=_ctx.appRes("UISkinSelector.title.MacSkin")%></a>
-  </div>
-  <div class = "TabChangeSkinContainer">
-    <div class="SkinImage VistaIcon" ><span></span></div>
-	  <a class="SkinTitle" title="Vista skin"><%=_ctx.appRes("UISkinSelector.title.VistaSkin")%></a>
-  </div>
-  <div class = "TabChangeSkinContainer">
-    <div class="SkinImage SimpleIcon" onclick="window.location.href=('<%=uicomponent.event("ChangeSkin", "simple");%>')"><span></span></div>
-	  <a class="SkinTitle" href="<%=uicomponent.event("ChangeSkin", "simple")%>" title="Simple skin"><%=_ctx.appRes("UISkinSelector.title.eXoSkin")%></a>
+<%  import  org.exoplatform.webui.component.UIForm; %>
+<%
+  String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true)";
+  String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";
+  String onClick = "eXo.webui.UIItemSelector.onClick(this)";
+  
+  options = uicomponent.getItemCategories();
+  UIForm form = uicomponent.getAncestorOfType(UIForm.class);
+%>
+<div class="UIItemSelector">  
+  <div class="RightColumnStyle" style="width: 99.5%;">
+    <input type="hidden" name="$uicomponent.name" value ="">
+      <%/*Begin ItemList*/%>
+      <div class="ItemListContainer">
+      	<div class="LeftItemListTitle">
+      		<div class="RightItemListTitle">
+		        <div class="ItemListTitle">
+		  	    	<div class="TitleIcon ItemListIcon"><span></span></div>
+		  	    	<%System.out.println("\n=======> uicomponent name: " + uicomponent.getName() + "\n"); %>
+		  	    	<div class="Title"><%=uicomponent. (); %></div>
+		  	    	<div style="clear: left;"><span></span></div>
+		  	    </div>
+		  	   </div>
+		  	  </div>
+        <div class="ItemList">
+          <%
+            for(opt in options) {
+              String itemSelected = "Item" ;
+              String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$opt.name')";
+              String submitEvent = "eXo.webui.UIForm.submitEvent('$form.id','SelectItemOption', '')";
+              if (opt.isSelected()) itemSelected = "SelectedItem Item" ;
+           %>
+              <div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;$submitEvent">
+                <div class="LeftItem">
+                  <div class="RightItem">  
+                    <div class="ItemTitle">$opt.name</div>
+                  </div>
+                </div>
+              </div>
+          <%}%>
+        </div>
+      </div>
+      <%/*End ItemList*/%>
+            
+      <%/*Begin ItemDetailList*/%>
+      <div class="ItemDetailList">
+        <div class="ItemDetailTitle">Sample<%=uicomponent.getName();%>View</div>
+        <%          
+          for(opt in options) {
+            String display = "none";
+            temps = opt.getSelectItemOptions();
+            if(opt.isSelected()) display = "block";                 
+        %>
+            <div class="ItemDetail" style="display: $display;">
+            <%               
+              for(temp in temps){               
+               String label = "" ;
+               if(temp != null) {
+                 label = temp.getLabel();
+               }
+            %>
+              <div class="TemplateContainer">
+                <div class="Template">
+                  <div class="<%=temp.getIcon();%>Image"><span></span></div>
+                </div>
+              </div>
+            <%}%>
+            </div> 
+        <%}%>
+      </div>  
+      <%/*End ItemDetailList*/%>      
   </div>
 </div>
 
