@@ -1,3 +1,7 @@
+/***************************************************************************
+ * Copyright 2001-2006 The eXo Platform SARL         All rights reserved.  *
+ * Please look at license.txt in info directory for more license detail.   *
+ **************************************************************************/
 package org.exoplatform.portal.application.handler;
 
 import java.io.IOException;
@@ -11,7 +15,12 @@ import org.exoplatform.portal.application.PortalApplication;
 import org.exoplatform.upload.UploadResource;
 import org.exoplatform.upload.UploadService;
 
-
+/**
+ * Created by The eXo Platform SARL
+ * Author : Nhu Dinh Thuan
+ *          nhudinhthuan@exoplatform.com
+ * Dec 9, 2006  
+ */
 public class UploadRequestHandler implements RequestHandler {
   
   public void execute(PortalApplication app, HttpServletRequest req, HttpServletResponse res) throws IOException {
@@ -43,7 +52,6 @@ public class UploadRequestHandler implements RequestHandler {
       service.createUploadResource(req) ;       
     }else if(action == UploadServiceAction.DELETE){
       String uploadId =  req.getParameter("uploadId") ;
-      
       service.removeUpload(uploadId);
     }else if(action == UploadServiceAction.ABORT){
       String uploadId =  req.getParameter("uploadId") ;
@@ -56,4 +64,4 @@ public class UploadRequestHandler implements RequestHandler {
   static enum  UploadServiceAction {
     PROGRESS, UPLOAD, DELETE, ABORT
   }
-} 
+}

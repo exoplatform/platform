@@ -126,6 +126,7 @@ public class UIPortalActionListener {
   
   static public class AddJSApplicationToDesktopActionListener  extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {
+      System.out.println("\n======> This is AddJSApplicationToDesktopActionListener =============\n");
       String application  = event.getRequestContext().getRequestParameter("jsApplication");
       String applicationId  = event.getRequestContext().getRequestParameter("jsApplicationId");
       String instanceId  = event.getRequestContext().getRequestParameter("jsInstanceId");

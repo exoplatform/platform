@@ -109,7 +109,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);      
       uiExoStart.setUIControlWSWorkingComponent(UIWelcomeComponent.class);      
       uiWizard.updateAjax();
-      uiWizard.viewStep(1);
+      uiWizard.viewStep(1);      
     }
   }
 

@@ -5,16 +5,19 @@
 package org.exoplatform.portal.component.control;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
+import org.exoplatform.portal.component.customization.UIChangeSkinForm;
 import org.exoplatform.portal.component.customization.UIPageCreationWizard;
 import org.exoplatform.portal.component.customization.UIPageEditWizard;
 import org.exoplatform.portal.component.customization.UIPageManagement;
 import org.exoplatform.portal.component.customization.UIPortalManagement;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
+import org.exoplatform.portal.component.customization.UISkinSelector;
 import org.exoplatform.portal.component.customization.UIWizardPageCreationBar;
 import org.exoplatform.portal.component.customization.UIManagement.ManagementMode;
 import org.exoplatform.portal.component.view.UIPortal;
@@ -29,8 +32,10 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIPopupWindow;
-import org.exoplatform.webui.component.debug.UIApplicationTree;
+import org.exoplatform.webui.component.UIForm;
+import org.exoplatform.webui.component.UIFormInputItemSelector;
+import org.exoplatform.webui.component.model.SelectItemCategory;
+import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -54,7 +59,8 @@ import org.exoplatform.webui.event.EventListener;
     @EventConfig(listeners = UIExoStart.BasicCustomizationActionListener.class),
 //    @EventConfig(listeners = UIExoStart.AdvancedCustomizationActionListener.class),
     @EventConfig(listeners = UIExoStart.MyPortalActionListener.class),
-    @EventConfig(listeners = UIExoStart.ChangeSkinActionListener.class),
+//    @EventConfig(listeners = UIExoStart.ChangeSkinActionListener.class),
+    @EventConfig(listeners = UISkinSelector.ChangeSkinActionListener.class),
     @EventConfig(listeners = UIExoStart.ChangeLanguageActionListener.class),
     @EventConfig(listeners = UIExoStart.PageCreationWizardActionListener.class),
     @EventConfig(listeners = UIExoStart.EditCurrentPageActionListener.class),
@@ -65,7 +71,8 @@ import org.exoplatform.webui.event.EventListener;
     @EventConfig(listeners = UIExoStart.RefreshActionListener.class),
     @EventConfig(listeners = UIExoStart.ChangePageActionListener.class),
     @EventConfig(listeners = UIExoStart.LoginActionListener.class),
-    @EventConfig(listeners = UILogged.LogoutActionListener.class)
+    @EventConfig(listeners = UILogged.LogoutActionListener.class),
+    @EventConfig(listeners = UIExoStart.InterfaceSettingsActionListener.class)
   }
 )
 public class UIExoStart extends UIComponent {
@@ -79,10 +86,10 @@ public class UIExoStart extends UIComponent {
     List<MenuItemContainer> menu  = null ;
     if(logged) {
       menu = initParams.getParam("UIExoStartPersonnalizationMenu").getMapGroovyObject(context); 
-      menus.add(menu) ;
+      menus.add(menu) ;     
     }
     menu = initParams.getParam("UIExoStartSystemMenu").getMapGroovyObject(context); 
-    menus.add(menu) ;
+    menus.add(menu) ;    
   }
   
   public boolean isLogged() { return logged ; }
@@ -117,10 +124,8 @@ public class UIExoStart extends UIComponent {
       super(name, icon) ;
     }
     
-    public MenuItemContainer  add(MenuItem item) {      
-      if ((!item.getName().equals("Web20")) && (!item.getName().equals("Debug"))) {        
-        children.add(item) ;
-      }
+    public MenuItemContainer  add(MenuItem item) {     
+        children.add(item) ;      
       return this ;
     }
     
@@ -287,6 +292,23 @@ public class UIExoStart extends UIComponent {
 //      UIPortalApplication uiApp = uiStart.getAncestorOfType(UIPortalApplication.class);
 //    }
 //  }
+  
+    static  public class InterfaceSettingsActionListener extends EventListener<UIExoStart> {
+       @SuppressWarnings("unchecked")
+      public void execute(Event<UIExoStart> event) throws Exception {
+         System.out.println("\n=======> Interface Settings\n");
+         UIPortal uiPortal = Util.getUIPortal();
+         UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+         UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
+         
+         uiMaskWS.createUIComponent(UIChangeSkinForm.class);
+         
+         uiMaskWS.setWindowSize(640, 400);
+         uiMaskWS.setShow(true);
+         event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+         Util.updateUIApplication(event); 
+       }
+    }
   
   static  public class RefreshActionListener extends EventListener<UIExoStart> {
     @SuppressWarnings("unused")
