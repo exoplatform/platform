@@ -20,6 +20,7 @@ public class EmailAddressValidator implements Validator {
   public void validate(UIComponent uicomponent) throws Exception {
     UIFormInputBase uiInput = (UIFormInputBase) uicomponent ;
     String s = (String)uiInput.getValue();
+    if(s == null || s.trim().length()< 1) return;
     if(!(s).matches(EMAIL_REGEX)) {
       Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
       throw new MessageException(new ApplicationMessage("EmailAddressValidator.msg.Invalid-input", args)) ;
