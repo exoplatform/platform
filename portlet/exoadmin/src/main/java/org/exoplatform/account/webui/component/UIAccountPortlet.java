@@ -3,7 +3,6 @@ package org.exoplatform.account.webui.component;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UILoginForm;
-import org.exoplatform.portal.component.widget.UILoginForm.SigninActionListener;
 import org.exoplatform.webui.component.UIPortletApplication;
 import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
