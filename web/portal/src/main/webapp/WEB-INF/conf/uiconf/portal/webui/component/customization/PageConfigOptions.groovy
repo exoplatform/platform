@@ -18,7 +18,7 @@ config = "<page>" +
          "  <name>UIPage</name>" +
          "</page>" ;
 
-normalPageConfigs.addSelectItemOption(new SelectItemOption("DesktopLayout", config, "EmptyLayout"));
+normalPageConfigs.addSelectItemOption(new SelectItemOption("DesktopLayout", config, "DesktopImage"));
 
 SelectItemCategory columnPageConfigs = new SelectItemCategory("columnPageConfigs") ;
 categories.add(columnPageConfigs);  

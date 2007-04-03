@@ -29,6 +29,13 @@
 .UIItemSelector .ItemDetailList .TemplateContainer .DesktopImage {
   background: url('DefaultSkin/background/DesktopImage.jpg') no-repeat center;
   height: 230px;
+  margin: auto;
+}
+
+.UIItemSelector .ItemDetailList .LayoutHolder .DesktopImage {
+  background: url('DefaultSkin/background/DesktopImage.jpg') no-repeat center;
+  width: 250px;
+  height: 173px;
 }
 
 .UIItemSelector .ItemDetailList .ItemDescription {
