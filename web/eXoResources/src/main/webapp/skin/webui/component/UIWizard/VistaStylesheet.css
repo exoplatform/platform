@@ -101,13 +101,14 @@
 }
 
 .UIWizard .UIWizardContent .WizardStepContent {
-  background: white;  
+  background: url('VistaSkin/background/WizardStepContentBG.png') repeat-x bottom;
+  background-color: white;  
   border: solid 1px #aeaeae; border-bottom: none;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar {
   height: 34px;
-  background: url('VistaSkin/background/UIWizardContentBG4x4.png');
+  background: transparent;
   border: solid 1px #b7b7b7;
 }
 
