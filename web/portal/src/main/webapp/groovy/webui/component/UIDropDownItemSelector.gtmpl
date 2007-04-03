@@ -1,8 +1,4 @@
-<%
-  def rcontext = _ctx.getRequestContext() ;
-	rcontext.importJavascript('eXo.webui.UIDropDownItemSelector') ;
-	rcontext.addJavascript('eXo.webui.UIDropDownItemSelector.init()');
-%>
+
 <div class="UIDropDownItemSelector">
 	<div class="ItemSelectorContainer">
 		<div class="ItemInfoBar">
