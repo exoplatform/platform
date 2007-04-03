@@ -1,9 +1,9 @@
 .UILoggedInfo {
-  padding: 5px 0px 0px 0px ;
+  padding: 10px 0px 3px 0px ;
 }
 
 .UILoggedInfo .LoggedInfoItems {  
-  padding: 0px 0px 0px 25px;
+  padding: 0px 0px 4px 3px;
   height: 37px;
 }
 
@@ -89,26 +89,27 @@
 }
 
 .UILoggedInfo .StyleContent .UserWelcomeBox {
-  padding: 5px 0px 7px 0px;
+  padding: 15px 0px 0px 6px;
   line-height: 30px; 
-  height: 60px;
+  height:52px;
 }
 
 .UILoggedInfo .StyleContent .UserWelcomeBox .StateMessage {
   font-size: 11px; 
-  text-align: center;
+  text-align:left;
   line-height: 25px; 
 }
 
 .UILoggedInfo .StyleContent .UserWelcomeBox .LoggedUserName {
   color: #5aa5f8 ;
-  text-align: center;
+  text-align:left;
   line-height: 20px;
   font-weight: bold; 
 }
 
 .UILoggedInfo .StyleContent .LabelSignout {
 	text-align: right;
+	font-size: 11px;
 	color: #f98e03;
 	font-weight: bold;
 	padding-right: 25px;

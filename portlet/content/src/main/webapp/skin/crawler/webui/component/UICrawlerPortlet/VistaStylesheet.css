@@ -31,7 +31,7 @@
 }
 
 .UICrawlerPortlet .UICrawlerNavigation .UIBarStyle a {
-	color: #000033;
+	color: #000033;border:1px red solid;
 }
 
 .UICrawlerPortlet .UICrawlerNavigation .GlassesNavyBlueNewspaper32x32Icon {

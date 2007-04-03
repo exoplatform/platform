@@ -90,7 +90,7 @@
 
 /***************************************  UIWidgetContainer   **************************************/
 .UIWidgetContainer {
-	padding-top: 5px;
+	padding: 5px 0px 15px 0px;
 }
 
 .UIWidgetContainer .eXoInfoWidgetImage {
@@ -112,7 +112,7 @@
 
 .UIWidgetContainer .WidgetControl {
   height: 21px;
-  padding-right: 15px;
+  padding: 8px 15px 8px 0px;
 }
 
 .UIWidgetContainer .WidgetControl .WidgetControlContent {
