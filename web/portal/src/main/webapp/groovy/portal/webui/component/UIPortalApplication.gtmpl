@@ -32,7 +32,7 @@
     <script type="text/javascript">
       eXo.env.developing = <%=uicomponent.DEVELOPING%> ;
       eXo.env.server.context = '<%=docBase%>' ;
-      eXo.env.server.portalBaseURL = '<%=rcontext.getBaseURL()%>' ;
+      eXo.env.server.portalBaseURL = '<%=rcontext.getURLBuilder().getBaseURL()%>' ;
       
       eXo.env.client.skin = '$skin' ;
     </script>

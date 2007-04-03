@@ -7,14 +7,13 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.RenderResponse;
 
-import org.exoplatform.web.application.Parameter;
+import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.config.Event;
 
 public class PortletRequestContext extends WebuiRequestContext {
+  
   static public int VIEW_MODE =  0 ;
   static public int EDIT_MODE =  1 ;
   static public int HELP_MODE =  2 ;
@@ -25,7 +24,6 @@ public class PortletRequestContext extends WebuiRequestContext {
   private PortletResponse response_ ;
   private Writer writer_ ;
   private boolean hasProcessAction_ = false ;
-  private String baseURL_ ;
   
   public PortletRequestContext(WebuiApplication app, Writer writer, 
                                PortletRequest req, PortletResponse res) {
@@ -37,6 +35,8 @@ public class PortletRequestContext extends WebuiRequestContext {
     else if(mode.equals(PortletMode.EDIT))  applicationMode_ = EDIT_MODE ;
     else if(mode.equals(PortletMode.HELP))  applicationMode_ = HELP_MODE ;
     else  applicationMode_ = VIEW_MODE ;
+    
+    urlBuilder = new PortletURLBuilder();
   }
   
   public void init(Writer writer,  PortletRequest req, PortletResponse res) {
@@ -64,7 +64,7 @@ public class PortletRequestContext extends WebuiRequestContext {
   public PortletRequest  getRequest() { return request_ ; }
   
   @SuppressWarnings("unchecked")
-  public PortletResponse getResponse() throws Exception {  return response_ ; }
+  public PortletResponse getResponse() {  return response_ ; }
   
   public String getRemoteUser() { return parentAppRequestContext_.getRemoteUser() ; }
   
@@ -84,36 +84,11 @@ public class PortletRequestContext extends WebuiRequestContext {
   
   public  void    setProcessAction(boolean b) { hasProcessAction_ = b ; }
   
-  public String getBaseURL() {
-    if(baseURL_ != null)  return baseURL_;
-    if(writer_ == null) {
-      throw new RuntimeException("Cannot create ActionURL or RenderURL in the process action phase") ;
-    }
+  public URLBuilder getURLBuilder() {
+    if(urlBuilder.getBaseURL() != null) return urlBuilder;
     RenderResponse renderRes = (RenderResponse)  response_ ;
-    baseURL_ =  renderRes.createActionURL().toString() ;
-    return baseURL_ ;
-  }
-  
-  public StringBuilder createURL(UIComponent uicomponent, Event event, 
-                                 boolean supportAjax, String beanId, Parameter ... params) {
-    builderURL.setLength(0);
-    if(supportAjax) builderURL.append("javascript:ajaxGet('") ;
-    builderURL.append(getBaseURL()).append("&amp;")
-              .append(UIComponent.UICOMPONENT).append('=').append(uicomponent.getId()) ;
-    if(event != null) {
-      builderURL.append("&amp;")
-                .append(WebuiRequestContext.ACTION).append('=').append(event.getName()) ;
-    }
-    if(beanId != null){
-      builderURL.append("&amp;").append(UIComponent.OBJECTID).append('=').append(beanId) ;
-    }
-    if(params != null && params.length > 0){
-      for(Parameter param : params){
-        builderURL.append("&amp;").append(param.getName()).append('=').append(param.getValue()) ;
-      }
-    }
-    if(supportAjax) builderURL.append("&amp;ajaxRequest=true')") ;    
-    return builderURL;    
+    urlBuilder.setBaseURL(renderRes.createActionURL().toString());
+    return urlBuilder ;
   }
   
 }

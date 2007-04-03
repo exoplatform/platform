@@ -108,15 +108,16 @@ public class UIForm extends UIContainer  {
     beanMapping.mapBean(bean, this);    
   }
   
+  @SuppressWarnings("unchecked")
   public void begin() throws Exception {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
-    StringBuilder b = context.createURL(this, null, false, null) ;   
+    String b = context.getURLBuilder().createURL(this, null, null) ;   
     
     Writer writer = context.getWriter() ;
     writer.
       append("<form class=\"UIForm\" name=\"").append(getId()).
       append("\" id=\"").append(getId()).append("\" action=\"").
-      append(b.toString()).append('\"') ;
+      append(b).append('\"') ;
     if(multipart_) {
       writer.append(" enctype=\"multipart/form-data\"") ;
     }

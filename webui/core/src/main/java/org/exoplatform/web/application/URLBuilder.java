@@ -4,31 +4,55 @@
  **************************************************************************/
 package org.exoplatform.web.application;
 
+
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
  *          tuan.nguyen@exoplatform.com
  * Mar 29, 2007  
  */
-abstract public class URLBuilder<E> {
-  
-  abstract public String getBaseURL() ;
-  
-  public String createURL(String action) {
-    return createURL(action, (Parameter[])null) ;
+abstract public class URLBuilder<T> {
+
+  protected String baseURL_;
+
+  public URLBuilder(String baseURL) {
+    baseURL_ = baseURL;
   }
+
+  public String getBaseURL() { return baseURL_; }
   
+  public void setBaseURL(String url) { baseURL_ = url; }
+
+  public String createURL(String action) { return createURL(action, (Parameter[])null) ; }
+
   abstract public String createURL(String action, Parameter[] params) ;
-  
+
   public String createURL(String action, String objectId) {
     return createURL(action, objectId, (Parameter[]) null) ;
   }
-  
+
   abstract public String createURL(String action, String objectId, Parameter[] params) ;
-  
-  public <T extends E> String createURL(T targetComponent, String action, String objectId) {
-    return createURL(targetComponent, action, objectId, (Parameter[])null) ;
+
+  public String createURL(T targetComponent, String action, String targetBeanId) {
+    return createURL(targetComponent, action, targetBeanId, (Parameter[])null) ;
   }
   
-  abstract public <T extends E> String createURL(T targetComponent, String action, String objectId, Parameter[] param) ;
+  public String createAjaxURL(T targetComponent, String action, String targetBeanId) {
+    return createAjaxURL(targetComponent, action, targetBeanId, (Parameter[])null) ;
+  }
+
+  public String createAjaxURL(T targetComponent, String action, String targetBeanId, Parameter[] params) {
+    StringBuilder builder = new StringBuilder("javascript:ajaxGet('");
+    createURL(builder, targetComponent, action, targetBeanId, params);
+    builder.append("&amp;ajaxRequest=true')") ;
+    return builder.toString();    
+  }
+
+  public String createURL(T targetComponent, String action, String targetBeanId, Parameter[] params) {
+    StringBuilder builder = new StringBuilder();
+    createURL(builder, targetComponent, action, targetBeanId, params);
+    return builder.toString();
+  }
+
+  abstract protected void createURL(StringBuilder builder, T targetComponent, String action, String targetBeanId, Parameter[] params) ;
 }

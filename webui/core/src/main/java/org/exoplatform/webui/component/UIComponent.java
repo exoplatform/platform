@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.templates.groovy.ResourceResolver;
+import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.Component;
@@ -136,20 +137,37 @@ abstract public class UIComponent {
   
   public String event(String name) throws Exception { return event(name, null); }   
   
+  @SuppressWarnings("unchecked")
   public String event(String name, String beanId) throws Exception {
     org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
     if(event == null) return "??config??" ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
-    return context.createURL(this, event, true, beanId).toString();
+    try{
+      URLBuilder urlBuilder = context.getURLBuilder();
+      if(urlBuilder != null) {
+        return context.getURLBuilder().createAjaxURL(this, event.getName(), beanId).toString();
+      }
+      System.out.println(urlBuilder +"  : "+context);
+      return "";
+    }catch (Exception e) {
+      e.printStackTrace();
+      return "";
+    }
   }
   
   public String url(String name) throws Exception { return url(name, null); }  
   
+  @SuppressWarnings("unchecked")
   public String url(String name, String beanId) throws Exception {
     org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
     if(event == null) return "??config??" ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
-    return context.createURL(this, event, false, beanId).toString();
+    try {
+      return context.getURLBuilder().createURL(this, event.getName(), beanId).toString();
+    }catch (Exception e) {
+      e.printStackTrace();
+      return "";
+    }
   }
   
   public <T> void broadcast(Event<T> event, Phase phase) throws Exception {

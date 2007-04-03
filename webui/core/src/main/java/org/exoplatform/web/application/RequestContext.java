@@ -24,6 +24,8 @@ abstract public class RequestContext {
   protected RequestContext parentAppRequestContext_ ;
   private Map<String, Object> attributes ;
   
+  protected URLBuilder urlBuilder;
+  
   public RequestContext(Application app) {
     app_ =  app ;
   }
@@ -39,13 +41,8 @@ abstract public class RequestContext {
   public  JavascriptManager getJavascriptManager() { 
     return getParentAppRequestContext().getJavascriptManager() ;
   }
-
-  //TODO:  create class URLBuilder with the method: (Tuan)
-  //  getBaseURL(),
-  //  createURL(String action),
-  //  createURL(String action, String objectId),
-  //  createURL(Object targetComponent, String action, String objectId),
-  abstract public String getBaseURL() ;
+  
+  abstract public URLBuilder getURLBuilder() ;
   
   //TODO: remove isLogon() and use getRemoteUser()  to test
 //  abstract public boolean isLogon();
@@ -80,5 +77,5 @@ abstract public class RequestContext {
   @SuppressWarnings("unchecked")
   public static <T extends RequestContext> T getCurrentInstance()  { return (T)tlocal_.get() ; }
   public static void setCurrentInstance(RequestContext ctx) { tlocal_.set(ctx) ; }
-  
+
 }

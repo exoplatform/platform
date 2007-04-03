@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.webui.application;
 
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -34,7 +33,6 @@ abstract public class WebuiRequestContext extends RequestContext {
   private boolean  processRender_ =  false ;
   private Throwable executionError_ ;
   private ArrayList<UIComponent>  uicomponentToUpdateByAjax ;
-  protected StringBuilder builderURL = new StringBuilder(300);
   
   public WebuiRequestContext(Application app) {
     super(app) ;
@@ -61,8 +59,6 @@ abstract public class WebuiRequestContext extends RequestContext {
   
   abstract public String getRequestContextPath() ;
   
-  abstract  public Writer getWriter() throws Exception ;
-  
   abstract  public <T> T getRequest() throws Exception ;
   
   abstract  public <T> T getResponse() throws Exception ;
@@ -86,9 +82,6 @@ abstract public class WebuiRequestContext extends RequestContext {
     uicomponentToUpdateByAjax.add(uicomponent) ;
   }
  
-  abstract public StringBuilder createURL(UIComponent uicomponent, Event event, 
-                                          boolean supportAjax, String beanId, Parameter ... params) ;
-  
   public ResourceResolver getResourceResolver(String uri) {
     Application app = getApplication() ;
     while(app != null) {

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.web.application.Parameter;
+import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
@@ -34,7 +35,9 @@ public class PortalRequestContext extends WebuiRequestContext {
   private boolean  ajaxRequest_ = true ;
   private boolean  forceFullUpdate = false;
   protected JavascriptManager jsmanager_ = new  JavascriptManager() ;
+  
   public  JavascriptManager getJavascriptManager() { return jsmanager_ ; }
+  
   public PortalRequestContext(WebuiApplication app, HttpServletRequest req, HttpServletResponse res) {
     super(app);
     
@@ -54,6 +57,8 @@ public class PortalRequestContext extends WebuiRequestContext {
     else if(nodeURI.indexOf("/admin/") >= 0) accessPath =  ADMIN_ACCESS ;
     
     res.setContentType("text/html; charset=UTF-8");
+    
+    urlBuilder = new PortalURLBuilder(nodeURI);
   }
   
   public void  setUIApplication(UIApplication uiApplication) throws Exception { 
@@ -78,7 +83,7 @@ public class PortalRequestContext extends WebuiRequestContext {
   
   public String getNodeURI()  { return nodeURI ; }
   
-  public String getBaseURL() { return nodeURI ; } 
+  public URLBuilder getURLBuilder() { return urlBuilder; }
   
   public int  getAccessPath() { return accessPath ;}
   
@@ -100,29 +105,4 @@ public class PortalRequestContext extends WebuiRequestContext {
 
   final public void setFullRender(boolean forceFullUpdate) { this.forceFullUpdate = forceFullUpdate; }
   
-  public StringBuilder createURL(UIComponent uicomponent, Event event, 
-                                 boolean supportAjax, String beanId, Parameter ... params) {
-    builderURL.setLength(0);
-    if(supportAjax) builderURL.append("javascript:ajaxGet('") ;
-    builderURL.
-      append(getBaseURL()).append("?").
-      append(PortalRequestContext.UI_COMPONENT_ID).append('=').append(uicomponent.getId()) ;
-    if(event != null) {
-      builderURL.
-        append("&amp;").
-        append(PortalRequestContext.UI_COMPONENT_ACTION).append('=').append(event.getName()) ;
-    }
-    
-    if(beanId != null) {
-      builderURL.append("&amp;").append(UIComponent.OBJECTID).append('=').append(beanId) ;
-    }
-    
-    if(params != null && params.length > 0) {
-      for(Parameter param : params) {
-        builderURL.append("&amp;").append(param.getName()).append('=').append(param.getValue()) ;
-      }
-    }
-    if(supportAjax) builderURL.append("&amp;ajaxRequest=true')") ;
-    return builderURL;    
-  }
 }
