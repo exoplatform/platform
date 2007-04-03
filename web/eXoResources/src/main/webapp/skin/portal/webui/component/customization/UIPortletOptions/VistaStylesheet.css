@@ -37,8 +37,6 @@
 }
 
 .UIPortletOptions .CategoryContainer {
-  border:solid 1px white; 
-  border-top:none;
   overflow: auto;
 }
 

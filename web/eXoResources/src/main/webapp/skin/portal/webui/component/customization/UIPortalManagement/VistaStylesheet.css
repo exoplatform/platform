@@ -59,7 +59,7 @@
 
 .UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
   float: left;
-  margin: 4px 7px;
+  margin: 8px 11px 0px 11px;
   width: 24px;  height: 24px;
   cursor : pointer;
   background: url('/eXoResources/icons/24x24/VistaSkin/LayoutMode.gif') no-repeat;

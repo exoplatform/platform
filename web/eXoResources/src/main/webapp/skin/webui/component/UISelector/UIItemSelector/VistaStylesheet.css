@@ -127,7 +127,6 @@
   height: 30px;
   background: url('VistaSkin/background/NormalItemL31x30.gif') no-repeat left;
   padding-left: 31px;
- 
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .RightItem {
@@ -180,7 +179,7 @@
 
 /*###########################- Item Over -#################################*/
 .UIItemSelector .RightColumnStyle .ItemList .OverItem{
-  margin: 10px 0px 4px 10px;
+  margin: 10px 10px 4px 10px;
   height: 30px;
   cursor: pointer;
 }

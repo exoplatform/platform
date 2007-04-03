@@ -3,14 +3,6 @@
   padding: 10px ;
 }
 
-.UIPageManagement .PageLayoutModeIcon {
-  float: left;
-  width: 32px; height: 32px;
-  margin: 3px 5px 0px 10px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/PageLayoutMode.gif') no-repeat ;
-  cursor: pointer ;
-}
-
 .UICreatePage .PagePreviewIcon {
   float: left;
   width: 32px; height: 32px;

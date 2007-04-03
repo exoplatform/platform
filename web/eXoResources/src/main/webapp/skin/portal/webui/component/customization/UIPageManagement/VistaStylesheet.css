@@ -138,9 +138,45 @@
   background: url('/eXoResources/icons/24x24/VistaSkin/PagePreview.png') no-repeat ;
 }
 
+.UIPageManagement .PageLayoutModeIcon {
+  float: left;
+  width: 32px; height: 32px;
+  margin: 7px 5px 0px 7px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/PageLayoutMode.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+
 .UIPageManagement .SavePageIcon {
   width: 26px; height: 26px;
   margin: 7px 5px 0px 5px; 
   background: url('/eXoResources/icons/24x24/VistaSkin/BlackFloppyDiskPage.png') ;
+}
+
+.UIPageManagement .MiddleLeftContainerConfigOptions {
+	background: url('VistaSkin/background/MiddleLeftContainerConfigOptions4x1.png') repeat-y left;
+	padding-left: 4px;
+	margin: 0px 10px;
+}
+
+.UIPageManagement .MiddleRightContainerConfigOptions {
+	background: url('VistaSkin/background/MiddleRightContainerConfigOptions5x1.png') repeat-y right;
+	padding-right: 5px;
+}
+
+.UIPageManagement .BottomLeftContainerConfigOptions {
+	background: url('VistaSkin/background/BottomLeftContainerConfigOptions7x9.png') no-repeat left;
+	padding-left: 7px;
+	margin: 0px 10px;
+}
+
+.UIPageManagement .BottomRightContainerConfigOptions {
+	background: url('VistaSkin/background/BottomRightContainerConfigOptions8x9.png') no-repeat right;
+	padding-right: 8px;
+}
+
+.UIPageManagement .BottomCenterContainerConfigOptions {
+	background: url('VistaSkin/background/BottomCenterContainerConfigOptions1x9.png') repeat-x ;
+	height: 9px;
 }
 

@@ -287,11 +287,9 @@
 .UIWizard .UIFormTabPane {
   padding: 10px;
   margin-bottom: 0px;
-  border-top: solid 1px gray ;
 }
 
 .UIWizard .UIFormTabPane .UITabPane .TabPaneContent{
-  border-top: solid 1px gray ;
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer {
