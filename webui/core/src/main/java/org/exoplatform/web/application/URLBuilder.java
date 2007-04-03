@@ -10,7 +10,8 @@ package org.exoplatform.web.application;
  *          tuan.nguyen@exoplatform.com
  * Mar 29, 2007  
  */
-abstract public class URLBuilder {
+abstract public class URLBuilder<E> {
+  
   abstract public String getBaseURL() ;
   
   public String createURL(String action) {
@@ -22,11 +23,12 @@ abstract public class URLBuilder {
   public String createURL(String action, String objectId) {
     return createURL(action, objectId, (Parameter[]) null) ;
   }
+  
   abstract public String createURL(String action, String objectId, Parameter[] params) ;
   
-  public <T> String createURL(T targetComponent, String action, String objectId) {
+  public <T extends E> String createURL(T targetComponent, String action, String objectId) {
     return createURL(targetComponent, action, objectId, (Parameter[])null) ;
   }
   
-  abstract public <T> String createURL(T targetComponent, String action, String objectId, Parameter[] param) ;
+  abstract public <T extends E> String createURL(T targetComponent, String action, String objectId, Parameter[] param) ;
 }
