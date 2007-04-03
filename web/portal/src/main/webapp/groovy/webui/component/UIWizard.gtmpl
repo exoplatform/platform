@@ -37,8 +37,7 @@
 						      <%                
   						      List children  = uicomponent.getChildren();    
   						      String actionLink = "#";    					     	
-										// for(i in 1..children.size() {						     	  						     			       	
-						        for(i in 1..3) {
+										for(i in 1..children.size()) {						     	  						     			       	
 						          strStep = _ctx.appRes(uicomponent.getId() + ".label.step") + String.valueOf(i) ;
 						          if(i != step) {
 						            actionLink = uicomponent.url("ViewStep" + String.valueOf(i));0
@@ -60,8 +59,7 @@
 				                <%  
 						              if(step > 1) {
 						                actionLink = uicomponent.url("ViewStep" + String.valueOf(step-1));
-						              }
-						              else{
+						              } else {
   				                  actionLink = "#";     
 						              }
 				                  String display = "LightBlueStyle";
@@ -119,7 +117,9 @@
 							              <div class="ButtonRight">
 							                <div class="ButtonMiddle">
 							                  <div class="Icon CancelIcon"><span></span></div>
-								                <a href="<%=uicomponent.event("Abort", "");%>"><%=_ctx.appRes(uicomponent.getId() + ".label.abort")%></a>
+								                <a href="<%=uicomponent.event("Abort", "");%>">
+								                  <%=_ctx.appRes(uicomponent.getId() + ".label.abort");%>
+								                </a>
 								              </div>
 							              </div>
 							            </div>
