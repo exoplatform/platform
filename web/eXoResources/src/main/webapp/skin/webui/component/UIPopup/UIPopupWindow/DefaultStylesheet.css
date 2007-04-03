@@ -80,6 +80,7 @@
 }
 
 .UIPopupWindow .BottomBar .ResizeButton {
+	display: none;
   width: 8px; height:8px; 
   float: right;
   background: url('DefaultSkin/background/ResizeBG.gif') no-repeat ;
