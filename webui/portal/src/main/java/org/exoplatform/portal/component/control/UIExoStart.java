@@ -59,8 +59,8 @@ import org.exoplatform.webui.event.EventListener;
     @EventConfig(listeners = UIExoStart.BasicCustomizationActionListener.class),
 //    @EventConfig(listeners = UIExoStart.AdvancedCustomizationActionListener.class),
     @EventConfig(listeners = UIExoStart.MyPortalActionListener.class),
-//    @EventConfig(listeners = UIExoStart.ChangeSkinActionListener.class),
-    @EventConfig(listeners = UISkinSelector.ChangeSkinActionListener.class),
+    @EventConfig(listeners = UIExoStart.ChangeSkinActionListener.class),
+//    @EventConfig(listeners = UISkinSelector.ChangeSkinActionListener.class),
     @EventConfig(listeners = UIExoStart.ChangeLanguageActionListener.class),
     @EventConfig(listeners = UIExoStart.PageCreationWizardActionListener.class),
     @EventConfig(listeners = UIExoStart.EditCurrentPageActionListener.class),
@@ -227,6 +227,7 @@ public class UIExoStart extends UIComponent {
       UIExoStart uicomp = event.getSource() ;
       UIPortalApplication uiApp = uicomp.getAncestorOfType(UIPortalApplication.class);      
       uiApp.setSkin(skin);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiApp) ;
     }
   } 
   

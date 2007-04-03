@@ -1,9 +1,17 @@
 package org.exoplatform.portal.component.customization;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.control.UIExoStart;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.UIPage;
+import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.PortalDAO;
+import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -55,24 +63,36 @@ public class UIChangeSkinForm extends UIForm{
 
   static public class SaveActionListener  extends EventListener<UIChangeSkinForm> {
     public void execute(Event<UIChangeSkinForm> event) throws Exception {
-        System.out.println("\n=======> save ne`\n");
-//      UIChangeSkinForm uiPageForm = event.getSource();     
-//      UIPage uiPage = uiPageForm.getUIPage();      
-//      Page page = new Page() ;
-//      uiPageForm.invokeSetBindingBean(page);     
-//      if(uiPage != null){
-//        if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
-//        PortalDataModelUtil.toUIPage(uiPage, page, true);       
-//      }else{
-//        page.setOwner(Util.getUIPortal().getOwner());
-//      }
-//      if(page.getChildren() == null){
-//        page.setChildren(new ArrayList<org.exoplatform.portal.config.model.Component>());        
-//      }      
-//           
-//      PortalDAO configService = uiPageForm.getApplicationComponent(PortalDAO.class);
-//      configService.savePage(page);      
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm) ;
+      System.out.println("\n=======> save ne`\n");
+//      String skin  = event.getRequestContext().getRequestParameter(OBJECTID);     
+      UIChangeSkinForm uicomp = event.getSource() ;      
+      List skinList = uicomp.getChildren();
+      Iterator skinIterator = skinList.iterator();
+      while (skinIterator.hasNext()) {      
+        UIFormInputItemSelector uiFormInputItemSelector = (UIFormInputItemSelector) skinIterator.next();
+        System.out.println("\n==========> uiFormInputItemSelector: " + uiFormInputItemSelector.getName() + "\n");
+      }
+      
+      UIPortalApplication uiApp = uicomp.getAncestorOfType(UIPortalApplication.class);      
+//      uiApp.setSkin(skin);
+  //    System.out.println("\n==========> skin ne`: " + skin + "\n");
+/*      UIChangeSkinForm uiPageForm = event.getSource();     
+      UIPage uiPage = new UIPage();  
+      Page page = new Page() ;
+      uiPageForm.invokeSetBindingBean(page);     
+      if(uiPage != null){
+        if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
+        PortalDataModelUtil.toUIPage(uiPage, page, true);       
+      }else{
+        page.setOwner(Util.getUIPortal().getOwner());
+      }
+      if(page.getChildren() == null){
+        page.setChildren(new ArrayList<org.exoplatform.portal.config.model.Component>());        
+      }      
+           
+      PortalDAO configService = uiPageForm.getApplicationComponent(PortalDAO.class);
+      configService.savePage(page);      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm) ;*/
     }
   }
 
