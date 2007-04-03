@@ -204,5 +204,24 @@ DOMUtil.prototype.swapPosition = function(e1, e2) {
   
 } ;
 
+DOMUtil.prototype.getStyle = function(element, style) {
+	if (element.style[style]) {
+		return element.style[style];
+	}
+	else if (element.currentStyle) {
+		return element.currentStyle[style];
+	}
+	else if (document.defaultView && document.defaultView.getComputedStyle) {
+		style = style.replace(/([A-Z])/g, "-$1");
+		style = style.toLowerCase();
+		
+		var s = document.defaultView.getComputedStyle(element, "");
+		return s && s.getPropertyValue(style);
+	}
+	else {
+		return null;
+	}
+};
+
 /****************************************************************************/
 eXo.core.DOMUtil = new DOMUtil() ;

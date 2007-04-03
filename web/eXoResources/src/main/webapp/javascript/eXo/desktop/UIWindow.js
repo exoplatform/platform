@@ -205,10 +205,18 @@ UIWindow.prototype.initDND = function(e) {
   	// Can drag n drop only when the window is NOT maximized
 	  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	  var uiPageDesktopX = eXo.core.Browser.findPosX(uiPageDesktop) ;
-		var uiContentPortlet = eXo.core.DOMUtil.findFirstDescendantByClass(dragBlock, "div", "UIContentPortlet");
-		
+		var uiApplication = eXo.core.DOMUtil.findFirstDescendantByClass(dragBlock, "div", "UIApplication");
+		var uiDescToHide = new Array();
 	  DragDrop.initCallback = function (dndEvent) {
-	  	uiContentPortlet.style.overflow = "hidden";
+	  	// A workaround to make the window go under the workspace panel during drag
+	  	uiApplication.style.overflow = "hidden";
+	  	uiAppDescendants = eXo.core.DOMUtil.findDescendantsByTagName(uiApplication, "div");
+	  	for (var i=0; i<uiAppDescendants.length; i++) {
+	  		if (eXo.core.DOMUtil.getStyle(uiAppDescendants[i], "overflow") == "auto") {
+	  			uiDescToHide.push(uiAppDescendants[i]);
+	  			uiAppDescendants[i].style.overflow = "hidden";
+	  		}
+	  	}
 	  }
 	
 	  DragDrop.dragCallback = function (dndEvent) {
@@ -235,10 +243,12 @@ UIWindow.prototype.initDND = function(e) {
 	  }
 	
 	  DragDrop.dropCallback = function (dndEvent) {
-	  	uiContentPortlet.style.overflow = "auto";
+	  	// A workaround to make the window properly resizable after drop
+	  	uiApplication.style.overflow = "auto";
+	  	for (var i=0; i<uiDescToHide.length; i++) {
+	  		uiDescToHide[i].style.overflow = "auto";
+	  	}
 	  }
-	  
-	  
 	  DragDrop.init(null, clickBlock, dragBlock, e) ;
 	}
 } ;
