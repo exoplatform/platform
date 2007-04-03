@@ -2,7 +2,7 @@
 	<div class="TitleBarContainer">
 	  <div class="LeftTitleBar">
 	    <div class="RightTitleBar">
-	      <div class="CenterTitleBar">Add Portlet or Javascript Applications to the Desktop Page</div>
+	      <div class="CenterTitleBar">Add Portlets or Javascript Applications to the Desktop Page</div>
 	    </div>
 	  </div>
 	</div>
@@ -108,13 +108,19 @@
 	          	  
 	          	  <div class="ItemDetailList">
 	          	    <div class="ItemDetail" style="display: block">
-	          	    	<div class="ItemDetailTitle">Applications List</div>
+	          	    	<div class="ItemDetailTitle">
+	          	    		<div class="TitleIcon ViewListIcon"><span></span></div>
+						  	    	<div class="Title">Applications List</div>
+						  	    	<div style="clear: left;"><span></span></div>
+	          	    </div>
 	          	      <div class="ApplicationListContainer">
 	              	      <div class="Application">
 				              		<div class="TitleBarApplication">
 				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 				              			<div class="ApplicationLabel">eXo Browser</div>
-				              			<div class="AddButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication', 'eXoBrowser')">
+				              			<div class="AddButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication',
+				              																																										'eXoBrowser')"
+				              																																										title="Add this application to the desktop page">
 				              			  <span></span>
 			              			  </div>
 				              			<div style="clear: both"><span></span></div>
@@ -129,7 +135,8 @@
 				              			<div class="AddButton" 
 				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.mail.UIMailApplication', 
 				              			                                                            'eXoMail', 
-				              			                                                            '/mail/javascript/');">
+				              			                                                            '/mail/javascript/');"
+				              			                                                            title="Add this application to the desktop page">
 				              			  <span></span>
 				              			</div>
 				              			<div style="clear: both"><span></span></div>
@@ -144,7 +151,8 @@
 				              			<div class="AddButton" 
 						              			 onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.calendar.UICalendarApplication',
 						              			                                                        'eXoCalendar',
-	  			                                                                              '/calendar/javascript/');">
+	  			                                                                              '/calendar/javascript/');"
+	  			                                                                              title="Add this application to the desktop page">
 	              			        <span></span>
 	              			      </div>
 				              			<div style="clear: both"><span></span></div>
@@ -159,7 +167,8 @@
 				              			<div class="AddButton" 
 				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.forum.UIForumApplication', 
 				              			                                                            'eXoForum',
-				              			                                                            '/forum/javascript/');">
+				              			                                                            '/forum/javascript/');"
+				              			                                                            title="Add this application to the desktop page">
 	              			        <span></span>
 	              			      </div>
 				              			<div style="clear: both"><span></span></div>
@@ -170,7 +179,11 @@
 			              	</div>
 	          	    </div>
 	          	    <div class="ItemDetail" style="display: none">
-	          	    	<div class="ItemDetailTitle">Accessories List</div>
+	          	    	<div class="ItemDetailTitle">
+	          	    		<div class="TitleIcon ViewListIcon"><span></span></div>
+						  	    	<div class="Title">Accessories List</div>
+						  	    	<div style="clear: left;"><span></span></div>
+						  	    </div>
 	          	      <div class="ApplicationListContainer" style="line-height: 240px; vertical-align: middle; text-align: center; color: red">
 	          	        Accessories is now not available !
 	          	      </div>
@@ -192,9 +205,7 @@
 	        <div class="ButtonLeft">
 	          <div class="ButtonRight">
 	            <div class="ButtonMiddle">
-	              <div class="Icon Cancel16x16Icon"><span></span></div>
-			  				    <a href="javascript:eXo.desktop.UIAddApplication.removeAddApplication() ;">Close</a>
-			  				    <div style="clear: left"><span></span></div>
+	  				    <a href="javascript:eXo.desktop.UIAddApplication.removeAddApplication() ;">Close</a>
 	            </div>
 	          </div>
 	        </div>

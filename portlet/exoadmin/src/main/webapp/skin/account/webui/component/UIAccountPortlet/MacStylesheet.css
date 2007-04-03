@@ -28,8 +28,8 @@
 /*########################-UIPersonalInfo-###########################*/
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
   width: 400px;
-  margin: auto; margin-top: 12px; margin-bottom: 5px;
   overflow: hidden;
+  margin-left: auto; margin-right: auto;
 }
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer label {
@@ -45,13 +45,13 @@
 }
 
 .UIAccountPortlet .UIItemSelector .UIFormInputSet {
-  padding-top: 10px;
+  padding-top: 7px;
   font-size: 11px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet .FieldContainer {
   width: 370px;
-  margin: auto;  margin-top: 12px; margin-bottom: 5px;
+  margin: auto;  margin-top: 7px; margin-bottom: 5px;
   overflow: hidden;
 }
 
@@ -73,13 +73,6 @@
 }
 
 /*########################-Template Selector-###########################*/
-.UIAccountPortlet .UIItemSelector .NormalStyle .ItemList {
-  height: 258px;
-}
-
-.UIAccountPortlet .UIItemSelector .NormalStyle .ItemList .Item{
-  margin-top: 10px;
-}
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .Template {
   margin: auto;
@@ -87,16 +80,6 @@
 
 .UIPersonalInfo {
   padding: 6px;
-}
-
-.UIPersonalInfo .UIItemSelector .ItemDetailList {
-  margin-right: 230px;
-  border: 1px solid #b7b7b7;
-}
-
-.UIAccountPortlet  .UIItemSelector .ItemDetailList {
-  margin-right: 240px;
-  border: 1px solid #b7b7b7;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .Template .DefaultAccountImage{

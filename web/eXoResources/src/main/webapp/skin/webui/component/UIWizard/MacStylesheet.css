@@ -282,10 +282,6 @@
   padding-top: 10px;
 }
 
-.UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer .Item {
-  margin: 5px 3px 8px 3px;  
-}
-
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList {
   height: 267px; 
   background: #ffffff;

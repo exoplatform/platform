@@ -1,74 +1,36 @@
 .UIMaskWorkspace {
-  width: 700px ;
-  background: #f2f2f2 ;
-  border: none;
+  background: white ;
+  border: 1px solid black;
+  padding: 2px;
+  width: 650px;
 }
 
 .UIMaskWorkspace .ContentContainer {
-  height: 400px ;
-}
-
-.UIMaskWorkspace .TopLeftDecorator {
-  background: url('DefaultSkin/background/TopLeftDecorator6x6.gif') left no-repeat;
-  padding: 0px 0px 0px 4px ;
-}
-
-.UIMaskWorkspace .TopRightDecorator {
-  background: url('DefaultSkin/background/TopRightDecorator6x6.gif') right no-repeat;
-  padding: 0px 4px 0px 0px ;
-}
-
-.UIMaskWorkspace .TopLeftDecorator .TopCenterDecorator {
-  height: 4px ;
-  background: url('DefaultSkin/background/TopCenterDecorator1x6.gif') repeat-x;
-}
-
-.UIMaskWorkspace .MiddleLeftDecorator {
-  background: url('DefaultSkin/background/MiddleLeftDecorator6x1.gif') repeat-y left;
-  padding: 0px 0px 0px 4px ;
-}
-
-.UIMaskWorkspace .MiddleRightDecorator {
-  background: url('DefaultSkin/background/MiddleRightDecorator6x1.gif') repeat-y right;
-  padding: 0px 4px 0px 0px ;
-}
-
-.UIMaskWorkspace .BottomLeftDecorator {
-  background: url('DefaultSkin/background/BottomLeftDecorator6x6.gif') left no-repeat;
-  padding: 0px 0px 0px 4px ;
-}
-
-.UIMaskWorkspace .BottomRightDecorator {
-  padding: 0px 4px 0px 0px ;
-  background: url('DefaultSkin/background/BottomRightDecorator6x6.gif') right no-repeat;
-}
-
-.UIMaskWorkspace .BottomLeftDecorator .BottomCenterDecorator {
-  height: 4px ;
-  background: url('DefaultSkin/background/BottomCenterDecorator1x6.gif') repeat-x;
+  background: white ;
+  border: 1px solid #a9a9a9;
 }
 
 .UIMaskWorkspace .TitleBarContainer {
-  width: 400px ;
-  padding: 15px 0px 0px 0px;
-  margin: auto ;
+  padding: 10px 13px 0px 10px;
 }
 
 .UIMaskWorkspace .TitleBarContainer .LeftTitleBar {
-  background: url('DefaultSkin/background/LeftTitleBar33x32.gif') no-repeat left;
-  padding: 0px 0px 0px 32px ;
+  height: 37px;
+  background: url('MacSkin/background/LeftTitleBar68x37.gif') no-repeat left;
+  padding: 0px 0px 0px 68px ;
 }
 
 .UIMaskWorkspace .TitleBarContainer .RightTitleBar {
-  background: url('DefaultSkin/background/RightTitleBar11x32.gif') no-repeat right;
-  padding: 0px 11px 0px 0px ;
+  height: 37px;
+  background: url('MacSkin/background/RightTitleBar43x37.gif') no-repeat right;
+  padding: 0px 43px 0px 0px ;
 }
 
 .UIMaskWorkspace .TitleBarContainer .CenterTitleBar {
-  height: 32px ;
-  line-height: 32px ; vertical-align: middle ;
-  font-weight: bold ; text-align: center ;
-  background: url('DefaultSkin/background/CenterTitleBar1x32.gif') repeat-x;
+  height: 37px;
+  line-height: 37px ; vertical-align: middle ;
+  font-weight: bold ; text-align: center ; color: #565656; font-size: 13px;
+  background: url('MacSkin/background/CenterTitleBar1x37.gif') repeat-x;
 }
 
 .UIMaskWorkspace .ContentContainerDetail {
@@ -76,34 +38,21 @@
 }
 
 .UIMaskWorkspace .UITabContentContainer {
-  background: #f2f2f2 ;
-  padding: 1px;
-  border: solid 1px gray;
+  padding: 6px 0px 0px 2px;
+  border: solid 1px #a4a4a4; border-top:none;
+  background: url('/eXoResources/background/MacSkin/Background1x4.png');
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
-  height: 276px ;
-}
-
-.UIAddApplication .UITabContentContainer .UITabContent {
-	height: 244px;
-}
-
-.UIMaskWorkspace .ContentContainerDetail .TabsContainer {
-	width: 99%; 
-}
-
-.UIMaskWorkspace .RefreshButtonLabel a {
-	color: black;
-}
-
-.UIMaskWorkspace .RefreshButtonLabel a:hover {
-	color: blue;
+  height: 273px ; 
+  overflow: auto;
 }
 
 .UIMaskWorkspace .ApplicationListContainer {
-	height: 235px ;
-	overflow: auto ;
+	height: 240px;
+	border: 1px solid #a4a4a4;
+	background: white;
+	overflow: auto;
 }
 
 .UIMaskWorkspace .Application {
@@ -112,109 +61,118 @@
 }
 
 .UIMaskWorkspace .TitleBarApplication {
-	height: 27px ;
-	background: #dee4f5 ;
+	height: 21px ;
+	background: url('MacSkin/background/ApplicationTitleBar1x22.gif') repeat-x ;
 }
 
 .UIMaskWorkspace .IconLayout {
 	float: left ;
-	margin: 4px 5px 0px 5px ;
+	margin: 3px 5px 0px 5px ;
 }
 
 .UIMaskWorkspace .ApplicationLabel {
 	float: left ;
-	height: 27px ;
-	line-height: 27px; 
-	font-weight: bold ;
+	height: 21px ;
+	line-height: 21px; 
+	font-weight: bold ; font-size: 11px; color: black;
 	vertical-align: middle ;
-}
-
-.UIMaskWorkspace .CheckButton {
-	float: right ; 
-	width: 16px ; height: 27px ;
-	background: url("DefaultSkin/icons/16x16/Check.gif") no-repeat center;
-	margin: 0px 10px ;
-	cursor: pointer ;
 }
 
 .UIMaskWorkspace .AddButton {
 	float: right ; 
-	width: 16px ; height: 27px ;
-	background: url("DefaultSkin/icons/16x16/Add.gif") no-repeat center;
-	margin: 0px 10px ;
+	width: 16px ; height: 16px ;
+	background: url('MacSkin/icons/AddIcon.png') no-repeat center;
+	margin: 2px 10px ;
 	cursor: pointer ;
 }
 
 .UIMaskWorkspace .ApplicationDescription {
 	background: white ;
-	padding: 10px 15px ;
+	padding: 10px;
+	font-size: 11px;
 }
 
 .UIMaskWorkspace .UIAction {
-  width: 140px ;
+  width: 230px ;
   margin: auto ;
 }
 
 .UIMaskWorkspace .UIAction .ActionButton {
-  width: 100px;
-}
-
-.UIMaskWorkspace .UIAction .ActionButton .Icon {
-  margin: 4px 0px 0px 10px ;
+  width: 80px ;
 }
 
 .UIMaskWorkspace .UIFormTabPane {
-	padding: 10px;
-}
-/**************************** UIAddApplication ******************************************/
-.UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
-  height: 206px ;
-  overflow: auto ;
-  background: #ffffff;
+	padding: 10px 10px 5px 10px ;
 }
 
-.UIAddApplication .UIItemSelector .FloatRightStyle .ItemList .ImportPortletsIcon {
-	background:url('DefaultSkin/background/ImportPortletsIcon57x72.gif') no-repeat center;
-	margin: 50px 0px 0px 75px;
-	width: 57px; height: 72px;
+.UIMaskWorkspace .UIFormWithTitle {
+	padding: 10px 0px;
 }
+
+
+/**************************** UIAddApplication ******************************************/
+.UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
+  height: 240px ;
+  overflow: auto ;
+  background: white url('MacSkin/background/ApplicationBackground165x65.gif') no-repeat left bottom;
+}
+
+.UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {
+  background: none;
+  border: none;
+}
+
 
 .UIAddApplication .ContentContainerDetail .TabsContainer .RefreshButtonContent {
 	float: right;
-	width: 105px;
-}
-
-.UIAddApplication .ItemList .RefreshButtonContent {
-	width: 140px;
-	margin: auto;
+	width: 90px;
 }
 
 .UIAddApplication .RefreshButtonContent .RefreshButtonLeft {
-	background:url('DefaultSkin/background/RefreshButtonLeft8x22.gif') no-repeat top left; 
-	padding: 0px 0px 0px 8px;
+	background:url('MacSkin/background/LeftRefreshButton22x22.png') no-repeat top left; 
+	padding: 0px 0px 0px 22px;
 }
 
 .UIAddApplication .RefreshButtonContent .RefreshButtonRight {
-	background:url('DefaultSkin/background/RefreshButtonRight8x22.gif') no-repeat top right; 
-	padding: 0px 8px 0px 0px ;
+	background:url('MacSkin/background/RightRefreshButton13x22.png') no-repeat top right; 
+	padding: 0px 13px 0px 0px ;
 }
 
 .UIAddApplication .RefreshButtonContent .MiddleRefreshButton {
 	height: 22px;
-	background:url('DefaultSkin/background/MiddleRefreshButton1x22.gif') repeat-x top; 
-}
-
-.UIAddApplication .RefreshButtonContent .IconRefreshButton {
-	float: left;
-	width: 24px; height: 22px; 
-	background:url('DefaultSkin/icons/16x16/RefreshButton.gif') no-repeat center; 
-	padding: 0px 0px 0px 3px;
-	cursor: pointer ;
+	background:url('MacSkin/background/CenterRefreshButton1x22.png') repeat-x top; 
 }
 
 .UIAddApplication .RefreshButtonContent .RefreshButtonLabel {
-	line-height: 21px; font-weight: bold;
-	padding: 0px 8px;
+	line-height: 21px;
+	padding: 0px 5px;
 	cursor: pointer ;	
 	text-align: center;
+	font-size: 11px;
+}
+
+.UIAddApplication  .UITabContent {
+	width: 653px;
+	padding-left: 3px;
+}
+
+.UIAddApplication .RefreshButtonContent a:hover {
+	color: #0575CA;
+}
+
+.UIAddApplication .UIAction {
+	width: 80px;
+	margin: auto;
+	padding-bottom: 15px;
+}
+
+.UIAddApplication .UIAction .ActionButton {
+  width: 80px ;
+}
+
+.UIAddApplication .ApplicationItemIcon {
+	width: 10px; height: 10px;
+	background: url('MacSkin/icons/ApplicationItemIcon.png') no-repeat ;
+	float: left;
+	margin: 6px 5px 0px 5px;
 }

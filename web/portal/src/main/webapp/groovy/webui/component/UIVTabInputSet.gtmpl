@@ -1,9 +1,9 @@
 <%
-  String onClickBigStyle = "eXo.webui.UIItemSelector.onClick(this)";
+  String onClickRightColumnBigItemStyle = "eXo.webui.UIItemSelector.onClick(this)";
 %>
 <div class="UIPersonalInfo">
   <div class="UIItemSelector">
-    <div class="BigStyle">
+    <div class="RightColumnBigItemStyle">
 	    <div class="OverflowContainer">
 	      <%//Begin Item List%>
 	      <div class="ItemListContainer">
@@ -11,7 +11,7 @@
 		      <div class="ItemList">
 		        <div class="ImageDecorator">
 			        <%for(child in uicomponent.getChildren()) { %>
-			          <div class="Item" onclick="$onClickBigStyle">
+			          <div class="Item" onclick="$onClickRightColumnBigItemStyle">
 			            <div class="User${child.id}Icon">
 			              <div class="ItemName">
 			                <div class="ItemTitle"><%= _ctx.appRes(uicomponent.getId() + ".label." + child.id)%></div>

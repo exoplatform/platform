@@ -49,7 +49,11 @@
             
       <%/*Begin ItemDetailList*/%>
       <div class="ItemDetailList">
-        <div class="ItemDetailTitle">Sample<%=uicomponent.getName();%>View</div>
+        <div class="ItemDetailTitle">
+          <div class="TitleIcon ViewListIcon"><span></span></div>
+  	    	<div class="Title">Sample<%=uicomponent.getName();%>View</div>
+  	    	<div style="clear: left;"><span></span></div>
+        </div>
         <%          
           for(opt in options) {
             String display = "none";

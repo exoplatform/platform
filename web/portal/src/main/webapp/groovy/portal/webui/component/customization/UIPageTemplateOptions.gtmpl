@@ -17,9 +17,9 @@
 	    <%/*Begin ItemList*/ %>
 	    <div class="ItemListContainer">
 	      <div >
-          <div class="ItemListTitle">
+          <div class="ItemListTitle" style="border: 1px red solid; height: 21px; margin-bottom: 2px;">
 	  	    	<div class="Title" style="font-size: 11px; font-weight:normal;">UIDropDownItemSelector</div>
-	  	    	<div class="Button ArrowS1Down16x16Icon" onclick="$showPopupCategory" style="float:left; margin: 10px 0px 0px 23px ;"><span></span></div>
+	  	    	<div class="Button ArrowS1Down16x16Icon" onclick="$showPopupCategory" style="float:left;"><span></span></div>
 	  	    	<div style="clear: left;"><span></span></div>
   	      </div>
 	      </div>
@@ -74,8 +74,7 @@
             if(category.isSelected()) display = "block" ;
             else templates.get(0).setSelected(true) ;
 		    %>
-				    <div class="ItemList CategoryContainer"  style="display: $display;">
-				      <div class="TemplateImage">
+				    <div class="ItemList ItemListBackground"  style="display: $display; height: 238px">
 							<%
 							  for(template in templates){
 							    String itemSelected = "Item" ;
@@ -96,7 +95,6 @@
 				  	      </div>
 		          <%}%>
 		          
-		          </div>
 			      </div>
 			  <%}
 			  %>
@@ -112,7 +110,11 @@
           templates = category.getSelectItemOptions();
 			%>
     			<div class="ItemDetailList" style="display: $display;">
-    			<div class="ItemDetailTitle">Sample Page Layout Templates View</div>
+    			<div class="ItemDetailTitle">
+    			  <div class="TitleIcon ViewListIcon"><span></span></div>
+						<div class="Title">Sample Page Layout Templates View</div>
+						<div style="clear: left;"><span></span></div>
+    			</div>
 			    <%
 			    	int i = 0;    			     
 	          for(template in templates) {

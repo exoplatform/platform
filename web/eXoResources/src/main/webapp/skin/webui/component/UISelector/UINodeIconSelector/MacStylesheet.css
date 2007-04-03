@@ -1,87 +1,49 @@
- .UINodeIconSelector {
-	width: 99% ;
+.UINodeIconSelector {
 }
 
- .UINodeIconSelector .ItemDetailList {
-	height: 380px;
+.UINodeIconSelector .LeftColumnStyle .ItemListContainer .ItemList {
+  height: 240px;
+  background: white url('MacSkin/background/IconImage.gif') no-repeat bottom;
 }
 
- .UINodeIconSelector  .ItemDetailList .SelectedNodeIcon {
-  padding: 7px ; margin-bottom: 3px;
-  background: url('MacSkin/background/LinedBG1x4.gif') ;
+.UINodeIconSelector .LeftColumnStyle .ItemListContainer .ItemDetailList {
+  height: 263px;
+}
+
+
+.UINodeIconSelector .SelectedIconInfo {
+  background: white;
   border: solid 1px #b7b7b7 ;
+  height: 35px;
+  margin-top: 6px;
 }
 
- .UINodeIconSelector .ItemDetailList .SelectedNodeIcon .UIForm {
-  margin-right: 150px ; margin-bottom: 0px;
-  height: 170px; font-size: 11px; font-weight: normal;
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer{
+  white-space: nowrap;
+  margin: 0px;
+  padding: 10px 0px 0px 10px;
 }
 
- .UINodeIconSelector .SelectedNodeIcon .UIForm .UIFormInputSet {
-  background: #f3f3f3 ;
-  margin-left: 5px;
-}
-
- .UINodeIconSelector .ItemDetailList .SelectedNodeIcon .UIFormInputSet .Title {
-  margin: 0px; 
-  font-size: 12px; font-weight: bold ; color: black;
-  width: 99%;
-}
-
- .UINodeIconSelector .ItemDetailList .SelectedNodeIcon .UIFormInputSet {
-  width: 55%;
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel{
+  font-size: 12px; font-weight: normal;
   float: left;
-  font-size: 11px; font-weight: normal;
-  padding: 0px 0px 0px 15px;
+  width: 180px;
 }
 
- .UINodeIconSelector .ItemDetailList .SelectedNodeIcon .UIForm .FieldContainer {
-  width: 65%;
-  margin-top: 12px;
-  font-size: 11px;
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue{
+  margin-left: 0px;
+  float: left;
 }
 
- .UINodeIconSelector .ItemDetailList .SelectedNodeIcon .SelectedIconPreviewBox {
-  float: right ;
+.UINodeIconSelector .IconSelector {
   background: white ;
-  border: solid 1px #b7b7b7 ;
-  width: 140px ;  height: 165px ;
-  padding: 4px; padding-top: 6px;
-}
-
- .UINodeIconSelector .SelectedNodeIcon .SelectedIconPreviewBox .Title {
-  width: 134px; height: 20px; line-height: 20px; vertical-align: middle;
-  border: 1px #d5d5d5 solid;
-  font-size: 12px ; text-align: center ; 
-  margin: auto;
-  background: url('MacSkin/background/TitleBG1x20.gif') repeat-x;
-}
-
- .UINodeIconSelector .SelectedNodeIcon .SelectedIconPreviewBox .IconPreviewBoxBG {
-  margin: auto; margin-top: 4px; margin-bottom: 0px;
-  width: 134px; height: 134px; 
-  background-position: center center ;
-  background: url('MacSkin/background/IconPreviewBoxBG.gif') no-repeat;
-}
-
- .UINodeIconSelector .SelectedNodeIcon .SelectedIconPreviewBox .IconPreviewBox {
-  margin: auto;
-  width: 134px; height: 134px; 
-  background-position: center center ; background-repeat: no-repeat ;
-}
-
- .UINodeIconSelector .IconSelector {
-  background: white ;
-  border: 1px solid  #c7c7c7 ;
-  height: 190px;
+  border: 1px solid  #b7b7b7 ;
+  height: 197px; 
   overflow: auto;
-  padding-left: 6px;
-  margin-top: 3px;
-  width: auto;
 }
 
- .UINodeIconSelector .IconSelector .Icon {
+.UINodeIconSelector .IconSelector .Icon {
   float: left ;
-  margin: 7px ;
+  margin: 12px ;
   cursor: pointer ;
 }

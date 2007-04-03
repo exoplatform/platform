@@ -49,8 +49,8 @@
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
   width: 400px;
-  margin: auto; margin-top: 12px; margin-bottom: 5px;
   overflow: hidden;
+  margin-left: auto; margin-right: auto;
 }
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer label {
@@ -66,13 +66,13 @@
 }
 
 .UIAccountPortlet .UIItemSelector .UIFormInputSet {
-  padding-top: 10px;
+  padding-top: 7px;
   font-size: 11px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet .FieldContainer {
   width: 370px;
-  margin: auto;  margin-top: 12px; margin-bottom: 5px;
+  margin: 7px auto 5px auto;  padding: 0px;
   overflow: hidden;
 }
 
@@ -107,7 +107,6 @@
 
 .UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
   background: white;
-  padding-top: 10px; padding-bottom: 15px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .DefaultAccountImage{

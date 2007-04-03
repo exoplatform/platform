@@ -29,25 +29,14 @@
 <%
 	jsmanager.addJavascript("eXo.require('eXo.webui.UIPopupSelectCategory');");
 %>
-	<div class="NormalStyle">
+	<div class="LeftColumnStyle">
 	
 	    <input type="hidden" name="${uicomponent.name}" value ="$selectedIcon"/>
 			<%/*Begin Item List*/%>
 			<div class="ItemListContainer AncestorPopupCategory">
-			  <div class="UIToolbar">
-	        <div class="Style2Toolbar">
-	          <div class="LeftBar">
-	            <div class="RightBar">
-	              <div class="MiddleBar">
-	                <div class="Icon Catergory24x24Icon"><span></span></div>
-	                <div class="Title" onclick="$showPopupCategory"><%=_ctx.appRes("UIFormInputIconSelector.label.selectIconSet")%></div>
-	                <div class="IconHolder ArrowS1Down16x16Icon" title="Click to select an icon set" onclick="$showPopupCategory"><span></span></div>
-	                <div style="clear: both"><span></span></div>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
+			  <div style="height:21px; margin-bottom: 2px;" onclick="$showPopupCategory" title="Click to select a category">
+          UIDropDownItemSelector
+        </div>
 	      <div class="UIPopupCategory" style="display: none">
 	        <div class="PopupCategoryDecorator">
 	          <div class="PopupCategoryTL">
@@ -97,7 +86,7 @@
 	          </div>	          
 	        </div>
 	      </div>
-		    <div class="ItemList" style="height: 285px">
+		    <div class="ItemList">
  			    <div class="ItemListBg">
 			      <div class="ItemListBgIcon">
 					    <%
@@ -105,13 +94,13 @@
 					        String item = "Item" ;
 					        String setName = iconset.getName() ;
 
-					        if(setName == selectedIconSet.getName()) item = "ItemSelected" ;      					        
+					        if(setName == selectedIconSet.getName()) item = "SelectedItem" ;      					        
 		  				    String submitEvent = form.event('ChangeIconCategory', setName);					    
 		  				    %>	
 
 							    <div class="$item" onclick="$submitEvent">
-							      <div class="ItemIcon">
-							        <div class="ItemName">
+							      <div class="LeftItem">
+							        <div class="RightItem">
 							          <div class="ItemTitle"><%=_ctx.appRes("UIFormInputIconSelector.label." + setName)%></div>
 							        </div>
 							      </div>
@@ -126,6 +115,11 @@
 	    
 	    <%/*Begin Item Detail List*/%>
 	    <div class="ItemDetailList">
+	      <div class="ItemDetailTitle">
+          <div class="TitleIcon ViewListIcon"><span></span></div>
+  	    	<div class="Title"><%=_ctx.appRes("UIFormInputIconSelector.label.iconPreview")%></div>
+  	    	<div style="clear: left;"><span></span></div>
+        </div>
 	    	<%/*Template 1*/%>
 	      
 	        <%
@@ -141,35 +135,21 @@
 		      				    String submitEvent = form.event('SelectIcon', icon);			       
 			            %>                                                
 		                  <a onclick="$submitEvent">
-		                    <div class="Icon <%=icon%>Icon" title="Click to Select" ><span></span></div>
+		                    <div class="Icon <%=icon%>Icon" title="Click to select this icon"><span></span></div>
 		                  </a>                       
 			            <%}%> 
 			          </div>
 			        </div>
 		      <%}%>
 		      
-		      <div class="SelectedNodeIcon">
+		      <div class="SelectedIconInfo">
 
-		            <div class="SelectedIconPreviewBox">
-		              <div class="Title"><%=_ctx.appRes("UIFormInputIconSelector.label.selectedIconPreview")%></div>
-		              <div class="IconPreviewBoxBG">
-		                <div class="IconPreviewBox <%=selectedIcon%>Icon"><span></span></div>
-		              </div>
-		            </div>	              
-	              <div class="UIFormInputSet">
-	                <div class="OverflowContainer">
-		                <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
-		                <div class="Title"><%=_ctx.appRes("UIFormInputIconSelector.label.currentSelectedIconInfo")%></div>
-		              </div>
-	                <div class="FieldContainer">
-	                  <div class="ItemLabel"><%=_ctx.appRes("UIFormInputIconSelector.label.iconName")%>:</div>
-	                  <div class="ItemValue">$selectedIcon</div>
-	                </div>
-	                <div class="FieldContainer">
-	                  <div class="ItemLabel"><%=_ctx.appRes("UIFormInputIconSelector.label.iconSize")%>:</div>
-	                  <div class="ItemValue"><%=uicomponent.getSelectedCategory().getSizeOption()%></div>
-	                </div>
-	              </div>
+	          <div class="UIFormInputSet">
+	            <div class="FieldContainer">
+	              <div class="ItemLabel"><%=_ctx.appRes("UIFormInputIconSelector.label.iconName")%>:</div>
+	              <div class="ItemValue">$selectedIcon</div>
+	            </div>
+	          </div>
 		          
 	        </div>
 			     

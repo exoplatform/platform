@@ -12,30 +12,6 @@
 	width: 99.5%;
 }
 
-/*========================== Wizard Decorator ==========================*/
-
-/*.UIWizard .WizardDecorator .WizardMiddleRight {
-  padding-right: 7px;
-}
-
-.UIWizard .WizardDecorator .WizardMiddleCenter {
-  background: white;
-}
-
-.UIWizard .WizardDecorator .WizardBottomLeft {
-  height: 8px; line-height: 8px;
-  padding-left: 6px;
-}
-
-.UIWizard .WizardDecorator .WizardBottomRight{
-  height: 8px; line-height: 8px;
-  padding-right: 7px;
-}
-
-.UIWizard .WizardDecorator .WizardBottomCenter {
-  height: 8px; line-height: 8px;
-}
-
 /*========================== Wizard Content ==============================*/
 .UIWizard .UIWizardContent { 
   background: white;
@@ -268,24 +244,11 @@
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer {
-  float: right;
   width: 250px;
-}
-
-.UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer .TemplateImage {
-  height: 240px; 
-  overflow: auto;
-  background: url('DefaultSkin/background/TemplateImage.jpg') no-repeat bottom;
-  padding-top: 10px;
-}
-
-.UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer .Item {
-  margin: 5px 3px 8px 3px;
-  
+  height:auto;
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList {
-  height: 267px; 
   background: #ffffff;
   margin-right: 260px; 
   padding: 10px;
@@ -293,8 +256,9 @@
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList .ItemDetail {
-  height: 250px;
   padding: 8px;
+  height: 248px;
+  border: none;
 }
 
 .UIWizard .UIFormTabPane .UIAction {
