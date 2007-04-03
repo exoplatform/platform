@@ -30,6 +30,12 @@
       <artifactId>exo.core.component.database</artifactId>
       <version>${org.exoplatform.core.version}</version>
     </dependency>
+    
+    <dependency>
+      <groupId>org.exoplatform.core</groupId>
+      <artifactId>exo.core.component.resources.api</artifactId>
+      <version>${org.exoplatform.core.version}</version>
+    </dependency>
 
     <dependency>
       <groupId>org.exoplatform.core</groupId>
