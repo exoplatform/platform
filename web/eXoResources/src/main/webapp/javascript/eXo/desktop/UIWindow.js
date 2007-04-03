@@ -178,10 +178,10 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
     	uiApplication.style.width = windowObject.backupUIApplicationWidth + "px" ;
     }
     if(applicationMinWidth) {
-    	applicationMinWidth.style.width = windowObject.backupApplicationMinWidth + "px" ;
+    	applicationMinWidth.style.width = /*windowObject.backupApplicationMinWidth + "px"*/ "auto" ;
+    	applicationMinWidth.style.height = "auto" ;
     }
   }
-
 } ;
 
 UIWindow.prototype.backupObjectProperties = function(windowPortlet, resizableComponents) {

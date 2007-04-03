@@ -137,15 +137,20 @@ eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace)
 				if (showControlWorkspace) {
 					// When the ControlWorkspace is shown
 					uiWindow.oldW = uiWindow.offsetWidth;
-					//uiWindow.oldX = uiWindow.offsetLeft;
-					/*if (uiWindow.offsetLeft > eXo.portal.UIControlWorkspace.defaultWidth) {
-						uiWindow.style.left = 
-						(uiWindow.offsetLeft - eXo.portal.UIControlWorkspace.defaultWidth + eXo.portal.UIControlWorkspace.slidebarDefaultWidth) + "px";
-					}*/
 					if ((uiWindow.offsetLeft + uiWindow.offsetWidth) > uiDesk.offsetWidth) {
+						/*
+						 * If the window is too large to fit in the screen after the control panel is shown
+						 * we remove the control panel width to the window width
+						 */ 
 						uiWindow.style.width = 
 						(uiWindow.offsetWidth - eXo.portal.UIControlWorkspace.defaultWidth + eXo.portal.UIControlWorkspace.slidebarDefaultWidth) + "px";
-						if (uiWindow.maximized) {
+						
+						if ((eXo.desktop.UIWindow.originalWidth + uiWindow.offsetLeft) > uiDesk.offsetWidth && uiWindow.maximized) {
+							/* if the maximized window original size is too large
+							 * we remove the control panel width to the original width
+							 * when the window is demaximized but the control panel is still there, the window
+							 * will not come out of the screen
+							 */
 							eXo.desktop.UIWindow.originalWidth -= eXo.portal.UIControlWorkspace.defaultWidth;
 						}
 					}
@@ -154,10 +159,8 @@ eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace)
 					if (uiWindow.maximized) {
 						// If the window is maximized, we set the size to its maximum : the desktop size
 						uiWindow.style.width = uiDesk.offsetWidth+"px";
-						//uiWindow.style.left = uiDesk.offsetLeft+"px";
 					} else {
 						uiWindow.style.width = uiWindow.oldW+"px";
-						//uiWindow.style.left = uiWindow.oldX+"px";
 					}
 				}
 			}
