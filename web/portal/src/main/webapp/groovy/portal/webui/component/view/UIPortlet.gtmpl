@@ -60,7 +60,7 @@
 		    <%/*End InfoBar*/ %>
 		  </div>
 		  
-		  <div class="LAYOUT-PORTLET" style="display: none">
+		  <div class="LAYOUT-PORTLET" style="display: none;">
 		    <div class="PortletLayoutDecorator">
 		    
 		      <%/*Begin Top Portlet Layout Decorator*/%>

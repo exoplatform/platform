@@ -129,8 +129,9 @@ var DragDrop = {
     var foundTarget = null ;
     for(var i = 0; i < dropableTargets.length; i++) {
       var ele =  dropableTargets[i] ;
-      if(dragObject != ele &&
-         DragDrop.isIn(mousexInPage, mouseyInPage, ele)) {
+      
+      window.status = "TEST: " + DragDrop.isIn(mousexInPage, mouseyInPage, ele) ;
+      if(dragObject != ele && DragDrop.isIn(mousexInPage, mouseyInPage, ele)) {
         if(foundTarget == null) {
           foundTarget = ele ;
         } else {
@@ -164,9 +165,17 @@ var DragDrop = {
     var componentBottom = componentTop + component.offsetHeight ;
     var isover = false ;
     
+    window.status = "BROWSER TYPE: " + eXo.core.Browser.getBrowserType();
+    
+    if(eXo.core.Browser.getBrowserType() == "ie") {
+    	componentLeft = componentLeft / 2 ;
+    }
+    
+//    window.status = "componentLeft: " + componentLeft + "  x: " + x ;
+        
     if(componentLeft < x && x < componentRight) {
       if(componentTop < y && y < componentBottom) {
-        isover = true  ;
+        isover = true ;
       }
     }
     return isover ;

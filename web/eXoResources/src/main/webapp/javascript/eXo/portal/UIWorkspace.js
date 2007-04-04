@@ -112,7 +112,7 @@ eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {
 //  		uiWorkspace.style.width = (eXo.core.Browser.getBrowserWidth() - controlWorkspaceWidth - slidebar.offsetWidth) + "px";
 //  	}
 //  }
- 
+
   if(uiControlWorkspace) {
   	uiWorkspace.style.marginLeft = controlWorkspaceWidth + "px" ;
   } else {
