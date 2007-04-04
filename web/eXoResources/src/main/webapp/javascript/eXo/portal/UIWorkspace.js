@@ -89,6 +89,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 		eXo.portal.UIControlWorkspace.width = eXo.portal.UIControlWorkspace.slidebar.offsetWidth ;
 		eXo.portal.UIWorkingWorkspace.onResize(null, null) ;
 	}
+	
 	/* Reorganize opened windows */
 	eXo.portal.UIWorkingWorkspace.reorganizeWindows(this.showControlWorkspace);
 	/*Resize Dockbar*/

@@ -294,8 +294,15 @@ PortalDragDrop.prototype.findInsertPosition = function(components, dragObject, l
 
 PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComponent, layout, e) {
   var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
+  var uiPage = eXo.core.DOMUtil.findAncestorByClass(dragObject, "UIPage");
   var csWidth = uiControlWorkspace.offsetWidth ;
-  if(eXo.core.Browser.getBrowserType() == "ie") csWidth = csWidth * 2 ;
+  
+  /* IE's Bug: It always double when set position, margin-left for 
+   * UIWorkingWorkspace is problem.
+   * If WorkingWorkspace is setted a width, that bug disappear
+   * but the layout on IE has breakdown!!!
+   * */
+  if(eXo.core.Browser.getBrowserType() == "ie" && (uiPage == null)) csWidth = csWidth * 2 ;
 
   dragObject.style.position = "absolute" ;
   
