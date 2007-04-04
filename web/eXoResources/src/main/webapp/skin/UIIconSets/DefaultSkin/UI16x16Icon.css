@@ -1,0 +1,694 @@
+/*===========================Misc Icons Stylesheet=======================*/
+.ApplicationGallery {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/ApplicationGallery.gif')no-repeat;
+}
+
+.ApplicationLink {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/ApplicationLink.gif')no-repeat;
+}
+
+.ApplicationList {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/ApplicationList.gif')no-repeat;
+}
+
+.ApplicationSize {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/ApplicationSize.gif')no-repeat;
+}
+
+.ApplicationTerminal {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/ApplicationTerminal.gif')no-repeat;
+}
+
+.ApplicationWorldWide {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/ApplicationWorldWide.png')no-repeat;
+}
+
+.BlueInfo {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/BlueInfo.gif')no-repeat;
+}
+
+.Bomb {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/Bomb.png')no-repeat;
+}
+
+.Brick {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/Brick.gif')no-repeat;
+}
+
+.DiskDrive {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/DiskDrive.gif')no-repeat;
+}
+
+.Factory {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/Factory.gif')no-repeat;
+}
+
+.Home {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/Home.gif')no-repeat;
+}
+
+.HTML {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/HTML.gif')no-repeat;
+}
+
+.IconsView {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/IconsView.gif')no-repeat;
+}
+
+.Images {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/Images.gif')no-repeat;
+}
+
+.Info {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/Info.png')no-repeat;
+}
+
+.Puzzle {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/Puzzle.gif')no-repeat;
+}
+
+.Rainbow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/Rainbow.gif')no-repeat;
+}
+
+.RSS {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/RSS.gif')no-repeat;
+}
+
+.RSSFeed {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/RSSFeed.gif')no-repeat;
+}
+
+.StarAward {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/StarAward.gif')no-repeat;
+}
+
+.Tux {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/Tux.gif')no-repeat;
+}
+
+.Vector {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/Vector.gif')no-repeat;
+}
+
+.Version {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/Version.gif')no-repeat;
+}
+
+.WeatherClouds {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/WeatherClouds.gif')no-repeat;
+}
+
+.WeatherCloudy {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/WeatherCloudy.gif')no-repeat;
+}
+
+.WeatherLightning {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/WeatherLightning.gif')no-repeat;
+}
+
+.WeatherRain {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/WeatherRain.gif')no-repeat;
+}
+
+.WeatherSnow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/WeatherSnow.gif')no-repeat;
+}
+
+.WeatherSun {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/WeatherSun.gif')no-repeat;
+}
+
+.World {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/World.gif')no-repeat;
+}
+
+.XHTML {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/XHTML.gif')no-repeat;
+}
+
+.YellowStar {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/MiscIcons/YellowStar.png')no-repeat;
+}
+/*===========================End Misc Icons Stylesheet=======================*/
+
+/*===========================Navigation Icons Stylesheet=======================*/
+.BlackDownSolidArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlackDownSolidArrow.gif')no-repeat;
+}
+
+.BlackLeftSolidArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlackLeftSolidArrow.gif')no-repeat;
+}
+
+.BlackRightSolidArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlackRightSolidArrow.gif')no-repeat;
+}
+
+.BlackUpSolidArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlackUpSolidArrow.gif')no-repeat;
+}
+
+.BlueAquaBallBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueAquaBallBullet.gif')no-repeat;
+}
+
+.BlueArrowIn {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueArrowIn.gif')no-repeat;
+}
+
+.BlueArrowInOut {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueArrowInOut.gif')no-repeat;
+}
+
+.BlueBallBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueBallBullet.gif')no-repeat;
+}
+
+.BlueBranchArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueBranchArrow.gif')no-repeat;
+}
+
+.BlueDividedArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueDividedArrow.gif')no-repeat;
+}
+
+.BlueDownArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueDownArrow.gif')no-repeat;
+}
+
+.BlueJoinArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueJoinArrow.gif')no-repeat;
+}
+
+.BlueRedoArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueRedoArrow.gif')no-repeat;
+}
+
+.BlueRotateRightArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueRotateRightArrow.gif')no-repeat;
+}
+
+.BlueSquareBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueSquareBullet.gif')no-repeat;
+}
+
+.BlueSwitchArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueSwitchArrow.gif')no-repeat;
+}
+
+.BlueTriangleBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueTriangleBullet.gif')no-repeat;
+}
+
+.BlueUndoArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueUndoArrow.gif')no-repeat;
+}
+
+.BlueUpArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/BlueUpArrow.gif')no-repeat;
+}
+
+.Check {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/Check.png')no-repeat;
+}
+
+.Check2 {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/Check2.gif')no-repeat;
+}
+
+.Delete {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/Delete.gif')no-repeat;
+}
+
+.Forward {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/Forward.gif')no-repeat;
+}
+
+.GrassGreenBallBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/GrassGreenBallBullet.gif')no-repeat;
+}
+
+.GreenBallBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/GreenBallBullet.gif')no-repeat;
+}
+
+.GreenSquareBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/GreenSquareBullet.gif')no-repeat;
+}
+
+.GreenTriangleBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/GreenTriangleBullet.gif')no-repeat;
+}
+
+.GreyAquaBallBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/GreyAquaBallBullet.gif')no-repeat;
+}
+
+.GreyBallBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/GreyBallBullet.gif')no-repeat;
+}
+
+.GreyLeftShapeArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/GreyLeftShapeArrow.gif')no-repeat;
+}
+
+.GreySquareBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/GreySquareBullet.gif')no-repeat;
+}
+
+.GreyTriangleBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/GreyTriangleBullet.gif')no-repeat;
+}
+
+.RedAquaBallBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/RedAquaBallBullet.gif')no-repeat;
+}
+
+.RedBallBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/RedBallBullet.gif')no-repeat;
+}
+
+.RedSquareBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/RedSquareBullet.gif')no-repeat;
+}
+
+.RedTriangleBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/RedTriangleBullet.gif')no-repeat;
+}
+
+.Reply {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/Reply.gif')no-repeat;
+}
+
+.RightShapeArrow {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/RightShapeArrow.gif')no-repeat;
+}
+
+.YellowAquaBallBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/YellowAquaBallBullet.gif')no-repeat;
+}
+
+.YellowBallBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/YellowBallBullet.gif')no-repeat;
+}
+
+.YellowSquareBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/YellowSquareBullet.gif')no-repeat;
+}
+
+.YellowTriangleBullet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/NavigationIcons/YellowTriangleBullet.gif')no-repeat;
+}
+/*===========================End Navigation Icons Stylesheet=======================*/
+
+/*===========================Office Icons Stylesheet=======================*/
+.AddressBook {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/AddressBook.gif')no-repeat;
+}
+
+.ArticleDocument {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/ArticleDocument.gif')no-repeat;
+}
+
+.At {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/At.png')no-repeat;
+}
+
+.Attachment {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Attachment.gif')no-repeat;
+}
+
+.Book {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Book.gif')no-repeat;
+}
+
+.Chair {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Chair.gif')no-repeat;
+}
+
+.ChartBar {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/ChartBar.gif')no-repeat;
+}
+
+.ChartLine {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/ChartLine.gif')no-repeat;
+}
+
+.CoffeeCup {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/CoffeeCup.gif')no-repeat;
+}
+
+.CoinsCurency {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/CoinsCurency.gif')no-repeat;
+}
+
+.Computer {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Computer.gif')no-repeat;
+}
+
+.DocumentBox {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/DocumentBox.gif')no-repeat;
+}
+
+.Door {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Door.gif')no-repeat;
+}
+
+.Email {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Email.gif')no-repeat;
+}
+
+.FloppyDisk {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/FloppyDisk.gif')no-repeat;
+}
+
+.IDCard {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/IDCard.gif')no-repeat;
+}
+
+.Letter {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Letter.gif')no-repeat;
+}
+
+.MacOSXFolder {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/MacOSXFolder.gif')no-repeat;
+}
+
+.Mail {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Mail.gif')no-repeat;
+}
+
+.Map {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Map.gif')no-repeat;
+}
+
+.Newspaper {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Newspaper.gif')no-repeat;
+}
+
+.OpenFolder {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/OpenFolder.gif')no-repeat;
+}
+
+.Page {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Page.gif')no-repeat;
+}
+
+.PagerList {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/PagerList.gif')no-repeat;
+}
+
+.Purchase {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Purchase.gif')no-repeat;
+}
+
+.Script {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Script.gif')no-repeat;
+}
+
+.Tag {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Tag.gif')no-repeat;
+}
+
+.Telephone {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/Telephone.gif')no-repeat;
+}
+
+.YellowFolder {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/OfficeIcons/YellowFolder.gif')no-repeat;
+}
+/*===========================End Office Icons Stylesheet=======================*/
+
+/*===========================Tool Icons Stylesheet=======================*/
+.BasketBall {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/BasketBall.gif')no-repeat;
+}
+
+.Bell {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Bell.gif')no-repeat;
+}
+
+.Billards {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Billards.gif')no-repeat;
+}
+
+.Calculator {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Calculator.gif')no-repeat;
+}
+
+.Cart {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Cart.gif')no-repeat;
+}
+
+.CD {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/CD.gif')no-repeat;
+}
+
+.Football {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Football.gif')no-repeat;
+}
+
+.Gear {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Gear.gif')no-repeat;
+}
+
+.Golf {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Golf.gif')no-repeat;
+}
+
+.HourGlass {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/HourGlass.gif')no-repeat;
+}
+
+.Key {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Key.gif')no-repeat;
+}
+
+.Light {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Light.gif')no-repeat;
+}
+
+.Lock {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Lock.gif')no-repeat;
+}
+
+.Raquet {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Raquet.gif')no-repeat;
+}
+
+.Search {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Search.png')no-repeat;
+}
+
+.Shield {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Shield.png')no-repeat;
+}
+
+.Shuttlecock {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Shuttlecock.gif')no-repeat;
+}
+
+.Soccer {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Soccer.gif')no-repeat;
+}
+
+.Sound {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Sound.gif')no-repeat;
+}
+
+.Tennis {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Tennis.gif')no-repeat;
+}
+
+.Wand {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Wand.gif')no-repeat;
+}
+
+.Webcam {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Webcam.gif')no-repeat;
+}
+
+.Wrench {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Wrench.gif')no-repeat;
+}
+/*===========================End Tool Icons Stylesheet=======================*/
+
+/*===========================User Icons Stylesheet=======================*/
+.Finger {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/UserIcons/Finger.gif')no-repeat;
+}
+
+.FolderHolder {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/FolderHolder.gif')no-repeat;
+}
+
+.Personal {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Personal.png')no-repeat;
+}
+
+.User {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/User.gif')no-repeat;
+}
+
+.Woman1 {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Woman1.png')no-repeat;
+}
+
+.Woman2 {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Woman2.png')no-repeat;
+}
+
+.Woman3 {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Woman3.png')no-repeat;
+}
+
+.Woman4 {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Woman4.png')no-repeat;
+}
+
+.Worker {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Worker.png')no-repeat;
+}
+
+.Worker2 {
+  width: 16px; height: 16px;
+  background: url('DefaultSkin/icons/16x16/ToolIcons/Worker2.png')no-repeat;
+}
+/*===========================End User Icons Stylesheet=======================*/

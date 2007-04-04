@@ -38,13 +38,11 @@
 	
 }
 
-.UIFormTabPane .UITabPane .TabPaneContent .UIAction {
-	margin-right: 0px;
-}
-
 .UIFormTabPane .UITabPane .TabPaneContent .ActionButton .ButtonMiddle {
 	padding-top: 1px;
 }
 
-
-
+.UIFormTabPane .UITabPane .TabPaneContent .UIAction .ActionContainer {
+  width: 230px;
+  margin: auto;
+}

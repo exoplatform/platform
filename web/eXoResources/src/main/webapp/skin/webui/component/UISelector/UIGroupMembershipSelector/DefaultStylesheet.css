@@ -17,11 +17,11 @@
 .UIGroupMembershipSelector .UIBreadcumbs .RightBlackGridArrow16x16Icon {
 	float: left;
   margin: 5px 2px 5px 1px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueGridRightArrow.gif');
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GridRightArrow.gif');
 }
 
 .UIGroupMembershipSelector .UITree {
-  border: 1px gray solid;
+  border: 1px #b7b7b7 solid;
   float: left;
   padding:1px;
   background: white;
@@ -48,7 +48,7 @@
   font-weight: normal;
   background-color: white;
   padding: 1px ;
-  border: 1px gray solid; 
+  border: 1px #b7b7b7 solid; 
   float: left;
   margin-left: 10px;
 }
@@ -56,7 +56,7 @@
 .UIGroupMembershipSelector .MembershipSelector .MembershipTitle{
   font-weight: normal;
   background: url('DefaultSkin/background/TitleBG1x20.gif') repeat-x;
-  border-bottom: 1px #5f90ba solid; 
+  border-bottom: 1px #b7b7b7 solid; 
   height: 20px; line-height: 20px; vertical-align: middle;
   text-align: center;
 }

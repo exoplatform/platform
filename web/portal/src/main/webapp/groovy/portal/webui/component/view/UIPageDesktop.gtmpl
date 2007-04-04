@@ -92,7 +92,7 @@
 	                <span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
                   <%/*End Tool Tip*/%>
                   
-                  <img class="Separator" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/background/Separator2x1.gif" />
+                  <img class="Separator" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/MacSkin/background/Separator2x1.png" />
                   
                   <%                  
                     def res = rcontext.getApplicationResourceBundle() ;
@@ -112,7 +112,7 @@
                       <%/*End Tool Tip*/%>
                   <%}%>
 
-                  <img class="Separator" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/background/Separator2x1.gif" />
+                  <img class="Separator" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/MacSkin/background/Separator2x1.png" />
                   <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Monitoring.png"
                        alt="/eXoResources/background/DefaultSkin/Blank.gif" />
                   <%/*Tool Tip*/%>

@@ -94,7 +94,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
 
   static public class SaveActionListener extends EventListener<UIPageNavigationForm> {
     public void execute(Event<UIPageNavigationForm> event) throws Exception {   
-      System.out.println("\n======> SaveActionListener in UIPageNavigationForm\n");
+      
       
       UIPageNavigationForm uiForm = event.getSource();
       PageNavigation pageNav = uiForm.getPageNavigation();

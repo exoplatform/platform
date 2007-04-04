@@ -18,20 +18,18 @@
 }
 
 .UIPageDesktop .UIDockBar .DockbarLeft {
-  background: url('DefaultSkin/background/LeftDockbar2x47.png') no-repeat left bottom ;
+  background: url('MacSkin/background/LeftDockbar2x47.png') no-repeat left bottom ;
   padding: 0px 0px 0px 2px ;
-  height: 47px;
 }
 
 .UIPageDesktop .UIDockBar .DockbarRight {
-  background: url('DefaultSkin/background/RightDockbar2x47.png') no-repeat right bottom ;
+  background: url('MacSkin/background/RightDockbar2x47.png') no-repeat right bottom ;
   padding: 0px 2px 0px 0px ;
-  height: 47px;
 }
 
 .UIPageDesktop .UIDockBar .DockbarCenter {
   height: 47px ;
-  background: url('DefaultSkin/background/CenterDockbar1x47.png') repeat-x bottom ;
+  background: url('MacSkin/background/CenterDockbar1x47.png') repeat-x bottom ;
 }
 
 .UIPageDesktop .UIDockBar .IconContainer {
@@ -41,7 +39,7 @@
 }
 
 .UIPageDesktop .UIDockBar .Separator { 
-	width: 2px; height: 40px;
+	width: 2px; height: 42px;
 	margin: 0px 5px ;
 }
 

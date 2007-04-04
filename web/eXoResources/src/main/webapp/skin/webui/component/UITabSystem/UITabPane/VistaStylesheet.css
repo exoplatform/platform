@@ -13,7 +13,7 @@
 }
 
 .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
-  border: solid 1px #ffffff;
+  border: none;
 }
 
 .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer .UITabContent {

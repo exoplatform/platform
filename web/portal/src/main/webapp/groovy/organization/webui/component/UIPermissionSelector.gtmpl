@@ -14,22 +14,11 @@
 <div class="UIPermissionSelector" id="UIPermissionSelector">  
 	<div class="PermissionInfoContainer">
 	  <%/*Begin UIToolbar*/%>
-	  <div class="UIToolbar">
-		  <div class="Style2Toolbar">
-		    <div class="LeftBar">
-		      <div class="RightBar">
-		        <div class="MiddleBar">
-		          <div class="OverflowContainer">
-			          <div class="PermissionIcon"><span></span></div>
-			          <div class="Title">
-			            <%=_ctx.appRes(uicomponent.getId() + ".label.addEditPermission")%>
-			          </div>
-			        </div>
-		        </div>
-		      </div>
-		    </div>
-		  </div>
-		</div>
+	  <div class="PermissionSelectorTitleBar">
+		  <div class="PermissionIcon"><span></span></div>
+		  <div class="Title"><%=_ctx.appRes(uicomponent.getId() + ".label.addEditPermission")%></div>
+		  <div style="clear:left"><span></span></div>
+	  </div>
 	  <%/*End UIToolbar*/%>
 	  <%/*Begin UIToolbarContentContainer*/%>
 	  <div class="InfoContentContainer">
@@ -61,6 +50,7 @@
 	  	 		  separator = !separator;
 		 		  }
 		 		%>
+		 		<div class="SeparateLine"><span></span></div>
  		    <div style="clear: left"><span></span></div>
       </div>
 		  <% 
@@ -84,23 +74,12 @@
 			    </div>
 	    <%}%>
 	    <%/*Click on this action button will pop up the permission selector*/%>
-	    <div class="UIAction">
-	      <div class="ActionContainer">
-	        <div class="ActionButton">
-	          <div class="LightBlueStyle">
-	            <div class="ButtonLeft">
-	              <div class="ButtonRight">
-	                <div class="ButtonMiddle">
-	                  <div class="Icon SelectPermissionIcon" onclick="eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');"><span></span></div>
-                    <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
-                      <%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%>
-                    </a>
-	                </div>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-		    </div>
+	    <div class="SelectPermissionButton">
+        <div class="SelectPermissionIcon" onclick="eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');"><span></span></div>
+        <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
+          <%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%>
+        </a>
+        <div style="clear: left"><span></span></div>
 		  </div>    	      
     </div>
 	  <%/*End UIToolbarContentContainer*/%>

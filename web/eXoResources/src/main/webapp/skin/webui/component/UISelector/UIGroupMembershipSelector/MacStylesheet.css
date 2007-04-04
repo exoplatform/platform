@@ -12,7 +12,7 @@
 
  .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
 	float: left;
-  margin: 5px 2px 5px 2px ;
+  margin: 10px 8px 0px 5px ;
   width: 26px; height: 16px;
   background: url('MacSkin/background/MacGroup.gif') no-repeat;
 }
@@ -24,7 +24,8 @@
 }
 
  .UIGroupMembershipSelector .UITree {
-  width: 280px; height: 170px; 
+  width: 277px;
+  overflow: auto; 
   border: none; background: none;
   margin-left: 3px; padding: 0px;
   float: left;

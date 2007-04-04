@@ -1,38 +1,31 @@
 .UIPermissionSelector {
-	width: 500px;
-	margin: auto;
   font-size: 11px ;
+  padding: 10px;
 }
 
-.UIPermissionSelector .UIToolbar {
+.UIPermissionSelector .PermissionSelectorTitleBar {
   margin: 5px 0px 0px 5px; 
 }
 
-.UIPermissionSelector .UIToolbar .PermissionIcon {
+.UIPermissionSelector .PermissionSelectorTitleBar .PermissionIcon {
   background: url('/eXoResources/icons/24x24/DefaultSkin/PermissionIcon.gif') no-repeat;
   width: 24px; height: 24px;
-  margin: 3px 10px 0px 10px;
+  margin: 0px 5px 0px 10px;
   float: left;
 }
 
-.UIPermissionSelector .UIToolbar .Title {
-  font-size: 11px; font-weight: bold;
+.UIPermissionSelector .PermissionSelectorTitleBar .Title {
+  height: 24px; line-height: 24px; vertical-align: middle;
+  font-weight: bold;
   float: left;
-}
-
-.UIPermissionSelector .PermissionInfoContainer {
-  padding: 5px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .InfoContentContainer {
-  border: solid 1px #aeaeae ;
-  padding: 20px 0px 10px 0px;
-  margin-left: 5px;
-  background: #efefef;
+  padding: 5px 0px 0px 0px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionTypeBar {
-  height: 22px; line-height: 22px; vertical-align: middle;
+  height: 21px; line-height: 21px; vertical-align: middle;
   background: url('DefaultSkin/background/TypeBarBG1x22.gif') repeat-x; 
   border: solid 1px #b7b7b7; border-bottom: none;
   margin: 0px 10px;
@@ -45,10 +38,10 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton {
-  color: black;
+  color: black; text-align: center;
   float: left ;
-  margin: 0px 20px 0px 20px ;
   cursor: pointer ;
+  width: 150px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo {
@@ -93,5 +86,28 @@
   float: none;
 } 
 
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
+  width: 170px; height: 21px; line-height: 21px; vertical-align: middle;
+  margin: auto; margin-top: 8px;
+  background: url('DefaultSkin/background/TypeBarBG1x22.gif') repeat-x; 
+  border: solid 1px #b7b7b7;
+} 
+
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
+  float: left;
+  width: 16px; height: 16px; margin: 2px 0px 0px 10px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectPermission.gif') no-repeat;
+} 
+
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a{
+  font-size: 11px; font-weight: bold; color: black;
+  text-decoration: none;
+  float: left;
+  padding-left: 10px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a:hover{
+  color: #0a80d2;
+}
 
 
