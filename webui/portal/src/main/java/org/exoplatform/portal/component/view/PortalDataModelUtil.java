@@ -115,7 +115,7 @@ public class PortalDataModelUtil {
     for(UIComponent child : children){   
       newChildren.add(buildChild(child, recursive));
     }
-    model.setChildren(newChildren);
+    model.getPortalLayout().setChildren(newChildren);
     return model;
   }
 
@@ -227,7 +227,7 @@ public class PortalDataModelUtil {
     uiPortal.setEditPermission(model.getEditPermission());
     uiPortal.setTitle(model.getTitle());
     uiPortal.setId("UIPortal") ;
-    List<Component> children  = model.getChildren();
+    List<Component> children  = model.getPortalLayout().getChildren();
     if(!recursive || children == null)  return;
     for(Component child : children){   
       uiPortal.addChild(buildChild(uiPortal,  child, recursive));

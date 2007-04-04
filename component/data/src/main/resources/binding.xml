@@ -31,7 +31,6 @@
            extends="org.exoplatform.portal.config.model.Component">
     <structure map-as="org.exoplatform.portal.config.model.Component"/>
     <value name="title" usage="optional" field="title"/>
-    
     <collection field="children" ordered="false">
       <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
       <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
@@ -39,29 +38,6 @@
     </collection>
   </mapping>
   
-   <mapping name="widget-layout" label="widget-layout"
-           class="org.exoplatform.portal.config.model.WidgetLayout" 
-           extends="org.exoplatform.portal.config.model.Component">
-    <structure map-as="org.exoplatform.portal.config.model.Component"/>
-    <collection field="children" ordered="false">
-      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
-      <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
-      <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
-    </collection>
-  </mapping>
-  
-  <mapping name="portal-layout" label="portal-layout"
-           class="org.exoplatform.portal.config.model.PortalLayout" 
-           extends="org.exoplatform.portal.config.model.Component">
-    <structure map-as="org.exoplatform.portal.config.model.Component"/>
-    
-    <collection field="children" ordered="false">
-      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
-      <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
-      <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
-    </collection>
-  </mapping>
-
   <mapping name="page" label="page"
            class="org.exoplatform.portal.config.model.Page" 
            extends="org.exoplatform.portal.config.model.Component">
@@ -73,7 +49,6 @@
     <value name="view-permission" field="viewPermission" usage="optional"/>
     <value name="edit-permission" field="editPermission" usage="optional"/>
     <value name="show-max-window" field="showMaxWindow" usage="optional"/>
-    
     <collection field="children" ordered="false">
       <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
       <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
@@ -105,15 +80,9 @@
     <value name="view-permission" field="viewPermission" usage="optional"/>
     <value name="edit-permission" field="editPermission" usage="optional"/>
     <value name="skin" field="skin" usage="optional"/>
-    <value name="title" field="title" usage="optional"/>
-    <!--
-    <structure  name="portal-layout" using="container"/>
-    -->
-    <collection field="children" ordered="false">
-      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
-      <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
-      <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
-    </collection>
+    <value name="title" field="title" usage="optional"/> 
+    <structure name="widget-layout" using="container" field="widgetLayout" usage="optional"/>   
+    <structure name="portal-layout" using="container" field="portalLayout" usage="optional"/>
   </mapping>
 
   <mapping name="page-set" class="org.exoplatform.portal.config.model.Page$PageSet">
@@ -137,8 +106,7 @@
                 item-type="org.exoplatform.portal.portlet.PortletPreferences"/>
   </mapping>  
   
-  <mapping class="org.exoplatform.portal.portlet.Preference" 
-           name="preference" label="preference">
+  <mapping class="org.exoplatform.portal.portlet.Preference"  name="preference" label="preference">
     <value name="name"  field="name"/>
     <collection field="values">
       <value name="value" style="element"/>
@@ -157,7 +125,8 @@
   </mapping>
   
   
-  <mapping name="content-navigation" class="org.exoplatform.portal.content.model.ContentNavigation">
+  <mapping name="content-navigation" 
+  				 class="org.exoplatform.portal.content.model.ContentNavigation">
     <value name="owner" field="owner"/>
     <value name="description" field="description" usage="optional"/>
     <collection name="content-nodes" field="contentNodes" usage="optional"

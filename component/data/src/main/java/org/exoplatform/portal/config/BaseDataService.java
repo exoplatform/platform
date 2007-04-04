@@ -109,7 +109,7 @@ public abstract class BaseDataService {
   }
   
   private void marshall(OutputStream os, Object obj) throws Exception {  
-    IBindingFactory bfact = BindingDirectory.getFactory( obj.getClass());
+    IBindingFactory bfact = BindingDirectory.getFactory(obj.getClass());
     IMarshallingContext mctx = bfact.createMarshallingContext();
     mctx.setIndent(2);   
     mctx.marshalDocument(obj, "UTF-8", null,  os) ;

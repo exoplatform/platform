@@ -5,34 +5,38 @@
   <locale>en</locale>
   <view-permission>*:/guest</view-permission>
   
-  <application>
-    <application-instance-id>community:/web/BannerPortlet/banner</application-instance-id>
-    <show-info-bar>false</show-info-bar>
-  </application>
-	
-  <container template="war:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl">
-    <application>
-      <application-instance-id>community:/web/NavigationPortlet/toolbar</application-instance-id>
+  <widget-layout>
+  </widget-layout>
+  
+  <portal-layout>
+	  <application>
+	    <application-instance-id>community:/web/BannerPortlet/banner</application-instance-id>
 	    <show-info-bar>false</show-info-bar>
 	  </application>
+		
+	  <container template="war:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl">
+	    <application>
+	      <application-instance-id>community:/web/NavigationPortlet/toolbar</application-instance-id>
+		    <show-info-bar>false</show-info-bar>
+		  </application>
+		  <application>
+	      <application-instance-id>community:/web/WelcomePortlet/welcome</application-instance-id>
+	      <show-info-bar>false</show-info-bar>
+		  </application>
+	  </container>
+		
 	  <application>
-      <application-instance-id>community:/web/WelcomePortlet/welcome</application-instance-id>
-      <show-info-bar>false</show-info-bar>
+	    <application-instance-id>community:/web/BreadcumbsPortlet/breacumbs</application-instance-id>
+	    <show-info-bar>false</show-info-bar>
 	  </application>
-  </container>
+	  
 	
-  <application>
-    <application-instance-id>community:/web/BreadcumbsPortlet/breacumbs</application-instance-id>
-    <show-info-bar>false</show-info-bar>
-  </application>
-  
-
-  <page-body>    
-  </page-body>
-  
-  <application>
-    <application-instance-id>community:/web/FooterPortlet/footer</application-instance-id>
-    <show-info-bar>false</show-info-bar>
-  </application>
-  
+	  <page-body>    
+	  </page-body>
+	  
+	  <application>
+	    <application-instance-id>community:/web/FooterPortlet/footer</application-instance-id>
+	    <show-info-bar>false</show-info-bar>
+	  </application>
+  </portal-layout>
 </portal-config>

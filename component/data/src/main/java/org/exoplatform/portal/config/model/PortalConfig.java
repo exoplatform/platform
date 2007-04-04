@@ -12,13 +12,22 @@ import java.util.ArrayList;
  * @email:   tuan08@users.sourceforge.net
  * @version: $Id: PortalConfig.java,v 1.7 2004/08/06 03:02:29 tuan08 Exp $
  **/
-public class PortalConfig extends Container {
+public class PortalConfig extends Component {
   
 	private String owner ;
   private String locale ;
   private String viewPermission ;
   private String editPermission  ;
   private String skin;
+  protected String title ;
+  
+  private Container widgetLayout;
+  private Container portalLayout;
+  
+  public PortalConfig() {
+    widgetLayout = new Container();
+    portalLayout = new Container();
+  }
   
   public String getOwner() { return owner ; }
   public void   setOwner(String s) { owner = s  ; } 
@@ -34,6 +43,15 @@ public class PortalConfig extends Container {
   
   public String getSkin() { return skin; }
   public void setSkin(String s ) { skin = s; }
+  
+  public String getTitle() { return title ; }
+  public void   setTitle(String s) { title = s ; }
+  
+  public Container   getWidgetLayout() { return widgetLayout; }
+  public void setWidgetLayout(Container container) { widgetLayout = container; }
+  
+  public Container   getPortalLayout() { return portalLayout; }
+  public void setPortalLayout(Container container) { portalLayout = container; }
   
   static public class PortalConfigSet {
     private ArrayList<PortalConfig> portalConfigs ;

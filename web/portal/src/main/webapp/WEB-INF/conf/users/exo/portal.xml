@@ -5,28 +5,33 @@
   <locale>en</locale>
   <view-permission>*:/guest</view-permission>
   
-  <application>
-    <application-instance-id>exo:/web/BannerPortlet/banner</application-instance-id>
-    <show-info-bar>false</show-info-bar>
-  </application>
-	
-  <application>
-  	<application-instance-id>exo:/web/NavigationPortlet/toolbar</application-instance-id>
-    <show-info-bar>false</show-info-bar>
-  </application>
-	
-  <application>
-    <application-instance-id>exo:/web/BreadcumbsPortlet/breacumbs</application-instance-id>
-    <show-info-bar>false</show-info-bar>
-  </application>
+  <widget-layout>
+  </widget-layout>
   
-
-  <page-body>    
-  </page-body>
-  
-  <application>
-    <application-instance-id>exo:/web/FooterPortlet/footer</application-instance-id>
-    <show-info-bar>false</show-info-bar>
-  </application>
+ 	<portal-layout> 
+	  <application>
+	    <application-instance-id>exo:/web/BannerPortlet/banner</application-instance-id>
+	    <show-info-bar>false</show-info-bar>
+	  </application>
+		
+	  <application>
+	  	<application-instance-id>exo:/web/NavigationPortlet/toolbar</application-instance-id>
+	    <show-info-bar>false</show-info-bar>
+	  </application>
+		
+	  <application>
+	    <application-instance-id>exo:/web/BreadcumbsPortlet/breacumbs</application-instance-id>
+	    <show-info-bar>false</show-info-bar>
+	  </application>
+	  
+	
+	  <page-body>    
+	  </page-body>
+	  
+	  <application>
+	    <application-instance-id>exo:/web/FooterPortlet/footer</application-instance-id>
+	    <show-info-bar>false</show-info-bar>
+	  </application>
+  </portal-layout>
   
 </portal-config>
