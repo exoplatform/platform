@@ -126,7 +126,6 @@
      			    else display = "none";
      			    if(i==2)display = "none";
      			    if(i==3) i=2;
-     			    System.out.println("\nfjdsf:  " + template.icon + "\n");
 		      %>
 	      	    <%/*--Begin Layout Style--*/
 	      	    %>
