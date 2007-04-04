@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * Mar 21, 2007  
  */
 abstract public class WebRequestHandler {
+  
   public void onInit(WebController controller) throws Exception{
     
   }
