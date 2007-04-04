@@ -5,8 +5,9 @@ function UIPopupMenu() {
 } ;
 
 UIPopupMenu.prototype.init = function(popupMenu, container, x, y) {
+	this.superClass = eXo.webui.UIPopup;
 	this.superClass.init(popupMenu, container.id) ;
-	this.setPosition(popupMenu, x, y) ;
+	this.superClass.setPosition(popupMenu, x, y) ;
 		
 	var menuItems = eXo.core.DOMUtil.findDescendantsByClass(popupMenu, "div", "MenuItem") ;
 	for(var i = 0; i<menuItems.length; i++) {
@@ -61,13 +62,19 @@ UIPopupMenu.prototype.doOnMenuItemOut = function() {
 } ;
 
 UIPopupMenu.prototype.showMenuItemContainer = function(menuItem, menuItemContainer) {
-	this.setPosition(menuItemContainer, menuItem.offsetWidth, 0) ;
+	this.superClass.setPosition(menuItemContainer, menuItem.offsetWidth, 0) ;
 	menuItemContainer.style.display = "block" ;
 } ;
 
 UIPopupMenu.prototype.hide = function(object) {
 	if(typeof(object) == "string") object = document.getElementById(object);
 	object.style.display = "none" ;
+	
+} ;
+
+UIPopupMenu.prototype.show = function(object) {
+	if(typeof(object) == "string") object = document.getElementById(object);
+	object.style.display = "block" ;
 	
 } ;
 

@@ -1,8 +1,12 @@
-
+<%
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIDropDownItemSelector') ;
+	rcontext.getJavascriptManager().addJavascript('eXo.webui.UIDropDownItemSelector.init()');
+%>
 
 <div class="UIDropDownItemSelector">
 	<div class="ItemSelectorContainer">
-		<div class="ItemInfoBar">
+		<div class="ItemInfoBar" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
 		  <div class="LeftItemInfoBar">
 		  	<div class="RightItemInfoBar">
 		  		<div class="MiddleItemInfoBar">
@@ -15,7 +19,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="UIItemList"> <% /*style="display: none;"*/ %>
+	<div class="UIItemList" style="display: none;"> <% /*style="display: none;"*/ %>
 		<div class="ItemSelectorDecorator">
 			<div class="LTItemSelector">
 				<div class="TRItemSelector">
@@ -34,7 +38,7 @@
             <a class="ItemSelectorLabel">Selector Item Two</a>
             <div style="clear: left"><span></span></div>
 					</div>
-					<div class="OverItemSelector">
+					<div class="ItemSelector"> 
 						<div class="Icon"><span></span></div>
             <a class="ItemSelectorLabel">Selector Item Three</a>
             <div style="clear: left"><span></span></div>

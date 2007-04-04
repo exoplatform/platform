@@ -14,6 +14,7 @@ MouseObject.prototype.init = function(mouseEvent) {
 
   this.lastMousexInClient = null ;
   this.lastMouseyInClient = null ;
+  
 
   this.deltax = null ;
   this.deltay = null ;
@@ -59,6 +60,8 @@ function Browser() {
   else if(detect.indexOf("ie") + 1) this.initIE() ;
   else if(detect.indexOf("safari") + 1) this.initSafari() ;
   else this.initMozilla() ;
+  
+  this.listItem = new Array();
 } ;
 
 Browser.prototype.initCommon = function() {
@@ -271,6 +274,11 @@ Browser.prototype.setPositionInContainer = function(container, component, posX, 
 	component.style.left = deltaX + "px" ;
 	component.style.top = deltaY + "px" ;
 } ;
+
+Browser.prototype.hideElements = function() {
+	for (var i = 0; i < this.listItem.length; i++)
+		this.listItem[i].style.display = "none";
+}
 
 /************************************************************************************/
 eXo.core.Browser = new Browser() ;

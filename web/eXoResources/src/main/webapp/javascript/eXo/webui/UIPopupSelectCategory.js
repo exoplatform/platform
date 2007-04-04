@@ -7,7 +7,7 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width) {
 	var categoryDetectPosition = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "CategoryDetectPosition") ;
 	var ControlCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
   var uiPopupCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
-  
+  document.onclick = eXo.webui.UIPopupSelectCategory.hideLists;
 	if(uiPopupCategory == null) return;
 	selectedElement.style.position = "relative" ;
 			

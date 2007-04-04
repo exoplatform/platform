@@ -13,6 +13,7 @@
 	border-left: 1px solid #bdbcbc;
 	border-right: 1px solid #929292;
 	border-bottom: 1px solid #929292;
+	cursor: pointer;
 }
 .ComponentIcon {}
 
@@ -50,6 +51,9 @@
 .UIItemList .OverItemSelector {
 	background: url('DefaultSkin/background/OverItemBG1x22.png') repeat-x;
 	height: 22px; line-height: 22px;
+	font-size: 11px;
+	border-bottom: 1px #cdcdcd solid;
+	cursor: pointer ;
 }
 
 .UIItemList .ItemSelectorLabel {
