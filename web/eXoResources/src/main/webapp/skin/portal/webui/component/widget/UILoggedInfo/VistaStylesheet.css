@@ -1,10 +1,10 @@
 .UILoggedInfo {
-  padding: 10px 0px 3px 0px ;
+  padding: 8px 0px 2px 0px ;
 }
 
 .UILoggedInfo .LoggedInfoItems {  
-  padding: 0px 0px 4px 3px;
-  height: 37px;
+  padding: 0px 0px 3px 3px;
+  height: 35px;
 }
 
 .UILoggedInfo .LoggedDecorator {
@@ -12,54 +12,55 @@
 }
 
 .UILoggedInfo .LoggedDecorator .LeftTopLoggedDecorator {
-	background: url('VistaSkin/background/LeftTopDecorator10x8.png') no-repeat left top;
+	background: url('VistaSkin/background/LeftTopDecorator10x16.png') no-repeat left top;
 	padding: 0px 0px 0px 10px;
 }
 
 .UILoggedInfo .LoggedDecorator .RightTopLoggedDecorator {
-	background: url('VistaSkin/background/RightTopDecorator10x8.png') no-repeat right top;
+	background: url('VistaSkin/background/RightTopDecorator10x16.png') no-repeat right top;
 	padding: 0px 10px 0px 0px;
 }
 
 .UILoggedInfo .LoggedDecorator .CenterTopLoggedDecorator {
-	background: url('VistaSkin/background/CenterTopDecorator1x8.png') repeat-x top;
-	height: 8px;
+	background: url('VistaSkin/background/CenterTopDecorator1x16.png') repeat-x top;
+	height: 16px;
 }
 
 .UILoggedInfo .LoggedDecorator .LeftMiddleLoggedDecorator {
-	padding: 0px 0px 0px 5px;
-	background: url('VistaSkin/background/LeftMiddleDecorator5x1.png') repeat-y left;
+	padding: 0px 0px 0px 10px;
+	background: url('VistaSkin/background/LeftMiddleDecorator10x1.png') repeat-y left;
 }
 
 .UILoggedInfo .LoggedDecorator .RightMiddleLoggedDecorator {
-	padding: 0px 5px 0px 0px;
-	background: url('VistaSkin/background/RightMiddleDecorator5x1.png') repeat-y right;
+	padding: 0px 10px 0px 0px;
+	background: url('VistaSkin/background/RightMiddleDecorator10x1.png') repeat-y right;
 }
 
 .UILoggedInfo .LoggedDecorator .LeftBottomLoggedDecorator {
 	padding: 0px 0px 0px 10px;
-	background: url('VistaSkin/background/LeftBottomDecorator10x12.png') no-repeat left bottom;
+	background: url('VistaSkin/background/LeftBottomDecorator10x16.png') no-repeat left bottom;
 }
 
 .UILoggedInfo .LoggedDecorator .RightBottomLoggedDecorator {
 	padding: 0px 10px 0px 0px;
-	background: url('VistaSkin/background/RightBottomDecorator0x12.png') no-repeat bottom right;
+	background: url('VistaSkin/background/RightBottomDecorator10x16.png') no-repeat bottom right;
 }
 
 .UILoggedInfo .LoggedDecorator .CenterBottomLoggedDecorator {
-  height: 12px;
-	background: url('VistaSkin/background/CenterBottomDecorator1x12.png') repeat-x bottom;
+  height: 16px;
+	background: url('VistaSkin/background/CenterBottomDecorator1x16.png') repeat-x bottom;
 }
 
 .UILoggedInfo .LoggedDecorator .DecoratorBackground {
-  width: auto; height: 92px;
-  background: url('VistaSkin/background/DecoratorBackground1x92.png') repeat-x;
+  width: auto; height: 73px;
+  background: url('VistaSkin/background/DecoratorBackground1x73.png') repeat-x;
+  border:1px #888888 solid;
 }
 
 .UILoggedInfo .StyleContent .AvatarContainer {
 	float: left;
-	width: 70px; height: 72px;
-	padding: 20px 0px 0px 20px;
+	width: 60px; height: 60px;
+	padding: 15px 0px 0px 18px;
 }
 
 .UILoggedInfo .StyleContent .LeftAvatarContainer {
@@ -90,26 +91,26 @@
 
 .UILoggedInfo .StyleContent .UserWelcomeBox {
   padding: 15px 0px 0px 6px;
-  line-height: 30px; 
-  height:52px;
+  line-height: 20px; 
+  height:40px;
 }
 
 .UILoggedInfo .StyleContent .UserWelcomeBox .StateMessage {
   font-size: 11px; 
   text-align:left;
-  line-height: 25px; 
+  line-height: 20px;
 }
 
 .UILoggedInfo .StyleContent .UserWelcomeBox .LoggedUserName {
   color: #5aa5f8 ;
   text-align:left;
-  line-height: 20px;
-  font-weight: bold; 
+  line-height: 15px;
+  font-weight: bold;
 }
 
 .UILoggedInfo .StyleContent .LabelSignout {
 	text-align: right;
-	font-size: 11px;
+	font-size: 10px;
 	color: #f98e03;
 	font-weight: bold;
 	padding-right: 25px;
@@ -118,7 +119,7 @@
 }
 
 .UILoggedInfo .StyleContent {
-	height: 92px;
+	height: 82px;
 }
 
 .UILoggedInfo .StyleContent .IconContent {
@@ -128,14 +129,14 @@
 
 .UILoggedInfo .StyleContent .UserLabel {
 	text-align: center;
-	font-weight: bold; font-size: 11px;
-	line-height: 20px;
+	font-weight: bold; font-size: 10px;
+	line-height: 16px;
 }
 
 .UILoggedInfo .StyleContent .UserLabel span {
 	text-align: center;
-	font-weight: bold; font-size: 11px;
-	line-height: 20px;
+	font-size: 10px;
+	line-height: 15px;
 	color: #f98e03;
 }
 
