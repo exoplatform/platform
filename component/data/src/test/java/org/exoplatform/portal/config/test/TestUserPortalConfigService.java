@@ -52,20 +52,18 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     orgService_.getMembershipHandler().linkMembership(user2, group2, mType1,true) ;
     orgService_.getMembershipHandler().linkMembership(user2, group2, mType2,true) ;
     
-    addSharedPortal(Group1, "exoportal", memtype1, 1);
-    addSharedNavigation(Group1, "exoportal", memtype1, 1);
+    addSharedPortal(Group1, "exo", memtype1, 1);
+    addSharedNavigation(Group1, "exo", memtype1, 1);
     
     SharedPortal sharedPortal = service_.getSharedConfigDAO().getSharedPortal("/"+Group1);
     assertTrue("expect shared portal for /Group1",  sharedPortal != null) ;
-    assertEquals("Shared portal is exoportal : ", sharedPortal.getPortal(), "exoportal");
+    assertEquals("Shared portal is exo : ", sharedPortal.getPortal(), "exo");
    
     UserPortalConfig userConfig = service_.computeUserPortalConfig(username1, username1);
     assertEquals(userConfig.getPortalConfig().getOwner(), username1);
-//    assertEquals("Expect total navigation is 2", userConfig.getNavigations().size() , 2);    
+    assertEquals("Expect total navigation is 2", userConfig.getNavigations().size() , 1);    
     assertEquals("Expect the first navigation's owner is exo",
                  userConfig.getNavigations().get(0).getOwner(), "exo");
-    assertEquals("Expect the second navigation's owner is exoportal",
-                userConfig.getNavigations().get(1).getOwner(), "exoportal");
     
     sharedPortal = service_.getSharedConfigDAO().getSharedPortal("/"+Group2);
     assertTrue("expect no shared portal for /Group2",  sharedPortal == null) ;
@@ -77,7 +75,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     assertTrue("expect shared portal for /Group2 ",  sharedPortal != null) ;    
     
     userConfig = service_.computeUserPortalConfig(username1, username1);
-    assertEquals("Expect total navigation for user 1 is 3", userConfig.getNavigations().size(), 3); 
+    assertEquals("Expect total navigation for user 1 is 1", userConfig.getNavigations().size(), 1); 
     
     SharedNavigation sharedNav = service_.getSharedConfigDAO().getSharedNavigation("/"+Group1);
     assertTrue("Exist share navigation for group1", sharedNav != null);
@@ -86,7 +84,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     assertTrue("share navigation for group1 was removed ", sharedNav == null);
     
     userConfig = service_.computeUserPortalConfig(username1, username1);
-    assertEquals(userConfig.getNavigations().size(), 2); 
+    assertEquals(userConfig.getNavigations().size(), 0); 
     
     sharedPortal = service_.getSharedConfigDAO().getSharedPortal("/"+Group2);
     service_.getSharedConfigDAO().removeSharedPortal(sharedPortal);
@@ -94,7 +92,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     assertTrue("share portal for group2 was removed ", sharedPortal == null);
     
     userConfig = service_.computeUserPortalConfig(username2, username2);
-    assertEquals(userConfig.getPortalConfig().getOwner(), "exo");
+    assertEquals(userConfig.getPortalConfig().getOwner(), username1);
     
     System.out.println(userConfig.getPortalConfig().getOwner());
     System.out.println(userConfig.getNavigations().size());
@@ -102,8 +100,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   }
   
   
-  private void addSharedNavigation(
-      String group, String portal,String membership, int priority) throws Exception {
+  private void addSharedNavigation(String group, String portal,String membership, int priority) throws Exception {
     SharedNavigation cn = new SharedNavigation();
     cn.setGroupId("/"+group) ;
     cn.setNavigation(portal) ;
@@ -112,8 +109,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     service_.getSharedConfigDAO().addSharedNavigation(cn) ;
   } 
   
-  private void addSharedPortal(
-      String group, String portal,String membership, int priority) throws Exception {
+  private void addSharedPortal(String group, String portal,String membership, int priority) throws Exception {
     SharedPortal cp = new SharedPortal();
     cp.setGroupId("/"+group) ;
     cp.setPortal(portal) ;
