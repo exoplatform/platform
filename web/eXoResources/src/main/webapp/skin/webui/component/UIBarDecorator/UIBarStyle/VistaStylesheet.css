@@ -520,8 +520,8 @@
 }
 
 .UIBarStyle .ControlBar .LeftBar {
-  background: url('VistaSkin/background/LeftControlBar10x27.png') no-repeat left ;
-  padding: 0px 0px 0px 10px ;
+  background: url('VistaSkin/background/LeftControlBar14x28.png') no-repeat left ;
+  padding: 0px 0px 0px 14px ;
 }
 
 .UIBarStyle .ControlBar .RightBar {
@@ -529,8 +529,8 @@
 }
 
 .UIBarStyle .ControlBar .MiddleBar {
-  background: url('VistaSkin/background/MiddleControlBar1x27.png') repeat-x ;
+  background: url('VistaSkin/background/MiddleControlBar1x28.png') repeat-x ;
   padding: 0px 5px 0px 0px;
-  height: 27px;
+  height: 28px;
 }
 
