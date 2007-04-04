@@ -57,6 +57,8 @@ public class UIPageCreationWizard extends UIPageWizard {
     addChild(UIWizardPageSetInfo.class, null, null).setRendered(false);    
     addChild(UIWizardPageSelectLayoutForm.class, null, null).setRendered(false);
     addChild(UIPagePreview.class, null, null).setRendered(false); 
+    setNumberSteps(4);
+    setHasWelcome(true);
   }     
   
   

@@ -45,6 +45,8 @@ public class UIPageEditWizard extends UIPageWizard {
     addChild(UIWizardPageSetInfo.class, null, null).setEditPageNode(true);    
     addChild(UIWizardPageSelectLayoutForm.class, null, null).setRendered(false);
     addChild(UIPagePreview.class, null, null).setRendered(false); 
+    setNumberSteps(3);
+    setHasWelcome(false);
   }
   
   private void saveData() throws Exception {

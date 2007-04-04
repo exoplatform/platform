@@ -30,7 +30,7 @@ import org.exoplatform.webui.event.EventListener;
 public abstract class UIPageWizard extends UIWizard {
   
   protected UIPopupWindow uiHelpWindow;
-  
+  private int numberStep_ ; 
   public UIPageWizard() throws Exception {
     uiHelpWindow = createUIComponent(UIPopupWindow.class, null, null);      
     uiHelpWindow.setWindowSize(300, 200);  
@@ -38,10 +38,17 @@ public abstract class UIPageWizard extends UIWizard {
     uiHelpWindow.setId("help") ;
   }
   
+  public void setNumberSteps(int s) { numberStep_ = s; }
+  public int getNumberSteps() {return numberStep_; }
+  public boolean hasWelcome = true;
+  
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
     uiHelpWindow.processRender(context);
   }
+  
+  public boolean hasWelcome(){ return hasWelcome; }
+  public void setHasWelcome(boolean has) { hasWelcome = has; }
   
   public UIPopupWindow getHelpWindow() { return uiHelpWindow; }
   

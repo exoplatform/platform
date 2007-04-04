@@ -33,7 +33,6 @@
   <div class="MiddleLeftDecorator">
     <div class="MiddleRightDecorator">
       <div class="ContentContainer">    
-		<%       System.out.println("\n\n>>>>>>>>>On Groovy: " +uicomponent.getUIComponentName());   %>
         <%uicomponent.renderChildren();%>
    		</div>
     </div>

@@ -5,15 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.component.UIPortalApplication;
-import org.exoplatform.portal.component.control.UIExoStart;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
-import org.exoplatform.portal.component.view.UIPage;
-import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.PortalDAO;
-import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
+import org.exoplatform.webui.component.UIFormTabPane;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -23,30 +18,22 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template =  "system:/groovy/webui/component/UIFormWithTitle.gtmpl",    
+    template = "system:/groovy/portal/webui/component/customization/UIChangeSkinForm.gtmpl",   
     events = {
       @EventConfig(listeners = UIChangeSkinForm.SaveActionListener.class),
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
     }
 )
-public class UIChangeSkinForm extends UIForm{
+public class UIChangeSkinForm extends UIFormTabPane{
   
   @SuppressWarnings("unchecked")
-  public UIChangeSkinForm() throws Exception  {   
-//    SelectItemOption vistaSkin = new SelectItemOption("vista", null);
-//    SelectItemOption macSkin = new SelectItemOption("mac", null);;
-//    SelectItemOption defaultSkin = new SelectItemOption("default", null);
-//    
-//    List<SelectItemOption> itemList = new ArrayList<SelectItemOption>();
-//    itemList.add(vistaSkin);
-//    itemList.add(macSkin);
-//    itemList.add(defaultSkin);
+  public UIChangeSkinForm() throws Exception  { 
+    super("UIChangeSkinForm");
 
     SelectItemCategory skinVista = new SelectItemCategory("Vista", false);
     SelectItemCategory skinMac = new SelectItemCategory("Mac", false);
     SelectItemCategory skinDefault = new SelectItemCategory("Default", false);
     
-//    skinCategory.setSelectItemOptions(itemList);
     
     List<SelectItemCategory> itemCategories = new ArrayList<SelectItemCategory>();
     itemCategories.add(skinDefault);

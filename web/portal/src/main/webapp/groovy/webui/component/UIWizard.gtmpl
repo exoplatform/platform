@@ -35,18 +35,28 @@
 						        <%=_ctx.appRes(uicomponent.getId() + ".label.wizardSteps")%>:
 						      </div>
 						      <%                
-  						      List children  = uicomponent.getChildren();    
+  						      List children  = uicomponent.getChildren();
+  						      int numberSteps = uicomponent.getNumberSteps();    
   						      String actionLink = "#";    					     	
-										for(i in 1..children.size()) {						     	  						     			       	
-						          strStep = _ctx.appRes(uicomponent.getId() + ".label.step") + String.valueOf(i) ;
+										int i = 1;				     	  						     			       	
+										System.out.println("NumberSteps: " + numberSteps);
+						        while(i <= numberSteps) {
+						          int j = i;
+						          if(uicomponent.hasWelcome()) j--;
+						          if(j < 1){
+						            i++;
+						            continue;
+						          }
+						          strStep = _ctx.appRes(uicomponent.getId() + ".label.step") + String.valueOf(j) ;
 						          if(i != step) {
 						            actionLink = uicomponent.url("ViewStep" + String.valueOf(i));0
 						            print "<a href=\"$actionLink\" title=\"$strStep\">" ;
 						          }
 						          else print "<a href=\"#\" class=\"SelectedStep\" title=\"$strStep\">" ;
 						          
-						          print String.valueOf(i);
+						          print String.valueOf(j);
 						          println "</a>";
+						          i++;
 						        }
 							  	%>    	        
 						    </div>
@@ -59,7 +69,8 @@
 				                <%  
 						              if(step > 1) {
 						                actionLink = uicomponent.url("ViewStep" + String.valueOf(step-1));
-						              } else {
+						              }
+						              else{
   				                  actionLink = "#";     
 						              }
 				                  String display = "LightBlueStyle";
@@ -117,9 +128,7 @@
 							              <div class="ButtonRight">
 							                <div class="ButtonMiddle">
 							                  <div class="Icon CancelIcon"><span></span></div>
-								                <a href="<%=uicomponent.event("Abort", "");%>">
-								                  <%=_ctx.appRes(uicomponent.getId() + ".label.abort");%>
-								                </a>
+								                <a href="<%=uicomponent.event("Abort", "");%>"><%=_ctx.appRes(uicomponent.getId() + ".label.abort")%></a>
 								              </div>
 							              </div>
 							            </div>
