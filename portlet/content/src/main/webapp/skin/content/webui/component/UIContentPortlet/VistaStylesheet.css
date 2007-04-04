@@ -198,10 +198,9 @@
 
 .UIContentPortlet .UIContentWorkingArea .RefreshIcon {
 	float: left ;
-	margin: 0px 0px 0px 3px;
-	width: 28px; height: 29px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/RefreshIcon.png') no-repeat;
-
+	margin: 0px 0px 0px 5px;
+	width: 27px; height: 28px;
+	background: url('/eXoResources/icons/32x32/VistaSkin/RefreshIcon.png') no-repeat; 
 }
 
 .UIContentPortlet .UIContentWorkingArea .NewsDetailLayout {
