@@ -8,16 +8,15 @@
     <value name="height" usage="optional" field="height" style="attribute"/>
   </mapping>
   
-  <mapping name="portlet" label="portlet"
-           class="org.exoplatform.portal.config.model.Portlet" 
+  <mapping name="application" label="application"
+           class="org.exoplatform.portal.config.model.Application" 
            extends="org.exoplatform.portal.config.model.Component">
     <structure map-as="org.exoplatform.portal.config.model.Component"/>
     <value name="title" usage="optional" field="title"/>
-    <value name="window-id" field="windowId"/>
-    <value name="portlet-style" field="portletStyle" usage="optional"/>
+    <value name="application-instance-id" field="applicationInstanceId"/>
     <value name="show-info-bar" field="showInfoBar" usage="optional" />
-    <value name="show-window-state" field="showWindowState" usage="optional" />
-    <value name="show-portlet-mode" field="showPortletMode" usage="optional" />
+    <value name="show-application-state" field="showApplicationState" usage="optional" />
+    <value name="show-application-mode" field="showApplicationMode" usage="optional" />
     <value name="description" field="description" usage="optional"/>
     <value name="icon" field="icon" usage="optional"/>
   </mapping>
@@ -35,7 +34,30 @@
     
     <collection field="children" ordered="false">
       <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
-      <structure map-as="org.exoplatform.portal.config.model.Portlet" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
+    </collection>
+  </mapping>
+  
+   <mapping name="widget-layout" label="widget-layout"
+           class="org.exoplatform.portal.config.model.WidgetLayout" 
+           extends="org.exoplatform.portal.config.model.Component">
+    <structure map-as="org.exoplatform.portal.config.model.Component"/>
+    <collection field="children" ordered="false">
+      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
+    </collection>
+  </mapping>
+  
+  <mapping name="portal-layout" label="portal-layout"
+           class="org.exoplatform.portal.config.model.PortalLayout" 
+           extends="org.exoplatform.portal.config.model.Component">
+    <structure map-as="org.exoplatform.portal.config.model.Component"/>
+    
+    <collection field="children" ordered="false">
+      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
       <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
     </collection>
   </mapping>
@@ -54,7 +76,7 @@
     
     <collection field="children" ordered="false">
       <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
-      <structure map-as="org.exoplatform.portal.config.model.Portlet" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
       <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
     </collection>
   </mapping>
@@ -86,7 +108,7 @@
     <value name="title" field="title" usage="optional"/>
     <collection field="children" ordered="false">
       <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
-      <structure map-as="org.exoplatform.portal.config.model.Portlet" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
       <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
     </collection>
   </mapping>
