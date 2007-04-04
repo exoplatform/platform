@@ -75,9 +75,7 @@
 }
 
 .UIMaskWorkspace .UIFormTabPane {
-	padding: 10px 0px 5px 10px ;
-	overflow: auto;
-	width: 95%;
+	padding: 10px;
 }
 
 .UIMaskWorkspace .UITabContentContainer {
@@ -86,7 +84,8 @@
 }
 
 .UIMaskWorkspace .UITabContent {
-	padding-left: 3px;
+	overflow: auto;
+	height: 273px;
 }
 
 /*********************************** End UITabContent  ************************************/

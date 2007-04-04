@@ -125,7 +125,8 @@
      			    if(category.isSelected()) display = "block";
      			    else display = "none";
      			    if(i==2)display = "none";
-     			    if(i==3) i=2;
+     			    if(i==4) i=3;
+     			    System.out.println("\nGia tri:  " + i + "\n");
 		      %>
 	      	    <%/*--Begin Layout Style--*/
 	      	    %>

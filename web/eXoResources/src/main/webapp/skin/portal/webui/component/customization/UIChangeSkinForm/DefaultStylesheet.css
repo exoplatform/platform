@@ -1,0 +1,62 @@
+.UIChangeSkinForm {
+}
+
+.UIChangeSkinForm .LeftFormTitle {
+	padding: 0px 0px 0px 17px;
+	background: url('DefaultSkin/background/LeftFormTitle17x23.gif') no-repeat left bottom;
+}
+
+.UIChangeSkinForm .RightFormTitle {
+	padding: 0px 79px 0px 0px;
+	background: url('DefaultSkin/background/RightFormTitle97x23.gif') no-repeat right bottom;
+}
+
+.UIChangeSkinForm .MiddleFormTitle {
+	background: url('DefaultSkin/background/MiddleFormTitle1x23.gif') repeat-x bottom;
+	line-height: 23px;
+	font-weight: bold;
+	color:#0786e7;
+	padding-left: 5px;
+}
+
+.UIChangeSkinForm .UIFormTabPane .TabPaneContent .UITabContentContainer {
+	padding: 0px 2px 2px 2px;
+}
+
+.UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemListContainer {
+	float: left;
+	width: 175px;
+}
+
+.UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemDetailList {
+	margin: 0px 0px 0px 180px;
+}
+
+.UIChangeSkinForm .UIItemSelector .ItemDetail .TemplateContainer {
+	padding-top: 10px;
+}
+
+.UIChangeSkinForm .UIItemSelector .TemplateContainer .DefaultImage {
+	margin: auto;
+	width: 316px; height: 191px;
+	background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center;
+	cursor: pointer ;
+}
+
+.UIChangeSkinForm .UIItemSelector .TemplateContainer .MacImage {
+	margin: auto;
+	width: 316px; height: 191px;
+	background: url('DefaultSkin/background/MacImage.jpg') no-repeat center;
+	cursor: pointer ;
+}
+
+.UIChangeSkinForm .UIItemSelector .TemplateContainer .VistaImage {
+	margin: auto;
+	width: 316px; height: 191px;
+	background: url('DefaultSkin/background/VistaImage.jpg') no-repeat center;
+	cursor: pointer ;
+}
+
+.UIChangeSkinForm .UIItemSelector .ItemListContainer .ItemList {
+  background: white url('DefaultSkin/background/ItemListBg167x142.gif') no-repeat right bottom;
+}

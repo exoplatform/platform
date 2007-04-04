@@ -21,7 +21,7 @@
   background: url('DefaultSkin/background/DesktopImage.jpg') no-repeat center;
 }
 
-.UIItemSelector .ItemDetailList .TemplateContainer .DefaultImage {
+.UIItemSelector .TemplateContainer .DefaultImage {
   height: 230px;
   background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center;
 }
@@ -63,7 +63,7 @@
   width: 220px;
 }
 
-.UIItemSelector .RightColumnStyle .ItemListContainer .ItemList {
+.UIItemSelector .ItemListContainer .ItemList {
   border: 1px #a4a4a4 solid;
   background: white url('DefaultSkin/background/ItemListBg165x127.gif') no-repeat right bottom;
   height: 240px;
