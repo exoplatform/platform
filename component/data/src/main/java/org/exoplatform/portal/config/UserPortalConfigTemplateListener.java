@@ -58,7 +58,7 @@ public class UserPortalConfigTemplateListener extends BaseComponentPlugin {
     Iterator iter  = users.iterator();
     while(iter.hasNext()){
       String user = (String)iter.next();
-      System.out.println("creating config for "+user+"...");
+//      System.out.println("creating config for "+user+"...");
       createPortalConfigForUser(user);
       createPageForUser(user);
       createPageNavigationForUser(user);
