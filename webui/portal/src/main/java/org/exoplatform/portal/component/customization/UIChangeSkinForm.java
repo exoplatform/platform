@@ -11,6 +11,7 @@ import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormTabPane;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemCategory;
+import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -31,9 +32,20 @@ public class UIChangeSkinForm extends UIFormTabPane{
     super("UIChangeSkinForm");
 
     SelectItemCategory skinVista = new SelectItemCategory("Vista", false);
-    SelectItemCategory skinMac = new SelectItemCategory("Mac", false);
-    SelectItemCategory skinDefault = new SelectItemCategory("Default", false);
+    List<SelectItemOption> vistaList = new  ArrayList<SelectItemOption>();
+    vistaList.add(new SelectItemOption("Vista", "vista"));
+    skinVista.setSelectItemOptions(vistaList);
     
+    
+    SelectItemCategory skinMac = new SelectItemCategory("Mac", false);
+    List<SelectItemOption> macList = new  ArrayList<SelectItemOption>();
+    macList.add(new SelectItemOption("Mac", "mac"));
+    skinMac.setSelectItemOptions(macList);
+    
+    SelectItemCategory skinDefault = new SelectItemCategory("Default", false);
+    List<SelectItemOption> defaultList = new  ArrayList<SelectItemOption>();
+    defaultList.add(new SelectItemOption("Default", "default"));
+    skinDefault.setSelectItemOptions(defaultList);
     
     List<SelectItemCategory> itemCategories = new ArrayList<SelectItemCategory>();
     itemCategories.add(skinDefault);
