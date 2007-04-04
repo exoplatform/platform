@@ -9,7 +9,7 @@ import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.ApplicationLifecycle;
 import org.exoplatform.webui.application.WebuiRequestContext;
 
-public class PortalApplicationLifecycle  implements  ApplicationLifecycle {
+public class PortalApplicationLifecycle  implements  ApplicationLifecycle<WebuiRequestContext> {
   
   public void init(Application app) {
     PortalApplication papp = (PortalApplication) app ;

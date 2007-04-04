@@ -2,7 +2,7 @@
  * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.webui.component.model;
+package org.exoplatform.util;
 
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Method;

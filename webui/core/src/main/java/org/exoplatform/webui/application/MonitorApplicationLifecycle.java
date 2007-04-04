@@ -5,7 +5,7 @@ import org.exoplatform.web.application.ApplicationLifecycle;
 import org.exoplatform.webui.event.MonitorEvent;
 
 
-public class MonitorApplicationLifecycle implements  ApplicationLifecycle {
+public class MonitorApplicationLifecycle implements  ApplicationLifecycle<WebuiRequestContext> {
 
   public void init(Application app) throws Exception {
     WebuiApplication webuiapp = (WebuiApplication) app ;

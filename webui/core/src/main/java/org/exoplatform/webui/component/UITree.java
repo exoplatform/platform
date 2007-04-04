@@ -7,8 +7,8 @@ package org.exoplatform.webui.component;
 import java.lang.reflect.Method;
 import java.util.List;
 
+import org.exoplatform.util.ReflectionUtil;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.model.ReflectionUtil;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;

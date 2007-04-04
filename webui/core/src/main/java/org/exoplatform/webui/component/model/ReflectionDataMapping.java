@@ -7,6 +7,7 @@ package org.exoplatform.webui.component.model;
 import java.lang.reflect.Method;
 import java.util.List;
 
+import org.exoplatform.util.ReflectionUtil;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputBase;

@@ -4,7 +4,7 @@ import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.ApplicationLifecycle;
 import org.exoplatform.webui.application.WebuiRequestContext;
 
-public class PortletApplicationLifecycle  implements  ApplicationLifecycle {
+public class PortletApplicationLifecycle  implements  ApplicationLifecycle<WebuiRequestContext> {
   
   @SuppressWarnings("unused")
   public void init(Application app) {

@@ -7,7 +7,7 @@ package org.exoplatform.webui.component;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import org.exoplatform.webui.component.model.ReflectionUtil;
+import org.exoplatform.util.ReflectionUtil;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
  * Created by The eXo Platform SARL
