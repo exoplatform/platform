@@ -364,7 +364,6 @@ PortalDragDrop.prototype.createPreview = function(layoutType) {
     
     eXo.portal.PortalDragDrop.widthComponentInTarget = widthComponent ;
   }
-	window.status = "PREVIEW BLOCK!!!" ;
   return previewBlock ;
 };
 
