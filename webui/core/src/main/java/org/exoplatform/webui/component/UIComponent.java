@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.templates.groovy.ResourceResolver;
+import org.exoplatform.web.application.Parameter;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -135,17 +136,19 @@ abstract public class UIComponent {
   }
   
   
-  public String event(String name) throws Exception { return event(name, null); }   
+  public String event(String name) throws Exception { return event(name, null); } 
+  
+  public String event(String name, String beanId) throws Exception { return event(name, beanId, null); }
   
   @SuppressWarnings("unchecked")
-  public String event(String name, String beanId) throws Exception {
+  public String event(String name, String beanId, Parameter[] params) throws Exception {
     org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
     if(event == null) return "??config??" ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     try{
       URLBuilder urlBuilder = context.getURLBuilder();
       if(urlBuilder != null) {
-        return context.getURLBuilder().createAjaxURL(this, event.getName(), beanId).toString();
+        return context.getURLBuilder().createAjaxURL(this, event.getName(), beanId, params).toString();
       }
       System.out.println(urlBuilder +"  : "+context);
       return "";
@@ -154,16 +157,18 @@ abstract public class UIComponent {
       return "";
     }
   }
-  
+ 
   public String url(String name) throws Exception { return url(name, null); }  
+ 
+  public String url(String name, String beanId) throws Exception { return url(name, beanId, null); }
   
   @SuppressWarnings("unchecked")
-  public String url(String name, String beanId) throws Exception {
+  public String url(String name, String beanId, Parameter[] params) throws Exception {
     org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
     if(event == null) return "??config??" ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     try {
-      return context.getURLBuilder().createURL(this, event.getName(), beanId).toString();
+      return context.getURLBuilder().createURL(this, event.getName(), beanId, params).toString();
     }catch (Exception e) {
       e.printStackTrace();
       return "";
