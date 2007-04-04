@@ -63,10 +63,11 @@ UIPopupWindow.prototype.resize = function(e) {
 
 UIPopupWindow.prototype.show = function(popup) {
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
-
-	var maskLayer = eXo.core.DOMUtil.findDescendantsByClass(document,"div","UIMaskWorkspace")[0];
+	var portalApp = document.getElementById("UIPortalApplication");
+	var maskLayer = eXo.core.DOMUtil.findFirstDescendantByClass(portalApp, "div", "UIMaskWorkspace");
 	if (maskLayer != null) {
-		zIndex = maskLayer.style.zIndex;
+		zIndex = eXo.core.DOMUtil.getStyle(maskLayer, "zIndex");
+		if (isNaN(zIndex)) zIndex = 1001;
 	}
 	popup.style.visibility = "hidden";
 	this.superClass.show(popup) ;
