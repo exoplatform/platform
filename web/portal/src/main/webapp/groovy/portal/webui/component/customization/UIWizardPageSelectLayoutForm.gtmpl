@@ -132,11 +132,11 @@
             String label = template.getLabel();
             String description = template.getDescription();
  			    
- 			    if(category.isSelected()) display = "block"; 
- 			    else display = "none";
+ 			    if(template.isSelected()) displayImage = "block"; 
+ 			    else displayImage = "none";
 	      %>
       	    <%/*--Begin Layout Style--*/%>
-      	    <div class="ItemDetail"  style="display: $display;">
+      	    <div class="ItemDetail"  style="display: $displayImage;">
   					    <div class="LayoutHolder">
   					      <div class="LayoutLabel"><%=template.getIcon();%></div>
     					  <div class="<%=template.getIcon();%>" title="<%=template.getLabel();%>"><span></span></div>
