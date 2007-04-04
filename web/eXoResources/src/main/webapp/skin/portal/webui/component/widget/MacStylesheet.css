@@ -1,3 +1,5 @@
-@import url(UILogged/MacStylesheet.css) ;
+@import url(UIUserSpace/MacStylesheet.css) ;
+@import url(UILoggedInfo/MacStylesheet.css) ;
 @import url(UILoginForm/MacStylesheet.css) ;
 @import url(UIWelcomeComponent/MacStylesheet.css) ;
+@import url(UIWidgets/MacStylesheet.css) ;

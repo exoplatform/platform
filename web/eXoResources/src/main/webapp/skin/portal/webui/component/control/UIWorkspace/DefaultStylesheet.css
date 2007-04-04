@@ -5,6 +5,10 @@
   background: url("DefaultSkin/background/ControlWorkspaceBG6x1.gif") repeat-y right;
 }
 
+.UIControlWorkspace .TopTitleBar{
+  padding: 15px 0px 15px 0px;
+}
+
 .UIControlWorkspace .UIVerticalSlideTabs {
   padding: 3px;
 }

@@ -1,59 +1,56 @@
 .UIContainerConfigOptions {
-  background: #efefef ;
-  border: solid 1px #bdbcbc ;
-  border-right: solid 1px #929292 ;
-  border-bottom: solid 1px #929292 ;
-  padding: 5px ;
   margin: 0px 13px 0px 13px;
 }
 
+.UIContainerConfigOptions .ContainerConfigOptions {
+  border: solid 1px #bcbcbc;
+  background: #f2f2f2;
+  padding: 4px;
+}
+
 .UIContainerConfigOptions .CategoryContainer {
-  border:solid 1px gray; 
-  background: white; 
-  padding: 10px 0px 10px 0px ;
+  border-top: solid 1px #929292; border: solid 1px #929292;
+  border-bottom: solid 1px #c3c3c3; border-right: solid 1px #c3c3c3;
+  padding: 10px 0px 20px 0px;
 }
 
 .UIContainerConfigOptions .Title {
   background: white ; 
-  border: 1px solid gray ;
+  border: 1px solid #bcbcbc ;
+  border-bottom: 1px solid #929292;
   margin-bottom: 5px ;
-  background: url('DefaultSkin/background/PopupCategoryBG1x24.png') repeat-x;
+  height: 21px;
 }
 
 .UIContainerConfigOptions .Title .TitleContainer {
-	padding-right: 10px;
-	border: 1px solid white ;
+	height: 21px;
+	padding: 0px 2px 0px 0px;
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .Icon {
-	margin: 3px 5px 0px 7px;
 	float: left;
-	width: 16px; height: 16px;
+	width: 18px; height: 16px;
+	margin: 3px 5px 0px 7px;
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .LabelText {
-	padding-left: 7px;
-	height: 22px; line-height: 22px; vertical-align: middle;
+	padding-left: 12px;
+	height: 21px; line-height: 21px; vertical-align: middle;
 }
+
 .UIContainerConfigOptions .Title .TitleContainer .ArrowButton {
 	float: right;
-	margin-top: 8px;
+	border-left: solid 1px #bcbcbc;
+	height: 21px;
 	cursor: pointer ;
 }
 
-.UIContainerConfigOptions .UIVTabContent {
-  overflow:auto;
-  padding:1px;
-  background:#ffffff;
-}
-
 .UIContainerConfigOptions .OneRowContainerLayout {
-  width:105px ; 
-  height:56px ;
+  width:105px ; height:56px ;
+  background:url('DefaultSkin/background/1RowContainerBg105x56.gif') no-repeat;
   margin:auto ; 
   margin-top: 12px ;
   cursor: move ;
-  background:url('DefaultSkin/background/1RowContainerBg105x56.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .TwoRowContainerLayout {
@@ -106,7 +103,7 @@
 }
 
 .UIContainerConfigOptions .OneRowTwoColumnContainerLayout {
-  width:105px; height:56px;
+  width: 105px; height: 56px;
   margin:auto; margin-top: 12px;
   cursor: move;
   background:url('DefaultSkin/background/1Row2ColBg105x56.gif') no-repeat;
@@ -119,3 +116,25 @@
   cursor: move;
   background:url('DefaultSkin/background/1Row2Col1RowBg105x56.gif') no-repeat;
 }
+
+
+
+
+/***************************************Start Default*************
+
+
+
+
+.UIContainerConfigOptions .Title {
+  background: white ; 
+  border: 1px solid #bcbcbc ;
+  border-bottom: 1px solid #929292;
+  margin-bottom: 5px ;
+}
+
+
+
+
+
+
+******************************************Begin Default*******************/

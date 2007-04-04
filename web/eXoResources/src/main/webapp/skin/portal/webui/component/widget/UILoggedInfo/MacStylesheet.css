@@ -2,14 +2,9 @@
   padding: 5px 0px 0px 0px ;
 }
 
-.UILoggedInfo .ImageContent {  
-  padding: 0px 0px 0px 25px;
+.UILoggedInfo .LoggedInfoItems {  
   height: 32px;
-}
-
-.UILoggedInfo .ImageContents {  
   padding: 0px 0px 0px 25px;
-  height: 32px;
 }
 
 .UILoggedInfo .LoggedDecorator {
@@ -17,48 +12,48 @@
 }
 
 .UILoggedInfo .LoggedDecorator .LeftTopLoggedDecorator {
-	background: url('DefaultSkin/background/LeftTopDecorator6x6.gif') no-repeat left top;
-	padding: 0px 0px 0px 6px;
+	background: url('MacSkin/background/LeftTopDecorator12x13.png') no-repeat left top;
+	padding: 0px 0px 0px 12px;
 }
 
 .UILoggedInfo .LoggedDecorator .RightTopLoggedDecorator {
-	background: url('DefaultSkin/background/RightTopDecorator6x6.gif') no-repeat right top;
-	padding: 0px 6px 0px 0px;
+	background: url('MacSkin/background/RightTopDecorator12x13.png') no-repeat right top;
+	padding: 0px 12px 0px 0px;
 }
 
 .UILoggedInfo .LoggedDecorator .CenterTopLoggedDecorator {
-	background: url('DefaultSkin/background/CenterTopDecorator1x6.gif') repeat-x top;
-	height: 6px;
+	height: 13px;
+	background: url('MacSkin/background/CenterTopDecorator1x13.png') repeat-x top;
 }
 
-.UILoggedInfo .LoggedDecorator .MiddleLeftLoggedDecorator {
-	padding: 0px 0px 0px 6px;
-	background: url('DefaultSkin/background/LeftMiddleDecorator6x1.gif') repeat-y left;
+.UILoggedInfo .LoggedDecorator .LeftMiddleLoggedDecorator {
+	padding: 0px 0px 0px 12px;
+	background: url('MacSkin/background/LeftMiddleDecorator12x1.png') repeat-y left;
 }
 
-.UILoggedInfo .LoggedDecorator .MiddleRightLoggedDecorator {
-	padding: 0px 6px 0px 0px;
-	background: url('DefaultSkin/background/RightMiddleDecorator6x1.gif') repeat-y right;
+.UILoggedInfo .LoggedDecorator .RightMiddleLoggedDecorator {
+	padding: 0px 12px 0px 0px;
+	background: url('MacSkin/background/RightMiddleDecorator12x1.png') repeat-y right;
 }
 
 .UILoggedInfo .LoggedDecorator .LeftBottomLoggedDecorator {
-	padding: 0px 0px 0px 6px;
-	background: url('DefaultSkin/background/LeftBottomDecorator6x5.gif') no-repeat left bottom;
+	padding: 0px 0px 0px 12px;
+	background: url('MacSkin/background/LeftBottomDecorator12x12.png') no-repeat left ;
 }
 
 .UILoggedInfo .LoggedDecorator .RightBottomLoggedDecorator {
-	padding: 0px 6px 0px 0px;
-	background: url('DefaultSkin/background/RightBottomDecorator6x5.gif') no-repeat bottom right;
+	padding: 0px 12px 0px 0px;
+	background: url('MacSkin/background/RightBottomDecorator12x12.png') no-repeat right;
 }
 
 .UILoggedInfo .LoggedDecorator .CenterBottomLoggedDecorator {
-  height: 5px;
-	background: url('DefaultSkin/background/CenterBottomDecorator1x5.gif') repeat-x bottom;
+  height: 12px;
+	background: url('MacSkin/background/CenterBottomDecorator1x12.png') repeat-x;
 }
 
 .UILoggedInfo .LoggedDecorator .DecoratorBackground{
   width: auto; height: auto;
-  background: #e6eef7;
+  background: url('MacSkin/background/DecoratorBackground1x1.png') repeat ;
 }
 
 .UILoggedInfo .StyleContent .AvatarContainer {
@@ -68,9 +63,8 @@
 }
 
 .UILoggedInfo .AvatarContainer .AvatarImage {
-	width: 63px; height: 70px;
-	background: url('DefaultSkin/background/AvatarImage63x70.gif') no-repeat center;
-	border: solid 1px #ffffff;
+	width: 69px; height: 76px;
+	background: url('MacSkin/background/AvatarImage69x76.png') no-repeat center;
 }
 
 .UILoggedInfo .StyleContent .WelcomeBox {
@@ -78,32 +72,28 @@
 }
 
 .UILoggedInfo .StyleContent .UserWelcomeBox {
-  padding: 5px 0px 7px 0px;
-  background: #e6eef7;
-  line-height: 30px; 
-  height: 65px;
+  height: 50px; line-height: 18px; 
+  padding: 12px 20px 7px 0px;
 }
 
 .UILoggedInfo .StyleContent .UserWelcomeBox .StateMessage {
-  font-size: 11px; 
+  line-height: 16px; 
   text-align: center;
-  line-height: 25px; 
+  font-size: 11px; color: white; 
 }
 
 .UILoggedInfo .StyleContent .UserWelcomeBox .LoggedUserName {
-  color: #5aa5f8 ;
+  color: #84ccfc ;
   text-align: center;
-  line-height: 20px;
+  line-height: 26px;
   font-weight: bold; 
 }
 
 .UILoggedInfo .StyleContent .LabelSignout {
-	text-align: right;
-	color: #f98e03;
-	font-weight: bold;
-	padding-right: 20px;
-	text-decoration: underline;
+	color: #feb000;	text-align: center;
+	font-weight: bold; text-decoration: underline;
 	cursor: pointer;
+	padding-right: 20px;
 }
 
 .UILoggedInfo .StyleContent {
@@ -116,16 +106,15 @@
 }
 
 .UILoggedInfo .StyleContent .UserLabel {
-	text-align: center;
-	font-weight: bold; font-size: 11px;
 	line-height: 20px;
+	text-align: center; color: white;
+	font-weight: normal; font-size: 11px;
 }
 
 .UILoggedInfo .StyleContent .UserLabel span {
-	text-align: center;
-	font-weight: bold; font-size: 11px;
-	line-height: 20px;
-	color: #f98e03;
+  line-height: 30px; text-align: center;
+	font-weight: bold; font-size: 11px; 
+	color: white;
 }
 
 /****************************** Icon *********************************/
@@ -140,18 +129,19 @@
 
 .UILoggedInfo .UserIcon {  
 	height: 32px; width: 32px;
+	background: url('MacSkin/background/UserIcon.png') no-repeat center;
 	cursor: pointer;
-	background: url('DefaultSkin/background/UserIcon.gif') no-repeat center;
 }
 
 .UILoggedInfo .WelcomeIcon {  
 	height: 32px; width: 32px;
+	background: url('MacSkin/background/WelcomeIcon.png') no-repeat center;
 	cursor: pointer;
-	background: url('DefaultSkin/background/WelcomeIcon.gif') no-repeat center;
 }
 
 .UILoggedInfo .EMailIcon {
-	width: 36px; height: 36px;
+	width: 38px; height: 36px;
+	background: url('MacSkin/background/EMailIcon.png') no-repeat bottom;
+	padding: 9px 0px 0px 0px;
 	margin: auto;
-	background: url('DefaultSkin/background/EMailIcon.gif') no-repeat bottom;
 }

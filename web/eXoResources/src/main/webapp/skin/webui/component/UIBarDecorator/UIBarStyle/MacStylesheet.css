@@ -19,9 +19,7 @@
 }
 
 .UIBarStyle .RoundedBarStyle .MiddleBar {
-  height: 25px;
-  line-height: 25px;
-  vertical-align: middle;
+  height: 25px; line-height: 25px; vertical-align: middle;
   background: url('DefaultSkin/background/WhiteRoundedBarM1x25.gif') repeat-x;  
 }
 
@@ -43,9 +41,7 @@
 }
 
 .UIBarStyle StyleBar .MiddleBar {
-  height: 22px;
-  line-height: 22px;
-  vertical-align: middle;
+  height: 22px; line-height: 22px; vertical-align: middle;
   background: url('MacSkin/background/MacStyleBarM1x22.gif') repeat-x;
 }
 
@@ -67,9 +63,7 @@
 }
 
 .UIBarStyle .GrayRoundedBarStyle .MiddleBar {
-  height: 26px;
-  line-height: 26px;
-  vertical-align: middle;
+  height: 26px; line-height: 26px; vertical-align: middle;
   background: url('MacSkin/background/GrayRoundedBarCenter1x26.gif') repeat-x;  
 }
 
@@ -91,8 +85,7 @@
 }
 
 .UIBarStyle .BarStyle2 .MiddleBar {
-  height: 37px;
-  line-height: 37px;
+  height: 37px; line-height: 37px;
   font-size: 11px; vertical-align: middle;
   background: url('MacSkin/background/RoundedTopBarM1x37.gif') repeat-x;
 }
@@ -115,9 +108,7 @@
 }
 
 .UIBarStyle .Style3 .MiddleBar {
-  height: 26px ;
-  line-height: 26px ;
-  vertical-align: middle ;
+  height: 26px ; line-height: 26px ; vertical-align: middle ;
   background: url('DefaultSkin/background/SmoothRoundedRepeatBar1x26.gif') repeat-x ;
 }
 
@@ -140,8 +131,7 @@
 }
 
 .UIBarStyle .Style4 .MiddleBar {
-  height: 29px ;
-  line-height: 27px ;
+  height: 29px ; line-height: 27px ;
   font-weight: bold; font-size: 11px;
   background: url('MacSkin/background/MiddleStyle4Bar1x29.png') repeat-x ;
   padding: 0px 10px;
@@ -165,10 +155,8 @@
 }
 
 .UIBarStyle .Style5 .MiddleBar {
-  height: 39px ;
-  line-height: 35px ;
-  vertical-align: middle ;
-  font-weight: bold;
+  height: 39px ; line-height: 35px ;
+  vertical-align: middle ; font-weight: bold;
   background: url('MacSkin/background/Style5BarM1x39.gif') repeat-x ;
 }
 
@@ -199,9 +187,7 @@
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .MiddleBar {
-  height: 24px;
-  line-height: 24px;
-  vertical-align: middle;
+  height: 24px; line-height: 24px; vertical-align: middle;
   background: white;
   border-top: solid 1px #c0bfbf;
   border-bottom: solid 1px #c0bfbf;  
@@ -225,9 +211,7 @@
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .MiddleBar {
-  height: 36px;
-  line-height: 36px;
-  vertical-align: middle;
+  height: 36px; line-height: 36px; vertical-align: middle;
   background: url('MacSkin/background/GrayPolygonBigBarCenter1x36.gif') repeat-x;
 }
 
@@ -249,9 +233,7 @@
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .MiddleBar {
-  height: 36px;
-  line-height: 36px;
-  vertical-align: middle;
+  height: 36px; line-height: 36px; vertical-align: middle;
   background: url('MacSkin/background/BluePolygonBigBarCenter1x36.gif') repeat-x;
 }
 
@@ -273,9 +255,7 @@
 }
 
 .UIBarStyle .BluePolygonBarStyle .MiddleBar {
-  height: 37px;
-  line-height: 37px;
-  vertical-align: middle;
+  height: 37px; line-height: 37px; vertical-align: middle;
   background: url('MacSkin/background/RoundedTopBarM1x37.gif') repeat-x;
 }
 
@@ -297,8 +277,7 @@
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .MiddleBar {  
-  line-height: 32px;
-  vertical-align: middle;
+  line-height: 32px; vertical-align: middle;
   background: url('MacSkin/background/NavyBlueBar32Center1x32.gif') repeat-x;
 }
 
@@ -320,9 +299,7 @@
 }
 
 .UIBarStyle .GrayRoundedFlatBarStyle .MiddleBar {
-  height: 33px;
-  line-height: 33px;
-  vertical-align: middle;
+  height: 33px; line-height: 33px; vertical-align: middle;
   background: #f3f3f3;
   border-top: solid 1px #c6c6c9;
   border-bottom: solid 1px #c6c6c9;
@@ -346,9 +323,7 @@
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .MiddleBar {
-  height: 32px;
-  line-height: 32px;
-  vertical-align: middle;
+  height: 32px; line-height: 32px; vertical-align: middle;
   background: url('MacSkin/background/NavyBluePolygonCenter1x32.gif') repeat-x;
 }
 
@@ -370,9 +345,7 @@
 }
 
 .UIBarStyle .SmoothRounded26Style .MiddleBar {
-  height: 26px ;
-  line-height: 26px ;
-  vertical-align: middle ;
+  height: 26px ; line-height: 26px ;  vertical-align: middle ;
   background: url('MacSkin/background/SmoothRoundedRepeatBar1x26.gif') repeat-x ;
 }
 
@@ -394,9 +367,7 @@
 }
 
 .UIBarStyle .SmoothNavy40Style .MiddleBar {
-  height: 62px ;
-  line-height: 62px ;
-  vertical-align: middle ;
+  height: 62px ; line-height: 62px ; vertical-align: middle ;
   background: url('MacSkin/background/QuickBarM1x62.gif') repeat-x ;
 }
 
@@ -426,15 +397,11 @@
 
 .UIBarStyle .GrayBevelRoundedBar35Style .Button {
   float: left;
-  height: 33px ; 
-  line-height: 33px ;
-  vertical-align: middle ;
+  height: 33px ; line-height: 33px ; vertical-align: middle ;
 }
 
 .UIBarStyle .GrayBevelRoundedBar35Style .ButtonLabel {
-  height: 33px ; 
-  line-height: 33px ;
-  vertical-align: middle ;
+  height: 33px ;  line-height: 33px ; vertical-align: middle ;
   font-weight: bold; color: black; font-size: 11px;
 }
 
@@ -456,9 +423,7 @@
 }
 
 .UIBarStyle .GrayBevelRoundBar40 .MiddleBar {
-  height: 48px ;
-  line-height: 48px ;
-  vertical-align: middle ;
+  height: 48px ; line-height: 48px ; vertical-align: middle ;
   background: url('MacSkin/background/GrayLinedBarM1x48.gif') repeat-x ;
 }
 
@@ -480,9 +445,7 @@
 }
 
 .UIBarStyle .GrayBevelRoundBar36 .MiddleBar {
-  height: 36px ;
-  line-height: 36px ;
-  vertical-align: middle ;
+  height: 36px ; line-height: 36px ; vertical-align: middle ;
   background: url('MacSkin/background/GrayBevelBarRepeat1x36.gif') repeat-x ;
 }
 
@@ -504,9 +467,25 @@
 }
 
 .UIBarStyle.BlueBevelRoundBar36 .MiddleBar {
-  height: 36px ;
-  line-height: 36px ;
-  vertical-align: middle ;
+  height: 36px ; line-height: 36px ; vertical-align: middle ;
   background: url('MacSkin/background/BlueBevelBarRepeat1x36.gif') repeat-x ;
 }
 
+.WidgetNavigator .UIBarStyle { 
+  margin: 0px 0px 2px 0px;
+}
+
+.UIBarStyle .ControlBar .LeftBar {
+  background: url('MacSkin/background/LeftControlBar13x32.png') no-repeat left ;
+  padding: 0px 0px 0px 13px ;
+}
+
+.UIBarStyle .ControlBar .RightBar {
+  background: url('MacSkin/background/RightControlBar15x32.png') no-repeat right;
+  padding: 0px 15px 0px 0px;
+}
+
+.UIBarStyle .ControlBar .MiddleBar {
+  background: url('MacSkin/background/MiddleControlBar1x32.png') repeat-x ;
+  height: 32px;
+}

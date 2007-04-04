@@ -50,30 +50,28 @@
 }
 
 .UIPageDesktop .UIWindow .WindowPortletInfo {
-  margin-right: 100px ;
   height: 24px ;
+  margin: 0px 100px 0px 0px ;
   cursor: move ;
 }
 
 .UIWindow .WindowPortletInfo .WindowPortletIcon {
   float: left ;
-  margin: 4px 6px 0px 5px ;
-  width: 16px ;
-  height: 16px ;
+  width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat ;
+  margin: 4px 6px 0px 5px ;
 }
 
 .UIWindow .WindowPortletControl .ControlIcon {
-  width: 16px ;
-  height: 16px ;
   float: left;
+  width: 16px ; height: 16px ;
   margin: 4px 2px 0px 2px ;
   cursor: pointer ;  
 }
 
 .UIWindow .WindowPortletControl .ArrowDownIcon {
-  background: url('/eXoResources/icons/16x16/MacSkin/ArrowDown.gif') no-repeat center right;
   width: 21px;
+  background: url('/eXoResources/icons/16x16/MacSkin/ArrowDown.gif') no-repeat center right;
 }
 
 .UIWindow .WindowPortletControl .OverArrowDownIcon {
@@ -90,8 +88,7 @@
 }
 
 .UIWindow .WindowPortletControl .MaxMin {
-  width: 16px ;
-  height: 16px ;
+  width: 16px ; height: 16px ;
   cursor: pointer ;  
 }
 
@@ -129,8 +126,7 @@
 
 .UIPageDesktop .UIWindow .ResizeArea {
   float: right ;
-  width: 17px ;
-  height: 15px ;
+  width: 17px ; height: 15px ;
   cursor: nw-resize ;
   background: url('MacSkin/background/ResizeArea17x15.png') no-repeat ;
 }
@@ -138,19 +134,17 @@
 .UIWindow .Information {
   margin-right: 18px ;
   padding-left: 5px ;
-  height: 16px ;
-  line-height: 14px ;
-  vertical-align: middle ;
+  height: 16px ; line-height: 14px ; vertical-align: middle ;
   font-size: 10px ;
 }
 /**************************** UIPage Decorator ************************************/
 .UIWindow .MiddleDecoratorLeft {
-  padding-left: 5px ;
   background: url('MacSkin/background/PortletWindowML5x1.png') repeat-y left ;
+  padding: 0px 0px 0px 5px ;
 }
 
 .UIWindow .MiddleDecoratorRight {
-  padding-right: 5px ;
+  padding: 0px 5px 0px 0px ;
   background: url('MacSkin/background/PortletWindowMR5x1.png') repeat-y right ;
 }
 
@@ -160,13 +154,13 @@
 
 .UIWindow .BottomDecoratorLeft {
   height: 23px ;
-  padding-left: 5px ;
   background: url('MacSkin/background/PortletWindowBL5x23.png') no-repeat left ;
+  padding: 0px 0px 0px 5px ;
 }
 
 .UIWindow .BottomDecoratorRight {
   height: 23px ;
-  padding-right: 5px ;
+  padding: 0px 5px 0px 0px ;
   background: url('MacSkin/background/PortletWindowBR5x23.png') no-repeat right ;
 }
 
@@ -177,19 +171,19 @@
 
 .UIWindow .WindowPortletInfo .PortletName {
   float: left ;
-  margin-top: 5px ;
+  margin: 5px 0px 0px 0px ;
   font-size: 11px ;
 }
 
 .UIWindow .WindowBarLeft {
   height: 23px ;
-  padding-left: 12px ;
+  padding: 0px 0px 0px 12px ;
   background: url('MacSkin/background/PortletWindowTL12x23.png') no-repeat left ;
 }
 
 .UIWindow .WindowBarRight {
   height: 23px ;
-  padding-right: 12px ;
+  padding: 0px 12px 0px 0px ;
   background: url('MacSkin/background/PortletWindowTR12x23.png') no-repeat right ;
 }
 
@@ -215,7 +209,6 @@
 
 .UIPageBody .UIWindow .ResizeArea {
   float: right ;
-  width: 0px ;
-  height: 0px ;
+  width: 0px ; height: 0px ;
   background: url('null') repeat bottom right;
 }

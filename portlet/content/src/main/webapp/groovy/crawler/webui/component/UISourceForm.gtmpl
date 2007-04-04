@@ -76,7 +76,6 @@
 		          	<div class="ButtonLeft">
 		          		<div class="ButtonRight">
 		          			<div class="ButtonMiddle">
-		          				<div class="Icon Cancel16x16Icon"><span></span></div>
 		          				<a href="">Cancel</a>
 		          			</div>
 		          		</div>
@@ -89,7 +88,6 @@
 		          	<div class="ButtonLeft">
 		          		<div class="ButtonRight">
 		          			<div class="ButtonMiddle">
-		          				<div class="LeftBlock Icon Reset16x16Icon"><span></span></div>
 		          				<a href="">Resert</a>
 		          			</div>
 		          		</div>
@@ -102,7 +100,6 @@
 		          	<div class="ButtonLeft">
 		          		<div class="ButtonRight">
 		          			<div class="ButtonMiddle">
-		          				<div class="LeftBlock Icon BlueArrowFloppy16x16Icon "><span></span></div>
 		          				<a href="">Save & Load</a>
 		          			</div>
 		          		</div>
@@ -115,7 +112,6 @@
 		          	<div class="ButtonLeft">
 		          		<div class="ButtonRight">
 		          			<div class="ButtonMiddle">
-		          				<div class="LeftBlock Icon Save16x16Icon"><span></span></div>
 		          				<a href="">Save</a>
 		          			</div>
 		          		</div>

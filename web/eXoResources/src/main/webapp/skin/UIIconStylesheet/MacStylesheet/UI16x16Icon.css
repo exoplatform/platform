@@ -618,8 +618,8 @@
 }
 
 .ArrowS1Down16x16Icon {
-  width: 16px ; height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/GrayAquaDownArrow.png') no-repeat ;
+  width: 24px ; height: 24px ;
+  background: url('/eXoResources/icons/24x24/MacSkin/AquaDownArrow.png') no-repeat ;
 }
 
 .ArrowS1Up16x16Icon {

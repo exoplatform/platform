@@ -16,15 +16,14 @@
 }
 
 .UIContainerConfigOptions .Title {
-  background: white ; 
-  border: 1px solid #b7b7b7 ;
-  margin-bottom: 5px ;
-  background: url('MacSkin/background/TitleBG1x22.gif') repeat-x;
+  background: url('MacSkin/background/TitleBG1x25.png') repeat-x;
+  height: 25px;
 }
 
 .UIContainerConfigOptions .Title .TitleContainer {
-	padding-right: 15px;
-	border: 1px solid white ;
+	height: 23px;
+	border-left: solid 1px #9d9d9d;
+	border-right: solid 1px #9d9d9d;
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .Icon {
@@ -39,7 +38,6 @@
 }
 .UIContainerConfigOptions .Title .TitleContainer .ArrowButton {
 	float: right;
-	margin-top: 3px;
 	cursor: pointer ;
 }
 

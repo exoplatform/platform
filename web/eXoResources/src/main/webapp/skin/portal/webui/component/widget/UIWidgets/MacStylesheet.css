@@ -1,0 +1,149 @@
+.UIWidgets {
+	padding: 4px 0px;
+}
+
+.UIWidgets .BottomLeftWidgets {
+	background: url('MacSkin/background/BottomLeftWidget7x8.png') no-repeat left ;
+	padding: 0px 0px 0px 7px;
+}
+
+.UIWidgets .BottomRightWidgets {
+	background: url('MacSkin/background/BottomRightWidget7x8.png') no-repeat right;
+	padding: 0px 7px 0px 0px;
+}
+
+.UIWidgets .BottomMiddleWidgets {
+	height: 8px;
+	background: url('MacSkin/background/BottomCenterWidget1x8.png') repeat-x ;
+}
+
+.UIWidgets .EditIcon {
+	float: left;
+	width: 26px; height: 25px;
+	background: url('MacSkin/icon/EditIcon.png') no-repeat bottom;
+	cursor: pointer;
+}
+
+.UIWidgets .UIDropDownItemSelector {
+	float: left;
+	width: 209px;
+}
+
+.UIWidgets .UIDropDownItemSelector .ComponentIcon {
+	background: url('MacSkin/icon/IconWidget.png') no-repeat center;
+	padding: 5px 0px 0px 0px;
+}
+/***************************************  UIWidgetContainer   **************************************/
+.UIWidgetContainer {
+	padding: 2px 0px 0px 0px;
+	border-bottom: none;
+}
+
+.UIWidgetContainer .TopLeftWidgetContainer {
+  background: url('MacSkin/background/TopLeftWidgetContainer7x6.png') no-repeat left;
+  padding: 0px 0px 0px 7px;
+}
+
+.UIWidgetContainer .TopRightWidgetContainer {
+  background: url('MacSkin/background/TopRightWidgetContainer7x6.png') no-repeat right;
+  padding: 0px 7px 0px 0px;
+}
+
+.UIWidgetContainer .TopCenterWidgetContainer {
+  background: url('MacSkin/background/TopCenterWidgetContainer1x6.png') repeat-x;
+  height: 6px;
+}
+
+.UIWidgetContainer .MiddleLeftWidgetContainer {
+  background: url('MacSkin/background/MiddleLeftWContainer7x1.png') repeat-y left;
+  padding: 0px 0px 0px 7px;
+}
+
+.UIWidgetContainer .MiddleRightWidgetContainer {
+  background: url('MacSkin/background/MiddleRightWContainer7x1.png') repeat-y right;
+  padding: 0px 7px 0px 0px;
+}
+
+.UIWidgetContainer .MiddleRightWidgetContainer .MiddleWidgetContainer {
+  background: url('MacSkin/background/WidgetContainerBG10x10.png') repeat;
+}
+
+.UIWidgetContainer  .eXoInfoWidgetImage {
+	width: 208px; height: 183px;
+	margin: auto;
+	background: url('MacSkin/background/InfoImage208x183.png') no-repeat center;	
+}
+
+.UIWidgetContainer .eXoInfoWidgetImage .TopWidgetImage {
+  height: 157px;
+}
+
+.UIWidgetContainer .eXoInfoWidgetImage .Download {
+	width: 120px; height: 20px;
+	margin: auto;
+	cursor: pointer;	
+}
+
+.UIWidgetContainer .WidgetControl {
+  height: 25px;
+  padding: 1px 8px 0px 0px;
+}
+
+.UIWidgetContainer .WidgetControl .WidgetControlContent {
+  float: right;
+	width: 62px; height: 25px;
+	background: url('MacSkin/background/WidgetControl.png') no-repeat center;
+}
+
+.UIWidgetContainer .WidgetControl .CloseWidgetIcon {
+	float: left;
+	width: 24px; height: 24px;
+	cursor: pointer;
+	margin: 0px 2px 0px 4px;
+}
+
+.UIWidgetContainer .WidgetControl .EditWidgetIcon {
+	float: left;
+	width: 24px; height: 24px;
+	cursor: pointer;
+}
+
+.UIWidgetContainer .WidgetNavigator {
+	height: 32px;
+	margin: 2px 0px 0px 0px;
+}
+
+.UIWidgets .ContentIcon {
+	padding: 2px 0px 0px 0px;
+}
+
+.UIWidgets .ControlBar {
+	float: right;
+	width: 106px;
+}
+
+.UIWidgets .ControlBar .Icon24x24 {
+	float: right;
+	width: 24px; height: 24px;
+	cursor: pointer;
+}
+
+.UIWidgets .ControlBar .AddIcon {
+	background: url('MacSkin/icon/AddBarStyleIcon.gif') no-repeat center;
+}
+
+.UIWidgets .ControlBar .DownBrownArrowIcon {
+	background: url('MacSkin/icon/DownBrownArrowIcon.gif') no-repeat center;
+}
+
+.UIWidgets .ControlBar .DownBlueArrowIcon {
+	background: url('MacSkin/icon/DownBlueArrowIcon.gif') no-repeat center;
+}
+
+.UIWidgets .ControlBar .UpBlueArrowIcon {
+	background: url('MacSkin/icon/UpBlueArrowIcon.gif') no-repeat center;
+}
+
+.UIWidgets .ControlBar .UpBrownArrowIcon {
+	background: url('MacSkin/icon/UpBrownArrowIcon.gif') no-repeat center;
+}

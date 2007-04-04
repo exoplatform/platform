@@ -74,17 +74,14 @@
   				                  actionLink = "#";     
 						              }
 				                  String display = "LightBlueStyle";
-				                  String backIcon = "BlueBackArrow16x16Icon";
 				                  if(step==1){
 				                    display = "DisabledStyle";
-				                    backIcon = "GrayBackArrow16x16Icon";
 				                  }
 				                %> 
 							          <div class="${display}">
 							            <div class="ButtonLeft">
 							              <div class="ButtonRight">
 							                <div class="ButtonMiddle">
-							                  <div class="Icon ${backIcon}"><span></span></div>			      			                            
 								                <a href="$actionLink"><%=_ctx.appRes(uicomponent.getId() + ".label.back")%></a>
 								              </div>
 							              </div>
@@ -101,7 +98,6 @@
 							            <div class="ButtonLeft">
 							              <div class="ButtonRight">
 							                <div class="ButtonMiddle">
-							                  <div class="Icon BlueNextArrow16x16Icon"><span></span></div>
 							                  <%
 							                    String action = "next";
 							                    if(step == children.size()){
@@ -127,7 +123,6 @@
 							            <div class="ButtonLeft">
 							              <div class="ButtonRight">
 							                <div class="ButtonMiddle">
-							                  <div class="Icon CancelIcon"><span></span></div>
 								                <a href="<%=uicomponent.event("Abort", "");%>"><%=_ctx.appRes(uicomponent.getId() + ".label.abort")%></a>
 								              </div>
 							              </div>

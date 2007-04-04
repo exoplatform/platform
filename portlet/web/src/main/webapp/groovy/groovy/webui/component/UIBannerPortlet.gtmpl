@@ -19,7 +19,8 @@
 						  		<%= prContext.getPortalOwner() %> 
 						  	</span>
 					  	</div>
-						  <div style="float: left" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">				  	
+						  <div style="float: left" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
+						    <div class="LoginSeperatorLine"><span></span></div>				  	
 								<div class="LoginLabel"><%=_ctx.appRes("UILogged.action.signout")%></div>
 								<div class="LoginIcon"><span></span></div>
 								<div style="clear: left;"><span></span></div>

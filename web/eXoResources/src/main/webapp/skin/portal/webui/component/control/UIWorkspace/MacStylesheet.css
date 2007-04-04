@@ -92,8 +92,10 @@
 }
 
 .PreviewMode {
-	width: 159px ;	height: 37px ;
-	background: url("DefaultSkin/background/PreviewMode159x37.gif") no-repeat ;
+	width: 146px ;	height: 156px ;
+	background: transparent url("MacSkin/background/PreviewModeImage146x156.png") no-repeat top right;
 	position: absolute ;
 	cursor: pointer ;
+	opacity: 0.7 !important ;
+	filter: alpha(opacity=80) ;
 }

@@ -709,8 +709,8 @@
 }
 
 .ArrowS1Down16x16Icon {
-  width: 13px ; height: 7px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/WhiteArrowDown.gif') no-repeat ;
+  width: 22px ; height: 17px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowSLDown.gif') no-repeat  center;
 }
 
 .ArrowS1Up16x16Icon {

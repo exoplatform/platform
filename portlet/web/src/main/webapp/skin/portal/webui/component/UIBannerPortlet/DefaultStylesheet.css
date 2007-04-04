@@ -1,5 +1,4 @@
 .UIBannerPortlet {
-	
 }
 
 .UIBannerPortlet .LeftBanner {
@@ -27,24 +26,30 @@
 
 .UIBannerPortlet .LoginContainer .LoginContent {
   float: right;
+  line-height: 19px;
   font-size: 11px;
-  padding: 9px 13px 0px 0px;
+  padding: 6px 13px 0px 0px;
 }
 
 .UIBannerPortlet .LoginContent .LoginLabel {
-  font-size: 11px;
-  color: orange;
-  font-weight: bold;
 	float: left;
+  font-size: 11px; font-weight: normal;
+  color: orange; text-decoration: none;
   cursor: pointer;
-  text-decoration: underline;
 	padding: 0px 8px 0px 0px;
-	
 }
+
+.UIBannerPortlet .LoginContent .LoginSeperatorLine {
+  float: left;
+  width: 2px; height: 21px;
+  background: url('DefaultSkin/background/2x2.gif') repeat-y;
+  padding: 0px 7px 0px 1px;
+ }
 
 .UIBannerPortlet .LoginContent .LoginIcon {
   float: left;
   width: 19px; height: 15px;
   background: url('DefaultSkin/background/SigninButton.gif') no-repeat top;
   cursor: pointer;
+  margin: 3px 0px 0px 0px;
 }
