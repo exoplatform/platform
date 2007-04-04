@@ -77,7 +77,7 @@
   overflow: hidden;
 }
 
-.UIAccountPortlet .UIItemSelector .UIFormInputSet label {
+.UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet label {
   float: left;
   height: 22px; line-height: 22px;
   margin-right: 4px; padding-left: 5px;

@@ -7,7 +7,11 @@
 	    <div class="OverflowContainer">
 	      <%//Begin Item List%>
 	      <div class="ItemListContainer">
-	        <div class="ItemListTitle"><%= _ctx.appRes(uicomponent.getId() + ".title")%></div>
+	      	<div class="LeftItemListTitle">
+      			<div class="RightItemListTitle">
+	        		<div class="ItemListTitle"><%= _ctx.appRes(uicomponent.getId() + ".title")%></div>
+		      	</div>
+		      </div>
 		      <div class="ItemList">
 		        <div class="ImageDecorator">
 			        <%for(child in uicomponent.getChildren()) { %>

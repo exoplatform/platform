@@ -34,3 +34,106 @@
 	background: url('VistaSkin/icon/SelectedIcon.png') no-repeat center;
 	cursor: pointer;	
 }
+
+/********************************   UIItemList   ****************************************/
+
+.UIItemList {
+}
+
+.UIItemList .ItemSelector {
+  height: 22px; line-height: 22px;
+  background: url('VistaSkin/background/BGNormalItem1x22.png') repeat-x;
+  font-size: 11px;
+  border-bottom: 1px #cdcdcd solid;
+  cursor: pointer ;
+}
+
+.UIItemList .OverItemSelector {
+	background: url('VistaSkin/background/BGOverItem1x22.png') repeat-x;
+	height: 22px; line-height: 22px;
+	border-bottom: 1px #cdcdcd solid;
+}
+
+.UIItemList .ItemSelectorLabel {
+  height: 22px; line-height: 22px;
+  font-size: 11px;
+}
+
+.UIItemList .ItemSelector a {
+  color: black;
+  text-decoration: none ;
+  cursor: pointer;
+}
+
+.UIItemList .ItemSelector a:hover {
+  color: blue;
+}
+
+.UIItemList .Icon {
+  width: 16px; height: 16px;
+  float: left;
+  margin: 3px 3px 0px 7px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif') no-repeat;
+}
+
+/*=================================Popup Category Decorator====================================*/
+
+.UIItemList .ItemSelectorDecorator {
+}
+
+.UIItemList .ItemSelectorDecorator .LTItemSelector {
+  height: 6px;
+  background: url('VistaSkin/background/TLItemSelector12x6.png') no-repeat left;
+  padding-left: 12px;
+}
+
+.UIItemList .ItemSelectorDecorator .TCItemSelector {
+  height: 6px;
+  background: url('VistaSkin/background/TCItemSelector1x6.png') repeat-x;
+}
+
+.UIItemList .ItemSelectorDecorator .TRItemSelector {
+  height: 6px;
+  background: url('VistaSkin/background/TRItemSelector45x6.png') no-repeat right;
+  padding-right: 35px;
+}
+
+.UIItemList .ItemSelectorDecorator .MLItemSelector {
+  background: url('VistaSkin/background/MLItemSelector12x1.png') repeat-y left;
+  padding-left: 12px;
+}
+
+.UIItemList .ItemSelectorDecorator .MRItemSelector {
+  background: url('VistaSkin/background/MRItemSelector14x1.png') repeat-y right;
+  padding-right: 14px;
+}
+
+.UIItemList .ItemSelectorDecorator .BLItemSelector {
+  height: 18px;
+  background: url('VistaSkin/background/BLItemSelector12x18.png') no-repeat left;
+  padding-left: 12px;
+}
+
+.UIItemList .ItemSelectorDecorator .BRItemSelector {
+  padding-right: 14px;
+  background: url('VistaSkin/background/BRItemSelector14x18.png') no-repeat right;
+}
+
+.UIItemList .ItemSelectorDecorator .BCItemSelector {
+  height: 18px;
+  background: url('VistaSkin/background/BCItemSelector1x18.png') repeat-x;
+  
+}
+
+/*  Supply footnotes to:
+		TL: Top Left.
+		TR: Top Right.
+		TC: Top Center.
+		ML: Middle Left.
+		MR: Middle Right.
+		MC: Middle Center.
+		BL: Bottom Left.
+		BR: Bottom Right.
+		BC: Bottom Right.
+		BG: Background.
+		*/
