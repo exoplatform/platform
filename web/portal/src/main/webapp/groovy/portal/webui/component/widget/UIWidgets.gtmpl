@@ -7,7 +7,7 @@
   	
  	<div class="CenterLeftWidgets">
  		<div class="CenterRightWidgets">
- 		  <% uicomponent.renderChildren(); %>			
+			
   		<div class="EditIcon"><span></span></div>
   		<div style="clear: both"><span></span></div>
 
