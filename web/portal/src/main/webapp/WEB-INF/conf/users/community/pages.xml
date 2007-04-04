@@ -7,26 +7,32 @@
     <title>Home</title>
     <view-permission>*:/guest</view-permission>
     <show-max-window>true</show-max-window>
-    <portlet>
-      <window-id>community:/site/SitePortlet/siteportlet</window-id>
+    
+    <application>
+	    <factory-id>portlet</factory-id>
+      <application-instance-id>community:/site/SitePortlet/siteportlet</application-instance-id>
       <show-info-bar>false</show-info-bar>
-    </portlet>
-    <portlet>
-      <window-id>community:/content/ContentPortlet/contentportlet</window-id>
+    </application>
+    
+    <application>
+	    <factory-id>portlet</factory-id>
+      <application-instance-id>community:/content/ContentPortlet/contentportlet</application-instance-id>
       <show-info-bar>true</show-info-bar>
-      <show-window-state>true</show-window-state>
-      <show-portlet-mode>true</show-portlet-mode>
-    </portlet>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>
 
-    <portlet>
-      <window-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</window-id>
+    <application>
+	    <factory-id>portlet</factory-id>
+      <application-instance-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</application-instance-id>
       <show-info-bar>true</show-info-bar>
-    </portlet>
+    </application>
 
-    <portlet>
-      <window-id>community:/exoadmin/AccountPortlet/Account</window-id>
+    <application>
+	    <factory-id>portlet</factory-id>
+      <application-instance-id>community:/exoadmin/AccountPortlet/Account</application-instance-id>
       <show-info-bar>false</show-info-bar>
-    </portlet>  
+    </application>  
   </page>
 
   <page>
@@ -36,15 +42,18 @@
     <title>Management</title>
     <view-permission>owner:/user</view-permission>
     <show-max-window>true</show-max-window>
-    <portlet>
-      <window-id>community:/exoadmin/OrganizationPortlet/Organization</window-id>
+    
+    <application>
+	    <factory-id>portlet</factory-id>
+      <application-instance-id>community:/exoadmin/OrganizationPortlet/Organization</application-instance-id>
       <show-info-bar>true</show-info-bar>
-      <show-window-state>true</show-window-state>
-    </portlet>  
+      <show-application-state>true</show-application-state>
+    </application>  
 
-    <portlet>
-      <window-id>community:/exoadmin/AccountPortlet/Account</window-id>
+    <application>
+	    <factory-id>portlet</factory-id>
+      <application-instance-id>community:/exoadmin/AccountPortlet/Account</application-instance-id>
       <show-info-bar>false</show-info-bar>
-    </portlet>  
+    </application>  
   </page>
 </page-set>

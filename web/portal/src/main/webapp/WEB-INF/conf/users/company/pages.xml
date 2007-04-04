@@ -6,10 +6,10 @@
     <title>Home</title>
     <view-permission>*:/guest</view-permission>        
     <show-max-window>true</show-max-window>
-    <portlet>
-	    <window-id>company:/site/SitePortlet/siteportlet</window-id>
+    <application>
+	    <application-instance-id>company:/site/SitePortlet/siteportlet</application-instance-id>
 	    <show-info-bar>false</show-info-bar>
-	  </portlet>
+	  </application>
   </page>  
   
   <page>
@@ -17,11 +17,11 @@
     <name>organization</name>
     <title>Organization</title>
     <view-permission>member:/portal/company</view-permission>
-    <portlet>
-      <window-id>company:/exoadmin/OrganizationPortlet/Organization</window-id>
+    <application>
+      <application-instance-id>company:/exoadmin/OrganizationPortlet/Organization</application-instance-id>
 	  	<show-info-bar>true</show-info-bar>
-	  	<show-window-state>true</show-window-state>
-		</portlet>	
+	  	<show-application-state>true</show-application-state>
+		</application>	
   </page>
   
   <page>
@@ -29,9 +29,9 @@
     <name>myaccount</name>
     <title>My Portal</title>
     <view-permission>member:/portal/company</view-permission>
-    <portlet>
-      <window-id>company:/exoadmin/AccountPortlet/Account</window-id>
+    <application>
+      <application-instance-id>company:/exoadmin/AccountPortlet/Account</application-instance-id>
       <show-info-bar>false</show-info-bar>
-     </portlet>  
+    </application>  
   </page> 
 </page-set>

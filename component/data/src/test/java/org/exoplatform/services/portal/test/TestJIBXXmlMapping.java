@@ -23,7 +23,7 @@ import org.jibx.runtime.IUnmarshallingContext;
  * @since: 0.0
  * @email: tuan08@yahoo.com
  */
-public class TestJIBXXmlMapping  extends BasicTestCase {; 
+public class TestJIBXXmlMapping  extends BasicTestCase {
   
   public TestJIBXXmlMapping(String name) {
     super(name);

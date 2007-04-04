@@ -6,50 +6,64 @@
     <title>Home</title>
     <view-permission>*:/guest</view-permission>
     <container template="ContainerColumnRenderer" width="100%" height="100%">
+      
       <container template="ContainerRowRenderer" width="394px" height="100%">
+        
         <container template="ContainerColumnRenderer" width="100%" height="160px">
-          <portlet width="100%" height="100%">
+          
+          <application width="100%" height="100%">
+            <factory-id>portlet</factory-id>
             <title>Download</title>
-            <window-id>exo:/content/DisplayStaticContent/teaser</window-id>
-            <portlet-style>exo-config-content</portlet-style>
+            <application-instance-id>exo:/content/DisplayStaticContent/teaser</application-instance-id>
             <show-info-bar>true</show-info-bar>
-            <show-window-state>false</show-window-state>                    
-            <show-portlet-mode>false</show-portlet-mode>          
-          </portlet>
+            <show-application-state>false</show-application-state>                    
+            <show-application-mode>false</show-application-mode>          
+          </application>
+          
         </container>  
-        <portlet width="*">
+        
+        <application width="*">
+          <factory-id>portlet</factory-id>
           <title>Home</title>
-          <window-id>exo:/content/DisplayStaticContent/news</window-id>
-          <portlet-style>exo-config-content</portlet-style>
+          <application-instance-id>exo:/content/DisplayStaticContent/news</application-instance-id>
           <show-info-bar>false</show-info-bar>          
-        </portlet>                
+        </application>                
+        
       </container>
+      
       <container template="ContainerRowRenderer" width="100%" height="100%">
+      
         <container template="ContainerColumnRenderer" width="100%" height="160px">        
-          <portlet width="50%" height="100%">
+        
+          <application width="50%" height="100%">
+            <factory-id>portlet</factory-id>
             <title>News</title>
-            <window-id>exo:/cms-content/Articles/homenews</window-id>
-            <portlet-style>articles</portlet-style>
+            <application-instance-id>exo:/cms-content/Articles/homenews</application-instance-id>
             <show-info-bar>true</show-info-bar>
-            <show-window-state>true</show-window-state>
-            <show-portlet-mode>true</show-portlet-mode>
-          </portlet>            
-          <portlet width="50%" height="100%">
+            <show-application-state>true</show-application-state>
+            <show-application-mode>true</show-application-mode>
+          </application> 
+                     
+          <application width="50%" height="100%">
+            <factory-id>portlet</factory-id>
             <title>Events</title>
-            <window-id>exo:/cms-content/Articles/homeevents</window-id>
-            <portlet-style>articles</portlet-style>
+            <application-instance-id>exo:/cms-content/Articles/homeevents</application-instance-id>
             <show-info-bar>true</show-info-bar>
-            <show-window-state>true</show-window-state>
-            <show-portlet-mode>true</show-portlet-mode>
-          </portlet>         
-        </container>      
-        <portlet width="*">
+            <show-application-state>true</show-application-state>
+            <show-application-mode>true</show-application-mode>
+          </application>         
+          
+        </container> 
+             
+        <application width="*">
+          <factory-id>portlet</factory-id>
           <title>Home</title>
-          <window-id>exo:/cms-content/DisplayContent/summary</window-id>
-          <portlet-style>exo-config-content</portlet-style>
+          <application-instance-id>exo:/cms-content/DisplayContent/summary</application-instance-id>
           <show-info-bar>false</show-info-bar>
-        </portlet>                    
+        </application>                    
+        
       </container> 
+      
     </container>
   </page>
 </page-set>

@@ -118,6 +118,13 @@ public class JCRPortalDAO extends JCRDataService implements PortalDAO {
   public void removePageOfOwner(String owner) throws Exception {
     Node node = getDataServiceNode(owner, PAGE, false);
     if(node == null) return ;
+    
+    PageSet pageSet = getPageOfOwner(owner);
+    ArrayList<Page> list = pageSet.getPages(); 
+    for(Page page : list){
+      pageConfigCache_.remove(page.getPageId());
+    }
+    
     Node parentNode  = node.getParent();
     node.remove();
     parentNode.save();

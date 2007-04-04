@@ -58,7 +58,7 @@
               <tasks>           
                 <taskdef name="bind" classname="org.jibx.binding.ant.CompileTask" 
                          classpathref="maven.dependency.classpath"/>
-                <bind load="true" binding="${basedir}/src/main/resources/binding.xml">
+                <bind load="true" binding="${basedir}/src/main/resources/new-binding.xml">
                   <classpathset dir="${basedir}/target/classes"/>
                 </bind>
                 

@@ -5,32 +5,32 @@
   <view-permission>owner:/user</view-permission>
   <edit-permission>owner:/user</edit-permission>
 
-  <portlet>
-    <window-id>exo:/web/BannerPortlet/banner</window-id>
+  <application>
+    <application-instance-id>exo:/web/BannerPortlet/banner</application-instance-id>
     <show-info-bar>false</show-info-bar>
-  </portlet>
+  </application>
 	
   <container template="war:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl">
-    <portlet>
-      <window-id>exo:/web/NavigationPortlet/toolbar</window-id>
+    <application>
+      <application-instance-id>exo:/web/NavigationPortlet/toolbar</application-instance-id>
 	    <show-info-bar>false</show-info-bar>
-	  </portlet>
-	  <portlet>
-      <window-id>exo:/web/WelcomePortlet/welcome</window-id>
+	  </application>
+	  <application>
+      <application-instance-id>exo:/web/WelcomePortlet/welcome</application-instance-id>
       <show-info-bar>false</show-info-bar>
-	  </portlet>   
+	  </application>   
   </container>
 
-  <portlet>
-    <window-id>exo:/web/BreadcumbsPortlet/breacumbs</window-id>
+  <application>
+    <application-instance-id>exo:/web/BreadcumbsPortlet/breacumbs</application-instance-id>
     <show-info-bar>false</show-info-bar>
-  </portlet>
+  </application>
 
   <page-body>    
   </page-body>
 
-  <portlet>
-    <window-id>exo:/web/FooterPortlet/footer</window-id>
+  <application>
+    <application-instance-id>exo:/web/FooterPortlet/footer</application-instance-id>
     <show-info-bar>false</show-info-bar>
-  </portlet>
+  </application>
 </portal-config>

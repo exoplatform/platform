@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.config.UserPortalConfig;
+import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.Component;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Portlet;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
@@ -67,14 +67,13 @@ public class PortalDataModelUtil {
     return model;
   }
 
-  static public Portlet toPortletModel(UIPortlet uiPortlet){
-    Portlet model = new Portlet();
+  static public Application toPortletModel(UIPortlet uiPortlet){
+    Application model = new Application();
     toPortalComponent(model , uiPortlet);
-    model.setWindowId(uiPortlet.getWindowId());
-    model.setPortletStyle(uiPortlet.getPortletStyle());
+    model.setApplicationInstanceId(uiPortlet.getWindowId());
     model.setShowInfoBar(uiPortlet.getShowInfoBar());
-    model.setShowWindowState(uiPortlet.getShowWindowState());
-    model.setShowPortletMode(uiPortlet.getShowPortletMode());    
+    model.setShowApplicationMode(uiPortlet.getShowWindowState());
+    model.setShowApplicationMode(uiPortlet.getShowPortletMode());    
     model.setTitle(uiPortlet.getTitle());
     model.setIcon(uiPortlet.getIcon());
     return model;
@@ -155,13 +154,12 @@ public class PortalDataModelUtil {
     }
   }
   
-  static public void toUIPortlet(UIPortlet uiPortlet, Portlet model) throws Exception {
+  static public void toUIPortlet(UIPortlet uiPortlet, Application model) throws Exception {
     toUIPortalComponent(uiPortlet, model);
-    uiPortlet.setWindowId(model.getWindowId());
-    uiPortlet.setPortletStyle(model.getPortletStyle());
+    uiPortlet.setWindowId(model.getApplicationInstanceId());
     uiPortlet.setShowInfoBar(model.getShowInfoBar());
-    uiPortlet.setShowWindowState(model.getShowWindowState());
-    uiPortlet.setShowPortletMode(model.getShowPortletMode());
+    uiPortlet.setShowWindowState(model.getShowApplicationState());
+    uiPortlet.setShowPortletMode(model.getShowApplicationMode());
     uiPortlet.setTitle(model.getTitle());
     uiPortlet.setIcon(model.getIcon());
     uiPortlet.setDescription(model.getDescription());
@@ -255,10 +253,14 @@ public class PortalDataModelUtil {
       UIPageBody uiPageBody = uiParent.createUIComponent(context, UIPageBody.class, model.getFactoryId(), null);
       toUIPageBody(uiPageBody, (PageBody)model);
       uiComponent = uiPageBody;
-    }else if(model instanceof Portlet){
-      UIPortlet uiPortlet = uiParent.createUIComponent(context, UIPortlet.class, model.getFactoryId(), null);
-      toUIPortlet(uiPortlet, (Portlet)model);
-      uiComponent = uiPortlet;
+    }else if(model instanceof Application){
+      Application application = (Application) model;
+      String factoryId = application.getFactoryId(); 
+      if(factoryId == null || factoryId.equals(Application.TYPE_PORTLET)){
+        UIPortlet uiPortlet = uiParent.createUIComponent(context, UIPortlet.class, model.getFactoryId(), null);
+        toUIPortlet(uiPortlet, application);
+        uiComponent = uiPortlet;
+      }
     } else if(model instanceof Container){
       UIContainer uiContainer = uiParent.createUIComponent(context, UIContainer.class, model.getFactoryId(), null);
       toUIContainer(uiContainer, (Container)model, recursive);

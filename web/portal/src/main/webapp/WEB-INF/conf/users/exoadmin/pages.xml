@@ -7,21 +7,21 @@
     <title>Web</title>
     <view-permission>*:/guest</view-permission>        
     <show-max-window>true</show-max-window>
-    <portlet>
-      <window-id>exoadmin:/content/ContentPortlet/contentportlet</window-id>
+    <application>
+      <application-instance-id>exoadmin:/content/ContentPortlet/contentportlet</application-instance-id>
       <show-info-bar>false</show-info-bar>       
-    </portlet>  
+    </application>  
 
-    <portlet>
-      <window-id>exoadmin:/web/SiteMapPortlet/sitemapportlet</window-id>
+    <application>
+      <application-instance-id>exoadmin:/web/SiteMapPortlet/sitemapportlet</application-instance-id>
       <show-info-bar>false</show-info-bar>
-    </portlet>  
+    </application>  
     
-    <portlet>
-      <window-id>exoadmin:/exoadmin/OrganizationPortlet/Organization</window-id>
+    <application>
+      <application-instance-id>exoadmin:/exoadmin/OrganizationPortlet/Organization</application-instance-id>
       <show-info-bar>true</show-info-bar>
-      <show-window-state>true</show-window-state>
-    </portlet>  
+      <show-application-state>true</show-application-state>
+    </application>  
   </page>
   
   <page>
@@ -31,21 +31,21 @@
     <title>Portal Administration</title>
     <view-permission>*:/guest</view-permission>        
     <show-max-window>true</show-max-window>
-    <portlet>
-      <window-id>exoadmin:/exoadmin/OrganizationPortlet/Organization</window-id>
+    <application>
+      <application-instance-id>exoadmin:/exoadmin/OrganizationPortlet/Organization</application-instance-id>
       <show-info-bar>true</show-info-bar>
-      <show-window-state>true</show-window-state>
-    </portlet>  
+      <show-application-state>true</show-application-state>
+    </application>  
 
-    <portlet>
-      <window-id>exoadmin:/exoadmin/AccountPortlet/Account</window-id>
+    <application>
+      <application-instance-id>exoadmin:/exoadmin/AccountPortlet/Account</application-instance-id>
       <show-info-bar>false</show-info-bar>
-    </portlet>  
+    </application>  
 
-    <portlet>
-      <window-id>exoadmin:/exoadmin/PortletRegistryPortlet/PortletRegistry</window-id>
+    <application>
+      <application-instance-id>exoadmin:/exoadmin/PortletRegistryPortlet/PortletRegistry</application-instance-id>
       <show-info-bar>false</show-info-bar>
-    </portlet>  
+    </application>  
 
   </page>  
   
@@ -54,10 +54,10 @@
     <name>ecmadmin</name>
     <title>ECMAdmin</title>
     <view-permission>*:/guest</view-permission>        
-    <portlet>
-      <window-id>exoadmin:/ecm/ECMAdminPortlet/ecmadmin</window-id>
+    <application>
+      <application-instance-id>exoadmin:/ecm/ECMAdminPortlet/ecmadmin</application-instance-id>
       <show-info-bar>true</show-info-bar>
-    </portlet>  
+    </application>  
   </page>  
 
   <page>
@@ -65,11 +65,11 @@
     <name>jcrexplorer</name>
     <title>JCRRExplorer</title>
     <view-permission>*:/guest</view-permission>        
-    <portlet>
-      <window-id>exoadmin:/ecm/JCRExplorerPortlet/jcrexplorer</window-id>
+    <application>
+      <application-instance-id>exoadmin:/ecm/JCRExplorerPortlet/jcrexplorer</application-instance-id>
       <show-info-bar>true</show-info-bar>
-      <show-window-state>true</show-window-state>
-    </portlet>  
+      <show-application-state>true</show-application-state>
+    </application>  
   </page>
   
   <page>
@@ -77,11 +77,11 @@
     <name>browsecontent</name>
     <title>BrowseContentPortlet</title>
     <view-permission>*:/guest</view-permission>        
-    <portlet>
-      <window-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</window-id>
+    <application>
+      <application-instance-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</application-instance-id>
       <show-info-bar>true</show-info-bar>
-      <show-window-state>true</show-window-state>
-    </portlet>  
+      <show-application-state>true</show-application-state>
+    </application>  
   </page>
 
   <page>
@@ -89,11 +89,11 @@
     <name>workflowcontroller</name>
     <title>Workflow Controller Portlet</title>
     <view-permission>*:/guest</view-permission>        
-    <portlet>
-      <window-id>exoadmin:/workflow/WorkflowControllerPortlet/workflowcontroller</window-id>
+    <application>
+      <application-instance-id>exoadmin:/workflow/WorkflowControllerPortlet/workflowcontroller</application-instance-id>
       <show-info-bar>true</show-info-bar>
-      <show-window-state>true</show-window-state>
-    </portlet>  
+      <show-application-state>true</show-application-state>
+    </application>  
   </page>
   
   <page>
@@ -101,11 +101,11 @@
     <name>workflowmonitoring</name>
     <title>Workflow Monitoring Portlet</title>
     <view-permission>*:/guest</view-permission>        
-    <portlet>
-      <window-id>exoadmin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</window-id>
+    <application>
+      <application-instance-id>exoadmin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</application-instance-id>
       <show-info-bar>true</show-info-bar>
-      <show-window-state>true</show-window-state>
-    </portlet>  
+      <show-application-state>true</show-application-state>
+    </application>  
   </page>
   
   <page>
@@ -113,11 +113,11 @@
     <name>forum</name>
     <title>Forum Portlet</title>
     <view-permission>*:/guest</view-permission>        
-    <portlet>
-      <window-id>exoadmin:/forum/ForumPortlet/forum</window-id>
+    <application>
+      <application-instance-id>exoadmin:/forum/ForumPortlet/forum</application-instance-id>
       <show-info-bar>true</show-info-bar>
-      <show-window-state>true</show-window-state>
-    </portlet>  
+      <show-application-state>true</show-application-state>
+    </application>  
   </page>
   
   <page>
@@ -125,11 +125,11 @@
     <name>mail</name>
     <title>Mail Portlet</title>
     <view-permission>*:/guest</view-permission>        
-    <portlet>
-      <window-id>exoadmin:/mail/MailPortlet/mail</window-id>
+    <application>
+      <application-instance-id>exoadmin:/mail/MailPortlet/mail</application-instance-id>
       <show-info-bar>true</show-info-bar>
-      <show-window-state>true</show-window-state>
-    </portlet>  
+      <show-application-state>true</show-application-state>
+    </application>  
   </page>
   
   <page>
@@ -140,30 +140,30 @@
     <view-permission>*:/guest</view-permission>        
     <show-max-window>true</show-max-window>
 
-    <portlet>
-      <window-id>exoadmin:/ecm/ECMAdminPortlet/ecmadmin</window-id>
+    <application>
+      <application-instance-id>exoadmin:/ecm/ECMAdminPortlet/ecmadmin</application-instance-id>
       <show-info-bar>true</show-info-bar>
-    </portlet>  
+    </application>  
 
-    <portlet>
-      <window-id>exoadmin:/ecm/JCRExplorerPortlet/jcrexplorer</window-id>
+    <application>
+      <application-instance-id>exoadmin:/ecm/JCRExplorerPortlet/jcrexplorer</application-instance-id>
       <show-info-bar>true</show-info-bar>
-    </portlet>    
+    </application>    
   
-    <portlet>
-      <window-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</window-id>
+    <application>
+      <application-instance-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</application-instance-id>
       <show-info-bar>true</show-info-bar>
-    </portlet>
+    </application>
         
-    <portlet>
-      <window-id>exoadmin:/workflow/WorkflowControllerPortlet/workflowcontroller</window-id>
+    <application>
+      <application-instance-id>exoadmin:/workflow/WorkflowControllerPortlet/workflowcontroller</application-instance-id>
       <show-info-bar>true</show-info-bar>
-    </portlet>    
+    </application>    
 
-    <portlet>
-      <window-id>exoadmin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</window-id>
+    <application>
+      <application-instance-id>exoadmin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</application-instance-id>
       <show-info-bar>true</show-info-bar>
-    </portlet>    
+    </application>    
   </page>
   
   <page>
@@ -174,14 +174,14 @@
     <view-permission>*:/guest</view-permission>        
     <show-max-window>true</show-max-window>
 
-    <portlet>
-      <window-id>exoadmin:/forum/ForumPortlet/forum</window-id>
+    <application>
+      <application-instance-id>exoadmin:/forum/ForumPortlet/forum</application-instance-id>
       <show-info-bar>true</show-info-bar>
-    </portlet>    
+    </application>    
 
-    <portlet>
-      <window-id>exoadmin:/mail/MailPortlet/mail</window-id>
+    <application>
+      <application-instance-id>exoadmin:/mail/MailPortlet/mail</application-instance-id>
       <show-info-bar>true</show-info-bar>
-    </portlet>
+    </application>
    </page>
 </page-set>

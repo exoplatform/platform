@@ -4,55 +4,62 @@
   <locale>en</locale>
   <view-permission>*:/guest</view-permission>
 
-  <portlet>
-    <window-id>exo:/content/DisplayStaticContent/banner</window-id>
+  <application>
+	  <factory-id>portlet</factory-id>
+    <application-instance-id>exo:/content/DisplayStaticContent/banner</application-instance-id>
     <show-info-bar>false</show-info-bar>
-  </portlet>
+  </application>
 
-  <portlet>
-    <window-id>exo:/nav/HorizontalMenu/toolbar</window-id>
-    <portlet-style>horizontal</portlet-style>
+  <application>
+	  <factory-id>portlet</factory-id>
+    <application-instance-id>exo:/nav/HorizontalMenu/toolbar</application-instance-id>
     <show-info-bar>false</show-info-bar>
-  </portlet>
+  </application>
 
   <container template="war:/groovy/portal/view/UIContainerTableColumn.gtmpl" height="100%">
     <container decorator="menu" width="200px">
-      <portlet>
-        <window-id>exo:/nav/Menu/menu</window-id>
-        <portlet-style>menu</portlet-style>
+      
+      <application>
+	      <factory-id>portlet</factory-id>
+        <application-instance-id>exo:/nav/Menu/menu</application-instance-id>
         <show-info-bar>false</show-info-bar>
-      </portlet>
-      <portlet>
+      </application>
+      
+      <application>
+      	<factory-id>portlet</factory-id>
         <title>Welcome</title>
-        <window-id>exo:/user/WelcomePortlet/welcome-user</window-id>
-        <portlet-style>welcome</portlet-style>
+        <application-instance-id>exo:/user/WelcomePortlet/welcome-user</application-instance-id>
         <show-info-bar>false</show-info-bar>
-      </portlet>
-      <portlet>
-        <window-id>exo:/content/DisplayStaticContent/download</window-id>
-        <portlet-style>exo-config-content</portlet-style>
+      </application>
+      
+      <application>
+	      <factory-id>portlet</factory-id>
+        <application-instance-id>exo:/content/DisplayStaticContent/download</application-instance-id>
         <show-info-bar>false</show-info-bar>
-      </portlet>
-      <portlet>
-        <window-id>exo:/nav/VisitedPagesPortlet/visited-page</window-id>
-        <portlet-style>visited-pages</portlet-style>
+      </application>
+      
+      <application>
+        <application-instance-id>exo:/nav/VisitedPagesPortlet/visited-page</application-instance-id>
         <show-info-bar>false</show-info-bar>
-      </portlet>
+      </application>
+      
     </container>
+    
     <container>
-      <portlet height="20px">
-        <window-id>exo:/nav/Breadcrumbs/breadcrumbs</window-id>
-        <portlet-style>breadcrumbs</portlet-style>
+      <application height="20px">
+	      <factory-id>portlet</factory-id>
+        <application-instance-id>exo:/nav/Breadcrumbs/breadcrumbs</application-instance-id>
         <show-info-bar>false</show-info-bar>
-      </portlet>
+      </application>
       <page-body>
         <page-node-reference>/</page-node-reference>
       </page-body>
     </container>
   </container>
 
-  <portlet>
-    <window-id>exo:/content/DisplayStaticContent/footer</window-id>
+  <application>
+	  <factory-id>portlet</factory-id>
+    <application-instance-id>exo:/content/DisplayStaticContent/footer</application-instance-id>
     <show-info-bar>false</show-info-bar>
-  </portlet>   
+  </application>   
 </portal-config>

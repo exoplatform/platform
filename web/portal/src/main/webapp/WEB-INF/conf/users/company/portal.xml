@@ -4,32 +4,32 @@
   <locale>en</locale>
   <view-permission>*:/guest</view-permission>
   
-  <portlet>
-    <window-id>company:/web/BannerPortlet/banner</window-id>
+  <application>
+    <application-instance-id>company:/web/BannerPortlet/banner</application-instance-id>
     <show-info-bar>false</show-info-bar>
-  </portlet>
+  </application>
 	
   <container template="war:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl">
-    <portlet>
-      <window-id>company:/web/NavigationPortlet/toolbar</window-id>
+    <application>
+      <application-instance-id>company:/web/NavigationPortlet/toolbar</application-instance-id>
 	    <show-info-bar>false</show-info-bar>
-	  </portlet>
-	  <portlet>
-      <window-id>company:/web/WelcomePortlet/welcome</window-id>
+	  </application>
+	  <application>
+      <application-instance-id>company:/web/WelcomePortlet/welcome</application-instance-id>
       <show-info-bar>false</show-info-bar>
-	  </portlet>
+	  </application>
   </container>
 	
-  <portlet>
-    <window-id>company:/web/BreadcumbsPortlet/breacumbs</window-id>
+  <application>
+    <application-instance-id>company:/web/BreadcumbsPortlet/breacumbs</application-instance-id>
     <show-info-bar>false</show-info-bar>
-  </portlet>
+  </application>
   
   <page-body> </page-body>
   
-  <portlet>
-    <window-id>company:/web/FooterPortlet/footer</window-id>
+  <application>
+    <application-instance-id>company:/web/FooterPortlet/footer</application-instance-id>
     <show-info-bar>false</show-info-bar>
-  </portlet>
+  </application>
   
 </portal-config>

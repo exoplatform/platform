@@ -11,43 +11,46 @@ package org.exoplatform.portal.config.model;
  * @version: $Id: Portlet.java,v 1.7 2004/09/30 01:00:05 tuan08 Exp $
  **/
 //TODO: Rename to Appication
-public class Portlet extends Component {
+public class Application extends Component {
   //Add field type,  type can be portlet ,  widget
   //enum the suport type
   
+  public final static String TYPE_PORTLET = "portlet";
+  public final static String TYPE_WIDGET = "widget";
+  
   private String title;
   //rename to applicationInstanceId
-  private String windowId ;
-  private String portletStyle ;
+  private String applicationInstanceId ;
   private String icon ; 
   private String description;
 
   private boolean  showInfoBar = true ;
   //rename to showApplicationState
-  private boolean  showWindowState = true ;
+  private boolean  showApplicationState = true ;
   //rename to showApplicationMode
-  private boolean  showPortletMode = true ;
+  private boolean  showApplicationMode = true ;
+  
+  public Application(){
+    factoryId = TYPE_PORTLET;
+  }
   
   public String getTitle() { return title ; }
   public void   setTitle(String s) { title = s ;}
   
-  public String getWindowId() { return windowId ; }
-  public void   setWindowId(String s) { windowId = s ;}
+  public String getApplicationInstanceId() { return applicationInstanceId ; }
+  public void   setApplicationInstanceId(String s) { applicationInstanceId = s ;}
   
   public String getDescription() {  return  description ; }
   public void   setDescription(String s) { description = s ;}
   
-  public String getPortletStyle() {  return  portletStyle ; }
-  public void   setPortletStyle(String s) { portletStyle = s ;}
-  
   public boolean getShowInfoBar() { return showInfoBar ; }
   public void    setShowInfoBar(Boolean b) { showInfoBar = b ; }
   
-  public boolean getShowWindowState() { return showWindowState ; }
-  public void    setShowWindowState(Boolean b) { showWindowState = b ; }
+  public boolean getShowApplicationState() { return showApplicationState ; }
+  public void    setShowApplicationState(Boolean b) { showApplicationState = b ; }
   
-  public boolean getShowPortletMode() { return showPortletMode ; }
-  public void    setShowPortletMode(Boolean b) { showPortletMode = b ; }
+  public boolean getShowApplicationMode() { return showApplicationMode ; }
+  public void    setShowApplicationMode(Boolean b) { showApplicationMode = b ; }
   
   public String getIcon() { return icon ; }
   public void setIcon(String s) { icon = s ; }

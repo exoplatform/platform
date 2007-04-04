@@ -7,7 +7,7 @@ package org.exoplatform.portal.component.customization;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortlet;
-import org.exoplatform.portal.config.model.Portlet;
+import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputIconSelector;
@@ -62,7 +62,7 @@ public class UIPortletForm extends UIFormTabPane {
   	uiSettingSet.
       addUIFormInput(new UIFormStringInput("id", "id", null).
                      addValidator(EmptyFieldValidator.class)).
-      addUIFormInput(new UIFormStringInput("windowId", "windowId", null).
+      addUIFormInput(new UIFormStringInput("applicationInstanceId", "applicationInstanceId", null).
                      addValidator(EmptyFieldValidator.class)).               
     	addUIFormInput(new UIFormStringInput("title", "title", null)).
   		addUIFormInput(new UIFormStringInput("width", "width", null).
@@ -70,8 +70,8 @@ public class UIPortletForm extends UIFormTabPane {
   		addUIFormInput(new UIFormStringInput("height", "height", null).
                      addValidator(NumberFormatValidator.class)).
   		addUIFormInput(new UIFormCheckBoxInput("showInfoBar", "showInfoBar", false)).
-  		addUIFormInput(new UIFormCheckBoxInput("showPortletMode", "showPortletMode", false)).
-    	addUIFormInput(new UIFormCheckBoxInput("showWindowState", "showWindowState", false)).
+  		addUIFormInput(new UIFormCheckBoxInput("showApplicationMode", "showApplicationMode", false)).
+    	addUIFormInput(new UIFormCheckBoxInput("showApplicationState", "showApplicationState", false)).
       addUIFormInput(new UIFormTextAreaInput("description", "description", null));
     addUIFormInput(uiSettingSet);    
     
@@ -104,9 +104,9 @@ public class UIPortletForm extends UIFormTabPane {
   
   public void setValues(UIPortlet uiPortlet) throws Exception {
   	uiPortlet_ = uiPortlet;
-    Portlet portlet = PortalDataModelUtil.toPortletModel(uiPortlet) ;
+    Application portlet = PortalDataModelUtil.toPortletModel(uiPortlet) ;
     getUIStringInput("id").setEditable(false);
-    getUIStringInput("windowId").setEditable(false);
+    getUIStringInput("applicationInstanceId").setEditable(false);
     invokeGetBindingBean(portlet) ;
   }
   
@@ -114,7 +114,7 @@ public class UIPortletForm extends UIFormTabPane {
     public void execute(Event<UIPortletForm> event) throws Exception {      
       UIPortletForm uiPortletForm = event.getSource() ;
       UIPortlet uiPortlet = uiPortletForm.getUIPortlet() ;
-      Portlet portlet = new Portlet() ;
+      Application portlet = new Application() ;
       UIFormInputIconSelector iconSelector = uiPortletForm.getChild(UIFormInputIconSelector.class);
       portlet.setIcon(iconSelector.getSelectedIcon());
       uiPortletForm.invokeSetBindingBean(portlet) ;

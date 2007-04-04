@@ -4,9 +4,7 @@
   <access-permission>*:/guest</access-permission>
   <edit-permission>owner:/user</edit-permission>
   <description> description for node navigation </description>
-  
   <page-nodes>
-  
    <node>
     <uri>home</uri>
     <name>home</name>
@@ -14,14 +12,12 @@
     <access-permission>*:/guest</access-permission>
     <page-reference>exo:home</page-reference>
     <description>/</description>
-    
     <node>
       <uri>home/products</uri>
       <name>products</name>
       <label>#{products}</label>
       <page-reference>exo:/home/products</page-reference>
       <description>Products Page</description>
-      
       <node>
         <uri>/home/products/architecture</uri>
         <name>architecture</name>
@@ -29,10 +25,7 @@
         <page-reference>exo:/home/products/architecture</page-reference>
         <description>architecture Page</description>
       </node>
-      
     </node>
-    
    </node> 
-   
   </page-nodes>
 </node-navigation>
