@@ -130,7 +130,7 @@ var DragDrop = {
     for(var i = 0; i < dropableTargets.length; i++) {
       var ele =  dropableTargets[i] ;
       
-      window.status = "TEST: " + DragDrop.isIn(mousexInPage, mouseyInPage, ele) ;
+//      window.status = "TEST: " + DragDrop.isIn(mousexInPage, mouseyInPage, ele) ;
       if(dragObject != ele && DragDrop.isIn(mousexInPage, mouseyInPage, ele)) {
         if(foundTarget == null) {
           foundTarget = ele ;
@@ -165,7 +165,7 @@ var DragDrop = {
     var componentBottom = componentTop + component.offsetHeight ;
     var isover = false ;
     
-    window.status = "BROWSER TYPE: " + eXo.core.Browser.getBrowserType();
+    //window.status = "BROWSER TYPE: " + eXo.core.Browser.getBrowserType();
     
     if(eXo.core.Browser.getBrowserType() == "ie") {
     	componentLeft = componentLeft / 2 ;

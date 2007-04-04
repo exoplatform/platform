@@ -10,7 +10,6 @@ PortalDragDrop.prototype.init = function(e) {
   var DragDrop = eXo.core.DragDrop ;
 
   DragDrop.initCallback = function (dndEvent) {
-  	window.status = "init DND!!!" ;
   	var PortalDragDrop = eXo.portal.PortalDragDrop ;
     this.origDragObjectStyle = new eXo.core.HashMap() ;
     var dragObject = dndEvent.dragObject ;
@@ -52,7 +51,6 @@ PortalDragDrop.prototype.init = function(e) {
   }
   
   DragDrop.dragCallback = function(dndEvent) {
-//  	window.status = "dndEvent: " + dndEvent ;
     var dragObject = dndEvent.dragObject ;
     /* Control Scroll */
     eXo.portal.PortalDragDrop.scrollOnDrag(dragObject, dndEvent.backupMouseEvent) ;
@@ -89,17 +87,15 @@ PortalDragDrop.prototype.init = function(e) {
         }
         
         dndEvent.foundTargetObject.listComponentInTarget = listComponent ;
-        
         /*Set properties for drag object */
         eXo.portal.PortalDragDrop.setDragObjectProperties(dragObject, childRowContainer, "row", dndEvent.backupMouseEvent) ;
         
         var insertPosition = eXo.portal.PortalDragDrop.findInsertPosition(listComponent, dragObject, "row") ;
         				        
-        if(dndEvent.foundTargetObject == dndEvent.lastFoundTargetObject &&
-           dndEvent.lastFoundTargetObject.foundIndex == insertPosition) {
-            return ;
-        }
-        
+//        if(dndEvent.foundTargetObject == dndEvent.lastFoundTargetObject &&
+//           dndEvent.lastFoundTargetObject.foundIndex == insertPosition) {
+//            return ;
+//        }
         dndEvent.foundTargetObject.foundIndex = insertPosition ;
         
         /*Undo preview */
@@ -110,8 +106,10 @@ PortalDragDrop.prototype.init = function(e) {
         
         /* Insert preview block */
         if(insertPosition >= 0) {
+        	window.status = "Insert Position: " + insertPosition ;
           rowContainer.insertBefore(eXo.portal.PortalDragDrop.createPreview("row"), listComponent[insertPosition]) ;
         } else {
+        	window.status = "Insert Position 1: " + insertPosition ;
           rowContainer.appendChild(eXo.portal.PortalDragDrop.createPreview("row")) ;
         }
 
@@ -163,7 +161,6 @@ PortalDragDrop.prototype.init = function(e) {
   } ;
 
   DragDrop.dropCallback = function(dndEvent) {
-  	window.status = "DROP CALL BACK" ;
   	this.origDragObjectStyle.setProperties(dndEvent.dragObject.style, false) ;
     if(dndEvent.foundTargetObject != null) {
       eXo.portal.PortalDragDrop.doDropCallback(dndEvent) ;
@@ -343,6 +340,7 @@ PortalDragDrop.prototype.createPreview = function(layoutType) {
   var components = dndEvent.foundTargetObject.listComponentInTarget ;
   
   previewBlock.className = "DragAndDropPreview" ;
+  previewBlock.id = "DragAndDropPreview" ;
   
   if((layoutType == "column") && (components.length > 0)) {
     var offsetWidthTR = components[0].parentNode.offsetWidth ;
@@ -366,7 +364,7 @@ PortalDragDrop.prototype.createPreview = function(layoutType) {
     
     eXo.portal.PortalDragDrop.widthComponentInTarget = widthComponent ;
   }
-
+	window.status = "PREVIEW BLOCK!!!" ;
   return previewBlock ;
 };
 
@@ -388,7 +386,7 @@ PortalDragDrop.prototype.undoPreview = function(dndEvent) {
 //  var uiComponent = new eXo.portal.UIPortalComponent(dndEvent.lastFoundTargetObject) ;
 //  var uiComponentLayout = uiComponent.getLayoutBlock() ;
 
-  var dropHere = DOMUtil.findFirstDescendantByClass(document.body, "div", "DragAndDropPreview") ;
+  var dropHere = document.getElementById("DragAndDropPreview") ;
   var dragObject = dndEvent.dragObject ;
 	
   if(dropHere != null) {
@@ -402,9 +400,7 @@ PortalDragDrop.prototype.undoPreview = function(dndEvent) {
       childTRContainer = DOMUtil.getChildrenByTagName(trContainer, "td") ;
       
       for(var i = 0; i < childTRContainer.length; i++) {
-//        childTRContainer[i].style.border = "solid 1px red" ;
         if(childTRContainer[i] == eXo.portal.PortalDragDrop.parentDragObject) {
-//          childTRContainer[i].style.border = "1px solid blue" ;
           childTRContainer[i].style.width = "0px" ;
         }
       }
