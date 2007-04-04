@@ -106,6 +106,9 @@
     <value name="edit-permission" field="editPermission" usage="optional"/>
     <value name="skin" field="skin" usage="optional"/>
     <value name="title" field="title" usage="optional"/>
+    <!--
+    <structure  name="portal-layout" using="container"/>
+    -->
     <collection field="children" ordered="false">
       <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
       <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
