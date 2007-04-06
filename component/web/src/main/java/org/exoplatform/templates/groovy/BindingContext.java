@@ -7,6 +7,9 @@ package org.exoplatform.templates.groovy;
 import java.io.Writer;
 import java.util.HashMap;
 
+import org.exoplatform.resolver.ApplicationResourceResolver;
+import org.exoplatform.resolver.ResourceResolver;
+
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen

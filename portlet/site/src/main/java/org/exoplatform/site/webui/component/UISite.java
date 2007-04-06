@@ -9,8 +9,8 @@ import java.io.File;
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 
-import org.exoplatform.templates.groovy.FileResourceResolver;
-import org.exoplatform.templates.groovy.ResourceResolver;
+import org.exoplatform.resolver.FileResourceResolver;
+import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.component.UIComponent;

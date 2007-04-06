@@ -1,7 +1,5 @@
 package org.exoplatform.portal.application;
 
-import java.io.InputStream;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -22,9 +20,9 @@ import org.exoplatform.portal.application.handler.PortalRequestHandler;
 import org.exoplatform.portal.application.handler.RequestHandler;
 import org.exoplatform.portal.application.handler.ServiceRequestHandler;
 import org.exoplatform.portal.application.handler.UploadRequestHandler;
+import org.exoplatform.resolver.ApplicationResourceResolver;
+import org.exoplatform.resolver.ServletResourceResolver;
 import org.exoplatform.services.resources.ResourceBundleService;
-import org.exoplatform.templates.groovy.ApplicationResourceResolver;
-import org.exoplatform.templates.groovy.ServletResourceResolver;
 import org.exoplatform.webui.application.WebuiApplication;
 
 public class PortalApplication extends WebuiApplication {
@@ -67,14 +65,6 @@ public class PortalApplication extends WebuiApplication {
   public String getApplicationId() { return applicationId_ ; }
   
   public String getApplicationName() {  return sconfig_.getServletName() ; }
-
-  public URL getResource(String url) throws Exception {
-    return sconfig_.getServletContext().getResource(url) ;
-  }
-
-  public InputStream getInputStream(String url) throws Exception {
-    return sconfig_.getServletContext().getResourceAsStream(url);
-  }
 
   public ResourceBundle getResourceBundle(Locale locale) throws Exception {
     ExoContainer  appContainer = getApplicationServiceContainer() ;

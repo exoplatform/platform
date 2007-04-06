@@ -7,7 +7,7 @@ package org.exoplatform.webui.component;
 import java.io.InputStream;
 
 import org.exoplatform.commons.utils.IOUtil;
-import org.exoplatform.templates.groovy.ResourceResolver;
+import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.lifecycle.Lifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;

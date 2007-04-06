@@ -1,9 +1,10 @@
-package org.exoplatform.templates.groovy;
+package org.exoplatform.resolver;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
+
 
 public class MockResourceResolver extends ResourceResolver {
   

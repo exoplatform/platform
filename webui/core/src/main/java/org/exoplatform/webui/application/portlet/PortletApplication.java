@@ -14,8 +14,8 @@ import javax.portlet.PortletContext;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.templates.groovy.ApplicationResourceResolver;
-import org.exoplatform.templates.groovy.PortletResourceResolver;
+import org.exoplatform.resolver.ApplicationResourceResolver;
+import org.exoplatform.resolver.PortletResourceResolver;
 import org.exoplatform.webui.application.WebuiApplication;
 /**
  * Author : Nhu Dinh Thuan

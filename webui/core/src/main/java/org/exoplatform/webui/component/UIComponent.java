@@ -7,7 +7,7 @@ package org.exoplatform.webui.component;
 import java.util.List;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.templates.groovy.ResourceResolver;
+import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.web.application.Parameter;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;

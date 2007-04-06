@@ -2,7 +2,7 @@
  * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.templates.groovy ;
+package org.exoplatform.resolver ;
 
 import java.io.File;
 import java.io.InputStream;
@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen

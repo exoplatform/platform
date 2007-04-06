@@ -5,13 +5,13 @@
 package org.exoplatform.templates.groovy;
 
 import groovy.lang.Writable;
-//import groovy.text.SimpleTemplateEngine;
 import groovy.text.Template;
 
 import java.io.InputStream;
 
 import org.exoplatform.commons.utils.IOUtil;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
 /**

@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.templates.groovy.ApplicationResourceResolver;
-import org.exoplatform.templates.groovy.MockResourceResolver;
+import org.exoplatform.resolver.ApplicationResourceResolver;
+import org.exoplatform.resolver.MockResourceResolver;
 import org.exoplatform.webui.application.WebuiApplication;
 
 public class MockApplication extends WebuiApplication {

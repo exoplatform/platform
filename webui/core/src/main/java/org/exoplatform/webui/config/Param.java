@@ -5,7 +5,7 @@ import groovy.lang.GroovyShell;
 
 import java.io.InputStream;
 
-import org.exoplatform.templates.groovy.ResourceResolver;
+import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.xml.object.XMLObject;
 

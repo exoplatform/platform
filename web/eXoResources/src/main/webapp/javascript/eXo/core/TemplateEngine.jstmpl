@@ -1,3 +1,9 @@
+<%
+  function blockcode(param) {
+    return 'call blockcode with param' + param;
+  }
+%>
+
 <%function myfunc(param) { %>
 <%  return 'call myfunc with param' + param; %>
 <%}%>
@@ -9,6 +15,7 @@
       <%=context.value%> , nested test <%=context.test.nested%>
     <%}%>
     <%= myfunc(context.value)%>
+    <%= blockcode(context.value)%>
     <%= eXo.core.TemplateEngine.merge('eXo/core/IncludeTemplate.jstmpl', context)%>
   </body>
 </html>

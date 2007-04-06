@@ -10,7 +10,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.templates.groovy.ApplicationResourceResolver;
+import org.exoplatform.resolver.ApplicationResourceResolver;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen

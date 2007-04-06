@@ -42,24 +42,36 @@ TemplateEngine.prototype.mergeScript = function(script, context) {
 TemplateEngine.prototype.compile = function(template) {
   //For IE ,  remove \r if  the developer use a text editor on window
   template = template.replace(/\r/g, "");
+  template = template.replace(/\t/g, "");
   template = template.replace(/\"/g, "\\\"");
-  //alert(template);
   var lines = template.split(/\n/g);
   var script = "var result = '' ;\n" ;
   script  += "var context = eXo.core.TemplateEngine.currentContext ;\n" ;
+  var inBlockCode = false ;
   for(var i = 0; i < lines.length; i++) {
     var line = lines[i] ;
-    if (line.match(/^[ ]*<%[^=]/)) {
-      //alert("code: " + line) ;
+    if(line.match(/^[ ]*<%[^=].*%>[ ]*$/)) {
+      //case:  "<% ..... code ........%>"
       line = line.replace(/<%/g, "");
       line = line.replace(/%>/g, "");
       script  += line + '\n';
+    } else if(line.match(/^[ ]*<%[ ]*$/)) {
+      //case:  "<%"
+      inBlockCode = true ;
+    } else if(line.match(/^[ ]*%>[ ]*$/)) {
+      //case:  "%>"
+      inBlockCode = false ;
     } else {
-      script  += 'result += "' ;
-      line = line.replace(/<%=/g, "\" + ");
-      line = line.replace(/%>/g, " + \"");
-      //alert(line) ;
-      script  += line  + '";\n';
+      if(inBlockCode == true) {
+        script  += line + '\n';
+      } else {
+        //case: "...text..........................."   OR
+        //case: "...text.....<%=variable%>......text...."        
+        script  += 'result += "' ;
+        line = line.replace(/<%=/g, "\" + ");
+        line = line.replace(/%>/g, " + \"");
+        script  += line  + '";\n';
+      }
     }
   }
   script  += 'eXo.core.TemplateEngine.currentResult = result ;' ;

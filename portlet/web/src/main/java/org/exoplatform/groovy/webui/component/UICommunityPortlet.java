@@ -25,7 +25,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
     lifecycle = UIApplicationLifecycle.class,
     template = "app:/groovy/community/template/UICommunityPortlet.gtmpl"
 )
-
 public class UICommunityPortlet extends UIPortletApplication {
     
   public UICommunityPortlet() throws Exception {

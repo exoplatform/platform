@@ -14,12 +14,13 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.resolver.ApplicationResourceResolver;
+import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.RenderInput;
 import org.exoplatform.services.portletcontainer.pci.RenderOutput;
-import org.exoplatform.templates.groovy.ResourceResolver;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
@@ -115,7 +116,7 @@ public class UIPortletLifecycle extends Lifecycle {
       context.getWriter().write(portletContent.toString()) ;
     } else {
       WebuiApplication app = (WebuiApplication)context.getApplication() ;
-      ResourceResolver resolver =  app.getResourceResolver() ;
+      ApplicationResourceResolver resolver =  app.getResourceResolver() ;
       WebuiBindingContext bcontext = 
         new WebuiBindingContext(resolver, context.getWriter(), uicomponent, context) ;    
       bcontext.put("uicomponent", uicomponent) ;

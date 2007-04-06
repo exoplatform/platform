@@ -12,6 +12,12 @@
     <script type="text/javascript">
      var context = {value: 'test  param', test: {nested: 'nested value'}} ;
      var template = 
+       "<%\n" +
+       "  function blockcode(param) { \n" +
+       "    return 'call blockcode with param' + param;\n" +
+       "  }\n" +
+       "%>\n" +
+
        "<%function myfunc(param) { %>\n" +
        "<%  return 'call myfunc with param' + param; %>\n" +
        "<%}%>\n" +
@@ -22,17 +28,16 @@
        "    <%  var mytest = 'test variable' ;%>\n" +
        "      this is a test <%=context.value%> html\n\r" +
        "      <%=context.value%> , nested test <%=context.test.nested%>\n" +
-        "      <%=mytest%>\n" +
+       "      <%=mytest%>\n" +
        "    <%}%>\n" +
        "    <%= myfunc(context.value)%>\n" +
+       "    <%= blockcode(context.value)%>\n" +
        "  </body>\n" +
        "</html>"
       var html = eXo.core.TemplateEngine.toHTML(template, context) ;
       alert(html) ;
       
-      html = eXo.core.TemplateEngine.merge("eXo/browser/TemplateEngine.jstmpl", context) ;
-      alert(html) ;
-      html = eXo.core.TemplateEngine.merge("eXo/browser/TemplateEngine.jstmpl", context) ;
+      html = eXo.core.TemplateEngine.merge("eXo/core/TemplateEngine.jstmpl", context) ;
       alert(html) ;
     </script>
   </body>

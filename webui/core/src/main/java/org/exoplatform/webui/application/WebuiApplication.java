@@ -40,19 +40,10 @@ abstract public class WebuiApplication extends Application {
     for(ApplicationLifecycle lifecycle :  lifecycleListeners) lifecycle.init(this) ;
   }
 
-  abstract public String getApplicationId() ;
-  
-  
   public ConfigurationManager  getConfigurationManager() { return configManager_ ;}  
   
   public StateManager  getStateManager() { return stateManager_ ;}  
   public void setStateManager(StateManager sm) { stateManager_ =  sm ; }
-  
-  
-  public void destroy() throws Exception {
-    for(ApplicationLifecycle lifecycle :  getApplicationLifecycle()) lifecycle.destroy(this) ;
-  }
-  
   
   abstract public String getApplicationInitParam(String name) ;
   

@@ -7,8 +7,9 @@ package org.exoplatform.webui.component.lifecycle;
 import groovy.text.Template;
 
 import org.exoplatform.container.ExoContainer;
+import org.exoplatform.resolver.ApplicationResourceResolver;
+import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.templates.groovy.GroovyTemplateService;
-import org.exoplatform.templates.groovy.ResourceResolver;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.event.Event;
@@ -72,18 +73,17 @@ public class Lifecycle {
     if(DEVELOPING) {
       WebuiRequestContext rootContext = (WebuiRequestContext)context.getParentAppRequestContext() ;
       if(rootContext == null)  rootContext = context ;
-      //System.out.println(template + " modified: " + file.lastModified() + ", access " + rootContext.getUIApplication().getLastAccessApplication());
       long lastAccess =  rootContext.getUIApplication().getLastAccessApplication() ;
       if(resolver.isModified(template, lastAccess)) {
-        //System.out.println("\nInvalidate the template: " + file.getAbsolutePath());
+        //System.out.println("\nInvalidate the template: " + template);
         service.invalidateTemplate(template, resolver) ;
       }
     }    
     
-    try{
+    try {
       Template groovyTemplate = service.getTemplate(template, resolver) ; 
       service.merge(groovyTemplate, bcontext) ;
-    }catch (Exception e) {
+    } catch (Exception e) {
       //for log file
       System.out.println("\n\n template : " + template);
       System.out.println(e.toString()+"\n\n");

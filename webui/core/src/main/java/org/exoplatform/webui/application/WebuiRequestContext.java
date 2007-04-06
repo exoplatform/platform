@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import org.exoplatform.templates.groovy.ApplicationResourceResolver;
-import org.exoplatform.templates.groovy.ResourceResolver;
+import org.exoplatform.resolver.ApplicationResourceResolver;
+import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.component.UIApplication;
