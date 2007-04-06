@@ -74,6 +74,10 @@
       .HasSubMenu {
       	background: url(../icons/16x16/DefaultSkin/BlackRightArrow.gif) no-repeat right center;
       }
+      
+      .SubLevel {
+      	visibility: hidden;
+      }
             
     </style>
     <title>UIPopupMenu</title>
@@ -95,7 +99,7 @@
 	          	<div class="MenuItemR">
 	          		<div class="MenuItem">
 			            <div class="LabelItem">MenuItem 1</div>
-			            <div class="MenuItemContainer" style="visibility: hidden;">
+			            <div class="MenuItemContainer SubLevel">
 			            	<div class="MenuItemL">
 	          					<div class="MenuItemR">
 					              <div class="MenuItem">Sub Item Menu 1.1</div>
@@ -115,7 +119,7 @@
 	          	<div class="MenuItemR">
 			          <div class="MenuItem">
 			            <div class="LabelItem">MenuItem 2</div>
-			            <div class="MenuItemContainer" style="visibility: hidden;">
+			            <div class="MenuItemContainer SubLevel">
 			            	<div class="MenuItemL">
 	          					<div class="MenuItemR">
 	          						<div class="MenuItem">Sub Item Menu 2.1</div>
@@ -125,7 +129,7 @@
 	          					<div class="MenuItemR">
 					              <div class="MenuItem">
 					                <div class="LabelItem">Sub Item Menu 2.2 something much longer</div>
-					                <div class="MenuItemContainer" style="visibility: hidden;">
+					                <div class="MenuItemContainer SubLevel">
 					                	<div class="MenuItemL">
 	          									<div class="MenuItemR">
 									              <div class="MenuItem">Sub Item Menu 2.2.1</div>
@@ -133,7 +137,21 @@
 	          								</div>  
 									          <div class="MenuItemL">
 	          									<div class="MenuItemR">    
-									              <div class="MenuItem">Sub Item Menu 2.2.2</div>
+									              <div class="MenuItem">
+										              <div class="LabelItem">Sub Item Menu 2.2.2</div>
+										              <div class="MenuItemContainer SubLevel">
+											            	<div class="MenuItemL">
+									          					<div class="MenuItemR">
+													              <div class="MenuItem">Sub Item Menu 2.2.2.1</div>
+													            </div>	            
+									          				</div>
+													          <div class="MenuItemL">
+									          					<div class="MenuItemR">
+													              <div class="MenuItem">Sub Item Menu 2.2.2.2</div>
+													            </div>	            
+									          				</div>
+											            </div>
+									              </div>
 							              	</div>	            
 	          								</div>
 							            </div>
@@ -167,7 +185,7 @@
 	          	<div class="MenuItemR">
 			          <div class="MenuItem Level1">
 			            <div class="LabelItem">MenuItem 5</div>
-			            <div class="MenuItemContainer Level 2" style="visibility: hidden;">
+			            <div class="MenuItemContainer SubLevel">
 			            	<div class="MenuItemL">
 	          					<div class="MenuItemR">
 					              <div class="MenuItem Level2.1">Sub Item Menu 5.1</div>
