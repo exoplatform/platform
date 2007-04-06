@@ -97,7 +97,7 @@
 	margin: auto;
 	padding: 3px 0px 0px 0px;
 	width: 185px; height: 206px;
-	background: url('VistaSkin/background/InfoImage185x203.png') no-repeat center;	
+	background: url('VistaSkin/background/InfoImage185x203.png') no-repeat center;
 }
 
 .UIWidgetContainer .eXoInfoWidgetImage .TopWidgetImage {
@@ -119,6 +119,7 @@
   float: right;
 	width: 57px; height: 21px;
 	background: url('VistaSkin/background/WidgetControl57x21.png') no-repeat center;
+	
 }
 
 .UIWidgetContainer .WidgetControl .CloseWidgetIcon {
