@@ -15,7 +15,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title>eXo Portal</title>
-    
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
     <link id="PortalSkin" rel="stylesheet" type="text/css" href="$portalSkin.CSSPath" />
     <link id="CoreSkin" rel="stylesheet" type="text/css" href="$coreSkin.CSSPath"/>
     

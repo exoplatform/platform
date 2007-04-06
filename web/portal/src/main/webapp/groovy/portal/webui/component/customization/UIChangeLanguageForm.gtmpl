@@ -1,0 +1,160 @@
+
+<%
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs') ;
+%>
+<div class="UIChangeLanguageForm">
+	<div class="UIFormTabPane">
+	  <div class="UITabPane">
+		<div class="LeftFormTitle">
+			<div class="RightFormTitle">
+				<div class="MiddleFormTitle"><span><%=_ctx.appRes("UIChangeLanguageForm.title.LanguageSetting")%></span></div>
+			</div>
+		</div>
+			<div class="TabPaneContent">
+	      <%String workingAreaCssClass="WorkingArea" ;%>
+		    <div class="WorkingArea">
+	
+	        <%uiform.begin()%>
+	        <input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.renderTabId">
+		    	<div class="HorizontalLayout">
+	          
+		        <div class="UITabContentContainer">
+	            <%
+	              for(formInput in uicomponent.getChildren()) { 
+	                String display = "none" ;
+	                if(formInput.isRendered()) display="block" ;
+	            %>
+	            <div class="UITabContent" id="UITabContent" style="display: $display;">
+	                
+								<div class="UIItemSelector">  
+								  <div class="RightColumnStyle">
+								      <%/*Begin ItemList*/%>
+											<div class="ItemListContainer">
+								      	<div class="LeftItemListTitle">
+								      		<div class="RightItemListTitle">
+										        <div class="ItemListTitle">
+										  	    	<div class="TitleIcon ItemListIcon"><span></span></div>
+										  	    	<div class="Title">Locals</div>
+										  	    	<div style="clear: left;"><span></span></div>
+										  	    </div>
+										  	   </div>
+										  	  </div>
+								        <div class="ItemList">
+								        <% /*for Item*/ %>
+													<div class="SelectedItem Item">
+						                <div class="LeftItem">
+						                  <div class="RightItem">  
+						                    <div class="ItemTitle">name 1</div>
+						                  </div>
+						                </div>
+					              	</div>
+					              <% /*end for*/ %>
+													<div class="Item">
+						                <div class="LeftItem">
+						                  <div class="RightItem">  
+						                    <div class="ItemTitle">name 2</div>
+						                  </div>
+						                </div>
+					              	</div>
+								
+								        </div>
+								      </div>
+								      <%/*End ItemList*/%>
+								            
+								      <%/*Begin ItemDetailList*/%>
+								      <div class="ItemDetailList">
+								      
+								        <div class="ItemDetailTitle">
+								          <div class="TitleIcon ViewListIcon"><span></span></div>
+								  	    	<div class="Title">Select a language</div>
+								  	    	<div style="clear: left;"><span></span></div>
+								        </div>
+								        
+								        <div class="ItemDetailContaier">
+								          <div class="ItemDetailContent">
+									        	<div class="NormalItem">
+									        	  <div class="Icon"><span></span></div>
+									        	  <a class="NodeLabel">Dansk</a>
+									        	  <div class="PercentLabel">0% Translated</div>
+									        	  <div style="clear: left;"><span></span></div>
+									        	</div>
+									        	<div class="NormalItem">
+									        	  <div class="Icon"><span></span></div>
+									        	  <a class="NodeLabel">Deutsch</a>
+									        	  <div class="PercentLabel">0% Translated </div>
+									        	  <div style="clear: left;"><span></span></div>
+									        	</div>
+									        	<div class="SelectedItem">
+									        	  <div class="Icon"><span></span></div>
+									        	  <a class="NodeLabel">English (Default)</a>
+									        	  <div class="PercentLabel">100%</div>
+									        	  <div style="clear: left;"><span></span></div>
+									        	</div>
+									        	<div class="NormalItem">
+									        	  <div class="Icon"><span></span></div>
+									        	  <a class="NodeLabel">Espanol </a>
+									        	  <div class="PercentLabel">0% Translated </div>
+									        	  <div style="clear: left;"><span></span></div>
+									        	</div>
+									        	<div class="NormalItem">
+									        	  <div class="Icon"><span></span></div>
+									        	  <a class="NodeLabel">Franch</a>
+									        	  <div class="PercentLabel">75% Translated </div>
+									        	  <div style="clear: left;"><span></span></div>
+									        	</div>
+									        	<div class="NormalItem">
+									        	  <div class="Icon"><span></span></div>
+									        	  <a class="NodeLabel" title="Vietnamese" langtitle="Tiếng Việt" lang="vi_VN">Vietnamese</a>
+									        	  <div class="PercentLabel">0% Translated </div>
+									        	  <div style="clear: left;"><span></span></div>
+									        	</div>
+									        	<div class="NormalItem">
+									        	  <div class="Icon"><span></span></div>
+									        	  <a class="NodeLabel"  title="Ukrainian" langtitle="Українська" lang="uk_UA">Ukrainian</a>
+									        	  <div class="PercentLabel">0% Translated </div>
+									        	  <div style="clear: left;"><span></span></div>
+									        	</div>
+									        </div>
+								        </div>
+								
+								      </div>  
+								      <%/*End ItemDetailList*/%>      
+								  </div>
+								</div>
+	                  
+	            </div>
+	            <%}%>
+	          </div>
+				    <div class="UIAction" style="padding: 5px 0px 3px 0px;">
+	            <div class="ActionContainer">
+	              <%for(action in uicomponent.getActions()) { %>
+			            <div class="ActionButton">
+			              <div class="LightBlueStyle">
+										  <div class="ButtonLeft">
+											  <div class="ButtonRight">
+											    <div class="ButtonMiddle">
+												    <% 
+												      String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
+												      String link = uicomponent.event(action) ;
+										        %>
+										        <a href="$link">$actionLabel</a>
+											    </div>
+										    </div>
+											</div>
+										</div>
+									</div>
+		            <%}%>
+	            </div>
+	 	        </div>
+	 	        
+	          <%uiform.end()%>
+			    </div>
+			  </div>
+			</div>  
+	  </div>  
+	  <%
+	    rcontext.getJavascriptManager().addOnLoadJavascript('eXo.webui.UIForm.onFixSize');  
+	  %>
+	</div>
+</div>
