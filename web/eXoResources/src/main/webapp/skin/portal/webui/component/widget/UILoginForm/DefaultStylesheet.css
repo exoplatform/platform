@@ -1,6 +1,5 @@
 .UILoginForm {
-  margin: auto;
-  padding: 55px 17px 12px 10px ;
+  padding: 30px 17px 25px 10px ;
 }
 
 /*##############################- LoginBox Style-################################*/
@@ -157,7 +156,16 @@
 
 .UIMaskWorkspace .UIForm .VerticalLayout .UIAction {
 	margin: 0px auto 0px auto;
-	padding: 10px 0px 10px 15px;
+	padding: 10px 0px 10px 40px;
+}
+
+.UIMaskWorkspace .UIForm .VerticalLayout .UIAction .ActionButton {
+  width: 80px;
+  margin-right: 50px;
+}
+
+.UILoginForm .UIAction .LightBlueStyle {
+	padding-top: 7px;
 }
 
 .UILoginForm .UIAction .ActionContainer .ActionButton {

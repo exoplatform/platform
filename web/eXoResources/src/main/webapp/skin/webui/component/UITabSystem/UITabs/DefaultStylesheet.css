@@ -73,9 +73,9 @@
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
   float: left;
-  width: 12px; height: 15px;
+  width: 5px; height: 5px;
   background: url('DefaultSkin/background/NormalNavIcon5x5.gif') no-repeat center;
-  margin: 5px 4px 0px 0px;
+  margin: 10px 4px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
@@ -114,9 +114,9 @@
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
   float: left;
-  width: 12px; height: 15px;
+  width: 5px; height: 5px;
   background: url('DefaultSkin/background/HighlightNavIcon5x5.gif') no-repeat center;
-  margin: 5px 4px 0px 0px;
+  margin: 10px 4px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
@@ -155,9 +155,9 @@
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
   float: left;
-  width: 12px; height: 15px;
+  width: 5px; height: 5px;
   background: url('DefaultSkin/background/SelectedNavIcon5x5.gif') no-repeat center;
-  margin: 5px 4px 0px 0px;
+  margin: 10px 4px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {

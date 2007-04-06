@@ -19,7 +19,7 @@
   def infos = uicomponent.getInfos();
   void printTab(List messages, String title, boolean isSelected) {
     String cssClass = "NormalTabStyle" ;
-    if(isSelected)  cssClass = "HighlightTabStyle" ;
+    if(isSelected)  cssClass = "SelectedTabStyle" ;
     String label = "Error";
   
     println "<div class=\"UITab\">";
@@ -90,14 +90,20 @@
 		          <div class="UIPopupMessages">	
 		          	          
 							  <div class="UIHorizontalTabs">
-							    <div class="TabsContainer">
-						      <%  
-						        boolean flag = true;
-						        if ( errors.size() > 0 ) printTab(errors, "Error", flag);
-						        if ( warnings.size() > 0 ) printTab(warnings, "Warning", flag);
-						        if ( infos.size() > 0 ) printTab(infos, "Info", flag);
-						      %>
-							    </div>
+							    <div class="LeftHorizontalTabs">
+							      <div class="RightHorizontalTabs">
+							        <div class="CenterHorizontalTabs">
+										    <div class="TabsContainer">
+									      <%  
+									        boolean flag = true;
+									        if ( errors.size() > 0 ) printTab(errors, "Error", flag);
+									        if ( warnings.size() > 0 ) printTab(warnings, "Warning", flag);
+									        if ( infos.size() > 0 ) printTab(infos, "Info", flag);
+									      %>
+										    </div>
+										  </div>
+									  </div>
+								  </div>
 							  </div>
 							  
 							  <div class="UITabContentContainer">

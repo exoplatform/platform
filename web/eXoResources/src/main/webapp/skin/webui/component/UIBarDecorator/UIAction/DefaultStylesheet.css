@@ -91,18 +91,22 @@
 }
 
 .UIAction .ActionContainer .ActionButton .SimpleStyle .ButtonLeft {
-  background: url('DefaultSkin/background/SignInBottonLeft9x22.gif') no-repeat left;
-  padding: 0px 0px 0px 9px;
+  background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left;
+  padding: 0px 0px 0px 10px;
 }
 
 .UIAction .ActionContainer .ActionButton .SimpleStyle .ButtonRight {
-  background: url('DefaultSkin/background/SignInBottonRight9x22.gif') no-repeat right;
-  padding: 0px 9px 0px 0px ;
+  background: url('DefaultSkin/background/RightSimpleButton10x21.gif') no-repeat right;
+  padding: 0px 10px 0px 0px ;
 }
 
 .UIAction .ActionContainer .ActionButton .SimpleStyle .ButtonMiddle {
-  height: 22px;	
-  line-height: 22px;
-	background: url('DefaultSkin/background/SignInBottonCenter1x22.gif') repeat-x;
+  height: 21px;	
+  line-height: 21px;
+	background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x;
 	text-align: center;	
+}
+
+.UIAction .ActionContainer .ActionButton .SimpleStyle a:hover {
+  color: #1273df;
 }
