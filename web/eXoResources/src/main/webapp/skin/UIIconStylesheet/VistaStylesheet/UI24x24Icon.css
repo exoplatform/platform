@@ -195,8 +195,9 @@
 }
 
 .LevelUpArrowIcon {
-  width: 24px ;  height: 24px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/BlueUpLevelArrow.gif') no-repeat ;
+  width: 33px ;  height: 24px ;
+  background: url('/eXoResources/icons/32x32/VistaSkin/BlueUpLevelArrow.png') no-repeat ;
+  
 }
 
 .BlueNavigation24x24Icon {
