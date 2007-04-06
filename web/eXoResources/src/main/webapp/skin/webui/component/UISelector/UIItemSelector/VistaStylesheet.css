@@ -52,14 +52,6 @@
   float: right;
 }
 
-.UIItemSelector .RightColumnStyle .ItemListContainer .ItemList {
-  background: white;
-  border: solid 1px #aeaeae;
-  overflow: auto;
-  height: 240px;
-  
-}
-
 .UIItemSelector .RightColumnStyle .ItemListContainer .ItemListBg {
   margin: auto; 
   height: 310px;
@@ -73,15 +65,14 @@
 }
 
 .UIItemSelector .ItemListContainer .ItemListTitle  {
-  height: 25px; line-height: 25px; vertical-align: middle;
-  text-align: center; 
-  background: url('/eXoResources/background/VistaSkin/ItemListTitleBG1x25.png') repeat-x;
+  height: 30px; line-height: 30px; vertical-align: middle; 
   font-size: 11px; font-weight: bold;
+  color: #5c5c5c;
 }
 
 .UIItemSelector .ItemListContainer .LeftItemListTitle  {
   background: url('/eXoResources/background/VistaSkin/LeftItemListTitle4x25.png') no-repeat left;
-  padding-left: 4px;
+  padding-left: 4px; border: 1px solid red;
 }
 
 .UIItemSelector .ItemListContainer .RightItemListTitle  {
@@ -104,39 +95,55 @@
   height: 230px;
 }
 
+.UIItemSelector .RightColumnStyle .TitleIcon {
+  float: left;
+  margin: 0px 5px 0px 5px;
+}
+
+.UIItemSelector .RightColumnStyle .ViewListIcon {
+	width: 29px; height: 23px;
+	background: url('VistaSkin/icons/ViewListIcon29x23.png') no-repeat;
+	margin-top: 3px;
+}
+
+.UIItemSelector .RightColumnStyle .ItemListIcon {
+	width: 26px; height: 19px;
+	background: url('VistaSkin/icons/ItemListIcon26x19.png') no-repeat;
+	margin-top: 3px;
+}
+
 /*###########################- Item Default -#############################*/
 .UIItemSelector .RightColumnStyle .ItemList .Item {
   margin: 10px 10px 4px 10px;
-  height: 30px;
+  height: 24px;
   cursor: pointer;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .LeftItem {
-  height: 30px;
-  background: url('VistaSkin/background/NormalItemL31x30.gif') no-repeat left;
-  padding-left: 31px;
+  height: 24px;
+  background: url('VistaSkin/background/LeftNormalItem26x24.png') no-repeat left;
+  padding-left: 26px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .RightItem {
-  height: 30px; line-height: 30px;
-  vertical-align: middle;
-  background: url('VistaSkin/background/NormalItemR2x30.gif') no-repeat right;
+  height: 24px;
+  background: url('VistaSkin/background/RightNormalItem2x24.png') no-repeat right;
   padding-right: 2px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .ItemTitle {
-  height: 30px; line-height: 30px; vertical-align: middle;
+  height: 24px; line-height: 24px; vertical-align: middle;
   color: #7c7c7c; font-size: 11px;
-  background: url('VistaSkin/background/NormalItemM1x30.gif') repeat-x;
+  background: url('VistaSkin/background/MiddleNormalItem1x24.png') repeat-x ;
   padding-left: 8px;
 }
 
-.UIItemSelector .RightColumnStyle .ItemListContainer .ItemList {
+.UIItemSelector .ItemListContainer .ItemList {
   border: 1px #b7b7b7 solid;
   font-weight: bold; color: #484d52;
   background: #ffffff url('VistaSkin/background/ProfileImage.jpg') no-repeat bottom center;
   padding-top: 6px;
-  height: 208px;
+  height: 240px;
 }
 
 /*###########################- End Item Default -##########################*/
@@ -144,43 +151,45 @@
 /*###########################- Item Selected -#############################*/
 
 .UIItemSelector .RightColumnStyle .ItemDetailList {
+  height: auto;
   margin-right: 225px;
-  padding: 16px 0px 10px 0px;
-  border: 1px #b7b7b7 solid;
+  padding: 1px ;
+}
+
+.UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
+  height: 240px;
+  background: white;
+  border: 1px #9f9f9f solid ;
 }
 
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailTitle{
-  height: 22px; line-height: 22px; vertical-align: middle;
+  height: 30px; line-height: 30px; vertical-align: middle;
   padding-left: 10px;
   font-size: 11px; font-weight: bold; color: #5c5c5c;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem {
   margin-top: 10px;
-  height: 30px;
+  height: 24px;
   cursor: pointer;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .LeftItem {
-  height: 30px;
-  background: url('VistaSkin/background/SelectedItemL31x30.gif') no-repeat left;
-  padding-left: 31px;
+  height: 24px;
+  background: url('VistaSkin/background/LeftSelectItem26x24.png') no-repeat left;
+  padding-left: 26px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .RightItem {
-  height: 30px; line-height: 30px;
-  vertical-align: middle;
-  background: url('VistaSkin/background/SelectedItemBG2x30.gif') repeat-x ;
-  padding-right: 2px;
-  border-right:1px solid #c5c5c5;
-
- 
+  height: 24px;
+  background: url('VistaSkin/background/RightSelectItem3x24.png') no-repeat right;
+  padding-right: 3px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .ItemTitle {
-  height: 30px; line-height: 30px; vertical-align: middle;
+	background: url('VistaSkin/background/MiddleSelectItem1x24.png') repeat-x ;
+  height: 24px; line-height: 24px; vertical-align: middle;
   color: black; 
-  background: none;
   padding-left: 8px;
 }
 
@@ -189,32 +198,27 @@
 /*###########################- Item Over -#################################*/
 .UIItemSelector .RightColumnStyle .ItemList .OverItem{
   margin: 10px 10px 4px 10px;
-  height: 30px;
+  height: 24px;
   cursor: pointer;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .LeftItem {
-  height: 30px;
-  background: url('VistaSkin/background/OverItemL31x30.gif') no-repeat;
-  padding-left: 31px;
+  height: 24px;
+  background: url('VistaSkin/background/LeftOverItem26x24.png') no-repeat;
+  padding-left: 26px;
 }
 
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .RightItem {
-  height: 30px; line-height: 30px;
-  vertical-align: middle;
-  background: url('VistaSkin/background/OverItemBG2x30.gif') repeat;
-  padding-right: 2px;
-  border:1px solid #c5c5c5;
-  border-top:none;
-  border-left:none;
-  border-bottom:none;
+  height: 24px;
+  background: url('VistaSkin/background/RightOverItem3x24.png') no-repeat right;
+  padding-right: 3px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .ItemTitle {
-  height: 30px; line-height: 30px; vertical-align: middle;
+	background: url('VistaSkin/background/MiddleOverItem1x24.png') repeat-x;
+  height: 24px; line-height: 24px; vertical-align: middle;
   color: black;
-  background: none;
   padding-left: 8px;
 }
 

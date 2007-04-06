@@ -54,11 +54,18 @@
 	font-size: 11px;
 	border-bottom: 1px #cdcdcd solid;
 	cursor: pointer ;
+  color: blue;
 }
 
 .UIItemList .ItemSelectorLabel {
   height: 22px; line-height: 22px;
   font-size: 11px;
+}
+
+.UIItemList .ItemSelectedLabel {
+  height: 22px; line-height: 22px;
+  font-size: 11px;
+  color: orange;
 }
 
 .UIItemList .ItemSelector a {

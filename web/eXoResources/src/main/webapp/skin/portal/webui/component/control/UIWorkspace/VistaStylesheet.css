@@ -116,8 +116,9 @@
 }
 
 .PreviewMode {
-	width: 159px ;	height: 37px ;
-	background: url("DefaultSkin/background/PreviewMode159x37.gif") no-repeat ;
+	width: 169px ;	height: 33px ;
+	background: url("VistaSkin/background/PreviewModeImage169x33.png") no-repeat ;
 	position: absolute ;
 	cursor: pointer ;
+	margin: 35px 0px 0px 0px;
 }

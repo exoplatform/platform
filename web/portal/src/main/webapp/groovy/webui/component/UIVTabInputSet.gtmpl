@@ -7,7 +7,7 @@
 	    <div class="OverflowContainer">
 	      <%//Begin Item List%>
 	      <div class="ItemListContainer">
-	      	<div class="LeftItemListTitle">
+	        <div class="LeftItemListTitle" >
       			<div class="RightItemListTitle">
 	        		<div class="ItemListTitle"><%= _ctx.appRes(uicomponent.getId() + ".title")%></div>
 		      	</div>
