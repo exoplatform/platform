@@ -7,7 +7,7 @@
 	  <div class="UITabPane">
 		<div class="LeftFormTitle">
 			<div class="RightFormTitle">
-				<div class="MiddleFormTitle"><span>Skin Setting</span></div>
+				<div class="MiddleFormTitle"><span><%=_ctx.appRes("UIChangeSkinForm.title.SkinSetting")%></span></div>
 			</div>
 		</div>
 			<div class="TabPaneContent">

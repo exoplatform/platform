@@ -18,7 +18,7 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/portal/webui/component/customization/UIChangeSkinForm.gtmpl",   
+    template = "system:/groovy/portal/webui/component/customization/UIChangeLanguageForm.gtmpl",   
     events = {
       @EventConfig(listeners = UIChangeLanguageForm.SaveActionListener.class),
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)

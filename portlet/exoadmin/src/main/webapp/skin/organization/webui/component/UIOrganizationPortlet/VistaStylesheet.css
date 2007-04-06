@@ -186,9 +186,6 @@
 .UIOrganizationPortlet .UIGroupManagement {
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs {
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
   background: url('./eXoResources/icons/16x16/VistaSkin/SmallGroup.gif') no-repeat;
   height: 16px; width: 16px;

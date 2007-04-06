@@ -6,10 +6,10 @@
 
 <div class="UIDropDownItemSelector">
 	<div class="ItemSelectorContainer">
-		<div class="ItemInfoBar" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
+		<div class="ItemInfoBar">
 		  <div class="LeftItemInfoBar">
 		  	<div class="RightItemInfoBar">
-		  		<div class="MiddleItemInfoBar">
+		  		<div class="MiddleItemInfoBar" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
 		  			<div class="Icon ComponentIcon"><span></span></div>
 		  			<div class="SelectedItemLabel">Item Name</div>
 		  			<div class="DropDownSelectIcon"><span></span></div>
@@ -19,7 +19,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="UIItemList" style="display: none;"> <% /*style="display: none;"*/ %>
+	<div class="UIItemList" style="display: none;">
 		<div class="ItemSelectorDecorator">
 			<div class="LTItemSelector">
 				<div class="TRItemSelector">
