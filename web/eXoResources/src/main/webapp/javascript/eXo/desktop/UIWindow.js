@@ -209,7 +209,8 @@ UIWindow.prototype.initDND = function(e) {
 		var uiDescToHide = new Array();
 	  DragDrop.initCallback = function (dndEvent) {
 	  	// A workaround to make the window go under the workspace panel during drag
-	  	uiApplication.style.overflow = "hidden";
+	  	if (eXo.core.Browser.getBrowserType() == "mozilla")
+	  		uiApplication.style.overflow = "hidden";
 	  	uiAppDescendants = eXo.core.DOMUtil.findDescendantsByTagName(uiApplication, "div");
 	  	for (var i=0; i<uiAppDescendants.length; i++) {
 	  		if (eXo.core.DOMUtil.getStyle(uiAppDescendants[i], "overflow") == "auto") {
@@ -244,7 +245,8 @@ UIWindow.prototype.initDND = function(e) {
 	
 	  DragDrop.dropCallback = function (dndEvent) {
 	  	// A workaround to make the window properly resizable after drop
-	  	uiApplication.style.overflow = "auto";
+	  	if (eXo.core.Browser.getBrowserType() == "mozilla")
+	  		uiApplication.style.overflow = "auto";
 	  	for (var i=0; i<uiDescToHide.length; i++) {
 	  		uiDescToHide[i].style.overflow = "auto";
 	  	}

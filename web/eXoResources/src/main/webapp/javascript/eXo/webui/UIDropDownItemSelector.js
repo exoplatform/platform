@@ -45,12 +45,7 @@ UIDropDownItemSelector.prototype.hideList = function(selector) {
 };
 
 UIDropDownItemSelector.prototype.mouseOverItem = function(e) {
-	var targ;
-	if (!e) var e = window.event;
-	if (e.target) targ = e.target;
-	else if (e.srcElement) targ = e.srcElement;
-	if (targ.nodeType == 3) // defeat Safari bug
-		targ = targ.parentNode;
+	var targ = eXo.core.DOMUtil.getEventSource(e);
 
 	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector") {
 		targ = targ.parentNode;
@@ -60,12 +55,7 @@ UIDropDownItemSelector.prototype.mouseOverItem = function(e) {
 };
 
 UIDropDownItemSelector.prototype.mouseOutItem = function(e) {
-	var targ;
-	if (!e) var e = window.event;
-	if (e.target) targ = e.target;
-	else if (e.srcElement) targ = e.srcElement;
-	if (targ.nodeType == 3) // defeat Safari bug
-		targ = targ.parentNode;
+	var targ = eXo.core.DOMUtil.getEventSource(e);
 	
 	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector")
 		targ = targ.parentNode;
@@ -74,12 +64,7 @@ UIDropDownItemSelector.prototype.mouseOutItem = function(e) {
 
 UIDropDownItemSelector.prototype.clickItem = function(e) {
 	var DOMUtil = eXo.core.DOMUtil;
-	var targ;
-	if (!e) var e = window.event;
-	if (e.target) targ = e.target;
-	else if (e.srcElement) targ = e.srcElement;
-	if (targ.nodeType == 3) // defeat Safari bug
-		targ = targ.parentNode;
+	var targ = DOMUtil.getEventSource(e);
 	
 	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector")
 		targ = targ.parentNode;

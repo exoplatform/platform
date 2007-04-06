@@ -42,29 +42,47 @@
       .MenuItemContainer {
         border: solid 1px green ;
         padding: 2px 3px ;
-        width: 200px ;
+        /* !important : not considered by IE */
+        width: auto !important;
+        /* *property : considered by IE only */
+        *width: 0px;
+        z-index: 1;
+        position: absolute;
       }
       
-      .MenuItemContainer .MenuItem {
-        border: solid 1px yellow ;
+      .MenuItemL {
+      	border: solid 1px yellow ;
         background: #a4cbef ;
         margin: 2px 0px ;
         height: 20px ;
         cursor: pointer ;
+        white-space: nowrap;
+        
+        padding-left: 20px;
+        background: url(../icons/16x16/DefaultSkin/Portal.gif) #a4cbef no-repeat left center;
       }
       
       .MenuItemContainer .OnMouseOver {
       	border: solid 1px red ;
-        background: blue ;
+        background-color: blue ;
+      }
+      
+      .MenuItemR {
+      	padding-right: 20px;
+      }
+      
+      .HasSubMenu {
+      	background: url(../icons/16x16/DefaultSkin/BlackRightArrow.gif) no-repeat right center;
       }
             
     </style>
+    <title>UIPopupMenu</title>
   </head>
   
   <body>
     <div class="Root">
       <div class="ControlWorkspace">
-        
+        <span> </span>
       </div>
       
       <div class="WorkingWorkspace" id="WorkingWorkspace">
@@ -73,55 +91,102 @@
         
         <div class="UIPopupMenu" id="UIPopupMenu">
 	        <div class="MenuItemContainer">
-	          <div class="MenuItem">
-	            <div class="LabelItem">MenuItem 1</div>
-	            <div class="MenuItemContainer" style="display: none">
-	              <div class="MenuItem">
-	                Sub Item Menu 1.1
-	              </div>
-	              <div class="MenuItem">
-	                Sub Item Menu 1.2
-	              </div>
-	            </div>
+	          <div class="MenuItemL">
+	          	<div class="MenuItemR">
+	          		<div class="MenuItem">
+			            <div class="LabelItem">MenuItem 1</div>
+			            <div class="MenuItemContainer" style="visibility: hidden;">
+			            	<div class="MenuItemL">
+	          					<div class="MenuItemR">
+					              <div class="MenuItem">Sub Item Menu 1.1</div>
+					             </div>
+			          		</div>
+				            <div class="MenuItemL">
+          						<div class="MenuItemR">
+					              <div class="MenuItem">Sub Item Menu 1.2</div>
+				              </div>
+			          		</div>
+			            </div>
+			          </div>
+			        </div>	            
 	          </div>
 	          
-	          <div class="MenuItem">
-	            <div class="LabelItem">MenuItem 2</div>
-	            <div class="MenuItemContainer" style="display: none">
-	              <div class="MenuItem">
-	                Sub Item Menu 2.1
-	              </div>
-	              <div class="MenuItem">
-	                Sub Item Menu 2.2
-	              </div>
-	            </div>
-	          </div>
-	         
-	          <div class="MenuItem">
-	            <div class="LabelItem">
-	            	<div class="Test3">MenuItem 3</div>
-	            </div>
+	          <div class="MenuItemL">
+	          	<div class="MenuItemR">
+			          <div class="MenuItem">
+			            <div class="LabelItem">MenuItem 2</div>
+			            <div class="MenuItemContainer" style="visibility: hidden;">
+			            	<div class="MenuItemL">
+	          					<div class="MenuItemR">
+	          						<div class="MenuItem">Sub Item Menu 2.1</div>
+	          					</div>
+					          </div>
+	          				<div class="MenuItemL">
+	          					<div class="MenuItemR">
+					              <div class="MenuItem">
+					                <div class="LabelItem">Sub Item Menu 2.2 something much longer</div>
+					                <div class="MenuItemContainer" style="visibility: hidden;">
+					                	<div class="MenuItemL">
+	          									<div class="MenuItemR">
+									              <div class="MenuItem">Sub Item Menu 2.2.1</div>
+									            </div>	            
+	          								</div>  
+									          <div class="MenuItemL">
+	          									<div class="MenuItemR">    
+									              <div class="MenuItem">Sub Item Menu 2.2.2</div>
+							              	</div>	            
+	          								</div>
+							            </div>
+					              </div>
+					            </div>
+			            	</div>	            
+	          			</div>
+			          </div>
+	         		</div>	            
 	          </div>
 	          
-	          <div class="MenuItem">
-	            <div class="LabelItem">MenuItem 4</div>
+	          <div class="MenuItemL">
+	          	<div class="MenuItemR">
+			          <div class="MenuItem">
+			            <div class="LabelItem">
+			            	<div class="Test3">MenuItem 3</div>
+			            </div>
+			          </div>
+	          	</div>	            
 	          </div>
 	          
-	          <div class="MenuItem Level1">
-	            <div class="LabelItem">MenuItem 5</div>
-	            <div class="MenuItemContainer Level 2" style="display: none">
-	              <div class="MenuItem Level2.1">
-	                Sub Item Menu 5.1
-	              </div>
-	              <div class="MenuItem Level2.2">
-	                Sub Item Menu 5.2
-	              </div>
-	            </div>
+	          <div class="MenuItemL">
+	          	<div class="MenuItemR">
+			          <div class="MenuItem">
+			            <div class="LabelItem">MenuItem 4</div>
+			          </div>
+	          	</div>	            
+	          </div>
+	          
+	          <div class="MenuItemL">
+	          	<div class="MenuItemR">
+			          <div class="MenuItem Level1">
+			            <div class="LabelItem">MenuItem 5</div>
+			            <div class="MenuItemContainer Level 2" style="visibility: hidden;">
+			            	<div class="MenuItemL">
+	          					<div class="MenuItemR">
+					              <div class="MenuItem Level2.1">Sub Item Menu 5.1</div>
+					            </div>	            
+	          				</div>
+					          <div class="MenuItemL">
+	          					<div class="MenuItemR">
+					              <div class="MenuItem Level2.2">Sub Item Menu 5.2</div>
+					            </div>	            
+	          				</div>
+			            </div>
+			          </div>
+			        </div>	            
 	          </div>
 	        </div>
 	      </div>
       </div>
     </div>
+    
     <script type="text/javascript">
       var uiPopupMenu = document.getElementById("UIPopupMenu") ;
       var container = document.getElementById("WorkingWorkspace") ;

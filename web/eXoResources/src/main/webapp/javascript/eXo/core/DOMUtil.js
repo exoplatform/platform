@@ -223,5 +223,16 @@ DOMUtil.prototype.getStyle = function(element, style) {
 	}
 };
 
+DOMUtil.prototype.getEventSource = function(evt) {
+	var targ;
+	if (!evt) var evt = window.event;
+	if (evt.target) targ = evt.target;
+	else if (evt.srcElement) targ = evt.srcElement;
+	if (targ.nodeType == 3) // defeat Safari bug
+		targ = targ.parentNode;
+	
+	return targ;
+};
+
 /****************************************************************************/
 eXo.core.DOMUtil = new DOMUtil() ;
