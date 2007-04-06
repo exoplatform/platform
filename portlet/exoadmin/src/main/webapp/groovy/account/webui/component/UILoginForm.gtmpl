@@ -13,7 +13,9 @@
 	    </div>
     </div>
     <div>
-      <%String link = uicomponent.url("Login") ;%>
+      <%String link = uicomponent.url("Login") ;
+      System.out.println("\n\n\n--------------------->>>portlet/exoadmin/UILoginForm: " + uicomponent);
+      %>
       <a class="ButtonLogin" href="$link"><span></span></a>
     </div>
     <div style="clear: left"><span></span></div>

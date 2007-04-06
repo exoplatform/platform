@@ -217,17 +217,30 @@ public class UIPageBrowser extends UISearch {
   
   static public class AddNewActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
-      UIPageBrowser uiPageBrowser = event.getSource();
-      UIPageForm uiPageForm =  Util.showComponentOnWorking(uiPageBrowser, UIPageForm.class);
-      uiPageForm.setBackUIComponent(uiPageBrowser);
+//      UIPageBrowser uiPageBrowser = event.getSource();
+//      UIPageForm uiPageForm =  Util.showComponentOnWorking(uiPageBrowser, UIPageForm.class);
+//      uiPageForm.setBackUIComponent(uiPageBrowser);
+//      UIPermissionSelector uiPermissionSelector = uiPageForm.getChild(UIPermissionSelector.class);    
+//      //TODO:  Look  like  this code  keep adding new  permission for ever
+//      uiPermissionSelector.createPermission("ViewPermission", null);
+//      uiPermissionSelector.createPermission("EditPermission", null);
+//      
+//      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+//      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
+//      
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
       UIPermissionSelector uiPermissionSelector = uiPageForm.getChild(UIPermissionSelector.class);    
-      //TODO:  Look  like  this code  keep adding new  permission for ever
       uiPermissionSelector.createPermission("ViewPermission", null);
       uiPermissionSelector.createPermission("EditPermission", null);
+      uiMaskWS.setUIComponent(uiPageForm);
+      uiMaskWS.setShow(true);
       
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      Util.updateUIApplication(event);  
     }
   }
  

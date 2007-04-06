@@ -22,6 +22,7 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -75,8 +76,8 @@ public class UILoginForm extends UIForm {
   static public class SigninActionListener  extends EventListener<UILoginForm> {
     
     public void execute(Event<UILoginForm> event) throws Exception {
+      System.out.println("\n\n---->>>UILoginForm.java - Event: SignInActionListener");
       UILoginForm uiForm = event.getSource();
-      System.out.println("\n\n\n\nSign in ##############################################");
       String username = uiForm.getUIStringInput("username").getValue();
       String password = uiForm.getUIStringInput("password").getValue();
       boolean remember = uiForm.<UIFormCheckBoxInput >getUIInput("remember").isChecked();
@@ -122,15 +123,21 @@ public class UILoginForm extends UIForm {
     public void execute(Event<UILoginForm> event) throws Exception {
       System.out.println("\n\n\n\n^^^^^^^^^^^^^^##############################################");
       UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);   
+      UIComponent uicom = event.getSource().getParent();
+      UIComponent superParen = uicom.getParent();
+      UIAccountPortlet accountPortlet = event.getSource().getAncestorOfType(UIAccountPortlet.class);//uiApp.findFirstComponentOfType(UIAccountPortlet.class);
+      System.out.println("\n>>>>>>>>>>>AccountPortlet: " + superParen);
+      UIAccountForm accountForm = uiApp.findFirstComponentOfType(UIAccountForm.class);
+      System.out.println("\n>>>>>>>>>>>AccountForm: " + accountForm);
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
       
-      UIAccountPortlet uiAccountPortlet = uiMaskWS.createUIComponent(UIAccountPortlet.class, null, null);    
-      uiMaskWS.setUIComponent(uiAccountPortlet);
-      uiMaskWS.setWindowSize(640, 400);
-      uiMaskWS.setShow(true);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event);  
+//      UIAccountPortlet uiAccountPortlet = uiMaskWS.createUIComponent(UIAccountPortlet.class, null, null);    
+//      uiMaskWS.setUIComponent(uiAccountPortlet);
+//      uiMaskWS.setWindowSize(640, 400);
+//      uiMaskWS.setShow(true);
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+//      Util.updateUIApplication(event);  
   
       // TODO BUG! exception in phase 'parsing' in source unit 'Script1.groovy' null
       // Ko hieu cach su dung Param nhu ben duoi thi co gi sai.

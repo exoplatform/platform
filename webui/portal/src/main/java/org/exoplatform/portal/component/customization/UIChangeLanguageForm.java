@@ -20,51 +20,50 @@ import org.exoplatform.webui.event.Event.Phase;
     lifecycle = UIFormLifecycle.class,
     template = "system:/groovy/portal/webui/component/customization/UIChangeSkinForm.gtmpl",   
     events = {
-      @EventConfig(listeners = UIChangeSkinForm.SaveActionListener.class),
+      @EventConfig(listeners = UIChangeLanguageForm.SaveActionListener.class),
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
     }
 )
-public class UIChangeSkinForm extends UIFormTabPane{
+public class UIChangeLanguageForm extends UIFormTabPane{
   
   @SuppressWarnings("unchecked")
-  public UIChangeSkinForm() throws Exception  { 
-    super("UIChangeSkinForm");
+  public UIChangeLanguageForm() throws Exception  { 
+    super("UIChangeLanguageForm");
 
-    SelectItemCategory skinVista = new SelectItemCategory("Vista", false);
-    List<SelectItemOption> vistaList = new  ArrayList<SelectItemOption>();
-    vistaList.add(new SelectItemOption("Vista", "vista", "Vista"));
+    SelectItemCategory skinVista = new SelectItemCategory("English", false);
+    List<SelectItemOption> english = new  ArrayList<SelectItemOption>();
+    english.add(new SelectItemOption("English", "English", "English"));
+    skinVista.setSelectItemOptions(english);
     
-    skinVista.setSelectItemOptions(vistaList);
     
+    SelectItemCategory skinMac = new SelectItemCategory("VietNamese", false);
+    List<SelectItemOption> vietnamese = new  ArrayList<SelectItemOption>();
+    vietnamese.add(new SelectItemOption("VietNamese", "VietNamese", "Vietnamese"));
+    skinMac.setSelectItemOptions(vietnamese);
     
-    SelectItemCategory skinMac = new SelectItemCategory("Mac", false);
-    List<SelectItemOption> macList = new  ArrayList<SelectItemOption>();
-    macList.add(new SelectItemOption("Mac", "mac", "Mac"));
-    skinMac.setSelectItemOptions(macList);
-    
-    SelectItemCategory skinDefault = new SelectItemCategory("Default", false);
+    SelectItemCategory french = new SelectItemCategory("French", false);
     List<SelectItemOption> defaultList = new  ArrayList<SelectItemOption>();
-    defaultList.add(new SelectItemOption("Default", "default", "Default"));
-    skinDefault.setSelectItemOptions(defaultList);
-    skinDefault.setSelected(true);
+    defaultList.add(new SelectItemOption("French", "French", "French"));
+    french.setSelectItemOptions(defaultList);
+    french.setSelected(true);
     
     List<SelectItemCategory> itemCategories = new ArrayList<SelectItemCategory>();
-    itemCategories.add(skinDefault);
+    itemCategories.add(french);
     itemCategories.add(skinMac);
     itemCategories.add(skinVista);
     
-    UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Skin", "  ");
+    UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Language", "  ");
     uiTemplate.setItemCategories(itemCategories );
     uiTemplate.setRendered(true);
 //    uiTemplate.setValue(null);
     addChild(uiTemplate);
   }
   
-  static public class SaveActionListener  extends EventListener<UIChangeSkinForm> {
-    public void execute(Event<UIChangeSkinForm> event) throws Exception {
+  static public class SaveActionListener  extends EventListener<UIChangeLanguageForm> {
+    public void execute(Event<UIChangeLanguageForm> event) throws Exception {
       System.out.println("\n=======> save ne`\n");
 //      String skin  = event.getRequestContext().getRequestParameter(OBJECTID);     
-      UIChangeSkinForm uicomp = event.getSource() ;      
+      UIChangeLanguageForm uicomp = event.getSource() ;      
       List skinList = uicomp.getChildren();
       Iterator skinIterator = skinList.iterator();
       while (skinIterator.hasNext()) {      

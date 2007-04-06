@@ -107,6 +107,7 @@ public class UIPageEditBar extends UIToolbar {
       UIPageEditBar uiEditBar = event.getSource();
       uiEditBar.showUIPage();
       UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
+//      uiPageForm.removeChild(UIPageTemplateOptions.class);
       uiPageForm.setValues(uiEditBar.getUIPage());
       uiMaskWS.setUIComponent(uiPageForm);
       uiMaskWS.setShow(true);

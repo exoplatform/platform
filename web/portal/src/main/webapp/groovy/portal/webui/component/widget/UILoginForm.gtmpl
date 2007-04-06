@@ -40,7 +40,9 @@
 			          					<div class="ButtonRight">
 			          						<div class="ButtonMiddle">			          						 
 			          							<a href="<%=uicomponent.url("Signin");%>">
-			          								<%=_ctx.appRes("UILoginForm.label.Signin")%>
+			          								<%=_ctx.appRes("UILoginForm.label.Signin");
+			          							
+			          								%>
 			          						  </a>
 			          						</div>
 			          					</div>
@@ -57,7 +59,6 @@
 		          	<div class="SignUpBackground">
 		          		<div style="float: left ; margin-left: 10px">
 	          				<%=_ctx.appRes("UILoginForm.label.NotMember")%>
-	          				<% System.out.println("\n\n\n\n On groovy##############################################"); %>
 	          			</div>
 	          			<a href="<%=uicomponent.url("SignUp");%>">
 										<%=_ctx.appRes("UILoginForm.label.ForAccount")%>

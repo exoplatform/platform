@@ -4,6 +4,9 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.organization.UserProfileHandler;
@@ -12,7 +15,9 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormInputSet;
+import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
+import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 
 /**
@@ -46,7 +51,16 @@ public class UIUserProfileInputSet extends UIFormInputSet {
   }
   
   private void addInput(UIFormInputSet set, String[] keys) {
+    
     for(String key : keys) {
+      if(key.equalsIgnoreCase("user.gender")){
+        List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
+        ls.add(new SelectItemOption<String>("Male", "male")) ;
+        ls.add(new SelectItemOption<String>("Female", "female")) ;;
+        UIFormSelectBox genderSelectBox = new UIFormSelectBox(key, key, ls);
+        set.addUIFormInput(genderSelectBox);  
+        continue;
+      }
       set.addUIFormInput( new UIFormStringInput(key, null, null)) ;
     }
   }  
