@@ -72,15 +72,18 @@ PortalDragDrop.prototype.init = function(e) {
       
       if(uiComponentLayout.className == "LAYOUT-CONTAINER") uiComponentLayout.style.height = "auto" ;
       
-      if(eXo.portal.PortalDragDrop.backupLastFoundTarget) {
-      	var lastFoundUIComponent = new eXo.portal.UIPortalComponent(eXo.portal.PortalDragDrop.backupLastFoundTarget);
-      	
-      	var lastFoundComponentLayout = lastFoundUIComponent.getLayoutBlock();
-	      if((lastFoundComponentLayout.className == "LAYOUT-CONTAINER") && (lastFoundComponentLayout.offsetHeight < 30)) {
-	      	lastFoundComponentLayout.style.height = "60px" ;
+      try {
+	      if(eXo.portal.PortalDragDrop.backupLastFoundTarget) {
+	      	var lastFoundUIComponent = new eXo.portal.UIPortalComponent(eXo.portal.PortalDragDrop.backupLastFoundTarget);
+	      	
+	      	var lastFoundComponentLayout = lastFoundUIComponent.getLayoutBlock();
+		      if((lastFoundComponentLayout.className == "LAYOUT-CONTAINER") && (lastFoundComponentLayout.offsetHeight < 30)) {
+		      	lastFoundComponentLayout.style.height = "60px" ;
+		      }
 	      }
+      } catch(err) {
+      	//window.status = err.toString() ;
       }
-//      var lastFoundUIComponent = new eXo.portal.UIPortalComponent(dndEvent.lastFoundTargetObject);
       
       
       
