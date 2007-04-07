@@ -98,6 +98,11 @@ UIPortal.prototype.switchViewModeToLayoutMode = function(uicomponent, swapConten
   try {
 	  viewBlock.style.display = "none" ;
   	layoutBlock.style.display = "block" ;
+  	
+  	if((layoutBlock.className == "LAYOUT-CONTAINER") && (layoutBlock.offsetHeight < 30)) {
+  		var uiRowContainer = eXo.core.DOMUtil.findFirstDescendantByClass(layoutBlock, "div", "UIRowContainer");
+  		if(uiRowContainer.innerHTML == "") layoutBlock.style.height = "60px" ;
+  	}
   } catch (err) {
   	//alert(uicomponent.getId() + ":" + err.toString()) ; //Debug
   }
@@ -277,7 +282,7 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
   for(var i = 0; i < portlet.length; i++) {
     this.switchViewModeToLayoutMode(portlet[i], false) ;
     this.showUIComponentControl(portlet[i], this.component == 'UIPortlet') ;
-  }
+  }  
 } ;
 
 UIPortal.prototype.findUIComponentOf = function(element) {

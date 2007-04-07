@@ -68,6 +68,24 @@ PortalDragDrop.prototype.init = function(e) {
         uiComponentLayout = foundUIComponent.getLayoutBlock() ;
       }
       
+      /*Set Height is auto for the empty container layout*/
+      
+      if(uiComponentLayout.className == "LAYOUT-CONTAINER") uiComponentLayout.style.height = "auto" ;
+      
+      if(eXo.portal.PortalDragDrop.backupLastFoundTarget) {
+      	var lastFoundUIComponent = new eXo.portal.UIPortalComponent(eXo.portal.PortalDragDrop.backupLastFoundTarget);
+      	
+      	var lastFoundComponentLayout = lastFoundUIComponent.getLayoutBlock();
+	      if((lastFoundComponentLayout.className == "LAYOUT-CONTAINER") && (lastFoundComponentLayout.offsetHeight < 30)) {
+	      	lastFoundComponentLayout.style.height = "60px" ;
+	      }
+      }
+//      var lastFoundUIComponent = new eXo.portal.UIPortalComponent(dndEvent.lastFoundTargetObject);
+      
+      
+      
+      /*################################################################################*/
+      
       dndEvent.foundTargetObject.uiComponentLayoutType = uiComponentLayout ;
       
       var componentIdElement = DOMUtil.getChildrenByTagName(uiComponentLayout, "div")[0] ;
@@ -106,10 +124,8 @@ PortalDragDrop.prototype.init = function(e) {
         
         /* Insert preview block */
         if(insertPosition >= 0) {
-        	window.status = "Insert Position: " + insertPosition ;
           rowContainer.insertBefore(eXo.portal.PortalDragDrop.createPreview("row"), listComponent[insertPosition]) ;
         } else {
-        	window.status = "Insert Position 1: " + insertPosition ;
           rowContainer.appendChild(eXo.portal.PortalDragDrop.createPreview("row")) ;
         }
 
