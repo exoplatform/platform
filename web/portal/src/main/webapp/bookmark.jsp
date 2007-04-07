@@ -29,10 +29,12 @@
 
 
 <HTML>
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
-<TITLE>Bookmarks</TITLE>
-<H1>Bookmarks</H1>
-<BODY width="100%">
+ <HEAd>
+  <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+ </HEAd>
+  <TITLE>Bookmarks</TITLE>
+  <BODY width="100%">
+  <H1>Bookmarks</H1>
   <table width="100%" border="1">
     <tr>
       <th width="20%">Public Link</th>
