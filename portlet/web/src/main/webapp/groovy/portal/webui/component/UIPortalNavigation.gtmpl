@@ -3,9 +3,9 @@
   
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
-   
-  String mouseOver = "eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, true)" ;
-  String mouseOut = "eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, false)" ;
+  // Check page loaded complete and [UIHorizontalTabs] object exist before call [changeTabNavigationStyle(...)] function.
+  String mouseOver = "if (document.body != null && eXo.webui.UIHorizontalTabs != null) eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, true)" ;
+  String mouseOut = "if (document.body != null && eXo.webui.UIHorizontalTabs != null) eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, false)" ;
   String itemMouseOver = "eXo.webui.UIHorizontalTabs.itemOver(this, true)" ;
   String itemMouseOut = "eXo.webui.UIHorizontalTabs.itemOver(this, false)" ;
 
