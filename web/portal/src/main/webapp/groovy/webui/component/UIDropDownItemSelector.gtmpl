@@ -1,17 +1,38 @@
 <%
+	import org.exoplatform.webui.component.model.SelectItemOption;
+	import org.exoplatform.web.application.JavascriptManager;
+	
+	
   def rcontext = _ctx.getRequestContext() ;
-	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIDropDownItemSelector') ;
-	rcontext.getJavascriptManager().addJavascript('eXo.webui.UIDropDownItemSelector.init()');
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.importJavascript('eXo.webui.UIDropDownItemSelector') ;
+	jsmanager.addJavascript('eXo.webui.UIDropDownItemSelector.init()');
+	String selected = uicomponent.getSelected();
+	ArrayList options = uicomponent.getOptions();
+	String action = uicomponent.getOnChange();
+	String form = "asd";
+	boolean onServer = false;
+	int maxShow = uicomponent.getMaxShow();
+	int size = uicomponent.getSize();
+	maxShow = size + 1;
 %>
 
 <div class="UIDropDownItemSelector">
 	<div class="ItemSelectorContainer">
-		<div class="ItemInfoBar">
+	  <% if( uicomponent.isEnable()){%>
+	  	<div class="ItemInfoBar" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
+		<% } else { %>
+	  	<div class="ItemInfoBarDisable" >
+		<% } %>
 		  <div class="LeftItemInfoBar">
 		  	<div class="RightItemInfoBar">
 		  		<div class="MiddleItemInfoBar" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
 		  			<div class="Icon ComponentIcon"><span></span></div>
-		  			<div class="SelectedItemLabel">Item Name</div>
+		  			<% String title = selected;
+		  			   if(selected == null) {
+		  			     title = uicomponent.getTitle();
+		  			   } %>
+		  			<div class="SelectedItemLabel"><%=title%></div>
 		  			<div class="DropDownSelectIcon"><span></span></div>
 		  			<div style="clear: left"><span></span></div>
 				  </div>
@@ -19,7 +40,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="UIItemList" style="display: none;">
+	
+	<div class="UIItemList" style="display: none;"> <% /*style="display: none;"*/ %>
 		<div class="ItemSelectorDecorator">
 			<div class="LTItemSelector">
 				<div class="TRItemSelector">
@@ -28,21 +50,36 @@
 			</div>
 			<div class="MLItemSelector">
 				<div class="MRItemSelector">
-					<div class="ItemSelector">
-						<div class="Icon"><span></span></div>
-            <a class="ItemSelectorLabel">Selector Item One</a>
-            <div style="clear: left"><span></span></div>
-					</div>
-					<div class="ItemSelector">
-						<div class="Icon"><span></span></div>
-            <a class="ItemSelectorLabel">Selector Item Two</a>
-            <div style="clear: left"><span></span></div>
-					</div>
-					<div class="ItemSelector"> 
-						<div class="Icon"><span></span></div>
-            <a class="ItemSelectorLabel">Selector Item Three</a>
-            <div style="clear: left"><span></span></div>
-					</div>
+				  <%  if(maxShow < size) { %>
+				    <div class="ItemSelector">
+							<div class="Icon"><span></span></div>
+	            <div class="ItemSelectorLabel" >up</div>
+	            <div style="clear: left"><span></span></div>
+						</div>
+	      	<% }%>
+				  <% for(option in options) {
+				    String label = option.getLabel();
+				    
+				    jsmanager.addJavascript("eXo.env.server.label = '" + label + "';" + 
+			                              "eXo.env.server.onChange = '" + action + "';" +
+			                              "eXo.env.server.onServer = '" + onServer + "';" +
+			                              "eXo.env.server.form = '" + form + "';");
+				  %>
+				    
+						<div class="ItemSelector">
+							<div class="Icon"><span></span></div>
+	            <div class="ItemSelectorLabel" id="$label" title="$action"><%=label%></div>
+	            <div style="clear: left"><span></span></div>
+						</div>
+					<% } %>
+					<% 
+			    if(maxShow < size) { %>
+				    <div class="ItemSelector">
+							<div class="Icon"><span></span></div>
+	            <div class="ItemSelectorLabel" >down</div>
+	            <div style="clear: left"><span></span></div>
+						</div>
+			    <% }%>					
 				</div>
 			</div>
 			<div class="BLItemSelector">

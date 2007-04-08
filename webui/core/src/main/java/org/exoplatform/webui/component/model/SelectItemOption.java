@@ -38,6 +38,10 @@ public class SelectItemOption <T extends Object> {
     this(label, value, "", null);
   }
   
+  public SelectItemOption(T value) {
+    this(value.toString(), value, "", null);
+  }
+  
   public  String getLabel() {  return label_ ;}
   public void setLabel(String s) { label_ = s ; }
   

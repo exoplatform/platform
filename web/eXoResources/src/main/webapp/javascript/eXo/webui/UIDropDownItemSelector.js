@@ -74,10 +74,14 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 	for (var i = 0; i < previousSelected.length; i++) {
 		 previousSelected[i].className = previousSelected[i].oldClassName = "ItemSelector";
 	}
-	var itemLabel = DOMUtil.findFirstDescendantByClass(targ, "a", "ItemSelectorLabel");
+	var itemLabel = DOMUtil.findFirstDescendantByClass(targ, "div", "ItemSelectorLabel");
 	selectedItemLabel.innerHTML = itemLabel.innerHTML;
 	targ.className = targ.oldClassName = "OverItemSelector";
 	eXo.webui.UIDropDownItemSelector.hideList(parentSelector);
+  var params = [
+  	{name: "lable", value : itemLabel.id}
+  ] ;
+	ajaxGet(eXo.env.server.createPortalURL("UIPortal", itemLabel.title, true, params)) ;
 };
 
 UIDropDownItemSelector.prototype.hideLists = function() {

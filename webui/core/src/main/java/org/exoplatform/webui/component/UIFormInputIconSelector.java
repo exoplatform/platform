@@ -59,8 +59,18 @@ public class UIFormInputIconSelector extends UIFormInputBase<String> {
   public UIFormInputIconSelector(String name, String bindingField) throws Exception {
     super(name, bindingField, String.class);
     setComponentConfig(UIFormInputIconSelector.class, null) ;
+    UIDropDownItemSelector dropIconSet = addChild(UIDropDownItemSelector.class, null, null);
     this.setValues(paramDefault) ;
     selectType = "page" ;
+    dropIconSet.setTitle("Select Icon Set");
+  }
+  
+  private List<SelectItemOption<String>> getDropOptions() {
+    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
+    for(String s: optionSets){
+      options.add(new SelectItemOption<String>(s));
+    }
+    return options;
   }
   
   public void setType(String type) { selectType = type; }  
@@ -85,6 +95,7 @@ public class UIFormInputIconSelector extends UIFormInputBase<String> {
         }
       }
       optionSets.add(param.getName()) ;
+      getChild(UIDropDownItemSelector.class).setOptions(getDropOptions());
     }
   }
 

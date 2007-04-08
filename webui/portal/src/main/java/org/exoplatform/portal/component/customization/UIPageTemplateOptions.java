@@ -5,10 +5,13 @@
 package org.exoplatform.portal.component.customization;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIDropDownItemSelector;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
@@ -49,6 +52,16 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
     SelectItemOption itemOption = category.getSelectedItemOption();
     if(itemOption == null) return ;
     selectedItemOption_ = itemOption;
+    
+    List<SelectItemOption<String>> itemOptions = new ArrayList<SelectItemOption<String>>();
+    
+    for(SelectItemCategory itemCategory: categories_){
+      itemOptions.add(new SelectItemOption(itemCategory.getName()));
+    }
+    UIDropDownItemSelector dropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
+    dropDownItemSelector.setOptions(itemOptions);
+    dropDownItemSelector.setTitle("Select Page Layout");
+    dropDownItemSelector.setSelected(0);
   }
   
   public void setSelectOptionItem(String value) {

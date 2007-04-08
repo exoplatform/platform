@@ -7,7 +7,13 @@
   	
  	<div class="CenterLeftWidgets">
  		<div class="CenterRightWidgets">
- 		  <% uicomponent.renderChildren(); %>			
+ 		  <% 
+ 		    if(uicomponent.hasChildren() == true){
+ 		      uicomponent.renderChildren(); 
+ 		    } else {
+ 		      System.out.println("\n\nRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n\n");
+ 		    }
+ 		  %>			
   		<div class="EditIcon"><span></span></div>
   		<div style="clear: both"><span></span></div>
 

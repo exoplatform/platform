@@ -16,7 +16,7 @@ import org.exoplatform.webui.event.Event;
  *          tuan08@users.sourceforge.net
  * Jun 6, 2006
  */
-abstract public class UIFormInputBase<T> extends UIComponent implements UIFormInput<T> {
+abstract public class UIFormInputBase<T> extends UIContainer implements UIFormInput<T> {
   
   final static public boolean  ENABLE = true, DISABLE = false;
   

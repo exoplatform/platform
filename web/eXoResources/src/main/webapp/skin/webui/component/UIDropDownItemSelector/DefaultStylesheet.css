@@ -27,6 +27,30 @@
 	line-height: 19px;
 	font-size: 11px; font-weight: bold;
 	margin-left: 8px;
+	overflow: hieen
+}
+
+.UIDropDownItemSelector .ItemInfoBarDisable {
+	background: gray;
+	padding-left: 8px;
+	border-left: 1px solid #bdbcbc;
+	border-right: 1px solid #929292;
+	border-bottom: 1px solid #929292;
+	cursor: pointer;
+}
+.ComponentIcon {}
+
+.UIDropDownItemSelector .ItemInfoBarDisable .Icon {
+	float: left;
+	height: 19px; width: 20px;
+}
+
+.UIDropDownItemSelector .ItemInfoBarDisable .SelectedItemLabel {
+	float: left;
+	line-height: 19px;
+	font-size: 11px; font-weight: bold;
+	margin-left: 8px;
+	overflow: hieen
 }
 
 .UIDropDownItemSelector .DropDownSelectIcon {

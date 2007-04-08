@@ -1,6 +1,7 @@
 <%
-  import  org.exoplatform.webui.component.UIForm; 
+  import org.exoplatform.webui.component.UIForm; 
   import org.exoplatform.web.application.JavascriptManager;
+  import org.exoplatform.webui.component.UIDropDownItemSelector;
  
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -34,58 +35,12 @@
 	    <input type="hidden" name="${uicomponent.name}" value ="$selectedIcon"/>
 			<%/*Begin Item List*/%>
 			<div class="ItemListContainer AncestorPopupCategory">
-			  <div style="height:21px; margin-bottom: 2px;" onclick="$showPopupCategory" title="Click to select a category">
-          UIDropDownItemSelector
-        </div>
-	      <div class="UIPopupCategory" style="display: none">
-	        <div class="PopupCategoryDecorator">
-	          <div class="PopupCategoryTL">
-	            <div class="PopupCategoryTR">
-	              <div class="PopupCategoryTC"><span></span></div>
-	            </div>
-	          </div>	          
-	          <div class="PopupCategoryML">
-	            <div class="PopupCategoryMR">
-	              <div class="PopupCategoryMC">
-	                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIFormInputIconSelector.label.Icon16x16")%></a>
-	                  <div style="clear: left"><span></span></div>
-	                </div>
-	                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIFormInputIconSelector.label.Icon24x24")%></a>
-	                </div>
-	                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIFormInputIconSelector.label.Icon32x32")%></a>
-	                  <div style="clear: left"><span></span></div>
-	                </div>
-	                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIFormInputIconSelector.label.Icon48x48")%></a>
-	                  <div style="clear: left"><span></span></div>
-	                </div>
-	                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIFormInputIconSelector.label.Icon64x64")%></a>
-	                  <div style="clear: left"><span></span></div>
-	                </div>
-	                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIFormInputIconSelector.label.Icon72x72")%></a>
-	                  <div style="clear: left"><span></span></div>
-	                </div>
-	              </div>
-	            </div>
-	          </div>	          
-	          <div class="PopupCategoryBL">
-	            <div class="PopupCategoryBR">
-	              <div class="PopupCategoryBC"><span></span></div>
-	            </div> 
-	          </div>	          
-	        </div>
-	      </div>
+			  <% 
+			  uicomponent.renderChild(UIDropDownItemSelector.class);
+			  %>
+        
+    
+	      
 		    <div class="ItemList">
  			    <div class="ItemListBg">
 			      <div class="ItemListBgIcon">

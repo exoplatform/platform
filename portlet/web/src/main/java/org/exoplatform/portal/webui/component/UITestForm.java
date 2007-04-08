@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.exoplatform.portal.component.customization.UIAddPortlet;
+import org.exoplatform.portal.component.customization.UIAddApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormDateTimeInput;
@@ -32,13 +32,13 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/portal/webui/component/customization/UIAddApplication.gtmpl",
-    events = {
-      @EventConfig(listeners = UITestForm.SaveActionListener.class),
-      @EventConfig(listeners = UITestForm.ResetActionListener.class),
-      @EventConfig(listeners = UITestForm.CancelActionListener.class),
-      @EventConfig(listeners = UITestForm.OnchangeActionListener.class)
-    }
+    template =  "system:/groovy/webui/component/UIFormWithTitle.gtmpl"
+//    events = {
+//      @EventConfig(listeners = UITestForm.SaveActionListener.class),
+//      @EventConfig(listeners = UITestForm.ResetActionListener.class),
+//      @EventConfig(listeners = UITestForm.CancelActionListener.class),
+//      @EventConfig(listeners = UITestForm.OnchangeActionListener.class)
+//    }
 )
 public class UITestForm  extends UIForm { 
 
@@ -52,8 +52,7 @@ public class UITestForm  extends UIForm {
 
 
   public UITestForm() throws Exception {  
-    System.out.println("\n\n\n__________=============\n+++++++++++++++++++++++++++\n\n");
-    addChild(UIAddPortlet.class, null, null).setRendered(true);
+    addChild(UIAddApplication.class, null, null).setRendered(true);
 //    addChild(UIAddJSApplication.class, null, null).setRendered(false);
 //    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
 //    ls.add(new SelectItemOption<String>("SQL", "sql")) ;

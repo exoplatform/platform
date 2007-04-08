@@ -39,7 +39,7 @@ public class UIWizardPageSelectLayoutForm extends UIFormTabPane {
     super.setWithRenderTab(false);
     
     UIPageTemplateOptions uiTemplateConfig = createUIComponent(UIPageTemplateOptions.class,"PageTemplateOption", null);    
-    addUIComponentInput(uiTemplateConfig) ;   
+    addUIComponentInput(uiTemplateConfig) ;  
   }
 
 }

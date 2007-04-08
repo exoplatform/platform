@@ -50,10 +50,10 @@
       			    </div>
           			<div style="clear: both"><span></span></div>
           		</div>
-              	<div class="ApplicationDescription">eXo Browser</div>
-              </div>
+          	  <div class="ApplicationDescription">eXo Browser</div>
+            </div>
              <% /*End for*/ %> 	
-              <div class="Application">
+            <div class="Application">
           		<div class="TitleBarApplication">
           			<div class="IconLayout ApplicationItemIcon"><span></span></div>
           			<div class="ApplicationLabel">eXo Mail</div>

@@ -1,5 +1,7 @@
-<%  import  org.exoplatform.webui.component.UIForm; %>
-<% 
+<%  
+  import  org.exoplatform.webui.component.UIForm; 
+  import org.exoplatform.webui.component.UIDropDownItemSelector; 
+
 	def rcontext = _ctx.getRequestContext() ;
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory') ;
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIItemSelector') ;
@@ -16,58 +18,10 @@
 	    <input type="hidden" name="<%=uicomponent.getName();%>" value="">
 	    <%/*Begin ItemList*/ %>
 	    <div class="ItemListContainer">
-	      <div >
-          <div class="ItemListTitle" style="border: 1px red solid; height: 21px; margin-bottom: 2px;">
-	  	    	<div class="Title" style="font-size: 11px; font-weight:normal;">UIDropDownItemSelector</div>
-	  	    	<div class="Button ArrowS1Down16x16Icon" onclick="$showPopupCategory" style="float:left;"><span></span></div>
-	  	    	<div style="clear: left;"><span></span></div>
-  	      </div>
-	      </div>
-	      <div class="UIPopupCategory" style="display: none;">
-	        <div class="PopupCategoryDecorator">	        
-	          <div class="PopupCategoryTL">
-	            <div class="PopupCategoryTR">
-	              <div class="PopupCategoryTC"><span></span></div>
-	            </div>
-	          </div>	          
-	          <div class="PopupCategoryML">
-	            <div class="PopupCategoryMR">
-	              <div class="PopupCategoryMC">
-	                <div class="CategoryItem" onclick="$selectCategory">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.DefaultPage")%></a>
-	                  <div style="clear: left"><span></span></div>
-	                </div>
-	                <div class="CategoryItem" onclick="$selectCategory">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.ColumnPage")%></a>
-	                </div>
-	                <div class="CategoryItem" onclick="$selectCategory">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.TabPage")%></a>
-	                  <div style="clear: left"><span></span></div>
-	                </div>
-	                <div class="CategoryItem" onclick="$selectCategory">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.MixinPage")%></a>
-	                  <div style="clear: left"><span></span></div>
-	                </div>
-	                <div class="CategoryItem" onclick="$selectCategory">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.RowsPage")%></a>
-	                  <div style="clear: left"><span></span></div>
-	                </div>
-	              </div>
-	            </div>
-	          </div>	          
-	          <div class="PopupCategoryBL">
-	            <div class="PopupCategoryBR">
-	              <div class="PopupCategoryBC"><span></span></div>
-	            </div>
-	          </div>	          
-	        </div>
-	      </div>
 		    <% 
+	        uicomponent.renderChild(UIDropDownItemSelector.class)  ;
+	      %>
+s		    <% 
 		      for(category in categories){
             templates = category.getSelectItemOptions();
             String display = "none";  
