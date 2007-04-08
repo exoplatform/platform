@@ -18,6 +18,10 @@
   line-height: 26px;
 }
 
+.UIRightClickPopupMenu .RightClickCustomItem {
+	display: none;
+}
+	
 .UIRightClickPopupMenu .SelectedMenuItem {
   clear: both;
   cursor: pointer;

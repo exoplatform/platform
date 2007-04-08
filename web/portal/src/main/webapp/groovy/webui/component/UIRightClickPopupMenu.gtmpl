@@ -6,7 +6,7 @@
 %>
 <div class="UIRightClickPopupMenu" id="$uicomponent.id">
   <div class="UIRightPopupMenuContainer">
-	  <% for(action in uicomponent.getActions()) {%>
+	  <%for(action in uicomponent.getActions()) {%>
 		  <div exo:attr="$action" class="MenuItem" onclick="return eXo.webui.UIRightClickPopupMenu.prepareObjectId(this);">
 	      <div class="ItemIcon ${action}16x16Icon"><span></span></div>
 		    <a class="ItemLabel" href="<%=uicomponent.event(action,"_objectid_");%>">
@@ -14,5 +14,6 @@
 		    </a>
 		  </div>
 	  <%}%>
+	  <div class="RightClickCustomItem"></div>
 	</div>
 </div>
