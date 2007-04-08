@@ -25,8 +25,10 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIContainer;
+import org.exoplatform.webui.component.UIDropDownItemSelector;
 import org.exoplatform.webui.component.UIRightClickPopupMenu;
 import org.exoplatform.webui.component.UITree;
+import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -79,7 +81,9 @@ public class UIPageNodeSelector extends UIContainer {
 
 	public UIPageNodeSelector() throws Exception {    
     addChild(UIBreadcumbs.class, null, null).setRendered(false);  
-    
+    UIDropDownItemSelector dropCategorys = addChild(UIDropDownItemSelector.class, null, null);
+    dropCategorys.setTitle("Select Navigations");
+    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     UITree uiTree = addChild(UITree.class, null, "TreePageSelector");    
     uiTree.setIcon("Icon NavigationPortalIcon");    
     uiTree.setSelectedIcon("Icon NavigationPortalIcon");
@@ -89,6 +93,9 @@ public class UIPageNodeSelector extends UIContainer {
     uiTree.setUIRightClickPopupMenu(uiPopupMenu);
     
     loadNavigations();
+    for(PageNavigation navigation: navigations_) {
+      options.add(new SelectItemOption<String>(navigation.getOwner() + "'s Navigation Tree"));
+    }
 	}
   
   public void loadNavigations() throws Exception {

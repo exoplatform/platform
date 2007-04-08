@@ -2,6 +2,7 @@
   import org.exoplatform.services.portletregistery.PortletCategory;  
   import org.exoplatform.services.portletregistery.Portlet;
   import org.exoplatform.web.application.JavascriptManager;
+  import org.exoplatform.webui.component.UIDropDownItemSelector;
   
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -23,46 +24,9 @@
 
 <div class="UIPortletOptions AncestorPopupCategory">	
 <div class="PortletOptions">
-	<div class="Title" >
-  	<div class="TitleContainer">
-  		<div class="ArrowButton ArrowS1Down16x16Icon" onclick="$showPortletCategory" ><span></span></div>
-  		<div class="Icon Portlet16x16Icon"><span></span></div>
-  		<div class="LabelText"><%=_ctx.appRes("UIPortletOptions.label.selectPortletCategory")%></div>
-  		<div style="clear: both;"><span></span></div>  		
-  	</div>
-  </div>
-  <div class="UIPopupCategory" style="display: none;">
-  	<div class="PopupCategoryDecorator">
-  		<div class="PopupCategoryTL">
-		    <div class="PopupCategoryTR">
-			    <div class="PopupCategoryTC"><span></span></div>
-		    </div>
-	    </div>
-	    <div class="PopupCategoryML">
-	    	<div class="PopupCategoryMR">
-	    		<div class="PopupCategoryMC">
-	    		<%for(portletCategoryData in portletCategoryDatas){
-			      //renderPortletCategory(portletCategoryData.getPortletCategory(), style);
-			    %>
-				    <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
-		          <div class="Icon"><span></span></div>
-		          <div class="CategoryItemLabel">
-		          	<%=_ctx.appRes("UIPortletOptions.tab." + portletCategoryData.getPortletCategory().getPortletCategoryName()) %>
-		          </div>
-		          <div style="clear: left"><span></span></div>
-	    			</div>
-			    <%}%>
-	    		</div>
-	    	</div>
-	    </div>
-	    <div class="PopupCategoryBL">
-        <div class="PopupCategoryBR">
-          <div class="PopupCategoryBC"><span></span></div>
-        </div>
-      </div>
-  	</div>
-  </div>
-
+  
+  <%  uicomponent.renderChild(UIDropDownItemSelector.class); %>
+    
 	<%
 	  for(portletCategoryData in portletCategoryDatas){ 
 	    String style = " style=\"display:none\" ";

@@ -1,7 +1,7 @@
 <% 
-  import org.exoplatform.webui.component.UITree ;   
-%>
-<%
+  import org.exoplatform.webui.component.UITree ; 
+  import org.exoplatform.webui.component.UIDropDownItemSelector;  
+
   def rcontext = _ctx.getRequestContext() ;
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory');  
   
@@ -20,48 +20,7 @@
   <%/*Begin PageNodeSelectorContainer*/%>
   <div class="UIContainerConfigOptions AncestorPopupCategory"> 
   <div class="ContainerConfigOptions"> 
-	  <div class="Title">
-	  	<div class="TitleContainer">
-	  		<div class="ArrowButton ArrowS1Down16x16Icon" onclick="$showCategory" title="<%=_ctx.appRes("UIPageNodeSelector.label.selectNavigation.tooltip")%>"><span></span></div>
-	  		<div class="LabelText"><%=_ctx.appRes("UIPageNodeSelector.label.selectNavigation")%></div>
-	  		<div style="clear: right"><span></span></div>
-	  	</div>
-	  </div>
-	  <div class="UIPopupCategory" style="display: none;">
-	  	<div class="PopupCategoryDecorator">
-		 		<div class="PopupCategoryTL">
-		 			<div class="PopupCategoryTR">
-		 				<div class="PopupCategoryTC"><span></span></div>
-		 			</div>
-		 		</div>
-		 		<div class="PopupCategoryML">
-		    	<div class="PopupCategoryMR" >
-		    		<div class="PopupCategoryMC">
-						<%
-						  if(navigations != null) {
-					   	  for(nav in navigations) {
-					   		  String actionLink = uicomponent.event("SelectNavigation", "$nav.owner") ;
-						%>
-			    		    <div class="CategoryItem" onclick="$selectCategory;$actionLink" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
-	                  <div class="Icon"><span></span></div>
-	                  <a class="CategoryItemLabel">$nav.owner's Navigation Tree</a>
-	                  <div style="clear: left"><span></span></div>
-		    			    </div>
-		    		<%
-		    			  }
-		    		  }
-		    		%>
-		    		</div>
-		    	</div>
-		    </div>
-		 		<div class="PopupCategoryBL">
-	        <div class="PopupCategoryBR">
-	          <div class="PopupCategoryBC"><span></span></div>
-	        </div>
-      	</div>
-			</div>
-		</div>
-				
+<%  uicomponent.renderChild(UIDropDownItemSelector.class); %>	
 <% /*************************************************************/ %>
 		<div class="UIVerticalSlideTabs CategoryContainer" style="padding: 1px;">
 		<%

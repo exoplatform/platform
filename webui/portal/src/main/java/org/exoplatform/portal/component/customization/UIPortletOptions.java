@@ -15,12 +15,14 @@ import org.exoplatform.services.portletregistery.Portlet;
 import org.exoplatform.services.portletregistery.PortletCategory;
 import org.exoplatform.services.portletregistery.PortletRegisteryService;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIContainer;
+import org.exoplatform.webui.component.UIDropDownItemSelector;
+import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 @ComponentConfig(
   template = "app:/groovy/portal/webui/component/customization/UIPortletOptions.gtmpl"
 )
-public class UIPortletOptions extends UIComponent {
+public class UIPortletOptions extends UIContainer {
 
   private List<PortletCategoryData> pCategoryDatas ; 
   private PortletCategory selectedPCategory;
@@ -29,7 +31,10 @@ public class UIPortletOptions extends UIComponent {
   public UIPortletOptions() throws Exception {
     setId("UIPortletOptions");
     pCategoryDatas = new ArrayList<PortletCategoryData>();
-
+    UIDropDownItemSelector dropCategorys = addChild(UIDropDownItemSelector.class, null, null);
+    dropCategorys.setTitle("PortletCategory");
+    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
+    dropCategorys.setOptions(options);
     PortletRegisteryService service = getApplicationComponent(PortletRegisteryService.class) ;
     List<PortletCategory> pCategories = service.getPortletCategories() ;    
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
@@ -42,6 +47,9 @@ public class UIPortletOptions extends UIComponent {
       Collections.sort(portlets, portletComparator) ;
       pCategoryDatas.add(new PortletCategoryData(pCategory, portlets)); 
     }    
+    for(PortletCategoryData categoryData: pCategoryDatas) {
+      options.add(new SelectItemOption<String>(categoryData.getPortletCategory().getPortletCategoryName()));
+    }
   }
 
   public String removeStringPortlet(String name) {
