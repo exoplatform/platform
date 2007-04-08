@@ -119,7 +119,7 @@ public class UIPortletActionListener   {
   }
   
   static public class EditPortletActionListener extends EventListener<UIPortlet> {
-    public void execute(Event<UIPortlet> event) throws Exception {      
+    public void execute(Event<UIPortlet> event) throws Exception {  
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;       
@@ -131,8 +131,9 @@ public class UIPortletActionListener   {
       uiMaskWS.setWindowSize(800, -1);
       uiMaskWS.setShow(true);
       
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      //event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       Util.updateUIApplication(event);  
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
 }
