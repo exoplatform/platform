@@ -44,31 +44,14 @@
   background: url('DefaultSkin/background/BottomCenterDecorator1x6.gif') repeat-x;
 }
 
-.UIMaskWorkspace .TitleBarContainer {
-  padding: 10px 13px 0px 10px;
-}
-
-.UIMaskWorkspace .TitleBarContainer .LeftTitleBar {
-  background: url('DefaultSkin/background/LeftTitleBar60x50.gif') no-repeat left;
-  padding: 0px 0px 0px 60px ;
-}
-
-.UIMaskWorkspace .TitleBarContainer .RightTitleBar {
-  background: url('DefaultSkin/background/RightTitleBar11x50.gif') no-repeat right;
-  padding: 0px 11px 0px 0px ;
-}
-
-.UIMaskWorkspace .TitleBarContainer .CenterTitleBar {
-  height: 50px ;
-  line-height: 50px ; vertical-align: middle ;
-  font-weight: bold ; text-align: center ; font-family: arial; color: #0575CA; font-size: 13px;
-  background: url('DefaultSkin/background/CenterTitleBar1x50.gif') repeat-x;
-}
-
 .UIMaskWorkspace .ContentContainerDetail {
   padding: 15px ;
 }
 
+.UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
+  margin-right: 0px; 
+  height: auto;
+}
 /***********************************  UITabContent  ************************************/
 .UIMaskWorkspace .UIHorizontalTabs {
   height: 26px;
@@ -148,9 +131,25 @@
 }
 
 /**************************** UIAddApplication ******************************************/
-.UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
-  margin-right: 0px; 
-  height: auto;
+.UIAddApplication .TitleBarContainer {
+  padding: 10px 13px 0px 10px;
+}
+
+.UIAddApplication .TitleBarContainer .LeftTitleBar {
+  background: url('DefaultSkin/background/LeftTitleBar60x50.gif') no-repeat left;
+  padding: 0px 0px 0px 60px ;
+}
+
+.UIAddApplication .TitleBarContainer .RightTitleBar {
+  background: url('DefaultSkin/background/RightTitleBar11x50.gif') no-repeat right;
+  padding: 0px 11px 0px 0px ;
+}
+
+.UIAddApplication .TitleBarContainer .CenterTitleBar {
+  height: 50px ;
+  line-height: 50px ; vertical-align: middle ;
+  font-weight: bold ; text-align: center ; font-family: arial; color: #0575CA; font-size: 13px;
+  background: url('DefaultSkin/background/CenterTitleBar1x50.gif') repeat-x;
 }
 
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {

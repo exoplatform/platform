@@ -63,6 +63,7 @@ UIDropDownItemSelector.prototype.mouseOutItem = function(e) {
 };
 
 UIDropDownItemSelector.prototype.clickItem = function(e) {
+	var i;
 	var DOMUtil = eXo.core.DOMUtil;
 	var targ = DOMUtil.getEventSource(e);
 	
@@ -71,17 +72,35 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 	var parentSelector = DOMUtil.findAncestorByClass(targ, "UIDropDownItemSelector");
 	var selectedItemLabel = DOMUtil.findFirstDescendantByClass(parentSelector, "div", "SelectedItemLabel");
 	var previousSelected = DOMUtil.findDescendantsByClass(parentSelector, "div", "OverItemSelector");
-	for (var i = 0; i < previousSelected.length; i++) {
+	for (i = 0; i < previousSelected.length; i++) {
 		 previousSelected[i].className = previousSelected[i].oldClassName = "ItemSelector";
 	}
 	var itemLabel = DOMUtil.findFirstDescendantByClass(targ, "div", "ItemSelectorLabel");
 	selectedItemLabel.innerHTML = itemLabel.innerHTML;
 	targ.className = targ.oldClassName = "OverItemSelector";
 	eXo.webui.UIDropDownItemSelector.hideList(parentSelector);
-  var params = [
-  	{name: "lable", value : itemLabel.id}
-  ] ;
-	ajaxGet(eXo.env.server.createPortalURL("UIPortal", itemLabel.title, true, params)) ;
+	
+//	if(onServer == true) {
+	  var params = [
+	  	{name: "lable", value : itemLabel.id}
+	  ] ;
+		ajaxGet(eXo.env.server.createPortalURL("UIPortal", itemLabel.title, true, params)) ;
+	//} else {
+			var itemSelectorAncestor = DOMUtil.findAncestorByClass(parentSelector, "ItemSelectorAncestor") ;
+			var itemList = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemList") ;
+			var itemSelectorLabel = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemSelectorLabel") ;
+			if(itemList != null) {
+				for(i = 0; i < itemSelectorLabel.length; ++i){
+				if(i< itemList.length){
+					if(itemLabel == itemSelectorLabel[i])
+							itemList[i].style.display = "block";
+					else 
+					    itemList[i].style.display = "none";
+					} else return;
+				}
+			}
+//	}
+	
 };
 
 UIDropDownItemSelector.prototype.hideLists = function() {

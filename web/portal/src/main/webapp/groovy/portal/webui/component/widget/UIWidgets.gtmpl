@@ -6,7 +6,7 @@
  	</div>
   	
  	<div class="CenterLeftWidgets">
- 		<div class="CenterRightWidgets">
+ 		<div class="CenterRightWidgets ItemSelectorAncestor">
  		  <% 
  		    if(uicomponent.hasChildren() == true){
  		      uicomponent.renderChildren(); 
@@ -36,13 +36,13 @@
 	  			    </div>
   			   </div>
   			  		
-  			   <div class="ItemListContent">
+  			   <div class="ItemList">
   				   <div class="eXoInfoWidgetImage">
   					   <div class="TopWidgetImage"><span></span></div>
   					   <div class="Download" title="Download now"><span></span></div>
   				   </div>
   			   </div>
-  			   <div class="ItemListContent">
+  			   <div class="ItemList">
   			     Clock
   			   </div>
   			

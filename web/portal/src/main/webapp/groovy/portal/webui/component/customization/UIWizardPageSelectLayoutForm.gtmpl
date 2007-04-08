@@ -26,7 +26,7 @@
   <div class="RightColumnStyle" style="width: 99.5%;">
     <input type="hidden" name="<%=uicomponent.getName();%>" value ="">
     <%/*Begin ItemList*/%>
-    <div class="ItemListContainer">
+    <div class="ItemListContainer ItemSelectorAncestor">
       <% 
         uicomponent.renderChild(UIDropDownItemSelector.class)  ;
       %>
