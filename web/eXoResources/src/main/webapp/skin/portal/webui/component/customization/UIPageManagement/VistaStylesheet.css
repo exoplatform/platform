@@ -5,6 +5,11 @@
 .UIPageManagement .UIQuickHelp {
   margin-top: 3px;
 }
+
+.UIPageManagement .TopTitleBar {
+  padding: 15px 0px;
+}
+
 /*############################- UIPageManagementControlBar Icons -#####################*/
 
 .UIPageManagement .RollbackBar {

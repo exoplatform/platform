@@ -12,7 +12,6 @@
 	            <div class="ButtonLeft">
 	              <div class="ButtonRight">
 	                <div class="ButtonMiddle">
-	                  <div class="Icon GreenPlusPage16x16Icon"><span></span></div>
 	                  <a class="ActionText" href="<%=uicomponent.event("AddNew")%>"><%=_ctx.appRes(uicomponent.getId() + ".action.addNewPage")%></a>
 	                </div>
 	              </div>

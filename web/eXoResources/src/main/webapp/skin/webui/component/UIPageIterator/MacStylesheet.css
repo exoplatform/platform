@@ -3,23 +3,8 @@
   font-size: 11px ;  
   margin-top: 2px ;
   margin-left: auto ;
-}
-
-.UIPageIterator .LeftBar {    
-  height: 24px;
-  background: url('MacSkin/background/PageIteratorL17x24.gif') no-repeat left;
-  padding-left: 17px;
-}
-
-.UIPageIterator .RightBar {    
-  height: 24px;
-  background: url('MacSkin/background/PageIteratorR13x24.gif') no-repeat right;
-  padding-right: 13px;
-}
-
-.UIPageIterator .MiddleBar {    
-  height: 24px;
-  background: url('MacSkin/background/PageIteratorM1x24.gif') repeat-x ;
+  border: 1px solid #afafaf;
+  background: #f4f4f4;
 }
 
 .UIPageIterator .PageIteratorContainer {    

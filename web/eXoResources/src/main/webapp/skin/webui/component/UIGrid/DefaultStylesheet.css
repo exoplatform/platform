@@ -1,5 +1,5 @@
 .UIGrid {
-  border: 1px solid #7eaad0;
+  border: 1px solid #cccccc;
   border-collapse: collapse ;
   font-size: 11px ;
   padding-left: 1px;
@@ -7,14 +7,13 @@
 
 
 .UIGrid thead {
-  border: 1px solid #7eaad0;
+  border: 1px solid #cccccc;
 }
 
 .UIGrid th {
-  height: 20px;
-  line-height: 20px;
-  border: 1px solid #7eaad0;
-  background: url('DefaultSkin/background/ThGridRepeatBg1x20.gif') repeat-x;
+  line-height: 19px;
+  border: 1px solid #cccccc;
+  background: url('DefaultSkin/background/ThGridRepeatBg1x19.jpg') repeat-x;
   font-size: 11px ;
   font-weight: normal;
 }
@@ -28,18 +27,18 @@
 
 .UIGrid td {
   height: 26px ;
-  border-right: 1px solid #7eaad0;
-  border-left: 1px solid #7eaad0;
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
   border-top: 1px solid white;
   padding-left: 7px;
 }
 
 .UIGrid .OddRow {
-  background: #e9ebf5;
+  background: #f0f0f0;
 }
 
 .UIGrid .EvenRow {
-  background: #edf0fb;
+  background: #f5f5f5;
 }
 
 .UIGrid .ActionContainer {

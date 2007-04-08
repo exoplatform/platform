@@ -1,6 +1,7 @@
 @import url(UIContainerConfigOptions/DefaultStylesheet.css) ;
 @import url(UICreatePage/DefaultStylesheet.css) ;
 @import url(UIPageBrowser/DefaultStylesheet.css) ;
+@import url(UIPortalBrowser/DefaultStylesheet.css) ;
 @import url(UIPageManagement/DefaultStylesheet.css) ;
 @import url(UIPageNodeSelector/DefaultStylesheet.css) ;
 @import url(UIPageSelector/DefaultStylesheet.css) ;

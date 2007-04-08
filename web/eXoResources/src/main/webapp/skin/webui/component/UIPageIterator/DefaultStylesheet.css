@@ -3,12 +3,11 @@
   font-size: 11px ;
   margin-top: 1px ;
   margin-left: auto ;
-  border: 1px solid #7eaad0 ;
-  background: url('DefaultSkin/background/PageIteratorBG1x22.gif') repeat-x ;
+  border: 1px solid #cccccc ;
+  background: white;
 }
 
 .UIPageIterator .PageIteratorContainer {    
-  border-right: 1px solid white ;
   float: right ;
   line-height: 22px ;  vertical-align: middle ;
   height: 22px ;
@@ -17,7 +16,7 @@
 
 .UIPageIterator .Icon {
   float: left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .UIPageIterator .RefreshIcon {

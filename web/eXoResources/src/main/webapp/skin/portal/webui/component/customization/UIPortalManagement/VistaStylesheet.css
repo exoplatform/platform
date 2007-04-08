@@ -2,6 +2,10 @@
   padding: 0px 1px 1px 1px ;
 }
 
+.UIPortalManagement .TopTitleBar {
+  padding: 15px 0px;
+}
+
 .UIPortalManagement .ViewModeIcon {
   float: left ;
   width: 30px ; height: 25px ;
@@ -41,7 +45,6 @@
 }
 
 .UIPortalManagement .UIPortalManagementEditBar {
- margin-top: 20px;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {

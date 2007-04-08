@@ -4,17 +4,17 @@
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalOfficeImage {
   height: 230px;
-  background: url('DefaultSkin/background/OfficeImage.jpg') no-repeat center;
+  background: url('MacSkin/background/OfficeImage.jpg') no-repeat center;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalDefaultImage {
   height: 230px;
-  background: url('MacSkin/background/Default.jpg') no-repeat center;
+  background: url('MacSkin/background/DefaultImage.jpg') no-repeat center;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PageDefaultImage {
   height: 230px;
-  background: url('MacSkin/background/Default.jpg') no-repeat center;
+  background: url('MacSkin/background/DefaultImage.jpg') no-repeat center;
 }
 .UIItemSelector .ItemDetailList .TemplateContainer .PageDesktopImage {
   height: 230px;
@@ -23,7 +23,7 @@
 
 .UIItemSelector .ItemDetailList .TemplateContainer .DefaultImage {
   height: 230px;
-  background: url('MacSkin/background/Default.jpg') no-repeat center;
+  background: url('MacSkin/background/DefaultImage.jpg') no-repeat center;
   margin-top: 3px;
 }
 
