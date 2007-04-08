@@ -147,7 +147,7 @@
 		              <div style="clear: left"><span></span></div>  
 		            </div>
 		            <div class="WindowPortletInfo">
-		              <div class="${uicomponent.getIcon()}Icon"><span></span></div>
+		              <div class="Icon ${uicomponent.getIcon()}Icon"><span></span></div>
 		              <div class="PortletName">$title</div>
 		              <div style="clear: left"><span></span></div>
 		            </div>

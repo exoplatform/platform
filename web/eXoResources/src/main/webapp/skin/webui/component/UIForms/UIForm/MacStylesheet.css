@@ -44,6 +44,12 @@
   background: white ;
 }
 
+.UIForm .HorizontalLayout .UIAction {
+  padding: 15px 0px 15px 0px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
 .UIForm .HorizontalLayout label {
 	float:left;
   width: 155px ;

@@ -37,7 +37,7 @@
 
 .UIBannerPortlet .LoginContainer .LoginContent a {
   font-size: 11px;
-  font-weight: bold;
+  font-weight: normal;
   color: orange;
   text-decoration: none;
   cursor: pointer;
@@ -45,7 +45,7 @@
 
 .UIBannerPortlet .LoginContainer .LoginContent a:hover {
   color: #5098eb;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -54,9 +54,16 @@
 	padding: 0px 8px 5px 0px;
 }
 
-.UIBannerPortlet .LoginContent .LoginIcon {
+.UIBannerPortlet .LoginContent .LogoutIcon {
   float: left;
   width: 27px; height: 22px;
-  background: url('VistaSkin/background/SigninButton.png') no-repeat top;
+  background: url('VistaSkin/background/SignoutButton.png') no-repeat top;
   cursor: pointer;
 }
+
+.UIBannerPortlet .LoginContent .LoginSeperatorLine {
+  float: left;
+  width: 2px; height: 21px;
+  background: url('DefaultSkin/background/2x2.gif') repeat-y;
+  padding: 4px 7px 0px 1px;
+ }

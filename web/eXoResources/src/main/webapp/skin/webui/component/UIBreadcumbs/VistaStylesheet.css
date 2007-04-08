@@ -4,8 +4,8 @@
 
 .UIBreadcumbs {
   height: 26px ;  line-height: 26px ;
-  vertical-align: middle ;
-  font-size: 11px ;
+  vertical-align: middle ; font-size: 11px ;
+  padding: 0px 3px 0px 1px;
 }
 
 .UIBreadcumbs a {

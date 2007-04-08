@@ -132,10 +132,10 @@
 }
 
 .UIWindow .Information {
-  margin-right: 18px ;
-  padding-left: 5px ;
   height: 16px ; line-height: 14px ; vertical-align: middle ;
   font-size: 10px ;
+  margin-right: 18px ;
+  padding-left: 5px ;
 }
 /**************************** UIPage Decorator ************************************/
 .UIWindow .MiddleDecoratorLeft {
@@ -169,10 +169,16 @@
   background: url('MacSkin/background/PortletWindowBC1x23.png') repeat-x ;
 }
 
+.UIWindow .WindowPortletInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 3px 8px 0px 3px;
+}
+
 .UIWindow .WindowPortletInfo .PortletName {
   float: left ;
   margin: 5px 0px 0px 0px ;
-  font-size: 11px ;
+  font-size: 11px ; 
 }
 
 .UIWindow .WindowBarLeft {

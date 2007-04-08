@@ -31,6 +31,20 @@
   padding: 6px 13px 0px 0px;
 }
 
+.UIBannerPortlet .LoginContainer .LoginContent a {
+  font-size: 11px;
+  font-weight: normal;
+  color: orange;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.UIBannerPortlet .LoginContainer .LoginContent a:hover {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .UIBannerPortlet .LoginContent .LoginLabel {
 	float: left;
   font-size: 11px; font-weight: normal;
@@ -45,6 +59,14 @@
   background: url('DefaultSkin/background/2x2.gif') repeat-y;
   padding: 0px 7px 0px 1px;
  }
+
+.UIBannerPortlet .LoginContent .LogoutIcon {
+  float: left;
+  width: 19px; height: 15px;
+  background: url('DefaultSkin/background/SignoutButton.gif') no-repeat top;
+  cursor: pointer;
+  margin: 3px 0px 0px 0px;
+}
 
 .UIBannerPortlet .LoginContent .LoginIcon {
   float: left;

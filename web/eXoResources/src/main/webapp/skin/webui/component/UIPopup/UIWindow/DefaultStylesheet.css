@@ -18,16 +18,15 @@
 }
 
 .UIPageDesktop .UIWindow .WindowPortletInfo {
-  margin-right: 110px ;
   height: 22px ;
+  margin-right: 110px ;
   cursor: move ;
 }
 
 .UIWindow .WindowPortletInfo .WindowPortletIcon {
   float: left ;
+  width: 16px ; height: 16px ;
   margin: 4px 5px 0px 5px ;
-  width: 16px ;
-  height: 16px ;
   background: url('DefaultSkin/icons/16x16/PortletIcon.gif') no-repeat ;
 }
 
@@ -36,9 +35,8 @@
 }
 
 .UIWindow .WindowPortletControl .ControlIcon {
-  width: 24px ;
-  height: 18px ;
   float: left;
+  width: 24px ; height: 18px ;
   margin: 3px 2px 0px 0px ;
   cursor: pointer ;
 }
@@ -97,19 +95,16 @@
 
 .UIPageDesktop .UIWindow .ResizeArea {
   float: right ;
-  width: 18px ;
-  height: 18px ;
+  width: 18px ; height: 18px ;
   cursor: nw-resize ;
   background: url('DefaultSkin/background/ResizeArea18x18.png') no-repeat ;
 }
 
 .UIWindow .Information {
-  margin-right: 18px ;
+  height: 18px ; line-height: 18px ;
+  vertical-align: middle ; font-size: 10px ;
   padding-left: 5px ;
-  height: 18px ;
-  line-height: 18px ;
-  vertical-align: middle ;
-  font-size: 10px ;
+  margin-right: 18px ;
 }
 
 .UIWindow .UIGrid {
@@ -124,14 +119,12 @@
 }
 
 .UIWindow .UIGrid th {
-  height: 20px;
-  line-height: 20px;
+  height: 20px; line-height: 20px;
   border-right: 1px solid #7eaad0;
   border-left: 0px ;
   border-top: 0px ;
   background: url('DefaultSkin/background/ThGridRepeatBg1x20.gif') repeat-x;
-  font-size: 11px ;
-  font-weight: normal;
+  font-size: 11px ; font-weight: normal;
 }
 
 .UIWindow .UIGrid tbody {
@@ -164,7 +157,6 @@
 .UIWindow .TopDecoratorCenter {
   height: 3px ;
   background: url('DefaultSkin/background/WindowTC1x3.gif') repeat-x ;
-  height: 3px;
 }
 
 .UIWindow .MiddleDecoratorLeft {
@@ -194,11 +186,16 @@
   background: url('DefaultSkin/background/WindowBC1x23.gif') repeat-x ;
 }
 
+.UIWindow .WindowPortletInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 3px 5px 0px 5px;
+}
+
 .UIWindow .WindowPortletInfo .PortletName {
   float: left ;
   margin: 5px 0px 0px 5px;
-  font-size: 11px ;
-  font-weight: bold;
+  font-size: 11px ; font-weight: bold;
 }
 
 .UIWindow .WindowBarLeft {
@@ -231,8 +228,8 @@
 }
 
 .UIPageBody .WindowPortletControl {
-	width: auto; float: right;
-	height: 23px;
+	float: right;
+	width: auto; height: 23px;
 }
 
 .UIPageBody .UIWindow {
@@ -246,7 +243,6 @@
 
 .UIPageBody .UIWindow .ResizeArea {
   float: right ;
-  width: 0px ;
-  height: 0px ;
+  width: 0px ; height: 0px ;
   background: url('null') repeat bottom right;
 }
