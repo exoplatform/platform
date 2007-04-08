@@ -31,7 +31,7 @@
 	                </div>
 	            <%}%>
 	          </div>
-				    <div class="UIAction" style="padding: 5px 0px 3px 0px;">
+				    <div class="UIAction">
 	            <div class="ActionContainer">
 	              <%for(action in uicomponent.getActions()) { %>
 			            <div class="ActionButton">

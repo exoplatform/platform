@@ -27,9 +27,7 @@
       <div class="TopLeftPage">
         <div class="TopRightPage">
           <div class="TopCenterPage">
-            <%decorator.start("DecoratorBox", "WhiteRoundedBoxStyle")%>
-              <div class="PageContent"><%=_ctx.appRes("UIPageDesktop.label.PageContent")%></div>
-            <%decorator.end()%>
+            <div class="PageContent"><%=_ctx.appRes("UIPageDesktop.label.PageContent")%></div>
           </div>
         </div>
       </div>

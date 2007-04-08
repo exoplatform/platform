@@ -69,18 +69,6 @@
 								        
 								        <div class="ItemDetailContaier">
 								          <div class="ItemDetailContent">
-									        	<div class="NormalItem">
-									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel">Dansk</a>
-									        	  <div class="PercentLabel">0% Translated</div>
-									        	  <div style="clear: left;"><span></span></div>
-									        	</div>
-									        	<div class="NormalItem">
-									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel">Deutsch</a>
-									        	  <div class="PercentLabel">0% Translated </div>
-									        	  <div style="clear: left;"><span></span></div>
-									        	</div>
 									        	<div class="SelectedItem">
 									        	  <div class="Icon"><span></span></div>
 									        	  <a class="NodeLabel">English (Default)</a>
@@ -89,25 +77,43 @@
 									        	</div>
 									        	<div class="NormalItem">
 									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel">Espanol </a>
+									        	  <a class="NodeLabel">French</a>
 									        	  <div class="PercentLabel">0% Translated </div>
 									        	  <div style="clear: left;"><span></span></div>
 									        	</div>
 									        	<div class="NormalItem">
 									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel">Franch</a>
-									        	  <div class="PercentLabel">75% Translated </div>
+									        	  <a class="NodeLabel">German</a>
+									        	  <div class="PercentLabel">0% Translated </div>
 									        	  <div style="clear: left;"><span></span></div>
 									        	</div>
 									        	<div class="NormalItem">
 									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel" title="Vietnamese" langtitle="Tiếng Việt" lang="vi_VN">Vietnamese</a>
+									        	  <a class="NodeLabel">Italian</a>
+									        	  <div class="PercentLabel">0% Translated </div>
+									        	  <div style="clear: left;"><span></span></div>
+									        	</div>
+									        	<div class="NormalItem">
+									        	  <div class="Icon"><span></span></div>
+									        	  <a class="NodeLabel">Russian</a>
+									        	  <div class="PercentLabel">0% Translated </div>
+									        	  <div style="clear: left;"><span></span></div>
+									        	</div>
+									        	<div class="NormalItem">
+									        	  <div class="Icon"><span></span></div>
+									        	  <a class="NodeLabel">Spanish</a>
 									        	  <div class="PercentLabel">0% Translated </div>
 									        	  <div style="clear: left;"><span></span></div>
 									        	</div>
 									        	<div class="NormalItem">
 									        	  <div class="Icon"><span></span></div>
 									        	  <a class="NodeLabel"  title="Ukrainian" langtitle="Українська" lang="uk_UA">Ukrainian</a>
+									        	  <div class="PercentLabel">0% Translated </div>
+									        	  <div style="clear: left;"><span></span></div>
+									        	</div>
+									        	<div class="NormalItem">
+									        	  <div class="Icon"><span></span></div>
+									        	  <a class="NodeLabel" title="Vietnamese" langtitle="Tiếng Việt" lang="vi_VN">Vietnamese</a>
 									        	  <div class="PercentLabel">0% Translated </div>
 									        	  <div style="clear: left;"><span></span></div>
 									        	</div>
@@ -122,7 +128,7 @@
 	            </div>
 	            <%}%>
 	          </div>
-				    <div class="UIAction" style="padding: 5px 0px 3px 0px;">
+				    <div class="UIAction" >
 	            <div class="ActionContainer">
 	              <%for(action in uicomponent.getActions()) { %>
 			            <div class="ActionButton">
