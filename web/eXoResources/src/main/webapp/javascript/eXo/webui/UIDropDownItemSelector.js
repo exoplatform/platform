@@ -80,26 +80,26 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 	targ.className = targ.oldClassName = "OverItemSelector";
 	eXo.webui.UIDropDownItemSelector.hideList(parentSelector);
 	
-//	if(onServer == true) {
+	if(eXo.env.server.onServer == true) {
 	  var params = [
 	  	{name: "lable", value : itemLabel.id}
 	  ] ;
 		ajaxGet(eXo.env.server.createPortalURL("UIPortal", itemLabel.title, true, params)) ;
-	//} else {
-			var itemSelectorAncestor = DOMUtil.findAncestorByClass(parentSelector, "ItemSelectorAncestor") ;
-			var itemList = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemList") ;
-			var itemSelectorLabel = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemSelectorLabel") ;
-			if(itemList != null) {
-				for(i = 0; i < itemSelectorLabel.length; ++i){
-				if(i< itemList.length){
-					if(itemLabel == itemSelectorLabel[i])
-							itemList[i].style.display = "block";
-					else 
-					    itemList[i].style.display = "none";
-					} else return;
-				}
+	} else {
+		var itemSelectorAncestor = DOMUtil.findAncestorByClass(parentSelector, "ItemSelectorAncestor") ;
+		var itemList = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemList") ;
+		var itemSelectorLabel = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemSelectorLabel") ;
+		if(itemList != null) {
+			for(i = 0; i < itemSelectorLabel.length; ++i){
+			if(i< itemList.length){
+				if(itemLabel == itemSelectorLabel[i])
+						itemList[i].style.display = "block";
+				else 
+				    itemList[i].style.display = "none";
+				} else return;
 			}
-//	}
+		}
+	}
 	
 };
 
