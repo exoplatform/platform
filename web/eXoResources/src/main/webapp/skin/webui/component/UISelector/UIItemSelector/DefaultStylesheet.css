@@ -485,66 +485,61 @@
 
 /*###########################- Layout Template -#########################*/
 
-.UIItemSelector .DefaultTemplate {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/PageFormDefault.jpg') no-repeat center;
-}  
-
 .UIItemSelector .EmptyLayout {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/EmptyLayout.jpg') no-repeat;
+  width: 270px; height: 170px;
+  background: url('DefaultSkin/background/EmptyPage.gif') no-repeat;
 }
 .UIItemSelector .DesktopLayout {
-  width: 250px; height: 170px;
+  width: 270px; height: 170px;
   background: url('DefaultSkin/background/DesktopLayout.jpg') no-repeat;
 }
 
 .UIItemSelector .TwoColumnsLayout {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/TwoColumnsLayout.jpg') no-repeat;
+  width: 270px; height: 170px;
+  background: url('DefaultSkin/background/2Columns.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeColumnsLayout {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/ThreeColumnsLayout.jpg') no-repeat;
+  width: 270px; height: 170px;
+  background: url('DefaultSkin/background/3Columns.gif') no-repeat;
 }
 
 .UIItemSelector .TwoColumnsOneRowLayout {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/TwoColumnsOneRowLayout.jpg') no-repeat;
+  width: 270px; height: 170px;
+  background: url('DefaultSkin/background/2Columns1Row.gif') no-repeat;
 }
 
 .UIItemSelector .TwoColumnsTwoRowsLayout {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/TwoColumnsTwoRowsLayout.jpg') no-repeat;
+  width: 270px; height: 170px;
+  background: url('DefaultSkin/background/2Columns2Rows.gif') no-repeat;
 }
 
 .UIItemSelector .TwoRowsLayout {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/TwoRowsLayout.jpg') no-repeat;
+  width: 270px; height: 170px;
+  background: url('DefaultSkin/background/2Rows.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeRowsLayout {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/ThreeRowsLayout.jpg') no-repeat;
+  width: 270px; height: 170px;
+  background: url('DefaultSkin/background/3Rows.gif') no-repeat;
 }
 
 .UIItemSelector .OneRowTwoColumnsLayout {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/OneRowTwoColumnsLayout.jpg') no-repeat;
+  width: 270px; height: 170px;
+  background: url('DefaultSkin/background/1Row2Columns.gif') no-repeat;
 }
 
 .UIItemSelector .TwoTabsLayout {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/TwoTabsLayout.jpg') no-repeat;
+  width: 270px; height: 170px;
+  background: url('DefaultSkin/background/2Tabs.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeTabsLayout {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/ThreeTabsLayout.jpg') no-repeat;
+  width: 270px; height: 170px;
+  background: url('DefaultSkin/background/3Tabs.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeRowsTwoColumnsLayout {
-  width: 250px; height: 170px;
-  background: url('DefaultSkin/background/ThreeRowsTwoColumnsLayout.jpg') no-repeat;
+  width: 270px; height: 170px;
+  background: url('DefaultSkin/background/2Columns3Rows.gif') no-repeat;
 }
