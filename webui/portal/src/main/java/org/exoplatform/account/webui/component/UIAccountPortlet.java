@@ -1,5 +1,6 @@
 package org.exoplatform.account.webui.component;
 
+import org.exoplatform.organization.webui.component.UIAccountForm;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UILoginForm;

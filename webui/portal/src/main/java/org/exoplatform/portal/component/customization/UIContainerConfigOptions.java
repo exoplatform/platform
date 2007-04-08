@@ -5,12 +5,14 @@
 package org.exoplatform.portal.component.customization;
 
 import java.io.ByteArrayInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
+import org.exoplatform.webui.component.UIDropDownItemSelector;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.InitParams;
@@ -43,12 +45,18 @@ public class UIContainerConfigOptions extends UIContainer {
   public UIContainerConfigOptions(InitParams initParams) throws Exception{
     setComponentConfig(UIContainerConfigOptions.class, null);    
     selectedCategory_ = null;
+    UIDropDownItemSelector dropCategorys = addChild(UIDropDownItemSelector.class, null, null);
+    dropCategorys.setTitle("Select Navigations");
+    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     if(initParams == null) return ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("ContainerConfigOption");          
     categories_ = param.getMapGroovyObject(context) ;
     if(categories_ == null) return ;
-    if(selectedCategory_ == null) setCategorySelected(categories_.get(0)) ;        
+    if(selectedCategory_ == null) setCategorySelected(categories_.get(0)) ;   
+    for(SelectItemCategory itemCategory: categories_) {
+      options.add(new SelectItemOption<String>(itemCategory.getName()));
+    }
   } 
 
   public void setCategorySelected(SelectItemCategory selectedCategory) {

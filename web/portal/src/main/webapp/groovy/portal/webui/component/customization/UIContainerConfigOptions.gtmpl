@@ -1,5 +1,6 @@
 <%
   import org.exoplatform.web.application.JavascriptManager;
+  import org.exoplatform.webui.component.UIDropDownItemSelector; 
 
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -19,43 +20,8 @@
 %>
 <div class="UIContainerConfigOptions AncestorPopupCategory">
 	<div class="ContainerConfigOptions">
-	  <div class="Title">
-	  	<div class="TitleContainer">
-	  		<div class="ArrowButton ArrowS1Down16x16Icon" onclick="$showCategory" title="Click here to select a container category"><span></span></div>
-	  		<div class="Icon Container16x16Icon"><span></span></div>
-	  		<div class="LabelText"><%=_ctx.appRes("UIContainerConfigOptions.label.ContainerConfigTitle")%></div>
-	  		<div style="clear: right"><span></span></div>
-	  	</div>
-	  </div>
-	  <div class="UIPopupCategory" style="display: none">
-	  	<div class="PopupCategoryDecorator">
-	  		<div class="PopupCategoryTL">
-			    <div class="PopupCategoryTR">
-				    <div class="PopupCategoryTC"><span></span></div>
-			    </div>
-		    </div>
-		    <div class="PopupCategoryML">
-		    	<div class="PopupCategoryMR" >
-		    		<div class="PopupCategoryMC">
-		    			<%for(category in categories) {
-	    					String name = category.getName() ;
-		    			%>
-		    			<div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver1" onmouseout="$onMouseOut1">
-	              <div class="Icon"><span></span></div>
-	              <a class="CategoryItemLabel">$name</a>
-	              <div style="clear: left"><span></span></div>
-		    			</div>
-		    			<%}%>
-		    		</div>
-		    	</div>
-		    </div>
-		    <div class="PopupCategoryBL">
-	        <div class="PopupCategoryBR">
-	          <div class="PopupCategoryBC"><span></span></div>
-	        </div>
-	      </div>
-		  </div>
-	  </div>
+	<%  uicomponent.renderChild(UIDropDownItemSelector.class); %>
+	
 		<% 
 		  for(category in categories) {
 		    String style = "none";

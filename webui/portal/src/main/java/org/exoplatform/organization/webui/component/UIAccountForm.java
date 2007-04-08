@@ -1,11 +1,8 @@
-package org.exoplatform.account.webui.component;
+package org.exoplatform.organization.webui.component;
 
 import java.util.List;
 
 import org.exoplatform.account.webui.component.model.UIAccountTemplateConfigOption;
-import org.exoplatform.organization.webui.component.UIAccountInputSet;
-import org.exoplatform.organization.webui.component.UIUserMembershipSelector;
-import org.exoplatform.organization.webui.component.UIUserProfileInputSet;
 import org.exoplatform.organization.webui.component.UIUserMembershipSelector.Membership;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.application.WebuiRequestContext;

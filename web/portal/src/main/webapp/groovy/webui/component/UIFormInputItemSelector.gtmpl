@@ -41,7 +41,8 @@
       <div class="ItemDetailList">
         <div class="ItemDetailTitle">
           <div class="TitleIcon ViewListIcon"><span></span></div>
-  	    	<div class="Title">Sample <%=uicomponent.getName();%> View</div>
+          <% String title = _ctx.appRes("UIFormInputItemSelector.label.samper") + " " + uicomponent.getName() + " " + _ctx.appRes("UIFormInputItemSelector.label.view");%>
+  	    	<div class="Title"><%=title%></div>
   	    	<div style="clear: left;"><span></span></div>
         </div>
         <%          
