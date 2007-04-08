@@ -12,13 +12,20 @@
   padding-top: 5px;
 }
 
-.UIAccountPortlet .UIFormTabPane .UIAction .ActionButton{
-  width: 65px;
+.UIAccountPortlet .UIMembership .UIAction {
+  padding-top: 5px;
+  width: 140px;
 }
 
 .UIAccountPortlet .UIMembership .UIAction {
   padding-top: 5px;
   width: 140px;
+}
+
+.UIAccountPortlet .UIFormTabPane .UIAction .ActionContainer .ActionButton{
+  width: 75px;
+  margin: auto;
+  float: none;
 }
 
 .UIAccountPortlet .UIMembership .UIAction .ActionButton {
@@ -38,7 +45,7 @@
 }
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer input{
-  border: 1px gray solid;
+  border: 1px #b7b7b7 solid;
   width: 220px; height: 18px;
   font-size: 11px;
   padding-left: 5px;
@@ -51,7 +58,7 @@
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet .FieldContainer {
   width: 370px;
-  margin: auto;  margin-top: 7px; margin-bottom: 5px;
+  margin: auto; margin-bottom: 5px;
   overflow: hidden;
 }
 
