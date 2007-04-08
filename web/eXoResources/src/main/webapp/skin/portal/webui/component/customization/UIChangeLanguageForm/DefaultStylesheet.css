@@ -100,3 +100,10 @@
 	padding-right: 20px;
 }
 
+.UIChangeLanguageForm .UIForm .HorizontalLayout .UIAction {
+  padding: 5px 0px 3px 0px
+}
+
+.UIChangeLanguageForm .UIAction .ActionContainer .ActionButton {
+  float: right;
+}
