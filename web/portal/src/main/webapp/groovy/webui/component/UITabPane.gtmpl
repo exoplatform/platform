@@ -4,7 +4,7 @@
 %>
 
 <%//Begin UITabPane%>
-<div class="UITabPane">
+<div class="UITabPane" id="$uicomponent.id">
   <%//Begin TabPaneContent%>
   <div class="TabPaneContent"> 
     <%//Begin WorkingArea%>
