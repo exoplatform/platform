@@ -50,6 +50,10 @@
   margin-right: auto ;
 }
 
+.UIForm .HorizontalLayout .UIAction .ActionButton {
+  margin: auto;
+}
+
 .UIForm .HorizontalLayout label {
 	float:left;
   width: 155px ;
