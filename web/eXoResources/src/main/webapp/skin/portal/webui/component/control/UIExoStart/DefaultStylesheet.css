@@ -138,6 +138,10 @@
   color: #201e1e ;
 }
 
+.UIExoStart .StartMenuContainer .LabelText a:hover {
+  color: blue ;
+}
+
 .UIExoStart .StartMenuContainer .MySpaceIcon {
   height: 33px ;  
   background: url('DefaultSkin/icons/32x32/MySpace.gif') no-repeat left ;

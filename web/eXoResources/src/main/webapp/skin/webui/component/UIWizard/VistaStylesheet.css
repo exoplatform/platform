@@ -318,6 +318,7 @@
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList .ItemDetail {
   height: 250px;
   padding: 8px;
+  border: none;
 }
 
 .UIWizard .UIFormTabPane .UIAction {
