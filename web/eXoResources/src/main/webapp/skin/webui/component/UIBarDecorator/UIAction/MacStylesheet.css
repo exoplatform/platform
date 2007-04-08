@@ -8,7 +8,7 @@
 }
 
 .UIAction .ActionContainer .ActionButton {
-	float: right;
+	float: left;
 	width: 74px;
 	margin: 0px 0px 0px 3px ;
 }
