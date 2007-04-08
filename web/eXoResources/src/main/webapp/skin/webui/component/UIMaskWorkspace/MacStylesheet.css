@@ -97,6 +97,10 @@
   margin: auto ;
 }
 
+.UIMaskWorkspace .ActionContainer {
+  padding: 0px 30px;
+}
+
 .UIMaskWorkspace .UIAction .ActionButton {
   width: 80px ;
 }
@@ -161,7 +165,7 @@
 }
 
 .UIAddApplication .UIAction {
-	width: 80px;
+	width: 120px;
 	margin: auto;
 	padding-bottom: 15px;
 }
