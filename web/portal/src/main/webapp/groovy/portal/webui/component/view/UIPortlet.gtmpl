@@ -119,8 +119,8 @@
 		            <div class="WindowPortletControl CategoryDetectPosition">
 		              <div class="ControlIcon ArrowDownIcon" onclick="$showCategory; $setDefault;" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
 		              <%if(isWindow) {%>
-	                		<div class="ControlIcon MinimizedIcon" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
-	                		<div class="ControlIcon MaximizedIcon" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+	                		<div class="ControlIcon MinimizedIcon" title="Minimized" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+	                		<div class="ControlIcon MaximizedIcon" title="Maximized" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	                <%
 	                  } else if(uicomponent.getShowWindowState()) {	                    
 	                    String maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+popupId+"', 'maximized');" ;
@@ -135,14 +135,14 @@
   	                    minimizedMode = "Normal";
 	                    }
 	                %>
-    	                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction"  onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
-	                		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction"  onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+    	                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction"  title="$minimizedMode" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+	                		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction"  title="$maximizedMode" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	                <%}%>    
 	                <%
 	                  if(isWindow) {
 		                  String removeChildAction = uicomponent.getParent().event("RemoveChild", popupId) ;
 	                %>
-	                		<a class="ControlIcon CloseButtonIcon" href="$removeChildAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></a>
+	                		<a class="ControlIcon CloseButtonIcon" href="$removeChildAction" title="Close" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></a>
 	                <%}%>	
 		              <div style="clear: left"><span></span></div>  
 		            </div>

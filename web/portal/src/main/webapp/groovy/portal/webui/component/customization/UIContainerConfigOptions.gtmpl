@@ -18,7 +18,7 @@
   String onMouseOver1 		= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
   String onMouseOut1			= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
 %>
-<div class="UIContainerConfigOptions AncestorPopupCategory">
+<div class="UIContainerConfigOptions ItemSelectorAncestor">
 	<div class="ContainerConfigOptions">
 	<%  uicomponent.renderChild(UIDropDownItemSelector.class); %>
 	

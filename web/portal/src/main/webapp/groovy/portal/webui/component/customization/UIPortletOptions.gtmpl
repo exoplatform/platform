@@ -22,7 +22,7 @@
   List portletCategoryDatas = uicomponent.getPortletCategorDatas();
 %>
 
-<div class="UIPortletOptions AncestorPopupCategory">	
+<div class="UIPortletOptions ItemSelectorAncestor">	
 <div class="PortletOptions">
   
   <%  uicomponent.renderChild(UIDropDownItemSelector.class); %>

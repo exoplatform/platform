@@ -18,7 +18,7 @@
 <div class="UIPageNodeSelector" id="UIPageNodeSelector">
   
   <%/*Begin PageNodeSelectorContainer*/%>
-  <div class="UIContainerConfigOptions AncestorPopupCategory"> 
+  <div class="UIContainerConfigOptions ItemSelectorAncestor"> 
   <div class="ContainerConfigOptions"> 
 <%  uicomponent.renderChild(UIDropDownItemSelector.class); %>	
 <% /*************************************************************/ %>
