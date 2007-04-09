@@ -176,3 +176,9 @@
 .UIWidgets .ControlBar .UpBrownArrowIcon {
 	background: url('VistaSkin/icon/UpNomalIcon.png') no-repeat center;
 }
+
+.UIWidgets .UIWidgetContainer .ClockWidget {
+	width: 185px; height: 203px;
+	background:url('VistaSkin/background/MarketStock.png') no-repeat center;
+	margin:auto;
+}

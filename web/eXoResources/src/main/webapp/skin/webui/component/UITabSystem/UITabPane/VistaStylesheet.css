@@ -17,8 +17,8 @@
 }
 
 .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer .UITabContent {
-  border:solid 1px #b7b7b7;
-  padding: 6px ;
+  border:solid 1px #909090;
+  padding: 10px;
 }
 
 .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {

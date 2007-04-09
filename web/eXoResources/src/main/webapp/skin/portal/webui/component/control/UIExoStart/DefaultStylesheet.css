@@ -40,7 +40,8 @@
 }
 
 .UIExoStart .DigitalClock {
-  margin: 7px 0px 0px 0px ;
+  margin: 0px ;
+  line-height: 37px;
 }
 
 .UIExoStart .StartMenuContainer {

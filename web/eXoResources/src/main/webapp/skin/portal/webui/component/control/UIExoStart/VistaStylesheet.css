@@ -8,7 +8,7 @@
 
 .UIExoStart .ExoStartButton {
   float: left ;
-  width: 108px ; height: 39px;
+  width:50px ; height: 39px;
   cursor: pointer ;
 }
 
@@ -28,26 +28,27 @@
   float: right ;
   width: 24px ; height: 24px ;
   background: url('VistaSkin/icons/24x24/YellowFlag.png') no-repeat bottom ;
-  margin: 7px 7px 0px 3px ;
+  margin: 0px 7px 0px 3px ;
   cursor: pointer ;
 }
 
 .UIExoStart .VLineSeparator {
   float: right ;
-  width: 2px ; height: 32px ;
-  background: url('VistaSkin/background/LineSeparator2x32.png') no-repeat bottom ;
-  margin: 7px 4px 0px 4px ;
+  width: 2px ; height: 38px ;
+  background: url('VistaSkin/background/LineSeparator2x38.png') no-repeat top;
+  margin: 0px 4px 0px 4px ;
 }
 
 .UIExoStart .DigitalClockContainer {
   float: right ;
   font-size: 11px ;  text-align: center ;
-  margin: 6px 9px 0px 0px;
+  margin: 0px 9px 0px 0px;
 }
 
 .UIExoStart .DigitalClock {
   color: white ;
-  margin: 7px 0px 0px 0px ;
+	line-height: 38px;
+	padding-left: 5px;
 }
 
 .UIExoStart .StartMenuContainer {
