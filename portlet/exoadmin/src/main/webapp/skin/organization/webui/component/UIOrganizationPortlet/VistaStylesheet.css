@@ -107,7 +107,7 @@
 }
 
 .UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer {
-  width: 370px;
+  width: 390px;
   margin: auto; margin-top: 12px; margin-bottom: 5px;
   overflow: hidden;
 }
@@ -116,6 +116,7 @@
   margin-left: 0px; text-align: left;
   font-size: 11px; 
   width: 130px; 
+  float: left;
 }
 .UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer input {
   width: 220px; height: 18px; line-height: 18px; 

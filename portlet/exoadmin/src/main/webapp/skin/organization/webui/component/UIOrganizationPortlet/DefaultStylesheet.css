@@ -102,6 +102,7 @@
   width: 130px; 
   text-align: left;
   margin-left: 0px; 
+  float: left;
 }
 
 .UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer input {
