@@ -159,11 +159,10 @@
   height: auto;
   margin-right: 225px;
   padding: 1px ;
-  border: 1px solid #b7b7b7;
 }
 
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
-  height: 240px;
+  height: 260px;
   background: white;
   border: 1px #9f9f9f solid ;
   padding: 6px 0px 0px 0px;
