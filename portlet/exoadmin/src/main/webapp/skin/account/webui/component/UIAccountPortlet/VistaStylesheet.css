@@ -4,15 +4,15 @@
 
 .UIAccountPortlet { 
   background: url('VistaSkin/background/UIAccountPortletBG1x3.png') repeat ; 
+  margin: 0px;
 }
 
 .UIAccountPortlet .AccountContainer {
- 
 }
 
 .UIAccountPortlet .UIFormTabPane .UITabPane {
-  padding: 1px 2px 3px 2px;  margin: 5px;
-  
+  padding: 1px 2px 3px 2px;  
+  margin: 5px;
 }
 
 .UIAccountPortlet .UIAction  {
