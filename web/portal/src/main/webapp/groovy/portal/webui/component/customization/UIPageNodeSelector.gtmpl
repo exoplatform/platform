@@ -22,7 +22,7 @@
   <div class="ContainerConfigOptions"> 
 <%  uicomponent.renderChild(UIDropDownItemSelector.class); %>	
 <% /*************************************************************/ %>
-		<div class="UIVerticalSlideTabs ItemList" style="padding: 1px;">
+		<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
 		<%
 		  if(navigations != null) {
     	  for(nav in navigations) {
