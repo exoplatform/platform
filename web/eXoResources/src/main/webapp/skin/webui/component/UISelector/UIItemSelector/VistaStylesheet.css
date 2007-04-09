@@ -384,11 +384,33 @@
   margin-left: 220px;
   border: 1px #b7b7b7 solid ;
   background: #f6f6f6;
-  padding: 1px ;
   margin-right: 0px;
   height: auto;
 }
 
+.UIItemSelector .LeftColumnStyle .Title {
+  line-height: 22px; vertical-align: middle;
+  font-weight: bold; color: #5c5c5c; font-size: 11px;
+  float: left;
+}
+
+.UIItemSelector .LeftColumnStyle .ItemListIcon {
+	width: 26px; height: 19px;
+	background: url('VistaSkin/icons/ItemListIcon26x19.png') no-repeat;
+	margin-top: 3px;
+}
+
+.UIItemSelector .LeftColumnStyle .ViewListIcon {
+	width: 29px; height: 23px;
+	background: url('VistaSkin/icons/ViewListIcon29x23.png') no-repeat;
+	margin-top: 3px;
+	fload: left;
+}
+
+.UIItemSelector .LeftColumnStyle .TitleIcon {
+	float:left;
+	margin:0px 5px;
+}
 
 .UIItemSelector .LeftColumnStyle .ItemListContainer .ItemListTitle {
   font-size: 12px; text-align: center;

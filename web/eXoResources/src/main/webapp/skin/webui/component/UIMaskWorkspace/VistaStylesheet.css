@@ -196,3 +196,152 @@
 .UIMaskWorkspace .UIAction .ActionButton .Icon {
   margin: 0px 0px 0px 10px ;
 }
+
+/**************************** UIAddApplication ******************************************/
+.UIAddApplication .TitleBarContainer {
+  padding: 10px 13px 0px 10px; 
+}
+
+.UIAddApplication .ItemDetailTitle {
+	height: 26px ;
+	line-height: 26px; 
+	font-weight: bold ; font-size: 11px; color: #5c5c5c;
+	vertical-align: middle ;
+}
+
+.UIAddApplication .LeftColumnStyle .ItemListContainer .ItemListTitle {
+	height: 26px;
+	line-height: 26px;
+	background: none;
+	border: none;
+}
+
+.UIAddApplication .ApplicationLabel {
+	float: left ;
+	height: 22px ;
+	line-height: 22px; 
+	font-weight: bold ; font-size: 11px; color: #1465B9;
+	vertical-align: middle ;
+}
+
+.UIAddApplication .ApplicationListContainer {
+	height: 240px;
+	border: 1px solid #a4a4a4;
+	background: white;
+	overflow: auto;
+}
+
+.UIAddApplication .TitleBarApplication {
+	height: 22px ;
+	background: url("DefaultSkin/background/ApplicationTitleBar1x22.gif") repeat-x ;
+}
+
+.UIAddApplication .ApplicationDescription {
+	background: white ;
+	padding: 10px;
+	font-size: 11px;
+}
+
+.UIAddApplication .Application {
+  margin: 10px 10px 5px 10px ;
+	border: solid 1px #d6d6d6 ;
+}
+
+.UIAddApplication .AddButton {
+	float: right ; 
+	width: 19px ; height: 19px ;
+	background: url("DefaultSkin/icons/16x16/AddIcon.gif") no-repeat center;
+	margin: 1px 10px ;
+	cursor: pointer ;
+}
+
+.UIAddApplication .TitleBarContainer .LeftTitleBar {
+  background: url('DefaultSkin/background/LeftTitleBar60x50.gif') no-repeat left;
+  padding: 0px 0px 0px 60px ;
+}
+
+.UIAddApplication .TitleBarContainer .RightTitleBar {
+  background: url('DefaultSkin/background/RightTitleBar11x50.gif') no-repeat right;
+  padding: 0px 11px 0px 0px ;
+}
+
+.UIAddApplication .TitleBarContainer .CenterTitleBar {
+  height: 50px ;
+  line-height: 50px ; vertical-align: middle ;
+  font-weight: bold ; text-align: center ; font-family: arial; color: #0575CA; font-size: 13px;
+  background: url('DefaultSkin/background/CenterTitleBar1x50.gif') repeat-x;
+}
+
+.UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
+  height: 230px ; 
+  overflow: auto ;
+  background: #ffffff;
+  border: 1px solid #a4a4a4;
+}
+
+.UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {
+  background: none;
+  border: none;
+}
+
+.UIAddApplication .UIItemSelector .ItemDetailList {
+  background: none;
+  border: none;
+}
+
+
+.UIAddApplication .ContentContainerDetail .TabsContainer .RefreshButtonContent {
+	float: right;
+	width: 90px;
+}
+
+.UIAddApplication .RefreshButtonContent .RefreshButtonLeft {
+	background:url('DefaultSkin/background/LeftRefreshButton22x22.gif') no-repeat top left; 
+	padding: 0px 0px 0px 22px;
+}
+
+.UIAddApplication .RefreshButtonContent .RefreshButtonRight {
+	background:url('DefaultSkin/background/RightRefreshButton11x22.gif') no-repeat top right; 
+	padding: 0px 11px 0px 0px ;
+}
+
+.UIAddApplication .RefreshButtonContent .MiddleRefreshButton {
+	height: 22px;
+	background:url('DefaultSkin/background/CenterRefreshButton1x22.gif') repeat-x top; 
+}
+
+.UIAddApplication .RefreshButtonContent .RefreshButtonLabel {
+	line-height: 21px;
+	padding: 0px 5px;
+	cursor: pointer ;	
+	text-align: center;
+	font-size: 11px;
+}
+
+.UIAddApplication .UIItemSelector {
+	padding: 3px;
+	border: 1px solid #b7b7b7;
+	margin: 0px;
+	background: #f2f2f2;
+}
+
+.UIAddApplication .RefreshButtonContent a:hover {
+	color: #0575CA;
+}
+
+.UIAddApplication .UIAction {
+	width: 100px;
+	margin: auto;
+	padding-bottom: 15px;
+}
+
+.UIAddApplication .UIAction .ActionButton {
+  width: 80px ;
+}
+
+.UIAddApplication .ApplicationItemIcon {
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/DarkBlueNextArrow.gif') no-repeat ;
+	float: left;
+	margin: 3px 5px 0px 5px;
+}
