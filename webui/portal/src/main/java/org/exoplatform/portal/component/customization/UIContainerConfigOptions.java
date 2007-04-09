@@ -48,12 +48,13 @@ public class UIContainerConfigOptions extends UIContainer {
     UIDropDownItemSelector dropCategorys = addChild(UIDropDownItemSelector.class, null, null);
     dropCategorys.setTitle("Select Navigations");
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
+    dropCategorys.setOptions(options);
     if(initParams == null) return ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("ContainerConfigOption");          
     categories_ = param.getMapGroovyObject(context) ;
     if(categories_ == null) return ;
-    if(selectedCategory_ == null) setCategorySelected(categories_.get(0)) ;   
+    if(selectedCategory_ == null) setCategorySelected(categories_.get(0)) ;
     for(SelectItemCategory itemCategory: categories_) {
       options.add(new SelectItemOption<String>(itemCategory.getName()));
     }
