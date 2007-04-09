@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
@@ -60,7 +61,6 @@ public class UIChangeSkinForm extends UIFormTabPane{
     UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Skin", "  ");
     uiTemplate.setItemCategories(itemCategories );
     uiTemplate.setRendered(true);
-//    uiTemplate.setValue(null);
     addChild(uiTemplate);
   }
   
@@ -72,7 +72,6 @@ public class UIChangeSkinForm extends UIFormTabPane{
       uiMaskWorkspace.setUIComponent(null);
       
       UIFormInputItemSelector uiTemplate  = uicomp.getChild(UIFormInputItemSelector.class);
-      System.out.println("\n\n"+uiTemplate.getSelectedItemOption().getValue() +"\n\n");
       UIPortalApplication uiApp = uicomp.getAncestorOfType(UIPortalApplication.class);      
       uiApp.setSkin(uiTemplate.getSelectedItemOption().getValue().toString());
       
@@ -81,11 +80,10 @@ public class UIChangeSkinForm extends UIFormTabPane{
       PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal, true);
       PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
       dataService.savePortalConfig(portalConfig);
-      Util.updateUIApplication(event);
-     
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
-      //TODO refresh UIPortalApplication
-      //event.getRequestContext().addUIComponentToUpdateByAjax(uiApp) ;
+      
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      String url = pcontext.getRequestContextPath();
+      pcontext.getJavascriptManager().addJavascript("window.location=\""+url+"\"");
     }
   }
 
