@@ -35,7 +35,6 @@ public class UIChangeSkinForm extends UIFormTabPane{
     
     skinVista.setSelectItemOptions(vistaList);
     
-    
     SelectItemCategory skinMac = new SelectItemCategory("Mac", false);
     List<SelectItemOption> macList = new  ArrayList<SelectItemOption>();
     macList.add(new SelectItemOption("Mac", "mac", "Mac"));
@@ -61,9 +60,11 @@ public class UIChangeSkinForm extends UIFormTabPane{
   
   static public class SaveActionListener  extends EventListener<UIChangeSkinForm> {
     public void execute(Event<UIChangeSkinForm> event) throws Exception {
-      System.out.println("\n=======> save ne`\n");
+      System.out.println("\n=======> save ne`\n");      
 //      String skin  = event.getRequestContext().getRequestParameter(OBJECTID);     
-      UIChangeSkinForm uicomp = event.getSource() ;      
+      UIChangeSkinForm uicomp = event.getSource() ;
+      UIFormInputItemSelector uiTemplate  = uicomp.getChild(UIFormInputItemSelector.class);
+      System.out.println("\n\n"+uiTemplate.getSelectedItemOption().getValue() +"\n\n");
       List skinList = uicomp.getChildren();
       Iterator skinIterator = skinList.iterator();
       while (skinIterator.hasNext()) {      
