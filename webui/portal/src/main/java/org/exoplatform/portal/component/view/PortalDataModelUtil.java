@@ -255,7 +255,7 @@ public class PortalDataModelUtil {
       uiComponent = uiPageBody;
     }else if(model instanceof Application){
       Application application = (Application) model;
-      String factoryId = application.getFactoryId(); 
+      String factoryId = application.getFactoryId();       
       if(factoryId == null || factoryId.equals(Application.TYPE_PORTLET)){
         UIPortlet uiPortlet = uiParent.createUIComponent(context, UIPortlet.class, model.getFactoryId(), null);
         toUIPortlet(uiPortlet, application);

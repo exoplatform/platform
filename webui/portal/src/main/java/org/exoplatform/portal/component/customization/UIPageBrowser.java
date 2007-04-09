@@ -62,10 +62,6 @@ public class UIPageBrowser extends UISearch {
 
   public UIPageBrowser() throws Exception {
     super(OPTIONS);
-    
-    UIPageForm uiPageForm = addChild(UIPageForm.class, null, null) ;
-    uiPageForm.setRendered(false) ;
-    
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("id", BEAN_FIELD, EDIT_ACTIONS) ;
     defaultValue(null) ;
@@ -233,11 +229,12 @@ public class UIPageBrowser extends UISearch {
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
+      uiMaskWS.setUIComponent(uiPageForm);
+      uiMaskWS.setShow(true);
+
       UIPermissionSelector uiPermissionSelector = uiPageForm.getChild(UIPermissionSelector.class);    
       uiPermissionSelector.createPermission("ViewPermission", null);
       uiPermissionSelector.createPermission("EditPermission", null);
-      uiMaskWS.setUIComponent(uiPageForm);
-      uiMaskWS.setShow(true);
       
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       Util.updateUIApplication(event);  

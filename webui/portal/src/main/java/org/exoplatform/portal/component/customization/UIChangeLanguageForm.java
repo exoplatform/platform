@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormTabPane;
@@ -70,9 +69,6 @@ public class UIChangeLanguageForm extends UIFormTabPane{
         UIFormInputItemSelector uiFormInputItemSelector = (UIFormInputItemSelector) skinIterator.next();
         System.out.println("\n==========> uiFormInputItemSelector: " + uiFormInputItemSelector.getName() + "\n");
       }
-      
-      UIPortalApplication uiApp = uicomp.getAncestorOfType(UIPortalApplication.class);      
-
     }
   }
 

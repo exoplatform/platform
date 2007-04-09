@@ -5,7 +5,6 @@
 package org.exoplatform.portal.component.control;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -18,7 +17,6 @@ import org.exoplatform.portal.component.customization.UIPageEditWizard;
 import org.exoplatform.portal.component.customization.UIPageManagement;
 import org.exoplatform.portal.component.customization.UIPortalManagement;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
-import org.exoplatform.portal.component.customization.UISkinSelector;
 import org.exoplatform.portal.component.customization.UIWizardPageCreationBar;
 import org.exoplatform.portal.component.customization.UIManagement.ManagementMode;
 import org.exoplatform.portal.component.view.UIPortal;
@@ -33,10 +31,6 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UIFormInputItemSelector;
-import org.exoplatform.webui.component.model.SelectItemCategory;
-import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;

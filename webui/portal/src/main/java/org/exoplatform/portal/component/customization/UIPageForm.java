@@ -154,7 +154,7 @@ public class UIPageForm extends UIFormTabPane {
         page.setChildren(new ArrayList<org.exoplatform.portal.config.model.Component>());        
       }      
            
-      PortalDAO configService = uiPageForm.getApplicationComponent(PortalDAO.class);
+      PortalDAO configService = uiPageForm.getApplicationComponent(PortalDAO.class);      
       configService.savePage(page);      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm) ;
     }
