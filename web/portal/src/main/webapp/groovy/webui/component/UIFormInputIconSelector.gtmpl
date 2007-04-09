@@ -34,11 +34,11 @@
 	
 	    <input type="hidden" name="${uicomponent.name}" value ="$selectedIcon"/>
 			<%/*Begin Item List*/%>
-			<div class="ItemListContainer AncestorPopupCategory">
+			<div class="ItemListContainer ItemSelectorAncestor">
 			  <% 
 			  uicomponent.renderChild(UIDropDownItemSelector.class);
 			  %>
-        
+      
     
 	      
 		    <div class="ItemList">
