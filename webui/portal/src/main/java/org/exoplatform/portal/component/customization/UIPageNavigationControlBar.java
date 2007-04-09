@@ -10,20 +10,18 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
-import org.exoplatform.portal.component.control.UIExoStart;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
-import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.component.widget.UIPageNavigation;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.webui.component.UIComponentDecorator;
+import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIToolbar;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -53,16 +51,15 @@ import org.exoplatform.webui.event.EventListener;
 public class UIPageNavigationControlBar extends UIToolbar {
   
   public UIPageNavigationControlBar() throws Exception {
-    super();
     setToolbarStyle("ControlToolbar") ;
     setJavascript("Preview","onClick='eXo.portal.UIPortal.switchMode(this);'") ;
   }
 
   static public class RollbackActionListener extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-      UIPageNavigationControlBar uiPageManagement = event.getSource();
+      UIPageNavigationControlBar uiPageNav = event.getSource();
       
-      UIPortalApplication uiPortalApp = uiPageManagement.getAncestorOfType(UIPortalApplication.class);
+      UIPortalApplication uiPortalApp = uiPageNav.getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
 
       UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
@@ -76,8 +73,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
       UIPortal oldUIPortal = uiWorkingWS.getChild(UIPortal.class);
       oldUIPortal.setNavigation(uiPortal.getNavigations());
 
-      UIPageNodeSelector uiPageNodeSelector = 
-        uiPageManagement.findFirstComponentOfType(UIPageNodeSelector.class);
+      UIPageNodeSelector uiPageNodeSelector = uiPageNav.<UIContainer>getParent().findFirstComponentOfType(UIPageNodeSelector.class);
       uiPageNodeSelector.loadNavigations();
 
       uiWorkingWS.setRenderedChild(UIPortal.class);
