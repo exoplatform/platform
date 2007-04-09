@@ -10,25 +10,32 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
+import org.exoplatform.portal.application.handler.DownloadRequestHandler;
+import org.exoplatform.portal.application.handler.ServiceRequestHandler;
+import org.exoplatform.portal.application.handler.UploadRequestHandler;
+import org.exoplatform.web.WebAppController;
 
 @SuppressWarnings("serial")
 public class PortalController  extends HttpServlet {
-  private PortalApplication application ;
   
   @SuppressWarnings("unchecked")
   public void init(ServletConfig config) throws ServletException {
+    super.init(config) ;
     try {
       RootContainer rootContainer = RootContainer.getInstance() ;
-      PortalContainer portalContainer = rootContainer.getPortalContainer(config.getServletContext().getServletContextName()) ;
-      if(portalContainer != null) {
-        rootContainer.removePortalContainer(config.getServletContext()) ;
-        portalContainer.stopContainer() ;
-      }
+      PortalContainer portalContainer = 
+        rootContainer.getPortalContainer(config.getServletContext().getServletContextName()) ;
       portalContainer = rootContainer.createPortalContainer(config.getServletContext()) ;
       PortalContainer.setInstance(portalContainer) ;
-      application = new PortalApplication(config);
-      application.init() ;
-      portalContainer.registerComponentInstance(PortalApplication.class, application) ;
+      WebAppController controller = 
+        (WebAppController)portalContainer.getComponentInstanceOfType(WebAppController.class) ;
+      PortalApplication application = new PortalApplication(config);
+      application.onInit() ;
+      controller.addApplication(application) ;
+      controller.register(new PortalRequestHandler()) ;
+      controller.register(new DownloadRequestHandler()) ;
+      controller.register(new UploadRequestHandler()) ;
+      controller.register(new ServiceRequestHandler()) ;
       PortalContainer.setInstance(null) ;
     } catch (Throwable t){
       throw new ServletException(t) ;
@@ -36,14 +43,21 @@ public class PortalController  extends HttpServlet {
   }
   
   public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    application.service(req, res) ;
-  }
-
-  public void destroy() {
     try {
-      application.destroy() ;
-    } catch(Exception ex) {
-      ex.printStackTrace() ;
+      ServletConfig config =  getServletConfig() ;
+      RootContainer rootContainer = RootContainer.getInstance() ;
+      PortalContainer portalContainer = 
+        rootContainer.getPortalContainer(config.getServletContext().getServletContextName()) ;
+      if(portalContainer == null) {
+        portalContainer = rootContainer.createPortalContainer(config.getServletContext()) ;
+      }
+      PortalContainer.setInstance(portalContainer) ;
+      WebAppController controller = 
+        (WebAppController)portalContainer.getComponentInstanceOfType(WebAppController.class) ;
+      controller.service(req, res) ;
+      PortalContainer.setInstance(null) ;
+    } catch (Throwable t){
+      t.printStackTrace() ;
     }
   }
 }

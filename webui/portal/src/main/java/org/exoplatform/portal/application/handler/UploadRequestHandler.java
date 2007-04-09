@@ -4,16 +4,17 @@
  **************************************************************************/
 package org.exoplatform.portal.application.handler;
 
-import java.io.IOException;
 import java.io.Writer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.portal.application.PortalApplication;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.upload.UploadResource;
 import org.exoplatform.upload.UploadService;
+import org.exoplatform.web.WebAppController;
+import org.exoplatform.web.WebRequestHandler;
 
 /**
  * Created by The eXo Platform SARL
@@ -21,10 +22,14 @@ import org.exoplatform.upload.UploadService;
  *          nhudinhthuan@exoplatform.com
  * Dec 9, 2006  
  */
-public class UploadRequestHandler implements RequestHandler {
-  
-  public void execute(PortalApplication app, HttpServletRequest req, HttpServletResponse res) throws IOException {
-    ExoContainer container = app.getApplicationServiceContainer() ;
+public class UploadRequestHandler extends WebRequestHandler {
+
+  static String[]  PATHS = {"/upload"} ;
+
+  public String[] getPath() { return PATHS ; }
+
+  public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception { 
+    ExoContainer container =  PortalContainer.getInstance();
     UploadService service = (UploadService)container.getComponentInstanceOfType(UploadService.class) ;
     String actionValue  = req.getParameter("action");
     if(actionValue == null ||  actionValue.length() < 1) return;
@@ -58,9 +63,9 @@ public class UploadRequestHandler implements RequestHandler {
       UploadResource upResource = service.getUploadResource(uploadId);
       if(upResource != null) upResource.setStatus(UploadResource.UPLOADED_STATUS) ;
     }      
-    
+
   }
-  
+
   static enum  UploadServiceAction {
     PROGRESS, UPLOAD, DELETE, ABORT
   }

@@ -12,9 +12,9 @@ package org.exoplatform.web.application;
  */
 public interface ApplicationLifecycle<E extends RequestContext> {
   
-  public void init(Application app) throws Exception  ;
-  public void beginExecution(Application app, E context) throws Exception  ;
-  public void endExecution(Application app, E context) throws Exception  ;
-  public void destroy(Application app) throws Exception  ;
+  public void onInit(Application app) throws Exception  ;
+  public void onStartRequest(Application app, E context) throws Exception  ;
+  public void onEndRequest(Application app, E context) throws Exception  ;
+  public void onDestroy(Application app) throws Exception  ;
   
 }

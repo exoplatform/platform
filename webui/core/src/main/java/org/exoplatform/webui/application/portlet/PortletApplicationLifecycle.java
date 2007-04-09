@@ -7,21 +7,21 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 public class PortletApplicationLifecycle  implements  ApplicationLifecycle<WebuiRequestContext> {
   
   @SuppressWarnings("unused")
-  public void init(Application app) {
+  public void onInit(Application app) {
     
   }
   
   @SuppressWarnings("unused")
-  public void beginExecution(Application app, WebuiRequestContext context) throws Exception {
+  public void onStartRequest(Application app, WebuiRequestContext context) throws Exception {
     
   }
   
   @SuppressWarnings("unused")
-  public void endExecution(Application app, WebuiRequestContext context) throws Exception {
+  public void onEndRequest(Application app, WebuiRequestContext context) throws Exception {
   }
   
   @SuppressWarnings("unused")
-  public void destroy(Application app) {
+  public void onDestroy(Application app) {
     
   }
 

@@ -6,32 +6,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.web.application.JavascriptManager;
-import org.exoplatform.web.application.Parameter;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.config.Event;
 
 public class PortalRequestContext extends WebuiRequestContext {
    
   final  static public int PUBLIC_ACCESS  =   0 ;
   final  static public int PRIVATE_ACCESS =   1 ;
-  final  static public int ADMIN_ACCESS   =   2 ;
-  
-  private String portalOwner ;
-  private String nodePath ;
-  private String nodeURI ;
-  
-  private int accessPath = -1 ;  
   
   final static public String UI_COMPONENT_ACTION = "portal:action" ;
   final static public String UI_COMPONENT_ID = "portal:componentId" ;
   
+  private String portalOwner_ ;
+  private String nodePath_ ;
+  private String nodeURI_ ;
+  
+  private int accessPath = -1 ;  
+  
   private HttpServletRequest request_ ;
   private HttpServletResponse response_ ;
-  //private HttpSession session_ ;
   private boolean  ajaxRequest_ = true ;
   private boolean  forceFullUpdate = false;
   protected JavascriptManager jsmanager_ = new  JavascriptManager() ;
@@ -43,22 +38,20 @@ public class PortalRequestContext extends WebuiRequestContext {
     
     request_ = req ;
     response_ =  res ;
-    //session_ = req.getSession() ;
     setSessionId(req.getSession().getId()) ;
     ajaxRequest_ = "true".equals(req.getParameter("ajaxRequest")) ;
-    nodeURI = req.getRequestURI() ;
+    nodeURI_ = req.getRequestURI() ;
     
     String pathInfo = req.getPathInfo() ;
     int colonIndex = pathInfo.indexOf(':') ;
-    portalOwner =  pathInfo.substring(1, colonIndex) ;
-    nodePath = pathInfo.substring(colonIndex + 1, pathInfo.length()) ;
-    if(nodeURI.indexOf("/public/") >= 0) accessPath =  PUBLIC_ACCESS ;
-    else if(nodeURI.indexOf("/private/") >= 0) accessPath =  PRIVATE_ACCESS ;
-    else if(nodeURI.indexOf("/admin/") >= 0) accessPath =  ADMIN_ACCESS ;
+    portalOwner_ =  pathInfo.substring(1, colonIndex) ;
+    nodePath_ = pathInfo.substring(colonIndex + 1, pathInfo.length()) ;
+    if(nodeURI_.indexOf("/public/") >= 0) accessPath =  PUBLIC_ACCESS ;
+    else if(nodeURI_.indexOf("/private/") >= 0) accessPath =  PRIVATE_ACCESS ;
     
     res.setContentType("text/html; charset=UTF-8");
     
-    urlBuilder = new PortalURLBuilder(nodeURI);
+    urlBuilder = new PortalURLBuilder(nodeURI_);
   }
   
   public void  setUIApplication(UIApplication uiApplication) throws Exception { 
@@ -77,11 +70,11 @@ public class PortalRequestContext extends WebuiRequestContext {
   
   public  String getUIComponentIdParameterName() { return PortalRequestContext.UI_COMPONENT_ID; }
   
-  public String getPortalOwner() { return portalOwner ; }
+  public String getPortalOwner() { return portalOwner_ ; }
   
-  public String getNodePath() { return nodePath  ; }
+  public String getNodePath() { return nodePath_  ; }
   
-  public String getNodeURI()  { return nodeURI ; }
+  public String getNodeURI()  { return nodeURI_ ; }
   
   public URLBuilder getURLBuilder() { return urlBuilder; }
   
@@ -89,7 +82,6 @@ public class PortalRequestContext extends WebuiRequestContext {
   
   final public String getRemoteUser() { return request_.getRemoteUser() ; }
   final public boolean isUserInRole(String roleUser){ return request_.isUserInRole(roleUser); }
-//  final public boolean isLogon() { return accessPath == PortalRequestContext.PRIVATE_ACCESS; }
   
   final public Writer getWriter() throws Exception { return response_.getWriter() ; }
   

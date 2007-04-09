@@ -1,9 +1,6 @@
 package org.exoplatform.portal.application;
 
-import javax.servlet.ServletContext;
-
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.container.RootContainer;
 import org.exoplatform.container.SessionContainer;
 import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.ApplicationLifecycle;
@@ -11,37 +8,21 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 
 public class PortalApplicationLifecycle  implements  ApplicationLifecycle<WebuiRequestContext> {
   
-  public void init(Application app) {
-    PortalApplication papp = (PortalApplication) app ;
-    ServletContext context  = papp.getServletConfig().getServletContext();
-    RootContainer rootContainer = RootContainer.getInstance();
-    PortalContainer pcontainer = rootContainer.getPortalContainer(context.getServletContextName());
-    if(pcontainer == null) pcontainer = rootContainer.createPortalContainer(context);
-    PortalContainer.setInstance(pcontainer) ;
+  public void onInit(Application app) {
   }
  
-  public void beginExecution(Application app, WebuiRequestContext rcontext) throws Exception {
-    PortalApplication papp = (PortalApplication) app ;
-    ServletContext context  = papp.getServletConfig().getServletContext();
-    RootContainer rootContainer = RootContainer.getInstance();
-    PortalContainer pcontainer = rootContainer.getPortalContainer(context.getServletContextName());
-    PortalContainer.setInstance(pcontainer) ;
+  public void onStartRequest(Application app, WebuiRequestContext rcontext) throws Exception {
+    PortalContainer pcontainer = PortalContainer.getInstance() ;
     SessionContainer.setInstance(pcontainer.getSessionManager().getSessionContainer(rcontext.getSessionId())) ;
   }
 
   @SuppressWarnings("unused")
-  public void endExecution(Application app, WebuiRequestContext rcontext) throws Exception {
+  public void onEndRequest(Application app, WebuiRequestContext rcontext) throws Exception {
     SessionContainer.setInstance(null) ;
     PortalContainer.setInstance(null) ;
   }
   
-  public void destroy(Application app) {
-    PortalApplication papp = (PortalApplication) app ;
-    ServletContext context  = papp.getServletConfig().getServletContext();
-    RootContainer rootContainer = RootContainer.getInstance();
-    PortalContainer pcontainer = rootContainer.getPortalContainer(context.getServletContextName());
-    if(pcontainer.isStarted())  pcontainer.stop();
-    rootContainer.removePortalContainer(context);
+  public void onDestroy(Application app) {
   }
 
 }

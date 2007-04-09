@@ -15,14 +15,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 abstract public class WebRequestHandler {
   
-  public void onInit(WebController controller) throws Exception{
+  public void onInit(WebAppController controller) throws Exception{
     
   }
   
   abstract public String[] getPath() ;
-  abstract public void execute(WebController app,  HttpServletRequest req, HttpServletResponse res) throws Exception ;
+  abstract public void execute(WebAppController app,  HttpServletRequest req, HttpServletResponse res) throws Exception ;
   
-  public void onDestroy(WebController controler) throws Exception {
+  public void onDestroy(WebAppController controler) throws Exception {
     
   }
 

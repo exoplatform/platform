@@ -2,7 +2,7 @@
  * Copyright 2001-2006 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.portal.application.handler;
+package org.exoplatform.portal.application;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.portal.application.PortalApplication;
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.web.WebAppController;
+import org.exoplatform.web.WebRequestHandler;
 import org.exoplatform.web.application.ApplicationLifecycle;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
@@ -21,14 +23,19 @@ import org.exoplatform.webui.component.UIApplication;
  *          nhudinhthuan@exoplatform.com
  * Dec 9, 2006  
  */
-public class PortalRequestHandler implements RequestHandler {
-  public void execute(PortalApplication app, HttpServletRequest req, HttpServletResponse res) {
+public class PortalRequestHandler extends WebRequestHandler {
+ static String[]  PATHS = {"/public", "/private"} ;
+  
+ public String[] getPath() { return PATHS ; }
+  
+  public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
+    PortalApplication app =  controller.getApplication(PortalApplication.PORTAL_APPLICATION_ID) ;
     WebuiRequestContext context = new  PortalRequestContext(app, req, res) ;  ;
     WebuiRequestContext.setCurrentInstance(context) ;
     List<ApplicationLifecycle> lifecycles = app.getApplicationLifecycle();
     try {
       for(ApplicationLifecycle lifecycle :  lifecycles)  {
-        lifecycle.beginExecution(app, context) ;
+        lifecycle.onStartRequest(app, context) ;
       }
       UIApplication uiApp = app.getStateManager().restoreUIRootComponent(context) ;
       context.setUIApplication(uiApp) ;
@@ -46,7 +53,7 @@ public class PortalRequestHandler implements RequestHandler {
     } finally {
       try {
         for(ApplicationLifecycle lifecycle :  lifecycles) {
-          lifecycle.endExecution(app, context) ;
+          lifecycle.onEndRequest(app, context) ;
         }
       } catch (Exception exception){
         //TODO: Need to use the log service

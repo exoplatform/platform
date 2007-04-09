@@ -18,21 +18,26 @@ import org.exoplatform.portal.application.PortalApplication;
 import org.exoplatform.services.portletregistery.Portlet;
 import org.exoplatform.services.portletregistery.PortletCategory;
 import org.exoplatform.services.portletregistery.PortletRegisteryService;
+import org.exoplatform.web.WebAppController;
+import org.exoplatform.web.WebRequestHandler;
 /**
  * Created by The eXo Platform SARL
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
  * Dec 9, 2006  
  */
-public class ServiceRequestHandler implements RequestHandler {
+public class ServiceRequestHandler extends WebRequestHandler {
+  static String[]  PATHS = {"/service"} ;
 
-  public void execute(PortalApplication app, HttpServletRequest req, HttpServletResponse res) throws IOException {
+  public String[] getPath() { return PATHS ; }
+
+  public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     String serviceName  = req.getParameter("serviceName");
     if(serviceName.equals("portletRegistry")){
       Writer  writer = res.getWriter();
       try{
+        PortalApplication app =  controller.getApplication(PortalApplication.PORTAL_APPLICATION_ID) ;
         StringBuilder value = getPortlets(app);
-//      System.out.println("\n\n\n "+req.hashCode()+" : "+value +"\n\n\n");
         writer.append(value);
       }catch (Exception e) {
         e.printStackTrace() ;

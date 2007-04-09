@@ -23,7 +23,6 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -59,7 +58,6 @@ public class UIPortalApplication extends UIApplication {
   final static public String UI_CONTROL_WS_ID = "UIControlWorkspace" ;
   final static public String UI_WORKING_WS_ID = "UIWorkingWorkspace" ;
   final static public String UI_MASK_WS_ID = "UIMaskWorkspace" ;
-  public  static String      POPUP_WINDOW_ID = "UIPortalApplicationPopupWindow" ;
   
   private String skin = "Default" ;
   
@@ -79,12 +77,10 @@ public class UIPortalApplication extends UIApplication {
     } 
     
     setOwner(context.getPortalOwner());    
-    UIPopupWindow uiWindow = addChild(UIPopupWindow.class, null, POPUP_WINDOW_ID);
-    uiWindow.setWindowSize(800, -1) ;
-    uiWindow.setShow(false);
   } 
   
   public String getSkin() {  return skin ; }
+  public void setSkin(String skin){ this.skin = skin; }
   
   public SkinConfig getSkin(String module) {
     SkinService skinService = getApplicationComponent(SkinService.class);
@@ -109,8 +105,6 @@ public class UIPortalApplication extends UIApplication {
     }
     return skins ;
   }
-  
-  public void setSkin(String skin){ this.skin = skin; }
   
   @SuppressWarnings("hiding")
   private  void  initPublicPortal(UserPortalConfig config, PortalRequestContext context, InitParams initParams) throws Exception {
@@ -137,14 +131,6 @@ public class UIPortalApplication extends UIApplication {
     uiWorkingWorkspace.addChild(UIPortalToolPanel.class, null, null).setRendered(false) ;    
     addChild(uiWorkingWorkspace) ;
     addChild(UIMaskWorkspace.class,    UIPortalApplication.UI_MASK_WS_ID, null) ;
-  }
-  
-  public <T extends UIComponent> T setUIControlWSPopupComponent(Class<T> clazz) throws Exception {
-    UIPopupWindow uiPopup = getChildById(UIPortalApplication.POPUP_WINDOW_ID) ;
-    T uiComponent = uiPopup.createUIComponent(clazz, null, null);
-    uiPopup.setUIComponent(uiComponent) ;
-    uiPopup.setShow(true) ;  
-    return uiComponent;
   }
   
   public void  processRender(WebuiRequestContext context) throws Exception {

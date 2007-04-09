@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.exoplatform.test.BasicTestCase;
-import org.exoplatform.webui.application.mock.MockApplication;
 
 /**
  * Author : Nhu Dinh Thuan
@@ -30,8 +29,8 @@ public class TestApplication extends BasicTestCase {
     initParams.put("webui.configuration", new File(webuiConfig).toURL().toString()) ;
     
     MockApplication mock = new MockApplication(initParams, resources, null) ;
-    mock.init() ;
-    mock.destroy() ;
+    mock.onInit() ;
+    mock.onDestroy() ;
   }
   
 }

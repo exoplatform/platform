@@ -7,7 +7,6 @@ package org.exoplatform.webui.component.lifecycle;
 import groovy.text.Template;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.templates.groovy.GroovyTemplateService;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -25,7 +24,7 @@ public class Lifecycle {
   
   static {
     DEVELOPING =  "true".equals(System.getProperty("exo.product.developing")) ;
-    System.out.println("===> CHECK_MODIFIED_TEMPLATE = " + DEVELOPING) ;
+    //System.out.println("===> CHECK_MODIFIED_TEMPLATE = " + DEVELOPING) ;
   }
   
   private Decorator decorator_ = new Decorator()   ;

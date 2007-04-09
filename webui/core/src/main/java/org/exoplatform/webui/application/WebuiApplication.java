@@ -27,7 +27,7 @@ abstract public class WebuiApplication extends Application {
   private ConfigurationManager configManager_ ;
   private StateManager stateManager_ ;  
   
-  public void init() throws Exception {        
+  public void onInit() throws Exception {        
     String configPath = getApplicationInitParam("webui.configuration") ;
     InputStream is = getResourceResolver().getInputStream(configPath) ;
     configManager_ = new ConfigurationManager(is, this) ;
@@ -37,7 +37,7 @@ abstract public class WebuiApplication extends Application {
     List<ApplicationLifecycle> lifecycleListeners = 
       configManager_.getApplication().getApplicationLifecycleListeners() ;
     setApplicationLifecycle(lifecycleListeners) ;
-    for(ApplicationLifecycle lifecycle :  lifecycleListeners) lifecycle.init(this) ;
+    for(ApplicationLifecycle lifecycle :  lifecycleListeners) lifecycle.onInit(this) ;
   }
 
   public ConfigurationManager  getConfigurationManager() { return configManager_ ;}  

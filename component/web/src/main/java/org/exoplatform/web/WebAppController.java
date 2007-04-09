@@ -5,10 +5,13 @@
 package org.exoplatform.web;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.ComponentRequestLifecycle;
 import org.exoplatform.web.application.Application;
 /**
  * Created by The eXo Platform SARL
@@ -16,12 +19,13 @@ import org.exoplatform.web.application.Application;
  *          tuan.nguyen@exoplatform.com
  * Mar 21, 2007  
  */
-public class WebController {
+public class WebAppController {
   private HashMap<String, Object>  attributes_ ;
   private HashMap<String, Application>  applications_ ;
   private HashMap<String, WebRequestHandler> handlers_ ;
   
-  public WebController() {
+  public WebAppController() {
+    applications_ = new HashMap<String, Application>() ;
     attributes_ = new HashMap<String, Object>() ;
     handlers_ = new HashMap<String, WebRequestHandler>() ;
   }
@@ -30,7 +34,15 @@ public class WebController {
     return attributes_.get(name) ;
   }
   
-  public Application getApplication(String appId) { return applications_.get(appId) ; }
+  @SuppressWarnings("unchecked")
+  public <T extends Application> T getApplication(String appId) { 
+    return (T) applications_.get(appId) ; 
+  }
+  
+  @SuppressWarnings("unchecked")
+  public void removeApplication(String appId) { 
+    applications_.remove(appId) ; 
+  }
   
   public void addApplication(Application app) {
     applications_.put(app.getApplicationId(), app) ;
@@ -46,6 +58,19 @@ public class WebController {
   
   public void service(HttpServletRequest req, HttpServletResponse res) throws Exception {
     WebRequestHandler handler = handlers_.get(req.getServletPath()) ;
-    if(handler != null) handler.execute(this, req, res) ;
+    if(handler != null) {
+      PortalContainer portalContainer = PortalContainer.getInstance() ;
+      List<ComponentRequestLifecycle> components = 
+        portalContainer.getComponentInstancesOfType(ComponentRequestLifecycle.class) ;
+      for(ComponentRequestLifecycle component : components) {
+        component.startRequest(portalContainer);
+      }
+      
+      handler.execute(this, req, res) ;
+      
+      for(ComponentRequestLifecycle component : components) {
+        component.endRequest(portalContainer);
+      }
+    }
   }
 }

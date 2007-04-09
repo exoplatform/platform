@@ -4,16 +4,17 @@
  **************************************************************************/
 package org.exoplatform.portal.application.handler;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.download.DownloadResource;
 import org.exoplatform.download.DownloadService;
-import org.exoplatform.portal.application.PortalApplication;
+import org.exoplatform.web.WebAppController;
+import org.exoplatform.web.WebRequestHandler;
 
 /**
  * Created by The eXo Platform SARL
@@ -21,28 +22,32 @@ import org.exoplatform.portal.application.PortalApplication;
  *          nhudinhthuan@exoplatform.com
  * Dec 9, 2006  
  */
-public class DownloadRequestHandler implements RequestHandler {
+public class DownloadRequestHandler extends WebRequestHandler {
   
-  public void execute(PortalApplication app, HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setHeader("Cache-Control", "private max-age=600, s-maxage=120");
-    String resourceId = request.getParameter("resourceId") ;      
-    ExoContainer container = app.getApplicationServiceContainer();
+  static String[]  PATHS = {"/download"} ;
+
+  public String[] getPath() { return PATHS ; }
+
+  public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
+    res.setHeader("Cache-Control", "private max-age=600, s-maxage=120");
+    String resourceId = req.getParameter("resourceId") ;      
+    ExoContainer container =  PortalContainer.getInstance();
     DownloadService dservice = (DownloadService)container.getComponentInstanceOfType(DownloadService.class) ;
     DownloadResource dresource = dservice.getDownloadResource(resourceId);
     if(dresource == null){
-      response.setContentType("text/plain") ;                
-      response.getWriter().write("NO DOWNDLOAD RESOURCE CONTENT  OR YOU DO NOT HAVE THE RIGHT TO ACCESS THE CONTENT") ;
+      res.setContentType("text/plain") ;                
+      res.getWriter().write("NO DOWNDLOAD RESOURCE CONTENT  OR YOU DO NOT HAVE THE RIGHT TO ACCESS THE CONTENT") ;
       return;
     }
     if(dresource.getDownloadName() != null ){
-      response.setHeader("Content-Disposition", "attachment;filename="+dresource.getDownloadName());
+      res.setHeader("Content-Disposition", "attachment;filename="+dresource.getDownloadName());
     }
-    response.setContentType(dresource.getResourceMimeType()) ;
+    res.setContentType(dresource.getResourceMimeType()) ;
     InputStream is = dresource.getInputStream() ;
     byte[] buf = new byte[is.available()] ;
     is.read(buf) ;
-    response.setContentType(dresource.getResourceMimeType()) ;          
-    response.getOutputStream().write(buf) ;        
+    res.setContentType(dresource.getResourceMimeType()) ;          
+    res.getOutputStream().write(buf) ;        
     is.close();
   }  
 

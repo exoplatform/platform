@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSessionListener;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
+import org.exoplatform.web.WebAppController;
 
 /**
  * Created by The eXo Platform SARL        .
@@ -31,8 +32,9 @@ public class PortalSessionListener implements HttpSessionListener {
       RootContainer rootContainer = RootContainer.getInstance() ;
       PortalContainer portalContainer = rootContainer.getPortalContainer(portalContainerName) ;
       PortalContainer.setInstance(portalContainer); 
-      PortalApplication portalApp = 
-        (PortalApplication)portalContainer.getComponentInstanceOfType(PortalApplication.class) ;
+      WebAppController controller = 
+        (WebAppController)portalContainer.getComponentInstanceOfType(WebAppController.class) ;
+      PortalApplication portalApp =  controller.getApplication(PortalApplication.PORTAL_APPLICATION_ID) ;
       portalApp.getStateManager().expire(event.getSession().getId(), portalApp) ;
     } catch(Exception ex) {
       ex.printStackTrace() ;
