@@ -47,10 +47,11 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 	}
 
 	//var scrollTop = document.documentElement.scrollTop ;
-	var maskLayerHeight = (blockContainer.offsetHeight > Browser.getBrowserHeight()) ? blockContainer.offsetHeight : eXo.core.Browser.getBrowserHeight() ;
+	//var maskLayerHeight = (blockContainer.offsetHeight > Browser.getBrowserHeight()) ? blockContainer.offsetHeight : eXo.core.Browser.getBrowserHeight() ;
+	var maskLayerHeight = (document.body.offsetHeight > Browser.getBrowserHeight()) ? document.body.offsetHeight : eXo.core.Browser.getBrowserHeight() ;
 	maskLayer.style.width = blockContainer.offsetWidth + "px" ;
 	//maskLayer.style.height = (maskLayerHeight + scrollTop) + "px" ;
-	maskLayer.style.height = document.getElementById("UIPortalApplication").offsetHeight + "px";
+	maskLayer.style.height = maskLayerHeight + "px";
 	return maskLayer ;
 } ;
 
