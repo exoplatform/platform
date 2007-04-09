@@ -132,7 +132,43 @@
 
 /**************************** UIAddApplication ******************************************/
 .UIAddApplication .TitleBarContainer {
-  padding: 10px 13px 0px 10px;
+  padding: 10px 13px 0px 10px; 
+}
+
+.UIAddApplication .ApplicationLabel {
+	float: left ;
+	height: 22px ;
+	line-height: 22px; 
+	font-weight: bold ; font-size: 11px; color: #1465B9;
+	vertical-align: middle ;
+}
+
+.UIAddApplication .ApplicationListContainer {
+	border: 1px solid #b7b7b7;
+}
+
+.UIAddApplication .TitleBarApplication {
+	height: 22px ;
+	background: url("DefaultSkin/background/ApplicationTitleBar1x22.gif") repeat-x ;
+}
+
+.UIAddApplication .ApplicationDescription {
+	background: white ;
+	padding: 10px;
+	font-size: 11px;
+}
+
+.UIAddApplication .Application {
+  margin: 10px 10px 5px 10px ;
+	border: solid 1px #d6d6d6 ;
+}
+
+.UIAddApplication .AddButton {
+	float: right ; 
+	width: 19px ; height: 19px ;
+	background: url("DefaultSkin/icons/16x16/AddIcon.gif") no-repeat center;
+	margin: 1px 10px ;
+	cursor: pointer ;
 }
 
 .UIAddApplication .TitleBarContainer .LeftTitleBar {
@@ -192,9 +228,12 @@
 	font-size: 11px;
 }
 
-.UIAddApplication  .UITabContent {
-	width: 653px;
-	padding-left: 3px;
+.UIAddApplication .UIItemSelector {
+	padding: 3px;
+	border: 1px solid #b7b7b7;
+	border-top: none;
+	margin: 0px;
+	background: #f2f2f2;
 }
 
 .UIAddApplication .RefreshButtonContent a:hover {
