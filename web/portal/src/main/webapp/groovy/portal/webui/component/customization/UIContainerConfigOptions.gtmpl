@@ -33,7 +33,7 @@
 		%>  
 		<%/* Start Container Layout */%>
 		  <div class="Category">
-		    <div class="CategoryContainer" style="display:$style;">
+		    <div class="ItemList" style="display:$style;">
 		      <%
 		        for(template in templates) {
 							String setIcon = template.getIcon();
