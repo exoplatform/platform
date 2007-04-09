@@ -26,53 +26,15 @@
   font-size: 11px ;
 }
 
-.UIPortletOptions .PortletTitle { 
-  float: left ;
-  font-size: 11px ;
-  font-weight: bold ;
-}
-
-.UIPortletOptions .PortletTitle a { 
-  color: #000000;
-  text-decoration: none;
-}
-
-.UIPortletOptions .PortletTitle a:hover { 
-  color: blue;
-  text-decoration: none;
-}
-
 .UIPortletOptions .CategoryContainer {
   border:solid 1px #b7b7b7; 
   background: white;
   overflow: auto;
 }
 
-.UIPortletOptions .Title {
-  background: white ; 
-  border: 1px solid #bcbcbc ;
-  border-bottom: solid 1px #929292;
-  margin-bottom: 5px ;
-}
-
-.UIPortletOptions .Title .TitleContainer {
-}
-
-.UIPortletOptions .Title .TitleContainer .Icon {
-	margin: 3px 0px 0px 7px;
-	float: left;
+.UIPortletOptions .UIDropDownItemSelector .ComponentIcon {
 	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPortletIcon.gif') no-repeat;
 }
 
-.UIPortletOptions .Title .TitleContainer .LabelText {
-	padding-left: 7px;
-	float: left;
-	height: 21px; line-height: 21px; vertical-align: middle;
-}
 
-.UIPortletOptions .Title .TitleContainer .ArrowButton {
-	float: right;
-	cursor: pointer ;
-	height: 21px;
-	border-left: solid 1px #bcbcbc;
-}

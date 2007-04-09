@@ -87,6 +87,14 @@
   background: url('/eXoResources/icons/16x16/MacSkin/MinimizeOver.gif') no-repeat center;
 }
 
+.UIWindow .WindowPortletControl .NormalIcon {
+  background: url('MacSkin/icons/16x16/Restore.gif') no-repeat top;
+}
+
+.UIWindow .WindowPortletControl .OverNormalIcon {
+  background: url('MacSkin/icons/16x16/RestoreOver.gif') no-repeat top;
+}
+
 .UIWindow .WindowPortletControl .MaxMin {
   width: 16px ; height: 16px ;
   cursor: pointer ;  

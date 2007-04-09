@@ -11,7 +11,6 @@
 .UIToolbar .EditToolbar .LeftBar {
   padding-left: 7px;
   background: url('VistaSkin/background/PolyBarL7x37.png') no-repeat left;
-  margin: 0px 10px;
 }
 
 .UIToolbar .EditToolbar .RightBar {
@@ -20,7 +19,7 @@
 }
 
 .UIToolbar .EditToolbar .MiddleBar {
-  height: 37px; line-height: 37px; vertical-align: middle;
+  height: 37px;
   background: url('VistaSkin/background/PolyBarM1x37.png') repeat-x ;
 }
 

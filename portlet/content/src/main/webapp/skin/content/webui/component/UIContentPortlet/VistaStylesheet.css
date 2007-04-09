@@ -153,34 +153,29 @@
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs {
-  margin-right: 30px ;
-  font-size: 11px; 
-  margin-bottom: 5px;
-  border:1px #636a4f solid;
-  border-top:none;
-  border-bottom:none;
-  height:27px;
-  
+  height: 33px;
+  background: url('VistaSkin/background/ContentBreadcumbsBG1x33.png') repeat-x;
+  margin: 0px 30px 5px 0px ; 
 }
 
 .UIContentPortlet .UIContentWorkingArea .UIDescription{
- padding: 0px;
- margin: 0px;
- 
+  padding: 0px;
+  margin: 0px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .BreadcumbsContainer {
-  padding: 3px 5px 1px 10px;
+  height: 27px; line-height: 27px;
   font-size: 11px; 
-  height: 29px;
-  background: url('VistaSkin/background/ContentBreadcumbsBG1x33.png') repeat-x;
-  
+  border: 1px #636a4f solid;
+  border-top: none; border-bottom: none;
+  padding: 0px 4px 0px 5px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .Icon {
   float: left;
   width: 24px; height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/NewsIcon.png') no-repeat;
+  margin: 2px 0px 0px 0px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .CategoryName {

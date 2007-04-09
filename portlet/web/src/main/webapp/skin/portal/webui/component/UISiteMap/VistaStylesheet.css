@@ -8,10 +8,11 @@
 
 .UIWindow .UISitemapPortlet {
 	overflow: auto ;
+	padding: 10px 0px 0px 0px;
 } 
 
 .UISitemap {
-  padding: 6px;
+  padding: 0px 3px 0px 3px ;
   overflow: auto;
 }
 
@@ -30,11 +31,12 @@
 
 .UISitemap .SitemapItemBox .TitleBar {
   background: url('VistaSkin/background/TopSitemapp295x22.png') no-repeat top;
-  height: 22px; line-height: 22px; vertical-align: middle;
+  height: 22px; 
 }
 
 .UISitemap .SitemapItemBox .TitleBar a {
   font-size: 11px; color: black; font-weight: bold;
+  line-height: 20px;
 }
 
 .UISitemap .SitemapItemBox .TitleBar a:hover {
@@ -42,8 +44,9 @@
 }
 
 .UISitemap .SitemapItemBox .TitleBar .Icon {
-  margin:3px 0px 0px 16px;
+  margin: 2px 0px 0px 0px;
   float: left;
+  padding: 0px 8px 0px 18px;
 }
 
 .UISitemap .SitemapItemBox .TitleBar .Title {

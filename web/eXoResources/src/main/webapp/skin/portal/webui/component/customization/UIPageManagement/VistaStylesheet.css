@@ -6,6 +6,10 @@
   margin-top: 3px;
 }
 
+.UIPageManagement .UIPageEditBar{
+  padding: 0px 10px;
+}
+
 .UIPageManagement .TopTitleBar {
   padding: 15px 0px;
 }

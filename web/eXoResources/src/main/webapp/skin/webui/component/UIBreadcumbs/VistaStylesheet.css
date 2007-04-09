@@ -3,8 +3,7 @@
 }
 
 .UIBreadcumbs {
-  height: 26px ;  line-height: 26px ;
-  vertical-align: middle ; font-size: 11px ;
+  height: 34px ;
   padding: 0px 3px 0px 1px;
 }
 
@@ -14,12 +13,12 @@
 }
 
 .UIBreadcumbs a.Selected {
-	color: blue ; 
+	color: #3c3c3c ; 
 }
 
 .UIBreadcumbs .HomeIcon {
 	float: left;
-  margin: 5px 7px 5px 3px ;
+  margin: 5px 7px 0px 3px ;
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {

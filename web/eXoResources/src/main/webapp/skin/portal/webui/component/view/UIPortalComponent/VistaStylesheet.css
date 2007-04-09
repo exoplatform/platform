@@ -16,7 +16,6 @@
 }
 
 .UIPortlet .PortletInfoBar {
-
 }
 
 .UIPortlet .PortletInfoBar .InfoBarLeft {
@@ -226,9 +225,10 @@
 }
 
 .PortletLayoutDecorator .GardientBackground {
-  background: url('VistaSkin/background/LayoutBG1x56.png');
-  height:56px;
+  background: url('VistaSkin/background/LayoutBG1x56.png') repeat-x bottom;
+  height: 64px;
   border-top: none;
+  padding: 8px 2px 0px 15px;
 }
 
 .PortletLayoutDecorator .BottomLeft {

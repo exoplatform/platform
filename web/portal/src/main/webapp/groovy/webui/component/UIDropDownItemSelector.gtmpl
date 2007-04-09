@@ -53,7 +53,7 @@
 				  <%  if(maxShow < size) { %>
 				    <div class="ItemSelector">
 							<div class="Icon"><span></span></div>
-	            <div class="ItemSelectorLabel" >up</div>
+	            <div class="ItemSelectorLabel">up</div>
 	            <div style="clear: left"><span></span></div>
 						</div>
 	      	<% }%>
@@ -80,7 +80,7 @@
 			    if(maxShow < size) { %>
 				    <div class="ItemSelector">
 							<div class="Icon"><span></span></div>
-	            <div class="ItemSelectorLabel" >down</div>
+	            <div class="ItemSelectorLabel">down</div>
 	            <div style="clear: left"><span></span></div>
 						</div>
 			    <% }%>					

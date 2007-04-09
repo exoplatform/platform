@@ -45,6 +45,7 @@
 }
 
 .UIPortalManagement .UIPortalManagementEditBar {
+  padding: 0px 10px;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
@@ -79,7 +80,6 @@
   margin: 8px 11px 0px 11px;
   width: 30px;  height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortalControl.png');
-
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .SavePortalIcon {

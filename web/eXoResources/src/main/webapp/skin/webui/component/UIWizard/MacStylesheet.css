@@ -46,7 +46,7 @@
 
 .UIWizard .UIWizardContent .WizardStepTitleBar {
   height: 34px;
-  background: url('MacSkin/background/Background1x4.png')  repeat-x;
+  background: url('MacSkin/background/Background1x4.png');
   border: solid 1px #aeaeae; border-bottom: none;
 }
 
@@ -74,7 +74,7 @@
 .UIWizard .UIWizardContent .WizardStepTitleBar .StepTitle {
   float: left;
   height: 32px; line-height: 32px; vertical-align: middle;
-  color: blue;
+  color: #3c3c3c;
   padding-left: 10px;
 }
 
@@ -263,7 +263,6 @@
 .UIWizard .UIFormTabPane {
   padding: 10px;
   margin-bottom: 0px;
-  border-top: solid 1px gray ;
 }
 
 .UIWizard .UIFormTabPane .UITabPane .TabPaneContent{

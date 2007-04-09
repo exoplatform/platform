@@ -3,10 +3,13 @@
 	padding: 0px 5px 0px 10px ;
 }
 
+.UIPage .VIEW-PAGE {
+  padding: 0px;
+}
+
 .UIPage .PageLayoutDecorator .MiddlePageBG {
   background: url('MacSkin/background/Pagebackground1x111.gif') repeat-x center ;
   height: 90px;
- 
 }
 
 .UIPage .PageLayoutDecorator .TopLeftPage {
