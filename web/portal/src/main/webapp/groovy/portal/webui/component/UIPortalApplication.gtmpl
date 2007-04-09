@@ -9,7 +9,7 @@
   String skin = uicomponent.getSkin();
   def portalSkin = uicomponent.getSkin("PortalSkin") ;
   def coreSkin = uicomponent.getSkin("CoreSkin") ;
-  def portletSkins = uicomponent.getPortletSkins() ;
+  def portletSkins = uicomponent.getPortletSkins() ;  
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -51,7 +51,12 @@
     <div class="$uicomponent.skin" id="UIPortalApplication">
     	<%uicomponent.renderChildren();%>
     </div>
-   
+    
+    <% 
+      /*Hide All Popup Menu when click on document*/
+      rcontext.getJavascriptManager().addOnLoadJavascript('eXo.core.Browser.hideElements');
+    %>
+    
     <div class="AjaxLoadingMask" id="AjaxLoadingMask" style="display: none;">
       <div class="LoadingContainer">
         <div class="CenterLoadingContainer">

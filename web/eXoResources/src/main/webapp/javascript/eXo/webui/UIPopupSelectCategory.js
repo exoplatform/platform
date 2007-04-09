@@ -1,16 +1,19 @@
 function UIPopupSelectCategory() {
 } ;
 
-UIPopupSelectCategory.prototype.show = function(selectedElement, width) {
+UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
+	if(!e) var e = window.event;
+	e.cancelBubble = true;
+	if(e.stopPropagation) e.stopPropagation();
+	
 	selectedElement.style.position = "static" ;
 	var ancestorPopupCategory = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "AncestorPopupCategory") ;
 	var categoryDetectPosition = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "CategoryDetectPosition") ;
 	var ControlCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
   var uiPopupCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
-  document.onclick = eXo.webui.UIPopupSelectCategory.hideLists;
 	if(uiPopupCategory == null) return;
 	selectedElement.style.position = "relative" ;
-			
+	
 	if(uiPopupCategory.style.display == "none") {
 		ancestorPopupCategory.style.position = "relative" ;
 		
@@ -22,6 +25,10 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width) {
 			var ancestorwidth = categoryDetectPosition.offsetWidth;
 			uiPopupCategory.style.right = (ancestorwidth - 30) + "px";
 		}
+				
+		/*Add uiPopupCategory to the list element will be display to "none" when click on document*/
+		eXo.core.Browser.listHideElements(uiPopupCategory);
+		
 	} else {
 		ancestorPopupCategory.style.position = "static" ;
 		uiPopupCategory.style.display = "none" ;
@@ -30,7 +37,7 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width) {
 	 if(uiWindow != null) {
 		 var uiRowContainer = eXo.core.DOMUtil.findAncestorByClass(uiWindow, "UIRowContainer") ;
 		 if(uiRowContainer != null) {
-		 		uiRowContainer.style.height = uiWindow.offsetHeight + "px" ;
+		 	 uiRowContainer.style.height = uiWindow.offsetHeight + "px" ;
 		 }
 	 } 
 } ;

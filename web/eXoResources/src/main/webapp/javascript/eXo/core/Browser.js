@@ -61,7 +61,7 @@ function Browser() {
   else if(detect.indexOf("safari") + 1) this.initSafari() ;
   else this.initMozilla() ;
   
-  this.listItem = new Array();
+  this.hideElementList = new Array();
 } ;
 
 Browser.prototype.initCommon = function() {
@@ -276,9 +276,28 @@ Browser.prototype.setPositionInContainer = function(container, component, posX, 
 } ;
 
 Browser.prototype.hideElements = function() {
-	for (var i = 0; i < this.listItem.length; i++)
-		this.listItem[i].style.display = "none";
-}
+	document.onclick = function() {
+		if(eXo.core.Browser.hideElementList.length > 0) {
+			for (var i = 0; i < eXo.core.Browser.hideElementList.length; i++) {
+				eXo.core.Browser.hideElementList[i].style.display = "none";
+				alert(eXo.core.Browser.hideElementList[i].className);
+				eXo.core.Browser.hideElementList.remove(eXo.core.Browser.hideElementList[i]) ;
+			}
+		}
+	}
+} ;
+
+Browser.prototype.listHideElements = function(object) {
+	if(eXo.core.Browser.hideElementList.length > 0) {
+		for(var i = 0; i < eXo.core.Browser.hideElementList.length; i++) {
+			if(eXo.core.Browser.hideElementList[i] == object) continue ;
+			eXo.core.Browser.hideElementList.push(object) ;
+		}
+	} else {
+		eXo.core.Browser.hideElementList.push(object) ;
+	}
+//	alert("List Object1: " + eXo.core.Browser.hideElementList.length) ;
+} ;
 
 /************************************************************************************/
 eXo.core.Browser = new Browser() ;

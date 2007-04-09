@@ -3,7 +3,6 @@ function UIDropDownItemSelector() {
 
 UIDropDownItemSelector.prototype.init = function() {
 	this.itemSelectors = new Array();
-	document.onclick = eXo.webui.UIDropDownItemSelector.hideLists;
 };
 
 UIDropDownItemSelector.prototype.initSelector = function(selector) {
@@ -20,6 +19,9 @@ UIDropDownItemSelector.prototype.initSelector = function(selector) {
 };
 
 UIDropDownItemSelector.prototype.showList = function(itemBar, e) {
+	if (!e) var e = window.event;
+	e.cancelBubble = true;
+	if(e.stopPropagation) e.stopPropagation();
 	var DOMUtil = eXo.core.DOMUtil;
 	var UISelector = eXo.webui.UIDropDownItemSelector;
 	var itemSelector = DOMUtil.findAncestorByClass(itemBar, "UIDropDownItemSelector");
@@ -33,9 +35,8 @@ UIDropDownItemSelector.prototype.showList = function(itemBar, e) {
 	} else {
 		UISelector.hideList(itemSelector);
 	}
-	if (!e) var e = window.event;
-	e.cancelBubble = true;
-	if (e.stopPropagation) e.stopPropagation();
+	/*#######################-Hide popup when click anywhere on document-#########################*/		
+	eXo.core.Browser.listHideElements(list);
 };
 
 UIDropDownItemSelector.prototype.hideList = function(selector) {
@@ -101,17 +102,6 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 		}
 	}
 	
-};
-
-UIDropDownItemSelector.prototype.hideLists = function() {
-	var UISelector = eXo.webui.UIDropDownItemSelector;
-	for (var i = 0; i < UISelector.itemSelectors.length; i++) {
-		var selector = UISelector.itemSelectors[i];
-		var list = eXo.core.DOMUtil.findFirstDescendantByClass(selector, "div", "UIItemList");
-		eXo.core.Browser.listItem.push(list);
-		selector.open = false;
-	}
-	eXo.core.Browser.hideElements();
 };
 
 eXo.webui.UIDropDownItemSelector = new UIDropDownItemSelector();
