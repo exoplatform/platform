@@ -36,7 +36,7 @@
 .UIExoStart .DigitalClockContainer {
   float: right ;
   font-size: 11px ; text-align: center ;
-  margin: 6px 9px 0px 9px;
+  margin: 0px 9px;
 }
 
 .UIExoStart .DigitalClock {

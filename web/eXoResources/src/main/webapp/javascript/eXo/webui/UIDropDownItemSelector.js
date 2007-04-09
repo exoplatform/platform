@@ -53,6 +53,8 @@ UIDropDownItemSelector.prototype.mouseOverItem = function(e) {
 	}
 	targ.oldClassName = targ.className;
 	targ.className = "OverItemSelector";
+	var itemLabel = eXo.core.DOMUtil.findFirstDescendantByClass(targ, "div", "ItemSelectorLabel");
+	targ.title = itemLabel.innerHTML + " Portlet";
 };
 
 UIDropDownItemSelector.prototype.mouseOutItem = function(e) {
@@ -93,15 +95,15 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 		if(itemList != null) {
 			for(i = 0; i < itemSelectorLabel.length; ++i){
 			if(i< itemList.length){
-				if(itemLabel == itemSelectorLabel[i])
+				if(itemLabel == itemSelectorLabel[i]) {
 						itemList[i].style.display = "block";
-				else 
+					} else {
 				    itemList[i].style.display = "none";
-				} else return;
+				  }
+				}
 			}
 		}
 	}
-	
 };
 
 eXo.webui.UIDropDownItemSelector = new UIDropDownItemSelector();

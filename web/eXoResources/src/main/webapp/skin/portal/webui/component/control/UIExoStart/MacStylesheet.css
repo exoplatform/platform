@@ -1,47 +1,48 @@
 .UIExoStart {
+  height: 39px ;
 }
 
 .UIExoStart .StartBarContainer {
-  height: 40px ;
   background: url('MacSkin/background/StartBarBG1x40.png') repeat-x ;
 }
 
 .UIExoStart .ExoStartButton {
   float: left ;
-  width: 97px ; height: 35px ;
+  width: 97px ; height: 39px ;
   cursor: pointer ;
-  margin: 3px 0px 0px 5px;
+  margin: 0px 0px 0px 5px;
 }
 
 .UIExoStart .ButtonNormal {
-  background: url('MacSkin/background/ExoStartNormal97x35.png') no-repeat left ;
+  background: url('MacSkin/background/ExoStartNormal97x35.png') no-repeat left bottom;
 }
 
 .UIExoStart .ButtonOver {
-  background: url('MacSkin/background/ExoStartOver97x35.png') no-repeat left;
+  background: url('MacSkin/background/ExoStartOver97x35.png') no-repeat left bottom;
 }
 
 .UIExoStart .ButtonClicked {
-  background: url('MacSkin/background/ExoStartSelected97x35.png') no-repeat left;
+  background: url('MacSkin/background/ExoStartSelected97x35.png') no-repeat left top;
 }
 
 .UIExoStart .VLineSeparator {
   float: right ;
-  width: 2px ; height: 34px ;
-  background: url('MacSkin/background/SeparateLineBg2x2.gif') repeat-y ;
-  margin: 3px 4px 0px 4px ;
+  width: 2px ; height: 38px ;
+  background: url('MacSkin/background/SeparateLineBg2x2.gif') no-repeat top;
+  margin: 0px 4px ;
 }
 
 .UIExoStart .DigitalClockContainer {
   float: right;
   height: 25px;
   font-size: 11px ; text-align: center ;
-  margin: 4px 5px 0px 5px; 
-  padding: 1px 8px 2px 8px;
+  margin: 0px 5px; 
+  padding: 0px 8px;
 }
 
 .UIExoStart .DigitalClock {
-  margin: 7px 0px 0px 0px ;
+  margin:  0px ;
+  line-height: 38px;
 }
 
 .UIExoStart .StartMenuContainer {

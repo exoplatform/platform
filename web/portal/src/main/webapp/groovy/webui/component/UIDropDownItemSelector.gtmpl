@@ -68,7 +68,11 @@
 				    
 						<div class="ItemSelector">
 							<div class="Icon"><span></span></div>
-	            <div class="ItemSelectorLabel" id="$label" title="$action"><%=label%></div>
+							<% if(action != null) {%>
+	              <div class="ItemSelectorLabel" id="$label" title="$action"><%=label%></div>
+	            <% } else { %>
+	              <div class="ItemSelectorLabel" id="$label"><%=label%></div>
+	            <% } %>
 	            <div style="clear: left"><span></span></div>
 						</div>
 					<% } %>
