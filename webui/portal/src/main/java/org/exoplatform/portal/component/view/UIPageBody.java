@@ -47,7 +47,7 @@ public class UIPageBody extends UIComponentDecorator {
     UserPortalConfigService userPortalConfigService = 
       (UserPortalConfigService)appContainer.getComponentInstanceOfType(UserPortalConfigService.class);
     Page page  = userPortalConfigService.getPage(pageNode.getPageReference(), context.getRemoteUser());
-    if(page.getFactoryId().equals("Default")) page.setFactoryId(null);
+    if("Default".equals(page.getFactoryId())) page.setFactoryId(null);
     UIPage uiPage = createUIComponent(context, UIPage.class, page.getFactoryId(),  null);
     PortalDataModelUtil.toUIPage(uiPage, page, true);
     
