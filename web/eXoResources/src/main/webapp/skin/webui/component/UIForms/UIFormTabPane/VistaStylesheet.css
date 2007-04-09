@@ -43,6 +43,6 @@
 }
 
 .UIFormTabPane .UITabPane .TabPaneContent .UIAction .ActionContainer {
-  width: 230px;
   margin: auto;
+  width: 230px;
 }

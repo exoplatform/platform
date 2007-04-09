@@ -4,7 +4,9 @@
 }
 
 .UIAction .ActionContainer {
-  overflow: hidden ;
+  width: auto;
+  margin: auto;
+  height: 30px;
 }
 
 .UIAction .ActionContainer .ActionButton {

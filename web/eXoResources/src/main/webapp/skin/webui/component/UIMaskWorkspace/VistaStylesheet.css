@@ -3,7 +3,6 @@
 }
 
 .UIMaskWorkspace .ContentContainer {
-  height: 393px ;
   background:#ffffff;
   border: solid 1px #424345 ;
  /*  background: url('VistaSkin/background/UIAddApplicationBG.png') repeat;*/
@@ -83,9 +82,8 @@
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
-  background: #f2f2f2;
+  background: #ffffff;
   padding: 8px ;
-  border: solid 1px #b7b7b7;
 }
 
 .UIMaskWorkspace .ContentContainerDetail .TabsContainer {
@@ -98,18 +96,18 @@
 }
 
 .UIMaskWorkspace .TabsContainer .RefreshButtonContent .RefreshButtonLeft {
-	background: url('VistaSkin/background/RefreshButtonleft6x29.png') no-repeat top left; 
-	padding: 0px 0px 0px 6px;
+	background: url('VistaSkin/background/LeftRefreshButton25x26.png') no-repeat top left; 
+	padding: 0px 0px 0px 25px;
 }
 
 .UIMaskWorkspace .TabsContainer .RefreshButtonContent .RefreshButtonRight {
-	background: url('VistaSkin/background/RefreshButtonRight9x29.png') no-repeat top right; 
-	padding: 0px 9px 0px 0px ;
+	background: url('VistaSkin/background/RightRefreshButton7x26.png') no-repeat top right; 
+	padding: 0px 7px 0px 0px ;
 }
 
 .UIMaskWorkspace .TabsContainer .RefreshButtonContent .MiddleRefreshButton {
-	height: 27px;
-	background: url('VistaSkin/background/MiddleRefreshButton1x29.png') repeat-x top; 
+	height: 26px;
+	background: url('VistaSkin/background/MiddleRefreshButton1x26.png') repeat-x top; 
 }
 
 .UIMaskWorkspace .TabsContainer .RefreshButtonContent .IconRefreshButton {
@@ -178,7 +176,7 @@
 
 .UIMaskWorkspace .AddButton {
 	float: right ; 
-	width: 17px ; height: 27px ;
+	width: 17px ; height: 22px ;
 	background: url("VistaSkin/icons/16x16/Add.png") no-repeat center;
 	margin: 0px 10px ;
 	cursor: pointer ;
@@ -199,7 +197,8 @@
 
 /**************************** UIAddApplication ******************************************/
 .UIAddApplication .TitleBarContainer {
-  padding: 10px 13px 0px 10px; 
+  padding: 10px 10px 0px 10px; 
+  width: 550px;
 }
 
 .UIAddApplication .ItemDetailTitle {
@@ -233,7 +232,7 @@
 
 .UIAddApplication .TitleBarApplication {
 	height: 22px ;
-	background: url("DefaultSkin/background/ApplicationTitleBar1x22.gif") repeat-x ;
+	background: url("VistaSkin/background/ApplicationTitleBar1x22.png") repeat-x ;
 }
 
 .UIAddApplication .ApplicationDescription {
@@ -247,29 +246,29 @@
 	border: solid 1px #d6d6d6 ;
 }
 
-.UIAddApplication .AddButton {
-	float: right ; 
-	width: 19px ; height: 19px ;
-	background: url("DefaultSkin/icons/16x16/AddIcon.gif") no-repeat center;
-	margin: 1px 10px ;
-	cursor: pointer ;
+.UIAddApplication .UIItemSelector {
+	padding: 3px;
+	border: 1px solid #a4a4a4;
+	margin: 0px;
 }
 
 .UIAddApplication .TitleBarContainer .LeftTitleBar {
-  background: url('DefaultSkin/background/LeftTitleBar60x50.gif') no-repeat left;
-  padding: 0px 0px 0px 60px ;
+  background: url('VistaSkin/background/LeftTitleBar5x35.png') no-repeat left;
+  padding: 0px 0px 0px 5px ;
+  height: 35px;
 }
 
 .UIAddApplication .TitleBarContainer .RightTitleBar {
-  background: url('DefaultSkin/background/RightTitleBar11x50.gif') no-repeat right;
-  padding: 0px 11px 0px 0px ;
+  background: url('VistaSkin/background/RightTitleBar8x35.png') no-repeat right;
+  padding: 0px 8px 0px 0px ;
+  height: 35px;
 }
 
 .UIAddApplication .TitleBarContainer .CenterTitleBar {
-  height: 50px ;
-  line-height: 50px ; vertical-align: middle ;
+  height: 35px ;
+  line-height: 35px ; vertical-align: middle ;
   font-weight: bold ; text-align: center ; font-family: arial; color: #0575CA; font-size: 13px;
-  background: url('DefaultSkin/background/CenterTitleBar1x50.gif') repeat-x;
+  background: url('VistaSkin/background/CenterTitleBar1x35.png') repeat-x;
 }
 
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
@@ -296,19 +295,20 @@
 }
 
 .UIAddApplication .RefreshButtonContent .RefreshButtonLeft {
-	background:url('DefaultSkin/background/LeftRefreshButton22x22.gif') no-repeat top left; 
-	padding: 0px 0px 0px 22px;
+	background:url('VistaSkin/background/LeftRefreshButton25x26.png') no-repeat top left; 
+	padding: 0px 0px 0px 25px;
 }
 
 .UIAddApplication .RefreshButtonContent .RefreshButtonRight {
-	background:url('DefaultSkin/background/RightRefreshButton11x22.gif') no-repeat top right; 
-	padding: 0px 11px 0px 0px ;
+	background:url('VistaSkin/background/RightRefreshButton7x26.png') no-repeat top right; 
+	padding: 0px 7px 0px 0px ;
 }
 
 .UIAddApplication .RefreshButtonContent .MiddleRefreshButton {
-	height: 22px;
-	background:url('DefaultSkin/background/CenterRefreshButton1x22.gif') repeat-x top; 
+	height: 26px;
+	background:url('VistaSkin/background/MiddleRefreshButton1x26.png') repeat-x top; 
 }
+
 
 .UIAddApplication .RefreshButtonContent .RefreshButtonLabel {
 	line-height: 21px;
@@ -316,13 +316,6 @@
 	cursor: pointer ;	
 	text-align: center;
 	font-size: 11px;
-}
-
-.UIAddApplication .UIItemSelector {
-	padding: 3px;
-	border: 1px solid #b7b7b7;
-	margin: 0px;
-	background: #f2f2f2;
 }
 
 .UIAddApplication .RefreshButtonContent a:hover {

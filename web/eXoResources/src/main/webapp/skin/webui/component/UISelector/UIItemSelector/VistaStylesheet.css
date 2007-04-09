@@ -428,81 +428,75 @@
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item {
   margin: 8px 4px ;
-  height: 25px ;
+  height: 24px ;
   cursor: pointer ;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .LeftItem {
-  height: 25px;
-  background: url('VistaSkin/background/RightItemL32x25.png') no-repeat left;
-  padding-left: 32px;
+  height: 24px;
+  background: url('VistaSkin/background/LeftNormalItem26x24.png') no-repeat left;
+  padding-left: 26px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .RightItem {
-  height: 25px; line-height: 25px;
-  vertical-align: middle;
-  background: url('VistaSkin/background/RightItemR15x25.png') no-repeat right;
-  padding-right: 11px;
+  background: url('VistaSkin/background/RightNormalItem3x24.png') no-repeat right;
+  padding-right: 3px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .ItemTitle {
-  height: 25px; line-height: 25px; vertical-align: middle;
-  background: url('VistaSkin/background/RightItemM1x25.png') repeat-x ;
+  height: 24px; line-height: 24px; vertical-align: middle;
+  background: url('VistaSkin/background/MiddleNormalItem1x24.png') repeat-x ;
   font-size: 11px; color: #526791;
   padding-left: 10px;
 }
 
 /*###########################- Item Over -############################*/
 
-.UIItemSelector .LeftColumnStyle .ItemList .ItemOver {
+.UIItemSelector .LeftColumnStyle .ItemList .OverItem {
   margin: 8px 4px ;
-  height: 25px ;
+  height: 24px ;
   cursor: pointer ;
 }
 
-.UIItemSelector .LeftColumnStyle .ItemList .ItemOver .LeftItem {
-  height: 25px;
-  background: url('VistaSkin/background/RightItemOverL32x25.png') no-repeat left;
-  padding-left: 32px;
+.UIItemSelector .LeftColumnStyle .ItemList .OverItem .LeftItem {
+  background: url('VistaSkin/background/LeftOverItem26x24.png') no-repeat left;
+  padding-left: 26px;
 }
 
 
-.UIItemSelector .LeftColumnStyle .ItemList .ItemOver .RightItem {
-  height: 25px; line-height: 25px;  vertical-align: middle;
-  background: url('VistaSkin/background/RightItemOverR15x25.png') no-repeat right;
-  padding-right: 15px;
+.UIItemSelector .LeftColumnStyle .ItemList .OverItem .RightItem {
+  background: url('VistaSkin/background/RightOverItem3x24.png') no-repeat right;
+  padding-right: 3px;
 }
 
-.UIItemSelector .LeftColumnStyle .ItemList .ItemOver .ItemTitle {
-  height: 25px; line-height: 25px; vertical-align: middle;
-  background: url('VistaSkin/background/RightItemOverM1x25.png') repeat-x ;
+.UIItemSelector .LeftColumnStyle .ItemList .OverItem .ItemTitle {
+  height: 24px; line-height: 25px; vertical-align: middle;
+  background: url('VistaSkin/background/MiddleOverItem1x24.png') repeat-x ;
   font-size: 11px; color: #059ce2;
   padding-left: 10px;
 }
 
 /*##########################- Item Selected -#########################*/
 
-.UIItemSelector .LeftColumnStyle .ItemList .ItemSelected {
+.UIItemSelector .LeftColumnStyle .ItemList .SelectedItem {
   margin: 8px 4px ;
-  height: 25px ;
+  height: 24px ;
   cursor: pointer ;
 }
 
-.UIItemSelector .LeftColumnStyle .ItemList .ItemSelected .LeftItem {
-  height: 25px;
-  background: url('VistaSkin/background/RightItemSelectedL32x25.png') no-repeat left;
-  padding-left: 32px;
+.UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .LeftItem {
+  background: url('VistaSkin/background/LeftSelectItem26x24.png') no-repeat left;
+  padding-left: 26px;
 }
 
-.UIItemSelector .LeftColumnStyle .ItemList .ItemSelected .RightItem {
-  height: 25px; line-height: 25px; vertical-align: middle ;
-  background: url('VistaSkin/background/RightItemSelectedR15x25.png') no-repeat right;
-  padding-right: 11px;
+.UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .RightItem {
+  background: url('VistaSkin/background/RightSelectItem3x24.png') no-repeat right;
+  padding-right: 3px;
 }
 
-.UIItemSelector .LeftColumnStyle .ItemList .ItemSelected .ItemTitle {
-  height: 25px; line-height: 25px; vertical-align: middle;
-  background: url('VistaSkin/background/RightItemSelectedM1x25.png') repeat-x ;
+.UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .ItemTitle {
+  height: 24px; line-height: 24px; vertical-align: middle;
+  background: url('VistaSkin/background/MiddleSelectItem1x24.png') repeat-x ;
   font-size: 11px; color: black;
   padding-left: 10px;
 }
