@@ -7,7 +7,6 @@ package org.exoplatform.templates.groovy;
 import java.io.Writer;
 import java.util.HashMap;
 
-import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.ResourceResolver;
 
 /**
