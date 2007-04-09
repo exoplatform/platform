@@ -6,17 +6,13 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 	e.cancelBubble = true;
 	if(e.stopPropagation) e.stopPropagation();
 	
-	selectedElement.style.position = "static" ;
 	var ancestorPopupCategory = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "AncestorPopupCategory") ;
 	var categoryDetectPosition = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "CategoryDetectPosition") ;
 	var ControlCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
   var uiPopupCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
 	if(uiPopupCategory == null) return;
-	selectedElement.style.position = "relative" ;
 	
 	if(uiPopupCategory.style.display == "none") {
-		ancestorPopupCategory.style.position = "relative" ;
-		
 		uiPopupCategory.style.position = "absolute" ;
 		uiPopupCategory.style.display = "block" ;
 		uiPopupCategory.style.top = "22px" ;
@@ -25,21 +21,20 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 			var ancestorwidth = categoryDetectPosition.offsetWidth;
 			uiPopupCategory.style.right = (ancestorwidth - 30) + "px";
 		}
-				
-		/*Add uiPopupCategory to the list element will be display to "none" when click on document*/
-		eXo.core.Browser.listHideElements(uiPopupCategory);
-		
 	} else {
-		ancestorPopupCategory.style.position = "static" ;
 		uiPopupCategory.style.display = "none" ;
 	}
-	 var uiWindow = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "UIWindow") ;
-	 if(uiWindow != null) {
-		 var uiRowContainer = eXo.core.DOMUtil.findAncestorByClass(uiWindow, "UIRowContainer") ;
-		 if(uiRowContainer != null) {
-		 	 uiRowContainer.style.height = uiWindow.offsetHeight + "px" ;
-		 }
-	 } 
+	
+	var uiWindow = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "UIWindow") ;
+	if(uiWindow != null) {
+		var uiRowContainer = eXo.core.DOMUtil.findAncestorByClass(uiWindow, "UIRowContainer") ;
+		if(uiRowContainer != null) {
+				uiRowContainer.style.height = uiWindow.offsetHeight + "px" ;
+			}
+		} 
+		
+	/*Add uiPopupCategory to the list element will be display to "none" when click on document*/
+	eXo.core.DOMUtil.listHideElements(uiPopupCategory);
 } ;
 
 UIPopupSelectCategory.prototype.selectedCategoryIndex = function(selectedElement) {

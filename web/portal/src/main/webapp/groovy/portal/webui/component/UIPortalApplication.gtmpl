@@ -54,7 +54,7 @@
     
     <% 
       /*Hide All Popup Menu when click on document*/
-      rcontext.getJavascriptManager().addOnLoadJavascript('eXo.core.Browser.hideElements');
+      rcontext.getJavascriptManager().addOnLoadJavascript('eXo.core.DOMUtil.hideElements');
     %>
     
     <div class="AjaxLoadingMask" id="AjaxLoadingMask" style="display: none;">

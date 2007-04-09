@@ -1,4 +1,5 @@
 function  DOMUtil() {
+	this.hideElementList = new eXo.core.Array() ;
 } ;
 
 DOMUtil.prototype.getChildrenByTagName = function(element, tagName) {
@@ -233,6 +234,23 @@ DOMUtil.prototype.getEventSource = function(evt) {
 	
 	return targ;
 };
+
+DOMUtil.prototype.hideElements = function() {
+	document.onclick = function() {
+		if(eXo.core.DOMUtil.hideElementList.length > 0) {
+			for (var i = 0; i < eXo.core.DOMUtil.hideElementList.length; i++) {
+				eXo.core.DOMUtil.hideElementList[i].style.display = "none";
+			}
+			eXo.core.DOMUtil.hideElementList.clear();
+		}
+	}
+} ;
+
+DOMUtil.prototype.listHideElements = function(object) {
+	if(!eXo.core.DOMUtil.hideElementList.contains(object)) {
+		eXo.core.DOMUtil.hideElementList.push(object) ;
+	}
+} ;
 
 /****************************************************************************/
 eXo.core.DOMUtil = new DOMUtil() ;

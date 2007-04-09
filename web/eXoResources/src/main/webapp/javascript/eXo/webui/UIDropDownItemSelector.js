@@ -36,7 +36,7 @@ UIDropDownItemSelector.prototype.showList = function(itemBar, e) {
 		UISelector.hideList(itemSelector);
 	}
 	/*#######################-Hide popup when click anywhere on document-#########################*/		
-	eXo.core.Browser.listHideElements(list);
+	eXo.core.DOMUtil.listHideElements(list);
 };
 
 UIDropDownItemSelector.prototype.hideList = function(selector) {
