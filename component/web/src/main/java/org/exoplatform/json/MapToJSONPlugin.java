@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.json;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -37,10 +39,13 @@ public class MapToJSONPlugin extends BeanToJSONPlugin<Object> {
       builder.append('\'').append(key).append('\'').append(':').append(' ');
       Object value = map.get(key);
       Class type = value.getClass();
+      System.out.println("\n\n\n == > "+type+"\n\n");
       if (isPrimitiveType(type)) {
         builder.append(value).append(',').append('\n');
       } else if (isCharacterType(type)){
         builder.append('\'').append(encode(value.toString())).append('\'').append(',').append('\n');
+      } else if (isDateType(type)) { 
+        toDateValue(builder, value);  
       } else {
         BeanToJSONPlugin plugin = service_.getConverterPlugin(value);
         plugin.toJSONScript(value, builder, indentLevel+1);

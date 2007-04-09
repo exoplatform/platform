@@ -25,7 +25,7 @@ CacheJSonService.prototype.getData = function(url, invalidCache) {
   	  eval("response = "+request.responseText);    
   	}
   }catch(err){
-  	alert(err);
+  	alert(err + " : "+request.responseText);
     return  null;  
   }
   

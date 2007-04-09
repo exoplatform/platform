@@ -4,6 +4,10 @@
  **************************************************************************/
 package org.exoplatform.json;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 
 /**
  * Created by The eXo Platform SARL
@@ -14,6 +18,7 @@ package org.exoplatform.json;
 abstract public class BeanToJSONPlugin<T> {
   
   protected JSONService service_;
+  protected DateFormat dateFormat_;
   
   abstract public void toJSONScript(T object, StringBuilder builder, int indentLevel) throws Exception;
   
@@ -31,6 +36,10 @@ abstract public class BeanToJSONPlugin<T> {
             type == StringBuilder.class  ||
             type == StringBuffer.class
           );
+  }
+  
+  protected boolean isDateType(Class type) {
+    return ( type == Date.class || type == Calendar.class );
   }
 
   protected boolean isPrimitiveType(Class type) {
@@ -73,5 +82,20 @@ abstract public class BeanToJSONPlugin<T> {
     if(builder.length() < 1) return seq.toString(); 
     return builder.toString();
   }
+
+  protected void toDateValue(StringBuilder builder, Object value) {
+    String dateValue = null;
+    Date date = null;
+    if(value instanceof Calendar) {
+      date = ((Calendar)value).getTime();
+    } else if(value instanceof Date) {
+      date = (Date)value;
+    } 
+    
+    if(dateFormat_ != null)  dateValue = dateFormat_.format(date); else dateValue = date.toString();
+    builder.append('\'').append(encode(dateValue)).append('\'').append(',').append('\n');
+  }
+  
+  public void setDateFormat(DateFormat dateFormat) { dateFormat_ = dateFormat; }
   
 }

@@ -52,6 +52,7 @@ public class ReflectToJSONPlugin extends BeanToJSONPlugin<Object> {
   private void toJSONString(Object object, Field field, StringBuilder builder, int indentLevel) throws Exception {
     Class type  = field.getType();
     Object value = getValue(object, field);
+    if(value  == null) value = new String();
     appendIndentation(builder, indentLevel);
     builder.append('\'').append(field.getName()).append('\'').append(':').append(' ');
 
@@ -80,6 +81,11 @@ public class ReflectToJSONPlugin extends BeanToJSONPlugin<Object> {
       builder.append('\'').append(charValue).append('\'').append(',').append('\n');
       return ;
     }
+    
+    if (isDateType(type)) { 
+      toDateValue(builder, value);
+      return ;
+    } 
     
     BeanToJSONPlugin plugin = service_.getConverterPlugin(value);
     plugin.toJSONScript(value, builder, indentLevel+1);

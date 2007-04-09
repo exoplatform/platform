@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.ExoContainer;
+import org.exoplatform.json.BeanToJSONPlugin;
 import org.exoplatform.json.JSONService;
 import org.exoplatform.json.MapToJSONPlugin;
 import org.exoplatform.portal.application.PortalApplication;
@@ -43,7 +44,6 @@ public class ServiceRequestHandler extends WebRequestHandler {
         e.printStackTrace() ;
         throw new IOException(e.getMessage());
       }
-
     }
   }
 
@@ -55,63 +55,68 @@ public class ServiceRequestHandler extends WebRequestHandler {
 
     StringBuilder value = new StringBuilder();
     JSONService jsonService = new JSONService();
-    jsonService.register(MapToJSONPlugin.class, new MapToJSONPlugin());
+    jsonService.register(PortletCategory.class, new PortletCategoryToJSONPlugin(registeryService));
+    jsonService.register(Portlet.class, new PortletToJSONPlugin());
     
     if(portletCategories.size() < 1) return value;
     
-/*    value.append("{\n").
-          append("  portletRegistry : {\n");*/
-
-    for(int i = 0; i < portletCategories.size(); i++) {
-      PortletCategory category = portletCategories.get(i); 
-      jsonService.toJSONScript(category, value, 0);
-      List<Portlet> portlets = registeryService.getPortlets(category.getId()) ;
-      for(int j = 0; j<portlets.size(); j++){
-        Portlet portlet = portlets.get(j);
-        jsonService.toJSONScript(portlet, value, 0);
-      }
-    }
- /*   value.append("  }\n").
-    append("}\n");*/
-    return value; 
-   /* 
-    ExoContainer container = app.getApplicationServiceContainer() ;
-    PortletRegisteryService registeryService = (PortletRegisteryService)container.getComponentInstanceOfType(PortletRegisteryService.class) ;    
-    List<PortletCategory> portletCategories = registeryService.getPortletCategories();
-
-    StringBuilder value = new StringBuilder();    
-    if(portletCategories.size() < 1) return value;
-    
-    value.append("{\n").
-          append("  portletRegistry : {\n");
+    value.append("{\n").append("  portletRegistry : {\n");
 
     for(int i = 0; i < portletCategories.size(); i++) {
       PortletCategory category = portletCategories.get(i);
-      value.  append("    '").append(category.getId()).append("' : {\n").
-              append("      'name' : '").append(category.getPortletCategoryName()).append("',\n").
-              append("      'portlets' : {\n");
+      jsonService.toJSONScript(category, value, 1);
+      if(i < portletCategories.size() - 1) value.append("   ,\n");
+    }    
+    value.append("  }\n").append("}\n");
+    
+    return value; 
+  }
+  
+  class PortletCategoryToJSONPlugin extends BeanToJSONPlugin<PortletCategory> {
+
+    private PortletRegisteryService registeryService;
+
+    PortletCategoryToJSONPlugin(PortletRegisteryService registeryService) {
+      this.registeryService = registeryService;
+    }
+
+    @SuppressWarnings("unchecked")
+    public void toJSONScript(PortletCategory category, StringBuilder builder, int indentLevel) throws Exception {
+      appendIndentation(builder, indentLevel);
+      builder.append('\'').append(category.getId()).append("' : {\n");
+      appendIndentation(builder, indentLevel+1);
+      builder.append("'name' : '").append(category.getPortletCategoryName()).append("',\n");
+      appendIndentation(builder, indentLevel+1);
+      builder.append("'portlets' : {\n");
+      
       List<Portlet> portlets = registeryService.getPortlets(category.getId()) ;
+      BeanToJSONPlugin plugin = service_.getConverterPlugin(Portlet.class);
       for(int j = 0; j<portlets.size(); j++){
-        Portlet portlet = portlets.get(j);
-        value.    append("        '").append(portlet.getId()).append("' : {\n").
-                  append("          'title' : ").append("'").append(portlet.getPortletName()).append("',\n").
-                  append("          'des' : ").append("'").append(portlet.getDescription()).append("'\n");              
+        plugin.toJSONScript(portlets.get(j), builder, indentLevel+2);
         if(j < portlets.size() - 1){
-          value.  append("        },\n");//end a portlet
-        }else{
-          value.  append("        }\n");//end a portlet
+          appendIndentation(builder, indentLevel+2);
+          builder. append(",\n");
         }
       }
-      value.  append("      }\n");//and all portlets
-      if(i < portletCategories.size() - 1){
-        value.append("    },\n");// end category info
-      }else{
-        value.append("    }\n"); //end category info
-      }
-    }  
-    value.append("  }\n").
-          append("}\n");
-    return value;*/
+      appendIndentation(builder, indentLevel+1);
+      builder.append("}\n");
+      appendIndentation(builder, indentLevel);
+      builder.append("}\n"); 
+    }    
+  }
+  
+  class PortletToJSONPlugin extends BeanToJSONPlugin<Portlet> {
+    
+    public void toJSONScript(Portlet portlet, StringBuilder builder, int indentLevel) throws Exception {
+      appendIndentation(builder, indentLevel);
+      builder.append('\'').append(portlet.getId()).append("' : {\n");
+      appendIndentation(builder, indentLevel+1);
+      builder.append("'title' : ").append("'").append(portlet.getPortletName()).append("',\n");
+      appendIndentation(builder, indentLevel+1);
+      builder.append("'des' : ").append("'").append(portlet.getDescription()).append("'\n");
+      appendIndentation(builder, indentLevel);
+      builder.append("}\n");
+    }
   }
 
 }
