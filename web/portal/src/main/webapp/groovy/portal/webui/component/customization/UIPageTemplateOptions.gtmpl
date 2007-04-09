@@ -21,14 +21,14 @@
 		    <% 
 	        uicomponent.renderChild(UIDropDownItemSelector.class)  ;
 	      %>
-s		    <% 
+		    <% 
 		      for(category in categories){
             templates = category.getSelectItemOptions();
             String display = "none";  
             if(category.isSelected()) display = "block" ;
             else templates.get(0).setSelected(true) ;
 		    %>
-				    <div class="ItemList ItemListBackground"  style="display: $display; height: 238px">
+				    <div class="ItemList ItemListBackground"  style="display: $display; height: 240px">
 							<%
 							  for(template in templates){
 							    String itemSelected = "Item" ;

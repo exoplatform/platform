@@ -20,7 +20,6 @@
   if(selectedIconSet.getName().equals("null")) {
     selectedIconSet = uicomponent.getSelectedCategory().getCategory().get(0) ;
   } 
-  
   def listIconSet = uicomponent.getListIconSet();
   String selectedIcon = uicomponent.getSelectedIcon();    
   UIForm form = uicomponent.getParent();
@@ -38,9 +37,6 @@
 			  <% 
 			  uicomponent.renderChild(UIDropDownItemSelector.class);
 			  %>
-      
-    
-	      
 		    <div class="ItemList">
  			    <div class="ItemListBg">
 			      <div class="ItemListBgIcon">
@@ -107,8 +103,6 @@
 	          </div>
 		          
 	        </div>
-			     
-
 	      <%/*End Template 1*/%>
 	    </div>
 	    <%/*End Item Detail List*/%>

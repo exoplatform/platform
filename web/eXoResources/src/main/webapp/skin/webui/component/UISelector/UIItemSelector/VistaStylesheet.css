@@ -144,11 +144,16 @@
   padding-left: 8px;
 }
 
+.UIItemSelector .RightColumnStyle .ItemListContainer .ItemList {
+  border: 1px #b7b7b7 solid;
+  font-weight: bold; color: #484d52;
+  height: 240px;
+}
+
 .UIItemSelector .ItemListContainer .ItemList {
   border: 1px #b7b7b7 solid;
   font-weight: bold; color: #484d52;
-  padding-top: 6px;
-  height: 260px;
+  height: 258px;
 }
 
 /*###########################- End Item Default -##########################*/
@@ -165,7 +170,6 @@
   height: 260px;
   background: white;
   border: 1px #9f9f9f solid ;
-  padding: 6px 0px 0px 0px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailTitle{

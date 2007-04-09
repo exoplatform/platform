@@ -51,6 +51,7 @@
 }
 
 .UIForm .HorizontalLayout .UIAction .ActionButton {
+  float: right;
   margin: auto;
 }
 

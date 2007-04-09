@@ -22,6 +22,7 @@
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemDetailList {
 	margin: 0px 0px 0px 195px;
+	border: none;
 }
 
 .UIChangeSkinForm .UIItemSelector .ItemDetail .TemplateContainer {
@@ -65,4 +66,5 @@
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
   background: url(VistaSkin/background/ItemListBg1x13.png) repeat-x bottom;
+  padding-top: 25px;
 }
