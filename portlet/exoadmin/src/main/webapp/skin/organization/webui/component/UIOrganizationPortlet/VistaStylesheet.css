@@ -109,32 +109,37 @@
 .UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer {
   width: 390px;
   margin: auto; margin-top: 12px; margin-bottom: 5px;
-  overflow: hidden;
 }
 
 .UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer label {
   margin-left: 0px; text-align: left;
   font-size: 11px; 
-  width: 130px; 
-  float: left;
+  width: 120px; 
 }
-.UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer input {
+
+.UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer select {
   width: 220px; height: 18px; line-height: 18px; 
-  vertical-align: middle;
   font-size: 11px;
   padding-left: 5px; 
+  margin-left: 27px;
+}
+
+.UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer input {
+  width: 226px; height: 18px; line-height: 18px; 
+  vertical-align: middle;
+  font-size: 11px;
+  padding-left: 4px; 
   border: 1px gray solid;
 }
 
 .UIOrganizationPortlet .UIItemSelector .UIFormInputSet .FieldContainer {
-  width: 340px;
+  width: 380px;
 }
 
 .UIOrganizationPortlet .UIItemSelector .UIFormInputSet label {
   height: 22px; line-height: 22px; 
   margin-right: 5px; padding-left: 0px;
   white-space: nowrap;
-  float: left;
 }
 
 .UIOrganizationPortlet .UIItemSelector .UIFormInputSet input {
