@@ -92,6 +92,7 @@ public class UIPortalForm extends UIFormTabPane {
     WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
     WebuiApplication app  = (WebuiApplication)currReqContext.getApplication() ; 
     List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);    
+    
     List<SelectItemCategory>  itemCategories = new ArrayList<SelectItemCategory>();
     for(Component ele : configs){      
       String id =  ele.getId();
@@ -107,6 +108,7 @@ public class UIPortalForm extends UIFormTabPane {
       SelectItemOption<String> item = new SelectItemOption<String>(id, id, "Portal"+upId);
       items.add(item);     
     }  
+    
     UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
     uiFactoryId.setItemCategories(itemCategories);
     uiFactoryId.setRendered(false);

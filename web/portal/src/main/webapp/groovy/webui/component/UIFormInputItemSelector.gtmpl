@@ -14,7 +14,7 @@
       <div class="ItemListContainer">
         <div class="ItemListTitle">
   	    	<div class="TitleIcon ItemListIcon"><span></span></div>
-  	    	<div class="Title"><%=uicomponent.getName();%></div>
+  	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
   	    	<div style="clear: left;"><span></span></div>
   	    </div>
         <div class="ItemList">
@@ -28,7 +28,7 @@
               <div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;$submitEvent">
                 <div class="LeftItem">
                   <div class="RightItem">  
-                    <div class="ItemTitle">$opt.name</div>
+                    <div class="ItemTitle"><%=_ctx.appRes(opt.getName() + ".label")%></div>
                   </div>
                 </div>
               </div>
@@ -41,8 +41,7 @@
       <div class="ItemDetailList">
         <div class="ItemDetailTitle">
           <div class="TitleIcon ViewListIcon"><span></span></div>
-          <% String title = _ctx.appRes("UIFormInputItemSelector.label.samper") + " " + uicomponent.getName() + " " + _ctx.appRes("UIFormInputItemSelector.label.view");%>
-  	    	<div class="Title"><%=title%></div>
+  	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".left.title")%></div>
   	    	<div style="clear: left;"><span></span></div>
         </div>
         <%          

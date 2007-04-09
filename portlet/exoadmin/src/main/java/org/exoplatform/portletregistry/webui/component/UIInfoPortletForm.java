@@ -38,7 +38,9 @@ import org.exoplatform.webui.event.Event.Phase;
 public class UIInfoPortletForm extends UIForm {  
 
   private Portlet portlet_ ;
-
+  
+  private String name_;
+  
   public UIInfoPortletForm() throws Exception {
     addUIFormInput(new UIFormStringInput("portletName", "portletName", null).
                    addValidator(EmptyFieldValidator.class).
@@ -53,7 +55,10 @@ public class UIInfoPortletForm extends UIForm {
     /*uiDateTimeInput = new UIFormDateTimeInput("modifiedDate", "modifiedDate", null);
     uiDateTimeInput.setEditable(false);
     addUIFormInput(uiDateTimeInput);*/       
-  } 
+  }
+  
+  public String getName() {return name_;}
+  public void setName(String name) {name_ = name;}
 
   public void setValues(Portlet portlet) throws Exception {
     portlet_ = portlet;

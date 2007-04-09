@@ -182,6 +182,9 @@ public class UIPortletRegistryCategory extends UIContainer {
       UIPortletRegistryPortlet uiParent = uiComp.getParent();
       UIWorkingArea uiWorkingArea = uiParent.getChild(UIWorkingArea.class);
       UIInfoPortletForm uiPortletForm = uiWorkingArea.getChild(UIInfoPortletForm.class) ;
+      String[] action = new String[0];
+      uiPortletForm.setActions(action);
+      uiPortletForm.setName("UIShowPortletForm");
       uiPortletForm.setValues(portletSelected) ;
       uiWorkingArea.setRenderedChild(UIInfoPortletForm.class) ;
     }
@@ -206,6 +209,9 @@ public class UIPortletRegistryCategory extends UIContainer {
       UIPortletRegistryPortlet uiParent = uicomp.getParent();
       UIWorkingArea uiWorkingArea = uiParent.getChild(UIWorkingArea.class);
       UIInfoPortletForm uiPortletForm = uiWorkingArea.getChild(UIInfoPortletForm.class) ;
+      String[] actions = {"Back", "Save"};
+      uiPortletForm.setName("UIEditPortletForm");
+      uiPortletForm.setActions(actions);
       uiPortletForm.setValues(portletSelected) ;
       uiWorkingArea.setRenderedChild(UIInfoPortletForm.class) ;
     }
@@ -219,7 +225,8 @@ public class UIPortletRegistryCategory extends UIContainer {
       if(selectedPortlet == null) return ;
       
       UIWorkingArea uiWorkingArea = uiParent.getChild(UIWorkingArea.class);      
-      UIPermissionForm uiPermissionForm = uiWorkingArea.getChild(UIPermissionForm.class);         
+      UIPermissionForm uiPermissionForm = uiWorkingArea.getChild(UIPermissionForm.class);
+//      uiPermissionForm.setWithRenderTab(false);
       if(selectedPortlet!=null) uiPermissionForm.setValue(selectedPortlet);      
       uiPermissionForm.setRenderedChild(UIPermissionSelector.class);      
       uiWorkingArea.setRenderedChild(UIPermissionForm.class);

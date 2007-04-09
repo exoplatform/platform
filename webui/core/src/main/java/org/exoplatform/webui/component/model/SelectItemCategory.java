@@ -16,6 +16,7 @@ import java.util.List;
 public class SelectItemCategory {
   
   private String name_ ;
+  private String label_;
   private List<SelectItemOption> options_ ;
   protected boolean selected_ =  false ;
   
@@ -24,9 +25,13 @@ public class SelectItemCategory {
   }
   
   public SelectItemCategory(String name, boolean selected ){
-    this.name_ = name ;    
+    this.name_ = name ; 
+    label_ = name;
     this.selected_ = selected;
   }
+  
+  public void setLabel(String label) { label_ = label; }
+  public String getLabel(){ return label_;}
   
   public String getName() {  return name_; }
   public void setName(String name) { name_ = name; }
