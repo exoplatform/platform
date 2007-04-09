@@ -17,6 +17,10 @@ public class Container extends Component {
   protected String icon;
   protected ArrayList<Component> children ;
   
+  public Container() {
+    children = new ArrayList<Component>();
+  }
+  
   public String getTitle() { return title ; }
   public void   setTitle(String s) { title = s ; }
   

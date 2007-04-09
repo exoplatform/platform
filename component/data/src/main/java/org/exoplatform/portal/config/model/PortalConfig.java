@@ -24,6 +24,11 @@ public class PortalConfig extends Component {
   private Container widgetLayout;
   private Container portalLayout;
   
+  public PortalConfig() {
+    portalLayout = new Container();
+    widgetLayout = new Container();
+  }
+  
   public String getOwner() { return owner ; }
   public void   setOwner(String s) { owner = s  ; } 
  
