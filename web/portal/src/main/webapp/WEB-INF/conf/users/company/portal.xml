@@ -17,11 +17,7 @@
 	    <application>
 	      <application-instance-id>company:/web/NavigationPortlet/toolbar</application-instance-id>
 		    <show-info-bar>false</show-info-bar>
-		  </application>
-		  <application>
-	      <application-instance-id>company:/web/WelcomePortlet/welcome</application-instance-id>
-	      <show-info-bar>false</show-info-bar>
-		  </application>
+		  </application>		 
 	  </container>
 		
 	  <application>

@@ -18,11 +18,7 @@
 	    <application>
 	      <application-instance-id>community:/web/NavigationPortlet/toolbar</application-instance-id>
 		    <show-info-bar>false</show-info-bar>
-		  </application>
-		  <application>
-	      <application-instance-id>community:/web/WelcomePortlet/welcome</application-instance-id>
-	      <show-info-bar>false</show-info-bar>
-		  </application>
+		  </application>		  
 	  </container>
 		
 	  <application>
