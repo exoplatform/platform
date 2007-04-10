@@ -6,6 +6,9 @@ package org.exoplatform.organization.webui.component;
 
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIBreadcumbs.LocalPath;
@@ -56,11 +59,17 @@ public class UIGroupManagement extends UIContainer {
   static  public class EditGroupActionListener extends EventListener<UIGroupManagement> {
     public void execute(Event<UIGroupManagement> event) throws Exception {
       UIGroupManagement uiGroupManagement = event.getSource() ;
+      WebuiRequestContext context = event.getRequestContext() ;
+      UIApplication uiApp = context.getUIApplication() ;
+      
       UIGroupDetail uiGroupDetail = uiGroupManagement.getChild(UIGroupDetail.class) ;
       UIGroupExplorer uiGroupExplorer = uiGroupManagement.getChild(UIGroupExplorer.class) ;
-      
+//            
       Group currentGroup = uiGroupExplorer.getCurrentGroup();
-      if (currentGroup == null) return;
+      if (currentGroup == null) {
+        uiApp.addMessage(new ApplicationMessage("UIGroupManagement.msg.Edit", null)) ;
+        return;
+      }
       uiGroupDetail.setRenderedChild(UIGroupForm.class) ;
       UIGroupForm uiGroupForm = uiGroupDetail.getChild(UIGroupForm.class);
       uiGroupForm.setName("EditGroup");
@@ -71,8 +80,14 @@ public class UIGroupManagement extends UIContainer {
   static  public class DeleteGroupActionListener extends EventListener<UIGroupManagement> {
     public void execute(Event<UIGroupManagement> event) throws Exception {
       UIGroupManagement uiGroupManagement = event.getSource() ;
+      WebuiRequestContext context = event.getRequestContext() ;
+      UIApplication uiApp = context.getUIApplication() ;
       UIGroupExplorer uiGroupExplorer = uiGroupManagement.getChild(UIGroupExplorer.class) ;
-      Group currentGroup = uiGroupExplorer.getCurrentGroup();      
+      Group currentGroup = uiGroupExplorer.getCurrentGroup();
+      if(currentGroup == null) {
+        uiApp.addMessage(new ApplicationMessage("UIGroupManagement.msg.Edit", null)) ;
+        return;
+      }
       String parentId = currentGroup.getParentId();
       OrganizationService service = uiGroupManagement.getApplicationComponent(OrganizationService.class) ;
       service.getGroupHandler().removeGroup(currentGroup, true);

@@ -57,16 +57,15 @@ public class UIAccountInputSet extends UIFormInputSet {
     getUIStringInput(USERNAME).setEditable(false) ;
   }
   
-  public void save(OrganizationService service, boolean newUser) throws Exception { 
+  public boolean save(OrganizationService service, boolean newUser) throws Exception { 
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     UIApplication uiApp = context.getUIApplication() ;
     String pass1x = getUIStringInput(PASSWORD1X).getValue();
     String pass2x = getUIStringInput(PASSWORD2X).getValue();
     if (!pass1x.equals(pass2x)){
       uiApp.addMessage(new ApplicationMessage("UIAccountForm.msg.password-is-not-match", null)) ;
-      return ;
+      return false ;
     }
-    
     String username = getUIStringInput(USERNAME).getValue() ;
     if(newUser) {
       User user = service.getUserHandler().createUserInstance(username) ;
@@ -74,20 +73,21 @@ public class UIAccountInputSet extends UIFormInputSet {
       if(service.getUserHandler().findUserByName(user.getUserName()) != null) {
         Object[] args = {user.getUserName()} ;
         uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.user-exist", args)) ;
-        return ;
+        return false;
       }      
       
       service.getUserHandler().createUser(user, true);
       Object[] args = {user.getUserName()} ;
-      uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.successful.create.user", args)) ;
+//      uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.successful.create.user", args)) ;
       reset();
-      return ;
+      return true;
     }     
     User user = service.getUserHandler().findUserByName(username) ;    
     invokeSetBindingField(user) ;   
     service.getUserHandler().saveUser(user, true) ;
     Object[] args = {user.getUserName()} ;
-    uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.successful.update.user", args)) ;
+//    uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.successful.update.user", args)) ;
+    return true;
   }
 
 }

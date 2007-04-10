@@ -87,7 +87,7 @@ public class UIUserProfileInputSet extends UIFormInputSet {
   }
   
   @SuppressWarnings("deprecation")
-  public void save(OrganizationService service, String user) throws Exception {
+  public void save(OrganizationService service, String user, boolean isnewUser) throws Exception {
     user_ = user;
     UserProfileHandler hanlder = service.getUserProfileHandler();    
     UserProfile userProfile = hanlder.findUserProfileByName(user_);   
@@ -111,6 +111,10 @@ public class UIUserProfileInputSet extends UIFormInputSet {
     Object[] args = {"UserProfile", user_} ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     UIApplication uiApp = context.getUIApplication() ;
+    if(isnewUser) {
+      uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.successful.create.user", args)) ;
+      return ;
+    }
     uiApp.addMessage(new ApplicationMessage("UIUserProfileInputSet.msg.sucsesful.update.userprofile", args)) ;
   }
   
