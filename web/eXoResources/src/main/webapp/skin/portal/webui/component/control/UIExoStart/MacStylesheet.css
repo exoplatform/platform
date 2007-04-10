@@ -46,6 +46,7 @@
 }
 
 .UIExoStart .StartMenuContainer {
+	display: none;
 }
 
 .UIExoStart .StartMenuContainer .LoginContainer {
@@ -210,8 +211,20 @@
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer {
-
   position: relative ;
+}
+
+.UIExoStart .StartMenuContainer .MenuItemContainer .MenuItem {
+	background: transparent;
+}
+
+.UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {
+	background: #cbdaf4;
+}
+
+.UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemContainer {
+  position: absolute ;
+  display: none;
 }
 
 .UIExoStart .StartMenuContainer .NavigationContainer {

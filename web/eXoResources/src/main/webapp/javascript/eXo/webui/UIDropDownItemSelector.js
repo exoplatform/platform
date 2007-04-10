@@ -46,7 +46,7 @@ UIDropDownItemSelector.prototype.hideList = function(selector) {
 };
 
 UIDropDownItemSelector.prototype.mouseOverItem = function(e) {
-	var targ = eXo.core.DOMUtil.getEventSource(e);
+	var targ = eXo.core.Browser.getEventSource(e);
 
 	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector") {
 		targ = targ.parentNode;
@@ -58,7 +58,7 @@ UIDropDownItemSelector.prototype.mouseOverItem = function(e) {
 };
 
 UIDropDownItemSelector.prototype.mouseOutItem = function(e) {
-	var targ = eXo.core.DOMUtil.getEventSource(e);
+	var targ = eXo.core.Browser.getEventSource(e);
 	
 	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector")
 		targ = targ.parentNode;
@@ -68,7 +68,7 @@ UIDropDownItemSelector.prototype.mouseOutItem = function(e) {
 UIDropDownItemSelector.prototype.clickItem = function(e) {
 	var i;
 	var DOMUtil = eXo.core.DOMUtil;
-	var targ = DOMUtil.getEventSource(e);
+	var targ = eXo.core.Browser.getEventSource(e);
 	
 	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector")
 		targ = targ.parentNode;

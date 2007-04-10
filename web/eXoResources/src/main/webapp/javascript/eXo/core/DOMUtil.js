@@ -224,7 +224,7 @@ DOMUtil.prototype.getStyle = function(element, style) {
 	}
 };
 
-DOMUtil.prototype.getEventSource = function(evt) {
+/*DOMUtil.prototype.getEventSource = function(evt) {
 	var targ;
 	if (!evt) var evt = window.event;
 	if (evt.target) targ = evt.target;
@@ -233,7 +233,7 @@ DOMUtil.prototype.getEventSource = function(evt) {
 		targ = targ.parentNode;
 	
 	return targ;
-};
+};*/
 
 DOMUtil.prototype.hideElements = function() {
 	document.onclick = function() {

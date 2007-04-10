@@ -77,12 +77,14 @@ Browser.prototype.initIE = function() {
     object.attachEvent(event, operation) ;
   } ;
   this.setOpacity = function(component, value) { component.style.filter = "alpha(opacity=" + value + ")" ; } ; 
+  this.getEventSource = function(e) { return window.event.srcElement; };
 }
 
 Browser.prototype.initMozilla = function() {
   this.browserType = "mozilla" ;
   this.eventListener = function(object, event, operation) { object.addEventListener(event, operation, false) ; } ;
   this.setOpacity = function(component, value) { component.style.opacity = value/100 ; } ;
+  this.getEventSource = function(e) { return e.target; };
 }
 
 Browser.prototype.initSafari = function() {
@@ -91,6 +93,11 @@ Browser.prototype.initSafari = function() {
   this.getBrowserWidth = function() { return self.innerWidth ; } ;
   this.eventListener = function(object, event, operation) { object.addEventListener(event, operation, false) ; } ;
   this.setOpacity = function(component, value) { component.style.opacity = value/100 ; } ;
+  this.getEventSource = function(e) {
+  	var targ = e.target;
+  	if (targ.nodeType == 3) targ = targ.parentNode;
+  	return targ;
+  };
 }
 
 Browser.prototype.initOpera = function() {

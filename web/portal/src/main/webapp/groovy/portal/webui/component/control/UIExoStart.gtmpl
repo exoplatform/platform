@@ -39,7 +39,7 @@
             </div>
           </div>
         </div>
-        <div class="MenuItemContainer" style="display: none;">
+        <div class="MenuItemContainer">
           <div class="StartMenuDecorator">
             <div class="StartMenuTL">
               <div class="StartMenuTR">
@@ -94,7 +94,7 @@
             </div>
           </div>
         </div>
-        <div class="MenuItemContainer NavigationContainer" style="display: none">
+        <div class="MenuItemContainer NavigationContainer">
           <div class="StartMenuDecorator">
             <div class="StartMenuTL">
               <div class="StartMenuTR">
@@ -136,7 +136,7 @@
             </div>
           </div>
         </div>
-        <div class="MenuItemContainer" style="display: none">
+        <div class="MenuItemContainer">
           <div class="StartMenuDecorator">
             <div class="StartMenuTL">
               <div class="StartMenuTR">
@@ -222,7 +222,7 @@
     <div style="clear: both"><span></span></div>
   </div>
   
-  <div id="StartMenuContainer" class="StartMenuContainer" style="display: none;">
+  <div id="StartMenuContainer" class="StartMenuContainer">
     <div class="StartMenuDecorator">
       <div class="TopDecorator"><span></span></div>
       <div class="StartMenuML">
