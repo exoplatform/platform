@@ -18,6 +18,7 @@
   padding: 3px ;
   border: solid 1px #958f8f ;
   font-size: 11px ;
+  overflow: hidden;
 }
 
 .UIPortletOptions .PortletTitle { 

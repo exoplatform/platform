@@ -8,7 +8,7 @@
 
 /*##############################-ActionButton-################################*/
 .UIAction .ActionContainer .ActionButton {
-	float: left;
+	float: right;
 	height: 22px ; line-height:22px;
 	margin: 0px 0px 0px 4px ;
 }

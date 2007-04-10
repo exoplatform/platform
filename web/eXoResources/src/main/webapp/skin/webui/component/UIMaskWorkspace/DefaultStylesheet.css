@@ -117,7 +117,7 @@
 }
 
 .UIMaskWorkspace .UIAction {
-  width: 230px ;
+  width: 170px ;
   margin: auto ;
 }
 
@@ -127,7 +127,7 @@
 
 .UIMaskWorkspace .UIFormWithTitle {
 	margin: auto;
-	padding-top: 50px;
+	padding: 50px 0px;
 }
 
 /**************************** UIAddApplication ******************************************/

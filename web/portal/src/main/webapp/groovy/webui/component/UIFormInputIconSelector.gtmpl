@@ -84,10 +84,14 @@
 			            <%
 			              for(icon in icons) {	     
 		      				    String submitEvent = form.event('SelectIcon', icon);			       
+                      String cssClass = "";		      				    
+		      				    if(icon.equalsIgnoreCase(selectedIcon)) {
+		      				      cssClass = "SelectedBackground"
+		      				    }
 			            %>                                                
-		                  <a onclick="$submitEvent">
-		                    <div class="Icon <%=icon%>Icon" title="Click to select this icon"><span></span></div>
-		                  </a>                       
+		                  <a class="$cssClass" onclick="$submitEvent">
+		                    <div  class="Icon <%=icon%>" title="Click to select this icon"><span></span></div>
+		                  </a>
 			            <%}%> 
 			          </div>
 			        </div>

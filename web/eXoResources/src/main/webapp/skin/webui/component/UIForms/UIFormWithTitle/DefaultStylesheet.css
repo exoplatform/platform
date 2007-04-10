@@ -27,8 +27,8 @@
 }
 
 .UIFormWithTitle .UIForm .UIAction {  
-  margin-left: 100px;
-  width: auto;
+  margin: auto;
+  width: 170pz
 }
 
 .UIFormWithTitle .UIForm .UIAction .ActionContainer {

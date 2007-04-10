@@ -40,6 +40,7 @@
 
 .UIPortalToolPanel .UIFormTabPane .UIAction .ActionButton {
   width: 70px ;
+  float: left;
 }
 
 .UIPortalToolPanel .UIItemSelector .NormalStyle {

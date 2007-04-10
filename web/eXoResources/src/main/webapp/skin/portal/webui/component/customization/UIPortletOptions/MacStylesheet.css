@@ -27,6 +27,7 @@
   padding: 10px 0px 9px 10px ;
   border: solid 1px #958f8f ;
   font-size: 11px ;
+  overflow: hidden;
 }
 
 .UIPortletOptions .CategoryContainer {

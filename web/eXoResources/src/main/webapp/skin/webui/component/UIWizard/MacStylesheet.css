@@ -212,6 +212,7 @@
   float: left;
   color: blue; 
   padding: 0px 5px;
+  background: none;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
