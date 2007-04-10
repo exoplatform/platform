@@ -23,7 +23,7 @@
 %>
 
 <div class="UIPortletOptions ItemSelectorAncestor">	
-<div class="PortletOptions">
+	<div class="PortletOptions">
   
   <%  uicomponent.renderChild(UIDropDownItemSelector.class); %>
     
@@ -60,7 +60,7 @@
 				</div>
 			</div>
 	<%}%>
+	</div>
 </div>
-</div>
-    
+ 
 

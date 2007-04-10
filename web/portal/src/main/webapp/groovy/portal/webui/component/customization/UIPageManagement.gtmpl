@@ -29,14 +29,14 @@
   </div>
   <%if(uicomponent.getChild(UIPageNodeSelector.class).isRendered()) { %>
 	  <div id="UIPageNodeSelector">
-    	<div class="MiddleLeftContainerConfigOptions">
-				<div class="MiddleRightContainerConfigOptions">
+    	<div class="MiddleLeftContainerOptions">
+				<div class="MiddleRightContainerOptions">
       		<% uicomponent.renderChild(UIPageNodeSelector.class) %>
       	</div>
       </div>
-      <div class="BottomLeftContainerConfigOptions">
-				<div class="BottomRightContainerConfigOptions">
-      		<div class="BottomCenterContainerConfigOptions"><span></span></div>
+      <div class="BottomLeftContainerOptions">
+				<div class="BottomRightContainerOptions">
+      		<div class="BottomCenterContainerOptions"><span></span></div>
       	</div>
       </div>
     </div>
@@ -44,28 +44,28 @@
   
   <%if(uicomponent.getChild(UIContainerConfigOptions.class).isRendered()) { %>
 	  <div id="UIContainerConfigOptions">
-		  <div class="MiddleLeftContainerConfigOptions">
-				<div class="MiddleRightContainerConfigOptions">
+		  <div class="MiddleLeftContainerOptions">
+				<div class="MiddleRightContainerOptions">
       		<% uicomponent.renderChild(UIContainerConfigOptions.class) %>
       	</div>
       </div>
-      <div class="BottomLeftContainerConfigOptions">
-				<div class="BottomRightContainerConfigOptions">
-      		<div class="BottomCenterContainerConfigOptions"><span></span></div>
+      <div class="BottomLeftContainerOptions">
+				<div class="BottomRightContainerOptions">
+      		<div class="BottomCenterContainerOptions"><span></span></div>
       	</div>
       </div>
 		</div>
   <%}%>
   <%if(uicomponent.getChild(UIPortletOptions.class).isRendered()) { %>
 		  <div id="UIPortletOptions">
-		  	 <div class="MiddleLeftContainerConfigOptions">
-					<div class="MiddleRightContainerConfigOptions">
+		  	 <div class="MiddleLeftContainerOptions">
+					<div class="MiddleRightContainerOptions">
 	      		<% uicomponent.renderChild(UIPortletOptions.class) %>
 	      	</div>
 	      </div>
-	      <div class="BottomLeftContainerConfigOptions">
-					<div class="BottomRightContainerConfigOptions">
-	      		<div class="BottomCenterContainerConfigOptions"><span></span></div>
+	      <div class="BottomLeftContainerOptions">
+					<div class="BottomRightContainerOptions">
+	      		<div class="BottomCenterContainerOptions"><span></span></div>
 	      	</div>
 	      </div>
 	    </div>

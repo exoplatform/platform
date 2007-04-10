@@ -110,7 +110,7 @@
 
 .UIPortletRegistryPortlet .PortletRegistryControlArea .PortletControlBar .PortletControlIcon {
 	float: left;
-	margin-top: 3px;
+	margin-top: 2px;
 	margin-left: 25px;
 }
 
@@ -130,4 +130,5 @@
 
 .UIPortletRegistryPortlet .UIVerticalSlideTabs .CategoryContent {
   border-bottom: 1px #b7b7b7 solid;
+  height: 24px;
 }
