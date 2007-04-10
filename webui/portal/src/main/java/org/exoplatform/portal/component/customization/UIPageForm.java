@@ -35,8 +35,8 @@ import org.exoplatform.webui.event.Event.Phase;
     lifecycle = UIFormLifecycle.class,
     template =  "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
     events = {
-      @EventConfig(listeners = UIPageForm.SaveActionListener.class),
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIPageForm.SaveActionListener.class)
     },
     initParams = @ParamConfig(
       name = "PageTemplate",
