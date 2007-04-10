@@ -147,7 +147,7 @@
 .UIItemSelector .ItemListContainer .ItemList {
 	background: white url('VistaSkin/background/ItemListBg1x13.png') repeat-x bottom;
   border: 1px #b7b7b7 solid;
-  font-weight: bold; color: #484d52;
+  color: #484d52;
   height: 240px;
 }
 
@@ -374,7 +374,7 @@
 .UIItemSelector .LeftColumnStyle .ItemListContainer .ItemList {
   border: 1px #b7b7b7 solid;
   border-top: 0px ;
-  font-weight: bold; color: #484d52;
+  color: #484d52;
   background: #f6f6f6;
   padding: 5px 0px ;
 }

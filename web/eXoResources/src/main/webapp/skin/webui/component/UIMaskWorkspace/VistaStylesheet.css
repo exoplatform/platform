@@ -176,7 +176,7 @@
 
 .UIMaskWorkspace .AddButton {
 	float: right ; 
-	width: 17px ; height: 22px ;
+	width: 20px ; height: 20px ;
 	background: url("VistaSkin/icons/16x16/Add.png") no-repeat center;
 	margin: 0px 10px ;
 	cursor: pointer ;
@@ -219,7 +219,7 @@
 	float: left ;
 	height: 22px ;
 	line-height: 22px; 
-	font-weight: bold ; font-size: 11px; color: #1465B9;
+	font-size: 11px; color: #1465B9;
 	vertical-align: middle ;
 }
 
