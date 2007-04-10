@@ -31,8 +31,8 @@ import org.exoplatform.webui.event.Event.Phase;
     template = "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
 
     events = {
-      @EventConfig(listeners = UIContainerForm.SaveActionListener.class),
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIContainerForm.SaveActionListener.class)
     }
 )
 //    initParams = {    
