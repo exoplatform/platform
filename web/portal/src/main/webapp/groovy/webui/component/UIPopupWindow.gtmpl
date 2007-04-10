@@ -34,7 +34,7 @@
 	      <div class="TopCenterDecorator">
 	        <div class="OverflowContainer">
 		        <div class="PopupTitleIcon"><span></span></div>
-		        <div class="CloseButton" title="Close Window" onclick="<%=uicomponent.event("Close")%>"><span></span></div>
+		        <div class="CloseButton" title="Close Window" onclick="<%=uicomponent.event("ClosePopup")%>"><span></span></div>
 		        <div class="PopupTitle"><%=_ctx.appRes(popupId + ".title."+ title)%></div>
 		      </div>
 	      </div>

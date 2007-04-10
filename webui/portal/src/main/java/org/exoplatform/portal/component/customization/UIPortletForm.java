@@ -4,9 +4,13 @@
  **************************************************************************/
 package org.exoplatform.portal.component.customization;
 
+import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortlet;
+import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
@@ -122,7 +126,15 @@ public class UIPortletForm extends UIFormTabPane {
       
       UIMaskWorkspace uiMaskWorkspace = uiPortletForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
+      
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      pcontext.addUIComponentToUpdateByAjax(uiMaskWorkspace);
+      
+      UIPortalApplication uiPortalApp = uiPortlet.getAncestorOfType(UIPortalApplication.class);
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
+      pcontext.setFullRender(true);
+      Util.showComponentLayoutMode(UIPortlet.class);  
     }
   }
   

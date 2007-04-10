@@ -124,10 +124,10 @@ public class UIPortletActionListener   {
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;       
     
-      UIPortlet container = event.getSource();
-      UIPortletForm containerForm = uiMaskWS.createUIComponent(UIPortletForm.class, null, null); 
-      containerForm.setValues(container);
-      uiMaskWS.setUIComponent(containerForm);
+      UIPortlet uiPortlet = event.getSource();
+      UIPortletForm uiPortletForm = uiMaskWS.createUIComponent(UIPortletForm.class, null, null); 
+      uiPortletForm.setValues(uiPortlet);
+      uiMaskWS.setUIComponent(uiPortletForm);
       uiMaskWS.setWindowSize(800, -1);
       uiMaskWS.setShow(true);
       
