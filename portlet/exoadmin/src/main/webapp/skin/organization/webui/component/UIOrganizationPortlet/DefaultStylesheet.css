@@ -88,61 +88,54 @@
 
 /*##############################- UIUserManagement -###########################*/
 
-.UIOrganizationPortlet .UIItemSelector .UIFormInputSet {
-  margin-top: 10px; margin-bottom: 14px;
+.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet {
+	background: #ffffff;
+	width: 100%;
+	border: solid 1px #7b7b7b;
 }
 
-.UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer {
-  width: 370px;
-  margin: auto; margin-top: 12px; margin-bottom: 5px;
-  overflow: hidden;
+.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer {
+	width: 70%;
+	margin: auto;
+	height: 28px;
 }
 
-.UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer label {
-  width: 130px; 
-  text-align: left;
-  margin-left: 0px; 
-  float: left;
+.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer label {
+	width: 130px;
+	text-decoration: none;
+	line-height: 18px;
 }
 
-.UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer input {
-  width: 220px; height: 18px; 
-  line-height: 18px;  vertical-align: middle;
-  font-size: 11px;
-  padding-left: 5px; 
-  border: 1px gray solid;
+.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer input {
+	height: 18px;
 }
 
-.UIOrganizationPortlet .UIItemSelector .UIFormInputSet {
-  padding-top: 10px;
-  font-size: 11px;
+.UIOrganizationPortlet .UIFormTabPane .UIPersonalInfo .UIFormInputSet {
+	border: none;
 }
 
-.UIOrganizationPortlet .UIItemSelector .ItemDetailList .UIFormInputSet .FieldContainer {
-  width: 370px;
-  margin: auto;  margin-top: 12px; margin-bottom: 5px;
-  overflow: hidden;
+.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer {
+	width: 410px;
+	margin: auto;
+	height: 22px;
 }
 
-.UIOrganizationPortlet .UIItemSelector .ItemDetailList .UIFormInputSet label {
-  float: left;
-  width: 120px; height: 20px; 
-  line-height: 20px; vertical-align: middle;
-  padding-left: 10px; margin-right: 0px;
-  font-size: 12px; white-space: nowrap; 
+.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer label {
+	width: 120px;
+	text-decoration: none;
+	line-height: 18px;
+	margin: 0px 5px 0px 0px;
 }
 
-.UIOrganizationPortlet .UIItemSelector .ItemDetailList .UIFormInputSet input {
-  float: left;
-  width: 230px;
-  font-size: 11px;
-  margin-left: 0px;
-  padding-left: 5px;
+.UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
+	height: 332px;
+	padding-bottom:0px;
 }
 
-.UIOrganizationPortlet .UIUserManagement .GroupGridIterator {
-  margin: 5px 4px 1px 4px ;
+.UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemList {
+	height: 310px;
 }
+
 
 .UIOrganizationPortlet .UIUserManagement .UIAction .SelectPermissionIcon {
   float: left ;
