@@ -122,18 +122,14 @@
 
 .UIContentPortlet .UIContentNavigation .PortletLabel {
   float: left ;
-	height: 25px ;
-	line-height: 25px ;
-	vertical-align: middle ;
-	font-size: 11px ;
-  color: black ;
+	height: 25px ; line-height: 25px ; vertical-align: middle ;
+	font-size: 11px ; color: black ;
 }
 
 .UIContentPortlet .UIContentNavigation .PortletLabel a {
 	text-decoration: none;
 	color: black ;
   line-height: 18px ;
- 
 }
 
 
@@ -149,7 +145,6 @@
 
 .UIContentPortlet .UIContentNavigation .NavigationSelected {
 	color: #006fa3 ;
-
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs {
@@ -180,11 +175,9 @@
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .CategoryName {
   float: left;
-  color: black;
+  line-height: 22px; vertical-align: middle; 
+  color: black; font-weight: bold;
   margin-left: 10px ;
-  font-weight:bold;
-  line-height: 22px; vertical-align: middle;
-  
 }
 
 .UIContentPortlet .UIContentWorkingArea .RefreshBar {
@@ -205,7 +198,6 @@
 .UIContentPortlet .UIContentWorkingArea .NewsDetailContainer {
   padding: 4px;
   background: url('VistaSkin/background/PortletBG.png');
- 
 }
 
 .UIContentPortlet  .UIContentWorkingArea .NewsDetail {
@@ -216,8 +208,7 @@
 
 .UIContentPortlet .UIContentWorkingArea .ContentDetailTitle a {
 	color: #006fa3;
-	font-size: 11px ;
-	font-weight: bold ;
+	font-size: 11px ;font-weight: bold ;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentDetailImage {
@@ -231,7 +222,6 @@
 
 .UIContentPortlet .UIContentWorkingArea .UIFormWithTitle {
 	width: 460px;
-
 }
 
 .UIContentPortlet .UIContentWorkingArea .UIFormWithTitle .UIAction {
@@ -242,10 +232,8 @@
 }
 
 .UIContentPortlet .UIContentWorkingArea .DateTime {
-	color: #5d5d5e;
-	font-size: 11px;
+	color: #5d5d5e; font-size: 11px; text-align: right;
 	padding: 10px 5px 3px 5px;
-	text-align: right;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentDetailImageDescription {
@@ -259,8 +247,7 @@
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentPageIterator {
-  width: 340px;
-  height: 30px;
+  width: 340px; height: 30px;
   margin-left: auto;
   margin-top: 3px;
 }
@@ -279,17 +266,15 @@
 
 .UIContentPortlet .UIContentWorkingArea .Number {
   float: left ;
+  width: 280px;  height: 20px; 
   text-align: center;
-  height: 20px; line-height: 20px; vertical-align: middle;
-  width: 280px;
-  
+  line-height: 20px; vertical-align: middle;
 }
 
 .UIContentPortlet .UIContentWorkingArea .Number a {
   margin: 0px 3px 0px 5px ;
   color: black ;
-  font-weight: bold ;
-  font-size: 11px ;
+  font-size: 11px ; font-weight: bold ;
 }
 
 .UIContentPortlet .UIContentWorkingArea .Number a:hover {

@@ -408,7 +408,7 @@
 	width: 29px; height: 23px;
 	background: url('VistaSkin/icons/ViewListIcon29x23.png') no-repeat;
 	margin-top: 3px;
-	fload: left;
+	float: left;
 }
 
 .UIItemSelector .LeftColumnStyle .TitleIcon {

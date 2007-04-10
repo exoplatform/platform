@@ -81,13 +81,13 @@
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardTitle {
   float: left;
-  height: 32px; line-height: 32px;  vertical-align: middle;
+  height: 29px; line-height: 29px;  vertical-align: middle;
   font-weight: bold;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
   float: right;
-  width: 32px; height: 32px;
+  width: 30px; height: 30px;
   background:  url('VistaSkin/icons/32x32/HelpIcon.png') no-repeat;
   margin: 1px 10px 0px 0px;
   cursor: pointer;
@@ -95,7 +95,7 @@
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .StepTitle {
   float: left;
-  height: 32px; line-height: 32px; vertical-align: middle;
+  height: 30px; line-height: 30px; vertical-align: middle;
   color: #393939;
   padding-left: 10px;
 }
@@ -211,20 +211,20 @@
   padding: 10px;
 }
 
-.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo{
-  width: 490px;
-  height: 36px; line-height: 36px; vertical-align: middle;
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo {
+  width: 600px;
+  height: 26px; line-height:26px; vertical-align: middle;
   font-size: 11px; 
   background: white;
   border: solid 1px #939393;
-  margin: auto; padding-left: 10px;
+  margin: auto;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
   float: left;
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/PageNode.gif ') no-repeat;
-  margin: 10px 0px 0px 5px;
+  width: 24px; height: 24px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/MiniOrangeBoxPage.png') no-repeat;
+  margin: 0px 5px 0px 5px;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Label {

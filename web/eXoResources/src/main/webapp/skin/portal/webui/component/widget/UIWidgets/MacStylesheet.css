@@ -30,9 +30,11 @@
 }
 
 .UIWidgets .UIDropDownItemSelector .ComponentIcon {
-	background: url('MacSkin/icon/IconWidget.png') no-repeat center;
-	padding: 5px 0px 0px 0px;
+	background: url('MacSkin/icon/IconWidget.png') no-repeat bottom;
+	width: 24px; height: 24px;
+	margin: 0px 0px 0px 3px;
 }
+
 /***************************************  UIWidgetContainer   **************************************/
 .UIWidgetContainer {
 	padding: 2px 0px 0px 0px;

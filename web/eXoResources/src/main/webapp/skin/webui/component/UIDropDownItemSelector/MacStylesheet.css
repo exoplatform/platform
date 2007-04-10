@@ -16,11 +16,13 @@
 }
 
 .ComponentIcon {
+  width: 24px; height: 24px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/ImagesList.gif') no-repeat center;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .Icon {
 	float: left;
-	height: 19px; width: 20px;
+	margin: 0px 0px 0px 3px;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .SelectedItemLabel {

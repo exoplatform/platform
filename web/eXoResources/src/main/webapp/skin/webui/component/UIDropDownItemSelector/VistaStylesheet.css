@@ -16,11 +16,14 @@
 	border-right: 1px solid #929292;
 	border-bottom: 1px solid #929292;
 }
-.ComponentIcon {}
+.ComponentIcon {
+  width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/ImagesList.gif') no-repeat;
+}
 
 .UIDropDownItemSelector .ItemInfoBar .Icon {
 	float: left;
-	height: 19px; width: 20px;
+	margin: 1px 0px 0px 0px;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .SelectedItemLabel {

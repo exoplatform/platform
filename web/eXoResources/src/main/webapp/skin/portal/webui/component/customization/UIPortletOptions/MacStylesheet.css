@@ -79,3 +79,7 @@
   text-decoration: none;
 }
 
+.UIPortletOptions .UIDropDownItemSelector .ComponentIcon {
+	width: 24px; height: 24px;
+	background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat center;
+}
