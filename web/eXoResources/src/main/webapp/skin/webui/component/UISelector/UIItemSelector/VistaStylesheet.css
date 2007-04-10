@@ -428,12 +428,12 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .LeftItem {
-  background: url('VistaSkin/background/LeftNormalItem30x24.png') no-repeat left;
+  background: url('VistaSkin/background/LeftNormalItem26x24.png') no-repeat left;
   padding-left: 26px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .RightItem {
-  background: url('VistaSkin/background/RightNormalItem30x24.png') no-repeat right;
+  background: url('VistaSkin/background/RightNormalItem3x24.png') no-repeat right;
   padding-right: 3px;
 }
 
