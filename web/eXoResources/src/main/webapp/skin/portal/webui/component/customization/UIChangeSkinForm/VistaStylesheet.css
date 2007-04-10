@@ -17,11 +17,11 @@
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemListContainer {
 	float: left;
-	width: 200px;
+	width: 205px;
 }
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemDetailList {
-	margin: 0px 0px 0px 205px;
+	margin: 0px 0px 0px 210px;
 	border: none;
 }
 
