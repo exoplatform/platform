@@ -71,6 +71,8 @@ public class PortletApplication extends WebuiApplication {
     PortletRequestContext context = createRequestContext(req, res, parentAppRequestContext)  ;
     WebuiRequestContext.setCurrentInstance(context) ;
     try {
+      req.setCharacterEncoding("UTF-8");
+      
       for(ApplicationLifecycle lifecycle : getApplicationLifecycle())  {
         lifecycle.onStartRequest(this, context) ;
       } 

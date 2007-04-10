@@ -1,5 +1,6 @@
 package org.exoplatform.portal.application;
 
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,7 +50,12 @@ public class PortalRequestContext extends WebuiRequestContext {
     if(nodeURI_.indexOf("/public/") >= 0) accessPath =  PUBLIC_ACCESS ;
     else if(nodeURI_.indexOf("/private/") >= 0) accessPath =  PRIVATE_ACCESS ;
     
-    res.setContentType("text/html; charset=UTF-8");
+    response_.setContentType("text/html; charset=UTF-8");
+    try {
+      request_.setCharacterEncoding("UTF-8");
+    }catch (UnsupportedEncodingException e) {
+      System.err.println(e.toString());
+    }
     
     urlBuilder = new PortalURLBuilder(nodeURI_);
   }
@@ -58,7 +64,7 @@ public class PortalRequestContext extends WebuiRequestContext {
     super.setUIApplication(uiApplication) ;    
   }
   
-  public String getRequestParameter(String name)  { return request_.getParameter(name) ; }
+  public String getRequestParameter(String name) { return request_.getParameter(name) ; }
   
   public String[] getRequestParameterValues(String name)  {
     return request_.getParameterValues(name) ;
