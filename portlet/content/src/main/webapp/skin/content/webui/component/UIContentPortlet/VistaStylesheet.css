@@ -199,22 +199,19 @@
 }
 
 .UIContentPortlet .UIContentWorkingArea .NewsDetailLayout {
-  
-  border: 1px solid #61694f;
- 
+  border: 1px solid #949494;
 }
 
 .UIContentPortlet .UIContentWorkingArea .NewsDetailContainer {
   padding: 4px;
-  border: 1px solid #fafcf5;
- background: url('VistaSkin/background/PortletBG.png');
+  background: url('VistaSkin/background/PortletBG.png');
+ 
 }
 
 .UIContentPortlet  .UIContentWorkingArea .NewsDetail {
   border: 1px solid #959595;
   background: white;
-  padding: 10px;
-  margin-bottom: 2px;
+  padding:8px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentDetailTitle a {
