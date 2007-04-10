@@ -231,8 +231,8 @@
 }
 
 .UIAddApplication .TitleBarApplication {
-	height: 22px ;
-	background: url("VistaSkin/background/ApplicationTitleBar1x22.png") repeat-x ;
+	height: 21px ;
+	background: url("VistaSkin/background/ApplicationTitleBar1x21.png") repeat-x ;
 }
 
 .UIAddApplication .ApplicationDescription {

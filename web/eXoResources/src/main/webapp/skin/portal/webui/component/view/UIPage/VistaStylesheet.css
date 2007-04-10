@@ -39,9 +39,7 @@
 }
 
 .UIPage .PageLayoutDecorator .PageContent {
-  height: 108px; 
-  background: url('VistaSkin/background/PageContentBG1x108.png'); 
-  border:1px red solid;
+
 }
 
 .UIPage .PageLayoutDecorator .BottomLeftPage {
