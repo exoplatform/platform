@@ -148,7 +148,7 @@
 	background: white url('VistaSkin/background/ItemListBg1x13.png') repeat-x bottom;
   border: 1px #b7b7b7 solid;
   font-weight: bold; color: #484d52;
-  height: 240px;
+  height: 260px;
 }
 
 /*###########################- End Item Default -##########################*/
@@ -180,14 +180,14 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .LeftItem {
   height: 24px;
-  background: url('VistaSkin/background/LeftSelectItem26x24.png') no-repeat left;
-  padding-left: 26px;
+  background: url('VistaSkin/background/LeftSelectItem30x24.png') no-repeat left;
+  padding-left: 30px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .RightItem {
   height: 24px;
-  background: url('VistaSkin/background/RightSelectItem3x24.png') no-repeat right;
-  padding-right: 3px;
+  background: url('VistaSkin/background/RightSelectItem30x24.png') no-repeat right;
+  padding-right: 30px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .ItemTitle {
@@ -208,15 +208,15 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .LeftItem {
   height: 24px;
-  background: url('VistaSkin/background/LeftOverItem26x24.png') no-repeat;
-  padding-left: 26px;
+  background: url('VistaSkin/background/LeftOverItem20x24.png') no-repeat;
+  padding-left: 30px;
 }
 
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .RightItem {
   height: 24px;
-  background: url('VistaSkin/background/RightOverItem3x24.png') no-repeat right;
-  padding-right: 3px;
+  background: url('VistaSkin/background/RightOverItem30x24.png') no-repeat right;
+  padding-right: 30px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .ItemTitle {
