@@ -6,7 +6,7 @@
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	jsmanager.importJavascript('eXo.webui.UIDropDownItemSelector') ;
-	jsmanager.addJavascript('eXo.webui.UIDropDownItemSelector.init()');
+	jsmanager.addJavascript('eXo.webui.UIDropDownItemSelector.init();');
 	String selected = uicomponent.getSelected();
 	ArrayList options = uicomponent.getOptions();
 	String action = uicomponent.getOnChange();
