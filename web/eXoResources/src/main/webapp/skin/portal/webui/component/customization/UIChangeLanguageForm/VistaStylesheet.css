@@ -27,7 +27,6 @@
 
 .UIChangeLanguageForm .UIItemSelector .ItemListContainer .ItemList {
   background: white url('DefaultSkin/background/ItemListBg157x99.gif') no-repeat right bottom;
-  height: 235px;
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemDetailList {

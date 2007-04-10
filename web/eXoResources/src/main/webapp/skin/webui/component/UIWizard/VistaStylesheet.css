@@ -310,15 +310,16 @@
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList {
-  height: 267px; 
+  height: 252px; 
   background: #ffffff;
   padding: 10px; margin-right: 260px; 
+  border: 1px solid #b7b7b7;
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList .ItemDetail {
-  height: 250px;
   padding: 8px;
   border: none;
+  background: none;
 }
 
 .UIWizard .UIFormTabPane .UIAction {

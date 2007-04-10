@@ -17,16 +17,16 @@
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemListContainer {
 	float: left;
-	width: 190px;
+	width: 200px;
 }
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemDetailList {
-	margin: 0px 0px 0px 195px;
+	margin: 0px 0px 0px 205px;
 	border: none;
 }
 
 .UIChangeSkinForm .UIItemSelector .ItemDetail .TemplateContainer {
-	padding: 0px;
+	padding-top: 25px;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .DefaultImage {
@@ -50,10 +50,6 @@
 	cursor: pointer ;
 }
 
-.UIChangeSkinForm .UIItemSelector .ItemListContainer .ItemList {
-  background: white url('VistaSkin/background/ItemListBg1x13.png') repeat-x bottom;
-}
-
 .UIChangeSkinForm .UIFormTabPane  {
   padding: 0px ;
   border:none;
@@ -62,9 +58,4 @@
 .UIChangeSkinForm .UIForm .HorizontalLayout .UIAction {
 	padding: 0px;
 	margin: 0px;
-}
-
-.UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
-  background: url(VistaSkin/background/ItemListBg1x13.png) repeat-x bottom;
-  padding-top: 25px;
 }
