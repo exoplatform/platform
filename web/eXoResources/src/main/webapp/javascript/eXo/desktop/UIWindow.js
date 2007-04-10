@@ -119,6 +119,7 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
   var resizableObject = new Array() ;
   var uiApplication = DOMUtil.findFirstDescendantByClass(windowObject, "div", "UIApplication") ;
   var uiResizableBlock = DOMUtil.findDescendantsByClass(windowObject, "div", "UIResizableBlock") ;
+  var tables = DOMUtil.findDescendantsByTag(windowObject, "table", resizableObject);
   
   if(uiApplication != null) resizableObject.push(uiApplication) ;
   if(uiResizableBlock != null) {
@@ -144,13 +145,21 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
     windowObject.style.height = "auto" ;
     
     for(var i = 0; i < resizableObject.length; i++) {
-      if(resizableObject[i] == uiApplication) {
+    	if (resizableObject[i].nodeName.toLowerCase() == "table") {
+    		resizableObject[i].style.height = "auto" ;
+    	} else {
+    		resizableObject[i].style.height = (eXo.core.Browser.getBrowserHeight() - 50) + "px" ;
+    	}
+      /*if(resizableObject[i] == uiApplication) {
         resizableObject[i].style.height = (eXo.core.Browser.getBrowserHeight() - 50) + "px" ;
 //        resizableObject[i].style.width = (desktopWidth - 20) + "px" ;
+      } else if (uiResizableBlock.contains(resizableObject[i])) {
+        resizableObject[i].style.height = (eXo.core.Browser.getBrowserHeight() - 50) + "px" ; //174
       } else {
-        resizableObject[i].style.height = (eXo.core.Browser.getBrowserHeight() - 174) + "px" ;
-      }
+      	resizableObject[i].style.height = "auto" ;
+      }*/
     }
+   
     
     windowObject.maximized = true ;
     clickedElement.className = "ControlIcon RestoreIcon" ;
@@ -206,15 +215,18 @@ UIWindow.prototype.initDND = function(e) {
 	  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	  var uiPageDesktopX = eXo.core.Browser.findPosX(uiPageDesktop) ;
 		var uiApplication = eXo.core.DOMUtil.findFirstDescendantByClass(dragBlock, "div", "UIApplication");
-		var uiDescToHide = new Array();
+		var hiddenElements = new Array();
+		
 	  DragDrop.initCallback = function (dndEvent) {
 	  	// A workaround to make the window go under the workspace panel during drag
-	  	if (eXo.core.Browser.getBrowserType() == "mozilla")
+	  	if (eXo.core.Browser.getBrowserType() == "mozilla" && eXo.core.DOMUtil.getStyle(uiApplication, "overflow") == "auto") {
+	  		hiddenElements.push(uiApplication);
 	  		uiApplication.style.overflow = "hidden";
+	  	}
 	  	uiAppDescendants = eXo.core.DOMUtil.findDescendantsByTagName(uiApplication, "div");
 	  	for (var i=0; i<uiAppDescendants.length; i++) {
 	  		if (eXo.core.DOMUtil.getStyle(uiAppDescendants[i], "overflow") == "auto") {
-	  			uiDescToHide.push(uiAppDescendants[i]);
+	  			hiddenElements.push(uiAppDescendants[i]);
 	  			uiAppDescendants[i].style.overflow = "hidden";
 	  		}
 	  	}
@@ -245,10 +257,8 @@ UIWindow.prototype.initDND = function(e) {
 	
 	  DragDrop.dropCallback = function (dndEvent) {
 	  	// A workaround to make the window properly resizable after drop
-	  	if (eXo.core.Browser.getBrowserType() == "mozilla")
-	  		uiApplication.style.overflow = "auto";
-	  	for (var i=0; i<uiDescToHide.length; i++) {
-	  		uiDescToHide[i].style.overflow = "auto";
+	  	for (var i = 0; i < hiddenElements.length; i++) {
+	  		hiddenElements[i].style.overflow = "auto";
 	  	}
 	  }
 	  DragDrop.init(null, clickBlock, dragBlock, e) ;

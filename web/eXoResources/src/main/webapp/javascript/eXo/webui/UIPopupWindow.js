@@ -8,7 +8,6 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable) {
 	var popup = document.getElementById(popupId) ;
 	var portalApp = document.getElementById("UIPortalApplication") ;
 	if(popup == null) return;
-	
 	popup.style.visibility = "hidden" ;
 	this.superClass.init(popup) ;
 	
@@ -54,7 +53,6 @@ UIPopupWindow.prototype.resize = function(e) {
 	var delta = eXo.core.Browser.findPosYInContainer(content,targetPopup) +
 							content.style.borderWidth + content.style.padding + content.style.margin +
 							contentWindow.style.borderWidth + contentWindow.style.padding + contentWindow.style.margin;
-	window.status = "border width : "+content.style.borderWidth;
 	contentWindow.style.height = (1*pointerY-delta)+"px";
 	content.style.height = (1*pointerY-delta)+"px";
 	targetPopup.style.height = "auto";
@@ -65,10 +63,19 @@ UIPopupWindow.prototype.show = function(popup) {
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 	var portalApp = document.getElementById("UIPortalApplication");
 	var maskLayer = eXo.core.DOMUtil.findFirstDescendantByClass(portalApp, "div", "UIMaskWorkspace");
+	zIndex = 0;
+	var currZIndex = 0;
 	if (maskLayer != null) {
-		zIndex = eXo.core.DOMUtil.getStyle(maskLayer, "zIndex");
-		if (isNaN(zIndex)) zIndex = 1001;
+		currZIndex = eXo.core.DOMUtil.getStyle(maskLayer, "zIndex");
+		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex;
 	}
+	var popupWindows = eXo.core.DOMUtil.findDescendantsByClass(portalApp, "div", "UIPopupWindow");
+	for (var i = 0; i<popupWindows.length; i++) {
+		currZIndex = eXo.core.DOMUtil.getStyle(popupWindows[i], "zIndex");
+		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex;
+	}
+	if (zIndex == 0) zIndex = 2000;
+	// We don't increment zIndex here because it is done in the superClass.show function
 	popup.style.visibility = "hidden";
 	this.superClass.show(popup) ;
 	var offsetParent = popup.offsetParent ;
