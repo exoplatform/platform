@@ -45,16 +45,20 @@ import org.exoplatform.webui.component.model.SelectItemOption ;
   
   SelectItemCategory tabs = new SelectItemCategory("tabs") ;
     tabs.addSelectItemOption(new SelectItemOption("twoTabs",
-        "<container template=\"system:/groovy/portal/webui/component/view/UITabContainer.gtmpl\">" +
-        "  <container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
-        "  <container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+        "<container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\">" +
+          "<container template=\"system:/groovy/portal/webui/component/view/UITabContainer.gtmpl\">" +
+          "  <container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+          "  <container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+          "</container>" +
         "</container>",
         "TwoTabContainerLayout")) ;
     tabs.addSelectItemOption(new SelectItemOption("threeTabs",
-        "<container template=\"system:/groovy/portal/webui/component/view/UITabContainer.gtmpl\">" +
-        "  <container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
-        "  <container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
-        "  <container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+        "<container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\">" +
+          "<container template=\"system:/groovy/portal/webui/component/view/UITabContainer.gtmpl\">" +
+          "  <container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+          "  <container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+          "  <container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+          "</container>" +
         "</container>",
         "ThreeTabContainerLayout")) ;
   templates.add(tabs);  

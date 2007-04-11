@@ -65,6 +65,8 @@ public class UIPageBrowser extends UISearch {
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("id", BEAN_FIELD, EDIT_ACTIONS) ;
     defaultValue(null) ;
+    addChild(uiGrid.getUIPageIterator());
+    uiGrid.getUIPageIterator().setRendered(false);
   }
 
   public void defaultValue(Query query) throws Exception {
@@ -77,9 +79,12 @@ public class UIPageBrowser extends UISearch {
     }
 
     PageList pagelist = service.findDataDescriptions(lastQuery_) ;
-    pagelist.setPageSize(1);
+    pagelist.setPageSize(2);
+    
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     uiGrid.getUIPageIterator().setPageList(pagelist);
+    addChild(uiGrid.getUIPageIterator());
+    uiGrid.getUIPageIterator().setRendered(false);
   } 
 
   public void quickSearch(UIFormInputSet quickSearchInput) throws Exception {    
@@ -240,7 +245,7 @@ public class UIPageBrowser extends UISearch {
       
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       Util.updateUIApplication(event);  
-      uiPageBrowser.defaultValue(null);
+//      uiPageBrowser.defaultValue(null);
     }
   }
  

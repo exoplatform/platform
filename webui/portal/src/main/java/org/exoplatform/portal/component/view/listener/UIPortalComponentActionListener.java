@@ -18,7 +18,9 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortalComponent;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIContainer;
@@ -41,7 +43,9 @@ public class UIPortalComponentActionListener {
   }  
   
   static public class DeleteComponentActionListener extends EventListener<UIComponent> {
+    
     public void execute(Event<UIComponent> event) throws Exception {
+      System.out.println("\n\n\n>>>>>>>>22222222222222222222222222222222222222222222");
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);      
       UIComponent uiComponent = event.getSource();
       UIPortalComponent uiParent = (UIPortalComponent)uiComponent.getParent();
@@ -54,13 +58,22 @@ public class UIPortalComponentActionListener {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingArea);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp);
       
       if(uiPortal.isRendered()){        
         Util.showPortalComponentLayoutMode(uiPortalApp);
         return;
       }     
       Util.showPageComponentLayoutMode(uiPortalApp);
+      
+//      UIPortal uiPortal = Util.getUIPortal();     
+      PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal, true);
+      PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
+      dataService.savePortalConfig(portalConfig);
+      Util.updateUIApplication(event);
+      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp);
+      System.out.println("\n\n\n>>>>>>>>22222222222222222222222222222222222222222222");
     }
   }
   
