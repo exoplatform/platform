@@ -70,15 +70,14 @@ public class PortletApplication extends WebuiApplication {
     WebuiRequestContext parentAppRequestContext =  WebuiRequestContext.getCurrentInstance() ;
     PortletRequestContext context = createRequestContext(req, res, parentAppRequestContext)  ;
     WebuiRequestContext.setCurrentInstance(context) ;
-    try {
-//      req.setCharacterEncoding("UTF-8");
-      
+    try {      
       for(ApplicationLifecycle lifecycle : getApplicationLifecycle())  {
         lifecycle.onStartRequest(this, context) ;
       } 
       UIApplication uiApp = getStateManager().restoreUIRootComponent(context) ;
       context.setUIApplication(uiApp) ;
       processDecode(uiApp, context) ;
+      req.setCharacterEncoding("UTF-8");
       if(!context.isResponseComplete() && !context.getProcessRender()) {
         processAction(uiApp, context) ;
       }
@@ -122,10 +121,10 @@ public class PortletApplication extends WebuiApplication {
     String attributeName = getApplicationId() + "$PortletRequest" ;
     PortletRequestContext context = 
       (PortletRequestContext) parentAppRequestContext.getAttribute(attributeName) ;
-    Writer w  = null ;    
+    Writer w  = null ;       
     if(res instanceof  RenderResponse){
       RenderResponse renderRes = (RenderResponse)res;
-      renderRes.setContentType("text/html");
+      renderRes.setContentType("text/html; charset=UTF-8");      
       w = renderRes.getWriter() ; 
     }
     if(context != null) {
