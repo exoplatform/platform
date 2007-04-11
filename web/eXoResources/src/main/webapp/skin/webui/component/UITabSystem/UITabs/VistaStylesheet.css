@@ -6,7 +6,7 @@
 .UIHorizontalTabs .TabsContainer {
   overflow: hidden;
   width: 95%;
-  padding: 0px 0px 0px 4px;
+  padding: 0px 0px 0px 0px;
 }
 
 .UIHorizontalTabs .PreviousTabButton  {
