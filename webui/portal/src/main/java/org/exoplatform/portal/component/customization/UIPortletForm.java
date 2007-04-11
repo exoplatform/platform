@@ -112,6 +112,8 @@ public class UIPortletForm extends UIFormTabPane {
     getUIStringInput("id").setEditable(false);
     getUIStringInput("applicationInstanceId").setEditable(false);
     invokeGetBindingBean(portlet) ;
+    UIFormInputIconSelector uiIconSelector = getChild(UIFormInputIconSelector.class);
+    uiIconSelector.setSelectedIcon(uiPortlet.getIcon());
   }
   
 	static public class SaveActionListener extends EventListener<UIPortletForm> {
@@ -119,8 +121,9 @@ public class UIPortletForm extends UIFormTabPane {
       UIPortletForm uiPortletForm = event.getSource() ;
       UIPortlet uiPortlet = uiPortletForm.getUIPortlet() ;
       Application portlet = new Application() ;
-      UIFormInputIconSelector iconSelector = uiPortletForm.getChild(UIFormInputIconSelector.class);
-      portlet.setIcon(iconSelector.getSelectedIcon());
+      UIFormInputIconSelector uiIconSelector = uiPortletForm.getChild(UIFormInputIconSelector.class);
+      portlet.setIcon(uiIconSelector.getSelectedIcon());
+      System.out.println("\n\n\n\n == > "+ uiIconSelector.getSelectedIcon()+"\n\n\n");
       uiPortletForm.invokeSetBindingBean(portlet) ;
       PortalDataModelUtil.toUIPortlet(uiPortlet, portlet);
       
