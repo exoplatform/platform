@@ -23,8 +23,23 @@
 				    	  <div class="Icon LastPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.previous")%>"><span></span></div>
 				    <%}%>
 				    <div class="Number">
-				      <%for( i in 1..totalPage) { %>
-				      <%  if( i == currentPage) { %>
+				      <%
+				      int min = 1;
+				      int max = totalPage;
+				      
+				      if(totalPage > 7 && currentPage >3){
+				        min = currentPage - 3;
+				        max = currentPage + 4;
+				      } else if( totalPage >7 && currentPage < 4{
+				        max = 8;
+				        min = 0;
+				      } else {
+				        min = 1;
+				        max = totalPage;
+				      }
+				      
+				      for( i in min..max) {
+				        if( i == currentPage) { %>
 				            <a href="<%=uicomponent.event("ShowPage","$i")%>" class="PageSelected"><%=i%></a>
 				      <%  } else { %>
 				            <a href="<%=uicomponent.event("ShowPage","$i")%>"><%=i%></a>

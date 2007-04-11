@@ -77,6 +77,7 @@ public class UIPageBrowser extends UISearch {
     }
 
     PageList pagelist = service.findDataDescriptions(lastQuery_) ;
+    pagelist.setPageSize(1);
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     uiGrid.getUIPageIterator().setPageList(pagelist);
   } 
@@ -213,7 +214,7 @@ public class UIPageBrowser extends UISearch {
   
   static public class AddNewActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
-//      UIPageBrowser uiPageBrowser = event.getSource();
+      UIPageBrowser uiPageBrowser = event.getSource();
 //      UIPageForm uiPageForm =  Util.showComponentOnWorking(uiPageBrowser, UIPageForm.class);
 //      uiPageForm.setBackUIComponent(uiPageBrowser);
 //      UIPermissionSelector uiPermissionSelector = uiPageForm.getChild(UIPermissionSelector.class);    
@@ -235,9 +236,11 @@ public class UIPageBrowser extends UISearch {
       UIPermissionSelector uiPermissionSelector = uiPageForm.getChild(UIPermissionSelector.class);    
       uiPermissionSelector.createPermission("ViewPermission", null);
       uiPermissionSelector.createPermission("EditPermission", null);
+//      defaultValue
       
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       Util.updateUIApplication(event);  
+      uiPageBrowser.defaultValue(null);
     }
   }
  

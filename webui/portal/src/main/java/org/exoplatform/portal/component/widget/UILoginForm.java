@@ -4,33 +4,20 @@
  **************************************************************************/
 package org.exoplatform.portal.component.widget;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.exoplatform.account.webui.component.UIAccountPortlet;
-import org.exoplatform.organization.webui.component.UIAccountForm;
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.customization.UIPageForm;
-import org.exoplatform.portal.component.customization.UIPortletForm;
-import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.component.validator.EmptyFieldValidator;
-import org.exoplatform.webui.component.validator.NameValidator;
-import org.exoplatform.webui.config.InitParams;
-import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -122,15 +109,15 @@ public class UILoginForm extends UIForm {
   static public class SignUpActionListener  extends EventListener<UILoginForm> {
     public void execute(Event<UILoginForm> event) throws Exception {
       System.out.println("\n\n\n\n^^^^^^^^^^^^^^##############################################");
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);   
-      UIComponent uicom = event.getSource().getParent();
-      UIComponent superParen = uicom.getParent();
-      UIAccountPortlet accountPortlet = event.getSource().getAncestorOfType(UIAccountPortlet.class);//uiApp.findFirstComponentOfType(UIAccountPortlet.class);
-      System.out.println("\n>>>>>>>>>>>AccountPortlet: " + superParen);
-      UIAccountForm accountForm = uiApp.findFirstComponentOfType(UIAccountForm.class);
-      System.out.println("\n>>>>>>>>>>>AccountForm: " + accountForm);
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
+//      UIPortal uiPortal = Util.getUIPortal();
+//      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);   
+//      UIComponent uicom = event.getSource().getParent();
+//      UIComponent superParen = uicom.getParent();
+//      UIAccountPortlet accountPortlet = event.getSource().getAncestorOfType(UIAccountPortlet.class);//uiApp.findFirstComponentOfType(UIAccountPortlet.class);
+//      System.out.println("\n>>>>>>>>>>>AccountPortlet: " + superParen);
+//      UIAccountForm accountForm = uiApp.findFirstComponentOfType(UIAccountForm.class);
+//      System.out.println("\n>>>>>>>>>>>AccountForm: " + accountForm);
+//      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
       
 //      UIAccountPortlet uiAccountPortlet = uiMaskWS.createUIComponent(UIAccountPortlet.class, null, null);    
 //      uiMaskWS.setUIComponent(uiAccountPortlet);
