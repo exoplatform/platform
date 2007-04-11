@@ -33,7 +33,10 @@ UIExoStartMenu.prototype.startButtonOut = function() {
 	}
 }
 
-UIExoStartMenu.prototype.showStartMenu = function() {
+UIExoStartMenu.prototype.showStartMenu = function(e) {
+	if(!e) var e = window.event;
+	e.cancelBubble = true;
+	
 	var uiStartContainer = document.getElementById("StartMenuContainer") ;
 	eXo.portal.UIExoStartMenu.exoStartButton.className = "ExoStartButton ButtonClicked" ;
 	if(uiStartContainer.style.display == "block") {
@@ -45,6 +48,12 @@ UIExoStartMenu.prototype.showStartMenu = function() {
 		var y = menuY - uiStartContainer.offsetHeight;
 		this.superClass.setPosition(uiStartContainer, 0, y) ;
 	}
+	
+	/*Hide eXoStartMenu whenever click on the UIApplication*/
+	var uiPortalApplication = document.getElementById("UIPortalApplication") ;
+	uiPortalApplication.onclick = eXo.portal.UIExoStartMenu.hideUIStartMenu ;
+	
+//	eXo.core.DOMUtil.listHideElements(uiStartContainer);
 };
 
 UIExoStartMenu.prototype.hideUIStartMenu = function() {

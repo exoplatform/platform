@@ -27,7 +27,7 @@ UIDropDownItemSelector.prototype.showList = function(itemBar, e) {
 	var itemSelector = DOMUtil.findAncestorByClass(itemBar, "UIDropDownItemSelector");
 	var list = DOMUtil.findFirstDescendantByClass(itemSelector, "div", "UIItemList");
 	if (itemSelector.open == null) UISelector.initSelector(itemSelector);
-	if (!itemSelector.open) {
+	if (list.style.display == "none") {
 	  list.style.width = itemSelector.offsetWidth + "px";
 		itemSelector.open = true;
 		list.style.position = "absolute";
@@ -70,7 +70,7 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 	var DOMUtil = eXo.core.DOMUtil;
 	var targ = eXo.core.Browser.getEventSource(e);
 	
-	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector")
+	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector") 
 		targ = targ.parentNode;
 	var parentSelector = DOMUtil.findAncestorByClass(targ, "UIDropDownItemSelector");
 	var selectedItemLabel = DOMUtil.findFirstDescendantByClass(parentSelector, "div", "SelectedItemLabel");

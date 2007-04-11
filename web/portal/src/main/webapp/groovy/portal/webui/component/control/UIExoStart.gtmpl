@@ -13,7 +13,7 @@
   jsmanager.addOnScrollJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
   
   String docBase =  rcontext.getRequestContextPath() ;
-  String onclick = "eXo.portal.UIExoStartMenu.showStartMenu()" ;
+  String onclick = "eXo.portal.UIExoStartMenu.showStartMenu(event)" ;
   
   void renderSinglePageNode(PageNode node) {
     String  href = uicomponent.event("ChangePage",  node.getUri()) ;
