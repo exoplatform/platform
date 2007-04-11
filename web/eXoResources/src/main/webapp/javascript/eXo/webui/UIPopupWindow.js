@@ -18,7 +18,7 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable) {
 
 	var popupBar = eXo.core.DOMUtil.findFirstDescendantByClass(popup, 'div' ,'PopupTitle') ;
 
-	popupBar.onmousedown = this.superClass.initDND ;
+	popupBar.onmousedown = this.initDND ;
 	
 	if(isShow == false) this.superClass.hide(popup) ; 
 	var popupCloseButton = eXo.core.DOMUtil.findFirstDescendantByClass(popup, 'div' ,'CloseButton') ;
@@ -42,6 +42,32 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable) {
 	if(isShow == true) this.show(popup);
 	
 };
+
+UIPopupWindow.prototype.initDND = function(e) {
+  var DragDrop = eXo.core.DragDrop ;
+  var DOMUtil = eXo.core.DOMUtil ;
+//  var overflowObjectList = new Array() ;
+
+	DragDrop.initCallback = function (dndEvent) {
+		var dragObject = dndEvent.dragObject ;
+		dragObject.uiWindowContent = DOMUtil.findFirstDescendantByClass(dragObject, "div", "Content");
+//		var elements = uiWindowContent.getElementsByTagName("div") ;
+		dragObject.uiWindowContent.style.overflow = "hidden" ;
+  }
+
+  DragDrop.dragCallback = function (dndEvent) {
+  }
+
+  DragDrop.dropCallback = function (dndEvent) {
+  	var dragObject = dndEvent.dragObject ;
+  	dragObject.uiWindowContent.style.overflow = "auto" ;
+  }
+  
+  var clickBlock = this ;
+  var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
+  DragDrop.init(null, clickBlock, dragBlock, e) ;
+};
+
 
 
 UIPopupWindow.prototype.resize = function(e) {
