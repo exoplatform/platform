@@ -84,49 +84,46 @@
 
 /*=================================Popup Category Decorator====================================*/
 
-.UIItemList .ItemSelectorDecorator {
-}
-
-.UIItemList .ItemSelectorDecorator .LTItemSelector {
+.UIItemList .LTItemSelector {
   height: 6px;
   background: url('DefaultSkin/background/TLItemSelector6x6.gif') no-repeat left;
   padding-left: 6px;
 }
 
-.UIItemList .ItemSelectorDecorator .TCItemSelector {
+.UIItemList .TCItemSelector {
   height: 6px;
   background: url('DefaultSkin/background/TCItemSelector1x6.gif') repeat-x;
 }
 
-.UIItemList .ItemSelectorDecorator .TRItemSelector {
+.UIItemList .TRItemSelector {
   height: 6px;
   background: url('DefaultSkin/background/TRItemSelector35x6.gif') no-repeat right;
   padding-right: 35px;
 }
 
-.UIItemList .ItemSelectorDecorator .MLItemSelector {
+.UIItemList .MLItemSelector {
   background: url('DefaultSkin/background/MLItemSelector6x1.gif') repeat-y left;
   padding-left: 6px;
 }
 
-.UIItemList .ItemSelectorDecorator .MRItemSelector {
+.UIItemList .MRItemSelector {
   background: url('DefaultSkin/background/MRItemSelector8x1.gif') repeat-y right;
   padding-right: 8px;
 }
 
-.UIItemList .ItemSelectorDecorator .BLItemSelector {
+.UIItemList .BLItemSelector {
   height: 7px;
   background: url('DefaultSkin/background/BLItemSelector6x7.gif') no-repeat left;
   padding-left: 6px;
 }
 
-.UIItemList .ItemSelectorDecorator .BRItemSelector {
+.UIItemList .BRItemSelector {
   height: 7px;
   background: url('DefaultSkin/background/BRItemSelector8x7.gif') no-repeat right;
   padding-right: 8px;
 }
 
-.UIItemList .ItemSelectorDecorator .BCItemSelector {
+.UIItemList .BCItemSelector {
   height: 7px;
   background: url('DefaultSkin/background/BCItemSelector1x7.gif') repeat-x;
 }

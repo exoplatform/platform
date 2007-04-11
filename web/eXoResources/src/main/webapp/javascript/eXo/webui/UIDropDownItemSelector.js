@@ -28,9 +28,9 @@ UIDropDownItemSelector.prototype.showList = function(itemBar, e) {
 	var list = DOMUtil.findFirstDescendantByClass(itemSelector, "div", "UIItemList");
 	if (itemSelector.open == null) UISelector.initSelector(itemSelector);
 	if (!itemSelector.open) {
+	  list.style.width = itemSelector.offsetWidth + "px";
 		itemSelector.open = true;
 		list.style.position = "absolute";
-		list.style.width = itemSelector.offsetWidth;
 		list.style.display = "block";
 	} else {
 		UISelector.hideList(itemSelector);

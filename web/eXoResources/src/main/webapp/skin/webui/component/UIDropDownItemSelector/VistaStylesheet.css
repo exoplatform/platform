@@ -91,48 +91,45 @@
 
 /*=================================Popup Category Decorator====================================*/
 
-.UIItemList .ItemSelectorDecorator {
-}
-
-.UIItemList .ItemSelectorDecorator .LTItemSelector {
+.UIItemList .LTItemSelector {
   height: 6px;
   background: url('VistaSkin/background/TLItemSelector12x6.png') no-repeat left;
   padding-left: 12px;
 }
 
-.UIItemList .ItemSelectorDecorator .TCItemSelector {
+.UIItemList .TCItemSelector {
   height: 6px;
   background: url('VistaSkin/background/TCItemSelector1x6.png') repeat-x;
 }
 
-.UIItemList .ItemSelectorDecorator .TRItemSelector {
+.UIItemList .TRItemSelector {
   height: 6px;
   background: url('VistaSkin/background/TRItemSelector45x6.png') no-repeat right;
   padding-right: 35px;
 }
 
-.UIItemList .ItemSelectorDecorator .MLItemSelector {
+.UIItemList .MLItemSelector {
   background: url('VistaSkin/background/MLItemSelector12x1.png') repeat-y left;
   padding-left: 12px;
 }
 
-.UIItemList .ItemSelectorDecorator .MRItemSelector {
+.UIItemList .MRItemSelector {
   background: url('VistaSkin/background/MRItemSelector14x1.png') repeat-y right;
   padding-right: 14px;
 }
 
-.UIItemList .ItemSelectorDecorator .BLItemSelector {
+.UIItemList .BLItemSelector {
   height: 18px;
   background: url('VistaSkin/background/BLItemSelector12x18.png') no-repeat left;
   padding-left: 12px;
 }
 
-.UIItemList .ItemSelectorDecorator .BRItemSelector {
+.UIItemList .BRItemSelector {
   padding-right: 14px;
   background: url('VistaSkin/background/BRItemSelector14x18.png') no-repeat right;
 }
 
-.UIItemList .ItemSelectorDecorator .BCItemSelector {
+.UIItemList .BCItemSelector {
   height: 18px;
   background: url('VistaSkin/background/BCItemSelector1x18.png') repeat-x;
   
