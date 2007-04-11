@@ -65,9 +65,10 @@
   padding-left: 5px;
 }
 
-.UIAccountPortlet .UIItemSelector .UIFormInputSet {
+.UIAccountPortlet .UIItemSelector .ItemDetail .UIFormInputSet {
   padding-top: 7px;
   font-size: 11px;
+  border: none;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet .FieldContainer {
