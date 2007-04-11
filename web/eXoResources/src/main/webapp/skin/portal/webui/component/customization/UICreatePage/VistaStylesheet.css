@@ -118,3 +118,7 @@
   vertical-align: middle ;
   font-size: 11px; color: black; font-weight: bold;
 }
+
+.UICreatePage .WizardPageEditBar {
+	padding: 10px 10px 0px 10px;
+}
