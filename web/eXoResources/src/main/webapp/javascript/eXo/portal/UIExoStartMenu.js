@@ -60,7 +60,7 @@ UIExoStartMenu.prototype.hideUIStartMenu = function() {
 	var uiStartContainer = document.getElementById("StartMenuContainer") ;
 	eXo.webui.UIPopupMenu.hide(uiStartContainer);
 	eXo.portal.UIExoStartMenu.buttonClicked = false ;
-	eXo.portal.UIExoStartMenu.exoStartButton.className = "ExoStartButton ButtonOver" ;
+	eXo.portal.UIExoStartMenu.exoStartButton.className = "ExoStartButton ButtonNormal" ;
 };
 
 eXo.portal.UIExoStartMenu = new UIExoStartMenu() ;
