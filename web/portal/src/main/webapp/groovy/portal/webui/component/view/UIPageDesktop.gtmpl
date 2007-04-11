@@ -60,7 +60,10 @@
             }
             String  popupId = uiChild.getId() ;
             String title = uiChild.getTitle() ;
-            if(title == null || title.trim().length() < 1) title = popupId;
+            if(title == null || title.trim().length() < 1) {
+              title = popupId;
+              uiChild.setTitle(title);
+             }
             String removeChildAction = uicomponent.event("RemoveChild", popupId) ;
         
             uiChild.setShowInfoBar(true);
@@ -105,7 +108,7 @@
                            onclick="eXo.desktop.UIDesktop.showHideWindow('${uiChild.id}-portlet-window', this);" />
                      <%/*Tool Tip*/ %>
                   	 <span class="Tooltip" style="display: none">
-                  	 	 <%=uiChild.getTitle() == null ? uiChild.getId() : uiChild.getTitle();%>
+                  	 	 <%=uiChild.getTitle();%>
                   	 </span>
                       <%/*End Tool Tip*/%>
                   <%}%>

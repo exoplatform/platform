@@ -33,16 +33,19 @@
     <show-max-window>true</show-max-window>
     
     <application>
+      <title>Sitemap Portlet</title>
       <application-instance-id>exo:/web/SiteMapPortlet/SitemapPortlet</application-instance-id>
       <show-info-bar>false</show-info-bar>
     </application>  
     
     <application>
+      <title>Content Portlet</title>
       <application-instance-id>exo:/content/ContentPortlet/content</application-instance-id>
       <show-info-bar>false</show-info-bar>
     </application>
 
     <application>
+      <title>Account Portlet</title>
       <application-instance-id>exo:/exoadmin/AccountPortlet/Account</application-instance-id>
       <show-info-bar>false</show-info-bar>
     </application>  

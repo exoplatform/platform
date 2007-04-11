@@ -42,6 +42,7 @@
     <title>ECMAdmin</title>
     <view-permission>*:/guest</view-permission>        
     <application>
+      <title>ECM Admin Portlet</title>
       <application-instance-id>exoadmin:/ecm/ECMAdminPortlet/ecmadmin</application-instance-id>
       <show-info-bar>true</show-info-bar>
     </application>  
