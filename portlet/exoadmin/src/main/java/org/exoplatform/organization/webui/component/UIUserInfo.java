@@ -79,7 +79,7 @@ public class UIUserInfo extends UIFormTabPane {
       UIUserInfo uiUserInfo = event.getSource() ;
       OrganizationService service =  uiUserInfo.getApplicationComponent(OrganizationService.class);      
       uiUserInfo.getChild(UIAccountInputSet.class).save(service, false) ;      
-      uiUserInfo.getChild(UIUserProfileInputSet.class).save(service, uiUserInfo.getUserName()) ;      
+      //uiUserInfo.getChild(UIUserProfileInputSet.class).save(service, uiUserInfo.getUserName()) ;      
       uiUserInfo.getChild(UIUserMembershipSelector.class).save(service, true);      
     }
   }
