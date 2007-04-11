@@ -39,7 +39,7 @@ public class PortletApplicationController extends GenericPortlet {
   
   public void processAction(ActionRequest req, ActionResponse res) throws PortletException, IOException {
     try {
-      req.setCharacterEncoding("UTF-8");
+//      req.setCharacterEncoding("UTF-8");
       
       getPortletApplication().processAction(req, res) ;
     } catch(Exception ex) {
