@@ -27,7 +27,7 @@
 }
 
 .UIFormWithTitle .UIForm .UIAction {  
-  margin: auto;
+  margin: auto; padding: 15px 0px;
   width: 170px;
 }
 
@@ -37,11 +37,10 @@
 }
 
 .UIFormWithTitle .UIForm .UIAction .ActionContainer .ActionButton {
-  float: left; margin-left: 3px;
+  float: right; 
 }
 
 .UITestForm .UIAction .ActionContainer .ActionButton {
   float: left; margin-left: 3px;
  	width: 80px;
- 	/*Debug IE*/
 }

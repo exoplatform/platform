@@ -109,20 +109,12 @@
 .UIWizard .WizardControlBar .UIAction {
   float: left;
   width: 74px;
-  margin: 4px 4px 0px 0px; 
+  margin: 7px 4px 0px 0px; 
 }
 
 .UIWizard .WizardControlBar .UIAction .ActionButton {
   width: 74px;
   margin: auto;
-}
-
-.UIWizard .WizardControlBar .UIAction .Icon {
-  margin: 5px 3px 0px 3px;
-}
-
-.UIWizard .WizardControlBar .UIAction .ActionButton a {
-  margin-left: 3px;
 }
 
 /*========================== Start UIWizard Welcome ==============================*/
@@ -242,6 +234,14 @@
 .UIWizard .UIFormTabPane {
   padding: 10px;
   margin-bottom: 0px;
+}
+
+.UIWizard .UIFormTabPane .UIHorizontalTabs{
+  display: none;
+}
+
+.UIWizard .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
+  border-top: 1px solid #b7b7b7;
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer {

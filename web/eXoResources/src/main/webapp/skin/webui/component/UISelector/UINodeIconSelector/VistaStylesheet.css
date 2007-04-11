@@ -3,28 +3,29 @@
 }
 
 .UINodeIconSelector .UIItemSelector .NormalStyle .ItemList{
-	height: 400px;
+	height: 240px;
+}
+
+.UINodeIconSelector .ItemDetailTitle {
+  height: 23px;
 }
 
 .UINodeIconSelector .NormalStyle .ItemDetailList {
-  background: white;
-  border: solid 1px #b7b7b7;
-  padding: 10px;
+  height: 263px;
 }
 
-.UINodeIconSelector .SelectedNodeIcon {
-  background: #efefef;
-  margin-left: 230px;
+.UINodeIconSelector .SelectedIconInfo {
+  background: white;
   border: solid 1px #b7b7b7 ;
-  width: auto; height: 280px;
-  padding: 10px;
+  height: 35px;
+  margin-top: 6px;
 }
 
 .UINodeIconSelector .SelectedNodeIcon .UIFormInputSet .Title {
-  margin-left: 20px; 
-  font-size: 11px; font-weight: bold ; color: black;
-  width: 99%;
-  padding-left: 5px;
+  float:left; 
+  font-size:11px; font-weight:bold;
+  line-height:22px; vertical-align:middle;
+}
 }
 
 .UINodeIconSelector .SelectedNodeIcon .UIFormInputSet {
@@ -83,10 +84,8 @@
 .UINodeIconSelector .IconSelector {
   background: white ;
   border: 1px solid  #b7b7b7 ;
-  height: 300px; width: 210px;
+  height: 197px; 
   overflow: auto;
-  padding-left: 6px;
-  float: left;
 }
 
 .UINodeIconSelector .IconSelector .Icon {

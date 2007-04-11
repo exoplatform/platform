@@ -1,39 +1,45 @@
-<div class="UITabContainer">
+<div class="UITabContainer" style="padding: 0px 10px 7px 10px">
 	<div class="UIHorizontalTabs">
-  	<div class="TabsContainer">	
-  	<%
-  	  String status = "HighlightTabStyle";  	  
-  	  int counter = 1;
-  		for(uiChild in uicomponent.getChildren()) {
-  			String title = uiChild.getTitle();
-  			if(title == null || title.trim().length() < 1 ) title = "Tab "+String.valueOf(counter);
-  	%>
-  		 	<div class="UITab">
-        	<div class="<%=status%>">
-          	<div class="LeftTab">
-            	<div class="RightTab">
-              	<div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">
-              		<%=title%>
-              	</div>              	
-            	</div>
-          	</div>
-        	</div>
-      	</div>       
-    <%
-    		counter++;
-	      status = "NormalTabStyle";
-      }
-    %>     
-      <div style="clear: both"><span></span></div>
-    </div>
+	  <div class="LeftHorizontalTabs">
+	    <div class="RightHorizontalTabs">
+	      <div class="CenterHorizontalTabs">
+			  	<div class="TabsContainer">	
+				  	<%
+				  	  String status = "SelectedTabStyle";  	  
+				  	  int counter = 1;
+				  		for(uiChild in uicomponent.getChildren()) {
+				  			String title = uiChild.getTitle();
+				  			if(title == null || title.trim().length() < 1 ) title = "Tab "+String.valueOf(counter);
+				  	%>
+				  		 	<div class="UITab">
+				        	<div class="<%=status%>">
+				          	<div class="LeftTab">
+				            	<div class="RightTab">
+				              	<div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">
+				              		<%=title%>
+				              	</div>              	
+				            	</div>
+				          	</div>
+				        	</div>
+				      	</div>       
+				    <%
+				    		counter++;
+					      status = "NormalTabStyle";
+				      }
+				    %>     
+				      <div style="clear: both"><span></span></div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
   </div>
   <div class="HorizontalLayout">		          
-		<div class="UITabContentContainer">
+		<div class="UITabContentContainer" style="border: 1px solid #b7b7b7; border-top: none; padding: 1px;  margin-bottom: 7px;">
 		<%
 		  status = "block";
 		  for(uiChild in uicomponent.getChildren()) {
 		%>
-				<div class="UITabContent" style="display: <%=status%>; height: 200px;">
+				<div class="UITabContent" style="display: <%=status%>;">
 					<% uicomponent.renderUIComponent(uiChild);%>		  	
 				</div>		
 		<%

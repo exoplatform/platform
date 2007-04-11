@@ -62,3 +62,6 @@
   background: url('DefaultSkin/background/BCPageLayout1x38.gif') repeat-x ; 
 }
 
+.UIPage .UIRowContainer .UITabContainer .UIHorizontalTabs {
+  padding: 0px;
+}

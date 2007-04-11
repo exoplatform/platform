@@ -3,7 +3,7 @@
 	rcontext.getJavascriptManager().importJavascript('eXo.portal.PortalDragDrop');
 %>
 
-<div class="UIPage" id="UIPage-${uicomponent.id}" style="width: 99.5%;">
+<div class="UIPage" id="UIPage-${uicomponent.id}" style="width: 100%;">
   <div class="META-DATA-BLOCK" style="display: none">
     <div class="id">$uicomponent.id</div>
     <div class="title"><%=_ctx.appRes("UIPage.label.title")%></div>

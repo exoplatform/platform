@@ -66,7 +66,7 @@
     			<div class="ItemDetailList" style="display: $display;">
     			<div class="ItemDetailTitle">
     			  <div class="TitleIcon ViewListIcon"><span></span></div>
-						<div class="Title">Sample Page Layout Templates View</div>
+						<div class="Title">Sample Page Layout Templates preview</div>
 						<div style="clear: left;"><span></span></div>
     			</div>
 			    <%
@@ -85,7 +85,7 @@
 	      	    %>
 	      	    <div class="ItemDetail"  style="display: $display;">
   					    <div class="LayoutHolder" >
-  					    	<div class="LayoutLabel" style="text-align: center; margin: 10px 0px;">$template.label</div>
+  					    	<div class="LayoutLabel" style="text-align: center; font-size: 11px; margin: 10px 0px 5px 0px;">$template.label</div>
 	    					  <div class="$template.icon" title="$template.label" style="margin: auto" ><span></span></div>
 		  				  </div> 
 			  	    </div> 

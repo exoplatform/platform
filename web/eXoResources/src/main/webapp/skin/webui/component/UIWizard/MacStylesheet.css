@@ -266,6 +266,10 @@
   margin-bottom: 0px;
 }
 
+.UIWizard .UIFormTabPane .UIHorizontalTabs{
+  display: none;
+}
+
 .UIWizard .UIFormTabPane .UITabPane .TabPaneContent{
   border-top: solid 1px gray ;
 }
