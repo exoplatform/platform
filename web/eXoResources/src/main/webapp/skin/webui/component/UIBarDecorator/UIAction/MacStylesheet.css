@@ -64,6 +64,7 @@
   line-height: 19px; vertical-align: middle;
   text-align: center;
 	background: url('MacSkin/background/BlueAquaButtonM1x25.png') repeat-x;
+	padding: 0px 3px;
 }
 
 /*##############################-Disabled ActionButton-################################*/

@@ -4,6 +4,7 @@
 
 .UIAction .ActionContainer {
   width: auto ; height: 22px ;
+  padding-right: 7px;
 }
 
 /*##############################-ActionButton-################################*/
@@ -24,7 +25,7 @@
 .UIAction .ActionContainer .ActionButton .Icon {
   float: left;  
   width: 16px ;  height: 16px ;
-  margin: 6px 3px 0px 3px ;
+  margin: 3px 3px 0px 3px ;
 }
 
 /*##############################-Normal ActionButton-################################*/
@@ -82,7 +83,8 @@
 
 .UIAction .ActionContainer .ActionButton .LightBlueStyle .ButtonMiddle {
   height: 22px;	line-height: 20px; text-align: center;
-	background: url('DefaultSkin/background/MiddleLightStyleButton1x22.gif') repeat-x;	
+	background: url('DefaultSkin/background/MiddleLightStyleButton1x22.gif') repeat-x;
+	padding: 0px 5px 0px 5px;	
 }
 
 /*##############################-SimpleStyle ActionButton-################################*/
