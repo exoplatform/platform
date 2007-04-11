@@ -432,8 +432,8 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .LeftItem {
-  background: url('VistaSkin/background/LeftNormalItem26x24.png') no-repeat left;
-  padding-left: 26px;
+  background: url('VistaSkin/background/LeftNormalItem30x24.png') no-repeat left;
+  padding-left: 30px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .RightItem {
@@ -458,13 +458,13 @@
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .LeftItem {
   background: url('VistaSkin/background/LeftOverItem30x24.png') no-repeat left;
-  padding-left: 26px;
+  padding-left: 30px;
 }
 
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .RightItem {
   background: url('VistaSkin/background/RightOverItem30x24.png') no-repeat right;
-  padding-right: 3px;
+  padding-right: 30px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .ItemTitle {
@@ -484,12 +484,12 @@
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .LeftItem {
   background: url('VistaSkin/background/LeftSelectItem30x24.png') no-repeat left;
-  padding-left: 26px;
+  padding-left: 30px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .RightItem {
   background: url('VistaSkin/background/RightSelectItem30x24.png') no-repeat right;
-  padding-right: 3px;
+  padding-right: 30px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .ItemTitle {
