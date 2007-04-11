@@ -28,7 +28,7 @@ import org.exoplatform.webui.event.Event.Phase;
  * May 19, 2006
  */
 @ComponentConfig(
-    lifecycle = UIPortletLifecycle.class,
+    lifecycle = UIPortletLifecycle.class,    
     template = "system:/groovy/portal/webui/component/view/UIPortlet.gtmpl",
     events = {
       @EventConfig(listeners = RenderActionListener.class),

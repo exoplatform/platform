@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
@@ -51,6 +53,11 @@ public class UIListMembershipType extends UIContainer {
     public void execute(Event<UIListMembershipType> event) throws Exception {
     	UIListMembershipType uiMembership = event.getSource();
     	String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      
+      UIOrganizationPortlet uiPortalApp = uiMembership.getAncestorOfType(UIOrganizationPortlet.class);
+      String valueId = event.getRequestContext().getRequestParameter("objectId");
+      uiPortalApp.addMessage(new ApplicationMessage(valueId, new Object[]{}));
+      
       OrganizationService service = uiMembership.getApplicationComponent(OrganizationService.class);
       
       MembershipType mt = service.getMembershipTypeHandler().findMembershipType(name);
