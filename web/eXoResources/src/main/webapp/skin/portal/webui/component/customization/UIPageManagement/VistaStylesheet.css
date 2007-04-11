@@ -66,9 +66,9 @@
 
 .UIPageManagement .EditNavigationIcon {
   float: left;
-  width:24px; height:24px;
+  width:21px; height:20px;
   margin: 3px 3px 0px 1px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/NavigationCircle.png') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/NavigationEdit.png') ;
 }
 
 .UIPageManagement .EditPageNodeIcon {
