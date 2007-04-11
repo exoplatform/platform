@@ -219,6 +219,13 @@
   margin: 0px 3px 0px 0px;
 }
 
+.UIWindow .UITestFormPortlet {
+	overflow: auto;
+}
+
+.UIWindow .UIAddPortletPortlet {
+	overflow: auto;
+}
 /**************************** UIPageBody ************************************/
 .UIPageBody {
   padding-bottom: 10px;

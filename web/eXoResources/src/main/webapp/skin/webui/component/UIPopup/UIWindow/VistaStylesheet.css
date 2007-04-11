@@ -212,6 +212,13 @@
   background: url('VistaSkin/background/CenterTopBar1x25.png') repeat-x ;
 }
 
+.UIWindow .UITestFormPortlet {
+	overflow: auto;
+}
+
+.UIWindow .UIAddPortletPortlet {
+	overflow: auto;
+}
 /**************************** UIPageBody ************************************/
 
 .UIPageBody .UIWindow {

@@ -120,23 +120,27 @@
 		              <div class="ControlIcon ArrowDownIcon" title="Portlet Mode" onclick="$showCategory; $setDefault;" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
 		              <%if(isWindow) {%>
 	                		<div class="ControlIcon MinimizedIcon" title="Minimize" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
-	                		<div class="ControlIcon MaximizedIcon" title="Maximize" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+	                		<div class="ControlIcon MaximizedIcon" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	                <%
 	                  } else if(uicomponent.getShowWindowState()) {	                    
 	                    String maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+popupId+"', 'maximized');" ;
 	                    String minimizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+popupId+"', 'minimized');";
 	                    String maximizedMode = "Maximized";
 	                    String minimizedMode = "Minimized";
+	                    String restoreDown = "Maximized";
+	                    String restore = "Minimized";
 	                    if(windowState == WindowState.MAXIMIZED) {
   	                    maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+popupId+"', 'normal');" ;
   	                    maximizedMode = "Normal";
+  	                    restoreDown = "Restore Down";
 	                    } else if(windowState == WindowState.MINIMIZED) {
 	                      minimizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+popupId+"', 'normal');" ;
   	                    minimizedMode = "Normal";
+  	                    restore = "Restore";
 	                    }
 	                %>
-    	                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction"  title="Minimize" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
-	                		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction"  title="Restore Down" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+    	                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction"  title="$restore" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+	                		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction"  title="$restoreDown" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	                <%}%>    
 	                <%
 	                  if(isWindow) {

@@ -3,7 +3,7 @@
     <div class="WindowBarRight">
       <div class="WindowBarCenter">
         <div class="WindowPortletControl">
-          <div class="ControlIcon MinimizedIcon" title="fksfds"
+          <div class="ControlIcon MinimizedIcon"
                onmouseover="eXo.desktop.UIWindow.onControlOver(this, true);"
                onmouseout="eXo.desktop.UIWindow.onControlOver(this, false);"><span></span></div>
           <div class="ControlIcon MaximizedIcon" 

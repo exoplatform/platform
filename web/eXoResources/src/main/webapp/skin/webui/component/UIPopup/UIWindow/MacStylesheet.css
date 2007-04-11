@@ -206,6 +206,13 @@
   background: url('MacSkin/background/PortletWindowTC1x23.png') repeat-x bottom;
 }
 
+.UIWindow .UITestFormPortlet {
+	overflow: auto;
+}
+
+.UIWindow .UIAddPortletPortlet {
+	overflow: auto;
+}
 /**************************** UIPageBody ************************************/
 
 .UIPageBody .UIWindow {
