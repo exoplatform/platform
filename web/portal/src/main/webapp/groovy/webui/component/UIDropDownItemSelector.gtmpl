@@ -31,8 +31,10 @@
 		  			<% String title = selected;
 		  			   if(selected == null) {
 		  			     title = uicomponent.getTitle();
-		  			   } %>
-		  			<div class="SelectedItemLabel"><%=title%></div>
+		  			   } 
+		  			 System.out.println("\n\nName: " + uicomponent.getParent().getName() + "  Title:  " + title + "\n\n");
+		  			%>
+		  			<div class="SelectedItemLabel" style="overflow: hidden; width: 70%;"><%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.title")%></div>
 		  			<div class="DropDownSelectIcon"><span></span></div>
 		  			<div style="clear: left"><span></span></div>
 				  </div>
@@ -68,10 +70,11 @@
 				    
 						<div class="ItemSelector">
 							<div class="Icon"><span></span></div>
-							<% if(action != null) {%>
+							<% System.out.println("\n\nLabel: " + label + "\n\n");
+							if(action != null) {%>
 	              <div class="ItemSelectorLabel" id="$label" title="$action"><%=label%></div>
 	            <% } else { %>
-	              <div class="ItemSelectorLabel" id="$label"><%=label%></div>
+	              <div class="ItemSelectorLabel" id="$label"><%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + label)%></div>
 	            <% } %>
 	            <div style="clear: left"><span></span></div>
 						</div>

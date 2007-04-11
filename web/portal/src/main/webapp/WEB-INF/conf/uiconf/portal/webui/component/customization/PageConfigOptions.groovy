@@ -11,14 +11,14 @@ config = "<page>" +
          "  <name>UIPage</name>"+         
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "</page>";
-normalPageConfigs.addSelectItemOption(new SelectItemOption("EmptyLayout", config, "EmptyLayout"));
+normalPageConfigs.addSelectItemOption(new SelectItemOption("Empty Layout", config, "EmptyLayout"));
 
 config = "<page>" +         
          "  <factory-id>Desktop</factory-id>" +
          "  <name>UIPage</name>" +
          "</page>" ;
 
-normalPageConfigs.addSelectItemOption(new SelectItemOption("DesktopLayout", config, "DesktopImage"));
+normalPageConfigs.addSelectItemOption(new SelectItemOption("Desktop Layout", config, "DesktopImage"));
 
 SelectItemCategory columnPageConfigs = new SelectItemCategory("columnPageConfigs") ;
 categories.add(columnPageConfigs);  
@@ -29,7 +29,7 @@ config = "<page>" +
          "    <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "  </container>" +
          "</page>";
-columnPageConfigs.addSelectItemOption(new SelectItemOption("TwoColumnsLayout", config, "TwoColumnsLayout"));
+columnPageConfigs.addSelectItemOption(new SelectItemOption("Two Columns Layout", config, "TwoColumnsLayout"));
 config = "<page>" +
          "  <name>UIPage</name>" +
          "  <container template='system:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl'>" +
@@ -38,7 +38,7 @@ config = "<page>" +
          "    <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "  </container>" +
          "</page>";
-columnPageConfigs.addSelectItemOption(new SelectItemOption("ThreeColumnsLayout", config, "ThreeColumnsLayout"));
+columnPageConfigs.addSelectItemOption(new SelectItemOption("Three Columns Layout", config, "ThreeColumnsLayout"));
 
 SelectItemCategory rowPageConfigs = new SelectItemCategory("rowPageConfigs") ;
 categories.add(rowPageConfigs); 
@@ -48,7 +48,7 @@ config = "<page>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "</page>";
-rowPageConfigs.addSelectItemOption(new SelectItemOption("TwoRowsLayout", config, "TwoRowsLayout"));
+rowPageConfigs.addSelectItemOption(new SelectItemOption("Two Rows Layout", config, "TwoRowsLayout"));
 
 config = "<page>" +
          "  <name>UIPage</name>" +
@@ -56,7 +56,7 @@ config = "<page>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "</page>";
-rowPageConfigs.addSelectItemOption(new SelectItemOption("ThreeRowsLayout", config, "ThreeRowsLayout"));
+rowPageConfigs.addSelectItemOption(new SelectItemOption("Three Rows Layout", config, "ThreeRowsLayout"));
 
 SelectItemCategory mixPageConfigs = new SelectItemCategory("mixPageConfigs") ;
 categories.add(mixPageConfigs); 
@@ -69,7 +69,7 @@ config = "<page>" +
          "  </container>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "</page>";
-mixPageConfigs.addSelectItemOption(new SelectItemOption("TwoColumnsOneRowLayout", config, "TwoColumnsOneRowLayout"));
+mixPageConfigs.addSelectItemOption(new SelectItemOption("Two Columns One Row Layout", config, "TwoColumnsOneRowLayout"));
 
 config = "<page>" +
          "  <name>UIPage</name>" +
@@ -79,7 +79,7 @@ config = "<page>" +
          "    <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "  </container>" +
          "</page>";
-mixPageConfigs.addSelectItemOption(new SelectItemOption("OneRowTwoColumnsLayout", config, "OneRowTwoColumnsLayout"));
+mixPageConfigs.addSelectItemOption(new SelectItemOption("One Row Two Columns Layout", config, "OneRowTwoColumnsLayout"));
 
 config = "<page>" +
          "  <name>UIPage</name>" +
@@ -90,6 +90,6 @@ config = "<page>" +
          "  </container>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "</page>";
-mixPageConfigs.addSelectItemOption(new SelectItemOption("ThreeRowsTwoColumnsLayout", config, "ThreeRowsTwoColumnsLayout"));
+mixPageConfigs.addSelectItemOption(new SelectItemOption("Three Rows Two Columns Layout", config, "ThreeRowsTwoColumnsLayout"));
 
 return categories;

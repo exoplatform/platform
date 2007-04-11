@@ -141,7 +141,7 @@
       	    <%/*--Begin Layout Style--*/%>
       	    <div class="ItemDetail"  style="display: $displayImage;">
   					    <div class="LayoutHolder">
-  					      <div class="LayoutLabel"><%=template.getIcon();%></div>
+  					      <div class="LayoutLabel"><%=template.getLabel();%></div>
     					  <div class="<%=template.getIcon();%>" title="<%=template.getLabel();%>"><span></span></div>
 	  				  </div> 
 		  	    </div> 

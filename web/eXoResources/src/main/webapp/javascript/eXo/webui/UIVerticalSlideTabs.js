@@ -16,7 +16,6 @@ UIVerticalSlideTabs.prototype.onTabClick = function(clickedElement, normalStyle,
 	  for(var i = 0; i < uiVTab.length; i++) {
 	    eXo.core.DOMUtil.getChildrenByTagName(uiVTab[i], "div")[0].className = normalStyle;
 	    eXo.core.DOMUtil.findFirstChildByClass(uiVTab[i], "div", "UIVTabContent").style.display = "none" ;
-	    
 	  }
 		eXo.core.DOMUtil.getChildrenByTagName(uiClickedVTab, "div")[0].className = selectedStyle;
     uiClickedVTabContent.style.display = "block";

@@ -1,8 +1,8 @@
 .UIExoStart {
-  height: 39px ;
 }
 
 .UIExoStart .StartBarContainer {
+  height: 39px ;
   background: url('MacSkin/background/StartBarBG1x40.png') repeat-x ;
 }
 
@@ -34,14 +34,12 @@
 
 .UIExoStart .DigitalClockContainer {
   float: right;
-  height: 25px;
   font-size: 11px ; text-align: center ;
-  margin: 0px 5px; 
-  padding: 0px 8px;
+  margin: 0px 9px; 
 }
 
 .UIExoStart .DigitalClock {
-  margin:  0px ;
+  margin: 0px ;
   line-height: 38px;
 }
 

@@ -30,7 +30,7 @@ UIDropDownItemSelector.prototype.showList = function(itemBar, e) {
 	if (!itemSelector.open) {
 		itemSelector.open = true;
 		list.style.position = "absolute";
-		list.style.width = DOMUtil.getStyle(itemSelector, "width");
+		list.style.width = itemSelector.offsetWidth;
 		list.style.display = "block";
 	} else {
 		UISelector.hideList(itemSelector);
