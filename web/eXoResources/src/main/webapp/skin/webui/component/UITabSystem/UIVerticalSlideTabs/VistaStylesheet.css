@@ -356,7 +356,9 @@
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .LeftIcon {
   float: left ;
-  margin: 5px 5px 0px 3px;
+  width: 4px;  height: 8px;
+  background: url(/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif) no-repeat center;
+  margin: 10px 5px 0px 7px;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLabel {
@@ -390,7 +392,7 @@
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLeft {
   height: 27px ; 
-  margin:0px 3px 0px 3px;
+  margin: 0px 3px 0px 3px;
   padding-left: 3px ;
   background: url('VistaSkin/background/SmoothRoundedLeftBar3x27.gif') no-repeat left ;
 }
@@ -408,7 +410,9 @@
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .LeftIcon {
   float: left ;
-  margin: 5px 5px 0px 5px;
+  width: 7px; height: 4px;
+  background: url(/eXoResources/icons/16x16/VistaSkin/BlackDownArrow.gif) no-repeat center;
+  margin: 12px 5px 0px 6px;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLabel {

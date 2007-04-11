@@ -29,6 +29,12 @@
 	width: 209px;
 }
 
+.UIWidgets .UIDropDownItemSelector .ItemInfoBar .RightItemInfoBar{
+	background: none;
+	padding-right: 0px;
+}
+
+
 .UIWidgets .UIDropDownItemSelector .ComponentIcon {
 	background: url('MacSkin/icon/IconWidget.png') no-repeat bottom;
 	width: 24px; height: 24px;

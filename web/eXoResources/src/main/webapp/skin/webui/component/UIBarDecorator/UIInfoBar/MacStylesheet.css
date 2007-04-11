@@ -59,8 +59,8 @@
   float: left ; 
   font-size: 11px ; text-align: left ;
   font-weight: bold ; color: black;
-  line-height: 15px; vertical-align: middle ;
-  margin: 3px 7px 0px 7px ;
+  line-height: 21px; vertical-align: middle ;
+  padding-left: 3px;
 }
 
 .UIInfoBar .BlueRoundedStyle .Icon {

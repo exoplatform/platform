@@ -47,8 +47,7 @@
 
 .UIContentPortlet .UIContentNavigation .UpArrowBar {
   width: 34px; height: 20px;
-  padding-left: 8px;
-  
+  padding-left: 8px; 
 }
 
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NavigationUpArrowIcon {
@@ -80,8 +79,7 @@
 	margin: 5px 3px 0px 0px ;
   cursor: pointer ;
   width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/BlackUpArrow.gif') ;
-  
+  background: url('/eXoResources/icons/16x16/VistaSkin/BlackUpArrow.gif') ; 
 }
 
 .UIContentPortlet .UIContentNavigation .CollapseButton {
@@ -90,14 +88,11 @@
   cursor: pointer ;
   width: 16px;  height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlackDownArrow.gif') ;
-  
-  
 }
 
 .UIContentPortlet .UIContentNavigation .NavigationIcon {
 	float: left ;
 	margin: 4px 5px 0px 10px ;
-
 }
 
 .UIContentPortlet .UIContentNavigation .OpenFolderIcon {
@@ -117,7 +112,7 @@
 	vertical-align: middle ;
 	font-weight: bold ; font-size: 11px ;
   color: black ;
-  margin-left: 5px
+  margin-left: 5px;
 }
 
 .UIContentPortlet .UIContentNavigation .PortletLabel {
@@ -131,7 +126,6 @@
 	color: black ;
   line-height: 18px ;
 }
-
 
 .UIContentPortlet .UIContentNavigation .NavigationLabel a {
 	text-decoration: none ;
@@ -203,7 +197,7 @@
 .UIContentPortlet  .UIContentWorkingArea .NewsDetail {
   border: 1px solid #959595;
   background: white;
-  padding:8px;
+  padding: 8px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentDetailTitle a {
@@ -253,15 +247,15 @@
 }
 
 .UIContentPortlet .ContentPageIterator .BackIcon {
+  float: left;
   width: 17px; height: 17px;
   margin-top: 3px;
-  float: left;
 }
 
 .UIContentPortlet .ContentPageIterator .NextIcon {
+  float: right;
   width: 17px; height: 17px;
   margin-top: 3px;
-  float: right;
 }
 
 .UIContentPortlet .UIContentWorkingArea .Number {
@@ -280,7 +274,6 @@
 .UIContentPortlet .UIContentWorkingArea .Number a:hover {
   color: blue ;
 }
-
 
 .UIContentPortlet .UIContentWorkingArea .Number a.PageSelected {
   color: red ;

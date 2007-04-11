@@ -15,6 +15,12 @@
   height: 25px;
 }
 
+.UIDropDownItemSelector .ItemInfoBar .RightItemInfoBar {
+  background: url('MacSkin/background/RightItemInfoBar4x25.png') no-repeat right;
+  height: 25px;
+  padding-right: 4px;
+}
+
 .ComponentIcon {
   width: 24px; height: 24px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/ImagesList.gif') no-repeat center;

@@ -79,11 +79,13 @@
 .UIItemSelector .ItemListContainer .LeftItemListTitle  {
   background: url('/eXoResources/background/VistaSkin/LeftItemListTitle4x25.png') no-repeat left;
   padding-left: 4px;
+  height: 25px;
 }
 
 .UIItemSelector .ItemListContainer .RightItemListTitle  {
   background: url('/eXoResources/background/VistaSkin/RightItemListTitle4x25.png') no-repeat right;
   padding-right: 4px;
+  height: 25px;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalOfficeImage {
