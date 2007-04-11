@@ -29,6 +29,7 @@ import org.exoplatform.webui.event.Event.Phase;
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
     }
 )
+//TODO:  This code has many  problems
 public class UIChangeSkinForm extends UIFormTabPane{
   
   @SuppressWarnings("unchecked")

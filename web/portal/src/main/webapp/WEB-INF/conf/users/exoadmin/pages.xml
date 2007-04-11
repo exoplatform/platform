@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <page-set>  
   <page>    
-    <factory-id>Desktop</factory-id>
     <owner>exoadmin</owner>
     <name>web</name>
     <title>Web</title>
     <view-permission>*:/guest</view-permission>        
-    <show-max-window>true</show-max-window>
     <application>
       <application-instance-id>exoadmin:/content/ContentPortlet/contentportlet</application-instance-id>
       <show-info-bar>false</show-info-bar>       
-    </application>  
-
-    <application>
-      <application-instance-id>exoadmin:/web/SiteMapPortlet/sitemapportlet</application-instance-id>
-      <show-info-bar>false</show-info-bar>
-    </application>  
-    
-    <application>
-      <application-instance-id>exoadmin:/exoadmin/OrganizationPortlet/Organization</application-instance-id>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
     </application>  
   </page>
   

@@ -33,23 +33,9 @@
     <show-max-window>true</show-max-window>
     
     <application>
-      <application-instance-id>exo:/exoadmin/PortletRegistryPortlet/RegistryPortlet</application-instance-id>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>
-     
-    <application>
       <application-instance-id>exo:/web/SiteMapPortlet/SitemapPortlet</application-instance-id>
       <show-info-bar>false</show-info-bar>
     </application>  
-    
-    <application>
-      <application-instance-id>exo:/exoadmin/OrganizationPortlet/Organization</application-instance-id>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>
     
     <application>
       <application-instance-id>exo:/content/ContentPortlet/content</application-instance-id>
