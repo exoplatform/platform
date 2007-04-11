@@ -127,8 +127,8 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .LeftItem {
   height: 24px;
-  background: url('VistaSkin/background/LeftNormalItem26x24.png') no-repeat left;
-  padding-left: 26px;
+  background: url('VistaSkin/background/LeftNormalItem30x24.png') no-repeat left;
+  padding-left: 30px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .RightItem {
