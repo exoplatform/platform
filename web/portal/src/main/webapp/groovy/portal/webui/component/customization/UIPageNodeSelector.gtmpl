@@ -14,29 +14,37 @@
   String onMouseOut			= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
   String selectCategory		= "eXo.webui.UIPopupSelectCategory.selectdCategory(this);" ;
 %>
-
-<div class="UIPageNodeSelector" id="UIPageNodeSelector">
-  
-  <%/*Begin PageNodeSelectorContainer*/%>
-  <div class="UIContainerConfigOptions ItemSelectorAncestor"> 
-  <div class="ContainerConfigOptions"> 
-<%  uicomponent.renderChild(UIDropDownItemSelector.class); %>	
-<% /*************************************************************/ %>
-		<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
-		<%
-		  if(navigations != null) {
-    	  for(nav in navigations) {
-				  if(selectedNav != null && nav == selectedNav) {
-					  uicomponent.renderChild(UITree.class);
-			    }
-   		  }
-   	  }
-		%>
+<div class="MiddleLeftContainerOptions">
+	<div class="MiddleRightContainerOptions">
+		<div class="UIPageNodeSelector" id="UIPageNodeSelector">
+		  
+		  <%/*Begin PageNodeSelectorContainer*/%>
+		  <div class="UIContainerConfigOptions ItemSelectorAncestor"> 
+		  <div class="ContainerConfigOptions"> 
+		<%  uicomponent.renderChild(UIDropDownItemSelector.class); %>	
+		<% /*************************************************************/ %>
+				<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
+				<%
+				  if(navigations != null) {
+		    	  for(nav in navigations) {
+						  if(selectedNav != null && nav == selectedNav) {
+							  uicomponent.renderChild(UITree.class);
+					    }
+		   		  }
+		   	  }
+				%>
+				</div>
+		<% /*************************************************************/ %>
+			</div>
+			</div>
 		</div>
-<% /*************************************************************/ %>
-	</div>
-	</div>
+  </div>
 </div>
+<div class="BottomLeftContainerOptions">
+	<div class="BottomRightContainerOptions">
+  	<div class="BottomCenterContainerOptions"><span></span></div>
+  </div>
+</div> 
 
 
 

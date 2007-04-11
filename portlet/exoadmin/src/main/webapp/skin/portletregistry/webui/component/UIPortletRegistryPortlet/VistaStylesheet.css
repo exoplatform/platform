@@ -1,12 +1,14 @@
 .UIWindow .UIPortletRegistryPortlet {
   overflow: auto ;
-	padding: 5px;
 }
 
-.UIPageBody .UIPortletRegistryPortlet {
-	padding: 7px;
+.UIPortletRegistryPortlet {
 	background:url('VistaSkin/background/PortletRegistryBG.png') repeat ;
-	border: solid 1px black;
+}
+
+.UIPortletRegistryPortlet .UIPortletRegistryContainer {
+	padding: 7px;
+	border: solid 1px #b7b7b7;
 }
 
 /*################################Portlet Registry Control################################*/

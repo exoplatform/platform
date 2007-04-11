@@ -228,3 +228,32 @@
   background: url('VistaSkin/background/LightBlueBR.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
+
+/* ====================Decorator Container Options=================*/
+
+.MiddleLeftContainerOptions {
+	background: url('VistaSkin/background/MiddleLeftContainerOptions4x1.png') repeat-y left;
+	padding-left: 4px;
+	margin: 0px 10px;
+}
+
+.MiddleRightContainerOptions {
+	background: url('VistaSkin/background/MiddleRightContainerOptions5x1.png') repeat-y right;
+	padding-right: 5px;
+}
+
+.BottomLeftContainerOptions {
+	background: url('VistaSkin/background/BottomLeftContainerOptions7x9.png') no-repeat left;
+	padding-left: 7px;
+	margin: 0px 10px;
+}
+
+.BottomRightContainerOptions {
+	background: url('VistaSkin/background/BottomRightContainerOptions8x9.png') no-repeat right;
+	padding-right: 8px;
+}
+
+.BottomCenterContainerOptions {
+	background: url('VistaSkin/background/BottomCenterContainerOptions1x9.png') repeat-x ;
+	height: 9px;
+}

@@ -29,45 +29,18 @@
   </div>
   <%if(uicomponent.getChild(UIPageNodeSelector.class).isRendered()) { %>
 	  <div id="UIPageNodeSelector">
-    	<div class="MiddleLeftContainerOptions">
-				<div class="MiddleRightContainerOptions">
-      		<% uicomponent.renderChild(UIPageNodeSelector.class) %>
-      	</div>
-      </div>
-      <div class="BottomLeftContainerOptions">
-				<div class="BottomRightContainerOptions">
-      		<div class="BottomCenterContainerOptions"><span></span></div>
-      	</div>
-      </div>
+      <% uicomponent.renderChild(UIPageNodeSelector.class) %>
     </div>
   <%}%> 	     
   
   <%if(uicomponent.getChild(UIContainerConfigOptions.class).isRendered()) { %>
 	  <div id="UIContainerConfigOptions">
-		  <div class="MiddleLeftContainerOptions">
-				<div class="MiddleRightContainerOptions">
-      		<% uicomponent.renderChild(UIContainerConfigOptions.class) %>
-      	</div>
-      </div>
-      <div class="BottomLeftContainerOptions">
-				<div class="BottomRightContainerOptions">
-      		<div class="BottomCenterContainerOptions"><span></span></div>
-      	</div>
-      </div>
+      <% uicomponent.renderChild(UIContainerConfigOptions.class) %>
 		</div>
   <%}%>
   <%if(uicomponent.getChild(UIPortletOptions.class).isRendered()) { %>
-		  <div id="UIPortletOptions">
-		  	 <div class="MiddleLeftContainerOptions">
-					<div class="MiddleRightContainerOptions">
-	      		<% uicomponent.renderChild(UIPortletOptions.class) %>
-	      	</div>
-	      </div>
-	      <div class="BottomLeftContainerOptions">
-					<div class="BottomRightContainerOptions">
-	      		<div class="BottomCenterContainerOptions"><span></span></div>
-	      	</div>
-	      </div>
+		  <div id="UIPortletOptions" >
+	      <%uicomponent.renderChild(UIPortletOptions.class);%>
 	    </div>
   <%} %>  
   <%if(uicomponent.getChild(UIDescription.class).isRendered()) { %>
