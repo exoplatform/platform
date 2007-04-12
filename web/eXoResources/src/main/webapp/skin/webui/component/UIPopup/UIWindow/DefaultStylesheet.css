@@ -236,9 +236,9 @@
 	width: auto; height: 23px;
 }
 
-.UIPageBody .UIWindow {
+.UIPortal .VIEW-PORTLET .UIWindow {
   width: auto ; height: auto;
-  padding: 0px 0px 0px 6px; 
+  padding: 0px 5px 0px 6px; 
 }
 
 .UIPageBody .UIWindow .UIApplication {

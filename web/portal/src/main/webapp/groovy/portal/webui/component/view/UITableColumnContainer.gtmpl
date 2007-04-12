@@ -39,15 +39,11 @@
   <div class="LAYOUT-CONTAINER" style="display: none;"></div>
   <div class="VIEW-CONTAINER" >
     <div id="$uicomponent.id">
-      <table class="UITableColumnContainer">
-        <tr class="TRContainer">
-          <% for(uiChild in uicomponent.getChildren()) { %>
-            <td><% uicomponent.renderUIComponent(uiChild) %></td>
-          <% } %>
-       </tr>
-      </table>
+      <% for(uiChild in uicomponent.getChildren()) { %>
+        <% uicomponent.renderUIComponent(uiChild) %>
+      <% } %>
     </div>    
   </div>
   <%/*Debug On IE  -----For DND */%>
-  <div style="height:2px"><span></span></div>
+  <div><span></span></div>
 </div>

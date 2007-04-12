@@ -22,8 +22,8 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	  	popup.applicationOriginalWidth = minWidth ;
   	} else {
 //  		applicationMinWidth.style.width = "720px" ;
-  		popup.applicationOriginalWidth = 720 ;
-  		popup.style.width = "720px" ;
+  		popup.applicationOriginalWidth = 750 ;
+  		popup.style.width = "750px" ;
   	}
   	
   	if(DOMUtil.hasDescendantClass(uiApplication, "UIResizableBlock")) {

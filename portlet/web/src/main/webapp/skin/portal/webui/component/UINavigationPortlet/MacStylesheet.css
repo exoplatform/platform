@@ -1,5 +1,10 @@
 .UINavigationPortlet {
-  margin-bottom: 6px;
+  height: 48px;
+  font-size: 11px;
+}
+
+.UINavigationPortlet .UINavigationBar {
+  height: 42px;
 }
 
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
