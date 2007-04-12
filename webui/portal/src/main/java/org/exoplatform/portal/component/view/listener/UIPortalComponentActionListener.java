@@ -18,9 +18,7 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortalComponent;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIContainer;
@@ -43,7 +41,6 @@ public class UIPortalComponentActionListener {
   }  
   
   static public class DeleteComponentActionListener extends EventListener<UIComponent> {
-    
     public void execute(Event<UIComponent> event) throws Exception {
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);      
       UIComponent uiComponent = event.getSource();
@@ -57,11 +54,7 @@ public class UIPortalComponentActionListener {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-      PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal, true);
-      PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
-      dataService.savePortalConfig(portalConfig);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingArea);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiControl);
       
       if(uiPortal.isRendered()){        
         Util.showPortalComponentLayoutMode(uiPortalApp);

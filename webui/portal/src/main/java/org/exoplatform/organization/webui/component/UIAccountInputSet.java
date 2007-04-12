@@ -44,7 +44,6 @@ public class UIAccountInputSet extends UIFormInputSet {
                    addValidator(EmptyFieldValidator.class)) ;
     addUIFormInput(new UIFormStringInput("email", "email", null).                   
                    addValidator(EmailAddressValidator.class));    
-    
   }
   
   public String getUserName(){ return getUIStringInput(USERNAME).getValue(); }
