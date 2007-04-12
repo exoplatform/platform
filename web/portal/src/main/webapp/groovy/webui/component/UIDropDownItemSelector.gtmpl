@@ -32,7 +32,6 @@
 		  			   if(selected == null) {
 		  			     title = uicomponent.getTitle();
 		  			   } 
-		  			 System.out.println("\n\nName: " + uicomponent.getParent().getName() + "  Title:  " + title + "\n\n");
 		  			%>
 		  			<div class="SelectedItemLabel" style="overflow: hidden; width: 70%;"><%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.title")%></div>
 		  			<div class="DropDownSelectIcon"><span></span></div>
@@ -69,7 +68,7 @@
 			    
 					<div class="ItemSelector">
 						<div class="Icon"><span></span></div>
-						<% System.out.println("\n\nLabel: " + label + "\n\n");
+						<% 
 						if(action != null) {%>
               <div class="ItemSelectorLabel" id="$label" title="$action"><%=label%></div>
             <% } else { %>
