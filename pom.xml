@@ -20,6 +20,7 @@
     <module>portlet/exoadmin</module>
     <module>portlet/site</module>
     <module>portlet/web</module>
+    <module>portlet/test</module>
 
     <module>web/eXoResources</module>
     <module>web/portal</module>

@@ -108,61 +108,6 @@
       <short-title>JMX Portlet</short-title>
       <keywords>jmx</keywords>     
     </portlet-info>     
-  </portlet>
-  
-    <!-- 
-  <portlet>
-    <description xml:lang="EN">Portlet Cms content</description>
-    <portlet-name>JCRExplorerPortlet</portlet-name>
-    <display-name xml:lang="EN">Cmscontent Portlet</display-name>
-    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
-    
-    <init-param>
-      <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/exoadmin/CmscontentPortlets/JCRExplorerPortlet/webui/configuration.xml</value>
-    </init-param>    
-
-    <expiration-cache>0</expiration-cache>
-    <supports>
-      <mime-type>text/html</mime-type>
-      <portlet-mode>help</portlet-mode>
-    </supports>
-    <supported-locale>en</supported-locale>    
-    <resource-bundle>locale.portlet.exoadmin.JCRExplorerPortlet</resource-bundle>    																														
-    
-    <portlet-info>
-      <title>Cms Content Portlet</title>
-      <short-title>Cms content</short-title>
-      <keywords>portlet, cmscontent</keywords>
-    </portlet-info>
   </portlet>  
-  -->
-  <!--
-  <portlet>
-    <description xml:lang="EN">Portlet Component</description>
-    <portlet-name>ComponentPortlet</portlet-name>
-    <display-name xml:lang="EN">Portlet Component</display-name>
-    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
-    
-    <init-param>
-      <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/exoadmin/ComponentPortlet/webui/configuration.xml</value>
-    </init-param>    
-
-    <expiration-cache>0</expiration-cache>
-    <supports>
-      <mime-type>text/html</mime-type>
-      <portlet-mode>help</portlet-mode>
-    </supports>
-    <supported-locale>en</supported-locale>
-    
-    <resource-bundle>locale.portlet.exoadmin.ComponentPortlet</resource-bundle>
-    <portlet-info>
-      <title>Component Portlet</title>
-      <short-title>Component</short-title>
-      <keywords>component,portlet</keywords>
-    </portlet-info>
-  </portlet>  
-  -->
   
 </portlet-app>

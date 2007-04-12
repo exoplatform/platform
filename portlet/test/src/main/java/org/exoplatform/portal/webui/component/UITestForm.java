@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.exoplatform.portal.component.customization.UIAddApplication;
+import javax.servlet.http.HttpServletResponse;
+
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormDateTimeInput;
@@ -16,9 +17,11 @@ import org.exoplatform.webui.component.UIFormHiddenInput;
 import org.exoplatform.webui.component.UIFormMultiValueInputSet;
 import org.exoplatform.webui.component.UIFormRadioBoxInput;
 import org.exoplatform.webui.component.UIFormSelectBox;
+import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTextAreaInput;
 import org.exoplatform.webui.component.UIFormUploadInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
+import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -32,15 +35,15 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template =  "system:/groovy/webui/component/UIFormWithTitle.gtmpl"
-//    events = {
-//      @EventConfig(listeners = UITestForm.SaveActionListener.class),
-//      @EventConfig(listeners = UITestForm.ResetActionListener.class),
-//      @EventConfig(listeners = UITestForm.CancelActionListener.class),
-//      @EventConfig(listeners = UITestForm.OnchangeActionListener.class)
-//    }
+    template =  "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
+    events = {
+      @EventConfig(listeners = UITestForm.SaveActionListener.class),
+      @EventConfig(listeners = UITestForm.ResetActionListener.class),
+      @EventConfig(listeners = UITestForm.CancelActionListener.class),
+      @EventConfig(listeners = UITestForm.OnchangeActionListener.class)
+    }
 )
-public class UITestForm  extends UIForm { 
+public class UITestForm extends UIForm { 
 
   public static final String FIELD_SELECT_BOX = "selectBox" ;
   public static final String FIELD_RADIO_BOX = "radioBox" ;
@@ -52,36 +55,36 @@ public class UITestForm  extends UIForm {
 
 
   public UITestForm() throws Exception {  
-    addChild(UIAddApplication.class, null, null).setRendered(true);
+//    addChild(UIAddApplication.class, null, null).setRendered(true);
 //    addChild(UIAddJSApplication.class, null, null).setRendered(false);
-//    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-//    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
-//    ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
-//
-//    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
-//    uiSelectBox.setOnChange("Onchange");
-//    UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);
-//    
-//    addUIFormInput(uiSelectBox) ;
-//    addUIFormInput(radioBoxInput);
-//    addUIFormInput(new UIFormTextAreaInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, null));
-//    addUIFormInput(new UIFormDateTimeInput(FIELD_DATE_TIME, FIELD_DATE_TIME, null));
-//    addUIFormInput(new UIFormHiddenInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null));
-//    addUIFormInput(new UIFormStringInput(FIELD_STRING_INPUT, FIELD_STRING_INPUT, null));
-//    addUIFormInput(new UIFormUploadInput("upload", "upload")) ;
-//    addUIFormInput(new UIFormUploadInput("upload2", "upload2")) ;
-//    
-//    UIFormMultiValueInputSet multiValueInputSet = 
-//      new UIFormMultiValueInputSet(FIELD_MULTI_VALUE, FIELD_MULTI_VALUE);
-//    multiValueInputSet.setType(UIFormDateTimeInput.class);
-//    addUIFormInput(multiValueInputSet);
-//
-//    
-//    UIFormMultiValueInputSet multiValueInputSet2 = new UIFormMultiValueInputSet("StringMultiValue", "StringMultiValue");
-//    multiValueInputSet2.setType(UIFormStringInput.class);
-//    addUIFormInput(multiValueInputSet2);
-//    
-//    setActions(new String[]{"Save", "Reset", "Cancel"}) ;
+    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
+    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
+    ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
+
+    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
+    uiSelectBox.setOnChange("Onchange");
+    UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);
+    
+    addUIFormInput(uiSelectBox) ;
+    addUIFormInput(radioBoxInput);
+    addUIFormInput(new UIFormTextAreaInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, null));
+    addUIFormInput(new UIFormDateTimeInput(FIELD_DATE_TIME, FIELD_DATE_TIME, null));
+    addUIFormInput(new UIFormHiddenInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null));
+    addUIFormInput(new UIFormStringInput(FIELD_STRING_INPUT, FIELD_STRING_INPUT, null));
+    addUIFormInput(new UIFormUploadInput("upload", "upload")) ;
+    addUIFormInput(new UIFormUploadInput("upload2", "upload2")) ;
+    
+    UIFormMultiValueInputSet multiValueInputSet = 
+      new UIFormMultiValueInputSet(FIELD_MULTI_VALUE, FIELD_MULTI_VALUE);
+    multiValueInputSet.setType(UIFormDateTimeInput.class);
+    addUIFormInput(multiValueInputSet);
+
+    
+    UIFormMultiValueInputSet multiValueInputSet2 = new UIFormMultiValueInputSet("StringMultiValue", "StringMultiValue");
+    multiValueInputSet2.setType(UIFormStringInput.class);
+    addUIFormInput(multiValueInputSet2);
+    
+    setActions(new String[]{"Save", "Reset", "Cancel"}) ;
   }
   
   @SuppressWarnings("unused")
@@ -101,9 +104,9 @@ public class UITestForm  extends UIForm {
         (WebuiRequestContext)event.getRequestContext().getParentAppRequestContext();
       event.getRequestContext().getJavascriptManager().addJavascript("window.location=\"http://www.vietnamnet.vn\"");
       System.out.println("\n\n\n == > "+rcontext +"\n\n");
-//      HttpServletResponse response = rcontext.getResponse();      
-//      System.out.println("\n\n\n == response ==> "+response +"\n\n");
-//      response.sendRedirect("window.location=\"http://www.vietnamnet.vn\"");
+      HttpServletResponse response = rcontext.getResponse();      
+      System.out.println("\n\n\n == response ==> "+response +"\n\n");
+      response.sendRedirect("window.location=\"http://www.vietnamnet.vn\"");
 //      
     }
   }
