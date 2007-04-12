@@ -16,7 +16,7 @@ UIPopupMenu.prototype.init = function(popupMenu, container, x, y) {
 UIPopupMenu.prototype.buildMenu = function(popupMenu, menuItemClass, containerItemClass) {
 	//var menuItems = eXo.core.DOMUtil.findDescendantsByClass(popupMenu, "div", "MenuItemL") ;
 	var menuItems = eXo.core.DOMUtil.findDescendantsByClass(popupMenu, "div", menuItemClass) ;
-	var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(popupMenu, "div", containerItemClass) ;
+	//var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(popupMenu, "div", containerItemClass) ;
 	// Store the menu containers width to avoid some bugs
 	//var menuItemWidths = new Array();
 	for(var i = 0; i<menuItems.length; i++) {
@@ -26,6 +26,7 @@ UIPopupMenu.prototype.buildMenu = function(popupMenu, menuItemClass, containerIt
 		// Set width of each menu item depending on its container width
 		var cont = eXo.core.DOMUtil.findAncestorByClass(menuItems[i], containerItemClass) ;
 		if (!cont.id) cont.id = "cont-"+i;
+		cont.resized = false;
 		/*if (!menuItemWidths[cont.id])
 			menuItemWidths[cont.id] = cont.offsetWidth;
 		menuItems[i].style.width = menuItemWidths[cont.id] + "px";
@@ -120,19 +121,17 @@ UIPopupMenu.prototype.showMenuItemContainer = function(menuItem, menuItemContain
 	if (y + menuItemContainer.offsetHeight + rootY > eXo.core.Browser.getBrowserHeight()) {
 		y -= (menuItemContainer.offsetHeight - menuItem.offsetHeight);
 	}
-	if (eXo.core.Browser.getBrowserType() == "ie") {
+	if (eXo.core.Browser.getBrowserType() == "ie" && !menuItemContainer.resized) {
 		var menuCenter = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "StartMenuML");
 		var menuTop = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "StartMenuTL");
+		var decorator = eXo.core.DOMUtil.findFirstDescendantByClass(menuTop, "div", "StartMenuTR");
 		var menuBottom = menuTop.nextSibling;
 		while (menuBottom.className != "StartMenuBL") menuBottom = menuBottom.nextSibling;
-		var w = menuCenter.offsetWidth - menuCenter.offsetLeft;
+		var w = menuCenter.offsetWidth - decorator.offsetLeft;
 		menuTop.style.width = w;
 		menuBottom.style.width = w;
-		
-		console.info("menuCenter.offsetWidth : "+menuCenter.offsetWidth);
-		console.info("menuTop.offsetWidth : "+menuTop.offsetWidth);
-		console.info("menuTop.width : "+menuTop.style.width);
-		console.info("w : "+w);
+		menuCenter.style.width = w;
+		menuItemContainer.resized = true;
 	}
 	this.superClass.setPosition(menuItemContainer, x, y) ;
 } ;
