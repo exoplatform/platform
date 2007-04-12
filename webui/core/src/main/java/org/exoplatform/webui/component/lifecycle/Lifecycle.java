@@ -86,7 +86,7 @@ public class Lifecycle {
       //for log file
       System.out.println("\n\n template : " + template);
       System.out.println(e.toString()+"\n\n");
-//      e.printStackTrace();
+      e.printStackTrace();
     }
   }
   
