@@ -101,12 +101,13 @@ public class UIAccountForm extends UIFormTabPane {
       OrganizationService service =  uiForm.getApplicationComponent(OrganizationService.class);
       UIAccountInputSet uiAccountInput = uiForm.getChild(UIAccountInputSet.class) ;  
       String userName = uiAccountInput.getUserName();
-      uiAccountInput.save(service, true);
+      boolean saveAccountInput = uiAccountInput.save(service, true);
+      if(saveAccountInput == false) return;
       uiForm.getChild(UIUserProfileInputSet.class).save(service, userName, true);
       UIUserMembershipSelector uiMembershipSelector = uiForm.getChild(UIUserMembershipSelector.class);
       if(uiMembershipSelector == null) return ;
       uiMembershipSelector.setUserName(userName);
-      uiMembershipSelector.save(service, true);   
+      uiMembershipSelector.save(service, true);     
     }
   }
   

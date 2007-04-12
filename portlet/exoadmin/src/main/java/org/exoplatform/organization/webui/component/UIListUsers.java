@@ -10,12 +10,15 @@ import java.util.List;
 
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIGrid;
+import org.exoplatform.webui.component.UIPageIterator;
 import org.exoplatform.webui.component.UISearch;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -23,6 +26,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.organization.webui.component.UIListUsers.*;
+import org.exoplatform.portal.component.view.Util;
 
 /**
  * Created by The eXo Platform SARL
@@ -64,6 +68,13 @@ public class UIListUsers extends UISearch {
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     uiGrid.getUIPageIterator().setPageList(service.getUserHandler().findUsers(query)) ;
+    UIPageIterator pageIterator = uiGrid.getUIPageIterator();
+    if(pageIterator.getAvailable() == 0 ) {
+      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+      uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
+      
+      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+    }
 	}
   
   public void quickSearch(UIFormInputSet quickSearchInput) throws Exception {

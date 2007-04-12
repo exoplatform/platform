@@ -17,13 +17,16 @@ import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.Page;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIGrid;
+import org.exoplatform.webui.component.UIPageIterator;
 import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.UISearch;
 import org.exoplatform.webui.component.model.SelectItemOption;
@@ -68,8 +71,11 @@ public class UIPageBrowser extends UISearch {
     addChild(uiGrid.getUIPageIterator());
     uiGrid.getUIPageIterator().setRendered(false);
   }
-
+  
+  public Query getLastQuery() { return lastQuery_; }
+  
   public void defaultValue(Query query) throws Exception {
+    System.out.println("\n\n\n============>Parent: " + getParent());
     lastQuery_ = query ;
     PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
     PortalDAO service = getApplicationComponent(PortalDAO.class) ;
@@ -79,12 +85,19 @@ public class UIPageBrowser extends UISearch {
     }
 
     PageList pagelist = service.findDataDescriptions(lastQuery_) ;
-    pagelist.setPageSize(2);
+    pagelist.setPageSize(10);
     
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     uiGrid.getUIPageIterator().setPageList(pagelist);
     addChild(uiGrid.getUIPageIterator());
     uiGrid.getUIPageIterator().setRendered(false);
+    UIPageIterator pageIterator = uiGrid.getUIPageIterator();
+    if(pageIterator.getAvailable() == 0 ) {
+      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+      uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
+      
+      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+    }
   } 
 
   public void quickSearch(UIFormInputSet quickSearchInput) throws Exception {    
@@ -148,7 +161,6 @@ public class UIPageBrowser extends UISearch {
   
   static public class EditInfoActionListener extends EventListener<UIPageBrowser> {    
     public void execute(Event<UIPageBrowser> event) throws Exception {
-      System.out.println("\n=============> EditInfoActionListener\n");
       UIPageBrowser uiPageBrowser = event.getSource();
       
       String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
@@ -165,6 +177,7 @@ public class UIPageBrowser extends UISearch {
       PortalDataModelUtil.toUIPage(uiPage, page, true);
       UIPageForm uiPageForm =  Util.showComponentOnWorking(uiPageBrowser, UIPageForm.class);
       uiPageForm.setValues(uiPage) ;
+      uiPageForm.setActions(new String[]{"Save", "Back"});
       uiPageForm.removeChild(UIPageTemplateOptions.class);
       uiPageForm.setBackUIComponent(uiPageBrowser) ;
       
@@ -235,6 +248,7 @@ public class UIPageBrowser extends UISearch {
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
+      uiPageForm.setActions(new String[]{"Save", "Close"});
       uiMaskWS.setUIComponent(uiPageForm);
       uiMaskWS.setShow(true);
 

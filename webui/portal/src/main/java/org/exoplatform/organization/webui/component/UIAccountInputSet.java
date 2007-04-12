@@ -76,7 +76,7 @@ public class UIAccountInputSet extends UIFormInputSet {
       }      
       
       service.getUserHandler().createUser(user, true);
-      Object[] args = {user.getUserName()} ;
+//      Object[] args = {user.getUserName()} ;
 //      uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.successful.create.user", args)) ;
       reset();
       return true;
@@ -84,7 +84,7 @@ public class UIAccountInputSet extends UIFormInputSet {
     User user = service.getUserHandler().findUserByName(username) ;    
     invokeSetBindingField(user) ;   
     service.getUserHandler().saveUser(user, true) ;
-    Object[] args = {user.getUserName()} ;
+//    Object[] args = {user.getUserName()} ;
 //    uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.successful.update.user", args)) ;
     return true;
   }
