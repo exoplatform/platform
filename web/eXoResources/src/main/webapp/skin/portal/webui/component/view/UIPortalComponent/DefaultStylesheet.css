@@ -202,10 +202,6 @@
 	
 }
 
-.UIPortal .UIRowContainer .UITabContainer .UIHorizontalTabs {
-	padding: 0px 10px;
-}
-
 .DragAndDropPreview {
   width: auto ; height: 80px ;
 	background: url('DefaultSkin/background/DragAndDropPreview4x4.gif');

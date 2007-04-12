@@ -1,0 +1,33 @@
+.UITabContainer .UIHorizontalTabs {
+	padding: 0px;
+	margin: 0px;
+}
+
+.UITabContainer .TabLabel {
+	float: left;
+	padding: 0px 10px 0px 2px;
+}
+
+.UITabContainer .SelectedTabStyle .EditIcon {
+	float: left;
+	width: 16px; height: 20px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat bottom;
+}
+
+.UITabContainer .NormalTabStyle .EditIcon {
+	float: left;
+	width: 16px; height: 20px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif') no-repeat bottom;
+}
+
+.UITabContainer .SelectedTabStyle .CloseIcon {
+	float: left;
+	width: 16px; height: 20px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedCloseTab.gif') no-repeat bottom;
+}
+
+.UITabContainer .NormalTabStyle .CloseIcon {
+	float: left;
+	width: 16px; height: 20px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalCloseTab.gif') no-repeat bottom;
+}

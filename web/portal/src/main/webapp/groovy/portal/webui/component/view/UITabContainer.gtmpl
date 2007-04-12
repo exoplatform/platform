@@ -15,9 +15,12 @@
 				        	<div class="<%=status%>">
 				          	<div class="LeftTab">
 				            	<div class="RightTab">
-				              	<div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">
-				              		<%=title%>
-				              	</div>              	
+				              	<div class="MiddleTab"> 
+				              		<div class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"> <%=title%> </div>
+					              	<div class="EditIcon"><span></span></div>
+					              	<div class="CloseIcon"><span></span></div>
+					              	<div style="clear: left"><span></span></div>
+					              </div>
 				            	</div>
 				          	</div>
 				        	</div>
