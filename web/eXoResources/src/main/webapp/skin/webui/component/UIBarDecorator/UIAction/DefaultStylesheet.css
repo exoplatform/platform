@@ -6,7 +6,6 @@
 
 .UIAction .ActionContainer{
   float: left;
-  overflow: hidden;
   padding-right: 7px;
 }
 
@@ -111,7 +110,8 @@
 
 .UIAction .ActionButton .SimpleStyle a {
   color: #058ee6; font-weight: bold; font-size: 11px;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 6px;
+  line-height: 21px; height: 21px;
 }
 
 .UIAction .ActionButton .SimpleStyle a:hover {
