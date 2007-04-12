@@ -17,31 +17,13 @@
 
 .UIAccountPortlet .UIAction  {
   width: 230px;
-  margin-top: 6px;
-  float: right;
 }
 
-.UIAccountPortlet .UIAction .ActionContainer .ButtonMiddle {
-	padding-top: 3px ;
-}
-
-.UIAccountPortlet .UIAction .ActionContainer .ActionButton {
-  width: 70px;
-}
 
 .UIAccountPortlet .UIMembership .UIAction  {
-  margin: auto ; 
   width: 160px;
-  float: none;
 } 
 
-.UIAccountPortlet .UIMembership .UIAction .ActionContainer .ActionButton{
-  width: 150px;
-} 
-
-.UIAccountPortlet .UIMembership .UIAction .ActionContainer a {
-  margin: 0px 0px 0px 5px;
-} 
 
 /*########################-UIPersonalInfo-###########################*/
 

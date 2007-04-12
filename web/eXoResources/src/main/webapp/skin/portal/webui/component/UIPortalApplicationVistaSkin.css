@@ -85,7 +85,7 @@ a {
 }
 
 .AjaxLoadingMask .LoadingProgressBar {
-  width: 160px; height: 20px;
+  width: 160px; height: 10px;
   background: url('/eXoResources/background/VistaSkin/LoadingProgressBar.gif') no-repeat top center;
   margin: auto;
   padding: 1px 0px;

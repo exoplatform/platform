@@ -68,19 +68,5 @@
 }
 
 .UIPopupMessages .UIAction {
-  padding-top: 10px;
+  width: 60px;
 }
-
-.UIPopupMessages .UIAction .ActionButton {
-  float: none;
-  width: 50px;
-  margin: auto;
-}
-
-.UIPopupMessages .UIAction .ActionButton a{
-  width: 40px;
-  margin: auto;
-  text-align: center;
-}
-
-

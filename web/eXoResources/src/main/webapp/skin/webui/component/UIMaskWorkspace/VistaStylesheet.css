@@ -186,14 +186,6 @@
 	padding: 10px 15px ;
 }
 
-.UIMaskWorkspace .UIAction .ActionButton {
-  width: 100px ;
-}
-
-.UIMaskWorkspace .UIAction .ActionButton .Icon {
-  margin: 0px 0px 0px 10px ;
-}
-
 /**************************** UIAddApplication ******************************************/
 .UIAddApplication .TitleBarContainer {
   padding: 10px 10px 0px 10px; 

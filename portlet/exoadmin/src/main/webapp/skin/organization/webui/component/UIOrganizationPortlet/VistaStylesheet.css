@@ -73,32 +73,9 @@
 	margin: auto ; margin-top: 10px ;
 }
 
-.UIOrganizationPortlet .UIFormTabPane .UIAction {
-  padding: 0px;
-  margin: 7px 0px 0px 0px;
-}
-
 .UIOrganizationPortlet .UIMembership .UIAction  {
-  margin-left: auto ; 
-  width: 165px;
-  float: none;
-} 
-
-.UIOrganizationPortlet .UIMembership .UIAction .ActionContainer {
   width: 165px;
 } 
-
-.UIOrganizationPortlet .UIMembership .UIAction .ActionContainer .ActionButton{
-  width: 155px;
-} 
-
-.UIOrganizationPortlet .UIMembership .UIAction .ActionContainer a {
-  margin: 0px 0px 0px 5px; 
-} 
-
-.UIOrganizationPortlet .UIFormTabPane .UIAction .ActionButton {
-  width: 70px;
-}
 
 /*##############################- UIUserManagement -###########################*/
 .UIOrganizationPortlet .UIFormTabPane {
@@ -150,13 +127,6 @@
 
 .UIOrganizationPortlet .UIUserManagement .GroupGridIterator {
   margin: 5px 4px 1px 4px ;
-}
-
-.UIOrganizationPortlet .UIUserManagement .UIAction .SelectPermissionIcon {
-  float: left ;
-  margin: 3px 0px 5px 10px ;
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/SelectPermission.gif') no-repeat;
 }
 
 .UIOrganizationPortlet .UIUserManagement .UIGrid {  
@@ -259,25 +229,11 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormWithTitle .UIAction {
-  width: 220px;
-  margin: auto;  
-  padding: 10px 0px 14px 60px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormWithTitle .ActionContainer {  
-  width: 160px;
-  margin-top: 10px;
+  width: 200px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle .UIAction {  
-  margin-top: 16px; margin-bottom: 16px;
-  margin: auto;
-  padding-bottom: 12px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle .ActionContainer {  
-  width: 80px;
-  margin: auto; margin-top: 10px;
+  margin: 16px auto;
 }
 
 /*#######################  UIMemberShipManagement #################################*/
@@ -296,11 +252,4 @@
 
 .UIOrganizationPortlet .ManagementTabContent .UIFormWithTitle .UIAction {
 	width: 100px;
-	margin: auto ;
-	padding: 10px 0px 10px 30px;
-}
-
-.UIOrganizationPortlet .ManagementTabContent .UIFormWithTitle .UIAction .ActionButton{
-	width: 70px;
-	margin: auto ;
 }

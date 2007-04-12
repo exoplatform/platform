@@ -68,23 +68,8 @@
 }
 
 .UIOrganizationPortlet .UIMembership .UIAction  {
-  float: none;
   width: 155px;
-  margin-left: auto ; 
 } 
-
-.UIOrganizationPortlet .UIMembership .UIAction .ActionContainer .ActionButton {
-  width: 150px;
-  margin: auto;
-} 
-
-.UIOrganizationPortlet .UIMembership .UIAction .ActionContainer a {
-  margin: 0px 0px 0px 5px; 
-} 
-
-.UIOrganizationPortlet .UIFormTabPane .UIAction .ActionButton {
-  width: 70px;
-}
 
 /*##############################- UIUserManagement -###########################*/
 
@@ -146,6 +131,10 @@
 
 .UIOrganizationPortlet .UIUserManagement .UIGrid {
   margin: 1px auto ;
+}
+
+.UIApplication .UIUserManagement .UIAction {
+  width: 170px;
 }
 
 /*#######################- UIUserInfo - #####################*/

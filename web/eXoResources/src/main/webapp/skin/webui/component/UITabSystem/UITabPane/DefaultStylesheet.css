@@ -2,7 +2,7 @@
 }
 
 .UITabPane .TabPaneContent {
-  width: 100%;overflow: hidden ;
+  width: 100%; overflow: hidden ;
 }
 
 .UITabPane .TabPaneContent .WorkingArea {
@@ -32,5 +32,4 @@
   background: #efefef;
   border: solid 1px #cdcdcd;
   padding: 7px ;
-  overflow: auto;
 }

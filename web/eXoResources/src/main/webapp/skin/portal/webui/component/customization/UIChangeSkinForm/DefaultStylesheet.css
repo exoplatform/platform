@@ -57,7 +57,3 @@
 .UIChangeSkinForm .UIItemSelector .ItemListContainer .ItemList {
   background: white url('DefaultSkin/background/ItemListBg167x127.gif') no-repeat bottom;
 }
-
-.UIChangeSkinForm .UIForm .HorizontalLayout .UIAction {
-  width: 160px;
-}

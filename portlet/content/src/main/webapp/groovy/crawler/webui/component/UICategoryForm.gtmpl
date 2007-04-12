@@ -55,32 +55,30 @@
 		 	<div class="BottonHolder">
 		 		<%/*Begin UIAction */ %>
 				<div class="UIAction">
-					<div class="ActionContainer">
-				  	<div class="ActionButton">
-				    	<div class="NormalStyle">
-				  	  	<div class="ButtonLeft ">
-				  		  	<div class="ButtonRight">
-				  			  	<div class="ButtonMiddle">
-				  				    <a href="">Cancel</a>
-				  			  	</div>
-				  		  	</div>
-				  	  	</div>	              
-				    	</div>
+			  	<div class="ActionButton">
+			    	<div class="NormalStyle">
+			  	  	<div class="ButtonLeft ">
+			  		  	<div class="ButtonRight">
+			  			  	<div class="ButtonMiddle">
+			  				    <a href="">Cancel</a>
+			  			  	</div>
+			  		  	</div>
+			  	  	</div>	              
+			    	</div>
+			    </div>
+			           
+					<div class="ActionButton">
+			    	<div class="LightBlueStyle">
+			      	<div class="ButtonLeft">
+			        	<div class="ButtonRight">
+			          	<div class="ButtonMiddle">
+			          		<a href="">Save</a>
+			          	</div>
+			          </div>
+			        </div>	              
 				    </div>
-				           
-						<div class="ActionButton">
-				    	<div class="LightBlueStyle">
-				      	<div class="ButtonLeft">
-				        	<div class="ButtonRight">
-				          	<div class="ButtonMiddle">
-				          		<a href="">Save</a>
-				          	</div>
-				          </div>
-				        </div>	              
-					    </div>
-				    </div>
+			    </div>
 							
-			  	</div>
 				</div>
 				<%/*End UIAction */ %>
 			</div>

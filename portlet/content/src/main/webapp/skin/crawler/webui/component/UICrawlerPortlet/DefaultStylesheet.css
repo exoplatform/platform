@@ -260,18 +260,6 @@
 	margin-top: 10px;  
 }
 
-.UICrawlerPortlet .UIForm .ActionButton {
-	float: left;	
-	margin-top: 8px;
-	margin-left: 5px;	
-}
-
-.UICrawlerPortlet .UIForm .ActionButton a {
-	font-weight: bold;
-	margin-left: 5px;
-	margin-right: 5px;	
-}
-
 .UICrawlerPortlet .UIForm textarea {
   width: 250px ;  height: 75px ;
   border: 1px solid #7f9db9 ;
@@ -343,11 +331,6 @@
   margin-top: 4px;
 }
 
-.UICrawlerPortlet .UIAddCategoryContainer .ActionContainer {
-  margin-top: 7px;
-}
+
 
 /*############################--UICrawlerProperties--################################*/
-.UICrawlerPortlet .UICrawlerLoadingInfo .UIAction {
-
-}

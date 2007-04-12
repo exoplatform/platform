@@ -13,23 +13,7 @@
 }
 
 .UIAccountPortlet .UIMembership .UIAction {
-  padding-top: 5px;
   width: 140px;
-}
-
-.UIAccountPortlet .UIMembership .UIAction {
-  padding-top: 5px;
-  width: 140px;
-}
-
-.UIAccountPortlet .UIFormTabPane .UIAction .ActionContainer .ActionButton{
-  width: 75px;
-  margin: auto;
-  float: none;
-}
-
-.UIAccountPortlet .UIMembership .UIAction .ActionButton {
-  width: 140px; 
 }
 
 /*########################-UIPersonalInfo-###########################*/

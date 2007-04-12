@@ -45,7 +45,7 @@
 }
 
 .UIMaskWorkspace .ContentContainerDetail {
-  padding: 15px ;
+  padding: 15px 15px 0px 15px ;
 }
 
 .UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
@@ -240,7 +240,7 @@
 }
 
 .UIAddApplication .UIAction {
-	width: 80px;
+	width: 90px;
 }
 
 .UIAddApplication .ApplicationItemIcon {
@@ -249,3 +249,4 @@
 	float: left;
 	margin: 3px 5px 0px 5px;
 }
+

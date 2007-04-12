@@ -34,7 +34,7 @@
 }
 
 .UIMaskWorkspace .ContentContainerDetail {
-  padding: 15px ;
+  padding: 15px 15px 2px 15px;
 }
 
 .UIMaskWorkspace .UITabContentContainer {
@@ -93,7 +93,7 @@
 }
 
 .UIMaskWorkspace .UIAction {
-  width: 160px ;
+  width: 170px ;
 }
 
 .UIMaskWorkspace .UIFormTabPane {
@@ -101,7 +101,7 @@
 }
 
 .UIMaskWorkspace .UIFormWithTitle {
-	padding: 10px 0px;
+	margin: 50px auto;
 }
 
 

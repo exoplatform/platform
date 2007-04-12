@@ -1,6 +1,5 @@
 .UIFormWithTitle {
-  width: 450px ;
-  margin: auto ;
+  margin: 50px ;
   border: 1px solid #b7b7b7;
   background: url('/eXoResources/background/MacSkin/PortletBG.gif');
 }
@@ -36,10 +35,6 @@
 .UIFormWithTitle .UIForm textarea {
   margin-left: 8px ;
   width: 220px;
-}
-
-.UITestForm {
-	width: 500px;
 }
 
 .UITestForm .ActionContainer {

@@ -27,11 +27,10 @@
 }
 
 .UIFormTabPane .TabPaneContent .UITabContentContainer {
-  border: 1px solid gray;  
+  border: 1px solid #b7b7b7;  
   background: #f4f4f4;
   padding: 1px;
 }
-
 
 
 

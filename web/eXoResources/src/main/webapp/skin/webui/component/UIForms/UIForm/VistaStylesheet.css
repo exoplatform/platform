@@ -57,12 +57,8 @@
 }
 
 .UIForm .HorizontalLayout .UIAction {
-  padding: 15px 0px 15px 15px ;
-  margin-left: auto ;
-  margin-right: auto ;
-}
-
-.UIForm .HorizontalLayout .UIAction .ActionContainer .Button {
+  width: 170px;
+  margin-bottom: 0px;
 }
 
 .UIForm .HorizontalLayout label {

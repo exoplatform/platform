@@ -1,5 +1,7 @@
 .UIAction{
-  margin: 9px auto;
+  margin: auto;
+  height: 25px;
+  padding: 9px 0px;
 }
 
 .UIAction .ActionContainer {
@@ -29,24 +31,19 @@
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonLeft {
-	height: 25px; 
-	line-height: 25px;
-  background: url('MacSkin/background/BlueAquaButtonL12x25.png') no-repeat left;
+  background: url('MacSkin/background/BlueAquaButtonL12x25.png') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonRight {
-	height: 25px; 
-	line-height: 25px;
-  background: url('MacSkin/background/BlueAquaButtonR12x25.png') no-repeat right;
+  background: url('MacSkin/background/BlueAquaButtonR12x25.png') no-repeat right top;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
   line-height: 25px; vertical-align: middle;
   text-align: center;
-	background: url('MacSkin/background/BlueAquaButtonM1x25.png') repeat-x;
-	padding: 0px 3px;
+	background: url('MacSkin/background/BlueAquaButtonM1x25.png') repeat-x top;
 }
 
 /*##############################-Disabled ActionButton-################################*/
@@ -54,23 +51,19 @@
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonLeft {
-	height: 25px; 
-	line-height: 25px;
-  background: url('MacSkin/background/GrayAquaButtonL12x25.png') no-repeat left;
+  background: url('MacSkin/background/GrayAquaButtonL12x25.png') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonRight {
-	height: 25px; 
-	line-height: 25px;
-  background: url('MacSkin/background/GrayAquaButtonR12x25.png') no-repeat right;
+  background: url('MacSkin/background/GrayAquaButtonR12x25.png') no-repeat right top;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonMiddle {
 	line-height: 25px; vertical-align: middle;
 	text-align: center;
-	background: url('MacSkin/background/GrayAquaButtonM1x25.png') repeat-x;
+	background: url('MacSkin/background/GrayAquaButtonM1x25.png') repeat-x top;
 }
 
 .UIAction .ActionButton .DisabledStyle a {

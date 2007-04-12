@@ -92,5 +92,9 @@ a {
 }
 
 .AjaxLoadingMask .UIAction {
-  width: 50px;
+  width: 70px;
+}
+
+.AjaxLoadingMask .UIAction .ActionButton a {
+  margin: 0px 8px;
 }

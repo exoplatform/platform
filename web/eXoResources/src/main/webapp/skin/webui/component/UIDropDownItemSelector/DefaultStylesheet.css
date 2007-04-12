@@ -71,7 +71,7 @@
 
 .UIItemList .ItemSelector {
   height: 22px; line-height: 22px;
-  background: url('DefaultSkin/background/BGNormalItem1x22.png') repeat-x;
+  background: white;
   font-size: 11px;
   border-bottom: 1px #cdcdcd solid;
   cursor: pointer ;
