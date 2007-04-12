@@ -130,18 +130,17 @@
 }
 
 .UILoggedInfo .NormalBG {
+	cursor: pointer;
 	float: left;
 }
 
 .UILoggedInfo .UserIcon {  
 	height: 32px; width: 32px;
-	cursor: pointer;
 	background: url('DefaultSkin/background/UserIcon.gif') no-repeat center;
 }
 
 .UILoggedInfo .WelcomeIcon {  
 	height: 32px; width: 32px;
-	cursor: pointer;
 	background: url('DefaultSkin/background/WelcomeIcon.gif') no-repeat center;
 }
 
