@@ -5,6 +5,7 @@
 .UIDropDownItemSelector .ItemSelectorContainer {
 	border-top: 1px solid #bdbcbc;
 	border-right: none;
+	height: 19px;
 }
 
 .UIDropDownItemSelector .ItemInfoBar {

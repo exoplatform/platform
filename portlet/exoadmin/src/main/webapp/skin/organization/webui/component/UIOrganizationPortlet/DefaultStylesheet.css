@@ -276,3 +276,8 @@
 	width: 70px;
 	margin: auto ;
 }
+
+.UIOrganizationPortlet .ManagementTabContent .UI.UIPageIterator  {
+	height: 22px;
+	margin: auto; margin-top: 3px;
+}

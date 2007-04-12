@@ -7,6 +7,11 @@
   height: 350px ;
 }
 
+.UIWindow .UIPageIterator {
+  margin: auto;
+  margin-top: 3px;
+}
+
 .UIWindow .UICommunityPortlet {
   overflow: auto ;
 }

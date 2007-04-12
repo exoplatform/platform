@@ -28,7 +28,6 @@
 
 .UIDropDownItemSelector .ItemInfoBar .Icon {
 	float: left;
-	margin: 0px 0px 0px 3px;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .SelectedItemLabel {
@@ -42,8 +41,8 @@
 .UIDropDownItemSelector .DropDownSelectIcon {
 	float: right; 
 	width: 24px; height: 22px;
-	background: url('MacSkin/icon/SelectedIcon.gif') no-repeat bottom;
-	cursor: pointer;	
+	background: url('MacSkin/icon/SelectedIcon.gif') no-repeat;
+	cursor: pointer;
 }
 
 /********************************   UIItemList   ****************************************/

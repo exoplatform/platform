@@ -1,75 +1,87 @@
 .UIPageIterator {    
-  width: 400px ;  height: 22px ;
-  font-size: 11px ;
-  margin-top: 1px ;
+  margin-top: 3px ;
   margin-left: auto ;
-  border: 1px solid #cccccc ;
-  background: white;
 }
 
 .UIPageIterator .PageIteratorContainer {    
   float: right ;
   line-height: 22px ;  vertical-align: middle ;
-  height: 22px ;
   padding: 0px 10px 0px 15px ;
+  overflow: hidden;
+}
+
+.UIPageIterator .PageIteratorContainer .LeftPageIteratorBlock{    
+  float: right ;
+  margin-right: 15px;
+}
+
+.UIPageIterator .PageIteratorContainer .RightPageIteratorBlock{    
+  float: right ;
 }
 
 .UIPageIterator .Icon {
   float: left ;
-  width: 16px ; height: 16px ;
+  margin: 2px 3px 0px 3px ;
+  width: 18px ; height: 18px ;
 }
 
-.UIPageIterator .RefreshIcon {
-  margin: 3px 10px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Refresh.gif') no-repeat ;
-  line-height: 16px ;
-  vertical-align: middle ;
-  cursor: pointer ;
+.UIPageIterator .TotalPages {
+  float: left ;
+  line-height: 20px ; vertical-align: middle;
+  font-size: 11px ;
+}
+
+.UIPageIterator .PagesTotalNumber {
+  float: left ;
+  line-height: 20px ; vertical-align: middle;
+  color: #0183f1;
+  margin-left: 5px;
 }
 
 .UIPageIterator .LastTopPageIcon {
-  vertical-align: middle ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowLeft.gif') no-repeat ;
-  margin: 3px 5px 0px 7px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/LastTopPage.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .NextTopPageIcon {
-  margin: 3px 5px 0px 7px ;
-  vertical-align: middle ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowRight.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/NextTopPage.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .LastPageIcon {
-  vertical-align: middle ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowLeftPage.gif') no-repeat ;
-  margin: 3px 5px 0px 7px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/LastPage.gif') no-repeat ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .NextPageIcon {
-  margin: 3px 5px 0px 7px ;
-  vertical-align: middle ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowRightPage.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/NextPage.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .Text {
   padding-left: 10px ; 
 }
+
 .UIPageIterator .Number {
   float: left ;
   padding: 0px 4px 0px 4px ;
-  color: red ;
+  color: blue;
 }
 
 .UIPageIterator .Number a.PageSelected {
-  color: black ;
+  color: #f16701;
+  font-weight: bold;
+  border: none;
 }
 
 .UIPageIterator .Number a {
-  margin: 0px 3px 0px 3px ;
-  color: red ;
-  font-weight: bold;
+  margin: 0px 2px 0px 2px ;
+  padding: 0px 4px 0px 4px ;
+  color: #333333 ;
+  border: 1px solid #dddddd;
 }
+
+.UIPageIterator .Number a:hover {
+  color: #058ee6 ;
+}
+
