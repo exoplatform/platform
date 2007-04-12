@@ -4,6 +4,7 @@
 
 .UIPermissionSelector .PermissionSelectorTitleBar {
   margin: 5px 0px 0px 5px; 
+  height: 30px;
 }
 
 .UIPermissionSelector .PermissionSelectorTitleBar .PermissionIcon {
@@ -31,7 +32,6 @@
   height: 22px; line-height: 22px; vertical-align: middle;
   background: url('VistaSkin/background/TitleBG1x20.gif') repeat-x; 
   border: solid 1px #b1b5c0 ; border-bottom: none;
-  margin: 0px 10px;
 }
 
 .UIPermissionSelector .PermissionTypeBar .SeparateLine {
@@ -51,8 +51,8 @@
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo {
   border: solid 1px #b1b5c0 ;
   background: white ;
-  margin: 0px 10px;
   padding: 15px 0px 15px 0px ;
+  height: 90px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Icon {

@@ -18,6 +18,11 @@
   String onMouseOver1 		= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
   String onMouseOut1			= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
 %>
+<div class="TopLeftContainerOptions">
+	<div class="TopRightContainerOptions">
+  	<div class="TopCenterContainerOptions"><span></span></div>
+  </div>
+</div>
 <div class="MiddleLeftContainerOptions">
 	<div class="MiddleRightContainerOptions">
 		<div class="UIContainerConfigOptions ItemSelectorAncestor">

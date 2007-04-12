@@ -231,6 +231,22 @@
 
 /* ====================Decorator Container Options=================*/
 
+.TopLeftContainerOptions {
+	background: url('VistaSkin/background/TopLeftContainerOptions4x2.png') no-repeat left;
+	padding-left: 4px;
+	margin: 0px 10px;
+}
+
+.TopRightContainerOptions {
+	background: url('VistaSkin/background/TopRightContainerOptions5x2.png') no-repeat right;
+	padding-right: 5px;
+}
+
+.TopCenterContainerOptions {
+	background: url('VistaSkin/background/TopCenterContainerOptions1x2.png') repeat-x ;
+	height: 2px;
+}
+
 .MiddleLeftContainerOptions {
 	background: url('VistaSkin/background/MiddleLeftContainerOptions4x1.png') repeat-y left;
 	padding-left: 4px;
