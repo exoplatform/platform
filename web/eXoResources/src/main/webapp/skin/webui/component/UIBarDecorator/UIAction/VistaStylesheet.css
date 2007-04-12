@@ -1,4 +1,4 @@
-.UIAction{
+.UIAction {
   margin: 9px auto;
 }
 
@@ -16,6 +16,7 @@
   text-decoration: none ; text-align: center;
   color: black; font-size: 11px ; 
   margin: 0px 12px 0px 12px;
+}
 
 .UIAction .ActionButton  a:hover {
   color: blue; 
