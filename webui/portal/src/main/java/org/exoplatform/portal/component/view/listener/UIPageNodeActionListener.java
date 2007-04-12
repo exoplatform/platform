@@ -189,7 +189,6 @@ public class UIPageNodeActionListener {
   static public class DeleteNodeActionListener  extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {  
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-//      System.out.println("\n\nDELETE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> " + value);
       UIRightClickPopupMenu popupMenu = event.getSource();
       UIComponent parent = popupMenu.getParent();
       UIPageNodeSelector uiPageNodeSelector = parent.getParent();

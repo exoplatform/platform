@@ -26,7 +26,6 @@
 				      <%
 				      int min = 1;
 				      int max = totalPage;
-				      System.out.println("\n\n>>>>>>>>>>>>Total: " + totalPage +" : currentPage: " + currentPage ); 
 				      if(totalPage > 5 && currentPage >2){
 				        min = currentPage - 2;
 				        max = currentPage + 3;

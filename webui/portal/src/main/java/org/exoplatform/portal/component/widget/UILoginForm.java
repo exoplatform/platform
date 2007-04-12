@@ -63,7 +63,6 @@ public class UILoginForm extends UIForm {
   static public class SigninActionListener  extends EventListener<UILoginForm> {
     
     public void execute(Event<UILoginForm> event) throws Exception {
-      System.out.println("\n\n---->>>UILoginForm.java - Event: SignInActionListener");
       UILoginForm uiForm = event.getSource();
       String username = uiForm.getUIStringInput("username").getValue();
       String password = uiForm.getUIStringInput("password").getValue();
@@ -108,7 +107,7 @@ public class UILoginForm extends UIForm {
   
   static public class SignUpActionListener  extends EventListener<UILoginForm> {
     public void execute(Event<UILoginForm> event) throws Exception {
-      System.out.println("\n\n\n\n^^^^^^^^^^^^^^##############################################");
+//      System.out.println("\n\n\n\n^^^^^^^^^^^^^^##############################################");
 //      UIPortal uiPortal = Util.getUIPortal();
 //      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);   
 //      UIComponent uicom = event.getSource().getParent();

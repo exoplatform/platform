@@ -1,8 +1,15 @@
+/***************************************************************************
+ * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
+ * Please look at license.txt in info directory for more license detail.   *
+ **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
 import java.util.List;
 
 import org.exoplatform.account.webui.component.model.UIAccountTemplateConfigOption;
+import org.exoplatform.organization.webui.component.UIAccountInputSet;
+import org.exoplatform.organization.webui.component.UIUserMembershipSelector;
+import org.exoplatform.organization.webui.component.UIUserProfileInputSet;
 import org.exoplatform.organization.webui.component.UIUserMembershipSelector.Membership;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -20,7 +27,12 @@ import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
-
+/**
+ * Created by The eXo Platform SARL
+ * Author : Dang Van Minh
+ *          minhdv81@yahoo.com
+ * Jun 28, 2006
+ */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
     template =  "system:/groovy/webui/component/UIFormTabPane.gtmpl",
@@ -40,7 +52,6 @@ import org.exoplatform.webui.event.Event.Phase;
     }
 )
 public class UIAccountForm extends UIFormTabPane {
-
   
   @SuppressWarnings("unchecked")
   public UIAccountForm(InitParams initParams) throws Exception{
@@ -58,6 +69,7 @@ public class UIAccountForm extends UIFormTabPane {
     if(initParams == null) return ;  
     UIUserMembershipSelector uiUserMembershipSelector = new UIUserMembershipSelector();
     uiUserMembershipSelector.setRendered(false);
+    addUIFormInput(uiUserMembershipSelector);
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     boolean isRoleAdmin = context.isUserInRole("admin"); 
     
@@ -89,8 +101,7 @@ public class UIAccountForm extends UIFormTabPane {
       OrganizationService service =  uiForm.getApplicationComponent(OrganizationService.class);
       UIAccountInputSet uiAccountInput = uiForm.getChild(UIAccountInputSet.class) ;  
       String userName = uiAccountInput.getUserName();
-      boolean saveAccountInput = uiAccountInput.save(service, true);
-      if(saveAccountInput == false) return;
+      uiAccountInput.save(service, true);
       uiForm.getChild(UIUserProfileInputSet.class).save(service, userName, true);
       UIUserMembershipSelector uiMembershipSelector = uiForm.getChild(UIUserMembershipSelector.class);
       if(uiMembershipSelector == null) return ;
