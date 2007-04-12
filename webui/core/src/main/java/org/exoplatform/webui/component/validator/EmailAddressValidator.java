@@ -15,15 +15,15 @@ import org.exoplatform.webui.exception.MessageException;
  * Jun 7, 2006
  */
 public class EmailAddressValidator implements Validator {
+  
   static private final String EMAIL_REGEX = 
-    "[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)+";  
+    "[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)+";
+  
   public void validate(UIComponent uicomponent) throws Exception {
     UIFormInputBase uiInput = (UIFormInputBase) uicomponent ;
     String s = (String)uiInput.getValue();
-    if(s == null || s.trim().length()< 1) return;
-    if(!(s).matches(EMAIL_REGEX)) {
-      Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
-      throw new MessageException(new ApplicationMessage("EmailAddressValidator.msg.Invalid-input", args)) ;
-    }
+    if(s == null || s.trim().length() < 1 || (s).matches(EMAIL_REGEX)) return;
+    Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
+    throw new MessageException(new ApplicationMessage("EmailAddressValidator.msg.Invalid-input", args)) ;
   }
 }

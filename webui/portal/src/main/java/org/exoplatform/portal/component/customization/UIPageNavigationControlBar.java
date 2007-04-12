@@ -43,8 +43,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIPageNavigationControlBar.BackActionListener.class),
         @EventConfig(listeners = UIPageNavigationControlBar.RollbackActionListener.class),
         @EventConfig(listeners = UIPageNavigationControlBar.AbortActionListener.class),
-        @EventConfig(listeners = UIPageNavigationControlBar.FinishActionListener.class)
-        
+        @EventConfig(listeners = UIPageNavigationControlBar.FinishActionListener.class)        
       }
 )
 

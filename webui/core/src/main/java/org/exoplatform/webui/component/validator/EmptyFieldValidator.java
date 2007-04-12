@@ -19,10 +19,9 @@ public class EmptyFieldValidator implements Validator {
   
   public void validate(UIComponent uicomponent) throws Exception {
     UIFormInputBase uiInput = (UIFormInputBase) uicomponent ;
-    if(uiInput.getValue() == null) {
-      Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
-//      System.out.println("====>>Name: " + uiInput.getName() + "_++++>> BindingField " + uiInput.getBindingField());
-      throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args)) ;
-    }
+    if(uiInput.getValue() != null)  return ;
+    Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
+//  System.out.println("====>>Name: " + uiInput.getName() + "_++++>> BindingField " + uiInput.getBindingField());
+    throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args)) ;
   }
 }
