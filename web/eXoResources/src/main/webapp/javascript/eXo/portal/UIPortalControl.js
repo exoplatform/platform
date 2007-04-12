@@ -27,10 +27,7 @@ UIPortalControl.prototype.showHiddenContent = function(selectedElement) {
 		  contentStyle[0].style.display = "none";
 		  contentStyle[1].style.display = "block";
 		}
-	} else {
-		return;
-	}
-
+	} 
 }
 
 eXo.portal.UIPortalControl = new UIPortalControl();
