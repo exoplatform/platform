@@ -12,13 +12,13 @@
   font-size: 11px ;
 }
 
-.UIFormWithTitle .HorizontalLayout{
+.UIFormWithTitle .HorizontalLayout {
   padding: 1px;
   background: #efefef ;
   border: 1px #b7b7b7 solid;
 }
 
-.UIFormWithTitle .HorizontalLayout .FormContainer{
+.UIFormWithTitle .HorizontalLayout .FormContainer {
   padding: 10px 18px 6px 18px;
   background: white ;
   font-size: 11px;
@@ -26,7 +26,7 @@
 }
 
 .UIFormWithTitle .UIForm .UIAction {  
-  width: 170px;
+  width: 200px;
 }
 
 .UITestForm .UIAction  {
