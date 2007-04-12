@@ -16,13 +16,13 @@
 }
 
 .UIAction .ActionContainer .ActionButton  a {
-  line-height: 21px ; vertical-align: middle;
+  line-height: 30px; vertical-align: middle;
   text-decoration: none ; 
   color: black ; font-weight: normal ; font-size: 11px ;
 }
 
 .UIAction .ActionContainer .ActionButton  a:hover {
-  line-height: 21px ; vertical-align: middle ;
+  line-height: 30px; vertical-align: middle ;
   text-decoration: none ; text-align: center;
   color: blue; font-weight: normal ; font-size: 11px ;
 }
@@ -58,10 +58,10 @@
 }
 
 .UIAction .ActionContainer .ActionButton .LightBlueStyle .ButtonMiddle {
-	height: 30px;
-	line-height: 24px;
+	height: 30px; line-height: 26px;
   text-align: center;
 	background: url('VistaSkin/background/LightButtonMiddle2x30.png') repeat-x center;
+	padding-top: 0px;
 }
 
 /*##############################-Disabled ActionButton-################################*/

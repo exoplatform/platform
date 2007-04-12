@@ -33,8 +33,9 @@
 
 .UIPortalToolPanel .Body .UIPageBrowser {
   background: url('VistaSkin/background/OpaqueBG.png');
-  margin: 5px;
-  border: solid 1px #797979;
+  margin: 5px 0px  5px 5px;
+  padding: 3px 0px 3px 3px;
+  border: 1px solid #a4a4a4;
 }
 
 .UIPortalToolPanel .Footer {
