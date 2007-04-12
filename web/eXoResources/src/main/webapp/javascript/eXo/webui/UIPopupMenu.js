@@ -125,10 +125,14 @@ UIPopupMenu.prototype.showMenuItemContainer = function(menuItem, menuItemContain
 		var menuTop = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "StartMenuTL");
 		var menuBottom = menuTop.nextSibling;
 		while (menuBottom.className != "StartMenuBL") menuBottom = menuBottom.nextSibling;
-		var w = eXo.core.DOMUtil.getStyle(menuCenter, "width");
+		var w = menuCenter.offsetWidth - menuCenter.offsetLeft;
 		menuTop.style.width = w;
 		menuBottom.style.width = w;
-		console.log(w);
+		
+		console.info("menuCenter.offsetWidth : "+menuCenter.offsetWidth);
+		console.info("menuTop.offsetWidth : "+menuTop.offsetWidth);
+		console.info("menuTop.width : "+menuTop.style.width);
+		console.info("w : "+w);
 	}
 	this.superClass.setPosition(menuItemContainer, x, y) ;
 } ;
