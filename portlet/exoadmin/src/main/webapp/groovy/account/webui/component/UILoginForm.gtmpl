@@ -1,5 +1,5 @@
 <div class="UILoginForm" id="ChildTest">  
-<%uiform.begin()%>
+  <%uiform.begin()%>
   <div class="SignIn">Sign In</div>
 	<div style="float: right">
 	  <div style="float: left">
@@ -9,14 +9,11 @@
 	    </div>
 	    <div class="PasswordLogin">
 	      <label for="PasswordLogin"><%=_ctx.appRes("UILoginForm.label.password")%></label>
-	      <% uiform.renderChild(1); %>
+	      <%uiform.renderChild(1); %>
 	    </div>
     </div>
     <div>
-      <%String link = uicomponent.url("Login") ;
-      System.out.println("\n\n\n--------------------->>>portlet/exoadmin/UILoginForm: " + uicomponent);
-      %>
-      <a class="ButtonLogin" href="$link"><span></span></a>
+      <a class="ButtonLogin" href="<%=uicomponent.url("Login");%>"><span></span></a>
     </div>
     <div style="clear: left"><span></span></div>
 	</div>

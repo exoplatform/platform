@@ -53,7 +53,10 @@ public class UISite extends UIComponent {
   }
   
   private  void  buildTree(Node node, File folder) {
-    for(File childFile : folder.listFiles()) {
+    if(folder == null) return;
+    File  [] files = folder.listFiles();
+    if(files == null) return;
+    for(File childFile : files) {
       String nodeName = childFile.getName() ;
       Node childNode = new Node(node.getPath() + "/" + nodeName, nodeName) ;
       node.addChild(childNode) ;

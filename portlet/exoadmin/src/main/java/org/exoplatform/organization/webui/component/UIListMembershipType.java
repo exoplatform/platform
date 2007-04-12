@@ -54,12 +54,7 @@ public class UIListMembershipType extends UIContainer {
     	UIListMembershipType uiMembership = event.getSource();
     	String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
       
-      UIOrganizationPortlet uiPortalApp = uiMembership.getAncestorOfType(UIOrganizationPortlet.class);
-      String valueId = event.getRequestContext().getRequestParameter("objectId");
-      uiPortalApp.addMessage(new ApplicationMessage(valueId, new Object[]{}));
-      
       OrganizationService service = uiMembership.getApplicationComponent(OrganizationService.class);
-      
       MembershipType mt = service.getMembershipTypeHandler().findMembershipType(name);
       UIMembershipManagement uiMembershipManager = uiMembership.getParent();
       UIMembershipTypeForm uiForm = uiMembershipManager.getChild(UIMembershipTypeForm.class);
