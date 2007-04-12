@@ -2,8 +2,9 @@
 	import org.exoplatform.portal.application.PortalRequestContext;
 	
 	def prContext = _ctx.getRequestContext().getParentAppRequestContext();
+	String signInAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;" ;
 %>
-<div class="UIBannerPortlet">	
+<div class="UIBannerPortlet">
   <div class="InlineContainer">
     <div class="LeftBanner">
       <div class="RightBanner">
@@ -15,7 +16,7 @@
 						  	
 					  	<div style="float: left">
 					  		<%=_ctx.appRes("UILogged.note.loggedUser")%>
-						  	<span style="padding: 0px 10px 0px 2px; color: #529ef1; font-weight:bold;"> 
+						  	<span style="padding: 0px 10px 0px 2px; color: #529ef1; font-weight:bold;">
 						  		<%= prContext.getPortalOwner() %> 
 						  	</span>
 					  	</div>
@@ -27,7 +28,7 @@
 							</div>
 							<div style="clear: left;"><span></span></div>
 						<%} else {%>
-							<div  title="Sign In" onclick="ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;">
+							<div title="Sign In" onclick="$signInAction">
 							  <a class="LoginLabel"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>
 								<div class="LoginIcon"><span></span></div>
 								<div style="clear: left;"><span></span></div>
