@@ -125,18 +125,17 @@
 
 .UILoggedInfo .NormalBG {
 	float: left;
+	cursor: pointer;
 }
 
 .UILoggedInfo .UserIcon {  
 	height: 32px; width: 32px;
 	background: url('MacSkin/background/UserIcon.png') no-repeat center;
-	cursor: pointer;
 }
 
 .UILoggedInfo .WelcomeIcon {  
 	height: 32px; width: 32px;
 	background: url('MacSkin/background/WelcomeIcon.png') no-repeat center;
-	cursor: pointer;
 }
 
 .UILoggedInfo .EMailIcon {
