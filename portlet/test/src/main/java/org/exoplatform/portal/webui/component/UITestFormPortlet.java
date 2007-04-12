@@ -21,6 +21,5 @@ public class UITestFormPortlet extends UIPortletApplication {
   
   public UITestFormPortlet() throws Exception {
     addChild(UITestForm.class, null, null);
-    System.out.println("\n\n++++++++++++++++++++++\n++++++++++++++++++++++++++\n\n");
   }
 }
