@@ -10,7 +10,6 @@ UIPopupMenu.prototype.init = function(popupMenu, container, x, y) {
 	this.superClass = eXo.webui.UIPopup;
 	this.superClass.init(popupMenu, container.id) ;
 	//this.superClass.setPosition(popupMenu, x, y) ;
-	
 	eXo.webui.UIPopupMenu.buildMenu(popupMenu, "MenuItem", "MenuItemContainer");
 } ;
 
@@ -41,7 +40,7 @@ UIPopupMenu.prototype.buildMenu = function(popupMenu, menuItemClass, containerIt
 
 UIPopupMenu.prototype.setPosition = function(popupMenu, x, y) {
 	this.superClass.setPosition(popupMenu, x, y) ;
-}
+};
 
 UIPopupMenu.prototype.onMenuItemOver = function(e) {
 	var menuItem = this ;
@@ -63,6 +62,7 @@ UIPopupMenu.prototype.onMenuItemOver = function(e) {
 			menuItem.onclick = function() {
 				if (link.href.substr(0, 7) == "http://") window.location.href = link.href;
 				else eval(link.href);
+				return false;
 			}
 		}
 	}
@@ -109,16 +109,26 @@ UIPopupMenu.prototype.doOnMenuItemOut = function() {
 } ;
 
 UIPopupMenu.prototype.showMenuItemContainer = function(menuItem, menuItemContainer) {
+	menuItemContainer.style.display = "block" ;
 	var x = menuItem.offsetWidth + menuItem.offsetLeft;
 	var y = menuItem.offsetTop;
 	var rootX = eXo.core.Browser.findPosX(menuItem);
 	var rootY = eXo.core.Browser.findPosY(menuItem);
-	menuItemContainer.style.display = "block" ;
 	if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
-		x = -menuItemContainer.offsetWidth;
+		x -= (menuItemContainer.offsetWidth + menuItem.offsetWidth);
 	}
 	if (y + menuItemContainer.offsetHeight + rootY > eXo.core.Browser.getBrowserHeight()) {
 		y -= (menuItemContainer.offsetHeight - menuItem.offsetHeight);
+	}
+	if (eXo.core.Browser.getBrowserType() == "ie") {
+		var menuCenter = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "StartMenuML");
+		var menuTop = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "StartMenuTL");
+		var menuBottom = menuTop.nextSibling;
+		while (menuBottom.className != "StartMenuBL") menuBottom = menuBottom.nextSibling;
+		var w = eXo.core.DOMUtil.getStyle(menuCenter, "width");
+		menuTop.style.width = w;
+		menuBottom.style.width = w;
+		console.log(w);
 	}
 	this.superClass.setPosition(menuItemContainer, x, y) ;
 } ;

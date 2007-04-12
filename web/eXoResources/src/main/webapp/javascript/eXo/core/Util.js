@@ -57,6 +57,14 @@ Array.prototype.insertAt = function (what, iIndex) {
   }
 }
 
+Array.prototype.pushAll = function (array) {
+	if (array != null) {
+		for (var i = 0; i < array.length; i++) {
+			this.push(array[i]);
+		}
+	}
+}
+
 /*************************************************************************/
 function  HashMap() { 
 	 this.properties = new Object() ;

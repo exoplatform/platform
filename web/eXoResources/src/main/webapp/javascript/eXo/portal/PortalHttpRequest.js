@@ -68,7 +68,6 @@ function PortalResponse(responseDiv) {
   var  DOMUtil = eXo.core.DOMUtil ;
   this.portletResponses = new Array() ;
   var div = DOMUtil.getChildrenByTagName(responseDiv, "div") ;
-
   for(var i = 0 ; i < div.length; i++) {
     if(div[i].className == "PortletResponse") {
       this.portletResponses[this.portletResponses.length] =  new PortletResponse(div[i]) ;

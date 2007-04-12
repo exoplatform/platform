@@ -44,7 +44,7 @@
 }
 
 .UIExoStart .StartMenuContainer {
-	display: none;
+	/*display: none;*/
 }
 
 .UIExoStart .StartMenuContainer .LoginContainer {
@@ -57,6 +57,8 @@
   height: 33px ;
   padding: 0px 5px 0px 2px ;
   cursor: pointer ;
+  display: inherit;
+  visibility: inherit;
 }
 
 .UIExoStart .StartMenuContainer .PortalIcon {
@@ -64,6 +66,8 @@
   background: url('DefaultSkin/icons/32x32/Portal.gif') no-repeat left ;
   padding: 0px 0px 0px 30px ;
   margin: 0px 0px 0px 5px ;
+  display: inherit;
+  visibility: inherit;
 }
 
 .UIExoStart .StartMenuContainer .AdministrationIcon {
@@ -195,6 +199,9 @@
   height: 33px ;
   background: url('DefaultSkin/icons/16x16/BlackArrow.gif') no-repeat right ;
   padding: 0px 25px 0px 0px ;
+  display: inherit;
+  visibility: inherit;
+  width: auto;
 }
 
 .UIExoStart .StartMenuContainer .NavigationBackground {
@@ -205,6 +212,7 @@
   font-weight: bold ;
   text-align: right ;
   padding: 7px 0px 0px 0px ;
+  width: auto;
 }
 
 .UIExoStart .StartMenuContainer .NavigationArrowIcon {
@@ -216,6 +224,7 @@
 
 .UIExoStart .StartMenuContainer .MenuItemContainer {
   position: relative ;
+  visibility: visible;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItem {
@@ -305,6 +314,8 @@
 /*========================Start Menu Decorator======================*/
 .UIExoStart .StartMenuDecorator {
 	width: 100%;
+	display: inherit;
+	visibility: inherit;
 }
 
 .UIExoStart .StartMenuDecorator .TopDecorator {
@@ -316,6 +327,7 @@
   height:6px;
   background: url('DefaultSkin/background/StartMenuTL3x6.gif') no-repeat left;
   padding: 0px 0px 0px 3px;
+  width: auto;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuTC {
@@ -347,6 +359,7 @@
   background: url('DefaultSkin/background/StartMenuBL3x3.gif') no-repeat left;
   height: 3px;
   padding: 0px 0px 0px 3px;
+  width: auto;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBR {

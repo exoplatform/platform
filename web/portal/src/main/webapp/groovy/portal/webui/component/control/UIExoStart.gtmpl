@@ -177,7 +177,7 @@
       <div class="MenuItem">
         <div class="LabelItem">
           <div class="$item.icon">
-            <div class="LabelText"><a href="$href">$label</a></div>
+            <div class="LabelText"><a href="$href">$label - a veeeeeery long text</a></div>
           </div>
         </div>
       </div>
@@ -228,7 +228,7 @@
       <div class="StartMenuML">
         <div class="StartMenuMR">
           <div class="StartMenuBG">      
-            <div class="MenuItemContainer">
+            <div class="MenuItemContainer" style="visibility: visible;">
               <%
                 for(menu in uicomponent.getMenus())  {
                   for(item in menu)  {

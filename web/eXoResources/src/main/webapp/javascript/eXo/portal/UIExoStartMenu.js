@@ -8,7 +8,7 @@ UIExoStartMenu.prototype.init = function(popupMenu, container, x, y) {
 	this.superClass = eXo.webui.UIPopupMenu;
 	
 	this.superClass.init(popupMenu, container.id, x, y) ;
-	
+
 	this.exoStartButton = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ExoStartButton") ;
 	this.exoStartButton.onmouseover = eXo.portal.UIExoStartMenu.startButtonOver ;
 	this.exoStartButton.onmouseout = eXo.portal.UIExoStartMenu.startButtonOut ;
@@ -46,6 +46,7 @@ UIExoStartMenu.prototype.showStartMenu = function(e) {
 		this.superClass.show(uiStartContainer);
 		var menuY = eXo.core.Browser.findPosY(eXo.portal.UIExoStartMenu.exoStartButton);
 		var y = menuY - uiStartContainer.offsetHeight;
+		uiStartContainer.style.width = "238px";
 		this.superClass.setPosition(uiStartContainer, 0, y) ;
 	}
 	
