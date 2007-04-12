@@ -26,7 +26,7 @@
 			println "			     <div class=\"OverflowContainer\">" ;
 			println "				     <div style=\"margin-left:${px}px;\" class=\"NavigationIcon BlueSquare16x16Icon\"><span></span></div>" ;
 			println "					   <a href=\"$actionLink\" class=\"$cLabelChild\">$node.label</a>" ;
-			println "					   <div class=\"CollapseExpandIcon $cButtonChild\"><span></span></div>" ;
+			println "					   <a class=\"CollapseExpandIcon $cButtonChild\" href=\"$actionLink\"><span></span></a>" ;
 			println "				   </div>" ;
 			println "			   </div>" ;
 			println "		   </div>" ;

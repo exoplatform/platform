@@ -64,7 +64,7 @@
 								    <div class="OverflowContainer">
 									    <div class="$cIcon"><span></span></div>
 										  <a href="<%=uicomponent.event("ShowCategory", cName)%>" class="$cLabel">$cName</a>
-										  <div class="$cButton"><span></span></div>
+										  <a class="$cButton" href="<%=uicomponent.event("ShowCategory", cName)%>"><span></span></a>
 									  </div>
 							    </div>
 	  					  </div>
@@ -120,7 +120,7 @@
 													       	<a href="<%=uicomponent.event("ShowPortlet", portletId)%>" class="$pLabel">
 														        <%=portlet.getPortletName()%>
 														      </a>
-														      <div class="$pButton"><span></span></div>
+														      <div class="$pButton" href="<%=uicomponent.event("ShowPortlet", portletId)%>"><span></span></div>
 														     </div>
 												      </div>
 											      </div>
