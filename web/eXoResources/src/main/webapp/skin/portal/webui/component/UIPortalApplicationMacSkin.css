@@ -30,7 +30,7 @@ body {
 	background: white ;
 	font-family: "Lucida Grande",Geneva,Arial,Verdana,sans-serif;
   font-size: 12px;
-	background: url('/eXoResources/background/MacSkin/MacBackground.jpg');
+	background: url('/eXoResources/background/MacSkin/MacBackground.jpg') repeat top;
 	margin: 0px ; padding: 0px;
 }
 
@@ -92,11 +92,5 @@ a {
 }
 
 .AjaxLoadingMask .UIAction {
-  padding: 5px 0px 10px 0px;
-}
-
-.AjaxLoadingMask .UIAction .ActionContainer .ActionButton {
-  float: none;
-  width: 70px;
-  margin: auto;
+  width: 60px;
 }

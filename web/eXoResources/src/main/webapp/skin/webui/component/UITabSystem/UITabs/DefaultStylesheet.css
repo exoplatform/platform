@@ -24,21 +24,6 @@
   overflow: hidden;
 }
 
-.UIHorizontalTabs .PreviousTabButton  {
-  float: left;
-  width: 14px; height: 24px;
-  margin-right: 1px;
-  cursor : pointer;
-  background: url('DefaultSkin/background/YellowLastTabButton14x24.gif') no-repeat;
-}
-
-.UIHorizontalTabs .NextTabButton  {
-  float: left;
-  width: 14px; height: 24px;
-  cursor : pointer;
-  background: url('DefaultSkin/background/YellowNextTabButton14x24.gif') no-repeat;
-}
-
 .UIHorizontalTabs .UITab {
   float: left;
   font-weight: bold;

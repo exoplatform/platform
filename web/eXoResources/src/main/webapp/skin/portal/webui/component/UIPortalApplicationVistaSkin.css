@@ -92,14 +92,8 @@ a {
 }
 
 .AjaxLoadingMask .UIAction {
-  width: 100px;
-  padding: 0px 46px 0px 0px ;
-  margin: auto;
+  width: 80px;
 }
 
-.AjaxLoadingMask .UIAction .ActionContainer .ActionButton {
-  width: 55px;
-  line-height: 25px;
-  margin: auto;
-}
+
 

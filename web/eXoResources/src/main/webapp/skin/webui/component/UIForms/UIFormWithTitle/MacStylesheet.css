@@ -18,7 +18,7 @@
 }
 
 .UIFormWithTitle .HorizontalLayout .FormContainer{
-  padding: 10px 6px 6px 18px;
+  padding: 10px 18px 6px 18px;
   font-size: 11px;
   border: 1px #cdcdcd solid;
 }
@@ -48,21 +48,10 @@
 }
 
 .UIFormWithTitle .UIForm .UIAction {  
-  margin-left: 100px;
-  width: auto;
+  width: 170px;
 }
 
-.UIFormWithTitle .UIForm .UIAction .ActionContainer {
-  overflow: hidden ;
-  margin: auto;    
-}
-
-.UIFormWithTitle .UIForm .UIAction .ActionContainer .ActionButton {
-  float: left; margin-left: 3px;
-}
-
-.UITestForm .UIAction .ActionContainer .ActionButton {
-  float: left; margin-left: 3px;
+.UITestForm .UIAction {
  	width: 80px;
  	/*Debug IE*/
 }

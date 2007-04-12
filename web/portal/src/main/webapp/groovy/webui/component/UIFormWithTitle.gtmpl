@@ -14,7 +14,7 @@
               <%if(!fieldName.equals(uicomponent.getId())) { %>                        
                   <label>
                     <%if(fieldName != null && fieldName.length() > 0) {%> 
-                      <%=uicomponent.getLabel(field.getName())+": " %>
+                      <%=uicomponent.getLabel(field.getName())+":" %>
                     <%}%>
                   </label>
               <%}%>

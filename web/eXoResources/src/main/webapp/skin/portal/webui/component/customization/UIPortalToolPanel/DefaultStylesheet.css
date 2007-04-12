@@ -35,12 +35,8 @@
 }
 
 .UIPortalToolPanel .UIAction {
-  margin-top: 5px;
-}
-
-.UIPortalToolPanel .UIFormTabPane .UIAction .ActionButton {
-  width: 70px ;
-  float: left;
+  width: 130px;
+  margin-bottom: 0px;
 }
 
 .UIPortalToolPanel .UIItemSelector .NormalStyle {

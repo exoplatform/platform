@@ -8,10 +8,6 @@
   padding: 7px ;
 }
 
-.UIPortletForm .UITabPane .UIAction .ActionContainer .Button {
-  float: right ;
-}
-
 .UIPortletForm .SaveIcon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Save.gif') no-repeat ;
 }

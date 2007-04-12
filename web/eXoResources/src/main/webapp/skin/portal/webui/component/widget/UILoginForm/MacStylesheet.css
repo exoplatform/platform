@@ -25,15 +25,7 @@
 }
 
 .UILoginForm .LoginDetailBox .VerticalLayout .UIAction {
-  float: none;
-  padding: 0px;
-  margin: auto; margin: 8px 0px 15px 0px;
-}
-
-.UILoginForm .VerticalLayout .UIAction .ActionContainer {
-  float: none; 
-  width: 70px ; 
-  margin: auto; 
+  width: 80px;
 }
 
 .UILoginForm .ForgotMessage {
@@ -47,10 +39,8 @@
   cursor: pointer;
 }
 
-.UILoginForm .UIAction .ActionContainer .ActionButton{
-  float: none;
-  width: 66px ;
-  margin: auto;
+.UILoginForm .UIAction 
+  width: 70px ;
 }
 
 

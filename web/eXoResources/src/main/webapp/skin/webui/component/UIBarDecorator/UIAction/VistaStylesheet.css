@@ -1,96 +1,90 @@
 .UIAction{
-  margin: auto;
-  margin-top: 8px;
+  margin: 9px auto;
 }
 
 .UIAction .ActionContainer {
-  width: auto;
-  margin: auto;
-  height: 30px;
+  float: left;
+  overflow: hidden;
 }
 
-.UIAction .ActionContainer .ActionButton {
-	float: right;
-	width: 74px;
-	margin: 0px 0px 0px 3px ;
+.UIAction .ActionButton {
+	float: left;
+	margin: 0px 2px 0px 2px ;
 }
 
-.UIAction .ActionContainer .ActionButton  a {
-  line-height: 30px; vertical-align: middle;
-  text-decoration: none ; 
-  color: black ; font-weight: normal ; font-size: 11px ;
-}
-
-.UIAction .ActionContainer .ActionButton  a:hover {
-  line-height: 30px; vertical-align: middle ;
+.UIAction .ActionButton  a {
+  line-height: 28px ; vertical-align: top;
   text-decoration: none ; text-align: center;
-  color: blue; font-weight: normal ; font-size: 11px ;
+  color: black; font-size: 11px ; 
+  margin: 0px 12px 0px 12px;
+
+.UIAction .ActionButton  a:hover {
+  color: blue; 
 }
 
-.UIAction .ActionContainer .Save16x16Icon {
+.UIAction .Save16x16Icon {
 	display:none;
 }
 
-.UIAction .ActionContainer .ActionButton .Icon {
+.UIAction .ActionButton .Icon {
   display:none;
 }
 
-.UIAction .ActionContainer .Cancel16x16Icon {
+.UIAction .Cancel16x16Icon {
 	display:none;
 }
 
-.UIAction .ActionContainer .Back16x16Icon {
+.UIAction .Back16x16Icon {
 	display:none;
 }
 
 /*##############################-LightBlueStyle ActionButton-################################*/
-.UIAction .ActionContainer .ActionButton .LightBlueStyle {
+.UIAction .ActionButton .LightBlueStyle {
 }
 
-.UIAction .ActionContainer .ActionButton .LightBlueStyle .ButtonLeft {
+.UIAction .ActionButton .LightBlueStyle .ButtonLeft {
   background: url('VistaSkin/background/LightButtonLeft6x30.png') no-repeat left;
   padding: 0px 0px 0px 6px;
 }
 
-.UIAction .ActionContainer .ActionButton .LightBlueStyle .ButtonRight {
+.UIAction .ActionButton .LightBlueStyle .ButtonRight {
   background: url('VistaSkin/background/LightButtonRight6x30.png') no-repeat right;
 	padding: 0px 6px 0px 0px ;
 }
 
-.UIAction .ActionContainer .ActionButton .LightBlueStyle .ButtonMiddle {
-	height: 30px; line-height: 26px;
+.UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
+	line-height: 30px;
   text-align: center;
 	background: url('VistaSkin/background/LightButtonMiddle2x30.png') repeat-x center;
-	padding-top: 0px;
 }
 
 /*##############################-Disabled ActionButton-################################*/
-.UIAction .ActionContainer .ActionButton .DisabledStyle {
+.UIAction .ActionButton .DisabledStyle {
 }
 
-.UIAction .ActionContainer .ActionButton .DisabledStyle .ButtonLeft {
+.UIAction .ActionButton .DisabledStyle .ButtonLeft {
   background: url('VistaSkin/background/SelectedActionButton6x30.png') no-repeat left;
   padding: 0px 0px 0px 6px;
 }
 
-.UIAction .ActionContainer .ActionButton .DisabledStyle .ButtonRight {
+.UIAction .ActionButton .DisabledStyle .ButtonRight {
   background: url('VistaSkin/background/SelectedActionButtonR6x30.png') no-repeat right;
   padding: 0px 6px 0px 0px ;
 }
 
-.UIAction .ActionContainer .ActionButton .DisabledStyle .ButtonMiddle {
+.UIAction .ActionButton .DisabledStyle .ButtonMiddle {
 	height: 30px;
-	line-height: 25px;
+	line-height: 30px;
 	vertical-align: middle; text-align: center;
 	background: url('VistaSkin/background/SelectedActionButtonM2x30.png') repeat-x;
 }
 
-.UIAction .ActionContainer .ActionButton .DisabledStyle a {
+.UIAction .ActionButton .DisabledStyle a {
 	color: gray;
 	cursor: default;
 }
 
-.UIAction .ActionContainer .ActionButton .DisabledStyle a:hover {
+.UIAction .ActionButton .DisabledStyle a:hover {
 	color: gray;
 	cursor: default;
 }

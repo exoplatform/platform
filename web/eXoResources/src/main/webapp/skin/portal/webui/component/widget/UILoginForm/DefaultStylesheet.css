@@ -134,7 +134,7 @@
 }
 
 .UILoginForm .LoginDecorator .SignUpBar {
-	padding: 0px 0px 2px 70px ;
+	padding: 5px 0px 2px 70px ;
 }
 
 .UILoginForm .LoginDecorator .LeftSignUpBar {
@@ -156,22 +156,12 @@
 }
 
 .UIMaskWorkspace .UIForm .VerticalLayout .UIAction {
-	margin: 0px auto 0px auto;
-	padding: 10px 0px 10px 40px;
+  width: 160px;
+  margin-top: 12px;
 }
 
 .UIMaskWorkspace .UIForm .VerticalLayout .UIAction .ActionButton {
-  width: 80px;
-  margin-right: 50px;
+  margin-left: 70px;
 }
 
-.UILoginForm .UIAction .LightBlueStyle {
-	padding-top: 7px;
-}
-
-.UILoginForm .UIAction .ActionContainer .ActionButton {
-	width: 80px;
-	margin: auto;
-	float: none;
-}
 

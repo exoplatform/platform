@@ -26,7 +26,7 @@ form {
 }
 
 body {
-	background: url('/eXoResources/background/DefaultSkin/eXoBodyBG.jpg') no-repeat top left;
+	background: #9ed0f3 url('/eXoResources/background/DefaultSkin/eXoBodyBG.jpg') no-repeat top ;
 	margin: 0px ; padding: 0px;
 	font-family: Verdana, Arial, Helvetica, sans-serif ;
 	font-size: 12px;
@@ -92,11 +92,5 @@ a {
 }
 
 .AjaxLoadingMask .UIAction {
-  padding: 8px 0px 10px 0px ;
-}
-
-.AjaxLoadingMask .UIAction .ActionContainer .ActionButton {
-  float: none;
   width: 50px;
-  margin: auto;
 }

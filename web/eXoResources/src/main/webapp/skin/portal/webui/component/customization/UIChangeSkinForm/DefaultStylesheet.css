@@ -59,9 +59,5 @@
 }
 
 .UIChangeSkinForm .UIForm .HorizontalLayout .UIAction {
-  padding: 5px 0px 3px 0px
-}
-
-.UIChangeSkinForm .UIAction .ActionContainer .ActionButton {
-  float: right;
+  width: 160px;
 }

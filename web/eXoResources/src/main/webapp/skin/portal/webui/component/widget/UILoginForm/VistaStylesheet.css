@@ -23,16 +23,7 @@
 }
 
 .UILoginForm .LoginDetailBox .VerticalLayout .UIAction {
-  float: none;
   width: 80px ; 
-  margin: auto; margin: 0px 0px 15px 0px ;
-  padding: 5px 0px 0px 0px; 
-}
-
-.UILoginForm .VerticalLayout .UIAction .ActionContainer {
-  float: none; 
-  width: 65px ; 
-  margin: auto; 
 }
 
 .UILoginForm .ForgotMessage {
@@ -46,22 +37,6 @@
   cursor: pointer;
 }
 
-.UILoginForm .UIAction .ActionContainer .ActionButton{
-  float: none;
-  width: 60px ;
-  margin: auto;
+.UILoginForm .UIAction {
+  width: 70px ;
 }
-
-.UILoginForm .UIAction .ActionContainer .ActionButton .Icon{
-  margin: 0px 0px 0px 4px;
-}
-
-.UILoginForm .UIAction .ActionContainer .ActionButton  a {
-  float: left ;
-  height: 24px ;  
-  color: black ; font-weight: normal ; font-size: 11px ;
-  line-height: 24px ;
-  vertical-align: middle ; text-align: center; text-decoration: none ;
-  margin: 0px 0px 0px 10px;
-}
-

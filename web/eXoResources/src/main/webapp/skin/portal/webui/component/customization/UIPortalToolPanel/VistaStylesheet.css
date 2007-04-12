@@ -76,21 +76,13 @@
 }
 
 .UIPortalToolPanel .UIAction {
-  margin-top: 5px;
+  width: 130px;
 }
 
 .UIPortalToolPanel .UIAccountPortlet {
   margin-top: 7px;
 }
-
-.UIPortalToolPanel .UIFormTabPane .UIAction .ActionButton {
-  width: 70px ;
-}
 /**################################ ItemDetailList ######################*/
-.UIPortalToolPanel .UIFormTabPane .UIAction .ActionButton {
-  width: 70px ;
-}
-
 .UIPortalToolPanel .UIItemSelector .ItemDetailList .ItemDetail {
   height: 250px ;
   padding: 8px ;

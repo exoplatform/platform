@@ -78,7 +78,7 @@
 	    </div>
 	  </div>
 	</div>
-	<div class="UIAction">
+	<div class="UIAction" style="width: 85px;">
   	<div class="ActionContainer">
   		<div class="ActionButton">
   			<div class="LightBlueStyle">
