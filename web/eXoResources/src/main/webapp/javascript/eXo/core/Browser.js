@@ -84,7 +84,7 @@ Browser.prototype.initMozilla = function() {
   this.browserType = "mozilla" ;
   this.eventListener = function(object, event, operation) { object.addEventListener(event, operation, false) ; } ;
   this.setOpacity = function(component, value) { component.style.opacity = value/100 ; } ;
-  this.getEventSource = function(e) { return e.target; };
+  this.getEventSource = function(e) { return e.currentTarget; };
 }
 
 Browser.prototype.initSafari = function() {

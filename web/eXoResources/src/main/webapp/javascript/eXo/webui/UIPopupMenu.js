@@ -4,38 +4,26 @@ function UIPopupMenu() {
 	// Used when timeout is finished and submenus must be hidden
 	this.elementsToHide = new Array();
 	this.currentVisibleContainers = new Array();
+	this.itemStyleClass = "MenuItem";
+	this.itemOverStyleClass = "MenuItemOver";
+	this.containerStyleClass = "MenuItemContainer";
 } ;
 
 UIPopupMenu.prototype.init = function(popupMenu, container, x, y) {
 	this.superClass = eXo.webui.UIPopup;
 	this.superClass.init(popupMenu, container.id) ;
 	//this.superClass.setPosition(popupMenu, x, y) ;
-	eXo.webui.UIPopupMenu.buildMenu(popupMenu, "MenuItem", "MenuItemContainer");
 } ;
 
-UIPopupMenu.prototype.buildMenu = function(popupMenu, menuItemClass, containerItemClass) {
-	//var menuItems = eXo.core.DOMUtil.findDescendantsByClass(popupMenu, "div", "MenuItemL") ;
-	var menuItems = eXo.core.DOMUtil.findDescendantsByClass(popupMenu, "div", menuItemClass) ;
-	//var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(popupMenu, "div", containerItemClass) ;
-	// Store the menu containers width to avoid some bugs
-	//var menuItemWidths = new Array();
+UIPopupMenu.prototype.buildMenu = function(popupMenu, mouseOverListener, mouseOutListener) {
+	var menuItems = eXo.core.DOMUtil.findDescendantsByClass(popupMenu, "div", this.itemStyleClass) ;
 	for(var i = 0; i<menuItems.length; i++) {
-		menuItems[i].onmouseover = eXo.webui.UIPopupMenu.onMenuItemOver ;
-		menuItems[i].onmouseout = eXo.webui.UIPopupMenu.onMenuItemOut ;
-		//menuItems[i].onclick = eXo.webui.UIPopupMenu.onClick;
-		// Set width of each menu item depending on its container width
-		var cont = eXo.core.DOMUtil.findAncestorByClass(menuItems[i], containerItemClass) ;
+		menuItems[i].onmouseover = mouseOverListener ;
+		menuItems[i].onmouseout = mouseOutListener ;
+		// Set an id to each container for future reference
+		var cont = eXo.core.DOMUtil.findAncestorByClass(menuItems[i], this.containerStyleClass) ;
 		if (!cont.id) cont.id = "cont-"+i;
 		cont.resized = false;
-		/*if (!menuItemWidths[cont.id])
-			menuItemWidths[cont.id] = cont.offsetWidth;
-		menuItems[i].style.width = menuItemWidths[cont.id] + "px";
-		// Set the right arrow icon if necessary
-		/*var childContainer = eXo.core.DOMUtil.findFirstDescendantByClass(menuItems[i], "div", containerItemClass) ;
-		if (childContainer) {
-			var itemRight = eXo.core.DOMUtil.findFirstDescendantByClass(menuItems[i], "div", "MenuItemR") ;
-			itemRight.className += " HasSubMenu";
-		}*/
 	}
 };
 
@@ -44,10 +32,9 @@ UIPopupMenu.prototype.setPosition = function(popupMenu, x, y) {
 };
 
 UIPopupMenu.prototype.onMenuItemOver = function(e) {
-	var menuItem = this ;
-	//menuItem.className = "MenutemL OnMouseOver" ;
-	menuItem.className = "MenuItemOver" ;
-	var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", "MenuItemContainer") ;
+	var menuItem = eXo.core.Browser.getEventSource(e);
+	if (menuItem.className != this.itemStyleClass) menuItem = eXo.core.DOMUtil.findAncestorByClass(menuItem, this.itemStyleClass);
+	var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", this.containerStyleClass) ;
 	// If the pointed menu item has a submenu
 	if(menuItemContainer) {
 		// Shows the submenu
@@ -56,26 +43,16 @@ UIPopupMenu.prototype.onMenuItemOver = function(e) {
 		 * I use an array for "sub submenus" (not only one submenu to show)
 		 */
 		eXo.webui.UIPopupMenu.currentVisibleContainers.push(menuItemContainer.id);
-	} else {
-		var link = eXo.core.DOMUtil.findDescendantsByTagName(menuItem, "a")[0];
-		if (link && link.href) {
-			window.status = link.href;
-			menuItem.onclick = function() {
-				if (link.href.substr(0, 7) == "http://") window.location.href = link.href;
-				else eval(link.href);
-				return false;
-			}
-		}
 	}
 } ;
 
 UIPopupMenu.prototype.onMenuItemOut = function(e) {
-	var menuItem = this ;
-	window.status = "";
-	//menuItem.className = "MenuItemL" ;
-	menuItem.className = "MenuItem" ;
+	var menuItem = eXo.core.Browser.getEventSource(e);
+	if (menuItem.className != this.itemOverStyleClass) menuItem = eXo.core.DOMUtil.findAncestorByClass(menuItem, this.itemOverStyleClass);
+
+	menuItem.className = this.itemStyleClass ;
 	// If the menu we just left has (had) a submenu
-	var container = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", "MenuItemContainer") ;
+	var container = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", this.containerStyleClass) ;
 	if(container) {
 		eXo.webui.UIPopupMenu.menuItemcontainer = container ;
 		/* Adds the submenu to the list of submenus to hide ("to-hide" list)
@@ -121,18 +98,7 @@ UIPopupMenu.prototype.showMenuItemContainer = function(menuItem, menuItemContain
 	if (y + menuItemContainer.offsetHeight + rootY > eXo.core.Browser.getBrowserHeight()) {
 		y -= (menuItemContainer.offsetHeight - menuItem.offsetHeight);
 	}
-	if (eXo.core.Browser.getBrowserType() == "ie" && !menuItemContainer.resized) {
-		var menuCenter = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "StartMenuML");
-		var menuTop = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "StartMenuTL");
-		var decorator = eXo.core.DOMUtil.findFirstDescendantByClass(menuTop, "div", "StartMenuTR");
-		var menuBottom = menuTop.nextSibling;
-		while (menuBottom.className != "StartMenuBL") menuBottom = menuBottom.nextSibling;
-		var w = menuCenter.offsetWidth - decorator.offsetLeft;
-		menuTop.style.width = w;
-		menuBottom.style.width = w;
-		menuCenter.style.width = w;
-		menuItemContainer.resized = true;
-	}
+	
 	this.superClass.setPosition(menuItemContainer, x, y) ;
 } ;
 
