@@ -130,7 +130,7 @@ public class UIPortalApplication extends UIApplication {
     uiWorkingWorkspace.addChild(uiPortal) ;    
     uiWorkingWorkspace.addChild(UIPortalToolPanel.class, null, null).setRendered(false) ;    
     addChild(uiWorkingWorkspace) ;
-    addChild(UIMaskWorkspace.class,    UIPortalApplication.UI_MASK_WS_ID, null) ;
+    addChild(UIMaskWorkspace.class, UIPortalApplication.UI_MASK_WS_ID, null) ;
   }
   
   public void  processRender(WebuiRequestContext context) throws Exception {

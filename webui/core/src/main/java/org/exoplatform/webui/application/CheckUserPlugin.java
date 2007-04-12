@@ -15,6 +15,7 @@ public class CheckUserPlugin extends UserACLPlugin {
 
   public boolean hasRoleAdmin() {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
+    if(context == null) return false;
     return context.isUserInRole("admin");
   }
 

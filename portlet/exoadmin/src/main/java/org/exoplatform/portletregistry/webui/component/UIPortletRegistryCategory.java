@@ -131,22 +131,22 @@ public class UIPortletRegistryCategory extends UIContainer {
 
   static public class ImportCategoryActionListener extends EventListener<UIPortletRegistryCategory> {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception {
-      UIPortletRegistryCategory uiComp = event.getSource();
-      PortletContainerMonitor monitor = uiComp.getApplicationComponent(PortletContainerMonitor.class);
+      UIPortletRegistryCategory uiSource = event.getSource();
+      PortletContainerMonitor monitor = uiSource.getApplicationComponent(PortletContainerMonitor.class);
       Collection portletDatas = monitor.getPortletRuntimeDataMap().values();       
-      uiComp.initValues(portletDatas) ;     
+      uiSource.initValues(portletDatas) ;     
     }
   }
   
   static public class DeleteAllActionListener extends EventListener<UIPortletRegistryCategory> {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception{
-      UIPortletRegistryCategory uiComp = event.getSource();
-      PortletRegisteryService service = uiComp.getApplicationComponent(PortletRegisteryService.class);
-      List<PortletCategory> list = uiComp.getPortletCategory();
+      UIPortletRegistryCategory uiSource = event.getSource();
+      PortletRegisteryService service = uiSource.getApplicationComponent(PortletRegisteryService.class);
+      List<PortletCategory> list = uiSource.getPortletCategory();
       for(PortletCategory ele : list){
         service.removePortletCategory(ele.getId()) ;
       }
-      uiComp.initValues(null);
+      uiSource.initValues(null);
     }
   }
 

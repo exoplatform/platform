@@ -54,7 +54,7 @@ public class UserACL {
       iterator.remove();
     }
   }
-
+  
   public boolean hasPermission(String owner, String remoteUser, String expPerm) throws Exception {
     if(owner != null && owner.equals(remoteUser)) return true;
     if(userACLPlugin_ != null && userACLPlugin_.hasRoleAdmin()) return true;

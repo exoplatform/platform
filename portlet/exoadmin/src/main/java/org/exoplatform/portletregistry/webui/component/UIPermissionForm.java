@@ -7,6 +7,7 @@ package org.exoplatform.portletregistry.webui.component;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.services.portletregistery.Portlet;
+import org.exoplatform.services.portletregistery.PortletRegisteryService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormTabPane;
 import org.exoplatform.webui.component.UIPopupWindow;
@@ -65,12 +66,17 @@ public class UIPermissionForm extends UIFormTabPane{
     public void execute(Event<UIPermissionForm> event) throws Exception {
       UIPermissionForm  uiPermissionForm = event.getSource();
       UIWorkingArea uiWorkingArea = uiPermissionForm.getParent();
-      UIPortletRegistryPortlet uiPRegistryPortlet= uiWorkingArea.getParent();
-      UIPortletRegistryCategory uiPortletRegistryCategory = uiPRegistryPortlet.getChild(UIPortletRegistryCategory.class);
-      Portlet portletSelected = uiPortletRegistryCategory.getSelectedPortlet() ;
+      UIPortletRegistryPortlet uiRegistryPortlet= uiWorkingArea.getParent();
+      UIPortletRegistryCategory uiPortletRegistryCategory = uiRegistryPortlet.getChild(UIPortletRegistryCategory.class);
+      
+      Portlet selectedPortlet = uiPortletRegistryCategory.getSelectedPortlet() ;
       UIPermissionSelector uiPermissionSelector = uiPermissionForm.getChild(UIPermissionSelector.class);
       Permission permission = uiPermissionSelector.getPermission("ViewPermission");
-      portletSelected.setViewPermission(permission.getValue());      
+      selectedPortlet.setViewPermission(permission.getValue());    
+      
+      //save to database
+      PortletRegisteryService prService = uiPermissionForm.getApplicationComponent(PortletRegisteryService.class) ;
+      prService.updatePortlet(selectedPortlet);
     }
   }
 
