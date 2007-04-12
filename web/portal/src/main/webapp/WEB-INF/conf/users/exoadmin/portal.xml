@@ -14,12 +14,10 @@
 	    <show-info-bar>false</show-info-bar>
 	  </application>
 		
-	  <container template="war:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl">
-	    <application>
-	      <application-instance-id>exo:/web/NavigationPortlet/toolbar</application-instance-id>
-		    <show-info-bar>false</show-info-bar>
-		  </application>		 
-	  </container>
+		<application>
+      <application-instance-id>exo:/web/NavigationPortlet/toolbar</application-instance-id>
+	    <show-info-bar>false</show-info-bar>
+	  </application>
 	
 	  <application>
 	    <application-instance-id>exo:/web/BreadcumbsPortlet/breacumbs</application-instance-id>
