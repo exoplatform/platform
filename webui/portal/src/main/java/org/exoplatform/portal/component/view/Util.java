@@ -136,8 +136,8 @@ public class Util {
     return null;
   }
 
-  static public void findUIComponents(
-      UIComponent uiComponent, List<UIComponent> list,  Class clazz, Class ignoreClazz){
+  static public void findUIComponents(UIComponent uiComponent, 
+                                      List<UIComponent> list, Class clazz, Class ignoreClazz){
     if (clazz.isInstance(uiComponent)) list.add(uiComponent); 
     if(!(uiComponent instanceof UIContainer)) return ;
     List<UIComponent> children = ((UIContainer)uiComponent).getChildren();    
@@ -195,12 +195,10 @@ public class Util {
     UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
     
     UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-    UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-    pcontext.addUIComponentToUpdateByAjax(uiWorkingArea);
+    pcontext.addUIComponentToUpdateByAjax(uiControl);
     
     UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-    
+    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
     pcontext.setFullRender(true);
     return uiWorkingWS;
   }

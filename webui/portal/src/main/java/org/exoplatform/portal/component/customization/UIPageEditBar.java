@@ -7,7 +7,9 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
@@ -78,13 +80,17 @@ public class UIPageEditBar extends UIToolbar {
       uiEditBar.showUIPage();      
 
       UIPageManagement uiPManagement = uiEditBar.getParent();
-      Class [] childrenToRender = {UIPageEditBar.class, 
-                                   UIContainerConfigOptions.class, UIPageNavigationControlBar.class}; 
+      Class [] childrenToRender = {UIPageEditBar.class, UIContainerConfigOptions.class, UIPageNavigationControlBar.class}; 
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
-      Util.updateUIApplication(event);
+      
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      pcontext.addUIComponentToUpdateByAjax(uiPManagement);
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
+      pcontext.setFullRender(true);
     }
   }
-  
 
   static public class EditPortletActionListener  extends EventListener<UIPageEditBar> {
     public void execute(Event<UIPageEditBar> event) throws Exception {     
@@ -95,7 +101,13 @@ public class UIPageEditBar extends UIToolbar {
       Class [] childrenToRender = {UIPageEditBar.class, 
                                    UIPortletOptions.class, UIPageNavigationControlBar.class}; 
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
-      Util.updateUIApplication(event);
+      
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      pcontext.addUIComponentToUpdateByAjax(uiPManagement);
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
+      pcontext.setFullRender(true);
     }
   }
 
@@ -113,21 +125,6 @@ public class UIPageEditBar extends UIToolbar {
       uiMaskWS.setShow(true);
       
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event);  
-      
-    /*  UIPageEditBar uiEditBar = event.getSource();
-      uiEditBar.showUIPage();
-
-      UIPageManagement uiPManagement = uiEditBar.getParent();      
-      Class [] childrenToRender ={UIPageEditBar.class, 
-                                  UIPageNodeSelector.class , UIPageNavigationControlBar.class}; 
-      uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
-
-      UIPageForm uiPageForm =  Util.showComponentOnWorking(event.getSource(), UIPageForm.class);
-      uiPageForm.removeChild(UIPageTemplateOptions.class);
-      uiPageForm.setValues(uiEditBar.getUIPage());
-
-      Util.updateUIApplication(event);*/
     }
   }
 
@@ -137,6 +134,7 @@ public class UIPageEditBar extends UIToolbar {
     PortalDAO dataService = getApplicationComponent(PortalDAO.class);
     dataService.savePage(page); 
   }
+  
   static public class SavePageActionListener  extends EventListener<UIPageEditBar> {
     public void execute(Event<UIPageEditBar> event) throws Exception {
       UIPageEditBar uiEditBar = event.getSource();

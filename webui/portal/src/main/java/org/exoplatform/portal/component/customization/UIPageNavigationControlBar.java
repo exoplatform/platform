@@ -20,7 +20,6 @@ import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIToolbar;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -44,11 +43,11 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIPageNavigationControlBar.RollbackActionListener.class),
         @EventConfig(listeners = UIPageNavigationControlBar.AbortActionListener.class),
         @EventConfig(listeners = UIPageNavigationControlBar.FinishActionListener.class)        
-      }
+    }
 )
 
 public class UIPageNavigationControlBar extends UIToolbar {
-  
+
   public UIPageNavigationControlBar() throws Exception {
     setToolbarStyle("ControlToolbar") ;
     setJavascript("Preview","onClick='eXo.portal.UIPortal.switchMode(this);'") ;
@@ -57,79 +56,77 @@ public class UIPageNavigationControlBar extends UIToolbar {
   static public class RollbackActionListener extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
       UIPageNavigationControlBar uiPageNav = event.getSource();
-      
       UIPortalApplication uiPortalApp = uiPageNav.getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
 
       UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
       PortalRequestContext prcontext = Util.getPortalRequestContext();
+
+      UIPortal oldUIPortal = Util.getUIPortal();
       String remoteUser = prcontext.getRemoteUser();
-      String ownerUser = prcontext.getPortalOwner();
+      String ownerUser = oldUIPortal.getOwner();
+
       UserPortalConfig userPortalConfig = configService.computeUserPortalConfig(ownerUser, remoteUser);
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prcontext, UIPortal.class, null, null);
       PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig, true);
-
-      UIPortal oldUIPortal = uiWorkingWS.getChild(UIPortal.class);
       oldUIPortal.setNavigation(uiPortal.getNavigations());
 
       UIPageNodeSelector uiPageNodeSelector = uiPageNav.<UIContainer>getParent().findFirstComponentOfType(UIPageNodeSelector.class);
       uiPageNodeSelector.loadNavigations();
 
-      uiWorkingWS.setRenderedChild(UIPortal.class);
-
-      Util.updateUIApplication(event);
+      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiControl);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
     }
   }
-  
+
   static public class BackActionListener extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-     
+      UIPageNavigationControlBar uiPageNav = event.getSource();
+      UIPageManagement uiManagement = uiPageNav.getParent();
+      UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
+      Class [] childrenToRender = null;
+      if(uiPageEditBar.isRendered()) {
+        childrenToRender = new Class[]{UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};
+      } else {
+        childrenToRender = new Class[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
+      }
+      uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
     }
   }
-  
+
   static public class SeparateLineActionListener extends EventListener<UIPageNavigationControlBar> {
+    @SuppressWarnings("unchecked")
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-      
+
     }
   }
-  
+
   static public class EditNavigationActionListener extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {     
       UIPageNavigationControlBar bar = event.getSource();
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
-      
+
       UIPageNavigationForm navigationForm = uiMaskWS.createUIComponent(UIPageNavigationForm.class, null, null);
       UIPageManagement management = bar.getParent();
       UIPageNodeSelector uiNavigationSelector = management.findFirstComponentOfType(UIPageNodeSelector.class);      
       navigationForm.setValues(uiNavigationSelector.getSelectedNavigation());
-     
       uiMaskWS.setUIComponent(navigationForm);      
-      
       uiMaskWS.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event);     
-      
-/*      UIPageNavigationControlBar uiManagement = event.getSource();
-      UIPageManagement management = uiManagement.getParent();
-      Util.updateUIApplication(event); 
-      UIPageNodeSelector uiNavigationSelector = management.findFirstComponentOfType(UIPageNodeSelector.class);
-      if(uiNavigationSelector.getSelectedNavigation() == null) return;
-      management.setRenderedChild(UIPageNodeSelector.class);
-      UIPageNavigationForm uiNavigationForm =
-        Util.showComponentOnWorking(event.getSource(), UIPageNavigationForm.class);      
-      uiNavigationForm.setValues(uiNavigationSelector.getSelectedNavigation());*/
     }
   }
-  
+
   static public class SaveNavigationActionListener extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-      UIPageNavigationControlBar uiManagement = event.getSource();
-      uiManagement.saveNavigation(event);
+      UIPageNavigationControlBar uiControlBar = event.getSource();
+      uiControlBar.saveNavigation(event);
     }
   }
-  
+
   static public class FinishActionListener  extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
       UIPageManagement uiPageManagement = event.getSource().getParent(); 
@@ -139,42 +136,38 @@ public class UIPageNavigationControlBar extends UIToolbar {
       event.getSource().abort(event);
     }
   }
-  
+
   static public class AbortActionListener  extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-      UIPageNavigationControlBar uiPageManagement = event.getSource(); 
-      uiPageManagement.abort(event);
+      UIPageNavigationControlBar uiControlBar = event.getSource(); 
+      uiControlBar.abort(event);
     }
-}
+  }
 
   public void saveNavigation(Event<UIPageNavigationControlBar> event) throws Exception {
-    UIPortal uiPortal = Util.getUIPortal();
-    List<PageNavigation> navs = uiPortal.getNavigations();
-    PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
+    UIPageNavigationControlBar uiPageNav = event.getSource();
+    UIPageManagement uiManagement = uiPageNav.getParent();
+    UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
+
+    List<PageNavigation> navs = uiNodeSelector.getNavigations();
+    PortalDAO dataService = uiManagement.getApplicationComponent(PortalDAO.class);
     for(PageNavigation nav : navs){
       dataService.savePageNavigation(nav);        
     }
-    
+    Util.getUIPortal().setNavigation(navs);
+  }
+
+  public void abort(Event<UIPageNavigationControlBar> event) throws Exception {
     PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
     UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-    
-    UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-    UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-    pcontext.addUIComponentToUpdateByAjax(uiWorkingArea);
-  }
-  
-  public void abort(Event<UIPageNavigationControlBar> event) throws Exception {
-    UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
     UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-    PortalRequestContext prContext = Util.getPortalRequestContext();  
-    uiWorkingWS.setRenderedChild(UIPortal.class) ;
-    
     UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+
     UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
     uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
-    prContext.addUIComponentToUpdateByAjax(uiControl);
-    
-    prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
-    prContext.setFullRender(true); 
+    uiWorkingWS.setRenderedChild(UIPortal.class) ;
+
+    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
+    pcontext.addUIComponentToUpdateByAjax(uiControl);
   }
 }

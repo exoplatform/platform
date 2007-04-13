@@ -109,7 +109,7 @@ public class UIPageNodeSelector extends UIContainer {
     for(PageNavigation nav  : pnavigations){
       String permission = nav.getEditPermission();
       if(userACL.hasPermission(nav.getOwner(), remoteUser, permission)){
-        navigations_.add(nav);
+        navigations_.add(cloneNavigation(nav));
       }
     }
     
@@ -117,6 +117,44 @@ public class UIPageNodeSelector extends UIContainer {
     selectedNavigation = navigations_.get(0);
     UITree tree = getChild(UITree.class);
     tree.setSibbling(selectedNavigation.getNodes());   
+  }
+  
+  private PageNavigation cloneNavigation(PageNavigation nav) {
+    PageNavigation newNav = new PageNavigation();
+    newNav.setOwner(nav.getOwner());
+    newNav.setPriority(nav.getPriority());
+    newNav.setAccessPermission(nav.getAccessPermission());
+    newNav.setEditPermission(nav.getEditPermission());
+    newNav.setModifiable(nav.getModifiable());
+    newNav.setDescription(nav.getDescription());
+    
+    List<PageNode> children = nav.getNodes();
+    if(children == null || children.size() < 1) return newNav;
+    for(PageNode ele : children) {
+      newNav.getNodes().add(cloneNode(ele));
+    }
+    return newNav;
+  }
+  
+  private PageNode cloneNode(PageNode node) {
+    PageNode newNode = new PageNode() ;
+    newNode.setUri(node.getUri());
+    newNode.setName(node.getName());
+    newNode.setLabel(node.getLabel());
+    newNode.setIcon(node.getIcon());
+    newNode.setAccessPermission(node.getAccessPermission());
+    newNode.setPageReference(node.getPageReference());
+    newNode.setDescription(node.getDescription());
+    newNode.setType(node.getType());
+    newNode.setCreator(node.getCreator());
+    newNode.setModifier(node.getModifier());
+    newNode.setModifiable(node.isModifiable());
+    List<PageNode> children = node.getChildren();
+    if(children == null || children.size() < 1) return newNode;
+    for(PageNode ele : children) {
+      newNode.getChildren().add(cloneNode(ele));
+    }
+    return newNode;
   }
   
   public void selectNavigation(String owner){    

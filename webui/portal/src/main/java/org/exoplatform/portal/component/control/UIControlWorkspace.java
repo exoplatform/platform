@@ -31,6 +31,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfigs;
   )
 })
 public class UIControlWorkspace extends UIWorkspace {
+  
   public  static String WORKING_AREA_ID = "UIControlWSWorkingArea" ;
 
   public UIControlWorkspace() throws Exception {
