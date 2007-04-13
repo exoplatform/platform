@@ -1,8 +1,5 @@
 .UIPageIterator {    
   margin-top: 3px ;
-  margin-left: auto ;
-  border: 1px solid #afafaf;
-  background: #f4f4f4;
 }
 
 .UIPageIterator .PageIteratorContainer {    
@@ -21,10 +18,15 @@
   float: right ;
 }
 
+.UIPageIterator .PageIteratorContainer .RightPageIteratorBlock a:hover{    
+   background: url('MacSkin/background/HoverBorder.gif') no-repeat top;
+   width: 18px; height: 17px;
+}
+
 .UIPageIterator .Icon {
   float: left ;
   margin: 4px 5px 0px 5px ;
-  width: 17px ;  height: 17px ;
+  width: 18px ;  height: 17px ;
 }
 
 .UIPageIterator .TotalPages {
@@ -42,27 +44,23 @@
 
 .UIPageIterator .LastTopPageIcon {
   vertical-align: middle ;
-  background: url('MacSkin/background/DoubleArrowLeft.gif') no-repeat ;
+  background: url('MacSkin/background/DoubleBackArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .NextTopPageIcon {
-  background: url('MacSkin/background/DoubleArrowRight.gif') no-repeat ;
+  background: url('MacSkin/background/DoubleNextArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
  .UIPageIterator .LastPageIcon {
-  background: url('MacSkin/background/SingleArrowLeft.gif') no-repeat ;
+  background: url('MacSkin/background/SingleBackArrow.gif') no-repeat ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .NextPageIcon {
-  background: url('MacSkin/background/SingleArrowRight.gif') no-repeat ;
+  background: url('MacSkin/background/SingleNextArrow.gif') no-repeat ;
   cursor: pointer ;
-}
-
-.UIPageIterator .Text {
-  padding-left: 10px ; 
 }
 
 .UIPageIterator .Number {
@@ -72,17 +70,21 @@
 }
 
 .UIPageIterator .Number a.PageSelected {
-  color: red;
+  color: #F58C04;
   font-weight: bold;
+  border: 1px solid #F58C04;
 }
 
 .UIPageIterator .Number a {
   margin: 0px 2px 0px 2px ;
   padding: 0px 4px 0px 4px ;
   color: #333333 ;
-  border: 1px solid #dddddd;
+  border: 1px solid #dfdfdf;
+  background: url('MacSkin/background/NumberBackground1x15.gif') repeat-x top;
 }
 
 .UIPageIterator .Number a:hover {
-  color: blue ;
+  color: #0585D7 ;
+  border: 1px solid #0585D7;
+  background:white;
 }
