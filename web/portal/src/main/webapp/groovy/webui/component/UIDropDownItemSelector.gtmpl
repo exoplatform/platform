@@ -19,11 +19,11 @@
 
 <div class="UIDropDownItemSelector">
 	<div class="ItemSelectorContainer">
-	  <% if( uicomponent.isEnable()){%>
+	  <%if(uicomponent.isEnable()){%>
 	  	<div class="ItemInfoBar" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
-		<% } else { %>
+		<%} else {%>
 	  	<div class="ItemInfoBarDisable" >
-		<% } %>
+		<%}%>
 		  <div class="LeftItemInfoBar">
 		  	<div class="RightItemInfoBar">
 		  		<div class="MiddleItemInfoBar" title="Click Show List" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
@@ -33,7 +33,9 @@
 		  			     title = uicomponent.getTitle();
 		  			   } 
 		  			%>
-		  			<div class="SelectedItemLabel" style="overflow: hidden; width: 70%;"><%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.title")%></div>
+		  			<div class="SelectedItemLabel" style="overflow: hidden; width: 70%;">
+		  			  <%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.title")%>
+		  			</div>
 		  			<div class="DropDownSelectIcon"><span></span></div>
 		  			<div style="clear: left"><span></span></div>
 				  </div>
@@ -50,17 +52,17 @@
 		</div>
 		<div class="MLItemSelector">
 			<div class="MRItemSelector">
-			  <%  if(maxShow < size) { %>
+			  <%if(maxShow < size) {%>
 			    <div class="ItemSelector">
 						<div class="Icon"><span></span></div>
             <div class="ItemSelectorLabel">up</div>
             <div style="clear: left"><span></span></div>
 					</div>
-      	<% }%>
+      	<%}%>
 			  <% for(option in options) {
 			    String label = option.getLabel();
 			    
-			    jsmanager.addJavascript("eXo.env.server.label = '" + label + "';" + 
+			    jsmanager.addJavascript("eXo.env.server.label = '" + option.getValue() + "';" + 
 		                              "eXo.env.server.onChange = '" + action + "';" +
 		                              "eXo.env.server.onServer = '" + onServer + "';" +
 		                              "eXo.env.server.form = '" + form + "';");
@@ -68,23 +70,21 @@
 			    
 					<div class="ItemSelector">
 						<div class="Icon"><span></span></div>
-						<% 
-						if(action != null) {%>
+						<%if(action != null) {%>
               <div class="ItemSelectorLabel" id="$label" title="$action"><%=label%></div>
-            <% } else { %>
-              <div class="ItemSelectorLabel" id="$label"><%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + label)%></div>
-            <% } %>
+            <%} else {%>
+              <div class="ItemSelectorLabel" id="$label">$label</div>
+            <%}%>
             <div style="clear: left"><span></span></div>
 					</div>
-				<% } %>
-				<% 
-		    if(maxShow < size) { %>
+				<%}%>
+				<%if(maxShow < size) { %>
 			    <div class="ItemSelector">
 						<div class="Icon"><span></span></div>
             <div class="ItemSelectorLabel">down</div>
             <div style="clear: left"><span></span></div>
 					</div>
-		    <% }%>					
+		    <%}%>					
 			</div>
 		</div>
 		<div class="BLItemSelector">

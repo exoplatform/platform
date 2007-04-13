@@ -29,7 +29,7 @@
   }
   
   void renderPageNode(PageNode node) {
-      String  href = uicomponent.event("ChangePage",  node.getUri()) ;
+     String  href = uicomponent.event("ChangePage",  node.getUri()) ;
      print """
       <div class="MenuItem">
         <div class="LabelItem">

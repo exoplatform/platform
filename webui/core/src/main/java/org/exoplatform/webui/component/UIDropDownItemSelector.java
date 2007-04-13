@@ -89,7 +89,7 @@ public class UIDropDownItemSelector extends UIComponent {
   public void setOptions(List<SelectItemOption<String>> options) { 
     options_ = options ; 
     if(options != null) size_ = options.size();  
-  } 
+  }  
  
   public void setEnabled(boolean enable) { isEnable_ = enable; }
   public boolean isEnable() {return isEnable_; }
@@ -101,4 +101,5 @@ public class UIDropDownItemSelector extends UIComponent {
   public void setSelected(int i) {
     selected_ = options_.get(i);
   }
+  
 }

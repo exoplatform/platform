@@ -123,7 +123,6 @@ public class UIPortletForm extends UIFormTabPane {
       Application portlet = new Application() ;
       UIFormInputIconSelector uiIconSelector = uiPortletForm.getChild(UIFormInputIconSelector.class);
       portlet.setIcon(uiIconSelector.getSelectedIcon());
-      System.out.println("\n\n\n\n == > "+ uiIconSelector.getSelectedIcon()+"\n\n\n");
       uiPortletForm.invokeSetBindingBean(portlet) ;
       PortalDataModelUtil.toUIPortlet(uiPortlet, portlet);
       

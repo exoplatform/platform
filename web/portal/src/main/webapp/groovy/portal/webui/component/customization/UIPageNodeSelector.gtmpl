@@ -26,20 +26,20 @@
 		  <%/*Begin PageNodeSelectorContainer*/%>
 		  <div class="UIContainerConfigOptions ItemSelectorAncestor"> 
 		  <div class="ContainerConfigOptions"> 
-		<%  uicomponent.renderChild(UIDropDownItemSelector.class); %>	
-		<% /*************************************************************/ %>
-				<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
-				<%
-				  if(navigations != null) {
-		    	  for(nav in navigations) {
-						  if(selectedNav != null && nav == selectedNav) {
-							  uicomponent.renderChild(UITree.class);
-					    }
-		   		  }
-		   	  }
-				%>
-				</div>
-		<% /*************************************************************/ %>
+			<%uicomponent.renderChild(UIDropDownItemSelector.class);%>	
+			<% /*************************************************************/ %>
+					<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
+					<%
+					  if(navigations != null) {
+			    	  for(nav in navigations) {
+							  if(selectedNav != null && nav == selectedNav) {
+								  uicomponent.renderChild(UITree.class);
+						    }
+			   		  }
+			   	  }
+					%>
+					</div>
+			<% /*************************************************************/ %>
 			</div>
 			</div>
 		</div>

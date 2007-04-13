@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view.listener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.component.UIPortalApplication;
@@ -136,9 +137,32 @@ public class UIPageNodeActionListener {
       UIPageNodeForm uiNodeForm = uiMaskWS.createUIComponent(UIPageNodeForm.class, null, null);
       uiMaskWS.setUIComponent(uiNodeForm);
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      uiNodeForm.setValues(uiPageNodeSelector.findPageNodeByUri(uri));
-      uiNodeForm.setSelectedParent(null);
+      List<PageNode> pageNodes = uiPageNodeSelector.getSelectedNavigation().getNodes();
+      List<Object> list = new ArrayList<Object>(2);
+      list.add(uiPageNodeSelector.getSelectedNavigation());
+      list.add(null);
+      for(PageNode pageNode : pageNodes) {
+        findPageNodeByUri(pageNode, list, uri);
+      }
+      if(list.get(1) == null && pageNodes.size() > 0) list.set(1, pageNodes.get(0));  
+      uiNodeForm.setValues((PageNode)list.get(1));
+      uiNodeForm.setSelectedParent(list.get(0));
       uiMaskWS.setShow(true);
+    }
+    
+    private PageNode findPageNodeByUri(PageNode pageNode, List<Object> list, String uri){
+      if(pageNode.getUri().equals(uri)) {
+        list.set(1, pageNode);
+        return pageNode;
+      }
+      List<PageNode> children = pageNode.getChildren();
+      if(children == null) return null;
+      for(PageNode ele : children){
+        PageNode returnPageNode = findPageNodeByUri(ele, list, uri);
+        if(returnPageNode == null) continue;
+        list.set(0, pageNode);
+      }
+      return null; 
     }
   }
 

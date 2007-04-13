@@ -77,13 +77,12 @@ public class UIPageNodeSelector extends UIContainer {
   public PageNode getCopyPasteNote() { return copyNode_ ; } 
   
   private String upLevelURI ;
-  public String getlungtung(){return "lontungpheo";}
 
 	public UIPageNodeSelector() throws Exception {    
     addChild(UIBreadcumbs.class, null, null).setRendered(false);  
-    UIDropDownItemSelector dropCategorys = addChild(UIDropDownItemSelector.class, null, null);
-    dropCategorys.setTitle("Select Navigations");
-    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
+    UIDropDownItemSelector uiDopDownSelector = addChild(UIDropDownItemSelector.class, null, null);
+    uiDopDownSelector.setTitle("Select Navigations");
+    
     UITree uiTree = addChild(UITree.class, null, "TreePageSelector");    
     uiTree.setIcon("Icon NavigationPortalIcon");    
     uiTree.setSelectedIcon("Icon NavigationPortalIcon");
@@ -93,9 +92,12 @@ public class UIPageNodeSelector extends UIContainer {
     uiTree.setUIRightClickPopupMenu(uiPopupMenu);
     
     loadNavigations();
+    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     for(PageNavigation navigation: navigations_) {
-      options.add(new SelectItemOption<String>(navigation.getOwner() + "'s Navigation Tree"));
+      String label = navigation.getOwner() + "'s Nav";
+      options.add(new SelectItemOption<String>(label, navigation.getOwner()));
     }
+    uiDopDownSelector.setOptions(options);
 	}
   
   public void loadNavigations() throws Exception {
@@ -199,7 +201,7 @@ public class UIPageNodeSelector extends UIContainer {
     return findPageNodeByUri(selectedNavigation, uri, getChild(UITree.class));
   }
   
-  public PageNavigation getPageNavigation(){return selectedNavigation; }
+  public PageNavigation getPageNavigation(){ return selectedNavigation; }
   
   private PageNode findPageNodeByUri(PageNode pageNode, String uri, UITree tree){
     if(pageNode.getUri().equals(uri)) return pageNode;
@@ -216,7 +218,10 @@ public class UIPageNodeSelector extends UIContainer {
     return null;
   }
   
-  public List<PageNavigation> getNavigations() {  return navigations_;  }
+  public List<PageNavigation> getNavigations() { 
+    if(navigations_ == null) navigations_ = new ArrayList<PageNavigation>();    
+    return navigations_;  
+  }
   
   public PageNavigation getSelectedNavigation(){ return selectedNavigation; }  
   public void setSelectedNavigation(PageNavigation nav){ selectedNavigation = nav; }  
