@@ -151,7 +151,13 @@
 		              <div style="clear: left"><span></span></div>  
 		            </div>
 		            <div class="WindowPortletInfo">
-		              <div class="Icon ${uicomponent.getIcon()}"><span></span></div>
+		            	<%
+		            		String iconType = uicomponent.getIcon();
+		            		if(iconType == null) {
+		            			iconType = title + "Icon";
+		            		}
+		            	%>
+		              <div class="Icon ${iconType}"><span></span></div>
 		              <div class="PortletName">$title</div>
 		              <div style="clear: left"><span></span></div>
 		            </div>

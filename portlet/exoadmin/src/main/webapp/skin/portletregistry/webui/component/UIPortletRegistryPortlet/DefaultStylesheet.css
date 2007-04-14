@@ -148,6 +148,7 @@
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormWithTitle {
   margin: auto;
+  width: 100%;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormWithTitle .UIAction{
@@ -155,9 +156,13 @@
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid {
-  width: 100%;
-  border:none;
-  border-bottom: 1px solid #7eaad0; border-top: 1px solid #7eaad0;
+  width: 99%;
+  border: 1px solid #7eaad0;
+}
+
+.UIPortletRegistryPortlet .UIGrid input {
+	margin: auto;
+	width: 92%;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIDescription{
