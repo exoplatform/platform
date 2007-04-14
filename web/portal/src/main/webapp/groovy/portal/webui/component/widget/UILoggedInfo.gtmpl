@@ -41,7 +41,7 @@
 								<%} else {%>
 								<%}%>
 							</div>
-							<div class="LabelSignout" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
+							<div class="LabelSignout" title="Sign Out" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
 								<%=_ctx.appRes("UILogged.action.signout")%>
 							</div>
 						</div>

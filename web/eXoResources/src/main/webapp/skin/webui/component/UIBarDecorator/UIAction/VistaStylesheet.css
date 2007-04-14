@@ -27,6 +27,9 @@
   color: #058ee6;
 }
 
+.UIAction .ActionButton .Icon {
+	float: left;
+} 
 /*##############################-Disabled ActionButton-################################*/
 .UIAction .ActionButton .DisabledStyle {
 }

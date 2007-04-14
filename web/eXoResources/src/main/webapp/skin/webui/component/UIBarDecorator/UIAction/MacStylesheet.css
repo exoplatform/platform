@@ -26,6 +26,9 @@
   color: white;
 }
 
+.UIAction .ActionButton .Icon {
+	float: left;
+} 
 /*##############################-LightBlueStyle ActionButton-################################*/
 .UIAction .ActionButton .LightBlueStyle {
 }
