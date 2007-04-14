@@ -120,7 +120,7 @@
 													       	<a href="<%=uicomponent.event("ShowPortlet", portletId)%>" class="$pLabel">
 														        <%=portlet.getPortletName()%>
 														      </a>
-														      <div class="$pButton" href="<%=uicomponent.event("ShowPortlet", portletId)%>"><span></span></div>
+														      <a class="$pButton" href="<%=uicomponent.event("ShowPortlet", portletId)%>"><span></span></a>
 														     </div>
 												      </div>
 											      </div>
