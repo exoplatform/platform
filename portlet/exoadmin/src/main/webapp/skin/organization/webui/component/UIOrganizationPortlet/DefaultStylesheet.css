@@ -4,8 +4,13 @@
   overflow: auto ;
 }
 
+
 .UIOrganizationPortlet .OrganizationPortletContainer {
   padding: 5px 8px ;
+}
+
+.UIWindow .OrganizationIcon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/AddNodeIcon.gif') no-repeat center;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {
