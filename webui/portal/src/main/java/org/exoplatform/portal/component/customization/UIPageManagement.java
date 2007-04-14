@@ -13,6 +13,7 @@ import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIRightClickPopupMenu;
+import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.event.Event;
 
@@ -63,7 +64,8 @@ public class UIPageManagement extends UIManagement {
     mode_ = mode;
     if (mode == ManagementMode.EDIT) {
       UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
-      UIRightClickPopupMenu uiPopupMenu = uiNodeSelector.findFirstComponentOfType(UIRightClickPopupMenu.class);
+      UITree uiTree = uiNodeSelector.getChild(UITree.class);
+      UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);
       uiPopupMenu.createEvent("EditPageNode", event.getExecutionPhase(), event.getRequestContext()).broadcast();
       getChild(UIDescription.class).setRendered(false);
       return;

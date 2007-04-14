@@ -1,6 +1,7 @@
 <% 
   import org.exoplatform.webui.component.UITree ; 
   import org.exoplatform.webui.component.UIDropDownItemSelector;  
+  import org.exoplatform.webui.component.UIRightClickPopupMenu ;
 
   def rcontext = _ctx.getRequestContext() ;
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory');  
@@ -13,13 +14,26 @@
   String onMouseOver 		= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
   String onMouseOut			= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
   String selectCategory		= "eXo.webui.UIPopupSelectCategory.selectdCategory(this);" ;
+  
+  UIRightClickPopupMenu uiPopupMenu = uicomponent.getChild(UIRightClickPopupMenu.class);
+  String newNodePopupMenu = "";
+  if(uiPopupMenu != null) {
+    String id = uicomponent.getParent().getId();
+  
+  	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIRightClickPopupMenu') ;
+  	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
+  	
+    uicomponent.renderUIComponent(uiPopupMenu) ;
+     
+    newNodePopupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode");
+  }
 %>
 <div class="TopLeftContainerOptions">
 	<div class="TopRightContainerOptions">
   	<div class="TopCenterContainerOptions"><span></span></div>
   </div>
 </div>
-<div class="MiddleLeftContainerOptions">
+<div class="MiddleLeftContainerOptions" $newNodePopupMenu >
 	<div class="MiddleRightContainerOptions">
 		<div class="UIPageNodeSelector" id="UIPageNodeSelector">
 		  
@@ -28,17 +42,17 @@
 		  <div class="ContainerConfigOptions"> 
 			<%uicomponent.renderChild(UIDropDownItemSelector.class);%>	
 			<% /*************************************************************/ %>
-					<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
-					<%
-					  if(navigations != null) {
-			    	  for(nav in navigations) {
-							  if(selectedNav != null && nav == selectedNav) {
-								  uicomponent.renderChild(UITree.class);
-						    }
-			   		  }
-			   	  }
-					%>
-					</div>
+			<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
+			<%
+			  if(navigations != null) {
+	    	  for(nav in navigations) {
+					  if(selectedNav != null && nav == selectedNav) {
+						  uicomponent.renderChild(UITree.class);
+				    }
+	   		  }
+	   	  }
+			%>
+			</div>
 			<% /*************************************************************/ %>
 			</div>
 			</div>

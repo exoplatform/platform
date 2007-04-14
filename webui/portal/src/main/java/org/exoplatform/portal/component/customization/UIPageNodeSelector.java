@@ -51,8 +51,8 @@ import org.exoplatform.webui.event.EventListener;
       }
   ),
   @ComponentConfig(
-      type = UIRightClickPopupMenu.class,
       id = "PageNodePopupMenu",
+      type = UIRightClickPopupMenu.class,
       template = "system:/groovy/webui/component/UIRightClickPopupMenu.gtmpl",
       events = {
         @EventConfig(listeners = AddNodeActionListener.class),
@@ -62,6 +62,12 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = PasteNodeActionListener.class),
         @EventConfig(listeners = DeleteNodeActionListener.class)
       }
+  ),
+  @ComponentConfig(
+      id = "UIPageNodeSelectorPopupMenu",
+      type = UIRightClickPopupMenu.class,
+      template = "system:/groovy/webui/component/UIRightClickPopupMenu.gtmpl",
+      events = @EventConfig(listeners = AddNodeActionListener.class)      
   )
 })
 
@@ -73,12 +79,15 @@ public class UIPageNodeSelector extends UIContainer {
   
   private PageNode copyNode_;
   
+  private UIRightClickPopupMenu uiNewNodePopupMenu_;
+  
   public void setCopyPageNote(PageNode note) {  copyNode_ = note ; }
   public PageNode getCopyPasteNote() { return copyNode_ ; } 
   
   private String upLevelURI ;
 
 	public UIPageNodeSelector() throws Exception {    
+    addChild(UIRightClickPopupMenu.class, "UIPageNodeSelectorPopupMenu", null).setRendered(false);  
     addChild(UIBreadcumbs.class, null, null).setRendered(false);  
     UIDropDownItemSelector uiDopDownSelector = addChild(UIDropDownItemSelector.class, null, null);
     uiDopDownSelector.setTitle("Select Navigations");
@@ -191,6 +200,8 @@ public class UIPageNodeSelector extends UIContainer {
   public PageNode getSelectedPageNode() { return selectedPageNode; }
   
   public String getUpLevelUri () { return upLevelURI ; }
+  
+  public UIRightClickPopupMenu getUIRightClickPopupMenu() { return uiNewNodePopupMenu_; }
    
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {      

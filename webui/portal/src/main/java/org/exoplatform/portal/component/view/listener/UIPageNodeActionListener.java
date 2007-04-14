@@ -42,25 +42,39 @@ public class UIPageNodeActionListener {
   static public class AddNodeActionListener  extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {           
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      UIRightClickPopupMenu popupMenu = event.getSource();
-      UIComponent parent = popupMenu.getParent();
-      UIPageNodeSelector uiPageNodeSelector = parent.getParent();
+      UIRightClickPopupMenu uiMenu = event.getSource();
+      UIPageNodeSelector uiPageNodeSelector = uiMenu.getAncestorOfType(UIPageNodeSelector.class);
       
       UIPortalApplication uiApp = uiPageNodeSelector.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.<UIPageManagement>getParent());
-      
-      UIPageNodeForm uiPageNodeForm = uiMaskWS.createUIComponent(UIPageNodeForm.class, null, null);
-      uiPageNodeForm.setValues(null);
-      uiMaskWS.setUIComponent(uiPageNodeForm);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
+      UIPageNodeForm uiNodeForm = uiMaskWS.createUIComponent(UIPageNodeForm.class, null, null);
+      uiNodeForm.setValues(null);
+      uiMaskWS.setUIComponent(uiNodeForm);
       uiMaskWS.setShow(true);
       
-      if(uiPageNodeSelector.getSelectedPageNode() == null){
-        uiPageNodeForm.setSelectedParent(uiPageNodeSelector.findPageNodeByUri(uri));
-        return; 
+      Object parent = null;
+      List<PageNode> pageNodes = uiPageNodeSelector.getSelectedNavigation().getNodes();
+      if(uri != null && uri.trim().length() > 0) { 
+        for(PageNode pageNode : pageNodes) {
+          parent = findPageNodeByUri(pageNode, uri);
+          if(parent != null) break;
+        }
       }
-      uiPageNodeForm.setSelectedParent(uiPageNodeSelector.findPageNodeByUri(uri));
+      if(parent == null) parent = uiPageNodeSelector.getSelectedNavigation();      
+      uiNodeForm.setSelectedParent(parent);
+    }
+    
+    private PageNode findPageNodeByUri(PageNode pageNode, String uri){
+      if(pageNode.getUri().equals(uri)) return pageNode;
+      List<PageNode> children = pageNode.getChildren();
+      if(children == null) return null;
+      for(PageNode ele : children){
+        PageNode returnPageNode = findPageNodeByUri(ele, uri);
+        if(returnPageNode != null) return returnPageNode;
+      }
+      return null; 
     }
   } 
 
@@ -142,7 +156,7 @@ public class UIPageNodeActionListener {
       list.add(uiPageNodeSelector.getSelectedNavigation());
       list.add(null);
       for(PageNode pageNode : pageNodes) {
-        findPageNodeByUri(pageNode, list, uri);
+        if(findPageNodeByUri(pageNode, list, uri) != null) break;
       }
       if(list.get(1) == null && pageNodes.size() > 0) list.set(1, pageNodes.get(0));  
       uiNodeForm.setValues((PageNode)list.get(1));

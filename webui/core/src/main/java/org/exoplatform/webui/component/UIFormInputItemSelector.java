@@ -36,7 +36,7 @@ public class UIFormInputItemSelector extends UIFormInputBase<Object> {
   public void setItemCategories(List<SelectItemCategory> categories) {     
     categories_ = categories ;   
     boolean selected = false;
-    for(SelectItemCategory ele :  categories){
+    for(SelectItemCategory ele : categories){
       if(ele.isSelected()){
         if(selected)  ele.setSelected(false);
         else selected = true;
@@ -86,7 +86,8 @@ public class UIFormInputItemSelector extends UIFormInputBase<Object> {
     if(getSelectedCategory() == null ||
         getSelectedCategory().getSelectedItemOption() == null ||
         getSelectedCategory().getSelectedItemOption().getValue() == null
-    ) return typeValue_;
+    ) 
+    return typeValue_;
     return getSelectedCategory().getSelectedItemOption().getValue().getClass();
   }
   

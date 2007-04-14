@@ -118,7 +118,7 @@ public class UIPageNodeForm extends UIFormTabPane {
     UIPopupWindow uiPopupPermission = uiPermissionSelector.getChild(UIPopupWindow.class);
     uiPopupPermission.processRender(context);
   }
-
+  
   static public class SaveActionListener extends EventListener<UIPageNodeForm> {
     public void execute(Event<UIPageNodeForm> event) throws Exception {
       UIPageNodeForm uiPageNodeForm = event.getSource();
