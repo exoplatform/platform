@@ -11,7 +11,6 @@ import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
-import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.Query;
@@ -22,6 +21,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
+import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -157,41 +157,51 @@ public class UIPageBrowser extends UISearch {
   static public class EditInfoActionListener extends EventListener<UIPageBrowser> {    
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPageBrowser uiPageBrowser = event.getSource();
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext(); 
       
-      String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      PortalDAO service = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
-      Page page = service.getPage(id) ;
+      String id = pcontext.getRequestParameter(OBJECTID) ;
+      PortalDAO dao = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
+      Page page = dao.getPage(id) ;
       
-      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
-      String accessUser = Util.getPortalRequestContext().getRemoteUser();     
-      if(page == null || !userACL.hasPermission(page.getOwner(), accessUser, page.getEditPermission())){
+      
+      UIPortalApplication uiApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);      
+      
+      if(page == null) {
+        uiApp.addMessage(new ApplicationMessage("Page isn't exists", new Object[]{}));
         return;
       }
       
-      UIPage uiPage =  uiPageBrowser.createUIComponent(event.getRequestContext(),UIPage.class,null,null) ;
+      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
+      String accessUser = pcontext.getRemoteUser();     
+      String editPermission = page.getEditPermission();
+      
+      if(!userACL.hasPermission(page.getOwner(), accessUser, editPermission)) {
+        uiApp.addMessage(new ApplicationMessage("Edit Permission wasn't allow !", new Object[]{page.getName()}));
+        return ;
+      }
+      
+      UIPage uiPage =  uiPageBrowser.createUIComponent(pcontext, UIPage.class, null, null) ;
       PortalDataModelUtil.toUIPage(uiPage, page, true);
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
-    
+      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
       uiPageForm.setValues(uiPage);
       uiMaskWS.setUIComponent(uiPageForm);
       uiMaskWS.setShow(true);
-      
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
   
   static public class PreviewActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPageBrowser uiPageBrowser = event.getSource() ;      
-      String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext(); 
+      String id = pcontext.getRequestParameter(OBJECTID) ;
       PortalDAO service = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
       Page page = service.getPage(id) ;
       
       UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
-      String accessUser = Util.getPortalRequestContext().getRemoteUser();     
+      String accessUser = pcontext.getRemoteUser();     
       if(page == null || !userACL.hasPermission(page.getOwner(), accessUser, page.getViewPermission())){
         return;
       }
@@ -205,7 +215,6 @@ public class UIPageBrowser extends UISearch {
       
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext(); 
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
       pcontext.setFullRender(true);
     }
@@ -213,37 +222,25 @@ public class UIPageBrowser extends UISearch {
   
   static public class AddNewActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
-//      UIPageBrowser uiPageBrowser = event.getSource();
-//      UIPageForm uiPageForm =  Util.showComponentOnWorking(uiPageBrowser, UIPageForm.class);
-//      uiPageForm.setBackUIComponent(uiPageBrowser);
-//      UIPermissionSelector uiPermissionSelector = uiPageForm.getChild(UIPermissionSelector.class);    
-//      //TODO:  Look  like  this code  keep adding new  permission for ever
-//      uiPermissionSelector.createPermission("ViewPermission", null);
-//      uiPermissionSelector.createPermission("EditPermission", null);
-//      
-//      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-//      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
-//      
-      UIPortal uiPortal = Util.getUIPortal();
       PortalRequestContext prContext = Util.getPortalRequestContext();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
-//      uiPageForm.setActions(new String[]{"Save", "Close"});
-      uiPageForm.getUIStringInput("owner").setValue(prContext.getRemoteUser());
-      uiPageForm.getUIStringInput("owner").setEditable(false);
       uiMaskWS.setUIComponent(uiPageForm);
       uiMaskWS.setShow(true);
 
+      uiPageForm.getUIStringInput("owner").setValue(prContext.getRemoteUser());      
+      uiPageForm.getUIStringInput("owner").setEditable(false);
       UIPermissionSelector uiPermissionSelector = uiPageForm.getChild(UIPermissionSelector.class);    
       uiPermissionSelector.createPermission("ViewPermission", null);
       uiPermissionSelector.createPermission("EditPermission", null);
-//      defaultValue
+      uiPageForm.removeChild(UIFormInputItemSelector.class);
       
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event);  
-//      uiPageBrowser.defaultValue(null);
+      UIPageTemplateOptions uiTemplateConfig = uiPageForm.createUIComponent(UIPageTemplateOptions.class, null, null);    
+      uiTemplateConfig.setRendered(false) ;
+      uiPageForm.addUIFormInput(uiTemplateConfig) ;
+      
+      prContext.addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
  

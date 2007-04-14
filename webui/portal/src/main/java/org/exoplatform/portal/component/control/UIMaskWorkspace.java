@@ -63,6 +63,7 @@ public class UIMaskWorkspace extends UIComponentDecorator {
       UIMaskWorkspace uiMaskWorkspace = uiSource.getAncestorOfType(UIMaskWorkspace.class);
       if(!uiMaskWorkspace.isShow()) return;
       uiMaskWorkspace.setUIComponent(null);
+      uiMaskWorkspace.setShow(false);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
     }
   }

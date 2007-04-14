@@ -105,6 +105,7 @@ public class UserACL {
 
     public String getValue(){
       if(membership_ .length() == 0 || groupId_.length() == 0) return null;
+      if(membership_.trim().equals("any")) return  "*:"+groupId_;
       return membership_+":"+groupId_;
     }
 

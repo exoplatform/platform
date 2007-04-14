@@ -160,7 +160,11 @@ public class Util {
     UIPage uiPage  = Util.getUIPortal().findFirstComponentOfType(UIPage.class);
     if(uiPage != null && uiPage.getId().equals(page.getId())) return uiPage;   
     WebuiRequestContext  context = Util.getPortalRequestContext() ;  
-    uiPage = uiParent.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
+    if("Default".equalsIgnoreCase(page.getFactoryId())) {
+      uiPage = uiParent.createUIComponent(context, UIPage.class, null, null);
+    } else {
+      uiPage = uiParent.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
+    }
     PortalDataModelUtil.toUIPage(uiPage, page, true);
     return uiPage;
   }

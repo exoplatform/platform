@@ -6,7 +6,6 @@ import java.util.List;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
-import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
@@ -15,7 +14,6 @@ import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -39,8 +37,8 @@ import org.exoplatform.webui.event.Event.Phase;
     lifecycle = UIFormLifecycle.class,
     template =  "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
     events = {
-      @EventConfig(listeners = UIPageForm.SaveActionListener.class),
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIPageForm.SaveActionListener.class)
     },
     initParams = @ParamConfig(
       name = "PageTemplate",
@@ -82,10 +80,6 @@ public class UIPageForm extends UIFormTabPane {
     uiTemplate.setItemCategories(itemCategories);
     uiTemplate.setRendered(false);
     addUIFormInput(uiTemplate);
-
-    UIPageTemplateOptions uiTemplateConfig = createUIComponent(UIPageTemplateOptions.class, null, null);    
-    uiTemplateConfig.setRendered(false) ;
-    addUIComponentInput(uiTemplateConfig) ;
   }
   
   public UIPage getUIPage() { return uiPage_ ; }   
@@ -103,8 +97,11 @@ public class UIPageForm extends UIFormTabPane {
     
     invokeGetBindingBean(page) ;
     getUIFormCheckBoxInput("showMaxWindow").setValue(uiPage.isShowMaxWindow());
+    
     UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
-    uiTemplate.setValue(uiPage.getTemplate());
+    if(uiTemplate != null) uiTemplate.setValue(uiPage.getFactoryId());
+    
+    removeChild(UIPageTemplateOptions.class);
   }
   
   public  void invokeSetBindingBean(Object bean) throws Exception {
@@ -112,13 +109,17 @@ public class UIPageForm extends UIFormTabPane {
     Page page = (Page)bean;    
        
     UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
+    if(uiTemplate != null) {
+      SelectItemOption itemOption = uiTemplate.getSelectedItemOption();
+      if(itemOption != null){
+        page.setFactoryId(itemOption.getIcon());
+        page.setTemplate((String)itemOption.getValue());
+        page.setShowMaxWindow(page.getFactoryId().equals("Desktop"));
+      } 
+    } 
     
-    page.setShowMaxWindow((Boolean) getUIFormCheckBoxInput("showMaxWindow").getValue());
-    SelectItemOption itemOption = uiTemplate.getSelectedItemOption();
-    if(itemOption != null){
-      page.setFactoryId(itemOption.getIcon());
-      page.setTemplate((String)itemOption.getValue());
-      page.setShowMaxWindow(page.getFactoryId().equals("Desktop"));
+    if(!page.isShowMaxWindow()) {
+      page.setShowMaxWindow((Boolean) getUIFormCheckBoxInput("showMaxWindow").getValue());      
     }
     
     UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
@@ -159,33 +160,19 @@ public class UIPageForm extends UIFormTabPane {
       }
       if(page.getChildren() == null){
         page.setChildren(new ArrayList<org.exoplatform.portal.config.model.Component>());        
-      }    
-     
-      PortalDAO configService = uiPageForm.getApplicationComponent(PortalDAO.class);      
-      configService.savePage(page);     
-      UIComponent parent = uiPageForm.getParent();
-      //TODO review if() {//}
-      if(parent instanceof UIMaskWorkspace){
-        UIPortalApplication uiPortalApp = uiPageForm.getAncestorOfType(UIPortalApplication.class);
-        UIControlWorkspace cWorkspace = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID); 
-        UIPageManagement pageManagement = cWorkspace.findFirstComponentOfType(UIPageManagement.class);
-        if(pageManagement == null) {
-          event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm) ;
-          return;
-        }
-        UIDescription  description= pageManagement.getChild(UIDescription.class);
-        if(!description.isRendered() ) {
-          event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm) ;
-          return;
-        }
-        UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-        UIPageBrowser pageBrowser = uiWorkingWS.findFirstComponentOfType(UIPageBrowser.class);
-        if(pageBrowser == null) return ;
-        pageBrowser.defaultValue(pageBrowser.getLastQuery());
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
-        return;
-      }
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm) ;
+      }         
+      PortalDAO dao = uiPageForm.getApplicationComponent(PortalDAO.class);      
+      dao.savePage(page);    
+      
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      uiMaskWS.setUIComponent(null);
+      uiMaskWS.setShow(false);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;  
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      UIPageBrowser uiBrowser = uiWorkingWS.findFirstComponentOfType(UIPageBrowser.class);
+      if(uiBrowser != null) uiBrowser.defaultValue(uiBrowser.getLastQuery());
     }
   }
 }

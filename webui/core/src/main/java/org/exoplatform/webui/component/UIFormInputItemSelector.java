@@ -75,7 +75,7 @@ public class UIFormInputItemSelector extends UIFormInputBase<Object> {
   @SuppressWarnings("unchecked")
   public UIFormInputItemSelector  setValue(Object input) {
     for(SelectItemCategory category : categories_){
-      category.setSelected(isSelectItemCategory(category, input)) ;        
+      category.setSelected(isSelectItemCategory(category, input)) ;     
     }
     return this;
   }  
@@ -86,11 +86,10 @@ public class UIFormInputItemSelector extends UIFormInputBase<Object> {
     if(getSelectedCategory() == null ||
         getSelectedCategory().getSelectedItemOption() == null ||
         getSelectedCategory().getSelectedItemOption().getValue() == null
-    ) 
-    return typeValue_;
+    ) return typeValue_;
     return getSelectedCategory().getSelectedItemOption().getValue().getClass();
   }
-  
+
   public void setTypeValue(Class type) { this.type_ = type; }
 
   private boolean isSelectItemCategory(SelectItemCategory category, Object input){
