@@ -230,7 +230,7 @@ public class UIPageNodeActionListener {
 
       PageNode selectedPageNode = uiPageNodeSelector.findPageNodeByUri(value);     
       if(selectedPageNode == null)   return;      
-      PageNode pageNode = new PageNode(selectedPageNode);
+      PageNode pageNode = selectedPageNode.clone();
       uiPageNodeSelector.setCopyPageNote(pageNode) ;
       Class [] childrenToRender = new Class[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class };
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);      

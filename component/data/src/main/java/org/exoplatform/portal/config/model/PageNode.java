@@ -31,15 +31,6 @@ public class PageNode  {
   
   public PageNode() {  }
   
-  public PageNode(PageNode pageNode){
-    copyPageNode(pageNode) ;
-    List<PageNode> list = pageNode.getChildren();
-    if (list == null)  return;
-    for (PageNode child : list) {      
-      children.add(new PageNode(child)) ;
-    }    
-  }
-  
   public String getUri() { return uri ; }
   public void   setUri(String s) { uri = s ; }
 
@@ -80,17 +71,24 @@ public class PageNode  {
   public boolean isModifiable() { return modifiable ; }
   public void    setModifiable(boolean b) { modifiable = b ; }  
   
-  private void copyPageNode(PageNode node){
-    this.uri = node.getUri();
-    this.name =  node.getName();
-    this.label =  node.getLabel();
-    this.accessPermission = node.getAccessPermission();
-    this.icon =  node.getIcon();
-    this.pageReference =  node.getPageReference() ;
-    this.description =  node.getDescription();
-    this.type = node.getType();
-    this.creator = node.getCreator() ;
-    this.modifier = node.getModifier() ;
+  public PageNode clone() {
+    PageNode newNode = new PageNode() ;
+    newNode.setUri(uri);
+    newNode.setName(name);
+    newNode.setLabel(label);
+    newNode.setIcon(icon);
+    newNode.setAccessPermission(accessPermission);
+    newNode.setPageReference(pageReference);
+    newNode.setDescription(description);
+    newNode.setType(type);
+    newNode.setCreator(creator);
+    newNode.setModifier(modifier);
+    newNode.setModifiable(modifiable);
+    if(children == null || children.size() < 1) return newNode;
+    for(PageNode ele : children) {
+      newNode.getChildren().add(ele.clone());
+    }
+    return newNode;
   }
   
 }

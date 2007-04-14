@@ -47,7 +47,6 @@ public class UIPageNavigationForm extends UIFormTabPane {
   private String helpUri_ ;
 
   public UIPageNavigationForm() throws Exception {
-    
     super("UIPageNavigationForm") ;    
     
     List<SelectItemOption<String>> priorties = new ArrayList<SelectItemOption<String>>();

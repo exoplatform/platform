@@ -97,7 +97,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
   }
 
   static public class SeparateLineActionListener extends EventListener<UIPageNavigationControlBar> {
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("unused")
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
 
     }

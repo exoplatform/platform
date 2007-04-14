@@ -24,7 +24,7 @@ abstract class BaseJCRService {
   final static String SYSTEM_WS = "production".intern();
   final static String REGISTRY = "registry";
   final static String JCR_SYSTEM = "jcr:system";
-  final static String APPLICATION_DATA = "appData";
+  final static String APPLICATION_DATA = "AppData";
   final static String ID = "id" ;
   
   final static String CREATED_DATE = "createdDate";

@@ -5,6 +5,7 @@
 package org.exoplatform.portal.config.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Jul 18, 2004 
@@ -69,5 +70,22 @@ public class PageNavigation {
   
   public int  getPriority() { return priority ; }
   public void setPriority(int i) { priority  = i ; }
+  
+  
+  public PageNavigation clone() {
+    PageNavigation newNav = new PageNavigation();
+    newNav.setOwner(owner);
+    newNav.setPriority(priority);
+    newNav.setAccessPermission(accessPermission);
+    newNav.setEditPermission(editPermission);
+    newNav.setModifiable(modifiable);
+    newNav.setDescription(description);
+    
+    if(pageNodes == null || pageNodes.size() < 1) return newNav;
+    for(PageNode ele : pageNodes) {
+      newNav.getNodes().add(ele.clone());
+    }
+    return newNav;
+  }
   
 }

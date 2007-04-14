@@ -37,7 +37,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIPortalManagementControlBar.AbortActionListener.class),
         @EventConfig(listeners = UIPortalManagementControlBar.SaveActionListener.class),
         @EventConfig(listeners = UIPortalManagementControlBar.FinishActionListener.class)
-      }
+    }
 )
 
 public class UIPortalManagementControlBar extends UIToolbar {

@@ -141,15 +141,13 @@ public class JCRPortalDAO extends JCRDataService implements PortalDAO {
   }
   
   public PageNavigation getPageNavigation(String owner) throws Exception {
-    PageNavigation page = (PageNavigation) pageNavigationCache_.get(owner) ;
-    if(page != null) return page ;
-    
+    PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(owner) ;
+    if(navigation != null) return navigation.clone();   
     Data data = getData(owner, owner+":/"+PageNavigation.class.getName());
     if(data == null) return null;
-    page = (PageNavigation)fromXML(data.getData(), PageNavigation.class);
-    
-    if(page != null) pageNavigationCache_.put(owner, page) ;
-    return page ;
+    navigation = (PageNavigation)fromXML(data.getData(), PageNavigation.class);
+    if(navigation != null) pageNavigationCache_.put(owner, navigation) ;    
+    return navigation.clone();
   }
   
   public void removePageNavigation(String owner) throws Exception {
