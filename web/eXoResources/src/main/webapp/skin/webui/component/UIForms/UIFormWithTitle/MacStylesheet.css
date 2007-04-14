@@ -43,14 +43,10 @@
 	padding: 10px 0px;
 }
 
-.UIFormWithTitle .HorizontalLayout .FormContainer .UIAction {  
-  width: 75px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px 0px 0px 68px;
+.UIFormWithTitle .UIForm .UIAction {  
+  width: 220px;
 }
 
 .UITestForm .UIAction {
  	width: 80px;
- 	/*Debug IE*/
 }
