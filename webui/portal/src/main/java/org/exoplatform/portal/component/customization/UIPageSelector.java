@@ -7,16 +7,31 @@ package org.exoplatform.portal.component.customization;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputContainer;
 import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.component.UIGrid;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
+import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 /**
  * Author : Dang Van Minh
  *          minhdv81@yahoo.com
  * Jun 14, 2006
  */
-@ComponentConfig(template = "app:/groovy/portal/webui/component/customization/UIPageSelector.gtmpl")
+@ComponentConfigs({
+  @ComponentConfig(
+      template = "app:/groovy/portal/webui/component/customization/UIPageSelector.gtmpl"
+  ),
+  @ComponentConfig(      
+      id = "SelectPage",
+      type = UIPageBrowser.class,
+      template = "app:/groovy/portal/webui/component/customization/UIPageBrowser.gtmpl" ,      
+      events = @EventConfig(listeners = UIPageSelector.SelectPageActionListener.class) 
+  )
+})
 public class UIPageSelector extends UIFormInputContainer {
 
   public Page page_; 
@@ -26,10 +41,10 @@ public class UIPageSelector extends UIFormInputContainer {
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "PopupPageSelector");
     uiPopup.setWindowSize(900, 400);
     uiPopup.setRendered(false);
-    UIPageBrowser uiPageBrowser = createUIComponent(UIPageBrowser.class, null, null) ;
-    uiPopup.setUIComponent(uiPageBrowser);
+    UIPageBrowser uiPageBrowser = createUIComponent(UIPageBrowser.class, "SelectPage", null) ;
+    uiPopup.setUIComponent(uiPageBrowser);    
     UIGrid uiGrid = uiPageBrowser.getChild(UIGrid.class);
-    uiGrid.configure("id", UIPageBrowser.BEAN_FIELD, UIPageBrowser.SELECT_ACTIONS);
+    uiGrid.configure("id", UIPageBrowser.BEAN_FIELD, new String[]{"SelectPage"});
   }
 
   public void configure(String iname, String  bfield) {
@@ -58,5 +73,23 @@ public class UIPageSelector extends UIFormInputContainer {
     super.processDecode(context);
     UIPageBrowser uiPageBrowser = findFirstComponentOfType(UIPageBrowser.class);
     uiPageBrowser.processDecode(context);
+  }
+  
+  static public class SelectPageActionListener extends EventListener<UIPageBrowser> {
+    public void execute(Event<UIPageBrowser> event) throws Exception {     
+      UIPageBrowser uiPageBrowser = event.getSource() ;
+      String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      PortalDAO service = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
+      Page page = service.getPage(id) ;
+      UIPageSelector uiPageSelector = uiPageBrowser.getAncestorOfType(UIPageSelector.class) ;
+      uiPageSelector.setPage(page) ;
+      
+      UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
+      if(uiForm != null) {
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
+        return ;
+      }
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageSelector.getParent());
+    }
   }
 }

@@ -25,7 +25,7 @@ import org.exoplatform.webui.exception.MessageException;
  */
 public class UIFormLifecycle  extends Lifecycle {
 
-  public void processDecode(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
+  public void processDecode(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
     UIForm uiForm = (UIForm) uicomponent ;
 //    HttpServletRequest httpRequest = (HttpServletRequest)context.getRequest() ;
     uiForm.setSubmitAction(null) ;

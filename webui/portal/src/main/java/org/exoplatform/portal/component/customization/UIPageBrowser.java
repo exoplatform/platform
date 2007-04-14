@@ -40,7 +40,6 @@ import org.exoplatform.webui.event.EventListener;
   events = {
     @EventConfig(listeners = UIPageBrowser.DeleteActionListener.class),
     @EventConfig(listeners = UIPageBrowser.EditInfoActionListener.class),
-    @EventConfig(listeners = UIPageBrowser.SelectPageActionListener.class),
     @EventConfig(listeners = UIPageBrowser.PreviewActionListener.class),
     @EventConfig(listeners = UIPageBrowser.AddNewActionListener.class)   
   }
@@ -48,8 +47,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIPageBrowser extends UISearch {
 
   public static String[] BEAN_FIELD = {"id", "owner", "viewPermission", "editPermission"} ;  
-  public static String[] EDIT_ACTIONS = {"Preview", "EditInfo", "Delete"} ; //, "Preview"
-  public static String[] SELECT_ACTIONS = {"SelectPage"} ;
+  public static String[] ACTIONS = {"Preview", "EditInfo", "Delete"} ; 
   
   private boolean showAddNewPage = false;
   
@@ -66,7 +64,7 @@ public class UIPageBrowser extends UISearch {
   public UIPageBrowser() throws Exception {
     super(OPTIONS);
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
-    uiGrid.configure("id", BEAN_FIELD, EDIT_ACTIONS) ;
+    uiGrid.configure("id", BEAN_FIELD, ACTIONS) ;
     defaultValue(null) ;
     addChild(uiGrid.getUIPageIterator());
     uiGrid.getUIPageIterator().setRendered(false);
@@ -75,14 +73,11 @@ public class UIPageBrowser extends UISearch {
   public Query getLastQuery() { return lastQuery_; }
   
   public void defaultValue(Query query) throws Exception {
-    System.out.println("\n\n\n============>Parent: " + getParent());
     lastQuery_ = query ;
     PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
     PortalDAO service = getApplicationComponent(PortalDAO.class) ;
 
-    if(lastQuery_ == null){
-      lastQuery_ = new Query(context.getPortalOwner(), null, null, Page.class) ;
-    }
+    if(lastQuery_ == null) lastQuery_ = new Query(context.getPortalOwner(), null, null, Page.class) ;
 
     PageList pagelist = service.findDataDescriptions(lastQuery_) ;
     pagelist.setPageSize(10);
@@ -184,21 +179,6 @@ public class UIPageBrowser extends UISearch {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
-    }
-  }
-  
-  static public class SelectPageActionListener extends EventListener<UIPageBrowser> {
-    public void execute(Event<UIPageBrowser> event) throws Exception {     
-      UIPageBrowser uiPageBrowser = event.getSource() ;
-      String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      PortalDAO service = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
-      Page page = service.getPage(id) ;
-      UIPageNodeForm uiParent = uiPageBrowser.getAncestorOfType(UIPageNodeForm.class) ;
-      UIPageSelector uiPageSelector = uiParent.getChild(UIPageSelector.class) ;
-      uiPageSelector.setPage(page) ;
-      uiParent.setRenderedChild(UIPageSelector.class) ;
-      
-      Util.updateUIApplication(event);
     }
   }
   

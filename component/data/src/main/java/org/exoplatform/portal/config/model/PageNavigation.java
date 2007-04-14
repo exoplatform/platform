@@ -5,7 +5,6 @@
 package org.exoplatform.portal.config.model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Jul 18, 2004 
@@ -39,7 +38,6 @@ public class PageNavigation {
       }
     }
   }
-  
   
   public void removeNode(PageNode page) { pageNodes.remove(page); }
   
