@@ -68,7 +68,7 @@ import org.exoplatform.webui.event.EventListener;
     @EventConfig(listeners = UIExoStart.LoginActionListener.class),
     @EventConfig(listeners = UILogged.LogoutActionListener.class),
     @EventConfig(listeners = UIExoStart.LanguageSettingsActionListener.class),
-    @EventConfig(listeners = UIExoStart.InterfaceSettingsActionListener.class)
+    @EventConfig(listeners = UIExoStart.SkinSettingsActionListener.class)
   }
 )
 public class UIExoStart extends UIComponent {
@@ -290,7 +290,7 @@ public class UIExoStart extends UIComponent {
 //    }
 //  }
   
-  static  public class InterfaceSettingsActionListener extends EventListener<UIExoStart> {
+  static  public class SkinSettingsActionListener extends EventListener<UIExoStart> {
     @SuppressWarnings("unchecked")
    public void execute(Event<UIExoStart> event) throws Exception {
       System.out.println("\n=======> Interface Settings\n");

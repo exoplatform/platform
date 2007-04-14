@@ -164,7 +164,7 @@ public class UIPageForm extends UIFormTabPane {
       PortalDAO configService = uiPageForm.getApplicationComponent(PortalDAO.class);      
       configService.savePage(page);     
       UIComponent parent = uiPageForm.getParent();
-      //TODO review if() {}
+      //TODO review if() {//}
       if(parent instanceof UIMaskWorkspace){
         UIPortalApplication uiPortalApp = uiPageForm.getAncestorOfType(UIPortalApplication.class);
         UIControlWorkspace cWorkspace = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID); 

@@ -277,6 +277,13 @@
   margin: 0px 0px 0px 4px;
 }
 
+.UIExoStart .StartMenuContainer .SkinSettingIcon {
+  height: 32px ;  
+  background: url('DefaultSkin/icons/32x32/ChangeSkin.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
 .UIExoStart .StartMenuContainer .DefaultSkinIcon {
   height: 32px ;  
   background: url('DefaultSkin/icons/32x32/ExoSkin.gif') no-repeat left ;
@@ -299,6 +306,13 @@
 }
 
 .UIExoStart .StartMenuContainer .ChangeLanguageIcon {
+  height: 33px ;  
+  background: url('DefaultSkin/icons/32x32/ChangeLanguage.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .LanguageSettingIcon {
   height: 33px ;  
   background: url('DefaultSkin/icons/32x32/ChangeLanguage.gif') no-repeat left ;
   padding: 0px 0px 0px 32px ;

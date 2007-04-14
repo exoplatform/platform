@@ -275,12 +275,19 @@
   padding: 0px 0px 0px 32px ;
 }
 
+.UIExoStart .StartMenuContainer .SkinSettingIcon {
+  height: 32px ;  
+  background: url('VistaSkin/icons/32x32/ChangeSkin.png') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+}
+
 .UIExoStart .StartMenuContainer .DefaultSkinIcon {
   height: 32px ;  
   background: url('VistaSkin/icons/32x32/ExoSkin.gif') no-repeat left ;
   padding: 0px 0px 0px 32px ;
   margin: 0px 0px 0px 4px;
 }
+
 
 .UIExoStart .StartMenuContainer .MacSkinIcon {
   height: 32px ;  
@@ -297,6 +304,12 @@
 }
 
 .UIExoStart .StartMenuContainer .ChangeLanguageIcon {
+  height: 35px ;  
+  background: url('VistaSkin/icons/32x32/ChangeLanguage.png') no-repeat left ;
+  padding: 0px 0px 0px 42px ;
+}
+
+.UIExoStart .StartMenuContainer .LanguageSettingIcon {
   height: 35px ;  
   background: url('VistaSkin/icons/32x32/ChangeLanguage.png') no-repeat left ;
   padding: 0px 0px 0px 42px ;
