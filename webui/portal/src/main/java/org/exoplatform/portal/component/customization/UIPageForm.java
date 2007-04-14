@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
@@ -16,6 +15,7 @@ import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -40,7 +40,6 @@ import org.exoplatform.webui.event.Event.Phase;
     template =  "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
     events = {
       @EventConfig(listeners = UIPageForm.SaveActionListener.class),
-      @EventConfig(listeners = UIPageForm.BackActionListener.class),
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
     },
     initParams = @ParamConfig(
@@ -91,6 +90,7 @@ public class UIPageForm extends UIFormTabPane {
   
   public UIPage getUIPage() { return uiPage_ ; }   
   
+  @SuppressWarnings("unchecked")
   public void setValues(UIPage uiPage) throws Exception {
     uiPage_ = uiPage;
     Page page = PortalDataModelUtil.toPageModel(uiPage, false) ;    
@@ -102,7 +102,7 @@ public class UIPageForm extends UIFormTabPane {
     uiPermissionSelector.createPermission("EditPermission", uiPage_.getEditPermission());
     
     invokeGetBindingBean(page) ;
-    
+    getUIFormCheckBoxInput("showMaxWindow").setValue(uiPage.isShowMaxWindow());
     UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
     uiTemplate.setValue(uiPage.getTemplate());
   }
@@ -112,6 +112,8 @@ public class UIPageForm extends UIFormTabPane {
     Page page = (Page)bean;    
        
     UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
+    
+    page.setShowMaxWindow((Boolean) getUIFormCheckBoxInput("showMaxWindow").getValue());
     SelectItemOption itemOption = uiTemplate.getSelectedItemOption();
     if(itemOption != null){
       page.setFactoryId(itemOption.getIcon());
@@ -165,30 +167,25 @@ public class UIPageForm extends UIFormTabPane {
       //TODO review if() {}
       if(parent instanceof UIMaskWorkspace){
         UIPortalApplication uiPortalApp = uiPageForm.getAncestorOfType(UIPortalApplication.class);
+        UIControlWorkspace cWorkspace = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID); 
+        UIPageManagement pageManagement = cWorkspace.findFirstComponentOfType(UIPageManagement.class);
+        if(pageManagement == null) {
+          event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm) ;
+          return;
+        }
+        UIDescription  description= pageManagement.getChild(UIDescription.class);
+        if(!description.isRendered() ) {
+          event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm) ;
+          return;
+        }
         UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
         UIPageBrowser pageBrowser = uiWorkingWS.findFirstComponentOfType(UIPageBrowser.class);
+        if(pageBrowser == null) return ;
         pageBrowser.defaultValue(pageBrowser.getLastQuery());
         event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
         return;
       }
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm) ;
-    }
-  }
-  static public class BackActionListener extends EventListener<UIPageForm> {
-    public void execute(Event<UIPageForm> event) throws Exception {
-      UIPageForm uiForm = event.getSource() ;      
-      UIComponent uiComp = uiForm.getBackUIComponent() ;      
-      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();   
-      if(uiComp != null) uiToolPanel.setUIComponent(uiComp) ;
-      else uiToolPanel.setUIComponent(uiForm.getUIPage());
-      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
-      
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
-      pcontext.setFullRender(true);
     }
   }
 }

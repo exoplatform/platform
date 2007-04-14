@@ -57,8 +57,12 @@ abstract public class WebuiApplication extends Application {
   
   public <T extends UIComponent> T createUIComponent(Class<T> type, String configId, String id, WebuiRequestContext context)  throws Exception{
     Component config = configManager_.getComponentConfig(type, configId) ;
+    //TODO Le Bien Thuy modified
     if(config == null) {      
-      throw new Exception("Cannot find the configuration for the component " + type.getName() + ", configId " +configId) ;
+      config = configManager_.getComponentConfig(type, "Default") ;
+      if(config == null) {
+        throw new Exception("Cannot find the configuration for the component " + type.getName() + ", configId " +configId) ;  
+      }
     }
     T uicomponent =   Util.createObject(type, config.getInitParams());
     uicomponent.setComponentConfig(id, config) ;

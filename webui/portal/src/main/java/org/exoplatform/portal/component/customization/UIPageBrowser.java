@@ -170,15 +170,16 @@ public class UIPageBrowser extends UISearch {
       
       UIPage uiPage =  uiPageBrowser.createUIComponent(event.getRequestContext(),UIPage.class,null,null) ;
       PortalDataModelUtil.toUIPage(uiPage, page, true);
-      UIPageForm uiPageForm =  Util.showComponentOnWorking(uiPageBrowser, UIPageForm.class);
-      uiPageForm.setValues(uiPage) ;
-      uiPageForm.setActions(new String[]{"Save", "Back"});
-      uiPageForm.removeChild(UIPageTemplateOptions.class);
-      uiPageForm.setBackUIComponent(uiPageBrowser) ;
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+    
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
+      uiPageForm.setValues(uiPage);
+      uiMaskWS.setUIComponent(uiPageForm);
+      uiMaskWS.setShow(true);
       
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
   
@@ -212,7 +213,7 @@ public class UIPageBrowser extends UISearch {
   
   static public class AddNewActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
-      UIPageBrowser uiPageBrowser = event.getSource();
+//      UIPageBrowser uiPageBrowser = event.getSource();
 //      UIPageForm uiPageForm =  Util.showComponentOnWorking(uiPageBrowser, UIPageForm.class);
 //      uiPageForm.setBackUIComponent(uiPageBrowser);
 //      UIPermissionSelector uiPermissionSelector = uiPageForm.getChild(UIPermissionSelector.class);    
@@ -225,10 +226,13 @@ public class UIPageBrowser extends UISearch {
 //      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
 //      
       UIPortal uiPortal = Util.getUIPortal();
+      PortalRequestContext prContext = Util.getPortalRequestContext();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
-      uiPageForm.setActions(new String[]{"Save", "Close"});
+//      uiPageForm.setActions(new String[]{"Save", "Close"});
+      uiPageForm.getUIStringInput("owner").setValue(prContext.getRemoteUser());
+      uiPageForm.getUIStringInput("owner").setEditable(false);
       uiMaskWS.setUIComponent(uiPageForm);
       uiMaskWS.setShow(true);
 
