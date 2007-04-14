@@ -161,8 +161,14 @@
 	padding: 15px 10px 15px 10px;
 }
 
+.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormWithTitle {
+  width: 500px;
+  margin: auto;
+}
+
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormWithTitle .UIAction{
   width: 200px;
+  margin: auto;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid {

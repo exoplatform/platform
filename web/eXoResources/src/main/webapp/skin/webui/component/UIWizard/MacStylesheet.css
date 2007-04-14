@@ -152,7 +152,7 @@
 }
 /*========================== Start UIWizard Step2 ==============================*/
 .UIWizard .UIWizardPageSetInfo {
-  padding: 15px 10px 10px 10px ;  
+  padding: 15px 10px 10px 10px ; 
 }
 
 .UIWizard .UIWizardPageSetInfo .PageNodeContainer {
@@ -174,11 +174,10 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo{
-  width: 440px; height: 26px; 
+  width: 520px; height: 26px; 
   line-height: 26px; vertical-align: middle;
   background: white; font-size: 11px; 
   border: solid 1px #b7b7b7;
-  padding-left: 10px;
   margin: auto; 
 }
 
@@ -203,6 +202,8 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
+  width: 520px;
+  margin: auto;
   margin-top: 5px;
 }
 

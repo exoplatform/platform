@@ -1,5 +1,6 @@
 .UIFormWithTitle {
 	width: 520px;
+  margin: 50px ;
   border: 1px solid #b7b7b7;
   background: url('/eXoResources/background/MacSkin/PortletBG.gif');
 }
@@ -16,7 +17,7 @@
   border: 1px white solid;
 }
 
-.UIFormWithTitle .HorizontalLayout .FormContainer{
+.UIFormWithTitle .HorizontalLayout .FormContainer {
   padding: 10px 18px 6px 18px;
   font-size: 11px;
   border: 1px #cdcdcd solid;
@@ -42,8 +43,11 @@
 	padding: 10px 0px;
 }
 
-.UIFormWithTitle .UIForm .UIAction {  
-  width: 220px;
+.UIFormWithTitle .HorizontalLayout .FormContainer .UIAction {  
+  width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 0px 0px 68px;
 }
 
 .UITestForm .UIAction {

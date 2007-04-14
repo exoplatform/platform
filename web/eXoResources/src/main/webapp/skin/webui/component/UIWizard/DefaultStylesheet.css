@@ -176,6 +176,7 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
+  margin: auto;
   margin-top: 5px;
   width: 450px;
 }

@@ -178,7 +178,7 @@
 }
 
 .UIWindow .BottomDecoratorCenter {
-  height: 23px ;
+  height: 23px ; line-height: 23px;
   background: url('MacSkin/background/PortletWindowBC1x23.png') repeat-x ;
 }
 
@@ -237,4 +237,15 @@
   float: right ;
   width: 0px ; height: 0px ;
   background: url('null') repeat bottom right;
+}
+
+.UIPortal .VIEW-PORTLET .UIWindow {
+  width: auto ; height: auto;
+  padding: 0px 3px 0px 6px; 
+}
+
+.UIPortal .VIEW-CONTAINER .VIEW-PORTLET .UIWindow {
+  width: auto ; height: auto;
+  background: white;
+  padding: 8px 3px 5px 0px; 
 }
