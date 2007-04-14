@@ -1,5 +1,5 @@
 .UIHorizontalTabs {
-  width: 100%;
+  width: auto;
 }
 
 .UIHorizontalTabs .LeftHorizontalTabs{
@@ -22,6 +22,7 @@
 .UIHorizontalTabs .TabsContainer {
   overflow: hidden;
   margin-left: 10px;
+  width: 99.7%;
 }
 
 .UIHorizontalTabs .PreviousTabButton  {

@@ -76,12 +76,6 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat;
 }
 
-.UIRightClickPopupMenu .SaveNavigation16x16Icon{
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/FloppyDisk.gif') no-repeat;
-}
-
 .UIRightClickPopupMenu a {
   font-size: 11px;
   color: black;

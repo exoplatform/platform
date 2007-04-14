@@ -37,14 +37,15 @@
 .UIPageNodeSelector .UITree .TreeContainer .Node {
   margin: 5px 5px 0px 0px ;
   padding-left: 10px;
-  font-size: 11px; color: black; 
+  font-size: 11px; 
   width: auto;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .NodeSelected {
   height: 16px ; line-height: 16px; vertical-align: middle;
   width: auto;
-  color: red; 
+  color: #FD7426;
+  font-weight: bold;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .CollapseIcon {
@@ -53,13 +54,17 @@
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .Icon {
   width: 16px;  height: 16px ;
-  margin: 2px 5px 0px 1px;
+  margin: 2px 7px 0px 1px;
 }
 
-.UIPageNodeSelector .UITree .TreeContainer .NodeLabel a {
+.UIPageNodeSelector .UITree .TreeContainer .NodeLabel a{
   margin-left: 0px ; padding-left: 2px; 
   height: 16px ; width: auto;
   vertical-align: middle ; line-height: 16px ;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .NodeLabel a:hover{
+  color: #058ee6;
 }
 
 .UIPageNodeSelector .OrganizationIcon {

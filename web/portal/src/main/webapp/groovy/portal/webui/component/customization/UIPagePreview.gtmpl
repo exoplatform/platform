@@ -1,17 +1,16 @@
 <div><% uicomponent.renderChildren() %></div>
 <%if(uicomponent.hasBackEvent()) {%>
 	<div class="HorizontalLayout">
-		<div class="UIAction" style="padding: 0px">
+		<div class="UIAction" style="width: 100px;">
 			<div class="ActionContainer">
-		    <div class="ActionButton">
+		    <div class="ActionButton" style="width: 90px;">
 		      <div class="LightBlueStyle" >
 					  <div class="ButtonLeft">
 						  <div class="ButtonRight">
 						    <div class="ButtonMiddle">
-							    <div class="Icon Back16x16Icon"><span></span></div>
-	  						    <a href="<%=uicomponent.event("Back")%>">
-	  						      <%= _ctx.appRes(uicomponent.getId() + ".action.Back")%>
-	  						    </a>
+  						    <a href="<%=uicomponent.event("Back")%>">
+  						      <%= _ctx.appRes(uicomponent.getId() + ".action.Back")%>
+  						    </a>
 						    </div>
 					    </div>
 						</div>

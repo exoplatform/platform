@@ -9,30 +9,30 @@
 
 .UICreatePage .PageLayoutModeIcon {
   float: left;
-  width: 24px; height: 24px;
-  margin: 4px 18px 0px 30px;
+  width: 24px; height: 22px;
+  margin: 6px 18px 0px 30px;
   background: url('DefaultSkin/icons/PageLayout.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UICreatePage .PagePreviewIcon {
   float: left;
-  width: 24px; height: 24px;
-  margin: 4px 18px 0px 30px;
+  width: 24px; height: 22px;
+  margin: 6px 18px 0px 30px;
   background: url('DefaultSkin/icons/PagePreview.gif') no-repeat ;
 }
 
 .UICreatePage .EditContainerIcon {
   float: left;
-  width: 24px; height: 24px;
-  margin: 4px 18px 0px 18px;
+  width: 27px; height: 22px;
+  margin: 6px 18px 0px 18px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/EditContainer.gif') no-repeat ;
 }
 
 .UICreatePage .EditPortletIcon {
   float: left;
-  width: 24px; height: 24px;
-  margin: 4px 0px 0px 24px;
+  width: 27px; height: 22px;
+  margin: 6px 0px 0px 24px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/EditPortlet.gif') no-repeat ;
 }
 
@@ -106,5 +106,5 @@
 }
 
 .UICreatePage .UIToolbar .EditToolbar .Icon{
-	margin: 3px 12px 0px 27px;
+	margin: 5px 12px 0px 27px;
 }

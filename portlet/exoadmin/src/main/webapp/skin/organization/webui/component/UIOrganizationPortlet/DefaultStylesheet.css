@@ -13,6 +13,106 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/AddNodeIcon.gif') no-repeat center;
 }
 
+.UIWindow .AccountIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/UserAccount.gif') no-repeat center;
+}
+
+.UIWindow .PortletRegistryIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueActionWheel.gif') no-repeat center;
+}
+
+.UIWindow .SiteMapPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SiteMap.gif') no-repeat center;
+}
+
+.UIWindow .WelcomePortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalWelcomeIcon.gif') no-repeat center;
+}
+
+.UIWindow .BreadcumbsPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BreadcumbsArrowIcon.gif') no-repeat center;
+}
+
+.UIWindow .GroovyPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalAdmin.gif') no-repeat center;
+}
+
+.UIWindow .AddPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/AddPage.gif') no-repeat center;
+}
+
+.UIWindow .LoginPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Login.gif') no-repeat center;
+}
+
+.UIWindow .FooterPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalFooterIcon.gif') no-repeat center;
+}
+
+.UIWindow .BrowserPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BrownBook.gif') no-repeat center;
+}
+
+.UIWindow .CompanyContentPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalContainerIcon.gif') no-repeat center;
+}
+
+.UIWindow .NavigationPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/EditNavigation.gif') no-repeat center;
+}
+
+.UIWindow .BannerPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalNavigationIcon.gif') no-repeat center;
+}
+
+.UIWindow .JMXPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ImagesList.gif') no-repeat center;
+}
+
+.UIWindow .OrganizationPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/AddNodeIcon.gif') no-repeat center;
+}
+
+.UIWindow .AccountPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/UserAccount.gif') no-repeat center;
+}
+
+.UIWindow .PortletRegistryPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueActionWheel.gif') no-repeat center;
+}
+
+.UIWindow .CrawlerPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Execute.gif') no-repeat center;
+}
+
+.UIWindow .ContentPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/LightBlueGlobal.gif') no-repeat center;
+}
+
+.UIWindow .SitePortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/UserRegistration.gif') no-repeat center;
+}
+
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {
   float: left ;
   margin: 3px 8px 0px 10px ;

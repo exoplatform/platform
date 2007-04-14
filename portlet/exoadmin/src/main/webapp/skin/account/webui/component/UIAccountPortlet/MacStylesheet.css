@@ -12,6 +12,10 @@
   padding-top: 5px;
 }
 
+.UIAccountPortlet .UIAction  {
+  width: 70px;
+}
+
 .UIAccountPortlet .UIMembership .UIAction {
   width: 140px;
 }

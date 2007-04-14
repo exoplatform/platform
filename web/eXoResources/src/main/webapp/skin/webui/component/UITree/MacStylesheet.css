@@ -74,15 +74,10 @@
   margin: 0px 0px 0px 1px ;
 }
 
-.UITree .TreeContainer .NodeSelected {
-  height: 20px ; 
-  color: blue;
-}
-
 .UITree .TreeContainer .Node .NoteLabel .NodeSelected {
   height: 20px ; line-height: 20px; vertical-align: middle;
   margin: 0px 0px 0px 1px ;
-  color: blue;
+  color: red;
 }
 
 /** ################# Icons ###################*/

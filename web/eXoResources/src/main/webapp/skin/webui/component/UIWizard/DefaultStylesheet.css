@@ -102,14 +102,12 @@
 
 .UIWizard .UIWizardContent .WizardControlBar .ActionBar {
   float: right;
-  height: 34px; line-height: 34px; vertical-align: middle;
   padding-right: 5px;
 }
 
 .UIWizard .WizardControlBar .UIAction {
   float: left;
   width: 70px;
-  margin: 7px 2px 0px 2px; 
 }
 
 /*========================== Start UIWizard Welcome ==============================*/

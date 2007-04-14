@@ -35,12 +35,25 @@
 }
 
 .UIPortalToolPanel .Body {
-  padding: 7px 0px 5px 10px;
-  background: url('MacSkin/background/LightGrayLinedBG1x4.gif');
+  padding: 7px;
 }
 
 .UIPortalToolPanel .Body .UIPage {
   width: 99%;
+}
+
+.UIPortalToolPanel .Body .PageDecoratorContainer {
+  background: #f7f7f7;
+  padding: 1px;
+}
+
+.UIPortalToolPanel .Body .PageDecoratorContent {
+  border-top: 1px #a5a5a5 solid;
+  border-left: 1px #a5a5a5 solid; 
+  border-bottom: 1px #d0d0d0 solid;
+  border-right: 1px #d0d0d0 solid;
+  padding: 10px 7px 10px 7px;
+  background: url('MacSkin/background/LightGrayLinedBG1x4.gif');
 }
 
 .UIPortalToolPanel .Footer {

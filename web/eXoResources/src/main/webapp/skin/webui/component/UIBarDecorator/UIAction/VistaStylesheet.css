@@ -1,7 +1,12 @@
+<<<<<<< .mine
 .UIAction {
   height: 30px;
-  margin: auto;
-  padding: 8px 0px;
+  margin: 8px auto;
+  
+=======
+.UIAction {
+  margin: 9px auto;
+>>>>>>> .r14499
 }
 
 .UIAction .ActionContainer{
@@ -27,9 +32,6 @@
   color: #058ee6;
 }
 
-.UIAction .ActionButton .Icon {
-	float: left;
-} 
 /*##############################-Disabled ActionButton-################################*/
 .UIAction .ActionButton .DisabledStyle {
 }

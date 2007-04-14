@@ -4,13 +4,17 @@
 
 .UIPageNodeSelector .PageNodeSelectorContainer {
   background: #f3f3f3 ;
-  padding: 5px ;
+  padding: 4px ;
   margin: 0px 5px;
   border: 1px solid #c6c6c9 ;
 }
 
 .UIPageNodeSelector .UIVerticalSlideTabs {
   border: none; 
+}
+
+.UIPageNodeSelector .UIDropDownItemSelector {
+  padding: 0px 1px;
 }
 
 /*###############################- UITree -############################*/
@@ -32,12 +36,12 @@
 .UIPageNodeSelector .UITree {
   padding: 3px;
   background: white;
-  border: 1px gray solid;
+  border: 1px #b7b7b7 solid;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer {
   padding: 6px 0px 6px 0px ;
-  border: 1px #b7b7b7 solid;
+  border: none;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .TreeLevelContainer {
@@ -58,7 +62,7 @@
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .NodeSelected {
- color: blue;
+ color: #058ee6;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .NodeLabel  {

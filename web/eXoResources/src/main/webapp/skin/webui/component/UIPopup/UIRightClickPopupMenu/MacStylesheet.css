@@ -7,10 +7,19 @@
 }
 
 .UIRightClickPopupMenu .UIRightPopupMenuContainer {
-  margin: 1px;
-  padding: 5px 0px;
-  background: #f6f6f6;
+  margin: 1px; padding: 5px 0px;
+  background: white url('MacSkin/background/BgItemSelector1x4.png') repeat;
 }
+
+.UIRightClickPopupMenu .UIRightPopupMenuContainer a{
+  color: black;
+}
+
+.UIRightClickPopupMenu .UIRightPopupMenuContainer a:hover{
+  color: white;
+}
+
+
 
 .UIRightClickPopupMenu .MenuItem {
   clear: both;
@@ -26,8 +35,50 @@
 }
 
 .UIRightClickPopupMenu .ItemIcon {
-  margin: 5px;
+  margin: 5px 7px 0px 7px;
   float: left;
 }
 
 .UIRightClickPopupMenu .ItemLabel {}
+
+.UIRightClickPopupMenu .AddNode16x16Icon {
+  width: 16px;
+  height: 16px;
+  background: url('MacSkin/icons/AddIcon.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .EditPageNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('MacSkin/icons/EditPage.png') no-repeat;
+}
+
+.UIRightClickPopupMenu .EditSelectedNode16x16Icon {
+  width: 16px;
+  height: 16px;
+  background: url('MacSkin/icons/EditNode.png') no-repeat;
+}
+
+.UIRightClickPopupMenu .EditNavigation16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('MacSkin/icons/EditNavigation.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .CopyNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('MacSkin/icons/Copy.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .PasteNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('MacSkin/icons/Paste.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .DeleteNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('MacSkin/icons/Delete.gif') no-repeat;
+}

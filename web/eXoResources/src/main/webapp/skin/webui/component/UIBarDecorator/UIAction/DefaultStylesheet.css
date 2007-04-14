@@ -2,11 +2,11 @@
   height: 22px;
   margin: auto;
   padding: 8px 0px;
-  
 }
 
 .UIAction .ActionContainer{
   float: left;
+  overflow: hidden;
 }
 
 /*##############################-ActionButton-################################*/
@@ -19,7 +19,7 @@
 
 .UIAction .ActionButton  a {
   font-weight: normal ; color: black; font-size: 11px;
-  margin: 0px 12px 0px 12px ;
+  margin: 0px 12px 0px 12px ; text-align: center;
   height: 22px; line-height: 22px; vertical-align: top;
 }
 

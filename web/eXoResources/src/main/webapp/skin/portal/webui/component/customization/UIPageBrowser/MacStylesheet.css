@@ -9,3 +9,7 @@
   margin: auto ;
   width: 70px; height: 16px;
 }
+
+.UIPageBrowser .UIGird {
+  width: 99.5%;
+}

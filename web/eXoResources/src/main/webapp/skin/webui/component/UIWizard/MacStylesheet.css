@@ -135,7 +135,7 @@
 .UIWizard .WizardControlBar .UIAction {
   float: left;
   width: 74px;
-  margin: 6px 4px 0px 0px; 
+  padding: 6px 0px;
 }
 
 /*========================== Start UIWizard Welcome ==============================*/
