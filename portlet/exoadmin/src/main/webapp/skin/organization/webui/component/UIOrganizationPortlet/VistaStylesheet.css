@@ -2,7 +2,10 @@
 
 .UIWindow .UIOrganizationPortlet {
   overflow: auto ;
-  padding: 5px;
+}
+
+.UIOrganizationPortlet .OrganizationPortletContainer {
+  padding: 5px 8px ;
 }
 
 .UIPageBody .UIOrganizationPortlet {

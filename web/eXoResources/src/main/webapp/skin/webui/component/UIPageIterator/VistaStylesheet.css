@@ -1,7 +1,7 @@
 .UIPageIterator {    
-  width: 390px ;  height: 22px ;
+  width: 310px ;  height: 22px ;
   font-size: 11px ;
-  margin-top: 2px ;
+  margin-top: 3px ;
   margin-left: auto ;
   border: 1px solid #747474;
   background: url('VistaSkin/background/PageIteratorBG1x22.png') repeat-x ;
@@ -15,9 +15,37 @@
   padding: 0px 10px 0px 15px ;
 }
 
+.UIPageIterator .PageIteratorContainer .LeftPageIteratorBlock{    
+  float: right ;
+  margin-right: 15px;
+}
+
+.UIPageIterator .PageIteratorContainer .RightPageIteratorBlock{    
+  float: right ;
+}
+
+.UIPageIterator .PageIteratorContainer .RightPageIteratorBlock a:hover{    
+   background: url('DefaultSkin/background/HoverBorder.gif') no-repeat top;
+   width: 18px; height: 17px;
+}
+
 .UIPageIterator .Icon {
   float: left ;
   width: 18px ;  height: 18px ;
+  margin: 2px 5px 0px 7px ;
+}
+
+.UIPageIterator .TotalPages {
+  float: left ;
+  line-height: 20px ; vertical-align: middle;
+  font-size: 11px ;
+}
+
+.UIPageIterator .PagesTotalNumber {
+  float: left ;
+  line-height: 20px ; vertical-align: middle;
+  color: #0183f1;
+  margin-left: 5px;
 }
 
 .UIPageIterator .RefreshIcon {
@@ -31,12 +59,10 @@
 .UIPageIterator .LastTopPageIcon {
   vertical-align: middle ;
   background: url('/eXoResources/icons/16x16/VistaSkin/ArrowLeft.png') no-repeat ;
-  margin: 3px 5px 0px 7px ;
   cursor: pointer ;
 }
 
 .UIPageIterator .NextTopPageIcon {
-  margin: 3px 5px 0px 7px ;
   vertical-align: middle ;
   background: url('/eXoResources/icons/16x16/VistaSkin/ArrowRight.png') no-repeat ;
   cursor: pointer ;
@@ -45,12 +71,10 @@
 .UIPageIterator .LastPageIcon {
   vertical-align: middle ;
   background: url('/eXoResources/icons/16x16/VistaSkin/ArrowLeftPage.png') no-repeat ;
-  margin: 3px 5px 0px 7px ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .NextPageIcon {
-  margin: 3px 5px 0px 7px ;
   vertical-align: middle ;
   background: url('/eXoResources/icons/16x16/VistaSkin/ArrowRightPage.png') no-repeat ;
   cursor: pointer ;
@@ -73,4 +97,10 @@
   margin: 0px 3px 0px 3px ;
   color: red ;
   font-weight: bold;
+}
+
+.UIPageIterator .Number a:hover {
+  color: #058ee6 ;
+  border: 1px solid #b6b6b6;
+  background: white;
 }
