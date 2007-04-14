@@ -17,12 +17,12 @@
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
   width: 27px;  height: 23px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/EditContainer.gif') no-repeat;
+  background: url('DefaultSkin/icons/EditContainer.gif') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
   width: 27px;  height: 23px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/EditPortlet.gif') no-repeat;
+  background: url('DefaultSkin/icons/EditPortlet.gif') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
