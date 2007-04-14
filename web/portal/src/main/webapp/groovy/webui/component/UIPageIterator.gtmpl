@@ -9,12 +9,12 @@
 	    <%if(currentPage > 10) { %>
 	    	  <a href="<%=uicomponent.event("ShowPage","${currentPage -10}")%>" class="Icon LastTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.backTenPages")%>"></a>
 	    <% }else { %>
-	    	  <div class="Icon LastTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.backTenPages")%>"></div>        
+	    	  <a class="Icon LastTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.backTenPages")%>"></a>        
 	    <%}%>
 	    <%if( currentPage - 1 > 0 ){%>        
-	    	  <div><a href="<%=uicomponent.event("ShowPage","${currentPage - 1}")%>" class="Icon LastPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.previous")%>"></a></div>
+	    	  <a href="<%=uicomponent.event("ShowPage","${currentPage - 1}")%>" class="Icon LastPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.previous")%>"></a>
 	    <% } else {%>
-	    	  <div class="Icon LastPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.previous")%>"><span></span></div>
+	    	  <a class="Icon LastPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.previous")%>"><span></span></a>
 	    <%}%>
 	    <div class="Number">
 	      <%
@@ -41,16 +41,16 @@
 	      <%}%>
 	    </div>
 	    <% if(currentPage +1 <= totalPage) { %>
-	    	   <div><a href="<%=uicomponent.event("ShowPage","${currentPage + 1}")%>" class="Icon NextPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.next")%>"></a></div>
+	    	   <a href="<%=uicomponent.event("ShowPage","${currentPage + 1}")%>" class="Icon NextPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.next")%>"></a>
 	    <% } else { %>
-	    	   <div class="Icon NextPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.next")%>"><span></span></div>
+	    	   <a class="Icon NextPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.next")%>"><span></span></a>
 	    <%}%>
 	    <% if(currentPage + 10 <= totalPage) {%>        
-	    	   <div><a href="<%=uicomponent.event("ShowPage","${currentPage + 10}")%>" class="Icon NextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"></a></div>
+	    	   <a href="<%=uicomponent.event("ShowPage","${currentPage + 10}")%>" class="Icon NextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"></a>
 	  	<% } else if(currentPage + 1 <= totalPage) { %>
-	    	   <div class="Icon NextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"><span></span></div>
+	    	   <a class="Icon NextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"><span></span></a>
 	    <% } else {%>
-	    	   <div class="Icon NextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"><span></span></div>
+	    	   <a class="Icon NextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"><span></span></a>
 	    <% }%>
 	    <div style="clear: left"><span></span></div>
 	  </div>
