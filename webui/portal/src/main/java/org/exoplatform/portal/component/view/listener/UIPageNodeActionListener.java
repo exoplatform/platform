@@ -7,7 +7,9 @@ package org.exoplatform.portal.component.view.listener;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIPageEditBar;
@@ -82,6 +84,7 @@ public class UIPageNodeActionListener {
   static public class EditPageNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {     
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      PortalRequestContext pcontext  = (PortalRequestContext)event.getRequestContext();
       UIRightClickPopupMenu popupMenu = event.getSource();
       UIComponent parent = popupMenu.getParent();
       UIPageNodeSelector uiPageNodeSelector = parent.getParent();
@@ -94,12 +97,23 @@ public class UIPageNodeActionListener {
       if(node == null) return;
 
       UserPortalConfigService portalConfigService = popupMenu.getApplicationComponent(UserPortalConfigService.class);
-      Page page  = portalConfigService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
+      Page page  = portalConfigService.getPage(node.getPageReference(), pcontext.getRemoteUser());
       UIPage uiPage  = Util.toUIPage(page, uiToolPanel);
       
       UIPortalApplication uiApp = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class);
       UIControlWorkspace uiControl = uiApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiControl);
+      pcontext.addUIComponentToUpdateByAjax(uiControl);
+      
+      UserACL userACL = popupMenu.getApplicationComponent(UserACL.class);
+      String accessUser = pcontext.getRemoteUser();
+      if(page == null || !userACL.hasPermission(page.getOwner(), accessUser, page.getEditPermission())){
+        Class [] childrenToRender = {UIPageNodeSelector.class };      
+        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        return;
+      }
+            
+      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;  
+      uiToolPanel.setUIComponent(uiPage);
       
       if ("Desktop".equals(page.getFactoryId())) {
         UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;      
@@ -113,16 +127,10 @@ public class UIPageNodeActionListener {
         return ;
       }
       
-      UserACL userACL = popupMenu.getApplicationComponent(UserACL.class);
-      String accessUser = Util.getPortalRequestContext().getRemoteUser();
-      if(page == null || !userACL.hasPermission(page.getOwner(), accessUser, page.getEditPermission())){
-        Class [] childrenToRender = {UIPageNodeSelector.class };      
-        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-        return;
-      }
-            
-      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;  
-      uiToolPanel.setUIComponent(uiPage);
+      UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
+      pcontext.setFullRender(true);
       
       Class [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);

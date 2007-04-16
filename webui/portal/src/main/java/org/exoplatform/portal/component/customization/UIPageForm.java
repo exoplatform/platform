@@ -160,12 +160,19 @@ public class UIPageForm extends UIFormTabPane {
       if("Desktop".equals(uiPage.getFactoryId()) && !"Desktop".equals(page.getFactoryId()) ){
         page.setShowMaxWindow(false);
       }
+      
+      if(!"Desktop".equals(uiPage.getFactoryId()) && "Desktop".equals(page.getFactoryId()) ){
+        uiPage.getChildren().clear();
+        page.setChildren(new ArrayList<org.exoplatform.portal.config.model.Component>());     
+      }
+      
       if(uiPage != null){
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         PortalDataModelUtil.toUIPage(uiPage, page, true);       
       }else{
         page.setOwner(Util.getUIPortal().getOwner());
       }
+      
       if(page.getChildren() == null || "Desktop".equals(page.getFactoryId())){
         page.setChildren(new ArrayList<org.exoplatform.portal.config.model.Component>());        
       }         
