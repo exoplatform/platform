@@ -39,7 +39,6 @@
   						      int numberSteps = uicomponent.getNumberSteps();    
   						      String actionLink = "#";    					     	
 										int i = 1;				     	  						     			       	
-										System.out.println("NumberSteps: " + numberSteps);
 						        while(i <= numberSteps) {
 						          int j = i;
 						          if(uicomponent.hasWelcome()) j--;
@@ -51,8 +50,7 @@
 						          if(i != step) {
 						            actionLink = uicomponent.url("ViewStep" + String.valueOf(i));0
 						            print "<a href=\"$actionLink\" title=\"$strStep\">" ;
-						          }
-						          else print "<a href=\"#\" class=\"SelectedStep\" title=\"$strStep\">" ;
+						          } else print "<a href=\"#\" class=\"SelectedStep\" title=\"$strStep\">" ;
 						          
 						          print String.valueOf(j);
 						          println "</a>";
@@ -69,14 +67,11 @@
 				                <%  
 						              if(step > 1) {
 						                actionLink = uicomponent.url("ViewStep" + String.valueOf(step-1));
-						              }
-						              else{
+						              } else {
   				                  actionLink = "#";     
 						              }
 				                  String display = "LightBlueStyle";
-				                  if(step==1){
-				                    display = "DisabledStyle";
-				                  }
+				                  if(step==1) display = "DisabledStyle";				                  
 				                %> 
 							          <div class="${display}">
 							            <div class="ButtonLeft">
@@ -103,7 +98,7 @@
 							                    if(step == children.size()){
 							                      action = "done";			      
 							                      actionLink = uicomponent.event("ViewStep" + String.valueOf(step+1), "");
-							                    }else{
+							                    } else {
 											            	actionLink = uicomponent.url("ViewStep" + String.valueOf(step+1));
 											            }
 											          %>  			                  
