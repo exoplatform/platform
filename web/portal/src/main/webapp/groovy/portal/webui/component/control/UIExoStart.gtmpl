@@ -32,7 +32,7 @@
      print """
       <div class="MenuItem">
         <div class="LabelItem">
-          <div class="PageIcon">
+          <div class="PageIcon"> <%//<%=node.getIcon();%>%>
             <div class="BlackArrowIcon">
               <div class="LabelText"><a href="$href">$node.label</a></div>
             </div>
