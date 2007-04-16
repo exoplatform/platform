@@ -315,50 +315,50 @@
 
 
 /*###########################- Item Selected -#############################*/
-.UIItemSelector .RightColumnBigItemStyle .ItemList .ItemSelected {
-  margin: 10px 6px;
+.UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem {
+  margin: 2px 6px;
   height: 32px;
   cursor: pointer;
 }
 
-.UIItemSelector .RightColumnBigItemStyle .ItemList .ItemSelected .UserAccountIcon {
+.UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserAccountIcon {
   height: 32px;
   background: url('VistaSkin/background/BigStyleUserAccountSelected.gif') no-repeat left;
   padding-left: 30px;
 }
 
-.UIItemSelector .RightColumnBigItemStyle .ItemList .ItemSelected .MembershipIcon {
+.UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .MembershipIcon {
   height: 32px;
   background: url('VistaSkin/background/BigStyleMembershipSelected.gif') no-repeat left;
   padding-left: 30px;
 }
 
-.UIItemSelector .RightColumnBigItemStyle .ItemList .ItemSelected .UserProfileIcon {
-  height: 32px;
+.UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserProfileIcon {
+  height: 26px;
   background: url('VistaSkin/background/BigStyleProfileSelected.png') no-repeat left;
   padding-left: 34px;
 }
 
-.UIItemSelector .RightColumnBigItemStyle .ItemList .ItemSelected .UserHomeInfoIcon {
-  height: 32px;
+.UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserHomeInfoIcon {
+  height: 26px;
   background: url('VistaSkin/background/BigStyleUserHomeSelected.png') no-repeat left;
   padding-left: 34px;
 }
 
-.UIItemSelector .RightColumnBigItemStyle .ItemList .ItemSelected .UserBusinessInfoIcon {
-  height: 32px;
+.UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserBusinessInfoIcon {
+  height: 26px;
   background: url('VistaSkin/background/BigStyleBusinessSelected.png') no-repeat left;
 }
 
-.UIItemSelector .RightColumnBigItemStyle .ItemList .ItemSelected .ItemName {
-  height: 32px; line-height: 32px; vertical-align: middle;
+.UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemName {
+  height: 26px; line-height: 26px; vertical-align: middle;
   background: url('VistaSkin/background/BigStyleItemSelectedR.png') no-repeat right;
-  padding-right: 15px;
+  padding-right: 2px;
   color: black;
 }
 
-.UIItemSelector .RightColumnBigItemStyle .ItemList .ItemSelected .ItemTitle {
-  height: 32px; line-height: 32px; vertical-align: middle;
+.UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemTitle {
+  height: 26px; line-height: 26px; vertical-align: middle;
   background: url('VistaSkin/background/BigStyleSelectedRepeatBG.png') repeat-x ;
   font-size: 11px;  color: black;
   padding-left: 10px;
