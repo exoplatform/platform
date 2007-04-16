@@ -141,6 +141,7 @@ public class UITestForm extends UIForm {
       byte[] data = uiUpload.getUploadData();
       if(data == null) return;
       System.out.println("===========================> upload data : "+uiUpload.getUploadResource().getFileName()+" with : "+data.length);
+      System.out.println("===========================> uploaded data type : "+uiUpload.getUploadResource().getMimeType()  );
     }
   }
   
