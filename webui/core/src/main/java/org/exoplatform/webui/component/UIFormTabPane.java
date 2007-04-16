@@ -37,9 +37,6 @@ abstract public class UIFormTabPane extends UIForm {
 		
 	public String getName() { return name_ ;}  
 
-//	public UIQuickHelp getUIQuickHelp() {  return uiQuickHelp_;  }
-//  public boolean hasQuickHelp(){ return uiQuickHelp_ != null; }
-  
   public boolean hasInfoBar(){ return withInfoBar; }
   public void setInfoBar(boolean value) { withInfoBar  = value; }
   

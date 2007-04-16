@@ -244,7 +244,7 @@
     </portlet-info>     
   </portlet>
   
-  <portlet>
+  <!-- <portlet>
     <description xml:lang="EN">Login Portlet</description>
     <portlet-name>LoginPortlet</portlet-name>
     <display-name xml:lang="EN">Login Portlet</display-name>
@@ -268,7 +268,7 @@
       <short-title>Login Portlet</short-title>
       <keywords>login</keywords>
     </portlet-info>     
-  </portlet>
+  </portlet> -->
   
   <portlet>
     <description xml:lang="EN">Browser Portlet</description>
@@ -296,7 +296,7 @@
     </portlet-info>     
   </portlet>
   
-  <portlet>
+  <!-- <portlet>
     <description xml:lang="EN">Add Portlet</description>
     <portlet-name>AddPortlet</portlet-name>
     <display-name xml:lang="EN">Add Portlet</display-name>
@@ -319,6 +319,6 @@
       <short-title>Add Portlet</short-title>
       <keywords>portlet,add</keywords>
     </portlet-info>     
-  </portlet>
+  </portlet> -->
 
 </portlet-app>

@@ -27,7 +27,7 @@
     </portlet-info>
   </portlet>  
   
-  <portlet>
+  <!--  <portlet>
     <description xml:lang="EN">Crawler Portlet</description>
     <portlet-name>CrawlerPortlet</portlet-name>
     <display-name xml:lang="EN">Crawler Portlet</display-name>
@@ -50,6 +50,6 @@
       <short-title>Crawler Portlet</short-title>
       <keywords>crawler</keywords>
     </portlet-info>
-  </portlet>    
+  </portlet>   -->  
     
 </portlet-app>
