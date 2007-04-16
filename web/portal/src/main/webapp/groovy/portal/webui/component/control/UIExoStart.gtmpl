@@ -11,7 +11,6 @@
   jsmanager.addOnLoadJavascript('eXo.portal.UIExoStartMenu.onLoad');
   jsmanager.addOnResizeJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
   jsmanager.addOnScrollJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
-  
   String docBase =  rcontext.getRequestContextPath() ;
   String onclick = "eXo.portal.UIExoStartMenu.showStartMenu(event)" ;
   

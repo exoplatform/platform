@@ -30,8 +30,9 @@ eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 		uiWorkspaceContainer.style.display = "block" ;
 		uiWorkspaceContainer.style.width = eXo.portal.UIControlWorkspace.defaultWidth + "px" ;
 	}
+	var startMenuContainer = document.getElementById("StartMenuContainer");
+	startMenuContainer.style.display = "none";
 	uiWorkspacePanel.style.height = (height - this.uiWorkspaceControl.offsetHeight - 23) + "px" ;
-	
 	
 	/*Fix Bug on IE*/
 	eXo.portal.UIControlWorkspace.slidebar.style.height = height + "px" ;
@@ -124,6 +125,11 @@ eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {
 
 eXo.portal.UIWorkingWorkspace.onResizeDefault = function(event) {
   eXo.portal.UIWorkingWorkspace.onResize(null, null) ;
+};
+
+eXo.portal.UIWorkingWorkspace.resizeWorkspacePanel = function(h) {
+  var workspacePanel = document.getElementById("UIWorkspacePanel");
+  workspacePanel.style.height = h + "px";
 };
 
 eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace) {

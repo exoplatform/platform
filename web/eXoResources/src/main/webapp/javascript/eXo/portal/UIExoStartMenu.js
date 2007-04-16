@@ -42,30 +42,43 @@ UIExoStartMenu.prototype.startButtonOut = function() {
 };
 
 UIExoStartMenu.prototype.showStartMenu = function(e) {
-	if(!e) var e = window.event;
+	//console.group("verif");
+	//console.log("start show menu");
+	if (!e) var e = window.event;
 	e.cancelBubble = true;
-	
+
 	var uiStartContainer = document.getElementById("StartMenuContainer") ;
 	eXo.portal.UIExoStartMenu.exoStartButton.className = "ExoStartButton ButtonClicked" ;
 	if(uiStartContainer.style.display == "block") {
+		//console.log("enter hide condition");
 		eXo.portal.UIExoStartMenu.hideUIStartMenu();
+		//console.log("end hide condition");
 	} else {
+		//console.log("enter show condition");
 		eXo.portal.UIExoStartMenu.buttonClicked = true ;
-		this.superClass.show(uiStartContainer);
 		var menuY = eXo.core.Browser.findPosY(eXo.portal.UIExoStartMenu.exoStartButton);
+		//console.log("eXo.core.Browser.findPosY");
+		this.superClass.show(uiStartContainer);
+		//console.log("this.superClass.show");
 		var y = menuY - uiStartContainer.offsetHeight;
-		uiStartContainer.style.width = "238px";
+		//uiStartContainer.style.width = "238px";
 		this.superClass.setPosition(uiStartContainer, 0, y) ;
+		//console.log("this.superClass.setPosition");
+		eXo.portal.UIExoStartMenu.setSize(uiStartContainer, 238, 191);
+		//console.log("eXo.portal.UIExoStartMenu.setSize");
+		//console.log("end show condition");
 	}
-	
 	/*Hide eXoStartMenu whenever click on the UIApplication*/
 	var uiPortalApplication = document.getElementById("UIPortalApplication") ;
 	uiPortalApplication.onclick = eXo.portal.UIExoStartMenu.hideUIStartMenu ;
 	
 //	eXo.core.DOMUtil.listHideElements(uiStartContainer);
+	//console.log("end show menu");
 };
 
 UIExoStartMenu.prototype.hideUIStartMenu = function() {
+	//console.log("hide menu");
+	//console.groupEnd();
 	var uiStartContainer = document.getElementById("StartMenuContainer") ;
 	eXo.webui.UIPopupMenu.hide(uiStartContainer);
 	eXo.portal.UIExoStartMenu.buttonClicked = false ;
@@ -90,7 +103,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(e) {
 			return false;
 		}
 	}
-	// If the pointed menu item contains a submenu, resize it
+	// If the pointed menu item contains a submenu, resizes it
 	var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIExoStartMenu.superClass.containerStyleClass) ;
 	if (menuItemContainer && eXo.core.Browser.getBrowserType() == "ie" && !menuItemContainer.resized) {
 		// Resizes the container only once, the first time. After, container.resized is true so the condition is false
@@ -110,6 +123,14 @@ UIExoStartMenu.prototype.onMenuItemOver = function(e) {
 UIExoStartMenu.prototype.onMenuItemOut = function(e) {
 	eXo.webui.UIPopupMenu.onMenuItemOut(e);
 	window.status = "";
+};
+
+UIExoStartMenu.prototype.setSize = function(popup, w, h) {
+	if (typeof(popup) == "string") popup = document.getElementById(popup);
+	if (popup) {
+		popup.style.width = w;
+		popup.style.height = h;
+	}
 };
 
 eXo.portal.UIExoStartMenu = new UIExoStartMenu() ;

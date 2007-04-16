@@ -95,6 +95,7 @@
 
 .UIControlWorkspace .UIWorkspaceContainer {
 	float: left ;
+	height: 100%;
 }
 /*########################### End Slidebar ###########################*/
 .UIWorkingWorkspace {

@@ -44,7 +44,8 @@
 }
 
 .UIExoStart .StartMenuContainer {
-	/*display: none;*/
+	/*display: none;
+	visibility: visible;*/
 }
 
 .UIExoStart .StartMenuContainer .LoginContainer {
