@@ -94,7 +94,7 @@
     <realm-name>exo-domain</realm-name>
     <form-login-config>
       <form-login-page>/login/jsp/login.jsp</form-login-page>
-      <form-error-page>/error/jsp/login.jsp</form-error-page>
+      <form-error-page>/error/jsp/login-error.jsp</form-error-page>
     </form-login-config>
   </login-config>
 

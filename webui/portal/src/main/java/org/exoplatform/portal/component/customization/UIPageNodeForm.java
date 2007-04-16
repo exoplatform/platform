@@ -79,7 +79,7 @@ public class UIPageNodeForm extends UIFormTabPane {
     uiPageSelector.setRendered(false) ;
     addUIFormInput(uiPageSelector) ;
 
-    UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("icon", "icon") ;
+    UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("Icon", "icon") ;
     uiIconSelector.setRendered(false)  ;
     addUIFormInput(uiIconSelector) ;   
   }

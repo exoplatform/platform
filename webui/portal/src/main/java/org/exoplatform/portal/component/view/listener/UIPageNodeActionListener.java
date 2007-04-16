@@ -19,6 +19,7 @@ import org.exoplatform.portal.component.customization.UIPageNodeSelector;
 import org.exoplatform.portal.component.customization.UIPageTemplateOptions;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.UIPage;
+import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
@@ -122,15 +123,9 @@ public class UIPageNodeActionListener {
             
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;  
       uiToolPanel.setUIComponent(uiPage);
-      if(uiPage.isShowMaxWindow()) {
-        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
-        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-        return;
-      }
-
+      
       Class [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-
       UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
       uiPageEditBar.setUIPage(uiPage); 
       uiPageEditBar.showUIPage();

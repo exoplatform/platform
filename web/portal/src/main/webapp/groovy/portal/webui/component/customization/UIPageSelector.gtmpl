@@ -24,9 +24,8 @@
   
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
-    
 %>
-<div class="UIPageSelector">
+<div class="UIPageSelector" id="<%=uicomponent.getId();%>">
 	<div class="UIToolbar">
 	  <div class="Style2Toolbar">
 	    <div class="LeftBar">

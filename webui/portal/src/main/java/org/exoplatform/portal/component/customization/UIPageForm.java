@@ -96,12 +96,18 @@ public class UIPageForm extends UIFormTabPane {
     uiPermissionSelector.createPermission("EditPermission", uiPage_.getEditPermission());
     
     invokeGetBindingBean(page) ;
+    
     getUIFormCheckBoxInput("showMaxWindow").setValue(uiPage.isShowMaxWindow());
     
-    UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
-    if(uiTemplate != null) uiTemplate.setValue(uiPage.getFactoryId());
-    
     removeChild(UIPageTemplateOptions.class);
+    
+    UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
+    if(uiTemplate == null)  return;
+    if(page.getFactoryId() == null || page.getFactoryId().trim().length() < 1) {
+      uiTemplate.setValue("Default");
+      return;
+    }
+    uiTemplate.setValue(uiPage.getFactoryId());
   }
   
   public  void invokeSetBindingBean(Object bean) throws Exception {
@@ -117,7 +123,6 @@ public class UIPageForm extends UIFormTabPane {
         page.setShowMaxWindow(page.getFactoryId().equals("Desktop"));
       } 
     } 
-    
     if(!page.isShowMaxWindow()) {
       page.setShowMaxWindow((Boolean) getUIFormCheckBoxInput("showMaxWindow").getValue());      
     }
@@ -152,17 +157,21 @@ public class UIPageForm extends UIFormTabPane {
       UIPage uiPage = uiPageForm.getUIPage();      
       Page page = new Page() ;
       uiPageForm.invokeSetBindingBean(page);     
+      if("Desktop".equals(uiPage.getFactoryId()) && !"Desktop".equals(page.getFactoryId()) ){
+        page.setShowMaxWindow(false);
+      }
       if(uiPage != null){
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         PortalDataModelUtil.toUIPage(uiPage, page, true);       
       }else{
         page.setOwner(Util.getUIPortal().getOwner());
       }
-      if(page.getChildren() == null){
+      if(page.getChildren() == null || "Desktop".equals(page.getFactoryId())){
         page.setChildren(new ArrayList<org.exoplatform.portal.config.model.Component>());        
       }         
+      
       PortalDAO dao = uiPageForm.getApplicationComponent(PortalDAO.class);      
-      dao.savePage(page);    
+      dao.savePage(page);  
       
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;

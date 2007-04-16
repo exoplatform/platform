@@ -1,4 +1,4 @@
-<div class="UIPageBrowser" id="UIPageBrowser">
+<div class="UIPageBrowser" id="<%=uicomponent.getId();%>">
 	
 	<%/*Begin UIPageBrowser Content*/%>
 	<div style="padding-right: 3px"><% uicomponent.renderChildren() %></div>

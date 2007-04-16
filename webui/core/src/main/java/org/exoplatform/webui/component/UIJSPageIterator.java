@@ -62,7 +62,8 @@ public class UIJSPageIterator extends UIComponent {
     public void execute(Event<UIJSPageIterator> event) throws Exception {
       UIJSPageIterator uiIterator = event.getSource() ;
       String page = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      uiIterator.setCurrentPage(Integer.parseInt(page)) ;      
+      uiIterator.setCurrentPage(Integer.parseInt(page)) ; 
+      event.getRequestContext().addUIComponentToUpdateByAjax(event.getSource().getParent());
     }
   }
   

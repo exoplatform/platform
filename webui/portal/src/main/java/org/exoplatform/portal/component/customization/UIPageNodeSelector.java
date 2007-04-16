@@ -11,6 +11,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.view.UIPage;
+import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.AddNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.CopyNodeActionListener;
@@ -232,13 +233,15 @@ public class UIPageNodeSelector extends UIContainer {
       }
       
       uiEditBar.setRendered(true);
-      UIPage uiPage  = Util.toUIPage(node, Util.getUIPortalToolPanel());
+      UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
       Util.getUIPortalToolPanel().setUIComponent(uiPage);
-      if(uiPage.isShowMaxWindow()) {
+      
+      if("Desktop".equals(uiPage.getFactoryId())) {
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
+      
       uiEditBar.setUIPage(uiPage);
       Class [] childrenToRender = {UIPageEditBar.class, 
                                    UIPageNodeSelector.class, UIPageNavigationControlBar.class};      

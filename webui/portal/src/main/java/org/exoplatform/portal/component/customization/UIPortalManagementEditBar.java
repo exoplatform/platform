@@ -13,7 +13,6 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIRightClickPopupMenu;
 import org.exoplatform.webui.component.UIToolbar;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;

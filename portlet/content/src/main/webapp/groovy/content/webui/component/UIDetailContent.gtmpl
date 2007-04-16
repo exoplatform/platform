@@ -5,56 +5,58 @@
   String nodeLabel = uicomponent.getContentNode().getLabel() ;  
   items = uicomponent.getListItems() ;  
 %>
-  
-<%/*Begin Content Detail*/ %>
-<div class="RefreshBar">
-	<a class="RefreshIcon" href="<%=uicomponent.event("Refresh")%>" title="Refresh News"></a>
-</div>
-<div class="ContentBreadcumbs">
-	<div class="BreadcumbsContainer">
-		<div class="Icon"><span></span></div>
-		<div class="CategoryName"><%=nodeLabel%></div>
+
+<div id="<%=uicomponent.getId();%>">  
+	<%/*Begin Content Detail*/ %>
+	<div class="RefreshBar">
+		<a class="RefreshIcon" href="<%=uicomponent.event("Refresh")%>" title="Refresh News"></a>
 	</div>
-</div>
-
-<div class="NewsDetailLayout">
-  <div class="NewsDetailContainer">
-    <% 
-      int i = 0;
-      for(ContentItem meta in items) { 
-        i = i + 1;             
-        if(meta.getTime() != null) {
-    %>   
-          <div class="DateTime"><%=meta.getTime();%></div>
-    <%  } %>		            
-          <div class="NewsDetail">
-					  <div class="ContentDetailTitle">
-						  <div class="Level216x16Icon" style="float:left;"><span></span></div>
-						  <a href="<%=meta.getLink()%>" target="_blank" title="<%=meta.getTitle()%>">
-						    <%=meta.getTitle()%>
-						  </a>
-						</div>
-						<%
-						  if(meta.getImage() != null && meta.getImage().length() > 0){ 
-						%>
-   						  <div class="ContentDetailImage">
-                  <img src="<%=meta.getImage();%>" height="120" border="0">
-                </div>
-            <%}%>														
-				    <div class="ContentDetailDescription">
-				      <%if(meta.getDesc() != null){%>
-  						    <p align="justify"><%=meta.getDesc();%></p>
-  					  <%}%>  
-				    </div>
-          </div>
-		<%}%>
-  </div>				      
-</div>
-<%/*End Content Detail */%>
-
-<%
-  String display="display:none;" ;
-  if(i > 1) display = "display:block;" ;
-%>
-<div style="$display"><% uicomponent.renderChild(UIJSPageIterator.class); %></div>
+	<div class="ContentBreadcumbs">
+		<div class="BreadcumbsContainer">
+			<div class="Icon"><span></span></div>
+			<div class="CategoryName"><%=nodeLabel%></div>
+		</div>
+	</div>
+	
+	<div class="NewsDetailLayout">
+	  <div class="NewsDetailContainer">
+	    <% 
+	      int i = 0;
+	      for(ContentItem meta in items) { 
+	        i = i + 1;             
+	        if(meta.getTime() != null) {
+	    %>   
+	          <div class="DateTime"><%=meta.getTime();%></div>
+	    <%  } %>		            
+	          <div class="NewsDetail">
+						  <div class="ContentDetailTitle">
+							  <div class="Level216x16Icon" style="float:left;"><span></span></div>
+							  <a href="<%=meta.getLink()%>" target="_blank" title="<%=meta.getTitle()%>">
+							    <%=meta.getTitle()%>
+							  </a>
+							</div>
+							<%
+							  if(meta.getImage() != null && meta.getImage().length() > 0){ 
+							%>
+	   						  <div class="ContentDetailImage">
+	                  <img src="<%=meta.getImage();%>" height="120" border="0">
+	                </div>
+	            <%}%>														
+					    <div class="ContentDetailDescription">
+					      <%if(meta.getDesc() != null){%>
+	  						    <p align="justify"><%=meta.getDesc();%></p>
+	  					  <%}%>  
+					    </div>
+	          </div>
+			<%}%>
+	  </div>				      
+	</div>
+	<%/*End Content Detail */%>
+	
+	<%
+	  String display="display:none;" ;
+	  if(i > 1) display = "display:block;" ;
+	%>
+	<div style="$display"><% uicomponent.renderChild(UIJSPageIterator.class); %></div>
+</div>	
 
