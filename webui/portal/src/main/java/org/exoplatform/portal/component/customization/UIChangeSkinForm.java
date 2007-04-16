@@ -11,67 +11,83 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.webui.component.UIFormInputItemSelector;
-import org.exoplatform.webui.component.UIFormTabPane;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
+import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIContainer;
+import org.exoplatform.webui.component.UIItemSelector;
 import org.exoplatform.webui.component.model.SelectItemCategory;
-import org.exoplatform.webui.component.model.SelectItemOption;
+import org.exoplatform.webui.config.InitParams;
+import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
-    lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/portal/webui/component/customization/UIChangeSkinForm.gtmpl",   
+    template = "system:/groovy/portal/webui/component/customization/UIChangeSkinForm.gtmpl",
+    initParams = {
+        @ParamConfig(
+            name = "ChangeSkinTemplateConfigOption",
+            value = "system:/WEB-INF/conf/uiconf/portal/webui/component/customization/ChangeSkinTemplateConfigOption.groovy"
+        )        
+    },
     events = {
       @EventConfig(listeners = UIChangeSkinForm.SaveActionListener.class),
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
     }
 )
 //TODO:  This code has many  problems
-public class UIChangeSkinForm extends UIFormTabPane{
+public class UIChangeSkinForm extends UIContainer {
+  String name_;
+  private String[] actions_ = null ;
   
   @SuppressWarnings("unchecked")
-  public UIChangeSkinForm() throws Exception  { 
-    super("UIChangeSkinForm");
-
-    SelectItemCategory skinVista = new SelectItemCategory("Vista", false);
-    List<SelectItemOption> vistaList = new  ArrayList<SelectItemOption>();
-    vistaList.add(new SelectItemOption("Vista", "Vista", "Vista"));
+  public UIChangeSkinForm(InitParams initParams) throws Exception  { 
+    name_ = "UIChangeSkinForm";    
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
+    Param param = initParams.getParam("ChangeSkinTemplateConfigOption");
+    List<SelectItemCategory> itemCategories = (List<SelectItemCategory>)param.getMapGroovyObject(context);
     
-    skinVista.setSelectItemOptions(vistaList);
+    UIItemSelector selector = new UIItemSelector("Skin");
+    selector.setItemCategories(itemCategories);
+    selector.setRendered(true);
     
-    SelectItemCategory skinMac = new SelectItemCategory("Mac", false);
-    List<SelectItemOption> macList = new  ArrayList<SelectItemOption>();
-    macList.add(new SelectItemOption("Mac", "Mac", "Mac"));
-    skinMac.setSelectItemOptions(macList);
-    
-    SelectItemCategory skinDefault = new SelectItemCategory("Default", false);
-    List<SelectItemOption> defaultList = new  ArrayList<SelectItemOption>();
-    defaultList.add(new SelectItemOption("Default", "Default", "Default"));
-    skinDefault.setSelectItemOptions(defaultList);
-    skinDefault.setSelected(true);
-    
-    List<SelectItemCategory> itemCategories = new ArrayList<SelectItemCategory>();
-    itemCategories.add(skinDefault);
-    itemCategories.add(skinMac);
-    itemCategories.add(skinVista);
-    
-    UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Skin", "  ");
-    uiTemplate.setItemCategories(itemCategories );
-    uiTemplate.setRendered(true);
-    addChild(uiTemplate);
+    addChild(selector);
+  }
+  
+  public String getName() {
+    return name_;
+  }
+  
+  public void setActions(String [] actions){
+    actions_ = actions;
+  }
+  
+  public String[] getActions() {
+    if(actions_ != null) return actions_;
+    ArrayList<org.exoplatform.webui.config.Event> events = config.getEvents();
+    actions_ = new String[events.size()];    
+    for(int i = 0; i < actions_.length; i++){
+      actions_[i] = events.get(i).getName();
+    }
+    return actions_;  
+  }
+  
+  public String event(String actionName) throws Exception {
+    StringBuilder b = new StringBuilder() ;
+    b.append("javascript:eXo.portal.UIPortalControl.changeSkin('").append(getName()).append("', '");
+    b.append(actionName).append("')");
+    return b.toString() ;
   }
   
   static public class SaveActionListener  extends EventListener<UIChangeSkinForm> {
     public void execute(Event<UIChangeSkinForm> event) throws Exception {
-      UIChangeSkinForm uicomp = event.getSource() ;
+/*      UIChangeSkinForm uicomp = event.getSource() ;
       UIMaskWorkspace uiMaskWorkspace = uicomp.getAncestorOfType(UIMaskWorkspace.class);
       if(!uiMaskWorkspace.isShow()) return;
       uiMaskWorkspace.setUIComponent(null);
       
-      UIFormInputItemSelector uiTemplate  = uicomp.getChild(UIFormInputItemSelector.class);
+      UIItemSelector uiTemplate  = uicomp.getChild(UIItemSelector.class);
       UIPortalApplication uiApp = uicomp.getAncestorOfType(UIPortalApplication.class);      
       uiApp.setSkin(uiTemplate.getSelectedItemOption().getValue().toString());
       
@@ -83,7 +99,7 @@ public class UIChangeSkinForm extends UIFormTabPane{
       
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       String url = pcontext.getRequestContextPath();
-      pcontext.getJavascriptManager().addJavascript("window.location=\""+url+"\"");
+      pcontext.getJavascriptManager().addJavascript("window.location=\""+url+"\"");*/
     }
   }
 
