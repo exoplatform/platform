@@ -56,6 +56,7 @@
     <title>JCRRExplorer</title>
     <view-permission>*:/guest</view-permission>        
     <application>
+      <title>JCR Explorer Portlet</title>
       <application-instance-id>exoadmin:/ecm/JCRExplorerPortlet/jcrexplorer</application-instance-id>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
@@ -131,26 +132,31 @@
     <show-max-window>true</show-max-window>
 
     <application>
+      <title>ECM Admin Portlet</title>
       <application-instance-id>exoadmin:/ecm/ECMAdminPortlet/ecmadmin</application-instance-id>
       <show-info-bar>true</show-info-bar>
     </application>  
 
     <application>
+      <title>JCR Explorer Portlet</title>
       <application-instance-id>exoadmin:/ecm/JCRExplorerPortlet/jcrexplorer</application-instance-id>
       <show-info-bar>true</show-info-bar>
     </application>    
   
     <application>
+      <title>Browse Content Portlet</title>
       <application-instance-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</application-instance-id>
       <show-info-bar>true</show-info-bar>
     </application>
         
     <application>
+      <title>Workflow Control Portlet</title>
       <application-instance-id>exoadmin:/workflow/WorkflowControllerPortlet/workflowcontroller</application-instance-id>
       <show-info-bar>true</show-info-bar>
     </application>    
 
     <application>
+      <title>Workflow Monitoring Portlet</title>
       <application-instance-id>exoadmin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</application-instance-id>
       <show-info-bar>true</show-info-bar>
     </application>    
