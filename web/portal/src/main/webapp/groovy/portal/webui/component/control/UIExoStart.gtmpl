@@ -16,10 +16,12 @@
   
   void renderSinglePageNode(PageNode node) {
     String  href = uicomponent.event("ChangePage",  node.getUri()) ;
+    String icon = node.getIcon();
+    if(icon == null) icon = "PageIcon";
     print """
       <div class="MenuItem">
         <div class="LabelItem">
-          <div class="PageIcon">
+          <div class="$icon">
             <div class="LabelText"><a href="$href">$node.label</a></div>
           </div>
         </div>
