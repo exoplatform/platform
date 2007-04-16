@@ -19,6 +19,7 @@
     <title>Site Map</title>
     <view-permission>*:/guest</view-permission>        
     <application>
+      <title>Site Map portlet</title>
       <application-instance-id>exo:/web/SiteMapPortlet/sitemapportlet</application-instance-id>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
@@ -35,7 +36,7 @@
     <show-max-window>true</show-max-window>
     
     <application>
-      <title>Sitemap Portlet</title>
+      <title>Site Map Portlet</title>
       <application-instance-id>exo:/web/SiteMapPortlet/SitemapPortlet</application-instance-id>
       <show-info-bar>true</show-info-bar>
     </application>  

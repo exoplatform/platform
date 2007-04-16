@@ -7,6 +7,7 @@
     <view-permission>*:/guest</view-permission>        
     <show-max-window>true</show-max-window>
     <application>
+      <title>Company site portlet</title>
 	    <application-instance-id>company:/site/SitePortlet/siteportlet</application-instance-id>
 	    <show-info-bar>false</show-info-bar>
 	  </application>
@@ -18,6 +19,7 @@
     <title>Organization</title>
     <view-permission>member:/portal/company</view-permission>
     <application>
+      <title>Organization portlet</title>
       <application-instance-id>company:/exoadmin/OrganizationPortlet/Organization</application-instance-id>
 	  	<show-info-bar>true</show-info-bar>
 	  	<show-application-state>true</show-application-state>
@@ -30,6 +32,7 @@
     <title>My Portal</title>
     <view-permission>member:/portal/company</view-permission>
     <application>
+      <title>Account portlet</title>
       <application-instance-id>company:/exoadmin/AccountPortlet/Account</application-instance-id>
       <show-info-bar>false</show-info-bar>
     </application>  

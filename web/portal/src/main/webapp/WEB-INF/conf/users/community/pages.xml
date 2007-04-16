@@ -10,12 +10,14 @@
     
     <application>
 	    <factory-id>portlet</factory-id>
+	    <title>Site portlet</title>
       <application-instance-id>community:/site/SitePortlet/siteportlet</application-instance-id>
       <show-info-bar>false</show-info-bar>
     </application>
     
     <application>
 	    <factory-id>portlet</factory-id>
+	    <title>Content portlet</title>
       <application-instance-id>community:/content/ContentPortlet/contentportlet</application-instance-id>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
@@ -24,12 +26,14 @@
 
     <application>
 	    <factory-id>portlet</factory-id>
+	    <title>Browse portlet</title>
       <application-instance-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</application-instance-id>
       <show-info-bar>true</show-info-bar>
     </application>
 
     <application>
 	    <factory-id>portlet</factory-id>
+	    <title>Account portlet</title>
       <application-instance-id>community:/exoadmin/AccountPortlet/Account</application-instance-id>
       <show-info-bar>false</show-info-bar>
     </application>  
@@ -45,6 +49,7 @@
     
     <application>
 	    <factory-id>portlet</factory-id>
+	    <title>Organization portlet</title>
       <application-instance-id>community:/exoadmin/OrganizationPortlet/Organization</application-instance-id>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
@@ -52,6 +57,7 @@
 
     <application>
 	    <factory-id>portlet</factory-id>
+      <title>Account portlet</title>
       <application-instance-id>community:/exoadmin/AccountPortlet/Account</application-instance-id>
       <show-info-bar>false</show-info-bar>
     </application>  
