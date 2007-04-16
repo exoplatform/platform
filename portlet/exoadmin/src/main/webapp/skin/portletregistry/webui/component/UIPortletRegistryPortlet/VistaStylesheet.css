@@ -119,11 +119,26 @@
 /*################################Portlet Registry Working################################*/
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea {
-	margin-left: 235px;
+	margin-left: 230px;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormInputSet {
   margin: 10px 5px 5px 10px ; 
+}
+
+.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormWithTitle {
+  margin: auto;
+  width: 95%;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid tbody {
+  width: 100%;
+  padding-bottom: 1px;
+}
+
+.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid {
+  width: 99%;
+  border: 1px solid #7eaad0;
 }
 
 .UIPortletRegistryPortlet .UIVerticalSlideTabs {
