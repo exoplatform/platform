@@ -42,8 +42,10 @@ public class WebuiBindingContext extends BindingContext {
     try {
       ResourceBundle res = rcontext_.getApplicationResourceBundle() ;
       value = res.getString(mesgKey) ;
-    } catch(MissingResourceException ex) { 
-      value = mesgKey ;
+    } catch(MissingResourceException ex) {      
+      //TODO review logic
+      System.err.println("\nkey : "+mesgKey+"\n");
+      value = mesgKey.substring(mesgKey.lastIndexOf('.') + 1) ;
     }
     return value ;
   }

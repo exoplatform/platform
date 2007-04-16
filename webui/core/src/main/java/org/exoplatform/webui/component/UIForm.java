@@ -125,9 +125,7 @@ public class UIForm extends UIContainer  {
     writer.append("<input type=\"hidden\" name=\"").append(ACTION).append("\" value=\"\"/>") ;
   }
   
-  public void setActions(String [] actions){
-    actions_ = actions;
-  }
+  public void setActions(String [] actions){ actions_ = actions; }
   
   public String[] getActions() {
     if(actions_ != null) return actions_;
