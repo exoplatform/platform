@@ -61,6 +61,9 @@ UIExoStartMenu.prototype.showStartMenu = function(e) {
 		this.superClass.show(uiStartContainer);
 		//console.log("this.superClass.show");
 		var y = menuY - uiStartContainer.offsetHeight;
+		if (window.pageYOffset) y -= window.pageYOffset;
+		else if (document.documentElement.scrollTop) y -= document.documentElement.scrollTop;
+		else if (document.body.scrollTop) y -= document.body.scrollTop;
 		//uiStartContainer.style.width = "238px";
 		this.superClass.setPosition(uiStartContainer, 0, y) ;
 		//console.log("this.superClass.setPosition");
