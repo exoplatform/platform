@@ -65,17 +65,20 @@ public abstract class UIPageWizard extends UIWizard {
     uiPortal.setRenderSibbling(UIPortal.class) ;    
     pcontext.setFullRender(true);
     
-    updateAjax();    
+    UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
   }
   
-  void updateAjax(){
+  void updateWizardComponent(){
     UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class) ;
     UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class) ;
     PortalRequestContext pcontext = Util.getPortalRequestContext();
+
     UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);    
+    
     UIComponentDecorator uiWorkingArea = uiExoStart.<UIContainer>getParent().findComponentById(UIControlWorkspace.WORKING_AREA_ID);
     pcontext.addUIComponentToUpdateByAjax(uiWorkingArea);      
-    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);    
   }
   
   public void setDescriptionWizard() throws Exception {
@@ -92,7 +95,7 @@ public abstract class UIPageWizard extends UIWizard {
       UIPageWizard uiWizard = event.getSource();
       uiWizard.setDescriptionWizard();
       
-      uiWizard.updateAjax();
+      uiWizard.updateWizardComponent();
       uiWizard.viewStep(2);
     }
   }

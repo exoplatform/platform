@@ -63,6 +63,7 @@ public class UIPageEditWizard extends UIPageWizard {
     daoService.savePageNavigation(pageNav);
     
     UIPortal uiPortal = Util.getUIPortal();
+    uiPortal.setNavigation(uiNodeSelector.getNavigations());
     String uri = uiPageInfo.getPageNode().getUri();
     PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;
     uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
@@ -73,7 +74,7 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPageWizard uiWizard = event.getSource();
       uiWizard.setDescriptionWizard();
       
-      uiWizard.updateAjax();
+      uiWizard.updateWizardComponent();
       uiWizard.viewStep(1);   
     }
   }
@@ -92,7 +93,7 @@ public class UIPageEditWizard extends UIPageWizard {
 
       uiWizard.viewStep(3);      
       if(uiWizard.getSelectedStep() < 3){
-        uiWizard.updateAjax();
+        uiWizard.updateWizardComponent();
         return;
       }
       
@@ -135,7 +136,7 @@ public class UIPageEditWizard extends UIPageWizard {
         uiWizard.updateUIPortal(uiPortalApp, event);
         return;
       }
-      uiWizard.updateAjax();
+      uiWizard.updateWizardComponent();
       
       Class [] childrenToRender = {UIPageEditBar.class, UIPortletOptions.class}; 
       uiParent.setRenderedChildrenOfTypes(childrenToRender);

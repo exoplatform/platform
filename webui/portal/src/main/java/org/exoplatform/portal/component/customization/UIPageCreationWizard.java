@@ -7,7 +7,10 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.UIWorkspace;
+import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIExoStart;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
@@ -99,6 +102,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     daoService.savePageNavigation(pageNav);
     
     UIPortal uiPortal = Util.getUIPortal();
+    uiPortal.setNavigation(uiNodeSelector.getNavigations());
     String uri = pageNode.getUri();
     PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;
     uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
@@ -110,7 +114,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
       UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);      
       uiExoStart.setUIControlWSWorkingComponent(UIWelcomeComponent.class);      
-      uiWizard.updateAjax();
+      uiWizard.updateWizardComponent();
       uiWizard.viewStep(1);      
     }
   }
@@ -119,8 +123,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
       uiWizard.setDescriptionWizard();
-      
-      uiWizard.updateAjax();
+      uiWizard.updateWizardComponent();
       uiWizard.viewStep(3);
     }
   }
@@ -139,7 +142,7 @@ public class UIPageCreationWizard extends UIPageWizard {
 
       uiWizard.viewStep(4);      
       if(uiWizard.getSelectedStep() < 4){
-        uiWizard.updateAjax();
+        uiWizard.updateWizardComponent();
         return;
       }
       
@@ -168,7 +171,7 @@ public class UIPageCreationWizard extends UIPageWizard {
         return;
       }
       
-      uiWizard.updateAjax();
+      uiWizard.updateWizardComponent();
       Class [] childrenToRender = {UIPageEditBar.class, UIPortletOptions.class}; 
       uiParent.setRenderedChildrenOfTypes(childrenToRender);
       uiPageEditBar.setUIPage(uiPage);      
@@ -182,7 +185,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       
       uiWizard.saveData();
-      uiWizard.updateUIPortal(uiPortalApp, event);
+      uiWizard.updateUIPortal(uiPortalApp, event);   
     }
   }  
 
