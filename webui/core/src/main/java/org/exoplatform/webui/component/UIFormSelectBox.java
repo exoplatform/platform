@@ -32,9 +32,7 @@ public class UIFormSelectBox extends UIFormStringInput {
     return this ;
   } 
  
-  public void setOnChange(String onchange){
-    onchange_ = onchange;
-  }    
+  public void setOnChange(String onchange){ onchange_ = onchange; }    
   
   @SuppressWarnings("deprecation")
   public UIFormSelectBox setDisabled(boolean disabled) {

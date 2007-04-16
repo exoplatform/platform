@@ -8,6 +8,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
   
   private boolean checked = false;
+  private String onchange_;
 
   @SuppressWarnings("unchecked")
   public UIFormCheckBoxInput(String name, String bindingExpression, T value) {
@@ -16,6 +17,7 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
     value_ = value;
     setId(name);
   }
+  
   
   @SuppressWarnings("unchecked")
   public UIFormInput setValue(T value){
@@ -28,6 +30,12 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
     typeValue_ = (Class<T>)value.getClass();
     return super.setValue(value);
   }
+  
+  public void setOnChange(String onchange){ onchange_ = onchange; }    
+  
+  protected String renderOnChangeEvent(UIForm uiForm) throws Exception {
+    return uiForm.event(onchange_, null);
+  }
 
   final public boolean isChecked() { return checked; }  
   final public UIFormCheckBoxInput setChecked(boolean check) { 
@@ -39,7 +47,7 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
   public void decode(Object input, WebuiRequestContext context)  throws Exception {
     if (!isEnable()) return ;    
     if (input == null) checked = false; else checked = true;
-    if(typeValue_ == Boolean.class || typeValue_ == boolean.class){
+    if(typeValue_ == Boolean.class || typeValue_ == boolean.class) {
       value_ = typeValue_.cast(checked);
     }
   }
@@ -50,6 +58,10 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
     w.write(" value='"); 
     if(value_ != null)  w.write(String.valueOf(value_));    
     w.write("' ");
+    if(onchange_ != null) {
+      UIForm uiForm = getAncestorOfType(UIForm.class) ;
+      w.append(" onchange=\"").append(renderOnChangeEvent(uiForm)).append("\"");
+    }
     if(checked) w.write(" checked ") ;
     if (!enable_)  w.write(" disabled ");    
     w.write(" class='checkbox'/>") ;

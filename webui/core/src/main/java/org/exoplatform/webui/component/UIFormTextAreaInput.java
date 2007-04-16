@@ -17,11 +17,11 @@ public class UIFormTextAreaInput extends UIFormStringInput {
     Writer w =  context.getWriter() ;
     String value = getValue() ;
     if(value == null) value = getDefaultValue();
-    w.write("<textarea class='textarea' name='") ; w.write(getName());
+    w.append("<textarea class='textarea' name='").append(getName());
     if(readonly_) w.write(" readonly ");
     if(!enable_)  w.write(" disabled ");
-    if(rows > -1) w.write(" rows=\""); w.write(rows); w.write("\"");
-    if(columns > -1) w.write(" cols=\""); w.write(columns); w.write("\"");
+    if(rows > -1) w.append(" rows=\"").append(String.valueOf(rows)).append("\"");
+    if(columns > -1) w.append(" cols=\"").append(String.valueOf(columns)).append("\"");
     w.write("'>");
     if(value != null) w.write(value) ;  
     w.write("</textarea>");
