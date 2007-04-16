@@ -11,7 +11,7 @@
     
     <init-param>
       <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/web/TestFormPortlet/webui/configuration.xml</value>
+      <value>/WEB-INF/conf/portlet/test/TestFormPortlet/webui/configuration.xml</value>
     </init-param>    
 
     <expiration-cache>0</expiration-cache>
@@ -20,7 +20,7 @@
       <portlet-mode>help</portlet-mode>
     </supports>
     <supported-locale>en</supported-locale>
-    <resource-bundle>locale.portlet.portal.TestFormPortlet</resource-bundle>    
+    <resource-bundle>locale.portlet.test.TestFormPortlet</resource-bundle>    
     <portlet-info>
       <title>Test Form Portlet</title>
       <short-title>Test Form Portlet</short-title>
