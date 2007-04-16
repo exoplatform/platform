@@ -30,4 +30,17 @@ UIPortalControl.prototype.showHiddenContent = function(selectedElement) {
 	} 
 }
 
+UIPortalControl.prototype.changeSkin = function (form, action) {
+	if (eXo.webui.UIItemSelector.SelectedItem != null) {
+		var component = eXo.webui.UIItemSelector.SelectedItem.name;
+		var option = eXo.webui.UIItemSelector.SelectedItem.option;
+		var params = [{name : component, value : option}];
+	}
+	ajaxGet(eXo.env.server.createPortalURL(form, action, true, params));
+}
+
+UIPortalControl.prototype.changeLanguage = function (form, action) {
+}
+
+
 eXo.portal.UIPortalControl = new UIPortalControl();

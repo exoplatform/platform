@@ -34,6 +34,28 @@ UIItemSelector.prototype.onClick = function(clickedElement) {
   }
 };
 
+UIItemSelector.prototype.onClick = function(clickedElement, container, component, option) {
+  var itemListContainer = clickedElement.parentNode;
+	var allItems =  eXo.core.DOMUtil.findDescendantsByClass(itemListContainer, "div", "Item");
+	eXo.webui.UIItemSelector.beforeActionHappen(clickedElement);
+  
+  for(var i = 0; i < allItems.length; i++) {
+    if(allItems[i] != clickedElement) {
+      allItems[i].className = "Item";
+		  this.onChangeItemDetail(clickedElement, true);
+    } else {
+      allItems[i].className = "SelectedItem Item";
+	    this.backupClass = " SelectedItem Item";
+  		this.onChangeItemDetail(clickedElement, false);
+    }
+  }
+  	
+  eXo.webui.UIItemSelector.SelectedItem = new Object();
+  eXo.webui.UIItemSelector.SelectedItem.name = component;
+  eXo.webui.UIItemSelector.SelectedItem.option = option;  
+};
+
+
 /*TODO: Review This Function (Ha's comment)*/
 UIItemSelector.prototype.beforeActionHappen = function(selectedItem) {
 	this.uiItemSelector = eXo.core.DOMUtil.findAncestorByClass(selectedItem, "UIItemSelector");

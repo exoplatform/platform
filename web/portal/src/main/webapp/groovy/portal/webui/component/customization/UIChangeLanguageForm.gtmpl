@@ -1,7 +1,8 @@
-
 <%
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs') ;
+  //String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true)";
+  //String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";
 %>
 <div class="UIChangeLanguageForm">
 	<div class="UIFormTabPane">
@@ -12,20 +13,20 @@
 			</div>
 		</div>
 			<div class="TabPaneContent">
-	      <%String workingAreaCssClass="WorkingArea" ;%>
+
 		    <div class="WorkingArea">
 	
-	        <%uiform.begin()%>
-	        <input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.renderTabId">
+
 		    	<div class="HorizontalLayout">
 	          
 		        <div class="UITabContentContainer">
 	            <%
-	              for(formInput in uicomponent.getChildren()) { 
-	                String display = "none" ;
-	                if(formInput.isRendered()) display="block" ;
+	              for(selector in uicomponent.getChildren()) { 
+	                String selectorDisplay = "none" ;
+	                if(selector.isRendered()) selectorDisplay="block" ;
+	                categories = selector.getItemCategories();
 	            %>
-	            <div class="UITabContent" id="UITabContent" style="display: $display;">
+	            <div class="UITabContent" id="UITabContent" style="display: $selectorDisplay;">
 	                
 								<div class="UIItemSelector">  
 								  <div class="RightColumnStyle">
@@ -33,27 +34,24 @@
 											<div class="ItemListContainer">
 								        <div class="ItemListTitle">
 								  	    	<div class="TitleIcon ItemListIcon"><span></span></div>
-								  	    	<div class="Title">Locals</div>
+								  	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
 								  	    	<div style="clear: left;"><span></span></div>
 								  	    </div>
 								        <div class="ItemList">
-								        <% /*for Item*/ %>
-													<div class="SelectedItem Item">
+								        <% 
+								        	for (category in categories) {
+								        	String itemSelected = "Item";
+								        	if (category.isSelected()) itemSelected = "SelectedItem Item";
+								        	//String onClick = "eXo.webui.UIItemSelector.onClick(this, '$uicomponent.name', '$selector.name', '$category.name')";								        	
+								        %>
+													<div class="$itemSelected">
 						                <div class="LeftItem">
 						                  <div class="RightItem">  
-						                    <div class="ItemTitle">name 1</div>
+						                    <div class="ItemTitle"><%=_ctx.appRes(category.getName() + ".label")%></div>
 						                  </div>
 						                </div>
 					              	</div>
-					              <% /*end for*/ %>
-													<div class="Item">
-						                <div class="LeftItem">
-						                  <div class="RightItem">  
-						                    <div class="ItemTitle">name 2</div>
-						                  </div>
-						                </div>
-					              	</div>
-								
+					              <%}%>								
 								        </div>
 								      </div>
 								      <%/*End ItemList*/%>
@@ -63,61 +61,32 @@
 								      
 								        <div class="ItemDetailTitle">
 								          <div class="TitleIcon ViewListIcon"><span></span></div>
-								  	    	<div class="Title">Select a language</div>
+								  	    	<div class="Title"><%=_ctx.appRes(selector.getName() + ".left.title")%></div>
 								  	    	<div style="clear: left;"><span></span></div>
 								        </div>
 								        
 								        <div class="ItemDetailContaier">
-								          <div class="ItemDetailContent">
-									        	<div class="SelectedItem">
+								        <% 
+								        	for(category in categories) {
+								        		String itemDetailDisplay = "none";
+								        		if(category.isSelected()) itemDetailDisplay = "block";
+								        		options = category.getSelectItemOptions();
+								        %>
+								          <div class="ItemDetailContent" style="display: $itemDetailDisplay">
+								          <% 
+								          	for(opt in options) {
+								          		String itemSelected = "NormalItem";
+								        			if (opt.isSelected()) itemSelected = "SelectedItem"; 
+								          %>
+									        	<div class="$itemSelected">
 									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel">English (Default)</a>
-									        	  <div class="PercentLabel">100%</div>
+									        	  <a class="NodeLabel"><%=opt.getLabel()%></a>
+									        	  <div class="PercentLabel"><%=opt.getValue()%></div>
 									        	  <div style="clear: left;"><span></span></div>
 									        	</div>
-									        	<div class="NormalItem">
-									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel">French</a>
-									        	  <div class="PercentLabel">0% Translated </div>
-									        	  <div style="clear: left;"><span></span></div>
-									        	</div>
-									        	<div class="NormalItem">
-									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel">German</a>
-									        	  <div class="PercentLabel">0% Translated </div>
-									        	  <div style="clear: left;"><span></span></div>
-									        	</div>
-									        	<div class="NormalItem">
-									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel">Italian</a>
-									        	  <div class="PercentLabel">0% Translated </div>
-									        	  <div style="clear: left;"><span></span></div>
-									        	</div>
-									        	<div class="NormalItem">
-									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel">Russian</a>
-									        	  <div class="PercentLabel">0% Translated </div>
-									        	  <div style="clear: left;"><span></span></div>
-									        	</div>
-									        	<div class="NormalItem">
-									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel">Spanish</a>
-									        	  <div class="PercentLabel">0% Translated </div>
-									        	  <div style="clear: left;"><span></span></div>
-									        	</div>
-									        	<div class="NormalItem">
-									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel"  title="Ukrainian" langtitle="Українська" lang="uk_UA">Ukrainian</a>
-									        	  <div class="PercentLabel">0% Translated </div>
-									        	  <div style="clear: left;"><span></span></div>
-									        	</div>
-									        	<div class="NormalItem">
-									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel" title="Vietnamese" langtitle="Tiếng Việt" lang="vi_VN">Vietnamese</a>
-									        	  <div class="PercentLabel">0% Translated </div>
-									        	  <div style="clear: left;"><span></span></div>
-									        	</div>
+									        <%}%>	
 									        </div>
+								       <%}%>
 								        </div>
 								
 								      </div>  
@@ -150,7 +119,6 @@
 	            </div>
 	 	        </div>
 	 	        
-	          <%uiform.end()%>
 			    </div>
 			  </div>
 			</div>  

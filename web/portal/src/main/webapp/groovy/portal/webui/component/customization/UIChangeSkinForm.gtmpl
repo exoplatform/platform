@@ -1,3 +1,4 @@
+<%  import  org.exoplatform.webui.component.UIItemSelector; %>
 <%
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs') ;
@@ -11,22 +12,20 @@
 			</div>
 		</div>
 			<div class="TabPaneContent">
-	      <%String workingAreaCssClass="WorkingArea" ;%>
+			
 		    <div class="WorkingArea">
 	
-	        <%uiform.begin()%>
-	        <input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.renderTabId">
 		    	<div class="HorizontalLayout">
 	          
 		        <div class="UITabContentContainer">
 	            <%
-	              for(formInput in uicomponent.getChildren()) { 
+	              for(selector in uicomponent.getChildren()) { 
 	                String display = "none" ;
-	                if(formInput.isRendered()) display="block" ;
+	                if(selector.isRendered()) display="block" ;
 	            %>
 	                <div class="UITabContent" id="UITabContent" style="display: $display;">
 	                  <%
-	                  	uicomponent.renderUIComponent(formInput) ;
+	                  	uicomponent.renderUIComponent(selector) ;
 	                  %>
 	                </div>
 	            <%}%>
@@ -52,8 +51,7 @@
 		            <%}%>
 	            </div>
 	 	        </div>
-	 	        
-	          <%uiform.end()%>
+
 			    </div>
 			  </div>
 			</div>  
