@@ -83,9 +83,6 @@ public class UIPortalComponentActionListener {
         UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
         UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
         pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;        
-        UIControlWorkspace uiControl = uiPortalApp.findFirstComponentOfType(UIControlWorkspace.class) ;
-        UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-        pcontext.addUIComponentToUpdateByAjax(uiWorkingArea);
         pcontext.setFullRender(true);        
       }
       
@@ -119,7 +116,7 @@ public class UIPortalComponentActionListener {
           Container container = uiContainerConfig.getContainer(sourceId); 
           container.setId(String.valueOf(container.hashCode()));
           PortalDataModelUtil.toUIContainer(uiContainer, container, true);      
-          uiSource = uiContainer;         
+          uiSource = uiContainer;   
         }else {
           UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);
           org.exoplatform.services.portletregistery.Portlet portlet = uiPortletOptions.getPortlet(sourceId);
@@ -141,6 +138,7 @@ public class UIPortalComponentActionListener {
         List<UIComponent> children = uiTarget.getChildren();
         uiSource.setParent(uiTarget);
         children.add(position, uiSource);
+        Util.showComponentLayoutMode(uiSource.getClass());   
         return;
       }
 
