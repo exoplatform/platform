@@ -3,7 +3,6 @@ function UIItemSelector() {
 };
 
 UIItemSelector.prototype.onOver = function(clickedElement, mouseOver) {
-	
 	eXo.webui.UIItemSelector.beforeActionHappen(clickedElement);
   
   if(mouseOver) {
@@ -34,7 +33,7 @@ UIItemSelector.prototype.onClick = function(clickedElement) {
   }
 };
 
-UIItemSelector.prototype.onClick = function(clickedElement, container, component, option) {
+UIItemSelector.prototype.onClick = function(clickedElement, form, component, option) {
   var itemListContainer = clickedElement.parentNode;
 	var allItems =  eXo.core.DOMUtil.findDescendantsByClass(itemListContainer, "div", "Item");
 	eXo.webui.UIItemSelector.beforeActionHappen(clickedElement);
@@ -51,7 +50,7 @@ UIItemSelector.prototype.onClick = function(clickedElement, container, component
   }
   	
   eXo.webui.UIItemSelector.SelectedItem = new Object();
-  eXo.webui.UIItemSelector.SelectedItem.name = component;
+  eXo.webui.UIItemSelector.SelectedItem.component = component;
   eXo.webui.UIItemSelector.SelectedItem.option = option;  
 };
 
@@ -77,8 +76,8 @@ UIItemSelector.prototype.beforeActionHappen = function(selectedItem) {
 	} else {
 	  this.itemDetailList = eXo.core.DOMUtil.findFirstDescendantByClass(this.itemListContainer.parentNode, "div", "ItemDetailList");
 	}
-  
-  this.itemDetails = eXo.core.DOMUtil.findChildrenByClass(this.itemDetailList, "div", "ItemDetail");
+  //this.itemDetails = eXo.core.DOMUtil.findChildrenByClass(this.itemDetailList, "div", "ItemDetail");
+  this.itemDetails = eXo.core.DOMUtil.findDescendantsByClass(this.itemDetailList, "div", "ItemDetailContent");
   var firstItemDescendant = eXo.core.DOMUtil.findFirstDescendantByClass(this.itemList, "div", "Item");
   var firstItemParent = firstItemDescendant.parentNode;
   this.allItems = eXo.core.DOMUtil.findChildrenByClass(firstItemParent, "div", "Item");
