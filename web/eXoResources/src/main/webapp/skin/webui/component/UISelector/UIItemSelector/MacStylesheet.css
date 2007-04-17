@@ -81,7 +81,7 @@
   padding: 1px ;
 }
 
-.UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailContent {
+.UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
   height: 240px;
   background: white;
   border: 1px #a4a4a4 solid ;
@@ -89,6 +89,10 @@
 
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailTitle{
   height: 22px;
+}
+
+.UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailContainer{
+ 	background: #ffffff;
 }
 
 .UIItemSelector .RightColumnStyle .ItemListTitle .ArrowS1Down16x16Icon {
