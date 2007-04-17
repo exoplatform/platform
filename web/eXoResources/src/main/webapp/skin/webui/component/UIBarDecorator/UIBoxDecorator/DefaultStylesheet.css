@@ -30,18 +30,15 @@
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .MiddleLeftSideBoxDecorator {
-  height: auto;
   background: url('DefaultSkin/background/GrayRoundedCornerML8x1.gif') repeat-y left ;
   padding: 0px 0px 0px 8px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .CenterBoxDecorator {
-  height: auto;
   background: #efefef;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .MiddleRightSideBoxDecorator {
-  height: auto;
   background: url('DefaultSkin/background/GrayRoundedCornerMR8x1.gif') repeat-y right ;
   padding: 0px 8px 0px 0px ;
 }

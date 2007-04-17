@@ -27,10 +27,10 @@
       <div class="GroupNavigationContainer"><% uicomponent.renderChild(UIGroupExplorer.class) %></div>
   	</div>
     <div class="GroupDetail">
-      <div style="width: 98%">
+      <div style="width: 98%;">
         <% uicomponent.renderChild(UIGroupDetail.class) %>
       </div>
     </div>
-    <div style="clear:left;"><span></span></div>
+    <div style="clear: left;"><span></span></div>
   </div>
 </div>

@@ -10,6 +10,10 @@
   width: 70px; height: 16px;
 }
 
-.UIPageBrowser .UIGird {
+.UIPageBrowser .UIGrid {
+  width: 99.5%;
+}
+
+.UIPageBrowser .UISearch {
   width: 99.5%;
 }

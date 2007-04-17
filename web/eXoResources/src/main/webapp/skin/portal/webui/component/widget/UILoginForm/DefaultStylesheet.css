@@ -69,7 +69,7 @@
 }
 
 .UILoginForm .LoginDetailBox .UserNameField {
-	padding: 20px 0px 5px 0px;
+	padding: 16px 0px 5px 0px;
   width: 300px;
   margin: auto;
   text-align: right;
@@ -155,12 +155,12 @@
 	cursor: pointer;
 }
 
-.UIMaskWorkspace .UIForm .VerticalLayout .UIAction {
+.UILoginForm .UIForm .VerticalLayout .UIAction {
   width: 160px;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
-.UIMaskWorkspace .UIForm .VerticalLayout .UIAction .ActionButton {
+.UILoginForm .UIForm .VerticalLayout .UIAction .ActionButton {
   margin-left: 50px;
 }
 

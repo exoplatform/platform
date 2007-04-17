@@ -72,6 +72,11 @@
   width: 155px;
 } 
 
+.UIOrganizationPortlet .UIMembershipTypeForm .UIAction  {
+  width: 90px;
+  padding-left: 45px;
+} 
+
 /*##############################- UIUserManagement -###########################*/
 
 .UIOrganizationPortlet .UIFormTabPane .UIFormInputSet {
@@ -122,7 +127,6 @@
 	height: 310px;
 }
 
-
 .UIOrganizationPortlet .UIUserManagement .UIAction .SelectPermissionIcon {
   float: left ;
   width: 16px; height: 16px;
@@ -164,15 +168,41 @@
 
 /*#######################  UIGroupManagement #################################*/
 
+.UIOrganizationPortlet .UIGroupManagement {
+  padding-top: 3px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UITabPane {
+  width: 99.5%;
+  float: none;
+  height: auto;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
   height: 16px; width: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGroup.gif') no-repeat;
 }
 
+
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
   overflow: hidden ;
-  margin-top: 7px ;
-  margin-left: auto ; margin-right: auto ;
+  padding-top: 5px;
+  height: auto;
+}
+
+.GroupPanel .UIForm .UIAction  {
+  width: 90px;
+  padding-left: 45px;
+} 
+
+.UIOrganizationPortlet .UIGroupManagement .UISharedPortalForm .UIAction {
+  width: 160px;
+  padding-left: 30px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UISharedNavigationForm .UIAction {
+  width: 160px;
+  padding-left: 30px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation {
@@ -220,7 +250,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
-  margin-left: 230px ;
+  margin-left: 225px ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITab {
@@ -230,27 +260,6 @@
 .UIOrganizationPortlet .UIGroupManagement .UIGrid .ActionContainer {  
   width: 22px; height: 16px;
   margin: auto ;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormWithTitle .UIAction {
-  width: 230px;
-  margin: auto;  margin-right: 2px; 
-  padding: 10px 0px 14px 0px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormWithTitle .ActionContainer .ActionButton {  
-  width: 90px;
-  margin-left: 6px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle .UIAction {  
-  width: 100px;
-	margin: auto ; margin-right: 110px;
-	padding: 15px 0px ;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle .ActionContainer .ActionButton {  
-  width: 80px;
 }
 
 /*#######################  UIMemberShipManagement #################################*/
@@ -267,18 +276,12 @@
   margin: auto ;
 }
 
-.UIOrganizationPortlet .ManagementTabContent .UIFormWithTitle .UIAction {
-	width: 100px;
-	margin: auto ; margin-right: 90px;
-	padding: 10px 0px;
-}
-
-.UIOrganizationPortlet .ManagementTabContent .UIFormWithTitle .UIAction .ActionButton{
-	width: 70px;
-	margin: auto ;
-}
-
-.UIOrganizationPortlet .ManagementTabContent .UIPageIterator  {
+.UIOrganizationPortlet .UIPageIterator  {
 	height: 22px;
-	margin: auto; margin-top: 3px;
+  margin-top: 3px;
+  width: 99.5%;
+}
+
+.UIOrganizationPortlet .UIGrid  {
+  width: 99.5%;
 }

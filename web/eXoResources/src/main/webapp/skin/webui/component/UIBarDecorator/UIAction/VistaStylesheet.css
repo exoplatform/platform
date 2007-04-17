@@ -1,12 +1,7 @@
-<<<<<<< .mine
 .UIAction {
   height: 30px;
-  margin: 8px auto;
-  
-=======
-.UIAction {
-  margin: 9px auto;
->>>>>>> .r14499
+  margin: auto;
+  padding: 8px 0px;
 }
 
 .UIAction .ActionContainer{

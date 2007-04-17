@@ -229,8 +229,6 @@
 
 .UIAddApplication .UIItemSelector {
 	padding: 3px;
-	border: 1px solid #a4a4a4;
-	border-top: none;
 	margin: 0px;
 	background: #f2f2f2;
 }
