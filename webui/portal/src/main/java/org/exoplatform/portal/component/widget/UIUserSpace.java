@@ -20,6 +20,6 @@ public class UIUserSpace extends UIContainer {
   
   public UIUserSpace() throws Exception{
     addChild(UILoggedInfo.class, null, null);
-    //addChild(UIWidgets.class, null, null);
+    addChild(UIWidgets.class, null, null);
   }
 }
