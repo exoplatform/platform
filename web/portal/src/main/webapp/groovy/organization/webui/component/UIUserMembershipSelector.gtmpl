@@ -10,7 +10,7 @@
 <div class="UIMembership" id="UIUserMembershipSelector" style="width: 98%; margin: auto; padding: 10px 0px 10px 0px">
 	<%//Begin Membership List%>
 	<div class="MembershipList">   
-	  <table class="UIGrid" style="width: 99%">
+	  <table class="UIGrid" cellspacing="0" borderspacing="0" style="width: 99%">
 	    <thead>
 	     <tr>                    
 	        <%

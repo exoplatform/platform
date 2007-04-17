@@ -6,7 +6,7 @@
   String icon = uicomponent.getIcon() ;
 %>
 <!--Start UIGrid-->
-<table class="UIGrid">
+<table class="UIGrid" cellspacing="0" borderspacing="0">
   <thead>
     <tr>
       <%if(name != null) { %>

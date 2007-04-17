@@ -4,7 +4,7 @@
   padding: 8px 0px;
 }
 
-.UIAction .ActionContainer{
+.UIAction .ActionContainer {
   float: left;
   overflow: hidden;
 }
@@ -118,4 +118,6 @@
   color: #1273df;
 }
 
-
+.UIAddPortletPortlet .UIAction {
+	width: 180px;
+}

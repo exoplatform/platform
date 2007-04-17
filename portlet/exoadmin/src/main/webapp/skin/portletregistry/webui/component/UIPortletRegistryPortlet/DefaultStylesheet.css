@@ -16,6 +16,9 @@
 
 .UIPortletRegistryPortlet .UIPortletRegistryContainer {
 	padding: 7px;
+}
+
+.UIPageBody .UIPortletRegistryPortlet .UIPortletRegistryContainer {
   border: solid 1px #b7b7b7 ;
 }
 

@@ -6,8 +6,10 @@
 .UITabContainer .HorizontalLayout {
 	padding: 0px;
 	margin: 0px;
-	border-top: 1px solid #b7b7b7;
+	border: 1px solid #b7b7b7;
+	background: #ffffff;
 }
+
 
 .UITabContainer .TabLabel {
 	float: left;

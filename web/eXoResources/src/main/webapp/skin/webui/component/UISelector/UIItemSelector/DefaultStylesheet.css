@@ -145,7 +145,7 @@
 .UIItemSelector .RightColumnStyle .ItemList .Item .ItemTitle {
   height: 26px; line-height: 26px; vertical-align: middle;
   font-size: 11px;
-  padding-left: 5px;
+  padding-left: 3px;
 }
 
 /*###########################- Over Item (When mouse over on this item) -############################*/
@@ -166,13 +166,12 @@
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .RightItem {
   height: 26px; line-height: 26px;  vertical-align: middle;
   background: url('DefaultSkin/background/RightOverItemR1x26.gif') repeat-x;
-  padding-right: 11px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .ItemTitle {
   height: 26px; line-height: 26px; vertical-align: middle;
   font-size: 11px; color: #f67a02;
-  padding-left: 5px;
+  padding-left: 3px;
 }
 
 /*##########################- Selected Item  (When Item is selected)-#########################*/
@@ -196,7 +195,7 @@
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .ItemTitle {
   height: 26px; line-height: 26px; vertical-align: middle;
   font-size: 11px; color: #0575CA;; 
-  padding-left: 5px;
+  padding-left: 3px;
 }
 
 

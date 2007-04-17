@@ -37,7 +37,7 @@
 	  </div>
   </div>
   <div class="HorizontalLayout">		          
-		<div class="UITabContentContainer" style="border: 1px solid #b7b7b7; border-top: none; padding: 1px;  margin-bottom: 7px;">
+		<div class="UITabContentContainer">
 		<%
 		  status = "block";
 		  for(uiChild in uicomponent.getChildren()) {

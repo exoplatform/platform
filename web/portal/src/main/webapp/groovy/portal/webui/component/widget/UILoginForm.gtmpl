@@ -20,17 +20,21 @@
 		            <div class="PasswordField">
 		              <label><%=_ctx.appRes("UILoginForm.label.password")%>:</label>
 		              <% uiform.renderChild(1)%>
-		            </div>  
-			          <div class="Message">
-			            <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
-			              <%=_ctx.appRes("UILoginForm.label.forgot")%>
-			            </div>
-		            </div>
-			          <div class="CheckField">
-			            <% uiform.renderChild(2)%>
-			            <div class="RememberLoginTitle"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></div>
-			            <div style="clear:left;"><span></span></div>
-			          </div>
+		            </div> 
+		            
+		            <div style="display:none"> 
+						          <div class="Message">
+						            <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
+						              <%=_ctx.appRes("UILoginForm.label.forgot")%>
+						            </div>
+					            </div>
+						          <div class="CheckField">
+						            <% uiform.renderChild(2)%>
+						            <div class="RememberLoginTitle"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></div>
+						            <div style="clear:left;"><span></span></div>
+						          </div>
+				        </div>
+				        
 				          
 			          <div class="UIAction">
 			          	<div class="ActionContainer">
@@ -40,9 +44,7 @@
 			          					<div class="ButtonRight">
 			          						<div class="ButtonMiddle">			          						 
 			          							<a href="<%=uicomponent.url("Signin");%>">
-			          								<%=_ctx.appRes("UILoginForm.label.Signin");
-			          							
-			          								%>
+			          								<%=_ctx.appRes("UILoginForm.label.Signin");%>
 			          						  </a>
 			          						</div>
 			          					</div>
@@ -54,7 +56,7 @@
 			        </div>
 	          <%uiform.end()%>
 	          
-	          <div class="SignUpBar">
+	          <div class="SignUpBar" style="display: none">
 	          	<div class="LeftSignUpBar">
 		          	<div class="SignUpBackground">
 		          		<div style="float: left ; margin-left: 10px">

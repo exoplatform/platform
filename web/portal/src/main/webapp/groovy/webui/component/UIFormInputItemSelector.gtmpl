@@ -18,12 +18,12 @@
   	    	<div style="clear: left;"><span></span></div>
   	    </div>
         <div class="ItemList">
-          <%          	
-            for(opt in options) {            	
+          <%
+            for(opt in options) { 
               String itemSelected = "Item" ;
               String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$opt.name')";
               String submitEvent = "eXo.webui.UIForm.submitEvent('$form.id','SelectItemOption', '')";
-              if (opt.isSelected()) itemSelected = "SelectedItem Item" ;              
+              if (opt.isSelected()) itemSelected = "SelectedItem Item" ;
            %>
               <div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;$submitEvent">
                 <div class="LeftItem">
@@ -44,11 +44,14 @@
   	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".left.title")%></div>
   	    	<div style="clear: left;"><span></span></div>
         </div>
-        <%          
+        <%   int i=0;       
           for(opt in options) {
+          	boolean Selected = true;
             String display = "none";
             temps = opt.getSelectItemOptions();
-            if(opt.isSelected()) display = "block";                 
+            if(i != 0)Selected=opt.isSelected();
+            if(Selected) display = "block";
+            i=1;
         %>
             <div class="ItemDetail" style="display: $display;">
             <%               
@@ -60,7 +63,7 @@
             %>
               <div class="TemplateContainer">
                 <div class="Template">
-                  <div class="<%=temp.getIcon();%>Image"><span></span></div>
+                  <div title="$label" class="<%=temp.getIcon();%>Image"><span></span></div>
                 </div>
               </div>
             <%}%>

@@ -1,6 +1,13 @@
+
 .UITabContainer .UIHorizontalTabs {
 	padding: 0px;
 	margin: 0px;
+}
+
+.UITabContainer .HorizontalLayout {
+	background: #ffffff;
+	border: solid 1px #7b7b7b;
+	border-top: none;
 }
 
 .UITabContainer .TabLabel {

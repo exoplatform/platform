@@ -1,6 +1,6 @@
 <%import org.exoplatform.webui.component.UIComponent ;%>
 <!--Start UIGrid-->
-<table  class="UIGrid" align="left" style="display: block;">
+<table  class="UIGrid" cellspacing="0" borderspacing="0">
   <thead>
     <tr>
       <%

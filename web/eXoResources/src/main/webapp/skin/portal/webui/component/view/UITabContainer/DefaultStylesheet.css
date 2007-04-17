@@ -2,10 +2,11 @@
 	padding: 3px 7px 9px 7px;
 }
 
-.UITabContainer .HorizontalLayout .UITabContentContainer {
-	border: 1px solid gray;
+.UITabContainer .HorizontalLayout {
+	margin: 0px;
+	border: 1px solid #b7b7b7;
 	border-top: none;
-	background: white;
+	background: #ffffff;
 }
 
 .UITabContainer .HorizontalLayout .UITabContentContainer .UITabContent{

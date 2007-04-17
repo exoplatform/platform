@@ -13,7 +13,8 @@
 .UILoginForm .LoginDecorator .LoginDecoratorBackground {
   background-color: white ;
   font-size: 11px;
-  height: 198px;
+  height: 145px;
+  padding-top: 36px;
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
