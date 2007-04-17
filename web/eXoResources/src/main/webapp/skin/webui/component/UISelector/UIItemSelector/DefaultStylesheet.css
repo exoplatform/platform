@@ -81,7 +81,7 @@
   padding: 1px ;
 }
 
-.UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
+.UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailContent {
   height: 240px;
   background: white;
   border: 1px #a4a4a4 solid ;
