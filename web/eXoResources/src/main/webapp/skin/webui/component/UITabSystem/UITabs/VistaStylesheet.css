@@ -1,12 +1,33 @@
 .UIHorizontalTabs {
-  margin-left:9px;
- 
+  height: 31px;
+}
+
+.UIHorizontalTabs .LeftHorizontalTabs{
+  height: 31px;
+  background: url('VistaSkin/background/LeftHorizontalTabs7x31.png') no-repeat left;
+  padding-left: 7px;
+}
+
+.UIHorizontalTabs .RightHorizontalTabs{
+  height: 31px;
+  background: url('VistaSkin/background/RightHorizontalTabs5x31.png') no-repeat right;
+  padding-right: 5px;
+}
+
+.UIHorizontalTabs .CenterHorizontalTabs {
+  height: 31px;
+  background: url('VistaSkin/background/MiddleHorizontalTabs1x31.png') repeat-x;
 }
 
 .UIHorizontalTabs .TabsContainer {
+  float: left;
   overflow: hidden;
-  width: 95%;
-  padding: 0px 0px 0px 0px;
+}
+
+.UIHorizontalTabs .UITab {
+  float: left;
+  font-weight: bold;
+  text-align: center;
 }
 
 .UIHorizontalTabs .PreviousTabButton  {
@@ -23,11 +44,6 @@
   width: 14px; height: 24px;
   cursor : pointer;
   background: url('VistaSkin/background/YellowNextTabButton14x24.gif') no-repeat;
-}
-
-.UIHorizontalTabs .UITab {
-  float: left;
-  text-align: center;
 }
 
 /*###########################--NavigationTabTab--############################*/
@@ -139,6 +155,7 @@
   margin-right: 1px;
   font-size: 11px;
   color: #474849;
+  font-weight: normal;
 }
 
 .UIHorizontalTabs .UITab .NormalTabStyle a {
@@ -205,6 +222,7 @@
   line-height: 26px;
   font-size: 11px;
   color: #307dcc;
+  margin-right: 1px;
 }
 
 .UIHorizontalTabs .UITab .SelectedTabStyle .LeftTab {

@@ -76,13 +76,13 @@
 }
 
 .UIMaskWorkspace .UITabContentContainer {
-  background: #f2f2f2 ;
+  background: url('VistaSkin/background/TabContainerBG1x11.png') repeat-x top;
   padding: 1px;
   border: solid 1px gray;
+  border-top: solid 1px #bec1c7;
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
-  background: #ffffff;
   padding: 8px ;
 }
 
