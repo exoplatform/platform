@@ -55,50 +55,50 @@
 	padding: 6px;
 }
 
-.UIChangeLanguageForm .UIItemSelector .ItemDetailContent {
+.UIChangeLanguageForm .UIItemSelector .ItemDetail {
 	border: solid 1px #c3c3c3;
 	height: 227px;
 	margin: 0px;
 }
 
-.UIChangeLanguageForm .ItemDetailContent .NormalItem {
+.UIChangeLanguageForm .ItemDetail .NormalItem {
 	height: 24px;
 	border-bottom: solid 1px #e9e7e7;
 	cursor: pointer ;
 	color: black;
 }
 
-.UIChangeLanguageForm .ItemDetailContent .NormalItem a:hover {
+.UIChangeLanguageForm .ItemDetail .NormalItem a:hover {
 	height: 24px;
 	border-bottom: solid 1px #e9e7e7;
 	cursor: pointer ;
 	color: blue;
 }
 
-.UIChangeLanguageForm .ItemDetailContent .SelectedItem {
+.UIChangeLanguageForm .ItemDetail .SelectedItem {
 	height: 24px;
 	color: #f27e01;
 	border-bottom: solid 1px #e9e7e7;
 }
 
-.UIChangeLanguageForm .ItemDetailContent .NormalItem .Icon {
+.UIChangeLanguageForm .ItemDetail .NormalItem .Icon {
 	float: left;
 	height: 24px; width: 24px;
 }
 
-.UIChangeLanguageForm .ItemDetailContent .SelectedItem .Icon {
+.UIChangeLanguageForm .ItemDetail .SelectedItem .Icon {
 	float: left;
 	height: 24px; width: 24px;
   background: url('DefaultSkin/background/PickIcon.gif') no-repeat center;
 }
 
-.UIChangeLanguageForm .ItemDetailContent .NodeLabel {
+.UIChangeLanguageForm .ItemDetail .NodeLabel {
 	float: left;
 	line-height: 24px;
 	text-align: left;
 }
 
-.UIChangeLanguageForm .ItemDetailContent .PercentLabel {
+.UIChangeLanguageForm .ItemDetail .PercentLabel {
 	line-height: 24px;
 	text-align: right;
 	padding-right: 20px;
