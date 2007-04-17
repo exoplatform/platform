@@ -72,17 +72,14 @@ UIPopupWindow.prototype.initDND = function(e) {
 
 UIPopupWindow.prototype.resize = function(e) {
 	var targetPopup = document.getElementById(this.getAttribute("popupId"));
-	var contentWindow = eXo.core.DOMUtil.findFirstDescendantByClass(targetPopup, "div", "UIWindowContent");
-	var content = eXo.core.DOMUtil.findFirstDescendantByClass(contentWindow, "div", "Content");
+	var content = eXo.core.DOMUtil.findFirstDescendantByClass(targetPopup, "div", "Content");
 	var pointerX = eXo.core.Browser.findMouseRelativeX(targetPopup, e);
 	var pointerY = eXo.core.Browser.findMouseRelativeY(targetPopup, e);
 	var delta = eXo.core.Browser.findPosYInContainer(content,targetPopup) +
-							content.style.borderWidth + content.style.padding + content.style.margin +
-							contentWindow.style.borderWidth + contentWindow.style.padding + contentWindow.style.margin;
-	contentWindow.style.height = (1*pointerY-delta)+"px";
-	content.style.height = (1*pointerY-delta)+"px";
+							content.style.borderWidth + content.style.padding + content.style.margin ;
+	if((1*pointerY-delta) > 0) content.style.height = (1*pointerY-delta)+"px";
 	targetPopup.style.height = "auto";
-	targetPopup.style.width = (pointerX+5) + "px";
+	if(pointerX > 200) targetPopup.style.width = (pointerX+5) + "px";
 };
 
 UIPopupWindow.prototype.show = function(popup) {
