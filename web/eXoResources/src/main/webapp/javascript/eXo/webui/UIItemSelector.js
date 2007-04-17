@@ -77,7 +77,8 @@ UIItemSelector.prototype.beforeActionHappen = function(selectedItem) {
 	  this.itemDetailList = eXo.core.DOMUtil.findFirstDescendantByClass(this.itemListContainer.parentNode, "div", "ItemDetailList");
 	}
   //this.itemDetails = eXo.core.DOMUtil.findChildrenByClass(this.itemDetailList, "div", "ItemDetail");
-  this.itemDetails = eXo.core.DOMUtil.findDescendantsByClass(this.itemDetailList, "div", "ItemDetailContent");
+	var itemDetailContainer = eXo.core.DOMUtil.findChildrenByClass(this.itemDetailList, "div", "ItemDetailContainer")[0];
+  this.itemDetails = eXo.core.DOMUtil.findChildrenByClass(itemDetailContainer, "div", "ItemDetail");
   var firstItemDescendant = eXo.core.DOMUtil.findFirstDescendantByClass(this.itemList, "div", "Item");
   var firstItemParent = firstItemDescendant.parentNode;
   this.allItems = eXo.core.DOMUtil.findChildrenByClass(firstItemParent, "div", "Item");
