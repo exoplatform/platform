@@ -163,7 +163,7 @@
   padding: 1px ;
 }
 
-.UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
+.UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailContent {
   height: 240px;
   background: white url(VistaSkin/background/ItemListBg1x13.png) repeat-x bottom;
   border: 1px #9f9f9f solid ;
