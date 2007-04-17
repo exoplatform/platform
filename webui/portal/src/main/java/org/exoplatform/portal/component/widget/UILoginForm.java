@@ -50,6 +50,13 @@ public class UILoginForm extends UIForm {
     addUIFormInput(new UIFormStringInput("password", "password", null).
                    setType(UIFormStringInput.PASSWORD_TYPE)).
     addUIFormInput(new UIFormCheckBoxInput<Boolean>("remember", "remember", null));
+//    PortalRequestContext prContext = Util.getPortalRequestContext();
+//    HttpServletRequest request = prContext.getRequest();
+//    Cookie userName = loadCookie(request, "authentication.username", null, false);
+//    Cookie pass = loadCookie(request, "authentication.password", null, false);
+//    if( userName == null || pass == null) return;
+//    getUIStringInput("username").setValue(userName.getValue());
+//    getUIStringInput("password").setValue(pass.getValue());
     /*
          addUIFormInput(new UIFormStringInput("username", "username", null).
                    addValidator(NameValidator.class)).
@@ -59,6 +66,21 @@ public class UILoginForm extends UIForm {
     addUIFormInput(new UIFormCheckBoxInput<Boolean>("remember", "remember", null));
      */
   }
+  
+//  protected Cookie loadCookie(HttpServletRequest request, String name, String value, boolean autoCreate){
+//    Cookie[] cookies = request.getCookies();
+//    Cookie cookie = null;
+//    if (cookies != null) {
+//      for (Cookie ele : cookies) {
+//        if(ele.getName().equals(name)) cookie = ele;
+//      }
+//    }
+//    if(cookie == null && autoCreate) cookie = new Cookie(name, value);
+//    if(cookie == null) return null;
+//    cookie.setDomain(request.getRemoteHost());
+//    cookie.setSecure(true);
+//    return cookie;
+//  }
 
   static public class SigninActionListener  extends EventListener<UILoginForm> {
     
@@ -90,7 +112,7 @@ public class UILoginForm extends UIForm {
       prContext.getResponse().sendRedirect(redirect);      
     }   
     
-    private Cookie loadCookie(HttpServletRequest request, String name, String value){
+    protected Cookie loadCookie(HttpServletRequest request, String name, String value){
       Cookie[] cookies = request.getCookies();
       Cookie cookie = null;
       if (cookies != null) {
