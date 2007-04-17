@@ -263,10 +263,10 @@
 
 .UIContainer .CONTROL-CONTAINER .DragControlArea {
   cursor: move ;
-  height: 16px ; width: 32px;
+  height: 20px ; width: 32px;
   float: left ; 
   margin-top: 5px;
-  background: url('VistaSkin/background/DragBG32x16.png');
+  background: url('VistaSkin/background/DragBG30x20.gif');
 }
 
 .UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer {
