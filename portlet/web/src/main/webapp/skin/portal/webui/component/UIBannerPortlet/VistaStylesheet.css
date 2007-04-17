@@ -15,8 +15,8 @@
 
 .UIBannerPortlet .RightBanner {
   height: 78px;
-  padding: 0px 72px 0px 0px ;
-  background: url('VistaSkin/background/RightBanner72x78.jpg') no-repeat right;
+  padding: 0px 60px 0px 0px ;
+  background: url('VistaSkin/background/RightBanner60x78.jpg') no-repeat right;
 }
 
 .UIBannerPortlet .BannerTitle {
@@ -31,7 +31,7 @@
 .UIBannerPortlet .LoginContainer .LoginContent {
   float: right;
   font-size: 11px;
-  padding: 3px 13px 0px 0px;
+  padding: 3px 5px 0px 0px;
   line-height: 20px;
 }
 
@@ -63,7 +63,7 @@
 
 .UIBannerPortlet .LoginContent .LoginSeperatorLine {
   float: left;
-  width: 2px; height: 21px;
+  width: 2px; height: 20px;
   background: url('DefaultSkin/background/2x2.gif') repeat-y;
   padding: 4px 7px 0px 1px;
  }
