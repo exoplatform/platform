@@ -99,9 +99,9 @@
 
 .UIPageManagement .PageLayoutModeIcon {
   float: left;
-  width: 24px; height: 24px;
+  width: 32px; height: 32px;
   margin: 4px 7px 0px 7px;
-  background: url('MacSkin/background/PageLayout.gif') no-repeat;
+  background: url('MacSkin/background/PageLayout.gif') no-repeat center;
   cursor: pointer ;
 }
 

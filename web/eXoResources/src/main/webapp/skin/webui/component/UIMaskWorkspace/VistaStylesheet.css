@@ -215,8 +215,8 @@
 }
 
 .UIAddApplication .ApplicationListContainer {
-	height: 240px;
-	border: 1px solid #a4a4a4;
+	height: 240px; 
+	border: 1px solid #b7b7b7;
 	background: white;
 	overflow: auto;
 }

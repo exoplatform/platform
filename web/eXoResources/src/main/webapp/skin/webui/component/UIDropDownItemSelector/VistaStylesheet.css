@@ -1,5 +1,6 @@
 /******************************* UIDropDownItemSelector  **********************************/
 .UIDropDownItemSelector {
+  height: 22px;
 }
 
 .UIDropDownItemSelector .ItemSelectorContainer {
@@ -41,7 +42,7 @@
 
 .UIDropDownItemSelector .DropDownSelectIcon {
 	float: right; 
-	width: 19px; height: 19px;
+	width: 19px; height: 20px;
 	background: url('VistaSkin/icon/SelectedIcon.png') no-repeat center;
 	cursor: pointer;	
 }

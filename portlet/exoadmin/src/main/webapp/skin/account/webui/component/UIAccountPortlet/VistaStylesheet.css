@@ -15,15 +15,13 @@
   margin: 5px;
 }
 
-.UIAccountPortlet .UIAction  {
-  width: 230px;
+.UIAccountPortlet .UIFormTabPane .UITabPane .TabPaneContent .UIAction  {
+  width: 80px;
 }
 
-
-.UIAccountPortlet .UIMembership .UIAction  {
-  width: 160px;
-} 
-
+.UIAccountPortlet .UIFormTabPane .UITabPane .TabPaneContent .UIMembership .UIAction  {
+  width: 170px;
+}
 
 /*########################-UIPersonalInfo-###########################*/
 

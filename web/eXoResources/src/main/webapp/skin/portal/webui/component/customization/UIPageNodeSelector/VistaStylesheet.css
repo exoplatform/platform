@@ -12,6 +12,10 @@
   border: none; 
 }
 
+.UIPageNodeSelector .UIDropDownItemSelector {
+  padding: 0px 1px;
+}
+
 /*###############################- UITree -############################*/
 .UIPageNodeSelector .TreeSelectorTitle {
   text-align: center; 

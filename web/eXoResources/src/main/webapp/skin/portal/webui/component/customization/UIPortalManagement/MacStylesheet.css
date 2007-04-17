@@ -36,9 +36,9 @@
 .UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
   float: left;
   margin: 4px 7px;
-  width: 29px;  height: 24px;
+  width: 32px;  height: 32px;
   cursor : pointer;
-  background: url('MacSkin/background/LayoutMode.gif') no-repeat;
+  background: url('MacSkin/background/LayoutMode.gif') no-repeat center;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {

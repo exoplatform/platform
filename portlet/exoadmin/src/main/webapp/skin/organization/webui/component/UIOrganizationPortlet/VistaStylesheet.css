@@ -72,10 +72,6 @@
 .UIOrganizationPortlet .ManagementTabContent {
 }
 
-.UIOrganizationPortlet .UIFormWithTitle  {
-	margin: auto ; margin-top: 10px ;
-}
-
 .UIOrganizationPortlet .UIMembership .UIAction  {
   width: 165px;
 } 
@@ -167,7 +163,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
-  background: url('./eXoResources/icons/16x16/VistaSkin/SmallGroup.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/VistaSkin/SmallGroup.gif') no-repeat;
   height: 16px; width: 16px;
 
 }
@@ -175,7 +171,7 @@
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
   margin-top: 7px ;
   overflow: hidden ;
-  width: 100% ;
+  width: 100%;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation {
@@ -208,6 +204,10 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
   margin-left: 227px ;
+  width: auto;
+}
+.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UITabPane {
+  height: auto;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .WorkingArea {
@@ -232,16 +232,18 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormWithTitle .UIAction {
-  width: 200px;
+  width: 190px;
+  padding-left: 30px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle .UIAction {  
-  margin: 16px auto;
+  width: 80px;
 }
 
 /*#######################  UIMemberShipManagement #################################*/
 .UIOrganizationPortlet .UIFormWithTitle {
-	width: 440px ;
+	width: 400px ; 
+	margin: 10px auto 0px auto ; 
 }
 
 .UIOrganizationPortlet .UIFormWithTitle .UIForm {
@@ -254,5 +256,5 @@
 }
 
 .UIOrganizationPortlet .ManagementTabContent .UIFormWithTitle .UIAction {
-	width: 100px;
+	width: 80px;
 }

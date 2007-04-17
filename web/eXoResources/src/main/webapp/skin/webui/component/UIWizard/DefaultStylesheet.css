@@ -96,6 +96,10 @@
   margin: 0px 10px 0px 15px;
 }
 
+.UIWizard .UIWizardContent .WizardControlBar .OverflowContainer {
+  height: 34px;
+}
+
 /*========================== End Wizard Content ==============================*/
 
 /*========================== Start ActionBar ==============================*/
@@ -103,6 +107,8 @@
 .UIWizard .UIWizardContent .WizardControlBar .ActionBar {
   float: right;
   padding-right: 5px;
+  height: 34px;
+  line-height: 34px;
 }
 
 .UIWizard .WizardControlBar .UIAction {

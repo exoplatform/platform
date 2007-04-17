@@ -389,10 +389,14 @@
 
 .UIItemSelector .LeftColumnStyle .ItemDetailList {
   margin-left: 220px;
-  border: 1px #b7b7b7 solid ;
   background: #f6f6f6;
   margin-right: 0px;
   height: auto;
+}
+
+.UIItemSelector .LeftColumnStyle .ItemDetailList .ItemDetailTitle{
+  height: 24px;
+
 }
 
 .UIItemSelector .LeftColumnStyle .Title {

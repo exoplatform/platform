@@ -36,6 +36,7 @@
 
 .DecoratorBox .GrayRoundedFillBoxStyle .CenterBoxDecorator {
   background: #efefef;
+  height: auto;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .MiddleRightSideBoxDecorator {

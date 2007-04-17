@@ -1,6 +1,6 @@
 .UIPopupWindow {
- /* position: absolute;*/
- /* visibility: hidden;*/
+  position: absolute;
+  visibility: hidden;
 }
 
 .UIPopupWindow .PopupTitleIcon {

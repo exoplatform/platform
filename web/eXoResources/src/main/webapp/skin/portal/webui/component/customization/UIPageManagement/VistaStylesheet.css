@@ -54,56 +54,56 @@
   float: left;
   width: 24px; height:24px;
   margin: 3px 3px 0px 3px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/BlueCirclePlus.png') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlueCirclePlus.png') no-repeat ;
 }
 
 .UIPageManagement .EditSelectedNodeIcon {
   float: left;
   width: 24px; height: 24px;
   margin:3px 3px 0px 1px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/TriSmallBoxPencil.png') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/TriSmallBoxPencil.png') no-repeat ;
 }
 
 .UIPageManagement .EditNavigationIcon {
   float: left;
-  width:21px; height:20px;
+  width: 24px; height: 24px;
   margin: 3px 3px 0px 1px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/NavigationEdit.png') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/NavigationEdit.png') no-repeat center;
 }
 
 .UIPageManagement .EditPageNodeIcon {
   float: left;
   width: 24px; height: 24px;
   margin: 3px 3px 0px 1px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/BlueSmallBoxPencilPage.png') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlueSmallBoxPencilPage.png') no-repeat ;
 }
 
 .UIPageManagement .CopyNodeIcon {
   float: left;
   width: 26px; height: 26px;
   margin: 3px 1px 0px 1px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/CopyPagesSmallBox.png') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/CopyPagesSmallBox.png') no-repeat ;
 }
 
 .UIPageManagement .PasteNodeIcon {
   float: left;
   width: 26px; height: 26px;
   margin: 3px 1px 0px 1px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/SmallBoxBrownPaste.png') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/SmallBoxBrownPaste.png') no-repeat ;
 }
 
 .UIPageManagement .DeleteNodeIcon {
   float: left;
   width: 24px; height: 24px;
   margin: 4px 1px 0px 1px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueTrashBin.png') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueTrashBin.png') no-repeat ;
 }
 
 .UIPageManagement .SaveNavigationIcon {
   float: left;
   width: 24px; height: 24px;
   margin: 4px 1px 0px 1px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/BlackSaveFloppyDisk.png') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlackSaveFloppyDisk.png') no-repeat ;
 }
 
 /*##########################Edit Page Control Bar#############################*/

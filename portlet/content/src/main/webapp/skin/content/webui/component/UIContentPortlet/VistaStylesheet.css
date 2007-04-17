@@ -219,10 +219,7 @@
 }
 
 .UIContentPortlet .UIContentWorkingArea .UIFormWithTitle .UIAction {
-	width: 160px;
-	margin: auto;
-	margin-right: 120px;
-	padding: 10px 0px 10px 0px;
+	width: 190px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .DateTime {

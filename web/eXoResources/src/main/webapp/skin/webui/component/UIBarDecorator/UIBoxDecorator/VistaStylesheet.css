@@ -91,9 +91,9 @@
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .CenterBoxDecorator {
-  height: 100%;
+  height: auto;
   background: url('VistaSkin/background/CenterBoxDecoratorBG.png') repeat;
-  padding: 20px;
+  padding: 15px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .MiddleRightSideBoxDecorator {

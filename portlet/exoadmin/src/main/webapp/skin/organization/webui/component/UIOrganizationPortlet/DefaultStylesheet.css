@@ -77,6 +77,10 @@
   padding-left: 45px;
 } 
 
+.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UITabPane {
+  height:auto;
+}
+
 /*##############################- UIUserManagement -###########################*/
 
 .UIOrganizationPortlet .UIFormTabPane .UIFormInputSet {
