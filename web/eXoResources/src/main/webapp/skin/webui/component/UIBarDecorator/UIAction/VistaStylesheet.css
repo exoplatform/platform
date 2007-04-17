@@ -11,15 +11,15 @@
 /*##############################-ActionButton-################################*/
 .UIAction .ActionButton {
 	float:left;
-	height: 30px ; line-height:30px;
+	height: 24px ; line-height:24px;
 	margin: 0px 2px 0px 2px ;
 	text-align: center;
 }
 
 .UIAction .ActionButton  a {
   font-weight: normal ; color: black; font-size: 11px;
-  margin: 0px 15px 0px 15px ;
-  height: 30px; line-height: 30px; vertical-align: top;
+  margin: 0px 12px 0px 12px ;
+  height:24px; line-height: 24px; vertical-align: top;
 }
 }
 
@@ -36,18 +36,18 @@
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonLeft {
-  background: url('VistaSkin/background/SelectedActionButton6x30.png') no-repeat left;
-  padding: 0px 0px 0px 6px;
+  background: url('VistaSkin/background/SelectedActionButtonL12x24.png') no-repeat left;
+  padding: 0px 0px 0px 12px;
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonRight {
-  background: url('VistaSkin/background/SelectedActionButtonR6x30.png') no-repeat right;
-  padding: 0px 3px 0px 0px ;
+  background: url('VistaSkin/background/SelectedActionButtonR12x24.png') no-repeat right;
+  padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonMiddle {
 	line-height: 22px; text-align: center; 
-	background: url('VistaSkin/background/SelectedActionButtonM2x30.png') repeat-x;
+	background: url('VistaSkin/background/SelectedActionButtonM2x24.png') repeat-x;
 }
 
 .UIAction .ActionButton .DisabledStyle a {
@@ -66,16 +66,16 @@
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonLeft {
-  background: url('VistaSkin/background/LightButtonLeft6x30.png') no-repeat left;
-  padding: 0px 0px 0px 6px;
+  background: url('VistaSkin/background/LightButtonLeft12x24.png') no-repeat left;
+  padding: 0px 0px 0px 12px;
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonRight {
-  background: url('VistaSkin/background/LightButtonRight6x30.png') no-repeat right;
-  padding: 0px 6px 0px 0px ;
+  background: url('VistaSkin/background/LightButtonRight12x24.png') no-repeat right;
+  padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
- 	line-height: 30px; text-align: center; 
-	background: url('VistaSkin/background/LightButtonMiddle2x30.png') repeat-x;
+ 	line-height: 24px; text-align: center; 
+	background: url('VistaSkin/background/LightButtonMiddle2x24.png') repeat-x;
 }
