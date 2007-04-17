@@ -44,14 +44,12 @@
   	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".left.title")%></div>
   	    	<div style="clear: left;"><span></span></div>
         </div>
-        <%   int i=0;       
+        <%     
           for(opt in options) {
           	boolean Selected = true;
             String display = "none";
             temps = opt.getSelectItemOptions();
-            if(i != 0)Selected=opt.isSelected();
-            if(Selected) display = "block";
-            i=1;
+            if(opt.isSelected()) display = "block";
         %>
             <div class="ItemDetail" style="display: $display;">
             <%               
