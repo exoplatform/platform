@@ -6,7 +6,7 @@ import org.exoplatform.webui.component.model.SelectItemOption;
 List categories = new ArrayList();
 
   SelectItemCategory skinDefault = new  SelectItemCategory("Default", false);
-  skinDefault.addSelectItemOption(new SelectItemOption("Vista", "Vista", "Vista"));
+  skinDefault.addSelectItemOption(new SelectItemOption("Default", "Default", "Default"));
   skinDefault.setSelected(true);
   categories.add(skinDefault);
   
