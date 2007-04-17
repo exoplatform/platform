@@ -65,14 +65,14 @@
 								  	    	<div style="clear: left;"><span></span></div>
 								        </div>
 								        
-								        <div class="ItemDetailContaier">
+								        <div class="ItemDetailContainer">
 								        <% 
 								        	for(category in categories) {
 								        		String itemDetailDisplay = "none";
 								        		if(category.isSelected()) itemDetailDisplay = "block";
 								        		options = category.getSelectItemOptions();
 								        %>
-								          <div class="ItemDetailContent" style="display: $itemDetailDisplay">
+								          <div class="ItemDetail" style="display: $itemDetailDisplay">
 								          <% 
 								          	for(opt in options) {
 								          		String itemSelected = "NormalItem";
