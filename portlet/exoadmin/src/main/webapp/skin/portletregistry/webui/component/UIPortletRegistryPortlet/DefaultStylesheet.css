@@ -146,20 +146,19 @@
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .RegistryWorkingAreaContainer {
 	background: #efefef;
 	border: 1px solid #b7b7b7;
-	padding: 15px 10px 15px 10px;
+	padding: 15px 0px;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormWithTitle {
   margin: auto;
-  width: 100%;
+	width: 94%;
 }
 
-.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormWithTitle .UIAction{
+.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormWithTitle .UIAction {
   width: 180px;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid {
-  width: 99%;
   border: 1px solid #7eaad0;
 }
 
@@ -173,14 +172,12 @@
   margin: 0px;
 }
 
-
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid thead {
   border: 1px solid #7eaad0;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid th {
-  width: 400px;
-  
+  width: 500px;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid td {
@@ -190,10 +187,23 @@
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid tbody {
-  width: 100%;
   padding-bottom: 1px;
 }
 
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormInputSet {
-  margin: 10px 5px 5px 10px ; 
+
+}
+
+.UIPortletRegistryPortlet .UIForm .HorizontalLayout input.checkbox {
+	width: 90%;
+}
+
+.UIPortletRegistryPortlet .UIForm .HorizontalLayout .FieldContainer {
+	padding-top: 0px;
+	padding: 0px;
+	width: auto;
+}
+
+.UIPortletRegistryPortlet .UIFormWithTitle .HorizontalLayout .FormContainer {
+	padding: 10px;
 }

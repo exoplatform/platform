@@ -19,7 +19,7 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 		uiPopupCategory.style.width = width + "px" ;
 		if(ControlCategory != null) {
 			var ancestorwidth = categoryDetectPosition.offsetWidth;
-			uiPopupCategory.style.right = (ancestorwidth - 30) + "px";
+			uiPopupCategory.style.right = (ancestorwidth - 27) + "px";
 		}
 	} else {
 		uiPopupCategory.style.display = "none" ;

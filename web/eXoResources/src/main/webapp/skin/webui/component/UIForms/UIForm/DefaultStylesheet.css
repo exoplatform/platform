@@ -10,7 +10,7 @@
 .UIForm .HorizontalLayout .FieldContainer {
   overflow: hidden  ;
   padding-top: 10px ;
-  width: 100% ;
+  width: 99% ;
 }
 
 
@@ -64,12 +64,10 @@
 .UIForm .HorizontalLayout input {
 	float:left;
   width: 230px ;
-  border: 1px solid gray ;
 }
 
 .UIForm .HorizontalLayout input.checkbox {
-  width: auto;
-  margin-left: 25px;
+	width: auto;
 }
 
 .UIForm .HorizontalLayout input.radio {
