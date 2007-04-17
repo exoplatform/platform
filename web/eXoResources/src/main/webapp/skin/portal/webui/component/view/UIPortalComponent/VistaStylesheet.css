@@ -263,9 +263,9 @@
 
 .UIContainer .CONTROL-CONTAINER .DragControlArea {
   cursor: move ;
-  height: 20px ; width: 32px;
+  height: 20px ;width: 30px;
   float: left ; 
-  margin-top: 5px;
+  margin-top: 4px;
   background: url('VistaSkin/background/DragBG30x20.gif');
 }
 
@@ -293,8 +293,8 @@
 
 .UIContainer .ContainerIcon {
   float: left;
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/DefaultContainerIcon.gif') no-repeat ;
+  width: 16px; height: 16px;margin:5px 6px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/DefaultPortletIcons.png') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {
