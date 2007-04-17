@@ -48,12 +48,23 @@ UIItemSelector.prototype.onClick = function(clickedElement, form, component, opt
   		this.onChangeItemDetail(clickedElement, false);
     }
   }
-  	
-  eXo.webui.UIItemSelector.SelectedItem = new Object();
+  if (eXo.webui.UIItemSelector.SelectedItem == null)	
+	  eXo.webui.UIItemSelector.SelectedItem = new Object();
   eXo.webui.UIItemSelector.SelectedItem.component = component;
   eXo.webui.UIItemSelector.SelectedItem.option = option;  
 };
 
+UIItemSelector.prototype.onClickOption = function(clickedElement, form, component, option) {
+	var itemDetails = eXo.core.DOMUtil.getChildrenByTagName(clickedElement.parentNode, "div");
+	for (var i = 0; i < itemDetails.length; i++)
+		itemDetails[i].className = "NormalItem";
+	clickedElement.className = "SelectedItem";
+	if (eXo.webui.UIItemSelector.SelectedItem == null)
+	  eXo.webui.UIItemSelector.SelectedItem = new Object();
+  eXo.webui.UIItemSelector.SelectedItem.component = component;
+  eXo.webui.UIItemSelector.SelectedItem.option = option;  
+	
+};
 
 /*TODO: Review This Function (Ha's comment)*/
 UIItemSelector.prototype.beforeActionHappen = function(selectedItem) {
