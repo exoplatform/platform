@@ -24,7 +24,7 @@
 			              <div class="$style">
 			                <div class="LeftTab">
 			                  <div class="RightTab">                
-			                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=_ctx.appRes(uiChild.id + ".title");%></div>
+			                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=_ctx.appRes("UITabPane.title." + uiChild.getId());%></div>
 			                  </div>
 			                </div>
 			              </div>
