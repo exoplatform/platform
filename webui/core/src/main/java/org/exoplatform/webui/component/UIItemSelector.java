@@ -19,7 +19,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 
 @ComponentConfig( template = "system:/groovy/webui/component/UIItemSelector.gtmpl" )
 
-public class UIItemSelector extends UIContainer {
+public class UIItemSelector extends UIComponent {
   String name_;
   private List<SelectItemCategory> categories_ = new ArrayList<SelectItemCategory>() ;
   
