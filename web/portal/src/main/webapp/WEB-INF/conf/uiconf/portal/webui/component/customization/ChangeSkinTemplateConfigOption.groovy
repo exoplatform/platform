@@ -11,11 +11,11 @@ List categories = new ArrayList();
   categories.add(skinDefault);
   
   SelectItemCategory skinMac = new  SelectItemCategory("Mac", false);
-  skinDefault.addSelectItemOption(new SelectItemOption("Mac", "Mac", "Mac"));
+  skinMac.addSelectItemOption(new SelectItemOption("Mac", "Mac", "Mac"));
   categories.add(skinMac);
   
   SelectItemCategory skinVista = new  SelectItemCategory("Vista", false);
-  skinDefault.addSelectItemOption(new SelectItemOption("Vista", "Vista", "Vista"));
+  skinVista.addSelectItemOption(new SelectItemOption("Vista", "Vista", "Vista"));
   categories.add(skinVista);
   
 return categories;  
