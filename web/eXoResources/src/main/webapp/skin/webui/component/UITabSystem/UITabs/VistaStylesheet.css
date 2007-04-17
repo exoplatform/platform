@@ -34,7 +34,7 @@
 
 
 .UIHorizontalTabs .UITab .NormalNavigationTab {
-	margin: 4px 0px 0px 0px; 
+	margin: 3px 0px 0px 0px; 
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
@@ -70,7 +70,7 @@
 /*###############-Hightlight Navigation Tab-################*/
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab {
-	margin: 4px 0px 0px 0px;
+	margin: 3px 0px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
@@ -103,7 +103,7 @@
 /*###############-Selected Navigation Tab-################*/
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab {
-  margin: 4px 0px 0px 0px;
+  margin: 3px 0px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab a {
