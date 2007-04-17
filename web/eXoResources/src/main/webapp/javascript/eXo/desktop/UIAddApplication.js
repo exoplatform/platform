@@ -57,6 +57,12 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 	  } else {
 	  	itemDetails += '<div class="ItemDetail" style="display: none">';
 	  }
+	   itemDetails += '<div class="ItemDetailTitle">' +
+	          	    	'	 <div class="TitleIcon ViewListIcon"><span></span></div>' +
+						  	    '	 <div class="Title">Applications List</div>' +
+						  	    '	 <div style="clear: left;"><span></span></div>' +
+	          	      '</div>';
+	          	      
 	  itemDetails += '  <div class="ApplicationListContainer">';
 	  var portlets = cate["portlets"];
 	    window.status = "Onload5";
@@ -66,7 +72,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 					           '	<div class="TitleBarApplication">' + 
 					           '		<div class="ApplicationItemIcon"><span></span></div>' + 
 					           '		<div class="ApplicationLabel">'+portlet["title"]+'</div>' + 
-					           ' 		<div class="AddButton"' +
+					           ' 		<div class="AddButton" title="Add this application to the desktop page"' +
 					           '         onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\')"><span></span></div>' + 
 					           ' 		<div style="clear: both"></div>' + 
 					           ' 	</div>' + 

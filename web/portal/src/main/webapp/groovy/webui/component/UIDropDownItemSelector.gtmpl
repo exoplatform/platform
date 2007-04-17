@@ -33,8 +33,10 @@
 		  			     title = uicomponent.getTitle();
 		  			   } 
 		  			%>
-		  			<div class="SelectedItemLabel" style="overflow: hidden; width: 70%;">
-		  			  <%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.title")%>
+		  			<div class="SelectedItemLabel">
+			  			<div class="Label">
+			  			  <%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.title")%>
+			  			</div>
 		  			</div>
 		  			<div class="DropDownSelectIcon"><span></span></div>
 		  			<div style="clear: left"><span></span></div>
