@@ -20,11 +20,11 @@
           <%          	
             for(category in categories) {            	
               String itemSelected = "Item" ;
-              //String onClick = "eXo.webui.UIItemSelector.onClick(this, '$form.name', '$uicomponent.name', '$category.name')";
+              String onClick = "eXo.webui.UIItemSelector.onClick(this, '$form.name', '$uicomponent.name', '$category.name')";
                                           
               if (category.isSelected()) itemSelected = "SelectedItem Item" ;              
            %>
-              <div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
+              <div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick">
                 <div class="LeftItem">
                   <div class="RightItem">  
                     <div class="ItemTitle"><%=_ctx.appRes(category.getName() + ".label")%></div>
@@ -49,7 +49,7 @@
             options = category.getSelectItemOptions();
             if(category.isSelected()) display = "block";                 
         %>
-            <div class="ItemDetail" style="display: $display;">
+            <div class="ItemDetailContent" style="display: $display;">
             <%               
               for(opt in options){
             %>
