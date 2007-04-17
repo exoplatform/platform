@@ -32,7 +32,7 @@ UIPortalControl.prototype.showHiddenContent = function(selectedElement) {
 
 UIPortalControl.prototype.changeSkin = function (form, action) {
 	if (eXo.webui.UIItemSelector.SelectedItem != null) {
-		var component = eXo.webui.UIItemSelector.SelectedItem.name;
+		var component = eXo.webui.UIItemSelector.SelectedItem.component;
 		var option = eXo.webui.UIItemSelector.SelectedItem.option;
 		var params = [{name : component, value : option}];
 	}
@@ -40,6 +40,12 @@ UIPortalControl.prototype.changeSkin = function (form, action) {
 }
 
 UIPortalControl.prototype.changeLanguage = function (form, action) {
+	if (eXo.webui.UIItemSelector.SelectedItem != null) {
+		var component = eXo.webui.UIItemSelector.SelectedItem.component;
+		var option = eXo.webui.UIItemSelector.SelectedItem.option;
+		var params = [{name : component, value : option}];
+	}
+	ajaxGet(eXo.env.server.createPortalURL(form, action, true, params));
 }
 
 
