@@ -42,7 +42,7 @@
 								        	for (category in categories) {
 								        	String itemSelected = "Item";
 								        	if (category.isSelected()) itemSelected = "SelectedItem Item";
-								        	String onClick = "eXo.webui.UIItemSelector.onClick(this, '$uicomponent.name', '$selector.name', '$category.name')";
+								        	String onClick = "eXo.webui.UIItemSelector.onClick(this)";
 								        %>
 													<div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick">
 						                <div class="LeftItem">
@@ -77,8 +77,9 @@
 								          	for(opt in options) {
 								          		String itemSelected = "NormalItem";
 								        			if (opt.isSelected()) itemSelected = "SelectedItem"; 
+								        			String onclickOption = "eXo.webui.UIItemSelector.onClickOption(this, '$uicomponent.name', '$selector.name', '$opt.label')";
 								          %>
-									        	<div class="$itemSelected">
+									        	<div class="$itemSelected" onclick="$onclickOption">
 									        	  <div class="Icon"><span></span></div>
 									        	  <a class="NodeLabel"><%=opt.getLabel()%></a>
 									        	  <div class="PercentLabel"><%=opt.getValue()%></div>
