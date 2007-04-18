@@ -157,16 +157,14 @@ public class UIPageForm extends UIFormTabPane {
       UIPage uiPage = uiPageForm.getUIPage();      
       Page page = new Page() ;
       uiPageForm.invokeSetBindingBean(page);     
-      if("Desktop".equals(uiPage.getFactoryId()) && !"Desktop".equals(page.getFactoryId()) ){
-        page.setShowMaxWindow(false);
-      }
       
-      if(!"Desktop".equals(uiPage.getFactoryId()) && "Desktop".equals(page.getFactoryId()) ){
-        uiPage.getChildren().clear();
-        page.setChildren(new ArrayList<org.exoplatform.portal.config.model.Component>());     
-      }
-      
-      if(uiPage != null){
+      if(uiPage != null) {
+        if("Desktop".equals(uiPage.getFactoryId()) && !"Desktop".equals(page.getFactoryId())) {
+          page.setShowMaxWindow(false);
+        } else if(!"Desktop".equals(uiPage.getFactoryId()) && "Desktop".equals(page.getFactoryId())) {
+          uiPage.getChildren().clear();
+          page.setChildren(new ArrayList<org.exoplatform.portal.config.model.Component>());     
+        }
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         PortalDataModelUtil.toUIPage(uiPage, page, true);       
       }else{
