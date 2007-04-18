@@ -20,7 +20,7 @@
           <%          	
             for(category in categories) {            	
               String itemSelected = "Item" ;
-              String onClick = "eXo.webui.UIItemSelector.onClick(this, '$form.name', '$uicomponent.name', '$category.name')";
+              String onClick = "eXo.webui.UIItemSelector.onClickCategory(this, '$form.name', '$uicomponent.name', '$category.name')";
                                           
               if (category.isSelected()) itemSelected = "SelectedItem Item" ;              
            %>
