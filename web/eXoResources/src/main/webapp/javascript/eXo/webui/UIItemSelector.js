@@ -2,33 +2,53 @@ function UIItemSelector() {
   this.backupClass;
 };
 
-UIItemSelector.prototype.onOver = function(clickedElement, mouseOver) {
-	eXo.webui.UIItemSelector.beforeActionHappen(clickedElement);
+UIItemSelector.prototype.onOver = function(selectedElement, mouseOver) {
+	
+	eXo.webui.UIItemSelector.beforeActionHappen(selectedElement);
   
   if(mouseOver) {
-    this.backupClass = clickedElement.className;
-    clickedElement.className = "OverItem Item";
-    this.onChangeItemDetail(clickedElement, true);
+    this.backupClass = selectedElement.className;
+    selectedElement.className = "OverItem Item";
+    this.onChangeItemDetail(selectedElement, true);
   } else {
-    clickedElement.className = this.backupClass;
-    this.onChangeItemDetail(clickedElement, false);
+    selectedElement.className = this.backupClass;
+    this.onChangeItemDetail(selectedElement, false);
   }
 };
 
 UIItemSelector.prototype.onClick = function(clickedElement) {
-	
   var itemListContainer = clickedElement.parentNode;
 	var allItems =  eXo.core.DOMUtil.findDescendantsByClass(itemListContainer, "div", "Item");
 	eXo.webui.UIItemSelector.beforeActionHappen(clickedElement);
-  
+	
   for(var i = 0; i < allItems.length; i++) {
     if(allItems[i] != clickedElement) {
       allItems[i].className = "Item";
 		  this.onChangeItemDetail(clickedElement, true);
     } else {
       allItems[i].className = "SelectedItem Item";
-	    this.backupClass = " SelectedItem Item";
+	    this.backupClass = "SelectedItem Item";
   		this.onChangeItemDetail(clickedElement, false);
+    }
+  }
+};
+
+UIItemSelector.prototype.onChangeItemDetail = function(itemSelected, mouseOver) {
+  if(mouseOver) {
+    for(var i = 0; i < this.allItems.length; i++) {
+      if(this.allItems[i] == itemSelected) {
+        this.itemDetails[i].style.display = "block";
+      } else {
+        this.itemDetails[i].style.display = "none";
+      }
+    }
+  } else {
+    for(var i = 0; i < this.allItems.length; i++) {
+      if(this.allItems[i].className == "SelectedItem Item") {
+        this.itemDetails[i].style.display = "block";
+      } else {
+        this.itemDetails[i].style.display = "none";
+      }
     }
   }
 };
@@ -83,28 +103,6 @@ UIItemSelector.prototype.beforeActionHappen = function(selectedItem) {
   var firstItemDescendant = eXo.core.DOMUtil.findFirstDescendantByClass(this.itemList, "div", "Item");
   var firstItemParent = firstItemDescendant.parentNode;
   this.allItems = eXo.core.DOMUtil.findChildrenByClass(firstItemParent, "div", "Item");
-};
-
-UIItemSelector.prototype.onChangeItemDetail = function(itemSelected, mouseOver) {
-	
-  if(mouseOver) {
-    for(var i = 0; i < this.allItems.length; i++) {
-      if(this.allItems[i] == itemSelected) {
-        this.itemDetails[i].style.display = "block";      	
-      } else {
-        this.itemDetails[i].style.display = "none";
-      }
-    }
-  } else {
-    for(var i = 0; i < this.allItems.length; i++) {
-      if(this.allItems[i].className == "SelectedItem Item") {
-        this.itemDetails[i].style.display = "block";
-      } else {
-        this.itemDetails[i].style.display = "none";
-      }
-    }
-  }
-  
 };
 
 UIItemSelector.prototype.showPopupCategory = function(selectedNode) {
