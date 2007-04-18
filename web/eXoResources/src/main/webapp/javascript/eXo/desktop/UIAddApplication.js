@@ -71,7 +71,8 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 	    itemDetails += '<div class="Application">' + 
 					           '	<div class="TitleBarApplication">' + 
 					           '		<div class="ApplicationItemIcon"><span></span></div>' + 
-					           '		<div class="ApplicationLabel">'+portlet["title"]+'</div>' + 
+					           '		<div class="ApplicationLabel">'+portlet["title"]+'</div>' +
+					           '    <div class="SelectButton"><span></span></div>' + 
 					           ' 		<div class="AddButton" title="Add this application to the desktop page"' +
 					           '         onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\')"><span></span></div>' + 
 					           ' 		<div style="clear: both"></div>' + 

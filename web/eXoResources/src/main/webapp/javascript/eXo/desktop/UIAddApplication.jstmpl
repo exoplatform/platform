@@ -90,7 +90,7 @@
 	          	        <div class="LeftItem">
 	          	          <div class="RightItem">
 											  	  <div class="ItemTitle">eXo Browser</div>
-						              </div>
+						            </div>
 	          	        </div>
 	          	      </div>
 	          	      
@@ -118,6 +118,7 @@
 				              		<div class="TitleBarApplication">
 				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 				              			<div class="ApplicationLabel">eXo Browser</div>
+				              			<div class="SelectButton"><span></span></div>
 				              			<div class="AddButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication',
 				              																																										'eXoBrowser')"
 				              																																										title="Add this application to the desktop page">
@@ -132,6 +133,7 @@
 				              		<div class="TitleBarApplication">
 				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 				              			<div class="ApplicationLabel">eXo Mail</div>
+				              			<div class="SelectButton"><span></span></div>
 				              			<div class="AddButton" 
 				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.mail.UIMailApplication', 
 				              			                                                            'eXoMail', 
@@ -148,6 +150,7 @@
 				              		<div class="TitleBarApplication">
 				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 				              			<div class="ApplicationLabel">Calendar</div>
+				              			<div class="SelectButton"><span></span></div>
 				              			<div class="AddButton" 
 						              			 onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.calendar.UICalendarApplication',
 						              			                                                        'eXoCalendar',
@@ -164,6 +167,7 @@
 				              		<div class="TitleBarApplication">
 				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 				              			<div class="ApplicationLabel">Forum</div>
+				              			<div class="SelectButton"><span></span></div>
 				              			<div class="AddButton" 
 				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.forum.UIForumApplication', 
 				              			                                                            'eXoForum',

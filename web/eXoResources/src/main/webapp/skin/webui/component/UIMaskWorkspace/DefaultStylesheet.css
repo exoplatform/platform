@@ -170,6 +170,14 @@
 	cursor: pointer ;
 }
 
+.UIAddApplication .SelectButton {
+	float: right ; 
+	width: 19px ; height: 19px ;
+	background: url("DefaultSkin/icons/16x16/SelectButton.gif") no-repeat center;
+	margin: 1px 10px ;
+	cursor: pointer ;
+}
+
 .UIAddApplication .TitleBarContainer .LeftTitleBar {
   background: url('DefaultSkin/background/LeftTitleBar60x50.gif') no-repeat left;
   padding: 0px 0px 0px 60px ;

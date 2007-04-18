@@ -165,22 +165,6 @@
 	vertical-align: middle ;
 }
 
-.UIMaskWorkspace .CheckButton {
-	float: right ; 
-	width: 18px ; height: 27px ;
-	background: url("VistaSkin/icons/16x16/Check.png") no-repeat center;
-	margin: 0px 3px ;
-	cursor: pointer ;
-}
-
-.UIMaskWorkspace .AddButton {
-	float: right ; 
-	width: 20px ; height: 20px ;
-	background: url("VistaSkin/icons/16x16/Add.png") no-repeat center;
-	margin: 0px 10px ;
-	cursor: pointer ;
-}
-
 .UIMaskWorkspace .ApplicationDescription {
 	background: white ;
 	padding: 10px 15px ;
@@ -279,6 +263,21 @@
   border: none;
 }
 
+.UIAddApplication .SelectButton {
+	float: right ; 
+	width: 18px ; height: 27px ;
+	background: url("VistaSkin/icons/16x16/SelectButton.png") no-repeat center;
+	margin: 0px 3px ;
+	cursor: pointer ;
+}
+
+.UIAddApplication .AddButton {
+	float: right ; 
+	width: 20px ; height: 20px ;
+	background: url("VistaSkin/icons/16x16/Add.png") no-repeat center;
+	margin: 0px 10px ;
+	cursor: pointer ;
+}
 
 .UIAddApplication .ContentContainerDetail .TabsContainer .RefreshButtonContent {
 	float: right;
