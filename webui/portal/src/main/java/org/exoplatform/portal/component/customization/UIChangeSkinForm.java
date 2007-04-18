@@ -18,9 +18,9 @@ import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
@@ -82,24 +82,27 @@ public class UIChangeSkinForm extends UIContainer {
   
   static public class SaveActionListener  extends EventListener<UIChangeSkinForm> {
     public void execute(Event<UIChangeSkinForm> event) throws Exception {
-/*      UIChangeSkinForm uicomp = event.getSource() ;
+      UIChangeSkinForm uicomp = event.getSource() ;
       UIMaskWorkspace uiMaskWorkspace = uicomp.getAncestorOfType(UIMaskWorkspace.class);
       if(!uiMaskWorkspace.isShow()) return;
       uiMaskWorkspace.setUIComponent(null);
       
       UIItemSelector uiTemplate  = uicomp.getChild(UIItemSelector.class);
+      String skin = uiTemplate.getSelectedItemOption().getValue().toString();
+      System.out.println("\n\n\n---> UIChangeSkinForm.java-Save. skin=" + skin);
       UIPortalApplication uiApp = uicomp.getAncestorOfType(UIPortalApplication.class);      
-      uiApp.setSkin(uiTemplate.getSelectedItemOption().getValue().toString());
+      uiApp.setSkin(skin);
       
       UIPortal uiPortal = Util.getUIPortal();     
-      uiPortal.setSkin(uiTemplate.getSelectedItemOption().getValue().toString());
+      uiPortal.setSkin(skin);
       PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal, true);
       PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
       dataService.savePortalConfig(portalConfig);
       
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       String url = pcontext.getRequestContextPath();
-      pcontext.getJavascriptManager().addJavascript("window.location=\""+url+"\"");*/
+      System.out.println("\n\n\n---> UIChangeSkinForm.java-Save. URL=" + url);
+      pcontext.getJavascriptManager().addJavascript("window.location=\""+url+"\"");
     }
   }
 
