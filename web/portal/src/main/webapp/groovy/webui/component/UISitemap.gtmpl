@@ -3,7 +3,7 @@
 	def navigations = uicomponent.getNavigations() ;
   public void renderNextLevelNode(children, int intLevel) {
   	for(PageNode node in children) {
-	    String actionLink = uicomponent.url("SelectNode", node.getUri()) ;
+	    String actionLink = uicomponent.event("SelectNode", node.getUri()) ;
 	    println """
 	  	  <div class="Item">
 		      <div class="Level$intLevel">
@@ -37,7 +37,7 @@
 				        for(nav in navigations) { 
 				          for(node in nav.getNodes()) { 
 				            String blockFloat = "LeftBlock" ;
-				            actionLink = uicomponent.url("SelectNode", node.getUri()) ;
+				            actionLink = uicomponent.event("SelectNode", node.getUri()) ;
 			        %>
 							      <div class="SitemapItemBox">
 							        <%//Title SiteMap %>

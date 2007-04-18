@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <node-navigation>
   <owner>exoadmin</owner>
-  <access-permission>*:/guest</access-permission>
+  <access-permission>member:/portal/admin</access-permission>
   <edit-permission>member:/portal/admin</edit-permission>  
   <page-nodes>
     <node>

@@ -2,8 +2,8 @@
 <portal-config decorator="community" width="100%" height="100%">
   <owner>exoadmin</owner>
   <locale>en</locale>
-  <view-permission>owner:/user</view-permission>
-  <edit-permission>owner:/user</edit-permission>
+  <view-permission>member:/portal/admin</view-permission>
+  <edit-permission>member:/portal/admin</edit-permission>
   
   <widget-layout>
   </widget-layout>
