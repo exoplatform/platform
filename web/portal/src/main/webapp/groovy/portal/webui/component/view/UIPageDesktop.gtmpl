@@ -126,6 +126,9 @@
                        alt="/eXoResources/background/DefaultSkin/Blank.gif" />
                   <%/*Tool Tip*/%>
                   <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowDesktop")%></span>
+                  <%/*End Tool Tip*/
+                  %>
+                  <%/*Tool Tip*/%>
                   <%/*End Tool Tip*/%>
                 </div>
               </div>

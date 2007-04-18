@@ -1,6 +1,7 @@
 <%
 	import org.exoplatform.webui.component.model.SelectItemOption;
 	import org.exoplatform.web.application.JavascriptManager;
+  import org.exoplatform.webui.component.UIComponent;
 	
 	
   def rcontext = _ctx.getRequestContext() ;
@@ -8,12 +9,18 @@
 	jsmanager.importJavascript('eXo.webui.UIDropDownItemSelector') ;
 	jsmanager.addJavascript('eXo.webui.UIDropDownItemSelector.init();');
 	String selected = uicomponent.getSelected();
+	int size = uicomponent.getSize();
 	ArrayList options = uicomponent.getOptions();
+	if(selected == null && options != null && size >0) {
+	  uicomponent.setSelected(0);
+	  
+	  selected = uicomponent.getSelected();
+	}
 	String action = uicomponent.getOnChange();
-	String form = "asd";
+	String form = uicomponent.getParent().getName();
 	boolean onServer = false;
 	int maxShow = uicomponent.getMaxShow();
-	int size = uicomponent.getSize();
+	
 	maxShow = size + 1;
 %>
 
@@ -34,7 +41,7 @@
 		  			   } 
 		  			%>
 		  			<div class="SelectedItemLabel">
-			  			<%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.title")%>
+			  			<%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown." + title)%>
 		  			</div>
 		  			<div class="DropDownSelectIcon"><span></span></div>
 		  			<div style="clear: left"><span></span></div>
