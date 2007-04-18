@@ -143,7 +143,7 @@
 	                		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction"  title="$restoreDown" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	                <%}%>    
 	                <%
-	                  if(isWindow) {
+	                  if(isWindow && (rcontext.getRemoteUser() != null)) {
 		                  String removeChildAction = uicomponent.getParent().event("RemoveChild", popupId) ;
 	                %>
 	                		<a class="ControlIcon CloseButtonIcon" href="$removeChildAction" title="Close" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></a>
