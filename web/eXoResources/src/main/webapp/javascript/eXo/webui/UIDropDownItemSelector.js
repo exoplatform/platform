@@ -79,7 +79,18 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 		 previousSelected[i].className = previousSelected[i].oldClassName = "ItemSelector";
 	}
 	var itemLabel = DOMUtil.findFirstDescendantByClass(targ, "div", "ItemSelectorLabel");
-	selectedItemLabel.innerHTML = itemLabel.innerHTML;
+	var stringItemLabel = itemLabel.innerHTML;
+	
+	if(stringItemLabel.length < 20){
+	  selectedItemLabel.innerHTML = stringItemLabel;
+	} else {
+		var label = "";
+		for(i = 0;i < 17; ++i){
+		  label = label + stringItemLabel[i];
+		}
+		selectedItemLabel.innerHTML = label + "...";
+	}
+	 
 	targ.className = targ.oldClassName = "OverItemSelector";
 	eXo.webui.UIDropDownItemSelector.hideList(parentSelector);
 	

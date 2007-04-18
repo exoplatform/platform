@@ -118,8 +118,7 @@
 				              		<div class="TitleBarApplication">
 				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 				              			<div class="ApplicationLabel">eXo Browser</div>
-				              			<div class="SelectButton"><span></span></div>
-				              			<div class="AddButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication',
+				              			<div class="SelectButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication',
 				              																																										'eXoBrowser')"
 				              																																										title="Add this application to the desktop page">
 				              			  <span></span>
@@ -133,8 +132,7 @@
 				              		<div class="TitleBarApplication">
 				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 				              			<div class="ApplicationLabel">eXo Mail</div>
-				              			<div class="SelectButton"><span></span></div>
-				              			<div class="AddButton" 
+				              			<div class="SelectButton" 
 				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.mail.UIMailApplication', 
 				              			                                                            'eXoMail', 
 				              			                                                            '/mail/javascript/');"
@@ -150,8 +148,7 @@
 				              		<div class="TitleBarApplication">
 				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 				              			<div class="ApplicationLabel">Calendar</div>
-				              			<div class="SelectButton"><span></span></div>
-				              			<div class="AddButton" 
+				              			<div class="SelectButton" 
 						              			 onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.calendar.UICalendarApplication',
 						              			                                                        'eXoCalendar',
 	  			                                                                              '/calendar/javascript/');"
@@ -167,8 +164,7 @@
 				              		<div class="TitleBarApplication">
 				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 				              			<div class="ApplicationLabel">Forum</div>
-				              			<div class="SelectButton"><span></span></div>
-				              			<div class="AddButton" 
+				              			<div class="SelectButton" 
 				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.forum.UIForumApplication', 
 				              			                                                            'eXoForum',
 				              			                                                            '/forum/javascript/');"
