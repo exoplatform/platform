@@ -163,22 +163,24 @@ public class UIPageForm extends UIFormTabPane {
       uiPageForm.invokeSetBindingBean(page);     
       
       if(uiPage != null) {
+        List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
+        findAllPortlet(uiPortlets, uiPage);
+        ArrayList<Component> applications = new ArrayList<Component>();
+        for(UIPortlet uiPortlet : uiPortlets) {
+          applications.add(PortalDataModelUtil.toPortletModel(uiPortlet));
+        }
         if("Desktop".equals(uiPage.getFactoryId()) && !"Desktop".equals(page.getFactoryId())) {
           page.setShowMaxWindow(false);
-        } else if(!"Desktop".equals(uiPage.getFactoryId()) && "Desktop".equals(page.getFactoryId())) {
-          List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
-          findAllPortlet(uiPortlets, uiPage);
-          ArrayList<Component> applications = new ArrayList<Component>();
           uiPage.getChildren().clear();
-          for(UIPortlet uiPortlet : uiPortlets) {
-            applications.add(PortalDataModelUtil.toPortletModel(uiPortlet));
-          }
+          page.setChildren(applications);
+        } else if(!"Desktop".equals(uiPage.getFactoryId()) && "Desktop".equals(page.getFactoryId())) {
+          uiPage.getChildren().clear();         
           page.setChildren(applications);     
         }
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         PortalDataModelUtil.toUIPage(uiPage, page, true);       
-      }else{
-        page.setOwner(Util.getUIPortal().getOwner());
+      } else {
+        page.setOwner(event.getRequestContext().getRemoteUser());
       }
       
       if(page.getChildren() == null) {
