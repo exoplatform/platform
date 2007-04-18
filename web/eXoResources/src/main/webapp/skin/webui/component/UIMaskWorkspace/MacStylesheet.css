@@ -149,7 +149,7 @@
 .UIAddApplication .SelectButton {
 	float: right ; 
 	width: 19px ; height: 19px ;
-	background: url("DefaultSkin/icons/16x16/SelectButton.gif") no-repeat center;
+	background: url("MacSkin/icons/SelectButton.png") no-repeat center;
 	margin: 1px 10px ;
 	cursor: pointer ;
 }

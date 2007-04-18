@@ -77,6 +77,7 @@
 		              		<div class="TitleBarApplication">
 		              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 		              			<div class="ApplicationLabel"><%=name%></div>
+		              			<div class="SelectButton"><span></span></div>
 		              			<div class="AddButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication',
           																																										'eXoBrowser')"
           																																										title="Add this application to the desktop page">

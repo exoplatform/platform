@@ -132,6 +132,7 @@
 					          		<div class="TitleBarApplication">
 					          			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 					          			<div class="ApplicationLabel">eXo Mail</div>
+					          			<div class="SelectButton"><span></span></div>
 					          			<div class="AddButton" 
 					          			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.mail.UIMailApplication', 
 					          			                                                            'eXoMail', 
@@ -142,11 +143,13 @@
 					          			<div style="clear: both"><span></span></div>
 					          		</div>
 					          		<div class="ApplicationDescription">eXo Mail</div>
+					          		<div class="SelectButton"><span></span></div>
 					              </div>
 				               <div class="Application">
 			              		 <div class="TitleBarApplication">
 			              			 <div class="IconLayout ApplicationItemIcon"><span></span></div>
 			              		 	 <div class="ApplicationLabel">Calendar</div>
+			              		 	 <div class="SelectButton"><span></span></div>
 			              			 <div class="AddButton" 
 					              			 onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.calendar.UICalendarApplication',
 					              			                                                        'eXoCalendar',
@@ -163,6 +166,7 @@
 			              		 <div class="TitleBarApplication">
 			              			 <div class="IconLayout ApplicationItemIcon"><span></span></div>
 			              		 	 <div class="ApplicationLabel">Forum</div>
+			              		 	 <div class="SelectButton"><span></span></div>
 			              			 <div class="AddButton" 
 					              			 onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.forum.UIFrorumApplication',
 					              			                                                        'eXoForum',
