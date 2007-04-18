@@ -63,7 +63,13 @@ public class UIDropDownItemSelector extends UIComponent {
     isEnable_ = enable;
     selected_ = selected;
     onServer_ = onServer;
-    if(options != null) size_ = options.size();  
+    if(options != null) {
+      size_ = options.size();
+      if(selected_ == null && options_.size() > 0) {
+        selected_ = options_.get(0);
+      }
+    }
+    
   }
   
   public boolean isOnServer() {return onServer_; }
@@ -71,7 +77,11 @@ public class UIDropDownItemSelector extends UIComponent {
 
   public String getSelected() {
     if(selected_ != null)
-      return (String) selected_.getValue();
+      return selected_.getLabel();
+    if(options_ != null && options_.size() > 0) {
+        setSelected(options_.get(0));
+        return selected_.getLabel();
+    }
     return null;
   }
   public void setSelected(SelectItemOption select){ selected_ = select;}
@@ -88,7 +98,12 @@ public class UIDropDownItemSelector extends UIComponent {
   public List<SelectItemOption<String>> getOptions() { return options_ ; }
   public void setOptions(List<SelectItemOption<String>> options) { 
     options_ = options ; 
-    if(options != null) size_ = options.size();  
+    if(options != null) {
+      size_ = options.size();
+      if(options_.size() > 0) {
+        selected_ = options_.get(0);
+      }
+    }  
   }  
  
   public void setEnabled(boolean enable) { isEnable_ = enable; }
