@@ -64,9 +64,10 @@ UIItemSelector.prototype.onClickCategory = function(clickedElement, form, compon
 
 // Pham Thanh Tung added
 UIItemSelector.prototype.onClickOption = function(clickedElement, form, component, option) {
-	var itemDetails = eXo.core.DOMUtil.getChildrenByTagName(clickedElement.parentNode, "div");
-	for (var i = 0; i < itemDetails.length; i++) {
-		itemDetails[i].className = "NormalItem";
+	var itemDetailList = eXo.core.DOMUtil.findAncestorByClass(clickedElement, "ItemDetailList");
+	var selectedItems = eXo.core.DOMUtil.findDescendantsByClass(itemDetailList, "div", "SelectedItem");
+	for (var i = 0; i < selectedItems.length; i++) {
+		selectedItems[i].className = "NormalItem";
 	}
 	clickedElement.className = "SelectedItem";
 	if (eXo.webui.UIItemSelector.SelectedItem == null) {
@@ -74,7 +75,6 @@ UIItemSelector.prototype.onClickOption = function(clickedElement, form, componen
 	}
   eXo.webui.UIItemSelector.SelectedItem.component = component;
   eXo.webui.UIItemSelector.SelectedItem.option = option;  
-	
 };
 
 /*TODO: Review This Function (Ha's comment)*/
