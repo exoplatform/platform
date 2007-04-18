@@ -72,9 +72,10 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 					           '	<div class="TitleBarApplication">' + 
 					           '		<div class="ApplicationItemIcon"><span></span></div>' + 
 					           '		<div class="ApplicationLabel">'+portlet["title"]+'</div>' +
-					           '    <div class="SelectButton"><span></span></div>' + 
+					           '    <div class="SelectButton" ' +
+					           '				 onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'false\')"><span></span></div>' + 
 					           ' 		<div class="AddButton" title="Add this application to the desktop page"' +
-					           '         onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\')"><span></span></div>' + 
+					           '         onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\')"><span></span></div>' + 
 					           ' 		<div style="clear: both"></div>' + 
 					           ' 	</div>' + 
 					           '	<div class="ApplicationDescription">'+portlet["des"]+'</div>' + 
@@ -88,8 +89,11 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
   itemDetailList.innerHTML = itemDetails;
 }
 
-UIAddApplication.prototype.addPortlet = function(id) {
-	var params = [{name: "portletId", value : id}] ;
+UIAddApplication.prototype.addPortlet = function(id, save) {
+	var params = [
+		{name: "portletId", value : id},
+		{name: "save", value : save}
+	] ;
 	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "AddPortletToDesktop", true, params)) ;
 };
 
