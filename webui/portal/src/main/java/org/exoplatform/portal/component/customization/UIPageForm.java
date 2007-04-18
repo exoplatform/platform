@@ -9,11 +9,15 @@ import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
+import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.PortalDAO;
+import org.exoplatform.portal.config.model.Application;
+import org.exoplatform.portal.config.model.Component;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -162,8 +166,14 @@ public class UIPageForm extends UIFormTabPane {
         if("Desktop".equals(uiPage.getFactoryId()) && !"Desktop".equals(page.getFactoryId())) {
           page.setShowMaxWindow(false);
         } else if(!"Desktop".equals(uiPage.getFactoryId()) && "Desktop".equals(page.getFactoryId())) {
+          List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
+          findAllPortlet(uiPortlets, uiPage);
+          ArrayList<Component> applications = new ArrayList<Component>();
           uiPage.getChildren().clear();
-          page.setChildren(new ArrayList<org.exoplatform.portal.config.model.Component>());     
+          for(UIPortlet uiPortlet : uiPortlets) {
+            applications.add(PortalDataModelUtil.toPortletModel(uiPortlet));
+          }
+          page.setChildren(applications);     
         }
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         PortalDataModelUtil.toUIPage(uiPage, page, true);       
@@ -171,7 +181,7 @@ public class UIPageForm extends UIFormTabPane {
         page.setOwner(Util.getUIPortal().getOwner());
       }
       
-      if(page.getChildren() == null || "Desktop".equals(page.getFactoryId())){
+      if(page.getChildren() == null) {
         page.setChildren(new ArrayList<org.exoplatform.portal.config.model.Component>());        
       }         
       
@@ -187,6 +197,14 @@ public class UIPageForm extends UIFormTabPane {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
       UIPageBrowser uiBrowser = uiWorkingWS.findFirstComponentOfType(UIPageBrowser.class);
       if(uiBrowser != null) uiBrowser.defaultValue(uiBrowser.getLastQuery());
+    }
+    
+    private void findAllPortlet(List<UIPortlet> list, UIContainer uiContainer) {
+      List<UIComponent> children = uiContainer.getChildren();
+      for(UIComponent ele : children) {
+        if(ele instanceof UIPortlet) list.add((UIPortlet)ele);
+        else if(ele instanceof UIContainer) findAllPortlet(list, (UIContainer) ele); 
+      }
     }
   }
 }
