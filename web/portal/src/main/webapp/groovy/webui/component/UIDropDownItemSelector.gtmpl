@@ -41,7 +41,7 @@
 		  			   } 
 		  			%>
 		  			<div class="SelectedItemLabel">
-			  			<%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown." + title)%>
+			  			<%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + title)%>
 		  			</div>
 		  			<div class="DropDownSelectIcon"><span></span></div>
 		  			<div style="clear: left"><span></span></div>

@@ -84,11 +84,13 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 	if(stringItemLabel.length < 20){
 	  selectedItemLabel.innerHTML = stringItemLabel;
 	} else {
-		var label = "";
-		for(i = 0;i < 17; ++i){
-		  label = label + stringItemLabel[i];
+		var label; label = stringItemLabel.toString()[0];
+		var tmp = label;
+		for(i = 1;i < 17; ++i){
+		  label = stringItemLabel.toString()[i];
+		  tmp = tmp + label;
 		}
-		selectedItemLabel.innerHTML = label + "...";
+		selectedItemLabel.innerHTML = tmp + "...";
 	}
 	 
 	targ.className = targ.oldClassName = "OverItemSelector";
