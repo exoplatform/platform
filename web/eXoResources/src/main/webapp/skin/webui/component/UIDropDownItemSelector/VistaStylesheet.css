@@ -43,6 +43,7 @@
 /********************************   UIItemList   ****************************************/
 
 .UIItemList {
+	text-align: left;
 }
 
 .UIItemList .ItemSelector {
@@ -83,7 +84,7 @@
 }
 
 .UIItemList .Icon {
-  width: 16px; height: 12px;
+  width: 8px; height: 12px;
   float: left;
   margin: 8px 3px 0px 7px;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif') no-repeat;

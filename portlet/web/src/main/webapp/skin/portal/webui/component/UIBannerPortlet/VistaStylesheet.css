@@ -1,22 +1,22 @@
 .UIBannerPortlet {
-  height: 78px;
+  height: 74px;
 }
 
 .UIBannerPortlet .LeftBanner {
-	height: 78px;
+	height: 74px;
 	padding: 0px 0px 0px 264px;
-  background: url('VistaSkin/background/LeftBanner264x78.jpg') no-repeat left;
+  background: url('VistaSkin/background/LeftBanner264x74.jpg') no-repeat left;
 }
 
 .UIBannerPortlet .MiddleBanner{
-	height: 78px;
-  background: url('VistaSkin/background/MiddleBanner1x78.jpg') repeat-x ;
+	height: 74px;
+  background: url('VistaSkin/background/MiddleBanner1x74.jpg') repeat-x ;
 }
 
 .UIBannerPortlet .RightBanner {
-  height: 78px;
+  height: 74px;
   padding: 0px 60px 0px 0px ;
-  background: url('VistaSkin/background/RightBanner60x78.jpg') no-repeat right;
+  background: url('VistaSkin/background/RightBanner60x74.jpg') no-repeat right;
 }
 
 .UIBannerPortlet .BannerTitle {
