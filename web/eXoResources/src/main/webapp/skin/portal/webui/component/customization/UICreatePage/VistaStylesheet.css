@@ -19,9 +19,9 @@
 
 .UICreatePage .EditContainerIcon {
   float: left;
-  width: 24px; height: 24px;
-  margin: 7px 15px 0px 25px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControl.gif') no-repeat ;
+  width: 34px; height: 26px;
+  margin: 7px 15px 0px 26px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControl.png') no-repeat ;
 }
 
 .UICreatePage .EditPortletIcon {
