@@ -170,6 +170,13 @@
 	padding: 10px 15px ;
 }
 
+.UIMaskWorkspace .UIFormWithTitle {
+  width: 550px;
+	margin: auto;
+	padding: 50px 0px;
+	border: none;
+}
+
 /**************************** UIAddApplication ******************************************/
 .UIAddApplication .TitleBarContainer {
   padding: 10px 10px 0px 10px; 

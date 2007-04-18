@@ -13,14 +13,12 @@
 }
 
 .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
-  border: none;
   background: white url('VistaSkin/background/TabContainerBG1x11.png') repeat-x top;
 }
 
 .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer .UITabContent {
-  border:solid 1px #909090;
-  border-top: 1px solid #bec1c7;
   padding: 4px;
+  border: none;
 }
 
 .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {

@@ -234,6 +234,13 @@
 	background: transparent;
 }
 
+.UIExoStart .StartMenuContainer .MenuItemContainer .Icon {
+  padding: 0px 0px 0px 35px;
+  margin: 0px 0px 0px 5px;
+  height: 35px;
+}
+
+
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {
 	background: #cbdaf4;
 }
@@ -324,17 +331,20 @@
 /*========================Start Menu Decorator======================*/
 .UIExoStart .StartMenuDecorator {
   width: 100%;
+  display: inherit;
+	visibility: inherit;
 }
 
 .UIExoStart .StartMenuDecorator .TopDecorator {
-  width: 240px ; height: 44px ;
-  background: url('VistaSkin/background/TopMenuDecorator240x44.png') bottom no-repeat left;
+  width: 238px ; height: 44px ;
+  background: url('VistaSkin/background/TopMenuDecorator238x44.png') bottom no-repeat left;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuTL {
   height:10px;
   background: url('VistaSkin/background/MenuDecoratorTL11x10.png') no-repeat left;
   padding: 0px 0px 0px 11px;
+  width: auto;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuTC {
@@ -351,6 +361,7 @@
 .UIExoStart .StartMenuDecorator .StartMenuML {
   background: url('VistaSkin/background/MenuDecoratorML11x1.png') repeat-y left;
   padding: 0px 0px 0px 11px;
+  width: auto;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuMR {
@@ -367,6 +378,7 @@
   height: 14px;
   background: url('VistaSkin/background/MenuDecoratorBL11x14.png') no-repeat left;
   padding: 0px 0px 0px 11px;
+  width: auto;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBR {

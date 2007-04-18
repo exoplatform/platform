@@ -1,5 +1,4 @@
 .UIFormWithTitle {
-  border: solid 1px #a5aab2;
   margin: 50px;
   overflow: auto;
 }
@@ -9,12 +8,14 @@
   background: url('VistaSkin/background/TitleBG1x23.gif') repeat-x ;
   height: 23px ;
   vertical-align: middle ;  line-height: 16px ;
-  border-bottom: solid 1px #bec1c7;
+  border: solid 1px #bec1c7;
   font-size: 11px ;
 }
 
 .UIFormWithTitle .HorizontalLayout {
   padding: 0px;
+  border: solid 1px #bec1c7;
+  border-top: none; 
 }
 
 .UIFormWithTitle .HorizontalLayout .FormContainer {

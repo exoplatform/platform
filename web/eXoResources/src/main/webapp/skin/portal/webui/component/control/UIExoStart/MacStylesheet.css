@@ -216,6 +216,13 @@
 	background: transparent;
 }
 
+.UIExoStart .StartMenuContainer .MenuItemContainer .Icon {
+  padding: 0px 0px 0px 30px;
+  margin: 0px 0px 0px 5px;
+  height: 35px;
+}
+
+
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {
 	background: #cbdaf4;
 }

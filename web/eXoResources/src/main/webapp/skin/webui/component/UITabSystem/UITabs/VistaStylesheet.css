@@ -26,7 +26,7 @@
 
 .UIHorizontalTabs .UITab {
   float: left;
-  font-weight: bold;
+  font-weight:normal;
   text-align: center;
 }
 
