@@ -161,6 +161,10 @@
   width: 74px;
 }
 
+.UIWizard .WizardControlBar .UIAction .ActionButton {
+  margin: 0px;
+}
+
 /*========================== Start UIWizard Welcome ==============================*/
 .UIWizard .UIWizardWelcome {
   height: 245px;

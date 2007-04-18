@@ -25,31 +25,16 @@
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
 %>
-<div class="UIPageSelector" id="<%=uicomponent.getId();%>">
-	<div class="UIToolbar">
-	  <div class="Style2Toolbar">
-	    <div class="LeftBar">
-	      <div class="RightBar">
-	        <div class="MiddleBar">
-	          <div class="SelectPageIcon" title="<%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>" onclick="eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');"><span></span></div>
-            <div class="SearchText">
-              <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
-                <%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>
-              </a>
-            </div>	          
-          </div>
-	      </div>
-	    </div>
-	  </div>
-	</div>
+<div class="UIPageSelector" id="<%=uicomponent.getId();%>" >
+	<div class="PageSelectorTitle">
+	  <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
+	  <div class="Title"><%=_ctx.appRes(uicomponent.getId()+".label.currentSelectedPage")%></div>
+	  <div style="clear: left"><span></span></div>
+  </div>
 	<div class="UIFormInfo">
 	  <div class="FormInfoBG">
 		  <div class="FormInfoIcon">
 		    <div class="UIPropertyInfo">
-			    <div class="OverflowContainer">
-				    <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
-				    <div class="SelectedPageText"><%=_ctx.appRes(uicomponent.getId()+".label.currentSelectedPage")%></div>
-			    </div>
 			    <div class="OverflowContainer">
 			      <div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".header.id")%>:</div>
 			      <div class="PropertyValue">$pageId</div>
@@ -69,5 +54,16 @@
 			  </div>
 		  </div>
 		</div>
+	</div>
+	<div class="SelectPageAction">
+	  <div class="ActionContainer">
+		  <div class="SelectPageIcon" title="<%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>" onclick="eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');"><span></span></div>
+		  <div class="ActionLabel">
+			  <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
+			    <%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>
+			  </a>
+		  </div>
+	    <div style="clear: left"><span></span></div>
+	  </div>
 	</div>
 </div>

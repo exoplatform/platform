@@ -4,48 +4,39 @@
 	margin: auto;
 }
 
-.UIPageSelector .SearchText {
+
+.UIPageSelector .PageSelectorTitle  {
+  height: 20px; line-height: 20px; vertical-align: middle;
+  padding-left: 15px;
+  margin-bottom: 5px;
+}
+
+.UIPageSelector .PageSelectorTitle .Icon {
+  float: left;
+  margin: 2px 2px 0px 0px;
+}
+
+.UIPageSelector .PageSelectorTitle .Title {
   float: left;
   font-weight: bold; font-size: 11px;
   margin-left: 10px;
-}
-
-.UIPageSelector .SearchText a:link, a:visited {
-  color: black;
-}
-
-.UIPageSelector .SearchText a:hover {
-  color: blue;
 }
 
 .UIPageSelector .UIFormInfo {
   background: white ;
   border: 1px solid #b7b7b7;
   margin-top: 1px;
-  padding-left: 20px;
-}
-
-.UIPageSelector .UIFormInfo .Icon{
-  float: left;
-  margin-right: 7px;
 }
 
 .UIPageSelector .FormInfoBG {
   background: url('DefaultSkin/background/FormInfoBG360x1.gif') repeat-y right ;
   padding-right: 30px;
+  height: 100%;
 }
 
 .UIPageSelector .FormInfoIcon {
   background: url('DefaultSkin/background/FormInfoIcon80x80.gif') no-repeat center right ;
   padding: 15px 15px 20px 15px;
-}
-
-.UIPageSelector .SelectPageIcon {
-  float: left;
-  width: 28px; height: 24px;
-  margin: 4px 5px 0px 14px;
-  background: url('DefaultSkin/background/SelectPage.gif') no-repeat ;
-  cursor: pointer;
 }
 
 .UIPageSelector .UIFormInfo .SelectedPageText {
@@ -56,15 +47,46 @@
 .UIPageSelector .UIFormInfo .PropertyName {
   float: left;
   width: 150px;
-  padding: 12px 0px 0px 23px;
+  padding: 4px 0px 4px 10px;
 }
 
 .UIPageSelector .UIFormInfo .PropertyValue {
   color: #3176e3;
   font-size: 11px;
-  margin-left: 150px; margin-top: 10px;
+  margin: 10px 0xp 0px 150px ;
 }
 
 .UIPageSelector .UIPopupWindow .UIPageBrowser .UIGrid .ActionContainer {
   border: 1px red solid;
+}
+
+.UIPageSelector .SelectPageAction {
+  width: 210px;
+  margin: 7px auto 0px auto;
+}
+
+.UIPageSelector .SelectPageAction .ActionContainer {
+  height: 21px; line-height: 18px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid #b7b7b7;
+  background: url('DefaultSkin/background/TypeBarBG1x22.gif') repeat-x ;
+}
+
+.UIPageSelector .SelectPageAction .SelectPageIcon{
+  width: 16px; height: 16px;
+  float: left;
+  margin: 3px 10px 0px 0px;
+}
+
+.UIPageSelector .SelectPageAction .ActionLabel {
+  font-size: 11px; font-weight: bold;
+  float: left; 
+}
+
+.UIPageSelector .SelectPageAction .ActionLabel a{
+  color: black; vertical-align: middle;
+}
+
+.UIPageSelector .SelectPageAction .ActionLabel a:hover{
+  color: #058ee6;
 }

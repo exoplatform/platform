@@ -1,33 +1,62 @@
 .UIPageSelector {
 	padding: 10px ;
-	width: 96% ;
-	
+	width: 500px ;
+	margin: auto;
 }
 
-.UIPageSelector .SearchText {
+.UIPageSelector .PageSelectorTitle  {
+  height: 20px; line-height: 20px; vertical-align: middle;
+  margin-bottom: 5px;
+  padding-left: 15px;
+}
+
+.UIPageSelector .PageSelectorTitle .Icon {
+  float: left;
+  margin: 2px 2px 0px 0px;
+}
+
+.UIPageSelector .PageSelectorTitle .Title {
   float: left;
   font-weight: bold; font-size: 11px;
   margin-left: 10px;
 }
 
-.UIPageSelector .SearchText a:link, a:visited {
-  color: #2e06cc;
+.UIPageSelector .SelectPageAction {
+  width: 210px;
+  margin: 7px auto 0px auto;
 }
 
-.UIPageSelector .SearchText a:hover {
-  color: orange;
+.UIPageSelector .SelectPageAction .ActionContainer {
+  height: 21px; line-height: 18px;
+  padding: 0px 0px 0px 10px;
+  border: 1px solid #b7b7b7;
+  background: url('VistaSkin/background/TitleBG1x20.gif') repeat-x ;
+}
+
+.UIPageSelector .SelectPageAction .SelectPageIcon{
+  width: 16px; height: 16px;
+  float: left;
+  margin: 3px 10px 0px 0px;
+  background: url('VistaSkin/background/SelectPage.gif') no-repeat ;
+}
+
+.UIPageSelector .SelectPageAction .ActionLabel {
+  font-size: 11px; font-weight: bold;
+  float: left; 
+}
+
+.UIPageSelector .SelectPageAction .ActionLabel a{
+  color: black; vertical-align: middle;
+}
+
+.UIPageSelector .SelectPageAction .ActionLabel a:hover{
+  color: #058ee6;
 }
 
 .UIPageSelector .UIFormInfo {
   background: white ;
   border: 1px solid #b7b7b7;
   margin-top: 1px;
-  padding-left: 20px;
-}
-
-.UIPageSelector .UIFormInfo .Icon{
-  float: left;
-  margin-right: 7px;
 }
 
 .UIPageSelector .FormInfoBG {
@@ -40,14 +69,6 @@
   padding: 15px 15px 20px 15px;
 }
 
-.UIPageSelector .SelectPageIcon {
-  float: left;
-  width: 28px; height: 24px;
-  margin: 4px 5px 0px 14px;
-  background: url('VistaSkin/background/SelectPage.gif') no-repeat ;
-  cursor: pointer;
-}
-
 .UIPageSelector .UIFormInfo .SelectedPageText {
   font-weight: bold; font-size: 11px;
   margin-top: 2px;
@@ -55,8 +76,7 @@
 
 .UIPageSelector .UIFormInfo .PropertyName {
   float: left;
-  width: 150px;
-  padding: 12px 0px 0px 23px;
+  padding: 6px 0px 6px 23px;
 }
 
 .UIPageSelector .UIFormInfo .PropertyValue {

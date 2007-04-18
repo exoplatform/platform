@@ -14,18 +14,7 @@
 }
 
 .UIFooterPortlet .CopyrightInfo {
-  width: 398px; 
   line-height: 25px;
   vertical-align: middle;
-  margin: auto;
-}
-
-.UIFooterPortlet .CopyrightInfo .CopyrightText {
-  float: left;
-  padding-left: 5px ;
-}
-
-.UIFooterPortlet .CopyrightInfo .CompanyTitleText {
-  float: right ;
-  padding-left: 5px ;
+  text-align: center;
 }

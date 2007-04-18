@@ -3,11 +3,7 @@
     <div class="RightFooter">
       <div class="RepeatFooter">
         <div class="FooterInfoContainer">
-	        <div class="CopyrightInfo">
-				    <div class="CopyrightText"><%=_ctx.appRes("UIPortalToolPanel.label.copyrightText")%></div>
-				    <div class="CompanyTitleText"><%=_ctx.appRes("UIPortalToolPanel.label.companyTitleText")%></div>
-				    <div style="clear: both;"><span></span></div>
-	        </div>
+	        <div class="CopyrightInfo"><%=_ctx.appRes("UIPortalToolPanel.label.copyrightText")%>., <%=_ctx.appRes("UIPortalToolPanel.label.companyTitleText")%></div>
 	      </div>
       </div>
     </div>
