@@ -17,7 +17,7 @@
 					  	<div style="float: left">
 					  		<%=_ctx.appRes("UILogged.note.loggedUser")%>
 						  	<span style="padding: 0px 10px 0px 2px; color: #529ef1; font-weight:bold;">
-						  		<%= prContext.getPortalOwner() %> 
+						  		<%=prContext.getRemoteUser();%> 
 						  	</span>
 					  	</div>
 						  <div style="float: left" title="Sign Out" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
