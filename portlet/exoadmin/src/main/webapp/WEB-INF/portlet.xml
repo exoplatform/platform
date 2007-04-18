@@ -25,6 +25,11 @@
       <short-title>Organization Portlet</short-title>
       <keywords>Organization</keywords>
     </portlet-info>
+    
+    <security-role-ref>
+      <role-name>admin</role-name>
+      <role-link>admin</role-link>
+    </security-role-ref>
   </portlet>  
   
   <portlet>
@@ -51,11 +56,6 @@
       <short-title>Account Portlet</short-title>
       <keywords>Account</keywords>
     </portlet-info>
-
-    <security-role-ref>
-      <role-name>admin</role-name>
-      <role-link>admin</role-link>
-    </security-role-ref>
   </portlet>  
   
   <portlet>
@@ -82,6 +82,11 @@
       <short-title>Registry</short-title>
       <keywords>portlet, registry</keywords>
     </portlet-info>
+    
+    <security-role-ref>
+      <role-name>admin</role-name>
+      <role-link>admin</role-link>
+    </security-role-ref>
   </portlet>  
   
   <portlet>
@@ -107,7 +112,12 @@
       <title>JMX Portlet</title>
       <short-title>JMX Portlet</short-title>
       <keywords>jmx</keywords>     
-    </portlet-info>     
+    </portlet-info>    
+    
+    <security-role-ref>
+      <role-name>admin</role-name>
+      <role-link>admin</role-link>
+    </security-role-ref> 
   </portlet>  
   
 </portlet-app>
