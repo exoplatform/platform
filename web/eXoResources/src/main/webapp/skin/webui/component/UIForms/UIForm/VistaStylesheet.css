@@ -74,8 +74,8 @@
 }
 
 .UIForm .HorizontalLayout input.checkbox {
-  width:  15px ; height:  15px ;
-  border:  1px  solid gray ;
+  width: auto;
+  border: none;
 }
 
 .UIForm .HorizontalLayout  input.radio {
