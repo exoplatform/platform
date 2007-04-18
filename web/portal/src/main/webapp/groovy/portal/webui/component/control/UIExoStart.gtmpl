@@ -21,7 +21,7 @@
     print """
       <div class="MenuItem">
         <div class="LabelItem">
-          <div class="$icon">
+          <div class="Icon $icon">
             <div class="LabelText"><a href="$href">$node.label</a></div>
           </div>
         </div>
@@ -36,7 +36,7 @@
      print """
       <div class="MenuItem">
         <div class="LabelItem">
-          <div class="$icon"> 
+          <div class="Icon $icon"> 
             <div class="BlackArrowIcon">
               <div class="LabelText"><a href="$href">$node.label</a></div>
             </div>
@@ -133,7 +133,7 @@
     print """
       <div class="MenuItem">
         <div class="LabelItem">
-          <div class="$item.icon">
+          <div class="Icon $item.icon">
             <div class="BlackArrowIcon">
               <div class="LabelText">$label</div>
             </div>
@@ -179,7 +179,7 @@
     print """
       <div class="MenuItem">
         <div class="LabelItem">
-          <div class="$item.icon">
+          <div class="Icon $item.icon">
             <div class="LabelText"><a href="$href">$label</a></div>
           </div>
         </div>
@@ -193,7 +193,7 @@
     print """
       <div class="MenuItem">
         <div class="LabelItem">
-          <div class="$icon">
+          <div class="Icon $icon">
             <div class="LabelText"><a href="$href">$label</a></div>
           </div>
         </div>
