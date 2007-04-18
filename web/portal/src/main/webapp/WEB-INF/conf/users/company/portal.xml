@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <portal-config decorator="exo" width="100%" height="100%">
+  <factory-id>office</factory-id>
   <owner>company</owner>
   <locale>en</locale>
   <view-permission>*:/guest</view-permission>
