@@ -60,7 +60,7 @@
   margin-left: 4px ; margin-top: 2px;
   float: left ;
   height: 16px ; vertical-align: middle ; line-height: 16px ;
-  font-size: 11px; color: black;
+  font-size: 11px; color: black; font-weight: bold;
 }
 
 .UITree .TreeContainer .Node .NodeLabel a:hover {

@@ -148,3 +148,23 @@
   border-bottom: 1px #b7b7b7 solid;
   height: 24px;
 }
+
+.UIPortletRegistryPortlet .UIForm .HorizontalLayout input.checkbox {
+	width: 90%;
+}
+
+.UIPortletRegistryPortlet .UIForm .HorizontalLayout .FieldContainer {
+	padding-top: 0px;
+	padding: 0px;
+	margin-top: none;
+	width: auto;
+	overflow: visible;
+}
+
+.UIPortletRegistryPortlet .UIFormWithTitle .HorizontalLayout .FormContainer {
+	padding: 10px;
+}
+
+.UIPortletRegistryPortlet .UIFormWithTitle .HorizontalLayout .FormContainer .UIGrid {
+	width: none;
+}

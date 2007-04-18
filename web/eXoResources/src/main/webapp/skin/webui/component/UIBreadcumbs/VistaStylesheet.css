@@ -23,18 +23,18 @@
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {
-  padding-left: 5px ;
-  background: url('VistaSkin/background/BreadcumsBarL5x34.png') no-repeat left;
+  padding-left: 8px ;
+  background: url('VistaSkin/background/LeftBreadcumbsBar8x33.png') no-repeat left;
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
-  padding-right: 8px;
-  background: url('VistaSkin/background/BreadcumsBarR8x34.png') no-repeat right bottom;
+  padding-right: 9px;
+  background: url('VistaSkin/background/RightBreadcumbsBar9x33.png') no-repeat right bottom;
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {
-  background: url('VistaSkin/background/BreadcumsBarRP1x34.png') repeat-x;
-  height: 34px; line-height: 26px; vertical-align: middle;
+  background: url('VistaSkin/background/MiddleBreadcumbsBar1x33.png') repeat-x;
+  height: 33px; line-height: 26px; vertical-align: middle;
 }
 
 .UIBreadcumbs .RightBlackGridArrowIcon {

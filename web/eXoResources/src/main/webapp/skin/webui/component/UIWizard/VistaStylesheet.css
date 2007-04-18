@@ -288,7 +288,7 @@
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer {
   float: right;
-  width: 250px;
+  width: 260px;
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer .TemplateImage {
@@ -306,12 +306,11 @@
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList {
   height: 242px; 
   background: #ffffff;
-  padding: 10px; margin-right: 260px; 
+  padding: 10px; margin-right: 265px; 
   border: 1px solid #b7b7b7;
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList .ItemDetail {
-  padding: 8px;
   border: none;
   background: none;
 }
