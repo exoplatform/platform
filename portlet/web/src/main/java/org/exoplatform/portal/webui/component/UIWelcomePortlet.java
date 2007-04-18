@@ -8,13 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.widget.UILoginForm;
-import org.exoplatform.portal.component.widget.UILoginForm.SigninActionListener;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIPortletApplication;
 import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -23,19 +20,11 @@ import org.exoplatform.webui.event.EventListener;
  *          nhudinhthuan@yahoo.com
  * May 30, 2006
  */
-@ComponentConfigs({
-  @ComponentConfig(
-    lifecycle = UIApplicationLifecycle.class,
-    template = "app:/groovy/portal/webui/component/UIWelcomePortlet.gtmpl" ,
-    events = @EventConfig(listeners = UIWelcomePortlet.LogoutActionListener.class)
-  ),
-  @ComponentConfig(
-    type = UILoginForm.class,     
-    lifecycle = UIFormLifecycle.class ,
-    template = "app:/groovy/portal/webui/component/UILoginForm.gtmpl" ,
-    events = @EventConfig(listeners = SigninActionListener.class)
-  )    
-})
+@ComponentConfig(
+  lifecycle = UIApplicationLifecycle.class,
+  template = "app:/groovy/portal/webui/component/UIWelcomePortlet.gtmpl" ,
+  events = @EventConfig(listeners = UIWelcomePortlet.LogoutActionListener.class)
+)
 
 public class UIWelcomePortlet extends UIPortletApplication {
   

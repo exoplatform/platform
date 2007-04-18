@@ -11,6 +11,7 @@ import org.exoplatform.portal.component.view.lifecycle.UIPageLifecycle;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.EditPageActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.RemoveChildActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.MoveChildActionListener;
+import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -35,7 +36,8 @@ import org.exoplatform.webui.config.annotation.EventConfig;
       events = {
         @EventConfig(listeners = EditPageActionListener.class ),
         @EventConfig(listeners = MoveChildActionListener.class),
-        @EventConfig(listeners = RemoveChildActionListener.class)
+        @EventConfig(listeners = RemoveChildActionListener.class),
+        @EventConfig(listeners = ShowLoginFormActionListener.class)
       }
   )
 })

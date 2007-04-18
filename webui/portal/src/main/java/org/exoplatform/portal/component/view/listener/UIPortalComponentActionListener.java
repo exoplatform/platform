@@ -10,7 +10,9 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
+import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIContainerConfigOptions;
+import org.exoplatform.portal.component.customization.UIPageForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.customization.UIPortletOptions;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
@@ -18,6 +20,7 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortalComponent;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.component.widget.UILoginForm;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
@@ -39,6 +42,18 @@ public class UIPortalComponentActionListener {
       uiContainer.setRenderedChild(id);      
     }
   }  
+  
+  static public class ShowLoginFormActionListener  extends EventListener<UIPortalComponent> {    
+    public void execute(Event<UIPortalComponent> event) throws Exception {
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      UILoginForm uiLoginForm = uiMaskWS.createUIComponent(UILoginForm.class, null, "UIPortalComponentLogin");
+      uiMaskWS.setUIComponent(uiLoginForm);
+      uiMaskWS.setWindowSize(630, -1);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+    }
+  }
   
   static public class DeleteComponentActionListener extends EventListener<UIComponent> {
     public void execute(Event<UIComponent> event) throws Exception {

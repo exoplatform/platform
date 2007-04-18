@@ -13,8 +13,8 @@ import org.exoplatform.portal.component.view.listener.UIPortalActionListener.Add
 import org.exoplatform.portal.component.view.listener.UIPortalActionListener.AddPortletToDesktopActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalActionListener.ChangeWindowStateActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalActionListener.RemoveJSApplicationToDesktopActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalActionListener.ShowLoginFormActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.MoveChildActionListener;
+import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.portal.component.widget.UILogged.LogoutActionListener;
 import org.exoplatform.portal.component.widget.UIWidgets.ChangeOptionActionListener;
 import org.exoplatform.portal.config.UserPortalConfig;

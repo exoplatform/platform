@@ -16,6 +16,7 @@ import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIJSApplication;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
+import org.exoplatform.portal.component.view.UIPortalComponent;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UILoginForm;
@@ -42,17 +43,6 @@ public class UIPortalActionListener {
       UIPortlet uiPortlet = uiPortal.findComponentById(portletId);
       WebuiRequestContext context = event.getRequestContext();
       uiPortlet.createEvent("ChangeWindowState", event.getExecutionPhase(), context).broadcast();
-    }
-  }
-  
-  static public class ShowLoginFormActionListener  extends EventListener<UIPortal> {    
-    public void execute(Event<UIPortal> event) throws Exception {
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      uiMaskWS.createUIComponent(UILoginForm.class);
-      uiMaskWS.setWindowSize(630, -1);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
   

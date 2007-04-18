@@ -32,17 +32,15 @@ import org.exoplatform.webui.exception.MessageException;
  *          nhudinhthuan@exoplatform.com
  * Jul 11, 2006  
  */
-@ComponentConfigs({
-  @ComponentConfig(  
-    lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/portal/webui/component/widget/UILoginForm.gtmpl" ,
-    events = {
-      @EventConfig(listeners = UILoginForm.SigninActionListener.class),
-      @EventConfig(listeners = UILoginForm.SignUpActionListener.class),
-      @EventConfig(phase = Phase.DECODE, listeners = UIMaskWorkspace.CloseActionListener.class)
-    }
-  )
-})
+@ComponentConfig(  
+  lifecycle = UIFormLifecycle.class,
+  template = "system:/groovy/portal/webui/component/widget/UILoginForm.gtmpl" ,
+  events = {
+    @EventConfig(listeners = UILoginForm.SigninActionListener.class),
+//      @EventConfig(listeners = UILoginForm.SignUpActionListener.class),
+    @EventConfig(phase = Phase.DECODE, listeners = UIMaskWorkspace.CloseActionListener.class)
+  }
+)
 public class UILoginForm extends UIForm {
   
   public UILoginForm() throws Exception{    
@@ -127,8 +125,8 @@ public class UILoginForm extends UIForm {
     }
   }
   
-  static public class SignUpActionListener  extends EventListener<UILoginForm> {
-    public void execute(Event<UILoginForm> event) throws Exception {
+//  static public class SignUpActionListener  extends EventListener<UILoginForm> {
+//    public void execute(Event<UILoginForm> event) throws Exception {
 //      System.out.println("\n\n\n\n^^^^^^^^^^^^^^##############################################");
 //      UIPortal uiPortal = Util.getUIPortal();
 //      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);   
@@ -166,6 +164,6 @@ public class UILoginForm extends UIForm {
       uiMaskWS.setWindowSize(630, -1);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       */
-    }
-  }
+//    }
+//  }
 }
