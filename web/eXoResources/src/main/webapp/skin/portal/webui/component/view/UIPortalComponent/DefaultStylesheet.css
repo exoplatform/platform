@@ -1,10 +1,10 @@
 .UIPortlet .LAYOUT-PORTLET {
   font-size: 11px ;
-  margin: 0px 7px 8px 10px ;
+  margin: 0px 0px 8px 3px ;
 }
 
 .UIPortlet .CONTROL-PORTLET {
-  margin: 0px 7px -1px 10px;
+  margin: 0px 0px -1px 3px;
 }
 
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
@@ -194,7 +194,7 @@
 
 .UIPortal .LAYOUT-PORTAL {
   background: url('DefaultSkin/background/PortalBackground4x4.gif');
-  padding: 8px 0px ;
+  padding: 8px ;
   margin: auto;
 }
 
