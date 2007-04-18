@@ -85,6 +85,12 @@
                 <div class="IconContainer" id="IconContainer" onmouseover="$containerMouseOver">
                   <img id="FixBug" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/background/Debug1x32.gif" />
                   
+                  <img id="SignInIcon" class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Signin.png"
+                       alt="/eXoResources/background/DefaultSkin/Blank.gif" />
+                  <%/*Tool Tip*/%>
+                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignIn")%></span>
+                  <%/*End Tool Tip*/%>
+                  
                   <img class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/AddPortlet.png"
                        alt="/eXoResources/background/DefaultSkin/Blank.gif"
                        id="UIAddApplicationIcon"
@@ -118,12 +124,6 @@
                        alt="/eXoResources/background/DefaultSkin/Blank.gif" />
                   <%/*Tool Tip*/%>
                   <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowDesktop")%></span>
-                  <%/*End Tool Tip*/%>
-                  
-                  <img id="SignInIcon" class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Signin.png"
-                       alt="/eXoResources/background/DefaultSkin/Blank.gif" />
-                  <%/*Tool Tip*/%>
-                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignIn")%></span>
                   <%/*End Tool Tip*/%>
                 </div>
               </div>
