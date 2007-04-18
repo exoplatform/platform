@@ -4,11 +4,10 @@
   String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";
     
   categories = uicomponent.getItemCategories();
-  UIContainer form = uicomponent.getAncestorOfType(UIContainer.class);  
+  UIContainer uicontainer = uicomponent.getAncestorOfType(UIContainer.class);  
 %>
 <div class="UIItemSelector">  
   <div class="RightColumnStyle" style="width: 99.5%;">
-  
       <%/*Begin ItemList*/%>
       <div class="ItemListContainer">
         <div class="ItemListTitle">
@@ -20,7 +19,7 @@
           <%          	
             for(category in categories) {            	
               String itemSelected = "Item" ;
-              String onClick = "eXo.webui.UIItemSelector.onClickCategory(this, '$form.name', '$uicomponent.name', '$category.name')";
+              String onClick = "eXo.webui.UIItemSelector.onClickCategory(this, '$uicontainer.name', '$uicomponent.name', '$category.name')";
                                           
               if (category.isSelected()) itemSelected = "SelectedItem Item" ;              
            %>

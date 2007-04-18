@@ -11,7 +11,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.customization.UIChangeLanguageForm;
-import org.exoplatform.portal.component.customization.UIChangeSkinForm;
+import org.exoplatform.portal.component.customization.UIChangeSkin;
 import org.exoplatform.portal.component.customization.UIPageCreationWizard;
 import org.exoplatform.portal.component.customization.UIPageEditWizard;
 import org.exoplatform.portal.component.customization.UIPageManagement;
@@ -293,17 +293,14 @@ public class UIExoStart extends UIComponent {
   static  public class SkinSettingsActionListener extends EventListener<UIExoStart> {
     @SuppressWarnings("unchecked")
    public void execute(Event<UIExoStart> event) throws Exception {
-      System.out.println("\n=======> Interface Settings\n");
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
-      
-      uiMaskWS.createUIComponent(UIChangeSkinForm.class);
-      
+      UIChangeSkin uiChangeSkin = uiMaskWS.createUIComponent(UIChangeSkin.class, null, null);
+      uiMaskWS.setUIComponent(uiChangeSkin);
       uiMaskWS.setWindowSize(640, 400);
       uiMaskWS.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event); 
     }
  }
   static  public class LanguageSettingsActionListener extends EventListener<UIExoStart> {

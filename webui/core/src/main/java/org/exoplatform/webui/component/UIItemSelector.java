@@ -17,7 +17,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * Apr 16, 2007  
  */
 
-@ComponentConfig( template = "system:/groovy/webui/component/UIItemSelector.gtmpl" )
+@ComponentConfig( template = "system:/groovy/webui/component/UIItemSelector.gtmpl")
 
 public class UIItemSelector extends UIComponent {
   String name_;
