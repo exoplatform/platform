@@ -60,13 +60,13 @@
 	            <div style="clear: left"><span></span></div>
 						</div>
 	      	<%}%>
-				  <% for(option in options) {
-				    String label = option.getLabel();
-				    
-				    jsmanager.addJavascript("eXo.env.server.label = '" + option.getValue() + "';" + 
-			                              "eXo.env.server.onChange = '" + action + "';" +
-			                              "eXo.env.server.onServer = '" + onServer + "';" +
-			                              "eXo.env.server.form = '" + form + "';");
+				  <%for(option in options) {
+					    String label = option.getLabel();
+					    
+					    jsmanager.addJavascript("eXo.env.server.label = '" + option.getValue() + "';" + 
+				                              "eXo.env.server.onChange = '" + action + "';" +
+				                              "eXo.env.server.onServer = '" + onServer + "';" +
+				                              "eXo.env.server.form = '" + form + "';");
 				  %>
 				    
 						<div class="ItemSelector">

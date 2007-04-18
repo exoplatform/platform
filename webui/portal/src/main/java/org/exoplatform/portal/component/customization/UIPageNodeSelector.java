@@ -11,7 +11,6 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.view.UIPage;
-import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.AddNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.CopyNodeActionListener;
@@ -108,6 +107,7 @@ public class UIPageNodeSelector extends UIContainer {
       options.add(new SelectItemOption<String>(label, navigation.getOwner()));
     }
     uiDopDownSelector.setOptions(options);
+    uiDopDownSelector.setSelected(0);
 	}
   
   public void loadNavigations() throws Exception {
