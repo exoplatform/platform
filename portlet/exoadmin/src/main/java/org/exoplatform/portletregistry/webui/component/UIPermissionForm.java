@@ -36,7 +36,7 @@ public class UIPermissionForm extends UIFormTabPane{
     super.setInfoBar(false);
     super.setRenderResourceTabName(false) ;
     
-    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, null);
+    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, "PortletPermissionSelector");
     uiPermissionSelector.configure("Permission", null, null) ;
     uiPermissionSelector.createPermission("ViewPermission",null);
     uiPermissionSelector.setRendered(false);

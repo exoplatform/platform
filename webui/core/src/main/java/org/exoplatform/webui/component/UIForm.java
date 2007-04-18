@@ -176,11 +176,11 @@ public class UIForm extends UIContainer  {
   }
   
   public String getLabel(String id) throws Exception {
-     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
-     ResourceBundle res = context.getApplicationResourceBundle() ;     
-     return getLabel(res, id);
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+    ResourceBundle res = context.getApplicationResourceBundle() ;     
+    return getLabel(res, id);
   }
-  
+
   public String getLabel(ResourceBundle res, String id) throws Exception {
     String label = getId() + ".label." + id;    
     return res.getString(label);

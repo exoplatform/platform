@@ -67,6 +67,7 @@ public class UIAccountForm extends UIFormTabPane {
     userProfileSet.setRendered(false) ;
     addUIFormInput(userProfileSet) ;
     if(initParams == null) return ;  
+    
     UIUserMembershipSelector uiUserMembershipSelector = new UIUserMembershipSelector();
     uiUserMembershipSelector.setRendered(false);
     addUIFormInput(uiUserMembershipSelector);
@@ -80,7 +81,8 @@ public class UIAccountForm extends UIFormTabPane {
         templateInput.getItemCategories().add(itemCategory);
       }
     }
-    if(isRoleAdmin) uiUserMembershipSelector.setIsAdmin(true);
+    uiUserMembershipSelector.setAdminRole(isRoleAdmin);
+    
     templateInput.getItemCategories().get(0).setSelected(true);
     setActions(new String[]{"Save"});
   }

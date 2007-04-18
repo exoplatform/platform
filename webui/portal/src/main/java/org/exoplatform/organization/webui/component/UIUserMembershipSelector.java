@@ -39,13 +39,13 @@ public class UIUserMembershipSelector extends UISelector {
   
   private List<Membership>  membership_ ;
   private String user_ = "exo" ;  
-  private boolean isAdmin_ = false;
+  private boolean isAdminRole_ = false;
   
   public UIUserMembershipSelector() throws Exception {
     super("UIUserMembershipSelector", null);
     setComponentConfig(UIUserMembershipSelector.class, null) ;        
     membership_ = new ArrayList<Membership>();   
-    UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "PopupPermissionSelector");
+    UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "UserPermissionSelector");
     uiPopup.setWindowSize(540, 0);
     UIGroupMembershipSelector uiMembershipSelector = createUIComponent(UIGroupMembershipSelector.class, null, null) ;
     uiPopup.setUIComponent(uiMembershipSelector);
@@ -58,8 +58,8 @@ public class UIUserMembershipSelector extends UISelector {
   }
   
   
-  public boolean isAdmin() { return isAdmin_; }
-  public void setIsAdmin(boolean b) { isAdmin_ = b; }
+  public boolean isAdminRole() { return isAdminRole_; }
+  public void setAdminRole(boolean b) { isAdminRole_ = b; }
   
   @SuppressWarnings("unchecked")
   public void setUser(User user) throws Exception { 

@@ -35,7 +35,7 @@ import org.exoplatform.webui.event.Event.Phase;
  */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,    
-    template =  "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
+    template =  "system:/groovy/webui/component/UIForm.gtmpl",
     events = {
       @EventConfig(phase = Phase.DECODE, listeners = UISharedNavigationForm.RemoveActionListener.class),
       @EventConfig(listeners = UISharedNavigationForm.SaveActionListener.class)
