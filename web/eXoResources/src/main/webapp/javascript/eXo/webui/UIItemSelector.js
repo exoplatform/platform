@@ -33,34 +33,25 @@ UIItemSelector.prototype.onClick = function(clickedElement) {
   }
 };
 
-UIItemSelector.prototype.onClick = function(clickedElement, form, component, option) {
-  var itemListContainer = clickedElement.parentNode;
-	var allItems =  eXo.core.DOMUtil.findDescendantsByClass(itemListContainer, "div", "Item");
-	eXo.webui.UIItemSelector.beforeActionHappen(clickedElement);
-  
-  for(var i = 0; i < allItems.length; i++) {
-    if(allItems[i] != clickedElement) {
-      allItems[i].className = "Item";
-		  this.onChangeItemDetail(clickedElement, true);
-    } else {
-      allItems[i].className = "SelectedItem Item";
-	    this.backupClass = " SelectedItem Item";
-  		this.onChangeItemDetail(clickedElement, false);
-    }
-  }
+// Pham Thanh Tung added
+UIItemSelector.prototype.onClickCategory = function(clickedElement, form, component, option) {
+	eXo.webui.UIItemSelector.onClick(clickedElement);
   if (eXo.webui.UIItemSelector.SelectedItem == null)	
 	  eXo.webui.UIItemSelector.SelectedItem = new Object();
   eXo.webui.UIItemSelector.SelectedItem.component = component;
   eXo.webui.UIItemSelector.SelectedItem.option = option;  
 };
 
+// Pham Thanh Tung added
 UIItemSelector.prototype.onClickOption = function(clickedElement, form, component, option) {
 	var itemDetails = eXo.core.DOMUtil.getChildrenByTagName(clickedElement.parentNode, "div");
-	for (var i = 0; i < itemDetails.length; i++)
+	for (var i = 0; i < itemDetails.length; i++) {
 		itemDetails[i].className = "NormalItem";
+	}
 	clickedElement.className = "SelectedItem";
-	if (eXo.webui.UIItemSelector.SelectedItem == null)
-	  eXo.webui.UIItemSelector.SelectedItem = new Object();
+	if (eXo.webui.UIItemSelector.SelectedItem == null) {
+		eXo.webui.UIItemSelector.SelectedItem = new Object();
+	}
   eXo.webui.UIItemSelector.SelectedItem.component = component;
   eXo.webui.UIItemSelector.SelectedItem.option = option;  
 	
