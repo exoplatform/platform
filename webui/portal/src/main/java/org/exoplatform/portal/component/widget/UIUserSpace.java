@@ -5,7 +5,6 @@
 package org.exoplatform.portal.component.widget;
 
 import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIDropDownItemSelector;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
  * Created by The eXo Platform SARL
@@ -13,9 +12,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  *          lebienthuy@gmail.com
  * Jul 11, 2006  
  */
-@ComponentConfig(
-  template = "system:/groovy/portal/webui/component/widget/UIUserSpace.gtmpl" 
-)
+@ComponentConfig(template = "system:/groovy/portal/webui/component/widget/UIUserSpace.gtmpl")
 public class UIUserSpace extends UIContainer {
   
   public UIUserSpace() throws Exception{

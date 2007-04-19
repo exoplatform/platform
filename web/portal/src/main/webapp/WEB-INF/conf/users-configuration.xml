@@ -19,13 +19,7 @@
                     <field  name="groupId"><string>/user</string></field>
                     <field  name="membership"><string>member</string></field>
                   </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.impl.NewUserConfig$JoinGroup">
-                    <field  name="groupId"><string>/portal/share</string></field>
-                    <field  name="membership"><string>member</string></field>
-                  </object>
-                </value>
+                </value>               
               </collection>
             </field>
             <field  name="ignoredUser">

@@ -15,9 +15,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  *          lebienthuy@gmail.com
  * Mar 28, 2007  
  */
-
 @ComponentConfig(template = "system:/groovy/webui/component/UIDropDownItemSelector.gtmpl")
-
 public class UIDropDownItemSelector extends UIComponent {
 
   private int size_ = 0 ;
@@ -63,26 +61,19 @@ public class UIDropDownItemSelector extends UIComponent {
     isEnable_ = enable;
     selected_ = selected;
     onServer_ = onServer;
-    if(options != null) {
-      size_ = options.size();
-      if(selected_ == null && options_.size() > 0) {
-        selected_ = options_.get(0);
-      }
-    }
-    
+    if(options == null)  return;
+    size_ = options.size();
+    if(selected_ == null && options_.size() > 0) selected_ = options_.get(0);    
   }
   
   public boolean isOnServer() {return onServer_; }
   public void setOnServer(boolean onSever) { onServer_ = onSever; }
 
   public String getSelected() {
-    if(selected_ != null)
-      return selected_.getLabel();
-    if(options_ != null && options_.size() > 0) {
-        setSelected(options_.get(0));
-        return selected_.getLabel();
-    }
-    return null;
+    if(selected_ == null) return selected_.getLabel();    
+    if(options_ == null || options_.size() < 1) return null;
+    setSelected(options_.get(0));
+    return selected_.getLabel();
   }
   public void setSelected(SelectItemOption select){ selected_ = select;}
   
@@ -98,12 +89,10 @@ public class UIDropDownItemSelector extends UIComponent {
   public List<SelectItemOption<String>> getOptions() { return options_ ; }
   public void setOptions(List<SelectItemOption<String>> options) { 
     options_ = options ; 
-    if(options != null) {
-      size_ = options.size();
-      if(options_.size() > 0) {
-        selected_ = options_.get(0);
-      }
-    }  
+    if(options == null) return ; 
+    size_ = options.size();
+    if(options_.size() < 0)  return;
+    selected_ = options_.get(0);
   }  
  
   public void setEnabled(boolean enable) { isEnable_ = enable; }

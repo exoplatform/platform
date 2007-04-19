@@ -40,6 +40,7 @@ public class JCRPortletPreferencesPersister extends JCRDataService implements Po
       (PortletPreferences) fromXML(data.getData(), PortletPreferences.class);
     return  portletPerferences.toExoPortletPreferences() ;
   }
+  
   @SuppressWarnings("unused")
   public void savePortletPreferences(WindowID windowID, ExoPortletPreferences exoPref) throws Exception {
   }

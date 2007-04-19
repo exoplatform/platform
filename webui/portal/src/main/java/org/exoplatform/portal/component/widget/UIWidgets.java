@@ -25,9 +25,7 @@ import org.exoplatform.webui.event.Event.Phase;
 
 @ComponentConfig(
   template = "system:/groovy/portal/webui/component/widget/UIWidgets.gtmpl" ,
-  events = {
-  @EventConfig(phase=Phase.DECODE, listeners = UIWidgets.ChangeOptionActionListener.class)
-  }
+  events = @EventConfig(phase=Phase.DECODE, listeners = UIWidgets.ChangeOptionActionListener.class)
 )
 public class UIWidgets extends UIContainer {
   
