@@ -208,7 +208,7 @@ public class UIPageNodeSelector extends UIContainer {
     public void execute(Event<UITree> event) throws Exception {      
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
       UIPageNodeSelector uiPageNodeSelector = event.getSource().getParent();
-      uiPageNodeSelector.selectPageNodeByUri(uri);      
+      if(uri != null && uri.trim().length() > 0) uiPageNodeSelector.selectPageNodeByUri(uri);      
       
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);

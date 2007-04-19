@@ -163,7 +163,6 @@ public class UIPageBrowser extends UISearch {
       PortalDAO dao = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
       Page page = dao.getPage(id) ;
       
-      
       UIPortalApplication uiApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);      
       
       if(page == null) {
