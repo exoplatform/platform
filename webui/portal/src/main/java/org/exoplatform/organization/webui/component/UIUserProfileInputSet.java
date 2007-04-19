@@ -14,6 +14,7 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIFormInput;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -48,6 +49,14 @@ public class UIUserProfileInputSet extends UIFormInputSet {
     addInput(businessInputSet, UserProfile.BUSINESE_INFO_KEYS) ;
     businessInputSet.setRendered(false) ;
     addUIFormInput(businessInputSet);
+  }
+  
+  public void reset(){
+    for(UIComponent uiChild : getChildren()){
+      if(uiChild instanceof UIFormInputSet || uiChild instanceof UIFormInput){
+        ((UIFormInputSet)uiChild).reset();
+      }
+    }
   }
   
   private void addInput(UIFormInputSet set, String[] keys) {

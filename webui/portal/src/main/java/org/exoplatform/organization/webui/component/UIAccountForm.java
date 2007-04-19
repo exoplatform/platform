@@ -48,6 +48,7 @@ import org.exoplatform.webui.event.Event.Phase;
     },
     events = {
       @EventConfig(listeners = UIAccountForm.SaveActionListener.class ),
+      @EventConfig(listeners = UIAccountForm.ResetActionListener.class, phase = Phase.DECODE ),
       @EventConfig(listeners = UIAccountForm.SelectItemOptionActionListener.class, phase = Phase.DECODE)
     }
 )
@@ -84,7 +85,7 @@ public class UIAccountForm extends UIFormTabPane {
     uiUserMembershipSelector.setAdminRole(isRoleAdmin);
     
     templateInput.getItemCategories().get(0).setSelected(true);
-    setActions(new String[]{"Save"});
+    setActions(new String[]{"Save", "Reset"});
   }
 
   public String getSelectPortalTemplate(){  return "SelectPortalTemplate";  }
@@ -110,6 +111,16 @@ public class UIAccountForm extends UIFormTabPane {
       if(uiMembershipSelector == null) return ;
       uiMembershipSelector.setUserName(userName);
       uiMembershipSelector.save(service, true);     
+    }
+  } 
+  static  public class ResetActionListener extends EventListener<UIAccountForm> {
+    public void execute(Event<UIAccountForm> event) throws Exception {
+      UIAccountForm uiForm = event.getSource();
+      uiForm.getChild(UIAccountInputSet.class).reset() ;  
+      uiForm.getChild(UIUserProfileInputSet.class).reset();
+      UIUserMembershipSelector uiMembershipSelector = uiForm.getChild(UIUserMembershipSelector.class);
+      if(uiMembershipSelector == null) return ;
+      uiMembershipSelector.reset();
     }
   }
   
