@@ -40,8 +40,8 @@ import org.exoplatform.webui.event.Event.Phase;
   lifecycle = UIFormLifecycle.class,
   template = "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
   events = {
-    @EventConfig(listeners = UIAvailablePortletForm.BackActionListener.class, phase = Phase.DECODE),
-    @EventConfig(listeners = UIAvailablePortletForm.SaveActionListener.class)
+    @EventConfig(listeners = UIAvailablePortletForm.SaveActionListener.class),
+    @EventConfig(listeners = UIAvailablePortletForm.BackActionListener.class, phase = Phase.DECODE)
   }
 )
 public class UIAvailablePortletForm extends UIFormTabPane {   
