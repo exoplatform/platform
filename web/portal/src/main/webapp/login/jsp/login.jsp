@@ -27,13 +27,7 @@
       }
     }
   }
- 
   
-  if(!(userName.equals("null") || password.equals("null"))) {
-    response.sendRedirect(loginAction + "?j_username=" + userName + "&j_password=" + password ) ;
-    return ;
-  }
-
   boolean showForm = false ;  
   if (userName == null || userName.length() == 0  || userName.equals("null")) showForm = true ;
   if (password == null || password.length() == 0 || password.equals("null")) showForm  = true ;
@@ -93,16 +87,13 @@
 			            function set_Cookie( name, value, expires, secure ) {
 										// set time, it's in milliseconds
 										var today = new Date();
-										today.setTime( today.getTime() );
-										if ( expires )
-										{
-											expires = expires * 1000 * 60 * 60 * 24;
-										}
+										today.setTime(today.getTime());
+										if (expires) expires = expires * 1000 * 60 * 60 * 24;
 										var expires_date = new Date( today.getTime() + (expires) );
 									
 										document.cookie = name + "=" +escape( value ) +
-											( ( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) + //expires.toGMTString()
-											( ( secure ) ? ";secure" : "" );
+											((expires) ? ";expires=" + expires_date.toGMTString() : "" ) + //expires.toGMTString()
+											((secure) ? ";secure" : "" );
 								  }
 			          
                   function login() {
