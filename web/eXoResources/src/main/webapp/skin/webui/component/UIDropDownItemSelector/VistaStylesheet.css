@@ -93,46 +93,46 @@
 /*=================================Popup Category Decorator====================================*/
 
 .UIItemList .LTItemSelector {
-  height: 6px;
-  background: url('VistaSkin/background/TLItemSelector12x6.png') no-repeat left;
-  padding-left: 12px;
+  height:10px;
+  background: url('VistaSkin/background/TLItemSelector16x10.png') no-repeat left;
+  padding-left: 16px;
 }
 
 .UIItemList .TCItemSelector {
-  height: 6px;
-  background: url('VistaSkin/background/TCItemSelector1x6.png') repeat-x;
+  height:10px;
+  background: url('VistaSkin/background/TCItemSelector1x10.png') repeat-x;
 }
 
 .UIItemList .TRItemSelector {
-  height: 6px;
-  background: url('VistaSkin/background/TRItemSelector45x6.png') no-repeat right;
-  padding-right: 35px;
+  height: 10px;
+  background: url('VistaSkin/background/TRItemSelector18x10.png') no-repeat right;
+  padding-right:18px;
 }
 
 .UIItemList .MLItemSelector {
-  background: url('VistaSkin/background/MLItemSelector12x1.png') repeat-y left;
-  padding-left: 12px;
+  background: url('VistaSkin/background/MLItemSelector11x1.png') repeat-y left;
+  padding-left: 11px;
 }
 
 .UIItemList .MRItemSelector {
-  background: url('VistaSkin/background/MRItemSelector14x1.png') repeat-y right;
-  padding-right: 14px;
+  background: url('VistaSkin/background/MRItemSelector13x1.png') repeat-y right;
+  padding-right:13px;
 }
 
 .UIItemList .BLItemSelector {
-  height: 18px;
-  background: url('VistaSkin/background/BLItemSelector12x18.png') no-repeat left;
-  padding-left: 12px;
+  height: 19px;
+  background: url('VistaSkin/background/BLItemSelector17x19.png') no-repeat left;
+  padding-left: 17px;
 }
 
 .UIItemList .BRItemSelector {
-  padding-right: 14px;
-  background: url('VistaSkin/background/BRItemSelector14x18.png') no-repeat right;
+  padding-right: 18px;
+  background: url('VistaSkin/background/BRItemSelector18x19.png') no-repeat right;
 }
 
 .UIItemList .BCItemSelector {
-  height: 18px;
-  background: url('VistaSkin/background/BCItemSelector1x18.png') repeat-x;
+  height: 19px;
+  background: url('VistaSkin/background/BCItemSelector1x19.png') repeat-x;
   
 }
 
