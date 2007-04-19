@@ -10,7 +10,7 @@ import javax.jcr.Session;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
 import org.exoplatform.portal.config.JCRPortalDAO;
-import org.exoplatform.portal.portlet.HibernatePortletPreferencesPersister;
+import org.exoplatform.portal.portlet.JCRPortletPreferencesPersister;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 import org.exoplatform.services.log.LogService;
@@ -53,7 +53,7 @@ public class JCRBaseTestCase extends BasicTestCase {
         
     repository_ = repositoryService.getRepository();
     service_ = (JCRPortalDAO)manager_.getComponentInstanceOfType(JCRPortalDAO.class) ;
-    porletPreferencesService_ = (PortletPreferencesPersister) manager_.getComponentInstanceOfType(HibernatePortletPreferencesPersister.class);
+    porletPreferencesService_ = (PortletPreferencesPersister) manager_.getComponentInstanceOfType(JCRPortletPreferencesPersister.class);
     sysSessionOnDefault_ = repository_.getSystemSession(SYSTEM_WS) ;  
     defaultRoot_ = sysSessionOnDefault_.getRootNode();    
     
