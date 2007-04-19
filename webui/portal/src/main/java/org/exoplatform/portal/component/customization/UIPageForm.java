@@ -203,17 +203,21 @@ public class UIPageForm extends UIFormTabPane {
       rcontext.addUIComponentToUpdateByAjax(uiMaskWS) ; 
       
       UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
+      
+      UIPageBrowser uiBrowser = uiPortalApp.findFirstComponentOfType(UIPageBrowser.class);
+      if(uiBrowser != null) {
+        uiBrowser.defaultValue(uiBrowser.getLastQuery());
+        UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+        rcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
+        return;
+      } 
+      
       if(uiManagement != null) {
         UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
         UITree uiTree = uiNodeSelector.getChild(UITree.class);        
         uiTree.createEvent("ChangeNode", event.getExecutionPhase(), rcontext).broadcast();
-        return;
       }
       
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-      rcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      UIPageBrowser uiBrowser = uiWorkingWS.findFirstComponentOfType(UIPageBrowser.class);
-      if(uiBrowser != null) uiBrowser.defaultValue(uiBrowser.getLastQuery());
     }
     
     private void findAllPortlet(List<UIPortlet> list, UIContainer uiContainer) {

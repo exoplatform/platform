@@ -47,7 +47,7 @@ public class UIUserInGroup extends UIContainer {
   
   public UIUserInGroup() throws Exception {
     UIGrid uiGrid = addChild(UIGridUser.class, "UIGridUser", null) ;
-    uiGrid.configure("userName", USER_BEAN_FIELD, USER_ACTION) ;
+    uiGrid.configure("id", USER_BEAN_FIELD, USER_ACTION) ;
     addChild(UIGroupMembershipForm.class, null, null);
   }  
 
@@ -84,9 +84,10 @@ public class UIUserInGroup extends UIContainer {
   static  public class DeleteUserActionListener extends EventListener<UIUserInGroup> {
     public void execute(Event<UIUserInGroup> event) throws Exception {
       UIUserInGroup uiUserInGroup = event.getSource() ;
-      String userName = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
       OrganizationService service = uiUserInGroup.getApplicationComponent(OrganizationService.class);
-      service.getMembershipHandler().removeMembershipByUser(userName, true) ;
+      MembershipHandler handler = service.getMembershipHandler();
+      handler.removeMembership(id, true) ;
       uiUserInGroup.setValues();
     }
   }
