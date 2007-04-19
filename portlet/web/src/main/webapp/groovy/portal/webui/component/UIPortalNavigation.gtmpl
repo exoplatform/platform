@@ -1,44 +1,69 @@
 <% 
   import org.exoplatform.portal.config.model.PageNode ;
+  import org.exoplatform.portal.config.model.PageNavigation ;
+  import org.exoplatform.web.application.JavascriptManager;
   
   def rcontext = _ctx.getRequestContext() ;
-	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
+	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.importJavascript('eXo.webui.UIHorizontalTabs');
+	jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
+	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalNavigation.onLoad');
+	
   // Check page loaded complete and [UIHorizontalTabs] object exist before call [changeTabNavigationStyle(...)] function.
-  String mouseOver = "if (document.body != null && eXo.webui.UIHorizontalTabs != null) eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, true)" ;
-  String mouseOut = "if (document.body != null && eXo.webui.UIHorizontalTabs != null) eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, false)" ;
+  //String mouseOver = "if (document.body != null && eXo.webui.UIHorizontalTabs != null) eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, true)" ;
+  //String mouseOut = "if (document.body != null && eXo.webui.UIHorizontalTabs != null) eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, false)" ;
   String itemMouseOver = "eXo.webui.UIHorizontalTabs.itemOver(this, true)" ;
   String itemMouseOut = "eXo.webui.UIHorizontalTabs.itemOver(this, false)" ;
 
+	String mouseOver = "eXo.portal.UIPortalNavigation.onTopItemOver(this);";
+	String mouseOut = "eXo.portal.UIPortalNavigation.onTopItemOut(this);";
 
   navigations = uicomponent.getNavigations();
+	
+  public void renderChildrenContainer(PageNode node) {
+  	print """
+  		<div class="MenuItemContainer" style="display: none;">
+  	""" ;
+  		for(child in node.getChildren()) {
+	   		renderChildNode(child) ;
+    	}
+  	print """
+  		</div>
+  	""" ;
+  }
   
-  public void renderPageNode(PageNode node){
-    String itemClass = "MenuItem" ;
-    def children = node.getChildren() ;
-    if(children != null) itemClass = "MenuItem MenuItemExpand" ;
-    def actionLink = uicomponent.event("SelectNode", node.getUri()) ;
-    println "    <div class=\"$itemClass\" onmouseover=\"$itemMouseOver\" onmouseout=\"$itemMouseOut\">" ;
-    println "       <div onclick=\"window.location=\'$actionLink\'\" class=\"MenuItemEntry\">";
-    println "          <div class=\"MenuItemLeftIcon\"><div class=\"Portlet16x16Icon\"><span></span></div></div>";
-    println "       <div class=\"MenuItemText\"><a href=\"$actionLink\">$node.label</a></div>";
-    if(children != null) {
-      println "  <div class=\"MenuItemRightIcon\"><div class=\"BlueGridRightArrowIcon\"><span></span></div></div>";
+  public void renderChildNode(PageNode node) {
+  	PageNode selectedNode = uicomponent.getSelectedPageNode() ;
+  	String tabStyleNavigation = "NormalNavigationTab" ;
+  	if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
+			tabStyleNavigation = "SelectedNavigationTab" ;
+		}
+  	def actionLink = uicomponent.event("SelectNode", node.getUri()) ;
+  	print """
+  			<div class="MenuItem">
+			    <div class="$tabStyleNavigation">
+			      <div class="LeftTab">
+			        <div class="RightTab">
+			          <div class="MiddleTab">
+									<a href="$actionLink">$node.label</a>
+ 			          </div>
+	  		      </div>
+		  	    </div>
+			    </div>  
+		""" ;
+		
+    if (node.getChildren() != null && node.getChildren().size() > 0) {
+    	
+    	renderChildrenContainer(node) ;
+    	
     }
-    println "        </div>";
-    renderChildrenNode(children) ;
-    println "    </div>";
+			    
+		print """
+				</div>
+  		
+  	""" ;
   }
 
-  public void renderChildrenNode(children){
-    if(children == null) return ;
-    println "<div class=\"UIPopupMenu\">";
-    println "  <div class=\"MiddleBar\">";
-    for(PageNode child in children){
-      renderPageNode(child) ;
-    }
-    println "  </div>"; 
-    println "</div>";
-  }
 %>
   
 <div class="UINavigationBar">
@@ -61,11 +86,11 @@
 		                }
 		        %>      
 		        
-		         <div class="UITab">
+		         <div class="UITab" onmouseover="$mouseOver" onmouseout="$mouseOut">
 		           <div class="$tabStyleNavigation">
 		             <div class="LeftTab">
 		               <div class="RightTab">
-		                 <div class="MiddleTab" onmouseover="$mouseOver" onmouseout="$mouseOut">
+		                 <div class="MiddleTab">
 		                   <div  class="TabIcon"><span></span></div>
 		                   <a href="$actionLink">$node.label</a>
 		                   <div style="clear: left"><span></span></div>
@@ -73,10 +98,19 @@
 		               </div>
 		             </div>
 		           </div>  
-		           <%/*Render Popup Menu*/%>
+		           <%
+		           /*Render Popup Menu*/
+		           if (node.getChildren() != null && node.getChildren().size() > 0) {
+		           
+			           
+						     	renderChildrenContainer(node) ;
+						     
+					     
+					     }
+		           %>
 		         </div>
 		        
-		         <%       
+		         <%
 		               }
 		             }
 		           }
