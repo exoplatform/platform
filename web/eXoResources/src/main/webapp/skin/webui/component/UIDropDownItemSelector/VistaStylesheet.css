@@ -94,8 +94,8 @@
 
 .UIItemList .LTItemSelector {
   height:10px;
-  background: url('VistaSkin/background/TLItemSelector16x10.png') no-repeat left;
-  padding-left: 16px;
+  background: url('VistaSkin/background/TLItemSelector14x10.png') no-repeat left;
+  padding-left: 14px;
 }
 
 .UIItemList .TCItemSelector {
@@ -110,29 +110,29 @@
 }
 
 .UIItemList .MLItemSelector {
-  background: url('VistaSkin/background/MLItemSelector11x1.png') repeat-y left;
-  padding-left: 11px;
+  background: url('VistaSkin/background/MLItemSelector9x1.png') repeat-y left;
+  padding-left: 9px;
 }
 
 .UIItemList .MRItemSelector {
-  background: url('VistaSkin/background/MRItemSelector13x1.png') repeat-y right;
-  padding-right:13px;
+  background: url('VistaSkin/background/MRItemSelector12x1.png') repeat-y right;
+  padding-right:12px;
 }
 
 .UIItemList .BLItemSelector {
-  height: 19px;
-  background: url('VistaSkin/background/BLItemSelector17x19.png') no-repeat left;
-  padding-left: 17px;
+  height: 14px;
+  background: url('VistaSkin/background/BLItemSelector13x14.png') no-repeat left;
+  padding-left: 13px;
 }
 
 .UIItemList .BRItemSelector {
-  padding-right: 18px;
-  background: url('VistaSkin/background/BRItemSelector18x19.png') no-repeat right;
+  padding-right: 17px;
+  background: url('VistaSkin/background/BRItemSelector17x14.png') no-repeat right;
 }
 
 .UIItemList .BCItemSelector {
-  height: 19px;
-  background: url('VistaSkin/background/BCItemSelector1x19.png') repeat-x;
+  height: 14px;
+  background: url('VistaSkin/background/BCItemSelector1x14.png') repeat-x;
   
 }
 
