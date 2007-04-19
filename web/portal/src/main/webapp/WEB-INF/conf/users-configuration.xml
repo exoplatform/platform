@@ -30,8 +30,10 @@
             </field>
             <field  name="ignoredUser">
               <collection type="java.util.HashSet">
-                <value><string>exoadmin</string></value>
                 <value><string>exo</string></value>
+                <value><string>site</string></value>
+                <value><string>webos</string></value>
+                <value><string>exoadmin</string></value>
                 <value><string>company</string></value>
                 <value><string>community</string></value>
               </collection>
@@ -53,9 +55,9 @@
           <value>entry</value>
         </value-param>      
         <value-param>
-	  <name>printInformation</name>
-	  <description>Print information init database</description>
-	  <value>false</value>
+          <name>printInformation</name>
+          <description>Print information init database</description>
+          <value>false</value>
         </value-param> 
         <object-param>
           <name>configuration</name>
@@ -96,6 +98,14 @@
                 </value>
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
+                    <field  name="name"><string>community</string></field>
+                    <field  name="parentId"><string>/portal</string></field>
+                    <field  name="type"><string>hierachy</string></field>
+                    <field  name="description"><string>the /portal/community group</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>company</string></field>
                     <field  name="parentId"><string>/portal</string></field>
                     <field  name="type"><string>hierachy</string></field>
@@ -104,26 +114,10 @@
                 </value>
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
-                    <field  name="name"><string>site</string></field>
-                    <field  name="parentId"><string>/portal</string></field>
-                    <field  name="type"><string>hierachy</string></field>
-                    <field  name="description"><string>the /portal/site group</string></field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>admin</string></field>
                     <field  name="parentId"><string>/portal</string></field>
                     <field  name="type"><string>hierachy</string></field>
                     <field  name="description"><string>the /portal/admin group</string></field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
-                    <field  name="name"><string>share</string></field>
-                    <field  name="parentId"><string>/portal</string></field>
-                    <field  name="type"><string>hierachy</string></field>
-                    <field  name="description"><string>the /portal/share group</string></field>
                   </object>
                 </value>
                 <value>
@@ -158,30 +152,6 @@
                     <field  name="description"><string>the /community group</string></field>
                   </object>
                 </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
-                    <field  name="name"><string>direction</string></field>
-                    <field  name="parentId"><string>/portal/community</string></field>
-                    <field  name="type"><string>hierachy</string></field>
-                    <field  name="description"><string>the /community/direction group</string></field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
-                    <field  name="name"><string>hr</string></field>
-                    <field  name="parentId"><string>/portal/community</string></field>
-                    <field  name="type"><string>hierachy</string></field>
-                    <field  name="description"><string>the /community/hr group</string></field>
-                  </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
-                    <field  name="name"><string>editors</string></field>
-                    <field  name="parentId"><string>/portal/community</string></field>
-                    <field  name="type"><string>hierachy</string></field>
-                    <field  name="description"><string>the /community/editors group</string></field>
-                  </object>
-                </value>
               </collection>
             </field>
 
@@ -195,46 +165,34 @@
                     <field  name="lastName"><string>exoadmin</string></field>
                     <field  name="email"><string>exoadmin@localhost</string></field>
                     <field  name="groups">
-                      <string>member:/admin, member:/user, owner:/portal/admin, member:/portal/community/direction</string>
+                      <string>member:/admin, member:/user, owner:/portal/admin</string>
                     </field>
                   </object>
                 </value>    
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                    <field  name="userName"><string>exo</string></field>
+                    <field  name="userName"><string>site</string></field>
                     <field  name="password"><string>exo</string></field>
-                    <field  name="firstName"><string>exo</string></field>
-                    <field  name="lastName"><string>exo</string></field>
+                    <field  name="firstName"><string>site</string></field>
+                    <field  name="lastName"><string>site</string></field>
                     <field  name="email"><string>exo@localhost</string></field>
                     <field  name="groups">
-                      <string>member:/user, member:/portal/site</string>
+                      <string>member:/user</string>
                     </field>
                   </object>
                 </value>               
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                    <field  name="userName"><string>demo</string></field>
+                    <field  name="userName"><string>webos</string></field>
                     <field  name="password"><string>exo</string></field>
-                    <field  name="firstName"><string>demo</string></field>
-                    <field  name="lastName"><string>demo</string></field>
-                    <field  name="email"><string>demo@localhost</string></field>
+                    <field  name="firstName"><string>guest</string></field>
+                    <field  name="lastName"><string>webos</string></field>
+                    <field  name="email"><string>webos@localhost</string></field>
                     <field  name="groups">
-                      <string>member:/user, member:/portal/share</string>
+                      <string>member:/user</string>
                     </field>
                   </object>
-                </value>
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                    <field  name="userName"><string>exotest</string></field>
-                    <field  name="password"><string>exo</string></field>
-                    <field  name="firstName"><string>exotest</string></field>
-                    <field  name="lastName"><string>exotest</string></field>
-                    <field  name="email"><string>exotest@localhost</string></field>
-                    <field  name="groups">
-                      <string>member:/user, member:/portal/site, member:/portal/share</string>
-                    </field>
-                  </object>
-                </value>
+                </value>               
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
                     <field  name="userName"><string>company</string></field>
@@ -247,6 +205,7 @@
                     </field>
                   </object>
                 </value>
+
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
                     <field  name="userName"><string>community</string></field>

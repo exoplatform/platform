@@ -1,4 +1,69 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
-  <import>classpath:/conf/portal/jcr-configuration.xml</import> 
+  <component>
+   <key>org.exoplatform.services.portletcontainer.persistence.PortletPreferencesPersister</key>
+   <type>org.exoplatform.portal.portlet.JCRPortletPreferencesPersister</type>
+  </component>  
+
+  <component>
+    <key>org.exoplatform.portal.config.PortalDAO</key>
+    <type>org.exoplatform.portal.config.JCRPortalDAO</type> 
+  </component>  
+  
+  <component>
+    <key>org.exoplatform.portal.config.SharedConfigDAO</key>
+    <type>org.exoplatform.portal.config.JCRSharedConfigDAO</type> 
+  </component> 
+  
+  <component>
+    <key>org.exoplatform.portal.config.UserACL</key>
+    <type>org.exoplatform.portal.config.UserACL</type> 
+  </component>  
+  
+  <component>
+    <key>org.exoplatform.portal.content.ContentDAO</key>
+    <type>org.exoplatform.portal.content.JCRContentDAO</type>     
+  </component>
+
+
+	<component>
+   <key>org.exoplatform.services.portletcontainer.bundle.ResourceBundleDelegate</key>
+   <type>org.exoplatform.portal.portlet.ResourceBundleDelegateImpl</type>
+  </component>
+  
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+    <component-plugin> 
+	    <name>add.nodeType</name>
+	    <set-method>addPlugin</set-method>
+	    <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+	    <init-params>
+	      <values-param>
+	        <name>nodeTypesFiles</name>           
+	        <value>jar:/conf/portal/model-nodetypes.xml</value> 
+	      </values-param>
+	    </init-params>
+    </component-plugin>
+  </external-component-plugins>  
+  
+
+  <external-component-plugins>  
+    <target-component>org.exoplatform.portal.content.ContentDAO</target-component>      
+    
+    <component-plugin>
+      <name>rssreader.listener</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.portal.content.RSSContentPlugin</type>
+      <description>rss reader plugin</description>     
+    </component-plugin>
+    
+    <component-plugin>
+      <name>description.listener</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.portal.content.DescriptionPlugin</type>
+      <description>Description plugin</description>     
+    </component-plugin>
+ </external-component-plugins>    
+ 
 </configuration>
+

@@ -19,9 +19,10 @@
           <object type="org.exoplatform.portal.config.NewPortalConfig">
             <field  name="predefinedUser">
               <collection type="java.util.HashSet">                
-                <value><string>exo</string></value>
+                <value><string>site</string></value>
+                <value><string>webos</string></value>
+                <value><string>exoadmin</string></value>
                 <value><string>community</string></value>
-                <value><string>exoadmin</string></value>      
               </collection>
             </field>
             <field  name="templateUser"><string>template</string></field>

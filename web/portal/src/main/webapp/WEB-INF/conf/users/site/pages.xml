@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page-set>  
+  <page>    
+		<owner>site</owner>
+    <name>content</name>
+    <title>Content</title>
+    <view-permission>*:/guest</view-permission>
+    <application>
+      <application-instance-id>site:/content/ContentPortlet/contentportlet</application-instance-id>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>  
+  </page>    
+  
+  <page>
+    <owner>site</owner>
+    <name>register</name>
+    <title>Register</title>
+    <view-permission>*:/guest</view-permission>        
+    <application>
+      <title>Account Portlet</title>
+      <application-instance-id>site:/exoadmin/AccountPortlet/Account</application-instance-id>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>  
+  </page>
+
+  <page>
+    <owner>site</owner>
+    <name>sitemap</name>
+    <title>Site Map</title>
+    <view-permission>*:/guest</view-permission>        
+    <application>
+      <title>Site Map portlet</title>
+      <application-instance-id>site:/web/SiteMapPortlet/sitemapportlet</application-instance-id>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>  
+  </page>
+</page-set>

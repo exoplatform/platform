@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <content-navigation>
-  <owner>exo</owner>  
+  <owner>site</owner>  
   <description> description for content navigation</description>
   <content-nodes>
     <content-node>

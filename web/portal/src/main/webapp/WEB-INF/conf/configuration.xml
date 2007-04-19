@@ -3,9 +3,9 @@
   <import>war:/conf/default-configuration.xml</import> 
   <import>war:/conf/database-configuration.hsql.xml</import> 
   <import>war:/conf/users-configuration.xml</import>   
-  <!--
+  
   <import>war:/conf/portal-configuration.xml</import>   
-  -->
+  
   <!--if organization service is database, import hibernate-organization-configuration.xml-->
   <import>war:/conf/hibernate-organization-configuration.xml</import> 
   

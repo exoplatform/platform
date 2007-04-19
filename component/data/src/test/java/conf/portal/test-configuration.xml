@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
-	<component>
-   <key>org.exoplatform.services.portletcontainer.persistence.PortletPreferencesPersister</key>
-   <type>org.exoplatform.portal.portlet.JCRPortletPreferencesPersister</type>
-  </component>  
-  
   <component>
     <key>org.exoplatform.portal.config.PortalDAO</key>
     <type>org.exoplatform.portal.config.JCRPortalDAO</type> 
@@ -39,21 +34,6 @@
 	    	<value>war:/conf/users</value>
 	    </value-param>
 	    
-	    <!--<object-param>
-        <name>community.portal.1</name>
-        <description>configuration for the portal communities</description>
-        <object type="org.exoplatform.portal.config.SharedPortal">
-          <field  name="groupId"><string>/portal/share</string></field>
-          <field  name="membership"><string>member</string></field>
-          <field  name="portal"><string>exo</string></field>
-          <field  name="priority"><int>5</int></field>
-          <field  name="description">
-            <string>use 'portal' configuration if user in group portal and have the 
-              'member' membership</string>
-          </field>
-        </object>
-      </object-param>     --> 
-      
       <object-param>
         <name>admin.navigation.configuration</name>
         <description>configuration for the portal admin</description>
@@ -112,5 +92,37 @@
     </component-plugin>
   </external-component-plugins>    
 
+  <external-component-plugins>  
+    <target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>      
+    <component-plugin>
+      <name>portal.new.user.listener</name>
+      <set-method>initListener</set-method>
+      <type>org.exoplatform.portal.config.UserPortalConfigTemplateListener</type>
+      <description>this listener create the portal configuration for the new user</description>
+      <init-params>
+        <value-param>
+          <name>check.user</name>
+          <description>The check user for checking db is empty or not</description>
+          <value>exo</value>
+        </value-param>
+        <object-param>
+          <name>configuration</name>
+          <description>description</description>
+          <object type="org.exoplatform.portal.config.NewPortalConfig">
+            <field  name="predefinedUser">
+              <collection type="java.util.HashSet">                
+                <value><string>exo</string></value>
+                <value><string>exoadmin</string></value>
+                <value><string>company</string></value> 
+                <value><string>community</string></value>                               
+              </collection>
+            </field>
+            <field  name="templateUser"><string>template</string></field>
+            <field  name="templateLocation"><string>war:/conf/users</string></field> 
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>  
   <import>classpath:/conf/portal/testjcr/test-jcr-configuration.xml</import> 
 </configuration>

@@ -48,9 +48,6 @@ public class PortalController  extends HttpServlet {
       RootContainer rootContainer = RootContainer.getInstance() ;
       PortalContainer portalContainer = 
         rootContainer.getPortalContainer(config.getServletContext().getServletContextName()) ;
-      if(portalContainer == null) {
-        portalContainer = rootContainer.createPortalContainer(config.getServletContext()) ;
-      }
       PortalContainer.setInstance(portalContainer) ;
       WebAppController controller = 
         (WebAppController)portalContainer.getComponentInstanceOfType(WebAppController.class) ;
