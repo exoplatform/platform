@@ -67,8 +67,8 @@
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar {
-  height: 30px;
-  background: url('VistaSkin/background/Background1x30.png')  repeat-x;
+  height: 28px;
+  background: url('VistaSkin/background/Background1x28.png')  repeat-x;
   border: solid 1px #aeaeae; border-bottom: none; 
 }
 
@@ -81,7 +81,7 @@
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardTitle {
   float: left;
-  height: 29px; line-height: 29px;  vertical-align: middle;
+  height: 28px; line-height: 28px;  vertical-align: middle;
   font-weight: bold;
 }
 
@@ -95,9 +95,10 @@
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .StepTitle {
   float: left;
-  height: 30px; line-height: 30px; vertical-align: middle;
+  height: 28px; line-height: 28px; vertical-align: middle;
   color: #393939;
   padding-left: 10px;
+  font-size:11px;
 }
 
 .UIWizard .UIWizardContent .WizardStepContent {
@@ -189,7 +190,7 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo {
-  border: solid 1px #b7b7b7 ;
+  border: solid 1px #939393 ;
   padding: 1px;
   margin-left: 240px;
 }
@@ -197,16 +198,15 @@
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageInfoContainer{
   font-size: 11px;
   background: #f4f4f4;
-  border: solid 1px #939393 ;
   padding: 10px;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo {
-  width: 450px;
+  width: 90%;
   height: 26px; line-height:26px; vertical-align: middle;
   font-size: 11px; 
   background: white;
-  border: solid 1px #939393;
+  border: solid 1px #9d9d9d;
   margin: auto;
 }
 
@@ -234,7 +234,7 @@
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
   margin: auto;
   margin-top: 5px;
-  width: 450px;
+  width: 90%;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction {
@@ -265,7 +265,7 @@
   float: left;
   width: 230px; height: 18px;
   background: white; font-size: 11px;
-  border: solid 1px gray ;
+  border: solid 1px #909090 ;
   padding-left: 5px;
 }
 
@@ -273,7 +273,7 @@
   width: 230px; height:80px;
   background: white;
   font-size: 11px; font-family: verdana;
-  border: solid 1px gray ;
+  border: solid 1px #909090 ;
   padding-left: 5px;
 }
 
