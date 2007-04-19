@@ -5,13 +5,12 @@
 }
 
 .UIPopupMessages .PopupMessageFrame {
-  border: solid 1px #7b7b7b ;
+  border: solid 1px #8b8b8b ;
   background-color: #e3eefe ;
-  padding: 1px ;
+  padding:0px ;
 }
 
 .UIPopupMessages .PopupMessagePanel {
-  border: solid 1px #97a2d7 ;
   background-color: #dcdff1;
 }
 
