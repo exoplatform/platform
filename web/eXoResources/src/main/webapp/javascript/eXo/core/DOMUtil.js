@@ -83,6 +83,24 @@ DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
   return null ;
 } ;
 
+DOMUtil.prototype.findAncestorsByClass = function(element, clazz) {
+	var result = new Array();
+  var parent = element.parentNode ;
+  while(parent != null) {
+    if(parent.className == null) {
+    } else  if(parent.className.indexOf(" ") >= 0) {
+      var classes = parent.className.split(" ");
+      for(var j = 0;j < classes.length; j++) {
+        if(classes[j] == clazz)  result.push(parent) ;
+      }
+    } else if(parent.className == clazz)  {
+      result.push(parent) ;
+    }
+    parent =  parent.parentNode ;
+  }
+  return result ;
+} ;
+
 DOMUtil.prototype.findAncestorById = function(element,  id) {
   var parent = element.parentNode ;
   while(parent != null) {

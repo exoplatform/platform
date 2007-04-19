@@ -31,6 +31,8 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 		menuItems[i].onmouseover =  eXo.portal.UIPortalNavigation.onMenuItemOver;
 		menuItems[i].onmouseout =  eXo.portal.UIPortalNavigation.onMenuItemOut;
 		menuItems[i].id = "MenuItem-"+i;
+		var link = eXo.core.DOMUtil.findDescendantsByTagName(menuItems[i], "a")[0];
+		this.superClass.createLink(menuItems[i], link);
 		// Set an id to each container for future reference
 		var cont = eXo.core.DOMUtil.findAncestorByClass(menuItems[i], this.containerStyleClass) ;
 		if (!cont.id) cont.id = "PortalNavigationContainer-"+i;

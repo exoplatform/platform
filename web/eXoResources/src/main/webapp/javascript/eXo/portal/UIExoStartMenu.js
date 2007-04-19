@@ -34,6 +34,10 @@ UIExoStartMenu.prototype.buildMenu = function(popupMenu) {
 	for(var i = 0; i<menuItems.length; i++) {
 		menuItems[i].onmouseover = eXo.portal.UIExoStartMenu.onMenuItemOver ;
 		menuItems[i].onmouseout = eXo.portal.UIExoStartMenu.onMenuItemOut ;
+		var labelItem = eXo.core.DOMUtil.findFirstDescendantByClass(menuItems[i], "div", "LabelItem") ;
+		// If the pointed menu item contains a link, sets the item clickable
+		var link = eXo.core.DOMUtil.findDescendantsByTagName(labelItem, "a")[0];
+		this.superClass.createLink(menuItems[i], link);
 		// Set an id to each container for future reference
 		var cont = eXo.core.DOMUtil.findAncestorByClass(menuItems[i], this.containerStyleClass) ;
 		if (!cont.id) cont.id = "StartMenuContainer-"+i;
@@ -93,27 +97,15 @@ UIExoStartMenu.prototype.clearStartMenu = function() {
 UIExoStartMenu.prototype.onMenuItemOver = function(e) {
 	var menuItem = this;
 	menuItem.className = eXo.portal.UIExoStartMenu.itemOverStyleClass ;
-	var labelItem = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", "LabelItem") ;
-	// If the pointed menu item contains a link, sets the item clickable
-	var link = eXo.core.DOMUtil.findDescendantsByTagName(labelItem, "a")[0];
-	if (link && link.href) {
-		window.status = link.href;
-		menuItem.onclick = function() {
-			if (link.href.substr(0, 7) == "http://") window.location.href = link.href;
-			else eval(link.href);
-			return false;
-		}
-	}
 	// If the pointed menu item contains a submenu, resizes it
 	var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIExoStartMenu.containerStyleClass) ;
 	if (menuItemContainer) {
 		eXo.portal.UIExoStartMenu.showMenuItemContainer(menuItem, menuItemContainer) ;
 		eXo.portal.UIExoStartMenu.superClass.pushVisibleContainer(menuItemContainer.id);
-	}
-
-	if (menuItemContainer && eXo.core.Browser.getBrowserType() == "ie" && !menuItemContainer.resized) {
-		// Resizes the container only once, the first time. After, container.resized is true so the condition is false
-		eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
+		if (!menuItemContainer.resized && eXo.core.Browser.getBrowserType() == "ie") {
+			// Resizes the container only once, the first time. After, container.resized is true so the condition is false
+			eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
+		}
 	}
 };
 

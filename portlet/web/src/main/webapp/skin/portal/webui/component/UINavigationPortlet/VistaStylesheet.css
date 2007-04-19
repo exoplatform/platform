@@ -16,3 +16,28 @@
   line-height: 34px;
   background: url('VistaSkin/background/BgNomalNavTop1x34.png') repeat-x top;
 }
+
+/* Portal Navigation sub menus */
+
+.UINavigationPortlet .UINavigationBar .MenuItemContainer {
+	overflow: visible;
+	white-space: nowrap;
+	border-top: solid #b0c0e2 1px;
+	border-left: solid #b0c0e2 1px;
+	border-right: solid #b0c0e2 1px;
+	margin-right: 2px;
+}
+
+.UINavigationPortlet .UINavigationBar .MenuItem {
+	white-space: nowrap;
+	background-color: #cbdaf4;
+	border-bottom: solid #b0c0e2 1px;
+	cursor: pointer;
+}
+
+.UINavigationPortlet .UINavigationBar .MenuItemOver {
+	white-space: nowrap;
+	background-color: #c0d0f0;
+	border-bottom: solid #b0c0e2 1px;
+	cursor: pointer;
+}
