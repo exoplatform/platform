@@ -123,4 +123,8 @@
   background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat ;
 }
 
-
+.UIGrid input.checkbox {
+  width: 16px ;  height: 16px ;
+  margin: auto;
+  float: none;
+}

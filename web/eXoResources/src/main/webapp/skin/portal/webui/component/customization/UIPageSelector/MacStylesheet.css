@@ -22,20 +22,31 @@
 }
 
 .UIPageSelector .SelectPageAction {
-  width: 180px;
+  width: 200px;
   margin: 7px auto 0px auto;
 }
 
 .UIPageSelector .SelectPageAction .ActionContainer {
-  height: 20px; line-height: 18px;
   padding: 0px 0px 0px 10px;
-  border: 1px solid #b7b7b7;
-  background: url('MacSkin/background/TitleBG1x20.gif') repeat-x ;
+}
+
+.UIPageSelector .SelectPageAction .LeftButton {
+  background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left;
+  padding-left: 10px;
+}
+
+.UIPageSelector .SelectPageAction .RightButton {
+  background: url('DefaultSkin/background/RightSimpleButton10x21.gif') no-repeat right;
+  padding-right: 10px;
+}
+
+.UIPageSelector .SelectPageAction .CenterButton {
+  background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x;
+  height: 21px; line-height: 18px;
+  padding: 0px 3px;
 }
 
 .UIPageSelector .SelectPageAction .SelectPageIcon{
-  background:transparent url(/eXoResources/icons/16x16/MacSkin/PageTicker.gif) no-repeat;
-  width: 16px; height: 16px;
   float: left;
   margin: 2px 10px 0px 0px;
 }
@@ -51,7 +62,7 @@
 }
 
 .UIPageSelector .SelectPageAction .ActionLabel a:hover {
-  color: blue;
+  color: #058ee6;
 }
 
 .UIPageSelector .PageMagnifier32x32Icon {

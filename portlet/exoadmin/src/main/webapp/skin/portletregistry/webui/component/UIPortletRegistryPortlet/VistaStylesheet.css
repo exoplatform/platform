@@ -168,3 +168,7 @@
 .UIPortletRegistryPortlet .UIFormWithTitle .HorizontalLayout .FormContainer .UIGrid {
 	width: none;
 }
+
+.UIPortletRegistryPortlet .UIFormTabPane .TabPaneContent .UIAction {
+  width: 90px;
+}

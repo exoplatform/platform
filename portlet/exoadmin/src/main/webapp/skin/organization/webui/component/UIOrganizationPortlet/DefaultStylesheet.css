@@ -83,9 +83,14 @@
 
 /*##############################- UIUserManagement -###########################*/
 
-.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet {
+.UIOrganizationPortlet  .GrayRoundedFillBoxStyle .CenterBoxDecorator {
+  width: 97.5%;
+  margin: auto;
+}
+
+.UIOrganizationPortlet .UIForm .UIFormInputSet {
 	background: #ffffff;
-	width: 100%;
+	width: 99%; margin: auto;
 	border: solid 1px #7b7b7b;
 }
 
@@ -112,7 +117,7 @@
 .UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer {
 	width: 410px;
 	margin: auto;
-	height: 22px;
+	height: auto;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer label {
@@ -177,8 +182,8 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITabPane {
-  width: 99.5%;
-  float: none;
+  width: 99.0%;
+  float: none; margin: auto;
   height: auto;
 }
 
@@ -255,6 +260,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
   margin-left: 225px ;
+  height:100%;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITab {

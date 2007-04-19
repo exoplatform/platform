@@ -61,21 +61,33 @@
 }
 
 .UIPageSelector .SelectPageAction {
-  width: 210px;
+  width: 220px;
   margin: 7px auto 0px auto;
 }
 
 .UIPageSelector .SelectPageAction .ActionContainer {
-  height: 21px; line-height: 18px;
   padding: 0px 0px 0px 10px;
-  border: 1px solid #b7b7b7;
-  background: url('DefaultSkin/background/TypeBarBG1x22.gif') repeat-x ;
+}
+
+.UIPageSelector .SelectPageAction .LeftButton {
+  background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left;
+  padding-left: 10px;
+}
+
+.UIPageSelector .SelectPageAction .RightButton {
+  background: url('DefaultSkin/background/RightSimpleButton10x21.gif') no-repeat right;
+  padding-right: 10px;
+}
+
+.UIPageSelector .SelectPageAction .CenterButton {
+  background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x;
+  height: 21px; line-height: 18px;
 }
 
 .UIPageSelector .SelectPageAction .SelectPageIcon{
   width: 16px; height: 16px;
   float: left;
-  margin: 3px 10px 0px 0px;
+  margin: 2px 10px 0px 5px;
 }
 
 .UIPageSelector .SelectPageAction .ActionLabel {

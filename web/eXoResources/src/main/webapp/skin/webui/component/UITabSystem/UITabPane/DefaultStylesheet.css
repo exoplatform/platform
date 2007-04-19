@@ -9,6 +9,7 @@
 }
 
 .UITabPane .TabPaneContent .WorkingAreaWithHelp {  
+  width: auto;
 }
 
 .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
@@ -22,6 +23,9 @@
   padding: 10px ;
 }
 
+.UITabPane .UITabContent .UIHorizontalTabs {
+}
+
 .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer {
   border: solid 1px #b7b7b7; border-top: none;
   padding: 1px;
@@ -32,4 +36,9 @@
   background: #efefef;
   border: solid 1px #cdcdcd;
   padding: 7px ;
+}
+
+.UITabPane .UITabContent .UIGroupMembershipForm {
+  width: 420px;
+  margin: auto;
 }

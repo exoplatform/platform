@@ -54,3 +54,7 @@
   padding: 0px ;
   border:none;
 }
+
+.UIChangeSkinForm .UIAction {
+  width: 180px;
+}

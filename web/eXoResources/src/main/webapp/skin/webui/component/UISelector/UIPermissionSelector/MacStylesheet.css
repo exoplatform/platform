@@ -81,16 +81,29 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
-  width: 160px;
-  height: 20px; line-height: 20px; vertical-align: middle;
-  margin: auto; margin-top: 8px;
-  background: url('MacSkin/background/TitleBG1x20.gif') repeat-x bottom; 
-  border: solid 1px #cdcdcd ; 
+  width: 165px;
+  margin: 8px auto 0px auto; 
 } 
+
+.UIPermissionSelector .SelectPermissionButton  .LeftButton {
+  background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left; 
+  padding-left: 10px;
+}
+
+.UIPermissionSelector .SelectPermissionButton  .RightButton {
+  background: url('DefaultSkin/background/RightSimpleButton10x21.gif') no-repeat right; 
+  padding-right: 10px;
+} 
+
+.UIPermissionSelector .SelectPermissionButton  .CenterButton {
+  background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x; 
+  height: 21px; line-height: 20px;
+  padding:0px 5px;
+}
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
   float: left;
-  width: 16px; height: 16px; margin: 2px 0px 0px 10px;
+  width: 16px; height: 16px; margin: 2px 0px 0px 0px;
   background: url('/eXoResources/icons/16x16/MacSkin/SelectPermissionIcon.png') no-repeat;
 } 
 

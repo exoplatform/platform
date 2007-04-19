@@ -15,11 +15,11 @@
   margin: 5px;
 }
 
-.UIAccountPortlet .UIFormTabPane .UITabPane .TabPaneContent .UIAction  {
+.UIAccountPortlet .UIFormTabPane .TabPaneContent .UIAction  {
   width: 80px;
 }
 
-.UIAccountPortlet .UIFormTabPane .UITabPane .TabPaneContent .UIMembership .UIAction  {
+.UIAccountPortlet .UIFormTabPane .TabPaneContent .UIMembership .UIAction  {
   width: 170px;
 }
 

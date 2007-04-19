@@ -57,13 +57,19 @@
 	</div>
 	<div class="SelectPageAction">
 	  <div class="ActionContainer">
-		  <div class="SelectPageIcon" title="<%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>" onclick="eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');"><span></span></div>
-		  <div class="ActionLabel">
-			  <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
-			    <%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>
-			  </a>
-		  </div>
-	    <div style="clear: left"><span></span></div>
+	    <div class="LeftButton">
+	      <div class="RightButton">
+	        <div class="CenterButton">
+					  <div class="SelectPageIcon" title="<%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>" onclick="eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');"><span></span></div>
+					  <div class="ActionLabel">
+						  <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
+						    <%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>
+						  </a>
+					  </div>
+					  <div style="clear: left"><span></span></div>
+					</div>
+				</div>
+			</div>
 	  </div>
 	</div>
 </div>

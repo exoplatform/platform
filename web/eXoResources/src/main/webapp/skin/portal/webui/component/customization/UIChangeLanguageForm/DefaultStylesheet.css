@@ -48,10 +48,10 @@
 .UIChangeLanguageForm .UIItemSelector .ItemDetailContainer {
 	background: #ffffff;
 	border: solid 1px #c3c3c3;
-	padding: 6px;
+	padding: 6px; 
 }
 
-.UIChangeLanguageForm .UIItemSelector .ItemDetail {
+.UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
 	border: solid 1px #c3c3c3;
 	height: 227px;
 	margin: 0px;

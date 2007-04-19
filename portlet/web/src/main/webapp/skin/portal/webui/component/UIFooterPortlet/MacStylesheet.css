@@ -21,28 +21,12 @@
 }
 
 .UIFooterPortlet .FooterInfoContainer {
-  width: 400px ;
-  margin: auto ;
+  height: 32px ;
 }
 
 .UIFooterPortlet .CopyrightInfo {
-  width: 398px ;
-  margin-right: 5px ;
+  line-height: 30px;
+  vertical-align: middle;
+  text-align: center;
 }
-
-.UIFooterPortlet .CopyrightInfo .CopyrightText {
-  float: left;
-  line-height: 28px ;
-  text-align: center ; 
-  width: 260px ;
-  font-size: 11px ;
-}
-
-.UIFooterPortlet .CopyrightInfo .CompanyTitleText {
-  float: right ;
-  line-height: 28px ; 
-  text-align: center ;
-  width: 124px ;
-  font-size: 11px ;
-  margin-right: 5px;
 }
