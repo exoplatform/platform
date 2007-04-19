@@ -17,21 +17,20 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * Apr 16, 2007  
  */
 
-@ComponentConfig( template = "system:/groovy/webui/component/UIItemSelector.gtmpl")
-
+@ComponentConfig(template = "system:/groovy/webui/component/UIItemSelector.gtmpl")
 public class UIItemSelector extends UIComponent {
-  String name_;
-  private List<SelectItemCategory> categories_ = new ArrayList<SelectItemCategory>() ;
-  
+
+  private String name_;
+  private List<SelectItemCategory> categories_ ;
+
   public UIItemSelector(String name) {
     name_ = name;
     setComponentConfig(getClass(), null) ;
+    categories_  = new ArrayList<SelectItemCategory>();
   }
-  
-  public String getName() {
-    return name_;
-  }
-  
+
+  public String getName() { return name_; }
+
   public List<SelectItemCategory> getItemCategories() { return  categories_ ; } 
 
   public void setItemCategories(List<SelectItemCategory> categories) {     
@@ -45,7 +44,7 @@ public class UIItemSelector extends UIComponent {
     }
     if(!selected) categories_.get(0).setSelected(true);
   }  
-  
+
   public SelectItemCategory getSelectedItemCategory() {
     for(SelectItemCategory category : categories_) {
       if (category.isSelected()) return category;
@@ -58,7 +57,7 @@ public class UIItemSelector extends UIComponent {
     }
     return null;
   }
-  
+
   public SelectItemOption getSelectedItemOption() {
     SelectItemCategory selectedCategory = getSelectedItemCategory();
     if (selectedCategory != null) return selectedCategory.getSelectedItemOption();

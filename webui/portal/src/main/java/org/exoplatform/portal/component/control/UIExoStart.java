@@ -54,8 +54,7 @@ import org.exoplatform.webui.event.EventListener;
     @EventConfig(listeners = UIExoStart.BasicCustomizationActionListener.class),
 //    @EventConfig(listeners = UIExoStart.AdvancedCustomizationActionListener.class),
     @EventConfig(listeners = UIExoStart.MyPortalActionListener.class),
-    @EventConfig(listeners = UIExoStart.ChangeSkinActionListener.class),
-//    @EventConfig(listeners = UISkinSelector.ChangeSkinActionListener.class),
+//    @EventConfig(listeners = UIExoStart.ChangeSkinActionListener.class),
     @EventConfig(listeners = UIExoStart.ChangeLanguageActionListener.class),
     @EventConfig(listeners = UIExoStart.PageCreationWizardActionListener.class),
     @EventConfig(listeners = UIExoStart.EditCurrentPageActionListener.class),
@@ -217,7 +216,7 @@ public class UIExoStart extends UIComponent {
     }
   }
   
-  static  public class ChangeSkinActionListener extends EventListener<UIExoStart> {
+  /*static  public class ChangeSkinActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {      
       String skin  = event.getRequestContext().getRequestParameter(OBJECTID);
       UIExoStart uicomp = event.getSource() ;
@@ -225,7 +224,7 @@ public class UIExoStart extends UIComponent {
       uiApp.setSkin(skin);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiApp) ;
     }
-  } 
+  } */
   
   static  public class ChangeLanguageActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {
@@ -283,12 +282,12 @@ public class UIExoStart extends UIComponent {
   }
   
   
-//  static  public class Web20ActionListener extends EventListener<UIExoStart> {
-//    public void execute(Event<UIExoStart> event) throws Exception {
-//      UIExoStart uiStart = event.getSource() ;
-//      UIPortalApplication uiApp = uiStart.getAncestorOfType(UIPortalApplication.class);
-//    }
-//  }
+  /*static  public class Web20ActionListener extends EventListener<UIExoStart> {
+    public void execute(Event<UIExoStart> event) throws Exception {
+      UIExoStart uiStart = event.getSource() ;
+      UIPortalApplication uiApp = uiStart.getAncestorOfType(UIPortalApplication.class);
+    }
+  }*/
   
   static  public class SkinSettingsActionListener extends EventListener<UIExoStart> {
     @SuppressWarnings("unchecked")
@@ -306,7 +305,6 @@ public class UIExoStart extends UIComponent {
   static  public class LanguageSettingsActionListener extends EventListener<UIExoStart> {
     @SuppressWarnings("unchecked")
    public void execute(Event<UIExoStart> event) throws Exception {
-      System.out.println("\n=======> Interface Settings\n");
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
@@ -326,18 +324,18 @@ public class UIExoStart extends UIComponent {
     }
   }
   
-//  static  public class DebugActionListener extends EventListener<UIExoStart> {
-//    public void execute(Event<UIExoStart> event) throws Exception {
-//      UIExoStart uicomp = event.getSource() ;
-//      UIPortalApplication uiControl = uicomp.getAncestorOfType(UIPortalApplication.class) ;
-//      UIPopupWindow uiPopup = uiControl.getChildById(UIPortalApplication.POPUP_WINDOW_ID) ;
-//      uiPopup.setUIComponent(uiPopup.createUIComponent(UIApplicationTree.class, null, null)) ;
-//      uiPopup.setRendered(true) ;
-//      uiPopup.setShow(true) ;
-//      
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
-//    }
-//  }
+ /* static  public class DebugActionListener extends EventListener<UIExoStart> {
+    public void execute(Event<UIExoStart> event) throws Exception {
+      UIExoStart uicomp = event.getSource() ;
+      UIPortalApplication uiControl = uicomp.getAncestorOfType(UIPortalApplication.class) ;
+      UIPopupWindow uiPopup = uiControl.getChildById(UIPortalApplication.POPUP_WINDOW_ID) ;
+      uiPopup.setUIComponent(uiPopup.createUIComponent(UIApplicationTree.class, null, null)) ;
+      uiPopup.setRendered(true) ;
+      uiPopup.setShow(true) ;
+      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
+    }
+  }*/
   
   static  public class ChangePageActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {

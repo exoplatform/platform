@@ -4,13 +4,6 @@
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs') ;
 %>
-<script type="text/javascript">      
-  function changeSkin(url) {  
-    if(eXo.webui.UIItemSelector.SelectedItem == undefined) return;
-    alert(eXo.webui.UIItemSelector.SelectedItem.option) ;
-    window.location = url + '&skin='+eXo.webui.UIItemSelector.SelectedItem.option;
-  }
-</script>
 <div class="UIChangeSkinForm">
 	<div class="UIFormTabPane">
 	  <div class="UITabPane">
@@ -53,7 +46,9 @@
 	            <div class="ButtonLeft">
 	              <div class="ButtonRight">
 	                <div class="ButtonMiddle">
-	                  <a href="javascript:changeSkin('<%=uicomponent.url("Save");%>');"><%=_ctx.appRes("UIChangeSkin.action.save");%></a>
+	                  <a href="javascript:eXo.portal.UIPortal.changeSkin('<%=uicomponent.url("Save");%>');">
+	                    <%=_ctx.appRes("UIChangeSkin.action.save");%>
+	                  </a>
 	                </div>
 	              </div>
 	            </div>

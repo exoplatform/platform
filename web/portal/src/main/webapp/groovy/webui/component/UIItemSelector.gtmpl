@@ -1,4 +1,4 @@
-<%  import  org.exoplatform.webui.component.UIContainer; %>
+<%import  org.exoplatform.webui.component.UIContainer;%>
 <%
   String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true)";
   String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";

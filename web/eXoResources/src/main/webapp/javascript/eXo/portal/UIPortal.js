@@ -333,6 +333,15 @@ UIPortal.prototype.hideMaskLayer = function() {
 	}
 } ;
 
+UIPortal.prototype.changeSkin = function(url) {
+	var skin = '';
+	if(eXo.webui.UIItemSelector.SelectedItem != undefined) {
+  	skin = eXo.webui.UIItemSelector.SelectedItem.option;
+	}
+	if(skin == undefined) skin = '';
+  window.location = url + '&skin='+skin;
+}
+
 eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;
 eXo.portal.UIPortal = new UIPortal() ;
 eXo.portal.UIComponent = UIPortal.prototype.constructor ;
