@@ -344,3 +344,7 @@
   width: 0px ; height: 0px ;
   background: url('null') repeat bottom right;
 }
+
+.UIWindow .UIJCRExplorerPortlet {
+	overflow: auto;
+}

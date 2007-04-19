@@ -94,14 +94,6 @@
 	margin: 3px 5px 0px 5px ;
 }
 
-.UIMaskWorkspace .ApplicationLabel {
-	float: left ;
-	height: 22px ;
-	line-height: 22px; 
-	font-weight: bold ; font-size: 11px; color: #1465B9;
-	vertical-align: middle ;
-}
-
 .UIMaskWorkspace .AddButton {
 	float: right ; 
 	width: 19px ; height: 19px ;
@@ -132,7 +124,7 @@
 }
 
 .UIAddApplication .ApplicationLabel {
-	float: left ;
+	float: left;
 	height: 22px ;
 	line-height: 22px; 
 	font-weight: bold ; font-size: 11px; color: #1465B9;
@@ -255,4 +247,52 @@
 	float: left;
 	margin: 3px 5px 0px 5px;
 }
+
+/********************************  UIAddApplication.UIAddPortlet **********************************/
+.UIAddApplication .UIAddPortlet .Application {
+	width: 210px;
+}
+
+.UIAddApplication .UIAddPortlet .ApplicationLabel {
+	float: none;
+}
+
+.UIAddApplication .UIAddPortlet .ApplicationDescription {
+	padding: 10px 1px 10px 70px;
+}
+
+.UIAddApplication .UIAddPortlet .PortletIcon {
+	float: left;
+	width: 80px; height: 80px;
+	cursor: pointer ;
+	background: url('/eXoResources/background/DefaultSkin/DefaultPortlet.png')no-repeat ;
+}
+
+.UIAddApplication .UIAddPortlet .ApplicationListContainer {
+	padding: 0px 10px;
+}
+
+.UIAddApplication .UIAddPortlet .Application {
+  margin: 10px 0px 0px 0px ;
+}
+
+.UIAddApplication .UIAddPortlet .AddButton {
+	float: none ; 
+	width: 24px ; height: 24px ;
+	cursor: pointer ;
+}
+
+.UIAddApplication .UIAddPortlet .SelectButton {
+	float: none ; 
+	width: 24px ; height: 24px ;
+	cursor: pointer ;
+}
+
+.UIAddApplication .UIAddPortlet .TitleBarApplication {
+	height: 22px ;
+	background: #f2f2f2;
+	text-align: center;
+	font-size: 11px;
+}
+
 

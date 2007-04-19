@@ -249,3 +249,7 @@
   background: white;
   padding: 8px 3px 5px 0px; 
 }
+
+.UIWindow .UIJCRExplorerPortlet {
+	overflow: auto;
+}

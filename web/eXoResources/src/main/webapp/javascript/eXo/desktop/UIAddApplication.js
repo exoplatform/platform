@@ -35,6 +35,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
   var items  = '';
   var itemDetails = ''; 
   var selected  = false;
+  
   /*TODO: move HTML code to a .jstmpl file*/
   for(id in category.portletRegistry) {  	
 		var cate = category.portletRegistry[id];
@@ -59,27 +60,45 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 	  }
 	   itemDetails += '<div class="ItemDetailTitle">' +
 	          	    	'	 <div class="TitleIcon ViewListIcon"><span></span></div>' +
-						  	    '	 <div class="Title">Applications List</div>' +
+						  	    '	 <div class="Title">Select Portlets</div>' +
 						  	    '	 <div style="clear: left;"><span></span></div>' +
 	          	      '</div>';
 	          	      
 	  itemDetails += '  <div class="ApplicationListContainer">';
 	  var portlets = cate["portlets"];
 	    window.status = "Onload5";
+	   var count=0;var i = 2;
 	  for(id in portlets) {
 	  	portlet = portlets[id];
-	    itemDetails += '<div class="Application">' + 
-					           '	<div class="TitleBarApplication">' + 
-					           '		<div class="ApplicationItemIcon"><span></span></div>' + 
-					           '		<div class="ApplicationLabel">'+portlet["title"]+'</div>' +
-					           '    <div class="SelectButton" ' +
-					           '				 onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'false\')"><span></span></div>' + 
-					           ' 		<div class="AddButton" title="Add this application to the desktop page"' +
-					           '         onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\')"><span></span></div>' + 
-					           ' 		<div style="clear: both"></div>' + 
-					           ' 	</div>' + 
-					           '	<div class="ApplicationDescription">'+portlet["des"]+'</div>' + 
-					           '</div>';
+	  	var cssFloat = "float:left";
+	  	count = i%2;
+      if(count == 1)cssFloat = "float:right";
+      ++i; if(i==100)i=2;
+      var srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + portlet["title"]+".png";
+      //var trurl = document.URL = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + portlet["title"]+".png";
+			//alert(trurl);
+			if(0) {
+				srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png";
+			}
+	    itemDetails += '<div class="Application" style="'+cssFloat+';">' +
+			               '		<div class="ApplicationDescription">' +
+			               '			<div class="PortletIcon" title="'+portlet["title"]+'"' +
+			               '        style="background: url(\''+srcBG+'\')no-repeat center;"' +
+			               '        onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\')">' +
+			               '        <span></span></div>' +
+			               '		  <div style="float: right;">' +
+				             ' 			  <div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'false\')" ><span></span></div>' +
+				             ' 			  <div class="AddButton" onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\')"' +
+				             '          title="Add this application to the desktop page">' +
+						         ' 			    <span></span>' +
+						      	 '		    </div>' +
+					      		 '	    </div>' +
+					      		 '	    <div style="clear: both"><span></span></div>' +
+					      		 '	  </div>' +
+			               '		<div class="TitleBarApplication">' +
+			               '			<div class="ApplicationLabel">'+portlet["title"]+'</div>' +
+			               '		</div>' +
+		              	 '</div>';
 	  }
     itemDetails += '  </div>' +
 									 '</div>';  

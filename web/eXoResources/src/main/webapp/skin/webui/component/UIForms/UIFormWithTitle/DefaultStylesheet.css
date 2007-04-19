@@ -1,3 +1,8 @@
+.UITestFormPortlet .UIFormWithTitle {
+	margin: 0px;
+	width: 700px;
+}
+
 .UIFormWithTitle {
   width: 500px;
   margin: 50px;

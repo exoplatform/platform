@@ -66,142 +66,125 @@
 	      <div class="UITabContent" style="display: block">
 	      	<% uicomponent.renderChildren(); %>
 	      </div>
-	    
 	      <div class="UITabContent" style="display: none">
-	        <div class="UIAddJSApplication">
-					  <div class="UIItemSelector">
-					  	<div class="LeftColumnStyle">
-					  	  
-					  	  <div class="ItemListContainer">
-					  	    <div class="ItemListTitle">
-					  	    	<div class="TitleIcon ItemListIcon"><span></span></div>
-					  	    	<div class="Title">Category</div>
-					  	    	<div style="clear: left;"><span></span></div>
-					  	    </div>
-					  	    
-					  	    <div class="ItemList">
-					  	    
-					  	      <div class="SelectedItem Item" onclick="eXo.webui.UIItemSelector.onClick(this)"
-					  	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">
-					  	        <div class="LeftItem">
-					  	          <div class="RightItem">
-													<div class="ItemTitle">eXo Browser</div>
-								        </div>
-					  	        </div>
-					  	      </div>
-					  	      
-					  	      <div class="Item" onclick="eXo.webui.UIItemSelector.onClick(this)"
-					  	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">
-					  	        <div class="LeftItem">
-					  	          <div class="RightItem">  
-													 <div class="ItemTitle">Accessories</div>
-								        </div>
-					  	        </div>
-					  	      </div>
-					  	      
-					  	    </div>
-					  	  </div><% /* End ItemListContainer*/ %>
-					  	  
-						  	<div class="ItemDetailList">
-						  	
-					  	    <div class="ItemDetail" style="display: block">
-					  	    
-					  	    	<div class="ItemDetailTitle">
-					  	    		<div class="TitleIcon ViewListIcon"><span></span></div>
-							  	    <div class="Title">Applications List</div>
-							  	    <div style="clear: left;"><span></span></div>
-					  	      </div>
-					  	      
-					  	      <div class="ApplicationListContainer"><% /*Begin ApplicationListContainer*/ %>
-					  	        <% /*Begin for*/ %>
-					  	        <div class="Application">
-					          		<div class="TitleBarApplication">
-					          			<div class="IconLayout ApplicationItemIcon"><span></span></div>
-					          			<div class="ApplicationLabel">eXo Browser</div>
-					          			<div class="AddButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication',
-					          																																										'eXoBrowser')"
-					          																																										title="Add this application to the desktop page">
-					          			  <span></span>
-					      			    </div>
-					          			<div style="clear: both"><span></span></div>
-					          		</div>
-					              	<div class="ApplicationDescription">eXo Browser</div>
-					              </div>
-					             <% /*End for*/ %> 	
-				              <div class="Application">
-					          		<div class="TitleBarApplication">
-					          			<div class="IconLayout ApplicationItemIcon"><span></span></div>
-					          			<div class="ApplicationLabel">eXo Mail</div>
-					          			<div class="SelectButton"><span></span></div>
-					          			<div class="AddButton" 
-					          			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.mail.UIMailApplication', 
-					          			                                                            'eXoMail', 
-					          			                                                            '/mail/javascript/');"
-					          			                                                            title="Add this application to the desktop page">
-					          			  <span></span>
-					          			</div>
-					          			<div style="clear: both"><span></span></div>
-					          		</div>
-					          		<div class="ApplicationDescription">eXo Mail</div>
-					          		<div class="SelectButton"><span></span></div>
-					              </div>
-				               <div class="Application">
-			              		 <div class="TitleBarApplication">
-			              			 <div class="IconLayout ApplicationItemIcon"><span></span></div>
-			              		 	 <div class="ApplicationLabel">Calendar</div>
-			              		 	 <div class="SelectButton"><span></span></div>
-			              			 <div class="AddButton" 
-					              			 onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.calendar.UICalendarApplication',
-					              			                                                        'eXoCalendar',
-  			                                                                              '/calendar/javascript/');"
-  			                                                                              title="Add this application to the desktop page">
-              			         <span></span>
-              			       </div>
-			              			 <div style="clear: both"><span></span></div>
-			              		 </div> 
-			              		 <div class="ApplicationDescription">Calendar</div>
-			              	 </div>
-			              	 
-			              	 <div class="Application">
-			              		 <div class="TitleBarApplication">
-			              			 <div class="IconLayout ApplicationItemIcon"><span></span></div>
-			              		 	 <div class="ApplicationLabel">Forum</div>
-			              		 	 <div class="SelectButton"><span></span></div>
-			              			 <div class="AddButton" 
-					              			 onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.forum.UIFrorumApplication',
-					              			                                                        'eXoForum',
-  			                                                                              '/forum/javascript/');"
-  			                                                                              title="Add this application to the desktop page">
-              			         <span></span>
-              			       </div>
-			              			 <div style="clear: both"><span></span></div>
-			              		 </div> 
-			              		 <div class="ApplicationDescription">Forum</div>
-			              	 </div>
-			              	 
-			              	 
-				            </div><% /*End ApplicationListContainer*/ %>
-					              
-				  	      </div> <%/*End ItemDetailTitle*/%>
-					  	    
-						  	  <div class="ItemDetail" style="display: none">
-						  	    	<div class="ItemDetailTitle">
-						  	    		<div class="TitleIcon ViewListIcon"><span></span></div>
-									  	  <div class="Title">Accessories List</div>
-									  	  <div style="clear: left;"><span></span></div>
-									  	</div>
-						  	      <div class="ApplicationListContainer" style="line-height: 240px; vertical-align: middle; text-align: center; color: red">
-						  	        Accessories is now not available !
-						  	      </div>
+	        <div class="UIItemSelector">
+	      	  <div class="LeftColumnStyle">
+	          	  <div class="ItemListContainer">
+	          	    <div class="ItemListTitle">
+	          	    	<div class="TitleIcon ItemListIcon"><span></span></div>
+          	    		<div class="Title">Category</div>
+          	    		<div style="clear: left;"><span></span></div>
+	          	    </div>
+	          	    <div class="ItemList">
+	          	    
+	          	      <div class="SelectedItem Item" onclick="eXo.webui.UIItemSelector.onClick(this)"
+	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">
+	          	        <div class="LeftItem">
+	          	          <div class="RightItem">
+											  	  <div class="ItemTitle">eXo Browser</div>
+						            </div>
+	          	        </div>
+	          	      </div>
+	          	      
+	          	      <div class="Item" onclick="eXo.webui.UIItemSelector.onClick(this)"
+	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">
+	          	        <div class="LeftItem">
+	          	          <div class="RightItem">  
+											  	  <div class="ItemTitle">Accessories</div>
+						              </div>
+	          	        </div>
+	          	      </div>
+	          	      
+	          	    </div>
+	          	  </div>
+	          	  
+	          	  <div class="ItemDetailList">
+	          	    <div class="ItemDetail" style="display: block">
+	          	    	<div class="ItemDetailTitle">
+	          	    		<div class="TitleIcon ViewListIcon"><span></span></div>
+						  	    	<div class="Title">Select Applications</div>
+						  	    	<div style="clear: left;"><span></span></div>
+	          	    </div>
+	          	      <div class="ApplicationListContainer">
+	              	      <div class="Application">
+				              		<div class="TitleBarApplication">
+				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
+				              			<div class="ApplicationLabel">eXo Browser</div>
+				              			<div class="SelectButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication',
+				              																																										'eXoBrowser')"
+				              																																										title="Add this application to the desktop page">
+				              			  <span></span>
+			              			  </div>
+				              			<div style="clear: both"><span></span></div>
+				              		</div>
+				              		<div class="ApplicationDescription">eXo Browser</div>
+				              	</div>
+				              	
+				              	<div class="Application">
+				              		<div class="TitleBarApplication">
+				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
+				              			<div class="ApplicationLabel">eXo Mail</div>
+				              			<div class="SelectButton" 
+				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.mail.UIMailApplication', 
+				              			                                                            'eXoMail', 
+				              			                                                            '/mail/javascript/');"
+				              			                                                            title="Add this application to the desktop page">
+				              			  <span></span>
+				              			</div>
+				              			<div style="clear: both"><span></span></div>
+				              		</div>
+				              		<div class="ApplicationDescription">eXo Mail</div>
+				              	</div>
+				              	
+				              	<div class="Application">
+				              		<div class="TitleBarApplication">
+				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
+				              			<div class="ApplicationLabel">Calendar</div>
+				              			<div class="SelectButton" 
+						              			 onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.calendar.UICalendarApplication',
+						              			                                                        'eXoCalendar',
+	  			                                                                              '/calendar/javascript/');"
+	  			                                                                              title="Add this application to the desktop page">
+	              			        <span></span>
+	              			      </div>
+				              			<div style="clear: both"><span></span></div>
+				              		</div>
+				              		<div class="ApplicationDescription">Calendar</div>
+				              	</div>
+				              	
+				              	<div class="Application">
+				              		<div class="TitleBarApplication">
+				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
+				              			<div class="ApplicationLabel">Forum</div>
+				              			<div class="SelectButton" 
+				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.forum.UIForumApplication', 
+				              			                                                            'eXoForum',
+				              			                                                            '/forum/javascript/');"
+				              			                                                            title="Add this application to the desktop page">
+	              			        <span></span>
+	              			      </div>
+				              			<div style="clear: both"><span></span></div>
+				              		</div>
+				              		<div class="ApplicationDescription">Forum</div>
+				              	</div>					              	
+				              	
+			              	</div>
+	          	    </div>
+	          	    <div class="ItemDetail" style="display: none">
+	          	    	<div class="ItemDetailTitle">
+	          	    		<div class="TitleIcon ViewListIcon"><span></span></div>
+						  	    	<div class="Title">Accessories List</div>
+						  	    	<div style="clear: left;"><span></span></div>
 						  	    </div>
-							  	    
-					  	  </div><% /*End ItemDetailList*/ %>
-					  	  <div style="clear: left"><span></span></div>
-					  	</div>
-					  </div>
-					</div>
+	          	      <div class="ApplicationListContainer" style="line-height: 240px; vertical-align: middle; text-align: center; color: red">
+	          	        Accessories is now not available !
+	          	      </div>
+	          	    </div>
+	          	  </div>
+	          	  <div style="clear: left"><span></span></div>
+	      	  </div>
+	      	</div>
 	      </div>
-	      
 	    </div>
 	    
 	  </div>

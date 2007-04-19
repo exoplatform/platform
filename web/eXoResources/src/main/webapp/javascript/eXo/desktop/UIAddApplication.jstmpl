@@ -56,22 +56,22 @@
 	    
 	    <div class="UITabContentContainer">
 	      <div class="UITabContent" style="display: block">
-	      	
-	      	<div class="UIItemSelector">
-	      	  <div class="LeftColumnStyle">
-          	  <div class="ItemListContainer">
-          	    <div class="ItemListTitle">
-          	    	<div class="TitleIcon ItemListIcon"><span></span></div>
-          	    	<div class="Title">Categories</div>
-          	    	<div style="clear: left;"><span></span></div>
-          	    </div>
-          	    <div class="ItemList"><span></span></div>
-          	  </div>          	  
-          	  <div class="ItemDetailList"><span></span></div>
-	            <div style="clear: left"><span></span></div>
-	      	  </div>
+	      	<div class="UIAddPortlet">
+		      	<div class="UIItemSelector">
+		      	  <div class="LeftColumnStyle">
+	          	  <div class="ItemListContainer">
+	          	    <div class="ItemListTitle">
+	          	    	<div class="TitleIcon ItemListIcon"><span></span></div>
+	          	    	<div class="Title">Categories</div>
+	          	    	<div style="clear: left;"><span></span></div>
+	          	    </div>
+	          	    <div class="ItemList"><span></span></div>
+	          	  </div>          	  
+	          	  <div class="ItemDetailList"><span></span></div>
+		            <div style="clear: left"><span></span></div>
+		      	  </div>
+		      	</div>
 	      	</div>
-	      	
 	      </div>
 	      
 	      <div class="UITabContent" style="display: none">
@@ -110,7 +110,7 @@
 	          	    <div class="ItemDetail" style="display: block">
 	          	    	<div class="ItemDetailTitle">
 	          	    		<div class="TitleIcon ViewListIcon"><span></span></div>
-						  	    	<div class="Title">Applications List</div>
+						  	    	<div class="Title">Select Applications</div>
 						  	    	<div style="clear: left;"><span></span></div>
 	          	    </div>
 	          	      <div class="ApplicationListContainer">

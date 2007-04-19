@@ -13,7 +13,7 @@
 %>
 
 
-<div class="UIAddApplication">
+<div class="UIAddPortlet">
 	<div class="ContentContainerDetail">
 	  <div class="CategoryContainer">
 	    <div class="UITabContentContainer">
@@ -69,25 +69,34 @@
 						  	    <div style="clear: left;"><span></span></div>
 				  	      </div>
           	      <div class="ApplicationListContainer">
-          	      <% for(Portlet portlet: portlets) {
+          	      <% int count=0,i=2;
+          	      for(Portlet portlet: portlets) {
           	        String name = portlet.getDisplayName();
           	        String des = portlet.getDescription();
+          	        String onClick ="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication','" + name +"')";
+          	        String cssFloat = "float:left";
+          	        count = i%2;
+          	        if(count == 1)cssFloat = "float:right";
+          	        i = i + 1; if(i==100)i=2;
+          	        String portletIcon;
           	      %>
-	          	      <div class="Application">
-		              		<div class="TitleBarApplication">
-		              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
-		              			<div class="ApplicationLabel"><%=name%></div>
-		              			<div class="SelectButton"><span></span></div>
-		              			<div class="AddButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication',
-          																																										'eXoBrowser')"
-          																																										title="Add this application to the desktop page">
-				          			  <span></span>
+	          	      <div class="Application" style="$cssFloat;">
+		              		<div class="ApplicationDescription">
+		              			<div class="PortletIcon $portletIcon" onclick="$onClick"><span></span></div>
+		              		  <div style="float: right;">
+			              			<div class="SelectButton"><span></span></div>
+			              			<div class="AddButton"onclick="$onClick" title="Add this application to the desktop page">
+					          			  <span></span>
+					      			    </div>
 				      			    </div>
 				      			    <div style="clear: both"><span></span></div>
+				      			  </div>
+		              		<div class="TitleBarApplication">
+		              			<div class="ApplicationLabel"><%=name%></div>
 		              		</div>
-		              		<div class="ApplicationDescription"><%=des%></div>
 		              	</div>
 			            <% }%>  	
+		      			    <div style="clear: both"><span></span></div>
               	</div>
           	  </div>
           	  <% } %>
