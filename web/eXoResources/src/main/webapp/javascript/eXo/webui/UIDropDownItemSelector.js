@@ -81,16 +81,14 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 	var itemLabel = DOMUtil.findFirstDescendantByClass(targ, "div", "ItemSelectorLabel");
 	var stringItemLabel = itemLabel.innerHTML;
 	
-	if(stringItemLabel.length < 20){
+	if(stringItemLabel.length < 21){
 	  selectedItemLabel.innerHTML = stringItemLabel;
 	} else {
-		var label; label = stringItemLabel.toString()[0];
-		var tmp = label;
+		var strlabel = stringItemLabel.charAt(0);; 
 		for(i = 1;i < 17; ++i){
-		  label = stringItemLabel.toString()[i];
-		  tmp = tmp + label;
+	  strlabel = strlabel + stringItemLabel.charAt(i);
 		}
-		selectedItemLabel.innerHTML = tmp + "...";
+		selectedItemLabel.innerHTML = strlabel + "...";
 	}
 	 
 	targ.className = targ.oldClassName = "OverItemSelector";
