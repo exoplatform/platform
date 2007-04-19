@@ -38,7 +38,7 @@ import org.exoplatform.webui.event.Event.Phase;
 public class UIUserMembershipSelector extends UISelector {  
   
   private List<Membership>  membership_ ;
-  private String user_ = "exo" ;  
+  private String user_ = "site" ;  
   private boolean isAdminRole_ = false;
   
   public UIUserMembershipSelector() throws Exception {

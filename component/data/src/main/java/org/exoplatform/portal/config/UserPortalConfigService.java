@@ -31,7 +31,7 @@ public class UserPortalConfigService {
   private PortalDAO pdcService_;
   private UserACL userACL_ ;
   
-  private String defaultUser = "exo";
+  private String defaultUser = "site";
   
   public UserPortalConfigService(InitParams params,
                                  OrganizationService  orgService,
@@ -44,7 +44,7 @@ public class UserPortalConfigService {
     
     ValueParam valueParam = params.getValueParam("default.user.template");
     if(valueParam != null) defaultUser = valueParam.getValue();
-    if(defaultUser == null  || defaultUser.trim().length() == 0) defaultUser = "exo";
+    if(defaultUser == null  || defaultUser.trim().length() == 0) defaultUser = "site";
     initDb(params) ;
   }
   

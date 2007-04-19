@@ -11,7 +11,7 @@
         <value-param>
           <name>check.user</name>
           <description>The check user for checking db is empty or not</description>
-          <value>exo</value>          
+          <value>site</value>          
         </value-param>
         <object-param>
           <name>configuration</name>

@@ -70,7 +70,7 @@ public class UIDropDownItemSelector extends UIComponent {
   public void setOnServer(boolean onSever) { onServer_ = onSever; }
 
   public String getSelected() {
-    if(selected_ == null) return selected_.getLabel();    
+    if(selected_ != null) return selected_.getLabel();    
     if(options_ == null || options_.size() < 1) return null;
     setSelected(options_.get(0));
     return selected_.getLabel();
@@ -91,7 +91,7 @@ public class UIDropDownItemSelector extends UIComponent {
     options_ = options ; 
     if(options == null) return ; 
     size_ = options.size();
-    if(options_.size() < 0)  return;
+    if(options_.size() < 1)  return;
     selected_ = options_.get(0);
   }  
  

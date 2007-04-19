@@ -34,10 +34,10 @@ public class UserContentNavigationInitListener extends BaseComponentPlugin {
                                            InitParams params) throws Exception {
     cservice_ = cservice ;
     contentService_ = contentService;    
-    String checkUser = "exo";
+    String checkUser = "site";
     ValueParam valueParam = params.getValueParam("check.user");
     if(valueParam != null) checkUser = valueParam.getValue();
-    if(checkUser == null  || checkUser.trim().length() == 0) checkUser = "exo";    
+    if(checkUser == null  || checkUser.trim().length() == 0) checkUser = "site";    
     if(isInitedDB(checkUser)) return;
     config_ = (NewPortalConfig) params.getObjectParamValues(NewPortalConfig.class).get(0) ;
     initDB();

@@ -7,7 +7,7 @@
       <value-param>
         <name>default.user.template</name>
         <description>If user configs are null, user configs will load configs from this default user</description>
-        <value>exo</value>
+        <value>site</value>
       </value-param>
 			<value-param>
 	    	<name>templateLocation</name>
@@ -61,7 +61,7 @@
         <value-param>
           <name>check.user</name>
           <description>The check user for checking db is empty or not</description>
-          <value>exo</value>
+          <value>site</value>
         </value-param>
         <object-param>
           <name>configuration</name>

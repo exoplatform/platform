@@ -12,5 +12,8 @@ package org.exoplatform.portal.config;
  */
 public class InformationWidgetService {
   
+  public void getInformationWidget(String username, String widgetId) {
+  }
+  
 }
   

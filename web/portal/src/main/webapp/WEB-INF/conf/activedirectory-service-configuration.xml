@@ -15,7 +15,7 @@
 	  		 <!-- when enable ssl, ensure server name is *.directory and port (Ex. active.directory) -->	  		 
 	       <field  name="providerURL"><string>ldaps://10.0.0.3:636</string></field>
  	       <field  name="rootdn"><string>CN=Administrator,CN=Users, DC=exoplatform,DC=org</string></field>
-	       <field  name="password"><string>exo</string></field>
+	       <field  name="password"><string>site</string></field>
  		
 	       <field  name="version"><string>3</string></field>
 	        
