@@ -79,14 +79,14 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 		 previousSelected[i].className = previousSelected[i].oldClassName = "ItemSelector";
 	}
 	var itemLabel = DOMUtil.findFirstDescendantByClass(targ, "div", "ItemSelectorLabel");
-	var stringItemLabel = itemLabel.innerHTML;
+	var strItemLabel = itemLabel.innerHTML;
 	
-	if(stringItemLabel.length < 21){
-	  selectedItemLabel.innerHTML = stringItemLabel;
+	if(strItemLabel.length < 21){
+	  selectedItemLabel.innerHTML = strItemLabel;
 	} else {
-		var strlabel = stringItemLabel.charAt(0);; 
+		var strlabel = strItemLabel.charAt(0);; 
 		for(i = 1;i < 17; ++i){
-	  strlabel = strlabel + stringItemLabel.charAt(i);
+	  strlabel = strlabel + strItemLabel.charAt(i);
 		}
 		selectedItemLabel.innerHTML = strlabel + "...";
 	}
