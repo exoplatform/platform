@@ -33,8 +33,8 @@ import org.exoplatform.webui.event.Event.Phase;
   lifecycle = UIFormLifecycle.class,
   template =  "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
   events = {
-    @EventConfig(listeners = UIContentForm.CancelActionListener.class,  phase = Phase.DECODE),
-    @EventConfig(listeners = UIContentForm.SaveActionListener.class )        
+    @EventConfig(listeners = UIContentForm.SaveActionListener.class ),
+    @EventConfig(listeners = UIContentForm.CancelActionListener.class,  phase = Phase.DECODE)
   }
 )
 public class UIContentForm extends UIForm {  

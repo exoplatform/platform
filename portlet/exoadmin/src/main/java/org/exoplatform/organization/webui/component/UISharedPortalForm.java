@@ -32,8 +32,8 @@ import org.exoplatform.webui.event.Event.Phase;
     lifecycle = UIFormLifecycle.class,    
     template =  "system:/groovy/webui/component/UIForm.gtmpl",
     events = {
-      @EventConfig(phase = Phase.DECODE, listeners = UISharedPortalForm.RemoveActionListener.class),
-      @EventConfig(listeners = UISharedPortalForm.SaveActionListener.class)      
+      @EventConfig(listeners = UISharedPortalForm.SaveActionListener.class),
+      @EventConfig(phase = Phase.DECODE, listeners = UISharedPortalForm.RemoveActionListener.class)
     }
 )
 public class UISharedPortalForm extends UIForm {
