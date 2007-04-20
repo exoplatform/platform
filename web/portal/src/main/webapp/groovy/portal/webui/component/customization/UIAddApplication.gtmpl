@@ -111,7 +111,7 @@
 				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
 				              			<div class="ApplicationLabel">eXo Browser</div>
 				              			<div class="SelectButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication',
-				              																																										'eXoBrowser')"
+				              																																										'eXoBrowser','/mail/javascript/');"
 				              																																										title="Add this application to the desktop page">
 				              			  <span></span>
 			              			  </div>
