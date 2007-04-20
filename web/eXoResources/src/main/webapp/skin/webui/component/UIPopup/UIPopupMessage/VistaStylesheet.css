@@ -16,7 +16,7 @@
 
 .UIPopupMessages .PopupMessageBox {
   border: solid 1px #ffffff ;
-  background-color: #e3e6f4;
+  background: white url('Vistaskin/background/PopupMessagePanelBG1x73.png') repeat-x top;
   padding: 10px;
 }
 

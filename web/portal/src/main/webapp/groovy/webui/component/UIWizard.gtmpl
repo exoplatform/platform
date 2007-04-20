@@ -1,40 +1,31 @@
 <% int step = uicomponent.getCurrentStep(); %>
 <div class="UIWizard" id="$uicomponent.id">
-  <div class="WizardDecorator">
-    <div class="WizardTopLeft">
-      <div class="WizardTopRight">
-        <div class="WizardTopCenter"><span></span></div>
+
+    <div class="UIWizardContent">
+    
+      <%/*WizardStepTitle*/%>	
+      <div class="WizardStepTitleBar">
+        <div class="OverflowContainer">
+            <div class="WizardIcon"><span></span></div>
+				    <div class="WizardTitle">
+				      <%=_ctx.appRes(uicomponent.getId() + ".label.pageCreateWizard")%>:
+				    </div>
+            <div class="StepTitle">
+            <%=_ctx.appRes(uicomponent.getId() + ".label.step"+String.valueOf(step)+".title")%>
+          </div>
+          </div>
       </div>
-    </div>
-  
-	  <div class="WizardMiddleLeft">
-	    <div class="WizardMiddleRight">
-	      <div class="WizardMiddleCenter">
-	        <div class="UIWizardContent">
-	        
-	          <%/*WizardStepTitle*/%>	
-	          <div class="WizardStepTitleBar">
-	            <div class="OverflowContainer">
-		            <div class="WizardIcon"><span></span></div>
-						    <div class="WizardTitle">
-						      <%=_ctx.appRes(uicomponent.getId() + ".label.pageCreateWizard")%>:
-						    </div>
-		            <div class="StepTitle">
-	                <%=_ctx.appRes(uicomponent.getId() + ".label.step"+String.valueOf(step)+".title")%>
-	              </div>
-		          </div>
-	          </div>
-	          
-						<%/*Begin WizardStepContent*/%>	  
-						<div class="WizardStepContent"><% uicomponent.renderChildren(); %></div>
-						
-						<div class="WizardControlBar">
-						  <div class="OverflowContainer">
-						    <div class="StepNavigationBar">	       
-						      <div class="StepNavigationTitle">
-						        <%=_ctx.appRes(uicomponent.getId() + ".label.wizardSteps")%>:
-						      </div>
-						      <%                
+      
+				<%/*Begin WizardStepContent*/%>	  
+				<div class="WizardStepContent"><% uicomponent.renderChildren(); %></div>
+				
+				<div class="WizardControlBar">
+				  <div class="OverflowContainer">
+				    <div class="StepNavigationBar">	       
+				      <div class="StepNavigationTitle">
+				        <%=_ctx.appRes(uicomponent.getId() + ".label.wizardSteps")%>:
+				      </div>
+				      <%                
   						      List children  = uicomponent.getChildren();
   						      int numberSteps = uicomponent.getNumberSteps();    
   						      String actionLink = "#";    					     	
@@ -57,14 +48,14 @@
 						          i++;
 						        }
 							  	%>    	        
-						    </div>
-						    
-						    <%/*Begin UIWizardActionBar*/%>	   
-					      <div class="ActionBar">
-					        <div class="UIAction">
-							      <div class="ActionContainer">
-							        <div class="ActionButton">
-				                <%  
+				    </div>
+				    
+				    <%/*Begin UIWizardActionBar*/%>	   
+			      <div class="ActionBar">
+			        <div class="UIAction">
+					      <div class="ActionContainer">
+					        <div class="ActionButton">
+		                <%  
 						              if(step > 1) {
 						                actionLink = uicomponent.url("ViewStep" + String.valueOf(step-1));
 						              } else {
@@ -73,74 +64,64 @@
 				                  String display = "LightBlueStyle";
 				                  if(step==1) display = "DisabledStyle";				                  
 				                %> 
-							          <div class="${display}">
-							            <div class="ButtonLeft">
-							              <div class="ButtonRight">
-							                <div class="ButtonMiddle">
-								                <a href="$actionLink"><%=_ctx.appRes(uicomponent.getId() + ".label.back")%></a>
-								              </div>
-							              </div>
-							            </div>
-							          </div>							          
-							        </div>
-							      </div>
-							    </div>
-							    
-							    <div class="UIAction">
-							      <div class="ActionContainer">
-							        <div class="ActionButton">
-							          <div class="LightBlueStyle">
-							            <div class="ButtonLeft">
-							              <div class="ButtonRight">
-							                <div class="ButtonMiddle">
-							                  <%
-							                    String action = "next";
-							                    if(step == children.size()){
-							                      action = "done";			      
-							                      actionLink = uicomponent.event("ViewStep" + String.valueOf(step+1), "");
-							                    } else {
-											            	actionLink = uicomponent.url("ViewStep" + String.valueOf(step+1));
-											            }
-											          %>  			                  
-								                <a href="$actionLink"><%=_ctx.appRes(uicomponent.getId() + ".label."+action)%></a>
-								              </div>
-							              </div>
-							            </div>
-							          </div>
-							        </div>
-							      </div>
-							    </div>
-							    
-							    <div class="UIAction">
-							      <div class="ActionContainer">
-							        <div class="ActionButton">
-							          <div class="LightBlueStyle">
-							            <div class="ButtonLeft">
-							              <div class="ButtonRight">
-							                <div class="ButtonMiddle">
-								                <a href="<%=uicomponent.event("Abort", "");%>"><%=_ctx.appRes(uicomponent.getId() + ".label.abort")%></a>
-								              </div>
-							              </div>
-							            </div>
-							          </div>
-							        </div>
-							      </div>
-							    </div>  
-							      
-								</div>    
-								<%/*End UIWizardActionBar*/%> 
-						  </div> 
-						</div>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	   
-	  <div class="WizardBottomLeft">
-	    <div class="WizardBottomRight">
-	      <div class="WizardBottomCenter"><span></span></div>
-	    </div>
-	  </div>
-	   
-	</div>
+					          <div class="${display}">
+					            <div class="ButtonLeft">
+					              <div class="ButtonRight">
+					                <div class="ButtonMiddle">
+						                <a href="$actionLink"><%=_ctx.appRes(uicomponent.getId() + ".label.back")%></a>
+						              </div>
+					              </div>
+					            </div>
+					          </div>							          
+					        </div>
+					      </div>
+					    </div>
+					    
+					    <div class="UIAction">
+					      <div class="ActionContainer">
+					        <div class="ActionButton">
+					          <div class="LightBlueStyle">
+					            <div class="ButtonLeft">
+					              <div class="ButtonRight">
+					                <div class="ButtonMiddle">
+					                  <%
+					                    String action = "next";
+					                    if(step == children.size()){
+					                      action = "done";			      
+					                      actionLink = uicomponent.event("ViewStep" + String.valueOf(step+1), "");
+					                    } else {
+									            	actionLink = uicomponent.url("ViewStep" + String.valueOf(step+1));
+									            }
+									          %>  			                  
+						                <a href="$actionLink"><%=_ctx.appRes(uicomponent.getId() + ".label."+action)%></a>
+						              </div>
+					              </div>
+					            </div>
+					          </div>
+					        </div>
+					      </div>
+					    </div>
+					    
+					    <div class="UIAction">
+					      <div class="ActionContainer">
+					        <div class="ActionButton">
+					          <div class="LightBlueStyle">
+					            <div class="ButtonLeft">
+					              <div class="ButtonRight">
+					                <div class="ButtonMiddle">
+						                <a href="<%=uicomponent.event("Abort", "");%>"><%=_ctx.appRes(uicomponent.getId() + ".label.abort")%></a>
+						              </div>
+					              </div>
+					            </div>
+					          </div>
+					        </div>
+					      </div>
+					    </div>  
+					      
+						</div>    
+						<%/*End UIWizardActionBar*/%> 
+				  </div> 
+				</div>
+    </div>
+
 </div>

@@ -34,7 +34,7 @@
   border: 1px solid #aeaeae;
  /* background: url('VistaSkin/background/PortletBG.gif');*/
   background:white;
-  margin: 0px;
+  margin-right: 1px;
 }
 
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .VTabStyle3 {
@@ -171,7 +171,7 @@
   float: left;
   line-height: 22px; vertical-align: middle; 
   color: black; font-weight: bold;
-  margin-left: 10px ;
+  margin: 3px 0px 0px 10px ;
 }
 
 .UIContentPortlet .UIContentWorkingArea .RefreshBar {
