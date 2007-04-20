@@ -84,7 +84,9 @@ public class UIAccountForm extends UIFormTabPane {
     }
     uiUserMembershipSelector.setAdminRole(isRoleAdmin);
     
-    templateInput.getItemCategories().get(0).setSelected(true);
+    if(templateInput.getSelectedItemOption() == null) {
+      templateInput.getItemCategories().get(0).setSelected(true);
+    }
     setActions(new String[]{"Save", "Reset"});
   }
 
