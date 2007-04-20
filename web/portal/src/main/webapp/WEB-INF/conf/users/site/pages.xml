@@ -6,6 +6,7 @@
     <title>Content</title>
     <view-permission>*:/guest</view-permission>
     <application>
+      <title>Content Portlet</title>
       <application-instance-id>site:/content/ContentPortlet/contentportlet</application-instance-id>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
