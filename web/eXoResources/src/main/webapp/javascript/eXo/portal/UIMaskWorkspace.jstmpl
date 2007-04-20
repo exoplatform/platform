@@ -1,4 +1,4 @@
-<div class="UIMaskWorkspace" id="UIMaskWorkspaceJSTemplate" style="width: 700px;">
+<div class="UIMaskWorkspace" id="UIMaskWorkspaceJSTemplate" style="width: <%=context.uiMaskWorkspace.width%>">
   <div class="TopLeftDecorator">
     <div class="TopRightDecorator">
       <div class="TopCenterDecorator"><span></span></div>
@@ -8,9 +8,7 @@
   <div class="MiddleLeftDecorator">
     <div class="MiddleRightDecorator">
       <div class="ContentContainer">
-      
-         <%=eXo.core.TemplateEngine.merge('eXo/desktop/UIAddApplication.jstmpl', context) ;%>
-   
+        <%=context.uiMaskWorkspace.content%>
    		</div>
     </div>
   </div>

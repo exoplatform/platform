@@ -8,7 +8,7 @@
 }
 
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
-  float: left ; 
+  float: left ;
   width: 24px ; height: 15px ;
   background: url('DefaultSkin/background/DragBg2x2.gif');
   cursor: move ;
@@ -198,18 +198,11 @@
   margin: auto;
 }
 
-.UIPage {
-	
-}
-
 .DragAndDropPreview {
   width: auto ; height: 80px ;
 	background: url('DefaultSkin/background/DragAndDropPreview4x4.gif');
   border: 1px solid #c4c4c4;
   margin: 0px 12px 10px 12px;
-}
-
-.UIPage .VIEW-PAGE {
 }
 
 .UIPage .LAYOUT-PAGE {

@@ -92,7 +92,7 @@ UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
 
 UIDockbar.prototype.onMouseMoveIcon = function(e) {
 	var selectedIcon = this ;
-  eXo.desktop.UIDockbar.animation(selectedIcon, e) ;
+	eXo.desktop.UIDockbar.animation(selectedIcon, e) ;
 };
 
 UIDockbar.prototype.showTooltip = function(e) {
@@ -128,11 +128,11 @@ UIDockbar.prototype.animation = function(selectedIcon, e) {
 	var middleIcon = selectedIconX + (selectedIcon.offsetWidth / 2) ;
 	var mouseX = eXo.core.Browser.findMouseRelativeX(uiPageDesktop, e) ;
 	
-	
 	var d = middleIcon - selectedIconX ;
 	var delta = middleIcon - mouseX ;
 	var distanceWeight = (0.5 / curve) * (delta / d) ;
-	
+//	console.debug(selectedIconX) ;
+	/*Mouse X Is Problem on IE7*/
 	var selectedIconIndex = UIDockbar.findIndex(selectedIcon) ;
 	var icons = eXo.core.DOMUtil.findChildrenByClass(selectedIcon.parentNode, "img", "Icon") ;
 	var uiDockbar = document.getElementById("UIDockBar") ;
@@ -144,8 +144,7 @@ UIDockbar.prototype.animation = function(selectedIcon, e) {
 	
 	uiDockbar.style.height = "auto" ;
 	dockbarCenter.style.height = uiDockbar.originalBGDockbarHeight + (uiDockbar.defaultIconSize*(weight - 1)) + "px" ;
-		
-	var size = 0 ;
+	
 	for(var i = 0; i < icons.length; i++) {
 		var deltaCurve = Math.abs(selectedIconIndex - i) ;
 		var size = uiDockbar.defaultIconSize ;
@@ -160,6 +159,9 @@ UIDockbar.prototype.animation = function(selectedIcon, e) {
 				uiDockbar.defaultIconSize * (weight - 1) * ((curve - deltaCurve) / curve + distanceWeight)) ;
 			}
 		}
+		
+//		window.status = "SIZE: " + size ;
+//		console.warn(size);
 		
 		icons[i].style.width = size + "px" ;
 		icons[i].style.height = size + "px" ;

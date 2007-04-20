@@ -198,12 +198,6 @@
   padding: 8px 0px ;
 }
 
-.UIPage {
-}
-
-.UIPortal {
-}
-
 .DragAndDropPreview {
   width: auto ; height: 80px ;
 	background: url('DefaultSkin/background/DragAndDropPreview4x4.gif');
@@ -213,8 +207,4 @@
 
 .UIPage .VIEW-PAGE {
 	padding: 0px 6px ;
-}
-
-.UIPage .LAYOUT-PAGE {
-
 }

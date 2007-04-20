@@ -6,15 +6,23 @@ function UIAddApplication() {
   
 };
 
-UIAddApplication.prototype.init = function(containerId, context) {
+UIAddApplication.prototype.init = function(containerId) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var container = document.getElementById(containerId);
+	var context = new Object();
+	
+	context.uiMaskWorkspace = {
+		width: "700px"
+	}
+	
 	
 	if(document.getElementById("UIMaskWorkspaceJSTemplate") == null) {
 		var uiAddAppContainer = document.createElement('div') ;
 		uiAddAppContainer.id = "UIAddApplicationContainer" ;
 		uiAddAppContainer.style.display = "none" ;
-		uiAddAppContainer.innerHTML = eXo.core.TemplateEngine.merge("eXo/desktop/UIMaskWorkspace.jstmpl", context) ;
+		
+		context.uiMaskWorkspace.content = eXo.core.TemplateEngine.merge('eXo/desktop/UIAddApplication.jstmpl', context) ;
+		uiAddAppContainer.innerHTML = eXo.core.TemplateEngine.merge("eXo/portal/UIMaskWorkspace.jstmpl", context) ;
 		
 		container.appendChild(uiAddAppContainer) ;
 	}

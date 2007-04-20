@@ -12,6 +12,6 @@
   jsmanager.addOnResizeJavascript('eXo.portal.UIWorkingWorkspace.onResizeDefault') ;
 %>
 <div id="UIWorkingWorkspace" class="UIWorkingWorkspace" style="position: relative; z-index: 0;">
-	<%uicomponent.renderChildren()%>
+  <%uicomponent.renderChildren()%>
 </div>
 <div style="clear: left"><span></span></div>

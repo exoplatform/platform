@@ -1,3 +1,16 @@
+<%
+  import org.exoplatform.web.application.JavascriptManager;
+
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  
+  jsmanager.importJavascript('eXo.widgets.UIWidgetContainerManagement');
+  jsmanager.importJavascript('eXo.widgets.UIAddWidget');
+  
+  String showWCM = "eXo.widgets.UIWidgetContainerManagement.show()" ;
+  String showUIAddWidget = "eXo.widgets.UIAddWidget.show()" ;
+%>
+
 <div class="UIWidgets">
  	<div class="TopLeftWidgets">
  		<div class="TopRightWidgets">
@@ -14,7 +27,7 @@
  		      System.out.println("\n\nRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n\n");
  		    }
  		  %>			
-  		<div class="EditIcon"><span></span></div>
+  		<div class="EditIcon" onclick="$showWCM"><span></span></div>
   		<div style="clear: both"><span></span></div>
 
   		<div class="UIWidgetContainer">
@@ -56,7 +69,7 @@
   									     <div class="Icon24x24 DownBrownArrowIcon"><span></span></div>
   									     <div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
   									     <div class="Icon24x24 UpBlueArrowIcon"><span></span></div>
-  									     <div class="Icon24x24 AddIcon"><span></span></div>
+  									     <div class="Icon24x24 AddIcon" onclick="$showUIAddWidget"><span></span></div>
    					             <div style="clear: right"><span></span></div>
   									   </div>
   								   </div>

@@ -7,7 +7,7 @@ UIMaskWorkspace.prototype.init = function(maskId, show, width, height) {
 	if(show) {
 		if (eXo.portal.UIMaskWorkspace.maskLayer == null) {
 			var	maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", maskWorkpace, 30) ;
-			eXo.portal.UIMaskWorkspace.maskLayer = maskLayer;			
+			eXo.portal.UIMaskWorkspace.maskLayer = maskLayer;
 		}
 		maskWorkpace.style.margin = 'auto';
 		maskWorkpace.style.display = 'block';

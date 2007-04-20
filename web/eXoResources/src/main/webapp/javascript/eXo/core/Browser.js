@@ -238,12 +238,19 @@ Browser.prototype.findMouseYInPage = function(e) {
 Browser.prototype.findMouseRelativeX = function(object, e) {
   var posx = -1 ;
   var posXObject = eXo.core.Browser.findPosX(object) ;
+  
+  /*
+   * posXObject is added more 3px on IE6
+   * posXObject is double on IE7
+   * */
+//  console.debug(posXObject);
   if (!e) e = window.event ;
   if (e.pageX || e.pageY) {
     posx = e.pageX - posXObject ;
   } else if (e.clientX || e.clientY) {
     posx = e.clientX + document.body.scrollLeft - posXObject ;
   }
+//  console.debug(posXObject) ;
   return posx ;
 } ;
 
