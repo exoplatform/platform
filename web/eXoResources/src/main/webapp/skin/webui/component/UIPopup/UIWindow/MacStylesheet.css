@@ -7,11 +7,6 @@
   height: 350px ;
 }
 
-.UIWindow .UIPageIterator {
-  margin: auto;
-  margin-top: 3px;
-}
-
 .UIWindow .UICommunityPortlet {
   overflow: auto ;
 }
@@ -248,8 +243,4 @@
   width: auto ; height: auto;
   background: white;
   padding: 8px 3px 5px 0px; 
-}
-
-.UIWindow .UIJCRExplorerPortlet {
-	overflow: auto;
 }

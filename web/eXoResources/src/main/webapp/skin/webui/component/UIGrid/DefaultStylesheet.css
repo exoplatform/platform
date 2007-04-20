@@ -1,18 +1,17 @@
 .UIGrid {
-  border: 1px solid #cccccc;
+  border: 1px solid #b7b7b7;
   border-collapse: collapse ;
   font-size: 11px ;
   padding-left: 1px;
 }
 
-
 .UIGrid thead {
-  border: 1px solid #cccccc;
+  border: 1px solid #b7b7b7;
 }
 
 .UIGrid th {
   line-height: 19px;
-  border: 1px solid #cccccc;
+  border: 1px solid #b7b7b7;
   background: #d2ddf1 url('DefaultSkin/background/ThGridRepeatBg1x19.jpg') repeat-x;
   font-size: 11px ;
   font-weight: normal;

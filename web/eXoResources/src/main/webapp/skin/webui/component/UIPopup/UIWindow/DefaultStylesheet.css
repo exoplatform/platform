@@ -7,11 +7,6 @@
   height: 350px ;
 }
 
-.UIWindow .UIPageIterator {
-  margin: auto ;
-  margin-top: 3px;
-}
-
 /*##########################################################*/
 
 .UIWindow .InactiveWindowPortletControl {
@@ -215,38 +210,6 @@
   margin-right: 18px ;
 }
 
-.UIWindow .UIGrid {
-  font-size: 11px ;
-  border: 1px solid #7eaad0;
-  border-right: 0px ;
-  border-collapse: separate ;
-  padding-left: 1px;
-}
-.UIWindow .UIGrid thead {
-  border: 1px solid #7eaad0;
-}
-
-.UIWindow .UIGrid th {
-  border-right: 1px solid #7eaad0;
-  border-left: 0px ;
-  border-top: 0px ;
-}
-
-.UIWindow .UIGrid tbody {
-  padding-bottom: 1px;
-}
-
-.UIWindow .UIGrid tr {
-}
-
-.UIWindow .UIGrid td {
-  height: 26px ;
-  border-right: 1px solid #7eaad0;
-  border-left: 0px ;
-  border-top: 1px solid white;
-  padding-left: 7px;
-}
-
 .UIWindow .TopDecoratorLeft {
   height: 3px ;
   padding-left: 5px ;
@@ -357,8 +320,4 @@
   float: right ;
   width: 0px ; height: 0px ;
   background: url('null') repeat bottom right;
-}
-
-.UIWindow .UIJCRExplorerPortlet {
-	overflow: auto;
 }
