@@ -87,8 +87,16 @@ public class UIPageSelector extends UIFormInputContainer {
       PortalDAO service = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
       Page page = service.getPage(id) ;
       
-      PortalRequestContext pcontext = Util.getPortalRequestContext();
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      PortalRequestContext pcontext = Util.getPortalRequestContext();      
+      UIPageSelector uiPageSelector = uiPageBrowser.getAncestorOfType(UIPageSelector.class) ;
+      UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
+      if(uiForm != null) {
+        pcontext.addUIComponentToUpdateByAjax(uiForm.getParent()); 
+      } else {
+        pcontext.addUIComponentToUpdateByAjax(uiPageSelector.getParent());
+      }
+      
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);      
       if(page == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
@@ -104,15 +112,9 @@ public class UIPageSelector extends UIFormInputContainer {
         return;
       }
       
-      UIPageSelector uiPageSelector = uiPageBrowser.getAncestorOfType(UIPageSelector.class) ;
+      UIFormPopupWindow uiPopup = uiPageBrowser.getAncestorOfType(UIFormPopupWindow.class);
+      if(uiPopup != null) uiPopup.setShow(false);
       uiPageSelector.setPage(page) ;
-      
-      UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
-      if(uiForm != null) {
-        pcontext.addUIComponentToUpdateByAjax(uiForm.getParent()); 
-        return ;
-      }
-      pcontext.addUIComponentToUpdateByAjax(uiPageSelector.getParent());
     }
   }
 }
