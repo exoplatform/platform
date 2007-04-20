@@ -78,6 +78,43 @@
 .UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
  	line-height: 24px; text-align: center; 
 	background: url('VistaSkin/background/LightButtonMiddle2x24.png') repeat-x;
+<<<<<<< .mine
+}
+
+/*##############################-SimpleStyle ActionButton-################################*/
+.UIAction .ActionButton .SimpleStyle {
+	
+}
+
+.UIAction .ActionButton .SimpleStyle .ButtonLeft {
+  background: url('VistaSkin/background/LeftSimpleButton3x24.png') no-repeat left top;
+  padding: 0px 0px 0px 3px;
+}
+
+.UIAction .ActionButton .SimpleStyle .ButtonRight {
+  background: url('VistaSkin/background/RightSimpleButton3x24.png') no-repeat right top;
+  padding: 0px 3px 0px 0px ;
+}
+
+.UIAction .ActionButton .SimpleStyle .ButtonMiddle {
+  line-height: 24px;
+	background: url('VistaSkin/background/CenterSimpleButton1x24.png') repeat-x top;
+	text-align: center;	
+}
+
+.UIAction .ActionButton .SimpleStyle a {
+  color: #058ee6; font-weight: bold; font-size: 11px;
+  margin: 0px 6px;
+  line-height: 24px; height: 24px;
+}
+
+.UIAction .ActionButton .SimpleStyle a:hover {
+  color: #1273df;
+}
+
+.UIAddPortletPortlet .UIAction {
+	width: 180px;
+=======
 }
 
 /*##############################-SimpleStyle ActionButton-################################*/
@@ -109,4 +146,5 @@
 
 .UIAction .ActionButton .SimpleStyle a:hover {
   color: #1273df;
+>>>>>>> .r14799
 }
