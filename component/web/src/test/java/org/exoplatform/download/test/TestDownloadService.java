@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.download.test;
 
-import org.exoplatform.services.download.DownloadService;
+import org.exoplatform.download.DownloadService;
 import org.exoplatform.test.BasicTestCase;
 
 /**

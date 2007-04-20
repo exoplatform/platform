@@ -3,7 +3,7 @@
     <groupId>org.exoplatform.portal</groupId>
     <artifactId>config</artifactId>
     <version>2.0</version>
-  </parent> 
+  </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>exo.portal.component.data</artifactId>
@@ -14,10 +14,25 @@
   <description>eXo Portal Data</description>
 
   <dependencies>
-    <dependency>
+    <!--<dependency>
       <groupId>exo-portlet-container</groupId>
       <artifactId>exo-portlet-container.services.jsr168.api</artifactId>
       <version>${org.exoplatform.pc.version}</version>
+    </dependency>-->
+    <dependency>
+	        <groupId>org.exoplatform.portletcontainer</groupId>
+	        <artifactId>exo-portlet-container.services.jsr168.api</artifactId>
+	        <version>${org.exoplatform.pc.version}</version>
+	        <!--<exclusions>
+	          <exclusion>
+	            <groupId>xml-resolver</groupId>
+	            <artifactId>xml-resolver</artifactId>
+	          </exclusion>
+	          <exclusion>
+	            <groupId>jtidy</groupId>
+	            <artifactId>jtidy</artifactId>
+	          </exclusion>
+	        </exclusions>-->
     </dependency>
 
     <dependency>
@@ -25,7 +40,7 @@
       <artifactId>exo.portal.component.xml-parser</artifactId>
       <version>${org.exoplatform.portal.version}</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.resources.api</artifactId>
@@ -44,9 +59,9 @@
       <version>1.4.3</version>
     </dependency>
   </dependencies>
-  
+
   <build>
-    <plugins>     
+    <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
@@ -55,19 +70,19 @@
           <execution>
             <phase>compile<!--process-classes--></phase>
             <configuration>
-              <tasks>           
-                <taskdef name="bind" classname="org.jibx.binding.ant.CompileTask" 
+              <tasks>
+                <taskdef name="bind" classname="org.jibx.binding.ant.CompileTask"
                          classpathref="maven.dependency.classpath"/>
                 <bind load="true" binding="${basedir}/src/main/resources/binding.xml">
                   <classpathset dir="${basedir}/target/classes"/>
                 </bind>
-                
-              </tasks>            
-            </configuration>            
+
+              </tasks>
+            </configuration>
             <goals><goal>run</goal></goals>
           </execution>
         </executions>
-      </plugin>      
-    </plugins>    
-  </build>   
+      </plugin>
+    </plugins>
+  </build>
 </project>

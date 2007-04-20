@@ -3,7 +3,7 @@
     <groupId>org.exoplatform.portal</groupId>
     <artifactId>config</artifactId>
     <version>2.0</version>
-  </parent> 
+  </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>exo.portal.component.resources</artifactId>
@@ -30,7 +30,7 @@
       <artifactId>exo.core.component.database</artifactId>
       <version>${org.exoplatform.core.version}</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.resources.api</artifactId>
@@ -57,6 +57,13 @@
     </dependency>
 
     <dependency>
+      <groupId>org.exoplatform.jcr</groupId>
+      <artifactId>exo.jcr.component.core</artifactId>
+      <version>${org.exoplatform.jcr.version}</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <!--<dependency>
       <groupId>exo-jcr</groupId>
       <artifactId>exo-jcr.services.jcr.impl</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
@@ -85,6 +92,6 @@
 
         <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.command</artifactId></exclusion>
       </exclusions>
-    </dependency>	
-  </dependencies>   
+    </dependency>-->
+  </dependencies>
 </project>
