@@ -340,7 +340,7 @@ UIPortal.prototype.changeSkin = function(url) {
 	}
 	if(skin == undefined) skin = '';
   window.location = url + '&skin='+skin;
-}
+} ;
 
 eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;
 eXo.portal.UIPortal = new UIPortal() ;
