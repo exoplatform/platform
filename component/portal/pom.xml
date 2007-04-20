@@ -1,0 +1,55 @@
+<project>
+  <parent>
+    <groupId>org.exoplatform.portal</groupId>
+    <artifactId>config</artifactId>
+    <version>2.0</version>
+  </parent> 
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>exo.portal.component.portal</artifactId>
+  <packaging>jar</packaging>
+  <version>${org.exoplatform.portal.version}</version>
+  <name>eXo Portal Data</name>
+  <url>http://www.exoplatform.org</url>
+  <description>eXo Portal Data</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>exo-portlet-container</groupId>
+      <artifactId>exo-portlet-container.services.jsr168.api</artifactId>
+      <version>${org.exoplatform.pc.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.resources</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>     
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.0</version>
+        <executions>
+          <execution>
+            <phase>compile<!--process-classes--></phase>
+            <configuration>
+              <tasks>           
+                <taskdef name="bind" classname="org.jibx.binding.ant.CompileTask" 
+                         classpathref="maven.dependency.classpath"/>
+                <bind load="true" binding="${basedir}/src/main/resources/binding.xml">
+                  <classpathset dir="${basedir}/target/classes"/>
+                </bind>
+                
+              </tasks>            
+            </configuration>            
+            <goals><goal>run</goal></goals>
+          </execution>
+        </executions>
+      </plugin>      
+    </plugins>    
+  </build>   
+</project>
