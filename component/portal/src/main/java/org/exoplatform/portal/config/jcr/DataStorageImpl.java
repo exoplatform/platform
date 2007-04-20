@@ -8,6 +8,7 @@ import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.services.jcr.RepositoryService;
 
 /**
  * Created by The eXo Platform SARL
@@ -16,8 +17,13 @@ import org.exoplatform.portal.config.model.PortalConfig;
  * Apr 20, 2007  
  */
 public class DataStorageImpl  implements DataStorage {
+  private RepositoryService service_ ;
   private DataMapper mapper = new DataMapper() ;
 
+  public DataStorageImpl(RepositoryService service) {
+    service_ = service ;
+  }
+  
   public Page getPage(String pageId) throws Exception {
     return null;
   }

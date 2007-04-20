@@ -26,9 +26,22 @@ public class UserPortalConfigService {
    *The constructor should create the DataStorage object and broadcast "the UserPortalConfigService.onInit"
    *event
    */
-  public UserPortalConfigService() {
-    
+  public UserPortalConfigService(DataStorage storage) {
+    storage_ = storage ;
   }
+  
+  /**
+   * @return This method should the membership type that the user can access the portal, pages
+   * and the navigation.
+   */
+  public String getViewMembershipType()  { return null ; }
+  
+  /**
+   * @return This method should return the membership type that the user can edit the portal, pages
+   * and the navigation
+   */
+  public String getEditMembershipType()  { return null ; }
+  
   /**
    * This  method should load the PortalConfig object according to the portalName,  set the view and edit
    * permission according to the accessUser, load Naviagtion of the portal according to the portalName, 

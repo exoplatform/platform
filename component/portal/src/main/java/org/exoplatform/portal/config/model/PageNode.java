@@ -19,7 +19,9 @@ public class PageNode  {
   protected String name ;
   protected String label ;
   protected String icon ;
+  //TODO: Remove accessPermission
   protected String accessPermission ;
+  
   protected String pageReference ;
   protected String description ;
   protected String type;

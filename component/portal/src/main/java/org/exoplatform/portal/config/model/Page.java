@@ -16,6 +16,7 @@ public class Page extends Container {
   
   private String owner ;
   private String name ;
+  //TODO: Change view, edit permission to accessGroup
   private String viewPermission ;
   private String editPermission ;
   private boolean showMaxWindow = false ;

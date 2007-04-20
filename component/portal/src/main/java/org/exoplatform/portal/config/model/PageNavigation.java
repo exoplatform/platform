@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class PageNavigation {
   private String      id ;
 	private String			owner;
+   //TODO: Change view, edit permission to accessGroup
   private String      accessPermission ;
   private String      editPermission ;
   private String      description ;

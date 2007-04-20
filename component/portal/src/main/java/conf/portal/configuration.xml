@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
   <component>
+    <key>org.exoplatform.portal.config.DataStorage</key>
+    <type>org.exoplatform.portal.config.jcr.DataStorageImpl</type>     
+  </component>   
+
+  <component>
     <key>org.exoplatform.portal.config.UserPortalConfigService</key>
     <type>org.exoplatform.portal.config.UserPortalConfigService</type>     
   </component>   

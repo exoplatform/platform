@@ -16,6 +16,7 @@ public class PortalConfig extends Component {
   
 	private String owner ;
   private String locale ;
+  //TODO: Change view, edit permission to accessGroup
   private String viewPermission ;
   private String editPermission  ;
   private String skin;
