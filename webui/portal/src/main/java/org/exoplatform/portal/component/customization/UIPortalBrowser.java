@@ -12,8 +12,10 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.PortalDAO;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.component.UIGrid;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -60,18 +62,24 @@ public class UIPortalBrowser extends UIContainer {
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
       PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig, true);
       
-      UIPortal oldUIPortal = uiWorkingWS.getChild(UIPortal.class);      
+      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
+      if(userACL.hasPermission(uiPortal.getOwner(), remoteUser, uiPortal.getViewPermission())){
+        UIPortal oldUIPortal = uiWorkingWS.getChild(UIPortal.class);      
+        
+        uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
+        uiWorkingWS.setRenderedChild(UIPortal.class) ;
+        UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+        UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
+        uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
+        prContext.addUIComponentToUpdateByAjax(uiControl);
+        
+        prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
+        prContext.setFullRender(true);
+        return;
+      } 
       
-      uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
-      uiWorkingWS.setRenderedChild(UIPortal.class) ;
-      
-      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-      uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
-      prContext.addUIComponentToUpdateByAjax(uiControl);
-      
-      prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
-      prContext.setFullRender(true);      
+      uiPortalApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-viewPermission", new String[]{uiPortal.getName()})) ;;
+      prContext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
     }
   } 
 }

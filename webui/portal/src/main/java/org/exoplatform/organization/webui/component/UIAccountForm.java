@@ -48,7 +48,7 @@ import org.exoplatform.webui.event.Event.Phase;
     },
     events = {
       @EventConfig(listeners = UIAccountForm.SaveActionListener.class ),
-      @EventConfig(listeners = UIAccountForm.ResetActionListener.class, phase = Phase.DECODE ),
+      @EventConfig(listeners = UIAccountForm.ResetActionListener.class, phase = Phase.DECODE),
       @EventConfig(listeners = UIAccountForm.SelectItemOptionActionListener.class, phase = Phase.DECODE)
     }
 )

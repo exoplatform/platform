@@ -4,9 +4,13 @@
  **************************************************************************/
 package org.exoplatform.portal.component.customization;
 
+import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIContainer;
+import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
@@ -93,10 +97,18 @@ public class UIContainerForm extends UIForm {
       Container container = new Container();
       uiForm.invokeSetBindingBean(container) ;
       PortalDataModelUtil.toUIContainer(uiContainer, container, true);
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       
       UIMaskWorkspace uiMaskWorkspace = uiForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
+      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
+      
+      UIPortalApplication uiPortalApp = uiForm.getAncestorOfType(UIPortalApplication.class);
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
+      pcontext.setFullRender(true);
+      Util.showComponentLayoutMode(UIContainer.class);  
     }
   }
 }
