@@ -218,7 +218,7 @@ public class UIPageBrowser extends UISearch {
         return;
       }
       
-      if(page.getFactoryId() != null && page.getFactoryId().equals("Desktop")) {
+      if("Desktop".equals(page.getFactoryId())) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{page.getName()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
