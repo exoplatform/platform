@@ -130,13 +130,13 @@
 .UIAddApplication .ApplicationLabel {
 	height: 22px ;
 	line-height: 22px; 
-	font-weight: bold ; font-size: 11px; color: #1465B9;
+	font-weight: bold ; font-size: 11px; color: #0987d7;
 	vertical-align: middle ;
 }
 
 .UIAddApplication .ApplicationListContainer {
 	height: 240px;
-	border: 1px solid #a4a4a4;
+	border: 1px solid #c3c3c3;
 	background: white;
 	overflow: auto;
 	padding: 0px 10px;
@@ -157,15 +157,14 @@
 
 .UIAddApplication .ApplicationDescription {
 	background: white ;
-	padding: 10px 1px 10px 70px;
-	font-size: 11px;
+	padding: 10px 1px 10px 50px;
 }
 
 .UIAddApplication .Application {
 	float: none;
   width: 210px;
   margin: 10px 0px 0px 0px ;
-	border: solid 1px #d6d6d6 ;
+	border: solid 1px #e4e4e4 ;
 }
 
 .UIAddApplication .AddButton {
@@ -184,26 +183,27 @@
 }
 
 .UIAddApplication .TitleBarContainer .LeftTitleBar {
-  background: url('DefaultSkin/background/LeftTitleBar60x50.gif') no-repeat left;
-  padding: 0px 0px 0px 60px ;
+  background: url('DefaultSkin/background/LeftTitleBar15x32.gif') no-repeat left;
+  padding: 0px 0px 0px 15px ;
 }
 
 .UIAddApplication .TitleBarContainer .RightTitleBar {
-  background: url('DefaultSkin/background/RightTitleBar11x50.gif') no-repeat right;
-  padding: 0px 11px 0px 0px ;
+  background: url('DefaultSkin/background/RightTitleBar15x32.gif') no-repeat right;
+  padding: 0px 15px 0px 0px ;
 }
 
 .UIAddApplication .TitleBarContainer .CenterTitleBar {
-  height: 50px ;
-  line-height: 50px ; vertical-align: middle ;
-  font-weight: bold ; text-align: center ; font-family: arial; color: #0575CA; font-size: 13px;
-  background: url('DefaultSkin/background/CenterTitleBar1x50.gif') repeat-x;
+  height: 32px ;
+  line-height: 32px ; vertical-align: middle ;
+  font-weight: bold ; text-align: center ; font-family: arial; color: #0786e7; font-size: 13px;
+  background: url('DefaultSkin/background/CenterTitleBar1x32.gif') repeat-x;
 }
 
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
   height: 240px ;
   overflow: auto ;
   background: #ffffff;
+  border: 1px solid #c3c3c3;
 }
 
 .UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {

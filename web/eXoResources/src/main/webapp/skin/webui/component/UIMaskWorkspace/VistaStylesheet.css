@@ -178,16 +178,34 @@
 }
 
 /**************************** UIAddApplication ******************************************/
+
+.UIAddApplication .ApplicationListContainer {
+  background: white;
+  border: 1px solid #C3C3C3;
+  height: 240px;
+  overflow: auto;  
+  padding: 0px 10px;
+}
+
+.UIAddApplication .Application {
+  float: none;
+  width: 187px;
+  margin: 10px 0px 0px 0px ;
+	border: solid 1px #e4e4e4 ;
+}
+
+.UIAddApplication .ApplicationDescription {
+  background: white ;
+  padding:10px 1px 10px 50px;
+}
+
 .UIAddApplication .TitleBarContainer {
   padding: 10px 10px 0px 10px; 
   width: 550px;
 }
 
-.UIAddApplication .ItemDetailTitle {
-	height: 26px ;
-	line-height: 26px; 
-	font-weight: bold ; font-size: 11px; color: #5c5c5c;
-	vertical-align: middle ;
+.UIAddApplication .LeftColumnStyle .ItemListContainer {
+  width: 175px;
 }
 
 .UIAddApplication .LeftColumnStyle .ItemListContainer .ItemListTitle {
@@ -198,7 +216,7 @@
 }
 
 .UIAddApplication .ApplicationLabel {
-	float: left ;
+	float: none ;
 	height: 22px ;
 	line-height: 22px; 
 	font-size: 11px; color: #1465B9;
@@ -212,20 +230,17 @@
 	overflow: auto;
 }
 
+.UIAddApplication .PortletIcon {
+  cursor: pointer;
+  float: left;
+  height: 80px;
+  width: 80px;
+}
+
 .UIAddApplication .TitleBarApplication {
 	height: 21px ;
 	background: url("VistaSkin/background/ApplicationTitleBar1x21.png") repeat-x ;
-}
-
-.UIAddApplication .ApplicationDescription {
-	background: white ;
-	padding: 10px;
-	font-size: 11px;
-}
-
-.UIAddApplication .Application {
-  margin: 10px 10px 5px 10px ;
-	border: solid 1px #d6d6d6 ;
+	text-align: center;
 }
 
 .UIAddApplication .UIItemSelector {
@@ -260,29 +275,37 @@
   border: 1px solid #a4a4a4;
 }
 
+.UIAddApplication .UIItemSelector .ItemDetailList {
+  background: none;
+  border: none;
+  margin-left: 180px;
+}
+
 .UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {
   background: none;
   border: none;
 }
 
-.UIAddApplication .UIItemSelector .ItemDetailList {
-  background: none;
-  border: none;
+.UIAddApplication .ItemDetailTitle {
+	height: 26px ;
+	line-height: 26px; 
+	font-weight: bold ; font-size: 11px; color: #5c5c5c;
+	vertical-align: middle ;
 }
 
 .UIAddApplication .SelectButton {
-	float: right ; 
-	width: 18px ; height: 20px ;
+	float: none ; 
+	width: 20px ; height: 20px ;
 	background: url("VistaSkin/icons/16x16/SelectButton.png") no-repeat center;
-	margin: 0px 3px ;
+	margin: 5px 3px ;
 	cursor: pointer ;
 }
 
 .UIAddApplication .AddButton {
-	float: right ; 
+	float: none ; 
 	width: 20px ; height: 20px ;
 	background: url("VistaSkin/icons/16x16/Add.png") no-repeat center;
-	margin: 0px 10px ;
+	margin: 5px 3px ;
 	cursor: pointer ;
 }
 
@@ -334,4 +357,20 @@
 	background: url('/eXoResources/icons/16x16/DefaultSkin/DarkBlueNextArrow.gif') no-repeat ;
 	float: left;
 	margin: 3px 5px 0px 5px;
+}
+
+.UIAddApplication .eXoBrowserIcon {
+  background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png) no-repeat;
+}
+
+.UIAddApplication .eXoMailIcon {
+  background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/eXoMail.png) no-repeat;
+}
+
+.UIAddApplication .eXoCalendarIcon {
+  background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/eXoCalendar.png) no-repeat;
+}
+
+.UIAddApplication .eXoForumIcon {
+  background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png) no-repeat;
 }

@@ -23,7 +23,7 @@
  				     if(uiPopup != null) uicomponent.renderUIComponent(uiPopup);
  				  %>  
 			</div>
-	  	<div style="clear: both;"><span></span></div>
+	  	<div style="clear: left;"><span></span></div>
 		</div>
 	</div>
 </div>

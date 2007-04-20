@@ -12,7 +12,6 @@
 
 .UIContentPortlet {
  padding: 5px 7px;
- overflow: auto ; /* Fix bug on FireFox*/
 }
 
 .UIContentPortlet .UIContentNavigation {

@@ -242,7 +242,7 @@
 
 /*#######################  UIMemberShipManagement #################################*/
 .UIOrganizationPortlet .UIFormWithTitle {
-	width: 400px ; 
+	width: auto;; 
 	margin: 10px auto 0px auto ; 
 }
 
