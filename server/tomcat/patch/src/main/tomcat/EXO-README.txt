@@ -17,10 +17,9 @@ http://docs.exoplatform.org
 
  * Enter one of the following addresses into your browser address bar:
    
-    http://localhost:8080/ecmportal
-    http://localhost:8080/portal/private/exo:/
-    http://localhost:8080/portal/private/community:/
-    http://localhost:8080/portal/private/company:/
+    http://localhost:8080/portal
+    http://localhost:8080/portal/public/site:/
+    http://localhost:8080/portal/public/webos:/
 
 
  You can log into the portal with the following accounts: exo, exoadmin, company, community. 
