@@ -34,7 +34,7 @@
     </application>  
 
     <application>
-      <title>Portlet Registry Portlet</title>
+      <title>Portlet-Registry Portlet</title>
       <application-instance-id>exoadmin:/exoadmin/PortletRegistryPortlet/PortletRegistry</application-instance-id>
       <show-info-bar>false</show-info-bar>
     </application>  
