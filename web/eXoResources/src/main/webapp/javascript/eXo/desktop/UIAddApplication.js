@@ -36,7 +36,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
   var itemDetails = ''; 
   var selected  = false;
   
-  /*TODO: move HTML code to a .jstmpl file*/
+  /**Repair: by Vu Duy Tu **/
   for(id in category.portletRegistry) {  	
 		var cate = category.portletRegistry[id];
 		if(!selected){

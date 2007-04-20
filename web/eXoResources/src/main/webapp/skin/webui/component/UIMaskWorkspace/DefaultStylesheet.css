@@ -44,10 +44,6 @@
   background: url('DefaultSkin/background/BottomCenterDecorator1x6.gif') repeat-x;
 }
 
-.UIMaskWorkspace .ContentContainerDetail {
-  padding: 15px 15px 0px 15px ;
-}
-
 .UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
   margin-right: 0px; 
   height: auto;
@@ -93,7 +89,7 @@
 	float: left ;
 	margin: 3px 5px 0px 5px ;
 }
-
+/* co the thua*/
 .UIMaskWorkspace .AddButton {
 	float: right ; 
 	width: 19px ; height: 19px ;
@@ -119,12 +115,19 @@
 }
 
 /**************************** UIAddApplication ******************************************/
+
+.UIAddApplication .ContentContainerDetail {
+  padding: 10px 15px 0px 15px ;
+}
+
 .UIAddApplication .TitleBarContainer {
-  padding: 10px 13px 0px 10px; 
+  padding: 10px 13px 0px 10px;
+	background: #f2f2f2;
+	text-align: center;
+	font-size: 11px; 
 }
 
 .UIAddApplication .ApplicationLabel {
-	float: left;
 	height: 22px ;
 	line-height: 22px; 
 	font-weight: bold ; font-size: 11px; color: #1465B9;
@@ -136,35 +139,45 @@
 	border: 1px solid #a4a4a4;
 	background: white;
 	overflow: auto;
+	padding: 0px 10px;
+}
+
+.UIAddApplication .PortletIcon {
+	float: left;
+	width: 80px; height: 80px;
+	cursor: pointer ;
 }
 
 .UIAddApplication .TitleBarApplication {
 	height: 22px ;
-	background: url("DefaultSkin/background/ApplicationTitleBar1x22.gif") repeat-x ;
+	background: #f2f2f2;
+	text-align: center;
+	font-size: 11px;
 }
 
 .UIAddApplication .ApplicationDescription {
 	background: white ;
-	padding: 10px;
+	padding: 10px 1px 10px 70px;
 	font-size: 11px;
 }
 
 .UIAddApplication .Application {
-  margin: 10px 10px 5px 10px ;
+	float: none;
+  width: 210px;
+  margin: 10px 0px 0px 0px ;
 	border: solid 1px #d6d6d6 ;
 }
 
 .UIAddApplication .AddButton {
-	float: right ; 
-	width: 19px ; height: 19px ;
+	float: none;
+	width: 24px ; height: 24px ;
 	background: url("DefaultSkin/icons/16x16/AddIcon.gif") no-repeat center;
 	margin: 1px 10px ;
 	cursor: pointer ;
 }
 
 .UIAddApplication .SelectButton {
-	float: right ; 
-	width: 19px ; height: 19px ;
+	width: 24px ; height: 24px ;
 	background: url("DefaultSkin/icons/16x16/SelectButton.gif") no-repeat center;
 	margin: 1px 10px ;
 	cursor: pointer ;
@@ -248,50 +261,18 @@
 	margin: 3px 5px 0px 5px;
 }
 
-/********************************  UIAddApplication.UIAddPortlet **********************************/
-.UIAddApplication .UIAddPortlet .Application {
-	width: 210px;
-}
 
-.UIAddApplication .UIAddPortlet .ApplicationLabel {
-	float: none;
-}
+/********************************  UIAddApplication.80x80Icon **********************************/
 
-.UIAddApplication .UIAddPortlet .ApplicationDescription {
-	padding: 10px 1px 10px 70px;
+.UIAddApplication .eXoBrowserIcon {
+	background: url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png')no-repeat ;
 }
-
-.UIAddApplication .UIAddPortlet .PortletIcon {
-	float: left;
-	width: 80px; height: 80px;
-	cursor: pointer ;
-	background: url('/eXoResources/background/DefaultSkin/DefaultPortlet.png')no-repeat ;
+.UIAddApplication .eXoMailIcon {
+	background: url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/eXoMail.png')no-repeat ;
 }
-
-.UIAddApplication .UIAddPortlet .ApplicationListContainer {
-	padding: 0px 10px;
+.UIAddApplication .eXoCalendarIcon {
+	background: url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/eXoCalendar.png')no-repeat ;
 }
-
-.UIAddApplication .UIAddPortlet .Application {
-  margin: 10px 0px 0px 0px ;
+.UIAddApplication .eXoForumIcon {
+	background: url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png')no-repeat ;
 }
-
-.UIAddApplication .UIAddPortlet .AddButton {
-	float: none ; 
-	width: 24px ; height: 24px ;
-	cursor: pointer ;
-}
-
-.UIAddApplication .UIAddPortlet .SelectButton {
-	float: none ; 
-	width: 24px ; height: 24px ;
-	cursor: pointer ;
-}
-
-.UIAddApplication .UIAddPortlet .TitleBarApplication {
-	height: 22px ;
-	background: #f2f2f2;
-	text-align: center;
-	font-size: 11px;
-}
-

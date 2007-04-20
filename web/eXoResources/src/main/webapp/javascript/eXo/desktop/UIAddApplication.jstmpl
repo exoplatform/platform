@@ -1,3 +1,9 @@
+<% /*Repair: by Vu Duy Tu */ %>
+<% var eXoBrowser = 'eXo.desktop.UIDesktop.addApplicationToDesktop(\'eXo.application.browser.UIBrowserApplication\',\'eXoBrowser\');'%>
+<% var eXoMail = 'eXo.desktop.UIDesktop.addApplicationToDesktop(\'eXo.application.mail.UIMailApplication\',\'eXoMail\',\'/mail/javascript/\');'%> 
+<% var eXoCalendar = 'eXo.desktop.UIDesktop.addApplicationToDesktop(\'eXo.application.calendar.UICalendarApplication\',\'eXoCalendar\',\'/calendar/javascript/\');'%>
+<% var eXoForum = 'eXo.desktop.UIDesktop.addApplicationToDesktop(\'eXo.application.forum.UIForumApplication\',\'eXoForum\',\'/forum/javascript/\');'%>
+
 <div class="UIAddApplication">
 	<div class="TitleBarContainer">
 	  <div class="LeftTitleBar">
@@ -112,71 +118,74 @@
 	          	    		<div class="TitleIcon ViewListIcon"><span></span></div>
 						  	    	<div class="Title">Select Applications</div>
 						  	    	<div style="clear: left;"><span></span></div>
-	          	    </div>
+	          	      </div>
 	          	      <div class="ApplicationListContainer">
-	              	      <div class="Application">
-				              		<div class="TitleBarApplication">
-				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
-				              			<div class="ApplicationLabel">eXo Browser</div>
-				              			<div class="SelectButton" onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication',
-				              																																										'eXoBrowser')"
-				              																																										title="Add this application to the desktop page">
-				              			  <span></span>
-			              			  </div>
-				              			<div style="clear: both"><span></span></div>
-				              		</div>
-				              		<div class="ApplicationDescription">eXo Browser</div>
-				              	</div>
-				              	
-				              	<div class="Application">
-				              		<div class="TitleBarApplication">
-				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
-				              			<div class="ApplicationLabel">eXo Mail</div>
-				              			<div class="SelectButton" 
-				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.mail.UIMailApplication', 
-				              			                                                            'eXoMail', 
-				              			                                                            '/mail/javascript/');"
-				              			                                                            title="Add this application to the desktop page">
-				              			  <span></span>
-				              			</div>
-				              			<div style="clear: both"><span></span></div>
-				              		</div>
-				              		<div class="ApplicationDescription">eXo Mail</div>
-				              	</div>
-				              	
-				              	<div class="Application">
-				              		<div class="TitleBarApplication">
-				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
-				              			<div class="ApplicationLabel">Calendar</div>
-				              			<div class="SelectButton" 
-						              			 onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.calendar.UICalendarApplication',
-						              			                                                        'eXoCalendar',
-	  			                                                                              '/calendar/javascript/');"
-	  			                                                                              title="Add this application to the desktop page">
-	              			        <span></span>
-	              			      </div>
-				              			<div style="clear: both"><span></span></div>
-				              		</div>
-				              		<div class="ApplicationDescription">Calendar</div>
-				              	</div>
-				              	
-				              	<div class="Application">
-				              		<div class="TitleBarApplication">
-				              			<div class="IconLayout ApplicationItemIcon"><span></span></div>
-				              			<div class="ApplicationLabel">Forum</div>
-				              			<div class="SelectButton" 
-				              			     onclick="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.forum.UIForumApplication', 
-				              			                                                            'eXoForum',
-				              			                                                            '/forum/javascript/');"
-				              			                                                            title="Add this application to the desktop page">
-	              			        <span></span>
-	              			      </div>
-				              			<div style="clear: both"><span></span></div>
-				              		</div>
-				              		<div class="ApplicationDescription">Forum</div>
-				              	</div>					              	
-				              	
-			              	</div>
+	              	       
+	              	    <div class="Application" style="float: left">
+				                <div class="ApplicationDescription">
+				              		<div class="PortletIcon eXoBrowserIcon" onclick="<%=eXoBrowser%>"><span></span></div>
+				              		  <div style="float: right;">
+					              			<div class="SelectButton"><span></span></div>
+					              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page">
+							          			  <span></span>
+							      			  </div>
+						      			  </div>
+						      			  <div style="clear: both"><span></span></div>
+						      			</div>
+				              	<div class="TitleBarApplication">
+				              	  <div class="ApplicationLabel">eXo Browser</div>
+				                </div>
+				              </div>
+	              	    <div class="Application" style="float: right">
+				                <div class="ApplicationDescription">
+				              		<div class="PortletIcon eXoMailIcon" onclick="<%=eXoMail%>"><span></span></div>
+				              		  <div style="float: right;">
+					              			<div class="SelectButton"><span></span></div>
+					              			<div class="AddButton" onclick="<%=eXoMail%>" title="Add this application to the desktop page">
+							          			  <span></span>
+							      			  </div>
+						      			  </div>
+						      			  <div style="clear: both"><span></span></div>
+						      			</div>
+				              	<div class="TitleBarApplication">
+				              	  <div class="ApplicationLabel">eXo Mail</div>
+				                </div>
+				              </div>
+				      			  <div style="clear: both"><span></span></div>
+				      			  
+	              	    <div class="Application" style="float: left">
+				                <div class="ApplicationDescription">
+				              		<div class="PortletIcon eXoCalendarIcon" onclick="<%=eXoCalendar%>"><span></span></div>
+				              		  <div style="float: right;">
+					              			<div class="SelectButton"><span></span></div>
+					              			<div class="AddButton" onclick="<%=eXoCalendar%>" title="Add this application to the desktop page">
+							          			  <span></span>
+							      			  </div>
+						      			  </div>
+						      			  <div style="clear: both"><span></span></div>
+						      			</div>
+				              	<div class="TitleBarApplication">
+				              	  <div class="ApplicationLabel">eXo Calendar</div>
+				                </div>
+				              </div>
+	              	    <div class="Application" style="float: right">
+				                <div class="ApplicationDescription">
+				              		<div class="PortletIcon eXoForumIcon" onclick="<%=eXoForum%>"><span></span></div>
+				              		  <div style="float: right;">
+					              			<div class="SelectButton"><span></span></div>
+					              			<div class="AddButton" onclick="<%=eXoForum%>" title="Add this application to the desktop page">
+							          			  <span></span>
+							      			  </div>
+						      			  </div>
+						      			  <div style="clear: both"><span></span></div>
+						      			</div>
+				              	<div class="TitleBarApplication">
+				              	  <div class="ApplicationLabel">eXo Forum</div>
+				                </div>
+				              </div>
+				      			  <div style="clear: both"><span></span></div>
+	              	     
+			              </div>
 	          	    </div>
 	          	    <div class="ItemDetail" style="display: none">
 	          	    	<div class="ItemDetailTitle">
