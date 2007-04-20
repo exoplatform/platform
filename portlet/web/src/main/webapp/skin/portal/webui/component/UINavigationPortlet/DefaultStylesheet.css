@@ -17,6 +17,7 @@
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
   height: 28px;
+  position: relative;
 }
 
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {

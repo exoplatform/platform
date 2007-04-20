@@ -207,6 +207,7 @@ PortalDragDrop.prototype.init = function(e) {
 };
 
 PortalDragDrop.prototype.doDropCallback = function(dndEvent) {
+	console.log("drop callback");
 	if(!dndEvent.lastFoundTargetObject) {
 		dndEvent.lastFoundTargetObject = eXo.portal.PortalDragDrop.backupLastFoundTarget ;
 	}
@@ -449,8 +450,9 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
   var listComponent = dndEvent.foundTargetObject.listComponentInTarget ;
   var DOMUtil = eXo.core.DOMUtil ;
   var trContainer = DOMUtil.findFirstDescendantByClass(targetElement, "tr", "TRContainer") ;
-  var tdInserted = document.createElement('td') ;
   var tdList = DOMUtil.getChildrenByTagName(trContainer, "td") ;
+
+  var tdInserted = document.createElement('td') ;
   var offsetWidthTR = trContainer.offsetWidth ;
   
   var checkTRContainerInsertBlock = DOMUtil.findAncestorByClass(insertBlock, "TRContainer") ;
@@ -462,6 +464,18 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
     trContainer.insertBefore(tdInserted, listComponent[insertPosition]) ;
   } else {
     trContainer.appendChild(tdInserted) ;
+  }
+  tdList.pop();
+  tdList.push(tdInserted);
+  var tdWidth = 100 / tdList.length;
+  for (var i = 0; i < tdList.length; i++) {
+  	var td = tdList[i];
+  	console.group(td);
+  	console.dir(td);
+  	console.groupEnd();
+  	var marginsPaddings = DOMUtil.getStyle(td, "margin-left", true) + DOMUtil.getStyle(td, "margin-right", true) +
+  												DOMUtil.getStyle(td, "padding-left", true) + DOMUtil.getStyle(td, "padding-right", true);
+		td.style.width = tdWidth + "%";
   }
   
   insertBlock.style.width = "auto" ;

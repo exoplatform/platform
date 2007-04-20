@@ -12,7 +12,7 @@
   jsmanager.importJavascript('eXo.portal.UIPortalControl');
   
   String showCategory = "eXo.webui.UIPopupSelectCategory.show(this, 120, event);"
-  String setDefault     = "eXo.webui.UIPopupSelectCategory.setDefault(this);" ;
+  String setDefault     = "";//"eXo.webui.UIPopupSelectCategory.setDefault(this);" ;
   
   String onControlOver  = "eXo.desktop.UIWindow.onControlOver(this, true);" ;
   String onControlOut    = "eXo.desktop.UIWindow.onControlOver(this, false);" ;

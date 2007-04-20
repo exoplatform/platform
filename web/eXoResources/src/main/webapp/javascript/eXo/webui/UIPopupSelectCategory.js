@@ -10,13 +10,19 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 	var categoryDetectPosition = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "CategoryDetectPosition") ;
 	var ControlCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
   var uiPopupCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
+  
 	if(uiPopupCategory == null) return;
+	console.group(categoryDetectPosition);
+	console.dir(categoryDetectPosition);
+	console.log(eXo.core.Browser.findPosX(ancestorPopupCategory));
+	console.groupEnd();
 	
 	if(uiPopupCategory.style.display == "none") {
 		uiPopupCategory.style.position = "absolute" ;
 		uiPopupCategory.style.display = "block" ;
-		uiPopupCategory.style.top = "22px" ;
+		uiPopupCategory.style.top = eXo.core.Browser.findPosY(ancestorPopupCategory) + 22 + "px" ;
 		uiPopupCategory.style.width = width + "px" ;
+
 		if(ControlCategory != null) {
 			var ancestorwidth = categoryDetectPosition.offsetWidth;
 			uiPopupCategory.style.right = (ancestorwidth - 27) + "px";
@@ -24,7 +30,7 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 	} else {
 		uiPopupCategory.style.display = "none" ;
 	}
-	
+
 	var uiWindow = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "UIWindow") ;
 	if(uiWindow != null) {
 		var uiRowContainer = eXo.core.DOMUtil.findAncestorByClass(uiWindow, "UIRowContainer") ;
@@ -32,7 +38,6 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 				uiRowContainer.style.height = uiWindow.offsetHeight + "px" ;
 			}
 		} 
-		
 	/*Add uiPopupCategory to the list element will be display to "none" when click on document*/
 	eXo.core.DOMUtil.listHideElements(uiPopupCategory);
 } ;

@@ -110,6 +110,15 @@ DOMUtil.prototype.findAncestorById = function(element,  id) {
   return null ;
 } ;
 
+DOMUtil.prototype.findAncestorByTagName = function(element, tagName) {
+  var parent = element.parentNode ;
+  while(parent != null) {
+    if(parent.nodeName && parent.nodeName.toLowerCase() == tagName)  return parent ;
+    parent = parent.parentNode ;
+  }
+  return null ;
+} ;
+
 DOMUtil.prototype.findDescendantsByClass = function(root, elementName, clazz) {
   var listElements = new Array() ;
   var elements = root.getElementsByTagName(elementName) ;
@@ -223,23 +232,27 @@ DOMUtil.prototype.swapPosition = function(e1, e2) {
   
 } ;
 
-DOMUtil.prototype.getStyle = function(element, style) {
+DOMUtil.prototype.getStyle = function(element, style, intValue) {
+	var result = null;
 	if (element.style[style]) {
-		return element.style[style];
+		result = element.style[style];
 	}
 	else if (element.currentStyle) {
-		return element.currentStyle[style];
+		result = element.currentStyle[style];
 	}
 	else if (document.defaultView && document.defaultView.getComputedStyle) {
 		style = style.replace(/([A-Z])/g, "-$1");
 		style = style.toLowerCase();
 		
 		var s = document.defaultView.getComputedStyle(element, "");
-		return s && s.getPropertyValue(style);
+		result = s && s.getPropertyValue(style);
 	}
-	else {
-		return null;
+	if (intValue && result) {
+		// if intValue is specified to true, returns only the numeric value of the property
+		var intRes = Number(result.match(/\d+/)); // \d is any number (0-9), + is 1 or more times
+		if (!isNaN(intRes)) result = intRes; // if intRes is numeric, put it in result
 	}
+	return result;
 };
 
 /*DOMUtil.prototype.getEventSource = function(evt) {
