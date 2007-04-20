@@ -67,7 +67,10 @@ import org.exoplatform.webui.event.EventListener;
       id = "UIPageNodeSelectorPopupMenu",
       type = UIRightClickPopupMenu.class,
       template = "system:/groovy/webui/component/UIRightClickPopupMenu.gtmpl",
-      events = @EventConfig(listeners = AddNodeActionListener.class)      
+      events = {
+        @EventConfig(listeners = AddNodeActionListener.class),
+        @EventConfig(listeners = PasteNodeActionListener.class)
+      }
   )
 })
 
@@ -78,8 +81,6 @@ public class UIPageNodeSelector extends UIContainer {
   private PageNode selectedPageNode;
   
   private PageNode copyNode_;
-  
-  private UIRightClickPopupMenu uiNewNodePopupMenu_;
   
   public void setCopyPageNote(PageNode note) {  copyNode_ = note ; }
   public PageNode getCopyPasteNote() { return copyNode_ ; } 
@@ -202,8 +203,6 @@ public class UIPageNodeSelector extends UIContainer {
   
   public String getUpLevelUri () { return upLevelURI ; }
   
-  public UIRightClickPopupMenu getUIRightClickPopupMenu() { return uiNewNodePopupMenu_; }
-   
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {      
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);

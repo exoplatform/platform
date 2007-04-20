@@ -21,7 +21,6 @@ import org.exoplatform.portal.component.customization.UIPageNodeSelector;
 import org.exoplatform.portal.component.customization.UIPageTemplateOptions;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.UIPage;
-import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
@@ -239,7 +238,6 @@ public class UIPageNodeActionListener {
   static public class CopyNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {      
       String value  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-//      System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n" + value);
       UIRightClickPopupMenu popupMenu = event.getSource();
       UIComponent parent = popupMenu.getParent();
       UIPageNodeSelector uiPageNodeSelector = parent.getParent();
@@ -259,8 +257,7 @@ public class UIPageNodeActionListener {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {   
       String value  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UIRightClickPopupMenu popupMenu = event.getSource();
-      UIComponent parent = popupMenu.getParent();
-      UIPageNodeSelector uiPageNodeSelector = parent.getParent();
+      UIPageNodeSelector uiPageNodeSelector =  popupMenu.getAncestorOfType(UIPageNodeSelector.class);
       UIPageManagement uiPageManagement = uiPageNodeSelector.getParent();
 
       PageNode srcNode = uiPageNodeSelector.getCopyPasteNote() ;

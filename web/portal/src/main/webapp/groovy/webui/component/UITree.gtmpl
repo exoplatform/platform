@@ -22,9 +22,7 @@
     <div class="TreeLevelContainer">
 	    <a class="LevelUpArrowIcon" href="<%=uicomponent.getActionLink();%>" title="Up Level" style="display: block;"><span></span></a>
   	</div>
-    <%         
- 		  for(object in sibling) { 			    
- 	  %>		
+    <%for(object in sibling) {%>		
 		    <div class="Node" style="padding-top: 2px;">
 		    <%=uicomponent.renderNode(object);%>		      	      		
 		    <%  
@@ -32,7 +30,7 @@
 				    for(child in children) { 
 				%>					      		 
 					    <div class="Node" style="padding-top: 2px; margin-left: 10px; ">
-					      <%=uicomponent.renderNode(child); %>
+					      <%=uicomponent.renderNode(child);%>
 					    </div>
 			  <%
 			      } 				    							  	

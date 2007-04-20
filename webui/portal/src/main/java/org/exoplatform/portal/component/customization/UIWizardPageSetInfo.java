@@ -12,6 +12,7 @@ import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTextAreaInput;
+import org.exoplatform.webui.component.UIRightClickPopupMenu;
 import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.component.UIWizard;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -46,6 +47,7 @@ public class UIWizardPageSetInfo extends UIForm {
     
     UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
     uiTree.setUIRightClickPopupMenu(null);
+    uiPageNodeSelector.removeChild(UIRightClickPopupMenu.class);
   } 
   
   public void setEditPageNode(boolean value){

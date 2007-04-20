@@ -16,7 +16,7 @@
   String selectCategory		= "eXo.webui.UIPopupSelectCategory.selectdCategory(this);" ;
   
   UIRightClickPopupMenu uiPopupMenu = uicomponent.getChild(UIRightClickPopupMenu.class);
-  String newNodePopupMenu = "";
+  String popupMenu = "";
   if(uiPopupMenu != null) {
     String id = uicomponent.getParent().getId();
   
@@ -25,7 +25,7 @@
   	
     uicomponent.renderUIComponent(uiPopupMenu) ;
      
-    newNodePopupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode");
+    popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode");
   }
 %>
 <div class="TopLeftContainerOptions">
@@ -33,7 +33,7 @@
   	<div class="TopCenterContainerOptions"><span></span></div>
   </div>
 </div>
-<div class="MiddleLeftContainerOptions" $newNodePopupMenu >
+<div class="MiddleLeftContainerOptions" $popupMenu>
 	<div class="MiddleRightContainerOptions">
 		<div class="UIPageNodeSelector" id="UIPageNodeSelector">
 		  
