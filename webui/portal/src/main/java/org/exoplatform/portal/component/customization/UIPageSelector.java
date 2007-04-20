@@ -4,8 +4,13 @@
  **************************************************************************/
 package org.exoplatform.portal.component.customization;
 
+import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.PortalDAO;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.Page;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputContainer;
@@ -81,15 +86,33 @@ public class UIPageSelector extends UIFormInputContainer {
       String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
       PortalDAO service = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
       Page page = service.getPage(id) ;
+      
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      if(page == null) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+        return;
+      }
+      
+      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
+      String accessUser = pcontext.getRemoteUser();
+      
+      if(!userACL.hasPermission(page.getOwner(), accessUser, page.getViewPermission())){
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{page.getName()})) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+        return;
+      }
+      
       UIPageSelector uiPageSelector = uiPageBrowser.getAncestorOfType(UIPageSelector.class) ;
       uiPageSelector.setPage(page) ;
       
       UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
       if(uiForm != null) {
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
+        pcontext.addUIComponentToUpdateByAjax(uiForm.getParent()); 
         return ;
       }
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageSelector.getParent());
+      pcontext.addUIComponentToUpdateByAjax(uiPageSelector.getParent());
     }
   }
 }
