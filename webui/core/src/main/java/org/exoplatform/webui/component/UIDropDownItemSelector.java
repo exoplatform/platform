@@ -102,6 +102,9 @@ public class UIDropDownItemSelector extends UIComponent {
     return uiForm.event(onchange_, null);
   }
 
-  public void setSelected(int i) { selected_ = options_.get(i); }
+  public void setSelected(int i) {
+    if(options_ == null || i >= options_.size()) return;
+    selected_ = options_.get(i); 
+  }
   
 }

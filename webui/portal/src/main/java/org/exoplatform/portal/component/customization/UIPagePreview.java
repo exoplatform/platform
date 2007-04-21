@@ -32,13 +32,13 @@ public class UIPagePreview extends UIComponentDecorator {
   
   public boolean hasBackEvent(){ return uiBackComponent != null; }
 
+  
   static public class BackActionListener extends EventListener<UIPagePreview> {
     public void execute(Event<UIPagePreview> event) throws Exception {
       UIPagePreview uiPreview = event.getSource() ;
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();      
       UIComponent uiComp = uiPreview.getBackComponent() ;
       uiToolPanel.setUIComponent(uiComp) ;
-      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiToolPanel) ;
     }
   }
