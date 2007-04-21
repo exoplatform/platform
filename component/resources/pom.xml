@@ -57,34 +57,9 @@
     </dependency>
 
     <dependency>
-      <groupId>exo-jcr</groupId>
-      <artifactId>exo-jcr.services.jcr.impl</artifactId>
+      <groupId>org.exoplatform.jcr</groupId>
+      <artifactId>exo.jcr.component.core</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
-      <exclusions>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.commons</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.container</artifactId></exclusion>
-
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.common.api</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.common.impl</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.cache.api</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.cache.impl</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.indexing.api</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.indexing.impl</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.database.api</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.database.impl</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.organization.api</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.organization.impl</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.security.api</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.security.impl</artifactId></exclusion>
-
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.document.api</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.document.impl</artifactId></exclusion>
-
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.xml-processing.api</artifactId></exclusion>
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.xml-processing.impl</artifactId></exclusion>
-
-        <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.command</artifactId></exclusion>
-      </exclusions>
     </dependency>
   </dependencies>
 </project>

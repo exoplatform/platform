@@ -56,4 +56,9 @@ class MockPortletRuntimeData implements PortletRuntimeData {
     return new PortletRequestMonitorData[0];
   }
 
+  public String getCacheScope() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
 }
