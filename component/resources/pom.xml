@@ -57,13 +57,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.exoplatform.jcr</groupId>
-      <artifactId>exo.jcr.component.core</artifactId>
-      <version>${org.exoplatform.jcr.version}</version>
-      <scope>compile</scope>
-    </dependency>
-
-    <!--<dependency>
       <groupId>exo-jcr</groupId>
       <artifactId>exo-jcr.services.jcr.impl</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
@@ -92,6 +85,6 @@
 
         <exclusion><groupId>exo-platform</groupId><artifactId>exo-platform.services.command</artifactId></exclusion>
       </exclusions>
-    </dependency>-->
+    </dependency>
   </dependencies>
 </project>

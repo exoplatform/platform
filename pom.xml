@@ -117,7 +117,7 @@
         <org.exoplatform.kernel.version>2.0.3</org.exoplatform.kernel.version>
         <org.exoplatform.core.version>2.0.3</org.exoplatform.core.version>
         <org.exoplatform.portal.version>2.0</org.exoplatform.portal.version>
-        <org.exoplatform.jcr.version>1.6</org.exoplatform.jcr.version>
+        <org.exoplatform.jcr.version>1.5</org.exoplatform.jcr.version>
         <org.exoplatform.pc.version>1.5</org.exoplatform.pc.version>
         <test.classes>Test</test.classes>
         <test.skip>true</test.skip>
