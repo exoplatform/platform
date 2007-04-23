@@ -24,18 +24,22 @@
   	</div>
     <%for(object in sibling) {%>		
 		    <div class="Node" style="padding-top: 2px;">
+		    <% 
+		    String objId = String.valueOf(uicomponent.getId(object)) ;
+        String actionLink = uicomponent.event("ChangeNode", objId);
+		    %>
 		    <%=uicomponent.renderNode(object);%>		      	      		
 		    <%  
-				  if(uicomponent.isSelected(object)){
-				    for(child in children) { 
-				%>					      		 
+				  if(uicomponent.isSelected(object)){%>
+				<%//TODO Xem lai cach dung id trong the duoi %>
+				    <div class = "ChildrenContainer" id="$actionLink" display = "block">
+				  <%  for(child in children) { %>								      		 
 					    <div class="Node" style="padding-top: 2px; margin-left: 10px; ">
 					      <%=uicomponent.renderNode(child);%>
 					    </div>
-			  <%
-			      } 				    							  	
-			    }	
-			  %>						   
+			      <%}	%>			    			
+			      </div>				  	
+			  <%}%>						   
 			  </div>
 		<%}%>
   </div>  

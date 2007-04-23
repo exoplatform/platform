@@ -28,7 +28,7 @@ UIPortalControl.prototype.showHiddenContent = function(selectedElement) {
 		  contentStyle[1].style.display = "block";
 		}
 	} 
-}
+};
 
 UIPortalControl.prototype.changeSkin = function (form, action) {
 	if (eXo.webui.UIItemSelector.SelectedItem != null) {
@@ -37,7 +37,7 @@ UIPortalControl.prototype.changeSkin = function (form, action) {
 		var params = [{name : component, value : option}];
 	}
 	ajaxGet(eXo.env.server.createPortalURL(form, action, true, params));
-}
+};
 
 UIPortalControl.prototype.changeLanguage = function (form, action) {
 	if (eXo.webui.UIItemSelector.SelectedItem != null) {
@@ -46,7 +46,20 @@ UIPortalControl.prototype.changeLanguage = function (form, action) {
 		var params = [{name : component, value : option}];
 	}
 	ajaxGet(eXo.env.server.createPortalURL(form, action, true, params));
-}
+};
 
+/*For Navigation Tree*/
+UIPortalControl.prototype.collapseTree = function (selectedElement ) {
+  var DOMUtil = eXo.core.DOMUtil ;
+  var parentNode = DOMUtil.findAncestorByClass(selectedElement, "Node");
+  var childrenContainer = DOMUtil.findFirstDescendantByClass(parentNode, "div", "ChildrenContainer");
+  var expandIcon = document.createElement('a');
+  expandIcon.href = childrenContainer.id ;
+  expandIcon.className = "ExpandIcon" ;
+  expandIcon.innerHTML = "<span></span>" ;
+  parentNode.removeChild(childrenContainer);
+  parentNode.insertBefore(expandIcon, selectedElement);
+  parentNode.removeChild(selectedElement);
+}
 
 eXo.portal.UIPortalControl = new UIPortalControl();

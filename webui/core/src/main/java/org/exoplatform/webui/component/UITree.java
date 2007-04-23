@@ -114,7 +114,12 @@ public class UITree extends UIComponent {
     String objId = String.valueOf(getId(obj)) ;
     String actionLink = event("ChangeNode", objId);
     StringBuilder builder = new StringBuilder();
-    builder.append(" <a class=\"").append(nodeIcon).append("\" href=\"").append(actionLink).append("\"><span></span></a>") ;      
+    if(nodeIcon.equals(expandIcon)){
+      builder.append(" <a class=\"").append(nodeIcon).append("\" href=\"").append(actionLink).append("\"><span></span></a>") ;  
+    } else {
+      builder.append(" <div class=\"").append(nodeIcon).append("\" onclick=\"eXo.portal.UIPortalControl.collapseTree(this)").append("\"><span></span></div>") ;
+    }
+          
     builder.append(" <div class=\"").append(iconGroup).append("\"><span></span></div> ");
     if(uiPopupMenu_ == null){
       builder.append(" <div class=\"NodeLabel\"> ");
