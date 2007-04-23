@@ -123,7 +123,7 @@
 	              	       
 	              	    <div class="Application" style="float: left">
 				                <div class="ApplicationDescription">
-				              		<div class="PortletIcon eXoBrowserIcon" onclick="<%=eXoBrowser%>"><span></span></div>
+				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
 				              		  <div style="float: right;">
 					              			<div class="SelectButton"><span></span></div>
 					              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page">
@@ -138,7 +138,7 @@
 				              </div>
 	              	    <div class="Application" style="float: right">
 				                <div class="ApplicationDescription">
-				              		<div class="PortletIcon eXoMailIcon" onclick="<%=eXoMail%>"><span></span></div>
+				              		<div class="PortletIcon eXoMailIcon" title="eXoMail Portlet"onclick="<%=eXoMail%>"><span></span></div>
 				              		  <div style="float: right;">
 					              			<div class="SelectButton"><span></span></div>
 					              			<div class="AddButton" onclick="<%=eXoMail%>" title="Add this application to the desktop page">
@@ -155,7 +155,7 @@
 				      			  
 	              	    <div class="Application" style="float: left">
 				                <div class="ApplicationDescription">
-				              		<div class="PortletIcon eXoCalendarIcon" onclick="<%=eXoCalendar%>"><span></span></div>
+				              		<div class="PortletIcon eXoCalendarIcon" title="eXoCalendar Portlet" onclick="<%=eXoCalendar%>"><span></span></div>
 				              		  <div style="float: right;">
 					              			<div class="SelectButton"><span></span></div>
 					              			<div class="AddButton" onclick="<%=eXoCalendar%>" title="Add this application to the desktop page">
@@ -170,7 +170,7 @@
 				              </div>
 	              	    <div class="Application" style="float: right">
 				                <div class="ApplicationDescription">
-				              		<div class="PortletIcon eXoForumIcon" onclick="<%=eXoForum%>"><span></span></div>
+				              		<div class="PortletIcon eXoForumIcon" title="eXoForum Portlet" onclick="<%=eXoForum%>"><span></span></div>
 				              		  <div style="float: right;">
 					              			<div class="SelectButton"><span></span></div>
 					              			<div class="AddButton" onclick="<%=eXoForum%>" title="Add this application to the desktop page">

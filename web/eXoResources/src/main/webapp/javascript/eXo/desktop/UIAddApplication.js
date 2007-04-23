@@ -15,7 +15,6 @@ UIAddApplication.prototype.init = function(containerId) {
 		width: "700px"
 	}
 	
-	
 	if(document.getElementById("UIMaskWorkspaceJSTemplate") == null) {
 		var uiAddAppContainer = document.createElement('div') ;
 		uiAddAppContainer.id = "UIAddApplicationContainer" ;
@@ -29,6 +28,14 @@ UIAddApplication.prototype.init = function(containerId) {
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	eXo.desktop.UIAddApplication.showAddApplication(uiAddApplicationContainer);
 	this.loadPortlets(false);
+};
+
+/**Created: by Duy Tu**/
+function getUrl(src)
+{
+	var img = document.createElement('img');	
+        img.src = src;
+	return(img.src);
 };
 
 UIAddApplication.prototype.loadPortlets = function(refresh) {
@@ -45,7 +52,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
   var checkSrc = ''; 
   var selected  = false;
   
-  /**Repair: by Vu Duy Tu **/
+  /**Repaired: by Vu Duy Tu **/
   for(id in category.portletRegistry) {  	
 		var cate = category.portletRegistry[id];
 		if(!selected){
@@ -77,16 +84,6 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 	  var portlets = cate["portlets"];
 	    window.status = "Onload5";
 	    
-/*
- * function testImage(URL) {
-  var img = new Image; 
-  img.onerror = isBad; 
-  img.src = URL; 
-}			
-function isBad() {
-  alert('Image doesn\'t exist!');
-}
- */
 	  var count=0;var i = 2;
 	  for(id in portlets) {
 	  	portlet = portlets[id];
@@ -95,16 +92,16 @@ function isBad() {
       if(count == 1)cssFloat = "float:right";
       ++i; if(i==100)i=2;
       var srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + portlet["title"]+".png";
-			
+      var srcNormalBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png";
+			srcBG = getUrl(srcBG);
+			srcNormalBG = getUrl(srcNormalBG);
 	    itemDetails += '<div class="Application" style="'+cssFloat+';">' +
-						         '  <div style="display: none">' +
-										 '    <img class="ImgPortlet" src="'+srcBG+'">'+
-										 '  </div>' +
 			               '		<div class="ApplicationDescription">' +
 			               '			<div class="PortletIcon" title="'+portlet["title"]+'"' +
-			               '        style="background: url(\''+srcBG+'\')no-repeat center;"' +
 			               '        onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\')">' +
-			               '        <span></span>' +
+			               '        <span>' +
+			               '          <img class="PlIcon" src="'+srcBG+'" onError="src=\''+srcNormalBG+'\'">' +
+			               '        </span>' +
 			               '      </div>' +
 			               '		  <div style="float: right;">' +
 				             ' 			  <div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'false\')" ><span></span></div>' +
@@ -126,20 +123,7 @@ function isBad() {
   }
   itemList.innerHTML = items;  
   itemDetailList.innerHTML = itemDetails;
-  var portletIcon = eXo.core.DOMUtil.findDescendantsByClass(itemDetailList, "div", "PortletIcon") ;
-  var imgPortlet = eXo.core.DOMUtil.findDescendantsByClass(itemDetailList, "img", "ImgPortlet") ;
-  for(var i = 0; i < imgPortlet.length; ++i){
- 		var img = new Image;
-	  //img.onerror = function() {
-	//  	portletIcon[i].style.background = "url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png')no-repeat center;";
-	//  }
-		//alert(eXo.desktop.UIAddApplication.isError(img));
-	  if(eXo.desktop.UIAddApplication.isError(img)) {
-	  	portletIcon[i].style.background = "url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png')no-repeat center;";
-	  }
-	  img.src = imgPortlet[i].src;
-	  //alert("test2");
-  }
+
 };
 
 UIAddApplication.prototype.isError = function(object) {
