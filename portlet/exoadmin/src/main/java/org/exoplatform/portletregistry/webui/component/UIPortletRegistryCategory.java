@@ -9,10 +9,13 @@ import java.util.Collection;
 import java.util.List;
 
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
+import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletregistery.Portlet;
 import org.exoplatform.services.portletregistery.PortletCategory;
 import org.exoplatform.services.portletregistery.PortletRegisteryService;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -205,7 +208,12 @@ public class UIPortletRegistryCategory extends UIContainer {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception {
       UIPortletRegistryCategory uicomp = event.getSource();
       Portlet portletSelected = uicomp.getSelectedPortlet() ;
-      if(portletSelected == null) return;
+      if(portletSelected == null) {
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIPortletRegistryCategory.msg.editPortlet", null)) ;
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return;
+      }
       UIPortletRegistryPortlet uiParent = uicomp.getParent();
       UIWorkingArea uiWorkingArea = uiParent.getChild(UIWorkingArea.class);
       UIInfoPortletForm uiPortletForm = uiWorkingArea.getChild(UIInfoPortletForm.class) ;
