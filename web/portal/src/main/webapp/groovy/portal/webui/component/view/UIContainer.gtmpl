@@ -35,7 +35,16 @@
   </div>
   
   <div class="LAYOUT-CONTAINER" style="display: none"></div>
-  <div class="VIEW-CONTAINER">
+  <% 
+     String style = "";
+     String width  = uicomponent.getWidth();
+     String height  = uicomponent.getHeight();
+     if(width != null || height != null) style="style=\"";
+     if(width != null) style += "width: "+width+"px;"
+     if(height != null) style += "height: "+height+"px;"
+     if(style.length() > 0) style += "\"";
+  %>
+  <div class="VIEW-CONTAINER" $style>
     <div id="$uicomponent.id">
       <div class="UIRowContainer"><%uicomponent.renderChildren()%></div>
 	  </div>

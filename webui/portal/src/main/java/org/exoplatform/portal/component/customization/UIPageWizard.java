@@ -35,7 +35,7 @@ public abstract class UIPageWizard extends UIWizard {
     uiHelpWindow = createUIComponent(UIPopupWindow.class, null, null);      
     uiHelpWindow.setWindowSize(300, 200);  
     uiHelpWindow.setShow(false);
-    uiHelpWindow.setId("UIPageWizard") ;
+    uiHelpWindow.setId("UIPageWizardHelp") ;
   }
   
   public void setNumberSteps(int s) { numberStep_ = s; }
