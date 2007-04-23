@@ -21,15 +21,15 @@ import org.exoplatform.webui.event.EventListener;
  * Jul 11, 2006  
  */
 @ComponentConfig(
-  template = "system:/groovy/portal/webui/component/widget/UILoggedInfo.gtmpl" ,
-  events = @EventConfig(listeners = UILoggedInfo.LogoutActionListener.class)
+  template = "system:/groovy/portal/webui/component/widget/UISystemWidgets.gtmpl" ,
+  events = @EventConfig(listeners = UISystemWidgets.LogoutActionListener.class)
 )
-public class UILoggedInfo extends UIContainer {
+public class UISystemWidgets extends UIContainer {
   
     public int accessibility_;
     public String remoteUser_;
     
-    public UILoggedInfo() throws Exception{
+    public UISystemWidgets() throws Exception{
       PortalRequestContext prContext = Util.getPortalRequestContext();
       accessibility_ = prContext.getAccessPath() ;
       remoteUser_ = prContext.getRemoteUser();

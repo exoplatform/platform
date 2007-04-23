@@ -207,7 +207,6 @@ PortalDragDrop.prototype.init = function(e) {
 };
 
 PortalDragDrop.prototype.doDropCallback = function(dndEvent) {
-	console.log("drop callback");
 	if(!dndEvent.lastFoundTargetObject) {
 		dndEvent.lastFoundTargetObject = eXo.portal.PortalDragDrop.backupLastFoundTarget ;
 	}
@@ -220,9 +219,11 @@ PortalDragDrop.prototype.doDropCallback = function(dndEvent) {
   
   var newComponent = false;
   if(eXo.core.DOMUtil.hasDescendantClass(srcElement, "DragControlArea") && (targetElement.foundIndex != null)) {
+//  	alert("My Test: " + eXo.portal.PortalDragDrop.layoutTypeElementNode);
     if(eXo.portal.PortalDragDrop.layoutTypeElementNode != null) {
       eXo.portal.PortalDragDrop.divRowContainerAddChild(srcElement, targetElement, targetElement.foundIndex) ;
     } else {
+//    	alert("Table is OK");
       eXo.portal.PortalDragDrop.tableColumnContainerAddChild(srcElement, targetElement, targetElement.foundIndex) ;
     }
   }
@@ -470,9 +471,9 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
   var tdWidth = 100 / tdList.length;
   for (var i = 0; i < tdList.length; i++) {
   	var td = tdList[i];
-  	console.group(td);
-  	console.dir(td);
-  	console.groupEnd();
+//  	console.group(td);
+//  	console.dir(td);
+//  	console.groupEnd();
   	var marginsPaddings = DOMUtil.getStyle(td, "margin-left", true) + DOMUtil.getStyle(td, "margin-right", true) +
   												DOMUtil.getStyle(td, "padding-left", true) + DOMUtil.getStyle(td, "padding-right", true);
 		td.style.width = tdWidth + "%";

@@ -27,7 +27,7 @@ public class UIWelcomeComponent extends UIContainer {
       addChild(UILoginForm.class, null, "LoginWelcomeComponent");
       return ;
     }
-    addChild(UIUserSpace.class, null, null) ;
+    addChild(UIWidgets.class, null, null) ;
   }  
 
 }
