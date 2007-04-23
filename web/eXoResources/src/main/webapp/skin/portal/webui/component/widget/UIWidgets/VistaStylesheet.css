@@ -110,26 +110,25 @@
 	cursor: pointer;	
 }
 
-.UIWidgetContainer .WidgetControl {
+.UIWidgetContainer .WidgetControlContainer {
   height: 21px;
   padding: 8px 15px 8px 0px;
 }
 
-.UIWidgetContainer .WidgetControl .WidgetControlContent {
+.UIWidgetContainer .WidgetControlContainer .WidgetControl {
   float: right;
 	width: 57px; height: 21px;
 	background: url('VistaSkin/background/WidgetControl57x21.png') no-repeat center;
-	
 }
 
-.UIWidgetContainer .WidgetControl .CloseWidgetIcon {
+.UIWidgetContainer .WidgetControlContainer .CloseWidgetIcon {
 	float: left;
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 0px 0px 5px;
 }
 
-.UIWidgetContainer .WidgetControl .EditWidgetIcon {
+.UIWidgetContainer .WidgetControlContainer .EditWidgetIcon {
 	float: left;
 	width: 16px; height: 16px;
 	margin: 2px 0px 0px 10px;

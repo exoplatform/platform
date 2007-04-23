@@ -92,25 +92,25 @@
 	cursor: pointer;	
 }
 
-.UIWidgetContainer .WidgetControl {
+.UIWidgetContainer .WidgetControlContainer {
   height: 25px;
   padding: 1px 8px 0px 0px;
 }
 
-.UIWidgetContainer .WidgetControl .WidgetControlContent {
+.UIWidgetContainer .WidgetControlContainer .WidgetControl {
   float: right;
 	width: 62px; height: 25px;
 	background: url('MacSkin/background/WidgetControl.png') no-repeat center;
 }
 
-.UIWidgetContainer .WidgetControl .CloseWidgetIcon {
+.UIWidgetContainer .WidgetControlContainer .CloseWidgetIcon {
 	float: left;
 	width: 24px; height: 24px;
 	cursor: pointer;
 	margin: 0px 2px 0px 4px;
 }
 
-.UIWidgetContainer .WidgetControl .EditWidgetIcon {
+.UIWidgetContainer .WidgetControlContainer .EditWidgetIcon {
 	float: left;
 	width: 24px; height: 24px;
 	cursor: pointer;

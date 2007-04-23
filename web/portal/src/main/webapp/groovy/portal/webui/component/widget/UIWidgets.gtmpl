@@ -6,12 +6,15 @@
   
   jsmanager.importJavascript('eXo.widgets.UIWidgetContainerManagement');
   jsmanager.importJavascript('eXo.widgets.UIAddWidget');
+  jsmanager.importJavascript('eXo.widgets.UIWidget');
+  
+  jsmanager.addJavascript('eXo.widgets.UIWidget.init()');
   
   String showWCM = "eXo.widgets.UIWidgetContainerManagement.show()" ;
   String showUIAddWidget = "eXo.widgets.UIAddWidget.show()" ;
 %>
 
-<div class="UIWidgets">
+<div class="UIWidgets" id="UIWidgets">
  	<div class="TopLeftWidgets">
  		<div class="TopRightWidgets">
  			<div class="TopMiddleWidgets"><span></span></div>
@@ -39,49 +42,49 @@
   		
   			<div class="MiddleLeftWidgetContainer">
   			  <div class="MiddleRightWidgetContainer">
-  			    <div class="MiddleWidgetContainer">
-  			
-  			    <div class="WidgetControl">
-	  			    <div class="WidgetControlContent" style="display: block">
-	  				    <div class="EditWidgetIcon" title="Edit"><span></span></div>
-	  				    <div class="CloseWidgetIcon" title="Close"><span></span></div>
-	  				    <div style="clear: left"><span></span></div>
+  			    <div class="MiddleWidgetContainer" id="UIWidgetContainer">
+  			      
+  			      <div class="UIWidget">
+		  			    <div class="WidgetControlContainer">
+			  			    <div class="WidgetControl" style="display: none">
+			  				    <div class="EditWidgetIcon" title="Edit"><span></span></div>
+			  				    <div class="CloseWidgetIcon" title="Close"><span></span></div>
+			  				    <div style="clear: left"><span></span></div>
+			  			    </div>
+		  			    </div>
+	  			  		
+		  			    <div class="WidgetApplication">
+		  				    <div class="eXoInfoWidgetImage">
+		  					    <div class="TopWidgetImage"><span></span></div>
+		  					    <div class="Download" title="Download now"><span></span></div>
+		  				    </div>
+		  			    </div>
 	  			    </div>
-  			   </div>
-  			  		
-  			   <div class="ItemList">
-  				   <div class="eXoInfoWidgetImage">
-  					   <div class="TopWidgetImage"><span></span></div>
-  					   <div class="Download" title="Download now"><span></span></div>
-  				   </div>
-  			   </div>
-  			   <div class="ItemList" style="display: none;">
-  			     <div class="ClockWidget"><span></span></div>
-  			   </div>
-  			   <div class="WidgetNavigator">
-  				   <div class="UIBarStyle">
-  					   <div class="ControlBar">
-  						   <div class="LeftBar">
-  							   <div class="RightBar">
-  								   <div class="MiddleBar">
-  									   <div class="ContentIcon">
-  										   <div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
-  									     <div class="Icon24x24 DownBrownArrowIcon"><span></span></div>
-  									     <div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
-  									     <div class="Icon24x24 UpBlueArrowIcon"><span></span></div>
-  									     <div class="Icon24x24 AddIcon" onclick="$showUIAddWidget"><span></span></div>
-   					             <div style="clear: right"><span></span></div>
-  									   </div>
-  								   </div>
-  							   </div>
-  						   </div>
-  					   </div>
-  					   <div style="clear: right"><span></span></div>
-  				   </div>
-  			   </div>
-  			</div>
+	  			    
+	  			    <div class="WidgetNavigator">
+	  				    <div class="UIBarStyle">
+	  					    <div class="ControlBar">
+	  						    <div class="LeftBar">
+	  							    <div class="RightBar">
+	  								    <div class="MiddleBar">
+	  									    <div class="ContentIcon">
+	  										    <div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
+	  									      <div class="Icon24x24 DownBrownArrowIcon"><span></span></div>
+	  									      <div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
+	  									      <div class="Icon24x24 UpBlueArrowIcon"><span></span></div>
+	  									      <div class="Icon24x24 AddIcon" onclick="$showUIAddWidget"><span></span></div>
+	   					              <div style="clear: right"><span></span></div>
+	  									    </div>
+	  								    </div>
+	  							    </div>
+	  						    </div>
+	  					    </div>
+	  					    <div style="clear: right"><span></span></div>
+	  				    </div>
+  			      </div>
+  			    </div>
+	  	    </div>
 	  	  </div>
-	  	</div>
 	  	
   		</div><%/*End Middle*/%>
   		

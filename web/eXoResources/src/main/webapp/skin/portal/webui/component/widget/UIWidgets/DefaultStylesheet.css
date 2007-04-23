@@ -55,25 +55,25 @@
 	cursor: pointer;	
 }
 
-.UIWidgetContainer .WidgetControl {
+.UIWidgetContainer .WidgetControlContainer {
   height: 17px;
   padding-right: 15px;
 }
 
-.UIWidgetContainer .WidgetControl .WidgetControlContent {
+.UIWidgetContainer .WidgetControlContainer .WidgetControl {
   float: right;
 	width: 42px; height: 17px;
 	background: url('DefaultSkin/background/WidgetControl.gif') no-repeat center;
 }
 
-.UIWidgetContainer .WidgetControl .CloseWidgetIcon {
+.UIWidgetContainer .WidgetControlContainer .CloseWidgetIcon {
 	float: left;
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 0px 2px 0px 3px;
 }
 
-.UIWidgetContainer .WidgetControl .EditWidgetIcon {
+.UIWidgetContainer .WidgetControlContainer .EditWidgetIcon {
 	float: left;
 	width: 16px; height: 16px;
 	cursor: pointer;	
