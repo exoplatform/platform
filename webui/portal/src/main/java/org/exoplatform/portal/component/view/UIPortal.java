@@ -94,25 +94,17 @@ public class UIPortal extends UIContainer {
   public List<PageNode> getSelectedPaths() { return selectedPaths_ ; }
   public void setSelectedPaths(List<PageNode> nodes){  selectedPaths_ = nodes; }
 
-  public UIPortlet getFirstUIPortlet(){
-    return (UIPortlet)Util.findUIComponent(this, UIPortlet.class, UIPage.class);
-  }
-
-  public List<UIComponent> getUIPortlets(){
+  /*public List<UIComponent> getUIPortlets(){
     List<UIComponent> list  = new ArrayList<UIComponent>();
     Util.findUIComponents(this, list, UIPortlet.class, UIPage.class);
     return list;
-  }
-
-  public UIContainer getFirstUIContainer(){
-    return (UIContainer)Util.findUIComponent(this, UIContainer.class, UIPage.class);
   }
 
   public List<UIComponent> getUIContainers(){
     List<UIComponent> list  = new ArrayList<UIComponent>();
     Util.findUIComponents(this, list, UIContainer.class, UIPage.class);
     return list;
-  }
+  }*/
 
   public UserPortalConfig getUserPortalConfig() { return userPortalConfig_; }
   void setUserPortalConfig(UserPortalConfig userPortalConfig) {

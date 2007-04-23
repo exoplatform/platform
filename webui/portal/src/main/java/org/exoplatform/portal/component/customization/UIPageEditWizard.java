@@ -123,7 +123,7 @@ public class UIPageEditWizard extends UIPageWizard {
       
       if(page == null) page  = new Page();
       if(page.getOwner() == null) page.setOwner(pageNode.getCreator());
-      if(page.getName() == null) page.setName(pageNode.getName());
+      if(page.getName() == null || page.getName().equals("UIPage")) page.setName(pageNode.getName());
       if(page.getOwner() == null) page.setOwner(context.getRemoteUser());
       
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);

@@ -59,21 +59,25 @@
   	if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
 			tabStyleNavigation = "SelectedItem" ;
 		}
-  	def actionLink = uicomponent.event("SelectNode", node.getUri()) ;
+  	String actionLink = uicomponent.event("SelectNode", node.getUri()) ;
+  	String icon = node.getIcon();
+    if(icon == null) icon = "PageIcon";
   	print """
   			<div class="MenuItem">
   				<div class="$tabStyleNavigation">
 						<div class="LeftItemIcon"><span></span></div>
-						<div class="MenuItemLabel"><a href="$actionLink">$node.label</a></div>
+						<div class="MenuItemLabel">
+							<div class="Icon $icon">
+								<a href="$actionLink">$node.label</a>
+							</div>	
+						</div>
 						<div class="RightItemIcon"></div>
 					</div>
 
 		""" ;
 		
     if (node.getChildren() != null && node.getChildren().size() > 0) {
-    	
     	renderChildrenContainer(node) ;
-    	
     }
 			    
 		print """
@@ -102,6 +106,8 @@
 		                if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
 		                  tabStyleNavigation = "SelectedNavigationTab" ;
 		                }
+		                String icon = node.getIcon();
+								    if(icon == null) icon = "PageIcon";
 		        %>      
 		        
 		         <div class="UITab" onmouseover="$mouseOver" onmouseout="$mouseOut">
@@ -110,7 +116,7 @@
 		               <div class="RightTab">
 		                 <div class="MiddleTab">
 		                   <div  class="TabIcon"><span></span></div>
-		                   <a href="$actionLink">$node.label</a>
+		                   <div class="Icon $icon"><a href="$actionLink">$node.label</a></div>
 		                   <div style="clear: left"><span></span></div>
 		                 </div>
 		               </div>
@@ -119,9 +125,7 @@
 		           <%
 		           /*Render Popup Menu*/
 		           if (node.getChildren() != null && node.getChildren().size() > 0) {
-		           
 						     	renderChildrenContainer(node) ;
-					     
 					     }
 		           %>
 		         </div>

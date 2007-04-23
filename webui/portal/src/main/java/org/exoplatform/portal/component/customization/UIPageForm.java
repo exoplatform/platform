@@ -121,11 +121,15 @@ public class UIPageForm extends UIFormTabPane {
     if(uiTemplate != null) {
       SelectItemOption itemOption = uiTemplate.getSelectedItemOption();
       if(itemOption != null){
-        page.setFactoryId(itemOption.getIcon());
+        String icon = itemOption.getIcon();
+        int idx = icon.indexOf("Image");
+        if(idx > -1) icon = icon.substring(0, idx);
+        page.setFactoryId(icon);
         page.setTemplate((String)itemOption.getValue());
         page.setShowMaxWindow(page.getFactoryId().equals("Desktop"));
       } 
     } 
+    
     if(!page.isShowMaxWindow()) {
       page.setShowMaxWindow((Boolean) getUIFormCheckBoxInput("showMaxWindow").getValue());      
     }

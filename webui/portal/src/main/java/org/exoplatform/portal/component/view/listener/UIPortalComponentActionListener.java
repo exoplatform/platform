@@ -9,10 +9,8 @@ import java.util.List;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
-import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIContainerConfigOptions;
-import org.exoplatform.portal.component.customization.UIPageForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.customization.UIPortletOptions;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
@@ -23,7 +21,6 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UILoginForm;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -60,22 +57,14 @@ public class UIPortalComponentActionListener {
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);      
       UIComponent uiComponent = event.getSource();
       UIPortalComponent uiParent = (UIPortalComponent)uiComponent.getParent();
-      uiParent.removeChildById(id);
+      UIComponent uiRemoveComponent = uiParent.removeChildById(id);
+      Util.showComponentLayoutMode(uiRemoveComponent.getClass());
       
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
       UIPortalApplication uiPortalApp = uiParent.getAncestorOfType(UIPortalApplication.class);
-      UIPortal uiPortal = uiPortalApp.findFirstComponentOfType(UIPortal.class);   
-      
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
-      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingArea);
-      
-      if(uiPortal.isRendered()){        
-        Util.showPortalComponentLayoutMode(uiPortalApp);
-        return;
-      }     
-      Util.showPageComponentLayoutMode(uiPortalApp);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
+      pcontext.setFullRender(true);
     }
   }
   

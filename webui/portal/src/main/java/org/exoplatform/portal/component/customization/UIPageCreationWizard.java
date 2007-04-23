@@ -61,7 +61,6 @@ public class UIPageCreationWizard extends UIPageWizard {
     setHasWelcome(true);
   }     
   
-  
   private void saveData() throws Exception {
     PortalDAO daoService = getApplicationComponent(PortalDAO.class);
     
@@ -145,19 +144,20 @@ public class UIPageCreationWizard extends UIPageWizard {
       
       UIPageTemplateOptions uiPageTemplateOptions = uiWizard.findFirstComponentOfType(UIPageTemplateOptions.class);
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);      
+      WebuiRequestContext context = Util.getPortalRequestContext() ;  
       
       PageNode pageNode = uiPageInfo.getPageNode();
       
       Page page = uiPageTemplateOptions.getSelectedOption();
       if(page == null) page  = new Page();
-      if(page.getOwner() == null) page.setOwner(pageNode.getCreator());
-      if(page.getName() == null) page.setName(pageNode.getName());
+      if(page.getOwner() == null) page.setOwner(context.getRemoteUser());
+      if(page.getName() == null || page.getName().equals("UIPage")) page.setName(pageNode.getName());        
+      page.setId(page.getOwner()+":/"+page.getName());
       
       boolean isDesktopPage = "Desktop".equals(page.getFactoryId());
       if(isDesktopPage) page.setShowMaxWindow(true);
       
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
-      WebuiRequestContext context = Util.getPortalRequestContext() ;  
       UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
       PortalDataModelUtil.toUIPage(uiPage, page, true);
       uiPagePreview.setUIComponent(uiPage);
@@ -174,6 +174,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       uiPageEditBar.setUIPage(uiPage);      
       uiPageTemplateOptions.setSelectedOption(null);
     }
+
   }
 
   static  public class ViewStep5ActionListener extends EventListener<UIPageCreationWizard> {

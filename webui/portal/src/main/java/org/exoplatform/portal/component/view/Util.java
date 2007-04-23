@@ -63,8 +63,7 @@ public class Util {
       }
     }
     if(uiComponent instanceof org.exoplatform.webui.component.UIContainer){
-      List<UIComponent> children  = 
-        (( org.exoplatform.webui.component.UIContainer)uiComponent).getChildren();
+      List<UIComponent> children  = (( org.exoplatform.webui.component.UIContainer)uiComponent).getChildren();
       for(UIComponent comp : children ) setShowEditControl(comp, clazz);
       return;
     }
@@ -94,9 +93,9 @@ public class Util {
     uiWorkingWS.setRenderedChild(UIPortal.class) ;
     UIPortal uiPortal = uiWorkingWS.getChild(UIPortal.class);    
 
-    UIContainer uiContainer = uiPortal.getFirstUIContainer();
+    UIContainer uiContainer = Util.findUIComponent(uiPortal, UIContainer.class, UIPage.class);
     UIPage uiPage= uiPortal.findFirstComponentOfType(UIPage.class);
-    UIPortlet uiPortlet= uiPortal.getFirstUIPortlet();
+    UIPortlet uiPortlet=  Util.findUIComponent(uiPortal, UIPortlet.class, UIPage.class);
 
     String name = "";
     if(uiContainer != null && uiContainer.isShowEditControl())  name = "'UIContainer'";
@@ -105,6 +104,14 @@ public class Util {
 
     getPortalRequestContext().getJavascriptManager().addCustomizedOnLoadScript("eXo.portal.UIPortal.showLayoutModeForPortal("+name+");");
   }
+  
+//  public UIPortlet getFirstUIPortlet(UIContainer uiContainer){
+//    return 
+//  }
+  
+//  public UIContainer getFirstUIContainer(){
+//    return (UIContainer)Util.findUIComponent(UIContainer uiContainer, UIContainer.class, UIPage.class);
+//  }
 
   static public void showPageComponentLayoutMode(UIPortalApplication uiPortalApp){   
     UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
@@ -122,15 +129,16 @@ public class Util {
     getPortalRequestContext().getJavascriptManager().addCustomizedOnLoadScript("eXo.portal.UIPortal.showLayoutModeForPage('"+name+"');");
   }
 
-  static public UIComponent findUIComponent(UIComponent uiComponent, Class clazz, Class ignoreClazz){
-    if (clazz.isInstance(uiComponent)) return uiComponent;
+  @SuppressWarnings("unchecked")
+  static public <T extends UIComponent> T findUIComponent(UIComponent uiComponent, Class<T> clazz, Class ignoreClazz){
+    if (clazz.isInstance(uiComponent)) return (T)uiComponent;
     if(!(uiComponent instanceof UIContainer)) return null;
     List<UIComponent> children = ((UIContainer)uiComponent).getChildren();    
     for(UIComponent child : children){
-      if (clazz.isInstance(child)) return child;      
+      if (clazz.isInstance(child)) return (T)child;      
       else if(!ignoreClazz.isInstance(child)){ 
         UIComponent value = findUIComponent(child, clazz, ignoreClazz);
-        if(value != null) return value;
+        if(value != null) return (T)value;
       }
     }    
     return null;
@@ -176,8 +184,7 @@ public class Util {
     if(uiPortal.isRendered()){
       uiPortal.setMaximizedUIComponent(null);
       uiParent = uiPortal;
-    }
-    else{
+    } else{
       UIPortalToolPanel uiPortalToolPanel = getUIPortalToolPanel();
       UIPage uiPage  = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
       uiParent = uiPage;

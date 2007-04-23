@@ -13,7 +13,7 @@ import java.util.ArrayList;
   SelectItemCategory itemDesktop  = new SelectItemCategory("Desktop");
   itemDesktop.addSelectItemOption(new SelectItemOption("Page template",
                                   "system:/groovy/portal/webui/component/view/UIPageDesktop.gtmpl",
-                                  "Description", "Desktop", true));  
+                                  "Description", "Desktop", false));  
   options.add(itemDefault);
   options.add(itemDesktop);
 
