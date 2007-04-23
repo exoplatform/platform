@@ -52,7 +52,7 @@ UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
   var children = eXo.core.DOMUtil.getChildrenByTagName(uiPageDesktop, "div");
   
   var blankImage = portletsViewer.src ;
-  var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Monitoring.png" ;
+  var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/HideDesktop.png" ;
 	var srcPortletsViewerImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/PortletsViewer.png" ;
 
 	if(this.showDesktop) {
