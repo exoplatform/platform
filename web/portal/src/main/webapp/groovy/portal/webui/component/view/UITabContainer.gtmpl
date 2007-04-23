@@ -1,3 +1,10 @@
+<% 
+	import org.exoplatform.web.application.JavascriptManager;
+	
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.addJavascript('eXo.portal.UIPortal.OnLoad();');
+%>
 <div class="UITabContainer">
 	<div class="UIHorizontalTabs">
 	  <div class="LeftHorizontalTabs">
@@ -17,8 +24,8 @@
 				            	<div class="RightTab">
 				              	<div class="MiddleTab"> 
 				              		<div class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"> <%=title%> </div>
-					              	<div class="EditIcon"><span></span></div>
-					              	<div class="CloseIcon"><span></span></div>
+					              	<a class="EditIcon" href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>"><span></span></a>
+					              	<a class="CloseIcon" href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>"><span></span></a>
 					              	<div style="clear: left"><span></span></div>
 					              </div>
 				            	</div>
@@ -36,6 +43,7 @@
 	    </div>
 	  </div>
   </div>
+
   <div class="HorizontalLayout">	
 	  <% 
 	     String style = "";
@@ -46,18 +54,19 @@
 	     if(height != null) style += "height: "+height+"px;"
 	     if(style.length() > 0) style += "\"";
 	  %>	          
-		<div class="UITabContentContainer" $style>
+		<div id="TabContents" class="UITabContentContainer" $style>
+
 		<%
 		  status = "block";
 		  for(uiChild in uicomponent.getChildren()) {
 		%>
 				<div class="UITabContent" style="display: <%=status%>;">
-					<% uicomponent.renderUIComponent(uiChild);%>		  	
-				</div>		
+						<% uicomponent.renderUIComponent(uiChild);%>		  	
+				</div>
 		<%
 		    status = "none";
 		  }
-		%>     			
+		%>
 		</div>
 	</div>
 	

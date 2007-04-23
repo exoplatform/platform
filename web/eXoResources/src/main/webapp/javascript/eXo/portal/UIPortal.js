@@ -351,6 +351,18 @@ UIPortal.prototype.changeLanguage = function(url) {
   window.location = url + '&language='+language;
 } ;
 
+UIPortal.prototype.onLoad = function() {
+	DOMUtil = eXo.core.DOMUtil;
+	var tabContents = document.getElementById("TabContents") ;
+	var uiTabContent = DOMUtil.findDescendantsByClass(tabContents, "div", "UITabContent");
+	for(var i = 0;i < uiTabContent.length; ++i ){
+		var uiInfoBar = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "UIInfoBar") ;
+		var layOutContainer = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "LAYOUT-CONTAINER") ;
+		  uiInfoBar.style.display = "none";
+		  layOutContainer.style.border = "none";
+		  layOutContainer.style.background = "none";
+	}
+}
 
 eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;
 eXo.portal.UIPortal = new UIPortal() ;
