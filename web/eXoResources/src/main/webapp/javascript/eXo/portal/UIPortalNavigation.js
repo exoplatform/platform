@@ -49,7 +49,7 @@ UIPortalNavigation.prototype.onTopItemOver = function(item) {
 		if (eXo.core.Browser.getBrowserType() == "ie") {
 			// only for IE
 			x = eXo.core.Browser.findPosX(item);
-			y = eXo.core.Browser.findPosY(item) + item.offsetHeight;
+			y = /*eXo.core.Browser.findPosY(item) +*/ item.offsetHeight;
 			if (eXo.portal.UIControlWorkspace.showControlWorkspace) {
 				x -= eXo.portal.UIControlWorkspace.defaultWidth;
 				if (!eXo.core.Browser.isIE6()) {
