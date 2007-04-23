@@ -51,15 +51,17 @@ UIPortalControl.prototype.changeLanguage = function (form, action) {
 /*For Navigation Tree*/
 UIPortalControl.prototype.collapseTree = function (selectedElement ) {
   var DOMUtil = eXo.core.DOMUtil ;
+  
   var parentNode = DOMUtil.findAncestorByClass(selectedElement, "Node");
   var childrenContainer = DOMUtil.findFirstDescendantByClass(parentNode, "div", "ChildrenContainer");
   var expandIcon = document.createElement('a');
-  expandIcon.href = childrenContainer.id ;
+  expandIcon.href = childrenContainer.getAttribute("actionLink") ;
   expandIcon.className = "ExpandIcon" ;
   expandIcon.innerHTML = "<span></span>" ;
   parentNode.removeChild(childrenContainer);
   parentNode.insertBefore(expandIcon, selectedElement);
   parentNode.removeChild(selectedElement);
+  
 }
 
 eXo.portal.UIPortalControl = new UIPortalControl();

@@ -31,8 +31,7 @@
 		    <%=uicomponent.renderNode(object);%>		      	      		
 		    <%  
 				  if(uicomponent.isSelected(object)){%>
-				<%//TODO Xem lai cach dung id trong the duoi %>
-				    <div class = "ChildrenContainer" id="$actionLink" display = "block">
+				    <div class = "ChildrenContainer" actionLink="$actionLink" display = "block">
 				  <%  for(child in children) { %>								      		 
 					    <div class="Node" style="padding-top: 2px; margin-left: 10px; ">
 					      <%=uicomponent.renderNode(child);%>
