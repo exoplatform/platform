@@ -50,14 +50,20 @@
 
 .UINavigationPortlet .UINavigationBar .MenuItem {
 	white-space: nowrap;
-	background-color: #cbdaf4;
-	border-bottom: solid #b0c0e2 1px;
 	cursor: pointer;
 }
 
-.UINavigationPortlet .UINavigationBar .MenuItemOver {
-	white-space: nowrap;
+.UINavigationPortlet .UINavigationBar .OverItem {
 	background-color: #c0d0f0;
 	border-bottom: solid #b0c0e2 1px;
-	cursor: pointer;
+}
+
+.UINavigationPortlet .UINavigationBar .NormalItem {
+	background-color: #cbdaf4;
+	border-bottom: solid #b0c0e2 1px;
+}
+
+.UINavigationPortlet .UINavigationBar .SelectedItem {
+	background-color: #c0d0f0;
+	border-bottom: solid #b0c0e2 1px;
 }

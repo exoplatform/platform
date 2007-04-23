@@ -23,33 +23,51 @@
   public void renderChildrenContainer(PageNode node) {
   	print """
   		<div class="MenuItemContainer" style="display: none;">
+  			<div class="MenuItemDecorator">
+  				<div class="LeftTopMenuDecorator">
+  					<div class="RightTopMenuDecorator">
+  						<div class="CenterTopMenuDecorator"><span></span></div>
+  					</div>
+  				</div>
+  				
+  				<div class="LeftMiddleMenuDecorator">
+  					<div class="RightMiddleMenuDecorator">
+  						<div class="CenterMiddleMenuDecorator">
   	""" ;
   		for(child in node.getChildren()) {
 	   		renderChildNode(child) ;
     	}
   	print """
+  						</div>
+  					</div>
+  				</div>
+  				
+  				<div class="LeftBottomMenuDecorator">
+  					<div class="RightBottomMenuDecorator">
+  						<div class="CenterBottomMenuDecorator"><span></span></div>
+  					</div>
+  				</div>
+  				
+  			</div>
   		</div>
   	""" ;
   }
   
   public void renderChildNode(PageNode node) {
   	PageNode selectedNode = uicomponent.getSelectedPageNode() ;
-  	String tabStyleNavigation = "NormalNavigationTab" ;
+  	String tabStyleNavigation = "NormalItem" ; // OverItem
   	if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
-			tabStyleNavigation = "SelectedNavigationTab" ;
+			tabStyleNavigation = "SelectedItem" ;
 		}
   	def actionLink = uicomponent.event("SelectNode", node.getUri()) ;
   	print """
   			<div class="MenuItem">
-			    <div class="$tabStyleNavigation">
-			      <div class="LeftTab">
-			        <div class="RightTab">
-			          <div class="MiddleTab">
-									<a href="$actionLink">$node.label</a>
- 			          </div>
-	  		      </div>
-		  	    </div>
-			    </div>  
+  				<div class="$tabStyleNavigation">
+						<div class="LeftItemIcon"><span></span></div>
+						<div class="MenuItemLabel"><a href="$actionLink">$node.label</a></div>
+						<div class="RightItemIcon"></div>
+					</div>
+
 		""" ;
 		
     if (node.getChildren() != null && node.getChildren().size() > 0) {
@@ -102,9 +120,7 @@
 		           /*Render Popup Menu*/
 		           if (node.getChildren() != null && node.getChildren().size() > 0) {
 		           
-			           
 						     	renderChildrenContainer(node) ;
-						     
 					     
 					     }
 		           %>

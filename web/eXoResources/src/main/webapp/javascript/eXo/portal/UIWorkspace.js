@@ -96,6 +96,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	/*Resize Dockbar*/
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	if(uiPageDesktop != null) eXo.desktop.UIDockbar.resizeDockBar() ;
+	
 };
 
 /*#############################-Working Workspace-##############################*/
@@ -114,6 +115,24 @@ eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {
 //  		uiWorkspace.style.width = (eXo.core.Browser.getBrowserWidth() - controlWorkspaceWidth - slidebar.offsetWidth) + "px";
 //  	}
 //  }
+
+
+
+	if(eXo.core.Browser.isIE6()) {
+		var tabs = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkspace, "div", "UIHorizontalTabs") ;
+		console.group(tabs);
+		var currLeft = eXo.core.DOMUtil.getStyle(tabs, "left", true);
+		if (eXo.portal.UIControlWorkspace.showControlWorkspace) {
+			tabs.style.left = eXo.portal.UIControlWorkspace.defaultWidth;
+			console.info("opened");
+		} else {
+			tabs.style.left = 0;
+			console.info("closed");
+		}
+		
+		console.info(tabs.offsetLeft);
+		console.groupEnd();
+	}
 
   if(uiControlWorkspace) {
   	uiWorkspace.style.marginLeft = controlWorkspaceWidth + "px" ;

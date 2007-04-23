@@ -9,9 +9,9 @@ UIPortalNavigation.prototype.init = function(popupMenu, container, x, y) {
 	this.superClass.init(popupMenu, container, x, y) ;
 	
 	this.tabStyleClass = "MenuItem";
-	this.itemStyleClass = "NormalNavigationTab";
-	this.selectedItemStyleClass = "SelectedNavigationTab";
-	this.itemOverStyleClass = "HighlightNavigationTab";
+	this.itemStyleClass = "NormalItem";
+	this.selectedItemStyleClass = "SelectedItem";
+	this.itemOverStyleClass = "OverItem";
 	this.containerStyleClass = "MenuItemContainer";
 	
 	this.buildMenu(popupMenu);
@@ -79,7 +79,7 @@ UIPortalNavigation.prototype.onMenuItemOver = function(e) {
 	var menuItem = this;
 	var item = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.itemStyleClass);
 	if (!item) item = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.selectedItemStyleClass);
-	menuItem.className = "MenuItemOver";
+	menuItem.className = eXo.portal.UIPortalNavigation.itemOverStyleClass;
 	var subContainer = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
 	if (subContainer) {
 		eXo.portal.UIPortalNavigation.superClass.pushVisibleContainer(subContainer.id);
@@ -99,7 +99,7 @@ UIPortalNavigation.prototype.showMenuItemContainer = function(menuItem, menuItem
 UIPortalNavigation.prototype.onMenuItemOut = function(e) {
 	var menuItem = this;
 	var item = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.itemOverStyleClass);
-	menuItem.className = "MenuItem";
+	menuItem.className = eXo.portal.UIPortalNavigation.itemStyleClass;
 	var subContainer = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
 	if (subContainer) {
 		eXo.portal.UIPortalNavigation.superClass.pushHiddenContainer(subContainer.id);
