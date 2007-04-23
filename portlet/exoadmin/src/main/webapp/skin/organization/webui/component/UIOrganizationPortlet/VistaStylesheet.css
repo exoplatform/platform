@@ -240,6 +240,14 @@
   width: 80px;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .FormContainer {
+	width: 480px;
+	margin: auto;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIAction {
+	width: 180px;
+}
 /*#######################  UIMemberShipManagement #################################*/
 .UIOrganizationPortlet .UIFormWithTitle {
 	width: auto;; 
