@@ -351,7 +351,7 @@ UIPortal.prototype.changeLanguage = function(url) {
   window.location = url + '&language='+language;
 } ;
 
-UIPortal.prototype.onLoad = function() {
+UIPortal.prototype.onLoads = function() {
 	DOMUtil = eXo.core.DOMUtil;
 	var tabContents = document.getElementById("TabContents") ;
 	var uiTabContent = DOMUtil.findDescendantsByClass(tabContents, "div", "UITabContent");

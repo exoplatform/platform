@@ -3,7 +3,7 @@
 	
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
-	jsmanager.addJavascript('eXo.portal.UIPortal.OnLoad();');
+	jsmanager.addJavascript('eXo.portal.UIPortal.onLoads();');
 %>
 <div class="UITabContainer">
 	<div class="UIHorizontalTabs">
