@@ -25,8 +25,6 @@ import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.component.widget.UILogged;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.services.resources.LocaleConfig;
-import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
