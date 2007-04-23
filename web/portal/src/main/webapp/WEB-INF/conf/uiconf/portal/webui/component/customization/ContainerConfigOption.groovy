@@ -24,7 +24,7 @@ import org.exoplatform.webui.component.model.SelectItemOption ;
   templates.add(row);
      
   SelectItemCategory column = new SelectItemCategory("column") ;
-    column.addSelectItemOption(new SelectItemOption("twoColumns","" +
+    column.addSelectItemOption(new SelectItemOption("oneColumns","" +
         "<container template=\"system:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl\">" +
         "</container>", 
         "OneRowContainerLayout")) ;
