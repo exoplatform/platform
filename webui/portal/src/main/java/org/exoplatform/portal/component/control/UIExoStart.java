@@ -295,6 +295,7 @@ public class UIExoStart extends UIComponent {
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
+      
       UIChangeSkin uiChangeSkin = uiMaskWS.createUIComponent(UIChangeSkin.class, null, null);
       uiMaskWS.setUIComponent(uiChangeSkin);
       uiMaskWS.setWindowSize(640, 400);
@@ -309,8 +310,8 @@ public class UIExoStart extends UIComponent {
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
       
-      uiMaskWS.createUIComponent(UIChangeLanguageForm.class);
-      
+      UIChangeLanguageForm languageForm = uiMaskWS.createUIComponent(UIChangeLanguageForm.class);
+      uiMaskWS.setUIComponent(languageForm);
       uiMaskWS.setWindowSize(640, 400);
       uiMaskWS.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
