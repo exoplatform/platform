@@ -1,6 +1,8 @@
 <%
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs') ;
+	rcontext.getJavascriptManager().importJavascript('eXo.portal.UIPortal') ;
+	
   String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true)";
   String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";
 %>
@@ -9,13 +11,14 @@
 	  <div class="UITabPane">
 		<div class="LeftFormTitle">
 			<div class="RightFormTitle">
-				<div class="MiddleFormTitle"><span><%=_ctx.appRes("UIChangeLanguageForm.title.LanguageSetting")%></span></div>
+				<div class="MiddleFormTitle">
+				  <span><%=_ctx.appRes("UIChangeLanguage.title.LanguageSetting")%></span>
+			  </div>
 			</div>
 		</div>
 			<div class="TabPaneContent">
 
-		    <div class="WorkingArea">
-	
+		    <div class="WorkingArea">	
 
 		    	<div class="HorizontalLayout">
 	          
@@ -26,8 +29,7 @@
 	                if(selector.isRendered()) selectorDisplay="block" ;
 	                categories = selector.getItemCategories();
 	            %>
-	            <div class="UITabContent" id="UITabContent" style="display: $selectorDisplay;">
-	                
+	            <div class="UITabContent" id="UITabContent" style="display: $selectorDisplay;">	                
 								<div class="UIItemSelector">  
 								  <div class="RightColumnStyle">
 								      <%/*Begin ItemList*/%>
@@ -40,17 +42,17 @@
 								        <div class="ItemList">
 								        <% 
 								        	for (category in categories) {
-								        	String itemSelected = "Item";
-								        	if (category.isSelected()) itemSelected = "SelectedItem Item";
-								        	String onClick = "eXo.webui.UIItemSelector.onClick(this)";
+									        	String itemSelected = "Item";
+									        	if (category.isSelected()) itemSelected = "SelectedItem Item";
+									        	String onClick = "eXo.webui.UIItemSelector.onClick(this)";
 								        %>
-													<div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick">
-						                <div class="LeftItem">
-						                  <div class="RightItem">  
-						                    <div class="ItemTitle"><%=_ctx.appRes(category.getName() + ".label")%></div>
-						                  </div>
-						                </div>
-					              	</div>
+														<div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick">
+							                <div class="LeftItem">
+							                  <div class="RightItem">  
+							                    <div class="ItemTitle"><%=_ctx.appRes(category.getName() + ".label")%></div>
+							                  </div>
+							                </div>
+						              	</div>
 					              <%}%>								
 								        </div>
 								      </div>
@@ -77,7 +79,7 @@
 								          	for(opt in options) {
 								          		String itemSelected = "NormalItem";
 								        			if (opt.isSelected()) itemSelected = "SelectedItem"; 
-								        			String onclickOption = "eXo.webui.UIItemSelector.onClickOption(this, '$uicomponent.name', '$selector.name', '$opt.label')";
+								        			String onclickOption = "eXo.webui.UIItemSelector.onClickOption(this, '$uicomponent.name', '$selector.name', '$opt.value')";
 								          %>
 									        	<div class="$itemSelected" onclick="$onclickOption">
 									        	  <div class="Icon"><span></span></div>
@@ -98,34 +100,42 @@
 	            </div>
 	            <%}%>
 	          </div>
-				    <div class="UIAction" >
-	            <div class="ActionContainer">
-	              <%for(action in uicomponent.getActions()) { %>
-			            <div class="ActionButton">
-			              <div class="LightBlueStyle">
-										  <div class="ButtonLeft">
-											  <div class="ButtonRight">
-											    <div class="ButtonMiddle">
-												    <% 
-												      String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
-												      String link = uicomponent.event(action) ;
-										        %>
-										        <a href="$link">$actionLabel</a>
-											    </div>
-										    </div>
-											</div>
-										</div>
-									</div>
-		            <%}%>
-	            </div>
-	 	        </div>
-	 	        
+	          
+				    <div class="UIAction"> 
+              <div class="ActionContainer">
+						    <div class="ActionButton">
+				          <div class="LightBlueStyle">
+				            <div class="ButtonLeft">
+				              <div class="ButtonRight">
+				                <div class="ButtonMiddle">
+				                  <a href="javascript:eXo.portal.UIPortal.changeLanguage('<%=uicomponent.url("Save");%>');">
+				                    <%=_ctx.appRes("UIChangeLanguage.action.save");%>
+				                  </a>
+				                </div>
+				              </div>
+				            </div>
+				          </div>
+				        </div>
+			        
+			            
+				        <div class="ActionButton">
+				          <div class="LightBlueStyle">
+				            <div class="ButtonLeft">
+				              <div class="ButtonRight">
+				                <div class="ButtonMiddle">
+				                  <a href="<%=uicomponent.event("Close");%>"><%=_ctx.appRes("UIChangeLanguage.action.close");%></a>
+				                </div>
+				              </div>
+				            </div>
+				          </div>
+				        </div>
+		 	        </div>
+		 	      </div>
+  
 			    </div>
 			  </div>
 			</div>  
 	  </div>  
-	  <%
-	    rcontext.getJavascriptManager().addOnLoadJavascript('eXo.webui.UIForm.onFixSize');  
-	  %>
+	  <%rcontext.getJavascriptManager().addOnLoadJavascript('eXo.webui.UIForm.onFixSize'); %>
 	</div>
 </div>

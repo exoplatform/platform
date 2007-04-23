@@ -6,14 +6,14 @@ import org.exoplatform.webui.component.model.SelectItemOption;
 List categories = new ArrayList();
 
   SelectItemCategory languageEuro = new  SelectItemCategory("Euro", false);
-  languageEuro.addSelectItemOption(new SelectItemOption("French", "100%", "French", "French",true));
-  languageEuro.addSelectItemOption(new SelectItemOption("German", "100%", "German"));
+  languageEuro.addSelectItemOption(new SelectItemOption("French", "fr", "French", "French",true));
+  languageEuro.addSelectItemOption(new SelectItemOption("German", "gr", "German"));
   languageEuro.setSelected(true);
   categories.add(languageEuro);
   
   SelectItemCategory languageAsia = new  SelectItemCategory("Asia", false);
-  languageAsia.addSelectItemOption(new SelectItemOption("Vietnamese", "100%", "Vietnamese"));
-  languageAsia.addSelectItemOption(new SelectItemOption("Japanese", "100%", "Japanese"));
+  languageAsia.addSelectItemOption(new SelectItemOption("Vietnamese", "vi", "Vietnamese"));
+  languageAsia.addSelectItemOption(new SelectItemOption("Japanese", "jp", "Japanese"));
   categories.add(languageAsia);
   
  return categories;

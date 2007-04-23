@@ -1,6 +1,5 @@
 package org.exoplatform.portal.component.customization;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.component.UIPortalApplication;
@@ -25,25 +24,23 @@ import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
-    template = "system:/groovy/portal/webui/component/customization/UIChangeLanguageForm.gtmpl",
-    initParams = {
-      @ParamConfig(
+    template = "system:/groovy/portal/webui/component/customization/UIChangeLanguage.gtmpl",
+    initParams = @ParamConfig(
           name = "ChangeLanguageTemplateConfigOption",
-          value = "system:/WEB-INF/conf/uiconf/portal/webui/component/customization/ChangeLanguageTemplateConfigOption.groovy"
-      )  
-    },
+          value = "system:/WEB-INF/conf/uiconf/portal/webui/component/customization/LanguageConfigOption.groovy"
+    ),    
     events = {
-      @EventConfig(listeners = UIChangeLanguageForm.SaveActionListener.class),
+      @EventConfig(listeners = UIChangeLanguage.SaveActionListener.class),
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)
     }
 )
-public class UIChangeLanguageForm extends UIContainer{
-  String name_;
-  private String[] actions_ = null;
+public class UIChangeLanguage extends UIContainer{
+  
+  private String name_;
   
   @SuppressWarnings("unchecked")
-  public UIChangeLanguageForm(InitParams initParams) throws Exception  { 
-    name_ = "UIChangeLanguageForm";
+  public UIChangeLanguage(InitParams initParams) throws Exception  { 
+    name_ = "UIChangeLanguage";
     
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     Param param = initParams.getParam("ChangeLanguageTemplateConfigOption");
@@ -55,41 +52,18 @@ public class UIChangeLanguageForm extends UIContainer{
     addChild(selector);
   }
   
-  public String getName() {
-    return name_;
-  }
+  public String getName() { return name_; }
   
-  public void setActions(String [] actions){
-    actions_ = actions;
-  }
-  
-  public String[] getActions() {
-    if(actions_ != null) return actions_;
-    ArrayList<org.exoplatform.webui.config.Event> events = config.getEvents();
-    actions_ = new String[events.size()];    
-    for(int i = 0; i < actions_.length; i++){
-      actions_[i] = events.get(i).getName();
-    }
-    return actions_;  
-  }
-  
-  public String event(String actionName) throws Exception {
-    StringBuilder b = new StringBuilder() ;
-    b.append("javascript:eXo.portal.UIPortalControl.changeLanguage('").append(getName()).append("', '");
-    b.append(actionName).append("')");
-    return b.toString() ;
-  }
-  
-  static public class SaveActionListener  extends EventListener<UIChangeLanguageForm> {
-    public void execute(Event<UIChangeLanguageForm> event) throws Exception {
-      String language  = event.getRequestContext().getRequestParameter("Language");
-//    TODO khi thay uiMaskWP = uiApp tai dong 91. StackOverflowError say ra. 
-//    tai sao trong UIChangeSkin.java ko bi nhu vay.
+  static public class SaveActionListener  extends EventListener<UIChangeLanguage> {
+    public void execute(Event<UIChangeLanguage> event) throws Exception {
+      String language  = event.getRequestContext().getRequestParameter("language");
+      
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);    
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
       uiMaskWS.setUIComponent(null);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
+      
       if(language == null || language.trim().length() < 1) return;       
       UserACL userACL = uiPortal.getApplicationComponent(UserACL.class);
       String accessUser = event.getRequestContext().getRemoteUser();
@@ -99,12 +73,9 @@ public class UIChangeLanguageForm extends UIContainer{
       LocaleConfigService localeConfigService  = event.getSource().getApplicationComponent(LocaleConfigService.class) ;
       LocaleConfig localeConfig = localeConfigService.getLocaleConfig(language);
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
-      
-      uiPortal.setLocale(language);
       PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal, true);
       PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
       dataService.savePortalConfig(portalConfig);
-      
       uiApp.setLocale(localeConfig.getLocale());
     }
   }

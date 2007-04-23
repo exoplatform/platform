@@ -18,10 +18,10 @@ UIExoStart.MenuItemContainer menu = new UIExoStart.MenuItemContainer("Administra
               add(new UIExoStart.MenuItemAction("Default", "DefaultSkinIcon", "ChangeSkin", false)).
               add(new UIExoStart.MenuItemAction("Mac", "MacSkinIcon", "ChangeSkin", false)).
               add(new UIExoStart.MenuItemAction("Vista", "VistaSkinIcon", "ChangeSkin", false))).*/                  
-      add(new UIExoStart.MenuItemContainer("ChangeLanguage").
+     /*add(new UIExoStart.MenuItemContainer("ChangeLanguage").
               add(new UIExoStart.MenuItemAction("English", "LanguageItemIcon", "ChangeLanguage", false)).
               add(new UIExoStart.MenuItemAction("Vietnamese", "LanguageItemIcon", "ChangeLanguage", false)).
-              add(new UIExoStart.MenuItemAction("French", "LanguageItemIcon", "ChangeLanguage", false))).
+              add(new UIExoStart.MenuItemAction("French", "LanguageItemIcon", "ChangeLanguage", false))).*/
   add(new UIExoStart.MenuItemAction("SkinSettings", "SkinSettingIcon", "SkinSettings", true)).
   add(new UIExoStart.MenuItemAction("LanguageSettings", "LanguageSettingIcon", "LanguageSettings", true));
  

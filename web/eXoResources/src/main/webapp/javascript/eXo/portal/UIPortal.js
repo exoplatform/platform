@@ -342,6 +342,16 @@ UIPortal.prototype.changeSkin = function(url) {
   window.location = url + '&skin='+skin;
 } ;
 
+UIPortal.prototype.changeLanguage = function(url) {
+	var language = '';
+	if(eXo.webui.UIItemSelector.SelectedItem != undefined) {
+  	language = eXo.webui.UIItemSelector.SelectedItem.option;
+	}
+	if(language == undefined) language = '';  
+  window.location = url + '&language='+language;
+} ;
+
+
 eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;
 eXo.portal.UIPortal = new UIPortal() ;
 eXo.portal.UIComponent = UIPortal.prototype.constructor ;

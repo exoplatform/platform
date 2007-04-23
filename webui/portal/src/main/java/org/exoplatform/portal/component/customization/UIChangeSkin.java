@@ -25,7 +25,7 @@ import org.exoplatform.webui.event.EventListener;
   template = "app:/groovy/portal/webui/component/customization/UIChangeSkin.gtmpl",
   initParams = @ParamConfig(
     name = "ChangeSkinTemplateConfigOption",
-    value = "system:/WEB-INF/conf/uiconf/portal/webui/component/customization/ChangeSkinTemplateConfigOption.groovy"
+    value = "system:/WEB-INF/conf/uiconf/portal/webui/component/customization/SkinConfigOption.groovy"
   ),
   events = {
     @EventConfig(listeners = UIChangeSkin.SaveActionListener.class),
@@ -38,7 +38,7 @@ public class UIChangeSkin extends UIContainer {
   
   @SuppressWarnings("unchecked")
   public UIChangeSkin(InitParams initParams) throws Exception  { 
-    name_ = "UIChangeSkinForm";    
+    name_ = "UIChangeSkin";    
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     Param param = initParams.getParam("ChangeSkinTemplateConfigOption");
     List<SelectItemCategory> itemCategories = (List<SelectItemCategory>)param.getMapGroovyObject(context);

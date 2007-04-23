@@ -10,7 +10,7 @@ import java.util.List;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
-import org.exoplatform.portal.component.customization.UIChangeLanguageForm;
+import org.exoplatform.portal.component.customization.UIChangeLanguage;
 import org.exoplatform.portal.component.customization.UIChangeSkin;
 import org.exoplatform.portal.component.customization.UIPageCreationWizard;
 import org.exoplatform.portal.component.customization.UIPageEditWizard;
@@ -55,7 +55,7 @@ import org.exoplatform.webui.event.EventListener;
 //    @EventConfig(listeners = UIExoStart.AdvancedCustomizationActionListener.class),
     @EventConfig(listeners = UIExoStart.MyPortalActionListener.class),
 //    @EventConfig(listeners = UIExoStart.ChangeSkinActionListener.class),
-    @EventConfig(listeners = UIExoStart.ChangeLanguageActionListener.class),
+//    @EventConfig(listeners = UIExoStart.ChangeLanguageActionListener.class),
     @EventConfig(listeners = UIExoStart.PageCreationWizardActionListener.class),
     @EventConfig(listeners = UIExoStart.EditCurrentPageActionListener.class),
 //    @EventConfig(listeners = UIExoStart.DebugActionListener.class),
@@ -226,7 +226,7 @@ public class UIExoStart extends UIComponent {
     }
   } */
   
-  static  public class ChangeLanguageActionListener extends EventListener<UIExoStart> {
+  /*static  public class ChangeLanguageActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {
       String localeName  = event.getRequestContext().getRequestParameter(OBJECTID);
       UIExoStart uiComp = event.getSource() ;
@@ -237,7 +237,7 @@ public class UIExoStart extends UIComponent {
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
       uiApp.setLocale(localeConfig.getLocale());
     }
-  }  
+  }  */
   
   static public class PageCreationWizardActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {
@@ -310,7 +310,7 @@ public class UIExoStart extends UIComponent {
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
       
-      UIChangeLanguageForm languageForm = uiMaskWS.createUIComponent(UIChangeLanguageForm.class);
+      UIChangeLanguage languageForm = uiMaskWS.createUIComponent(UIChangeLanguage.class);
       uiMaskWS.setUIComponent(languageForm);
       uiMaskWS.setWindowSize(640, 400);
       uiMaskWS.setShow(true);
