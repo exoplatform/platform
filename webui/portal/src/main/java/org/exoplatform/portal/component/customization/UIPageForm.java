@@ -117,7 +117,7 @@ public class UIPageForm extends UIFormTabPane {
     super.invokeSetBindingBean(bean);
     Page page = (Page)bean;    
        
-    UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
+    UIFormInputItemSelector uiTemplate = getChildById("Template");
     if(uiTemplate != null) {
       SelectItemOption itemOption = uiTemplate.getSelectedItemOption();
       if(itemOption != null){
