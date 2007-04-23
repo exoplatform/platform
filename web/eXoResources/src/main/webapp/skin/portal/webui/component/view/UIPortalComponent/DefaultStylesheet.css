@@ -85,7 +85,8 @@
   cursor: pointer ;
 }
 
-.UIPortlet  {
+.UIPortlet  .PortletIcon{
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultContainerIcon.gif') no-repeat;
 }
 
 /*##############################- PortletLayoutDecorator  -################################*/
