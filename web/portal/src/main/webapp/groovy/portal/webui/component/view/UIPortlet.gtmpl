@@ -235,7 +235,7 @@
 		          </div>
 		        </div>
 		      </div>
-		      
+		      <div><span></span></div>
 		      <%//Begin Bottom Decorator %>
 		      <div class="BottomDecoratorLeft">
 		        <div class="BottomDecoratorRight">

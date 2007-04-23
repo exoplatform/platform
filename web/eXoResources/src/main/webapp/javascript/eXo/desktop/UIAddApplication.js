@@ -31,8 +31,7 @@ UIAddApplication.prototype.init = function(containerId) {
 };
 
 /**Created: by Duy Tu**/
-function getUrl(src)
-{
+function getUrl(src) {
 	var img = document.createElement('img');	
         img.src = src;
 	return(img.src);

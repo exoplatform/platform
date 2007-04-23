@@ -52,7 +52,7 @@
           </div>
         </div>
         <%//End Middle Decorator %>
-          
+        <div><span></span></div>  
         <%//Begin Bottom Decorator %>
         <div class="BottomLeftCornerBoxDecorator">
           <div class="BottomRightCornerBoxDecorator">

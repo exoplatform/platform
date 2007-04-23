@@ -172,3 +172,7 @@
 .UIPortletRegistryPortlet .UIFormTabPane .TabPaneContent .UIAction {
   width: 90px;
 }
+
+.UIPortletRegistryPortlet .UIInfoPortletForm .UIForm .HorizontalLayout input {
+  float: none;
+}

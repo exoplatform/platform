@@ -1,8 +1,12 @@
 <div class="UILoggedInfo">
   <div class="LoggedInfoItems">
 		<div class="SelectedBG">
-			<div class="UserIcon"><span></span></div>
-		</div>		
+			<div class="UserIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this)"><span></span></div>
+		</div>
+		<div class="NormalBG">
+			<div class="WelcomeIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this)"><span></span></div>
+		</div>
+		<div style="clear: left"><span></span></div>		
 	</div>
 	<div class="LoggedDecorator">
     <div class="LeftTopLoggedDecorator">
@@ -61,5 +65,4 @@
 	    </div>
 	  </div>
   </div>
-</div>  
-
+</div>
