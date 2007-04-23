@@ -244,3 +244,109 @@
   background: white;
   padding: 8px 3px 5px 0px; 
 }
+
+/********************* Icon InfoBar ************************************/
+.OrganizationIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/AddNodeIcon.gif') no-repeat center;
+}
+
+.AccountIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/UserAccount.gif') no-repeat center;
+}
+
+.PortletRegistryIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueActionWheel.gif') no-repeat center;
+}
+
+.SiteMapPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/SiteMap.gif') no-repeat center;
+}
+
+.WelcomePortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/PortalWelcomeIcon.gif') no-repeat center;
+}
+
+.BreadcumbsPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BreadcumbsArrowIcon.gif') no-repeat center;
+}
+
+.GroovyPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/PortalAdmin.gif') no-repeat center;
+}
+
+.AddPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/AddPage.gif') no-repeat center;
+}
+
+.LoginPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Login.gif') no-repeat center;
+}
+
+.FooterPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/PortalFooterIcon.gif') no-repeat center;
+}
+
+.BrowserPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BrownBook.gif') no-repeat center;
+}
+
+.CompanyContentPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/PortalContainerIcon.gif') no-repeat center;
+}
+
+.NavigationPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/EditNavigation.gif') no-repeat center;
+}
+
+.BannerPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/PortalNavigationIcon.gif') no-repeat center;
+}
+
+.JMXPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/ImagesList.gif') no-repeat center;
+}
+
+.OrganizationPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/AddNodeIcon.gif') no-repeat center;
+}
+
+.AccountPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/UserAccount.gif') no-repeat center;
+}
+
+.PortletRegistryPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlueActionWheel.gif') no-repeat center;
+}
+
+.CrawlerPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Execute.gif') no-repeat center;
+}
+
+.ContentPortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/LightBlueGlobal.gif') no-repeat center;
+}
+
+.SitePortletIcon {
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/UserRegistration.gif') no-repeat center;
+}
+/********************* End Icon InfoBar ************************************/
