@@ -86,6 +86,8 @@ public class UIPortalForm extends UIFormTabPane {
     ls.add(new SelectItemOption<String>("Mac", "Mac")) ;
     ls.add(new SelectItemOption<String>("Vista", "Vista")) ;
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(SKIN, SKIN, ls) ;
+    UIPortal uiPortal = Util.getUIPortal();
+    uiSelectBox.setValue(uiPortal.getSkin());
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);    
     
