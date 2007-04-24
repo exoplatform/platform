@@ -222,6 +222,11 @@
 	border:solid 1px #526d82;	border-top: 0px;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
+	overflow: visible;
+	margin: 0px;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UITab {
   font-size: 11px ;
 }
@@ -241,20 +246,26 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .FormContainer {
-	width: 480px;
+	width: 440px;
 	margin: auto;
+	padding: 10px 0px;
+	background: url(null);
+}
+
+.UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer label {
+	width: 100px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIAction {
 	width: 180px;
 }
 /*#######################  UIMemberShipManagement #################################*/
-.UIOrganizationPortlet .UIFormWithTitle {
+.UIOrganizationPortlet .UIMembershipTypeForm {
 	width: auto;; 
 	margin: 10px auto 0px auto ; 
 }
 
-.UIOrganizationPortlet .UIFormWithTitle .UIForm {
+.UIOrganizationPortlet .UIMembershipTypeForm .UIForm {
 	background: white ;
 }
 
@@ -263,6 +274,12 @@
   width: 46px;
 }
 
-.UIOrganizationPortlet .ManagementTabContent .UIFormWithTitle .UIAction {
+.UIOrganizationPortlet .ManagementTabContent .UIMembershipTypeForm .UIAction {
 	width: 80px;
+	padding-left: 80px;
+}
+
+.UIOrganizationPortlet .UIMembershipTypeForm .FormContainer {
+	width: 480px;
+	margin: auto;
 }
