@@ -57,4 +57,20 @@ public class Application {
   
   public String[] getAccessGroup() { return accessGroup ; }
   public void setAccessGroup(String[] group) { accessGroup =  group ; }
+  
+  public String getApplicationGroup() { return applicationGroup; }
+  public void setApplicationGroup(String applicationGroup) {
+    this.applicationGroup = applicationGroup;
+  }
+  
+  public String getApplicationName() { return applicationName; }
+  public void setApplicationName(String applicationName) { this.applicationName = applicationName; }
+  
+  public String getApplicationType() { return applicationType; }
+  public void setApplicationType(String applicationType) { this.applicationType = applicationType; }
+  
+  public int getMinWidthResolution() { return minWidthResolution; }
+  public void setMinWidthResolution(int minWidthResolution) { 
+    this.minWidthResolution = minWidthResolution; 
+  }
 }

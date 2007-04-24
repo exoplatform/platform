@@ -25,7 +25,7 @@
 	    <init-params>
 	      <values-param>
 	        <name>nodeTypesFiles</name>           
-	        <value>jar:/conf/portal/portlet-registry-nodetypes.xml</value> 
+	        <value>jar:/conf/portal/application-registry-nodetypes.xml</value> 
 	      </values-param>
 	    </init-params>
     </component-plugin>

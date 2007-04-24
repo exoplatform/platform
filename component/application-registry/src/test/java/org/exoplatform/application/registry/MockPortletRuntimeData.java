@@ -16,6 +16,11 @@ import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
  */
 class MockPortletRuntimeData implements PortletRuntimeData {
   
+  public String getCacheScope() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
   private String portletAppName;
   private String portletName;
 

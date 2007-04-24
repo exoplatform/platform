@@ -24,8 +24,8 @@ public class ApplicationCategory {
   public String getName() { return name; }
   public void   setName(String id) { this.name = id; }
 
-  public String getCategoryName() { return displayName; }
-  public void setCategoryName(String s) { displayName = s; }
+  public String getDisplayName() { return displayName; }
+  public void setDisplayName(String s) { displayName = s; }
 
   public String getDescription() { return description; }
   public void setDescription(String s) { description = s; }

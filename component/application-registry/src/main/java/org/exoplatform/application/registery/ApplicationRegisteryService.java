@@ -13,6 +13,7 @@ import java.util.List;
  * Date: 20 april 2007
  */
 public interface ApplicationRegisteryService {
+  
   public List<ApplicationCategory> getApplicationCategories(String accessUser) throws Exception;
   
   public List<ApplicationCategory> getApplicationCategories() throws Exception;
@@ -22,7 +23,8 @@ public interface ApplicationRegisteryService {
   
   public List<Application> getApplications(ApplicationCategory category) throws Exception;
   public Application getApplication(String id) throws Exception;
-  public void save(ApplicationCategory category, Application portlet) throws Exception;
+  public void save(ApplicationCategory category, Application application) throws Exception;
+  public void update(Application application) throws Exception;
   public void remove(Application app) throws Exception;
   
   public void importJSR168Portlets() throws Exception;

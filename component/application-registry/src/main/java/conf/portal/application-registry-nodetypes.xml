@@ -1,0 +1,79 @@
+<nodeTypes xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
+  xmlns:jcr="http://www.jcp.org/jcr/1.0">
+  
+ 	<nodeType	name="exo:application" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+  	  <supertype>nt:base</supertype>
+    </supertypes>
+  	<propertyDefinitions>
+  	  <propertyDefinition name="id" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  	  </propertyDefinition>
+  	  <propertyDefinition name="aliasName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  	  </propertyDefinition>
+  	  <propertyDefinition name="displayName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  		</propertyDefinition>
+  	  <propertyDefinition name="description" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  	  </propertyDefinition>
+  	  <propertyDefinition name="categoryName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  	  </propertyDefinition>
+  		<propertyDefinition name="createdDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+	    </propertyDefinition>
+	    <propertyDefinition name="modifiedDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+	    </propertyDefinition>
+      <propertyDefinition name="accessGroup" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="true">
+  			<valueConstraints/>
+	    </propertyDefinition>
+  	  <propertyDefinition name="applicationGroup" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  		</propertyDefinition> 
+  		<propertyDefinition name="applicationName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  		</propertyDefinition>   		
+  		<propertyDefinition name="applicationType" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  		</propertyDefinition>  
+  		<propertyDefinition name="minWidthResolution" requiredType="Integer" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  		</propertyDefinition>  
+  	</propertyDefinitions>  	
+ 	</nodeType> 
+ 	
+  <nodeType	name="exo:applicationCategory" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
+    <supertypes>
+  	  <supertype>nt:base</supertype>
+    </supertypes>
+  	<propertyDefinitions>
+  		<propertyDefinition name="name" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  	  </propertyDefinition>
+  		<propertyDefinition name="displayName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  	  </propertyDefinition>
+  		<propertyDefinition name="description" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+	    </propertyDefinition>
+	    <propertyDefinition name="createdDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+	    </propertyDefinition>
+	    <propertyDefinition name="modifiedDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+	    </propertyDefinition>
+  	</propertyDefinitions>
+  	<childNodeDefinitions>
+      <childNodeDefinition name="*" defaultPrimaryType="exo:application" autoCreated="false" mandatory="false"
+        onParentVersion="VERSION" protected="false" sameNameSiblings="true">
+        <requiredPrimaryTypes>
+          <requiredPrimaryType>exo:applicaion</requiredPrimaryType>
+        </requiredPrimaryTypes>
+      </childNodeDefinition>      
+    </childNodeDefinitions>
+ 	</nodeType> 
+ 	
+</nodeTypes>    
