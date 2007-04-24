@@ -127,6 +127,14 @@ UIDockbar.prototype.animation = function(selectedIcon, e) {
 	var selectedIconX = eXo.desktop.UIDesktop.findPosXInDesktop(selectedIcon) ;
 	var middleIcon = selectedIconX + (selectedIcon.offsetWidth / 2) ;
 	var mouseX = eXo.core.Browser.findMouseRelativeX(uiPageDesktop, e) ;
+	if((eXo.core.Browser.getBrowserType() == "ie") && (!eXo.core.Browser.isIE6())) {
+		//window.status = "DOCK BAR ON IE7" ;
+//		alert("IE7");
+//		mouseX = mouseX /2 ;
+//		console.debug(mouseX);
+	}
+	
+	window.status = "NOT IE7: " + mouseX;
 	
 	var d = middleIcon - selectedIconX ;
 	var delta = middleIcon - mouseX ;

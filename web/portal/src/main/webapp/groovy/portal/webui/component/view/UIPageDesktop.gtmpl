@@ -77,7 +77,7 @@
         <%
           String containerMouseOver = "eXo.desktop.UIDockbar.containerMouseOver();" ;
         %>
-        <div class="UIDockBar" id="UIDockBar">
+        <div class="UIDockBar" id="UIDockBar" border: solid 1px red>
           <div class="DockbarLeft">
             <div class="DockbarRight">
               <div class="DockbarCenter" id="DockbarCenter">

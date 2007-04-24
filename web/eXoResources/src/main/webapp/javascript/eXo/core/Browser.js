@@ -243,6 +243,11 @@ Browser.prototype.findMouseRelativeX = function(object, e) {
    * posXObject is added more 3px on IE6
    * posXObject is double on IE7
    * */
+  
+  if((eXo.core.Browser.getBrowserType() == "ie") && (!eXo.core.Browser.isIE6())) {
+  	posXObject = posXObject / 2 ;
+  }
+  
 //  console.debug(posXObject);
   if (!e) e = window.event ;
   if (e.pageX || e.pageY) {
@@ -250,7 +255,6 @@ Browser.prototype.findMouseRelativeX = function(object, e) {
   } else if (e.clientX || e.clientY) {
     posx = e.clientX + document.body.scrollLeft - posXObject ;
   }
-//  console.debug(posXObject) ;
   return posx ;
 } ;
 
