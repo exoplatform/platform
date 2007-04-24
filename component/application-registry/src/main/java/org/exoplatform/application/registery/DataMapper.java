@@ -24,13 +24,6 @@ import org.exoplatform.services.jcr.RepositoryService;
  */
 class DataMapper {
   
-  private final String systemWS = "production".intern();
-  private final String registry = "registry";
-  private final String jcrSystem = "jcr:system";
-  private final String applicationData = "eXo:AppRegistry:2.0";
-
-  private final String applications = "applications";
-  
   private final String id = "id" ;
   private final String name = "name";
   private final String displayName = "displayName";
@@ -49,45 +42,6 @@ class DataMapper {
   private final String accessGroup = "accessGroup";
   private final String minWidthResolution = "minWidthResolution";
   
-  javax.jcr.Session getSession() throws Exception{
-    RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
-    Session session = repoService.getRepository().getSystemSession(systemWS) ;  
-    return session;
-  }
-  
-  Node getNode(Node parentNode, String nodeName, boolean autoCreate) throws Exception {
-    if(parentNode.hasNode(nodeName)) return parentNode.getNode(nodeName);
-    if(!autoCreate) return null;
-    Node node  = parentNode.addNode(nodeName);
-    parentNode.save();
-    return node;
-  }
-  
-  Node getApplicationRegistryNode(boolean autoCreate) throws Exception {
-    Node node = getNode(getSession().getRootNode(), jcrSystem, autoCreate);
-    if((node = getNode(node, applicationData, autoCreate)) == null && !autoCreate) return null;
-    if((node = getNode(node, registry, autoCreate)) == null && !autoCreate) return null;
-    if((node = getNode(node, applications, autoCreate)) == null && !autoCreate) return null;
-    return node;
-  }
-
-  Node getNode(Node node, String property, String value) throws Exception {
-    if(node.hasProperty(property) && value.equals(node.getProperty(property).getString())) return node;
-    NodeIterator iterator = node.getNodes();
-    while(iterator.hasNext()){
-      Node returnNode = getNode(iterator.nextNode(), property, value);
-      if(returnNode != null) return returnNode;
-    }
-    return null;
-  }
-
-  Node getApplicationNode(Application application) throws Exception {
-    Node rootNode = getApplicationRegistryNode(true);
-    Node categoryNode = getNode(rootNode, categoryName, application.getCategoryName());
-    if(categoryNode == null) return null;
-    if(!categoryNode.hasNode(application.getId().trim())) return null;
-    return categoryNode.getNode(application.getId());
-  }
 
   ApplicationCategory nodeToApplicationCategory(Node node) throws Exception {
     ApplicationCategory data = new ApplicationCategory();
