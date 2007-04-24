@@ -25,7 +25,7 @@
 				              	<div class="MiddleTab"> 
 				              		<div class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"> <%=title%> </div>
 					              	<a class="EditIcon" href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>"><span></span></a>
-					              	<a class="CloseIcon" href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>"><span></span></a>
+					                <a style="display: none" class="CloseIcon" href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>"><span></span></a> 
 					              	<div style="clear: left"><span></span></div>
 					              </div>
 				            	</div>

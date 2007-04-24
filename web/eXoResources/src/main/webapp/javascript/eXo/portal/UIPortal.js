@@ -351,6 +351,7 @@ UIPortal.prototype.changeLanguage = function(url) {
   window.location = url + '&language='+language;
 } ;
 
+/** Created: by Duy Tu **/
 UIPortal.prototype.onLoads = function() {
 	DOMUtil = eXo.core.DOMUtil;
 	var tabContents = document.getElementById("TabContents") ;
@@ -358,9 +359,11 @@ UIPortal.prototype.onLoads = function() {
 	for(var i = 0;i < uiTabContent.length; ++i ){
 		var uiInfoBar = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "UIInfoBar") ;
 		var layOutContainer = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "LAYOUT-CONTAINER") ;
-		  uiInfoBar.style.display = "none";
-		  layOutContainer.style.border = "none";
+		if(uiInfoBar != null) uiInfoBar.style.display = "none";
+		if(layOutContainer != null) {
+			layOutContainer.style.border = "none";
 		  layOutContainer.style.background = "none";
+		}
 	}
 }
 

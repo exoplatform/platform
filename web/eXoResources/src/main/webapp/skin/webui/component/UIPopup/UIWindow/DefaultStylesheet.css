@@ -202,8 +202,8 @@
 }
 
 .UIPortal .VIEW-PORTLET .UIWindow {
-  width: auto ; height: auto;
-  padding: 0px 3px 0px 6px; 
+  width: 99% ; height: auto;
+  margin: auto; 
 }
 
 .UIPageBody .UIWindow .UIApplication {
