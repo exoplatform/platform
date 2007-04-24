@@ -7,7 +7,7 @@
  */
 
 .UIWindow .UISitemapPortlet {
-	overflow: auto ;
+	overflow: hidden ; /* was auto */
   padding: 10px 0px 0px 0px;
 }
 

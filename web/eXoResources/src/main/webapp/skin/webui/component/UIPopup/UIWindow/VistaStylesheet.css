@@ -6,7 +6,7 @@
 .UIPageDesktop .UIWindow .UIApplication {
   height: 350px ;
 }
-
+/*
 .UIWindow .UICommunityPortlet {
   overflow: auto ;
 }
@@ -51,7 +51,7 @@
 .UIWindow .UITestFormPortlet {
 	overflow: auto ;
 }
-
+*/
 /*##########################################################*/
 
 .UIWindow .WindowPortletControl {
@@ -211,7 +211,7 @@
   height: 25px ;
   background: url('VistaSkin/background/CenterTopBar1x25.png') repeat-x ;
 }
-
+/*
 .UIWindow .UITestFormPortlet {
 	overflow: auto;
 }
@@ -219,6 +219,7 @@
 .UIWindow .UIAddPortletPortlet {
 	overflow: auto;
 }
+*/
 /**************************** UIPageBody ************************************/
 
 .UIPageBody .UIWindow {
@@ -227,6 +228,7 @@
 
 .UIPageBody .UIWindow .UIApplication {
   height: auto ;
+  overflow: hidden;
 }
 
 .UIPageBody .WindowPortletControl {

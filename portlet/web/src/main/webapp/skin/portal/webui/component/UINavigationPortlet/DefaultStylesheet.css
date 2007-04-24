@@ -44,7 +44,7 @@
 /* Portal Navigation sub menus */
 
 .UINavigationPortlet .MenuItemContainer {
-	overflow: visible;
+	/*overflow: visible;*/
 	white-space: nowrap;
 	border: solid #5c97cc 1px;
 	background: #f3f3f3;

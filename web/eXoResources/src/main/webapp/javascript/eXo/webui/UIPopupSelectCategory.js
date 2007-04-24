@@ -26,6 +26,7 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 			var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - width + 35;
 			if (uiDesktop != null) posLeft -= ancestorPopupCategory.offsetLeft;
 			if (eXo.portal.UIControlWorkspace.showControlWorkspace) posLeft -= eXo.portal.UIControlWorkspace.defaultWidth;
+			//if (eXo.core.Browser.isIE() && !eXo.core.Browser.isIE6()) posLeft -= eXo.portal.UIControlWorkspace.defaultWidth;
 			uiPopupCategory.style.left = posLeft + "px";
 		}
 	} else {

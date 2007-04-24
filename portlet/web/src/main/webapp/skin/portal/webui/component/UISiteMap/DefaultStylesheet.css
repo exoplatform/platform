@@ -7,11 +7,12 @@
  */
 
 .UIWindow .UISitemapPortlet {
-	overflow: auto ;
+	overflow: hidden ; /* was auto */
   padding: 10px 0px 0px 0px;
 } 
 
 .UISitemap {
+	overflow: hidden ; /* was none */
   padding: 0px 2px 5px 5px ;
 }
 
@@ -115,5 +116,3 @@
   background: white ;
   margin: 0px 6px 3px 6px ;
 }
-
-

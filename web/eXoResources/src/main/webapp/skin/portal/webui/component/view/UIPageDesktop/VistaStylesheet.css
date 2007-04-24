@@ -57,3 +57,7 @@
   background: blue ; 
   cursor: nw-resize ;
 }
+
+.UIPageDesktop .UIApplication {
+  overflow: auto ;
+}

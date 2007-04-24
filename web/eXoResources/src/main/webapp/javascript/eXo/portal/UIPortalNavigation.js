@@ -13,6 +13,8 @@ UIPortalNavigation.prototype.init = function(popupMenu, container, x, y) {
 	this.selectedItemStyleClass = "SelectedItem";
 	this.itemOverStyleClass = "OverItem";
 	this.containerStyleClass = "MenuItemContainer";
+	//this.appsOverflow = new Array();
+	//this.submenuVisible = false;
 	
 	this.buildMenu(popupMenu);
 };
@@ -21,6 +23,11 @@ UIPortalNavigation.prototype.onLoad = function() {
 	var uiNavPortlet = document.getElementById("UINavigationPortlet");
 	var mainContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiNavPortlet, "div", "TabsContainer");
 	eXo.portal.UIPortalNavigation.init(uiNavPortlet, mainContainer, 0, 0);
+	/*var uiPage = document.getElementById("UIPage");
+	var apps = eXo.core.DOMUtil.findDescendantsByClass(uiPage, "div", "UIApplication");
+	for (var i = 0; i < apps.length; i++) {
+		eXo.portal.UIPortalNavigation.appsOverflow.push(apps[i]);
+	}*/
 };
 
 UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
@@ -30,7 +37,6 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 	for(var i = 0; i<menuItems.length; i++) {
 		menuItems[i].onmouseover =  eXo.portal.UIPortalNavigation.onMenuItemOver;
 		menuItems[i].onmouseout =  eXo.portal.UIPortalNavigation.onMenuItemOut;
-		menuItems[i].id = "MenuItem-"+i;
 		var link = eXo.core.DOMUtil.findDescendantsByTagName(menuItems[i], "a")[0];
 		this.superClass.createLink(menuItems[i], link);
 		// Set an id to each container for future reference
@@ -49,7 +55,7 @@ UIPortalNavigation.prototype.onTopItemOver = function(item) {
 		if (eXo.core.Browser.getBrowserType() == "ie") {
 			// only for IE
 			x = eXo.core.Browser.findPosX(item);
-			y = /*eXo.core.Browser.findPosY(item) +*/ item.offsetHeight;
+			y = item.offsetHeight;
 			if (eXo.portal.UIControlWorkspace.showControlWorkspace) {
 				x -= eXo.portal.UIControlWorkspace.defaultWidth;
 				if (!eXo.core.Browser.isIE6()) {
@@ -59,6 +65,14 @@ UIPortalNavigation.prototype.onTopItemOver = function(item) {
 				}
 			}
 		}
+		
+		/*if (!eXo.portal.UIPortalNavigation.submenuVisible) {
+			eXo.portal.UIPortalNavigation.submenuVisible = true;
+			for (var i = 0; i < eXo.portal.UIPortalNavigation.appsOverflow.length; i++) {
+				eXo.portal.UIPortalNavigation.appsOverflow[i].style.overflow = "hidden";
+			}
+		}*/
+		
 		eXo.portal.UIPortalNavigation.superClass.setPosition(menuItemContainer, x, y);
 		eXo.portal.UIPortalNavigation.superClass.show(menuItemContainer);
 	}
@@ -73,6 +87,12 @@ UIPortalNavigation.prototype.onTopItemOut = function(item) {
 		eXo.portal.UIPortalNavigation.superClass.setCloseTimeout();
 		eXo.portal.UIPortalNavigation.superClass.hide(menuItemContainer);
 	}
+	/*if (eXo.portal.UIPortalNavigation.submenuVisible) {
+		eXo.portal.UIPortalNavigation.submenuVisible = false;
+		for (var i = 0; i < eXo.portal.UIPortalNavigation.appsOverflow.length; i++) {
+			eXo.portal.UIPortalNavigation.appsOverflow[i].style.overflow = "auto";
+		}
+	}*/
 };
 
 UIPortalNavigation.prototype.onMenuItemOver = function(e) {
@@ -85,10 +105,11 @@ UIPortalNavigation.prototype.onMenuItemOver = function(e) {
 		eXo.portal.UIPortalNavigation.superClass.pushVisibleContainer(subContainer.id);
 		eXo.portal.UIPortalNavigation.showMenuItemContainer(menuItem, subContainer) ;
 	}
+
 };
 
 UIPortalNavigation.prototype.showMenuItemContainer = function(menuItem, menuItemContainer) {
-	this.superClass.show(menuItem.parentNode);
+	//this.superClass.show(menuItem);
 	var x = menuItem.offsetLeft + menuItem.offsetWidth;
 	var y = menuItem.offsetTop;
 	

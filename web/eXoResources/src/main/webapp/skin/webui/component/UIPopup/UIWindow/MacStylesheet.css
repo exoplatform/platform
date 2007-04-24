@@ -6,7 +6,7 @@
 .UIPageDesktop .UIWindow .UIApplication {
   height: 350px ;
 }
-
+/*
 .UIWindow .UICommunityPortlet {
   overflow: auto ;
 }
@@ -42,7 +42,7 @@
 .UIWindow .UISitemap {
 	overflow: auto ;
 }
-
+*/
 /*##########################################################*/
 .UIWindow .WindowPortletControl {
   float: right ;
@@ -221,6 +221,7 @@
 
 .UIPageBody .UIWindow .UIApplication {
   height: auto ;
+  overflow: hidden;
 }
 
 .UIPageBody .WindowPortletControl {
