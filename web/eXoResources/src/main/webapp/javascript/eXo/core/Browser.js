@@ -250,7 +250,6 @@ Browser.prototype.findMouseRelativeX = function(object, e) {
   	posXObject = posXObject / 2 ;
   }
   
-//  console.debug(posXObject);
   if (!e) e = window.event ;
   if (e.pageX || e.pageY) {
     posx = e.pageX - posXObject ;

@@ -471,9 +471,7 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
   var tdWidth = 100 / tdList.length;
   for (var i = 0; i < tdList.length; i++) {
   	var td = tdList[i];
-//  	console.group(td);
-//  	console.dir(td);
-//  	console.groupEnd();
+
   	var marginsPaddings = DOMUtil.getStyle(td, "margin-left", true) + DOMUtil.getStyle(td, "margin-right", true) +
   												DOMUtil.getStyle(td, "padding-left", true) + DOMUtil.getStyle(td, "padding-right", true);
 		td.style.width = tdWidth + "%";

@@ -127,9 +127,7 @@ UIDockbar.prototype.animation = function(selectedIcon, e) {
 	var selectedIconX = eXo.desktop.UIDesktop.findPosXInDesktop(selectedIcon) ;
 	var middleIcon = selectedIconX + (selectedIcon.offsetWidth / 2) ;
 	var mouseX = eXo.core.Browser.findMouseRelativeX(uiPageDesktop, e) ;
-	
-	console.debug(mouseX);
-	
+		
 	var d = middleIcon - selectedIconX ;
 	var delta = middleIcon - mouseX ;
 	var distanceWeight = (0.5 / curve) * (delta / d) ;
@@ -160,10 +158,7 @@ UIDockbar.prototype.animation = function(selectedIcon, e) {
 				uiDockbar.defaultIconSize * (weight - 1) * ((curve - deltaCurve) / curve + distanceWeight)) ;
 			}
 		}
-		
-//		window.status = "SIZE: " + size ;
-//		console.warn(size);
-		
+				
 		icons[i].style.width = size + "px" ;
 		icons[i].style.height = size + "px" ;
 	}
