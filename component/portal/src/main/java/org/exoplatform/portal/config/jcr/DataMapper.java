@@ -33,7 +33,8 @@ public class DataMapper {
 //-------------------------------- Portal Config ---------------------------------------------
   void map(Node node, PortalConfig config) throws Exception {    
     node.setProperty("id", config.getOwner()) ;
-    node.setProperty("owner", config.getOwner()) ;
+    node.setProperty("owner", config.getOwner()) ;    
+    node.setProperty("accessGroup", config.getAccessGroup()) ;
     node.setProperty("dataType", portalType) ;    
     node.setProperty("data", toXML(config)) ;
   }
@@ -47,6 +48,7 @@ public class DataMapper {
   void map(Node node, Page page) throws Exception {
     node.setProperty("id", page.getPageId()) ;
     node.setProperty("owner", page.getOwner()) ;
+    node.setProperty("accessGroup", page.getAccessGroup()) ;
     node.setProperty("dataType", pageType) ;
     node.setProperty("data", toXML(page)) ;
   }
@@ -58,9 +60,9 @@ public class DataMapper {
   
 //------------------------------ Page Navigation ----------------------------------------------  
   void map(Node node, PageNavigation navigation) throws Exception {
-    node.setProperty("id", navigation.getOwner()) ;
+    node.setProperty("id", navigation.getId()) ;
     node.setProperty("owner", navigation.getOwner()) ;
-    node.setProperty("createdDate", new GregorianCalendar()) ;
+    node.setProperty("accessGroup", navigation.getAccessGroup()) ;
     node.setProperty("dataType", navigationType) ;    
     node.setProperty("data", toXML(navigation)) ;
   }

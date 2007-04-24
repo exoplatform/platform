@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <node-navigation>
+	<id>exo</id>
   <owner>exo</owner>  
-  <access-permission>*:/guest</access-permission>
-  <edit-permission>owner:/user</edit-permission>
+  <access-group>*:/guest</access-group>
   <description> description for node navigation </description>
   
   <page-nodes>
@@ -11,7 +11,6 @@
     <uri>home</uri>
     <name>home</name>
     <label>#{home}</label>
-    <access-permission>*:/guest</access-permission>
     <page-reference>exo:home</page-reference>
     <description>/</description>
     

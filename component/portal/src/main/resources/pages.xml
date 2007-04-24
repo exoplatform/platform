@@ -4,7 +4,7 @@
     <owner>exo</owner>
     <name>home</name>
     <title>Home</title>
-    <view-permission>*:/guest</view-permission>
+    <access-group>*:/guest</access-group>
     <container template="ContainerColumnRenderer" width="100%" height="100%">
       
       <container template="ContainerRowRenderer" width="394px" height="100%">

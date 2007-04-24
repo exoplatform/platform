@@ -60,7 +60,11 @@ public class TestUserPortalService extends BasicTestCase {
   void assertPortalConfigOperation(UserPortalConfigService service, String portalName) throws Exception {    
     UserPortalConfig userPortalConfig = service.getUserPortalConfig(portalName, "N/A") ;    
     assertNotNull(userPortalConfig) ;
-    assertEquals(portalName, userPortalConfig.getPortalConfig().getOwner()) ; 
+    PortalConfig config = userPortalConfig.getPortalConfig() ;
+    assertEquals(portalName, config.getOwner()) ;
+    assertEquals("en", config.getLocale()) ;
+    assertEquals("*:/guest", config.getAccessGroup()) ;
+    
   }
   
   void assertPageOperation(UserPortalConfigService service, String portalName) throws Exception {
@@ -101,8 +105,9 @@ public class TestUserPortalService extends BasicTestCase {
     int numberOfNavigations = userPortalConfig.getNavigations().size() ;
     assertEquals(1, numberOfNavigations) ;
     
-    String pageNavigationOwner = userPortalConfig.getNavigations().get(0).getOwner() ;
-    assertEquals(portalName, pageNavigationOwner) ;
+    PageNavigation nav = userPortalConfig.getNavigations().get(0) ;
+    assertEquals(portalName, nav.getOwner()) ;
+    assertEquals("*:/guest", nav.getAccessGroup()) ;
   }  
   
   private <T> T loadObject(Class<T> clazz, String file) throws Exception{

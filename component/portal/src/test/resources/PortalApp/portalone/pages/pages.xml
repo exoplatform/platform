@@ -3,8 +3,8 @@
   <page>
     <owner>portalone</owner>
     <name>page-one</name>
-    <title>Home</title>
-    <view-permission>*:/guest</view-permission>
+    <title>page-one</title>
+    <access-group>*:/guest</access-group>
     <container template="ContainerColumnRenderer" width="100%" height="100%">
       
       <container template="ContainerRowRenderer" width="394px" height="100%">
@@ -67,11 +67,11 @@
     </container>
   </page>
   
-  <page>
+    <page>
     <owner>portalone</owner>
     <name>page-two</name>
-    <title>Home</title>
-    <view-permission>*:/guest</view-permission>
+    <title>page-two</title>
+    <access-group>*:/guest</access-group>
     <container template="ContainerColumnRenderer" width="100%" height="100%">
       
       <container template="ContainerRowRenderer" width="394px" height="100%">
@@ -133,5 +133,4 @@
       
     </container>
   </page>
-  
 </page-set>
