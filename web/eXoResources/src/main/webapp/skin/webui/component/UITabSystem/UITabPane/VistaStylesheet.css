@@ -9,7 +9,7 @@
 }
 
 .UITabPane .TabPaneContent .UITabContentContainer {
-	border: solid 1px #ffffff;
+
 }
 
 .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
@@ -22,7 +22,7 @@
 }
 
 .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {
-  border:solid 1px #555555;
+  border:solid 1px #838383;
   padding: 6px 7px 12px 8px;
   background: url('VistaSkin/background/TabContentBG.png') repeat;
 }

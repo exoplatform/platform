@@ -1,9 +1,9 @@
 .UITree {
-  border: solid #526d82 1px ;
+  border: solid #626262 1px ;
 }
 
 .UITree .BottomDecorator {
-	border-top: 1px solid #526d82 ;
+	border-top: 1px solid #626262 ;
 }
 
 .UITree .TreeContainer {
