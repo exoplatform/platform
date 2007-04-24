@@ -158,16 +158,17 @@ public class UIPageNavigationControlBar extends UIToolbar {
   }
 
   public void abort(Event<UIPageNavigationControlBar> event) throws Exception {
-    PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
     UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
     UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+    PortalRequestContext prContext = Util.getPortalRequestContext();  
+    uiWorkingWS.setRenderedChild(UIPortal.class) ;
+    
     UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-
     UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
     uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
-    uiWorkingWS.setRenderedChild(UIPortal.class) ;
-
-    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
-    pcontext.addUIComponentToUpdateByAjax(uiControl);
+    prContext.addUIComponentToUpdateByAjax(uiControl);
+    
+    prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
+    prContext.setFullRender(true);
   }
 }
