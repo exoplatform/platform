@@ -1,8 +1,7 @@
 /**
  * Created by The eXo Platform SARL
- * Modifile : Vu Duy Tu
- *           duytucntt@gmail.com
- * December 12, 2006
+ * Modifier : Nguyen Ngoc Thuy
+ * April 23, 2007
  * version: $Id$
  */
 
@@ -18,6 +17,11 @@
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
   height: 28px;
   position: relative;
+}
+
+.UINavigationPortlet .UINavigationBar .UIHorizontalTabs .PageNodeIcon {
+  height: 16px; width: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPageIcon.gif') no-repeat left;
 }
 
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
@@ -39,31 +43,115 @@
 
 /* Portal Navigation sub menus */
 
-.UINavigationPortlet .UINavigationBar .MenuItemContainer {
+.UINavigationPortlet .MenuItemContainer {
 	overflow: visible;
 	white-space: nowrap;
-	border-top: solid #b0c0e2 1px;
-	border-left: solid #b0c0e2 1px;
-	border-right: solid #b0c0e2 1px;
-	margin-right: 2px;
+	border: solid #5c97cc 1px;
+	background: #f3f3f3;
+	text-align: left; 
 }
 
-.UINavigationPortlet .UINavigationBar .MenuItem {
+.UINavigationPortlet  .MenuItemContainer .MenuItemDecorator {
+  border: 1px solid #fcfcfc;
+  background: #f3f3f3;
+  padding-bottom: 10px;
+}
+
+.UINavigationPortlet .MenuItemContainer .MenuItem {
+  background: url('DefaultSkin/background/BottomMenuItem220x1.gif') no-repeat bottom center;
 	white-space: nowrap;
 	cursor: pointer;
+	height: 24px; 
+	text-align: left;
+	padding-left: 5px;
 }
 
-.UINavigationPortlet .UINavigationBar .OverItem {
-	background-color: #c0d0f0;
-	border-bottom: solid #b0c0e2 1px;
+.UINavigationPortlet .MenuItemContainer .NormalItem {
+  background: url('DefaultSkin/background/BottomMenuItem220x1.gif') no-repeat bottom center;
+	line-height: 24px;
+	height: 24px;  width: auto;
+	padding-left: 5px;
 }
 
-.UINavigationPortlet .UINavigationBar .NormalItem {
-	background-color: #cbdaf4;
-	border-bottom: solid #b0c0e2 1px;
+.UINavigationPortlet .MenuItemContainer .OverItem {
+	background: #dfe0e0 url('DefaultSkin/background/BottomMenuItem220x1.gif') no-repeat bottom center;
+ 	line-height: 24px;
+	height: 24px; width: auto; 
+	padding-left: 5px;
 }
 
-.UINavigationPortlet .UINavigationBar .SelectedItem {
-	background-color: #c0d0f0;
-	border-bottom: solid #b0c0e2 1px;
+.UINavigationPortlet .MenuItemContainer .SelectedItem {
+	background: #dfe0e0 url('DefaultSkin/background/BottomMenuItem215x1.gif') no-repeat bottom center;
+	line-height: 24px;
+	height: 24px; width: auto; 
+	padding-left: 5px;
+}
+
+.UINavigationPortlet .MenuItemContainer .NormalItem .ItemIcon {
+  height: 24px; width: auto;
+  padding-left: 20px;
+}
+
+.UINavigationPortlet .MenuItemContainer .NormalItem .MenuItemLabel {
+  line-height: 24px; 
+  padding: 0px 3px;
+}
+
+.UINavigationPortlet .MenuItemContainer .NormalItem a {
+  color: #989898;
+  line-height: 24px;
+}
+
+.UINavigationPortlet .MenuItemContainer .NormalItem .RightItemIcon {
+  height: 24px; width: auto;
+  padding-right: 20px;
+  background: url('DefaultSkin/background/GreyItemArrow.gif') no-repeat right;
+}
+
+.UINavigationPortlet .MenuItemContainer .OverItem .ItemIcon {
+  height: 24px; width: auto;
+  padding-left: 20px;
+}
+
+.UINavigationPortlet .MenuItemContainer .OverItem .MenuItemLabel {
+  line-height: 24px;
+  padding: 0px 3px;
+}
+
+.UINavigationPortlet .MenuItemContainer .OverItem a {
+  color: #3e8df0;
+  line-height: 24px;
+}
+
+.UINavigationPortlet .MenuItemContainer .OverItem .RightItemIcon {
+  height: 24px; width: auto;
+  padding-right: 20px;
+  background: url('DefaultSkin/background/GreyItemArrow.gif') no-repeat right;
+}
+
+.UINavigationPortlet .MenuItemContainer .SelectedItem .ItemIcon {
+  height: 24px; width: auto;
+  padding-left: 20px;
+}
+
+.UINavigationPortlet .MenuItemContainer .SelectedItem .MenuItemLabel {
+  line-height: 24px;
+  padding: 0px 3px;
+}
+
+.UINavigationPortlet .MenuItemContainer .PageNodeIcon {
+  height: 24px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPageIcon.gif') no-repeat left ;
+  padding: 0px 0px 0px 20px ;
+}
+
+.UINavigationPortlet .MenuItemContainer .SelectedItem a {
+  color: #3e8df0;
+  line-height: 24px;  
+}
+
+.UINavigationPortlet .MenuItemContainer .SelectedItem .RightItemIcon {
+  height: 24px; width: auto;
+  padding-right: 20px;
+  background: url('DefaultSkin/background/GreyItemArrow.gif') no-repeat right;
 }

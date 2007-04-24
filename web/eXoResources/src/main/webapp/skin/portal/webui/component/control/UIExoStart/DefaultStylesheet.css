@@ -127,6 +127,13 @@
   margin: 0px 0px 0px 5px ;
 }
 
+.UIExoStart .StartMenuContainer .PageNodeIcon {
+  height: 35px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPageIcon.gif') no-repeat left ;
+  padding: 0px 0px 0px 18px ;
+  margin: 0px 0px 0px 5px ;
+}
+
 .UIExoStart .StartMenuContainer .SystemIcon {
   height: 33px ;
   background: url('DefaultSkin/icons/32x32/System.gif') no-repeat left ;
@@ -137,7 +144,7 @@
 .UIExoStart .StartMenuContainer .LabelText {
   font-size: 11px ;
   white-space: nowrap ;
-  padding: 10px 5px 0px 4px ;
+  padding: 10px 5px 0px 6px ;
 }
 
 .UIExoStart .StartMenuContainer .LabelText a {
@@ -235,7 +242,7 @@
 .UIExoStart .StartMenuContainer .MenuItemContainer .Icon {
   padding: 0px 0px 0px 30px;
   margin: 0px 0px 0px 5px;
-  height: 35px;
+  height: 35px; width: auto;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {

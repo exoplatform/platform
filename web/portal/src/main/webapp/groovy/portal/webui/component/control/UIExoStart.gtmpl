@@ -17,11 +17,11 @@
   void renderSinglePageNode(PageNode node) {
     String  href = uicomponent.event("ChangePage",  node.getUri()) ;
     String icon = node.getIcon();
-    if(icon == null) icon = "PageIcon";
+    if(icon == null) icon = "PageNodeIcon";
     print """
       <div class="MenuItem">
         <div class="LabelItem">
-          <div class="Icon $icon">
+          <div class="Icon $icon"  style="padding-left: 18px">
             <div class="LabelText"><a href="$href">$node.label</a></div>
           </div>
         </div>
@@ -32,11 +32,11 @@
   void renderPageNode(PageNode node) {
      String  href = uicomponent.event("ChangePage",  node.getUri()) ;
      String icon = node.getIcon();
-     if(icon == null) icon = "PageIcon";
+     if(icon == null) icon = "PageNodeIcon";
      print """
       <div class="MenuItem">
         <div class="LabelItem">
-          <div class="Icon $icon"> 
+          <div class="Icon $icon" style="padding-left: 18px"> 
             <div class="BlackArrowIcon">
               <div class="LabelText"><a href="$href">$node.label</a></div>
             </div>

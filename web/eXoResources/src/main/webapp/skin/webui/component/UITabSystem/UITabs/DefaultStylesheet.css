@@ -48,6 +48,7 @@
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
   line-height: 24px;
+  padding-left: 7px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
@@ -58,13 +59,8 @@
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
   float: left;
-  width: 5px; height: 5px;
-  background: url('DefaultSkin/background/NormalNavIcon5x5.gif') no-repeat center;
-  margin: 10px 4px 0px 0px;
-}
-
-.UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
-  padding-left: 7px;
+  width: 16px; height: 16px;
+  margin: 4px 2px 0px 0px;
 }
 
 /*###############-Hightlight Navigation Tab  -################*/
@@ -87,8 +83,9 @@
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
-  line-height: 24px;
+  line-height: 24px; 
   background: url('DefaultSkin/background/MiddleHighlightNav1x24.gif') repeat-x;
+  padding-left: 7px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
@@ -99,14 +96,10 @@
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
   float: left;
-  width: 5px; height: 5px;
-  background: url('DefaultSkin/background/HighlightNavIcon5x5.gif') no-repeat center;
-  margin: 10px 4px 0px 0px;
+  width: 16px; height: 16px;
+  margin: 4px 2px 0px 0px;
 }
 
-.UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
-  padding-left: 7px;
-}
 
 /*###############-Selected Navigation Tab-################*/
 
@@ -130,6 +123,7 @@
 .UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
   line-height: 24px;
   background: url('DefaultSkin/background/MiddleSelectedNav1x24.gif') repeat-x;
+  padding-left: 7px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab a {
@@ -140,13 +134,8 @@
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
   float: left;
-  width: 5px; height: 5px;
-  background: url('DefaultSkin/background/SelectedNavIcon5x5.gif') no-repeat center;
-  margin: 10px 4px 0px 0px;
-}
-
-.UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
-  padding-left: 7px;
+  width: 16px; height: 16px;
+  margin: 4px 2px 0px 0px;
 }
 
 /*###########################--NormalTab--############################*/

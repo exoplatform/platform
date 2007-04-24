@@ -61,17 +61,17 @@
 		}
   	String actionLink = uicomponent.event("SelectNode", node.getUri()) ;
   	String icon = node.getIcon();
-    if(icon == null) icon = "PageIcon";
+    if(icon == null) icon = "PageNodeIcon";
   	print """
   			<div class="MenuItem">
   				<div class="$tabStyleNavigation">
-						<div class="LeftItemIcon"><span></span></div>
-						<div class="MenuItemLabel">
-							<div class="Icon $icon">
-								<a href="$actionLink">$node.label</a>
-							</div>	
+						<div class="ItemIcon $icon">
+						  <div class="RightItemIcon">
+						    <div class="MenuItemLabel">
+									<a href="$actionLink">$node.label</a>
+								</div>
+						  </div>
 						</div>
-						<div class="RightItemIcon"></div>
 					</div>
 
 		""" ;
@@ -107,7 +107,7 @@
 		                  tabStyleNavigation = "SelectedNavigationTab" ;
 		                }
 		                String icon = node.getIcon();
-								    if(icon == null) icon = "PageIcon";
+								    if(icon == null) icon = "PageNodeIcon";
 		        %>      
 		        
 		         <div class="UITab" onmouseover="$mouseOver" onmouseout="$mouseOut">
@@ -115,8 +115,8 @@
 		             <div class="LeftTab">
 		               <div class="RightTab">
 		                 <div class="MiddleTab">
-		                   <div  class="TabIcon"><span></span></div>
-		                   <div class="Icon $icon"><a href="$actionLink">$node.label</a></div>
+		                   <div  class="TabIcon $icon"><span></span></div>
+		                   <a href="$actionLink">$node.label</a>
 		                   <div style="clear: left"><span></span></div>
 		                 </div>
 		               </div>
