@@ -41,8 +41,8 @@
 
 .UIWidgetContainer .eXoInfoWidgetImage {
 	margin: auto;
-	width: 200px; height: 200px;
-	background: url('DefaultSkin/background/InfoImage200x200.png') no-repeat center;	
+	width: 200px; height: 210px;
+	background: url('DefaultSkin/background/InfoImage200x200.png') no-repeat center top;	
 }
 
 .UIWidgetContainer .eXoInfoWidgetImage .TopWidgetImage {

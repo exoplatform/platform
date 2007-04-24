@@ -125,15 +125,6 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 
 };
 
-UIAddApplication.prototype.isError = function(object) {
-	var a = "b";
-	object.onerror = function() {
-	  a = "c";
-	}
-	if(a == "c") return false;
-	return true ;
-};
-
 UIAddApplication.prototype.addPortlet = function(id, save) {
 	var params = [
 		{name: "portletId", value : id},

@@ -3,7 +3,7 @@
 		<div class="SelectedBG">
 			<div class="UserIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this)"><span></span></div>
 		</div>
-		<div class="NormalBG">
+		<div class="NormalBG" style="display: none">
 			<div class="WelcomeIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this)"><span></span></div>
 		</div>
 		<div style="clear: left"><span></span></div>		
