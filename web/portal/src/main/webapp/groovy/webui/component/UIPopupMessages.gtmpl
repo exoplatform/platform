@@ -44,9 +44,8 @@
 		println "		       <div class=\"PopupMessageContainer\">";
     for(mess in messages) {
       println "		        <div class=\"MessageContainer\">";
-			println "		          <div class=\"OverflowContainer\" style=\"width: 99%\">";
-			println "		            <div class=\"PopupIcon $iconSmall\"><span></span></div>";
-			println "		            <div class=\"PopupMessage\">";
+			println "	            <div class=\"PopupIcon $iconSmall\"><span></span></div>";
+			println "	            <div class=\"PopupMessage\">";
 		  String msgValue = _ctx.appRes(mess.messageKey);
 			Object[] msgArguments = mess.getMessageAruments();
 			if(msgArguments != null && msgArguments.length > 0) {
@@ -55,8 +54,7 @@
 		    }
 		  }
 			println msgValue;
-			println "               </div>";
-	    println "             </div>";
+			println "             </div>";
 	    println "           </div>";
     }
  		println "	         </div>";

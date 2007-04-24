@@ -62,8 +62,8 @@
 }
 
 .UIPopupMessages .PopupMessageContainer .PopupMessage {
-  float: left;
-  height: 16px; line-height: 16px; vertical-align: middle;
+  line-height: 16px;
+  vertical-align: middle;
   margin-left: 5px;
 }
 
