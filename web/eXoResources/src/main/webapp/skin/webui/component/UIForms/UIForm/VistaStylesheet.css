@@ -27,8 +27,9 @@
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet {
-	width: 97% ;
-  padding-bottom: 10px ; margin-right: 0px ;
+	width: 82%;
+  padding-bottom: 10px ; 
+  margin: auto;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .Title {
