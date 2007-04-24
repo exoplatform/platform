@@ -26,15 +26,15 @@ import org.jibx.runtime.IUnmarshallingContext;
  */
 public class DataMapper {
   
-  final public static String PORTAL_TYPE = "portal" ;
-  final public static String PAGE_TYPE = "page" ;
-  final public static String NAVIGATION_TYPE = "navigation" ;
+  final private String portalType = "portal" ;
+  final private String pageType = "page" ;
+  final private String navigationType = "navigation" ;
   
 //-------------------------------- Portal Config ---------------------------------------------
   void map(Node node, PortalConfig config) throws Exception {    
     node.setProperty("id", config.getOwner()) ;
     node.setProperty("owner", config.getOwner()) ;
-    node.setProperty("dataType", PORTAL_TYPE) ;    
+    node.setProperty("dataType", portalType) ;    
     node.setProperty("data", toXML(config)) ;
   }
   
@@ -47,7 +47,7 @@ public class DataMapper {
   void map(Node node, Page page) throws Exception {
     node.setProperty("id", page.getPageId()) ;
     node.setProperty("owner", page.getOwner()) ;
-    node.setProperty("dataType", PAGE_TYPE) ;
+    node.setProperty("dataType", pageType) ;
     node.setProperty("data", toXML(page)) ;
   }
   
@@ -61,7 +61,7 @@ public class DataMapper {
     node.setProperty("id", navigation.getOwner()) ;
     node.setProperty("owner", navigation.getOwner()) ;
     node.setProperty("createdDate", new GregorianCalendar()) ;
-    node.setProperty("dataType", NAVIGATION_TYPE) ;    
+    node.setProperty("dataType", navigationType) ;    
     node.setProperty("data", toXML(navigation)) ;
   }
 
@@ -78,7 +78,7 @@ public class DataMapper {
     IMarshallingContext mctx = bfact.createMarshallingContext() ;
     mctx.setIndent(2);
     mctx.marshalDocument(object, "UTF-8", null, os) ;
- 
+    
     return new String(os.toByteArray());
   }
   

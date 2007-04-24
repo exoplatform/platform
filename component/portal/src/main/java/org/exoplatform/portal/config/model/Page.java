@@ -16,9 +16,7 @@ public class Page extends Container {
   
   private String owner ;
   private String name ;
-  //TODO: Change view, edit permission to accessGroup
-  private String viewPermission ;
-  private String editPermission ;
+  private String accessGroup ;
   private boolean showMaxWindow = false ;
   
   public Page() {
@@ -31,12 +29,9 @@ public class Page extends Container {
   public String getName() { return name ; }
   public void   setName(String s) { name = s ; } 
   
-  public String getViewPermission() { return viewPermission ; }
-  public void   setViewPermission(String s) { viewPermission = s ; } 
+  public String getAccessGroup() { return accessGroup ; }
+  public void   setAccessGroup(String s) { accessGroup = s ; } 
   
-  public String getEditPermission() { return editPermission ; }
-  public void   setEditPermission(String s) { editPermission = s ; } 
-
   public boolean isShowMaxWindow() { return showMaxWindow; }  
   public void setShowMaxWindow(Boolean showMaxWindow) {
     this.showMaxWindow = showMaxWindow.booleanValue(); 

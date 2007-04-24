@@ -16,9 +16,7 @@ public class PortalConfig extends Component {
   
 	private String owner ;
   private String locale ;
-  //TODO: Change view, edit permission to accessGroup
-  private String viewPermission ;
-  private String editPermission  ;
+  private String accessGroup ;
   private String skin;
   protected String title ;
   
@@ -36,11 +34,8 @@ public class PortalConfig extends Component {
   public String getLocale() { return locale ; }
   public void   setLocale(String s) { locale = s ; }
   
-  public String getViewPermission() { return viewPermission ; }
-  public void   setViewPermission(String s) { viewPermission = s ; }
-  
-  public String getEditPermission() { return editPermission ; }
-  public void   setEditPermission(String s) { editPermission = s ; }
+  public String getAccessGroup() { return accessGroup ; }
+  public void   setAccessGroup(String s) { accessGroup = s ; }
   
   public String getSkin() { return skin; }
   public void setSkin(String s ) { skin = s; }

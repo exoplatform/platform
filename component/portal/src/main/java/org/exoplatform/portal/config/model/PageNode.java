@@ -19,8 +19,6 @@ public class PageNode  {
   protected String name ;
   protected String label ;
   protected String icon ;
-  //TODO: Remove accessPermission
-  protected String accessPermission ;
   
   protected String pageReference ;
   protected String description ;
@@ -45,9 +43,6 @@ public class PageNode  {
   public String getIcon() { return icon ; }
   public void   setIcon(String s) { icon = s ; }
 
-  public String getAccessPermission() { return accessPermission ; }
-  public void   setAccessPermission(String s) { accessPermission = s ; } 
-  
   public String getDescription() { return description ; }
   public void   setDescription(String s) { description = s ; }
   
@@ -79,7 +74,6 @@ public class PageNode  {
     newNode.setName(name);
     newNode.setLabel(label);
     newNode.setIcon(icon);
-    newNode.setAccessPermission(accessPermission);
     newNode.setPageReference(pageReference);
     newNode.setDescription(description);
     newNode.setType(type);

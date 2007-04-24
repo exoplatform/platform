@@ -13,18 +13,37 @@ import java.util.ArrayList;
  * @version: $Id: NodeNavigation.java,v 1.1 2004/07/20 12:41:07 tuan08 Exp $
  */
 public class PageNavigation {
+  
   private String      id ;
   private String			owner;
-  //TODO: Change view, edit permission to accessGroup
-  private String      accessPermission ;
-  private String      editPermission ;
+  private String      accessGroup ;
   private String      description ;
   private boolean     modifiable ;
 
   private ArrayList<PageNode>	pageNodes = new ArrayList<PageNode>();
   private int         priority = 0 ;
+  
+  public String getId() { return id; }
+  public void setId(String id) { this.id = id; }
 
-  public PageNode getNode(int idx) {	return pageNodes.get(idx); }
+  public String getOwner() { return owner;}
+  public void setOwner(String owner) { this.owner = owner; }
+
+  public void setAccessGroup(String accessPermission){
+    this.accessGroup = accessPermission;
+  }  
+  public String getAccessGroup(){  return accessGroup; }
+
+  public boolean getModifiable(){  return modifiable; }
+  public void    setModifiable(boolean b) { modifiable = b ; }
+
+  public void setDescription(String des){  description = des; }  
+  public String getDescription(){  return description; }
+
+  public int  getPriority() { return priority ; }
+  public void setPriority(int i) { priority  = i ; }
+  
+  public PageNode getNode(int idx) {  return pageNodes.get(idx); }
 
   public PageNode removeNode(int idx) {  
     PageNode node = pageNodes.get(idx);
@@ -50,33 +69,12 @@ public class PageNavigation {
 
   public ArrayList<PageNode> getNodes(){ return pageNodes; }
   public void setNodes(ArrayList<PageNode> nodes) { pageNodes = nodes; }
-
-  public String getOwner() { return owner;}
-  public void setOwner(String owner) { this.owner = owner; }
-
-  public void setAccessPermission(String accessPermission){
-    this.accessPermission = accessPermission;
-  }  
-  public String getAccessPermission(){  return accessPermission; }
-
-  public void setEditPermission(String editPermission){  this.editPermission = editPermission; }  
-  public String getEditPermission(){   return editPermission; }
-
-  public boolean getModifiable(){  return modifiable; }
-  public void    setModifiable(boolean b) { modifiable = b ; }
-
-  public void setDescription(String des){  description = des; }  
-  public String getDescription(){  return description; }
-
-  public int  getPriority() { return priority ; }
-  public void setPriority(int i) { priority  = i ; }
   
   public PageNavigation clone() {
     PageNavigation newNav = new PageNavigation();
     newNav.setOwner(owner);
     newNav.setPriority(priority);
-    newNav.setAccessPermission(accessPermission);
-    newNav.setEditPermission(editPermission);
+    newNav.setAccessGroup(accessGroup);
     newNav.setModifiable(modifiable);
     newNav.setDescription(description);
 
