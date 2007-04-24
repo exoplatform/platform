@@ -15,15 +15,15 @@
 
   <dependencies>
     <dependency>
-      <groupId>exo-portlet-container</groupId>
-      <artifactId>exo-portlet-container.services.jsr168.api</artifactId>
-      <version>${org.exoplatform.pc.version}</version>
-    </dependency>
-
-    <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.resources</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.exoplatform.portletcontainer</groupId>
+      <artifactId>exo-portlet-container.services.core</artifactId>
+      <version>${org.exoplatform.pc.version}</version>
     </dependency>
   </dependencies>
   
