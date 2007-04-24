@@ -9,12 +9,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.jcr.Node;
-import javax.jcr.NodeIterator;
 import javax.jcr.PropertyIterator;
-import javax.jcr.Session;
-
-import org.exoplatform.container.PortalContainer;
-import org.exoplatform.services.jcr.RepositoryService;
 
 /**
  * Created by The eXo Platform SARL
@@ -33,7 +28,6 @@ class DataMapper {
   
   private final String createdDate = "createdDate";
   private final String modifiedDate = "modifiedDate";
-  
   
   private final String applicationName = "applicationName";
   private final String applicationGroup = "applicationGroup";
