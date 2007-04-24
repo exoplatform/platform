@@ -121,10 +121,7 @@ public class UIPageForm extends UIFormTabPane {
     if(uiTemplate != null) {
       SelectItemOption itemOption = uiTemplate.getSelectedItemOption();
       if(itemOption != null){
-        String icon = itemOption.getIcon();
-        int idx = icon.indexOf("Image");
-        if(idx > -1) icon = icon.substring(0, idx);
-        page.setFactoryId(icon);
+        page.setFactoryId(itemOption.getIcon());
         page.setTemplate((String)itemOption.getValue());
         page.setShowMaxWindow(page.getFactoryId().equals("Desktop"));
       } 
@@ -141,7 +138,10 @@ public class UIPageForm extends UIFormTabPane {
     UIPageTemplateOptions uiConfigOptions = getChild(UIPageTemplateOptions.class);
     if(uiConfigOptions == null) return;
     Page selectedPage = uiConfigOptions.getSelectedOption();
-    if(selectedPage != null) page.setChildren(selectedPage.getChildren());
+    if(selectedPage == null) return ;
+    page.setChildren(selectedPage.getChildren());
+    page.setFactoryId(selectedPage.getFactoryId());
+    page.setShowMaxWindow("Desktop".equals(page.getFactoryId()));
   }
 
   public UIComponent getBackUIComponent() { return returnComponent_ ; }
