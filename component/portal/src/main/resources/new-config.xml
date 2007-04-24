@@ -3,7 +3,7 @@
   <factory-id>office</factory-id>
   <owner>exo</owner>
   <locale>en</locale>
-  <view-permission>*:/guest</view-permission>
+  <access-group>*:/guest</access-group>
 
   <widget-layout>
     <container>
