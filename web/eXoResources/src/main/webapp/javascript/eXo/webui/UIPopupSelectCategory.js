@@ -8,7 +8,7 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 	
 	var ancestorPopupCategory = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "AncestorPopupCategory") ;
 	var categoryDetectPosition = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "CategoryDetectPosition") ;
-	var ControlCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
+	var controlCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
   var uiPopupCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
   var uiDesktop = eXo.core.DOMUtil.findAncestorByClass(ancestorPopupCategory, "UIPageDesktop");
   
@@ -22,7 +22,7 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 		uiPopupCategory.style.top = posTop + "px" ;
 		uiPopupCategory.style.width = width + "px" ;
 
-		if(ControlCategory != null) {
+		if(controlCategory != null) {
 			var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - width + 35;
 			if (uiDesktop != null) posLeft -= ancestorPopupCategory.offsetLeft;
 			if (eXo.portal.UIControlWorkspace.showControlWorkspace) posLeft -= eXo.portal.UIControlWorkspace.defaultWidth;

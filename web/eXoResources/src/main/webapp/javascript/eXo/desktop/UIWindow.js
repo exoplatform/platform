@@ -214,6 +214,12 @@ UIWindow.prototype.initDND = function(e) {
   	// Can drag n drop only when the window is NOT maximized
 	  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	  var uiPageDesktopX = eXo.core.Browser.findPosX(uiPageDesktop) ;
+	  
+	  /*Fix Bug On IE7, It's always double the value returned*/
+	  if((eXo.core.Browser.getBrowserType() == "ie") && (!eXo.core.Browser.isIE6())) {
+	  	uiPageDesktopX = uiPageDesktopX / 2 ;
+	  }
+	  
 		var uiApplication = eXo.core.DOMUtil.findFirstDescendantByClass(dragBlock, "div", "UIApplication");
 		var hiddenElements = new Array();
 		
@@ -238,7 +244,7 @@ UIWindow.prototype.initDND = function(e) {
 	    var browserHeight = eXo.core.Browser.getBrowserHeight() ;
 	    var browserWidth = eXo.core.Browser.getBrowserWidth() ;
 	    var mouseX = eXo.core.Browser.findMouseXInPage(dndEvent.backupMouseEvent) ;
-	    
+	    	    
 	    if(dragObjectY < 0) {
 	      dragObject.style.top = "0px" ;
 	      document.onmousemove = DragDrop.onDrop ; /*Fix Bug On IE6*/
@@ -254,8 +260,7 @@ UIWindow.prototype.initDND = function(e) {
 	    }
 	    
 	  }
-	
-	  DragDrop.dropCallback = function (dndEvent) {
+		  DragDrop.dropCallback = function (dndEvent) {
 	  	// A workaround to make the window properly resizable after drop
 	  	for (var i = 0; i < hiddenElements.length; i++) {
 	  		hiddenElements[i].style.overflow = "auto";

@@ -177,8 +177,7 @@ Browser.prototype.findPosX = function(obj) {
   } else if (obj.x) {
     curleft += obj.x;
   }
-  //Fix bug on IE7
-  if (this.getBrowserType() == "ie" && !this.isIE6()) curleft /= 2;
+
   return curleft;
 } ;
 
@@ -218,6 +217,7 @@ Browser.prototype.findMouseXInPage = function(e) {
   } else if (e.clientX || e.clientY) {
     posx = e.clientX + document.body.scrollLeft ;
   }
+  
   return posx ;
 } ;
 
