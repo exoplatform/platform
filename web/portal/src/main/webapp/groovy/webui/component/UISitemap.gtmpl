@@ -4,11 +4,15 @@
   public void renderNextLevelNode(children, int intLevel) {
   	for(PageNode node in children) {
 	    String actionLink = uicomponent.event("SelectNode", node.getUri()) ;
+	    String iconType = node.getIcon();
+			if(iconType == null) {
+				iconType = "DefaultIcon";
+			}
 	    println """
 	  	  <div class="Item">
 		      <div class="Level$intLevel">
 		        <div class="OverflowContainer">
-		          <a class="Icon Level${intLevel}16x16Icon" href="$actionLink"><span></span></a>
+		          <a class="Icon ${iconType}" href="$actionLink"><span></span></a>
 		          <div class="Label"><a href="$actionLink">$node.label</a></div>
 		        </div>
 		      </div>
@@ -36,13 +40,17 @@
 				        boolean even = true ;
 				        for(nav in navigations) { 
 				          for(node in nav.getNodes()) { 
+				            String iconType = node.getIcon();
+										if(iconType == null) {
+											iconType = "OrangeBoxPage16x16Icon";
+										}
 				            String blockFloat = "LeftBlock" ;
 				            actionLink = uicomponent.event("SelectNode", node.getUri()) ;
 			        %>
 							      <div class="SitemapItemBox">
 							        <%//Title SiteMap %>
 									    <div class="TitleBar">
-							      	  <div class="Icon OrangeBoxPage16x16Icon"><span></span></div>
+							      	  <div class="Icon ${iconType}"><span></span></div>
 	                      <div class="Title"><a href="<%=actionLink%>">$node.label</a></div>
 	                      <div style="clear: left;"><span></span></div>
 							        </div>

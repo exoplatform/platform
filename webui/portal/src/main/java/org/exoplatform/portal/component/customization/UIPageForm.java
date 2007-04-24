@@ -27,7 +27,6 @@ import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
-import org.exoplatform.webui.component.validator.NumberFormatValidator;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -62,10 +61,10 @@ public class UIPageForm extends UIFormTabPane {
                  addUIFormInput(new UIFormStringInput("name", "name", null).
                                 addValidator(EmptyFieldValidator.class)).
                  addUIFormInput(new UIFormStringInput("title", "title", null)).
-                 addUIFormInput(new UIFormStringInput("width", "width", null).
-                                addValidator(NumberFormatValidator.class)). 
-                 addUIFormInput(new UIFormStringInput("height", "height",null).
-                                addValidator(NumberFormatValidator.class)).
+//                 addUIFormInput(new UIFormStringInput("width", "width", null).
+//                                addValidator(NumberFormatValidator.class)). 
+//                 addUIFormInput(new UIFormStringInput("height", "height",null).
+//                                addValidator(NumberFormatValidator.class)).
                  addUIFormInput(new UIFormCheckBoxInput("showMaxWindow", "showMaxWindow", false)).                                   
                  addUIFormInput(new UIFormStringInput("owner", "owner", null));
     addUIFormInput(uiSettingSet) ;   

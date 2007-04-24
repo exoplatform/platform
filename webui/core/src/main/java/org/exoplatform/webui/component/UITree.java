@@ -32,6 +32,7 @@ public class UITree extends UIComponent {
   
   private String beanIdField_ ;
   private String beanLabelField_ ;
+  private String beanIconField_ = "";
   
   private List<?> sibbling;
   private List<?> children;
@@ -46,6 +47,7 @@ public class UITree extends UIComponent {
   }
   
   public void setBeanIdField(String beanIdField_) {  this.beanIdField_ = beanIdField_; }
+  public void setBeanIconField(String beanIconField_) {  this.beanIconField_ = beanIconField_; }
   public void setBeanLabelField(String beanLabelField_) { this.beanLabelField_ = beanLabelField_; }
 
 
@@ -105,11 +107,16 @@ public class UITree extends UIComponent {
   public String renderNode(Object obj) throws Exception {
     String nodeIcon = expandIcon;
     String iconGroup = icon;
+    
     String note = "" ; 
     if(isSelected(obj)) {
       nodeIcon = colapseIcon;
       iconGroup = selectedIcon;
       note = "NodeSelected" ;             
+    }
+    if(beanIconField_ != null && beanIconField_.length() > 0) {
+      if(getFieldValue(obj, beanIconField_) != null)
+        iconGroup = "Icon " + getFieldValue(obj, beanIconField_);
     }
     String objId = String.valueOf(getId(obj)) ;
     String actionLink = event("ChangeNode", objId);
@@ -119,7 +126,6 @@ public class UITree extends UIComponent {
     } else {
       builder.append(" <div class=\"").append(nodeIcon).append("\" onclick=\"eXo.portal.UIPortalControl.collapseTree(this)").append("\"><span></span></div>") ;
     }
-          
     builder.append(" <div class=\"").append(iconGroup).append("\"><span></span></div> ");
     if(uiPopupMenu_ == null){
       builder.append(" <div class=\"NodeLabel\"> ");

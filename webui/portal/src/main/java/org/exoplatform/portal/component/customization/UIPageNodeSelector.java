@@ -97,7 +97,8 @@ public class UIPageNodeSelector extends UIContainer {
     uiTree.setIcon("Icon NavigationPortalIcon");    
     uiTree.setSelectedIcon("Icon NavigationPortalIcon");
     uiTree.setBeanIdField("uri");
-    uiTree.setBeanLabelField("label");    
+    uiTree.setBeanLabelField("label");   
+    uiTree.setBeanIconField("icon");
     UIRightClickPopupMenu uiPopupMenu = createUIComponent(UIRightClickPopupMenu.class, "PageNodePopupMenu", null) ;
     uiTree.setUIRightClickPopupMenu(uiPopupMenu);
     
