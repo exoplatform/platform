@@ -55,6 +55,15 @@ public interface DataStorage {
    */
   public void remove(Page page) throws Exception ;
   
+  
+
+  /**
+   * This method should create  or  udate the given page object
+   * @param page
+   * @throws Exception
+   */
+  public void create(Page page) throws Exception ;
+  
   /**
    * This method should create  or  udate the given page object
    * @param page

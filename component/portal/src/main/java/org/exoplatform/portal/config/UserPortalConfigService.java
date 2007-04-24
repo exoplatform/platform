@@ -4,8 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.config;
 
-import java.util.List;
-
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -50,7 +48,16 @@ public class UserPortalConfigService {
    * @return a UserPortalConfig object that contain the PortalConfig  and a list of the PageNavigation objects
    */
   public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
-    return null ;
+    PortalConfig portalConfig = storage_.getPortalConfig(portalName) ;
+    if(portalConfig == null) return null ;
+    PageNavigation navigation = storage_.getPageNavigation(portalName) ;
+    if (navigation == null) return null ;
+
+    UserPortalConfig userPortalConfig = new UserPortalConfig() ;
+    userPortalConfig.setPortal(portalConfig) ;
+    userPortalConfig.addNavigation(navigation) ;
+    
+    return  userPortalConfig ;
   }
   
   /**
@@ -79,8 +86,8 @@ public class UserPortalConfigService {
    * @param config
    * @throws Exception
    */
-  public void  save(PortalConfig config) throws Exception {
-    
+  public void update(PortalConfig config) throws Exception {    
+    storage_.save(config) ;    
   }
   
   /**
@@ -91,7 +98,8 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public Page getPage(String pageId, String accessUser) throws Exception {
-    return null ; 
+    //cache
+    return storage_.getPage(pageId) ; 
   }
   
   /**
@@ -103,26 +111,23 @@ public class UserPortalConfigService {
   public void remove(Page page) throws Exception {
     
   }
+  /**
+   * This method should create  or  udate the given page object
+   * @param page
+   * @throws Exception
+   */
+  public void create(Page page) throws Exception {
+    storage_.save(page) ;
+  }
+  
   
   /**
    * This method should create  or  udate the given page object
    * @param page
    * @throws Exception
    */
-  public void save(Page page) throws Exception {
-    
-  }
-  
-  /**
-   * This method should return the PageNavigation of the given portal, and the PageNavigation of the
-   * groups that the accessUser belong to
-   * @param portalName
-   * @param accessUser
-   * @return
-   * @throws Exception
-   */
-  public List<PageNavigation> getPageNavigations(String portalName, String accessUser) throws Exception {
-    return  null;
+  public void update(Page page) throws Exception {
+    storage_.save(page) ;
   }
   
   /**
@@ -130,7 +135,8 @@ public class UserPortalConfigService {
    * @param navigation
    * @throws Exception
    */
-  public void save(PageNavigation navigation) throws Exception {
+  public void update(PageNavigation navigation) throws Exception {
+    storage_.save(navigation) ;
     
   }
   
