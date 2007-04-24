@@ -10,7 +10,7 @@
 }
 
 .UIForm .HorizontalLayout .FieldContainer {
-  margin-top: 15px ;
+  padding-top: 10px ;
   overflow: hidden;
   width: 100% ;
 }
@@ -79,8 +79,9 @@
   border: none;
 }
 
-.UIForm .HorizontalLayout  input.radio {
-	float:left;
+.UIForm .HorizontalLayout input.radio {
+	float: none;
+  width: auto;
 }
 
 .UIForm .HorizontalLayout textarea {

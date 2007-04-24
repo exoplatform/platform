@@ -67,8 +67,8 @@
 
 .UIWindow .WindowPortletInfo .Icon {
   float: left;
-  width: 16px; height: 16px;
-  margin: 5px 8px 0px 0px;
+  width: 19px; height: 19px;
+  margin: 4px 8px 0px 0px;
 }
 
 .UIWindow .WindowPortletInfo .PortletName {
@@ -196,7 +196,7 @@
 }
 
 .UIWindow .WindowBarLeft {
-  height: 25px ;
+  height: 25px ; 
   padding-left: 11px ;
   background: url('VistaSkin/background/LeftTopBar11x25.png') no-repeat left ;
 }
