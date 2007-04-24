@@ -247,9 +247,8 @@
   border: 1px #b7b7b7 solid;
   color: #484d52;
   background: url('VistaSkin/background/ProfileImage.jpg')no-repeat bottom;
- 
   padding-top: 10px;
-  height: 337px;
+  height:287px;
  
 }
 
@@ -257,7 +256,7 @@
   border: 1px #b7b7b7 solid;
   background: white;
   padding: 1px; margin-right: 225px;
-  height: 370px;
+  height: 320px;
 }
 
 .UIItemSelector .RightColumnStyle .ImageDecorator {
