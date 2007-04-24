@@ -73,7 +73,7 @@ public class UIChangeLanguage extends UIContainer{
       LocaleConfigService localeConfigService  = event.getSource().getApplicationComponent(LocaleConfigService.class) ;
       LocaleConfig localeConfig = localeConfigService.getLocaleConfig(language);
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
-      PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal, true);
+      PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal);
       PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
       dataService.savePortalConfig(portalConfig);
       uiApp.setLocale(localeConfig.getLocale());

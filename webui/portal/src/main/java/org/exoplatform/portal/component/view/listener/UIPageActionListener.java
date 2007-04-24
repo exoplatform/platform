@@ -104,7 +104,7 @@ public class UIPageActionListener {
       UIPage uiPage = event.getSource();
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       uiPage.removeChildById(id);  
-      Page page = PortalDataModelUtil.toPageModel(uiPage, true);    
+      Page page = PortalDataModelUtil.toPageModel(uiPage);    
       PortalDAO configService = uiPage.getApplicationComponent(PortalDAO.class);
       configService.savePage(page);
       

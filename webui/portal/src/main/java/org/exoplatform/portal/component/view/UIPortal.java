@@ -84,7 +84,8 @@ public class UIPortal extends UIContainer {
     if(pNav.getNodes() == null || pNav.getNodes().size() < 1) return;
     selectedNode_ = pNav.getNode(0);
     selectedPaths_.add(selectedNode_);
-    UIPageBody uiPageBody = findFirstComponentOfType(UIPageBody.class);          
+    UIPageBody uiPageBody = findFirstComponentOfType(UIPageBody.class);    
+    if(uiPageBody == null) return;
     uiPageBody.setPageBody(selectedNode_, this);
   }
 

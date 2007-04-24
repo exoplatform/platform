@@ -50,7 +50,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
   
   public void save(Event<UIPortalManagementControlBar> event) throws Exception {
     UIPortal uiPortal = Util.getUIPortal();     
-    PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal, true);
+    PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal);
     PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
     dataService.savePortalConfig(portalConfig);
     Util.updateUIApplication(event);
@@ -79,7 +79,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
       String ownerUser = prContext.getPortalOwner();   
       UserPortalConfig userPortalConfig = configService.computeUserPortalConfig(ownerUser, remoteUser);      
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
-      PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig, true);
+      PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig);
       
       UIPortal oldUIPortal =uiWorkingWS.getChild(UIPortal.class);
       uiWorkingWS.setBackupUIPortal(oldUIPortal);

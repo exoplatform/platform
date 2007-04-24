@@ -89,7 +89,7 @@ public class UIPageForm extends UIFormTabPane {
   @SuppressWarnings("unchecked")
   public void setValues(UIPage uiPage) throws Exception {
     uiPage_ = uiPage;
-    Page page = PortalDataModelUtil.toPageModel(uiPage, false) ;    
+    Page page = PortalDataModelUtil.toPageModel(uiPage) ;    
     getUIStringInput("name").setEditable(false) ;
     getUIStringInput("owner").setEditable(false) ; 
     
@@ -180,7 +180,7 @@ public class UIPageForm extends UIFormTabPane {
           page.setChildren(applications);     
         }
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
-        PortalDataModelUtil.toUIPage(uiPage, page, true);       
+        PortalDataModelUtil.toUIPage(uiPage, page);       
       } else {
         page.setOwner(event.getRequestContext().getRemoteUser());
       }

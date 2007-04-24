@@ -60,7 +60,7 @@ public class UIPortalBrowser extends UIContainer {
       
       UserPortalConfig userPortalConfig = configService.computeUserPortalConfig(ownerUser, remoteUser);      
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
-      PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig, true);
+      PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig);
       
       UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
       if(userACL.hasPermission(uiPortal.getOwner(), remoteUser, uiPortal.getViewPermission())){

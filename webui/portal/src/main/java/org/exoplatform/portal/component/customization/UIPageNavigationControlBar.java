@@ -68,7 +68,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
 
       UserPortalConfig userPortalConfig = configService.computeUserPortalConfig(ownerUser, remoteUser);
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prcontext, UIPortal.class, null, null);
-      PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig, true);
+      PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig);
       oldUIPortal.setNavigation(uiPortal.getNavigations());
 
       UIPageNodeSelector uiPageNodeSelector = uiPageNav.<UIContainer>getParent().findFirstComponentOfType(UIPageNodeSelector.class);

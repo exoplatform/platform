@@ -66,7 +66,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     
     UIPagePreview uiPagePreview = getChild(UIPagePreview.class);
     UIPage uiPage = (UIPage)uiPagePreview.getUIComponent();
-    Page page = PortalDataModelUtil.toPageModel(uiPage, true);
+    Page page = PortalDataModelUtil.toPageModel(uiPage);
     daoService.savePage(page); 
     
     UIWizardPageSetInfo uiPageInfo = getChild(UIWizardPageSetInfo.class);  
@@ -159,7 +159,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
       UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
-      PortalDataModelUtil.toUIPage(uiPage, page, true);
+      PortalDataModelUtil.toUIPage(uiPage, page);
       uiPagePreview.setUIComponent(uiPage);
       
       if(isDesktopPage){

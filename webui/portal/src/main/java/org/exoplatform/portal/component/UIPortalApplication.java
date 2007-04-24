@@ -126,7 +126,7 @@ public class UIPortalApplication extends UIApplication {
     UIWorkspace uiWorkingWorkspace = 
       createUIComponent(UIWorkspace.class, UIPortalApplication.UI_WORKING_WS_ID, null) ;
     UIPortal uiPortal = createUIComponent(UIPortal.class, null, null);
-    PortalDataModelUtil.toUIPortal(uiPortal, config, true);
+    PortalDataModelUtil.toUIPortal(uiPortal, config);
     uiWorkingWorkspace.addChild(uiPortal) ;    
     uiWorkingWorkspace.addChild(UIPortalToolPanel.class, null, null).setRendered(false) ;    
     addChild(uiWorkingWorkspace) ;

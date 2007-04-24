@@ -70,7 +70,7 @@ public class UIChangeSkin extends UIContainer {
       if(!userACL.hasPermission(uiPortal.getOwner(), accessUser, permission)) return;
       
       uiPortal.setSkin(skin);
-      PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal, true);
+      PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal);
       PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
       dataService.savePortalConfig(portalConfig);
 

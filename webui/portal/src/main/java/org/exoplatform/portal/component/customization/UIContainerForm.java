@@ -78,7 +78,7 @@ public class UIContainerForm extends UIForm {
 
   public void setValues(UIContainer uiContainer) throws Exception {
     this.uiContainer_ = uiContainer;
-    Container container = PortalDataModelUtil.toContainerModel(uiContainer, false) ;
+    Container container = PortalDataModelUtil.toContainerModel(uiContainer) ;
     getUIStringInput("id").setEditable(false);
     invokeGetBindingBean(container) ;    
   }
@@ -96,7 +96,7 @@ public class UIContainerForm extends UIForm {
       UIContainer uiContainer = uiForm.getContainer() ;
       Container container = new Container();
       uiForm.invokeSetBindingBean(container) ;
-      PortalDataModelUtil.toUIContainer(uiContainer, container, true);
+      PortalDataModelUtil.toUIContainer(uiContainer, container);
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       
       UIMaskWorkspace uiMaskWorkspace = uiForm.getParent();

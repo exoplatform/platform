@@ -125,7 +125,7 @@ public class UIAddPortletForm extends UIFormTabPane {
         uiPage.addChild(uiPortlet);
       }      
 
-      Page page = PortalDataModelUtil.toPageModel(uiPage, true); 
+      Page page = PortalDataModelUtil.toPageModel(uiPage); 
       PortalDAO configService = uiPage.getApplicationComponent(PortalDAO.class);
       configService.savePage(page);
 

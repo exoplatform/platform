@@ -130,7 +130,7 @@ public class UIPageEditBar extends UIToolbar {
 
   public void savePage() throws Exception {
     if(getUIPage() == null) return;
-    Page page = PortalDataModelUtil.toPageModel(getUIPage(), true);      
+    Page page = PortalDataModelUtil.toPageModel(getUIPage());      
     PortalDAO dataService = getApplicationComponent(PortalDAO.class);
     dataService.savePage(page); 
   }

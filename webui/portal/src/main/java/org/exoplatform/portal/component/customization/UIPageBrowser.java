@@ -192,7 +192,7 @@ public class UIPageBrowser extends UISearch {
       }
       
       UIPage uiPage =  uiPageBrowser.createUIComponent(pcontext, UIPage.class, null, null) ;
-      PortalDataModelUtil.toUIPage(uiPage, page, true);
+      PortalDataModelUtil.toUIPage(uiPage, page);
       
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
@@ -234,7 +234,7 @@ public class UIPageBrowser extends UISearch {
       }
       
       UIPage uiPage =  uiPageBrowser.createUIComponent(event.getRequestContext(), UIPage.class,null,null) ;
-      PortalDataModelUtil.toUIPage(uiPage, page, true);
+      PortalDataModelUtil.toUIPage(uiPage, page);
       
       UIPagePreview uiPagePreview =  Util.showComponentOnWorking(uiPageBrowser, UIPagePreview.class);      
       uiPagePreview.setUIComponent(uiPage) ;

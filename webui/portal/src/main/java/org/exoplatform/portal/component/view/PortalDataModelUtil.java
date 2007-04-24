@@ -30,19 +30,19 @@ import org.exoplatform.webui.component.UIComponent;
 public class PortalDataModelUtil {
 
   @SuppressWarnings("unchecked")
-  static private <T extends Component> T buildChild(UIComponent uiComponent, boolean recursive){
+  static private <T extends Component> T buildChild(UIComponent uiComponent){
     Component model = null;
     if(uiComponent instanceof UIPageBody){
       model =  toPageBodyModel((UIPageBody)uiComponent);
     }else if(uiComponent instanceof UIPortlet){
       model = toPortletModel((UIPortlet)uiComponent);
     } else if(uiComponent instanceof UIContainer){       
-      model = toContainerModel((UIContainer) uiComponent, recursive);
+      model = toContainerModel((UIContainer) uiComponent);
     }
     return (T)model;
   }
 
-  static private void toPortalComponent(Component model, UIPortalComponent uiPortalComponent){
+  static private void toComponent(Component model, UIPortalComponent uiPortalComponent){
     model.setId(uiPortalComponent.getId());
     model.setFactoryId(uiPortalComponent.getFactoryId());
     model.setTemplate(uiPortalComponent.getTemplate());
@@ -51,25 +51,29 @@ public class PortalDataModelUtil {
     model.setWidth(uiPortalComponent.getWidth());
     model.setModifiable(uiPortalComponent.isModifiable());   
   }
+  
+  static private void toPortalComponent(Container model, UIPortalComponent uiPortalComponent){
+    toComponent(model, uiPortalComponent);
+    List<UIComponent> children  = uiPortalComponent.getChildren();
+    if(children == null)  return ;
+    ArrayList<Component>  newChildren= new ArrayList<Component>();
+    for(UIComponent child : children){   
+      newChildren.add(buildChild(child));
+    }
+    model.setChildren(newChildren);
+  }
 
-  static public Container toContainerModel(UIContainer uiContainer , boolean recursive){
+  static public Container toContainerModel(UIContainer uiContainer){
     Container model  = new Container();
     toPortalComponent(model , uiContainer);
     model.setTitle(uiContainer.getTitle());        
-    model.setIcon(uiContainer.getIcon());
-    List<UIComponent> children  = uiContainer.getChildren();
-    if(!recursive || children == null)  return model;
-    ArrayList<Component>  newChildren= new ArrayList<Component>();
-    for(UIComponent child : children){   
-      newChildren.add(buildChild(child, recursive));
-    }
-    model.setChildren(newChildren);
+    model.setIcon(uiContainer.getIcon());   
     return model;
   }
 
   static public Application toPortletModel(UIPortlet uiPortlet){
     Application model = new Application();
-    toPortalComponent(model , uiPortlet);
+    toComponent(model , uiPortlet);
     model.setApplicationInstanceId(uiPortlet.getWindowId());
     model.setShowInfoBar(uiPortlet.getShowInfoBar());
     model.setShowApplicationMode(uiPortlet.getShowWindowState());
@@ -79,7 +83,7 @@ public class PortalDataModelUtil {
     return model;
   }
 
-  static public Page toPageModel(UIPage uiPage, boolean recursive){
+  static public Page toPageModel(UIPage uiPage){
     Page model = new Page();
     toPortalComponent(model , uiPage);
     model.setOwner(uiPage.getOwner());
@@ -88,21 +92,13 @@ public class PortalDataModelUtil {
     model.setViewPermission(uiPage.getViewPermission());
     model.setEditPermission(uiPage.getEditPermission());
     model.setTitle(uiPage.getTitle());
-    model.setShowMaxWindow(uiPage.isShowMaxWindow());
-    List<UIComponent> children  = uiPage.getChildren();
-    if(!recursive || children == null)  return model;
-    ArrayList<Component>  newChildren= new ArrayList<Component>();
-    for(UIComponent child : children){   
-      if(child  instanceof UIJSApplication) continue;
-      newChildren.add(buildChild(child, recursive));
-    }
-    model.setChildren(newChildren);
+    model.setShowMaxWindow(uiPage.isShowMaxWindow());   
     return model;
   }
 
-  static public PortalConfig toPortalConfig(UIPortal uiPortal, boolean recursive){
+  static public PortalConfig toPortalConfig(UIPortal uiPortal){
     PortalConfig model = new PortalConfig();
-    toPortalComponent(model , uiPortal);
+    toComponent(model , uiPortal);
     model.setOwner(uiPortal.getOwner());    
     model.setLocale(uiPortal.getLocale());
     model.setSkin(uiPortal.getSkin());
@@ -110,10 +106,10 @@ public class PortalDataModelUtil {
     model.setEditPermission(uiPortal.getEditPermission());
     model.setTitle(uiPortal.getTitle());
     List<UIComponent> children  = uiPortal.getChildren();
-    if(!recursive || children == null)  return model;
+    if(children == null)  return model;
     ArrayList<Component>  newChildren= new ArrayList<Component>();
     for(UIComponent child : children){   
-      newChildren.add(buildChild(child, recursive));
+      newChildren.add(buildChild(child));
     }
     model.getPortalLayout().setChildren(newChildren);
     return model;
@@ -130,10 +126,10 @@ public class PortalDataModelUtil {
     return model;
   }
   
-  static private void toUIPortalComponent(UIPortalComponent uiPortalComponent, Component model){
+  static private void toUIComponent(UIPortalComponent uiPortalComponent, Component model) {
     uiPortalComponent.setId(model.getId());
     uiPortalComponent.setFactoryId(model.getFactoryId());
-    if(model.getTemplate() != null && model.getTemplate().length() > 0){
+    if(model.getTemplate() != null && model.getTemplate().length() > 0) {
       uiPortalComponent.setTemplate(model.getTemplate());
     }
     uiPortalComponent.setDecorator(model.getDecorator());
@@ -142,20 +138,23 @@ public class PortalDataModelUtil {
     uiPortalComponent.setModifiable(model.isModifiable());
   }
   
-  static public void toUIContainer(UIContainer uiContainer, Container model, 
-                                   boolean recursive) throws Exception {
-    toUIPortalComponent(uiContainer, model);
-    uiContainer.setTitle(model.getTitle());
-    uiContainer.setIcon(model.getIcon());
+  static private void toUIPortalComponent(UIPortalComponent uiPortalComponent, Container model) throws Exception {
+    toUIComponent(uiPortalComponent, model);    
     List<Component> children  = model.getChildren();
-    if(!recursive || children == null)  return;
-    for(Component child : children){   
-      uiContainer.addChild(buildChild(uiContainer,  child, recursive));
+    if(children == null)  return;
+    for(Component child : children) {   
+      uiPortalComponent.addChild(buildChild(uiPortalComponent, child));
     }
   }
   
+  static public void toUIContainer(UIContainer uiContainer, Container model) throws Exception {
+    toUIPortalComponent(uiContainer, model);
+    uiContainer.setTitle(model.getTitle());
+    uiContainer.setIcon(model.getIcon());
+  }
+  
   static public void toUIPortlet(UIPortlet uiPortlet, Application model) throws Exception {
-    toUIPortalComponent(uiPortlet, model);
+    toUIComponent(uiPortlet, model);
     uiPortlet.setWindowId(model.getApplicationInstanceId());
     uiPortlet.setShowInfoBar(model.getShowInfoBar());
     uiPortlet.setShowWindowState(model.getShowApplicationState());
@@ -197,8 +196,7 @@ public class PortalDataModelUtil {
     uiPortlet.setSupportModes(supportModes);
   }
   
-  static public void toUIPage(UIPage uiPage, Page model,
-                              boolean recursive) throws Exception {
+  static public void toUIPage(UIPage uiPage, Page model) throws Exception {
     toUIPortalComponent(uiPage, model);
     uiPage.setId(model.getPageId()) ;
     uiPage.setOwner(model.getOwner());
@@ -207,18 +205,12 @@ public class PortalDataModelUtil {
     uiPage.setViewPermission(model.getViewPermission());
     uiPage.setEditPermission(model.getEditPermission());
     uiPage.setTitle(model.getTitle());    
-    uiPage.setShowMaxWindow(model.isShowMaxWindow());
-    List<Component> children  = model.getChildren();
-    if(!recursive || children == null)  return;
-    for(Component child : children){   
-      uiPage.addChild(buildChild(uiPage,  child, recursive));
-    }
+    uiPage.setShowMaxWindow(model.isShowMaxWindow());   
   }
   
-  static public void toUIPortal(UIPortal uiPortal, UserPortalConfig userPortalConfig, 
-                                boolean recursive) throws Exception {
+  static public void toUIPortal(UIPortal uiPortal, UserPortalConfig userPortalConfig) throws Exception {
     PortalConfig model = userPortalConfig.getPortalConfig();
-    toUIPortalComponent(uiPortal, model);
+    toUIComponent(uiPortal, model);
     uiPortal.setUserPortalConfig(userPortalConfig);
     uiPortal.setOwner(model.getOwner());
     uiPortal.setLocale(model.getLocale());
@@ -226,13 +218,15 @@ public class PortalDataModelUtil {
     uiPortal.setViewPermission(model.getViewPermission());
     uiPortal.setEditPermission(model.getEditPermission());
     uiPortal.setTitle(model.getTitle());
-    uiPortal.setId("UIPortal") ;
+    uiPortal.setId("UIPortal") ;   
+    
     List<Component> children  = model.getPortalLayout().getChildren();
-    if(!recursive || children == null)  return;
-    for(Component child : children){   
-      uiPortal.addChild(buildChild(uiPortal,  child, recursive));
+    if(children != null) { 
+      for(Component child : children){   
+        uiPortal.addChild(buildChild(uiPortal, child));
+      }
     }
-    uiPortal.setNavigation(userPortalConfig.getNavigations());    
+    uiPortal.setNavigation(userPortalConfig.getNavigations());   
   }
   
   static public void toUIPageBody(UIPageBody uiBody, PageBody model){
@@ -245,8 +239,7 @@ public class PortalDataModelUtil {
   }
   
   @SuppressWarnings("unchecked")
-  static private <T extends UIComponent> T buildChild(UIContainer uiParent, Component model, 
-                                                      boolean recursive) throws Exception {
+  static private <T extends UIComponent> T buildChild(UIPortalComponent uiParent, Component model) throws Exception {
     UIComponent uiComponent = null;
     WebuiRequestContext  context = Util.getPortalRequestContext() ;
     if(model instanceof PageBody){
@@ -263,7 +256,7 @@ public class PortalDataModelUtil {
       }
     } else if(model instanceof Container){
       UIContainer uiContainer = uiParent.createUIComponent(context, UIContainer.class, model.getFactoryId(), null);
-      toUIContainer(uiContainer, (Container)model, recursive);
+      toUIContainer(uiContainer, (Container)model);
       uiComponent = uiContainer;
     }
     return (T)uiComponent;

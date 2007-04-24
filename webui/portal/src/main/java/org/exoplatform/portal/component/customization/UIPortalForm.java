@@ -163,7 +163,7 @@ public class UIPortalForm extends UIFormTabPane {
       uiPortal.getChildren().clear();
       UserPortalConfig userPortalConfig = uiPortal.getUserPortalConfig();
       userPortalConfig.setPortal(portalConfig);
-      PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig, true);
+      PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig);
       
       UIMaskWorkspace uiMaskWorkspace = uiForm.getParent();
       uiMaskWorkspace.setUIComponent(null);

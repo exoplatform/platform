@@ -91,7 +91,7 @@ public class UIPortalActionListener {
       
       String save = event.getRequestContext().getRequestParameter("save");
       if(save != null && Boolean.valueOf(save).booleanValue()) {
-        Page page = PortalDataModelUtil.toPageModel(uiPage, true); 
+        Page page = PortalDataModelUtil.toPageModel(uiPage); 
         PortalDAO configService = uiPage.getApplicationComponent(PortalDAO.class);      
         configService.savePage(page);
       }
