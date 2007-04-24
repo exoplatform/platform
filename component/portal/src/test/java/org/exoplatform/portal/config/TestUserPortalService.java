@@ -52,7 +52,7 @@ public class TestUserPortalService extends BasicTestCase {
   void assertPortalConfigSave(UserPortalConfigService service, String portalName) throws Exception{
     String portalFile = portalName + "/config.xml" ;
     PortalConfig config = loadObject(PortalConfig.class, portalFile) ;
-    assertEquals("portalone", config.getOwner()) ;
+    assertEquals(portalName, config.getOwner()) ;
     
     service.update(config) ;
   }
@@ -60,7 +60,7 @@ public class TestUserPortalService extends BasicTestCase {
   void assertPortalConfigOperation(UserPortalConfigService service, String portalName) throws Exception {    
     UserPortalConfig userPortalConfig = service.getUserPortalConfig(portalName, "N/A") ;    
     assertNotNull(userPortalConfig) ;
-    assertEquals("portalone", userPortalConfig.getPortalConfig().getOwner()) ; 
+    assertEquals(portalName, userPortalConfig.getPortalConfig().getOwner()) ; 
   }
   
   void assertPageOperation(UserPortalConfigService service, String portalName) throws Exception {
@@ -89,7 +89,7 @@ public class TestUserPortalService extends BasicTestCase {
   void assertPageNavigationSave(UserPortalConfigService service, String portalName) throws Exception {
     String navigationFile = portalName + "/navigation.xml" ;
     PageNavigation navigation = loadObject(PageNavigation.class, navigationFile) ;
-    assertEquals("portalone", navigation.getOwner()) ;
+    assertEquals(portalName, navigation.getOwner()) ;
     
     service.update(navigation) ;
   }
@@ -102,7 +102,7 @@ public class TestUserPortalService extends BasicTestCase {
     assertEquals(1, numberOfNavigations) ;
     
     String pageNavigationOwner = userPortalConfig.getNavigations().get(0).getOwner() ;
-    assertEquals("portalone", pageNavigationOwner) ;
+    assertEquals(portalName, pageNavigationOwner) ;
   }  
   
   private <T> T loadObject(Class<T> clazz, String file) throws Exception{
