@@ -2,13 +2,13 @@
 }
 
 .UIExoStart .StartBarContainer {
-	height: 39px;
+	height: 35px;
   background: url('VistaSkin/background/BottomControlBg1x35.png') repeat-x bottom;
 }
 
 .UIExoStart .ExoStartButton {
   float: left ;
-  width: 50px ; height: 39px;
+  width: 50px ; height: 35px;
   cursor: pointer ;
 }
 
@@ -34,7 +34,7 @@
 
 .UIExoStart .VLineSeparator {
   float: right ;
-  width: 2px ; height: 38px ;
+  width: 2px ; height: 34px ;
   background: url('VistaSkin/background/LineSeparator2x38.png') no-repeat top;
   margin: 0px 4px 0px 4px ;
 }
@@ -47,7 +47,7 @@
 
 .UIExoStart .DigitalClock {
   color: white ;
-	line-height: 38px;
+	line-height: 34px;
 	padding-left: 7px;
 }
 
