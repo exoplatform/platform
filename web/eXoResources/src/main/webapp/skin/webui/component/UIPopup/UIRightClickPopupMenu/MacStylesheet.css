@@ -78,7 +78,7 @@
 }
 
 .UIRightClickPopupMenu .DeleteNode16x16Icon{
-  width: 16px;
-  height: 16px;
-  background: url('MacSkin/icons/Delete.gif') no-repeat;
+  width: 17px;
+  height: 18px;
+  background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat;
 }

@@ -69,12 +69,12 @@
 
  .UIGrid .DeleteIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/DustBin.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat ;
 }
 
  .UIGrid .EditInfoIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat ;
 }
 
  .UIGrid .AddNewIcon {
@@ -91,36 +91,36 @@
 
  .UIGrid .DeleteUserIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/DustBin.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat ;
 }
 
  .UIGrid .ViewUserInfoIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat ;
 }
 
 /*###################### UIListMembershipType Icon ######################*/
 
  .UIGrid .DeleteMembershipIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/DustBin.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat ;
 }
 
  .UIGrid .EditMembershipIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat ;
 }
 
 
 
  .UIGrid .DeleteUserIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/DustBin.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat ;
 }
 
  .UIGrid .ViewUserInfoIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat ;
 }
 
 .UIGrid input.checkbox {

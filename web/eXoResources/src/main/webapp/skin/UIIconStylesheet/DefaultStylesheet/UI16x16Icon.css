@@ -71,11 +71,12 @@
 
 .SelectPageIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectPage.gif') no-repeat left center;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectIcon.gif') no-repeat left center ;
+  margin: auto;
 }
 
 .SelectPortalIcon {
-  width: 16px ;  height: 16px ;
+  width: 16px ;  height: 16px ; margin: auto;
   background: url('/eXoResources/icons/16x16/DefaultSkin/SelectIcon.gif') no-repeat left center;
 }
 
@@ -257,12 +258,7 @@
 
 .AddNode16x16Icon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/PlusCircle.gif') no-repeat left center;
-}
-
-.LayoutMode16x16Icon {
-  width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/LayoutMode.gif') no-repeat left center;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif') no-repeat ;
 }
 
 .Organization16x16Icon {
@@ -476,73 +472,9 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/TreeNodeIcon.gif') no-repeat left center;
 }
 
-/*Need to be changed to S1*/
-.CyanDownArrow16x16Icon {
-  width: 16px; height: 16px;  
-  background: url('/eXoResources/icons/16x16/DefaultSkin/CyanDownArrow.gif') no-repeat left center;
-}
-
-
-.S1NextArrow16x16Icon {
-  width: 16px; height: 16px;  
-  background: url('/eXoResources/icons/16x16/DefaultSkin/CyanNextArrow.gif') no-repeat left center;
-}
-
-.S1BackArrow16x16Icon {
-  width: 16px; height: 16px;  
-  background: url('/eXoResources/icons/16x16/DefaultSkin/CyanBackArrow.gif') no-repeat left center;
-}
-
-/*##############- Tool Icons -#############*/
-
-.LightBulbOn16x16Icon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/LightBulbOn.gif') no-repeat left center;
-}
-
-.YellowBulb16x16Icon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/YellowBulb.gif') no-repeat left center;
-}
-
-.LightBlueGlobal16x16Icon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/LightBlueGlobal.gif') no-repeat left center;
-}
-
-.BlueActionWheel16x16Icon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueActionWheel.gif') no-repeat left center;
-}
-
-.LockedKey16x16Icon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/LockedKey.gif') no-repeat left center;
-}
-
 .Scissors16x16Icon {
   width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/Scissors.gif') no-repeat left center;
-}
-
-.BlueBalanced16x16Icon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueBalanced.gif') no-repeat left center;
-}
-
-.Entertainment16x16Icon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Entertainment.gif') no-repeat left center;
-}
-
-.BlueCogWheel16x16Icon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCogWheel.gif') no-repeat left center;  
-}
-
-.Earth16x16Icon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Earth.gif') no-repeat left center;
 }
 
 .HotNews16x16Icon {
