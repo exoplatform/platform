@@ -113,7 +113,7 @@ public class UserPortalConfigService {
     storage_.remove(page) ;
   }
   /**
-   * This method should create  or  udate the given page object
+   * This method should create the given page object
    * @param page
    * @throws Exception
    */
@@ -123,7 +123,7 @@ public class UserPortalConfigService {
   
   
   /**
-   * This method should create  or  udate the given page object
+   * This method should update the given page object
    * @param page
    * @throws Exception
    */

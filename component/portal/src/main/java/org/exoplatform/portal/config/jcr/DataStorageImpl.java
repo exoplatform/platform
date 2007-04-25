@@ -49,13 +49,11 @@ public class DataStorageImpl  implements DataStorage {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
 
-    Node portalNode = null ;
     if (portalAppNode.hasNode(portalName)) {
-      portalNode = portalAppNode.getNode(portalName) ;
+      Node portalNode = portalAppNode.getNode(portalName) ;
 
-      Node portalConfigNode  = null ;
       if (portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)) {
-        portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
+        Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
         PortalConfig config = mapper_.toPortalConfig(portalConfigNode) ;
 
         return config ;
@@ -162,17 +160,14 @@ public class DataStorageImpl  implements DataStorage {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
 
-    Node portalNode = null ;
     if (portalAppNode.hasNode(portalName)) {
-      portalNode = portalAppNode.getNode(portalName) ;
+      Node portalNode = portalAppNode.getNode(portalName) ;
 
-      Node pageSetNode = null ;
       if (portalNode.hasNode(PAGE_SET_NODE)) {
-        pageSetNode = portalNode.getNode(PAGE_SET_NODE) ;
+        Node pageSetNode = portalNode.getNode(PAGE_SET_NODE) ;
 
-        Node pageNode = null ;
         if(pageSetNode.hasNode(pageName)) {
-          pageNode = pageSetNode.getNode(pageName) ;
+          Node pageNode = pageSetNode.getNode(pageName) ;
           Page page = mapper_.toPage(pageNode) ;
 
           return page ;
@@ -226,13 +221,11 @@ public class DataStorageImpl  implements DataStorage {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
 
-    Node portalNode = null ;
     if (portalAppNode.hasNode(id)) {
-      portalNode = portalAppNode.getNode(id) ;
+      Node portalNode = portalAppNode.getNode(id) ;
 
-      Node navigationNode = null ;
       if (portalNode.hasNode(NAVIGATION_CONFIG_FILE_NAME)) {
-        navigationNode = portalNode.getNode(NAVIGATION_CONFIG_FILE_NAME) ;
+        Node navigationNode  = portalNode.getNode(NAVIGATION_CONFIG_FILE_NAME) ;
         PageNavigation navigation = mapper_.toPageNavigation(navigationNode) ;
 
         return navigation ;   
