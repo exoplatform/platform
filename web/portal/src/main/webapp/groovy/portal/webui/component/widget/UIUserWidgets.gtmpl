@@ -8,10 +8,10 @@
   jsmanager.importJavascript('eXo.widgets.UIAddWidget');
   jsmanager.importJavascript('eXo.widgets.UIWidget');
   
-  jsmanager.addJavascript('eXo.widgets.UIWidget.init()');
+  jsmanager.addJavascript('eXo.widgets.UIWidget.init();');
   
-  String showWCM = "eXo.widgets.UIWidgetContainerManagement.show()" ;
-  String showUIAddWidget = "eXo.widgets.UIAddWidget.show()" ;
+  String showWCM = "eXo.widgets.UIWidgetContainerManagement.show();" ;
+  String showUIAddWidget = "eXo.widgets.UIAddWidget.show();" ;
 %>
 
 <div class="UIWidgets" id="UIWidgets">
