@@ -351,6 +351,13 @@ UIPortal.prototype.changeLanguage = function(url) {
   window.location = url + '&language='+language;
 } ;
 
+/** Created: by Lxchiati **/
+
+UIPortal.prototype.popupButton = function(url, action) {
+	if(action == undefined) action = '';  
+  window.location = url + '&action='+action;
+} ;
+
 /** Created: by Duy Tu **/
 UIPortal.prototype.onLoads = function() {
 	DOMUtil = eXo.core.DOMUtil;
@@ -365,7 +372,7 @@ UIPortal.prototype.onLoads = function() {
 		  layOutContainer.style.background = "none";
 		}
 	}
-}
+};
 
 eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;
 eXo.portal.UIPortal = new UIPortal() ;

@@ -1,0 +1,99 @@
+<%
+	/**
+	 * Created by The eXo Platform SARL
+	 * Author : LeBienThuy
+	 *          lebienthuy@gmail.com
+	 * Aug 14, 2006
+	 * version: $Id$
+	 */  
+%>
+<%
+  String popupId = uicomponent.getId() ;
+  
+  def rcontext = _ctx.getRequestContext() ;
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
+	rcontext.getJavascriptManager().importJavascript('eXo.portal.UIPortal') ;
+	
+ 
+%>
+  <div class="UIPopupWindow UIDragObject" id="$popupId" style="width: 480px; display: none;">
+  
+	  <div class="TopLeftCornerDecorator">
+	    <div class="TopRightCornerDecorator">
+	      <div class="TopCenterDecorator">
+	        <div class="OverflowContainer">
+		        <div class="PopupTitleIcon"><span></span></div>
+		        <div class="CloseButton" title="Close Window" onclick="<%=uicomponent.event("Close")%>"><span></span></div>
+		        <div class="PopupTitle"><%=_ctx.appRes("UIPopupMessages.title.exoMessages")%></div>
+		      </div>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <div class="MiddleLeftSideDecorator">
+		  <div class="MiddleRightSideDecorator">
+		    <div class="MiddleCenterDecorator">
+	        
+	        <div class="UIWindowContent">
+	          <div class="Content">
+	            <%//Em muon them mot cai thuoc tinh isForm de xac dinh xem no co chua children ko
+	              // Nhung moi lan them vao lai bi loi. Neu isForm ==false thi se message moi xuat hien
+	              //con neu isForm == true thi se renderChildren()
+	              //Day cung moi chi la y tuong cua em thoi. Bac xem neu ko hop ly thi em bo di.
+	              //Message o day em don gian dung String. Bac xem co can thiet phai thay bang
+	              //List<ApplicationMessage> ko. 
+	            %>
+		          <div class="UIPopupMessages">	
+		          <%=uicomponent.getMessage();%>
+		          </div>
+						  <%ArrayList buttons = uicomponent.getButtonList();
+						  for(button in buttons) { %>
+		          <div class="UIAction">
+			          <div class="ActionContainer" style="margin: auto;">
+						      <div class="ActionButton">
+							      <div class="LightBlueStyle">
+							      	<div class="ButtonLeft">
+							      		<div class="ButtonRight">
+							      			<div class="ButtonMiddle">
+							      			  <%
+							      			    if(uicomponent.getHanderEvent() == null) { %>
+							      			    <a href="javascript:eXo.portal.UIPortal.popupButton('<%=uicomponent.url("Close");%>','<%=button%>');">
+	                            <%=button%>
+	                            </a>
+							      			  <% } else {
+							      			    String actionLink = uicomponent.getParent().url(uicomponent.getHanderEvent());%>
+						      					<a href="javascript:eXo.portal.UIPortal.popupButton('<%=actionLink %>','<%=button%>');">
+	                            <%=button%>
+	                          </a>	
+	                          <% } %>
+							      			</div>
+							      		</div>
+							      	</div>
+							      </div>
+						      </div>
+							  </div>
+							</div>
+							<%}%>
+		          
+	          </div>	          
+	        </div>
+	        
+	        <div class="BottomBar">
+	          <div class="ResizeButton"><span></span></div>
+	        </div>
+	        
+		    </div>
+		  </div>
+	  </div>
+	  
+	  <div class="BottomLeftCornerDecorator">
+		  <div class="BottomRightCornerDecorator">
+		    <div class="BottomCenterDecorator"><span></span></div>
+		  </div>
+	  </div>
+	  
+	</div>
+<%
+	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', false);") ;
+%>
