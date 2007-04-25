@@ -147,7 +147,6 @@
 /*############### End Decorator ###################################################*/
 .UIContainer .LAYOUT-CONTAINER {
   height: 100%;
-  /*background: #dedede url('DefaultSkin/background/ContainerBackground1x4.gif') no-repeat center;*/
   background: url('MacSkin/background/ContainerBackground1x4.gif') repeat;
   border: solid 1px #7b7b7b ; border-bottom: solid 1px #1e1f1f;
   padding: 8px 0px 0px 0px ;

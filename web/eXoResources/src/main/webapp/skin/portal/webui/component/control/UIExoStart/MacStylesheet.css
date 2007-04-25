@@ -67,70 +67,77 @@
 .UIExoStart .StartMenuContainer .PortalIcon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/PortalManagement.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .AdministrationIcon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/Administration.png') no-repeat left ;
-  padding: 0px 0px 0px 34px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .PageCreationWizardIcon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/AddPage.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .EditCurrentPageIcon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/EditPage.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .EditCurrentPortalIcon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/EditPortal.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;  
 }
 
 .UIExoStart .StartMenuContainer .BrowsePortalsIcon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/BrowsePortal.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .EditNavigationIcon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/EditPageNavigation.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .BrowsePagesIcon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/BrowsePage.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .PageIcon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/Page.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .PageNodeIcon {
+  height: 35px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPageIcon.png') no-repeat left ;
+  padding: 0px 0px 0px 25px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .SystemIcon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/System.png') no-repeat left ;
-  padding: 0px 0px 0px 34px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
@@ -147,35 +154,35 @@
 .UIExoStart .StartMenuContainer .Web20Icon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/Web20.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .DebugIcon {
   height: 38px ;  
   background: url('MacSkin/icons/32x32/Debug.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .SupportIcon {
   height: 38px ;  
   background: url('MacSkin/icons/32x32/HelpIcon.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .RefreshIcon {
   height: 38px ;  
   background: url('MacSkin/icons/32x32/Refresh.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .LogoutIcon {
   height: 35px ;  
   background: url('MacSkin/icons/32x32/LogoutIcon.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 120px ;
 }
 
@@ -213,11 +220,10 @@
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItem {
-	background: transparent;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .Icon {
-  padding: 0px 0px 0px 30px;
+  padding: 0px 0px 0px 33px;
   margin: 0px 0px 0px 5px;
   height: 35px;
 }
@@ -253,63 +259,63 @@
 .UIExoStart .StartMenuContainer .BasicIcon {
   height: 38px ;
   background: url('MacSkin/icons/32x32/BasicCustomization.png') no-repeat left ;
-  padding: 0px 0px 0px 34px ; 
+  padding: 0px 0px 0px 37px ; 
   margin: 0px 0px 0px 4px;
 }
 
 .UIExoStart .StartMenuContainer .AdvancedIcon {
   height: 38px ;  
   background: url('MacSkin/icons/32x32/AdvancedCustomization.png') no-repeat left ;
-  padding: 0px 0px 0px 34px ;
+  padding: 0px 0px 0px 37px ;
   margin: 0px 0px 0px 4px;
 }
 
 .UIExoStart .StartMenuContainer .ChangeSkinIcon {
   height: 38px ;  
   background: url('MacSkin/icons/32x32/ChangeSkin.png') no-repeat left ;
-  padding: 0px 0px 0px 34px ;
+  padding: 0px 0px 0px 37px ;
   margin: 0px 0px 0px 4px;
 }
 
 .UIExoStart .StartMenuContainer .SkinSettingIcon {
   height: 38px ;  
   background: url('MacSkin/icons/32x32/ChangeSkin.png') no-repeat left ;
-  padding: 0px 0px 0px 34px ;
+  padding: 0px 0px 0px 37px ;
   margin: 0px 0px 0px 4px;
 }
 
 .UIExoStart .StartMenuContainer .DefaultSkinIcon {
   height: 37px ;  
   background: url('MacSkin/icons/32x32/ExoSkin.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 4px;
 }
 
 .UIExoStart .StartMenuContainer .MacSkinIcon {
   height: 37px ;  
   background: url('MacSkin/icons/32x32/MacSkin.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 4px;
 }
 
 .UIExoStart .StartMenuContainer .VistaSkinIcon {
   height: 37px ;  
   background: url('MacSkin/icons/32x32/VistaSkin.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 4px;
 }
 
 .UIExoStart .StartMenuContainer .ChangeLanguageIcon {
   height: 38px ;  
   background: url('MacSkin/icons/32x32/ChangeLanguage.png') no-repeat left ;
-  padding: 0px 0px 0px 34px ;
+  padding: 0px 0px 0px 37px ;
   margin: 0px 0px 0px 4px;
 }
 
 .UIExoStart .StartMenuContainer .LanguageSettingIcon {
   height: 38px ;  
   background: url('MacSkin/icons/32x32/ChangeLanguage.png') no-repeat left ;
-  padding: 0px 0px 0px 34px ;
+  padding: 0px 0px 0px 37px ;
   margin: 0px 0px 0px 4px;
 }
 

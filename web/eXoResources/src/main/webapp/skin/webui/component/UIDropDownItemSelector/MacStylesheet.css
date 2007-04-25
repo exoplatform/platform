@@ -49,23 +49,37 @@
 }
 
 .UIItemList .ItemSelector {
-  line-height: 20px;
-  font-size: 11px;
-  cursor: pointer ;
-  padding: 0px 20px;
+  height: 25px;
+  padding: 0px 20px 0px 5px ;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.UIItemList .ItemSelector .Icon {
+  float: left;
+  background: url('MacSkin/icon/GrayArrow.png') no-repeat;
+  height: 16px; width: 16px;
+  margin: 4px 6px 0px 0px;
 }
 
 .UIItemList .OverItemSelector {
-	background: #5994d8;
-  line-height: 20px;
-	font-size: 11px; color: white;
-	cursor: pointer ;
-  padding: 0px 20px;
+  height: 26px;
+	background: url('MacSkin/background/OverItemSelectorBG1x26.png') repeat-x;
+	color: white;
+  padding: 0px 20px 0px 5px;
 }
 
+.UIItemList .OverItemSelector .Icon {
+  float: left;
+  background: url('MacSkin/icon/WhiteArrow.png') no-repeat;
+  height: 16px; width: 16px;
+  margin: 4px 6px 0px 0px;
+}
+
+
 .UIItemList .ItemSelectorLabel {
-  height: 22px; line-height: 22px;
+  line-height: 26px;
   font-size: 11px;
+  cursor: pointer ;
 }
 
 .UIItemList .ItemSelector a {
