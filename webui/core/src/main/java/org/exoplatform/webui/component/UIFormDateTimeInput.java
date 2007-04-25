@@ -101,7 +101,6 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
     int yearValue = Integer.parseInt(year);
     int hourValue = Integer.parseInt(hour);
     int minuteValue = Integer.parseInt(minute);
-    System.out.println("\n\n\n\n-----------------> " + hour + ":"+ minute + " \n\n\n\n");
     GregorianCalendar gCal = new GregorianCalendar(yearValue, monthValue, dayValue, hourValue, minuteValue);
     addTime(gCal.getTime());   
   }
