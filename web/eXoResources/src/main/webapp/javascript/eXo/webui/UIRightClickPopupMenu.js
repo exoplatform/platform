@@ -24,21 +24,6 @@ UIRightClickPopupMenu.prototype.init = function(contextMenuId) {
 	this.disableContextMenu(parentNode) ;
 }
 
-UIRightClickPopupMenu.prototype.createItem = function(action, icon, lbl) {
-	if(!icon) icon = action + "16x16Icon" ;
-	if(!lbl) lbl = action ;
-	var menuItem = document.createElement("div") ;
-	menuItem.onclick = new Function("return eXo.webui.UIRightClickPopupMenu.prepareObjectId(this);") ;
-	menuItem.className = "MenuItem" ;
-	
-	var itemIcon = document.createElement("div") ;
-	itemIcon.className = "ItemIcon " + icon;
-	menuItem.appendChild(itemIcon) ;
-	
-	var itemLabel = document.createElement("a") ;
-	
-}
-
 UIRightClickPopupMenu.prototype.disableContextMenu = function(comp) {
 	if(typeof(comp) == "string") comp = document.getElementById(comp) ;
 	comp.onmouseover = function() {
@@ -90,9 +75,10 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 	
 	var intTop = eXo.core.Mouse.mouseyInPage - (eXo.core.Browser.findPosY(contextMenu) - contextMenu.offsetTop);
 	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(contextMenu) - contextMenu.offsetLeft);
+	if((eXo.core.Mouse.mouseyInClient + contextMenu.offsetHeight) > eXo.core.Browser.getBrowserHeight()) {
+		intTop -= contextMenu.offsetHeight ;
+	}
 	contextMenu.style.top = intTop + "px";
 	contextMenu.style.left = intLeft + "px";
-	
-	
 }
 eXo.webui.UIRightClickPopupMenu = new UIRightClickPopupMenu() ;
