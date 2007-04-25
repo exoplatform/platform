@@ -51,7 +51,7 @@ public class TestUserPortalService extends BasicTestCase {
   void assertPortalConfigSave(UserPortalConfigService service, String portalName) throws Exception{
     String portalFile = portalName + "/config.xml" ;
     PortalConfig config = loadObject(PortalConfig.class, portalFile) ;
-    assertEquals(portalName, config.getPortalName()) ;
+    assertEquals(portalName, config.getName()) ;
     service.update(config) ;
   }
   
@@ -59,7 +59,7 @@ public class TestUserPortalService extends BasicTestCase {
     UserPortalConfig userPortalConfig = service.getUserPortalConfig(portalName, "N/A") ;    
     assertNotNull(userPortalConfig) ;
     PortalConfig config = userPortalConfig.getPortalConfig() ;
-    assertEquals(portalName, config.getPortalName()) ;
+    assertEquals(portalName, config.getName()) ;
     assertEquals("en", config.getLocale()) ;
     assertEquals("*:/guest", config.getAccessGroup()) ;
     
@@ -99,14 +99,14 @@ public class TestUserPortalService extends BasicTestCase {
     String pageName = "page-one" ;
     String pageId = portalName + ":/" + pageName ;
     Page oldPage = service.getPage(pageId, "N/A") ;
-    assertEquals(pageTitle, oldPage.getTitle()) ;
+    assertEquals(pageTitle, oldPage.getDisplayName()) ;
     
     String newPageTitle = "NewPageTitle" ;
-    oldPage.setTitle(newPageTitle) ;
+    oldPage.setDisplayName(newPageTitle) ;
     service.update(oldPage) ;
     
     Page updatedPage = service.getPage(pageId, "N/A") ;
-    assertEquals(newPageTitle, updatedPage.getTitle()) ;
+    assertEquals(newPageTitle, updatedPage.getDisplayName()) ;
   }
   
   void assertPageRemove(UserPortalConfigService service, String portalName) throws Exception {
@@ -126,7 +126,7 @@ public class TestUserPortalService extends BasicTestCase {
   void assertPageNavigationSave(UserPortalConfigService service, String portalName) throws Exception {
     String navigationFile = portalName + "/navigation.xml" ;
     PageNavigation navigation = loadObject(PageNavigation.class, navigationFile) ;
-    assertEquals(portalName, navigation.getPortalName()) ;
+    assertEquals(portalName, navigation.getOwnerId()) ;
     
     service.update(navigation) ;
   }
@@ -140,7 +140,7 @@ public class TestUserPortalService extends BasicTestCase {
     assertEquals(1, numberOfNavigations) ;
     // Get PageNavigation
     PageNavigation nav = userPortalConfig.getNavigations().get(0) ;
-    assertEquals(portalName, nav.getPortalName()) ;
+    assertEquals(portalName, nav.getOwnerId()) ;
     assertEquals("*:/guest", nav.getAccessGroup()) ;
     
     // Remove PageNavigation
@@ -155,7 +155,7 @@ public class TestUserPortalService extends BasicTestCase {
     assertEquals(1, numberOfNavigations) ;
     
     nav = userPortalConfig3.getNavigations().get(0) ;
-    assertEquals(portalName, nav.getPortalName()) ;
+    assertEquals(portalName, nav.getOwnerId()) ;
     assertEquals("*:/guest", nav.getAccessGroup()) ;
     
   }  

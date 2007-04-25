@@ -16,16 +16,10 @@ public class PageNode  {
   
   protected ArrayList<PageNode> children = new ArrayList<PageNode>(5) ;
   protected String uri ;
-  protected String name ;
   protected String label ;
   protected String icon ;
   
-  protected String pageReference ;
-  protected String description ;
-  protected String type;
-  
-  protected  String creator ;
-  protected  String modifier ;
+  private String pageReference ;
   
   private transient boolean modifiable ;
   
@@ -34,27 +28,12 @@ public class PageNode  {
   public String getUri() { return uri ; }
   public void   setUri(String s) { uri = s ; }
 
-  public String getName() { return name ; }
-  public void   setName(String s) { name = s ; }
-
   public String getLabel() { return label ; }
   public void   setLabel(String s) { label = s ; }
   
   public String getIcon() { return icon ; }
   public void   setIcon(String s) { icon = s ; }
 
-  public String getDescription() { return description ; }
-  public void   setDescription(String s) { description = s ; }
-  
-  public String getType() { return type; }
-  public void   setType(String s) { type = s ; }
-
-  public String getCreator()  {  return creator ; }
-  public void   setCreator(String s) { creator = s ; }
-  
-  public String getModifier() { return modifier ; }
-  public void   setModifier(String s) { modifier = s ; }
-  
   public String getPageReference() { return pageReference ;}  
   public void   setPageReference(String s) { pageReference = s ;}
   
@@ -71,14 +50,9 @@ public class PageNode  {
   public PageNode clone() {
     PageNode newNode = new PageNode() ;
     newNode.setUri(uri);
-    newNode.setName(name);
     newNode.setLabel(label);
     newNode.setIcon(icon);
     newNode.setPageReference(pageReference);
-    newNode.setDescription(description);
-    newNode.setType(type);
-    newNode.setCreator(creator);
-    newNode.setModifier(modifier);
     newNode.setModifiable(modifiable);
     if(children == null || children.size() < 1) return newNode;
     for(PageNode ele : children) {
@@ -86,5 +60,5 @@ public class PageNode  {
     }
     return newNode;
   }
-  
+
 }

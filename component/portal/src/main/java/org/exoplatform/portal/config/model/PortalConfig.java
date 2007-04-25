@@ -12,42 +12,64 @@ import java.util.ArrayList;
  * @email:   tuan08@users.sourceforge.net
  * @version: $Id: PortalConfig.java,v 1.7 2004/08/06 03:02:29 tuan08 Exp $
  **/
-public class PortalConfig extends Component {
+public class PortalConfig {
   
-	private String portalName ;
-  private String locale ;
-  private String accessGroup ;
-  private String skin;
-  protected String title ;
+	private String    name ;
+	private String    factoryId;
+  private String    locale ;
+  private String    accessGroups;
+  private transient String[]  accessGroup ;
+  private String    skin;
+  private String    title;
   
   private Container widgetLayout;
   private Container portalLayout;
+  
+  private String    creator ;
+  private String    modifier ;
+  
+  private transient boolean modifiable ;
   
   public PortalConfig() {
     portalLayout = new Container();
     widgetLayout = new Container();
   }
   
-  public String getPortalName() { return portalName ; }
-  public void   setPortalName(String s) { portalName = s  ; } 
+  public String getName() { return name ; }
+  public void   setName(String s) { name = s  ; } 
  
   public String getLocale() { return locale ; }
   public void   setLocale(String s) { locale = s ; }
   
-  public String getAccessGroup() { return accessGroup ; }
-  public void   setAccessGroup(String s) { accessGroup = s ; }
+  public String [] getAccessGroup() { return accessGroup ; }
+  public void   setAccessGroup(String[] s) { accessGroup = s ; }
+  
+  public void setAccessGroups(String s){ this.accessGroups = s; }  
+  public String getAccessGroups(){  return accessGroups; }
   
   public String getSkin() { return skin; }
   public void setSkin(String s ) { skin = s; }
   
-  public String getTitle() { return title ; }
-  public void   setTitle(String s) { title = s ; }
-  
-  public Container   getWidgetLayout() { return widgetLayout; }
+  public Container getWidgetLayout() { return widgetLayout; }
   public void setWidgetLayout(Container container) { widgetLayout = container; }
   
   public Container   getPortalLayout() { return portalLayout; }
   public void setPortalLayout(Container container) { portalLayout = container; }
+  
+  public boolean isModifiable() { return modifiable ; }
+  public void  setModifiable(boolean b) { modifiable = b ; }
+  
+  public String getFactoryId() { return factoryId; }
+  public void setFactoryId(String factoryId) { this.factoryId = factoryId; }
+  
+  public String getCreator()  {  return creator ; }
+  public void   setCreator(String s) { creator = s ; }
+  
+  public String getModifier() { return modifier ; }
+  public void   setModifier(String s) { modifier = s ; }
+  
+  public String getTitle() { return title ; }
+  public void   setTitle(String value) { title = value ; }
   
   static public class PortalConfigSet {
     private ArrayList<PortalConfig> portalConfigs ;

@@ -3,20 +3,22 @@
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.portal.config.model;
-
 /**
  * May 13, 2004
  * @author: Tuan Nguyen
  * @email:   tuan08@users.sourceforge.net
  * @version: $Id: Portlet.java,v 1.7 2004/09/30 01:00:05 tuan08 Exp $
  **/
-public class Application extends Component {
+public class Application {
   
   public final static String TYPE_PORTLET = "portlet";
   public final static String TYPE_WIDGET = "widget";
   
+  private String id;
+  private String instanceId ;
+  private String applicationType = TYPE_PORTLET;
   private String title;
-  private String applicationInstanceId ;
+  
   private String icon ; 
   private String description;
 
@@ -25,17 +27,13 @@ public class Application extends Component {
   private boolean  showApplicationMode = true ;
   
   public Application(){
-    factoryId = TYPE_PORTLET;
   }
   
-  public String getTitle() { return title ; }
-  public void   setTitle(String s) { title = s ;}
+  public String getId() { return id ;}
+  public void   setId(String value) { id = value ; }
   
-  public String getApplicationInstanceId() { return applicationInstanceId ; }
-  public void   setApplicationInstanceId(String s) { applicationInstanceId = s ;}
-  
-  public String getDescription() {  return  description ; }
-  public void   setDescription(String s) { description = s ;}
+  public String getInstanceId() { return instanceId ; }
+  public void   setInstanceId(String value) { instanceId = value ;}
   
   public boolean getShowInfoBar() { return showInfoBar ; }
   public void    setShowInfoBar(Boolean b) { showInfoBar = b ; }
@@ -47,5 +45,14 @@ public class Application extends Component {
   public void    setShowApplicationMode(Boolean b) { showApplicationMode = b ; }
   
   public String getIcon() { return icon ; }
-  public void setIcon(String s) { icon = s ; }
+  public void setIcon(String value) { icon = value ; }
+
+  public String getApplicationType() { return applicationType; }
+  public void setApplicationType(String applicationId) { this.applicationType = applicationId; }
+  
+  public String getDescription() {  return  description ; }
+  public void   setDescription(String des) { description = des ; }
+  
+  public String getTitle() { return title ; }
+  public void   setTitle(String value) { title = value ; }
 }

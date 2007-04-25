@@ -1,19 +1,9 @@
-<binding>
-  <mapping class="org.exoplatform.portal.config.model.Component" label="component" abstract="true">
+<binding>  
+  <mapping name="application" label="application" class="org.exoplatform.portal.config.model.Application">
+    <value name="instance-id" field="instanceId"/>
     <value name="id" usage="optional" field="id" style="attribute"/>
-     <value name="factory-id" field="factoryId" usage="optional"/>
-    <value name="template" field="template" usage="optional" style="attribute"/>
-    <value name="decorator" field="decorator" usage="optional" style="attribute"/>
-    <value name="width" usage="optional" field="width" style="attribute" />
-    <value name="height" usage="optional" field="height" style="attribute"/>
-  </mapping>
-  
-  <mapping name="application" label="application"
-           class="org.exoplatform.portal.config.model.Application" 
-           extends="org.exoplatform.portal.config.model.Component">
-    <structure map-as="org.exoplatform.portal.config.model.Component"/>
+    <value name="application-type" field="applicationType" usage="optional"/>
     <value name="title" usage="optional" field="title"/>
-    <value name="application-instance-id" field="applicationInstanceId"/>
     <value name="show-info-bar" field="showInfoBar" usage="optional" />
     <value name="show-application-state" field="showApplicationState" usage="optional" />
     <value name="show-application-mode" field="showApplicationMode" usage="optional" />
@@ -21,77 +11,71 @@
     <value name="icon" field="icon" usage="optional"/>
   </mapping>
   
-  <mapping name="page-body" label="pageBody"
-           class="org.exoplatform.portal.config.model.PageBody" 
-           extends="org.exoplatform.portal.config.model.Component">
+  <mapping name="page-body" label="pageBody" class="org.exoplatform.portal.config.model.PageBody">
   </mapping>
   
-  <mapping name="container" label="container"
-           class="org.exoplatform.portal.config.model.Container" 
-           extends="org.exoplatform.portal.config.model.Component">
-    <structure map-as="org.exoplatform.portal.config.model.Component"/>
-    <value name="title" usage="optional" field="title"/>
-    <collection field="children" ordered="false">
-      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
-      <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
-      <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
-    </collection>
-  </mapping>
-  
-  <mapping name="page" label="page"
-           class="org.exoplatform.portal.config.model.Page" 
-           extends="org.exoplatform.portal.config.model.Component">
-    <structure map-as="org.exoplatform.portal.config.model.Component"/>
-    <value name="portal-name" field="portalName" usage="optional"/>
-    <value name="name" field="name"/>
-    <value name="title" field="title" usage="optional"/>
+  <mapping name="container" label="container" class="org.exoplatform.portal.config.model.Container">
+    <value name="id" usage="optional" field="id" style="attribute"/>
+    <value name="display-name" usage="optional" field="displayName"/>
     <value name="icon" field="icon" usage="optional"/>
-    <value name="access-group" field="accessGroup" usage="optional"/>
-    <value name="show-max-window" field="showMaxWindow" usage="optional"/>
+    <value name="decorator" field="decorator" usage="optional" style="attribute"/>
+    <value name="description" field="description" usage="optional"/>
+    <value name="width" usage="optional" field="width" style="attribute" />
+    <value name="height" usage="optional" field="height" style="attribute"/>
     <collection field="children" ordered="false">
       <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
       <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
       <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
     </collection>
   </mapping>
-
-  <mapping name="node" label="node"
-           class="org.exoplatform.portal.config.model.PageNode">
+  
+  <mapping name="page" label="page" class="org.exoplatform.portal.config.model.Page">
+    <value name="page-id" field="pageId"/>
+    <value name="id" usage="optional" field="id" style="attribute"/>
+    <value name="factory-id" field="factoryId" usage="optional"/>
+    <value name="access-groups" field="accessGroups" usage="optional"/>
+    <value name="show-max-window" field="showMaxWindow" usage="optional"/>
+    <value name="creator" field="creator" usage="optional"/>
+    <value name="modifier" field="modifier" usage="optional"/> 
+    <collection field="children" ordered="false">
+      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>
+      <structure map-as="org.exoplatform.portal.config.model.PageBody" usage="optional"/>
+    </collection>
+  </mapping>
+  
+   <mapping name="node" label="node" class="org.exoplatform.portal.config.model.PageNode">
     <value name="uri" field="uri"/>
-    <value name="name" field="name"/>
     <value name="label" field="label" usage="optional"/>
     <value name="icon" field="icon" usage="optional"/>
     <value name="page-reference" field="pageReference" usage="optional"/>
-    <value name="description" field="description" usage="optional"/>
-    <value name="type" field="type" usage="optional"/>
-    <value name="creator" field="creator" usage="optional"/>
-    <value name="modifier" field="modifier" usage="optional"/>
     <collection field="children" usage="optional" item-type="org.exoplatform.portal.config.model.PageNode"/>
   </mapping>
   
-  <mapping name="portal-config" 
-           class="org.exoplatform.portal.config.model.PortalConfig"
-           extends="org.exoplatform.portal.config.model.Component">
-    <structure map-as="org.exoplatform.portal.config.model.Component"/>
-    <value name="portal-name" field="portalName"/>
+  <mapping name="portal-config" class="org.exoplatform.portal.config.model.PortalConfig">
+    <value name="portal-name" field="name"/>
     <value name="locale" field="locale"/>    
-    <value name="access-group" field="accessGroup" usage="optional"/>
+    <value name="factory-id" field="factoryId" usage="optional"/>
+    <value name="access-groups" field="accessGroups" usage="optional"/>
     <value name="skin" field="skin" usage="optional"/>
-    <value name="title" field="title" usage="optional"/> 
+    <value name="title" field="title" usage="optional"/>
+    <value name="creator" field="creator" usage="optional"/>
+    <value name="modifier" field="modifier" usage="optional"/> 
     <structure name="widget-layout" using="container" field="widgetLayout" usage="optional"/>   
     <structure name="portal-layout" using="container" field="portalLayout" usage="optional"/>
   </mapping>
 
   <mapping name="page-set" class="org.exoplatform.portal.config.model.Page$PageSet">
-    <collection field="pages" 
-                item-type="org.exoplatform.portal.config.model.Page"/>
+    <collection field="pages" item-type="org.exoplatform.portal.config.model.Page"/>
   </mapping>
 
   <mapping name="node-navigation" class="org.exoplatform.portal.config.model.PageNavigation">
-    <value name="portal-name" field="portalName"/>
-    <value name="id" field="id"/>
+    <value name="navigation-id" field="navigationId"/>
+    <value name="id" usage="optional" field="id" style="attribute"/>
     <value name="priority" field="priority" usage="optional"/>
-    <value name="access-group" field="accessGroup" usage="optional"/>
+    <value name="access-groups" field="accessGroups" usage="optional"/>
+    <value name="creator" field="creator" usage="optional"/>
+    <value name="modifier" field="modifier" usage="optional"/>
     <value name="description" field="description" usage="optional"/>
     <collection name="page-nodes" field="pageNodes" usage="optional"
                     item-type="org.exoplatform.portal.config.model.PageNode"/>

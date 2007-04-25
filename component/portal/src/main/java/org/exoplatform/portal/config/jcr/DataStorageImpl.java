@@ -50,24 +50,16 @@ public class DataStorageImpl  implements DataStorage {
 
     if (!portalAppNode.hasNode(portalName)) return null;
     Node portalNode = portalAppNode.getNode(portalName) ;
-
+    
     if (!portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)) return null;
     Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
+    
     return mapper_.toPortalConfig(portalConfigNode) ;
   }
 
   public void save(PortalConfig config) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-    Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
-
-    Node portalNode = null ;
-    if (portalAppNode.hasNode(config.getPortalName())) {
-      portalNode = portalAppNode.getNode(config.getPortalName()) ;
-    } else {
-      portalNode = portalAppNode.addNode(config.getPortalName(), NT_FOLDER_TYPE) ;
-      portalAppNode.save() ;
-    }
-
+    Node portalNode = getPortalNode(session, config.getName());
     Node portalConfigNode = null ;
     if (portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)) {
       portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
@@ -81,90 +73,45 @@ public class DataStorageImpl  implements DataStorage {
 
   public void remove(PortalConfig config) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
-    Node  portalNode = portalAppNode.getNode(config.getPortalName()) ;
+    Node portalNode = portalAppNode.getNode(config.getName()) ;
     Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
     portalConfigNode.remove() ;
-    
     portalNode.save() ;
     session.save() ;
   }
 
   public void create(Page page) throws Exception {
-    Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-    Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
-
-    String portalName = page.getPortalName() ;
-    String pageName = page.getName() ;
-    
-    Node portalNode = null ;
-    if (portalAppNode.hasNode(portalName)) {
-      portalNode = portalAppNode.getNode(portalName) ;
-    } else {
-      portalNode = portalAppNode.addNode(portalName, NT_FOLDER_TYPE) ;
-      portalAppNode.save() ;
-    }
-
-    Node pageSetNode = null ;
-    if (portalNode.hasNode(PAGE_SET_NODE)) {
-      pageSetNode = portalNode.getNode(PAGE_SET_NODE) ;
-    } else {
-      pageSetNode = portalNode.addNode(PAGE_SET_NODE, NT_FOLDER_TYPE) ;
-      portalNode.save() ;
-    }
-
-    Node pageNode = pageSetNode.addNode(pageName, EXO_DATA_TYPE) ;
-    mapper_.map(pageNode, page) ;
-    pageSetNode.save() ;
-    session.save() ;  }
+    //unsupport
+  }
 
   public void save(Page page) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-    Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
-
-    String portalName = page.getPortalName() ;
-    String pageName = page.getName() ;
-    
-    Node portalNode = null ;
-    if (portalAppNode.hasNode(portalName)) {
-      portalNode = portalAppNode.getNode(portalName) ;
+    Node pageSetNode = getPageSetNode(session, page.getName());
+    Node pageNode = null;
+    if(pageSetNode.hasNode(page.getName())) {
+      pageNode = pageSetNode.getNode(page.getName()) ;
     } else {
-      portalNode = portalAppNode.addNode(portalName, NT_FOLDER_TYPE) ;
-      portalAppNode.save() ;
+      pageNode = pageSetNode.addNode(page.getName(), NT_FOLDER_TYPE) ;
+      pageSetNode.save() ;    
     }
-
-    Node pageSetNode = null ;
-    if (portalNode.hasNode(PAGE_SET_NODE)) {
-      pageSetNode = portalNode.getNode(PAGE_SET_NODE) ;
-    } else {
-      pageSetNode = portalNode.addNode(PAGE_SET_NODE, NT_FOLDER_TYPE) ;
-      portalNode.save() ;
-    }
-
-    Node pageNode = pageSetNode.getNode(pageName) ;
     mapper_.map(pageNode, page) ;
-    pageSetNode.save() ;
+    pageNode.save() ;
     session.save() ;
   }
 
   public void remove(Page page) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-    Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
-    
-    String portalName = page.getPortalName() ;
-    String pageName = page.getName() ;
-    Node portalNode = portalAppNode.getNode(portalName) ;
-    Node pageSetNode = portalNode.getNode(PAGE_SET_NODE) ;
-    Node pageNode = pageSetNode.getNode(pageName) ;
-    pageNode.remove() ;
-    
+    Node pageSetNode = getPageSetNode(session, page.getName());
+    if(!pageSetNode.hasNode(page.getName())) return;
+    Node pageNode = pageSetNode.getNode(page.getName()) ;
+    pageNode.remove() ;    
     pageSetNode.save() ;
     session.save() ;
   }
 
   public Page getPage(String pageId) throws Exception {
-    String[] names = pageId.split(":/") ;
+    String[] names = pageId.split("::") ;
     String portalName = names[0] ;
     String pageName = names[1] ;
 
@@ -194,7 +141,7 @@ public class DataStorageImpl  implements DataStorage {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
 
-    String portalName = navigation.getPortalName() ;
+    String portalName = navigation.getOwnerId() ;
     Node portalNode = null ;
     if (portalAppNode.hasNode(portalName)) {
       portalNode = portalAppNode.getNode(portalName) ;
@@ -219,7 +166,7 @@ public class DataStorageImpl  implements DataStorage {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;    
-    String portalName = navigation.getPortalName() ;        
+    String portalName = navigation.getOwnerId(); 
     Node portalNode = portalAppNode.getNode(portalName) ;
     Node navigationNode = portalNode.getNode(NAVIGATION_CONFIG_FILE_NAME) ;
     navigationNode.remove() ;
@@ -245,5 +192,21 @@ public class DataStorageImpl  implements DataStorage {
 
     return null;
   }  
+  
+  private Node getPortalNode(Session session, String portalName) throws Exception {
+    Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
+    if (portalAppNode.hasNode(portalName)) return portalAppNode.getNode(portalName) ;    
+    Node portalNode = portalAppNode.addNode(portalName, NT_FOLDER_TYPE) ;
+    portalAppNode.save() ;    
+    return portalNode;
+  }
+  
+  private Node getPageSetNode(Session session, String portalName) throws Exception {
+    Node portalNode = getPortalNode(session, portalName);
+    if (portalNode.hasNode(PAGE_SET_NODE)) return portalNode.getNode(PAGE_SET_NODE) ;
+    Node pageSetNode = portalNode.addNode(PAGE_SET_NODE, NT_FOLDER_TYPE) ;
+    portalNode.save() ;
+    return pageSetNode;
+  }
 
 }

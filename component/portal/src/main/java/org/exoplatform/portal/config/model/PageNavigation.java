@@ -15,10 +15,17 @@ import java.util.ArrayList;
 public class PageNavigation {
   
   private String      id ;
-  private String			portalName;
-  private String      accessGroup ;
+  private String      navigationId;
+  private String      ownerType;
+  private String      ownerId;
+  
+  private String accessGroups;
+  private transient String[]    accessGroup ;
   private String      description ;
-  private boolean     modifiable ;
+  private transient boolean     modifiable ;
+  
+  private  String     creator ;
+  private  String     modifier ;
 
   private ArrayList<PageNode>	pageNodes = new ArrayList<PageNode>();
   private int         priority = 0 ;
@@ -26,13 +33,17 @@ public class PageNavigation {
   public String getId() { return id; }
   public void setId(String id) { this.id = id; }
 
-  public String getPortalName() { return portalName;}
-  public void setPortalName(String owner) { this.portalName = owner; }
+  public String getOwnerId() { return ownerId; }
+  public void setOwnerId(String ownerId) { this.ownerId = ownerId; }
 
-  public void setAccessGroup(String accessPermission){
-    this.accessGroup = accessPermission;
-  }  
-  public String getAccessGroup(){  return accessGroup; }
+  public String getOwnerType() { return ownerType; }
+  public void setOwnerType(String ownerType) { this.ownerType = ownerType; }
+
+  public void setAccessGroup(String[] s){ this.accessGroup = s; }  
+  public String[] getAccessGroup(){  return accessGroup; }
+  
+  public void setAccessGroups(String s){ this.accessGroups = s; }  
+  public String getAccessGroups(){  return accessGroups; }
 
   public boolean getModifiable(){  return modifiable; }
   public void    setModifiable(boolean b) { modifiable = b ; }
@@ -42,6 +53,15 @@ public class PageNavigation {
 
   public int  getPriority() { return priority ; }
   public void setPriority(int i) { priority  = i ; }
+  
+  public String getCreator()  {  return creator ; }
+  public void   setCreator(String s) { creator = s ; }
+  
+  public String getModifier() { return modifier ; }
+  public void   setModifier(String s) { modifier = s ; }
+  
+  public String getNavigationId() { return navigationId; }
+  public void setNavigationId(String navigationId) { this.navigationId = navigationId; }
   
   public PageNode getNode(int idx) {  return pageNodes.get(idx); }
 
@@ -72,7 +92,8 @@ public class PageNavigation {
   
   public PageNavigation clone() {
     PageNavigation newNav = new PageNavigation();
-    newNav.setPortalName(portalName);
+    newNav.setOwnerId(ownerId);
+    newNav.setOwnerType(ownerType);
     newNav.setPriority(priority);
     newNav.setAccessGroup(accessGroup);
     newNav.setModifiable(modifiable);

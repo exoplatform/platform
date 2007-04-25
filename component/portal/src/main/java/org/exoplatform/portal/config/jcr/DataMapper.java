@@ -31,8 +31,10 @@ public class DataMapper {
   
 //-------------------------------- Portal Config ---------------------------------------------
   void map(Node node, PortalConfig config) throws Exception {    
-    node.setProperty("id", config.getPortalName()) ;
-    node.setProperty("portalName", config.getPortalName()) ;    
+    node.setProperty("id", config.getName()) ;
+    node.setProperty("ownerType", "portal");
+    node.setProperty("ownerId", "portalConfig");
+    node.setProperty("name", config.getName()) ;    
     node.setProperty("accessGroup", config.getAccessGroup()) ;
     node.setProperty("dataType", portalType) ;    
     node.setProperty("data", toXML(config)) ;
@@ -46,7 +48,9 @@ public class DataMapper {
 //------------------------------- Page ---------------------------------------------------------
   void map(Node node, Page page) throws Exception {
     node.setProperty("id", page.getPageId()) ;
-    node.setProperty("portalName", page.getPortalName()) ;
+    node.setProperty("ownerType", page.getOwnerType());
+    node.setProperty("ownerId", page.getOwnerId());
+    node.setProperty("name", page.getName()) ;
     node.setProperty("accessGroup", page.getAccessGroup()) ;
     node.setProperty("dataType", pageType) ;
     node.setProperty("data", toXML(page)) ;
@@ -60,7 +64,9 @@ public class DataMapper {
 //------------------------------ Page Navigation ----------------------------------------------  
   void map(Node node, PageNavigation navigation) throws Exception {
     node.setProperty("id", navigation.getId()) ;
-    node.setProperty("portalName", navigation.getPortalName()) ;
+    node.setProperty("ownerType", navigation.getOwnerType());
+    node.setProperty("ownerId", navigation.getOwnerId());
+    node.setProperty("name", navigation.getId()) ;
     node.setProperty("accessGroup", navigation.getAccessGroup()) ;
     node.setProperty("dataType", navigationType) ;    
     node.setProperty("data", toXML(navigation)) ;
@@ -74,21 +80,17 @@ public class DataMapper {
 //------------------------------ Util method -----------------------------------------------  
   private String toXML(Object object) throws Exception {
     ByteArrayOutputStream os = new ByteArrayOutputStream() ;
-    
     IBindingFactory bfact = BindingDirectory.getFactory(object.getClass()) ;
     IMarshallingContext mctx = bfact.createMarshallingContext() ;
     mctx.setIndent(2);
     mctx.marshalDocument(object, "UTF-8", null, os) ;
-    
-    return new String(os.toByteArray());
+    return new String(os.toByteArray(), "UTF-8");
   }
   
   private Object fromXML(String xml, Class clazz) throws Exception {
     ByteArrayInputStream is = new ByteArrayInputStream(xml.getBytes()) ;
-    
     IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
-    
     return uctx.unmarshalDocument(is, null) ;
   }
   

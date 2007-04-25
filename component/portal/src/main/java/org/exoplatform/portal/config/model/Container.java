@@ -11,23 +11,47 @@ import java.util.ArrayList;
  * @email:   tuan08@users.sourceforge.net
  * @version: $Id: Container.java,v 1.8 2004/11/03 01:23:55 tuan08 Exp $
  **/
-public class Container extends Component {
+public class Container {
   
-  protected String title ;
+  protected String id ;
+  
+  protected String displayName ;
   protected String icon;
-  protected ArrayList<Component> children ;
+  protected String decorator ;
+  
+  protected String description;
+  
+  protected int width;
+  protected int height;
+  
+  protected ArrayList<Object> children ;
   
   public Container() {
-    children = new ArrayList<Component>();
+    children = new ArrayList<Object>();
   }
   
-  public String getTitle() { return title ; }
-  public void   setTitle(String s) { title = s ; }
+  public String getId() { return id ;}
+  public void   setId(String s) { id = s ; }
+  
+  public String getDisplayName() { return displayName ; }
+  public void   setDisplayName(String s) { displayName = s ; }
   
   public String getIcon() { return icon; }
   public void setIcon(String icon) { this.icon = icon;  }
   
-  public ArrayList<Component>   getChildren() {  return children ; }
-  public void setChildren(ArrayList<Component> children) { this.children = children; }
+  public ArrayList<Object>   getChildren() {  return children ; }
+  public void setChildren(ArrayList<Object> children) { this.children = children; }
+
+  public int getHeight() { return height; }
+  public void setHeight(int height) { this.height = height; }
+
+  public int getWidth() { return width; }
+  public void setWidth(int width) { this.width = width; }
+  
+  public String getDecorator() { return decorator ; }
+  public void   setDecorator(String s) { decorator = s ; }
+  
+  public String getDescription() {  return  description ; }
+  public void   setDescription(String des) { description = des ; }
   
 }
