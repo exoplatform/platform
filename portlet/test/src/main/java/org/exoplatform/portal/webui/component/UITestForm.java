@@ -56,7 +56,7 @@ public class UITestForm extends UIForm {
 
 
   public UITestForm() throws Exception {  
-    addChild(UIAddApplication.class, null, null).setRendered(true);
+//    addChild(UIAddApplication.class, null, null).setRendered(true);
 ////    addChild(UIAddJSApplication.class, null, null).setRendered(false);
     List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
     ls.add(new SelectItemOption<String>("SQL", "sql")) ;
