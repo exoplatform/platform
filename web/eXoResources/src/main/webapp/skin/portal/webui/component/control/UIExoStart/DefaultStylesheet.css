@@ -205,7 +205,7 @@
 
 .UIExoStart .StartMenuContainer .BlackArrowIcon {
   height: 33px ;
-  background: url('DefaultSkin/icons/16x16/BlackArrow.gif') no-repeat right ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GreyItemArrow.gif') no-repeat right ;
   padding: 0px 25px 0px 0px ;
   display: inherit;
   visibility: inherit;

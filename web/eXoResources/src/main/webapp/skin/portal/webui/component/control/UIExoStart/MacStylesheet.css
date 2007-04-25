@@ -144,7 +144,7 @@
 .UIExoStart .StartMenuContainer .LabelText {
   white-space: nowrap ;
   font-size: 11px ;
-  padding: 10px 5px 0px 4px ;
+  padding: 10px 5px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .LabelText a {
@@ -196,6 +196,8 @@
   height: 35px ;
   background: url('MacSkin/icons/16x16/BlackArrow.gif') no-repeat right ;
   padding: 0px 25px 0px 0px ;
+  display: inherit;
+  visibility: inherit;
 }
 
 .UIExoStart .StartMenuContainer .NavigationBackground {
@@ -226,6 +228,7 @@
   padding: 0px 0px 0px 33px;
   margin: 0px 0px 0px 5px;
   height: 35px;
+  width: auto;
 }
 
 
@@ -366,7 +369,7 @@
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBL {
-  height: 6px;
+  height: 6px; 
   background: url('MacSkin/background/MenuDecoratorBL6x6.png') no-repeat left;
   padding: 0px 0px 0px 6px;
 }

@@ -1,82 +1,82 @@
 .Save24x24Icon {
-  background: url('/eXoResources/icons/24x24/VistaSkin/FloppyDisk.gif') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/FloppyDisk.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .DustBin24x24Icon {
 	width: 24px;
 	height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/DustBin.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/DustBin.gif') no-repeat center left;
 }
 
 .RedDustBin24x24Icon {
 	width: 24px;
 	height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/RedDustBin.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/RedDustBin.gif') no-repeat center left;
 }
 
 .LightBlueFolder24x24Icon {
-  background: url('/eXoResources/icons/24x24/VistaSkin/LightBlueFolder.gif') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/LightBlueFolder.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .VioletFolder24x24Icon {
-  background: url('/eXoResources/icons/24x24/VistaSkin/VioletFolder.gif') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/VioletFolder.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .LightBlueOpenFolder24x24Icon {
-  background: url('/eXoResources/icons/24x24/VistaSkin/LightBlueOpenFolder.gif') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/LightBlueOpenFolder.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .LightBlueFolderHome24x24Icon {
-  background: url('/eXoResources/icons/24x24/VistaSkin/LightBlueFolderHome.gif') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/LightBlueFolderHome.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .Paste24x24Icon {
-  background: url('/eXoResources/icons/24x24/VistaSkin/Paste.gif') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/Paste.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .BlackMagnifier24x24Icon {
-  background: url('/eXoResources/icons/24x24/VistaSkin/BlackMagnifier.gif') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlackMagnifier.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .BlueFloppyDisk24x24Icon {
 	width: 24px ;
 	height: 24px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/BlueFloppyDisk.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlueFloppyDisk.gif') no-repeat center left;
   margin: auto;
 }
 
 .UpLevel24x24Icon {
 	width: 24px ;
 	height: 24px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/BlueUpLevelArrow.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlueUpLevelArrow.gif') no-repeat center left ;
   margin: auto;
 }
 
 .DiamondCircleRoundedArrows24x24Icon {
 	width: 24px ;
 	height: 24px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/DiamondCircleRoundedArrows.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/DiamondCircleRoundedArrows.gif') no-repeat center left ;
   margin: auto;
 }
 
 .NavyBlueRecycleBin24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueRecycleBin.gif');
+	background-image: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueRecycleBin.gif')no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
 .DusBinFull24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/DusBinFull.gif');
+	background-image: url('/eXoResources/icons/24x24/VistaSkin/DusBinFull.gif')no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
@@ -84,80 +84,80 @@
 .BoxBlueArrowDown24x24Icon {
 	width: 24px;
 	height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/BoxBlueArrowDown.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/BoxBlueArrowDown.gif') no-repeat center left;
 }
 
 .BlueInfoBox24x24Icon {
 	width: 24px;
 	height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/BlueInfoBox.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/BlueInfoBox.gif') no-repeat center left;
 }
 
 .BoxGreenPlus24x24Icon {
 	width: 24px;
 	height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/BoxGreenPlus.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/BoxGreenPlus.gif') no-repeat center left;
 }
 
 .BoxPencil24x24Icon {
 	width: 24px;
 	height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/BoxPencil.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/BoxPencil.gif')no-repeat center left;
 }
 
 .PointedHandBrownBox24x24Icon {
 	width: 24px ;
 	height: 24px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/PointedHandBrownBox.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/PointedHandBrownBox.gif') no-repeat center left ;
   margin: auto;
 }
 
 .Selected24x24Icon {
 	width: 32px;
 	height:28px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/SelectedBlock.gif');
+	background-image: url('/eXoResources/icons/24x24/VistaSkin/SelectedBlock.gif') no-repeat center left;
 	margin: auto;
 }
 
 .BlueArrowBox24x24Icon {
 	width: 24px ;
 	height: 24px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/BlueArrowBox.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlueArrowBox.gif') no-repeat center left ;
   margin: auto;
 }
 
 .DiskArrow24x24Icon {
 	width: 24px ;
 	height: 24px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/DiskArrow.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/DiskArrow.gif') no-repeat center left ;
   margin: auto;
 }
 
 .ColorGridSquare24x24Icon {
 	width: 24px ;
 	height: 24px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/ColorGridSquare.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/ColorGridSquare.gif') no-repeat center left ;
   margin: auto;
 }
 
 .OnMouseOver24x24Icon {
 	width: 32px;
 	height:28px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/OnmouseOverBlock.gif');
+	background-image: url('/eXoResources/icons/24x24/VistaSkin/OnmouseOverBlock.gif') no-repeat center left;
 	margin: auto;	
 }
 
 .GreenPlusDataBox24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/GreenPlusDataBox.gif');
+	background-image: url('/eXoResources/icons/24x24/VistaSkin/GreenPlusDataBox.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }
 .GreenPlusBrownBox24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/GreenPlusBrownBox.gif');
+	background-image: url('/eXoResources/icons/24x24/VistaSkin/GreenPlusBrownBox.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }
@@ -165,7 +165,7 @@
 .YellowPenBrownBox24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/YellowPenBrownBox.gif');
+	background-image: url('/eXoResources/icons/24x24/VistaSkin/YellowPenBrownBox.gif') no-repeat center left;
 	margin: auto;
   cursor: pointer; 
 }
@@ -173,7 +173,7 @@
 .NavyBlueRecycleBin24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueRecycleBin.gif') ;
+	background-image: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueRecycleBin.gif') no-repeat center left ;
 	margin: auto;
   cursor: pointer;
 }
@@ -181,7 +181,7 @@
 .NavyBlueDocument24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueDocument.gif') ;
+	background-image: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueDocument.gif') no-repeat center left ;
 	margin:auto;
   cursor: pointer; 
 }
@@ -189,86 +189,86 @@
 .DataBoxDusBin24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/DataBoxDusBin.gif') ;
+	background-image: url('/eXoResources/icons/24x24/VistaSkin/DataBoxDusBin.gif') no-repeat center left ;
 	margin:auto;
   cursor: pointer; 
 }
 
 .LevelUpArrowIcon {
   width: 33px ;  height: 24px ;
-  background: url('/eXoResources/icons/32x32/VistaSkin/BlueUpLevelArrow.png') no-repeat ;
+  background: url('/eXoResources/icons/32x32/VistaSkin/BlueUpLevelArrow.png') no-repeat center left ;
   
 }
 
 .BlueNavigation24x24Icon {
   width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/BlueIconNavigation.gif') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlueIconNavigation.gif') no-repeat center left ;
 }
 
 
 .BlueSyncArrow24x24Icon {
   width: 24px ;  height: 24px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/BlueSync.gif') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlueSync.gif') no-repeat center left ;
 }
 
 .SiteMap24x24Icon {
   width: 24px ;  height: 24px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/SiteMap.gif') ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/SiteMap.gif') no-repeat center left ;
 }
 
 .YellowHammer24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/YellowHammer.gif');
+	background-image: url('/eXoResources/icons/24x24/VistaSkin/YellowHammer.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }
 
 .Refresh24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/Refresh.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/Refresh.gif') no-repeat center left;
 }
 
 .AddCatergory24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/AddCatergory.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/AddCatergory.gif') no-repeat center left;
 }
 
 .EditCatergory24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/EditCatergory.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/EditCatergory.gif') no-repeat center left;
 }
 
 .ImportCategory24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/ImportCategory.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/ImportCategory.gif') no-repeat center left;
 }
 
 .DeleteCategory24x24Icon {
 	width: 26px; height: 27px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/Delete.png') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/Delete.png') no-repeat center left;
 }
 
 .Delete24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueTrashBin.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueTrashBin.gif') no-repeat center left;
 }
 
 .DeleteAll24x24Icon {
 	width: 26px; height: 25px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/DeleteAll.png') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/DeleteAll.png') no-repeat center left;
 }
 
 .AddCatergory24x24Icon {
 	width: 27px;	height: 25px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/AddCatergory.png') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/AddCatergory.png') no-repeat center left;
 }
 
 .EditCatergory24x24Icon {
 	width: 27px; height: 25px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/EditCatergory.png') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/EditCatergory.png') no-repeat center left;
 }
 
 .Delete24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/Delete24x24Icon.png') no-repeat;
+	background: url('/eXoResources/icons/24x24/VistaSkin/Delete24x24Icon.png') no-repeat center left;
 }

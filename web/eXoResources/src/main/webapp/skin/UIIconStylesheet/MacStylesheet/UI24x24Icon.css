@@ -1,70 +1,70 @@
 
 .Save24x24Icon {
-  background: url('/eXoResources/icons/24x24/MacSkin/FloppyDisk.gif') ;
+  background: url('/eXoResources/icons/24x24/MacSkin/FloppyDisk.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .DustBin24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/DustBin.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/MacSkin/DustBin.gif') no-repeat center left;
 }
 
 .RedDustBin24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/RedDustBin.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/MacSkin/RedDustBin.gif') no-repeat center left;
 }
 
 .LightBlueFolder24x24Icon {
-  background: url('/eXoResources/icons/24x24/MacSkin/LightBlueFolder.gif') ;
+  background: url('/eXoResources/icons/24x24/MacSkin/LightBlueFolder.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .VioletFolder24x24Icon {
-  background: url('/eXoResources/icons/24x24/MacSkin/VioletFolder.gif') ;
+  background: url('/eXoResources/icons/24x24/MacSkin/VioletFolder.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .LightBlueOpenFolder24x24Icon {
-  background: url('/eXoResources/icons/24x24/MacSkin/LightBlueOpenFolder.gif') ;
+  background: url('/eXoResources/icons/24x24/MacSkin/LightBlueOpenFolder.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .LightBlueFolderHome24x24Icon {
-  background: url('/eXoResources/icons/24x24/MacSkin/LightBlueFolderHome.gif') ;
+  background: url('/eXoResources/icons/24x24/MacSkin/LightBlueFolderHome.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .Paste24x24Icon {
-  background: url('/eXoResources/icons/24x24/MacSkin/Paste.gif') ;
+  background: url('/eXoResources/icons/24x24/MacSkin/Paste.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .BlackMagnifier24x24Icon {
-  background: url('/eXoResources/icons/24x24/MacSkin/BlackMagnifier.gif') ;
+  background: url('/eXoResources/icons/24x24/MacSkin/BlackMagnifier.gif') no-repeat center left;
   width: 24px ;  height: 24px ;
 }
 
 .BlueFloppyDisk24x24Icon {
 	width: 24px ; height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/BlueFloppyDisk.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/BlueFloppyDisk.gif') no-repeat center left;
   margin: auto;
 }
 
 .DiamondCircleRoundedArrows24x24Icon {
 	width: 24px ; height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/DiamondCircleRoundedArrows.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/DiamondCircleRoundedArrows.gif') no-repeat center left;
   margin: auto;
 }
 
 .NavyBlueRecycleBin24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/NavyBlueRecycleBin.gif');
+	background-image: url('/eXoResources/icons/24x24/MacSkin/NavyBlueRecycleBin.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
 .DusBinFull24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/DusBinFull.gif');
+	background-image: url('/eXoResources/icons/24x24/MacSkin/DusBinFull.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
@@ -73,269 +73,269 @@
 
 .BoxBlueArrowDown24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/BoxBlueArrowDown.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/MacSkin/BoxBlueArrowDown.gif') no-repeat center left;
 }
 
 .BlueInfoBox24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/BlueInfoBox.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/MacSkin/BlueInfoBox.gif') no-repeat center left;
 }
 
 .BoxGreenPlus24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/BoxGreenPlus.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/MacSkin/BoxGreenPlus.gif') no-repeat center left;
 }
 
 .BoxPencil24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/BoxPencil.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/MacSkin/BoxPencil.gif') no-repeat center left;
 }
 
 .DoubleWindowsUpArrow24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/DoubleWindowsUpArrow.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/DoubleWindowsUpArrow.gif') no-repeat center left;
   margin: auto;
 }
 
 .PointedHandBrownBox24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/PointedHandBrownBox.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/PointedHandBrownBox.gif') no-repeat center left;
   margin: auto;
 }
 
 .HammerDataBox24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/HammerDataBox.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/HammerDataBox.gif') no-repeat center left;
   margin: auto;
 }
 
 .CogWheelBrownBox24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/CogWheelBrownBox.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/CogWheelBrownBox.gif') no-repeat center left;
   margin: auto;
 }
 
 .MiscColorBevelRetangles24x24Icon {
 	width: 24px ; height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/MiscColorBevelRetangles.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/MiscColorBevelRetangles.gif') no-repeat center left;
   margin: auto;
 }
 
 .PageGreenArrowDown24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/PageGreenArrowDown.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/PageGreenArrowDown.gif') no-repeat center left;
   margin: auto;
 }
 
 .PageGreenArrowUp24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/PageGreenArrowUp.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/PageGreenArrowUp.gif') no-repeat center left;
   margin: auto;
 }
 
 .BlackMagnifier24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/BlackMagnifier.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/BlackMagnifier.gif') no-repeat center left;
   margin: auto;
 }
 
 .GreenPlusBluePage24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/GreenPlusBluePage.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/GreenPlusBluePage.gif') no-repeat center left;
   margin: auto;
 }
 
 .GreenPlusBlueTicket24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/GreenPlusBlueTicket.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/GreenPlusBlueTicket.gif') no-repeat center left;
   margin: auto;
 }
 
 .GreenPlusFolder24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/GreenPlusFolder.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/GreenPlusFolder.gif') no-repeat center left;
   margin: auto;
 }
 
 .Paste24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/Paste.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/Paste.gif') no-repeat center left;
   margin: auto;
 }
 
 .GreenUpArrowDisk24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/GreenUpArrowDisk.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/GreenUpArrowDisk.gif') no-repeat center left;
   margin: auto;
 }
 
 .BlueBallMultiplePage24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/BlueBallMultiplePage.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/BlueBallMultiplePage.gif') no-repeat center left;
   margin: auto;
 }
 
 .GraySwitcher24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/GraySwitcher.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/GraySwitcher.gif') no-repeat center left;
   margin: auto;
 }
 
 .MiscColorRegtangleRing24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/MiscColorRegtangleRing.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/MiscColorRegtangleRing.gif') no-repeat center left;
   margin: auto;
 }
 
 .SmallBallColorPlate24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/SmallBallColorPlate.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/SmallBallColorPlate.gif') no-repeat center left;
   margin: auto;
 }
 
 .SmallBallFlyingPages24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/SmallBallFlyingPages.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/SmallBallFlyingPages.gif') no-repeat center left;
   margin: auto;
 }
 
 .SmallBallRedShield24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/SmallBallRedShield.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/SmallBallRedShield.gif') no-repeat center left;
   margin: auto;
 }
 .Selected24x24Icon {
 	width: 32px;	height: 28px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/SelectedBlock.gif');
+	background-image: url('/eXoResources/icons/24x24/MacSkin/SelectedBlock.gif') no-repeat center left;
 	margin: auto;
 }
 
 .BlueArrowBox24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/BlueArrowBox.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/BlueArrowBox.gif') no-repeat center left;
   margin: auto;
 }
 
 .DiskArrow24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/DiskArrow.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/DiskArrow.gif') no-repeat center left;
   margin: auto;
 }
 
 .ColorGridSquare24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/ColorGridSquare.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/ColorGridSquare.gif') no-repeat center left;
   margin: auto;
 }
 
 .OnMouseOver24x24Icon {
 	width: 32px;	height: 28px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/OnmouseOverBlock.gif');
+	background-image: url('/eXoResources/icons/24x24/MacSkin/OnmouseOverBlock.gif') no-repeat center left; 
 	margin: auto;	
 }
 
 .GreenPlusDataBox24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/GreenPlusDataBox.gif');
+	background-image: url('/eXoResources/icons/24x24/MacSkin/GreenPlusDataBox.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }
 .GreenPlusBrownBox24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/GreenPlusBrownBox.gif');
+	background-image: url('/eXoResources/icons/24x24/MacSkin/GreenPlusBrownBox.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }
 
 .YellowPenBrownBox24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/YellowPenBrownBox.gif');
+	background-image: url('/eXoResources/icons/24x24/MacSkin/YellowPenBrownBox.gif') no-repeat center left;
 	margin: auto;
   cursor: pointer; 
 }
 
 .NavyBlueRecycleBin24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/NavyBlueRecycleBin.gif');
+	background-image: url('/eXoResources/icons/24x24/MacSkin/NavyBlueRecycleBin.gif') no-repeat center left;
 	margin: auto;
   cursor: pointer;
 }
 
 .NavyBlueDocument24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/NavyBlueDocument.gif');
+	background-image: url('/eXoResources/icons/24x24/MacSkin/NavyBlueDocument.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
 
 .DataBoxDusBin24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/DataBoxDusBin.gif');
+	background-image: url('/eXoResources/icons/24x24/MacSkin/DataBoxDusBin.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
 
 .LevelUpArrowIcon {
   width: 24px ;  height: 26px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/AquaBlueUpLevel.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/AquaBlueUpLevel.gif') no-repeat center left ;
 }
 
 .BlueNavigation24x24Icon {
   width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/MacSkin/BlueIconNavigation.gif') ;
+  background: url('/eXoResources/icons/24x24/MacSkin/BlueIconNavigation.gif') no-repeat center left;
 }
 
 
 .BlueSyncArrow24x24Icon {
   width: 24px ;  height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/BlueSync.gif') ;
+  background: url('/eXoResources/icons/24x24/MacSkin/BlueSync.gif') no-repeat center left;
 }
 
 /*##############- Tool Icons -#############*/
 .YellowHammer24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/YellowHammer.gif');
+	background-image: url('/eXoResources/icons/24x24/MacSkin/YellowHammer.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }
 
 .Refresh24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/Refresh.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/MacSkin/Refresh.gif') no-repeat center left;
 }
 
 .AddCatergory24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/AddCategory.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/MacSkin/AddCategory.gif') no-repeat center left;
 }
 
 .Catergory24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/Category.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/MacSkin/Category.gif') no-repeat center left;
 }
 
 .EditCatergory24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/EditCategory.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/MacSkin/EditCategory.gif') no-repeat center left;
 }
 
 .Delete24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/GrayTrashBin.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/MacSkin/GrayTrashBin.gif') no-repeat center left;
 }
 
 .DeleteAll24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/DeleteAll.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/DeleteAll.gif') no-repeat center left;
 }
 
 .ImportCategory24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/ImportCategory.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/ImportCategory.gif') no-repeat center left;
 }
 
 .DeleteCategory24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/Delete.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/Delete.gif') no-repeat center left;
 }
 

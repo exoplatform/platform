@@ -63,33 +63,30 @@
 	cursor: pointer;
 	height: 24px; 
 	text-align: left;
-	padding-left: 5px;
 }
 
 .UINavigationPortlet .MenuItemContainer .NormalItem {
   background: url('DefaultSkin/background/BottomMenuItem220x1.gif') no-repeat bottom center;
 	line-height: 24px;
 	height: 24px;  width: auto;
-	padding-left: 5px;
 }
 
 .UINavigationPortlet .MenuItemContainer .OverItem {
 	background: #dfe0e0 url('DefaultSkin/background/BottomMenuItem220x1.gif') no-repeat bottom center;
  	line-height: 24px;
 	height: 24px; width: auto; 
-	padding-left: 5px;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem {
-	background: #dfe0e0 url('DefaultSkin/background/BottomMenuItem215x1.gif') no-repeat bottom center;
+	background: #dfe0e0 url('DefaultSkin/background/BottomMenuItem22x1.gif') no-repeat bottom center;
 	line-height: 24px;
 	height: 24px; width: auto; 
-	padding-left: 5px;
 }
 
 .UINavigationPortlet .MenuItemContainer .NormalItem .ItemIcon {
   height: 24px; width: auto;
   padding-left: 20px;
+  margin-left: 5px;
 }
 
 .UINavigationPortlet .MenuItemContainer .NormalItem .MenuItemLabel {
@@ -111,6 +108,7 @@
 .UINavigationPortlet .MenuItemContainer .OverItem .ItemIcon {
   height: 24px; width: auto;
   padding-left: 20px;
+  margin-left: 5px;
 }
 
 .UINavigationPortlet .MenuItemContainer .OverItem .MenuItemLabel {
@@ -132,6 +130,7 @@
 .UINavigationPortlet .MenuItemContainer .SelectedItem .ItemIcon {
   height: 24px; width: auto;
   padding-left: 20px;
+  margin-left: 5px;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem .MenuItemLabel {

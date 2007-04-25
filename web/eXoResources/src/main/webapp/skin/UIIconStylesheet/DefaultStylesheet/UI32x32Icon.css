@@ -4,65 +4,65 @@
 }
 
 .MinusSign32x32Icon {
-  background: url('/eXoResources/icons/32x32/DefaultSkin/MinusSign.gif') no-repeat center center;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/MinusSign.gif') no-repeat center center ;
   width: 32px ;  height: 32px ;
 }
 
 .WarningSign32x32Icon {
-  background: url('/eXoResources/icons/32x32/DefaultSkin/WarningSign.gif') no-repeat center center;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/WarningSign.gif') no-repeat center center ;
   width: 32px ;  height: 32px ;
 }
 
 .NavyWheelDataBox32x32Icon {
-  background: url('/eXoResources/icons/32x32/DefaultSkin/NavyWheelDataBox.gif') no-repeat center center;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/NavyWheelDataBox.gif') no-repeat center center ;
   width: 32px ;  height: 32px ;
 }
 
 .Yellowbulb32x32Icon {
-  background: url('/eXoResources/icons/32x32/DefaultSkin/Yellowbulb.gif') no-repeat center center;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/Yellowbulb.gif') no-repeat center center ;
   width: 32px ;  height: 32px ;
 }
 
 .PageMagnifier32x32Icon {
-  background: url('/eXoResources/icons/32x32/DefaultSkin/PageMagnifier.gif') no-repeat center center;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/PageMagnifier.gif') no-repeat center center ;
   width: 32px ;  height: 32px ;
 }
 
 .BoxMagnifier32x32Icon {
-  background: url('/eXoResources/icons/32x32/DefaultSkin/BoxMagnifier.gif') no-repeat center center;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/BoxMagnifier.gif') no-repeat center center ;
   width: 32px ;  height: 32px ;
 }
 
 .CircleInfo32x32Icon {
-  background: url('/eXoResources/icons/32x32/DefaultSkin/CircleInfo.gif') no-repeat ;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/CircleInfo.gif') no-repeat center center ;
   width: 32px ;  height: 32px ;
 }
 
 .ImagePlain32x32Layout {
   width: 32px ;  height: 32px ;
-  background: url('/eXoResources/icons/32x32/DefaultSkin/ImagePlainLayout.gif') ;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/ImagePlainLayout.gif') no-repeat center center;
 }
 
 .ImageDouble32x32Layout {
   width: 32px ;  height: 32px ;
-  background: url('/eXoResources/icons/32x32/DefaultSkin/ImageDoubleLayout.gif') ;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/ImageDoubleLayout.gif') no-repeat center center;
 }
 
 .ImageLeft32x32Layout {
   width: 32px ;  height: 32px ;
-  background: url('/eXoResources/icons/32x32/DefaultSkin/ImageLeftLayout.gif') ;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/ImageLeftLayout.gif') no-repeat center center;
 }
 .ImageRight32x32Layout {
   width: 32px ;  height: 32px ;
-  background: url('/eXoResources/icons/32x32/DefaultSkin/ImageRightLayout.gif') ;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/ImageRightLayout.gif') no-repeat center center;
 }
 
 .ImageDoubleCol32x32Layout {
   width: 32px ;  height: 32px ;
-  background: url('/eXoResources/icons/32x32/DefaultSkin/ImageDoubleColLayout.gif') ;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/ImageDoubleColLayout.gif') no-repeat center ;
 }
 
 .ImageCenter32x32Layout {
   width: 32px ;  height: 32px ;
-  background: url('/eXoResources/icons/32x32/DefaultSkin/ImageCenterLayout.gif') ;
+  background: url('/eXoResources/icons/32x32/DefaultSkin/ImageCenterLayout.gif') no-repeat center center;
 }

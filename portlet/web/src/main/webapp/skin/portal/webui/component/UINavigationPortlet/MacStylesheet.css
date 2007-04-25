@@ -57,7 +57,7 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .CenterMiddleMenuDecorator {
-  background: white url('MacSkin/background/BgItemSelector1x4.png') repeat;
+  background: url('MacSkin/background/BgItemSelector1x4.png') repeat;
   border-top: 1px solid #b3b3b3;
 }
 
@@ -81,7 +81,7 @@
 .UINavigationPortlet .MenuItemContainer .MenuItem {
 	white-space: nowrap;
 	cursor: pointer;
-	height: 25px; 
+	height: 26px; 
 	text-align: left;
 }
 
@@ -100,6 +100,7 @@
 	background: url('MacSkin/background/OverItemSelectorBG1x25.png') repeat-x ;
 	height: 25px; 
 	border-bottom: 1px solid #dbdbdb;
+	
 }
 
 .UINavigationPortlet .MenuItemContainer .NormalItem .ItemIcon {
@@ -159,13 +160,13 @@
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
   height: 25px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPageIcon.png') no-repeat left ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPageIcon.png') no-repeat left center;
   padding: 0px 0px 0px 22px ;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem a {
   color: #3e8df0;
-  line-height: 25px;  
+  line-height: 25px;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem .RightItemIcon {

@@ -55,6 +55,7 @@
 		  }
 			println msgValue;
 			println "             </div>";
+			println "             <div style=\"clear:left\"><span></span></div>";
 	    println "           </div>";
     }
  		println "	         </div>";
