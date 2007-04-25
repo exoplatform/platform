@@ -202,12 +202,13 @@
 }
 
 .UIPortletRegistryPortlet .UIForm .HorizontalLayout input.checkbox {
-	width: 25px;
 	margin: auto;
+	width: 92%;
 }
 
 .UIPortletRegistryPortlet .UIForm .HorizontalLayout .FieldContainer {
 	padding: 2px 0px;
+	overflow: visible;
 	width: auto;
 }
 
