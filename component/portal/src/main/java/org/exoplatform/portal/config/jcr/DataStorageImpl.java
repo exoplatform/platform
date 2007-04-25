@@ -101,13 +101,12 @@ public class DataStorageImpl  implements DataStorage {
   }
 
   public void create(Page page) throws Exception {
-  }
-
-  public void save(Page page) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
 
     String portalName = page.getOwner() ;
+    String pageName = page.getName() ;
+    
     Node portalNode = null ;
     if (portalAppNode.hasNode(portalName)) {
       portalNode = portalAppNode.getNode(portalName) ;
@@ -124,16 +123,37 @@ public class DataStorageImpl  implements DataStorage {
       portalNode.save() ;
     }
 
+    Node pageNode = pageSetNode.addNode(pageName, EXO_DATA_TYPE) ;
+    mapper_.map(pageNode, page) ;
+    pageSetNode.save() ;
+    session.save() ;  }
+
+  public void save(Page page) throws Exception {
+    Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
+    Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
+
+    String portalName = page.getOwner() ;
     String pageName = page.getName() ;
-    Node pageNode = null ;
-    if (pageSetNode.hasNode(pageName)) {
-      pageNode = pageSetNode.getNode(pageName) ;
+    
+    Node portalNode = null ;
+    if (portalAppNode.hasNode(portalName)) {
+      portalNode = portalAppNode.getNode(portalName) ;
     } else {
-      pageNode = pageSetNode.addNode(pageName, EXO_DATA_TYPE) ;
-      pageSetNode.save() ;
+      portalNode = portalAppNode.addNode(portalName, NT_FOLDER_TYPE) ;
+      portalAppNode.save() ;
     }
 
+    Node pageSetNode = null ;
+    if (portalNode.hasNode(PAGE_SET_NODE)) {
+      pageSetNode = portalNode.getNode(PAGE_SET_NODE) ;
+    } else {
+      pageSetNode = portalNode.addNode(PAGE_SET_NODE, NT_FOLDER_TYPE) ;
+      portalNode.save() ;
+    }
+
+    Node pageNode = pageSetNode.getNode(pageName) ;
     mapper_.map(pageNode, page) ;
+    pageSetNode.save() ;
     session.save() ;
   }
 

@@ -118,7 +118,7 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public void create(Page page) throws Exception {
-    storage_.save(page) ;
+    storage_.create(page) ;
   }
   
   

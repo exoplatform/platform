@@ -39,7 +39,7 @@ public class TestUserPortalService extends BasicTestCase {
     
     assertPortalConfigSave(service, "portalone") ;
     assertPageNavigationSave(service, "portalone") ;
-    assertPageSetSave(service, "portalone") ;
+    assertPageCreate(service, "portalone") ;
     
 //---------------------Test UserPortalConfigService operations---------------------------------------------
     
@@ -77,7 +77,42 @@ public class TestUserPortalService extends BasicTestCase {
       assertEquals(pageId, page.getPageId()) ;
     }
     
+    //Update Page
+    assertPageUpadate(service, portalName) ;
+    
     // Remove Page
+    assertPageRemove(service, portalName) ;
+
+  }
+  
+  void assertPageCreate(UserPortalConfigService service, String portalName) throws Exception {
+    String pageFile = portalName + "/pages.xml" ;
+    PageSet pageSet = loadObject(PageSet.class, pageFile) ;
+    
+    List<Page> pages = pageSet.getPages() ;
+    for(Page p : pages) {
+      service.create(p) ;
+    }
+  }
+  
+  void assertPageUpadate(UserPortalConfigService service, String portalName) throws Exception {
+    String pageTitle = "page-one" ; 
+    String pageName = "page-one" ;
+    String pageId = portalName + ":/" + pageName ;
+    Page oldPage = service.getPage(pageId, "N/A") ;
+    assertEquals(pageTitle, oldPage.getTitle()) ;
+    
+    String newPageTitle = "NewPageTitle" ;
+    oldPage.setTitle(newPageTitle) ;
+    service.update(oldPage) ;
+    
+    Page updatedPage = service.getPage(pageId, "N/A") ;
+    assertEquals(newPageTitle, updatedPage.getTitle()) ;
+  }
+  
+  void assertPageRemove(UserPortalConfigService service, String portalName) throws Exception {
+    String[] pageNames = {"page-one", "page-two"} ;
+    
     String pageOneId = portalName + ":/" + pageNames[0] ;
     Page pageOne = service.getPage(pageOneId, "N/A") ; 
     service.remove(pageOne);
@@ -89,17 +124,6 @@ public class TestUserPortalService extends BasicTestCase {
     assertNotNull(pageTwo) ;
   }
   
-  void assertPageSetSave(UserPortalConfigService service, String portalName) throws Exception {
-    String pageFile = portalName + "/pages.xml" ;
-    PageSet pageSet = loadObject(PageSet.class, pageFile) ;
-    
-    List<Page> pages = pageSet.getPages() ;
-    for(Page p : pages) {
-      service.update(p) ;
-    }
-    
-    
-  }
   void assertPageNavigationSave(UserPortalConfigService service, String portalName) throws Exception {
     String navigationFile = portalName + "/navigation.xml" ;
     PageNavigation navigation = loadObject(PageNavigation.class, navigationFile) ;
