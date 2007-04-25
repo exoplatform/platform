@@ -32,7 +32,6 @@
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs {
   padding: 7px; padding-bottom: 10px;
   border: 1px solid #aeaeae;
- /* background: url('VistaSkin/background/PortletBG.gif');*/
   background:white;
   margin-right: 1px;
 }
@@ -96,12 +95,12 @@
 }
 
 .UIContentPortlet .UIContentNavigation .OpenFolderIcon {
-	background: url('VistaSkin/background/YellowOpenFolder.gif') no-repeat;
+	background: url('VistaSkin/background/OpenFolder.png') no-repeat;
 	width: 19px; height: 19px;
 }
 
 .UIContentPortlet .UIContentNavigation .ClosedFolderIcon {
-	background: url('VistaSkin/background/YellowClosedFolder.gif') no-repeat;
+	background: url('VistaSkin/background/ClosedFolder.png') no-repeat;
 	width:19px; height:19px;
 }
 
