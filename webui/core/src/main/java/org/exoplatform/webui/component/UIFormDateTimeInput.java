@@ -93,11 +93,16 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
     String day = context.getRequestParameter(name+DAY_EXTENSION) ;
     String month = context.getRequestParameter(name+MONTH_EXTENSION) ;
     String year = context.getRequestParameter(name+YEAR_EXTENSION) ;
+    String hour = context.getRequestParameter(name + HOUR_EXTENSION);
+    String minute = context.getRequestParameter(name + MINUTE_EXTENSION);
     if( day == null || month == null || year == null) return;
     int dayValue = Integer.parseInt(day);
     int monthValue = Integer.parseInt(month);
     int yearValue = Integer.parseInt(year);
-    GregorianCalendar gCal = new GregorianCalendar(yearValue, monthValue, dayValue);
+    int hourValue = Integer.parseInt(hour);
+    int minuteValue = Integer.parseInt(minute);
+    System.out.println("\n\n\n\n-----------------> " + hour + ":"+ minute + " \n\n\n\n");
+    GregorianCalendar gCal = new GregorianCalendar(yearValue, monthValue, dayValue, hourValue, minuteValue);
     addTime(gCal.getTime());   
   }
 
