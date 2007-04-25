@@ -58,6 +58,7 @@ public class UserPortalConfigService {
     userPortalConfig.addNavigation(navigation) ;
     
     return  userPortalConfig ;
+    
   }
   
   /**
@@ -109,7 +110,7 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public void remove(Page page) throws Exception {
-    
+    storage_.remove(page) ;
   }
   /**
    * This method should create  or  udate the given page object
@@ -146,6 +147,7 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public void remove(PageNavigation navigation) throws Exception {
+    storage_.remove(navigation) ;
     
   }
 }
