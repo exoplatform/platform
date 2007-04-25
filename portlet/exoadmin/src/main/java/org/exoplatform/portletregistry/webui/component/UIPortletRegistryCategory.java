@@ -230,7 +230,12 @@ public class UIPortletRegistryCategory extends UIContainer {
       UIPortletRegistryCategory uicomp = event.getSource();      
       UIPortletRegistryPortlet uiParent = uicomp.getParent();
       Portlet selectedPortlet = uicomp.getSelectedPortlet();
-      if(selectedPortlet == null) return ;
+      if(selectedPortlet == null) {
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIPortletRegistryCategory.msg.editPortlet", null)) ;
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return;
+      }
       
       UIWorkingArea uiWorkingArea = uiParent.getChild(UIWorkingArea.class);      
       UIPermissionForm uiPermissionForm = uiWorkingArea.getChild(UIPermissionForm.class);

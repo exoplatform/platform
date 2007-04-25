@@ -14,7 +14,9 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.content.ContentDAO;
 import org.exoplatform.portal.content.model.ContentNavigation;
 import org.exoplatform.portal.content.model.ContentNode;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -221,7 +223,13 @@ public class UIContentNavigation extends UIComponent {
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
       UIContentForm uiForm = uiWorkingArea.getChild(UIContentForm.class) ;
       ContentNode selectedNode = uiNav.getSelectedNode() ;
-      if(selectedNode == null)  return;
+      if(selectedNode == null)  {
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIContentNavigation.msg.EditNode", null)) ;
+        
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return;
+      }
       uiForm.setContentNode(selectedNode);
       uiWorkingArea.setRenderedChild(UIContentForm.class) ;
     }
@@ -230,6 +238,13 @@ public class UIContentNavigation extends UIComponent {
   static  public class RemoveNodeActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
       UIContentNavigation uiNav = event.getSource();
+      ContentNode selectedNode = uiNav.getSelectedNode() ;
+      if(selectedNode == null)  {
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIContentNavigation.msg.EditNode", null)) ;
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return;
+      }
       ContentNode parentNode = uiNav.getParentNode() ;      
       List<ContentNode> children = null;
       if(parentNode != null) children = parentNode.getChildren();

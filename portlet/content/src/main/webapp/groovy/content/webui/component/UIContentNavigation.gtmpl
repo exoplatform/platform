@@ -13,19 +13,15 @@
             <div class="MiddleBar">
               <div class="OverflowContainer">
                 <%
-                  String removeLink = "#" ;
-                  String editLink = "#" ;
-                  if(selectedNode != null) {
-                    removeLink = uicomponent.event("RemoveNode") ;
-                    editLink = uicomponent.event("EditNode") ;
-                  }
+                   String removeLink = uicomponent.event("RemoveNode") ;
+                   String editLink = uicomponent.event("EditNode") ;
                 %>
                 <div class="RSSReaderSymbol"><span></span></div>
                 <%if(uicomponent.isLogon()) { %>
 	                <a href="<%=uicomponent.event("AddNode")%>" class="NavigationControlIcon AddCatergory24x24Icon" title="Add node"><span></span></a>
 	                <a href="<%=editLink%>" class="NavigationControlIcon EditCatergory24x24Icon" title="Edit node"><span></span></a>
 	                <a href="<%=removeLink%>" class="NavigationControlIcon Delete24x24Icon" title="Remove node"><span></span></a>
-                <%}%>
+                <% }%>
               </div>
             </div>
           </div>
