@@ -68,7 +68,7 @@
 }
 
  .UIGrid .DeleteIcon {
-  width: 16px ;  height: 16px ;
+  width: 17px ;  height: 18px ;
   background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat ;
 }
 
@@ -90,7 +90,7 @@
 /*###################### UIListUsers Icon ######################*/
 
  .UIGrid .DeleteUserIcon {
-  width: 16px ;  height: 16px ;
+  width: 17px ;  height: 18px ;
   background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat ;
 }
 
@@ -102,7 +102,7 @@
 /*###################### UIListMembershipType Icon ######################*/
 
  .UIGrid .DeleteMembershipIcon {
-  width: 16px ;  height: 16px ;
+  width: 17px ;  height: 18px ;
   background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat ;
 }
 
@@ -114,7 +114,7 @@
 
 
  .UIGrid .DeleteUserIcon {
-  width: 16px ;  height: 16px ;
+  width: 17px ;  height: 18px ;
   background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat ;
 }
 
