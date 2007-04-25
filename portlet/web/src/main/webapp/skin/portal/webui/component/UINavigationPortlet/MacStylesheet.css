@@ -7,6 +7,11 @@
   height: 42px;
 }
 
+.UINavigationPortlet .UINavigationBar .PageNodeIcon {
+  height: 19px; width: 19px;
+  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPageIcon.png') no-repeat left;
+}
+
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
   background: url('MacSkin/background/NavigationBgLeft6x41.png') no-repeat left top;
   padding-left: 6px;
@@ -31,31 +36,154 @@
 
 /* Portal Navigation sub menus */
 
-.UINavigationPortlet .UINavigationBar .MenuItemContainer {
-	/*overflow: visible;*/
+.UINavigationPortlet .MenuItemContainer {
+	overflow: visible;
 	white-space: nowrap;
-	border-top: solid #b0c0e2 1px;
-	border-left: solid #b0c0e2 1px;
-	border-right: solid #b0c0e2 1px;
-	margin-right: 2px;
+	text-align: left; 
 }
 
-.UINavigationPortlet .UINavigationBar .MenuItem {
+.UINavigationPortlet .MenuItemContainer .MenuItemDecorator {
+  padding-bottom: 6px;
+}
+
+.UINavigationPortlet .MenuItemContainer .LeftMiddleMenuDecorator {
+  background: url('MacSkin/background/MLItemSelector6x1.png') repeat-y left;
+  padding-left: 6px;
+}
+
+.UINavigationPortlet .MenuItemContainer .RightMiddleMenuDecorator {
+  background: url('MacSkin/background/MRItemSelector6x1.png') repeat-y right;
+  padding-right: 6px;
+}
+
+.UINavigationPortlet .MenuItemContainer .CenterMiddleMenuDecorator {
+  background: white url('MacSkin/background/BgItemSelector1x4.png') repeat;
+  border-top: 1px solid #b3b3b3;
+}
+
+.UINavigationPortlet .MenuItemContainer .LeftBottomMenuDecorator {
+  background: url('MacSkin/background/BLItemSelector9x9.png') no-repeat left;
+  padding-left: 9px;
+  line-height: 9px;
+}
+
+.UINavigationPortlet .MenuItemContainer .RightBottomMenuDecorator {
+  background: url('MacSkin/background/BRItemSelector9x9.png') no-repeat right;
+  padding-right: 9px;
+  line-height: 9px;
+}
+
+.UINavigationPortlet .MenuItemContainer .CenterBottomMenuDecorator {
+  background: url('MacSkin/background/BCItemSelector1x9.png') repeat-x;
+  height: 9px; 
+}
+
+.UINavigationPortlet .MenuItemContainer .MenuItem {
 	white-space: nowrap;
 	cursor: pointer;
+	height: 25px; 
+	text-align: left;
 }
 
-.UINavigationPortlet .UINavigationBar .OverItem {
-	background-color: #c0d0f0;
-	border-bottom: solid #b0c0e2 1px;
+.UINavigationPortlet .MenuItemContainer .NormalItem {
+	height: 25px; 
+	border-bottom: 1px solid #dbdbdb;
 }
 
-.UINavigationPortlet .UINavigationBar .NormalItem {
-	background-color: #cbdaf4;
-	border-bottom: solid #b0c0e2 1px;
+.UINavigationPortlet .MenuItemContainer .OverItem {
+	background: url('MacSkin/background/OverItemSelectorBG1x25.png') repeat-x ;
+	height: 25px; 
+	border-bottom: 1px solid #dbdbdb;
 }
 
-.UINavigationPortlet .UINavigationBar .SelectedItem {
-	background-color: #c0d0f0;
-	border-bottom: solid #b0c0e2 1px;
+.UINavigationPortlet .MenuItemContainer .SelectedItem {
+	background: url('MacSkin/background/OverItemSelectorBG1x25.png') repeat-x ;
+	height: 25px; 
+	border-bottom: 1px solid #dbdbdb;
 }
+
+.UINavigationPortlet .MenuItemContainer .NormalItem .ItemIcon {
+  height: 25px; width: auto;
+  padding-left: 20px;
+  margin-left: 6px;
+}
+
+.UINavigationPortlet .MenuItemContainer .NormalItem .MenuItemLabel {
+  line-height: 25px; 
+  padding: 0px 3px;
+}
+
+.UINavigationPortlet .MenuItemContainer .NormalItem a {
+  color: #1d1d1d;
+  line-height: 25px;
+}
+
+.UINavigationPortlet .MenuItemContainer .NormalItem .RightItemIcon {
+  height: 25px; width: auto;
+  padding-right: 20px;
+  background: url('MacSkin/icons/GrayArrow.png') no-repeat right;
+}
+
+.UINavigationPortlet .MenuItemContainer .OverItem .ItemIcon {
+  height: 25px; width: auto;
+  padding-left: 20px;
+  margin-left: 6px;
+}
+
+.UINavigationPortlet .MenuItemContainer .OverItem .MenuItemLabel {
+  line-height: 25px;
+  padding: 0px 3px;
+}
+
+.UINavigationPortlet .MenuItemContainer .OverItem a {
+  color: white;
+  line-height: 25px;
+}
+
+.UINavigationPortlet .MenuItemContainer .OverItem .RightItemIcon {
+  height: 25px; width: auto;
+  padding-right: 20px;
+  background: url('MacSkin/icons/WhiteArrow.png') no-repeat right;
+}
+
+.UINavigationPortlet .MenuItemContainer .SelectedItem .ItemIcon {
+  height: 25px; width: auto;
+  padding-left: 20px;
+  margin-left: 6px;
+}
+
+.UINavigationPortlet .MenuItemContainer .SelectedItem .MenuItemLabel {
+  line-height: 25px;
+  padding: 0px 3px;
+}
+
+.UINavigationPortlet .MenuItemContainer .PageNodeIcon {
+  height: 25px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPageIcon.png') no-repeat left ;
+  padding: 0px 0px 0px 22px ;
+}
+
+.UINavigationPortlet .MenuItemContainer .SelectedItem a {
+  color: #3e8df0;
+  line-height: 25px;  
+}
+
+.UINavigationPortlet .MenuItemContainer .SelectedItem .RightItemIcon {
+  height: 25px; width: auto;
+  padding-right: 20px;
+  background: url('MacSkin/background/BlackArrow.gif') no-repeat right;
+}
+
+
+/*  Supply footnotes to:
+		TL: Top Left.
+		TR: Top Right.
+		TC: Top Center.
+		ML: Middle Left.
+		MR: Middle Right.
+		MC: Middle Center.
+		BL: Bottom Left.
+		BR: Bottom Right.
+		BC: Bottom Right.
+		BG: Background.
+		*/
