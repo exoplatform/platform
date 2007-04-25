@@ -14,7 +14,7 @@ import java.util.ArrayList;
  **/
 public class Page extends Container {
   
-  private String owner ;
+  private String portalName ;
   private String name ;
   private String accessGroup ;
   private boolean showMaxWindow = false ;
@@ -23,8 +23,8 @@ public class Page extends Container {
   	setId("page") ;
   }
   
-  public String getOwner() { return owner ; }
-  public void   setOwner(String s) { owner = s ; } 
+  public String getPortalName() { return portalName ; }
+  public void   setPortalName(String s) { portalName = s ; } 
   
   public String getName() { return name ; }
   public void   setName(String s) { name = s ; } 
@@ -37,7 +37,7 @@ public class Page extends Container {
     this.showMaxWindow = showMaxWindow.booleanValue(); 
   }
   
-  public String getPageId() {	return owner + ":/" + name ; }
+  public String getPageId() {	return portalName + ":/" + name ; }
   
   static public class PageSet {
     private ArrayList<Page> pages ;

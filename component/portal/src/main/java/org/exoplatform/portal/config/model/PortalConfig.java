@@ -14,7 +14,7 @@ import java.util.ArrayList;
  **/
 public class PortalConfig extends Component {
   
-	private String owner ;
+	private String portalName ;
   private String locale ;
   private String accessGroup ;
   private String skin;
@@ -28,8 +28,8 @@ public class PortalConfig extends Component {
     widgetLayout = new Container();
   }
   
-  public String getOwner() { return owner ; }
-  public void   setOwner(String s) { owner = s  ; } 
+  public String getPortalName() { return portalName ; }
+  public void   setPortalName(String s) { portalName = s  ; } 
  
   public String getLocale() { return locale ; }
   public void   setLocale(String s) { locale = s ; }

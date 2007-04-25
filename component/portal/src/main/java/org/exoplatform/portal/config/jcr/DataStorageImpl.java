@@ -38,29 +38,22 @@ public class DataStorageImpl  implements DataStorage {
     service_ = service ;
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node rootNode = session.getRootNode() ;
-    if (!rootNode.hasNode(PORTAL_APP)) {
-      rootNode.addNode(PORTAL_APP, NT_FOLDER_TYPE);
-      rootNode.save();
-      session.save();
-    } 
+    if (rootNode.hasNode(PORTAL_APP))  return ;
+    rootNode.addNode(PORTAL_APP, NT_FOLDER_TYPE);
+    rootNode.save();
+    session.save();
   }
 
   public PortalConfig getPortalConfig(String portalName) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
 
-    if (portalAppNode.hasNode(portalName)) {
-      Node portalNode = portalAppNode.getNode(portalName) ;
+    if (!portalAppNode.hasNode(portalName)) return null;
+    Node portalNode = portalAppNode.getNode(portalName) ;
 
-      if (portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)) {
-        Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
-        PortalConfig config = mapper_.toPortalConfig(portalConfigNode) ;
-
-        return config ;
-      }
-    }
-
-    return null ;
+    if (!portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)) return null;
+    Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
+    return mapper_.toPortalConfig(portalConfigNode) ;
   }
 
   public void save(PortalConfig config) throws Exception {
@@ -68,11 +61,10 @@ public class DataStorageImpl  implements DataStorage {
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
 
     Node portalNode = null ;
-    String portalName = config.getOwner() ;
-    if (portalAppNode.hasNode(portalName)) {
-      portalNode = portalAppNode.getNode(portalName) ;
+    if (portalAppNode.hasNode(config.getPortalName())) {
+      portalNode = portalAppNode.getNode(config.getPortalName()) ;
     } else {
-      portalNode = portalAppNode.addNode(portalName, NT_FOLDER_TYPE) ;
+      portalNode = portalAppNode.addNode(config.getPortalName(), NT_FOLDER_TYPE) ;
       portalAppNode.save() ;
     }
 
@@ -82,7 +74,7 @@ public class DataStorageImpl  implements DataStorage {
     } else {
       portalConfigNode = portalNode.addNode(PORTAL_CONFIG_FILE_NAME, EXO_DATA_TYPE) ;
     }
-    mapper_.map(portalConfigNode, config) ;
+    mapper_.map(portalConfigNode, config) ;    
     portalNode.save() ;
     session.save() ;
   }
@@ -91,11 +83,10 @@ public class DataStorageImpl  implements DataStorage {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
 
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
-    String portalName = config.getOwner() ;
-    Node  portalNode = portalAppNode.getNode(portalName) ;
+    Node  portalNode = portalAppNode.getNode(config.getPortalName()) ;
     Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
     portalConfigNode.remove() ;
-  
+    
     portalNode.save() ;
     session.save() ;
   }
@@ -104,7 +95,7 @@ public class DataStorageImpl  implements DataStorage {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
 
-    String portalName = page.getOwner() ;
+    String portalName = page.getPortalName() ;
     String pageName = page.getName() ;
     
     Node portalNode = null ;
@@ -132,7 +123,7 @@ public class DataStorageImpl  implements DataStorage {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
 
-    String portalName = page.getOwner() ;
+    String portalName = page.getPortalName() ;
     String pageName = page.getName() ;
     
     Node portalNode = null ;
@@ -161,7 +152,7 @@ public class DataStorageImpl  implements DataStorage {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
     
-    String portalName = page.getOwner() ;
+    String portalName = page.getPortalName() ;
     String pageName = page.getName() ;
     Node portalNode = portalAppNode.getNode(portalName) ;
     Node pageSetNode = portalNode.getNode(PAGE_SET_NODE) ;
@@ -203,7 +194,7 @@ public class DataStorageImpl  implements DataStorage {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
 
-    String portalName = navigation.getOwner() ;
+    String portalName = navigation.getPortalName() ;
     Node portalNode = null ;
     if (portalAppNode.hasNode(portalName)) {
       portalNode = portalAppNode.getNode(portalName) ;
@@ -228,7 +219,7 @@ public class DataStorageImpl  implements DataStorage {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     
     Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;    
-    String portalName = navigation.getOwner() ;        
+    String portalName = navigation.getPortalName() ;        
     Node portalNode = portalAppNode.getNode(portalName) ;
     Node navigationNode = portalNode.getNode(NAVIGATION_CONFIG_FILE_NAME) ;
     navigationNode.remove() ;

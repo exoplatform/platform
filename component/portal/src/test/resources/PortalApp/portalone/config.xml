@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <portal-config decorator="exo" width="100%" height="100%">
-  <owner>portalone</owner>
+  <portal-name>portalone</portal-name>
   <locale>en</locale>
   <access-group>*:/guest</access-group>
   

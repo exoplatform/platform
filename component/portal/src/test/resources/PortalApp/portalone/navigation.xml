@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <node-navigation>
+  <portal-name>portalone</portal-name>  
 	<id>portalone</id>
-  <owner>portalone</owner>  
   <access-group>*:/guest</access-group>
   <description> description for node navigation </description>
   

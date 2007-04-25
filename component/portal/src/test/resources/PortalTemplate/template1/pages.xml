@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <page-set>
   <page>
-    <owner>portalone</owner>
+    <portal-name>portalone</portal-name>
     <name>page-one</name>
     <title>page-one</title>
     <access-group>*:/guest</access-group>
@@ -67,8 +67,8 @@
     </container>
   </page>
   
-    <page>
-    <owner>portalone</owner>
+  <page>
+    <portal-name>portalone</portal-name>
     <name>page-two</name>
     <title>page-two</title>
     <access-group>*:/guest</access-group>

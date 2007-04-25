@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class PageNavigation {
   
   private String      id ;
-  private String			owner;
+  private String			portalName;
   private String      accessGroup ;
   private String      description ;
   private boolean     modifiable ;
@@ -26,8 +26,8 @@ public class PageNavigation {
   public String getId() { return id; }
   public void setId(String id) { this.id = id; }
 
-  public String getOwner() { return owner;}
-  public void setOwner(String owner) { this.owner = owner; }
+  public String getPortalName() { return portalName;}
+  public void setPortalName(String owner) { this.portalName = owner; }
 
   public void setAccessGroup(String accessPermission){
     this.accessGroup = accessPermission;
@@ -72,7 +72,7 @@ public class PageNavigation {
   
   public PageNavigation clone() {
     PageNavigation newNav = new PageNavigation();
-    newNav.setOwner(owner);
+    newNav.setPortalName(portalName);
     newNav.setPriority(priority);
     newNav.setAccessGroup(accessGroup);
     newNav.setModifiable(modifiable);
