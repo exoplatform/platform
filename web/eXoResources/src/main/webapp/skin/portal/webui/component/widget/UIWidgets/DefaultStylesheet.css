@@ -41,12 +41,12 @@
 
 .UIWidgetContainer .eXoInfoWidgetImage {
 	margin: auto;
-	width: 200px; height: 210px;
-	background: url('DefaultSkin/background/InfoImage200x200.png') no-repeat center top;	
+	width: 200px; height: 198px;
+	background: url('DefaultSkin/background/InfoImage200x200.png') no-repeat center bottom;	
 }
 
 .UIWidgetContainer .eXoInfoWidgetImage .TopWidgetImage {
-  height:157px;
+  height:158px;
 }
 
 .UIWidgetContainer .eXoInfoWidgetImage .Download {

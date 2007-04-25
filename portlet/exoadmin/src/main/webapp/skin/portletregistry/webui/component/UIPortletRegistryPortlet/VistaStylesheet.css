@@ -155,17 +155,32 @@
 
 .UIPortletRegistryPortlet .UIForm .HorizontalLayout .FieldContainer {
 	padding-top: 0px;
-	padding: 0px;
+	padding: 10px 0px 0px 0px;
 	margin-top: none;
 	width: auto;
 	overflow: visible;
 }
 
-.UIPortletRegistryPortlet .UIFormWithTitle .HorizontalLayout .FormContainer {
+.UIPortletRegistryPortlet .UICategoryForm .FormContainer {
+	width: 415px;
+	margin: auto;
+	padding: 0px;
+}
+
+.UIPortletRegistryPortlet .UICategoryForm .HorizontalLayout input {
+	float: none;
+}
+
+.UIPortletRegistryPortlet .UICategoryForm .HorizontalLayout label {
+	width: 140px;
+	margin: 0px 10px 0px 0px;
+}
+
+.UIPortletRegistryPortlet .UIAvailablePortletForm .HorizontalLayout .FormContainer {
 	padding: 10px;
 }
 
-.UIPortletRegistryPortlet .UIFormWithTitle .HorizontalLayout .FormContainer .UIGrid {
+.UIPortletRegistryPortlet .UIAvailablePortletForm .HorizontalLayout .UIGrid {
 	width: none;
 }
 
