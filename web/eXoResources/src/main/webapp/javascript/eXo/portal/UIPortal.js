@@ -12,24 +12,24 @@ function UIComponent(node) {
   this.id = div[0].firstChild.nodeValue ;
   this.title = div[1].firstChild.nodeValue ;
   this.description = div[2].firstChild.nodeValue ;
-}
+};
 
-UIComponent.prototype.getId = function() { return this.id ; }
-UIComponent.prototype.getTitle = function() { return this.title ; }
-UIComponent.prototype.getDescription = function() { return this.description ; }
-UIComponent.prototype.getElement = function() { return this.node ; }
-UIComponent.prototype.getUIComponentType = function() { return this.type ; }
+UIComponent.prototype.getId = function() { return this.id ; };
+UIComponent.prototype.getTitle = function() { return this.title ; };
+UIComponent.prototype.getDescription = function() { return this.description ; };
+UIComponent.prototype.getElement = function() { return this.node ; };
+UIComponent.prototype.getUIComponentType = function() { return this.type ; };
 
-UIComponent.prototype.getUIComponentBlock = function() { return this.node ; }
-UIComponent.prototype.getControlBlock = function() { return this.control ; }
-UIComponent.prototype.getLayoutBlock = function() { return this.layout ; }
-UIComponent.prototype.getViewBlock = function() { return this.view ; }
+UIComponent.prototype.getUIComponentBlock = function() { return this.node ; };
+UIComponent.prototype.getControlBlock = function() { return this.control ; };
+UIComponent.prototype.getLayoutBlock = function() { return this.layout ; };
+UIComponent.prototype.getViewBlock = function() { return this.view ; };
 
 /*******************************************************************************/
 
 function UIPortal() {
   this.portalUIComponentDragDrop = false;
-}
+};
 
 UIPortal.prototype.getUIPortlets = function() {
   var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
@@ -108,7 +108,7 @@ UIPortal.prototype.switchViewModeToLayoutMode = function(uicomponent, swapConten
   }
   
 //  this.switchPageMode(uicomponent, "layoutMode");
-}
+};
 
 UIPortal.prototype.switchLayoutModeToViewMode = function(uicomponent, swapContent) {
   var viewBlock =  uicomponent.getViewBlock() ;
@@ -123,7 +123,7 @@ UIPortal.prototype.switchLayoutModeToViewMode = function(uicomponent, swapConten
   }
   viewBlock.style.display = "block" ;
   layoutBlock.style.display = "none" ;
-}
+} ;
 
 //UIPortal.prototype.switchPageMode = function(uicomponent, mode) {
 //	var viewBlock = uicomponent.getViewBlock ;
@@ -206,26 +206,42 @@ UIPortal.prototype.showViewLayoutModeForPage = function() {
     	this.showUIComponentControl(portlet[i], false) ;
     }
   }
-}
+} ;
 
+  /**Repaired: by Vu Duy Tu 25/04/07**/
 UIPortal.prototype.showLayoutModeForPage = function(control) {
 	var uiPage = eXo.core.DOMUtil.findFirstDescendantByClass(document.body, "div", "UIPage") ;
 	var viewPage = eXo.core.DOMUtil.findFirstDescendantByClass(uiPage, "div", "VIEW-PAGE") ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+	var uiPortalApplication = document.getElementById("UIPortalApplication");
+	if(uiPortalApplication.className != "Vista") {
 	viewPage.style.border = "solid 3px #dadada" ;
-	viewPage.style.padding = "10px" ;
+	}
+	viewPage.style.padding = "50px 0px" ;
 		
 	if(control) this.component = control ;
 	var container = this.getUIContainers() ;
   for(var i = 0; i < container.length; i++) {
     this.switchViewModeToLayoutMode(container[i], true) ;
     this.showUIComponentControl(container[i], this.component == 'UIContainer') ;
+
+	  var uiContainer = eXo.core.DOMUtil.findFirstDescendantByClass(viewPage, "div", "UIContainer") ;
+	  if(uiContainer != null) {
+	  	viewPage.style.border = "none" ;
+	  	viewPage.style.padding = "5px 5px 3px 3px;" ;
+	  }
   }
 	
 	var portlet = this.getUIPortletsInUIPage() ;
   for(var i = 0; i < portlet.length; i++) {
     this.switchViewModeToLayoutMode(portlet[i], false) ;
     this.showUIComponentControl(portlet[i], this.component == 'UIPortlet') ;
+    
+	  var uiPortlet = eXo.core.DOMUtil.findFirstDescendantByClass(viewPage, "div", "UIPortlet") ;
+	  if(uiPortlet != null) {
+	  	viewPage.style.border = "none" ;
+	  	viewPage.style.padding = "5px 5px 3px 3px;" ;
+	  }
   }
 };
 
@@ -372,7 +388,7 @@ UIPortal.prototype.onLoads = function() {
 		  layOutContainer.style.background = "none";
 		}
 	}
-};
+} ;
 
 eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;
 eXo.portal.UIPortal = new UIPortal() ;
