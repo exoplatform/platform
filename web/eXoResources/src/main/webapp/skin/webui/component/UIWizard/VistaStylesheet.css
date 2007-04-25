@@ -191,6 +191,7 @@
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
   padding: 10px 0px 15px 0px;
+  background: #ffffff;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FieldContainer {
