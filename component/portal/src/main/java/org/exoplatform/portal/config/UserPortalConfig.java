@@ -13,13 +13,9 @@ public class UserPortalConfig {
   private List<PageNavigation> navigations ;
   
   public PortalConfig getPortalConfig() { return portal ; }
-  
-  public void   setPortal(PortalConfig portal) { 
-    this.portal =  portal ;
-  }
+  public void   setPortal(PortalConfig portal) {  this.portal =  portal ; }
   
   public void  setNavigations(List<PageNavigation> navs) { navigations = navs ; }
-  
   public List<PageNavigation>  getNavigations()  { return navigations ; }
   
   public void addNavigation(PageNavigation nav) {
