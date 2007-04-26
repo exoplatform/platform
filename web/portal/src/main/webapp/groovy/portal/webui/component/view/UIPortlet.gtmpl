@@ -121,7 +121,7 @@
 		        <div class="WindowBarRight">
 		          <div class="WindowBarCenter">
 		            <div class="WindowPortletControl CategoryDetectPosition">
-		              <div class="ControlIcon ArrowDownIcon" title="Portlet Mode" onclick="$showCategory; $setDefault;" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+		              <div class="ControlIcon ArrowDownIcon" title="Portlet Mode" onclick="$showCategory" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
 		              <%if(isWindow) {%>
 	                		<div class="ControlIcon MinimizedIcon" title="Minimize" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
 	                		<div class="ControlIcon MaximizedIcon" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 

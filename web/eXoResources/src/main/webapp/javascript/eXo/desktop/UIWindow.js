@@ -21,6 +21,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	  	applicationMinWidth.style.width = minWidth + "px" ;
 	  	popup.applicationOriginalWidth = minWidth ;
   	} else {
+  		//alert("MinWidth is undefinded");
 //  		applicationMinWidth.style.width = "720px" ;
   		popup.applicationOriginalWidth = 750 ;
   		popup.style.width = "750px" ;
@@ -30,6 +31,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
   		applicationMinWidth.style.width = "auto" ;
 		}
   }
+
   
   /*Fix Bug On IE6*/
 	if(eXo.core.Browser.isIE6()) {

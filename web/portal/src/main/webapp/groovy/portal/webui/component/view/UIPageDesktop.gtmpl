@@ -77,7 +77,7 @@
         <%
           String containerMouseOver = "eXo.desktop.UIDockbar.containerMouseOver();" ;
         %>
-        <div class="UIDockBar" id="UIDockBar" border: solid 1px red>
+        <div class="UIDockBar" id="UIDockBar">
           <div class="DockbarLeft">
             <div class="DockbarRight">
               <div class="DockbarCenter" id="DockbarCenter">
@@ -126,9 +126,6 @@
                        alt="/eXoResources/background/DefaultSkin/Blank.gif" />
                   <%/*Tool Tip*/%>
                   <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowDesktop")%></span>
-                  <%/*End Tool Tip*/
-                  %>
-                  <%/*Tool Tip*/%>
                   <%/*End Tool Tip*/%>
                 </div>
               </div>
@@ -142,5 +139,5 @@
 
 <%
   jsmanager.addOnLoadJavascript('eXo.desktop.UIDesktop.init');
-  jsmanager.addOnResizeJavascript('eXo.desktop.UIDesktop.init');
+  jsmanager.addOnResizeJavascript('eXo.desktop.UIDesktop.fixDesktop');
 %>

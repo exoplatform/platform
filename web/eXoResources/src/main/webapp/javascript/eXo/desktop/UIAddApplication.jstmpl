@@ -25,7 +25,7 @@
 				              <div class="SelectedTabStyle">
 				                <div class="LeftTab">
 				                  <div class="RightTab">                
-				                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Portlets</div>
+				                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this);">Portlets</div>
 				                  </div>
 				                </div>
 				              </div>
@@ -35,7 +35,7 @@
 				              <div class="NormalTabStyle">
 				                <div class="LeftTab">
 				                  <div class="RightTab">
-				                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">JS Applications</div>
+				                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this);">JS Applications</div>
 				                  </div>
 				                </div>
 				              </div>
@@ -92,7 +92,7 @@
 	          	    <div class="ItemList">
 	          	    
 	          	      <div class="SelectedItem Item" onclick="eXo.webui.UIItemSelector.onClick(this)"
-	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">
+	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true);" onmouseout="eXo.webui.UIItemSelector.onOver(this, false);">
 	          	        <div class="LeftItem">
 	          	          <div class="RightItem">
 											  	  <div class="ItemTitle">eXo Browser</div>
@@ -101,7 +101,7 @@
 	          	      </div>
 	          	      
 	          	      <div class="Item" onclick="eXo.webui.UIItemSelector.onClick(this)"
-	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true)" onmouseout="eXo.webui.UIItemSelector.onOver(this, false)">
+	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true);" onmouseout="eXo.webui.UIItemSelector.onOver(this, false);">
 	          	        <div class="LeftItem">
 	          	          <div class="RightItem">  
 											  	  <div class="ItemTitle">Accessories</div>

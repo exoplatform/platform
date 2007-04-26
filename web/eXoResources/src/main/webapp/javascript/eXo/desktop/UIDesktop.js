@@ -7,18 +7,22 @@ function UIDesktop() {
 
 UIDesktop.prototype.init = function() {
   var pageDesktop = document.getElementById("UIPageDesktop") ;
+
+	eXo.desktop.UIDesktop.fixDesktop() ;
+  var uiWindows = eXo.core.DOMUtil.findChildrenByClass(pageDesktop, "div", "UIWindow") ;
+  for(var i = 0; i < uiWindows.length; i++) {
+  	if(uiWindows[i].isFirstTime == false)	continue ;
+  	eXo.desktop.UIDesktop.backupWindowProperties(uiWindows[i]);
+  }
+};
+
+UIDesktop.prototype.fixDesktop = function() {
+	var pageDesktop = document.getElementById("UIPageDesktop") ;
 	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
 	pageDesktop.style.height = browserHeight + "px" ;
 	window.scroll(0,0);
 	
   eXo.desktop.UIDockbar.init() ;
-
-  var uiWindows = eXo.core.DOMUtil.findChildrenByClass(pageDesktop, "div", "UIWindow") ;
-  for(var i = 0; i < uiWindows.length; i++) {
-  	if(uiWindows[i].isFirstTime == false)	continue ;
-  	
-  	eXo.desktop.UIDesktop.backupWindowProperties(uiWindows[i]);
-  }
 };
 
 UIDesktop.prototype.resetZIndex = function(windowObject) {

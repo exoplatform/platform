@@ -13,7 +13,7 @@
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
+  <head id="head">
     <title>eXo Portal</title>
     <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
     <link id="PortalSkin" rel="stylesheet" type="text/css" href="$portalSkin.CSSPath" />
@@ -49,6 +49,7 @@
     	When debugging is finished, put the firebug script tag in this comment block
     	<script language="javascript" type="text/javascript" src="/eXoResources/javascript/eXo/firebug/firebug.js"></script>
     -->
+
   </head>
 
   <body>

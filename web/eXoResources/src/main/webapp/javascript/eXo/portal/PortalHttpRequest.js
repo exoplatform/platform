@@ -199,7 +199,7 @@ function AjaxRequest(method, url, queryString) {
 			instance.request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 		}
 		
-		if (instance.timeout > 0) setTimeout(instance.onTimeoutInternal, instance.timeout);			
+		if (instance.timeout > 0) setTimeout(instance.onTimeoutInternal, instance.timeout);
 		
 		instance.request.send(instance.queryString);
 	};
@@ -289,7 +289,7 @@ function ajaxGet(url) {
 }
 
 function ajaxPost(formElement) {
-  var queryString = eXo.webui.UIForm.serializeForm(formElement) ;;
+  var queryString = eXo.webui.UIForm.serializeForm(formElement) ;
   var url = formElement.action + "&ajaxRequest=true" ;
   doRequest("POST", url, queryString) ;
 }

@@ -43,5 +43,5 @@
 	<div style="clear: both"><span></span></div>
 </div>
 <%
-  jsmanager.addJavascript("eXo.portal.UIControlWorkspace.onResizeDefault() ; ") ;
+  jsmanager.addJavascript("eXo.portal.UIControlWorkspace.onResizeDefault();") ;
 %>
