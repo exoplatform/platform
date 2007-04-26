@@ -83,7 +83,18 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	} else {
 		// hides the workspace
 		cws.showControlWorkspace = false ;
-
+		
+		if (eXo.core.Browser.isIE6()) {
+			var tabs = document.getElementById('PortalNavigationTopContainer');
+			var backupStyles = new Array();
+			backupStyles["position"] = tabs.style.position;
+			backupStyles["float"] = tabs.style.cssFloat;
+			tabs.style.position = "absolute";
+			tabs.style.cssFloat = "left";
+			
+			tabs.style.position = backupStyles["position"];
+			tabs.style.cssFloat = backupStyles["float"];
+		}
 		uiWorkspaceContainer.style.display = "none" ;
 		slidebar.style.display = "block" ;
 		uiWorkspace.style.width = slidebar.offsetWidth + "px";

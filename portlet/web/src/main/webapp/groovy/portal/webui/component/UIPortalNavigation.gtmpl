@@ -111,7 +111,7 @@
 								    if(icon == null) icon = "PageNodeIcon";
 		        %>      
 		        
-		         <div class="UITab"> <!-- onmouseover="$mouseOver" onmouseout="$mouseOut" -->
+		         <div class="UITab">
 		           <div class="$tabStyleNavigation">
 		             <div class="LeftTab">
 		               <div class="RightTab">

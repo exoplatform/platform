@@ -49,7 +49,6 @@
     	When debugging is finished, put the firebug script tag in this comment block
     	<script language="javascript" type="text/javascript" src="/eXoResources/javascript/eXo/firebug/firebug.js"></script>
     -->
-    <script language="javascript" type="text/javascript" src="/eXoResources/javascript/eXo/firebug/firebug.js"></script>
   </head>
 
   <body>

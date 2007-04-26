@@ -27,11 +27,13 @@ UIPortalNavigation.prototype.onLoad = function() {
 UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 	var topContainer = eXo.core.DOMUtil.findFirstDescendantByClass(popupMenu, "div", "TabsContainer");
 	topContainer.id = "PortalNavigationTopContainer";
+	// Top menu items
 	var topItems = eXo.core.DOMUtil.findDescendantsByClass(topContainer, "div", "UITab");
 	for (var i = 0; i<topItems.length; i++) {
 		var item = topItems[i];
 		item.onmouseover = eXo.portal.UIPortalNavigation.setTabStyle;
 		item.onmouseout = eXo.portal.UIPortalNavigation.setTabStyle;
+		item.style.width = item.offsetWidth + "px";
 		var arrow = eXo.core.DOMUtil.findFirstDescendantByClass(item, "div", "DropDownArrowIcon");
 		if (arrow) {
 			arrow.onmouseover = function() { this.style.backgroundColor = "white"; };
@@ -39,17 +41,24 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 			arrow.onclick = eXo.portal.UIPortalNavigation.toggleSubMenu;
 			arrow.parentTab = item;
 		}
+		var container = eXo.core.DOMUtil.findFirstDescendantByClass(item, "div", this.containerStyleClass);
+		if (container) {
+			if (eXo.core.Browser.isIE6()) container.style.width = "100%";
+			else container.style.minWidth = item.offsetWidth + "px";
+		}
 	}
-	
+	// Sub menus items
 	var menuItems = eXo.core.DOMUtil.findDescendantsByClass(topContainer, "div", this.tabStyleClass);
 	for(var i = 0; i<menuItems.length; i++) {
-		menuItems[i].onmouseover = eXo.portal.UIPortalNavigation.onMenuItemOver;
-		menuItems[i].onmouseout = eXo.portal.UIPortalNavigation.onMenuItemOut;
-		var link = eXo.core.DOMUtil.findDescendantsByTagName(menuItems[i], "a")[0];
-		this.superClass.createLink(menuItems[i], link);
+		var menuItem = menuItems[i];
+		menuItem.onmouseover = eXo.portal.UIPortalNavigation.onMenuItemOver;
+		menuItem.onmouseout = eXo.portal.UIPortalNavigation.onMenuItemOut;
+		var link = eXo.core.DOMUtil.findDescendantsByTagName(menuItem, "a")[0];
+		this.superClass.createLink(menuItem, link);
 		// Set an id to each container for future reference
-		var cont = eXo.core.DOMUtil.findAncestorByClass(menuItems[i], this.containerStyleClass) ;
+		var cont = eXo.core.DOMUtil.findAncestorByClass(menuItem, this.containerStyleClass) ;
 		if (!cont.id) cont.id = "PortalNavigationContainer-"+i;
+		cont.resized = false;
 	}
 };
 
@@ -61,7 +70,7 @@ UIPortalNavigation.prototype.setTabStyle = function() {
 		eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(tab, true);
 	} else {
 		if(tabChildren.length <= 1 || tabChildren[1].id != eXo.portal.UIPortalNavigation.currentOpenedMenu) {
-			// de-highlights the tab if its submenu isn't visible
+			// de-highlights the tab if it doesn't have a submenu (cond 1) or its submenu isn't visible (cond 2)
 			eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(tab, false);
 		}
 	}
@@ -87,6 +96,14 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e) {
 			eXo.portal.UIPortalNavigation.superClass.setPosition(menuItemContainer, x, y);
 			eXo.portal.UIPortalNavigation.superClass.show(menuItemContainer);
 			
+			if (!menuItemContainer.resized && eXo.core.Browser.getBrowserType() == "ie") {
+				var w = menuItemContainer.offsetWidth;
+				var menuItems = eXo.core.DOMUtil.findDescendantsByClass(menuItemContainer, "div", eXo.portal.UIPortalNavigation.tabStyleClass);
+				for (var i = 0; i < menuItems.length; i++) {
+					menuItems[i].style.width = w + "px";
+				}
+				menuItemContainer.resize = true;
+			}
 			eXo.portal.UIPortalNavigation.currentOpenedMenu = menuItemContainer.id;
 			
 			/*Hide eXoStartMenu whenever click on the UIApplication*/
