@@ -4,6 +4,8 @@
  */
 package org.exoplatform.application.registry;
 
+import java.util.List;
+
 import org.exoplatform.application.registery.Application;
 import org.exoplatform.application.registery.ApplicationCategory;
 import org.exoplatform.application.registery.ApplicationRegisteryService;
@@ -32,6 +34,8 @@ public class TestApplicationRegistryService extends BasicTestCase {
     assertAppCategoryOperator() ;
     
     assertApplicationOperator() ;
+    
+    System.out.println("\n\n\n\n");
   }
   
   void assertAppCategoryOperator() throws Exception {
@@ -96,17 +100,53 @@ public class TestApplicationRegistryService extends BasicTestCase {
     assertEquals(0, numberOfCategories) ;
   }
   
-  void assertApplicationOperator() {
+  void assertApplicationOperator() throws Exception {
     assertApplicationSave() ;
-    assertApplicationGet() ;
+    assertApplicationUpdate() ;
   }
   
-  void assertApplicationSave() {
+  void assertApplicationSave() throws Exception {
+    String categoryName = "Office" ;
+    String[] appNames = {"OpenOffice.org", "MS Office"} ;
+    ApplicationCategory appCategory = createAppCategory(categoryName, "None") ;
+    service_.save(appCategory) ;
     
+    for(String appName : appNames) {
+      Application app = creatApplication(appName) ;
+      service_.save(appCategory, app) ;
+      System.out.println("\n\n\n======================>Save app: " + app.getId());
+    }
+    
+    //!!! Save duplicate but not throw Exception.
+    for(String appName : appNames) {
+      Application app = creatApplication(appName) ;
+      service_.save(appCategory, app) ;
+    }
+
+    
+    List<Application> apps = service_.getApplications(appCategory) ;
+    assertEquals(2, apps.size()) ;
+    assertEquals(appNames[0], apps.get(0).getApplicationName()) ;
+    assertEquals(appNames[1], apps.get(1).getApplicationName()) ;
+
+    //TODO: check  [ApplicationRegisteryService.getApplication(String id)] method
+    for (String appName : appNames) {
+      String appId = categoryName + "/" + appName ;
+      Application app = service_.getApplication(appId) ;
+      //assertEquals(appName, app.getApplicationName()) ;
+      
+    }
+    //TODO: service can't remove app
+    for (Application app : apps) {
+      System.out.println("\n\n\n=====================>Remove app: " + app.getId());
+      service_.remove(app) ;
+    }
+    //!!! After remove: size of apps no change
+    List<Application> apps2 = service_.getApplications(appCategory) ;
+    assertEquals(2, apps2.size()) ;
   }
   
-  void assertApplicationGet() {
-    
+  void assertApplicationUpdate() throws Exception {
   }
    
   ApplicationCategory createAppCategory(String categoryName, String categoryDes) {
@@ -122,5 +162,4 @@ public class TestApplicationRegistryService extends BasicTestCase {
     return app ;
   }
   
-
 }
