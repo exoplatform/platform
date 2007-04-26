@@ -69,14 +69,14 @@
 .NavyBlueRecycleBin24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueRecycleBin.gif')no-repeat center left;
+	background: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueRecycleBin.gif')no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
 .DusBinFull24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/DusBinFull.gif')no-repeat center left;
+	background: url('/eXoResources/icons/24x24/VistaSkin/DusBinFull.gif')no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
@@ -115,7 +115,7 @@
 .Selected24x24Icon {
 	width: 32px;
 	height:28px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/SelectedBlock.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/VistaSkin/SelectedBlock.gif') no-repeat center left;
 	margin: auto;
 }
 
@@ -143,21 +143,21 @@
 .OnMouseOver24x24Icon {
 	width: 32px;
 	height:28px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/OnmouseOverBlock.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/VistaSkin/OnmouseOverBlock.gif') no-repeat center left;
 	margin: auto;	
 }
 
 .GreenPlusDataBox24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/GreenPlusDataBox.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/VistaSkin/GreenPlusDataBox.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }
 .GreenPlusBrownBox24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/GreenPlusBrownBox.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/VistaSkin/GreenPlusBrownBox.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }
@@ -165,7 +165,7 @@
 .YellowPenBrownBox24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/YellowPenBrownBox.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/VistaSkin/YellowPenBrownBox.gif') no-repeat center left;
 	margin: auto;
   cursor: pointer; 
 }
@@ -173,7 +173,7 @@
 .NavyBlueRecycleBin24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueRecycleBin.gif') no-repeat center left ;
+	background: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueRecycleBin.gif') no-repeat center left ;
 	margin: auto;
   cursor: pointer;
 }
@@ -181,7 +181,7 @@
 .NavyBlueDocument24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueDocument.gif') no-repeat center left ;
+	background: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueDocument.gif') no-repeat center left ;
 	margin:auto;
   cursor: pointer; 
 }
@@ -189,7 +189,7 @@
 .DataBoxDusBin24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/DataBoxDusBin.gif') no-repeat center left ;
+	background: url('/eXoResources/icons/24x24/VistaSkin/DataBoxDusBin.gif') no-repeat center left ;
 	margin:auto;
   cursor: pointer; 
 }
@@ -218,7 +218,7 @@
 
 .YellowHammer24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/VistaSkin/YellowHammer.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/VistaSkin/YellowHammer.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }

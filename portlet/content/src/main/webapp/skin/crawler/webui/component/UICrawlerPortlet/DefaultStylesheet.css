@@ -36,7 +36,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .GlassesNavyBlueNewspaper32x32Icon {
 	width: 32px;
 	height: 32px;
-	background-image: url('/eXoResources/icons/32x32/DefaultSkin/GlassesNavyBlueNewspaper.gif');
+	background: url('/eXoResources/icons/32x32/DefaultSkin/GlassesNavyBlueNewspaper.gif');
 	cursor: pointer;
 	margin: auto;
 }
@@ -44,7 +44,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .GrayGearBrownBox32x32Icon {
 	width: 32px;
 	height: 32px;
-	background-image: url('/eXoResources/icons/32x32/DefaultSkin/GrayGearBrownBox.gif');
+	background: url('/eXoResources/icons/32x32/DefaultSkin/GrayGearBrownBox.gif');
 	cursor: pointer;
 	margin: auto;
 }
@@ -52,7 +52,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .GreenDownArrowBlueMonitor32x32Icon {
 	width: 32px;
 	height: 32px;
-	background-image: url('/eXoResources/icons/32x32/DefaultSkin/GreenDownArrowBlueMonitor.gif');
+	background: url('/eXoResources/icons/32x32/DefaultSkin/GreenDownArrowBlueMonitor.gif');
 	cursor: pointer;
 	margin: auto;	
 }
@@ -60,7 +60,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .GrayGlasses24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/DefaultSkin/GrayGlasses.gif');
+	background: url('/eXoResources/icons/24x24/DefaultSkin/GrayGlasses.gif');
 	margin: auto;
 	cursor: pointer;
 }
@@ -68,7 +68,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .UIListArticles .GreenResizeCollum24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/DefaultSkin/GreenResizeCollum.gif');
+	background: url('/eXoResources/icons/24x24/DefaultSkin/GreenResizeCollum.gif');
 	cursor: pointer;
 	margin: auto;
 }
@@ -76,7 +76,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .UIListArticles .NavyBlueBullet24x24Icon {
 	width: 24px;
 	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueBullet.gif');
+	background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueBullet.gif');
 	cursor: pointer;
 	margin: auto;
 }
@@ -214,7 +214,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .UICrawlerManageSources .SelectedBackground24x22 {
 	width: 24px;
 	height: 22px;
-	background-image: url('images/SelectedBackground24x22.gif');	
+	background: url('images/SelectedBackground24x22.gif');	
 	margin: auto;
 }
 

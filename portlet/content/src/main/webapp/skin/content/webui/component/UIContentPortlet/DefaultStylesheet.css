@@ -217,6 +217,7 @@
 
 .UIContentPortlet .UIContentWorkingArea .UIFormWithTitle {
 	width: 460px;
+	margin: 0px auto;
 }
 
 .UIContentPortlet .UIContentWorkingArea .UIFormWithTitle .UIAction{

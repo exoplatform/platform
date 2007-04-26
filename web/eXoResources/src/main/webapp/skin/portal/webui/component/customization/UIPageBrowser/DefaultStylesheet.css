@@ -9,3 +9,7 @@
   margin: auto ;
   width: 70px; height: 16px;
 }
+
+.UIPageBrowser .UISearch {
+  width: 100%;
+}

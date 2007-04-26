@@ -58,13 +58,13 @@
 
 .NavyBlueRecycleBin24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/NavyBlueRecycleBin.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/MacSkin/NavyBlueRecycleBin.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
 .DusBinFull24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/DusBinFull.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/MacSkin/DusBinFull.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
@@ -206,7 +206,7 @@
 }
 .Selected24x24Icon {
 	width: 32px;	height: 28px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/SelectedBlock.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/MacSkin/SelectedBlock.gif') no-repeat center left;
 	margin: auto;
 }
 
@@ -230,47 +230,47 @@
 
 .OnMouseOver24x24Icon {
 	width: 32px;	height: 28px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/OnmouseOverBlock.gif') no-repeat center left; 
+	background: url('/eXoResources/icons/24x24/MacSkin/OnmouseOverBlock.gif') no-repeat center left; 
 	margin: auto;	
 }
 
 .GreenPlusDataBox24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/GreenPlusDataBox.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/MacSkin/GreenPlusDataBox.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }
 .GreenPlusBrownBox24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/GreenPlusBrownBox.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/MacSkin/GreenPlusBrownBox.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }
 
 .YellowPenBrownBox24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/YellowPenBrownBox.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/MacSkin/YellowPenBrownBox.gif') no-repeat center left;
 	margin: auto;
   cursor: pointer; 
 }
 
 .NavyBlueRecycleBin24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/NavyBlueRecycleBin.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/MacSkin/NavyBlueRecycleBin.gif') no-repeat center left;
 	margin: auto;
   cursor: pointer;
 }
 
 .NavyBlueDocument24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/NavyBlueDocument.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/MacSkin/NavyBlueDocument.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
 
 .DataBoxDusBin24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/DataBoxDusBin.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/MacSkin/DataBoxDusBin.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 
 }
@@ -294,7 +294,7 @@
 /*##############- Tool Icons -#############*/
 .YellowHammer24x24Icon {
 	width: 24px;	height: 24px;
-	background-image: url('/eXoResources/icons/24x24/MacSkin/YellowHammer.gif') no-repeat center left;
+	background: url('/eXoResources/icons/24x24/MacSkin/YellowHammer.gif') no-repeat center left;
 	margin:auto;
   cursor: pointer; 	
 }

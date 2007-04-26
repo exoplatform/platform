@@ -46,14 +46,14 @@
 
 .UIPageSelector .UIFormInfo .PropertyName {
   float: left;
-  width: 150px;
+  width: 130px;
   padding: 4px 0px 4px 10px;
 }
 
 .UIPageSelector .UIFormInfo .PropertyValue {
   color: #3176e3;
   font-size: 11px;
-  margin: 10px 0xp 0px 150px ;
+  padding: 4px;
 }
 
 .UIPageSelector .UIPopupWindow .UIPageBrowser .UIGrid .ActionContainer {

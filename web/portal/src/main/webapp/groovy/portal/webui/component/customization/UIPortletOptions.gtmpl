@@ -55,7 +55,7 @@
 						            <div class="TabRepeat">
 						              <div class="OverflowContainer">
 											      <div class="LeftIcon" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabStyle3', 'SelectedVTabStyle3')"><span></span></div>
-									          <div class="TabLabel">$name</div>
+									          <div class="TabLabel" title="$name Portlet">$name</div>
 								          </div>
 						            </div>
 						          </div>

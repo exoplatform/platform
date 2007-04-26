@@ -489,7 +489,7 @@
 .GreenPlusDataBox16x16Icon {
 	height: 16px;
 	width: 16px;	
-	background-image: url('/eXoResources/icons/16x16/VistaSkin/GreenPlusDatabox.gif') no-repeat center left ;
+	background: url('/eXoResources/icons/16x16/VistaSkin/GreenPlusDatabox.gif') no-repeat center left ;
 }
 
 /* TODO: Change image'name to "BlueShapeLeftArrow" */

@@ -178,3 +178,7 @@
 	height: 12px;
 }
 /***************************End PoupWindow Caledar**********************************/
+
+.UIPopupWindow .Content .UIPageBrowser {
+  padding: 7px 4px 0px 8px;
+}

@@ -98,17 +98,17 @@ a:hover {
 }
 
 .logRow-info {
-    background-image: url(infoIcon.png);
+    background: url(infoIcon.png);
 }
 
 .logRow-warning {
     background-color: cyan;
-    background-image: url(warningIcon.png);
+    background: url(warningIcon.png);
 }
 
 .logRow-error {
     background-color: LightYellow;
-    background-image: url(errorIcon.png);
+    background: url(errorIcon.png);
 }
 
 .errorMessage {

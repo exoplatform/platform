@@ -70,7 +70,6 @@
 
 .UIItemList .ItemSelector {
   height: 22px; line-height: 22px;
-  background: white;
   font-size: 11px;
   border-bottom: 1px #e0e0e0 solid;
   cursor: pointer ;
@@ -140,6 +139,10 @@
 .UIItemList .MRItemSelector {
   background: url('DefaultSkin/background/MRItemSelector8x1.gif') repeat-y right;
   padding-right: 8px;
+}
+
+.UIItemList .MCItemSelector {
+  background: #f3f3f3;
 }
 
 .UIItemList .BLItemSelector {

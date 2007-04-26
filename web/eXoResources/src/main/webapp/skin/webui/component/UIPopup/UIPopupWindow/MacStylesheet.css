@@ -98,3 +98,7 @@
   background: url('MacSkin/background/RightBottomPopupWindow11x24.png') no-repeat right ;
   padding-right: 11px ;  
 }
+
+.UIPopupWindow .Content .UIPageBrowser {
+  padding: 7px 2px 0px 8px;
+}

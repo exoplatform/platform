@@ -31,22 +31,3 @@
   margin-right: 5px ;
   font-size: 11px ;
 }
-
-.UIFooterPortlet .CopyrightInfo .CopyrightText {
-  float: left;
-  line-height: 24px ;
-  text-align: center ; 
-  width: 260px ;
-  font-size: 11px ;
- 
-}
-
-.UIFooterPortlet .CopyrightInfo .CompanyTitleText {
-  float: right ;
-  line-height: 24px ; 
-  text-align: center ;
-  width: 124px ;
-  font-size: 11px ;
-  margin-right: 5px;
- 
-}

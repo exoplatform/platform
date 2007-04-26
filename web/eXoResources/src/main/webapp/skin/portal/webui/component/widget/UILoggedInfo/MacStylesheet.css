@@ -120,7 +120,7 @@
 /****************************** Icon *********************************/
 .UILoggedInfo .SelectedBG {
 	float: left;
-	background: url('DefaultSkin/background/SelectedBG.gif') no-repeat center;
+	/*background: url('DefaultSkin/background/SelectedBG.gif') no-repeat center;*/
 }
 
 .UILoggedInfo .NormalBG {
