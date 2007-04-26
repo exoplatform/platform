@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <page-set>
   <page>
+    <page-id>portal::thuan::name</page-id>
     <portal-name>portalone</portal-name>
     <name>page-one</name>
     <title>page-one</title>

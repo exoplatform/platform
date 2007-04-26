@@ -14,7 +14,7 @@ import java.util.ArrayList;
  **/
 public class Page extends Container {
   
-  private String   pageId;
+  private transient String   pageId;
   private String   factoryId;
   
   private String   name ;
@@ -56,12 +56,10 @@ public class Page extends Container {
     this.showMaxWindow = showMaxWindow.booleanValue(); 
   }
   
-  public void setPageId(String id) { 
-    this.pageId = id;
-    // split id, assign value to ownerType, ownerId, name
+  public String getPageId() {
+    if(pageId == null) pageId = ownerType +"::"+ownerId+"::"+name;
+    return pageId; 
   }
-  //ownerType::ownerId::name
-  public String getPageId() { return pageId; }
   
   public boolean isModifiable() { return modifiable ; }
   public void    setModifiable(boolean b) { modifiable = b ; }

@@ -30,7 +30,9 @@
   </mapping>
   
   <mapping name="page" label="page" class="org.exoplatform.portal.config.model.Page">
-    <value name="page-id" field="pageId"/>
+    <value name="owner-type" field="ownerType"/>
+    <value name="owner-id" field="ownerId"/>
+    <value name="name" field="name"/>
     <value name="id" usage="optional" field="id" style="attribute"/>
     <value name="factory-id" field="factoryId" usage="optional"/>
     <value name="access-groups" field="accessGroups" usage="optional"/>
@@ -70,7 +72,8 @@
   </mapping>
 
   <mapping name="node-navigation" class="org.exoplatform.portal.config.model.PageNavigation">
-    <value name="navigation-id" field="navigationId"/>
+    <value name="owner-type" field="ownerType"/>
+    <value name="owner-id" field="ownerId"/>
     <value name="id" usage="optional" field="id" style="attribute"/>
     <value name="priority" field="priority" usage="optional"/>
     <value name="access-groups" field="accessGroups" usage="optional"/>

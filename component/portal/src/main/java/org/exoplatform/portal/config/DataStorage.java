@@ -18,6 +18,21 @@ import org.exoplatform.portal.config.model.PortalConfig;
  * database
  */
 public interface DataStorage {
+  
+  /**
+   * This method should create the PortalConfig  object
+   * @param config
+   * @throws Exception
+   */
+  public void  create(PortalConfig config) throws Exception;
+  
+  /**
+   * This method should update the PortalConfig  object
+   * @param config
+   * @throws Exception
+   */
+  public void  save(PortalConfig config) throws Exception;
+
   /**
    * This method should load the PortalConfig object from db according to the portalName 
    * @param portalName
@@ -25,13 +40,7 @@ public interface DataStorage {
    * @throws Exception
    */
   public PortalConfig getPortalConfig(String portalName) throws Exception ;
-  /**
-   * This method should create or update the PortalConfig  object
-   * @param config
-   * @throws Exception
-   */
-  public void  save(PortalConfig config) throws Exception;
-  
+
   /**
    * This method should remove the PortalConfig ,  all the Page that belong to the portal and the 
    * PageNavigation of the  portal from the database
@@ -54,8 +63,6 @@ public interface DataStorage {
    * @throws Exception
    */
   public void remove(Page page) throws Exception ;
-  
-  
 
   /**
    * This method should create  or  udate the given page object
@@ -80,11 +87,18 @@ public interface DataStorage {
   public PageNavigation getPageNavigation(String id) throws Exception ;
   
   /**
-   * This method should create or update the navigation object in the database
+   * This method should update the navigation object in the database
    * @param navigation
    * @throws Exception
    */
   public void save(PageNavigation navigation) throws Exception ;
+  
+  /**
+   * This method should create the navigation object in the database
+   * @param navigation
+   * @throws Exception
+   */
+  public void create(PageNavigation navigation) throws Exception ;
   
   /**
    * This method should  remove the navigation object from the database

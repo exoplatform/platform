@@ -21,8 +21,8 @@ public class Container {
   
   protected String description;
   
-  protected int width;
-  protected int height;
+  protected String width;
+  protected String height;
   
   protected ArrayList<Object> children ;
   
@@ -42,11 +42,11 @@ public class Container {
   public ArrayList<Object>   getChildren() {  return children ; }
   public void setChildren(ArrayList<Object> children) { this.children = children; }
 
-  public int getHeight() { return height; }
-  public void setHeight(int height) { this.height = height; }
+  public String getHeight() { return height; }
+  public void setHeight(String height) { this.height = height; }
 
-  public int getWidth() { return width; }
-  public void setWidth(int width) { this.width = width; }
+  public String getWidth() { return width; }
+  public void setWidth(String width) { this.width = width; }
   
   public String getDecorator() { return decorator ; }
   public void   setDecorator(String s) { decorator = s ; }
