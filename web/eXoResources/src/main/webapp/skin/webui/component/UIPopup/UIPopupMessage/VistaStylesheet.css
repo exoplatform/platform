@@ -1,7 +1,6 @@
 @import url("/eXoResources/skin/webui/component/UIPopupWindow/VistaStylesheet.css") ;
 .UIPopupMessages {
   padding: 10px;
-  border: solid 1px #555654;
 }
 
 .UIPopupMessages .PopupMessageFrame {

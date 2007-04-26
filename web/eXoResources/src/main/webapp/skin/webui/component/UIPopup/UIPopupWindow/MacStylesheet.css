@@ -76,35 +76,25 @@
   width: auto;
 }
 
-.UIPopupWindow .BottomBar .ResizeButton{
+.UIPopupWindow .ResizeButton{
   width: 10px; height:10px; 
   float: right;
   background: url('MacSkin/background/ResizeBG.gif') no-repeat ;
   cursor: nw-resize;
+  display: none;
 }
 
 .UIPopupWindow .BottomLeftCornerDecorator {
-  background: url('MacSkin/background/PopupWindowBL10x10.png') no-repeat left ;
-  height: 10px;
+  background: url('MacSkin/background/LeftBottomPopupWindow10x24.png') no-repeat left ;
   padding-left: 10px;
 }
 
 .UIPopupWindow .BottomCenterDecorator {
-  background: url('MacSkin/background/PopupWindowBC1x10.png') repeat-x;
-  height: 10px;
-  width: 100%;
-}
-
-.UIPopupWindow .BottomCenterDecorator .ResizeButton{
-  float:right;
-  cursor: nw-resize;
-  width: 9px; height: 5px;
-  background: url('DefaultSkin/background/ResizeBG.gif') no-repeat right ;
-  border: 1px red solid;
+  background: url('MacSkin/background/CenterBottomPopupWindow1x24.png') repeat-x;
+  height: 24px;
 }
 
 .UIPopupWindow .BottomRightCornerDecorator {
-  background: url('MacSkin/background/PopupWindowBR11x10.png') no-repeat right ;
-  height: 10px;
+  background: url('MacSkin/background/RightBottomPopupWindow11x24.png') no-repeat right ;
   padding-right: 11px ;  
 }

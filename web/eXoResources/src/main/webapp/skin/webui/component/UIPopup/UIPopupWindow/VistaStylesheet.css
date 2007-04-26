@@ -73,35 +73,29 @@
   overflow: auto;
 }
 
-.UIPopupWindow .BottomBar {
-  height:12px;
-  width: auto;
-  background: url('VistaSkin/background/BottomBarBG1x12.png') repeat-x bottom;
-}
-
-.UIPopupWindow .BottomBar .ResizeButton {
+.UIPopupWindow .ResizeButton {
   width: 9px; height:9px; 
+  display: none;
   float: right;
+  margin-top: 2px;
   background: url('VistaSkin/background/ResizeBG.gif') no-repeat ;
   cursor: nw-resize;
 }
 
 .UIPopupWindow .BottomLeftCornerDecorator {
-  background: url('VistaSkin/background/BottomMessagesL6x11.png') no-repeat left bottom;
-  height: 11px;
-  padding-left: 6px;
+  background: url('VistaSkin/background/BottomMessagesL9x24.png') no-repeat left bottom;
+  padding-left: 9px;
 }
 
 .UIPopupWindow .BottomCenterDecorator {
-  background: url('VistaSkin/background/BottomMessagesCenter1x11.png') repeat-x bottom;
-  height: 11px;
+  background: url('VistaSkin/background/BottomMessagesCenter1x24.png') repeat-x bottom;
+  height: 24px;
   width: 100%;
 }
 
 .UIPopupWindow .BottomRightCornerDecorator {
-  background: url('VistaSkin/background/BottomMessagesR9x11.png') no-repeat right bottom;
-  height: 11px;
-  padding-right: 9px ;  
+  background: url('VistaSkin/background/BottomMessagesR13x24.png') no-repeat right bottom;
+  padding-right: 13px ;  
 }
 
 

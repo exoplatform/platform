@@ -3,8 +3,10 @@
 }
 
 .UIAccountPortlet {
-  padding: 6px;
-  padding-bottom: 0px;
+}
+
+.UIAccountPortlet .UIFormTabPane {
+  padding: 6px; padding-bottom: 0px;
 }
 
 .UIAccountPortlet .UIFormTabPane .UITabPane {
