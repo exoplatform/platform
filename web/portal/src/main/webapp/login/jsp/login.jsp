@@ -10,25 +10,18 @@
   String contextPath  =  request.getContextPath() ;
   String portalName = contextPath.substring(1, contextPath.length()) ;
   String loginAction = contextPath  + "/j_security_check" ; 
-  
+    
   Cookie[] cookies = request.getCookies();
-
-  System.out.println("\n\n\n\n===========>CookiesLengt=" + cookies.length );
-      
-  if (cookies != null) {
+  if (cookies != null && (userName == null || userName.length() == 0)) {
     for (int i = 0; i< cookies.length; i++) {
-      Cookie ele = cookies[i];
-      if(ele.getName().equals("authentication.username")) {
-        userName = ele.getValue();
-        System.out.println("\n\n\n\n===========>Namessss=" + userName );
-      }
-      if(ele.getName().equals("authentication.password")) {
-        password = ele.getValue();
-        System.out.println("\n\n\n\n===========> Passssss=" + password);
+      if("authentication.username".equals(cookies[i].getName())) {
+        userName = cookies[i].getValue();
+      } else if("authentication.password".equals(cookies[i].getName())) {
+        password = cookies[i].getValue();
       }
     }
   }
-System.out.println("\n\n\n\n===========>Name=" + userName + " - Pass=" + password);
+  
   boolean showForm = false ;  
   if (userName == null || userName.length() == 0  || userName.equals("null")) showForm = true ;
   if (password == null || password.length() == 0 || password.equals("null")) showForm  = true ;
@@ -84,29 +77,11 @@ System.out.println("\n\n\n\n===========>Name=" + userName + " - Pass=" + passwor
 			            </div>
 			          </div>
 			          <div style="clear: left"><span></span></div>
-			          <script type='text/javascript'>
-			            function set_Cookie( name, value, expires, secure ) {
-										// set time, it's in milliseconds
-										var today = new Date();
-										today.setTime( today.getTime() );
-										if ( expires )
-										{
-											expires = expires * 1000 * 60 * 60 * 24;
-										}
-										var expires_date = new Date( today.getTime() + (expires) );
-									
-										document.cookie = name + "=" +escape( value ) +
-											( ( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) + //expires.toGMTString()
-											( ( secure ) ? ";secure" : "" );
-								  }
-			          
+			          <script type='text/javascript'>			            
                   function login() {
                     document.loginForm.elements['j_password'].value =
                       document.loginForm.elements['j_password'].value + "@<%=portalName%>"  ;
-                    set_Cookie("authentication.username", document.loginForm.elements['j_username'].value, 30, true);
-                    set_Cookie("authentication.password", document.loginForm.elements['j_password'].value, 30, true);
-                    document.loginForm.submit();
-                   
+                    document.loginForm.submit();                   
                   }
                 </script>
 			        </form>
