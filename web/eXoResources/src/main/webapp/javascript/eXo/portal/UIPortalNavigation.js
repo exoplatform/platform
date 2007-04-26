@@ -36,9 +36,8 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 		item.style.width = item.offsetWidth + "px";
 		var arrow = eXo.core.DOMUtil.findFirstDescendantByClass(item, "div", "DropDownArrowIcon");
 		if (arrow) {
-			arrow.onmouseover = function() { this.style.backgroundColor = "white"; };
-			arrow.onmouseout = function() { this.style.backgroundColor = "transparent"; };
 			arrow.onclick = eXo.portal.UIPortalNavigation.toggleSubMenu;
+			//item.onclick = eXo.portal.UIPortalNavigation.toggleSubMenu;
 			arrow.parentTab = item;
 		}
 		var container = eXo.core.DOMUtil.findFirstDescendantByClass(item, "div", this.containerStyleClass);
@@ -77,9 +76,11 @@ UIPortalNavigation.prototype.setTabStyle = function() {
 }
 
 UIPortalNavigation.prototype.toggleSubMenu = function(e) {
+	console.log("toggle menu");
 	if (!e) var e = window.event;
 	e.cancelBubble = true;
 	
+	//var src = this;
 	var src = eXo.core.Browser.getEventSource(e);
 	var item = src.parentTab;
 	var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(item, "div", eXo.portal.UIPortalNavigation.containerStyleClass);

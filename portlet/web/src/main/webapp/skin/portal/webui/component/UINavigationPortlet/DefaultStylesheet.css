@@ -19,8 +19,12 @@
   position: relative;
 }
 
+.UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
+  float:none;
+  overflow: visible;
+}
+
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .PageNodeIcon {
-  height: 16px; width: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPageIcon.gif') no-repeat left;
 }
 

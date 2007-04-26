@@ -8,15 +8,6 @@
 	jsmanager.importJavascript('eXo.webui.UIHorizontalTabs');
 	jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
 	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalNavigation.onLoad');
-	
-  // Check page loaded complete and [UIHorizontalTabs] object exist before call [changeTabNavigationStyle(...)] function.
-  //String mouseOver = "if (document.body != null && eXo.webui.UIHorizontalTabs != null) eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, true)" ;
-  //String mouseOut = "if (document.body != null && eXo.webui.UIHorizontalTabs != null) eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(this, false)" ;
-  String itemMouseOver = "eXo.webui.UIHorizontalTabs.itemOver(this, true)" ;
-  String itemMouseOut = "eXo.webui.UIHorizontalTabs.itemOver(this, false)" ;
-
-	String mouseOver = "eXo.portal.UIPortalNavigation.onTopItemOver(this, event);";
-	String mouseOut = "eXo.portal.UIPortalNavigation.onTopItemOut(this, event);";
 
   navigations = uicomponent.getNavigations();
 	
@@ -116,20 +107,19 @@
 		             <div class="LeftTab">
 		               <div class="RightTab">
 		                 <div class="MiddleTab">
-		                   <div  class="TabIcon $icon"><span></span></div>
-		                   <a href="$actionLink">$node.label</a>
+		                   <div class="TabIcon $icon">
 		                   <%
+		                   	String arrowIcon = "";
 							           if (node.getChildren() != null && node.getChildren().size() > 0) {
-							           		print """
-															<div  class="DropDownArrowIcon"><span></span></div>
-												  	""" ;
+							           		arrowIcon = "DropDownArrowIcon";
 										     }
-							           %>
-							           
-		                   <div style="clear: left"><span></span></div>
+						           %>
+		                   	<div class="$arrowIcon"><a href="$actionLink" onclick="return false;">$node.label</a></div>
+		                   </div>
 		                 </div>
 		               </div>
 		             </div>
+		             
 		           </div>
 		           <%
 		           /*Render Popup Menu*/
