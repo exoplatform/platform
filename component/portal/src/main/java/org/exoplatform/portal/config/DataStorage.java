@@ -19,6 +19,10 @@ import org.exoplatform.portal.config.model.PortalConfig;
  */
 public interface DataStorage {
   
+  final public static String USER_TYPE = "user";
+  final public static String GROUP_TYPE = "group";
+  final public static String PORTAL_TYPE = "portal";
+  
   /**
    * This method should create the PortalConfig  object
    * @param config

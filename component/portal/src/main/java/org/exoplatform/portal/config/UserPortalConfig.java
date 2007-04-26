@@ -12,6 +12,15 @@ public class UserPortalConfig {
   
   private List<PageNavigation> navigations ;
   
+  public UserPortalConfig(){
+    
+  }
+  
+  public UserPortalConfig(PortalConfig portal, List<PageNavigation> navigations){
+    this.portal = portal;
+    this.navigations = navigations;
+  }
+  
   public PortalConfig getPortalConfig() { return portal ; }
   public void   setPortal(PortalConfig portal) {  this.portal =  portal ; }
   

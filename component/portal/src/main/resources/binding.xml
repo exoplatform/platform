@@ -74,7 +74,6 @@
   <mapping name="node-navigation" class="org.exoplatform.portal.config.model.PageNavigation">
     <value name="owner-type" field="ownerType"/>
     <value name="owner-id" field="ownerId"/>
-    <value name="id" usage="optional" field="id" style="attribute"/>
     <value name="priority" field="priority" usage="optional"/>
     <value name="access-groups" field="accessGroups" usage="optional"/>
     <value name="creator" field="creator" usage="optional"/>

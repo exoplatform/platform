@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class PageNavigation {
   
-  private String      id ;
-  private String      navigationId;
+  private transient String id ;
+  
   private String      ownerType;
   private String      ownerId;
   
@@ -30,9 +30,6 @@ public class PageNavigation {
   private ArrayList<PageNode>	pageNodes = new ArrayList<PageNode>();
   private int         priority = 0 ;
   
-  public String getId() { return id; }
-  public void setId(String id) { this.id = id; }
-
   public String getOwnerId() { return ownerId; }
   public void setOwnerId(String ownerId) { this.ownerId = ownerId; }
 
@@ -60,8 +57,10 @@ public class PageNavigation {
   public String getModifier() { return modifier ; }
   public void   setModifier(String s) { modifier = s ; }
   
-  public String getNavigationId() { return navigationId; }
-  public void setNavigationId(String navigationId) { this.navigationId = navigationId; }
+  public String getId() {
+    if(id == null) id = ownerType +"::"+ownerId;
+    return id; 
+  }
   
   public PageNode getNode(int idx) {  return pageNodes.get(idx); }
 

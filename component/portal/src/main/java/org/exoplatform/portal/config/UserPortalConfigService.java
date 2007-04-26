@@ -4,9 +4,21 @@
  **************************************************************************/
 package org.exoplatform.portal.config;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
+import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.services.cache.CacheService;
+import org.exoplatform.services.cache.ExoCache;
+import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
+import org.exoplatform.services.organization.Membership;
+import org.exoplatform.services.organization.OrganizationService;
 
 /**
  * Created by The eXo Platform SARL
@@ -18,27 +30,53 @@ import org.exoplatform.portal.config.model.PortalConfig;
  * user.
  */
 public class UserPortalConfigService {
+  
   private DataStorage  storage_ ;
+  private UserACL userACL_;
+  private OrganizationService orgService_;
+  
+  protected ExoCache portalConfigCache_ ;
+  protected ExoCache pageConfigCache_ ;
+  protected ExoCache pageNavigationCache_ ;
+  
+  private String defaultUser_ = "site";
   
   /**
    *The constructor should create the DataStorage object and broadcast "the UserPortalConfigService.onInit"
    *event
    */
-  public UserPortalConfigService(DataStorage storage) {
+  public UserPortalConfigService(InitParams params, 
+                                 DataStorage storage,
+                                 CacheService cacheService,
+                                 OrganizationService  orgService) throws Exception {
     storage_ = storage ;
+    orgService_ = orgService;
+    
+    ValueParam valueParam = params.getValueParam("default.user.template");
+    if(valueParam != null) defaultUser_ = valueParam.getValue();
+    if(defaultUser_ == null  || defaultUser_.trim().length() == 0) defaultUser_ = "site";
+    
+    userACL_ = new UserACL(params, orgService);
+    
+    portalConfigCache_   = cacheService.getCacheInstance(PortalConfig.class.getName()) ;
+    pageConfigCache_     = cacheService.getCacheInstance(Page.class.getName()) ;
+    pageNavigationCache_ = cacheService.getCacheInstance(PageNavigation.class.getName()) ;
   }
+  
   
   /**
    * @return This method should the membership type that the user can access the portal, pages
    * and the navigation.
    */
-  public String getViewMembershipType()  { return null ; }
+  public String getViewMembershipType()  { return userACL_.getViewMembershipType() ; }
+  
   
   /**
    * @return This method should return the membership type that the user can edit the portal, pages
    * and the navigation
    */
-  public String getEditMembershipType()  { return null ; }
+  public String getEditMembershipType()  { return userACL_.getEditMembershipType() ; }
+  
   
   /**
    * This  method should load the PortalConfig object according to the portalName,  set the view and edit
@@ -49,16 +87,26 @@ public class UserPortalConfigService {
    */
   public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
     PortalConfig portalConfig = storage_.getPortalConfig(portalName) ;
-    if(portalConfig == null) return null ;
-    PageNavigation navigation = storage_.getPageNavigation(portalName) ;
-    if (navigation == null) return null ;
+    if(portalConfig == null ) return null;
+    if(!userACL_.hasPermission(portalConfig, accessUser, userACL_.getViewMembershipType())) return null ;
+    List<PageNavigation> navigations = new ArrayList<PageNavigation>();
+    
+    PageNavigation navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+portalName) ;
+    if (navigation != null) navigations.add(navigation) ;
+    navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+accessUser) ;
+    if (navigation != null) navigations.add(navigation) ;
+    
+    Collection memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
+    Iterator mitr = memberships.iterator() ;
+    while(mitr.hasNext()) {
+      Membership m = (Membership) mitr.next() ;    
+      navigation = getPageNavigation(DataStorage.GROUP_TYPE+"::"+m.getGroupId()) ;
+      if (navigation != null) navigations.add(navigation) ;
+    }   
+    userACL_.computeNavigation(navigations, accessUser);
+    if (navigations.size() < 1) return null ;
 
-    UserPortalConfig userPortalConfig = new UserPortalConfig() ;
-    userPortalConfig.setPortal(portalConfig) ;
-    userPortalConfig.addNavigation(navigation) ;
-    
-    return  userPortalConfig ;
-    
+    return new UserPortalConfig(portalConfig, navigations) ;
   }
   
   /**
@@ -73,6 +121,7 @@ public class UserPortalConfigService {
     return null ;
   }
   
+  
   /**
    * This method should remove the PortalConfig, Page and PageNavigation  that  belong to the portal 
    * in the database. The method should broadcast the event UserPortalConfigService.portal.onRemove
@@ -81,6 +130,7 @@ public class UserPortalConfigService {
    */
   public void  removeUserPortalConfig(String portalName) throws Exception {
   }
+  
   
   /**
    * This method should create or update the PortalConfig  object
@@ -91,6 +141,8 @@ public class UserPortalConfigService {
     storage_.save(config) ;    
   }
   
+//**************************************************************************************************
+    
   /**
    * This method  should load the page according to the pageId,  set view and edit  permission for the
    * Page object  according to the accessUser.
@@ -99,8 +151,13 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public Page getPage(String pageId, String accessUser) throws Exception {
-    //cache
-    return storage_.getPage(pageId) ; 
+    Page page = (Page) pageConfigCache_.get(pageId) ;
+    if(page != null) return page ;
+    page  = storage_.getPage(pageId) ;
+    if(page == null || userACL_.hasPermission(page, accessUser, userACL_.getViewMembershipType())) return null;
+    page.setModifiable(userACL_.hasPermission(page, accessUser, userACL_.getEditMembershipType()));
+    pageConfigCache_.put(pageId, page);
+    return page ; 
   }
   
   /**
@@ -109,8 +166,9 @@ public class UserPortalConfigService {
    * @param config
    * @throws Exception
    */
-  public void remove(Page page) throws Exception {
+  public void remove(Page page) throws Exception {    
     storage_.remove(page) ;
+    pageConfigCache_.remove(page.getId());
   }
   /**
    * This method should create the given page object
@@ -119,8 +177,8 @@ public class UserPortalConfigService {
    */
   public void create(Page page) throws Exception {
     storage_.create(page) ;
+    pageConfigCache_.put(page.getId(), page);
   }
-  
   
   /**
    * This method should update the given page object
@@ -129,6 +187,14 @@ public class UserPortalConfigService {
    */
   public void update(Page page) throws Exception {
     storage_.save(page) ;
+    pageConfigCache_.select(new ExpireKeyStartWithSelector(page.getId())) ;
+  }
+
+//**************************************************************************************************
+  
+  public void create(PageNavigation navigation) throws Exception {
+    storage_.create(navigation);
+    pageNavigationCache_.put(navigation.getId(), navigation);
   }
   
   /**
@@ -138,7 +204,7 @@ public class UserPortalConfigService {
    */
   public void update(PageNavigation navigation) throws Exception {
     storage_.save(navigation) ;
-    
+    pageNavigationCache_.select(new ExpireKeyStartWithSelector(navigation.getId())) ;
   }
   
   /**
@@ -148,6 +214,14 @@ public class UserPortalConfigService {
    */
   public void remove(PageNavigation navigation) throws Exception {
     storage_.remove(navigation) ;
-    
+    pageNavigationCache_.remove(navigation.getId());
+  }
+  
+  PageNavigation getPageNavigation(String id) throws Exception {
+    PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(id) ;
+    if(navigation != null) return navigation ;
+    navigation  = storage_.getPageNavigation(id) ;
+    pageNavigationCache_.put(id, navigation);
+    return navigation ; 
   }
 }

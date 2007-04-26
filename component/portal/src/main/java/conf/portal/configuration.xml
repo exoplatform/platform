@@ -7,7 +7,18 @@
 
   <component>
     <key>org.exoplatform.portal.config.UserPortalConfigService</key>
-    <type>org.exoplatform.portal.config.UserPortalConfigService</type>     
+    <type>org.exoplatform.portal.config.UserPortalConfigService</type>   
+    <init-params>	
+      <value-param>
+        <name>default.user</name>
+        <description>If user configs are null, user configs will load configs from this default user</description>
+        <value>site</value>
+      </value-param>
+			<value-param>
+	    	<name>templateLocation</name>
+	    	<value>war:/conf/users</value>
+	    </value-param>
+	  </init-params>       
   </component>   
 
   <external-component-plugins>
