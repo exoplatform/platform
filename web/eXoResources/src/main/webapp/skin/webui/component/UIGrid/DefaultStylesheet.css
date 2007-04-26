@@ -82,11 +82,6 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat ;
 }
 
-.UIGrid .SelectIcon {
-  width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/pen-edit.gif') no-repeat ;
-}
-
 .UIGrid .ExcuteIcon {
   width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/PageYellowLight.gif') no-repeat ;
