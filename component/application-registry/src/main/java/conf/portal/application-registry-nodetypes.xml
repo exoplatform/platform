@@ -6,40 +6,40 @@
   	  <supertype>nt:base</supertype>
     </supertypes>
   	<propertyDefinitions>
-  	  <propertyDefinition name="id" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  	  <propertyDefinition name="exo:id" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
   	  </propertyDefinition>
-  	  <propertyDefinition name="aliasName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  	  <propertyDefinition name="exo:aliasName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
   	  </propertyDefinition>
-  	  <propertyDefinition name="displayName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  	  <propertyDefinition name="exo:displayName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
   		</propertyDefinition>
-  	  <propertyDefinition name="description" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  	  <propertyDefinition name="exo:description" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
   	  </propertyDefinition>
-  	  <propertyDefinition name="categoryName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  	  <propertyDefinition name="exo:categoryName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
   	  </propertyDefinition>
-  		<propertyDefinition name="createdDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  		<propertyDefinition name="exo:createdDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
 	    </propertyDefinition>
-	    <propertyDefinition name="modifiedDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+	    <propertyDefinition name="exo:modifiedDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
 	    </propertyDefinition>
-      <propertyDefinition name="accessGroup" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="true">
+      <propertyDefinition name="exo:accessGroup" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="true">
   			<valueConstraints/>
 	    </propertyDefinition>
-  	  <propertyDefinition name="applicationGroup" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  	  <propertyDefinition name="exo:applicationGroup" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="true">
   			<valueConstraints/>
   		</propertyDefinition> 
-  		<propertyDefinition name="applicationName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  		<propertyDefinition name="exo:applicationName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
   		</propertyDefinition>   		
-  		<propertyDefinition name="applicationType" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  		<propertyDefinition name="exo:applicationType" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
   		</propertyDefinition>  
-  		<propertyDefinition name="minWidthResolution" requiredType="Integer" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  		<propertyDefinition name="exo:minWidthResolution" requiredType="Integer" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
   		</propertyDefinition>  
   	</propertyDefinitions>  	
@@ -50,19 +50,19 @@
   	  <supertype>nt:base</supertype>
     </supertypes>
   	<propertyDefinitions>
-  		<propertyDefinition name="name" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  		<propertyDefinition name="exo:name" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
   	  </propertyDefinition>
-  		<propertyDefinition name="displayName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  		<propertyDefinition name="exo:displayName" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
   	  </propertyDefinition>
-  		<propertyDefinition name="description" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  		<propertyDefinition name="exo:description" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
 	    </propertyDefinition>
-	    <propertyDefinition name="createdDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+	    <propertyDefinition name="exo:createdDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
 	    </propertyDefinition>
-	    <propertyDefinition name="modifiedDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+	    <propertyDefinition name="exo:modifiedDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
 	    </propertyDefinition>
   	</propertyDefinitions>
@@ -70,7 +70,7 @@
       <childNodeDefinition name="*" defaultPrimaryType="exo:application" autoCreated="false" mandatory="false"
         onParentVersion="VERSION" protected="false" sameNameSiblings="true">
         <requiredPrimaryTypes>
-          <requiredPrimaryType>exo:applicaion</requiredPrimaryType>
+          <requiredPrimaryType>exo:application</requiredPrimaryType>
         </requiredPrimaryTypes>
       </childNodeDefinition>      
     </childNodeDefinitions>

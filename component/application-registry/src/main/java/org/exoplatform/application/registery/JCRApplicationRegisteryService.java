@@ -29,15 +29,15 @@ public class JCRApplicationRegisteryService implements ApplicationRegisteryServi
   private final String systemWS = "production".intern();
   private final String registry = "registry";
   private final String jcrSystem = "jcr:system";
-  private final String applicationData = "eXo:AppRegistry:2.0";
+  private final String applicationData = "exo:appRegistry";
 
   private final String applications = "applications";
   
   private final String applicationNodeType = "exo:application";
   private final String appCategoryNodeType = "exo:applicationCategory";
   
-  private final static String ID = "id";
-  private final static String NAME = "name";
+  private final static String ID = "exo:id";
+  private final static String NAME = "exo:name";
   
   private DataMapper mapper = new DataMapper();
 

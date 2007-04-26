@@ -19,22 +19,22 @@ import javax.jcr.PropertyIterator;
  */
 class DataMapper {
   
-  private final String id = "id" ;
-  private final String name = "name";
-  private final String displayName = "displayName";
-  private final String aliasName = "aliasName";
-  private final String description = "description";
-  private final String categoryName = "categoryName";
+  private final String id = "exo:id" ;
+  private final String name = "exo:name";
+  private final String displayName = "exo:displayName";
+  private final String aliasName = "exo:aliasName";
+  private final String description = "exo:description";
+  private final String categoryName = "exo:categoryName";
   
-  private final String createdDate = "createdDate";
-  private final String modifiedDate = "modifiedDate";
+  private final String createdDate = "exo:createdDate";
+  private final String modifiedDate = "exo:modifiedDate";
   
-  private final String applicationName = "applicationName";
-  private final String applicationGroup = "applicationGroup";
-  private final String applicationType= "applicationType";
+  private final String applicationName = "exo:applicationName";
+  private final String applicationGroup = "exo:applicationGroup";
+  private final String applicationType= "exo:applicationType";
   
-  private final String accessGroup = "accessGroup";
-  private final String minWidthResolution = "minWidthResolution";
+  private final String accessGroup = "exo:accessGroup";
+  private final String minWidthResolution = "exo:minWidthResolution";
   
 
   ApplicationCategory nodeToApplicationCategory(Node node) throws Exception {
