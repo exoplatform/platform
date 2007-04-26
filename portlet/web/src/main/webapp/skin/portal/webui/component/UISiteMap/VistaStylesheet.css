@@ -44,9 +44,9 @@
 }
 
 .UISitemap .SitemapItemBox .TitleBar .Icon {
-  margin: 2px 0px 0px 0px;
+  margin: 2px 0px 0px 10px;
   float: left;
-  padding: 0px 8px 0px 18px;
+  padding: 0px 8px 0px 5px;
 }
 
 .UISitemap .SitemapItemBox .TitleBar .Title {
@@ -66,6 +66,7 @@
 
 .UISitemap .SitemapItemBox .Item {
 	border: solid 1px #ffffff;
+	margin:3px;
 }
 
 .UISitemap .SitemapItemBox .Item .SubItem {
@@ -83,7 +84,7 @@
 }
 
 .UISitemap .SitemapItemBox .Item a:hover {
-  color: blue; font-size: 11px; 
+  color:#265fb5; font-size: 11px; 
 }
 
 .UISitemap .SitemapItemBox .Item .Label {
@@ -94,17 +95,20 @@
 }
 
 .UISitemap .SitemapItemBox .ItemContainer {
-  border: solid 1px #9da5b8;
-  border-bottom: none;
+  border: solid 1px #929292;
+  padding :10px;
+  background:#ffffff;
 }
 
 .UISitemap .SitemapItemBox .ItemContainer .Item {
- border: none;
+  border:1px #c1c1c1 solid;
 }
 
 .UISitemap .SitemapItemBox .Item .Icon {
   float: left ;
-  margin: 4px 15px 0px 5px ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/BlackNextArrow.gif') center no-repeat;
+  width:20px;
+  height:20px;
 }
 
 .UISitemap .SitemapItemBox .Message {
@@ -116,7 +120,7 @@
 .UISitemap .SitemapItemBox .Level1 {
   height: 23px ;
   background: url('VistaSkin/background/SitemapItemBoxBG1x22.png') repeat-x top;
-  padding-left: 10px;
+  padding-left:5px;
 }
 
 .UISitemap .SitemapItemBox .Level2 {

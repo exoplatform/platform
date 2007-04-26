@@ -8,12 +8,12 @@
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalDefaultImage {
-  background: url('VistaSkin/background/DefaultImage.jpg') no-repeat center;
+  background: url('VistaSkin/background/DefaultImage.png') no-repeat center;
   height: 240px;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PageDefaultImage {
-  background: url('VistaSkin/background/Default.jpg') no-repeat center;
+  background: url('VistaSkin/background/Default.png') no-repeat center;
   height: 240px;
 }
 .UIItemSelector .ItemDetailList .TemplateContainer .PageDesktopImage {
@@ -24,6 +24,12 @@
 .UIItemSelector .TemplateContainer .DefaultImage {
   background: url('VistaSkin/background/DefaultImage.png') no-repeat center;
   height: 230px;
+}
+
+.UIItemSelector .ItemDetailList .TemplateContainer .DesktopImage {
+  background: url('VistaSkin/background/DesktopImage.png') no-repeat center;
+  height: 230px;
+  margin: auto;
 }
 
 .UIItemSelector .ItemDetailList .ItemDescription {
