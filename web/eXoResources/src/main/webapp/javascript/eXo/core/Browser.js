@@ -177,7 +177,6 @@ Browser.prototype.findPosX = function(obj) {
   } else if (obj.x) {
     curleft += obj.x;
   }
-
   return curleft;
 } ;
 

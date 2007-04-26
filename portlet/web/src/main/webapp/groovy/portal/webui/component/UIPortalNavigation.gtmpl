@@ -15,8 +15,8 @@
   String itemMouseOver = "eXo.webui.UIHorizontalTabs.itemOver(this, true)" ;
   String itemMouseOut = "eXo.webui.UIHorizontalTabs.itemOver(this, false)" ;
 
-	String mouseOver = "eXo.portal.UIPortalNavigation.onTopItemOver(this);";
-	String mouseOut = "eXo.portal.UIPortalNavigation.onTopItemOut(this);";
+	String mouseOver = "eXo.portal.UIPortalNavigation.onTopItemOver(this, event);";
+	String mouseOut = "eXo.portal.UIPortalNavigation.onTopItemOut(this, event);";
 
   navigations = uicomponent.getNavigations();
 	
@@ -61,18 +61,20 @@
   	String actionLink = uicomponent.event("SelectNode", node.getUri()) ;
   	String icon = node.getIcon();
     if(icon == null) icon = "PageNodeIcon";
+    String arrowIcon = "MenuItemRight";
+    if (node.getChildren() != null && node.getChildren().size() > 0) arrowIcon = "RightItemIcon";
+    
   	print """
   			<div class="MenuItem">
   				<div class="$tabStyleNavigation">
 						<div class="ItemIcon $icon">
-						  <div class="RightItemIcon">
+						  <div class="$arrowIcon">
 						    <div class="MenuItemLabel">
 									<a href="$actionLink">$node.label</a>
 								</div>
 						  </div>
 						</div>
 					</div>
-
 		""" ;
 		
     if (node.getChildren() != null && node.getChildren().size() > 0) {
@@ -109,21 +111,30 @@
 								    if(icon == null) icon = "PageNodeIcon";
 		        %>      
 		        
-		         <div class="UITab" onmouseover="$mouseOver" onmouseout="$mouseOut">
+		         <div class="UITab"> <!-- onmouseover="$mouseOver" onmouseout="$mouseOut" -->
 		           <div class="$tabStyleNavigation">
 		             <div class="LeftTab">
 		               <div class="RightTab">
 		                 <div class="MiddleTab">
 		                   <div  class="TabIcon $icon"><span></span></div>
 		                   <a href="$actionLink">$node.label</a>
+		                   <%
+							           if (node.getChildren() != null && node.getChildren().size() > 0) {
+							           		print """
+															<div  class="DropDownArrowIcon"><span></span></div>
+												  	""" ;
+										     }
+							           %>
+							           
 		                   <div style="clear: left"><span></span></div>
 		                 </div>
 		               </div>
 		             </div>
-		           </div>  
+		           </div>
 		           <%
 		           /*Render Popup Menu*/
 		           if (node.getChildren() != null && node.getChildren().size() > 0) {
+		           
 						     	renderChildrenContainer(node) ;
 					     }
 		           %>

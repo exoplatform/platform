@@ -116,8 +116,6 @@ eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {
 //  	}
 //  }
 
-
-
 	if(eXo.core.Browser.isIE6()) {
 		var tabs = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkspace, "div", "UIHorizontalTabs") ;
 		tabs.style.left = 0;

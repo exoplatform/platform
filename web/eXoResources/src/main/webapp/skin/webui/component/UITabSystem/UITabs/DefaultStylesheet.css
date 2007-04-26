@@ -55,12 +55,21 @@
   color: white;
   text-decoration: none;
   margin: 0px 7px 0px 3px;
+  float: left;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
   float: left;
   width: 16px; height: 16px;
   margin: 4px 2px 0px 0px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 4px 2px 0px 0px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackArrowDown.gif') no-repeat;
+  cursor: pointer;
 }
 
 /*###############-Hightlight Navigation Tab  -################*/
@@ -92,12 +101,21 @@
   color: white;
   text-decoration: none;
   margin: 0px 7px 0px 3px;
+  float: left;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
   float: left;
   width: 16px; height: 16px;
   margin: 4px 2px 0px 0px;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 4px 2px 0px 0px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackArrowDown.gif') no-repeat;
+  cursor: pointer;
 }
 
 
@@ -130,12 +148,21 @@
   color: #303030;
   text-decoration: none;
   margin: 0px 7px 0px 3px;
+  float: left;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
   float: left;
   width: 16px; height: 16px;
   margin: 4px 2px 0px 0px;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 4px 2px 0px 0px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackArrowDown.gif') no-repeat;
+  cursor: pointer;
 }
 
 /*###########################--NormalTab--############################*/
