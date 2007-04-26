@@ -4,21 +4,30 @@
  **************************************************************************/
 package org.exoplatform.portal.config;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+import org.exoplatform.commons.utils.IOUtil;
+import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.Page.PageSet;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
+import org.jibx.runtime.BindingDirectory;
+import org.jibx.runtime.IBindingFactory;
+import org.jibx.runtime.IUnmarshallingContext;
 
 /**
  * Created by The eXo Platform SARL
@@ -33,13 +42,12 @@ public class UserPortalConfigService {
   
   private DataStorage  storage_ ;
   private UserACL userACL_;
+  private ConfigurationManager configService_; 
   private OrganizationService orgService_;
   
   protected ExoCache portalConfigCache_ ;
   protected ExoCache pageConfigCache_ ;
   protected ExoCache pageNavigationCache_ ;
-  
-  private String defaultUser_ = "site";
   
   /**
    *The constructor should create the DataStorage object and broadcast "the UserPortalConfigService.onInit"
@@ -48,19 +56,26 @@ public class UserPortalConfigService {
   public UserPortalConfigService(InitParams params, 
                                  DataStorage storage,
                                  CacheService cacheService,
+                                 ConfigurationManager configService,
                                  OrganizationService  orgService) throws Exception {
     storage_ = storage ;
     orgService_ = orgService;
-    
-    ValueParam valueParam = params.getValueParam("default.user.template");
-    if(valueParam != null) defaultUser_ = valueParam.getValue();
-    if(defaultUser_ == null  || defaultUser_.trim().length() == 0) defaultUser_ = "site";
+    configService_ = configService;
     
     userACL_ = new UserACL(params, orgService);
     
     portalConfigCache_   = cacheService.getCacheInstance(PortalConfig.class.getName()) ;
     pageConfigCache_     = cacheService.getCacheInstance(Page.class.getName()) ;
     pageNavigationCache_ = cacheService.getCacheInstance(PageNavigation.class.getName()) ;
+    
+    String checkPortal = "site";
+    ValueParam valueParam = params.getValueParam("default.portal");
+    if(valueParam != null) checkPortal = valueParam.getValue();
+    if(checkPortal == null  || checkPortal.trim().length() == 0) checkPortal = "site";
+    
+    if(storage_.getPortalConfig(checkPortal) != null)  return;
+    //createUserPortalConfig(portalName, template);
+    
   }
   
   
@@ -106,7 +121,7 @@ public class UserPortalConfigService {
     userACL_.computeNavigation(navigations, accessUser);
     if (navigations.size() < 1) return null ;
 
-    return new UserPortalConfig(portalConfig, navigations) ;
+    return new UserPortalConfig(portalConfig, navigations) ;    
   }
   
   /**
@@ -118,9 +133,25 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public UserPortalConfig  createUserPortalConfig(String portalName, String template) throws Exception {
-    return null ;
+    String path = template + "/" + portalName +"/config.xml" ;    
+    String config = IOUtil.getStreamContentAsString(configService_.getInputStream(path));      
+    PortalConfig pconfig = (PortalConfig)fromXML(config, PortalConfig.class);
+    storage_.create(pconfig);
+    
+    path = template + "/" + portalName +"/pages.xml" ;    
+    config = IOUtil.getStreamContentAsString(configService_.getInputStream(path));      
+    PageSet pageSet = (PageSet)fromXML(config, PageSet.class);
+    ArrayList<Page> list = pageSet.getPages();
+    for(Page page : list) storage_.create(page);
+    
+    path = template + "/" + portalName +"/navigation.xml" ;    
+    config = IOUtil.getStreamContentAsString(configService_.getInputStream(path)); 
+    PageNavigation navigation = (PageNavigation) fromXML(config, PageNavigation.class);
+    storage_.save(navigation);
+    
+    UserPortalConfig userPortalConfig  = new UserPortalConfig();
+    return userPortalConfig;
   }
-  
   
   /**
    * This method should remove the PortalConfig, Page and PageNavigation  that  belong to the portal 
@@ -129,6 +160,11 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public void  removeUserPortalConfig(String portalName) throws Exception {
+    PortalConfig portalConfig = storage_.getPortalConfig(portalName) ;
+    if(portalConfig != null) storage_.remove(portalConfig);
+    
+    PageNavigation navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+portalName) ;
+    if (navigation != null) remove(navigation);
   }
   
   
@@ -223,5 +259,12 @@ public class UserPortalConfigService {
     navigation  = storage_.getPageNavigation(id) ;
     pageNavigationCache_.put(id, navigation);
     return navigation ; 
+  }
+  
+  private Object fromXML(String xml, Class clazz) throws Exception {
+    ByteArrayInputStream is = new ByteArrayInputStream(xml.getBytes()) ;
+    IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
+    IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
+    return uctx.unmarshalDocument(is, null) ;
   }
 }
