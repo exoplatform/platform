@@ -24,11 +24,6 @@
   float: right ;
 }
 
-.UIPageIterator .PageIteratorContainer .RightPageIteratorBlock a:hover{    
-   background: url('DefaultSkin/background/HoverBorder.gif') no-repeat top;
-   width: 18px; height: 17px;
-}
-
 .UIPageIterator .Icon {
   float: left ;
   width: 18px ;  height: 18px ;
