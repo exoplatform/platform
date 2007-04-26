@@ -28,7 +28,7 @@
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
   width: 400px;
-  margin: auto; margin-top: 12px; margin-bottom: 5px;
+  margin: auto; margin-bottom: 5px;
   overflow: hidden;
 }
 
@@ -51,7 +51,7 @@
 
 .UIAccountPortlet .UIItemSelector .UIFormInputSet .FieldContainer {
   width: 400px;
-  margin: auto;  margin-top: 12px; margin-bottom: 5px;
+  margin: auto; margin-bottom: 5px;
   overflow: hidden;
 }
 

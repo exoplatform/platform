@@ -77,8 +77,8 @@
 
 .UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
  	line-height: 24px; text-align: center; 
-	background: url('VistaSkin/background/LightButtonMiddle2x24.png') repeat-x;
-<<<<<<< .mine
+	background: url('VistaSkin/background/LightButtonMiddle1x24.png') repeat-x;
+
 }
 
 /*##############################-SimpleStyle ActionButton-################################*/
@@ -114,7 +114,7 @@
 
 .UIAddPortletPortlet .UIAction {
 	width: 180px;
-=======
+
 }
 
 /*##############################-SimpleStyle ActionButton-################################*/
@@ -146,5 +146,5 @@
 
 .UIAction .ActionButton .SimpleStyle a:hover {
   color: #1273df;
->>>>>>> .r14799
+
 }

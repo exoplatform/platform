@@ -50,6 +50,7 @@
 
 .UIPopupWindow .MiddleCenterDecorator {
   background: url('VistaSkin/background/DecoratorBG1x1.png');
+  border: 1px solid #717171;
 }
 
 .UIPopupWindow .MiddleRightSideDecorator {
@@ -63,7 +64,6 @@
 
 .UIPopupWindow .Content {
   overflow: auto;
-  /*border: solid 1px black;*/
   padding:0px;
   margin:0px;
   background: white;

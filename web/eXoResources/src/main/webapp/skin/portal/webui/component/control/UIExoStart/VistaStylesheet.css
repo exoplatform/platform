@@ -62,9 +62,10 @@
 }
 
 .UIExoStart .StartMenuContainer .LabelItem {
-  height: 35px ;
-  padding: 0px 5px 0px 2px ;
+  height: 33px ;
   cursor: pointer ;
+  display: inherit;
+  visibility: inherit;
 }
 
 .UIExoStart .StartMenuContainer .PortalIcon {
@@ -128,6 +129,14 @@
   padding: 0px 0px 0px 28px ;
   margin: 0px 0px 0px 5px ;
 }
+
+.UIExoStart .StartMenuContainer .PageNodeIcon {
+  height: 35px ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/DefaultPageIcon.gif') no-repeat left ;
+  padding: 0px 0px 0px 18px ;
+  margin: 0px 0px 0px 5px ;
+}
+
 
 .UIExoStart .StartMenuContainer .SystemIcon {
   height: 35px ;
@@ -226,8 +235,8 @@
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer {
-  padding: 1px 1px 0px 1px ;
   position: relative ;
+  visibility: visible;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItem {
@@ -237,7 +246,7 @@
 .UIExoStart .StartMenuContainer .MenuItemContainer .Icon {
   padding: 0px 0px 0px 35px;
   margin: 0px 0px 0px 5px;
-  height: 35px;
+  height: 35px; width: auto;
 }
 
 
