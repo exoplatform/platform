@@ -176,16 +176,6 @@ public class JCRApplicationRegisteryService implements ApplicationRegisteryServi
       portlet.setAliasName(portletName);
       portlet.setCategoryName(categoryName);
       save(category, portlet);
-
-     /* for(Object defaultPortletPermission : defaultPortletPermissions_) {
-        PortletPermission defaultPermission = (PortletPermission) defaultPortletPermission;
-        PortletPermission newPermission = createPortletPermissionInstance();
-        newPermission.setMembership(defaultPermission.getMembership()) ;
-        newPermission.setGroupId(defaultPermission.getGroupId()) ;
-        newPermission.setDescription(defaultPermission.getDescription()) ;
-        addPortletPermission(portlet, newPermission);
-      }*/
-      
     }
   }
     

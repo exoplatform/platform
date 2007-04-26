@@ -19,83 +19,65 @@ import javax.jcr.PropertyIterator;
  */
 class DataMapper {
   
-  private final String id = "exo:id" ;
-  private final String name = "exo:name";
-  private final String displayName = "exo:displayName";
-  private final String aliasName = "exo:aliasName";
-  private final String description = "exo:description";
-  private final String categoryName = "exo:categoryName";
+  private final static String ID = "exo:id" ;
+  private final static String NAME = "exo:name";
+  private final static String DISPLAY_NAME = "exo:displayName";
+  private final static String ALIAS_NAME = "exo:aliasName";
+  private final static String DESCRIPTION = "exo:description";
+  private final static String CATEGORY_NAME = "exo:categoryName";
   
-  private final String createdDate = "exo:createdDate";
-  private final String modifiedDate = "exo:modifiedDate";
+  private final static String CREATED_DATE = "exo:createdDate";
+  private final static String MODIFIED_DATE = "exo:modifiedDate";
   
-  private final String applicationName = "exo:applicationName";
-  private final String applicationGroup = "exo:applicationGroup";
-  private final String applicationType= "exo:applicationType";
+  private final static String APPLICATION_NAME = "exo:applicationName";
+  private final static String APPLICATION_GROUP = "exo:applicationGroup";
+  private final static String APPLICATION_TYPE= "exo:applicationType";
   
-  private final String accessGroup = "exo:accessGroup";
-  private final String minWidthResolution = "exo:minWidthResolution";
+  private final static String ACCESS_GROUP = "exo:accessGroup";
+  private final static String MIN_WIDTH_RESOLUTION = "exo:minWidthResolution";
   
 
   ApplicationCategory nodeToApplicationCategory(Node node) throws Exception {
     ApplicationCategory data = new ApplicationCategory();
-    if(!node.hasProperty(name)) return null;
-    data.setName(node.getProperty(name).getString().trim());
-    
-    if(node.hasProperty(displayName)) { 
-      data.setDisplayName(node.getProperty(displayName).getString().trim());
+    if(!node.hasProperty(NAME)) return null;
+    data.setName(node.getProperty(NAME).getString().trim());
+    if(node.hasProperty(DISPLAY_NAME)) {
+      data.setDisplayName(node.getProperty(DISPLAY_NAME).getString().trim());
     }
-    if(node.hasProperty(description)) { 
-      data.setDescription(node.getProperty(description).getString());
-    }
-    data.setCreatedDate(node.getProperty(createdDate).getDate().getTime());
-    data.setModifiedDate(node.getProperty(modifiedDate).getDate().getTime());
+    data.setDescription(node.getProperty(DESCRIPTION).getString());
+    data.setCreatedDate(node.getProperty(CREATED_DATE).getDate().getTime());
+    data.setModifiedDate(node.getProperty(MODIFIED_DATE).getDate().getTime());
     return data;
   }
 
   void applicationCategoryToNode(ApplicationCategory data, Node node) throws Exception {
-    node.setProperty(name, data.getName());
-    node.setProperty(displayName, data.getDisplayName());
-    node.setProperty(description, data.getDescription());
+    node.setProperty(NAME, data.getName());
+    node.setProperty(DISPLAY_NAME, data.getDisplayName());
+    node.setProperty(DESCRIPTION, data.getDescription());
     
     Calendar calendar = Calendar.getInstance();
     if(data.getCreatedDate() != null) calendar.setTime(data.getCreatedDate());
-    node.setProperty(createdDate, calendar);
+    node.setProperty(CREATED_DATE, calendar);
     
     calendar = Calendar.getInstance();
     if(data.getModifiedDate() != null) calendar.setTime(data.getModifiedDate());
-    node.setProperty(modifiedDate, calendar);
+    node.setProperty(MODIFIED_DATE, calendar);
   }
 
   Application nodeToApplication(Node node) throws Exception {
     Application application = new Application();
-    if(!node.hasProperty(id)) return null;
-    application.setId(node.getProperty(id).getString().trim());
+    if(!node.hasProperty(ID)) return null;
+    application.setId(node.getProperty(ID).getString().trim());
+
+    application.setAliasName(node.getProperty(ALIAS_NAME).getString().trim());
+    application.setDisplayName(node.getProperty(DISPLAY_NAME).getString().trim());
+    application.setDescription(node.getProperty(DESCRIPTION).getString());
+    application.setCategoryName(node.getProperty(CATEGORY_NAME).getString());
+    application.setApplicationName(node.getProperty(APPLICATION_NAME).getString());
+    application.setApplicationType(node.getProperty(APPLICATION_TYPE).getString());
+    application.setApplicationGroup(node.getProperty(APPLICATION_GROUP).getString());
     
-    if(node.hasProperty(aliasName)) { 
-      application.setAliasName(node.getProperty(aliasName).getString().trim());
-    }
-    if(node.hasProperty(displayName)) { 
-      application.setDisplayName(node.getProperty(displayName).getString().trim());
-    }
-    if(node.hasProperty(description)) {
-      application.setDescription(node.getProperty(description).getString());
-    }    
-    if(node.hasProperty(categoryName)) {
-      application.setCategoryName(node.getProperty(categoryName).getString());
-    }
-    
-    if(node.hasProperty(applicationName)) {
-      application.setApplicationName(node.getProperty(applicationName).getString());
-    }   
-    if(node.hasProperty(applicationType)) {
-      application.setApplicationType(node.getProperty(applicationType).getString());
-    }
-    if(node.hasProperty(applicationGroup)) {
-      application.setApplicationGroup(node.getProperty(applicationGroup).getString());
-    }
-    
-    if(node.hasProperty(accessGroup)) {
+    if(node.hasProperty(ACCESS_GROUP)) {
       List<String> values = new ArrayList<String>();
       PropertyIterator iterator  = node.getProperties();
       while(iterator.hasNext()) {
@@ -106,35 +88,35 @@ class DataMapper {
       application.setAccessGroup(accessGroups);
     }
     
-    if(node.hasProperty(minWidthResolution)) {
-      application.setMinWidthResolution((int)node.getProperty(minWidthResolution).getLong());
-    }
-    application.setCreatedDate(node.getProperty(createdDate).getDate().getTime());
-    application.setModifiedDate(node.getProperty(modifiedDate).getDate().getTime());
+    application.setMinWidthResolution((int)node.getProperty(MIN_WIDTH_RESOLUTION).getLong());
+    application.setCreatedDate(node.getProperty(CREATED_DATE).getDate().getTime());
+    application.setModifiedDate(node.getProperty(MODIFIED_DATE).getDate().getTime());
     return application;
   }
 
   void applicationToNode(Application application, Node node) throws Exception {
-    node.setProperty(id, application.getId());
-    node.setProperty(aliasName, application.getAliasName());
-    node.setProperty(displayName, application.getDisplayName());
-    node.setProperty(description, application.getDescription());
+    node.setProperty(ID, application.getId());
+    node.setProperty(ALIAS_NAME, application.getAliasName());
+    if(node.hasProperty(DISPLAY_NAME)) {
+      node.setProperty(DISPLAY_NAME, application.getDisplayName());
+    }
+    node.setProperty(DESCRIPTION, application.getDescription());
     
-    node.setProperty(categoryName, application.getCategoryName());
-    node.setProperty(minWidthResolution, application.getMinWidthResolution());
-    node.setProperty(accessGroup, application.getAccessGroup());
+    node.setProperty(CATEGORY_NAME, application.getCategoryName());
+    node.setProperty(MIN_WIDTH_RESOLUTION, application.getMinWidthResolution());
+    node.setProperty(ACCESS_GROUP, application.getAccessGroup());
     
-    node.setProperty(applicationName, application.getApplicationName());
-    node.setProperty(applicationGroup, application.getApplicationGroup());
-    node.setProperty(applicationType, application.getApplicationType());
+    node.setProperty(APPLICATION_NAME, application.getApplicationName());
+    node.setProperty(APPLICATION_GROUP, application.getApplicationGroup());
+    node.setProperty(APPLICATION_TYPE, application.getApplicationType());
     
     Calendar calendar = Calendar.getInstance();
     if(application.getCreatedDate() != null) calendar.setTime(application.getCreatedDate());
-    node.setProperty(createdDate, calendar);
+    node.setProperty(CREATED_DATE, calendar);
 
     calendar = Calendar.getInstance();
     if(application.getModifiedDate() != null) calendar.setTime(application.getModifiedDate());
-    node.setProperty(modifiedDate, calendar);   
+    node.setProperty(MODIFIED_DATE, calendar);   
   }
   
 }
