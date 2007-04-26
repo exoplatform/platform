@@ -14,6 +14,7 @@ public class Application extends Component {
   
   public final static String TYPE_PORTLET = "portlet";
   public final static String TYPE_WIDGET = "widget";
+  public final static String EXO_APPLICATION_TYPE = "eXoApplication";
   
   private String title;
   private String applicationInstanceId ;

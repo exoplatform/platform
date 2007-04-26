@@ -28,6 +28,7 @@ public class UIJSApplication extends UIPortalComponent {
   
   public void processRender(WebuiRequestContext context) throws Exception {
     PortalRequestContext pcontext = (PortalRequestContext)context;
+    System.out.println("==> JAVA SCRIPT : " + jsApplication);
     if(jsApplication == null) return;
     pcontext.getJavascriptManager().addCustomizedOnLoadScript(jsApplication);
   }

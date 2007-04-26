@@ -20,6 +20,7 @@ public class UIPortalComponent extends UIContainer {
   private String factoryId;
   
   private transient boolean modifiable_ ;
+  
   private boolean showEditControl_ = false;
   protected int mode_   = COMPONENT_VIEW_MODE  ;
   

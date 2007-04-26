@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<page-set>  
-  <page>    
+<page-set>
+  <page>
     <factory-id>Desktop</factory-id>
 		<owner>webos</owner>
     <name>content</name>
@@ -9,30 +9,36 @@
     <show-max-window>true</show-max-window>
     <application>
       <application-instance-id>webos:/content/ContentPortlet/contentportlet</application-instance-id>
-    </application>  
+    </application>
 
     <application>
       <title>Site Map Portlet</title>
       <application-instance-id>webos:/web/SiteMapPortlet/SitemapPortlet</application-instance-id>
-    </application>  
-  </page>    
-  
+    </application>
+
+    <application>
+      <factory-id>eXoApplication</factory-id>
+      <title>eXo Browser</title>
+      <application-instance-id>webos:/eXoApplicationWeb/eXoBrowser/eXoBrowser</application-instance-id>
+    </application>
+  </page>
+
   <page>
     <factory-id>Desktop</factory-id>
     <owner>webos</owner>
     <name>desktop</name>
     <title>Desktop</title>
-    <view-permission>*:/guest</view-permission>        
+    <view-permission>*:/guest</view-permission>
     <show-max-window>true</show-max-window>
-    
+
     <application>
       <title>Site Map Portlet</title>
       <application-instance-id>webos:/web/SiteMapPortlet/SitemapPortlet</application-instance-id>
-    </application>  
-    
+    </application>
+
     <application>
       <title>Account Portlet</title>
       <application-instance-id>webos:/exoadmin/AccountPortlet/Account</application-instance-id>
-    </application>  
+    </application>
   </page>
 </page-set>

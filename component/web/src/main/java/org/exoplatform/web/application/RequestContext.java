@@ -44,12 +44,11 @@ abstract public class RequestContext {
   
   abstract public URLBuilder getURLBuilder() ;
   
-  //TODO: remove isLogon() and use getRemoteUser()  to test
-//  abstract public boolean isLogon();
   abstract public String getRemoteUser()  ;
   abstract public boolean isUserInRole(String roleUser);
+  
+  
   abstract public  boolean useAjax() ;
- 
   public boolean getFullRender() { return true; }
   
   public ApplicationSession getApplicationSession()  {

@@ -13,6 +13,10 @@
     <module>component/data</module>
     <module>component/web</module>
 
+    <module>eXoApplication/framework</module>
+    <module>eXoApplication/web/application</module>
+    <module>eXoApplication/web/webResources</module>
+
     <module>webui/core</module>
     <module>webui/portal</module>
 
@@ -27,6 +31,7 @@
 
     <module>server/tomcat/patch</module>
     <module>server/jboss/patch</module>
+
   </modules>
 
   <build>

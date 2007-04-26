@@ -10,6 +10,8 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.BaseComponentPlugin;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 /**
  * Created by The eXo Platform SARL
@@ -17,7 +19,7 @@ import org.exoplatform.resolver.ApplicationResourceResolver;
  *          tuan08@users.sourceforge.net
  * May 7, 2006
  */
-abstract public class Application {
+abstract public class Application extends BaseComponentPlugin {
  
   private List<ApplicationLifecycle>  lifecycleListeners_ ;   
   private ApplicationResourceResolver resourceResolver_ ;
@@ -36,7 +38,7 @@ abstract public class Application {
   abstract public ResourceBundle  getResourceBundle(Locale locale) throws Exception ;
   abstract public ResourceBundle  getOwnerResourceBundle(String username, Locale locale) throws Exception ;
   
-  abstract public ExoContainer getApplicationServiceContainer() ;
+  public ExoContainer getApplicationServiceContainer() {  return PortalContainer.getInstance() ; }
   
   final public List<ApplicationLifecycle> getApplicationLifecycle(){ return lifecycleListeners_; }
   final public void setApplicationLifecycle(List<ApplicationLifecycle> list) { lifecycleListeners_ = list ; }

@@ -28,6 +28,12 @@
 
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.eXoApplication.framework</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.portlet-registry</artifactId>
       <version>${org.exoplatform.portal.version}</version>
     </dependency>

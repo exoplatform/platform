@@ -153,6 +153,18 @@ public class PortalDataModelUtil {
     uiContainer.setIcon(model.getIcon());
   }
   
+  static public void toUIExoApplication(UIExoApplication uiExoApp, Application model) throws Exception {
+    toUIComponent(uiExoApp, model);
+    uiExoApp.setApplicationInstanceId(model.getApplicationInstanceId());
+    uiExoApp.setShowInfoBar(model.getShowInfoBar());
+    uiExoApp.setShowWindowState(model.getShowApplicationState());
+    uiExoApp.setShowPortletMode(model.getShowApplicationMode());
+    uiExoApp.setTitle(model.getTitle());
+    uiExoApp.setIcon(model.getIcon());
+    uiExoApp.setDescription(model.getDescription());
+    uiExoApp.init() ;
+  }
+  
   static public void toUIPortlet(UIPortlet uiPortlet, Application model) throws Exception {
     toUIComponent(uiPortlet, model);
     uiPortlet.setWindowId(model.getApplicationInstanceId());
@@ -249,10 +261,16 @@ public class PortalDataModelUtil {
     }else if(model instanceof Application){
       Application application = (Application) model;
       String factoryId = application.getFactoryId();      
+      System.out.println("==> Application: " + application.getApplicationInstanceId() + ", factory id: " + application.getFactoryId());
       if(factoryId == null || factoryId.equals(Application.TYPE_PORTLET)){
         UIPortlet uiPortlet = uiParent.createUIComponent(context, UIPortlet.class, null, null);
         toUIPortlet(uiPortlet, application);
         uiComponent = uiPortlet;
+      } else if(factoryId.equals(Application.EXO_APPLICATION_TYPE)) {
+        UIExoApplication uiExoApp = 
+          uiParent.createUIComponent(context, UIExoApplication.class, null, null);
+        uiExoApp.init() ;
+        uiComponent = uiExoApp ;
       }
     } else if(model instanceof Container){
       UIContainer uiContainer = uiParent.createUIComponent(context, UIContainer.class, model.getFactoryId(), null);
