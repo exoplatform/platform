@@ -332,7 +332,10 @@
   color: red;
 }
 
+/*#######################-PolygonNavyBlue Style VerticalSlideTabs-######################*/
+
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 {
+	cursor: pointer;
   margin: 5px 5px 0px 5px ;
 }
 
@@ -370,10 +373,10 @@
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .SwitchButton {
   margin: 10px 5px 0px 0px ;
-  cursor: pointer ;
   width: 4px;  height: 7px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlackNextArrow.gif') ;
   float: right;
+  cursor: pointer ;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .UIVTabContent {
@@ -424,7 +427,6 @@
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .SwitchButton {
   margin: 10px 5px 0px 0px ;
-  cursor: pointer ;
   width: 7px;  height: 4px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlackDownArrow.gif') ;
   float: right;

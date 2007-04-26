@@ -51,17 +51,17 @@
               cTab = "SelectedVTabStyle3" ;
               cButton = "SwitchButton" ;
               cIcon = "NavigationIcon OpenFolderIcon" ;
-               cLabel = "NavigationLabel NavigationSelected" ;               
+              cLabel = "NavigationLabel NavigationSelected" ; 
             }
-            String actionLink = uicomponent.event("ChangeNode", node.getId());
+            String actionLink = uicomponent.event("ChangeNode", node.getId()) - "javascript:";
         %>            
             <div class="$cTab">
               <div class="TabLeft">
                 <div class="TabRight">
-                  <div class="TabRepeat">
+                  <div class="TabRepeat" onclick="<%=actionLink%>">
                     <div class="<%=cIcon%>"><span></span></div>
-                    <a href="<%=actionLink%>" class="<%=cLabel%>"><%=node.getLabel()%></a>
-                    <a href="<%=actionLink%>" class="<%=cButton%>"><span></span></a>
+                    <div class="<%=cLabel%>"><%=node.getLabel()%></div>
+                    <div class="<%=cButton%>"><span></span></div>
                     <div style="clear: both"><span></span></div>
                   </div>
                 </div>

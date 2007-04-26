@@ -215,7 +215,7 @@ UIPortal.prototype.showLayoutModeForPage = function(control) {
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	var uiPortalApplication = document.getElementById("UIPortalApplication");
 	if(uiPortalApplication.className != "Vista") {
-	viewPage.style.border = "solid 3px #dadada" ;
+	 viewPage.style.border = "solid 3px #dadada" ;
 	}
 	viewPage.style.padding = "50px 0px" ;
 		

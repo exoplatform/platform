@@ -3,6 +3,7 @@ function UIDropDownItemSelector() {
 
 UIDropDownItemSelector.prototype.init = function() {
 	this.itemSelectors = new Array();
+	//this.onload();
 };
 
 UIDropDownItemSelector.prototype.initSelector = function(selector) {
@@ -84,7 +85,7 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 	if(strItemLabel.length < 21){
 	  selectedItemLabel.innerHTML = strItemLabel;
 	} else {
-		var strlabel = strItemLabel.charAt(0);; 
+		var strlabel = strItemLabel.charAt(0); 
 		for(i = 1;i < 17; ++i){
 	  strlabel = strlabel + strItemLabel.charAt(i);
 		}
@@ -114,6 +115,24 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 				}
 			}
 		}
+	}
+};
+
+UIDropDownItemSelector.prototype.onload = function() {
+	var DOMUtil = eXo.core.DOMUtil;
+	var uiDropDownItemSelector = document.getElementById("UIDropDownItemSelector");
+	var selectedItemLabel = DOMUtil.findFirstDescendantByClass(uiDropDownItemSelector, "div", "SelectedItemLabel");
+	var strLabel = selectedItemLabel.innerHTML;
+	alert(strLabel);
+	while(strLabel.charAt(0)== ' '){
+		//strLabel = strLabel
+	}
+	if(strLabel.length > 20){
+		var strlabel = strLabel.charAt(0); 
+		for(var i = 1;i < 17; ++i){
+	    strlabel = strlabel + strLabel.charAt(i);
+		}
+		selectedItemLabel.innerHTML = strlabel + "...";
 	}
 };
 

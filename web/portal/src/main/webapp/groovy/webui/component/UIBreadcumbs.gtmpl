@@ -9,9 +9,7 @@
   <div class="LeftBreadcumbsBar">
     <div class="RightBreadcumbsBar">
       <div class="BreadcumbsInfoBar">
-	  	  <a href="#" >
 	  	  	<div class="HomeIcon LeftBlock BCHome16x16Icon"><span></span></div>
-	  	  </a>
 	  	  <%if(list.size() > 0) {
 	  	      String note = "LeftBlock";
 	      	  for(i in 0 .. list.size()-1) { 

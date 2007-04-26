@@ -56,15 +56,16 @@
 		          cButton = "SwitchButton" ;
 		          cLabel = "CategoryLabel";
 				    }
+				    String actionLink = uicomponent.event("ShowCategory", cName) - "javascript:";
 				%>			
 	    			<div class="$cTab">
 					    <div class="TabLeft">
 					      <div class="TabRight">
 						      <div class="TabRepeat">
-								    <div class="OverflowContainer">
+								    <div class="OverflowContainer" onclick="$actionLink">
 									    <div class="$cIcon"><span></span></div>
-										  <a href="<%=uicomponent.event("ShowCategory", cName)%>" class="$cLabel">$cName</a>
-										  <a class="$cButton" href="<%=uicomponent.event("ShowCategory", cName)%>"><span></span></a>
+										  <div class="$cLabel">$cName</div>
+										  <div class="$cButton"><span></span></div>
 									  </div>
 							    </div>
 	  					  </div>

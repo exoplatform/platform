@@ -47,6 +47,7 @@
 /*#######################-VTabStyle3 VerticalSlideTabs-######################*/
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 {
+	cursor: pointer;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLeft {
@@ -82,8 +83,8 @@
   float: right;
   width: 16px;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/DarkBlueNextArrow.gif') no-repeat ;
-  cursor: pointer ;
   margin: 6px 3px 0px 0px ;
+  cursor: pointer ;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .UIVTabContent {
@@ -132,7 +133,6 @@
   float: right;
   width: 16px;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlackNextArrow.gif') no-repeat ;
-  cursor: pointer ;
   margin: 6px 3px 0px 0px ;
 }
 
