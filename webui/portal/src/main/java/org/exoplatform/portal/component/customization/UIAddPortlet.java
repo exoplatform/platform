@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.exoplatform.services.portletregistery.Portlet;
-import org.exoplatform.services.portletregistery.PortletCategory;
-import org.exoplatform.services.portletregistery.PortletRegisteryService;
+import org.exoplatform.application.registery.Application;
+import org.exoplatform.application.registery.ApplicationCategory;
+import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -34,21 +34,21 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 )
 public class UIAddPortlet extends UIContainer {
 
-  private List<PortletCategory> portletCategories ;
-  private HashMap<String, List<Portlet>> mapPortlets = new HashMap<String, List<Portlet>>();
+  private List<ApplicationCategory> portletCategories ;
+  private HashMap<String, List<Application>> mapApplications = new HashMap<String, List<Application>>();
 
   @SuppressWarnings("unchecked")
   public UIAddPortlet() throws Exception {
-    PortletRegisteryService service = getApplicationComponent(PortletRegisteryService.class) ;
-    portletCategories = service.getPortletCategories();   
-    if(portletCategories == null) portletCategories = new ArrayList<PortletCategory>(0);
-    for(PortletCategory category: portletCategories ) {
-      mapPortlets.put(category.getId(), service.getPortlets(category.getId()));
+    ApplicationRegisteryService service = getApplicationComponent(ApplicationRegisteryService.class) ;
+    portletCategories = service.getApplicationCategories();  
+    if(portletCategories == null) portletCategories = new ArrayList<ApplicationCategory>(0);
+    for(ApplicationCategory category: portletCategories ) {
+      mapApplications.put(category.getName(), service.getApplications(category));
     }
   }  
 
-  public List<PortletCategory> getPortletCategory() { return portletCategories ;  }
+  public List<ApplicationCategory> getPortletCategory() { return portletCategories ;  }
 
 
-  public List<Portlet> getPortlets(PortletCategory category) { return mapPortlets.get(category.getId()) ;  }  
+  public List<Application> getPortlets(ApplicationCategory category) { return mapApplications.get(category.getName()) ;  }  
 }

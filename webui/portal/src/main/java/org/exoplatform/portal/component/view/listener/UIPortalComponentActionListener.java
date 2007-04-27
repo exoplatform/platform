@@ -123,12 +123,12 @@ public class UIPortalComponentActionListener {
           uiSource = uiContainer;   
         }else {
           UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);
-          org.exoplatform.services.portletregistery.Portlet portlet = uiPortletOptions.getPortlet(sourceId);
+          org.exoplatform.application.registery.Application portlet = uiPortletOptions.getPortlet(sourceId);
           UIPortlet uiPortlet =  uiTarget.createUIComponent(UIPortlet.class, null, null);
           if(portlet.getDisplayName() != null) {
             uiPortlet.setTitle(portlet.getDisplayName());
-          } else if(portlet.getPortletName() != null) {
-            uiPortlet.setTitle(portlet.getPortletName());
+          } else if(portlet.getApplicationName() != null) {
+            uiPortlet.setTitle(portlet.getApplicationName());
           }
           uiPortlet.setDescription(portlet.getDescription());
           StringBuilder windowId = new StringBuilder();

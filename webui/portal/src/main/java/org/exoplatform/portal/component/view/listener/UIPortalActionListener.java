@@ -6,25 +6,22 @@ package org.exoplatform.portal.component.view.listener;
 
 import java.util.List;
 
+import org.exoplatform.application.registery.Application;
+import org.exoplatform.application.registery.ApplicationCategory;
+import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
-import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIPortalForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIJSApplication;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
-import org.exoplatform.portal.component.view.UIPortalComponent;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.component.widget.UILoginForm;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.services.portletregistery.Portlet;
-import org.exoplatform.services.portletregistery.PortletCategory;
-import org.exoplatform.services.portletregistery.PortletRegisteryService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -77,12 +74,12 @@ public class UIPortalActionListener {
       windowId.append(":/").append(portletId).append('/').append(uiPortlet.hashCode());
       uiPortlet.setWindowId(windowId.toString());
       
-      Portlet portlet = getPortlet(uiPortal, portletId);
+      Application portlet = getPortlet(uiPortal, portletId);
       if(portlet != null){
         if(portlet.getDisplayName() != null) {
           uiPortlet.setTitle(portlet.getDisplayName());
-        } else if(portlet.getPortletName() != null) {
-          uiPortlet.setTitle(portlet.getPortletName());
+        } else if(portlet.getApplicationName() != null) {
+          uiPortlet.setTitle(portlet.getApplicationName());
         }
         uiPortlet.setDescription(portlet.getDescription());
       }
@@ -103,13 +100,13 @@ public class UIPortalActionListener {
     }
     
     @SuppressWarnings("unchecked")
-    private Portlet getPortlet(UIPortal uiPortal, String id) throws Exception {
-      PortletRegisteryService service = uiPortal.getApplicationComponent(PortletRegisteryService.class) ;
-      List<PortletCategory> pCategories = service.getPortletCategories() ;    
+    private Application getPortlet(UIPortal uiPortal, String id) throws Exception {
+      ApplicationRegisteryService service = uiPortal.getApplicationComponent(ApplicationRegisteryService.class) ;
+      List<ApplicationCategory> pCategories = service.getApplicationCategories();   
 
-      for(PortletCategory pCategory : pCategories) {
-        List<Portlet> portlets = service.getPortlets(pCategory.getId()) ;
-        for(Portlet portlet : portlets){
+      for(ApplicationCategory pCategory : pCategories) {
+        List<Application> portlets = service.getApplications(pCategory) ;
+        for(Application portlet : portlets){
           if(portlet.getId().equals(id)) return portlet;
         }  
       }    

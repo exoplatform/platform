@@ -9,7 +9,7 @@
   <modules>
     <module>component/xml-parser</module>
     <module>component/resources</module>
-    <module>component/portlet-registry</module>
+    <module>component/application-registry</module>
     <module>component/data</module>
     <module>component/web</module>
 

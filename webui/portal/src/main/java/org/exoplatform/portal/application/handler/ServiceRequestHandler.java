@@ -11,14 +11,14 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.exoplatform.application.registery.Application;
+import org.exoplatform.application.registery.ApplicationCategory;
+import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.json.BeanToJSONPlugin;
 import org.exoplatform.json.JSONService;
 import org.exoplatform.portal.application.PortalApplication;
 import org.exoplatform.portal.config.UserACL;
-import org.exoplatform.services.portletregistery.Portlet;
-import org.exoplatform.services.portletregistery.PortletCategory;
-import org.exoplatform.services.portletregistery.PortletRegisteryService;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.WebRequestHandler;
 /**
@@ -55,21 +55,21 @@ public class ServiceRequestHandler extends WebRequestHandler {
   private StringBuilder getPortlets(PortalApplication app, String remoteUser, boolean isRoleAdmin) throws Exception {
     ExoContainer container = app.getApplicationServiceContainer() ;
     
-    PortletRegisteryService prService = (PortletRegisteryService)container.getComponentInstanceOfType(PortletRegisteryService.class) ;    
-    List<PortletCategory> portletCategories = prService.getPortletCategories();
+    ApplicationRegisteryService prService = (ApplicationRegisteryService)container.getComponentInstanceOfType(ApplicationRegisteryService.class) ;    
+    List<ApplicationCategory> portletCategories = prService.getApplicationCategories();
     UserACL userACL = (UserACL)container.getComponentInstanceOfType(UserACL.class) ;
     
     PortletCategoryToJSONPlugin toJSON = new PortletCategoryToJSONPlugin(prService, userACL, remoteUser, isRoleAdmin);
 
     StringBuilder value = new StringBuilder();
     JSONService jsonService = new JSONService();
-    jsonService.register(PortletCategory.class, toJSON);
+    jsonService.register(ApplicationCategory.class, toJSON);
     
     if(portletCategories.size() < 1) return value;
     
     value.append("{\n").append("  portletRegistry : {\n");
     for(int i = 0; i < portletCategories.size(); i++) {
-      PortletCategory category = portletCategories.get(i);
+      ApplicationCategory category = portletCategories.get(i);
       jsonService.toJSONScript(category, value, 1);
       if(i < portletCategories.size() - 1) value.append("   ,\n");
     }    
@@ -78,14 +78,14 @@ public class ServiceRequestHandler extends WebRequestHandler {
     return value; 
   }
   
-  class PortletCategoryToJSONPlugin extends BeanToJSONPlugin<PortletCategory> {
+  class PortletCategoryToJSONPlugin extends BeanToJSONPlugin<ApplicationCategory> {
 
-    private PortletRegisteryService registeryService_;
+    private ApplicationRegisteryService registeryService_;
     private UserACL userACL_; 
     private String remoteUser_;
     private boolean isRoleAdmin_ = false;
 
-    PortletCategoryToJSONPlugin(PortletRegisteryService registeryService, 
+    PortletCategoryToJSONPlugin(ApplicationRegisteryService registeryService, 
                                 UserACL userACL, String remoteUser, boolean isRoleAdmin) {
       registeryService_ = registeryService;
       userACL_ = userACL;
@@ -94,14 +94,14 @@ public class ServiceRequestHandler extends WebRequestHandler {
     }
 
     @SuppressWarnings("unchecked")
-    public void toJSONScript(PortletCategory category, StringBuilder builder, int indentLevel) throws Exception {
-      StringBuilder builderPortlet =  toJSONScript(category.getId(), indentLevel + 2);
+    public void toJSONScript(ApplicationCategory category, StringBuilder builder, int indentLevel) throws Exception {
+      StringBuilder builderPortlet =  toJSONScript(category, indentLevel + 2);
       if(builderPortlet.length() < 1) return;
       
       appendIndentation(builder, indentLevel);
-      builder.append('\'').append(category.getId()).append("' : {\n");
+      builder.append('\'').append(category.getName()).append("' : {\n");
       appendIndentation(builder, indentLevel+1);
-      builder.append("'name' : '").append(category.getPortletCategoryName()).append("',\n");
+      builder.append("'name' : '").append(category.getName()).append("',\n");
       appendIndentation(builder, indentLevel+1);
       builder.append("'portlets' : {\n");
       builder.append(builderPortlet);      
@@ -112,12 +112,12 @@ public class ServiceRequestHandler extends WebRequestHandler {
     }    
     
     @SuppressWarnings("unchecked")
-    private StringBuilder toJSONScript(String id, int indentLevel) throws Exception {
+    private StringBuilder toJSONScript(ApplicationCategory category, int indentLevel) throws Exception {
       StringBuilder builder = new StringBuilder();
-      List<Portlet> portlets = registeryService_.getPortlets(id);
+      List<Application> portlets = registeryService_.getApplications(category);
       
       for(int j = 0; j<portlets.size(); j++){
-        String perm = portlets.get(j).getViewPermission();
+        String perm = null;//portlets.get(j).getViewPermission();
         if(perm == null) perm = "member:/user";
         if(!isRoleAdmin_ && !userACL_.hasPermission(null, remoteUser_, perm)) continue;
         toJSONScript(portlets.get(j), builder, indentLevel);
@@ -130,11 +130,11 @@ public class ServiceRequestHandler extends WebRequestHandler {
       return builder;
     }
     
-    private void toJSONScript(Portlet portlet, StringBuilder builder, int indentLevel) {
+    private void toJSONScript(Application portlet, StringBuilder builder, int indentLevel) {
       appendIndentation(builder, indentLevel);
       builder.append('\'').append(portlet.getId()).append("' : {\n");
       appendIndentation(builder, indentLevel+1);
-      builder.append("'title' : ").append("'").append(portlet.getPortletName()).append("',\n");
+      builder.append("'title' : ").append("'").append(portlet.getAliasName()).append("',\n");
       appendIndentation(builder, indentLevel+1);
       builder.append("'des' : ").append("'").append(portlet.getDescription()).append("'\n");
       appendIndentation(builder, indentLevel);

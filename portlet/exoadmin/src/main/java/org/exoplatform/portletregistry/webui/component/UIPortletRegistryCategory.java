@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.exoplatform.application.registery.Application;
+import org.exoplatform.application.registery.ApplicationCategory;
+import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
-import org.exoplatform.services.portletregistery.Portlet;
-import org.exoplatform.services.portletregistery.PortletCategory;
-import org.exoplatform.services.portletregistery.PortletRegisteryService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIContainer;
@@ -47,10 +47,10 @@ import org.exoplatform.webui.event.EventListener;
 )
 public class UIPortletRegistryCategory extends UIContainer {
 
-  private PortletCategory selectedCategory ;  
-  private List<PortletCategory> portletCategories ;
-  private Portlet selectedPortlet = null ;
-  private List<Portlet> portlets ;
+  private ApplicationCategory selectedCategory ;  
+  private List<ApplicationCategory> portletCategories ;
+  private Application selectedPortlet = null ;
+  private List<Application> portlets ;
 
   public UIPortletRegistryCategory() throws Exception {
     initValues(null);
@@ -58,45 +58,45 @@ public class UIPortletRegistryCategory extends UIContainer {
 
   @SuppressWarnings("unchecked")
   public void initValues(Collection portletData) throws Exception {
-    PortletRegisteryService service = getApplicationComponent(PortletRegisteryService.class) ;
-    if(portletData != null) service.importPortlets(portletData);
-    portletCategories = service.getPortletCategories();   
-    if(portletCategories == null) portletCategories = new ArrayList<PortletCategory>(0);
+    ApplicationRegisteryService service = getApplicationComponent(ApplicationRegisteryService.class) ;
+    if(portletData != null) service.importJSR168Portlets();
+    portletCategories = service.getApplicationCategories(); 
+    if(portletCategories == null) portletCategories = new ArrayList<ApplicationCategory>(0);
     if(portletCategories.size() > 0){
       setSelectedCategory(portletCategories.get(0));
       return;
     }
-    setSelectedCategory((PortletCategory)null);
+    setSelectedCategory((ApplicationCategory)null);
   }
 
-  public PortletCategory getSelectedPortletCategory() { return selectedCategory; }
+  public ApplicationCategory getSelectedPortletCategory() { return selectedCategory; }
 
   @SuppressWarnings("unchecked")
   public void setSelectedCategory(Object category) throws Exception {
     selectedCategory = null;
     selectedPortlet = null;
-    portlets = new ArrayList<Portlet>(0); 
-    if(category instanceof PortletCategory) {
-      selectedCategory = (PortletCategory)category;
+    portlets = new ArrayList<Application>(0); 
+    if(category instanceof ApplicationCategory) {
+      selectedCategory = (ApplicationCategory)category;
     }else {
-      for(PortletCategory portletCategory : portletCategories) {
-        if(portletCategory.getPortletCategoryName().equals(category)) {
+      for(ApplicationCategory portletCategory : portletCategories) {
+        if(portletCategory.getName().equals(category)) {
           selectedCategory = portletCategory ;
           break ;
         }
       }
     }
     if(selectedCategory == null) return;
-    PortletRegisteryService service = getApplicationComponent(PortletRegisteryService.class) ;
-    portlets = service.getPortlets(selectedCategory.getId()) ;
+    ApplicationRegisteryService service = getApplicationComponent(ApplicationRegisteryService.class) ;
+    portlets = service.getApplications(selectedCategory) ;
   }
 
-  public List<PortletCategory> getPortletCategory() { return portletCategories ;  }
+  public List<ApplicationCategory> getPortletCategory() { return portletCategories ;  }
 
-  public Portlet getSelectedPortlet() { return selectedPortlet ; }
+  public Application getSelectedPortlet() { return selectedPortlet ; }
   public void setSelectedPortlet(String portletId) { 
     selectedPortlet = null;
-    for(Portlet portlet : portlets) {
+    for(Application portlet : portlets) {
       if(portlet.getId().equals(portletId)) {
         selectedPortlet = portlet ;
         break ;
@@ -104,8 +104,8 @@ public class UIPortletRegistryCategory extends UIContainer {
     }
   }
 
-  public List<Portlet> getPortlets() { return portlets ;  }  
-  public void setPortlets(List <Portlet> portlets) { this.portlets = portlets ; }
+  public List<Application> getPortlets() { return portlets ;  }  
+  public void setPortlets(List <Application> portlets) { this.portlets = portlets ; }
   
   static public class AddCategoryActionListener extends EventListener<UIPortletRegistryCategory>{
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception{
@@ -125,7 +125,7 @@ public class UIPortletRegistryCategory extends UIContainer {
       UIWorkingArea uiWorkingArea = uiParent.getChild(UIWorkingArea.class);
       UICategoryForm uiForm = uiWorkingArea.getChild(UICategoryForm.class) ;
       uiWorkingArea.setRenderedChild(UICategoryForm.class);
-      PortletCategory selectedCategory = uiRegistryCategory.getSelectedPortletCategory() ;
+      ApplicationCategory selectedCategory = uiRegistryCategory.getSelectedPortletCategory() ;
       if(selectedCategory == null) return ;
       uiForm.setValue(selectedCategory);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;
@@ -144,10 +144,10 @@ public class UIPortletRegistryCategory extends UIContainer {
   static public class DeleteAllActionListener extends EventListener<UIPortletRegistryCategory> {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception{
       UIPortletRegistryCategory uiSource = event.getSource();
-      PortletRegisteryService service = uiSource.getApplicationComponent(PortletRegisteryService.class);
-      List<PortletCategory> list = uiSource.getPortletCategory();
-      for(PortletCategory ele : list){
-        service.removePortletCategory(ele.getId()) ;
+      ApplicationRegisteryService service = uiSource.getApplicationComponent(ApplicationRegisteryService.class);
+      List<ApplicationCategory> list = uiSource.getPortletCategory();
+      for(ApplicationCategory ele : list){
+        service.remove(ele) ;
       }
       uiSource.initValues(null);
     }
@@ -156,10 +156,10 @@ public class UIPortletRegistryCategory extends UIContainer {
   static public class DeleteCategoryActionListener extends EventListener<UIPortletRegistryCategory> {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception{
       UIPortletRegistryCategory uiComp = event.getSource();
-      PortletRegisteryService service = uiComp.getApplicationComponent(PortletRegisteryService.class);            
-      PortletCategory selectedCategory = uiComp.getSelectedPortletCategory();
+      ApplicationRegisteryService service = uiComp.getApplicationComponent(ApplicationRegisteryService.class);            
+      ApplicationCategory selectedCategory = uiComp.getSelectedPortletCategory();
       if(selectedCategory == null) return;      
-      service.removePortletCategory(selectedCategory.getId()) ; 
+      service.remove(selectedCategory) ; 
       uiComp.initValues(null);
     }
   }
@@ -168,19 +168,19 @@ public class UIPortletRegistryCategory extends UIContainer {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception{
       UIPortletRegistryCategory uiComp = event.getSource();
       String categoryName = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      PortletCategory selectedCategory = uiComp.getSelectedPortletCategory();
-      if(selectedCategory.getPortletCategoryName().equals(categoryName))  return;
+      ApplicationCategory selectedCategory = uiComp.getSelectedPortletCategory();
+      if(selectedCategory.getName().equals(categoryName))  return;
       uiComp.setSelectedCategory(categoryName);      
     }
   }
 
-  // Portlet Actions
+  // Application Actions
   static public class ShowPortletActionListener extends EventListener<UIPortletRegistryCategory>{
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception{
       UIPortletRegistryCategory uiComp = event.getSource();
       String portletId = event.getRequestContext().getRequestParameter(OBJECTID) ;
       uiComp.setSelectedPortlet(portletId) ;
-      Portlet portletSelected = uiComp.getSelectedPortlet() ;
+      Application portletSelected = uiComp.getSelectedPortlet() ;
       if(portletSelected == null) return;
       UIPortletRegistryPortlet uiParent = uiComp.getParent();
       UIWorkingArea uiWorkingArea = uiParent.getChild(UIWorkingArea.class);
@@ -207,7 +207,7 @@ public class UIPortletRegistryCategory extends UIContainer {
   static public class EditPortletActionListener extends EventListener<UIPortletRegistryCategory> {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception {
       UIPortletRegistryCategory uicomp = event.getSource();
-      Portlet portletSelected = uicomp.getSelectedPortlet() ;
+      Application portletSelected = uicomp.getSelectedPortlet() ;
       if(portletSelected == null) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPortletRegistryCategory.msg.editPortlet", null)) ;
@@ -229,7 +229,7 @@ public class UIPortletRegistryCategory extends UIContainer {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception {
       UIPortletRegistryCategory uicomp = event.getSource();      
       UIPortletRegistryPortlet uiParent = uicomp.getParent();
-      Portlet selectedPortlet = uicomp.getSelectedPortlet();
+      Application selectedPortlet = uicomp.getSelectedPortlet();
       if(selectedPortlet == null) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPortletRegistryCategory.msg.editPortlet", null)) ;
@@ -249,12 +249,13 @@ public class UIPortletRegistryCategory extends UIContainer {
   static public class DeletePortletActionListener extends EventListener<UIPortletRegistryCategory> {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception {
       UIPortletRegistryCategory uicomp = event.getSource();
-      Portlet selectedPortlet = uicomp.getSelectedPortlet() ;
+      Application selectedPortlet = uicomp.getSelectedPortlet() ;
       if(selectedPortlet == null) return ;
 
-      PortletRegisteryService service = uicomp.getApplicationComponent(PortletRegisteryService.class) ;
+      ApplicationRegisteryService service = uicomp.getApplicationComponent(ApplicationRegisteryService.class) ;
       String portletSelectedId = selectedPortlet.getId() ;
-      service.removePortlet(portletSelectedId) ;  
+      Application portlet = service.getApplication(portletSelectedId);
+      service.remove(portlet) ;  
             
       uicomp.getPortlets().remove(uicomp.getSelectedPortlet()) ;
       uicomp.setSelectedPortlet(null);

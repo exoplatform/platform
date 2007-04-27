@@ -43,8 +43,8 @@
 				  for(category in portletCategories) { 			     
 	 			    String cIcon,cButton,cLabel, cName ;
 				    boolean renderChild = false ; 
-				    cName  = category.getPortletCategoryName();
-				    if(selectedCategory != null && cName == selectedCategory.getPortletCategoryName()) {
+				    cName  = category.getName();
+				    if(selectedCategory != null && cName == selectedCategory.getName()) {
 				      cTab = "SelectedVTabStyle3" ;
 				      cIcon = "CategoryIcon OpenFolderIcon" ;
 				      cButton = "SwitchButton" ;
@@ -64,7 +64,7 @@
 						      <div class="TabRepeat">
 								    <div class="OverflowContainer" onclick="$actionLink">
 									    <div class="$cIcon"><span></span></div>
-										  <div class="$cLabel">$cName</div>
+										  <div class="$cLabel"><%=category.getDisplayName();%></div>
 										  <div class="$cButton"><span></span></div>
 									  </div>
 							    </div>
@@ -119,7 +119,7 @@
 											        	<div class="CategoryContent">
 												      	  <div class="CategoryIcon BlueSquare16x16Icon"><span></span></div>
 													       	<a href="<%=uicomponent.event("ShowPortlet", portletId)%>" class="$pLabel">
-														        <%=portlet.getPortletName()%>
+														        <%=portlet.getDisplayName();%>
 														      </a>
 														      <a class="$pButton" href="<%=uicomponent.event("ShowPortlet", portletId)%>"><span></span></a>
 														     </div>

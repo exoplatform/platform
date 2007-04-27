@@ -7,6 +7,9 @@ package org.exoplatform.portal.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.application.registery.Application;
+import org.exoplatform.application.registery.ApplicationCategory;
+import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
@@ -17,9 +20,6 @@ import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.services.portletregistery.Portlet;
-import org.exoplatform.services.portletregistery.PortletCategory;
-import org.exoplatform.services.portletregistery.PortletRegisteryService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
@@ -63,13 +63,13 @@ public class UIAddPortletForm extends UIFormTabPane {
   @SuppressWarnings("unchecked")
   private void loadPortlet() throws Exception {
     getChildren().clear();    
-    PortletRegisteryService registeryService = getApplicationComponent(PortletRegisteryService.class) ;
-    List<PortletCategory> portletCategories = registeryService.getPortletCategories();
+    ApplicationRegisteryService registeryService = getApplicationComponent(ApplicationRegisteryService.class) ;
+    List<ApplicationCategory> portletCategories = registeryService.getApplicationCategories();
 
     String tableName = getClass().getSimpleName();
     boolean selected = true;
-    for(PortletCategory category : portletCategories) {      
-      UIFormInputSet uiInputSet = new UIFormInputSet(category.getPortletCategoryName()) ;
+    for(ApplicationCategory category : portletCategories) {      
+      UIFormInputSet uiInputSet = new UIFormInputSet(category.getName()) ;
       uiInputSet.setRendered(selected);
       if(selected) selected = false;
       addUIFormInput(uiInputSet) ;           
@@ -79,8 +79,8 @@ public class UIAddPortletForm extends UIFormTabPane {
       uiTableInputSet.setColumns(TABLE_COLUMNS);
       uiInputSet.addChild(uiTableInputSet);
 
-      List<Portlet> portlets = registeryService.getPortlets(category.getId()) ; 
-      for(Portlet portlet : portlets){
+      List<Application> portlets = registeryService.getApplications(category) ; 
+      for(Application portlet : portlets){
         String id = portlet.getId();      
 
         uiInputSet = new UIFormInputSet(id) ;

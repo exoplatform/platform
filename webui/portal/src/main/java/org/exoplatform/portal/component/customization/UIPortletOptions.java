@@ -10,12 +10,12 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.application.registery.Application;
+import org.exoplatform.application.registery.ApplicationCategory;
+import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserACL;
-import org.exoplatform.services.portletregistery.Portlet;
-import org.exoplatform.services.portletregistery.PortletCategory;
-import org.exoplatform.services.portletregistery.PortletRegisteryService;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
@@ -28,7 +28,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 public class UIPortletOptions extends UIContainer {
 
   private List<PortletCategoryData> pCategoryDatas ; 
-  private PortletCategory selectedPCategory;
+  private ApplicationCategory selectedPCategory;
 
   @SuppressWarnings("unchecked")
   public UIPortletOptions() throws Exception {
@@ -38,20 +38,20 @@ public class UIPortletOptions extends UIContainer {
     dropCategorys.setTitle("PortletCategory");
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     dropCategorys.setOptions(options);
-    PortletRegisteryService service = getApplicationComponent(PortletRegisteryService.class) ;
-    List<PortletCategory> pCategories = service.getPortletCategories() ;    
+    ApplicationRegisteryService service = getApplicationComponent(ApplicationRegisteryService.class) ;
+    List<ApplicationCategory> pCategories = service.getApplicationCategories() ;    
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
     
     UserACL userACL = getApplicationComponent(UserACL.class) ;
     String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
 
     PortletComparator portletComparator = new PortletComparator() ;
-    for(PortletCategory pCategory : pCategories) {
-      List<Portlet> portlets = service.getPortlets(pCategory.getId()) ;
-      Iterator<Portlet> iterator = portlets.iterator();
+    for(ApplicationCategory pCategory : pCategories) {
+      List<Application> portlets = service.getApplications(pCategory) ;
+      Iterator<Application> iterator = portlets.iterator();
       while (iterator.hasNext()) {
-        Portlet portlet = iterator.next();
-        String perm = portlet.getViewPermission();
+        Application portlet = iterator.next();
+        String perm = null;//portlet.getViewPermission();
         if(perm == null) perm = "member:/user";
         if(userACL.hasPermission(null, remoteUser, perm)) continue;
         iterator.remove();
@@ -62,7 +62,7 @@ public class UIPortletOptions extends UIContainer {
       pCategoryDatas.add(new PortletCategoryData(pCategory, portlets)); 
     }    
     for(PortletCategoryData categoryData: pCategoryDatas) {
-      options.add(new SelectItemOption<String>(categoryData.getPortletCategory().getPortletCategoryName()));
+      options.add(new SelectItemOption<String>(categoryData.getPortletCategory().getName()));
     }
   }
 
@@ -73,17 +73,17 @@ public class UIPortletOptions extends UIContainer {
   }
   
   
-  public Portlet getPortlet(String id) throws Exception {
+  public Application getPortlet(String id) throws Exception {
     for(PortletCategoryData category : pCategoryDatas){
-      List<Portlet> items = category.getPortlets();
-      for(Portlet item : items){
+      List<Application> items = category.getPortlets();
+      for(Application item : items){
         if(item.getId().equals(id)) return item;
       }      
     }
     return null;
   }
 
-  public PortletCategory getSelectedPCategory() { return selectedPCategory; }
+  public ApplicationCategory getSelectedPCategory() { return selectedPCategory; }
 
   public List<PortletCategoryData> getPortletCategorDatas() { return pCategoryDatas ; }
   
@@ -92,31 +92,31 @@ public class UIPortletOptions extends UIContainer {
     Util.showComponentLayoutMode(UIPortlet.class);   
   }
   
-  static class PortletCategoryComparator implements Comparator<PortletCategory> {
-    public int compare(PortletCategory cat1, PortletCategory cat2) {
-      return cat1.getPortletCategoryName().compareTo(cat2.getPortletCategoryName()) ;
+  static class PortletCategoryComparator implements Comparator<ApplicationCategory> {
+    public int compare(ApplicationCategory cat1, ApplicationCategory cat2) {
+      return cat1.getName().compareTo(cat2.getName()) ;
     }
   }
 
-  static class PortletComparator implements Comparator<Portlet> {
-    public int compare(Portlet p1, Portlet p2) {
-      return p1.getPortletName().compareTo(p2.getPortletName()) ;
+  static class PortletComparator implements Comparator<Application> {
+    public int compare(Application p1, Application p2) {
+      return p1.getApplicationName().compareTo(p2.getApplicationName()) ;
     }
   }
 
   static public class PortletCategoryData {
 
-    private PortletCategory portletCategory;    
-    private List<Portlet> portlets;
+    private ApplicationCategory portletCategory;    
+    private List<Application> portlets;
 
-    public PortletCategoryData(PortletCategory portletCategory, List<Portlet> portlets) {
+    public PortletCategoryData(ApplicationCategory portletCategory, List<Application> portlets) {
       this.portletCategory = portletCategory;
       this.portlets = portlets;
     }
 
-    public PortletCategory getPortletCategory() { return portletCategory; }
+    public ApplicationCategory getPortletCategory() { return portletCategory; }
 
-    public List<Portlet> getPortlets() { return portlets; }
+    public List<Application> getPortlets() { return portlets; }
   }
 
 }

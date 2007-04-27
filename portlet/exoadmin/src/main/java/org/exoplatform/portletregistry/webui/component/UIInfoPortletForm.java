@@ -6,8 +6,8 @@ package org.exoplatform.portletregistry.webui.component;
 
 import java.util.Calendar;
 
-import org.exoplatform.services.portletregistery.Portlet;
-import org.exoplatform.services.portletregistery.PortletRegisteryService;
+import org.exoplatform.application.registery.Application;
+import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -37,15 +37,16 @@ import org.exoplatform.webui.event.Event.Phase;
 )
 public class UIInfoPortletForm extends UIForm {  
 
-  private Portlet portlet_ ;
+  private Application portlet_ ;
   
   private String name_;
   
   public UIInfoPortletForm() throws Exception {
-    addUIFormInput(new UIFormStringInput("portletName", "portletName", null).
+    addUIFormInput(new UIFormStringInput("aliasName", "aliasName", null).
                    addValidator(EmptyFieldValidator.class).
                    addValidator(NameValidator.class)) ;
     
+    addUIFormInput(new UIFormStringInput("displayName", "displayName", null));
     addUIFormInput(new UIFormTextAreaInput("description", "description", null));
     
 //    UIFormDateTimeInput uiDateTimeInput = new UIFormDateTimeInput("createdDate", "createdDate", null);
@@ -60,24 +61,22 @@ public class UIInfoPortletForm extends UIForm {
   public String getName() {return name_;}
   public void setName(String name) {name_ = name;}
 
-  public void setValues(Portlet portlet) throws Exception {
+  public void setValues(Application portlet) throws Exception {
     portlet_ = portlet;
-    getUIStringInput("portletName").setEditable(false);
+    getUIStringInput("aliasName").setEditable(false);
     invokeGetBindingBean(portlet) ;
   }
 
-  public Portlet getPortlet() { return portlet_ ; }
+  public Application getPortlet() { return portlet_ ; }
 
   static public class SaveActionListener extends EventListener<UIInfoPortletForm> {
     public void execute(Event<UIInfoPortletForm> event) throws Exception{
       UIInfoPortletForm uiForm = event.getSource() ;
-      String desc = uiForm.getUIStringInput("description").getValue() ;
-      if(desc == null)  return;
-      PortletRegisteryService service = uiForm.getApplicationComponent(PortletRegisteryService.class) ;
-      Portlet portlet = uiForm.getPortlet() ;
-      portlet.setDescription(desc) ;
+      ApplicationRegisteryService service = uiForm.getApplicationComponent(ApplicationRegisteryService.class) ;
+      Application portlet = uiForm.getPortlet() ;
+      uiForm.invokeSetBindingBean(portlet);
       portlet.setModifiedDate(Calendar.getInstance().getTime());
-      service.updatePortlet(portlet) ;
+      service.update(portlet) ;
     }
   }
 

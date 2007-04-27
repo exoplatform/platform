@@ -41,10 +41,10 @@ class DataMapper {
     ApplicationCategory data = new ApplicationCategory();
     if(!node.hasProperty(NAME)) return null;
     data.setName(node.getProperty(NAME).getString().trim());
-    if(node.hasProperty(DISPLAY_NAME)) {
-      data.setDisplayName(node.getProperty(DISPLAY_NAME).getString().trim());
+    data.setDisplayName(node.getProperty(DISPLAY_NAME).getString());
+    if(node.hasProperty(DESCRIPTION)) {
+      data.setDescription(node.getProperty(DESCRIPTION).getString());
     }
-    data.setDescription(node.getProperty(DESCRIPTION).getString());
     data.setCreatedDate(node.getProperty(CREATED_DATE).getDate().getTime());
     data.setModifiedDate(node.getProperty(MODIFIED_DATE).getDate().getTime());
     return data;
@@ -68,14 +68,23 @@ class DataMapper {
     Application application = new Application();
     if(!node.hasProperty(ID)) return null;
     application.setId(node.getProperty(ID).getString().trim());
-
     application.setAliasName(node.getProperty(ALIAS_NAME).getString().trim());
-    application.setDisplayName(node.getProperty(DISPLAY_NAME).getString().trim());
-    application.setDescription(node.getProperty(DESCRIPTION).getString());
+    if(node.hasProperty(DISPLAY_NAME)) {
+      application.setDisplayName(node.getProperty(DISPLAY_NAME).getString());
+    }
+    if(node.hasProperty(DESCRIPTION)) {
+      application.setDescription(node.getProperty(DESCRIPTION).getString());
+    }
     application.setCategoryName(node.getProperty(CATEGORY_NAME).getString());
-    application.setApplicationName(node.getProperty(APPLICATION_NAME).getString());
-    application.setApplicationType(node.getProperty(APPLICATION_TYPE).getString());
-    application.setApplicationGroup(node.getProperty(APPLICATION_GROUP).getString());
+    if(node.hasProperty(APPLICATION_NAME)) {
+      application.setApplicationName(node.getProperty(APPLICATION_NAME).getString());
+    }
+    if(node.hasProperty(APPLICATION_TYPE)) {
+      application.setApplicationType(node.getProperty(APPLICATION_TYPE).getString());
+    }
+    if(node.hasProperty(APPLICATION_GROUP)) {
+      application.setApplicationGroup(node.getProperty(APPLICATION_GROUP).getString());
+    }
     
     if(node.hasProperty(ACCESS_GROUP)) {
       List<String> values = new ArrayList<String>();
@@ -97,11 +106,8 @@ class DataMapper {
   void applicationToNode(Application application, Node node) throws Exception {
     node.setProperty(ID, application.getId());
     node.setProperty(ALIAS_NAME, application.getAliasName());
-    if(node.hasProperty(DISPLAY_NAME)) {
-      node.setProperty(DISPLAY_NAME, application.getDisplayName());
-    }
+    node.setProperty(DISPLAY_NAME, application.getDisplayName());
     node.setProperty(DESCRIPTION, application.getDescription());
-    
     node.setProperty(CATEGORY_NAME, application.getCategoryName());
     node.setProperty(MIN_WIDTH_RESOLUTION, application.getMinWidthResolution());
     node.setProperty(ACCESS_GROUP, application.getAccessGroup());
