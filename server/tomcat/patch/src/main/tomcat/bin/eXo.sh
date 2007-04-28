@@ -13,5 +13,5 @@ EXO_OPTS="-Dexo.product.developing=true"
 #YOURKIT_PROFILE_OPTION="-agentlib:yjpagent"
 
 JAVA_OPTS="$YOURKIT_PROFILE_OPTION $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS"
-
+export JAVA_OPTS
 exec "$PRGDIR"/"$EXECUTABLE" "$@"
