@@ -6,17 +6,17 @@
   </parent> 
 
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>exo.portal.server.jboss.patch</artifactId>
+  <artifactId>exo.portal.server.jonas.patch</artifactId>
   <version>${org.exoplatform.portal.version}</version>
   <packaging>jar</packaging>
-  <name>eXo JBoss Server</name>
+  <name>eXo JOnAS Server</name>
   <url>http://www.exoplatform.org</url>
-  <description>eXo Jboss server patch</description>
+  <description>eXo JOnAS server patch</description>
 
   <build>
     <resources>
       <resource>
-        <directory>src/main/exoplatform.sar</directory>
+        <directory>src/main/jonas</directory>
         <includes>
           <include>**/*</include>
         </includes>

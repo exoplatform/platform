@@ -1,16 +1,16 @@
 @echo off
-set CURRENT_DIR=%cd%
-cd ..
-set TOMCAT_HOME=%cd%
-cd bin
 
+rem Computes the absolute path of eXo
+setlocal ENABLEDELAYEDEXPANSION
+for %%i in ( !%~f0! )         do set BIN_DIR=%%~dpi
+for %%i in ( !%BIN_DIR%\..! ) do set TOMCAT_HOME=%%~dpni
+
+rem Sets some variables
 set LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
 set SECURITY_OPTS="-Djava.security.auth.login.config=%TOMCAT_HOME%\conf\jaas.conf"
 set EXO_OPTS="-Dexo.webui.reloadable.template=true"
 set JAVA_OPTS=-Xshare:auto -Xms128m -Xmx512m %LOG_OPTS% %SECURITY_OPTS% %EXO_OPTS%
-echo  %JAVA_OPTS%
-set EXECUTABLE=%CURRENT_DIR%\catalina.bat
 
-call "%EXECUTABLE%" %1
-
-
+rem Launches the server
+cd %BIN_DIR%
+call catalina.bat %*

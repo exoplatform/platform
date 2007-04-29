@@ -3,7 +3,6 @@
 PRG="$0"
  
 PRGDIR=`dirname "$PRG"`
-EXECUTABLE=catalina.sh
 LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
 SECURITY_OPTS="-Djava.security.auth.login.config=$PRGDIR/../conf/jaas.conf"
 EXO_OPTS="-Dexo.product.developing=true"
@@ -14,4 +13,4 @@ EXO_OPTS="-Dexo.product.developing=true"
 
 JAVA_OPTS="$YOURKIT_PROFILE_OPTION $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS"
 export JAVA_OPTS
-exec "$PRGDIR"/"$EXECUTABLE" "$@"
+exec "$PRGDIR"/catalina.sh "$@"
