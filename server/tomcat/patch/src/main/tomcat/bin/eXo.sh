@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PRG="$0"
- 
+
 PRGDIR=`dirname "$PRG"`
 LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
 SECURITY_OPTS="-Djava.security.auth.login.config=$PRGDIR/../conf/jaas.conf"
