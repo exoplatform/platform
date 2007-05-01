@@ -118,7 +118,11 @@ public class JCRApplicationRegisteryService implements ApplicationRegisteryServi
       rootNode.save();
       getSession().save();
     }
-
+    
+    if(categoryNode.hasNode(application.getAliasName())) {
+      update(application);
+      return;
+    }
     Node portletNode = categoryNode.addNode(application.getAliasName(), APPLICATION_NODE_TYPE);
     mapper.applicationToNode(application, portletNode);
     categoryNode.save();
@@ -220,15 +224,5 @@ public class JCRApplicationRegisteryService implements ApplicationRegisteryServi
     if((node = getNode(node, APPLICATIONS, autoCreate)) == null && !autoCreate) return null;
     return node;
   }
-
-//  private Node getNode(Node node, String property, String value) throws Exception {
-//    if(node.hasProperty(property) && value.equals(node.getProperty(property).getString())) return node;
-//    NodeIterator iterator = node.getNodes();
-//    while(iterator.hasNext()){
-//      Node returnNode = getNode(iterator.nextNode(), property, value);
-//      if(returnNode != null) return returnNode;
-//    }
-//    return null;
-//  }
   
 }

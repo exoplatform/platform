@@ -30,11 +30,8 @@ public class TestApplicationRegistryService extends BasicTestCase {
     service_ = (ApplicationRegisteryService)portalContainer.getComponentInstanceOfType(ApplicationRegisteryService.class) ;
     
     assertNotNull(service_) ;
-    
     assertAppCategoryOperator() ;
-    
     assertApplicationOperator() ;
-    
     System.out.println("\n\n\n\n");
   }
   
@@ -133,7 +130,7 @@ public class TestApplicationRegistryService extends BasicTestCase {
     for (String appName : appNames) {
       String appId = categoryName + "/" + appName ;
       Application app = service_.getApplication(appId) ;
-      //assertEquals(appName, app.getApplicationName()) ;
+      assertEquals(appName, app.getApplicationName()) ;
       
     }
     //TODO: service can't remove app
@@ -143,7 +140,7 @@ public class TestApplicationRegistryService extends BasicTestCase {
     }
     //!!! After remove: size of apps no change
     List<Application> apps2 = service_.getApplications(appCategory) ;
-    assertEquals(2, apps2.size()) ;
+    assertEquals(0, apps2.size()) ;
   }
   
   void assertApplicationUpdate() throws Exception {
@@ -152,6 +149,7 @@ public class TestApplicationRegistryService extends BasicTestCase {
   ApplicationCategory createAppCategory(String categoryName, String categoryDes) {
     ApplicationCategory category = new ApplicationCategory () ;
     category.setName(categoryName) ;
+    category.setDisplayName(categoryName);
     category.setDescription(categoryDes) ;
     return category ;
   }
@@ -159,6 +157,8 @@ public class TestApplicationRegistryService extends BasicTestCase {
   Application creatApplication(String appName) {
     Application app = new Application() ;
     app.setApplicationName(appName) ;
+    app.setAliasName(appName);
+    app.setDisplayName(appName);
     return app ;
   }
   
