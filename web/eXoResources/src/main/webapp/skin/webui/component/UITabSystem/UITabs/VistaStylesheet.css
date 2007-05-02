@@ -49,7 +49,7 @@
 
 
 .UIHorizontalTabs .UITab .NormalNavigationTab {
-	margin: 3px 0px 0px 0px; 
+	margin: 3px 0px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
@@ -82,12 +82,22 @@
   cursor: pointer;
 }
 
-.UIHorizontalTabs .UITab .TabIcon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 4px 2px 0px 0px;
+.UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
+  color: white;
+  width:auto;
+  line-height: 24px;
+  padding-left:20px;
 }
 
+.UIHorizontalTabs .UITab .NormalNavigationTab a {
+  color:#000000;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
+  padding-right: 20px;
+  background: url(/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow.gif) no-repeat right;
+  cursor: pointer;border:1px red solid;
+}
 /*###############-Hightlight Navigation Tab-################*/
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab {
