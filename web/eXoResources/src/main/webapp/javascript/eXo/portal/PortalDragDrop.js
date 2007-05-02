@@ -207,6 +207,7 @@ PortalDragDrop.prototype.init = function(e) {
 };
 
 PortalDragDrop.prototype.doDropCallback = function(dndEvent) {
+	console.log("drop element");
 	if(!dndEvent.lastFoundTargetObject) {
 		dndEvent.lastFoundTargetObject = eXo.portal.PortalDragDrop.backupLastFoundTarget ;
 	}
@@ -468,13 +469,15 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
   }
   tdList.pop();
   tdList.push(tdInserted);
-  var tdWidth = 100 / tdList.length;
+  var tdWidth = offsetWidthTR / tdList.length;
+  console.log("tdWidth : ",tdWidth);
   for (var i = 0; i < tdList.length; i++) {
   	var td = tdList[i];
 
   	var marginsPaddings = DOMUtil.getStyle(td, "margin-left", true) + DOMUtil.getStyle(td, "margin-right", true) +
   												DOMUtil.getStyle(td, "padding-left", true) + DOMUtil.getStyle(td, "padding-right", true);
-		td.style.width = tdWidth + "%";
+		td.style.width = tdWidth - marginsPaddings + "px";
+		console.log("td.style.width : ",td.style.width);
   }
   
   insertBlock.style.width = "auto" ;

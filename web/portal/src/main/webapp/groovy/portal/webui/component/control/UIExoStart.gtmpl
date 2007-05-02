@@ -97,6 +97,10 @@
             </div>
           </div>
         </div>
+    """ ;
+    navigations = uicomponent.getNavigations() ;
+   	if (navigations != null && navigations.size() > 0 && navigations.get(0).getNodes().size() > 0) {
+       	print """ 
         <div class="MenuItemContainer NavigationContainer">
           <div class="StartMenuDecorator">
             <div class="StartMenuTL">
@@ -107,12 +111,11 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding: 0px 5px 5px 5px">
-      """ ;
-      naviagtions = uicomponent.getNavigations() ;
-      for(navigation in naviagtions) {
-        renderPageNavigation(navigation) ;
-      }
-      print """
+      	""" ;
+	      for(navigation in navigations) {
+	        renderPageNavigation(navigation) ;
+	      }
+      	print """
                 </div>
               </div>
             </div>
@@ -121,9 +124,11 @@
               <div class="StartMenuBC" ><span></span></div>
               </div>
             </div>
-             
           </div>  
         </div>
+    		""" ;
+    }
+    print """
       </div>
     """ ;
   }

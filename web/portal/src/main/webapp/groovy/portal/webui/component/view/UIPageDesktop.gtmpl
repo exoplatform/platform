@@ -55,7 +55,7 @@
         <%int x = 15; y = 15 %>
         <%for(uiChild in uicomponent.getChildren()) {
             if(!(uiChild instanceof UIPortlet)){      
-              uicomponent.renderUIComponent(uiChild);            
+              uicomponent.renderUIComponent(uiChild);
               continue; 
             }
             String  popupId = uiChild.getId() ;
