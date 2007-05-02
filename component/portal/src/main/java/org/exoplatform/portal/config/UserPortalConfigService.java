@@ -83,13 +83,11 @@ public class UserPortalConfigService {
    */
   public String getViewMembershipType()  { return userACL_.getViewMembershipType() ; }
   
-  
   /**
    * @return This method should return the membership type that the user can edit the portal, pages
    * and the navigation
    */
   public String getEditMembershipType()  { return userACL_.getEditMembershipType() ; }
-  
   
   /**
    * This  method should load the PortalConfig object according to the portalName,  set the view and edit
