@@ -22,6 +22,15 @@
       <access-permission>*:/guest</access-permission>
       <page-reference>exoadmin:/administration</page-reference>
       <description>Administration Page</description>    
+      
+      <node>
+        <uri>administration/portletregistry</uri>
+        <name>portletregistry</name>
+        <label>Portlet Registry</label>
+        <access-permission>exoadmin:/admin</access-permission>
+        <page-reference>exoadmin:/portletregistry</page-reference>
+        <description>Portlet Registry Page</description>   
+      </node>
     </node> 
 
     <node>

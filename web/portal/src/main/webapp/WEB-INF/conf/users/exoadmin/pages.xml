@@ -39,7 +39,18 @@
       <show-info-bar>false</show-info-bar>
     </application>  
 
-  </page>  
+  </page> 
+  
+  <page>
+    <owner>exoadmin</owner>
+    <name>portletregistry</name>
+    <title>Portlet Registry Page</title>
+    <application>
+      <title>Portlet-Registry Portlet</title>
+      <application-instance-id>exoadmin:/exoadmin/PortletRegistryPortlet/PortletRegistry</application-instance-id>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+  </page> 
   
   <page>
     <owner>exoadmin</owner>
