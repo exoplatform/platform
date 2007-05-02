@@ -36,9 +36,7 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 		item.style.width = item.offsetWidth + "px";
 		var arrow = eXo.core.DOMUtil.findFirstDescendantByClass(item, "div", "DropDownArrowIcon");
 		if (arrow) {
-			arrow.onclick = eXo.portal.UIPortalNavigation.toggleSubMenu;
-			//item.onclick = eXo.portal.UIPortalNavigation.toggleSubMenu;
-			arrow.parentTab = item;
+			item.onclick = eXo.portal.UIPortalNavigation.toggleSubMenu;
 		}
 		var container = eXo.core.DOMUtil.findFirstDescendantByClass(item, "div", this.containerStyleClass);
 		if (container) {
@@ -76,13 +74,16 @@ UIPortalNavigation.prototype.setTabStyle = function() {
 }
 
 UIPortalNavigation.prototype.toggleSubMenu = function(e) {
-	console.log("toggle menu");
 	if (!e) var e = window.event;
 	e.cancelBubble = true;
-	
 	//var src = this;
 	var src = eXo.core.Browser.getEventSource(e);
-	var item = src.parentTab;
+	if (src.tagName.toLowerCase() == "a") {
+		if (src.href.substr(0, 7) == "http://") window.location.href = src.href;
+		else eval(src.href);
+		return false;
+	}
+	var item = this;
 	var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(item, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
 	if (menuItemContainer) {
 		if (menuItemContainer.style.display == "none") {
@@ -103,7 +104,7 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e) {
 				for (var i = 0; i < menuItems.length; i++) {
 					menuItems[i].style.width = w + "px";
 				}
-				menuItemContainer.resize = true;
+				menuItemContainer.resized = true;
 			}
 			eXo.portal.UIPortalNavigation.currentOpenedMenu = menuItemContainer.id;
 			

@@ -114,7 +114,7 @@
 							           		arrowIcon = "DropDownArrowIcon";
 										     }
 						           %>
-		                   	<div class="$arrowIcon"><a href="$actionLink" onclick="return false;">$node.label</a></div>
+		                   	<div class="$arrowIcon"><a href="$actionLink">$node.label</a></div><!--  onclick="return false;" -->
 		                   </div>
 		                 </div>
 		               </div>
