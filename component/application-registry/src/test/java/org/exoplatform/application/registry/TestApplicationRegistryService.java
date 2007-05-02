@@ -32,7 +32,6 @@ public class TestApplicationRegistryService extends BasicTestCase {
     assertNotNull(service_) ;
     assertAppCategoryOperator() ;
     assertApplicationOperator() ;
-    System.out.println("\n\n\n\n");
   }
   
   void assertAppCategoryOperator() throws Exception {
@@ -111,16 +110,13 @@ public class TestApplicationRegistryService extends BasicTestCase {
     for(String appName : appNames) {
       Application app = creatApplication(appName) ;
       service_.save(appCategory, app) ;
-      System.out.println("\n\n\n======================>Save app: " + app.getId());
     }
     
-    //!!! Save duplicate but not throw Exception.
     for(String appName : appNames) {
       Application app = creatApplication(appName) ;
       service_.save(appCategory, app) ;
     }
 
-    
     List<Application> apps = service_.getApplications(appCategory) ;
     assertEquals(2, apps.size()) ;
     assertEquals(appNames[0], apps.get(0).getApplicationName()) ;
@@ -131,18 +127,17 @@ public class TestApplicationRegistryService extends BasicTestCase {
       String appId = categoryName + "/" + appName ;
       Application app = service_.getApplication(appId) ;
       assertEquals(appName, app.getApplicationName()) ;
-      
     }
-    //TODO: service can't remove app
+
     for (Application app : apps) {
-      System.out.println("\n\n\n=====================>Remove app: " + app.getId());
       service_.remove(app) ;
     }
-    //!!! After remove: size of apps no change
+    
     List<Application> apps2 = service_.getApplications(appCategory) ;
     assertEquals(0, apps2.size()) ;
   }
-  
+
+  //write test code for update application and application category 
   void assertApplicationUpdate() throws Exception {
   }
    

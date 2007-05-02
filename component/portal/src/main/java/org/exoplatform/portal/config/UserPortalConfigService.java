@@ -165,7 +165,6 @@ public class UserPortalConfigService {
     if (navigation != null) remove(navigation);
   }
   
-  
   /**
    * This method should create or update the PortalConfig  object
    * @param config
