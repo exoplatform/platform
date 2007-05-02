@@ -193,32 +193,6 @@
   </portlet> 
   
   <portlet>
-    <description xml:lang="EN">Welcome Portlet</description>
-    <portlet-name>WelcomePortlet</portlet-name>
-    <display-name xml:lang="EN">Welcome Portlet</display-name>
-    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
-    
-    <init-param>
-      <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/web/WelcomePortlet/webui/configuration.xml</value>
-    </init-param>    
-
-    <expiration-cache>0</expiration-cache>
-    <supports>
-      <mime-type>text/html</mime-type>
-      <portlet-mode>help</portlet-mode>
-    </supports>
-    <supported-locale>en</supported-locale>
-    <resource-bundle>locale.portlet.portal.WelcomePortlet</resource-bundle>
-    
-    <portlet-info>
-      <title>Welcome Portlet</title>
-      <short-title>Welcome Portlet</short-title>
-      <keywords>welcome</keywords>
-    </portlet-info>
-  </portlet>  
-  
-  <portlet>
     <description xml:lang="EN">SiteMap Portlet</description>
     <portlet-name>SiteMapPortlet</portlet-name>
     <display-name xml:lang="EN">Site Map Portlet</display-name>
