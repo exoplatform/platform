@@ -11,8 +11,8 @@
 
 .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
 	float: left;
-  margin: 5px 2px 5px 2px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/SmallGroup.gif') no-repeat;
+  margin: 4px 2px 5px 2px ;
+  background: url('/eXoResources/icons/24x24/VistaSkin/SelectedGroup.png') no-repeat;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .RightBlackGridArrow16x16Icon {
