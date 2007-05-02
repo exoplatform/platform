@@ -39,7 +39,6 @@
 .UIHorizontalTabs .UITab .NormalNavigationTab .LeftTab {
   line-height: 24px;
   padding-left: 2px;
-  float: left;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .RightTab {
@@ -54,18 +53,18 @@
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
   color: white;
-  width:auto;
   line-height: 24px;
-  padding-left:20px;
+  padding: 0px 5px 0px 20px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
   color: white;
+  margin-right: 2px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
   padding-right: 20px;
-  background: url(/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow.gif) no-repeat right;
+  background: url(/eXoResources/icons/16x16/DefaultSkin/NormalDropDownArrow.gif) no-repeat right;
   cursor: pointer;
 }
 
@@ -80,7 +79,6 @@
   line-height: 24px; 
   background: url('DefaultSkin/background/LeftHighlightNav2x24.gif') no-repeat left;
   padding-left: 2px;
-  float: left;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .RightTab {
@@ -97,19 +95,19 @@
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
   color: white;
-  width:auto;
   line-height: 24px;
-  padding-left:20px;
+  padding: 0px 5px 0px 20px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
   color: white;
   height:24px;
+  margin-right: 2px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {
   padding-right: 20px;
-  background: url(/eXoResources/icons/16x16/DefaultSkin/BlackArrowDown.gif) no-repeat right;
+  background: url(/eXoResources/icons/16x16/DefaultSkin/HighlightDropDownArrow.gif) no-repeat right;
   cursor: pointer;
 }
 
@@ -124,7 +122,6 @@
   line-height: 24px; 
   background: url('DefaultSkin/background/LeftSelectedNav2x24.gif') no-repeat left;
   padding-left: 2px;
-  float: left;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .RightTab {
@@ -141,18 +138,18 @@
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
   color: white;
-  width:auto;
   line-height: 24px;
-  padding-left:20px;
+  padding: 0px 5px 0px 20px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab a {
   color: black;
+  margin-right: 2px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {
   padding-right: 20px;
-  background: url(/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow.gif) no-repeat right;
+  background: url(/eXoResources/icons/16x16/DefaultSkin/HighlightDropDownArrow.gif) no-repeat right;
   cursor: pointer;
 }
 

@@ -1,5 +1,5 @@
 .UIHorizontalTabs {
-  width: auto;
+
 }
 
 .UIHorizontalTabs .LeftHorizontalTabs{
@@ -22,7 +22,7 @@
 .UIHorizontalTabs .TabsContainer {
   overflow: hidden;
   margin-left: 10px;
-  width: 99.7%;
+
 }
 
 .UIHorizontalTabs .PreviousTabButton  {
@@ -42,121 +42,129 @@
 
 .UIHorizontalTabs .UITab {
   float: left;
-  font-size: 11px;
   text-align: center;
 }
 
 /*###########################--NavigationTabTab--############################*/
-
-
 .UIHorizontalTabs .UITab .NormalNavigationTab {
-  line-height: 24px;
-  margin-top: 8px;
-  font-size: 12px;
+  line-height: 24px; 
+  margin-top: 8px; 
+  margin-left: 1px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .LeftTab {
-  padding-left: 6px;
   line-height: 24px;
+  padding-left: 6px;
   background: url('MacSkin/background/LeftNormalTab6x24.png') no-repeat left;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .RightTab {
-  line-height: 24px;
+  line-height: 24px; 
   padding-right: 6px;
   background: url('MacSkin/background/RightNormalTab6x24.png') no-repeat right;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
-  line-height: 24px;
+  line-height: 24px; height: 24px;
   background: url('MacSkin/background/MiddleNormalTab1x24.png') repeat-x;
-  cursor: pointer;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
+  line-height: 20px;
+  padding: 3px 0px 0px 20px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
   color: #2d2d2d;
-  text-decoration: none;
-  margin: 0px 7px 0px 3px;
+  margin-right: 2px;
 }
 
-.UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
-  float: left;
-  margin: 3px 2px 0px 2px;
+.UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
+  padding-right: 20px;
+  background: url(/eXoResources/icons/16x16/MacSkin/NormalDropDownArrow.gif) no-repeat right;
+  cursor: pointer;
 }
 
-/*###############-Hightlight Navigation Tab-################*/
+/*###############-Hightlight Navigation Tab  -################*/
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab {
-  line-height: 24px;
-  margin-top: 8px;
-  font-size: 12px;
+  line-height: 24px; 
+  margin-top: 8px; 
+  margin-left: 1px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
-  padding-left: 6px;
-  line-height: 24px;
+  line-height: 24px; 
   background: url('MacSkin/background/LeftHighlightTab6x24.png') no-repeat left;
+  padding-left: 6px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .RightTab {
-  line-height: 24px;
-  padding-right: 6px;
+  line-height: 24px; 
   background: url('MacSkin/background/RightHighlightTab6x24.png') no-repeat right;
+  padding-right: 6px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
-  line-height: 24px;
+  line-height: 24px; height: 24px;
   background: url('MacSkin/background/MiddleHighlightTab1x24.png') repeat-x;
-  cursor: pointer;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
+  padding: 3px 0px 0px 20px;
+  line-height: 20px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
   color: #0f33c6;
-  text-decoration: none;
-  margin: 0px 7px 0px 3px;
+  margin-right: 2px;
 }
 
-.UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
-  float: left;
-  margin: 3px 2px 0px 2px;
+.UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {
+  padding-right: 20px;
+  background: url(/eXoResources/icons/16x16/MacSkin/HighlightDropDownArrow.gif) no-repeat right;
+  cursor: pointer;
 }
-
 
 /*###############-Selected Navigation Tab-################*/
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab {
-  line-height: 24px;
+  line-height: 24px; 
   margin-top: 8px; 
-  font-size: 12px;
+  margin-left: 1px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
-  padding-left: 6px;
-  line-height: 24px;
+  line-height: 24px; 
   background: url('MacSkin/background/LeftSelectedTab6x24.png') no-repeat left;
+  padding-left: 6px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .RightTab {
-  line-height: 24px;
-  padding-right: 6px;
+  line-height: 24px; 
   background: url('MacSkin/background/RightSelectedTab6x24.png') no-repeat right;
+  padding-right: 6px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
-  line-height: 24px;
+  line-height: 24px; height: 24px;
   background: url('MacSkin/background/MiddleSelectedTab1x24.png') repeat-x;
-  cursor: pointer;
-}
-
-.UIHorizontalTabs .UITab .SelectedNavigationTab a {
-  color: #2d2c2c;
-  text-decoration: none;
-  margin: 0px 7px 0px 3px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
-  float: left;
-  margin: 3px 2px 0px 2px;
+  color: white;
+  line-height: 20px;
+  padding: 3px 0px 0px 20px;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab a {
+  margin-right: 2px;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {
+  padding-right: 20px;
+  background: url(/eXoResources/icons/16x16/MacSkin/HighlightDropDownArrow.gif) no-repeat right;
+  cursor: pointer;
 }
 
 /*###########################--NormalTab--############################*/

@@ -45,7 +45,7 @@
 }
 
 .UIAction .ActionButton .NormalStyle .ButtonMiddle {
-  height: 22px;
+  line-height: 22px;
 	background: url('DefaultSkin/background/MiddleNormalStyleButton1x22.gif') repeat-x;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
- 	height: 22px; text-align: center; 
+ 	line-height: 22px; text-align: center; 
 	background: url('DefaultSkin/background/MiddleLightStyleButton1x22.gif') repeat-x;
 }
 
