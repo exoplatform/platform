@@ -1,18 +1,13 @@
 .UIPageIterator {    
-  width: 450px ;  height: 22px ;
-  font-size: 11px ;
-  margin-top: 4px ;
-  margin-left: auto ;
-  border: 1px solid #9d9d9d;
-  background: url('VistaSkin/background/PageIteratorBG1x22.png') repeat-x ;
+  margin-top: 3px ;
+  width: 99%;  
 }
 
 .UIPageIterator .PageIteratorContainer {    
-  border-right: 1px solid white ;
   float: right ;
   line-height: 22px ;  vertical-align: middle ;
-  height: 22px ;
   padding: 0px 10px 0px 15px ;
+  overflow: hidden;
 }
 
 .UIPageIterator .PageIteratorContainer .LeftPageIteratorBlock{    
@@ -26,8 +21,8 @@
 
 .UIPageIterator .Icon {
   float: left ;
-  width: 18px ;  height: 18px ;
-  margin: 2px 5px 0px 7px ;
+  width: 20px ;  height: 20px ;
+  margin: 2px 3px 0px 0px ;
 }
 
 .UIPageIterator .TotalPages {
@@ -43,55 +38,46 @@
   margin-left: 5px;
 }
 
-.UIPageIterator .RefreshIcon {
-  margin: 2px 10px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/Refresh.gif') no-repeat ;
-  line-height: 16px ;
-  vertical-align: middle ;
-  cursor: pointer ;
-}
-
 .UIPageIterator .LastTopPageIcon {
-  vertical-align: middle ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/ArrowLeft.png') no-repeat ;
+  background: url('VistaSkin/background/DoubleBackArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .NextTopPageIcon {
-  vertical-align: middle ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/ArrowRight.png') no-repeat ;
+  background: url('VistaSkin/background/DoubleNextArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .LastPageIcon {
-  vertical-align: middle ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/ArrowLeftPage.png') no-repeat ;
+  background: url('VistaSkin/background/SingleBackArrow.gif') no-repeat ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .NextPageIcon {
-  vertical-align: middle ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/ArrowRightPage.png') no-repeat ;
+  background: url('VistaSkin/background/SingleNextArrow.gif') no-repeat ;
   cursor: pointer ;
 }
 
-.UIPageIterator .Text {
-  padding-left: 10px ; 
-}
+
 .UIPageIterator .Number {
   float: left ;
   padding: 0px 4px 0px 4px ;
-  color: red ;
+  margin: 0px 6px 0px 3px;
 }
 
 .UIPageIterator .Number a.PageSelected {
-  color: black ;
+  color: #f16701;
+  font-weight: bold;
+  border: none;
+  border: 1px solid #dfdfdf;
+  padding: 0px 4px 3px 4px;
 }
 
 .UIPageIterator .Number a {
-  margin: 0px 3px 0px 3px ;
-  color: red ;
-  font-weight: bold;
+  padding: 1px 4px 3px 4px;
+  color: #333333 ;
+  border: 1px solid #dfdfdf;
+  background: white;
 }
 
 .UIPageIterator .Number a:hover {
@@ -99,3 +85,5 @@
   border: 1px solid #b6b6b6;
   background: white;
 }
+
+

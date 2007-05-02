@@ -166,6 +166,8 @@
 .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid {
   border: 1px solid #7eaad0;
   border-right: none;
+  margin-left: 1px;
+  width: 99.7%;
 }
 
 .UIPortletRegistryPortlet .UIGrid input {
@@ -208,7 +210,6 @@
 
 .UIPortletRegistryPortlet .UIForm .HorizontalLayout .FieldContainer {
 	padding: 2px 0px;
-	overflow: visible;
 	width: auto;
 }
 
