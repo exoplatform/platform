@@ -56,7 +56,7 @@ public class PortalDataModelUtil {
     toComponent(model, uiPortalComponent);
     List<UIComponent> children  = uiPortalComponent.getChildren();
     if(children == null)  return ;
-    ArrayList<Component>  newChildren= new ArrayList<Component>();
+    ArrayList<Component>  newChildren = new ArrayList<Component>();
     for(UIComponent child : children){ 
       Component component = buildChild(child);
       if(component != null) newChildren.add(component);
