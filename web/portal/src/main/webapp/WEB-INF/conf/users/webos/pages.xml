@@ -19,7 +19,13 @@
     <application>
       <factory-id>eXoApplication</factory-id>
       <title>eXo Browser</title>
-      <application-instance-id>webos:/eXoApplicationWeb/eXoBrowser/eXoBrowser</application-instance-id>
+      <application-instance-id>webos:/exo.app.web/eXoBrowser/eXoBrowser</application-instance-id>
+    </application>
+
+    <application>
+      <factory-id>eXoApplication</factory-id>
+      <title>eXo Console</title>
+      <application-instance-id>webos:/exo.app.web/eXoConsole/eXoConsole</application-instance-id>
     </application>
   </page>
 

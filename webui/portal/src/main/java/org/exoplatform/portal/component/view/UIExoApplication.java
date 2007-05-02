@@ -39,15 +39,15 @@ public class UIExoApplication extends UIPortalComponent {
   private String applicationInstanceUniqueId_ ;
   
   public UIExoApplication(){
-    System.out.print("\n\nCreate UIExoApplication Component\n\n") ;
   }
 
   public void init() throws Exception { 
     PortalContainer pcontainer = PortalContainer.getInstance() ;
     WebAppController controller = 
       (WebAppController)pcontainer.getComponentInstanceOfType(WebAppController.class) ;
-    application_ = controller.getApplication("") ;
-    System.out.print("\n\nInit UIExoApplication Component\n\n") ;
+    application_ = controller.getApplication(applicationGroup_ + "/" + applicationName_) ;
+    System.out.println(applicationGroup_ + "/" + applicationName_ + " ==> " + application_);
+    System.out.println("\n\nInit UIExoApplication Component\n\n") ;
   }
   
   public String getApplicationInstanceId() { return applicationInstanceId_ ; }

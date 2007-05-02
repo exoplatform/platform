@@ -269,6 +269,7 @@ public class PortalDataModelUtil {
       } else if(factoryId.equals(Application.EXO_APPLICATION_TYPE)) {
         UIExoApplication uiExoApp = 
           uiParent.createUIComponent(context, UIExoApplication.class, null, null);
+        toUIExoApplication(uiExoApp, application) ;
         uiExoApp.init() ;
         uiComponent = uiExoApp ;
       }
