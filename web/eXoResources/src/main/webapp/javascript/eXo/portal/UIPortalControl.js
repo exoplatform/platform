@@ -31,7 +31,7 @@ UIPortalControl.prototype.showHiddenContent = function(selectedElement) {
 };
 
 /*For Navigation Tree*/
-UIPortalControl.prototype.collapseTree = function (selectedElement ) {
+UIPortalControl.prototype.collapseTree = function(selectedElement ) {
   var DOMUtil = eXo.core.DOMUtil ;
   
   var parentNode = DOMUtil.findAncestorByClass(selectedElement, "Node");
@@ -44,6 +44,25 @@ UIPortalControl.prototype.collapseTree = function (selectedElement ) {
   parentNode.insertBefore(expandIcon, selectedElement);
   parentNode.removeChild(selectedElement);
   
-}
+};
+
+UIPortalControl.prototype.onKeyPress = function() {
+	document.body.onkeypress = eXo.portal.UIPortalControl.onEnterPress ;
+};
+
+UIPortalControl.prototype.onEnterPress = function(e) {
+	var uiPortalLoginFormAction = document.getElementById("UIPortalLoginFormAction");
+	
+	if(uiPortalLoginFormAction) {
+		var code;
+		if(!e) var e = window.event;
+		if(e.keyCode) code = e.keyCode;
+		else if (e.which) code = e.which;
+		
+		if(code == 13) {
+			window.location.href = uiPortalLoginFormAction.href ;
+		}
+	}
+};
 
 eXo.portal.UIPortalControl = new UIPortalControl();

@@ -1,3 +1,13 @@
+<%
+  import org.exoplatform.web.application.JavascriptManager;
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  
+  jsmanager.importJavascript('eXo.portal.UIPortalControl');
+  
+  jsmanager.addJavascript('eXo.portal.UIPortalControl.onKeyPress();') ;
+%>
+
 <div class="UILoginForm">
   <div class="LoginDecorator">
 	  <div class="TopLeftLoginDecorator">
@@ -42,8 +52,8 @@
 			          			<div class="SimpleStyle">
 			          				<div class="ButtonLeft">
 			          					<div class="ButtonRight">
-			          						<div class="ButtonMiddle">			          						 
-			          							<a href="<%=uicomponent.url("Signin");%>">
+			          						<div class="ButtonMiddle">
+			          							<a href="<%=uicomponent.url("Signin");%>" id="UIPortalLoginFormAction">
 			          								<%=_ctx.appRes("UILoginForm.label.Signin");%>
 			          						  </a>
 			          						</div>

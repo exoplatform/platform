@@ -41,6 +41,8 @@
   <head>
     <title>Login</title>
     <link rel='stylesheet' type='text/css' href='<%=contextPath%>/login/skin/Stylesheet.css' />
+    <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIPortalControl.js"></script>
   </head>
   <body style="text-align: center">
     <div class="UILoginPortlet">
@@ -70,7 +72,7 @@
 			              <div class="Button">
 			                <div class="ButtonLeft">
 			                  <div class="ButtonRight">
-			                    <div class="ButtonMiddle"><a href="javascript:login();">Login</a></div>
+			                    <div class="ButtonMiddle"><a href="javascript:login();" id="UIPortalLoginFormAction">Login</a></div>
 			                  </div>
 			                </div>
 			              </div>
@@ -104,5 +106,8 @@
       <%/*End LoginFooter*/%>
       <div class="CopyrightInfo">Copyright &copy; 2000-2006. Allrights Reserved eXo Platform SAS </div>
     </div>
+    <script type='text/javascript'>
+      eXo.portal.UIPortalControl.onKeyPress();
+    </script>
   </body>
 </html>
