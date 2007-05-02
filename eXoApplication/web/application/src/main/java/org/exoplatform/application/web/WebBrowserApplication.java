@@ -14,7 +14,7 @@ import org.exoplatform.application.eXoFramework.ExoFrameworkRequestContext;
  * Apr 23, 2007  
  */
 public class WebBrowserApplication extends ExoFrameworkApplication {
-  public String getApplicationId() { return "eXoApplicationWeb/eXoBrowser"; }
+  public String getApplicationId() { return "exo.app.web/eXoBrowser"; }
 
   public String getApplicationName() { return "eXoBrowser"; }
   
@@ -24,7 +24,7 @@ public class WebBrowserApplication extends ExoFrameworkApplication {
   
   public void processRender(ExoFrameworkRequestContext context) throws Exception {
     String script = 
-      "eXo.desktop.UIDesktop.createJSApplication('eXo.application.browser.UIBrowserApplication','eXoBrowser');";
+      "eXo.desktop.UIDesktop.createJSApplication('eXo.application.browser.UIBrowserApplication','eXoBrowser','eXoBrowser','/exo.app.web/javascript/');";
     context.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
 }

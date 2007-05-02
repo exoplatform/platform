@@ -11,5 +11,10 @@
       <set-method>addApplication</set-method>
       <type>org.exoplatform.application.web.WebBrowserApplication</type>
     </component-plugin>
+    <component-plugin> 
+      <name>add.application.eXoConsole</name>
+      <set-method>addApplication</set-method>
+      <type>org.exoplatform.application.console.ExoConsoleApplication</type>
+    </component-plugin>
   </external-component-plugins>  
 </configuration>
