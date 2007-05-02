@@ -9,7 +9,7 @@
   </widget-layout>
   
  	<portal-layout> 
-	  <application>
+		<application>
 	    <application-instance-id>site:/web/BannerPortlet/banner</application-instance-id>
 	    <show-info-bar>false</show-info-bar>
 	  </application>
