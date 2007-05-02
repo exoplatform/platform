@@ -34,14 +34,6 @@ import org.exoplatform.webui.event.Event.Phase;
         @ParamConfig(
             name = "IconSet16x16", 
             value = "app:/WEB-INF/conf/uiconf/webui/component/IconSet16x16.groovy"
-        ),
-        @ParamConfig(
-            name = "IconSet24x24", 
-            value = "app:/WEB-INF/conf/uiconf/webui/component/IconSet24x24.groovy"
-        ),
-        @ParamConfig(
-            name = "IconSet32x32", 
-            value = "app:/WEB-INF/conf/uiconf/webui/component/IconSet32x32.groovy"
         )
     }  
 )
