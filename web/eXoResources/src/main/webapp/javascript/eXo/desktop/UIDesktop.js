@@ -121,10 +121,16 @@ UIDesktop.prototype.addJSApplication = function(applicationNode) {
 	var uiPageDesktop = document.getElementById("UIPageDesktop");
 	var iconContainer = document.getElementById("IconContainer");
 	var windowsInDesktop = DOMUtil.findChildrenByClass(uiPageDesktop, "div", "UIWindow");
-	var lastElement = DOMUtil.findNextElementByTagName(windowsInDesktop[windowsInDesktop.length - 1], "div");
-	
+	var lastElement = null;
+	if(windowsInDesktop[windowsInDesktop.length - 1] != undefined) {
+		 lastElement = DOMUtil.findNextElementByTagName(windowsInDesktop[windowsInDesktop.length - 1], "div");
+	}	
 	/*Insert ApplicationNode To UIPageDesktop*/
-	uiPageDesktop.insertBefore(applicationNode, lastElement) ;
+	if(lastElement == null) {
+		uiPageDesktop.appendChild(applicationNode);
+	} else  {
+		uiPageDesktop.insertBefore(applicationNode, lastElement) ;
+	}
 	/*Get Application's Stylesheet*/
 	var styleId = appDescriptor.appId + "Stylesheet" ;
 	eXo.core.Skin.addSkin(styleId, appDescriptor.application.skin[eXo.env.client.skin]);

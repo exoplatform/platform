@@ -20,6 +20,7 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.config.PortalDAO;
+import org.exoplatform.portal.config.model.Component;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -106,6 +107,7 @@ public class UIPageActionListener {
       uiPage.removeChildById(id);  
       Page page = PortalDataModelUtil.toPageModel(uiPage);    
       PortalDAO configService = uiPage.getApplicationComponent(PortalDAO.class);
+      if(page.getChildren() == null) page.setChildren(new ArrayList<Component>());
       configService.savePage(page);
       
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();      
