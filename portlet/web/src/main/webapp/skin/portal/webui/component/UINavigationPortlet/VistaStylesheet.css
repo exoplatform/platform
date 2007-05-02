@@ -16,8 +16,16 @@
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
   line-height: 34px;
   background: url('VistaSkin/background/BgNomalNavTop1x34.png') repeat-x top;
+ 
+}
+.UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
+  float:none;
+  overflow: visible;
 }
 
+.UINavigationPortlet .UINavigationBar .UIHorizontalTabs .PageNodeIcon {
+  background: url('/eXoResources/icons/16x16/VistaSkin/DefaultPageIcon.png') no-repeat left;
+}
 /* Portal Navigation sub menus */
 
 .UINavigationPortlet .UINavigationBar .MenuItemContainer {
@@ -40,13 +48,11 @@
   height: 24px; width: auto;
   padding-left: 20px;
 }
-
 .UINavigationPortlet .MenuItemContainer .RightItemIcon {
   height: 24px; width: auto;
   padding-right: 20px;
   background: url('VistaSkin/background/GreyItemArrow.png') no-repeat right;
 }
-
 .UINavigationPortlet .MenuItemContainer .MenuItemLabel {
   line-height: 24px; 
   padding: 0px 3px;

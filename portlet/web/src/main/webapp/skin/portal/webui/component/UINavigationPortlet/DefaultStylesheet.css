@@ -131,6 +131,7 @@
   height: 24px; width: auto;
   padding-right: 20px;
   background: url('DefaultSkin/background/GreyItemArrow.gif') no-repeat right;
+
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem .ItemIcon {
