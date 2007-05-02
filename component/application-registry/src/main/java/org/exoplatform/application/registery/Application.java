@@ -18,7 +18,6 @@ public class Application {
   private String id;
   
   private String categoryName ;
-  private String aliasName;
   private String displayName;
   private String description;
   private Date createdDate;
@@ -34,9 +33,6 @@ public class Application {
   public String getId() { return id; }  
   public void setId(String id) { this.id = id; }
 
-  public String getAliasName() { return aliasName; }  
-  public void setAliasName(String name) { this.aliasName = name; }
-  
   public String getDisplayName() { return displayName; }  
   public void setDisplayName(String displayName) { this.displayName = displayName; }
   

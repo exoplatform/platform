@@ -152,7 +152,6 @@ public class TestApplicationRegistryService extends BasicTestCase {
   Application creatApplication(String appName) {
     Application app = new Application() ;
     app.setApplicationName(appName) ;
-    app.setAliasName(appName);
     app.setDisplayName(appName);
     return app ;
   }

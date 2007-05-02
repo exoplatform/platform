@@ -42,7 +42,7 @@ public class UIInfoPortletForm extends UIForm {
   private String name_;
   
   public UIInfoPortletForm() throws Exception {
-    addUIFormInput(new UIFormStringInput("aliasName", "aliasName", null).
+    addUIFormInput(new UIFormStringInput("applicationName", "applicationName", null).
                    addValidator(EmptyFieldValidator.class).
                    addValidator(NameValidator.class)) ;
     
@@ -63,7 +63,7 @@ public class UIInfoPortletForm extends UIForm {
 
   public void setValues(Application portlet) throws Exception {
     portlet_ = portlet;
-    getUIStringInput("aliasName").setEditable(false);
+    getUIStringInput("applicationName").setEditable(false);
     invokeGetBindingBean(portlet) ;
   }
 

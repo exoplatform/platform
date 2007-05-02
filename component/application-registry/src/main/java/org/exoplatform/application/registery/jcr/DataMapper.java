@@ -2,7 +2,7 @@
  * Copyright 2001-2007 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.application.registery;
+package org.exoplatform.application.registery.jcr;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -10,6 +10,9 @@ import java.util.List;
 
 import javax.jcr.Node;
 import javax.jcr.PropertyIterator;
+
+import org.exoplatform.application.registery.Application;
+import org.exoplatform.application.registery.ApplicationCategory;
 
 /**
  * Created by The eXo Platform SARL
@@ -22,7 +25,6 @@ class DataMapper {
   private final static String ID = "exo:id" ;
   private final static String NAME = "exo:name";
   private final static String DISPLAY_NAME = "exo:displayName";
-  private final static String ALIAS_NAME = "exo:aliasName";
   private final static String DESCRIPTION = "exo:description";
   private final static String CATEGORY_NAME = "exo:categoryName";
   
@@ -68,7 +70,6 @@ class DataMapper {
     Application application = new Application();
     if(!node.hasProperty(ID)) return null;
     application.setId(node.getProperty(ID).getString().trim());
-    application.setAliasName(node.getProperty(ALIAS_NAME).getString().trim());
     if(node.hasProperty(DISPLAY_NAME)) {
       application.setDisplayName(node.getProperty(DISPLAY_NAME).getString());
     }
@@ -76,15 +77,9 @@ class DataMapper {
       application.setDescription(node.getProperty(DESCRIPTION).getString());
     }
     application.setCategoryName(node.getProperty(CATEGORY_NAME).getString());
-    if(node.hasProperty(APPLICATION_NAME)) {
-      application.setApplicationName(node.getProperty(APPLICATION_NAME).getString());
-    }
-    if(node.hasProperty(APPLICATION_TYPE)) {
-      application.setApplicationType(node.getProperty(APPLICATION_TYPE).getString());
-    }
-    if(node.hasProperty(APPLICATION_GROUP)) {
-      application.setApplicationGroup(node.getProperty(APPLICATION_GROUP).getString());
-    }
+    application.setApplicationName(node.getProperty(APPLICATION_NAME).getString());
+    application.setApplicationType(node.getProperty(APPLICATION_TYPE).getString());
+    application.setApplicationGroup(node.getProperty(APPLICATION_GROUP).getString());
     
     if(node.hasProperty(ACCESS_GROUP)) {
       List<String> values = new ArrayList<String>();
@@ -105,7 +100,6 @@ class DataMapper {
 
   void applicationToNode(Application application, Node node) throws Exception {
     node.setProperty(ID, application.getId());
-    node.setProperty(ALIAS_NAME, application.getAliasName());
     node.setProperty(DISPLAY_NAME, application.getDisplayName());
     node.setProperty(DESCRIPTION, application.getDescription());
     node.setProperty(CATEGORY_NAME, application.getCategoryName());

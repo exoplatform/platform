@@ -40,7 +40,7 @@
 						<div class="UIVerticalSlideTabs">
 						<%
 							for(portlet in portletCategoryData.getPortlets()) {
-						    String name = uicomponent.removeStringPortlet(portlet.getAliasName()) ;
+						    String name = uicomponent.removeStringPortlet(portlet.getApplicationName()) ;
 						    String des = portlet.getDescription();
 						    if(des == null || des.equals("")) des = _ctx.appRes("UIPortletOptions.label.description");
 					  %>

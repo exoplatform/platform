@@ -3,7 +3,7 @@
  * Please look at license.txt in info directory for more license detail. 
  */
 
-package org.exoplatform.application.registery;
+package org.exoplatform.application.registery.jcr;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -14,6 +14,9 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Session;
 
+import org.exoplatform.application.registery.Application;
+import org.exoplatform.application.registery.ApplicationCategory;
+import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
@@ -24,7 +27,7 @@ import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
  * User: lebienthuy@gmail.com
  * Date: 3/7/2007
  */
-public class JCRApplicationRegisteryService implements ApplicationRegisteryService {
+public class ApplicationRegisteryServiceImpl implements ApplicationRegisteryService {
   
   private final static String SYSTEM_WS = "production".intern();
   private final static String REGISTRY = "registry";
@@ -38,7 +41,7 @@ public class JCRApplicationRegisteryService implements ApplicationRegisteryServi
   
   private DataMapper mapper = new DataMapper();
 
-  public JCRApplicationRegisteryService() {
+  public ApplicationRegisteryServiceImpl() {
   }
   
   public List<ApplicationCategory> getApplicationCategories() throws Exception {
@@ -105,7 +108,7 @@ public class JCRApplicationRegisteryService implements ApplicationRegisteryServi
   }
 
   public void save(ApplicationCategory category, Application application) throws Exception {
-    application.setId(category.getName() + "/" + application.getAliasName().replace(' ', '_'));
+    application.setId(category.getName() + "/" + application.getApplicationName().replace(' ', '_'));
     application.setCategoryName(category.getName());
     
     Node rootNode = getApplicationRegistryNode(true);
@@ -119,18 +122,18 @@ public class JCRApplicationRegisteryService implements ApplicationRegisteryServi
       getSession().save();
     }
     
-    if(categoryNode.hasNode(application.getAliasName())) {
+    if(categoryNode.hasNode(application.getApplicationName())) {
       update(application);
       return;
     }
-    Node portletNode = categoryNode.addNode(application.getAliasName(), APPLICATION_NODE_TYPE);
+    Node portletNode = categoryNode.addNode(application.getApplicationName(), APPLICATION_NODE_TYPE);
     mapper.applicationToNode(application, portletNode);
     categoryNode.save();
     getSession().save();
   }
 
   public void remove(Application application) throws Exception {
-    Node node = getApplicationNode(application.getCategoryName(), application.getAliasName());
+    Node node = getApplicationNode(application.getCategoryName(), application.getApplicationName());
     if(node == null) return ;
     Node categoryNode = node.getParent();
     node.remove();
@@ -139,7 +142,7 @@ public class JCRApplicationRegisteryService implements ApplicationRegisteryServi
   }
 
   public void update(Application application) throws Exception {
-    Node node = getApplicationNode(application.getCategoryName(), application.getAliasName());
+    Node node = getApplicationNode(application.getCategoryName(), application.getApplicationName());
     if(node == null) return ;
     mapper.applicationToNode(application, node);
     node.save();
@@ -175,10 +178,11 @@ public class JCRApplicationRegisteryService implements ApplicationRegisteryServi
       Node portletNode = getApplicationNode(category.getName(), portletName);
       if(portletNode != null)  continue;
       Application portlet = new Application();
+      portlet.setApplicationName(portletName);
+      portlet.setApplicationGroup(categoryName);
+      portlet.setApplicationType("jsr168-portlet");
+      portlet.setDescription("jsr168 portlet application");
       portlet.setDisplayName(portletName);
-      portlet.setAliasName(portletName);
-      portlet.setApplicationName(portletRuntimeData.getPortletAppName());
-      portlet.setApplicationType("portlet");
       save(category, portlet);
     }
   }

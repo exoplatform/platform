@@ -3,7 +3,7 @@
 
   <component>
     <key>org.exoplatform.application.registery.ApplicationRegisteryService</key>
-    <type>org.exoplatform.application.registery.JCRApplicationRegisteryService</type>
+    <type>org.exoplatform.application.registery.jcr.ApplicationRegisteryServiceImpl</type>
   </component>
   
   <external-component-plugins>

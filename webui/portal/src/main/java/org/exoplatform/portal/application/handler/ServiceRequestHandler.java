@@ -134,7 +134,7 @@ public class ServiceRequestHandler extends WebRequestHandler {
       appendIndentation(builder, indentLevel);
       builder.append('\'').append(portlet.getId()).append("' : {\n");
       appendIndentation(builder, indentLevel+1);
-      builder.append("'title' : ").append("'").append(portlet.getAliasName()).append("',\n");
+      builder.append("'title' : ").append("'").append(portlet.getApplicationName()).append("',\n");
       appendIndentation(builder, indentLevel+1);
       builder.append("'des' : ").append("'").append(portlet.getDescription()).append("'\n");
       appendIndentation(builder, indentLevel);
