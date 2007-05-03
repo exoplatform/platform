@@ -4,7 +4,7 @@ function CacheJSonService() {
 
 if(eXo.core.CacheJSonService == undefined){
   eXo.core.CacheJSonService = new CacheJSonService() ;
-}
+};
 
 CacheJSonService.prototype.getData = function(url, invalidCache) {		
   if(invalidCache){

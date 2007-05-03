@@ -313,6 +313,6 @@ UIDockbar.prototype.createApplicationTooltip = function(tooltip) {
 	appTooltip.innerHTML = tooltip ;
 	
 	return appTooltip ;
-}
+};
 
 eXo.desktop.UIDockbar = new UIDockbar() ;

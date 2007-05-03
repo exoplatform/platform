@@ -116,7 +116,7 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e) {
 			eXo.portal.UIPortalNavigation.hideMenuContainer();
 		}
 	}
-}
+};
 
 UIPortalNavigation.prototype.hideMenuContainer = function() {
 	var menuItemContainer = document.getElementById(eXo.portal.UIPortalNavigation.currentOpenedMenu);
@@ -127,7 +127,7 @@ UIPortalNavigation.prototype.hideMenuContainer = function() {
 		eXo.portal.UIPortalNavigation.superClass.hide(menuItemContainer);
 		eXo.portal.UIPortalNavigation.currentOpenedMenu = null;
 	}
-}
+};
 
 UIPortalNavigation.prototype.hideMenu = function() {
 	if (eXo.portal.UIPortalNavigation.currentOpenedMenu) {
@@ -136,7 +136,7 @@ UIPortalNavigation.prototype.hideMenu = function() {
 		eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(tab, false);
 	}
 	eXo.portal.UIPortalNavigation.hideMenuContainer();
-}
+};
 
 UIPortalNavigation.prototype.onMenuItemOver = function(e) {
 	var menuItem = this;

@@ -76,6 +76,6 @@ TemplateEngine.prototype.compile = function(template) {
   }
   script  += 'eXo.core.TemplateEngine.currentResult = result ;' ;
   return script ;
-}
+};
 
 eXo.core.TemplateEngine = new TemplateEngine() ;

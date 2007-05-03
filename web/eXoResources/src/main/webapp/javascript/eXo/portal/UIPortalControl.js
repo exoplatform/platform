@@ -52,23 +52,25 @@ UIPortalControl.prototype.fixHeight = function() {
 	var uiWorkspaceContainer = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
 	if(uiWorkspaceContainer.style.display == "block") {
 		var scrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
-		var jsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
-		var maxHeight = objectParent.offsetHeight - 205 ;
-		scrollArea.style.height = "auto";
-		scrollArea.style.width = "auto";
-		jsContainer.style.width = "auto";
-		var heightChild = scrollArea.offsetHeight;
-		if(maxHeight > 0) {
-			if(heightChild > maxHeight) {
-					scrollArea.style.overflow = "auto";
-					scrollArea.style.height = maxHeight + "px";
-					scrollArea.style.width = 204 + "px";
-					jsContainer.style.width = 224 + "px";
-					jsContainer.style.visibility = "visible";
+		if(scrollArea != null) {
+			var jsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
+			var maxHeight = objectParent.offsetHeight - 205 ;
+			scrollArea.style.height = "auto";
+			scrollArea.style.width = "auto";
+			jsContainer.style.width = "auto";
+			var heightChild = scrollArea.offsetHeight;
+			if(maxHeight > 0) {
+				if(heightChild > maxHeight) {
+						scrollArea.style.overflow = "auto";
+						scrollArea.style.height = maxHeight + "px";
+						scrollArea.style.width = 204 + "px";
+						jsContainer.style.width = 224 + "px";
+						jsContainer.style.visibility = "visible";
+				}
+			} else {
+			  scrollArea.style.overflow = "hidden";
+				scrollArea.style.height = 1 + "px";
 			}
-		} else {
-		  scrollArea.style.overflow = "hidden";
-			scrollArea.style.height = 1 + "px";
 		}
 	}
 } ;

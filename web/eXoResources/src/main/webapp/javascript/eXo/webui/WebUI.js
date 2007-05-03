@@ -21,6 +21,6 @@ WebUI.prototype.fixHeight = function(elemt, targetElemt) {
 		//children[0].style.width = children[0].offsetWidth ;
 		elemt.style.height = elemtHeight + "px" ;
 	}
-}
+};
 
 eXo.webui.WebUI = new WebUI() ;

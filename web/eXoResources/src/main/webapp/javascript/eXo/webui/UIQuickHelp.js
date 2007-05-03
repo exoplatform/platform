@@ -72,6 +72,6 @@ UIQuickHelp.prototype.changeButtonStatus = function(quickHelpElemt, pageNumber, 
 	} else {
 		forwardButton.className = "ForwardButton GrayNextArrow16x16Icon";
 	}
-}
+};
 
 eXo.webui.UIQuickHelp = new UIQuickHelp();

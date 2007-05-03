@@ -29,7 +29,7 @@ UIHorizontalTabs.prototype.itemOver = function(selectedElement, over) {
 	} else {
 		selectedElement.className = this.backupItemStyle ;
 	}
-}
+};
 
 UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
 	var DOMUtil = eXo.core.DOMUtil;
@@ -63,6 +63,6 @@ UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
 UIHorizontalTabs.prototype.changeTabForUIFormTabpane = function(clickedElemt, formId, hiddenValue) {
 	this.displayTabContent(clickedElemt) ;
 	eXo.webui.UIForm.setHiddenValue(formId, 'currentSelectedTab', hiddenValue) ;
-}
+};
 
 eXo.webui.UIHorizontalTabs = new UIHorizontalTabs();

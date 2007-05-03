@@ -111,7 +111,7 @@ UIUpload.prototype.abortUpload = function(id) {
    
   var  input = parent.document.getElementById('input' + id);
   input.value = "false";
-}
+};
 
 UIUpload.prototype.deleteUpload = function(id) {
   var url = eXo.env.server.context + "/upload?uploadId=" +id+"&action=delete" ;

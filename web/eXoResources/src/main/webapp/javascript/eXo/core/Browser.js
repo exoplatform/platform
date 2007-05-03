@@ -66,7 +66,8 @@ Browser.prototype.initCommon = function() {
   this.getBrowserHeight = function() { return document.documentElement.clientHeight ; } ;
   this.getBrowserWidth = function() { return document.documentElement.clientWidth ; } ;
   this.createHttpRequest = function() { return new XMLHttpRequest() ; } ;
-}
+};
+
 Browser.prototype.initIE = function() {
   this.browserType = "ie" ;
   this.createHttpRequest = function() {
@@ -78,14 +79,14 @@ Browser.prototype.initIE = function() {
   } ;
   this.setOpacity = function(component, value) { component.style.filter = "alpha(opacity=" + value + ")" ; } ; 
   this.getEventSource = function(e) { return window.event.srcElement; };
-}
+};
 
 Browser.prototype.initMozilla = function() {
   this.browserType = "mozilla" ;
   this.eventListener = function(object, event, operation) { object.addEventListener(event, operation, false) ; } ;
   this.setOpacity = function(component, value) { component.style.opacity = value/100 ; } ;
   this.getEventSource = function(e) { return e.target; };
-}
+};
 
 Browser.prototype.initSafari = function() {
   this.browserType = "safari" ;
@@ -98,7 +99,7 @@ Browser.prototype.initSafari = function() {
   	if (targ.nodeType == 3) targ = targ.parentNode;
   	return targ;
   };
-}
+};
 
 Browser.prototype.initOpera = function() {
   this.browserType = "opera" ;
@@ -108,13 +109,13 @@ Browser.prototype.initOpera = function() {
   this.getBrowserWidth = function() {
     return document.body.clientWidth ;
   } ;
-}
+};
 
 Browser.prototype.isIE6 = function() {
   if(typeof document.body.style.maxHeight == "undefined") {
     return true ;
   }
-}
+};
 
 Browser.prototype.findMouseXInClient = function(e) {
   if (!e) var e = window.event;
@@ -128,7 +129,7 @@ Browser.prototype.findMouseYInClient = function(e) {
 
 Browser.prototype.addOnLoadCallback = function(id, method) {
   this.onLoadCallback.put(id, method) ;
-}
+};
 
 Browser.prototype.onLoad = function() {
   var callback = eXo.core.Browser.onLoadCallback ;
@@ -137,11 +138,11 @@ Browser.prototype.onLoad = function() {
     method() ;
   }
   this.onLoadCallback = new eXo.core.HashMap();
-}
+};
 
 Browser.prototype.addOnResizeCallback = function(id, method) {
   this.onResizeCallback.put(id, method) ;
-}
+};
 
 Browser.prototype.onResize = function(event) {
   var callback = eXo.core.Browser.onResizeCallback ;
@@ -149,11 +150,11 @@ Browser.prototype.onResize = function(event) {
     var method = callback.get(name) ;
     method(event) ;
   }
-}
+};
 
 Browser.prototype.addOnScrollCallback = function(id, method) {
   this.onScrollCallback.put(id, method) ;
-}
+};
 
 Browser.prototype.onScroll = function(event) {
   var callback = eXo.core.Browser.onScrollCallback ;
@@ -161,7 +162,7 @@ Browser.prototype.onScroll = function(event) {
     var method = callback.get(name) ;
     method(event) ;
   }
-}
+};
 /************************************TO BROWSER PAGE CLASS************************************************/
 Browser.prototype.getBrowserType = function() {  
   return this.browserType ;

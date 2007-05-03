@@ -122,7 +122,7 @@ UIExoStartMenu.prototype.showMenuItemContainer = function(menuItem, menuItemCont
 		y -= (menuItemContainer.offsetHeight - menuItem.offsetHeight);
 	}
 	this.superClass.setPosition(menuItemContainer, x, y);
-}
+};
 
 UIExoStartMenu.prototype.onMenuItemOut = function(e) {
 	var menuItem = this;

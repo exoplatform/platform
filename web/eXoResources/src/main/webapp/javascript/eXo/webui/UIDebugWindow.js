@@ -2,7 +2,7 @@ eXo.require('eXo.webui.UIPopupWindow');
 
 function UIDebugWindow() {
 	this.numberOfMessage = 0 ;
-}
+};
 
 UIDebugWindow.prototype.getDebugWindow = function() {
 	var debugWindow = document.getElementById('debugMessage');
@@ -48,20 +48,20 @@ UIDebugWindow.prototype.getDebugWindow = function() {
 	eXo.webui.UIPopupWindow.show('debugMessage');
 	eXo.webui.UIPopupWindow.setPosition('debugMessage', 2);
 	return debugWindow;
-}
+};
 
 UIDebugWindow.prototype.appendMessage = function(objText) {
 	this.numberOfMessage += 1 ;
 	var  debugWindow =  this.getDebugWindow() ;
 	var debugObj = eXo.core.DOMUtil.findFirstDescendantByClass(debugWindow, 'div' ,'DebugMessage');
 	debugObj.innerHTML += "<div>" + this.numberOfMessage + ") "+ objText + "</div>" ;
-}
+};
 
 UIDebugWindow.prototype.clearMessage = function() {
 	this.numberOfMessage = 0 ;
 	var  debugWindow =  this.getDebugWindow() ;
 	var debugObj = eXo.core.DOMUtil.findFirstDescendantByClass(debugWindow, 'div' ,'DebugMessage');
 	debugObj.innerHTML = '';
-}
+};
 
 eXo.webui.UIDebugWindow = new UIDebugWindow();

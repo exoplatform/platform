@@ -20,7 +20,7 @@ DragDropEvent.prototype.update = function(foundTargetObject, junkMove) {
 
 DragDropEvent.prototype.isJunkMove = function() {
   return this.junkMove ;
-}
+};
 
 /*************************************************************************************/
 

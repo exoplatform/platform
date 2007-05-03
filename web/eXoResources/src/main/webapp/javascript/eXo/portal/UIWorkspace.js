@@ -2,14 +2,14 @@ function UIWorkspace(id) {
   this.id = id ;
   this.showControlWorkspace = false ;
   this.isFirstTime = true ;
-}
+};
 
 if(eXo.portal.Workspace == undefined) {
   eXo.portal.Workspace = new UIWorkspace("UIWorkspace") ;
-}
+};
 if(eXo.portal.UIControlWorkspace == undefined) {
   eXo.portal.UIControlWorkspace = new UIWorkspace("UIControlWorkspace") ;
-}
+};
 
 eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 	this.width = width ;

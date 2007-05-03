@@ -2,7 +2,7 @@ eXo.require('eXo.webui.UIPopupSelectCategory');
 
 function UIConfigOptions() {
 	this.numberOfMessage = 0 ;
-}
+};
 
 UIConfigOptions.prototype.init = function() {	
 	var DOMUtil = eXo.core.DOMUtil ;
@@ -18,6 +18,6 @@ UIConfigOptions.prototype.init = function() {
 	  }
   }
 
-}
+};
 
 eXo.webui.UIConfigOptions = new UIConfigOptions();

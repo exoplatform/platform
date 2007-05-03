@@ -55,7 +55,7 @@ Array.prototype.insertAt = function (what, iIndex) {
   } else {
     this.push(what);
   }
-}
+};
 
 Array.prototype.pushAll = function (array) {
 	if (array != null) {
@@ -63,7 +63,7 @@ Array.prototype.pushAll = function (array) {
 			this.push(array[i]);
 		}
 	}
-}
+};
 
 /*************************************************************************/
 function  HashMap() { 

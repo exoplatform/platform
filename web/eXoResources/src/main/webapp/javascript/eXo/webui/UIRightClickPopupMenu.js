@@ -33,7 +33,7 @@ UIRightClickPopupMenu.prototype.disableContextMenu = function(comp) {
 	comp.onmouseout = function() {
 		document.body.oncontextmenu = new Function("return true;") ;
 	}
-}
+};
 
 UIRightClickPopupMenu.prototype.prepareObjectId = function(elemt) {
 	var aTag = elemt.getElementsByTagName('a') ;
@@ -80,5 +80,6 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 	}
 	contextMenu.style.top = intTop + "px";
 	contextMenu.style.left = intLeft + "px";
-}
+};
+
 eXo.webui.UIRightClickPopupMenu = new UIRightClickPopupMenu() ;
