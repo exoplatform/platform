@@ -24,7 +24,6 @@ public class DataStorageImpl implements DataStorage {
   final private static String NT_FOLDER_TYPE = "nt:folder" ;
   final private static String EXO_DATA_TYPE = "exo:data" ;
 
-  final private static String EXO_DATA = "exo:data" ;
   final private static String PORTAL = "portal" ;
 
   final private static String WORKSPACE = "production" ;
@@ -201,8 +200,8 @@ public class DataStorageImpl implements DataStorage {
       Node node = session.getRootNode().getNode(USER_DATA).getNode(HOME);
       if(!node.hasNode(ownerId)) return null;
       node = node.getNode(ownerId);
-      if(!node.hasNode(EXO_DATA)) return null;
-      node = node.getNode(EXO_DATA);
+      if(!node.hasNode(EXO_DATA_TYPE)) return null;
+      node = node.getNode(EXO_DATA_TYPE);
       if(node.hasNode(PORTAL)) return node.getNode(PORTAL);
       return null;
     } 
@@ -214,8 +213,8 @@ public class DataStorageImpl implements DataStorage {
         if(!node.hasNode(group)) return null;
         node = node.getNode(group);
       }
-      if(!node.hasNode(EXO_DATA)) return null;
-      node = node.getNode(EXO_DATA);
+      if(!node.hasNode(EXO_DATA_TYPE)) return null;
+      node = node.getNode(EXO_DATA_TYPE);
       if(node.hasNode(PORTAL)) return node.getNode(PORTAL);
     }
     
@@ -229,7 +228,7 @@ public class DataStorageImpl implements DataStorage {
     
     if(ownerType.equals(USER_TYPE)){
       Node portalNode = create(session.getRootNode().getNode(USER_DATA).getNode(HOME), ownerId);
-      return create(create(portalNode, EXO_DATA), PORTAL);
+      return create(create(portalNode, EXO_DATA_TYPE), PORTAL);
     }
     
     if(ownerType.equals(GROUP_TYPE)){
@@ -239,7 +238,7 @@ public class DataStorageImpl implements DataStorage {
         if(group.trim().length() < 1) continue;
         portalNode = create(portalNode, group);
       }
-      return create(create(portalNode, EXO_DATA), PORTAL);
+      return create(create(portalNode, EXO_DATA_TYPE), PORTAL);
     }
     
     return null;

@@ -2,13 +2,13 @@
 <portal-config decorator="exo" width="100%" height="100%">
   <portal-name>portalone</portal-name>
   <locale>en</locale>
-  <access-group>*:/guest</access-group>
+  <access-groups>*:/guest</access-groups>
   
   <widget-layout>
     <container>
       <application>
-        <factory-id>widget</factory-id>
-        <application-instance-id>exo:/widget/info</application-instance-id>
+        <instance-id>exo:/widget/info</instance-id>
+        <application-type>widget</application-type>
         <show-info-bar>false</show-info-bar>
         <show-application-state>false</show-application-state>
         <show-application-mode>false</show-application-mode>
@@ -18,49 +18,49 @@
 
 	<portal-layout>
 	  <application>
-		  <factory-id>portlet</factory-id>
-	    <application-instance-id>exo:/content/DisplayStaticContent/banner</application-instance-id>
+	    <instance-id>exo:/content/DisplayStaticContent/banner</instance-id>	  
+		  <application-type>portlet</application-type>
 	    <show-info-bar>false</show-info-bar>
 	  </application>
 	
 	  <application>
-		  <factory-id>portlet</factory-id>
-	    <application-instance-id>exo:/nav/HorizontalMenu/toolbar</application-instance-id>
+	    <instance-id>exo:/nav/HorizontalMenu/toolbar</instance-id>
+		  <application-type>portlet</application-type>
 	    <show-info-bar>false</show-info-bar>
 	  </application>
 	
 	  <container template="war:/groovy/portal/view/UIContainerTableColumn.gtmpl" height="100%">
 	    <container decorator="menu" width="200px">	      
 	      <application>
-		      <factory-id>portlet</factory-id>
-	        <application-instance-id>exo:/nav/Menu/menu</application-instance-id>
+	        <instance-id>exo:/nav/Menu/menu</instance-id>	      
+				  <application-type>portlet</application-type>
 	        <show-info-bar>false</show-info-bar>
 	      </application>
 	      
 	      <application>
-	      	<factory-id>portlet</factory-id>
+ 	        <instance-id>exo:/user/WelcomePortlet/welcome-user</instance-id>
+				  <application-type>portlet</application-type>
 	        <title>Welcome</title>
-	        <application-instance-id>exo:/user/WelcomePortlet/welcome-user</application-instance-id>
 	        <show-info-bar>false</show-info-bar>
 	      </application>
 	      
 	      <application>
-		      <factory-id>portlet</factory-id>
-	        <application-instance-id>exo:/content/DisplayStaticContent/download</application-instance-id>
+	        <instance-id>exo:/content/DisplayStaticContent/download</instance-id>
+				  <application-type>portlet</application-type>
 	        <show-info-bar>false</show-info-bar>
 	      </application>
 	      
 	      <application>
-	        <application-instance-id>exo:/nav/VisitedPagesPortlet/visited-page</application-instance-id>
+	        <instance-id>exo:/nav/VisitedPagesPortlet/visited-page</instance-id>
 	        <show-info-bar>false</show-info-bar>
 	      </application>
 	      
 	    </container>
 	    
-	    <container>
-	      <application height="20px">
-		      <factory-id>portlet</factory-id>
-	        <application-instance-id>exo:/nav/Breadcrumbs/breadcrumbs</application-instance-id>
+	    <container height="20px">
+	      <application>
+	        <instance-id>exo:/nav/Breadcrumbs/breadcrumbs</instance-id>	      
+				  <application-type>portlet</application-type>
 	        <show-info-bar>false</show-info-bar>
 	      </application>
 	      <page-body>
@@ -70,8 +70,8 @@
 	  </container>
 	
 	  <application>
-		  <factory-id>portlet</factory-id>
-	    <application-instance-id>exo:/content/DisplayStaticContent/footer</application-instance-id>
+	    <instance-id>exo:/content/DisplayStaticContent/footer</instance-id>
+		  <application-type>portlet</application-type>
 	    <show-info-bar>false</show-info-bar>
 	  </application>   
 	</portal-layout>  

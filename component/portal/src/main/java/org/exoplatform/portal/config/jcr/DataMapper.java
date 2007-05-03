@@ -35,7 +35,7 @@ public class DataMapper {
     node.setProperty("ownerType", "portal");
     node.setProperty("ownerId", "portalConfig");
     node.setProperty("name", config.getName()) ;    
-    node.setProperty("accessGroup", config.getAccessGroup()) ;
+    node.setProperty("accessGroups", config.getAccessGroups()) ;
     node.setProperty("dataType", portalType) ;    
     node.setProperty("data", toXML(config)) ;
   }
@@ -51,7 +51,7 @@ public class DataMapper {
     node.setProperty("ownerType", page.getOwnerType());
     node.setProperty("ownerId", page.getOwnerId());
     node.setProperty("name", page.getName()) ;
-    node.setProperty("accessGroup", page.getAccessGroup()) ;
+    node.setProperty("accessGroups", page.getAccessGroups()) ;
     node.setProperty("dataType", pageType) ;
     node.setProperty("data", toXML(page)) ;
   }
@@ -67,7 +67,7 @@ public class DataMapper {
     node.setProperty("ownerType", navigation.getOwnerType());
     node.setProperty("ownerId", navigation.getOwnerId());
     node.setProperty("name", navigation.getId()) ;
-    node.setProperty("accessGroup", navigation.getAccessGroup()) ;
+    node.setProperty("accessGroups", navigation.getAccessGroups()) ;
     node.setProperty("dataType", navigationType) ;    
     node.setProperty("data", toXML(navigation)) ;
   }
