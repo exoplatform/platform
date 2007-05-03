@@ -242,6 +242,7 @@
 .UIAddApplication .ContentContainerDetail .TabsContainer .RefreshButtonContent {
 	float: right;
 	width: 100px;
+	padding-right: 5px;
 }
 
 .UIAddApplication .RefreshButtonContent .RefreshButtonLeft {

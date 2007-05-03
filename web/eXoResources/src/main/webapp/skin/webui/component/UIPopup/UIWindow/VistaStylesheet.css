@@ -260,11 +260,11 @@
 }
 
 .WelcomePortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/PortalWelcomeIcon.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalWelcomeIcon.gif') no-repeat center;
 }
 
 .BreadcumbsPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/BreadcumbsArrowIcon.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BreadcumbsArrowIcon.gif') no-repeat center;
 }
 
 .GroovyPortletIcon {
@@ -280,7 +280,7 @@
 }
 
 .FooterPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/PortalFooterIcon.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalFooterIcon.gif') no-repeat center;
 }
 
 .BrowserPortletIcon {
@@ -288,19 +288,19 @@
 }
 
 .CompanyContentPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/PortalContainerIcon.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalContainerIcon.gif') no-repeat center;
 }
 
 .NavigationPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/EditNavigation.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/EditNavigation.gif') no-repeat center;
 }
 
 .BannerPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/PortalNavigationIcon.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalNavigationIcon.gif') no-repeat center;
 }
 
 .JMXPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/ImagesList.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ImagesList.gif') no-repeat center;
 }
 
 .AccountPortletIcon {
@@ -308,7 +308,7 @@
 }
 
 .PortletRegistryPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/BlueActionWheel.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueActionWheel.gif') no-repeat center;
 }
 
 .CrawlerPortletIcon {
