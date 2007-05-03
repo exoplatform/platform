@@ -94,7 +94,7 @@ public class DataStorageImpl implements DataStorage {
 
   public void create(Page page) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-    Node pageSetNode = createPageSetNode(session, page.getOwnerType(), page.getOwnerId()); 
+    Node pageSetNode = createPageSetNode(session, page.getOwnerType(), page.getOwnerId());
     Node pageNode = pageSetNode.addNode(page.getName(), EXO_DATA_TYPE) ;
     pageSetNode.save() ;
     mapper_.map(pageNode, page) ;
