@@ -1,13 +1,14 @@
-<%
-  String uiComponentWidth =  + "${uicomponent.getWidth()}px" ;
-  String uiComponentHeight =  + "${uicomponent.getHeight()}px" ;
-  
-  if(uiComponentWidth == null) uiComponentWidth = "auto" ;
-  if(uiComponentWidth == null) uiComponentHeight = "auto" ;
+<% 
+	String cssStyle = "";
+	String uiComponentWidth = uicomponent.getWidth();
+	String uiComponentHeight = uicomponent.getHeight();
+	if(uiComponentWidth != null || uiComponentHeight != null) cssStyle = "style=\"";
+	if(uiComponentWidth != null) cssStyle += "width: "+uiComponentWidth+"px;"
+	if(uiComponentHeight != null) cssStyle += "height: "+uiComponentHeight+"px;"
+	if(cssStyle.length() > 0) cssStyle += "\"";
 %>
 
-
-<div class="UIContainer" id="UIContainer-${uicomponent.id}" style="width: $uiComponentWidth; height: $uiComponentHeight">
+<div class="UIContainer" id="UIContainer-${uicomponent.id}" ${cssStyle}>
   <div class="META-DATA-BLOCK" style="display: none">
     <div class="id">$uicomponent.id</div>
     <div class="title"><%=_ctx.appRes("UIContainer.title.Container")%></div>
@@ -31,7 +32,7 @@
 	              %>
 	              <%=_ctx.appRes("UIContainer.title.Container")%>
 	              <%}%>
-              </div>
+              </div>            
 	            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteContainerIcon" title="Delete Container"><span></span></a>
 							<a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditContainerIcon" title="Edit Container"><span></span></a>
               <div style="clear: both"><span></span></div>
@@ -44,16 +45,8 @@
   </div>
   
   <div class="LAYOUT-CONTAINER" style="display: none"></div>
-  <% 
-     String style = "";
-     String width  = uicomponent.getWidth();
-     String height  = uicomponent.getHeight();
-     if(width != null || height != null) style="style=\"";
-     if(width != null) style += "width: "+width+"px;"
-     if(height != null) style += "height: "+height+"px;"
-     if(style.length() > 0) style += "\"";
-  %>
-  <div class="VIEW-CONTAINER" $style>
+  
+  <div class="VIEW-CONTAINER">
     <div id="$uicomponent.id">
       <div class="UIRowContainer"><%uicomponent.renderChildren()%></div>
 	  </div>
