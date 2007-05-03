@@ -22,7 +22,7 @@
 	              %>
 	              <%=_ctx.appRes("UIContainer.title.Container")%>
 	              <%}%>
-              </div>            
+              </div>
 	            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteContainerIcon" title="Delete Container"><span></span></a>
 							<a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditContainerIcon" title="Edit Container"><span></span></a>
               <div style="clear: both"><span></span></div>

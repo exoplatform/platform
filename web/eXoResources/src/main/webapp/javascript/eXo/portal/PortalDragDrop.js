@@ -207,7 +207,6 @@ PortalDragDrop.prototype.init = function(e) {
 };
 
 PortalDragDrop.prototype.doDropCallback = function(dndEvent) {
-	console.log("drop element");
 	if(!dndEvent.lastFoundTargetObject) {
 		dndEvent.lastFoundTargetObject = eXo.portal.PortalDragDrop.backupLastFoundTarget ;
 	}
@@ -233,7 +232,7 @@ PortalDragDrop.prototype.doDropCallback = function(dndEvent) {
     dndEvent.dragObject.parentNode.removeChild(dndEvent.dragObject) ;
     newComponent = true;
   }
-        
+
   var params = [
     {name: "srcID", value: srcElement.id},
     {name: "targetID", value: targetElement.id},
@@ -246,8 +245,8 @@ PortalDragDrop.prototype.doDropCallback = function(dndEvent) {
   } catch(err) {
   	
   }
-  
-  ajaxGet(eXo.env.server.createPortalURL("UIPortal", "MoveChild", true, params)) ;
+	// Modified by Philippe : added callback function
+  ajaxGet(eXo.env.server.createPortalURL("UIPortal", "MoveChild", true, params), eXo.portal.PortalDragDrop.resizeRows) ;
 };
 
 /* Find components in dropable target */
@@ -452,10 +451,7 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
   var listComponent = dndEvent.foundTargetObject.listComponentInTarget ;
   var DOMUtil = eXo.core.DOMUtil ;
   var trContainer = DOMUtil.findFirstDescendantByClass(targetElement, "tr", "TRContainer") ;
-  var tdList = DOMUtil.getChildrenByTagName(trContainer, "td") ;
-
   var tdInserted = document.createElement('td') ;
-  var offsetWidthTR = trContainer.offsetWidth ;
   
   var checkTRContainerInsertBlock = DOMUtil.findAncestorByClass(insertBlock, "TRContainer") ;
       
@@ -467,24 +463,33 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
   } else {
     trContainer.appendChild(tdInserted) ;
   }
-  tdList.pop();
-  tdList.push(tdInserted);
-  var tdWidth = offsetWidthTR / tdList.length;
-  console.log("tdWidth : ",tdWidth);
-  for (var i = 0; i < tdList.length; i++) {
-  	var td = tdList[i];
 
-  	var marginsPaddings = DOMUtil.getStyle(td, "margin-left", true) + DOMUtil.getStyle(td, "margin-right", true) +
-  												DOMUtil.getStyle(td, "padding-left", true) + DOMUtil.getStyle(td, "padding-right", true);
-		td.style.width = tdWidth - marginsPaddings + "px";
-		console.log("td.style.width : ",td.style.width);
-  }
-  
   insertBlock.style.width = "auto" ;
   
   if(checkTRContainerInsertBlock) {
     trContainer.removeChild(eXo.portal.PortalDragDrop.parentDragObject) ;
   }
+};
+// Function resizeRows added by Philippe
+PortalDragDrop.prototype.resizeRows = function() {
+	console.log("resize");
+	var uiPortal = document.getElementById("UIPortal");
+	if (uiPortal) {
+	  var trContainers = eXo.core.DOMUtil.findDescendantsByClass(uiPortal, "tr", "TRContainer");
+	  for(var j = 0; j < trContainers.length; j++) {
+	  	var trContainer = trContainers[j];
+		  var tdList = eXo.core.DOMUtil.getChildrenByTagName(trContainer, "td") ;
+		  var offsetWidthTR = trContainer.offsetWidth ;
+		  var tdWidth = offsetWidthTR / tdList.length;
+		  console.log("tdList.length (%s) ", j, tdList.length);
+		  for (var i = 0; i < tdList.length; i++) {
+		  	var td = tdList[i];
+				td.style.width = tdWidth + "px";
+		  }
+		  var uiContainer = eXo.core.DOMUtil.findAncestorByClass(trContainer, "LAYOUT-CONTAINER");
+	  	if (uiContainer) uiContainer.style.height = "auto";
+	  }
+	}
 };
 
 eXo.portal.PortalDragDrop = new PortalDragDrop() ;

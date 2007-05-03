@@ -91,29 +91,31 @@ function PortalResponse(responseDiv) {
 function AjaxRequest(method, url, queryString) {	
 	var instance = new Object();
 	
-	instance.timeout = 30000;	
+	instance.timeout = 30000;
 	instance.aborted = false;
 	
-	if(method != null) instance.method = method; else	instance.method = "GET";	
+	if(method != null) instance.method = method; else	instance.method = "GET";
 	if(url != null) instance.url = url; else instance.url = window.location.href;
 	if(queryString != null) instance.queryString = queryString; else instance.queryString = null;
 
 	instance.request = null;
 	
-	instance.responseReceived = false;		
+	instance.responseReceived = false;
 
-	instance.status = null;	
+	instance.status = null;
 	instance.statusText = null;
 	
 	instance.responseText = null;
 	instance.responseXML = null;
 	
-	instance.onTimeout = null; 
+	instance.onTimeout = null;
 	instance.onLoading = null;
 	instance.onLoaded = null;
 	instance.onInteractive = null;
 	instance.onComplete = null;
 	instance.onSuccess = null;
+	// Added by Philippe
+	instance.callBack = null;
 
 	instance.onError = null;
 	
@@ -169,6 +171,7 @@ function AjaxRequest(method, url, queryString) {
 		if (instance.request.status == 200 && typeof(instance.onSuccess) == "function") {
 			instance.onSuccess(instance);
 			instance.onCompleteInternalHandled = true;
+			if (typeof(instance.callBack) == "function") instance.callBack(instance);
 		} else if (typeof(instance.onError) == "function") {
 			instance.onError(instance);
 			instance.onCompleteInternalHandled = false;
@@ -283,9 +286,10 @@ function HttpResponseHandler(){
 }
 
 /*****************************************************************************************/
-
-function ajaxGet(url) {  
-  doRequest("Get", url) ;
+// Modified by Philippe : added callback function
+function ajaxGet(url, callback) {
+	if (!callback) callback = null;
+  doRequest("Get", url, null, callback) ;
 }
 
 function ajaxPost(formElement) {
@@ -294,12 +298,13 @@ function ajaxPost(formElement) {
   doRequest("POST", url, queryString) ;
 }
 
-function doRequest(method, url, queryString) {
+function doRequest(method, url, queryString, callback) {
   request = new AjaxRequest(method, url, queryString);
 	handler = new HttpResponseHandler();
 	request.onSuccess = handler.ajaxResponse;
 	request.onLoading = handler.ajaxLoading;
   request.onTimeout = handler.ajaxTimeout;
+  request.callBack = callback;
  	eXo.portal.CurrentRequest = request;
   request.process();  
 }	;
