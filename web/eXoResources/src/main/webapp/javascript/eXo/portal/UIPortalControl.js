@@ -43,8 +43,32 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
   parentNode.removeChild(childrenContainer);
   parentNode.insertBefore(expandIcon, selectedElement);
   parentNode.removeChild(selectedElement);
-  
+  eXo.portal.UIPortalControl.fixHeight();
 };
+
+/** Created: by Duy Tu - fixHeight function to UIControlWorkspace**/
+UIPortalControl.prototype.fixHeight = function() {
+	var objectParent = document.getElementById("UIControlWorkspace");
+	var uiWorkspaceContainer = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
+	if(uiWorkspaceContainer.style.display == "block") {
+		var scrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
+		var jsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
+		var maxHeight = objectParent.offsetHeight - 205 ;
+		scrollArea.style.height = "auto";
+		jsContainer.style.width = "auto";
+		var heightChild = scrollArea.offsetHeight;
+		if(maxHeight > 0) {
+			if(heightChild > maxHeight) {
+					scrollArea.style.overflow = "auto";
+					scrollArea.style.height = maxHeight + "px";
+					jsContainer.style.width = 224 + "px";
+			}
+		} else {
+		  scrollArea.style.overflow = "hidden";
+			scrollArea.style.height = 1 + "px";
+		}
+	}
+} ;
 
 UIPortalControl.prototype.onKeyPress = function() {
 	document.body.onkeypress = eXo.portal.UIPortalControl.onEnterPress ;

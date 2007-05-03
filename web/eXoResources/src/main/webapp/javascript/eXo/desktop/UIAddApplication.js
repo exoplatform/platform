@@ -83,13 +83,12 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 	  itemDetails += '<div class="ApplicationListContainer">';
 	  var portlets = cate["portlets"];
 	    
-	  var count = 0; var i = 2;
+	  var even = true; 
+  	var cssFloat = "float:left";
 	  for(id in portlets) {
 	  	portlet = portlets[id];
-	  	var cssFloat = "float:left";
-	  	count = i % 2;
-      if(count == 1) cssFloat = "float:right";
-      ++i; if(i == 100) i = 2;
+      if(even) cssFloat = "float:left";
+      else cssFloat = "float:right";
       var srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + portlet["title"]+".png";
       var srcNormalBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png";
 			srcBG = getUrl(srcBG);
@@ -115,10 +114,11 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 			               '		<div class="ApplicationLabel">'+portlet["title"]+'</div>' +
 			               '	</div>' +
 		              	 '</div>';
+		  even = !even;	
 	  }
     itemDetails += '  </div>' +
 									 '</div>';  
-		if(!selected) selected = true;							 
+		if(!selected) selected = true;
   }
   itemList.innerHTML = items;  
   itemDetailList.innerHTML = itemDetails;

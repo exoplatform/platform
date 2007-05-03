@@ -69,18 +69,18 @@
 						  	    <div style="clear: left;"><span></span></div>
 				  	      </div>
           	      <div class="ApplicationListContainer">
-          	      <% int count=0,i=2;
+          	      <% 
+          	      boolean even = true ;
+          	      String cssFloat = "left";
           	      for(Portlet portlet: portlets) {
           	        String name = portlet.getDisplayName();
           	        String des = portlet.getDescription();
           	        String onClick ="eXo.desktop.UIDesktop.addApplicationToDesktop('eXo.application.browser.UIBrowserApplication','" + name +"')";
-          	        String cssFloat = "float:left";
-          	        count = i%2;
-          	        if(count == 1)cssFloat = "float:right";
-          	        i = i + 1; if(i==100)i=2;
+          	        if(even) cssFloat = "left";
+          	        else cssFloat = "right";
           	        String portletIcon;
           	      %>
-	          	      <div class="Application" style="$cssFloat;">
+	          	      <div class="Application" style="float:${cssFloat};">
 		              		<div class="ApplicationDescription">
 		              			<div class="PortletIcon $portletIcon" onclick="$onClick"><span></span></div>
 		              		  <div style="float: right;">
@@ -95,6 +95,7 @@
 		              			<div class="ApplicationLabel"><%=name%></div>
 		              		</div>
 		              	</div>
+		              	<% even = !even; %>
 			            <% }%>  	
 		      			    <div style="clear: both"><span></span></div>
               	</div>

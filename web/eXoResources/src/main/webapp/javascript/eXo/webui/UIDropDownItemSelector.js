@@ -3,7 +3,7 @@ function UIDropDownItemSelector() {
 
 UIDropDownItemSelector.prototype.init = function() {
 	this.itemSelectors = new Array();
-	//this.onload();
+	this.onload();
 };
 
 UIDropDownItemSelector.prototype.initSelector = function(selector) {
@@ -118,22 +118,37 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 	}
 };
 
+/** Created: by Duy Tu **/
 UIDropDownItemSelector.prototype.onload = function() {
 	var DOMUtil = eXo.core.DOMUtil;
 	var uiDropDownItemSelector = document.getElementById("UIDropDownItemSelector");
 	var selectedItemLabel = DOMUtil.findFirstDescendantByClass(uiDropDownItemSelector, "div", "SelectedItemLabel");
 	var strLabel = selectedItemLabel.innerHTML;
-	alert(strLabel);
-	while(strLabel.charAt(0)== ' '){
-		//strLabel = strLabel
+	
+	while(strLabel.charCodeAt(0)<= 32){
+		var tmp = strLabel.charAt(1); 
+		for(var i=2; i<strLabel.length; ++i){
+			tmp = tmp + strLabel.charAt(i);
+		}
+		strLabel = tmp;
 	}
+	while(strLabel.charCodeAt(strLabel.length-1)<= 32){
+		var tmp = strLabel.charAt(0); 
+		for(var i=1; i<strLabel.length-1; ++i){
+			tmp = tmp + strLabel.charAt(i);
+		}
+		strLabel = tmp;
+	}
+
 	if(strLabel.length > 20){
 		var strlabel = strLabel.charAt(0); 
 		for(var i = 1;i < 17; ++i){
 	    strlabel = strlabel + strLabel.charAt(i);
 		}
 		selectedItemLabel.innerHTML = strlabel + "...";
-	}
+	} else {
+		selectedItemLabel.innerHTML = tmp;
+	}	
 };
 
 eXo.webui.UIDropDownItemSelector = new UIDropDownItemSelector();

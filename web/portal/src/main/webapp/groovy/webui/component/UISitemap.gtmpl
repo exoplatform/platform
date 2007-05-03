@@ -38,16 +38,19 @@
 			      <div class="SitemapContainer">
 			        <%
 				        boolean even = true ;
+				        String cssfloat = "left";
 				        for(nav in navigations) { 
 				          for(node in nav.getNodes()) { 
 				            String iconType = node.getIcon();
 										if(iconType == null) {
 											iconType = "OrangeBoxPage16x16Icon";
 										}
+										if(even)cssfloat = "left";
+										else cssfloat = "right";
 				            String blockFloat = "LeftBlock" ;
 				            actionLink = uicomponent.event("SelectNode", node.getUri()) ;
 			        %>
-							      <div class="SitemapItemBox">
+							      <div class="SitemapItemBox" style="float:${cssfloat};">
 							        <%//Title SiteMap %>
 									    <div class="TitleBar">
 							      	  <div class="Icon ${iconType}"><span></span></div>
@@ -55,7 +58,7 @@
 	                      <div style="clear: left;"><span></span></div>
 							        </div>
 							        <%//End Title SiteMap %>
-							        <%if(node.getChildren() == null) { %>
+							        <%if(node.getChildren() == null || node.getChildren().size() < 1) { %>
 							            <div class="NestedSitemapItemBox">
 											      <div class="SitemapItemBoxSelector BorderBox">											
 												      <div class="Item">
@@ -77,12 +80,19 @@
 											    </div> 						  			      
 			      	        <%}%>
 							      </div>
-					    <%
-						            even = !even ;
+					    <% 
+						        if(!even) {
+						  %>
+								    <div style="clear: both;"><span></span></div>        
+						  <%
+						        }
+						        even = !even ;
 						      }
 					      }
+					      if(!even){
 					    %>
-					    <div style="clear: left;"></div>        
+					    <div style="clear: left;"><span></span></div> 
+					    <% } %>       
 			      </div>
 			    </div>  
 			  </div>

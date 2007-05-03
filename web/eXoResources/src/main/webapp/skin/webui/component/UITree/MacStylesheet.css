@@ -5,8 +5,8 @@
 }
 
 .UITree .TreeContainer {
-  overflow: auto ;
-  background: white; border: 1px #b7b7b7 solid;
+  background: white; 
+  border: 1px #b7b7b7 solid;
   padding: 7px 0px ;
 }
 

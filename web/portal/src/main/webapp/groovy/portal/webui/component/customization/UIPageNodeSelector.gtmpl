@@ -2,6 +2,7 @@
   import org.exoplatform.webui.component.UITree ; 
   import org.exoplatform.webui.component.UIDropDownItemSelector;  
   import org.exoplatform.webui.component.UIRightClickPopupMenu ;
+  import org.exoplatform.web.application.JavascriptManager;
 
   def rcontext = _ctx.getRequestContext() ;
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory');  
@@ -19,10 +20,13 @@
   String popupMenu = "";
   if(uiPopupMenu != null) {
     String id = uicomponent.getParent().getId();
-  
-  	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIRightClickPopupMenu') ;
-  	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
+  	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  	jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
+  	jsmanager.importJavascript('eXo.portal.UIPortalControl') ;
   	
+  	jsmanager.addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
+  	jsmanager.addOnResizeJavascript('eXo.portal.UIPortalControl.fixHeight');
+  	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
     uicomponent.renderUIComponent(uiPopupMenu) ;
      
     popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode");
@@ -43,15 +47,15 @@
 			<%uicomponent.renderChild(UIDropDownItemSelector.class);%>	
 			<% /*************************************************************/ %>
 			<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
-			<%
-			  if(navigations != null) {
-	    	  for(nav in navigations) {
-					  if(selectedNav != null && nav == selectedNav) {
-						  uicomponent.renderChild(UITree.class);
-				    }
-	   		  }
-	   	  }
-			%>
+				<%
+				  if(navigations != null) {
+		    	  for(nav in navigations) {
+						  if(selectedNav != null && nav == selectedNav) {
+							  uicomponent.renderChild(UITree.class);
+					    }
+		   		  }
+		   	  }
+				%>
 			</div>
 			<% /*************************************************************/ %>
 			</div>

@@ -17,8 +17,8 @@
     uicomponent.renderUIComponent(uiPopupMenu) ; 
   }
 %>
-<div class="UITree">
-  <div class="TreeContainer ScrollArea">
+<div class="UITree ScrollArea">
+  <div class="TreeContainer JSContainer">
     <div class="TreeLevelContainer">
 	    <a class="LevelUpArrowIcon" href="<%=uicomponent.getActionLink();%>" title="Up Level" style="display: block;"><span></span></a>
   	</div>

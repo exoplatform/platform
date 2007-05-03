@@ -79,7 +79,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 		uiWorkspacePanel.style.height = (eXo.portal.UIControlWorkspace.height - 
 																		 eXo.portal.UIControlWorkspace.uiWorkspaceControl.offsetHeight - 23) + "px" ;
 		/*23 is height of User Workspace Title*/
-
+		eXo.portal.UIPortalControl.fixHeight();
 	} else {
 		// hides the workspace
 		cws.showControlWorkspace = false ;
