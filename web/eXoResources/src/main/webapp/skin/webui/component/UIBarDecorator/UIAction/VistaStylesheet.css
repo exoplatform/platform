@@ -46,7 +46,11 @@
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonMiddle {
+<<<<<<< .mine
+	line-height: 22px; text-align: center; 
+=======
 	height: 24px; text-align: center; 
+>>>>>>> .r15132
 	background: url('VistaSkin/background/SelectedActionButtonM2x24.png') repeat-x;
 }
 
@@ -76,7 +80,7 @@
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
- 	height: 24px; text-align: center; 
+ 	line-height: 24px; text-align: center; 
 	background: url('VistaSkin/background/LightButtonMiddle1x24.png') repeat-x;
 
 }
@@ -97,7 +101,7 @@
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonMiddle {
-  height: 24px;
+  line-height: 24px;
 	background: url('VistaSkin/background/CenterSimpleButton1x24.png') repeat-x top;
 	text-align: center;	
 }
@@ -133,7 +137,7 @@
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonMiddle {
-  height: 21px;
+  line-height: 21px;
 	background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x top;
 	text-align: center;	
 }

@@ -44,6 +44,7 @@
 .UINodeIconSelector .IconSelector .Icon {
   float: left;
   margin: 3px ;
+  width: 16px; height: 16px;
 }
 
 .UINodeIconSelector .IconSelector a {

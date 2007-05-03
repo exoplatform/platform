@@ -65,13 +65,13 @@
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
-  line-height: 24px; height: 24px;
+  line-height: 24px; 
   background: url('MacSkin/background/MiddleNormalTab1x24.png') repeat-x;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
-  line-height: 20px;
-  padding: 3px 0px 0px 20px;
+  line-height: 24px;
+  padding: 0px 0px 0px 20px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
@@ -106,13 +106,13 @@
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
-  line-height: 24px; height: 24px;
+  line-height: 24px; 
   background: url('MacSkin/background/MiddleHighlightTab1x24.png') repeat-x;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
-  padding: 3px 0px 0px 20px;
-  line-height: 20px;
+  padding: 0px 0px 0px 20px;
+  line-height: 24px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
@@ -147,14 +147,14 @@
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
-  line-height: 24px; height: 24px;
+  line-height: 24px;
   background: url('MacSkin/background/MiddleSelectedTab1x24.png') repeat-x;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
   color: white;
-  line-height: 20px;
-  padding: 3px 0px 0px 20px;
+  line-height: 24px;
+  padding: 0px 0px 0px 20px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab a {
