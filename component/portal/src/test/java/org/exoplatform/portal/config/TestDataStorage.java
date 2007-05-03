@@ -5,6 +5,7 @@
 package org.exoplatform.portal.config;
 
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.container.PortalContainer;
@@ -156,13 +157,110 @@ public class TestDataStorage extends BasicTestCase {
   
   void assertPageOperator() throws Exception {
     String ownerId = "portalone" ;
-    assertPageCreate(ownerId) ;
+    
+    //assertPageCreate(ownerId) ;
+    //assertPageSave(ownerId) ;
+    assertPageRemove(ownerId) ;
   }
 
   void assertPageCreate(String ownerId) throws Exception {
    List<Page> pages = createPages(ownerId) ;
    assertEquals(2, pages.size()) ;
+   
+   for (Page p : pages) {
+     storage_.create(p) ;
+   }
+   
+   List<Page> returnPages = new ArrayList<Page>() ;
+   for (Page p : pages) {
+     String pageId = p.getPageId() ;
+
+     Page aPage = storage_.getPage(pageId) ;
+     assertEquals(pageId, aPage.getPageId()) ;
+     returnPages.add(aPage) ;
+   }
+   assertEquals(2, returnPages.size()) ;
+   
+   for (Page p : pages) {
+     storage_.remove(p) ;
+   }
+   
   }
+  
+  void assertPageSave(String ownerId) throws Exception {
+    List<Page> pages = createPages(ownerId) ;
+    assertEquals(2, pages.size()) ;
+    
+    String oldAccessGroup = "OldGroup" ;
+    for (Page p : pages) {
+      p.setAccessGroups(oldAccessGroup) ;
+      storage_.create(p) ;
+    }
+    
+    for (Page p : pages) {
+      String pageId = p.getPageId() ;
+      
+      Page aPage = storage_.getPage(pageId) ;
+      assertEquals(oldAccessGroup, aPage.getAccessGroups()) ;
+    }
+    
+    String newAccessGroup = "NewGroup" ;
+    for (Page p : pages) {
+      p.setAccessGroups(newAccessGroup) ;
+      storage_.save(p) ;
+    }
+
+    List<Page> returnPages = new ArrayList<Page>() ;
+    for (Page p : pages) {
+      String pageId = p.getPageId() ;
+
+      Page aPage = storage_.getPage(pageId) ;
+      assertEquals(newAccessGroup, aPage.getAccessGroups()) ;
+      returnPages.add(aPage) ;
+    }
+    assertEquals(2, returnPages.size()) ;
+    
+    for (Page p : pages) {
+      storage_.remove(p) ;
+    }
+    
+  }
+  
+  void assertPageRemove(String ownerId) throws Exception {
+    List<Page> pages = createPages(ownerId) ;
+    assertEquals(2, pages.size()) ;
+    
+    // Create 2 pages
+    for (Page p : pages) {
+      storage_.create(p) ;
+    }
+    
+    // Before remove 2 pages
+    List<Page> returnPages = new ArrayList<Page>() ;
+    for (Page p : pages) {
+      String pageId = p.getPageId() ;
+
+      Page aPage = storage_.getPage(pageId) ;
+      returnPages.add(aPage) ;
+    }
+    assertEquals(2, returnPages.size()) ;
+    
+    // Remove 2 pages
+    for (Page p : pages) {
+      storage_.remove(p) ;
+    }
+    
+    // After remove 2 pages
+    List<Page> returnPages2 = new ArrayList<Page>() ;
+    for (Page p : pages) {
+      String pageId = p.getPageId() ;
+
+      Page aPage = storage_.getPage(pageId) ;
+      if (aPage != null) returnPages2.add(aPage) ;
+    }
+    assertEquals(0, returnPages2.size()) ;
+  }
+
 
   private PortalConfig createPortalConfig(String portalName) throws Exception {
     String configFile = portalName + "/config.xml" ;
