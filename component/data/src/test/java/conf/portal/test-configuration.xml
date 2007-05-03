@@ -27,7 +27,7 @@
       <value-param>
         <name>default.user.template</name>
         <description>If user configs are null, user configs will load configs from this default user</description>
-        <value>exo</value>
+        <value>site</value>
       </value-param>
 			<value-param>
 	    	<name>templateLocation</name>
@@ -111,10 +111,11 @@
           <object type="org.exoplatform.portal.config.NewPortalConfig">
             <field  name="predefinedUser">
               <collection type="java.util.HashSet">                
-                <value><string>exo</string></value>
+                <value><string>site</string></value>
+                <value><string>webos</string></value>
                 <value><string>exoadmin</string></value>
                 <value><string>company</string></value> 
-                <value><string>community</string></value>                               
+                <value><string>community</string></value>                             
               </collection>
             </field>
             <field  name="templateUser"><string>template</string></field>

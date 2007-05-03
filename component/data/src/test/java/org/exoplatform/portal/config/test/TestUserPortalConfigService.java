@@ -52,18 +52,18 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     orgService_.getMembershipHandler().linkMembership(user2, group2, mType1,true) ;
     orgService_.getMembershipHandler().linkMembership(user2, group2, mType2,true) ;
     
-    addSharedPortal(Group1, "exo", memtype1, 1);
-    addSharedNavigation(Group1, "exo", memtype1, 1);
+    addSharedPortal(Group1, "site", memtype1, 1);
+    addSharedNavigation(Group1, "site", memtype1, 1);
     
     SharedPortal sharedPortal = service_.getSharedConfigDAO().getSharedPortal("/"+Group1);
     assertTrue("expect shared portal for /Group1",  sharedPortal != null) ;
-    assertEquals("Shared portal is exo : ", sharedPortal.getPortal(), "exo");
+    assertEquals("Shared portal is site : ", sharedPortal.getPortal(), "site");
    
     UserPortalConfig userConfig = service_.computeUserPortalConfig(username1, username1);
     assertEquals(userConfig.getPortalConfig().getOwner(), username1);
-    assertEquals("Expect total navigation is 2", userConfig.getNavigations().size() , 1);    
-    assertEquals("Expect the first navigation's owner is exo",
-                 userConfig.getNavigations().get(0).getOwner(), "exo");
+    assertEquals("Expect total navigation is 1", userConfig.getNavigations().size() , 1);    
+    assertEquals("Expect the first navigation's owner is site",
+                 userConfig.getNavigations().get(0).getOwner(), "site");
     
     sharedPortal = service_.getSharedConfigDAO().getSharedPortal("/"+Group2);
     assertTrue("expect no shared portal for /Group2",  sharedPortal == null) ;
