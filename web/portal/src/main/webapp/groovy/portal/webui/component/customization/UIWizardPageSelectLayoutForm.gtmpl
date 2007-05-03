@@ -106,10 +106,10 @@
 		            String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true, '"+template.getIcon()+"')";
 		            String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false, '"+template.getIcon()+"')";
 		            String onClick = "eXo.webui.UIItemSelector.onClick(this, '"+template.getIcon()+"')";
-		            if (template.isSelected()) itemSelected = "SelectedItem Item" ;
+		            if(template.isSelected()) itemSelected = "SelectedItem Item" ;
 					  %>
-						    <div class="$itemSelected" onmouseover="$onMouseOver" 
-						         onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;" >
+						    <div class="$itemSelected" onmouseover="$onMouseOver"
+						         onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;" style="border: solid 1px red">
 							  	<div class="LeftItem">
 							  	  <div class="RightItem">  
 								  	  <div class="ItemTitle"><%=template.getLabel();%></div>

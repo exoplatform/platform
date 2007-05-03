@@ -138,7 +138,7 @@ public class UIForm extends UIContainer  {
   }
   
   public void renderField(String name) throws Exception {
-    UIComponent uiInput = findComponentById(name);;
+    UIComponent uiInput = findComponentById(name);
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     uiInput.processRender(context) ;
   }

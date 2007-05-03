@@ -1,4 +1,13 @@
-<div class="UIContainer" id="UIContainer-${uicomponent.id}">
+<%
+  String uiComponentWidth =  + "${uicomponent.getWidth()}px" ;
+  String uiComponentHeight =  + "${uicomponent.getHeight()}px" ;
+  
+  if(uiComponentWidth == null) uiComponentWidth = "auto" ;
+  if(uiComponentWidth == null) uiComponentHeight = "auto" ;
+%>
+
+
+<div class="UIContainer" id="UIContainer-${uicomponent.id}" style="width: $uiComponentWidth; height: $uiComponentHeight">
   <div class="META-DATA-BLOCK" style="display: none">
     <div class="id">$uicomponent.id</div>
     <div class="title"><%=_ctx.appRes("UIContainer.title.Container")%></div>
