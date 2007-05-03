@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <page-set>  
   <page>
-	  <owner-type>user</owner-type>
-	  <owner-id>site</owner-id>
+	  <owner-type>group</owner-type>
+	  <owner-id>/guest</owner-id>
 		<name>static-content</name>
     <access-groups>/guest</access-groups>
     <application width="*">
