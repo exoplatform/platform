@@ -35,7 +35,8 @@
     <value name="name" field="name"/>
     <value name="id" usage="optional" field="id" style="attribute"/>
     <value name="factory-id" field="factoryId" usage="optional"/>
-    <value name="access-groups" field="accessGroups" usage="optional"/>
+    <value name="access-groups" field="accessGroups" 
+           set-method="setAccessGroups" get-method="getAccessGroups" usage="optional"/>
     <value name="show-max-window" field="showMaxWindow" usage="optional"/>
     <value name="creator" field="creator" usage="optional"/>
     <value name="modifier" field="modifier" usage="optional"/> 
@@ -58,7 +59,8 @@
     <value name="portal-name" field="name"/>
     <value name="locale" field="locale"/>    
     <value name="factory-id" field="factoryId" usage="optional"/>
-    <value name="access-groups" field="accessGroups" usage="optional"/>
+    <value name="access-groups" field="accessGroups" 
+           set-method="setAccessGroups" get-method="getAccessGroups" usage="optional"/>
     <value name="skin" field="skin" usage="optional"/>
     <value name="title" field="title" usage="optional"/>
     <value name="creator" field="creator" usage="optional"/>
@@ -75,7 +77,8 @@
     <value name="owner-type" field="ownerType"/>
     <value name="owner-id" field="ownerId"/>
     <value name="priority" field="priority" usage="optional"/>
-    <value name="access-groups" field="accessGroups" usage="optional"/>
+    <value name="access-groups" field="accessGroups" 
+           set-method="setAccessGroups" get-method="getAccessGroups" usage="optional"/>
     <value name="creator" field="creator" usage="optional"/>
     <value name="modifier" field="modifier" usage="optional"/>
     <value name="description" field="description" usage="optional"/>

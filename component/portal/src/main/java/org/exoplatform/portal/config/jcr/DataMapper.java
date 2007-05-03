@@ -42,7 +42,7 @@ public class DataMapper {
   
   PortalConfig toPortalConfig(Node node) throws Exception  {
     String xml = node.getProperty("data").getValue().getString() ;
-    return (PortalConfig)fromXML(xml, PortalConfig.class) ;
+    return fromXML(xml, PortalConfig.class) ;
   }
   
 //------------------------------- Page ---------------------------------------------------------
@@ -58,7 +58,7 @@ public class DataMapper {
   
   Page toPage(Node node) throws Exception {
     String xml = node.getProperty("data").getValue().getString() ;
-    return (Page)fromXML(xml, Page.class) ;
+    return fromXML(xml, Page.class) ;
   }
   
 //------------------------------ Page Navigation ----------------------------------------------  
@@ -74,7 +74,7 @@ public class DataMapper {
 
   PageNavigation toPageNavigation(Node node) throws Exception {
     String  xml = node.getProperty("data").getValue().getString() ;
-    return (PageNavigation)fromXML(xml, PageNavigation.class) ;
+    return fromXML(xml, PageNavigation.class) ;
   }
   
 //------------------------------ Util method -----------------------------------------------  
@@ -87,11 +87,11 @@ public class DataMapper {
     return new String(os.toByteArray(), "UTF-8");
   }
   
-  private Object fromXML(String xml, Class clazz) throws Exception {
+  private <T> T fromXML(String xml, Class<T> clazz) throws Exception {
     ByteArrayInputStream is = new ByteArrayInputStream(xml.getBytes()) ;
     IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
-    return uctx.unmarshalDocument(is, null) ;
+    return clazz.cast(uctx.unmarshalDocument(is, null));
   }
   
 }

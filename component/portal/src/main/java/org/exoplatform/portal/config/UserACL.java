@@ -57,6 +57,7 @@ class UserACL {
   
   boolean hasPermission(PortalConfig config, String remoteUser, String mt) throws Exception {
     String [] groups = config.getAccessGroup();
+    if(groups == null) groups = new String[]{"/user"}; 
     for(String group : groups) {
       if(hasPermission(null, remoteUser, group, mt)) return true;
     }
@@ -65,6 +66,7 @@ class UserACL {
   
   boolean hasPermission(Page page, String remoteUser, String mt) throws Exception {
     String [] groups = page.getAccessGroup();
+    if(groups == null) groups = new String[]{"/user"}; 
     String owner = null;
     if(page.getOwnerType().equals(DataStorage.USER_TYPE)) owner = page.getOwnerId(); 
     for(String group : groups) {
@@ -75,6 +77,7 @@ class UserACL {
   
   boolean hasPermission(PageNavigation nav, String remoteUser, String mt) throws Exception {
     String [] groups = nav.getAccessGroup();
+    if(groups == null) groups = new String[]{"/user"}; 
     String owner = null;
     if(nav.getOwnerType().equals(DataStorage.USER_TYPE)) owner = nav.getOwnerId();
     for(String group : groups) {
@@ -85,7 +88,7 @@ class UserACL {
   
   boolean hasPermission(String owner, String remoteUser, String groupId, String mt) throws Exception {
     if(owner != null && owner.equals(remoteUser)) return true;
-    if(groupId == null) return false;
+    groupId = groupId.trim();
     if("/guest".equals(groupId)) return true ;
 
     MembershipHandler handler = orgService_.getMembershipHandler();

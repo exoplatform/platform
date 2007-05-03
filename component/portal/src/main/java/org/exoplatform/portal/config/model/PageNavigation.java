@@ -36,11 +36,22 @@ public class PageNavigation {
   public String getOwnerType() { return ownerType; }
   public void setOwnerType(String ownerType) { this.ownerType = ownerType; }
 
-  public void setAccessGroup(String[] s){ this.accessGroup = s; }  
   public String[] getAccessGroup(){  return accessGroup; }
+  public void     setAccessGroup(String[] s) { accessGroup = s ; }
   
-  public void setAccessGroups(String s){ this.accessGroups = s; }  
-  public String getAccessGroups(){  return accessGroups; }
+  public String getAccessGroups(){
+    if(accessGroup == null)  return "";
+    StringBuilder builder = new StringBuilder();
+    for(String ele : accessGroup) {
+      builder.append(ele).append(' ');
+    }
+    return builder.toString();
+  }
+  public void setAccessGroups(String s){ 
+    this.accessGroups = s;
+    if(accessGroups == null) return ;
+    accessGroup = accessGroups.split(","); 
+  }  
 
   public boolean getModifiable(){  return modifiable; }
   public void    setModifiable(boolean b) { modifiable = b ; }

@@ -52,32 +52,33 @@ public class DataStorageImpl implements DataStorage {
 
   public void create(PortalConfig config) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-    Node portalNode = create(session.getRootNode().getNode(PORTAL_APP), config.getName());
-    Node portalConfigNode = portalNode.addNode(PORTAL_CONFIG_FILE_NAME, EXO_DATA_TYPE) ;
-    portalNode.save();
-    mapper_.map(portalConfigNode, config) ;    
-    portalConfigNode.save() ;
+    Node node = create(session.getRootNode().getNode(PORTAL_APP), config.getName());
+    Node portalNode = node.addNode(PORTAL_CONFIG_FILE_NAME, EXO_DATA_TYPE) ;
+    node.save();
+    mapper_.map(portalNode, config) ;    
+    portalNode.save() ;
     session.save() ;
   }
 
   public void save(PortalConfig config) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-    Node portalNode = create(session.getRootNode().getNode(PORTAL_APP), config.getName());
-    Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
-    mapper_.map(portalConfigNode, config) ;    
-    portalConfigNode.save() ;
+    Node node = create(session.getRootNode().getNode(PORTAL_APP), config.getName());
+    Node portalNode = node.getNode(PORTAL_CONFIG_FILE_NAME) ;
+    mapper_.map(portalNode, config) ;    
+    portalNode.save() ;
     session.save() ;
   }
 
   public PortalConfig getPortalConfig(String portalName) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-    Node portalAppNode = session.getRootNode().getNode(PORTAL_APP) ;
-
-    if(!portalAppNode.hasNode(portalName)) return null;
-    Node portalNode = portalAppNode.getNode(portalName) ;
+    Node appNode = session.getRootNode().getNode(PORTAL_APP) ;
+    if(!appNode.hasNode(portalName)) return null;
+    Node portalNode = appNode.getNode(portalName) ;
+    System.out.println("\n\n get portal config "+portalName + " : "+portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)+"\n\n");
     if(!portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)) return null;
     Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
-    return mapper_.toPortalConfig(portalConfigNode) ;
+    PortalConfig portalConfig = mapper_.toPortalConfig(portalConfigNode) ;
+    return portalConfig;
   }
 
   public void remove(PortalConfig config) throws Exception {
@@ -250,5 +251,5 @@ public class DataStorageImpl implements DataStorage {
     parent.save();
     return node;    
   }
-
+  
 }

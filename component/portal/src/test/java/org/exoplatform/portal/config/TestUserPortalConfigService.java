@@ -5,15 +5,17 @@
 package org.exoplatform.portal.config;
 
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.database.HibernateService;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.test.BasicTestCase;
 
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com
  * May 23, 2006
  */
-public class TestUserPortalConfigService extends UserPortalServiceTestBase {
+public class TestUserPortalConfigService extends BasicTestCase {
   
   private UserPortalConfigService service_; 
   
@@ -26,24 +28,21 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   public void setUp() throws Exception {
     if(service_ != null) return;
     PortalContainer manager  = PortalContainer.getInstance();      
-    service_ = (UserPortalConfigService)
-          manager.getComponentInstanceOfType(UserPortalConfigService.class) ;      
-    orgService_ = 
-      (OrganizationService) manager.getComponentInstanceOfType(OrganizationService.class);    
-    hservice_ = 
-      (HibernateService)manager.getComponentInstanceOfType(HibernateService.class) ;
+    service_ = (UserPortalConfigService) manager.getComponentInstanceOfType(UserPortalConfigService.class) ;      
   }
   
   public void teaDown() throws Exception {    
   }
   
   public void testUserPortalConfigService() throws Exception {
-    System.out.println("\n\n\n=================================> Test\n");    
-    prepareOrganizationData() ;
-    orgService_.getMembershipHandler().linkMembership(user1, group1, mType1,true) ;    
-    orgService_.getMembershipHandler().linkMembership(user1, group2, mType1,true) ;
-    orgService_.getMembershipHandler().linkMembership(user2, group2, mType1,true) ;
-    orgService_.getMembershipHandler().linkMembership(user2, group2, mType2,true) ;
+    UserPortalConfig userPortalConfig = service_.getUserPortalConfig("site" ,"exo");
+    PortalConfig portalConfig = userPortalConfig.getPortalConfig();
+    
+    assertTrue(portalConfig != null);
+    assertEquals(portalConfig.getAccessGroup().length, 1);
+    assertEquals(portalConfig.getTitle(), "Portal Site");
+    
+    
    
   }
  
