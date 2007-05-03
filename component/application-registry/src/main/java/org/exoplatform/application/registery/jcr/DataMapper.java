@@ -116,7 +116,7 @@ class DataMapper {
 
     calendar = Calendar.getInstance();
     if(application.getModifiedDate() != null) calendar.setTime(application.getModifiedDate());
-    node.setProperty(MODIFIED_DATE, calendar);   
+    node.setProperty(MODIFIED_DATE, calendar);
   }
   
 }
