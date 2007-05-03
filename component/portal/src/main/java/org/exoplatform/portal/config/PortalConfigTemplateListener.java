@@ -41,13 +41,18 @@ public class PortalConfigTemplateListener extends BaseComponentPlugin {
                                       InitParams params) throws Exception {
     cmanager_ = cmanager ;
     pdcService_ = pdcService;
+    
     String checkPortal = "site";
     ValueParam valueParam = params.getValueParam("check.portal");
     if(valueParam != null) checkPortal = valueParam.getValue();
     if(checkPortal == null  || checkPortal.trim().length() == 0) checkPortal = "site";    
     if(isInitedDB(checkPortal)) return;
+    
     config_ = (NewPortalConfig) params.getObjectParamValues(NewPortalConfig.class).get(0) ;
-    initDB();
+    
+    valueParam = params.getValueParam("owner.type");
+    if(valueParam != null) checkPortal = valueParam.getValue();
+    initDB(valueParam.getValue());
   }
   
   private boolean isInitedDB(String user) throws Exception {
@@ -55,31 +60,31 @@ public class PortalConfigTemplateListener extends BaseComponentPlugin {
     return pconfig != null;
   }
   
-  private void initDB() throws Exception {
+  private void initDB(String ownerType) throws Exception {
     HashSet owners = config_.getPredefinedOwner();
     Iterator iter  = owners.iterator();
     while(iter.hasNext()){
-      String owner = (String)iter.next();
-      createPortalConfig(owner);
-      createPage(owner);
-      createPageNavigation(owner);
+      String ownerId = (String)iter.next();
+      createPortalConfig(ownerType, ownerId);
+      createPage(ownerType, ownerId);
+      createPageNavigation(ownerType, ownerId);
 //      createPortletPreferencesForUser(user);
     }
   }
   
-  private void createPortalConfig(String owner) throws Exception {    
-    PortalConfig pconfig = fromXML(getDefaultConfig(owner, "portal"), PortalConfig.class);
+  private void createPortalConfig(String ownerType, String ownerId) throws Exception {    
+    PortalConfig pconfig = fromXML(getDefaultConfig(ownerType, ownerId, "portal"), PortalConfig.class);
     pdcService_.save(pconfig);
   }
   
-  private void createPage(String owner) throws Exception {
-    PageSet pageSet = fromXML(getDefaultConfig(owner, "pages"), PageSet.class);
+  private void createPage(String ownerType, String ownerId) throws Exception {
+    PageSet pageSet = fromXML(getDefaultConfig(ownerType, ownerId, "pages"), PageSet.class);
     ArrayList<Page> list = pageSet.getPages();
     for(Page page : list) pdcService_.save(page);
   }
   
-  private void createPageNavigation(String owner) throws Exception {
-    PageNavigation navigation = fromXML(getDefaultConfig(owner, "navigation"), PageNavigation.class);
+  private void createPageNavigation(String ownerType, String ownerId) throws Exception {
+    PageNavigation navigation = fromXML(getDefaultConfig(ownerType, ownerId, "navigation"), PageNavigation.class);
     pdcService_.save(navigation);
   }
   
@@ -93,16 +98,17 @@ public class PortalConfigTemplateListener extends BaseComponentPlugin {
     }
   }*/ 
   
-  private String getDefaultConfig(String owner, String type) throws Exception {
+  private String getDefaultConfig(String ownerType, String ownerId, String dataType) throws Exception {
     String config = null;
     String templateLoc = config_.getTemplateLocation() ;
-    if(config_.isPredefinedOwner(owner)) {
+    String path = "/" + ownerType + "/" + ownerId +"/"+dataType+".xml";
+    if(config_.isPredefinedOwner(ownerId)) {
       String location = config_.getTemplateLocation() ;
-      config = IOUtil.getStreamContentAsString(cmanager_.getInputStream(location + "/" + owner +"/"+type+".xml"));      
+      config = IOUtil.getStreamContentAsString(cmanager_.getInputStream(location + path));      
     }else {
-      InputStream is = cmanager_.getInputStream(templateLoc + "/"+owner+"/" +type+".xml");
+      InputStream is = cmanager_.getInputStream(templateLoc + path);
       String template = IOUtil.getStreamContentAsString(is);
-      config = StringUtils.replace(template, "@owner@", owner);
+      config = StringUtils.replace(template, "@owner@", ownerId);
     }
     return config;
   }

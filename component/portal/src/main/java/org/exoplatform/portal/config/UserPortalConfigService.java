@@ -4,28 +4,22 @@
  **************************************************************************/
 package org.exoplatform.portal.config;
 
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.commons.utils.IOUtil;
+import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Page.PageSet;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
-import org.jibx.runtime.BindingDirectory;
-import org.jibx.runtime.IBindingFactory;
-import org.jibx.runtime.IUnmarshallingContext;
 
 /**
  * Created by The eXo Platform SARL
@@ -65,15 +59,6 @@ public class UserPortalConfigService {
     portalConfigCache_   = cacheService.getCacheInstance(PortalConfig.class.getName()) ;
     pageConfigCache_     = cacheService.getCacheInstance(Page.class.getName()) ;
     pageNavigationCache_ = cacheService.getCacheInstance(PageNavigation.class.getName()) ;
-    
-    String checkPortal = "site";
-    ValueParam valueParam = params.getValueParam("default.portal");
-    if(valueParam != null) checkPortal = valueParam.getValue();
-    if(checkPortal == null  || checkPortal.trim().length() == 0) checkPortal = "site";
-    
-    if(storage_.getPortalConfig(checkPortal) != null)  return;
-    //createUserPortalConfig(portalName, template);
-    
   }
   
   
@@ -129,24 +114,8 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public UserPortalConfig  createUserPortalConfig(String portalName, String template) throws Exception {
-    String path = template + "/" + portalName +"/config.xml" ;    
-    String config = IOUtil.getStreamContentAsString(configService_.getInputStream(path));      
-    PortalConfig pconfig = (PortalConfig)fromXML(config, PortalConfig.class);
-    storage_.create(pconfig);
-    
-    path = template + "/" + portalName +"/pages.xml" ;    
-    config = IOUtil.getStreamContentAsString(configService_.getInputStream(path));      
-    PageSet pageSet = (PageSet)fromXML(config, PageSet.class);
-    ArrayList<Page> list = pageSet.getPages();
-    for(Page page : list) storage_.create(page);
-    
-    path = template + "/" + portalName +"/navigation.xml" ;    
-    config = IOUtil.getStreamContentAsString(configService_.getInputStream(path)); 
-    PageNavigation navigation = (PageNavigation) fromXML(config, PageNavigation.class);
-    storage_.save(navigation);
-    
     UserPortalConfig userPortalConfig  = new UserPortalConfig();
-    return userPortalConfig;
+    return userPortalConfig;   
   }
   
   /**
@@ -256,10 +225,7 @@ public class UserPortalConfigService {
     return navigation ; 
   }
   
-  private Object fromXML(String xml, Class clazz) throws Exception {
-    ByteArrayInputStream is = new ByteArrayInputStream(xml.getBytes()) ;
-    IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
-    IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
-    return uctx.unmarshalDocument(is, null) ;
-  }
+  @SuppressWarnings("unused")
+  public void initListener(ComponentPlugin listener) { }
+
 }
