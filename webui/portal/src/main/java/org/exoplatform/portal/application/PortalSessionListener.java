@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSessionListener;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
+import org.exoplatform.services.portletcontainer.helper.WindowInfosContainer;
 import org.exoplatform.web.WebAppController;
 
 /**
@@ -36,6 +37,8 @@ public class PortalSessionListener implements HttpSessionListener {
         (WebAppController)portalContainer.getComponentInstanceOfType(WebAppController.class) ;
       PortalApplication portalApp =  controller.getApplication(PortalApplication.PORTAL_APPLICATION_ID) ;
       portalApp.getStateManager().expire(event.getSession().getId(), portalApp) ;
+      
+      WindowInfosContainer.removeInstance(portalContainer, event.getSession().getId());
     } catch(Exception ex) {
       ex.printStackTrace() ;
     } finally {

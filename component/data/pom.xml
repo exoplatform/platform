@@ -16,7 +16,7 @@
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.portletcontainer</groupId>
-      <artifactId>exo-portlet-container.services.core</artifactId>
+      <artifactId>exo.pc.component.core</artifactId>
       <version>${org.exoplatform.pc.version}</version>
     </dependency>
 

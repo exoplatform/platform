@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentRequestLifecycle;
+import org.exoplatform.services.portletcontainer.helper.WindowInfosContainer;
 import org.exoplatform.web.application.Application;
 /**
  * Created by The eXo Platform SARL
@@ -65,6 +66,7 @@ public class WebAppController {
       for(ComponentRequestLifecycle component : components) {
         component.startRequest(portalContainer);
       }
+      WindowInfosContainer.createInstance(portalContainer, req.getSession().getId(), req.getRemoteUser());
       
       handler.execute(this, req, res) ;
       
