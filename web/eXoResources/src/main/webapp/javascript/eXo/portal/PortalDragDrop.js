@@ -78,7 +78,7 @@ PortalDragDrop.prototype.init = function(e) {
 	      	
 	      	var lastFoundComponentLayout = lastFoundUIComponent.getLayoutBlock();
 		      if((lastFoundComponentLayout.className == "LAYOUT-CONTAINER") && (lastFoundComponentLayout.offsetHeight < 30)) {
-		      	lastFoundComponentLayout.style.height = "60px" ;
+		      	lastFoundComponentLayout.style.height = "100px" ;
 		      }
 	      }
       } catch(err) {
@@ -472,7 +472,6 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
 };
 // Function resizeRows added by Philippe
 PortalDragDrop.prototype.resizeRows = function() {
-	console.log("resize");
 	var uiPortal = document.getElementById("UIPortal");
 	if (uiPortal) {
 	  var trContainers = eXo.core.DOMUtil.findDescendantsByClass(uiPortal, "tr", "TRContainer");
@@ -481,13 +480,12 @@ PortalDragDrop.prototype.resizeRows = function() {
 		  var tdList = eXo.core.DOMUtil.getChildrenByTagName(trContainer, "td") ;
 		  var offsetWidthTR = trContainer.offsetWidth ;
 		  var tdWidth = offsetWidthTR / tdList.length;
-		  console.log("tdList.length (%s) ", j, tdList.length);
 		  for (var i = 0; i < tdList.length; i++) {
 		  	var td = tdList[i];
 				td.style.width = tdWidth + "px";
+				var innerContainer = eXo.core.DOMUtil.findFirstDescendantByClass(td, "div", "UIContainer");
+				innerContainer.style.height = "60px";
 		  }
-		  var uiContainer = eXo.core.DOMUtil.findAncestorByClass(trContainer, "LAYOUT-CONTAINER");
-	  	if (uiContainer) uiContainer.style.height = "auto";
 	  }
 	}
 };
