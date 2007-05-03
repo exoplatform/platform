@@ -74,18 +74,18 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   
   private void createPortalConfig(String ownerType, String ownerId) throws Exception {    
     PortalConfig pconfig = fromXML(getDefaultConfig(ownerType, ownerId, "portal"), PortalConfig.class);
-    pdcService_.save(pconfig);
+    pdcService_.create(pconfig);
   }
   
   private void createPage(String ownerType, String ownerId) throws Exception {
     PageSet pageSet = fromXML(getDefaultConfig(ownerType, ownerId, "pages"), PageSet.class);
     ArrayList<Page> list = pageSet.getPages();
-    for(Page page : list) pdcService_.save(page);
+    for(Page page : list) pdcService_.create(page);
   }
   
   private void createPageNavigation(String ownerType, String ownerId) throws Exception {
     PageNavigation navigation = fromXML(getDefaultConfig(ownerType, ownerId, "navigation"), PageNavigation.class);
-    pdcService_.save(navigation);
+    pdcService_.create(navigation);
   }
   
   /*private void createPortletPreferencesForUser(String owner) throws Exception {
