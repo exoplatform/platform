@@ -95,7 +95,7 @@
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
-  padding-right: 16px;
+  padding-right: 20px;
   background: url(/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif) no-repeat right;
   cursor: pointer;
 }
