@@ -1,4 +1,97 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
+  <component>
+    <key>org.exoplatform.portal.config.DataStorage</key>
+    <type>org.exoplatform.portal.config.jcr.DataStorageImpl</type>     
+  </component> 
+  
+  <component>
+    <key>org.exoplatform.portal.config.UserPortalConfigService</key>
+    <type>org.exoplatform.portal.config.UserPortalConfigService</type>
+    <init-params>	
+      <value-param>
+        <name>view.membership.type</name>
+        <description>membership type for view</description>
+        <value>*</value>
+      </value-param>
+			<value-param>
+        <name>edit.membership.type</name>
+        <description>membership type for view</description>
+        <value>member</value>	    
+      </value-param>     
+	  </init-params>             
+  </component>   
+  
+  <external-component-plugins>  
+    <target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>      
+    <component-plugin>
+      <name>new.portal.config.portal.listener</name>
+      <set-method>initListener</set-method>
+      <type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+      <description>this listener init the portal configuration</description>
+      <init-params>
+        <value-param>
+          <name>check.portal</name>
+          <description>The check portal for checking db is empty or not</description>
+          <value>site</value>
+        </value-param>
+        <value-param>
+          <name>owner.type</name>
+          <description>owner type for init data</description>
+          <value>portal</value>
+        </value-param>
+        <object-param>
+          <name>configuration</name>
+          <description>description</description>
+          <object type="org.exoplatform.portal.config.NewPortalConfig">
+            <field  name="predefinedOwner">
+              <collection type="java.util.HashSet">                
+                <value><string>site</string></value>
+              </collection>
+            </field>
+            <field  name="ownerType"><string>portal</string></field>
+            <field  name="templateOwner"><string>template</string></field>
+            <field  name="templateLocation"><string>war:/conf/portal</string></field> 
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+
+  <external-component-plugins>  
+    <target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>      
+    <component-plugin>
+      <name>new.portal.config.user.listener</name>
+      <set-method>initListener</set-method>
+      <type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+      <description>this listener init the portal configuration</description>
+      <init-params>
+        <value-param>
+          <name>check.portal</name>
+          <description>The check portal for checking db is empty or not</description>
+          <value>site</value>
+        </value-param>
+        <value-param>
+          <name>owner.type</name>
+          <description>owner type for init data</description>
+          <value>user</value>
+        </value-param>
+        <object-param>
+          <name>configuration</name>
+          <description>description</description>
+          <object type="org.exoplatform.portal.config.NewPortalConfig">
+            <field  name="predefinedOwner">
+              <collection type="java.util.HashSet">                
+                <value><string>site</string></value>
+              </collection>
+            </field>
+            <field  name="ownerType"><string>user</string></field>
+            <field  name="templateOwner"><string>template</string></field>
+            <field  name="templateLocation"><string>war:/conf/portal</string></field> 
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>  
   <import>classpath:/conf/portal/testjcr/test-jcr-configuration.xml</import> 
 </configuration>

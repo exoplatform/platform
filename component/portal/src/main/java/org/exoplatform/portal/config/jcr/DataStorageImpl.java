@@ -30,8 +30,8 @@ public class DataStorageImpl implements DataStorage {
   final private static String PORTAL_APP = "PortalApp" ;
 
   final private static String HOME = "home";
-  final private static String USER_DATA = "users";
-  final private static String GROUP_DATA = "groups";
+  final private static String USER_DATA = "user";
+  final private static String GROUP_DATA = "group";
 
   final private static String PORTAL_CONFIG_FILE_NAME = "config.xml" ;
   final private static String NAVIGATION_CONFIG_FILE_NAME = "navigation.xml" ;

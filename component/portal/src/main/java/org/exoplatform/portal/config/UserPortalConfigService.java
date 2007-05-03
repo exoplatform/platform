@@ -10,7 +10,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.container.component.ComponentPlugin;
-import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -34,7 +33,6 @@ public class UserPortalConfigService {
   
   private DataStorage  storage_ ;
   private UserACL userACL_;
-  private ConfigurationManager configService_; 
   private OrganizationService orgService_;
   
   protected ExoCache portalConfigCache_ ;
@@ -48,11 +46,9 @@ public class UserPortalConfigService {
   public UserPortalConfigService(InitParams params, 
                                  DataStorage storage,
                                  CacheService cacheService,
-                                 ConfigurationManager configService,
                                  OrganizationService  orgService) throws Exception {
     storage_ = storage ;
     orgService_ = orgService;
-    configService_ = configService;
     
     userACL_ = new UserACL(params, orgService);
     

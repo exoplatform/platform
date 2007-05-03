@@ -14,9 +14,9 @@ import java.util.HashSet;
 public class NewPortalConfig {
   
   private HashSet predefinedOwner = new HashSet(5);
-  private String ownerType;
-  private String templateOwner ;
-  private String templateLocation ;
+  private String  ownerType;
+  private String  templateOwner ;
+  private String  templateLocation ;
   
   public HashSet getPredefinedOwner() {   return predefinedOwner; }
   public void setPredefinedOwner(HashSet s) {  this.predefinedOwner = s; }

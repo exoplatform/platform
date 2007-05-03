@@ -5,8 +5,7 @@
   <access-groups>*:/guest</access-groups>
   <description> description for node navigation </description>
   
-  <page-nodes>
-  
+  <page-nodes>  
    <node>
     <uri>home</uri>
     <label>#{home}</label>

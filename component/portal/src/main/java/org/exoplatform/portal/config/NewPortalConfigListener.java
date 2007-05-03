@@ -30,13 +30,13 @@ import org.jibx.runtime.IUnmarshallingContext;
  *          tuan08@users.sourceforge.net
  * May 22, 2006
  */
-public class PortalConfigTemplateListener extends BaseComponentPlugin {
+public class NewPortalConfigListener extends BaseComponentPlugin {
   
   private NewPortalConfig config_ ;
   private ConfigurationManager cmanager_ ;
   private DataStorage pdcService_;  
   
-  public PortalConfigTemplateListener(DataStorage pdcService,
+  public NewPortalConfigListener(DataStorage pdcService,
                                       ConfigurationManager cmanager,                                        
                                       InitParams params) throws Exception {
     cmanager_ = cmanager ;
@@ -65,7 +65,7 @@ public class PortalConfigTemplateListener extends BaseComponentPlugin {
     Iterator iter  = owners.iterator();
     while(iter.hasNext()){
       String ownerId = (String)iter.next();
-      createPortalConfig(ownerType, ownerId);
+      if(ownerType.equals("portal")) createPortalConfig(ownerType, ownerId);
       createPage(ownerType, ownerId);
       createPageNavigation(ownerType, ownerId);
 //      createPortletPreferencesForUser(user);
