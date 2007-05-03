@@ -5,10 +5,13 @@
 package org.exoplatform.portal.config;
 
 import java.io.FileInputStream;
+import java.util.List;
 
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.Page.PageSet;
 import org.exoplatform.test.BasicTestCase;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
@@ -32,6 +35,7 @@ public class TestDataStorage extends BasicTestCase {
     
     assertPortalConfigOperator() ;
     assertNavigationOperator() ;
+    assertPageOperator() ;
   }
   
   void assertPortalConfigOperator()  throws Exception {
@@ -83,8 +87,8 @@ public class TestDataStorage extends BasicTestCase {
   void assertNavigationOperator() throws Exception {
     String ownerId = "portalone" ;
     
-    //assertNavigationCreate(ownerId) ;
-    //assertNavigationSave(ownerId) ;
+    assertNavigationCreate(ownerId) ;
+    assertNavigationSave(ownerId) ;
     assertNavigationRemove() ;
   }
   
@@ -145,7 +149,19 @@ public class TestDataStorage extends BasicTestCase {
     
     PageNavigation _returnNavigation2 = storage_.getPageNavigation(navigationId2) ;
     assertNotNull(_returnNavigation2) ;
+    
+    storage_.remove(navigation2) ;
 
+  }
+  
+  void assertPageOperator() throws Exception {
+    String ownerId = "portalone" ;
+    assertPageCreate(ownerId) ;
+  }
+
+  void assertPageCreate(String ownerId) throws Exception {
+   List<Page> pages = createPages(ownerId) ;
+   assertEquals(2, pages.size()) ;
   }
 
   private PortalConfig createPortalConfig(String portalName) throws Exception {
@@ -162,6 +178,13 @@ public class TestDataStorage extends BasicTestCase {
     PageNavigation navigation = loadObject(PageNavigation.class, navigationFile) ;
     
     return navigation ;
+  }
+  
+  private List<Page> createPages(String ownerId) throws Exception {
+    String pageSetFile = ownerId + "/pages.xml" ;
+    PageSet pageSet = loadObject(PageSet.class, pageSetFile) ;
+ 
+    return pageSet.getPages() ;
   }
   private <T> T loadObject(Class<T> clazz, String file) throws Exception{
     IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
