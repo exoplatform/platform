@@ -98,7 +98,9 @@ PortalDragDrop.prototype.init = function(e) {
 	      	
 	      	var lastFoundComponentLayout = lastFoundUIComponent.getLayoutBlock();
 		      if((lastFoundComponentLayout.className == "LAYOUT-CONTAINER") && (lastFoundComponentLayout.offsetHeight < 30)) {
-		      	//lastFoundComponentLayout.style.height = "60px" ;
+		      	if (eXo.core.DOMUtil.findFirstDescendantByClass(lastFoundComponentLayout, "div", "UIContainer") == null) {
+		      		lastFoundComponentLayout.style.height = "60px" ;
+		      	}
 		      }
 	      }
       } catch(err) {
@@ -503,8 +505,12 @@ PortalDragDrop.prototype.resizeRows = function() {
 				td.style.width = tdWidth + "px";
 				var innerContainer = eXo.core.DOMUtil.findFirstDescendantByClass(td, "div", "LAYOUT-CONTAINER");
 				if (innerContainer) {
-					 innerContainer.style.padding = "10px";
 					 innerContainer.style.height = "auto";
+					 if (eXo.core.DOMUtil.findFirstDescendantByClass(innerContainer, "div", "UIContainer") == null) {
+					 		var ancestor = eXo.core.DOMUtil.findAncestorByClass(innerContainer, "LAYOUT-CONTAINER");
+					 		if (ancestor) ancestor.style.height = "auto";
+		      		innerContainer.style.height = "60px" ;
+		      	}
 				}
 				actionButtons.pushAll(td.getElementsByTagName("a"));
 		  }
