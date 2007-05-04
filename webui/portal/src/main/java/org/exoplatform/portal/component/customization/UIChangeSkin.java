@@ -43,6 +43,15 @@ public class UIChangeSkin extends UIContainer {
     Param param = initParams.getParam("ChangeSkinTemplateConfigOption");
     List<SelectItemCategory> itemCategories = (List<SelectItemCategory>)param.getMapGroovyObject(context);
     
+    UIPortal uiPortal = Util.getUIPortal();
+    String currentSkin = uiPortal.getSkin();
+    
+    if(currentSkin == null ) currentSkin = "Default"; 
+    for(SelectItemCategory ele : itemCategories) {
+      if(ele.getName().equals(currentSkin)) ele.setSelected(true);
+      else  ele.setSelected(false);
+    }
+    
     UIItemSelector selector = new UIItemSelector("Skin");
     selector.setItemCategories(itemCategories);
     selector.setRendered(true);

@@ -19,7 +19,7 @@
 		    <div class="WorkingArea">
 		    	<div class="HorizontalLayout">
 		        <div class="UITabContentContainer">
-	            <div class="UITabContent" id="UITabContent" style="display: block;">
+	            <div class="UITabContent" id="UITabContent">
 	              <%uicomponent.renderChild(UIItemSelector.class) ;%>
 	            </div>
 	          </div>
