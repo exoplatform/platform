@@ -40,7 +40,6 @@
 <div class="MiddleLeftContainerOptions" $popupMenu>
 	<div class="MiddleRightContainerOptions">
 		<div class="UIPageNodeSelector" id="UIPageNodeSelector">
-		  
 		  <%/*Begin PageNodeSelectorContainer*/%>
 		  <div class="UIContainerConfigOptions ItemSelectorAncestor"> 
 		  <div class="ContainerConfigOptions"> 

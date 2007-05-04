@@ -57,19 +57,18 @@ UIPortalControl.prototype.fixHeight = function() {
 			var maxHeight = objectParent.offsetHeight - 205 ;
 			scrollArea.style.height = "auto";
 			scrollArea.style.width = "auto";
-			jsContainer.style.width = "auto";
+			jsContainer.style.width = "203px";
 			var heightChild = scrollArea.offsetHeight;
 			if(maxHeight > 0) {
 				if(heightChild > maxHeight) {
-						scrollArea.style.overflow = "auto";
-						scrollArea.style.height = maxHeight + "px";
-						scrollArea.style.width = 204 + "px";
-						jsContainer.style.width = 224 + "px";
-						jsContainer.style.visibility = "visible";
+					scrollArea.style.overflow = "auto";
+					scrollArea.style.height = maxHeight + "px";
+					scrollArea.style.width = "204px";
+					jsContainer.style.width = "224px";
 				}
 			} else {
 			  scrollArea.style.overflow = "hidden";
-				scrollArea.style.height = 1 + "px";
+				scrollArea.style.height = "1px";
 			}
 		}
 	}
