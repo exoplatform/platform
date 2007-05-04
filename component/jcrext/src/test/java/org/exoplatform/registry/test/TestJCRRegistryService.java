@@ -5,6 +5,7 @@
 package org.exoplatform.registry.test;
 
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.registry.JCRRegistryService;
@@ -29,7 +30,7 @@ public class TestJCRRegistryService extends BasicTestCase {
     JCRRegistryService service = 
       (JCRRegistryService) pcontainer.getComponentInstanceOfType(JCRRegistryService.class);
     
-    ServiceRegistry registry = new ServiceRegistry("name") {
+    ServiceRegistry registry = new ServiceRegistry("nameService") {
       public void preAction(JCRRegistryService service) throws Exception {
         this.description = "A Description";
       }
@@ -40,6 +41,18 @@ public class TestJCRRegistryService extends BasicTestCase {
     };
     
     service.createServiceRegistry(registry, true) ;
+    service.createUserHome("abc", true);
+    service.createUserHome("abc", true);
+    service.createUserHome("def", false);
+    service.createServiceRegistry("abc", registry, true);
+    showTree(service.getSession().getRootNode(), "");
   }
   
+  public void showTree(Node node, String pre) throws Exception{
+    System.out.println(pre + node.getName());
+    NodeIterator ite = node.getNodes();
+    while(ite.hasNext()){
+      showTree(ite.nextNode(), pre + "  ");
+    }
+  }
 }
