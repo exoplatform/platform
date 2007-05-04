@@ -17,6 +17,7 @@ import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.component.UIWizard;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
+import org.exoplatform.webui.component.validator.IdentifierValidator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -42,7 +43,7 @@ public class UIWizardPageSetInfo extends UIForm {
   
   public UIWizardPageSetInfo() throws Exception {
     UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, null, null);    
-    addUIFormInput(new UIFormStringInput("pageName", "pageName", null).addValidator(EmptyFieldValidator.class));
+    addUIFormInput(new UIFormStringInput("pageName", "pageName", null).addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class));
     addUIFormInput(new UIFormTextAreaInput("description","description",null));
     
     UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
@@ -91,7 +92,7 @@ public class UIWizardPageSetInfo extends UIForm {
     super.processDecode(context);
     String action = context.getRequestParameter(UIForm.ACTION);
     Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;   
-    if(event != null) event.broadcast()  ;   
+    if(event != null) event.broadcast() ;   
   }
   
   static public class ChangeNodeActionListener  extends EventListener<UIWizardPageSetInfo> {

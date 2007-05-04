@@ -29,6 +29,7 @@ import org.exoplatform.webui.component.UIFormTextAreaInput;
 import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
+import org.exoplatform.webui.component.validator.IdentifierValidator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -58,8 +59,8 @@ public class UIPageNodeForm extends UIFormTabPane {
     UIFormInputSet uiSettingSet = new UIFormInputSet("PageNodeSetting") ;
     uiSettingSet.addUIFormInput(new UIFormStringInput("uri", "uri", null).setEditable(false)).                            
     addUIFormInput(new UIFormStringInput("name","name", null).
-                   addValidator(EmptyFieldValidator.class)).
-                   addUIFormInput(new UIFormStringInput("label", "label", null).
+                   addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)).
+    addUIFormInput(new UIFormStringInput("label", "label", null).
                    addValidator(EmptyFieldValidator.class)).
     addUIFormInput(new UIFormStringInput("type", "type", null)).
     addUIFormInput(new UIFormTextAreaInput("description", "description",null)).
