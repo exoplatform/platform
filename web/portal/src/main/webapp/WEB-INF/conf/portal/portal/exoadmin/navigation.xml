@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+	<owner-type>portal</owner-type>
+  <owner-id>exoadmin</owner-id>
+  <access-groups>/portal/admin</access-groups>
+  
+  <page-nodes>
+    <node>
+      <uri>home</uri>
+      <label>Home</label>      
+      <page-reference>exoadmin:/web</page-reference>
+    </node>      
+    
+    <node>
+      <uri>administration</uri>
+      <label>Administration</label>     
+      <page-reference>exoadmin:/administration</page-reference>
+      
+      <node>
+        <uri>administration/portletregistry</uri>
+        <label>Portlet Registry</label>
+        <page-reference>exoadmin:/portletregistry</page-reference>
+      </node>
+    </node> 
+
+    <node>
+      <uri>ecm</uri>
+      <label>ECM</label>
+      <page-reference>exoadmin:/ecmdesktop</page-reference>
+      
+      <node>
+        <uri>ecm/ecmadmin</uri>
+        <label>ECMAdmin</label>
+        <page-reference>exoadmin:/ecmadmin</page-reference>
+      </node>
+
+      <node>
+        <uri>ecm/jcrexplorer</uri>
+        <label>JCRExplorer</label>
+        <page-reference>exoadmin:/jcrexplorer</page-reference>
+      </node>
+      
+      <node>
+        <uri>ecm/browsecontent</uri>
+        <label>Browse Content</label>
+        <page-reference>exoadmin:/browsecontent</page-reference>
+      </node>
+      
+      <node>
+        <uri>workflow/controller</uri>
+        <label>Workflow Controller</label>
+        <page-reference>exoadmin:/workflowcontroller</page-reference>
+      </node>
+      
+      <node>
+        <uri>workflow/monitoring</uri>
+        <label>Workflow Monitoring</label>
+        <page-reference>exoadmin:/workflowmonitoring</page-reference>
+      </node>
+    </node>
+    
+    <node>
+      <uri>groupware</uri>
+      <label>GROUPWARE</label>
+      <page-reference>exoadmin:/groupwaredesktop</page-reference>
+      
+      <node>
+        <uri>groupware/forum</uri>
+        <label>Forum</label>
+        <page-reference>exoadmin:/forum</page-reference>
+      </node>
+
+      <node>
+        <uri>groupware/mail</uri>
+        <label>Mail</label>
+        <page-reference>exoadmin:/mail</page-reference>
+      </node>
+    </node>
+    
+  </page-nodes>
+</node-navigation>

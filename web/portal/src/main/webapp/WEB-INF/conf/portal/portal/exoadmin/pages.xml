@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page-set>  
+  <page>    
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>web</name>
+    <access-groups>/guest</access-groups>        
+    
+    <application>
+      <instance-id>exoadmin:/content/ContentPortlet/contentportlet</instance-id>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>  
+  </page>
+  
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>  	
+    <name>administration</name>
+    <factory-id>Desktop</factory-id>
+    <access-groups>/guest</access-groups>
+    <show-max-window>true</show-max-window>
+    
+    <application>
+      <instance-id>exoadmin:/exoadmin/OrganizationPortlet/Organization</instance-id>
+      <title>Organization Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </application>  
+
+    <application>
+      <instance-id>exoadmin:/exoadmin/AccountPortlet/Account</instance-id>
+      <title>Account Portlet</title>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+
+    <application>
+      <instance-id>exoadmin:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
+      <title>Portlet-Registry Portlet</title>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+
+  </page> 
+  
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>portletregistry</name>
+    
+    <application>
+      <instance-id>exoadmin:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
+      <title>Portlet-Registry Portlet</title>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+  </page> 
+  
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>ecmadmin</name>
+    <access-groups>/guest</access-groups>        
+    
+    <application>
+      <instance-id>exoadmin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>
+      <title>ECM Admin Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>  
+  </page>  
+
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>jcrexplorer</name>
+    <access-groups>/guest</access-groups>        
+    
+    <application>
+      <instance-id>exoadmin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
+      <title>JCR Explorer Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </application>  
+  </page>
+  
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>browsecontent</name>
+    <access-groups>/guest</access-groups>        
+    
+    <application>
+      <instance-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
+      <title>Browse Content Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </application>  
+  </page>
+
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>workflowcontroller</name>
+    <access-groups>/guest</access-groups>        
+    
+    <application>
+      <instance-id>exoadmin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>    
+      <title>Workflow Controller Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </application>  
+  </page>
+  
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>workflowmonitoring</name>
+    <access-groups>/guest</access-groups>        
+    
+    <application>
+      <instance-id>exoadmin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</instance-id>    
+      <title>Workflow Monitoring Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </application>  
+  </page>
+  
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>forum</name>
+    <access-groups>/guest</access-groups>        
+    
+    <application>
+      <instance-id>exoadmin:/forum/ForumPortlet/forum</instance-id>    
+      <title>Forum Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </application>  
+  </page>
+  
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>mail</name>
+    <access-groups>/guest</access-groups>        
+    
+    <application>
+      <instance-id>exoadmin:/mail/MailPortlet/mail</instance-id>    
+      <title>Mail Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </application>  
+  </page>
+  
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>ecmdesktop</name>    
+    <factory-id>Desktop</factory-id>
+    <access-groups>/guest</access-groups>        
+    <show-max-window>true</show-max-window>
+
+    <application>
+      <instance-id>exoadmin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>    
+      <title>ECM Admin Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>  
+
+    <application>
+      <instance-id>exoadmin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
+      <title>JCR Explorer Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>    
+  
+    <application>
+      <instance-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
+      <title>Browse Content Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>
+        
+    <application>
+      <instance-id>exoadmin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>
+      <title>Workflow Control Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>    
+
+    <application>
+      <instance-id>exoadmin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</instance-id>    
+      <title>Workflow Monitoring Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>    
+  </page>
+  
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>groupwaredesktop</name>
+    <factory-id>Desktop</factory-id>
+    <access-groups>/guest</access-groups>        
+    <show-max-window>true</show-max-window>
+
+    <application>
+      <instance-id>exoadmin:/forum/ForumPortlet/forum</instance-id>
+      <title>Forum Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>    
+
+    <application>
+      <instance-id>exoadmin:/mail/MailPortlet/mail</instance-id>
+      <title>Mail Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>
+   </page>
+</page-set>

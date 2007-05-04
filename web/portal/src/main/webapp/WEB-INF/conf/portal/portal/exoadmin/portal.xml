@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<portal-config decorator="community" width="100%" height="100%">
+  <portal-name>exoadmin</portal-name>
+  <locale>en</locale>  
+  <factory-id>office</factory-id>
+  <access-groups>/portal/admin</access-groups>
+  
+  <widget-layout>
+  </widget-layout>
+
+	<portal-layout>
+	  <application>
+	    <instance-id>exoadmin:/web/BannerPortlet/banner</instance-id>
+	    <show-info-bar>false</show-info-bar>
+	  </application>
+		
+		<application>
+      <instance-id>exoadmin:/web/NavigationPortlet/toolbar</instance-id>
+	    <show-info-bar>false</show-info-bar>
+	  </application>
+	
+	  <application>
+	    <instance-id>exoadmin:/web/BreadcumbsPortlet/breacumbs</instance-id>
+	    <show-info-bar>false</show-info-bar>
+	  </application>
+	
+	  <page-body>    
+	  </page-body>
+	
+	  <application>
+	    <instance-id>exoadmin:/web/FooterPortlet/footer</instance-id>
+	    <show-info-bar>false</show-info-bar>
+	  </application>
+	</portal-layout> 
+</portal-config>
