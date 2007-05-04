@@ -46,16 +46,15 @@
 	        <div class="UIWindowContent">
 	          <div class="Content" style="$heightStyle"><% uicomponent.renderChildren(); %></div>
 	        </div>
-	        <div class="BottomBar">
-	          <div class="ResizeButton"><span></span></div>
-	        </div>
 		    </div>
 		  </div>
 	  </div>
 	  <div><span></span></div>
 	  <div class="BottomLeftCornerDecorator">
 		  <div class="BottomRightCornerDecorator">
-		    <div class="BottomCenterDecorator"><span></span></div>
+		    <div class="BottomCenterDecorator">
+					<div class="ResizeButton"><span></span></div>
+				</div>
 		  </div>
 	  </div>
 	</div>
