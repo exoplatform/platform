@@ -89,10 +89,13 @@ public class UserPortalConfigService {
     if (navigation != null) navigations.add(navigation) ;
     
     Collection memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
+    
+    System.out.println("\n\n"+accessUser +" : "+orgService_.getUserHandler().findUserByName(accessUser)+"\n\n");
     Iterator mitr = memberships.iterator() ;
     while(mitr.hasNext()) {
       Membership m = (Membership) mitr.next() ;    
       navigation = getPageNavigation(DataStorage.GROUP_TYPE+"::"+m.getGroupId()) ;
+      System.out.println("\n\n"+m.getId() +" : "+navigation+"\n\n");
       if (navigation != null) navigations.add(navigation) ;
     }   
     userACL_.computeNavigation(navigations, accessUser);

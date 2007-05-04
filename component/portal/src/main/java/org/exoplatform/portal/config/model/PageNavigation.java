@@ -39,20 +39,6 @@ public class PageNavigation {
   public String[] getAccessGroup(){  return accessGroup; }
   public void     setAccessGroup(String[] s) { accessGroup = s ; }
   
-  public String getAccessGroups(){
-    if(accessGroup == null)  return "";
-    StringBuilder builder = new StringBuilder();
-    for(String ele : accessGroup) {
-      builder.append(ele).append(' ');
-    }
-    return builder.toString();
-  }
-  public void setAccessGroups(String s){ 
-    this.accessGroups = s;
-    if(accessGroups == null) return ;
-    accessGroup = accessGroups.split(","); 
-  }  
-
   public boolean getModifiable(){  return modifiable; }
   public void    setModifiable(boolean b) { modifiable = b ; }
 
@@ -99,6 +85,23 @@ public class PageNavigation {
 
   public ArrayList<PageNode> getNodes(){ return pageNodes; }
   public void setNodes(ArrayList<PageNode> nodes) { pageNodes = nodes; }
+  
+  public String getAccessGroups(){
+    if(accessGroup == null)  return "";
+    StringBuilder builder = new StringBuilder();
+    for(String ele : accessGroup) {
+      builder.append(ele).append(' ');
+    }
+    return builder.toString();
+  }
+  public void setAccessGroups(String s){ 
+    this.accessGroups = s;
+    if(accessGroups == null) return ;
+    accessGroup = accessGroups.split(",");
+    for(int i = 0; i < accessGroup.length; i++) {
+      accessGroup[i] = accessGroup[i].trim(); 
+    }
+  }
   
   public PageNavigation clone() {
     PageNavigation newNav = new PageNavigation();

@@ -20,8 +20,7 @@
         <value>member</value>	    
       </value-param>     
 	  </init-params>             
-  </component>   
-  
+  </component>     
   <external-component-plugins>  
     <target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>      
     <component-plugin>

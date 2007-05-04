@@ -12,6 +12,7 @@ import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
@@ -53,7 +54,29 @@ class UserACL {
       }            
       iterator.remove();
     }
-  }
+    
+    for(int i = 0; i < navs.size(); i++) {
+      Iterator<PageNode> nodeIterator = navs.get(i).getNodes().iterator();
+      while(nodeIterator.hasNext()){
+        PageNode node = nodeIterator.next();
+        for(int j = i+1; j < navs.size(); j++) {
+          Iterator<PageNode> nextNodeIterator = navs.get(j).getNodes().iterator();
+          while(nextNodeIterator.hasNext()){
+            PageNode nextNode = nextNodeIterator.next();
+            if(node.getUri().equals(nextNode.getUri())) {
+              if(navs.get(i).getPriority() < navs.get(j).getPriority()) {
+                nodeIterator.remove();
+              } else {
+                nextNodeIterator.remove();
+              }
+              break;
+            }            
+          }          
+        }
+      }
+    }
+    
+  }  
   
   boolean hasPermission(PortalConfig config, String remoteUser, String mt) throws Exception {
     String [] groups = config.getAccessGroup();

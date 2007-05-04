@@ -44,20 +44,6 @@ public class PortalConfig {
   public String [] getAccessGroup() { return accessGroup ; }
   public void   setAccessGroup(String[] s) { accessGroup = s ; }
   
-  public String getAccessGroups(){
-    if(accessGroup == null)  return "";
-    StringBuilder builder = new StringBuilder();
-    for(String ele : accessGroup) {
-      builder.append(ele).append(' ');
-    }
-    return builder.toString();
-  }
-  public void setAccessGroups(String s){ 
-    this.accessGroups = s;
-    if(accessGroups == null) return ;
-    accessGroup = accessGroups.split(","); 
-  }
-  
   public String getSkin() { return skin; }
   public void setSkin(String s ) { skin = s; }
   
@@ -81,6 +67,23 @@ public class PortalConfig {
   
   public String getTitle() { return title ; }
   public void   setTitle(String value) { title = value ; }
+  
+  public String getAccessGroups(){
+    if(accessGroup == null)  return "";
+    StringBuilder builder = new StringBuilder();
+    for(String ele : accessGroup) {
+      builder.append(ele).append(' ');
+    }
+    return builder.toString();
+  }
+  public void setAccessGroups(String s){ 
+    this.accessGroups = s;
+    if(accessGroups == null) return ;
+    accessGroup = accessGroups.split(",");
+    for(int i = 0; i < accessGroup.length; i++) {
+      accessGroup[i] = accessGroup[i].trim(); 
+    }
+  }
   
   static public class PortalConfigSet {
     private ArrayList<PortalConfig> portalConfigs ;

@@ -6,8 +6,6 @@ package org.exoplatform.portal.config;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.services.database.HibernateService;
-import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.test.BasicTestCase;
 
 /**
@@ -15,7 +13,7 @@ import org.exoplatform.test.BasicTestCase;
  *          nhudinhthuan@yahoo.com
  * May 23, 2006
  */
-public class TestUserPortalConfigService extends BasicTestCase {
+public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   
   private UserPortalConfigService service_; 
   
@@ -42,8 +40,10 @@ public class TestUserPortalConfigService extends BasicTestCase {
     assertEquals(portalConfig.getAccessGroup().length, 1);
     assertEquals(portalConfig.getTitle(), "Portal Site");
     
+    assertEquals(userPortalConfig.getNavigations().size(), 1);
     
-   
+    userPortalConfig = service_.getUserPortalConfig("site" ,"exoadmin");
+    assertEquals(userPortalConfig.getNavigations().size(), 1);
   }
  
 }
