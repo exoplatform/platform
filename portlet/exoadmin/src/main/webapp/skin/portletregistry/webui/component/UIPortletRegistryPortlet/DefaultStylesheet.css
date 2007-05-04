@@ -102,8 +102,12 @@
   margin: auto;
 }
 
+.ApplicationRegistryWorkingArea .UIGrid .ActionColumns {
+  width: 120px;
+}
+
 .ApplicationRegistryWorkingArea .UIGrid .OverflowContainer {
-  width: 90px;
+  width: 75px;
   margin: auto;
 }
 

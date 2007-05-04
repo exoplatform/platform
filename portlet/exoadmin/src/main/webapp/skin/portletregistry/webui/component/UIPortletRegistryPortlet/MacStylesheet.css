@@ -17,7 +17,7 @@
 }
 
 .UIApplicationRegistryPortlet .Title {
-  font-size: 14px; color: #058ee6; font-weight: bold;
+  font-size: 14px; color: #3470d4; font-weight: bold;
   margin: 5px 0px; 
   padding-left: 10px;
 }
@@ -43,12 +43,13 @@
 
 .ApplicationRegistryControlArea .CategoryContainer {
   margin: 6px 5px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .ApplicationRegistryControlArea  .CategoryControlBar {
   background: url('MacSkin/background/BGCategoryControlBar236x28.gif') no-repeat;
   height: 28px;
+  border-bottom: 1px solid white;
 }
 
 .ApplicationRegistryControlArea .UIToolbar .OverflowContainer {
@@ -101,10 +102,28 @@
 .ApplicationRegistryWorkingArea .UIGrid {
   width: 94%; 
   margin: auto;
+  border: 1px solid #d6d6d6;
+}
+
+.ApplicationRegistryWorkingArea .UIGrid th {
+  border: 1px solid #d6d6d6;
+}
+
+.ApplicationRegistryWorkingArea .UIGrid td {
+  border: 1px solid #d6d6d6;
+  padding-left: 10px;
+}
+
+.ApplicationRegistryWorkingArea .UIGrid .OddRow {
+  background: #efefef;
+}
+
+.ApplicationRegistryWorkingArea .UIGrid .ActionColumns {
+  width: 120px;
 }
 
 .ApplicationRegistryWorkingArea .UIGrid .OverflowContainer {
-  width: 90px;
+  width: 75px;
   margin: auto;
 }
 

@@ -302,3 +302,7 @@
 .UIContentPortlet .UIContentWorkingArea .Number a.PageSelected {
   color: red ;
 }
+
+.UIContentForm .UIForm .HorizontalLayout label {
+  width: 120px;
+}

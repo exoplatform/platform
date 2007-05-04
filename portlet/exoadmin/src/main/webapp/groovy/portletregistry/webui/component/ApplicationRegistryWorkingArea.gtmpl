@@ -5,7 +5,7 @@
   	    <tr class="EvenRow">
   	      <th>Applications</th>
   	      <th>Description</th>
-  	      <th>Actions</th>
+  	      <th class="ActionColumns">Actions</th>
   	    </tr>
   	    <tbody>
   	      <tr class="OddRow">
