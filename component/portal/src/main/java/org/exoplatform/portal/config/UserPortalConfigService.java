@@ -79,7 +79,6 @@ public class UserPortalConfigService {
    */
   public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
     PortalConfig portalConfig = storage_.getPortalConfig(portalName) ;
-    System.out.println("\n\n\n === > ta day ta co "+portalConfig+" : "+userACL_.getViewMembershipType() +"\n\n");
     if(portalConfig == null || 
        !userACL_.hasPermission(portalConfig, accessUser, userACL_.getViewMembershipType())) return null ;
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
@@ -97,7 +96,6 @@ public class UserPortalConfigService {
       if (navigation != null) navigations.add(navigation) ;
     }   
     userACL_.computeNavigation(navigations, accessUser);
-    System.out.println("\n\n\n === > ta day ta co "+navigations.size() +"\n\n");
     if (navigations.size() < 1) return null ;
 
     return new UserPortalConfig(portalConfig, navigations) ;    

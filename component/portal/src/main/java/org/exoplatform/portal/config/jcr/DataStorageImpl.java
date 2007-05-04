@@ -74,7 +74,6 @@ public class DataStorageImpl implements DataStorage {
     Node appNode = session.getRootNode().getNode(PORTAL_APP) ;
     if(!appNode.hasNode(portalName)) return null;
     Node portalNode = appNode.getNode(portalName) ;
-    System.out.println("\n\n get portal config "+portalName + " : "+portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)+"\n\n");
     if(!portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)) return null;
     Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
     PortalConfig portalConfig = mapper_.toPortalConfig(portalConfigNode) ;
