@@ -77,8 +77,9 @@ public class PortalDataModelUtil {
     toComponent(model , uiPortlet);
     model.setApplicationInstanceId(uiPortlet.getWindowId());
     model.setShowInfoBar(uiPortlet.getShowInfoBar());
-    model.setShowApplicationMode(uiPortlet.getShowWindowState());
+    model.setShowApplicationState(uiPortlet.getShowWindowState());
     model.setShowApplicationMode(uiPortlet.getShowPortletMode());    
+    model.setDescription(uiPortlet.getDescription());
     model.setTitle(uiPortlet.getTitle());
     model.setIcon(uiPortlet.getIcon());
     return model;

@@ -13,7 +13,7 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
   @SuppressWarnings("unchecked")
   public UIFormCheckBoxInput(String name, String bindingExpression, T value) {
     super(name, bindingExpression, null);
-    if(value != null) typeValue_ = (Class<T>)value.getClass();   
+    if(value != null) typeValue_ = (Class<T>)value.getClass();
     value_ = value;
     setId(name);
   }

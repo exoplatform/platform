@@ -63,7 +63,7 @@ public class UIPageNodeForm extends UIFormTabPane {
     addUIFormInput(new UIFormStringInput("label", "label", null).
                    addValidator(EmptyFieldValidator.class)).
     addUIFormInput(new UIFormStringInput("type", "type", null)).
-    addUIFormInput(new UIFormTextAreaInput("description", "description",null)).
+    addUIFormInput(new UIFormTextAreaInput("description", "description", null)).
     addUIFormInput(new UIFormInputInfo("creator", "creator", null)).
     addUIFormInput(new UIFormInputInfo("modifier", "modifier", null));
     

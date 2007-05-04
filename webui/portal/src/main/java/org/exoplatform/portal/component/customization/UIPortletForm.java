@@ -106,6 +106,7 @@ public class UIPortletForm extends UIFormTabPane {
   
   public UIPortlet getUIPortlet() { return uiPortlet_; }
   
+  @SuppressWarnings("unchecked")
   public void setValues(UIPortlet uiPortlet) throws Exception {
   	uiPortlet_ = uiPortlet;
     Application portlet = PortalDataModelUtil.toPortletModel(uiPortlet) ;
