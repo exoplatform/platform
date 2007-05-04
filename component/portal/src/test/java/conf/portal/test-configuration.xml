@@ -40,7 +40,11 @@
           <object type="org.exoplatform.portal.config.NewPortalConfig">
             <field  name="predefinedOwner">
               <collection type="java.util.HashSet">                
+                <value><string>community</string></value>              
+                <value><string>company</string></value>
+                <value><string>exoadmin</string></value>
                 <value><string>site</string></value>
+                <value><string>webos</string></value>
               </collection>
             </field>
             <field  name="ownerType"><string>portal</string></field>
