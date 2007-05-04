@@ -74,8 +74,8 @@
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .LeftIcon {
   float: left ;
   width: 16px;  height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackArrow.gif') no-repeat;
-  margin: 6px 0px 0px 3px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackUpArrow.gif') no-repeat;
+  margin: 4px 0px 0px 3px;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLabel {

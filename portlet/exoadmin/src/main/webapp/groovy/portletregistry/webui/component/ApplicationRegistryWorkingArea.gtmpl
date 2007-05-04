@@ -2,13 +2,13 @@
 	<div class="ApplicationContainer">
 		<table class="UIGrid" cellspacing="0" borderspacing="0">
       <thead>
-  	    <tr>
+  	    <tr class="EvenRow">
   	      <th>Applications</th>
   	      <th>Description</th>
   	      <th>Actions</th>
   	    </tr>
   	    <tbody>
-  	      <tr>
+  	      <tr class="OddRow">
   	        <td>Banner Portlet</td>
   	        <td>Banner Portlet Description</td>
   	        <td> 
@@ -20,7 +20,7 @@
   	             </div>
   	           </div>
   	      </tr>
-  	      <tr>
+  	      <tr class="EvenRow">
   	        <td>Banner Portlet</td>
   	        <td>Banner Portlet Description</td>
   	        <td> 
@@ -32,7 +32,7 @@
   	             </div>
   	           </div>
   	      </tr>
-  	      <tr>
+  	      <tr class="OddRow">
   	        <td>Banner Portlet</td>
   	        <td>Banner Portlet Description</td>
   	        <td> 
@@ -44,7 +44,7 @@
   	             </div>
   	           </div>
   	      </tr>
-  	      <tr>
+  	      <tr class="EvenRow">
   	        <td>Banner Portlet</td>
   	        <td>Banner Portlet Description</td>
   	        <td> 
@@ -56,7 +56,7 @@
   	             </div>
   	           </div>
   	      </tr>
-  	      <tr>
+  	      <tr class="OddRow">
   	        <td>Banner Portlet</td>
   	        <td>Banner Portlet Description</td>
   	        <td> 
@@ -68,7 +68,7 @@
   	             </div>
   	           </div>
   	      </tr>
-  	      <tr>
+  	      <tr class="EvenRow">
   	        <td>Banner Portlet</td>
   	        <td>Banner Portlet Description</td>
   	        <td> 
@@ -80,7 +80,7 @@
   	             </div>
   	           </div>
   	      </tr>
-  	      <tr>
+  	      <tr class="OddRow">
   	        <td>Banner Portlet</td>
   	        <td>Banner Portlet Description</td>
   	        <td> 

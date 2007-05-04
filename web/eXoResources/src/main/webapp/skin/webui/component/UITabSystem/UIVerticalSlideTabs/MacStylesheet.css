@@ -49,41 +49,45 @@
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle {
 	cursor: pointer;
 	line-height: 24px;
-	border-bottom: 1px solid #e1e1e1;
-  background: white;
+	margin: 0px 1px;
+	background: #f6f6f6;
+	border: 1px solid #c4c4c4;
+	border-top: none;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .LeftIcon {
   float: left ;
   width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlackArrow.gif') no-repeat;
-  margin: 6px 0px 0px 3px;
+  margin: 5px 2px 0px 3px;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel {
   float: left ;
   height: 24px ; line-height: 24px ;  vertical-align: middle ;
-  color: #2e7eb2; font-weight: bold; font-size: 11px;
+  color: #656565; font-weight: bold; font-size: 11px;
 }
 
 /*#######################-SelectedVTabSimpleStyle VerticalSlideTabs-######################*/
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle {
 	cursor: pointer;
 	margin: 0px 1px;
-	background: url(MacSkin/background/RightSelectedItem1x24.gif) repeat-x;
+	background: url(MacSkin/background/RightOverItem1x24.gif) repeat-x;
+	border: 1px solid #c4c4c4;
+	border-top: none;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .LeftIcon {
   float: left ;
   width: 16px;  height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackArrow.gif') no-repeat;
-  margin: 6px 0px 0px 3px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackUpArrow.gif') no-repeat;
+  margin: 3px 2px 0px 3px;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLabel {
   float: left;
   height: 24px ; line-height: 24px ;  vertical-align: middle ;
-  color: #058ee6; font-weight: bold; font-size: 11px;
+  color: #1e5bfb; font-weight: bold; font-size: 11px;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .ControlContainer {
@@ -98,18 +102,26 @@
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .EditIcon{
   width: 19px;  height: 17px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/EditIcon.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .DeleteIcon{
   width: 20px;  height: 17px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .UIVTabContent {
+  border: 1px solid #d6d6d6; border-top: none;
+  padding: 10px ;
+  margin: 0px 2px 3px 2px;
+  font-size: 11px;
+  background: white;
 }
 
 .UIVerticalSlideTabs .UIVTab .UIVTabContent {
-  border-bottom: 1px solid #e1e1e1;
+  border: 1px solid #d6d6d6; border-top: none;
   padding: 10px ;
-  margin: 1px 0px 1px 1px;
+  margin: 0px 1px;
   font-size: 11px;
   background: white;
 }
