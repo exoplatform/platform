@@ -1,11 +1,20 @@
 
 <% 
   import org.exoplatform.web.application.JavascriptManager;
+  import org.exoplatform.webui.component.UIForm;
+  import org.exoplatform.webui.component.UIPopupWindow; 
   
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
   jsmanager.importJavascript('eXo.webui.UIVerticalSlideTabs');
+  jsmanager.importJavascript('eXo.webui.UIPopupWindow');
+  jsmanager.importJavascript('eXo.webui.UIPermissionSelectorTab');
+  
+  def portletCategories = uicomponent.getPortletCategory();
+  def selectedCategory = uicomponent.getSelectedPortletCategory() ;
+  def portlets = uicomponent.getPortlets() ;
+  def selectedPortlet = uicomponent.getSelectedPortlet() ;
 %>
 
 <% /* Begin Portlet Registry Control*/ %>
@@ -17,11 +26,11 @@
 					<div class="RightBar">
 						<div class="MiddleBar">
 							<div class="OverflowContainer">
-								<a href="#" class="CategoryControlIcon AddCategoryIcon" title="Add Portlet Category">
+								<a href="<%=uicomponent.event("AddCategory")%>" class="CategoryControlIcon AddCategoryIcon" title="Add Portlet Category">
 								  <span></span></a>
-								<a href="#" class="CategoryControlIcon ImportCategoryIcon" title="Import Portlet Category">
+								<a href="<%=uicomponent.event("ImportCategory")%>" class="CategoryControlIcon ImportCategoryIcon" title="Import Portlet Category">
 								  <span></span></a>
-								<a href="#" class="CategoryControlIcon DeleteCategoryIcon" title="Delete Portlet Category">
+								<a href="<%=uicomponent.event("DeleteCategory")%>" class="CategoryControlIcon DeleteCategoryIcon" title="Delete Portlet Category">
 								  <span></span></a>
 								<div style="clear: left"><span></span></div>
 							</div>
@@ -34,117 +43,41 @@
     </div>
     <div class="CategoryContainer">
       <div class="UIVerticalSlideTabs">
-	      <div class="UIVTab">
-		      <div class="VTabSimpleStyle">
-		        <div class="TabLeft">
-		          <div class="TabRight">
-		            <div class="TabRepeat">
-		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
-							      <div class="LeftIcon"><span></span></div>
-					          <div class="TabLabel">Accessories</div>
+   	    <% 
+				  for(category in portletCategories) { 			     
+	 			    String cTab, cName , display;
+				    cName  = category.getName();
+				    if(selectedCategory != null && cName == selectedCategory.getName()) {
+				      cTab = "SelectedVTabSimpleStyle" ;
+				      display = "display: block";
+				    }else {
+				    	cTab = "VTabSimpleStyle" ;
+		          display = "display: none";
+				    }
+				    String actionLink = uicomponent.event("ShowCategory", cName) - "javascript:";
+				%>	
+						<div class="UIVTab">
+				      <div class="$cTab">
+				        <div class="TabLeft">
+				          <div class="TabRight">
+				            <div class="TabRepeat">
+				              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
+									      <div class="LeftIcon"><span></span></div>
+							            <a class="TabLabel" href="<%=uicomponent.event("ShowPortlet", cName)%>"><%=cName%></a>
+								          <div class="ControlContainer" style ="$display">
+								            <a class="ControlIcon EditIcon" href="<%=uicomponent.event("EditCategory", cName)%>"><span></span></a>
+								            <a class="ControlIcon DeleteIcon" href="<%=uicomponent.event("DeleteCategory", cName)%>"><span></span></a>
+								            <div style="clear: left"><span></span></div>
+								          </div>
+							          <div style="clear: both"><span></span></div>
+						          </div>
+				            </div>
 				          </div>
-		            </div>
-		          </div>
-		        </div>
-				  </div>
-				  <div class="UIVTabContent" style="display: none">Category Description</div>
-				</div>
-				<div class="UIVTab">
-		      <div class="VTabSimpleStyle">
-		        <div class="TabLeft">
-		          <div class="TabRight">
-		            <div class="TabRepeat">
-		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
-							      <div class="LeftIcon"><span></span></div>
-					          <div class="TabLabel">Content</div>
-				          </div>
-		            </div>
-		          </div>
-		        </div>
-				  </div>
-				  <div class="UIVTabContent" style="display: none">Category Description</div>
-				</div>
-				<div class="UIVTab">
-		      <div class="VTabSimpleStyle">
-		        <div class="TabLeft">
-		          <div class="TabRight">
-		            <div class="TabRepeat">
-		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
-							      <div class="LeftIcon"><span></span></div>
-					          <div class="TabLabel">Ecm</div>
-				          </div>
-		            </div>
-		          </div>
-		        </div>
-				  </div>
-				  <div class="UIVTabContent" style="display: none">Category Description</div>
-				</div>
-				<div class="UIVTab">
-		      <div class="VTabSimpleStyle">
-		        <div class="TabLeft">
-		          <div class="TabRight">
-		            <div class="TabRepeat">
-		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
-							      <div class="LeftIcon"><span></span></div>
-					          <div class="TabLabel">Exo Admin</div>
-				          </div>
-		            </div>
-		          </div>
-		        </div>
-				  </div>
-				  <div class="UIVTabContent" style="display: none">Category Description</div>
-				</div>
-				<div class="UIVTab">
-		      <div class="SelectedVTabSimpleStyle">
-		        <div class="TabLeft">
-		          <div class="TabRight">
-		            <div class="TabRepeat">
-		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
-							      <div class="LeftIcon"><span></span></div>
-					            <div class="TabLabel">Web</div>
-							          <div class="ControlContainer">
-							            <div class="ControlIcon EditIcon"><span></span></div>
-							            <div class="ControlIcon DeleteIcon"><span></span></div>
-							            <div style="clear: left"><span></span></div>
-							          </div>
-					          <div style="clear: both"><span></span></div>
-				          </div>
-		            </div>
-		          </div>
-		        </div>
-				  </div>
-				  <div class="UIVTabContent" >Category Description</div>
-				</div>
-				<div class="UIVTab">
-		      <div class="VTabSimpleStyle">
-		        <div class="TabLeft">
-		          <div class="TabRight">
-		            <div class="TabRepeat">
-		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
-							      <div class="LeftIcon"><span></span></div>
-					          <div class="TabLabel">Widgets</div>
-				          </div>
-		            </div>
-		          </div>
-		        </div>
-				  </div>
-				  <div class="UIVTabContent" style="display: none">Category Description</div>
-				</div>
-				<div class="UIVTab">
-		      <div class="VTabSimpleStyle">
-		        <div class="TabLeft">
-		          <div class="TabRight">
-		            <div class="TabRepeat">
-		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
-							      <div class="LeftIcon"><span></span></div>
-					          <div class="TabLabel">Others</div>
-				          </div>
-		            </div>
-		          </div>
-		        </div>
-				  </div>
-				  <div class="UIVTabContent" style="display: none">Category Description</div>
-				</div>
+				        </div>
+						  </div>
+						  <div class="UIVTabContent" style ="$display">Category Description</div>
+						</div>
+			<% } %>	
 			</div>
     </div>
   </div>

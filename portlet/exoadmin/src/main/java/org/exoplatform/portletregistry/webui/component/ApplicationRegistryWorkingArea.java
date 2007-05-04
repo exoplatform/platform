@@ -18,6 +18,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
  */
 @ComponentConfig(    
     template = "app:/groovy/portletregistry/webui/component/ApplicationRegistryWorkingArea.gtmpl"
+      
 )
 public class ApplicationRegistryWorkingArea extends UIContainer {
    

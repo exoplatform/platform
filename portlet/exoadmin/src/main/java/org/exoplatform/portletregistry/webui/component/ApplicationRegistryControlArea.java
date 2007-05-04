@@ -109,6 +109,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
   
   static public class AddCategoryActionListener extends EventListener<ApplicationRegistryControlArea>{
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
+      System.out.println("\n\n\n===>>>ApplicationRegistryControlArea.AddCategory");
       ApplicationRegistryControlArea uiRegistryCategory = event.getSource();
       UIPortletRegistryPortlet uiParent = uiRegistryCategory.getParent();
       ApplicationRegistryWorkingArea uiWorkingArea = uiParent.getChild(ApplicationRegistryWorkingArea.class);
@@ -120,6 +121,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
 
   static public class EditCategoryActionListener extends EventListener<ApplicationRegistryControlArea>{
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
+      System.out.println("\n\n\n===>>>ApplicationRegistryControlArea.EditCategory");
       ApplicationRegistryControlArea uiRegistryCategory = event.getSource();
       UIPortletRegistryPortlet uiParent = uiRegistryCategory.getParent();
       ApplicationRegistryWorkingArea uiWorkingArea = uiParent.getChild(ApplicationRegistryWorkingArea.class);
@@ -134,6 +136,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
 
   static public class ImportCategoryActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
+      System.out.println("\n\n\n===>>>ApplicationRegistryControlArea.ImportCategory");
       ApplicationRegistryControlArea uiSource = event.getSource();
       PortletContainerMonitor monitor = uiSource.getApplicationComponent(PortletContainerMonitor.class);
       Collection portletDatas = monitor.getPortletRuntimeDataMap().values();       
@@ -155,6 +158,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
 
   static public class DeleteCategoryActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
+      System.out.println("\n\n\n===>>>ApplicationRegistryControlArea.DeleteCategory");
       ApplicationRegistryControlArea uiComp = event.getSource();
       ApplicationRegisteryService service = uiComp.getApplicationComponent(ApplicationRegisteryService.class);            
       ApplicationCategory selectedCategory = uiComp.getSelectedPortletCategory();
@@ -179,17 +183,18 @@ public class ApplicationRegistryControlArea extends UIContainer {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
       ApplicationRegistryControlArea uiComp = event.getSource();
       String portletId = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      uiComp.setSelectedPortlet(portletId) ;
-      Application portletSelected = uiComp.getSelectedPortlet() ;
-      if(portletSelected == null) return;
-      UIPortletRegistryPortlet uiParent = uiComp.getParent();
-      ApplicationRegistryWorkingArea uiWorkingArea = uiParent.getChild(ApplicationRegistryWorkingArea.class);
-      UIInfoPortletForm uiPortletForm = uiWorkingArea.getChild(UIInfoPortletForm.class) ;
-      String[] action = new String[0];
-      uiPortletForm.setActions(action);
-      uiPortletForm.setName("UIShowPortletForm");
-      uiPortletForm.setValues(portletSelected) ;
-      uiWorkingArea.setRenderedChild(UIInfoPortletForm.class) ;
+      System.out.println("\n\n\n===>>>ApplicationRegistryControlArea.ShowPortlet: " + portletId);
+//      uiComp.setSelectedPortlet(portletId) ;
+//      Application portletSelected = uiComp.getSelectedPortlet() ;
+//      if(portletSelected == null) return;
+//      UIPortletRegistryPortlet uiParent = uiComp.getParent();
+//      ApplicationRegistryWorkingArea uiWorkingArea = uiParent.getChild(ApplicationRegistryWorkingArea.class);
+//      UIInfoPortletForm uiPortletForm = uiWorkingArea.getChild(UIInfoPortletForm.class) ;
+//      String[] action = new String[0];
+//      uiPortletForm.setActions(action);
+//      uiPortletForm.setName("UIShowPortletForm");
+//      uiPortletForm.setValues(portletSelected) ;
+//      uiWorkingArea.setRenderedChild(UIInfoPortletForm.class) ;
     }
   }
 
