@@ -89,7 +89,6 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   private void initPortalTypeDB(NewPortalConfig config) throws Exception {
     HashSet owners = config.getPredefinedOwner();
     Iterator iter  = owners.iterator();
-    System.out.println("\n\n\n config "+config.getOwnerType() +"\n\n\n");
     while(iter.hasNext()){
       String owner = (String)iter.next();
       createPortalConfig(config, owner);
