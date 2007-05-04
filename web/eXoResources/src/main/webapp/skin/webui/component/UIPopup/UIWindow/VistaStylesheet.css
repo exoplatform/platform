@@ -231,6 +231,11 @@
   overflow: hidden;
 }
 
+.UIPortal .VIEW-PORTLET .UIWindow {
+  width: 99% ; height: auto;
+  margin: auto; 
+}
+
 .UIPageBody .WindowPortletControl {
   float: right ;
   height: 24px ;
