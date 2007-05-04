@@ -16,7 +16,7 @@ DOMUtil.prototype.getChildrenByTagName = function(element, tagName) {
   return list ;
 } ;
 
-DOMUtil.prototype.findChildrenByClass = function(root,  elementName, cssClass) {
+DOMUtil.prototype.findChildrenByClass = function(root, elementName, cssClass) {
   if(elementName != null)  elementName = elementName.toUpperCase() ;
   var list = new Array();
   var elements = root.childNodes ;
