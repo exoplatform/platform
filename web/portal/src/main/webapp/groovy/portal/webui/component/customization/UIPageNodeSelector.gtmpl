@@ -25,8 +25,8 @@
   	jsmanager.importJavascript('eXo.portal.UIPortalControl') ;
   	
   	jsmanager.addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
-  	jsmanager.addOnResizeJavascript('eXo.portal.UIPortalControl.fixHeight');
   	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
+  	jsmanager.addOnResizeJavascript('eXo.portal.UIPortalControl.fixHeight');
     uicomponent.renderUIComponent(uiPopupMenu) ;
      
     popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode");
