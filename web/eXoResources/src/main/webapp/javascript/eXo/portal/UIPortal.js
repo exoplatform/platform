@@ -371,7 +371,8 @@ UIPortal.prototype.changeLanguage = function(url) {
 
 UIPortal.prototype.popupButton = function(url, action) {
 	if(action == undefined) action = '';  
-  window.location = url + '&action='+action;
+	var objectId = '';
+  window.location = url + '&action='+ action ;
 } ;
 
 /** Created: by Duy Tu **/

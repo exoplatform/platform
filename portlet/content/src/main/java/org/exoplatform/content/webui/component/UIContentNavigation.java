@@ -7,8 +7,11 @@ package org.exoplatform.content.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.organization.webui.component.UIGroupMembershipSelector;
+import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.customization.UIPopupDialog;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.content.ContentDAO;
@@ -18,10 +21,15 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIDescription;
+import org.exoplatform.webui.component.UIForm;
+import org.exoplatform.webui.component.UIFormPopupWindow;
+import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.event.EventListener;
 
 /**
@@ -43,12 +51,28 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIContentNavigation.GetNodeInfoActionListener.class)
     }
 )
-public class UIContentNavigation extends UIComponent {
+public class UIContentNavigation extends UIContainer {
 
   private ContentNode selectedNode_ ;
   private ContentNode parentNode_ ; 
   private ContentNavigation nav_ ;
   private ContentNode grandNode_;
+  
+  public UIContentNavigation() throws Exception {
+    UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "RemoveNode");
+    uiPopup.setWindowSize(540, 0);  
+    UIPopupDialog dialog = createUIComponent(UIPopupDialog.class, null, null);
+    dialog.setComponent(this);
+    dialog.setHanderEvent("RemoveNode");
+    uiPopup.setUIComponent(dialog); 
+  }
+  
+  public void processRender(WebuiRequestContext context) throws Exception {
+    super.processRender(context);   
+    UIPopupWindow uiPopupWindow = this.getChild(UIPopupWindow.class);
+    uiPopupWindow.processRender(context);
+  }
+  
   
   void refresh() throws Exception {
     ContentDAO contentService = getApplicationComponent(ContentDAO.class) ;
@@ -201,9 +225,11 @@ public class UIContentNavigation extends UIComponent {
       uiParent.setRenderedChildrenOfTypes(childrenToRender) ;
     }
   }
+  
 
   static  public class EditNodeActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
+      
 //      UIContentNavigation uiNav = event.getSource();
 //      UIPortal uiPortal = Util.getUIPortal();
 //      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
@@ -237,6 +263,10 @@ public class UIContentNavigation extends UIComponent {
 
   static  public class RemoveNodeActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
+      UIContentNavigation contentNavigation = event.getSource();
+      String action = event.getRequestContext().getRequestParameter("action") ;
+      if( action.equals("close")) return; 
+      
       UIContentNavigation uiNav = event.getSource();
       ContentNode selectedNode = uiNav.getSelectedNode() ;
       if(selectedNode == null)  {
@@ -260,6 +290,7 @@ public class UIContentNavigation extends UIComponent {
 
   static  public class GetNodeInfoActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
+      
       UIContentPortlet uiParent = event.getSource().getParent() ;
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
      uiWorkingArea.setRenderedChild(UIDescription.class) ;

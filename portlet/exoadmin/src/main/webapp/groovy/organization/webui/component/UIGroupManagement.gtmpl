@@ -1,7 +1,13 @@
 <%
   import  org.exoplatform.organization.webui.component.UIGroupExplorer;
   import  org.exoplatform.organization.webui.component.UIGroupDetail;
+  import org.exoplatform.webui.component.UIPopupWindow;
   import  org.exoplatform.webui.component.UIBreadcumbs;
+  def rcontext = _ctx.getRequestContext() ;
+  String deleteGroup = uicomponent.getChild(UIPopupWindow.class).getId();
+  
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');
 %>
 <div class="UIGroupManagement">
   <%uicomponent.renderChild(UIBreadcumbs.class); %>
@@ -14,7 +20,7 @@
               <div class="MiddleBar">
                 <div class="Title" style="margin-left: 5px;"><%=_ctx.appRes("UIGroupManagement.label.Groups")%></div>
                 <% String actionLink = uicomponent.event("DeleteGroup","delete"); %>
-				      	<a class="TreeActionIcon RemoveGroupIcon" href="$actionLink" title="Delete Selected Group"><span></span></a>
+				      	<a class="TreeActionIcon RemoveGroupIcon" href="javascript: eXo.webui.UIPopupWindow.show('$deleteGroup');" title="Delete Selected Group"><span></span></a>
 				      	<% actionLink = uicomponent.event("AddGroup","add"); %>
 				      	<a class="TreeActionIcon AddGroupIcon" href="$actionLink" title="Add New Group"><span></span></a>
 				      	<% actionLink = uicomponent.event("EditGroup","Edit"); %>

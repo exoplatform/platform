@@ -7,6 +7,7 @@ package org.exoplatform.organization.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.component.customization.UIPopupDialog;
 import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormPopupWindow;
@@ -30,9 +31,12 @@ public class UIPermissionSelector extends UISelector {
 	public UIPermissionSelector() throws Exception {
     super(null, null) ;		
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "PopupPermissionSelector");
-    uiPopup.setWindowSize(540, 0);    
+    uiPopup.setWindowSize(540, 0);  
+    UIPopupDialog dialog = createUIComponent(UIPopupDialog.class, null, null);
+    dialog.setComponent(this);
+    dialog.setHanderEvent("SelectMembership");
     UIGroupMembershipSelector uiMembershipSelector = createUIComponent(UIGroupMembershipSelector.class, null, null) ;
-    uiPopup.setUIComponent(uiMembershipSelector);  
+    uiPopup.setUIComponent(dialog);  
   }
 	
 	public void configure(String iname, String bfield, List<Permission> permissions) {  
@@ -48,10 +52,10 @@ public class UIPermissionSelector extends UISelector {
     if(permissions_ == null) permissions_ = new ArrayList<Permission>();
     if(permissions_.size() < 1)  permission.setSelected(true);
     permissions_.add(permission);
-    if(permission.isSelected()) {
-      UIGroupMembershipSelector uiSelector = findFirstComponentOfType(UIGroupMembershipSelector.class);
-      uiSelector.changeGroup(permission.getGroupId());
-    }
+//    if(permission.isSelected()) {
+//      UIGroupMembershipSelector uiSelector = findFirstComponentOfType(UIGroupMembershipSelector.class);
+//      uiSelector.changeGroup(permission.getGroupId());
+//    }
   }
   
   public void setPermission(Permission permission){

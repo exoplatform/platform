@@ -13,7 +13,6 @@
 	ArrayList options = uicomponent.getOptions();
 	if(selected == null && options != null && size >0) {
 	  uicomponent.setSelected(0);
-	  
 	  selected = uicomponent.getSelected();
 	}
 	String action = uicomponent.getOnChange();
@@ -69,19 +68,16 @@
 	      	<%}%>
 				  <%for(option in options) {
 					    String label = option.getLabel();
-					    
-					    jsmanager.addJavascript("eXo.env.server.label = '" + option.getValue() + "';" + 
-				                              "eXo.env.server.onChange = '" + action + "';" +
-				                              "eXo.env.server.onServer = '" + onServer + "';" +
-				                              "eXo.env.server.form = '" + form + "';");
+					    String value = option.getValue();
+		
 				  %>
 				    
-						<div class="ItemSelector">
+						<div class="ItemSelector" label="$label" action="$action" onServer="$onServer" form="$form">
 							<div class="Icon"><span></span></div>
 							<%if(action != null) {%>
-	              <div class="ItemSelectorLabel" id="$label" title="$action"><%=label%></div>
+	              <div class="ItemSelectorLabel"><%=label%></div>
 	            <%} else {%>
-	              <div class="ItemSelectorLabel" id="$label"><%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + label)%></div>
+	              <div class="ItemSelectorLabel"><%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + label)%></div>
 	            <%}%>
 	            <div style="clear: left"><span></span></div>
 						</div>

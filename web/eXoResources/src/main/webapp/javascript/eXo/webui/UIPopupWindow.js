@@ -85,6 +85,7 @@ UIPopupWindow.prototype.resize = function(e) {
 UIPopupWindow.prototype.show = function(popup) {
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 	var portalApp = document.getElementById("UIPortalApplication");
+	
 	var maskLayer = eXo.core.DOMUtil.findFirstDescendantByClass(portalApp, "div", "UIMaskWorkspace");
 	zIndex = 0;
 	var currZIndex = 0;
@@ -97,6 +98,7 @@ UIPopupWindow.prototype.show = function(popup) {
 		currZIndex = eXo.core.DOMUtil.getStyle(popupWindows[i], "zIndex");
 		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex;
 	}
+  
 	if (zIndex == 0) zIndex = 2000;
 	// We don't increment zIndex here because it is done in the superClass.show function
 	popup.style.visibility = "hidden";

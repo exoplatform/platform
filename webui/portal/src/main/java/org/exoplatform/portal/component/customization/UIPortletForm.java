@@ -69,10 +69,10 @@ public class UIPortletForm extends UIFormTabPane {
       addUIFormInput(new UIFormStringInput("applicationInstanceId", "applicationInstanceId", null).
                      addValidator(EmptyFieldValidator.class)).               
     	addUIFormInput(new UIFormStringInput("title", "title", null)).
-  		addUIFormInput(new UIFormStringInput("width", "width", null).
-                     addValidator(NumberFormatValidator.class)).
-  		addUIFormInput(new UIFormStringInput("height", "height", null).
-                     addValidator(NumberFormatValidator.class)).
+//  		addUIFormInput(new UIFormStringInput("width", "width", null).
+//                     addValidator(NumberFormatValidator.class)).
+//  		addUIFormInput(new UIFormStringInput("height", "height", null).
+//                     addValidator(NumberFormatValidator.class)).
   		addUIFormInput(new UIFormCheckBoxInput("showInfoBar", "showInfoBar", false)).
   		addUIFormInput(new UIFormCheckBoxInput("showApplicationMode", "showApplicationMode", false)).
     	addUIFormInput(new UIFormCheckBoxInput("showApplicationState", "showApplicationState", false)).

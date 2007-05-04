@@ -19,7 +19,9 @@ import org.exoplatform.portal.config.PortalDAO;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -118,8 +120,17 @@ public class UIPageCreationWizard extends UIPageWizard {
   static  public class ViewStep3ActionListener extends EventListener<UIPageCreationWizard> {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
+      UIWizardPageSetInfo pageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
+      UIPageNodeSelector nodeSelector = pageSetInfo.getChild(UIPageNodeSelector.class);
       uiWizard.setDescriptionWizard();
       uiWizard.updateWizardComponent();
+      if(nodeSelector.findPageNodeByName(pageSetInfo.getPageNode().getName()) != null){
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        uiWizard.viewStep(2);
+        return;
+      }
       uiWizard.viewStep(3);
     }
   }

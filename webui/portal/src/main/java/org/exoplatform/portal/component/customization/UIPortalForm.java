@@ -88,6 +88,7 @@ public class UIPortalForm extends UIFormTabPane {
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(SKIN, SKIN, ls) ;
     UIPortal uiPortal = Util.getUIPortal();
     uiSelectBox.setValue(uiPortal.getSkin());
+    uiSelectBox.setEnable(false);
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);    
     

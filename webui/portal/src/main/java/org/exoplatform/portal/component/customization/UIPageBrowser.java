@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.organization.webui.component.UIGroupMembershipSelector;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
@@ -23,6 +24,7 @@ import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
+import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIGrid;
@@ -40,6 +42,7 @@ import org.exoplatform.webui.event.EventListener;
   events = {
     @EventConfig(listeners = UIPageBrowser.DeleteActionListener.class),
     @EventConfig(listeners = UIPageBrowser.EditInfoActionListener.class),
+    @EventConfig(listeners = UIPageBrowser.ConfirmActionListener.class),
     @EventConfig(listeners = UIPageBrowser.PreviewActionListener.class),
     @EventConfig(listeners = UIPageBrowser.AddNewActionListener.class)   
   }
@@ -50,6 +53,7 @@ public class UIPageBrowser extends UISearch {
   public static String[] ACTIONS = {"Preview", "EditInfo", "Delete"} ; 
   
   private boolean showAddNewPage = false;
+  protected String pageSelectedId_;
   
   private static List<SelectItemOption<String>> OPTIONS = new ArrayList<SelectItemOption<String>>(3);
   
@@ -68,6 +72,12 @@ public class UIPageBrowser extends UISearch {
     defaultValue(null) ;
     addChild(uiGrid.getUIPageIterator());
     uiGrid.getUIPageIterator().setRendered(false);
+//    UIPopupDialog uiPopup = addChild(UIPopupDialog.class, null, "PopupPermissionSelector");
+//    uiPopup.setWindowSize(540, 0);    
+//    uiPopup.setShow(false);
+//    uiPopup.setMessage("hello");
+//    uiPopup.setMessageType("Error");
+//    uiPopup.setHanderEvent("Confirm");
   }
   
   public Query getLastQuery() { return lastQuery_; }
@@ -138,9 +148,34 @@ public class UIPageBrowser extends UISearch {
   static  public class DeleteActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPageBrowser uiPageBrowser = event.getSource();
-      String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      uiPageBrowser.pageSelectedId_ = event.getRequestContext().getRequestParameter(OBJECTID) ;
+     
+      UIPortalApplication uiApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      UIPopupDialog dialog = uiMaskWS.createUIComponent(UIPopupDialog.class, null, null);
+      dialog.setComponent(uiPageBrowser);
+      dialog.setHanderEvent("Confirm");
+      dialog.setMessage("hello");
+      uiMaskWS.setUIComponent(dialog);
+      uiMaskWS.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+    }
+  }
+  static  public class ConfirmActionListener extends EventListener<UIPageBrowser> {
+    public void execute(Event<UIPageBrowser> event) throws Exception {
+      
+        
+      UIPageBrowser uiPageBrowser = event.getSource();
+      String action = event.getRequestContext().getRequestParameter("action") ;
+      UIPortalApplication uiApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      uiMaskWS.setUIComponent(null);
+      uiMaskWS.setShow(false);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      if( action.equals("close")) return;  
+      
       PortalDAO service = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
-      Page page = service.getPage(id) ;
+      Page page = service.getPage(uiPageBrowser.pageSelectedId_) ;
       
       UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
       
@@ -158,7 +193,7 @@ public class UIPageBrowser extends UISearch {
         return;
       }
       
-      service.removePage(id);
+      service.removePage(uiPageBrowser.pageSelectedId_);
       uiPageBrowser.defaultValue(null);       
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageBrowser);
     }

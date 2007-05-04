@@ -95,9 +95,9 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 	targ.className = targ.oldClassName = "OverItemSelector";
 	eXo.webui.UIDropDownItemSelector.hideList(parentSelector);
 	
-	if(eXo.env.server.onServer == true) {
+	if(this.getAttribute("onServer") == "true") {
 	  var params = [
-	  	{name: "lable", value : itemLabel.id}
+	  	{name: "label", value : this.getAttribute("label")}
 	  ] ;
 		ajaxGet(eXo.env.server.createPortalURL("UIPortal", itemLabel.title, true, params)) ;
 	} else {

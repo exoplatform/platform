@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
+import java.io.Writer;
+
 import org.exoplatform.organization.webui.component.UIOrganizationPortlet.UIViewMode;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -43,7 +45,10 @@ public class UIMembershipManagement extends UIContainer {
 
   @SuppressWarnings("unused")
   public void processRender(WebuiRequestContext context) throws Exception {
+    Writer w =  context.getWriter() ;
+    w.write("<div id=\"UIMembershipManagement\" class=\"UIMembershipManagement\">");
     renderChildren();
+    w.write("</div>");
   }
 
 }

@@ -12,11 +12,15 @@ import org.exoplatform.application.registery.Application;
 import org.exoplatform.application.registery.ApplicationCategory;
 import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
+import org.exoplatform.portal.component.customization.UIPopupDialog;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
+import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
+import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -42,6 +46,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIPortletRegistryCategory.AddPortletActionListener.class),
         @EventConfig(listeners = UIPortletRegistryCategory.DeletePortletActionListener.class),
         @EventConfig(listeners = UIPortletRegistryCategory.PermissionPortletActionListener.class),
+        
         @EventConfig(listeners = UIPortletRegistryCategory.EditPortletActionListener.class)
     }
 )
@@ -53,11 +58,46 @@ public class UIPortletRegistryCategory extends UIContainer {
   private List<Application> portlets ;
 
   public UIPortletRegistryCategory() throws Exception {
+    //TODO hic. Xem lai ho em doan code nay voi.
+    
+    UIFormPopupWindow deleteCategoryPopup = addChild(UIFormPopupWindow.class, null, "DeleteCategory");
+    deleteCategoryPopup.setWindowSize(540, 0);  
+    UIPopupDialog deleteCategoryDialog = createUIComponent(UIPopupDialog.class, null, null);
+    deleteCategoryDialog.setComponent(this);
+    deleteCategoryDialog.setMessage("Do you want delete this Category?");
+    deleteCategoryDialog.setHanderEvent("DeleteCategory");
+    deleteCategoryPopup.setUIComponent(deleteCategoryDialog);
+    
+    UIFormPopupWindow deletePortletPopup = addChild(UIFormPopupWindow.class, null, "DeletePortlet");
+    deletePortletPopup.setWindowSize(540, 0);  
+    UIPopupDialog deletePortletDialog = createUIComponent(UIPopupDialog.class, null, null);
+    deletePortletDialog.setComponent(this);
+    deletePortletDialog.setMessage("Do you want delete this Portlet?");
+    deletePortletDialog.setHanderEvent("DeletePortlet");
+    deletePortletPopup.setUIComponent(deletePortletDialog);
+    
+    UIFormPopupWindow deleteAllPopup = addChild(UIFormPopupWindow.class, null, "DeleteAll");
+    deleteAllPopup.setWindowSize(540, 0);  
+    UIPopupDialog deleteAllDialog = createUIComponent(UIPopupDialog.class, null, null);
+    deleteAllDialog.setComponent(this);
+    deleteAllDialog.setMessage("Do you want delete all of Category?");
+    deleteAllDialog.setHanderEvent("DeleteAll");
+    deleteAllPopup.setUIComponent(deleteAllDialog);
+    
     initValues(null);
   }  
 
+  public void processRender(WebuiRequestContext context) throws Exception {
+    super.processRender(context); 
+    List<UIComponent> children = this.getChildren();
+    for(UIComponent com: children){
+      com.processRender(context);
+    }
+  }
+  
   @SuppressWarnings("unchecked")
   public void initValues(Collection portletData) throws Exception {
+
     ApplicationRegisteryService service = getApplicationComponent(ApplicationRegisteryService.class) ;
     if(portletData != null) service.importJSR168Portlets();
     portletCategories = service.getApplicationCategories(); 
@@ -143,6 +183,8 @@ public class UIPortletRegistryCategory extends UIContainer {
   
   static public class DeleteAllActionListener extends EventListener<UIPortletRegistryCategory> {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception{
+      String action = event.getRequestContext().getRequestParameter("action") ;
+      if( action.equals("close")) return;
       UIPortletRegistryCategory uiSource = event.getSource();
       ApplicationRegisteryService service = uiSource.getApplicationComponent(ApplicationRegisteryService.class);
       List<ApplicationCategory> list = uiSource.getPortletCategory();
@@ -156,11 +198,15 @@ public class UIPortletRegistryCategory extends UIContainer {
   static public class DeleteCategoryActionListener extends EventListener<UIPortletRegistryCategory> {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception{
       UIPortletRegistryCategory uiComp = event.getSource();
+      String action = event.getRequestContext().getRequestParameter("action") ;
+      if( action.equals("close")) return;
+      
       ApplicationRegisteryService service = uiComp.getApplicationComponent(ApplicationRegisteryService.class);            
       ApplicationCategory selectedCategory = uiComp.getSelectedPortletCategory();
       if(selectedCategory == null) return;      
       service.remove(selectedCategory) ; 
       uiComp.initValues(null);
+      
     }
   }
 
@@ -248,6 +294,8 @@ public class UIPortletRegistryCategory extends UIContainer {
 
   static public class DeletePortletActionListener extends EventListener<UIPortletRegistryCategory> {
     public void execute(Event<UIPortletRegistryCategory> event) throws Exception {
+      String action = event.getRequestContext().getRequestParameter("action") ;
+      if( action.equals("close")) return;
       UIPortletRegistryCategory uicomp = event.getSource();
       Application selectedPortlet = uicomp.getSelectedPortlet() ;
       if(selectedPortlet == null) return ;

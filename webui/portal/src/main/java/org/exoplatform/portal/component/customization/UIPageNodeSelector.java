@@ -175,6 +175,28 @@ public class UIPageNodeSelector extends UIContainer {
     return findPageNodeByUri(selectedNavigation, uri, getChild(UITree.class));
   }
   
+  public PageNode findPageNodeByName(String name){
+    if(selectedNavigation == null) return null;
+    List<PageNode> pageNodes = selectedNavigation.getNodes();    
+    for(PageNode ele : pageNodes){
+      PageNode returnPageNode = findPageNodeByName(ele, name);
+      if(returnPageNode == null) continue;
+      return returnPageNode;
+    }
+    return null; 
+  }
+  
+  private PageNode findPageNodeByName(PageNode root, String name) {
+    if(root.getName().equals(name)) return root;
+    List<PageNode> children = root.getChildren();
+    if(children == null) return null;
+    for(PageNode ele : children){
+      PageNode returnPageNode = findPageNodeByName(ele, name);
+      if(returnPageNode == null) continue;
+      return returnPageNode;
+    }
+    return null;
+  }
   public PageNavigation getPageNavigation(){ return selectedNavigation; }
   
   private PageNode findPageNodeByUri(PageNode pageNode, String uri, UITree tree){

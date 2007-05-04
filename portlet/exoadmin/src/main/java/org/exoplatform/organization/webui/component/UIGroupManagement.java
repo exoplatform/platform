@@ -4,19 +4,26 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
+import java.util.List;
+
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIBreadcumbs;
+import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
+import org.exoplatform.webui.component.UIFormPopupWindow;
+import org.exoplatform.webui.component.UIPopupWindow;
+
 import org.exoplatform.webui.component.UIBreadcumbs.LocalPath;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.organization.webui.component.UIGroupManagement.*;
+import org.exoplatform.portal.component.customization.UIPopupDialog;
 
 /**
  * Created by The eXo Platform SARL
@@ -38,10 +45,28 @@ import org.exoplatform.organization.webui.component.UIGroupManagement.*;
 public class UIGroupManagement extends UIContainer {
 
   public UIGroupManagement() throws Exception {
+    
+    UIFormPopupWindow deleteCategoryPopup = addChild(UIFormPopupWindow.class, null, "DeleteGroup");
+    deleteCategoryPopup.setWindowSize(540, 0);  
+    UIPopupDialog deleteCategoryDialog = createUIComponent(UIPopupDialog.class, null, null);
+    deleteCategoryDialog.setComponent(this);
+    
+    deleteCategoryDialog.setMessage("Do you want delete this Group?");
+    deleteCategoryDialog.setHanderEvent("DeleteGroup");
+    deleteCategoryPopup.setUIComponent(deleteCategoryDialog);
+    
     UIBreadcumbs uiBreadcum = addChild(UIBreadcumbs.class, null, "BreadcumbsGroupManagement") ;
     addChild(UIGroupExplorer.class, null, null);
     addChild(UIGroupDetail.class, null, null) ;
     uiBreadcum.setBreadcumbsStyle("UIExplorerHistoryPath") ;
+  }
+  
+  public void processRender(WebuiRequestContext context) throws Exception {
+    super.processRender(context); 
+    List<UIComponent> children = this.getChildren();
+    for(UIComponent com: children){
+      if(com instanceof UIPopupWindow) com.processRender(context);
+    }
   }
     
   static  public class AddGroupActionListener extends EventListener<UIGroupManagement> {
@@ -79,6 +104,8 @@ public class UIGroupManagement extends UIContainer {
   
   static  public class DeleteGroupActionListener extends EventListener<UIGroupManagement> {
     public void execute(Event<UIGroupManagement> event) throws Exception {
+      String action = event.getRequestContext().getRequestParameter("action");
+      if(action.equals("close")) return ;
       UIGroupManagement uiGroupManagement = event.getSource() ;
       WebuiRequestContext context = event.getRequestContext() ;
       UIApplication uiApp = context.getUIApplication() ;

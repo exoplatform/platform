@@ -1,4 +1,16 @@
-<% /* Begin Portlet Registry Control*/ %>
+<% 
+  import org.exoplatform.webui.component.UIForm;
+  import org.exoplatform.webui.component.UIPopupWindow; 
+  def rcontext = _ctx.getRequestContext() ;
+  
+  deleteCategoryPopupId = uicomponent.getChildById("DeleteCategory").getId();
+  
+  deleteAllPopupId = uicomponent.getChildById("DeleteAll").getId();
+  deletePortletPopupId = uicomponent.getChildById("DeletePortlet").getId();
+  
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');
+/* Begin Portlet Registry Control*/ %>
 <div class="CategoryControlBar">
 	<div class="UIToolbar">
 	  <div class="Style2Toolbar">
@@ -15,10 +27,10 @@
 							<a href="<%=uicomponent.event("EditCategory")%>" 
 								 class="CategoryControlIcon EditCatergory24x24Icon" title="Edit Portlet Category">
 								<span></span></a>
-							<a href="<%=uicomponent.event("DeleteCategory")%>" 
+							<a href="javascript: eXo.webui.UIPopupWindow.show('$deleteCategoryPopupId');" 
 							   class="CategoryControlIcon DeleteCategory24x24Icon" title="Delete Portlet Category">
 							  <span></span></a>
-							<a href="<%=uicomponent.event("DeleteAll")%>" 
+							<a href="javascript: eXo.webui.UIPopupWindow.show('$deleteAllPopupId');" 
 							   class="CategoryControlIcon DeleteAll24x24Icon" title="Delete All Portlet Category">
 							  <span></span></a>
 						</div>
@@ -90,7 +102,7 @@
 								       class="PortletControlIcon ShieldGreenPlus16x16Icon" title="Permission">
 									  <span></span>
 	    							</a>
-			    					<a href="<%=uicomponent.event("DeletePortlet")%>" 
+			    					<a href="javascript: eXo.webui.UIPopupWindow.show('$deletePortletPopupId');" 
 					    			   class="PortletControlIcon DustBin16x16Icon" title="Delete Portlet">
 							    	  <span></span>
 									  </a>
