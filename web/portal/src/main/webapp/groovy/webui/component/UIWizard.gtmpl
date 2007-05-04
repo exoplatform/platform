@@ -52,6 +52,7 @@
 				    
 				    <%/*Begin UIWizardActionBar*/%>	   
 			      <div class="ActionBar">
+			        <% if(step > 2) {%>
 			        <div class="UIAction">
 					      <div class="ActionContainer">
 					        <div class="ActionButton">
@@ -76,7 +77,7 @@
 					        </div>
 					      </div>
 					    </div>
-					    
+					    <% } %>
 					    <div class="UIAction">
 					      <div class="ActionContainer">
 					        <div class="ActionButton">

@@ -87,11 +87,12 @@ public class UIPortalForm extends UIFormTabPane {
     ls.add(new SelectItemOption<String>("Vista", "Vista")) ;
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(SKIN, SKIN, ls) ;
     UIPortal uiPortal = Util.getUIPortal();
+    uiPortal.getLocale();
     uiSelectBox.setValue(uiPortal.getSkin());
     uiSelectBox.setEnable(false);
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);    
-    
+    uiSettingSet.getUIFormSelectBox("locale").setEnable(false);
     WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
     WebuiApplication app  = (WebuiApplication)currReqContext.getApplication() ; 
     List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);    
