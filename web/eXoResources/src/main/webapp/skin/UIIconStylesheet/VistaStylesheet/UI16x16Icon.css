@@ -83,13 +83,13 @@
 }
 
 .SelectPortalIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectIcon.gif') no-repeat center left ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/SelectIcon.gif') no-repeat center left ;
   width: 16px ; height: 16px ;
 }
 
 .OnLightPage16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/OrangeLightPage.gif') no-repeat center left;
-  width: 16px ;  height: 16px ;
+  width: 21px ;  height: 21px ;
 }
 
 .Save16x16Icon {

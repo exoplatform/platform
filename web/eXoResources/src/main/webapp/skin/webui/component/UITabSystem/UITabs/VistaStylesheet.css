@@ -6,7 +6,7 @@
 .UIHorizontalTabs .LeftHorizontalTabs{
   height: 31px;
   background: url('VistaSkin/background/LeftHorizontalTabs7x31.png') no-repeat left;
-  padding-left: 7px;
+  padding-left: 1px;
 }
 
 .UIHorizontalTabs .RightHorizontalTabs{

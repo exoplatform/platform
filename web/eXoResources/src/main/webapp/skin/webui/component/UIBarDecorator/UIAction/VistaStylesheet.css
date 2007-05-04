@@ -46,11 +46,7 @@
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonMiddle {
-<<<<<<< .mine
-	line-height: 22px; text-align: center; 
-=======
-	height: 24px; text-align: center; 
->>>>>>> .r15132
+  height: 24px; text-align: center; 
 	background: url('VistaSkin/background/SelectedActionButtonM2x24.png') repeat-x;
 }
 
