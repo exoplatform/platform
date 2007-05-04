@@ -109,7 +109,7 @@
 		            if(template.isSelected()) itemSelected = "SelectedItem Item" ;
 					  %>
 						    <div class="$itemSelected" onmouseover="$onMouseOver"
-						         onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;" style="border: solid 1px red">
+						         onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;">
 							  	<div class="LeftItem">
 							  	  <div class="RightItem">  
 								  	  <div class="ItemTitle"><%=template.getLabel();%></div>
