@@ -45,10 +45,6 @@ abstract public class URLBuilder<T> {
     StringBuilder builder = new StringBuilder("javascript:ajaxGet('");
     createURL(builder, targetComponent, action, targetBeanId, params);
     builder.append("&amp;ajaxRequest=true')") ;
-    // Modified by Philippe
-    // Maybe not the best solution, but the only way to resize rows (td) when one is deleted
-    //if (action.equalsIgnoreCase("DeleteComponent")) builder.append(", eXo.portal.PortalDragDrop.resizeRows");
-    //builder.append(")");
     return builder.toString();    
   }
 
