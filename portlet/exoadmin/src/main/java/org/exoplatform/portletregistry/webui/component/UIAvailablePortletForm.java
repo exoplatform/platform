@@ -103,7 +103,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       event.getSource().findComponentOfType(listCheckbox, UIFormCheckBoxInput.class);
      
       UIPortletRegistryPortlet uiRegistryPortlet = event.getSource().getAncestorOfType(UIPortletRegistryPortlet.class);
-      UIPortletRegistryCategory uiRegistryCategory =  uiRegistryPortlet.getChild(UIPortletRegistryCategory.class);
+      ApplicationRegistryControlArea uiRegistryCategory =  uiRegistryPortlet.getChild(ApplicationRegistryControlArea.class);
       ApplicationCategory selectedCategory = uiRegistryCategory.getSelectedPortletCategory();      
       ApplicationRegisteryService service = event.getSource().getApplicationComponent(ApplicationRegisteryService.class);
       

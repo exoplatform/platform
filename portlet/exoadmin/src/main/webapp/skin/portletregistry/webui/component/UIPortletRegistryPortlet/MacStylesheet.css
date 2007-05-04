@@ -6,223 +6,115 @@
  * version: $Id$
  */
  
-.UIWindow .UIPortletRegistryPortlet {
+.UIWindow .UIApplicationRegistryPortlet {
   overflow: auto ;
 }
 
-.UIPortletRegistryPortlet {
+.UIApplicationRegistryPortlet {
 	background: #ffffff;
 }
 
-.UIPortletRegistryPortlet .UIPortletRegistryContainer {
-	padding: 7px;
+.UIApplicationRegistryPortlet .Title {
+  font-size: 14px; color: #058ee6; font-weight: bold; font-family: arial;
+  margin: 5px 0px; 
+  padding-left: 10px;
 }
 
-.UIPortletRegistryPortlet .UIAction {
-  width: 90px;
+.UIApplicationRegistryPortlet .UIApplicationRegistryContainer {
+  padding: 10px;
 }
 
-/*################################Portlet Registry Control################################*/
-.UIPortletRegistryPortlet .PortletRegistryControlArea {
+/*################################Application Registry Control################################*/
+.UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
 	float: left;
-	width: 225px;
+	width: 236px;
 }
 
-.UIPortletRegistryPortlet .UITabPane .TabPaneContent .WorkingArea {
-  padding:0px 10px;
+.ApplicationRegistryControlArea .ApplicationRegistryCategory {
+  border: 1px solid #d7d7d7;
+  background: url('/eXoResources/background/MacSkin/BgItemSelector1x4.png');
 }
 
-.UIPortletRegistryPortlet .UIVerticalSlideTabs{
- margin: 1px;
- padding: 0px 0px 2px 0px;
+.ApplicationRegistryControlArea .CategoryManagement {
+  border: 1px solid white;
 }
 
-.UIPortletRegistryPortlet .UIVTab .VTabStyle3{
-  margin-top: 4px;
+.ApplicationRegistryControlArea  .CategoryControlBar {
+  background: url('DefaultSkin/background/BGCategoryControlBar236x1.gif') repeat-y ;
+  height: 27px;
 }
 
-.UIPortletRegistryPortlet .UIVTab .SelectedVTabStyle3{
-  margin-top: 4px;
+.ApplicationRegistryControlArea .UIToolbar .OverflowContainer {
+  float: right;
+  width: auto;
+  margin-right: 5px;
 }
 
-.UIPortletRegistryPortlet .UIVTab a:hover{
-  color: orange;
+.ApplicationRegistryControlArea .CategoryControlIcon {
+  float: left;
+  margin: 3px 6px;
 }
 
-.UIPortletRegistryPortlet .PortletRegistryControlArea .CategoryControlBar {
-	width: 225px;
+.ApplicationRegistryControlArea .AddCategoryIcon {
+  height: 21px; width: 20px;
+  background: url('DefaultSkin/icons/AddCategory.gif') no-repeat ;
 }
 
-.UIPortletRegistryPortlet .PortletRegistryControlArea .CategoryControlBar .CategoryControlIcon {
-	float: left;
-	margin: 3px 8px 0px 9px ;
+.ApplicationRegistryControlArea .ImportCategoryIcon {
+  height: 21px; width: 24px;
+  background: url('DefaultSkin/icons/ImportCategory.gif') no-repeat ;
 }
 
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList {
-	border: solid 1px #b7b7b7;
-	background-color: white;
-	padding: 1px;
+.ApplicationRegistryControlArea .DeleteCategoryIcon {
+  height: 21px; width: 22px;
+  background: url('DefaultSkin/icons/DeleteCategory.gif') no-repeat ;
 }
 
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryListContainer{
-	border: solid 1px #cdcdcd;
-	background-color: #efefef;
-	padding: 5px;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryIcon {
-	float: left;
-	margin: 4px 10px 0px 5px;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .OpenFolderIcon {
-  background: url('MacSkin/icons/BlueOpenFolder.gif') no-repeat;
-  width: 24px; height: 18px;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .ClosedFolderIcon {
-  background: url('MacSkin/icons/BlueClosedFolder.gif') no-repeat;
-  width: 24px; height: 18px;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryLabel {
-	float: left;
-	height: 25px;
-	line-height: 25px;
-	vertical-align: middle;
-	font-weight: bold;
-	font-size: 11px;
-  color: black;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CategoryLabel a {
-	text-decoration: none;
-	color: black;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList a.CategorySelected{
-	color: #005cff;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .PortletLabel {
-	float: left;
-	height: 25px;
-	line-height: 25px;
-	vertical-align: middle;
-	font-size: 11px;
-  color: black;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .PortletLabel a {
-	text-decoration: none;
-	color: black;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .PortletSelected {
-	color: #005cff;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletCategoryList .CollapseExpandIcon {
-	float: right;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .UIVTabContent {
-  margin: 1px 2px;
-  border: 1px #b7b7b7 solid;
+.ApplicationRegistryControlArea .CategoryContainer {
+  margin: 5px 4px;
+  border: 1px solid #d7d7d7;
+  padding-bottom: 5px;
   background: white;
 }
 
-.UIPortletRegistryPortlet .PortletRegistryControlArea  .UIVTabContent .PortletControlBar {
-  background: url('/eXoResources/background/MacSkin/Background1x4.png');
-  height: 22px;
-  border: 1px white solid;
-  border-bottom: 1px #b7b7b7 solid;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryControlArea .PortletControlBar .PortletControlIcon {
-	float: left;
-	margin-top: 3px;
-	margin-left: 25px;
-}
-
-/*################################Portlet Registry Working################################*/
-
-.UIPortletRegistryPortlet .PortletRegistryWorkingArea  {
-	margin-left: 235px;
-	background: white;
-	border: 1px solid gray;
-	padding: 1px;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIDescription{
-  padding: 0px;
-  margin: 0px;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryWorkingArea .RegistryWorkingAreaContainer {
-	background: #efefef;
-	border: 1px solid #b7b7b7;
-	padding: 15px 0px;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormWithTitle {
-  width: 90%;
-  margin: auto;
-}
-
-.UIPortletRegistryPortlet .UIForm .HorizontalLayout label {
-  width: 120px;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormWithTitle .UIAction{
-  width: 150px;
-}
-
-.UIPortletRegistryPortlet .UIForm .HorizontalLayout .FieldContainer {
- padding: 5px;
-}
-
- .UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid thead {
-  border: 1px solid #b7b7b7;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid th {
-  
-}
-
-.UIPortletRegistryPortlet .UICategoryForm .UIForm .HorizontalLayout input {
-  width: 215px;
-  margin-left: 8px;
-}
-
-.UIPortletRegistryPortlet .UICategoryForm .UIForm .FieldContainer {
-  width: 400px;
-  margin: auto;
-}
-
-
-.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid td {
-  height: 26px ;
-  border-right: none;
-  border-top: 1px solid white;
-  padding: 0px 5px;
-}
-
-.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIGrid tbody {
-  padding-bottom: 1px;
-  width: 100%;
-}
-
-.UIPortletRegistryPortlet .UIForm .HorizontalLayout input {
-  width: 100%;
-  margin: 0px;
+.ApplicationRegistryControlArea .UIVerticalSlideTabs {
+  border-left: none;
+  margin:0px;
   padding: 0px;
 }
 
-.UIPortletRegistryPortlet .UIForm .HorizontalLayout input.checkbox {
-  magrin: auto;
+/*################################Application Registry Working################################*/
+.UIApplicationRegistryPortlet .ApplicationRegistryWorkingArea {
+	margin-left: 245px;
 }
 
-.UIPortletRegistryPortlet .PortletRegistryWorkingArea .UIFormInputSet {
-  margin: 10px 5px 5px 10px ; 
+.ApplicationRegistryWorkingArea .ApplicationWorkingAreaContainer {
+  border: 1px solid #dfdfdf;
+	background: #f5f5f5; 
 }
+
+.ApplicationRegistryWorkingArea .ApplicationContainer {
+  padding: 10px 0px;
+  border:  1px solid white;
+  background: url('/eXoResources/background/MacSkin/BgItemSelector1x4.png');
+}
+
+.ApplicationRegistryWorkingArea .UIGrid {
+  width: 94%; 
+  margin: auto;
+  background: #f3f3f3;
+}
+
+.ApplicationRegistryWorkingArea .UIGrid .OverflowContainer {
+  width: 90px;
+  margin: auto;
+}
+
+.ApplicationRegistryWorkingArea .Icon {
+  margin: 0px 2px;
+}
+
+.ApplicationRegistryWorkingArea .UIAction {
+  width: 130px;
+  padding: 9px 0px 0px 0px;
+}}

@@ -65,9 +65,9 @@ public class UIPermissionForm extends UIFormTabPane{
   static public class SaveActionListener extends EventListener<UIPermissionForm> {    
     public void execute(Event<UIPermissionForm> event) throws Exception {
       UIPermissionForm  uiPermissionForm = event.getSource();
-      UIWorkingArea uiWorkingArea = uiPermissionForm.getParent();
+      ApplicationRegistryWorkingArea uiWorkingArea = uiPermissionForm.getParent();
       UIPortletRegistryPortlet uiRegistryPortlet= uiWorkingArea.getParent();
-      UIPortletRegistryCategory uiPortletRegistryCategory = uiRegistryPortlet.getChild(UIPortletRegistryCategory.class);
+      ApplicationRegistryControlArea uiPortletRegistryCategory = uiRegistryPortlet.getChild(ApplicationRegistryControlArea.class);
       
       Application selectedPortlet = uiPortletRegistryCategory.getSelectedPortlet() ;
       UIPermissionSelector uiPermissionSelector = uiPermissionForm.getChild(UIPermissionSelector.class);

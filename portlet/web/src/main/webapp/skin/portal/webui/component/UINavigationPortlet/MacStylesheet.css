@@ -74,7 +74,6 @@
 .UINavigationPortlet .MenuItemContainer .CenterBottomMenuDecorator {
   background: url('MacSkin/background/BCItemSelector1x9.png') repeat-x;
   height: 9px; line-height: 9px; 
-  border: 1px solid red;
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItem {
@@ -85,7 +84,7 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .NormalItem {
-	line-height: 25px; 
+	line-height: 25px; height: 25px;
 	border-bottom: 1px solid #dbdbdb;
 }
 

@@ -45,6 +45,75 @@
   margin: 5px 7px 0px 5px ;
 }
 
+/*#######################-VTabSimpleStyle VerticalSlideTabs-######################*/
+.UIVerticalSlideTabs .UIVTab .VTabSimpleStyle {
+	cursor: pointer;
+	line-height: 24px;
+	border-bottom: 1px solid #e1e1e1;
+  background: white;
+}
+
+.UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .LeftIcon {
+  float: left ;
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackArrow.gif') no-repeat;
+  margin: 6px 0px 0px 3px;
+}
+
+.UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel {
+  float: left ;
+  height: 24px ; line-height: 24px ;  vertical-align: middle ;
+  color: #2e7eb2; font-weight: bold; font-size: 11px;
+}
+
+/*#######################-SelectedVTabSimpleStyle VerticalSlideTabs-######################*/
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle {
+	cursor: pointer;
+	margin: 0px 1px;
+	background: url(MacSkin/background/RightSelectedItem1x24.gif) repeat-x;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .LeftIcon {
+  float: left ;
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackArrow.gif') no-repeat;
+  margin: 6px 0px 0px 3px;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLabel {
+  float: left;
+  height: 24px ; line-height: 24px ;  vertical-align: middle ;
+  color: #058ee6; font-weight: bold; font-size: 11px;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .ControlContainer {
+  float: right;
+  padding-right: 2px;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .ControlIcon {
+  float: left;
+  margin: 4px 2px 0px 2px;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .EditIcon{
+  width: 19px;  height: 17px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/EditIcon.gif') no-repeat;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .DeleteIcon{
+  width: 20px;  height: 17px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat;
+}
+
+.UIVerticalSlideTabs .UIVTab .UIVTabContent {
+  border-bottom: 1px solid #e1e1e1;
+  padding: 10px ;
+  margin: 1px 0px 1px 1px;
+  font-size: 11px;
+  background: white;
+}
+
 /*#######################-PolygonNavyBlue Style VerticalSlideTabs-######################*/
 
 .UIVerticalSlideTabs .PolygonNavyBlueStyle {

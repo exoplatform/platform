@@ -1,0 +1,150 @@
+
+<% 
+  import org.exoplatform.web.application.JavascriptManager;
+  
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  
+  jsmanager.importJavascript('eXo.webui.UIVerticalSlideTabs');
+%>
+
+<% /* Begin Portlet Registry Control*/ %>
+  <div class="CategoryManagement">
+    <div class="CategoryControlBar">
+      
+  	  <div class="UIToolbar" >
+				<div class="LeftBar">
+					<div class="RightBar">
+						<div class="MiddleBar">
+							<div class="OverflowContainer">
+								<a href="#" class="CategoryControlIcon AddCategoryIcon" title="Add Portlet Category">
+								  <span></span></a>
+								<a href="#" class="CategoryControlIcon ImportCategoryIcon" title="Import Portlet Category">
+								  <span></span></a>
+								<a href="#" class="CategoryControlIcon DeleteCategoryIcon" title="Delete Portlet Category">
+								  <span></span></a>
+								<div style="clear: left"><span></span></div>
+							</div>
+							<div style="clear: right"><span></span></div>
+						</div>
+					</div>
+				</div>
+      </div>
+      
+    </div>
+    <div class="CategoryContainer">
+      <div class="UIVerticalSlideTabs">
+	      <div class="UIVTab">
+		      <div class="VTabSimpleStyle">
+		        <div class="TabLeft">
+		          <div class="TabRight">
+		            <div class="TabRepeat">
+		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
+							      <div class="LeftIcon"><span></span></div>
+					          <div class="TabLabel">Accessories</div>
+				          </div>
+		            </div>
+		          </div>
+		        </div>
+				  </div>
+				  <div class="UIVTabContent" style="display: none">Category Description</div>
+				</div>
+				<div class="UIVTab">
+		      <div class="VTabSimpleStyle">
+		        <div class="TabLeft">
+		          <div class="TabRight">
+		            <div class="TabRepeat">
+		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
+							      <div class="LeftIcon"><span></span></div>
+					          <div class="TabLabel">Content</div>
+				          </div>
+		            </div>
+		          </div>
+		        </div>
+				  </div>
+				  <div class="UIVTabContent" style="display: none">Category Description</div>
+				</div>
+				<div class="UIVTab">
+		      <div class="VTabSimpleStyle">
+		        <div class="TabLeft">
+		          <div class="TabRight">
+		            <div class="TabRepeat">
+		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
+							      <div class="LeftIcon"><span></span></div>
+					          <div class="TabLabel">Ecm</div>
+				          </div>
+		            </div>
+		          </div>
+		        </div>
+				  </div>
+				  <div class="UIVTabContent" style="display: none">Category Description</div>
+				</div>
+				<div class="UIVTab">
+		      <div class="VTabSimpleStyle">
+		        <div class="TabLeft">
+		          <div class="TabRight">
+		            <div class="TabRepeat">
+		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
+							      <div class="LeftIcon"><span></span></div>
+					          <div class="TabLabel">Exo Admin</div>
+				          </div>
+		            </div>
+		          </div>
+		        </div>
+				  </div>
+				  <div class="UIVTabContent" style="display: none">Category Description</div>
+				</div>
+				<div class="UIVTab">
+		      <div class="SelectedVTabSimpleStyle">
+		        <div class="TabLeft">
+		          <div class="TabRight">
+		            <div class="TabRepeat">
+		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
+							      <div class="LeftIcon"><span></span></div>
+					            <div class="TabLabel">Web</div>
+							          <div class="ControlContainer">
+							            <div class="ControlIcon EditIcon"><span></span></div>
+							            <div class="ControlIcon DeleteIcon"><span></span></div>
+							            <div style="clear: left"><span></span></div>
+							          </div>
+					          <div style="clear: both"><span></span></div>
+				          </div>
+		            </div>
+		          </div>
+		        </div>
+				  </div>
+				  <div class="UIVTabContent" >Category Description</div>
+				</div>
+				<div class="UIVTab">
+		      <div class="VTabSimpleStyle">
+		        <div class="TabLeft">
+		          <div class="TabRight">
+		            <div class="TabRepeat">
+		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
+							      <div class="LeftIcon"><span></span></div>
+					          <div class="TabLabel">Widgets</div>
+				          </div>
+		            </div>
+		          </div>
+		        </div>
+				  </div>
+				  <div class="UIVTabContent" style="display: none">Category Description</div>
+				</div>
+				<div class="UIVTab">
+		      <div class="VTabSimpleStyle">
+		        <div class="TabLeft">
+		          <div class="TabRight">
+		            <div class="TabRepeat">
+		              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
+							      <div class="LeftIcon"><span></span></div>
+					          <div class="TabLabel">Others</div>
+				          </div>
+		            </div>
+		          </div>
+		        </div>
+				  </div>
+				  <div class="UIVTabContent" style="display: none">Category Description</div>
+				</div>
+			</div>
+    </div>
+  </div>

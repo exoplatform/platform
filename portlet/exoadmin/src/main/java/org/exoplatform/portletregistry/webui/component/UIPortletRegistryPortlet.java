@@ -10,8 +10,8 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 public class UIPortletRegistryPortlet extends UIPortletApplication {
   
   public UIPortletRegistryPortlet() throws Exception{
-    addChild(UIPortletRegistryCategory.class, null, null);    
-    addChild(UIWorkingArea.class, null, null);   
+    addChild(ApplicationRegistryControlArea.class, null, null);    
+    addChild(ApplicationRegistryWorkingArea.class, null, null);   
   }
   
 }

@@ -1,0 +1,113 @@
+  
+	<div class="ApplicationContainer">
+		<table class="UIGrid" cellspacing="0" borderspacing="0">
+      <thead>
+  	    <tr>
+  	      <th>Applications</th>
+  	      <th>Description</th>
+  	      <th>Actions</th>
+  	    </tr>
+  	    <tbody>
+  	      <tr>
+  	        <td>Banner Portlet</td>
+  	        <td>Banner Portlet Description</td>
+  	        <td> 
+  	           <div class="ActionContainer" >
+  	             <div class="OverflowContainer">
+  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
+  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
+  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
+  	             </div>
+  	           </div>
+  	      </tr>
+  	      <tr>
+  	        <td>Banner Portlet</td>
+  	        <td>Banner Portlet Description</td>
+  	        <td> 
+  	           <div class="ActionContainer">
+  	             <div class="OverflowContainer">
+  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
+  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
+  	               <a class="Icon DeleteIcon" href="#"  title="Delete this Application"><span></span></a>
+  	             </div>
+  	           </div>
+  	      </tr>
+  	      <tr>
+  	        <td>Banner Portlet</td>
+  	        <td>Banner Portlet Description</td>
+  	        <td> 
+  	           <div class="ActionContainer">
+  	             <div class="OverflowContainer">
+  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
+  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
+  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
+  	             </div>
+  	           </div>
+  	      </tr>
+  	      <tr>
+  	        <td>Banner Portlet</td>
+  	        <td>Banner Portlet Description</td>
+  	        <td> 
+  	           <div class="ActionContainer">
+  	             <div class="OverflowContainer">
+  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
+  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
+  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
+  	             </div>
+  	           </div>
+  	      </tr>
+  	      <tr>
+  	        <td>Banner Portlet</td>
+  	        <td>Banner Portlet Description</td>
+  	        <td> 
+  	           <div class="ActionContainer">
+  	             <div class="OverflowContainer">
+  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
+  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
+  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
+  	             </div>
+  	           </div>
+  	      </tr>
+  	      <tr>
+  	        <td>Banner Portlet</td>
+  	        <td>Banner Portlet Description</td>
+  	        <td> 
+  	           <div class="ActionContainer">
+  	             <div class="OverflowContainer">
+  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
+  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
+  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
+  	             </div>
+  	           </div>
+  	      </tr>
+  	      <tr>
+  	        <td>Banner Portlet</td>
+  	        <td>Banner Portlet Description</td>
+  	        <td> 
+  	           <div class="ActionContainer">
+  	             <div class="OverflowContainer">
+  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
+  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
+  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
+  	             </div>
+  	           </div>
+  	      </tr>
+  	    </tbody>
+  	  </thead>
+  	</table>
+  	<div class="UIAction" > 
+      <div class="ActionContainer">
+		    <div class="ActionButton">
+          <div class="LightBlueStyle">
+            <div class="ButtonLeft">
+              <div class="ButtonRight">
+                <div class="ButtonMiddle">
+                  <a href="#"> Add Application</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+ 	    </div>
+		</div>
+	</div>

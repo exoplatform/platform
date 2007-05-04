@@ -1,19 +1,23 @@
 <%
-  import org.exoplatform.portletregistry.webui.component.UIPortletRegistryCategory ;
-  import org.exoplatform.portletregistry.webui.component.UIWorkingArea ;  
+  import org.exoplatform.portletregistry.webui.component.ApplicationRegistryControlArea ;
+  import org.exoplatform.portletregistry.webui.component.ApplicationRegistryWorkingArea ;  
 %>
 
-<div class="UIPortletRegistryPortlet UIApplication" id="$uicomponent.id">
+<div class="UIApplicationRegistryPortlet UIApplication" id="$uicomponent.id">
   <div class="ApplicationMinWidth">
-	  <div class="UIPortletRegistryContainer">
-		  <%// Begin Portlet Registry Control %>
-			<div class="PortletRegistryControlArea">
-			  <% uicomponent.renderChild(UIPortletRegistryCategory.class);%>
+	  <div class="UIApplicationRegistryContainer" >
+		  <%/* Begin Portlet Registry Control*/ %>
+			<div class="ApplicationRegistryControlArea" >
+			  <div class="Title">Application Categories</div>
+			  <div class="ApplicationRegistryCategory">
+			    <% uicomponent.renderChild(ApplicationRegistryControlArea.class);%>
+			  </div>
 			</div>
-		  <%// End Portlet Registry Control %>		  
-			<div class="PortletRegistryWorkingArea">
-			  <div class="RegistryWorkingAreaContainer">
-				  <% uicomponent.renderChild(UIWorkingArea.class);%>
+		  <%/* End Portlet Registry Control */%>		  
+			<div class="ApplicationRegistryWorkingArea" >
+			  <div class="Title">Applications in a category</div>
+			  <div class="ApplicationWorkingAreaContainer" >
+				  <% uicomponent.renderChild(ApplicationRegistryWorkingArea.class);%>
 				</div>
 			</div>
 			<div style="clear: left"><span></span></div>

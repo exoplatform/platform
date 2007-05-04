@@ -252,6 +252,11 @@
   margin-top: 12px;
 }
 
+
+.UIOrganizationPortlet .UIGroupManagement .UISharedNavigationForm .UIAction {  
+  width: 170px;
+}
+
 /*#######################  UIMemberShipManagement #################################*/
 .UIOrganizationPortlet .UIFormWithTitle  {
 	margin: auto ;

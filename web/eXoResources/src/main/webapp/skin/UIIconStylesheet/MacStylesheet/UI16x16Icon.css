@@ -457,6 +457,11 @@
   background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat center left ;
 }
 
+.PermissionSettingIcon {
+  width: 17px ; height: 17px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/PermissionSetting.gif') no-repeat center left ;
+}
+
 /*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/
 
 /*===========================Misc Icons Stylesheet=======================*/

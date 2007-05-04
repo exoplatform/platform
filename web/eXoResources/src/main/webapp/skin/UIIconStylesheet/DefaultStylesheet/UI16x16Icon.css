@@ -36,6 +36,11 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/SelectPage.gif') no-repeat left center;
 }
 
+.PermissionSettingIcon {
+  width: 17px; height: 17px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PermissionSetting.gif') no-repeat left center;
+}
+
 .PreviewIcon {
   width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/LightBulbOn.gif') no-repeat left center;

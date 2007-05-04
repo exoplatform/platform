@@ -16,7 +16,7 @@
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
   height: 28px;
-  /*position: relative;*/
+  position: relative;
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
@@ -131,7 +131,6 @@
   height: 24px; width: auto;
   padding-right: 20px;
   background: url('DefaultSkin/background/GreyItemArrow.gif') no-repeat right;
-
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem .ItemIcon {

@@ -66,9 +66,9 @@ public class UICategoryForm extends UIForm {
   static public class SaveActionListener extends EventListener<UICategoryForm> {
     public void execute(Event<UICategoryForm> event) throws Exception{
       UICategoryForm uiForm = event.getSource() ;
-      UIWorkingArea workingArea = uiForm.getParent() ;
+      ApplicationRegistryWorkingArea workingArea = uiForm.getParent() ;
       UIPortletRegistryPortlet uiRegistryPortlet = workingArea.getParent() ;
-      UIPortletRegistryCategory uiRegistryCategory = uiRegistryPortlet.getChild(UIPortletRegistryCategory.class) ;
+      ApplicationRegistryControlArea uiRegistryCategory = uiRegistryPortlet.getChild(ApplicationRegistryControlArea.class) ;
 
       ApplicationRegisteryService service = uiForm.getApplicationComponent(ApplicationRegisteryService.class);
       ApplicationCategory category = uiForm.getCategory() ;
