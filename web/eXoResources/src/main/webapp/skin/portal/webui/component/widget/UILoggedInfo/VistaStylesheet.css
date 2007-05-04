@@ -60,7 +60,7 @@
 .UILoggedInfo .StyleContent .AvatarContainer {
 	float: left;
 	width: 60px; height: 60px;
-	padding: 15px 0px 0px 18px;
+	padding: 12px 0px 0px 18px;
 }
 
 .UILoggedInfo .StyleContent .LeftAvatarContainer {
@@ -119,7 +119,7 @@
 }
 
 .UILoggedInfo .StyleContent {
-	height: 82px;
+	height: 73px;
 }
 
 .UILoggedInfo .StyleContent .IconContent {

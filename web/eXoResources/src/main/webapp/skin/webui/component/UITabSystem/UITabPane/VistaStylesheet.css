@@ -22,7 +22,6 @@
 }
 
 .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {
-  border:solid 1px #838383;
   padding: 6px 7px 12px 8px;
   background: url('VistaSkin/background/TabContentBG.png') repeat;
 }

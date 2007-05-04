@@ -76,6 +76,7 @@
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
+	height: 24px;
  	line-height: 24px; text-align: center; 
 	background: url('VistaSkin/background/LightButtonMiddle1x24.png') repeat-x;
 
