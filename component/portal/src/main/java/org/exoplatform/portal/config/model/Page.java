@@ -15,9 +15,7 @@ import java.util.ArrayList;
 public class Page extends Container {
   
   private transient String   pageId;
-  private String   factoryId;
   
-  private String   name ;
   private String   ownerType;
   private String   ownerId;
   
@@ -33,9 +31,6 @@ public class Page extends Container {
   public Page() {
   }
   
-  public String getName() { return name ; }
-  public void   setName(String s) { name = s ; } 
-  
   public String getOwnerId() { return ownerId; }
   public void setOwnerId(String ownerId) { this.ownerId = ownerId; }
 
@@ -44,10 +39,6 @@ public class Page extends Container {
   
   public String[] getAccessGroup() { return accessGroup ; }
   public void     setAccessGroup(String[] s) { accessGroup = s; }
-  
-  
-  public String getFactoryId() { return factoryId; }
-  public void setFactoryId(String factoryId) { this.factoryId = factoryId; }
   
   public boolean isShowMaxWindow() { return showMaxWindow; }  
   public void setShowMaxWindow(Boolean showMaxWindow) {

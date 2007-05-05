@@ -99,14 +99,14 @@ public class TestUserPortalService extends BasicTestCase {
     String pageName = "page-one" ;
     String pageId = portalName + ":/" + pageName ;
     Page oldPage = service.getPage(pageId, "N/A") ;
-    assertEquals(pageTitle, oldPage.getDisplayName()) ;
+    assertEquals(pageTitle, oldPage.getName()) ;
     
     String newPageTitle = "NewPageTitle" ;
-    oldPage.setDisplayName(newPageTitle) ;
+    oldPage.setName(newPageTitle) ;
     service.update(oldPage) ;
     
     Page updatedPage = service.getPage(pageId, "N/A") ;
-    assertEquals(newPageTitle, updatedPage.getDisplayName()) ;
+    assertEquals(newPageTitle, updatedPage.getName()) ;
   }
   
   void assertPageRemove(UserPortalConfigService service, String portalName) throws Exception {

@@ -21,6 +21,8 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Page.PageSet;
+import org.exoplatform.portal.portlet.PortletPreferences;
+import org.exoplatform.portal.portlet.PortletPreferences.PortletPreferencesSet;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IUnmarshallingContext;
@@ -94,6 +96,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       createPortalConfig(config, owner);
       createPage(config, owner);
       createPageNavigation(config, owner);
+      createPortletPreferences(config, owner);
     }
   }
   
@@ -113,15 +116,13 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     pdcService_.create(navigation);
   }
   
-  /*private void createPortletPreferencesForUser(String owner) throws Exception {
-    PortletPreferencesSet portletSet = 
-      (PortletPreferencesSet)pdcService_.fromXML(
-          getDefaultConfig(owner, "portlet-preferences"), PortletPreferencesSet.class);
+  private void createPortletPreferences(NewPortalConfig config, String owner) throws Exception {
+    PortletPreferencesSet portletSet = fromXML(getDefaultConfig(config, owner, "portlet-preferences"), PortletPreferencesSet.class);
     ArrayList<PortletPreferences> list = portletSet.getPortlets();
     for(PortletPreferences portlet : list){
       pdcService_.savePortletPreferencesConfig(portlet);
     }
-  }*/ 
+  } 
   
   private String getDefaultConfig(NewPortalConfig portalConfig, String owner, String dataType) throws Exception {
     String ownerType = portalConfig.getOwnerType();

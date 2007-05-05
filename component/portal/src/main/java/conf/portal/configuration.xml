@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
   <component>
+   <key>org.exoplatform.services.portletcontainer.persistence.PortletPreferencesPersister</key>
+   <type>org.exoplatform.portal.portlet.jcr.PortletPreferencesPersisterImpl</type>
+  </component>  
+  
+  <component>
     <key>org.exoplatform.portal.config.DataStorage</key>
     <type>org.exoplatform.portal.config.jcr.DataStorageImpl</type>     
+  </component>
+  
+  <component>
+    <key>org.exoplatform.portal.content.ContentDAO</key>
+    <type>org.exoplatform.portal.content.jcr.ContentDAOImpl</type>     
+  </component>
+  
+  <component>
+   <key>org.exoplatform.services.portletcontainer.bundle.ResourceBundleDelegate</key>
+   <type>org.exoplatform.portal.portlet.ResourceBundleDelegateImpl</type>
   </component>   
 
   <component>
@@ -33,6 +48,24 @@
 	        <value>jar:/conf/portal/model-nodetypes.xml</value> 
 	      </values-param>
 	    </init-params>
+    </component-plugin>
+  </external-component-plugins>  
+  
+  <external-component-plugins>  
+    <target-component>org.exoplatform.portal.content.ContentDAO</target-component>      
+    
+    <component-plugin>
+      <name>rssreader.listener</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.portal.content.RSSContentPlugin</type>
+      <description>rss reader plugin</description>     
+    </component-plugin>
+    
+    <component-plugin>
+      <name>description.listener</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.portal.content.DescriptionPlugin</type>
+      <description>Description plugin</description>     
     </component-plugin>
   </external-component-plugins>  
 </configuration>

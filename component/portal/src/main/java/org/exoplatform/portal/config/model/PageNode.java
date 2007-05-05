@@ -18,6 +18,7 @@ public class PageNode  {
   protected String uri ;
   protected String label ;
   protected String icon ;
+  protected String name;
   
   private String pageReference ;
   
@@ -36,6 +37,9 @@ public class PageNode  {
 
   public String getPageReference() { return pageReference ;}  
   public void   setPageReference(String s) { pageReference = s ;}
+  
+  public String getName() { return name; }
+  public void setName(String name) { this.name = name; }
   
   public List<PageNode> getChildren() { return children ;  }
   public void setChildren(ArrayList<PageNode> list) { children = list ; }

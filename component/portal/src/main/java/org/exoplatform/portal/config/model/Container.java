@@ -15,10 +15,14 @@ public class Container {
   
   protected String id ;
   
-  protected String displayName ;
+  protected String name ;
   protected String icon;
   protected String decorator ;
+  protected String template;
   
+  protected String   factoryId;
+  
+  protected String title;
   protected String description;
   
   protected String width;
@@ -33,8 +37,8 @@ public class Container {
   public String getId() { return id ;}
   public void   setId(String s) { id = s ; }
   
-  public String getDisplayName() { return displayName ; }
-  public void   setDisplayName(String s) { displayName = s ; }
+  public String getName() { return name ; }
+  public void   setName(String s) { name = s ; }
   
   public String getIcon() { return icon; }
   public void setIcon(String icon) { this.icon = icon;  }
@@ -53,5 +57,14 @@ public class Container {
   
   public String getDescription() {  return  description ; }
   public void   setDescription(String des) { description = des ; }
+
+  public String getTitle() { return title; }
+  public void setTitle(String title) { this.title = title; }
+  
+  public String getFactoryId() { return factoryId; }
+  public void setFactoryId(String factoryId) { this.factoryId = factoryId; }
+
+  public String getTemplate() { return template; }
+  public void setTemplate(String template) { this.template = template; }
   
 }

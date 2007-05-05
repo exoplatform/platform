@@ -12,6 +12,7 @@ import javax.jcr.Node;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.portlet.PortletPreferences;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IMarshallingContext;
@@ -75,6 +76,22 @@ public class DataMapper {
   PageNavigation toPageNavigation(Node node) throws Exception {
     String  xml = node.getProperty("data").getValue().getString() ;
     return fromXML(xml, PageNavigation.class) ;
+  }
+  
+//------------------------------ Portlet Preferences -----------------------------------------------
+  
+  void map(Node node, PortletPreferences portlet) throws Exception {
+    node.setProperty("id", portlet.getWindowId()) ;
+    node.setProperty("ownerType", "portal");
+    node.setProperty("ownerId", portlet.getOwner());
+    node.setProperty("name", portlet.getWindowId()) ;
+    node.setProperty("dataType", "portletPreferences") ;    
+    node.setProperty("data", toXML(portlet)) ;
+  }
+  
+  public PortletPreferences toPortletPreferences(Node node) throws Exception {
+    String  xml = node.getProperty("data").getValue().getString() ;
+    return fromXML(xml, PortletPreferences.class) ;
   }
   
 //------------------------------ Util method -----------------------------------------------  

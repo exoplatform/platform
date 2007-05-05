@@ -16,8 +16,11 @@
   
   <mapping name="container" label="container" class="org.exoplatform.portal.config.model.Container">
     <value name="id" usage="optional" field="id" style="attribute"/>
-    <value name="display-name" usage="optional" field="displayName"/>
+    <value name="name" usage="optional" field="name"/>
+    <value name="title" field="title" usage="optional"/>
     <value name="icon" field="icon" usage="optional"/>
+    <value name="template" field="template" usage="optional"/>
+    <value name="factory-id" field="factoryId" usage="optional"/>
     <value name="decorator" field="decorator" usage="optional" style="attribute"/>
     <value name="description" field="description" usage="optional"/>
     <value name="width" usage="optional" field="width" style="attribute" />
@@ -33,7 +36,8 @@
     <value name="owner-type" field="ownerType"/>
     <value name="owner-id" field="ownerId"/>
     <value name="name" field="name"/>
-    <value name="id" usage="optional" field="id" style="attribute"/>
+    <value name="title" field="title" usage="optional"/>
+    <value name="template" field="template" usage="optional"/>
     <value name="factory-id" field="factoryId" usage="optional"/>
     <value name="access-groups" field="accessGroups" 
            set-method="setAccessGroups" get-method="getAccessGroups" usage="optional"/>
@@ -49,6 +53,7 @@
   
    <mapping name="node" label="node" class="org.exoplatform.portal.config.model.PageNode">
     <value name="uri" field="uri"/>
+    <value name="name" field="name" usage="optional"/>
     <value name="label" field="label" usage="optional"/>
     <value name="icon" field="icon" usage="optional"/>
     <value name="page-reference" field="pageReference" usage="optional"/>
@@ -86,7 +91,7 @@
                     item-type="org.exoplatform.portal.config.model.PageNode"/>
   </mapping>
   
-  <!--
+  
   <mapping name="portlet-preferences-set"
           class="org.exoplatform.portal.portlet.PortletPreferences$PortletPreferencesSet">
     <collection field="portlets" 
@@ -107,8 +112,26 @@
     <collection field="preferences" 
                 item-type="org.exoplatform.portal.portlet.Preference"/>    
     <value name="preferences-validator" field="preferencesValidator" usage="optional"/>
-    <value name="creator" field="creator" usage="optional"/>
-    <value name="modifier" field="modifier" usage="optional"/>
+    <value name="owner" field="owner" usage="optional"/>
   </mapping>
-  -->
+  
+  
+  <mapping name="content-navigation" class="org.exoplatform.portal.content.model.ContentNavigation">
+    <value name="owner" field="owner"/>
+    <value name="description" field="description" usage="optional"/>
+    <collection name="content-nodes" field="contentNodes" usage="optional"
+                    item-type="org.exoplatform.portal.content.model.ContentNode"/>
+  </mapping>
+  
+  <mapping name="content-node" label="content-node"
+           class="org.exoplatform.portal.content.model.ContentNode">
+    <value name="id" field="id"/>
+    <value name="url" field="url" usage="optional"/>
+    <value name="label" field="label" usage="optional"/>
+    <value name="icon" field="icon" usage="optional"/>
+    <value name="description" field="description" usage="optional"/>
+    <value name="type" field="type" usage="optional"/>
+    <collection field="children" usage="optional" item-type="org.exoplatform.portal.content.model.ContentNode"/>
+  </mapping>
+  
 </binding>

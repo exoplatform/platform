@@ -11,6 +11,7 @@ import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.portlet.PortletPreferences;
 import org.exoplatform.services.jcr.RepositoryService;
 
 /**
@@ -20,6 +21,8 @@ import org.exoplatform.services.jcr.RepositoryService;
  * Apr 20, 2007  
  */
 public class DataStorageImpl implements DataStorage {
+  
+  final public static String PORTLET_TPREFERENCES = "portletPreferences";
 
   final private static String NT_FOLDER_TYPE = "nt:folder" ;
   final private static String EXO_DATA_TYPE = "exo:data" ;
@@ -90,7 +93,7 @@ public class DataStorageImpl implements DataStorage {
     session.save() ;
   }
 
-//**************************************************************************************************
+//------------------------------------------------- Page--------------------------------------------
 
   public void create(Page page) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
@@ -145,8 +148,8 @@ public class DataStorageImpl implements DataStorage {
     return pageSetNode;
   }
 
-//**************************************************************************************************
-
+//------------------------------------------------- Page Navigation --------------------------------
+  
   public void create(PageNavigation navigation) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node portalNode = createPortalDataNode(session, navigation.getOwnerType(), navigation.getOwnerId());
@@ -185,9 +188,29 @@ public class DataStorageImpl implements DataStorage {
     if(portalNode == null || !portalNode.hasNode(NAVIGATION_CONFIG_FILE_NAME)) return null;
     Node navigationNode  = portalNode.getNode(NAVIGATION_CONFIG_FILE_NAME) ;
     return mapper_.toPageNavigation(navigationNode) ;
-  }  
-
-//**************************************************************************************************
+  }
+  
+//------------------------------------------------- Portlet Preferences ----------------------------
+  
+  public void savePortletPreferencesConfig(PortletPreferences portletPreferences) throws Exception {
+    Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
+    Node rootNode = create(session.getRootNode().getNode(PORTAL_APP), portletPreferences.getOwner());
+    Node portletPreNode = null;
+    if(rootNode.hasNode(PORTLET_TPREFERENCES)) {
+      portletPreNode = rootNode.getNode(PORTLET_TPREFERENCES) ;
+    } else {
+      portletPreNode = rootNode.addNode(PORTLET_TPREFERENCES, NT_FOLDER_TYPE) ;
+      rootNode.save();
+    }
+    String name  = portletPreferences.getWindowId().replace('/', '_').replace(':', '_');
+    Node node = portletPreNode.addNode(name, EXO_DATA_TYPE);
+    portletPreNode.save();
+    mapper_.map(node, portletPreferences) ;    
+    node.save() ;
+    session.save() ;
+  }
+  
+//------------------------------------------------- Util method-------- ----------------------------
   
   private Node getPortalDataNode(Session session, String ownerType, String ownerId) throws Exception {
     if(ownerType.equals(PORTAL_TYPE)) {

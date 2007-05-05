@@ -81,21 +81,20 @@ public class UserPortalConfigService {
     PortalConfig portalConfig = storage_.getPortalConfig(portalName) ;
     if(portalConfig == null || 
        !userACL_.hasPermission(portalConfig, accessUser, userACL_.getViewMembershipType())) return null ;
+   
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
     
     PageNavigation navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+portalName) ;
     if (navigation != null) navigations.add(navigation) ;
-    navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+accessUser) ;
+    navigation = getPageNavigation(DataStorage.USER_TYPE+"::"+accessUser) ;
     if (navigation != null) navigations.add(navigation) ;
     
     Collection memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
     
-    System.out.println("\n\n"+accessUser +" : "+orgService_.getUserHandler().findUserByName(accessUser)+"\n\n");
     Iterator mitr = memberships.iterator() ;
     while(mitr.hasNext()) {
       Membership m = (Membership) mitr.next() ;    
       navigation = getPageNavigation(DataStorage.GROUP_TYPE+"::"+m.getGroupId()) ;
-      System.out.println("\n\n"+m.getId() +" : "+navigation+"\n\n");
       if (navigation != null) navigations.add(navigation) ;
     }   
     userACL_.computeNavigation(navigations, accessUser);
@@ -153,7 +152,7 @@ public class UserPortalConfigService {
     Page page = (Page) pageConfigCache_.get(pageId) ;
     if(page != null) return page ;
     page  = storage_.getPage(pageId) ;
-    if(page == null || userACL_.hasPermission(page, accessUser, userACL_.getViewMembershipType())) return null;
+    if(page == null || !userACL_.hasPermission(page, accessUser, userACL_.getViewMembershipType())) return null;
     page.setModifiable(userACL_.hasPermission(page, accessUser, userACL_.getEditMembershipType()));
     pageConfigCache_.put(pageId, page);
     return page ; 

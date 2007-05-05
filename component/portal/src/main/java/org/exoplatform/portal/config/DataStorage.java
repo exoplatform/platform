@@ -7,6 +7,7 @@ package org.exoplatform.portal.config;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.portlet.PortletPreferences;
 
 /**
  * Created by The eXo Platform SARL
@@ -110,4 +111,6 @@ public interface DataStorage {
    * @throws Exception
    */
   public void remove(PageNavigation navigation) throws Exception ;
+  
+  public void savePortletPreferencesConfig(PortletPreferences portletPreferences)  throws Exception;
 }
