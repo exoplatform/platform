@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<portlet-preferences-set>
+  <portlet-preferences>
+    <window-id>webos:/web/GroovyPortlet/groovyportlet</window-id>
+    <preference>
+      <name>template</name>
+      <value>par:/groovy/groovy/webui/component/UIGroovyPortlet.gtmpl</value>
+      <read-only>false</read-only>
+    </preference>
+    <owner>webos</owner>
+  </portlet-preferences>
+</portlet-preferences-set>
