@@ -67,7 +67,7 @@ public class UIPortalForm extends UIFormTabPane {
     }
 
     UIFormInputSet uiSettingSet = new UIFormInputSet("PortalSetting") ;
-    uiSettingSet.addUIFormInput(new UIFormStringInput("owner", "owner", null).
+    uiSettingSet.addUIFormInput(new UIFormStringInput("ownerId", "ownerId", null).
                                 addValidator(EmptyFieldValidator.class).
                                 addValidator(NameValidator.class).
                                 setEditable(false)).
