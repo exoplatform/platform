@@ -10,6 +10,7 @@ import javax.jcr.Session;
 import org.exoplatform.services.jcr.RepositoryService;
 
 public class JCRRegistryService  { 
+  
   public final static String WORKSPACE = "production".intern();
   
   private RepositoryService repositoryService ;
@@ -87,26 +88,36 @@ public class JCRRegistryService  {
    * 2. Create the /exo:registry/exo:applications/$applicationName if it is not existed.
    * 3. Call the method ApplicationRegistr.postCreate(..)
    * 
-   * @param desc
+   * @param app
    * @throws Exception
    */
-  public void createApplicationRegistry(ApplicationRegistry desc, boolean overwrite) throws Exception {
-    desc.preAction(this) ;
+  public void createApplicationRegistry(ApplicationRegistry app, boolean overwrite) throws Exception {
     Session session = getSession();
-    Node servicesNode = session.getRootNode().getNode("exo:registry/exo:applications");
-    if( servicesNode.hasNode(desc.getName())){
-      if(overwrite){
-        servicesNode.getNode(desc.getName()).remove();
-        servicesNode.save();
-        servicesNode.addNode(desc.getName());
-        servicesNode.save();
-      } 
-    } else {
-      getNode(servicesNode, desc.getName(), true);
+    Node appNode = session.getRootNode().getNode("exo:registry/exo:applications");
+    if(appNode.hasNode(app.getName())) {
+      if(!overwrite) {
+        session.logout();
+        return;
+      }
+      appNode.getNode(app.getName()).remove();
+      appNode.save();
     }
+    app.preAction(this);    
+    Node node  = appNode.addNode(app.getName());
+    appNode.save();
     session.save();
     session.logout();
-    desc.postAction(this, null) ;
+    app.postAction(this, node) ;
+  }
+  
+  public Node getApplicationRegistryNode(String appName) throws Exception {
+    
+    return null;
+  }
+  
+  public Node getApplicationRegistryNode(String userName, String appName) throws Exception {
+    
+    return null;
   }
 
   /**
@@ -200,5 +211,15 @@ public class JCRRegistryService  {
     session.save();
     session.logout();
     desc.postAction(this, null) ;
+  }
+  
+  public Node getServiceRegistryNode(String appName) throws Exception {
+    
+    return null;
+  }
+  
+  public Node getServiceRegistryNode(String userName, String appName) throws Exception {
+    
+    return null;
   }
 }

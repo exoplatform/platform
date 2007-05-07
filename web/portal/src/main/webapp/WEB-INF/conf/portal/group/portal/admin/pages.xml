@@ -47,6 +47,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
     <name>portletregistry</name>
+    <access-groups>/guest</access-groups>
     
     <application>
       <instance-id>admin:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
