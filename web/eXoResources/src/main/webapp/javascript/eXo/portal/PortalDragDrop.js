@@ -493,8 +493,35 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
 PortalDragDrop.prototype.resizeRows = function() {
 	var uiPortal = document.getElementById("UIPortal");
 	if (uiPortal) {
+		var actionButtons = new Array();
+		var uiContainers = eXo.core.DOMUtil.findDescendantsByClass(uiPortal, "div", "UIContainer");
+		for (var i = 0; i < uiContainers.length; i++) {
+			var uiContainer = uiContainers[i];
+			actionButtons.pushAll(uiContainer.getElementsByTagName("a"));
+			var trContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiContainer, "tr", "TRContainer");
+			if (trContainer) {
+				var tdList = eXo.core.DOMUtil.getChildrenByTagName(trContainer, "td") ;
+			  var offsetWidthTR = trContainer.offsetWidth ;
+			  var tdWidth = offsetWidthTR / tdList.length;
+			  for (var j = 0; j < tdList.length; j++) {
+			  	var td = tdList[j];
+					td.style.width = tdWidth + "px";
+			  }
+			}
+			var layoutContainers = eXo.core.DOMUtil.findDescendantsByClass(uiContainer, "div", "LAYOUT-CONTAINER");
+			for (var j = 0; j < layoutContainers.length; j++) {
+				var layoutContainer = layoutContainers[j];
+				layoutContainer.style.height = "auto";
+				var portletChild = eXo.core.DOMUtil.findFirstDescendantByClass(layoutContainer, "div", "UIPortlet");
+				var containerChild = eXo.core.DOMUtil.findFirstDescendantByClass(layoutContainer, "div", "UIContainer")
+				 if (portletChild == null && containerChild == null) {
+	      		layoutContainer.style.height = "60px" ;
+	      	}
+			}
+			
+		}
+		/*
 	  var trContainers = eXo.core.DOMUtil.findDescendantsByClass(uiPortal, "tr", "TRContainer");
-	  var actionButtons = new Array();
 	  for(var j = 0; j < trContainers.length; j++) {
 	  	var trContainer = trContainers[j];
 		  var tdList = eXo.core.DOMUtil.getChildrenByTagName(trContainer, "td") ;
@@ -512,11 +539,11 @@ PortalDragDrop.prototype.resizeRows = function() {
 		      		innerContainer.style.height = "60px" ;
 		      	}
 				}
-				actionButtons.pushAll(td.getElementsByTagName("a"));
+				//actionButtons.pushAll(td.getElementsByTagName("a"));
 		  }
-		  var parentContainer = eXo.core.DOMUtil.findAncestorByClass(trContainer, "UIContainer");
-		  actionButtons.pushAll(parentContainer.getElementsByTagName("a"));
-	  }
+		  //var parentContainer = eXo.core.DOMUtil.findAncestorByClass(trContainer, "UIContainer");
+		  //actionButtons.pushAll(parentContainer.getElementsByTagName("a"));
+	  }*/
 	  for (var k = 0; k < actionButtons.length; k++) {
 	  	var url = actionButtons[k].href;
 	  	if (url && url.indexOf("resizeRows") == -1) {
