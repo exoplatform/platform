@@ -23,11 +23,17 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 public class UIContainer extends  UIPortalComponent {
   
   protected String icon;
-  protected String title;
+  
+  protected String    creator ;
+  protected String    modifier ;
+  
+  public String getCreator()  {  return creator ; }
+  public void   setCreator(String s) { creator = s ; }
+  
+  public String getModifier() { return modifier ; }
+  public void   setModifier(String s) { modifier = s ; }
   
   public String getIcon() { return icon ; }
   public void   setIcon(String s) { icon = s ; }
   
-  public String getTitle(){ return title; }
-  public void setTitle(String s) { title = s ;}
 }

@@ -22,7 +22,6 @@ import org.exoplatform.portal.component.customization.UIPageTemplateOptions;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -103,9 +102,8 @@ public class UIPageNodeActionListener {
       UIControlWorkspace uiControl = uiApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiControl);
       
-      UserACL userACL = popupMenu.getApplicationComponent(UserACL.class);
       String accessUser = pcontext.getRemoteUser();
-      if(page == null || !userACL.hasPermission(page.getOwner(), accessUser, page.getEditPermission())){
+      if(page == null || !uiPage.isModifiable()){
         Class [] childrenToRender = {UIPageNodeSelector.class };      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
         return;
@@ -300,7 +298,7 @@ public class UIPageNodeActionListener {
 
     private void replaceURI(String preReplacePattern, String afterReplacePattern, PageNode node){      
       if(afterReplacePattern == null){       
-        node.setUri(node.getName());
+//        node.setUri(node.get);
         return;
       }
       if(preReplacePattern.length() < 1){

@@ -4,13 +4,9 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.exoplatform.portal.component.customization.UIPopupDialog;
-import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormPopupWindow;
+import org.exoplatform.webui.component.UIPopupDialog;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 /**
@@ -26,81 +22,84 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 )
 public class UIPermissionSelector extends UISelector { 
   
-  private List<Permission> permissions_ ;
+//  private List<Permission> permissions_ ;
   
 	public UIPermissionSelector() throws Exception {
     super(null, null) ;		
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "PopupPermissionSelector");
     uiPopup.setWindowSize(540, 0);  
+    UIPopupDialog dialog = createUIComponent(UIPopupDialog.class, null, null);
+//    dialog.setComponent(this);
+    dialog.setHanderEvent("SelectMembership");
     UIGroupMembershipSelector uiMembershipSelector = createUIComponent(UIGroupMembershipSelector.class, null, null) ;
     uiPopup.setUIComponent(uiMembershipSelector);  
   }
 	
-	public void configure(String iname, String bfield, List<Permission> permissions) {  
-    setName(iname) ;
-    setBindingField(bfield) ; 
-    permissions_ = permissions;
-  } 
+//	public void configure(String iname, String bfield, List<Permission> permissions) {  
+//    setName(iname) ;
+//    setBindingField(bfield) ; 
+//    permissions_ = permissions;
+//  } 
   
   public void createPermission(String label, String exp) throws Exception {
-    Permission permission = new Permission();
-    permission.setPermissionExpression(exp) ;
-    permission.setName(label);
-    if(permissions_ == null) permissions_ = new ArrayList<Permission>();
-    if(permissions_.size() < 1)  permission.setSelected(true);
-    permissions_.add(permission);
+//    Permission permission = new Permission();
+//    permission.setPermissionExpression(exp) ;
+//    permission.setName(label);
+//    if(permissions_ == null) permissions_ = new ArrayList<Permission>();
+//    if(permissions_.size() < 1)  permission.setSelected(true);
+//    permissions_.add(permission);
 //    if(permission.isSelected()) {
 //      UIGroupMembershipSelector uiSelector = findFirstComponentOfType(UIGroupMembershipSelector.class);
 //      uiSelector.changeGroup(permission.getGroupId());
 //    }
   }
   
-  public void setPermission(Permission permission){
-    if(permissions_ == null) permissions_ = new ArrayList<Permission>(5);
-    for(int i = 0; i< permissions_.size(); i++){      
-      if(!permissions_.get(i).getName().equals(permission.getName())) continue;
-      permissions_.set(i, permission);    
-      return;
-    }
-  }
+//  public void setPermission(Permission permission){
+//    if(permissions_ == null) permissions_ = new ArrayList<Permission>(5);
+//    for(int i = 0; i< permissions_.size(); i++){      
+//      if(!permissions_.get(i).getName().equals(permission.getName())) continue;
+//      permissions_.set(i, permission);    
+//      return;
+//    }
+//  }
   
   public void processDecode(WebuiRequestContext context) throws Exception {   
-    super.processDecode(context);
-    String selectedName =  context.getRequestParameter("SelectedPermission") ;
-    if(permissions_ == null) permissions_ = new ArrayList<Permission>() ;
-    for(int i = 0; i< permissions_.size(); i++){      
-      if(permissions_.get(i).getName().equals(selectedName)) {
-        permissions_.get(i).setSelected(true);        
-      }else{
-        permissions_.get(i).setSelected(false);
-      }
-    }
+//    super.processDecode(context);
+//    String selectedName =  context.getRequestParameter("SelectedPermission") ;
+//    if(permissions_ == null) permissions_ = new ArrayList<Permission>() ;
+//    for(int i = 0; i< permissions_.size(); i++){      
+//      if(permissions_.get(i).getName().equals(selectedName)) {
+//        permissions_.get(i).setSelected(true);        
+//      }else{
+//        permissions_.get(i).setSelected(false);
+//      }
+//    }
   }
   
-  @SuppressWarnings("hiding")
-  public Permission getPermission(String name){
-    if(permissions_ == null) return null;
-    for(Permission ele : permissions_) {
-      if(ele.getName().equals(name)) return ele;
-    }
-    return null;
-  }
-  
-  public List<Permission> getPermissions(){ return permissions_; }
-  
-  public Permission getSelectedPermission(){
-    if(permissions_ == null) return null;
-    for(Permission ele : permissions_){
-      if(ele.isSelected()) return ele;
-    }
-    return null;
-  }
-  
+//  @SuppressWarnings("hiding")
+//  public Permission getPermission(String name){
+//    if(permissions_ == null) return null;
+//    for(Permission ele : permissions_) {
+//      if(ele.getName().equals(name)) return ele;
+//    }
+//    return null;
+//  }
+//  
+//  public List<Permission> getPermissions(){ return permissions_; }
+//  
+//  public Permission getSelectedPermission(){
+//    if(permissions_ == null) return null;
+//    for(Permission ele : permissions_){
+//      if(ele.isSelected()) return ele;
+//    }
+//    return null;
+//  }
+//  
   void setMembership(String groupId, String membershipType){
-    Permission permission = getSelectedPermission();
-    if(permission == null) return ;
-    permission.setGroupId(groupId);
-    permission.setMembership(membershipType);
+//    Permission permission = getSelectedPermission();
+//    if(permission == null) return ;
+//    permission.setGroupId(groupId);
+//    permission.setMembership(membershipType);
   } 
   
 }

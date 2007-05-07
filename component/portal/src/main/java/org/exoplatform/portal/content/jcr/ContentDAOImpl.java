@@ -5,6 +5,7 @@
 package org.exoplatform.portal.content.jcr;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.jcr.Node;
 import javax.jcr.Session;
@@ -32,7 +33,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   final private static String NODE_NAME = "contentNavigation.xml";
   
   final private static String ID = "id" ;
-  final private static String OWNER = "owner" ;
+  final private static String OWNER = "ownerId" ;
   final private static String DATA_TYPE = "dataType" ;
   final private static String DATA = "data";
   final private static String CREATED_DATE = "createdDate";
@@ -44,17 +45,9 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   final private static String USERS = "users";
   final private static String APP_DATA = "AppData";
   
-  final private static String NT_FOLDER_TYPE = "nt:folder" ;
-  final private static String EXO_DATA_TYPE = "exo:data" ;
-
   final private static String PORTAL = "portal" ;
 
-  final private static String WORKSPACE = "production" ;
-  final private static String PORTAL_APP = "PortalApp" ;
-
   final private static String HOME = "home";
-  final private static String USER_DATA = "user";
-  final private static String GROUP_DATA = "group";
   
   private  RepositoryService service_ ;
   
@@ -64,13 +57,14 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   }
   
   public void save(ContentNavigation navigation) throws Exception {
-//    Node portalNode = getPortalServiceNode(navigation.getOwner(), true); 
-//    ContentData data = new ContentData();
-//    data.setDataType(ContentNavigation.class.getName());    
-//    data.setId(navigation.getOwner()+":/"+ContentNavigation.class.getName());
-//    data.setOwner(navigation.getOwner());
-//    data.setData(toXML(navigation));
-//    saveData(portalNode, data);  
+    Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
+    Node portalNode = getPortalServiceNode(session, navigation.getOwner(), true); 
+    ContentData data = new ContentData();
+    data.setDataType(ContentNavigation.class.getName());    
+    data.setId(navigation.getOwner()+"::"+ContentNavigation.class.getName());
+    data.setOwner(navigation.getOwner());
+    data.setData(toXML(navigation));
+    saveData(session, portalNode, data);   
   }
   
   public ContentNavigation get(String owner) throws Exception {
@@ -79,9 +73,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
     return (ContentNavigation)fromXML(data.getData(), ContentNavigation.class);
   }
   
-  public void remove(String owner) throws Exception {
-    removeData(owner, NODE_NAME);
-  }
+  public void remove(String owner) throws Exception { removeData(owner, NODE_NAME); }
   
   public ContentData getData(String id) throws Exception {
     String owner = id.substring(0, id.indexOf(':'));
@@ -89,11 +81,11 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   }
   
   private ContentData getDataByOwner(String owner) throws Exception {
-//    Node parentNode = getPortalServiceNode(owner, false);
-//    if(parentNode.hasNode(NODE_NAME) == false) return null;    
-//    Node node = parentNode.getNode(NODE_NAME);
-//    return nodeToContentData(node);
-    return null;
+    Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
+    Node parentNode = getPortalServiceNode(session, owner, true);
+    if(parentNode.hasNode(NODE_NAME) == false) return null;    
+    Node node = parentNode.getNode(NODE_NAME);
+    return nodeToContentData(node);
   }
   
   public void removeData(String id) throws Exception {
@@ -106,94 +98,32 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   } 
   
   private void removeDataByOwner(String owner) throws Exception {
-//    Node parentNode = getPortalServiceNode(owner, false);
-//    if(parentNode.hasNode(NODE_NAME) == false) return ;
-//    Node node = parentNode.getNode(NODE_NAME);
-//    node.remove();
-//    parentNode.save();
-//    getSession().save();
+    Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
+    Node parentNode = getPortalServiceNode(session, owner, false);
+    if(parentNode.hasNode(NODE_NAME) == false) return ;
+    Node node = parentNode.getNode(NODE_NAME);
+    node.remove();
+    parentNode.save();
+    session.save();
   }
   
-  private void saveData(Node parentNode, ContentData data) throws Exception {
-//    Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-//    Node node;
-//    Date time = Calendar.getInstance().getTime();
-//    data.setModifiedDate(time);
-//    if(data.getCreatedDate() == null) data.setCreatedDate(time);
-//    if(parentNode.hasNode(NODE_NAME)) {
-//      node = parentNode.getNode(NODE_NAME);
-//      contentDataToNode(data, node);
-//      node.save();
-//    } else {
-//      node = parentNode.addNode(NODE_NAME, DATA_NODE_TYPE);
-//      contentDataToNode(data, node);
-//      parentNode.save();
-//    }
-//    getSession().save();
-  }
-  
-  private Node getPortalDataNode(Session session, String ownerType, String ownerId) throws Exception {
-    if(ownerType.equals(PORTAL_TYPE)) {
-      Node node = session.getRootNode().getNode(PORTAL_APP);
-      if(node.hasNode(ownerId)) return node.getNode(ownerId);
-      return null;
+  private void saveData(Session session, Node parentNode, ContentData data) throws Exception {
+    Node node;
+    Date time = Calendar.getInstance().getTime();
+    data.setModifiedDate(time);
+    if(data.getCreatedDate() == null) data.setCreatedDate(time);
+    if(parentNode.hasNode(NODE_NAME)) {
+      node = parentNode.getNode(NODE_NAME);
+      contentDataToNode(data, node);
+      node.save();
+    } else {
+      node = parentNode.addNode(NODE_NAME, DATA_NODE_TYPE);
+      contentDataToNode(data, node);
+      parentNode.save();
     }
-    
-    if(ownerType.equals(USER_TYPE)){
-      Node node = session.getRootNode().getNode(USER_DATA).getNode(HOME);
-      if(!node.hasNode(ownerId)) return null;
-      node = node.getNode(ownerId);
-      if(!node.hasNode(EXO_DATA_TYPE)) return null;
-      node = node.getNode(EXO_DATA_TYPE);
-      if(node.hasNode(PORTAL)) return node.getNode(PORTAL);
-      return null;
-    } 
-    
-    if(ownerType.equals(GROUP_TYPE)){
-      String [] groups = ownerId.split("/");
-      Node node = session.getRootNode().getNode(GROUP_DATA).getNode(HOME);
-      for(String group : groups) {
-        if(!node.hasNode(group)) return null;
-        node = node.getNode(group);
-      }
-      if(!node.hasNode(EXO_DATA_TYPE)) return null;
-      node = node.getNode(EXO_DATA_TYPE);
-      if(node.hasNode(PORTAL)) return node.getNode(PORTAL);
-    }
-    
-    return null;
+    session.save();
   }
 
-  private Node createPortalDataNode(Session session, String ownerType, String ownerId) throws Exception {
-    if(ownerType.equals(PORTAL_TYPE)) {
-      return create(session.getRootNode().getNode(PORTAL_APP), ownerId);
-    } 
-    
-    if(ownerType.equals(USER_TYPE)){
-      Node portalNode = create(session.getRootNode().getNode(USER_DATA).getNode(HOME), ownerId);
-      return create(create(portalNode, EXO_DATA_TYPE), PORTAL);
-    }
-    
-    if(ownerType.equals(GROUP_TYPE)){
-      String [] groups = ownerId.split("/");
-      Node portalNode = session.getRootNode().getNode(GROUP_DATA).getNode(HOME);
-      for(String group : groups) {
-        if(group.trim().length() < 1) continue;
-        portalNode = create(portalNode, group);
-      }
-      return create(create(portalNode, EXO_DATA_TYPE), PORTAL);
-    }
-    
-    return null;
-  }
-
-  private Node create(Node parent, String name) throws Exception {
-    if(parent.hasNode(name)) return parent.getNode(name);    
-    Node node = parent.addNode(name, NT_FOLDER_TYPE);
-    parent.save();
-    return node;    
-  }
-    
   private ContentData nodeToContentData(Node node) throws Exception {
     ContentData data = new ContentData();
     if(!node.hasProperty(ID)) return null;
@@ -210,6 +140,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   private void contentDataToNode(ContentData data, Node node) throws  Exception {
     node.setProperty(ID, data.getId());
     node.setProperty(OWNER, data.getOwner());
+    node.setProperty("ownerType", "user");
     node.setProperty(DATA_TYPE, data.getDataType());
     node.setProperty(DATA, data.getData());
     Calendar calendar = Calendar.getInstance();
@@ -219,5 +150,22 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
     calendar.setTime(data.getModifiedDate());
     node.setProperty(MODIFIED_DATE, calendar);    
   }
- 
+  
+  final private Node getPortalServiceNode(Session session, String owner, boolean autoCreate) throws Exception {
+    Node node = getNode(session.getRootNode(), HOME, autoCreate);
+    if((node = getNode(node, USERS, autoCreate)) == null && !autoCreate) return null;
+    if((node = getNode(node, owner, autoCreate)) == null && !autoCreate) return null;
+    if((node = getNode(node, APP_DATA, autoCreate)) == null && !autoCreate) return null;
+    if((node = getNode(node, PORTAL, autoCreate)) == null && !autoCreate) return null;
+    return node;
+  }
+  
+  final private Node getNode(Node parentNode, String name, boolean autoCreate) throws Exception {
+    if(parentNode.hasNode(name)) return parentNode.getNode(name);
+    if(!autoCreate) return null;
+    Node node  = parentNode.addNode(name);
+    parentNode.save();
+    return node;
+  }
+  
 }

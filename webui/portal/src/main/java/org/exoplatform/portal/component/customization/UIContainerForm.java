@@ -78,7 +78,7 @@ public class UIContainerForm extends UIForm {
 
   public void setValues(UIContainer uiContainer) throws Exception {
     this.uiContainer_ = uiContainer;
-    Container container = PortalDataModelUtil.toContainerModel(uiContainer) ;
+    Container container = PortalDataModelUtil.toContainer(uiContainer) ;
     getUIStringInput("id").setEditable(false);
     invokeGetBindingBean(container) ;    
   }

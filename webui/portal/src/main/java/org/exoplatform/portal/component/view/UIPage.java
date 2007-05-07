@@ -43,31 +43,27 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 })
 public class UIPage extends UIContainer {
   
-  private String owner ;
-  private String name ;
-  private String viewPermission ;
-  private String editPermission ;
+  private String ownerId ;
+  private String ownerType ;  
+  private String [] accessGroups;
   private boolean showMaxWindow = false ;
   private UIPortlet maximizedUIPortlet;
   
-  public String getOwner() { return owner ; }
-  public void   setOwner(String s) { owner = s ; } 
+  public String getOwnerId() { return ownerId ; }
+  public void   setOwnerId(String s) { ownerId = s ; } 
   
-  public String getName() { return name ; }
-  public void   setName(String s) { name = s ; } 
-  
-  public String getViewPermission() { return viewPermission ; }
-  public void   setViewPermission(String s) { viewPermission = s ; } 
-  
-  public String getEditPermission() { return editPermission ; }
-  public void   setEditPermission(String s) { editPermission = s ; } 
-
   public boolean isShowMaxWindow() { return showMaxWindow; }
   public void setShowMaxWindow(Boolean showMaxWindow) { this.showMaxWindow = showMaxWindow; }
   
-  public String getPageId() { return owner + ":/" + name ; }
+  public String[] getAccessGroups() { return accessGroups; }
+  public void setAccessGroups(String[] accessGroups) { this.accessGroups = accessGroups; }
+  
+  public String getPageId() { return ownerId + ":/" + name_ ; }
   
   public UIPortlet getMaximizedUIPortlet() { return maximizedUIPortlet;  }
+  
+  public String getOwnerType() { return ownerType; }
+  public void setOwnerType(String ownerType) { this.ownerType = ownerType; }
   
   public void setMaximizedUIPortlet(UIPortlet maximizedUIPortlet) {
     this.maximizedUIPortlet = maximizedUIPortlet;
@@ -80,4 +76,5 @@ public class UIPage extends UIContainer {
       return res.getString("UIPageDesktop.img.DefaultPortlet") ;
     }
   }
+  
 }

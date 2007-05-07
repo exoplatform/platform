@@ -9,7 +9,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
@@ -27,7 +26,6 @@ import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTabPane;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
@@ -38,11 +36,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-/**
- * Author : Dang Van Minh
- *          minhdv81@yahoo.com
- * Jun 19, 2006
- */
 import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
@@ -118,10 +111,10 @@ public class UIPortalForm extends UIFormTabPane {
     uiFactoryId.setRendered(false);
     addUIFormInput(uiFactoryId);
     
-    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, null);
-    uiPermissionSelector.configure("Permission", null, null) ;
-    uiPermissionSelector.setRendered(false);
-    addUIComponentInput(uiPermissionSelector) ;
+//    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, null);
+//    uiPermissionSelector.configure("Permission", null, null) ;
+//    uiPermissionSelector.setRendered(false);
+//    addUIComponentInput(uiPermissionSelector) ;
   }
   
   public PortalConfig getPortalConfig() { return portalConfig_; }
@@ -129,19 +122,19 @@ public class UIPortalForm extends UIFormTabPane {
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);   
        
-    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
-    if(uiPermissionSelector == null) return;
-    UIPopupWindow uiPopupWindow = uiPermissionSelector.getChild(UIPopupWindow.class);
-    uiPopupWindow.processRender(context);
+//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
+//    if(uiPermissionSelector == null) return;
+//    UIPopupWindow uiPopupWindow = uiPermissionSelector.getChild(UIPopupWindow.class);
+//    uiPopupWindow.processRender(context);
   }
 
   public void setValues(PortalConfig uiPortal) throws Exception {
     portalConfig_ = uiPortal;
     if(portalConfig_.getFactoryId() == null) portalConfig_.setFactoryId(DEFAULT_FACTORY_ID);    
     invokeGetBindingBean(portalConfig_) ;
-    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
-    uiPermissionSelector.createPermission("ViewPermission", portalConfig_.getViewPermission());
-    uiPermissionSelector.createPermission("EditPermission", portalConfig_.getEditPermission());
+//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
+//    uiPermissionSelector.createPermission("ViewPermission", portalConfig_.getViewPermission());
+//    uiPermissionSelector.createPermission("EditPermission", portalConfig_.getEditPermission());
   }
 
   static public class SaveActionListener  extends EventListener<UIPortalForm> {
@@ -157,9 +150,9 @@ public class UIPortalForm extends UIFormTabPane {
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
       uiApp.setLocale(localeConfig.getLocale());
       
-      UIPermissionSelector uiPermissionSelector = uiForm.getChild(UIPermissionSelector.class);
-      portalConfig.setViewPermission(uiPermissionSelector.getPermission("ViewPermission").getValue());
-      portalConfig.setEditPermission(uiPermissionSelector.getPermission("EditPermission").getValue());
+//      UIPermissionSelector uiPermissionSelector = uiForm.getChild(UIPermissionSelector.class);
+//      portalConfig.setViewPermission(uiPermissionSelector.getPermission("ViewPermission").getValue());
+//      portalConfig.setEditPermission(uiPermissionSelector.getPermission("EditPermission").getValue());
       
       UIPortal uiPortal = Util.getUIPortal();
       uiPortal.getChildren().clear();

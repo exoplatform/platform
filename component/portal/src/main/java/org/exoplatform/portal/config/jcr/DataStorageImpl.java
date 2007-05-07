@@ -126,7 +126,7 @@ public class DataStorageImpl implements DataStorage {
 
   public Page getPage(String pageId) throws Exception {
     String [] components = pageId.split("::");
-    if(components.length < 3) throw new Exception ("Invalid pageId.");        
+    if(components.length < 3) throw new Exception ("Invalid pageId :"+pageId);        
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     Node pageSetNode = getPageSetNode(session, components[0], components[1]); 
     if(pageSetNode == null || !pageSetNode.hasNode(components[2]))  return null;
@@ -135,13 +135,13 @@ public class DataStorageImpl implements DataStorage {
   }
   
   private Node getPageSetNode(Session session, String ownerType, String ownerId) throws Exception {
-    Node portalNode = getPortalDataNode(session, ownerType, ownerId);
+    Node portalNode = getDataNode(session, ownerType, ownerId);
     if(portalNode == null || !portalNode.hasNode(PAGE_SET_NODE)) return  null;
     return portalNode.getNode(PAGE_SET_NODE) ;    
   }
 
   private Node createPageSetNode(Session session, String ownerType, String ownerId) throws Exception {
-    Node portalNode = createPortalDataNode(session, ownerType, ownerId);
+    Node portalNode = createDataNode(session, ownerType, ownerId);
     if (portalNode.hasNode(PAGE_SET_NODE)) return portalNode.getNode(PAGE_SET_NODE) ;
     Node pageSetNode = portalNode.addNode(PAGE_SET_NODE, NT_FOLDER_TYPE) ;
     portalNode.save() ;
@@ -152,9 +152,9 @@ public class DataStorageImpl implements DataStorage {
   
   public void create(PageNavigation navigation) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-    Node portalNode = createPortalDataNode(session, navigation.getOwnerType(), navigation.getOwnerId());
-    Node navigationNode = portalNode.addNode(NAVIGATION_CONFIG_FILE_NAME, EXO_DATA_TYPE) ;
-    portalNode.save() ;
+    Node groupNode = createDataNode(session, navigation.getOwnerType(), navigation.getOwnerId());
+    Node navigationNode = groupNode.addNode(NAVIGATION_CONFIG_FILE_NAME, EXO_DATA_TYPE) ;
+    groupNode.save() ;
     mapper_.map(navigationNode, navigation) ;
     navigationNode.save();
     session.save() ;
@@ -162,7 +162,7 @@ public class DataStorageImpl implements DataStorage {
 
   public void save(PageNavigation navigation) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-    Node portalNode = createPortalDataNode(session, navigation.getOwnerType(), navigation.getOwnerId());
+    Node portalNode = createDataNode(session, navigation.getOwnerType(), navigation.getOwnerId());
     Node navigationNode = portalNode.getNode(NAVIGATION_CONFIG_FILE_NAME) ;
     mapper_.map(navigationNode, navigation) ;
     navigationNode.save();
@@ -171,7 +171,7 @@ public class DataStorageImpl implements DataStorage {
 
   public void remove(PageNavigation navigation) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
-    Node portalNode = getPortalDataNode(session, navigation.getOwnerType(), navigation.getOwnerId());
+    Node portalNode = getDataNode(session, navigation.getOwnerType(), navigation.getOwnerId());
     if(portalNode == null || !portalNode.hasNode(NAVIGATION_CONFIG_FILE_NAME)) return;
     Node navigationNode = portalNode.getNode(NAVIGATION_CONFIG_FILE_NAME) ;
     navigationNode.remove() ;    
@@ -182,9 +182,9 @@ public class DataStorageImpl implements DataStorage {
   public PageNavigation getPageNavigation(String id) throws Exception {
     Session session = service_.getRepository().getSystemSession(WORKSPACE) ;
     String [] components = id.split("::");
-    if(components.length < 2) throw new Exception ("Invalid navigationId.");
+    if(components.length < 2) throw new Exception ("Invalid navigationId :"+id);
 
-    Node portalNode = getPortalDataNode(session, components[0], components[1]);
+    Node portalNode = getDataNode(session, components[0], components[1]);
     if(portalNode == null || !portalNode.hasNode(NAVIGATION_CONFIG_FILE_NAME)) return null;
     Node navigationNode  = portalNode.getNode(NAVIGATION_CONFIG_FILE_NAME) ;
     return mapper_.toPageNavigation(navigationNode) ;
@@ -212,7 +212,7 @@ public class DataStorageImpl implements DataStorage {
   
 //------------------------------------------------- Util method-------- ----------------------------
   
-  private Node getPortalDataNode(Session session, String ownerType, String ownerId) throws Exception {
+  private Node getDataNode(Session session, String ownerType, String ownerId) throws Exception {
     if(ownerType.equals(PORTAL_TYPE)) {
       Node node = session.getRootNode().getNode(PORTAL_APP);
       if(node.hasNode(ownerId)) return node.getNode(ownerId);
@@ -233,6 +233,7 @@ public class DataStorageImpl implements DataStorage {
       String [] groups = ownerId.split("/");
       Node node = session.getRootNode().getNode(GROUP_DATA).getNode(HOME);
       for(String group : groups) {
+        if(group.trim().length() < 1) continue;
         if(!node.hasNode(group)) return null;
         node = node.getNode(group);
       }
@@ -244,7 +245,7 @@ public class DataStorageImpl implements DataStorage {
     return null;
   }
 
-  private Node createPortalDataNode(Session session, String ownerType, String ownerId) throws Exception {
+  private Node createDataNode(Session session, String ownerType, String ownerId) throws Exception {
     if(ownerType.equals(PORTAL_TYPE)) {
       return create(session.getRootNode().getNode(PORTAL_APP), ownerId);
     } 

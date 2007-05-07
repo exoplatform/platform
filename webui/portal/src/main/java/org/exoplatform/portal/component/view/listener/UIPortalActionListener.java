@@ -21,8 +21,7 @@ import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.PortalDAO;
-import org.exoplatform.portal.config.model.Component;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.event.Event;
@@ -91,9 +90,9 @@ public class UIPortalActionListener {
       String save = event.getRequestContext().getRequestParameter("save");
       if(save != null && Boolean.valueOf(save).booleanValue()) {
         Page page = PortalDataModelUtil.toPageModel(uiPage); 
-        PortalDAO configService = uiPage.getApplicationComponent(PortalDAO.class);  
-        if(page.getChildren() == null) page.setChildren(new ArrayList<Component>());
-        configService.savePage(page);
+        DataStorage configService = uiPage.getApplicationComponent(DataStorage.class);  
+        if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+        configService.save(page);
       }
 
       PortalRequestContext pcontext = Util.getPortalRequestContext();

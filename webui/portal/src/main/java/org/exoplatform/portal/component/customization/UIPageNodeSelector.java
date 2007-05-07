@@ -18,7 +18,6 @@ import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.D
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.EditPageNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.EditSelectedNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.PasteNodeActionListener;
-import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -105,8 +104,8 @@ public class UIPageNodeSelector extends UIContainer {
     loadNavigations();
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     for(PageNavigation navigation: navigations_) {
-      String label = navigation.getOwner() + "'s Nav";
-      options.add(new SelectItemOption<String>(label, navigation.getOwner()));
+      String label = navigation.getOwnerId() + "'s Nav";
+      options.add(new SelectItemOption<String>(label, navigation.getOwnerId()));
     }
     uiDopDownSelector.setOptions(options);
     uiDopDownSelector.setSelected(0);
@@ -118,14 +117,14 @@ public class UIPageNodeSelector extends UIContainer {
     List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();    
     PortalRequestContext pcontext = Util.getPortalRequestContext();
     String remoteUser  = pcontext.getRemoteUser();
-    UserACL userACL = getApplicationComponent(UserACL.class);
-    
-    for(PageNavigation nav  : pnavigations){
-      String permission = nav.getEditPermission();
-      if(userACL.hasPermission(nav.getOwner(), remoteUser, permission)){
-        navigations_.add(nav.clone());
-      }
-    }
+//    UserACL userACL = getApplicationComponent(UserACL.class);
+//    
+//    for(PageNavigation nav  : pnavigations){
+//      String permission = nav.getEditPermission();
+//      if(userACL.hasPermission(nav.getOwnerId(), remoteUser, permission)){
+//        navigations_.add(nav.clone());
+//      }
+//    }
     
     if(navigations_.size() < 1) return;
     selectedNavigation = navigations_.get(0);
@@ -135,7 +134,7 @@ public class UIPageNodeSelector extends UIContainer {
   
   public void selectNavigation(String owner){    
     for(PageNavigation nav : navigations_){
-      if(!nav.getOwner().equals(owner)) continue; 
+      if(!nav.getOwnerId().equals(owner)) continue; 
       selectedNavigation = nav;
       UITree tree = getChild(UITree.class);
       tree.setSibbling(selectedNavigation.getNodes());      
@@ -246,13 +245,13 @@ public class UIPageNodeSelector extends UIContainer {
       
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page  = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
-      UserACL userACL = uiEditBar.getApplicationComponent(UserACL.class);
-      String accessUser = pcontext.getRemoteUser();     
-      if(page == null || !userACL.hasPermission(page.getOwner(), accessUser, page.getEditPermission())){
-        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
-        uiParent.setRenderedChildrenOfTypes(childrenToRender);
-        return;
-      }
+//      UserACL userACL = uiEditBar.getApplicationComponent(UserACL.class);
+//      String accessUser = pcontext.getRemoteUser();     
+//      if(page == null || !userACL.hasPermission(page.getOwnerId(), accessUser, page.getEditPermission())){
+//        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+//        uiParent.setRenderedChildrenOfTypes(childrenToRender);
+//        return;
+//      }
       
       uiEditBar.setRendered(true);
       UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());

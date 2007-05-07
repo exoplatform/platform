@@ -8,10 +8,10 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
-import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.ConfigurationManager;
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.StateManager;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 
@@ -89,7 +89,7 @@ public class PortalStateManager extends StateManager {
       (UserPortalConfigService)appContainer.getComponentInstanceOfType(UserPortalConfigService.class);
     String remoteUser = context.getRemoteUser();
     String ownerUser = context.getPortalOwner();  
-    UserPortalConfig userPortalConfig = service_.computeUserPortalConfig(ownerUser, remoteUser);
+    UserPortalConfig userPortalConfig = service_.getUserPortalConfig(ownerUser, remoteUser);
     return userPortalConfig  ;
   }
   

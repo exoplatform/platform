@@ -4,20 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.component.customization;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.exoplatform.organization.webui.component.UIPermissionSelector;
-import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.component.UIPortalApplication;
-import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.PortalDAO;
-import org.exoplatform.portal.config.UserACL.Permission;
-import org.exoplatform.portal.config.model.Component;
-import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormInputIconSelector;
@@ -69,11 +56,11 @@ public class UIPageNodeForm extends UIFormTabPane {
     
     addUIFormInput(uiSettingSet);
 
-    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, null);
-    uiPermissionSelector.configure("Permission", null, null);
-    uiPermissionSelector.createPermission("AccessPermission", null);
-    uiPermissionSelector.setRendered(false) ;
-    addUIComponentInput(uiPermissionSelector) ;
+//    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, null);
+//    uiPermissionSelector.configure("Permission", null, null);
+//    uiPermissionSelector.createPermission("AccessPermission", null);
+//    uiPermissionSelector.setRendered(false) ;
+//    addUIComponentInput(uiPermissionSelector) ;
 
     UIPageSelector uiPageSelector = createUIComponent(UIPageSelector.class, null, null) ;
     uiPageSelector.configure("UIPageSelector", "pageReference") ;
@@ -95,9 +82,9 @@ public class UIPageNodeForm extends UIFormTabPane {
       return;
     }   
     invokeGetBindingBean(pageNode_) ;    
-    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
-    Permission permission = uiPermissionSelector.getPermission("AccessPermission");
-    permission.setPermissionExpression(pageNode_.getAccessPermission());
+//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
+//    Permission permission = uiPermissionSelector.getPermission("AccessPermission");
+//    permission.setPermissionExpression(pageNode_.getAccessPermission());
     
     UIPageSelector uiPageSelector = getChild(UIPageSelector.class);
     if(uiPageSelector != null) uiPageSelector.setUIInputValue(pageNode_.getPageReference());
@@ -115,89 +102,89 @@ public class UIPageNodeForm extends UIFormTabPane {
       uiPopupWindowPage.processRender(context);
     }
     
-    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
-    UIPopupWindow uiPopupPermission = uiPermissionSelector.getChild(UIPopupWindow.class);
-    uiPopupPermission.processRender(context);
+//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
+//    UIPopupWindow uiPopupPermission = uiPermissionSelector.getChild(UIPopupWindow.class);
+//    uiPopupPermission.processRender(context);
   }
   
   static public class SaveActionListener extends EventListener<UIPageNodeForm> {
     public void execute(Event<UIPageNodeForm> event) throws Exception {
-      UIPageNodeForm uiPageNodeForm = event.getSource();
-      PortalRequestContext pcontext = Util.getPortalRequestContext();
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIPageSelector uiPageSelector = uiPageNodeForm.getChild(UIPageSelector.class);
+//      UIPageNodeForm uiPageNodeForm = event.getSource();
+//      PortalRequestContext pcontext = Util.getPortalRequestContext();
+//      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+//      UIPageSelector uiPageSelector = uiPageNodeForm.getChild(UIPageSelector.class);
+//      
+//      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+//      uiMaskWS.setUIComponent(null);
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+//      UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
+//      UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
+//      pcontext.addUIComponentToUpdateByAjax(uiManagement);
+//      
+//      PageNode pageNode = uiPageNodeForm.getPageNode();
+//      if(pageNode == null) pageNode  = new PageNode();
+//      uiPageNodeForm.invokeSetBindingBean(pageNode) ;
+//      if(pageNode.getCreator() == null) pageNode.setCreator(pcontext.getRemoteUser());      
+//      pageNode.setModifier(pcontext.getRemoteUser());
       
-      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      uiMaskWS.setUIComponent(null);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
-      UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
-      pcontext.addUIComponentToUpdateByAjax(uiManagement);
+//      UIPermissionSelector uiPermissionSelector = uiPageNodeForm.getChild(UIPermissionSelector.class);
+//      if(uiPermissionSelector != null){
+//        Permission permission = uiPermissionSelector.getPermission("AccessPermission");
+//        if(permission != null) pageNode.setAccessPermission(permission.getValue());
+//        else pageNode.setAccessPermission(null);
+//      }
       
-      PageNode pageNode = uiPageNodeForm.getPageNode();
-      if(pageNode == null) pageNode  = new PageNode();
-      uiPageNodeForm.invokeSetBindingBean(pageNode) ;
-      if(pageNode.getCreator() == null) pageNode.setCreator(pcontext.getRemoteUser());      
-      pageNode.setModifier(pcontext.getRemoteUser());
-      
-      UIPermissionSelector uiPermissionSelector = uiPageNodeForm.getChild(UIPermissionSelector.class);
-      if(uiPermissionSelector != null){
-        Permission permission = uiPermissionSelector.getPermission("AccessPermission");
-        if(permission != null) pageNode.setAccessPermission(permission.getValue());
-        else pageNode.setAccessPermission(null);
-      }
-      
-      UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);
-      pageNode.setIcon(uiIconSelector.getSelectedIcon());
-      
-      if(uiPageSelector != null) {
-        Object pageReference = uiPageSelector.getUIInputValue();
-        if(pageReference != null){
-          pageNode.setPageReference(String.valueOf(pageReference));
-        }else{
-          String id = pageNode.getCreator()+":/" +pageNode.getName();
-          PortalDAO dataService = uiPageNodeForm.getApplicationComponent(PortalDAO.class);
-          Page page = dataService.getPage(id);
-          if(page == null){
-            page = new Page();
-            page.setId(id);
-            page.setName(pageNode.getName());
-            page.setChildren(new ArrayList<Component>(0));
-            page.setOwner(pageNode.getCreator());
-            dataService.savePage(page);
-          }
-          pageNode.setPageReference(page.getId());
-        }        
-      }
-      
-      Object selectedParent = uiPageNodeForm.getSelectedParent();
-      PageNavigation pageNav = null;
-      if(selectedParent == null) {
-        pageNav = new PageNavigation();
-        pageNav.getNodes().add(pageNode);
-        pageNav.setOwner(Util.getPortalRequestContext().getRemoteUser());
-        uiNodeSelector.getNavigations().add(pageNav);
-        selectedParent = pageNav;
-      }
-      
-      if(selectedParent instanceof PageNavigation){
-        pageNav = (PageNavigation)selectedParent;         
-        pageNode.setUri(pageNode.getName());
-        if(!pageNav.getNodes().contains(pageNode)) pageNav.addNode(pageNode);
-      }else if(selectedParent instanceof PageNode){
-        PageNode parentNode = (PageNode)selectedParent; 
-        List<PageNode> children = parentNode.getChildren();
-        if(children == null){ 
-          children = new ArrayList<PageNode>();
-          parentNode.setChildren((ArrayList<PageNode>)children);
-        }
-        if(!children.contains(pageNode)) children.add(pageNode);
-        pageNode.setUri(parentNode.getUri()+"/"+pageNode.getName());       
-      }
-      
-      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
-      uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri());
+//      UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);
+//      pageNode.setIcon(uiIconSelector.getSelectedIcon());
+//      
+//      if(uiPageSelector != null) {
+//        Object pageReference = uiPageSelector.getUIInputValue();
+//        if(pageReference != null){
+//          pageNode.setPageReference(String.valueOf(pageReference));
+//        }else{
+//          String id = pageNode.getCreator()+":/" +pageNode.getName();
+//          DataStorage dataService = uiPageNodeForm.getApplicationComponent(DataStorage.class);
+//          Page page = dataService.getPage(id);
+//          if(page == null){
+//            page = new Page();
+//            page.setId(id);
+//            page.setName(pageNode.getName());
+//            page.setChildren(new ArrayList<Component>(0));
+//            page.setOwnerId(pageNode.getCreator());
+//            dataService.savePage(page);
+//          }
+//          pageNode.setPageReference(page.getId());
+//        }        
+//      }
+//      
+//      Object selectedParent = uiPageNodeForm.getSelectedParent();
+//      PageNavigation pageNav = null;
+//      if(selectedParent == null) {
+//        pageNav = new PageNavigation();
+//        pageNav.getNodes().add(pageNode);
+//        pageNav.setOwnerId(Util.getPortalRequestContext().getRemoteUser());
+//        uiNodeSelector.getNavigations().add(pageNav);
+//        selectedParent = pageNav;
+//      }
+//      
+//      if(selectedParent instanceof PageNavigation){
+//        pageNav = (PageNavigation)selectedParent;         
+//        pageNode.setUri(pageNode.getName());
+//        if(!pageNav.getNodes().contains(pageNode)) pageNav.addNode(pageNode);
+//      }else if(selectedParent instanceof PageNode){
+//        PageNode parentNode = (PageNode)selectedParent; 
+//        List<PageNode> children = parentNode.getChildren();
+//        if(children == null){ 
+//          children = new ArrayList<PageNode>();
+//          parentNode.setChildren((ArrayList<PageNode>)children);
+//        }
+//        if(!children.contains(pageNode)) children.add(pageNode);
+//        pageNode.setUri(parentNode.getUri()+"/"+pageNode.getName());       
+//      }
+//      
+//      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+//      UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
+//      uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri());
     }
   }
 

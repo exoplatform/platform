@@ -95,7 +95,6 @@ public class UIPortlet extends UIPortalComponent {
   public void  setCurrentWindowState(WindowState state) { currentWindowState_ = state;}
 
   public  List<String> getSupportModes() { return supportModes_; }
-  public void setSupportModes(List<String> supportModes) {
-    supportModes_ = supportModes; 
-  }
+  public void setSupportModes(List<String> supportModes) { supportModes_ = supportModes; }
+  
 }

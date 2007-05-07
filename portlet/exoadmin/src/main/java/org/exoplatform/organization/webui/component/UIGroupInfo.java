@@ -20,20 +20,19 @@ public class UIGroupInfo extends UITabPane {
   
   public UIGroupInfo() throws Exception {
     addChild(UIUserInGroup.class, null, null) ;
-    addChild(UISharedPortalForm.class, null, null).setRendered(false) ;
-    addChild(UISharedNavigationForm.class, null, null).setRendered(false) ;
+//    addChild(UISharedPortalForm.class, null, null).setRendered(false) ;
+//    addChild(UISharedNavigationForm.class, null, null).setRendered(false) ;
 //    addChild(UIGroupSharedInfo.class, null, null).setRendered(false) ;    
   }
   
   public void setGroup(Group group) throws Exception {
     getChild(UIUserInGroup.class).setValues(group);
     setRenderedChild(UIUserInGroup.class);
-    
-    UISharedPortalForm uiSharedPortalForm = getChild(UISharedPortalForm.class);
-    uiSharedPortalForm.setValues(group != null ? group.getId() : null);
-    
-    UISharedNavigationForm uiSharedNavigationForm = getChild(UISharedNavigationForm.class);
-    uiSharedNavigationForm.setValues(group != null ? group.getId() : null);
+//    UISharedPortalForm uiSharedPortalForm = getChild(UISharedPortalForm.class);
+//    uiSharedPortalForm.setValues(group != null ? group.getId() : null);
+//    
+//    UISharedNavigationForm uiSharedNavigationForm = getChild(UISharedNavigationForm.class);
+//    uiSharedNavigationForm.setValues(group != null ? group.getId() : null);
   }
   
 }

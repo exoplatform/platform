@@ -76,7 +76,7 @@ public class UIContentNavigation extends UIContainer {
   
   void refresh() throws Exception {
     ContentDAO contentService = getApplicationComponent(ContentDAO.class) ;
-    nav_ = contentService.getContentNavigation(Util.getUIPortal().getOwner());
+    nav_ = contentService.get(Util.getUIPortal().getOwner());
     if(nav_ == null) {
       nav_ = new ContentNavigation();
       nav_.setOwner(Util.getUIPortal().getOwner());
@@ -105,7 +105,7 @@ public class UIContentNavigation extends UIContainer {
     }
     
     selectedNode_ = node;    
-    service.saveContentNavigation(nav_);
+    service.save(nav_);
   }
   
   public ContentNode getSelectedNode() { return selectedNode_ ; } 
@@ -284,7 +284,7 @@ public class UIContentNavigation extends UIContainer {
       if(children.size() < 1) children = uiNav.nav_.getNodes();
       if(children.size() > 0) uiNav.setSelectedNode(children.get(0).getId());
       ContentDAO service = uiNav.getApplicationComponent(ContentDAO.class) ; 
-      service.saveContentNavigation(uiNav.getContentNavigation());
+      service.save(uiNav.getContentNavigation());
     }
   }
 

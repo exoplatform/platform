@@ -61,8 +61,8 @@ public class UIWizardPageSetInfo extends UIForm {
     UIFormStringInput uiNameInput = getChild(UIFormStringInput.class);
     uiNameInput.setEditable(false);
     UIFormTextAreaInput uiDesInput = getChild(UIFormTextAreaInput.class);
-    if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
-    if(pageNode.getDescription() != null) uiDesInput.setValue(pageNode.getDescription());
+//    if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
+//    if(pageNode.getDescription() != null) uiDesInput.setValue(pageNode.getDescription());
   }
   
   public PageNode getPageNode() {
@@ -75,10 +75,10 @@ public class UIWizardPageSetInfo extends UIForm {
     String des = this.<UIFormTextAreaInput>getUIInput("description").getValue();
     
     PageNode pageNode  = new PageNode();
-    pageNode.setName(name);
+//    pageNode.setName(name);
     pageNode.setLabel(name);
-    pageNode.setCreator(user);
-    pageNode.setDescription(des);
+//    pageNode.setCreator(user);
+//    pageNode.setDescription(des);
     
     return pageNode;
  }
@@ -109,8 +109,8 @@ public class UIWizardPageSetInfo extends UIForm {
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
       UIFormStringInput uiNameInput = event.getSource().getChild(UIFormStringInput.class);
       UIFormTextAreaInput uiDesInput = event.getSource().getChild(UIFormTextAreaInput.class);
-      if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
-      if(pageNode.getDescription() != null) uiDesInput.setValue(pageNode.getDescription());
+//      if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
+//      if(pageNode.getDescription() != null) uiDesInput.setValue(pageNode.getDescription());
     }
   }
  

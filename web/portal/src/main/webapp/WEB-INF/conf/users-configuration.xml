@@ -24,7 +24,6 @@
             </field>
             <field  name="ignoredUser">
               <collection type="java.util.HashSet">
-                <value><string>exo</string></value>
                 <value><string>site</string></value>
                 <value><string>webos</string></value>
                 <value><string>exoadmin</string></value>
@@ -195,7 +194,7 @@
                     <field  name="lastName"><string>company</string></field>
                     <field  name="email"><string>company@localhost</string></field>
                     <field  name="groups">
-                      <string>member:/user, owner:/portal/company</string>
+                      <string>member:/user,owner:/portal/company</string>
                     </field>
                   </object>
                 </value>
@@ -208,7 +207,7 @@
                     <field  name="lastName"><string>community</string></field>
                     <field  name="email"><string>community@localhost</string></field>
                     <field  name="groups">
-                      <string>member:/user, owner:/portal/community</string>
+                      <string>member:/user,owner:/portal/community</string>
                     </field>
                   </object>
                 </value>                       

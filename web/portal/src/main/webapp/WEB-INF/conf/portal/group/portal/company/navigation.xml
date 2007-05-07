@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+	<owner-type>group</owner-type>
+  <owner-id>/portal/company</owner-id>
+  <access-groups>/portal/company</access-groups>
+  
+  <page-nodes>
+    <node>
+      <uri>company</uri>
+      <label>Company</label>
+      <page-reference>group::company::home</page-reference>
+    </node>
+    
+    <node>
+      <uri>organization</uri>
+      <label>Organization</label>
+      <page-reference>group::company::organization</page-reference>
+    </node>
+    
+    <node>
+      <uri>myaccount</uri>
+      <label>My Account</label>
+      <page-reference>group::company::myaccount</page-reference>
+    </node>       
+  </page-nodes>  
+  
+</node-navigation>

@@ -4,12 +4,8 @@ import java.util.List;
 
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.PortalDAO;
-import org.exoplatform.portal.config.UserACL;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIItemSelector;
@@ -72,7 +68,7 @@ public class UIChangeSkin extends UIContainer {
       uiMaskWS.setUIComponent(null);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiApp) ;
       
-      if(skin == null || skin.trim().length() < 1) return;       
+      /*if(skin == null || skin.trim().length() < 1) return;       
       UserACL userACL = uiPortal.getApplicationComponent(UserACL.class);
       String accessUser = event.getRequestContext().getRemoteUser();
       String permission = uiPortal.getEditPermission();
@@ -80,10 +76,10 @@ public class UIChangeSkin extends UIContainer {
       
       uiPortal.setSkin(skin);
       PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal);
-      PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
+      DataStorage dataService = uiPortal.getApplicationComponent(DataStorage.class);
       dataService.savePortalConfig(portalConfig);
 
-      uiApp.setSkin(skin);
+      uiApp.setSkin(skin);*/
     }
   }
 

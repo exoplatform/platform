@@ -4,10 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.component.customization;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;

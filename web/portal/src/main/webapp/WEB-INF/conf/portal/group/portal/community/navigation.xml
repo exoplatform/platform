@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+	<owner-type>group</owner-type>
+  <owner-id>/portal/community</owner-id>
+  <access-groups>/portal/community</access-groups>  
+  
+  <page-nodes>
+    <node>
+      <uri>site</uri>
+      <label>Website</label>
+      <page-reference>group::community::home</page-reference>
+    </node>    
+      
+    <node>
+      <uri>management</uri>
+      <label>Management</label>
+      <page-reference>group::community::management</page-reference>
+    </node>    
+  </page-nodes>  
+</node-navigation>

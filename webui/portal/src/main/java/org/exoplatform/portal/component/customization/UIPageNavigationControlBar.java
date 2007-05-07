@@ -16,7 +16,7 @@ import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
-import org.exoplatform.portal.config.PortalDAO;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -66,7 +66,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
       String remoteUser = prcontext.getRemoteUser();
       String ownerUser = oldUIPortal.getOwner();
 
-      UserPortalConfig userPortalConfig = configService.computeUserPortalConfig(ownerUser, remoteUser);
+      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prcontext, UIPortal.class, null, null);
       PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig);
       oldUIPortal.setNavigation(uiPortal.getNavigations());
@@ -150,9 +150,9 @@ public class UIPageNavigationControlBar extends UIToolbar {
     UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
 
     List<PageNavigation> navs = uiNodeSelector.getNavigations();
-    PortalDAO dataService = uiManagement.getApplicationComponent(PortalDAO.class);
+    DataStorage dataService = uiManagement.getApplicationComponent(DataStorage.class);
     for(PageNavigation nav : navs){
-      dataService.savePageNavigation(nav);        
+      dataService.save(nav);        
     }
     Util.getUIPortal().setNavigation(navs);
   }

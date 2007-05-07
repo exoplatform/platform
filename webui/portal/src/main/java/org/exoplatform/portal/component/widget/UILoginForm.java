@@ -19,7 +19,6 @@ import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -106,7 +105,7 @@ public class UILoginForm extends UIForm {
         response.addCookie(loadCookie(request, "authentication.password", password));
       }
       prContext.setResponseComplete(true);     
-      String redirect = request.getContextPath() + "/private/" + username + ":/";
+      String redirect = request.getContextPath() + "/private/site:/";
       prContext.getResponse().sendRedirect(redirect);      
     }   
     

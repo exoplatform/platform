@@ -18,7 +18,6 @@ import org.exoplatform.container.ExoContainer;
 import org.exoplatform.json.BeanToJSONPlugin;
 import org.exoplatform.json.JSONService;
 import org.exoplatform.portal.application.PortalApplication;
-import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.WebRequestHandler;
 /**
@@ -57,9 +56,9 @@ public class ServiceRequestHandler extends WebRequestHandler {
     
     ApplicationRegisteryService prService = (ApplicationRegisteryService)container.getComponentInstanceOfType(ApplicationRegisteryService.class) ;    
     List<ApplicationCategory> portletCategories = prService.getApplicationCategories();
-    UserACL userACL = (UserACL)container.getComponentInstanceOfType(UserACL.class) ;
+//    UserACL userACL = (UserACL)container.getComponentInstanceOfType(UserACL.class) ;
     
-    PortletCategoryToJSONPlugin toJSON = new PortletCategoryToJSONPlugin(prService, userACL, remoteUser, isRoleAdmin);
+    PortletCategoryToJSONPlugin toJSON = new PortletCategoryToJSONPlugin(prService, remoteUser, isRoleAdmin);
 
     StringBuilder value = new StringBuilder();
     JSONService jsonService = new JSONService();
@@ -81,14 +80,12 @@ public class ServiceRequestHandler extends WebRequestHandler {
   class PortletCategoryToJSONPlugin extends BeanToJSONPlugin<ApplicationCategory> {
 
     private ApplicationRegisteryService registeryService_;
-    private UserACL userACL_; 
     private String remoteUser_;
     private boolean isRoleAdmin_ = false;
 
     PortletCategoryToJSONPlugin(ApplicationRegisteryService registeryService, 
-                                UserACL userACL, String remoteUser, boolean isRoleAdmin) {
+                                String remoteUser, boolean isRoleAdmin) {
       registeryService_ = registeryService;
-      userACL_ = userACL;
       remoteUser_  = remoteUser;
       isRoleAdmin_ = isRoleAdmin;
     }
@@ -119,7 +116,7 @@ public class ServiceRequestHandler extends WebRequestHandler {
       for(int j = 0; j<portlets.size(); j++){
         String perm = null;//portlets.get(j).getViewPermission();
         if(perm == null) perm = "member:/user";
-        if(!isRoleAdmin_ && !userACL_.hasPermission(null, remoteUser_, perm)) continue;
+//        if(!isRoleAdmin_ && !userACL_.hasPermission(null, remoteUser_, perm)) continue;
         toJSONScript(portlets.get(j), builder, indentLevel);
         if(j < portlets.size() - 1){
           appendIndentation(builder, indentLevel);

@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 

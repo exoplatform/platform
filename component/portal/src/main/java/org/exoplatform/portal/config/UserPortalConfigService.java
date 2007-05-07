@@ -93,7 +93,7 @@ public class UserPortalConfigService {
     
     Iterator mitr = memberships.iterator() ;
     while(mitr.hasNext()) {
-      Membership m = (Membership) mitr.next() ;    
+      Membership m = (Membership) mitr.next() ;   
       navigation = getPageNavigation(DataStorage.GROUP_TYPE+"::"+m.getGroupId()) ;
       if (navigation != null) navigations.add(navigation) ;
     }   
@@ -125,7 +125,7 @@ public class UserPortalConfigService {
   public void  removeUserPortalConfig(String portalName) throws Exception {
     PortalConfig portalConfig = storage_.getPortalConfig(portalName) ;
     if(portalConfig != null) storage_.remove(portalConfig);
-    
+    //TODO remove page
     PageNavigation navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+portalName) ;
     if (navigation != null) remove(navigation);
   }
@@ -149,7 +149,7 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public Page getPage(String pageId, String accessUser) throws Exception {
-    Page page = (Page) pageConfigCache_.get(pageId) ;
+    Page page = (Page) pageConfigCache_.get(pageId) ;    
     if(page != null) return page ;
     page  = storage_.getPage(pageId) ;
     if(page == null || !userACL_.hasPermission(page, accessUser, userACL_.getViewMembershipType())) return null;

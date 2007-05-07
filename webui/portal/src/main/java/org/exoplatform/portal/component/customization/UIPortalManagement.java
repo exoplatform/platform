@@ -11,7 +11,6 @@ import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
-import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIDescription;
@@ -47,9 +46,7 @@ public class UIPortalManagement extends UIManagement {
     PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
     if(mode == ManagementMode.EDIT) {
       UIPortal uiPortal = Util.getUIPortal();
-      UserACL userACL = uiPortal.getApplicationComponent(UserACL.class);
-      String remoteUser = pcontext.getRemoteUser(); 
-      if(userACL.hasPermission(uiPortal.getOwner(), remoteUser, uiPortal.getEditPermission())){
+      if(uiPortal.isModifiable()) {
         UIPortalManagementEditBar uiEditBar = getChild(UIPortalManagementEditBar.class);
         uiEditBar.createEvent("EditPortlet", Phase.PROCESS, event.getRequestContext()).broadcast();
         return;

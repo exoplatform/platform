@@ -47,12 +47,12 @@ import org.exoplatform.webui.config.annotation.EventConfig;
     }
 )
 public class UIPortal extends UIContainer { 
+  
   private String owner ;
   private String locale ;
-  private String viewPermission ;
-  private String editPermission  ; 
+  private String [] accessGroups;
   private String skin;
-
+  
   private List<PageNavigation> navigations ;  
   private List<PageNode> selectedPaths_;
   private PageNode selectedNode_;
@@ -66,11 +66,8 @@ public class UIPortal extends UIContainer {
   public String getLocale() { return locale ; }
   public void   setLocale(String s) { locale = s ; }
 
-  public String getViewPermission() { return viewPermission ; }
-  public void   setViewPermission(String s) { viewPermission = s ; }
-
-  public String getEditPermission() { return editPermission ; }
-  public void   setEditPermission(String s) { editPermission = s ; }
+  public String[] getAccessGroups() { return accessGroups; }
+  public void setAccessGroups(String[] accessGroups) { this.accessGroups = accessGroups; }
 
   public String getSkin() { return skin; }
   public void setSkin(String s ) { skin = s; }

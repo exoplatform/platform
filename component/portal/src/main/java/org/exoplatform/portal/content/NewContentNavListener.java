@@ -8,7 +8,6 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.utils.IOUtil;
@@ -32,6 +31,7 @@ public class NewContentNavListener extends BaseComponentPlugin {
   
   private ConfigurationManager cservice_ ;
   private ContentDAO contentService_;
+  private NewPortalConfig config_;
   
   public NewContentNavListener(ContentDAO contentService,
                                ConfigurationManager cservice,
@@ -45,11 +45,8 @@ public class NewContentNavListener extends BaseComponentPlugin {
     if(checkPortal == null  || checkPortal.trim().length() == 0) checkPortal = "site";    
     if(isInitedDB(checkPortal)) return;
     
-    List list = params.getObjectParamValues(NewPortalConfig.class);
-    for (Object ele : list) {
-      NewPortalConfig config  = (NewPortalConfig)ele;
-      initDB(config);  
-    }
+    config_ = (NewPortalConfig) params.getObjectParamValues(NewPortalConfig.class).get(0) ;
+    initDB();  
   }
   
   private boolean isInitedDB(String user) throws Exception {
@@ -57,24 +54,23 @@ public class NewContentNavListener extends BaseComponentPlugin {
     return nav != null;
   }
   
-  private void initDB(NewPortalConfig config) throws Exception {
-    HashSet users = config.getPredefinedOwner();
+  private void initDB() throws Exception {
+    HashSet users = config_.getPredefinedOwner();
     Iterator iter  = users.iterator();
     while(iter.hasNext()){
       String user = (String)iter.next();
-      createContentConfigForUser(config, user);
+      createContentConfigForUser(user);
     }
   }
   
-  private void createContentConfigForUser(NewPortalConfig pConfig, String owner) throws Exception {    
+  private void createContentConfigForUser(String owner) throws Exception {    
     String config  = null;
-    String templateLoc = pConfig.getTemplateLocation() ;
-    String ownerType = pConfig.getOwnerType();
-    if(pConfig.isPredefinedOwner(owner)) {
-      String id = pConfig.getTemplateLocation() + "/" + ownerType + "/" + owner +"/content.xml";
+    String templateLoc = config_.getTemplateLocation() ;
+    if(config_.isPredefinedOwner(owner)) {
+      String id = config_.getTemplateLocation() + "/user/" + owner +"/content.xml";
       config = IOUtil.getStreamContentAsString(cservice_.getInputStream(id));      
     } else {
-      InputStream is = cservice_.getInputStream(templateLoc + "/"+ ownerType + "/" + owner +"/content.xml");
+      InputStream is = cservice_.getInputStream(templateLoc + "/user/" + owner +"/content.xml");
       String template = IOUtil.getStreamContentAsString(is);
       config = StringUtils.replace(template, "@owner@", owner);
     }   

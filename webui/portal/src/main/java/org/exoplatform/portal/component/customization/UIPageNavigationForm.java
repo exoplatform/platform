@@ -7,10 +7,8 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.config.PortalDAO;
-import org.exoplatform.portal.config.UserACL.Permission;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponentDecorator;
@@ -19,7 +17,6 @@ import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTabPane;
 import org.exoplatform.webui.component.UIFormTextAreaInput;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -60,10 +57,10 @@ public class UIPageNavigationForm extends UIFormTabPane {
                  addUIFormInput(new UIFormSelectBox("priority", null, priorties));
     addUIFormInput(uiSettingSet) ;
     
-    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, null);
-    uiPermissionSelector.configure("Permission", null, null) ;
-    uiPermissionSelector.setRendered(false);
-    addUIFormInput(uiPermissionSelector) ;    
+//    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, null);
+//    uiPermissionSelector.configure("Permission", null, null) ;
+//    uiPermissionSelector.setRendered(false);
+//    addUIFormInput(uiPermissionSelector) ;    
   }
 
   public PageNavigation getPageNavigation(){ return pageNav_; }
@@ -74,9 +71,9 @@ public class UIPageNavigationForm extends UIFormTabPane {
   public void setValues(PageNavigation pageNavigation) throws Exception {
     pageNav_ = pageNavigation;
     invokeGetBindingBean(pageNavigation) ;    
-    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
-    uiPermissionSelector.createPermission("AccessPermission", pageNav_.getAccessPermission());
-    uiPermissionSelector.createPermission("EditPermission", pageNav_.getEditPermission());
+//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
+//    uiPermissionSelector.createPermission("AccessPermission", pageNav_.getAccessPermission());
+//    uiPermissionSelector.createPermission("EditPermission", pageNav_.getEditPermission());
     
     UIFormSelectBox uiSelectBox = findFirstComponentOfType(UIFormSelectBox.class);
     uiSelectBox.setValue(String.valueOf(pageNavigation.getPriority()));
@@ -85,10 +82,10 @@ public class UIPageNavigationForm extends UIFormTabPane {
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);   
     
-    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
-    if(uiPermissionSelector == null) return;
-    UIPopupWindow uiPopupPermission = uiPermissionSelector.getChild(UIPopupWindow.class);
-    uiPopupPermission.processRender(context);
+//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
+//    if(uiPermissionSelector == null) return;
+//    UIPopupWindow uiPopupPermission = uiPermissionSelector.getChild(UIPopupWindow.class);
+//    uiPopupPermission.processRender(context);
   }
 
   static public class SaveActionListener extends EventListener<UIPageNavigationForm> {
@@ -100,18 +97,18 @@ public class UIPageNavigationForm extends UIFormTabPane {
       int priority = Integer.parseInt(uiSelectBox.getValue());
       pageNav.setPriority(priority);
       
-      UIPermissionSelector uiPermissionSelector = uiForm.getChild(UIPermissionSelector.class);
-      if(uiPermissionSelector == null)  return;
-      Permission  permission = uiPermissionSelector.getPermission("AccessPermission");
-      if(permission != null) pageNav.setAccessPermission(permission.getValue());
-
-      permission = uiPermissionSelector.getPermission("EditPermission");
-      if(permission != null) pageNav.setEditPermission(permission.getValue());
+//      UIPermissionSelector uiPermissionSelector = uiForm.getChild(UIPermissionSelector.class);
+//      if(uiPermissionSelector == null)  return;
+//      Permission  permission = uiPermissionSelector.getPermission("AccessPermission");
+//      if(permission != null) pageNav.setAccessPermission(permission.getValue());
+//
+//      permission = uiPermissionSelector.getPermission("EditPermission");
+//      if(permission != null) pageNav.setEditPermission(permission.getValue());
       
       UIComponentDecorator uiFormParent = uiForm.getParent(); 
       uiFormParent.setUIComponent(null);
-      PortalDAO configService = uiForm.getApplicationComponent(PortalDAO.class);
-      configService.savePageNavigation(pageNav);  
+      DataStorage configService = uiForm.getApplicationComponent(DataStorage.class);
+      configService.save(pageNav);  
       event.getRequestContext().addUIComponentToUpdateByAjax(uiFormParent);    
     }
   }

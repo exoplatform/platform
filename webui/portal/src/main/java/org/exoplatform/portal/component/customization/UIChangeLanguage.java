@@ -7,8 +7,7 @@ import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.PortalDAO;
-import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
@@ -65,17 +64,17 @@ public class UIChangeLanguage extends UIContainer{
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
       
       if(language == null || language.trim().length() < 1) return;       
-      UserACL userACL = uiPortal.getApplicationComponent(UserACL.class);
-      String accessUser = event.getRequestContext().getRemoteUser();
-      String permission = uiPortal.getEditPermission();
-      if(!userACL.hasPermission(uiPortal.getOwner(), accessUser, permission)) return;
+//      UserACL userACL = uiPortal.getApplicationComponent(UserACL.class);
+//      String accessUser = event.getRequestContext().getRemoteUser();
+//      String permission = uiPortal.getEditPermission();
+//      if(!userACL.hasPermission(uiPortal.getOwner(), accessUser, permission)) return;
       
       LocaleConfigService localeConfigService  = event.getSource().getApplicationComponent(LocaleConfigService.class) ;
       LocaleConfig localeConfig = localeConfigService.getLocaleConfig(language);
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
-      PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal);
-      PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
-      dataService.savePortalConfig(portalConfig);
+      PortalConfig portalConfig  = PortalDataModelUtil.toPortal(uiPortal);
+      DataStorage dataService = uiPortal.getApplicationComponent(DataStorage.class);
+      dataService.save(portalConfig);
       uiApp.setLocale(localeConfig.getLocale());
     }
   }

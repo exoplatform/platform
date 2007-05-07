@@ -7,8 +7,7 @@ package org.exoplatform.portal.component.customization;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.PortalDAO;
-import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -65,7 +64,7 @@ public class UIPageSelector extends UIFormInputContainer {
   
   public void setUIInputValue(Object input) throws Exception { 
     String id =  (String)input ; 
-    PortalDAO service = getApplicationComponent(PortalDAO.class) ;
+    DataStorage service = getApplicationComponent(DataStorage.class) ;
     page_ = service.getPage(id) ;
   }
 
@@ -84,7 +83,7 @@ public class UIPageSelector extends UIFormInputContainer {
     public void execute(Event<UIPageBrowser> event) throws Exception {     
       UIPageBrowser uiPageBrowser = event.getSource() ;
       String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      PortalDAO service = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
+      DataStorage service = uiPageBrowser.getApplicationComponent(DataStorage.class) ;
       Page page = service.getPage(id) ;
       
       PortalRequestContext pcontext = Util.getPortalRequestContext();      
@@ -103,14 +102,14 @@ public class UIPageSelector extends UIFormInputContainer {
         return;
       }
       
-      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
-      String accessUser = pcontext.getRemoteUser();
-      
-      if(!userACL.hasPermission(page.getOwner(), accessUser, page.getViewPermission())){
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{page.getName()})) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
-        return;
-      }
+//      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
+//      String accessUser = pcontext.getRemoteUser();
+//      
+//      if(!userACL.hasPermission(page.getOwnerId(), accessUser, page.getViewPermission())){
+//        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{page.getName()})) ;;
+//        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+//        return;
+//      }
       
       UIFormPopupWindow uiPopup = uiPageBrowser.getAncestorOfType(UIFormPopupWindow.class);
       if(uiPopup != null) uiPopup.setShow(false);

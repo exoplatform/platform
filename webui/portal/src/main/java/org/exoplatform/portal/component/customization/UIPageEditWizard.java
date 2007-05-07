@@ -13,8 +13,7 @@ import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
-import org.exoplatform.portal.config.PortalDAO;
-import org.exoplatform.portal.config.model.Component;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -50,17 +49,17 @@ public class UIPageEditWizard extends UIPageWizard {
   }
   
   private void saveData() throws Exception {
-    PortalDAO daoService = getApplicationComponent(PortalDAO.class);
+    DataStorage daoService = getApplicationComponent(DataStorage.class);
     
     UIPagePreview uiPagePreview = getChild(UIPagePreview.class);
     UIPage uiPage = (UIPage)uiPagePreview.getUIComponent();
     Page page = PortalDataModelUtil.toPageModel(uiPage);
-    daoService.savePage(page); 
+    daoService.save(page); 
     
     UIWizardPageSetInfo uiPageInfo = getChild(UIWizardPageSetInfo.class);  
     UIPageNodeSelector uiNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);      
     PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();
-    daoService.savePageNavigation(pageNav);
+    daoService.save(pageNav);
     
     UIPortal uiPortal = Util.getUIPortal();
     uiPortal.setNavigation(uiNodeSelector.getNavigations());
@@ -103,17 +102,17 @@ public class UIPageEditWizard extends UIPageWizard {
       
       Page page = null;
       Page templatePage = uiPageTemplateOptions.getSelectedOption();
-      PortalDAO configService = uiWizard.getApplicationComponent(PortalDAO.class);
+      DataStorage configService = uiWizard.getApplicationComponent(DataStorage.class);
       page = configService.getPage(pageNode.getPageReference());
       
       boolean isDesktopPage = false;
       if(templatePage != null) {
         templatePage.setName(page.getName());
-        templatePage.setOwner(page.getOwner());
+        templatePage.setOwnerId(page.getOwnerId());
         page  = templatePage;
         isDesktopPage = "Desktop".equals(page.getFactoryId());
         if(isDesktopPage) {
-          page.setChildren(new ArrayList<Component>());
+          page.setChildren(new ArrayList<Object>());
           page.setShowMaxWindow(true);
         }
       } else {
@@ -122,9 +121,9 @@ public class UIPageEditWizard extends UIPageWizard {
       WebuiRequestContext context = Util.getPortalRequestContext() ;
       
       if(page == null) page  = new Page();
-      if(page.getOwner() == null) page.setOwner(pageNode.getCreator());
-      if(page.getName() == null || page.getName().equals("UIPage")) page.setName(pageNode.getName());
-      if(page.getOwner() == null) page.setOwner(context.getRemoteUser());
+//      if(page.getOwnerId() == null) page.setOwnerId(pageNode.getCreator());
+//      if(page.getName() == null || page.getName().equals("UIPage")) page.setName(pageNode.getName());
+      if(page.getOwnerId() == null) page.setOwnerId(context.getRemoteUser());
       
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
       UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);

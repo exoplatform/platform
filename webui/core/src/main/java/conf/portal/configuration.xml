@@ -30,14 +30,4 @@
       </value-param>
     </init-params>
   </component>
-  
-  <external-component-plugins>  
-    <target-component>org.exoplatform.portal.config.UserACL</target-component>      
-    <component-plugin>
-      <name>check.user.plugin</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.webui.application.CheckUserPlugin</type>
-      <description>check user in role</description>      
-    </component-plugin>
-  </external-component-plugins>  
 </configuration>

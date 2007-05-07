@@ -13,11 +13,12 @@ import org.exoplatform.webui.component.UIContainer;
 public class UIPortalComponent extends UIContainer {
   
   protected String template_ ;
-  protected String decorator_ ;
+  protected String name_;
+  protected String factoryId;
+//  protected String decorator_ ;
   protected String width_ ;
   protected String height_ ;
   private String title_; 
-  private String factoryId;
   
   private transient boolean modifiable_ ;
   
@@ -27,8 +28,8 @@ public class UIPortalComponent extends UIContainer {
   final static public  int COMPONENT_VIEW_MODE = 1 ;
   final static public int COMPONENT_EDIT_MODE = 2 ;
   
-  public String getDecorator() { return decorator_; }
-  public void   setDecorator(String decorator) { decorator_ = decorator ; }
+//  public String getDecorator() { return decorator_; }
+//  public void   setDecorator(String decorator) { decorator_ = decorator ; }
   
   public String getTemplate() {
     if(template_ == null || template_.length() == 0)  return getComponentConfig().getTemplate() ;
@@ -54,6 +55,9 @@ public class UIPortalComponent extends UIContainer {
   
   public boolean isShowEditControl(){ return showEditControl_; }
   public void setShowEditControl(boolean show) { showEditControl_ = show; }
+  
+  public String getName() { return name_; }
+  public void setName(String name) { this.name_ = name; }
   
   public String getFactoryId() { return factoryId; }
   public void setFactoryId(String factoryId) { this.factoryId = factoryId; }

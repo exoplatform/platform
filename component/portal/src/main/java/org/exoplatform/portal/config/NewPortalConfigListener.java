@@ -85,6 +85,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       String owner = (String)iter.next();
       createPage(config, owner);
       createPageNavigation(config, owner);
+      createPortletPreferences(config, owner);
     }
   }
   
@@ -111,7 +112,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     for(Page page : list) pdcService_.create(page);
   }
   
-  private void createPageNavigation(NewPortalConfig config, String owner) throws Exception {
+  private void createPageNavigation(NewPortalConfig config, String owner) throws Exception {    
     PageNavigation navigation = fromXML(getDefaultConfig(config, owner, "navigation"), PageNavigation.class);
     pdcService_.create(navigation);
   }
@@ -132,7 +133,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     String path = "/" + ownerType + "/" + owner +"/"+dataType+".xml";
     if(portalConfig.isPredefinedOwner(owner)) {
       String location = portalConfig.getTemplateLocation() ;
-      config = IOUtil.getStreamContentAsString(cmanager_.getInputStream(location + path));      
+      config = IOUtil.getStreamContentAsString(cmanager_.getInputStream(location + path));
     }else {
       InputStream is = cmanager_.getInputStream(templateLoc + path);
       String template = IOUtil.getStreamContentAsString(is);

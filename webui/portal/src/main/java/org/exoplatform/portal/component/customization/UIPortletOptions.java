@@ -15,8 +15,6 @@ import org.exoplatform.application.registery.ApplicationCategory;
 import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.UserACL;
-import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIDropDownItemSelector;
@@ -42,8 +40,8 @@ public class UIPortletOptions extends UIContainer {
     List<ApplicationCategory> pCategories = service.getApplicationCategories() ;    
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
     
-    UserACL userACL = getApplicationComponent(UserACL.class) ;
-    String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
+//    UserACL userACL = getApplicationComponent(UserACL.class) ;
+//    String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
 
     PortletComparator portletComparator = new PortletComparator() ;
     for(ApplicationCategory pCategory : pCategories) {
@@ -53,7 +51,7 @@ public class UIPortletOptions extends UIContainer {
         Application portlet = iterator.next();
         String perm = null;//portlet.getViewPermission();
         if(perm == null) perm = "member:/user";
-        if(userACL.hasPermission(null, remoteUser, perm)) continue;
+//        if(userACL.hasPermission(null, remoteUser, perm)) continue;
         iterator.remove();
       }
       if(portlets.size() < 1)  continue;

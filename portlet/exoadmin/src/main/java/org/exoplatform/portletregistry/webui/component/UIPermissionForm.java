@@ -7,7 +7,6 @@ package org.exoplatform.portletregistry.webui.component;
 import org.exoplatform.application.registery.Application;
 import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
-import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormTabPane;
 import org.exoplatform.webui.component.UIPopupWindow;
@@ -36,11 +35,11 @@ public class UIPermissionForm extends UIFormTabPane{
     super.setInfoBar(false);
     super.setRenderResourceTabName(false) ;
     
-    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, "PortletPermissionSelector");
-    uiPermissionSelector.configure("Permission", null, null) ;
-    uiPermissionSelector.createPermission("ViewPermission",null);
-    uiPermissionSelector.setRendered(false);
-    addUIComponentInput(uiPermissionSelector) ;
+//    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, "PortletPermissionSelector");
+//    uiPermissionSelector.configure("Permission", null, null) ;
+//    uiPermissionSelector.createPermission("ViewPermission",null);
+//    uiPermissionSelector.setRendered(false);
+//    addUIComponentInput(uiPermissionSelector) ;
   }
   
   public void processRender(WebuiRequestContext context) throws Exception {
@@ -53,7 +52,7 @@ public class UIPermissionForm extends UIFormTabPane{
   
   public void setValue(Application portlet) throws Exception {    
     UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
-    Permission permission = uiPermissionSelector.getPermission("ViewPermission");
+//    Permission permission = uiPermissionSelector.getPermission("ViewPermission");
 //    if(portlet.getViewPermission()==null||portlet.getViewPermission().length()==0) {      
 //      permission.setMembership("");
 //      permission.setGroupId("");
@@ -71,7 +70,7 @@ public class UIPermissionForm extends UIFormTabPane{
       
       Application selectedPortlet = uiPortletRegistryCategory.getSelectedPortlet() ;
       UIPermissionSelector uiPermissionSelector = uiPermissionForm.getChild(UIPermissionSelector.class);
-      Permission permission = uiPermissionSelector.getPermission("ViewPermission");
+//      Permission permission = uiPermissionSelector.getPermission("ViewPermission");
 //      selectedPortlet.setViewPermission(permission.getValue()); //set permission    
       
       //save to database

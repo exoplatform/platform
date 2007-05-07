@@ -3,8 +3,6 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.organization.webui.component.UIGroupMembershipSelector;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
@@ -13,23 +11,15 @@ import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.PortalDAO;
-import org.exoplatform.portal.config.Query;
-import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
-import org.exoplatform.webui.component.UIFormPopupWindow;
-import org.exoplatform.webui.component.UIFormSelectBox;
-import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIGrid;
-import org.exoplatform.webui.component.UIPageIterator;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.UISearch;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -63,13 +53,13 @@ public class UIPageBrowser extends UISearch {
     OPTIONS.add(new SelectItemOption<String>("Edit Permission", "editPermission"));
   }
 
-  private Query lastQuery_ ;  
+//  private Query lastQuery_ ;  
 
   public UIPageBrowser() throws Exception {
     super(OPTIONS);
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("id", BEAN_FIELD, ACTIONS) ;
-    defaultValue(null) ;
+//    defaultValue(null) ;
     addChild(uiGrid.getUIPageIterator());
     uiGrid.getUIPageIterator().setRendered(false);
 //    UIPopupDialog uiPopup = addChild(UIPopupDialog.class, null, "PopupPermissionSelector");
@@ -80,47 +70,47 @@ public class UIPageBrowser extends UISearch {
 //    uiPopup.setHanderEvent("Confirm");
   }
   
-  public Query getLastQuery() { return lastQuery_; }
+//  public Query getLastQuery() { return lastQuery_; }
   
-  public void defaultValue(Query query) throws Exception {
-    lastQuery_ = query ;
-    PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
-    PortalDAO service = getApplicationComponent(PortalDAO.class) ;
-
-    if(lastQuery_ == null) lastQuery_ = new Query(context.getPortalOwner(), null, null, Page.class) ;
-
-    PageList pagelist = service.findDataDescriptions(lastQuery_) ;
-    pagelist.setPageSize(10);
-    
-    UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
-    uiGrid.getUIPageIterator().setPageList(pagelist);
-    addChild(uiGrid.getUIPageIterator());
-    uiGrid.getUIPageIterator().setRendered(false);
-    UIPageIterator pageIterator = uiGrid.getUIPageIterator();
-    if(pageIterator.getAvailable() == 0 ) {
-      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-      uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
-      
-      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
-    }
-  } 
+//  public void defaultValue(Query query) throws Exception {
+//    lastQuery_ = query ;
+//    PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
+//    DataStorage service = getApplicationComponent(DataStorage.class) ;
+//
+//    if(lastQuery_ == null) lastQuery_ = new Query(context.getPortalOwner(), null, null, Page.class) ;
+//
+//    PageList pagelist = service.findDataDescriptions(lastQuery_) ;
+//    pagelist.setPageSize(10);
+//    
+//    UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
+//    uiGrid.getUIPageIterator().setPageList(pagelist);
+//    addChild(uiGrid.getUIPageIterator());
+//    uiGrid.getUIPageIterator().setRendered(false);
+//    UIPageIterator pageIterator = uiGrid.getUIPageIterator();
+//    if(pageIterator.getAvailable() == 0 ) {
+//      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+//      uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
+//      
+//      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+//    }
+//  } 
 
   public void quickSearch(UIFormInputSet quickSearchInput) throws Exception {    
-    UIFormStringInput input = (UIFormStringInput) quickSearchInput.getChild(0);
-    UIFormSelectBox select = (UIFormSelectBox) quickSearchInput.getChild(1);
-    String name = input.getValue();
-    if(name == null || name.equals("")) name = Util.getUIPortal().getOwner();
-    String selectBoxValue = select.getValue();
-    PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
-    Query query = new Query(context.getPortalOwner(), null, null, Page.class) ;
-    if(selectBoxValue.equals("owner")) query.setOwner(name) ;
-    if(selectBoxValue.equals("viewPermission")) query.setViewPermission(name) ;
-    if(selectBoxValue.equals("editPermission")) query.setEditPermission(name) ;
-    defaultValue(query) ;
-    if (this.<UIComponent>getParent() instanceof UIPopupWindow ) {
-      UIPopupWindow popupWindow = getParent();
-      popupWindow.setShow(true);
-    }
+//    UIFormStringInput input = (UIFormStringInput) quickSearchInput.getChild(0);
+//    UIFormSelectBox select = (UIFormSelectBox) quickSearchInput.getChild(1);
+//    String name = input.getValue();
+//    if(name == null || name.equals("")) name = Util.getUIPortal().getOwner();
+//    String selectBoxValue = select.getValue();
+//    PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
+//    Query query = new Query(context.getPortalOwner(), null, null, Page.class) ;
+//    if(selectBoxValue.equals("owner")) query.setOwner(name) ;
+//    if(selectBoxValue.equals("viewPermission")) query.setViewPermission(name) ;
+//    if(selectBoxValue.equals("editPermission")) query.setEditPermission(name) ;
+//    defaultValue(query) ;
+//    if (this.<UIComponent>getParent() instanceof UIPopupWindow ) {
+//      UIPopupWindow popupWindow = getParent();
+//      popupWindow.setShow(true);
+//    }
   }
   
   public boolean isShowAddNewPage() { return showAddNewPage;  }
@@ -174,7 +164,7 @@ public class UIPageBrowser extends UISearch {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       if( action.equals("close")) return;  
       
-      PortalDAO service = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
+      DataStorage service = uiPageBrowser.getApplicationComponent(DataStorage.class) ;
       Page page = service.getPage(uiPageBrowser.pageSelectedId_) ;
       
       UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
@@ -185,17 +175,17 @@ public class UIPageBrowser extends UISearch {
         return;
       }
       
-      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
-      String accessUser = Util.getPortalRequestContext().getRemoteUser();     
-      if(!userACL.hasPermission(page.getOwner(), accessUser, page.getEditPermission())){
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-        return;
-      }
+//      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
+//      String accessUser = Util.getPortalRequestContext().getRemoteUser();     
+//      if(!userACL.hasPermission(page.getOwnerId(), accessUser, page.getEditPermission())){
+//        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
+//        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+//        return;
+//      }
       
-      service.removePage(uiPageBrowser.pageSelectedId_);
-      uiPageBrowser.defaultValue(null);       
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageBrowser);
+//      service.removePage(uiPageBrowser.pageSelectedId_);
+//      uiPageBrowser.defaultValue(null);       
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageBrowser);
     }
   }
   
@@ -205,7 +195,7 @@ public class UIPageBrowser extends UISearch {
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext(); 
       
       String id = pcontext.getRequestParameter(OBJECTID) ;
-      PortalDAO dao = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
+      DataStorage dao = uiPageBrowser.getApplicationComponent(DataStorage.class) ;
       Page page = dao.getPage(id) ;
       
       UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);      
@@ -216,15 +206,15 @@ public class UIPageBrowser extends UISearch {
         return;
       }
       
-      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
-      String accessUser = pcontext.getRemoteUser();     
-      String editPermission = page.getEditPermission();
+//      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
+//      String accessUser = pcontext.getRemoteUser();     
+//      String editPermission = page.getEditPermission();
       
-      if(!userACL.hasPermission(page.getOwner(), accessUser, editPermission)) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-        return ;
-      }
+//      if(!userACL.hasPermission(page.getOwnerId(), accessUser, editPermission)) {
+//        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
+//        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+//        return ;
+//      }
       
       UIPage uiPage =  uiPageBrowser.createUIComponent(pcontext, UIPage.class, null, null) ;
       PortalDataModelUtil.toUIPage(uiPage, page);
@@ -243,7 +233,7 @@ public class UIPageBrowser extends UISearch {
       UIPageBrowser uiPageBrowser = event.getSource() ;      
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext(); 
       String id = pcontext.getRequestParameter(OBJECTID) ;
-      PortalDAO service = uiPageBrowser.getApplicationComponent(PortalDAO.class) ;
+      DataStorage service = uiPageBrowser.getApplicationComponent(DataStorage.class) ;
       Page page = service.getPage(id) ;
       
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
@@ -259,14 +249,14 @@ public class UIPageBrowser extends UISearch {
         return;
       }
       
-      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
-      String accessUser = pcontext.getRemoteUser();
-      
-      if(!userACL.hasPermission(page.getOwner(), accessUser, page.getViewPermission())){
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-viewPermission", new String[]{page.getName()})) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-        return;
-      }
+//      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
+//      String accessUser = pcontext.getRemoteUser();
+//      
+//      if(!userACL.hasPermission(page.getOwnerId(), accessUser, page.getViewPermission())){
+//        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-viewPermission", new String[]{page.getName()})) ;;
+//        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+//        return;
+//      }
       
       UIPage uiPage =  uiPageBrowser.createUIComponent(event.getRequestContext(), UIPage.class,null,null) ;
       PortalDataModelUtil.toUIPage(uiPage, page);

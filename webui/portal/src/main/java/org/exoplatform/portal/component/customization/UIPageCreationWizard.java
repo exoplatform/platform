@@ -15,7 +15,7 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
-import org.exoplatform.portal.config.PortalDAO;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -64,12 +64,12 @@ public class UIPageCreationWizard extends UIPageWizard {
   }     
   
   private void saveData() throws Exception {
-    PortalDAO daoService = getApplicationComponent(PortalDAO.class);
+    DataStorage daoService = getApplicationComponent(DataStorage.class);
     
     UIPagePreview uiPagePreview = getChild(UIPagePreview.class);
     UIPage uiPage = (UIPage)uiPagePreview.getUIComponent();
     Page page = PortalDataModelUtil.toPageModel(uiPage);
-    daoService.savePage(page); 
+    daoService.save(page); 
     
     UIWizardPageSetInfo uiPageInfo = getChild(UIWizardPageSetInfo.class);  
     UIPageNodeSelector uiNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);      
@@ -87,7 +87,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     } else {        
       if(pageNav == null){
         pageNav = new PageNavigation();
-        pageNav.setOwner(Util.getPortalRequestContext().getRemoteUser());
+        pageNav.setOwnerId(Util.getPortalRequestContext().getRemoteUser());
         List<PageNavigation> navs = Util.getUIPortal().getNavigations();
         if(navs == null) navs = new ArrayList<PageNavigation>();         
         navs.add(pageNav);
@@ -97,7 +97,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       pageNode.setUri(pageNode.getName());        
     }
     uiNodeSelector.selectPageNodeByUri(pageNode.getUri());
-    daoService.savePageNavigation(pageNav);
+    daoService.save(pageNav);
     
     UIPortal uiPortal = Util.getUIPortal();
     uiPortal.setNavigation(uiNodeSelector.getNavigations());
@@ -161,9 +161,9 @@ public class UIPageCreationWizard extends UIPageWizard {
       
       Page page = uiPageTemplateOptions.getSelectedOption();
       if(page == null) page  = new Page();
-      if(page.getOwner() == null) page.setOwner(context.getRemoteUser());
+      if(page.getOwnerId() == null) page.setOwnerId(context.getRemoteUser());
       if(page.getName() == null || page.getName().equals("UIPage")) page.setName(pageNode.getName());        
-      page.setId(page.getOwner()+":/"+page.getName());
+      page.setId(page.getOwnerId()+":/"+page.getName());
       
       boolean isDesktopPage = "Desktop".equals(page.getFactoryId());
       if(isDesktopPage) page.setShowMaxWindow(true);

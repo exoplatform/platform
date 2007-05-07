@@ -14,7 +14,7 @@ import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
-import org.exoplatform.portal.config.PortalDAO;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -50,9 +50,9 @@ public class UIPortalManagementControlBar extends UIToolbar {
   
   public void save(Event<UIPortalManagementControlBar> event) throws Exception {
     UIPortal uiPortal = Util.getUIPortal();     
-    PortalConfig portalConfig  = PortalDataModelUtil.toPortalConfig(uiPortal);
-    PortalDAO dataService = uiPortal.getApplicationComponent(PortalDAO.class);
-    dataService.savePortalConfig(portalConfig);
+    PortalConfig portalConfig  = PortalDataModelUtil.toPortal(uiPortal);
+    DataStorage dataService = uiPortal.getApplicationComponent(DataStorage.class);
+    dataService.save(portalConfig);
     Util.updateUIApplication(event);
   }
   
@@ -77,7 +77,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
       
       String remoteUser = prContext.getRemoteUser();
       String ownerUser = prContext.getPortalOwner();   
-      UserPortalConfig userPortalConfig = configService.computeUserPortalConfig(ownerUser, remoteUser);      
+      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);      
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
       PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig);
       

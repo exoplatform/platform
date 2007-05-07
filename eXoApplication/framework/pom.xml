@@ -16,7 +16,7 @@
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
-      <artifactId>exo.portal.component.data</artifactId>
+      <artifactId>exo.portal.component.portal</artifactId>
       <version>${org.exoplatform.portal.version}</version>
     </dependency>
     
