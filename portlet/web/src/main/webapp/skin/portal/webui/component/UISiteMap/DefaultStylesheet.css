@@ -34,12 +34,13 @@
 
 .UISitemap .TitleBar .Icon {
   margin: 3px 0px 0px 8px;
-  float: left;
+	float: left;
 }
 
 .UISitemap .TitleBar .Title {
   margin-left: 6px;
-  float: left;
+  overflow: hidden;
+  height: 22px;
 }
 
 .UISitemap .SitemapContainer {

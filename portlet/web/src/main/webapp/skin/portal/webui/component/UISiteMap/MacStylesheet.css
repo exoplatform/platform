@@ -39,6 +39,8 @@
 .UISitemap .TitleBar .Title {
   float: left;
   width: 85%;
+  overflow: hidden;
+  height: 22px;
   text-align: center;
 }
 
