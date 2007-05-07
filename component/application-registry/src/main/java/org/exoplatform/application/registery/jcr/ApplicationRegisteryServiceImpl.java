@@ -18,6 +18,8 @@ import org.exoplatform.application.registery.Application;
 import org.exoplatform.application.registery.ApplicationCategory;
 import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.registry.JCRRegistryService;
+import org.exoplatform.registry.ServiceRegistry;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
@@ -213,20 +215,33 @@ public class ApplicationRegisteryServiceImpl implements ApplicationRegisteryServ
     return session;
   }
   
-  private Node getNode(Node parentNode, String nodeName, boolean autoCreate) throws Exception {
-    if(parentNode.hasNode(nodeName)) return parentNode.getNode(nodeName);
-    if(!autoCreate) return null;
-    Node node  = parentNode.addNode(nodeName);
-    parentNode.save();
-    return node;
-  }
+//  private Node getNode(Node parentNode, String nodeName, boolean autoCreate) throws Exception {
+//    if(parentNode.hasNode(nodeName)) return parentNode.getNode(nodeName);
+//    if(!autoCreate) return null;
+//    Node node  = parentNode.addNode(nodeName);
+//    parentNode.save();
+//    return node;
+//  }
   
   private Node getApplicationRegistryNode(boolean autoCreate) throws Exception {
-    Node node = getNode(getSession().getRootNode(), JCR_SYSTEM, autoCreate);
-    if((node = getNode(node, APPLICATION_DATA, autoCreate)) == null && !autoCreate) return null;
-    if((node = getNode(node, REGISTRY, autoCreate)) == null && !autoCreate) return null;
-    if((node = getNode(node, APPLICATIONS, autoCreate)) == null && !autoCreate) return null;
-    return node;
+//    Node node = getNode(getSession().getRootNode(), JCR_SYSTEM, autoCreate);
+//    if((node = getNode(node, APPLICATION_DATA, autoCreate)) == null && !autoCreate) return null;
+//    if((node = getNode(node, REGISTRY, autoCreate)) == null && !autoCreate) return null;
+//    if((node = getNode(node, APPLICATIONS, autoCreate)) == null && !autoCreate) return null;
+//    return node;
+    if(getSession().getRootNode().hasNode("exo:registry/exo:applications/applicationRegistryService") == true)
+      return getSession().getRootNode().getNode("exo:registry/exo:applications/applicationRegistryService");
+      
+      RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
+      JCRRegistryService service = new JCRRegistryService(repoService);
+      ServiceRegistry registry = new ServiceRegistry("resourceBundleService") {
+        public void preAction(JCRRegistryService service) throws Exception {
+        }
+
+        public void postAction(JCRRegistryService service, Node registryNode) throws Exception {}
+      };
+      service.createServiceRegistry(registry, autoCreate) ;
+      return getSession().getRootNode().getNode("exo:registry/exo:applications/applicationRegistryService");
   }
   
 }
