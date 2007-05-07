@@ -32,11 +32,8 @@ public class UIPermissionSelector extends UISelector {
     super(null, null) ;		
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "PopupPermissionSelector");
     uiPopup.setWindowSize(540, 0);  
-    UIPopupDialog dialog = createUIComponent(UIPopupDialog.class, null, null);
-    dialog.setComponent(this);
-    dialog.setHanderEvent("SelectMembership");
     UIGroupMembershipSelector uiMembershipSelector = createUIComponent(UIGroupMembershipSelector.class, null, null) ;
-    uiPopup.setUIComponent(dialog);  
+    uiPopup.setUIComponent(uiMembershipSelector);  
   }
 	
 	public void configure(String iname, String bfield, List<Permission> permissions) {  
