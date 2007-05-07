@@ -11,7 +11,8 @@
 /*###############################- UITree -############################*/
 
 .UIPageNodeSelector .UITree {
-  border: none; background: none;
+  background: none;
+  border:1px solid #B7B7B7;
   padding: 0px;
   margin: 0px;
 }
@@ -32,6 +33,7 @@
   overflow: visible;
   padding: 7px 0px 10px 0px;
   margin: 0px;
+  border: none;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .Node {

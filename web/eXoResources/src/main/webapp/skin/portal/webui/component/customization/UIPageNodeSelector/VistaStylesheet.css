@@ -35,13 +35,12 @@
 }
 
 .UIPageNodeSelector .UITree {
-  border: 1px #ffffff solid;
+  border: 1px #828282 solid;
+  background: white ;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer {
   padding: 6px 0px 6px 0px ;
-  border: 1px #828282 solid;
-  
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .TreeLevelContainer {

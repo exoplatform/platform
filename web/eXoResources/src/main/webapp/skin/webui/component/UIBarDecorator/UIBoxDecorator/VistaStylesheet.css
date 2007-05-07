@@ -234,7 +234,7 @@
 .TopLeftContainerOptions {
 	background: url('VistaSkin/background/TopLeftContainerOptions4x2.png') no-repeat left;
 	padding-left: 4px;
-	margin: 0px 10px;
+	margin: 0px 8px 0px 7px;
 }
 
 .TopRightContainerOptions {
@@ -250,18 +250,18 @@
 .MiddleLeftContainerOptions {
 	background: url('VistaSkin/background/MiddleLeftContainerOptions4x1.png') repeat-y left;
 	padding-left: 4px;
-	margin: 0px 10px;
+	margin: 0px 8px 0px 7px;
 }
 
 .MiddleRightContainerOptions {
 	background: url('VistaSkin/background/MiddleRightContainerOptions5x1.png') repeat-y right;
-	padding-right: 5px;
+	padding-right: 4px;
 }
 
 .BottomLeftContainerOptions {
 	background: url('VistaSkin/background/BottomLeftContainerOptions7x9.png') no-repeat left;
 	padding-left: 7px;
-	margin: 0px 10px;
+	margin: 0px 8px 0px 7px;
 }
 
 .BottomRightContainerOptions {

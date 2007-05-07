@@ -56,20 +56,20 @@ UIPortalControl.prototype.fixHeight = function() {
 			var jsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
 			var maxHeight = objectParent.offsetHeight - 205 ;
 			scrollArea.style.height = "auto";
-			scrollArea.style.width = "auto";
-			jsContainer.style.width = "203px";
-			var heightChild = scrollArea.offsetHeight;
+			scrollArea.style.width = "210px";
+			jsContainer.style.width = "208px";
+			var heightChild = scrollArea.offsetHeight ;
 			if(maxHeight > 0) {
 				if(heightChild > maxHeight) {
 					scrollArea.style.overflow = "auto";
 					scrollArea.style.height = maxHeight + "px";
-					scrollArea.style.width = "204px";
-					jsContainer.style.width = "224px";
+					jsContainer.style.width = scrollArea.offsetWidth - 22 + "px";
 				}
 			} else {
 			  scrollArea.style.overflow = "hidden";
 				scrollArea.style.height = "1px";
 			}
+
 		}
 	}
 } ;
