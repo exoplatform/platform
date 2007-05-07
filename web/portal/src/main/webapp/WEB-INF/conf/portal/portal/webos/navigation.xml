@@ -8,13 +8,13 @@
     <node>
       <uri>home</uri>
       <label>Home</label>
-      <page-reference>webos:/content</page-reference>
+      <page-reference>portal::webos::content</page-reference>
     </node> 
     
     <node>
       <uri>desktop</uri>
       <label>Desktop</label>
-      <page-reference>webos:/desktop</page-reference>
+      <page-reference>portal::webos::desktop</page-reference>
     </node>
   </page-nodes>
 </node-navigation>
