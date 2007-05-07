@@ -2,16 +2,11 @@
  * Copyright 2001-2007 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.services.resources.impl;
+package org.exoplatform.services.resources.impl.jcr;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
-import javax.jcr.Session;
 
-import org.exoplatform.container.PortalContainer;
-import org.exoplatform.registry.JCRRegistryService;
-import org.exoplatform.registry.ServiceRegistry;
-import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.resources.ResourceBundleData;
 
 /**
@@ -20,12 +15,10 @@ import org.exoplatform.services.resources.ResourceBundleData;
  *          nhudinhthuan@exoplatform.com
  * Mar 9, 2007  
  */
-abstract class BaseJCRService extends BaseResourceBundleService {
+ public class DataMapper   {
   
   final static String SYSTEM_WS = "production".intern();
   final static String LOCALE =  "locale";
-  
-  final static String RESOURCE_BUNDLE_TYPE = "exo:resourceBundleData";
   
   final static String ID = "id";
   final static String NAME = "name";
@@ -36,11 +29,10 @@ abstract class BaseJCRService extends BaseResourceBundleService {
   final static String DATA = "data";
   final static String TYPE = "type";
   
-  public BaseJCRService() throws Exception {
-    getResourceBundleNode(true);
+  public DataMapper() throws Exception {
   }
   
-  void resourceBundleToNode(Node node, ResourceBundleData data) throws Exception {
+  void map(Node node, ResourceBundleData data) throws Exception {
     node.setProperty(ID, data.getId());
     node.setProperty(NAME, data.getName());
     node.setProperty(LANGUAGE, data.getLanguage());
@@ -65,40 +57,6 @@ abstract class BaseJCRService extends BaseResourceBundleService {
     if(node.hasProperty(DATA)) data.setData(node.getProperty(DATA).getString());
     
     return data;
-  }
-  
-   Node getResourceBundleNode(boolean autoCreate) throws Exception {
-    Session session = getSession();
-    if(session.getRootNode().hasNode("exo:registry/exo:services/resourceBundleService") == true){
-      return session.getRootNode().getNode("exo:registry/exo:services/resourceBundleService");
-    }
-    RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
-    JCRRegistryService service = new JCRRegistryService(repoService);
-    ServiceRegistry registry = new ServiceRegistry("resourceBundleService") {
-      public void preAction(JCRRegistryService service) throws Exception {
-        this.description = "Resource Bundle Service";
-      }
-
-      public void postAction(JCRRegistryService service, Node registryNode) throws Exception {}
-    };
-    service.createServiceRegistry(registry, autoCreate) ;
-    Node resultNode = session.getRootNode().getNode("exo:registry/exo:services/resourceBundleService");
-    session.logout();
-    return resultNode;
-   }
-  
-  Node getNode(Node parentNode, String name, boolean autoCreate) throws Exception {
-    if(parentNode.hasNode(name)) return parentNode.getNode(name);
-    if(!autoCreate) return null;
-    Node node  = parentNode.addNode(name);
-    parentNode.save();
-    return node;
-  }
-  
-  javax.jcr.Session getSession() throws Exception{
-    RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
-    javax.jcr.Session session =  repoService.getRepository().getSystemSession(SYSTEM_WS) ;  
-    return session;
   }
   
   Node getNode(Node node, String property, String value) throws Exception {

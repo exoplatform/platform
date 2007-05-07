@@ -10,10 +10,13 @@ import java.util.Date;
 import javax.jcr.Node;
 import javax.jcr.Session;
 
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.content.BaseContentService;
 import org.exoplatform.portal.content.ContentDAO;
 import org.exoplatform.portal.content.model.ContentData;
 import org.exoplatform.portal.content.model.ContentNavigation;
+import org.exoplatform.registry.ApplicationRegistry;
+import org.exoplatform.registry.JCRRegistryService;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.jcr.RepositoryService;
 
@@ -43,11 +46,6 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   final private static String DATA_NODE_TYPE = "exo:data";
   
   final private static String USERS = "users";
-  final private static String APP_DATA = "AppData";
-  
-  final private static String PORTAL = "portal" ;
-
-  final private static String HOME = "home";
   
   private  RepositoryService service_ ;
   
@@ -58,7 +56,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   
   public void save(ContentNavigation navigation) throws Exception {
     Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
-    Node portalNode = getPortalServiceNode(session, navigation.getOwner(), true); 
+    Node portalNode = getPortalServiceNode(navigation.getOwner()); 
     ContentData data = new ContentData();
     data.setDataType(ContentNavigation.class.getName());    
     data.setId(navigation.getOwner()+"::"+ContentNavigation.class.getName());
@@ -81,8 +79,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   }
   
   private ContentData getDataByOwner(String owner) throws Exception {
-    Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
-    Node parentNode = getPortalServiceNode(session, owner, true);
+    Node parentNode = getPortalServiceNode(owner);
     if(parentNode.hasNode(NODE_NAME) == false) return null;    
     Node node = parentNode.getNode(NODE_NAME);
     return nodeToContentData(node);
@@ -99,7 +96,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   
   private void removeDataByOwner(String owner) throws Exception {
     Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
-    Node parentNode = getPortalServiceNode(session, owner, false);
+    Node parentNode = getPortalServiceNode(owner);
     if(parentNode.hasNode(NODE_NAME) == false) return ;
     Node node = parentNode.getNode(NODE_NAME);
     node.remove();
@@ -151,21 +148,25 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
     node.setProperty(MODIFIED_DATE, calendar);    
   }
   
-  final private Node getPortalServiceNode(Session session, String owner, boolean autoCreate) throws Exception {
-    Node node = getNode(session.getRootNode(), HOME, autoCreate);
-    if((node = getNode(node, USERS, autoCreate)) == null && !autoCreate) return null;
-    if((node = getNode(node, owner, autoCreate)) == null && !autoCreate) return null;
-    if((node = getNode(node, APP_DATA, autoCreate)) == null && !autoCreate) return null;
-    if((node = getNode(node, PORTAL, autoCreate)) == null && !autoCreate) return null;
-    return node;
+  final private Node getPortalServiceNode( String owner) throws Exception {
+    RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
+    JCRRegistryService service = new JCRRegistryService(repoService);
+    service.createUserHome(owner, false);
+    ApplicationRegistry registry = new ApplicationRegistry("applicationRegistryService") {
+      public void preAction(JCRRegistryService service) throws Exception {}
+      public void postAction(JCRRegistryService service, Node registryNode) throws Exception {}
+    };
+    service.createApplicationRegistry(owner, registry, false);
+    Session session = getSession();
+    Node resultNode = session.getRootNode().getNode(USERS + "/" + owner + "/exo:registry/exo:applications/ContentService");
+    session.logout();
+    return resultNode;
   }
   
-  final private Node getNode(Node parentNode, String name, boolean autoCreate) throws Exception {
-    if(parentNode.hasNode(name)) return parentNode.getNode(name);
-    if(!autoCreate) return null;
-    Node node  = parentNode.addNode(name);
-    parentNode.save();
-    return node;
+  private javax.jcr.Session getSession() throws Exception{
+    RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
+    javax.jcr.Session session =  repoService.getRepository().getSystemSession(SYSTEM_WS) ;  
+    return session;
   }
   
 }

@@ -5,6 +5,7 @@
 package org.exoplatform.registry;
 
 import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
@@ -66,18 +67,17 @@ public class JCRRegistryService  {
     Session session = getSession();
     Node servicesNode = session.getRootNode().getNode("exo:registry/exo:services");
     if( servicesNode.hasNode(desc.getName())){
-      if(overwrite){
-        servicesNode.getNode(desc.getName()).remove();
-        servicesNode.save();
-        servicesNode.addNode(desc.getName());
-        servicesNode.save();
-      } 
-    } else {
-      getNode(servicesNode, desc.getName(), true);
-    }
+      if(!overwrite){
+        session.logout();
+        return;
+      }
+      servicesNode.getNode(desc.getName()).remove();
+      servicesNode.save();
+    } 
+    Node node = servicesNode.addNode(desc.getName());
     session.save();
     session.logout();
-    desc.postAction(this, null) ;
+    desc.postAction(this, node) ;
   }
   
   /**
@@ -110,13 +110,28 @@ public class JCRRegistryService  {
     app.postAction(this, node) ;
   }
   
+  public Node getUserNode(String userName) throws Exception{
+    Session session = getSession();
+    if(session.getRootNode().hasNode("users/" + userName)){
+      return session.getRootNode().getNode("users/" + userName);
+    }
+    return null;
+  }
+  
   public Node getApplicationRegistryNode(String appName) throws Exception {
-    
+    Node appNode = getSession().getRootNode().getNode("exo:registry/exo:applications");
+    if(appNode.hasNode(appName)) {
+      return appNode.getNode(appName);
+    }
     return null;
   }
   
   public Node getApplicationRegistryNode(String userName, String appName) throws Exception {
-    
+    Node userNode  = getUserNode(userName);
+    if(userNode == null) return null;
+    if( userNode.hasNode("exo:registry/exo:applications/" + appName)){
+      return userNode.getNode("exo:registry/exo:applications/" + appName);
+    }
     return null;
   }
 
@@ -136,18 +151,19 @@ public class JCRRegistryService  {
     Node usersNode = session.getRootNode().getNode("users");
     Node userNode = null;
     if( usersNode.hasNode(username)){
-      if(overwrite){
-        usersNode.getNode(username).remove();
-        usersNode.save();
-        userNode =usersNode.addNode(username);
-        usersNode.save();
-      } 
-    } else {
-      userNode = getNode(usersNode, username, true);
-    }
-    Node registryNode = getNode(userNode, "exo:registry", true );
-    getNode(registryNode, "exo:services", true);
-    getNode(registryNode, "exo:applications", true);
+      if(!overwrite){
+        session.logout();
+        return;
+      }
+      usersNode.getNode(username).remove();
+      usersNode.save();
+    } 
+    userNode =usersNode.addNode(username);
+   
+    Node registryNode = userNode.addNode("exo:registry");
+    registryNode.addNode("exo:services");
+    registryNode.addNode("exo:applications");
+    usersNode.save();
     session.save();
     session.logout();
   }
@@ -165,22 +181,22 @@ public class JCRRegistryService  {
    * @throws Exception
    */
   public void createServiceRegistry(String username, ServiceRegistry desc, boolean overwrite) throws Exception {
-    desc.preAction(null) ;
+    desc.preAction(this) ;
     Session session = getSession();
-    Node usersNode = session.getRootNode().getNode("users/" +username +"/exo:registry/exo:services");
-    if( usersNode.hasNode(desc.getName())){
-      if(overwrite){
-        usersNode.getNode(desc.getName()).remove();
-        usersNode.save();
-        usersNode.addNode(desc.getName());
-        usersNode.save();
-      } 
-    } else {
-      getNode(usersNode, desc.getName(), true);
+    Node servicesNode = session.getRootNode().getNode("users/" +username +"/exo:registry/exo:services");
+    if( servicesNode.hasNode(desc.getName())){
+      if(!overwrite){
+        session.logout();
+        return;
+      }
+      servicesNode.getNode(desc.getName()).remove();
+      servicesNode.save();
     }
+    Node node = servicesNode.addNode(desc.getName());
+    servicesNode.save();
     session.save();
     session.logout();
-    desc.postAction(this, null) ;
+    desc.postAction(this, node) ;
   }
   
   /**
@@ -198,28 +214,36 @@ public class JCRRegistryService  {
   public void createApplicationRegistry(String username, ApplicationRegistry desc, boolean overwrite) throws Exception {
     desc.preAction(null) ;
     Session session = repositoryService.getRepository().getSystemSession(WORKSPACE);
-    Node servicesNode = session.getRootNode().getNode("users/" +username +"/exo:registry/exo:applications");
-    if( servicesNode.hasNode(desc.getName())){
-      if(overwrite){
-        servicesNode.getNode(desc.getName()).remove();
-        servicesNode.save();
-        servicesNode.addNode(desc.getName());
-      } 
-    } else {
-      getNode(servicesNode, desc.getName(), true);
+    Node appsNode = session.getRootNode().getNode("users/" +username +"/exo:registry/exo:applications");
+    if( appsNode.hasNode(desc.getName())){
+      if(!overwrite){
+        session.logout();
+        return;
+      }
+      appsNode.getNode(desc.getName()).remove();
+      appsNode.save();
     }
+    Node node = appsNode.addNode(desc.getName());
+    appsNode.save();
     session.save();
     session.logout();
-    desc.postAction(this, null) ;
+    desc.postAction(this, node) ;
   }
   
   public Node getServiceRegistryNode(String appName) throws Exception {
-    
+    Node appNode = getSession().getRootNode().getNode("exo:registry/exo:services");
+    if(appNode.hasNode(appName)) {
+      return appNode.getNode(appName);
+    }
     return null;
   }
   
   public Node getServiceRegistryNode(String userName, String appName) throws Exception {
-    
+    Node userNode  = getUserNode(userName);
+    if(userNode == null) return null;
+    if( userNode.hasNode("exo:registry/exo:services/" + appName)){
+      return userNode.getNode("exo:registry/exo:services/" + appName);
+    }
     return null;
   }
 }
