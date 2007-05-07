@@ -76,7 +76,7 @@ public class NewContentNavListener extends BaseComponentPlugin {
     }   
     if(config == null) return;
     ContentNavigation contentNavigation =  fromXML(config, ContentNavigation.class); 
-    contentService_.save(contentNavigation) ;
+    contentService_.create(contentNavigation) ;
   }
   
   public <T> T fromXML(String xml, Class<T> type) throws Exception {

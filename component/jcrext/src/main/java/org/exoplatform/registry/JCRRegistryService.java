@@ -74,9 +74,9 @@ public class JCRRegistryService  {
       servicesNode.save();
     } 
     Node node = servicesNode.addNode(desc.getName());
+    desc.postAction(this, node) ;
     session.save();
     session.logout();
-    desc.postAction(this, node) ;
   }
   
   /**
@@ -104,9 +104,9 @@ public class JCRRegistryService  {
     app.preAction(this);    
     Node node  = appNode.addNode(app.getName());
     appNode.save();
+    app.postAction(this, node) ;
     session.save();
     session.logout();
-    app.postAction(this, node) ;
   }
   
   private Node getUserNode(Session session, String userName) throws Exception{
@@ -148,7 +148,7 @@ public class JCRRegistryService  {
     Session session = getSession();
     Node usersNode = session.getRootNode().getNode("users");
     Node userNode = null;
-    if( usersNode.hasNode(username)){
+    if(usersNode.hasNode(username)){
       if(!overwrite){
         session.logout();
         return;
@@ -192,9 +192,9 @@ public class JCRRegistryService  {
     }
     Node node = servicesNode.addNode(desc.getName());
     servicesNode.save();
+    desc.postAction(this, node) ;
     session.save();
     session.logout();
-    desc.postAction(this, node) ;
   }
   
   /**
@@ -223,9 +223,9 @@ public class JCRRegistryService  {
     }
     Node node = appsNode.addNode(desc.getName());
     appsNode.save();
+    desc.postAction(this, node) ;
     session.save();
     session.logout();
-    desc.postAction(this, node) ;
   }
   
   public Node getServiceRegistryNode(Session session,  String appName) throws Exception {

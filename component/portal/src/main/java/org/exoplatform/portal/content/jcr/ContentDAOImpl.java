@@ -44,7 +44,6 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   final private static String SYSTEM_WS = "production".intern();
   final private static String DATA_NODE_TYPE = "exo:data";
   
-  final private static String USERS = "users";
   final public static String APPLICATION_NAME = "ContentService";
   private  RepositoryService service_ ;
   private JCRRegistryService jcrRegService_;
@@ -55,19 +54,32 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
     jcrRegService_ = jcrRegService; 
   }
   
+  public void create(final ContentNavigation navigation) throws Exception {
+    jcrRegService_.createUserHome(navigation.getOwner(), false);
+    ApplicationRegistry app = new ApplicationRegistry(APPLICATION_NAME) {
+      @SuppressWarnings("unused")
+      public void postAction(JCRRegistryService service, Node appNode) throws Exception {
+        ContentData data = new ContentData();
+        data.setDataType(ContentNavigation.class.getName());    
+        data.setId(navigation.getOwner()+"::"+ContentNavigation.class.getName());
+        data.setOwner(navigation.getOwner());
+        data.setData(toXML(navigation));
+        saveData(appNode, data); 
+      }
+    };
+    jcrRegService_.createApplicationRegistry(navigation.getOwner(), app, true);    
+  }
+  
   public void save(ContentNavigation navigation) throws Exception {
     Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
-    Node portalNode = jcrRegService_.getServiceRegistryNode(session, navigation.getOwner(), APPLICATION_NAME);
-    if(portalNode == null) {
-      ApplicationRegistry app = new ApplicationRegistry(APPLICATION_NAME);
-      jcrRegService_.createApplicationRegistry(navigation.getOwner(), app, false);
-    }
+    Node portalNode = jcrRegService_.getApplicationRegistryNode(session, navigation.getOwner(), APPLICATION_NAME);    
     ContentData data = new ContentData();
     data.setDataType(ContentNavigation.class.getName());    
     data.setId(navigation.getOwner()+"::"+ContentNavigation.class.getName());
     data.setOwner(navigation.getOwner());
     data.setData(toXML(navigation));
-    saveData(session, portalNode, data); 
+    saveData(portalNode, data);
+    session.save();
     session.logout();
   }
   
@@ -86,7 +98,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   
   private ContentData getDataByOwner(String owner) throws Exception {
     Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
-    Node parentNode = jcrRegService_.getServiceRegistryNode(session, owner, APPLICATION_NAME);
+    Node parentNode = jcrRegService_.getApplicationRegistryNode(session, owner, APPLICATION_NAME);
     if(parentNode == null || parentNode.hasNode(NODE_NAME) == false){
       session.logout();
       return null;    
@@ -108,7 +120,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   
   private void removeDataByOwner(String owner) throws Exception {
     Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
-    Node parentNode = jcrRegService_.getServiceRegistryNode(session, owner, APPLICATION_NAME);
+    Node parentNode = jcrRegService_.getApplicationRegistryNode(session, owner, APPLICATION_NAME);
     if(parentNode.hasNode(NODE_NAME) == false) {
       session.logout();
       return ;
@@ -120,7 +132,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
     session.logout();
   }
   
-  private void saveData(Session session, Node parentNode, ContentData data) throws Exception {
+  private void saveData(Node parentNode, ContentData data) throws Exception {
     Node node;
     Date time = Calendar.getInstance().getTime();
     data.setModifiedDate(time);
@@ -134,7 +146,6 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
       contentDataToNode(data, node);
       parentNode.save();
     }
-    session.save();
   }
 
   private ContentData nodeToContentData(Node node) throws Exception {

@@ -21,6 +21,8 @@ import org.exoplatform.portal.content.model.ContentNode;
  */
 public interface ContentDAO {
   
+  public void create(ContentNavigation navigation) throws Exception;
+  
   public void save(ContentNavigation navigation) throws Exception;
   
   public void remove(String owner) throws Exception;
