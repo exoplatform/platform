@@ -72,7 +72,7 @@ public class PortalConfig {
     if(accessGroup == null)  return "";
     StringBuilder builder = new StringBuilder();
     for(String ele : accessGroup) {
-      builder.append(ele).append(' ');
+      builder.append(ele).append(',');
     }
     return builder.toString();
   }
