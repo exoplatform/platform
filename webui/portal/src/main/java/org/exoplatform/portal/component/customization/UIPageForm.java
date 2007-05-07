@@ -21,6 +21,8 @@ import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTabPane;
+import org.exoplatform.webui.component.UIGrid;
+import org.exoplatform.webui.component.UIPageIterator;
 import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -205,7 +207,11 @@ public class UIPageForm extends UIFormTabPane {
       
       UIPageBrowser uiBrowser = uiPortalApp.findFirstComponentOfType(UIPageBrowser.class);
       if(uiBrowser != null) {
+        UIPageIterator  iterator = uiBrowser.getChild(UIGrid.class).getUIPageIterator();
+        int currentPage = iterator.getCurrentPage();
         uiBrowser.defaultValue(uiBrowser.getLastQuery());
+        if(currentPage > iterator.getAvailablePage()) currentPage = iterator.getAvailablePage();
+        iterator.setCurrentPage(currentPage);
         UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
         rcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
         return;
