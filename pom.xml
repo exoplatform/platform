@@ -8,6 +8,7 @@
 
   <modules>
     <module>component/xml-parser</module>
+    <module>component/jcrext</module>
     <module>component/resources</module>
     <module>component/application-registry</module>
     <module>component/portal</module>
