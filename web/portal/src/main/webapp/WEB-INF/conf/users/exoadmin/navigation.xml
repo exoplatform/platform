@@ -67,6 +67,15 @@
         <page-reference>exoadmin:/browsecontent</page-reference>
         <description>ECM Page</description>   
       </node>
+
+      <node>
+        <uri>ecm/dialog</uri>
+        <name>dialog</name>
+        <label>Dialog</label>
+        <access-permission>*:/guest</access-permission>
+        <page-reference>exoadmin:/dialog</page-reference>
+        <description>ECM Page</description>   
+      </node>
       
       <node>
         <uri>workflow/controller</uri>

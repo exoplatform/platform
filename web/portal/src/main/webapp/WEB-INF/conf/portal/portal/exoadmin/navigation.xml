@@ -41,6 +41,12 @@
       </node>
       
       <node>
+        <uri>ecm/dialog</uri>
+        <label>Dialog</label>
+        <page-reference>exoadmin:/dialog</page-reference>
+      </node>
+      
+      <node>
         <uri>ecm/browsecontent</uri>
         <label>Browse Content</label>
         <page-reference>portal::exoadmin::browsecontent</page-reference>

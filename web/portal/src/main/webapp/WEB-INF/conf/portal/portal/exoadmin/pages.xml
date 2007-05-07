@@ -67,6 +67,19 @@
       <show-info-bar>true</show-info-bar>
     </application>  
   </page>  
+  
+  <page>
+  	<owner-type>portal</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>dialog</name>
+    <access-groups>/guest</access-groups>        
+    
+    <application>
+      <instance-id>exoadmin:/ecm/DialogPortlet/dialog</instance-id>
+      <title>Dialog Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>  
+  </page> 
 
   <page>
   	<owner-type>portal</owner-type>

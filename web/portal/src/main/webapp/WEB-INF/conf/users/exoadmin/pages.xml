@@ -89,6 +89,19 @@
       <show-application-state>true</show-application-state>
     </application>  
   </page>
+  
+  <page>
+    <owner>exoadmin</owner>
+    <name>dialog</name>
+    <title>DialogPortlet</title>
+    <view-permission>*:/guest</view-permission>        
+    <application>
+      <title>Dialog Portlet</title>
+      <application-instance-id>exoadmin:/ecm/DialogPortlet/dialog</application-instance-id>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </application>  
+  </page>
 
   <page>
     <owner>exoadmin</owner>
@@ -165,6 +178,12 @@
     <application>
       <title>Browse Content Portlet</title>
       <application-instance-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</application-instance-id>
+      <show-info-bar>true</show-info-bar>
+    </application>
+    
+    <application>
+      <title>Dialog Portlet</title>
+      <application-instance-id>exoadmin:/ecm/DialogPortlet/dialog</application-instance-id>
       <show-info-bar>true</show-info-bar>
     </application>
         
