@@ -39,7 +39,7 @@ public class PageNavigation {
   public String[] getAccessGroup(){  return accessGroup; }
   public void     setAccessGroup(String[] s) { accessGroup = s ; }
   
-  public boolean getModifiable(){  return modifiable; }
+  public boolean isModifiable(){  return modifiable; }
   public void    setModifiable(boolean b) { modifiable = b ; }
 
   public void setDescription(String des){  description = des; }  

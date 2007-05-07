@@ -196,6 +196,7 @@ public class PortalDataModelUtil {
     uiPage.setAccessGroups(model.getAccessGroup());
     uiPage.setFactoryId(model.getFactoryId());
     uiPage.setShowMaxWindow(model.isShowMaxWindow());   
+    uiPage.setModifiable(model.isModifiable());
   }
   
   static public void toUIPortal(UIPortal uiPortal, UserPortalConfig userPortalConfig) throws Exception {
@@ -206,7 +207,8 @@ public class PortalDataModelUtil {
     uiPortal.setFactoryId(model.getFactoryId());
     uiPortal.setOwner(model.getName());
     uiPortal.setTitle(model.getTitle());
-
+    uiPortal.setModifiable(model.isModifiable());
+    
     uiPortal.setUserPortalConfig(userPortalConfig);
     uiPortal.setLocale(model.getLocale());
     uiPortal.setSkin(model.getSkin());

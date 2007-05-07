@@ -157,7 +157,7 @@
                     <field  name="lastName"><string>exoadmin</string></field>
                     <field  name="email"><string>exoadmin@localhost</string></field>
                     <field  name="groups">
-                      <string>member:/admin, member:/user, owner:/portal/admin</string>
+                      <string>member:/admin,member:/user,owner:/portal/admin</string>
                     </field>
                   </object>
                 </value>    

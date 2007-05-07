@@ -78,9 +78,11 @@ public class UserPortalConfigService {
    * @return a UserPortalConfig object that contain the PortalConfig  and a list of the PageNavigation objects
    */
   public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
-    PortalConfig portalConfig = storage_.getPortalConfig(portalName) ;
-    if(portalConfig == null || 
-       !userACL_.hasPermission(portalConfig, accessUser, userACL_.getViewMembershipType())) return null ;
+    PortalConfig portal = storage_.getPortalConfig(portalName) ;
+    String mt = userACL_.getViewMembershipType();
+    if(portal == null || !userACL_.hasPermission(portal, accessUser, mt)) return null ;
+    mt = userACL_.getEditMembershipType();
+    portal.setModifiable(userACL_.hasPermission(portal, accessUser, mt));
    
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
     
@@ -99,8 +101,8 @@ public class UserPortalConfigService {
     }   
     userACL_.computeNavigation(navigations, accessUser);
     if (navigations.size() < 1) return null ;
-
-    return new UserPortalConfig(portalConfig, navigations) ;    
+    
+    return new UserPortalConfig(portal, navigations) ;    
   }
   
   /**

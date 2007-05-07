@@ -3,7 +3,7 @@
   <portal-name>site</portal-name>
   <locale>en</locale>
   <factory-id>office</factory-id>
-  <access-groups>/guest</access-groups>
+  <access-groups>/guest,/portal/admin,/admin</access-groups>
   
   <widget-layout>
   </widget-layout>
