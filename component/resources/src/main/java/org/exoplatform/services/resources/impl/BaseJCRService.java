@@ -69,10 +69,9 @@ abstract class BaseJCRService extends BaseResourceBundleService {
   
    Node getResourceBundleNode(boolean autoCreate) throws Exception {
     Session session = getSession();
-    if(session.getRootNode().hasNode("exo:registry/exo:services/resourceBundle") == true)
-    
-    return session.getRootNode().getNode("exo:registry/exo:services/resourceBundleService");
-    
+    if(session.getRootNode().hasNode("exo:registry/exo:services/resourceBundleService") == true){
+      return session.getRootNode().getNode("exo:registry/exo:services/resourceBundleService");
+    }
     RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
     JCRRegistryService service = new JCRRegistryService(repoService);
     ServiceRegistry registry = new ServiceRegistry("resourceBundleService") {
