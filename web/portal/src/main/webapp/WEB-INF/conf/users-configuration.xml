@@ -24,8 +24,7 @@
             </field>
             <field  name="ignoredUser">
               <collection type="java.util.HashSet">
-                <value><string>site</string></value>
-                <value><string>webos</string></value>
+                <value><string>exo</string></value>
                 <value><string>exoadmin</string></value>
                 <value><string>company</string></value>
                 <value><string>community</string></value>
@@ -164,7 +163,7 @@
                 </value>    
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                    <field  name="userName"><string>site</string></field>
+                    <field  name="userName"><string>exo</string></field>
                     <field  name="password"><string>exo</string></field>
                     <field  name="firstName"><string>site</string></field>
                     <field  name="lastName"><string>site</string></field>
@@ -173,19 +172,7 @@
                       <string>member:/user</string>
                     </field>
                   </object>
-                </value>               
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                    <field  name="userName"><string>webos</string></field>
-                    <field  name="password"><string>exo</string></field>
-                    <field  name="firstName"><string>guest</string></field>
-                    <field  name="lastName"><string>webos</string></field>
-                    <field  name="email"><string>webos@localhost</string></field>
-                    <field  name="groups">
-                      <string>member:/user</string>
-                    </field>
-                  </object>
-                </value>               
+                </value>                                         
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
                     <field  name="userName"><string>company</string></field>

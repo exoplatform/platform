@@ -7,9 +7,9 @@
   
   <page-nodes>  
 	  <node>
-	    <uri>/organization</uri>
-	    <label>Organization</label>
-	    <page-reference>group::company::organization</page-reference>
+	    <uri>/sitemap</uri>
+	    <label>Site Map</label>
+	    <page-reference>user::sitemap::sitemap</page-reference>
 	  </node>   
   </page-nodes>
 </node-navigation>

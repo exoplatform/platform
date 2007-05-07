@@ -2,7 +2,7 @@
 <page-set>
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>community</owner-id>
+    <owner-id>/portal/community</owner-id>
 	  <name>home</name>
     <factory-id>Desktop</factory-id>
     <access-groups>/guest</access-groups>
@@ -25,7 +25,7 @@
     </application>
 
     <application>
-      <instance-id>exoadmin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
+      <instance-id>admin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
 	    <application-type>portlet</application-type>
 	    <title>Browse portlet</title>
       <show-info-bar>true</show-info-bar>
@@ -41,7 +41,7 @@
 
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>community</owner-id>
+    <owner-id>/portal/community</owner-id>
     <name>management</name>    
     <factory-id>Desktop</factory-id>
     <access-groups>/user</access-groups>

@@ -6,7 +6,7 @@
 		<name>static-content</name>
     <access-groups>/guest</access-groups>
     <application width="*">
-      <instance-id>exo:/content/DisplayStaticContent/news</instance-id>
+      <instance-id>guest:/content/DisplayStaticContent/news</instance-id>
       <application-type>portlet</application-type>
       <title>Home</title>
       <show-info-bar>false</show-info-bar>          

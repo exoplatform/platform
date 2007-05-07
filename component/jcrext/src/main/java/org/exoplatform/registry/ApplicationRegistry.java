@@ -23,7 +23,9 @@ public class ApplicationRegistry {
   public String getName()  { return name ; }
   public String getDescription() { return description ; }
   
+  @SuppressWarnings("unused")
   public void preAction(JCRRegistryService service) throws Exception { }
   
+  @SuppressWarnings("unused")
   public void postAction(JCRRegistryService service, Node appNode) throws Exception { }
 }
