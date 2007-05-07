@@ -57,7 +57,7 @@
 		              <label>User name:</label>
 		              <input name="j_username" value="" />
 			          </div>
-		            <div class="FieldContainer">
+		            <div class="FieldContainer" id="UIPortalLoginFormControl">
 		              <label>Password:</label>
 		              <input type="password" name="j_password" value="" />
 		            </div>

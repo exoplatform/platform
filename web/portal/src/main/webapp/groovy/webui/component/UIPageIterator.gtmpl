@@ -20,7 +20,7 @@
 	      <%
 	      int min = 1;
 	      int max = totalPage;
-	      if(totalPage > 5 && currentPage >2){
+	      if(totalPage > 5 && currentPage > 2){
 	        min = currentPage - 2;
 	        max = currentPage + 3;
 	        if (max > totalPage) max = totalPage;

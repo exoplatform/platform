@@ -27,22 +27,22 @@
 		              <label><%=_ctx.appRes("UILoginForm.label.UserName")%>:</label>
 		              <% uiform.renderChild(0)%>
 		            </div>
-		            <div class="PasswordField">
+		            <div class="PasswordField" id="UIPortalLoginFormControl">
 		              <label><%=_ctx.appRes("UILoginForm.label.password")%>:</label>
 		              <% uiform.renderChild(1)%>
 		            </div> 
 		            
 		            <div style="display:none"> 
-						          <div class="Message">
-						            <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
-						              <%=_ctx.appRes("UILoginForm.label.forgot")%>
-						            </div>
-					            </div>
-						          <div class="CheckField">
-						            <% uiform.renderChild(2)%>
-						            <div class="RememberLoginTitle"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></div>
-						            <div style="clear:left;"><span></span></div>
-						          </div>
+				          <div class="Message">
+				            <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
+				              <%=_ctx.appRes("UILoginForm.label.forgot")%>
+				            </div>
+			            </div>
+				          <div class="CheckField">
+				            <% uiform.renderChild(2)%>
+				            <div class="RememberLoginTitle"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></div>
+				            <div style="clear:left;"><span></span></div>
+				          </div>
 				        </div>
 				        
 				          

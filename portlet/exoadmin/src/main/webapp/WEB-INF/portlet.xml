@@ -36,7 +36,7 @@
     <description xml:lang="EN">Account Portlet</description>
     <portlet-name>AccountPortlet</portlet-name>
     <display-name xml:lang="EN">Account Portlet</display-name>
-    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
     
     <init-param>
       <name>webui.configuration</name>
@@ -62,7 +62,7 @@
     <description xml:lang="EN">Portlet Registry</description>
     <portlet-name>PortletRegistryPortlet</portlet-name>
     <display-name xml:lang="EN">Portlet Registry</display-name>
-    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
     
     <init-param>
       <name>webui.configuration</name>

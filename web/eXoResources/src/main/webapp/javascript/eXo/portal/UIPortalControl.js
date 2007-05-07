@@ -75,7 +75,10 @@ UIPortalControl.prototype.fixHeight = function() {
 } ;
 
 UIPortalControl.prototype.onKeyPress = function() {
-	document.body.onkeypress = eXo.portal.UIPortalControl.onEnterPress ;
+	var uiPortalLoginFormControl = document.getElementById("UIPortalLoginFormControl");
+	if(uiPortalLoginFormControl) {
+		uiPortalLoginFormControl.onkeypress = eXo.portal.UIPortalControl.onEnterPress ;
+	}
 };
 
 UIPortalControl.prototype.onEnterPress = function(e) {

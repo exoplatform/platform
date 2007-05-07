@@ -13,5 +13,4 @@ public class UIPortletRegistryPortlet extends UIPortletApplication {
     addChild(ApplicationRegistryControlArea.class, null, null);    
     addChild(ApplicationRegistryWorkingArea.class, null, null);   
   }
-  
 }
