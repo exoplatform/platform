@@ -17,6 +17,8 @@ import org.exoplatform.commons.utils.MapResourceBundle;
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.registry.JCRRegistryService;
+import org.exoplatform.registry.ServiceRegistry;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.log.LogService;
@@ -28,17 +30,27 @@ import org.exoplatform.services.resources.ResourceBundleData;
 public class JCRResourceBundleServiceImpl extends BaseJCRService {
   
   final private static String queryDataType = "select * from nt:base where type like 'locale'";
+  
+  private JCRRegistryService jcrRegService_;
+  
+  final private static String APPLLICATION_NAME = "ResourceBundles";
  
-  public JCRResourceBundleServiceImpl(InitParams params, LocaleConfigService localeService, 
-                                      LogService lservice, CacheService cService) throws Exception {
+  public JCRResourceBundleServiceImpl(InitParams params, 
+                                      LogService lservice, 
+                                      CacheService cService, 
+                                      JCRRegistryService jcrRegService,
+                                      LocaleConfigService localeService) throws Exception {
     log_ = lservice.getLog("org.exoplatform.services.resources");
     localeService_ = localeService;
     cache_ = cService.getCacheInstance(ResourceBundleData.class.getName());
     initParams(params);
+    
+    jcrRegService_ = jcrRegService; 
+    jcrRegService_.createServiceRegistry(new ServiceRegistry(APPLLICATION_NAME), false);
   }
 
   private ResourceBundleData getResourceBundleDataFromDB(String id) throws Exception {
-    Node rootNode = getResourceBundleNode(false);
+    Node rootNode = jcrRegService_.getServiceRegistryNode(APPLLICATION_NAME);
     if(!rootNode.hasNode(id)) return null;
     Node node = rootNode.getNode(id);
     return nodeToResourceBundleData(node);
