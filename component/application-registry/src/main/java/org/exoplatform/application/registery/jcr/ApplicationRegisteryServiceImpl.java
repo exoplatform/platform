@@ -18,6 +18,7 @@ import org.exoplatform.application.registery.Application;
 import org.exoplatform.application.registery.ApplicationCategory;
 import org.exoplatform.application.registery.ApplicationRegisteryService;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
 import org.exoplatform.registry.ServiceRegistry;
 import org.exoplatform.services.jcr.RepositoryService;
@@ -229,18 +230,19 @@ public class ApplicationRegisteryServiceImpl implements ApplicationRegisteryServ
 //    if((node = getNode(node, REGISTRY, autoCreate)) == null && !autoCreate) return null;
 //    if((node = getNode(node, APPLICATIONS, autoCreate)) == null && !autoCreate) return null;
 //    return node;
-    if(getSession().getRootNode().hasNode("exo:registry/exo:applications/applicationRegistryService") == true)
+    if(getSession().getRootNode().hasNode("exo:registry/exo:applications/applicationRegistryService") == true){
       return getSession().getRootNode().getNode("exo:registry/exo:applications/applicationRegistryService");
-      
-      RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
-      JCRRegistryService service = new JCRRegistryService(repoService);
-      ServiceRegistry registry = new ServiceRegistry("resourceBundleService") {
+    }
+    
+    RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
+    JCRRegistryService service = new JCRRegistryService(repoService);
+    ApplicationRegistry registry = new ApplicationRegistry("applicationRegistryService") {
         public void preAction(JCRRegistryService service) throws Exception {
         }
 
         public void postAction(JCRRegistryService service, Node registryNode) throws Exception {}
       };
-      service.createServiceRegistry(registry, autoCreate) ;
+      service.createApplicationRegistry(registry, autoCreate) ;
       return getSession().getRootNode().getNode("exo:registry/exo:applications/applicationRegistryService");
   }
   

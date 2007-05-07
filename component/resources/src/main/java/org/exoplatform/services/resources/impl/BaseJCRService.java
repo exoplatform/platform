@@ -6,6 +6,7 @@ package org.exoplatform.services.resources.impl;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
+import javax.jcr.Session;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.registry.JCRRegistryService;
@@ -67,8 +68,10 @@ abstract class BaseJCRService extends BaseResourceBundleService {
   }
   
    Node getResourceBundleNode(boolean autoCreate) throws Exception {
-    if(getSession().getRootNode().hasNode("exo:registry/exo:services/resourceBundle") == true)
-    return getSession().getRootNode().getNode("exo:registry/exo:services/resourceBundleService");
+    Session session = getSession();
+    if(session.getRootNode().hasNode("exo:registry/exo:services/resourceBundle") == true)
+    
+    return session.getRootNode().getNode("exo:registry/exo:services/resourceBundleService");
     
     RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
     JCRRegistryService service = new JCRRegistryService(repoService);
@@ -80,8 +83,10 @@ abstract class BaseJCRService extends BaseResourceBundleService {
       public void postAction(JCRRegistryService service, Node registryNode) throws Exception {}
     };
     service.createServiceRegistry(registry, autoCreate) ;
-    return getSession().getRootNode().getNode("exo:registry/exo:services/resourceBundleService");
-  }
+    Node resultNode = session.getRootNode().getNode("exo:registry/exo:services/resourceBundleService");
+    session.logout();
+    return resultNode;
+   }
   
   Node getNode(Node parentNode, String name, boolean autoCreate) throws Exception {
     if(parentNode.hasNode(name)) return parentNode.getNode(name);
