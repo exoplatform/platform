@@ -8,6 +8,8 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.registry.JCRRegistryService;
+import org.exoplatform.registry.ServiceRegistry;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.resources.ResourceBundleData;
 
@@ -20,10 +22,6 @@ import org.exoplatform.services.resources.ResourceBundleData;
 abstract class BaseJCRService extends BaseResourceBundleService {
   
   final static String SYSTEM_WS = "production".intern();
-  final static String JCR_SYSTEM = "jcr:system";
-  final static String APPLICATION_DATA = "AppData";
-  final static String RESOURCE_BUNDLE = "resources";
-  final static String LOCALES =  "locales";
   final static String LOCALE =  "locale";
   
   final static String RESOURCE_BUNDLE_TYPE = "exo:resourceBundleData";
@@ -69,11 +67,20 @@ abstract class BaseJCRService extends BaseResourceBundleService {
   }
   
    Node getResourceBundleNode(boolean autoCreate) throws Exception {
-    Node node = getNode(getSession().getRootNode(), JCR_SYSTEM, autoCreate);
-    if((node = getNode(node, APPLICATION_DATA, autoCreate)) == null && !autoCreate) return null;
-    if((node = getNode(node, RESOURCE_BUNDLE, autoCreate)) == null && !autoCreate) return null;
-    if((node = getNode(node, LOCALES, autoCreate)) == null && !autoCreate) return null;
-    return node;
+    if(getSession().getRootNode().hasNode("exo:registry/exo:services/resourceBundle") == true)
+    return getSession().getRootNode().getNode("exo:registry/exo:services/resourceBundleService");
+    
+    RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
+    JCRRegistryService service = new JCRRegistryService(repoService);
+    ServiceRegistry registry = new ServiceRegistry("resourceBundleService") {
+      public void preAction(JCRRegistryService service) throws Exception {
+        this.description = "Resource Bundle Service";
+      }
+
+      public void postAction(JCRRegistryService service, Node registryNode) throws Exception {}
+    };
+    service.createServiceRegistry(registry, autoCreate) ;
+    return getSession().getRootNode().getNode("exo:registry/exo:services/resourceBundleService");
   }
   
   Node getNode(Node parentNode, String name, boolean autoCreate) throws Exception {

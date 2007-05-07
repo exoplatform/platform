@@ -3,6 +3,7 @@
   <!-- ============================================================================= -->
   <!--    R E S O U R C E   S E R V I C E    C O N F I G U R A T I O N               -->
   <!-- ============================================================================= -->
+  
   <component>
     <key>org.exoplatform.services.resources.ResourceBundleService</key>
     <type>org.exoplatform.services.resources.impl.JCRResourceBundleServiceImpl</type>

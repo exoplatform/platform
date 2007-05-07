@@ -18,7 +18,7 @@
       <artifactId>exo.kernel.component.common</artifactId>
       <version>${org.exoplatform.kernel.version}</version>
     </dependency>
-
+    
     <dependency>
       <groupId>org.exoplatform.kernel</groupId>
       <artifactId>exo.kernel.component.command</artifactId>
@@ -47,6 +47,12 @@
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.document</artifactId>
       <version>${org.exoplatform.core.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.jcrext</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
     </dependency>
 
     <dependency>
