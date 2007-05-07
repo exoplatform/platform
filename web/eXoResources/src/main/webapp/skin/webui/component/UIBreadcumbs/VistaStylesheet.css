@@ -15,6 +15,7 @@
 
 .UIBreadcumbs a.Selected {
 	color: #3c3c3c ; 
+	font-size:11px;
 }
 
 .UIBreadcumbs .HomeIcon {
