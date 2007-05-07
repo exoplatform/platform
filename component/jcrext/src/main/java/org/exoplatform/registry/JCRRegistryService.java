@@ -5,7 +5,6 @@
 package org.exoplatform.registry;
 
 import javax.jcr.Node;
-import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
