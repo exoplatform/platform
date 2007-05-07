@@ -5,21 +5,21 @@
   <access-groups>/guest</access-groups>  
   <page-nodes>
     <node>
-      <uri>home</uri>
+      <uri>site::home</uri>
       <name>home</name>
       <label>Home</label>
       <page-reference>portal::site::content</page-reference>
     </node> 
     
     <node>
-      <uri>register</uri>
+      <uri>site::register</uri>
       <name>register</name>
       <label>Register</label>
       <page-reference>portal::site::register</page-reference>
     </node>
     
     <node>
-      <uri>site</uri>
+      <uri>site::sitemap</uri>
       <name>sitemap</name>
       <label>Site Map</label>
       <page-reference>portal::site::sitemap</page-reference>

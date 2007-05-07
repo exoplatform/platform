@@ -6,7 +6,7 @@
   
   <component>
     <key>org.exoplatform.services.resources.ResourceBundleService</key>
-    <type>org.exoplatform.services.resources.impl.JCRResourceBundleServiceImpl</type>
+    <type>org.exoplatform.services.resources.impl.jcr.JCRResourceBundleServiceImpl</type>
     <init-params>
       <values-param>
         <name>classpath.resources</name>

@@ -6,19 +6,19 @@
   
   <page-nodes>
     <node>
-      <uri>company</uri>
+      <uri>/portal/company::company</uri>
       <label>Company</label>
       <page-reference>group::company::home</page-reference>
     </node>
     
     <node>
-      <uri>organization</uri>
+      <uri>/portal/company::organization</uri>
       <label>Organization</label>
       <page-reference>group::company::organization</page-reference>
     </node>
     
     <node>
-      <uri>myaccount</uri>
+      <uri>/portal/company::myaccount</uri>
       <label>My Account</label>
       <page-reference>group::company::myaccount</page-reference>
     </node>       

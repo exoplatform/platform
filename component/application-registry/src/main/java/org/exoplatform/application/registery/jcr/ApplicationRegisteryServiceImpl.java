@@ -45,16 +45,19 @@ public class ApplicationRegisteryServiceImpl implements ApplicationRegisteryServ
   
   public List<ApplicationCategory> getApplicationCategories() throws Exception {
     List<ApplicationCategory> lists = new ArrayList<ApplicationCategory>();
-    NodeIterator iterator = jcrRegService_.getApplicationRegistryNode(APPLLICATION_NAME).getNodes();
+    Session session = jcrRegService_.getSession();
+    NodeIterator iterator = jcrRegService_.getApplicationRegistryNode(session, APPLLICATION_NAME).getNodes();
     while(iterator.hasNext()) {
       Node node = iterator.nextNode();
       lists.add(mapper.nodeToApplicationCategory(node));
     }
+    session.logout();
     return lists;
   }
   
   public void save(ApplicationCategory category) throws Exception {
-    Node root = jcrRegService_.getApplicationRegistryNode(APPLLICATION_NAME);
+    Session session = jcrRegService_.getSession();
+    Node root = jcrRegService_.getApplicationRegistryNode(session, APPLLICATION_NAME);
     category.setName(category.getName().replace(' ', '_'));
     Node node = null;
     if(root.hasNode(category.getName())){
@@ -65,29 +68,34 @@ public class ApplicationRegisteryServiceImpl implements ApplicationRegisteryServ
     }
     mapper.applicationCategoryToNode(category, node);
     node.save();
-    getSession().save();
+    session.save();
+    session.logout();
   }
   
   public void remove(ApplicationCategory category) throws Exception {
-    Node root = jcrRegService_.getApplicationRegistryNode(APPLLICATION_NAME);
+    Session session = jcrRegService_.getSession();
+    Node root = jcrRegService_.getApplicationRegistryNode(session, APPLLICATION_NAME);
     if(!root.hasNode(category.getName()))  return ; 
     Node node = root.getNode(category.getName()); 
     node.remove();
     root.save();
-    getSession().save();
+    session.save();
+    session.logout();   
   }
 
   public ApplicationCategory getApplicationCategory(String name) throws Exception {
-    Node node = jcrRegService_.getApplicationRegistryNode(APPLLICATION_NAME);
-    if(node.hasNode(name)) { 
-      return mapper.nodeToApplicationCategory(node.getNode(name));
-    }
-    return null;
+    Session session = jcrRegService_.getSession();
+    Node node = jcrRegService_.getApplicationRegistryNode(session, APPLLICATION_NAME);
+    ApplicationCategory  category = null;
+    if(node.hasNode(name)) category = mapper.nodeToApplicationCategory(node.getNode(name));
+    session.logout();
+    return category;
   }
 
   public List<Application> getApplications(ApplicationCategory category) throws Exception {
     List<Application> list = new ArrayList<Application>();
-    Node root = jcrRegService_.getApplicationRegistryNode(APPLLICATION_NAME);
+    Session session = jcrRegService_.getSession();
+    Node root = jcrRegService_.getApplicationRegistryNode(session, APPLLICATION_NAME);
     if(!root.hasNode(category.getName())) return list; 
     Node categoryNode = root.getNode(category.getName());
     NodeIterator iterator  = categoryNode.getNodes();
@@ -95,22 +103,30 @@ public class ApplicationRegisteryServiceImpl implements ApplicationRegisteryServ
       Node portletNode = iterator.nextNode();
       list.add(mapper.nodeToApplication(portletNode));
     }
+    session.logout();
     return list;
   }
 
   public Application getApplication(String id) throws Exception {
     String [] components = id.split("/");
     if(components.length < 2) return null;
-    Node node = getApplicationNode(components[0], components[1]);
-    if(node != null) return mapper.nodeToApplication(node);
-    return null;
+    Session session = jcrRegService_.getSession();
+    Node node = getApplicationNode(session, components[0], components[1]);
+    Application application = null;
+    if(node != null) application = mapper.nodeToApplication(node);
+    return application;
+  }
+  
+  public void save(ApplicationCategory category, Application application) throws Exception {
+    Session session = jcrRegService_.getSession();
+    save(session, category, application);
   }
 
-  public void save(ApplicationCategory category, Application application) throws Exception {
+  private void save(Session session, ApplicationCategory category, Application application) throws Exception {
     application.setId(category.getName() + "/" + application.getApplicationName().replace(' ', '_'));
     application.setCategoryName(category.getName());
     
-    Node rootNode = jcrRegService_.getApplicationRegistryNode(APPLLICATION_NAME);
+    Node rootNode = jcrRegService_.getApplicationRegistryNode(session, APPLLICATION_NAME);
     Node categoryNode ;
     if(rootNode.hasNode(category.getName())) { 
       categoryNode = rootNode.getNode(category.getName());
@@ -118,34 +134,38 @@ public class ApplicationRegisteryServiceImpl implements ApplicationRegisteryServ
       categoryNode = rootNode.addNode(category.getName(), CATEGORY_NODE_TYPE);
       mapper.applicationCategoryToNode(category, categoryNode);
       rootNode.save();
-      getSession().save();
+      session.save();
     }
     
     if(categoryNode.hasNode(application.getApplicationName())) {
       update(application);
+      session.logout();
       return;
     }
     Node portletNode = categoryNode.addNode(application.getApplicationName(), APPLICATION_NODE_TYPE);
     mapper.applicationToNode(application, portletNode);
     categoryNode.save();
-    getSession().save();
+    session.save();
+    session.logout();
   }
 
   public void remove(Application application) throws Exception {
-    Node node = getApplicationNode(application.getCategoryName(), application.getApplicationName());
+    Session session = jcrRegService_.getSession();
+    Node node = getApplicationNode(session, application.getCategoryName(), application.getApplicationName());
     if(node == null) return ;
     Node categoryNode = node.getParent();
     node.remove();
     categoryNode.save();
-    getSession().save();
+    session.save();
   }
 
   public void update(Application application) throws Exception {
-    Node node = getApplicationNode(application.getCategoryName(), application.getApplicationName());
+    Session session = jcrRegService_.getSession();
+    Node node = getApplicationNode(session, application.getCategoryName(), application.getApplicationName());
     if(node == null) return ;
     mapper.applicationToNode(application, node);
     node.save();
-    getSession().save();
+    session.save();
   }
   
   public List<ApplicationCategory> getApplicationCategories(String accessUser) throws Exception {
@@ -157,6 +177,8 @@ public class ApplicationRegisteryServiceImpl implements ApplicationRegisteryServ
     PortletContainerMonitor monitor =
       (PortletContainerMonitor) manager.getComponentInstanceOfType(PortletContainerMonitor.class) ;
     Collection portletDatas = monitor.getPortletRuntimeDataMap().values();  
+    
+    Session session = jcrRegService_.getSession();
     
     Iterator iterator = portletDatas.iterator();
     while(iterator.hasNext()) {
@@ -174,7 +196,7 @@ public class ApplicationRegisteryServiceImpl implements ApplicationRegisteryServ
         save(category);
       }
 
-      Node portletNode = getApplicationNode(category.getName(), portletName);
+      Node portletNode = getApplicationNode(session, category.getName(), portletName);
       if(portletNode != null)  continue;
       Application portlet = new Application();
       portlet.setApplicationName(portletName);
@@ -182,12 +204,12 @@ public class ApplicationRegisteryServiceImpl implements ApplicationRegisteryServ
       portlet.setApplicationType("jsr168-portlet");
       portlet.setDescription("jsr168 portlet application");
       portlet.setDisplayName(portletName);
-      save(category, portlet);
+      save(session, category, portlet);
     }
   }
     
-  private Node getApplicationNode(String category, String name) throws Exception {
-    Node node = jcrRegService_.getApplicationRegistryNode(APPLLICATION_NAME);
+  private Node getApplicationNode(Session session, String category, String name) throws Exception {
+    Node node = jcrRegService_.getApplicationRegistryNode(session, APPLLICATION_NAME);
     if(!node.hasNode(category))  return null; 
     node = node.getNode(category);
     if(node.hasNode(name)) return node.getNode(name);
@@ -195,19 +217,14 @@ public class ApplicationRegisteryServiceImpl implements ApplicationRegisteryServ
   }
 
   public void clearAllRegistries() throws Exception {    
-    Node homeNode = jcrRegService_.getApplicationRegistryNode(APPLLICATION_NAME);
+    Session session = jcrRegService_.getSession();
+    Node homeNode = jcrRegService_.getApplicationRegistryNode(session, APPLLICATION_NAME);
     Node parentNode = homeNode.getParent();
     homeNode.remove();
     parentNode.save();
-    getSession().save();
     parentNode.addNode(APPLICATION_NODE_TYPE);
     parentNode.save();
-    getSession().save();
+    session.save();
   }
   
-  private javax.jcr.Session getSession() throws Exception{
-    RepositoryService repoService = (RepositoryService)PortalContainer.getComponent(RepositoryService.class) ;    
-    Session session = repoService.getRepository().getSystemSession(SYSTEM_WS) ;  
-    return session;
-  }
 }

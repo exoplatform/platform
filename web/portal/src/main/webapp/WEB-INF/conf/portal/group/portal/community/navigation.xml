@@ -6,13 +6,13 @@
   
   <page-nodes>
     <node>
-      <uri>site</uri>
+      <uri>/portal/community::site</uri>
       <label>Website</label>
       <page-reference>group::community::home</page-reference>
     </node>    
       
     <node>
-      <uri>management</uri>
+      <uri>/portal/community::management</uri>
       <label>Management</label>
       <page-reference>group::community::management</page-reference>
     </node>    

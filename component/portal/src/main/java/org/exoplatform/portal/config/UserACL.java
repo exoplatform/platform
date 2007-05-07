@@ -5,6 +5,8 @@
 package org.exoplatform.portal.config;
 
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,6 +30,8 @@ class UserACL {
   
   private String viewMembershipType_ ;
   private String editMembershipType_ ;
+  
+  private String superUser_;
 
   UserACL(InitParams params, OrganizationService  orgService) throws Exception {
     this.orgService_ = orgService;
@@ -39,6 +43,10 @@ class UserACL {
     valueParam = params.getValueParam("edit.membership.type");
     if(valueParam != null) editMembershipType_ = valueParam.getValue();
     if(editMembershipType_ == null || editMembershipType_.trim().length() == 0) editMembershipType_ = "owner";
+    
+    valueParam = params.getValueParam("super.user");
+    if(valueParam != null) superUser_ = valueParam.getValue();
+    if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "exoadmin";
   }
   
   String getViewMembershipType() { return viewMembershipType_ ; }
@@ -55,7 +63,13 @@ class UserACL {
       iterator.remove();
     }
     
-    for(int i = 0; i < navs.size(); i++) {
+    Collections.sort(navs, new Comparator<PageNavigation>(){
+      public int compare(PageNavigation nav1, PageNavigation nav2) {
+        return nav1.getPriority() - nav2.getPriority();
+      }
+    });
+    
+    /*for(int i = 0; i < navs.size(); i++) {
       Iterator<PageNode> nodeIterator = navs.get(i).getNodes().iterator();
       while(nodeIterator.hasNext()){
         PageNode node = nodeIterator.next();
@@ -74,7 +88,7 @@ class UserACL {
           }          
         }
       }
-    }
+    }*/
     
   }  
   
@@ -111,6 +125,7 @@ class UserACL {
   
   boolean hasPermission(String owner, String remoteUser, String groupId, String mt) throws Exception {
     if(owner != null && owner.equals(remoteUser)) return true;
+    if(superUser_.equals(remoteUser)) return true;
     groupId = groupId.trim();
     if("/guest".equals(groupId)) return true ;
 

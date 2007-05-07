@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
+import javax.jcr.Session;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 
@@ -44,17 +45,21 @@ public class JCRResourceBundleServiceImpl extends BaseResourceBundleService {
     log_ = lservice.getLog("org.exoplatform.services.resources");
     localeService_ = localeService;
     cache_ = cService.getCacheInstance(ResourceBundleData.class.getName());
-    initParams(params);
     
     jcrRegService_ = jcrRegService; 
     jcrRegService_.createServiceRegistry(new ServiceRegistry(APPLLICATION_NAME), false);
+    
+    initParams(params);
   }
 
   private ResourceBundleData getResourceBundleDataFromDB(String id) throws Exception {
-    Node rootNode = jcrRegService_.getServiceRegistryNode(APPLLICATION_NAME);
+    Session session  = jcrRegService_.getSession();
+    Node rootNode = jcrRegService_.getServiceRegistryNode(session, APPLLICATION_NAME);
     if(!rootNode.hasNode(id)) return null;
     Node node = rootNode.getNode(id);
-    return mapper_.nodeToResourceBundleData(node);
+    ResourceBundleData resource = mapper_.nodeToResourceBundleData(node);
+    session.logout();
+    return resource;
   }
 
   public ResourceBundleData getResourceBundleData(String id) throws Exception {
@@ -66,13 +71,15 @@ public class JCRResourceBundleServiceImpl extends BaseResourceBundleService {
   }
   
   public ResourceBundleData removeResourceBundleData(String id) throws Exception {
-    Node rootNode = jcrRegService_.getServiceRegistryNode(APPLLICATION_NAME);
+    Session session  = jcrRegService_.getSession();
+    Node rootNode = jcrRegService_.getServiceRegistryNode(session, APPLLICATION_NAME);
     if(!rootNode.hasNode(id)) return null;
     Node node = rootNode.getNode(id);
     ResourceBundleData data = mapper_.nodeToResourceBundleData(node);
     node.remove();
     rootNode.save();
-    jcrRegService_.getSession().save();
+    session.save();
+    session.logout();
     removeResourceBundleDataCache(id);
     return data;
   }
@@ -91,8 +98,8 @@ public class JCRResourceBundleServiceImpl extends BaseResourceBundleService {
       generateScript(builder, "name", name);
       generateScript(builder, "language", q.getLanguage());
     }
-    
-    QueryManager queryManager = jcrRegService_.getSession().getWorkspace().getQueryManager() ;
+    Session session = jcrRegService_.getSession();
+    QueryManager queryManager = session.getWorkspace().getQueryManager() ;
     javax.jcr.query.Query query = queryManager.createQuery(builder.toString(), "sql") ;
     QueryResult queryResult = query.execute() ;
     ArrayList<Object> list = new ArrayList<Object>();
@@ -101,7 +108,7 @@ public class JCRResourceBundleServiceImpl extends BaseResourceBundleService {
       ResourceBundleData data = mapper_.nodeToResourceBundleData(iterator.nextNode());
       list.add(data);
     }
-    
+    session.logout();
     return new ObjectPageList(list, 20);
   }
   
@@ -112,7 +119,8 @@ public class JCRResourceBundleServiceImpl extends BaseResourceBundleService {
   }
   
   public void saveResourceBundle(ResourceBundleData data) throws Exception {
-    Node rootNode = jcrRegService_.getServiceRegistryNode(APPLLICATION_NAME);
+    Session session  = jcrRegService_.getSession();
+    Node rootNode = jcrRegService_.getServiceRegistryNode(session, APPLLICATION_NAME);
     Node resourceNode = null;
     if(rootNode.hasNode(data.getId())){
       resourceNode = rootNode.getNode(data.getId());
@@ -124,16 +132,19 @@ public class JCRResourceBundleServiceImpl extends BaseResourceBundleService {
       rootNode.save();
     }
     cache_.select(new ExpireKeyStartWithSelector(data.getId())) ;
-    jcrRegService_.getSession().save();
+    session.save();
+    session.logout();
   }
   
   protected ResourceBundle getResourceBundleFromDb(String id, ResourceBundle parent, Locale locale) throws Exception {
-    Node rootNode = jcrRegService_.getServiceRegistryNode(APPLLICATION_NAME);
+    Session session  = jcrRegService_.getSession();
+    Node rootNode = jcrRegService_.getServiceRegistryNode(session, APPLLICATION_NAME);
     if(!rootNode.hasNode(id)) return null;
     Node node = rootNode.getNode(id);
     ResourceBundleData data = mapper_.nodeToResourceBundleData(node);
     ResourceBundle res = new ExoResourceBundle(data.getData(), parent);
     MapResourceBundle mres = new MapResourceBundle(res, locale) ;
+    session.logout();
     return mres;
   }
   

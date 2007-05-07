@@ -13,7 +13,7 @@ public class JCRRegistryService  {
   
   public final static String WORKSPACE = "production".intern();
   
-  private RepositoryService repositoryService ;
+  private RepositoryService repositoryService_ ;
   
   /**
    * The constructor should:
@@ -27,7 +27,7 @@ public class JCRRegistryService  {
    * @throws Exception
    */
   public JCRRegistryService(RepositoryService repoService) throws Exception {
-    this.repositoryService = repoService ;
+    this.repositoryService_ = repoService ;
     
     Session session = getSession();
     Node exoRegistry = getNode(session.getRootNode(), "exo:registry", true) ;
@@ -46,10 +46,10 @@ public class JCRRegistryService  {
   }
   
   public Session getSession() throws Exception{
-    return repositoryService.getRepository().getSystemSession(WORKSPACE);
+    return repositoryService_.getRepository().getSystemSession(WORKSPACE);
   }
   
-  public RepositoryService  getJCRRepositoryService() { return repositoryService ; }
+  public RepositoryService  getJCRRepositoryService() { return repositoryService_ ; }
   
   /**
    * This method should: 
@@ -109,24 +109,23 @@ public class JCRRegistryService  {
     app.postAction(this, node) ;
   }
   
-  public Node getUserNode(String userName) throws Exception{
-    Session session = getSession();
-    if(session.getRootNode().hasNode("users/" + userName)){
+  private Node getUserNode(Session session, String userName) throws Exception{
+    if(session.getRootNode().hasNode("users/" + userName)) {
       return session.getRootNode().getNode("users/" + userName);
     }
     return null;
   }
   
-  public Node getApplicationRegistryNode(String appName) throws Exception {
-    Node appNode = getSession().getRootNode().getNode("exo:registry/exo:applications");
+  public Node getApplicationRegistryNode(Session session, String appName) throws Exception {
+    Node appNode = session.getRootNode().getNode("exo:registry/exo:applications");
     if(appNode.hasNode(appName)) {
       return appNode.getNode(appName);
     }
     return null;
   }
   
-  public Node getApplicationRegistryNode(String userName, String appName) throws Exception {
-    Node userNode  = getUserNode(userName);
+  public Node getApplicationRegistryNode(Session session, String userName, String appName) throws Exception {
+    Node userNode = getUserNode(session, userName);
     if(userNode == null) return null;
     if( userNode.hasNode("exo:registry/exo:applications/" + appName)){
       return userNode.getNode("exo:registry/exo:applications/" + appName);
@@ -212,7 +211,7 @@ public class JCRRegistryService  {
    */
   public void createApplicationRegistry(String username, ApplicationRegistry desc, boolean overwrite) throws Exception {
     desc.preAction(null) ;
-    Session session = repositoryService.getRepository().getSystemSession(WORKSPACE);
+    Session session = repositoryService_.getRepository().getSystemSession(WORKSPACE);
     Node appsNode = session.getRootNode().getNode("users/" +username +"/exo:registry/exo:applications");
     if( appsNode.hasNode(desc.getName())){
       if(!overwrite){
@@ -229,18 +228,18 @@ public class JCRRegistryService  {
     desc.postAction(this, node) ;
   }
   
-  public Node getServiceRegistryNode(String appName) throws Exception {
-    Node appNode = getSession().getRootNode().getNode("exo:registry/exo:services");
+  public Node getServiceRegistryNode(Session session,  String appName) throws Exception {
+    Node appNode = session.getRootNode().getNode("exo:registry/exo:services");
     if(appNode.hasNode(appName)) {
       return appNode.getNode(appName);
     }
     return null;
   }
   
-  public Node getServiceRegistryNode(String userName, String appName) throws Exception {
-    Node userNode  = getUserNode(userName);
+  public Node getServiceRegistryNode(Session session, String userName, String appName) throws Exception {
+    Node userNode  = getUserNode(session, userName);
     if(userNode == null) return null;
-    if( userNode.hasNode("exo:registry/exo:services/" + appName)){
+    if( userNode.hasNode("exo:registry/exo:services/" + appName)) {
       return userNode.getNode("exo:registry/exo:services/" + appName);
     }
     return null;

@@ -4,74 +4,68 @@
   <owner-id>/portal/admin</owner-id>
   <access-groups>/portal/admin</access-groups>
   
-  <page-nodes>
+  <page-nodes>   
     <node>
-      <uri>home</uri>
-      <label>Home</label>      
-      <page-reference>group::/portal/admin::web</page-reference>
-    </node>      
-    
-    <node>
-      <uri>administration</uri>
+      <uri>/portal/admin::administration</uri>
       <label>Administration</label>     
       <page-reference>group::/portal/admin::administration</page-reference>
       
       <node>
-        <uri>administration/portletregistry</uri>
+        <uri>/portal/admin::administration/portletregistry</uri>
         <label>Portlet Registry</label>
         <page-reference>group::/portal/admin::portletregistry</page-reference>
       </node>
     </node> 
 
     <node>
-      <uri>ecm</uri>
+      <uri>/portal/admin::ecm</uri>
       <label>ECM</label>
       <page-reference>group::/portal/admin::ecmdesktop</page-reference>
       
       <node>
-        <uri>ecm/ecmadmin</uri>
+        <uri>/portal/admin::ecm/ecmadmin</uri>
         <label>ECMAdmin</label>
         <page-reference>group::/portal/admin::ecmadmin</page-reference>
       </node>
 
       <node>
-        <uri>ecm/jcrexplorer</uri>
+        <uri>/portal/admin::ecm/jcrexplorer</uri>
         <label>JCRExplorer</label>
         <page-reference>group::/portal/admin::jcrexplorer</page-reference>
       </node>
       
       <node>
-        <uri>ecm/browsecontent</uri>
+        <uri>/portal/admin::ecm/browsecontent</uri>
         <label>Browse Content</label>
         <page-reference>group::/portal/admin::browsecontent</page-reference>
       </node>
       
       <node>
-        <uri>workflow/controller</uri>
+        <uri>/portal/admin::workflow/controller</uri>
         <label>Workflow Controller</label>
         <page-reference>group::/portal/admin::workflowcontroller</page-reference>
       </node>
       
       <node>
-        <uri>workflow/monitoring</uri>
+        <uri>/portal/admin::workflow/monitoring</uri>
         <label>Workflow Monitoring</label>
         <page-reference>group::/portal/admin::workflowmonitoring</page-reference>
       </node>
     </node>
     
     <node>
-      <uri>groupware</uri>
+      <uri>/portal/admin::groupware</uri>
       <label>GROUPWARE</label>
       <page-reference>group::/portal/admin::groupwaredesktop</page-reference>
       
       <node>
-        <uri>groupware/forum</uri>
+        <uri>/portal/admin::groupware/forum</uri>
         <label>Forum</label>
         <page-reference>group::/portal/admin::forum</page-reference>
       </node>
 
       <node>
-        <uri>groupware/mail</uri>
+        <uri>/portal/admin::groupware/mail</uri>
         <label>Mail</label>
         <page-reference>group::/portal/admin::mail</page-reference>
       </node>

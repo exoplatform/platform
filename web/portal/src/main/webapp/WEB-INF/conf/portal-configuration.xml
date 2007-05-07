@@ -18,7 +18,12 @@
         <name>edit.membership.type</name>
         <description>membership type for view</description>
         <value>member</value>	    
-      </value-param>     
+      </value-param>  
+      <value-param>
+        <name>super.user</name>
+        <description>administrator</description>
+        <value>exoadmin</value>	    
+      </value-param>    
 	  </init-params>             
   </component>     
   <external-component-plugins>  

@@ -166,7 +166,7 @@ public class UserPortalConfigService {
    */
   public void remove(Page page) throws Exception {    
     storage_.remove(page) ;
-    pageConfigCache_.remove(page.getId());
+    pageConfigCache_.remove(page.getPageId());
   }
   /**
    * This method should create the given page object
@@ -175,7 +175,7 @@ public class UserPortalConfigService {
    */
   public void create(Page page) throws Exception {
     storage_.create(page) ;
-    pageConfigCache_.put(page.getId(), page);
+    pageConfigCache_.put(page.getPageId(), page);
   }
   
   /**
@@ -185,7 +185,7 @@ public class UserPortalConfigService {
    */
   public void update(Page page) throws Exception {
     storage_.save(page) ;
-    pageConfigCache_.select(new ExpireKeyStartWithSelector(page.getId())) ;
+    pageConfigCache_.select(new ExpireKeyStartWithSelector(page.getPageId())) ;
   }
 
 //**************************************************************************************************
