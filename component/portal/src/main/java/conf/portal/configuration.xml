@@ -7,7 +7,7 @@
   
   <component>
     <key>org.exoplatform.portal.config.DataStorage</key>
-    <type>org.exoplatform.portal.config.jcr.DataStorageImpl</type>     
+    <type>org.exoplatform.portal.config.jcr.DataStorageImpl2</type>     
   </component>
   
   <component>

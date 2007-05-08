@@ -34,6 +34,7 @@ public class JCRRegistryService  {
     getNode(exoRegistry, "exo:applications", true);
     getNode(exoRegistry, "exo:services", true);
     getNode(session.getRootNode(), "users", true);
+    getNode(session.getRootNode(), "groups", true);
     session.logout() ;
   }
   
