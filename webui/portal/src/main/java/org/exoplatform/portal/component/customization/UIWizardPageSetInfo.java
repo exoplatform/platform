@@ -48,7 +48,7 @@ public class UIWizardPageSetInfo extends UIForm {
     
     UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
     uiTree.setUIRightClickPopupMenu(null);
-    uiPageNodeSelector.removeChild(UIRightClickPopupMenu.class);
+    uiPageNodeSelector.removeChild(UIRightClickPopupMenu.class);    
   } 
   
   public void setEditPageNode(boolean value){

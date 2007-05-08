@@ -9,7 +9,7 @@
 	  <node>
 	    <uri>exoadmin::/sitemap</uri>
 	    <label>Site Map</label>
-	    <page-reference>user::sitemap::sitemap</page-reference>
+	    <page-reference>user::exoadmin::sitemap</page-reference>
 	  </node>   
   </page-nodes>
 </node-navigation>

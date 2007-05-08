@@ -17,12 +17,5 @@
       <label>Register</label>
       <page-reference>portal::site::register</page-reference>
     </node>
-    
-    <node>
-      <uri>site::sitemap</uri>
-      <name>sitemap</name>
-      <label>Site Map</label>
-      <page-reference>portal::site::sitemap</page-reference>
-    </node>
   </page-nodes>
 </node-navigation>
