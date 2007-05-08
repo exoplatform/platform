@@ -20,7 +20,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
   template = "system:/groovy/organization/webui/component/UIPermissionSelector.gtmpl",
   events = @EventConfig (listeners = UIPermissionSelector.SelectMembershipActionListener.class)
 )
-public class UIPermissionSelector extends UISelector { 
+public class UIPermissionSelector extends UISelector {
   
 //  private List<Permission> permissions_ ;
   

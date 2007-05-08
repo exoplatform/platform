@@ -9,6 +9,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.organization.webui.component.UIGroupMembershipSelector;
+import org.exoplatform.organization.webui.component.UIAccessGroup;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
@@ -21,11 +23,14 @@ import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTabPane;
+import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
@@ -84,14 +89,14 @@ public class UIPortalForm extends UIFormTabPane {
     uiSelectBox.setValue(uiPortal.getSkin());
     uiSelectBox.setEnable(false);
     uiSettingSet.addUIFormInput(uiSelectBox);
-    addUIFormInput(uiSettingSet);    
+    addUIFormInput(uiSettingSet);
     uiSettingSet.getUIFormSelectBox("locale").setEnable(false);
     WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
-    WebuiApplication app  = (WebuiApplication)currReqContext.getApplication() ; 
-    List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);    
+    WebuiApplication app  = (WebuiApplication)currReqContext.getApplication() ;
+    List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);
     
     List<SelectItemCategory>  itemCategories = new ArrayList<SelectItemCategory>();
-    for(Component ele : configs){      
+    for(Component ele : configs) {
       String id =  ele.getId();
       if(id == null) id = DEFAULT_FACTORY_ID;
       StringBuilder builder = new StringBuilder(id);
@@ -103,7 +108,7 @@ public class UIPortalForm extends UIFormTabPane {
       List<SelectItemOption<String>> items = new ArrayList<SelectItemOption<String>>() ;
       category.setSelectItemOptions(items);
       SelectItemOption<String> item = new SelectItemOption<String>(id, id, "Portal"+upId);
-      items.add(item);     
+      items.add(item);
     }  
     
     UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
@@ -111,16 +116,19 @@ public class UIPortalForm extends UIFormTabPane {
     uiFactoryId.setRendered(false);
     addUIFormInput(uiFactoryId);
     
-//    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, null);
-//    uiPermissionSelector.configure("Permission", null, null) ;
-//    uiPermissionSelector.setRendered(false);
-//    addUIComponentInput(uiPermissionSelector) ;
+    UIAccessGroup uiAccessGroup = createUIComponent(UIAccessGroup.class, null, "UIAccessGroup");
+    uiAccessGroup.setRendered(false);
+    addUIComponentInput(uiAccessGroup);
+    uiAccessGroup.configure("AccessGroup", "accessGroup");
   }
   
   public PortalConfig getPortalConfig() { return portalConfig_; }
   
   public void processRender(WebuiRequestContext context) throws Exception {
-    super.processRender(context);   
+    super.processRender(context);
+    
+    UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
+    if(uiAccessGroup == null) return;
        
 //    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
 //    if(uiPermissionSelector == null) return;
@@ -163,6 +171,12 @@ public class UIPortalForm extends UIFormTabPane {
       UIMaskWorkspace uiMaskWorkspace = uiForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
+    }
+  }
+  
+  static  public class ChangeNodeActionListener extends EventListener<UIPortalForm> {   
+    public void execute(Event<UIPortalForm> event) throws Exception {
+      System.out.println("\n\n\n\n\n ChangeNodeActionListener PortalForm \n\n\n\n\n");
     }
   }
 

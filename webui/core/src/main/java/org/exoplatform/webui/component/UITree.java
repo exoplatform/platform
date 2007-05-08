@@ -163,7 +163,8 @@ public class UITree extends UIComponent {
   }
   
   static  public class ChangeNodeActionListener extends EventListener<UITree> {    
-    public void execute(Event<UITree> event) throws Exception {   
+    public void execute(Event<UITree> event) throws Exception {
+      System.out.println("\n\n\n\n\n\n   ChangeNodeActionListener TREe   \n\n\n\n\n\n");
       event.getSource().<UIComponent>getParent().broadcast(event, Event.Phase.PROCESS) ;      
     }
   }

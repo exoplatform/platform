@@ -1,0 +1,31 @@
+<%
+  import org.exoplatform.webui.component.UIFormPopupWindow;
+  import org.exoplatform.webui.component.UIGrid;
+  
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
+%>
+<div class="UIAccessGroup">
+  <% 
+    uicomponent.renderChild(UIGrid.class);
+    //uicomponent.renderChild(UIFormPopupWindow.class);
+  %>
+  
+  <div class="UIAction">
+    <div class="ActionContainer">
+      <div class="ActionButton">
+        <div class="LightBlueStyle">
+          <div class="ButtonLeft">
+            <div class="ButtonRight">
+              <div class="ButtonMiddle">
+                <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIFormPopupWindow.class).getId();%>');">
+							    Select Permission
+							  </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

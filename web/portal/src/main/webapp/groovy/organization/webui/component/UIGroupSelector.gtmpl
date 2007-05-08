@@ -1,0 +1,14 @@
+<% 
+  import  org.exoplatform.webui.component.UIBreadcumbs; 
+  import  org.exoplatform.webui.component.UITree; 
+%>
+
+<div class="UIGroupSelector" id="$uicomponent.id">
+	<div class="SelectedGroupPath"><% uicomponent.renderChild(UIBreadcumbs.class); %></div>
+  <div style="float: left">
+    <%uicomponent.renderChild(UITree.class);%>
+  <div>
+    This is Description
+  </div>
+  <div style="clear: left"><span></span></div>
+</div> 		
