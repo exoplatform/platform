@@ -5,13 +5,13 @@
 
 .UIPopupWindow .PopupTitleIcon {
   float: left;
-  margin-top: 5px; margin-left: 3px;
+  margin-top: 9px; margin-left: 3px;
   width: 16px; height: 16px;
   background: url('DefaultSkin/background/PopupWindowIcon16x16.gif') no-repeat;
 }
 
 .UIPopupWindow .PopupTitle {
-  margin-top: 4px; 
+  margin-top: 6px; 
   text-align: center;
   font-weight: bold; font-size: 11px;
   line-height: 20px; vertical-align: middle;
@@ -20,32 +20,32 @@
 
 .UIPopupWindow .CloseButton {
   float: right;
-  margin-top: 2px;
+  margin-top: 4px;
   cursor: pointer;
   width: 40px; height: 22px;
   background: url('VistaSkin/background/CloseMessage.png') no-repeat;
 }
 
 .UIPopupWindow .TopLeftCornerDecorator {
-  background: url('../UIWindow/VistaSkin/background/LeftTopBar11x25.png') no-repeat left top;
-  height: 25px;
-  padding-left: 11px;
+  background: url('../UIWindow/VistaSkin/background/LeftTopBar12x29.png') no-repeat left top;
+  height: 29px;
+  padding-left: 12px;
 }
 
 .UIPopupWindow .TopCenterDecorator {
-  background: url('../UIWindow/VistaSkin/background/CenterTopBar1x25.png') repeat-x top;
-  height: 25px;
+  background: url('../UIWindow/VistaSkin/background/CenterTopBar1x29.png') repeat-x top;
+  height: 29px;
 }
 
 .UIPopupWindow .TopRightCornerDecorator {
-  background: url('../UIWindow/VistaSkin/background/RightTopBar16x25.png') no-repeat right top;
-  height: 25px;
+  background: url('../UIWindow/VistaSkin/background/RightTopBar16x29.png') no-repeat right top;
+  height: 29px;
   padding-right: 16px;
 }
 
 .UIPopupWindow .MiddleLeftSideDecorator {
-  background: url('../UIWindow/VistaSkin/background/LeftMiddleDecorator9x1.png') repeat-y left;
-  padding-left: 9px ;  
+  background: url('../UIWindow/VistaSkin/background/LeftMiddleDecorator12x1.png') repeat-y left;
+  padding-left:12px ;  
 }
 
 .UIPopupWindow .MiddleCenterDecorator {
@@ -83,8 +83,8 @@
 }
 
 .UIPopupWindow .BottomLeftCornerDecorator {
-  background: url('VistaSkin/background/BottomMessagesL9x24.png') no-repeat left bottom;
-  padding-left: 9px;
+  background: url('VistaSkin/background/BottomMessagesL12x24.png') no-repeat left bottom;
+  padding-left: 12px;
 }
 
 .UIPopupWindow .BottomCenterDecorator {
