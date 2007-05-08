@@ -56,6 +56,7 @@ public class PageNode  {
     newNode.setUri(uri);
     newNode.setLabel(label);
     newNode.setIcon(icon);
+    newNode.setName(name);
     newNode.setPageReference(pageReference);
     newNode.setModifiable(modifiable);
     if(children == null || children.size() < 1) return newNode;

@@ -112,6 +112,8 @@ public class PageNavigation {
     newNav.setAccessGroup(accessGroup);
     newNav.setModifiable(modifiable);
     newNav.setDescription(description);
+    newNav.setCreator(creator);
+    newNav.setModifier(modifier);
 
     if(pageNodes == null || pageNodes.size() < 1) return newNav;
     for(PageNode ele : pageNodes) {

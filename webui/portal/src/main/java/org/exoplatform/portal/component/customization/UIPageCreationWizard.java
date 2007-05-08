@@ -68,14 +68,22 @@ public class UIPageCreationWizard extends UIPageWizard {
     
     UIPagePreview uiPagePreview = getChild(UIPagePreview.class);
     UIPage uiPage = (UIPage)uiPagePreview.getUIComponent();
-    Page page = PortalDataModelUtil.toPageModel(uiPage);
-    daoService.save(page); 
     
     UIWizardPageSetInfo uiPageInfo = getChild(UIWizardPageSetInfo.class);  
     UIPageNodeSelector uiNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);      
     PageNode selectedNode = uiNodeSelector.getSelectedPageNode();
     PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();
     
+    String remoteUser = Util.getPortalRequestContext().getRemoteUser();
+    String ownerType = "user";
+    String ownerId = remoteUser;
+    
+    if(pageNav != null) {
+      ownerType = pageNav.getOwnerType();
+      ownerId = pageNav.getOwnerId();
+    }
+    
+    Page page = PortalDataModelUtil.toPageModel(uiPage);
     PageNode pageNode = uiPageInfo.getPageNode();
     pageNode.setPageReference(page.getPageId());
     if(selectedNode != null){
@@ -92,12 +100,22 @@ public class UIPageCreationWizard extends UIPageWizard {
         if(navs == null) navs = new ArrayList<PageNavigation>();         
         navs.add(pageNav);
         Util.getUIPortal().setNavigation(navs);
+        pageNav.setOwnerType(ownerType);
+        pageNav.setOwnerId(ownerId);
       }
       pageNav.addNode(pageNode);
-      pageNode.setUri(pageNode.getName());        
+      pageNode.setUri(pageNode.getName());
     }
     uiNodeSelector.selectPageNodeByUri(pageNode.getUri());
-    daoService.save(pageNav);
+    page.setOwnerType(ownerType);
+    page.setOwnerId(ownerId);
+   
+    daoService.create(page); 
+    if(daoService.getPageNavigation(pageNav.getId()) != null) {
+      daoService.save(pageNav);
+    } else {
+      daoService.create(pageNav);
+    }
     
     UIPortal uiPortal = Util.getUIPortal();
     uiPortal.setNavigation(uiNodeSelector.getNavigations());

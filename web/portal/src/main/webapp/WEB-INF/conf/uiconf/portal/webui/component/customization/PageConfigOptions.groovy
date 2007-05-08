@@ -8,14 +8,18 @@ SelectItemCategory normalPageConfigs = new SelectItemCategory("normalPageConfigs
 categories.add(normalPageConfigs);
 
 config = "<page>" +
+         "  <owner-type></owner-type>" +
+         "  <owner-id></owner-id>" +
          "  <name>UIPage</name>"+         
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "</page>";
 normalPageConfigs.addSelectItemOption(new SelectItemOption("Empty Layout", config, "EmptyLayout"));
 
 config = "<page>" +         
-         "  <factory-id>Desktop</factory-id>" +
+         "  <owner-type></owner-type>" +
+         "  <owner-id></owner-id>" +
          "  <name>UIPage</name>" +
+         "  <factory-id>Desktop</factory-id>" +
          "</page>" ;
 
 normalPageConfigs.addSelectItemOption(new SelectItemOption("Desktop Layout", config, "DesktopImage"));
@@ -23,6 +27,8 @@ normalPageConfigs.addSelectItemOption(new SelectItemOption("Desktop Layout", con
 SelectItemCategory columnPageConfigs = new SelectItemCategory("columnPageConfigs") ;
 categories.add(columnPageConfigs);  
 config = "<page>" +
+         "  <owner-type></owner-type>" +
+         "  <owner-id></owner-id>" +
          "  <name>UIPage</name>" +         
          "  <container template='system:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl'>" +
          "    <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
@@ -31,6 +37,8 @@ config = "<page>" +
          "</page>";
 columnPageConfigs.addSelectItemOption(new SelectItemOption("Two Columns Layout", config, "TwoColumnsLayout"));
 config = "<page>" +
+         "  <owner-type></owner-type>" +
+         "  <owner-id></owner-id>" +
          "  <name>UIPage</name>" +
          "  <container template='system:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl'>" +
          "    <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
@@ -44,6 +52,8 @@ SelectItemCategory rowPageConfigs = new SelectItemCategory("rowPageConfigs") ;
 categories.add(rowPageConfigs); 
 
 config = "<page>" +
+         "  <owner-type></owner-type>" +
+         "  <owner-id></owner-id>" +
          "  <name>UIPage</name>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
@@ -51,6 +61,8 @@ config = "<page>" +
 rowPageConfigs.addSelectItemOption(new SelectItemOption("Two Rows Layout", config, "TwoRowsLayout"));
 
 config = "<page>" +
+         "  <owner-type></owner-type>" +
+         "  <owner-id></owner-id>" +
          "  <name>UIPage</name>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
@@ -62,6 +74,8 @@ SelectItemCategory mixPageConfigs = new SelectItemCategory("mixPageConfigs") ;
 categories.add(mixPageConfigs); 
   
 config = "<page>" +
+         "  <owner-type></owner-type>" +
+         "  <owner-id></owner-id>" +
          "  <name>UIPage</name>" +
          "  <container template='system:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl'>" +
          "    <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
@@ -72,6 +86,8 @@ config = "<page>" +
 mixPageConfigs.addSelectItemOption(new SelectItemOption("Two Columns One Row Layout", config, "TwoColumnsOneRowLayout"));
 
 config = "<page>" +
+         "  <owner-type></owner-type>" +
+         "  <owner-id></owner-id>" +
          "  <name>UIPage</name>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "  <container template='system:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl'>" +
@@ -82,6 +98,8 @@ config = "<page>" +
 mixPageConfigs.addSelectItemOption(new SelectItemOption("One Row Two Columns Layout", config, "OneRowTwoColumnsLayout"));
 
 config = "<page>" +
+         "  <owner-type></owner-type>" +
+         "  <owner-id></owner-id>" +
          "  <name>UIPage</name>" +
          "  <container template='system:/groovy/portal/webui/component/view/UIContainer.gtmpl'></container>" +
          "  <container template='system:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl'>" +
