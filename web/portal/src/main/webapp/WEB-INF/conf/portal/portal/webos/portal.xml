@@ -9,7 +9,8 @@
   </widget-layout>
   
  	<portal-layout> 
-    <page-body/>    
+    <page-body>    
+	  </page-body>    
   </portal-layout>
   
 </portal-config>
