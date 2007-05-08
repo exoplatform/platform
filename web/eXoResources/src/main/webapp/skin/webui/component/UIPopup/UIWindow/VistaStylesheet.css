@@ -57,6 +57,7 @@
 .UIWindow .WindowPortletControl {
   float: right ;
   height: 24px ;
+  padding-top:4px;
 }
 
 .UIPageDesktop .UIWindow .WindowPortletInfo {
@@ -73,7 +74,7 @@
 
 .UIWindow .WindowPortletInfo .PortletName {
   float: left ;
-  margin-top: 8px ;
+  margin-top: 10px ;
   font-size: 11px ;
 }
 
@@ -159,8 +160,8 @@
 }
 
 .UIWindow .MiddleDecoratorLeft {
-  padding-left: 9px ;
-  background: url('VistaSkin/background/LeftMiddleDecorator9x1.png') repeat-y left ;
+  padding-left:12px ;
+  background: url('VistaSkin/background/LeftMiddleDecorator12x1.png') repeat-y left ;
 }
 
 .UIWindow .MiddleDecoratorRight {
@@ -174,8 +175,8 @@
 
 .UIWindow .BottomDecoratorLeft {
   height: 24px ;
-  padding-left: 9px ;
-  background: url('VistaSkin/background/LeftBottomDecorator9x24.png') no-repeat left ;
+  padding-left:12px ;
+  background: url('VistaSkin/background/LeftBottomDecorator12x24.png') no-repeat left ;
 }
 
 .UIWindow .BottomDecoratorRight {
@@ -191,25 +192,25 @@
 
 .UIWindow .WindowPortletInfo .PortletName {
   float: left ;
-  margin: 7px 0px 0px 3px;
+  margin: 10px 0px 0px 3px;
   font-size: 11px ; font-weight: bold;
 }
 
 .UIWindow .WindowBarLeft {
-  height: 25px ; 
-  padding-left: 11px ;
-  background: url('VistaSkin/background/LeftTopBar11x25.png') no-repeat left ;
+  height: 29px ; 
+  padding-left: 12px ;
+  background: url('VistaSkin/background/LeftTopBar12x29.png') no-repeat left ;
 }
 
 .UIWindow .WindowBarRight {
-  height: 25px ;
+  height: 29px ;
   padding-right: 16px ;
-  background: url('VistaSkin/background/RightTopBar16x25.png') no-repeat right ;
+  background: url('VistaSkin/background/RightTopBar16x29.png') no-repeat right ;
 }
 
 .UIWindow .WindowBarCenter {
-  height: 25px ;
-  background: url('VistaSkin/background/CenterTopBar1x25.png') repeat-x ;
+  height: 29px ;
+  background: url('VistaSkin/background/CenterTopBar1x29.png') repeat-x ;
 }
 /*
 .UIWindow .UITestFormPortlet {
