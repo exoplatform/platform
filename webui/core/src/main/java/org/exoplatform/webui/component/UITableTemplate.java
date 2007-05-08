@@ -17,7 +17,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * Jul 20, 2006  
  */
 @ComponentConfig( template = "system:/groovy/webui/component/UITableTemplate.gtmpl" )
-//TODO:  Look like  this class doing the same  job  as  UIGrid
+//TODO:  Look like this class is no more used.  Remove it
 public class UITableTemplate extends UIComponent {
   
   private String beanIdField_ ;

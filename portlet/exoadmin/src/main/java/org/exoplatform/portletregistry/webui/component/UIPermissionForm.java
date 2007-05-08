@@ -4,8 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portletregistry.webui.component;
 
-import org.exoplatform.application.registery.Application;
-import org.exoplatform.application.registery.ApplicationRegisteryService;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormTabPane;
@@ -74,7 +74,7 @@ public class UIPermissionForm extends UIFormTabPane{
 //      selectedPortlet.setViewPermission(permission.getValue()); //set permission    
       
       //save to database
-      ApplicationRegisteryService prService = uiPermissionForm.getApplicationComponent(ApplicationRegisteryService.class) ;
+      ApplicationRegistryService prService = uiPermissionForm.getApplicationComponent(ApplicationRegistryService.class) ;
       prService.update(selectedPortlet);
     }
   }

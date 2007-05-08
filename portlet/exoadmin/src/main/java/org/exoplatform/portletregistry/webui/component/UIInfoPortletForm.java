@@ -6,8 +6,8 @@ package org.exoplatform.portletregistry.webui.component;
 
 import java.util.Calendar;
 
-import org.exoplatform.application.registery.Application;
-import org.exoplatform.application.registery.ApplicationRegisteryService;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -72,7 +72,7 @@ public class UIInfoPortletForm extends UIForm {
   static public class SaveActionListener extends EventListener<UIInfoPortletForm> {
     public void execute(Event<UIInfoPortletForm> event) throws Exception{
       UIInfoPortletForm uiForm = event.getSource() ;
-      ApplicationRegisteryService service = uiForm.getApplicationComponent(ApplicationRegisteryService.class) ;
+      ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class) ;
       Application portlet = uiForm.getPortlet() ;
       uiForm.invokeSetBindingBean(portlet);
       portlet.setModifiedDate(Calendar.getInstance().getTime());

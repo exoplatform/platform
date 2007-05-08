@@ -10,9 +10,9 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.application.registery.Application;
-import org.exoplatform.application.registery.ApplicationCategory;
-import org.exoplatform.application.registery.ApplicationRegisteryService;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -36,7 +36,7 @@ public class UIPortletOptions extends UIContainer {
     dropCategorys.setTitle("PortletCategory");
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     dropCategorys.setOptions(options);
-    ApplicationRegisteryService service = getApplicationComponent(ApplicationRegisteryService.class) ;
+    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
     List<ApplicationCategory> pCategories = service.getApplicationCategories() ;    
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
     

@@ -2,8 +2,8 @@
 <configuration>
 
   <component>
-    <key>org.exoplatform.application.registery.ApplicationRegisteryService</key>
-    <type>org.exoplatform.application.registery.jcr.ApplicationRegisteryServiceImpl</type>
+    <key>org.exoplatform.application.registry.ApplicationRegistryService</key>
+    <type>org.exoplatform.application.registry.jcr.ApplicationRegistryServiceImpl</type>
   </component>
   
   <external-component-plugins>

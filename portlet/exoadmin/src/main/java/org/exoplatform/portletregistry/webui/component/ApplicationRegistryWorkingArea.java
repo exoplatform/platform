@@ -4,10 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portletregistry.webui.component;
 
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.EventConfig;
 
 /**
  * Created by The eXo Platform SARL

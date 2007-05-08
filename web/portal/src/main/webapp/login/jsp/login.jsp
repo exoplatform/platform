@@ -26,7 +26,6 @@
   if (userName == null || userName.length() == 0  || userName.equals("null")) showForm = true ;
   if (password == null || password.length() == 0 || password.equals("null")) showForm  = true ;
   if(!showForm) {
-    password = password + "@" + portalName ;
     password = URLEncoder.encode(password) ;
     response.sendRedirect(loginAction + "?j_username=" + userName + "&j_password=" + password ) ;
     return ;

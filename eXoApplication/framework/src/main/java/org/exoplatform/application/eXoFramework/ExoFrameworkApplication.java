@@ -18,6 +18,9 @@ import org.exoplatform.web.application.Application ;
  */
 abstract public class ExoFrameworkApplication extends Application {
 
+  public String getApplicationType() { return EXO_APPLICATION_TYPE; }
+
+  
   public ExoContainer getApplicationServiceContainer() {
     return null;
   }

@@ -11,9 +11,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.exoplatform.application.registery.Application;
-import org.exoplatform.application.registery.ApplicationCategory;
-import org.exoplatform.application.registery.ApplicationRegisteryService;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.json.BeanToJSONPlugin;
 import org.exoplatform.json.JSONService;
@@ -54,7 +54,7 @@ public class ServiceRequestHandler extends WebRequestHandler {
   private StringBuilder getPortlets(PortalApplication app, String remoteUser, boolean isRoleAdmin) throws Exception {
     ExoContainer container = app.getApplicationServiceContainer() ;
     
-    ApplicationRegisteryService prService = (ApplicationRegisteryService)container.getComponentInstanceOfType(ApplicationRegisteryService.class) ;    
+    ApplicationRegistryService prService = (ApplicationRegistryService)container.getComponentInstanceOfType(ApplicationRegistryService.class) ;    
     List<ApplicationCategory> portletCategories = prService.getApplicationCategories();
 //    UserACL userACL = (UserACL)container.getComponentInstanceOfType(UserACL.class) ;
     
@@ -79,11 +79,11 @@ public class ServiceRequestHandler extends WebRequestHandler {
   
   class PortletCategoryToJSONPlugin extends BeanToJSONPlugin<ApplicationCategory> {
 
-    private ApplicationRegisteryService registeryService_;
+    private ApplicationRegistryService registeryService_;
     private String remoteUser_;
     private boolean isRoleAdmin_ = false;
 
-    PortletCategoryToJSONPlugin(ApplicationRegisteryService registeryService, 
+    PortletCategoryToJSONPlugin(ApplicationRegistryService registeryService, 
                                 String remoteUser, boolean isRoleAdmin) {
       registeryService_ = registeryService;
       remoteUser_  = remoteUser;

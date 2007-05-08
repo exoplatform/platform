@@ -7,9 +7,9 @@ package org.exoplatform.portal.component.view.listener;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.application.registery.Application;
-import org.exoplatform.application.registery.ApplicationCategory;
-import org.exoplatform.application.registery.ApplicationRegisteryService;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
@@ -103,7 +103,7 @@ public class UIPortalActionListener {
     
     @SuppressWarnings("unchecked")
     private Application getPortlet(UIPortal uiPortal, String id) throws Exception {
-      ApplicationRegisteryService service = uiPortal.getApplicationComponent(ApplicationRegisteryService.class) ;
+      ApplicationRegistryService service = uiPortal.getApplicationComponent(ApplicationRegistryService.class) ;
       List<ApplicationCategory> pCategories = service.getApplicationCategories();   
 
       for(ApplicationCategory pCategory : pCategories) {

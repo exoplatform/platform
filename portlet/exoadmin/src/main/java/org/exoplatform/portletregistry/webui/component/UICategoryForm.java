@@ -4,8 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portletregistry.webui.component;
 
-import org.exoplatform.application.registery.ApplicationCategory;
-import org.exoplatform.application.registery.ApplicationRegisteryService;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -70,7 +70,7 @@ public class UICategoryForm extends UIForm {
       UIPortletRegistryPortlet uiRegistryPortlet = workingArea.getParent() ;
       ApplicationRegistryControlArea uiRegistryCategory = uiRegistryPortlet.getChild(ApplicationRegistryControlArea.class) ;
 
-      ApplicationRegisteryService service = uiForm.getApplicationComponent(ApplicationRegisteryService.class);
+      ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
       ApplicationCategory category = uiForm.getCategory() ;
       uiRegistryCategory.initValues(null) ;
 

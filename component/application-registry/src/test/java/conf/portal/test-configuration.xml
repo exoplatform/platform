@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
-
-  <component>
-    <key>org.exoplatform.application.registery.ApplicationRegisteryService</key>
-    <type>org.exoplatform.application.registery.jcr.ApplicationRegisteryServiceImpl</type>
-  </component>
-
+  <!--
+  <external-component-plugins>
+    <target-component>org.exoplatform.application.registry.ApplicationRegisteryService</target-component>
+    <component-plugin> 
+      <name>addAvailableExoApplication</name>
+      <set-method>addAvailableExoApplication</set-method>
+      <type>org.exoplatform.application.registery.AddAvailableExoApplication</type>
+      <init-params>
+        <values-param>
+          <name>nodeTypesFiles</name>           
+          <value>jar:/conf/portal/application-registry-nodetypes.xml</value> 
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>  
+  -->
   <import>classpath:/conf/portal/testjcr/test-jcr-configuration.xml</import> 
-
 </configuration>

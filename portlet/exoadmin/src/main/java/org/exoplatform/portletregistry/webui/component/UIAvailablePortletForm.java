@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.exoplatform.application.registery.Application;
-import org.exoplatform.application.registery.ApplicationCategory;
-import org.exoplatform.application.registery.ApplicationRegisteryService;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
@@ -67,7 +67,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     PortletContainerService containerService = getApplicationComponent(PortletContainerService.class);
     Map map = containerService.getAllPortletMetaData();
     Iterator iter = map.keySet().iterator();
-    ApplicationRegisteryService registeryService = getApplicationComponent(ApplicationRegisteryService.class) ;
+    ApplicationRegistryService registeryService = getApplicationComponent(ApplicationRegistryService.class) ;
     while(iter.hasNext()){
       String id = String.valueOf(iter.next());
       Application portlet = null; 
@@ -105,7 +105,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       UIPortletRegistryPortlet uiRegistryPortlet = event.getSource().getAncestorOfType(UIPortletRegistryPortlet.class);
       ApplicationRegistryControlArea uiRegistryCategory =  uiRegistryPortlet.getChild(ApplicationRegistryControlArea.class);
       ApplicationCategory selectedCategory = uiRegistryCategory.getSelectedPortletCategory();      
-      ApplicationRegisteryService service = event.getSource().getApplicationComponent(ApplicationRegisteryService.class);
+      ApplicationRegistryService service = event.getSource().getApplicationComponent(ApplicationRegistryService.class);
       
       Comparator portletComparator = new Comparator<Application>(){
         public int compare(Application portlet1, Application portlet2){  
@@ -128,7 +128,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       event.getSource().setRenderSibbling(UIDescription.class) ;
     }  
     
-    private Application clonePortlet(ApplicationRegisteryService service, Application portlet){
+    private Application clonePortlet(ApplicationRegistryService service, Application portlet){
       Application newPortlet = new Application();
       newPortlet.setAccessGroup(portlet.getAccessGroup());
       newPortlet.setApplicationGroup(portlet.getApplicationGroup());

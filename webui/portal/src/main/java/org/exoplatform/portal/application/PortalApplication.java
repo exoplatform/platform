@@ -40,9 +40,14 @@ public class PortalApplication extends WebuiApplication {
   
   public ServletConfig getServletConfig() { return sconfig_ ; }
   
-  public String getApplicationId() { return PORTAL_APPLICATION_ID ; }
-  
+  public String getApplicationId() { return PORTAL_APPLICATION_ID ; }  
   public String getApplicationName() {  return sconfig_.getServletName() ; }
+  public String getApplicationGroup() {
+    return sconfig_.getServletContext().getServletContextName() ;
+  }
+
+  public String getApplicationType() { return EXO_PORTAL_TYPE ; }
+
 
   public ResourceBundle getResourceBundle(Locale locale) throws Exception {
     ExoContainer  appContainer = getApplicationServiceContainer() ;
@@ -66,4 +71,5 @@ public class PortalApplication extends WebuiApplication {
   }
   
   public ExoContainer getApplicationServiceContainer() { return PortalContainer.getInstance() ; }
+
 }

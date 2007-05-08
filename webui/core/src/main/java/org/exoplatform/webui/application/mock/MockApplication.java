@@ -41,9 +41,16 @@ public class MockApplication extends WebuiApplication {
 
   public String getApplicationInitParam(String name) {  return initParams_.get(name); }
 
-  @Override
   public ExoContainer getApplicationServiceContainer() {
     // TODO Auto-generated method stub
+    return null;
+  }
+
+  public String getApplicationGroup() {
+    return "";
+  }
+
+  public String getApplicationType() {
     return null;
   }
 }

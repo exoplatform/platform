@@ -17,6 +17,8 @@ public class WebBrowserApplication extends ExoFrameworkApplication {
   public String getApplicationId() { return "exo.app.web/eXoBrowser"; }
 
   public String getApplicationName() { return "eXoBrowser"; }
+
+  public String getApplicationGroup() { return "exo.app.web"; }
   
   public void processAction(ExoFrameworkRequestContext context) throws Exception {
     

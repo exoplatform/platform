@@ -20,6 +20,9 @@ import org.exoplatform.resolver.ApplicationResourceResolver;
  * May 7, 2006
  */
 abstract public class Application extends BaseComponentPlugin {
+  final  static public String JSR168_APPLICATION_TYPE = "jsr168Application" ;
+  final  static public String EXO_APPLICATION_TYPE = "eXoApplication" ;
+  final  static public String EXO_PORTAL_TYPE = "eXoPortal" ;
  
   private List<ApplicationLifecycle>  lifecycleListeners_ ;   
   private ApplicationResourceResolver resourceResolver_ ;
@@ -27,6 +30,8 @@ abstract public class Application extends BaseComponentPlugin {
   
   //TODO: Replcate by  method public ApplicationInfo getApplicationInfo() ;
   abstract public String getApplicationId() ;
+  abstract public String getApplicationType() ;
+  abstract public String getApplicationGroup() ;
   abstract public String getApplicationName() ;
   
   final public ApplicationResourceResolver getResourceResolver() { return resourceResolver_ ; }  

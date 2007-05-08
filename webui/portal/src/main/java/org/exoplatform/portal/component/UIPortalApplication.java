@@ -27,7 +27,6 @@ import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.ParamConfig;
-
 /**
  * UIPortalApplication 
  *   - UIControlWorkSpace 

@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.exoplatform.application.registery.Application;
-import org.exoplatform.application.registery.ApplicationCategory;
-import org.exoplatform.application.registery.ApplicationRegisteryService;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -39,7 +39,7 @@ public class UIAddPortlet extends UIContainer {
 
   @SuppressWarnings("unchecked")
   public UIAddPortlet() throws Exception {
-    ApplicationRegisteryService service = getApplicationComponent(ApplicationRegisteryService.class) ;
+    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
     portletCategories = service.getApplicationCategories();  
     if(portletCategories == null) portletCategories = new ArrayList<ApplicationCategory>(0);
     for(ApplicationCategory category: portletCategories ) {

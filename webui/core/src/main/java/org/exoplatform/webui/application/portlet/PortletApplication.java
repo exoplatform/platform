@@ -50,8 +50,14 @@ public class PortletApplication extends WebuiApplication {
   }
   
   public String getApplicationId() { return applicationId_ ; }
-  
   public String getApplicationName() {  return portletConfig_.getPortletName() ; }
+  public String getApplicationGroup() {
+    return portletConfig_.getPortletContext().getPortletContextName();
+  }
+
+  @Override
+  public String getApplicationType() { return JSR168_APPLICATION_TYPE; }
+
 
   public ResourceBundle getResourceBundle(Locale locale) throws Exception {    
     return portletConfig_.getResourceBundle(locale) ;
@@ -135,6 +141,5 @@ public class PortletApplication extends WebuiApplication {
     }
     context.setParentAppRequestContext(parentAppRequestContext) ;
     return context;
-  }
-  
+  }  
 }

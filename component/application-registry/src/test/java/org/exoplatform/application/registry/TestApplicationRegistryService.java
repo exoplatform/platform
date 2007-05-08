@@ -5,9 +5,10 @@
 package org.exoplatform.application.registry;
 
 import java.util.List;
-import org.exoplatform.application.registery.Application;
-import org.exoplatform.application.registery.ApplicationCategory;
-import org.exoplatform.application.registery.ApplicationRegisteryService;
+
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.test.BasicTestCase;
 
@@ -18,7 +19,7 @@ import org.exoplatform.test.BasicTestCase;
  */
 public class TestApplicationRegistryService extends BasicTestCase {
 
-  static protected ApplicationRegisteryService service_ ;
+  static protected ApplicationRegistryService service_ ;
 
   public TestApplicationRegistryService(String name) {
     super(name);
@@ -26,7 +27,7 @@ public class TestApplicationRegistryService extends BasicTestCase {
 
   public void testService() throws Exception {
     PortalContainer portalContainer = PortalContainer.getInstance() ;
-    service_ = (ApplicationRegisteryService)portalContainer.getComponentInstanceOfType(ApplicationRegisteryService.class) ;
+    service_ = (ApplicationRegistryService)portalContainer.getComponentInstanceOfType(ApplicationRegistryService.class) ;
     
     assertNotNull(service_) ;
     assertAppCategoryOperator() ;

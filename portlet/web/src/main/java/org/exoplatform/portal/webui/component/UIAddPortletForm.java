@@ -7,9 +7,9 @@ package org.exoplatform.portal.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.application.registery.Application;
-import org.exoplatform.application.registery.ApplicationCategory;
-import org.exoplatform.application.registery.ApplicationRegisteryService;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
@@ -63,7 +63,7 @@ public class UIAddPortletForm extends UIFormTabPane {
   @SuppressWarnings("unchecked")
   private void loadPortlet() throws Exception {
     getChildren().clear();    
-    ApplicationRegisteryService registeryService = getApplicationComponent(ApplicationRegisteryService.class) ;
+    ApplicationRegistryService registeryService = getApplicationComponent(ApplicationRegistryService.class) ;
     List<ApplicationCategory> portletCategories = registeryService.getApplicationCategories();
 
     String tableName = getClass().getSimpleName();

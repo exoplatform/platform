@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.exoplatform.application.registery.Application;
-import org.exoplatform.application.registery.ApplicationCategory;
-import org.exoplatform.application.registery.ApplicationRegisteryService;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
@@ -58,7 +58,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
 
   @SuppressWarnings("unchecked")
   public void initValues(Collection portletData) throws Exception {
-    ApplicationRegisteryService service = getApplicationComponent(ApplicationRegisteryService.class) ;
+    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
     if(portletData != null) service.importJSR168Portlets();
     portletCategories = service.getApplicationCategories(); 
     if(portletCategories == null) portletCategories = new ArrayList<ApplicationCategory>(0);
@@ -87,7 +87,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
       }
     }
     if(selectedCategory == null) return;
-    ApplicationRegisteryService service = getApplicationComponent(ApplicationRegisteryService.class) ;
+    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
     portlets = service.getApplications(selectedCategory) ;
   }
 
@@ -147,7 +147,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
   static public class DeleteAllActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
       ApplicationRegistryControlArea uiSource = event.getSource();
-      ApplicationRegisteryService service = uiSource.getApplicationComponent(ApplicationRegisteryService.class);
+      ApplicationRegistryService service = uiSource.getApplicationComponent(ApplicationRegistryService.class);
       List<ApplicationCategory> list = uiSource.getPortletCategory();
       for(ApplicationCategory ele : list){
         service.remove(ele) ;
@@ -160,7 +160,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
       System.out.println("\n\n\n===>>>ApplicationRegistryControlArea.DeleteCategory");
       ApplicationRegistryControlArea uiComp = event.getSource();
-      ApplicationRegisteryService service = uiComp.getApplicationComponent(ApplicationRegisteryService.class);            
+      ApplicationRegistryService service = uiComp.getApplicationComponent(ApplicationRegistryService.class);            
       ApplicationCategory selectedCategory = uiComp.getSelectedPortletCategory();
       if(selectedCategory == null) return;      
       service.remove(selectedCategory) ; 
@@ -257,7 +257,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
       Application selectedPortlet = uicomp.getSelectedPortlet() ;
       if(selectedPortlet == null) return ;
 
-      ApplicationRegisteryService service = uicomp.getApplicationComponent(ApplicationRegisteryService.class) ;
+      ApplicationRegistryService service = uicomp.getApplicationComponent(ApplicationRegistryService.class) ;
       String portletSelectedId = selectedPortlet.getId() ;
       Application portlet = service.getApplication(portletSelectedId);
       service.remove(portlet) ;  
