@@ -64,7 +64,8 @@ public class UIFormSelectBox extends UIFormStringInput {
       w.append(" onchange=\"").append(renderOnChangeEvent(uiForm)).append("\"");
     }
     
-    if(size_ > 1)  w.write(" multiple=\"true\" size=\"" + size_ + "\"");
+//    if(size_ > 1)  w.write(" multiple=\"true\" size=\"" + size_ + "\"");    if need control multiple values then can add variable "multiple" to implement 
+    if(size_ > 1)  w.write(" size=\"" + size_ + "\"");
     
     if (!enable_)  w.write(" disabled ");
     

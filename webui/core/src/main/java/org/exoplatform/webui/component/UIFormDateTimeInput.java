@@ -116,7 +116,7 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
 
     int hour = calendar_.get(Calendar.HOUR);
     int minute = calendar_.get(Calendar.MINUTE);
-    w.append("<div style='float:left; width: 20px'>&nbsp;</div>");
+//    w.append("<div style='float:left; width: 20px'>&nbsp;</div>");      what is the affection of this DIV ?
     renderCalendarField(w, HOUR_EXTENSION, Calendar.HOUR, hour);
     renderCalendarField(w, MINUTE_EXTENSION, Calendar.MINUTE, minute);
   }
