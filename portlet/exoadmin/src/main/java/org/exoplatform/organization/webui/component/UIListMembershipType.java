@@ -32,7 +32,6 @@ public class UIListMembershipType extends UIContainer {
   private String membershipSelected_;
   
 	public UIListMembershipType() throws Exception { 
-    System.out.println("\n\n\n\n\n++++---------------++++");
     UIGrid uiGrid = addChild(UIGrid.class, null, null);
     uiGrid.setId("UIGrid");
     uiGrid.configure("name", USER_BEAN_FIELD, USER_ACTION);

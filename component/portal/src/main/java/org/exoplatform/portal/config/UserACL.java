@@ -69,27 +69,6 @@ class UserACL {
       }
     });
     
-    /*for(int i = 0; i < navs.size(); i++) {
-      Iterator<PageNode> nodeIterator = navs.get(i).getNodes().iterator();
-      while(nodeIterator.hasNext()){
-        PageNode node = nodeIterator.next();
-        for(int j = i+1; j < navs.size(); j++) {
-          Iterator<PageNode> nextNodeIterator = navs.get(j).getNodes().iterator();
-          while(nextNodeIterator.hasNext()){
-            PageNode nextNode = nextNodeIterator.next();
-            if(node.getUri().equals(nextNode.getUri())) {
-              if(navs.get(i).getPriority() < navs.get(j).getPriority()) {
-                nodeIterator.remove();
-              } else {
-                nextNodeIterator.remove();
-              }
-              break;
-            }            
-          }          
-        }
-      }
-    }*/
-    
   }  
   
   boolean hasPermission(PortalConfig config, String remoteUser, String mt) throws Exception {

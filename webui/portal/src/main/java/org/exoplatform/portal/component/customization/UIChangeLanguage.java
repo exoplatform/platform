@@ -64,10 +64,7 @@ public class UIChangeLanguage extends UIContainer{
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
       
       if(language == null || language.trim().length() < 1) return;       
-//      UserACL userACL = uiPortal.getApplicationComponent(UserACL.class);
-//      String accessUser = event.getRequestContext().getRemoteUser();
-//      String permission = uiPortal.getEditPermission();
-//      if(!userACL.hasPermission(uiPortal.getOwner(), accessUser, permission)) return;
+      if(!uiPortal.isModifiable()) return;
       
       LocaleConfigService localeConfigService  = event.getSource().getApplicationComponent(LocaleConfigService.class) ;
       LocaleConfig localeConfig = localeConfigService.getLocaleConfig(language);

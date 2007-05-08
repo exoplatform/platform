@@ -17,7 +17,6 @@ import org.exoplatform.portal.content.model.ContentNavigation;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
 import org.exoplatform.services.cache.CacheService;
-import org.exoplatform.services.jcr.RepositoryService;
 
 /**
  * Created by The eXo Platform SARL        .
@@ -41,16 +40,13 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   final private static String CREATED_DATE = "createdDate";
   final private static String MODIFIED_DATE = "modifiedDate";
   
-  final private static String SYSTEM_WS = "production".intern();
   final private static String DATA_NODE_TYPE = "exo:data";
   
   final public static String APPLICATION_NAME = "ContentService";
-  private  RepositoryService service_ ;
   private JCRRegistryService jcrRegService_;
   
-  public ContentDAOImpl(RepositoryService service, CacheService cservice, JCRRegistryService jcrRegService) throws Exception {
+  public ContentDAOImpl(CacheService cservice, JCRRegistryService jcrRegService) throws Exception {
     super(cservice);
-    service_ = service ;
     jcrRegService_ = jcrRegService; 
   }
   
@@ -71,7 +67,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   }
   
   public void save(ContentNavigation navigation) throws Exception {
-    Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
+    Session session = jcrRegService_.getSession() ;
     Node portalNode = jcrRegService_.getApplicationRegistryNode(session, navigation.getOwner(), APPLICATION_NAME);    
     ContentData data = new ContentData();
     data.setDataType(ContentNavigation.class.getName());    
@@ -97,7 +93,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   }
   
   private ContentData getDataByOwner(String owner) throws Exception {
-    Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
+    Session session = jcrRegService_.getSession() ;
     Node parentNode = jcrRegService_.getApplicationRegistryNode(session, owner, APPLICATION_NAME);
     if(parentNode == null || parentNode.hasNode(NODE_NAME) == false){
       session.logout();
@@ -119,7 +115,7 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   } 
   
   private void removeDataByOwner(String owner) throws Exception {
-    Session session = service_.getRepository().getSystemSession(SYSTEM_WS) ;
+    Session session = jcrRegService_.getSession() ;
     Node parentNode = jcrRegService_.getApplicationRegistryNode(session, owner, APPLICATION_NAME);
     if(parentNode.hasNode(NODE_NAME) == false) {
       session.logout();

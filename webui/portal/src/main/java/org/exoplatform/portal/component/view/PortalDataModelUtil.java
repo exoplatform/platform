@@ -217,7 +217,9 @@ public class PortalDataModelUtil {
     List<Object> children  = model.getPortalLayout().getChildren();
     if(children != null) { 
       for(Object child : children){   
-        uiPortal.addChild(buildChild(uiPortal, child));
+        UIComponent uiComp = buildChild(uiPortal, child);
+        if(uiComp == null) continue;
+        uiPortal.addChild(uiComp);
       }
     }
     uiPortal.setNavigation(userPortalConfig.getNavigations());   
