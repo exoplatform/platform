@@ -26,11 +26,11 @@
 					<div class="RightBar">
 						<div class="MiddleBar">
 							<div class="OverflowContainer">
-								<a href="<%=uicomponent.event("AddCategory")%>" class="CategoryControlIcon AddCategoryIcon" title="Add Portlet Category">
+								<a href="<%=uicomponent.event("AddCategory")%>" class="CategoryControlIcon AddCategoryIcon" title="Add Application Category">
 								  <span></span></a>
-								<a href="<%=uicomponent.event("ImportCategory")%>" class="CategoryControlIcon ImportCategoryIcon" title="Import Portlet Category">
+								<a href="<%=uicomponent.event("ImportCategory")%>" class="CategoryControlIcon ImportCategoryIcon" title="Import Application Category">
 								  <span></span></a>
-								<a href="<%=uicomponent.event("DeleteCategory")%>" class="CategoryControlIcon DeleteCategoryIcon" title="Delete Portlet Category">
+								<a href="<%=uicomponent.event("DeleteCategory")%>" class="CategoryControlIcon DeleteCategoryIcon" title="Delete Application Category">
 								  <span></span></a>
 								<div style="clear: left"><span></span></div>
 							</div>

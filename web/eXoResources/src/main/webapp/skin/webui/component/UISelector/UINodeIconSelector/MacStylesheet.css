@@ -44,14 +44,14 @@
 
 .UINodeIconSelector .IconSelector .Icon {
   float: left;
-  margin: 3px ;
+  margin: 2px ;
   cursor: pointer ;
   width: 16px; height: 16px;
 }
 
 .UINodeIconSelector .IconSelector a {
   float: left;
-  margin: 3px ;
+  margin: 2px ;
   border: 1px white solid;
   cursor: pointer ;
 }
@@ -62,7 +62,7 @@
 
 .UINodeIconSelector .IconSelector .SelectedBackground {
   float: left;
-  margin: 3px ;
+  margin: 2px ;
   border: 1px red solid;
   cursor: pointer ;
 }

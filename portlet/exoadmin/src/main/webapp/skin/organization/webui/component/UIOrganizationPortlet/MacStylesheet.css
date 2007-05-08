@@ -75,6 +75,10 @@
 	width: 70px;
 }
 
+.UIOrganizationPortlet .UISharedPortalForm .UIAction {
+  width: 170px;
+}
+
 /*##############################- UIUserManagement -###########################*/
 .UIOrganizationPortlet .UIFormTabPane {
 	

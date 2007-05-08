@@ -99,7 +99,12 @@
 
 .ApplicationRegistryWorkingArea .UIGrid {
   width: 94%; 
+  border: 1px solid #cfcfcf;
   margin: auto;
+}
+
+.ApplicationRegistryWorkingArea .UIGrid th {
+  border: 1px solid #cfcfcf;
 }
 
 .ApplicationRegistryWorkingArea .UIGrid .ActionColumns {

@@ -29,31 +29,17 @@
 				                  </div>
 				                </div>
 				              </div>
-				            </div>
-				            
-				            <div class="UITab">
-				              <div class="NormalTabStyle">
-				                <div class="LeftTab">
-				                  <div class="RightTab">
-				                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this);">JS Applications</div>
-				                  </div>
-				                </div>
-				              </div>
-				            </div>
-				            
-				          <div class="RefreshButtonContent">
-				          	<div class="RefreshButtonLeft">
-				          		<div class="RefreshButtonRight">
-				          			<div class="MiddleRefreshButton">
-				          				<div class="RefreshButtonLabel">
-				          					<div onClick="eXo.desktop.UIAddApplication.loadPortlets(true);"><a>Refresh</a></div>
-				          				</div>
-				          				<div style="clear: left"><span></span></div>
-				          			</div>
-				          		</div>
-				          	</div>
-				          </div>
-				          <div style="clear: both"><span></span></div>
+				        </div>
+		            <div class="UITab">
+		              <div class="NormalTabStyle">
+		                <div class="LeftTab">
+		                  <div class="RightTab">
+		                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this);">JS Applications</div>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
+				        <div style="clear: left"><span></span></div>
 				      </div>
 				  	</div>
 					</div>
@@ -121,70 +107,86 @@
 	          	      </div>
 	          	      <div class="ApplicationListContainer">
 	              	       
-	              	    <div class="Application" style="float: left">
+	              	    <div class="Application">
+	              	      <div class="ApplicationButton">
+				              			<div class="SelectButton"><span></span></div>
+				              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
+						      			</div>
 				                <div class="ApplicationDescription">
 				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
-				              		  <div style="float: right;">
-					              			<div class="SelectButton"><span></span></div>
-					              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page">
-							          			  <span></span>
-							      			  </div>
-						      			  </div>
-						      			  <div style="clear: both"><span></span></div>
+			              		  <div class="ApplicationContent">
+			              		    <div class="TitleBarApplication">eXoBrowser</div>
+			              		    <div class="ApplicationLabel">
+			              		      Type: JSR 170 Portlet <br>
+			              		      Created by: eXo Platform SAS<br>
+			              		      Description: Organization Portlet Description  
+			              		    </div>
+			              		  </div>
+						      			  <div style="clear: left"><span></span></div>
 						      			</div>
-				              	<div class="TitleBarApplication">
-				              	  <div class="ApplicationLabel">eXo Browser</div>
-				                </div>
+						      			<div style="clear: right;"><span></span></div>
 				              </div>
-	              	    <div class="Application" style="float: right">
+				              
+	              	    <div class="Application">
+	              	      <div class="ApplicationButton">
+				              			<div class="SelectButton"><span></span></div>
+				              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
+						      			</div>
 				                <div class="ApplicationDescription">
-				              		<div class="PortletIcon eXoMailIcon" title="eXoMail Portlet"onclick="<%=eXoMail%>"><span></span></div>
-				              		  <div style="float: right;">
-					              			<div class="SelectButton"><span></span></div>
-					              			<div class="AddButton" onclick="<%=eXoMail%>" title="Add this application to the desktop page">
-							          			  <span></span>
-							      			  </div>
-						      			  </div>
-						      			  <div style="clear: both"><span></span></div>
+				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
+			              		  <div class="ApplicationContent">
+			              		    <div class="TitleBarApplication">eXoBrowser</div>
+			              		    <div class="ApplicationLabel">
+			              		      Type: JSR 170 Portlet <br>
+			              		      Created by: eXo Platform SAS<br>
+			              		      Description: Organization Portlet Description  
+			              		    </div>
+			              		  </div>
+						      			  <div style="clear: left"><span></span></div>
 						      			</div>
-				              	<div class="TitleBarApplication">
-				              	  <div class="ApplicationLabel">eXo Mail</div>
-				                </div>
+						      			<div style="clear: right;"><span></span></div>
 				              </div>
-				      			  <div style="clear: both"><span></span></div>
-				      			  
-	              	    <div class="Application" style="float: left">
+				              
+	              	    <div class="Application">
+	              	      <div class="ApplicationButton">
+				              			<div class="SelectButton"><span></span></div>
+				              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
+						      			</div>
 				                <div class="ApplicationDescription">
-				              		<div class="PortletIcon eXoCalendarIcon" title="eXoCalendar Portlet" onclick="<%=eXoCalendar%>"><span></span></div>
-				              		  <div style="float: right;">
-					              			<div class="SelectButton"><span></span></div>
-					              			<div class="AddButton" onclick="<%=eXoCalendar%>" title="Add this application to the desktop page">
-							          			  <span></span>
-							      			  </div>
-						      			  </div>
-						      			  <div style="clear: both"><span></span></div>
+				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
+			              		  <div class="ApplicationContent">
+			              		    <div class="TitleBarApplication">eXoBrowser</div>
+			              		    <div class="ApplicationLabel">
+			              		      Type: JSR 170 Portlet <br>
+			              		      Created by: eXo Platform SAS<br>
+			              		      Description: Organization Portlet Description  
+			              		    </div>
+			              		  </div>
+						      			  <div style="clear: left"><span></span></div>
 						      			</div>
-				              	<div class="TitleBarApplication">
-				              	  <div class="ApplicationLabel">eXo Calendar</div>
-				                </div>
+						      			<div style="clear: right;"><span></span></div>
 				              </div>
-	              	    <div class="Application" style="float: right">
+				              
+	              	    <div class="Application">
+	              	      <div class="ApplicationButton">
+				              			<div class="SelectButton"><span></span></div>
+				              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
+						      			</div>
 				                <div class="ApplicationDescription">
-				              		<div class="PortletIcon eXoForumIcon" title="eXoForum Portlet" onclick="<%=eXoForum%>"><span></span></div>
-				              		  <div style="float: right;">
-					              			<div class="SelectButton"><span></span></div>
-					              			<div class="AddButton" onclick="<%=eXoForum%>" title="Add this application to the desktop page">
-							          			  <span></span>
-							      			  </div>
-						      			  </div>
-						      			  <div style="clear: both"><span></span></div>
+				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
+			              		  <div class="ApplicationContent">
+			              		    <div class="TitleBarApplication">eXoBrowser</div>
+			              		    <div class="ApplicationLabel">
+			              		      Type: JSR 170 Portlet <br>
+			              		      Created by: eXo Platform SAS<br>
+			              		      Description: Organization Portlet Description  
+			              		    </div>
+			              		  </div>
+						      			  <div style="clear: left"><span></span></div>
 						      			</div>
-				              	<div class="TitleBarApplication">
-				              	  <div class="ApplicationLabel">eXo Forum</div>
-				                </div>
+						      			<div style="clear: right;"><span></span></div>
 				              </div>
-				      			  <div style="clear: both"><span></span></div>
-	              	     
+	              	    
 			              </div>
 	          	    </div>
 	          	    <div class="ItemDetail" style="display: none">
@@ -209,6 +211,17 @@
 	
 	<div class="UIAction">
 	  <div class="ActionContainer">
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	  				    <div onClick="eXo.desktop.UIAddApplication.loadPortlets(true);"><a>Refresh</a></div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
 	    <div class="ActionButton">
 	      <div class="LightBlueStyle">
 	        <div class="ButtonLeft">
