@@ -5,6 +5,7 @@
 package org.exoplatform.portal.config.jcr;
 
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.Session;
 
 import org.exoplatform.portal.config.DataStorage;
@@ -225,7 +226,7 @@ public class DataStorageImpl implements DataStorage {
       node = node.getNode(ownerId);
       if(!node.hasNode(EXO_DATA_TYPE)) return null;
       node = node.getNode(EXO_DATA_TYPE);
-      if(node.hasNode(PORTAL)) return node.getNode(PORTAL);
+      if(node.hasNode(PORTAL)) return node.getNode(PORTAL) ;
       return null;
     } 
     
@@ -274,5 +275,4 @@ public class DataStorageImpl implements DataStorage {
     parent.save();
     return node;    
   }
-  
 }

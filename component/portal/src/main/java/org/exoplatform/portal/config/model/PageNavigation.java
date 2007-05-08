@@ -89,8 +89,9 @@ public class PageNavigation {
   public String getAccessGroups(){
     if(accessGroup == null)  return "";
     StringBuilder builder = new StringBuilder();
-    for(String ele : accessGroup) {
-      builder.append(ele).append(',');
+    for(int i = 0; i < accessGroup.length; i++) {
+      builder.append(accessGroup[i]) ;
+      if (i < accessGroup.length - 1) builder.append(',');
     }
     return builder.toString();
   }

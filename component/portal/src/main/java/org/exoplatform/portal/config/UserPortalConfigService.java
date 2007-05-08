@@ -85,14 +85,14 @@ public class UserPortalConfigService {
     portal.setModifiable(userACL_.hasPermission(portal, accessUser, mt));
    
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-    
+        
     PageNavigation navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+portalName) ;
     if (navigation != null) navigations.add(navigation) ;
+    
     navigation = getPageNavigation(DataStorage.USER_TYPE+"::"+accessUser) ;
     if (navigation != null) navigations.add(navigation) ;
     
     Collection memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
-    
     Iterator mitr = memberships.iterator() ;
     while(mitr.hasNext()) {
       Membership m = (Membership) mitr.next() ;   
@@ -101,8 +101,8 @@ public class UserPortalConfigService {
     }   
     userACL_.computeNavigation(navigations, accessUser);
     if (navigations.size() < 1) return null ;
-    
-    return new UserPortalConfig(portal, navigations) ;    
+
+    return new UserPortalConfig(portal, navigations) ;
   }
   
   /**
@@ -186,7 +186,7 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public void update(Page page) throws Exception {
-    storage_.save(page) ;
+    storage_.save(page) ;    
     pageConfigCache_.select(new ExpireKeyStartWithSelector(page.getPageId())) ;
   }
 
@@ -224,7 +224,7 @@ public class UserPortalConfigService {
     pageNavigationCache_.put(id, navigation);
     return navigation ; 
   }
-  
+
   @SuppressWarnings("unused")
   public void initListener(ComponentPlugin listener) { }
 
