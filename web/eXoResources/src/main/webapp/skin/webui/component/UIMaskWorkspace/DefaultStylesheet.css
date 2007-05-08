@@ -99,6 +99,10 @@
   overflow: hidden;
 }
 
+.UIAddApplication .UITabContentContainer {
+	padding-bottom: 5px;
+}
+
 .UIAddApplication .ContentContainerDetail {
   border: 1px solid #d4d4d4;
   border-top: none;  

@@ -82,39 +82,41 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 	          	      
 	  itemDetails += '<div class="ApplicationListContainer">';
 	  var portlets = cate["portlets"];
-	    
-	  var even = true; 
-  	var cssFloat = "float:left";
+
 	  for(id in portlets) {
 	  	portlet = portlets[id];
-      if(even) cssFloat = "float:left";
-      else cssFloat = "float:right";
+
       var srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + portlet["title"]+".png";
       var srcNormalBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png";
 			srcBG = getUrl(srcBG);
 			srcNormalBG = getUrl(srcNormalBG);
-	    itemDetails += '<div class="Application" style="'+cssFloat+';">' +
-			               '	<div class="ApplicationDescription">' +
-			               '		<div class="PortletIcon" title="'+portlet["title"]+'"' +
-			               '    		 onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\');">' +
-			               '    	<span>' +
-			               '      	<img class="PlIcon" src="'+srcBG+'" onError="src=\''+srcNormalBG+'\'">' +
-			               '      </span>' +
-			               '    </div>' +
-			               '		<div style="float: right;">' +
+	    itemDetails += '<div class="Application">' +
+			               '   <div class="ApplicationButton">' +
 				             ' 			<div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'false\');" ><span></span></div>' +
 				             ' 			<div class="AddButton" onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\');"' +
 				             '           title="Add this application to the desktop page">' +
 						         ' 			    <span></span>' +
 						      	 '		  </div>' +
-					      		 '	  </div>' +
-					      		 '	  <div style="clear: both"><span></span></div>' +
-					      		 '	</div>' +
-			               '	<div class="TitleBarApplication">' +
-			               '		<div class="ApplicationLabel">'+portlet["title"]+'</div>' +
-			               '	</div>' +
-		              	 '</div>';
-		  even = !even;	
+						      	 '	 </div>' +
+				             '   <div class="ApplicationDescription">' +
+				             '		<div class="PortletIcon" title="'+portlet["title"]+'"' +
+			               '    		 onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\');">' +
+			               '    	<span>' +
+			               '      	<img class="PlIcon" src="'+srcBG+'" onError="src=\''+srcNormalBG+'\'">' +
+			               '      </span>' +
+			               '    </div>' +
+			               '	  <div class="ApplicationContent">' +
+			               '	    <div class="TitleBarApplication">'+portlet["title"]+'</div>' +
+			               '    <div class="ApplicationLabel">' +
+			               '      Type: JSR 170 Portlet <br>' +
+			               '	      Created by: eXo Platform SAS<br>' +
+			               '	      Description: Organization Portlet Description' +
+			               '	    </div>' +
+			               '	  </div>' +
+						      	 '	  <div style="clear: left"><span></span></div>' +
+						      	 '	</div>' +
+						      	 '	<div style="clear: right;"><span></span></div>' +
+						      	 '</div>';
 	  }
     itemDetails += '  </div>' +
 									 '</div>';  
