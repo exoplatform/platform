@@ -61,23 +61,26 @@ UIDropDownItemSelector.prototype.mouseOverItem = function(e) {
 UIDropDownItemSelector.prototype.mouseOutItem = function(e) {
 	var targ = eXo.core.Browser.getEventSource(e);
 	
-	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector")
+	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector") {
 		targ = targ.parentNode;
+	}
 	targ.className = targ.oldClassName;
 };
 
-UIDropDownItemSelector.prototype.clickItem = function(e) {
+UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, actionName) {
 	var i;
 	var DOMUtil = eXo.core.DOMUtil;
 	var targ = eXo.core.Browser.getEventSource(e);
 	
-	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector") 
+	
+	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector") { 
 		targ = targ.parentNode;
+	}
 	var parentSelector = DOMUtil.findAncestorByClass(targ, "UIDropDownItemSelector");
 	var selectedItemLabel = DOMUtil.findFirstDescendantByClass(parentSelector, "div", "SelectedItemLabel");
 	var previousSelected = DOMUtil.findDescendantsByClass(parentSelector, "div", "OverItemSelector");
 	for (i = 0; i < previousSelected.length; i++) {
-		 previousSelected[i].className = previousSelected[i].oldClassName = "ItemSelector";
+		previousSelected[i].className = previousSelected[i].oldClassName = "ItemSelector";
 	}
 	var itemLabel = DOMUtil.findFirstDescendantByClass(targ, "div", "ItemSelectorLabel");
 	var strItemLabel = itemLabel.innerHTML;
@@ -87,7 +90,7 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 	} else {
 		var strlabel = strItemLabel.charAt(0); 
 		for(i = 1;i < 17; ++i){
-	  strlabel = strlabel + strItemLabel.charAt(i);
+	  	strlabel = strlabel + strItemLabel.charAt(i);
 		}
 		selectedItemLabel.innerHTML = strlabel + "...";
 	}
@@ -97,25 +100,25 @@ UIDropDownItemSelector.prototype.clickItem = function(e) {
 	
 	if(this.getAttribute("onServer") == "true") {
 	  var params = [
-	  	{name: "label", value : this.getAttribute("label")}
+	  	{name: "objectId", value : this.getAttribute("itemId")}
 	  ] ;
-		ajaxGet(eXo.env.server.createPortalURL("UIPortal", itemLabel.title, true, params)) ;
-	} else {
-		var itemSelectorAncestor = DOMUtil.findAncestorByClass(parentSelector, "ItemSelectorAncestor") ;
-		var itemList = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemList") ;
-		var itemSelectorLabel = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemSelectorLabel") ;
-		if(itemList != null) {
-			for(i = 0; i < itemSelectorLabel.length; ++i){
-			if(i< itemList.length){
-				if(itemLabel == itemSelectorLabel[i]) {
-						itemList[i].style.display = "block";
-					} else {
-				    itemList[i].style.display = "none";
-				  }
-				}
-			}
+		ajaxGet(eXo.env.server.createPortalURL(this.getAttribute("targetParent"), this.getAttribute("action"), true, params)) ;
+		return;
+	}
+	 
+	var itemSelectorAncestor = DOMUtil.findAncestorByClass(parentSelector, "ItemSelectorAncestor") ;
+	var itemList = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemList") ;
+	var itemSelectorLabel = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemSelectorLabel") ;
+	if(itemList == null) return;
+	for(i = 0; i < itemSelectorLabel.length; ++i){
+		if(i >= itemList.length) continue;
+		if(itemLabel == itemSelectorLabel[i]) {
+			itemList[i].style.display = "block";
+		} else {
+			itemList[i].style.display = "none";
 		}
 	}
+	
 };
 
 /** Created: by Duy Tu **/

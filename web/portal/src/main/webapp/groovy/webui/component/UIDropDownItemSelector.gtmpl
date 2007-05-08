@@ -8,16 +8,15 @@
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	jsmanager.importJavascript('eXo.webui.UIDropDownItemSelector') ;
 	jsmanager.addJavascript('eXo.webui.UIDropDownItemSelector.init();');
+	
 	String selected = uicomponent.getSelected();
 	int size = uicomponent.getSize();
 	ArrayList options = uicomponent.getOptions();
-	if(selected == null && options != null && size >0) {
+	if(selected == null && options != null && size > 0) {
 	  uicomponent.setSelected(0);
 	  selected = uicomponent.getSelected();
 	}
 	String action = uicomponent.getOnChange();
-	String form = uicomponent.getParent().getName();
-	boolean onServer = false;
 	int maxShow = uicomponent.getMaxShow();
 	
 	maxShow = size + 1;
@@ -70,14 +69,17 @@
 					    String label = option.getLabel();
 					    String value = option.getValue();
 		
-				  %>
-				    
-						<div class="ItemSelector" label="$label" action="$action" onServer="$onServer" form="$form">
+				  %>				    
+						<div class="ItemSelector" itemId="$value" 
+						     action="$action" onServer="<%=uicomponent.isOnServer();%>" 
+						     targetParent="<%=uicomponent.getParent().getId();%>">
 							<div class="Icon"><span></span></div>
 							<%if(action != null) {%>
 	              <div class="ItemSelectorLabel"><%=label%></div>
 	            <%} else {%>
-	              <div class="ItemSelectorLabel"><%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + label)%></div>
+	              <div class="ItemSelectorLabel">
+	                <%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + label)%>
+	              </div>
 	            <%}%>
 	            <div style="clear: left"><span></span></div>
 						</div>

@@ -18,12 +18,12 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 @ComponentConfig(template = "system:/groovy/webui/component/UIDropDownItemSelector.gtmpl")
 public class UIDropDownItemSelector extends UIComponent {
 
-  private int size_ = 0 ;
+  private int size = 0 ;
   
-  private String title_;
-  private boolean isEnable_;
-  private boolean onServer_;
-  private int maxShow_ = 5;
+  private String title;
+  private boolean isEnable;
+  private boolean onServer;
+  private int maxShow = 5;
   
   private SelectItemOption selected_;
   
@@ -31,15 +31,15 @@ public class UIDropDownItemSelector extends UIComponent {
   private String onchange_;
   
   public UIDropDownItemSelector(){
-    title_ = getName();
+    title = getName();
     options_ = new ArrayList<SelectItemOption<String>>();
-    isEnable_ = true;
+    isEnable = true;
     selected_ = null;
-    onServer_ = true;
+    onServer = true;
   }
   
-  public void setMaxShow(int max) {maxShow_ = max; }
-  public int getMaxShow() { return maxShow_; }
+  public void setMaxShow(int max) {maxShow = max; }
+  public int getMaxShow() { return maxShow; }
   
   public UIDropDownItemSelector(String title, List<SelectItemOption<String>> options) {
     this(title, options, true, null, true);
@@ -54,20 +54,20 @@ public class UIDropDownItemSelector extends UIComponent {
     this(title, options, enable, selected, true);
   }
   
-  public UIDropDownItemSelector(String title, List<SelectItemOption<String>> options, boolean enable, 
-                                SelectItemOption selected, boolean onServer) {
+  public UIDropDownItemSelector(String title, List<SelectItemOption<String>> options, 
+                                boolean enable, SelectItemOption selected, boolean onServer) {
     this.options_ = options;
-    title_ = title;
-    isEnable_ = enable;
+    this.title = title;
+    isEnable = enable;
     selected_ = selected;
-    onServer_ = onServer;
+    this.onServer = onServer;
     if(options == null)  return;
-    size_ = options.size();
+    size = options.size();
     if(selected_ == null && options_.size() > 0) selected_ = options_.get(0);    
   }
   
-  public boolean isOnServer() {return onServer_; }
-  public void setOnServer(boolean onSever) { onServer_ = onSever; }
+  public boolean isOnServer() {return onServer; }
+  public void setOnServer(boolean onSever) { onServer = onSever; }
 
   public String getSelected() {
     if(selected_ != null) return selected_.getLabel();    
@@ -77,11 +77,11 @@ public class UIDropDownItemSelector extends UIComponent {
   }
   public void setSelected(SelectItemOption select){ selected_ = select;}
   
-  public void setSize(int i) { size_ = i ;}
-  public int getSize() { return size_; }  
+  public void setSize(int i) { size = i ;}
+  public int getSize() { return size; }  
   
-  public String getTitle() {return title_;}
-  public void setTitle(String title){ title_ =title;}
+  public String getTitle() {return title;}
+  public void setTitle(String title){ this.title =title;}
     
   public void setOnChange(String onchange){onchange_ = onchange; }    
   public String getOnChange() { return onchange_; }
@@ -90,15 +90,15 @@ public class UIDropDownItemSelector extends UIComponent {
   public void setOptions(List<SelectItemOption<String>> options) { 
     options_ = options ; 
     if(options == null) return ; 
-    size_ = options.size();
+    size = options.size();
     if(options_.size() < 1)  return;
     selected_ = options_.get(0);
   }  
  
-  public void setEnabled(boolean enable) { isEnable_ = enable; }
-  public boolean isEnable() {return isEnable_; }
+  public void setEnabled(boolean enable) { isEnable = enable; }
+  public boolean isEnable() {return isEnable; }
 
-  protected String renderOnChangeEvent(UIForm uiForm) throws Exception {
+  protected String renderOnChangeEvent(UIForm uiForm) throws Exception { 
     return uiForm.event(onchange_, null);
   }
 

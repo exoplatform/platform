@@ -91,6 +91,8 @@ public class UIPageNodeSelector extends UIContainer {
     addChild(UIBreadcumbs.class, null, null).setRendered(false);  
     UIDropDownItemSelector uiDopDownSelector = addChild(UIDropDownItemSelector.class, null, null);
     uiDopDownSelector.setTitle("Select Navigations");
+    uiDopDownSelector.setOnServer(true);
+    uiDopDownSelector.setOnChange("SelectNavigation");
     
     UITree uiTree = addChild(UITree.class, null, "TreePageSelector");    
     uiTree.setIcon("Icon NavigationPortalIcon");    
@@ -113,18 +115,10 @@ public class UIPageNodeSelector extends UIContainer {
   
   public void loadNavigations() throws Exception {
     navigations_ = new ArrayList<PageNavigation>();
-    
-    List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();    
-    PortalRequestContext pcontext = Util.getPortalRequestContext();
-    String remoteUser  = pcontext.getRemoteUser();
-//    UserACL userACL = getApplicationComponent(UserACL.class);
-//    
-//    for(PageNavigation nav  : pnavigations){
-//      String permission = nav.getEditPermission();
-//      if(userACL.hasPermission(nav.getOwnerId(), remoteUser, permission)){
-//        navigations_.add(nav.clone());
-//      }
-//    }
+    List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();
+    for(PageNavigation nav  : pnavigations){
+      if(nav.isModifiable()) navigations_.add(nav.clone());
+    }
     
     if(navigations_.size() < 1) return;
     selectedNavigation = navigations_.get(0);
@@ -133,11 +127,13 @@ public class UIPageNodeSelector extends UIContainer {
   }
   
   public void selectNavigation(String owner){    
-    for(PageNavigation nav : navigations_){
-      if(!nav.getOwnerId().equals(owner)) continue; 
-      selectedNavigation = nav;
+    for(int i = 0; i < navigations_.size(); i++){
+      if(!navigations_.get(i).getOwnerId().equals(owner)) continue; 
+      selectedNavigation = navigations_.get(i);
       UITree tree = getChild(UITree.class);
       tree.setSibbling(selectedNavigation.getNodes());      
+      UIDropDownItemSelector uiDopDownSelector = getChild(UIDropDownItemSelector.class);
+      uiDopDownSelector.setSelected(i);
     }
   }
   
@@ -245,13 +241,12 @@ public class UIPageNodeSelector extends UIContainer {
       
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page  = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
-//      UserACL userACL = uiEditBar.getApplicationComponent(UserACL.class);
-//      String accessUser = pcontext.getRemoteUser();     
-//      if(page == null || !userACL.hasPermission(page.getOwnerId(), accessUser, page.getEditPermission())){
-//        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
-//        uiParent.setRenderedChildrenOfTypes(childrenToRender);
-//        return;
-//      }
+
+      if(page == null || !page.isModifiable()){
+        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+        uiParent.setRenderedChildrenOfTypes(childrenToRender);
+        return;
+      }
       
       uiEditBar.setRendered(true);
       UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
@@ -274,12 +269,12 @@ public class UIPageNodeSelector extends UIContainer {
     public void execute(Event<UIPageNodeSelector> event) throws Exception {
       String owner = event.getRequestContext().getRequestParameter(OBJECTID);
       UIPageNodeSelector uiPageNodeSelector = event.getSource();
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent()) ;
       if(owner == null){
         uiPageNodeSelector.setSelectedNavigation(null);
         return;
       }
       uiPageNodeSelector.selectNavigation(owner);      
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector) ;
     }
   } 
   
