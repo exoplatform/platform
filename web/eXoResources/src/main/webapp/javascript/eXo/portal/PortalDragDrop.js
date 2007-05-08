@@ -196,7 +196,7 @@ PortalDragDrop.prototype.init = function(e) {
         /*Set properties for drag object */
         eXo.portal.PortalDragDrop.setDragObjectProperties(dragObject, tdElementList, "column", dndEvent.backupMouseEvent) ;
       }      
-    }    
+    } 
   } ;
 
   DragDrop.dropCallback = function(dndEvent) {
@@ -553,5 +553,25 @@ PortalDragDrop.prototype.resizeRows = function() {
 	  }
 	}
 };
+
+PortalDragDrop.prototype.fixCss =  function() {
+	var DOMUtil = eXo.core.DOMUtil ;
+ 	uiPortal = document.getElementById("UIPortal-UIPortal") ;
+ 	if(uiPortal) {
+	  parentByClass = DOMUtil.findAncestorByClass(uiPortal, "Vista") ;
+	  if(parentByClass) {
+	  	layoutPortal = DOMUtil.findFirstDescendantByClass(uiPortal, "div", "LAYOUT-PORTAL") ;
+	  	viewPortal = DOMUtil.findFirstDescendantByClass(uiPortal, "div", "VIEW-PORTAL") ;
+	  	uiRowContainer = DOMUtil.findFirstDescendantByClass(uiPortal, "div", "UIRowContainer") ;
+	  	if(uiRowContainer != null) { 
+	  		if(layoutPortal.style.display == "block" || viewPortal.style.display == "none") {
+	  		  uiPortal.style.padding = "8px 0px 0px 0px" ;
+	  		} else {
+	  			uiPortal.style.padding = "0px" ;
+	  		}
+	  	} 
+	  }
+ 	}
+} ;
 
 eXo.portal.PortalDragDrop = new PortalDragDrop() ;

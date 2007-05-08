@@ -151,6 +151,7 @@ UIPortal.prototype.switchMode = function(elemtClicked) {
 		elemtClicked.className = "Icon PreviewIcon" ;
 		this.showLayoutModeForPortal() ;
 	}
+	eXo.portal.PortalDragDrop.fixCss();
 } ;
 
 UIPortal.prototype.switchModeForPage = function(elemtClicked) {

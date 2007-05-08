@@ -301,7 +301,7 @@
   border: solid 1px #696969;
   background: url('VistaSkin/background/LayoutPortalBG.png') repeat;
   padding:6px;
-  margin:8px;
+  margin: 0px 8px;
 }
 
 .UIPortal {

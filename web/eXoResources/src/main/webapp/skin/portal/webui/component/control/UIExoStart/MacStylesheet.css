@@ -369,15 +369,16 @@
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBL {
-
   background: url('MacSkin/background/MenuDecoratorBL6x6.png') no-repeat left;
   padding: 0px 0px 0px 2px;
+  height: 6px;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBR {
-
+  padding: 0px 6px 0px 0px ;
   background: url('MacSkin/background/MenuDecoratorBR7x6.png') no-repeat right;
-  padding: 0px 7px 0px 0px ;
+  height: 6px;
+  margin-left: 4px;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBC {
