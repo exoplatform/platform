@@ -8,7 +8,6 @@
   String password = (String) session.getAttribute("authentication.password") ;
   request.getSession().removeAttribute("authentication.password");
   String contextPath  =  request.getContextPath() ;
-  String portalName = contextPath.substring(1, contextPath.length()) ;
   String loginAction = contextPath  + "/j_security_check" ; 
     
   Cookie[] cookies = request.getCookies();
@@ -80,8 +79,6 @@
 			          <div style="clear: left"><span></span></div>
 			          <script type='text/javascript'>			            
                   function login() {
-                    document.loginForm.elements['j_password'].value =
-                      document.loginForm.elements['j_password'].value + "@<%=portalName%>"  ;
                     document.loginForm.submit();                   
                   }
                 </script>
