@@ -8,13 +8,13 @@
     <node>
       <uri>/portal/community::site</uri>
       <label>Website</label>
-      <page-reference>group::community::home</page-reference>
+      <page-reference>group::/portal/community::home</page-reference>
     </node>    
       
     <node>
       <uri>/portal/community::management</uri>
       <label>Management</label>
-      <page-reference>group::community::management</page-reference>
+      <page-reference>group::/portal/community::management</page-reference>
     </node>    
   </page-nodes>  
 </node-navigation>
