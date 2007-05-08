@@ -7,23 +7,9 @@
   
   <page-nodes>  
    <node>
-    <uri>home</uri>
-    <label>#{home}</label>
-    <page-reference>exo:home</page-reference>
-    
-    <node>
-      <uri>home/products</uri>
-      <label>#{products}</label>
-      <page-reference>exo:/home/products</page-reference>
-      
-      <node>
-        <uri>/home/products/architecture</uri>
-        <label>#{architecture}</label>
-        <page-reference>exo:/home/products/architecture</page-reference>
-      </node>
-      
-    </node>
-    
+    <uri>content</uri>
+    <label>Content</label>
+    <page-reference>group::/guest::content</page-reference>
    </node> 
    
   </page-nodes>
