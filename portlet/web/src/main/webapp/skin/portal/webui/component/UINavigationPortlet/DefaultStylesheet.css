@@ -167,6 +167,7 @@
 
 .UINavigationPortlet .ScrollButtons {
 	float: right;
+	padding: 5px 0px;
 }
 
 .UINavigationPortlet .ScrollLeftButton {
@@ -175,7 +176,7 @@
   width: 13px;
   height: 15px;
   padding-left: 13px;
-  margin: 4px 2px;
+  margin: 0px 2px;
 }
 
 .UINavigationPortlet .ScrollRightButton {
@@ -183,7 +184,7 @@
 	background: url('DefaultSkin/background/ScrollRight13x15.gif') no-repeat right;
   width: 13px;
   height: 15px;
-  margin: 4px 2px;
+  margin: 0px 2px;
 }
 
 .UINavigationPortlet .DisableScrollLeftButton {
