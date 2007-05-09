@@ -11,25 +11,21 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.DataStorage;
-import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormInputIconSelector;
-import org.exoplatform.webui.component.UIFormInputInfo;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTabPane;
-import org.exoplatform.webui.component.UIFormTextAreaInput;
 import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
 import org.exoplatform.webui.component.validator.IdentifierValidator;
-import org.exoplatform.webui.config.Component;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
@@ -60,18 +56,8 @@ public class UIPageNodeForm extends UIFormTabPane {
                    addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)).
     addUIFormInput(new UIFormStringInput("label", "label", null).
                    addValidator(EmptyFieldValidator.class));
-//    addUIFormInput(new UIFormStringInput("type", "type", null)).
-//    addUIFormInput(new UIFormTextAreaInput("description", "description", null)).
-//    addUIFormInput(new UIFormInputInfo("creator", "creator", null)).
-//    addUIFormInput(new UIFormInputInfo("modifier", "modifier", null));
     
     addUIFormInput(uiSettingSet);
-
-//    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, null);
-//    uiPermissionSelector.configure("Permission", null, null);
-//    uiPermissionSelector.createPermission("AccessPermission", null);
-//    uiPermissionSelector.setRendered(false) ;
-//    addUIComponentInput(uiPermissionSelector) ;
 
     UIPageSelector uiPageSelector = createUIComponent(UIPageSelector.class, null, null) ;
     uiPageSelector.configure("UIPageSelector", "pageReference") ;
@@ -93,9 +79,6 @@ public class UIPageNodeForm extends UIFormTabPane {
       return;
     }   
     invokeGetBindingBean(pageNode_) ;    
-//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
-//    Permission permission = uiPermissionSelector.getPermission("AccessPermission");
-//    permission.setPermissionExpression(pageNode_.getAccessPermission());
     
     UIPageSelector uiPageSelector = getChild(UIPageSelector.class);
     if(uiPageSelector != null) uiPageSelector.setUIInputValue(pageNode_.getPageReference());
@@ -112,10 +95,6 @@ public class UIPageNodeForm extends UIFormTabPane {
       UIPopupWindow uiPopupWindowPage = uiPageSelector.getChild(UIPopupWindow.class);
       uiPopupWindowPage.processRender(context);
     }
-    
-//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
-//    UIPopupWindow uiPopupPermission = uiPermissionSelector.getChild(UIPopupWindow.class);
-//    uiPopupPermission.processRender(context);
   }
   
   static public class SaveActionListener extends EventListener<UIPageNodeForm> {
@@ -124,6 +103,7 @@ public class UIPageNodeForm extends UIFormTabPane {
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIPageSelector uiPageSelector = uiPageNodeForm.getChild(UIPageSelector.class);
+      String remoteUser = Util.getPortalRequestContext().getRemoteUser();
       
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       uiMaskWS.setUIComponent(null);
@@ -135,15 +115,6 @@ public class UIPageNodeForm extends UIFormTabPane {
       PageNode pageNode = uiPageNodeForm.getPageNode();
       if(pageNode == null) pageNode  = new PageNode();
       uiPageNodeForm.invokeSetBindingBean(pageNode) ;
-//      if(pageNode.getCreator() == null) pageNode.setCreator(pcontext.getRemoteUser());      
-//      pageNode.setModifier(pcontext.getRemoteUser());
-      
-//      UIPermissionSelector uiPermissionSelector = uiPageNodeForm.getChild(UIPermissionSelector.class);
-//      if(uiPermissionSelector != null){
-//        Permission permission = uiPermissionSelector.getPermission("AccessPermission");
-//        if(permission != null) pageNode.setAccessPermission(permission.getValue());
-//        else pageNode.setAccessPermission(null);
-//      }
       
       UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);
       pageNode.setIcon(uiIconSelector.getSelectedIcon());
@@ -153,36 +124,23 @@ public class UIPageNodeForm extends UIFormTabPane {
         if(pageReference != null){
           pageNode.setPageReference(String.valueOf(pageReference));
         } 
-//        else {
-//          String id = pageNode.getCreator()+":/" +pageNode.getName();
-//          String id = "user::" + pcontext.getRemoteUser() + "::"+pageNode.getName();
-//          DataStorage dataService = uiPageNodeForm.getApplicationComponent(DataStorage.class);
-//          Page page = dataService.getPage(id);
-//          System.out.println("\n\n\n\nPAGE: \n\n\n\n" + page.getPageId());
-//          if(page == null){
-//            page = new Page();
-//            page.setOwnerType("user");
-//            page.setOwnerId(pcontext.getRemoteUser());
-//            page.setName(pageNode.getName());
-//            page.setChildren(new ArrayList<Object>(0));
-//            dataService.save(page);
-//          }
-//          pageNode.setPageReference(page.getId());
-//        }        
       }
       
       Object selectedParent = uiPageNodeForm.getSelectedParent();
       PageNavigation pageNav = null;
       if(selectedParent == null) {
         pageNav = new PageNavigation();
+        pageNav.setCreator(remoteUser);
         pageNav.getNodes().add(pageNode);
-        pageNav.setOwnerId(Util.getPortalRequestContext().getRemoteUser());
+        pageNav.setOwnerType(DataStorage.USER_TYPE);
+        pageNav.setOwnerId(remoteUser);
         uiNodeSelector.getNavigations().add(pageNav);
         selectedParent = pageNav;
-      }
+      } 
       
       if(selectedParent instanceof PageNavigation){
-        pageNav = (PageNavigation)selectedParent;         
+        pageNav = (PageNavigation)selectedParent;
+        pageNav.setModifier(remoteUser);
         pageNode.setUri(pageNode.getName());
         if(!pageNav.getNodes().contains(pageNode)) pageNav.addNode(pageNode);
       } else if(selectedParent instanceof PageNode) {

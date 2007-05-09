@@ -179,9 +179,9 @@ public class UIPageCreationWizard extends UIPageWizard {
       
       Page page = uiPageTemplateOptions.getSelectedOption();
       if(page == null) page  = new Page();
+      if(page.getOwnerType() == null) page.setOwnerType(DataStorage.USER_TYPE);
       if(page.getOwnerId() == null) page.setOwnerId(context.getRemoteUser());
       if(page.getName() == null || page.getName().equals("UIPage")) page.setName(pageNode.getName());        
-      page.setId(page.getOwnerId()+":/"+page.getName());
       
       boolean isDesktopPage = "Desktop".equals(page.getFactoryId());
       if(isDesktopPage) page.setShowMaxWindow(true);
