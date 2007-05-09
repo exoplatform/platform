@@ -173,16 +173,17 @@ UIPortalNavigation.prototype.onMenuItemOut = function(e) {
 /***** Scroll Management *****/
 UIPortalNavigation.prototype.loadScroll = function(e) {
 	var uiNav = eXo.portal.UIPortalNavigation;
+	// Creates new ScrollManager and initializes it
 	uiNav.scrollMgr = eXo.portal.UIPortalControl.newScrollManager();
 	uiNav.scrollMgr.initFunction = uiNav.initScroll;
+	// Adds the tab elements to the manager
 	var portalNav = document.getElementById("PortalNavigationTopContainer");
 	uiNav.scrollMgr.elements.pushAll(eXo.core.DOMUtil.findDescendantsByClass(portalNav, "div", "UITab"));
+	// Configures the arrow buttons
 	var leftButton = eXo.core.DOMUtil.findFirstDescendantByClass(portalNav, "div", "ScrollLeftButton");
-	leftButton.scrollMgr = uiNav.scrollMgr;
-	leftButton.onclick = uiNav.scrollMgr.scrollLeft;
 	var rightButton = eXo.core.DOMUtil.findFirstDescendantByClass(portalNav, "div", "ScrollRightButton");
-	rightButton.scrollMgr = uiNav.scrollMgr;
-	rightButton.onclick = uiNav.scrollMgr.scrollRight;
+	uiNav.scrollMgr.initArrowButtons(leftButton, rightButton);
+	// Finish initialization
 	uiNav.scrollMgr.callback = uiNav.scrollCallback;
 	uiNav.initScroll();
 };
@@ -191,8 +192,10 @@ UIPortalNavigation.prototype.initScroll = function(e) {
 	var scrollMgr = eXo.portal.UIPortalNavigation.scrollMgr;
 	scrollMgr.init();
 	var portalNav = document.getElementById("PortalNavigationTopContainer");
+	// Hides the arrows by default
 	var buttons = eXo.core.DOMUtil.findFirstDescendantByClass(portalNav, "div", "ScrollButtons");
 	buttons.style.display = "none";
+	// Gets the maximum width available for the tabs
 	var maxWidth = portalNav.offsetWidth;
 	if (eXo.core.Browser.isIE6()) {
 		var tabs = eXo.core.DOMUtil.findAncestorByClass(portalNav, "UIHorizontalTabs");
@@ -202,9 +205,9 @@ UIPortalNavigation.prototype.initScroll = function(e) {
 	for (var i = 0; i < scrollMgr.elements.length; i++) {
 		scrollMgr.elements[i].style.display = "block";
 		elementsWidth += scrollMgr.elements[i].offsetWidth;
-		if (elementsWidth <= maxWidth) {
+		if (elementsWidth <= maxWidth) { // If the tab fits in the available space
 			scrollMgr.elements[i].isVisible = true;
-		} else {
+		} else { // If the available space is full
 			scrollMgr.elements[i].isVisible = false;
 			if (scrollMgr.lastVisibleIndex == -1) {
 				scrollMgr.lastVisibleIndex = i-1;
@@ -225,12 +228,12 @@ UIPortalNavigation.prototype.scrollCallback = function() {
 	if (usedWidth > utilWidth) {
 		if (scrollMgr.lastDirection == 1) { // Hides the first (left or up) element
 			scrollMgr.elements[scrollMgr.firstVisibleIndex].isVisible = false;
-			scrollMgr.elements[scrollMgr.firstVisibleIndex++].style.display = "none";
+			scrollMgr.elements[scrollMgr.firstVisibleIndex++].style.display = "none"; //++
 		} else { // Hides the last (right or down) element
 			scrollMgr.elements[scrollMgr.lastVisibleIndex].isVisible = false;
-			scrollMgr.elements[scrollMgr.lastVisibleIndex--].style.display = "none";
+			scrollMgr.elements[scrollMgr.lastVisibleIndex--].style.display = "none"; //--
 		}
-	}
+	} else scrollMgr.additionalHiddenIndex = -1;
 };
 /***** Scroll Management *****/
 eXo.portal.UIPortalNavigation = new UIPortalNavigation() ;

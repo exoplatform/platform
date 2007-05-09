@@ -166,7 +166,6 @@
 /*** Scroll Buttons ***/
 
 .UINavigationPortlet .ScrollButtons {
-  display: none;
 	float: right;
 	padding: 5px 0px;
 }
@@ -178,6 +177,7 @@
   height: 15px;
   padding-left: 13px;
   margin: 0px 2px;
+  float: left;
 }
 
 .UINavigationPortlet .ScrollRightButton {
@@ -186,6 +186,7 @@
   width: 13px;
   height: 15px;
   margin: 0px 2px;
+  float: left;
 }
 
 .UINavigationPortlet .DisableScrollLeftButton {
@@ -195,6 +196,7 @@
   height: 15px;
   padding-left: 13px;
   margin: 0px 2px;
+  float: left;
 }
 
 .UINavigationPortlet .DisableScrollRightButton { 
@@ -203,6 +205,7 @@
   width: 13px;
   height: 15px;
   margin: 0px 2px;
+  float: left;
 }
 
 .UINavigationPortlet .HighlightScrollLeftButton {
@@ -212,6 +215,7 @@
   height: 15px;
   padding-left: 13px;
   margin: 0px 2px;
+  float: left;
 }
 
 .UINavigationPortlet .HighlightScrollRightButton {
@@ -220,4 +224,5 @@
   width: 13px;
   height: 15px;
   margin: 0px 2px;
+  float: left;
 }

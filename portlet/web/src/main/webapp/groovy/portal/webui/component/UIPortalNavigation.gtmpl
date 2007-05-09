@@ -140,7 +140,7 @@
 		         %>
 		      	<div class="ScrollButtons">
 		      		<div class="ScrollLeftButton">
-		      		  <div class="ScrollRightButton"><span></span></div>
+		      			<div class="ScrollRightButton"><span></span>
 		      		</div>
 		      	</div>
 		      </div>

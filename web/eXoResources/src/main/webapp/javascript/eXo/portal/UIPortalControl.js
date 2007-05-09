@@ -105,6 +105,43 @@ function ScrollManager() {
 	this.lastDirection = null; // 0 : left or up scroll, 1 : right or down scroll
 	this.callback = null; // callback function when a scroll is done
 	this.initFunction = null;
+	this.arrowButtons = new Array(); // 0 : left (up) arrow button, 1 : right (down) arrow button
+};
+
+ScrollManager.prototype.initArrowButtons = function(left, right) { // or (up, down)
+	var arrowOver = function(e) {
+		if (!e) var e = window.event;
+		if (this == eXo.core.Browser.getEventSource(e)) this.className = this.overClass;
+	};
+	var arrowOut = function(e) {
+		this.className = this.styleClass;
+	};
+	var arrowDisabled = function() {
+		this.className = this.disabledClass;
+		this.onclick = null; this.onmouseover = null; this.onmouseout = null;
+	};
+	var arrowEnabled = function() {
+		this.className = this.styleClass;
+		this.onclick = this.arrowClick; this.onmouseover = arrowOver; this.onmouseout = arrowOut;
+	};
+	var initArrow = function(arrow, overClass, disabledClass, mgr) {
+		arrow.overClass = overClass;
+		arrow.disabledClass = disabledClass;
+		arrow.styleClass = arrow.className;
+		arrow.scrollMgr = mgr;
+		arrow.onmouseover = arrowOver;
+		arrow.onmouseout = arrowOut;
+		arrow.disable = arrowDisabled;
+		arrow.enable = arrowEnabled;
+		arrow.arrowClick = mgr.scroll;
+		arrow.onclick = arrow.arrowClick;
+	};
+	left.direction = 0; // 0 for left or up arrow
+	right.direction = 1; // 1 for right or down arrow
+	initArrow(left, "HighlightScrollLeftButton", "DisableScrollLeftButton", this);
+	initArrow(right, "HighlightScrollRightButton", "DisableScrollRightButton", this);
+	
+	this.arrowButtons.push(left, right); // or (up, down)
 };
 
 ScrollManager.prototype.init = function() {
@@ -112,14 +149,25 @@ ScrollManager.prototype.init = function() {
 	this.lastVisibleIndex = -1;
 };
 
+ScrollManager.prototype.scroll = function(e) {
+	if (!e) var e = window.event;
+	e.cancelBubble = true;
+	var src = eXo.core.Browser.getEventSource(e);
+	if (src.scrollMgr) {
+		if (src.direction == 0) src.scrollMgr.scrollLeft();
+		else if (src.direction == 1) src.scrollMgr.scrollRight();
+	}
+	return false;
+};
+
 ScrollManager.prototype.scrollLeft = function() { // Same for scrollUp
-	if (this.scrollMgr && this.scrollMgr.firstVisibleIndex > 0) {
-		this.scrollMgr.lastDirection = 0;
+	if (this.firstVisibleIndex > 0) {
+		this.lastDirection = 0;
 		// hides the last (right or down) element and moves lastVisibleIndex to the left
-		this.scrollMgr.elements[this.scrollMgr.lastVisibleIndex--].isVisible = false;
+		this.elements[this.lastVisibleIndex--].isVisible = false;
 		// moves firstVisibleIndex to the left and shows the first (left or up) element
-		this.scrollMgr.elements[--this.scrollMgr.firstVisibleIndex].isVisible = true;
-		this.scrollMgr.renderElements();
+		this.elements[--this.firstVisibleIndex].isVisible = true;
+		this.renderElements();
 	}
 };
 
@@ -128,13 +176,13 @@ ScrollManager.prototype.scrollUp = function() {
 };
 
 ScrollManager.prototype.scrollRight = function() { // Same for scrollDown
-	if (this.scrollMgr && this.scrollMgr.lastVisibleIndex < this.scrollMgr.elements.length-1) {/*Visibility*/
-		this.scrollMgr.lastDirection = 1;
+	if (this.lastVisibleIndex < this.elements.length-1) { /*this.scrollMgr && */
+		this.lastDirection = 1;
 		// hides the first (left or up) element and moves firstVisibleIndex to the right
-		this.scrollMgr.elements[this.scrollMgr.firstVisibleIndex++].isVisible = false;
+		this.elements[this.firstVisibleIndex++].isVisible = false;
 		// moves lastVisibleIndex to the right and shows the last (right or down) element
-		this.scrollMgr.elements[++this.scrollMgr.lastVisibleIndex].isVisible = true;
-		this.scrollMgr.renderElements();
+		this.elements[++this.lastVisibleIndex].isVisible = true;
+		this.renderElements();
 	}
 };
 
@@ -150,6 +198,12 @@ ScrollManager.prototype.renderElements = function() {
 			this.elements[i].style.display = "none";
 		}
 	}
+	if (this.firstVisibleIndex == 0) this.arrowButtons[0].disable();
+	else this.arrowButtons[0].enable();
+	
+	if (this.lastVisibleIndex == this.elements.length-1) this.arrowButtons[1].disable();
+	else this.arrowButtons[1].enable();
+	
 	if (typeof(this.callback) == "function") this.callback();
 };
 
