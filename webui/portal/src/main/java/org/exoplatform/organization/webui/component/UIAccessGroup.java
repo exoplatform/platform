@@ -53,7 +53,8 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     groups.add(group);
     
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "UIGroupSelector");
-    uiPopup.setWindowSize(540, -1);    
+    uiPopup.setWindowSize(540, 0);
+    
     UIGroupSelector uiGroupSelector = createUIComponent(UIGroupSelector.class, null, null) ;
     uiPopup.setUIComponent(uiGroupSelector);
   }

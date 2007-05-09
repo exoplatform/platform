@@ -86,7 +86,7 @@
        </div>
     </div>
     
-    <script type="text/javascript">      
+    <script type="text/javascript">
       <%=rcontext.getJavascriptManager().getJavascript()%>
       eXo.core.Browser.onLoad();
       <%=rcontext.getJavascriptManager().getCustomizedOnLoadScript();%>

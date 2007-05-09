@@ -7,7 +7,7 @@
 %>
 <div class="UIAccessGroup">
   <% 
-    uicomponent.renderChild(UIGrid.class);
+    uicomponent.renderChildren();
   %>
   
   <div class="UIAction">

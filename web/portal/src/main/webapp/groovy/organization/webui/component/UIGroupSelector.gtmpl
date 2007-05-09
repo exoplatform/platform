@@ -5,9 +5,9 @@
 
 <div class="UIGroupSelector" id="$uicomponent.id">
 	<div class="SelectedGroupPath"><% uicomponent.renderChild(UIBreadcumbs.class); %></div>
-  <div style="float: left">
+  <div style="float: left; width: 230px">
     <%uicomponent.renderChild(UITree.class);%>
-  <div>
+  </div>
   This is Description
   <div style="clear: left"><span></span></div>
 </div> 		
