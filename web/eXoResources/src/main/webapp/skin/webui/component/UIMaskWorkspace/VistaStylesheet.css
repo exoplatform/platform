@@ -280,6 +280,16 @@
 	color: #0575CA;
 }
 
+.UIAddApplication .UIAction {
+	width: 185px;
+	margin: auto;
+	padding-bottom: 8px;
+}
+
+.UIAddApplication .ActionButton {
+  width: auto ;
+}
+
 .UIAddApplication .ApplicationItemIcon {
 	width: 16px; height: 16px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/DarkBlueNextArrow.gif') no-repeat ;
