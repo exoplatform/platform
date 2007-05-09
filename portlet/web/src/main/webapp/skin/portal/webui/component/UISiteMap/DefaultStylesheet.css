@@ -22,24 +22,27 @@
 	overflow: hidden ;
 }
 
+.UISitemap .DefaultPageIcon{
+	background: url(/eXoResources/icons/16x16/DefaultSkin/DefaultPageIcon.gif) no-repeat;
+}
+
 .UISitemap .TitleBar {
-  background: url('DefaultSkin/background/NavyGadient1x22.gif') repeat-x;
-  height: 22px; line-height: 22px; vertical-align: middle;
-  border: 1px solid #7eaad0;
-  border-bottom: none;
+  height: 22px; line-height: 22px;
+  padding-left: 5px;
+  background: #dbe4f8 url(DefaultSkin/background/SitemapItemBoxTitle150x1.gif) repeat-y right;
 }
 
 .UISitemap .TitleBar a {
-  text-align: center; font-size: 11px; color: black;
-  margin-left: 5px;
+  font-size: 11px; font-weight: bold; color: #058ee6;
 }
 
 .UISitemap .TitleBar a:hover {
-  color: blue;
+  color: #1248ac;
 }
 
 .UISitemap .TitleBar .Icon {
-  margin: 3px 0px 0px 8px;
+  margin-top: 3px;
+  width: 16px; height: 16px;
 	float: left;
 }
 
@@ -47,34 +50,46 @@
   margin-left: 6px;
   overflow: hidden;
   height: 22px;
+  float: left;
 }
 
 .UISitemap .SitemapContainer {
   width: 600px;
   margin: auto;
-  padding-top: 10px;
+  border: 1px solid #d5d5d5;
+}
+
+.UISitemap .SitemapContainer .SitemapBackground{
+  border: 1px solid white;
+  background: #f2f2f2;
+  padding: 10px 5px 0px 5px;
   overflow: hidden;
 }
 
 .UISitemap .SitemapItemBox {
-  width: 250px ;
+  width: 270px ;
   float: left;
-  margin: 5px 15px 10px 20px ;
+  margin: 5px 10px 10px 10px ;
+  border: 1px solid white;
+}
+
+.UISitemap .SitemapItemBox .SitemapItemContainer{
+  border: 1px solid #b5b5b5;
+  padding: 1px;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox {
-  border: solid 1px #7eaad0 ; background: white ;
-  padding: 5px ; width: 95%;
+  border: solid 1px #d6d6d6 ; background: white ;
+  padding: 8px 10px 10px 10px;
+  margin: 2px 1px 1px 1px;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox .SitemapItemBoxSelector {
-  border: solid 1px #b7b7b7 ;
   border-bottom: none;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox .BorderBox {
-	border-bottom: 1px #b7b7b7 solid; 
-	padding: 5px;
+	padding: 8px 10px 10px 10px;
 }
 
 .UISitemap .SitemapItemBox .Item a {
@@ -101,25 +116,24 @@
 .UISitemap .SitemapItemBox .Message {
   float: left; margin-left: 10px; 
   width: 170px;
-  text-align: center; font-size: 11px;
+  text-align: center; font-size: 11px; color: #a5a5a5;
 }
 
 .UISitemap .SitemapItemBox .Level1 {
-  height: 26px ;
-  border: solid 1px white ; border-right: none; border-bottom: solid 1px #b7b7b7;
-  background: #e0e0de ;
+  height: 25px ;
+  border: solid 1px #d9d9d9 ; 
+  background: #f3f3f3 ;
+  margin-top: 3px;
 }
 
 .UISitemap .SitemapItemBox .Level2 {
-  height: 22px ;
-  border: solid 1px #c7b7b7 ;
-  background: #efefef ;
-  margin: 2px 3px 1px 3px ;
+  height: 25px ;
+  background: #ffffff;
+  padding: 2px 0px 1px 10px ;
 }
 
 .UISitemap .SitemapItemBox .Level3 {
-  height: 22px ;
-  border: solid 1px #c7c7c7 ;
+  height: 25px ;
   background: white ;
-  margin: 0px 6px 3px 6px ;
+  padding: 0px 0px 3px 20px ;
 }

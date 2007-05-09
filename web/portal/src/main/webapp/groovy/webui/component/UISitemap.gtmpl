@@ -6,7 +6,7 @@
 	    String actionLink = uicomponent.event("SelectNode", node.getUri()) ;
 	    String iconType = node.getIcon();
 			if(iconType == null) {
-				iconType = "DefaultIcon";
+				iconType = "DefaultPageIcon";
 			}
 	    println """
 	  	  <div class="Item">
@@ -25,84 +25,65 @@
   }
 %>
 <div class="UISitemap">
-  <div class="DecoratorBox">
-    <div class="GrayRoundedFillBoxStyle">    
-		  <div class="TopLeftCornerBoxDecorator">
-		    <div class="TopRightCornerBoxDecorator">
-		      <div class="TopCenterBoxDecorator"><span></span></div>
-		    </div>
-		  </div>		  
-		  <div class="MiddleLeftSideBoxDecorator">
-		    <div class="MiddleRightSideBoxDecorator">
-		      <div class="CenterBoxDecorator">
-			      <div class="SitemapContainer">
-			        <%
-				        boolean even = true ;
-				        String cssfloat = "left";
-				        for(nav in navigations) { 
-				          for(node in nav.getNodes()) { 
-				            String iconType = node.getIcon();
-										if(iconType == null) {
-											iconType = "OrangeBoxPage16x16Icon";
-										}
-										if(even)cssfloat = "left";
-										else cssfloat = "right";
-				            String blockFloat = "LeftBlock" ;
-				            actionLink = uicomponent.event("SelectNode", node.getUri()) ;
-			        %>
-							      <div class="SitemapItemBox" style="float:${cssfloat};">
-							        <%//Title SiteMap %>
-									    <div class="TitleBar">
-							      	  <div class="Icon ${iconType}"><span></span></div>
-	                      <div class="Title"><a href="<%=actionLink%>">$node.label</a></div>
-	                      <div style="clear: left;"><span></span></div>
-							        </div>
-							        <%//End Title SiteMap %>
-							        <%if(node.getChildren() == null || node.getChildren().size() < 1) { %>
-							            <div class="NestedSitemapItemBox">
-											      <div class="SitemapItemBoxSelector BorderBox">											
-												      <div class="Item">
-													      <div class="SubItem">
-											            <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
-											            <div class="Message"><%=_ctx.appRes("UISitemap.label.message")%></div>
-											            <div style="clear: both"></div>
-											          </div>
-											        </div>
-											      </div>
-											    </div> 
-						  			  <%} else { %>
-						  			      <div class="NestedSitemapItemBox">
-						                <div class="SitemapItemBoxSelector">
-						                	<div class="ItemContainer">
-									  			     <% renderNextLevelNode(node.getChildren(), 1); %>
-									  			    </div>
-									  			  </div>
-											    </div> 						  			      
-			      	        <%}%>
-							      </div>
-					    <% 
-						        if(!even) {
-						  %>
-								    <div style="clear: both;"><span></span></div>        
-						  <%
-						        }
-						        even = !even ;
-						      }
-					      }
-					      if(!even){
-					    %>
-					    <div style="clear: left;"><span></span></div> 
-					    <% } %>       
-			      </div>
-			    </div>  
-			  </div>
-			</div>
-			<div><span></span></div>
-		  <div class="BottomLeftCornerBoxDecorator">
-		    <div class="BottomRightCornerBoxDecorator">
-		      <div class="BottomCenterBoxDecorator"><span></span></div>      
-		    </div>
-		  </div>
-		</div>
-	</div>
+  <div class="SitemapContainer">
+  	<div class="SitemapBackground">
+	    <%
+	        boolean even = true ;
+	        String cssfloat = "left";
+	        for(nav in navigations) { 
+	          for(node in nav.getNodes()) { 
+	            String iconType = node.getIcon();
+							if(iconType == null) {
+								iconType = "DefaultPageIcon";
+							}
+							if(even)cssfloat = "left";
+							else cssfloat = "right";
+	            String blockFloat = "LeftBlock" ;
+	            actionLink = uicomponent.event("SelectNode", node.getUri()) ;
+	    %>
+	      <div class="SitemapItemBox" style="float:${cssfloat};">
+	      	<div class="SitemapItemContainer">
+				    <div class="TitleBar">
+		      	  <div class="Icon ${iconType}"><span></span></div>
+		          <div class="Title"><a href="<%=actionLink%>">$node.label</a></div>
+		          <div style="clear: left;"><span></span></div>
+		        </div>
+		        <%if(node.getChildren() == null || node.getChildren().size() < 1) { %>
+		            <div class="NestedSitemapItemBox">
+						      <div class="SitemapItemBoxSelector BorderBox">											
+							      <div class="Item">
+								      <div class="SubItem">
+						            <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
+						            <div class="Message"><%=_ctx.appRes("UISitemap.label.message")%></div>
+						            <div style="clear: both"></div>
+						          </div>
+						        </div>
+						      </div>
+						    </div> 
+	  			  <%} else { %>
+	  			      <div class="NestedSitemapItemBox">
+	                <div class="SitemapItemBoxSelector">
+	                	<div class="ItemContainer">
+				  			     <% renderNextLevelNode(node.getChildren(), 1); %>
+				  			    </div>
+				  			  </div>
+						    </div> 						  			      
+	  	        <%}%>
+	  	  	</div>
+	      </div>
+	    <% 
+		        if(!even) {
+		  %>
+				    <div style="clear: both;"><span></span></div>        
+		  <%
+		        }
+		        even = !even ;
+		      }
+	      }
+	      if(!even){
+	    %>
+	    <div style="clear: left;"><span></span></div> 
+	    <% } %>
+		</div>       
+  </div>
 </div>

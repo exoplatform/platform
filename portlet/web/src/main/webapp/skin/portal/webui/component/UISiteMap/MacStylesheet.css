@@ -17,13 +17,13 @@
 
 .UISitemap .TitleBar {
   background: url('/eXoResources/background/MacSkin/TitleBG1x19.gif') repeat-x;
-  height: 19px; line-height: 19px; vertical-align: middle;
+  height: 22px; line-height: 22px; vertical-align: middle;
   border: 1px solid #aeaeae;
   border-bottom: none;
 }
 
 .UISitemap .TitleBar a {
-  text-align: center; font-size: 11px; color: black;
+  font-size: 11px; color: black;
   margin-left: 5px;
 }
 
@@ -34,14 +34,17 @@
 .UISitemap .TitleBar .Icon {
   margin: 2px 0px 0px 6px;
   float: left;
+  width: 16px;
+  height: 16px;
+}
+
+.UISitemap .DefaultPageIcon{
+	background: url(/eXoResources/icons/16x16/MacSkin/DefaultPageIcon.png) no-repeat;
 }
 
 .UISitemap .TitleBar .Title {
   float: left;
-  width: 85%;
-  overflow: hidden;
   height: 22px;
-  text-align: center;
 }
 
 .UISitemap .SitemapContainer {
@@ -52,14 +55,14 @@
 }
 
 .UISitemap .SitemapItemBox {
-  width: 250px ;
+  width: 270px ;
   float: left;
-  margin: 5px 15px 10px 20px ;
+  margin: 5px 10px 5px 10px ;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox {
   border: solid 1px #aeaeae ; background: #efefef ;
-  padding: 1px ;
+  padding: 6px ;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox .SitemapItemBoxSelector {
@@ -97,7 +100,7 @@
 .UISitemap .SitemapItemBox .Message {
   float: left; margin-left: 10px; 
   width: 170px;
-  text-align: center; font-size: 11px;
+  text-align: center; font-size: 11px; color: gray;
 }
 
 .UISitemap .SitemapItemBox .Level1 {
