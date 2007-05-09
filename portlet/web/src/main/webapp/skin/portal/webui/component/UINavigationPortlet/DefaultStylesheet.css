@@ -194,7 +194,7 @@
   width: 13px;
   height: 15px;
   padding-left: 13px;
-  margin: 4px 2px;
+  margin: 0px 2px;
 }
 
 .UINavigationPortlet .DisableScrollRightButton { 
@@ -202,7 +202,7 @@
 	background: url('DefaultSkin/background/DisableScrollRight13x15.gif') no-repeat right;
   width: 13px;
   height: 15px;
-  margin: 4px 2px;
+  margin: 0px 2px;
 }
 
 .UINavigationPortlet .HighlightScrollLeftButton {
@@ -211,7 +211,7 @@
   width: 13px;
   height: 15px;
   padding-left: 13px;
-  margin: 4px 2px;
+  margin: 0px 2px;
 }
 
 .UINavigationPortlet .HighlightScrollRightButton {
@@ -219,5 +219,5 @@
 	background: url('DefaultSkin/background/HighlightScrollRight13x15.gif') no-repeat;
   width: 13px;
   height: 15px;
-  margin: 4px 2px;
+  margin: 0px 2px;
 }
