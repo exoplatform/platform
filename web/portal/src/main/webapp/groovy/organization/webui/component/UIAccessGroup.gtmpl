@@ -8,7 +8,6 @@
 <div class="UIAccessGroup">
   <% 
     uicomponent.renderChild(UIGrid.class);
-    //uicomponent.renderChild(UIFormPopupWindow.class);
   %>
   
   <div class="UIAction">

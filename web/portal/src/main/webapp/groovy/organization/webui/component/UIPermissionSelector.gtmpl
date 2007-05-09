@@ -11,7 +11,7 @@
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');
 %>
-<div class="UIPermissionSelector" id="UIPermissionSelector">  
+<div class="UIPermissionSelector" id="UIPermissionSelector">
 	<div class="PermissionInfoContainer">
 	  <%/*Begin UIToolbar*/%>
 	  <div class="PermissionSelectorTitleBar">
@@ -54,7 +54,7 @@
  		    <div style="clear: left"><span></span></div>
       </div>
 		  <% 
-		    for(permission in permissions){  
+		    for(permission in permissions) {
 		      String style = "display:none" ;
 		      if(permission.isSelected()) style = "display:block;" ;
 		  %>
