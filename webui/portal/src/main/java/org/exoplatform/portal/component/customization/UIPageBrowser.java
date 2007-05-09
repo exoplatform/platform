@@ -65,7 +65,7 @@ public class UIPageBrowser extends UISearch {
   public UIPageBrowser() throws Exception {
     super(OPTIONS);
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
-    uiGrid.configure("id", BEAN_FIELD, ACTIONS) ;
+    uiGrid.configure("pageId", BEAN_FIELD, ACTIONS) ;
     addChild(uiGrid.getUIPageIterator());
     uiGrid.getUIPageIterator().setRendered(false);
     
@@ -76,7 +76,6 @@ public class UIPageBrowser extends UISearch {
   
   public void defaultValue(Query<Page> query) throws Exception {
     lastQuery_ = query ;
-    PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
     DataStorage service = getApplicationComponent(DataStorage.class) ;
 
     if(lastQuery_ == null) lastQuery_ = new Query<Page>(null, null, null, Page.class) ;

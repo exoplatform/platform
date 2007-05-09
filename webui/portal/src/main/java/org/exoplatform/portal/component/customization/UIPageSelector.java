@@ -48,7 +48,7 @@ public class UIPageSelector extends UIFormInputContainer {
     UIPageBrowser uiPageBrowser = createUIComponent(UIPageBrowser.class, "SelectPage", null) ;
     uiPopup.setUIComponent(uiPageBrowser);    
     UIGrid uiGrid = uiPageBrowser.getChild(UIGrid.class);
-    uiGrid.configure("id", UIPageBrowser.BEAN_FIELD, new String[]{"SelectPage"});
+    uiGrid.configure("pageId", UIPageBrowser.BEAN_FIELD, new String[]{"SelectPage"});
   }
 
   public void configure(String iname, String  bfield) {
@@ -86,7 +86,14 @@ public class UIPageSelector extends UIFormInputContainer {
       DataStorage service = uiPageBrowser.getApplicationComponent(DataStorage.class) ;
       Page page = service.getPage(id) ;
       
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);      
       PortalRequestContext pcontext = Util.getPortalRequestContext();      
+      if(page == null){
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{page.getName()})) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+        return;
+      }
+      
       UIPageSelector uiPageSelector = uiPageBrowser.getAncestorOfType(UIPageSelector.class) ;
       UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
       if(uiForm != null) {
@@ -95,21 +102,11 @@ public class UIPageSelector extends UIFormInputContainer {
         pcontext.addUIComponentToUpdateByAjax(uiPageSelector.getParent());
       }
       
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);      
       if(page == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
-      
-//      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
-//      String accessUser = pcontext.getRemoteUser();
-//      
-//      if(!userACL.hasPermission(page.getOwnerId(), accessUser, page.getViewPermission())){
-//        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{page.getName()})) ;;
-//        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
-//        return;
-//      }
       
       UIFormPopupWindow uiPopup = uiPageBrowser.getAncestorOfType(UIFormPopupWindow.class);
       if(uiPopup != null) uiPopup.setShow(false);

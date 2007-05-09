@@ -109,7 +109,6 @@ public class UIPageNodeForm extends UIFormTabPane {
       uiMaskWS.setUIComponent(null);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
-      UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
       pcontext.addUIComponentToUpdateByAjax(uiManagement);
       
       PageNode pageNode = uiPageNodeForm.getPageNode();
@@ -121,22 +120,11 @@ public class UIPageNodeForm extends UIFormTabPane {
       
       if(uiPageSelector != null) {
         Object pageReference = uiPageSelector.getUIInputValue();
-        if(pageReference != null){
-          pageNode.setPageReference(String.valueOf(pageReference));
-        } 
+        if(pageReference != null) pageNode.setPageReference(String.valueOf(pageReference));
       }
       
       Object selectedParent = uiPageNodeForm.getSelectedParent();
       PageNavigation pageNav = null;
-      if(selectedParent == null) {
-        pageNav = new PageNavigation();
-        pageNav.setCreator(remoteUser);
-        pageNav.getNodes().add(pageNode);
-        pageNav.setOwnerType(DataStorage.USER_TYPE);
-        pageNav.setOwnerId(remoteUser);
-        uiNodeSelector.getNavigations().add(pageNav);
-        selectedParent = pageNav;
-      } 
       
       if(selectedParent instanceof PageNavigation){
         pageNav = (PageNavigation)selectedParent;

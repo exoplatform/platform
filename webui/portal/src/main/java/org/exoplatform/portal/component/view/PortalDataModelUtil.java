@@ -49,19 +49,20 @@ public class PortalDataModelUtil {
     model.setHeight(uiContainer.getHeight());
     model.setWidth(uiContainer.getWidth());
     
-    List<UIComponent> children = uiContainer.getChildren();
-    if(children == null)  return ;
-    ArrayList<Object>  newChildren = new ArrayList<Object>();
-    for(UIComponent child : children){ 
+    List<UIComponent> uiChildren = uiContainer.getChildren();
+    if(uiChildren == null)  return ;
+    ArrayList<Object>  children = new ArrayList<Object>();
+    for(UIComponent child : uiChildren){ 
       Object component = buildChild(child);
-      if(component != null) newChildren.add(component);
+      if(component != null) children.add(component);
     }
+    model.setChildren(children);
   }
   
   static final public Application toPortletModel(UIPortlet uiPortlet){
     Application model = new Application();
     model.setInstanceId(uiPortlet.getWindowId().toString());
-    model.setApplicationType("jsr168-portlet");
+    model.setApplicationType(uiPortlet.getFactoryId());
     model.setTitle(uiPortlet.getTitle());    
     model.setDescription(uiPortlet.getDescription());
     model.setShowInfoBar(uiPortlet.getShowInfoBar());
@@ -116,7 +117,6 @@ public class PortalDataModelUtil {
     return new PageBody();
   }
   
-  
 //  ************************************************************************************************
 
   
@@ -137,6 +137,7 @@ public class PortalDataModelUtil {
     uiPortlet.setTitle(model.getTitle());
     uiPortlet.setIcon(model.getIcon());
     uiPortlet.setDescription(model.getDescription());
+    uiPortlet.setFactoryId(model.getApplicationType());
     
     uiPortlet.setShowInfoBar(model.getShowInfoBar());
     uiPortlet.setShowWindowState(model.getShowApplicationState());
@@ -184,7 +185,9 @@ public class PortalDataModelUtil {
     List<Object> children  = model.getChildren();
     if(children == null)  return;
     for(Object child : children) {   
-      uiContainer.addChild(buildChild(uiContainer, child));
+      UIComponent uiComp = buildChild(uiContainer, child);
+      if(uiComp == null) continue;
+      uiContainer.addChild(uiComp);
     }
   }
   
@@ -236,7 +239,6 @@ public class PortalDataModelUtil {
     }else if(model instanceof Application){
       Application application = (Application) model;
       String factoryId = application.getApplicationType();      
-      System.out.println("==> Application: " + application.getInstanceId() + ", factory id: " + application.getApplicationType());
       if(factoryId == null || factoryId.equals(Application.TYPE_PORTLET)){
         UIPortlet uiPortlet = uiParent.createUIComponent(context, UIPortlet.class, null, null);
         toUIPortlet(uiPortlet, application);

@@ -16,7 +16,6 @@ import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
-import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -150,9 +149,9 @@ public class UIPageNavigationControlBar extends UIToolbar {
     UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
 
     List<PageNavigation> navs = uiNodeSelector.getNavigations();
-    DataStorage dataService = uiManagement.getApplicationComponent(DataStorage.class);
-    for(PageNavigation nav : navs){
-      dataService.save(nav);        
+    UserPortalConfigService dataService = uiManagement.getApplicationComponent(UserPortalConfigService.class);
+    for(PageNavigation nav : navs) {
+      dataService.update(nav);    
     }
     Util.getUIPortal().setNavigation(navs);
   }
@@ -166,8 +165,8 @@ public class UIPageNavigationControlBar extends UIToolbar {
     UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
     UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
     uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
-    prContext.addUIComponentToUpdateByAjax(uiControl);
     
+    prContext.addUIComponentToUpdateByAjax(uiControl);    
     prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
     prContext.setFullRender(true);
   }

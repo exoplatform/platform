@@ -16,7 +16,7 @@ import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIToolbar;
@@ -131,8 +131,8 @@ public class UIPageEditBar extends UIToolbar {
   public void savePage() throws Exception {
     if(getUIPage() == null) return;
     Page page = PortalDataModelUtil.toPageModel(getUIPage());      
-    DataStorage dataService = getApplicationComponent(DataStorage.class);
-    dataService.save(page); 
+    UserPortalConfigService dataService = getApplicationComponent(UserPortalConfigService.class);
+    dataService.update(page); 
   }
   
   static public class SavePageActionListener  extends EventListener<UIPageEditBar> {
