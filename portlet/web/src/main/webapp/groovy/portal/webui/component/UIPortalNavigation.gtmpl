@@ -8,6 +8,9 @@
 	jsmanager.importJavascript('eXo.webui.UIHorizontalTabs');
 	jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
 	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalNavigation.onLoad');
+	
+	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalNavigation.loadScroll');
+	jsmanager.addOnResizeJavascript('eXo.portal.UIPortalNavigation.initScroll');
 
   navigations = uicomponent.getNavigations();
 	
@@ -135,6 +138,11 @@
 		             }
 		           }
 		         %>
+		      	<div class="ScrollButtons">
+		      		<div class="ScrollLeftButton">&lt;</div>
+		      		<div class="ScrollRightButton">&gt;</div>
+		      		<div style="clear: left"><span></span></div>
+		      	</div>
 		      </div>
 		    </div>
 		  </div>

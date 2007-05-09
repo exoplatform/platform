@@ -95,7 +95,8 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	/*Resize Dockbar*/
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	if(uiPageDesktop != null) eXo.desktop.UIDockbar.resizeDockBar() ;
-	
+	/* Resizes the scrollable containers */
+	eXo.portal.UIPortalControl.initAllManagers();
 };
 
 /*#############################-Working Workspace-##############################*/

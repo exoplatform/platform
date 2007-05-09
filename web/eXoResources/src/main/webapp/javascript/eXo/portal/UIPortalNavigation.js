@@ -170,4 +170,67 @@ UIPortalNavigation.prototype.onMenuItemOut = function(e) {
 	}
 };
 
+/***** Scroll Management *****/
+UIPortalNavigation.prototype.loadScroll = function(e) {
+	var uiNav = eXo.portal.UIPortalNavigation;
+	uiNav.scrollMgr = eXo.portal.UIPortalControl.newScrollManager();
+	uiNav.scrollMgr.initFunction = uiNav.initScroll;
+	var portalNav = document.getElementById("PortalNavigationTopContainer");
+	uiNav.scrollMgr.elements.pushAll(eXo.core.DOMUtil.findDescendantsByClass(portalNav, "div", "UITab"));
+	var leftButton = eXo.core.DOMUtil.findFirstDescendantByClass(portalNav, "div", "ScrollLeftButton");
+	leftButton.scrollMgr = uiNav.scrollMgr;
+	leftButton.onclick = uiNav.scrollMgr.scrollLeft;
+	var rightButton = eXo.core.DOMUtil.findFirstDescendantByClass(portalNav, "div", "ScrollRightButton");
+	rightButton.scrollMgr = uiNav.scrollMgr;
+	rightButton.onclick = uiNav.scrollMgr.scrollRight;
+	uiNav.scrollMgr.callback = uiNav.scrollCallback;
+	uiNav.initScroll();
+};
+
+UIPortalNavigation.prototype.initScroll = function(e) {
+	var scrollMgr = eXo.portal.UIPortalNavigation.scrollMgr;
+	scrollMgr.init();
+	var portalNav = document.getElementById("PortalNavigationTopContainer");
+	var buttons = eXo.core.DOMUtil.findFirstDescendantByClass(portalNav, "div", "ScrollButtons");
+	buttons.style.display = "none";
+	var maxWidth = portalNav.offsetWidth;
+	if (eXo.core.Browser.isIE6()) {
+		var tabs = eXo.core.DOMUtil.findAncestorByClass(portalNav, "UIHorizontalTabs");
+		maxWidth = tabs.offsetWidth;
+	}
+	var elementsWidth = 0;
+	for (var i = 0; i < scrollMgr.elements.length; i++) {
+		scrollMgr.elements[i].style.display = "block";
+		elementsWidth += scrollMgr.elements[i].offsetWidth;
+		if (elementsWidth <= maxWidth) {
+			scrollMgr.elements[i].isVisible = true;
+		} else {
+			scrollMgr.elements[i].isVisible = false;
+			if (scrollMgr.lastVisibleIndex == -1) {
+				scrollMgr.lastVisibleIndex = i-1;
+				buttons.style.display = "block";
+			}
+		}
+	}
+	scrollMgr.renderElements();
+};
+
+UIPortalNavigation.prototype.scrollCallback = function() {
+	var scrollMgr = eXo.portal.UIPortalNavigation.scrollMgr;
+	var portalNav = document.getElementById("PortalNavigationTopContainer");
+	var buttons = eXo.core.DOMUtil.findFirstDescendantByClass(portalNav, "div", "ScrollButtons");
+	var utilWidth = portalNav.offsetWidth - buttons.offsetWidth;
+	var usedWidth = 0;
+	for (var i = scrollMgr.firstVisibleIndex; i <= scrollMgr.lastVisibleIndex; i++) usedWidth += scrollMgr.elements[i].offsetWidth;
+	if (usedWidth > utilWidth) {
+		if (scrollMgr.lastDirection == 1) { // Hides the first (left or up) element
+			scrollMgr.elements[scrollMgr.firstVisibleIndex].isVisible = false;
+			scrollMgr.elements[scrollMgr.firstVisibleIndex++].style.display = "none";
+		} else { // Hides the last (right or down) element
+			scrollMgr.elements[scrollMgr.lastVisibleIndex].isVisible = false;
+			scrollMgr.elements[scrollMgr.lastVisibleIndex--].style.display = "none";
+		}
+	}
+};
+/***** Scroll Management *****/
 eXo.portal.UIPortalNavigation = new UIPortalNavigation() ;

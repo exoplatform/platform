@@ -163,4 +163,20 @@
 
 
 /***********************/
+/*** Scroll Buttons ***/
 
+.UINavigationPortlet .ScrollButtons {
+	display: none;
+	float: right;
+}
+
+.UINavigationPortlet .ScrollButtons div {
+	cursor: pointer;
+	float: left;
+}
+
+.UINavigationPortlet .ScrollButtons div:hover {
+	cursor: pointer;
+	float: left;
+	color: white;
+}
