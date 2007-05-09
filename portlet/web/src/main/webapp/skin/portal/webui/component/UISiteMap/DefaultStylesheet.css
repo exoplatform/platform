@@ -8,12 +8,18 @@
 
 .UIWindow .UISitemapPortlet {
 	overflow: hidden ; /* was auto */
-  padding: 10px 0px 0px 0px;
+  padding: 10px;
+  border: none;
+}
+
+.UISitemapPortlet {
+	overflow: hidden ;
+  padding: 10px;
+  bordder: 1px solid #b7b7b7;
 } 
 
 .UISitemap {
-	overflow: hidden ; /* was none */
-  padding: 0px 2px 5px 5px ;
+	overflow: hidden ;
 }
 
 .UISitemap .TitleBar {

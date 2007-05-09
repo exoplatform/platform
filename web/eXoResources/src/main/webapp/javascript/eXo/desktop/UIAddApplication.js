@@ -91,26 +91,35 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 			srcBG = getUrl(srcBG);
 			srcNormalBG = getUrl(srcNormalBG);
 	    itemDetails += '<div class="Application">' +
-			               '   <div class="ApplicationButton">' +
-				             ' 			<div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'false\');" ><span></span></div>' +
-				             ' 			<div class="AddButton" onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\');"' +
-				             '           title="Add this application to the desktop page">' +
-						         ' 			    <span></span>' +
-						      	 '		  </div>' +
-						      	 '	 </div>' +
-				             '   <div class="ApplicationDescription">' +
+			               '  <div class="ApplicationButton">' +
+				             ' 	  <div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'false\');" ><span></span></div>' +
+				             ' 		<div class="AddButton" onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\');"' +
+				             '      title="Add this application to the desktop page">' +
+						         ' 			<span></span>' +
+						      	 '		</div>' +
+						      	 '	</div>' +
+				             '  <div class="ApplicationDescription">' +
 				             '		<div class="PortletIcon" title="'+portlet["title"]+'"' +
-			               '    		 onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\');">' +
+			               '    	onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\');">' +
 			               '    	<span>' +
 			               '      	<img class="PlIcon" src="'+srcBG+'" onError="src=\''+srcNormalBG+'\'">' +
 			               '      </span>' +
 			               '    </div>' +
 			               '	  <div class="ApplicationContent">' +
 			               '	    <div class="TitleBarApplication">'+portlet["title"]+'</div>' +
-			               '    <div class="ApplicationLabel">' +
-			               '      Type: JSR 170 Portlet <br>' +
-			               '	      Created by: eXo Platform SAS<br>' +
-			               '	      Description: '+portlet["title"]+' Description' +
+			               '      <div class="ApplicationContentLabel">' +
+			               '        <div class="ContentLabel">' +
+			               '          <span class="LeftLabel">Type:</span>' +
+			               '	        <span class="RightLabel"> JSR 170 Portlet</span>' +
+			               '	      </div>' +
+			               '	      <div class="ContentLabel">' +
+			               '	        <span class="LeftLabel">Created by:</span>' +
+			               '	        <span class="RightLabel"> eXo Platform SAS</span>' +
+			               '	      </div>' +
+			               '	      <div class="ContentLabel">' +
+                     '          <span class="LeftLabel">Description:</span>' +
+                     '          <span class="RightLabel">'+portlet["title"]+' Description</span>' +
+                     '        </div>' +
 			               '	    </div>' +
 			               '	  </div>' +
 						      	 '	  <div style="clear: left"><span></span></div>' +
