@@ -14,6 +14,7 @@ import org.exoplatform.container.xml.InitParams;
  * May 3, 2007  
  */
 public class AddAvailableExoApplication extends BaseComponentPlugin {
+  
   private Application application ;
   
   public AddAvailableExoApplication(InitParams params) {

@@ -5,10 +5,7 @@
 package org.exoplatform.organization.webui.component;
 
 import org.exoplatform.webui.component.UIBreadcumbs;
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;

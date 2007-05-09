@@ -8,7 +8,6 @@
   <div style="float: left">
     <%uicomponent.renderChild(UITree.class);%>
   <div>
-    This is Description
-  </div>
+  This is Description
   <div style="clear: left"><span></span></div>
 </div> 		

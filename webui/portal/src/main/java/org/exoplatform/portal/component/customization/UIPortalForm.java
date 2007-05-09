@@ -9,7 +9,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.organization.webui.component.UIGroupMembershipSelector;
 import org.exoplatform.organization.webui.component.UIAccessGroup;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
@@ -23,14 +22,12 @@ import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
-import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTabPane;
+import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
@@ -58,7 +55,6 @@ public class UIPortalForm extends UIFormTabPane {
   
   private static String DEFAULT_FACTORY_ID = "default";
   
-
   @SuppressWarnings("unchecked")
   public UIPortalForm() throws Exception {
     super("UIPortalForm");
@@ -118,8 +114,8 @@ public class UIPortalForm extends UIFormTabPane {
     
     UIAccessGroup uiAccessGroup = createUIComponent(UIAccessGroup.class, null, "UIAccessGroup");
     uiAccessGroup.setRendered(false);
-    addUIComponentInput(uiAccessGroup);
     uiAccessGroup.configure("AccessGroup", "accessGroup");
+    addUIComponentInput(uiAccessGroup);
   }
   
   public PortalConfig getPortalConfig() { return portalConfig_; }
@@ -129,8 +125,8 @@ public class UIPortalForm extends UIFormTabPane {
     
     UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
     if(uiAccessGroup == null) return;
-    //UIFormPopupWindow uiFormPopupWindow = uiAccessGroup.getChild(UIFormPopupWindow.class) ;
-    //uiFormPopupWindow.processRender(context);
+    UIPopupWindow uiPopupWindow = uiAccessGroup.getChild(UIPopupWindow.class) ;
+    uiPopupWindow.processRender(context);
        
 //    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
 //    if(uiPermissionSelector == null) return;

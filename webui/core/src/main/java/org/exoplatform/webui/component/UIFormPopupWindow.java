@@ -21,7 +21,7 @@ import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(  
     template =  "system:/groovy/webui/component/UIPopupWindow.gtmpl",
     events = @EventConfig(listeners = UIFormPopupWindow.CloseActionListener.class, name="ClosePopup", phase = Phase.DECODE)
-  )
+)
 public class UIFormPopupWindow extends UIPopupWindow implements UIFormInput {
   
   public void processDecode(WebuiRequestContext context) throws Exception {   

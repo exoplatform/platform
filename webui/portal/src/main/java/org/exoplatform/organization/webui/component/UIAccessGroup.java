@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,14 +11,13 @@ import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupHandler;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormInputContainer;
 import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.component.UIGrid;
-import org.exoplatform.webui.component.UIPopupDialog;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 
 /**
  * Created by The eXo Platform SARL
@@ -29,13 +27,14 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  */
 
 @ComponentConfig(
-  template = "system:/groovy/organization/webui/component/UIAccessGroup.gtmpl"
+  template = "system:/groovy/organization/webui/component/UIAccessGroup.gtmpl",
+  events = @EventConfig(listeners = UIAccessGroup.RemoveActionListener.class)
 )
 
 public class UIAccessGroup extends UIFormInputContainer<String> { 
 
   private static String[] USER_BEAN_FIELD = {"groupId", "description"} ;
-  private static String[] USER_ACTION = {} ;
+  private static String[] USER_ACTION = {"Remove"} ;
   
   private List<Group> groups;
   
@@ -54,27 +53,19 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     groups.add(group);
     
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "UIGroupSelector");
-//    uiPopup.setShow(false);
-    uiPopup.setWindowSize(540, 0);
-    
+    uiPopup.setWindowSize(540, -1);    
     UIGroupSelector uiGroupSelector = createUIComponent(UIGroupSelector.class, null, null) ;
     uiPopup.setUIComponent(uiGroupSelector);
   }
   
-//  public void processRender(WebuiRequestContext context) throws Exception {
-//    super.processRender(context);
-//    Writer w =  context.getWriter() ;
-//    w.write("<div class=\"asdf\">");
-//      for(UIComponent child: getChildren()){
-//        if(child instanceof UIPopupWindow){
-//          child.processRender(context);
-//        }
-//      }
-//    w.write("</div>");
-//  }
-  
   public void configure(String iname, String bfield) {  
     setName(iname) ;
     setBindingField(bfield) ; 
+  }
+  
+  static  public class RemoveActionListener extends EventListener<UIAccessGroup> {   
+    public void execute(Event<UIAccessGroup> event) throws Exception {
+      
+    }
   }
 }
