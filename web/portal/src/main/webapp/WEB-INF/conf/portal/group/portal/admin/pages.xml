@@ -86,6 +86,20 @@
   <page>
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
+    <name>dialog</name>
+    <access-groups>/guest</access-groups>        
+    
+    <application>
+      <instance-id>admin:/ecm/DialogPortlet/dialog</instance-id>
+      <title>Dialog Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </application>  
+  </page>
+  
+  <page>
+  	<owner-type>group</owner-type>
+    <owner-id>/portal/admin</owner-id>
     <name>browsecontent</name>
     <access-groups>/guest</access-groups>        
     
@@ -171,7 +185,13 @@
       <instance-id>admin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
       <title>JCR Explorer Portlet</title>
       <show-info-bar>true</show-info-bar>
-    </application>    
+    </application>   
+    
+    <application>
+      <instance-id>admin:/ecm/DialogPortlet/dialog</instance-id>
+      <title>Dialog Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>  
   
     <application>
       <instance-id>admin:/ecm/BrowseContentPortlet/browsecontent</instance-id>

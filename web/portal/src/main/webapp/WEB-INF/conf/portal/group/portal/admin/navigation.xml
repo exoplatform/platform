@@ -35,6 +35,12 @@
       </node>
       
       <node>
+        <uri>/portal/admin::ecm/dialog</uri>
+        <label>Dialog</label>
+        <page-reference>group::/portal/admin::dialog</page-reference>
+      </node>
+      
+      <node>
         <uri>/portal/admin::ecm/browsecontent</uri>
         <label>Browse Content</label>
         <page-reference>group::/portal/admin::browsecontent</page-reference>
