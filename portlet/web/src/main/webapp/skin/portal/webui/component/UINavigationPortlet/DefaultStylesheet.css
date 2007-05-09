@@ -36,13 +36,13 @@
 
 .UINavigationPortlet .UINavigationBar .RightNavigationBar {
   line-height: 28px;
-  background: url('DefaultSkin/background/RightNavTop108x28.gif') no-repeat right top;
-  padding-right: 108px;
+  background: url('DefaultSkin/background/MiddleNavTopBg1x28.gif') repeat-x top;
 }
 
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
   line-height: 28px;
-  background: url('DefaultSkin/background/MiddleNavTopBg1x30.gif') repeat-x top;
+  background: url('DefaultSkin/background/RightNavTop108x28.gif') no-repeat right top;
+  padding-right: 10px;
 }
 
 /* Portal Navigation sub menus */
@@ -166,17 +166,56 @@
 /*** Scroll Buttons ***/
 
 .UINavigationPortlet .ScrollButtons {
-	display: none;
 	float: right;
 }
 
-.UINavigationPortlet .ScrollButtons div {
+.UINavigationPortlet .ScrollLeftButton {
 	cursor: pointer;
-	float: left;
+  background: url('DefaultSkin/background/ScrollLeft13x15.gif') no-repeat left;
+  width: 13px;
+  height: 15px;
+  padding-left: 13px;
+  margin: 4px 2px;
 }
 
-.UINavigationPortlet .ScrollButtons div:hover {
+.UINavigationPortlet .ScrollRightButton {
 	cursor: pointer;
-	float: left;
-	color: white;
+	background: url('DefaultSkin/background/ScrollRight13x15.gif') no-repeat right;
+  width: 13px;
+  height: 15px;
+  margin: 4px 2px;
+}
+
+.UINavigationPortlet .DisableScrollLeftButton {
+  cursor: pointer;
+	background: url('DefaultSkin/background/DisableScrollLeft13x15.gif') no-repeat left;
+  width: 13px;
+  height: 15px;
+  padding-left: 13px;
+  margin: 4px 2px;
+}
+
+.UINavigationPortlet .DisableScrollRightButton { 
+	cursor: pointer;
+	background: url('DefaultSkin/background/DisableScrollRight13x15.gif') no-repeat right;
+  width: 13px;
+  height: 15px;
+  margin: 4px 2px;
+}
+
+.UINavigationPortlet .HighlightScrollLeftButton {
+  cursor: pointer;
+	background: url('DefaultSkin/background/HighlightScrollLeft13x15.gif') no-repeat left;
+  width: 13px;
+  height: 15px;
+  padding-left: 13px;
+  margin: 4px 2px;
+}
+
+.UINavigationPortlet .HighlightScrollRightButton {
+	cursor: pointer;
+	background: url('DefaultSkin/background/HighlightScrollRight13x15.gif') no-repeat;
+  width: 13px;
+  height: 15px;
+  margin: 4px 2px;
 }
