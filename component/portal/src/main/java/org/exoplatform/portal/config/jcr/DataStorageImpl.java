@@ -247,14 +247,13 @@ public class DataStorageImpl implements DataStorage {
     session.logout();
   }
   
-  
+  @SuppressWarnings("unchecked")
   public  PageList find(org.exoplatform.portal.config.Query cq) throws Exception {
     StringBuilder  builder = new StringBuilder("select * from "+NT_FOLDER_TYPE);
     generateScript(builder, "dataType", cq.getClassType().getSimpleName());
     generateScript(builder, "name", cq.getName());
     generateScript(builder, "ownerType", cq.getOwnerType());
     generateScript(builder, "ownerId", cq.getOwnerId());
-    System.out.println("\n\n\n == > "+builder+"\n\n");
     
     Session session = jcrRegService_.getSession();
     QueryManager queryManager = session.getWorkspace().getQueryManager() ;
@@ -264,9 +263,8 @@ public class DataStorageImpl implements DataStorage {
     NodeIterator iterator = queryResult.getNodes();
     while(iterator.hasNext()){
       Node node = iterator.nextNode();
-      System.out.println("\n == >"+node +"\n");
       String  xml = node.getProperty("data").getValue().getString() ;
-      list.add(mapper_.fromXML(xml, cq.getClass())) ;
+      list.add(mapper_.fromXML(xml, cq.getClassType())) ;
     }
     return new ObjectPageList(list, 20);
   }

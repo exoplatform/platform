@@ -46,7 +46,7 @@ import org.exoplatform.webui.event.EventListener;
 )
 public class UIPageBrowser extends UISearch {
 
-  public static String[] BEAN_FIELD = {"id", "name", "accessGroups"} ;  
+  public static String[] BEAN_FIELD = {"pageId", "name", "accessGroups"} ;  
   public static String[] ACTIONS = {"Preview", "EditInfo", "Delete"} ; 
   
   private boolean showAddNewPage = false;
@@ -79,7 +79,7 @@ public class UIPageBrowser extends UISearch {
     PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
     DataStorage service = getApplicationComponent(DataStorage.class) ;
 
-    if(lastQuery_ == null) lastQuery_ = new Query<Page>(context.getPortalOwner(), null, null, Page.class) ;
+    if(lastQuery_ == null) lastQuery_ = new Query<Page>(null, null, null, Page.class) ;
 
     PageList pagelist = service.find(lastQuery_) ;
     pagelist.setPageSize(10);
