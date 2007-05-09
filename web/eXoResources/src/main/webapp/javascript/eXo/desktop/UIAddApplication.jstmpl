@@ -8,7 +8,7 @@
 	<div class="TitleBarContainer">
 	  <div class="LeftTitleBar">
 	    <div class="RightTitleBar">
-	      <div class="CenterTitleBar">Add Portlets or Javascript Applications to the Desktop Page</div>
+	      <div class="CenterTitleBar">Add Application</div>
 	    </div>
 	  </div>
 	</div>
@@ -116,17 +116,25 @@
 				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
 			              		  <div class="ApplicationContent">
 			              		    <div class="TitleBarApplication">eXoBrowser</div>
-			              		    <div class="ApplicationLabel">
-			              		      Type: JSR 170 Portlet <br>
-			              		      Created by: eXo Platform SAS<br>
-			              		      Description: Organization Portlet Description  
+			              		    <div class="ApplicationContentLabel">
+			              		      <div class="ContentLabel">
+			              		        <span class="LeftLabel">Type:</span>
+			              		        <span class="RightLabel"> JSR 170 Portlet</span>
+			              		      </div>
+			              		      <div class="ContentLabel">
+			              		        <span class="LeftLabel">Created by:</span>
+			              		        <span class="RightLabel"> eXo Platform SAS</span>
+			              		      </div>
+			              		      <div class="ContentLabel">
+                                <span class="LeftLabel">Description:</span>
+                                <span class="RightLabel"> Organization Portlet Description</span>
+                              </div>
 			              		    </div>
 			              		  </div>
 						      			  <div style="clear: left"><span></span></div>
 						      			</div>
 						      			<div style="clear: right;"><span></span></div>
 				              </div>
-				              
 	              	    <div class="Application">
 	              	      <div class="ApplicationButton">
 				              			<div class="SelectButton"><span></span></div>
@@ -136,17 +144,25 @@
 				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
 			              		  <div class="ApplicationContent">
 			              		    <div class="TitleBarApplication">eXoBrowser</div>
-			              		    <div class="ApplicationLabel">
-			              		      Type: JSR 170 Portlet <br>
-			              		      Created by: eXo Platform SAS<br>
-			              		      Description: Organization Portlet Description  
+			              		    <div class="ApplicationContentLabel">
+			              		      <div class="ContentLabel">
+			              		        <span class="LeftLabel">Type:</span>
+			              		        <span class="RightLabel"> JSR 170 Portlet</span>
+			              		      </div>
+			              		      <div class="ContentLabel">
+			              		        <span class="LeftLabel">Created by:</span>
+			              		        <span class="RightLabel"> eXo Platform SAS</span>
+			              		      </div>
+			              		      <div class="ContentLabel">
+                                <span class="LeftLabel">Description:</span>
+                                <span class="RightLabel"> Organization Portlet Description</span>
+                              </div>
 			              		    </div>
 			              		  </div>
 						      			  <div style="clear: left"><span></span></div>
 						      			</div>
 						      			<div style="clear: right;"><span></span></div>
 				              </div>
-				              
 	              	    <div class="Application">
 	              	      <div class="ApplicationButton">
 				              			<div class="SelectButton"><span></span></div>
@@ -156,17 +172,25 @@
 				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
 			              		  <div class="ApplicationContent">
 			              		    <div class="TitleBarApplication">eXoBrowser</div>
-			              		    <div class="ApplicationLabel">
-			              		      Type: JSR 170 Portlet <br>
-			              		      Created by: eXo Platform SAS<br>
-			              		      Description: Organization Portlet Description  
+			              		    <div class="ApplicationContentLabel">
+			              		      <div class="ContentLabel">
+			              		        <span class="LeftLabel">Type:</span>
+			              		        <span class="RightLabel"> JSR 170 Portlet</span>
+			              		      </div>
+			              		      <div class="ContentLabel">
+			              		        <span class="LeftLabel">Created by:</span>
+			              		        <span class="RightLabel"> eXo Platform SAS</span>
+			              		      </div>
+			              		      <div class="ContentLabel">
+                                <span class="LeftLabel">Description:</span>
+                                <span class="RightLabel"> Organization Portlet Description</span>
+                              </div>
 			              		    </div>
 			              		  </div>
 						      			  <div style="clear: left"><span></span></div>
 						      			</div>
 						      			<div style="clear: right;"><span></span></div>
 				              </div>
-				              
 	              	    <div class="Application">
 	              	      <div class="ApplicationButton">
 				              			<div class="SelectButton"><span></span></div>
@@ -176,10 +200,47 @@
 				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
 			              		  <div class="ApplicationContent">
 			              		    <div class="TitleBarApplication">eXoBrowser</div>
-			              		    <div class="ApplicationLabel">
-			              		      Type: JSR 170 Portlet <br>
-			              		      Created by: eXo Platform SAS<br>
-			              		      Description: Organization Portlet Description  
+			              		    <div class="ApplicationContentLabel">
+			              		      <div class="ContentLabel">
+			              		        <span class="LeftLabel">Type:</span>
+			              		        <span class="RightLabel"> JSR 170 Portlet</span>
+			              		      </div>
+			              		      <div class="ContentLabel">
+			              		        <span class="LeftLabel">Created by:</span>
+			              		        <span class="RightLabel"> eXo Platform SAS</span>
+			              		      </div>
+			              		      <div class="ContentLabel">
+                                <span class="LeftLabel">Description:</span>
+                                <span class="RightLabel"> Organization Portlet Description</span>
+                              </div>
+			              		    </div>
+			              		  </div>
+						      			  <div style="clear: left"><span></span></div>
+						      			</div>
+						      			<div style="clear: right;"><span></span></div>
+				              </div>
+	              	    <div class="Application">
+	              	      <div class="ApplicationButton">
+				              			<div class="SelectButton"><span></span></div>
+				              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
+						      			</div>
+				                <div class="ApplicationDescription">
+				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
+			              		  <div class="ApplicationContent">
+			              		    <div class="TitleBarApplication">eXoBrowser</div>
+			              		    <div class="ApplicationContentLabel">
+			              		      <div class="ContentLabel">
+			              		        <span class="LeftLabel">Type:</span>
+			              		        <span class="RightLabel"> JSR 170 Portlet</span>
+			              		      </div>
+			              		      <div class="ContentLabel">
+			              		        <span class="LeftLabel">Created by:</span>
+			              		        <span class="RightLabel"> eXo Platform SAS</span>
+			              		      </div>
+			              		      <div class="ContentLabel">
+                                <span class="LeftLabel">Description:</span>
+                                <span class="RightLabel"> Organization Portlet Description</span>
+                              </div>
 			              		    </div>
 			              		  </div>
 						      			  <div style="clear: left"><span></span></div>

@@ -89,9 +89,12 @@
   padding: 10px;
 }
 
+.UIAddApplication .UITabContentContainer {
+  border: none;
+}
+
 .UIAddApplication .TitleBarContainer {
 	background: #f6f6f6;
-	text-align: center;
 	font-size: 11px; 
 }
 
@@ -132,48 +135,50 @@
 }
 
 .UIAddApplication .TitleBarContainer .CenterTitleBar {
-  height: 30px ;
   line-height: 30px ; vertical-align: middle ;
-  font-weight: bold ; text-align: center ; font-family: arial; color: #0786e7; font-size: 13px;
+  font-weight: bold ; font-family: arial; color: #0786e7; font-size: 14px;
   background: url('DefaultSkin/background/CenterTitleBar1x32.gif') repeat-x;
+  padding-left: 20px;
 }
 
 .UIAddApplication .Application {
   margin: 10px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
+	padding: 10px;
 }
 
 .UIAddApplication .ApplicationContent {
-  padding: 7px 0px 0px 10px;
-  width: 300px ;
+  padding: 0px 0px 0px 12px;
+  width: 280px ;
   overflow: hidden;
 }
 
 .UIAddApplication .TitleBarApplication {
 	background: none;
+	line-height: 22px;
 	font-weight: bold ; font-size: 14px; color: #0987d7; font-family: arial;
 }
 
-.UIAddApplication .ApplicationLabel {
+.UIAddApplication .ApplicationContentLabel {
   font-size: 11px;
+  line-height: 15px;
 }
 
 .UIAddApplication .PortletIcon {
 	float: left;
 	width: 80px; height: 80px;
 	cursor: pointer ;
+	margin-top: 4px;
 }
 
 .UIAddApplication .ApplicationDescription {
-  margin-right: 34px;
-  padding: 10px 0px 0px 6px;
-  
+  margin-right: 30px;
 }
 
 .UIAddApplication .ApplicationButton {
   float: right;
   width: 28px;
-  padding: 20px 10px 0px 0px;
+  padding: 9px 0px 0px 0px;
 }
 
 .UIAddApplication .AddButton {
@@ -189,6 +194,11 @@
 	background: url("DefaultSkin/icons/16x16/SelectButton.gif") no-repeat center;
 	margin: auto;
 	cursor: pointer ;
+}
+
+
+.UIAddApplication .UIItemSelector .LeftColumnStyle {
+  width: auto;
 }
 
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
@@ -215,6 +225,16 @@
 	background: url('/eXoResources/icons/16x16/DefaultSkin/DarkBlueNextArrow.gif') no-repeat ;
 	float: left;
 	margin: 3px 5px 0px 5px;
+}
+
+.UIAddApplication .LeftColumnStyle .ItemListIcon {
+  background: none;
+  width: 0px;
+}
+
+.UIAddApplication .LeftColumnStyle .ViewListIcon {
+  background: none;
+  width: 0px;
 }
 
 /********************************  UIAddApplication.80x80Icon **********************************/

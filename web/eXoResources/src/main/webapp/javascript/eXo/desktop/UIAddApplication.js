@@ -110,7 +110,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 			               '    <div class="ApplicationLabel">' +
 			               '      Type: JSR 170 Portlet <br>' +
 			               '	      Created by: eXo Platform SAS<br>' +
-			               '	      Description: Organization Portlet Description' +
+			               '	      Description: '+portlet["title"]+' Description' +
 			               '	    </div>' +
 			               '	  </div>' +
 						      	 '	  <div style="clear: left"><span></span></div>' +

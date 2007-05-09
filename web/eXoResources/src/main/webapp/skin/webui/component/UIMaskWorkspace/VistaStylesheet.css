@@ -117,21 +117,38 @@
   padding: 0px 10px;
 }
 
+.UIAddApplication .ApplicationListContainer {
+	height: 240px; 
+	border: 1px solid #b7b7b7;
+	background: white;
+	overflow: auto;
+	font-family: arial;
+}
+
 .UIAddApplication .Application {
-  float: none;
-  width: 187px;
   margin: 10px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
 }
 
 .UIAddApplication .ApplicationDescription {
-  background: white ;
-  padding:10px 1px 10px 50px;
+  margin-right: 30px;
 }
 
 .UIAddApplication .TitleBarContainer {
   padding: 10px 10px 0px 10px; 
   width: 550px;
+}
+
+.UIAddApplication .ApplicationContent {
+  padding: 0px 0px 0px 12px;
+  width: 280px ;
+  overflow: hidden;
+}
+
+.UIAddApplication .ApplicationButton {
+  float: right;
+  width: 28px;
+  padding: 9px 0px 0px 0px;
 }
 
 .UIAddApplication .LeftColumnStyle .ItemListContainer {
@@ -145,13 +162,13 @@
 	border: none;
 }
 
+.UIAddApplication .LeftColumnStyle .ItemDetailList .ItemDetailTitle {
+	height: 26px;
+	line-height: 26px;
+}
+
 .UIAddApplication .ApplicationLabel {
-	float: none ;
-	height: 22px ;
-	line-height: 22px; 
-	font-size: 11px; color: #1465B9;
-	vertical-align: middle ;
-	font-weight:bold;
+	font-size: 11px; 
 }
 
 .UIAddApplication .PortletIcon {
@@ -163,8 +180,7 @@
 
 .UIAddApplication .TitleBarApplication {
 	height: 21px ;
-	background: url("VistaSkin/background/ApplicationTitleBar1x21.png") repeat-x ;
-	text-align: center;
+  color: #1465B9; vertical-align: middle ;	font-weight:bold; font-size: 14px;
 }
 
 .UIAddApplication .UIItemSelector {
@@ -186,7 +202,7 @@
 .UIAddApplication .TitleBarContainer .CenterTitleBar {
   height: 35px ;
   line-height: 35px ; vertical-align: middle ;
-  font-weight: bold ; text-align: center ; font-family: arial; color: #0575CA; font-size: 13px;
+  font-weight: bold ; text-align: center ; font-family: arial; color: #0575CA; font-size: 14px;
   background: url('VistaSkin/background/CenterTitleBar1x35.png') repeat-x;
 }
 
@@ -264,22 +280,17 @@
 	color: #0575CA;
 }
 
-.UIAddApplication .UIAction {
-	width:80px;
-	margin: auto;
-	padding-bottom: 8px;
-}
-
-.UIAddApplication .UIAction .ActionButton {
-  width: 80px ;
-}
-
 .UIAddApplication .ApplicationItemIcon {
 	width: 16px; height: 16px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/DarkBlueNextArrow.gif') no-repeat ;
 	float: left;
 	margin: 3px 5px 0px 5px;
 }
+
+.UIAddApplication .UIAction {
+  width: 190px;
+}
+
 /********************************  UIAddApplication.80x80Icon **********************************/
 
 .UIAddApplication .eXoBrowserIcon {

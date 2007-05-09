@@ -29,8 +29,9 @@
 .UIMaskWorkspace .TitleBarContainer .CenterTitleBar {
   height: 37px;
   line-height: 37px ; vertical-align: middle ;
-  font-weight: bold ; text-align: center ; color: #565656; font-size: 13px;
+  font-weight: bold ; color: #565656; font-size: 14px;
   background: url('MacSkin/background/CenterTitleBar1x37.gif') repeat-x;
+  padding-left: 20px;
 }
 
 .UIMaskWorkspace .ContentContainerDetail {
@@ -48,40 +49,9 @@
   overflow: auto;
 }
 
-.UIMaskWorkspace .ApplicationListContainer {
-	height: 240px;
-	border: 1px solid #a4a4a4;
-	background: white;
-	overflow: auto;
-}
-
-.UIMaskWorkspace .Application {
-  margin: 10px 10px 5px 10px ;
-	border: solid 1px #d6d6d6 ;
-}
-
-.UIMaskWorkspace .TitleBarApplication {
-	height: 21px ;
-	background: url('MacSkin/background/ApplicationTitleBar1x22.gif') repeat-x ;
-}
-
 .UIMaskWorkspace .IconLayout {
 	float: left ;
 	margin: 3px 5px 0px 5px ;
-}
-
-.UIMaskWorkspace .ApplicationLabel {
-	float: left ;
-	height: 21px ;
-	line-height: 21px; 
-	font-weight: bold ; font-size: 11px; color: black;
-	vertical-align: middle ;
-}
-
-.UIMaskWorkspace .ApplicationDescription {
-	background: white ;
-	padding: 10px;
-	font-size: 11px;
 }
 
 .UIMaskWorkspace .UIAction {
@@ -106,16 +76,18 @@
   padding: 0px 12px;
 }
 
+.UIAddApplication .UITabContentContainer {
+  border: 1px solid #a4a4a4;
+}
+
 .UIAddApplication .Application {
-  float: none;
-  width: 203px;
   margin: 12px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
+	padding: 10px;
 }
 
 .UIAddApplication .ApplicationDescription {
-  background: white ;
-  padding: 10px 1px 10px 50px;
+  margin-right: 30px;
 }
 
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
@@ -126,24 +98,33 @@
 }
 
 .UIAddApplication .TitleBarApplication {
-  height:19px;
-  text-align:center;
-  background: url('/eXoResources/background/MacSkin/TitleBG1x19.gif') repeat-x ;
-  border-top: 1px solid #e4e4e4;
+	background: none; 
+	line-height: 22px;
+	font-weight: bold ; font-size: 14px; color: #0987d7; font-family: arial;
 }
 
 .UIAddApplication .ApplicationLabel {
-  color:#0987D7; font-size:11px; font-weight:bold;
-  height:19px; line-height:19px;
-  vertical-align:middle;
-  float: none;
+  font-size: 11px;
+  line-height: 20px;
 }
 
 .UIAddApplication .PortletIcon {
-  cursor:pointer;
-  float:left;
-  height:80px;
-  width:80px;
+  cursor: pointer;
+  float: left;
+  height: 80px; width: 80px;
+  margin-top: 4px;  
+}
+
+.UIAddApplication .ApplicationContent {
+  padding: 0px 0px 0px 12px;
+  width: 270px ;
+  overflow: hidden;
+}
+
+.UIAddApplication .ApplicationButton {
+  float: right;
+  width: 28px;
+  padding: 10px 0px 0px 0px;
 }
 
 .UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {
@@ -151,40 +132,11 @@
   border: none;
 }
 
-
-.UIAddApplication .ContentContainerDetail .TabsContainer .RefreshButtonContent {
-	float: right;
-	width: 90px;
-}
-
-.UIAddApplication .RefreshButtonContent .RefreshButtonLeft {
-	background:url('MacSkin/background/LeftRefreshButton22x22.png') no-repeat top left; 
-	padding: 0px 0px 0px 22px;
-}
-
-.UIAddApplication .RefreshButtonContent .RefreshButtonRight {
-	background:url('MacSkin/background/RightRefreshButton13x22.png') no-repeat top right; 
-	padding: 0px 13px 0px 0px ;
-}
-
-.UIAddApplication .RefreshButtonContent .MiddleRefreshButton {
-	height: 22px;
-	background:url('MacSkin/background/CenterRefreshButton1x22.png') repeat-x top; 
-}
-
-.UIAddApplication .RefreshButtonContent .RefreshButtonLabel {
-	line-height: 21px;
-	padding: 0px 5px;
-	cursor: pointer ;	
-	text-align: center;
-	font-size: 11px;
-}
-
 .UIAddApplication .AddButton {
 	float: none ; 
 	width: 24px ; height: 24px ;
 	background: url('MacSkin/icons/AddIcon.png') no-repeat center;
-	margin: 7px 10px 2px 10px;
+  margin: 5px auto;
 	cursor: pointer ;
 }
 
@@ -192,7 +144,7 @@
 	float: none ; 
 	width: 24px ; height: 24px ;
 	background: url("MacSkin/icons/SelectButton.png") no-repeat center;
-	margin: 10px 10px ;
+  margin: auto;
 	cursor: pointer ;
 }
 
@@ -205,15 +157,21 @@
 	color: #0575CA;
 }
 
-.UIAddApplication .UIAction {
-	width: 120px;
-}
-
 .UIAddApplication .ApplicationItemIcon {
 	width: 10px; height: 10px;
 	background: url('MacSkin/icons/ApplicationItemIcon.png') no-repeat ;
 	float: left;
 	margin: 6px 5px 0px 5px;
+}
+
+.UIAddApplication .LeftColumnStyle .ItemListIcon {
+  background: none;
+  width: 0px;
+}
+
+.UIAddApplication .LeftColumnStyle .ViewListIcon {
+  background: none;
+  width: 0px;
 }
 
 .UIAddApplication .eXoBrowserIcon {
