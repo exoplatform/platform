@@ -3,6 +3,7 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
@@ -12,14 +13,20 @@ import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
+import org.exoplatform.webui.component.UIFormSelectBox;
+import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIGrid;
+import org.exoplatform.webui.component.UIPageIterator;
+import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.UISearch;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -39,7 +46,7 @@ import org.exoplatform.webui.event.EventListener;
 )
 public class UIPageBrowser extends UISearch {
 
-  public static String[] BEAN_FIELD = {"id", "owner", "viewPermission", "editPermission"} ;  
+  public static String[] BEAN_FIELD = {"id", "name", "accessGroups"} ;  
   public static String[] ACTIONS = {"Preview", "EditInfo", "Delete"} ; 
   
   private boolean showAddNewPage = false;
@@ -48,69 +55,62 @@ public class UIPageBrowser extends UISearch {
   private static List<SelectItemOption<String>> OPTIONS = new ArrayList<SelectItemOption<String>>(3);
   
   static{
-    OPTIONS.add(new SelectItemOption<String>("Owner", "owner"));
-    OPTIONS.add(new SelectItemOption<String>("View Permission", "viewPermission"));
-    OPTIONS.add(new SelectItemOption<String>("Edit Permission", "editPermission"));
+    OPTIONS.add(new SelectItemOption<String>("Owner Type", "ownerType"));
+    OPTIONS.add(new SelectItemOption<String>("Owner Id", "ownerId"));
+    OPTIONS.add(new SelectItemOption<String>("Name", "name"));
   }
 
-//  private Query lastQuery_ ;  
+  private Query<Page> lastQuery_ ;  
 
   public UIPageBrowser() throws Exception {
     super(OPTIONS);
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("id", BEAN_FIELD, ACTIONS) ;
-//    defaultValue(null) ;
     addChild(uiGrid.getUIPageIterator());
     uiGrid.getUIPageIterator().setRendered(false);
-//    UIPopupDialog uiPopup = addChild(UIPopupDialog.class, null, "PopupPermissionSelector");
-//    uiPopup.setWindowSize(540, 0);    
-//    uiPopup.setShow(false);
-//    uiPopup.setMessage("hello");
-//    uiPopup.setMessageType("Error");
-//    uiPopup.setHanderEvent("Confirm");
+    
+    defaultValue(null) ;
   }
   
-//  public Query getLastQuery() { return lastQuery_; }
+  public Query getLastQuery() { return lastQuery_; }
   
-//  public void defaultValue(Query query) throws Exception {
-//    lastQuery_ = query ;
-//    PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
-//    DataStorage service = getApplicationComponent(DataStorage.class) ;
-//
-//    if(lastQuery_ == null) lastQuery_ = new Query(context.getPortalOwner(), null, null, Page.class) ;
-//
-//    PageList pagelist = service.findDataDescriptions(lastQuery_) ;
-//    pagelist.setPageSize(10);
-//    
-//    UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
-//    uiGrid.getUIPageIterator().setPageList(pagelist);
-//    addChild(uiGrid.getUIPageIterator());
-//    uiGrid.getUIPageIterator().setRendered(false);
-//    UIPageIterator pageIterator = uiGrid.getUIPageIterator();
-//    if(pageIterator.getAvailable() == 0 ) {
-//      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-//      uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
-//      
-//      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
-//    }
-//  } 
+  public void defaultValue(Query<Page> query) throws Exception {
+    lastQuery_ = query ;
+    PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
+    DataStorage service = getApplicationComponent(DataStorage.class) ;
+
+    if(lastQuery_ == null) lastQuery_ = new Query<Page>(context.getPortalOwner(), null, null, Page.class) ;
+
+    PageList pagelist = service.find(lastQuery_) ;
+    pagelist.setPageSize(10);
+    
+    UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
+    uiGrid.getUIPageIterator().setPageList(pagelist);
+    addChild(uiGrid.getUIPageIterator());
+    uiGrid.getUIPageIterator().setRendered(false);
+    UIPageIterator pageIterator = uiGrid.getUIPageIterator();
+    if(pageIterator.getAvailable() == 0 ) {
+      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+      uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
+      
+      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+    }
+  } 
 
   public void quickSearch(UIFormInputSet quickSearchInput) throws Exception {    
-//    UIFormStringInput input = (UIFormStringInput) quickSearchInput.getChild(0);
-//    UIFormSelectBox select = (UIFormSelectBox) quickSearchInput.getChild(1);
-//    String name = input.getValue();
-//    if(name == null || name.equals("")) name = Util.getUIPortal().getOwner();
-//    String selectBoxValue = select.getValue();
-//    PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
-//    Query query = new Query(context.getPortalOwner(), null, null, Page.class) ;
-//    if(selectBoxValue.equals("owner")) query.setOwner(name) ;
-//    if(selectBoxValue.equals("viewPermission")) query.setViewPermission(name) ;
-//    if(selectBoxValue.equals("editPermission")) query.setEditPermission(name) ;
-//    defaultValue(query) ;
-//    if (this.<UIComponent>getParent() instanceof UIPopupWindow ) {
-//      UIPopupWindow popupWindow = getParent();
-//      popupWindow.setShow(true);
-//    }
+    UIFormStringInput input = (UIFormStringInput) quickSearchInput.getChild(0);
+    UIFormSelectBox select = (UIFormSelectBox) quickSearchInput.getChild(1);
+    String value = input.getValue();
+    String selectBoxValue = select.getValue();
+    Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
+    if(selectBoxValue.equals("ownerType")) query.setOwnerType(value) ;
+    if(selectBoxValue.equals("ownerId")) query.setOwnerId(value) ;
+    if(selectBoxValue.equals("name")) query.setName(value) ;
+    defaultValue(query) ;
+    if (this.<UIComponent>getParent() instanceof UIPopupWindow ) {
+      UIPopupWindow popupWindow = getParent();
+      popupWindow.setShow(true);
+    }
   }
   
   public boolean isShowAddNewPage() { return showAddNewPage;  }
@@ -153,8 +153,6 @@ public class UIPageBrowser extends UISearch {
   }
   static  public class ConfirmActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
-      
-        
       UIPageBrowser uiPageBrowser = event.getSource();
       String action = event.getRequestContext().getRequestParameter("action") ;
       UIPortalApplication uiApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);      
@@ -162,7 +160,7 @@ public class UIPageBrowser extends UISearch {
       uiMaskWS.setUIComponent(null);
       uiMaskWS.setShow(false);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      if( action.equals("close")) return;  
+      if(action.equals("close")) return;  
       
       DataStorage service = uiPageBrowser.getApplicationComponent(DataStorage.class) ;
       Page page = service.getPage(uiPageBrowser.pageSelectedId_) ;
@@ -175,17 +173,15 @@ public class UIPageBrowser extends UISearch {
         return;
       }
       
-//      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
-//      String accessUser = Util.getPortalRequestContext().getRemoteUser();     
-//      if(!userACL.hasPermission(page.getOwnerId(), accessUser, page.getEditPermission())){
-//        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
-//        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-//        return;
-//      }
+      if(!page.isModifiable()){
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+        return;
+      }
       
-//      service.removePage(uiPageBrowser.pageSelectedId_);
-//      uiPageBrowser.defaultValue(null);       
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageBrowser);
+      service.remove(page);
+      uiPageBrowser.defaultValue(null);       
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageBrowser);
     }
   }
   
@@ -206,15 +202,11 @@ public class UIPageBrowser extends UISearch {
         return;
       }
       
-//      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
-//      String accessUser = pcontext.getRemoteUser();     
-//      String editPermission = page.getEditPermission();
-      
-//      if(!userACL.hasPermission(page.getOwnerId(), accessUser, editPermission)) {
-//        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
-//        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-//        return ;
-//      }
+      if(!page.isModifiable()) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+        return ;
+      }
       
       UIPage uiPage =  uiPageBrowser.createUIComponent(pcontext, UIPage.class, null, null) ;
       PortalDataModelUtil.toUIPage(uiPage, page);
@@ -248,15 +240,6 @@ public class UIPageBrowser extends UISearch {
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
-      
-//      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
-//      String accessUser = pcontext.getRemoteUser();
-//      
-//      if(!userACL.hasPermission(page.getOwnerId(), accessUser, page.getViewPermission())){
-//        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-viewPermission", new String[]{page.getName()})) ;;
-//        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-//        return;
-//      }
       
       UIPage uiPage =  uiPageBrowser.createUIComponent(event.getRequestContext(), UIPage.class,null,null) ;
       PortalDataModelUtil.toUIPage(uiPage, page);

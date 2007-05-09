@@ -4,9 +4,17 @@
  **************************************************************************/
 package org.exoplatform.portal.config.jcr;
 
-import javax.jcr.Node;
-import javax.jcr.Session;
+import java.util.ArrayList;
 
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.Session;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
+import javax.jcr.query.QueryResult;
+
+import org.exoplatform.commons.utils.ObjectPageList;
+import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -237,6 +245,37 @@ public class DataStorageImpl implements DataStorage {
     node.save() ;
     session.save() ;
     session.logout();
+  }
+  
+  
+  public  PageList find(org.exoplatform.portal.config.Query cq) throws Exception {
+    StringBuilder  builder = new StringBuilder("select * from "+NT_FOLDER_TYPE);
+    generateScript(builder, "dataType", cq.getClassType().getSimpleName());
+    generateScript(builder, "name", cq.getName());
+    generateScript(builder, "ownerType", cq.getOwnerType());
+    generateScript(builder, "ownerId", cq.getOwnerId());
+    System.out.println("\n\n\n == > "+builder+"\n\n");
+    
+    Session session = jcrRegService_.getSession();
+    QueryManager queryManager = session.getWorkspace().getQueryManager() ;
+    Query query = queryManager.createQuery(builder.toString(), "sql") ;
+    QueryResult queryResult = query.execute() ;
+    ArrayList<Object> list = new ArrayList<Object>();
+    NodeIterator iterator = queryResult.getNodes();
+    while(iterator.hasNext()){
+      Node node = iterator.nextNode();
+      System.out.println("\n == >"+node +"\n");
+      String  xml = node.getProperty("data").getValue().getString() ;
+      list.add(mapper_.fromXML(xml, cq.getClass())) ;
+    }
+    return new ObjectPageList(list, 20);
+  }
+  
+  private void generateScript(StringBuilder sql, String name, String value){
+    if(value == null || value.length() < 1) return ;
+    if(sql.indexOf(" where") < 0) sql.append(" where "); else sql.append(" and "); 
+    value = value.replace('*', '%') ;
+    sql.append(name).append(" like '").append(value).append("'");
   }
   
 //------------------------------------------------- Util method-------- ----------------------------

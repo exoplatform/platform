@@ -26,10 +26,6 @@ import org.jibx.runtime.IUnmarshallingContext;
  */
 public class DataMapper {
   
-  final private String portalType = "portal" ;
-  final private String pageType = "page" ;
-  final private String navigationType = "navigation" ;
-  
 //-------------------------------- Portal Config ---------------------------------------------
   void map(Node node, PortalConfig config) throws Exception {    
     node.setProperty("id", config.getName()) ;
@@ -37,7 +33,7 @@ public class DataMapper {
     node.setProperty("ownerId", "portalConfig");
     node.setProperty("name", config.getName()) ;    
     node.setProperty("accessGroups", config.getAccessGroups()) ;
-    node.setProperty("dataType", portalType) ;    
+    node.setProperty("dataType", config.getClass().getSimpleName()) ;    
     node.setProperty("data", toXML(config)) ;
   }
   
@@ -53,7 +49,7 @@ public class DataMapper {
     node.setProperty("ownerId", page.getOwnerId());
     node.setProperty("name", page.getName()) ;
     node.setProperty("accessGroups", page.getAccessGroups()) ;
-    node.setProperty("dataType", pageType) ;
+    node.setProperty("dataType", page.getClass().getSimpleName()) ;
     node.setProperty("data", toXML(page)) ;
   }
   
@@ -69,7 +65,7 @@ public class DataMapper {
     node.setProperty("ownerId", navigation.getOwnerId());
     node.setProperty("name", navigation.getId()) ;
     node.setProperty("accessGroups", navigation.getAccessGroups()) ;
-    node.setProperty("dataType", navigationType) ;    
+    node.setProperty("dataType", navigation.getClass().getSimpleName()) ;    
     node.setProperty("data", toXML(navigation)) ;
   }
 
@@ -104,7 +100,7 @@ public class DataMapper {
     return new String(os.toByteArray(), "UTF-8");
   }
   
-  private <T> T fromXML(String xml, Class<T> clazz) throws Exception {
+  <T> T fromXML(String xml, Class<T> clazz) throws Exception {
     ByteArrayInputStream is = new ByteArrayInputStream(xml.getBytes()) ;
     IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
