@@ -75,6 +75,7 @@ public class JCRRegistryService  {
       servicesNode.save();
     } 
     Node node = servicesNode.addNode(desc.getName());
+    servicesNode.save() ;
     desc.postAction(this, node) ;
     session.save();
     session.logout();
@@ -110,7 +111,7 @@ public class JCRRegistryService  {
     session.logout();
   }
   
-  private Node getUserNode(Session session, String userName) throws Exception{
+  public Node getUserNode(Session session, String userName) throws Exception{
     if(session.getRootNode().hasNode("users/" + userName)) {
       return session.getRootNode().getNode("users/" + userName);
     }
@@ -135,7 +136,7 @@ public class JCRRegistryService  {
   }
 
   /**
-   * This method should: 
+   * This method should:
    * 
    * 1. Create the /users/$username 
    * 2. Create the /users/$username/exo:registry
