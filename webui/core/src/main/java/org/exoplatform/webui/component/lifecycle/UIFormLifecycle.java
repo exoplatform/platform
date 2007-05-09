@@ -45,7 +45,7 @@ public class UIFormLifecycle  extends Lifecycle {
 
   public void processAction(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     UIForm uiForm = (UIForm) uicomponent ;
-    String action = uiForm.getSubmitAction(); 
+    String action =  context.getRequestParameter(UIForm.ACTION);
     if(action == null) action = uiForm.getSubmitAction();
     if(action == null) return ;    
     Event<UIComponent> event = uicomponent.createEvent(action, Event.Phase.PROCESS, context) ;
@@ -66,7 +66,7 @@ public class UIFormLifecycle  extends Lifecycle {
         context.setProcessRender(true) ;
       } catch(Exception ex) {
         //TODO:  This is a  critical exception and should be handle  in the UIApplication
-        uiApp.addMessage(new ApplicationMessage(ex.getMessage(), null)) ;        
+        uiApp.addMessage(new ApplicationMessage(ex.toString(), null)) ;        
         context.setProcessRender(true) ;
       }
     }
