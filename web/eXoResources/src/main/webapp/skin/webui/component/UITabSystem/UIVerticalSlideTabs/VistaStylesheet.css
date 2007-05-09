@@ -45,6 +45,88 @@
   width: 16px ; height: 16px ;
 }
 
+
+/*#######################-VTabSimpleStyle VerticalSlideTabs-######################*/
+.UIVerticalSlideTabs .UIVTab .VTabSimpleStyle {
+	cursor: pointer;
+	line-height: 26px;
+	margin: 5px 0px 0px 0px;
+}
+
+.UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLeft {
+	background: url(VistaSkin/background/SimpleTabLeft29x24.png) no-repeat left;
+	padding-left: 29px;
+}
+
+.UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabRight {
+	background: url(VistaSkin/background/SimpleTabRight3x24.png) no-repeat right;
+	padding-right: 3px;
+}
+
+.UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabRepeat {
+	background: url(VistaSkin/background/SimpleTabRepeat1x24.png) repeat-x ;
+	height: 24px;
+}
+
+.UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel {
+  float: left ;
+  height: 23px ; line-height: 23px ;  vertical-align: middle ;
+  color: #2e7eb2; font-weight: bold; font-size: 11px;
+}
+
+/*#######################-SelectedVTabSimpleStyle VerticalSlideTabs-######################*/
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle {
+	cursor: pointer;
+	margin: 5px 0px 0px 0px;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLeft {
+	background: url(VistaSkin/background/SelectedTabLeft27x23.png) no-repeat left;
+	padding-left: 27px;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabRight {
+	background: url(VistaSkin/background/SelectedTabRight13x23.png) no-repeat right;
+	padding-right: 13px;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabRepeat {
+	background: url(VistaSkin/background/SelectedTabRepeat1x23.png) repeat-x ;
+	height: 23px;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLabel {
+  float: left;
+  height: 23px ; line-height: 22px ;  vertical-align: middle ;
+  color: #058ee6; font-weight: bold; font-size: 11px;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .ControlContainer {
+  float: right;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .ControlIcon {
+  float: left;
+  margin: 3px 0px 0px 4px;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .EditIcon{
+  width: 19px;  height: 17px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat;
+}
+
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .DeleteIcon{
+  width: 20px;  height: 17px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') no-repeat;
+}
+
+.UIVerticalSlideTabs .UIVTab .UIVTabContent {
+  padding: 10px ;
+  font-size: 11px;
+  border: 1px solid #afbed3;
+}
+
+
 /*#######################-PolygonNavyViolet Style VerticalSlideTabs-######################*/
 
 .UIVerticalSlideTabs .UIVTab .PolygonNavyVioletStyle {

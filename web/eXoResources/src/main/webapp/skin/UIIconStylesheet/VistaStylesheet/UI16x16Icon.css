@@ -44,6 +44,11 @@
   width: 16px ;  height: 16px ;
 }
 
+.PermissionSettingIcon {
+  width: 21px; height: 23px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/PermissionSetting.png') no-repeat left center;
+}
+
 .PreviewIcon {
   width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/LightBulbOn.gif') no-repeat center left;

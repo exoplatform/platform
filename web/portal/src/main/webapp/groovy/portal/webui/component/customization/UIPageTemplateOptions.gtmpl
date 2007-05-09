@@ -18,9 +18,11 @@
 	    <input type="hidden" name="<%=uicomponent.getName();%>" value="">
 	    <%/*Begin ItemList*/ %>
 	    <div class="ItemListContainer ItemSelectorAncestor">
+	    	<div class="PageConfigOptionList">
 		    <% 
 	        uicomponent.renderChild(UIDropDownItemSelector.class)  ;
 	      %>
+	     </div>
 		    <% 
 		      for(category in categories){
             templates = category.getSelectItemOptions();

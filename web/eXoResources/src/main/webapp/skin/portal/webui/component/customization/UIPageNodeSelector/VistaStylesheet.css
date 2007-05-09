@@ -57,7 +57,7 @@
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .Icon {
   width: 24px;  height: 24px ;
-  margin: 3px 2px 0px 2px;
+  margin: 0px 2px 0px 2px;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .NodeSelected {

@@ -63,6 +63,10 @@
   height: 310px;
 }
 
+.UIItemSelector .RightColumnStyle .ItemListContainer .PageConfigOptionList {
+	padding-top: 8px;
+}
+
 .UIItemSelector .RightColumnStyle .ItemListContainer .ItemListBgIcon {
   margin: auto;
   height: 374px;
@@ -397,7 +401,7 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemDetailList .ItemDetailTitle{
-  height: 24px;
+  height: 26px;
 
 }
 

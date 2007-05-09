@@ -1,11 +1,11 @@
 .UICreatePage {
-  text-align: center ;
+  padding: 8px 5px 5px 5px; 
 }
 
 .UICreatePage .PagePreviewIcon {
   float: left;
   width: 26px; height: 26px;
-  margin: 7px 15px 0px 25px;
+  margin: 7px 8px 0px 25px;
   background: url('/eXoResources/icons/24x24/VistaSkin/PagePreview.png') no-repeat ;
 }
 
@@ -20,14 +20,14 @@
 .UICreatePage .EditContainerIcon {
   float: left;
   width: 34px; height: 26px;
-  margin: 7px 15px 0px 26px;
+  margin: 7px 8px 0px 26px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControl.png') no-repeat ;
 }
 
 .UICreatePage .EditPortletIcon {
   float: left;
   width: 28px; height: 24px;
-  margin: 7px 15px 0px 25px;
+  margin: 7px 8px 0px 25px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControlIcon.png') no-repeat ;
 }
 

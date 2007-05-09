@@ -21,12 +21,12 @@
 }
 
 .UIHorizontalTabs .TabsContainer {
-  padding:0px 0px 0px 10px;
+  padding: 0px 0px 0px 10px;
 }
 
 .UIHorizontalTabs .UITab {
   float: left;
-  font-weight:normal;
+  font-weight: normal;
   text-align: center;
 }
 
@@ -86,13 +86,13 @@
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
   color: white;
-  width:auto; height: 24px;
+  width: auto; 
   line-height: 24px;
   padding-left: 16px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
-  color:#000000;
+  color: #000000;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
@@ -114,7 +114,7 @@
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
   line-height: 24px;
-  padding-left:3px;
+  padding-left: 3px;
   margin: 0px 2px 0px 0px;
   background: url('VistaSkin/background/LeftHighlightNaviTab3x24.gif') no-repeat left; 
   
@@ -135,13 +135,13 @@
 }
 .UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
   color: white;
-  width:auto; height: 24px;
+  width: auto;
   line-height: 24px;
   padding-left: 16px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
-  color:#000000;
+  color: #000000;
  
 }
 
@@ -164,8 +164,8 @@
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
-  line-height:24px;
-  padding-left:3px;
+  line-height: 24px;
+  padding-left: 3px;
   margin: 0px 2px 0px 0px;
   background: url('VistaSkin/background/LeftSelectedNaviTab3x24.gif') no-repeat left;
 }
@@ -185,7 +185,7 @@
 }
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
   color: white;
-  width:auto; height: 24px;
+  width: auto; 
   line-height: 24px;
   padding-left: 16px;
 }

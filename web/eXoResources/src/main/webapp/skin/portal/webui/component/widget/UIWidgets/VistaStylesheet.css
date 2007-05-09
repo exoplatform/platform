@@ -76,7 +76,7 @@
 	float: left;
 	width: 19px; height: 21px;
 	background: url('VistaSkin/icon/EditIcon.png') no-repeat center;
-	cursor: pointer;		
+	cursor: pointer;	
 }
 
 .UIWidgets .UIDropDownItemSelector {
@@ -123,15 +123,15 @@
 
 .UIWidgetContainer .WidgetControlContainer .CloseWidgetIcon {
 	float: left;
-	width: 16px; height: 16px;
+	width: 24px; height: 20px;
 	cursor: pointer;
-	margin: 2px 0px 0px 5px;
+	margin: 0px 0px 0px 2px;
 }
 
 .UIWidgetContainer .WidgetControlContainer .EditWidgetIcon {
 	float: left;
-	width: 16px; height: 16px;
-	margin: 2px 0px 0px 10px;
+	width: 24px; height: 20px;
+	margin: 0px 0px 0px 3px;
 	cursor: pointer;	
 }
 
