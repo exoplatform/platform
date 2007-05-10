@@ -75,9 +75,8 @@ public class UIPageCreationWizard extends UIPageWizard {
     PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();
     
     String remoteUser = Util.getPortalRequestContext().getRemoteUser();
-    String ownerType = "user";
+    String ownerType = DataStorage.USER_TYPE ;
     String ownerId = remoteUser;
-    
     if(pageNav != null) {
       ownerType = pageNav.getOwnerType();
       ownerId = pageNav.getOwnerId();
@@ -104,11 +103,12 @@ public class UIPageCreationWizard extends UIPageWizard {
         pageNav.setOwnerId(ownerId);
       }
       pageNav.addNode(pageNode);
-      pageNode.setUri(pageNode.getName());
+      pageNode.setUri(ownerId + "::" + pageNode.getName());
     }
     uiNodeSelector.selectPageNodeByUri(pageNode.getUri());
     page.setOwnerType(ownerType);
     page.setOwnerId(ownerId);
+    page.setName(pageNode.getName()) ;
    
     daoService.create(page); 
     if(daoService.getPageNavigation(pageNav.getId()) != null) {
@@ -175,13 +175,23 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);      
       WebuiRequestContext context = Util.getPortalRequestContext() ;  
       
+      String ownerType = DataStorage.USER_TYPE ;
+      String ownerId = context.getRemoteUser() ;
+      UIPageNodeSelector uiNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class) ;
+      PageNavigation pageNavi = uiNodeSelector.getSelectedNavigation() ;
+      if (pageNavi != null) {
+        ownerType = pageNavi.getOwnerType() ;
+        ownerId = pageNavi.getOwnerId() ;
+      }
       PageNode pageNode = uiPageInfo.getPageNode();
-      
       Page page = uiPageTemplateOptions.getSelectedOption();
       if(page == null) page  = new Page();
-      if(page.getOwnerType() == null) page.setOwnerType(DataStorage.USER_TYPE);
-      if(page.getOwnerId() == null) page.setOwnerId(context.getRemoteUser());
-      if(page.getName() == null || page.getName().equals("UIPage")) page.setName(pageNode.getName());        
+//      if(page.getOwnerType() == null) page.setOwnerType(DataStorage.USER_TYPE);
+//      if(page.getOwnerId() == null) page.setOwnerId(context.getRemoteUser());
+      if(page.getOwnerType() == null) page.setOwnerType(ownerType);
+      if(page.getOwnerId() == null) page.setOwnerId(ownerId);
+      if(page.getName() == null || page.getName().equals("UIPage")) page.setName(pageNode.getName());
+      if(page.getTitle() == null) page.setTitle(pageNode.getLabel()) ;
       
       boolean isDesktopPage = "Desktop".equals(page.getFactoryId());
       if(isDesktopPage) page.setShowMaxWindow(true);

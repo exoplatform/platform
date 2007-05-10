@@ -44,7 +44,7 @@ public class UIWizardPageSetInfo extends UIForm {
   public UIWizardPageSetInfo() throws Exception {
     UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, null, null);    
     addUIFormInput(new UIFormStringInput("pageName", "pageName", null).addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class));
-    addUIFormInput(new UIFormTextAreaInput("description","description",null));
+    addUIFormInput(new UIFormStringInput("pageDisplayName", "pageDisplayName", null));
     
     UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
     uiTree.setUIRightClickPopupMenu(null);
@@ -58,11 +58,15 @@ public class UIWizardPageSetInfo extends UIForm {
     if(uiPageNodeSelector.getSelectedPageNode() != null) return;
     PageNode pageNode = Util.getUIPortal().getSelectedNode();
     uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri()) ; 
-    UIFormStringInput uiNameInput = getChild(UIFormStringInput.class);
+    //UIFormStringInput uiNameInput = getChild(UIFormStringInput.class);
+    UIFormStringInput uiNameInput = getChildById("pageName") ;
     uiNameInput.setEditable(false);
     if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
 //    UIFormTextAreaInput uiDesInput = getChild(UIFormTextAreaInput.class);
 //    if(pageNode.getDescription() != null) uiDesInput.setValue(pageNode.getDescription());
+    UIFormStringInput uiDisplayNameInput = getChildById("pageDisplayName") ;
+    if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getLabel());
+
   }
   
   public PageNode getPageNode() {
@@ -72,10 +76,11 @@ public class UIWizardPageSetInfo extends UIForm {
     String user = context.getRemoteUser();
     if(user == null) user = Util.getUIPortal().getOwner();
     String name = this.<UIFormStringInput>getUIInput("pageName").getValue();
-    
+    String displayName = this.<UIFormStringInput>getUIInput("pageDisplayName").getValue() ;
     PageNode pageNode  = new PageNode();
     pageNode.setName(name);
-    pageNode.setLabel(name);
+    //pageNode.setLabel(name);
+    pageNode.setLabel(displayName);
     
     return pageNode;
  }
@@ -104,10 +109,12 @@ public class UIWizardPageSetInfo extends UIForm {
       
       if(!event.getSource().isEdit) return ;
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
-      UIFormStringInput uiNameInput = event.getSource().getChild(UIFormStringInput.class);
-      UIFormTextAreaInput uiDesInput = event.getSource().getChild(UIFormTextAreaInput.class);
+      //UIFormStringInput uiNameInput = event.getSource().getChild(UIFormStringInput.class);
+      UIFormStringInput uiNameInput = event.getSource().getChildById("pageName") ;
       if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
-//      if(pageNode.getDescription() != null) uiDesInput.setValue(pageNode.getDescription());
+      //UIFormTextAreaInput uiDesInput = event.getSource().getChild(UIFormTextAreaInput.class);
+      UIFormStringInput uiDisplayNameInput = event.getSource().getChildById("pageDisplayName") ;
+      if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getLabel());
     }
   }
  
