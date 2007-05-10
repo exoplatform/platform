@@ -33,7 +33,7 @@ import org.exoplatform.webui.event.EventListener;
 
 public class UIAccessGroup extends UIFormInputContainer<String> { 
 
-  private static String[] USER_BEAN_FIELD = {"groupId", "description"} ;
+  private static String[] USER_BEAN_FIELD = {"id", "description"} ;
   private static String[] USER_ACTION = {"Remove"} ;
   
   private List<Group> groups;

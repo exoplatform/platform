@@ -78,11 +78,11 @@ public class UIGroupSelector extends UIContainer {
   
   public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
-    System.out.println("ProcessDecode");
+    System.out.println("\n\nProcessDecode\n\n\n");
     UIForm uiForm  = getAncestorOfType(UIForm.class);
     String action =  null;
     if(uiForm != null){
-      action =  uiForm.getSubmitAction(); 
+      action = uiForm.getSubmitAction(); 
     }else {
       action = context.getRequestParameter(UIForm.ACTION);
     }    
