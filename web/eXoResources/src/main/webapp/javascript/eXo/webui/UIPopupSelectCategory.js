@@ -33,13 +33,13 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 		uiPopupCategory.style.display = "none" ;
 	}
 	
-	var uiWindow = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "UIWindow") ;
-	if(uiWindow != null) {
-		var uiRowContainer = eXo.core.DOMUtil.findAncestorByClass(uiWindow, "UIRowContainer") ;
-		if(uiRowContainer != null) {
-				uiRowContainer.style.height = uiWindow.offsetHeight + "px" ;
-			}
-		} 
+//	var uiWindow = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "UIWindow") ;
+//	if(uiWindow != null) {
+//		var uiRowContainer = eXo.core.DOMUtil.findAncestorByClass(uiWindow, "UIRowContainer") ;
+//		if(uiRowContainer != null) {
+//				uiRowContainer.style.height = uiWindow.offsetHeight + "px" ;
+//			}
+//		} 
 	/*Add uiPopupCategory to the list element will be display to "none" when click on document*/
 	eXo.core.DOMUtil.listHideElements(uiPopupCategory);
 } ;

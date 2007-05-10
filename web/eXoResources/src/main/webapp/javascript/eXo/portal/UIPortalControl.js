@@ -50,11 +50,12 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
 UIPortalControl.prototype.fixHeight = function() {
 	var objectParent = document.getElementById("UIControlWorkspace");
 	var uiWorkspaceContainer = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
+	//alert(uiWorkspaceContainer);
 	if(uiWorkspaceContainer.style.display == "block") {
 		var scrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
 		if(scrollArea != null) {
 			var jsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
-			var maxHeight = objectParent.offsetHeight - 205 ;
+			var maxHeight = objectParent.offsetHeight - 210 ;
 			scrollArea.style.height = "auto";
 			scrollArea.style.width = "210px";
 			jsContainer.style.width = "208px";
