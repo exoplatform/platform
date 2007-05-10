@@ -22,11 +22,8 @@
     String id = uicomponent.getParent().getId();
   	JavascriptManager jsmanager = rcontext.getJavascriptManager();
   	jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
-  	jsmanager.importJavascript('eXo.portal.UIPortalControl') ;
   	
   	jsmanager.addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
-  	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
-  	jsmanager.addOnResizeJavascript('eXo.portal.UIPortalControl.fixHeight');
     uicomponent.renderUIComponent(uiPopupMenu) ;
      
     popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode");

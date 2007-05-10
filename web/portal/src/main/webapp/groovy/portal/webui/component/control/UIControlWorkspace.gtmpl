@@ -7,10 +7,13 @@
 	JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	
 	jsmanager.importJavascript('eXo.portal.UIWorkspace');
+	jsmanager.importJavascript('eXo.portal.UIPortalControl') ;
 	
   jsmanager.addOnLoadJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
   jsmanager.addOnResizeJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
   jsmanager.addOnScrollJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
+  jsmanager.addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
+  jsmanager.addOnResizeJavascript('eXo.portal.UIPortalControl.fixHeight');
 %>
 
 <div id="UIControlWorkspace" class="UIControlWorkspace UIWorkspace" style="float:left; position: relative; z-index: 1; display: inline">

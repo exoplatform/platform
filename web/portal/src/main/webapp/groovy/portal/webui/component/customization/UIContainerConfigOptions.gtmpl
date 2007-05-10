@@ -39,7 +39,7 @@
 				    }
 				%>  
 				<%/* Start Container Layout */%>
-				  <div class="Category">
+				  <div class="Category ScrollArea">
 				    <div class="CategoryContainer ItemList" style="display:$style;">
 				      <%
 				        for(template in templates) {

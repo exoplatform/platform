@@ -9,7 +9,6 @@
   def categories = uicomponent.getItemCategories() ;
   UIForm form = uicomponent.getParent() ;
   
-  String showPopupCategory = "eXo.webui.UIItemSelector.showPopupCategory(this); " ;
   String selectCategory = "eXo.webui.UIItemSelector.selectCategory(this); " ;
 %>
 <div class="UIItemSelector">
