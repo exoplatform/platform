@@ -31,81 +31,81 @@
 
   <external-component-plugins>
     <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
-        <component-plugin>
-            <name>bind.datasource</name>
-            <set-method>addPlugin</set-method>
-            <type>org.exoplatform.services.naming.BindReferencePlugin</type>
-            <init-params>
-                <value-param>
-                    <name>bind-name</name>
-                    <value>jdbcexo</value>
-                </value-param>
-                <value-param>
-                    <name>class-name</name>
-                    <value>javax.sql.DataSource</value>
-                </value-param>
-                <value-param>
-                    <name>factory</name>
-                    <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-                </value-param>
-                <properties-param>
-                    <name>ref-addresses</name>
-                    <description>ref-addresses</description>
+    <component-plugin>
+      <name>bind.datasource</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+      <init-params>
+        <value-param>
+          <name>bind-name</name>
+          <value>jdbcexo</value>
+        </value-param>
+        <value-param>
+          <name>class-name</name>
+          <value>javax.sql.DataSource</value>
+        </value-param>
+        <value-param>
+          <name>factory</name>
+          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+        </value-param>
+        <properties-param>
+          <name>ref-addresses</name>
+          <description>ref-addresses</description>
           <property name="driverClassName" value="${driverClass}"/>
           <property name="url" value="${connectionUrl}"/>
           <property name="username" value="${username}"/>
           <property name="password" value="${password}"/>
-                </properties-param>
-            </init-params>
-        </component-plugin>
+        </properties-param>
+      </init-params>
+    </component-plugin>
 
-        <component-plugin>
-            <name>bind.datasource</name>
-            <set-method>addPlugin</set-method>
-            <type>org.exoplatform.services.naming.BindReferencePlugin</type>
-            <init-params>
-                <value-param>
-                    <name>bind-name</name>
-                    <value>jdbcjcr</value>
-                </value-param>
-                <value-param>
-                    <name>class-name</name>
-                    <value>javax.sql.DataSource</value>
-                </value-param>
-                <value-param>
-                    <name>factory</name>
-                    <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-                </value-param>
-                <properties-param>
-                    <name>ref-addresses</name>
-                    <description>ref-addresses</description>
+    <component-plugin>
+      <name>bind.datasource</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+      <init-params>
+        <value-param>
+          <name>bind-name</name>
+          <value>jdbcjcr</value>
+        </value-param>
+        <value-param>
+          <name>class-name</name>
+          <value>javax.sql.DataSource</value>
+        </value-param>
+        <value-param>
+          <name>factory</name>
+          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+        </value-param>
+        <properties-param>
+          <name>ref-addresses</name>
+          <description>ref-addresses</description>
           <property name="driverClassName" value="${driverClass}"/>
           <property name="url" value="${connectionUrl}"/>
           <property name="username" value="${username}"/>
           <property name="password" value="${password}"/>
-                </properties-param>
-            </init-params>
-        </component-plugin>
+        </properties-param>
+      </init-params>
+    </component-plugin>
   </external-component-plugins>
 
   <!-- begining from jcr 1.6 we don't use db creator -->
   <!-- external-component-plugins>
-    <target-component>org.exoplatform.services.database.jdbc.DBSchemaCreator</target-component>
-      <component-plugin>
-            <name>jcr.dbschema</name>
-            <set-method>addPlugin</set-method>
-            <type>org.exoplatform.services.database.jdbc.CreateDBSchemaPlugin</type>
-            <init-params>
-                <value-param>
-                    <name>data-source</name>
-                    <value>jdbcjcr</value>
-                </value-param>
-                <value-param>
-                    <name>script-file</name>
-                    <value>conf/storage/jcr-sjdbc.sql</value>
-                </value-param>
-            </init-params>
-      </component-plugin>
-  </external-component-plugins -->
+  <target-component>org.exoplatform.services.database.jdbc.DBSchemaCreator</target-component>
+  <component-plugin>
+    <name>jcr.dbschema</name>
+    <set-method>addPlugin</set-method>
+    <type>org.exoplatform.services.database.jdbc.CreateDBSchemaPlugin</type>
+    <init-params>
+      <value-param>
+        <name>data-source</name>
+        <value>jdbcjcr</value>
+      </value-param>
+      <value-param>
+        <name>script-file</name>
+        <value>conf/storage/jcr-sjdbc.sql</value>
+      </value-param>
+    </init-params>
+  </component-plugin>
+</external-component-plugins -->
 
 </configuration>

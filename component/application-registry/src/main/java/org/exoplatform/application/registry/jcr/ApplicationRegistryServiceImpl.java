@@ -228,7 +228,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   }
   
   public void importExoApplications() throws Exception {
-    
+    PortalContainer manager  = PortalContainer.getInstance() ;
   }
   
   private Node getApplicationNode(Session session, String category, String name) throws Exception {

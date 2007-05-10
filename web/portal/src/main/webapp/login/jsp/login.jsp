@@ -22,8 +22,8 @@
   }
   
   boolean showForm = false ;  
-  if (userName == null || userName.length() == 0  || userName.equals("null")) showForm = true ;
-  if (password == null || password.length() == 0 || password.equals("null")) showForm  = true ;
+  if (userName == null || userName.length() == 0) showForm = true ;
+  if (password == null || password.length() == 0) showForm  = true ;
   if(!showForm) {
     password = URLEncoder.encode(password) ;
     response.sendRedirect(loginAction + "?j_username=" + userName + "&j_password=" + password ) ;
@@ -52,12 +52,10 @@
               <%/*Begin form*/%>
               <form name="loginForm" action="<%=loginAction%>">        
 	              <div class="FieldContainer">
-		              <label>User name:</label>
-		              <input name="j_username" value="" />
+		              <label>User name:</label><input name="j_username" value="" />
 			          </div>
 		            <div class="FieldContainer" id="UIPortalLoginFormControl">
-		              <label>Password:</label>
-		              <input type="password" name="j_password" value="" />
+		              <label>Password:</label><input type="password" name="j_password" value="" />
 		            </div>
 			            
 		            <div class="TextHelp">Forgot Your User Name/Password?</div>

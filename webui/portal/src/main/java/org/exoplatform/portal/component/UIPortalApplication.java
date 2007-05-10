@@ -8,6 +8,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.application.HtmlValidator;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
@@ -133,45 +134,50 @@ public class UIPortalApplication extends UIApplication {
   }
   
   public void  processRender(WebuiRequestContext context) throws Exception {
+    Writer w =  context.getWriter() ;
     if(!context.useAjax()) {
       super.processRender(context) ;
-      return;
-    }
-    PortalRequestContext pcontext = (PortalRequestContext)context;
-    List<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
-    List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>(3);
-    List<UIComponent> uiDataComponents = new ArrayList<UIComponent>(5);
-    
-    if(list != null) {
-      for(UIComponent uicomponent : list) {
-        if(uicomponent instanceof UIPortlet) uiPortlets.add((UIPortlet)uicomponent) ;
-        else uiDataComponents.add(uicomponent) ;
+    } else {
+      PortalRequestContext pcontext = (PortalRequestContext)context;
+      List<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
+      List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>(3);
+      List<UIComponent> uiDataComponents = new ArrayList<UIComponent>(5);
+
+      if(list != null) {
+        for(UIComponent uicomponent : list) {
+          if(uicomponent instanceof UIPortlet) uiPortlets.add((UIPortlet)uicomponent) ;
+          else uiDataComponents.add(uicomponent) ;
+        }
       }
-    }
-    Writer w =  context.getWriter() ;
-    w.write("<div class=\"PortalResponse\">") ;
-    if(!context.getFullRender()) {
-      for(UIPortlet uiPortlet : uiPortlets) {
-        uiPortlet.processRender(context) ;
+      w.write("<div class=\"PortalResponse\">") ;
+      if(!context.getFullRender()) {
+        for(UIPortlet uiPortlet : uiPortlets) {
+          uiPortlet.processRender(context) ;
+        }
       }
+      w.  write("<div class=\"PortalResponseData\">");
+      for(UIComponent uicomponent : uiDataComponents) {
+        renderBlockToUpdate(uicomponent, context, w) ;
+      }
+      String skin  = getAddSkinScript(list);
+      w.  write("</div>");
+      w.  write("<div class=\"PortalResponseScript\">"); 
+      w.    write(pcontext.getJavascriptManager().getJavascript());
+      w.    write("eXo.core.Browser.onLoad();\n"); 
+      w.    write(pcontext.getJavascriptManager().getCustomizedOnLoadScript()) ;
+      if(skin != null){
+        w.  write(skin) ;
+      }
+      w.  write("</div>") ;
+      w.write("</div>") ;
     }
-    w.  write("<div class=\"PortalResponseData\">");
-    for(UIComponent uicomponent : uiDataComponents) {
-      renderBlockToUpdate(uicomponent, context, w) ;
+    if(w instanceof HtmlValidator) {
+      HtmlValidator validator = (HtmlValidator) w ;
+      validator.finish() ;
+      System.out.println("===> IN HtmlValidator") ;
     }
-    String skin  = getAddSkinScript(list);
-    w.  write("</div>");
-    w.  write("<div class=\"PortalResponseScript\">"); 
-    w.    write(pcontext.getJavascriptManager().getJavascript());
-    w.    write("eXo.core.Browser.onLoad();\n"); 
-    w.    write(pcontext.getJavascriptManager().getCustomizedOnLoadScript()) ;
-    if(skin != null){
-      w.  write(skin) ;
-    }
-    w.  write("</div>") ;
-    w.write("</div>") ;       
   }
-  
+
   private String getAddSkinScript(List<UIComponent> updateComponents) {
     if(updateComponents == null) return null;
     List<UIPortlet> uiportlets = new ArrayList<UIPortlet>() ;

@@ -11,4 +11,4 @@ export JAVA_OPTS="-Xshare:auto -Xms128m -Xmx512m $LOG_OPTS $EXO_OPTS"
 
 # Launches the server
 cd $UNIX_DIR
-exec jonas "$@"
+exec $UNIX_DIR/jonas "$@"
