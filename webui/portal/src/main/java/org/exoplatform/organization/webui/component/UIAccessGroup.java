@@ -9,8 +9,6 @@ import java.util.List;
 
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.services.organization.Group;
-import org.exoplatform.services.organization.GroupHandler;
-import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.component.UIFormInputContainer;
 import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.component.UIGrid;
@@ -71,9 +69,6 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
       Group group = uiGroupSelector.getSelectedGroup();
       if(group.getLabel() == null) group.setLabel("");
       if(group.getDescription() == null) group.setDescription("");
-      System.out.println("\n\n\n");
-      System.out.println(group.getLabel()+" : "+group.getDescription());
-      System.out.println("\n\n\n");
       uiAccessGroup.addGroup(group);
     }
   }
