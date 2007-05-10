@@ -20,8 +20,6 @@
   void printTab(List messages, String title, boolean isSelected) {
     String cssClass = "NormalTabStyle" ;
     if(isSelected)  cssClass = "SelectedTabStyle" ;
-    String label = "Error";
-  
     println "<div class=\"UITab\">";
 	  println "  <div class=\"$cssClass\">";
   	println "    <div class=\"LeftTab\">";
