@@ -44,7 +44,10 @@ public class PortalConfig {
   public String [] getAccessGroup() { return accessGroup ; }
   public void   setAccessGroup(String[] s) { accessGroup = s ; }
   
-  public String getSkin() { return skin; }
+  public String getSkin() { 
+    if(skin == null || skin.length() < 1) return "Default";
+    return skin; 
+  }
   public void setSkin(String s ) { skin = s; }
   
   public Container getWidgetLayout() { return widgetLayout; }
@@ -56,7 +59,9 @@ public class PortalConfig {
   public boolean isModifiable() { return modifiable ; }
   public void  setModifiable(boolean b) { modifiable = b ; }
   
-  public String getFactoryId() { return factoryId; }
+  public String getFactoryId() { 
+    return factoryId; 
+  }
   public void setFactoryId(String factoryId) { this.factoryId = factoryId; }
   
   public String getCreator()  {  return creator ; }

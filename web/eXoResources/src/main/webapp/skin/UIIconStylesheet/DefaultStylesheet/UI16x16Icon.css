@@ -85,6 +85,11 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/SelectIcon.gif') no-repeat left center;
 }
 
+.DeletePortalIcon {
+  width: 16px ;  height: 16px ; margin: auto;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectIcon.gif') no-repeat left center;
+}
+
 .OnLightPage16x16Icon {
   width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/OrangeLightPage.gif') no-repeat left center;

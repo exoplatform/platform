@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.exoplatform.organization.webui.component.UIAccessGroup;
 import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
@@ -27,6 +28,8 @@ import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTabPane;
+import org.exoplatform.webui.component.UIGrid;
+import org.exoplatform.webui.component.UIPageIterator;
 import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemCategory;
@@ -83,10 +86,10 @@ public class UIPortalForm extends UIFormTabPane {
     UIPortal uiPortal = Util.getUIPortal();
     uiPortal.getLocale();
     uiSelectBox.setValue(uiPortal.getSkin());
-    uiSelectBox.setEnable(false);
+    uiSelectBox.setEditable(false);
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);
-    uiSettingSet.getUIFormSelectBox("locale").setEnable(false);
+    uiSettingSet.getUIFormSelectBox("locale").setEditable(false);
     WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
     WebuiApplication app  = (WebuiApplication)currReqContext.getApplication() ;
     List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);
@@ -166,9 +169,20 @@ public class UIPortalForm extends UIFormTabPane {
       userPortalConfig.setPortal(portalConfig);
       PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig);
       
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIMaskWorkspace uiMaskWorkspace = uiForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
+      UIPortalBrowser uiBrowser = uiPortalApp.findFirstComponentOfType(UIPortalBrowser.class);
+      if(uiBrowser != null) {
+        UIPageIterator  iterator = uiBrowser.getChild(UIGrid.class).getUIPageIterator();
+        int currentPage = iterator.getCurrentPage();
+        uiBrowser.loadPortalConfigs();
+        if(currentPage > iterator.getAvailablePage()) currentPage = iterator.getAvailablePage();
+        iterator.setCurrentPage(currentPage);
+        UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      } 
     }
   }
   

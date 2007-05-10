@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portal.config;
 
+import java.util.List;
+
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -116,4 +118,6 @@ public interface DataStorage {
   public void savePortletPreferencesConfig(PortletPreferences portletPreferences)  throws Exception;
   
   public  PageList find(Query q) throws Exception ;
+  
+  public List<PortalConfig> getAllPortalConfig() throws Exception;
 }
