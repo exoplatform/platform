@@ -7,8 +7,12 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
+import org.exoplatform.portal.component.UIWorkspace;
+import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.control.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
@@ -55,8 +59,6 @@ public class UIPortalManagementEditBar extends UIToolbar {
     public void execute(Event<UIPortalManagementEditBar> event) throws Exception {
     }
   }
-
-  
   
   static public class EditPortalActionListener  extends EventListener<UIPortalManagementEditBar> {
     public void execute(Event<UIPortalManagementEditBar> event) throws Exception {
@@ -82,7 +84,16 @@ public class UIPortalManagementEditBar extends UIToolbar {
                                    UIContainerConfigOptions.class, UIPortalManagementControlBar.class};
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       
-      Util.updateUIApplication(event);
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      
+      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
+      pcontext.addUIComponentToUpdateByAjax(uiWorking);
+      
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
+      pcontext.setFullRender(true);
     }
   }
   
@@ -97,7 +108,16 @@ public class UIPortalManagementEditBar extends UIToolbar {
                                    UIPortletOptions.class, UIPortalManagementControlBar.class};
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       
-      Util.updateUIApplication(event);
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      
+      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
+      pcontext.addUIComponentToUpdateByAjax(uiWorking);
+      
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
+      pcontext.setFullRender(true);
     }
   }
    

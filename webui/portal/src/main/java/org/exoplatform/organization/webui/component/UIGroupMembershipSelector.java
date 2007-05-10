@@ -24,7 +24,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-
+import org.exoplatform.webui.event.Event.Phase;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
@@ -32,13 +32,12 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfigs({ 
   @ComponentConfig(
-      template = "system:/groovy/organization/webui/component/UIGroupMembershipSelector.gtmpl"
-//        ,
-//      events = {
-//          @EventConfig(phase = Phase.DECODE, listeners = ChangeNodeActionListener.class),
-//          @EventConfig(phase = Phase.DECODE, listeners = SelectMembershipActionListener.class),
-//          @EventConfig(phase = Phase.DECODE, listeners = SelectPathActionListener.class)  
-//      }  
+      template = "system:/groovy/organization/webui/component/UIGroupMembershipSelector.gtmpl",
+      events = {
+          @EventConfig(phase = Phase.DECODE, listeners = UIGroupMembershipSelector.ChangeNodeActionListener.class),
+          @EventConfig(phase = Phase.DECODE, listeners = UIGroupMembershipSelector.SelectMembershipActionListener.class),
+          @EventConfig(phase = Phase.DECODE, listeners = UIGroupMembershipSelector.SelectPathActionListener.class)  
+      }  
   ),
   @ComponentConfig(
       type = UITree.class, id = "UITreeGroupSelector",
