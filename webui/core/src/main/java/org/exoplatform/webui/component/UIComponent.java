@@ -135,7 +135,6 @@ abstract public class UIComponent {
     return null ;
   }
   
-  
   public String event(String name) throws Exception { return event(name, null); } 
   
   public String event(String name, String beanId) throws Exception { return event(name, beanId, null); }
@@ -157,7 +156,28 @@ abstract public class UIComponent {
       return "";
     }
   }
- 
+  
+  /*
+   * TODO TrongTT Define method for purpose test
+   */ 
+  @SuppressWarnings("unchecked")
+  public String event(String name, String beanId, Parameter[] params, String confirm) throws Exception {
+    org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
+    if(event == null) return "??config??" ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
+    try{
+      URLBuilder urlBuilder = context.getURLBuilder();
+      if(urlBuilder != null) {
+        return context.getURLBuilder().createAjaxURL(this, event.getName(), beanId, params, confirm).toString();
+      }
+      System.out.println(urlBuilder +"  : "+context);
+      return "";
+    }catch (Exception e) {
+      e.printStackTrace();
+      return "";
+    }
+  } 
+  
   public String url(String name) throws Exception { return url(name, null); }  
  
   public String url(String name, String beanId) throws Exception { return url(name, beanId, null); }

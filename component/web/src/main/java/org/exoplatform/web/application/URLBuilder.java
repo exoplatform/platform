@@ -48,6 +48,17 @@ abstract public class URLBuilder<T> {
     return builder.toString();    
   }
 
+  /*
+   * TODO TrongTT Define method for purpose test
+   */
+  public String createAjaxURL(T targetComponent, String action, String targetBeanId, Parameter[] params, String confirm) {
+    StringBuilder builder = new StringBuilder("javascript:if(confirm('" + confirm + "')) ajaxGet('");
+    createURL(builder, targetComponent, action, targetBeanId, params);
+    builder.append("&amp;ajaxRequest=true')") ;
+    return builder.toString();    
+  }
+  
+
   public String createURL(T targetComponent, String action, String targetBeanId, Parameter[] params) {
     StringBuilder builder = new StringBuilder();
     createURL(builder, targetComponent, action, targetBeanId, params);
