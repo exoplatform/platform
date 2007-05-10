@@ -13,6 +13,7 @@ import org.exoplatform.portal.component.view.UIContainer;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -162,7 +163,6 @@ public class UIPageForm extends UIFormTabPane {
       UIPage uiPage = uiPageForm.getUIPage();
       Page page = new Page() ;
       uiPageForm.invokeSetBindingBean(page);
-      page.setOwnerId(uiPage.getOwnerId());
       
 //      UIContainer af = uiPage.get
       page.setOwnerType(uiPage.getOwnerType());
@@ -185,15 +185,14 @@ public class UIPageForm extends UIFormTabPane {
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         PortalDataModelUtil.toUIPage(uiPage, page);       
       } else {
+        page.setOwnerType(DataStorage.USER_TYPE);
         page.setOwnerId(pcontext.getRemoteUser());
       }
       
-      if(page.getChildren() == null) {
-        page.setChildren(new ArrayList<Object>());        
-      }
+      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());        
       
-      UserPortalConfigService dao = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
-      dao.update(page);
+      UserPortalConfigService configService = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
+      configService.update(page);
       
       WebuiRequestContext rcontext = event.getRequestContext();
       
