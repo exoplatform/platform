@@ -1,5 +1,5 @@
 .UIGroupMembershipSelector {
-  border: solid 1px #777777;
+	margin: auto;
   padding: 5px; 
   width: 502px;
 }
@@ -44,13 +44,13 @@
 }
 
 .UIGroupMembershipSelector .MembershipSelector {
-  width: 197px;
+  width: 203px;
   font-weight: normal;
   background-color: white;
   padding: 1px ;
   border: 1px #5f90ba solid; 
   float: left;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 .UIGroupMembershipSelector .MembershipSelector .MembershipTitle{
