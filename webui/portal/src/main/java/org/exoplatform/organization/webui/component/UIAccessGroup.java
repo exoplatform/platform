@@ -14,6 +14,7 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.component.UIFormInputContainer;
 import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.component.UIGrid;
+import org.exoplatform.webui.component.UIPageIterator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -28,33 +29,22 @@ import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
   template = "system:/groovy/organization/webui/component/UIAccessGroup.gtmpl",
-  events = @EventConfig(listeners = UIAccessGroup.RemoveActionListener.class)
+  events = {
+      @EventConfig(listeners = UIAccessGroup.RemoveActionListener.class),
+      @EventConfig(listeners = UIAccessGroup.SelectGroupActionListener.class)
+  }
 )
-
 public class UIAccessGroup extends UIFormInputContainer<String> { 
 
-  private static String[] USER_BEAN_FIELD = {"id", "description"} ;
-  private static String[] USER_ACTION = {"Remove"} ;
-  
-  private List<Group> groups;
-  
   public UIAccessGroup() throws Exception {
     super(null, null);
     UIGrid uiGrid = addChild(UIGrid.class, null, "TableGroup") ;
-    uiGrid.configure("groupId", USER_BEAN_FIELD, USER_ACTION) ;
-    groups = new ArrayList<Group>();
-    uiGrid.getUIPageIterator().setPageList(new ObjectPageList(groups, 10));
+    uiGrid.configure("id", new String[]{"id", "label", "description"}, new String[]{"Remove"});
     
-    OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-    GroupHandler groupHandler = service.getGroupHandler();
-    Group group = groupHandler.createGroupInstance();
-    group.setDescription("group1");
-    group.setGroupName("thuan");
-    groups.add(group);
+    uiGrid.getUIPageIterator().setPageList(new ObjectPageList(new ArrayList<Group>(), 10));
     
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "UIGroupSelector");
     uiPopup.setWindowSize(540, 0);
-    
     UIGroupSelector uiGroupSelector = createUIComponent(UIGroupSelector.class, null, null) ;
     uiPopup.setUIComponent(uiGroupSelector);
   }
@@ -64,9 +54,34 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     setBindingField(bfield) ; 
   }
   
+  @SuppressWarnings("unchecked")
+  public void addGroup(Group group) throws Exception {
+    List<Object> list = new ArrayList<Object>();
+    UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
+    list.addAll(uiIterator.getPageList().getAll());
+    list.add(group);
+    uiIterator.setPageList(new ObjectPageList(list, 10));
+  }
+  
+  static  public class SelectGroupActionListener extends EventListener<UIGroupSelector> {   
+    public void execute(Event<UIGroupSelector> event) throws Exception {
+      UIGroupSelector uiGroupSelector = event.getSource();
+      if(uiGroupSelector.getSelectedGroup() == null) return;
+      UIAccessGroup uiAccessGroup = uiGroupSelector.getAncestorOfType(UIAccessGroup.class);
+      Group group = uiGroupSelector.getSelectedGroup();
+      if(group.getLabel() == null) group.setLabel("");
+      if(group.getDescription() == null) group.setDescription("");
+      System.out.println("\n\n\n");
+      System.out.println(group.getLabel()+" : "+group.getDescription());
+      System.out.println("\n\n\n");
+      uiAccessGroup.addGroup(group);
+    }
+  }
+  
   static  public class RemoveActionListener extends EventListener<UIAccessGroup> {   
     public void execute(Event<UIAccessGroup> event) throws Exception {
       
     }
   }
+
 }

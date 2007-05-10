@@ -20,9 +20,11 @@ public class UIPageIterator extends UIComponent {
 	public UIPageIterator() throws Exception {
 	}
 	
-	public void setPageList(PageList pageList) throws Exception { 
+	public void setPageList(PageList pageList) { 
     pageList_ = pageList ;
   } 
+  
+  public PageList getPageList() { return pageList_; }
   
   public int getAvailablePage() { return pageList_.getAvailablePage() ; } 
   

@@ -28,27 +28,6 @@ abstract class UISelector extends UIFormInputContainer<String> {
   
   abstract void setMembership(String groupId, String membershipType);   
   
-  public void processDecode(WebuiRequestContext context) throws Exception {   
-    super.processDecode(context);
-    UIForm uiForm  = getAncestorOfType(UIForm.class);
-    String action =  null;
-    if(uiForm != null){
-      action =  uiForm.getSubmitAction();
-    }else {
-      action = context.getRequestParameter(UIForm.ACTION);
-    }    
-    if(action == null)  return;    
-    Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;   
-    if(event != null) event.broadcast()  ;   
-    if(!UIContainer.class.isInstance(this)) return;    
-    
-    UIContainer uicontainer = UIContainer.class.cast(this);
-    List<UIComponent>  children =  uicontainer.getChildren() ;
-    for(UIComponent uiChild :  children) {
-      uiChild.processDecode(context);      
-    }
-  }
-  
   static  public class SelectMembershipActionListener extends EventListener<UIGroupMembershipSelector>  {   
     public void execute(Event<UIGroupMembershipSelector>  event) throws Exception {
       UIGroupMembershipSelector uiMemebershipSelector = event.getSource();

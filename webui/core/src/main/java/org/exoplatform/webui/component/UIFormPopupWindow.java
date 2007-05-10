@@ -25,13 +25,13 @@ import org.exoplatform.webui.event.Event.Phase;
 public class UIFormPopupWindow extends UIPopupWindow implements UIFormInput {
   
   public void processDecode(WebuiRequestContext context) throws Exception {   
-    if(getUIComponent() == null) return;
-    getUIComponent().processDecode(context);
     UIForm uiForm  = getAncestorOfType(UIForm.class);
     String action = uiForm.getSubmitAction(); 
     if(action == null) return;    
     Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;
-    if(event != null) event.broadcast()  ;
+    if(event != null) event.broadcast() ;
+    getUIComponent().processDecode(context);
+    if(getUIComponent() == null) return;
   }  
   
   

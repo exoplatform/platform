@@ -7,7 +7,9 @@ package org.exoplatform.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.validator.Validator;
+import org.exoplatform.webui.event.Event;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
@@ -43,6 +45,21 @@ abstract public class UIFormInputContainer<T> extends UIContainer implements UIF
     if(validators == null)  validators = new ArrayList<Validator>(3) ;
     validators.add((Validator)clazz.newInstance()) ;
     return this ;
+  }
+  
+  public void processDecode(WebuiRequestContext context) throws Exception {   
+    super.processDecode(context);
+    List<UIComponent>  children = getChildren() ;
+    for(UIComponent uiChild :  children) {
+      uiChild.processDecode(context);
+    }
+    
+    UIForm uiForm  = getAncestorOfType(UIForm.class);
+    String action =  uiForm.getSubmitAction();
+    if(action == null) return;    
+    
+    Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;   
+    if(event != null) event.broadcast() ;
   }
 
   public List<Validator>  getValidators() { return validators ; }

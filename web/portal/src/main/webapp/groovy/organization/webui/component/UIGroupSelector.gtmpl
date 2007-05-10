@@ -1,6 +1,7 @@
 <% 
   import  org.exoplatform.webui.component.UIBreadcumbs; 
   import  org.exoplatform.webui.component.UITree; 
+  import  org.exoplatform.services.organization.Group;
 %>
 
 <div class="UIGroupSelector" id="$uicomponent.id">
@@ -8,6 +9,22 @@
   <div style="float: left; width: 230px">
     <%uicomponent.renderChild(UITree.class);%>
   </div>
-  This is Description
+  <%
+    Group group = uicomponent.getSelectedGroup();
+    String name = "";
+    String id = "";
+    String des =  "";
+    if(group != null) {
+       name = group.getGroupName();
+       des = group.getDescription();
+       id = group.getId();
+    }
+  %>
+  <div>Name: $name</div>
+  <div>Group Id: $id</div>
+  <div>Description: $des</div>
+  <a href="<%=uicomponent.event("SelectGroup");%>">
+    Select group
+  </a>
   <div style="clear: left"><span></span></div>
 </div> 		
