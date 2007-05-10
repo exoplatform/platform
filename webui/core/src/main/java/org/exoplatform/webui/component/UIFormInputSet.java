@@ -107,7 +107,7 @@ public class UIFormInputSet extends  UIContainer {
       }
       
       w.write("<div class=\"FieldContainer\">") ;
-      if(label.trim().length() > 0){
+      if(label.trim().length() > 0) {
         w.write("<label style=\"float: left;\">") ; w.write(label); w.write("</label>") ;
       }
       renderUIComponent(inputEntry) ;
