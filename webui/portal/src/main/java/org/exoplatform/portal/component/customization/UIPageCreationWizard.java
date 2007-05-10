@@ -142,7 +142,19 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIPageNodeSelector nodeSelector = pageSetInfo.getChild(UIPageNodeSelector.class);
       uiWizard.setDescriptionWizard();
       uiWizard.updateWizardComponent();
-      if(nodeSelector.findPageNodeByName(pageSetInfo.getPageNode().getName()) != null){
+      
+      WebuiRequestContext context = Util.getPortalRequestContext() ;
+      String ownerType = DataStorage.USER_TYPE ;
+      String ownerId = context.getRemoteUser() ;
+      UIPageNodeSelector uiNodeSelector = pageSetInfo.getChild(UIPageNodeSelector.class) ;
+      PageNavigation pageNavi = uiNodeSelector.getSelectedNavigation() ;
+      if (pageNavi != null) {
+        ownerType = pageNavi.getOwnerType() ;
+        ownerId = pageNavi.getOwnerId() ;
+      }
+      //if(nodeSelector.findPageNodeByName(pageSetInfo.getPageNode().getName()) != null){
+      String pageReference = ownerType + "::" + ownerId + "::" + pageSetInfo.getPageNode().getName() ;
+      if (nodeSelector.findPageNodeByPageReference(pageReference) != null) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );

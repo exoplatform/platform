@@ -209,6 +209,29 @@ public class UIPageNodeSelector extends UIContainer {
     return null;
   }
   
+  public PageNode findPageNodeByPageReference(String pageReference) {
+    if (selectedNavigation == null) return null ;
+    List<PageNode> pageNodes = selectedNavigation.getNodes() ;
+    for (PageNode ele : pageNodes) {
+      PageNode returnNode = findPageNodeByPageReference(ele, pageReference) ;
+      if (returnNode == null) continue ;
+      return returnNode ;
+    }
+    return null ;
+  }
+  
+  private PageNode findPageNodeByPageReference(PageNode node, String pageReference) {
+    if (node.getPageReference().equals(pageReference)) return node ;
+    List<PageNode> children = node.getChildren() ;
+    if (children == null) return null ;
+    for(PageNode ele : children) {
+      PageNode returnNode = findPageNodeByPageReference(ele, pageReference) ;
+      if (returnNode == null) continue ;
+      return returnNode ;
+    }
+    return null ;
+  }
+  
   public List<PageNavigation> getNavigations() { 
     if(navigations_ == null) navigations_ = new ArrayList<PageNavigation>();    
     return navigations_;  

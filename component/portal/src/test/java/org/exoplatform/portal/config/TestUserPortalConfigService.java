@@ -193,7 +193,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   
   void assertPageCreate() throws Exception {
     String accessUser = "exoadmin" ; 
-    String[] sitePortalPageNames = {"content", "register", "sitemap", "test"} ;
+    String[] sitePortalPageNames = {"content", "register", "test"} ;
     
     List<Page> pages = new ArrayList<Page>() ;
     for (String pageName : sitePortalPageNames) {
@@ -201,7 +201,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
       Page page = service_.getPage(sitePortalPageId, accessUser) ;
       if (page != null) pages.add(page) ;
     }
-    assertEquals(3, pages.size()) ;
+    assertEquals(2, pages.size()) ;
 
     
     // Add new page to Site portal
@@ -233,7 +233,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   
   void assertPageUpdate() throws Exception {
     String accessUser = "exoadmin" ; 
-    String[] sitePortalPageNames = {"content", "register", "sitemap"} ;
+    String[] sitePortalPageNames = {"content", "register"} ;
     
     for (String pageName : sitePortalPageNames) {
       String sitePortalPageId = "portal::site::" + pageName ;
@@ -249,7 +249,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
 
   void assertPageRemove() throws Exception {
     String accessUser = "exoadmin" ; 
-    String[] sitePortalPageNames = {"content", "register", "sitemap"} ;
+    String[] sitePortalPageNames = {"content", "register"} ;
     
     List<Page> pages = new ArrayList<Page>() ;
     for (String pageName : sitePortalPageNames) {
@@ -257,7 +257,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
       Page page = service_.getPage(sitePortalPageId, accessUser) ;
       if (page != null) pages.add(page) ;
     }
-    assertEquals(3, pages.size()) ;
+    assertEquals(2, pages.size()) ;
     
     Page deletePage = service_.getPage("portal::site::content", accessUser) ;
     service_.remove(deletePage) ;
@@ -267,9 +267,8 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
       Page page = service_.getPage(sitePortalPageId, accessUser) ;
       if (page != null) pages.add(page) ;
     }
-    assertEquals(2, pages.size()) ;
+    assertEquals(1, pages.size()) ;
     assertEquals(sitePortalPageNames[1], pages.get(0).getName()) ;
-    assertEquals(sitePortalPageNames[2], pages.get(1).getName()) ;
   }
   
   private <T> T loadObject(Class<T> clazz, String file) throws Exception{
