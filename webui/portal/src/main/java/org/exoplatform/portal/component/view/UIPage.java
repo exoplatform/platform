@@ -43,6 +43,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 })
 public class UIPage extends UIContainer {
   
+  private String pageId;
   private String ownerId ;
   private String ownerType ;  
   private String [] accessGroups;
@@ -58,7 +59,8 @@ public class UIPage extends UIContainer {
   public String[] getAccessGroups() { return accessGroups; }
   public void setAccessGroups(String[] accessGroups) { this.accessGroups = accessGroups; }
   
-  public String getPageId() { return ownerId + ":/" + name_ ; }
+  public String getPageId() { return pageId; }
+  public void setPageId(String id) { pageId = id; }
   
   public UIPortlet getMaximizedUIPortlet() { return maximizedUIPortlet;  }
   

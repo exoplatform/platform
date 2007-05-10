@@ -14,6 +14,7 @@ import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -39,7 +40,6 @@ import org.exoplatform.webui.event.EventListener;
   events = {
     @EventConfig(listeners = UIPageBrowser.DeleteActionListener.class),
     @EventConfig(listeners = UIPageBrowser.EditInfoActionListener.class),
-    @EventConfig(listeners = UIPageBrowser.ConfirmActionListener.class),
     @EventConfig(listeners = UIPageBrowser.PreviewActionListener.class),
     @EventConfig(listeners = UIPageBrowser.AddNewActionListener.class)   
   }
@@ -137,35 +137,12 @@ public class UIPageBrowser extends UISearch {
   static  public class DeleteActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPageBrowser uiPageBrowser = event.getSource();
-      uiPageBrowser.pageSelectedId_ = event.getRequestContext().getRequestParameter(OBJECTID) ;
-     
-      UIPortalApplication uiApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);      
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      UIPopupDialog dialog = uiMaskWS.createUIComponent(UIPopupDialog.class, null, null);
-      dialog.setComponent(uiPageBrowser);
-      dialog.setHanderEvent("Confirm");
-      dialog.setMessage("hello");
-      uiMaskWS.setUIComponent(dialog);
-      uiMaskWS.setShow(true);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-    }
-  }
-  static  public class ConfirmActionListener extends EventListener<UIPageBrowser> {
-    public void execute(Event<UIPageBrowser> event) throws Exception {
-      UIPageBrowser uiPageBrowser = event.getSource();
-      String action = event.getRequestContext().getRequestParameter("action") ;
-      UIPortalApplication uiApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);      
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      uiMaskWS.setUIComponent(null);
-      uiMaskWS.setShow(false);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      if(action.equals("close")) return;  
-      
-      DataStorage service = uiPageBrowser.getApplicationComponent(DataStorage.class) ;
-      Page page = service.getPage(uiPageBrowser.pageSelectedId_) ;
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      String id = pcontext.getRequestParameter(OBJECTID) ;
+      UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class) ;
+      Page page = service.getPage(id, pcontext.getRemoteUser()) ;
       
       UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
-      
       if(page == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
@@ -174,13 +151,13 @@ public class UIPageBrowser extends UISearch {
       
       if(!page.isModifiable()){
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return;
       }
       
       service.remove(page);
       uiPageBrowser.defaultValue(null);       
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageBrowser);
+      pcontext.addUIComponentToUpdateByAjax(uiPageBrowser);
     }
   }
   

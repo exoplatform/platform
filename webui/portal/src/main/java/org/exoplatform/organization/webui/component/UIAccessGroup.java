@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.services.organization.Group;
+import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.component.UIFormInputContainer;
 import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.component.UIGrid;
@@ -58,6 +59,30 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
     list.addAll(uiIterator.getPageList().getAll());
     list.add(group);
+    uiIterator.setPageList(new ObjectPageList(list, 10));
+  }
+  
+  @SuppressWarnings("unchecked")
+  public String [] getAccessGroup() throws Exception {
+    UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
+    List<Object> values = uiIterator.getPageList().getAll();
+    String [] groups = new String[values.size()];
+    for(int i = 0; i < values.size(); i++) {
+      Group group = (Group) values.get(i);
+      groups[i] = group.getId(); 
+    }
+    return groups;
+  }
+  
+  @SuppressWarnings("unchecked")
+  public void setGroups(String [] groups) throws Exception {
+    List<Object> list = new ArrayList<Object>();
+    UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
+    OrganizationService service = getApplicationComponent(OrganizationService.class) ;
+    for(String id : groups) {
+      Group group = service.getGroupHandler().findGroupById(id);
+      list.add(group);
+    }
     uiIterator.setPageList(new ObjectPageList(list, 10));
   }
   

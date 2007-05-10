@@ -29,7 +29,7 @@ import org.exoplatform.webui.component.UIComponent;
 public class PortalDataModelUtil {
   
   @SuppressWarnings("unchecked")
-  static final private <T> T buildChild(UIComponent uiComponent){
+  static final public <T> T buildChild(UIComponent uiComponent){
     Object model = null;
     if(uiComponent instanceof UIPageBody){
       model =  toPageBodyModel((UIPageBody)uiComponent);
@@ -186,8 +186,7 @@ public class PortalDataModelUtil {
     if(children == null)  return;
     for(Object child : children) {   
       UIComponent uiComp = buildChild(uiContainer, child);
-      if(uiComp == null) continue;
-      uiContainer.addChild(uiComp);
+      if(uiComp != null) uiContainer.addChild(uiComp);
     }
   }
   
@@ -221,8 +220,7 @@ public class PortalDataModelUtil {
     if(children != null) { 
       for(Object child : children){   
         UIComponent uiComp = buildChild(uiPortal, child);
-        if(uiComp == null) continue;
-        uiPortal.addChild(uiComp);
+        if(uiComp != null) uiPortal.addChild(uiComp);
       }
     }
     uiPortal.setNavigation(userPortalConfig.getNavigations());   

@@ -70,7 +70,7 @@ public class UIPageSelector extends UIFormInputContainer {
 
   public Class getUIInputValueType() {  return String.class ; }
 
-  public void setPage(Page page) {   page_ = page ; }  
+  public void setPage(Page page) { page_ = page ; }  
   public Page getPage(){ return page_; }
   
   public void processDecode(WebuiRequestContext context) throws Exception {   

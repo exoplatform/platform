@@ -3,6 +3,7 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.organization.webui.component.UIAccessGroup;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
@@ -62,17 +63,19 @@ public class UIPageForm extends UIFormTabPane {
     super("UIPageForm");
     
     UIFormInputSet uiSettingSet = new UIFormInputSet("PageSetting") ;
-    uiSettingSet.addUIFormInput(new UIFormStringInput("pageId", "id", null).setEditable(false)).
+    uiSettingSet.addUIFormInput(new UIFormStringInput("pageId", null, null).setEditable(false)).
+                 addUIFormInput(new UIFormStringInput("ownerType", "ownerType", null).setEditable(false)).
+                 addUIFormInput(new UIFormStringInput("ownerId", "ownerId", null).setEditable(false)).
                  addUIFormInput(new UIFormStringInput("name", "name", null).
                                 addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)).
                  addUIFormInput(new UIFormStringInput("title", "title", null)).
                  addUIFormInput(new UIFormCheckBoxInput("showMaxWindow", "showMaxWindow", false));
     addUIFormInput(uiSettingSet) ;
 
-//    UIPermissionSelector uiPermission = createUIComponent(UIPermissionSelector.class, null, null);
-//    uiPermission.configure("Permission", null, null) ;
-//    uiPermission.setRendered(false) ;
-//    addUIComponentInput(uiPermission) ;
+    UIAccessGroup uiAccessGroup = createUIComponent(UIAccessGroup.class, null, "UIAccessGroup");
+    uiAccessGroup.setRendered(false);
+    uiAccessGroup.configure("AccessGroup", "accessGroup");
+    addUIComponentInput(uiAccessGroup);
     
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("PageTemplate");          
@@ -91,16 +94,14 @@ public class UIPageForm extends UIFormTabPane {
     uiPage_ = uiPage;
     Page page = PortalDataModelUtil.toPageModel(uiPage) ;
     getUIStringInput("name").setEditable(false) ;
-    
-//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
-//    uiPermissionSelector.createPermission("ViewPermission", uiPage_.getViewPermission());
-//    uiPermissionSelector.createPermission("EditPermission", uiPage_.getEditPermission());
-    
+    getUIStringInput("pageId").setValue(uiPage.getPageId());
     invokeGetBindingBean(page) ;
-    
     getUIFormCheckBoxInput("showMaxWindow").setValue(uiPage.isShowMaxWindow());
     
     removeChild(UIPageTemplateOptions.class);
+    
+    UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
+    uiAccessGroup.setGroups(page.getAccessGroup());
     
     UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
     if(uiTemplate == null)  return;
@@ -120,7 +121,7 @@ public class UIPageForm extends UIFormTabPane {
       SelectItemOption itemOption = uiTemplate.getSelectedItemOption();
       if(itemOption != null){
         page.setFactoryId(itemOption.getIcon());
-//        page.setTemplate((String)itemOption.getValue());
+        page.setTemplate((String)itemOption.getValue());
         page.setShowMaxWindow(page.getFactoryId().equals("Desktop"));
       } 
     } 
@@ -129,9 +130,8 @@ public class UIPageForm extends UIFormTabPane {
       page.setShowMaxWindow((Boolean) getUIFormCheckBoxInput("showMaxWindow").getValue());      
     }
     
-//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
-//    page.setViewPermission(uiPermissionSelector.getPermission("ViewPermission").getValue());
-//    page.setEditPermission(uiPermissionSelector.getPermission("EditPermission").getValue());
+    UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
+    page.setAccessGroup(uiAccessGroup.getAccessGroup());
     
     UIPageTemplateOptions uiConfigOptions = getChild(UIPageTemplateOptions.class);
     if(uiConfigOptions == null) return;
@@ -156,6 +156,7 @@ public class UIPageForm extends UIFormTabPane {
     uiPopupWindow.processRender(context);
   }
 
+  @SuppressWarnings("unchecked")
   static public class SaveActionListener  extends EventListener<UIPageForm> {
     public void execute(Event<UIPageForm> event) throws Exception {
       UIPageForm uiPageForm = event.getSource();   
@@ -164,7 +165,6 @@ public class UIPageForm extends UIFormTabPane {
       Page page = new Page() ;
       uiPageForm.invokeSetBindingBean(page);
       
-//      UIContainer af = uiPage.get
       page.setOwnerType(uiPage.getOwnerType());
       if(uiPage != null) {
         List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
@@ -180,10 +180,19 @@ public class UIPageForm extends UIFormTabPane {
           page.setChildren(applications);
         } else if(!"Desktop".equals(uiPage.getFactoryId()) && "Desktop".equals(page.getFactoryId())) {
           uiPage.getChildren().clear();         
-          page.setChildren(applications);     
+          page.setChildren(applications);   
+        } else {
+          List<UIComponent> uiChildren = uiPage.getChildren();
+          if(uiChildren == null)  return ;
+          ArrayList<Object>  children = new ArrayList<Object>();
+          for(UIComponent child : uiChildren){ 
+            Object component = PortalDataModelUtil.buildChild(child);
+            if(component != null) children.add(component);
+          }
+          page.setChildren(children);
         }
+        PortalDataModelUtil.toUIPage(uiPage, page);  
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
-        PortalDataModelUtil.toUIPage(uiPage, page);       
       } else {
         page.setOwnerType(DataStorage.USER_TYPE);
         page.setOwnerId(pcontext.getRemoteUser());
@@ -227,11 +236,7 @@ public class UIPageForm extends UIFormTabPane {
     private void findAllPortlet(List<UIPortlet> list, UIContainer uiContainer) {
       List<UIComponent> children = uiContainer.getChildren();
       for(UIComponent ele : children) {
-//        System.out.println("\n\n\nUIPageForm.Save.findAllPortlet. childName = " + ele);
-        if(ele instanceof UIPortlet) {
-          System.out.println("\n\n\nUIPageForm.Save.findAllPortlet. childName = " + ele.getId());
-          list.add((UIPortlet)ele);
-        }
+        if(ele instanceof UIPortlet) list.add((UIPortlet)ele);
         else if(ele instanceof UIContainer) findAllPortlet(list, (UIContainer) ele); 
       }
     }
