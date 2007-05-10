@@ -23,6 +23,7 @@ import org.exoplatform.webui.component.UIFormInputInfo;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormTabPane;
 import org.exoplatform.webui.component.UIFormTableInputSet;
+import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -99,6 +100,9 @@ public class UIAvailablePortletForm extends UIFormTabPane {
   @SuppressWarnings("unchecked")
   static public class SaveActionListener  extends EventListener<UIAvailablePortletForm> {
     public void execute(Event<UIAvailablePortletForm> event) throws Exception {     
+      UIAvailablePortletForm uiForm = event.getSource() ;
+      UIPopupWindow parent = uiForm.getParent();
+      parent.setShow(false);
       List<UIFormCheckBoxInput> listCheckbox =  new ArrayList<UIFormCheckBoxInput>();
       event.getSource().findComponentOfType(listCheckbox, UIFormCheckBoxInput.class);
      
@@ -125,7 +129,8 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       }      
       uiRegistryCategory.initValues(null);
       uiRegistryCategory.setSelectedCategory(selectedCategory);
-      event.getSource().setRenderSibbling(UIDescription.class) ;
+//      ApplicationRegistryWorkingArea workingArea = uiRegistryCategory.getChild(ApplicationRegistryWorkingArea.class);
+//      event.getRequestContext().addUIComponentToUpdateByAjax()
     }  
     
     private Application clonePortlet(ApplicationRegistryService service, Application portlet){
@@ -143,7 +148,9 @@ public class UIAvailablePortletForm extends UIFormTabPane {
   static public class BackActionListener  extends EventListener<UIAvailablePortletForm> {
     public void execute(Event<UIAvailablePortletForm> event) throws Exception {     
       UIAvailablePortletForm uiForm = event.getSource() ;
-      uiForm.setRenderSibbling(UIDescription.class) ;
+      UIPopupWindow parent = uiForm.getParent();
+      parent.setShow(false);
+//      uiForm.setRenderSibbling(UIDescription.class) ;
     }
   }
 

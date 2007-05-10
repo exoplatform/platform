@@ -11,12 +11,11 @@ import java.util.List;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.organization.webui.component.UIPermissionSelector;
-import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.application.registry.jcr.ApplicationRegistryServiceImpl;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
-import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webui.component.UIApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
+import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -37,12 +36,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = ApplicationRegistryControlArea.ImportCategoryActionListener.class),
         @EventConfig(listeners = ApplicationRegistryControlArea.DeleteCategoryActionListener.class),
         @EventConfig(listeners = ApplicationRegistryControlArea.DeleteAllActionListener.class),
-        @EventConfig(listeners = ApplicationRegistryControlArea.ShowCategoryActionListener.class),
-        @EventConfig(listeners = ApplicationRegistryControlArea.ShowPortletActionListener.class),
-        @EventConfig(listeners = ApplicationRegistryControlArea.AddPortletActionListener.class),
-        @EventConfig(listeners = ApplicationRegistryControlArea.DeletePortletActionListener.class),
-        @EventConfig(listeners = ApplicationRegistryControlArea.PermissionPortletActionListener.class),
-        @EventConfig(listeners = ApplicationRegistryControlArea.EditPortletActionListener.class)
+        @EventConfig(listeners = ApplicationRegistryControlArea.ShowCategoryActionListener.class)
     }
 )
 public class ApplicationRegistryControlArea extends UIContainer {
@@ -53,12 +47,17 @@ public class ApplicationRegistryControlArea extends UIContainer {
   private List<Application> portlets ;
 
   public ApplicationRegistryControlArea() throws Exception {
-    initValues(null);
+    UIPopupWindow addCategoryPopup = addChild(UIPopupWindow.class, null, "AddCategory");
+    addCategoryPopup.setWindowSize(640, 0);  
+    UICategoryForm uiCategoryForm = createUIComponent(UICategoryForm.class, null, null);
+    addCategoryPopup.setUIComponent(uiCategoryForm);
+    uiCategoryForm.setValue(null);
+//    initValues(null);
   }  
 
   @SuppressWarnings("unchecked")
   public void initValues(Collection portletData) throws Exception {
-    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
+    ApplicationRegistryServiceImpl service = (ApplicationRegistryServiceImpl) getApplicationComponent(ApplicationRegistryService.class) ;
     if(portletData != null) service.importJSR168Portlets();
     portletCategories = service.getApplicationCategories(); 
     if(portletCategories == null) portletCategories = new ArrayList<ApplicationCategory>(0);
@@ -89,6 +88,22 @@ public class ApplicationRegistryControlArea extends UIContainer {
     if(selectedCategory == null) return;
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
     portlets = service.getApplications(selectedCategory) ;
+    UIPortletRegistryPortlet parent = getParent();
+    ApplicationRegistryWorkingArea workingArea = parent.getChild(ApplicationRegistryWorkingArea.class);
+    if(workingArea != null)  workingArea.setPortlets(portlets);
+  }
+  
+  public ApplicationCategory getCategory(String name) {
+    for(ApplicationCategory category: portletCategories){
+      System.out.println("+++>" + category.getName());
+      if(category.getName().equals(name))return category;
+    }
+    return null;
+  }  
+  
+  public void processRender(WebuiRequestContext context) throws Exception {
+    super.processRender(context);
+    renderChildren();
   }
 
   public List<ApplicationCategory> getPortletCategory() { return portletCategories ;  }
@@ -109,34 +124,26 @@ public class ApplicationRegistryControlArea extends UIContainer {
   
   static public class AddCategoryActionListener extends EventListener<ApplicationRegistryControlArea>{
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
-      System.out.println("\n\n\n===>>>ApplicationRegistryControlArea.AddCategory");
       ApplicationRegistryControlArea uiRegistryCategory = event.getSource();
-      UIPortletRegistryPortlet uiParent = uiRegistryCategory.getParent();
-      ApplicationRegistryWorkingArea uiWorkingArea = uiParent.getChild(ApplicationRegistryWorkingArea.class);
-      UICategoryForm uiForm = uiWorkingArea.getChild(UICategoryForm.class) ;
-      uiWorkingArea.setRenderedChild(UICategoryForm.class);
-      uiForm.setValue(null);
+      UIPopupWindow popupWindow = uiRegistryCategory.getChild(UIPopupWindow.class);
+      UICategoryForm categoryForm = (UICategoryForm) popupWindow.getUIComponent();
+      categoryForm.setValue((ApplicationCategory)null);
+      popupWindow.setShow(true);
     }
   }
 
   static public class EditCategoryActionListener extends EventListener<ApplicationRegistryControlArea>{
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
-      System.out.println("\n\n\n===>>>ApplicationRegistryControlArea.EditCategory");
       ApplicationRegistryControlArea uiRegistryCategory = event.getSource();
-      UIPortletRegistryPortlet uiParent = uiRegistryCategory.getParent();
-      ApplicationRegistryWorkingArea uiWorkingArea = uiParent.getChild(ApplicationRegistryWorkingArea.class);
-      UICategoryForm uiForm = uiWorkingArea.getChild(UICategoryForm.class) ;
-      uiWorkingArea.setRenderedChild(UICategoryForm.class);
-      ApplicationCategory selectedCategory = uiRegistryCategory.getSelectedPortletCategory() ;
-      if(selectedCategory == null) return ;
-      uiForm.setValue(selectedCategory);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;
+      UIPopupWindow popupWindow = uiRegistryCategory.getChild(UIPopupWindow.class);
+      UICategoryForm categoryForm = (UICategoryForm) popupWindow.getUIComponent();
+      categoryForm.setValue(uiRegistryCategory.getSelectedPortletCategory());
+      popupWindow.setShow(true);
     }
   }
 
   static public class ImportCategoryActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
-      System.out.println("\n\n\n===>>>ApplicationRegistryControlArea.ImportCategory");
       ApplicationRegistryControlArea uiSource = event.getSource();
       PortletContainerMonitor monitor = uiSource.getApplicationComponent(PortletContainerMonitor.class);
       Collection portletDatas = monitor.getPortletRuntimeDataMap().values();       
@@ -158,7 +165,6 @@ public class ApplicationRegistryControlArea extends UIContainer {
 
   static public class DeleteCategoryActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
-      System.out.println("\n\n\n===>>>ApplicationRegistryControlArea.DeleteCategory");
       ApplicationRegistryControlArea uiComp = event.getSource();
       ApplicationRegistryService service = uiComp.getApplicationComponent(ApplicationRegistryService.class);            
       ApplicationCategory selectedCategory = uiComp.getSelectedPortletCategory();
@@ -171,100 +177,17 @@ public class ApplicationRegistryControlArea extends UIContainer {
   static public class ShowCategoryActionListener extends EventListener<ApplicationRegistryControlArea>{
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
       ApplicationRegistryControlArea uiComp = event.getSource();
+      UIPortletRegistryPortlet parent = uiComp.getParent();
+      ApplicationRegistryWorkingArea workingArea = parent.getChild(ApplicationRegistryWorkingArea.class);
       String categoryName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       ApplicationCategory selectedCategory = uiComp.getSelectedPortletCategory();
       if(selectedCategory.getName().equals(categoryName))  return;
       uiComp.setSelectedCategory(categoryName);      
+      ApplicationRegistryService service = uiComp.getApplicationComponent(ApplicationRegistryService.class) ;
+      List<Application> portlets = service.getApplications(uiComp.getSelectedPortletCategory());
+      workingArea.setPortlets(portlets);
+      event.getRequestContext().addUIComponentToUpdateByAjax(parent);
     }
   }
-
-  // Application Actions
-  static public class ShowPortletActionListener extends EventListener<ApplicationRegistryControlArea>{
-    public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
-      ApplicationRegistryControlArea uiComp = event.getSource();
-      String portletId = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      System.out.println("\n\n\n===>>>ApplicationRegistryControlArea.ShowPortlet: " + portletId);
-//      uiComp.setSelectedPortlet(portletId) ;
-//      Application portletSelected = uiComp.getSelectedPortlet() ;
-//      if(portletSelected == null) return;
-//      UIPortletRegistryPortlet uiParent = uiComp.getParent();
-//      ApplicationRegistryWorkingArea uiWorkingArea = uiParent.getChild(ApplicationRegistryWorkingArea.class);
-//      UIInfoPortletForm uiPortletForm = uiWorkingArea.getChild(UIInfoPortletForm.class) ;
-//      String[] action = new String[0];
-//      uiPortletForm.setActions(action);
-//      uiPortletForm.setName("UIShowPortletForm");
-//      uiPortletForm.setValues(portletSelected) ;
-//      uiWorkingArea.setRenderedChild(UIInfoPortletForm.class) ;
-    }
-  }
-
-  static public class AddPortletActionListener extends EventListener<ApplicationRegistryControlArea> {
-    public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
-      ApplicationRegistryControlArea uiComp = event.getSource();
-      UIPortletRegistryPortlet uiParent = uiComp.getParent();
-      ApplicationRegistryWorkingArea uiWorkingArea = uiParent.getChild(ApplicationRegistryWorkingArea.class);
-      UIAvailablePortletForm uiFormPortlet = uiWorkingArea.getChild(UIAvailablePortletForm.class);
-      uiFormPortlet.setValue() ;    
-      uiWorkingArea.setRenderedChild(UIAvailablePortletForm.class) ;      
-    }
-  }
-
-  static public class EditPortletActionListener extends EventListener<ApplicationRegistryControlArea> {
-    public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
-      ApplicationRegistryControlArea uicomp = event.getSource();
-      Application portletSelected = uicomp.getSelectedPortlet() ;
-      if(portletSelected == null) {
-        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-        uiApp.addMessage(new ApplicationMessage("UIPortletRegistryCategory.msg.editPortlet", null)) ;
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
-        return;
-      }
-      UIPortletRegistryPortlet uiParent = uicomp.getParent();
-      ApplicationRegistryWorkingArea uiWorkingArea = uiParent.getChild(ApplicationRegistryWorkingArea.class);
-      UIInfoPortletForm uiPortletForm = uiWorkingArea.getChild(UIInfoPortletForm.class) ;
-      String[] actions = {"Back", "Save"};
-      uiPortletForm.setName("UIEditPortletForm");
-      uiPortletForm.setActions(actions);
-      uiPortletForm.setValues(portletSelected) ;
-      uiWorkingArea.setRenderedChild(UIInfoPortletForm.class) ;
-    }
-  }
-
-  static public class PermissionPortletActionListener extends EventListener<ApplicationRegistryControlArea> {
-    public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
-      ApplicationRegistryControlArea uicomp = event.getSource();      
-      UIPortletRegistryPortlet uiParent = uicomp.getParent();
-      Application selectedPortlet = uicomp.getSelectedPortlet();
-      if(selectedPortlet == null) {
-        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-        uiApp.addMessage(new ApplicationMessage("UIPortletRegistryCategory.msg.editPortlet", null)) ;
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
-        return;
-      }
-      
-      ApplicationRegistryWorkingArea uiWorkingArea = uiParent.getChild(ApplicationRegistryWorkingArea.class);      
-      UIPermissionForm uiPermissionForm = uiWorkingArea.getChild(UIPermissionForm.class);
-//      uiPermissionForm.setWithRenderTab(false);
-      if(selectedPortlet!=null) uiPermissionForm.setValue(selectedPortlet);      
-      uiPermissionForm.setRenderedChild(UIPermissionSelector.class);      
-      uiWorkingArea.setRenderedChild(UIPermissionForm.class);
-    }
-  }
-
-  static public class DeletePortletActionListener extends EventListener<ApplicationRegistryControlArea> {
-    public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
-      ApplicationRegistryControlArea uicomp = event.getSource();
-      Application selectedPortlet = uicomp.getSelectedPortlet() ;
-      if(selectedPortlet == null) return ;
-
-      ApplicationRegistryService service = uicomp.getApplicationComponent(ApplicationRegistryService.class) ;
-      String portletSelectedId = selectedPortlet.getId() ;
-      Application portlet = service.getApplication(portletSelectedId);
-      service.remove(portlet) ;  
-            
-      uicomp.getPortlets().remove(uicomp.getSelectedPortlet()) ;
-      uicomp.setSelectedPortlet(null);
-    }
-  }  
 
 }

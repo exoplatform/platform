@@ -20,7 +20,7 @@
 
     <module>webui/core</module>
     <module>webui/portal</module>
-
+    
     <module>portlet/content</module>
     <module>portlet/exoadmin</module>
     <module>portlet/site</module>

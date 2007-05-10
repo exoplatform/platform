@@ -12,6 +12,7 @@ import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTextAreaInput;
+import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
 import org.exoplatform.webui.component.validator.NameValidator;
@@ -72,6 +73,8 @@ public class UIInfoPortletForm extends UIForm {
   static public class SaveActionListener extends EventListener<UIInfoPortletForm> {
     public void execute(Event<UIInfoPortletForm> event) throws Exception{
       UIInfoPortletForm uiForm = event.getSource() ;
+      UIPopupWindow parent = uiForm.getParent();
+      parent.setShow(false);
       ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class) ;
       Application portlet = uiForm.getPortlet() ;
       uiForm.invokeSetBindingBean(portlet);
@@ -83,7 +86,9 @@ public class UIInfoPortletForm extends UIForm {
   static public class BackActionListener extends EventListener<UIInfoPortletForm>{
     public void execute(Event<UIInfoPortletForm> event) throws Exception{
       UIInfoPortletForm uiForm = event.getSource() ;
-      uiForm.setRenderSibbling(UIDescription.class) ;
+      UIPopupWindow parent = uiForm.getParent();
+      parent.setShow(false);
+//      uiForm.setRenderSibbling(UIDescription.class) ;
     }
   }
 

@@ -1,4 +1,8 @@
-  
+<% 
+	import org.exoplatform.application.registry.Application;
+	import java.util.List;
+	import java.util.ArrayList;
+%>
 	<div class="ApplicationContainer">
 		<table class="UIGrid" cellspacing="0" borderspacing="0">
       <thead>
@@ -8,90 +12,31 @@
   	      <th class="ActionColumns">Actions</th>
   	    </tr>
   	    <tbody>
-  	      <tr class="OddRow">
-  	        <td>Banner Portlet</td>
-  	        <td>Banner Portlet Description</td>
-  	        <td> 
-  	           <div class="ActionContainer" >
-  	             <div class="OverflowContainer">
-  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
-  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
-  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
-  	             </div>
-  	           </div>
-  	      </tr>
-  	      <tr class="EvenRow">
-  	        <td>Banner Portlet</td>
-  	        <td>Banner Portlet Description</td>
-  	        <td> 
-  	           <div class="ActionContainer">
-  	             <div class="OverflowContainer">
-  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
-  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
-  	               <a class="Icon DeleteIcon" href="#"  title="Delete this Application"><span></span></a>
-  	             </div>
-  	           </div>
-  	      </tr>
-  	      <tr class="OddRow">
-  	        <td>Banner Portlet</td>
-  	        <td>Banner Portlet Description</td>
-  	        <td> 
-  	           <div class="ActionContainer">
-  	             <div class="OverflowContainer">
-  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
-  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
-  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
-  	             </div>
-  	           </div>
-  	      </tr>
-  	      <tr class="EvenRow">
-  	        <td>Banner Portlet</td>
-  	        <td>Banner Portlet Description</td>
-  	        <td> 
-  	           <div class="ActionContainer">
-  	             <div class="OverflowContainer">
-  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
-  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
-  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
-  	             </div>
-  	           </div>
-  	      </tr>
-  	      <tr class="OddRow">
-  	        <td>Banner Portlet</td>
-  	        <td>Banner Portlet Description</td>
-  	        <td> 
-  	           <div class="ActionContainer">
-  	             <div class="OverflowContainer">
-  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
-  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
-  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
-  	             </div>
-  	           </div>
-  	      </tr>
-  	      <tr class="EvenRow">
-  	        <td>Banner Portlet</td>
-  	        <td>Banner Portlet Description</td>
-  	        <td> 
-  	           <div class="ActionContainer">
-  	             <div class="OverflowContainer">
-  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
-  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
-  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
-  	             </div>
-  	           </div>
-  	      </tr>
-  	      <tr class="OddRow">
-  	        <td>Banner Portlet</td>
-  	        <td>Banner Portlet Description</td>
-  	        <td> 
-  	           <div class="ActionContainer">
-  	             <div class="OverflowContainer">
-  	               <a class="Icon PermissionSettingIcon" href="#" title="Permission Setting"><span></span></a>
-  	               <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
-  	               <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
-  	             </div>
-  	           </div>
-  	      </tr>
+  	    <%
+  	      //System.out.println("\n\n\n-----------------------------------0");
+  	      ArrayList portlets = uicomponent.getPortlets();
+  	      if(portlets == null) portlets = new ArrayList();
+  	      //System.out.println("Size of List=" + portlets.size());
+			    String rowClass = "EvenRow" ;
+			    for (portlet in portlets)  {
+			      String name = portlet.getDisplayName();
+			      if(rowClass.equals("OddRow")){
+			        rowClass = "EvenRow" ;  
+			      } else {rowClass =  "OddRow" ; }
+        %>
+	  	      <tr class="$rowClass">
+	  	        <td><%=name%></td>
+	  	        <td><%=portlet.getDescription()%></td>
+	  	        <td> 
+	  	           <div class="ActionContainer" >
+	  	             <div class="OverflowContainer">
+	  	               <a class="Icon PermissionSettingIcon" href="<%=uicomponent.event("EditPermission", name)%>" title="Permission Setting"><span></span></a>
+	  	               <a class="Icon EditInfoIcon" href="<%=uicomponent.event("EditPortlet", name)%>" title="Edit this Application"><span></span></a>
+	  	               <a class="Icon DeleteIcon" href="<%=uicomponent.event("DeletePortlet", name)%>" title="Delete this Application"><span></span></a>
+	  	             </div>
+	  	           </div>
+	  	      </tr>
+          <% } %>  	      
   	    </tbody>
   	  </thead>
   	</table>
@@ -102,7 +47,7 @@
             <div class="ButtonLeft">
               <div class="ButtonRight">
                 <div class="ButtonMiddle">
-                  <a href="#"> Add Application</a>
+                  <a href="<%=uicomponent.event("AddPortlet", "")%>"> Add Application</a>
                 </div>
               </div>
             </div>

@@ -6,10 +6,10 @@ package org.exoplatform.portletregistry.webui.component;
 
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTextAreaInput;
+import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -28,7 +28,7 @@ import org.exoplatform.webui.event.Event.Phase;
     lifecycle = UIFormLifecycle.class,
     template =  "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
     events = {
-      @EventConfig(phase = Phase.DECODE, listeners = UICategoryForm.BackActionListener.class),
+      @EventConfig(phase = Phase.DECODE, listeners = UICategoryForm.CloseActionListener.class),
       @EventConfig(listeners = UICategoryForm.SaveActionListener.class)
     }
 )
@@ -49,7 +49,7 @@ public class UICategoryForm extends UIForm {
   } 
   
   public void setValue(ApplicationCategory category) throws Exception {
-    if(category == null) {      
+    if(category == null) {
       getUIStringInput(FIELD_NAME).setEditable(true).setValue(null);
       getUIStringInput(FIELD_DISPLAY_NAME).setEditable(true).setValue(null);
       getUIStringInput(FIELD_DESCRIPTION).setValue(null);
@@ -66,29 +66,33 @@ public class UICategoryForm extends UIForm {
   static public class SaveActionListener extends EventListener<UICategoryForm> {
     public void execute(Event<UICategoryForm> event) throws Exception{
       UICategoryForm uiForm = event.getSource() ;
-      ApplicationRegistryWorkingArea workingArea = uiForm.getParent() ;
-      UIPortletRegistryPortlet uiRegistryPortlet = workingArea.getParent() ;
-      ApplicationRegistryControlArea uiRegistryCategory = uiRegistryPortlet.getChild(ApplicationRegistryControlArea.class) ;
-
-      ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
+      UIPopupWindow parent = uiForm.getParent();
+      parent.setShow(false);
       ApplicationCategory category = uiForm.getCategory() ;
-      uiRegistryCategory.initValues(null) ;
-
+      
+      ApplicationRegistryControlArea uiRegistryCategory = uiForm.getAncestorOfType(ApplicationRegistryControlArea.class);
+      ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
+      
+//      uiRegistryCategory.initValues(null) ;
       if(category == null) {
-        category = new ApplicationCategory();
-        uiRegistryCategory.setSelectedCategory(category);
+        String name = uiForm.getUIStringInput(FIELD_NAME).getValue();
+        category = uiRegistryCategory.getCategory(name);
       }
+      
+      if(category == null) category = new ApplicationCategory();
+      
       uiForm.invokeSetBindingBean(category) ;
-      service.save(category) ;      
-      uiForm.reset();
+      service.save(category) ; 
+      uiRegistryCategory.initValues(null);
       uiRegistryCategory.setSelectedCategory(category);
     }
   }
   
-  static public class BackActionListener extends EventListener<UICategoryForm>{
+  static public class CloseActionListener extends EventListener<UICategoryForm>{
     public void execute(Event<UICategoryForm> event) throws Exception{
       UICategoryForm uiForm = event.getSource() ;
-      uiForm.setRenderSibbling(UIDescription.class) ;
+      UIPopupWindow parent = uiForm.getParent();
+      parent.setShow(false);
     }
   }
   

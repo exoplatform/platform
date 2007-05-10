@@ -21,6 +21,7 @@ public class Application {
   private String displayName;
   private String description;
   private Date createdDate;
+  private String owner;
   private Date modifiedDate;
   private String[] accessGroup ;
 
@@ -50,6 +51,12 @@ public class Application {
   
   public String getCategoryName() {   return categoryName; }  
   public void setCategoryName(String s) { this.categoryName = s; }
+  
+  public String getOwner() {   
+    if(owner == null || owner.length() < 1) return "Unknown" ; 
+    return owner;
+  }  
+  public void setOwner(String s) { this.owner = s; }
   
   public String[] getAccessGroup() { return accessGroup ; }
   public void setAccessGroup(String[] group) { accessGroup =  group ; }

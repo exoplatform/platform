@@ -15,6 +15,8 @@
   def selectedCategory = uicomponent.getSelectedPortletCategory() ;
   def portlets = uicomponent.getPortlets() ;
   def selectedPortlet = uicomponent.getSelectedPortlet() ;
+  
+ 
 %>
 
 <% /* Begin Portlet Registry Control*/ %>
@@ -26,7 +28,7 @@
 					<div class="RightBar">
 						<div class="MiddleBar">
 							<div class="OverflowContainer">
-								<a href="<%=uicomponent.event("AddCategory")%>" class="CategoryControlIcon AddCategoryIcon" title="Add Application Category">
+								<a href="<%=uicomponent.event("AddCategory")%>" class="CategoryControlIcon AddCategoryIcon" title="Add Portlet Category">
 								  <span></span></a>
 								<a href="<%=uicomponent.event("ImportCategory")%>" class="CategoryControlIcon ImportCategoryIcon" title="Import Application Category">
 								  <span></span></a>
@@ -45,8 +47,9 @@
       <div class="UIVerticalSlideTabs">
    	    <% 
 				  for(category in portletCategories) { 			     
-	 			    String cTab, cName , display;
+	 			    String cTab, cName , display, description;
 				    cName  = category.getName();
+				    description = category.getDescription();
 				    if(selectedCategory != null && cName == selectedCategory.getName()) {
 				      cTab = "SelectedVTabSimpleStyle" ;
 				      display = "display: block";
@@ -63,7 +66,7 @@
 				            <div class="TabRepeat">
 				              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
 									      <div class="LeftIcon"><span></span></div>
-							            <a class="TabLabel" href="<%=uicomponent.event("ShowPortlet", cName)%>"><%=cName%></a>
+							            <a class="TabLabel" href="<%=uicomponent.event("ShowCategory", cName)%>"><%=cName%></a>
 								          <div class="ControlContainer" style ="$display">
 								            <a class="ControlIcon EditIcon" href="<%=uicomponent.event("EditCategory", cName)%>"><span></span></a>
 								            <a class="ControlIcon DeleteIcon" href="<%=uicomponent.event("DeleteCategory", cName)%>"><span></span></a>
@@ -75,7 +78,7 @@
 				          </div>
 				        </div>
 						  </div>
-						  <div class="UIVTabContent" style ="$display">Category Description</div>
+						  <div class="UIVTabContent" style ="$display"><%=description%></div>
 						</div>
 			<% } %>	
 			</div>

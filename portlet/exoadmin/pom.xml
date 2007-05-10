@@ -19,7 +19,7 @@
       <artifactId>exo.portal.webui.portal</artifactId>
       <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
-    </dependency>
+    </dependency>   
   </dependencies> 
   
   <build>
