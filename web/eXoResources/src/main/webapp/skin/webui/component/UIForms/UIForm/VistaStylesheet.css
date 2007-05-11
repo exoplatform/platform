@@ -16,13 +16,13 @@
 
 
 .UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
-  margin-top: 15px ;
+  margin-top: 3px ;
   margin-left: 150px ;
 }
 
 .UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {
 	float: left ;
-	margin: 4px 10px 0px 5px ;
+	margin: 2px 5px 0px 5px ;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet {
