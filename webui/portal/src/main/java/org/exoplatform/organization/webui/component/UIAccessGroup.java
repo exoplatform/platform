@@ -18,6 +18,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 
 /**
  * Created by The eXo Platform SARL
@@ -29,7 +30,7 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
   template = "system:/groovy/organization/webui/component/UIAccessGroup.gtmpl",
   events = {
-      @EventConfig(listeners = UIAccessGroup.RemoveActionListener.class),
+      @EventConfig(phase = Phase.DECODE, listeners = UIAccessGroup.RemoveActionListener.class),
       @EventConfig(listeners = UIAccessGroup.SelectGroupActionListener.class)
   }
 )
@@ -46,9 +47,10 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     uiPopup.setWindowSize(540, 0);
     UIGroupSelector uiGroupSelector = createUIComponent(UIGroupSelector.class, null, null) ;
     uiPopup.setUIComponent(uiGroupSelector);
+    
   }
   
-  public void configure(String iname, String bfield) {  
+  public void configure(String iname, String bfield) {
     setName(iname) ;
     setBindingField(bfield) ; 
   }
@@ -97,10 +99,14 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
       uiAccessGroup.addGroup(group);
     }
   }
-  
+    
   static  public class RemoveActionListener extends EventListener<UIAccessGroup> {   
     public void execute(Event<UIAccessGroup> event) throws Exception {
+      String groupId = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      UIAccessGroup uiAccessGroup = event.getSource() ;
       
+      
+      System.out.println("\n\n\n\n\n\n\n  REMOVE OBJECT ID: "+groupId+"  \n\n\n\n\n\n\n");
     }
   }
 

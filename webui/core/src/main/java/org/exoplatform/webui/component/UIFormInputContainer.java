@@ -58,7 +58,7 @@ abstract public class UIFormInputContainer<T> extends UIContainer implements UIF
     String action =  uiForm.getSubmitAction();
     if(action == null) return;    
     
-    Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;   
+    Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;
     if(event != null) event.broadcast() ;
   }
 
