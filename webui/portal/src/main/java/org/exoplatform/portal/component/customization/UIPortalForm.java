@@ -90,6 +90,7 @@ public class UIPortalForm extends UIFormTabPane {
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);
     uiSettingSet.getUIFormSelectBox("locale").setEditable(false);
+    
     WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
     WebuiApplication app  = (WebuiApplication)currReqContext.getApplication() ;
     List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);
@@ -141,6 +142,9 @@ public class UIPortalForm extends UIFormTabPane {
     portalConfig_ = uiPortal;
     if(portalConfig_.getFactoryId() == null) portalConfig_.setFactoryId(DEFAULT_FACTORY_ID);    
     invokeGetBindingBean(portalConfig_) ;
+    
+    UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
+    uiAccessGroup.setGroups(uiPortal.getAccessGroup());
 //    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
 //    uiPermissionSelector.createPermission("ViewPermission", portalConfig_.getViewPermission());
 //    uiPermissionSelector.createPermission("EditPermission", portalConfig_.getEditPermission());
@@ -155,6 +159,10 @@ public class UIPortalForm extends UIFormTabPane {
       UIPortalApplication uiApp = uiForm.getAncestorOfType(UIPortalApplication.class);
       PortalConfig portalConfig  = uiForm.getPortalConfig();
       uiForm.invokeSetBindingBean(portalConfig);
+      
+      UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
+      portalConfig.setAccessGroup(uiAccessGroup.getAccessGroup());
+      
       if(portalConfig.getFactoryId().equals(UIPortalForm.DEFAULT_FACTORY_ID)) portalConfig.setFactoryId(null);      
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
       uiApp.setLocale(localeConfig.getLocale());
@@ -182,7 +190,7 @@ public class UIPortalForm extends UIFormTabPane {
         iterator.setCurrentPage(currentPage);
         UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
         event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      } 
+      }
     }
   }
   
