@@ -74,7 +74,7 @@ abstract public class WebuiRequestContext extends RequestContext {
   public void    setProcessRender(boolean b) { processRender_ = b; }
   
   public void addUIComponentToUpdateByAjax(UIComponent uicomponent) {   
-    if(uicomponentToUpdateByAjax == null)  {
+    if(uicomponentToUpdateByAjax == null) {
       uicomponentToUpdateByAjax =  new ArrayList<UIComponent>() ;
     }
     uicomponentToUpdateByAjax.add(uicomponent) ;

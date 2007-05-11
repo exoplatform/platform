@@ -30,7 +30,7 @@ import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
   template = "system:/groovy/organization/webui/component/UIAccessGroup.gtmpl",
   events = {
-      @EventConfig(phase = Phase.DECODE, listeners = UIAccessGroup.RemoveActionListener.class),
+      @EventConfig(phase = Phase.DECODE, listeners = UIAccessGroup.DeleteActionListener.class),
       @EventConfig(listeners = UIAccessGroup.SelectGroupActionListener.class)
   }
 )
@@ -39,7 +39,7 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
   public UIAccessGroup() throws Exception {
     super(null, null);
     UIGrid uiGrid = addChild(UIGrid.class, null, "TableGroup") ;
-    uiGrid.configure("id", new String[]{"id", "label", "description"}, new String[]{"Remove"});
+    uiGrid.configure("id", new String[]{"id", "label", "description"}, new String[]{"Delete"});
     
     uiGrid.getUIPageIterator().setPageList(new ObjectPageList(new ArrayList<Group>(), 10));
     
@@ -100,13 +100,13 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     }
   }
     
-  static  public class RemoveActionListener extends EventListener<UIAccessGroup> {   
+  static  public class DeleteActionListener extends EventListener<UIAccessGroup> {   
     public void execute(Event<UIAccessGroup> event) throws Exception {
       String groupId = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UIAccessGroup uiAccessGroup = event.getSource() ;
       
       
-      System.out.println("\n\n\n\n\n\n\n  REMOVE OBJECT ID: "+groupId+"  \n\n\n\n\n\n\n");
+      System.out.println("\n\n\n\n\n\n\n  REMOVE OBJECT: "+uiAccessGroup+"  \n\n\n\n\n\n\n");
     }
   }
 

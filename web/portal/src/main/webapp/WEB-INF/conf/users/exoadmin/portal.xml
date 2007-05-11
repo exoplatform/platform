@@ -10,11 +10,11 @@
   </widget-layout>
 
 	<portal-layout>
-	  <application>
+    <application>
 	    <application-instance-id>exoadmin:/web/BannerPortlet/banner</application-instance-id>
 	    <show-info-bar>false</show-info-bar>
 	  </application>
-		
+	  
 		<application>
       <application-instance-id>exoadmin:/web/NavigationPortlet/toolbar</application-instance-id>
 	    <show-info-bar>false</show-info-bar>

@@ -8,12 +8,12 @@
   <widget-layout>
   </widget-layout>
   
- 	<portal-layout> 
+ 	<portal-layout> 		
 		<application>
 	    <instance-id>site:/web/BannerPortlet/banner</instance-id>
 	    <show-info-bar>false</show-info-bar>
 	  </application>
-		
+
 	  <application>
 	  	<instance-id>site:/web/NavigationPortlet/toolbar</instance-id>
 	    <show-info-bar>false</show-info-bar>

@@ -77,10 +77,10 @@ public class UIContainerForm extends UIForm {
   } 
 
   public void setValues(UIContainer uiContainer) throws Exception {
-    this.uiContainer_ = uiContainer;
+    uiContainer_ = uiContainer;
     Container container = PortalDataModelUtil.toContainer(uiContainer) ;
     getUIStringInput("id").setEditable(false);
-    invokeGetBindingBean(container) ;    
+    invokeGetBindingBean(container) ;
   }
 
   public UIContainer getContainer() { return uiContainer_ ; }
@@ -92,9 +92,7 @@ public class UIContainerForm extends UIForm {
     public void execute(Event<UIContainerForm> event) throws Exception {
       UIContainerForm uiForm = event.getSource() ;
       UIContainer uiContainer = uiForm.getContainer() ;
-      Container container = new Container();
-      uiForm.invokeSetBindingBean(container) ;
-      PortalDataModelUtil.toUIContainer(uiContainer, container);
+      uiForm.invokeSetBindingBean(uiContainer) ;
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       
       UIMaskWorkspace uiMaskWorkspace = uiForm.getParent();
