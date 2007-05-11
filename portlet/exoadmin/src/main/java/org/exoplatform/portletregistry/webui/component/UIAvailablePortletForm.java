@@ -17,7 +17,6 @@ import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputInfo;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -51,8 +50,8 @@ public class UIAvailablePortletForm extends UIFormTabPane {
   
   public UIAvailablePortletForm() throws Exception {
     super("UIFormAvailablePortlet", false);
-    super.setInfoBar(false);
-    super.setRenderResourceTabName(false) ;
+    setInfoBar(false);
+    setRenderResourceTabName(false) ;
   } 
 
   @SuppressWarnings("unchecked")
@@ -124,16 +123,14 @@ public class UIAvailablePortletForm extends UIFormTabPane {
         if(!ele.isChecked())continue;    
         Application portlet = service.getApplication(ele.getValue());       
         if(Collections.binarySearch(oldPortlets, portlet, portletComparator) > -1) continue;
-        Application newPortlet = clonePortlet(service, portlet);
+        Application newPortlet = clonePortlet(portlet);
         service.save(selectedCategory, newPortlet);
       }      
       uiRegistryCategory.initValues(null);
       uiRegistryCategory.setSelectedCategory(selectedCategory);
-//      ApplicationRegistryWorkingArea workingArea = uiRegistryCategory.getChild(ApplicationRegistryWorkingArea.class);
-//      event.getRequestContext().addUIComponentToUpdateByAjax()
     }  
     
-    private Application clonePortlet(ApplicationRegistryService service, Application portlet){
+    private Application clonePortlet(Application portlet){
       Application newPortlet = new Application();
       newPortlet.setAccessGroup(portlet.getAccessGroup());
       newPortlet.setApplicationGroup(portlet.getApplicationGroup());
@@ -150,7 +147,6 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       UIAvailablePortletForm uiForm = event.getSource() ;
       UIPopupWindow parent = uiForm.getParent();
       parent.setShow(false);
-//      uiForm.setRenderSibbling(UIDescription.class) ;
     }
   }
 

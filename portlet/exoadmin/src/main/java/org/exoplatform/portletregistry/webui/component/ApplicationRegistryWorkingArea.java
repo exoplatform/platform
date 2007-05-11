@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.organization.webui.component.UIAccessGroup;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIPopupWindow;
@@ -27,7 +26,7 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfig(    
     template = "app:/groovy/portletregistry/webui/component/ApplicationRegistryWorkingArea.gtmpl",
-      events = {
+    events = {
         @EventConfig(listeners = ApplicationRegistryWorkingArea.AddPortletActionListener.class),
         @EventConfig(listeners = ApplicationRegistryWorkingArea.DeletePortletActionListener.class),
         @EventConfig(listeners = ApplicationRegistryWorkingArea.EditPermissionActionListener.class),
@@ -38,6 +37,7 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
    
   private List<Application> portlets_  = new ArrayList<Application>();
   private Application select_;
+  
   public ApplicationRegistryWorkingArea() throws Exception {
     UIPopupWindow addCategoryPopup = addChild(UIPopupWindow.class, null, "WorkingPopup");
     addCategoryPopup.setWindowSize(640, 0); 
@@ -54,13 +54,9 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
     renderChildren(context) ;
   }
 
-  public Application getSelectApplication() {
-    return select_;
-  }
+  public Application getSelectApplication() { return select_; }
   
-  public void setSeletcApplication(Application select){
-    select_ = select;
-  }
+  public void setSeletcApplication(Application select){ select_ = select; }
   
   public void setSeletcApplication(String appName){
     for(Application app: portlets_){
@@ -71,18 +67,15 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
   }
   static public class AddPortletActionListener extends EventListener<ApplicationRegistryWorkingArea> {
     public void execute(Event<ApplicationRegistryWorkingArea> event) throws Exception {
-      String appName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       ApplicationRegistryWorkingArea workingArea = event.getSource();
       
       UIPopupWindow popupWindow = workingArea.getChild(UIPopupWindow.class);
-      UIAvailablePortletForm availablePortletForm= workingArea.createUIComponent(UIAvailablePortletForm.class, null, null);
+      UIAvailablePortletForm availablePortletForm = workingArea.createUIComponent(UIAvailablePortletForm.class, null, null);
       availablePortletForm.setValue();
       popupWindow.setUIComponent(availablePortletForm);
       popupWindow.setShow(true);
     }
   }
-  
-  
 
   static public class EditPortletActionListener extends EventListener<ApplicationRegistryWorkingArea> {
     public void execute(Event<ApplicationRegistryWorkingArea> event) throws Exception {

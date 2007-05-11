@@ -30,7 +30,6 @@ import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTabPane;
 import org.exoplatform.webui.component.UIGrid;
 import org.exoplatform.webui.component.UIPageIterator;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
@@ -124,20 +123,6 @@ public class UIPortalForm extends UIFormTabPane {
   
   public PortalConfig getPortalConfig() { return portalConfig_; }
   
-  public void processRender(WebuiRequestContext context) throws Exception {
-    super.processRender(context);
-    
-    UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
-    if(uiAccessGroup == null) return;
-    UIPopupWindow uiPopupWindow = uiAccessGroup.getChild(UIPopupWindow.class) ;
-    uiPopupWindow.processRender(context);
-       
-//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
-//    if(uiPermissionSelector == null) return;
-//    UIPopupWindow uiPopupWindow = uiPermissionSelector.getChild(UIPopupWindow.class);
-//    uiPopupWindow.processRender(context);
-  }
-
   public void setValues(PortalConfig uiPortal) throws Exception {
     portalConfig_ = uiPortal;
     if(portalConfig_.getFactoryId() == null) portalConfig_.setFactoryId(DEFAULT_FACTORY_ID);    
@@ -145,9 +130,6 @@ public class UIPortalForm extends UIFormTabPane {
     
     UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
     uiAccessGroup.setGroups(uiPortal.getAccessGroup());
-//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
-//    uiPermissionSelector.createPermission("ViewPermission", portalConfig_.getViewPermission());
-//    uiPermissionSelector.createPermission("EditPermission", portalConfig_.getEditPermission());
   }
 
   static public class SaveActionListener  extends EventListener<UIPortalForm> {
@@ -166,10 +148,6 @@ public class UIPortalForm extends UIFormTabPane {
       if(portalConfig.getFactoryId().equals(UIPortalForm.DEFAULT_FACTORY_ID)) portalConfig.setFactoryId(null);      
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
       uiApp.setLocale(localeConfig.getLocale());
-      
-//      UIPermissionSelector uiPermissionSelector = uiForm.getChild(UIPermissionSelector.class);
-//      portalConfig.setViewPermission(uiPermissionSelector.getPermission("ViewPermission").getValue());
-//      portalConfig.setEditPermission(uiPermissionSelector.getPermission("EditPermission").getValue());
       
       UIPortal uiPortal = Util.getUIPortal();
       uiPortal.getChildren().clear();
@@ -191,12 +169,6 @@ public class UIPortalForm extends UIFormTabPane {
         UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
         event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
       }
-    }
-  }
-  
-  static  public class ChangeNodeActionListener extends EventListener<UIPortalForm> {   
-    public void execute(Event<UIPortalForm> event) throws Exception {
-      System.out.println("\n\n\n\n\n ChangeNodeActionListener PortalForm \n\n\n\n\n");
     }
   }
 

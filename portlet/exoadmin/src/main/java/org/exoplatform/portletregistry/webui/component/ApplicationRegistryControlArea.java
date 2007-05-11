@@ -52,7 +52,6 @@ public class ApplicationRegistryControlArea extends UIContainer {
     UICategoryForm uiCategoryForm = createUIComponent(UICategoryForm.class, null, null);
     addCategoryPopup.setUIComponent(uiCategoryForm);
     uiCategoryForm.setValue(null);
-//    initValues(null);
   }  
 
   @SuppressWarnings("unchecked")
@@ -95,7 +94,6 @@ public class ApplicationRegistryControlArea extends UIContainer {
   
   public ApplicationCategory getCategory(String name) {
     for(ApplicationCategory category: portletCategories){
-      System.out.println("+++>" + category.getName());
       if(category.getName().equals(name))return category;
     }
     return null;

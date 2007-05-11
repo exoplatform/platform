@@ -8,7 +8,6 @@ import java.util.Calendar;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTextAreaInput;
@@ -44,19 +43,10 @@ public class UIInfoPortletForm extends UIForm {
   
   public UIInfoPortletForm() throws Exception {
     addUIFormInput(new UIFormStringInput("applicationName", "applicationName", null).
-                   addValidator(EmptyFieldValidator.class).
-                   addValidator(NameValidator.class)) ;
+                   addValidator(EmptyFieldValidator.class).addValidator(NameValidator.class)) ;
     
     addUIFormInput(new UIFormStringInput("displayName", "displayName", null));
     addUIFormInput(new UIFormTextAreaInput("description", "description", null));
-    
-//    UIFormDateTimeInput uiDateTimeInput = new UIFormDateTimeInput("createdDate", "createdDate", null);
-//    uiDateTimeInput.setEditable(false);
-//    addUIFormInput(uiDateTimeInput);
-    
-    /*uiDateTimeInput = new UIFormDateTimeInput("modifiedDate", "modifiedDate", null);
-    uiDateTimeInput.setEditable(false);
-    addUIFormInput(uiDateTimeInput);*/       
   }
   
   public String getName() {return name_;}
@@ -86,9 +76,8 @@ public class UIInfoPortletForm extends UIForm {
   static public class BackActionListener extends EventListener<UIInfoPortletForm>{
     public void execute(Event<UIInfoPortletForm> event) throws Exception{
       UIInfoPortletForm uiForm = event.getSource() ;
-      UIPopupWindow parent = uiForm.getParent();
-      parent.setShow(false);
-//      uiForm.setRenderSibbling(UIDescription.class) ;
+      UIPopupWindow uiParent = uiForm.getParent();
+      uiParent.setShow(false);
     }
   }
 

@@ -96,13 +96,13 @@ public class UIPageNodeActionListener {
 
       UserPortalConfigService portalConfigService = popupMenu.getApplicationComponent(UserPortalConfigService.class);
       Page page  = portalConfigService.getPage(node.getPageReference(), pcontext.getRemoteUser());
-      UIPage uiPage  = Util.toUIPage(page, uiToolPanel);
+      UIPage uiPage  = null;
+      if(page != null) Util.toUIPage(page, uiToolPanel);
       
       UIPortalApplication uiApp = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class);
       UIControlWorkspace uiControl = uiApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiControl);
       
-      String accessUser = pcontext.getRemoteUser();
       if(page == null || !uiPage.isModifiable()){
         Class [] childrenToRender = {UIPageNodeSelector.class };      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);

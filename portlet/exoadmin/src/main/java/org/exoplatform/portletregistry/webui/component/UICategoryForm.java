@@ -33,13 +33,13 @@ import org.exoplatform.webui.event.Event.Phase;
     }
 )
 public class UICategoryForm extends UIForm { 
-  
+
   final static private String FIELD_NAME = "name" ;
   final static private String FIELD_DISPLAY_NAME = "displayName" ;
   final static private String FIELD_DESCRIPTION = "description" ;
-  
+
   private ApplicationCategory category_ = null ;
-  
+
   public UICategoryForm() throws Exception {
     addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).
                    addValidator(EmptyFieldValidator.class));
@@ -47,7 +47,7 @@ public class UICategoryForm extends UIForm {
                    addValidator(EmptyFieldValidator.class));
     addUIFormInput(new UIFormTextAreaInput(FIELD_DESCRIPTION, FIELD_DESCRIPTION, null)); 
   } 
-  
+
   public void setValue(ApplicationCategory category) throws Exception {
     if(category == null) {
       getUIStringInput(FIELD_NAME).setEditable(true).setValue(null);
@@ -60,34 +60,33 @@ public class UICategoryForm extends UIForm {
     category_ = category ;
     invokeGetBindingBean(category);
   }
-  
+
   public ApplicationCategory getCategory() { return category_ ; }
-  
+
   static public class SaveActionListener extends EventListener<UICategoryForm> {
     public void execute(Event<UICategoryForm> event) throws Exception{
       UICategoryForm uiForm = event.getSource() ;
       UIPopupWindow parent = uiForm.getParent();
       parent.setShow(false);
       ApplicationCategory category = uiForm.getCategory() ;
-      
+
       ApplicationRegistryControlArea uiRegistryCategory = uiForm.getAncestorOfType(ApplicationRegistryControlArea.class);
       ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
-      
-//      uiRegistryCategory.initValues(null) ;
+
       if(category == null) {
         String name = uiForm.getUIStringInput(FIELD_NAME).getValue();
         category = uiRegistryCategory.getCategory(name);
       }
-      
+
       if(category == null) category = new ApplicationCategory();
-      
+
       uiForm.invokeSetBindingBean(category) ;
       service.save(category) ; 
       uiRegistryCategory.initValues(null);
       uiRegistryCategory.setSelectedCategory(category);
     }
   }
-  
+
   static public class CloseActionListener extends EventListener<UICategoryForm>{
     public void execute(Event<UICategoryForm> event) throws Exception{
       UICategoryForm uiForm = event.getSource() ;

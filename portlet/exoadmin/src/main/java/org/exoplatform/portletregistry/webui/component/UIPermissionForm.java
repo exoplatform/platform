@@ -9,8 +9,6 @@ import java.util.Calendar;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.organization.webui.component.UIAccessGroup;
-import org.exoplatform.organization.webui.component.UIPermissionSelector;
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -31,21 +29,13 @@ import org.exoplatform.webui.event.EventListener;
     template = "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
     events = @EventConfig(listeners = UIPermissionForm.SaveActionListener.class)
 )
-public class UIPermissionForm extends UIForm{
+public class UIPermissionForm extends UIForm {
  
-  protected Application portlet_;
+  private Application portlet_;
   
   public UIPermissionForm() throws Exception{
     addChild(UIAccessGroup.class, null, "Permission");
   }
-  
-//  public void processRender(WebuiRequestContext context) throws Exception {
-//    super.processRender(context);   
-////    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);    
-////    if(uiPermissionSelector == null) return;
-////    UIPopupWindow uiPopupWindow = uiPermissionSelector.getChild(UIPopupWindow.class);
-////    uiPopupWindow.processRender(context);
-//  }
   
   public void setValue(Application portlet) throws Exception {    
     portlet_ = portlet;
@@ -54,23 +44,24 @@ public class UIPermissionForm extends UIForm{
       accessGroup = portlet.getAccessGroup();
     }
     getChild(UIAccessGroup.class).setGroups(accessGroup);
-  } 
+  }
+  
+  public Application getPortlet() { return portlet_; }
   
   static public class SaveActionListener extends EventListener<UIPermissionForm> {    
     public void execute(Event<UIPermissionForm> event) throws Exception {
       UIPermissionForm  uiPermissionForm = event.getSource();
+      Application portlet = uiPermissionForm.getPortlet() ;
+
       UIAccessGroup accessGroupForm = uiPermissionForm.getChild(UIAccessGroup.class);
-      uiPermissionForm.portlet_.setAccessGroup(accessGroupForm.getAccessGroup());
+      portlet.setAccessGroup(accessGroupForm.getAccessGroup());
+      ApplicationRegistryService service = uiPermissionForm.getApplicationComponent(ApplicationRegistryService.class) ;
+      portlet.setModifiedDate(Calendar.getInstance().getTime());
+      service.update(portlet) ;
+      
       UIPopupWindow popupWindow = uiPermissionForm.getParent();
       popupWindow.setShow(false);
-//      ApplicationRegistryService service = uiPermissionForm.getApplicationComponent(ApplicationRegistryService.class) ;
-//      Application portlet = uiPermissionForm.portlet_;
-////      uiForm.invokeSetBindingBean(portlet);
-//      portlet.setModifiedDate(Calendar.getInstance().getTime());
-//      service.update(portlet) ;
     }
   }
-
-
 
 }

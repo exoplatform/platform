@@ -50,10 +50,7 @@ import org.exoplatform.webui.event.EventListener;
   },
   events = {
     @EventConfig(listeners = UIExoStart.BasicCustomizationActionListener.class),
-//    @EventConfig(listeners = UIExoStart.AdvancedCustomizationActionListener.class),
     @EventConfig(listeners = UIExoStart.MyPortalActionListener.class),
-//    @EventConfig(listeners = UIExoStart.ChangeSkinActionListener.class),
-//    @EventConfig(listeners = UIExoStart.ChangeLanguageActionListener.class),
     @EventConfig(listeners = UIExoStart.PageCreationWizardActionListener.class),
     @EventConfig(listeners = UIExoStart.EditCurrentPageActionListener.class),
 //    @EventConfig(listeners = UIExoStart.DebugActionListener.class),
@@ -198,7 +195,6 @@ public class UIExoStart extends UIComponent {
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uiComp = event.getSource() ;
       uiComp.setUIControlWSWorkingComponent(UIPortalManagement.class) ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiComp);
       
       UIPortalManagement uiManagement = uiComp.getUIControlWSWorkingComponent();      
       String mode  = event.getRequestContext().getRequestParameter(OBJECTID);
@@ -213,29 +209,6 @@ public class UIExoStart extends UIComponent {
       event.getRequestContext().addUIComponentToUpdateByAjax(uicomp.getParent()) ;
     }
   }
-  
-  /*static  public class ChangeSkinActionListener extends EventListener<UIExoStart> {
-    public void execute(Event<UIExoStart> event) throws Exception {      
-      String skin  = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIExoStart uicomp = event.getSource() ;
-      UIPortalApplication uiApp = uicomp.getAncestorOfType(UIPortalApplication.class);      
-      uiApp.setSkin(skin);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiApp) ;
-    }
-  } */
-  
-  /*static  public class ChangeLanguageActionListener extends EventListener<UIExoStart> {
-    public void execute(Event<UIExoStart> event) throws Exception {
-      String localeName  = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIExoStart uiComp = event.getSource() ;
-      UIPortalApplication uiApp = uiComp.getAncestorOfType(UIPortalApplication.class);
-      
-      LocaleConfigService localeConfigService  = uiComp.getApplicationComponent(LocaleConfigService.class) ;     
-      LocaleConfig localeConfig = localeConfigService.getLocaleConfig(localeName);
-      if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
-      uiApp.setLocale(localeConfig.getLocale());
-    }
-  }  */
   
   static public class PageCreationWizardActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {

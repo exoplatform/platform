@@ -7,7 +7,6 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
@@ -39,24 +38,14 @@ public class UIPortletOptions extends UIContainer {
     dropCategorys.setOptions(options);
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
   
-//    UserACL userACL = getApplicationComponent(UserACL.class) ;
     String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
     List<ApplicationCategory> pCategories = service.getApplicationCategories(remoteUser) ;  
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
     
     PortletComparator portletComparator = new PortletComparator() ;
     for(ApplicationCategory pCategory : pCategories) {
-      List<Application> portlets = service.getApplications(pCategory) ;
-      Iterator<Application> iterator = portlets.iterator();
-      while (iterator.hasNext()) {
-        Application portlet = iterator.next();
-        String perm = null;//portlet.getViewPermission();
-        if(perm == null) perm = "member:/user";
-//        if(userACL.hasPermission(null, remoteUser, perm)) continue;
-        iterator.remove();
-      }
-      if(portlets.size() < 1)  continue;
       if(selectedPCategory == null) selectedPCategory = pCategory;
+      List<Application> portlets = service.getApplications(pCategory) ;
       Collections.sort(portlets, portletComparator) ;
       pCategoryDatas.add(new PortletCategoryData(pCategory, portlets)); 
     }    

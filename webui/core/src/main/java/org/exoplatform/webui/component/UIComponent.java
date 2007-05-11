@@ -165,10 +165,10 @@ abstract public class UIComponent {
     org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
     if(event == null) return "??config??" ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
-    try{
+    try {
       URLBuilder urlBuilder = context.getURLBuilder();
       if(urlBuilder != null) {
-        return context.getURLBuilder().createAjaxURL(this, event.getName(), beanId, params, confirm).toString();
+        return urlBuilder.createAjaxURL(this, event.getName(), beanId, params, confirm).toString();
       }
       System.out.println(urlBuilder +"  : "+context);
       return "";
