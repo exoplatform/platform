@@ -104,7 +104,6 @@ public class DataStorageImpl implements DataStorage {
     while(iterator.hasNext()){
       Node portalNode = iterator.nextNode();
       if(!portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)) {
-        System.out.println("\n\n\nDataStorageImpl.java.getAllPortalConfig() name =" + portalNode.getName());
         continue;
       }
       Node configNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;

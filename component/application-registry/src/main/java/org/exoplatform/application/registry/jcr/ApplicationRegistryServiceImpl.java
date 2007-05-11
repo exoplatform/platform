@@ -20,6 +20,8 @@ import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
+import org.exoplatform.services.organization.Membership;
+import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
 
@@ -36,12 +38,13 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   private final static String CATEGORY_NODE_TYPE = "exo:applicationCategory";
   
   private DataMapper mapper = new DataMapper();
-  
+  private OrganizationService orgService_ ;
   private JCRRegistryService jcrRegService_;
   
-  public ApplicationRegistryServiceImpl(JCRRegistryService jcrRegService) throws Exception {
+  public ApplicationRegistryServiceImpl(JCRRegistryService jcrRegService, OrganizationService orgService) throws Exception {
     jcrRegService_ = jcrRegService;
     jcrRegService_.createApplicationRegistry(new ApplicationRegistry(APPLICATION_NAME), false);
+    this.orgService_ = orgService;
   }
   
   public List<ApplicationCategory> getApplicationCategories() throws Exception {
@@ -186,10 +189,36 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     session.logout();
   }
   
+  @SuppressWarnings("unchecked")
   public List<ApplicationCategory> getApplicationCategories(String accessUser) throws Exception {
-    return null;
+    List<ApplicationCategory> allApp = getApplicationCategories();
+    List<ApplicationCategory> resultList = new ArrayList<ApplicationCategory>();
+    List<Membership>  memberships = (List<Membership>) orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
+    for(Membership member: memberships) {
+      String groupId = member.getGroupId();
+       System.out.println("-->For MemberShip:" + groupId);
+      for(ApplicationCategory appCategory: allApp){
+        if(hasPermission(appCategory, groupId)) resultList.add(appCategory);
+      }
+    }
+    return resultList;
   }
   
+  private boolean hasPermission(ApplicationCategory appCategory, String groupId) throws Exception {
+    List<Application> apps = getApplications(appCategory);
+    System.out.println("------>For Category: " + appCategory.getDisplayName() + " with size: " + apps.size());
+    for(Application app: apps){
+      String[] accessGroup = app.getAccessGroup();
+      System.out.println("-----------For Application: " + app.getDisplayName() + " with Access size: " + accessGroup);
+      if(accessGroup == null ) return true;
+      for(String s: accessGroup){
+        System.out.println("GroupId : Application-Acessgroup = " + groupId + " : " + app.getDisplayName() + "-" + s);
+        if(s.equals(groupId)) return true;
+      }
+    }
+    return false;
+  }
+
   public void importJSR168Portlets() throws Exception {
     Session session = jcrRegService_.getSession();
     PortalContainer manager  = PortalContainer.getInstance();

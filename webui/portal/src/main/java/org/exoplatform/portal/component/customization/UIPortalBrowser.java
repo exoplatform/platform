@@ -98,6 +98,10 @@ public class UIPortalBrowser extends UIContainer {
       PortalConfig config = service.getPortalConfig(ownerUser);
       service.remove(config);
       event.getSource().loadPortalConfigs();
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+//      event.getRequestContext().addUIComponentToUpdateByAjax(event.getSource());
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
     }
   }
   

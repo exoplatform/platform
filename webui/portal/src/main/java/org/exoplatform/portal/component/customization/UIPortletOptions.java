@@ -15,6 +15,7 @@ import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIDropDownItemSelector;
@@ -37,12 +38,18 @@ public class UIPortletOptions extends UIContainer {
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     dropCategorys.setOptions(options);
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
-    List<ApplicationCategory> pCategories = service.getApplicationCategories() ;    
+  
+//    UserACL userACL = getApplicationComponent(UserACL.class) ;
+    String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
+    List<ApplicationCategory> pCategories = service.getApplicationCategories(remoteUser) ;  
+    if(pCategories!=null){
+      System.out.println("\n\n\n--->>>UIPortletOptions.java. newSize=" + pCategories.size());
+    } else {  
+      System.out.println("\n\n\n--->>>UIPortletOptions.java. newSize= null");
+    }
+    System.out.println("\n\n\n--->>>UIPortletOptions.java. oldSize=" +  service.getApplicationCategories().size());
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
     
-//    UserACL userACL = getApplicationComponent(UserACL.class) ;
-//    String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
-
     PortletComparator portletComparator = new PortletComparator() ;
     for(ApplicationCategory pCategory : pCategories) {
       List<Application> portlets = service.getApplications(pCategory) ;

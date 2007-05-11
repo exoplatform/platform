@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.organization.webui.component.UIAccessGroup;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIPopupWindow;
@@ -98,24 +99,14 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
 
   static public class EditPermissionActionListener extends EventListener<ApplicationRegistryWorkingArea> {
     public void execute(Event<ApplicationRegistryWorkingArea> event) throws Exception {
-      String categoryName = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      System.out.println("\n\n\n-->ApplicationRegistryWorkingArea.EditPermission - " + categoryName);
-//      ApplicationRegistryWorkingArea uicomp = event.getSource();      
-//      UIPortletRegistryPortlet uiParent = uicomp.getParent();
-//      Application selectedPortlet = uicomp.getSelectedPortlet();
-//      if(selectedPortlet == null) {
-//        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-//        uiApp.addMessage(new ApplicationMessage("UIPortletRegistryCategory.msg.editPortlet", null)) ;
-//        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
-//        return;
-//      }
-//      
-//      ApplicationRegistryWorkingArea uiWorkingArea = uiParent.getChild(ApplicationRegistryWorkingArea.class);      
-//      UIPermissionForm uiPermissionForm = uiWorkingArea.getChild(UIPermissionForm.class);
-////      uiPermissionForm.setWithRenderTab(false);
-//      if(selectedPortlet!=null) uiPermissionForm.setValue(selectedPortlet);      
-//      uiPermissionForm.setRenderedChild(UIPermissionSelector.class);      
-//      uiWorkingArea.setRenderedChild(UIPermissionForm.class);
+      String appName = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      ApplicationRegistryWorkingArea workingArea = event.getSource();
+      workingArea.setSeletcApplication(appName);
+      UIPopupWindow popupWindow = workingArea.getChild(UIPopupWindow.class);
+      UIPermissionForm accessGroupForm= workingArea.createUIComponent(UIPermissionForm.class, null, null);
+      accessGroupForm.setValue(workingArea.getSelectApplication());
+      popupWindow.setUIComponent(accessGroupForm);
+      popupWindow.setShow(true);
     }
   }
 
@@ -123,7 +114,6 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
   static public class DeletePortletActionListener extends EventListener<ApplicationRegistryWorkingArea> {
     public void execute(Event<ApplicationRegistryWorkingArea> event) throws Exception {
       String categoryName = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      System.out.println("\n\n\n-->ApplicationRegistryWorkingArea.DeletePortlet - " + categoryName);
       ApplicationRegistryWorkingArea uicomp = event.getSource();
       uicomp.setSeletcApplication(categoryName);
       Application selectedPortlet = uicomp.getSelectApplication() ;

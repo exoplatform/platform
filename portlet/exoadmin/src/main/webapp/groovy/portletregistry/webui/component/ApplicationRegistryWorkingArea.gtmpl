@@ -2,8 +2,13 @@
 	import org.exoplatform.application.registry.Application;
 	import java.util.List;
 	import java.util.ArrayList;
+	
+	ArrayList portlets = uicomponent.getPortlets();
 %>
 	<div class="ApplicationContainer">
+	<%  if(portlets != null && portlets.size() > 0 ) {
+	%>
+	 
 		<table class="UIGrid" cellspacing="0" borderspacing="0">
       <thead>
   	    <tr class="EvenRow">
@@ -14,7 +19,7 @@
   	    <tbody>
   	    <%
   	      //System.out.println("\n\n\n-----------------------------------0");
-  	      ArrayList portlets = uicomponent.getPortlets();
+  	      
   	      if(portlets == null) portlets = new ArrayList();
   	      //System.out.println("Size of List=" + portlets.size());
 			    String rowClass = "EvenRow" ;
@@ -40,6 +45,10 @@
   	    </tbody>
   	  </thead>
   	</table>
+  	
+  	<% } else { %>
+  	  <div> There are not Applications!</div>
+  	<% }%>
   	<div class="UIAction" > 
       <div class="ActionContainer">
 		    <div class="ActionButton">
