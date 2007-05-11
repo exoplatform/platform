@@ -63,6 +63,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     setHasWelcome(true);
   }     
   
+  //TODO: Tung.Pham modified
   private void saveData() throws Exception {
     DataStorage daoService = getApplicationComponent(DataStorage.class);
     
@@ -109,7 +110,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     page.setOwnerType(ownerType);
     page.setOwnerId(ownerId);
     page.setName(pageNode.getName()) ;
-   
+ 
     daoService.create(page); 
     if(daoService.getPageNavigation(pageNav.getId()) != null) {
       daoService.save(pageNav);
@@ -135,6 +136,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     }
   }
 
+  //TODO: Tung.Pham modified
   static  public class ViewStep3ActionListener extends EventListener<UIPageCreationWizard> {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
@@ -165,6 +167,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     }
   }
 
+  //TODO: Tung.Pham modified
   static  public class ViewStep4ActionListener extends EventListener<UIPageCreationWizard> {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
