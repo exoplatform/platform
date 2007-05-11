@@ -22,10 +22,10 @@
 
 .UIPopupWindow .CloseButton {
   float: right;
-  margin-top: 5px; margin-right: 3px;
+  margin: 5px 3px 0px 0px;
   cursor: pointer;
-  width: 16px; height: 16px;
-  background: url('DefaultSkin/background/CloseButtonIcon16x16.gif') no-repeat;
+  width: 19px; height: 15px;
+  background: url('DefaultSkin/background/CloseButton19x15.gif') no-repeat;
 }
 
 .UIPopupWindow .TopLeftCornerDecorator {
@@ -181,4 +181,79 @@
 
 .UIPopupWindow .Content .UIPageBrowser {
   padding: 7px 4px 0px 8px;
+}
+
+/***************************Begin PoupWindow ExoMessage**********************************/
+.UIPopupWindow .ExoMessageDecorator {
+	background: white;
+	padding: 2px;
+}
+
+.UIPopupWindow .ExoMessageDecorator .TopLeftCornerDecorator {
+	background: url('DefaultSkin/background/TLMessageDecorator4x25.gif') no-repeat left; 
+	padding-left: 4px;
+	height: 25px;
+}
+
+.UIPopupWindow .ExoMessageDecorator .TopRightCornerDecorator {
+	background: url('DefaultSkin/background/TRMessageDecorator4x25.gif') no-repeat right; 
+	padding-right: 4px;
+	height: 25px;
+}
+
+.UIPopupWindow .ExoMessageDecorator .TopCenterDecorator {
+	background: url('DefaultSkin/background/TCMessageDecorator1x25.gif') repeat-x ; 
+	height: 25px;
+}
+
+.UIPopupWindow .ExoMessageDecorator .PopupTitle {
+	background: none;
+}
+
+.UIPopupWindow .ExoMessageDecorator .PopupTitleIcon {
+	width: 16px;	height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/Message.gif') no-repeat;
+	float: left;
+	margin: 4px 0px 0px 4px;
+}
+
+.UIPopupWindow .ExoMessageDecorator .MiddleLeftSideDecorator {
+	background: url('DefaultSkin/background/MLMessageDecorator4x1.gif') repeat-y left; 
+	padding-left: 4px;
+}
+
+.UIPopupWindow .ExoMessageDecorator .MiddleRightSideDecorator {
+	background: url('DefaultSkin/background/MRMessageDecorator4x1.gif') repeat-y right; 
+	padding-right: 4px;
+}
+
+.UIPopupWindow .ExoMessageDecorator .MiddleCenterDecorator {
+	background: #ffffff;
+	padding: 0px;
+}
+
+.UIPopupWindow .ExoMessageDecorator .BottomLeftCornerDecorator {
+	background: url('DefaultSkin/background/BLMessageDecorator4x4.gif') no-repeat left; 
+	padding-left: 4px; height: 4px;
+}
+
+.UIPopupWindow .ExoMessageDecorator  .UIWindowContent {
+	padding: 0px; margin:0px;
+	background: url('null') no-repeat;
+}
+
+.UIPopupWindow .ExoMessageDecorator  .UIWindowContent .Content {
+	padding: 0px; margin:0px;
+	border: none;
+	background: url('null') no-repeat;
+}
+
+.UIPopupWindow .ExoMessageDecorator .BottomRightCornerDecorator {
+	background: url('DefaultSkin/background/BRMessageDecorator4x4.gif') no-repeat right; 
+	padding-right: 4px;height: 4px;
+}
+
+.UIPopupWindow .ExoMessageDecorator .BottomCenterDecorator {
+	background: url('DefaultSkin/background/BCMessageDecorator1x4.gif') repeat-x ; 
+	height: 4px;
 }

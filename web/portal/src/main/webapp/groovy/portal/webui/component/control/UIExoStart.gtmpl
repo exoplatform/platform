@@ -75,7 +75,8 @@
   void renderPageNavigation(PageNavigation navigation) {
     print """
       <div class="DecoratorBlock">
-        <div class="TitleBar">${navigation.ownerId}'s pages </div>
+      	<div class="PageOwnerContainer">
+        	<div class="TitleBar">${navigation.ownerId}'s pages </div>
     """ ;
     nodes = navigation.getNodes() ;
     for(node in nodes) {
@@ -83,6 +84,7 @@
       else renderSinglePageNode(node) ;
     }
     print """
+    		</div>
       </div>
     """ ;    
   }

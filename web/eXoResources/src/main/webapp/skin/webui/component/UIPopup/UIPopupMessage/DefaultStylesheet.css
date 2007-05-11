@@ -1,72 +1,90 @@
 .UIPopupMessages {
-  padding: 10px;
+}
+
+.UIPopupMessages .UIHorizontalTabs {
+	height: 32px;
+	background: url(DefaultSkin/background/MessageTabBar1x33.gif) repeat-x top;
+	padding: 2px 4px 0px 4px;
+}
+
+.UIPopupMessages .UITabContentContainer {
+}
+
+.UIPopupMessages .UITabContent {
+	border: none;
 }
 
 .UIPopupMessages .PopupMessageFrame {
-  border: solid 1px #b7b7b7 ;
-  border-top: none;
-  background-color: white ;
-  padding: 1px ;
 }
 
 .UIPopupMessages .PopupMessagePanel {
-  border: solid 1px #a4a4a4 ;
-  background: #f5f5f5;
 }
 
 .UIPopupMessages .PopupMessageBox {
-  border: solid 1px #ffffff ;
-  background: #f5f5f5;
-  padding: 10px;
+  padding: 5px;
+  height: 200px;
+  overflow: auto;
 }
 
 .UIPopupMessages .PopupMessageContainer {
-  overflow: hidden;
 }
 
-.UIPopupMessages .PopupMessageBox .PopupMessageIcon {
-  float: left;
+.UIPopupMessages .WarningMessage .MessageContainer  {
+  color: orange;
+  padding: 4px 0px 4px 10px;
+  border-bottom: 1px dotted #c3c3c3;
+  font-size: 11px;
 }
 
-.UIPopupMessages .ErrorMessage .PopupMessageTitle {
+.UIPopupMessages .ErrorMessage .MessageContainer  {
   color: red;
-  font-weight: bold;
-  padding-left: 7px;
-  height: 32px; line-height: 32px; vertical-align: middle;
-  float: left;
+  padding: 4px 0px 4px 10px;
+  border-bottom: 1px dotted #c3c3c3;
+  font-size: 11px;
 }
 
-.UIPopupMessages .WarningMessage .PopupMessageTitle {
-  color: #ef810f;
-  font-weight: bold;
-  padding-left: 7px;
-  height: 32px; line-height: 32px; vertical-align: middle;
-  float: left;
-}
-
-.UIPopupMessages .InfoMessage .PopupMessageTitle {
-  color: #005cff;
-  font-weight: bold; font-family:arial;
-  margin-left: 7px;
-  height: 32px; line-height: 32px; vertical-align: middle;
-  float: left;
-}
-
-.UIPopupMessages .MessageContainer {
-  padding-left: 35px;
-  padding-top: 4px;
+.UIPopupMessages .InfoMessage .MessageContainer {
+  padding: 4px 0px 4px 10px;
+  border-bottom: 1px dotted #c3c3c3;
+  font-size: 11px;
 }
 
 .UIPopupMessages .PopupMessageContainer .PopupIcon {
   float: left;
+  width: 16px; height: 16px;
+  margin-top: 5px;
+}
+
+.UIPopupMessages .PopupMessageContainer .InfoMessageIcon {
+	background: url(/eXoResources/icons/16x16/DefaultSkin/Info.gif) no-repeat top;
+}
+
+.UIPopupMessages .PopupMessageContainer .WarningMessageIcon {
+	background: url(/eXoResources/icons/16x16/DefaultSkin/Warning.gif) no-repeat top;
+}
+
+.UIPopupMessages .PopupMessageContainer .ErrorMessageIcon {
+	background: url(/eXoResources/icons/16x16/DefaultSkin/Error.gif) no-repeat top;
 }
 
 .UIPopupMessages .PopupMessageContainer .PopupMessage {
   line-height: 16px;
   vertical-align: middle;
-  margin-left: 5px;
+  padding: 5px 0px;
+  margin-left: 25px;
 }
 
-.UIPopupMessages .UIAction {
-  width: 60px;
+.UIPopupMessages .MessageActionBar {
+	background: #f5f5f5;
+	border-top: 1px solid #b2b2b2;
+}
+
+.UIPopupMessages .UIAction .ActionContainer{
+	float: none;
+}
+
+.UIPopupMessages .UIAction .ActionContainer .ActionButton{
+	width: 70px;
+	margin:auto;
+	float: none;
 }

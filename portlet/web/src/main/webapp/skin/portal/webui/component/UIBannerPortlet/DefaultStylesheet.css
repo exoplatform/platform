@@ -39,14 +39,14 @@
 
 .UIBannerPortlet .LoginContainer .LoginContent a {
   font-size: 11px;
-  font-weight: normal;
-  color: black;
+  font-weight: bold;
+  color: #0d62af;
   text-decoration: none;
   cursor: pointer;
 }
 
 .UIBannerPortlet .LoginContainer .LoginContent a:hover {
-  color: orange;
+  color: #058ee6;
   text-decoration: none;
   cursor: pointer;
 }

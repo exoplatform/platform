@@ -3,13 +3,13 @@
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalOfficeImage {
-  height: 230px;
-  background: url('DefaultSkin/background/OfficeImage.jpg') no-repeat center;
+  height: 235px;
+  background: url('DefaultSkin/background/OfficeImage.jpg') no-repeat center bottom;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalDefaultImage {
-  height: 230px;
-  background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center;
+  height: 235px;
+  background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center bottom;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PageDefaultImage {
@@ -111,7 +111,7 @@
 }
 
 .UIItemSelector .RightColumnStyle .Title {
-  line-height: 23px; vertical-align: middle;
+  line-height: 22px; vertical-align: middle;
   font-weight: bold; color: #5c5c5c; font-size: 11px;
   float: left;
 }

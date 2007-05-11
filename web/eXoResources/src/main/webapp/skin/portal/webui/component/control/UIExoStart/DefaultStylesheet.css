@@ -259,15 +259,19 @@
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock {
-  background: #e8e7fe ;
-  border: solid 1px #a4b0b0 ;
+  padding: 2px 0px;
+}
+
+.UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer{
+  background: #efeefa ;
+  border: solid 1px #b7b7b7 ;
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
-  height: 25px ;
+  height: 20px ; line-height: 20px;
   font-size: 11px ;
-  background: url('DefaultSkin/background/TitleBar1x25.gif') repeat-x ;
-  padding: 5px 0px 0px 10px ;
+  background: url('DefaultSkin/background/TitleBar1x20.gif') repeat-x ;
+  padding-left: 10px ;
 }
 
 .UIExoStart .StartMenuContainer .BasicIcon {
