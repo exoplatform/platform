@@ -17,32 +17,46 @@
   def errors = uicomponent.getErrors();
   def warnings = uicomponent.getWarnings();
   def infos = uicomponent.getInfos();
-  void printTab(List messages, String title, boolean isSelected) {
+  boolean printTab(List messages, String title, boolean isSelected) {
     String cssClass = "NormalTabStyle" ;
-    if(isSelected)  cssClass = "SelectedTabStyle" ;
-    println "<div class=\"UITab\">";
-	  println "  <div class=\"$cssClass\">";
-  	println "    <div class=\"LeftTab\">";
-	  println "      <div class=\"RightTab\">";
-		println "        <div class=\"MiddleTab\" onclick=\"eXo.webui.UIHorizontalTabs.displayTabContent(this)\">$title</div>";
-    println "      </div>";
-	  println "    </div>";
-	  println "  </div>";
-  	println "</div>";
+    if(messages.size() > 0 && !isSelected) {
+      cssClass = "SelectedTabStyle" ;
+      isSelected = true;
+    }
+    println """
+            <div class="UITab MessageTabDialog">
+	            <div class="$cssClass">
+  	            <div class="LeftTab">
+	                <div class="RightTab">
+    """;
+    if(messages.size() > 0) println "<div class=\"MiddleTab\" onclick=\"eXo.webui.UIHorizontalTabs.displayTabContent(this)\"><div class=\"TabIcon ${title}Icon\"><span></span></div>$title</div>" ;
+    else println "<div class=\"MiddleTab\">$title</div>" ;
+	  println """
+                  </div>
+                </div>
+              </div>
+            </div>
+    """;
+  	return isSelected;
   }
-  void printMessages(List messages, String className, String iconLarge, String iconSmall, String title, boolean isSelected) {
-    println "<div class=\"UITabContent\">";
+  boolean printMessages(List messages, String messType, boolean isSelected) {
+    String style = "style=\"display: none\"" ;
+    if(messages.size() > 0 && !isSelected) {
+      style = "" ;
+      isSelected = true;
+    }
+    println "<div class=\"UITabContent\" $style>";
   	println "  <div class=\"PopupMessageFrame\">";
 		println "    <div class=\"PopupMessagePanel\">";
 		println "      <div class=\"PopupMessageBox\">";
-	  println "        <div class=\"$className\">";
-		println "			     <div class=\"PopupMessageIcon $iconLarge\"><span></span></div>";
-		println "		       <div class=\"PopupMessageTitle\">$title</div>";
+	  println "        <div class=\"$messType\">";
+		println "			     <div class=\"PopupMessageIcon ${messType}32x32Icon\"><span></span></div>";
+		println "		       <div class=\"PopupMessageTitle\">" + _ctx.appRes("UIPopupMessages.description.$messType") + "</div>";
 		println "		       <div style=\"clear:left;\"><span></span></div>";
 		println "		       <div class=\"PopupMessageContainer\">";
     for(mess in messages) {
       println "		        <div class=\"MessageContainer\">";
-			println "	            <div class=\"PopupIcon $iconSmall\"><span></span></div>";
+			println "	            <div class=\"PopupIcon ${messType}16x16Icon\"><span></span></div>";
 			println "	            <div class=\"PopupMessage\">";
 		  String msgValue = _ctx.appRes(mess.messageKey);
 			Object[] msgArguments = mess.getMessageAruments();
@@ -62,6 +76,7 @@
 		println "    </div>";
 		println "  </div>";
 		println "</div>";
+		return isSelected;
   }
 %>
   <div class="UIPopupWindow UIDragObject" id="$popupId" style="width: 480px; display: none;">
@@ -92,10 +107,10 @@
 							        <div class="CenterHorizontalTabs">
 										    <div class="TabsContainer">
 									      <%  
-									        boolean flag = true;
-									        if ( errors.size() > 0 ) printTab(errors, "Error", flag);
-									        if ( warnings.size() > 0 ) printTab(warnings, "Warning", flag);
-									        if ( infos.size() > 0 ) printTab(infos, "Info", flag);
+									        boolean flag = false;
+									        flag = printTab(errors, "Error", flag);
+									        flag = printTab(warnings, "Warning", flag);
+									        flag = printTab(infos, "Info", flag);
 									      %>
 										    </div>
 										  </div>
@@ -105,10 +120,10 @@
 							  
 							  <div class="UITabContentContainer">
 									<%
-									  flag = true;
-				            if (errors.size() > 0 ) printMessages(errors, "ErrorMessage", "MinusSign32x32Icon", "RedSquare16x16Icon", "Error !", true);
-				            if (warnings.size() > 0 ) printMessages(warnings, "WarningMessage", "WarningSign32x32Icon", "YellowSquare16x16Icon", "Warning !", flag);
-				            if (infos.size() > 0 ) printMessages(infos, "InfoMessage", "CircleInfo32x32Icon", "BlueSquare16x16Icon",  "Infomation !",flag);
+									  flag = false;
+				            flag = printMessages(errors, "ErrorMessage", flag);
+				            flag = printMessages(warnings, "WarningMessage", flag);
+				            flag = printMessages(infos, "InfoMessage", flag);
 			            %>
 							  </div>
 							  

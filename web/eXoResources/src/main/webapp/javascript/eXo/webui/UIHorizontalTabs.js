@@ -45,12 +45,12 @@ UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
   var index = 0 ;
   for(var i = 0; i < uiTab.length; i++) {
     var styleTabDiv = DOMUtil.getChildrenByTagName(uiTab[i], "div")[0] ;
+    if(styleTabDiv.className == "DisabledTabStyle") continue ;
     if(uiSelectTab == uiTab[i]) {
       styleTabDiv.className = "SelectedTabStyle" ;
-    	index = i ;
-    } else {
-      styleTabDiv.className = "NormalTabStyle" ;
-    }                                                                  
+    	index = i ; continue ;
+    }
+    styleTabDiv.className = "NormalTabStyle" ;
     uiTabContent[i].style.display = "none" ;
   }
   uiTabContent[index].style.display = "block" ;
