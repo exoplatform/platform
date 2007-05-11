@@ -22,10 +22,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 
 @ComponentConfig(
     template = "system:groovy/webui/component/UIPopupDialog.gtmpl",
-    
-     events = {
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)
-    }
+    events = {@EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)}
 )
 public class UIPopupDialog extends UIContainer {
   

@@ -86,9 +86,7 @@ public class UIContainerForm extends UIForm {
   public UIContainer getContainer() { return uiContainer_ ; }
 
   public UIComponent getBackComponent() { return backComponent_ ; }
-  public void setBackComponent(UIComponent uiComp) throws Exception {
-    backComponent_ = uiComp;
-  }
+  public void setBackComponent(UIComponent uiComp) throws Exception { backComponent_ = uiComp; }
 
   static public class SaveActionListener  extends EventListener<UIContainerForm> {
     public void execute(Event<UIContainerForm> event) throws Exception {

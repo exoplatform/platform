@@ -7,6 +7,7 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.organization.webui.component.UIAccessGroup;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -52,15 +53,19 @@ public class UIPageNavigationForm extends UIFormTabPane {
     }    
 
     UIFormInputSet uiSettingSet = new UIFormInputSet("PageNavigationSetting") ;    
-    uiSettingSet.addUIFormInput(new UIFormStringInput("owner","owner",null).setEditable(false)).
+    uiSettingSet.addUIFormInput(new UIFormStringInput("ownerType", "ownerType",null).setEditable(false)).
+                 addUIFormInput(new UIFormStringInput("ownerId", "ownerId",null).setEditable(false)).
+                 addUIFormInput(new UIFormStringInput("creator", "creator",null).setEditable(false)).
+                 addUIFormInput(new UIFormStringInput("modifier", "modifier",null).setEditable(false)).
                  addUIFormInput(new UIFormTextAreaInput("description","description", null)).
                  addUIFormInput(new UIFormSelectBox("priority", null, priorties));
     addUIFormInput(uiSettingSet) ;
     
-//    UIPermissionSelector uiPermissionSelector = createUIComponent(UIPermissionSelector.class, null, null);
-//    uiPermissionSelector.configure("Permission", null, null) ;
-//    uiPermissionSelector.setRendered(false);
-//    addUIFormInput(uiPermissionSelector) ;    
+    UIAccessGroup uiAccessGroup = createUIComponent(UIAccessGroup.class, null, "UIAccessGroup");
+    uiAccessGroup.setRendered(false);
+    uiAccessGroup.configure("AccessGroup", "accessGroup");
+    addUIComponentInput(uiAccessGroup);
+    
   }
 
   public PageNavigation getPageNavigation(){ return pageNav_; }
@@ -71,9 +76,9 @@ public class UIPageNavigationForm extends UIFormTabPane {
   public void setValues(PageNavigation pageNavigation) throws Exception {
     pageNav_ = pageNavigation;
     invokeGetBindingBean(pageNavigation) ;    
-//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
-//    uiPermissionSelector.createPermission("AccessPermission", pageNav_.getAccessPermission());
-//    uiPermissionSelector.createPermission("EditPermission", pageNav_.getEditPermission());
+
+    UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
+    uiAccessGroup.setGroups(pageNavigation.getAccessGroup());
     
     UIFormSelectBox uiSelectBox = findFirstComponentOfType(UIFormSelectBox.class);
     uiSelectBox.setValue(String.valueOf(pageNavigation.getPriority()));
@@ -81,11 +86,6 @@ public class UIPageNavigationForm extends UIFormTabPane {
   
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);   
-    
-//    UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
-//    if(uiPermissionSelector == null) return;
-//    UIPopupWindow uiPopupPermission = uiPermissionSelector.getChild(UIPopupWindow.class);
-//    uiPopupPermission.processRender(context);
   }
 
   static public class SaveActionListener extends EventListener<UIPageNavigationForm> {
@@ -96,14 +96,10 @@ public class UIPageNavigationForm extends UIFormTabPane {
       UIFormSelectBox uiSelectBox = uiForm.findFirstComponentOfType(UIFormSelectBox.class);
       int priority = Integer.parseInt(uiSelectBox.getValue());
       pageNav.setPriority(priority);
+      pageNav.setModifier(event.getRequestContext().getRemoteUser());
       
-//      UIPermissionSelector uiPermissionSelector = uiForm.getChild(UIPermissionSelector.class);
-//      if(uiPermissionSelector == null)  return;
-//      Permission  permission = uiPermissionSelector.getPermission("AccessPermission");
-//      if(permission != null) pageNav.setAccessPermission(permission.getValue());
-//
-//      permission = uiPermissionSelector.getPermission("EditPermission");
-//      if(permission != null) pageNav.setEditPermission(permission.getValue());
+      UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
+      pageNav.setAccessGroup(uiAccessGroup.getAccessGroup());
       
       UIComponentDecorator uiFormParent = uiForm.getParent(); 
       uiFormParent.setUIComponent(null);
