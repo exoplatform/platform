@@ -52,7 +52,7 @@ import org.exoplatform.webui.event.Event.Phase;
 public class UIAccountForm extends UIFormTabPane {
   
   @SuppressWarnings("unchecked")
-  public UIAccountForm(InitParams initParams) throws Exception{
+  public UIAccountForm(InitParams initParams) throws Exception {
     super("UIAccountForm") ;
     
     UIFormInputItemSelector templateInput = new  UIFormInputItemSelector("AccountTemplate", null);    
