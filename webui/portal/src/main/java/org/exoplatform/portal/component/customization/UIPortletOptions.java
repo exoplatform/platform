@@ -42,12 +42,6 @@ public class UIPortletOptions extends UIContainer {
 //    UserACL userACL = getApplicationComponent(UserACL.class) ;
     String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
     List<ApplicationCategory> pCategories = service.getApplicationCategories(remoteUser) ;  
-    if(pCategories!=null){
-      System.out.println("\n\n\n--->>>UIPortletOptions.java. newSize=" + pCategories.size());
-    } else {  
-      System.out.println("\n\n\n--->>>UIPortletOptions.java. newSize= null");
-    }
-    System.out.println("\n\n\n--->>>UIPortletOptions.java. oldSize=" +  service.getApplicationCategories().size());
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
     
     PortletComparator portletComparator = new PortletComparator() ;
