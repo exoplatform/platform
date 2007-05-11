@@ -13,7 +13,7 @@
   
   	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIRightClickPopupMenu') ;
   	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
-  	
+  	rcontext.getJavascriptManager().addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
     uicomponent.renderUIComponent(uiPopupMenu) ; 
   }
 %>
