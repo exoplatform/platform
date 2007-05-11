@@ -31,63 +31,7 @@
           </properties-param>
         </init-params>
       </component-plugin>
-      <!-- you using jdbcjcr ds only, component-plugin>
-        <name>bind.datasource</name>
-        <set-method>addPlugin</set-method>
-        <type>org.exoplatform.services.naming.BindReferencePlugin</type>
-        <init-params>
-          <value-param>
-            <name>bind-name</name>
-            <value>jdbcjcr1</value>
-          </value-param>
-          <value-param>
-            <name>class-name</name>
-            <value>javax.sql.DataSource</value>
-          </value-param>
-          <value-param>
-            <name>factory</name>
-            <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-          </value-param>
-          <properties-param>
-            <name>ref-addresses</name>
-            <description>ref-addresses</description>
-            <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
-        <property name='url' value='jdbc:hsqldb:mem:db/jdbcjcr1'/>
-            <property name="username" value="sa"/>
-            <property name="password" value=""/>
-          </properties-param>
-        </init-params>
-      </component-plugin>
-      <component-plugin>
-        <name>bind.datasource</name>
-        <set-method>addPlugin</set-method>
-        <type>org.exoplatform.services.naming.BindReferencePlugin</type>
-        <init-params>
-          <value-param>
-            <name>bind-name</name>
-            <value>jdbcjcr2</value>
-          </value-param>
-          <value-param>
-            <name>class-name</name>
-            <value>javax.sql.DataSource</value>
-          </value-param>
-          <value-param>
-            <name>factory</name>
-            <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-          </value-param>
-          <properties-param>
-            <name>ref-addresses</name>
-            <description>ref-addresses</description>
-            <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
-        <property name='url' value='jdbc:hsqldb:mem:db/jdbcjcr2'/>
-            <property name="username" value="sa"/>
-            <property name="password" value=""/>
-          </properties-param>
-        </init-params>
-     </component-plugin -->
-    <!-- Resource configuration for UserTransaction
-       use JOTM
-    -->
+    <!-- Resource configuration for UserTransaction use JOTM -->
       <component-plugin>
         <name>jotm.tx</name>
         <set-method>addPlugin</set-method>
@@ -177,58 +121,6 @@
       </properties-param>
     </init-params>
   </component>
-
-  <!-- don't use this comp,  component>
-    <key>org.exoplatform.services.database.jdbc.DBSchemaCreator</key>
-    <type>org.exoplatform.services.database.jdbc.DBSchemaCreator</type>
-    <component-plugins>
-      <component-plugin>
-        <name>jcr.dbschema</name>
-        <set-method>addPlugin</set-method>
-        <type>org.exoplatform.services.database.jdbc.CreateDBSchemaPlugin</type>
-        <init-params>
-          <value-param>
-            <name>data-source</name>
-           <value>jdbcjcr</value>
-          </value-param>
-          <value-param>
-            <name>script-file</name>
-            <value>conf/storage/jcr-mjdbc.sql</value>
-          </value-param>
-        </init-params>
-      </component-plugin>
-      <component-plugin>
-        <name>jcr.dbschema</name>
-        <set-method>addPlugin</set-method>
-        <type>org.exoplatform.services.database.jdbc.CreateDBSchemaPlugin</type>
-        <init-params>
-          <value-param>
-            <name>data-source</name>
-            <value>jdbcjcr1</value>
-          </value-param>
-          <value-param>
-            <name>script-file</name>
-            <value>conf/storage/jcr-mjdbc.sql</value>
-          </value-param>
-        </init-params>
-      </component-plugin>
-      <component-plugin>
-        <name>jcr.dbschema</name>
-        <set-method>addPlugin</set-method>
-        <type>org.exoplatform.services.database.jdbc.CreateDBSchemaPlugin</type>
-        <init-params>
-          <value-param>
-            <name>data-source</name>
-            <value>jdbcjcr2</value>
-          </value-param>
-          <value-param>
-            <name>script-file</name>
-            <value>conf/storage/jcr-mjdbc.sql</value>
-          </value-param>
-        </init-params>
-      </component-plugin>
-    </component-plugins>
-  </component -->
 
   <component>
     <key>org.exoplatform.services.jcr.RepositoryService</key>

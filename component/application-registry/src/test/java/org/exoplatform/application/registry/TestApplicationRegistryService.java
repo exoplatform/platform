@@ -5,12 +5,15 @@
 package org.exoplatform.application.registry;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.test.BasicTestCase;
+import org.exoplatform.web.WebAppController;
 
 /**
  * Created y the eXo platform team
@@ -18,7 +21,7 @@ import org.exoplatform.test.BasicTestCase;
  * Date: 16 juin 2004
  */
 public class TestApplicationRegistryService extends BasicTestCase {
-
+  //TODO: do not store the service,  pass it as the method parameter instead
   static protected ApplicationRegistryService service_ ;
 
   public TestApplicationRegistryService(String name) {
@@ -30,15 +33,14 @@ public class TestApplicationRegistryService extends BasicTestCase {
     service_ = (ApplicationRegistryService)portalContainer.getComponentInstanceOfType(ApplicationRegistryService.class) ;
     
     assertNotNull(service_) ;
-    assertAppCategoryOperator() ;
-    assertApplicationOperator() ;
+    assertAppCategoryOperation() ;
+    assertApplicationOperation() ;
     
     service_.clearAllRegistries() ;
-    
     System.out.println("\n\n\n\n");
   }
   
-  void assertAppCategoryOperator() throws Exception {
+  void assertAppCategoryOperation() throws Exception {
     assertAppCategorySave() ;
     assertAppCategoryGet() ; 
     assertCategoryUpdate() ;
@@ -137,7 +139,7 @@ public class TestApplicationRegistryService extends BasicTestCase {
     assertEquals(0, numberOfCategories) ;
   }
     
-  void assertApplicationOperator() throws Exception {
+  void assertApplicationOperation() throws Exception {
     assertApplicationSave() ;
     assertApplicationUpdate() ;
     assertApplicationRemove() ;
@@ -275,4 +277,33 @@ public class TestApplicationRegistryService extends BasicTestCase {
     return app ;
   }
   
+  void assertImportExoApplication(ApplicationRegistryService service) throws Exception {
+    PortalContainer container = PortalContainer.getInstance() ;
+    WebAppController controller = 
+      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
+    controller.addApplication(new ExoApplication("exo.app.web", "eXoBrowser", "eXoBrowser")) ;
+    controller.addApplication(new ExoApplication("exo.app.web", "eXoBrowser", "eXoConsole")) ;
+    service.importExoApplications() ;
+    //TODO: Verify that eXoBrowser and eXoConsole is registered with the service
+  }
+  
+  static public class ExoApplication  extends org.exoplatform.web.application.Application {
+    private String name_ ;
+    private String group_ ;
+    private String id_ ;
+    
+    public ExoApplication(String group, String name, String id) {
+      name_ =  name ;  group_ = group ; id_ = id ;
+    }
+    
+    public String getApplicationType() { return EXO_APPLICATION_TYPE; }
+    public String getApplicationGroup() { return group_; }
+
+    public String getApplicationId() { return id_; }
+
+    public String getApplicationName() { return name_ ;}
+
+    public ResourceBundle getOwnerResourceBundle(String arg0, Locale arg1) throws Exception { return null; }
+    public ResourceBundle getResourceBundle(Locale arg0) throws Exception {  return null; }    
+  }
 }

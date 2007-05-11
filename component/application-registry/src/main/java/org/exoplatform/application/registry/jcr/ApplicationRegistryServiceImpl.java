@@ -24,6 +24,7 @@ import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
+import org.exoplatform.web.WebAppController;
 
 /**
  * Created y the eXo platform team
@@ -42,7 +43,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   private JCRRegistryService jcrRegService_;
   
   public ApplicationRegistryServiceImpl(JCRRegistryService jcrRegService, OrganizationService orgService) throws Exception {
-    jcrRegService_ = jcrRegService;
+    jcrRegService_ = jcrRegService ;
     jcrRegService_.createApplicationRegistry(new ApplicationRegistry(APPLICATION_NAME), false);
     this.orgService_ = orgService;
   }
@@ -271,7 +272,12 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   }
   
   public void importExoApplications() throws Exception {
-    PortalContainer manager  = PortalContainer.getInstance() ;
+    PortalContainer container  = PortalContainer.getInstance() ;
+    WebAppController appController = 
+      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
+    List<org.exoplatform.web.application.Application> applications = 
+      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE) ;
+    
   }
   
   private Node getApplicationNode(Session session, String category, String name) throws Exception {

@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.web;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -40,7 +41,14 @@ public class WebAppController {
     return (T) applications_.get(appId) ; 
   }
   
-  @SuppressWarnings("unchecked")
+  public List<Application> getApplicationByType(String type) {
+    List<Application> applications = new ArrayList<Application>() ;
+    for(Application app : applications_.values()) {
+      if(app.getApplicationType().equals(type)) applications.add(app) ;
+    }
+    return applications ;
+  }
+  
   public void removeApplication(String appId) { 
     applications_.remove(appId) ; 
   }
