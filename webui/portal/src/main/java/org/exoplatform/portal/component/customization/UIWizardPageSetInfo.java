@@ -41,6 +41,7 @@ public class UIWizardPageSetInfo extends UIForm {
   
   private boolean isEdit = false;
   
+  //TODO: Tung.Pham modified
   public UIWizardPageSetInfo() throws Exception {
     UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, null, null);    
     addUIFormInput(new UIFormStringInput("pageName", "pageName", null).addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class));
@@ -51,6 +52,7 @@ public class UIWizardPageSetInfo extends UIForm {
     uiPageNodeSelector.removeChild(UIRightClickPopupMenu.class);    
   } 
   
+  //TODO: Tung.Pham modified
   public void setEditPageNode(boolean value){
     isEdit = value;
     if(!value) return;
@@ -69,6 +71,7 @@ public class UIWizardPageSetInfo extends UIForm {
 
   }
   
+  //TODO: Tung.Pham modified
   public PageNode getPageNode() {
     if(isEdit) return getSelectedPageNode() ;
     
@@ -97,6 +100,7 @@ public class UIWizardPageSetInfo extends UIForm {
     if(event != null) event.broadcast() ;   
   }
   
+  //TODO: Tung.Pham modified
   static public class ChangeNodeActionListener  extends EventListener<UIWizardPageSetInfo> {
     public void execute(Event<UIWizardPageSetInfo> event) throws Exception {
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);        
