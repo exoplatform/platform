@@ -16,35 +16,7 @@
 	<div class="ContentContainerDetail">
 	  <div class="CategoryContainer">
 	    
-	    <div class="UIHorizontalTabs">
-	    	<div class="LeftHorizontalTabs">
-	     	  <div class="RightHorizontalTabs">
-	     	    <div class="CenterHorizontalTabs">
-				      <div class="TabsContainer">
-				        <div class="UITab">
-				              <div class="SelectedTabStyle">
-				                <div class="LeftTab">
-				                  <div class="RightTab">                
-				                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this);">Portlets</div>
-				                  </div>
-				                </div>
-				              </div>
-				        </div>
-		            <div class="UITab">
-		              <div class="NormalTabStyle">
-		                <div class="LeftTab">
-		                  <div class="RightTab">
-		                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this);">JS Applications</div>
-		                  </div>
-		                </div>
-		              </div>
-		            </div>
-				        <div style="clear: left"><span></span></div>
-				      </div>
-				  	</div>
-					</div>
-				</div>
-	    </div>
+	    
 	    
 	    <div class="UITabContentContainer">
 	      <div class="UITabContent" style="display: block">

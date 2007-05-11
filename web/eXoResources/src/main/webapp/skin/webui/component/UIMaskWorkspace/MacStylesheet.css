@@ -99,20 +99,20 @@
 
 .UIAddApplication .TitleBarApplication {
 	background: none; 
-	line-height: 22px;
-	font-weight: bold ; font-size: 14px; color: #0987d7; font-family: arial;
+	height: 21px;
+	font-weight: bold ; font-size: 13px; color: #0987d7; font-family: arial;
 }
 
-.UIAddApplication .ApplicationLabel {
+.UIAddApplication .ApplicationContentLabel {
   font-size: 11px;
-  line-height: 20px;
+  line-height: 16px;
 }
 
 .UIAddApplication .PortletIcon {
   cursor: pointer;
   float: left;
   height: 80px; width: 80px;
-  margin-top: 4px;  
+  margin-top: 2px;  
 }
 
 .UIAddApplication .ApplicationContent {
@@ -124,7 +124,7 @@
 .UIAddApplication .ApplicationButton {
   float: right;
   width: 28px;
-  padding: 10px 0px 0px 0px;
+  padding: 3px 0px 0px 0px;
 }
 
 .UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {

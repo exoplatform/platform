@@ -8,6 +8,9 @@
 }
 
 /*##########################################################*/
+.UIWindow {
+  height: 100%;
+}
 
 .UIWindow .InactiveWindowPortletControl {
   display: none ;
@@ -195,7 +198,6 @@
 */
 /**************************** UIPageBody ************************************/
 .UIPageBody {
-  padding-bottom: 10px;
 }
 
 .UIPageBody .WindowPortletControl {
@@ -203,9 +205,12 @@
 	width: auto; height: 23px;
 }
 
+.UIPortal .VIEW-PORTLET {
+}
+
 .UIPortal .VIEW-PORTLET .UIWindow {
   width: 99% ; height: auto;
-  margin: auto; 
+  margin: 0px auto 7px auto; 
 }
 
 .UIPageBody .UIWindow .UIApplication {
@@ -219,6 +224,11 @@
   background: url('null') repeat bottom right;
 }
 
+.UIPageBody .UIBannerPortlet {
+}
+
+.UIPage .UIBreadcumbsPortlet {
+}
 
 /********************* Icon InfoBar ************************************/
 .OrganizationPortletIcon {

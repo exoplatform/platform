@@ -8,15 +8,20 @@
 
 .UIWindow .UIContentPortlet {
   overflow: auto ;
+  border:none;
+  padding: 5px;
+  margin: 0px;
 }
 
 .UIContentPortlet {
- overflow: auto;
+  overflow: auto;
+  border: 1px solid grey;
+  background: white;
+  padding: 10px;
+  margin: 5px 6px 5px 5px;
 }
 
 .UIContentPortlet .ContentPortletContainer {
-  padding: 5px 8px;
-
 }
 
 .UIContentPortlet .DecoratorBox .GrayRoundedFillBoxStyle {
@@ -41,7 +46,6 @@
   border: 1px solid #aeaeae;
   background: url('MacSkin/background/PortletBG.gif');
   margin:0px;
-  
 }
 
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .VTabStyle3 {
@@ -240,7 +244,7 @@
 }
 
 .UIContentPortlet .UIContentWorkingArea .UIFormWithTitle .UIAction{
-	width: 160px;
+	width: 180px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .DateTime {

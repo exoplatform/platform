@@ -192,6 +192,7 @@
 .UINavigationPortlet .ScrollButtons {
 	float: right;
 	padding: 9px 0px;
+	display: none;
 }
 
 .UINavigationPortlet .ScrollLeftButton {
@@ -200,7 +201,7 @@
   width: 17px;
   height: 17px;
   padding-left: 17px;
-  margin: 0px 3px;
+  margin: 0px 5px;
 }
 
 .UINavigationPortlet .ScrollRightButton {
@@ -208,7 +209,7 @@
 	background: url('MacSkin/background/ScrollRight17x17.gif') no-repeat right;
   width: 17px;
   height: 17px;
-  margin: 0px 3px;
+  margin: 0px 4px;
 }
 
 .UINavigationPortlet .DisableScrollLeftButton {
@@ -217,7 +218,7 @@
   width: 17px;
   height: 17px;
   padding-left: 17px;
-  margin: 0px 3px;
+  margin: 0px 5px;
 }
 
 .UINavigationPortlet .DisableScrollRightButton { 
@@ -225,7 +226,7 @@
 	background: url('MacSkin/background/DisableScrollRight17x17.gif') no-repeat right;
   width: 17px;
   height: 17px;
-  margin: 0px 3px;
+  margin: 0px 4px;
 }
 
 .UINavigationPortlet .HighlightScrollLeftButton {
@@ -234,7 +235,7 @@
   width: 17px;
   height: 17px;
   padding-left: 17px;
-  margin: 0px 3px;
+  margin: 0px 5px;
 }
 
 .UINavigationPortlet .HighlightScrollRightButton {
@@ -242,5 +243,5 @@
 	background: url('MacSkin/background/HighlightScrollRight17x17.gif') no-repeat;
   width: 17px;
   height: 17px;
-  margin: 0px 3px;
+  margin: 0px 4px;
 }		

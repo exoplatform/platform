@@ -109,6 +109,10 @@
 
 /**************************** UIAddApplication ******************************************/
 
+.UIAddApplication .UITabContentContainer {
+  border: 1px solid gray;
+}
+
 .UIAddApplication .ApplicationListContainer {
   background: white;
   border: 1px solid #b7b7b7;
@@ -128,6 +132,7 @@
 .UIAddApplication .Application {
   margin: 10px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
+	padding: 10px;
 }
 
 .UIAddApplication .ApplicationDescription {
@@ -141,7 +146,7 @@
 
 .UIAddApplication .ApplicationContent {
   padding: 0px 0px 0px 12px;
-  width: 280px ;
+  width: 240px ;
   overflow: hidden;
 }
 
@@ -149,6 +154,10 @@
   float: right;
   width: 28px;
   padding: 9px 0px 0px 0px;
+}
+
+.UIAddApplication .UIItemSelector .LeftColumnStyle {
+  width: auto;
 }
 
 .UIAddApplication .LeftColumnStyle .ItemListContainer {
@@ -167,8 +176,9 @@
 	line-height: 26px;
 }
 
-.UIAddApplication .ApplicationLabel {
-	font-size: 11px; 
+.UIAddApplication .ApplicationContentLabel {
+  font-size: 11px;
+  line-height: 16px;
 }
 
 .UIAddApplication .PortletIcon {
@@ -180,7 +190,7 @@
 
 .UIAddApplication .TitleBarApplication {
 	height: 21px ;
-  color: #1465B9; vertical-align: middle ;	font-weight:bold; font-size: 14px;
+  color: #1465B9; vertical-align: middle ;	font-weight:bold; font-size: 13px;
 }
 
 .UIAddApplication .UIItemSelector {
@@ -202,7 +212,7 @@
 .UIAddApplication .TitleBarContainer .CenterTitleBar {
   height: 35px ;
   line-height: 35px ; vertical-align: middle ;
-  font-weight: bold ; text-align: center ; font-family: arial; color: #0575CA; font-size: 14px;
+  font-weight: bold ; font-family: arial; color: #0575CA; font-size: 14px;
   background: url('VistaSkin/background/CenterTitleBar1x35.png') repeat-x;
 }
 
@@ -245,35 +255,6 @@
 	background: url("VistaSkin/icons/16x16/Add.png") no-repeat center;
 	margin: 5px 3px ;
 	cursor: pointer ;
-}
-
-.UIAddApplication .ContentContainerDetail .TabsContainer .RefreshButtonContent {
-	float: right;
-	width: 100px;
-}
-
-.UIAddApplication .RefreshButtonContent .RefreshButtonLeft {
-	background:url('VistaSkin/background/LeftRefreshButton25x23.png') no-repeat top left; 
-	padding: 0px 0px 0px 25px;
-}
-
-.UIAddApplication .RefreshButtonContent .RefreshButtonRight {
-	background:url('VistaSkin/background/RightRefreshButton18x23.png') no-repeat top right; 
-	padding: 0px 18px 0px 0px ;
-}
-
-.UIAddApplication .RefreshButtonContent .MiddleRefreshButton {
-	height: 23px;
-	background:url('VistaSkin/background/MiddleRefreshButton1x23.png') repeat-x top; 
-}
-
-
-.UIAddApplication .RefreshButtonContent .RefreshButtonLabel {
-	line-height: 21px;
-	padding: 0px 5px;
-	cursor: pointer ;	
-	text-align: center;
-	font-size: 11px;
 }
 
 .UIAddApplication .RefreshButtonContent a:hover {

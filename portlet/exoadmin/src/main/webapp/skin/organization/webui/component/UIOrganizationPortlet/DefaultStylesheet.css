@@ -2,11 +2,19 @@
 
 .UIWindow .UIOrganizationPortlet {
   overflow: auto ;
+  margin: 0px;
+  border: none;
 }
 
+.UIOrganizationPortlet {
+  background: white;
+  border: 1px solid #b7b7b7;
+  margin: 5px;
+  padding: 7px ;
+}
 
 .UIOrganizationPortlet .OrganizationPortletContainer {
-  padding: 5px 8px ;
+  
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {

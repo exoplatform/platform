@@ -1,8 +1,15 @@
 .UIWindow .UIAccountPortlet {
   overflow: auto ;
+  background: none;
+  border: none;
+  margin: 0px;
 }
 
 .UIAccountPortlet {
+  background: white;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #b7b7b7;
 }
 
 .UIAccountPortlet .UIFormTabPane {

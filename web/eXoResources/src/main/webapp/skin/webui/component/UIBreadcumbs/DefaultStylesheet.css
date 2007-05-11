@@ -1,5 +1,10 @@
+.UIWindow .UIBreadcumbsPortlet {
+  margin: 0px;
+}
+
 .UIBreadcumbsPortlet {
-  height: 34px;
+  margin: 5px;
+  padding: 5px 0px;
 }
 
 .UIBreadcumbs {

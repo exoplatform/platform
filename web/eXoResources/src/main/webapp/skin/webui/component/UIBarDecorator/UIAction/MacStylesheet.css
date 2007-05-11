@@ -18,12 +18,13 @@
   line-height: 22px ; vertical-align: top;
   text-decoration: none ; text-align: center;
   font-size: 11px ;color: black;
-  margin: 0px 11px 0px 11px;
-  
+  margin: 0px 11px 0px 11px; 
+  cursor: pointer;
 }
 
 .UIAction .ActionButton  a:hover {
   color: white;
+  cursor: pointer;
 }
 
 .UIAction .ActionButton .Icon {

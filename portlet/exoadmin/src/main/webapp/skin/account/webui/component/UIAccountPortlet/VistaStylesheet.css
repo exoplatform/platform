@@ -1,10 +1,12 @@
 .UIWindow .UIAccountPortlet {
   overflow: auto ;
+  border: none;
 }
 
 .UIAccountPortlet { 
   background: #ffffff;
-  margin: 0px;
+  margin: 5px 6px 5px 0px;
+  border: 1px solid #b7b7b7;
 }
 
 .UIAccountPortlet .AccountContainer {

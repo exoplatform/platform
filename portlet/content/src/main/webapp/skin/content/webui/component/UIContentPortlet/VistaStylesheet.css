@@ -8,6 +8,11 @@
   overflow: auto ;
 }
 
+.UIContentPortlet { 
+  margin: 5px 6px 5px 0px;
+  border: 1px solid #b7b7b7;
+}
+
 .UIContentPortlet .ContentPortletContainer {
   padding: 5px 8px;
 }

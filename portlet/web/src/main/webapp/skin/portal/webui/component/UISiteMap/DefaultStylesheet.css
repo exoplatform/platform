@@ -7,7 +7,7 @@
  */
 
 .UIWindow .UISitemapPortlet {
-	overflow: hidden ; /* was auto */
+	overflow: auto ; /* was auto */
   padding: 10px;
   border: none;
 }
@@ -62,15 +62,15 @@
 .UISitemap .SitemapContainer .SitemapBackground{
   border: 1px solid white;
   background: #f2f2f2;
-  padding: 10px 5px 0px 5px;
+  padding: 10px 15px 0px 15px;
   overflow: hidden;
+  width: auto;
 }
 
 .UISitemap .SitemapItemBox {
   width: 270px ;
   float: left;
-  margin: 5px 10px 10px 10px ;
-  border: 1px solid white;
+  margin: 5px 0px;
 }
 
 .UISitemap .SitemapItemBox .SitemapItemContainer{

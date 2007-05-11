@@ -1,11 +1,15 @@
 .UIWindow .UISitePortlet {
   overflow: auto ;
+  margin: 0px;
+  border: none;
 }
 
 .UICompanyPortlet {
   background: white ;
   overflow: auto ;
-  padding-bottom: 20px;
+  padding: 5px;
+  margin: 0px 5px 7px 5px;
+  border: 1px solid #b7b7b7;
 }
 
 .UICompanyPortlet .CompanyBanner {

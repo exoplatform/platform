@@ -9,11 +9,13 @@
 .UIWindow .UIApplicationRegistryPortlet {
   overflow: auto ;
   border: none;
+  margin: 0px;
 }
  
 .UIApplicationRegistryPortlet {
 	background: #ffffff;
 	border: 1px solid #b7b7b7;
+	margin: 5px;
 }
 
 .UIApplicationRegistryPortlet .Title {
@@ -26,6 +28,18 @@
   padding: 10px;
 }
 
+.UIApplicationRegistryPortlet .UIAvailablePortletForm {
+  margin: auto;
+}
+
+.UIApplicationRegistryPortlet .UIPopupWindow .UIWindowContent .Content {
+  padding: 20px 0px;
+  overflow: auto;
+}
+
+.ApplicationRegistryWorkingArea .UIFormWithTitle .UIForm .UIAction {
+  width: 150px;
+}
 /*################################Application Registry Control################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
 	float: left;
