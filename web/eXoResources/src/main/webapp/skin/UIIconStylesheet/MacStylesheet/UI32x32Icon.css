@@ -4,13 +4,18 @@
   width: 32px ;  height: 32px ;
 }
 
-.MinusSign32x32Icon {
+.ErrorMessage32x32Icon {
   background: url('/eXoResources/icons/32x32/MacSkin/MinusSign.gif') no-repeat center center;
   width: 32px ;  height: 32px ;
 }
 
-.WarningSign32x32Icon {
+.WarningMessage32x32Icon {
   background: url('/eXoResources/icons/32x32/MacSkin/WarningSign.gif') no-repeat center center;
+  width: 32px ;  height: 32px ;
+}
+
+.InfoMessage32x32Icon {
+  background: url('/eXoResources/icons/32x32/MacSkin/CircleInfo.gif') no-repeat ;
   width: 32px ;  height: 32px ;
 }
 
@@ -31,11 +36,6 @@
 
 .BoxMagnifier32x32Icon {
   background: url('/eXoResources/icons/32x32/MacSkin/BoxMagnifier.gif') no-repeat center center;
-  width: 32px ;  height: 32px ;
-}
-
-.CircleInfo32x32Icon {
-  background: url('/eXoResources/icons/32x32/MacSkin/CircleInfo.gif') no-repeat ;
   width: 32px ;  height: 32px ;
 }
 

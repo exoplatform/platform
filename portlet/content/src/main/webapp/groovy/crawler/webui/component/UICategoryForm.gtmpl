@@ -16,8 +16,8 @@
   
 	<div class="UIHorizontalTabs">
 	  <div class="TabsContainer">  
-	    <div class="UITab">
-	      <div class="HighlightTabStyle">
+	    <div class="UITab NormalTabStyle">
+	      <div class="HighlightTab">
 	        <div class="LeftTab">
 	          <div class="RightTab">
 	            <div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Info</div>
@@ -25,8 +25,8 @@
 	        </div>
 	      </div>
 	    </div>
-      <div class="UITab">
-        <div class="NormalTabStyle">
+      <div class="UITab NormalTabStyle">
+        <div class="NormalTab">
           <div class="LeftTab">
             <div class="RightTab">
               <div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">Select Icon</div>

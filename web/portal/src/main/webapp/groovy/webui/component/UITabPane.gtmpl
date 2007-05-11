@@ -17,10 +17,10 @@
 			        <div class="TabsContainer">
 			          <%
 			            for(uiChild in uicomponent.getChildren()) {
-			              String style = "NormalTabStyle" ;
-			              if(uiChild.isRendered()) style = "SelectedTabStyle" ;
+			              String style = "NormalTab" ;
+			              if(uiChild.isRendered()) style = "SelectedTab" ;
 			          %>
-			            <div class="UITab">
+			            <div class="UITab NormalTabStyle">
 			              <div class="$style">
 			                <div class="LeftTab">
 			                  <div class="RightTab">                

@@ -18,9 +18,10 @@
   def warnings = uicomponent.getWarnings();
   def infos = uicomponent.getInfos();
   boolean printTab(List messages, String title, boolean isSelected) {
-    String cssClass = "NormalTabStyle" ;
-    if(messages.size() > 0 && !isSelected) {
-      cssClass = "SelectedTabStyle" ;
+    String cssClass = "NormalTab" ;
+    if(messages.size() == 0) cssClass = "DisabledTab" ;
+    else if(!isSelected) {
+      cssClass = "SelectedTab" ;
       isSelected = true;
     }
     println """

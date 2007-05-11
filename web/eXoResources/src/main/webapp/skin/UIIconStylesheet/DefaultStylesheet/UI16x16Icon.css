@@ -326,17 +326,17 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/ShieldGreenPlus.gif') no-repeat left center;
 }
 
-.BlueSquare16x16Icon {
+.InfoMessage16x16Icon {
 	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueSquare.gif') no-repeat left center;
 }
 
-.YellowSquare16x16Icon {
+.WarningMessageSquare16x16Icon {
 	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/YellowSquare.gif') no-repeat left center;
 }
 
-.RedSquare16x16Icon {
+.ErrorMessage16x16Icon {
 	width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/RedSquare.gif') no-repeat left center;
 }

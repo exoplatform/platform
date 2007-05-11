@@ -27,7 +27,7 @@
   if(uicomponent.isShow()) show = "block";
 %>
 
-<div class="UIPopupWindow UIDragObject" id="$popupId" style="$widthStyle display: $show;">
+<div class="UIPopupWindow UIDragObject" exo:minWidth="200" exo:minHeight="200" id="$popupId" style="$widthStyle display: $show;">
 	<div class="NormalStyle">
 	  <div class="TopLeftCornerDecorator">
 	    <div class="TopRightCornerDecorator">
