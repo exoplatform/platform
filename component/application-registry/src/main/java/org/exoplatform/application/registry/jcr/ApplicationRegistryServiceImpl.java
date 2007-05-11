@@ -24,7 +24,6 @@ import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
-import org.jgroups.util.ReusableThread;
 
 /**
  * Created y the eXo platform team
@@ -192,33 +191,46 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   
   @SuppressWarnings("unchecked")
   public List<ApplicationCategory> getApplicationCategories(String accessUser) throws Exception {
-    List<ApplicationCategory> allApp = getApplicationCategories();
-    List<ApplicationCategory> resultList = new ArrayList<ApplicationCategory>();
-    List<Membership>  memberships = (List<Membership>) orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
-    for(ApplicationCategory appCategory: allApp) {
-       for(Membership member: memberships){
-         String groupId = member.getGroupId();
-         System.out.println("-->For MemberShip:" + groupId);
-         if(hasPermission(appCategory, groupId)) {
-           resultList.add(appCategory);
-           break;
-        }
-
-      }
+    List<ApplicationCategory> categories = getApplicationCategories();
+    
+    List<Membership> memberships = (List<Membership>) orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
+    String [] groups = new String[memberships.size()];
+    for(int i = 0; i < memberships.size(); i++) {
+      groups[i] = memberships.get(i).getGroupId();
     }
-    return resultList;
+    
+    
+    Iterator<ApplicationCategory> iter = categories.iterator();
+    while(iter.hasNext()) {
+      ApplicationCategory category = iter.next();
+      if(groups == null || computePermission(category, groups)) continue;
+      iter.remove();
+    }
+    
+    return categories;
   }
   
-  private boolean hasPermission(ApplicationCategory appCategory, String groupId) throws Exception {
-    List<Application> apps = getApplications(appCategory);
-    for(Application app: apps){
-      String [] accessGroup = app.getAccessGroup();
-      if(accessGroup == null ) return true;
-      for(String s: accessGroup){
-        if(s.equals(groupId)) return true;
+  private boolean computePermission(ApplicationCategory category, String [] groups) throws Exception {
+    List<Application> apps = getApplications(category);
+    Iterator<Application> iter = apps.iterator();
+    boolean remove = true;
+    while(iter.hasNext()) {
+      Application app = iter.next();
+      String [] accessGroups = app.getAccessGroup();
+      if(accessGroups == null) continue;
+      remove = true;      
+      for(String accessGroup : accessGroups) {
+        for(String group : groups) {
+          if(accessGroup.equals(group)) {
+            remove = false;
+            break;            
+          }
+        }
+        if(!remove) break;
       }
+      if(remove) iter.remove();
     }
-    return false;
+    return apps.size() > 0;
   }
 
   public void importJSR168Portlets() throws Exception {
