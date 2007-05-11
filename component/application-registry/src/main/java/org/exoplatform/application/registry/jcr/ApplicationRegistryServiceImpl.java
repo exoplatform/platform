@@ -24,6 +24,7 @@ import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
+import org.jgroups.util.ReusableThread;
 
 /**
  * Created y the eXo platform team
@@ -194,10 +195,15 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     List<ApplicationCategory> allApp = getApplicationCategories();
     List<ApplicationCategory> resultList = new ArrayList<ApplicationCategory>();
     List<Membership>  memberships = (List<Membership>) orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
-    for(Membership member: memberships) {
-      String groupId = member.getGroupId();
-      for(ApplicationCategory appCategory: allApp){
-        if(hasPermission(appCategory, groupId)) resultList.add(appCategory);
+    for(ApplicationCategory appCategory: allApp) {
+       for(Membership member: memberships){
+         String groupId = member.getGroupId();
+         System.out.println("-->For MemberShip:" + groupId);
+         if(hasPermission(appCategory, groupId)) {
+           resultList.add(appCategory);
+           break;
+        }
+
       }
     }
     return resultList;
