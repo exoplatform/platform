@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.web.application;
 
-
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
@@ -38,23 +37,20 @@ abstract public class URLBuilder<T> {
   }
   
   public String createAjaxURL(T targetComponent, String action, String targetBeanId) {
-    return createAjaxURL(targetComponent, action, targetBeanId, (Parameter[])null) ;
+    return createAjaxURL(targetComponent, action, null, targetBeanId, (Parameter[])null) ;
   }
 
-  public String createAjaxURL(T targetComponent, String action, String targetBeanId, Parameter[] params) {
-    StringBuilder builder = new StringBuilder("javascript:ajaxGet('");
-    createURL(builder, targetComponent, action, targetBeanId, params);
-    builder.append("&amp;ajaxRequest=true')") ;
-    return builder.toString();    
+  public String createAjaxURL(T targetComponent, String action, String confirm, String targetBeanId) {
+    return createAjaxURL(targetComponent, action, confirm, targetBeanId, (Parameter[])null) ;
   }
-
-  /*
-   * TODO TrongTT Define method for purpose test
-   */
-  public String createAjaxURL(T targetComponent, String action, String targetBeanId, Parameter[] params, String confirm) {
-    StringBuilder builder = new StringBuilder("javascript:if(confirm('" + confirm + "')) ajaxGet('");
+  
+  public String createAjaxURL(T targetComponent, String action, String confirm, String targetBeanId, Parameter[] params) {
+    boolean isConfirm = confirm != null && confirm.length() > 0;
+    StringBuilder builder = new StringBuilder("javascript:");
+    if(isConfirm) builder.append("if(confirm('").append(confirm).append("'))");
+    builder.append("ajaxGet('");
     createURL(builder, targetComponent, action, targetBeanId, params);
-    builder.append("&amp;ajaxRequest=true')") ;
+    builder.append("&amp;ajaxRequest=true');") ;
     return builder.toString();    
   }
   

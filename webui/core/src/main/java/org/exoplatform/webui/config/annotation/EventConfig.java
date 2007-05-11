@@ -21,6 +21,7 @@ import org.exoplatform.webui.event.Event.Phase;
 @Target({ElementType.TYPE})
 public @interface EventConfig {
   String name() default "";
+  String confirm() default "";
   Class[] listeners();
   Phase phase() default Phase.PROCESS;
   ParamConfig [] initParams() default {};

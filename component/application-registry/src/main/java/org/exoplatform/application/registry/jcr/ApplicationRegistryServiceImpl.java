@@ -196,7 +196,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     List<Membership>  memberships = (List<Membership>) orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
     for(Membership member: memberships) {
       String groupId = member.getGroupId();
-       System.out.println("-->For MemberShip:" + groupId);
       for(ApplicationCategory appCategory: allApp){
         if(hasPermission(appCategory, groupId)) resultList.add(appCategory);
       }
@@ -206,13 +205,10 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   
   private boolean hasPermission(ApplicationCategory appCategory, String groupId) throws Exception {
     List<Application> apps = getApplications(appCategory);
-    System.out.println("------>For Category: " + appCategory.getDisplayName() + " with size: " + apps.size());
     for(Application app: apps){
-      String[] accessGroup = app.getAccessGroup();
-      System.out.println("-----------For Application: " + app.getDisplayName() + " with Access size: " + accessGroup);
+      String [] accessGroup = app.getAccessGroup();
       if(accessGroup == null ) return true;
       for(String s: accessGroup){
-        System.out.println("GroupId : Application-Acessgroup = " + groupId + " : " + app.getDisplayName() + "-" + s);
         if(s.equals(groupId)) return true;
       }
     }

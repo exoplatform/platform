@@ -12,7 +12,6 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.control.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
@@ -88,8 +87,7 @@ public class UIPortalManagementEditBar extends UIToolbar {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
-      pcontext.addUIComponentToUpdateByAjax(uiWorking);
+      pcontext.addUIComponentToUpdateByAjax(uiControl);
       
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
@@ -112,8 +110,7 @@ public class UIPortalManagementEditBar extends UIToolbar {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
-      pcontext.addUIComponentToUpdateByAjax(uiWorking);
+      pcontext.addUIComponentToUpdateByAjax(uiControl);
       
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    

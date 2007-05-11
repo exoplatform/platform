@@ -158,7 +158,8 @@ public class ConfigurationManager {
 
   private Event toEventConfig(EventConfig annotation) throws Exception {
     Event event  = new Event();      
-    event.setExecutionPhase(annotation.phase());    
+    event.setExecutionPhase(annotation.phase()); 
+    event.setConfirm(annotation.confirm());
     event.setInitParams(toInitParams(annotation.initParams()));
     ArrayList<String> listeners = new ArrayList<String>();    
     for(Class clazz : annotation.listeners()){

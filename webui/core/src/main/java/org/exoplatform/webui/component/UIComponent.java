@@ -142,39 +142,17 @@ abstract public class UIComponent {
   @SuppressWarnings("unchecked")
   public String event(String name, String beanId, Parameter[] params) throws Exception {
     org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
-    if(event == null) return "??config??" ;
-    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
-    try{
-      URLBuilder urlBuilder = context.getURLBuilder();
-      if(urlBuilder != null) {
-        return context.getURLBuilder().createAjaxURL(this, event.getName(), beanId, params).toString();
-      }
-      System.out.println(urlBuilder +"  : "+context);
-      return "";
-    }catch (Exception e) {
-      e.printStackTrace();
-      return "";
-    }
-  }
-  
-  /*
-   * TODO TrongTT Define method for purpose test
-   */ 
-  @SuppressWarnings("unchecked")
-  public String event(String name, String beanId, Parameter[] params, String confirm) throws Exception {
-    org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
-    if(event == null) return "??config??" ;
+    if(event == null) return "??config??";
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     try {
       URLBuilder urlBuilder = context.getURLBuilder();
-      if(urlBuilder != null) {
-        return urlBuilder.createAjaxURL(this, event.getName(), beanId, params, confirm).toString();
-      }
-      System.out.println(urlBuilder +"  : "+context);
-      return "";
+      if(urlBuilder == null)  return "??builder??";     
+      String confirm = event.getConfirm();
+      if(confirm.length() > 0) confirm = context.getApplicationResourceBundle().getString(confirm);
+      return urlBuilder.createAjaxURL(this, event.getName(), confirm, beanId, params).toString();
     }catch (Exception e) {
       e.printStackTrace();
-      return "";
+      return "??exception??";
     }
   } 
   
@@ -206,7 +184,7 @@ abstract public class UIComponent {
   }  
   
   public  <T extends UIComponent> T createUIComponent(Class<T> type, String configId, 
-                                        String componentId, UIComponent parent) throws Exception  {
+                                                      String componentId, UIComponent parent) throws Exception  {
     T uicomp = createUIComponent(type, configId, componentId)  ;
     uicomp.setParent(parent) ;
     return uicomp ;

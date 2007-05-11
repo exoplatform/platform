@@ -18,6 +18,7 @@ import org.exoplatform.webui.event.Event.Phase;
 public class Event {
   
   private String name ;
+  private String confirm;
   private InitParams initParams  ;
   
   private ArrayList<String> listeners ;
@@ -37,6 +38,9 @@ public class Event {
   
   public InitParams  getInitParams()  { return initParams ; }
   public void setInitParams(InitParams initParams){ this.initParams = initParams; }
+  
+  public String getConfirm() { return confirm; }
+  public void setConfirm(String confirm) { this.confirm = confirm;}
   
   public Phase  getExecutionPhase() {
     if(executionPhase_ != null) return executionPhase_;
@@ -58,6 +62,5 @@ public class Event {
   public void setCachedEventListeners(List<EventListener> list) {
     eventListeners_ = list ;
   }
-  
   
 }

@@ -59,7 +59,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = EditSelectedNodeActionListener.class),
         @EventConfig(listeners = CopyNodeActionListener.class),
         @EventConfig(listeners = PasteNodeActionListener.class),
-        @EventConfig(listeners = DeleteNodeActionListener.class)
+        @EventConfig(listeners = DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNode")
       }
   ),
   @ComponentConfig(
@@ -292,7 +292,6 @@ public class UIPageNodeSelector extends UIContainer {
     }
   }
   
-  //TODO: Tung.Pham modified
   static public class SelectNavigationActionListener  extends EventListener<UIPageNodeSelector> {
     public void execute(Event<UIPageNodeSelector> event) throws Exception {
       String owner = event.getRequestContext().getRequestParameter(OBJECTID);
