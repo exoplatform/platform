@@ -139,8 +139,8 @@
 		           }
 		         %>
 		      	<div class="ScrollButtons">
-		      		<div class="ScrollLeftButton">
-		      			<div class="ScrollRightButton"><span></span></div>
+		      		<div class="ScrollLeftButton" title="Previous">
+		      			<div class="ScrollRightButton" title="Next"><span></span></div>
 		      		</div>
 		      	</div>
 		      </div>

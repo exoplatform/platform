@@ -48,15 +48,21 @@
   padding-left: 5px;
 }
 
+.UIAccountPortlet .UIForm .HorizontalLayout select {
+  width: 238px;
+  margin: 0px;
+}
+
 .UIAccountPortlet .UIItemSelector .UIFormInputSet {
-  padding-top: 7px;
+  padding-top: 12px;
   font-size: 11px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet .FieldContainer {
   width: 370px;
-  margin: auto; margin-bottom: 5px;
+  margin: 5px auto;
   overflow: hidden;
+  padding: 0px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet label {

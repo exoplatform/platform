@@ -512,6 +512,11 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultContainerIcon.gif') no-repeat left center;
 }
 
+.SmallGroup16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGroup.gif') no-repeat left center;
+}
+
 /*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/
 
 /*===========================Misc Icons Stylesheet=======================*/

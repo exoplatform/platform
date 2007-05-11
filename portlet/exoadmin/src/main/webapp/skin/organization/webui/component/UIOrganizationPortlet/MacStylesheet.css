@@ -169,6 +169,8 @@
 /*#######################  UIGroupManagement #################################*/
 
 .UIOrganizationPortlet .UIGroupManagement {
+  width: 97%; /*Fix IE7*/
+  margin: auto;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon{
@@ -246,7 +248,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormWithTitle {
-  width: 400px;
+  width: 390px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .FieldContainer label{
@@ -255,11 +257,10 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormWithTitle .UIAction {
   width: 180px;
-  padding-left: 60px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle .UIAction {  
-  width: 70px;
+  width: 80px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle {  
@@ -272,6 +273,12 @@
 }
 
 /*#######################  UIMemberShipManagement #################################*/
+
+.UIOrganizationPortlet .UIMembershipManagement {
+  width: 97%; 
+  margin: auto;
+}
+
 .UIOrganizationPortlet .UIFormWithTitle  {
 	margin: auto ;
 	margin-top: 15px;	 

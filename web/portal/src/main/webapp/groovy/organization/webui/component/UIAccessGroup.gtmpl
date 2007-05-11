@@ -13,13 +13,15 @@
   <div class="UIAction">
     <div class="ActionContainer">
       <div class="ActionButton">
-        <div class="LightBlueStyle">
+        <div class="SimpleStyle">
           <div class="ButtonLeft">
             <div class="ButtonRight">
               <div class="ButtonMiddle">
+                <div class="Icon SmallGroup16x16Icon"><span></span></div>
                 <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIFormPopupWindow.class).getId();%>');">
-							    Select Permission
+							    Select Access Group
 							  </a>
+							  <div style="clear:left;"><span></span></div>
               </div>
             </div>
           </div>
