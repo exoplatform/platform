@@ -209,6 +209,7 @@ public class UIPageNodeSelector extends UIContainer {
     return null;
   }
   
+  //TODO: Tung.Pham added
   public PageNode findPageNodeByPageReference(String pageReference) {
     if (selectedNavigation == null) return null ;
     List<PageNode> pageNodes = selectedNavigation.getNodes() ;
@@ -220,8 +221,9 @@ public class UIPageNodeSelector extends UIContainer {
     return null ;
   }
   
+  //TODO: Tung.Pham added
   private PageNode findPageNodeByPageReference(PageNode node, String pageReference) {
-    if (node.getPageReference().equals(pageReference)) return node ;
+    if (node.getPageReference() != null && node.getPageReference().equals(pageReference)) return node ;
     List<PageNode> children = node.getChildren() ;
     if (children == null) return null ;
     for(PageNode ele : children) {
@@ -241,6 +243,8 @@ public class UIPageNodeSelector extends UIContainer {
   public void setSelectedNavigation(PageNavigation nav){ selectedNavigation = nav; }  
   
   public PageNode getSelectedPageNode() { return selectedPageNode; }
+  //TODO: Tung.Pham added
+  public void setSelectedPageNode(PageNode node) { selectedPageNode = node ;}
   
   public String getUpLevelUri () { return upLevelURI ; }
   
@@ -288,6 +292,7 @@ public class UIPageNodeSelector extends UIContainer {
     }
   }
   
+  //TODO: Tung.Pham modified
   static public class SelectNavigationActionListener  extends EventListener<UIPageNodeSelector> {
     public void execute(Event<UIPageNodeSelector> event) throws Exception {
       String owner = event.getRequestContext().getRequestParameter(OBJECTID);
@@ -297,7 +302,8 @@ public class UIPageNodeSelector extends UIContainer {
         uiPageNodeSelector.setSelectedNavigation(null);
         return;
       }
-      uiPageNodeSelector.selectNavigation(owner);      
+      uiPageNodeSelector.setSelectedPageNode(null) ;
+      uiPageNodeSelector.selectNavigation(owner);
     }
   } 
   
