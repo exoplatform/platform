@@ -50,7 +50,7 @@ abstract public class URLBuilder<T> {
     if(isConfirm) builder.append("if(confirm('").append(confirm).append("'))");
     builder.append("ajaxGet('");
     createURL(builder, targetComponent, action, targetBeanId, params);
-    builder.append("&amp;ajaxRequest=true');") ;
+    builder.append("&amp;ajaxRequest=true')") ;
     return builder.toString();    
   }
   
