@@ -59,7 +59,7 @@ public class UIPortalApplication extends UIApplication {
   final static public String UI_WORKING_WS_ID = "UIWorkingWorkspace" ;
   final static public String UI_MASK_WS_ID = "UIMaskWorkspace" ;
   
-  private String skin = "Default" ;
+  private String skin_ = "Default" ;
   
   @SuppressWarnings("hiding")
   public  UIPortalApplication(InitParams initParams) throws Exception { 
@@ -73,18 +73,18 @@ public class UIPortalApplication extends UIApplication {
     
     String currentSkin = config.getPortalConfig().getSkin();
     if(currentSkin != null && currentSkin.trim().length() > 0) {
-      skin = currentSkin;
+      skin_ = currentSkin;
     } 
     
     setOwner(context.getPortalOwner());    
   } 
   
-  public String getSkin() {  return skin ; }
-  public void setSkin(String skin){ this.skin = skin; }
+  public String getSkin() {  return skin_ ; }
+  public void setSkin(String skin){ this.skin_ = skin; }
   
   public SkinConfig getSkin(String module) {
     SkinService skinService = getApplicationComponent(SkinService.class);
-    return skinService.getSkin(module, skin);
+    return skinService.getSkin(module, skin_);
   }
   
   public List<SkinConfig>  getPortletSkins() {
@@ -97,8 +97,8 @@ public class UIPortalApplication extends UIApplication {
     SkinService skinService = getApplicationComponent(SkinService.class);
     for(UIPortlet uiPortlet : uiportlets) {
       String module = uiPortlet.getExoWindowID().getPortletApplicationName() + "/" + uiPortlet.getExoWindowID().getPortletName() ;
-      SkinConfig skinConfig = skinService.getSkin(module, skin) ;
-      if(skinConfig == null && !"Default".equals(skin)) {
+      SkinConfig skinConfig = skinService.getSkin(module, skin_) ;
+      if(skinConfig == null && !"Default".equals(skin_)) {
         skinConfig = skinService.getSkin(module, "Default") ;
       }
       if(skinConfig != null) skins.add(skinConfig);
@@ -191,8 +191,8 @@ public class UIPortalApplication extends UIApplication {
     SkinService skinService = getApplicationComponent(SkinService.class);
     for(UIPortlet uiPortlet : uiportlets){
       String module = uiPortlet.getExoWindowID().getPortletApplicationName() + "/" + uiPortlet.getExoWindowID().getPortletName() ;
-      SkinConfig skinConfig = skinService.getSkin(module,skin) ;
-      if(skinConfig == null && !"Default".equals(skin)) {
+      SkinConfig skinConfig = skinService.getSkin(module,skin_) ;
+      if(skinConfig == null && !"Default".equals(skin_)) {
         skinConfig = skinService.getSkin(module, "Default") ;
       }
       if(skinConfig != null) skins.add(skinConfig);

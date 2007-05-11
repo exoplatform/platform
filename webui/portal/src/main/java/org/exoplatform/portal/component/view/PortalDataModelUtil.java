@@ -48,6 +48,7 @@ public class PortalDataModelUtil {
     model.setIcon(uiContainer.getIcon());
     model.setHeight(uiContainer.getHeight());
     model.setWidth(uiContainer.getWidth());
+    model.setTemplate(uiContainer.getTemplate());
     
     List<UIComponent> uiChildren = uiContainer.getChildren();
     if(uiChildren == null)  return ;
@@ -181,6 +182,7 @@ public class PortalDataModelUtil {
     uiContainer.setIcon(model.getIcon());
     uiContainer.setFactoryId(model.getFactoryId());
     uiContainer.setName(model.getName());
+    uiContainer.setTemplate(model.getTemplate());
     
     List<Object> children  = model.getChildren();
     if(children == null)  return;

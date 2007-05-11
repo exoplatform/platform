@@ -72,16 +72,16 @@ public class UIPortlet extends UIPortalComponent {
   public void   setDescription(String s) { description = s ;}
   
   public boolean getShowInfoBar() { return showInfoBar ; }
-  public void    setShowInfoBar(boolean b) {showInfoBar = b ;}
+  public void    setShowInfoBar(Boolean b) {showInfoBar = b ;}
   
   public String getIcon() { return icon ; }
   public void   setIcon(String s) { icon = s ; } 
   
   public boolean getShowWindowState() { return showWindowState ; }
-  public void    setShowWindowState(boolean b) { showWindowState = b ; }
+  public void    setShowWindowState(Boolean b) { showWindowState = b ; }
   
   public boolean getShowPortletMode() { return showPortletMode ; }
-  public void    setShowPortletMode(boolean b) { showPortletMode = b ; }
+  public void    setShowPortletMode(Boolean b) { showPortletMode = b ; }
   
   public ExoWindowID  getExoWindowID() { return exoWindowId_ ; }
   

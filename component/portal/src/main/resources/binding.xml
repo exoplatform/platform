@@ -19,7 +19,7 @@
     <value name="name" usage="optional" field="name"/>
     <value name="title" field="title" usage="optional"/>
     <value name="icon" field="icon" usage="optional"/>
-    <value name="template" field="template" usage="optional"/>
+    <value name="template" field="template" usage="optional" style="attribute"/>
     <value name="factory-id" field="factoryId" usage="optional"/>
     <value name="decorator" field="decorator" usage="optional" style="attribute"/>
     <value name="description" field="description" usage="optional"/>
