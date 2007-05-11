@@ -48,29 +48,41 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
 
 /** Created: by Duy Tu - fixHeight function to UIControlWorkspace**/
 UIPortalControl.prototype.fixHeight = function() {
+	if(eXo.core.Browser.isIE6()) {
+		var e = window.event ;
+		if(e) e.cancelBubble = true ;
+	}
+	//alert("test");
 	var objectParent = document.getElementById("UIControlWorkspace");
-	var uiWorkspaceContainer = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
-	//alert(uiWorkspaceContainer);
-	if(uiWorkspaceContainer.style.display == "block") {
-		var scrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
-		if(scrollArea != null) {
-			var jsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
-			var maxHeight = objectParent.offsetHeight - 210 ;
-			scrollArea.style.height = "auto";
-			scrollArea.style.width = "210px";
-			jsContainer.style.width = "208px";
-			var heightChild = scrollArea.offsetHeight ;
-			if(maxHeight > 0) {
-				if(heightChild > maxHeight) {
-					scrollArea.style.overflow = "auto";
-					scrollArea.style.height = maxHeight + "px";
-					jsContainer.style.width = scrollArea.offsetWidth - 22 + "px";
+	if(objectParent) {
+		var uiControlWSWorkingArea = document.getElementById("UIControlWSWorkingArea");
+		var uiWorkspaceContainer = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
+		if(uiWorkspaceContainer.style.display == "block") {
+			var scrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
+			if(scrollArea != null) {
+				uiControlWSWorkingArea.style.height = "auto";
+				var jsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
+				if(jsContainer){
+					scrollArea.style.width = "210px";
+					jsContainer.style.width = "208px";
 				}
-			} else {
-			  scrollArea.style.overflow = "hidden";
-				scrollArea.style.height = "1px";
+				if(uiControlWSWorkingArea) {
+					uiControlWSWorkingArea.style.height = "auto";
+					scrollArea.style.height = "auto";
+				//alert(scrollArea.offsetHeight);
+				  var maxHeight = uiControlWSWorkingArea.offsetHeight + 10 ;
+				} 
+				var deltaResize = maxHeight - (uiWorkspaceContainer.offsetHeight - 62);
+				if(deltaResize > 0) {
+					scrollArea.style.overflow = "auto";
+					scrollArea.style.height = scrollArea.offsetHeight - deltaResize + "px";
+					//uiControlWSWorkingArea.style.border = "1px solid red";
+					//scrollArea.style.border = "1px solid red";
+					if(jsContainer) {
+						jsContainer.style.width = scrollArea.offsetWidth - 22 + "px";
+					}
+				}
 			}
-
 		}
 	}
 } ;
