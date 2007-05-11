@@ -55,7 +55,7 @@ UIDropDownItemSelector.prototype.mouseOverItem = function(e) {
 	targ.oldClassName = targ.className;
 	targ.className = "OverItemSelector";
 	var itemLabel = eXo.core.DOMUtil.findFirstDescendantByClass(targ, "div", "ItemSelectorLabel");
-	targ.title = itemLabel.innerHTML + " Portlet";
+	targ.title = itemLabel.innerHTML;
 };
 
 UIDropDownItemSelector.prototype.mouseOutItem = function(e) {
@@ -84,17 +84,10 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 	}
 	var itemLabel = DOMUtil.findFirstDescendantByClass(targ, "div", "ItemSelectorLabel");
 	var strItemLabel = itemLabel.innerHTML;
-	
-	if(strItemLabel.length < 21){
-	  selectedItemLabel.innerHTML = strItemLabel;
-	} else {
-		var strlabel = strItemLabel.charAt(0); 
-		for(i = 1;i < 17; ++i){
-	  	strlabel = strlabel + strItemLabel.charAt(i);
-		}
-		selectedItemLabel.innerHTML = strlabel + "...";
-	}
-	 
+	selectedItemLabel.innerHTML = strItemLabel;
+	if(strItemLabel.length > 20){
+		eXo.webui.UIDropDownItemSelector.onload();
+	} 
 	targ.className = targ.oldClassName = "OverItemSelector";
 	eXo.webui.UIDropDownItemSelector.hideList(parentSelector);
 	
@@ -118,7 +111,6 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 			itemList[i].style.display = "none";
 		}
 	}
-	
 };
 
 /** Created: by Duy Tu **/
@@ -150,8 +142,8 @@ UIDropDownItemSelector.prototype.onload = function() {
 		}
 		selectedItemLabel.innerHTML = strlabel + "...";
 	} else {
-		selectedItemLabel.innerHTML = tmp;
-	}	
+		selectedItemLabel.innerHTML = strLabel;
+	}
 };
 
 eXo.webui.UIDropDownItemSelector = new UIDropDownItemSelector();
