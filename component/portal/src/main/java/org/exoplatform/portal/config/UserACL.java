@@ -14,7 +14,6 @@ import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
@@ -75,7 +74,7 @@ class UserACL {
     String [] groups = config.getAccessGroup();
     if(groups == null) groups = new String[]{"/user"}; 
     for(String group : groups) {
-      if(hasPermission(null, remoteUser, group, mt)) return true;
+      if(hasPermission(config.getCreator(), remoteUser, group, mt)) return true;
     }
     return false;
   }
@@ -83,8 +82,8 @@ class UserACL {
   boolean hasPermission(Page page, String remoteUser, String mt) throws Exception {
     String [] groups = page.getAccessGroup();
     if(groups == null) groups = new String[]{"/user"}; 
-    String owner = null;
-    if(page.getOwnerType().equals(DataStorage.USER_TYPE)) owner = page.getOwnerId(); 
+    String owner = page.getCreator();
+    if(page.getOwnerType().equals(DataStorage.USER_TYPE)) owner = page.getOwnerId();
     for(String group : groups) {
       if(hasPermission(owner, remoteUser, group, mt)) return true;
     }
@@ -94,7 +93,7 @@ class UserACL {
   boolean hasPermission(PageNavigation nav, String remoteUser, String mt) throws Exception {
     String [] groups = nav.getAccessGroup();
     if(groups == null) groups = new String[]{"/user"}; 
-    String owner = null;
+    String owner = nav.getCreator();
     if(nav.getOwnerType().equals(DataStorage.USER_TYPE)) owner = nav.getOwnerId();
     for(String group : groups) {
       if(hasPermission(owner, remoteUser, group, mt)) return true;

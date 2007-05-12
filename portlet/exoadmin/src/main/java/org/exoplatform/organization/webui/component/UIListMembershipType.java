@@ -86,7 +86,6 @@ public class UIListMembershipType extends UIContainer {
       UIListMembershipType uiListMembership = event.getSource() ;
       
       String userName = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      System.out.println("\n\n\n\n-------->UIListMembershipType.java-83." + userName);
       uiListMembership.setMembershipSelected(userName);
       UIPopupWindow popupWindow = uiListMembership.getChild(UIPopupWindow.class);
       popupWindow.setShow(true);
@@ -100,7 +99,6 @@ public class UIListMembershipType extends UIContainer {
       
       UIListMembershipType uiMembership = event.getSource();
       String name = uiMembership.getMembershipSelected();
-      System.out.println("\n\n\n\n----+++---->UIListMembershipType.java-98." + name);
       UIPopupWindow popupWindow = uiMembership.getChild(UIPopupWindow.class);
       popupWindow.setShow(false);
       String action = event.getRequestContext().getRequestParameter("action");

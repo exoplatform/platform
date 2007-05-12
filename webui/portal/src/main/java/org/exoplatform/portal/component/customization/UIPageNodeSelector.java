@@ -209,31 +209,6 @@ public class UIPageNodeSelector extends UIContainer {
     return null;
   }
   
-  //TODO: Tung.Pham added
-  public PageNode findPageNodeByPageReference(String pageReference) {
-    if (selectedNavigation == null) return null ;
-    List<PageNode> pageNodes = selectedNavigation.getNodes() ;
-    for (PageNode ele : pageNodes) {
-      PageNode returnNode = findPageNodeByPageReference(ele, pageReference) ;
-      if (returnNode == null) continue ;
-      return returnNode ;
-    }
-    return null ;
-  }
-  
-  //TODO: Tung.Pham added
-  private PageNode findPageNodeByPageReference(PageNode node, String pageReference) {
-    if (node.getPageReference() != null && node.getPageReference().equals(pageReference)) return node ;
-    List<PageNode> children = node.getChildren() ;
-    if (children == null) return null ;
-    for(PageNode ele : children) {
-      PageNode returnNode = findPageNodeByPageReference(ele, pageReference) ;
-      if (returnNode == null) continue ;
-      return returnNode ;
-    }
-    return null ;
-  }
-  
   public List<PageNavigation> getNavigations() { 
     if(navigations_ == null) navigations_ = new ArrayList<PageNavigation>();    
     return navigations_;  
@@ -243,7 +218,6 @@ public class UIPageNodeSelector extends UIContainer {
   public void setSelectedNavigation(PageNavigation nav){ selectedNavigation = nav; }  
   
   public PageNode getSelectedPageNode() { return selectedPageNode; }
-  //TODO: Tung.Pham added
   public void setSelectedPageNode(PageNode node) { selectedPageNode = node ;}
   
   public String getUpLevelUri () { return upLevelURI ; }

@@ -16,10 +16,12 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIContainer;
@@ -63,10 +65,8 @@ public class UIPageCreationWizard extends UIPageWizard {
     setHasWelcome(true);
   }     
   
-  //TODO: Tung.Pham modified
   private void saveData() throws Exception {
-    DataStorage daoService = getApplicationComponent(DataStorage.class);
-    
+    UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
     UIPagePreview uiPagePreview = getChild(UIPagePreview.class);
     UIPage uiPage = (UIPage)uiPagePreview.getUIComponent();
     
@@ -74,14 +74,6 @@ public class UIPageCreationWizard extends UIPageWizard {
     UIPageNodeSelector uiNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);      
     PageNode selectedNode = uiNodeSelector.getSelectedPageNode();
     PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();
-    
-    String remoteUser = Util.getPortalRequestContext().getRemoteUser();
-    String ownerType = DataStorage.USER_TYPE ;
-    String ownerId = remoteUser;
-    if(pageNav != null) {
-      ownerType = pageNav.getOwnerType();
-      ownerId = pageNav.getOwnerId();
-    }
     
     Page page = PortalDataModelUtil.toPageModel(uiPage);
     PageNode pageNode = uiPageInfo.getPageNode();
@@ -91,32 +83,14 @@ public class UIPageCreationWizard extends UIPageWizard {
       if(children == null) children = new ArrayList<PageNode>();
       children.add(pageNode);
       selectedNode.setChildren((ArrayList<PageNode>)children);        
-      pageNode.setUri(selectedNode.getUri()+"/"+pageNode.getName());
-    } else {        
-      if(pageNav == null){
-        pageNav = new PageNavigation();
-        pageNav.setOwnerId(Util.getPortalRequestContext().getRemoteUser());
-        List<PageNavigation> navs = Util.getUIPortal().getNavigations();
-        if(navs == null) navs = new ArrayList<PageNavigation>();         
-        navs.add(pageNav);
-        Util.getUIPortal().setNavigation(navs);
-        pageNav.setOwnerType(ownerType);
-        pageNav.setOwnerId(ownerId);
-      }
-      pageNav.addNode(pageNode);
-      pageNode.setUri(ownerId + "::" + pageNode.getName());
+    } else {       
+      pageNav.addNode(pageNode);      
     }
+    pageNav.setModifier(RequestContext.<WebuiRequestContext>getCurrentInstance().getRemoteUser());
     uiNodeSelector.selectPageNodeByUri(pageNode.getUri());
-    page.setOwnerType(ownerType);
-    page.setOwnerId(ownerId);
-    page.setName(pageNode.getName()) ;
  
-    daoService.create(page); 
-    if(daoService.getPageNavigation(pageNav.getId()) != null) {
-      daoService.save(pageNav);
-    } else {
-      daoService.create(pageNav);
-    }
+    service.create(page); 
+    service.update(pageNav);
     
     UIPortal uiPortal = Util.getUIPortal();
     uiPortal.setNavigation(uiNodeSelector.getNavigations());
@@ -136,27 +110,16 @@ public class UIPageCreationWizard extends UIPageWizard {
     }
   }
 
-  //TODO: Tung.Pham modified
   static  public class ViewStep3ActionListener extends EventListener<UIPageCreationWizard> {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
       UIWizardPageSetInfo pageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
-      UIPageNodeSelector nodeSelector = pageSetInfo.getChild(UIPageNodeSelector.class);
+      UIPageNodeSelector uiNodeSelector = pageSetInfo.getChild(UIPageNodeSelector.class);
       uiWizard.setDescriptionWizard();
       uiWizard.updateWizardComponent();
       
-      WebuiRequestContext context = Util.getPortalRequestContext() ;
-      String ownerType = DataStorage.USER_TYPE ;
-      String ownerId = context.getRemoteUser() ;
-      UIPageNodeSelector uiNodeSelector = pageSetInfo.getChild(UIPageNodeSelector.class) ;
-      PageNavigation pageNavi = uiNodeSelector.getSelectedNavigation() ;
-      if (pageNavi != null) {
-        ownerType = pageNavi.getOwnerType() ;
-        ownerId = pageNavi.getOwnerId() ;
-      }
-      //if(nodeSelector.findPageNodeByName(pageSetInfo.getPageNode().getName()) != null){
-      String pageReference = ownerType + "::" + ownerId + "::" + pageSetInfo.getPageNode().getName() ;
-      if (nodeSelector.findPageNodeByPageReference(pageReference) != null) {
+      PageNode pageNode = pageSetInfo.getPageNode();
+      if (uiNodeSelector.findPageNodeByUri(pageNode.getUri()) != null) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
@@ -167,7 +130,6 @@ public class UIPageCreationWizard extends UIPageWizard {
     }
   }
 
-  //TODO: Tung.Pham modified
   static  public class ViewStep4ActionListener extends EventListener<UIPageCreationWizard> {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
@@ -198,15 +160,23 @@ public class UIPageCreationWizard extends UIPageWizard {
         ownerType = pageNavi.getOwnerType() ;
         ownerId = pageNavi.getOwnerId() ;
       }
+      
       PageNode pageNode = uiPageInfo.getPageNode();
       Page page = uiPageTemplateOptions.getSelectedOption();
-      if(page == null) page  = new Page();
-//      if(page.getOwnerType() == null) page.setOwnerType(DataStorage.USER_TYPE);
-//      if(page.getOwnerId() == null) page.setOwnerId(context.getRemoteUser());
-      if(page.getOwnerType() == null) page.setOwnerType(ownerType);
-      if(page.getOwnerId() == null) page.setOwnerId(ownerId);
-      if(page.getName() == null || page.getName().equals("UIPage")) page.setName(pageNode.getName());
-      if(page.getTitle() == null) page.setTitle(pageNode.getLabel()) ;
+      if(page == null){
+        page  = new Page();
+        page.setCreator(context.getRemoteUser());
+      }
+      if(page.getOwnerType() == null || page.getOwnerType().trim().length() == 0) {
+        page.setOwnerType(ownerType);
+      }
+      if(page.getOwnerId() == null || page.getOwnerId().trim().length() == 0) {
+        page.setOwnerId(ownerId);
+      }
+      if(page.getName() == null || page.getName().trim().length() == 0 || page.getName().equals("UIPage")) {
+        page.setName(pageNode.getName());
+      }
+      if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getLabel()) ;
       
       boolean isDesktopPage = "Desktop".equals(page.getFactoryId());
       if(isDesktopPage) page.setShowMaxWindow(true);

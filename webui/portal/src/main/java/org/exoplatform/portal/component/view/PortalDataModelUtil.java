@@ -83,12 +83,15 @@ public class PortalDataModelUtil {
   static final public Page toPageModel(UIPage uiPage){
     Page model = new Page();
     toContainer(model , uiPage);
+    model.setCreator(uiPage.getCreator());
+    model.setModifier(uiPage.getModifier());
     model.setOwnerId(uiPage.getOwnerId());
     model.setOwnerType(uiPage.getOwnerType());
     model.setIcon(uiPage.getIcon());
     model.setAccessGroup(uiPage.getAccessGroups());
     model.setFactoryId(uiPage.getFactoryId());
     model.setShowMaxWindow(uiPage.isShowMaxWindow());   
+    model.setModifiable(uiPage.isModifiable());
     return model;
   }
   
@@ -102,6 +105,7 @@ public class PortalDataModelUtil {
     model.setLocale(uiPortal.getLocale());
     model.setSkin(uiPortal.getSkin());
     model.setTitle(uiPortal.getTitle());
+    model.setModifiable(uiPortal.isModifiable());
    
     List<UIComponent> children  = uiPortal.getChildren();
     if(children == null)  return  model;
@@ -114,6 +118,7 @@ public class PortalDataModelUtil {
     return model;
   }
   
+  @SuppressWarnings("unused")
   static final public PageBody toPageBodyModel(UIPageBody uiPageBody){
     return new PageBody();
   }
@@ -194,6 +199,8 @@ public class PortalDataModelUtil {
   
   static public void toUIPage(UIPage uiPage, Page model) throws Exception {
     toUIContainer(uiPage, model);
+    uiPage.setCreator(model.getCreator());
+    uiPage.setModifier(model.getModifier());
     uiPage.setOwnerId(model.getOwnerId());
     uiPage.setOwnerType(model.getOwnerType());
     uiPage.setIcon(model.getIcon());
@@ -212,7 +219,6 @@ public class PortalDataModelUtil {
     uiPortal.setOwner(model.getName());
     uiPortal.setTitle(model.getTitle());
     uiPortal.setModifiable(model.isModifiable());
-    
     uiPortal.setUserPortalConfig(userPortalConfig);
     uiPortal.setLocale(model.getLocale());
     uiPortal.setSkin(model.getSkin());

@@ -26,7 +26,7 @@ import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
+    template = "system:/groovy/webui/component/UIForm.gtmpl",
     events = @EventConfig(listeners = UIPermissionForm.SaveActionListener.class)
 )
 public class UIPermissionForm extends UIForm {

@@ -6,12 +6,12 @@ package org.exoplatform.portal.component.customization;
 
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormStringInput;
-import org.exoplatform.webui.component.UIFormTextAreaInput;
 import org.exoplatform.webui.component.UIRightClickPopupMenu;
 import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.component.UIWizard;
@@ -41,7 +41,6 @@ public class UIWizardPageSetInfo extends UIForm {
   
   private boolean isEdit = false;
   
-  //TODO: Tung.Pham modified
   public UIWizardPageSetInfo() throws Exception {
     UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, null, null);    
     addUIFormInput(new UIFormStringInput("pageName", "pageName", null).addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class));
@@ -52,7 +51,6 @@ public class UIWizardPageSetInfo extends UIForm {
     uiPageNodeSelector.removeChild(UIRightClickPopupMenu.class);    
   } 
   
-  //TODO: Tung.Pham modified
   public void setEditPageNode(boolean value){
     isEdit = value;
     if(!value) return;
@@ -60,18 +58,13 @@ public class UIWizardPageSetInfo extends UIForm {
     if(uiPageNodeSelector.getSelectedPageNode() != null) return;
     PageNode pageNode = Util.getUIPortal().getSelectedNode();
     uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri()) ; 
-    //UIFormStringInput uiNameInput = getChild(UIFormStringInput.class);
     UIFormStringInput uiNameInput = getChildById("pageName") ;
     uiNameInput.setEditable(false);
     if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
-//    UIFormTextAreaInput uiDesInput = getChild(UIFormTextAreaInput.class);
-//    if(pageNode.getDescription() != null) uiDesInput.setValue(pageNode.getDescription());
     UIFormStringInput uiDisplayNameInput = getChildById("pageDisplayName") ;
     if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getLabel());
-
   }
   
-  //TODO: Tung.Pham modified
   public PageNode getPageNode() {
     if(isEdit) return getSelectedPageNode() ;
     
@@ -82,9 +75,17 @@ public class UIWizardPageSetInfo extends UIForm {
     String displayName = this.<UIFormStringInput>getUIInput("pageDisplayName").getValue() ;
     PageNode pageNode  = new PageNode();
     pageNode.setName(name);
-    //pageNode.setLabel(name);
+    if(displayName == null || displayName.trim().length() == 0) displayName = name;
     pageNode.setLabel(displayName);
     
+    UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
+    PageNode selectedNode = uiNodeSelector.getSelectedPageNode();
+    PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();    
+    if(selectedNode != null) {
+      pageNode.setUri(selectedNode.getUri()+"/"+pageNode.getName());
+    } else {       
+      pageNode.setUri(pageNav.getOwnerId() + "::" + pageNode.getName());
+    }
     return pageNode;
  }
   
@@ -100,7 +101,6 @@ public class UIWizardPageSetInfo extends UIForm {
     if(event != null) event.broadcast() ;   
   }
   
-  //TODO: Tung.Pham modified
   static public class ChangeNodeActionListener  extends EventListener<UIWizardPageSetInfo> {
     public void execute(Event<UIWizardPageSetInfo> event) throws Exception {
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);        
@@ -113,10 +113,8 @@ public class UIWizardPageSetInfo extends UIForm {
       
       if(!event.getSource().isEdit) return ;
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
-      //UIFormStringInput uiNameInput = event.getSource().getChild(UIFormStringInput.class);
       UIFormStringInput uiNameInput = event.getSource().getChildById("pageName") ;
       if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
-      //UIFormTextAreaInput uiDesInput = event.getSource().getChild(UIFormTextAreaInput.class);
       UIFormStringInput uiDisplayNameInput = event.getSource().getChildById("pageDisplayName") ;
       if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getLabel());
     }

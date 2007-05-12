@@ -120,9 +120,7 @@ public class JCRRegistryService  {
   
   public Node getApplicationRegistryNode(Session session, String appName) throws Exception {
     Node appNode = session.getRootNode().getNode("exo:registry/exo:applications");
-    if(appNode.hasNode(appName)) {
-      return appNode.getNode(appName);
-    }
+    if(appNode.hasNode(appName)) return appNode.getNode(appName);
     return null;
   }
   
@@ -184,7 +182,7 @@ public class JCRRegistryService  {
     desc.preAction(this) ;
     Session session = getSession();
     Node servicesNode = session.getRootNode().getNode("users/" +username +"/exo:registry/exo:services");
-    if( servicesNode.hasNode(desc.getName())){
+    if(servicesNode.hasNode(desc.getName())){
       if(!overwrite){
         session.logout();
         return;
