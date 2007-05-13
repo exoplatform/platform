@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.portal.config.model.Page;
@@ -127,7 +128,21 @@ public class UserPortalConfigService {
   public void  removeUserPortalConfig(String portalName) throws Exception {
     PortalConfig portalConfig = storage_.getPortalConfig(portalName) ;
     if(portalConfig != null) storage_.remove(portalConfig);
-    //TODO remove page
+    
+    Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
+    query.setOwnerType(DataStorage.PORTAL_TYPE) ;
+    query.setOwnerId(portalName) ;
+    PageList pagelist = storage_.find(query) ;
+    pagelist.setPageSize(10);
+    int i = 1;
+    while(i < pagelist.getAvailablePage()) {
+      List<?>  list = pagelist.getPage(i);
+      for(Object ele : list) {
+        storage_.remove((Page)ele);
+      }
+      i++;
+    }
+    
     PageNavigation navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+portalName) ;
     if (navigation != null) remove(navigation);
   }
