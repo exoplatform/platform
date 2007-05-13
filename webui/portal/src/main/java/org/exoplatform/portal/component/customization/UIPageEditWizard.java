@@ -14,9 +14,11 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -29,14 +31,14 @@ import org.exoplatform.webui.event.EventListener;
  * Jun 23, 2006
  */
 @ComponentConfig(
-  template = "app:/groovy/webui/component/UIWizard.gtmpl" ,
-  events = {
-    @EventConfig(listeners = UIPageEditWizard.ViewStep1ActionListener.class),
-    @EventConfig(listeners = UIPageEditWizard.ViewStep2ActionListener.class),
-    @EventConfig(listeners = UIPageEditWizard.ViewStep3ActionListener.class),
-    @EventConfig(listeners = UIPageEditWizard.ViewStep4ActionListener.class),
-    @EventConfig(listeners = UIPageEditWizard.AbortActionListener.class)
-  }
+    template = "app:/groovy/webui/component/UIWizard.gtmpl" ,
+    events = {
+        @EventConfig(listeners = UIPageEditWizard.ViewStep1ActionListener.class),
+        @EventConfig(listeners = UIPageEditWizard.ViewStep2ActionListener.class),
+        @EventConfig(listeners = UIPageEditWizard.ViewStep3ActionListener.class),
+        @EventConfig(listeners = UIPageEditWizard.ViewStep4ActionListener.class),
+        @EventConfig(listeners = UIPageEditWizard.AbortActionListener.class)
+    }
 )
 public class UIPageEditWizard extends UIPageWizard {
   
@@ -49,17 +51,18 @@ public class UIPageEditWizard extends UIPageWizard {
   }
   
   private void saveData() throws Exception {
-    DataStorage daoService = getApplicationComponent(DataStorage.class);
+    UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
     
     UIPagePreview uiPagePreview = getChild(UIPagePreview.class);
     UIPage uiPage = (UIPage)uiPagePreview.getUIComponent();
     Page page = PortalDataModelUtil.toPageModel(uiPage);
-    daoService.save(page); 
+    service.update(page); 
     
     UIWizardPageSetInfo uiPageInfo = getChild(UIWizardPageSetInfo.class);  
     UIPageNodeSelector uiNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);      
     PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();
-    daoService.save(pageNav);
+    pageNav.setModifier(RequestContext.<WebuiRequestContext>getCurrentInstance().getRemoteUser());
+    service.update(pageNav);
     
     UIPortal uiPortal = Util.getUIPortal();
     uiPortal.setNavigation(uiNodeSelector.getNavigations());
@@ -108,6 +111,7 @@ public class UIPageEditWizard extends UIPageWizard {
       boolean isDesktopPage = false;
       if(templatePage != null) {
         templatePage.setName(page.getName());
+        templatePage.setOwnerType(page.getOwnerType());
         templatePage.setOwnerId(page.getOwnerId());
         page  = templatePage;
         isDesktopPage = "Desktop".equals(page.getFactoryId());
@@ -119,11 +123,7 @@ public class UIPageEditWizard extends UIPageWizard {
         isDesktopPage = "Desktop".equals(page.getFactoryId());
       }
       WebuiRequestContext context = Util.getPortalRequestContext() ;
-      
-      if(page == null) page  = new Page();
-//      if(page.getOwnerId() == null) page.setOwnerId(pageNode.getCreator());
-//      if(page.getName() == null || page.getName().equals("UIPage")) page.setName(pageNode.getName());
-      if(page.getOwnerId() == null) page.setOwnerId(context.getRemoteUser());
+      page.setModifier(context.getRemoteUser());
       
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
       UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);

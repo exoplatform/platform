@@ -66,17 +66,20 @@ public class UIWizardPageSetInfo extends UIForm {
   }
   
   public PageNode getPageNode() {
-    if(isEdit) return getSelectedPageNode() ;
+    String label = this.<UIFormStringInput>getUIInput("pageDisplayName").getValue() ;
+    if(isEdit) {
+      PageNode pageNode = getSelectedPageNode() ;  
+      if(label == null || label.trim().length() == 0) label = pageNode.getName();
+      pageNode.setLabel(label);
+      return pageNode;
+    }
     
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     String user = context.getRemoteUser();
     if(user == null) user = Util.getUIPortal().getOwner();
     String name = this.<UIFormStringInput>getUIInput("pageName").getValue();
-    String displayName = this.<UIFormStringInput>getUIInput("pageDisplayName").getValue() ;
     PageNode pageNode  = new PageNode();
-    pageNode.setName(name);
-    if(displayName == null || displayName.trim().length() == 0) displayName = name;
-    pageNode.setLabel(displayName);
+    pageNode.setName(name);    
     
     UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
     PageNode selectedNode = uiNodeSelector.getSelectedPageNode();
