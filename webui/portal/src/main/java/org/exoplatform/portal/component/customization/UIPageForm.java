@@ -164,9 +164,10 @@ public class UIPageForm extends UIFormTabPane {
       UIPage uiPage = uiPageForm.getUIPage();
       Page page = new Page() ;
       uiPageForm.invokeSetBindingBean(page);
+      UserPortalConfigService configService = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
       
-      page.setOwnerType(uiPage.getOwnerType());
       if(uiPage != null) {
+        page.setOwnerType(uiPage.getOwnerType());
         List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
         findAllPortlet(uiPortlets, uiPage);
         ArrayList<Object> applications = new ArrayList<Object>();
@@ -193,18 +194,16 @@ public class UIPageForm extends UIFormTabPane {
         }
         PortalDataModelUtil.toUIPage(uiPage, page);  
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
+        if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
+        configService.update(page);
       } else {
         page.setOwnerType(DataStorage.USER_TYPE);
         page.setOwnerId(pcontext.getRemoteUser());
+        if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+        configService.create(page);
       }
       
-      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());        
-      
-      UserPortalConfigService configService = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
-      configService.update(page);
-      
       WebuiRequestContext rcontext = event.getRequestContext();
-      
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       uiMaskWS.setUIComponent(null);
@@ -225,12 +224,10 @@ public class UIPageForm extends UIFormTabPane {
         return;
       } 
       
-      if(uiManagement != null) {
-        UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
-        UITree uiTree = uiNodeSelector.getChild(UITree.class);        
-        uiTree.createEvent("ChangeNode", event.getExecutionPhase(), rcontext).broadcast();
-      }
-      
+      if(uiManagement == null)  return;
+      UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
+      UITree uiTree = uiNodeSelector.getChild(UITree.class);        
+      uiTree.createEvent("ChangeNode", event.getExecutionPhase(), rcontext).broadcast();
     }
     
     private void findAllPortlet(List<UIPortlet> list, UIContainer uiContainer) {

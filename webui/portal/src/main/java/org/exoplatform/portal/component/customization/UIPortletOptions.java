@@ -46,7 +46,6 @@ public class UIPortletOptions extends UIContainer {
     PortletComparator portletComparator = new PortletComparator() ;
     for(ApplicationCategory pCategory : pCategories) {
       List<Application> portlets = service.getApplications(pCategory) ;
-      System.out.println("\n\n\nPortletSize: " + portlets.size());
       if(portlets.size() < 1)  continue;
 
 //      Iterator<Application> iterator = portlets.iterator();
@@ -63,7 +62,6 @@ public class UIPortletOptions extends UIContainer {
       Collections.sort(portlets, portletComparator) ;
       pCategoryDatas.add(new PortletCategoryData(pCategory, portlets)); 
     }    
-    System.out.println("\n\n\n-----------------------CategoriesSize: " + pCategoryDatas.size());
     for(PortletCategoryData categoryData: pCategoryDatas) {
       categoryData.getPortlets();
       options.add(new SelectItemOption<String>(categoryData.getPortletCategory().getName()));

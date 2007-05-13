@@ -239,11 +239,8 @@ public class UIPageBrowser extends UISearch {
       uiMaskWS.setUIComponent(uiPageForm);
       uiMaskWS.setShow(true);
 
-      uiPageForm.getUIStringInput("owner").setValue(prContext.getRemoteUser());      
-      uiPageForm.getUIStringInput("owner").setEditable(false);
-      UIPermissionSelector uiPermissionSelector = uiPageForm.getChild(UIPermissionSelector.class);    
-      uiPermissionSelector.createPermission("ViewPermission", null);
-      uiPermissionSelector.createPermission("EditPermission", null);
+      uiPageForm.getUIStringInput("ownerType").setValue(DataStorage.USER_TYPE);
+      uiPageForm.getUIStringInput("ownerId").setValue(prContext.getRemoteUser());      
       uiPageForm.removeChild(UIFormInputItemSelector.class);
       
       UIPageTemplateOptions uiTemplateConfig = uiPageForm.createUIComponent(UIPageTemplateOptions.class, null, null);    

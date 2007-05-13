@@ -176,10 +176,16 @@ public class UIPageCreationWizard extends UIPageWizard {
       if(page.getName() == null || page.getName().trim().length() == 0 || page.getName().equals("UIPage")) {
         page.setName(pageNode.getName());
       }
+      page.setModifiable(true);
       if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getLabel()) ;
       
       boolean isDesktopPage = "Desktop".equals(page.getFactoryId());
       if(isDesktopPage) page.setShowMaxWindow(true);
+      
+      String pageId = page.getPageId();
+      DataStorage service = uiWizard.getApplicationComponent(DataStorage.class);
+      Page existPage = service.getPage(pageId);
+      if(existPage != null) page.setName(page.getName() + String.valueOf(page.hashCode()));
       
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
       UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
