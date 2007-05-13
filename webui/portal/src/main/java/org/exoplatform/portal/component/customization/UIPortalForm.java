@@ -36,19 +36,38 @@ import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
 import org.exoplatform.webui.component.validator.NameValidator;
 import org.exoplatform.webui.config.Component;
+import org.exoplatform.webui.config.InitParams;
+import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
-@ComponentConfig(
-    lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
-    events = {
-      @EventConfig(listeners = UIPortalForm.SaveActionListener.class),
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
-    }
-)
+@ComponentConfigs({
+  @ComponentConfig(
+      lifecycle = UIFormLifecycle.class,
+      template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",     
+      events = {
+        @EventConfig(listeners = UIPortalForm.SaveActionListener.class),
+        @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+      }
+  ),
+  @ComponentConfig(
+      id = "CreatePortal",
+      lifecycle = UIFormLifecycle.class,
+      template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
+      initParams = @ParamConfig(
+          name = "PortalTemplateConfigOption", 
+          value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/PortalTemplateConfigOption.groovy"
+      ),
+      events = {
+        @EventConfig(listeners = UIPortalForm.SaveActionListener.class),
+        @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+      }
+  )
+})
 public class UIPortalForm extends UIFormTabPane {
 
   private static final String SKIN = "skin";
@@ -58,8 +77,64 @@ public class UIPortalForm extends UIFormTabPane {
   private static String DEFAULT_FACTORY_ID = "default";
   
   @SuppressWarnings("unchecked")
+  public UIPortalForm(InitParams initParams) throws Exception {
+    super("UIPortalForm");
+    
+    UIFormInputItemSelector uiTemplateInput = new  UIFormInputItemSelector("PortalTemplate", null);
+    uiTemplateInput.setRendered(true) ;
+    addUIFormInput(uiTemplateInput) ;
+    
+    createDefaultItem();
+    
+    UIFormInputSet uiPortalSetting = this.<UIFormInputSet>getChildById("PortalSetting");
+    UIFormStringInput uiNameInput = uiPortalSetting.getUIStringInput("name");
+    uiNameInput.setEditable(true);
+    
+    if(initParams == null) return;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+    Param param = initParams.getParam("PortalTemplateConfigOption");
+    List<SelectItemCategory> itemConfigs = (List<SelectItemCategory>)param.getMapGroovyObject(context);
+    for(SelectItemCategory itemCategory: itemConfigs){
+      uiTemplateInput.getItemCategories().add(itemCategory);
+    }
+    if(uiTemplateInput.getSelectedItemOption() == null) {
+      uiTemplateInput.getItemCategories().get(0).setSelected(true);
+    }
+  }
+
+  
   public UIPortalForm() throws Exception {
     super("UIPortalForm");
+    createDefaultItem();
+    
+    WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
+    WebuiApplication app  = (WebuiApplication)currReqContext.getApplication() ;
+    List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);    
+    List<SelectItemCategory>  itemCategories = new ArrayList<SelectItemCategory>();
+    for(Component ele : configs) {
+      String id =  ele.getId();
+      if(id == null) id = DEFAULT_FACTORY_ID;
+      StringBuilder builder = new StringBuilder(id);
+      builder.setCharAt(0, Character.toUpperCase(builder.charAt(0)));
+      String upId = builder.toString();
+      
+      SelectItemCategory category = new SelectItemCategory(upId);
+      itemCategories.add(category);
+      List<SelectItemOption<String>> items = new ArrayList<SelectItemOption<String>>() ;
+      category.setSelectItemOptions(items);
+      SelectItemOption<String> item = new SelectItemOption<String>(id, id, "Portal"+upId);
+      items.add(item);
+    }  
+    
+    UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
+    uiFactoryId.setItemCategories(itemCategories);
+    uiFactoryId.setRendered(false);
+    addUIFormInput(uiFactoryId);
+    
+    this.<UIFormInputSet>getChildById("PortalSetting").setRendered(true);
+  }
+  
+  private void createDefaultItem() throws Exception {
     LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
     Collection listLocaleConfig = localeConfigService.getLocalConfigs() ;
 
@@ -88,32 +163,7 @@ public class UIPortalForm extends UIFormTabPane {
     uiSelectBox.setEditable(false);
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);
-    uiSettingSet.getUIFormSelectBox("locale").setEditable(false);
-    
-    WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
-    WebuiApplication app  = (WebuiApplication)currReqContext.getApplication() ;
-    List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);
-    
-    List<SelectItemCategory>  itemCategories = new ArrayList<SelectItemCategory>();
-    for(Component ele : configs) {
-      String id =  ele.getId();
-      if(id == null) id = DEFAULT_FACTORY_ID;
-      StringBuilder builder = new StringBuilder(id);
-      builder.setCharAt(0, Character.toUpperCase(builder.charAt(0)));
-      String upId = builder.toString();
-      
-      SelectItemCategory category = new SelectItemCategory(upId);
-      itemCategories.add(category);
-      List<SelectItemOption<String>> items = new ArrayList<SelectItemOption<String>>() ;
-      category.setSelectItemOptions(items);
-      SelectItemOption<String> item = new SelectItemOption<String>(id, id, "Portal"+upId);
-      items.add(item);
-    }  
-    
-    UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
-    uiFactoryId.setItemCategories(itemCategories);
-    uiFactoryId.setRendered(false);
-    addUIFormInput(uiFactoryId);
+    uiSettingSet.setRendered(false);
     
     UIAccessGroup uiAccessGroup = createUIComponent(UIAccessGroup.class, null, "UIAccessGroup");
     uiAccessGroup.setRendered(false);

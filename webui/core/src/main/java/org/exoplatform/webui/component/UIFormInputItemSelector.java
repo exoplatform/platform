@@ -18,7 +18,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  *          tuan08@users.sourceforge.net
  * Jun 26, 2006
  */
-@ComponentConfig( template = "system:/groovy/webui/component/UIFormInputItemSelector.gtmpl" )
+@ComponentConfig(template = "system:/groovy/webui/component/UIFormInputItemSelector.gtmpl" )
 
 public class UIFormInputItemSelector extends UIFormInputBase<Object> {
 

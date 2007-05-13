@@ -40,6 +40,7 @@ public class UIPortalBrowser extends UIContainer {
   public static String[] SELECT_ACTIONS = {"SelectPortal", "DeletePortal"} ; 
   
   public UIPortalBrowser() throws Exception {
+    setName("UIPortalBrowser");
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("name", BEAN_FIELD, SELECT_ACTIONS) ;
     loadPortalConfigs();
@@ -120,7 +121,7 @@ public class UIPortalBrowser extends UIContainer {
 //      uiMaskWS.setShow(true);
 //      prContext.addUIComponentToUpdateByAjax(uiMaskWS);
       
-      UINewPortal uiNewPortal = uiMaskWS.createUIComponent(UINewPortal.class, null, null);
+      UIPortalForm uiNewPortal = uiMaskWS.createUIComponent(UIPortalForm.class, "CreatePortal", "UIPortalForm");
 //      uiNewPortal.getUIStringInput("name").setEditable(true);
 //      uiNewPortal.getUIFormSelectBox("skin").setEditable(true);
 //      uiNewPortal.getUIFormSelectBox("locale").setEditable(true);

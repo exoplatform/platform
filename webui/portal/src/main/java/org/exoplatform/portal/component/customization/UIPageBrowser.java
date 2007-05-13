@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;

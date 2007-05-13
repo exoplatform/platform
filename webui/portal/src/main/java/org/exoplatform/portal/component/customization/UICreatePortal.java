@@ -10,16 +10,12 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.organization.webui.component.UIAccessGroup;
-import org.exoplatform.organization.webui.component.UIAccountInputSet;
-import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
-import org.exoplatform.web.application.RequestContext;
-import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -32,7 +28,6 @@ import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
 import org.exoplatform.webui.component.validator.NameValidator;
-import org.exoplatform.webui.config.Component;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -54,15 +49,15 @@ import org.exoplatform.webui.event.Event.Phase;
   template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
   initParams = @ParamConfig(
       name = "PortalTemplateConfigOption", 
-      value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/UIPortalTemplateConfigOption.groovy"
+      value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/PortalTemplateConfigOption.groovy"
   ),    
   events = {
-    @EventConfig(listeners = UINewPortal.SaveActionListener.class),
+    @EventConfig(listeners = UICreatePortal.SaveActionListener.class),
     @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
   }
 )
 
-public class UINewPortal extends UIFormTabPane {
+public class UICreatePortal extends UIFormTabPane {
 
   private static final String SKIN = "skin";
   private PortalConfig portalConfig_;
@@ -70,7 +65,8 @@ public class UINewPortal extends UIFormTabPane {
   
   private static String DEFAULT_FACTORY_ID = "default";
   
-  public UINewPortal(InitParams initParams) throws Exception {
+  @SuppressWarnings("unchecked")
+  public UICreatePortal(InitParams initParams) throws Exception {
     super("UINewPortal");
     
     LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
@@ -103,7 +99,7 @@ public class UINewPortal extends UIFormTabPane {
     addUIFormInput(uiSettingSet);
     uiSettingSet.getUIFormSelectBox("locale").setEditable(false);
     
-    UIFormInputItemSelector templateInput = new  UIFormInputItemSelector("AccountTemplate", null);
+    UIFormInputItemSelector templateInput = new  UIFormInputItemSelector("PortalTemplate", null);
     templateInput.setRendered(false) ;
     addUIFormInput(templateInput) ;
     
@@ -148,8 +144,8 @@ public class UINewPortal extends UIFormTabPane {
     uiAccessGroup.setGroups(uiPortal.getAccessGroup());
   }
   
-  static public class SaveActionListener  extends EventListener<UINewPortal> {
-    public void execute(Event<UINewPortal> event) throws Exception {
+  static public class SaveActionListener  extends EventListener<UICreatePortal> {
+    public void execute(Event<UICreatePortal> event) throws Exception {
       
     }
   }
