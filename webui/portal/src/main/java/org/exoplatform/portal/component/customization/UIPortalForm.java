@@ -13,11 +13,14 @@ import org.exoplatform.organization.webui.component.UIAccessGroup;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.model.PortalTemplateConfigOption;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.services.organization.Group;
+import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.RequestContext;
@@ -64,6 +67,7 @@ import org.exoplatform.webui.event.Event.Phase;
       ),
       events = {
         @EventConfig(listeners = UIPortalForm.SaveActionListener.class),
+        @EventConfig(listeners = UIPortalForm.SelectItemOptionActionListener.class, phase = Phase.DECODE),
         @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
       }
   )
@@ -89,6 +93,8 @@ public class UIPortalForm extends UIFormTabPane {
     UIFormInputSet uiPortalSetting = this.<UIFormInputSet>getChildById("PortalSetting");
     UIFormStringInput uiNameInput = uiPortalSetting.getUIStringInput("name");
     uiNameInput.setEditable(true);
+    
+    setActions(new String[]{"Save", "Close"});
     
     if(initParams == null) return;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
@@ -219,6 +225,25 @@ public class UIPortalForm extends UIFormTabPane {
         UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
         event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
       }
+    }
+  }
+  
+  static  public class SelectItemOptionActionListener extends EventListener<UIPortalForm> {
+    public void execute(Event<UIPortalForm> event) throws Exception {
+      UIPortalForm uiForm = event.getSource();
+      UIFormInputItemSelector templateInput = uiForm.getChild(UIFormInputItemSelector.class);
+      PortalTemplateConfigOption selectItem = 
+        (PortalTemplateConfigOption)templateInput.getSelectedCategory().getSelectItemOptions().get(0);
+      List<String> groupIds = selectItem.getGroups();
+      UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
+      uiAccessGroup.clearGroups();
+      Group [] groups = new Group[groupIds.size()];
+      OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class) ;
+      for(int i = 0; i < groupIds.size(); i++) {
+        groups[i] = service.getGroupHandler().findGroupById(groupIds.get(i));
+      }
+      uiAccessGroup.addGroup(groups);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
     }
   }
 

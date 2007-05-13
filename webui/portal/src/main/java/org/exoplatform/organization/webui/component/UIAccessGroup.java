@@ -47,7 +47,6 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     uiPopup.setWindowSize(540, 0);
     UIGroupSelector uiGroupSelector = createUIComponent(UIGroupSelector.class, null, null) ;
     uiPopup.setUIComponent(uiGroupSelector);
-    
   }
   
   public void configure(String iname, String bfield) {
@@ -56,11 +55,19 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
   }
   
   @SuppressWarnings("unchecked")
-  public void addGroup(Group group) throws Exception {
+  public void addGroup(Group...groups) throws Exception {
     List<Object> list = new ArrayList<Object>();
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
     list.addAll(uiIterator.getPageList().getAll());
-    list.add(group);
+    for(Group group : groups) {
+      list.add(group);
+    }
+    uiIterator.setPageList(new ObjectPageList(list, 10));
+  }
+  
+  public void clearGroups() throws Exception {
+    List<Object> list = new ArrayList<Object>();
+    UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
     uiIterator.setPageList(new ObjectPageList(list, 10));
   }
   
