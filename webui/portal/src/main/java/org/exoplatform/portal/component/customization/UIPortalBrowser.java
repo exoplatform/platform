@@ -111,21 +111,7 @@ public class UIPortalBrowser extends UIContainer {
       PortalRequestContext prContext = Util.getPortalRequestContext();
       UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      
-//      UIPortalForm uiPortalForm = uiMaskWS.createUIComponent(UIPortalForm.class, null, null);
-//      uiPortalForm.getUIStringInput("name").setEditable(true);
-//      uiPortalForm.getUIFormSelectBox("skin").setEditable(true);
-//      uiPortalForm.getUIFormSelectBox("locale").setEditable(true);
-//      
-//      uiMaskWS.setUIComponent(uiPortalForm);
-//      uiMaskWS.setShow(true);
-//      prContext.addUIComponentToUpdateByAjax(uiMaskWS);
-      
       UIPortalForm uiNewPortal = uiMaskWS.createUIComponent(UIPortalForm.class, "CreatePortal", "UIPortalForm");
-//      uiNewPortal.getUIStringInput("name").setEditable(true);
-//      uiNewPortal.getUIFormSelectBox("skin").setEditable(true);
-//      uiNewPortal.getUIFormSelectBox("locale").setEditable(true);
-      
       uiMaskWS.setUIComponent(uiNewPortal);
       uiMaskWS.setShow(true);
       prContext.addUIComponentToUpdateByAjax(uiMaskWS);

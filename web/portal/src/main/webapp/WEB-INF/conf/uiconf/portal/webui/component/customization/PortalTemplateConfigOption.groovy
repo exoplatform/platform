@@ -7,13 +7,13 @@ List options = new ArrayList();
 
   SelectItemCategory guest = new SelectItemCategory("SitePortal");
   guest.addSelectItemOption(
-      new PortalTemplateConfigOption("", "Site", "Site Portal").addGroup("/guest")
+      new PortalTemplateConfigOption("", "Site", "Site Portal", "SitePortal").addGroup("/guest")
   );
   options.add(guest);
 
   SelectItemCategory webos = new SelectItemCategory("WebOSPortal");
   webos.addSelectItemOption(
-    new PortalTemplateConfigOption("", "WebOS", "WebOS Portal").addGroup("/guest")
+    new PortalTemplateConfigOption("", "WebOS", "WebOS Portal", "WebOSPortal").addGroup("/guest")
   );
   options.add(webos);
   

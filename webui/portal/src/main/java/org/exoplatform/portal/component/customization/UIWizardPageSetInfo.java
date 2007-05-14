@@ -89,6 +89,8 @@ public class UIWizardPageSetInfo extends UIForm {
     } else {       
       pageNode.setUri(pageNav.getOwnerId() + "::" + pageNode.getName());
     }
+    if(label == null || label.trim().length() == 0) label = pageNode.getName();
+    pageNode.setLabel(label);
     return pageNode;
  }
   

@@ -19,8 +19,8 @@ public class PortalTemplateConfigOption extends SelectItemOption<String> {
   
   private List<String> accessGroup_ ;  
   
-  public PortalTemplateConfigOption(String label, String value, String desc) throws Exception {
-    super(label, value, desc, null);
+  public PortalTemplateConfigOption(String label, String value, String desc, String icon) throws Exception {
+    super(label, value, desc, icon);
     accessGroup_ = new ArrayList<String>() ;
   }
   
