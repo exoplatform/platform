@@ -40,10 +40,9 @@ import org.exoplatform.webui.config.annotation.EventConfig;
       @EventConfig(listeners = ShowLoginFormActionListener.class),
       @EventConfig(listeners = LogoutActionListener.class),
       @EventConfig(listeners = ChangeOptionActionListener.class),
-      @EventConfig(listeners = AddPortletToDesktopActionListener.class),
+//      @EventConfig(listeners = AddPortletToDesktopActionListener.class),
       @EventConfig(listeners = AddJSApplicationToDesktopActionListener.class),
       @EventConfig(listeners = RemoveJSApplicationToDesktopActionListener.class)
-      
     }
 )
 public class UIPortal extends UIContainer { 
@@ -91,18 +90,6 @@ public class UIPortal extends UIContainer {
 
   public List<PageNode> getSelectedPaths() { return selectedPaths_ ; }
   public void setSelectedPaths(List<PageNode> nodes){  selectedPaths_ = nodes; }
-
-  /*public List<UIComponent> getUIPortlets(){
-    List<UIComponent> list  = new ArrayList<UIComponent>();
-    Util.findUIComponents(this, list, UIPortlet.class, UIPage.class);
-    return list;
-  }
-
-  public List<UIComponent> getUIContainers(){
-    List<UIComponent> list  = new ArrayList<UIComponent>();
-    Util.findUIComponents(this, list, UIContainer.class, UIPage.class);
-    return list;
-  }*/
 
   public UserPortalConfig getUserPortalConfig() { return userPortalConfig_; }
   void setUserPortalConfig(UserPortalConfig userPortalConfig) {

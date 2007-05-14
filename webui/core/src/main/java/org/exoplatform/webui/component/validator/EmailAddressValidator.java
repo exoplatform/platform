@@ -5,8 +5,7 @@
 package org.exoplatform.webui.component.validator;
 
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIFormInputBase;
+import org.exoplatform.webui.component.UIFormInput;
 import org.exoplatform.webui.exception.MessageException;
 /**
  * Created by The eXo Platform SARL
@@ -19,8 +18,7 @@ public class EmailAddressValidator implements Validator {
   static private final String EMAIL_REGEX = 
     "[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)+";
   
-  public void validate(UIComponent uicomponent) throws Exception {
-    UIFormInputBase uiInput = (UIFormInputBase) uicomponent ;
+  public void validate(UIFormInput uiInput) throws Exception {
     String s = (String)uiInput.getValue();
     if(s == null || s.trim().length() < 1 || (s).matches(EMAIL_REGEX)) return;
     Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;

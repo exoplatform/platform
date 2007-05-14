@@ -163,6 +163,7 @@ public class DataStorageImpl implements DataStorage {
   }
 
   public Page getPage(String pageId) throws Exception {
+    if(pageId == null) return null;
     String [] components = pageId.split("::");
     if(components.length < 3) throw new Exception ("Invalid pageId :"+pageId);        
     Session session = jcrRegService_.getSession();
@@ -229,6 +230,7 @@ public class DataStorageImpl implements DataStorage {
   }
 
   public PageNavigation getPageNavigation(String id) throws Exception {
+    if(id == null) return null;
     Session session = jcrRegService_.getSession();
     String [] components = id.split("::");
     if(components.length < 2) throw new Exception ("Invalid navigationId :"+id);

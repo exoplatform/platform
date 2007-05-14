@@ -6,13 +6,11 @@ package org.exoplatform.webui.component;
 
 import java.io.Writer;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.model.BeanDataMapping;
 import org.exoplatform.webui.component.model.ReflectionDataMapping;
-import org.exoplatform.webui.component.validator.Validator;
 import org.exoplatform.webui.config.Event;
 /**
  * Created by The eXo Platform SARL
@@ -24,7 +22,7 @@ public class UIForm extends UIContainer  {
   
   public final static String ACTION = "formOp" ;
   
-  private List<Validator>  validators ;
+//  private List<Validator>  validators ;
   
   private String[] actions_ = null ;
   private String submitAction_ ;
@@ -47,11 +45,11 @@ public class UIForm extends UIContainer  {
     return this ;
   }
   
-  public UIForm addValidator(Class clazz) throws Exception {
-    if(validators == null)  validators = new ArrayList<Validator>(3) ;
-    validators.add((Validator)clazz.newInstance()) ;
-    return this ;
-  }
+//  public UIForm addValidator(Class clazz) throws Exception {
+//    if(validators == null)  validators = new ArrayList<Validator>(3) ;
+//    validators.add((Validator)clazz.newInstance()) ;
+//    return this ;
+//  }
   
   public boolean isMultipart() { return multipart_ ; }
   public void    setMultiPart(boolean b) { multipart_ = b ; }
@@ -59,7 +57,7 @@ public class UIForm extends UIContainer  {
   public String getSubmitAction() { return submitAction_ ; }
   public void   setSubmitAction(String s) { submitAction_  = s; }  
   
-  public List<Validator>  getValidators() { return validators ; }
+//  public List<Validator>  getValidators() { return validators ; }
    
   @SuppressWarnings("unchecked")
   public <T extends UIFormInput> T getUIInput(String name) {

@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.component.validator;
 
-import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIFormInput;
 /**
  * Created by The eXo Platform SARL
  * Author : Dang Van Minh
@@ -12,5 +12,5 @@ import org.exoplatform.webui.component.UIComponent;
  * Jun 7, 2006
  */
 public interface Validator {
-  public void validate(UIComponent uicomponent) throws Exception ;
+  public void validate(UIFormInput uiInput) throws Exception ;
 }

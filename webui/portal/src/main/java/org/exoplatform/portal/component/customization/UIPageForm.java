@@ -192,11 +192,14 @@ public class UIPageForm extends UIFormTabPane {
           }
           page.setChildren(children);
         }
+        page.setModifier(pcontext.getRemoteUser());
         PortalDataModelUtil.toUIPage(uiPage, page);  
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
         configService.update(page);
       } else {
+        page.setCreator(pcontext.getRemoteUser());
+        page.setModifiable(true);
         page.setOwnerType(DataStorage.USER_TYPE);
         page.setOwnerId(pcontext.getRemoteUser());
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());

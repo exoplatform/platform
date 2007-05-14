@@ -23,6 +23,7 @@ import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
 import org.exoplatform.webui.component.validator.IdentifierValidator;
+import org.exoplatform.webui.component.validator.NullFieldValidator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -53,12 +54,12 @@ public class UIPageNodeForm extends UIFormTabPane {
     uiSettingSet.addUIFormInput(new UIFormStringInput("uri", "uri", null).setEditable(false)).                            
     addUIFormInput(new UIFormStringInput("name","name", null).
                    addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)).
-    addUIFormInput(new UIFormStringInput("label", "label", null).
-                   addValidator(EmptyFieldValidator.class));
+    addUIFormInput(new UIFormStringInput("label", "label", null));
     
     addUIFormInput(uiSettingSet);
 
     UIPageSelector uiPageSelector = createUIComponent(UIPageSelector.class, null, null) ;
+    uiPageSelector.addValidator(NullFieldValidator.class);
     uiPageSelector.configure("UIPageSelector", "pageReference") ;
     uiPageSelector.setRendered(false) ;
     addUIFormInput(uiPageSelector) ;
@@ -118,7 +119,7 @@ public class UIPageNodeForm extends UIFormTabPane {
       pageNode.setIcon(uiIconSelector.getSelectedIcon());
       
       if(uiPageSelector != null) {
-        Object pageReference = uiPageSelector.getUIInputValue();
+        Object pageReference = uiPageSelector.getValue();
         if(pageReference != null) pageNode.setPageReference(String.valueOf(pageReference));
       }
       

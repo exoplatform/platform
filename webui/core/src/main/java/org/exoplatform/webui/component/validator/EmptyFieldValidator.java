@@ -5,8 +5,7 @@
 package org.exoplatform.webui.component.validator;
 
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIFormInputBase;
+import org.exoplatform.webui.component.UIFormInput;
 import org.exoplatform.webui.exception.MessageException;
 
 /**
@@ -17,8 +16,7 @@ import org.exoplatform.webui.exception.MessageException;
  */
 public class EmptyFieldValidator implements Validator {
   
-  public void validate(UIComponent uicomponent) throws Exception {
-    UIFormInputBase uiInput = (UIFormInputBase) uicomponent ;
+  public void validate(UIFormInput uiInput) throws Exception {
     if((uiInput.getValue() != null) && ((String)uiInput.getValue()).trim().length() > 0) {
       return ;
     }

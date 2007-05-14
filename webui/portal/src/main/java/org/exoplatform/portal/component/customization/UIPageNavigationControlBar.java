@@ -158,15 +158,15 @@ public class UIPageNavigationControlBar extends UIToolbar {
 
   public void abort(Event<UIPageNavigationControlBar> event) throws Exception {
     UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-    UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
     PortalRequestContext prContext = Util.getPortalRequestContext();  
-    uiWorkingWS.setRenderedChild(UIPortal.class) ;
     
     UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
     UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
     uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
-    
     prContext.addUIComponentToUpdateByAjax(uiControl);    
+    
+    UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+    uiWorkingWS.setRenderedChild(UIPortal.class) ;
     prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
     prContext.setFullRender(true);
   }

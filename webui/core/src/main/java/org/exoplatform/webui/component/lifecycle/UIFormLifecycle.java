@@ -12,6 +12,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
+import org.exoplatform.webui.component.UIFormInput;
 import org.exoplatform.webui.component.UIFormInputBase;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIPortletApplication;
@@ -57,7 +58,7 @@ public class UIFormLifecycle  extends Lifecycle {
     UIApplication uiApp = uiForm.getAncestorOfType(UIApplication.class) ;
     List<UIComponent>  children = uiForm.getChildren() ;
     validateChildren(children, uiApp, context);
-    List<Validator> validators = uiForm.getValidators() ;
+    /*List<Validator> validators = uiForm.getValidators() ;
     if(validators != null) {
       try {
         for(Validator validator : validators) validator.validate(uiForm) ;
@@ -69,7 +70,7 @@ public class UIFormLifecycle  extends Lifecycle {
         uiApp.addMessage(new ApplicationMessage(ex.toString(), null)) ;        
         context.setProcessRender(true) ;
       }
-    }
+    }*/
     if(context.getProcessRender()) {
       if(uiApp instanceof UIPortletApplication){
         context.addUIComponentToUpdateByAjax(uiApp);
@@ -124,8 +125,8 @@ public class UIFormLifecycle  extends Lifecycle {
   @SuppressWarnings("unchecked")
   private void validateChildren(List<UIComponent>  children, UIApplication uiApp, WebuiRequestContext context) {
     for(UIComponent uiChild : children) {
-      if(uiChild instanceof UIFormInputBase) {
-        UIFormInputBase uiInput =  (UIFormInputBase) uiChild ;
+      if(uiChild instanceof UIFormInput) {
+        UIFormInput uiInput =  (UIFormInput) uiChild ;
         List<Validator> validators = uiInput.getValidators() ;
         if(validators == null) continue;
         try {

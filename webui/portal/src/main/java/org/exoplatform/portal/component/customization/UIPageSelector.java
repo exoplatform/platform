@@ -36,9 +36,7 @@ import org.exoplatform.webui.event.EventListener;
       events = @EventConfig(listeners = UIPageSelector.SelectPageActionListener.class) 
   )
 })
-public class UIPageSelector extends UIFormInputContainer {
-
-  public Page page_; 
+public class UIPageSelector extends UIFormInputContainer<Page> {
 
   public UIPageSelector() throws Exception {
     super("UIPageSelector", null) ;
@@ -58,21 +56,18 @@ public class UIPageSelector extends UIFormInputContainer {
   }
 
   public Object getUIInputValue() { 
-    if(page_ != null) return page_.getPageId() ;
+    if(value_ != null) return value_.getPageId() ;
     return null ;
   }  
   
   public void setUIInputValue(Object input) throws Exception { 
     String id =  (String)input ; 
     DataStorage service = getApplicationComponent(DataStorage.class) ;
-    page_ = service.getPage(id) ;
+    value_ = service.getPage(id) ;
   }
 
   public Class getUIInputValueType() {  return String.class ; }
 
-  public void setPage(Page page) { page_ = page ; }  
-  public Page getPage(){ return page_; }
-  
   public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     UIPageBrowser uiPageBrowser = findFirstComponentOfType(UIPageBrowser.class);
@@ -110,7 +105,7 @@ public class UIPageSelector extends UIFormInputContainer {
       
       UIFormPopupWindow uiPopup = uiPageBrowser.getAncestorOfType(UIFormPopupWindow.class);
       if(uiPopup != null) uiPopup.setShow(false);
-      uiPageSelector.setPage(page) ;
+      uiPageSelector.setValue(page) ;
     }
   }
 }
