@@ -10,7 +10,7 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 	var categoryDetectPosition = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "CategoryDetectPosition") ;
 	var controlCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
   var uiPopupCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
-  var uiDesktop = eXo.core.DOMUtil.findAncestorByClass(ancestorPopupCategory, "UIPageDesktop");
+  var uiPageDesktop = eXo.core.DOMUtil.findAncestorByClass(ancestorPopupCategory, "UIPageDesktop");
   
 	if(uiPopupCategory == null) return;
 
@@ -18,14 +18,18 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 		uiPopupCategory.style.position = "absolute" ;
 		uiPopupCategory.style.display = "block" ;
 		var posTop = eXo.core.Browser.findPosY(ancestorPopupCategory) + 22;
-		if (uiDesktop != null) posTop -= ancestorPopupCategory.offsetTop;
+		if (uiPageDesktop != null) posTop -= ancestorPopupCategory.offsetTop;
 		uiPopupCategory.style.top = posTop + "px" ;
 		uiPopupCategory.style.width = width + "px" ;
 
 		if(controlCategory != null) {
-			var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - width + 35;
-			if (uiDesktop != null) posLeft -= ancestorPopupCategory.offsetLeft;
-			if (eXo.portal.UIControlWorkspace.showControlWorkspace) posLeft -= eXo.portal.UIControlWorkspace.defaultWidth;
+			if (uiPageDesktop == null) {
+			  var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - uiPopupCategory.offsetWidth + 40;
+			  posLeft = posLeft - ancestorPopupCategory.offsetLeft;
+			  if (eXo.portal.UIControlWorkspace.showControlWorkspace) posLeft -= 246;
+			} else {
+				var posLeft = categoryDetectPosition.offsetLeft - uiPopupCategory.offsetWidth + 40;
+			}
 			//if (eXo.core.Browser.isIE() && !eXo.core.Browser.isIE6()) posLeft -= eXo.portal.UIControlWorkspace.defaultWidth;
 			uiPopupCategory.style.left = posLeft + "px";
 		}

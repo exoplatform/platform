@@ -98,7 +98,7 @@
         </div>
       </div>
       <%/*End LoginFooter*/%>
-      <div class="CopyrightInfo">Copyright &copy; 2000-2006. Allrights Reserved eXo Platform SAS </div>
+      <div class="CopyrightInfo">Copyright &copy 2000-2007. All rights Reserved, eXo Platform SAS.</div>
     </div>
     <script type='text/javascript'>
       eXo.portal.UIPortalControl.onKeyPress();
