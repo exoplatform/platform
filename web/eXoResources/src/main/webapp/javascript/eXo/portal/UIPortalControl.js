@@ -47,43 +47,41 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
 };
 
 /** Created: by Duy Tu - fixHeight function to UIControlWorkspace**/
+
 UIPortalControl.prototype.fixHeight = function() {
 	if(eXo.core.Browser.isIE6()) {
 		var e = window.event ;
 		if(e) e.cancelBubble = true ;
-	}
-	//alert("test");
+	} else {
 	var objectParent = document.getElementById("UIControlWorkspace");
 	if(objectParent) {
 		var uiControlWSWorkingArea = document.getElementById("UIControlWSWorkingArea");
 		var uiWorkspaceContainer = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
 		if(uiWorkspaceContainer.style.display == "block") {
 			var scrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
+			var tmp = objectParent.offsetHeight - 72;
 			if(scrollArea != null) {
-				uiControlWSWorkingArea.style.height = "auto";
+				scrollArea.style.height = "auto";
+				var heightChild = scrollArea.offsetHeight;
 				var jsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
 				if(jsContainer){
 					scrollArea.style.width = "210px";
 					jsContainer.style.width = "208px";
 				}
 				if(uiControlWSWorkingArea) {
-					uiControlWSWorkingArea.style.height = "auto";
-					scrollArea.style.height = "auto";
-				//alert(scrollArea.offsetHeight);
-				  var maxHeight = uiControlWSWorkingArea.offsetHeight + 10 ;
+				  var maxHeight = uiControlWSWorkingArea.offsetHeight ;
 				} 
-				var deltaResize = maxHeight - (uiWorkspaceContainer.offsetHeight - 62);
+				var deltaResize = maxHeight - tmp;
 				if(deltaResize > 0) {
 					scrollArea.style.overflow = "auto";
-					scrollArea.style.height = scrollArea.offsetHeight - deltaResize + "px";
-					//uiControlWSWorkingArea.style.border = "1px solid red";
-					//scrollArea.style.border = "1px solid red";
+					scrollArea.style.height = heightChild - deltaResize + "px";
 					if(jsContainer) {
 						jsContainer.style.width = scrollArea.offsetWidth - 22 + "px";
 					}
 				}
 			}
 		}
+	}
 	}
 } ;
 
