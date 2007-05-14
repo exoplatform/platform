@@ -67,7 +67,7 @@
 
 .DeletePortalIcon {
   width: 16px ;  height: 16px ; margin: auto;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectIcon.gif') no-repeat left center;
+  background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat left center;
 }
 
 .OnLightPage16x16Icon {
@@ -467,6 +467,10 @@
   background: url('/eXoResources/icons/16x16/MacSkin/PermissionSetting.gif') no-repeat center left ;
 }
 
+.SmallGroup16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/NormalGroup.png') no-repeat left center;
+}
 /*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/
 
 /*===========================Misc Icons Stylesheet=======================*/

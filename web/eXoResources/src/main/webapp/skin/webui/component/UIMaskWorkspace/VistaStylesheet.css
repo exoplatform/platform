@@ -300,3 +300,117 @@
 .UIAddApplication .eXoForumIcon {
   background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png) no-repeat;
 }
+
+/************************************ Select Permission *******************************/
+.UIAccessGroup .UIGrid .ActionContainer {
+  width: 20px;
+}
+
+.UIAccessGroup .UIAction {
+  width: 200px;
+}
+
+.UIAccessGroup .UIAction .SimpleStyle .Icon {
+  float: left;
+  margin: 3px 0px;
+  border: 1ps solid red;
+}
+
+.UIAccessGroup .UIAction .ActionButton .SimpleStyle a {
+}
+
+.UIGroupSelector {
+  padding: 10px;
+}
+
+.UIGroupSelector .SelectedGroupPath { 
+  padding: 5px 0px;
+}
+
+.UIGroupSelector .UIBreadcumbs {
+  border: 1px solid white;
+  padding: 0px;
+  height: 27px;
+}
+
+.UIGroupSelector .UIBreadcumbs .LeftBreadcumbsBar {
+  background: white;
+  border: 1px solid #b7b7b7;
+  height: 27px;
+}
+
+.UIGroupSelector .UIBreadcumbs .RightBreadcumbsBar {
+  background: white;
+  height: 27px;
+}
+
+.UIGroupSelector .UIBreadcumbs .BreadcumbsInfoBar {
+  background: white;
+  height: 27px;
+}
+
+.UIGroupSelector .UIBreadcumbs .BCHome16x16Icon {
+  width: 19px ; height: 19px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/NormalGroup.png') no-repeat left center;
+  margin-top: 4px;
+}
+
+.UIGroupSelector .UIBreadcumbs a.Selected {
+  color: #058ee6;
+}
+
+.UIGroupSelector .GroupSelector {
+  padding: 10px;
+  background: white;
+  border: 1px solid #e4e4e4;
+}
+
+.UIGroupSelector .TitleGroupSelector {
+  background: url("VistaSkin/background/ThGridRepeatBg1x20.png") repeat-x;
+  line-height: 19px; height: 19px;
+  border: 1px solid #b7b7b7;
+  border-bottom: 1px solid #cfcfcf;
+  padding: 0px 10px;
+  font-size: 11px;
+  
+}
+
+.UIGroupSelector .LeftGroupSelector {
+  float: left;
+  width: 220px; height: 210px;
+  border: 1px solid white;
+}
+
+.UIGroupSelector .LeftGroupSelector .UITree {
+  height: 188px; width: 218px;
+  overflow: auto; overflow-x: hidden;
+  border: 1px solid #b7b7b7;
+  border-top: none;
+  background: white;
+}
+
+.UIGroupSelector .LeftGroupSelector .UITree .TreeContainer {
+  padding: 10px 7px;
+  border: none;
+}
+
+.UIGroupSelector .RightGroupSelector {
+  margin-left: 225px;
+  height: 210px;
+  border: 1px solid white;
+}
+
+.UIGroupSelector .RightGroupSelector .Content {
+  border: 1px solid #b7b7b7; border-top: none;
+  height: 170px; 
+  font-size: 11px; color: #058ee6;
+  padding: 10px;
+}
+
+.UIGroupSelector .RightGroupSelector .Content div {
+  padding: 3px 0px;
+}
+
+.UIGroupSelector .RightGroupSelector .Content span {
+  color: #2c2c2c;
+}
