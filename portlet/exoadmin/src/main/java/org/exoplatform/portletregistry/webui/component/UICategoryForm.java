@@ -28,8 +28,9 @@ import org.exoplatform.webui.event.Event.Phase;
     lifecycle = UIFormLifecycle.class,
     template =  "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
     events = {
-      @EventConfig(phase = Phase.DECODE, listeners = UICategoryForm.CloseActionListener.class),
-      @EventConfig(listeners = UICategoryForm.SaveActionListener.class)
+      @EventConfig(listeners = UICategoryForm.SaveActionListener.class),
+      @EventConfig(phase = Phase.DECODE, listeners = UICategoryForm.CloseActionListener.class)
+      
     }
 )
 public class UICategoryForm extends UIForm { 
