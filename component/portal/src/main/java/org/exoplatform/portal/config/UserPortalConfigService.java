@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
@@ -31,46 +31,46 @@ import org.exoplatform.services.organization.OrganizationService;
  * user.
  */
 public class UserPortalConfigService {
-  
+
   private DataStorage  storage_ ;
   private UserACL userACL_;
   private OrganizationService orgService_;
-  
+
   protected ExoCache portalConfigCache_ ;
   protected ExoCache pageConfigCache_ ;
   protected ExoCache pageNavigationCache_ ;
-  
+
   /**
    *The constructor should create the DataStorage object and broadcast "the UserPortalConfigService.onInit"
    *event
    */
   public UserPortalConfigService(InitParams params, 
-                                 DataStorage storage,
-                                 CacheService cacheService,
-                                 OrganizationService  orgService) throws Exception {
+      DataStorage storage,
+      CacheService cacheService,
+      OrganizationService  orgService) throws Exception {
     storage_ = storage ;
     orgService_ = orgService;
-    
+
     userACL_ = new UserACL(params, orgService);
-    
+
     portalConfigCache_   = cacheService.getCacheInstance(PortalConfig.class.getName()) ;
     pageConfigCache_     = cacheService.getCacheInstance(Page.class.getName()) ;
     pageNavigationCache_ = cacheService.getCacheInstance(PageNavigation.class.getName()) ;
   }
-  
-  
+
+
   /**
    * @return This method should the membership type that the user can access the portal, pages
    * and the navigation.
    */
   public String getViewMembershipType()  { return userACL_.getViewMembershipType() ; }
-  
+
   /**
    * @return This method should return the membership type that the user can edit the portal, pages
    * and the navigation
    */
   public String getEditMembershipType()  { return userACL_.getEditMembershipType() ; }
-  
+
   /**
    * This  method should load the PortalConfig object according to the portalName,  set the view and edit
    * permission according to the accessUser, load Naviagtion of the portal according to the portalName, 
@@ -84,15 +84,14 @@ public class UserPortalConfigService {
     if(portal == null || !userACL_.hasPermission(portal, accessUser, mt)) return null ;
     mt = userACL_.getEditMembershipType();
     portal.setModifiable(userACL_.hasPermission(portal, accessUser, mt));
-   
+
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-        
     PageNavigation navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+portalName) ;
-    if (navigation != null) navigations.add(navigation) ;
+    if (navigation != null) navigations.add(navigation);    
     
     navigation = getPageNavigation(DataStorage.USER_TYPE+"::"+accessUser) ;
     if (navigation != null) navigations.add(navigation) ;
-    
+
     Collection memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
     Iterator mitr = memberships.iterator() ;
     while(mitr.hasNext()) {
@@ -105,7 +104,7 @@ public class UserPortalConfigService {
 
     return new UserPortalConfig(portal, navigations) ;
   }
-  
+
   /**
    * This method  should create a  the portal  config, pages and navigation according to the template 
    * name
@@ -114,9 +113,22 @@ public class UserPortalConfigService {
    * @return
    * @throws Exception
    */
+  //TODO: Tung.Pham: implement
   public UserPortalConfig  createUserPortalConfig(String portalName, String template) throws Exception {
-    UserPortalConfig userPortalConfig  = new UserPortalConfig();
-    return userPortalConfig;   
+    PortalConfig portal = storage_.getPortalConfig(template) ;
+    if (portal == null) return null ;
+    portal.setName(portalName) ;
+    storage_.create(portal) ;
+
+    List<PageNavigation> navigations = new ArrayList<PageNavigation>() ;
+    PageNavigation navi = getPageNavigation(DataStorage.PORTAL_TYPE + "::" + template).clone() ;
+    if (navi == null) return null ;
+    navi.setOwnerId(portalName) ;
+    copyPages(navi, portalName) ;
+    create(navi) ;
+    navigations.add(navi) ;
+    
+    return new UserPortalConfig(portal, navigations) ;   
   }
   
   /**
@@ -146,7 +158,7 @@ public class UserPortalConfigService {
     PageNavigation navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+portalName) ;
     if (navigation != null) remove(navigation);
   }
-  
+
   /**
    * This method should create or update the PortalConfig  object
    * @param config
@@ -155,9 +167,9 @@ public class UserPortalConfigService {
   public void update(PortalConfig config) throws Exception {    
     storage_.save(config) ;    
   }
-  
+
 //**************************************************************************************************
-    
+
   /**
    * This method  should load the page according to the pageId,  set view and edit  permission for the
    * Page object  according to the accessUser.
@@ -174,7 +186,7 @@ public class UserPortalConfigService {
     pageConfigCache_.put(pageId, page);
     return page ; 
   }
-  
+
   /**
    * This method should remove the page object in the database and  broadcast the event 
    * UserPortalConfigService.page.onRemove
@@ -194,7 +206,7 @@ public class UserPortalConfigService {
     storage_.create(page) ;
     pageConfigCache_.put(page.getPageId(), page);
   }
-  
+
   /**
    * This method should update the given page object
    * @param page
@@ -206,12 +218,12 @@ public class UserPortalConfigService {
   }
 
 //**************************************************************************************************
-  
+
   public void create(PageNavigation navigation) throws Exception {
     storage_.create(navigation);
     pageNavigationCache_.put(navigation.getId(), navigation);
   }
-  
+
   /**
    * This method should create or update the navigation object in the database
    * @param navigation
@@ -221,7 +233,7 @@ public class UserPortalConfigService {
     storage_.save(navigation) ;
     pageNavigationCache_.select(new ExpireKeyStartWithSelector(navigation.getId())) ;
   }
-  
+
   /**
    * This method should  remove the navigation object from the database
    * @param navigation
@@ -231,16 +243,48 @@ public class UserPortalConfigService {
     storage_.remove(navigation) ;
     pageNavigationCache_.remove(navigation.getId());
   }
+
   
+//TODO: Tung.Pham modified
   PageNavigation getPageNavigation(String id) throws Exception {
     PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(id) ;
-    if(navigation != null) return navigation ;
+    if(navigation != null) return navigation ; 
     navigation  = storage_.getPageNavigation(id) ;
-    pageNavigationCache_.put(id, navigation);
-    return navigation ; 
+    if (navigation != null) {
+      pageNavigationCache_.put(id, navigation);
+      return navigation ; 
+    }
+    
+    return null ;
+  }
+  
+  //TODO: Tung.Pham added
+  private void copyPages(PageNavigation navi, String portalName) throws Exception {
+    if (navi == null) return ;
+    List<PageNode> pageNodes = navi.getNodes() ;
+    for (PageNode ele : pageNodes) {
+      copyPages(ele, portalName) ;
+    }
+  }
+  
+  //TODO: Tung.Pham added
+  private void copyPages(PageNode node, String portalName) throws Exception {
+    String pageId = node.getPageReference() ;
+    if (pageId != null) {
+      Page page = storage_.getPage(pageId) ;
+      if (page != null) {
+        page.setOwnerId(portalName) ;
+        storage_.create(page) ;        
+      }
+    }
+    List<PageNode> children = node.getChildren() ;
+    if (children == null) return ;
+    for (PageNode ele : children) {
+      copyPages(ele, portalName) ;
+    }
+
   }
 
   @SuppressWarnings("unused")
   public void initListener(ComponentPlugin listener) { }
-
 }
