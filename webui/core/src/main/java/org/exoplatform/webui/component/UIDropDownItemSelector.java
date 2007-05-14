@@ -35,7 +35,7 @@ public class UIDropDownItemSelector extends UIComponent {
     options_ = new ArrayList<SelectItemOption<String>>();
     isEnable = true;
     selected_ = null;
-    onServer = true;
+    onServer = false;
   }
   
   public void setMaxShow(int max) {maxShow = max; }

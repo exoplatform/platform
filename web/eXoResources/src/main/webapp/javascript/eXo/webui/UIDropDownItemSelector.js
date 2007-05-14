@@ -72,8 +72,7 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 	var DOMUtil = eXo.core.DOMUtil;
 	var targ = eXo.core.Browser.getEventSource(e);
 	
-	
-	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector") { 
+	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector") {
 		targ = targ.parentNode;
 	}
 	var parentSelector = DOMUtil.findAncestorByClass(targ, "UIDropDownItemSelector");
@@ -85,7 +84,7 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 	var itemLabel = DOMUtil.findFirstDescendantByClass(targ, "div", "ItemSelectorLabel");
 	var strItemLabel = itemLabel.innerHTML;
 	selectedItemLabel.innerHTML = strItemLabel;
-	if(strItemLabel.length > 20){
+	if(strItemLabel.length > 20) {
 		eXo.webui.UIDropDownItemSelector.onload();
 	} 
 	targ.className = targ.oldClassName = "OverItemSelector";
@@ -98,15 +97,17 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 		ajaxGet(eXo.env.server.createPortalURL(this.getAttribute("targetParent"), this.getAttribute("action"), true, params)) ;
 		return;
 	}
-	 
+	
 	var itemSelectorAncestor = DOMUtil.findAncestorByClass(parentSelector, "ItemSelectorAncestor") ;
 	var itemList = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemList") ;
 	var itemSelectorLabel = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemSelectorLabel") ;
+	
 	if(itemList == null) return;
-	for(i = 0; i < itemSelectorLabel.length; ++i){
+	for(i = 0; i < itemSelectorLabel.length; ++i) {
 		if(i >= itemList.length) continue;
 		if(itemLabel == itemSelectorLabel[i]) {
 			itemList[i].style.display = "block";
+			
 		} else {
 			itemList[i].style.display = "none";
 		}
@@ -120,16 +121,16 @@ UIDropDownItemSelector.prototype.onload = function() {
 	var selectedItemLabel = DOMUtil.findFirstDescendantByClass(uiDropDownItemSelector, "div", "SelectedItemLabel");
 	var strLabel = selectedItemLabel.innerHTML;
 	
-	while(strLabel.charCodeAt(0)<= 32){
+	while(strLabel.charCodeAt(0) <= 32){
 		var tmp = strLabel.charAt(1); 
-		for(var i=2; i<strLabel.length; ++i){
+		for(var i = 2; i < strLabel.length; ++i){
 			tmp = tmp + strLabel.charAt(i);
 		}
 		strLabel = tmp;
 	}
-	while(strLabel.charCodeAt(strLabel.length-1)<= 32){
+	while(strLabel.charCodeAt(strLabel.length - 1) <= 32){
 		var tmp = strLabel.charAt(0); 
-		for(var i=1; i<strLabel.length-1; ++i){
+		for(var i = 1; i<strLabel.length - 1; ++i){
 			tmp = tmp + strLabel.charAt(i);
 		}
 		strLabel = tmp;
