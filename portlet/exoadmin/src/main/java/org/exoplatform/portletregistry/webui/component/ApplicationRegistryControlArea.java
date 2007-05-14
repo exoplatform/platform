@@ -58,6 +58,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
     ApplicationRegistryService service = 
       getApplicationComponent(ApplicationRegistryService.class) ;
     portletCategories = service.getApplicationCategories(); 
+    
     if(portletCategories == null) portletCategories = new ArrayList<ApplicationCategory>(0);
     if(portletCategories.size() > 0){
       setSelectedCategory(portletCategories.get(0));
