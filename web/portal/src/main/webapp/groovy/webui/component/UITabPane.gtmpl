@@ -3,13 +3,9 @@
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
 %>
 
-<%//Begin UITabPane%>
 <div class="UITabPane" id="$uicomponent.id">
-  <%//Begin TabPaneContent%>
   <div class="TabPaneContent"> 
-    <%//Begin WorkingArea%>
     <div class="WorkingAreaWithHelp">
-    	<%//Begin Tabs%>
       <div class="UIHorizontalTabs">
         <div class="LeftHorizontalTabs">
 	     	  <div class="RightHorizontalTabs">
@@ -35,8 +31,6 @@
 			    </div>
 			  </div>
       </div>
-      <%//End UIHorizontalTabs%>
-      <%//Start UITabContentContainer%>
       <div class="UITabContentContainer">
         <%
           for(uiChild in uicomponent.getChildren()) { 
@@ -48,10 +42,6 @@
           }
         %>
       </div>  
-      <%//End UITabContentContainer%>
     </div>  
-    <%//End WorkingArea%>
   </div>  
-  <%//End TabPaneContent%>
 </div>  
-<%//End UITabPane%>

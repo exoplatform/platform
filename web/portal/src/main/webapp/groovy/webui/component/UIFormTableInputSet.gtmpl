@@ -1,5 +1,4 @@
 <%import org.exoplatform.webui.component.UIComponent ;%>
-<!--Start UIGrid-->
 <table  class="UIGrid" cellspacing="0" borderspacing="0">
   <thead>
     <tr>
@@ -32,4 +31,3 @@
   <%}%>
   </tbody>
 </table> 
-<!--End UIGrid-->

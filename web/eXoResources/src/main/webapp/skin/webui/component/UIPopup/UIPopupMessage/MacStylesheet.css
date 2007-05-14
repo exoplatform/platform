@@ -1,73 +1,84 @@
 @import url("/eXoResources/skin/webui/component/UIPopupWindow/MacStylesheet.css") ;
 
 .UIPopupMessages {
-  padding: 10px;
 }
 
-.UIPopupMessages .PopupMessageFrame {
-  border: solid 1px gray;
-  background: #efefef;
-  padding: 1px ;
+.UIPopupMessages .UIHorizontalTabs {
+	height: 35px;
+	background: url(MacSkin/background/MessageTabBar1x35.gif) repeat-x top;
+	padding: 1px 4px 0px 4px;
 }
 
-.UIPopupMessages .PopupMessagePanel {
-  border: solid 1px #cdcdcd ;
-  background: url('/eXoResources/background/MacSkin/Background1x4.png');
+.UIPopupMessages .UITabContent {
+	border: none;
 }
 
 .UIPopupMessages .PopupMessageBox {
-  border: solid 1px #ffffff ;
-  background: url('/eXoResources/background/MacSkin/Background1x4.png');
-  padding: 10px;
+  padding: 5px;
+  height: 200px;
+  overflow: auto;
 }
 
-.UIPopupMessages .PopupMessageContainer {
-  overflow: hidden;
+.UIPopupMessages .WarningMessage .MessageContainer  {
+  color: orange;
+  padding: 4px 0px 4px 10px;
+  border-bottom: 1px dotted #c3c3c3;
+  font-size: 11px;
 }
 
-.UIPopupMessages .PopupMessageBox .PopupMessageIcon {
-  float: left;
-}
-
-.UIPopupMessages .ErrorMessage .PopupMessageTitle {
+.UIPopupMessages .ErrorMessage .MessageContainer  {
   color: red;
-  font-weight: bold;
-  padding-left: 7px;
-  height: 32px; line-height: 32px; vertical-align: middle;
-  float: left;
+  padding: 4px 0px 4px 10px;
+  border-bottom: 1px dotted #c3c3c3;
+  font-size: 11px;
 }
 
-.UIPopupMessages .WarningMessage .PopupMessageTitle {
-  color: #ef810f;
-  font-weight: bold;
-  padding-left: 7px;
-  height: 32px; line-height: 32px; vertical-align: middle;
-  float: left;
-}
-
-.UIPopupMessages .InfoMessage .PopupMessageTitle {
-  color: #005cff;
-  font-weight: bold;
-  margin-left: 7px;
-  height: 32px; line-height: 32px; vertical-align: middle;
-  float: left;
-}
-
-.UIPopupMessages .MessageContainer {
-  padding-left: 35px;
-  padding-top: 4px;
+.UIPopupMessages .InfoMessage .MessageContainer {
+  padding: 4px 0px 4px 10px;
+  border-bottom: 1px dotted #c3c3c3;
+  font-size: 11px;
 }
 
 .UIPopupMessages .PopupMessageContainer .PopupIcon {
   float: left;
+  width: 25px; height: 17px;
+  margin-top: 5px;
+}
+
+.UIPopupMessages .PopupMessageContainer .InfoMessageIcon {
+	background: url(MacSkin/background/InfoIcon.gif) no-repeat center ;
+}
+
+.UIPopupMessages .PopupMessageContainer .WarningMessageIcon {
+	background: url(MacSkin/background/WarningIcon.gif) no-repeat center;
+}
+
+.UIPopupMessages .PopupMessageContainer .ErrorMessageIcon {
+	background: url(MacSkin/background/ErrorIcon.gif) no-repeat center;
 }
 
 .UIPopupMessages .PopupMessageContainer .PopupMessage {
-  float: left;
-  height: 16px; line-height: 16px; vertical-align: middle;
-  margin-left: 5px;
+  line-height: 16px;
+  vertical-align: middle;
+  padding: 5px 0px;
+  margin-left: 35px;
+}
+
+.UIPopupMessages .MessageActionBar {
+	background: url(MacSkin/background/MessageActionBar1x35.gif) repeat-x;
+	height: 35px;
 }
 
 .UIPopupMessages .UIAction {
-  width: 70px;
+	padding: 8px 0px 0px 0px;
+}
+
+.UIPopupMessages .UIAction .ActionContainer{
+	float: none;
+}
+
+.UIPopupMessages .UIAction .ActionContainer .ActionButton{
+	width: 70px;
+	margin:auto;
+	float: none;
 }

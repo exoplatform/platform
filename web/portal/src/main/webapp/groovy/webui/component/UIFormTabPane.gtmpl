@@ -46,7 +46,6 @@
         <%uiform.begin()%>
         <input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.renderTabId">
 	    	<div class="HorizontalLayout">
-          
 	        <div class="UITabContentContainer">
             <%
               for(formInput in uicomponent.getChildren()) { 
@@ -77,7 +76,6 @@
 									    </div>
 										</div>
 									</div>
-	                
 								</div>
 	            <%}%>
 	          </div>

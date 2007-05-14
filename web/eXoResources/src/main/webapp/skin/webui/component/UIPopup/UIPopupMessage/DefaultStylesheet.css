@@ -7,26 +7,14 @@
 	padding: 2px 4px 0px 4px;
 }
 
-.UIPopupMessages .UITabContentContainer {
-}
-
-.UIPopupMessages .UITabContent {
+.UIPopupMessages .UITabPane .UITabContent {
 	border: none;
-}
-
-.UIPopupMessages .PopupMessageFrame {
-}
-
-.UIPopupMessages .PopupMessagePanel {
 }
 
 .UIPopupMessages .PopupMessageBox {
   padding: 5px;
   height: 200px;
   overflow: auto;
-}
-
-.UIPopupMessages .PopupMessageContainer {
 }
 
 .UIPopupMessages .WarningMessage .MessageContainer  {

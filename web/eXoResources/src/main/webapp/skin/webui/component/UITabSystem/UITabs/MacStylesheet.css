@@ -268,28 +268,28 @@
 
 /*==============================NormalTab for MessageTab=====================*/
 .UIHorizontalTabs .MessageTabDialog .NormalTab {
-  line-height: 27px;
+  line-height: 32px;
   margin-right: 1px;
   font-size: 11px; color: #202020; font-weight: normal;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .LeftTab {
   padding-left: 2px;
-  line-height: 27px;
+  line-height: 32px;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .RightTab {
-  line-height: 27px;
+  line-height: 32px;
   padding-right: 7px;
-  background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y right;
+  background: url('MacSkin/background/SeparatorLine1x2.gif') repeat-y right;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .MiddleTab {
-  line-height: 27px;
+  line-height: 32px;
   vertical-align: middle;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
-  color: black; font-size: 11px; font-weight: normal;
+  color: black; font-size: 12px; font-weight: normal;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab div:hover{
@@ -298,93 +298,93 @@
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .TabIcon {
   float: left;
-  width: 32px; height: 21px;
-  margin-top: 4px;
+  width: 30px; height: 25px;
+  margin: 4px 4px 0px 2px;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .InfoIcon {
-  background: url('DefaultSkin/background/BlueInfoSign.gif') no-repeat;
+  background: url('MacSkin/background/BlueInfoSign.png') no-repeat;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .ErrorIcon {
-  background: url('DefaultSkin/background/RedErrorSign.gif') no-repeat;
+  background: url('MacSkin/background/RedErrorSign.png') no-repeat;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .WarningIcon {
-  background: url('DefaultSkin/background/YellowWarningSign.gif') no-repeat;
+  background: url('MacSkin/background/YellowWarningSign.png') no-repeat;
 }
 
 /*==============================Disable Tab for MessageTab=====================*/
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab {
-  line-height: 27px;
+  line-height: 32px;
   margin-right: 1px;
-  font-size: 11px; color: #202020; font-weight: normal;
+  color: #202020; font-weight: normal;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .LeftTab {
   padding-left: 2px;
-  line-height: 27px;
+  line-height: 31px;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .RightTab {
-  line-height: 27px;
+  line-height: 32px;
   padding-right: 7px;
-  background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y right;
+  background: url('MacSkin/background/SeparatorLine1x2.gif') repeat-y right;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {
-  line-height: 27px;
+  line-height: 32px;
   vertical-align: middle;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
-  color: grey; font-size: 11px; font-weight: normal;
+  color: grey; font-size: 12px; font-weight: normal;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .TabIcon {
   float: left;
-  width: 32px; height: 21px;
-  margin-top: 4px;
+  width: 30px; height: 25px;
+  margin: 4px 4px 0px 2px;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .InfoIcon {
-  background: url('DefaultSkin/background/GreyInfoSign.gif') no-repeat;
+  background: url('MacSkin/background/GreyInfoSign.png') no-repeat;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .ErrorIcon {
-  background: url('DefaultSkin/background/GreyErrorSign.gif') no-repeat;
+  background: url('MacSkin/background/GreyErrorSign.png') no-repeat;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .WarningIcon {
-  background: url('DefaultSkin/background/GreyWarningSign.gif') no-repeat;
+  background: url('MacSkin/background/GreyWarningSign.png') no-repeat;
 }
 /*==============================Selected Tab for MessageTab=====================*/
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab {
-  line-height: 27px;
+  line-height: 32px;
   font-size: 11px;
   color: #058ee6;
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .LeftTab {
-  line-height: 27px;
+  line-height: 32px;
   padding-left: 2px;
-  background: url('DefaultSkin/background/LeftSelectedMessageTab2x27.gif') no-repeat left;;
+  background: #e6e6e6;
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .RightTab {
-  line-height: 27px;
+  line-height: 32px;
   padding-right: 7px;
-  background: url('DefaultSkin/background/RightSelectedMessageTab7x27.gif') no-repeat right;
+  background: #e6e6e6 url('MacSkin/background/SeparatorLine2x2.gif') repeat-y right;
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .MiddleTab {
-  line-height: 27px;
+  line-height: 32px;
   vertical-align: middle;
-  background: url('DefaultSkin/background/CenterSelectedMessageTab1x27.gif') repeat-x;
+  background: #e6e6e6;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
-  color: #058ee6; font-size: 11px; font-weight: normal;
+  color: #058ee6; font-weight: normal; font-size: 12px;
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab  div:hover{
@@ -393,19 +393,19 @@
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .TabIcon {
   float: left;
-  width: 32px; height: 21px;
-  margin-top: 4px;
+  width: 30px; height: 25px;
+  margin: 4px 4px 0px 2px;
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .InfoIcon {
-  background: url('DefaultSkin/background/BlueInfoSign.gif') no-repeat;
+  background: url('MacSkin/background/BlueInfoSign.png') no-repeat;
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .ErrorIcon {
-  background: url('DefaultSkin/background/RedErrorSign.gif') no-repeat;
+  background: url('MacSkin/background/RedErrorSign.png') no-repeat;
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .WarningIcon {
-  background: url('DefaultSkin/background/YellowWarningSign.gif') no-repeat;
+  background: url('MacSkin/background/YellowWarningSign.png') no-repeat;
 }
 

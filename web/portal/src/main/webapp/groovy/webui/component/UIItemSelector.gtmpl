@@ -50,15 +50,15 @@
             if(category.isSelected()) display = "block";                 
         %>
             <div class="ItemDetail" style="display: $display;">
-            <%               
-              for(opt in options){
-            %>
-              <div class="TemplateContainer">
-                <div class="Template">
-                  <div class="<%=opt.getIcon();%>Image"><span></span></div>
-                </div>
-              </div>
-            <%}%>
+	            <%               
+	              for(opt in options){
+	            %>
+	              <div class="TemplateContainer">
+	                <div class="Template">
+	                  <div class="<%=opt.getIcon();%>Image"><span></span></div>
+	                </div>
+	              </div>
+	            <%}%>
             </div> 
         <%}%>
         </div>
