@@ -277,7 +277,32 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
     List<org.exoplatform.web.application.Application> applications = 
       appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE) ;
+    // Save apps from list to category
+    for (org.exoplatform.web.application.Application app : applications) {
+      // Save category
+      ApplicationCategory category = new ApplicationCategory() ;
+      category.setName(app.getApplicationGroup()) ;
+      category.setDisplayName(app.getApplicationGroup()) ;
+      category.setDescription(app.getApplicationGroup()) ;
+      save(category) ;
+
+      // Save app
+      save(category, convertApplication(app)) ;
+    }
+  }
+  
+  //TODO: Tung.Pham added
+  private Application convertApplication(org.exoplatform.web.application.Application app) {
+    Application returnApplication = new Application() ;
     
+    returnApplication.setApplicationName(app.getApplicationName()) ;
+    returnApplication.setId(app.getApplicationId()) ;
+    returnApplication.setApplicationGroup(app.getApplicationGroup()) ;
+    returnApplication.setCategoryName(app.getApplicationGroup()) ;
+    returnApplication.setApplicationType(app.getApplicationType()) ;
+    returnApplication.setDescription(app.getDescription()) ;
+    
+    return returnApplication ;
   }
   
   private Node getApplicationNode(Session session, String category, String name) throws Exception {
@@ -288,16 +313,17 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     return null;
   }
 
+  //TODO: Tung.Pham modified
   public void clearAllRegistries() throws Exception {    
     Session session = jcrRegService_.getSession();
     Node homeNode = jcrRegService_.getApplicationRegistryNode(session, APPLICATION_NAME);
     Node parentNode = homeNode.getParent();
     homeNode.remove();
     parentNode.save();
-    parentNode.addNode(APPLICATION_NODE_TYPE);
+    //parentNode.addNode(APPLICATION_NODE_TYPE);
+    parentNode.addNode(APPLICATION_NAME);
     parentNode.save();
     session.save();
     session.logout();
-  }
- 
+  } 
 }
