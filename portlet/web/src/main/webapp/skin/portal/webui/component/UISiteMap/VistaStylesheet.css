@@ -16,6 +16,10 @@
   overflow: hidden ; /* was auto */
 }
 
+.UISitemap .DefaultPageIcon{
+	background: url(/eXoResources/icons/16x16/DefaultSkin/DefaultPageIcon.gif) no-repeat;
+}
+
 .UISitemap .SitemapContainer {
   width: 625px;
   margin: auto;
@@ -51,7 +55,6 @@
 
 .UISitemap .SitemapItemBox .TitleBar .Title {
   float: left;
-  margin-top: 1px;
   overflow: hidden;
   height: 22px;
 }

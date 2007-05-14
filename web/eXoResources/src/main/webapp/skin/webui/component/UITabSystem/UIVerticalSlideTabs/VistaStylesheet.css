@@ -80,7 +80,7 @@
 /*#######################-SelectedVTabSimpleStyle VerticalSlideTabs-######################*/
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle {
 	cursor: pointer;
-	margin: 5px;
+	margin: 5px 5px 0px 5px;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLeft {
@@ -127,6 +127,8 @@
   padding: 10px ;
   font-size: 11px;
   border: 1px solid #b7b7b7;
+  border-top: none;
+  margin: 0px 5px 0px 5px;
 }
 
 

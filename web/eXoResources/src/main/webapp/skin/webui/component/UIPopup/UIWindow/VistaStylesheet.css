@@ -3,8 +3,9 @@
   width: 720px ;	
 }
 
-.UIPageDesktop .UIWindow .UIApplication {
-  height: 350px ;
+.UIPageDesktop .UIWindow .UIAccountPortlet{
+  margin: 0px ;
+  border: none;
 }
 /*
 .UIWindow .UICommunityPortlet {
@@ -225,6 +226,11 @@
 
 .UIPageBody .UIWindow {
   width: auto ; height: auto;
+}
+
+.UIPageBody .UIWindow .UIContentPortlet{
+  border: none;
+  margin: 0px;
 }
 
 .UIPageBody .UIWindow .UIApplication {

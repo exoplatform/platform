@@ -53,8 +53,8 @@
 
 .UIAccountPortlet .UIItemSelector .UIFormInputSet .FieldContainer {
   width: 400px;
-  margin: auto; margin-bottom: 5px;
-  padding-top: 3px;
+  margin: 7px auto 5px auto;
+  padding-top: 0px;
   overflow: hidden;
 }
 
