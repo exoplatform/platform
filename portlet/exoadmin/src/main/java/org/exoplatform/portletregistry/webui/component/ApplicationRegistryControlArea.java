@@ -5,14 +5,11 @@
 package org.exoplatform.portletregistry.webui.component;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.application.registry.jcr.ApplicationRegistryServiceImpl;
-import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIPopupWindow;
@@ -53,12 +50,13 @@ public class ApplicationRegistryControlArea extends UIContainer {
     UICategoryForm uiCategoryForm = createUIComponent(UICategoryForm.class, null, null);
     addCategoryPopup.setUIComponent(uiCategoryForm);
     uiCategoryForm.setValue(null);
+    initApplicationCategories() ;
   }  
 
   @SuppressWarnings("unchecked")
-  public void initValues(Collection portletData) throws Exception {
-    ApplicationRegistryServiceImpl service = (ApplicationRegistryServiceImpl) getApplicationComponent(ApplicationRegistryService.class) ;
-    if(portletData != null) service.importJSR168Portlets();
+  public void initApplicationCategories() throws Exception {
+    ApplicationRegistryService service = 
+      (ApplicationRegistryService) getApplicationComponent(ApplicationRegistryService.class) ;
     portletCategories = service.getApplicationCategories(); 
     if(portletCategories == null) portletCategories = new ArrayList<ApplicationCategory>(0);
     if(portletCategories.size() > 0){
@@ -144,16 +142,20 @@ public class ApplicationRegistryControlArea extends UIContainer {
   static public class ImportPortletActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
       ApplicationRegistryControlArea uiSource = event.getSource();
-      PortletContainerMonitor monitor = uiSource.getApplicationComponent(PortletContainerMonitor.class);
-      Collection portletDatas = monitor.getPortletRuntimeDataMap().values();       
-      uiSource.initValues(portletDatas) ;
+      ApplicationRegistryService service = 
+        (ApplicationRegistryService) uiSource.getApplicationComponent(ApplicationRegistryService.class) ;
+      service.importJSR168Portlets() ;       
+      uiSource.initApplicationCategories() ;
     }
   }
   
   static public class ImportApplicationActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
-      
-      System.out.println("\n\n\n\n\n IMPORT APPLICATION  \n\n\n\n\n");
+      ApplicationRegistryControlArea uiSource = event.getSource();
+      ApplicationRegistryService service = 
+        (ApplicationRegistryService) uiSource.getApplicationComponent(ApplicationRegistryService.class) ;
+      service.importExoApplications();
+      uiSource.initApplicationCategories();
     }
   }
   
@@ -165,7 +167,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
       for(ApplicationCategory ele : list){
         service.remove(ele) ;
       }
-      uiSource.initValues(null);
+      uiSource.initApplicationCategories();
     }
   }
 
@@ -176,7 +178,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
       ApplicationCategory selectedCategory = uiComp.getSelectedPortletCategory();
       if(selectedCategory == null) return;
       service.remove(selectedCategory) ; 
-      uiComp.initValues(null);      
+      uiComp.initApplicationCategories();
     }
   }
 

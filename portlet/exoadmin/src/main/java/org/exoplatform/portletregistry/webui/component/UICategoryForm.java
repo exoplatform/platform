@@ -83,7 +83,7 @@ public class UICategoryForm extends UIForm {
 
       uiForm.invokeSetBindingBean(category) ;
       service.save(category) ; 
-      uiRegistryCategory.initValues(null);
+      uiRegistryCategory.initApplicationCategories();
       uiRegistryCategory.setSelectedCategory(category);
     }
   }

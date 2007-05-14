@@ -126,7 +126,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
         Application newPortlet = clonePortlet(portlet);
         service.save(selectedCategory, newPortlet);
       }      
-      uiRegistryCategory.initValues(null);
+      uiRegistryCategory.initApplicationCategories() ;
       uiRegistryCategory.setSelectedCategory(selectedCategory);
     }  
     

@@ -12,9 +12,7 @@ public class UIPortletRegistryPortlet extends UIPortletApplication {
   
   public UIPortletRegistryPortlet() throws Exception{
     addChild(ApplicationRegistryWorkingArea.class, null, null);  
-    ApplicationRegistryControlArea uiControlArea = addChild(ApplicationRegistryControlArea.class, null, null);  
-    
-    uiControlArea.initValues(null);
+    addChild(ApplicationRegistryControlArea.class, null, null);
   }
   
   public void processRender(WebuiRequestContext context) throws Exception {
