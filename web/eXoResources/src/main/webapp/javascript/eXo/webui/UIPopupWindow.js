@@ -4,6 +4,7 @@ function UIPopupWindow() {
 };
 
 UIPopupWindow.prototype.init = function(popupId, isShow, isResizable) {
+	var DOMUtil = eXo.core.DOMUtil ;
 	this.superClass = eXo.webui.UIPopup ;
 	var popup = document.getElementById(popupId) ;
 	var portalApp = document.getElementById("UIPortalApplication") ;
@@ -11,23 +12,23 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable) {
 	popup.style.visibility = "hidden" ;
 	this.superClass.init(popup) ;
 	
-	var contentBlock = eXo.core.DOMUtil.findFirstDescendantByClass(popup, 'div' ,'Content');
+	var contentBlock = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'Content');
 	if((eXo.core.Browser.getBrowserHeight() - 100 ) < contentBlock.offsetHeight) {
 		contentBlock.style.height = (eXo.core.Browser.getBrowserHeight() - 100) + "px";
 	}
 
-	var popupBar = eXo.core.DOMUtil.findFirstDescendantByClass(popup, 'div' ,'PopupTitle') ;
+	var popupBar = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'PopupTitle') ;
 
 	popupBar.onmousedown = this.initDND ;
 	
 	if(isShow == false) this.superClass.hide(popup) ; 
-	var popupCloseButton = eXo.core.DOMUtil.findFirstDescendantByClass(popup, 'div' ,'CloseButton') ;
+	var popupCloseButton = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'CloseButton') ;
 	popupCloseButton.onmouseup = function() {
-		eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject").style.display = "none" ;
+		DOMUtil.findAncestorByClass(this, "UIDragObject").style.display = "none" ;
 	}
 	
 	if(isResizable) {
-		var resizeBtn = eXo.core.DOMUtil.findFirstDescendantByClass(popup, "div", "ResizeButton");
+		var resizeBtn = DOMUtil.findFirstDescendantByClass(popup, "div", "ResizeButton");
 		resizeBtn.style.display = 'block' ;
 		resizeBtn.onmousedown = function(e) {
 			portalApp.setAttribute("popupId", popupId);
@@ -83,19 +84,20 @@ UIPopupWindow.prototype.resize = function(e) {
 };
 
 UIPopupWindow.prototype.show = function(popup) {
+	var DOMUtil = eXo.core.DOMUtil;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 	var portalApp = document.getElementById("UIPortalApplication");
 	
-	var maskLayer = eXo.core.DOMUtil.findFirstDescendantByClass(portalApp, "div", "UIMaskWorkspace");
+	var maskLayer = DOMUtil.findFirstDescendantByClass(portalApp, "div", "UIMaskWorkspace");
 	zIndex = 0;
 	var currZIndex = 0;
 	if (maskLayer != null) {
-		currZIndex = eXo.core.DOMUtil.getStyle(maskLayer, "zIndex");
+		currZIndex = DOMUtil.getStyle(maskLayer, "zIndex");
 		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex;
 	}
-	var popupWindows = eXo.core.DOMUtil.findDescendantsByClass(portalApp, "div", "UIPopupWindow");
+	var popupWindows = DOMUtil.findDescendantsByClass(portalApp, "div", "UIPopupWindow");
 	for (var i = 0; i<popupWindows.length; i++) {
-		currZIndex = eXo.core.DOMUtil.getStyle(popupWindows[i], "zIndex");
+		currZIndex = DOMUtil.getStyle(popupWindows[i], "zIndex");
 		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex;
 	}
   

@@ -223,12 +223,14 @@ function HttpResponseHandler(){
 	  } catch(err) {                  
 	  }
 	  var elements = script.split(';') ;
-	  for(i = 0; i < elements.length; i++) {
-	    try {
-	      eval(elements[i]) ;
-	    } catch(err) {
-	      alert(err +" : "+elements[i] + "  -- " + i) ;      
-	    }
+	  if(elements.length) {
+		  for(i = 0; i < elements.length; i++) {
+		    try {
+		      eval(elements[i]) ;
+		    } catch(err) {
+		      alert(err +" : "+elements[i] + "  -- " + i) ;      
+		    }
+		  }
 	  } 
 	} ;
 	
