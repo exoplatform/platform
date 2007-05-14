@@ -8,6 +8,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -62,8 +63,9 @@ public class UIPageSelector extends UIFormInputContainer<Page> {
   
   public void setUIInputValue(Object input) throws Exception { 
     String id =  (String)input ; 
-    DataStorage service = getApplicationComponent(DataStorage.class) ;
-    value_ = service.getPage(id) ;
+    PortalRequestContext pcontext = Util.getPortalRequestContext();      
+    UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
+    value_ = service.getPage(id, pcontext.getRemoteUser()) ;
   }
 
   public Class getUIInputValueType() {  return String.class ; }
@@ -77,12 +79,12 @@ public class UIPageSelector extends UIFormInputContainer<Page> {
   static public class SelectPageActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {     
       UIPageBrowser uiPageBrowser = event.getSource() ;
+      PortalRequestContext pcontext = Util.getPortalRequestContext();      
       String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      DataStorage service = uiPageBrowser.getApplicationComponent(DataStorage.class) ;
-      Page page = service.getPage(id) ;
+      UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
+      Page page = service.getPage(id, pcontext.getRemoteUser()) ;
       
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);      
-      PortalRequestContext pcontext = Util.getPortalRequestContext();      
       if(page == null){
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{page.getName()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());

@@ -19,6 +19,7 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
@@ -126,8 +127,8 @@ public class UIAddPortletForm extends UIFormTabPane {
       }      
 
       Page page = PortalDataModelUtil.toPageModel(uiPage); 
-      DataStorage configService = uiPage.getApplicationComponent(DataStorage.class);
-      configService.save(page);
+      UserPortalConfigService configService = uiPortal.getApplicationComponent(UserPortalConfigService.class);     
+      configService.update(page);
 
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext().getParentAppRequestContext();
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);

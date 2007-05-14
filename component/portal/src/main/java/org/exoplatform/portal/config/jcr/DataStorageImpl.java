@@ -300,13 +300,13 @@ public class DataStorageImpl implements DataStorage {
 //------------------------------------------------- Util method-------- ----------------------------
   
   private Node getDataNode(Session session, String ownerType, String ownerId) throws Exception {
-    if(ownerType.equals(PORTAL_TYPE)) {
+    if(ownerType.equals(PortalConfig.PORTAL_TYPE)) {
       Node appNode = jcrRegService_.getApplicationRegistryNode(session, PORTAL_DATA);
       if(appNode.hasNode(ownerId)) return appNode.getNode(ownerId);
       return null;
     }
     
-    if(ownerType.equals(USER_TYPE)){
+    if(ownerType.equals(PortalConfig.USER_TYPE)){
       Node node = jcrRegService_.getApplicationRegistryNode(session, ownerId, USER_DATA);
       if(node == null || !node.hasNode(ownerId)) return null;
       node = node.getNode(ownerId);
@@ -316,7 +316,7 @@ public class DataStorageImpl implements DataStorage {
       return null;
     } 
     
-    if(ownerType.equals(GROUP_TYPE)){
+    if(ownerType.equals(PortalConfig.GROUP_TYPE)){
       Node node = jcrRegService_.getApplicationRegistryNode(session, GROUP_DATA);
       String [] groups = ownerId.split("/");
       for(String group : groups) {
@@ -333,12 +333,12 @@ public class DataStorageImpl implements DataStorage {
   }
 
   private Node createDataNode(Session session, String ownerType, String ownerId) throws Exception {
-    if(ownerType.equals(PORTAL_TYPE)) {
+    if(ownerType.equals(PortalConfig.PORTAL_TYPE)) {
       Node appNode = jcrRegService_.getApplicationRegistryNode(session, PORTAL_DATA);
       return create(appNode, ownerId);
     } 
     
-    if(ownerType.equals(USER_TYPE)){
+    if(ownerType.equals(PortalConfig.USER_TYPE)){
       jcrRegService_.createUserHome(ownerId, false);
       jcrRegService_.createApplicationRegistry(ownerId, new ApplicationRegistry(USER_DATA), false);
       Node appNode = jcrRegService_.getApplicationRegistryNode(session, ownerId, USER_DATA);
@@ -346,7 +346,7 @@ public class DataStorageImpl implements DataStorage {
       return create(create(portalNode, EXO_DATA_TYPE), PORTAL);
     }
     
-    if(ownerType.equals(GROUP_TYPE)){
+    if(ownerType.equals(PortalConfig.GROUP_TYPE)){
       jcrRegService_.createApplicationRegistry(new ApplicationRegistry(GROUP_DATA), false);
       Node appNode = jcrRegService_.getApplicationRegistryNode(session, GROUP_DATA);
       String [] groups = ownerId.split("/");

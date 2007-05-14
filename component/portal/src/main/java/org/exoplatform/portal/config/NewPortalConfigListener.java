@@ -39,8 +39,8 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   private DataStorage pdcService_;  
   
   public NewPortalConfigListener(DataStorage pdcService,
-                                      ConfigurationManager cmanager,                                        
-                                      InitParams params) throws Exception {
+                                 ConfigurationManager cmanager,                                        
+                                 InitParams params) throws Exception {
     cmanager_ = cmanager ;
     pdcService_ = pdcService;
     

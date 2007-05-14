@@ -17,6 +17,7 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
@@ -201,7 +202,7 @@ public class UIPageForm extends UIFormTabPane {
       } else {
         page.setCreator(pcontext.getRemoteUser());
         page.setModifiable(true);
-        page.setOwnerType(DataStorage.USER_TYPE);
+        page.setOwnerType(PortalConfig.USER_TYPE);
         page.setOwnerId(pcontext.getRemoteUser());
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
         configService.create(page);

@@ -14,6 +14,10 @@ import java.util.ArrayList;
  **/
 public class PortalConfig {
   
+  final public static String USER_TYPE = "user";
+  final public static String GROUP_TYPE = "group";
+  final public static String PORTAL_TYPE = "portal";
+  
 	private String    name ;
 	private String    factoryId;
   private String    locale ;

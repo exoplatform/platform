@@ -10,6 +10,7 @@ import java.util.List;
 import org.exoplatform.organization.webui.component.UIAccessGroup;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponentDecorator;
@@ -103,8 +104,8 @@ public class UIPageNavigationForm extends UIFormTabPane {
       
       UIComponentDecorator uiFormParent = uiForm.getParent(); 
       uiFormParent.setUIComponent(null);
-      DataStorage configService = uiForm.getApplicationComponent(DataStorage.class);
-      configService.save(pageNav);  
+      UserPortalConfigService dataService = uiForm.getApplicationComponent(UserPortalConfigService.class);
+      dataService.update(pageNav);  
       event.getRequestContext().addUIComponentToUpdateByAjax(uiFormParent);    
     }
   }

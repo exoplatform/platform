@@ -7,16 +7,15 @@ package org.exoplatform.portal.component.view;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.AddJSApplicationToDesktopActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.AddPortletToDesktopActionListener;
-import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.event.Event.Phase;
 
 /**
  * Author : Nhu Dinh Thuan
@@ -60,7 +59,7 @@ public class UIPageBody extends UIComponentDecorator {
     } else {
       uiPage = createUIComponent(context, UIPage.class, null,  null);
       uiPage.setOwnerId(context.getRemoteUser());
-      uiPage.setOwnerType(DataStorage.USER_TYPE);
+      uiPage.setOwnerType(PortalConfig.USER_TYPE);
     }
     
     setUIComponent(uiPage);  

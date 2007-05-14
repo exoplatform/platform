@@ -86,17 +86,17 @@ public class UserPortalConfigService {
     portal.setModifiable(userACL_.hasPermission(portal, accessUser, mt));
 
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-    PageNavigation navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+portalName) ;
+    PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
     if (navigation != null) navigations.add(navigation);    
     
-    navigation = getPageNavigation(DataStorage.USER_TYPE+"::"+accessUser) ;
+    navigation = getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser) ;
     if (navigation != null) navigations.add(navigation) ;
 
     Collection memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
     Iterator mitr = memberships.iterator() ;
     while(mitr.hasNext()) {
       Membership m = (Membership) mitr.next() ;   
-      navigation = getPageNavigation(DataStorage.GROUP_TYPE+"::"+m.getGroupId()) ;
+      navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+m.getGroupId()) ;
       if (navigation != null) navigations.add(navigation) ;
     }   
     userACL_.computeNavigation(navigations, accessUser);
@@ -121,7 +121,7 @@ public class UserPortalConfigService {
     storage_.create(portal) ;
 
     List<PageNavigation> navigations = new ArrayList<PageNavigation>() ;
-    PageNavigation navi = getPageNavigation(DataStorage.PORTAL_TYPE + "::" + template).clone() ;
+    PageNavigation navi = getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + template).clone() ;
     if (navi == null) return null ;
     navi.setOwnerId(portalName) ;
     copyPages(navi, portalName) ;
@@ -142,7 +142,7 @@ public class UserPortalConfigService {
     if(portalConfig != null) storage_.remove(portalConfig);
     
     Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
-    query.setOwnerType(DataStorage.PORTAL_TYPE) ;
+    query.setOwnerType(PortalConfig.PORTAL_TYPE) ;
     query.setOwnerId(portalName) ;
     PageList pagelist = storage_.find(query) ;
     pagelist.setPageSize(10);
@@ -155,7 +155,7 @@ public class UserPortalConfigService {
       i++;
     }
     
-    PageNavigation navigation = getPageNavigation(DataStorage.PORTAL_TYPE+"::"+portalName) ;
+    PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
     if (navigation != null) remove(navigation);
   }
 

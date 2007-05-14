@@ -25,6 +25,7 @@ import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -110,9 +111,9 @@ public class UIPageActionListener {
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       uiPage.removeChildById(id);  
       Page page = PortalDataModelUtil.toPageModel(uiPage);    
-      DataStorage configService = uiPage.getApplicationComponent(DataStorage.class);
+      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
       if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-      configService.save(page);
+      configService.update(page);
       
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();      
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
@@ -183,9 +184,9 @@ public class UIPageActionListener {
       String save = event.getRequestContext().getRequestParameter("save");
       if(save != null && Boolean.valueOf(save).booleanValue()) {
         Page page = PortalDataModelUtil.toPageModel(uiPage); 
-        DataStorage configService = uiPage.getApplicationComponent(DataStorage.class);  
+        UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);     
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-        configService.save(page);
+        configService.update(page);
       }
 
       PortalRequestContext pcontext = Util.getPortalRequestContext();

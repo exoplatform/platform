@@ -8,6 +8,7 @@ import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIContainer;
@@ -76,8 +77,8 @@ public class UIChangeSkin extends UIContainer {
       
       uiPortal.setSkin(skin);
       PortalConfig portalConfig  = PortalDataModelUtil.toPortal(uiPortal);
-      DataStorage dataService = uiPortal.getApplicationComponent(DataStorage.class);
-      dataService.save(portalConfig);
+      UserPortalConfigService dataService = uiPortal.getApplicationComponent(UserPortalConfigService.class);
+      dataService.update(portalConfig);
 
       uiApp.setSkin(skin);
     }

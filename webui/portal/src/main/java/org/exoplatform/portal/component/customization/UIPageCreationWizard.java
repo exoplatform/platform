@@ -20,6 +20,7 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -152,7 +153,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);      
       WebuiRequestContext context = Util.getPortalRequestContext() ;  
       
-      String ownerType = DataStorage.USER_TYPE ;
+      String ownerType = PortalConfig.USER_TYPE ;
       String ownerId = context.getRemoteUser() ;
       UIPageNodeSelector uiNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class) ;
       PageNavigation pageNavi = uiNodeSelector.getSelectedNavigation() ;

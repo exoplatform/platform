@@ -15,6 +15,7 @@ import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
@@ -76,7 +77,6 @@ public class UIPageBrowser extends UISearch {
   public void defaultValue(Query<Page> query) throws Exception {
     lastQuery_ = query ;
     DataStorage service = getApplicationComponent(DataStorage.class) ;
-
     if(lastQuery_ == null) lastQuery_ = new Query<Page>(null, null, null, Page.class) ;
 
     PageList pagelist = service.find(lastQuery_) ;
@@ -166,8 +166,8 @@ public class UIPageBrowser extends UISearch {
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext(); 
       
       String id = pcontext.getRequestParameter(OBJECTID) ;
-      DataStorage dao = uiPageBrowser.getApplicationComponent(DataStorage.class) ;
-      Page page = dao.getPage(id) ;
+      UserPortalConfigService dao = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class) ;
+      Page page = dao.getPage(id, pcontext.getRemoteUser()) ;
       
       UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);      
 
@@ -200,8 +200,8 @@ public class UIPageBrowser extends UISearch {
       UIPageBrowser uiPageBrowser = event.getSource() ;      
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext(); 
       String id = pcontext.getRequestParameter(OBJECTID) ;
-      DataStorage service = uiPageBrowser.getApplicationComponent(DataStorage.class) ;
-      Page page = service.getPage(id) ;
+      UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class) ;
+      Page page = service.getPage(id, pcontext.getRemoteUser()) ;
       
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       if(page == null) {
@@ -238,7 +238,7 @@ public class UIPageBrowser extends UISearch {
       uiMaskWS.setUIComponent(uiPageForm);
       uiMaskWS.setShow(true);
 
-      uiPageForm.getUIStringInput("ownerType").setValue(DataStorage.USER_TYPE);
+      uiPageForm.getUIStringInput("ownerType").setValue(PortalConfig.USER_TYPE);
       uiPageForm.getUIStringInput("ownerId").setValue(prContext.getRemoteUser());      
       uiPageForm.removeChild(UIFormInputItemSelector.class);
       

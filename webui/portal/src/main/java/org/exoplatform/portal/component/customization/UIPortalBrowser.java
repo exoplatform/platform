@@ -20,6 +20,7 @@ import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIGrid;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -67,7 +68,6 @@ public class UIPortalBrowser extends UIContainer {
       UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);     
       PortalRequestContext prContext = Util.getPortalRequestContext();  
       String remoteUser = prContext.getRemoteUser();
-      
       UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, remoteUser);
       
       if(userPortalConfig == null) {
@@ -94,13 +94,15 @@ public class UIPortalBrowser extends UIContainer {
   
   static public class DeletePortalActionListener extends EventListener<UIPortalBrowser> {
     public void execute(Event<UIPortalBrowser> event) throws Exception {
-      String ownerUser = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      DataStorage service = event.getSource().getApplicationComponent(DataStorage.class) ;
-      PortalConfig config = service.getPortalConfig(ownerUser);
-      service.remove(config);
+      String portalName = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      UserPortalConfigService service = event.getSource().getApplicationComponent(UserPortalConfigService.class);
+      WebuiRequestContext webuiContext = event.getRequestContext();
+      UserPortalConfig config = service.getUserPortalConfig(portalName, webuiContext.getRemoteUser());
+      if(config != null && config.getPortalConfig().isModifiable()) {
+        service.removeUserPortalConfig(portalName);
+      }
       event.getSource().loadPortalConfigs();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-//      event.getRequestContext().addUIComponentToUpdateByAjax(event.getSource());
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
     }

@@ -14,7 +14,6 @@ import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
-import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -51,8 +50,8 @@ public class UIPortalManagementControlBar extends UIToolbar {
   public void save(Event<UIPortalManagementControlBar> event) throws Exception {
     UIPortal uiPortal = Util.getUIPortal();     
     PortalConfig portalConfig  = PortalDataModelUtil.toPortal(uiPortal);
-    DataStorage dataService = uiPortal.getApplicationComponent(DataStorage.class);
-    dataService.save(portalConfig);
+    UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);     
+    configService.update(portalConfig);
     Util.updateUIApplication(event);
   }
   

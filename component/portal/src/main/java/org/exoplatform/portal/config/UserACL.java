@@ -83,7 +83,7 @@ class UserACL {
     String [] groups = page.getAccessGroup();
     if(groups == null) groups = new String[]{"/user"}; 
     String owner = page.getCreator();
-    if(page.getOwnerType().equals(DataStorage.USER_TYPE)) owner = page.getOwnerId();
+    if(page.getOwnerType().equals(PortalConfig.USER_TYPE)) owner = page.getOwnerId();
     for(String group : groups) {
       if(hasPermission(owner, remoteUser, group, mt)) return true;
     }
@@ -94,7 +94,7 @@ class UserACL {
     String [] groups = nav.getAccessGroup();
     if(groups == null) groups = new String[]{"/user"}; 
     String owner = nav.getCreator();
-    if(nav.getOwnerType().equals(DataStorage.USER_TYPE)) owner = nav.getOwnerId();
+    if(nav.getOwnerType().equals(PortalConfig.USER_TYPE)) owner = nav.getOwnerId();
     for(String group : groups) {
       if(hasPermission(owner, remoteUser, group, mt)) return true;
     }
