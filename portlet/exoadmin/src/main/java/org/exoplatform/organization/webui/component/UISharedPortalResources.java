@@ -50,6 +50,20 @@ public class UISharedPortalResources extends UIForm {
   
   static  public class SaveActionListener extends EventListener<UISharedPortalResources> {
     public void execute(Event<UISharedPortalResources> event) throws Exception {
+      // get UserPortalConfigService
+      // get portalresource as portalName
+      // get selected group id as groupId 
+      // get all page by, review UIPageSelect, query set ownerType as DataStore.user_type and ownerId  as portalName 
+      // List<Page> list =  userPortalConfig.getPage(String portalName);
+      //for(Page page : list) {
+      //  page.setOnwnerType(DataStore.Group_type);
+      //  page.setOwnerId(groupId);
+      //  userPortalConfig.savePage(page);
+      //}
+      //PageNavigation nav = userPortalConfig.getPageNavigation(String portalName);
+      //  nav.setOnwnerType(DataStore.Group_type);
+      //  nav.setOwnerId(groupId);
+      //  userPortalConfig.saveNav(nav);      
       System.out.println("\n\n\n\n\n\n\n\n UISharedPortalResources \n\n\n\n\n\n\n\n");
     }
   }
