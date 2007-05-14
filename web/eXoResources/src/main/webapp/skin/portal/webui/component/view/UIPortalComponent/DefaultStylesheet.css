@@ -7,6 +7,26 @@
   margin: 0px 0px -1px 3px;
 }
 
+.UIPortlet .CONTROL-PORTLET .Content {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/MiscIcons/RSS.gif') no-repeat center;
+}
+
+.UIPortlet .CONTROL-PORTLET .Account {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/UserAccount.gif') no-repeat center;
+}
+
+.UIPortlet .CONTROL-PORTLET .Registry-Portlet {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/RegistryPortlet.gif') no-repeat center;
+}
+
+.UIPortlet .CONTROL-PORTLET .Site {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SiteMap.gif') no-repeat center;
+}
+
+.UIPortlet .CONTROL-PORTLET .Login {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ToolIcons/Key.gif') no-repeat center;
+}
+
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
   float: left ;
   width: 24px ; height: 15px ;
@@ -85,8 +105,8 @@
   cursor: pointer ;
 }
 
-.UIPortlet  .PortletIcon{
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultContainerIcon.gif') no-repeat;
+.UIPortlet .PortletIcon{
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPortletIcon.gif') no-repeat;
 }
 
 /*##############################- PortletLayoutDecorator  -################################*/
@@ -188,7 +208,7 @@
 .UIContainer .ContainerIcon {
 	float: left;
   width: 18px; height: 16px;
-  margin: 3px 5px 0px 5px;
+  margin: 4px 0px 0px 5px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultContainerIcon.gif') no-repeat ;
 }
 
@@ -206,7 +226,5 @@
 }
 
 .UIPage .LAYOUT-PAGE {
-  /*width: 99%;*/
-  /*margin: 10px 7px 7px 10px ;/*
-  /*BUG ON IE*/
+ 
 }

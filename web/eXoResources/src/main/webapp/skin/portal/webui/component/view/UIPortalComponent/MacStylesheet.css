@@ -88,6 +88,10 @@
 .UIPortlet  {
 }
 
+.UIPortlet .PortletIcon{
+  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat;
+}
+
 /*##############################- PortletLayoutDecorator  -################################*/
 .PortletLayoutDecorator {
 }
@@ -150,11 +154,11 @@
   background: url('MacSkin/background/ContainerBackground1x4.gif') repeat;
   border: solid 1px #7b7b7b ; border-bottom: solid 1px #1e1f1f;
   padding: 8px 0px 0px 0px ;
-  margin: 0px 13px 10px 13px;
+  margin: 0px 10px 10px 13px;
 }
 
 .UIContainer .CONTROL-CONTAINER {
-  margin: 0px 10px -1px 10px;
+  margin: 0px 7px -1px 10px;
 }
 
 .UIContainer .CONTROL-CONTAINER .DragControlArea {

@@ -15,6 +15,8 @@
   def selectedCategory = uicomponent.getSelectedPortletCategory() ;
   def portlets = uicomponent.getPortlets() ;
   def selectedPortlet = uicomponent.getSelectedPortlet() ;
+  
+ 
 %>
 
 <% /* Begin Portlet Registry Control*/ %>
@@ -25,17 +27,18 @@
 				<div class="LeftBar">
 					<div class="RightBar">
 						<div class="MiddleBar">
-							<div class="OverflowContainer">
-								<a href="<%=uicomponent.event("AddCategory")%>" class="CategoryControlIcon AddCategoryIcon" 
-								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.AddCategory")%>">
-								  <span></span>
-								</a>
-								<a href="<%=uicomponent.event("ImportPortlet")%>" class="CategoryControlIcon ImportCategoryIcon"
+							<div class="ActionsContainer">
+								<a href="<%=uicomponent.event("ImportPortlet")%>" class="CategoryControlIcon ImportPortletsIcon" 
 								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.importPortlets")%>">
 								  <span></span>
 								</a>
-								<a href="<%=uicomponent.event("ImportApplication")%>" class="CategoryControlIcon ImportCategoryIcon"
+								<a href="<%=uicomponent.event("ImportApplication")%>" class="CategoryControlIcon ImportApplicationsIcon"
 								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.importApplication")%>">
+								  <span></span>
+								</a>
+								<div class="SeparatorLine"><span></span></div>
+								<a href="<%=uicomponent.event("AddCategory")%>" class="CategoryControlIcon AddCategoryIcon" 
+								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.AddCategory")%>">
 								  <span></span>
 								</a>
 								<a href="<%=uicomponent.event("DeleteAllCategory")%>" class="CategoryControlIcon DeleteCategoryIcon" 
@@ -58,7 +61,7 @@
 	 			    String cTab, cName , display, description;
 				    cName  = category.getName();
 				    description = category.getDescription();
-				    if(description == null || description.length() < 1) description = cName;
+				    if(description == null || description.lenght() < 1) description = cName;
 				    if(selectedCategory != null && cName == selectedCategory.getName()) {
 				      cTab = "SelectedVTabSimpleStyle" ;
 				      display = "display: block";
@@ -73,10 +76,10 @@
 				        <div class="TabLeft">
 				          <div class="TabRight">
 				            <div class="TabRepeat">
-				              <div class="OverflowContainer" onclick="<%=uicomponent.event("ShowCategory", cName)%>">
+				              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
 									      <div class="LeftIcon"><span></span></div>
 							            <a class="TabLabel" href="<%=uicomponent.event("ShowCategory", cName)%>"><%=cName%></a>
-								          <div class="ControlContainer">
+								          <div class="ControlContainer" style ="$display">
 								            <a class="ControlIcon EditIcon" href="<%=uicomponent.event("EditCategory", cName)%>"><span></span></a>
 								            <a class="ControlIcon DeleteIcon" href="<%=uicomponent.event("DeleteCategory", cName)%>"><span></span></a>
 								            <div style="clear: left"><span></span></div>

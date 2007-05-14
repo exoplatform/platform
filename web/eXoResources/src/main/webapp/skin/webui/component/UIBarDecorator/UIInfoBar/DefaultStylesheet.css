@@ -60,13 +60,13 @@
   font-size: 11px ; text-align: left ;
   font-weight: bold ; color: black;
   line-height: 15px; vertical-align: middle ;
-  margin: 3px 7px 0px 7px ;
+  margin: 4px 0px 0px 4px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .Icon {
   float: left ;
   width: 18px; height: 16px;
-  margin: 3px 3px 0px 5px;  
+  margin: 4px 0px 0px 5px;  
 }
 
 /*######################-Simple Style-######################*/

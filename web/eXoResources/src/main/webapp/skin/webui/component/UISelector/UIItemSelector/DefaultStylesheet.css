@@ -3,39 +3,48 @@
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalOfficeImage {
-  height: 235px;
+  height: 222spx;
   background: url('DefaultSkin/background/OfficeImage.jpg') no-repeat center bottom;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalDefaultImage {
-  height: 235px;
+  height: 222px;
   background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center bottom;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PageDefaultImage {
-  height: 230px;
-  background: url('DefaultSkin/background/Default.jpg') no-repeat center;
+  height: 222px;
+  background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center bottom;
 }
+
 .UIItemSelector .ItemDetailList .TemplateContainer .PageDesktopImage {
-  height: 230px;
-  background: url('DefaultSkin/background/DesktopImage.jpg') no-repeat center;
+  height: 222px;
+  background: url('DefaultSkin/background/DesktopPage.jpg') no-repeat center bottom;
+}
+
+.UIItemSelector .ItemDetailList .TemplateContainer .SitePortalImage {
+  height: 222px;
+  background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center bottom;
+}
+
+.UIItemSelector .ItemDetailList .TemplateContainer .WebOSPortalImage {
+  height: 222px;
+  background: url('DefaultSkin/background/DesktopImage.jpg') no-repeat center bottom;
 }
 
 .UIItemSelector .TemplateContainer .DefaultImage {
-  height: 230px;
-  background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center;
+  height: 222px;
+  background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center bottom;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .DesktopImage {
-  background: url('DefaultSkin/background/DesktopImage.jpg') no-repeat center;
-  height: 230px;
-  margin: auto;
+  background: url('DefaultSkin/background/DesktopPage.jpg') no-repeat center bottom;
+  height: 222px;
 }
 
 .UIItemSelector .ItemDetailList .LayoutHolder .DesktopImage {
-  background: url('DefaultSkin/background/DesktopImage.jpg') no-repeat center;
-  width: 250px;
-  height: 173px;
+  background: url('DefaultSkin/background/DesktopPage.jpg') no-repeat center bottom;
+  height: 225px;
 }
 
 .UIItemSelector .ItemDetailList .ItemDescription {

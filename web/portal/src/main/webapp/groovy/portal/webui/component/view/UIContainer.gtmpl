@@ -22,7 +22,7 @@
         <div class="LeftBar">
           <div class="RightBar">
 		        <div class="MiddleBar">
-		          <div class="DragControlArea" title="Drag Container here"><span></span></div>
+		          <div class="DragControlArea" title="Hold this area to drag this container"><span></span></div>
 		          <div class="ContainerIcon"><span></span></div>             
               <div class="Title">
 	              <% 

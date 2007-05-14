@@ -11,9 +11,9 @@
 }
 
 .UIPopupWindow .PopupTitle {
-  margin: 0px 24px 0px 27px;
+  margin: 0px 26px 0px 26px;
   margin-top: 4px; 
-  font-weight: bold; font-size: 11px;
+  font-weight: bold; font-size: 11px;  text-align: center;
   height: 16px; line-height: 16px; vertical-align: middle;
   background: url('DefaultSkin/background/PopupTitleBG.gif') repeat-x bottom;
   cursor: move;
@@ -207,6 +207,7 @@
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitle {
 	background: none;
+	text-align: left;
 }
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitleIcon {

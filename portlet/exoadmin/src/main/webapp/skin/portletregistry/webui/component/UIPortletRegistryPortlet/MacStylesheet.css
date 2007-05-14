@@ -53,7 +53,7 @@
   border-bottom: 1px solid white;
 }
 
-.ApplicationRegistryControlArea .UIToolbar .OverflowContainer {
+.ApplicationRegistryControlArea .UIToolbar .ActionsContainer {
   float: right;
   width: auto;
   margin-right: 5px;
@@ -61,22 +61,34 @@
 
 .ApplicationRegistryControlArea .CategoryControlIcon {
   float: left;
-  margin: 3px 6px;
+  margin: 4px 2px;
 }
 
 .ApplicationRegistryControlArea .AddCategoryIcon {
-  height: 21px; width: 22px;
-  background: url('MacSkin/icons/AddCategory.gif') no-repeat ;
+  height: 22px; width: 31px;
+  background: url('MacSkin/icons/AddCategoryIcon.png') no-repeat ;
 }
 
-.ApplicationRegistryControlArea .ImportCategoryIcon {
-  height: 21px; width: 24px;
-  background: url('MacSkin/icons/ImportCategory.gif') no-repeat ;
+.ApplicationRegistryControlArea .ImportApplicationsIcon {
+  height: 22px; width: 29px;
+  background: url('MacSkin/icons/ImportApplicationsIcon.png') no-repeat right ;
+}
+
+.ApplicationRegistryControlArea .ImportPortletsIcon {
+  height: 22px; width: 31px;
+  background: url('MacSkin/icons/ImportPortletsIcon.png') no-repeat ;
+}
+
+.ApplicationRegistryControlArea .SeparatorLine {
+  float: left;
+  height: 21px; width: 2px;
+  margin: 3px 2px 0px 3px;
+  background: url('MacSkin/background/SeparatorLine2x2.gif') repeat-y ;
 }
 
 .ApplicationRegistryControlArea .DeleteCategoryIcon {
-  height: 21px; width: 22px;
-  background: url('MacSkin/icons/DeleteCategory.gif') no-repeat ;
+  height: 22px; width: 31px;
+  background: url('MacSkin/icons/DeleteCategoryIcon.png') no-repeat ;
 }
 
 .ApplicationRegistryControlArea .UIVerticalSlideTabs {

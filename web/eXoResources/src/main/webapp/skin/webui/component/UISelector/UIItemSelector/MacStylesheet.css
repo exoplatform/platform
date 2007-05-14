@@ -21,6 +21,16 @@
   background: url('MacSkin/background/DesktopImage.jpg') no-repeat center;
 }
 
+.UIItemSelector .ItemDetailList .TemplateContainer .SitePortalImage {
+  height: 222px;
+  background: url('MacSkin/background/DefaultImage.jpg') no-repeat center bottom;
+}
+
+.UIItemSelector .ItemDetailList .TemplateContainer .WebOSPortalImage {
+  height: 222px;
+  background: url('MacSkin/background/DesktopImage.jpg') no-repeat center bottom;
+}
+
 .UIItemSelector .TemplateContainer .DefaultImage {
   height: 230px;
   background: url('MacSkin/background/DefaultImage.jpg') no-repeat center;

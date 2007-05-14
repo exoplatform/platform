@@ -55,11 +55,11 @@
 }
 
 .ApplicationRegistryControlArea  .CategoryControlBar {
-  background: url('DefaultSkin/background/BGCategoryControlBar236x1.gif') repeat-y ;
+  background: #dfe8f9 url('DefaultSkin/background/CategoryControlBar175x1.gif') repeat-y left;
   height: 27px;
 }
 
-.ApplicationRegistryControlArea .UIToolbar .OverflowContainer {
+.ApplicationRegistryControlArea .UIToolbar .ActionsContainer {
   float: right;
   width: auto;
   margin-right: 5px;
@@ -71,13 +71,25 @@
 }
 
 .ApplicationRegistryControlArea .AddCategoryIcon {
-  height: 21px; width: 20px;
-  background: url('DefaultSkin/icons/AddCategory.gif') no-repeat ;
+  height: 21px; width: 22px;
+  background: url('DefaultSkin/icons/AddCategory.gif') no-repeat center;
 }
 
-.ApplicationRegistryControlArea .ImportCategoryIcon {
+.ApplicationRegistryControlArea .ImportApplicationsIcon {
   height: 21px; width: 24px;
-  background: url('DefaultSkin/icons/ImportCategory.gif') no-repeat ;
+  background: url('DefaultSkin/icons/ImportApplicationsIcon.gif') no-repeat ;
+}
+
+.ApplicationRegistryControlArea .ImportPortletsIcon {
+  height: 21px; width: 24px;
+  background: url('DefaultSkin/icons/ImportPortletsIcon.gif') no-repeat ;
+}
+
+.ApplicationRegistryControlArea .SeparatorLine {
+  float: left;
+  height: 21px; width: 2px;
+  margin: 3px 2px 0px 3px;
+  background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y ;
 }
 
 .ApplicationRegistryControlArea .DeleteCategoryIcon {

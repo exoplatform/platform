@@ -7,12 +7,19 @@
  */
 
 .UIWindow .UISitemapPortlet {
-	overflow: auto ; 
-  padding: 10px 0px 0px 0px;
+	overflow: auto ; /* was auto */
+  padding: 10px;
+  border: none;
 }
 
+.UISitemapPortlet {
+	overflow: hidden ;
+  padding: 10px;
+  bordder: 1px solid #b7b7b7;
+} 
+
 .UISitemap {
-  padding: 0px 2px 5px 2px ;
+	overflow: hidden ;
 }
 
 .UISitemap .TitleBar {
@@ -50,14 +57,21 @@
 .UISitemap .SitemapContainer {
   width: 600px;
   margin: auto;
-  padding-top: 30px; padding-bottom: 30px;
+  border: 1px solid #d5d5d5;
+}
+
+.UISitemap .SitemapContainer .SitemapBackground{
+  border: 1px solid white;
+  background: #f2f2f2;
+  padding: 10px 15px 10px 15px;
   overflow: hidden;
+  width: auto;
 }
 
 .UISitemap .SitemapItemBox {
   width: 270px ;
   float: left;
-  margin: 5px 10px 5px 10px ;
+  margin: 5px 0px ;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox {

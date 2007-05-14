@@ -7,52 +7,7 @@
   margin: 0px ;
   border: none;
 }
-/*
-.UIWindow .UICommunityPortlet {
-  overflow: auto ;
-}
 
-.UIWindow .UICompanyPortlet {
-  overflow: auto ;
-}
-
-.UIWindow .UIOrganizationPortlet {
-  overflow: auto ;
-}
-
-.UIWindow .UIContentPortlet {
-	margin: 0px;
-  overflow: auto ;
-}
-
-.UIWindow .UIPortletRegistryPortlet {
-  overflow: auto ;
-}
-
-.UIWindow .UIAccountPortlet {
-  overflow: auto ;
-}
-
-.UIWindow .UISitemapPortlet {
-	overflow: auto ;
-}
-
-.UIWindow .UIFormTabPane {
-  overflow: auto ;
-}
-
-.UIWindow .UISitemap {
-	overflow: auto ;
-}
-
-.UIWindow .UIAddPortletPortlet {
-	overflow: auto ;
-}
-
-.UIWindow .UITestFormPortlet {
-	overflow: auto ;
-}
-*/
 /*##########################################################*/
 
 .UIWindow .WindowPortletControl {
@@ -79,7 +34,7 @@
   font-size: 11px ;
 }
 
-.UIWindow .WindowPortletInfo .WindowPortletIcon {
+.UIWindow .WindowPortletInfo .PortletIcon {
   float: left ;
   width: 16px ; height: 16px ;
   background: url('VistaSkin/icons/16x16/PortletIcon.png') no-repeat ;
@@ -255,84 +210,57 @@
 }
 
 /********************* Icon InfoBar ************************************/
-.OrganizationPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/AddNodeIcon.gif') no-repeat center;
+.UIWindow .OrganizationPortletIcon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/AddNodeIcon.gif') no-repeat center;
 }
 
-.AccountPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/UserAccount.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Content {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/MiscIcons/RSS.gif') no-repeat center;
 }
 
-.RegistryPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/BlueActionWheel.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Account {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/UserAccount.gif') no-repeat center;
 }
 
-.SiteMapPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/SiteMap.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Registry-Portlet {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/RegistryPortlet.gif') no-repeat center;
 }
 
-.WelcomePortletIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalWelcomeIcon.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Site {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SiteMap.gif') no-repeat center;
 }
 
-.BreadcumbsPortletIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BreadcumbsArrowIcon.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Login {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ToolIcons/Key.gif') no-repeat center;
 }
 
-.GroovyPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/PortalAdmin.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Mail {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/OfficeIcons/Mail.gif') no-repeat center;
 }
 
-.AddPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/AddPage.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Forum {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ForumIcon.gif') no-repeat center;
 }
 
-.LoginPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/Login.gif') no-repeat center;
+
+.UIWindow .WindowPortletInfo .ECM {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ECMAdmin.gif') no-repeat center;
 }
 
-.FooterPortletIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalFooterIcon.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .JCR{
+  background: url('/eXoResources/icons/16x16/DefaultSkin/JCRExplorer.gif') no-repeat center;
 }
 
-.BrowserPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/BrownBook.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Dialog{
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DialogIcon.gif') no-repeat center;
 }
 
-.CompanyContentPortletIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalContainerIcon.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Browse{
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BrowseContent.gif') no-repeat center;
 }
 
-.NavigationPortletIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/EditNavigation.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Workflow{
+  background: url('/eXoResources/icons/16x16/DefaultSkin/WorkflowIcon.gif') no-repeat center;
 }
+/********************* End Icon InfoBar ************************************/
 
-.BannerPortletIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/PortalNavigationIcon.gif') no-repeat center;
-}
-
-.JMXPortletIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ImagesList.gif') no-repeat center;
-}
-
-.AccountPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/UserAccount.gif') no-repeat center;
-}
-
-.PortletRegistryPortletIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueActionWheel.gif') no-repeat center;
-}
-
-.CrawlerPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/Execute.gif') no-repeat center;
-}
-
-.ContentPortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/LightBlueGlobal.gif') no-repeat center;
-}
-
-.SitePortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/UserRegistration.gif') no-repeat center;
-}
-
-/*#############################  End Icon InfoBar ##############################################*/

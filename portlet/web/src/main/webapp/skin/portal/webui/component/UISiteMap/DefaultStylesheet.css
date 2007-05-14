@@ -62,7 +62,7 @@
 .UISitemap .SitemapContainer .SitemapBackground{
   border: 1px solid white;
   background: #f2f2f2;
-  padding: 10px 15px 0px 15px;
+  padding: 10px 15px 10px 15px;
   overflow: hidden;
   width: auto;
 }

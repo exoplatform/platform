@@ -52,7 +52,7 @@
   height: 26px;
 }
 
-.ApplicationRegistryControlArea .UIToolbar .OverflowContainer {
+.ApplicationRegistryControlArea .UIToolbar .ActionsContainer {
   float: right;
   width: auto;
 }

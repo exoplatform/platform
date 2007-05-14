@@ -49,7 +49,7 @@
 		        <div class="LeftBar">
 		          <div class="RightBar">
 				        <div class="MiddleBar">
-				          <div class="DragControlArea" title="Drag this Portlet"><span></span></div>
+				          <div class="DragControlArea" title="Hold this area to drag this portlet"><span></span></div>
 				          <% 
 				            String portletIcon = uicomponent.getIcon();
 				            if(portletIcon == null) portletIcon = portletTitle + "Icon";

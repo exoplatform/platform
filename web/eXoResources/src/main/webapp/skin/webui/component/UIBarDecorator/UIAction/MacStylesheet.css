@@ -6,7 +6,6 @@
 
 .UIAction .ActionContainer {
   float: left;
-  overflow: hidden;
 }
 
 .UIAction .ActionButton {

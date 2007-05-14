@@ -7,43 +7,7 @@
 .UIPageDesktop .UIWindow .UIApplication {
   height: 350px ;
 }
-/*
-.UIWindow .UICommunityPortlet {
-  overflow: auto ;
-}
 
-.UIWindow .UICompanyPortlet {
-  overflow: auto ;
-}
-
-.UIWindow .UIOrganizationPortlet {
-  overflow: auto ;
-}
-
-.UIWindow .UIContentPortlet {
-  overflow: auto ;
-}
-
-.UIWindow .UIPortletRegistryPortlet {
-  overflow: auto ;
-}
-
-.UIWindow .UIAccountPortlet {
-  overflow: auto ;
-}
-
-.UIWindow .UIAccountPortlet {
-  overflow: auto ;
-}
-
-.UIWindow .UISitemapPortlet {
-	overflow: auto ;
-}
-
-.UIWindow .UISitemap {
-	overflow: auto ;
-}
-*/
 /*##########################################################*/
 .UIWindow {
   height: auto;
@@ -60,7 +24,7 @@
   cursor: move ;
 }
 
-.UIWindow .WindowPortletInfo .WindowPortletIcon {
+.UIWindow .WindowPortletInfo .PortletIcon {
   float: left ;
   width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat ;
@@ -191,7 +155,7 @@
 .UIWindow .WindowPortletInfo .PortletName {
   float: left ;
   margin: 5px 0px 0px 0px ;
-  font-size: 11px ; 
+  font-size: 11px ; font-weight: bold;
 }
 
 .UIWindow .WindowBarLeft {
@@ -251,107 +215,55 @@
 }
 
 /********************* Icon InfoBar ************************************/
-.OrganizationIcon {
-  background: url('/eXoResources/icons/16x16/MacSkin/AddNodeIcon.gif') no-repeat center;
+.UIWindow .OrganizationPortletIcon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/AddNodeIcon.gif') no-repeat center;
 }
 
-.AccountIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/UserAccount.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Content {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/MiscIcons/RSS.gif') no-repeat center;
 }
 
-.PortletRegistryIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlueActionWheel.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Account {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/UserIcons/Contact.gif') no-repeat center;
 }
 
-.SiteMapPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/SiteMap.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Registry-Portlet {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/RegistryPortlet.gif') no-repeat center;
 }
 
-.WelcomePortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/PortalWelcomeIcon.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Site {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SiteMap.gif') no-repeat center;
 }
 
-.BreadcumbsPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/BreadcumbsArrowIcon.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Login {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ToolIcons/Key.gif') no-repeat center;
 }
 
-.GroovyPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/PortalAdmin.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Mail {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/OfficeIcons/Mail.gif') no-repeat center;
 }
 
-.AddPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/AddPage.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Forum {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ForumIcon.gif') no-repeat center;
 }
 
-.LoginPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/Login.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .ECM {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ECMAdmin.gif') no-repeat center;
 }
 
-.FooterPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/PortalFooterIcon.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .JCR{
+  background: url('/eXoResources/icons/16x16/DefaultSkin/JCRExplorer.gif') no-repeat center;
 }
 
-.BrowserPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/BrownBook.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Dialog{
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DialogIcon.gif') no-repeat center;
 }
 
-.CompanyContentPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/PortalContainerIcon.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Browse{
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BrowseContent.gif') no-repeat center;
 }
 
-.NavigationPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/EditNavigation.gif') no-repeat center;
-}
-
-.BannerPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/PortalNavigationIcon.gif') no-repeat center;
-}
-
-.JMXPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/ImagesList.gif') no-repeat center;
-}
-
-.OrganizationPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/AddNodeIcon.gif') no-repeat center;
-}
-
-.AccountPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/UserAccount.gif') no-repeat center;
-}
-
-.PortletRegistryPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlueActionWheel.gif') no-repeat center;
-}
-
-.CrawlerPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/Execute.gif') no-repeat center;
-}
-
-.ContentPortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/LightBlueGlobal.gif') no-repeat center;
-}
-
-.SitePortletIcon {
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/UserRegistration.gif') no-repeat center;
+.UIWindow .WindowPortletInfo .Workflow{
+  background: url('/eXoResources/icons/16x16/DefaultSkin/WorkflowIcon.gif') no-repeat center;
 }
 /********************* End Icon InfoBar ************************************/
