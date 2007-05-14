@@ -94,10 +94,22 @@ public class UserPortalConfigService {
 
     Collection memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
     Iterator mitr = memberships.iterator() ;
+    
+    boolean newNav = true;
     while(mitr.hasNext()) {
       Membership m = (Membership) mitr.next() ;   
-      navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+m.getGroupId()) ;
-      if (navigation != null) navigations.add(navigation) ;
+      String navId = PortalConfig.GROUP_TYPE+"::"+m.getGroupId();
+      newNav = true;
+      for(PageNavigation nav : navigations) {
+        if(nav.getId().equals(navId)){
+          newNav = false;
+          break;
+        }
+      }
+      if(newNav) {
+        navigation = getPageNavigation(navId) ;
+        if (navigation != null) navigations.add(navigation) ;
+      }
     }   
     userACL_.computeNavigation(navigations, accessUser);
     if (navigations.size() < 1) return null ;

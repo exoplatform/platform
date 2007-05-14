@@ -12,6 +12,7 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -120,8 +121,8 @@ public class UIPageNodeForm extends UIFormTabPane {
       pageNode.setIcon(uiIconSelector.getSelectedIcon());
       
       if(uiPageSelector != null) {
-        Object pageReference = uiPageSelector.getValue();
-        if(pageReference != null) pageNode.setPageReference(String.valueOf(pageReference));
+        Page pageReference = uiPageSelector.getValue();
+        if(pageReference != null) pageNode.setPageReference(pageReference.getPageId());
       }
       
       Object selectedParent = uiPageNodeForm.getSelectedParent();
@@ -142,6 +143,7 @@ public class UIPageNodeForm extends UIFormTabPane {
         if(!children.contains(pageNode)) children.add(pageNode);
         pageNode.setUri(parentNode.getUri()+"/"+pageNode.getName());       
       }
+      if(pageNode.getLabel() == null) pageNode.setLabel(pageNode.getName());
       
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
