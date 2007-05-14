@@ -28,12 +28,22 @@
 					<div class="RightBar">
 						<div class="MiddleBar">
 							<div class="OverflowContainer">
-								<a href="<%=uicomponent.event("AddCategory")%>" class="CategoryControlIcon AddCategoryIcon" title="Add Portlet Category">
-								  <span></span></a>
-								<a href="<%=uicomponent.event("ImportCategory")%>" class="CategoryControlIcon ImportCategoryIcon" title="Import Application Category">
-								  <span></span></a>
-								<a href="<%=uicomponent.event("DeleteCategory")%>" class="CategoryControlIcon DeleteCategoryIcon" title="Delete Application Category">
-								  <span></span></a>
+								<a href="<%=uicomponent.event("AddCategory")%>" class="CategoryControlIcon AddCategoryIcon" 
+								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.AddCategory")%>">
+								  <span></span>
+								</a>
+								<a href="<%=uicomponent.event("ImportPortlet")%>" class="CategoryControlIcon ImportCategoryIcon" 
+								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.importPortlets")%>">
+								  <span></span>
+								</a>
+								<a href="<%=uicomponent.event("ImportApplication")%>" class="CategoryControlIcon ImportCategoryIcon"
+								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.importApplication")%>">
+								  <span></span>
+								</a>
+								<a href="<%=uicomponent.event("DeleteAllCategory")%>" class="CategoryControlIcon DeleteCategoryIcon" 
+								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.clearApplication")%>">
+								  <span></span>
+								</a>
 								<div style="clear: left"><span></span></div>
 							</div>
 							<div style="clear: right"><span></span></div>

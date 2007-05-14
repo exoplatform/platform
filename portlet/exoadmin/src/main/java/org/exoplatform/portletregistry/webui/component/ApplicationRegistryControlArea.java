@@ -33,9 +33,10 @@ import org.exoplatform.webui.event.EventListener;
     events = {
         @EventConfig(listeners = ApplicationRegistryControlArea.AddCategoryActionListener.class),
         @EventConfig(listeners = ApplicationRegistryControlArea.EditCategoryActionListener.class),
-        @EventConfig(listeners = ApplicationRegistryControlArea.ImportCategoryActionListener.class),
+        @EventConfig(listeners = ApplicationRegistryControlArea.ImportPortletActionListener.class),
+        @EventConfig(listeners = ApplicationRegistryControlArea.ImportApplicationActionListener.class),
         @EventConfig(listeners = ApplicationRegistryControlArea.DeleteCategoryActionListener.class),
-        @EventConfig(listeners = ApplicationRegistryControlArea.DeleteAllActionListener.class),
+        @EventConfig(listeners = ApplicationRegistryControlArea.DeleteAllCategoryActionListener.class),
         @EventConfig(listeners = ApplicationRegistryControlArea.ShowCategoryActionListener.class)
     }
 )
@@ -140,16 +141,23 @@ public class ApplicationRegistryControlArea extends UIContainer {
     }
   }
 
-  static public class ImportCategoryActionListener extends EventListener<ApplicationRegistryControlArea> {
+  static public class ImportPortletActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
       ApplicationRegistryControlArea uiSource = event.getSource();
       PortletContainerMonitor monitor = uiSource.getApplicationComponent(PortletContainerMonitor.class);
       Collection portletDatas = monitor.getPortletRuntimeDataMap().values();       
-      uiSource.initValues(portletDatas) ;     
+      uiSource.initValues(portletDatas) ;
     }
   }
   
-  static public class DeleteAllActionListener extends EventListener<ApplicationRegistryControlArea> {
+  static public class ImportApplicationActionListener extends EventListener<ApplicationRegistryControlArea> {
+    public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
+      
+      System.out.println("\n\n\n\n\n IMPORT APPLICATION  \n\n\n\n\n");
+    }
+  }
+  
+  static public class DeleteAllCategoryActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
       ApplicationRegistryControlArea uiSource = event.getSource();
       ApplicationRegistryService service = uiSource.getApplicationComponent(ApplicationRegistryService.class);
@@ -162,13 +170,15 @@ public class ApplicationRegistryControlArea extends UIContainer {
   }
 
   static public class DeleteCategoryActionListener extends EventListener<ApplicationRegistryControlArea> {
-    public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
+    public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
       ApplicationRegistryControlArea uiComp = event.getSource();
       ApplicationRegistryService service = uiComp.getApplicationComponent(ApplicationRegistryService.class);            
       ApplicationCategory selectedCategory = uiComp.getSelectedPortletCategory();
       if(selectedCategory == null) return;      
       service.remove(selectedCategory) ; 
       uiComp.initValues(null);
+      
+      System.out.println("\n\n\n\n\n  Delete Application he he he  \n\n\n\n\n");
     }
   }
 
