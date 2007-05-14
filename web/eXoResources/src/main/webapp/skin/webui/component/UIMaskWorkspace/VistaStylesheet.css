@@ -127,6 +127,7 @@
 	background: white;
 	overflow: auto;
 	font-family: arial;
+	color:#555555;
 }
 
 .UIAddApplication .Application {
