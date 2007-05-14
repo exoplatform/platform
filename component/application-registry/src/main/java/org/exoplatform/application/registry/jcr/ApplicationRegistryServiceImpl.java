@@ -272,6 +272,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   }
   
   public void importExoApplications() throws Exception {
+    Session session = jcrRegService_.getSession();
     PortalContainer container  = PortalContainer.getInstance() ;
     WebAppController appController = 
       (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
@@ -280,15 +281,21 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     // Save apps from list to category
     for (org.exoplatform.web.application.Application app : applications) {
       // Save category
-      ApplicationCategory category = new ApplicationCategory() ;
-      category.setName(app.getApplicationGroup()) ;
-      category.setDisplayName(app.getApplicationGroup()) ;
-      category.setDescription(app.getApplicationGroup()) ;
-      save(category) ;
+      ApplicationCategory category = getApplicationCategory(app.getApplicationGroup()) ;
+      if (category == null) {
+        category = new ApplicationCategory() ;
+        category.setName(app.getApplicationGroup()) ;
+        category.setDisplayName(app.getApplicationGroup()) ;
+        category.setDescription(app.getApplicationGroup()) ;
+        save(category) ;
+      }
 
       // Save app
-      save(category, convertApplication(app)) ;
+      Node appNode = getApplicationNode(session, category.getName(), app.getApplicationName()) ;
+      if (appNode == null) save(category, convertApplication(app)) ;
     }
+    
+    session.logout() ;
   }
   
   //TODO: Tung.Pham added
