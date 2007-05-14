@@ -85,6 +85,7 @@
 /*################################Application Registry Working################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryWorkingArea {
 	margin-left: 245px;
+	height: 100%;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationWorkingAreaContainer {

@@ -15,8 +15,8 @@
 				        <div class="TabsContainer">
 			            <%
 			              for(inputSet in uicomponent.getChildren()) {
-					        		String className="NormalTab" ;
-					        		if(inputSet.isRendered()) className="SelectedTab" ;
+					        		String className="NormalTabStyle" ;
+					        		if(inputSet.isRendered()) className="SelectedTabStyle" ;
 					        		boolean renderResource = uicomponent.hasRenderResourceTabName(); 
 				              String tabName = inputSet.getName() ; 
 				              if(renderResource) {

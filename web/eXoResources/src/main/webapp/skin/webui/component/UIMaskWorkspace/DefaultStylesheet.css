@@ -295,12 +295,12 @@
   background: white;
 }
 
-.BCHome16x16Icon {
+.UIGroupSelector .UIBreadcumbs .BCHome16x16Icon {
   width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGroup.gif') no-repeat left center;
 }
 
-.UIBreadcumbs a.Selected {
+.UIGroupSelector .UIBreadcumbs a.Selected {
   color: #058ee6;
 }
 

@@ -1,8 +1,7 @@
 /**
  * Created by The eXo Platform SARL
- * Modifile : Vu Duy Tu
- *           duytucntt@gmail.com
- * December 12, 2006
+ * Modifile : Nguyen Ngoc Thuy
+ * May 8, 2007
  * version: $Id$
  */
  
@@ -89,6 +88,7 @@
 /*################################Application Registry Working################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryWorkingArea {
 	margin-left: 245px;
+	height: 100%;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationWorkingAreaContainer {
