@@ -19,16 +19,13 @@
 }
 
 .AddNewNodeIcon {
-  float: left ;
   width: 16px ;  height: 16px ;
-  margin: 3px 5px 0px 0px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif') no-repeat left center;
 }
 
 .BlueCirclePlusIcon {
   width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif') no-repeat left center;
-  margin: 0px 0px 0px 5px;
 }
 
 .SelectPage16x16Icon {
