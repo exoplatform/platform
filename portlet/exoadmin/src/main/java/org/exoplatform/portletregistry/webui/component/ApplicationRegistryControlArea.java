@@ -174,11 +174,9 @@ public class ApplicationRegistryControlArea extends UIContainer {
       ApplicationRegistryControlArea uiComp = event.getSource();
       ApplicationRegistryService service = uiComp.getApplicationComponent(ApplicationRegistryService.class);            
       ApplicationCategory selectedCategory = uiComp.getSelectedPortletCategory();
-      if(selectedCategory == null) return;      
+      if(selectedCategory == null) return;
       service.remove(selectedCategory) ; 
-      uiComp.initValues(null);
-      
-      System.out.println("\n\n\n\n\n  Delete Application he he he  \n\n\n\n\n");
+      uiComp.initValues(null);      
     }
   }
 
