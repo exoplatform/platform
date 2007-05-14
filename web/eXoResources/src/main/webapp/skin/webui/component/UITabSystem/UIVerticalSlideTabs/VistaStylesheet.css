@@ -74,7 +74,7 @@
   color: #2e7eb2; font-weight: bold; font-size: 11px;
 }
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel a{
-  color: black; font-size: 11px; border:1px red solid;
+  color: black; font-size: 11px; 
 }
 
 /*#######################-SelectedVTabSimpleStyle VerticalSlideTabs-######################*/
