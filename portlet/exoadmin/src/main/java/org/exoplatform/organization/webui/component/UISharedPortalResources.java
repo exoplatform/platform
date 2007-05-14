@@ -7,7 +7,11 @@ package org.exoplatform.organization.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.container.ExoContainer;
 import org.exoplatform.organization.webui.component.UIGroupMembershipForm.SaveActionListener;
+import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -40,18 +44,22 @@ public class UISharedPortalResources extends UIForm {
       listOption.add(new SelectItemOption(new Integer(i).toString()));
     }
     
-    addUIFormInput(new UIFormStringInput("portalResources", "portalResources", null).
+    addUIFormInput(new UIFormStringInput("portalResourceName", "portalResourceName", null).
                    addValidator(EmptyFieldValidator.class));
     addUIFormInput(new UIFormSelectBox("priority","priority", listOption));
   }
   
-  public String getPortalResources() { return getUIStringInput("portalResources").getValue(); }
+  public String getPortalResources() { return getUIStringInput("portalResourceName").getValue(); }
   public String getPriority() { return getUIStringInput("priority").getValue(); }
   
   static  public class SaveActionListener extends EventListener<UISharedPortalResources> {
     public void execute(Event<UISharedPortalResources> event) throws Exception {
-      // get UserPortalConfigService
+      UISharedPortalResources uiForm = event.getSource() ;
+//    get UserPortalConfigService
+      UserPortalConfigService userPortalConfigService = uiForm.getApplicationComponent(UserPortalConfigService.class);
+      
       // get portalresource as portalName
+      String portalResourceName = uiForm.getPortalResources();
       // get selected group id as groupId 
       // get all page by, review UIPageSelect, query set ownerType as DataStore.user_type and ownerId  as portalName 
       // List<Page> list =  userPortalConfig.getPage(String portalName);
