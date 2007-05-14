@@ -7,7 +7,6 @@ package org.exoplatform.portal.config;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -52,8 +51,8 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   }
   
   void assertUserPortalConfigOperator() throws Exception {
-    assertGetUserPortalConfig() ;
     assertCreateUserPortalConfig() ;
+    assertGetUserPortalConfig() ;
     assertRemoveUserPortalConfig() ;
   }
   
@@ -71,8 +70,35 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     
   }
   
-  //TODO: wait for ThuanND
   void assertCreateUserPortalConfig() throws Exception {
+    String siteName = "site" ;
+    String newName = "newportal" ;
+    UserPortalConfig sitePortal = service_.getUserPortalConfig(siteName, "none") ;
+    UserPortalConfig newportal = service_.createUserPortalConfig(newName, siteName) ;
+    
+    PortalConfig sitePortalConfig = sitePortal.getPortalConfig() ;
+    PortalConfig newPortalConfig = newportal.getPortalConfig() ;
+    assertEquals(newPortalConfig.getAccessGroups(), sitePortalConfig.getAccessGroups()) ;
+    assertTrue(!newPortalConfig.getName().equals(sitePortalConfig.getName())) ;
+    
+    List<PageNavigation> siteNavigations = sitePortal.getNavigations() ;
+    List<PageNavigation> newNavigations = newportal.getNavigations() ;
+    assertEquals(newNavigations.size(), siteNavigations.size()) ;
+    
+    String[] pageNames = {"content", "register"} ;
+    for (String name : pageNames) {
+      String sitePageId = "portal" + "::" + siteName + "::" + name ;
+      String newPageId = "portal" + "::" + newName + "::" + name ;
+      Page sitePage = service_.getPage(sitePageId, "none") ;
+      Page newPage = service_.getPage(newPageId, "none") ;
+      assertEquals(name, sitePage.getName()) ;
+      assertEquals(name, newPage.getName()) ;
+      assertEquals(newPage.getOwnerType(), sitePage.getOwnerType()) ;
+      assertEquals(newPage.getTitle(), sitePage.getTitle()) ;
+      assertEquals(newPage.getOwnerType(), sitePage.getOwnerType()) ;
+      assertEquals(newPage.getAccessGroups(), sitePage.getAccessGroups()) ;
+      assertTrue(!newPage.getOwnerId().equals(sitePage.getOwnerId())) ;
+    }
     
   }
 
@@ -124,7 +150,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     UserPortalConfig oldUserPortalConfig = service_.getUserPortalConfig(portalName, accessUser) ;
     List<PageNavigation> oldNavigations = oldUserPortalConfig.getNavigations() ;
     assertEquals(2, oldNavigations.size()) ;
-    
+
     // Change description
     String newDescription = "This is new description.";
     for (PageNavigation navi : oldNavigations) {
@@ -138,7 +164,6 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     
     PageNavigation portalNavigation = newNavigations.get(0) ;
     assertEquals(newDescription, portalNavigation.getDescription()) ;
-    
     
     PageNavigation userNavigation = newNavigations.get(1) ;
     assertEquals(newDescription, userNavigation.getDescription()) ;
@@ -166,7 +191,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     UserPortalConfig oldUserPortalConfig = service_.getUserPortalConfig(portalName, accessUser) ;
     List<PageNavigation> oldNavigations = oldUserPortalConfig.getNavigations() ;
     assertEquals(2, oldNavigations.size()) ;
-    
+
     // Remove navigation of the portal
     PageNavigation portalNavigation = oldNavigations.get(0) ;
     service_.remove(portalNavigation) ;
