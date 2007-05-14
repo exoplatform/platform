@@ -71,6 +71,7 @@ public class UIUserInfo extends UIFormTabPane {
     UIUserMembershipSelector uiUserMembershipSelector = getChild(UIUserMembershipSelector.class);    
     if(uiUserMembershipSelector == null) return;
     UIPopupWindow uiPopupWindow = uiUserMembershipSelector.getChild(UIPopupWindow.class);
+    if(uiPopupWindow == null) return;
     uiPopupWindow.processRender(context);
   }
   

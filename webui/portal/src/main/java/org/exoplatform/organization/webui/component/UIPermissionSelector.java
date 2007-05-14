@@ -6,7 +6,7 @@ package org.exoplatform.organization.webui.component;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormPopupWindow;
-import org.exoplatform.webui.component.UIPopupDialog;
+//import org.exoplatform.webui.component.UIPopupDialog;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 /**
@@ -28,9 +28,9 @@ public class UIPermissionSelector extends UISelector {
     super(null, null) ;		
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "PopupPermissionSelector");
     uiPopup.setWindowSize(540, 0);  
-    UIPopupDialog dialog = createUIComponent(UIPopupDialog.class, null, null);
+//    UIPopupDialog dialog = createUIComponent(UIPopupDialog.class, null, null);
 //    dialog.setComponent(this);
-    dialog.setHanderEvent("SelectMembership");
+//    dialog.setHanderEvent("SelectMembership");
     UIGroupMembershipSelector uiMembershipSelector = createUIComponent(UIGroupMembershipSelector.class, null, null) ;
     uiPopup.setUIComponent(uiMembershipSelector);  
   }

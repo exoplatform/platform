@@ -114,7 +114,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 			               '	      </div>' +
 			               '	      <div class="ContentLabel">' +
 			               '	        <span class="LeftLabel">Created by:</span>' +
-			               '	        <span class="RightLabel"> eXo Platform SAS</span>' +
+			               '	        <span class="RightLabel">'+ portlet["owner"]+ '</span>' +
 			               '	      </div>' +
 			               '	      <div class="ContentLabel">' +
                      '          <span class="LeftLabel">Description:</span>' +
@@ -141,7 +141,8 @@ UIAddApplication.prototype.addPortlet = function(id, save) {
 		{name: "portletId", value : id},
 		{name: "save", value : save}
 	] ;
-	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "AddPortletToDesktop", true, params)) ;
+	
+	ajaxGet(eXo.env.server.createPortalURL("UIPageBody", "AddPortletToDesktop", true, params)) ;
 };
 
 UIAddApplication.prototype.showAddApplication = function(object) {

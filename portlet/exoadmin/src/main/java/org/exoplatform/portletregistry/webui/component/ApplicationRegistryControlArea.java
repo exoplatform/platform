@@ -50,13 +50,13 @@ public class ApplicationRegistryControlArea extends UIContainer {
     UICategoryForm uiCategoryForm = createUIComponent(UICategoryForm.class, null, null);
     addCategoryPopup.setUIComponent(uiCategoryForm);
     uiCategoryForm.setValue(null);
-    initApplicationCategories() ;
+//    initApplicationCategories() ;
   }  
 
   @SuppressWarnings("unchecked")
   public void initApplicationCategories() throws Exception {
     ApplicationRegistryService service = 
-      (ApplicationRegistryService) getApplicationComponent(ApplicationRegistryService.class) ;
+      getApplicationComponent(ApplicationRegistryService.class) ;
     portletCategories = service.getApplicationCategories(); 
     if(portletCategories == null) portletCategories = new ArrayList<ApplicationCategory>(0);
     if(portletCategories.size() > 0){

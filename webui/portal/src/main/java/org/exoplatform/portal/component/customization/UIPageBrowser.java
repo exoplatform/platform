@@ -37,7 +37,7 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
   template = "app:/groovy/portal/webui/component/customization/UIPageBrowser.gtmpl" ,
   events = {
-    @EventConfig(listeners = UIPageBrowser.DeleteActionListener.class),
+    @EventConfig(listeners = UIPageBrowser.DeleteActionListener.class, confirm = "UIPageBrowse.deletePage"),
     @EventConfig(listeners = UIPageBrowser.EditInfoActionListener.class),
     @EventConfig(listeners = UIPageBrowser.PreviewActionListener.class),
     @EventConfig(listeners = UIPageBrowser.AddNewActionListener.class)   

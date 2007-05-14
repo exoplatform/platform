@@ -7,6 +7,9 @@ package org.exoplatform.portal.component.view.listener;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
@@ -14,9 +17,11 @@ import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.customization.UIPageForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.UIJSApplication;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPageBody;
 import org.exoplatform.portal.component.view.UIPortal;
+import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.config.DataStorage;
@@ -114,6 +119,93 @@ public class UIPageActionListener {
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
       pcontext.setFullRender(true);
+    }
+  }
+  
+  static public class AddJSApplicationToDesktopActionListener  extends EventListener<UIPageBody> {
+    public void execute(Event<UIPageBody> event) throws Exception {
+      String application  = event.getRequestContext().getRequestParameter("jsApplication");
+      String applicationId  = event.getRequestContext().getRequestParameter("jsApplicationId");
+      String instanceId  = event.getRequestContext().getRequestParameter("jsInstanceId");
+      String appLoc= event.getRequestContext().getRequestParameter("jsApplicationLocation");
+      UIPortal uiPortal = Util.getUIPortal();  
+      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      UIPage uiPage = null;
+      if(uiPortal.isRendered()){
+        uiPage = uiPortal.findFirstComponentOfType(UIPage.class);
+      } else {
+        UIPortalToolPanel uiPortalToolPanel = uiPortalApp.findFirstComponentOfType(UIPortalToolPanel.class);
+        uiPage = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
+      }
+      
+      StringBuilder builder  = new StringBuilder();
+      builder.append("eXo.desktop.UIDesktop.createJSApplication('");
+      builder.append(application).append("','").append(applicationId).
+              append("','").append(instanceId).append("','").append(appLoc).append("');");
+      UIJSApplication jsApplication = uiPage.createUIComponent(UIJSApplication.class, null, null);
+      jsApplication.setJSApplication(builder.toString());
+      jsApplication.setId(instanceId);
+      uiPage.addChild(jsApplication);
+    }
+  }
+  
+
+  static public class AddPortletToDesktopActionListener  extends EventListener<UIPageBody> {
+    public void execute(Event<UIPageBody> event) throws Exception {
+      UIPortal uiPortal = Util.getUIPortal();  
+      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      UIPage uiPage = null;
+      if(uiPortal.isRendered()){
+        uiPage = uiPortal.findFirstComponentOfType(UIPage.class);
+      } else {
+        UIPortalToolPanel uiPortalToolPanel = uiPortalApp.findFirstComponentOfType(UIPortalToolPanel.class);
+        uiPage = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
+      }      
+      
+      UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);      
+      String portletId = event.getRequestContext().getRequestParameter("portletId");    
+      StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
+      windowId.append(":/").append(portletId).append('/').append(uiPortlet.hashCode());
+      uiPortlet.setWindowId(windowId.toString());
+      
+      Application portlet = getPortlet(uiPortal, portletId);
+      if(portlet != null){
+        if(portlet.getDisplayName() != null) {
+          uiPortlet.setTitle(portlet.getDisplayName());
+        } else if(portlet.getApplicationName() != null) {
+          uiPortlet.setTitle(portlet.getApplicationName());
+        }
+        uiPortlet.setDescription(portlet.getDescription());
+      }
+      
+      uiPage.addChild(uiPortlet);
+      
+      String save = event.getRequestContext().getRequestParameter("save");
+      if(save != null && Boolean.valueOf(save).booleanValue()) {
+        Page page = PortalDataModelUtil.toPageModel(uiPage); 
+        DataStorage configService = uiPage.getApplicationComponent(DataStorage.class);  
+        if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+        configService.save(page);
+      }
+
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      pcontext.setFullRender(true);
+    }
+    
+    @SuppressWarnings("unchecked")
+    private Application getPortlet(UIPortal uiPortal, String id) throws Exception {
+      ApplicationRegistryService service = uiPortal.getApplicationComponent(ApplicationRegistryService.class) ;
+      List<ApplicationCategory> pCategories = service.getApplicationCategories();   
+
+      for(ApplicationCategory pCategory : pCategories) {
+        List<Application> portlets = service.getApplications(pCategory) ;
+        for(Application portlet : portlets){
+          if(portlet.getId().equals(id)) return portlet;
+        }  
+      }    
+      return null;
     }
   }
   

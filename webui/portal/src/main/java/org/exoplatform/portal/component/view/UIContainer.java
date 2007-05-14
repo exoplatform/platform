@@ -17,7 +17,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 @ComponentConfig(   
     events = {
       @EventConfig(listeners = EditContainerActionListener.class),
-      @EventConfig(listeners = DeleteComponentActionListener.class)
+      @EventConfig(listeners = DeleteComponentActionListener.class, confirm = "UIContainer.deleteContainer")
     }
 )
 public class UIContainer extends  UIPortalComponent {

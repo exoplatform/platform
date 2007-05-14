@@ -30,7 +30,7 @@ import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
   template = "system:/groovy/organization/webui/component/UIAccessGroup.gtmpl",
   events = {
-      @EventConfig(phase = Phase.DECODE, listeners = UIAccessGroup.DeleteActionListener.class),
+      @EventConfig(phase = Phase.DECODE, listeners = UIAccessGroup.DeleteActionListener.class, confirm = "UIAccessGroup.deleteAccessGroup"),
       @EventConfig(listeners = UIAccessGroup.SelectGroupActionListener.class)
   }
 )

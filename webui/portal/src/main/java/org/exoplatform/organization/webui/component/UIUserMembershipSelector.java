@@ -32,7 +32,7 @@ import org.exoplatform.webui.event.Event.Phase;
   template = "system:/groovy/organization/webui/component/UIUserMembershipSelector.gtmpl",
   events = {
     @EventConfig(listeners = UIUserMembershipSelector.SelectMembershipActionListener.class),
-    @EventConfig(listeners = UIUserMembershipSelector.DeleteMembershipActionListener.class, phase = Phase.DECODE)  
+    @EventConfig(listeners = UIUserMembershipSelector.DeleteMembershipActionListener.class, phase = Phase.DECODE, confirm = "UIUserMembershipSelector.deleteMembership")  
   }
 )
 public class UIUserMembershipSelector extends UISelector {  

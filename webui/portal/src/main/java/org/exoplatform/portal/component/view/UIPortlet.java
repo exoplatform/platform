@@ -34,7 +34,7 @@ import org.exoplatform.webui.event.Event.Phase;
       @EventConfig(listeners = RenderActionListener.class),
       @EventConfig(listeners = ChangePortletModeActionListener.class),
       @EventConfig(listeners = ChangeWindowStateActionListener.class),
-      @EventConfig(listeners = DeleteComponentActionListener.class),
+      @EventConfig(listeners = DeleteComponentActionListener.class, confirm = "UIPortlet.deletePortlet"),
       @EventConfig(listeners = EditPortletActionListener.class),
       @EventConfig(phase = Phase.PROCESS, listeners = ProcessActionActionListener.class)
     }    

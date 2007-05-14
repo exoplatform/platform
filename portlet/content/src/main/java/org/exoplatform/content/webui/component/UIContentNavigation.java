@@ -47,7 +47,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIContentNavigation.UpLevelActionListener.class),
         @EventConfig(listeners = UIContentNavigation.AddNodeActionListener.class),
         @EventConfig(listeners = UIContentNavigation.EditNodeActionListener.class),
-        @EventConfig(listeners = UIContentNavigation.RemoveNodeActionListener.class),
+        @EventConfig(listeners = UIContentNavigation.RemoveNodeActionListener.class, confirm = "UIContentNavigation.removeNode"),
         @EventConfig(listeners = UIContentNavigation.GetNodeInfoActionListener.class)
     }
 )
@@ -57,22 +57,6 @@ public class UIContentNavigation extends UIContainer {
   private ContentNode parentNode_ ; 
   private ContentNavigation nav_ ;
   private ContentNode grandNode_;
-  
-  public UIContentNavigation() throws Exception {
-    UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "RemoveNode");
-    uiPopup.setWindowSize(540, 0);  
-    UIPopupDialog dialog = createUIComponent(UIPopupDialog.class, null, null);
-    dialog.setComponent(this);
-    dialog.setHanderEvent("RemoveNode");
-    uiPopup.setUIComponent(dialog); 
-  }
-  
-  public void processRender(WebuiRequestContext context) throws Exception {
-    super.processRender(context);   
-    UIPopupWindow uiPopupWindow = this.getChild(UIPopupWindow.class);
-    uiPopupWindow.processRender(context);
-  }
-  
   
   void refresh() throws Exception {
     ContentDAO contentService = getApplicationComponent(ContentDAO.class) ;
@@ -263,10 +247,6 @@ public class UIContentNavigation extends UIContainer {
 
   static  public class RemoveNodeActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
-      UIContentNavigation contentNavigation = event.getSource();
-      String action = event.getRequestContext().getRequestParameter("action") ;
-      if( action.equals("close")) return; 
-      
       UIContentNavigation uiNav = event.getSource();
       ContentNode selectedNode = uiNav.getSelectedNode() ;
       if(selectedNode == null)  {

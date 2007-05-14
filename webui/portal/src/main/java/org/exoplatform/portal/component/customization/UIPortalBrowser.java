@@ -31,7 +31,7 @@ import org.exoplatform.webui.event.EventListener;
   events = { 
       @EventConfig(listeners = UIPortalBrowser.SelectPortalActionListener.class),
       @EventConfig(listeners = UIPortalBrowser.AddNewPortalActionListener.class),
-      @EventConfig(listeners = UIPortalBrowser.DeletePortalActionListener.class)
+      @EventConfig(listeners = UIPortalBrowser.DeletePortalActionListener.class, confirm = "UIPortalBrowser.deletePortal")
   }
 )
 public class UIPortalBrowser extends UIContainer {

@@ -6,10 +6,7 @@
   def rcontext = _ctx.getRequestContext() ;
   show =false;
   resize=false;
-  popupId = uicomponent.getChild(UIPopupWindow.class).getId();
-	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');
-  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', $show, $resize);") ;
 %>
 
 <%//The class UIContentNavigationContainer for fix bug %>
@@ -29,7 +26,7 @@
                 <%if(uicomponent.isLogon()) { %>
 	                <a href="<%=uicomponent.event("AddNode")%>" class="NavigationControlIcon AddCatergory24x24Icon" title="Add node"><span></span></a>
 	                <a href="<%=editLink%>" class="NavigationControlIcon EditCatergory24x24Icon" title="Edit node"><span></span></a>
-	                <a href="javascript: eXo.webui.UIPopupWindow.show('$popupId');" class="NavigationControlIcon Delete24x24Icon" title="Remove node"><span></span></a>
+	                <a href="<%=removeLink%>" class="NavigationControlIcon Delete24x24Icon" title="Remove node"><span></span></a>
 	               
                 <% }%>
               </div>

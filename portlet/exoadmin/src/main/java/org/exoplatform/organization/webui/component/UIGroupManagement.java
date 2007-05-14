@@ -36,7 +36,7 @@ import org.exoplatform.portal.component.customization.UIPopupDialog;
   template = "app:/groovy/organization/webui/component/UIGroupManagement.gtmpl",
   events = {
     @EventConfig(listeners = AddGroupActionListener.class),
-    @EventConfig(listeners = DeleteGroupActionListener.class),
+    @EventConfig(listeners = DeleteGroupActionListener.class, confirm = "UIGroupManagement.deleteGroup"),
     @EventConfig(listeners = SelectPathActionListener.class),
     @EventConfig(listeners = EditGroupActionListener.class)
     
@@ -45,15 +45,6 @@ import org.exoplatform.portal.component.customization.UIPopupDialog;
 public class UIGroupManagement extends UIContainer {
 
   public UIGroupManagement() throws Exception {
-    
-    UIFormPopupWindow deleteCategoryPopup = addChild(UIFormPopupWindow.class, null, "DeleteGroup");
-    deleteCategoryPopup.setWindowSize(540, 0);  
-    UIPopupDialog deleteCategoryDialog = createUIComponent(UIPopupDialog.class, null, null);
-    deleteCategoryDialog.setComponent(this);
-    
-    deleteCategoryDialog.setMessage("Do you want delete this Group?");
-    deleteCategoryDialog.setHanderEvent("DeleteGroup");
-    deleteCategoryPopup.setUIComponent(deleteCategoryDialog);
     
     UIBreadcumbs uiBreadcum = addChild(UIBreadcumbs.class, null, "BreadcumbsGroupManagement") ;
     addChild(UIGroupExplorer.class, null, null);
@@ -104,8 +95,6 @@ public class UIGroupManagement extends UIContainer {
   
   static  public class DeleteGroupActionListener extends EventListener<UIGroupManagement> {
     public void execute(Event<UIGroupManagement> event) throws Exception {
-      String action = event.getRequestContext().getRequestParameter("action");
-      if(action.equals("close")) return ;
       UIGroupManagement uiGroupManagement = event.getSource() ;
       WebuiRequestContext context = event.getRequestContext() ;
       UIApplication uiApp = context.getUIApplication() ;

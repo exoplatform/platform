@@ -32,7 +32,7 @@ import org.exoplatform.webui.event.EventListener;
  * 10:07:15 AM
  */
 @ComponentConfigs({
-  @ComponentConfig(events = @EventConfig(listeners = UIUserInGroup.DeleteUserActionListener.class)),
+  @ComponentConfig(events = @EventConfig(listeners = UIUserInGroup.DeleteUserActionListener.class, confirm = "UIUserInGroup.deleteUser")),
   @ComponentConfig(
      type = org.exoplatform.organization.webui.component.UIUserInGroup.UIGridUser.class,
      id = "UIGridUser",

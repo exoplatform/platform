@@ -41,8 +41,7 @@ import org.exoplatform.portal.component.view.Util;
 @ComponentConfig(
     events = {
       @EventConfig(listeners = ViewUserInfoActionListener.class),
-      @EventConfig(listeners = ShowDialogActionListener.class),
-      @EventConfig(listeners = DeleteUserActionListener.class)
+      @EventConfig(listeners = DeleteUserActionListener.class, confirm = "UIListUsers.deleteUser")
     }
 )
 public class UIListUsers extends UISearch {
@@ -63,15 +62,6 @@ public class UIListUsers extends UISearch {
   
 	public UIListUsers() throws Exception {
 		super(OPTIONS_) ;
-    UIFormPopupWindow deleteCategoryPopup = addChild(UIFormPopupWindow.class, null, "DeleteUser");
-    deleteCategoryPopup.setWindowSize(540, 0);  
-    UIPopupDialog deleteCategoryDialog = createUIComponent(UIPopupDialog.class, null, null);
-    deleteCategoryDialog.setComponent(this);
-    
-    deleteCategoryDialog.setMessage("Do you want delete this User?");
-    deleteCategoryDialog.setHanderEvent("ShowDialog");
-    deleteCategoryPopup.setUIComponent(deleteCategoryDialog);
-    
     UIGrid uiGrid = addChild(UIGrid.class, null, "UIListUsers") ;
     uiGrid.configure("userName", USER_BEAN_FIELD, USER_ACTION) ;
 		search(new Query()) ;
@@ -153,31 +143,12 @@ public class UIListUsers extends UISearch {
     public void execute(Event<UIListUsers> event) throws Exception {
       UIListUsers uiListUser = event.getSource() ;
       String userName = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      uiListUser.setUserSelected(userName);
-      UIPopupWindow popupWindow = uiListUser.getChild(UIPopupWindow.class);
-      popupWindow.setShow(true);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiListUser) ;
-    }
-  }
-
-	static  public class ShowDialogActionListener extends EventListener<UIListUsers> {
-		public void execute(Event<UIListUsers> event) throws Exception {
-      UIListUsers uiListUser = event.getSource() ;
-      String userName = uiListUser.getUserSelected();
-      UIPopupWindow popupWindow = uiListUser.getChild(UIPopupWindow.class);
-      popupWindow.setShow(false);
-      String action = event.getRequestContext().getRequestParameter("action");
-      if(action.equals("close")) return ;
       OrganizationService service = uiListUser.getApplicationComponent(OrganizationService.class) ;
       service.getUserHandler().removeUser(userName, true) ;
       uiListUser.search(uiListUser.lastQuery_);
       
       UIComponent uiToUpdateAjax = uiListUser.getAncestorOfType(UIUserManagement.class) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiToUpdateAjax) ;
-      
     }
   }
-
-
-  
 }

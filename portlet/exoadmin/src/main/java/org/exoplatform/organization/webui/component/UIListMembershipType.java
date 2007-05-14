@@ -21,8 +21,7 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
     events = {
       @EventConfig(listeners = UIListMembershipType.EditMembershipActionListener.class),
-      @EventConfig(listeners = UIListMembershipType.DeleteAfterConfirmActionListener.class),
-      @EventConfig(listeners = UIListMembershipType.DeleteMembershipActionListener.class)
+      @EventConfig(listeners = UIListMembershipType.DeleteMembershipActionListener.class, confirm = "UIListMembershipType.deleteMemberShip")
     }
 )
 public class UIListMembershipType extends UIContainer {
@@ -36,15 +35,6 @@ public class UIListMembershipType extends UIContainer {
     uiGrid.setId("UIGrid");
     uiGrid.configure("name", USER_BEAN_FIELD, USER_ACTION);
     update(uiGrid);
-    
-    UIFormPopupWindow deleteCategoryPopup = addChild(UIFormPopupWindow.class, null, "DeleteMemberShip");
-    deleteCategoryPopup.setWindowSize(540, 0);  
-    UIPopupDialog deleteCategoryDialog = createUIComponent(UIPopupDialog.class, null, null);
-    deleteCategoryDialog.setComponent(this);
-    
-    deleteCategoryDialog.setMessage("Do you want delete this Membership?");
-    deleteCategoryDialog.setHanderEvent("DeleteAfterConfirm");
-    deleteCategoryPopup.setUIComponent(deleteCategoryDialog);
 	}
 	
   public String getMembershipSelected(){ return membershipSelected_; }
@@ -81,28 +71,10 @@ public class UIListMembershipType extends UIContainer {
     }
 	}
   
-	static  public class DeleteMembershipActionListener extends EventListener<UIListMembershipType> {
-		public void execute(Event<UIListMembershipType> event) throws Exception {
-      UIListMembershipType uiListMembership = event.getSource() ;
-      
-      String userName = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      uiListMembership.setMembershipSelected(userName);
-      UIPopupWindow popupWindow = uiListMembership.getChild(UIPopupWindow.class);
-      popupWindow.setShow(true);
-      UIMembershipManagement parent = uiListMembership.getParent();
-      event.getRequestContext().addUIComponentToUpdateByAjax(parent) ;
-    }
-  }
-  
-  static  public class DeleteAfterConfirmActionListener extends EventListener<UIListMembershipType> {
+  static  public class DeleteMembershipActionListener extends EventListener<UIListMembershipType> {
     public void execute(Event<UIListMembershipType> event) throws Exception {
-      
       UIListMembershipType uiMembership = event.getSource();
-      String name = uiMembership.getMembershipSelected();
-      UIPopupWindow popupWindow = uiMembership.getChild(UIPopupWindow.class);
-      popupWindow.setShow(false);
-      String action = event.getRequestContext().getRequestParameter("action");
-      if(!action.equals("ok")) return ;
+      String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UIMembershipManagement membership = uiMembership.getParent() ;
       OrganizationService service = uiMembership.getApplicationComponent(OrganizationService.class);
       MembershipType membershipType = service.getMembershipTypeHandler().findMembershipType(name) ;

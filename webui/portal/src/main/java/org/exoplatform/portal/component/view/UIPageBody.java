@@ -5,6 +5,8 @@
 package org.exoplatform.portal.component.view;
 
 import org.exoplatform.container.ExoContainer;
+import org.exoplatform.portal.component.view.listener.UIPageActionListener.AddJSApplicationToDesktopActionListener;
+import org.exoplatform.portal.component.view.listener.UIPageActionListener.AddPortletToDesktopActionListener;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
@@ -13,18 +15,34 @@ import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.event.Event.Phase;
 
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com
  * May 19, 2006
  */
-@ComponentConfig(template = "system:/groovy/portal/webui/component/view/UIPageBody.gtmpl")
+@ComponentConfig(
+    template = "system:/groovy/portal/webui/component/view/UIPageBody.gtmpl",
+    events = {
+        @EventConfig(listeners = AddJSApplicationToDesktopActionListener.class),
+        @EventConfig(listeners = AddPortletToDesktopActionListener.class)
+    }
+)
 public class UIPageBody extends UIComponentDecorator {
   
   @SuppressWarnings("unused")
+  public  UIPageBody(PageBody model) throws Exception {
+    setId("UIPageBody");
+  }
+  
+  public UIPageBody() throws Exception {
+    setId("UIPageBody");
+  }
+  @SuppressWarnings("unused")
   public  void init(PageBody model) throws Exception {
-    setId("PageBody");
+    setId("UIPageBody");
   }
   
   @SuppressWarnings("unused")

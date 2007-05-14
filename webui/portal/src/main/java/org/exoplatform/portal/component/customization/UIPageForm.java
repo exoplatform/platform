@@ -153,6 +153,7 @@ public class UIPageForm extends UIFormTabPane {
     UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
     if(uiPermissionSelector == null) return;   
     UIPopupWindow uiPopupWindow = uiPermissionSelector.getChild(UIPopupWindow.class);    
+    if(uiPopupWindow == null) return;
     uiPopupWindow.processRender(context);
   }
 

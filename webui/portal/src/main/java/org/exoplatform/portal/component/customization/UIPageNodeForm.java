@@ -93,6 +93,7 @@ public class UIPageNodeForm extends UIFormTabPane {
     UIPageSelector uiPageSelector = getChild(UIPageSelector.class);    
     if(uiPageSelector != null ) {  
       UIPopupWindow uiPopupWindowPage = uiPageSelector.getChild(UIPopupWindow.class);
+      if(uiPopupWindowPage == null ) return;
       uiPopupWindowPage.processRender(context);
     }
   }
