@@ -73,6 +73,9 @@
   height: 23px ; line-height: 23px ;  vertical-align: middle ;
   color: #2e7eb2; font-weight: bold; font-size: 11px;
 }
+.UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel a{
+  color: black; font-size: 11px; border:1px red solid;
+}
 
 /*#######################-SelectedVTabSimpleStyle VerticalSlideTabs-######################*/
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle {
