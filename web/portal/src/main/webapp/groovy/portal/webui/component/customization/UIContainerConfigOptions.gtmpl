@@ -28,7 +28,7 @@
 		<div class="UIContainerConfigOptions ItemSelectorAncestor">
 			<div class="ContainerConfigOptions">
 			  <%  uicomponent.renderChild(UIDropDownItemSelector.class); %>
-			
+				<div class="ScrollArea">
 				<% 
 				  for(category in categories) {
 				    String style = "none";
@@ -39,8 +39,8 @@
 				    }
 				%>  
 				<%/* Start Container Layout */%>
-				  <div class="Category ScrollArea">
-				    <div class="CategoryContainer ItemList" style="display:$style;">
+				  <div class="Category ItemList" style="display:$style;">
+				    <div class="CategoryContainer">
 				      <%
 				        for(template in templates) {
 									String setIcon = template.getIcon();
@@ -52,6 +52,7 @@
 				    </div>  
 				  </div>
 				<%}%>
+				</div>
 				<%/* End Container Layout */%>	
 			
 			</div>
