@@ -23,8 +23,8 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 		uiPopupCategory.style.width = width + "px" ;
 
 		if(controlCategory != null) {
-			if (uiPageDesktop == null) {
-			  var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - uiPopupCategory.offsetWidth + 40;
+			if(eXo.core.DOMUtil.findAncestorByClass(ancestorPopupCategory, "UITableColumnContainer")) {
+			  var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - uiPopupCategory.offsetWidth + 38;
 			  posLeft = posLeft - ancestorPopupCategory.offsetLeft;
 			  if (eXo.portal.UIControlWorkspace.showControlWorkspace) posLeft -= 246;
 			} else {
