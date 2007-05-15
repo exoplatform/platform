@@ -23,6 +23,7 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIDropDownItemSelector;
@@ -46,8 +47,8 @@ import org.exoplatform.webui.event.EventListener;
   @ComponentConfig(
       template = "app:/groovy/portal/webui/component/customization/UIPageNodeSelector.gtmpl" ,
       events = {
-          @EventConfig(listeners = UIPageNodeSelector.ChangeNodeActionListener.class),
-          @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class) 
+        @EventConfig(listeners = UIPageNodeSelector.ChangeNodeActionListener.class),
+        @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class) 
       }
   ),
   @ComponentConfig(
@@ -82,11 +83,13 @@ public class UIPageNodeSelector extends UIContainer {
   private PageNode selectedPageNode;
   
   private PageNode copyNode_;
+  private String upLevelURI ;
   
   public void setCopyPageNote(PageNode note) {  copyNode_ = note ; }
-  public PageNode getCopyPasteNote() { return copyNode_ ; } 
-  private boolean showAddNavigationAction_= true;
-  private String upLevelURI ;
+  
+  public PageNode getCopyPasteNote() { return copyNode_ ; }
+  
+  private boolean hasUserNav_ = false;
 
 	public UIPageNodeSelector() throws Exception {    
     addChild(UIRightClickPopupMenu.class, "UIPageNodeSelectorPopupMenu", null).setRendered(false);  
@@ -107,26 +110,36 @@ public class UIPageNodeSelector extends UIContainer {
     loadNavigations();
 	}
   
-  public boolean isShowAddNavigationAction(){ return showAddNavigationAction_; }
+  public boolean hasUserNavigation(){
+    if(hasUserNav_) return hasUserNav_;
+    for(PageNavigation nav  : navigations_){
+      if(nav.getOwnerType().equalsIgnoreCase(PortalConfig.USER_TYPE)) hasUserNav_ = true;
+    }
+    return hasUserNav_;
+  }
   
-  public void setShowAddNavigationAction(boolean set){  showAddNavigationAction_ = set; }
   public void loadNavigations() throws Exception {
     navigations_ = new ArrayList<PageNavigation>();
     List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();
-//    boolean userType = false;
     
     for(PageNavigation nav  : pnavigations){
       if(nav.isModifiable()) navigations_.add(nav.clone());
-      if(nav.getOwnerType().equalsIgnoreCase("user")){
-        showAddNavigationAction_ = false;
-      }
+      if(nav.getOwnerType().equalsIgnoreCase(PortalConfig.USER_TYPE)) hasUserNav_ = true;
     }
     
     if(navigations_.size() < 1) return;
     selectedNavigation = navigations_.get(0);
     UITree tree = getChild(UITree.class);
     tree.setSibbling(selectedNavigation.getNodes());
-    updateDropdown();
+    
+    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
+    for(PageNavigation navigation: navigations_) {
+      String label = navigation.getOwnerId() + "'s Nav";
+      options.add(new SelectItemOption<String>(label, navigation.getOwnerId()));
+    }
+    UIDropDownItemSelector uiDopDownSelector = getChild(UIDropDownItemSelector.class);
+    uiDopDownSelector.setOptions(options);
+    if(options.size() > 0) uiDopDownSelector.setSelected(0);
   }
   
   public void selectNavigation(String owner){    
@@ -283,7 +296,7 @@ public class UIPageNodeSelector extends UIContainer {
     }
   }
 
-  public void updateDropdown() {
+  /*private void updateDropdown() {
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     for(PageNavigation navigation: navigations_) {
       String label = navigation.getOwnerId() + "'s Nav";
@@ -292,6 +305,6 @@ public class UIPageNodeSelector extends UIContainer {
     UIDropDownItemSelector uiDopDownSelector = getChild(UIDropDownItemSelector.class);
     uiDopDownSelector.setOptions(options);
     uiDopDownSelector.setSelected(0);
-  } 
+  } */
   
 }
