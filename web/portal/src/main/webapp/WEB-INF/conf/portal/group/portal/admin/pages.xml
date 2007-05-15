@@ -41,6 +41,17 @@
       <show-info-bar>false</show-info-bar>
     </application>  
 
+    <application>
+      <instance-id>admin:/exo.app.web/eXoBrowser/eXoBrowser</instance-id>
+      <application-type>eXoApplication</application-type>
+      <title>eXo Browser</title>
+    </application>
+
+    <application>
+      <instance-id>admin:/exo.app.web/eXoConsole/eXoConsole</instance-id>
+      <application-type>eXoApplication</application-type>
+      <title>eXo Console</title>
+    </application>
   </page> 
   
   <page>

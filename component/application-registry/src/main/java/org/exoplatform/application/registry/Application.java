@@ -56,6 +56,7 @@ public class Application {
     if(owner == null || owner.length() < 1) return "Unknown" ; 
     return owner;
   }  
+  
   public void setOwner(String s) { this.owner = s; }
   
   public String[] getAccessGroup() { return accessGroup ; }

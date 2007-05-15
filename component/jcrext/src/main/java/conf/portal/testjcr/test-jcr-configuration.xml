@@ -56,6 +56,7 @@
           </properties-param>
         </init-params>
      </component-plugin>
+
      <component-plugin>
         <name>bind.jcr</name>
         <set-method>addPlugin</set-method>
@@ -98,11 +99,6 @@
             <name>factory</name>
             <value>org.exoplatform.services.jcr.rmi.RepositoryFactory</value>
           </value-param>
-          <!--<properties-param>
-            <name>ref-addresses</name>
-            <description>ref-addresses</description>
-            <property name="url" value="//localhost:9999/repository"/>
-          </properties-param>-->
         </init-params>
        </component-plugin>
     </component-plugins>

@@ -190,6 +190,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     session.logout();
   }
   
+  
   @SuppressWarnings("unchecked")
   public List<ApplicationCategory> getApplicationCategories(String accessUser) throws Exception {
     List<ApplicationCategory> categories = getApplicationCategories();
@@ -278,9 +279,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
     List<org.exoplatform.web.application.Application> applications = 
       appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE) ;
-    // Save apps from list to category
     for (org.exoplatform.web.application.Application app : applications) {
-      // Save category
       ApplicationCategory category = getApplicationCategory(app.getApplicationGroup()) ;
       if (category == null) {
         category = new ApplicationCategory() ;
@@ -289,8 +288,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
         category.setDescription(app.getApplicationGroup()) ;
         save(category) ;
       }
-
-      // Save app
+      //TODO: mapping should be done in the DataMapper class
       Node appNode = getApplicationNode(session, category.getName(), app.getApplicationName()) ;
       if (appNode == null) save(category, convertApplication(app)) ;
     }
@@ -298,16 +296,16 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     session.logout() ;
   }
   
-  //TODO: Tung.Pham added
   private Application convertApplication(org.exoplatform.web.application.Application app) {
     Application returnApplication = new Application() ;
-    
+    returnApplication.setApplicationGroup(app.getApplicationGroup()) ;
+    returnApplication.setApplicationType(app.getApplicationType()) ;
     returnApplication.setApplicationName(app.getApplicationName()) ;
     returnApplication.setId(app.getApplicationId()) ;
-    returnApplication.setDisplayName(app.getApplicationName()) ;
-    returnApplication.setApplicationGroup(app.getApplicationGroup()) ;
+    
+    
     returnApplication.setCategoryName(app.getApplicationGroup()) ;
-    returnApplication.setApplicationType(app.getApplicationType()) ;
+    returnApplication.setDisplayName(app.getApplicationName()) ;
     returnApplication.setDescription(app.getDescription()) ;
     
     return returnApplication ;

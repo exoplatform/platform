@@ -25,6 +25,8 @@ import org.exoplatform.webui.component.UIComponent;
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
  * May 4, 2007  
+ * 
+ * TODO: Rename this to PortalDataModelMapper
  */
 public class PortalDataModelUtil {
   
@@ -127,8 +129,7 @@ public class PortalDataModelUtil {
 
   
   static public void toUIExoApplication(UIExoApplication uiExoApp, Application model) throws Exception {
-//  toUIComponent(uiExoApp, model);
-//  uiExoApp.setApplicationInstanceId(model.getApplicationInstanceId());
+    uiExoApp.setApplicationInstanceId(model.getInstanceId()) ;
     uiExoApp.setShowInfoBar(model.getShowInfoBar());
     uiExoApp.setShowWindowState(model.getShowApplicationState());
     uiExoApp.setShowPortletMode(model.getShowApplicationMode());

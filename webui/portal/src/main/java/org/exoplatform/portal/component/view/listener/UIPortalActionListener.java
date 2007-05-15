@@ -21,7 +21,6 @@ import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -117,33 +116,19 @@ public class UIPortalActionListener {
     }
   }
   
+  //TODO: Rename this class to AddExoApplicationActionListener,  if the listener can remove only
+  //the application page , then it should be UIPageActionListener class
   static public class AddJSApplicationToDesktopActionListener  extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {
       String application  = event.getRequestContext().getRequestParameter("jsApplication");
       String applicationId  = event.getRequestContext().getRequestParameter("jsApplicationId");
       String instanceId  = event.getRequestContext().getRequestParameter("jsInstanceId");
       String appLoc= event.getRequestContext().getRequestParameter("jsApplicationLocation");
-      UIPortal uiPortal = Util.getUIPortal();  
-      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      UIPage uiPage = null;
-      if(uiPortal.isRendered()){
-        uiPage = uiPortal.findFirstComponentOfType(UIPage.class);
-      } else {
-        UIPortalToolPanel uiPortalToolPanel = uiPortalApp.findFirstComponentOfType(UIPortalToolPanel.class);
-        uiPage = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
-      }
-      
-      StringBuilder builder  = new StringBuilder();
-      builder.append("eXo.desktop.UIDesktop.createJSApplication('");
-      builder.append(application).append("','").append(applicationId).
-              append("','").append(instanceId).append("','").append(appLoc).append("');");
-      UIJSApplication jsApplication = uiPage.createUIComponent(UIJSApplication.class, null, null);
-      jsApplication.setJSApplication(builder.toString());
-      jsApplication.setId(instanceId);
-      uiPage.addChild(jsApplication);
     }
   }
   
+  //TODO: Rename this class to RemoveApplicationActionListener,  if the listener can remove only
+  //the application in the page , then it should be UIPageActionListener class
   static public class RemoveJSApplicationToDesktopActionListener  extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {
       String instanceId  = event.getRequestContext().getRequestParameter("jsInstanceId");

@@ -11,6 +11,8 @@ import org.exoplatform.webui.component.UIComponent;
  * Author : Le Bien Thuy
  *          lebienthuy@gmail.com
  * Apr 2, 2007  
+ * 
+ * TODO:  This one  should be removed
  */
 public class UIAddJSApplication extends UIComponent{
 
