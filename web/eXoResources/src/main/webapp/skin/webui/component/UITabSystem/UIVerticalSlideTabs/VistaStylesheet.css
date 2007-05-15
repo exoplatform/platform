@@ -71,10 +71,13 @@
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel {
   float: left ;
   height: 23px ; line-height: 23px ;  vertical-align: middle ;
-  color: #2e7eb2; font-weight: bold; font-size: 11px;
+  color: #2e7eb2;  font-size: 11px;
 }
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel a{
   color: black; font-size: 11px; 
+}
+.UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel a:hover{
+  color: #4986eb; font-size: 11px; 
 }
 
 /*#######################-SelectedVTabSimpleStyle VerticalSlideTabs-######################*/
@@ -101,7 +104,7 @@
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLabel {
   float: left;
   height: 23px ; line-height: 22px ;  vertical-align: middle ;
-  color: #058ee6; font-weight: bold; font-size: 11px;
+  color: #058ee6; font-size: 11px;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .ControlContainer {
@@ -130,7 +133,9 @@
   border-top: none;
   margin: 0px 5px 0px 5px;
 }
-
+.UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLabel a{
+  color: #4986eb; font-size: 11px;
+}
 
 /*#######################-PolygonNavyViolet Style VerticalSlideTabs-######################*/
 

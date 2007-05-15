@@ -129,4 +129,68 @@
   background: url('VistaSkin/background/CenterBottomMenuDecorator1x13.png') repeat-x;
   height: 13px;
 }
+/***********************/
+/*** Scroll Buttons ***/
+
+.UINavigationPortlet .ScrollButtons {
+	float: right;
+	padding: 5px 0px;
+}
+
+.UINavigationPortlet .ScrollLeftButton {
+	cursor: pointer;
+  background: url('VistaSkin/background/ScrollLeft14x15.png') no-repeat left;
+  width: 14px;
+  height: 15px;
+  padding-left: 14px;
+  margin: 0px 5px;
+  float: left;
+}
+
+.UINavigationPortlet .ScrollRightButton {
+	cursor: pointer;
+	background: url('VistaSkin/background/ScrollRight14x15.png') no-repeat right;
+  width: 14px;
+  height: 15px;
+  margin: 0px 5px;
+  float: left;
+}
+
+.UINavigationPortlet .DisableScrollLeftButton {
+  cursor: pointer;
+	background: url('VistaSkin/background/DisableScrollLeft14x15.png') no-repeat left;
+  width: 14px;
+  height: 15px;
+  padding-left: 14px;
+  margin: 0px 5px;
+  float: left;
+}
+
+.UINavigationPortlet .DisableScrollRightButton { 
+	cursor: pointer;
+	background: url('VistaSkin/background/DisableScrollRight14x15.png') no-repeat right;
+  width: 14px;
+  height: 15px;
+  margin: 0px 5px;
+  float: left;
+}
+
+.UINavigationPortlet .HighlightScrollLeftButton {
+  cursor: pointer;
+	background: url('VistaSkin/background/HighlightScrollLeft14x15.png') no-repeat left;
+  width: 14px;
+  height: 15px;
+  padding-left: 14px;
+  margin: 0px 5px;
+  float: left;
+}
+
+.UINavigationPortlet .HighlightScrollRightButton {
+	cursor: pointer;
+	background: url('VistaSkin/background/HighlightScrollRight14x15.png') no-repeat;
+  width: 14px;
+  height: 15px;
+  margin: 0px 5px;
+  float: left;
+}
 
