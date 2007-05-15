@@ -80,16 +80,16 @@ public class UserPortalConfigService {
    */
   public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
     PortalConfig portal = storage_.getPortalConfig(portalName) ;
-    String mt = userACL_.getViewMembershipType();
-    if(portal == null || !userACL_.hasPermission(portal, accessUser, mt)) return null ;
-    mt = userACL_.getEditMembershipType();
-    portal.setModifiable(userACL_.hasPermission(portal, accessUser, mt));
+    if(portal == null || !userACL_.hasPermission(portal, accessUser, userACL_.getViewMembershipType())) {
+      return null ;
+    }
+    portal.setModifiable(userACL_.hasPermission(portal, accessUser, userACL_.getEditMembershipType()));
 
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-    PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
+    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
     if (navigation != null) navigations.add(navigation);    
     
-    navigation = getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser) ;
+    navigation = storage_.getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser) ;
     if (navigation != null) navigations.add(navigation) ;
 
     Collection memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
@@ -107,7 +107,7 @@ public class UserPortalConfigService {
         }
       }
       if(newNav) {
-        navigation = getPageNavigation(navId) ;
+        navigation = storage_.getPageNavigation(navId) ;
         if (navigation != null) navigations.add(navigation) ;
       }
     }   
@@ -125,9 +125,8 @@ public class UserPortalConfigService {
    * @return
    * @throws Exception
    */
-  //TODO: Tung.Pham: implement
-  public UserPortalConfig  createUserPortalConfig(String portalName, String template) throws Exception {
-    PortalConfig portal = storage_.getPortalConfig(template) ;
+  public UserPortalConfig createUserPortalConfig(String portalName, String template) throws Exception {
+  /*  PortalConfig portal = storage_.getPortalConfig(template) ;
     if (portal == null) return null ;
     portal.setName(portalName) ;
     storage_.create(portal) ;
@@ -140,7 +139,8 @@ public class UserPortalConfigService {
     create(navi) ;
     navigations.add(navi) ;
     
-    return new UserPortalConfig(portal, navigations) ;   
+    return new UserPortalConfig(portal, navigations) ; */
+    return null;
   }
   
   /**
@@ -167,7 +167,7 @@ public class UserPortalConfigService {
       i++;
     }
     
-    PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
+    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
     if (navigation != null) remove(navigation);
   }
 
@@ -191,9 +191,10 @@ public class UserPortalConfigService {
    */
   public Page getPage(String pageId, String accessUser) throws Exception {
     Page page = (Page) pageConfigCache_.get(pageId) ;    
-    if(page != null) return page ;
-    page  = storage_.getPage(pageId) ;
-    if(page == null || !userACL_.hasPermission(page, accessUser, userACL_.getViewMembershipType())) return null;
+    if(page == null) page  = storage_.getPage(pageId) ;
+    if(page == null || !userACL_.hasPermission(page, accessUser, userACL_.getViewMembershipType())) {
+      return null;
+    }
     page.setModifiable(userACL_.hasPermission(page, accessUser, userACL_.getEditMembershipType()));
     pageConfigCache_.put(pageId, page);
     return page ; 
@@ -255,9 +256,24 @@ public class UserPortalConfigService {
     storage_.remove(navigation) ;
     pageNavigationCache_.remove(navigation.getId());
   }
+  
+  public PageNavigation getPageNavigation(String id, String accessUser) throws Exception {
+    PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(id) ;
+    if(navigation == null) navigation  = storage_.getPageNavigation(id) ;
+    if(navigation == null || !userACL_.hasPermission(navigation, accessUser, userACL_.getViewMembershipType())){
+      return null;
+    }
+    navigation.setModifiable(userACL_.hasPermission(navigation, accessUser, userACL_.getEditMembershipType()));
+    pageNavigationCache_.put(id, navigation);
+    return navigation ;   
+  }
+  
+  public void computeModifiable(PageNavigation navigation, String accessUser) throws Exception {
+    navigation.setModifiable(userACL_.hasPermission(navigation, accessUser, userACL_.getEditMembershipType()));
+  }
 
   
-//TODO: Tung.Pham modified
+/*//TODO: Tung.Pham modified
   PageNavigation getPageNavigation(String id) throws Exception {
     PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(id) ;
     if(navigation != null) return navigation ; 
@@ -295,7 +311,7 @@ public class UserPortalConfigService {
       copyPages(ele, portalName) ;
     }
 
-  }
+  }*/
 
   @SuppressWarnings("unused")
   public void initListener(ComponentPlugin listener) { }

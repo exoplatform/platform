@@ -5,8 +5,7 @@
 package org.exoplatform.webui.component.validator;
 
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIFormInputBase;
+import org.exoplatform.webui.component.UIFormInput;
 import org.exoplatform.webui.exception.MessageException;
 
 /**
@@ -16,14 +15,11 @@ import org.exoplatform.webui.exception.MessageException;
  * May 15, 2007
  */
 
-// TODO : TrongTT
-
 public class DateTimeValidator implements Validator {
   static private final String DATETIME_REGEX = 
     "^(\\d{1,2}\\/\\d{1,2}\\/\\d{1,4})\\s*(\\s+\\d{1,2}:\\d{1,2}:\\d{1,2})?$";
   
-  public void validate(UIComponent uicomponent) throws Exception {
-    UIFormInputBase uiInput = (UIFormInputBase) uicomponent ;
+  public void validate(UIFormInput uiInput) throws Exception {
     String s = (String)uiInput.getValue();
     if(s == null || s.trim().length() < 1 || (s).matches(DATETIME_REGEX)) return;
     Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;

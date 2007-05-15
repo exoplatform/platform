@@ -65,29 +65,52 @@ public class UISharedPortalResources extends UIForm {
       UISharedPortalResources uiForm = event.getSource() ;
       
       PortalRequestContext pcontext = Util.getPortalRequestContext();
-      UserPortalConfigService userPortalConfigService = uiForm.getApplicationComponent(UserPortalConfigService.class);
-      String portalResourceName = uiForm.getPortalResourceName();
+      
       UIGroupInfo uiGroupInfo = uiForm.getParent();
       UIUserInGroup uiUserInGroup = uiGroupInfo.getChild(UIUserInGroup.class);
       Group selectedGroup = uiUserInGroup.getSelectedGroup();
       
-      String selectedGroupId ;
       if(selectedGroup == null) {
         UIApplication uiApp = pcontext.getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UISharedPortalResources.msg.notSelected", null)) ;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return ;
       } 
-      selectedGroupId = selectedGroup.getId() ;
+      String selectedGroupId = selectedGroup.getId() ;
+      String accessUser = pcontext.getRemoteUser();
+      String resourceName = uiForm.getPortalResourceName();
+      UserPortalConfigService pcService = uiForm.getApplicationComponent(UserPortalConfigService.class);
+      
+      
+      String userNavId = PortalConfig.USER_TYPE + "::" + resourceName;
+      String groupNavId = PortalConfig.GROUP_TYPE + "::" + selectedGroupId;
+      PageNavigation userNav = pcService.getPageNavigation(userNavId, accessUser);
+      PageNavigation groupNav = pcService.getPageNavigation(groupNavId, accessUser);
+      if(groupNav == null) {
+        groupNav = new PageNavigation();
+        groupNav.setOwnerType(PortalConfig.GROUP_TYPE);
+        groupNav.setOwnerId(selectedGroupId);
+        groupNav.setAccessGroup(new String[]{selectedGroupId});
+
+        pcService.computeModifiable(groupNav, accessUser);
+        if(!groupNav.isModifiable()) return;
+        groupNav.setPriority(new Integer(uiForm.getPriority()));
+        groupNav.setNodes(userNav.getNodes());
+        groupNav.setCreator(accessUser);
+        pcService.create(groupNav);
+      } else { 
+        if(!groupNav.isModifiable()) return;
+        groupNav.setPriority(new Integer(uiForm.getPriority()));
+        groupNav.setNodes(userNav.getNodes());
+        groupNav.setCreator(accessUser);
+        pcService.update(userNav);
+      }
       
       Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
-      
-      query.setOwnerType(PortalConfig.GROUP_TYPE) ;
-      query.setOwnerId(portalResourceName) ;
-      
+      query.setOwnerType(PortalConfig.USER_TYPE) ;
+      query.setOwnerId(resourceName);
       DataStorage dataStorage = uiForm.getApplicationComponent(DataStorage.class) ;
       PageList pagelist = dataStorage.find(query) ;
-      
       int i = 1;
       while(i < pagelist.getAvailablePage()) {
         List<?>  list = pagelist.getPage(i);
@@ -99,13 +122,6 @@ public class UISharedPortalResources extends UIForm {
         }
         i++;
       }
-      
-      PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.USER_TYPE + "::" + portalResourceName) ;
-     
-      navigation.setPriority(new Integer(uiForm.getPriority()));
-      navigation.setOwnerType(PortalConfig.GROUP_TYPE);
-      navigation.setOwnerId(selectedGroupId);
-      if(dataStorage.getPageNavigation(navigation.getId()) != null) dataStorage.create(navigation);
     }
   }
 }
