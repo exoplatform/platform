@@ -14,6 +14,9 @@ import java.util.ArrayList;
  **/
 public class Page extends Container {
   
+  final static public String DESKTOP_PAGE = "Desktop";
+  final static public String DEFAULT_PAGE = "Default";
+  
   private transient String   pageId;
   
   private String   ownerType;
