@@ -33,10 +33,8 @@
 }
 
 .AddNewNodeIcon {
-  margin: 3px 5px 0px 3px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/AddNodeIcon.gif') no-repeat center left;
   width: 16px ;  height: 16px ;
-  float: left ;
 }
 
 .SelectPage16x16Icon {
