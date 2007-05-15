@@ -126,5 +126,9 @@
 }
 
 .UIPermissionForm .UIGroupSelector .RightGroupSelector .Content {
-  height: 150px;
+  height: 160px;
+}
+
+.UIApplicationRegistryPortlet .UIPermissionForm .UIPopupWindow .UIWindowContent .Content {
+  padding: 15px;
 }
