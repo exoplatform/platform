@@ -81,7 +81,12 @@ public class UIPageEditBar extends UIToolbar {
       uiEditBar.showUIPage();      
 
       UIPageManagement uiPManagement = uiEditBar.getParent();
-      Class [] childrenToRender = {UIPageEditBar.class, UIContainerConfigOptions.class, UIPageNavigationControlBar.class}; 
+      Class [] childrenToRender = {};
+      if(uiPManagement.getChild(UIPageNavigationControlBar.class).isRendered()) {
+        childrenToRender = new Class[]{UIPageEditBar.class, UIContainerConfigOptions.class, UIPageNavigationControlBar.class};
+      } else {
+        childrenToRender = new Class[]{UIPageEditBar.class, UIContainerConfigOptions.class};
+      }
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
@@ -99,9 +104,13 @@ public class UIPageEditBar extends UIToolbar {
       UIPageEditBar uiEditBar = event.getSource();
       uiEditBar.showUIPage();
 
-      UIPageManagement uiPManagement = uiEditBar.getParent();       
-      Class [] childrenToRender = {UIPageEditBar.class, 
-                                   UIPortletOptions.class, UIPageNavigationControlBar.class}; 
+      UIPageManagement uiPManagement = uiEditBar.getParent();
+      Class [] childrenToRender = {};
+      if(uiPManagement.getChild(UIPageNavigationControlBar.class).isRendered()) {
+        childrenToRender = new Class[]{UIPageEditBar.class, UIPortletOptions.class, UIPageNavigationControlBar.class};
+      } else {
+        childrenToRender = new Class[]{UIPageEditBar.class, UIPortletOptions.class};
+      }
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;

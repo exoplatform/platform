@@ -7,6 +7,7 @@ import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
+import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
@@ -20,6 +21,7 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -163,6 +165,49 @@ public class UIPageBrowser extends UISearch {
   static public class EditInfoActionListener extends EventListener<UIPageBrowser> {    
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPageBrowser uiPageBrowser = event.getSource();
+      UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
+      
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
+      String id = pcontext.getRequestParameter(OBJECTID) ;
+      UserPortalConfigService dao = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class) ;
+      Page page = dao.getPage(id, pcontext.getRemoteUser()) ;
+      
+      if(page == null) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+        return;
+      }
+    
+      if(!page.isModifiable()) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+        return ;
+      }
+      
+      UIPage uiPage =  uiPageBrowser.createUIComponent(pcontext, UIPage.class, null, null) ;
+      PortalDataModelUtil.toUIPage(uiPage, page);
+      
+      if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
+        UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+        UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
+        uiPageForm.setValues(uiPage);
+        uiMaskWS.setUIComponent(uiPageForm);
+        uiMaskWS.setShow(true);
+        pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
+        return;
+      }
+      
+      UIControlWorkspace uiControl =  uiPortalApp.findFirstComponentOfType(UIControlWorkspace.class) ;
+      UIComponentDecorator uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID) ;
+      UIPageManagement uiManagement = uiWorking.createUIComponent(UIPageManagement.class, null, null); 
+      uiWorking.setUIComponent(uiManagement) ;
+      
+      uiManagement.setRenderedChildrenOfTypes(new Class[]{UIPageEditBar.class});
+      UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class);
+      uiEditBar.setUIPage(uiPage);
+      uiEditBar.createEvent("EditPortlet", event.getExecutionPhase(), event.getRequestContext()).broadcast();
+      
+      /*UIPageBrowser uiPageBrowser = event.getSource();
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext(); 
       
       String id = pcontext.getRequestParameter(OBJECTID) ;
@@ -191,7 +236,7 @@ public class UIPageBrowser extends UISearch {
       uiPageForm.setValues(uiPage);
       uiMaskWS.setUIComponent(uiPageForm);
       uiMaskWS.setShow(true);
-      pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
+      pcontext.addUIComponentToUpdateByAjax(uiMaskWS);*/
     }
   }
   
@@ -210,7 +255,7 @@ public class UIPageBrowser extends UISearch {
         return;
       }
       
-      if("Desktop".equals(page.getFactoryId())) {
+      if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{page.getName()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;

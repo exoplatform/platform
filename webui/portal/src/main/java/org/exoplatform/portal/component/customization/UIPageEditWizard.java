@@ -114,13 +114,13 @@ public class UIPageEditWizard extends UIPageWizard {
         templatePage.setOwnerType(page.getOwnerType());
         templatePage.setOwnerId(page.getOwnerId());
         page  = templatePage;
-        isDesktopPage = "Desktop".equals(page.getFactoryId());
+        isDesktopPage = Page.DESKTOP_PAGE.equals(page.getFactoryId());
         if(isDesktopPage) {
           page.setChildren(new ArrayList<Object>());
           page.setShowMaxWindow(true);
         }
       } else {
-        isDesktopPage = "Desktop".equals(page.getFactoryId());
+        isDesktopPage = Page.DESKTOP_PAGE.equals(page.getFactoryId());
       }
       WebuiRequestContext context = Util.getPortalRequestContext() ;
       page.setModifier(context.getRemoteUser());

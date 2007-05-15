@@ -123,7 +123,7 @@ public class UIPageForm extends UIFormTabPane {
       if(itemOption != null){
         page.setFactoryId(itemOption.getIcon());
         page.setTemplate((String)itemOption.getValue());
-        page.setShowMaxWindow(page.getFactoryId().equals("Desktop"));
+        page.setShowMaxWindow(page.getFactoryId().equals(Page.DESKTOP_PAGE));
       } 
     } 
     
@@ -140,7 +140,7 @@ public class UIPageForm extends UIFormTabPane {
     if(selectedPage == null) return ;
     page.setChildren(selectedPage.getChildren());
     page.setFactoryId(selectedPage.getFactoryId());
-    page.setShowMaxWindow("Desktop".equals(page.getFactoryId()));
+    page.setShowMaxWindow(Page.DESKTOP_PAGE.equals(page.getFactoryId()));
   }
 
   public UIComponent getBackUIComponent() { return returnComponent_ ; }
@@ -177,11 +177,11 @@ public class UIPageForm extends UIFormTabPane {
           applications.add(PortalDataModelUtil.toPortletModel(uiPortlet));
         }
         
-        if("Desktop".equals(uiPage.getFactoryId()) && !"Desktop".equals(page.getFactoryId())) {
+        if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId()) && !Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
           page.setShowMaxWindow(false);
           uiPage.getChildren().clear();
           page.setChildren(applications);
-        } else if(!"Desktop".equals(uiPage.getFactoryId()) && "Desktop".equals(page.getFactoryId())) {
+        } else if(!Page.DESKTOP_PAGE.equals(uiPage.getFactoryId()) && Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
           uiPage.getChildren().clear();         
           page.setChildren(applications);   
         } else {

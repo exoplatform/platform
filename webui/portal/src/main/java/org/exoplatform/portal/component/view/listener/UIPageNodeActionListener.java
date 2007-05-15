@@ -112,7 +112,7 @@ public class UIPageNodeActionListener {
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;  
       uiToolPanel.setUIComponent(uiPage);
       
-      if ("Desktop".equals(page.getFactoryId())) {
+      if (Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
         UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;      
         UIPageForm uiPageForm =  uiMaskWS.createUIComponent(UIPageForm.class);
         uiPageForm.removeChild(UIPageTemplateOptions.class);

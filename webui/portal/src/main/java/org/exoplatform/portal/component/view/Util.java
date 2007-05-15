@@ -168,7 +168,7 @@ public class Util {
     UIPage uiPage  = Util.getUIPortal().findFirstComponentOfType(UIPage.class);
     if(uiPage != null && uiPage.getId().equals(page.getId())) return uiPage;   
     WebuiRequestContext  context = Util.getPortalRequestContext() ;  
-    if("Default".equalsIgnoreCase(page.getFactoryId())) {
+    if(Page.DEFAULT_PAGE.equalsIgnoreCase(page.getFactoryId())) {
       uiPage = uiParent.createUIComponent(context, UIPage.class, null, null);
     } else {
       uiPage = uiParent.createUIComponent(context, UIPage.class, page.getFactoryId(), null);

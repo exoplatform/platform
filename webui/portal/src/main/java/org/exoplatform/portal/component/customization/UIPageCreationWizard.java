@@ -180,7 +180,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       page.setModifiable(true);
       if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getLabel()) ;
       
-      boolean isDesktopPage = "Desktop".equals(page.getFactoryId());
+      boolean isDesktopPage = Page.DESKTOP_PAGE.equals(page.getFactoryId());
       if(isDesktopPage) page.setShowMaxWindow(true);
       
       String pageId = page.getPageId();

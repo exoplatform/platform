@@ -253,7 +253,7 @@ public class UIPageNodeSelector extends UIContainer {
       UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
       Util.getUIPortalToolPanel().setUIComponent(uiPage);
       
-      if("Desktop".equals(uiPage.getFactoryId())) {
+      if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId())) {
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
