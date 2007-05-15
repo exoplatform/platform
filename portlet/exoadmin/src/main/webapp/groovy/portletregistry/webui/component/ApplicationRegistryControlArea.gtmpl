@@ -61,7 +61,7 @@
 	 			    String cTab, cName , display, description;
 				    cName  = category.getName();
 				    description = category.getDescription();
-				    if(description == null || description.lenght() < 1) description = cName;
+				    if(description == null || description.length() < 1) description = cName;
 				    if(selectedCategory != null && cName == selectedCategory.getName()) {
 				      cTab = "SelectedVTabSimpleStyle" ;
 				      display = "display: block";
