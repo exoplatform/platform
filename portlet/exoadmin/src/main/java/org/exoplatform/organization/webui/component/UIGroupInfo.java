@@ -20,7 +20,7 @@ public class UIGroupInfo extends UITabPane {
   
   public UIGroupInfo() throws Exception {
     addChild(UIUserInGroup.class, null, null) ;
-    addChild(UISharedPortalResources.class, null, null).setRendered(false) ;
+    addChild(UISharedNavigation.class, null, null).setRendered(false) ;
 //    addChild(UISharedPortalForm.class, null, null).setRendered(false) ;
 //    addChild(UISharedNavigationForm.class, null, null).setRendered(false) ;
 //    addChild(UIGroupSharedInfo.class, null, null).setRendered(false) ;    
