@@ -60,11 +60,22 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
     list.addAll(uiIterator.getPageList().getAll());
     for(Group group : groups) {
-      list.add(group);
+      if(checkAvailable(group)) list.add(group);
     }
     uiIterator.setPageList(new ObjectPageList(list, 10));
   }
   
+  @SuppressWarnings("unchecked")
+  private boolean checkAvailable(Group group) throws Exception {
+    List<Object> list = new ArrayList<Object>();
+    UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
+    list .addAll(uiIterator.getPageList().getAll());
+    for(Object ele: list) {
+      if(((Group)ele).getId().equals(group.getId())) return false;
+    }
+    return true;
+  }
+
   public void clearGroups() throws Exception {
     List<Object> list = new ArrayList<Object>();
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
