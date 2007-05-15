@@ -13,6 +13,7 @@ import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.AddNodeActionListener;
+import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.AddUserNavigationActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.CopyNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.DeleteNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.EditPageNodeActionListener;
@@ -67,6 +68,7 @@ import org.exoplatform.webui.event.EventListener;
       type = UIRightClickPopupMenu.class,
       template = "system:/groovy/webui/component/UIRightClickPopupMenu.gtmpl",
       events = {
+        @EventConfig(listeners = AddUserNavigationActionListener.class),
         @EventConfig(listeners = AddNodeActionListener.class),
         @EventConfig(listeners = PasteNodeActionListener.class)
       }
@@ -83,7 +85,7 @@ public class UIPageNodeSelector extends UIContainer {
   
   public void setCopyPageNote(PageNode note) {  copyNode_ = note ; }
   public PageNode getCopyPasteNote() { return copyNode_ ; } 
-  
+  private boolean showAddNavigationAction_= true;
   private String upLevelURI ;
 
 	public UIPageNodeSelector() throws Exception {    
@@ -102,28 +104,29 @@ public class UIPageNodeSelector extends UIContainer {
     uiTree.setBeanIconField("icon");
     UIRightClickPopupMenu uiPopupMenu = createUIComponent(UIRightClickPopupMenu.class, "PageNodePopupMenu", null) ;
     uiTree.setUIRightClickPopupMenu(uiPopupMenu);
-    
     loadNavigations();
-    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
-    for(PageNavigation navigation: navigations_) {
-      String label = navigation.getOwnerId() + "'s Nav";
-      options.add(new SelectItemOption<String>(label, navigation.getOwnerId()));
-    }
-    uiDopDownSelector.setOptions(options);
-    uiDopDownSelector.setSelected(0);
 	}
   
+  public boolean isShowAddNavigationAction(){ return showAddNavigationAction_; }
+  
+  public void setShowAddNavigationAction(boolean set){  showAddNavigationAction_ = set; }
   public void loadNavigations() throws Exception {
     navigations_ = new ArrayList<PageNavigation>();
     List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();
+//    boolean userType = false;
+    
     for(PageNavigation nav  : pnavigations){
       if(nav.isModifiable()) navigations_.add(nav.clone());
+      if(nav.getOwnerType().equalsIgnoreCase("user")){
+        showAddNavigationAction_ = false;
+      }
     }
     
     if(navigations_.size() < 1) return;
     selectedNavigation = navigations_.get(0);
     UITree tree = getChild(UITree.class);
-    tree.setSibbling(selectedNavigation.getNodes());   
+    tree.setSibbling(selectedNavigation.getNodes());
+    updateDropdown();
   }
   
   public void selectNavigation(String owner){    
@@ -278,6 +281,17 @@ public class UIPageNodeSelector extends UIContainer {
       uiPageNodeSelector.setSelectedPageNode(null) ;
       uiPageNodeSelector.selectNavigation(owner);
     }
+  }
+
+  public void updateDropdown() {
+    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
+    for(PageNavigation navigation: navigations_) {
+      String label = navigation.getOwnerId() + "'s Nav";
+      options.add(new SelectItemOption<String>(label, navigation.getOwnerId()));
+    }
+    UIDropDownItemSelector uiDopDownSelector = getChild(UIDropDownItemSelector.class);
+    uiDopDownSelector.setOptions(options);
+    uiDopDownSelector.setSelected(0);
   } 
   
 }

@@ -18,6 +18,9 @@
   
   UIRightClickPopupMenu uiPopupMenu = uicomponent.getChild(UIRightClickPopupMenu.class);
   String popupMenu = "";
+%>
+<div id="UIPageNodeSelector">
+<%
   if(uiPopupMenu != null) {
     String id = uicomponent.getParent().getId();
   	JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -25,10 +28,14 @@
   	
   	jsmanager.addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
     uicomponent.renderUIComponent(uiPopupMenu) ;
-     
-    popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode");
+    String s = "AddNode,PasteNode";
+    if(uicomponent.isShowAddNavigationAction()) {
+      s = "AddUserNavigation,AddNode,PasteNode";
+    }
+    popupMenu = uiPopupMenu.getJSOnclickShowPopup("", s);
   }
 %>
+
 <div class="TopLeftContainerOptions">
 	<div class="TopRightContainerOptions">
   	<div class="TopCenterContainerOptions"><span></span></div>
@@ -62,6 +69,6 @@
   	<div class="BottomCenterContainerOptions"><span></span></div>
   </div>
 </div> 
-
+</div>
 
 

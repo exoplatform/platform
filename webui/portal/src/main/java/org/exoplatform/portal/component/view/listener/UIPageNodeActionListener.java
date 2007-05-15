@@ -78,7 +78,31 @@ public class UIPageNodeActionListener {
       return null; 
     }
   } 
+  
 
+  static public class AddUserNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
+    public void execute(Event<UIRightClickPopupMenu> event) throws Exception {  
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      PageNavigation newNavigation = new PageNavigation();
+      String userName = prContext.getRemoteUser();
+      newNavigation.setOwnerId(userName);
+      newNavigation.setCreator(userName);
+      newNavigation.setModifier(userName);
+      newNavigation.setModifiable(true);
+      newNavigation.setOwnerType("user");
+      UserPortalConfigService dataService = event.getSource().getApplicationComponent(UserPortalConfigService.class);
+      dataService.create(newNavigation);
+      UIPageNodeSelector parent = event.getSource().getParent();
+      parent.getNavigations().add(newNavigation);
+//      parent.loadNavigations();
+      parent.updateDropdown();
+      parent.setShowAddNavigationAction(!parent.isShowAddNavigationAction());
+      Util.getUIPortal().setNavigation(parent.getNavigations());
+      event.getRequestContext().addUIComponentToUpdateByAjax(parent);
+    }
+  }
+
+  
   static public class EditPageNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {     
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);

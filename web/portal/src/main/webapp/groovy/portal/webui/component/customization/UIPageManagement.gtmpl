@@ -28,9 +28,7 @@
     %>
   </div>
   <%if(uicomponent.getChild(UIPageNodeSelector.class).isRendered()) { %>
-	  <div id="UIPageNodeSelector">
       <% uicomponent.renderChild(UIPageNodeSelector.class) %>
-    </div>
   <%}%> 	     
   
   <%if(uicomponent.getChild(UIContainerConfigOptions.class).isRendered()) { %>
