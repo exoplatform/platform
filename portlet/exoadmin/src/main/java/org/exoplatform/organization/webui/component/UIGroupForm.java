@@ -33,8 +33,8 @@ import org.exoplatform.organization.webui.component.UIGroupForm.*;
   lifecycle = UIFormLifecycle.class,
   template = "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
   events = {
-    @EventConfig(phase = Phase.DECODE, listeners = BackActionListener.class),
-    @EventConfig(listeners = SaveActionListener.class)      
+    @EventConfig(listeners = SaveActionListener.class),
+    @EventConfig(phase = Phase.DECODE, listeners = BackActionListener.class)      
   }
 )
 public class UIGroupForm extends UIForm {
