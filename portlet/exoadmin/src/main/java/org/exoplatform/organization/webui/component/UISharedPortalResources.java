@@ -7,11 +7,18 @@ package org.exoplatform.organization.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.container.ExoContainer;
-import org.exoplatform.organization.webui.component.UIGroupMembershipForm.SaveActionListener;
+import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.services.organization.Group;
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserPortalConfigService;
-import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.portal.config.model.Page;
+import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -33,11 +40,12 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
   lifecycle = UIFormLifecycle.class,
   template = "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
-  events = @EventConfig(listeners = SaveActionListener.class)
+  events = @EventConfig(listeners = UISharedPortalResources.SaveActionListener.class)
 )
 
 public class UISharedPortalResources extends UIForm {
   List<SelectItemOption<String>> listOption = new ArrayList<SelectItemOption<String>>();
+  
   @SuppressWarnings("unchecked")
   public UISharedPortalResources() throws Exception {
     for(int i = 1; i <= 10; i++ ) {
@@ -49,30 +57,55 @@ public class UISharedPortalResources extends UIForm {
     addUIFormInput(new UIFormSelectBox("priority","priority", listOption));
   }
   
-  public String getPortalResources() { return getUIStringInput("portalResourceName").getValue(); }
-  public String getPriority() { return getUIStringInput("priority").getValue(); }
+  public String getPortalResourceName() { return getUIStringInput("portalResourceName").getValue(); }
+  public String getPriority() { return getUIFormSelectBox("priority").getValue(); }
   
   static  public class SaveActionListener extends EventListener<UISharedPortalResources> {
     public void execute(Event<UISharedPortalResources> event) throws Exception {
       UISharedPortalResources uiForm = event.getSource() ;
-//    get UserPortalConfigService
-      UserPortalConfigService userPortalConfigService = uiForm.getApplicationComponent(UserPortalConfigService.class);
       
-      // get portalresource as portalName
-      String portalResourceName = uiForm.getPortalResources();
-      // get selected group id as groupId 
-      // get all page by, review UIPageSelect, query set ownerType as DataStore.user_type and ownerId  as portalName 
-      // List<Page> list =  userPortalConfig.getPage(String portalName);
-      //for(Page page : list) {
-      //  page.setOnwnerType(DataStore.Group_type);
-      //  page.setOwnerId(groupId);
-      //  userPortalConfig.savePage(page);
-      //}
-      //PageNavigation nav = userPortalConfig.getPageNavigation(String portalName);
-      //  nav.setOnwnerType(DataStore.Group_type);
-      //  nav.setOwnerId(groupId);
-      //  userPortalConfig.saveNav(nav);      
-      System.out.println("\n\n\n\n\n\n\n\n UISharedPortalResources \n\n\n\n\n\n\n\n");
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
+      UserPortalConfigService userPortalConfigService = uiForm.getApplicationComponent(UserPortalConfigService.class);
+      String portalResourceName = uiForm.getPortalResourceName();
+      UIGroupInfo uiGroupInfo = uiForm.getParent();
+      UIUserInGroup uiUserInGroup = uiGroupInfo.getChild(UIUserInGroup.class);
+      Group selectedGroup = uiUserInGroup.getSelectedGroup();
+      
+      String selectedGroupId ;
+      if(selectedGroup == null) {
+        UIApplication uiApp = pcontext.getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UISharedPortalResources.msg.notSelected", null)) ;
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return ;
+      } 
+      selectedGroupId = selectedGroup.getId() ;
+      
+      Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
+      
+      query.setOwnerType(PortalConfig.GROUP_TYPE) ;
+      query.setOwnerId(portalResourceName) ;
+      
+      DataStorage dataStorage = uiForm.getApplicationComponent(DataStorage.class) ;
+      PageList pagelist = dataStorage.find(query) ;
+      
+      int i = 1;
+      while(i < pagelist.getAvailablePage()) {
+        List<?>  list = pagelist.getPage(i);
+        for(Object ele : list) {
+          Page page  = (Page)ele;
+          page.setOwnerType(PortalConfig.GROUP_TYPE);
+          page.setOwnerId(selectedGroupId);
+          if(dataStorage.getPage(page.getId()) == null) dataStorage.create(page);
+        }
+        i++;
+      }
+      
+      PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.USER_TYPE + "::" + portalResourceName) ;
+     
+      navigation.setPriority(new Integer(uiForm.getPriority()));
+      navigation.setOwnerType(PortalConfig.GROUP_TYPE);
+      navigation.setOwnerId(selectedGroupId);
+      if(dataStorage.getPageNavigation(navigation.getId()) != null) dataStorage.create(navigation);
     }
   }
 }

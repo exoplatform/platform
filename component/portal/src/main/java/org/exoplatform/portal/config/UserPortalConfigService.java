@@ -286,7 +286,7 @@ public class UserPortalConfigService {
       Page page = storage_.getPage(pageId) ;
       if (page != null) {
         page.setOwnerId(portalName) ;
-        storage_.create(page) ;        
+        storage_.create(page) ;
       }
     }
     List<PageNode> children = node.getChildren() ;

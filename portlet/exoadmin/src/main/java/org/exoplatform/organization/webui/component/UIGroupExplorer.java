@@ -87,6 +87,7 @@ public class UIGroupExplorer extends UIContainer {
 	}
 	
 	public Group getCurrentGroup() { return selectedGroup_ ; }
+  public void setCurrentGroup(Group g) { selectedGroup_ = g; }
   
 	public Collection getChildrenGroup() { return childrenGroup_ ;}
   
