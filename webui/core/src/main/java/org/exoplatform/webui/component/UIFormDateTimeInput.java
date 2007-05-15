@@ -8,6 +8,7 @@ import java.io.Writer;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -33,6 +34,11 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
   public Date getDateValue() throws ParseException {
     if(value_ != null) return formatter.parse(value_ + " 00:00:00") ;
     return null;
+  }
+  public Calendar getCalendar() throws ParseException {
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(getDateValue()) ;
+    return cal;
   }
   
   @SuppressWarnings("unused")
