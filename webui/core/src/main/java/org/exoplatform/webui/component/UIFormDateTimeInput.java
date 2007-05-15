@@ -52,13 +52,4 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
     }
     w.write("/> ( mm/dd/yyyy [hh:mm:ss] )") ;
   }
-  
-  public static void main(String[] args) {
-    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-    try {
-      System.out.println(formatter.parse("01/01/2007             0:4:11 0 0:0:0")) ;
-    } catch (ParseException e) {
-      e.printStackTrace();
-    }
-  }
 }
