@@ -113,6 +113,26 @@
   border: 1px solid gray;
 }
 
+.UIAddApplication .UIItemSelector .LeftColumnStyle {
+  width: auto;
+}
+
+.UIAddApplication .LeftColumnStyle .ItemListContainer {
+  width: 175px;
+}
+
+.UIAddApplication .LeftColumnStyle .ItemListContainer .ItemListTitle {
+	height: 26px;
+	line-height: 26px;
+	background: none;
+	border: none;
+}
+
+.UIAddApplication .LeftColumnStyle .ItemDetailList .ItemDetailTitle {
+	height: 26px;
+	line-height: 26px;
+}
+
 .UIAddApplication .ApplicationListContainer {
   background: white;
   border: 1px solid #b7b7b7;
@@ -157,29 +177,14 @@
   padding: 9px 0px 0px 0px;
 }
 
-.UIAddApplication .UIItemSelector .LeftColumnStyle {
-  width: auto;
-}
-
-.UIAddApplication .LeftColumnStyle .ItemListContainer {
-  width: 175px;
-}
-
-.UIAddApplication .LeftColumnStyle .ItemListContainer .ItemListTitle {
-	height: 26px;
-	line-height: 26px;
-	background: none;
-	border: none;
-}
-
-.UIAddApplication .LeftColumnStyle .ItemDetailList .ItemDetailTitle {
-	height: 26px;
-	line-height: 26px;
-}
 
 .UIAddApplication .ApplicationContentLabel {
   font-size: 11px;
   line-height: 16px;
+}
+
+.UIAddApplication .ApplicationContentLabel .RightLabel {
+  color: #058ee6;
 }
 
 .UIAddApplication .PortletIcon {
@@ -256,20 +261,6 @@
 	background: url("VistaSkin/icons/16x16/Add.png") no-repeat center;
 	margin: 5px 3px ;
 	cursor: pointer ;
-}
-
-.UIAddApplication .RefreshButtonContent a:hover {
-	color: #0575CA;
-}
-
-.UIAddApplication .UIAction {
-	width: 185px;
-	margin: auto;
-	padding-bottom: 8px;
-}
-
-.UIAddApplication .ActionButton {
-  width: auto ;
 }
 
 .UIAddApplication .ApplicationItemIcon {

@@ -108,44 +108,84 @@
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContainer {
-  padding: 10px 0px;
+  padding: 0px 5px 10px 5px;
   border:  1px solid white;
   background: url('/eXoResources/background/MacSkin/BgApplicationRegistryPortle1x4.gif');
 }
 
-.ApplicationRegistryWorkingArea .UIGrid {
-  width: 94%; 
-  margin: auto;
-  border: 1px solid #d6d6d6;
+
+.ApplicationRegistryWorkingArea .Application {
+  margin: 7px 0px 0px 0px ;
+	border: solid 1px #e4e4e4 ;
+	padding: 10px;
+	background: white;
 }
 
-.ApplicationRegistryWorkingArea .UIGrid th {
-  border: 1px solid #d6d6d6;
+.ApplicationRegistryWorkingArea .ApplicationDescription {
+  margin-right: 30px;
 }
 
-.ApplicationRegistryWorkingArea .UIGrid td {
-  border: 1px solid #d6d6d6;
-  padding-left: 10px;
+.ApplicationRegistryWorkingArea .UIItemSelector .ItemListContainer .ItemList {
+  height: 240px ;
+  overflow: auto ;
+  border: 1px solid #C3C3C3;
+  background: white url('MacSkin/background/ApplicationBackground165x65.gif') no-repeat left bottom;
 }
 
-.ApplicationRegistryWorkingArea .UIGrid .OddRow {
-  background: #efefef;
+.ApplicationRegistryWorkingArea .TitleBarApplication {
+	background: none; 
+	height: 21px;
+	font-weight: bold ; font-size: 13px; color: #1553B9; font-family: arial;
 }
 
-.ApplicationRegistryWorkingArea .UIGrid .ActionColumns {
-  width: 120px;
+.ApplicationRegistryWorkingArea .ApplicationContentLabel {
+  font-size: 11px;
+  line-height: 16px;
 }
 
-.ApplicationRegistryWorkingArea .UIGrid .OverflowContainer {
-  width: 75px;
-  margin: auto;
+.ApplicationRegistryWorkingArea .ApplicationContentLabel .RightLabel {
+  color: #058ee6;
+}
+
+.ApplicationRegistryWorkingArea .PortletIcon {
+  cursor: pointer;
+  float: left;
+  height: 80px; width: 80px;
+  margin-top: 2px;  
+}
+
+.ApplicationRegistryWorkingArea .ApplicationContent {
+  padding: 0px 0px 0px 12px;
+  width: 270px ;
+  overflow: hidden;
+}
+
+.ApplicationRegistryWorkingArea .ApplicationButton {
+  float: right;
+  width: 28px;
+  padding: 3px 0px 0px 0px;
 }
 
 .ApplicationRegistryWorkingArea .Icon {
-  margin: 0px 2px;
+  float: left;
+  margin: 3px 0px;
+}
+
+.ApplicationRegistryWorkingArea .DeleteIcon {
+  width: 17px ;  height: 18px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat ;
+}
+
+.ApplicationRegistryWorkingArea .EditInfoIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat ;
 }
 
 .ApplicationRegistryWorkingArea .UIAction {
   width: 130px;
   padding: 9px 0px 0px 0px;
-}}
+}
+
+.ApplicationRegistryWorkingArea .eXoBrowserIcon {
+  background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png) no-repeat;
+}

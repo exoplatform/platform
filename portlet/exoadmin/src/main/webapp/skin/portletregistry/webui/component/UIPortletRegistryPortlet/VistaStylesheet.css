@@ -59,26 +59,34 @@
 
 .ApplicationRegistryControlArea .CategoryControlIcon {
   float: left;
-  margin: 2px 0px 0px 10px;
+  margin: 1px 2px;
 }
 
 .ApplicationRegistryControlArea .AddCategoryIcon {
-  height: 21px; width: 20px;
-  background: url('VistaSkin/icons/AddCategory.png') no-repeat ;
+  height: 22px; width: 23px;
+  background: url('VistaSkin/icons/AddCategoryIcon.png') no-repeat center ;
 }
 
-.ApplicationRegistryControlArea .ImportCategoryIcon {
-  height: 21px; width: 20px;
-  background: url('VistaSkin/icons/ImportCategory.png') no-repeat ;
+.ApplicationRegistryControlArea .ImportApplicationsIcon {
+  height: 22px; width: 30px;
+  background: url('VistaSkin/icons/ImportApplicationsIcon.png') no-repeat center ;
+}
+
+.ApplicationRegistryControlArea .ImportPortletsIcon {
+  height: 22px; width: 30px;
+  background: url('VistaSkin/icons/ImportPortletsIcon.png') no-repeat center;
+}
+
+.ApplicationRegistryControlArea .SeparatorLine {
+  float: left;
+  height: 20px; width: 2px;
+  margin: 3px 3px 0px 3px;
+  background: url('VistaSkin/background/SeparatorLine2x2.png') repeat-y ;
 }
 
 .ApplicationRegistryControlArea .DeleteCategoryIcon {
-  height: 21px; width: 20px;
-  background: url('VistaSkin/icons/DeleteCategory.png') no-repeat ;
-}
-
-.ApplicationRegistryControlArea .CategoryContainer {
-  margin: 4px;
+  height: 22px; width: 22px;
+  background: url('VistaSkin/icons/DeleteCategoryIcon.png') no-repeat center;
 }
 
 
@@ -94,26 +102,76 @@
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContainer {
-  padding: 10px 0px;
+  padding: 0px 7px 10px 7px;
   border:  1px solid white;
 }
 
-.ApplicationRegistryWorkingArea .UIGrid {
-  width: 94%; 
-  margin: auto;
+.ApplicationRegistryWorkingArea .Application {
+  margin: 10px 0px 0px 0px ;
+	border: solid 1px #e4e4e4 ;
+	padding: 10px;
+	background: url('VistaSkin/background/BGApplication1x24.png') repeat-x bottom;
 }
 
-.ApplicationRegistryWorkingArea .UIGrid .ActionColumns {
-  width: 120px;
+.ApplicationRegistryWorkingArea .ApplicationDescription {
+  margin-right: 30px;
 }
 
-.ApplicationRegistryWorkingArea .UIGrid .OverflowContainer {
-  width: 85px;
-  margin: auto;
+.ApplicationRegistryWorkingArea .TitleBarContainer {
+  padding: 10px 10px 0px 10px; 
+  width: 550px;
+}
+
+.ApplicationRegistryWorkingArea .ApplicationContent {
+  padding: 0px 0px 0px 12px;
+  width: 260px ;
+  overflow: hidden;
+}
+
+.ApplicationRegistryWorkingArea .ApplicationButton {
+  float: right;
+  width: 28px;
+  padding: 9px 0px 0px 0px;
 }
 
 .ApplicationRegistryWorkingArea .Icon {
-  margin: 0px 2px;
+  float: left;
+  margin: 3px 0px;
+}
+
+.ApplicationRegistryWorkingArea .DeleteIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') no-repeat ;
+}
+
+.ApplicationRegistryWorkingArea .EditInfoIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat ;
+}
+
+.ApplicationRegistryWorkingArea .ApplicationContentLabel {
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.ApplicationRegistryWorkingArea .ApplicationContentLabel .RightLabel {
+  color: #058ee6;
+}
+
+.ApplicationRegistryWorkingArea .PortletIcon {
+  cursor: pointer;
+  float: left;
+  height: 80px;
+  width: 80px;
+}
+
+.ApplicationRegistryWorkingArea .TitleBarApplication {
+	height: 21px ;
+  color: #1465B9; vertical-align: middle ;	font-weight:bold; font-size: 13px;
+}
+
+.ApplicationRegistryWorkingArea .eXoBrowserIcon {
+  background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png) no-repeat;
 }
 
 .ApplicationRegistryWorkingArea .UIAction {

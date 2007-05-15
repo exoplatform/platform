@@ -23,7 +23,7 @@
 	    }
 	  %>
 	  <div class="RightGroupSelector">
-	    <div class="TitleGroupSelector" >Current Selected Group Infos</div>
+	    <div class="TitleGroupSelector" >Current selected group info</div>
 		  <div class="Content" >
 			  <div><span>Name:</span> $name </div>
 			  <div><span>Group Id:</span> $id </div>
@@ -48,8 +48,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="ActionContainer">
       <div class="ActionButton">
         <div class="LightBlueStyle">
           <div class="ButtonLeft">

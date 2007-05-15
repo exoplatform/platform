@@ -14,7 +14,7 @@
   margin: 0px 26px 0px 26px;
   margin-top: 4px; 
   font-weight: bold; font-size: 11px;  text-align: center;
-  height: 16px; line-height: 16px; vertical-align: middle;
+  height: 16px; line-height: 16px; vertical-align: middle; text-align: center;
   background: url('DefaultSkin/background/PopupTitleBG.gif') repeat-x bottom;
   cursor: move;
 }

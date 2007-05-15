@@ -1,0 +1,117 @@
+<div class="ApplicationContainer">
+  <div class="Application">
+    <div class="ApplicationButton">
+  		<a class="Icon PermissionSettingIcon" href="#" title=" Select Permission"><span></span></a>
+  	  <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
+  	  <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
+  	  <div style="clear: left;"><span></span></div>
+  	</div>
+    <div class="ApplicationDescription">
+  		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" ><span></span></div>
+  		<div class="ApplicationContent">
+  		  <div class="TitleBarApplication">eXoBrowser</div>
+  		  <div class="ApplicationContentLabel">
+  		    <div class="ContentLabel">
+  		      <span class="LeftLabel">Type:</span>
+  		      <span class="RightLabel"> JSR 170 Portlet</span>
+  		    </div>
+  		    <div class="ContentLabel">
+  		      <span class="LeftLabel">Created by:</span>
+  		      <span class="RightLabel"> eXo Platform SAS</span>
+  		    </div>
+  		    <div class="ContentLabel">
+						<span class="LeftLabel">Description:</span>
+						<span class="RightLabel"> Organization Portlet Description</span>
+          </div>
+	        <div class="ContentLabel">
+						<span class="LeftLabel">Permission:</span>
+						<span class="RightLabel"> </span>
+	        </div>
+  		  </div>
+  		</div>
+		</div>
+	  <div style="clear: right;"><span></span></div>
+  </div>
+  <div class="Application">
+    <div class="ApplicationButton">
+  		<a class="Icon PermissionSettingIcon" href="#" title=" Select Permission"><span></span></a>
+  	  <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
+  	  <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
+  	  <div style="clear: left;"><span></span></div>
+  	</div>
+    <div class="ApplicationDescription">
+  		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" ><span></span></div>
+  		<div class="ApplicationContent">
+  		  <div class="TitleBarApplication">eXoBrowser</div>
+  		  <div class="ApplicationContentLabel">
+  		    <div class="ContentLabel">
+  		      <span class="LeftLabel">Type:</span>
+  		      <span class="RightLabel"> JSR 170 Portlet</span>
+  		    </div>
+  		    <div class="ContentLabel">
+  		      <span class="LeftLabel">Created by:</span>
+  		      <span class="RightLabel"> eXo Platform SAS</span>
+  		    </div>
+  		    <div class="ContentLabel">
+						<span class="LeftLabel">Description:</span>
+						<span class="RightLabel"> Organization Portlet Description</span>
+          </div>
+	        <div class="ContentLabel">
+						<span class="LeftLabel">Permission:</span>
+						<span class="RightLabel"> </span>
+	        </div>
+  		  </div>
+  		</div>
+		</div>
+	  <div style="clear: right;"><span></span></div>
+  </div>
+  <div class="Application">
+    <div class="ApplicationButton">
+  		<a class="Icon PermissionSettingIcon" href="#" title=" Select Permission"><span></span></a>
+  	  <a class="Icon EditInfoIcon" href="#" title="Edit this Application"><span></span></a>
+  	  <a class="Icon DeleteIcon" href="#" title="Delete this Application"><span></span></a>
+  	  <div style="clear: left;"><span></span></div>
+  	</div>
+    <div class="ApplicationDescription">
+  		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" ><span></span></div>
+  		<div class="ApplicationContent">
+  		  <div class="TitleBarApplication">eXoBrowser</div>
+  		  <div class="ApplicationContentLabel">
+  		    <div class="ContentLabel">
+  		      <span class="LeftLabel">Type:</span>
+  		      <span class="RightLabel"> JSR 170 Portlet</span>
+  		    </div>
+  		    <div class="ContentLabel">
+  		      <span class="LeftLabel">Created by:</span>
+  		      <span class="RightLabel"> eXo Platform SAS</span>
+  		    </div>
+  		    <div class="ContentLabel">
+						<span class="LeftLabel">Description:</span>
+						<span class="RightLabel"> Organization Portlet Description</span>
+          </div>
+	        <div class="ContentLabel">
+						<span class="LeftLabel">Permission:</span>
+						<span class="RightLabel"> </span>
+	        </div>
+  		  </div>
+  		</div>
+		</div>
+	  <div style="clear: right;"><span></span></div>
+  </div>
+
+  <div class="UIAction" > 
+    <div class="ActionContainer">
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	              <a href="#"> Add Application</a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+      </div>
+ 	  </div>
+	</div>
+</div>

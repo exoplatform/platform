@@ -100,12 +100,16 @@
 .UIAddApplication .TitleBarApplication {
 	background: none; 
 	height: 21px;
-	font-weight: bold ; font-size: 13px; color: #0987d7; font-family: arial;
+	font-weight: bold ; font-size: 13px; color: #1553B9; font-family: arial;
 }
 
 .UIAddApplication .ApplicationContentLabel {
   font-size: 11px;
   line-height: 16px;
+}
+
+.UIAddApplication .ApplicationContentLabel .RightLabel {
+  color: #058ee6;
 }
 
 .UIAddApplication .PortletIcon {
