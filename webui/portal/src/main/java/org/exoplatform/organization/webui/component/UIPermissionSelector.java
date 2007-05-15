@@ -100,6 +100,23 @@ public class UIPermissionSelector extends UISelector {
 //    if(permission == null) return ;
 //    permission.setGroupId(groupId);
 //    permission.setMembership(membershipType);
-  } 
+  }
+  
+  static public class Permission {
+
+    private String name_ ;
+    private String groupId_ = ""  ;  
+    private String membership_ = "" ;
+    private boolean selected_  = false;
+
+    public void setPermissionExpression(String exp) {
+      if(exp == null || exp.length() == 0) return;
+      String[] temp = exp.split(":") ;
+      if(temp.length < 2) return;
+      membership_ = temp[0] ;
+      groupId_ = temp[1] ;
+    }
+
+  }
   
 }
