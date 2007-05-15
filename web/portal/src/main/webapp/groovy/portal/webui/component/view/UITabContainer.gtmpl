@@ -12,13 +12,13 @@
 	      <div class="CenterHorizontalTabs">
 			  	<div class="TabsContainer">	
 				  	<%
-				  	  String status = "SelectedTabStyle";  	  
+				  	  String status = "SelectedTab";  	  
 				  	  int counter = 1;
 				  		for(uiChild in uicomponent.getChildren()) {
 				  			String title = uiChild.getTitle();
 				  			if(title == null || title.trim().length() < 1 ) title = "Tab "+String.valueOf(counter);
 				  	%>
-				  		 	<div class="UITab">
+				  		 	<div class="UITab NormalTabStyle">
 				        	<div class="<%=status%>">
 				          	<div class="LeftTab">
 				            	<div class="RightTab">
@@ -34,7 +34,7 @@
 				      	</div>       
 				    <%
 				    		counter++;
-					      status = "NormalTabStyle";
+					      status = "NormalTab";
 				      }
 				    %>     
 				      <div style="clear: both"><span></span></div>

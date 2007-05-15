@@ -15,25 +15,25 @@
 	padding: 0px 10px 0px 2px;
 }
 
-.UITabContainer .SelectedTabStyle .EditIcon {
+.UITabContainer .SelectedTab .EditIcon {
 	float: left;
 	width: 16px; height: 20px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat bottom;
 }
 
-.UITabContainer .NormalTabStyle .EditIcon {
+.UITabContainer .NormalTab .EditIcon {
 	float: left;
 	width: 16px; height: 20px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif') no-repeat bottom;
 }
 
-.UITabContainer .SelectedTabStyle .CloseIcon {
+.UITabContainer .SelectedTab .CloseIcon {
 	float: left;
 	width: 16px; height: 20px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedCloseTab.gif') no-repeat bottom;
 }
 
-.UITabContainer .NormalTabStyle .CloseIcon {
+.UITabContainer .NormalTab .CloseIcon {
 	float: left;
 	width: 16px; height: 20px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalCloseTab.gif') no-repeat bottom;
