@@ -102,6 +102,7 @@ public class UIPageNodeActionListener {
     }
   }
 
+  
   static public class EditPageNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {     
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);

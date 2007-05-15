@@ -85,7 +85,7 @@ public class UIPageSelector extends UIFormInputContainer<Page> {
       
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);      
       if(page == null){
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{page.getName()})) ;;
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{id})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
