@@ -1,0 +1,117 @@
+.UICalendar {
+  position:absolute;
+  background-color:#FFF;
+  margin:0;
+  padding:0;
+  display:none;
+}
+
+.UICalendar table {
+  font-family: arial, verdana, helvetica, sans-serif;
+  font-size: 8pt;
+  border: 1px solid #336;
+  background-color: white;
+  width: auto;
+}
+
+.UICalendar th {
+  font-weight: normal;
+}
+
+.UICalendar th a {
+  font-weight: normal;
+  text-decoration: none;
+  color: #FFF;
+  padding: 1px;
+}
+
+.UICalendar td {
+  text-align: center;
+}
+
+
+.UICalendar .header {
+  background-color: #336;
+}
+
+.UICalendar .weekday {
+  background-color: #DDD;
+  color: #000;
+}
+
+.UICalendar .weekend {
+  background-color: #FFC;
+  color: #000;
+}
+
+.UICalendar .current {
+  border: 1px solid #339;
+  background-color: red;
+  color: #FFF;
+}
+
+
+.UICalendar .weekday,
+.UICalendar .weekend,
+.UICalendar .current {
+  display: block;
+  text-decoration: none;
+  border: 1px solid #FFF;
+  width: 2em;
+}
+
+.UICalendar a:hover,
+.UICalendar a:hover,
+.UICalendar a:hover {
+  color: #FFF;
+  background-color: #336;
+  border: 1px solid #999;
+}
+
+.UICalendar .previous {
+  text-align: left;
+}
+
+.UICalendar .next {
+  text-align: right;
+}
+
+.UICalendar .previous,
+.UICalendar .next {
+  padding: 1px 3px 1px 3px;
+  font-size: 1.4em;
+}
+
+.UICalendar .previous a,
+.UICalendar .next a {
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.UICalendar .title {
+  text-align: center;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.UICalendar .empty {
+  background-color: #000;
+  border: 1px solid #FFF;
+}
+
+.UICalendar input {
+  font-family: arial, verdana, helvetica, sans-serif;
+  font-size: 8pt;
+  padding: 0px;
+  border: 0px;
+  width: 15px;
+  direction: rtl;
+}
+
+#UICalendarControlIFrame {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
