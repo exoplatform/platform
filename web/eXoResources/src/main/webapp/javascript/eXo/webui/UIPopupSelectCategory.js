@@ -5,12 +5,12 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 	if(!e) var e = window.event;
 	e.cancelBubble = true;
 	if(e.stopPropagation) e.stopPropagation();
-	
-	var ancestorPopupCategory = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "AncestorPopupCategory") ;
-	var categoryDetectPosition = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "CategoryDetectPosition") ;
-	var controlCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
-  var uiPopupCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
-  var uiPageDesktop = eXo.core.DOMUtil.findAncestorByClass(ancestorPopupCategory, "UIPageDesktop");
+	var DOMUtil = eXo.core.DOMUtil;
+	var ancestorPopupCategory = DOMUtil.findAncestorByClass(selectedElement, "AncestorPopupCategory") ;
+	var categoryDetectPosition = DOMUtil.findAncestorByClass(selectedElement, "CategoryDetectPosition") ;
+	var controlCategory = DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
+  var uiPopupCategory = DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
+  var uiPageDesktop = DOMUtil.findAncestorByClass(ancestorPopupCategory, "UIPageDesktop");
   
 	if(uiPopupCategory == null) return;
 
@@ -23,27 +23,22 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 		uiPopupCategory.style.width = width + "px" ;
 
 		if(controlCategory != null) {
-			if(eXo.core.DOMUtil.findAncestorByClass(ancestorPopupCategory, "UITableColumnContainer")) {
-			  var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - uiPopupCategory.offsetWidth + 38;
-			  posLeft = posLeft - ancestorPopupCategory.offsetLeft;
-			  if (eXo.portal.UIControlWorkspace.showControlWorkspace) posLeft -= 246;
+			var count = 2;
+			if (eXo.core.Browser.browserType == "mozilla") count = 1;
+			if(DOMUtil.findAncestorByClass(ancestorPopupCategory, "UITableColumnContainer")) {
+			  var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - width + 35;
+			  if (eXo.portal.UIControlWorkspace.showControlWorkspace) {
+			  	posLeft -= (count * eXo.portal.UIControlWorkspace.defaultWidth) ;
+			  }
 			} else {
 				var posLeft = categoryDetectPosition.offsetLeft - uiPopupCategory.offsetWidth + 40;
 			}
-			//if (eXo.core.Browser.isIE() && !eXo.core.Browser.isIE6()) posLeft -= eXo.portal.UIControlWorkspace.defaultWidth;
 			uiPopupCategory.style.left = posLeft + "px";
 		}
 	} else {
 		uiPopupCategory.style.display = "none" ;
 	}
 	
-//	var uiWindow = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "UIWindow") ;
-//	if(uiWindow != null) {
-//		var uiRowContainer = eXo.core.DOMUtil.findAncestorByClass(uiWindow, "UIRowContainer") ;
-//		if(uiRowContainer != null) {
-//				uiRowContainer.style.height = uiWindow.offsetHeight + "px" ;
-//			}
-//		} 
 	/*Add uiPopupCategory to the list element will be display to "none" when click on document*/
 	eXo.core.DOMUtil.listHideElements(uiPopupCategory);
 } ;

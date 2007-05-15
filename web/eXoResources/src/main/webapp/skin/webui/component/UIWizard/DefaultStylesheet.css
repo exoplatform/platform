@@ -261,7 +261,6 @@
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList .ItemDetail {
-  padding: 8px;
   height: 248px;
   border: none;
 }
@@ -271,7 +270,7 @@
 }
 
 .UIWizard .UIFormTabPane .LayoutHolder {
-  width: 250px; height: 200px; 
+  width: 310px;
   text-align: center; font-size: 11px;
   margin: auto; margin-top: 20px;
 }
