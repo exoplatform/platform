@@ -260,6 +260,11 @@
 	width: 180px;
 }
 /*#######################  UIMemberShipManagement #################################*/
+
+.UIOrganizationPortlet .UIMemberShipManagement {
+	width: 99.7%;  
+}
+
 .UIOrganizationPortlet .UIMembershipTypeForm {
 	width: auto; 
 	margin: 10px auto 0px auto ; 

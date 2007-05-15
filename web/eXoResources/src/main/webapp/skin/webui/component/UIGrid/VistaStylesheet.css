@@ -126,3 +126,6 @@
   margin: auto;
 }
 
+.UIListMembershipType .UIGrid {
+	width: 99.7%;
+}

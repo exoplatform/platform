@@ -55,7 +55,7 @@
 }
 .UINavigationPortlet .MenuItemContainer .MenuItemLabel {
   line-height: 24px; 
-  padding: 0px 12px;
+  padding: 0px 12px 0px 3px;
 }
 
 .UINavigationPortlet .MenuItemContainer .NormalItem a {
@@ -97,8 +97,7 @@
 
 .UINavigationPortlet .MenuItemDecorator .CenterTopMenuDecorator {
   background: url('VistaSkin/background/CenterTopMenuDecorator1x6.png') repeat-x ;
-  height: 6px; 
-  line-height:6px;
+  height: 6px;
 }
 
 .UINavigationPortlet .MenuItemDecorator .LeftMiddleMenuDecorator {
@@ -128,6 +127,6 @@
 
 .UINavigationPortlet .MenuItemDecorator .CenterBottomMenuDecorator {
   background: url('VistaSkin/background/CenterBottomMenuDecorator1x13.png') repeat-x;
-  height: 13px;line-height:13px;
+  height: 13px;
 }
 
