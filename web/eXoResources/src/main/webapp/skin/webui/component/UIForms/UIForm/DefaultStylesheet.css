@@ -87,6 +87,9 @@
   border: 1px solid #808080 ;
 }
 
+.UIForm .UIItemSelector .ItemDetailList .LayoutHolder .DesktopImage {
+  height: 203px;
+}
 /*####################- VerticalLayout -#################*/
 .UIForm .VerticalLayout {
 }
@@ -115,3 +118,13 @@
   width: 170px ;
 }
 
+
+/*####################- UIPermissionForm -#################*/
+
+.UIPermissionForm .UIAccessGroup .UIAction {
+  width: 200px;
+}
+
+.UIPermissionForm .UIGroupSelector .RightGroupSelector .Content {
+  height: 150px;
+}

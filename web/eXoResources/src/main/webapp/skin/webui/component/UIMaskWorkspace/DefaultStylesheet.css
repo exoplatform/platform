@@ -272,7 +272,6 @@
 .UIAccessGroup .UIAction .SimpleStyle .Icon {
   float: left;
   margin: 3px 0px;
-  border: 1ps solid red;
 }
 
 .UIAccessGroup .UIAction .ActionButton .SimpleStyle a {
