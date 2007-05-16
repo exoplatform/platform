@@ -17,8 +17,8 @@ public class PageNavigation {
   private String      ownerType;
   private String      ownerId;
   
-  private String accessPermissions;
-  private transient String[]    accessPermission ;
+  private String accessPermission;
+  private transient String[]    accessPermissions ;
   
   private String editPermission;
   
@@ -37,8 +37,8 @@ public class PageNavigation {
   public String getOwnerType() { return ownerType; }
   public void setOwnerType(String ownerType) { this.ownerType = ownerType; }
 
-  public String[] getAccessPermission(){  return accessPermission; }
-  public void     setAccessPermission(String[] s) { accessPermission = s ; }
+  public String[] getAccessPermissions(){  return accessPermissions; }
+  public void     setAccessPermissions(String[] s) { accessPermissions = s ; }
   
   public String getEditPermission() { return editPermission; }
   public void setEditPermission(String editPermission) { this.editPermission = editPermission; }
@@ -87,21 +87,21 @@ public class PageNavigation {
   public ArrayList<PageNode> getNodes(){ return pageNodes; }
   public void setNodes(ArrayList<PageNode> nodes) { pageNodes = nodes; }
   
-  public String getAccessPermissions(){
-    if(accessPermission == null)  return "";
+  public String getAccessPermission(){
+    if(accessPermissions == null)  return "";
     StringBuilder builder = new StringBuilder();
-    for(int i = 0; i < accessPermission.length; i++) {
-      builder.append(accessPermission[i]) ;
-      if (i < accessPermission.length - 1) builder.append(',');
+    for(int i = 0; i < accessPermissions.length; i++) {
+      builder.append(accessPermissions[i]) ;
+      if (i < accessPermissions.length - 1) builder.append(',');
     }
     return builder.toString();
   }
-  public void setAccessPermissions(String s){ 
-    this.accessPermissions = s;
-    if(accessPermissions == null) return ;
-    accessPermission = accessPermissions.split(",");
-    for(int i = 0; i < accessPermission.length; i++) {
-      accessPermission[i] = accessPermission[i].trim(); 
+  public void setAccessPermission(String s){ 
+    this.accessPermission = s;
+    if(accessPermission == null) return ;
+    accessPermissions = accessPermission.split(",");
+    for(int i = 0; i < accessPermissions.length; i++) {
+      accessPermissions[i] = accessPermissions[i].trim(); 
     }
   }
   
@@ -110,7 +110,7 @@ public class PageNavigation {
     newNav.setOwnerId(ownerId);
     newNav.setOwnerType(ownerType);
     newNav.setPriority(priority);
-    newNav.setAccessPermission(accessPermission);
+    newNav.setAccessPermissions(accessPermissions);
     newNav.setEditPermission(editPermission);
     newNav.setModifiable(modifiable);
     newNav.setDescription(description);

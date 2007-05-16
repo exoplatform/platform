@@ -5,7 +5,7 @@
 	  <owner-id>/guest</owner-id>
     <name>content</name>
     <title>Content</title>
-    <access-permissions>*:/guest</access-permissions>
+    <access-permission>*:/guest</access-permission>
     
     <application>
       <instance-id>guest:/content/ContentPortlet/contentportlet</instance-id>

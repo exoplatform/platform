@@ -82,7 +82,7 @@ public class UISharedNavigation extends UIForm {
         groupNav = new PageNavigation();
         groupNav.setOwnerType(PortalConfig.GROUP_TYPE);
         groupNav.setOwnerId(selectedGroupId);
-        groupNav.setAccessPermission(new String[]{selectedGroupId});
+        groupNav.setAccessPermissions(new String[]{selectedGroupId});
 
         pcService.computeModifiable(groupNav, accessUser);
         if(!groupNav.isModifiable()) return;

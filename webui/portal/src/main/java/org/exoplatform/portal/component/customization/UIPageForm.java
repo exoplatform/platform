@@ -102,7 +102,7 @@ public class UIPageForm extends UIFormTabPane {
     removeChild(UIPageTemplateOptions.class);
     
     UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
-    uiAccessGroup.setGroups(page.getAccessPermission());
+    uiAccessGroup.setGroups(page.getAccessPermissions());
     
     UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
     if(uiTemplate == null)  return;
@@ -132,7 +132,7 @@ public class UIPageForm extends UIFormTabPane {
     }
     
     UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
-    page.setAccessPermission(uiAccessGroup.getAccessGroup());
+    page.setAccessPermissions(uiAccessGroup.getAccessGroup());
     
     UIPageTemplateOptions uiConfigOptions = getChild(UIPageTemplateOptions.class);
     if(uiConfigOptions == null) return;

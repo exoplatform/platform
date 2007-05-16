@@ -46,7 +46,8 @@ public class UIPortal extends UIContainer {
   
   private String owner ;
   private String locale ;
-  private String [] accessGroups;
+  private String [] accessPermissions;
+  private String editPermission;
   private String skin;
   
   private List<PageNavigation> navigations ;  
@@ -62,8 +63,11 @@ public class UIPortal extends UIContainer {
   public String getLocale() { return locale ; }
   public void   setLocale(String s) { locale = s ; }
 
-  public String[] getAccessGroups() { return accessGroups; }
-  public void setAccessGroups(String[] accessGroups) { this.accessGroups = accessGroups; }
+  public String[] getAccessPermissions() { return accessPermissions; }
+  public void setAccessPermissions(String[] accessGroups) { this.accessPermissions = accessGroups; }
+  
+  public String getEditPermission() { return editPermission; }
+  public void setEditPermission(String editPermission) { this.editPermission = editPermission; }
 
   public String getSkin() { return skin; }
   public void setSkin(String s ) { skin = s; }

@@ -185,7 +185,7 @@ public class UIPortalForm extends UIFormTabPane {
     invokeGetBindingBean(portalConfig_) ;
     
     UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
-    uiAccessGroup.setGroups(uiPortal.getAccessPermission());
+    uiAccessGroup.setGroups(uiPortal.getAccessPermissions());
   }
 
   static public class SaveActionListener  extends EventListener<UIPortalForm> {
@@ -199,7 +199,7 @@ public class UIPortalForm extends UIFormTabPane {
       uiForm.invokeSetBindingBean(portalConfig);
       
       UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
-      portalConfig.setAccessPermission(uiAccessGroup.getAccessGroup());
+      portalConfig.setAccessPermissions(uiAccessGroup.getAccessGroup());
       
       if(portalConfig.getFactoryId().equals(UIPortalForm.DEFAULT_FACTORY_ID)) portalConfig.setFactoryId(null);      
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();

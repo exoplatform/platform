@@ -74,7 +74,7 @@ class UserACL {
     }
     pconfig.setModifiable(false);
     
-    return hasViewPermission(pconfig.getCreator(), accessUser, pconfig.getAccessPermission()) ;
+    return hasViewPermission(pconfig.getCreator(), accessUser, pconfig.getAccessPermissions()) ;
   }
   
   boolean hasPermission(Page page, String accessUser) throws Exception {
@@ -87,7 +87,7 @@ class UserACL {
     }
     page.setModifiable(false);
     
-    return hasViewPermission(owner, accessUser, page.getAccessPermission()) ;
+    return hasViewPermission(owner, accessUser, page.getAccessPermissions()) ;
   }
   
   boolean hasPermission(PageNavigation nav, String accessUser) throws Exception {
@@ -99,7 +99,7 @@ class UserACL {
       return true;
     }
     nav.setModifiable(false);
-    return hasViewPermission(owner, accessUser, nav.getAccessPermission()) ;
+    return hasViewPermission(owner, accessUser, nav.getAccessPermissions()) ;
   }
   
   boolean hasViewPermission(String owner, String remoteUser, String[] expPerms) throws Exception {

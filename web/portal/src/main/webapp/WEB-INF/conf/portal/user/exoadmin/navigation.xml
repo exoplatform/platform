@@ -2,7 +2,7 @@
 <node-navigation>
   <owner-type>user</owner-type>  
 	<owner-id>exoadmin</owner-id>
-  <access-permissions>*:/portal/admin</access-permissions>
+  <access-permission>*:/portal/admin</access-permission>
   <description>description for node navigation </description>
   
   <page-nodes>  

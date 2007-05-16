@@ -2,7 +2,7 @@
 <node-navigation>
 	<owner-type>group</owner-type>
   <owner-id>/portal/community</owner-id>
-  <access-permissions>*:/portal/community</access-permissions>  
+  <access-permission>*:/portal/community</access-permission>  
   <edit-permission>owner:/portal/community</edit-permission>
   
   <page-nodes>

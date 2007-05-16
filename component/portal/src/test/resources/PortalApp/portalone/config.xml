@@ -2,7 +2,7 @@
 <portal-config decorator="exo" width="100%" height="100%">
   <portal-name>portalone</portal-name>
   <locale>en</locale>
-  <access-groups>*:/guest</access-groups>
+  <access-permission>*:/guest</access-permission>
   
   <widget-layout>
     <container>

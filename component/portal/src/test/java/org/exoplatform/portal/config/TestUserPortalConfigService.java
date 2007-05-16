@@ -61,8 +61,8 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     PortalConfig portalConfig = userPortalConfig.getPortalConfig();
     
     assertTrue(portalConfig != null);
-    assertEquals(portalConfig.getAccessPermission().length, 3);
-    assertEquals("/guest", portalConfig.getAccessPermission()[0]) ;
+    assertEquals(portalConfig.getAccessPermissions().length, 3);
+    assertEquals("/guest", portalConfig.getAccessPermissions()[0]) ;
     assertEquals(userPortalConfig.getNavigations().size(), 1);
     
     userPortalConfig = service_.getUserPortalConfig("site" ,"exoadmin");
@@ -78,7 +78,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     
     PortalConfig sitePortalConfig = sitePortal.getPortalConfig() ;
     PortalConfig newPortalConfig = newportal.getPortalConfig() ;
-    assertEquals(newPortalConfig.getAccessPermissions(), sitePortalConfig.getAccessPermissions()) ;
+    assertEquals(newPortalConfig.getAccessPermission(), sitePortalConfig.getAccessPermission()) ;
     assertTrue(!newPortalConfig.getName().equals(sitePortalConfig.getName())) ;
     
     List<PageNavigation> siteNavigations = sitePortal.getNavigations() ;
@@ -96,7 +96,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
       assertEquals(newPage.getOwnerType(), sitePage.getOwnerType()) ;
       assertEquals(newPage.getTitle(), sitePage.getTitle()) ;
       assertEquals(newPage.getOwnerType(), sitePage.getOwnerType()) ;
-      assertEquals(newPage.getAccessPermissions(), sitePage.getAccessPermissions()) ;
+      assertEquals(newPage.getAccessPermission(), sitePage.getAccessPermission()) ;
       assertTrue(!newPage.getOwnerId().equals(sitePage.getOwnerId())) ;
     }
     
@@ -115,8 +115,8 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     UserPortalConfig oldUserPortalConfig = service_.getUserPortalConfig("site", "exo") ;
     PortalConfig oldPortalConfig = oldUserPortalConfig.getPortalConfig() ;
     assertEquals("en", oldPortalConfig.getLocale()) ;
-    assertEquals(oldPortalConfig.getAccessPermission().length, 3);
-    assertEquals("/guest", oldPortalConfig.getAccessPermission()[0]) ;
+    assertEquals(oldPortalConfig.getAccessPermissions().length, 3);
+    assertEquals("/guest", oldPortalConfig.getAccessPermissions()[0]) ;
     assertEquals(oldUserPortalConfig.getNavigations().size(), 1);
 
     
@@ -127,8 +127,8 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     UserPortalConfig newUserPortalConfig = service_.getUserPortalConfig("site", "exo") ;
     PortalConfig newPortalConfig = newUserPortalConfig.getPortalConfig() ;
     assertEquals(newLocate, newPortalConfig.getLocale()) ;
-    assertEquals(newPortalConfig.getAccessPermission().length, 3);
-    assertEquals("/guest", newPortalConfig.getAccessPermission()[0]) ;
+    assertEquals(newPortalConfig.getAccessPermissions().length, 3);
+    assertEquals("/guest", newPortalConfig.getAccessPermissions()[0]) ;
     assertEquals(newUserPortalConfig.getNavigations().size(), 1);
 
   }
@@ -201,7 +201,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     assertEquals(1, newNavigations.size()) ;
     PageNavigation userNavigation = newNavigations.get(0) ;
     assertEquals(accessUser, userNavigation.getOwnerId()) ;
-    assertEquals(1, userNavigation.getAccessPermission().length) ;
+    assertEquals(1, userNavigation.getAccessPermissions().length) ;
     
     // Remove remain navigation
     service_.remove(userNavigation) ;

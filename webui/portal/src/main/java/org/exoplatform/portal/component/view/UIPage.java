@@ -46,7 +46,10 @@ public class UIPage extends UIContainer {
   private String pageId;
   private String ownerId ;
   private String ownerType ;  
-  private String [] accessGroups;
+  
+  private String [] accessPermissions;
+  private String editPermission;
+  
   private boolean showMaxWindow = false ;
   private UIPortlet maximizedUIPortlet;
   
@@ -56,8 +59,11 @@ public class UIPage extends UIContainer {
   public boolean isShowMaxWindow() { return showMaxWindow; }
   public void setShowMaxWindow(Boolean showMaxWindow) { this.showMaxWindow = showMaxWindow; }
   
-  public String[] getAccessGroups() { return accessGroups; }
-  public void setAccessGroups(String[] accessGroups) { this.accessGroups = accessGroups; }
+  public String[] getAccessPermissions() { return accessPermissions; }
+  public void setAccessPermissions(String[] accessGroups) { this.accessPermissions = accessGroups; }
+  
+  public String getEditPermission() { return editPermission; }
+  public void setEditPermission(String editPermission) { this.editPermission = editPermission; }
   
   public String getPageId() { return pageId; }
   public void setPageId(String id) { pageId = id; }

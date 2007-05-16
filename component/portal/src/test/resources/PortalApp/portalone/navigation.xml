@@ -2,7 +2,7 @@
 <node-navigation>
   <owner-type>portal</owner-type>  
 	<owner-id>portalone</owner-id>
-  <access-groups>*:/guest</access-groups>
+  <access-permission>*:/guest</access-permission>
   <description> description for node navigation </description>
   
   <page-nodes>  

@@ -5,7 +5,7 @@
     <owner-id>exoadmin</owner-id>
     <name>sitemap</name>
     <title>Site Map</title>
-    <access-permissions>*:/guest</access-permissions>
+    <access-permission>*:/guest</access-permission>
     <application>
       <instance-id>exoadmin:/web/SiteMapPortlet/sitemapportlet</instance-id>
       <title>Site Map portlet</title>
@@ -19,7 +19,7 @@
     <owner-id>exoadmin</owner-id>
     <name>testform</name>
     <title>Site Map</title>
-    <access-permissions>owner:/portal/exoadmin</access-permissions>
+    <access-permission>owner:/portal/exoadmin</access-permission>
     <application>
       <instance-id>exoadmin:/test/TestForm/testformportlet</instance-id>
       <title>Test Form Portlet</title>

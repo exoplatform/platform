@@ -5,7 +5,7 @@
     <owner-id>/portal/community</owner-id>
 	  <name>home</name>
     <factory-id>Desktop</factory-id>
-    <access-permissions>*:/guest</access-permissions>
+    <access-permission>*:/guest</access-permission>
     <show-max-window>true</show-max-window>
     
     <application>
@@ -44,7 +44,7 @@
     <owner-id>/portal/community</owner-id>
     <name>management</name>    
     <factory-id>Desktop</factory-id>
-    <access-permissions>*:/user</access-permissions>
+    <access-permission>*:/user</access-permission>
     <show-max-window>true</show-max-window>
     
     <application>
