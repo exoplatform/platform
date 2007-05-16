@@ -1,0 +1,135 @@
+<%
+  import org.exoplatform.webui.component.UIDropDownItemSelector;
+  import org.exoplatform.portal.component.view.UIWidgetContainer;
+  import org.exoplatform.web.application.JavascriptManager;
+
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  
+  jsmanager.importJavascript('eXo.widgets.UIWidgetContainerManagement');
+  String showWCM = "eXo.widgets.UIWidgetContainerManagement.show();" ;
+%>
+
+<div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">
+ 	<div class="TopLeftWidgets">
+ 		<div class="TopRightWidgets">
+ 			<div class="TopMiddleWidgets"><span></span></div>
+ 		</div>
+ 	</div>
+  	
+ 	<div class="CenterLeftWidgets">
+ 		<div class="CenterRightWidgets ItemSelectorAncestor">
+ 		  <% 
+ 		    if(uicomponent.hasChildren() == true) {
+ 		      uicomponent.renderChild(UIDropDownItemSelector.class);
+ 		    } else {
+ 		      System.out.println("\n\nRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n\n");
+ 		    }
+ 		  %>			
+  		<div class="EditIcon" onclick="$showWCM" title="Edit Widgets Categories"><span></span></div>
+  		<div style="clear: both"><span></span></div>
+
+  		<%
+  		   uicomponent.renderChild(UIWidgetContainer.class);
+  		%>
+  		
+  		
+  		<%/*###############################-Temporary Block-###############################*/%>
+  		<div class="UIWidgetContainer ItemList" style="display: none">
+			  <div class="TopLeftWidgetContainer">
+			  	<div class="TopRightWidgetContainer">
+			  		<div class="TopCenterWidgetContainer"><span></span></div>
+			    </div>
+			  </div>
+			  
+			  <div class="MiddleLeftWidgetContainer">
+          <div class="MiddleRightWidgetContainer">
+  	        <div class="MiddleWidgetContainer" id="UIWidgetContainer">
+  	          
+  	          Calendar!!!
+  	          
+  	          <div class="WidgetNavigator">
+				  		  <div class="UIBarStyle">
+				  			  <div class="ControlBar">
+				  				  <div class="LeftBar">
+				  					  <div class="RightBar">
+				  						  <div class="MiddleBar">
+				  							  <div class="ContentIcon">
+				  								  <div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
+				  									<div class="Icon24x24 DownBrownArrowIcon" title="Scroll down"><span></span></div>
+				  									<div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
+				  									<div class="Icon24x24 UpBlueArrowIcon" title="Scroll up"><span></span></div>
+				  									<div class="Icon24x24 AddIcon" title="Add Widget"><span></span></div>
+				   					        <div style="clear: right"><span></span></div>
+				  								</div>
+				  							</div>
+				  						</div>
+				  					</div>
+				  				</div>
+				  				<div style="clear: right"><span></span></div>
+				  			</div>
+			  			</div>
+  	          
+  	        </div>
+  	      </div>
+  	    </div>
+  	    
+  	    <div class="BottomLeftWidgetContainer">
+			  	<div class="BottomRightWidgetContainer">
+			  		<div class="BottomCenterWidgetContainer"><span></span></div>
+			    </div>
+			  </div>
+			  
+		  </div>
+		  
+		  <div class="UIWidgetContainer ItemList" style="display: none">
+			  <div class="TopLeftWidgetContainer">
+			  	<div class="TopRightWidgetContainer">
+			  		<div class="TopCenterWidgetContainer"><span></span></div>
+			    </div>
+			  </div>
+			  
+			  <div class="MiddleLeftWidgetContainer">
+          <div class="MiddleRightWidgetContainer">
+  	        <div class="MiddleWidgetContainer" id="UIWidgetContainer">
+  	          
+  	          Calculator!!!
+  	          
+  	          <div class="WidgetNavigator">
+				  		  <div class="UIBarStyle">
+				  			  <div class="ControlBar">
+				  				  <div class="LeftBar">
+				  					  <div class="RightBar">
+				  						  <div class="MiddleBar">
+				  							  <div class="ContentIcon">
+				  								  <div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
+				  									<div class="Icon24x24 DownBrownArrowIcon" title="Scroll down"><span></span></div>
+				  									<div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
+				  									<div class="Icon24x24 UpBlueArrowIcon" title="Scroll up"><span></span></div>
+				  									<div class="Icon24x24 AddIcon" title="Add Widget"><span></span></div>
+				   					        <div style="clear: right"><span></span></div>
+				  								</div>
+				  							</div>
+				  						</div>
+				  					</div>
+				  				</div>
+				  				<div style="clear: right"><span></span></div>
+				  			</div>
+			  			</div>
+  	          
+  	        </div>
+  	      </div>
+  	    </div>
+  	    
+  	    <div class="BottomLeftWidgetContainer">
+			  	<div class="BottomRightWidgetContainer">
+			  		<div class="BottomCenterWidgetContainer"><span></span></div>
+			    </div>
+			  </div>
+			  
+		  </div>
+  		<%/*###############################-End Temporary Block-###############################*/%>
+
+ 		</div>
+ 	</div>
+</div>

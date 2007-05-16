@@ -5,6 +5,7 @@
 package org.exoplatform.portal.component.widget;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.view.UIWidgets;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.lifecycle.UIContainerLifecycle;

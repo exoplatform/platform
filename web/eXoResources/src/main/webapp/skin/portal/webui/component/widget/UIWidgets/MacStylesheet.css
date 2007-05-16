@@ -2,21 +2,6 @@
 	padding: 4px 0px;
 }
 
-.UIWidgets .BottomLeftWidgets {
-	background: url('MacSkin/background/BottomLeftWidget7x8.png') no-repeat left ;
-	padding: 0px 0px 0px 7px;
-}
-
-.UIWidgets .BottomRightWidgets {
-	background: url('MacSkin/background/BottomRightWidget7x8.png') no-repeat right;
-	padding: 0px 7px 0px 0px;
-}
-
-.UIWidgets .BottomMiddleWidgets {
-	height: 8px;
-	background: url('MacSkin/background/BottomCenterWidget1x8.png') repeat-x ;
-}
-
 .UIWidgets .EditIcon {
 	float: left;
 	width: 26px; height: 25px;
@@ -74,6 +59,21 @@
 
 .UIWidgetContainer .MiddleRightWidgetContainer .MiddleWidgetContainer {
   background: url('MacSkin/background/WidgetContainerBG10x10.png') repeat;
+}
+
+.UIWidgetContainer .BottomLeftWidgetContainer {
+  background: url('MacSkin/background/BottomLeftWidget7x8.png') no-repeat left ;
+	padding: 0px 0px 0px 7px;
+}
+
+.UIWidgetContainer .BottomRightWidgetContainer {
+  background: url('MacSkin/background/BottomRightWidget7x8.png') no-repeat right;
+	padding: 0px 7px 0px 0px;
+}
+
+.UIWidgetContainer .BottomCenterWidgetContainer {
+  height: 8px;
+	background: url('MacSkin/background/BottomCenterWidget1x8.png') repeat-x ;
 }
 
 .UIWidgetContainer  .eXoInfoWidgetImage {

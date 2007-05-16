@@ -14,7 +14,7 @@ import org.exoplatform.portal.component.view.listener.UIPortalActionListener.Rem
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.MoveChildActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.portal.component.widget.UILogged.LogoutActionListener;
-import org.exoplatform.portal.component.widget.UIUserWidgets.ChangeOptionActionListener;
+import org.exoplatform.portal.component.view.UIWidgets.ChangeOptionActionListener;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;

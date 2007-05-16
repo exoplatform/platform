@@ -1,0 +1,25 @@
+<%
+  import org.exoplatform.web.application.JavascriptManager;
+
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  
+  jsmanager.importJavascript('eXo.widgets.UIWidget');
+  jsmanager.addJavascript('eXo.widgets.UIWidget.init();');
+  component = uicomponent.getUIComponent();
+%>
+
+<div class="UIWidget">
+  <div class="WidgetControlContainer">
+    <div class="WidgetControl" style="display: none">
+	    <a class="EditWidgetIcon" title="Edit" href="<%=component.event("Edit")%>"><span></span></a>
+	  	<a class="CloseWidgetIcon" title="Close"><span></span></a>
+	  	<div style="clear: left"><span></span></div>
+	  </div>
+  </div>
+ 
+  <div class="WidgetApplication">
+   <% component.processRender(rcontext); %>
+  </div>
+  <div><span></span></div>
+</div>

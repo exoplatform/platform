@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.component.widget;
 
+import org.exoplatform.portal.component.view.UISystemWidgets;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
@@ -12,11 +13,10 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  *          lebienthuy@gmail.com
  * Jul 11, 2006  
  */
-@ComponentConfig(template = "system:/groovy/portal/webui/component/widget/UIWidgets.gtmpl")
-public class UIWidgets extends UIContainer {
+@ComponentConfig(template = "system:/groovy/portal/webui/component/widget/UIApplicationContainer.gtmpl")
+public class UIApplicationContainer extends UIContainer {
   
-  public UIWidgets() throws Exception{
+  public UIApplicationContainer() throws Exception {
     addChild(UISystemWidgets.class, null, null);
-    addChild(UIUserWidgets.class, null, null);
   }
 }

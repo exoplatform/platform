@@ -27,21 +27,6 @@
 	padding: 0px 5px 0px 0px;
 }
 
-.UIWidgets .BottomLeftWidgets {
-	background: url('VistaSkin/background/BottomLeftWidgets6x9.png') no-repeat left bottom;
-	padding: 0px 0px 0px 6px;
-}
-
-.UIWidgets .BottomRightWidgets {
-	background: url('VistaSkin/background/BottomRightWidgets7x9.png') no-repeat right bottom;
-	padding: 0px 7px 0px 0px;
-}
-
-.UIWidgets .BottomMiddleWidgets {
-	background: url('VistaSkin/background/BottomMiddleWidgets1x9.png') repeat-x bottom;
-	height: 9px;
-}
-
 /******************************* UICaegorySelector  **********************************/
 .UICaegorySelector {
 }
@@ -91,6 +76,21 @@
 /***************************************  UIWidgetContainer   **************************************/
 .UIWidgetContainer {
 	padding: 5px 0px 15px 0px;
+}
+
+.UIWidgetContainer .BottomLeftWidgetContainer {
+  background: url('VistaSkin/background/BottomLeftWidgets6x9.png') no-repeat left bottom;
+	padding: 0px 0px 0px 6px;
+}
+
+.UIWidgetContainer .BottomRightWidgetContainer {
+  background: url('VistaSkin/background/BottomRightWidgets7x9.png') no-repeat right bottom;
+	padding: 0px 7px 0px 0px;
+}
+
+.UIWidgetContainer .BottomCenterWidgetContainer {
+  background: url('VistaSkin/background/BottomMiddleWidgets1x9.png') repeat-x bottom;
+	height: 9px;
 }
 
 .UIWidgetContainer .eXoInfoWidgetImage {
