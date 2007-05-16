@@ -4,9 +4,10 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIFormPopupWindow;
-//import org.exoplatform.webui.component.UIPopupDialog;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 /**
@@ -22,7 +23,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 )
 public class UIPermissionSelector extends UISelector {
   
-//  private List<Permission> permissions_ ;
+  private List<Permission> permissions_ ;
   
 	public UIPermissionSelector() throws Exception {
     super(null, null) ;		
@@ -42,16 +43,16 @@ public class UIPermissionSelector extends UISelector {
 //  } 
   
   public void createPermission(String label, String exp) throws Exception {
-//    Permission permission = new Permission();
-//    permission.setPermissionExpression(exp) ;
-//    permission.setName(label);
-//    if(permissions_ == null) permissions_ = new ArrayList<Permission>();
-//    if(permissions_.size() < 1)  permission.setSelected(true);
-//    permissions_.add(permission);
-//    if(permission.isSelected()) {
-//      UIGroupMembershipSelector uiSelector = findFirstComponentOfType(UIGroupMembershipSelector.class);
-//      uiSelector.changeGroup(permission.getGroupId());
-//    }
+    Permission permission = new Permission();
+    permission.setPermissionExpression(exp) ;
+    permission.setName(label);
+    if(permissions_ == null) permissions_ = new ArrayList<Permission>();
+    if(permissions_.size() < 1)  permission.setSelected(true);
+    permissions_.add(permission);
+    if(permission.isSelected()) {
+      UIGroupMembershipSelector uiSelector = findFirstComponentOfType(UIGroupMembershipSelector.class);
+      uiSelector.changeGroup(permission.getGroupId());
+    }
   }
   
 //  public void setPermission(Permission permission){
@@ -85,16 +86,16 @@ public class UIPermissionSelector extends UISelector {
 //    return null;
 //  }
 //  
-//  public List<Permission> getPermissions(){ return permissions_; }
+  public List<Permission> getPermissions(){ return permissions_; }
 //  
-//  public Permission getSelectedPermission(){
-//    if(permissions_ == null) return null;
-//    for(Permission ele : permissions_){
-//      if(ele.isSelected()) return ele;
-//    }
-//    return null;
-//  }
-//  
+  public Permission getSelectedPermission(){
+    if(permissions_ == null) return null;
+    for(Permission ele : permissions_){
+      if(ele.isSelected()) return ele;
+    }
+    return null;
+  }
+  
   void setMembership(String groupId, String membershipType){
 //    Permission permission = getSelectedPermission();
 //    if(permission == null) return ;
@@ -116,7 +117,42 @@ public class UIPermissionSelector extends UISelector {
       membership_ = temp[0] ;
       groupId_ = temp[1] ;
     }
+    
+    public String getPermissionExpression() {
+      return membership_ + ":" + groupId_ ;
+    }
 
+    public String getGroupId() {
+      return groupId_;
+    }
+
+    public void setGroupId(String groupId) {
+      this.groupId_ = groupId;
+    }
+
+    public String getMembership() {
+      return membership_;
+    }
+
+    public void setMembership(String membership) {
+      this.membership_ = membership;
+    }
+
+    public String getName() {
+      return name_;
+    }
+
+    public void setName(String name) {
+      this.name_ = name;
+    }
+
+    public boolean isSelected() {
+      return selected_;
+    }
+
+    public void setSelected(boolean selected) {
+      this.selected_ = selected;
+    }
   }
   
 }
