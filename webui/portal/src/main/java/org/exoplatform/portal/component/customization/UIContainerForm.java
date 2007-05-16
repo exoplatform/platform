@@ -57,8 +57,10 @@ public class UIContainerForm extends UIForm {
                                 addValidator(EmptyFieldValidator.class).
                                 addValidator(NameValidator.class)).                     
                  addUIFormInput(new UIFormStringInput("title", "title", null)).
-                 addUIFormInput(new UIFormStringInput("width", "width", null)).
-                 addUIFormInput(new UIFormStringInput("height", "height", null));
+                 addUIFormInput(new UIFormStringInput("width", "width", null).
+                                addValidator(NumberFormatValidator.class)).                                
+                 addUIFormInput(new UIFormStringInput("height", "height", null).
+                                addValidator(NumberFormatValidator.class));
     
 //    addChild(uiSettingSet);
 //    UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Template", "template");

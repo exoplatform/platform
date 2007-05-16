@@ -83,7 +83,8 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
       ApplicationRegistryWorkingArea workingArea = event.getSource();
       workingArea.setSeletcApplication(appName);
       UIPopupWindow popupWindow = workingArea.getChild(UIPopupWindow.class);
-      UIInfoPortletForm availablePortletForm= workingArea.createUIComponent(UIInfoPortletForm.class, null, null);
+      UIInfoPortletForm availablePortletForm= workingArea.createUIComponent(UIInfoPortletForm.class, null, "UIInfoPortletForm");
+      availablePortletForm.setName("UIInfoPortletForm");
       availablePortletForm.setValues(workingArea.getSelectApplication());
       popupWindow.setUIComponent(availablePortletForm);
       popupWindow.setShow(true);

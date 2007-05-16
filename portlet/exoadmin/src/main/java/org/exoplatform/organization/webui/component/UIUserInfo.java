@@ -79,7 +79,8 @@ public class UIUserInfo extends UIFormTabPane {
     public void execute(Event<UIUserInfo> event) throws Exception {
       UIUserInfo uiUserInfo = event.getSource() ;
       OrganizationService service =  uiUserInfo.getApplicationComponent(OrganizationService.class);      
-      uiUserInfo.getChild(UIAccountInputSet.class).save(service, false) ;      
+      boolean save = uiUserInfo.getChild(UIAccountInputSet.class).save(service, false) ; 
+      if(!save) return;
       uiUserInfo.getChild(UIUserProfileInputSet.class).save(service, uiUserInfo.getUserName(), false) ;      
       uiUserInfo.getChild(UIUserMembershipSelector.class).save(service, true);      
     }

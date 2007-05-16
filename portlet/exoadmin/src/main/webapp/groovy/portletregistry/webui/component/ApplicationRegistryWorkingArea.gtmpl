@@ -47,7 +47,7 @@
   	</table>
   	
   	<% } else { %>
-  	  <div style="padding: 20px 10px; width: 160px; font-size: 11px; margin: auto; color: red;"> There are not Applications!</div>
+  	  <div style="padding: 20px 10px; width: 160px; font-size: 11px; margin: auto; color: red;"> There is not Applications!</div>
   	<% }%>
   	<div class="UIAction" > 
       <div class="ActionContainer">

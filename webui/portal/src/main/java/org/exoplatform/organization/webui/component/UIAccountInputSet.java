@@ -24,8 +24,8 @@ import org.exoplatform.webui.component.validator.IdentifierValidator;
 public class UIAccountInputSet extends UIFormInputSet {
   
   final static String USERNAME = "username" ;
-  final static String PASSWORD1X = "password1x" ;
-  final static String PASSWORD2X = "password2x" ;
+  final static String PASSWORD1X = "password" ;
+  final static String PASSWORD2X = "Confirmpassword" ;
   
   public UIAccountInputSet(String name) throws Exception {
     super(name);
