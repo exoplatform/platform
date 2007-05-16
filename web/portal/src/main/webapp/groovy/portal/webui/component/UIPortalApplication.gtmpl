@@ -86,7 +86,7 @@
        </div>
     </div>
     
-    <div id="Backgroud" class="test"><span></span></div>
+    <div id="Backgroud"><span></span></div>
     <script type="text/javascript">
       <%=rcontext.getJavascriptManager().getJavascript()%>
       eXo.core.Browser.onLoad();
