@@ -5,6 +5,7 @@
 package org.exoplatform.portal.component.customization;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIExoStart;
@@ -65,10 +66,21 @@ public class UIPageEditWizard extends UIPageWizard {
     service.update(pageNav);
     
     UIPortal uiPortal = Util.getUIPortal();
-    uiPortal.setNavigation(uiNodeSelector.getNavigations());
+    for(PageNavigation editNav : uiNodeSelector.getNavigations()) {
+      setNavigation(uiPortal.getNavigations(), editNav);
+    }
     String uri = uiPageInfo.getPageNode().getUri();
     PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;
     uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
+  }
+  
+  private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
+    for(int i = 0; i < navs.size(); i++) {
+      if(navs.get(i).getId().equals(nav.getId())) {
+        navs.set(i, nav);
+        return;
+      }
+    }
   }
   
   static  public class ViewStep1ActionListener extends EventListener<UIPageWizard> {

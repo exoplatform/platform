@@ -2,7 +2,7 @@
 <node-navigation>
   <owner-type>user</owner-type>  
 	<owner-id>exoadmin</owner-id>
-  <access-groups>/admin</access-groups>
+  <access-permissions>*:/portal/admin</access-permissions>
   <description>description for node navigation </description>
   
   <page-nodes>  
@@ -10,6 +10,12 @@
 	    <uri>exoadmin::/sitemap</uri>
 	    <label>Site Map</label>
 	    <page-reference>user::exoadmin::sitemap</page-reference>
-	  </node>   
+	    
+	    <node>
+		    <uri>exoadmin::/testform</uri>
+		    <label>Test Form</label>
+		    <page-reference>user::exoadmin::testform</page-reference>
+		  </node>
+	  </node>
   </page-nodes>
 </node-navigation>

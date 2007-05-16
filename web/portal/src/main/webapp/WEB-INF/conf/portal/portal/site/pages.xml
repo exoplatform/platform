@@ -5,7 +5,7 @@
     <owner-id>site</owner-id>
     <name>content</name>
     <title>Content</title>
-    <access-groups>/guest</access-groups>
+    <access-permissions>*:/guest</access-permissions>
     
     <application>
       <instance-id>site:/content/ContentPortlet/contentportlet</instance-id>
@@ -21,7 +21,7 @@
     <owner-id>site</owner-id>
     <name>register</name>
     <title>Register</title>
-    <access-groups>/guest</access-groups>      
+    <access-permissions>*:/guest</access-permissions>      
     <application>
       <instance-id>site:/exoadmin/AccountPortlet/Account</instance-id>
       <title>Account Portlet</title>

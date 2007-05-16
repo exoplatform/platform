@@ -55,10 +55,7 @@ class UserACL {
     Iterator<PageNavigation> iterator = navs.iterator();
     while(iterator.hasNext()){
       PageNavigation nav = iterator.next();
-      if(hasPermission(nav, remoteUser, viewMembershipType_)) {
-        nav.setModifiable(hasPermission(nav, remoteUser, editMembershipType_));
-        continue;
-      }            
+      if(hasPermission(nav, remoteUser)) continue;
       iterator.remove();
     }
     
@@ -70,50 +67,120 @@ class UserACL {
     
   }  
   
-  boolean hasPermission(PortalConfig config, String remoteUser, String mt) throws Exception {
-    String [] groups = config.getAccessGroup();
-    if(groups == null) groups = new String[]{"/user"}; 
-    for(String group : groups) {
-      if(hasPermission(config.getCreator(), remoteUser, group, mt)) return true;
+  boolean hasPermission(PortalConfig pconfig, String accessUser) throws Exception {
+    if(hasEditPermission(pconfig.getCreator(), accessUser, pconfig.getEditPermission())) {
+      pconfig.setModifiable(true);
+      return true;
     }
-    return false;
+    pconfig.setModifiable(false);
+    
+    return hasViewPermission(pconfig.getCreator(), accessUser, pconfig.getAccessPermission()) ;
   }
   
-  boolean hasPermission(Page page, String remoteUser, String mt) throws Exception {
-    String [] groups = page.getAccessGroup();
-    if(groups == null) groups = new String[]{"/user"}; 
+  boolean hasPermission(Page page, String accessUser) throws Exception {
     String owner = page.getCreator();
     if(page.getOwnerType().equals(PortalConfig.USER_TYPE)) owner = page.getOwnerId();
-    for(String group : groups) {
-      if(hasPermission(owner, remoteUser, group, mt)) return true;
+    
+    if(hasEditPermission(owner, accessUser, page.getEditPermission())) {
+      page.setModifiable(true);
+      return true;
     }
-    return false;
+    page.setModifiable(false);
+    
+    return hasViewPermission(owner, accessUser, page.getAccessPermission()) ;
   }
   
-  boolean hasPermission(PageNavigation nav, String remoteUser, String mt) throws Exception {
-    String [] groups = nav.getAccessGroup();
-    if(groups == null) groups = new String[]{"/user"}; 
+  boolean hasPermission(PageNavigation nav, String accessUser) throws Exception {
     String owner = nav.getCreator();
     if(nav.getOwnerType().equals(PortalConfig.USER_TYPE)) owner = nav.getOwnerId();
-    for(String group : groups) {
-      if(hasPermission(owner, remoteUser, group, mt)) return true;
+    
+    if(hasEditPermission(owner, accessUser, nav.getEditPermission())) {
+      nav.setModifiable(true);
+      return true;
+    }
+    nav.setModifiable(false);
+    return hasViewPermission(owner, accessUser, nav.getAccessPermission()) ;
+  }
+  
+  boolean hasViewPermission(String owner, String remoteUser, String[] expPerms) throws Exception {
+    if(owner != null && owner.equals(remoteUser)) return true;
+    if(superUser_.equals(remoteUser)) return true;
+    if(expPerms == null || expPerms.length < 1) expPerms = new String[] {"*:/guest"};
+    for(String expPerm : expPerms) {
+      if(hasViewPermission(remoteUser, expPerm)) return true;
     }
     return false;
   }
   
-  boolean hasPermission(String owner, String remoteUser, String groupId, String mt) throws Exception {
-    if(owner != null && owner.equals(remoteUser)) return true;
-    if(superUser_.equals(remoteUser)) return true;
-    groupId = groupId.trim();
+  boolean hasViewPermission(String remoteUser, String expPerm) throws Exception {
+    if(expPerm == null) return false ;
+    Permission permission = new Permission();
+    permission.setPermissionExpression(expPerm);
+    String groupId = permission.getGroupId();
     if("/guest".equals(groupId)) return true ;
 
+    String membership = permission.getMembership() ;
     MembershipHandler handler = orgService_.getMembershipHandler();
-    if(mt == null || "*".equals(mt)) {
+    if(membership == null || "*".equals(membership)) {
       Collection c = handler.findMembershipsByUserAndGroup(remoteUser, groupId) ;
       if(c == null) return false ;
       return c.size() > 0 ;
     } 
-    return handler.findMembershipByUserGroupAndType(remoteUser, groupId, mt) != null;
+    return handler.findMembershipByUserGroupAndType(remoteUser, groupId, membership) != null;
+  }
+  
+  boolean hasEditPermission(String owner, String remoteUser, String expPerm) throws Exception {
+    if(owner != null && owner.equals(remoteUser)) return true;
+    if(superUser_.equals(remoteUser)) return true;
+    if(expPerm == null) return false ;
+    Permission permission = new Permission();
+    permission.setPermissionExpression(expPerm);
+    String groupId = permission.getGroupId();
+
+    String membership = permission.getMembership() ;
+    MembershipHandler handler = orgService_.getMembershipHandler();
+    if(membership == null || "*".equals(membership)) {
+      Collection c = handler.findMembershipsByUserAndGroup(remoteUser, groupId) ;
+      if(c == null) return false ;
+      return c.size() > 0 ;
+    } 
+    return handler.findMembershipByUserGroupAndType(remoteUser, groupId, membership) != null;
+  }
+  
+  static public class Permission {
+
+    private String name_ ;
+
+    private String groupId_ = ""  ;  
+    private String membership_ = "" ;
+    
+    private boolean selected_  = false;
+
+    public void setPermissionExpression(String exp) {
+      if(exp == null || exp.length() == 0) return;
+      String[] temp = exp.split(":") ;
+      if(temp.length < 2) return;
+      membership_ = temp[0].trim() ;
+      groupId_ = temp[1].trim() ;
+    }
+
+    public String getGroupId(){ return groupId_; }
+    public void setGroupId(String groupId) { groupId_ = groupId; }
+
+    public String getName(){ return name_; }
+    public void setName(String name) { name_ = name; }
+
+    public String getValue(){
+      if(membership_ .length() == 0 || groupId_.length() == 0) return null;
+      if(membership_.trim().equals("any")) return  "*:"+groupId_;
+      return membership_+":"+groupId_;
+    }
+    
+    public String getMembership(){ return membership_; }
+    public void setMembership(String membership) { membership_ = membership; }
+
+    public boolean isSelected(){ return selected_; }
+    public void setSelected(boolean selected){ selected_ = selected; }
   }
 
 }

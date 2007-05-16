@@ -43,43 +43,43 @@ public class UIWizardPageSetInfo extends UIForm {
   
   public UIWizardPageSetInfo() throws Exception {
     UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, null, null);    
-    addUIFormInput(new UIFormStringInput("pageName", "pageName", null).addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class));
-    addUIFormInput(new UIFormStringInput("pageDisplayName", "pageDisplayName", null));
+    addUIFormInput(new UIFormStringInput("pageName", "name", null).addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class));
+    addUIFormInput(new UIFormStringInput("pageDisplayName", "label", null));
     
     UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
     uiTree.setUIRightClickPopupMenu(null);
     uiPageNodeSelector.removeChild(UIRightClickPopupMenu.class);    
   } 
   
-  public void setEditPageNode(boolean value){
+  public void setEditPageNode(boolean value) throws Exception {
     isEdit = value;
     if(!value) return;
     UIPageNodeSelector  uiPageNodeSelector = getChild(UIPageNodeSelector.class);
     if(uiPageNodeSelector.getSelectedPageNode() != null) return;
     PageNode pageNode = Util.getUIPortal().getSelectedNode();
     uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri()) ; 
-    UIFormStringInput uiNameInput = getChildById("pageName") ;
-    uiNameInput.setEditable(false);
-    if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
-    UIFormStringInput uiDisplayNameInput = getChildById("pageDisplayName") ;
-    if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getLabel());
+    this.<UIFormStringInput>getChildById("pageName").setEditable(false) ;
+    invokeGetBindingBean(pageNode);
   }
   
-  public PageNode getPageNode() {
-    String label = this.<UIFormStringInput>getUIInput("pageDisplayName").getValue() ;
+  public PageNode getPageNode() throws Exception {
     if(isEdit) {
       PageNode pageNode = getSelectedPageNode() ;  
-      if(label == null || label.trim().length() == 0) label = pageNode.getName();
-      pageNode.setLabel(label);
+      invokeSetBindingBean(pageNode);
+      if(pageNode.getLabel() == null || pageNode.getLabel().trim().length() == 0) {
+        pageNode.setLabel(pageNode.getName());
+      }
       return pageNode;
     }
     
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     String user = context.getRemoteUser();
     if(user == null) user = Util.getUIPortal().getOwner();
-    String name = this.<UIFormStringInput>getUIInput("pageName").getValue();
     PageNode pageNode  = new PageNode();
-    pageNode.setName(name);    
+    invokeSetBindingBean(pageNode);
+    if(pageNode.getLabel() == null || pageNode.getLabel().trim().length() == 0) {
+      pageNode.setLabel(pageNode.getName());   
+    }
     
     UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
     PageNode selectedNode = uiNodeSelector.getSelectedPageNode();
@@ -89,8 +89,6 @@ public class UIWizardPageSetInfo extends UIForm {
     } else {       
       pageNode.setUri(pageNav.getOwnerId() + "::" + pageNode.getName());
     }
-    if(label == null || label.trim().length() == 0) label = pageNode.getName();
-    pageNode.setLabel(label);
     return pageNode;
  }
   

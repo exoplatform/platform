@@ -193,7 +193,7 @@ public class TestDataStorage extends BasicTestCase {
     
     String oldAccessGroup = "OldGroup" ;
     for (Page p : pages) {
-      p.setAccessGroups(oldAccessGroup) ;
+      p.setAccessPermissions(oldAccessGroup) ;
       storage_.create(p) ;
     }
     
@@ -201,12 +201,12 @@ public class TestDataStorage extends BasicTestCase {
       String pageId = p.getPageId() ;
       
       Page aPage = storage_.getPage(pageId) ;
-      assertEquals(oldAccessGroup, aPage.getAccessGroups()) ;
+      assertEquals(oldAccessGroup, aPage.getAccessPermissions()) ;
     }
     
     String newAccessGroup = "NewGroup" ;
     for (Page p : pages) {
-      p.setAccessGroups(newAccessGroup) ;
+      p.setAccessPermissions(newAccessGroup) ;
       storage_.save(p) ;
     }
 
@@ -215,7 +215,7 @@ public class TestDataStorage extends BasicTestCase {
       String pageId = p.getPageId() ;
 
       Page aPage = storage_.getPage(pageId) ;
-      assertEquals(newAccessGroup, aPage.getAccessGroups()) ;
+      assertEquals(newAccessGroup, aPage.getAccessPermissions()) ;
       returnPages.add(aPage) ;
     }
     assertEquals(2, returnPages.size()) ;

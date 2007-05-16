@@ -17,8 +17,11 @@ public class PageNavigation {
   private String      ownerType;
   private String      ownerId;
   
-  private String accessGroups;
-  private transient String[]    accessGroup ;
+  private String accessPermissions;
+  private transient String[]    accessPermission ;
+  
+  private String editPermission;
+  
   private String      description ;
   private transient boolean     modifiable ;
   
@@ -34,8 +37,11 @@ public class PageNavigation {
   public String getOwnerType() { return ownerType; }
   public void setOwnerType(String ownerType) { this.ownerType = ownerType; }
 
-  public String[] getAccessGroup(){  return accessGroup; }
-  public void     setAccessGroup(String[] s) { accessGroup = s ; }
+  public String[] getAccessPermission(){  return accessPermission; }
+  public void     setAccessPermission(String[] s) { accessPermission = s ; }
+  
+  public String getEditPermission() { return editPermission; }
+  public void setEditPermission(String editPermission) { this.editPermission = editPermission; }
   
   public boolean isModifiable(){  return modifiable; }
   public void    setModifiable(boolean b) { modifiable = b ; }
@@ -81,21 +87,21 @@ public class PageNavigation {
   public ArrayList<PageNode> getNodes(){ return pageNodes; }
   public void setNodes(ArrayList<PageNode> nodes) { pageNodes = nodes; }
   
-  public String getAccessGroups(){
-    if(accessGroup == null)  return "";
+  public String getAccessPermissions(){
+    if(accessPermission == null)  return "";
     StringBuilder builder = new StringBuilder();
-    for(int i = 0; i < accessGroup.length; i++) {
-      builder.append(accessGroup[i]) ;
-      if (i < accessGroup.length - 1) builder.append(',');
+    for(int i = 0; i < accessPermission.length; i++) {
+      builder.append(accessPermission[i]) ;
+      if (i < accessPermission.length - 1) builder.append(',');
     }
     return builder.toString();
   }
-  public void setAccessGroups(String s){ 
-    this.accessGroups = s;
-    if(accessGroups == null) return ;
-    accessGroup = accessGroups.split(",");
-    for(int i = 0; i < accessGroup.length; i++) {
-      accessGroup[i] = accessGroup[i].trim(); 
+  public void setAccessPermissions(String s){ 
+    this.accessPermissions = s;
+    if(accessPermissions == null) return ;
+    accessPermission = accessPermissions.split(",");
+    for(int i = 0; i < accessPermission.length; i++) {
+      accessPermission[i] = accessPermission[i].trim(); 
     }
   }
   
@@ -104,7 +110,8 @@ public class PageNavigation {
     newNav.setOwnerId(ownerId);
     newNav.setOwnerType(ownerType);
     newNav.setPriority(priority);
-    newNav.setAccessGroup(accessGroup);
+    newNav.setAccessPermission(accessPermission);
+    newNav.setEditPermission(editPermission);
     newNav.setModifiable(modifiable);
     newNav.setDescription(description);
     newNav.setCreator(creator);
@@ -116,5 +123,6 @@ public class PageNavigation {
     }
     return newNav;
   }
+  
 
 }

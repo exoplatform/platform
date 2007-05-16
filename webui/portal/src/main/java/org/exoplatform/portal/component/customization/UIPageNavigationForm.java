@@ -79,7 +79,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
     invokeGetBindingBean(pageNavigation) ;    
 
     UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
-    uiAccessGroup.setGroups(pageNavigation.getAccessGroup());
+    uiAccessGroup.setGroups(pageNavigation.getAccessPermission());
     
     UIFormSelectBox uiSelectBox = findFirstComponentOfType(UIFormSelectBox.class);
     uiSelectBox.setValue(String.valueOf(pageNavigation.getPriority()));
@@ -100,7 +100,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
       pageNav.setModifier(event.getRequestContext().getRemoteUser());
       
       UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
-      pageNav.setAccessGroup(uiAccessGroup.getAccessGroup());
+      pageNav.setAccessPermission(uiAccessGroup.getAccessGroup());
       
       UIComponentDecorator uiFormParent = uiForm.getParent(); 
       uiFormParent.setUIComponent(null);

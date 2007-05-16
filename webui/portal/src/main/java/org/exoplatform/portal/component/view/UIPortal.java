@@ -9,8 +9,6 @@ import java.util.List;
 
 import org.exoplatform.portal.component.view.lifecycle.UIPortalLifecycle;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.ChangePageNodeActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalActionListener.AddJSApplicationToDesktopActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalActionListener.AddPortletToDesktopActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalActionListener.ChangeWindowStateActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalActionListener.RemoveJSApplicationToDesktopActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.MoveChildActionListener;

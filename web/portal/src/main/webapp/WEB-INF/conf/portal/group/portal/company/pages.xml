@@ -4,7 +4,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/company</owner-id>
     <name>home</name>
-    <access-groups>/guest</access-groups>        
+    <access-permissions>*:/portal/admin</access-permissions>   
     <show-max-window>true</show-max-window>
     
     <application>
@@ -18,7 +18,7 @@
  		<owner-type>group</owner-type>
     <owner-id>/portal/company</owner-id>
     <name>organization</name>
-    <access-groups>/portal/company,/portal/admin</access-groups>
+    <access-permissions>*:/portal/company,*:/portal/admin</access-permissions>
     
     <application>
       <instance-id>company:/exoadmin/OrganizationPortlet/Organization</instance-id>    
@@ -32,7 +32,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/company</owner-id>
     <name>myaccount</name>
-    <access-groups>/portal/company</access-groups>
+    <access-permissions>*:/portal/company</access-permissions>
     
     <application>
       <instance-id>company:/exoadmin/AccountPortlet/Account</instance-id>    

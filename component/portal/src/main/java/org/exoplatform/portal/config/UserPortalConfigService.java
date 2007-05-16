@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
@@ -45,9 +45,9 @@ public class UserPortalConfigService {
    *event
    */
   public UserPortalConfigService(InitParams params, 
-      DataStorage storage,
-      CacheService cacheService,
-      OrganizationService  orgService) throws Exception {
+                                 DataStorage storage,
+                                 CacheService cacheService,
+                                 OrganizationService  orgService) throws Exception {
     storage_ = storage ;
     orgService_ = orgService;
 
@@ -80,10 +80,7 @@ public class UserPortalConfigService {
    */
   public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
     PortalConfig portal = storage_.getPortalConfig(portalName) ;
-    if(portal == null || !userACL_.hasPermission(portal, accessUser, userACL_.getViewMembershipType())) {
-      return null ;
-    }
-    portal.setModifiable(userACL_.hasPermission(portal, accessUser, userACL_.getEditMembershipType()));
+    if(portal == null || !userACL_.hasPermission(portal, accessUser)) return null ;
 
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
     PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
@@ -112,8 +109,6 @@ public class UserPortalConfigService {
       }
     }   
     userACL_.computeNavigation(navigations, accessUser);
-    if (navigations.size() < 1) return null ;
-
     return new UserPortalConfig(portal, navigations) ;
   }
 
@@ -192,10 +187,7 @@ public class UserPortalConfigService {
   public Page getPage(String pageId, String accessUser) throws Exception {
     Page page = (Page) pageConfigCache_.get(pageId) ;    
     if(page == null) page  = storage_.getPage(pageId) ;
-    if(page == null || !userACL_.hasPermission(page, accessUser, userACL_.getViewMembershipType())) {
-      return null;
-    }
-    page.setModifiable(userACL_.hasPermission(page, accessUser, userACL_.getEditMembershipType()));
+    if(page == null || !userACL_.hasPermission(page, accessUser)) return null;
     pageConfigCache_.put(pageId, page);
     return page ; 
   }
@@ -260,16 +252,13 @@ public class UserPortalConfigService {
   public PageNavigation getPageNavigation(String id, String accessUser) throws Exception {
     PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(id) ;
     if(navigation == null) navigation  = storage_.getPageNavigation(id) ;
-    if(navigation == null || !userACL_.hasPermission(navigation, accessUser, userACL_.getViewMembershipType())){
-      return null;
-    }
-    navigation.setModifiable(userACL_.hasPermission(navigation, accessUser, userACL_.getEditMembershipType()));
+    if(navigation == null || !userACL_.hasPermission(navigation, accessUser)) return null;
     pageNavigationCache_.put(id, navigation);
     return navigation ;   
   }
   
   public void computeModifiable(PageNavigation navigation, String accessUser) throws Exception {
-    navigation.setModifiable(userACL_.hasPermission(navigation, accessUser, userACL_.getEditMembershipType()));
+    userACL_.hasEditPermission(navigation.getCreator(), accessUser, navigation.getEditPermission());
   }
 
   

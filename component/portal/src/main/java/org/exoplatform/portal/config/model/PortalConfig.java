@@ -21,8 +21,11 @@ public class PortalConfig {
 	private String    name ;
 	private String    factoryId;
   private String    locale ;
-  private String    accessGroups;
-  private transient String[]  accessGroup ;
+  
+  private String    accessPermissions;
+  private transient String[]  accessPermission ;
+  private String editPermission;
+  
   private String    skin;
   private String    title;
   
@@ -45,8 +48,11 @@ public class PortalConfig {
   public String getLocale() { return locale ; }
   public void   setLocale(String s) { locale = s ; }
   
-  public String [] getAccessGroup() { return accessGroup ; }
-  public void   setAccessGroup(String[] s) { accessGroup = s ; }
+  public String [] getAccessPermission() { return accessPermission ; }
+  public void   setAccessPermission(String[] s) { accessPermission = s ; }
+  
+  public String getEditPermission() { return editPermission; }
+  public void setEditPermission(String editPermission) { this.editPermission = editPermission; }
   
   public String getSkin() { 
     if(skin == null || skin.length() < 1) return "Default";
@@ -77,21 +83,21 @@ public class PortalConfig {
   public String getTitle() { return title ; }
   public void   setTitle(String value) { title = value ; }
   
-  public String getAccessGroups(){
-    if(accessGroup == null)  return "";
+  public String getAccessPermissions(){
+    if(accessPermission == null)  return "";
     StringBuilder builder = new StringBuilder();
-    for(int i = 0; i < accessGroup.length; i++) {
-      builder.append(accessGroup[i]) ;
-      if (i < accessGroup.length -1) builder.append(',');
+    for(int i = 0; i < accessPermission.length; i++) {
+      builder.append(accessPermission[i]) ;
+      if (i < accessPermission.length -1) builder.append(',');
     }
     return builder.toString();
   }
-  public void setAccessGroups(String s){ 
-    this.accessGroups = s;
-    if(accessGroups == null) return ;
-    accessGroup = accessGroups.split(",");
-    for(int i = 0; i < accessGroup.length; i++) {
-      accessGroup[i] = accessGroup[i].trim(); 
+  public void setAccessPermissions(String s){ 
+    this.accessPermissions = s;
+    if(accessPermissions == null) return ;
+    accessPermission = accessPermissions.split(",");
+    for(int i = 0; i < accessPermission.length; i++) {
+      accessPermission[i] = accessPermission[i].trim(); 
     }
   }
   

@@ -6,6 +6,7 @@ package org.exoplatform.portal.webui.component;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Hashtable;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -61,6 +62,8 @@ public class UITestForm extends UIForm {
     List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
     ls.add(new SelectItemOption<String>("SQL", "sql")) ;
     ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
+    
+    Hashtable<String,String> hash = new Hashtable<String,String>();
 
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
     uiSelectBox.setOnChange("Onchange");

@@ -153,7 +153,20 @@ public class UIPageNavigationControlBar extends UIToolbar {
     for(PageNavigation nav : navs) {
       dataService.update(nav);    
     }
-    Util.getUIPortal().setNavigation(navs);
+    
+    UIPortal uiPortal = Util.getUIPortal();
+    for(PageNavigation editNav : navs) {
+      setNavigation(uiPortal.getNavigations(), editNav);
+    }
+  }
+  
+  private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
+    for(int i = 0; i < navs.size(); i++) {
+      if(navs.get(i).getId().equals(nav.getId())) {
+        navs.set(i, nav);
+        return;
+      }
+    }
   }
 
   public void abort(Event<UIPageNavigationControlBar> event) throws Exception {

@@ -90,7 +90,7 @@ public class PortalDataModelUtil {
     model.setOwnerId(uiPage.getOwnerId());
     model.setOwnerType(uiPage.getOwnerType());
     model.setIcon(uiPage.getIcon());
-    model.setAccessGroup(uiPage.getAccessGroups());
+    model.setAccessPermission(uiPage.getAccessGroups());
     model.setFactoryId(uiPage.getFactoryId());
     model.setShowMaxWindow(uiPage.isShowMaxWindow());   
     model.setModifiable(uiPage.isModifiable());
@@ -103,7 +103,7 @@ public class PortalDataModelUtil {
     model.setCreator(uiPortal.getCreator());
     model.setModifier(uiPortal.getModifier());
     model.setFactoryId(uiPortal.getFactoryId());
-    model.setAccessGroup(uiPortal.getAccessGroups());
+    model.setAccessPermission(uiPortal.getAccessGroups());
     model.setLocale(uiPortal.getLocale());
     model.setSkin(uiPortal.getSkin());
     model.setTitle(uiPortal.getTitle());
@@ -205,7 +205,7 @@ public class PortalDataModelUtil {
     uiPage.setOwnerId(model.getOwnerId());
     uiPage.setOwnerType(model.getOwnerType());
     uiPage.setIcon(model.getIcon());
-    uiPage.setAccessGroups(model.getAccessGroup());
+    uiPage.setAccessGroups(model.getAccessPermission());
     uiPage.setFactoryId(model.getFactoryId());
     uiPage.setShowMaxWindow(model.isShowMaxWindow());   
     uiPage.setModifiable(model.isModifiable());
@@ -223,7 +223,7 @@ public class PortalDataModelUtil {
     uiPortal.setUserPortalConfig(userPortalConfig);
     uiPortal.setLocale(model.getLocale());
     uiPortal.setSkin(model.getSkin());
-    uiPortal.setAccessGroups(model.getAccessGroup());
+    uiPortal.setAccessGroups(model.getAccessPermission());
     
     List<Object> children  = model.getPortalLayout().getChildren();
     if(children != null) { 

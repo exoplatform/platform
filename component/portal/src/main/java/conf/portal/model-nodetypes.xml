@@ -21,7 +21,10 @@
   		<propertyDefinition name="dataType" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
 	    </propertyDefinition>
-  		<propertyDefinition name="accessGroups" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  		<propertyDefinition name="accessPermissions" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+  			<valueConstraints/>
+  		</propertyDefinition>
+  		<propertyDefinition name="editPermission" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
   			<valueConstraints/>
   		</propertyDefinition>
 	    <propertyDefinition name="createdDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
