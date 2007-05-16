@@ -108,7 +108,7 @@ UIBrowseContent.prototype.mainMenuScrollCallback = function() {
 		var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.getElementSpace(homeButton);
 	}
 	var elementsSpace = this.getElementsSpace(this.firstVisibleIndex, this.lastVisibleIndex);
-	if (elementsSpace > maxSpace) {
+	if (elementsSpace >= maxSpace) { //while
 		if (this.lastDirection == 1) {
 			if (this.firstVisibleIndex >= 0 && this.firstVisibleIndex < this.elements.length-1) {
 				this.otherHiddenIndex = this.firstVisibleIndex;
@@ -122,6 +122,7 @@ UIBrowseContent.prototype.mainMenuScrollCallback = function() {
 				this.elements[this.lastVisibleIndex--].style.display = "none";
 			}
 		}
+		//elementsSpace -= this.getElementSpace(this.elements[this.otherHiddenIndex]);
 	}
 };
 
