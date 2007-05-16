@@ -149,6 +149,11 @@
   padding: 0px 11px 0px 0px;
 }
 /*############### End Decorator ###################################################*/
+
+.VIEW-PORTAL .UIContainer .UITableColumnContainer {
+	width: 99.7%;
+}
+
 .UIContainer .LAYOUT-CONTAINER {
   height: 100%;
   background: url('MacSkin/background/ContainerBackground1x4.gif') repeat;

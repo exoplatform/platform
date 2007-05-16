@@ -249,6 +249,10 @@
 
 /*############### End Decorator ###################################################*/
 
+.VIEW-PORTAL .UIContainer .UITableColumnContainer {
+	width: 99.7%;
+} 
+
 .UIContainer .LAYOUT-CONTAINER {
   background: url('VistaSkin/background/ContainerBG3x3.png') repeat;
   border: solid 1px #585858;

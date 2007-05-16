@@ -5,6 +5,7 @@
 
 .UIPageDesktop .UIWindow .UIApplication {
   height: 350px ;
+  padding: 0px;
 }
 
 /*##########################################################*/

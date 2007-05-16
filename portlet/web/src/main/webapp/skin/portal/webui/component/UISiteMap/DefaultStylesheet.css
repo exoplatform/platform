@@ -20,6 +20,7 @@
 
 .UISitemap {
 	overflow: hidden ;
+	padding: 10px;
 }
 
 .UISitemap .DefaultPageIcon{
