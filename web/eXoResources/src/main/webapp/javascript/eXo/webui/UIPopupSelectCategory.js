@@ -21,7 +21,7 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 		if (uiPageDesktop != null) posTop -= ancestorPopupCategory.offsetTop;
 		uiPopupCategory.style.top = posTop + "px" ;
 		uiPopupCategory.style.width = width + "px" ;
-
+		
 		if(controlCategory != null) {
 			var count = 2;
 			if (eXo.core.Browser.browserType == "mozilla") count = 1;
@@ -31,14 +31,19 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 			  	posLeft -= (count * eXo.portal.UIControlWorkspace.defaultWidth) ;
 			  }
 			} else {
-				var posLeft = categoryDetectPosition.offsetLeft - uiPopupCategory.offsetWidth + 40;
+				if(count == 1)var posLeft = categoryDetectPosition.offsetLeft - uiPopupCategory.offsetWidth + 44 ; 
+				else {
+					if(uiPageDesktop) var posLeft = categoryDetectPosition.offsetLeft - categoryDetectPosition.offsetWidth + 44 ; 
+					else var posLeft = categoryDetectPosition.offsetLeft - categoryDetectPosition.offsetWidth + 20 ;
+					var styleSkin = document.getElementById("UIPortalApplication");
+					if(styleSkin.className = "Vista") posLeft += 10;
+				}
 			}
 			uiPopupCategory.style.left = posLeft + "px";
 		}
 	} else {
 		uiPopupCategory.style.display = "none" ;
 	}
-	
 	/*Add uiPopupCategory to the list element will be display to "none" when click on document*/
 	eXo.core.DOMUtil.listHideElements(uiPopupCategory);
 } ;

@@ -35,6 +35,14 @@
 }
 
 /*#############################  Begin Icon WindowBar ##############################################*/
+.UIWindow .WindowPortletControl {
+  float: right ;
+  height: 18px ;
+  display: block ;
+  margin: 0px 3px 0px 0px;
+	padding-left: 8px;
+}
+
 .UIWindow .WindowPortletControl .ControlIcon {
   float: left;
   width: 24px ; height: 18px ;
@@ -180,13 +188,6 @@
 .UIWindow .WindowBarCenter {
   height: 23px ;
   background: url('DefaultSkin/background/WindowControlBarM1x23.gif') repeat-x ;
-}
-
-.UIWindow .WindowPortletControl {
-  float: right ;
-  height: 18px ;
-  display: block ;
-  margin: 0px 3px 0px 0px;
 }
 
 /**************************** UIPageBody ************************************/

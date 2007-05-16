@@ -256,6 +256,7 @@ ScrollManager.prototype.scrollLeft = function() { // Same for scrollUp
 
 ScrollManager.prototype.scrollUp = function() {
 	if (this.scrollMgr) this.scrollMgr.scrollLeft();
+	alert("test");
 };
 
 ScrollManager.prototype.scrollRight = function() { // Same for scrollDown
@@ -325,4 +326,13 @@ UIPortalControl.prototype.newScrollManager = function() {
 	return tmpMgr;
 };
 /*********** Scroll Manager *************/
+
+
+
+UIPortalControl.prototype.backgroundBody = function() {
+	var backg = document.getElementById("Backgroud");
+	backg.style.top = document.documentElement.scrollTop + "px";
+	backg.style.bottom = (-document.documentElement.scrollTop) + "px";
+};
+
 eXo.portal.UIPortalControl = new UIPortalControl();
