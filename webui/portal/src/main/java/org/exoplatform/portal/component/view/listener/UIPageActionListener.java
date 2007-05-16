@@ -17,6 +17,7 @@ import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.customization.UIPageForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.UIExoApplication;
 import org.exoplatform.portal.component.view.UIJSApplication;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPageBody;
@@ -122,35 +123,7 @@ public class UIPageActionListener {
     }
   }
   
-  static public class AddJSApplicationToDesktopActionListener  extends EventListener<UIPageBody> {
-    public void execute(Event<UIPageBody> event) throws Exception {
-      String application  = event.getRequestContext().getRequestParameter("jsApplication");
-      String applicationId  = event.getRequestContext().getRequestParameter("jsApplicationId");
-      String instanceId  = event.getRequestContext().getRequestParameter("jsInstanceId");
-      String appLoc= event.getRequestContext().getRequestParameter("jsApplicationLocation");
-      UIPortal uiPortal = Util.getUIPortal();  
-      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      UIPage uiPage = null;
-      if(uiPortal.isRendered()){
-        uiPage = uiPortal.findFirstComponentOfType(UIPage.class);
-      } else {
-        UIPortalToolPanel uiPortalToolPanel = uiPortalApp.findFirstComponentOfType(UIPortalToolPanel.class);
-        uiPage = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
-      }
-      
-      StringBuilder builder  = new StringBuilder();
-      builder.append("eXo.desktop.UIDesktop.createJSApplication('");
-      builder.append(application).append("','").append(applicationId).
-              append("','").append(instanceId).append("','").append(appLoc).append("');");
-      UIJSApplication jsApplication = uiPage.createUIComponent(UIJSApplication.class, null, null);
-      jsApplication.setJSApplication(builder.toString());
-      jsApplication.setId(instanceId);
-      uiPage.addChild(jsApplication);
-    }
-  }
-  
-
-  static public class AddPortletToDesktopActionListener  extends EventListener<UIPageBody> {
+  static public class AddExoApplicationActionListener  extends EventListener<UIPageBody> {
     public void execute(Event<UIPageBody> event) throws Exception {
       UIPortal uiPortal = Util.getUIPortal();  
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
@@ -162,23 +135,33 @@ public class UIPageActionListener {
         uiPage = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
       }      
       
-      UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);      
-      String portletId = event.getRequestContext().getRequestParameter("portletId");    
+      String portletId = event.getRequestContext().getRequestParameter("portletId");  
       StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
-      windowId.append(":/").append(portletId).append('/').append(uiPortlet.hashCode());
-      uiPortlet.setWindowId(windowId.toString());
-      
+      windowId.append(":/").append(portletId).append('/');
       Application portlet = getPortlet(uiPortal, portletId);
-      if(portlet != null){
-        if(portlet.getDisplayName() != null) {
-          uiPortlet.setTitle(portlet.getDisplayName());
-        } else if(portlet.getApplicationName() != null) {
-          uiPortlet.setTitle(portlet.getApplicationName());
-        }
-        uiPortlet.setDescription(portlet.getDescription());
-      }
       
-      uiPage.addChild(uiPortlet);
+      if("eXoApplication".equals(portlet.getApplicationType())){
+        UIExoApplication exoApplication = uiPage.createUIComponent(UIExoApplication.class, null, null);
+        String [] components = portletId.split("/");
+        exoApplication.setApplicationGroup(components[0]);
+        exoApplication.setApplicationName(components[1]);
+        exoApplication.init();
+        windowId.append(exoApplication.hashCode());
+        uiPage.addChild(exoApplication);
+      } else {
+        UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);  
+        windowId.append(":/").append(portletId).append('/').append(uiPortlet.hashCode());
+        uiPortlet.setWindowId(windowId.toString());
+        if(portlet != null){
+          if(portlet.getDisplayName() != null) {
+            uiPortlet.setTitle(portlet.getDisplayName());
+          } else if(portlet.getApplicationName() != null) {
+            uiPortlet.setTitle(portlet.getApplicationName());
+          }
+          uiPortlet.setDescription(portlet.getDescription());
+        }
+        uiPage.addChild(uiPortlet);
+      }
       
       String save = event.getRequestContext().getRequestParameter("save");
       if(save != null && Boolean.valueOf(save).booleanValue()) {

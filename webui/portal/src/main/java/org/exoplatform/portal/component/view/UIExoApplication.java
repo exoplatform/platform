@@ -75,9 +75,17 @@ public class UIExoApplication extends UIPortalComponent {
   public void    setShowPortletMode(boolean b) { showPortletMode = b ; }
   
   public String getApplicationOwnerType() { return applicationOwnerType_ ;}
+  public void setApplicationOwnerType(String ownerType){ applicationOwnerType_ = ownerType;} 
+  
   public String getApplicationOwnerId() { return applicationOwnerId_ ;}
+  public void setApplicationOwnerId(String ownerId){ applicationOwnerId_ = ownerId;} 
+  
   public String getApplicationGroup() { return applicationGroup_ ;}
+  public void setApplicationGroup(String group){ applicationGroup_ = group;}
+  
   public String getApplicationName() { return applicationName_ ;}
+  public void setApplicationName(String name) { applicationName_ = name;}
+  
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
   
   public ExoFrameworkApplication getApplication() { return application_ ; }

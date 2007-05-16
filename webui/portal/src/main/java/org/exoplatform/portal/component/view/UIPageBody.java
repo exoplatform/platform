@@ -5,8 +5,7 @@
 package org.exoplatform.portal.component.view;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.portal.component.view.listener.UIPageActionListener.AddJSApplicationToDesktopActionListener;
-import org.exoplatform.portal.component.view.listener.UIPageActionListener.AddPortletToDesktopActionListener;
+import org.exoplatform.portal.component.view.listener.UIPageActionListener.AddExoApplicationActionListener;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
@@ -25,8 +24,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 @ComponentConfig(
     template = "system:/groovy/portal/webui/component/view/UIPageBody.gtmpl",
     events = {
-        @EventConfig(listeners = AddJSApplicationToDesktopActionListener.class),
-        @EventConfig(listeners = AddPortletToDesktopActionListener.class)
+        @EventConfig(listeners = AddExoApplicationActionListener.class)
     }
 )
 public class UIPageBody extends UIComponentDecorator {

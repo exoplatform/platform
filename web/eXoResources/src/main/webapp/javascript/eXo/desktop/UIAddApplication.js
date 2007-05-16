@@ -27,7 +27,7 @@ UIAddApplication.prototype.init = function(containerId) {
 	}
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	eXo.desktop.UIAddApplication.showAddApplication(uiAddApplicationContainer);
-	this.loadPortlets(false);
+	this.loadPortlets(true);
 };
 
 /**Created: by Duy Tu**/
@@ -139,10 +139,10 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 UIAddApplication.prototype.addPortlet = function(id, save) {
 	var params = [
 		{name: "portletId", value : id},
-		{name: "save", value : save}
+		{name: "save", value : save},
 	] ;
 	
-	ajaxGet(eXo.env.server.createPortalURL("UIPageBody", "AddPortletToDesktop", true, params)) ;
+	ajaxGet(eXo.env.server.createPortalURL("UIPageBody", "AddExoApplication", true, params)) ;
 };
 
 UIAddApplication.prototype.showAddApplication = function(object) {

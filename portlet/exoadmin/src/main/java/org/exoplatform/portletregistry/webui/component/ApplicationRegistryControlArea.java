@@ -55,8 +55,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
 
   @SuppressWarnings("unchecked")
   public void initApplicationCategories() throws Exception {
-    ApplicationRegistryService service = 
-      getApplicationComponent(ApplicationRegistryService.class) ;
+    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     portletCategories = service.getApplicationCategories(); 
     
     if(portletCategories == null) portletCategories = new ArrayList<ApplicationCategory>(0);
@@ -143,8 +142,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
   static public class ImportPortletActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
       ApplicationRegistryControlArea uiSource = event.getSource();
-      ApplicationRegistryService service = 
-        (ApplicationRegistryService) uiSource.getApplicationComponent(ApplicationRegistryService.class) ;
+      ApplicationRegistryService service = uiSource.getApplicationComponent(ApplicationRegistryService.class) ;
       service.importJSR168Portlets() ;       
       uiSource.initApplicationCategories() ;
     }
@@ -153,8 +151,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
   static public class ImportApplicationActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
       ApplicationRegistryControlArea uiSource = event.getSource();
-      ApplicationRegistryService service = 
-        (ApplicationRegistryService) uiSource.getApplicationComponent(ApplicationRegistryService.class) ;
+      ApplicationRegistryService service = uiSource.getApplicationComponent(ApplicationRegistryService.class) ;
       service.importExoApplications();
       uiSource.initApplicationCategories();
     }
