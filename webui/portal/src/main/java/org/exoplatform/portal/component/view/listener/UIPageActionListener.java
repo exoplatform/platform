@@ -143,10 +143,9 @@ public class UIPageActionListener {
       if("eXoApplication".equals(portlet.getApplicationType())){
         UIExoApplication exoApplication = uiPage.createUIComponent(UIExoApplication.class, null, null);
         String [] components = portletId.split("/");
-        exoApplication.setApplicationGroup(components[0]);
-        exoApplication.setApplicationName(components[1]);
-        exoApplication.init();
         windowId.append(exoApplication.hashCode());
+        exoApplication.setApplicationInstanceId(windowId.toString());
+        exoApplication.init();
         uiPage.addChild(exoApplication);
       } else {
         UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);  
