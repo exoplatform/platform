@@ -193,6 +193,8 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
     	applicationMinWidth.style.height = "auto" ;
     }
   }
+  // Resizes the scroll elements
+	eXo.portal.UIPortalControl.initAllManagers();
 } ;
 
 UIWindow.prototype.backupObjectProperties = function(windowPortlet, resizableComponents) {
@@ -330,6 +332,8 @@ UIWindow.prototype.resizeWindow = function(e) {
 			UIWindow.resizableObject[i].style.height = (UIWindow.resizableObject[i].originalHeight + deltaY) + "px" ;
 		}		
 	}
+	// Resizes the scroll elements
+	eXo.portal.UIPortalControl.initAllManagers();
 } ;
 
 UIWindow.prototype.onControlOver = function(element, isOver) {

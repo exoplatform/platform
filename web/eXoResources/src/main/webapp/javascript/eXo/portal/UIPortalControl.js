@@ -116,48 +116,114 @@ function ScrollManager() {
 	this.lastDirection = null; // 0 : left or up scroll, 1 : right or down scroll
 	this.callback = null; // callback function when a scroll is done
 	this.initFunction = null;
-	this.arrowButtons = new Array(); // 0 : left (up) arrow button, 1 : right (down) arrow button
+	this.leftArrow = null;
+	this.rightArrow = null;
+	this.mainContainer = null; // The HTML DOM element that contains the tabs, the arrows, etc
+	this.arrowsContainer = null // The HTML DOM element that contains the arrows
+	this.otherHiddenIndex = -1;
+};
+ScrollManager.prototype.initArrowButton = function(arrow, dir, normalClass, overClass, disabledClass) {
+	arrow.direction = dir; // "left" or "right" (up or down)
+	arrow.overClass = overClass;
+	arrow.disabledClass = disabledClass;
+	arrow.styleClass = normalClass;
+	arrow.scrollMgr = this;
+	arrow.onmouseover = this.mouseOverArrow;
+	arrow.onmouseout = this.mouseOutArrow;
+	arrow.arrowClick = this.scroll;
+	arrow.onclick = arrow.arrowClick;
+	if (dir == "left") this.leftArrow = arrow;
+	else if (dir == "right") this.rightArrow = arrow;
 };
 
-ScrollManager.prototype.initArrowButtons = function(left, right) { // or (up, down)
-	var arrowOver = function(e) {
-		if (!e) var e = window.event;
-		if (this == eXo.core.Browser.getEventSource(e)) this.className = this.overClass;
-	};
-	var arrowOut = function(e) {
-		this.className = this.styleClass;
-	};
-	var arrowDisabled = function() {
-		this.className = this.disabledClass;
-		this.onclick = null; this.onmouseover = null; this.onmouseout = null;
-	};
-	var arrowEnabled = function() {
-		this.className = this.styleClass;
-		this.onclick = this.arrowClick; this.onmouseover = arrowOver; this.onmouseout = arrowOut;
-	};
-	var initArrow = function(arrow, overClass, disabledClass, mgr) {
-		arrow.overClass = overClass;
-		arrow.disabledClass = disabledClass;
-		arrow.styleClass = arrow.className;
-		arrow.scrollMgr = mgr;
-		arrow.onmouseover = arrowOver;
-		arrow.onmouseout = arrowOut;
-		arrow.disable = arrowDisabled;
-		arrow.enable = arrowEnabled;
-		arrow.arrowClick = mgr.scroll;
+ScrollManager.prototype.enableArrow = function(arrow, enabled) {
+	if (arrow && !enabled) { // disables the arrow
+		arrow.className = arrow.disabledClass;
+		arrow.onclick = null;
+	} else if (arrow && enabled) { // enables the arrow
+		arrow.className = arrow.styleClass;
 		arrow.onclick = arrow.arrowClick;
-	};
-	left.direction = 0; // 0 for left or up arrow
-	right.direction = 1; // 1 for right or down arrow
-	initArrow(left, "HighlightScrollLeftButton", "DisableScrollLeftButton", this);
-	initArrow(right, "HighlightScrollRightButton", "DisableScrollRightButton", this);
-	
-	this.arrowButtons.push(left, right); // or (up, down)
+	}
+};
+
+ScrollManager.prototype.mouseOverArrow = function(e) {
+	var arrow = this;
+	if (arrow.onclick && arrow.className == arrow.styleClass) {
+		// mouse over
+		if (!e) var e = window.event;
+		if (arrow == eXo.core.Browser.getEventSource(e)) arrow.className = arrow.overClass;
+	}
+};
+
+ScrollManager.prototype.mouseOutArrow = function(e) {
+	var arrow = this;
+	if (arrow.onclick && arrow.className == arrow.overClass) {
+		// mouse out
+		arrow.className = arrow.styleClass;
+	}
 };
 
 ScrollManager.prototype.init = function() {
 	this.firstVisibleIndex = 0;
 	this.lastVisibleIndex = -1;
+	// Hides the arrows by default
+	this.arrowsContainer.style.display = "none";
+	this.arrowsContainer.space = null;
+	this.mainContainer.space = null;
+};
+
+ScrollManager.prototype.checkAvailableSpace = function(maxSpace) { // in pixels
+	if (!maxSpace) var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer);
+	var elementsSpace = 0;
+	for (var i = 0; i < this.elements.length; i++) {
+		elementsSpace += this.getElementSpace(this.elements[i]);
+		if (elementsSpace <= maxSpace) { // If the tab fits in the available space
+			this.elements[i].isVisible = true;
+			this.lastVisibleIndex = i;
+		} else { // If the available space is full
+			this.elements[i].isVisible = false;
+		}
+	}
+};
+
+ScrollManager.prototype.getElementsSpace = function(indexStart, indexEnd) {
+	if (indexStart == null && indexEnd == null) {
+		var indexStart = 0;
+		var indexEnd = this.elements.length-1;
+	}
+	var elementsSpace = 0;
+	if (indexStart >= 0 && indexEnd <= this.elements.length-1) {
+		for (var i = indexStart; i <= indexEnd; i++) {
+			elementsSpace += this.getElementSpace(this.elements[i]);
+		}
+	}
+	return elementsSpace;
+};
+
+ScrollManager.prototype.getElementSpace = function(element) {
+	if (element && element.space) return element.space;
+	var elementSpace = 0;
+	var wasHidden = false;
+	if (element) {
+		if (element.style.display == "none") {
+			element.style.display = "block";
+			wasHidden = true;
+		}
+		if (this.axis == 0) { // horizontal tabs
+			elementSpace += element.offsetWidth;
+			elementSpace += eXo.core.DOMUtil.getStyle(element, "marginLeft", true);
+			elementSpace += eXo.core.DOMUtil.getStyle(element, "marginRight", true);
+			if (element.decorator) elementSpace += this.getElementSpace(element.decorator);
+		} else if (this.axis == 1) { // vertical tabs
+			elementSpace += element.offsetHeight;
+			elementSpace += eXo.core.DOMUtil.getStyle(element, "marginTop", true);
+			elementSpace += eXo.core.DOMUtil.getStyle(element, "marginBottom", true);
+			if (element.decorator) elementSpace += this.getElementSpace(element.decorator);
+		}
+		if (wasHidden) element.style.display = "none";
+	}
+	element.space = elementSpace;
+	return elementSpace;
 };
 
 ScrollManager.prototype.scroll = function(e) {
@@ -165,8 +231,14 @@ ScrollManager.prototype.scroll = function(e) {
 	e.cancelBubble = true;
 	var src = eXo.core.Browser.getEventSource(e);
 	if (src.scrollMgr) {
-		if (src.direction == 0) src.scrollMgr.scrollLeft();
-		else if (src.direction == 1) src.scrollMgr.scrollRight();
+		if (src.scrollMgr.otherHiddenIndex != -1) {
+			src.scrollMgr.elements[src.scrollMgr.otherHiddenIndex].isVisible = true;
+			if (src.scrollMgr.lastDirection == 1) src.scrollMgr.firstVisibleIndex--;
+			else if (src.scrollMgr.lastDirection == 0) src.scrollMgr.lastVisibleIndex++;
+			src.scrollMgr.otherHiddenIndex = -1;
+		}
+		if (src.direction == "left") src.scrollMgr.scrollLeft();
+		else if (src.direction == "right") src.scrollMgr.scrollRight();
 	}
 	return false;
 };
@@ -187,7 +259,7 @@ ScrollManager.prototype.scrollUp = function() {
 };
 
 ScrollManager.prototype.scrollRight = function() { // Same for scrollDown
-	if (this.lastVisibleIndex < this.elements.length-1) { /*this.scrollMgr && */
+	if (this.lastVisibleIndex < this.elements.length-1) {
 		this.lastDirection = 1;
 		// hides the first (left or up) element and moves firstVisibleIndex to the right
 		this.elements[this.firstVisibleIndex++].isVisible = false;
@@ -202,18 +274,40 @@ ScrollManager.prototype.scrollDown = function() {
 };
 
 ScrollManager.prototype.renderElements = function() {
+	var elementsSpace = 0;
+	var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer);
+	// Displays the elements
 	for (var i = 0; i < this.elements.length; i++) {
 		if (this.elements[i].isVisible) {
+			elementsSpace += this.getElementSpace(this.elements[i]);
 			this.elements[i].style.display = "block";
 		} else {
 			this.elements[i].style.display = "none";
+			this.arrowsContainer.style.display = "block";
 		}
 	}
-	if (this.firstVisibleIndex == 0) this.arrowButtons[0].disable();
-	else this.arrowButtons[0].enable();
+	// Checks that the available space is long enough, hides an element if not
+	if (elementsSpace > maxSpace) {
+		if (this.lastDirection == 1) {
+			if (this.firstVisibleIndex >= 0 && this.firstVisibleIndex < this.elements.length-1) {
+				this.otherHiddenIndex = this.firstVisibleIndex;
+				this.elements[this.firstVisibleIndex].isVisible = false;
+				this.elements[this.firstVisibleIndex++].style.display = "none";
+			}
+		} else {
+			if (this.lastVisibleIndex > 0 && this.lastVisibleIndex < this.elements.length) {
+				this.otherHiddenIndex = this.lastVisibleIndex;
+				this.elements[this.lastVisibleIndex].isVisible = false;
+				this.elements[this.lastVisibleIndex--].style.display = "none";
+			}
+		}
+	}
+	// Enables/Disables the arrow buttons
+	if (this.firstVisibleIndex == 0) this.enableArrow(this.leftArrow, false);
+	else this.enableArrow(this.leftArrow, true);
 	
-	if (this.lastVisibleIndex == this.elements.length-1) this.arrowButtons[1].disable();
-	else this.arrowButtons[1].enable();
+	if (this.lastVisibleIndex == this.elements.length-1) this.enableArrow(this.rightArrow, false);
+	else this.enableArrow(this.rightArrow, true);
 	
 	if (typeof(this.callback) == "function") this.callback();
 };

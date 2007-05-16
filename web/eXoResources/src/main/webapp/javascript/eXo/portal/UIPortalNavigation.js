@@ -2,10 +2,12 @@ eXo.require('eXo.webui.UIPopupMenu');
 
 function UIPortalNavigation() {
 	this.currentOpenedMenu = null;
+	this.scrollMgr = null;
+	this.scrollManagerLoaded = false;
 };
 
 UIPortalNavigation.prototype.init = function(popupMenu, container, x, y) {
-	var uiNav = eXo.portal.UIPortalNavigation;
+	//var uiNav = eXo.portal.UIPortalNavigation;
 	this.superClass = eXo.webui.UIPopupMenu;
 	this.superClass.init(popupMenu, container, x, y) ;
 	
@@ -178,62 +180,37 @@ UIPortalNavigation.prototype.loadScroll = function(e) {
 	uiNav.scrollMgr.initFunction = uiNav.initScroll;
 	// Adds the tab elements to the manager
 	var portalNav = document.getElementById("PortalNavigationTopContainer");
-	uiNav.scrollMgr.elements.pushAll(eXo.core.DOMUtil.findDescendantsByClass(portalNav, "div", "UITab"));
-	// Configures the arrow buttons
-	var leftButton = eXo.core.DOMUtil.findFirstDescendantByClass(portalNav, "div", "ScrollLeftButton");
-	var rightButton = eXo.core.DOMUtil.findFirstDescendantByClass(portalNav, "div", "ScrollRightButton");
-	uiNav.scrollMgr.initArrowButtons(leftButton, rightButton);
-	// Finish initialization
-	uiNav.scrollMgr.callback = uiNav.scrollCallback;
-	uiNav.initScroll();
+	if (portalNav) {
+		var tabs = eXo.core.DOMUtil.findAncestorByClass(portalNav, "UIHorizontalTabs");
+		uiNav.scrollMgr.mainContainer = tabs;
+	//	if (eXo.core.Browser.isIE6()) {
+	//		uiNav.scrollMgr.mainContainer = eXo.core.DOMUtil.findAncestorByClass(portalNav, "UIHorizontalTabs");
+	//	}
+		uiNav.scrollMgr.arrowsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(tabs, "div", "ScrollButtons");
+		uiNav.scrollMgr.elements.pushAll(eXo.core.DOMUtil.findDescendantsByClass(tabs, "div", "UITab"));
+		// Configures the arrow buttons
+		var arrowButtons = eXo.core.DOMUtil.findDescendantsByTagName(uiNav.scrollMgr.arrowsContainer, "div");
+		if (arrowButtons.length == 2) {
+			uiNav.scrollMgr.initArrowButton(arrowButtons[0], "left", "ScrollLeftButton", "HighlightScrollLeftButton", "DisableScrollLeftButton");
+			uiNav.scrollMgr.initArrowButton(arrowButtons[1], "right", "ScrollRightButton", "HighlightScrollRightButton", "DisableScrollRightButton");
+		}
+		// Finish initialization
+		uiNav.scrollMgr.callback = uiNav.scrollCallback;
+		uiNav.scrollManagerLoaded = true;
+		uiNav.initScroll();
+	}
 };
 
 UIPortalNavigation.prototype.initScroll = function(e) {
+	if (!eXo.portal.UIPortalNavigation.scrollManagerLoaded) eXo.portal.UIPortalNavigation.loadScroll();
 	var scrollMgr = eXo.portal.UIPortalNavigation.scrollMgr;
 	scrollMgr.init();
-	var portalNav = document.getElementById("PortalNavigationTopContainer");
-	// Hides the arrows by default
-	var buttons = eXo.core.DOMUtil.findFirstDescendantByClass(portalNav, "div", "ScrollButtons");
-	buttons.style.display = "none";
 	// Gets the maximum width available for the tabs
-	var maxWidth = portalNav.offsetWidth;
-	if (eXo.core.Browser.isIE6()) {
-		var tabs = eXo.core.DOMUtil.findAncestorByClass(portalNav, "UIHorizontalTabs");
-		maxWidth = tabs.offsetWidth;
-	}
-	var elementsWidth = 0;
-	for (var i = 0; i < scrollMgr.elements.length; i++) {
-		scrollMgr.elements[i].style.display = "block";
-		elementsWidth += scrollMgr.elements[i].offsetWidth;
-		if (elementsWidth <= maxWidth) { // If the tab fits in the available space
-			scrollMgr.elements[i].isVisible = true;
-		} else { // If the available space is full
-			scrollMgr.elements[i].isVisible = false;
-			if (scrollMgr.lastVisibleIndex == -1) {
-				scrollMgr.lastVisibleIndex = i-1;
-				buttons.style.display = "block";
-			}
-		}
-	}
+	scrollMgr.checkAvailableSpace();
 	scrollMgr.renderElements();
 };
 
 UIPortalNavigation.prototype.scrollCallback = function() {
-	var scrollMgr = eXo.portal.UIPortalNavigation.scrollMgr;
-	var portalNav = document.getElementById("PortalNavigationTopContainer");
-	var buttons = eXo.core.DOMUtil.findFirstDescendantByClass(portalNav, "div", "ScrollButtons");
-	var utilWidth = portalNav.offsetWidth - buttons.offsetWidth;
-	var usedWidth = 0;
-	for (var i = scrollMgr.firstVisibleIndex; i <= scrollMgr.lastVisibleIndex; i++) usedWidth += scrollMgr.elements[i].offsetWidth;
-	if (usedWidth > utilWidth) {
-		if (scrollMgr.lastDirection == 1) { // Hides the first (left or up) element
-			scrollMgr.elements[scrollMgr.firstVisibleIndex].isVisible = false;
-			scrollMgr.elements[scrollMgr.firstVisibleIndex++].style.display = "none"; //++
-		} else { // Hides the last (right or down) element
-			scrollMgr.elements[scrollMgr.lastVisibleIndex].isVisible = false;
-			scrollMgr.elements[scrollMgr.lastVisibleIndex--].style.display = "none"; //--
-		}
-	} else scrollMgr.additionalHiddenIndex = -1;
 };
 /***** Scroll Management *****/
 eXo.portal.UIPortalNavigation = new UIPortalNavigation() ;

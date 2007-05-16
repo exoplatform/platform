@@ -53,7 +53,6 @@ abstract public class URLBuilder<T> {
     builder.append("&amp;ajaxRequest=true')") ;
     return builder.toString();    
   }
-  
 
   public String createURL(T targetComponent, String action, String targetBeanId, Parameter[] params) {
     StringBuilder builder = new StringBuilder();

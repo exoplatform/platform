@@ -134,10 +134,10 @@ abstract public class UIComponent {
     }
     return null ;
   }
-  
+
   public String event(String name) throws Exception { return event(name, null); } 
   
-  public String event(String name, String beanId) throws Exception { return event(name, beanId, null); }
+  public String event(String name, String beanId) throws Exception { return event(name, beanId, (Parameter[])null); }
   
   @SuppressWarnings("unchecked")
   public String event(String name, String beanId, Parameter[] params) throws Exception {

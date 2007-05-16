@@ -7,7 +7,6 @@ package org.exoplatform.organization.webui.component;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.webui.component.UITabPane;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv

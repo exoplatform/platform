@@ -70,7 +70,7 @@ DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
   var parent = element.parentNode ;
   while(parent != null) {
     if(parent.className == null) {
-    } else  if(parent.className.indexOf(" ") >= 0) {
+    } else if(parent.className.indexOf(" ") >= 0) {
       var classes = parent.className.split(" ");
       for(var j = 0;j < classes.length; j++) {
         if(classes[j] == clazz)  return parent ;
@@ -78,7 +78,7 @@ DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
     } else if(parent.className == clazz)  {
       return parent ;
     }
-    parent =  parent.parentNode ;
+    parent = parent.parentNode ;
   }
   return null ;
 } ;
@@ -254,17 +254,6 @@ DOMUtil.prototype.getStyle = function(element, style, intValue) {
 	}
 	return result;
 };
-
-/*DOMUtil.prototype.getEventSource = function(evt) {
-	var targ;
-	if (!evt) var evt = window.event;
-	if (evt.target) targ = evt.target;
-	else if (evt.srcElement) targ = evt.srcElement;
-	if (targ.nodeType == 3) // defeat Safari bug
-		targ = targ.parentNode;
-	
-	return targ;
-};*/
 
 DOMUtil.prototype.hideElements = function() {
 	document.onclick = function() {
