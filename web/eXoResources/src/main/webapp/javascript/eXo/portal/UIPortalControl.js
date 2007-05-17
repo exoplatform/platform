@@ -330,7 +330,7 @@ UIPortalControl.prototype.newScrollManager = function() {
 
 
 UIPortalControl.prototype.backgroundBody = function() {
-	if(eXo.core.Browser.isIE6) return;
+	if(eXo.core.Browser.isIE6()) return;
 	var mainPage = document.getElementById("UIPortalApplication");
 	var backg = document.getElementById("Backgroud");
 	mainPage.style.position = "absolute";
