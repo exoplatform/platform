@@ -43,8 +43,9 @@
 }
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer label {
-  margin-left: 0px; width: 140px; text-align: left;
+  margin-left: 0px; width: 120px; text-align: right;
   float: left; font-size: 11px;
+  margin-right: 20px;
 }
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer input{
@@ -61,18 +62,17 @@
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet .FieldContainer {
-  width: 370px;
   margin: 7px auto 5px auto;  padding: 0px;
   overflow: hidden;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet label {
   float: left;
-  height: 20px; line-height: 20px; vertical-align: middle;
-  padding-left: 10px; margin-right: 0px;
+  line-height: 20px;
   white-space: nowrap; 
-  width: 120px;
-  font-size: 11px;
+  width: 140px;
+  margin-right: 20px;
+  font-size: 11px; text-align: right;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet input {

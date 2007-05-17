@@ -236,6 +236,12 @@
 
 .UIOrganizationPortlet .UIGroupManagement .HorizontalLayout  {
   width: 99.5%;
+  border: none;
+}
+
+
+.UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle .HorizontalLayout .FormContainer {
+  border: none;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITabContentContainer {
@@ -255,11 +261,7 @@
   width: 110px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormWithTitle .UIAction {
-  width: 180px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle .UIAction {  
+.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIAction {
   width: 80px;
 }
 
@@ -270,6 +272,14 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UISharedNavigationForm .UIAction {  
   width: 170px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UISharedNavigation .UIAction {  
+  width: 150px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupForm .UIAction {
+  width: 160px;
 }
 
 /*#######################  UIMemberShipManagement #################################*/

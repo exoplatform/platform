@@ -149,12 +149,12 @@
 
 .UIToolbar .EditToolbar {
   height: 31px;
+  padding: 0px 13px;
 }
 
 .UIToolbar .EditToolbar .LeftBar {
   height: 30px;
   background: url('DefaultSkin/background/PolyBarL2x30.gif') no-repeat left;
-  margin: 0px 13px;
   padding-left: 2px;
 }
 

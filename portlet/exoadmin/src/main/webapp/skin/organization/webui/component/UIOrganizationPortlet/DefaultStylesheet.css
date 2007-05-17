@@ -280,6 +280,16 @@
   margin: auto ;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle .HorizontalLayout .FormContainer {
+  padding: 10px 5px 6px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIForm .HorizontalLayout label {
+  width: 150px;
+  margin: 0px 10px 0px 0px;
+  font-size: 11px;
+}
+
 /*#######################  UIMemberShipManagement #################################*/
 .UIOrganizationPortlet .UIFormWithTitle {
 	width: 440px ;

@@ -100,6 +100,7 @@
                        id="UIAddApplicationIcon"
                        onclick="eXo.desktop.UIAddApplication.init('UIPageDesktop','$comId')" />
                   <%/*Tool Tip*/%>
+                  
 	                <span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
                   <%/*End Tool Tip*/%>
                   

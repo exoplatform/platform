@@ -129,12 +129,16 @@
 
 .UISitemap .SitemapItemBox .Level2 {
   height: 25px ;
-  background: #ffffff;
-  padding: 2px 0px 1px 10px ;
+  background: #fafafa;
+  padding: 2px 0px 1px 20px ;
+  border: 1px solid #d9d9d9;
+  border-top: none;
 }
 
 .UISitemap .SitemapItemBox .Level3 {
   height: 25px ;
   background: white ;
-  padding: 0px 0px 3px 20px ;
+  padding: 0px 0px 3px 40px ;
+  border: 1px solid #d9d9d9;
+  border-top: none;
 }

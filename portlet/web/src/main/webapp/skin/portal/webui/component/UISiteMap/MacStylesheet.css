@@ -62,7 +62,7 @@
 
 .UISitemap .SitemapContainer .SitemapBackground{
   border: 1px solid white;
-  background: #f2f2f2;
+  background: url(/eXoResources/background/MacSkin/BgItemSelector1x4.png) repeat;
   padding: 10px 15px 10px 15px;
   overflow: hidden;
   width: auto;
@@ -76,17 +76,15 @@
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox {
   border: solid 1px #aeaeae ; background: #efefef ;
-  padding: 6px ;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox .SitemapItemBoxSelector {
-  border: solid 1px #cdcdcd ;
   background: white;
-  border-bottom: none;
+  border: 1px solid white;
+  padding: 1px 4px 4px;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox .BorderBox {
-	border-bottom: 1px #b7b7b7 solid; 
 	padding: 5px;
 }
 
@@ -119,35 +117,37 @@
 
 .UISitemap .SitemapItemBox .Level1 {
   height: 26px ;
-  border: solid 1px white ; border-right: none; border-bottom: solid 1px #b7b7b7;
-  background: #e0e0de ;
+  border: solid 1px #cecece ;
+  background: #eeeeee ;
+  margin-top: 3px;
 }
 
 .UISitemap .SitemapItemBox .Level2 {
   height: 22px ;
-  border: solid 1px #c7b7b7 ;
-  background: #efefef ;
-  margin: 2px 3px 1px 3px ;
+  border: solid 1px #cecece ; border-top: none;
+  background: #f7f7f7 ;
+  padding-left: 20px;
 }
 
 .UISitemap .SitemapItemBox .Level3 {
   height: 22px ;
-  border: solid 1px #c7c7c7 ;
+  border: solid 1px #cecece ; border-top: none;
   background: white ;
-  margin: 0px 6px 3px 6px ;
+  padding-left: 40px;
 }
 
 .UISitemap .SitemapItemBox .Level4 {
   height: 20px ; line-height: 20px; vertical-align: middle;
   border: solid 1px #b7b7b7 ;
+  border-top: none;
   background: white ;
-  margin: 0px 15px 2px 15px ;
 }
 
 .UISitemap .SitemapItemBox .Level5 {
   height: 20px ; line-height: 20px; vertical-align: middle;
   border: solid 1px #c7c7c7 ;
   background: white ;
+  border-top: none;
   margin: 0px 20px 2px 20px ;
 }
 

@@ -73,12 +73,12 @@
 }
 
 .UIPageIterator .Number a {
-	line-height: 17px; vertical-align: middle;
-  margin: 0px 2px 0px 2px ;
+	height: 17px; 
+  margin: 3px 2px ;
   padding: 0px 5px 0px 5px ;
   color: #333333 ;
   border: 1px solid #dfdfdf;
-  background: url('MacSkin/background/NumberBackground1x15.gif') repeat-x top;
+  background: url('MacSkin/background/NumberBackground1x15.gif') repeat-x center;
 }
 
 .UIPageIterator .Number a:hover {
