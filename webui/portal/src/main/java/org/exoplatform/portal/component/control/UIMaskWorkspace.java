@@ -59,9 +59,14 @@ public class UIMaskWorkspace extends UIComponentDecorator {
   
   static  public class CloseActionListener extends EventListener<UIComponent> {
     public void execute(Event<UIComponent> event) throws Exception {
+      UIMaskWorkspace uiMaskWorkspace = null;
       UIComponent uiSource = event.getSource();
-      UIMaskWorkspace uiMaskWorkspace = uiSource.getAncestorOfType(UIMaskWorkspace.class);
-      if(!uiMaskWorkspace.isShow()) return;
+      if(uiSource instanceof UIMaskWorkspace) {
+        uiMaskWorkspace = (UIMaskWorkspace) uiSource;
+      } else {
+        uiMaskWorkspace = uiSource.getAncestorOfType(UIMaskWorkspace.class);
+      }
+      if(uiMaskWorkspace == null || !uiMaskWorkspace.isShow()) return;
       uiMaskWorkspace.setUIComponent(null);
       uiMaskWorkspace.setShow(false);
       uiMaskWorkspace.setWindowSize(-1, -1);
