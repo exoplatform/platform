@@ -37,7 +37,22 @@ a {
 	text-decoration: none;
 }
 
+#UIPortalApplication {
+	position: absolute;
+	z-index: 1;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+}
 
+#Backgroud {
+	background: url('/eXoResources/background/VistaSkin/eXoDesktopBG1.jpg') repeat bottom;
+	position: absolute;
+	z-index: 0;
+	left: 0px;
+	right: 0px;
+}
 /*###############################################################################################*/
 
 .OverflowContainer {
