@@ -12,6 +12,7 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.customization.UIPageBrowser.UIPageBrowseControlBar;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
@@ -85,7 +86,7 @@ public class UIPageEditBar extends UIToolbar {
       if(uiPManagement.getChild(UIPageNavigationControlBar.class).isRendered()) {
         childrenToRender = new Class[]{UIPageEditBar.class, UIContainerConfigOptions.class, UIPageNavigationControlBar.class};
       } else {
-        childrenToRender = new Class[]{UIPageEditBar.class, UIContainerConfigOptions.class};
+        childrenToRender = new Class[]{UIPageEditBar.class, UIContainerConfigOptions.class, UIPageBrowseControlBar.class};
       }
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       
@@ -109,7 +110,7 @@ public class UIPageEditBar extends UIToolbar {
       if(uiPManagement.getChild(UIPageNavigationControlBar.class).isRendered()) {
         childrenToRender = new Class[]{UIPageEditBar.class, UIPortletOptions.class, UIPageNavigationControlBar.class};
       } else {
-        childrenToRender = new Class[]{UIPageEditBar.class, UIPortletOptions.class};
+        childrenToRender = new Class[]{UIPageEditBar.class, UIPortletOptions.class, UIPageBrowseControlBar.class};
       }
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       

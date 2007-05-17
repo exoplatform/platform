@@ -22,6 +22,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
+import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -31,6 +32,7 @@ import org.exoplatform.webui.component.UIGrid;
 import org.exoplatform.webui.component.UIPageIterator;
 import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.UISearch;
+import org.exoplatform.webui.component.UIToolbar;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -203,13 +205,12 @@ public class UIPageBrowser extends UISearch {
       uiWorking.setUIComponent(uiManagement) ;
       
       uiManagement.setRenderedChildrenOfTypes(new Class[]{UIPageEditBar.class});
-      UIPageBrowseControlBar browseControlBar = uiManagement.getChild(UIPageBrowseControlBar.class);
-      if (browseControlBar != null){
-        browseControlBar.setRendered(true);
-      } 
       UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class);
       uiEditBar.setUIPage(uiPage);
       uiEditBar.createEvent("EditPortlet", event.getExecutionPhase(), event.getRequestContext()).broadcast();
+      
+      UIPageBrowseControlBar uiBrowseControlBar = uiManagement.getChild(UIPageBrowseControlBar.class);
+      if (uiBrowseControlBar != null) uiBrowseControlBar.setBackComponent(uiPageBrowser);
       
       /*UIPageBrowser uiPageBrowser = event.getSource();
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext(); 
@@ -296,6 +297,40 @@ public class UIPageBrowser extends UISearch {
       uiPageForm.addUIFormInput(uiTemplateConfig) ;
       
       prContext.addUIComponentToUpdateByAjax(uiMaskWS);
+    }
+  }
+  
+  @ComponentConfig(
+      template = "system:/groovy/webui/component/UIToolbar.gtmpl",
+      events = @EventConfig(listeners = UIPageBrowseControlBar.BackActionListener.class)
+  )
+  static public class UIPageBrowseControlBar extends UIToolbar {
+    
+    private UIComponent uiBackComponent ;
+    
+    public UIComponent getBackComponent() { return uiBackComponent ; }
+    public void setBackComponent(UIComponent uiComp) { uiBackComponent = uiComp ; }
+    
+    public boolean hasBackEvent(){ return uiBackComponent != null; }
+
+
+    public UIPageBrowseControlBar() throws Exception {
+      setToolbarStyle("ControlToolbar") ;
+    }
+
+    static public class BackActionListener extends EventListener<UIPageBrowseControlBar> {
+      public void execute(Event<UIPageBrowseControlBar> event) throws Exception {
+        UIPageBrowseControlBar uiPageControlBar = event.getSource();
+        
+        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();      
+        UIComponent uiComp = uiPageControlBar.getBackComponent() ;
+        uiToolPanel.setUIComponent(uiComp) ;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiToolPanel) ;
+        
+        UIPageManagement uiManagement = uiPageControlBar.getParent();
+        uiManagement.setRenderedChild(UIDescription.class);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+      }
     }
   }
  

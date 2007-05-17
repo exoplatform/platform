@@ -4,7 +4,7 @@
   import  org.exoplatform.portal.component.customization.UIContainerConfigOptions;
   import  org.exoplatform.portal.component.customization.UIPortletOptions;
   import  org.exoplatform.portal.component.customization.UIPageNavigationControlBar;
-  import  org.exoplatform.portal.component.customization.UIPageBrowseControlBar;
+  import  org.exoplatform.portal.component.customization.UIPageBrowser;
   import org.exoplatform.webui.component.UIDescription;
   
 %>
@@ -52,12 +52,10 @@
 		<div class="ControlArea" >
 	  	<%uicomponent.renderChild(UIPageNavigationControlBar.class);%>
 		</div> 
-  <%} %>
-  <div class="ControlArea12345" >
-  <%
-    System.out.println("\n\n\n\n================> " );
-     uicomponent.getChild(UIPageBrowseControlBar.class).setRendered(true);
-  	uicomponent.renderChild(UIPageBrowseControlBar.class);
-	%>	
-	</div>  	
+  <%}%>
+	<%if(uicomponent.getChild(UIPageBrowser.UIPageBrowseControlBar.class).isRendered()) {%>
+	  <div class="ControlArea" >
+	  	<%uicomponent.renderChild(UIPageBrowser.UIPageBrowseControlBar.class);%>
+	  </div> 	
+	<%}%>	
 </div>

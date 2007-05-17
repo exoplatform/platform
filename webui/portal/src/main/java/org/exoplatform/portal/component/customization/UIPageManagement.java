@@ -29,7 +29,7 @@ public class UIPageManagement extends UIManagement {
     addChild(UIDescription.class, null, "pageManagement").setRendered(false);
     addChild(UIContainerConfigOptions.class, null, null).setRendered(false);
     addChild(UIPortletOptions.class, null, null).setRendered(false);
-    addChild(UIPageBrowseControlBar.class, null, null).setRendered(false);
+    addChild(UIPageBrowser.UIPageBrowseControlBar.class, null, null).setRendered(false);
     addChild(UIPageNavigationControlBar.class, null, null);
     update();
   }

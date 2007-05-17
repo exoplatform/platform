@@ -7,9 +7,7 @@ package org.exoplatform.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.validator.Validator;
-import org.exoplatform.webui.event.Event;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
