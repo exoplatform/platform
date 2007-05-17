@@ -40,15 +40,6 @@ a {
 	color: #333333;
 }
 
-#UIPortalApplication {
-	position: absolute;
-	z-index: 1;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-}
-
 #Backgroud {
 	background: url('/eXoResources/background/MacSkin/MacBackground.jpg') repeat top;
 	position: absolute;
