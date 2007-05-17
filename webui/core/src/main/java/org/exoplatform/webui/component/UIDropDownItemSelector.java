@@ -70,20 +70,31 @@ public class UIDropDownItemSelector extends UIComponent {
   public void setOnServer(boolean onSever) { onServer = onSever; }
 
   public String getSelected() {
-    if(selected_ != null) return selected_.getLabel();    
+    if(selected_ != null) return selected_.getLabel();
     if(options_ == null || options_.size() < 1) return null;
     setSelected(options_.get(0));
     return selected_.getLabel();
   }
-  public void setSelected(SelectItemOption select){ selected_ = select;}
+  
+  public SelectItemOption<String> getOption(String label){
+    for(SelectItemOption<String> option : options_) {
+      if( option.getValue().equals(label)) return option;
+    }
+    return null;
+  }
+  public void setSelected(SelectItemOption select) { selected_ = select;}
+  
+  public SelectItemOption<String> getSelectedOption() {
+    return selected_ ;
+  }
   
   public void setSize(int i) { size = i ;}
-  public int getSize() { return size; }  
+  public int getSize() { return size; }
   
   public String getTitle() {return title;}
   public void setTitle(String title){ this.title =title;}
     
-  public void setOnChange(String onchange){onchange_ = onchange; }    
+  public void setOnChange(String onchange){onchange_ = onchange; }
   public String getOnChange() { return onchange_; }
 
   public List<SelectItemOption<String>> getOptions() { return options_ ; }
@@ -105,6 +116,22 @@ public class UIDropDownItemSelector extends UIComponent {
   public void setSelected(int i) {
     if(options_ == null || i >= options_.size()) return;
     selected_ = options_.get(i); 
+  }
+
+  public void cleanItem() {
+    options_.clear();
+  }
+  
+  public boolean addItem(String s) {
+    if( s == null || s.length() < 1) return false ;
+    SelectItemOption<String> option = new SelectItemOption<String>(s);
+    options_.add(option);
+    return true;
+  }
+  
+  public boolean addItem(SelectItemOption<String> s) {
+    if( s == null ) return false ;
+    options_.add(s); return true;
   }
   
 }

@@ -4,16 +4,15 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIDropDownItemSelector;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.webui.event.Event.Phase;
 
 /**
  * Created by The eXo Platform SARL
@@ -24,27 +23,57 @@ import org.exoplatform.webui.event.Event.Phase;
 
 @ComponentConfig(
   template = "system:/groovy/portal/webui/component/view/UIWidgets.gtmpl" ,
-  events = @EventConfig(phase=Phase.DECODE, listeners = UIWidgets.ChangeOptionActionListener.class)
+  events = @EventConfig(listeners = UIWidgets.ChangeOptionActionListener.class)
 )
 
 public class UIWidgets extends UIContainer {
+  private UIWidgetContainer selectedContainer_;
   public UIWidgets() throws Exception {
-    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-    ls.add(new SelectItemOption<String>("Information", "info")) ;
-    ls.add(new SelectItemOption<String>("Calendar", "calendar")) ;
-    ls.add(new SelectItemOption<String>("Calculator", "calculator")) ;
     UIDropDownItemSelector dropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
-    dropDownItemSelector.setOptions(ls);
-    dropDownItemSelector.setTitle("Test");
+    dropDownItemSelector.setOnServer(true);
     dropDownItemSelector.setOnChange("ChangeOption");
     
-    addChild(UIWidgetContainer.class, null, null) ;
+    
+    addChild(UIWidgetContainer.class, null, "Information").setRendered(false);
+    addChild(UIWidgetContainer.class, null, "Calendar").setRendered(false);
+    addChild(UIWidgetContainer.class, null, "Calculator").setRendered(false);
+    updateDropdownList();
+  }
+  
+  public UIWidgetContainer getSelectedContainer() {
+    return selectedContainer_;
+  }
+  
+  public void setSelectedContainer(UIWidgetContainer selectedContainer) {
+    selectedContainer_ = selectedContainer;
+    selectedContainer.setRendered(true);
+  }
+  
+  public void updateDropdownList() {
+    setSelectedContainer(getChild(UIWidgetContainer.class));
+    UIDropDownItemSelector dropDownItemSelector = getChild(UIDropDownItemSelector.class);
+    dropDownItemSelector.cleanItem();
+    List<UIComponent> children = getChildren();
+    for(UIComponent child : children) {
+      if(child instanceof UIWidgetContainer) {
+        dropDownItemSelector.addItem(child.getId());
+      }
+    }
   }
   
   static  public class ChangeOptionActionListener extends EventListener<UIWidgets> {
     public void execute(Event<UIWidgets> event) throws Exception {
-      String instanceId  = event.getRequestContext().getRequestParameter("lable");
-      System.out.println("\n\n>>>>>>>>>>>>>>>>>>> "+ instanceId + " <<<<<<<<<<<<<<<<<<\n\n");
+      String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);
+      
+      UIWidgets uiWidgets = event.getSource();
+      UIDropDownItemSelector uiDropDownItemSelector = uiWidgets.getChild(UIDropDownItemSelector.class);
+      SelectItemOption<String> option = uiDropDownItemSelector.getOption(selectedContainerId);
+      if(option != null) uiDropDownItemSelector.setSelected(option);
+      if(uiWidgets.getSelectedContainer().getId().equals(selectedContainerId)) return;
+      
+      UIWidgetContainer newSelected = uiWidgets.getChildById(selectedContainerId) ;
+      uiWidgets.getSelectedContainer().setRendered(false);
+      uiWidgets.setSelectedContainer(newSelected);
     }
   }
 }

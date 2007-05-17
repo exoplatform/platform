@@ -30,105 +30,13 @@
   		<div style="clear: both"><span></span></div>
 
   		<%
-  		   uicomponent.renderChild(UIWidgetContainer.class);
+  		   //uicomponent.renderChild(UIWidgetContainer.class);
+  		  for(uiChild in uicomponent.getChildren()) {
+  		    if(!(uiChild instanceof UIDropDownItemSelector) && uiChild.isRendered()) {
+  		      uiChild.processRender(rcontext);
+  		    }
+  		  }
   		%>
-  		
-  		
-  		<%/*###############################-Temporary Block-###############################*/%>
-  		<div class="UIWidgetContainer ItemList" style="display: none">
-			  <div class="TopLeftWidgetContainer">
-			  	<div class="TopRightWidgetContainer">
-			  		<div class="TopCenterWidgetContainer"><span></span></div>
-			    </div>
-			  </div>
-			  
-			  <div class="MiddleLeftWidgetContainer">
-          <div class="MiddleRightWidgetContainer">
-  	        <div class="MiddleWidgetContainer" id="UIWidgetContainer">
-  	          
-  	          Calendar!!!
-  	          
-  	          <div class="WidgetNavigator">
-				  		  <div class="UIBarStyle">
-				  			  <div class="ControlBar">
-				  				  <div class="LeftBar">
-				  					  <div class="RightBar">
-				  						  <div class="MiddleBar">
-				  							  <div class="ContentIcon">
-				  								  <div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
-				  									<div class="Icon24x24 DownBrownArrowIcon" title="Scroll down"><span></span></div>
-				  									<div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
-				  									<div class="Icon24x24 UpBlueArrowIcon" title="Scroll up"><span></span></div>
-				  									<div class="Icon24x24 AddIcon" title="Add Widget"><span></span></div>
-				   					        <div style="clear: right"><span></span></div>
-				  								</div>
-				  							</div>
-				  						</div>
-				  					</div>
-				  				</div>
-				  				<div style="clear: right"><span></span></div>
-				  			</div>
-			  			</div>
-  	          
-  	        </div>
-  	      </div>
-  	    </div>
-  	    
-  	    <div class="BottomLeftWidgetContainer">
-			  	<div class="BottomRightWidgetContainer">
-			  		<div class="BottomCenterWidgetContainer"><span></span></div>
-			    </div>
-			  </div>
-			  
-		  </div>
-		  
-		  <div class="UIWidgetContainer ItemList" style="display: none">
-			  <div class="TopLeftWidgetContainer">
-			  	<div class="TopRightWidgetContainer">
-			  		<div class="TopCenterWidgetContainer"><span></span></div>
-			    </div>
-			  </div>
-			  
-			  <div class="MiddleLeftWidgetContainer">
-          <div class="MiddleRightWidgetContainer">
-  	        <div class="MiddleWidgetContainer" id="UIWidgetContainer">
-  	          
-  	          Calculator!!!
-  	          
-  	          <div class="WidgetNavigator">
-				  		  <div class="UIBarStyle">
-				  			  <div class="ControlBar">
-				  				  <div class="LeftBar">
-				  					  <div class="RightBar">
-				  						  <div class="MiddleBar">
-				  							  <div class="ContentIcon">
-				  								  <div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
-				  									<div class="Icon24x24 DownBrownArrowIcon" title="Scroll down"><span></span></div>
-				  									<div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
-				  									<div class="Icon24x24 UpBlueArrowIcon" title="Scroll up"><span></span></div>
-				  									<div class="Icon24x24 AddIcon" title="Add Widget"><span></span></div>
-				   					        <div style="clear: right"><span></span></div>
-				  								</div>
-				  							</div>
-				  						</div>
-				  					</div>
-				  				</div>
-				  				<div style="clear: right"><span></span></div>
-				  			</div>
-			  			</div>
-  	          
-  	        </div>
-  	      </div>
-  	    </div>
-  	    
-  	    <div class="BottomLeftWidgetContainer">
-			  	<div class="BottomRightWidgetContainer">
-			  		<div class="BottomCenterWidgetContainer"><span></span></div>
-			    </div>
-			  </div>
-			  
-		  </div>
-  		<%/*###############################-End Temporary Block-###############################*/%>
 
  		</div>
  	</div>

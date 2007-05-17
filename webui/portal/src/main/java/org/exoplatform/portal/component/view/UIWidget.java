@@ -21,7 +21,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 public class UIWidget extends UIPortalComponent {
   private UIComponent component_;
   
-  public UIComponent getUIComponent(){
+  public UIComponent getUIComponent() {
     return component_;
   }
   

@@ -4,9 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
-import java.util.List;
-
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 
 /**
@@ -22,7 +19,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 
 public class UIWidgetContainer extends UIContainer {
   
-  public UIWidgetContainer() throws Exception{
+  public UIWidgetContainer() throws Exception {
     UIWidget widgetSystem = addChild(UIWidget.class, null, null);
     UISystemWidgets systemWidgets = createUIComponent(UISystemWidgets.class, null, null);
     widgetSystem.setUIComponent(systemWidgets);
@@ -30,11 +27,5 @@ public class UIWidgetContainer extends UIContainer {
     UIWidget widgetInfo = addChild(UIWidget.class, null, null);
     UIInfoWidget uiInfoWidget = createUIComponent(UIInfoWidget.class, null, null);
     widgetInfo.setUIComponent(uiInfoWidget);
-  }
-  
-  public void addWidget(UIWidget widget){
-    addChild(widget);
-  }
-  
-  public List<UIComponent> getWidgets(){ return getChildren(); }
+  }  
 }
