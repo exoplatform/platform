@@ -23,6 +23,6 @@
   </dependencies> 
 
   <build>
-    <finalName>testportlet</finalName>
+    <finalName>test</finalName>
   </build>
 </project>
