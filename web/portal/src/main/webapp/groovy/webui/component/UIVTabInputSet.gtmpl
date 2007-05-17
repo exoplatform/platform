@@ -14,8 +14,11 @@
 		      </div>
 		      <div class="ItemList">
 		        <div class="ImageDecorator">
-			        <%for(child in uicomponent.getChildren()) { %>
-			          <div class="Item" onclick="$onClickRightColumnBigItemStyle">
+			        <%for(child in uicomponent.getChildren()) { 
+			          def String type = "Item" ;
+			          if(child.isRendered()) type = "SelectedItem";
+			        %>
+			          <div class="$type" onclick="$onClickRightColumnBigItemStyle">
 			            <div class="User${child.id}Icon">
 			              <div class="ItemName">
 			                <div class="ItemTitle"><%= _ctx.appRes(uicomponent.getId() + ".label." + child.id)%></div>

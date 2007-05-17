@@ -48,7 +48,7 @@ import org.exoplatform.webui.event.EventListener;
 )
 public class UIPageBrowser extends UISearch {
 
-  public static String[] BEAN_FIELD = {"pageId", "name", "accessGroups"} ;  
+  public static String[] BEAN_FIELD = {"pageId", "name", "accessPermission"} ;  
   public static String[] ACTIONS = {"Preview", "EditInfo", "Delete"} ; 
   
   private boolean showAddNewPage = false;

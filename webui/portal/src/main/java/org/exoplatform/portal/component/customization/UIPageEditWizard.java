@@ -44,7 +44,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIPageEditWizard extends UIPageWizard {
   
   public UIPageEditWizard() throws Exception {
-    addChild(UIWizardPageSetInfo.class, null, null).setEditPageNode(true);    
+    addChild(UIWizardPageSetInfo.class, null, "EditWizard").setEditPageNode(true);    
     addChild(UIWizardPageSelectLayoutForm.class, null, null).setRendered(false);
     addChild(UIPagePreview.class, null, null).setRendered(false); 
     setNumberSteps(3);

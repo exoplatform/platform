@@ -1,5 +1,7 @@
 package org.exoplatform.organization.webui.component;
 
+import java.util.Date;
+
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.component.UIForm;
@@ -51,10 +53,13 @@ public class UIMembershipTypeForm extends UIForm {
       if(mt == null){
         mt =   service.getMembershipTypeHandler().createMembershipTypeInstance();
         uiForm.invokeSetBindingBean(mt) ;
+        mt.setModifiedDate(new Date());
+        mt.setCreatedDate(new Date());
         service.getMembershipTypeHandler().createMembershipType(mt, true);
         membership.addOptions(mt) ;
       }else if(description != mt.getDescription()) {
         mt.setDescription(description);
+        mt.setModifiedDate(new Date());
         service.getMembershipTypeHandler().saveMembershipType(mt, true);
       }
       
