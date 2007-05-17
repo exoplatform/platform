@@ -1,13 +1,4 @@
 <div class="UILoggedInfo">
-  <div class="LoggedInfoItems">
-		<div class="SelectedBG">
-			<div class="UserIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this)"><span></span></div>
-		</div>
-		<div class="NormalBG" style="display: none">
-			<div class="WelcomeIcon" onclick="eXo.portal.UIPortalControl.showHiddenContent(this)"><span></span></div>
-		</div>
-		<div style="clear: left"><span></span></div>		
-	</div>
 	<div class="LoggedDecorator">
     <div class="LeftTopLoggedDecorator">
       <div class="RightTopLoggedDecorator">
@@ -18,7 +9,7 @@
 		  <div class="RightMiddleLoggedDecorator">
         <div class="DecoratorBackground">
         
-	        <div class="StyleContent" style="display: block">
+	        <div class="StyleContent">
 	        	<div class="AvatarContainer">
 		        	<div class="LeftAvatarContainer">
 		        		<div class="RightAvataContainer">
@@ -47,15 +38,6 @@
 						</div>
 						<div style="clear: left"><span></span></div>
 		    	</div>
-	        
-	        <div class="StyleContent" style="display: none">
-	        	<div class="IconContent">
-	        		<div class="EMailIcon"><span></span></div>
-	        	</div>
-	        	<div class="UserLabel"><%=_ctx.appRes("UILogged.action.Youhave")%></div>
-	        	<div class="UserLabel"><span>10 unread messages inbox</span></div>
-	        </div>
-	        
 	      </div>
 	    </div>
 	  </div> 

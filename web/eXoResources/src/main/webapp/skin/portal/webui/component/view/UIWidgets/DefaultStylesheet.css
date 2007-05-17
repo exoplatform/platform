@@ -1,0 +1,281 @@
+.UIWidgets {
+	padding: 10px 0px;
+}
+
+.UIWidgets .ItemSelectorContainer .EditIcon {
+	float: left;
+	width: 20px; height: 21px;
+	background: url('DefaultSkin/icons/EditWidgetCategoryButton.gif') no-repeat top;
+	cursor: pointer;
+}
+
+.UIWidgets .ItemSelectorContainer .UIDropDownItemSelector{
+	width: 216px;
+	float: left;
+}
+
+.UIWidgets .UIDropDownItemSelector .ComponentIcon {
+	background: url('DefaultSkin/icons/WidgetIcon.gif') no-repeat center;
+}
+
+.UIWidgets .WidgetDecorator {
+	width: 237px;
+}
+
+.UIWidgets .WidgetDecorator .TopLeftWidgetsDecorator {
+	background: url(DefaultSkin/background/TLWidgetDecorator2x2.gif) no-repeat left;
+	padding-left: 2px;
+	height: 2px;
+}
+
+.UIWidgets .WidgetDecorator .TopRightWidgetsDecorator{
+	background: url(DefaultSkin/background/TRWidgetDecorator2x2.gif) no-repeat right;
+	padding-right: 2px;
+	height: 2px;
+}
+
+.UIWidgets .WidgetDecorator .TopCenterWidgetsDecorator{
+	background: url(DefaultSkin/background/TCWidgetDecorator1x2.gif) repeat-x;
+	height: 2px;	
+}
+
+.UIWidgets .WidgetDecorator .MiddleLeftWidgetsDecorator{
+	background: url(DefaultSkin/background/MLWidgetDecorator2x1.gif) repeat-y left;
+	padding-left: 2px;
+}
+
+.UIWidgets .WidgetDecorator .MiddleRightWidgetsDecorator{
+	background: url(DefaultSkin/background/MRWidgetDecorator2x1.gif) repeat-y right;
+	padding-right: 2px;
+}
+
+.UIWidgets .WidgetDecorator .MiddleCenterWidgetsDecorator{
+}
+
+.UIWidgets .WidgetDecorator .WidgetsDecoratorBackground{
+	padding: 5px;
+}
+
+.UIWidgets .WidgetDecorator .BottomLeftWidgetsDecorator{
+	background: url(DefaultSkin/background/BLWidgetDecorator2x2.gif) no-repeat left;
+	padding-left: 2px;
+	height: 2px; 
+}
+
+.UIWidgets .WidgetDecorator .BottomRightWidgetsDecorator{
+	background: url(DefaultSkin/background/BRWidgetDecorator2x2.gif) no-repeat right;
+	padding-right: 2px;
+	height: 2px; 
+}
+
+.UIWidgets .WidgetDecorator .BottomCenterWidgetsDecorator{
+	background: url(DefaultSkin/background/BCWidgetDecorator1x2.gif) repeat-x;
+	height: 2px; 
+}
+
+/***************************************  UIWidgetContainer   **************************************/
+.UIWidgetContainer {
+}
+
+.UIWidgetContainer .WidgetNavigator {
+	height: 27px;
+	width: 75px;
+	float: right;
+}
+
+.UIWidgetContainer .LeftWidgetNavBar {
+	height: 25px;
+	background: url('DefaultSkin/background/LeftWidgetNavBar4x25.gif') no-repeat left;
+	padding-left: 4px;	
+}
+
+.UIWidgetContainer .RightWidgetNavBar {
+	height: 25px;
+	background: url('DefaultSkin/background/RightWidgetNavBar4x25.gif') no-repeat right;
+	padding-right: 4px;	
+}
+
+.UIWidgetContainer .CenterWidgetNavBar {
+	height: 25px;
+	background: url('DefaultSkin/background/CenterWidgetNavBar1x25.gif') repeat-x;
+}
+
+.UIWidgetContainer .WidgetNavigator .Icon{
+	height: 16px;
+	width: 16px;
+	float: left;
+	margin: 4px 0px 0px 4px;
+	cursor: pointer;
+}	
+
+.UIWidgetContainer .WidgetNavigator .DisableScrollDownButton{
+	background: url('DefaultSkin/icons/DisableScrollDownButton.gif') no-repeat center;
+}
+
+.UIWidgetContainer .WidgetNavigator .ScrollDownButton{
+	background: url('DefaultSkin/icons/ScrollDownButton.gif') no-repeat center;
+}
+
+.UIWidgetContainer .WidgetNavigator .ScrollUpButton{
+	background: url('DefaultSkin/icons/ScrollUpButton.gif') no-repeat center;
+}
+
+.UIWidgetContainer .WidgetNavigator .DisableScrollUpButton{
+	background: url('DefaultSkin/icons/DisableScrollUpButton.gif') no-repeat center;
+}
+
+.UIWidgetContainer .WidgetNavigator .AddWidgetButton{
+	background: url('DefaultSkin/icons/AddWidgetButton.gif') no-repeat center;
+}
+
+.UIWidgetContainer .WidgetControlBar {
+  float: right;
+	width: 76px; height: 20px;
+	padding-right: 7px;
+}
+
+.UIWidgetContainer .WidgetControl {
+	width: 74px; height: 20px;
+}
+
+.UIWidgetContainer .WidgetApplication {
+	padding: 0px 0px 5px 0px;
+}
+
+.UIWidgetContainer .WidgetControl .LeftControlBar{
+	height: 19px;
+	background: url('DefaultSkin/background/LeftWidgetControlBar2x19.gif') no-repeat left;	
+	padding-left: 2px;
+}
+
+.UIWidgetContainer .WidgetControl .RightControlBar{
+	height: 19px;
+	background: url('DefaultSkin/background/RightWidgetControlBar2x19.gif') no-repeat right;	
+	padding-right: 2px;
+}
+
+.UIWidgetContainer .WidgetControl .CenterControlBar{
+	height: 19px;
+	background: url('DefaultSkin/background/CenterWidgetControlBar1x19.gif') repeat-x;	
+}
+
+.UIWidgetContainer .WidgetControl .WidgetDragHandleArea {
+	float: left;
+	width: 17px; height: 13px;
+	cursor: move;
+	margin: 3px 3px 0px 3px;
+	background: url('DefaultSkin/background/WidgetDragArea2x2.gif');
+}
+
+.UIWidgetContainer .WidgetControl .SeparatorLine {
+	float: left;
+	width: 2px; height: 13px;
+	margin: 3px 3px 0px 3px;
+	background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y;
+	
+}
+
+.UIWidgetContainer .WidgetControl .EditWidgetIcon {
+	float: left;
+	width: 16px; height: 16px;
+	cursor: pointer;
+	margin: 2px 3px 0px 0px;
+	background: url('DefaultSkin/icons/EditWidgetIcon.gif');	
+}
+
+.UIWidgetContainer .WidgetControl .CloseWidgetIcon {
+	float: left;
+	width: 16px; height: 16px;
+	cursor: pointer;
+	margin: 2px 0px 0px 0px;
+	background: url('DefaultSkin/icons/CloseWidgetIcon.gif');	
+}
+
+/*================eXo Info Widget=======================================*/
+.UIWidgetContainer .UIInfoWidget{
+	width: 220px; height: 204px;
+	background: url('DefaultSkin/background/eXoInfoWidgetBackground.png') no-repeat center top;	
+}
+
+.UIWidgetContainer .UIInfoWidget .eXoInfoWidgetTitle{
+	margin: auto;
+	padding: 30px 0px 5px 0px;
+	width: 192px;
+	color: #ab6c17; font-weight: bold;
+	font-family: arial; font-size: 14px;
+	text-align: center;
+	border-bottom: 1px solid #e5df99;
+}
+
+.UIWidgetContainer .UIInfoWidget .InfoTitle{
+	margin: auto;
+	padding-top: 10px;
+	width: 192px;
+	color: #ab6c17;
+	font-size: 11px;
+	text-align: center;
+} 
+
+.UIWidgetContainer .UIInfoWidget .BrowserIconContainer {
+	margin: auto;
+	padding-top: 10px;
+	width: 180px;
+	height: 32px;
+} 
+
+.UIWidgetContainer .UIInfoWidget .BrowserIconContainer .BrowserIcon {
+	float: left;
+	width: 32px; height: 32px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.UIWidgetContainer .UIInfoWidget .BrowserIconContainer .FirefoxIcon {
+	background: url('DefaultSkin/icons/FirefoxIcon.gif') no-repeat center;	
+}
+
+.UIWidgetContainer .UIInfoWidget .BrowserIconContainer .IE7Icon {
+	background: url('DefaultSkin/icons/IE7Icon.gif') no-repeat center;	
+}
+
+.UIWidgetContainer .UIInfoWidget .BrowserIconContainer .IE6Icon {
+	background: url('DefaultSkin/icons/IE6Icon.gif') no-repeat center;	
+}
+
+.UIWidgetContainer .UIInfoWidget .BrowserIconContainer .SafariIcon {
+	background: url('DefaultSkin/icons/SafariIcon.gif') no-repeat center;	
+}
+
+.UIWidgetContainer .UIInfoWidget .DownloadButton {
+	width: 120px; height: 22px;
+	margin: auto;
+	margin-top: 23px;
+}
+
+.UIWidgetContainer .UIInfoWidget .DownloadButton .LeftButton{
+	height: 22px;
+	padding-left: 11px;
+	background: url('DefaultSkin/background/LeftDownloadButton11x22.gif') no-repeat left;	
+}
+
+.UIWidgetContainer .UIInfoWidget .DownloadButton .RightButton{
+	height: 22px;
+	padding-right: 11px;
+	background: url('DefaultSkin/background/RightDownloadButton11x22.gif') no-repeat right;	
+}
+
+.UIWidgetContainer .UIInfoWidget .DownloadButton .MiddleButton{
+	height: 22px;
+	background: url('DefaultSkin/background/CenterDownloadButton1x22.gif') repeat-x;
+}
+
+.UIWidgetContainer .UIInfoWidget .DownloadButton a{
+	line-height: 22px; vertical-align: middle;
+	color: #ab6c17;
+	font-size: 11px; font-weight: bold;
+	text-align:center;
+}
+
+.UIWidgetContainer .UIInfoWidget .DownloadButton a:hover{
+	color: #d79a2f;
+}

@@ -8,36 +8,52 @@
   
   jsmanager.importJavascript('eXo.widgets.UIWidgetContainerManagement');
   String showWCM = "eXo.widgets.UIWidgetContainerManagement.show();" ;
+
+  jsmanager.importJavascript('eXo.widgets.UIAddWidget');
+  String showUIAddWidget = "eXo.widgets.UIAddWidget.show();" ;
 %>
 
 <div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">
- 	<div class="TopLeftWidgets">
- 		<div class="TopRightWidgets">
- 			<div class="TopMiddleWidgets"><span></span></div>
- 		</div>
- 	</div>
-  	
- 	<div class="CenterLeftWidgets">
- 		<div class="CenterRightWidgets ItemSelectorAncestor">
- 		  <% 
- 		    if(uicomponent.hasChildren() == true) {
- 		      uicomponent.renderChild(UIDropDownItemSelector.class);
- 		    } else {
- 		      System.out.println("\n\nRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n\n");
- 		    }
- 		  %>			
-  		<div class="EditIcon" onclick="$showWCM" title="Edit Widgets Categories"><span></span></div>
-  		<div style="clear: both"><span></span></div>
-
-  		<%
+	<div class="ItemSelectorContainer ItemSelectorAncestor">
+		<% 
+ 		  if(uicomponent.hasChildren() == true) {
+ 		    uicomponent.renderChild(UIDropDownItemSelector.class);
+ 		  } else {
+ 		    System.out.println("\n\nRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n\n");
+ 		  }
+ 		%>
+ 		<div class="EditIcon" onclick="$showWCM" title="Edit Widgets Categories"><span></span></div>
+		<div style="clear: left"><span></span></div>
+		<%
   		   //uicomponent.renderChild(UIWidgetContainer.class);
   		  for(uiChild in uicomponent.getChildren()) {
   		    if(!(uiChild instanceof UIDropDownItemSelector) && uiChild.isRendered()) {
   		      uiChild.processRender(rcontext);
   		    }
   		  }
-  		%>
-
- 		</div>
- 	</div>
+  	%>
+	</div>
+	
+	<div class="WidgetDecorator">
+	 	<div class="TopLeftWidgetsDecorator">
+	 		<div class="TopRightWidgetsDecorator">
+	 			<div class="TopCenterWidgetsDecorator"><span></span></div>
+	 		</div>
+	 	</div>
+	 	
+	 	<div class="MiddleLeftWidgetsDecorator">
+	 		<div class="MiddleRightWidgetsDecorator">
+	 			<div class="MiddleCenterWidgetsDecorator">
+	 				<div class="WidgetsDecoratorBackground">
+	 					<% uicomponent.renderChild(UIWidgetContainer.class); %>
+	 				</div>
+	 			</div>
+	 		</div>
+	 	</div>
+	 	<div class="BottomLeftWidgetsDecorator">
+	 		<div class="BottomRightWidgetsDecorator">
+	 			<div class="BottomCenterWidgetsDecorator"><span></span></div>
+	 		</div>
+	 	</div>
+	</div>
 </div>

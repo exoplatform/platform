@@ -10,14 +10,22 @@
 %>
 
 <div class="UIWidget">
-  <div class="WidgetControlContainer">
+  <div class="WidgetControlBar">
     <div class="WidgetControl" style="display: none">
-	    <a class="EditWidgetIcon" title="Edit" href="<%=component.event("Edit")%>"><span></span></a>
-	  	<a class="CloseWidgetIcon" title="Close"><span></span></a>
-	  	<div style="clear: left"><span></span></div>
+    	<div class="LeftControlBar">
+    		<div class="RightControlBar">
+    			<div class="CenterControlBar">
+			    	<div class="WidgetDragHandleArea" title="Drag this Widget"><span></span></div>
+			    	<div class="SeparatorLine"><span></span></div>
+				    <a class="EditWidgetIcon" title="Edit this Widget" href="<%=component.event("Edit")%>"><span></span></a>
+				  	<a class="CloseWidgetIcon" href="#" title="Close this Widget"><span></span></a>
+				  	<div style="clear: left"><span></span></div>
+				  </div>
+				</div>
+			</div> 
 	  </div>
   </div>
- 
+ 	<div style="clear: right"><span></span></div>
   <div class="WidgetApplication">
    <% component.processRender(rcontext); %>
   </div>

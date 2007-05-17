@@ -8,48 +8,21 @@
   String showUIAddWidget = "eXo.widgets.UIAddWidget.show();" ;
 %>
 
-<div class="UIWidgetContainer ItemList">
-  <div class="TopLeftWidgetContainer">
-  	<div class="TopRightWidgetContainer">
-  		<div class="TopCenterWidgetContainer"><span></span></div>
-    </div>
-  </div>
-  		
-  <div class="MiddleLeftWidgetContainer">
-    <div class="MiddleRightWidgetContainer">
-  	  <div class="MiddleWidgetContainer" id="UIWidgetContainer">
-  			      
-  		  <% uicomponent.renderChildren() %>
-	  			    
-	  	  <div class="WidgetNavigator">
-	  		  <div class="UIBarStyle">
-	  			  <div class="ControlBar">
-	  				  <div class="LeftBar">
-	  					  <div class="RightBar">
-	  						  <div class="MiddleBar">
-	  							  <div class="ContentIcon">
-	  								  <div class="Icon24x24 UpBrownArrowIcon" style="display: none"><span></span></div>
-	  									<div class="Icon24x24 DownBrownArrowIcon" title="Scroll down"><span></span></div>
-	  									<div class="Icon24x24 DownBlueArrowIcon" style="display: none"><span></span></div>
-	  									<div class="Icon24x24 UpBlueArrowIcon" title="Scroll up"><span></span></div>
-	  									<div class="Icon24x24 AddIcon" onclick="$showUIAddWidget" title="Add Widget"><span></span></div>
-	   					        <div style="clear: right"><span></span></div>
-	  								</div>
-	  							</div>
-	  						</div>
-	  					</div>
-	  				</div>
-	  				<div style="clear: right"><span></span></div>
-	  			</div>
+<div class="UIWidgetContainer" id="UIWidgetContainer">
+	<% uicomponent.renderChildren() %>
+	<div class="WidgetNavigator">
+		<div class="LeftWidgetNavBar">
+			<div class="RightWidgetNavBar">
+				<div class="CenterWidgetNavBar">
+					<div class="Icon AddWidgetButton" onclick="$showUIAddWidget" title="Add Widget"><span></span></div>
+					<div class="Icon DisableScrollDownButton" style="display: none"><span></span></div>
+					<div class="Icon ScrollDownButton" title="Scroll down"><span></span></div>
+					<div class="Icon DisableScrollDownButton" style="display: none"><span></span></div>
+  				<div class="Icon ScrollUpButton" title="Scroll up"><span></span></div>
+   				<div style="clear: left"><span></span></div> 									
   			</div>
-  		  <div><span></span></div>
-  	  </div>
-    </div>
+  		</div>
+  	</div>
   </div>
-  
-  <div class="BottomLeftWidgetContainer">
-  	<div class="BottomRightWidgetContainer">
-  		<div class="BottomCenterWidgetContainer"><span></span></div>
-    </div>
-  </div>
+  <div style="clear: right"><span></span></div> 									
 </div>
