@@ -43,7 +43,7 @@ public class DataStorageImpl implements DataStorage {
   final private static String USER_DATA = "UserPortalData";
   final private static String GROUP_DATA = "SharedPortalData";
 
-  final private static String PORTAL_CONFIG_FILE_NAME = "config.xml" ;
+  final private static String PORTAL_CONFIG_FILE_NAME = "portal.xml" ;
   final private static String NAVIGATION_CONFIG_FILE_NAME = "navigation.xml" ;
   final private static String PAGE_SET_NODE = "pages" ;
 
@@ -366,5 +366,4 @@ public class DataStorageImpl implements DataStorage {
     parent.save();
     return node;    
   }
-  
 }

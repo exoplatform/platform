@@ -158,8 +158,8 @@ public class TestDataStorage extends BasicTestCase {
   void assertPageOperator() throws Exception {
     String ownerId = "portalone" ;
     
-    //assertPageCreate(ownerId) ;
-    //assertPageSave(ownerId) ;
+    assertPageCreate(ownerId) ;
+    assertPageSave(ownerId) ;
     assertPageRemove(ownerId) ;
   }
 
@@ -191,9 +191,9 @@ public class TestDataStorage extends BasicTestCase {
     List<Page> pages = createPages(ownerId) ;
     assertEquals(2, pages.size()) ;
     
-    String oldAccessGroup = "OldGroup" ;
+    String oldPermisstion = "*:/guest" ;
     for (Page p : pages) {
-      p.setAccessPermission(oldAccessGroup) ;
+      p.setAccessPermission(oldPermisstion) ;
       storage_.create(p) ;
     }
     
@@ -201,12 +201,12 @@ public class TestDataStorage extends BasicTestCase {
       String pageId = p.getPageId() ;
       
       Page aPage = storage_.getPage(pageId) ;
-      assertEquals(oldAccessGroup, aPage.getAccessPermission()) ;
+      assertEquals(oldPermisstion, aPage.getAccessPermission()) ;
     }
     
-    String newAccessGroup = "NewGroup" ;
+    String newPermission = "*:/admin" ;
     for (Page p : pages) {
-      p.setAccessPermission(newAccessGroup) ;
+      p.setAccessPermission(newPermission) ;
       storage_.save(p) ;
     }
 
@@ -215,7 +215,7 @@ public class TestDataStorage extends BasicTestCase {
       String pageId = p.getPageId() ;
 
       Page aPage = storage_.getPage(pageId) ;
-      assertEquals(newAccessGroup, aPage.getAccessPermission()) ;
+      assertEquals(newPermission, aPage.getAccessPermission()) ;
       returnPages.add(aPage) ;
     }
     assertEquals(2, returnPages.size()) ;
@@ -263,7 +263,7 @@ public class TestDataStorage extends BasicTestCase {
 
 
   private PortalConfig createPortalConfig(String portalName) throws Exception {
-    String configFile = portalName + "/config.xml" ;
+    String configFile = portalName + "/portal.xml" ;
     
     PortalConfig config = loadObject(PortalConfig.class, configFile) ;
     

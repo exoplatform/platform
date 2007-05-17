@@ -25,7 +25,6 @@ import org.jibx.runtime.IUnmarshallingContext;
  */
 public class TestJIBXXmlMapping  extends BasicTestCase {
 
-  private boolean ignoreTest = true ; 
   public TestJIBXXmlMapping(String name) {
     super(name);
   }
@@ -35,10 +34,9 @@ public class TestJIBXXmlMapping  extends BasicTestCase {
   }
 
   public void testPageSetMapping() throws Exception {
-    if(ignoreTest) return ;
     IBindingFactory bfact = BindingDirectory.getFactory(PageSet.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
-    Object obj = uctx.unmarshalDocument(new FileInputStream("src/main/resources/pages.xml"), null);
+    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/PortalApp/portalone/pages.xml"), null);
     System.out.print(obj) ;
 
     IMarshallingContext mctx = bfact.createMarshallingContext();
@@ -50,22 +48,20 @@ public class TestJIBXXmlMapping  extends BasicTestCase {
   }
 
   public void testPortalConfigMapping() throws Exception {
-    if(ignoreTest) return ;
     IBindingFactory bfact = BindingDirectory.getFactory(PortalConfig.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
-    Object obj = uctx.unmarshalDocument(new FileInputStream("src/main/resources/config.xml"), null);
+    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/PortalApp/portalone/portal.xml"), null);
     System.out.print(obj) ;
 
     IMarshallingContext mctx = bfact.createMarshallingContext();
     mctx.setIndent(2);
-    mctx.marshalDocument(obj, "UTF-8", null,  new FileOutputStream("target/config.xml")) ;
+    mctx.marshalDocument(obj, "UTF-8", null,  new FileOutputStream("target/portal.xml")) ;
   }
 
   public void testNavigationMapping() throws Exception {
-    if(ignoreTest) return ;
     IBindingFactory bfact = BindingDirectory.getFactory(PageNavigation.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
-    Object obj = uctx.unmarshalDocument(new FileInputStream("src/main/resources/navigation.xml"), null);
+    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/PortalApp/portalone/navigation.xml"), null);
     System.out.print(obj) ;
 
     IMarshallingContext mctx = bfact.createMarshallingContext();
@@ -77,10 +73,9 @@ public class TestJIBXXmlMapping  extends BasicTestCase {
   }
 
   public void testPortletPreferencesMapping() throws Exception {
-    if(ignoreTest) return ;
     IBindingFactory bfact = BindingDirectory.getFactory(PortalConfig.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
-    Object obj = uctx.unmarshalDocument(new FileInputStream("src/main/resources/portlet-preferences.xml"), null);
+    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/PortalApp/portalone/portlet-preferences.xml"), null);
     System.out.print(obj) ;
 
     IMarshallingContext mctx = bfact.createMarshallingContext();

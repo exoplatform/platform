@@ -1,30 +1,21 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <node-navigation>
-  <owner-type>portal</owner-type>  
-	<owner-id>portalone</owner-id>
-  <access-permission>*:/guest</access-permission>
-  <description> description for node navigation </description>
-  
-  <page-nodes>  
-   <node>
-    <uri>home</uri>
-    <label>#{home}</label>
-    <page-reference>exo:home</page-reference>
+  <owner-type>portal</owner-type>
+  <owner-id>portalone</owner-id>
+  <access-permission>*:/guest</access-permission>  
+  <page-nodes>
+    <node>
+      <uri>portalone::home</uri>
+      <name>home</name>
+      <label>Home</label>
+      <page-reference>portal::portalone::content</page-reference>
+    </node> 
     
     <node>
-      <uri>home/products</uri>
-      <label>#{products}</label>
-      <page-reference>exo:/home/products</page-reference>
-      
-      <node>
-        <uri>/home/products/architecture</uri>
-        <label>#{architecture}</label>
-        <page-reference>exo:/home/products/architecture</page-reference>
-      </node>
-      
+      <uri>portalone::register</uri>
+      <name>register</name>
+      <label>Register</label>
+      <page-reference>portal::portalone::register</page-reference>
     </node>
-    
-   </node> 
-   
   </page-nodes>
 </node-navigation>
