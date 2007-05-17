@@ -241,24 +241,6 @@
   width: 0px;
 }
 
-/********************************  UIAddApplication.80x80Icon **********************************/
-
-.UIAddApplication .eXoBrowserIcon {
-	background: url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png') no-repeat ;
-}
-
-.UIAddApplication .eXoMailIcon {
-	background: url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/eXoMail.png') no-repeat ;
-}
-
-.UIAddApplication .eXoCalendarIcon {
-	background: url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/eXoCalendar.png') no-repeat ;
-}
-
-.UIAddApplication .eXoForumIcon {
-	background: url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png') no-repeat ;
-}
-
 /************************************ Select Permission *******************************/
 
 .UIAccessGroup .UIGrid .ActionContainer {

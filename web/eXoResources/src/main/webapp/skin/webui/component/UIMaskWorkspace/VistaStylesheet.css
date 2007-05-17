@@ -48,12 +48,6 @@
   background: url('VistaSkin/background/BottomCenterDecorator1x15.png') repeat-x;
 }
 /***************************************************************************/
-.UIMaskWorkspace .TitleBarContainer {
-  width: 400px ;
-  margin: auto ;
-  padding: 8px 0px 0px 0px ;
-}
-
 .UIMaskWorkspace .TitleBarContainer .LeftTitleBar {
   background: url('VistaSkin/background/LeftTitleBar26x33.png') no-repeat left;
   padding: 0px 0px 0px 26px ;
@@ -67,7 +61,7 @@
 .UIMaskWorkspace .TitleBarContainer .CenterTitleBar {
   height: 33px ;
   line-height: 26px ;
-  font-weight: bold ; text-align: center ;
+  font-weight: bold ; text-align: left ;
   background: url('VistaSkin/background/CenterTitleBar1x33.png') repeat-x top;
 }
 
@@ -88,6 +82,10 @@
 
 .UIMaskWorkspace .ContentContainerDetail .TabsContainer {
 	width: 98%; 
+}
+
+.UIMaskWorkspace .TabPaneContent {
+	margin: 0px 5px;
 }
 
 .UIMaskWorkspace .UIItemSelector .FloatRightStyle .ItemListContainer .ItemList {
@@ -113,7 +111,9 @@
 /**************************** UIAddApplication ******************************************/
 
 .UIAddApplication .UITabContentContainer {
-  border: 1px solid gray;
+  border: 1px solid #999999;
+  border-top: none;
+  background: none;
 }
 
 .UIAddApplication .UIItemSelector .LeftColumnStyle {
@@ -137,25 +137,19 @@
 }
 
 .UIAddApplication .ApplicationListContainer {
-  background: white;
-  border: 1px solid #b7b7b7;
-  height: 240px;
-  overflow: auto;  
-  padding: 0px 10px;
-}
-
-.UIAddApplication .ApplicationListContainer {
 	height: 240px; 
 	border: 1px solid #b7b7b7;
-	background: white;
+	background: white url('VistaSkin/background/ApplicationListContainerBG1x13.png') repeat-x bottom;
 	overflow: auto;
 	font-family: arial;
 	color:#555555;
+	padding: 0px 10px;
 }
 
 .UIAddApplication .Application {
   margin: 10px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
+	background: white url('VistaSkin/background/AddApplicationrBG1x20.gif') repeat-x bottom;
 	padding: 10px;
 }
 
@@ -163,9 +157,14 @@
   margin-right: 30px;
 }
 
+.UIAddApplication .ContentContainerDetail {
+	padding: 0px 15px;
+	border-top: none;
+}
+
 .UIAddApplication .TitleBarContainer {
-  padding: 10px 10px 0px 10px; 
-  width: 550px;
+  padding: 10px 0px 0px 0px; 
+  margin: auto 15px;
 }
 
 .UIAddApplication .ApplicationContent {
@@ -187,7 +186,7 @@
 }
 
 .UIAddApplication .ApplicationContentLabel .RightLabel {
-  color: #058ee6;
+  color: #70A3D7;
 }
 
 .UIAddApplication .PortletIcon {
@@ -207,22 +206,22 @@
 }
 
 .UIAddApplication .TitleBarContainer .LeftTitleBar {
-  background: url('VistaSkin/background/LeftTitleBar5x35.png') no-repeat left;
-  padding: 0px 0px 0px 5px ;
-  height: 35px;
+  background: url('VistaSkin/background/LeftTitleBar15x32.png') no-repeat left;
+  padding: 0px 0px 0px 15px ;
+  height: 32px;
 }
 
 .UIAddApplication .TitleBarContainer .RightTitleBar {
-  background: url('VistaSkin/background/RightTitleBar8x35.png') no-repeat right;
-  padding: 0px 8px 0px 0px ;
-  height: 35px;
+  background: url('VistaSkin/background/RightTitleBar10x32.png') no-repeat right;
+  padding: 0px 10px 0px 0px ;
+  height: 32px;
 }
 
 .UIAddApplication .TitleBarContainer .CenterTitleBar {
-  height: 35px ;
-  line-height: 35px ; vertical-align: middle ;
+  height: 31px ;
+  line-height: 31px ; vertical-align: middle ;
   font-weight: bold ; font-family: arial; color: #0575CA; font-size: 14px;
-  background: url('VistaSkin/background/CenterTitleBar1x35.png') repeat-x;
+  background: url('VistaSkin/background/CenterTitleBar1x32.png') repeat-x;
 }
 
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
@@ -278,24 +277,6 @@
 }
 
 /********************************  UIAddApplication.80x80Icon **********************************/
-
-.UIAddApplication .eXoBrowserIcon {
-  background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png) no-repeat;
-}
-
-.UIAddApplication .eXoMailIcon {
-  background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/eXoMail.png) no-repeat;
-}
-
-.UIAddApplication .eXoCalendarIcon {
-  background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/eXoCalendar.png) no-repeat;
-}
-
-.UIAddApplication .eXoForumIcon {
-  background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png) no-repeat;
-}
-
-/************************************ Select Permission *******************************/
 .UIAccessGroup .UIGrid .ActionContainer {
   width: 20px;
 }
