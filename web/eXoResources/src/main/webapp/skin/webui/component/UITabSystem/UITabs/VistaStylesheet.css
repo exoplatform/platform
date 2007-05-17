@@ -418,3 +418,149 @@
   vertical-align: middle ;
   background: url('VistaSkin/background/SelectedCommunityM1x31.gif') repeat-x ;
 }
+
+/*==============================NormalTab for MessageTab=====================*/
+.UIHorizontalTabs .MessageTabDialog .NormalTab {
+  line-height: 27px;
+  margin-right: 1px;
+  font-size: 11px; color: #202020; font-weight: normal;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .LeftTab {
+  padding-left: 2px;
+  line-height: 27px;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .RightTab {
+  line-height: 27px;
+  padding-right: 7px;
+  background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y right;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .MiddleTab {
+  line-height: 27px;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0px 8px 0px 4px;
+  color: black; font-size: 11px; font-weight: normal;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab div:hover{
+  color: orange;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .TabIcon {
+  float: left;
+  width: 32px; height: 21px;
+  margin-top: 4px;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .InfoIcon {
+  background: url('DefaultSkin/background/BlueInfoSign.gif') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .ErrorIcon {
+  background: url('DefaultSkin/background/RedErrorSign.gif') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .WarningIcon {
+  background: url('DefaultSkin/background/YellowWarningSign.gif') no-repeat;
+}
+
+
+/*==============================Disable Tab for MessageTab=====================*/
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab {
+  line-height: 31px;
+  margin-right: 1px;
+  font-size: 11px; color: #202020; font-weight: normal;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .LeftTab {
+  padding-left: 2px; padding-top: 2px;
+  line-height: 31px;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .RightTab {
+  line-height: 27px;
+  padding-right: 7px;
+  background: url('VistaSkin/background/SeparatorLine2x2.png') repeat-y right;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {
+  line-height: 27px;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0px 8px 0px 4px;
+  color: grey; font-size: 11px; font-weight: normal;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .TabIcon {
+  float: left;
+  width: 32px; height: 23px;
+  margin-top: 3px;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .InfoIcon {
+  background: url('VistaSkin/background/GreyInfoSign.png') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .ErrorIcon {
+  background: url('VistaSkin/background/GreyErrorSign.png') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .WarningIcon {
+  background: url('VistaSkin/background/GreyWarningSign.png') no-repeat;
+}
+
+/*==============================Selected Tab for MessageTab=====================*/
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab {
+  line-height: 27px;
+  font-size: 11px;
+  color: #058ee6;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .LeftTab {
+  line-height: 31px;
+  padding-left: 6px;
+  background: url('VistaSkin/background/LeftSelectedMessageTab6x31.png') no-repeat left;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .RightTab {
+  line-height: 31px;
+  padding-right: 11px;
+  background: url('VistaSkin/background/RightSelectedMessageTab11x31.png') no-repeat right;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .MiddleTab {
+  line-height: 31px;
+  vertical-align: middle;
+  background: url('VistaSkin/background/CenterSelectedMessageTab1x31.png') repeat-x;
+  cursor: pointer;
+  padding: 0px 8px 0px 4px;
+  color: #058ee6; font-size: 11px; font-weight: normal;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab  div:hover{
+  color: orange;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .TabIcon {
+  float: left;
+  width: 32px; height: 23px;
+  margin-top: 3px;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .InfoIcon {
+  background: url('VistaSkin/background/BlueInfoSign.png') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .ErrorIcon {
+  background: url('VistaSkin/background/RedErrorSign.png') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .WarningIcon {
+  background: url('VistaSkin/background/YellowWarningSign.png') no-repeat;
+}
+

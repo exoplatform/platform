@@ -188,25 +188,24 @@
 
 /***************************Begin PoupWindow ExoMessage**********************************/
 .UIPopupWindow .ExoMessageDecorator {
-	background: white;
-	padding: 2px;
+	
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopLeftCornerDecorator {
-	background: url('DefaultSkin/background/TLMessageDecorator4x25.gif') no-repeat left; 
-	padding-left: 4px;
-	height: 25px;
+	background: url('VistaSkin/background/TLMessageDecorator12x29.png') no-repeat left; 
+	padding-left: 12px;
+	height: 29px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopRightCornerDecorator {
-	background: url('DefaultSkin/background/TRMessageDecorator4x25.gif') no-repeat right; 
-	padding-right: 4px;
-	height: 25px;
+	background: url('VistaSkin/background/TRMessageDecorator16x29.png') no-repeat right; 
+	padding-right: 16px;
+	height: 29px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopCenterDecorator {
-	background: url('DefaultSkin/background/TCMessageDecorator1x25.gif') repeat-x ; 
-	height: 25px;
+	background: url('VistaSkin/background/TCMessageDecorator1x29.png') repeat-x ; 
+	height: 29px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitle {
@@ -215,19 +214,19 @@
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitleIcon {
 	width: 16px;	height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/Message.gif') no-repeat;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/Message.png') no-repeat;
 	float: left;
 	margin: 4px 0px 0px 4px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleLeftSideDecorator {
-	background: url('DefaultSkin/background/MLMessageDecorator4x1.gif') repeat-y left; 
-	padding-left: 4px;
+	background: url('VistaSkin/background/MLMessageDecorator12x1.png') repeat-y left; 
+	padding-left: 12px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleRightSideDecorator {
-	background: url('DefaultSkin/background/MRMessageDecorator4x1.gif') repeat-y right; 
-	padding-right: 4px;
+	background: url('VistaSkin/background/MRMessageDecorator13x1.png') repeat-y right; 
+	padding-right: 13px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleCenterDecorator {
@@ -236,8 +235,8 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomLeftCornerDecorator {
-	background: url('DefaultSkin/background/BLMessageDecorator4x4.gif') no-repeat left; 
-	padding-left: 4px; height: 4px;
+	background: url('VistaSkin/background/BLMessageDecorator12x24.png') no-repeat left; 
+	padding-left: 12px; height: 24px;
 }
 
 .UIPopupWindow .ExoMessageDecorator  .UIWindowContent {
@@ -252,11 +251,11 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomRightCornerDecorator {
-	background: url('DefaultSkin/background/BRMessageDecorator4x4.gif') no-repeat right; 
-	padding-right: 4px;height: 4px;
+	background: url('VistaSkin/background/BRMessageDecorator13x24.png') no-repeat right; 
+	padding-right: 13px;height: 24px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomCenterDecorator {
-	background: url('DefaultSkin/background/BCMessageDecorator1x4.gif') repeat-x ; 
-	height: 4px;
+	background: url('VistaSkin/background/BCMessageDecorator1x24.png') repeat-x ; 
+	height: 24px;
 }
