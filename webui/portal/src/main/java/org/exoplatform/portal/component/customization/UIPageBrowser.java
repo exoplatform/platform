@@ -203,6 +203,10 @@ public class UIPageBrowser extends UISearch {
       uiWorking.setUIComponent(uiManagement) ;
       
       uiManagement.setRenderedChildrenOfTypes(new Class[]{UIPageEditBar.class});
+      UIPageBrowseControlBar browseControlBar = uiManagement.getChild(UIPageBrowseControlBar.class);
+      if (browseControlBar != null){
+        browseControlBar.setRendered(true);
+      } 
       UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class);
       uiEditBar.setUIPage(uiPage);
       uiEditBar.createEvent("EditPortlet", event.getExecutionPhase(), event.getRequestContext()).broadcast();
