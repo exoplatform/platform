@@ -22,6 +22,8 @@ public class UIForm extends UIContainer  {
   
   public final static String ACTION = "formOp" ;
   
+  public final static String SUBCOMPONENT_ID= "subComponentId";
+  
 //  private List<Validator>  validators ;
   
   private String[] actions_ = null ;
@@ -146,17 +148,17 @@ public class UIForm extends UIContainer  {
     uiInput.processRender(context) ;
   }  
   
-  public String event(String name) throws Exception {
-    StringBuilder b = new StringBuilder() ;
-    b.append("javascript:eXo.webui.UIForm.submitForm('").append(getId()).append("','");
-    b.append(name).append("', true)");
-    return b.toString() ;
-  }
-  
   public String url(String name) throws Exception {
     StringBuilder b = new StringBuilder() ;
     b.append("javascript:eXo.webui.UIForm.submitForm('").append(getId()).append("','");
     b.append(name).append("', false)");
+    return b.toString() ;
+  }
+  
+  public String event(String name) throws Exception {
+    StringBuilder b = new StringBuilder() ;
+    b.append("javascript:eXo.webui.UIForm.submitForm('").append(getId()).append("','");
+    b.append(name).append("', true)");
     return b.toString() ;
   }
   
@@ -167,6 +169,15 @@ public class UIForm extends UIContainer  {
     b.append("&amp;").append(OBJECTID).append("=").append(beanId).append("')");    
     return b.toString() ;
   } 
+  
+  public String event(String name, String componentId, String beanId) throws Exception {   
+    StringBuilder b = new StringBuilder() ;
+    b.append("javascript:eXo.webui.UIForm.submitEvent('").append(getId()).append("','");
+    b.append(name).append("','");
+    b.append("&amp;").append(SUBCOMPONENT_ID).append("=").append(componentId);
+    b.append("&amp;").append(OBJECTID).append("=").append(beanId).append("')");    
+    return b.toString() ;
+  }
   
   public void end() throws Exception {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;

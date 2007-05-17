@@ -3,7 +3,7 @@ package org.exoplatform.portal.component.customization;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.organization.webui.component.UIAccessGroup;
+import org.exoplatform.organization.webui.component.UIListPermissionSelector;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
@@ -14,7 +14,6 @@ import org.exoplatform.portal.component.view.UIContainer;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -73,11 +72,18 @@ public class UIPageForm extends UIFormTabPane {
                  addUIFormInput(new UIFormCheckBoxInput("showMaxWindow", "showMaxWindow", false));
     addUIFormInput(uiSettingSet) ;
 
-    UIAccessGroup uiAccessGroup = createUIComponent(UIAccessGroup.class, null, "UIAccessGroup");
-    uiAccessGroup.setRendered(false);
-    uiAccessGroup.configure("AccessGroup", "accessGroup");
-    addUIComponentInput(uiAccessGroup);
+    UIFormInputSet uiPermissionSetting = new UIFormInputSet("PermissionSetting") ;
+    uiPermissionSetting.setRendered(false);
+    addUIComponentInput(uiPermissionSetting);
     
+    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+    uiPermissionSetting.addUIFormInput(uiListPermissionSelector);
+    
+    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+    uiEditPermission.configure("UIPermissionSelector", "editPermission");
+    uiPermissionSetting.addUIFormInput(uiEditPermission);
+
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("PageTemplate");          
     List<SelectItemCategory>  itemCategories =  param.getMapGroovyObject(context) ;
@@ -100,9 +106,6 @@ public class UIPageForm extends UIFormTabPane {
     getUIFormCheckBoxInput("showMaxWindow").setValue(uiPage.isShowMaxWindow());
     
     removeChild(UIPageTemplateOptions.class);
-    
-    UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
-    uiAccessGroup.setGroups(page.getAccessPermissions());
     
     UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
     if(uiTemplate == null)  return;
@@ -130,9 +133,6 @@ public class UIPageForm extends UIFormTabPane {
     if(!page.isShowMaxWindow()) {
       page.setShowMaxWindow((Boolean) getUIFormCheckBoxInput("showMaxWindow").getValue());      
     }
-    
-    UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
-    page.setAccessPermissions(uiAccessGroup.getAccessGroup());
     
     UIPageTemplateOptions uiConfigOptions = getChild(UIPageTemplateOptions.class);
     if(uiConfigOptions == null) return;

@@ -10,7 +10,7 @@ import java.util.List;
 import org.exoplatform.util.ReflectionUtil;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UIFormInputBase;
+import org.exoplatform.webui.component.UIFormInput;
 import org.exoplatform.webui.component.UIFormInputSet;
 
 /**
@@ -21,8 +21,8 @@ public class ReflectionDataMapping implements BeanDataMapping {
   public void mapBean(Object bean, UIForm uiForm) throws Exception {
     List<UIComponent> children = uiForm.getChildren() ;
     for(UIComponent uichild : children ) {
-      if(uichild instanceof UIFormInputBase) {
-        invokeSetBindingField(bean, (UIFormInputBase) uichild);
+      if(uichild instanceof UIFormInput) {
+        invokeSetBindingField(bean, (UIFormInput) uichild);
       }else if(uichild instanceof UIFormInputSet){
         mapBean(bean, (UIFormInputSet) uichild);
       }
@@ -32,8 +32,8 @@ public class ReflectionDataMapping implements BeanDataMapping {
   public void mapBean(Object bean, UIFormInputSet uiFormInputSet) throws Exception {
     List<UIComponent> children = uiFormInputSet.getChildren() ;
     for(UIComponent uichild : children ) {
-      if(uichild instanceof UIFormInputBase) {
-        invokeSetBindingField(bean, (UIFormInputBase) uichild);
+      if(uichild instanceof UIFormInput) {
+        invokeSetBindingField(bean, (UIFormInput) uichild);
       }
     }
   }
@@ -41,8 +41,8 @@ public class ReflectionDataMapping implements BeanDataMapping {
   public void mapField(UIForm uiForm, Object bean) throws Exception {
     List<UIComponent> children = uiForm.getChildren() ;
     for(UIComponent uichild : children ) {
-      if(uichild instanceof UIFormInputBase) {
-        invokeGetBindingField((UIFormInputBase) uichild, bean);
+      if(uichild instanceof UIFormInput) {
+        invokeGetBindingField((UIFormInput) uichild, bean);
       }else if(uichild instanceof UIFormInputSet){
         mapField((UIFormInputSet) uichild, bean);
       }
@@ -52,14 +52,14 @@ public class ReflectionDataMapping implements BeanDataMapping {
   public void mapField(UIFormInputSet uiFormInputSet, Object bean) throws Exception {
     List<UIComponent> children = uiFormInputSet.getChildren() ;
     for(UIComponent uichild : children ) {
-      if(uichild instanceof UIFormInputBase) {
-        invokeGetBindingField((UIFormInputBase) uichild, bean);
+      if(uichild instanceof UIFormInput) {
+        invokeGetBindingField((UIFormInput) uichild, bean);
       }
     }
   }
 
   @SuppressWarnings("unchecked")
-  private void invokeGetBindingField(UIFormInputBase uiFormInput, Object bean) throws Exception {
+  private void invokeGetBindingField(UIFormInput uiFormInput, Object bean) throws Exception {
     String bindingField = uiFormInput.getBindingField();
     if(bindingField == null) return;
     Method method = ReflectionUtil.getGetBindingMethod(bean, bindingField);
@@ -68,7 +68,7 @@ public class ReflectionDataMapping implements BeanDataMapping {
     uiFormInput.setValue(value);
   }
   
-  private  void invokeSetBindingField(Object bean, UIFormInputBase uiFormInput) throws Exception {    
+  private  void invokeSetBindingField(Object bean, UIFormInput uiFormInput) throws Exception {    
     String bindingField = uiFormInput.getBindingField();
     if(bindingField == null) return;
     Class  [] classes = new Class[]{uiFormInput.getTypeValue()};

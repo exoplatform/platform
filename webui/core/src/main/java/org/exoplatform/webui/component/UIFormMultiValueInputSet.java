@@ -28,7 +28,7 @@ import org.exoplatform.webui.event.Event.Phase;
     @EventConfig(listeners = UIFormMultiValueInputSet.RemoveActionListener.class, phase = Phase.DECODE)
   }
 )
-public class UIFormMultiValueInputSet extends UIFormInputContainer<List<?>> {
+public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
 
   protected List<Validator>  validators ;
 

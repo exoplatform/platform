@@ -22,6 +22,9 @@ abstract public class UIFormInputContainer<T> extends UIContainer implements UIF
   public String bindingField ;
   private List<Validator>  validators ;
   protected T value_;
+  
+  protected UIFormInputContainer() {
+  }
 
   public UIFormInputContainer(String name, String bindingField) {
     this.name = name ;
@@ -29,12 +32,12 @@ abstract public class UIFormInputContainer<T> extends UIContainer implements UIF
     setId(name);
   }
   
-  public T getValue(){ return value_; }    
+  public T getValue() throws Exception { return value_; }    
   public UIFormInput setValue(T value) throws Exception {
     this.value_ = value;
     return this;
   }
-
+  
   public String getName()  { return name ; }
   public void   setName(String name) { this.name = name ; }
 
@@ -47,7 +50,7 @@ abstract public class UIFormInputContainer<T> extends UIContainer implements UIF
     return this ;
   }
   
-  public void processDecode(WebuiRequestContext context) throws Exception {   
+  /*public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     List<UIComponent>  children = getChildren() ;
     for(UIComponent uiChild :  children) {
@@ -57,11 +60,11 @@ abstract public class UIFormInputContainer<T> extends UIContainer implements UIF
     UIForm uiForm  = getAncestorOfType(UIForm.class);
     String action =  uiForm.getSubmitAction();
     if(action == null) return;    
-    
     Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;
     if(event != null) event.broadcast() ;
+    
   }
-
+*/
   public List<Validator>  getValidators() { return validators ; }
   
   public void reset() {}

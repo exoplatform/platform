@@ -4,12 +4,7 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
-import java.util.List;
-
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormInputContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -20,13 +15,16 @@ import org.exoplatform.webui.event.EventListener;
  *          nhudinhthuan@exoplatform.com
  * Jul 19, 2006  
  */
-abstract class UISelector extends UIFormInputContainer<String> { 
+abstract class UISelector<T> extends UIFormInputContainer<T> { 
+  
+  protected UISelector() {
+  }
   
   public UISelector(String name, String bindingField) {
     super(name, bindingField) ;   
   }
   
-  abstract void setMembership(String groupId, String membershipType);   
+  abstract void setMembership(String groupId, String membershipType) throws Exception ;   
   
   static  public class SelectMembershipActionListener extends EventListener<UIGroupMembershipSelector>  {   
     public void execute(Event<UIGroupMembershipSelector>  event) throws Exception {

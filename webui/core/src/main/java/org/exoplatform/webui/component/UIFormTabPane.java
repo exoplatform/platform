@@ -24,7 +24,6 @@ abstract public class UIFormTabPane extends UIForm {
   public void setRenderTabId(String renderTabId) { this.renderTabId = renderTabId; }
 
   public void processDecode(WebuiRequestContext context) throws Exception {   
-    super.processDecode(context);
     String renderTab = context.getRequestParameter(RENDER_TAB) ;
     if(renderTab != null) renderTabId  = renderTab;
     UIComponent uiComp = findComponentById(renderTabId);  
@@ -33,6 +32,7 @@ abstract public class UIFormTabPane extends UIForm {
       child.setRendered(false);
     }
     uiComp.setRendered(true);
+    super.processDecode(context);
   }
 		
 	public String getName() { return name_ ;}  

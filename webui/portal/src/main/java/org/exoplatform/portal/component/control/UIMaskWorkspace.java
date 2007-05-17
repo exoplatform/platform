@@ -64,6 +64,7 @@ public class UIMaskWorkspace extends UIComponentDecorator {
       if(!uiMaskWorkspace.isShow()) return;
       uiMaskWorkspace.setUIComponent(null);
       uiMaskWorkspace.setShow(false);
+      uiMaskWorkspace.setWindowSize(-1, -1);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
     }
   }

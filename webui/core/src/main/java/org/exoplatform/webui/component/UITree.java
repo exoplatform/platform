@@ -100,7 +100,7 @@ public class UITree extends UIComponent {
   
   public String event(String name, String beanId) throws Exception {
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
-    if(uiForm != null) return uiForm.event(name, beanId);
+    if(uiForm != null) return uiForm.event(name, getId(), beanId);
     return super.event(name, beanId);
   }
   
@@ -164,7 +164,7 @@ public class UITree extends UIComponent {
   
   static  public class ChangeNodeActionListener extends EventListener<UITree> {    
     public void execute(Event<UITree> event) throws Exception {
-      event.getSource().<UIComponent>getParent().broadcast(event, Event.Phase.PROCESS) ;      
+      event.getSource().<UIComponent>getParent().broadcast(event, event.getExecutionPhase()) ;      
     }
   }
   

@@ -128,7 +128,7 @@ public class UIGroupSelector extends UIContainer {
   
   public String event(String name) throws Exception {
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
-    if(uiForm != null) return uiForm.event(name);
+    if(uiForm != null) return uiForm.event(name, getId());
     return super.event(name);
   }
   

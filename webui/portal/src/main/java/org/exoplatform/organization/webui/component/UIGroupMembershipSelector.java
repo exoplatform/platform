@@ -11,7 +11,6 @@ import java.util.List;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
@@ -42,20 +41,19 @@ import org.exoplatform.webui.event.Event.Phase;
   @ComponentConfig(
       type = UITree.class, id = "UITreeGroupSelector",
       template = "system:/groovy/webui/component/UITree.gtmpl",
-      events = @EventConfig(listeners = UITree.ChangeNodeActionListener.class)
+      events = @EventConfig(phase = Phase.DECODE, listeners = UITree.ChangeNodeActionListener.class)
   ),
   @ComponentConfig(
       type = UIBreadcumbs.class, id = "BreadcumbGroupSelector",
       template = "system:/groovy/webui/component/UIBreadcumbs.gtmpl",
-      events = @EventConfig(listeners = UIBreadcumbs.SelectPathActionListener.class)
+      events = @EventConfig(phase = Phase.DECODE, listeners = UIBreadcumbs.SelectPathActionListener.class)
   )
 })
 public class UIGroupMembershipSelector extends UIContainer {
 
   private Group selectGroup_ ;
-  
-  List<String> listMemberhip;
-
+  private List<String> listMemberhip;
+ 
   public UIGroupMembershipSelector() throws Exception {
     UIBreadcumbs uiBreadcumbs = addChild(UIBreadcumbs.class, "BreadcumbGroupSelector", "BreadcumbGroupSelector") ;
     UITree tree = addChild(UITree.class, "UITreeGroupSelector", "TreeGroupSelector");
@@ -77,7 +75,7 @@ public class UIGroupMembershipSelector extends UIContainer {
     uiBreadcumbs.setBreadcumbsStyle("UIExplorerHistoryPath") ;    
   }
   
-  public void processDecode(WebuiRequestContext context) throws Exception {   
+  /*public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     UIForm uiForm  = getAncestorOfType(UIForm.class);
     String action =  null;
@@ -87,9 +85,14 @@ public class UIGroupMembershipSelector extends UIContainer {
       action = context.getRequestParameter(UIForm.ACTION);
     }    
     if(action == null)  return;    
-    Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;   
-    if(event != null) event.broadcast()  ;    
-  }
+    
+    String componentId =  context.getRequestParameter("selectorId") ;
+    System.out.println("\n\n\n\n == > tai day ta co "+componentId +"\n\n\n");
+    if(componentId != null && componentId.trim().length() > 0 && componentId.equals(getId())) {
+      Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;   
+      if(event != null) event.broadcast()  ;  
+    }
+  }*/
 
   public Group getCurrentGroup() { return selectGroup_ ; }
 
@@ -140,14 +143,15 @@ public class UIGroupMembershipSelector extends UIContainer {
   
   public String event(String name, String beanId) throws Exception {
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
-    if(uiForm != null) return uiForm.event(name, beanId);
+    if(uiForm != null) return uiForm.event(name, getId(), beanId);
     return super.event(name, beanId);
   }
 
-  static  public class ChangeNodeActionListener extends EventListener<UIGroupMembershipSelector> {   
-    public void execute(Event<UIGroupMembershipSelector> event) throws Exception {     
-      String groupId = event.getRequestContext().getRequestParameter(OBJECTID)  ;    
-      UIGroupMembershipSelector uiSelector = event.getSource() ;    
+  static  public class ChangeNodeActionListener extends EventListener<UITree> {   
+    public void execute(Event<UITree> event) throws Exception {     
+      String groupId = event.getRequestContext().getRequestParameter(OBJECTID)  ;
+      UITree uiTree = event.getSource();
+      UIGroupMembershipSelector uiSelector = uiTree.getParent() ;    
       uiSelector.changeGroup(groupId) ;
       UIComponent uiParent = uiSelector.<UIComponent>getParent().getParent();
       uiParent.setRenderSibbling(uiParent.getClass()); 
@@ -170,7 +174,7 @@ public class UIGroupMembershipSelector extends UIContainer {
       UIComponent uiParent = uiSelector.<UIComponent>getParent().getParent();
       uiParent.setRenderSibbling(uiParent.getClass());      
       if(uiSelector.getCurrentGroup() == null) return;
-      uiParent.broadcast(event, Event.Phase.PROCESS) ;
+      uiParent.broadcast(event, event.getExecutionPhase()) ;
       
       UIPopupWindow uiPopup = uiSelector.getParent();
       uiPopup.setShow(false);
@@ -184,10 +188,10 @@ public class UIGroupMembershipSelector extends UIContainer {
     }
   }
 
-  static  public class SelectPathActionListener extends EventListener<UIGroupMembershipSelector> {
-    public void execute(Event<UIGroupMembershipSelector> event) throws Exception {
-      UIGroupMembershipSelector uiSelector = event.getSource();
-      UIBreadcumbs uiBreadcumbs = uiSelector.getChild(UIBreadcumbs.class);
+  static  public class SelectPathActionListener extends EventListener<UIBreadcumbs> {
+    public void execute(Event<UIBreadcumbs> event) throws Exception {
+      UIBreadcumbs uiBreadcumbs = event.getSource();
+      UIGroupMembershipSelector uiSelector = uiBreadcumbs.getParent() ; 
       String objectId =  event.getRequestContext().getRequestParameter(OBJECTID) ;
       uiBreadcumbs.setSelectPath(objectId);     
       String selectGroupId = uiBreadcumbs.getSelectLocalPath().getId() ;
@@ -204,4 +208,5 @@ public class UIGroupMembershipSelector extends UIContainer {
       }
     }
   }
+
 }

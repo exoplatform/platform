@@ -106,6 +106,8 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     uiIterator.setPageList(new ObjectPageList(list, 10));
   }
   
+  public Class<String> getTypeValue() { return String.class; }
+  
   static  public class SelectGroupActionListener extends EventListener<UIGroupSelector> {   
     public void execute(Event<UIGroupSelector> event) throws Exception {
       UIGroupSelector uiGroupSelector = event.getSource();
@@ -120,11 +122,11 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     
   static  public class DeleteActionListener extends EventListener<UIAccessGroup> {   
     public void execute(Event<UIAccessGroup> event) throws Exception {
-      String groupId = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      UIAccessGroup uiAccessGroup = event.getSource() ;
+//      String groupId = event.getRequestContext().getRequestParameter(OBJECTID) ;
+//      UIAccessGroup uiAccessGroup = event.getSource() ;
       
       
-      System.out.println("\n\n\n\n\n\n\n  REMOVE OBJECT: "+uiAccessGroup+"  \n\n\n\n\n\n\n");
+//      System.out.println("\n\n\n\n\n\n\n  REMOVE OBJECT: "+uiAccessGroup+"  \n\n\n\n\n\n\n");
     }
   }
 

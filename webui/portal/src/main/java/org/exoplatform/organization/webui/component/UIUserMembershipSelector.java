@@ -35,7 +35,7 @@ import org.exoplatform.webui.event.Event.Phase;
     @EventConfig(listeners = UIUserMembershipSelector.DeleteMembershipActionListener.class, phase = Phase.DECODE, confirm = "UIUserMembershipSelector.deleteMembership")  
   }
 )
-public class UIUserMembershipSelector extends UISelector {  
+public class UIUserMembershipSelector extends UISelector<String> {  
   
   private List<Membership>  membership_ ;
   private String user_ = "site" ;  
@@ -57,6 +57,7 @@ public class UIUserMembershipSelector extends UISelector {
     user_ = userName;
   }
   
+  public Class<String> getTypeValue() { return String.class; }
   
   public boolean isAdminRole() { return isAdminRole_; }
   public void setAdminRole(boolean b) { isAdminRole_ = b; }

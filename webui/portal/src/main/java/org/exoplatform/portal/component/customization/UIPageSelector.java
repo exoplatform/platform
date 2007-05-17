@@ -67,7 +67,7 @@ public class UIPageSelector extends UIFormInputContainer<Page> {
     value_ = service.getPage(id, pcontext.getRemoteUser()) ;
   }
 
-  public Class getUIInputValueType() {  return String.class ; }
+  public Class<Page> getTypeValue() {  return Page.class ; }
 
   public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);

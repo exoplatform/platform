@@ -25,6 +25,8 @@ public interface UIFormInput<E> {
   public E getValue() throws Exception ;
   public UIFormInput setValue(E value) throws Exception;
   
+  public Class<E> getTypeValue() ;
+  
   public void reset();
   
 }

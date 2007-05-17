@@ -39,7 +39,18 @@ public class UIFormLifecycle  extends Lifecycle {
     for(UIComponent uiChild :  children) {
       uiChild.processDecode(context) ;     
     }
-    String action =  uiForm.getSubmitAction(); 
+    String action =  uiForm.getSubmitAction();
+    String subComponentId = context.getRequestParameter(UIForm.SUBCOMPONENT_ID);
+    
+    if(subComponentId != null && subComponentId.trim().length() > 1) {
+      UIComponent uiSubComponent = uiForm.findComponentById(subComponentId);
+      Event<UIComponent> event = uiSubComponent.createEvent(action, Event.Phase.DECODE, context) ;
+      if(event != null)  {
+        event.broadcast() ;
+        return;
+      }
+    }
+
     Event<UIComponent> event = uicomponent.createEvent(action, Event.Phase.DECODE, context) ;
     if(event != null)  event.broadcast() ;
   }

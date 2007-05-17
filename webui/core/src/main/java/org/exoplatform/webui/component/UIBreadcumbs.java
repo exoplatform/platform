@@ -36,7 +36,7 @@ public class UIBreadcumbs extends UIComponent {
   
   public String event(String name, String beanId) throws Exception {
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
-    if(uiForm != null) return uiForm.event(name, beanId);
+    if(uiForm != null) return uiForm.event(name, getId(), beanId);
     return super.event(name, beanId);
   }
   
@@ -48,7 +48,7 @@ public class UIBreadcumbs extends UIComponent {
       UIBreadcumbs uicomp = event.getSource() ;
       String objectId =  event.getRequestContext().getRequestParameter(OBJECTID) ;
       uicomp.setSelectPath(objectId);     
-      uicomp.<UIComponent>getParent().broadcast(event, Event.Phase.PROCESS) ;     
+      uicomp.<UIComponent>getParent().broadcast(event, event.getExecutionPhase()) ;     
     }
   }
   

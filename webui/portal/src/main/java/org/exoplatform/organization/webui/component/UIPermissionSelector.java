@@ -4,10 +4,10 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.portal.config.UserACL.Permission;
+import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIFormPopupWindow;
+import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 /**
@@ -17,54 +17,51 @@ import org.exoplatform.webui.config.annotation.EventConfig;
  * Jun 23, 2006
  * 10:07:15 AM
  */
+import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
   template = "system:/groovy/organization/webui/component/UIPermissionSelector.gtmpl",
-  events = @EventConfig (listeners = UIPermissionSelector.SelectMembershipActionListener.class)
+  events = @EventConfig (phase = Phase.DECODE, listeners = UIPermissionSelector.SelectMembershipActionListener.class)
 )
-public class UIPermissionSelector extends UISelector {
+public class UIPermissionSelector extends UISelector<String> {
   
-  private List<Permission> permissions_ ;
+  private Permission permission_;
   
 	public UIPermissionSelector() throws Exception {
     super(null, null) ;		
+    
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "PopupPermissionSelector");
     uiPopup.setWindowSize(540, 0);  
-//    UIPopupDialog dialog = createUIComponent(UIPopupDialog.class, null, null);
-//    dialog.setComponent(this);
-//    dialog.setHanderEvent("SelectMembership");
-    UIGroupMembershipSelector uiMembershipSelector = createUIComponent(UIGroupMembershipSelector.class, null, null) ;
-    uiPopup.setUIComponent(uiMembershipSelector);  
+    
+    UIGroupMembershipSelector uiMembershipSelector = createUIComponent(UIGroupMembershipSelector.class, null, "SelectEditPermission") ;
+    uiPopup.setUIComponent(uiMembershipSelector);
+    uiMembershipSelector.setId("PermissionSelector");
+    uiMembershipSelector.getChild(UITree.class).setId("TreePermissionSelector");
+    uiMembershipSelector.getChild(UIBreadcumbs.class).setId("BreadcumbsPermissionSelector");
+    
+    permission_ = new Permission();
   }
 	
-//	public void configure(String iname, String bfield, List<Permission> permissions) {  
-//    setName(iname) ;
-//    setBindingField(bfield) ; 
-//    permissions_ = permissions;
-//  } 
+	public void configure(String iname, String bfield) {  
+    setName(iname) ;
+    setBindingField(bfield) ; 
+  } 
   
-  public void createPermission(String label, String exp) throws Exception {
-    Permission permission = new Permission();
-    permission.setPermissionExpression(exp) ;
-    permission.setName(label);
-    if(permissions_ == null) permissions_ = new ArrayList<Permission>();
-    if(permissions_.size() < 1)  permission.setSelected(true);
-    permissions_.add(permission);
-    if(permission.isSelected()) {
-      UIGroupMembershipSelector uiSelector = findFirstComponentOfType(UIGroupMembershipSelector.class);
-      uiSelector.changeGroup(permission.getGroupId());
-    }
+  /*public void createPermission(String label, String exp) throws Exception {
+    permission_.setName(label);
+    permission_.setPermissionExpression(exp) ;
+    UIGroupMembershipSelector uiSelector = findFirstComponentOfType(UIGroupMembershipSelector.class);
+    uiSelector.changeGroup(permission_.getGroupId());
+  }*/
+  
+  public UIPermissionSelector setValue(String exp){
+    System.out.println("\n\n= d da cap nhat vao day "+exp+"\n\n");
+    permission_.setExpression(exp);
+    return this;
   }
   
-//  public void setPermission(Permission permission){
-//    if(permissions_ == null) permissions_ = new ArrayList<Permission>(5);
-//    for(int i = 0; i< permissions_.size(); i++){      
-//      if(!permissions_.get(i).getName().equals(permission.getName())) continue;
-//      permissions_.set(i, permission);    
-//      return;
-//    }
-//  }
+  public Class<String> getTypeValue() { return String.class; }
   
-  public void processDecode(WebuiRequestContext context) throws Exception {   
+//  public void processDecode(WebuiRequestContext context) throws Exception {   
 //    super.processDecode(context);
 //    String selectedName =  context.getRequestParameter("SelectedPermission") ;
 //    if(permissions_ == null) permissions_ = new ArrayList<Permission>() ;
@@ -75,8 +72,8 @@ public class UIPermissionSelector extends UISelector {
 //        permissions_.get(i).setSelected(false);
 //      }
 //    }
-  }
-  
+//  }
+//  
 //  @SuppressWarnings("hiding")
 //  public Permission getPermission(String name){
 //    if(permissions_ == null) return null;
@@ -86,73 +83,15 @@ public class UIPermissionSelector extends UISelector {
 //    return null;
 //  }
 //  
-  public List<Permission> getPermissions(){ return permissions_; }
-//  
-  public Permission getSelectedPermission(){
-    if(permissions_ == null) return null;
-    for(Permission ele : permissions_){
-      if(ele.isSelected()) return ele;
-    }
-    return null;
-  }
+  public Permission getPermission(){ return permission_; }
+  
+  public String getValue(){ return permission_.getExpression(); }
   
   void setMembership(String groupId, String membershipType){
-//    Permission permission = getSelectedPermission();
-//    if(permission == null) return ;
-//    permission.setGroupId(groupId);
-//    permission.setMembership(membershipType);
-  }
-  
-  static public class Permission {
-
-    private String name_ ;
-    private String groupId_ = ""  ;  
-    private String membership_ = "" ;
-    private boolean selected_  = false;
-
-    public void setPermissionExpression(String exp) {
-      if(exp == null || exp.length() == 0) return;
-      String[] temp = exp.split(":") ;
-      if(temp.length < 2) return;
-      membership_ = temp[0] ;
-      groupId_ = temp[1] ;
-    }
-    
-    public String getPermissionExpression() {
-      return membership_ + ":" + groupId_ ;
-    }
-
-    public String getGroupId() {
-      return groupId_;
-    }
-
-    public void setGroupId(String groupId) {
-      this.groupId_ = groupId;
-    }
-
-    public String getMembership() {
-      return membership_;
-    }
-
-    public void setMembership(String membership) {
-      this.membership_ = membership;
-    }
-
-    public String getName() {
-      return name_;
-    }
-
-    public void setName(String name) {
-      this.name_ = name;
-    }
-
-    public boolean isSelected() {
-      return selected_;
-    }
-
-    public void setSelected(boolean selected) {
-      this.selected_ = selected;
-    }
+    if(permission_ == null) return ;
+    permission_.setGroupId(groupId);
+    permission_.setMembership(membershipType);
+    permission_.setExpression(membershipType+":"+groupId);
   }
   
 }

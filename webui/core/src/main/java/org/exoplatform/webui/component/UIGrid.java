@@ -57,7 +57,7 @@ public class UIGrid extends UIComponent {
     Method method = ReflectionUtil.getGetBindingMethod(bean, field);
     return method.invoke(bean, ReflectionUtil.EMPTY_ARGS) ;
   }
-
+  
   @SuppressWarnings("unchecked")
   public UIComponent  findComponentById(String lookupId) {
     if(uiIterator_.getId().equals(lookupId))  return uiIterator_  ;

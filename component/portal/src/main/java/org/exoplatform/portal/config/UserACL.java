@@ -23,7 +23,7 @@ import org.exoplatform.services.organization.OrganizationService;
  *          nhudinhthuan@exoplatform.com
  * Jun 27, 2006
  */
-class UserACL {
+public class UserACL {
 
   private OrganizationService orgService_ ;
   
@@ -153,6 +153,7 @@ class UserACL {
 
     private String groupId_ = ""  ;  
     private String membership_ = "" ;
+    private String expression;
     
     private boolean selected_  = false;
 
@@ -160,6 +161,7 @@ class UserACL {
       if(exp == null || exp.length() == 0) return;
       String[] temp = exp.split(":") ;
       if(temp.length < 2) return;
+      expression = exp;
       membership_ = temp[0].trim() ;
       groupId_ = temp[1].trim() ;
     }
@@ -181,6 +183,9 @@ class UserACL {
 
     public boolean isSelected(){ return selected_; }
     public void setSelected(boolean selected){ selected_ = selected; }
+
+    public String getExpression() { return expression; }
+    public void setExpression(String expression) { this.expression = expression; }
   }
 
 }
