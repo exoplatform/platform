@@ -49,7 +49,7 @@
 
 .UINavigationPortlet .MenuItemContainer {
 	white-space: nowrap;
-	border: solid red 1px;
+	border: solid #b7b7b7 1px;
 	background: #f3f3f3;
 	text-align: left; 
 	display: block;
