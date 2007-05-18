@@ -46,8 +46,6 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     assertPortalConfigOperator() ;
     assertNavigationOperator() ;
     assertPageOperator() ;
-    
-    System.out.println("\n\n\n\n");
   }
   
   void assertUserPortalConfigOperator() throws Exception {
@@ -102,7 +100,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     
   }
 
-  //TODO: wait for ThuanND
+  //TODO: Remove action was implemented, Tung must be write test code
   void assertRemoveUserPortalConfig() throws Exception {
     
   } 

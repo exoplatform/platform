@@ -108,4 +108,14 @@ public class PortalConfig {
     public void setPortalConfigs(ArrayList<PortalConfig> list) { portalConfigs = list ; }
   }
   
+  static public class WidgetSet {
+    
+    private ArrayList<Container> pages ;
+    
+    public WidgetSet() { pages = new ArrayList<Container>(); }
+    
+    public ArrayList<Container> getWidgets() { return pages ; }
+    public void setWidgets(ArrayList<Container> list) { pages = list ; }
+  }
+  
 }
