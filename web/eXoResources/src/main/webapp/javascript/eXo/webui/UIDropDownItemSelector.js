@@ -120,7 +120,7 @@ UIDropDownItemSelector.prototype.onload = function() {
 	var uiDropDownItemSelector = document.getElementById("UIDropDownItemSelector");
 	var selectedItemLabel = DOMUtil.findFirstDescendantByClass(uiDropDownItemSelector, "div", "SelectedItemLabel");
 	var strLabel = selectedItemLabel.innerHTML;
-	
+	//alert(strLabel + " :  " + strLabel.length);
 	while(strLabel.charCodeAt(0) <= 32){
 		var tmp = strLabel.charAt(1); 
 		for(var i = 2; i < strLabel.length; ++i){
