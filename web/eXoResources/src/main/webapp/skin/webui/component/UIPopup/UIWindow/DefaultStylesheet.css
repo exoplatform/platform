@@ -192,6 +192,8 @@
 
 /**************************** UIPageBody ************************************/
 .UIPageBody {
+  width: 99.5%;
+  margin: auto;
 }
 
 .UIPageBody .WindowPortletControl {

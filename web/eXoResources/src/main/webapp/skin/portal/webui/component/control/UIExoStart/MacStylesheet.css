@@ -248,6 +248,7 @@
 .UIExoStart .StartMenuContainer .DecoratorBlock {
   background: #efefef;
   border: solid 1px #a4b0b0 ;
+  margin-bottom: 4px;
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {

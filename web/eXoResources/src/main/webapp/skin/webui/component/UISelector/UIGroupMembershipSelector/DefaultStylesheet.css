@@ -20,6 +20,10 @@
   background: white;
 }
 
+.UIGroupMembershipSelector .UIBreadcumbs a.Selected {
+  color: #058ee6;
+}
+
 .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
 	float: left;
   background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGroup.gif') no-repeat;
@@ -69,6 +73,10 @@
   width: auto;
   margin: 0px 0px 2px 3px ; padding-left: 3px;
   color: black;
+}
+
+.UIGroupMembershipSelector .UITree .Node .NodeLabel .NodeSelected {
+  color: #058ee6;
 }
 
 .UIGroupMembershipSelector .MembershipSelector {

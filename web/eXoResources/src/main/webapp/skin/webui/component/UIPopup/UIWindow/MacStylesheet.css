@@ -184,6 +184,10 @@
 	overflow: auto;
 }
 /**************************** UIPageBody ************************************/
+.UIPageBody {
+  width: 99%;
+  margin: auto;
+}
 
 .UIPageBody .UIWindow {
   width: auto ; height: auto;
@@ -207,7 +211,7 @@
 
 .UIPortal .VIEW-PORTLET .UIWindow {
   width: auto ; height: auto;
-  padding: 5px 3px; 
+  padding: 5px 0px; 
 }
 
 .UIPortal .VIEW-CONTAINER .VIEW-PORTLET .UIWindow {
