@@ -27,11 +27,13 @@ import org.exoplatform.webui.event.EventListener;
 )
 
 public class UIWidgets extends UIContainer {
-  private UIWidgetContainer selectedContainer_;
+  
+  private UIWidgetContainer uiSelectedContainer_;
+  
   public UIWidgets() throws Exception {
-    UIDropDownItemSelector dropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
-    dropDownItemSelector.setOnServer(true);
-    dropDownItemSelector.setOnChange("ChangeOption");
+    UIDropDownItemSelector uiDropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
+    uiDropDownItemSelector.setOnServer(true);
+    uiDropDownItemSelector.setOnChange("ChangeOption");
     
     
     addChild(UIWidgetContainer.class, null, "Information").setRendered(false);
@@ -40,13 +42,11 @@ public class UIWidgets extends UIContainer {
     updateDropdownList();
   }
   
-  public UIWidgetContainer getSelectedContainer() {
-    return selectedContainer_;
-  }
+  public UIWidgetContainer getSelectedContainer() { return uiSelectedContainer_; }
   
-  public void setSelectedContainer(UIWidgetContainer selectedContainer) {
-    selectedContainer_ = selectedContainer;
-    selectedContainer.setRendered(true);
+  public void setSelectedContainer(UIWidgetContainer uiSelectedContainer) {
+    uiSelectedContainer_ = uiSelectedContainer;
+    uiSelectedContainer.setRendered(true);
   }
   
   public void updateDropdownList() {

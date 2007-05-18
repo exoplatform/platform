@@ -18,7 +18,6 @@ import org.exoplatform.portal.component.customization.UIPageForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIExoApplication;
-import org.exoplatform.portal.component.view.UIJSApplication;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPageBody;
 import org.exoplatform.portal.component.view.UIPortal;

@@ -6,7 +6,7 @@
   
   jsmanager.importJavascript('eXo.widgets.UIWidget');
   jsmanager.addJavascript('eXo.widgets.UIWidget.init();');
-  component = uicomponent.getUIComponent();
+  uicontent = uicomponent.getUIComponent();
 %>
 
 <div class="UIWidget">
@@ -17,7 +17,7 @@
     			<div class="CenterControlBar">
 			    	<div class="WidgetDragHandleArea" title="Drag this Widget"><span></span></div>
 			    	<div class="SeparatorLine"><span></span></div>
-				    <a class="EditWidgetIcon" title="Edit this Widget" href="<%=component.event("Edit")%>"><span></span></a>
+				    <a class="EditWidgetIcon" title="Edit this Widget" href="<%=uicontent.event("Edit")%>"><span></span></a>
 				  	<a class="CloseWidgetIcon" href="#" title="Close this Widget"><span></span></a>
 				  	<div style="clear: left"><span></span></div>
 				  </div>
@@ -27,7 +27,7 @@
   </div>
  	<div style="clear: right"><span></span></div>
   <div class="WidgetApplication">
-   <% component.processRender(rcontext); %>
+   <%uicontent.processRender(rcontext); %>
   </div>
   <div><span></span></div>
 </div>

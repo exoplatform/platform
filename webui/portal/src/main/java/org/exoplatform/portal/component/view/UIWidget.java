@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
-import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 
 /**
@@ -14,18 +14,11 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * May 16, 2007  
  */
 
-@ComponentConfig(
-  template = "system:/groovy/portal/webui/component/view/UIWidget.gtmpl"
-)
-
-public class UIWidget extends UIPortalComponent {
-  private UIComponent component_;
+@ComponentConfig(template = "system:/groovy/portal/webui/component/view/UIWidget.gtmpl")
+public class UIWidget extends UIComponentDecorator {
   
-  public UIComponent getUIComponent() {
-    return component_;
+  public UIWidget() {
+    
   }
   
-  public void setUIComponent(UIComponent com) { 
-    component_ = com; 
-  }
 }

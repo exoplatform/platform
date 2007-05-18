@@ -21,11 +21,10 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfig(
   template = "system:/groovy/portal/webui/component/view/UISystemWidgets.gtmpl" ,
-    events = {
-      @EventConfig(listeners = UISystemWidgets.EditActionListener.class ),
-      @EventConfig(listeners = UISystemWidgets.LogoutActionListener.class)
+  events = {
+    @EventConfig(listeners = UISystemWidgets.EditActionListener.class ),
+    @EventConfig(listeners = UISystemWidgets.LogoutActionListener.class)
   }
-      
 )
 public class UISystemWidgets extends UIContainer {
   
@@ -56,7 +55,7 @@ public class UISystemWidgets extends UIContainer {
   
   static  public class EditActionListener extends EventListener {
     public void execute(Event event) throws Exception {
-      System.out.println("\n\n\n\n==============================Edit duoc roi");
+      System.out.println("\n\n\n\n =========> edit system component \n\n");
       
     }
   }

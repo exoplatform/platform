@@ -13,10 +13,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * May 16, 2007  
  */
 
-@ComponentConfig(
-  template = "system:/groovy/portal/webui/component/view/UIWidgetContainer.gtmpl"
-)
-
+@ComponentConfig( template = "system:/groovy/portal/webui/component/view/UIWidgetContainer.gtmpl")
 public class UIWidgetContainer extends UIContainer {
   
   public UIWidgetContainer() throws Exception {
