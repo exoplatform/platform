@@ -103,7 +103,7 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
           writer.append(uiForm.event("Remove", getId()+String.valueOf(i))).append("\">");
           writer.append("<span></span></a>");
         }
-        writer.append("<a class=\"AddNewNodeIcon\" href=\"");
+        writer.append("<a class=\"AddNewNodeIcon  LeftBlock\" href=\"");
         writer.append(uiForm.event("Add", getId())).append("\">");
         writer.append("<span></span></a>");
       }      

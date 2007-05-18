@@ -58,35 +58,38 @@ public class UITestForm extends UIForm {
 
   public UITestForm() throws Exception {  
 //    addChild(UIAddApplication.class, null, null).setRendered(true);
-////    addChild(UIAddJSApplication.class, null, null).setRendered(false);
-    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
-    ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
+//    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
+//    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
+//    ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
+//    
+//    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
+//    uiSelectBox.setOnChange("Onchange");
+//    UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);
+//    
+//    addUIFormInput(uiSelectBox) ;
+//    addUIFormInput(radioBoxInput);
+//    UIFormMultiValueInputSet uiFormMultiValue = new UIFormMultiValueInputSet("trong", "trong") ;
+//    uiFormMultiValue.setType(UIFormUploadInput.class) ;
+//    addUIFormInput(uiFormMultiValue) ;
+//    addUIFormInput(new UIFormTextAreaInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, null));
+//    addUIFormInput(new UIFormDateTimeInput(FIELD_DATE_TIME, FIELD_DATE_TIME, null));
+//    addUIFormInput(new UIFormHiddenInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null));
+//    addUIFormInput(new UIFormStringInput(FIELD_STRING_INPUT, FIELD_STRING_INPUT, null));
+//    addUIFormInput(new UIFormUploadInput("upload", "upload")) ;
+//    addUIFormInput(new UIFormUploadInput("upload2", "upload2")) ;
+//    
+//    UIFormMultiValueInputSet multiValueInputSet =  new UIFormMultiValueInputSet(FIELD_MULTI_VALUE, FIELD_MULTI_VALUE);
+//    multiValueInputSet.setType(UIFormDateTimeInput.class);
+//    addUIFormInput(multiValueInputSet);
+//
+//    
+//    UIFormMultiValueInputSet multiValueInputSet2 = new UIFormMultiValueInputSet("StringMultiValue", "StringMultiValue");
+//    multiValueInputSet2.setType(UIFormStringInput.class);
+//    addUIFormInput(multiValueInputSet2);
     
-    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
-    uiSelectBox.setOnChange("Onchange");
-    UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);
-    
-    addUIFormInput(uiSelectBox) ;
-    addUIFormInput(radioBoxInput);
-    UIFormMultiValueInputSet uiFormMultiValue = new UIFormMultiValueInputSet("trong", "trong") ;
-    uiFormMultiValue.setType(UIFormUploadInput.class) ;
-    addUIFormInput(uiFormMultiValue) ;
-    addUIFormInput(new UIFormTextAreaInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, null));
-    addUIFormInput(new UIFormDateTimeInput(FIELD_DATE_TIME, FIELD_DATE_TIME, null));
-    addUIFormInput(new UIFormHiddenInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null));
-    addUIFormInput(new UIFormStringInput(FIELD_STRING_INPUT, FIELD_STRING_INPUT, null));
-    addUIFormInput(new UIFormUploadInput("upload", "upload")) ;
-    addUIFormInput(new UIFormUploadInput("upload2", "upload2")) ;
-    
-    UIFormMultiValueInputSet multiValueInputSet =  new UIFormMultiValueInputSet(FIELD_MULTI_VALUE, FIELD_MULTI_VALUE);
-    multiValueInputSet.setType(UIFormDateTimeInput.class);
+    UIFormMultiValueInputSet multiValueInputSet = new UIFormMultiValueInputSet(FIELD_MULTI_VALUE, FIELD_MULTI_VALUE);
+    multiValueInputSet.setType(UIFormStringInput.class);
     addUIFormInput(multiValueInputSet);
-
-    
-    UIFormMultiValueInputSet multiValueInputSet2 = new UIFormMultiValueInputSet("StringMultiValue", "StringMultiValue");
-    multiValueInputSet2.setType(UIFormStringInput.class);
-    addUIFormInput(multiValueInputSet2);
     
     setActions(new String[]{"Save", "Reset", "Cancel"}) ;
   }
