@@ -171,7 +171,6 @@ Browser.prototype.getBrowserType = function() {
 Browser.prototype.findPosX = function(obj) {
   var curleft = 0;
   while (obj) {
-	  alert(obj.offsetLeft) ;
     curleft += obj.offsetLeft ;
     obj = obj.offsetParent;
   }

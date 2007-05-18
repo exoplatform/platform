@@ -96,6 +96,7 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
     ByteArrayInputStream is = new ByteArrayInputStream( xml.getBytes()) ; 
     IBindingFactory bfact = BindingDirectory.getFactory(Container.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
+    System.out.println("\n\n "+ xml +"\n\n\n");
     return (Page) uctx.unmarshalDocument(is, null);
   }
 
