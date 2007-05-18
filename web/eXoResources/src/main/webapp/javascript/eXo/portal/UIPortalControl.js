@@ -172,6 +172,20 @@ ScrollManager.prototype.init = function() {
 	this.mainContainer.space = null;
 };
 
+ScrollManager.prototype.loadElements = function(elementClass, clean) {
+	if (clean) this.cleanElements();
+	this.elements.clear();
+//	var tabs = eXo.core.DOMUtil.findDescendantsByClass(this.mainContainer, "div", elementClass);
+//	for (var i = 0; i < tabs.length; i++) {
+//		var tabLink = eXo.core.DOMUtil.findDescendantsByTagName(tabs[i], "a")[0];
+//		if (this.initFunction && tabLink.href.indexOf("initAllManagers") == -1) {
+//			tabLink.href = tabLink.href.substr(0, tabLink.href.length-1).concat(", eXo.portal.UIPortalControl.initAllManagers)");
+//		}
+//		this.elements.push(tabs[i]);
+//	}
+	this.elements.pushAll(eXo.core.DOMUtil.findDescendantsByClass(this.mainContainer, "div", elementClass));
+};
+
 ScrollManager.prototype.checkAvailableSpace = function(maxSpace) { // in pixels
 	if (!maxSpace) var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer);
 	var elementsSpace = 0;
@@ -225,6 +239,13 @@ ScrollManager.prototype.getElementSpace = function(element) {
 	element.space = elementSpace;
 	return elementSpace;
 };
+
+ScrollManager.prototype.cleanElements = function() {
+	for (var i = 0; i < this.elements.length; i++) {
+		this.elements[i].space = null;
+		if (this.elements[i].decorator) this.elements[i].decorator.space = null;
+	}
+}
 
 ScrollManager.prototype.scroll = function(e) {
 	if (!e) var e = window.event;

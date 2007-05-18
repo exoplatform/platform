@@ -188,11 +188,8 @@ UIPortalNavigation.prototype.loadScroll = function(e) {
 	if (portalNav) {
 		var tabs = eXo.core.DOMUtil.findAncestorByClass(portalNav, "UIHorizontalTabs");
 		uiNav.scrollMgr.mainContainer = tabs;
-	//	if (eXo.core.Browser.isIE6()) {
-	//		uiNav.scrollMgr.mainContainer = eXo.core.DOMUtil.findAncestorByClass(portalNav, "UIHorizontalTabs");
-	//	}
 		uiNav.scrollMgr.arrowsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(tabs, "div", "ScrollButtons");
-		uiNav.scrollMgr.elements.pushAll(eXo.core.DOMUtil.findDescendantsByClass(tabs, "div", "UITab"));
+		uiNav.scrollMgr.loadElements("UITab");
 		// Configures the arrow buttons
 		var arrowButtons = eXo.core.DOMUtil.findDescendantsByTagName(uiNav.scrollMgr.arrowsContainer, "div");
 		if (arrowButtons.length == 2) {
