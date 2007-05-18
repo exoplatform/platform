@@ -24,14 +24,6 @@
  		%>
  		<div class="EditIcon" onclick="$showWCM" title="Edit Widgets Categories"><span></span></div>
 		<div style="clear: left"><span></span></div>
-		<%
-  		   //uicomponent.renderChild(UIWidgetContainer.class);
-  		  for(uiChild in uicomponent.getChildren()) {
-  		    if(!(uiChild instanceof UIDropDownItemSelector) && uiChild.isRendered()) {
-  		      uiChild.processRender(rcontext);
-  		    }
-  		  }
-  	%>
 	</div>
 	
 	<div class="WidgetDecorator">
