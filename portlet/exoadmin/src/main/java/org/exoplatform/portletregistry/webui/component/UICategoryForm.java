@@ -30,7 +30,6 @@ import org.exoplatform.webui.event.Event.Phase;
     events = {
       @EventConfig(listeners = UICategoryForm.SaveActionListener.class),
       @EventConfig(phase = Phase.DECODE, listeners = UICategoryForm.CloseActionListener.class)
-      
     }
 )
 public class UICategoryForm extends UIForm { 

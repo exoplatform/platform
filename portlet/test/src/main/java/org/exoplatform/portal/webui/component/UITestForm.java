@@ -6,12 +6,10 @@ package org.exoplatform.portal.webui.component;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Hashtable;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.exoplatform.portal.component.customization.UIAddApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormDateTimeInput;
@@ -58,15 +56,16 @@ public class UITestForm extends UIForm {
 
   public UITestForm() throws Exception {  
 //    addChild(UIAddApplication.class, null, null).setRendered(true);
-//    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-//    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
-//    ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
-//    
-//    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
-//    uiSelectBox.setOnChange("Onchange");
+    
+    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
+    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
+    ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
+    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
+    uiSelectBox.setOnChange("Onchange");
+    addUIFormInput(uiSelectBox) ;
+    
 //    UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);
 //    
-//    addUIFormInput(uiSelectBox) ;
 //    addUIFormInput(radioBoxInput);
 //    UIFormMultiValueInputSet uiFormMultiValue = new UIFormMultiValueInputSet("trong", "trong") ;
 //    uiFormMultiValue.setType(UIFormUploadInput.class) ;
@@ -75,7 +74,7 @@ public class UITestForm extends UIForm {
 //    addUIFormInput(new UIFormDateTimeInput(FIELD_DATE_TIME, FIELD_DATE_TIME, null));
 //    addUIFormInput(new UIFormHiddenInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null));
 //    addUIFormInput(new UIFormStringInput(FIELD_STRING_INPUT, FIELD_STRING_INPUT, null));
-//    addUIFormInput(new UIFormUploadInput("upload", "upload")) ;
+    addUIFormInput(new UIFormUploadInput("upload", "upload")) ;
 //    addUIFormInput(new UIFormUploadInput("upload2", "upload2")) ;
 //    
     UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);

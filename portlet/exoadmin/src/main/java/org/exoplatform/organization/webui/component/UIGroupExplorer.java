@@ -25,7 +25,7 @@ import org.exoplatform.webui.event.EventListener;
  * Jun 23, 2006
  * 10:07:15 AM
  */
-@ComponentConfig( events = @EventConfig(listeners = UIGroupExplorer.ChangeNodeActionListener.class) )
+@ComponentConfig(events = @EventConfig(listeners = UIGroupExplorer.ChangeNodeActionListener.class) )
 public class UIGroupExplorer extends UIContainer {
   
 	private Group selectedGroup_ ;
