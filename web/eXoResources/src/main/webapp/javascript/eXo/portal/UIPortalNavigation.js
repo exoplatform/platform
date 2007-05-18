@@ -63,7 +63,6 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 		if (!cont.id) cont.id = "PortalNavigationContainer-"+i;
 		cont.resized = false;
 	}
-	//alert(centerMenu.offsetWidth);
 };
 
 UIPortalNavigation.prototype.setTabStyle = function() {

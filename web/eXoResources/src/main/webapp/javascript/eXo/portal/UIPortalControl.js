@@ -175,14 +175,6 @@ ScrollManager.prototype.init = function() {
 ScrollManager.prototype.loadElements = function(elementClass, clean) {
 	if (clean) this.cleanElements();
 	this.elements.clear();
-//	var tabs = eXo.core.DOMUtil.findDescendantsByClass(this.mainContainer, "div", elementClass);
-//	for (var i = 0; i < tabs.length; i++) {
-//		var tabLink = eXo.core.DOMUtil.findDescendantsByTagName(tabs[i], "a")[0];
-//		if (this.initFunction && tabLink.href.indexOf("initAllManagers") == -1) {
-//			tabLink.href = tabLink.href.substr(0, tabLink.href.length-1).concat(", eXo.portal.UIPortalControl.initAllManagers)");
-//		}
-//		this.elements.push(tabs[i]);
-//	}
 	this.elements.pushAll(eXo.core.DOMUtil.findDescendantsByClass(this.mainContainer, "div", elementClass));
 };
 
@@ -277,7 +269,6 @@ ScrollManager.prototype.scrollLeft = function() { // Same for scrollUp
 
 ScrollManager.prototype.scrollUp = function() {
 	if (this.scrollMgr) this.scrollMgr.scrollLeft();
-	alert("test");
 };
 
 ScrollManager.prototype.scrollRight = function() { // Same for scrollDown
@@ -302,26 +293,29 @@ ScrollManager.prototype.renderElements = function() {
 	for (var i = 0; i < this.elements.length; i++) {
 		if (this.elements[i].isVisible) {
 			elementsSpace += this.getElementSpace(this.elements[i]);
+			if (maxSpace-elementsSpace <= 2) {
+				// In certain browsers, a difference of 0 or 1 pixel between the container and the elements length
+				// is too big and the last element doesn't fit in the remaining space, hence we have to check
+				// for a bigger difference
+				if (this.lastDirection == 1) {
+					if (this.firstVisibleIndex < this.elements.length-1) {
+						this.otherHiddenIndex = this.firstVisibleIndex;
+						this.elements[this.firstVisibleIndex].isVisible = false;
+						this.elements[this.firstVisibleIndex++].style.display = "none";
+					}
+				} else {
+					if (this.lastVisibleIndex > 0) {
+						this.otherHiddenIndex = this.lastVisibleIndex;
+						this.elements[this.lastVisibleIndex].isVisible = false;
+						this.elements[this.lastVisibleIndex--].style.display = "none";
+					}
+				}
+				if (this.otherHiddenIndex != -1) elementsSpace -= this.getElementSpace(this.elements[this.otherHiddenIndex]);
+			}
 			this.elements[i].style.display = "block";
 		} else {
 			this.elements[i].style.display = "none";
 			this.arrowsContainer.style.display = "block";
-		}
-	}
-	// Checks that the available space is long enough, hides an element if not
-	if (elementsSpace > maxSpace) {
-		if (this.lastDirection == 1) {
-			if (this.firstVisibleIndex >= 0 && this.firstVisibleIndex < this.elements.length-1) {
-				this.otherHiddenIndex = this.firstVisibleIndex;
-				this.elements[this.firstVisibleIndex].isVisible = false;
-				this.elements[this.firstVisibleIndex++].style.display = "none";
-			}
-		} else {
-			if (this.lastVisibleIndex > 0 && this.lastVisibleIndex < this.elements.length) {
-				this.otherHiddenIndex = this.lastVisibleIndex;
-				this.elements[this.lastVisibleIndex].isVisible = false;
-				this.elements[this.lastVisibleIndex--].style.display = "none";
-			}
 		}
 	}
 	// Enables/Disables the arrow buttons

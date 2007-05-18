@@ -4,14 +4,13 @@ function UIBrowseContent() {
 
 UIBrowseContent.prototype.waitForLoadComplete = function() {
 	var bcPortlet = document.getElementById("UIBrowseContainer");
-	var subNav = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "UICBSubNavigation");
-	var firstElt = eXo.core.DOMUtil.findFirstDescendantByClass(subNav, "div", "ChildNodeItem");
-	if (firstElt && subNav.offsetWidth == firstElt.offsetWidth) window.setTimeout(eXo.portal.UIBrowseContent.waitForLoadComplete, 100);
+	var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "HomeTab");
+	var tabs = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "UIHorizontalTabs");
+	if (homeButton && tabs && homeButton.offsetWidth == tabs.offsetWidth) window.setTimeout(eXo.portal.UIBrowseContent.waitForLoadComplete, 100);
 	else eXo.portal.UIBrowseContent.loadScroll();
 };
 
 UIBrowseContent.prototype.loadScroll = function() {
-	console.log("load scroll");
 	var uiBC = eXo.portal.UIBrowseContent;
 	uiBC.bcManagers.clear();
 	var bcPortlet = document.getElementById("UIBrowseContainer");
@@ -68,15 +67,12 @@ UIBrowseContent.prototype.loadScroll = function() {
 			uiBC.bcManagers.push(currMgr);
 		}
 		// End Configuration
-		//uiBC.scrollManagersLoaded = true;
 		uiBC.initScroll();
 	}
 };
 
 UIBrowseContent.prototype.initScroll = function() {
-	console.log("init scroll");
 	var uiBC = eXo.portal.UIBrowseContent;
-	//if (!uiBC.scrollManagersLoaded) { uiBC.loadScroll(); return; }
 	if (uiBC.bcManagers.length >= 1) {
 		// Main Manager initialization
 		var mainBarMgr = uiBC.bcManagers[0];
