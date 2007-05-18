@@ -155,20 +155,6 @@
   color: blue ;
 }
 
-.UIExoStart .StartMenuContainer .MySpaceIcon {
-  height: 33px ;  
-  background: url('DefaultSkin/icons/32x32/MySpace.gif') no-repeat left ;
-  padding: 0px 0px 0px 34px ;
-  margin: 0px 0px 0px 5px ;
-}
-
-.UIExoStart .StartMenuContainer .DebugIcon {
-  height: 33px;  
-  background: url('DefaultSkin/icons/32x32/Debug.gif') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
-  margin: 0px 0px 0px 5px;
-}
-
 .UIExoStart .StartMenuContainer .SupportIcon {
   height: 33px ;  
   background: url('DefaultSkin/icons/24x24/HelpIcon.gif') no-repeat left ;

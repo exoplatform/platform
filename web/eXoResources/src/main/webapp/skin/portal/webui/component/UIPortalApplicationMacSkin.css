@@ -81,7 +81,7 @@ a {
 }
 
 .AjaxLoadingMask {
-  width: 200px; height: 95px;
+  width: 200px; height: 105px;
   background: white;
   padding: 1px;
   border: 1px solid #66667e;
@@ -100,9 +100,8 @@ a {
 }
 
 .AjaxLoadingMask .LoadingProgressBar {
-  width: 140px; height: 10px;
-  background: url('/eXoResources/background/MacSkin/LoadingProgressBar.gif') no-repeat;
-  border: solid 1px gray;
+  width: 32px; height: 32px;
+  background: url('/eXoResources/background/DefaultSkin/Loading.gif') no-repeat;
   margin: auto;
 }
 
