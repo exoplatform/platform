@@ -58,10 +58,10 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
     for(SelectItemCategory itemCategory: categories_){
       itemOptions.add(new SelectItemOption(itemCategory.getName()));
     }
-    UIDropDownItemSelector dropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
-    dropDownItemSelector.setOptions(itemOptions);
-    dropDownItemSelector.setTitle("Select Page Layout");
-    dropDownItemSelector.setSelected(0);
+    UIDropDownItemSelector uiItemSelector = addChild(UIDropDownItemSelector.class, null, null);
+    uiItemSelector.setOptions(itemOptions);
+    uiItemSelector.setTitle("Select Page Layout");
+    uiItemSelector.setSelected(0);
   }
   
   public void setSelectOptionItem(String value) {

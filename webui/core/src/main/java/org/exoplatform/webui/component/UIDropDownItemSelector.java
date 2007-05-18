@@ -84,9 +84,7 @@ public class UIDropDownItemSelector extends UIComponent {
   }
   public void setSelected(SelectItemOption select) { selected_ = select;}
   
-  public SelectItemOption<String> getSelectedOption() {
-    return selected_ ;
-  }
+  public SelectItemOption<String> getSelectedOption() { return selected_ ; }
   
   public void setSize(int i) { size = i ;}
   public int getSize() { return size; }
