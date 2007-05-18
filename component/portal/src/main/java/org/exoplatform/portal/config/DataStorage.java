@@ -10,6 +10,7 @@ import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.portlet.PortletPreferences;
 
 /**
@@ -116,4 +117,12 @@ public interface DataStorage {
   public  PageList find(Query q) throws Exception ;
   
   public List<PortalConfig> getAllPortalConfig() throws Exception;
+  
+  public void create(Widgets widgets)  throws Exception ;
+  
+  public void save(Widgets widgets)  throws Exception ;
+  
+  public void remove(Widgets widgets)  throws Exception ;
+  
+  public Widgets getWidgets(String id) throws Exception;
 }

@@ -12,6 +12,7 @@ import javax.jcr.Node;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.portlet.PortletPreferences;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
@@ -91,6 +92,23 @@ public class DataMapper {
   public PortletPreferences toPortletPreferences(Node node) throws Exception {
     String  xml = node.getProperty("data").getValue().getString() ;
     return fromXML(xml, PortletPreferences.class) ;
+  }
+  
+//------------------------------- Widgets ---------------------------------------------------------
+  void map(Node node, Widgets widget) throws Exception {
+    node.setProperty("id", widget.getId()) ;
+    node.setProperty("ownerType", widget.getOwnerType());
+    node.setProperty("ownerId", widget.getOwnerId());
+    node.setProperty("name", widget.getId());
+    node.setProperty("editPermission", widget.getEditPermission());
+    node.setProperty("accessPermissions", widget.getAccessPermission()) ;
+    node.setProperty("dataType", widget.getClass().getSimpleName()) ;
+    node.setProperty("data", toXML(widget)) ;
+  }
+  
+  Widgets toWidgets(Node node) throws Exception {
+    String xml = node.getProperty("data").getValue().getString() ;
+    return fromXML(xml, Widgets.class) ;
   }
   
 //------------------------------ Util method -----------------------------------------------  

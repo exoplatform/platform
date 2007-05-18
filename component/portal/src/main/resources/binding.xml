@@ -118,6 +118,16 @@
     <value name="owner" field="owner" usage="optional"/>
   </mapping>
   
+  <mapping name="widgets" label="widgets" class="org.exoplatform.portal.config.model.Widgets">
+    <value name="owner-type" field="ownerType"/>
+    <value name="owner-id" field="ownerId"/>
+    <value name="access-permission" field="accessPermission" 
+           set-method="setAccessPermission" get-method="getAccessPermission" usage="optional"/>
+    <value name="edit-permission" field="editPermission" usage="optional"/>
+    <collection field="children" ordered="false">
+      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
+    </collection>
+  </mapping>
   
   <mapping name="content-navigation" class="org.exoplatform.portal.content.model.ContentNavigation">
     <value name="owner" field="owner"/>

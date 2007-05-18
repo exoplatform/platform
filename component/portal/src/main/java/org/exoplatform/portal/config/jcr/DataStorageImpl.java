@@ -20,6 +20,7 @@ import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.portlet.PortletPreferences;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
@@ -295,6 +296,25 @@ public class DataStorageImpl implements DataStorage {
     if(sql.indexOf(" where") < 0) sql.append(" where "); else sql.append(" and "); 
     value = value.replace('*', '%') ;
     sql.append(name).append(" like '").append(value).append("'");
+  }
+
+//------------------------------------------------- Widgets -------- ----------------------------
+  
+  public void create(Widgets widgets) throws Exception {
+    
+  }
+
+  public void remove(Widgets widgets) throws Exception {
+    // TODO Auto-generated method stub
+    
+  }
+
+  public void save(Widgets widgets) throws Exception {
+    // TODO Auto-generated method stub
+  }
+  
+  public Widgets getWidgets(String id) throws Exception{
+    return null;
   }
   
 //------------------------------------------------- Util method-------- ----------------------------
