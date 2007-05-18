@@ -170,26 +170,19 @@ Browser.prototype.getBrowserType = function() {
 
 Browser.prototype.findPosX = function(obj) {
   var curleft = 0;
-  if (obj.offsetParent) {
-    while (obj.offsetParent) {
-      curleft += obj.offsetLeft ;
-      obj = obj.offsetParent;
-    }
-  } else if (obj.x) {
-    curleft += obj.x;
+  while (obj) {
+	  alert(obj.offsetLeft) ;
+    curleft += obj.offsetLeft ;
+    obj = obj.offsetParent;
   }
   return curleft;
 } ;
 
 Browser.prototype.findPosY = function(obj) {
-  var curtop = 0 ;
-  if (obj.offsetParent) {
-    while (obj.offsetParent) {
-      curtop += obj.offsetTop ;
-      obj = obj.offsetParent ;
-    }
-  } else if (obj.y) {
-    curtop += obj.y ;
+  var curtop = 0;
+  while (obj) {
+    curtop += obj.offsetTop ;
+    obj = obj.offsetParent;
   }
   return curtop;
 } ;

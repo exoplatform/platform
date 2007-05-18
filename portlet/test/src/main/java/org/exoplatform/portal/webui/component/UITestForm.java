@@ -78,9 +78,9 @@ public class UITestForm extends UIForm {
 //    addUIFormInput(new UIFormUploadInput("upload", "upload")) ;
 //    addUIFormInput(new UIFormUploadInput("upload2", "upload2")) ;
 //    
-//    UIFormMultiValueInputSet multiValueInputSet =  new UIFormMultiValueInputSet(FIELD_MULTI_VALUE, FIELD_MULTI_VALUE);
-//    multiValueInputSet.setType(UIFormDateTimeInput.class);
-//    addUIFormInput(multiValueInputSet);
+    UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
+    test.setType(UIFormDateTimeInput.class);
+    addUIFormInput(test);
 //
 //    
 //    UIFormMultiValueInputSet multiValueInputSet2 = new UIFormMultiValueInputSet("StringMultiValue", "StringMultiValue");

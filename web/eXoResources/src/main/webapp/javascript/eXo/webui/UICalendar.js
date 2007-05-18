@@ -14,12 +14,17 @@ UICalendar = function(calendarId) {
   this.months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 }
 
-UICalendar.prototype.show = function(field) {
+UICalendar.prototype.init = function(field) {
+	this.dateField = field;
+  field.offsetParent.appendChild(document.getElementById(this.calendarId))
+  this.show();
+}
+
+UICalendar.prototype.show = function() {
 	document.onmousedown = new Function('eXo.webui.UICalendar.hide()') ;
-  this.dateField = field;
 	var re = /^(\d{1,2}\/\d{1,2}\/\d{1,4})\s*(\s+\d{1,2}:\d{1,2}:\d{1,2})?$/i;
   this.selectedDate = new Date();
-	if(re.test(field.value)) {
+	if(re.test(this.dateField.value)) {
 	  var dateParts = this.dateField.value.split(" ");
 	  var arr = dateParts[0].split("/") ;
 	  this.selectedDate.setDate(parseInt(arr[1],10)) ;
@@ -36,7 +41,6 @@ UICalendar.prototype.show = function(field) {
 
   var clndr = document.getElementById(this.calendarId);
   clndr.lastChild.innerHTML = this.renderCalendar();
-
   var x = eXo.core.Browser.findPosX(this.dateField);
   var y = eXo.core.Browser.findPosY(this.dateField) + this.dateField.offsetHeight;
 
@@ -45,13 +49,11 @@ UICalendar.prototype.show = function(field) {
 	  left = x + "px";
 	  top = y + "px";
   }
-  if (document.all) {
-  	with(document.getElementById('UICalendarControlIFrame').style) {
-	    display = 'block';
-	    width = clndr.lastChild.offsetWidth + "px";
-	    height = clndr.lastChild.offsetHeight + "px";
-  	}
-  }
+	with(document.getElementById('UICalendarControlIFrame').style) {
+    display = 'block';
+    width = clndr.lastChild.offsetWidth + "px";
+    height = clndr.lastChild.offsetHeight + "px";
+	}
 }
 
 UICalendar.prototype.hide = function() {
@@ -119,7 +121,7 @@ UICalendar.prototype.renderCalendar = function() {
 	table += 		'	</div>';
 	table += 		'	<div class="CalendarTimeBox">';
 	table += 		'		<div class="CalendarTimeBoxR">';
-	table += 		'			<div class="CalendarTimeBoxM"><span><input size="2" maxlength="2" value="' + this.currentDate.getHours() + '">:<input size="2" maxlength="2" value="' + this.currentDate.getMinutes() + '">:<input size="" maxlength="" value="' + this.currentDate.getSeconds() + '"></span></div>';
+	table += 		'			<div class="CalendarTimeBoxM"><span><input size="2" maxlength="2" value="' + this.currentDate.getHours() + '">:<input size="2" maxlength="2" value="' + this.currentDate.getMinutes() + '">:<input size="2" maxlength="2" value="' + this.currentDate.getSeconds() + '"></span></div>';
 	table += 		'		</div>';
 	table += 		'	</div>';
 	table += 		'</div>';
@@ -128,8 +130,6 @@ UICalendar.prototype.renderCalendar = function() {
 
 UICalendar.prototype.changeMonth = function(change) {
 	this.currentDate.setMonth(this.currentDate.getMonth() + change)
-//  alert(this.currentDate.getDate() + " : " + this.currentDate.getMonth() + " : " + this.currentDate.getYear() + "\n" + this.selectedDate.getDate() + " : " + this.selectedDate.getMonth() + " : " + this.selectedDate.getYear())
-
   var clndr = document.getElementById(this.calendarId);
   clndr.lastChild.innerHTML = this.renderCalendar();
 }

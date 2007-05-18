@@ -123,7 +123,8 @@
   vertical-align: bottom;
 }
 
-.UICalendar input {
+.UICalendar .CalendarTimeBox .CalendarTimeBoxM input {
+  float: none;
   padding: 0px;
   border: 0px;
   width: 15px;
