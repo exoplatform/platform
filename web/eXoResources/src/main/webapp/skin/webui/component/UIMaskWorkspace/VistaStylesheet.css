@@ -229,6 +229,7 @@
   overflow: auto ;
   background: #ffffff;
   border: 1px solid #a4a4a4;
+  background: white url('VistaSkin/background/ApplicationListContainerBG1x13.png') repeat-x bottom;
 }
 
 .UIAddApplication .UIItemSelector .ItemDetailList {
