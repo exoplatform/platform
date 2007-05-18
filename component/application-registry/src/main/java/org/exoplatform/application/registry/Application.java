@@ -8,7 +8,7 @@ package org.exoplatform.application.registry;
 import java.util.Date;
 
 /**
- * Created y the eXo platform team
+ * Created by the eXo platform team
  * User: Benjamin Mestrallet
  * Date: 15 juin 2004
  *
@@ -23,8 +23,9 @@ public class Application {
   private Date createdDate;
   private String owner;
   private Date modifiedDate;
-  private String[] accessGroup ;
-
+  private String accessPermission ;
+  private transient String[] accessPermissions ;
+  private String editPermission ;
   private String applicationGroup ;
   private String applicationName ;
   private String applicationType ;
@@ -59,8 +60,30 @@ public class Application {
   
   public void setOwner(String s) { this.owner = s; }
   
-  public String[] getAccessGroup() { return accessGroup ; }
-  public void setAccessGroup(String[] group) { accessGroup =  group ; }
+  public void setAccessPermissions(String[] permiss) { accessPermissions = permiss ; }  
+  public String[] getAccessPermissions() { return accessPermissions ; }
+  
+  public String getAccessPermission() {
+    if (accessPermissions == null || accessPermissions.length < 1) return null ;
+    StringBuilder builder = new StringBuilder() ;
+    for (int i= 0; i < accessPermissions.length; i ++) {
+      builder.append(accessPermissions[i]) ;
+      if (i < (accessPermissions.length - 1)) builder.append(',') ;
+    }
+    
+    return builder.toString() ;
+  }
+  public void setAccessPermission(String permiss) {
+    accessPermission = permiss ;
+    if (accessPermission == null) return ;
+    accessPermissions = accessPermission.split(",") ;
+    for (int i = 0; i < accessPermissions.length ; i++) {
+      accessPermissions[i] = accessPermissions[i].trim() ;
+    }
+  } 
+  
+  public String getEditPermission() { return editPermission ; }
+  public void setEditPermission(String editPermiss) { editPermission = editPermiss; }
   
   public String getApplicationGroup() { return applicationGroup; }
   public void setApplicationGroup(String applicationGroup) {

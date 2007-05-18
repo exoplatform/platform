@@ -5,10 +5,9 @@
 package org.exoplatform.portletregistry.webui.component;
 
 import java.util.Calendar;
-
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.organization.webui.component.UIAccessGroup;
+import org.exoplatform.organization.webui.component.UIListPermissionSelector;
 import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -34,16 +33,16 @@ public class UIPermissionForm extends UIForm {
   private Application portlet_;
   
   public UIPermissionForm() throws Exception{
-    addChild(UIAccessGroup.class, null, "Permission");
+    UIListPermissionSelector selector = addChild(UIListPermissionSelector.class, null, "UIListPermissionSelector") ;
+    selector.setName("UIListPermissionSelector") ;
   }
   
-  public void setValue(Application portlet) throws Exception {    
+  public void setValue(Application portlet) throws Exception {
     portlet_ = portlet;
-    String[] accessGroup = new String[]{};
-    if(portlet.getAccessGroup() != null) { 
-      accessGroup = portlet.getAccessGroup();
+    String[] accessPermissions = portlet_.getAccessPermissions() ;
+    if (accessPermissions != null && accessPermissions.length > 0) {
+      getChild(UIListPermissionSelector.class).setValue(accessPermissions) ;
     }
-    getChild(UIAccessGroup.class).setGroups(accessGroup);
   }
   
   public Application getPortlet() { return portlet_; }
@@ -52,13 +51,11 @@ public class UIPermissionForm extends UIForm {
     public void execute(Event<UIPermissionForm> event) throws Exception {
       UIPermissionForm  uiPermissionForm = event.getSource();
       Application portlet = uiPermissionForm.getPortlet() ;
-
-      UIAccessGroup accessGroupForm = uiPermissionForm.getChild(UIAccessGroup.class);
-      portlet.setAccessGroup(accessGroupForm.getAccessGroup());
+      UIListPermissionSelector listPermissionSelector = uiPermissionForm.getChild(UIListPermissionSelector.class) ;
+      portlet.setAccessPermissions(listPermissionSelector.getValue()) ;
       ApplicationRegistryService service = uiPermissionForm.getApplicationComponent(ApplicationRegistryService.class) ;
       portlet.setModifiedDate(Calendar.getInstance().getTime());
-      service.update(portlet) ;
-      
+      service.update(portlet) ;      
       UIPopupWindow popupWindow = uiPermissionForm.getParent();
       popupWindow.setShow(false);
     }

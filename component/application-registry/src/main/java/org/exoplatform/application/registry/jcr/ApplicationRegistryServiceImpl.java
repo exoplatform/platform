@@ -27,7 +27,7 @@ import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
 import org.exoplatform.web.WebAppController;
 
 /**
- * Created y the eXo platform team
+ * Created by the eXo platform team
  * User: lebienthuy@gmail.com
  * Date: 3/7/2007
  */
@@ -192,38 +192,39 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   
   
   @SuppressWarnings("unchecked")
+    //TODO: Not complete
   public List<ApplicationCategory> getApplicationCategories(String accessUser) throws Exception {
     List<ApplicationCategory> categories = getApplicationCategories();
     
     List<Membership> memberships = (List<Membership>) orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
-    String [] groups = new String[memberships.size()];
+    String [] permissions = new String[memberships.size()];
     for(int i = 0; i < memberships.size(); i++) {
-      groups[i] = memberships.get(i).getGroupId();
+      permissions[i] = memberships.get(i).getMembershipType() + ":" + memberships.get(i).getGroupId() ;
+      System.out.println("\n\n\npermission: " + permissions[i]);
     }
-    
     
     Iterator<ApplicationCategory> iter = categories.iterator();
     while(iter.hasNext()) {
       ApplicationCategory category = iter.next();
-      if(groups == null || computePermission(category, groups)) continue;
+      if(permissions == null || computeAccessPermission(category, permissions)) continue;
       iter.remove();
     }
-    
+
     return categories;
   }
-  
-  private boolean computePermission(ApplicationCategory category, String [] groups) throws Exception {
+  //TODO: Not complete
+  private boolean computeAccessPermission(ApplicationCategory category, String [] permissions) throws Exception {
     List<Application> apps = getApplications(category);
     Iterator<Application> iter = apps.iterator();
     boolean remove = true;
     while(iter.hasNext()) {
       Application app = iter.next();
-      String [] accessGroups = app.getAccessGroup();
-      if(accessGroups == null) continue;
+      String [] appAccessPermissions = app.getAccessPermissions();
+      if(appAccessPermissions == null) continue;
       remove = true;      
-      for(String accessGroup : accessGroups) {
-        for(String group : groups) {
-          if(accessGroup.equals(group)) {
+      for(String accessPermission : appAccessPermissions) {
+        for(String permission : permissions) {
+          if(accessPermission.equals(permission)) {
             remove = false;
             break;            
           }
@@ -232,6 +233,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       }
       if(remove) iter.remove();
     }
+
     return apps.size() > 0;
   }
 

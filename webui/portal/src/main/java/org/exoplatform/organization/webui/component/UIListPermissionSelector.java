@@ -37,7 +37,7 @@ import org.exoplatform.webui.event.Event.Phase;
 public class UIListPermissionSelector extends UISelector<String[]> { 
 
   public UIListPermissionSelector() throws Exception {
-    UIGrid uiGrid = addChild(UIGrid.class, null, "TableGroup") ;
+    UIGrid uiGrid = addChild(UIGrid.class, null, "PermissionGrid") ;
     uiGrid.configure("expression", new String[]{"groupId", "membership"}, new String[]{"Delete"});
     uiGrid.getUIPageIterator().setPageList(new ObjectPageList(new ArrayList<Permission>(), 10));
     
