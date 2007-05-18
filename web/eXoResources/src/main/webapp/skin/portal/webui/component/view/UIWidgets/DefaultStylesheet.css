@@ -19,7 +19,7 @@
 }
 
 .UIWidgets .WidgetDecorator {
-	width: 237px;
+	width: 236px;
 }
 
 .UIWidgets .WidgetDecorator .TopLeftWidgetsDecorator {
@@ -267,13 +267,13 @@
 .UIWidgetContainer .UIInfoWidget .DownloadButton .MiddleButton{
 	height: 22px;
 	background: url('DefaultSkin/background/CenterDownloadButton1x22.gif') repeat-x;
+	text-align:center;
 }
 
 .UIWidgetContainer .UIInfoWidget .DownloadButton a{
 	line-height: 22px; vertical-align: middle;
 	color: #ab6c17;
 	font-size: 11px; font-weight: bold;
-	text-align:center;
 }
 
 .UIWidgetContainer .UIInfoWidget .DownloadButton a:hover{

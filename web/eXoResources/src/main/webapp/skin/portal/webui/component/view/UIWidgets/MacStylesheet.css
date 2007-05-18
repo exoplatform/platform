@@ -4,73 +4,34 @@
 
 .UIWidgets .ItemSelectorContainer .EditIcon {
 	float: left;
-	width: 20px; height: 21px;
-	background: url('DefaultSkin/icons/EditWidgetCategoryButton.gif') no-repeat top;
+	width: 28px; height: 25px;
+	background: url('MacSkin/icons/EditWidgetCategoryButton.png') no-repeat right;
 	cursor: pointer;
 }
 
 .UIWidgets .ItemSelectorContainer .UIDropDownItemSelector{
-	width: 216px;
+	width: 208px;
 	float: left;
 }
 
+.UIWidgets .ItemSelectorContainer .UIDropDownItemSelector .RightItemInfoBar{
+	background: none;
+	padding-right: 0px;
+}
+
 .UIWidgets .UIDropDownItemSelector .ComponentIcon {
-	background: url('DefaultSkin/icons/WidgetIcon.gif') no-repeat center;
+	background: url('MacSkin/icons/WidgetIcon.png') no-repeat center;
 }
 
 .UIWidgets .WidgetDecorator {
-	width: 237px;
-}
-
-.UIWidgets .WidgetDecorator .TopLeftWidgetsDecorator {
-	background: url(DefaultSkin/background/TLWidgetDecorator2x2.gif) no-repeat left;
-	padding-left: 2px;
-	height: 2px;
-}
-
-.UIWidgets .WidgetDecorator .TopRightWidgetsDecorator{
-	background: url(DefaultSkin/background/TRWidgetDecorator2x2.gif) no-repeat right;
-	padding-right: 2px;
-	height: 2px;
-}
-
-.UIWidgets .WidgetDecorator .TopCenterWidgetsDecorator{
-	background: url(DefaultSkin/background/TCWidgetDecorator1x2.gif) repeat-x;
-	height: 2px;	
-}
-
-.UIWidgets .WidgetDecorator .MiddleLeftWidgetsDecorator{
-	background: url(DefaultSkin/background/MLWidgetDecorator2x1.gif) repeat-y left;
-	padding-left: 2px;
-}
-
-.UIWidgets .WidgetDecorator .MiddleRightWidgetsDecorator{
-	background: url(DefaultSkin/background/MRWidgetDecorator2x1.gif) repeat-y right;
-	padding-right: 2px;
-}
-
-.UIWidgets .WidgetDecorator .MiddleCenterWidgetsDecorator{
+	width: 232px;
+	border: 1px white solid;
 }
 
 .UIWidgets .WidgetDecorator .WidgetsDecoratorBackground{
 	padding: 5px;
-}
-
-.UIWidgets .WidgetDecorator .BottomLeftWidgetsDecorator{
-	background: url(DefaultSkin/background/BLWidgetDecorator2x2.gif) no-repeat left;
-	padding-left: 2px;
-	height: 2px; 
-}
-
-.UIWidgets .WidgetDecorator .BottomRightWidgetsDecorator{
-	background: url(DefaultSkin/background/BRWidgetDecorator2x2.gif) no-repeat right;
-	padding-right: 2px;
-	height: 2px; 
-}
-
-.UIWidgets .WidgetDecorator .BottomCenterWidgetsDecorator{
-	background: url(DefaultSkin/background/BCWidgetDecorator1x2.gif) repeat-x;
-	height: 2px; 
+	border: 1px #5a8ac1 solid;
+	background: url('MacSkin/background/WidgetDecoratorBG1x85.png') repeat-x bottom;
 }
 
 /***************************************  UIWidgetContainer   **************************************/
@@ -78,64 +39,64 @@
 }
 
 .UIWidgetContainer .WidgetNavigator {
-	height: 27px;
-	width: 75px;
+	height: 33px;
+	width: 115px;
 	float: right;
 }
 
 .UIWidgetContainer .LeftWidgetNavBar {
-	height: 25px;
-	background: url('DefaultSkin/background/LeftWidgetNavBar4x25.gif') no-repeat left;
-	padding-left: 4px;	
+	height: 33px;
+	background: url('MacSkin/background/LeftWidgetNavBar15x33.png') no-repeat left;
+	padding-left: 15px;	
 }
 
 .UIWidgetContainer .RightWidgetNavBar {
-	height: 25px;
-	background: url('DefaultSkin/background/RightWidgetNavBar4x25.gif') no-repeat right;
-	padding-right: 4px;	
+	height: 33px;
+	background: url('MacSkin/background/RightWidgetNavBar17x33.png') no-repeat right;
+	padding-right: 17px;	
 }
 
 .UIWidgetContainer .CenterWidgetNavBar {
-	height: 25px;
-	background: url('DefaultSkin/background/CenterWidgetNavBar1x25.gif') repeat-x;
+	height: 33px;
+	background: url('MacSkin/background/CenterWidgetNavBar1x33.png') repeat-x;
 }
 
 .UIWidgetContainer .WidgetNavigator .Icon{
-	height: 16px;
-	width: 16px;
+	height: 22px;
+	width: 22px;
 	float: left;
 	margin: 4px 0px 0px 4px;
 	cursor: pointer;
 }	
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollDownButton{
-	background: url('DefaultSkin/icons/DisableScrollDownButton.gif') no-repeat center;
+	background: url('MacSkin/icons/DisableScrollDownButton.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollDownButton{
-	background: url('DefaultSkin/icons/ScrollDownButton.gif') no-repeat center;
+	background: url('MacSkin/icons/ScrollDownButton.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollUpButton{
-	background: url('DefaultSkin/icons/ScrollUpButton.gif') no-repeat center;
+	background: url('MacSkin/icons/ScrollUpButton.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollUpButton{
-	background: url('DefaultSkin/icons/DisableScrollUpButton.gif') no-repeat center;
+	background: url('MacSkin/icons/DisableScrollUpButton.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .AddWidgetButton{
-	background: url('DefaultSkin/icons/AddWidgetButton.gif') no-repeat center;
+	background: url('MacSkin/icons/AddWidgetButton.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetControlBar {
   float: right;
-	width: 76px; height: 20px;
-	padding-right: 7px;
+	width: 100px; height: 27px;
+	padding-right: 3px;
 }
 
 .UIWidgetContainer .WidgetControl {
-	width: 74px; height: 20px;
+	width: 98px; height: 27px;
 }
 
 .UIWidgetContainer .WidgetApplication {
@@ -143,34 +104,34 @@
 }
 
 .UIWidgetContainer .WidgetControl .LeftControlBar{
-	height: 19px;
-	background: url('DefaultSkin/background/LeftWidgetControlBar2x19.gif') no-repeat left;	
-	padding-left: 2px;
+	height: 27px;
+	background: url('MacSkin/background/LeftWidgetControlBar12x27.png') no-repeat left;	
+	padding-left: 12px;
 }
 
 .UIWidgetContainer .WidgetControl .RightControlBar{
-	height: 19px;
-	background: url('DefaultSkin/background/RightWidgetControlBar2x19.gif') no-repeat right;	
-	padding-right: 2px;
+	height: 27px;
+	background: url('MacSkin/background/RightWidgetControlBar12x27.png') no-repeat right;	
+	padding-right: 12px;
 }
 
 .UIWidgetContainer .WidgetControl .CenterControlBar{
-	height: 19px;
-	background: url('DefaultSkin/background/CenterWidgetControlBar1x19.gif') repeat-x;	
+	height: 27px;
+	background: url('MacSkin/background/CenterWidgetControlBar1x27.png') repeat-x;	
 }
 
 .UIWidgetContainer .WidgetControl .WidgetDragHandleArea {
 	float: left;
 	width: 17px; height: 13px;
 	cursor: move;
-	margin: 3px 3px 0px 3px;
+	margin: 6px 3px 0px 3px;
 	background: url('DefaultSkin/background/WidgetDragArea2x2.gif');
 }
 
 .UIWidgetContainer .WidgetControl .SeparatorLine {
 	float: left;
-	width: 2px; height: 13px;
-	margin: 3px 3px 0px 3px;
+	width: 2px; height: 15px;
+	margin: 5px 3px 0px 3px;
 	background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y;
 	
 }
@@ -179,16 +140,16 @@
 	float: left;
 	width: 16px; height: 16px;
 	cursor: pointer;
-	margin: 2px 3px 0px 0px;
-	background: url('DefaultSkin/icons/EditWidgetIcon.gif');	
+	margin: 5px 5px 0px 2px;
+	background: url('MacSkin/icons/EditWidgetIcon.gif');	
 }
 
 .UIWidgetContainer .WidgetControl .CloseWidgetIcon {
 	float: left;
 	width: 16px; height: 16px;
 	cursor: pointer;
-	margin: 2px 0px 0px 0px;
-	background: url('DefaultSkin/icons/CloseWidgetIcon.gif');	
+	margin: 5px 0px 0px 2px;
+	background: url('MacSkin/icons/CloseWidgetIcon.gif');	
 }
 
 /*================eXo Info Widget=======================================*/
@@ -267,129 +228,16 @@
 .UIWidgetContainer .UIInfoWidget .DownloadButton .MiddleButton{
 	height: 22px;
 	background: url('DefaultSkin/background/CenterDownloadButton1x22.gif') repeat-x;
+	text-align:center;
 }
 
 .UIWidgetContainer .UIInfoWidget .DownloadButton a{
 	line-height: 22px; vertical-align: middle;
 	color: #ab6c17;
 	font-size: 11px; font-weight: bold;
-	text-align:center;
 }
 
 .UIWidgetContainer .UIInfoWidget .DownloadButton a:hover{
 	color: #d79a2f;
 }
 
-/***************************************  UIWidgetContainer   **************************************/
-.UIWidgetContainer {
-	padding: 2px 0px 0px 0px;
-	border-bottom: none;
-}
-
-.UIWidgetContainer .TopLeftWidgetContainer {
-  background: url('MacSkin/background/TopLeftWidgetContainer7x6.png') no-repeat left;
-  padding: 0px 0px 0px 7px;
-}
-
-.UIWidgetContainer .TopRightWidgetContainer {
-  background: url('MacSkin/background/TopRightWidgetContainer7x6.png') no-repeat right;
-  padding: 0px 7px 0px 0px;
-}
-
-.UIWidgetContainer .TopCenterWidgetContainer {
-  background: url('MacSkin/background/TopCenterWidgetContainer1x6.png') repeat-x;
-  height: 6px;
-}
-
-.UIWidgetContainer .MiddleLeftWidgetContainer {
-  background: url('MacSkin/background/MiddleLeftWContainer7x1.png') repeat-y left;
-  padding: 0px 0px 0px 7px;
-}
-
-.UIWidgetContainer .MiddleRightWidgetContainer {
-  background: url('MacSkin/background/MiddleRightWContainer7x1.png') repeat-y right;
-  padding: 0px 7px 0px 0px;
-}
-
-.UIWidgetContainer .MiddleRightWidgetContainer .MiddleWidgetContainer {
-  background: url('MacSkin/background/WidgetContainerBG10x10.png') repeat;
-}
-
-.UIWidgetContainer .BottomLeftWidgetContainer {
-  background: url('MacSkin/background/BottomLeftWidget7x8.png') no-repeat left ;
-	padding: 0px 0px 0px 7px;
-}
-
-.UIWidgetContainer .BottomRightWidgetContainer {
-  background: url('MacSkin/background/BottomRightWidget7x8.png') no-repeat right;
-	padding: 0px 7px 0px 0px;
-}
-
-.UIWidgetContainer .BottomCenterWidgetContainer {
-  height: 8px;
-	background: url('MacSkin/background/BottomCenterWidget1x8.png') repeat-x ;
-}
-
-.UIWidgetContainer .WidgetControlContainer {
-  height: 25px;
-  padding: 1px 8px 0px 0px;
-}
-
-.UIWidgetContainer .WidgetControlContainer .WidgetControl {
-  float: right;
-	width: 62px; height: 25px;
-	background: url('MacSkin/background/WidgetControl.png') no-repeat center;
-}
-
-.UIWidgetContainer .WidgetControlContainer .CloseWidgetIcon {
-	float: left;
-	width: 24px; height: 24px;
-	cursor: pointer;
-	margin: 0px 2px 0px 4px;
-}
-
-.UIWidgetContainer .WidgetControlContainer .EditWidgetIcon {
-	float: left;
-	width: 24px; height: 24px;
-	cursor: pointer;
-}
-
-.UIWidgetContainer .WidgetNavigator {
-	height: 32px;
-	margin: 2px 0px 0px 0px;
-}
-
-.UIWidgets .ContentIcon {
-	padding: 2px 0px 0px 0px;
-}
-
-.UIWidgets .ControlBar {
-	float: right;
-	width: 106px;
-}
-
-.UIWidgets .ControlBar .Icon24x24 {
-	float: right;
-	width: 24px; height: 24px;
-	cursor: pointer;
-}
-
-.UIWidgets .ControlBar .AddIcon {
-	background: url('MacSkin/icon/AddBarStyleIcon.gif') no-repeat center;
-}
-
-.UIWidgets .ControlBar .DownBrownArrowIcon {
-	background: url('MacSkin/icon/DownBrownArrowIcon.gif') no-repeat center;
-}
-
-.UIWidgets .ControlBar .DownBlueArrowIcon {
-	background: url('MacSkin/icon/DownBlueArrowIcon.gif') no-repeat center;
-}
-
-.UIWidgets .ControlBar .UpBlueArrowIcon {
-	background: url('MacSkin/icon/UpBlueArrowIcon.gif') no-repeat center;
-}
-
-.UIWidgets .ControlBar .UpBrownArrowIcon {
-	background: url('MacSkin/icon/UpBrownArrowIcon.gif') no-repeat center;
-}
