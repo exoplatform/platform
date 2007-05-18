@@ -1,89 +1,131 @@
-
-.SelectFileFrame {
-	width: 400px;
-	margin: 10px 0px 10px 0px;
+.UICalendar {
+  border: 1px solid #ccced7;
+  background: #e0e5f7 url('CalendarBG.gif') repeat-x top;
+  padding: 7px 5px;
+  font: normal 12px verdana;
+  width: 210px;
+	text-align: center;
 }
 
-.SelectFileLabel {
-	float: left;
-	text-align: right ;
-	margin-right: 15px;
+.UICalendar table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
 }
 
-.UploadButton {
-	float: right;
-	background: url("DefaultSkin/Background/UpArrow16x16.gif") no-repeat left;
-	cursor: pointer;
-	padding-left: 16px;
-	color: #058ee6;
-	font-weight: bold;
+.UICalendar a {
+  display: block;
+  font-weight: normal;
+  text-decoration: none;
+  color: #000;
+  height: 100%;
 }
 
-.ProgressBarFrame {
-	width: 400px;
-	margin: 10px 0px 10px 0px;
+.UICalendar .MonthYearBox {
+  border: 1px solid #d4d4d4;
+  font: normal bold 11px tahoma;
+  color: #0960c1;
 }
 
-.ProgressBar {
-	float: left;
-	width: 230px;
-	margin-left: 10px;
+.UICalendar .MonthYearBox .NextMonth {
+  background: url('NextMonth.gif') no-repeat center center;
 }
 
-.ProgressBarLeft {
-	padding: 1px ;
-	border: solid 1px gray;
+.UICalendar .MonthYearBox .PreviousMonth {
+  background: url('PreviousMonth.gif') no-repeat center center;
 }
 
-.ProgressBarMiddle {
+.UICalendar .MonthYearBox td {
+  padding: 0px;
+  background-color: white;
 }
 
-.BlueProgressBar {
-	width: 0%; height: 14px;
-	background: url("DefaultSkin/Background/BlueBg1x14.gif") repeat-x;
-	position: relative;
+.UICalendar .MonthYearBox a {
+  width: 20px; height: 20px;
 }
 
-.ProgressBarLabel {
-	width: 15px; height: 15px;
-	position: absolute;
-	left: 110px;
+.UICalendar .MonthYearBox .MonthButton {
+  border: 1px solid #d4d4d4;
+  width: 20px;
 }
 
-.ProgressBarLabel {
-	font-size: 11px;  text-align: center;
+.UICalendar .MonthYearBox .MonthButton a {
+  background-color: #e1dfdf;
 }
 
-.DeleteFileFrame {
-	float: left;
-	background: url("DefaultSkin/Background/Round18x18.gif") no-repeat;
-	cursor: pointer;
-	padding-left: 23px;
-	margin-left: 5px;
-}
-.DeleteFileLable {
-	font-size: 11px;
-	font-family: verdana;
-	line-height: 18px;
-}
-.FileName {
-	float: left;
+.UICalendar .MonthYearBox .MonthButton a:hover {
+  background-color: #ededed;
 }
 
-.FileNameLabel {
-	font-weight: bold;
-	font-size: 11px;
-	line-height: 12px;
-	vertical-align: middle;
-	width: 215px;
-	padding: 0px 0px 0px 8px;
+.UICalendar .MonthYearBox .YearButton {
+  width: 20px;
 }
 
-.RemoveFile {
-	float: left;
-	padding-left: 25px;
-	background:  url("DefaultSkin/Background/Delete18x18.gif") no-repeat;
-	height: 18px;
-	cursor: pointer;
-	margin-left: 10px;
+.UICalendar .MonthYearBox a.NextYear {
+  background: url('NextYear.gif') no-repeat center center;
+}
+
+.UICalendar .MonthYearBox a:hover.NextYear {
+  background: url('NextYear.gif') no-repeat center center;
+}
+
+
+.UICalendar .MonthYearBox a.PreviousYear {
+  background: url('PreviousYear.gif') no-repeat center center;
+}
+
+.UICalendar .MonthYearBox a:hover.PreviousYear {
+  background: url('PreviousYear.gif') no-repeat center center;
+}
+
+.UICalendar .MonthYearBox .YearButton a:hover {
+  background-color: #ededed;
+}
+
+.UICalendar .CalendarGrid {
+  padding: 4px;
+  background-color: white;
+  border: 1px solid #cfcfcf;
+}
+
+.UICalendar .CalendarGrid td {
+  border: 1px solid white;
+  background-color: #f4f4f4;
+}
+
+.UICalendar .CalendarGrid td a,.UICalendar .CalendarGrid td div {
+  padding: 5px 0px;
+}
+
+.UICalendar .CalendarGrid td a.Current {
+  background-color: #d9d9d9; color: #058ee6
+}
+
+.UICalendar .CalendarGrid td a:hover {
+  background-color: #adbbff; color: white;
+}
+
+.UICalendar .CalendarTimeBox {
+  width: 130px; margin: 5px auto;
+  background: url('CalendarDecoratorL.gif') no-repeat left;
+  padding-left: 9px;
+}
+
+.UICalendar .CalendarTimeBoxR {
+  background: url('CalendarDecoratorR.gif') no-repeat right;
+  padding-right: 9px;
+}
+
+.UICalendar .CalendarTimeBoxM {
+  line-height: 21px;
+  height: 21px;
+  background: url('CalendarDecoratorM.gif');
+  vertical-align: bottom;
+}
+
+.UICalendar input {
+  padding: 0px;
+  border: 0px;
+  width: 15px;
+  direction: rtl;
 }

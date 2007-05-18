@@ -1,108 +1,129 @@
 .UICalendar {
-  position:absolute;
-  background-color:#FFF;
-  margin:0;
-  padding:0;
-  display:none;
+  border: 1px solid #ccced7;
+  background: #e0e5f7 url('CalendarBG.gif') repeat-x top;
+  padding: 7px 5px;
+  font: normal 12px verdana;
+  width: 210px;
+	text-align: center;
 }
 
 .UICalendar table {
-  font-family: arial, verdana, helvetica, sans-serif;
-  font-size: 8pt;
-  border: 1px solid #336;
-  background-color: white;
-  width: auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
 }
 
-.UICalendar th {
-  font-weight: normal;
-}
-
-.UICalendar th a {
-  font-weight: normal;
-  text-decoration: none;
-  color: #FFF;
-  padding: 1px;
-}
-
-.UICalendar td {
-  text-align: center;
-}
-
-
-.UICalendar .header {
-  background-color: #336;
-}
-
-.UICalendar .weekday {
-  background-color: #DDD;
-  color: #000;
-}
-
-.UICalendar .weekend {
-  background-color: #FFC;
-  color: #000;
-}
-
-.UICalendar .current {
-  border: 1px solid #339;
-  background-color: red;
-  color: #FFF;
-}
-
-
-.UICalendar .weekday,
-.UICalendar .weekend,
-.UICalendar .current {
+.UICalendar a {
   display: block;
+  font-weight: normal;
   text-decoration: none;
-  border: 1px solid #FFF;
-  width: 2em;
+  color: #000;
+  height: 100%;
 }
 
-.UICalendar a:hover,
-.UICalendar a:hover,
-.UICalendar a:hover {
-  color: #FFF;
-  background-color: #336;
-  border: 1px solid #999;
+.UICalendar .MonthYearBox {
+  border: 1px solid #d4d4d4;
+  font: normal bold 11px tahoma;
+  color: #0960c1;
 }
 
-.UICalendar .previous {
-  text-align: left;
+.UICalendar .MonthYearBox .NextMonth {
+  background: url('DefaultSkin/NextMonth.gif') no-repeat center center;
 }
 
-.UICalendar .next {
-  text-align: right;
+.UICalendar .MonthYearBox .PreviousMonth {
+  background: url('DefaultSkin/PreviousMonth.gif') no-repeat center center;
 }
 
-.UICalendar .previous,
-.UICalendar .next {
-  padding: 1px 3px 1px 3px;
-  font-size: 1.4em;
+.UICalendar .MonthYearBox td {
+  padding: 0px;
+  background-color: white;
 }
 
-.UICalendar .previous a,
-.UICalendar .next a {
-  color: #FFF;
-  text-decoration: none;
-  font-weight: bold;
+.UICalendar .MonthYearBox a {
+  width: 20px; height: 20px;
 }
 
-.UICalendar .title {
-  text-align: center;
-  font-weight: bold;
-  color: #FFF;
+.UICalendar .MonthYearBox .MonthButton {
+  border: 1px solid #d4d4d4;
+  width: 20px;
 }
 
-.UICalendar .empty {
-  background-color: #000;
-  border: 1px solid #FFF;
+.UICalendar .MonthYearBox .MonthButton a {
+  background-color: #e1dfdf;
+}
+
+.UICalendar .MonthYearBox .MonthButton a:hover {
+  background-color: #ededed;
+}
+
+.UICalendar .MonthYearBox .YearButton {
+  width: 20px;
+}
+
+.UICalendar .MonthYearBox a.NextYear {
+  background: url('DefaultSkin/NextYear.gif') no-repeat center center;
+}
+
+.UICalendar .MonthYearBox a:hover.NextYear {
+  background: url('DefaultSkin/NextYear.gif') no-repeat center center;
+}
+
+
+.UICalendar .MonthYearBox a.PreviousYear {
+  background: url('DefaultSkin/PreviousYear.gif') no-repeat center center;
+}
+
+.UICalendar .MonthYearBox a:hover.PreviousYear {
+  background: url('DefaultSkin/PreviousYear.gif') no-repeat center center;
+}
+
+.UICalendar .MonthYearBox .YearButton a:hover {
+  background-color: #ededed;
+}
+
+.UICalendar .CalendarGrid {
+  padding: 4px;
+  background-color: white;
+  border: 1px solid #cfcfcf;
+}
+
+.UICalendar .CalendarGrid td {
+  border: 1px solid white;
+  background-color: #f4f4f4;
+}
+
+.UICalendar .CalendarGrid td a,.UICalendar .CalendarGrid td div {
+  padding: 5px 0px;
+}
+
+.UICalendar .CalendarGrid td a.Current {
+  background-color: #d9d9d9; color: #058ee6
+}
+
+.UICalendar .CalendarGrid td a:hover {
+  background-color: #adbbff; color: white;
+}
+
+.UICalendar .CalendarTimeBox {
+  width: 130px; margin: 5px auto;
+  background: url('DefaultSkin/CalendarDecoratorL.gif') no-repeat left;
+  padding-left: 9px;
+}
+
+.UICalendar .CalendarTimeBoxR {
+  background: url('DefaultSkin/CalendarDecoratorR.gif') no-repeat right;
+  padding-right: 9px;
+}
+
+.UICalendar .CalendarTimeBoxM {
+  line-height: 21px;
+  height: 21px;
+  background: url('DefaultSkin/CalendarDecoratorM.gif');
+  vertical-align: bottom;
 }
 
 .UICalendar input {
-  font-family: arial, verdana, helvetica, sans-serif;
-  font-size: 8pt;
   padding: 0px;
   border: 0px;
   width: 15px;
@@ -114,4 +135,12 @@
   position: absolute;
   top: 0px;
   left: 0px;
+}
+
+#UICalendarControl {
+  position:absolute;
+  background-color:#FFF;
+  margin:0;
+  padding:0;
+  display:none;
 }

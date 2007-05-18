@@ -54,7 +54,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	
 	var windowPortletControl = DOMUtil.findFirstDescendantByClass(popup, "div", "WindowPortletControl");
 	var minimizedIcon = DOMUtil.findFirstDescendantByClass(windowPortletControl, "div", "MinimizedIcon");
-	this.maximizedIcon = DOMUtil.findFirstDescendantByClass(windowPortletControl, "div", "MaximizedIcon");
+	var maximizedIcon = DOMUtil.findFirstDescendantByClass(windowPortletControl, "div", "MaximizedIcon");
 	
 	minimizedIcon.onclick = function() {
 		var index = 0 ;
@@ -71,7 +71,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 		eXo.desktop.UIDesktop.showHideWindow(popup, children[index + 1]);
 	}
 	
-	this.maximizedIcon.onclick = function() {
+	maximizedIcon.onclick = function() {
 		UIWindow.maximizeWindow(popup, this) ;
 	}
 	
