@@ -37,7 +37,14 @@
 	 		<div class="MiddleRightWidgetsDecorator">
 	 			<div class="MiddleCenterWidgetsDecorator">
 	 				<div class="WidgetsDecoratorBackground">
-	 					<% uicomponent.renderChild(UIWidgetContainer.class); %>
+	 						<%
+					  		   //uicomponent.renderChild(UIWidgetContainer.class);
+					  		  for(uiChild in uicomponent.getChildren()) {
+					  		    if(!(uiChild instanceof UIDropDownItemSelector) && uiChild.isRendered()) {
+					  		      uiChild.processRender(rcontext);
+					  		    }
+					  		  }
+					  	%>
 	 				</div>
 	 			</div>
 	 		</div>
