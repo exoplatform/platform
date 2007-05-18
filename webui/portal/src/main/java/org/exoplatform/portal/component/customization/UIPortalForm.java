@@ -9,7 +9,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.organization.webui.component.UIAccessGroup;
+import org.exoplatform.organization.webui.component.UIListPermissionSelector;
+import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
@@ -130,7 +131,19 @@ public class UIPortalForm extends UIFormTabPane {
       category.setSelectItemOptions(items);
       SelectItemOption<String> item = new SelectItemOption<String>(id, id, "Portal"+upId);
       items.add(item);
-    }  
+    } 
+    
+    UIFormInputSet uiPermissionSetting = new UIFormInputSet("PermissionSetting") ;
+    uiPermissionSetting.setRendered(false);
+    addUIComponentInput(uiPermissionSetting);
+    
+    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+    uiPermissionSetting.addUIFormInput(uiListPermissionSelector);
+    
+    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+    uiEditPermission.configure("UIPermissionSelector", "editPermission");
+    uiPermissionSetting.addUIFormInput(uiEditPermission);
     
     UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
     uiFactoryId.setItemCategories(itemCategories);
@@ -171,10 +184,10 @@ public class UIPortalForm extends UIFormTabPane {
     addUIFormInput(uiSettingSet);
     uiSettingSet.setRendered(false);
     
-    UIAccessGroup uiAccessGroup = createUIComponent(UIAccessGroup.class, null, "UIAccessGroup");
-    uiAccessGroup.setRendered(false);
-    uiAccessGroup.configure("AccessGroup", "accessGroup");
-    addUIComponentInput(uiAccessGroup);
+//    UIAccessGroup uiAccessGroup = createUIComponent(UIAccessGroup.class, null, "UIAccessGroup");
+//    uiAccessGroup.setRendered(false);
+//    uiAccessGroup.configure("AccessGroup", "accessGroup");
+//    addUIComponentInput(uiAccessGroup);
   }
   
   public PortalConfig getPortalConfig() { return portalConfig_; }
@@ -184,8 +197,8 @@ public class UIPortalForm extends UIFormTabPane {
     if(portalConfig_.getFactoryId() == null) portalConfig_.setFactoryId(DEFAULT_FACTORY_ID);    
     invokeGetBindingBean(portalConfig_) ;
     
-    UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
-    uiAccessGroup.setGroups(uiPortal.getAccessPermissions());
+//    UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
+//    uiAccessGroup.setGroups(uiPortal.getAccessPermissions());
   }
 
   static public class SaveActionListener  extends EventListener<UIPortalForm> {
@@ -198,8 +211,8 @@ public class UIPortalForm extends UIFormTabPane {
       PortalConfig portalConfig  = uiForm.getPortalConfig();
       uiForm.invokeSetBindingBean(portalConfig);
       
-      UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
-      portalConfig.setAccessPermissions(uiAccessGroup.getAccessGroup());
+//      UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
+//      portalConfig.setAccessPermissions(uiAccessGroup.getAccessGroup());
       
       if(portalConfig.getFactoryId().equals(UIPortalForm.DEFAULT_FACTORY_ID)) portalConfig.setFactoryId(null);      
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
@@ -235,14 +248,14 @@ public class UIPortalForm extends UIFormTabPane {
       PortalTemplateConfigOption selectItem = 
         (PortalTemplateConfigOption)templateInput.getSelectedCategory().getSelectItemOptions().get(0);
       List<String> groupIds = selectItem.getGroups();
-      UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
-      uiAccessGroup.clearGroups();
+//      UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
+//      uiAccessGroup.clearGroups();
       Group [] groups = new Group[groupIds.size()];
       OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class) ;
       for(int i = 0; i < groupIds.size(); i++) {
         groups[i] = service.getGroupHandler().findGroupById(groupIds.get(i));
       }
-      uiAccessGroup.addGroup(groups);
+//      uiAccessGroup.addGroup(groups);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
     }
   }
