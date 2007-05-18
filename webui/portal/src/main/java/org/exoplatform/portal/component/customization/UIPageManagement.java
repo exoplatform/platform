@@ -63,7 +63,7 @@ public class UIPageManagement extends UIManagement {
 
   public void setMode(ManagementMode mode, Event<? extends UIComponent> event) throws Exception {
     mode_ = mode;
-    if (mode == ManagementMode.EDIT) {     
+    if (mode == ManagementMode.EDIT) {
       UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
       UITree uiTree = uiNodeSelector.getChild(UITree.class);
       UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);

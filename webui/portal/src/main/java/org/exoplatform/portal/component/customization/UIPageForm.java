@@ -62,7 +62,7 @@ public class UIPageForm extends UIFormTabPane {
   public UIPageForm(InitParams initParams) throws Exception  {
     super("UIPageForm");
     
-    UIFormInputSet uiSettingSet = new UIFormInputSet("PageSetting") ;
+    UIFormInputSet uiSettingSet = new UIFormInputSet("PageSetting");
     uiSettingSet.addUIFormInput(new UIFormStringInput("pageId", null, null).setEditable(false)).
                  addUIFormInput(new UIFormStringInput("ownerType", "ownerType", null).setEditable(false)).
                  addUIFormInput(new UIFormStringInput("ownerId", "ownerId", null).setEditable(false)).

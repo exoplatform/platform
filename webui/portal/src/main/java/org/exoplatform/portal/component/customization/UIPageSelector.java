@@ -76,14 +76,14 @@ public class UIPageSelector extends UIFormInputContainer<Page> {
   }
   
   static public class SelectPageActionListener extends EventListener<UIPageBrowser> {
-    public void execute(Event<UIPageBrowser> event) throws Exception {     
-      UIPageBrowser uiPageBrowser = event.getSource() ;
-      PortalRequestContext pcontext = Util.getPortalRequestContext();      
-      String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
+    public void execute(Event<UIPageBrowser> event) throws Exception {
+      UIPageBrowser uiPageBrowser = event.getSource();
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
+      String id = event.getRequestContext().getRequestParameter(OBJECTID);
       UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
       Page page = service.getPage(id, pcontext.getRemoteUser()) ;
       
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);      
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       if(page == null){
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{id})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
@@ -107,6 +107,9 @@ public class UIPageSelector extends UIFormInputContainer<Page> {
       UIFormPopupWindow uiPopup = uiPageBrowser.getAncestorOfType(UIFormPopupWindow.class);
       if(uiPopup != null) uiPopup.setShow(false);
       uiPageSelector.setValue(page) ;
+      
+      
+      
     }
   }
 }

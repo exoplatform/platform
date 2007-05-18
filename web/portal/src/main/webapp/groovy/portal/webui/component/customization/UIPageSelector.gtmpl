@@ -5,18 +5,16 @@
 	Page page  = uicomponent.getValue();    
 	String name = "";
 	String title = "";
-	String accessGroups = "";
 	String pageId = "" ;
 	if(page != null) {
 	  name = page.getName();
 	  pageId = page.getPageId();
 	  title = page.getTitle();
-	  accessGroups = page.getAccessGroups();
 	  if (pageId == null) pageId = "" ;
 	  if (name == null) name = "" ;
 	  if (title == null) title = "" ;
-	  if (accessGroups == null) accessGroups = "" ;
 	}
+	
    
   UIPopupWindow uipopup = uicomponent.getChild(UIPopupWindow.class) ;
   
@@ -44,10 +42,6 @@
 			    <div class="OverflowContainer">
 			      <div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".label.title")%>:</div>
 			      <div class="PropertyValue">$title</div>
-			    </div>
-			    <div class="OverflowContainer">
-			      <div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".label.accessGroups")%>:</div>
-			      <div class="PropertyValue">$accessGroups</div>
 			    </div>
 			  </div>
 		  </div>
