@@ -66,6 +66,23 @@
 	margin: 50px auto;
 }
 
+.UIMaskWorkspace .UIForm .HorizontalLayout .UIFormInputSet {
+  width: 460px;
+  margin: auto;
+}
+
+.UIMaskWorkspace .UIForm .HorizontalLayout .FieldContainer {
+  padding-top: 8px;
+}
+
+.UIMaskWorkspace .UIForm .HorizontalLayout label {
+  width: 140px;
+  padding-top: 2px;
+}
+
+.UIMaskWorkspace .UIForm .HorizontalLayout input {
+  font-size: 11px;
+}
 
 /**************************** UIAddApplication ******************************************/
 .UIAddApplication .ApplicationListContainer {

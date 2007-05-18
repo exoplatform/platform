@@ -100,6 +100,7 @@
 	background: #ffffff;
 	width: 99%; margin: auto;
 	border: solid 1px #7b7b7b;
+	padding: 5px 0px 15px 0px;
 }
 
 .UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer {
@@ -111,11 +112,11 @@
 .UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer label {
 	width: 130px;
 	text-decoration: none;
-	line-height: 18px;
+	font-size: 11px;
 }
 
 .UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer input {
-	height: 18px;
+  font-size: 11px;
 }
 
 .UIOrganizationPortlet .UIFormTabPane .UIPersonalInfo .UIFormInputSet {
@@ -131,8 +132,8 @@
 .UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer label {
 	width: 120px;
 	text-decoration: none;
-	line-height: 18px;
 	margin: 0px 9px 0px 0px;
+  font-size: 11px;	
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
@@ -208,7 +209,7 @@
 }
 
 .GroupPanel .UIForm .UIAction  {
-  width: 150px;
+  width: 90px;
   padding-left: 45px;
 } 
 
@@ -288,6 +289,10 @@
   width: 150px;
   margin: 0px 10px 0px 0px;
   font-size: 11px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIForm .HorizontalLayout {
+  border: none;
 }
 
 /*#######################  UIMemberShipManagement #################################*/

@@ -3,26 +3,31 @@
   import  org.exoplatform.webui.component.UITree; 
 %>
 <div class="UIGroupMembershipSelector" id="$uicomponent.id">
-	<div class="SelectedGroupPath"><% uicomponent.renderChild(UIBreadcumbs.class); %></div>
-	<div class="OverflowContainer">
-	  <%uicomponent.renderChild(UITree.class);%>
+  <div class="Container">
+		<div class="SelectedGroupPath"><% uicomponent.renderChild(UIBreadcumbs.class); %></div>
+		<div class="GroupSelector">
+		  <div class="MembershipTitle">Browse and select a group</div>
+		  <%uicomponent.renderChild(UITree.class);%>
+		</div>
 	  <div class="MembershipSelector">
 	    <div class="MembershipTitle"><%=_ctx.appRes("UIGroupMembershipSelector.label.selectMembership")%></div>
-    <%                
-      boolean even = true ;
-      for(member in uicomponent.getListMemberhip()){
-        String rowCssClass = "OddRow" ;
-        if(even) rowCssClass = "EvenRow" ;  
-        even = !even ;
-      %>
-		    <div class="$rowCssClass">
-		      <div class="OverflowContainer">
+      <div class="OverflowContainer">
+	      <%                
+	      boolean even = true ;
+	      for(member in uicomponent.getListMemberhip()){
+	        String rowCssClass = "OddRow" ;
+	        if(even) rowCssClass = "EvenRow" ;  
+	        even = !even ;
+	      %>
+		      <div class="$rowCssClass">
 		        <div class="ItemIcon"><span></span></div>
-		          <a href="<%=uicomponent.event("SelectMembership", member)%>">$member</a>									           
+		        <a href="<%=uicomponent.event("SelectMembership", member)%>">$member</a>	
+		        <div style="clear: left"><span></span></div>								           
 		      </div>
-		    </div>
-    <%}%>
+	      <%}%>
+      </div>
 	  </div>
+		<div style="clear: left"><span></span></div>
 	</div>
 </div> 		
 

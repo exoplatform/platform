@@ -14,12 +14,12 @@
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
   background: url('MacSkin/background/NavigationBgLeft6x41.png') no-repeat left top;
   padding-left: 6px;
-  line-height: 41px;
+  height: 41px;
 }
 
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
   background: url('MacSkin/background/NavigationBg1x41.png') repeat-x top;
-  line-height: 41px;
+  height: 41px;
   padding-right: 10px;
 }
 
@@ -32,6 +32,7 @@
 .UINavigationPortlet .UIHorizontalTabs .TabsContainer {
   overflow: hidden;
   margin-left: 1px;
+  height: 100$%;
 }
 
 /* Portal Navigation sub menus */

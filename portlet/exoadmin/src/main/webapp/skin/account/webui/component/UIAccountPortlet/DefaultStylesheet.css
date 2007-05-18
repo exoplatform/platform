@@ -39,7 +39,7 @@
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
   width: 400px;
   overflow: hidden;
-  margin-left: auto; margin-right: auto;
+  margin: auto;
 }
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer label {
@@ -56,7 +56,7 @@
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetail .UIFormInputSet {
-  padding-top: 7px;
+  padding-top: 15px;
   font-size: 11px;
   border: none;
 }

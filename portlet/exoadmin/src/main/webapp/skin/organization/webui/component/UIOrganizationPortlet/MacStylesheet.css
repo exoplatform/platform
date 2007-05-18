@@ -91,13 +91,15 @@
 
 /*##############################- UIUserManagement -###########################*/
 .UIOrganizationPortlet .UIFormTabPane {
-	
+	width: 96%;
+	margin: auto;
 }
 
 .UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer {
 	width: 70%;
 	margin: auto;
 	height: 28px;
+	padding-top: 5px;
 }
 
 .UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer label {
@@ -108,6 +110,10 @@
 
 .UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer input {
 	height: 20px;
+}
+
+.UIOrganizationPortlet .UIFormTabPane .UIPersonalInfo {
+  padding: 0px;
 }
 
 .UIOrganizationPortlet .UIFormTabPane .UIPersonalInfo .UIFormInputSet {
@@ -146,10 +152,8 @@
 }
 
 .UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer label {
-  margin-left: 0px; 
-  text-align: left;
-  font-size: 11px; 
 }
+
 .UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer input {
   width: 220px;
   font-size: 11px;

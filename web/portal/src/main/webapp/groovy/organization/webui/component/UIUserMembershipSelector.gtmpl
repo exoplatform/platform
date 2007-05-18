@@ -7,7 +7,7 @@
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
 %>
-<div class="UIMembership" id="UIUserMembershipSelector" style="width: 98%; margin: auto; padding: 10px 0px 10px 0px">
+<div class="UIMembership" id="UIUserMembershipSelector" >
 	<%//Begin Membership List%>
 	<div class="MembershipList">   
 	  <table class="UIGrid" cellspacing="0" borderspacing="0" style="width: 99%">
@@ -37,7 +37,7 @@
 	            <td>$member.groupId</td>
 	            <td>$member.membershipType</td>
 	            <td>
-	              <div class="ActionContainer" style="width: 16px; margin: auto">
+	              <div class="ActionContainer" style="width: 19px; margin: auto">
 	                <div class="OverflowContainer">
 	                  <a class="DustBin16x16Icon" href="<%=uicomponent.event("DeleteMembership", String.valueOf(i))%>"><span></span></a>
 	                </div>  

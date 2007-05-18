@@ -1,12 +1,23 @@
 .UIGroupMembershipSelector {
-  padding: 5px;
-  width: 500px;
-  margin: auto;
+  padding: 10px;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs {
   font-size: 11px; font-weight: normal;
-  margin-bottom: 3px; 
+  margin-bottom: 3px; padding: 0px;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs .LeftBreadcumbsBar {
+  background: white;
+  border: 1px solid #b7b7b7;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs .RightBreadcumbsBar {
+  background: white;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs .BreadcumbsInfoBar {
+  background: white;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
@@ -20,17 +31,34 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/GridRightArrow.gif');
 }
 
+.UIGroupMembershipSelector .Container {
+  padding: 10px;
+  background: #f4f4f4;
+  border: 1px solid #e4e4e4;
+}
+
+.UIGroupMembershipSelector .MembershipTitle{
+  background: url('DefaultSkin/background/TitleBG1x20.gif') repeat-x;
+  border: 1px #b7b7b7 solid; 
+  height: 20px; line-height: 20px; vertical-align: middle;
+  padding-left: 15px;
+}
+
+.UIGroupMembershipSelector .GroupSelector {
+  float: left;
+  width: 230px;
+  border: 1px solid white;
+}
+
 .UIGroupMembershipSelector .UITree {
   border: 1px #b7b7b7 solid;
-  float: left;
-  padding:1px;
+  border-top: none;  
   background: white;
 }
 
 .UIGroupMembershipSelector .UITree .TreeContainer{
-  width: 275px; height: 140px;
+  width: 226px; height: 150px;
   overflow: auto;
-  border: 1px #b7b7b7 solid;
 }
 
 .UIGroupMembershipSelector .BlueLevelUpArrow24x24Icon {
@@ -44,53 +72,42 @@
 }
 
 .UIGroupMembershipSelector .MembershipSelector {
-  width: 203px;
-  font-weight: normal;
-  background-color: white;
-  padding: 1px ;
-  border: 1px #b7b7b7 solid; 
-  float: left;
-  margin-left: 10px;
+  background: #f4f4f4;
+  border: 1px solid white; 
+  margin-left: 240px; height: 183px;
 }
 
-.UIGroupMembershipSelector .MembershipSelector .MembershipTitle{
-  font-weight: normal;
-  background: url('DefaultSkin/background/TitleBG1x20.gif') repeat-x;
-  border-bottom: 1px #b7b7b7 solid; 
-  height: 20px; line-height: 20px; vertical-align: middle;
-  text-align: center;
+.UIGroupMembershipSelector .MembershipSelector .OverflowContainer {
+  border: #b7b7b7 1px solid;
+  border-top: none;
+  background: white;
+  height: 150px; width: auto;
+  padding: 5px 10px;
+  overflow: auto;
 }
 
 .UIGroupMembershipSelector .MembershipSelector .Label {
-  float: left;
-  height: 24px; vertical-align: middle;  line-height: 24px ;
-  font-size: 12px; color: black;
+  line-height: 24px ;
 }
 
 .UIGroupMembershipSelector .MembershipSelector  a {
-  color: black;
+  color: black; font-size: 11px; 
 }
 
 .UIGroupMembershipSelector .MembershipSelector  a:hover {
-  color: blue; font-weight: normal; font-size: 12px;
+  color: blue; 
 }
 
 .UIGroupMembershipSelector  .MembershipSelector .OddRow {
-  height: 26px ;  vertical-align: middle;  line-height: 26px ;
-  background: #e9ebf5 ;
-  margin: 1px ;
-  font-size: 12px;
+  line-height: 26px ;
 }
 
 .UIGroupMembershipSelector  .MembershipSelector .EvenRow {
-  height: 26px ; vertical-align: middle;  line-height: 26px ;
-  background: #e9ebf5 ;
-  margin: 1px ;
-  font-size: 12px;
+  line-height: 26px ;
 }
 
 .UIGroupMembershipSelector .MembershipSelector .ItemIcon {
-  margin: 5px 5px 0px 7px ;  
+  margin: 6px 3px 0px 1px ;  
   float: left ;
   width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/GrayBorderRightArrow.gif') no-repeat;  

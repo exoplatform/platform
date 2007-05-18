@@ -12,19 +12,10 @@
 <div class="UIPermissionSelector" id="UIPermissionSelector">
 	<div class="PermissionInfoContainer">
   	<%uicomponent.renderChildren();%>
-	  <%/*Begin UIToolbar*/%>
-	  <div class="PermissionSelectorTitleBar">
-		  <div class="PermissionIcon"><span></span></div>
-		  <div class="Title"><%=_ctx.appRes(uicomponent.getId() + ".label.addEditPermission")%></div>
-		  <div style="clear:left"><span></span></div>
-	  </div>
-	  <%/*End UIToolbar*/%>
+	 
 	  <%/*Begin UIToolbarContentContainer*/%>
-	  <div class="InfoContentContainer">
-  	  <div class="PermissionTypeBar">			  
-		 		<div class="SeparateLine"><span></span></div>
- 		    <div style="clear: left"><span></span></div>
-      </div>
+	  <div class="InfoContentContainer"  >
+  	  
       <div class="SelectedPermissionInfo" style="display:block;">
         <div class="OverflowContainer">
         <div class="Icon BlueInfoBox16x16Icon"><span></span></div>

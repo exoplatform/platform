@@ -224,7 +224,8 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
 	overflow: visible;
-	margin: 5px;
+	margin: 5px auto;
+	width: 450px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITab {
@@ -250,6 +251,11 @@
 	margin: auto;
 	padding: 10px 0px;
 	background: url(null);
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIForm .HorizontalLayout label {
+  width: 190px;
+  margin: 0px 10px 0px 0px;
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer label {
