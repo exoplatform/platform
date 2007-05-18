@@ -121,21 +121,37 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public UserPortalConfig createUserPortalConfig(String portalName, String template) throws Exception {
-  /*  PortalConfig portal = storage_.getPortalConfig(template) ;
-    if (portal == null) return null ;
-    portal.setName(portalName) ;
-    storage_.create(portal) ;
+    PortalConfig pconfig = storage_.getPortalConfig(template) ;
+    if (pconfig != null) {
+      pconfig.setName(portalName) ;
+      storage_.create(pconfig) ;
+    }
 
-    List<PageNavigation> navigations = new ArrayList<PageNavigation>() ;
-    PageNavigation navi = getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + template).clone() ;
-    if (navi == null) return null ;
-    navi.setOwnerId(portalName) ;
-    copyPages(navi, portalName) ;
-    create(navi) ;
-    navigations.add(navi) ;
+    List<PageNavigation> navigations = new ArrayList<PageNavigation>();
+    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + template) ;
+    if (navigation != null) {
+      navigation.setOwnerId(portalName);
+      storage_.create(navigation);
+      navigations.add(navigation);
+    }
     
-    return new UserPortalConfig(portal, navigations) ; */
-    return null;
+    Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
+    query.setOwnerType(PortalConfig.PORTAL_TYPE) ;
+    query.setOwnerId(template) ;
+    PageList pagelist = storage_.find(query) ;
+    pagelist.setPageSize(10);
+    int i = 1;
+    while(i < pagelist.getAvailablePage()) {
+      List<?>  list = pagelist.getPage(i);
+      for(Object ele : list) {
+        Page page  = (Page)ele;
+        page.setOwnerId(portalName);
+        storage_.create(page);
+      }
+      i++;
+    }
+    
+    return new UserPortalConfig(pconfig, navigations); 
   }
   
   /**

@@ -67,7 +67,7 @@ import org.exoplatform.webui.event.Event.Phase;
           value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/PortalTemplateConfigOption.groovy"
       ),
       events = {
-        @EventConfig(listeners = UIPortalForm.SaveActionListener.class),
+        @EventConfig(name  = "Save", listeners = UIPortalForm.CreateActionListener.class),
         @EventConfig(listeners = UIPortalForm.SelectItemOptionActionListener.class, phase = Phase.DECODE),
         @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
       }
@@ -238,6 +238,20 @@ public class UIPortalForm extends UIFormTabPane {
         UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
         event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
       }
+    }
+  }
+  
+  //TODO Ha implement code 
+  static public class CreateActionListener  extends EventListener<UIPortalForm> {
+    public void execute(Event<UIPortalForm> event) throws Exception {
+      System.out.println("\n\n\n == > create new portal \n\n");
+      //get portal template
+      //get portal name
+      //get UserPortalConfigService as service
+      //UserPortalConfig userPortalConfig  = service.createUserPortalConfig(portalName, template);
+      //PortalConfig pconfig =  userPortalConfig.getPortal();
+      //invokeSetting model, set other properites for portal
+      //service.update(PortalConfig pconfig)
     }
   }
   
