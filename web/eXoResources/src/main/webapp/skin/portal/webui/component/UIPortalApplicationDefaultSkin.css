@@ -25,6 +25,10 @@ form {
 	padding: 0px ; margin: 0px ;
 }
 
+html {
+	overflow-x: hidden;
+}
+
 body {
 	background: #9ed0f3 url('/eXoResources/background/DefaultSkin/eXoBodyBG.jpg') no-repeat top ;
 	margin: 0px ; padding: 0px;

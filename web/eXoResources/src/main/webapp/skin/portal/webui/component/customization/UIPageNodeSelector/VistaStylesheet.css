@@ -45,6 +45,7 @@
 
 .UIPageNodeSelector .UITree .TreeContainer .TreeLevelContainer {
   margin: 0px 0px 4px 0px;  
+  float: none;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .ExpandIcon {

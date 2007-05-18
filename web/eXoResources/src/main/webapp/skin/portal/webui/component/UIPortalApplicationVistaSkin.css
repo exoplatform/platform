@@ -25,6 +25,10 @@ form {
 	padding: 0px ; margin: 0px ;
 }
 
+html {
+	overflow-x: hidden;
+}
+
 body {
   background: url('/eXoResources/background/VistaSkin/eXoDesktopBG1.jpg') repeat bottom;
 	font-family: Verdana, Arial, Helvetica, sans-serif ;
