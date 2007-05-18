@@ -1,6 +1,15 @@
 FOR ALL THE TECHNICAL DOCUMENTATION :
 http://docs.exoplatform.org
 
+
+WARNING: eXo Enterprise WebOS is still under development. The HSQLDB database is currently
+used to persist information. You actually have to remove the \tmp\hsql (in Windows) or
+/tmp/hsql (in Unix) directory when upgrading from one pioneer build to another. Indeed,
+database schemas are not stabilized yet. You will no longer need to do this operation as
+soon as we switch to Derby (very soon, hopefully :-) ).
+
+
+
 1) How to run Tomcat
  * On the Windows platform
 
