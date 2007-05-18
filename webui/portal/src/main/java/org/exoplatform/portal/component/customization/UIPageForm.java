@@ -149,11 +149,11 @@ public class UIPageForm extends UIFormTabPane {
   }   
   
   public void processRender(WebuiRequestContext context) throws Exception {
-    super.processRender(context);  
+    super.processRender(context);
     
     UIPermissionSelector uiPermissionSelector = getChild(UIPermissionSelector.class);
-    if(uiPermissionSelector == null) return;   
-    UIPopupWindow uiPopupWindow = uiPermissionSelector.getChild(UIPopupWindow.class);    
+    if(uiPermissionSelector == null) return;
+    UIPopupWindow uiPopupWindow = uiPermissionSelector.getChild(UIPopupWindow.class);
     if(uiPopupWindow == null) return;
     uiPopupWindow.processRender(context);
   }

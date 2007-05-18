@@ -28,11 +28,11 @@ import org.exoplatform.webui.event.Event.Phase;
  * May 7, 2007
  */
 @ComponentConfig(
-    template = "system:/groovy/organization/webui/component/UIListPermissionSelector.gtmpl",
-    events = {
-        @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.DeleteActionListener.class, confirm = "UIAccessGroup.deleteAccessGroup"),
-        @EventConfig (phase = Phase.DECODE, listeners = UIPermissionSelector.SelectMembershipActionListener.class)
-    }
+  template = "system:/groovy/organization/webui/component/UIListPermissionSelector.gtmpl",
+  events = {
+    @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.DeleteActionListener.class, confirm = "UIAccessGroup.deleteAccessGroup"),
+    @EventConfig (phase = Phase.DECODE, listeners = UIPermissionSelector.SelectMembershipActionListener.class)
+  }
 )
 public class UIListPermissionSelector extends UISelector<String[]> { 
 

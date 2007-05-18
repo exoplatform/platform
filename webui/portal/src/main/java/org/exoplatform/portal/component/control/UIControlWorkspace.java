@@ -55,8 +55,6 @@ public class UIControlWorkspace extends UIWorkspace {
       super.renderChildren();
       w.write("</div>");
     }
-
   }
-
 }
 
