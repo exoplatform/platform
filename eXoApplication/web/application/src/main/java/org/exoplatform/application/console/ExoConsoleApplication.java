@@ -4,8 +4,8 @@
  **************************************************************************/
 package org.exoplatform.application.console;
 
-import org.exoplatform.application.eXoFramework.ExoFrameworkApplication;
-import org.exoplatform.application.eXoFramework.ExoFrameworkRequestContext;
+import org.exoplatform.web.application.mvc.MVCApplication;
+import org.exoplatform.web.application.mvc.MVCRequestContext;
 
 /**
  * Created by The eXo Platform SARL
@@ -13,17 +13,18 @@ import org.exoplatform.application.eXoFramework.ExoFrameworkRequestContext;
  *          tuan.nguyen@exoplatform.com
  * Apr 23, 2007  
  */
-public class ExoConsoleApplication extends ExoFrameworkApplication {
+public class ExoConsoleApplication extends MVCApplication {
   public String getApplicationId() { return "exo.app.web/eXoConsole"; }
 
   public String getApplicationName() { return "eXoConsole"; }
   public String getApplicationGroup() { return "exo.app.web"; }
+  public String getApplicationType() { return EXO_APPLICATION_TYPE; }
   
-  public void processAction(ExoFrameworkRequestContext context) throws Exception {
+  public void processAction(MVCRequestContext context) throws Exception {
     
   }
   
-  public void processRender(ExoFrameworkRequestContext context) throws Exception {
+  public void processRender(MVCRequestContext context) throws Exception {
     String script = 
       "eXo.desktop.UIDesktop.createJSApplication('eXo.application.console.UIConsoleApplication','eXoConsole','eXoConsole','/exo.app.web/javascript/');";
     context.getJavascriptManager().addCustomizedOnLoadScript(script) ;

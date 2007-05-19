@@ -4,8 +4,8 @@
  **************************************************************************/
 package org.exoplatform.application.web;
 
-import org.exoplatform.application.eXoFramework.ExoFrameworkApplication;
-import org.exoplatform.application.eXoFramework.ExoFrameworkRequestContext;
+import org.exoplatform.web.application.mvc.MVCApplication;
+import org.exoplatform.web.application.mvc.MVCRequestContext;
 
 /**
  * Created by The eXo Platform SARL
@@ -13,18 +13,18 @@ import org.exoplatform.application.eXoFramework.ExoFrameworkRequestContext;
  *          tuan.nguyen@exoplatform.com
  * Apr 23, 2007  
  */
-public class WebBrowserApplication extends ExoFrameworkApplication {
+public class WebBrowserApplication extends MVCApplication {
   public String getApplicationId() { return "exo.app.web/eXoBrowser"; }
 
   public String getApplicationName() { return "eXoBrowser"; }
-
   public String getApplicationGroup() { return "exo.app.web"; }
+  public String getApplicationType() { return EXO_APPLICATION_TYPE; }
   
-  public void processAction(ExoFrameworkRequestContext context) throws Exception {
+  public void processAction(MVCRequestContext context) throws Exception {
     
   }
   
-  public void processRender(ExoFrameworkRequestContext context) throws Exception {
+  public void processRender(MVCRequestContext context) throws Exception {
     String script = 
       "eXo.desktop.UIDesktop.createJSApplication('eXo.application.browser.UIBrowserApplication','eXoBrowser','eXoBrowser','/exo.app.web/javascript/');";
     context.getJavascriptManager().addCustomizedOnLoadScript(script) ;
