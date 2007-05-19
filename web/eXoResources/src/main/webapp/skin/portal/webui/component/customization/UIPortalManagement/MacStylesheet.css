@@ -5,18 +5,8 @@
   padding: 15px 85px 15px 0px;
 }
 
-.UIPortalManagement .ViewModeIcon {
-  float: left;
-  width: 38px;  height: 28px;
-  margin: 4px 7px 0px 10px;
-  background: url('MacSkin/background/ViewMode.gif') no-repeat;  
-}
-
-.UIPortalManagement .EditModeIcon {
-  float: left; 
-  width: 38px;  height: 28px;
-  margin: 4px 7px 0px 7px;
-  background: url('MacSkin/background/EditMode.gif') no-repeat;
+.UIPortalManagement .UIToolbar .EditToolbar .Icon{
+	margin: 4px 8px 0px 14px;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar {

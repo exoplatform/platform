@@ -91,10 +91,16 @@ a {
 
 .AjaxLoadingMask .LoadingProgressBar {
   width: 32px ; height: 40px ;
-  background: url('/eXoResources/background/DefaultSkin/Loading.gif') no-repeat center ;
+  background: url('/eXoResources/background/DefaultSkin/LoadingProgress.gif') no-repeat center ;
   margin: auto ;
 }
 
-.AjaxLoadingMask .UIAction {
+.AjaxLoadingMask .UIAction .ActionContainer{
+  float: none;
+}
+
+.AjaxLoadingMask .UIAction .ActionButton{
   width: 70px;
+  margin: auto;
+  float: none;
 }

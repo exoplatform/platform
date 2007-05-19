@@ -24,7 +24,8 @@
 }
 
 .UIWidgets .WidgetDecorator {
-	width: 232px;
+	width: 230px;
+	margin-left: 2px;
 	border: 1px white solid;
 }
 
@@ -40,7 +41,7 @@
 
 .UIWidgetContainer .WidgetNavigator {
 	height: 33px;
-	width: 115px;
+	width: 113px;
 	float: right;
 }
 
@@ -91,12 +92,12 @@
 
 .UIWidgetContainer .WidgetControlBar {
   float: right;
-	width: 100px; height: 27px;
+	width: 94px; height: 23px;
 	padding-right: 3px;
 }
 
 .UIWidgetContainer .WidgetControl {
-	width: 98px; height: 27px;
+	width: 94px; height: 23px;
 }
 
 .UIWidgetContainer .WidgetApplication {
@@ -104,35 +105,35 @@
 }
 
 .UIWidgetContainer .WidgetControl .LeftControlBar{
-	height: 27px;
-	background: url('MacSkin/background/LeftWidgetControlBar12x27.png') no-repeat left;	
-	padding-left: 12px;
+	height: 23px;
+	background: url('MacSkin/background/LeftWidgetControlBar10x23.png') no-repeat left;	
+	padding-left: 10px;
 }
 
 .UIWidgetContainer .WidgetControl .RightControlBar{
-	height: 27px;
-	background: url('MacSkin/background/RightWidgetControlBar12x27.png') no-repeat right;	
-	padding-right: 12px;
+	height: 23px;
+	background: url('MacSkin/background/RightWidgetControlBar10x23.png') no-repeat right;	
+	padding-right: 10px;
 }
 
 .UIWidgetContainer .WidgetControl .CenterControlBar{
-	height: 27px;
-	background: url('MacSkin/background/CenterWidgetControlBar1x27.png') repeat-x;	
+	height: 23px;
+	background: url('MacSkin/background/CenterWidgetControlBar1x23.png') repeat-x;	
 }
 
 .UIWidgetContainer .WidgetControl .WidgetDragHandleArea {
 	float: left;
 	width: 17px; height: 13px;
 	cursor: move;
-	margin: 6px 3px 0px 3px;
-	background: url('DefaultSkin/background/WidgetDragArea2x2.gif');
+	margin: 4px 3px 0px 3px;
+	background: url('MacSkin/background/WidgetDragArea2x2.gif');
 }
 
 .UIWidgetContainer .WidgetControl .SeparatorLine {
 	float: left;
 	width: 2px; height: 15px;
-	margin: 5px 3px 0px 3px;
-	background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y;
+	margin: 3px 3px 0px 3px;
+	background: url('MacSkin/background/SeparatorLine2x1.gif') repeat-y;
 	
 }
 
@@ -140,7 +141,7 @@
 	float: left;
 	width: 16px; height: 16px;
 	cursor: pointer;
-	margin: 5px 5px 0px 2px;
+	margin: 3px 5px 0px 2px;
 	background: url('MacSkin/icons/EditWidgetIcon.gif');	
 }
 
@@ -148,7 +149,7 @@
 	float: left;
 	width: 16px; height: 16px;
 	cursor: pointer;
-	margin: 5px 0px 0px 2px;
+	margin: 3px 0px 0px 2px;
 	background: url('MacSkin/icons/CloseWidgetIcon.gif');	
 }
 

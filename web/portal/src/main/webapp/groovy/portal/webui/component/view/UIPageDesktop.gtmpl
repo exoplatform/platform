@@ -125,7 +125,7 @@
                   <%}%>
 
                   <img class="Separator" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/MacSkin/background/Separator2x1.png" />
-                  <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Monitoring.png"
+                  <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/PortletsViewer.png"
                        alt="/eXoResources/background/DefaultSkin/Blank.gif" />
                   <%/*Tool Tip*/%>
                   <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowDesktop")%></span>

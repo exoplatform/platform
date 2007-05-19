@@ -81,16 +81,17 @@ a {
 }
 
 .AjaxLoadingMask {
-  width: 200px; height: 105px;
+  width: 200px; height: 110px;
   background: white;
-  padding: 1px;
+  padding: 3px;
+  background: url('/eXoResources/background/MacSkin/PortletBG.gif');
   border: 1px solid #66667e;
 }
 
 .AjaxLoadingMask .LoadingContainer {
-  height: 93px;
-  background: url('/eXoResources/background/MacSkin/PortletBG.gif');
+  height: 108px;
   border: 1px solid #a8a9bb;
+  background: white;
 }
 
 .AjaxLoadingMask .LoadingText {
@@ -100,11 +101,17 @@ a {
 }
 
 .AjaxLoadingMask .LoadingProgressBar {
-  width: 32px; height: 32px;
-  background: url('/eXoResources/background/DefaultSkin/Loading.gif') no-repeat;
+  width: 40px; height: 40px;
+  background: url('/eXoResources/background/DefaultSkin/LoadingProgress.gif') no-repeat center;
   margin: auto;
 }
 
-.AjaxLoadingMask .UIAction {
+.AjaxLoadingMask .UIAction .ActionContainer{
+  float: none;
+}
+
+.AjaxLoadingMask .UIAction .ActionButton{
   width: 80px;
+  margin: auto;
+  float: none;
 }

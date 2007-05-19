@@ -6,23 +6,23 @@
 }
 
 .UIDropDownItemSelector .ItemInfoBar .LeftItemInfoBar {
-  background: url('MacSkin/background/LeftItemInfoBar3x25.png') no-repeat left;
-  padding: 0px 0px 0px 3px;
+  background: url('MacSkin/background/LeftItemInfoBar4x24.png') no-repeat left;
+  padding: 0px 0px 0px 4px;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .MiddleItemInfoBar {
-  background: url('MacSkin/background/ItemInfoBarBG1x25.png') repeat-x center;
+  background: url('MacSkin/background/ItemInfoBarBG1x24.png') repeat-x center;
   height: 24px;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .RightItemInfoBar {
-  background: url('MacSkin/background/RightItemInfoBar4x25.png') no-repeat right;
+  background: url('MacSkin/background/RightItemInfoBar3x24.png') no-repeat right;
   height: 24px;
   padding-right: 3px;
 }
 
 .ComponentIcon {
-  width: 24px; height: 24px;
+  width: 22px; height: 23px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/ImagesList.gif') no-repeat center;
 }
 
@@ -32,15 +32,15 @@
 
 .UIDropDownItemSelector .ItemInfoBar .SelectedItemLabel {
 	float: left;
-	line-height: 24px;
-	font-size: 11px; font-weight: bold; color: #058ee6;
+	line-height: 22px;
+	font-size: 11px; font-weight: bold; color: #3f7fbf;
 	margin-left: 6px;
 }
 
 .UIDropDownItemSelector .DropDownSelectIcon {
 	float: right; 
-	width: 24px; height: 22px;
-	background: url('MacSkin/icon/SelectedIcon.gif') no-repeat;
+	width: 15px; height: 21px;
+	background: url('MacSkin/background/DropDownButton.gif') no-repeat;
 	cursor: pointer;
 }
 
@@ -51,26 +51,27 @@
 .UIItemList .ItemSelector {
   height: 25px;
   padding: 0px 20px 0px 5px ;
-  border-bottom: 1px solid #dbdbdb;
+  border-bottom: 1px solid #d1d1d1;
 }
 
 .UIItemList .ItemSelector .Icon {
   float: left;
-  background: url('MacSkin/icon/GrayArrow.png') no-repeat;
+  background: url('/eXoResources/icons/16x16/MacSkin/GrayNextArrow.gif') no-repeat;
   height: 16px; width: 16px;
   margin: 4px 6px 0px 0px;
 }
 
 .UIItemList .OverItemSelector {
-  height: 26px;
-	background: url('MacSkin/background/OverItemSelectorBG1x26.png') repeat-x;
+  height: 25px;
+	background:#387fd1;
 	color: white;
   padding: 0px 20px 0px 5px;
+  border-bottom: 1px solid #d1d1d1;
 }
 
 .UIItemList .OverItemSelector .Icon {
   float: left;
-  background: url('MacSkin/icon/WhiteArrow.png') no-repeat;
+  background: url('/eXoResources/icons/16x16/MacSkin/WhiteNextArrow.gif') no-repeat;
   height: 16px; width: 16px;
   margin: 4px 6px 0px 0px;
 }
@@ -95,51 +96,52 @@
 /*=================================Popup Category Decorator====================================*/
 
 .UIItemList .LTItemSelector {
-  height: 3px;
-  background: url('MacSkin/background/TLItemSelector6x3.png') no-repeat left;
-  padding-left: 6px;
+  height:2px;
+  background: url('MacSkin/background/TLItemSelector3x2.png') no-repeat left;
+  padding-left: 3px;
 }
 
 .UIItemList .TCItemSelector {
-  height: 3px;
-  background: white url('MacSkin/background/TCItemSelector1x3.png') repeat-x;
+  height:2px;
+  background: url('MacSkin/background/TCItemSelector1x2.gif') repeat-x;
 }
 
 .UIItemList .TRItemSelector {
-  height: 3px;
-  background: url('MacSkin/background/TRItemSelector6x3.png') no-repeat right;
-  padding-right: 6px;
+  height: 2px;
+  background: url('MacSkin/background/TRItemSelector3x2.png') no-repeat right;
+  padding-right:3px;
 }
 
 .UIItemList .MLItemSelector {
-  background: url('MacSkin/background/MLItemSelector6x1.png') repeat-y left;
-  padding-left: 6px;
+  background: url('MacSkin/background/MLItemSelector3x1.png') repeat-y left;
+  padding-left: 3px;
 }
 
 .UIItemList .MRItemSelector {
-  background: url('MacSkin/background/MRItemSelector6x1.png') repeat-y right;
-  padding-right: 6px;
-}
-
-.UIItemList .MCItemSelector {
-  background: white url('MacSkin/background/BgItemSelector1x4.png') repeat;
+  background: url('MacSkin/background/MRItemSelector3x1.png') repeat-y right;
+  padding-right:3px;
 }
 
 .UIItemList .BLItemSelector {
-  height: 9px;
-  background: url('MacSkin/background/BLItemSelector9x9.png') no-repeat left;
-  padding-left: 9px;
+  height: 4px;
+  background: url('MacSkin/background/BLItemSelector4x4.png') no-repeat left;
+  padding-left: 4px;
 }
 
 .UIItemList .BRItemSelector {
-  height: 9px;        
-  background: url('MacSkin/background/BRItemSelector9x9.png') no-repeat right;
-  padding-right: 9px;
+  padding-right: 4px;
+  background: url('MacSkin/background/BRItemSelector4x4.png') no-repeat right;
+  height: 4px;
 }
 
 .UIItemList .BCItemSelector {
-  height: 9px;
-  background: url('MacSkin/background/BCItemSelector1x9.png') repeat-x;
+  height: 4px;
+  background: url('MacSkin/background/BCItemSelector1x4.png') repeat-x;
+  
+}
+
+.UIItemList .MCItemSelector {
+  background: white url('/eXoResources/background/MacSkin/Background1x4.png') repeat;
 }
 
 /*  Supply footnotes to:

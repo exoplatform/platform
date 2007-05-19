@@ -5,16 +5,13 @@
 
 .UIDropDownItemSelector .ItemSelectorContainer {
 	border-right: none;
-	border-top: 1px solid #bdbcbc;
 	height: 19px;
 }
 
 .UIDropDownItemSelector .ItemInfoBar {
-	background: white;
-	padding-left: 8px;
-	border-left: 1px solid #bdbcbc;
-	border-right: 1px solid #929292;
-	border-bottom: 1px solid #929292;
+	background: white url(DefaultSkin/background/DropDownItemSelectorBG1x2.gif) repeat-x top;
+	padding-left: 5px;
+	border: 1px solid #929292;
 	cursor: pointer;
 }
 
@@ -31,7 +28,7 @@
 .UIDropDownItemSelector .ItemInfoBar .SelectedItemLabel {
 	float: left;
 	line-height: 19px;
-	font-size: 11px; font-weight: bold; color: #333333;
+	font-size: 10px; font-weight: bold; color: #333333;
 	margin-left: 7px;
 }
 
@@ -59,27 +56,33 @@
 
 .UIDropDownItemSelector .DropDownSelectIcon {
 	float: right; 
-	width: 21px; height: 19px;
-	background: url('DefaultSkin/icon/SelectedIcon.gif') no-repeat center;
+	width: 20px; height: 19px;
+	background: url('DefaultSkin/background/DropDownButton.gif') no-repeat right;
 	cursor: pointer;	
 }
 
 /********************************   UIItemList   ****************************************/
 .UIItemList {
+	border: 1px solid #787878;
+	border-right: 1px solid #454545;
+	border-bottom: 1px solid #454545;
+	background: white;
 }
 
 .UIItemList .ItemSelector {
   height: 22px; line-height: 22px;
   font-size: 11px;
+  border-top: 1px #ffffff solid;
   border-bottom: 1px #e0e0e0 solid;
   cursor: pointer ;
 }
 
 .UIItemList .OverItemSelector {
-	background: #6fa6e6;
+	background: #7aafe5;
 	height: 22px; line-height: 22px;
 	font-size: 11px;
 	border-bottom: 1px #e0e0e0 solid;
+	border-top: 1px #ffffff solid;
 	cursor: pointer ;
   color: white;
 }
@@ -108,58 +111,17 @@
 .UIItemList .Icon {
   width: 16px; height: 16px;
   float: left;
-  margin: 3px 3px 0px 7px;
+  margin: 3px 1px 0px 4px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/GreyItemArrow.gif') no-repeat;
 }
 
 /*=================================Popup Category Decorator====================================*/
 
-.UIItemList .LTItemSelector {
-  height: 6px;
-  background: url('DefaultSkin/background/TLItemSelector6x6.gif') no-repeat left;
-  padding-left: 6px;
-}
-
-.UIItemList .TCItemSelector {
-  height: 6px;
-  background: url('DefaultSkin/background/TCItemSelector1x6.gif') repeat-x;
-}
-
-.UIItemList .TRItemSelector {
-  height: 6px;
-  background: url('DefaultSkin/background/TRItemSelector35x6.gif') no-repeat right;
-  padding-right: 35px;
-}
-
-.UIItemList .MLItemSelector {
-  background: url('DefaultSkin/background/MLItemSelector6x1.gif') repeat-y left;
-  padding-left: 6px;
-}
-
-.UIItemList .MRItemSelector {
-  background: url('DefaultSkin/background/MRItemSelector8x1.gif') repeat-y right;
-  padding-right: 8px;
-}
-
 .UIItemList .MCItemSelector {
   background: #f3f3f3;
-}
-
-.UIItemList .BLItemSelector {
-  height: 7px;
-  background: url('DefaultSkin/background/BLItemSelector6x7.gif') no-repeat left;
-  padding-left: 6px;
-}
-
-.UIItemList .BRItemSelector {
-  height: 7px;
-  background: url('DefaultSkin/background/BRItemSelector8x7.gif') no-repeat right;
-  padding-right: 8px;
-}
-
-.UIItemList .BCItemSelector {
-  height: 7px;
-  background: url('DefaultSkin/background/BCItemSelector1x7.gif') repeat-x;
+  border: 1px solid #e0e0e0;
+  border-bottom: none;
+  margin: 4px;
 }
 
 /*  Supply footnotes to:
@@ -173,4 +135,4 @@
 		BR: Bottom Right.
 		BC: Bottom Right.
 		BG: Background.
-		*/
+*/

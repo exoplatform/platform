@@ -9,10 +9,10 @@
 
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
   float: left ; 
-  width: 32px ; height: 20px ; 
-  background: url('MacSkin/background/DragControlArea32x20.gif') no-repeat;
+  width: 24px ; height: 16px ; 
+  background: url('MacSkin/background/DragArea2x2.gif');
   cursor: move ;
-  margin: 2px 0px 0px 3px ;
+  margin: 5px 0px 0px 3px ;
 }
 
 .UIPortlet .ViewPortletIcon {
@@ -168,10 +168,10 @@
 
 .UIContainer .CONTROL-CONTAINER .DragControlArea {
   float: left ; 
-  width: 32px ; height: 20px ; 
-  background: url('MacSkin/background/DragControlArea32x20.gif') no-repeat;
+  width: 24px ; height: 16px ; 
+  background: url('MacSkin/background/DragArea2x2.gif');
   cursor: move ;
-  margin: 2px 0px 0px 3px ;
+  margin: 5px 0px 0px 3px ;
 }
 
 .UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer {

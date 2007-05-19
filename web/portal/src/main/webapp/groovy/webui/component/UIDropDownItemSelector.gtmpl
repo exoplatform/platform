@@ -42,7 +42,7 @@
 			  			<%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + title)%>
 		  			</div>
 		  			<div class="DropDownSelectIcon"><span></span></div>
-		  			<div style="clear: left"><span></span></div>
+		  			<div style="clear: both;"><span></span></div>
 				  </div>
 				</div>
 			</div>
@@ -58,39 +58,41 @@
 		<div class="MLItemSelector">
 			<div class="MRItemSelector">
 			  <div class="MCItemSelector">
-				  <%if(maxShow < size) {%>
-				    <div class="ItemSelector">
-							<div class="Icon"><span></span></div>
-	            <div class="ItemSelectorLabel">up</div>
-	            <div style="clear: left"><span></span></div>
-						</div>
-	      	<%}%>
-				  <%for(option in options) {
-					    String label = option.getLabel();
-					    String value = option.getValue();
-		
-				  %>				    
-						<div class="ItemSelector" itemId="$value" 
-						     action="$action" onServer="<%=uicomponent.isOnServer();%>" 
-						     targetParent="<%=uicomponent.getParent().getId();%>">
-							<div class="Icon"><span></span></div>
-							<%if(action != null) {%>
-	              <div class="ItemSelectorLabel"><%=label%></div>
-	            <%} else {%>
-	              <div class="ItemSelectorLabel">
-	                <%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + label)%>
-	              </div>
-	            <%}%>
-	            <div style="clear: left"><span></span></div>
-						</div>
-					<%}%>
-					<%if(maxShow < size) { %>
-				    <div class="ItemSelector">
-							<div class="Icon"><span></span></div>
-	            <div class="ItemSelectorLabel">down</div>
-	            <div style="clear: left"><span></span></div>
-						</div>
-			    <%}%>					
+			  	<div class="ItemsContainer">
+					  <%if(maxShow < size) {%>
+					    <div class="ItemSelector">
+								<div class="Icon"><span></span></div>
+		            <div class="ItemSelectorLabel">up</div>
+		            <div style="clear: left"><span></span></div>
+							</div>
+		      	<%}%>
+					  <%for(option in options) {
+						    String label = option.getLabel();
+						    String value = option.getValue();
+			
+					  %>				    
+							<div class="ItemSelector" itemId="$value" 
+							     action="$action" onServer="<%=uicomponent.isOnServer();%>" 
+							     targetParent="<%=uicomponent.getParent().getId();%>">
+								<div class="Icon"><span></span></div>
+								<%if(action != null) {%>
+		              <div class="ItemSelectorLabel"><%=label%></div>
+		            <%} else {%>
+		              <div class="ItemSelectorLabel">
+		                <%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + label)%>
+		              </div>
+		            <%}%>
+		            <div style="clear: left"><span></span></div>
+							</div>
+						<%}%>
+						<%if(maxShow < size) { %>
+					    <div class="ItemSelector">
+								<div class="Icon"><span></span></div>
+		            <div class="ItemSelectorLabel">down</div>
+		            <div style="clear: left"><span></span></div>
+							</div>
+				    <%}%>
+				  </div>					
 		    </div>
 			</div>
 		</div>

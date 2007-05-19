@@ -154,19 +154,19 @@
 
 .UIToolbar .EditToolbar .LeftBar {
   height: 30px;
-  background: url('DefaultSkin/background/PolyBarL2x30.gif') no-repeat left;
+  background: url('DefaultSkin/background/LeftEditToolbar2x30.gif') no-repeat left;
   padding-left: 2px;
 }
 
 .UIToolbar .EditToolbar .RightBar {
   height: 30px;
   padding-right: 2px;
-  background: url('DefaultSkin/background/PolyBarR2x30.gif') no-repeat right;
+  background: url('DefaultSkin/background/RightEditToolbar2x30.gif') no-repeat right;
 }
 
 .UIToolbar .EditToolbar .MiddleBar {
   height: 30px; line-height: 30px; vertical-align: middle;
-  background: url('DefaultSkin/background/PolyBarM1x30.gif') repeat-x ;
+  background: url('DefaultSkin/background/CenterEditToolbar1x30.gif') repeat-x ;
 }
 
 .UIToolbar .EditToolbar .Icon {

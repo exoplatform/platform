@@ -16,7 +16,7 @@
 .UIControlWorkspace .UserWorkspaceTitle {
   height: 23px ;
   background: url('DefaultSkin/background/UserWorkspaceTitleBG1x23.gif') repeat-x ;
-  color: #3b34ba ;
+  color: #434343;
   font-size: 11px ; font-weight: bold ;
   line-height: 22px ; vertical-align: middle ;
   padding-left: 13px ; margin-right: 2px ;
