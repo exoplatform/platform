@@ -298,6 +298,10 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     session.logout() ;
   }
   
+  public void importExoWidgets() throws Exception {
+    
+  }
+  
   private Application convertApplication(org.exoplatform.web.application.Application app) {
     Application returnApplication = new Application() ;
     returnApplication.setApplicationGroup(app.getApplicationGroup()) ;

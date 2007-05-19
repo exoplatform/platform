@@ -35,5 +35,7 @@ public interface ApplicationRegistryService {
    */
   public void importExoApplications() throws Exception;
   
+  public void importExoWidgets() throws Exception;
+  
   public void clearAllRegistries() throws Exception;
 }

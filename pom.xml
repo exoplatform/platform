@@ -14,9 +14,11 @@
     <module>component/portal</module>
     <module>component/web</module>
 
-    <module>eXoApplication/framework</module>
     <module>eXoApplication/web/application</module>
     <module>eXoApplication/web/webResources</module>
+
+    <module>eXoWidget/web/application</module>
+    <module>eXoWidget/web/webResources</module>
 
     <module>webui/core</module>
     <module>webui/portal</module>
@@ -31,6 +33,7 @@
     <module>web/portal</module>
 
     <module>server/tomcat/patch</module>
+    <module>server/tomcat/plugin</module>
     <module>server/jboss/patch</module>
     <module>server/jonas/patch</module>
   </modules>

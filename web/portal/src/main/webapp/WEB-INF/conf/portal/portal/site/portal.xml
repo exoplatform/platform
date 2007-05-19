@@ -8,6 +8,13 @@
   <creator>exo</creator>
   
   <widget-layout>
+    <container>
+      <application>
+        <instance-id>admin:/exo.widget.web/InfoWidget/InfoWidget</instance-id>
+        <application-type>eXoWidget</application-type>
+        <title>Info Widget</title>
+      </application>
+    </container>
   </widget-layout>
   
  	<portal-layout> 		
@@ -27,8 +34,7 @@
 	  </application>
 	  
 	
-	  <page-body>    
-	  </page-body>
+	  <page-body> </page-body>
 	  
 	  <application>
 	    <instance-id>site:/web/FooterPortlet/footer</instance-id>

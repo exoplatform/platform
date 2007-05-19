@@ -38,7 +38,6 @@ import org.exoplatform.webui.config.annotation.EventConfig;
       @EventConfig(listeners = ShowLoginFormActionListener.class),
       @EventConfig(listeners = LogoutActionListener.class),
       @EventConfig(listeners = ChangeOptionActionListener.class),
-//      @EventConfig(listeners = AddPortletToDesktopActionListener.class),
       @EventConfig(listeners = RemoveJSApplicationToDesktopActionListener.class)
     }
 )

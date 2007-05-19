@@ -4,9 +4,9 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view.lifecycle;
 
-import org.exoplatform.application.eXoFramework.ExoFrameworkApplication;
-import org.exoplatform.application.eXoFramework.ExoFrameworkRequestContext;
 import org.exoplatform.portal.component.view.UIExoApplication;
+import org.exoplatform.web.application.mvc.MVCApplication;
+import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.lifecycle.Lifecycle;
@@ -24,8 +24,8 @@ public class UIExoApplicationLifecycle extends Lifecycle {
   
   public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     UIExoApplication uiExoApp = (UIExoApplication)  uicomponent ;
-    ExoFrameworkApplication application =  uiExoApp.getApplication() ;
-    ExoFrameworkRequestContext appReqContext = new ExoFrameworkRequestContext(application, context) ;
+    MVCApplication application =  uiExoApp.getApplication() ;
+    MVCRequestContext appReqContext = new MVCRequestContext(application, context) ;
     try {
       WebuiRequestContext.setCurrentInstance(appReqContext) ;
       uiExoApp.getApplication().processRender(appReqContext) ;

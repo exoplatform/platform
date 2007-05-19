@@ -4,11 +4,11 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
-import org.exoplatform.application.eXoFramework.ExoFrameworkApplication;
-import org.exoplatform.application.eXoFramework.ExoFrameworkRequestContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.component.view.lifecycle.UIExoApplicationLifecycle;
 import org.exoplatform.web.WebAppController;
+import org.exoplatform.web.application.mvc.MVCApplication;
+import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
  * Created by The eXo Platform SARL
@@ -21,8 +21,8 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
   template = "system:/groovy/portal/webui/component/view/UIPortlet.gtmpl"
 )
 public class UIExoApplication extends UIPortalComponent {
-  transient private ExoFrameworkApplication application_ ;
-  transient private ExoFrameworkRequestContext requestContext_ ;
+  transient private MVCApplication application_ ;
+  transient private MVCRequestContext requestContext_ ;
   
   private String applicationInstanceId_ ;
 
@@ -88,10 +88,10 @@ public class UIExoApplication extends UIPortalComponent {
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
   
-  public ExoFrameworkApplication getApplication() { return application_ ; }
+  public MVCApplication getApplication() { return application_ ; }
   
-  public ExoFrameworkRequestContext getExoFrameworkRequestContext() { return requestContext_ ; }
-  public void setExoFrameworkRequestContext(ExoFrameworkRequestContext context) {
+  public MVCRequestContext getExoFrameworkRequestContext() { return requestContext_ ; }
+  public void setExoFrameworkRequestContext(MVCRequestContext context) {
     requestContext_ = context ;
   }
 }
