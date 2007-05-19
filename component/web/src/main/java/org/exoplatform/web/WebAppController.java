@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentRequestLifecycle;
+import org.exoplatform.services.listener.ListenerService;
 import org.exoplatform.services.portletcontainer.helper.WindowInfosContainer;
 import org.exoplatform.web.application.Application;
 /**
@@ -71,6 +72,9 @@ public class WebAppController {
       PortalContainer portalContainer = PortalContainer.getInstance() ;
       List<ComponentRequestLifecycle> components = 
         portalContainer.getComponentInstancesOfType(ComponentRequestLifecycle.class) ;
+      ListenerService lservice = 
+        (ListenerService) portalContainer.getComponentInstanceOfType(ListenerService.class) ;
+      lservice.broadcast("exo.application.portal.start-request", this, req) ;
       for(ComponentRequestLifecycle component : components) {
         component.startRequest(portalContainer);
       }
@@ -81,6 +85,7 @@ public class WebAppController {
       for(ComponentRequestLifecycle component : components) {
         component.endRequest(portalContainer);
       }
+      lservice.broadcast("exo.application.portal.end-request", this, req) ;
     }
   }
 }

@@ -32,7 +32,8 @@ abstract public class RequestContext {
   
   public Application getApplication() { return  app_ ; }
   
-  abstract public Locale getLocale()  ;
+  public Locale getLocale() { return parentAppRequestContext_.getLocale() ; }
+  
   public ResourceBundle getApplicationResourceBundle() { return null; }
   
   abstract  public String getRequestParameter(String name)  ;
@@ -44,8 +45,8 @@ abstract public class RequestContext {
   
   abstract public URLBuilder getURLBuilder() ;
   
-  abstract public String getRemoteUser()  ;
-  abstract public boolean isUserInRole(String roleUser);
+  public String getRemoteUser() { return parentAppRequestContext_.getRemoteUser() ; }
+  public boolean isUserInRole(String roleUser) { return parentAppRequestContext_.isUserInRole(roleUser) ; }
   
   
   abstract public  boolean useAjax() ;
@@ -55,7 +56,7 @@ abstract public class RequestContext {
     throw  new RuntimeException("This method is not supported");
   }
   
-  abstract  public Writer getWriter() throws Exception ;
+  public Writer getWriter() throws Exception { return parentAppRequestContext_.getWriter() ; }
   
   final public Object  getAttribute(String name) { 
     if(attributes == null) return null ;
