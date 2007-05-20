@@ -121,8 +121,6 @@ public class UIPageNavigationForm extends UIFormTabPane {
       pageNav.setPriority(priority);
       pageNav.setModifier(event.getRequestContext().getRemoteUser());
       
-      
-      
 //      UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
 //      pageNav.setAccessPermissions(uiAccessGroup.getAccessGroup());
       

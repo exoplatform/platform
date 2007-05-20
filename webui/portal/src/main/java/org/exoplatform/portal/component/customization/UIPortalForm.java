@@ -27,6 +27,7 @@ import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
@@ -51,26 +52,31 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfigs({
   @ComponentConfig(
-      lifecycle = UIFormLifecycle.class,
-      template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",     
-      events = {
-        @EventConfig(listeners = UIPortalForm.SaveActionListener.class),
-        @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
-      }
+    lifecycle = UIFormLifecycle.class,
+    template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",     
+    events = {
+      @EventConfig(listeners = UIPortalForm.SaveActionListener.class),
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+    }
   ),
   @ComponentConfig(
-      id = "CreatePortal",
-      lifecycle = UIFormLifecycle.class,
-      template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
-      initParams = @ParamConfig(
-          name = "PortalTemplateConfigOption", 
-          value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/PortalTemplateConfigOption.groovy"
-      ),
-      events = {
-        @EventConfig(name  = "Save", listeners = UIPortalForm.CreateActionListener.class),
-        @EventConfig(listeners = UIPortalForm.SelectItemOptionActionListener.class, phase = Phase.DECODE),
-        @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
-      }
+    id = "CreatePortal",
+    lifecycle = UIFormLifecycle.class,
+    template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
+    initParams = @ParamConfig(
+        name = "PortalTemplateConfigOption", 
+        value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/PortalTemplateConfigOption.groovy"
+    ),
+    events = {
+      @EventConfig(name  = "Save", listeners = UIPortalForm.CreateActionListener.class),
+      @EventConfig(listeners = UIPortalForm.SelectItemOptionActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+    }
+  ),
+  @ComponentConfig(
+    type = UIContainer.class,
+    id = "PermissionSelectorTab",
+    template = "system:/groovy/webui/component/UITabSelector.gtmpl"
   )
 })
 public class UIPortalForm extends UIFormTabPane {
@@ -137,14 +143,18 @@ public class UIPortalForm extends UIFormTabPane {
     uiPermissionSetting.setRendered(false);
     addUIComponentInput(uiPermissionSetting);
     
+    UIContainer uiTabPermissionSelector = uiPermissionSetting.createUIComponent(UIContainer.class, "PermissionSelectorTab", null);
+    uiPermissionSetting.addChild(uiTabPermissionSelector ) ;
+    
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-    uiPermissionSetting.addUIFormInput(uiListPermissionSelector);
+    uiTabPermissionSelector.addChild(uiListPermissionSelector);
     
     UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+    uiEditPermission.setRendered(false);
     uiEditPermission.configure("UIPermissionSelector", "editPermission");
-    uiPermissionSetting.addUIFormInput(uiEditPermission);
-    
+    uiTabPermissionSelector.addChild(uiEditPermission);
+        
     UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
     uiFactoryId.setItemCategories(itemCategories);
     uiFactoryId.setRendered(false);
