@@ -56,9 +56,9 @@
 
 .UIItemList .ItemSelector .Icon {
   float: left;
-  background: url('/eXoResources/icons/16x16/MacSkin/GrayNextArrow.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat;
   height: 16px; width: 16px;
-  margin: 4px 6px 0px 0px;
+  margin: 4px 2px 0px 0px;
 }
 
 .UIItemList .OverItemSelector {
@@ -73,7 +73,7 @@
   float: left;
   background: url('/eXoResources/icons/16x16/MacSkin/WhiteNextArrow.gif') no-repeat;
   height: 16px; width: 16px;
-  margin: 4px 6px 0px 0px;
+  margin: 4px 2px 0px 0px;
 }
 
 

@@ -1,3 +1,6 @@
+.UITabContainer {
+	padding: 2px 7px 7px 7px;
+}
 
 .UITabContainer .UIHorizontalTabs {
 	padding: 0px;
@@ -10,31 +13,58 @@
 	border-top: none;
 }
 
-.UITabContainer .TabLabel {
+.UITabContainer .HorizontalLayout .UIContainer .LAYOUT-CONTAINER{
+	margin: 0px 5px 5px 5px;
+}
+
+.UITabContainer .HorizontalLayout .UIContainer .CONTROL-CONTAINER{
+	margin: 0px 2px 0px 2px;
+}
+
+
+.UITabContainer .HorizontalLayout .UIPortlet .CONTROL-PORTLET{
+	margin: 0px;
+}
+
+.UITabContainer .HorizontalLayout .UIPortlet .LAYOUT-PORTLET{
+	margin: 0px;
+}
+
+.UITabContainer .HorizontalLayout .UIPortlet .VIEW-PORTLET{
+	margin-left: 4px;
+}
+
+.UITabContainer .SelectedTab .TabLabel {
+	float: left;
+	padding: 0px 10px 0px 2px;
+	line-height: 20px;
+}
+
+.UITabContainer .NormalTab .TabLabel {
 	float: left;
 	padding: 0px 10px 0px 2px;
 }
 
 .UITabContainer .SelectedTab .EditIcon {
 	float: left;
-	width: 16px; height: 20px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat bottom;
+	width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat;
 }
 
 .UITabContainer .NormalTab .EditIcon {
 	float: left;
-	width: 16px; height: 20px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif') no-repeat bottom;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif') no-repeat;
 }
 
 .UITabContainer .SelectedTab .CloseIcon {
 	float: left;
-	width: 16px; height: 20px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedCloseTab.gif') no-repeat bottom;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedCloseTab.gif') no-repeat;
 }
 
 .UITabContainer .NormalTab .CloseIcon {
 	float: left;
-	width: 16px; height: 20px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalCloseTab.gif') no-repeat bottom;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalCloseTab.gif') no-repeat;
 }

@@ -81,7 +81,7 @@
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
   padding-right: 20px;
-  background: url(/eXoResources/icons/16x16/MacSkin/NormalDropDownArrow.gif) no-repeat right;
+  background: url(/eXoResources/icons/16x16/DefaultSkin/GrayDownArrow.gif) no-repeat right;
   cursor: pointer;
 }
 
@@ -122,7 +122,7 @@
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {
   padding-right: 20px;
-  background: url(/eXoResources/icons/16x16/MacSkin/HighlightDropDownArrow.gif) no-repeat right;
+  background: url(/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif) no-repeat right;
   cursor: pointer;
 }
 
@@ -163,7 +163,7 @@
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {
   padding-right: 20px;
-  background: url(/eXoResources/icons/16x16/MacSkin/HighlightDropDownArrow.gif) no-repeat right;
+  background: url(/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif) no-repeat right;
   cursor: pointer;
 }
 
@@ -179,10 +179,11 @@
 .UIHorizontalTabs .NormalTabStyle .NormalTab a {
   color: #5a5a5a;
   text-decoration: none;
+  line-height: 25px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab a:hover {
-  color: black;
+  color: blue;
   text-decoration: none;
 }
 
@@ -262,6 +263,11 @@
   background: url('MacSkin/background/MiddleSelectedTab1x24.png') repeat-x;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
+}
+
+.UIHorizontalTabs .NormalTabStyle .SelectedTab a{
+  color: blue;
+  text-decoration: none;
 }
 
 /*###########################-- MessageTabDialog --############################*/

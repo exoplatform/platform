@@ -58,7 +58,7 @@
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .LeftIcon {
   float: left ;
   width: 16px;  height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackArrow.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackNextArrow.gif') no-repeat;
   margin: 5px 2px 0px 3px;
 }
 
@@ -80,8 +80,8 @@
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .LeftIcon {
   float: left ;
   width: 16px;  height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackUpArrow.gif') no-repeat;
-  margin: 3px 2px 0px 3px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat;
+  margin: 5px 2px 0px 3px;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLabel {
@@ -462,8 +462,8 @@
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .LeftIcon {
   float: left ;
   width: 16px;  height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackDownArrow.gif') no-repeat;
-  margin: 6px 5px 0px 5px;
+  background: url('/eXoResources/icons/16x16/MacSkin/BlackNextArrow.gif') no-repeat;
+  margin: 6px 2px 0px 3px;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLabel {
@@ -474,7 +474,7 @@
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackDownArrow.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat;
   margin: 6px 3px 0px 0px ;
   cursor: pointer ;
 }
@@ -514,8 +514,8 @@
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .LeftIcon {
   float: left ;
   width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackNextArrow.gif') no-repeat ;
-  margin: 8px 5px 0px 5px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat ;
+  margin: 8px 2px 0px 3px;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLabel {
@@ -527,8 +527,8 @@
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackNextArrow.gif') no-repeat;
-  margin: 8px 3px 0px 0px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat;
+  margin: 6px 3px 0px 0px ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .UIVTabContent {
@@ -592,3 +592,5 @@
   border: solid 1px #b2b1b1 ;
   padding: 5px ;
 }
+
+

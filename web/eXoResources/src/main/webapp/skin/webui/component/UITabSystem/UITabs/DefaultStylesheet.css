@@ -64,7 +64,7 @@
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
   padding-right: 20px;
-  background: url(/eXoResources/icons/16x16/DefaultSkin/NormalDropDownArrow.gif) no-repeat right;
+  background: url(/eXoResources/icons/16x16/DefaultSkin/GrayDownArrow.gif) no-repeat right;
   cursor: pointer;
 }
 
@@ -106,7 +106,7 @@
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {
   padding-right: 20px;
-  background: url(/eXoResources/icons/16x16/DefaultSkin/HighlightDropDownArrow.gif) no-repeat right;
+  background: url(/eXoResources/icons/16x16/DefaultSkin/BlueDownArrow.gif) no-repeat right;
   cursor: pointer;
 }
 
