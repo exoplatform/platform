@@ -4,7 +4,7 @@
 %>
 
 <div class="UITabPane" id="$uicomponent.id">
-  <div class="TabPaneContent"> 
+  <div class="TabPaneContent">
     <div class="WorkingAreaWithHelp">
       <div class="UIHorizontalTabs">
         <div class="LeftHorizontalTabs">

@@ -72,7 +72,7 @@ public class UIGroupForm extends UIForm {
       OrganizationService service = uiGroupForm.getApplicationComponent(OrganizationService.class) ;     
       
       Group currentGroup =  uiGroupForm.getGroup();
-      if(currentGroup != null){
+      if(currentGroup != null) {
         uiGroupForm.invokeSetBindingBean(currentGroup);
         service.getGroupHandler().saveGroup(currentGroup, false);
         return ;

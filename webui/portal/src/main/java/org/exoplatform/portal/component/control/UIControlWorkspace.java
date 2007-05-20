@@ -21,13 +21,13 @@ import org.exoplatform.webui.config.annotation.ComponentConfigs;
  */
 @ComponentConfigs({
   @ComponentConfig(
-      id = "UIControlWorkspace",
-      template = "app:/groovy/portal/webui/component/control/UIControlWorkspace.gtmpl"
+    id = "UIControlWorkspace",
+    template = "app:/groovy/portal/webui/component/control/UIControlWorkspace.gtmpl"
   ),  
   @ComponentConfig(
-      type = UIContainer.class,
-      id = "UIMyPortal",
-      template = "system:/groovy/portal/webui/component/widget/UIMyPortal.gtmpl"
+    type = UIContainer.class,
+    id = "UIMyPortal",
+    template = "system:/groovy/portal/webui/component/widget/UIMyPortal.gtmpl"
   )
 })
 public class UIControlWorkspace extends UIWorkspace {

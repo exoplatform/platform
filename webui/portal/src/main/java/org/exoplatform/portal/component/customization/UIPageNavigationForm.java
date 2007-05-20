@@ -8,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.organization.webui.component.UIListPermissionSelector;
-import org.exoplatform.organization.webui.component.UIPermissionContainer;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponentDecorator;
+import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
@@ -23,6 +23,7 @@ import org.exoplatform.webui.component.UIFormTextAreaInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -33,26 +34,33 @@ import org.exoplatform.webui.event.Event.Phase;
  *          hoa.nguyen@exoplatform.com
  * Jun 20, 2006
  */
-@ComponentConfig(
-    lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",   
-    events = {
-      @EventConfig(listeners = UIPageNavigationForm.SaveActionListener.class),
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
-    }
-)
+@ComponentConfigs({
+  @ComponentConfig(
+      lifecycle = UIFormLifecycle.class,
+      template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",
+      events = {
+        @EventConfig(listeners = UIPageNavigationForm.SaveActionListener.class),
+        @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+      }
+  ),
+  @ComponentConfig(
+      type = UIContainer.class,
+      id = "PermissionSelectorTab",
+      template = "system:/groovy/webui/component/UITabSelector.gtmpl"
+  )
+})
 public class UIPageNavigationForm extends UIFormTabPane {
 
   public PageNavigation pageNav_;
   private String helpUri_ ;
 
   public UIPageNavigationForm() throws Exception {
-    super("UIPageNavigationForm") ;    
+    super("UIPageNavigationForm") ;
     
     List<SelectItemOption<String>> priorties = new ArrayList<SelectItemOption<String>>();
     for(int i = 0; i < 10; i++){
       priorties.add(new SelectItemOption<String>(String.valueOf(i), String.valueOf(i)));
-    }    
+    }
 
     UIFormInputSet uiSettingSet = new UIFormInputSet("PageNavigationSetting") ;    
     uiSettingSet.addUIFormInput(new UIFormStringInput("ownerType", "ownerType",null).setEditable(false)).
@@ -67,16 +75,17 @@ public class UIPageNavigationForm extends UIFormTabPane {
     uiPermissionSetting.setRendered(false);
     addUIComponentInput(uiPermissionSetting);
     
-    UIPermissionContainer uiPermissionContainer = createUIComponent(UIPermissionContainer.class, null, null);
-    uiPermissionSetting.addChild(uiPermissionContainer) ;
+    UIContainer uiTabPermissionSelector = uiPermissionSetting.createUIComponent(UIContainer.class, "PermissionSelectorTab", null);
+    uiPermissionSetting.addChild(uiTabPermissionSelector ) ;
     
-//    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
-//    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-//    uiPermissionSetting.addUIFormInput(uiListPermissionSelector);
-//    
-//    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
-//    uiEditPermission.configure("UIPermissionSelector", "editPermission");
-//    uiPermissionSetting.addUIFormInput(uiEditPermission);
+    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+    uiTabPermissionSelector.addChild(uiListPermissionSelector);
+    
+    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+    uiEditPermission.setRendered(false) ;
+    uiEditPermission.configure("UIPermissionSelector", "editPermission");
+    uiTabPermissionSelector.addChild(uiEditPermission);
     
   }
 
@@ -111,6 +120,8 @@ public class UIPageNavigationForm extends UIFormTabPane {
       int priority = Integer.parseInt(uiSelectBox.getValue());
       pageNav.setPriority(priority);
       pageNav.setModifier(event.getRequestContext().getRemoteUser());
+      
+      
       
 //      UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
 //      pageNav.setAccessPermissions(uiAccessGroup.getAccessGroup());
