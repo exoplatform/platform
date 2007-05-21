@@ -12,7 +12,6 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -80,31 +79,26 @@ public class UIPageNodeForm extends UIFormTabPane {
       return;
     }   
     invokeGetBindingBean(pageNode_) ;    
-    
-    UIPageSelector uiPageSelector = getChild(UIPageSelector.class);
-    if(uiPageSelector != null) uiPageSelector.setUIInputValue(pageNode_.getPageReference());
   }
 
   public Object getSelectedParent(){ return selectedParent; }  
   public void setSelectedParent(Object obj) { this.selectedParent = obj; }
-
+  
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
     
     UIPageSelector uiPageSelector = getChild(UIPageSelector.class);    
-    if(uiPageSelector != null ) {  
-      UIPopupWindow uiPopupWindowPage = uiPageSelector.getChild(UIPopupWindow.class);
-      if(uiPopupWindowPage == null ) return;
-      uiPopupWindowPage.processRender(context);
-    }
+    if(uiPageSelector == null ) return ;  
+    UIPopupWindow uiPopupWindowPage = uiPageSelector.getChild(UIPopupWindow.class);
+    if(uiPopupWindowPage == null ) return;
+    uiPopupWindowPage.processRender(context);
   }
-  
+
   static public class SaveActionListener extends EventListener<UIPageNodeForm> {
     public void execute(Event<UIPageNodeForm> event) throws Exception {
       UIPageNodeForm uiPageNodeForm = event.getSource();
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIPageSelector uiPageSelector = uiPageNodeForm.getChild(UIPageSelector.class);
       String remoteUser = Util.getPortalRequestContext().getRemoteUser();
       
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
@@ -119,11 +113,6 @@ public class UIPageNodeForm extends UIFormTabPane {
       
       UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);
       pageNode.setIcon(uiIconSelector.getSelectedIcon());
-      
-      if(uiPageSelector != null) {
-        Page pageReference = uiPageSelector.getValue();
-        if(pageReference != null) pageNode.setPageReference(pageReference.getPageId());
-      }
       
       Object selectedParent = uiPageNodeForm.getSelectedParent();
       PageNavigation pageNav = null;

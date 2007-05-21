@@ -2,7 +2,7 @@
 <% import org.exoplatform.webui.component.UIPopupWindow; %>
 
 <%
-	Page page  = uicomponent.getValue();    
+	Page page  = uicomponent.getPage();    
 	String name = "";
 	String title = "";
 	String pageId = "" ;

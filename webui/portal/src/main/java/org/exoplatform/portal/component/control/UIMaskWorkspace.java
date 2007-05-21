@@ -19,8 +19,7 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfig(  
     id = "UIMaskWorkspace",
-    template =  "app:/groovy/portal/webui/component/control/UIMaskWorkspace.gtmpl",
-    events = @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)  
+    template =  "app:/groovy/portal/webui/component/control/UIMaskWorkspace.gtmpl"
 )
 public class UIMaskWorkspace extends UIComponentDecorator {  
   

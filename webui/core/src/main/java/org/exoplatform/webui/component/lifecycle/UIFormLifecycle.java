@@ -42,17 +42,14 @@ public class UIFormLifecycle  extends Lifecycle {
     String action =  uiForm.getSubmitAction();
     String subComponentId = context.getRequestParameter(UIForm.SUBCOMPONENT_ID);
     
-    if(subComponentId != null && subComponentId.trim().length() > 1) {
-      UIComponent uiSubComponent = uiForm.findComponentById(subComponentId);
-      Event<UIComponent> event = uiSubComponent.createEvent(action, Event.Phase.DECODE, context) ;
-      if(event != null)  {
-        event.broadcast() ;
-        return;
-      }
+    if(subComponentId == null || subComponentId.trim().length() < 1) {
+      Event<UIComponent> event = uiForm.createEvent(action, Event.Phase.DECODE, context) ;
+      if(event != null) event.broadcast() ;
+      return;
     }
-
-    Event<UIComponent> event = uicomponent.createEvent(action, Event.Phase.DECODE, context) ;
-    if(event != null)  event.broadcast() ;
+    UIComponent uiSubComponent = uiForm.findComponentById(subComponentId);
+    Event<UIComponent> event = uiSubComponent.createEvent(action, Event.Phase.DECODE, context) ;
+    if(event != null)  event.broadcast() ;      
   }
 
   public void processAction(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
@@ -65,7 +62,6 @@ public class UIFormLifecycle  extends Lifecycle {
       event = uicomponent.<UIComponent>getParent().createEvent(action, Event.Phase.PROCESS, context) ;
     }
     if(event == null) return;
-    
     UIApplication uiApp = uiForm.getAncestorOfType(UIApplication.class) ;
     List<UIComponent>  children = uiForm.getChildren() ;
     validateChildren(children, uiApp, context);

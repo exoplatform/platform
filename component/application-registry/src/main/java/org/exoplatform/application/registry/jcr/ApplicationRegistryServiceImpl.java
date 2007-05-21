@@ -200,7 +200,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     String [] permissions = new String[memberships.size()];
     for(int i = 0; i < memberships.size(); i++) {
       permissions[i] = memberships.get(i).getMembershipType() + ":" + memberships.get(i).getGroupId() ;
-      System.out.println("\n\n\npermission: " + permissions[i]);
     }
     
     Iterator<ApplicationCategory> iter = categories.iterator();

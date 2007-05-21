@@ -59,9 +59,9 @@ import org.exoplatform.webui.event.Event.Phase;
     )
   ),
   @ComponentConfig(
-    type = UIContainer.class,
-    id = "PermissionSelectorTab",
-    template = "system:/groovy/webui/component/UITabSelector.gtmpl"
+      type = UIFormInputSet.class,
+      id = "PermissionSetting",
+      template = "system:/groovy/webui/component/UITabSelector.gtmpl"
   )
 })
 public class UIPageForm extends UIFormTabPane {
@@ -74,31 +74,19 @@ public class UIPageForm extends UIFormTabPane {
     super("UIPageForm");
     
     addChild(UIPageInfoForm.class, null, "PageSetting");
-    
 
-    UIFormInputSet uiPermissionSetting = new UIFormInputSet("PermissionSetting") ;
+    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
     uiPermissionSetting.setRendered(false);
     addUIComponentInput(uiPermissionSetting);
     
-    UIContainer uiTabPermissionSelector = uiPermissionSetting.createUIComponent(UIContainer.class, "PermissionSelectorTab", null);
-    uiPermissionSetting.addChild(uiTabPermissionSelector ) ;
-    
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-    uiTabPermissionSelector.addChild(uiListPermissionSelector);
+    uiPermissionSetting.addChild(uiListPermissionSelector);
     
     UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
     uiEditPermission.setRendered(false) ;
     uiEditPermission.configure("UIPermissionSelector", "editPermission");
-    uiTabPermissionSelector.addChild(uiEditPermission);
-    
-//    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
-//    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-//    uiPermissionSetting.addUIFormInput(uiListPermissionSelector);
-//    
-//    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
-//    uiEditPermission.configure("UIPermissionSelector", "editPermission");
-//    uiPermissionSetting.addUIFormInput(uiEditPermission);
+    uiPermissionSetting.addChild(uiEditPermission);
 
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("PageTemplate");

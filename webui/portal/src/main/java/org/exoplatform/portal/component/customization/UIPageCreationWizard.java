@@ -175,7 +175,6 @@ public class UIPageCreationWizard extends UIPageWizard {
       
       PageNode pageNode = uiPageInfo.getPageNode();
       Page page = uiPageTemplateOptions.getSelectedOption();
-      System.out.println("\n\n\n == > tai day co  "+page.getFactoryId()+" : \n\n\n");
       if(page == null){
         page  = new Page();
         page.setCreator(context.getRemoteUser());
@@ -205,7 +204,6 @@ public class UIPageCreationWizard extends UIPageWizard {
       PortalDataModelUtil.toUIPage(uiPage, page);
       uiPagePreview.setUIComponent(uiPage);
       
-      System.out.println("\n\n\n == > da xay ra duoc chua "+isDesktopPage +" : "+page.getFactoryId() +"\n\n");
       if(isDesktopPage){
         uiWizard.saveData();
         uiWizard.updateUIPortal(uiPortalApp, event);

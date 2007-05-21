@@ -27,11 +27,12 @@ abstract public class UIFormTabPane extends UIForm {
     String renderTab = context.getRequestParameter(RENDER_TAB) ;
     if(renderTab != null) renderTabId  = renderTab;
     UIComponent uiComp = findComponentById(renderTabId);  
-    if(uiComp == null) return;
-    for(UIComponent child : getChildren()){
-      child.setRendered(false);
+    if(uiComp != null) {
+      for(UIComponent child : getChildren()){
+        child.setRendered(false);
+      }
+      uiComp.setRendered(true);
     }
-    uiComp.setRendered(true);
     super.processDecode(context);
   }
 		

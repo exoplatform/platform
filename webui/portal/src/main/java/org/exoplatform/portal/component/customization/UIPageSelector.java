@@ -12,6 +12,7 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIForm;
+import org.exoplatform.webui.component.UIFormInput;
 import org.exoplatform.webui.component.UIFormInputContainer;
 import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.component.UIGrid;
@@ -36,7 +37,9 @@ import org.exoplatform.webui.event.EventListener;
       events = @EventConfig(listeners = UIPageSelector.SelectPageActionListener.class) 
   )
 })
-public class UIPageSelector extends UIFormInputContainer<Page> {
+public class UIPageSelector extends UIFormInputContainer<String> {
+  
+  private Page page_;
 
   public UIPageSelector() throws Exception {
     super("UIPageSelector", null) ;
@@ -54,20 +57,54 @@ public class UIPageSelector extends UIFormInputContainer<Page> {
     setName(iname) ;
     setBindingField(bfield) ;    
   }
-
-  public Object getUIInputValue() { 
-    if(value_ != null) return value_.getPageId() ;
-    return null ;
-  }  
   
-  public void setUIInputValue(Object input) throws Exception { 
-    String id =  (String)input ; 
-    PortalRequestContext pcontext = Util.getPortalRequestContext();      
+  public UIFormInput setValue(String value) throws Exception {
+    PortalRequestContext pcontext = Util.getPortalRequestContext();
     UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
-    value_ = service.getPage(id, pcontext.getRemoteUser()) ;
-  }
+    Page page = service.getPage(value, pcontext.getRemoteUser()) ;
 
-  public Class<Page> getTypeValue() {  return Page.class ; }
+    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
+    if(page == null){
+      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{value})) ;;
+      pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+      return this;
+    }
+
+    UIForm uiForm = getAncestorOfType(UIForm.class) ;
+    if(uiForm != null) {
+      pcontext.addUIComponentToUpdateByAjax(uiForm.getParent()); 
+    } else {
+      pcontext.addUIComponentToUpdateByAjax(getParent());
+    }
+
+    if(page == null) {
+      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
+      pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+      return this;
+    }
+
+    UIFormPopupWindow uiPopup = getAncestorOfType(UIFormPopupWindow.class);
+    if(uiPopup != null) uiPopup.setShow(false);
+    page_ = page;
+    super.setValue(value);    
+    return this;
+  }
+  
+  public Page getPage() { return page_; }
+
+//  public String getUIInputValue() { 
+//    if(value_ != null) return value_ ;
+//    return null ;
+//  }  
+//  
+//  public void setUIInputValue(Object input) throws Exception { 
+//    String id =  (String)input ; 
+//    PortalRequestContext pcontext = Util.getPortalRequestContext();      
+//    UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
+//    value_ = service.getPage(id, pcontext.getRemoteUser()) ;
+//  }
+
+  public Class<String> getTypeValue() {  return String.class ; }
 
   public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
@@ -78,38 +115,11 @@ public class UIPageSelector extends UIFormInputContainer<Page> {
   static public class SelectPageActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPageBrowser uiPageBrowser = event.getSource();
-      PortalRequestContext pcontext = Util.getPortalRequestContext();
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
-      UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
-      Page page = service.getPage(id, pcontext.getRemoteUser()) ;
-      
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      if(page == null){
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{id})) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
-        return;
-      }
-      
       UIPageSelector uiPageSelector = uiPageBrowser.getAncestorOfType(UIPageSelector.class) ;
-      UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
-      if(uiForm != null) {
-        pcontext.addUIComponentToUpdateByAjax(uiForm.getParent()); 
-      } else {
-        pcontext.addUIComponentToUpdateByAjax(uiPageSelector.getParent());
-      }
-      
-      if(page == null) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
-        return;
-      }
-      
-      UIFormPopupWindow uiPopup = uiPageBrowser.getAncestorOfType(UIFormPopupWindow.class);
-      if(uiPopup != null) uiPopup.setShow(false);
-      uiPageSelector.setValue(page) ;
-      
-      
-      
+      uiPageSelector.setValue(id);
+     
     }
   }
+  
 }

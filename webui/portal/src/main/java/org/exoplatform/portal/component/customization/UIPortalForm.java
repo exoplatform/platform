@@ -19,7 +19,6 @@ import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserPortalConfig;
-import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
@@ -28,8 +27,6 @@ import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIFormCheckBoxInput;
-import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
@@ -41,7 +38,6 @@ import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
-import org.exoplatform.webui.component.validator.IdentifierValidator;
 import org.exoplatform.webui.component.validator.NameValidator;
 import org.exoplatform.webui.config.Component;
 import org.exoplatform.webui.config.InitParams;
@@ -77,9 +73,9 @@ import org.exoplatform.webui.event.Event.Phase;
     }
   ),
   @ComponentConfig(
-    type = UIContainer.class,
-    id = "PermissionSelectorTab",
-    template = "system:/groovy/webui/component/UITabSelector.gtmpl"
+      type = UIFormInputSet.class,
+      id = "PermissionSetting",
+      template = "system:/groovy/webui/component/UITabSelector.gtmpl"
   )
 })
 public class UIPortalForm extends UIFormTabPane {
@@ -142,21 +138,18 @@ public class UIPortalForm extends UIFormTabPane {
       items.add(item);
     } 
     
-    UIFormInputSet uiPermissionSetting = new UIFormInputSet("PermissionSetting") ;
+    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
     uiPermissionSetting.setRendered(false);
     addUIComponentInput(uiPermissionSetting);
     
-    UIContainer uiTabPermissionSelector = uiPermissionSetting.createUIComponent(UIContainer.class, "PermissionSelectorTab", null);
-    uiPermissionSetting.addChild(uiTabPermissionSelector ) ;
-    
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-    uiTabPermissionSelector.addChild(uiListPermissionSelector);
+    uiPermissionSetting.addChild(uiListPermissionSelector);
     
     UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
-    uiEditPermission.setRendered(false);
+    uiEditPermission.setRendered(false) ;
     uiEditPermission.configure("UIPermissionSelector", "editPermission");
-    uiTabPermissionSelector.addChild(uiEditPermission);
+    uiPermissionSetting.addChild(uiEditPermission);
         
     UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
     uiFactoryId.setItemCategories(itemCategories);
@@ -254,26 +247,17 @@ public class UIPortalForm extends UIFormTabPane {
     }
   }
   
+  //TODO Ha implement code 
   static public class CreateActionListener  extends EventListener<UIPortalForm> {
     public void execute(Event<UIPortalForm> event) throws Exception {
-      System.out.println("\n\n\n\n\n\n\n\n\n\n == > create new portal \n\n");
+      System.out.println("\n\n\n == > create new portal \n\n");
       //get portal template
       //get portal name
       //get UserPortalConfigService as service
-      UIPortalForm uiForm = event.getSource();
-      UIPortal uiPortal = Util.getUIPortal();
-      String template = uiPortal.getTemplate();
-      String portalName = uiPortal.getName();
-//      System.out.println("\n\n\n\n\n\n\n\n\n\n  :: CreateActionListener  \n\n\n\n\n\n\n\n\n\n\n");
-      UserPortalConfigService service = uiForm.getApplicationComponent(UserPortalConfigService.class);
-      
-      System.out.println("\n\n\n\n\n\n\n\n\n\n  Portal Name: "+portalName+"\n + Template: "+template+"  \n\n\n\n\n\n\n\n\n\n\n");
-//      UserPortalConfig userPortalConfig = service.createUserPortalConfig(portalName, template);
-//      PortalConfig pconfig = userPortalConfig.getPortalConfig();
-      
-      
-//      invokeSetting model, set other properites for portal
-//      service.update(PortalConfig pconfig);
+      //UserPortalConfig userPortalConfig  = service.createUserPortalConfig(portalName, template);
+      //PortalConfig pconfig =  userPortalConfig.getPortal();
+      //invokeSetting model, set other properites for portal
+      //service.update(PortalConfig pconfig)
     }
   }
   
