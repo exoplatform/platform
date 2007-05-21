@@ -19,6 +19,7 @@ import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserPortalConfig;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
@@ -251,17 +252,26 @@ public class UIPortalForm extends UIFormTabPane {
     }
   }
   
-  //TODO Ha implement code 
   static public class CreateActionListener  extends EventListener<UIPortalForm> {
     public void execute(Event<UIPortalForm> event) throws Exception {
-      System.out.println("\n\n\n == > create new portal \n\n");
+      System.out.println("\n\n\n\n\n\n\n\n\n\n == > create new portal \n\n");
       //get portal template
       //get portal name
       //get UserPortalConfigService as service
-      //UserPortalConfig userPortalConfig  = service.createUserPortalConfig(portalName, template);
-      //PortalConfig pconfig =  userPortalConfig.getPortal();
-      //invokeSetting model, set other properites for portal
-      //service.update(PortalConfig pconfig)
+      UIPortalForm uiForm = event.getSource();
+      UIPortal uiPortal = Util.getUIPortal();
+      String template = uiPortal.getTemplate();
+      String portalName = uiPortal.getName();
+//      System.out.println("\n\n\n\n\n\n\n\n\n\n  :: CreateActionListener  \n\n\n\n\n\n\n\n\n\n\n");
+      UserPortalConfigService service = uiForm.getApplicationComponent(UserPortalConfigService.class);
+      
+      System.out.println("\n\n\n\n\n\n\n\n\n\n  Portal Name: "+portalName+"\n + Template: "+template+"  \n\n\n\n\n\n\n\n\n\n\n");
+//      UserPortalConfig userPortalConfig = service.createUserPortalConfig(portalName, template);
+//      PortalConfig pconfig = userPortalConfig.getPortalConfig();
+      
+      
+//      invokeSetting model, set other properites for portal
+//      service.update(PortalConfig pconfig);
     }
   }
   

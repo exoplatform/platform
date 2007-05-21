@@ -36,12 +36,15 @@ import org.exoplatform.webui.component.validator.IdentifierValidator;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
-@ComponentConfig(
+
+@ComponentConfigs({
+  @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
     template =  "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
     events = {
@@ -52,7 +55,13 @@ import org.exoplatform.webui.event.Event.Phase;
       name = "PageTemplate",
       value = "system:/WEB-INF/conf/uiconf/portal/webui/component/customization/PageTemplate.groovy"
     )
-)
+  ),
+  @ComponentConfig(
+    type = UIContainer.class,
+    id = "PermissionSelectorTab",
+    template = "system:/groovy/webui/component/UITabSelector.gtmpl"
+  )
+})
 public class UIPageForm extends UIFormTabPane {
   
   private UIPage uiPage_ ;
@@ -76,16 +85,28 @@ public class UIPageForm extends UIFormTabPane {
     uiPermissionSetting.setRendered(false);
     addUIComponentInput(uiPermissionSetting);
     
+    UIContainer uiTabPermissionSelector = uiPermissionSetting.createUIComponent(UIContainer.class, "PermissionSelectorTab", null);
+    uiPermissionSetting.addChild(uiTabPermissionSelector ) ;
+    
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-    uiPermissionSetting.addUIFormInput(uiListPermissionSelector);
+    uiTabPermissionSelector.addChild(uiListPermissionSelector);
     
     UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+    uiEditPermission.setRendered(false) ;
     uiEditPermission.configure("UIPermissionSelector", "editPermission");
-    uiPermissionSetting.addUIFormInput(uiEditPermission);
+    uiTabPermissionSelector.addChild(uiEditPermission);
+    
+//    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+//    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+//    uiPermissionSetting.addUIFormInput(uiListPermissionSelector);
+//    
+//    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+//    uiEditPermission.configure("UIPermissionSelector", "editPermission");
+//    uiPermissionSetting.addUIFormInput(uiEditPermission);
 
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
-    Param param = initParams.getParam("PageTemplate");          
+    Param param = initParams.getParam("PageTemplate");
     List<SelectItemCategory>  itemCategories =  param.getMapGroovyObject(context) ;
     
     UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Template", "template");
