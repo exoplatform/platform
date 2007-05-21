@@ -34,7 +34,7 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 			  var styleSkin = document.getElementById("UIPortalApplication");
 				if(count == 1){
 					var posLeft = categoryDetectPosition.offsetLeft - uiPopupCategory.offsetWidth + 44 ; 
-					if(styleSkin.className == "Mac") posLeft += 10;
+					if(styleSkin.className == "Mac") posLeft += 6;
 				}
 				else {
 					if(uiPageDesktop) {
