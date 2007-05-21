@@ -76,7 +76,7 @@ public class UIPageForm extends UIFormTabPane {
     ls.add(new SelectItemOption<String>("User", "User")) ;
     ls.add(new SelectItemOption<String>("Portal", "Portal")) ;
     ls.add(new SelectItemOption<String>("Group", "Group")) ;
-    UIFormSelectBox uiSelectBox = new UIFormSelectBox("OwnerType","OwnerType" , ls) ;
+    UIFormSelectBox uiSelectBox = new UIFormSelectBox("ownerType","ownerType" , ls) ;
     uiSelectBox.setOnChange("ChangeOwnerType");
 //    uiSelectBox.setEditable(false);
     
@@ -212,6 +212,7 @@ public class UIPageForm extends UIFormTabPane {
             if(component != null) children.add(component);
           }
           page.setChildren(children);
+          uiPage.getChildren().clear(); 
         }
         page.setModifier(pcontext.getRemoteUser());
         PortalDataModelUtil.toUIPage(uiPage, page);  
