@@ -108,20 +108,30 @@ UIPortalControl.prototype.onEnterPress = function(e) {
 };
 
 /*********** Scroll Manager *************/
+/**
+ * This class adds a scroll functionnality to elements when there is not enough space to show them all
+ * Use : create a manager with the function newScrollManager
+ *     : create a load and an init function in your js file
+ *     : the load function sets all the base attributes, the init function recalculates the visible elements
+ *       (e.g. when the window is resized)
+ *     : create a callback function if necessary, to add specific behavior to your scroll
+ *       (e.g. if an element must be always visible)
+ */
 function ScrollManager() {
 	this.elements = new Array();
 	this.firstVisibleIndex = 0;
-	this.lastVisibleIndex = -1;  
-	this.axis = 0; // 0 : horizontal scroll, 1 : vertical scroll
-	this.lastDirection = null; // 0 : left or up scroll, 1 : right or down scroll
+	this.lastVisibleIndex = -1;
+	this.otherHiddenIndex = -1; // the index in elements of an element hidden because of a lack of space
+	this.axis = 0; // horizontal scroll : 0 , vertical scroll : 1
+	this.lastDirection = null; // left or up scroll : 0, right or down scroll : 1
 	this.callback = null; // callback function when a scroll is done
-	this.initFunction = null;
+	this.initFunction = null; // the init function in the files that use this class
 	this.leftArrow = null;
 	this.rightArrow = null;
 	this.mainContainer = null; // The HTML DOM element that contains the tabs, the arrows, etc
 	this.arrowsContainer = null // The HTML DOM element that contains the arrows
-	this.otherHiddenIndex = -1;
 };
+
 ScrollManager.prototype.initArrowButton = function(arrow, dir, normalClass, overClass, disabledClass) {
 	arrow.direction = dir; // "left" or "right" (up or down)
 	arrow.overClass = overClass;
@@ -179,6 +189,9 @@ ScrollManager.prototype.loadElements = function(elementClass, clean) {
 };
 
 ScrollManager.prototype.checkAvailableSpace = function(maxSpace) { // in pixels
+ /*
+  * Calculates the available space for the elements, and inits the elements array
+  */
 	if (!maxSpace) var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer);
 	var elementsSpace = 0;
 	for (var i = 0; i < this.elements.length; i++) {
@@ -219,6 +232,7 @@ ScrollManager.prototype.getElementSpace = function(element) {
 			elementSpace += element.offsetWidth;
 			elementSpace += eXo.core.DOMUtil.getStyle(element, "marginLeft", true);
 			elementSpace += eXo.core.DOMUtil.getStyle(element, "marginRight", true);
+			// decorator is another element that is linked to the current element (e.g. a separator bar)
 			if (element.decorator) elementSpace += this.getElementSpace(element.decorator);
 		} else if (this.axis == 1) { // vertical tabs
 			elementSpace += element.offsetHeight;
@@ -228,6 +242,7 @@ ScrollManager.prototype.getElementSpace = function(element) {
 		}
 		if (wasHidden) element.style.display = "none";
 	}
+	// Store the calculated value for faster return on next calls. To recalculate, set element.space to null before.
 	element.space = elementSpace;
 	return elementSpace;
 };
@@ -240,6 +255,10 @@ ScrollManager.prototype.cleanElements = function() {
 }
 
 ScrollManager.prototype.scroll = function(e) {
+	/*
+	 * Function called when an arrow is clicked. Shows an additionnal element and calls the 
+	 * appropriate scroll function (left or right)
+	 */
 	if (!e) var e = window.event;
 	e.cancelBubble = true;
 	var src = eXo.core.Browser.getEventSource(e);
@@ -287,13 +306,17 @@ ScrollManager.prototype.scrollDown = function() {
 };
 
 ScrollManager.prototype.renderElements = function() {
+	/*
+	 * Called by a scroll function. Renders the visible elements depending on the elements array
+	 * If the new visible elements are too big, hides an additional element and keep its index in otherHiddenIndex
+	 */
 	var elementsSpace = 0;
 	var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer);
 	// Displays the elements
 	for (var i = 0; i < this.elements.length; i++) {
 		if (this.elements[i].isVisible) {
 			elementsSpace += this.getElementSpace(this.elements[i]);
-			if (maxSpace-elementsSpace <= 2) {
+			if (maxSpace-elementsSpace <= 3) {
 				// In certain browsers, a difference of 0 or 1 pixel between the container and the elements length
 				// is too big and the last element doesn't fit in the remaining space, hence we have to check
 				// for a bigger difference
@@ -318,7 +341,7 @@ ScrollManager.prototype.renderElements = function() {
 			this.arrowsContainer.style.display = "block";
 		}
 	}
-	// Enables/Disables the arrow buttons
+	// Enables/Disables the arrow buttons depending on the elements to show
 	if (this.firstVisibleIndex == 0) this.enableArrow(this.leftArrow, false);
 	else this.enableArrow(this.leftArrow, true);
 	
@@ -329,6 +352,9 @@ ScrollManager.prototype.renderElements = function() {
 };
 
 UIPortalControl.prototype.initAllManagers = function() {
+	/*
+	 * Called when the workspace is opened, to recalculate the available space for all managers
+	 */
 	var managers = eXo.portal.UIPortalControl.scrollManagers;
 	for (var i = 0; i < managers.length; i++) {
 		if (typeof(managers[i].initFunction) == "function") managers[i].initFunction();
