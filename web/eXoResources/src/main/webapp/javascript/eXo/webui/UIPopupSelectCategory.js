@@ -33,10 +33,14 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 			} else {
 				if(count == 1)var posLeft = categoryDetectPosition.offsetLeft - uiPopupCategory.offsetWidth + 44 ; 
 				else {
-					if(uiPageDesktop) var posLeft = categoryDetectPosition.offsetLeft - categoryDetectPosition.offsetWidth + 44 ; 
-					else var posLeft = categoryDetectPosition.offsetLeft - categoryDetectPosition.offsetWidth + 20;
-					var styleSkin = document.getElementById("UIPortalApplication");
-					if(styleSkin.className = "Vista") posLeft += 10;
+				  var styleSkin = document.getElementById("UIPortalApplication");
+					if(uiPageDesktop) {
+						var posLeft = (categoryDetectPosition.offsetLeft - categoryDetectPosition.offsetWidth) + 36 ;
+						if(styleSkin.className == "Vista") posLeft += 20;
+					} else {
+						var posLeft = categoryDetectPosition.offsetLeft - categoryDetectPosition.offsetWidth + 20;
+						if(styleSkin.className == "Vista") posLeft += 10;
+					}
 				}
 			}
 			uiPopupCategory.style.left = posLeft + "px";
