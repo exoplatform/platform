@@ -57,7 +57,6 @@ eXo.portal.UIControlWorkspace.onResizeDefault = function() {
 		cws.slidebar.style.display = "block" ;
 		cws.onResize(cws.slidebar.offsetWidth, eXo.core.Browser.getBrowserHeight()) ;
 	}
-	eXo.portal.UIPortalControl.backgroundBody();	
 };
    	
 eXo.portal.UIControlWorkspace.showWorkspace = function() {

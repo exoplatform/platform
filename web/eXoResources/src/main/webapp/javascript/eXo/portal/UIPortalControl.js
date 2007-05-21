@@ -342,20 +342,4 @@ UIPortalControl.prototype.newScrollManager = function() {
 };
 /*********** Scroll Manager *************/
 
-
-
-UIPortalControl.prototype.backgroundBody = function() {
-	if(eXo.core.Browser.isIE6()) return;
-	var mainPage = document.getElementById("UIPortalApplication");
-	var backg = document.getElementById("Backgroud");
-	mainPage.style.position = "absolute";
-	mainPage.style.zIndex = 1;
-	mainPage.style.top = "0px";
-	mainPage.style.left = "0px";
-	mainPage.style.right = "0px";
-	mainPage.style.bottom = "0px";
-	backg.style.top = document.documentElement.scrollTop + "px";
-	backg.style.bottom = (-document.documentElement.scrollTop) + "px";
-};
-
 eXo.portal.UIPortalControl = new UIPortalControl();
