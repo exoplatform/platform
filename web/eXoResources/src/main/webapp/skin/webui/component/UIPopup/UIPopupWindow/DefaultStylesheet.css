@@ -180,6 +180,8 @@
 
 .UIPopupWindow .Content .UIPageBrowser {
   padding: 7px 4px 0px 8px;
+  width: 96%;
+  margin: auto;
 }
 
 /***************************Begin PoupWindow ExoMessage**********************************/

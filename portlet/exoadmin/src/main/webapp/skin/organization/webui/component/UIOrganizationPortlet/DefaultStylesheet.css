@@ -72,10 +72,6 @@
   margin: auto;
 }
 
-.UIOrganizationPortlet .UIFormWithTitle  {
-	margin: auto ; margin-top: 10px ;
-}
-
 .UIOrganizationPortlet .UIMembership .UIAction  {
   width: 155px;
 } 
@@ -208,8 +204,8 @@
   height: auto;
 }
 
-.GroupPanel .UIForm .UIAction  {
-  width: 90px;
+.UIOrganizationPortlet .UIGroupManagement .GroupPanel .UIForm .UIAction  {
+  width: 150px;
   padding-left: 45px;
 } 
 
@@ -298,6 +294,7 @@
 /*#######################  UIMemberShipManagement #################################*/
 .UIOrganizationPortlet .UIFormWithTitle {
 	width: 440px ;
+	margin: auto;
 }
 
 .UIOrganizationPortlet .UIFormWithTitle .UIForm {
@@ -317,4 +314,13 @@
 
 .UIOrganizationPortlet .UIGrid  {
   width: 99.5%;
+}
+
+.UIOrganizationPortlet .UIMembershipManagement .UIFormWithTitle .TitleBar {
+  margin: 0px;
+}
+
+.UIOrganizationPortlet .UIMembershipManagement .UIForm .HorizontalLayout label {
+  width: 130px;
+  margin: 0px 10px 0px 0px;
 }

@@ -1,0 +1,129 @@
+/***************************FlatTabStyle************************************/
+.UITabSelector .UIHorizontalTabs {
+  height: 31px;
+}
+
+.UITabSelector .UIHorizontalTabs .LeftHorizontalTabs{
+  height: 31px;
+  background: url('DefaultSkin/background/LeftFlatTabStyle2x31.gif') no-repeat left;
+  padding-left: 2px;
+}
+
+.UITabSelector .UIHorizontalTabs .RightHorizontalTabs{
+  height: 31px;
+  background: url('DefaultSkin/background/RightFlatTabStyle2x31.gif') no-repeat right;
+  padding-right: 2px;
+}
+
+.UITabSelector .UIHorizontalTabs .CenterHorizontalTabs {
+  height: 31px;
+  background: url('DefaultSkin/background/CenterFlatTabStyle1x31.gif') repeat-x;
+}
+
+.UITabSelector .UIHorizontalTabs .TabsContainer {
+  float: left;
+  overflow: hidden;
+  margin: 0px;
+}
+
+.UITabSelector .UIHorizontalTabs .UITab {
+  float: left;
+}
+
+.UITabSelector .UIHorizontalTabs .LineSeparator {
+  float: left;
+  background: url('DefaultSkin/background/LineSeparator2x29.gif') no-repeat left;
+  height: 29px;
+  width: 2px;
+  margin-top: 2px;
+}
+
+.UITabSelector .FlatTabStyle .NormalTab {
+  line-height: 29px;
+  margin: 2px 0px 0px 0px;
+  font-size: 11px;color: #202020; font-weight: normal;
+}
+
+.UITabSelector .FlatTabStyle .NormalTab a {
+  text-decoration: none;
+}
+
+.UITabSelector .FlatTabStyle .NormalTab .LeftTab {
+  line-height: 29px;
+}
+
+.UITabSelector .FlatTabStyle .NormalTab .RightTab {
+  line-height: 29px;
+}
+
+.UITabSelector .FlatTabStyle .NormalTab .MiddleTab {
+  line-height: 29px;
+  cursor: pointer;
+  padding: 0px 6px;
+}
+
+.UITabSelector .FlatTabStyle .NormalTab .MiddleTab .TabIcon {
+  float: left;
+  margin: 1px 4px 0px 0px;
+}
+
+.UITabSelector .FlatTabStyle .NormalTab .MiddleTab .Title {
+  margin-left: 30px;
+  line-height: 28px;
+  margin: 0px;
+  font-weight: bold;
+  color: #404040;  
+}
+
+.UITabSelector .FlatTabStyle .SelectedTab {
+  line-height: 29px;
+  margin: 2px 0px 0px 0px;
+  font-size: 11px; font-weight: normal; color: #307dcc;
+}
+
+.UITabSelector .FlatTabStyle .SelectedTab .LeftTab {
+  line-height: 29px;
+}
+
+.UITabSelector .FlatTabStyle .SelectedTab .RightTab {
+  line-height: 29px;
+}
+
+.UITabSelector .FlatTabStyle .SelectedTab .MiddleTab {
+  line-height: 29px;
+  background: url('DefaultSkin/background/LeftSelectedFlatTabStyle1x29.gif') repeat-x top;
+  cursor: pointer;
+  padding: 0px 6px;
+}
+
+.UITabSelector .FlatTabStyle .SelectedTab .MiddleTab .TabIcon {
+  float: left;
+  margin: 1px 4px 0px 0px;
+}
+
+.UITabSelector .FlatTabStyle .SelectedTab .MiddleTab .Title {
+  margin-left: 30px;
+  line-height: 28px;
+  margin: 0px;
+  font-weight: bold;
+  color: #404040;
+}
+
+/************************************ List Permission Selector *******************************/
+.UIAccessGroup {
+  padding: 10px;
+}
+
+.UIAccessGroup .UIGrid {
+  width: 99%;
+  margin: auto;
+}
+
+.UIAccessGroup .UIGrid .ActionContainer {
+  width: 30px;
+}
+
+.UIAccessGroup .UIAction .SimpleStyle .Icon {
+  float: left;
+  margin: 3px 0px;
+}

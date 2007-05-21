@@ -50,7 +50,6 @@
 }
 /***********************************  UITabContent  ************************************/
 .UIMaskWorkspace .UIHorizontalTabs {
-  height: 26px;
 }
 
 .UIMaskWorkspace .UIFormTabPane {
@@ -77,7 +76,6 @@
 }
 
 .UIMaskWorkspace .UIForm .HorizontalLayout label {
-  width: 140px;
   padding-top: 2px;
   font-size: 11px;
 }
@@ -100,6 +98,22 @@
   width: 550px;
 	margin: auto;
 	padding: 50px 0px;
+}
+
+
+/**********************************UITabSelector*****************************************/
+.UIMaskWorkspace .UITabPane .TabPaneContent .WorkingArea .CSSContent {
+  border: 1px solid #d5d5d5;
+  padding: 0px;
+}
+
+.UIMaskWorkspace .UITabPane .TabPaneContent .CSSContent .UITabContent {
+  height: 190px;
+  border: 1px solid white;
+  border-top: none;
+  overflow: auto;
+  width: 95%;
+  margin: auto;
 }
 
 /**************************** UIAddApplication ******************************************/
@@ -262,23 +276,6 @@
 
 /************************************ Select Permission *******************************/
 
-.UIAccessGroup .UIGrid {
-  width: 99%;
-  margin: auto;
-}
-
-.UIAccessGroup .UIGrid .ActionContainer {
-  width: 30px;
-}
-
-.UIAccessGroup .UIAction {
+.UIMaskWorkspace .UIAccessGroup .UIAction {
   width: 200px;
-}
-
-.UIAccessGroup .UIAction .SimpleStyle .Icon {
-  float: left;
-  margin: 3px 0px;
-}
-
-.UIAccessGroup .UIAction .ActionButton .SimpleStyle a {
 }

@@ -273,3 +273,12 @@
 	background: url('/eXoResources/icons/24x24/DefaultSkin/BlueBackArrow.gif') no-repeat left center;
 }
 
+.UIListPermissionSelector24x24Icon {
+  width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/IconAccessPermission.gif') no-repeat left center;
+}
+
+.UIPermissionSelector24x24Icon {
+  width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/IconEditPermission.gif') no-repeat left center;
+}

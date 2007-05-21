@@ -1,5 +1,4 @@
 .UIHorizontalTabs {
-  height: 26px;
 }
 
 .UIHorizontalTabs .LeftHorizontalTabs{
@@ -194,7 +193,7 @@
 .UIHorizontalTabs .NormalTabStyle .HighlightTab .LeftTab {
   line-height: 24px;
   padding-left: 12px;
-  background: url('DefaultSkin/background/LeftHighlightTab12x24.gif') no-repeat left;;
+  background: url('DefaultSkin/background/LeftHighlightTab12x24.gif') no-repeat left;
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab .RightTab {
@@ -221,7 +220,7 @@
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
   line-height: 24px;
   padding-left: 15px;
-  background: url('DefaultSkin/background/LeftSelectedTab15x24.gif') no-repeat left;;
+  background: url('DefaultSkin/background/LeftSelectedTab15x24.gif') no-repeat left;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
@@ -360,6 +359,7 @@
   vertical-align: middle ;
   background: url('DefaultSkin/background/SelectedCommunityM1x31.gif') repeat-x ;
 }
+
 
 /*###########################-- MessageTabDialog --############################*/
 

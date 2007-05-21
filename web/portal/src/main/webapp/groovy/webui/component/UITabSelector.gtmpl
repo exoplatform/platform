@@ -4,32 +4,37 @@
 %>
 
 <div class="UITabSelector" id="$uicomponent.id">
-  <div class="UIHorizontalTabs">
+	<div class="UIHorizontalTabs"> 
     <div class="LeftHorizontalTabs">
-     	  <div class="RightHorizontalTabs">
-     	    <div class="CenterHorizontalTabs">
-		        <div class="TabsContainer">
-		          <%
-		            for(uiChild in uicomponent.getChildren()) {
-		              String style = "NormalTab" ;
-		              if(uiChild.isRendered()) style = "SelectedTab" ;
-		          %>
-		            <div class="UITab NormalTabStyle">
-		              <div class="$style">
-		                <div class="LeftTab">
-		                  <div class="RightTab">                
-		                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=_ctx.appRes("UITabPane.title." + uiChild.getId());%></div>
+      <div class="RightHorizontalTabs">
+        <div class="CenterHorizontalTabs">
+		      <div class="TabsContainer">
+		        <%
+		          for(uiChild in uicomponent.getChildren()) {
+		            String style = "NormalTab" ;
+		            if(uiChild.isRendered()) style = "SelectedTab" ;
+		        %>
+		          <div class="UITab FlatTabStyle">
+		            <div class="$style" >
+		              <div class="LeftTab" >
+		                <div class="RightTab">                
+		                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">
+		                    <div class="TabIcon ${uiChild.id}24x24Icon"><span></span></div>
+		                    <div class="Title"><%=_ctx.appRes("UITabPane.title." + uiChild.getId());%></div>
+		                    <div style="clear: left;"><span></span></div>
 		                  </div>
 		                </div>
 		              </div>
-		            </div>              
-		          <%}%>
-		        </div>
+		            </div>
+		          </div>              
+		          <div class="LineSeparator"><span></span></div>
+		        <%}%>
 		      </div>
 		    </div>
 		  </div>
-  </div>
-  <div class="UITabContentContainer">
+		</div>
+	</div>
+  <div class="UITabContentContainer CSSContent">
     <%
       for(uiChild in uicomponent.getChildren()) { 
         String display = "none" ;
