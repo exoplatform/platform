@@ -1,0 +1,63 @@
+<div class="UIForm">
+  <div class="HorizontalLayout">
+    <div class="FormContainer">
+    
+	    <div class="FieldContainer">
+	       <label>Page Id </label>
+	      <% 
+		      uicomponent.renderChild("pageId") ;
+	      %>
+	      <div style="clear: left"><span></span></div>
+	    </div>
+	    <div class="FieldContainer">
+	       <label>Owner Type </label>
+	      <% uicomponent.renderChild("selectOwnerType") ;
+	      %>
+	      
+	      <div style="clear: left"><span></span></div>
+	    </div>
+	    <div class="FieldContainer">
+	       <label>Owner Id </label>
+	      <% uicomponent.renderChild("ownerId") ;
+	      
+	      if(uicomponent.showButton) { %>
+	      <div class="UIAction"> 
+	        <div class="ActionContainer">
+	            <div class="ActionButton">
+	              <div class="LightBlueStyle">
+	                <div class="ButtonLeft">
+	                  <div class="ButtonRight">
+	                    <div class="ButtonMiddle">
+	                      <a href="">Browse...</a>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	        </div>
+	      </div>
+	      <% } %>
+	      <div style="clear: left"><span></span></div>
+	    </div>
+	    <div class="FieldContainer">
+	       <label>Page Name </label>
+	      <% uicomponent.renderChild("name");
+	       %>
+	       <div style="clear: left"><span></span></div>
+	    </div>
+	    <div class="FieldContainer">
+	       <label>Page Title </label>
+	      <% uicomponent.renderChild("title"); 
+	      %>
+	      <div style="clear: left"><span></span></div>
+	    </div>
+	    <div class="FieldContainer">
+	       <label>Show Max Window </label>
+	      <% uicomponent.renderChild("showMaxWindow");
+	       %>
+	       <div style="clear: left"><span></span></div>
+	    </div>
+   
+    </div>
+  </div>
+</div>

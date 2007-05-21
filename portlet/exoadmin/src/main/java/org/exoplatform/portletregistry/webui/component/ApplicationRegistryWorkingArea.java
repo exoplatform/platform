@@ -25,7 +25,7 @@ import org.exoplatform.webui.event.EventListener;
  * 10:07:15 AM
  */
 @ComponentConfig(    
-    template = "app:/groovy/portletregistry/webui/component/ApplicationRegistryWorkingArea.gtmpl",
+    template = "app:/groovy/portletregistry/webui/component/ApplicationRegistryWorkingAreaNew.gtmpl",
     events = {
         @EventConfig(listeners = ApplicationRegistryWorkingArea.AddPortletActionListener.class),
         @EventConfig(listeners = ApplicationRegistryWorkingArea.DeletePortletActionListener.class),
@@ -83,7 +83,7 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
       ApplicationRegistryWorkingArea workingArea = event.getSource();
       workingArea.setSeletcApplication(appName);
       UIPopupWindow popupWindow = workingArea.getChild(UIPopupWindow.class);
-      UIInfoPortletForm availablePortletForm= workingArea.createUIComponent(UIInfoPortletForm.class, null, "UIInfoPortletForm");
+      UIInfoPortletForm availablePortletForm= workingArea.createUIComponent(UIInfoPortletForm.class, null, null);
       availablePortletForm.setName("UIInfoPortletForm");
       availablePortletForm.setValues(workingArea.getSelectApplication());
       popupWindow.setUIComponent(availablePortletForm);

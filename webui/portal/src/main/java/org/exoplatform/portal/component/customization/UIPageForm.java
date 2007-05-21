@@ -19,9 +19,11 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
+import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTabPane;
 import org.exoplatform.webui.component.UIGrid;
@@ -71,15 +73,8 @@ public class UIPageForm extends UIFormTabPane {
   public UIPageForm(InitParams initParams) throws Exception  {
     super("UIPageForm");
     
-    UIFormInputSet uiSettingSet = new UIFormInputSet("PageSetting");
-    uiSettingSet.addUIFormInput(new UIFormStringInput("pageId", null, null).setEditable(false)).
-                 addUIFormInput(new UIFormStringInput("ownerType", "ownerType", null).setEditable(false)).
-                 addUIFormInput(new UIFormStringInput("ownerId", "ownerId", null).setEditable(false)).
-                 addUIFormInput(new UIFormStringInput("name", "name", null).
-                                addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)).
-                 addUIFormInput(new UIFormStringInput("title", "title", null)).
-                 addUIFormInput(new UIFormCheckBoxInput("showMaxWindow", "showMaxWindow", false));
-    addUIFormInput(uiSettingSet) ;
+    addChild(UIPageInfoForm.class, null, "PageSetting");
+    
 
     UIFormInputSet uiPermissionSetting = new UIFormInputSet("PermissionSetting") ;
     uiPermissionSetting.setRendered(false);
@@ -263,5 +258,48 @@ public class UIPageForm extends UIFormTabPane {
         else if(ele instanceof UIContainer) findAllPortlet(list, (UIContainer) ele); 
       }
     }
+  }
+ //*******************************************************************************************//
+ // 
+ //*******************************************************************************************//
+  
+  @ComponentConfig(
+      lifecycle = UIFormLifecycle.class,
+      template =  "system:/groovy/webui/component/UIPageInfoForm.gtmpl",    
+      events = {
+        @EventConfig(listeners = UIPageInfoForm.ChangeOwnerTypeActionListener.class)
+      }
+  )
+  
+  
+  public static class UIPageInfoForm extends UIForm {
+    
+    protected boolean showButton = false;
+    
+    @SuppressWarnings("unchecked")
+    public UIPageInfoForm() throws Exception  {
+      List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
+      ls.add(new SelectItemOption<String>("User", "User")) ;
+      ls.add(new SelectItemOption<String>("Portal", "Portal")) ;
+      ls.add(new SelectItemOption<String>("Group", "Group")) ;
+      UIFormSelectBox uiSelectBox = new UIFormSelectBox("OwnerType","OwnerType" , ls) ;
+      uiSelectBox.setId("selectOwnerType");
+      uiSelectBox.setOnChange("ChangeOwnerType");
+      uiSelectBox.setEditable(false);
+      addUIFormInput(new UIFormStringInput("pageId", null, null).setEditable(false)).
+      addUIFormInput(uiSelectBox).
+      addUIFormInput(new UIFormStringInput("ownerId", "ownerId", null)).
+      addUIFormInput(new UIFormStringInput("name", "name", null).
+                     addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)).
+      addUIFormInput(new UIFormStringInput("title", "title", null)).
+      addUIFormInput(new UIFormCheckBoxInput("showMaxWindow", "showMaxWindow", false));
+    }
+    
+    static public class ChangeOwnerTypeActionListener  extends EventListener<UIPageForm> {
+      public void execute(Event<UIPageForm> event) throws Exception {
+        System.out.println("\n\n\n------------------------------Change");
+      }
+    }
+      
   }
 }
