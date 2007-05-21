@@ -1,8 +1,9 @@
 <% String fieldName; %>
 <div class="UIFormWithTitle $uicomponent.id">
+  <div class="TitleBar"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
+  <% uiform.begin() %>
   <div class="HorizontalLayout">
-    <div class="FormContainer">
-    
+    <div class="FormContainer"> 
       <% 
         for(field in uiform.getChildren()) { 
           if(field.isRendered()) {

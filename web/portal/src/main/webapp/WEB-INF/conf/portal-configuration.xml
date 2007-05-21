@@ -8,17 +8,7 @@
   <component>
     <key>org.exoplatform.portal.config.UserPortalConfigService</key>
     <type>org.exoplatform.portal.config.UserPortalConfigService</type>
-    <init-params>	
-      <value-param>
-        <name>view.membership.type</name>
-        <description>membership type for view</description>
-        <value>*</value>
-      </value-param>
-			<value-param>
-        <name>edit.membership.type</name>
-        <description>membership type for view</description>
-        <value>owner</value>	    
-      </value-param>  
+    <init-params>	     
       <value-param>
         <name>super.user</name>
         <description>administrator</description>

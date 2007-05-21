@@ -1,6 +1,6 @@
 <% String fieldName; %>
 <div class="UIForm $uicomponent.id">
-  <% uiform.begin() %>
+  <%uiform.begin()%>
   <div class="HorizontalLayout">
     <div class="FormContainer">
       <% 

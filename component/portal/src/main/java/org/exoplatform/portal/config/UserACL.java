@@ -35,15 +35,7 @@ public class UserACL {
   UserACL(InitParams params, OrganizationService  orgService) throws Exception {
     this.orgService_ = orgService;
     
-    ValueParam valueParam = params.getValueParam("view.membership.type");
-    if(valueParam != null) viewMembershipType_ = valueParam.getValue();
-    if(viewMembershipType_ == null  || viewMembershipType_.trim().length() == 0) viewMembershipType_ = "*";
-    
-    valueParam = params.getValueParam("edit.membership.type");
-    if(valueParam != null) editMembershipType_ = valueParam.getValue();
-    if(editMembershipType_ == null || editMembershipType_.trim().length() == 0) editMembershipType_ = "owner";
-    
-    valueParam = params.getValueParam("super.user");
+    ValueParam valueParam = params.getValueParam("super.user");
     if(valueParam != null) superUser_ = valueParam.getValue();
     if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "exoadmin";
   }
@@ -80,7 +72,6 @@ public class UserACL {
   boolean hasPermission(Page page, String accessUser) throws Exception {
     String owner = page.getCreator();
     if(page.getOwnerType().equals(PortalConfig.USER_TYPE)) owner = page.getOwnerId();
-    
     if(hasEditPermission(owner, accessUser, page.getEditPermission())) {
       page.setModifiable(true);
       return true;
@@ -133,7 +124,7 @@ public class UserACL {
     if(owner != null && owner.equals(remoteUser)) return true;
     if(superUser_.equals(remoteUser)) return true;
     if(expPerm == null) return false ;
-    Permission permission = new Permission();
+    Permission permission = new Permission();    
     permission.setPermissionExpression(expPerm);
     String groupId = permission.getGroupId();
 
@@ -174,7 +165,6 @@ public class UserACL {
 
     public String getValue(){
       if(membership_ .length() == 0 || groupId_.length() == 0) return null;
-      if(membership_.trim().equals("any")) return  "*:"+groupId_;
       return membership_+":"+groupId_;
     }
     

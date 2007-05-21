@@ -50,7 +50,6 @@ import org.exoplatform.webui.event.Event.Phase;
 public class UIPageNavigationForm extends UIFormTabPane {
 
   public PageNavigation pageNav_;
-  private String helpUri_ ;
 
   public UIPageNavigationForm() throws Exception {
     super("UIPageNavigationForm") ;
@@ -85,9 +84,6 @@ public class UIPageNavigationForm extends UIFormTabPane {
 
   public PageNavigation getPageNavigation(){ return pageNav_; }
   
-  public void setUriForQuickHelp(String helpUri) { helpUri_ = helpUri ; }
-  public String getUriForQuickHelp() { return helpUri_ ; }
-
   public void setValues(PageNavigation pageNavigation) throws Exception {
     pageNav_ = pageNavigation;
     invokeGetBindingBean(pageNavigation) ;

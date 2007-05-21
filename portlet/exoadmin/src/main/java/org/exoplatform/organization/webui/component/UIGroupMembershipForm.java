@@ -44,9 +44,8 @@ public class UIGroupMembershipForm extends UIForm {
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     List collection = (List) service.getMembershipTypeHandler().findMembershipTypes();
     for(Object ele : collection){
-      MembershipType membershipType = (MembershipType) ele;
-      listOption.add(new SelectItemOption<String>(
-          membershipType.getName(), membershipType.getName(), membershipType.getDescription()));
+      MembershipType mt = (MembershipType) ele;
+      listOption.add(new SelectItemOption<String>(mt.getName(), mt.getName(), mt.getDescription()));
     }
     
     addUIFormInput(new UIFormStringInput("username", "username", null).
