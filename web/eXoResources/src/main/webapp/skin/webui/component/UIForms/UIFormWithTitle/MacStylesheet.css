@@ -1,8 +1,6 @@
 .UIFormWithTitle {
 	width: 520px;
-  margin: 50px ;
-  border: 1px solid #b7b7b7;
-  background: url('/eXoResources/background/MacSkin/Background1x4.png');
+  margin: 50px auto ;
 }
 
 .UIFormWithTitle .TitleBar {
@@ -10,17 +8,19 @@
   height: 19px; line-height: 19px; vertical-align: middle; 
   font-size: 11px; 
   padding-left: 15px;
-  border-bottom: 1px solid #b7b7b7;
+  border: 1px solid #b7b7b7;
+  border-bottom: none;
 }
 
-.UIForm .HorizontalLayout {
-  border: 1px white solid;
+.UIFormWithTitle .UIForm .HorizontalLayout {
+	border: 1px #cdcdcd solid;	
 }
 
 .UIFormWithTitle .HorizontalLayout .FormContainer {
   padding: 10px 18px 6px 18px;
   font-size: 11px;
-  border: 1px #cdcdcd solid;
+  border: 1px white solid;
+  background: url('/eXoResources/background/MacSkin/Background1x4.png');
 }
 
 .UIFormWithTitle .UIForm input {
@@ -45,6 +45,7 @@
 
 .UIFormWithTitle .UIForm .UIAction {  
   width: 180px;
+  padding-top: 15px;
 }
 
 .UITestForm .UIAction {

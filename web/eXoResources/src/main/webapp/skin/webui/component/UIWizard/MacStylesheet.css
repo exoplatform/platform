@@ -160,6 +160,14 @@
   width: 230px;
 }
 
+.UIWizard .UIWizardPageSetInfo .PageNodeContainer .UIContainerConfigOptions {
+	margin: 0px;
+}
+
+.UIWizard .UIWizardPageSetInfo .PageNodeContainer .ContainerConfigOptions {
+	height: 248px;
+}
+
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo {
   margin-left: 240px;
   padding: 1px;
@@ -170,12 +178,12 @@
   background: #f4f4f4;
   font-size: 11px;
   border: solid 1px #cdcdcd ;
-  padding: 10px;
+  padding: 13px 10px;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo{
-  width: 520px; height: 26px; 
-  line-height: 26px; vertical-align: middle;
+  width: 518px; height: 24px; 
+  line-height: 24px; vertical-align: middle;
   background: white; font-size: 11px; 
   border: solid 1px #b7b7b7;
   margin: auto; 
@@ -209,10 +217,6 @@
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction{
   display: none;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .HorizontalLayout{
-  padding: 1px;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer{
@@ -309,4 +313,8 @@
 .UIWizard .ScrollArea {
 	height: 220px;
 	overflow: auto;
+}
+
+.UIWizard .LAYOUT-PAGE {
+	padding-top: 10px;
 }

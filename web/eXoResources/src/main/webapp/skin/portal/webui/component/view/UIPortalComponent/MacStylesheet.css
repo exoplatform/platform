@@ -32,9 +32,9 @@
 
 .UIPortlet .DeletePortletIcon {
 	float:right;
-	width: 18px; height:18px; 
-	background: url('MacSkin/background/DeletePortletClick.png') no-repeat ;
-  margin: 3px 0px 0px 0px;
+	width: 16px; height:16px; 
+	background: url('/eXoResources/icons/16x16/MacSkin/CloseButton.gif') no-repeat;
+  margin: 5px 0px 0px 0px;
 }
 
 .UIPortlet .MaximizedPortletIcon {
@@ -189,15 +189,15 @@
 .UIContainer .DeleteContainerIcon {
 	float:right;
 	width: 18px; height:18px; 
-  background: url('MacSkin/background/DeletePortletButton.png') no-repeat ;
-  margin: 3px 0px 0px 0px;
+  background: url('/eXoResources/icons/16x16/MacSkin/CloseButton.gif') no-repeat;
+  margin: 5px 0px 0px 0px;
 }
 
 .UIContainer .ContainerIcon {
 	float: left;
-  width: 18px; height: 18px;
+  width: 16px; height: 16px;
   margin: 3px 5px 0px 5px;
-  background: url('/eXoResources/icons/16x16/MacSkin/DefaultContainerIcon.png') no-repeat ;
+  background: url('/eXoResources/icons/16x16/MacSkin/DefaultContainerIcon.gif') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {

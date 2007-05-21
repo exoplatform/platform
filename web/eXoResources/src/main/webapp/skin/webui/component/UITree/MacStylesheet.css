@@ -33,7 +33,7 @@
 .UITree .TreeContainer .Node .ExpandIcon {
   float: left ;
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackDownArrow.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat ;
   cursor: pointer ;
   margin: 2px 0px 0px 0px;
 }
@@ -41,7 +41,7 @@
 .UITree .TreeContainer .Node .ColapseIcon {
   float: left ;
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/BlackNextArrow.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat ;
   cursor: pointer ;
   margin: 2px 0px 0px 0px ;
 }

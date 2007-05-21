@@ -2,10 +2,9 @@
    width: 700px ;
 }
 
-.UIMaskWorkspace .ContentContainer {
+.UIMaskWorkspace .MaskContainer {
   background:#ffffff;
   border: solid 1px #424345 ;
-
 }
 
 .UIMaskWorkspace .TopLeftDecorator {

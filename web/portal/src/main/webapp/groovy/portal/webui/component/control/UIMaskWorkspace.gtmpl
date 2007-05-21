@@ -32,7 +32,7 @@
   
   <div class="MiddleLeftDecorator">
     <div class="MiddleRightDecorator">
-      <div class="ContentContainer">    
+      <div class="MaskContainer">    
         <%uicomponent.renderChildren();%>
    		</div>
     </div>

@@ -229,7 +229,7 @@ UIPortal.prototype.showLayoutModeForPage = function(control) {
 	  var uiContainer = eXo.core.DOMUtil.findFirstDescendantByClass(viewPage, "div", "UIContainer") ;
 	  if(uiContainer != null) {
 	  	viewPage.style.border = "none" ;
-	  	viewPage.style.padding = "5px 5px 3px 3px;" ;
+	  	viewPage.style.padding = "8px 5px 3px 3px;" ;
 	  }
   }
 	
@@ -241,7 +241,7 @@ UIPortal.prototype.showLayoutModeForPage = function(control) {
 	  var uiPortlet = eXo.core.DOMUtil.findFirstDescendantByClass(viewPage, "div", "UIPortlet") ;
 	  if(uiPortlet != null) {
 	  	viewPage.style.border = "none" ;
-	  	viewPage.style.padding = "5px 5px 3px 3px;" ;
+	  	viewPage.style.padding = "8px 5px 3px 3px;" ;
 	  }
   }
 };

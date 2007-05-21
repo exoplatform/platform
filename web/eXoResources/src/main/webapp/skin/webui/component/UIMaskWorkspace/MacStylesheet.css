@@ -5,9 +5,10 @@
   width: 650px;
 }
 
-.UIMaskWorkspace .ContentContainer {
+.UIMaskWorkspace .MaskContainer {
   background: white ;
   border: 1px solid #a9a9a9;
+  height: 100%;
 }
 
 .UIMaskWorkspace .TitleBarContainer {
@@ -58,12 +59,15 @@
   width: 170px ;
 }
 
+.UIMaskWorkspace .UIFormWithTitle .UIAction {
+  width: 160px ;
+}
+
 .UIMaskWorkspace .UIFormTabPane {
 	padding: 10px 10px 5px 10px ;
 }
 
-.UIMaskWorkspace .UIFormWithTitle {
-	margin: 50px auto;
+.UIMaskWorkspace .UIContainerForm {
 }
 
 .UIMaskWorkspace .UIForm .HorizontalLayout .UIFormInputSet {
