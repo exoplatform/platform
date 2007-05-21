@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.exoplatform.organization.webui.component.UIListPermissionSelector;
 import org.exoplatform.organization.webui.component.UIPermissionSelector;
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
@@ -18,7 +19,9 @@ import org.exoplatform.portal.component.model.PortalTemplateConfigOption;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
@@ -105,8 +108,8 @@ public class UIPortalForm extends UIFormTabPane {
     if(initParams == null) return;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("PortalTemplateConfigOption");
-    List<SelectItemCategory> itemConfigs = (List<SelectItemCategory>)param.getMapGroovyObject(context);
-    for(SelectItemCategory itemCategory: itemConfigs){
+    List<SelectItemCategory> portalTemplates = (List<SelectItemCategory>)param.getMapGroovyObject(context);
+    for(SelectItemCategory itemCategory: portalTemplates){
       uiTemplateInput.getItemCategories().add(itemCategory);
     }
     if(uiTemplateInput.getSelectedItemOption() == null) {
@@ -120,8 +123,8 @@ public class UIPortalForm extends UIFormTabPane {
     createDefaultItem();
     
     WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
-    WebuiApplication app  = (WebuiApplication)currReqContext.getApplication() ;
-    List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);    
+    WebuiApplication app = (WebuiApplication)currReqContext.getApplication() ;
+    List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);
     List<SelectItemCategory>  itemCategories = new ArrayList<SelectItemCategory>();
     for(Component ele : configs) {
       String id =  ele.getId();
@@ -132,7 +135,7 @@ public class UIPortalForm extends UIFormTabPane {
       
       SelectItemCategory category = new SelectItemCategory(upId);
       itemCategories.add(category);
-      List<SelectItemOption<String>> items = new ArrayList<SelectItemOption<String>>() ;
+      List<SelectItemOption<String>> items = new ArrayList<SelectItemOption<String>>();
       category.setSelectItemOptions(items);
       SelectItemOption<String> item = new SelectItemOption<String>(id, id, "Portal"+upId);
       items.add(item);
@@ -247,17 +250,29 @@ public class UIPortalForm extends UIFormTabPane {
     }
   }
   
-  //TODO Ha implement code 
   static public class CreateActionListener  extends EventListener<UIPortalForm> {
     public void execute(Event<UIPortalForm> event) throws Exception {
-      System.out.println("\n\n\n == > create new portal \n\n");
-      //get portal template
-      //get portal name
-      //get UserPortalConfigService as service
-      //UserPortalConfig userPortalConfig  = service.createUserPortalConfig(portalName, template);
-      //PortalConfig pconfig =  userPortalConfig.getPortal();
-      //invokeSetting model, set other properites for portal
-      //service.update(PortalConfig pconfig)
+      UIPortalForm uiForm = event.getSource();
+      String template = uiForm.getChild(UIFormInputItemSelector.class).getSelectedItemOption().getValue().toString();
+      
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      String remoteUser = prContext.getRemoteUser();
+      
+      UserPortalConfigService service = uiForm.getApplicationComponent(UserPortalConfigService.class);
+      UserPortalConfig userPortalConfig = service.getUserPortalConfig(template, remoteUser);
+      PortalConfig pconfig = userPortalConfig.getPortalConfig();
+      
+      String portalName = uiForm.getUIStringInput("name").getValue();
+      String portalLocal = uiForm.getUIFormSelectBox("locale").getValue();
+      String portalSkin = uiForm.getUIFormSelectBox("skin").getValue();
+      
+      pconfig.setName(portalName);
+      pconfig.setLocale(portalLocal);
+      pconfig.setSkin(portalSkin);
+            
+//      uiForm.invokeSetBindingBean(pconfig);
+      
+      service.update(pconfig);
     }
   }
   

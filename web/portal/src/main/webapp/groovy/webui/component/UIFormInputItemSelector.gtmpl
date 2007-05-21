@@ -21,7 +21,7 @@
           <%
             for(opt in options) { 
               String itemSelected = "Item" ;
-              String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$opt.name')";
+              String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$opt.name')"
               String submitEvent = "eXo.webui.UIForm.submitEvent('$form.id','SelectItemOption', '')";
               if (opt.isSelected()) itemSelected = "SelectedItem Item" ;
            %>

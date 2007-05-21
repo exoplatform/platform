@@ -116,28 +116,27 @@ public class UserPortalConfigService {
    * This method  should create a  the portal  config, pages and navigation according to the template 
    * name
    * @param portalName
-   * @param template
+   * @param ownerId
    * @return
    * @throws Exception
    */
-  public UserPortalConfig createUserPortalConfig(String portalName, String template) throws Exception {
-    PortalConfig pconfig = storage_.getPortalConfig(template) ;
+  public UserPortalConfig createUserPortalConfig(String portalName, String ownerId) throws Exception {
+    PortalConfig pconfig = storage_.getPortalConfig(portalName) ;
     if (pconfig != null) {
       pconfig.setName(portalName) ;
       storage_.create(pconfig) ;
     }
 
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + template) ;
+    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + ownerId) ;
     if (navigation != null) {
       navigation.setOwnerId(portalName);
       storage_.create(navigation);
       navigations.add(navigation);
     }
-    
     Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
     query.setOwnerType(PortalConfig.PORTAL_TYPE) ;
-    query.setOwnerId(template) ;
+    query.setOwnerId(ownerId) ;
     PageList pagelist = storage_.find(query) ;
     pagelist.setPageSize(10);
     int i = 1;
