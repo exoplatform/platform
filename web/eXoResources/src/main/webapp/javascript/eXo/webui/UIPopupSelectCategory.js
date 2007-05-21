@@ -31,9 +31,12 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 			  	posLeft -= (count * eXo.portal.UIControlWorkspace.defaultWidth) ;
 			  }
 			} else {
-				if(count == 1)var posLeft = categoryDetectPosition.offsetLeft - uiPopupCategory.offsetWidth + 44 ; 
+			  var styleSkin = document.getElementById("UIPortalApplication");
+				if(count == 1){
+					var posLeft = categoryDetectPosition.offsetLeft - uiPopupCategory.offsetWidth + 44 ; 
+					if(styleSkin.className == "Mac") posLeft += 10;
+				}
 				else {
-				  var styleSkin = document.getElementById("UIPortalApplication");
 					if(uiPageDesktop) {
 						var posLeft = (categoryDetectPosition.offsetLeft - categoryDetectPosition.offsetWidth) + 36 ;
 						if(styleSkin.className == "Vista") posLeft += 20;
