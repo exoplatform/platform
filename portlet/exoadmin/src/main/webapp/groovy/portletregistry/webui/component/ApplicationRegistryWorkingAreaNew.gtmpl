@@ -13,6 +13,8 @@
 	  String creator = portlet.getOwner();
 	  String accessPermission = portlet.getAccessPermission();
 	  String editPermission = portlet.getEditPermission();
+	  if(editPermission == null) editPermission = "";
+	  if(accessPermission == null) accessPermission = "";
 	  String applicationType = portlet.getApplicationType();
 	  String desription = portlet.getDescription();
 	%>

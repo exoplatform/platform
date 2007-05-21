@@ -120,6 +120,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       Collections.sort(oldPortlets, portletComparator);
       
       for(UIFormCheckBoxInput<String> ele : listCheckbox){
+          System.out.println("\n\nName: " + ele.getValue() + ":" + ele.isChecked());
         if(!ele.isChecked())continue;    
         Application portlet = service.getApplication(ele.getValue());       
         if(Collections.binarySearch(oldPortlets, portlet, portletComparator) > -1) continue;
