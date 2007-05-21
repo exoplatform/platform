@@ -74,7 +74,7 @@ UIExoStartMenu.prototype.showStartMenu = function(e) {
 		else if (document.documentElement.scrollTop) y -= document.documentElement.scrollTop;
 		else if (document.body.scrollTop) y -= document.body.scrollTop;
 		this.superClass.setPosition(uiStartContainer, 0, y) ;
-		eXo.portal.UIExoStartMenu.setSize(uiStartContainer, 238, 191);
+		eXo.portal.UIExoStartMenu.setSize(uiStartContainer, 238, uiStartContainer.offsetHeight);
 	}
 	/*Hide eXoStartMenu whenever click on the UIApplication*/
 	var uiPortalApplication = document.getElementById("UIPortalApplication") ;
@@ -121,6 +121,7 @@ UIExoStartMenu.prototype.showMenuItemContainer = function(menuItem, menuItemCont
 	if (y + menuItemContainer.offsetHeight + rootY > eXo.core.Browser.getBrowserHeight()) {
 		y -= (menuItemContainer.offsetHeight - menuItem.offsetHeight);
 	}
+	if (eXo.core.Browser.getBrowserType() == "ie") x -= 10;
 	this.superClass.setPosition(menuItemContainer, x, y);
 };
 

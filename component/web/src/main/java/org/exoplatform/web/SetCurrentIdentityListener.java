@@ -11,6 +11,7 @@ import org.exoplatform.services.listener.Event;
 import org.exoplatform.services.listener.Listener;
 import org.exoplatform.services.organization.auth.AuthenticationService;
 import org.exoplatform.services.organization.auth.Identity;
+
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
