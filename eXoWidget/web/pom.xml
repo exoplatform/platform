@@ -1,4 +1,4 @@
-<project> 
+<project>
   <parent>
     <groupId>org.exoplatform.portal</groupId>
     <artifactId>config</artifactId>
@@ -6,18 +6,19 @@
   </parent> 
 
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>exo.portal.eXoWidget.web.application</artifactId>
-  <packaging>jar</packaging>
+  <artifactId>exo.portal.eXoWidget.web</artifactId>
+  <packaging>war</packaging>
   <version>${org.exoplatform.portal.version}</version>
-  <name>eXoWidget exo Implementation</name>
+  <name>eXoWidget.web</name>
   <url>http://www.exoplatform.org</url>
-  <description>eXo Web Application</description>
+  <description>eXo Widget, web category</description>
 
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.web</artifactId>
       <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 </project>
