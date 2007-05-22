@@ -1,6 +1,7 @@
 /******************************* UIDropDownItemSelector  **********************************/
 .UIDropDownItemSelector {
-  height: 22px;
+  height: 22px; 
+  margin: 0px 0px 3px 0px;
 }
 
 .UIDropDownItemSelector .ItemSelectorContainer {

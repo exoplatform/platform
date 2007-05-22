@@ -1,5 +1,5 @@
 .UILoggedInfo {
-  padding: 8px 0px 2px 0px ;
+  padding: 0px 5px ;
 }
 
 .UILoggedInfo .LoggedInfoItems {  
@@ -8,7 +8,7 @@
 }
 
 .UILoggedInfo .LoggedDecorator {
-	padding: 1px 0px 3px 0px;
+	padding: 0px;
 }
 
 .UILoggedInfo .LoggedDecorator .LeftTopLoggedDecorator {
