@@ -10,7 +10,7 @@ import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIExoStart;
 import org.exoplatform.portal.component.control.UIControlWorkspace.UIControlWSWorkingArea;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
@@ -49,7 +49,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
   
   public void save(Event<UIPortalManagementControlBar> event) throws Exception {
     UIPortal uiPortal = Util.getUIPortal();     
-    PortalConfig portalConfig  = PortalDataModelUtil.toPortal(uiPortal);
+    PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);
     UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);     
     configService.update(portalConfig);
     Util.updateUIApplication(event);
@@ -78,7 +78,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
       String ownerUser = prContext.getPortalOwner();   
       UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);      
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
-      PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig);
+      PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
       
       UIPortal oldUIPortal =uiWorkingWS.getChild(UIPortal.class);
       uiWorkingWS.setBackupUIPortal(oldUIPortal);

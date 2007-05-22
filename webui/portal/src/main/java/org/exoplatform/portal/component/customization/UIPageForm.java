@@ -10,7 +10,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIContainer;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortlet;
@@ -139,7 +139,7 @@ public class UIPageForm extends UIFormTabPane {
   @SuppressWarnings("unchecked")
   public void setValues(UIPage uiPage) throws Exception {
     uiPage_ = uiPage;
-    Page page = PortalDataModelUtil.toPageModel(uiPage) ;
+    Page page = PortalDataMapper.toPageModel(uiPage) ;
     getUIStringInput("name").setEditable(false) ;
     getUIStringInput("pageId").setValue(uiPage.getPageId());
     invokeGetBindingBean(page) ;
@@ -219,7 +219,7 @@ public class UIPageForm extends UIFormTabPane {
         findAllPortlet(uiPortlets, uiPage);
         ArrayList<Object> applications = new ArrayList<Object>();
         for(UIPortlet uiPortlet : uiPortlets) {
-          applications.add(PortalDataModelUtil.toPortletModel(uiPortlet));
+          applications.add(PortalDataMapper.toPortletModel(uiPortlet));
         }
         
         if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId()) && !Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
@@ -234,14 +234,14 @@ public class UIPageForm extends UIFormTabPane {
           if(uiChildren == null)  return ;
           ArrayList<Object>  children = new ArrayList<Object>();
           for(UIComponent child : uiChildren){ 
-            Object component = PortalDataModelUtil.buildChild(child);
+            Object component = PortalDataMapper.buildChild(child);
             if(component != null) children.add(component);
           }
           page.setChildren(children);
           uiPage.getChildren().clear(); 
         }
         page.setModifier(pcontext.getRemoteUser());
-        PortalDataModelUtil.toUIPage(uiPage, page);  
+        PortalDataMapper.toUIPage(uiPage, page);  
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
         configService.update(page);

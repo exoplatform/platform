@@ -10,7 +10,7 @@ import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace.UIControlWSWorkingArea;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIContainer;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
@@ -77,7 +77,7 @@ public class UIPortalBrowser extends UIContainer {
       }
       
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
-      PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig);
+      PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
       
       UIPortal oldUIPortal = uiWorkingWS.getChild(UIPortal.class);      
       

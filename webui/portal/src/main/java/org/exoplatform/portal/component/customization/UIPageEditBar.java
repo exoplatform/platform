@@ -13,7 +13,7 @@ import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIPageBrowser.UIPageBrowseControlBar;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
@@ -141,7 +141,7 @@ public class UIPageEditBar extends UIToolbar {
 
   public void savePage() throws Exception {
     if(getUIPage() == null) return;
-    Page page = PortalDataModelUtil.toPageModel(getUIPage());      
+    Page page = PortalDataMapper.toPageModel(getUIPage());      
     UserPortalConfigService dataService = getApplicationComponent(UserPortalConfigService.class);
     dataService.update(page); 
   }

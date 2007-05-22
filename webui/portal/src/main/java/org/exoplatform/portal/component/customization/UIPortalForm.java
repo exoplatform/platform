@@ -16,7 +16,7 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.model.PortalTemplateConfigOption;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserPortalConfig;
@@ -219,7 +219,7 @@ public class UIPortalForm extends UIFormTabPane {
       uiPortal.getChildren().clear();
       UserPortalConfig userPortalConfig = uiPortal.getUserPortalConfig();
       userPortalConfig.setPortal(portalConfig);
-      PortalDataModelUtil.toUIPortal(uiPortal, userPortalConfig);
+      PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
       
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIMaskWorkspace uiMaskWorkspace = uiForm.getParent();

@@ -9,7 +9,7 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.DataStorage;
@@ -187,7 +187,7 @@ public class UIPageBrowser extends UISearch {
       }
       
       UIPage uiPage =  uiPageBrowser.createUIComponent(pcontext, UIPage.class, null, null) ;
-      PortalDataModelUtil.toUIPage(uiPage, page);
+      PortalDataMapper.toUIPage(uiPage, page);
       
       if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
         UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
@@ -267,7 +267,7 @@ public class UIPageBrowser extends UISearch {
       }
       
       UIPage uiPage =  uiPageBrowser.createUIComponent(event.getRequestContext(), UIPage.class,null,null) ;
-      PortalDataModelUtil.toUIPage(uiPage, page);
+      PortalDataMapper.toUIPage(uiPage, page);
       
       UIPagePreview uiPagePreview =  Util.showComponentOnWorking(uiPageBrowser, UIPagePreview.class);      
       uiPagePreview.setUIComponent(uiPage) ;

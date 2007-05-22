@@ -39,6 +39,9 @@ public class CommandHandler extends WebRequestHandler {
    * @throws Exception
    */
   public Command createCommand(String command, Map props) throws Exception  {
+    ClassLoader classLoader = Thread.currentThread().getContextClassLoader() ;
+    Class<?> clazz =  classLoader.loadClass(command);
+    Object object = clazz.newInstance();    
     return null ;
   }
 

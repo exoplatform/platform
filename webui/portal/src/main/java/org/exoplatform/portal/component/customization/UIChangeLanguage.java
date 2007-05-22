@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserPortalConfigService;
@@ -69,7 +69,7 @@ public class UIChangeLanguage extends UIContainer{
       LocaleConfigService localeConfigService  = event.getSource().getApplicationComponent(LocaleConfigService.class) ;
       LocaleConfig localeConfig = localeConfigService.getLocaleConfig(language);
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
-      PortalConfig portalConfig  = PortalDataModelUtil.toPortal(uiPortal);
+      PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);
       UserPortalConfigService dataService = uiPortal.getApplicationComponent(UserPortalConfigService.class);
       dataService.update(portalConfig);
       uiApp.setLocale(localeConfig.getLocale());

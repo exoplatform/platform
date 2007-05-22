@@ -173,7 +173,7 @@ public class Util {
     } else {
       uiPage = uiParent.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
     }
-    PortalDataModelUtil.toUIPage(uiPage, page);
+    PortalDataMapper.toUIPage(uiPage, page);
     return uiPage;
   }
 

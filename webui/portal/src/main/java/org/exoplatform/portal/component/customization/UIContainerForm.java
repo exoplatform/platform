@@ -8,7 +8,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIContainer;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.Container;
@@ -78,7 +78,7 @@ public class UIContainerForm extends UIForm {
 
   public void setValues(UIContainer uiContainer) throws Exception {
     uiContainer_ = uiContainer;
-    Container container = PortalDataModelUtil.toContainer(uiContainer) ;
+    Container container = PortalDataMapper.toContainer(uiContainer) ;
     getUIStringInput("id").setEditable(false);
     invokeGetBindingBean(container) ;
   }

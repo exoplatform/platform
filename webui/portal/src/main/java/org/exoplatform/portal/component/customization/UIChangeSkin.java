@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.DataStorage;
@@ -76,7 +76,7 @@ public class UIChangeSkin extends UIContainer {
       if(!uiPortal.isModifiable()) return;
       
       uiPortal.setSkin(skin);
-      PortalConfig portalConfig  = PortalDataModelUtil.toPortal(uiPortal);
+      PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);
       UserPortalConfigService dataService = uiPortal.getApplicationComponent(UserPortalConfigService.class);
       dataService.update(portalConfig);
 

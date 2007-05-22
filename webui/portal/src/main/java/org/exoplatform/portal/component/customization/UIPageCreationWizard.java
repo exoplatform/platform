@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIExoStart;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
@@ -76,7 +76,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     PageNode selectedNode = uiNodeSelector.getSelectedPageNode();
     PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();
     
-    Page page = PortalDataModelUtil.toPageModel(uiPage);
+    Page page = PortalDataMapper.toPageModel(uiPage);
     PageNode pageNode = uiPageInfo.getPageNode();
     pageNode.setPageReference(page.getPageId());
     if(selectedNode != null){
@@ -201,7 +201,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
       UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
-      PortalDataModelUtil.toUIPage(uiPage, page);
+      PortalDataMapper.toUIPage(uiPage, page);
       uiPagePreview.setUIComponent(uiPage);
       
       if(isDesktopPage){

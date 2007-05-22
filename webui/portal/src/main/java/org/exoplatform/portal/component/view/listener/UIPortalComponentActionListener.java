@@ -13,7 +13,7 @@ import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIContainerConfigOptions;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.customization.UIPortletOptions;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortalComponent;
 import org.exoplatform.portal.component.view.UIPortlet;
@@ -119,7 +119,7 @@ public class UIPortalComponentActionListener {
             uiTarget.createUIComponent(org.exoplatform.portal.component.view.UIContainer.class, null, null);
           Container container = uiContainerConfig.getContainer(sourceId); 
           container.setId(String.valueOf(container.hashCode()));
-          PortalDataModelUtil.toUIContainer(uiContainer, container);      
+          PortalDataMapper.toUIContainer(uiContainer, container);      
           uiSource = uiContainer;   
         }else {
           UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);

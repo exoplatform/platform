@@ -15,7 +15,7 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.customization.UIPortalForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
@@ -88,7 +88,7 @@ public class UIPortalActionListener {
       
       String save = event.getRequestContext().getRequestParameter("save");
       if(save != null && Boolean.valueOf(save).booleanValue()) {
-        Page page = PortalDataModelUtil.toPageModel(uiPage); 
+        Page page = PortalDataMapper.toPageModel(uiPage); 
         UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);     
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
         configService.update(page);

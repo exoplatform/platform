@@ -14,7 +14,7 @@ import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.control.lifecycle.UIPortalApplicationLifecycle;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.config.UserPortalConfig;
@@ -126,7 +126,7 @@ public class UIPortalApplication extends UIApplication {
     UIWorkspace uiWorkingWorkspace = 
       createUIComponent(UIWorkspace.class, UIPortalApplication.UI_WORKING_WS_ID, null) ;
     UIPortal uiPortal = createUIComponent(UIPortal.class, null, null);
-    PortalDataModelUtil.toUIPortal(uiPortal, config);
+    PortalDataMapper.toUIPortal(uiPortal, config);
     uiWorkingWorkspace.addChild(uiPortal) ;    
     uiWorkingWorkspace.addChild(UIPortalToolPanel.class, null, null).setRendered(false) ;    
     addChild(uiWorkingWorkspace) ;

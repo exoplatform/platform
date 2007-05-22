@@ -16,7 +16,7 @@ import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.customization.UIPageForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
-import org.exoplatform.portal.component.view.PortalDataModelUtil;
+import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIExoApplication;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPageBody;
@@ -109,7 +109,7 @@ public class UIPageActionListener {
       UIPage uiPage = event.getSource();
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       uiPage.removeChildById(id);  
-      Page page = PortalDataModelUtil.toPageModel(uiPage);    
+      Page page = PortalDataMapper.toPageModel(uiPage);    
       UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
       if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
       configService.update(page);
@@ -163,7 +163,7 @@ public class UIPageActionListener {
       
       String save = event.getRequestContext().getRequestParameter("save");
       if(save != null && Boolean.valueOf(save).booleanValue()) {
-        Page page = PortalDataModelUtil.toPageModel(uiPage); 
+        Page page = PortalDataMapper.toPageModel(uiPage); 
         UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);     
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
         configService.update(page);
