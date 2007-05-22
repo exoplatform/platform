@@ -55,6 +55,11 @@
     <url-pattern>/service</url-pattern>
   </servlet-mapping>
 
+  <servlet-mapping>
+    <servlet-name>portal</servlet-name>
+    <url-pattern>/command/*</url-pattern>
+  </servlet-mapping>
+
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
