@@ -5,7 +5,6 @@
 package org.exoplatform.portal.component.view;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-
 /**
  * Created by The eXo Platform SARL
  * Author : Pham Dung Ha
