@@ -14,9 +14,9 @@
 		      </div>
 		      <div class="ItemList">
 		        <div class="ImageDecorator">
-			        <%for(child in uicomponent.getChildren()) { 
+			        <%for(child in uicomponent.getChildren()) {
 			          def String type = "Item" ;
-			          if(child.isRendered()) type = "SelectedItem";
+			          if(child.isRendered()) type = "SelectedItem Item";
 			        %>
 			          <div class="$type" onclick="$onClickRightColumnBigItemStyle">
 			            <div class="User${child.id}Icon">

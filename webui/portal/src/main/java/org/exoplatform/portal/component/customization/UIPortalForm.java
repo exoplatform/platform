@@ -64,7 +64,7 @@ import org.exoplatform.webui.event.Event.Phase;
   @ComponentConfig(
     id = "CreatePortal",
     lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",    
+    template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",
     initParams = @ParamConfig(
         name = "PortalTemplateConfigOption", 
         value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/PortalTemplateConfigOption.groovy"

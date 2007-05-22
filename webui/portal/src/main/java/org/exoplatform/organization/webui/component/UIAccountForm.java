@@ -45,8 +45,8 @@ import org.exoplatform.webui.event.Event.Phase;
     },
     events = {
       @EventConfig(listeners = UIAccountForm.SaveActionListener.class ),
-      @EventConfig(listeners = UIAccountForm.ResetActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UIAccountForm.SelectItemOptionActionListener.class, phase = Phase.DECODE)
+      @EventConfig(listeners = UIAccountForm.ResetActionListener.class, phase = Phase.DECODE)
+      //,@EventConfig(listeners = UIAccountForm.SelectItemOptionActionListener.class, phase = Phase.DECODE)
     }
 )
 public class UIAccountForm extends UIFormTabPane {
@@ -55,10 +55,10 @@ public class UIAccountForm extends UIFormTabPane {
   public UIAccountForm(InitParams initParams) throws Exception {
     super("UIAccountForm") ;
     
-    UIFormInputItemSelector templateInput = new  UIFormInputItemSelector("AccountTemplate", null);    
-    addUIFormInput(templateInput) ;   
+//    UIFormInputItemSelector templateInput = new  UIFormInputItemSelector("AccountTemplate", null);    
+//    addUIFormInput(templateInput) ;
     UIFormInputSet accountInputSet = new UIAccountInputSet("AccountInputSet") ;
-    accountInputSet.setRendered(false) ;
+//    accountInputSet.setRendered(false) ;
     addUIFormInput(accountInputSet) ;
 
     UIFormInputSet userProfileSet = new UIUserProfileInputSet("UIUserProfileInputSet") ;
@@ -66,37 +66,37 @@ public class UIAccountForm extends UIFormTabPane {
     addUIFormInput(userProfileSet) ;
     if(initParams == null) return ;  
     
-    UIUserMembershipSelector uiUserMembershipSelector = new UIUserMembershipSelector();
-    uiUserMembershipSelector.setRendered(false);
-    addUIFormInput(uiUserMembershipSelector);
-    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
-    boolean isRoleAdmin = context.isUserInRole("admin"); 
-    
-    Param param = initParams.getParam("AccountTemplateConfigOption");
-    List<SelectItemCategory> itemConfigs = (List<SelectItemCategory>)param.getMapGroovyObject(context);
-    for(SelectItemCategory itemCategory: itemConfigs){
-      if(!"AdminAccount".equalsIgnoreCase(itemCategory.getName()) || isRoleAdmin){
-        templateInput.getItemCategories().add(itemCategory);
-      }
-    }
-    uiUserMembershipSelector.setAdminRole(isRoleAdmin);
-    
-    if(templateInput.getSelectedItemOption() == null) {
-      templateInput.getItemCategories().get(0).setSelected(true);
-    }
+//    UIUserMembershipSelector uiUserMembershipSelector = new UIUserMembershipSelector();
+//    uiUserMembershipSelector.setRendered(false);
+//    addUIFormInput(uiUserMembershipSelector);
+//    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+//    boolean isRoleAdmin = context.isUserInRole("admin"); 
+//    
+//    Param param = initParams.getParam("AccountTemplateConfigOption");
+//    List<SelectItemCategory> itemConfigs = (List<SelectItemCategory>)param.getMapGroovyObject(context);
+//    for(SelectItemCategory itemCategory: itemConfigs){
+//      if(!"AdminAccount".equalsIgnoreCase(itemCategory.getName()) || isRoleAdmin){
+//        templateInput.getItemCategories().add(itemCategory);
+//      }
+//    }
+//    uiUserMembershipSelector.setAdminRole(isRoleAdmin);
+//    
+//    if(templateInput.getSelectedItemOption() == null) {
+//      templateInput.getItemCategories().get(0).setSelected(true);
+//    }
     setActions(new String[]{"Save", "Reset"});
   }
 
   public String getSelectPortalTemplate(){  return "SelectPortalTemplate";  }
   
-  public void processRender(WebuiRequestContext context) throws Exception {
-    super.processRender(context);
-    UIUserMembershipSelector uiUserMembershipSelector = getChild(UIUserMembershipSelector.class);    
-    if(uiUserMembershipSelector == null) return;
-    UIPopupWindow uiPopupWindow = uiUserMembershipSelector.getChild(UIPopupWindow.class);
-    if(uiPopupWindow == null) return;
-    uiPopupWindow.processRender(context);
-  }
+//  public void processRender(WebuiRequestContext context) throws Exception {
+//    super.processRender(context);
+//    UIUserMembershipSelector uiUserMembershipSelector = getChild(UIUserMembershipSelector.class);    
+//    if(uiUserMembershipSelector == null) return;
+//    UIPopupWindow uiPopupWindow = uiUserMembershipSelector.getChild(UIPopupWindow.class);
+//    if(uiPopupWindow == null) return;
+//    uiPopupWindow.processRender(context);
+//  }
 
   static  public class SaveActionListener extends EventListener<UIAccountForm> {
     public void execute(Event<UIAccountForm> event) throws Exception {
@@ -107,10 +107,10 @@ public class UIAccountForm extends UIFormTabPane {
       boolean saveAccountInput = uiAccountInput.save(service, true);
       if(saveAccountInput == false) return;
       uiForm.getChild(UIUserProfileInputSet.class).save(service, userName, true);
-      UIUserMembershipSelector uiMembershipSelector = uiForm.getChild(UIUserMembershipSelector.class);
-      if(uiMembershipSelector == null) return ;
-      uiMembershipSelector.setUserName(userName);
-      uiMembershipSelector.save(service, true);     
+//      UIUserMembershipSelector uiMembershipSelector = uiForm.getChild(UIUserMembershipSelector.class);
+//      if(uiMembershipSelector == null) return ;
+//      uiMembershipSelector.setUserName(userName);
+//      uiMembershipSelector.save(service, true);     
     }
   } 
   
@@ -119,25 +119,25 @@ public class UIAccountForm extends UIFormTabPane {
       UIAccountForm uiForm = event.getSource();
       uiForm.getChild(UIAccountInputSet.class).reset() ;  
       uiForm.getChild(UIUserProfileInputSet.class).reset();
-      UIUserMembershipSelector uiMembershipSelector = uiForm.getChild(UIUserMembershipSelector.class);
-      if(uiMembershipSelector == null) return ;
-      uiMembershipSelector.reset();
+//      UIUserMembershipSelector uiMembershipSelector = uiForm.getChild(UIUserMembershipSelector.class);
+//      if(uiMembershipSelector == null) return ;
+//      uiMembershipSelector.reset();
     }
   }
   
-  static  public class SelectItemOptionActionListener extends EventListener<UIAccountForm> {
-    public void execute(Event<UIAccountForm> event) throws Exception {
-      UIAccountForm uiForm = event.getSource();
-      UIFormInputItemSelector templateInput = uiForm.getChild(UIFormInputItemSelector.class);
-      UIAccountTemplateConfigOption selectItem = 
-        (UIAccountTemplateConfigOption)templateInput.getSelectedCategory().getSelectItemOptions().get(0);      
-      List<Membership> memberships = selectItem.getMemberships();      
-      UIUserMembershipSelector uiMembershipSelector =  uiForm.getChild(UIUserMembershipSelector.class);
-      uiMembershipSelector.getMembership().clear();
-      for(Membership mem : memberships){
-        uiMembershipSelector.addMembership(mem);
-      }
-    }
-  }
+//  static  public class SelectItemOptionActionListener extends EventListener<UIAccountForm> {
+//    public void execute(Event<UIAccountForm> event) throws Exception {
+//      UIAccountForm uiForm = event.getSource();
+//      UIFormInputItemSelector templateInput = uiForm.getChild(UIFormInputItemSelector.class);
+//      UIAccountTemplateConfigOption selectItem = 
+//        (UIAccountTemplateConfigOption)templateInput.getSelectedCategory().getSelectItemOptions().get(0);      
+//      List<Membership> memberships = selectItem.getMemberships();      
+//      UIUserMembershipSelector uiMembershipSelector =  uiForm.getChild(UIUserMembershipSelector.class);
+//      uiMembershipSelector.getMembership().clear();
+//      for(Membership mem : memberships){
+//        uiMembershipSelector.addMembership(mem);
+//      }
+//    }
+//  }
 
 }
