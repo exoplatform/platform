@@ -5,12 +5,10 @@
 package org.exoplatform.web.application.mvc;
 
 import java.io.Writer;
-import java.util.Locale;
 
 import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.web.application.URLBuilder;
-
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
@@ -25,19 +23,19 @@ public class MVCRequestContext extends RequestContext {
   }
   
   public String getRemoteUser() {
-    return null;
+    return null ;
   }
 
   public String getRequestParameter(String arg0) {
-    return null;
+    return null ;
   }
 
   public String[] getRequestParameterValues(String arg0) {
-    return null;
+    return null ;
   }
 
   public URLBuilder getURLBuilder() {
-    return null;
+    return null ;
   }
 
   public Writer getWriter() throws Exception {

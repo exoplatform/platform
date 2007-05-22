@@ -16,6 +16,7 @@ import org.exoplatform.container.component.ComponentRequestLifecycle;
 import org.exoplatform.services.listener.ListenerService;
 import org.exoplatform.services.portletcontainer.helper.WindowInfosContainer;
 import org.exoplatform.web.application.Application;
+import org.exoplatform.web.command.CommandHandler;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
@@ -27,10 +28,11 @@ public class WebAppController {
   private HashMap<String, Application>  applications_ ;
   private HashMap<String, WebRequestHandler> handlers_ ;
   
-  public WebAppController() {
+  public WebAppController() throws Exception {
     applications_ = new HashMap<String, Application>() ;
     attributes_ = new HashMap<String, Object>() ;
     handlers_ = new HashMap<String, WebRequestHandler>() ;
+    register(new CommandHandler()) ;
   }
   
   public Object  getAttribute(String name, Object value) {
@@ -58,7 +60,7 @@ public class WebAppController {
     applications_.put(app.getApplicationId(), app) ;
   }
   
-  public  void register(WebRequestHandler handler) {
+  public  void register(WebRequestHandler handler) throws Exception {
     for(String path :  handler.getPath()) handlers_.put(path, handler) ;
   }
   
@@ -67,7 +69,9 @@ public class WebAppController {
   }
   
   public void service(HttpServletRequest req, HttpServletResponse res) throws Exception {
+    System.out.println("\n\n ==> Servelt Path " +  req.getServletPath());
     WebRequestHandler handler = handlers_.get(req.getServletPath()) ;
+    System.out.println("\n\n ==> Handler " +  handler);
     if(handler != null) {
       PortalContainer portalContainer = PortalContainer.getInstance() ;
       List<ComponentRequestLifecycle> components = 
