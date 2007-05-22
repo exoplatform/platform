@@ -15,6 +15,7 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIPortletForm;
+import org.exoplatform.portal.component.view.UIPageBody;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
@@ -79,19 +80,19 @@ public class UIPortletActionListener   {
       pcontext.setFullRender(true);
       
       String windowState = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID).trim();
-      UIPortal uiPortal = uiPortlet.getAncestorOfType(UIPortal.class);
+      UIPageBody uiPageBody = uiPortlet.getAncestorOfType(UIPageBody.class);
       if(windowState.equals(WindowState.MAXIMIZED.toString())){ 
-        if(uiPortal !=  null){
+        if(uiPageBody !=  null){
           uiPortlet.setCurrentWindowState(WindowState.MAXIMIZED) ;
-          uiPortal.setMaximizedUIComponent(uiPortlet);
+          uiPageBody.setMaximizedUIComponent(uiPortlet);
         }else{
           uiPortlet.setCurrentWindowState(WindowState.NORMAL);
         }
         return;
       }
-      if(uiPortal != null){
-        UIPortlet maxPortlet = (UIPortlet)uiPortal.getMaximizedUIComponent(); 
-        if(maxPortlet == uiPortlet) uiPortal.setMaximizedUIComponent(null);
+      if(uiPageBody != null){
+        UIPortlet maxPortlet = (UIPortlet)uiPageBody.getMaximizedUIComponent(); 
+        if(maxPortlet == uiPortlet) uiPageBody.setMaximizedUIComponent(null);
       }
       if(windowState.equals(WindowState.MINIMIZED.toString())) { 
         uiPortlet.setCurrentWindowState(WindowState.MINIMIZED) ;

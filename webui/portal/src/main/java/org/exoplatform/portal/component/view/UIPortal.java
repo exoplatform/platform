@@ -85,7 +85,7 @@ public class UIPortal extends UIContainer {
     uiPageBody.setPageBody(selectedNode_, this);
   }
 
-  public void setSelectedNode(PageNode node) {  selectedNode_ = node; }  
+  public void setSelectedNode(PageNode node) {  selectedNode_ = node; }
   public PageNode getSelectedNode(){ return selectedNode_; }
 
   public List<PageNode> getSelectedPaths() { return selectedPaths_ ; }
