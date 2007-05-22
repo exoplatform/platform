@@ -45,11 +45,15 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 		if (container) {
 			if (eXo.core.Browser.browserType == "mozilla") container.style.minWidth = item.offsetWidth + "px";
 			else {
-				container.style.width = "170px";
-				if(eXo.core.Browser.isIE6)container.style.width = "auto";
+			  container.style.width = "180px";
+				if(document.getElementById("UIPortalApplication").className == "Default")
+				  container.style.width = "auto";
+				if(document.getElementById("UIPortalApplication").className == "Mac")
+				  container.style.width = "155px";
 			} 
 		}
 	}
+	
 	// Sub menus items
 	var menuItems = DOMUtil.findDescendantsByClass(topContainer, "div", this.tabStyleClass);
 	for(var i = 0; i<menuItems.length; i++) {
@@ -90,7 +94,8 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e) {
 		return false;
 	}
 	var item = this;
-	var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(item, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
+	var DOMUtil = eXo.core.DOMUtil;
+	var menuItemContainer = DOMUtil.findFirstDescendantByClass(item, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
 	if (menuItemContainer) {
 		if (menuItemContainer.style.display == "none") {
 			// shows the sub menu
@@ -106,9 +111,10 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e) {
 			
 			if (!menuItemContainer.resized && eXo.core.Browser.getBrowserType() == "ie") {
 				var w = menuItemContainer.offsetWidth;
-				var menuItems = eXo.core.DOMUtil.findDescendantsByClass(menuItemContainer, "div", eXo.portal.UIPortalNavigation.tabStyleClass);
+				var menuItems = DOMUtil.findDescendantsByClass(menuItemContainer, "div", eXo.portal.UIPortalNavigation.tabStyleClass);
 				for (var i = 0; i < menuItems.length; i++) {
-					menuItems[i].style.width = w + "px";
+					if (eXo.core.Browser.browserType == "mozilla")
+					   menuItems[i].style.width = w + "px";
 				}
 				menuItemContainer.resized = true;
 			}
@@ -146,11 +152,12 @@ UIPortalNavigation.prototype.hideMenu = function() {
 
 UIPortalNavigation.prototype.onMenuItemOver = function(e) {
 	var menuItem = this;
-	var item = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.itemStyleClass);
-	if (!item) item = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.selectedItemStyleClass);
+	var DOMUtil = eXo.core.DOMUtil;
+	var item = DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.itemStyleClass);
+	if (!item) item = DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.selectedItemStyleClass);
 	item.oldClassName = item.className;
 	item.className = eXo.portal.UIPortalNavigation.itemOverStyleClass;
-	var subContainer = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
+	var subContainer = DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
 	if (subContainer) {
 		eXo.portal.UIPortalNavigation.superClass.pushVisibleContainer(subContainer.id);
 		eXo.portal.UIPortalNavigation.showMenuItemContainer(menuItem, subContainer) ;
