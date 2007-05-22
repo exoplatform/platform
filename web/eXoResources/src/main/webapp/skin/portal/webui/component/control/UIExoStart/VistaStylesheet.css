@@ -267,12 +267,19 @@
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock {
+  padding: 2px 0px;
+}
+
+.UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer{
+  background: white url('VistaSkin/background/AddApplicationrBG1x20.gif') repeat-x top;
+  background-position: 0px 23px;
+  border: solid 1px #b7b7b7 ;
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
-  height: 25px ;
+  height: 23px ;
   font-size: 11px ;
-  background: url('VistaSkin/background/TitleBar1x25.gif') repeat-x ;
+  background: url('VistaSkin/background/TitleBar1x23.png') repeat-x ;
   padding: 5px 0px 0px 10px ;
 }
 

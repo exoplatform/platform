@@ -148,6 +148,7 @@
 .UIAddApplication .Application {
   margin: 10px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
+	border-bottom:none;
 	background: white url('VistaSkin/background/AddApplicationrBG1x20.gif') repeat-x bottom;
 	padding: 10px;
 }
