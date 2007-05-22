@@ -20,6 +20,7 @@ import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.config.model.Page.PageSet;
 import org.exoplatform.portal.portlet.PortletPreferences;
 import org.exoplatform.portal.portlet.PortletPreferences.PortletPreferencesSet;
@@ -75,6 +76,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       String owner = (String)iter.next();
       createPage(config, owner);
       createPageNavigation(config, owner);
+      createWidgets(config, owner);
     }
   }
   
@@ -98,6 +100,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       createPage(config, owner);
       createPageNavigation(config, owner);
       createPortletPreferences(config, owner);
+      createWidgets(config, owner);
     }
   }
   
@@ -115,6 +118,11 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   private void createPageNavigation(NewPortalConfig config, String owner) throws Exception {    
     PageNavigation navigation = fromXML(getDefaultConfig(config, owner, "navigation"), PageNavigation.class);
     pdcService_.create(navigation);
+  }
+  
+  private void createWidgets(NewPortalConfig config, String owner) throws Exception {    
+    Widgets widgets = fromXML(getDefaultConfig(config, owner, "widgets"), Widgets.class);
+    pdcService_.create(widgets);
   }
   
   private void createPortletPreferences(NewPortalConfig config, String owner) throws Exception {

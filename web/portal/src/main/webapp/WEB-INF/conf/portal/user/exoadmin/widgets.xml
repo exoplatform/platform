@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<widgets>
+	<owner-type>user</owner-type>
+	<owner-id>exoadmin</owner-id>
+	<access-permission>*:/portal/exoadmin</access-permission>
+	<edit-permission>owner:/portal/exoadmin</edit-permission>
+	
+	<container></container>
+	<container></container>
+</widgets>

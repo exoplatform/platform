@@ -299,7 +299,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
     FileInputStream is = new FileInputStream("src/test/resources/" + file) ;
     
-    return  (T) uctx.unmarshalDocument(is, null) ;
+    return  clazz.cast(uctx.unmarshalDocument(is, null));
   }
   
 }
