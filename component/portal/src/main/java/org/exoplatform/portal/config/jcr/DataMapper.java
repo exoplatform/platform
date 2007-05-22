@@ -95,15 +95,15 @@ public class DataMapper {
   }
   
 //------------------------------- Widgets ---------------------------------------------------------
-  void map(Node node, Widgets widget) throws Exception {
-    node.setProperty("id", widget.getId()) ;
-    node.setProperty("ownerType", widget.getOwnerType());
-    node.setProperty("ownerId", widget.getOwnerId());
-    node.setProperty("name", widget.getId());
-    node.setProperty("editPermission", widget.getEditPermission());
-    node.setProperty("accessPermissions", widget.getAccessPermission()) ;
-    node.setProperty("dataType", widget.getClass().getSimpleName()) ;
-    node.setProperty("data", toXML(widget)) ;
+  void map(Node node, Widgets widgets) throws Exception {
+    node.setProperty("id", widgets.getId()) ;
+    node.setProperty("ownerType", widgets.getOwnerType());
+    node.setProperty("ownerId", widgets.getOwnerId());
+    node.setProperty("name", widgets.getId());
+    node.setProperty("editPermission", widgets.getEditPermission());
+    node.setProperty("accessPermissions", widgets.getAccessPermission()) ;
+    node.setProperty("dataType", widgets.getClass().getSimpleName()) ;
+    node.setProperty("data", toXML(widgets)) ;
   }
   
   Widgets toWidgets(Node node) throws Exception {

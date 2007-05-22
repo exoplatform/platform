@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<widgets>
+	<owner-type>portal</owner-type>
+	<owner-id>portalone</owner-id>
+	<access-permission>*:/guest,*:/user</access-permission>
+	<edit-permission>*:/uset</edit-permission>
+	
+	<container></container>
+	<container></container>
+</widgets>

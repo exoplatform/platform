@@ -12,6 +12,7 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.config.model.Page.PageSet;
 import org.exoplatform.test.BasicTestCase;
 import org.jibx.runtime.BindingDirectory;
@@ -37,6 +38,7 @@ public class TestDataStorage extends BasicTestCase {
     assertPortalConfigOperator() ;
     assertNavigationOperator() ;
     assertPageOperator() ;
+    assertWidgetsOperator() ;
   }
   
   void assertPortalConfigOperator()  throws Exception {
@@ -261,7 +263,54 @@ public class TestDataStorage extends BasicTestCase {
     assertEquals(0, returnPages2.size()) ;
   }
 
+  void assertWidgetsOperator() throws Exception {
+   String testPortal = "portalone" ;
+    assertWidgetsCreate(testPortal) ;
+    assertWidgetsSave(testPortal) ;
+    assertWidgetsRemove(testPortal) ;
+  }
+  
+  void assertWidgetsCreate(String ownerId) throws Exception {
+   Widgets widgets = createWidgets(ownerId) ;
+   assertNotNull(widgets) ;
+   assertEquals(ownerId, widgets.getOwnerId()) ;
+   
+   Widgets returnWidgets = storage_.getWidgets(widgets.getId()) ;
+   assertNull(returnWidgets) ;
+   
+   storage_.create(widgets) ;
+   returnWidgets = storage_.getWidgets(widgets.getId()) ;
+   assertNotNull(returnWidgets) ;
+   assertEquals(widgets.getOwnerId(), returnWidgets.getOwnerId()) ;
+   
+   storage_.remove(widgets) ;
+  }
 
+  void assertWidgetsSave(String ownerId) throws Exception {
+    Widgets widgets = createWidgets(ownerId) ;
+    assertEquals("*:/guest,*:/user", widgets.getAccessPermission()) ;
+    storage_.create(widgets) ;
+    
+    String newAccessPermission = "/tester" ;
+    widgets.setAccessPermission(newAccessPermission) ;
+    storage_.save(widgets) ;
+    Widgets returnWidgets = storage_.getWidgets(widgets.getId()) ;
+    assertEquals(newAccessPermission, returnWidgets.getAccessPermission()) ;
+    
+    storage_.remove(widgets) ;
+  }
+  void assertWidgetsRemove(String ownerId) throws Exception {
+    Widgets widgets = createWidgets(ownerId) ;
+    storage_.create(widgets) ;
+    Widgets returnWidgets = storage_.getWidgets(widgets.getId()) ;
+    assertNotNull(returnWidgets) ;
+    
+    storage_.remove(widgets) ;
+    returnWidgets = storage_.getWidgets(widgets.getId()) ;
+    assertNull(returnWidgets) ;
+  }
+
+//----------------------------------------------------------------------------------------------------------
   private PortalConfig createPortalConfig(String portalName) throws Exception {
     String configFile = portalName + "/portal.xml" ;
     
@@ -284,6 +333,14 @@ public class TestDataStorage extends BasicTestCase {
  
     return pageSet.getPages() ;
   }
+  
+  private Widgets createWidgets(String ownerId) throws Exception {
+    String widgetFile = ownerId + "/widgets.xml" ;
+    Widgets widgets = loadObject(Widgets.class, widgetFile) ;
+    
+    return widgets ;
+  }
+  
   private <T> T loadObject(Class<T> clazz, String file) throws Exception{
     IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;

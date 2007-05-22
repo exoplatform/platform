@@ -46,6 +46,7 @@ public class DataStorageImpl implements DataStorage {
 
   final private static String PORTAL_CONFIG_FILE_NAME = "portal.xml" ;
   final private static String NAVIGATION_CONFIG_FILE_NAME = "navigation.xml" ;
+  final private static String WIDGETS__CONFIG_FILE_NAME = "widgets.xml" ;
   final private static String PAGE_SET_NODE = "pages" ;
 
   private DataMapper mapper_ = new DataMapper();
@@ -301,20 +302,54 @@ public class DataStorageImpl implements DataStorage {
 //------------------------------------------------- Widgets -------- ----------------------------
   
   public void create(Widgets widgets) throws Exception {
-    
+    Session session = jcrRegService_.getSession() ;
+    Node portalNode = createDataNode(session, widgets.getOwnerType(), widgets.getOwnerId()) ;
+    Node widgetsNode = portalNode.addNode(WIDGETS__CONFIG_FILE_NAME, EXO_DATA_TYPE) ;
+    portalNode.save() ;
+    mapper_.map(widgetsNode, widgets) ;
+    widgetsNode.save() ;
+    session.save() ;
+    session.logout() ;
   }
 
   public void remove(Widgets widgets) throws Exception {
-    // TODO Auto-generated method stub
-    
+    Session session = jcrRegService_.getSession() ;
+    Node portalNode = createDataNode(session, widgets.getOwnerType(), widgets.getOwnerId()) ;
+    Node widgetsNode = portalNode.getNode(WIDGETS__CONFIG_FILE_NAME) ;
+    widgetsNode.remove() ;
+    portalNode.save() ;
+    session.save() ;
+    session.logout() ;
   }
 
   public void save(Widgets widgets) throws Exception {
-    // TODO Auto-generated method stub
+    Session session = jcrRegService_.getSession() ;
+    Node portalNode = getDataNode(session, widgets.getOwnerType(), widgets.getOwnerId()) ;
+    if (portalNode == null || !portalNode.hasNode(WIDGETS__CONFIG_FILE_NAME)) {
+     session.logout() ;
+     return ;
+    }
+    Node widgetsNode = portalNode.getNode(WIDGETS__CONFIG_FILE_NAME) ;
+    mapper_.map(widgetsNode, widgets) ;
+    widgetsNode.save() ;
+    session.save() ;
+    session.logout() ;
   }
   
   public Widgets getWidgets(String id) throws Exception{
-    return null;
+    if (id == null) return null ;
+    String[] components = id.split("::") ;
+    if (components.length < 2) throw new Exception("Invalid widgetId: " + id) ;
+    Session session = jcrRegService_.getSession() ;
+    Node portalNode = getDataNode(session, components[0], components[1]) ;
+    if (portalNode == null || !portalNode.hasNode(WIDGETS__CONFIG_FILE_NAME)) {
+      session.logout() ;
+      return null ;
+    }
+    Node widgetsNode = portalNode.getNode(WIDGETS__CONFIG_FILE_NAME) ;
+    Widgets widgets = mapper_.toWidgets(widgetsNode) ;
+    session.logout() ;
+    return widgets ;
   }
   
 //------------------------------------------------- Util method-------- ----------------------------
