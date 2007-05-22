@@ -314,7 +314,11 @@ public class DataStorageImpl implements DataStorage {
 
   public void remove(Widgets widgets) throws Exception {
     Session session = jcrRegService_.getSession() ;
-    Node portalNode = createDataNode(session, widgets.getOwnerType(), widgets.getOwnerId()) ;
+    Node portalNode = getDataNode(session, widgets.getOwnerType(), widgets.getOwnerId()) ;
+    if (portalNode == null || !portalNode.hasNode(WIDGETS__CONFIG_FILE_NAME)) {
+      session.logout() ;
+      return ;
+    }
     Node widgetsNode = portalNode.getNode(WIDGETS__CONFIG_FILE_NAME) ;
     widgetsNode.remove() ;
     portalNode.save() ;
