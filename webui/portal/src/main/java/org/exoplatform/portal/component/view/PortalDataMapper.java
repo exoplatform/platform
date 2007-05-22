@@ -13,6 +13,7 @@ import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
@@ -141,6 +142,10 @@ public class PortalDataMapper {
     uiExoApp.init() ;
   }
   
+  static public void toUIWidget(UIWidget uiWidget, Application model) throws Exception {
+    //TODO will implement 
+  }
+  
   static public void toUIPortlet(UIPortlet uiPortlet, Application model) throws Exception {
     uiPortlet.setWindowId(model.getInstanceId());
     uiPortlet.setTitle(model.getTitle());
@@ -239,6 +244,26 @@ public class PortalDataMapper {
     uiPortal.setNavigation(userPortalConfig.getNavigations());   
   }
   
+  static public void toUIWidgets(UIWidgets uiWidgets, Widgets model) throws Exception {
+    uiWidgets.setId(model.getId());
+    uiWidgets.setAccessPermissions(model.getAccessPermissions());
+    uiWidgets.setEditPermission(model.getEditPermission());
+    uiWidgets.setOwnerType(model.getOwnerType());
+    uiWidgets.setOwnerId(model.getOwnerId());
+    
+    ArrayList<Container> children  = model.getChildren();
+    if(children == null)  return;
+    WebuiRequestContext  context = Util.getPortalRequestContext() ;
+    for(Container child : children) { 
+      UIWidgetContainer uiWidgetContainer = 
+        uiWidgets.createUIComponent(context, UIWidgetContainer.class, null, null);
+      uiWidgetContainer.setRendered(false);
+      toUIContainer(uiWidgetContainer, child);
+      uiWidgets.addChild(uiWidgetContainer);
+    }
+    uiWidgets.updateDropdownList();
+  }
+  
   
   @SuppressWarnings("unchecked")
   static private <T extends UIComponent> T buildChild(UIPortalComponent uiParent, Object model) throws Exception {
@@ -258,8 +283,12 @@ public class PortalDataMapper {
         UIExoApplication uiExoApp = 
           uiParent.createUIComponent(context, UIExoApplication.class, null, null);
         toUIExoApplication(uiExoApp, application) ;
-        uiExoApp.init() ;
+//        uiExoApp.init() ;
         uiComponent = uiExoApp ;
+      } else if(factoryId.equals(Application.TYPE_WIDGET)) {
+        UIWidget uiWidget = uiParent.createUIComponent(context, UIWidget.class, null, null);
+        toUIWidget(uiWidget, application) ;
+        uiComponent = uiWidget ;
       }
     } else if(model instanceof Container){
       Container container = (Container) model;

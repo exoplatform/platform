@@ -17,8 +17,9 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 @ComponentConfig(template = "system:/groovy/portal/webui/component/view/UIWidget.gtmpl")
 public class UIWidget extends UIComponentDecorator {
   
-  public UIWidget() {
-    
+  public UIWidget() throws Exception {
+    UIInfoWidget uiInfoWidget = createUIComponent(UIInfoWidget.class, null, null);
+    setUIComponent(uiInfoWidget);    
   }
   
 }

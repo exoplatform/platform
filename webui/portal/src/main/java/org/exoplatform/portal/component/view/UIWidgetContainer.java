@@ -16,12 +16,12 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 public class UIWidgetContainer extends UIContainer {
   
   public UIWidgetContainer() throws Exception {
-    UIWidget widgetSystem = addChild(UIWidget.class, null, null);
-    UISystemWidgets systemWidgets = createUIComponent(UISystemWidgets.class, null, null);
-    widgetSystem.setUIComponent(systemWidgets);
-    
-    UIWidget widgetInfo = addChild(UIWidget.class, null, null);
-    UIInfoWidget uiInfoWidget = createUIComponent(UIInfoWidget.class, null, null);
-    widgetInfo.setUIComponent(uiInfoWidget);
+//    UIWidget widgetSystem = addChild(UIWidget.class, null, null);
+//    UISystemWidgets systemWidgets = createUIComponent(UISystemWidgets.class, null, null);
+//    widgetSystem.setUIComponent(systemWidgets);
+//    
+//    UIWidget widgetInfo = addChild(UIWidget.class, null, null);
+//    UIInfoWidget uiInfoWidget = createUIComponent(UIInfoWidget.class, null, null);
+//    widgetInfo.setUIComponent(uiInfoWidget);
   }  
 }

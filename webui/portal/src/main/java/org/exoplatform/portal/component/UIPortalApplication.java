@@ -66,17 +66,16 @@ public class UIPortalApplication extends UIApplication {
   @SuppressWarnings("hiding")
   public  UIPortalApplication(InitParams initParams) throws Exception { 
     PortalRequestContext  context = PortalRequestContext.getCurrentInstance() ;
-    UserPortalConfig config = ( UserPortalConfig)context.getAttribute(UserPortalConfig.class);
+    userPortalConfig_ = (UserPortalConfig)context.getAttribute(UserPortalConfig.class);
+    if(userPortalConfig_ == null) throw new Exception("Can't load user portal config");
     if(context.getAccessPath() == PortalRequestContext.PUBLIC_ACCESS) {
-      initPublicPortal(config, context, initParams) ;
+      initPublicPortal(context, initParams) ;
     } else {
-      initPrivatePortal(config, context) ;
+      initPrivatePortal(context) ;
     }
     
-    String currentSkin = config.getPortalConfig().getSkin();
-    if(currentSkin != null && currentSkin.trim().length() > 0) {
-      skin_ = currentSkin;
-    } 
+    String currentSkin = userPortalConfig_.getPortalConfig().getSkin();
+    if(currentSkin != null && currentSkin.trim().length() > 0) skin_ = currentSkin;
     
     setOwner(context.getPortalOwner());    
   } 
@@ -109,27 +108,25 @@ public class UIPortalApplication extends UIApplication {
   }
   
   @SuppressWarnings("hiding")
-  private  void  initPublicPortal(UserPortalConfig config, PortalRequestContext context, InitParams initParams) throws Exception {
+  private  void  initPublicPortal(PortalRequestContext context, InitParams initParams) throws Exception {
     if("true".equals(initParams.getParam("public.showControlWorkspace").getValue())) {
-      addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
-      
+      addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;      
     }
-    addWorkingWorkspace(config, context) ;
+    addWorkingWorkspace(context) ;
   }
   
   @SuppressWarnings("hiding")
-  private  void  initPrivatePortal(UserPortalConfig config, PortalRequestContext context) throws Exception {
+  private  void  initPrivatePortal(PortalRequestContext context) throws Exception {
     addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
-    addWorkingWorkspace(config, context) ;
+    addWorkingWorkspace(context) ;
   }
   
   @SuppressWarnings({"hiding","unused"})
-  private void addWorkingWorkspace(UserPortalConfig config, PortalRequestContext context) throws Exception {
+  private void addWorkingWorkspace(PortalRequestContext context) throws Exception {
     UIWorkspace uiWorkingWorkspace = 
       createUIComponent(UIWorkspace.class, UIPortalApplication.UI_WORKING_WS_ID, null) ;
     UIPortal uiPortal = createUIComponent(UIPortal.class, null, null);
-    userPortalConfig_ = config;
-    PortalDataMapper.toUIPortal(uiPortal, config);
+    PortalDataMapper.toUIPortal(uiPortal, userPortalConfig_);
     uiWorkingWorkspace.addChild(uiPortal) ;    
     uiWorkingWorkspace.addChild(UIPortalToolPanel.class, null, null).setRendered(false) ;    
     addChild(uiWorkingWorkspace) ;

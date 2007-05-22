@@ -16,6 +16,7 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
@@ -97,7 +98,15 @@ public class UserPortalConfigService {
       }
     }   
     userACL_.computeNavigation(navigations, accessUser);
-    return new UserPortalConfig(portal, navigations) ;
+    
+    ArrayList<Widgets> widgets = new ArrayList<Widgets>();
+    Widgets widgetsItem = storage_.getWidgets(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
+    if(widgetsItem != null) widgets.add(widgetsItem);
+    
+    widgetsItem = storage_.getWidgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
+    if(widgetsItem != null) widgets.add(widgetsItem);
+    
+    return new UserPortalConfig(portal, navigations, widgets) ;
   }
 
   /**
@@ -137,8 +146,8 @@ public class UserPortalConfigService {
     }
     
     if(navigation != null) storage_.create(navigation);
-    
-    return new UserPortalConfig(pconfig, navigations); 
+    //TODO implement widgets
+    return new UserPortalConfig(pconfig, navigations, new ArrayList<Widgets>()); 
   }
   
   private void replacePageReference(List<PageNode> nodes, String oldID, String newID) {
