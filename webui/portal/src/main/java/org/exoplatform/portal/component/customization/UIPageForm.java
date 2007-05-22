@@ -266,6 +266,7 @@ public class UIPageForm extends UIFormTabPane {
  
   static public class ChangeOwnerTypeActionListener  extends EventListener<UIPageForm> {
     public void execute(Event<UIPageForm> event) throws Exception {
+      System.out.println("\n\n\n\n----------------------------->>>>>>>>>>> ChangeOwnerType");
       
     }
   }
