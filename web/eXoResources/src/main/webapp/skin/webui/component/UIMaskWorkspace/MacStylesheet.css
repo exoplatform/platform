@@ -99,8 +99,9 @@
   border: 1px solid white;
   border-top: none;
   overflow: auto;
-  width: 95%;
+  width: 96.3%;
   margin: auto;
+  background: white;
 }
 
 /**************************** UIAddApplication ******************************************/
@@ -193,10 +194,6 @@
 	padding-left: 3px;
 }
 
-.UIAddApplication .RefreshButtonContent a:hover {
-	color: #0575CA;
-}
-
 .UIAddApplication .ApplicationItemIcon {
 	width: 10px; height: 10px;
 	background: url('MacSkin/icons/ApplicationItemIcon.png') no-repeat ;
@@ -213,21 +210,3 @@
   background: none;
   width: 0px;
 }
-
-/************************************ Select Permission *******************************/
-.UIAccessGroup .UIGrid .ActionContainer {
-  width: 20px;
-}
-
-.UIAccessGroup .UIAction {
-  width: 200px;
-}
-
-.UIAccessGroup .UIAction .SimpleStyle .Icon {
-  float: left;
-  margin: 3px 0px;
-}
-
-.UIAccessGroup .UIAction .ActionButton .SimpleStyle a {
-}
-

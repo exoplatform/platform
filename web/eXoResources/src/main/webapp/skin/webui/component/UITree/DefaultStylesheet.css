@@ -49,7 +49,7 @@
 .UITree .TreeContainer .Node .Icon {
   width: 24px ;  height: 24px ;
   float: left ;
-  margin-left: 3px;
+  margin: 0px 0px 0px 3px;
 }
 
 .UITree .TreeContainer .Node .NodeLabel a {

@@ -240,12 +240,10 @@
 
 .UIOrganizationPortlet .UIGroupManagement .HorizontalLayout  {
   width: 99.5%;
-  border: none;
 }
 
 
 .UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle .HorizontalLayout .FormContainer {
-  border: none;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITabContentContainer {

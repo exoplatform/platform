@@ -97,6 +97,14 @@
   padding: 0px;
 }
 
+.ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout label {
+  width: 185px;
+}
+
+.ApplicationRegistryControlArea .UICategoryForm .UIAction {
+  width: 170px;
+}
+
 /*################################Application Registry Working################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryWorkingArea {
 	margin-left: 245px;
@@ -183,9 +191,12 @@
 
 .ApplicationRegistryWorkingArea .UIAction {
   width: 130px;
-  padding: 9px 0px 0px 0px;
 }
 
 .ApplicationRegistryWorkingArea .eXoBrowserIcon {
   background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png) no-repeat;
+}
+
+.ApplicationRegistryWorkingArea .UIAccessGroup .UIAction {
+  width: 180px;
 }

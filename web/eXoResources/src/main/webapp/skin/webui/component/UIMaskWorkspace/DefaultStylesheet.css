@@ -78,6 +78,7 @@
 .UIMaskWorkspace .UIForm .HorizontalLayout label {
   padding-top: 2px;
   font-size: 11px;
+  width: 130px;
 }
 
 .UIMaskWorkspace .UIForm .HorizontalLayout input {
@@ -100,7 +101,6 @@
 	padding: 50px 0px;
 }
 
-
 /**********************************UITabSelector*****************************************/
 .UIMaskWorkspace .UITabPane .TabPaneContent .WorkingArea .CSSContent {
   border: 1px solid #d5d5d5;
@@ -112,7 +112,7 @@
   border: 1px solid white;
   border-top: none;
   overflow: auto;
-  width: 95%;
+  width: 96.5%;
   margin: auto;
 }
 
@@ -278,4 +278,14 @@
 
 .UIMaskWorkspace .UIAccessGroup .UIAction {
   width: 200px;
+}
+
+/**************************************Container Form*************************************/
+
+.UIContainerForm .HorizontalLayout .FormContainer .FieldContainer label {
+  width: 150px;
+}
+
+.UIMaskWorkspace .UIContainerForm .UIForm .UIAction  {
+  width: 150px;
 }

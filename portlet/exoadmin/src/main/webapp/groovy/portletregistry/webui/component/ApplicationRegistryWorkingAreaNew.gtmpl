@@ -33,7 +33,7 @@
 	  		  <div class="ApplicationContentLabel">
 	  		    <div class="ContentLabel">
 	  		      <span class="LeftLabel">Type:</span>
-	  		      <span class="RightLabel"> <%=applicationType%></span>
+	  		      <span class="RightLabel"><%=applicationType%></span>
 	  		    </div>
 	  		    <div class="ContentLabel">
 	  		      <span class="LeftLabel">Created by:</span>

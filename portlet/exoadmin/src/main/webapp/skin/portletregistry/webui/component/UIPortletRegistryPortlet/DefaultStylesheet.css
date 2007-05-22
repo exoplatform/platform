@@ -33,13 +33,19 @@
 }
 
 .UIApplicationRegistryPortlet .UIPopupWindow .UIWindowContent .Content {
-  padding: 20px 0px;
+  padding: 20px;
   overflow: auto;
 }
 
 .ApplicationRegistryWorkingArea .UIFormWithTitle .UIForm .UIAction {
   width: 150px;
 }
+
+.ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout label {
+  width: 185px;
+  font-size: 11px;
+}
+
 /*################################Application Registry Control################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
 	float: left;
@@ -48,6 +54,10 @@
 
 .ApplicationRegistryControlArea .ApplicationRegistryCategory {
   border: 1px solid #d7d7d7;
+}
+
+.ApplicationRegistryControlArea .ApplicationRegistryCategory .UICategoryForm .UIAction {
+  width: 140px;
 }
 
 .ApplicationRegistryControlArea .CategoryManagement {
@@ -193,3 +203,16 @@
 	background: url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png') no-repeat ;
 }
 
+.ApplicationRegistryWorkingArea .UIAvailablePortletForm .HorizontalLayout .FieldContainer {
+  margin: auto;
+}
+
+.ApplicationRegistryWorkingArea .UIAvailablePortletForm .UIGrid {
+  width: 99%;
+  margin: auto;
+}
+
+.ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout label {
+  width: 175px;
+  font-size: 11px;
+}
