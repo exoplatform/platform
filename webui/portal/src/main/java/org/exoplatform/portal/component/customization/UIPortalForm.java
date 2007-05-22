@@ -217,7 +217,7 @@ public class UIPortalForm extends UIFormTabPane {
       
       UIPortal uiPortal = Util.getUIPortal();
       uiPortal.getChildren().clear();
-      UserPortalConfig userPortalConfig = uiPortal.getUserPortalConfig();
+      UserPortalConfig userPortalConfig = uiApp.getUserPortalConfig();
       userPortalConfig.setPortal(portalConfig);
       PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
       

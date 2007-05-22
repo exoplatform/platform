@@ -7,6 +7,7 @@ package org.exoplatform.portal.component.view;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.component.view.UIWidgets.ChangeOptionActionListener;
 import org.exoplatform.portal.component.view.lifecycle.UIPortalLifecycle;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.ChangePageNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalActionListener.ChangeWindowStateActionListener;
@@ -14,8 +15,6 @@ import org.exoplatform.portal.component.view.listener.UIPortalActionListener.Rem
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.MoveChildActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.portal.component.widget.UILogged.LogoutActionListener;
-import org.exoplatform.portal.component.view.UIWidgets.ChangeOptionActionListener;
-import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.component.UIComponent;
@@ -52,7 +51,6 @@ public class UIPortal extends UIContainer {
   private List<PageNavigation> navigations ;  
   private List<PageNode> selectedPaths_;
   private PageNode selectedNode_;
-  private UserPortalConfig userPortalConfig_;
 
   private UIComponent maximizedUIComponent ;
 
@@ -91,11 +89,6 @@ public class UIPortal extends UIContainer {
   public List<PageNode> getSelectedPaths() { return selectedPaths_ ; }
   public void setSelectedPaths(List<PageNode> nodes){  selectedPaths_ = nodes; }
 
-  public UserPortalConfig getUserPortalConfig() { return userPortalConfig_; }
-  void setUserPortalConfig(UserPortalConfig userPortalConfig) {
-    this.userPortalConfig_ = userPortalConfig; 
-  }
-  
   public UIComponent getMaximizedUIComponent() { return maximizedUIComponent; }
   public void setMaximizedUIComponent(UIComponent maximizedReferenceComponent) {
     this.maximizedUIComponent = maximizedReferenceComponent;

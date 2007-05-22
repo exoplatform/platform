@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * May 22, 2007
  */
 abstract public class Command {
+  
   public String[] getRequiredMemberships() { return null ; }
 
   abstract public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception ;

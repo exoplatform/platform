@@ -4,11 +4,13 @@
  **************************************************************************/
 package org.exoplatform.web.command;
 
+import java.lang.reflect.Field;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.exoplatform.services.database.DBObject;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.WebRequestHandler;
 
@@ -43,6 +45,13 @@ public class CommandHandler extends WebRequestHandler {
     Class<?> clazz =  classLoader.loadClass(command);
     Object object = clazz.newInstance();    
     return null ;
+  }
+  
+  private Field getField(Class clazz, String name) throws Exception {
+    Field field = clazz.getDeclaredField(name);
+    if(field != null) return field;
+    if(clazz == DBObject.class) return null;
+    return getField(clazz.getSuperclass(), name);
   }
 
 }

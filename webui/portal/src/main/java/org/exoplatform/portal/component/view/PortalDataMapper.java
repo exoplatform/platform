@@ -28,7 +28,7 @@ import org.exoplatform.webui.component.UIComponent;
  * 
  * TODO: Rename this to PortalDataModelMapper
  */
-public class PortalDataModelUtil {
+public class PortalDataMapper {
   
   @SuppressWarnings("unchecked")
   static final public <T> T buildChild(UIComponent uiComponent){
@@ -223,7 +223,7 @@ public class PortalDataModelUtil {
     uiPortal.setOwner(model.getName());
     uiPortal.setTitle(model.getTitle());
     uiPortal.setModifiable(model.isModifiable());
-    uiPortal.setUserPortalConfig(userPortalConfig);
+    
     uiPortal.setLocale(model.getLocale());
     uiPortal.setSkin(model.getSkin());
     uiPortal.setAccessPermissions(model.getAccessPermissions());

@@ -66,7 +66,7 @@ public class UIPortalManagementEditBar extends UIToolbar {
       
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       UIPortalForm uiForm = uiMaskWS.createUIComponent(UIPortalForm.class, null, "UIPortalForm");
-      uiForm.setValues(uiPortal.getUserPortalConfig().getPortalConfig());
+      uiForm.setValues(uiApp.getUserPortalConfig().getPortalConfig());
       uiMaskWS.setWindowSize(700, -1);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }

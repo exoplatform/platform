@@ -61,6 +61,8 @@ public class UIPortalApplication extends UIApplication {
   
   private String skin_ = "Default" ;
   
+  private UserPortalConfig userPortalConfig_;
+  
   @SuppressWarnings("hiding")
   public  UIPortalApplication(InitParams initParams) throws Exception { 
     PortalRequestContext  context = PortalRequestContext.getCurrentInstance() ;
@@ -126,6 +128,7 @@ public class UIPortalApplication extends UIApplication {
     UIWorkspace uiWorkingWorkspace = 
       createUIComponent(UIWorkspace.class, UIPortalApplication.UI_WORKING_WS_ID, null) ;
     UIPortal uiPortal = createUIComponent(UIPortal.class, null, null);
+    userPortalConfig_ = config;
     PortalDataMapper.toUIPortal(uiPortal, config);
     uiWorkingWorkspace.addChild(uiPortal) ;    
     uiWorkingWorkspace.addChild(UIPortalToolPanel.class, null, null).setRendered(false) ;    
@@ -203,5 +206,10 @@ public class UIPortalApplication extends UIApplication {
         append("','").append(ele.getCSSPath()).append("');\n"); 
     }
     return b.toString() ;
+  }
+  
+  public UserPortalConfig getUserPortalConfig() { return userPortalConfig_; }
+  public void setUserPortalConfig(UserPortalConfig userPortalConfig) {
+    this.userPortalConfig_ = userPortalConfig; 
   }
 }

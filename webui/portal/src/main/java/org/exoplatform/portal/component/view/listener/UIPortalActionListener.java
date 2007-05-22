@@ -47,8 +47,8 @@ public class UIPortalActionListener {
     public void execute(Event<UIPortal> event) throws Exception {
       UIPortal uiPortal = event.getSource();
       UIPortalForm uiForm = uiPortal.createUIComponent(UIPortalForm.class, null, null);
-      uiForm.setValues(uiPortal.getUserPortalConfig().getPortalConfig());
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      uiForm.setValues(uiPortalApp.getUserPortalConfig().getPortalConfig());
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
       uiToolPanel.setUIComponent(uiForm);
