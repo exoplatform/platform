@@ -272,3 +272,11 @@
 	width: 24px; height: 24px;
 	background: url('/eXoResources/icons/24x24/VistaSkin/Delete24x24Icon.png') no-repeat center left;
 }
+.UIListPermissionSelector24x24Icon {
+  width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/VistaSkin/IconAccessPermission.png') no-repeat left center;
+}
+.UIPermissionSelector24x24Icon {
+  width: 24px; height: 24px;
+	background: url('/eXoResources/icons/24x24/VistaSkin/IconEditPermission.png') no-repeat left center;
+}
