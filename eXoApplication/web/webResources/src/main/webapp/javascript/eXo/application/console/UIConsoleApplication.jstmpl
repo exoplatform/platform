@@ -1,6 +1,0 @@
-<div style="width: 100%; height: 450px; border: 1px solid blue">
-  <div id="eXoConsoleResult" onclick="eXo.core.Editor.init(this)">
-    This is a test
-  </div>
-  <div onclick="eXo.core.Editor.init(this)">webos$</div>
-</div>
