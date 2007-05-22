@@ -7,6 +7,11 @@
   border: solid 1px #424345 ;
 }
 
+.UIMaskWorkspace .MaskContainer {
+  background:#ffffff;
+  border: solid 1px #424345 ;
+}
+
 .UIMaskWorkspace .TopLeftDecorator {
   background: url('VistaSkin/background/TopLeftDecorator12x10.png') left no-repeat;
   padding: 0px 0px 0px 12px ;
