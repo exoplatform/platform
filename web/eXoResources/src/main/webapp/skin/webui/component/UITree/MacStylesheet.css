@@ -58,23 +58,24 @@
   margin: 0px 0px 0px 3px;
 }
 
-.UITree .TreeContainer .Node .NoteLabel a {
+.UITree .TreeContainer .Node .NodeLabel a {
   float: left ;
   height: 20px ; vertical-align: middle ; line-height: 20px ;
   cursor: pointer ;
   padding: 0px 5px 0px 4px ; 
   margin: 0px 0px 0px 1px ;
-  color: black;
+  color: black; font-size: 11px; font-weight: bold;
 }
 
-.UITree .TreeContainer .Node .NoteLabel a:hover{
+.UITree .TreeContainer .Node .NodeLabel a:hover{
   color: blue;
   background: #e2e6ea;
   padding: 0px 5px 0px 4px ;
   margin: 0px 0px 0px 1px ;
+  font-size: 11px; font-weight: bold;
 }
 
-.UITree .TreeContainer .Node .NoteLabel .NodeSelected {
+.UITree .TreeContainer .Node .NodeLabel .NodeSelected {
   height: 20px ; line-height: 20px; vertical-align: middle;
   margin: 0px 0px 0px 1px ;
   color: red;
