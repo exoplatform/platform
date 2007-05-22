@@ -49,6 +49,8 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
     return this;
   }  
 
+  public String getOriginalValue() { return value_ ; }
+  
   public void setDateValue(Date date) { value_ = formatter_.format(date) ; }
   public Date getDateValue() throws ParseException {
     if(value_ != null) return formatter_.parse(value_ + " 00:00:00") ;

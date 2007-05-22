@@ -5,6 +5,7 @@
 package org.exoplatform.webui.component.validator;
 
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.component.UIFormDateTimeInput;
 import org.exoplatform.webui.component.UIFormInput;
 import org.exoplatform.webui.exception.MessageException;
 
@@ -21,8 +22,11 @@ public class DateTimeValidator implements Validator {
   
   public void validate(UIFormInput uiInput) throws Exception {
     String s = (String)uiInput.getValue();
+    if(uiInput instanceof UIFormDateTimeInput) {
+      s = ((UIFormDateTimeInput)uiInput).getOriginalValue() ;
+    }
     if(s == null || s.trim().length() < 1 || (s).matches(DATETIME_REGEX)) return;
-    Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
+    Object[]  args = { uiInput.getName(), s } ;
     throw new MessageException(new ApplicationMessage("DateTimeValidator.msg.Invalid-input", args)) ;
   }
 }
