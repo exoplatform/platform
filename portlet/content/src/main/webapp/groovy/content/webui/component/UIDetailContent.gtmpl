@@ -1,6 +1,6 @@
 <% 
   import org.exoplatform.portal.content.model.ContentItem; 
-  import org.exoplatform.webui.component.UIJSPageIterator;
+  import org.exoplatform.webui.component.UIPageIterator;
 
   String nodeLabel = uicomponent.getContentNode().getLabel() ;  
   items = uicomponent.getListItems() ;  
@@ -57,6 +57,6 @@
 	  String display="display:none;" ;
 	  if(i > 1) display = "display:block;" ;
 	%>
-	<div style="$display"><% uicomponent.renderChild(UIJSPageIterator.class); %></div>
+	<div style="$display"><% uicomponent.renderChild(UIPageIterator.class); %></div>
 </div>	
 

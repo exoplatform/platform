@@ -14,7 +14,7 @@ import org.exoplatform.portal.content.model.ContentNode;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIJSPageIterator;
+import org.exoplatform.webui.component.UIPageIterator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -32,15 +32,15 @@ import org.exoplatform.webui.event.EventListener;
 )
 public class UIDetailContent extends UIContainer {
   
-  private UIJSPageIterator uiIterator_ ;
+  private UIPageIterator uiIterator_ ;
   private ContentNode node_;
     
   public UIDetailContent() throws Exception {  
-    uiIterator_ = createUIComponent(UIJSPageIterator.class, null, null) ;
+    uiIterator_ = createUIComponent(UIPageIterator.class, null, null) ;
     addChild(uiIterator_);
   }
   
-  public UIJSPageIterator  getUIPageIterator() {  return uiIterator_ ; }
+  public UIPageIterator  getUIPageIterator() {  return uiIterator_ ; }
   
   public void setContentNode(ContentNode node) {
     node_ = node;

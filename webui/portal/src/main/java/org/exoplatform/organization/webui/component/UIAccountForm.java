@@ -4,20 +4,11 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
-import java.util.List;
-
-import org.exoplatform.account.webui.component.model.UIAccountTemplateConfigOption;
-import org.exoplatform.organization.webui.component.UIUserMembershipSelector.Membership;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormTabPane;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.component.model.SelectItemCategory;
 import org.exoplatform.webui.config.InitParams;
-import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
