@@ -25,7 +25,7 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .InfoContentContainer {
-  padding: 5px 0px 0px 0px;
+  padding: 0px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionTypeBar {
@@ -50,7 +50,7 @@
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo {
   border: solid 1px #b1b5c0 ;
-  background: white ;
+  background:url(VistaSkin/background/SelectedPermissionInfo1x21.png) repeat-x scroll center top ;
   padding: 15px 0px 15px 0px ;
   height: 90px;
 }
