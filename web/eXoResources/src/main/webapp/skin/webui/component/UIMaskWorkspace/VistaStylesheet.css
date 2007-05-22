@@ -2,7 +2,7 @@
    width: 700px ;
 }
 
-.UIMaskWorkspace .MaskContainer {
+.UIMaskWorkspace .ContentContainer {
   background:#ffffff;
   border: solid 1px #424345 ;
 }
@@ -76,7 +76,7 @@
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
-  padding: 8px ;
+  padding: 8px;
 }
 
 .UIMaskWorkspace .ContentContainerDetail .TabsContainer {
@@ -101,14 +101,13 @@
   width: 550px;
 	margin: auto;
 	padding: 50px 0px;
-	border: none;
+	border: none;border: solid 1px red;
 }
 
 .UIMaskWorkspace .UINodeIconSelector .LeftColumnStyle .ItemDetailList {
   height: auto;
 }
 /**************************** UIAddApplication ******************************************/
-
 .UIAddApplication .UITabContentContainer {
   border: 1px solid #999999;
   border-top: none;
