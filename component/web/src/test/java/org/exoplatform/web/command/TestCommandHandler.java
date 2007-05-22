@@ -7,6 +7,9 @@ package org.exoplatform.web.command;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.exoplatform.test.BasicTestCase;
 
 /**
@@ -34,10 +37,9 @@ public class TestCommandHandler extends BasicTestCase {
     private int    intProp    ;
     private String stringProp ; 
     
-    public void execute() throws Exception {
+    public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
       System.out.println("int    prop : "  +  intProp)   ;
       System.out.println("String prop : "  +  stringProp)   ;
     }
-    
   }
 }

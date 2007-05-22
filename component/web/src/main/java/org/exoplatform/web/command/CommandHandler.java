@@ -25,6 +25,7 @@ public class CommandHandler extends WebRequestHandler {
   public void execute(WebAppController app,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     System.out.println("IN COMMAND " + req.getServletPath());
     System.out.println("IN COMMAND " + req.getPathInfo());
+    Map props = req.getParameterMap() ;
   }
   
   
