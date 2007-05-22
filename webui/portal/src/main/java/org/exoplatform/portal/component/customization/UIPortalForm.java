@@ -19,7 +19,6 @@ import org.exoplatform.portal.component.model.PortalTemplateConfigOption;
 import org.exoplatform.portal.component.view.PortalDataModelUtil;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -192,11 +191,6 @@ public class UIPortalForm extends UIFormTabPane {
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);
     uiSettingSet.setRendered(false);
-    
-//    UIAccessGroup uiAccessGroup = createUIComponent(UIAccessGroup.class, null, "UIAccessGroup");
-//    uiAccessGroup.setRendered(false);
-//    uiAccessGroup.configure("AccessGroup", "accessGroup");
-//    addUIComponentInput(uiAccessGroup);
   }
   
   public PortalConfig getPortalConfig() { return portalConfig_; }
@@ -205,9 +199,6 @@ public class UIPortalForm extends UIFormTabPane {
     portalConfig_ = uiPortal;
     if(portalConfig_.getFactoryId() == null) portalConfig_.setFactoryId(DEFAULT_FACTORY_ID);    
     invokeGetBindingBean(portalConfig_) ;
-    
-//    UIAccessGroup uiAccessGroup = getChild(UIAccessGroup.class);
-//    uiAccessGroup.setGroups(uiPortal.getAccessPermissions());
   }
 
   static public class SaveActionListener  extends EventListener<UIPortalForm> {
@@ -219,9 +210,6 @@ public class UIPortalForm extends UIFormTabPane {
       UIPortalApplication uiApp = uiForm.getAncestorOfType(UIPortalApplication.class);
       PortalConfig portalConfig  = uiForm.getPortalConfig();
       uiForm.invokeSetBindingBean(portalConfig);
-      
-//      UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
-//      portalConfig.setAccessPermissions(uiAccessGroup.getAccessGroup());
       
       if(portalConfig.getFactoryId().equals(UIPortalForm.DEFAULT_FACTORY_ID)) portalConfig.setFactoryId(null);      
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
@@ -254,25 +242,25 @@ public class UIPortalForm extends UIFormTabPane {
     public void execute(Event<UIPortalForm> event) throws Exception {
       UIPortalForm uiForm = event.getSource();
       String template = uiForm.getChild(UIFormInputItemSelector.class).getSelectedItemOption().getValue().toString();
-      
-      PortalRequestContext prContext = Util.getPortalRequestContext();
-      String remoteUser = prContext.getRemoteUser();
+      String portalName = uiForm.getUIStringInput("name").getValue();
       
       UserPortalConfigService service = uiForm.getApplicationComponent(UserPortalConfigService.class);
-      UserPortalConfig userPortalConfig = service.getUserPortalConfig(template, remoteUser);
+      UserPortalConfig userPortalConfig = service.createUserPortalConfig(portalName, template);
       PortalConfig pconfig = userPortalConfig.getPortalConfig();
+      uiForm.invokeSetBindingBean(pconfig);
       
-      String portalName = uiForm.getUIStringInput("name").getValue();
-      String portalLocal = uiForm.getUIFormSelectBox("locale").getValue();
-      String portalSkin = uiForm.getUIFormSelectBox("skin").getValue();
-      
-      pconfig.setName(portalName);
-      pconfig.setLocale(portalLocal);
-      pconfig.setSkin(portalSkin);
-            
-//      uiForm.invokeSetBindingBean(pconfig);
-      
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      pconfig.setCreator(pcontext.getRemoteUser());
       service.update(pconfig);
+      
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      uiMaskWS.setUIComponent(null);
+      pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
+      
+      UIPortalBrowser uiPortalBrowser = uiPortalApp.findFirstComponentOfType(UIPortalBrowser.class);
+      uiPortalBrowser.loadPortalConfigs();
+      pcontext.addUIComponentToUpdateByAjax(uiPortalBrowser);
     }
   }
   
@@ -283,14 +271,11 @@ public class UIPortalForm extends UIFormTabPane {
       PortalTemplateConfigOption selectItem = 
         (PortalTemplateConfigOption)templateInput.getSelectedCategory().getSelectItemOptions().get(0);
       List<String> groupIds = selectItem.getGroups();
-//      UIAccessGroup uiAccessGroup = uiForm.getChild(UIAccessGroup.class);
-//      uiAccessGroup.clearGroups();
       Group [] groups = new Group[groupIds.size()];
       OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class) ;
       for(int i = 0; i < groupIds.size(); i++) {
         groups[i] = service.getGroupHandler().findGroupById(groupIds.get(i));
       }
-//      uiAccessGroup.addGroup(groups);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
     }
   }

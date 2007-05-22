@@ -27,9 +27,6 @@ public class UserACL {
 
   private OrganizationService orgService_ ;
   
-  private String viewMembershipType_ ;
-  private String editMembershipType_ ;
-  
   private String superUser_;
 
   UserACL(InitParams params, OrganizationService  orgService) throws Exception {
@@ -40,10 +37,7 @@ public class UserACL {
     if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "exoadmin";
   }
   
-  String getViewMembershipType() { return viewMembershipType_ ; }
-  String getEditMembershipType() { return editMembershipType_ ; }
-
-  void computeNavigation(List<PageNavigation> navs, String remoteUser) throws Exception {
+  public void computeNavigation(List<PageNavigation> navs, String remoteUser) throws Exception {
     Iterator<PageNavigation> iterator = navs.iterator();
     while(iterator.hasNext()){
       PageNavigation nav = iterator.next();
@@ -59,7 +53,7 @@ public class UserACL {
     
   }  
   
-  boolean hasPermission(PortalConfig pconfig, String accessUser) throws Exception {
+  public boolean hasPermission(PortalConfig pconfig, String accessUser) throws Exception {
     if(hasEditPermission(pconfig.getCreator(), accessUser, pconfig.getEditPermission())) {
       pconfig.setModifiable(true);
       return true;
@@ -69,7 +63,7 @@ public class UserACL {
     return hasViewPermission(pconfig.getCreator(), accessUser, pconfig.getAccessPermissions()) ;
   }
   
-  boolean hasPermission(Page page, String accessUser) throws Exception {
+  public boolean hasPermission(Page page, String accessUser) throws Exception {
     String owner = page.getCreator();
     if(page.getOwnerType().equals(PortalConfig.USER_TYPE)) owner = page.getOwnerId();
     if(hasEditPermission(owner, accessUser, page.getEditPermission())) {
@@ -81,7 +75,7 @@ public class UserACL {
     return hasViewPermission(owner, accessUser, page.getAccessPermissions()) ;
   }
   
-  boolean hasPermission(PageNavigation nav, String accessUser) throws Exception {
+  public boolean hasPermission(PageNavigation nav, String accessUser) throws Exception {
     String owner = nav.getCreator();
     if(nav.getOwnerType().equals(PortalConfig.USER_TYPE)) owner = nav.getOwnerId();
     
@@ -93,7 +87,7 @@ public class UserACL {
     return hasViewPermission(owner, accessUser, nav.getAccessPermissions()) ;
   }
   
-  boolean hasViewPermission(String owner, String remoteUser, String[] expPerms) throws Exception {
+  public boolean hasViewPermission(String owner, String remoteUser, String[] expPerms) throws Exception {
     if(owner != null && owner.equals(remoteUser)) return true;
     if(superUser_.equals(remoteUser)) return true;
     if(expPerms == null || expPerms.length < 1) expPerms = new String[] {"*:/guest"};
@@ -103,7 +97,7 @@ public class UserACL {
     return false;
   }
   
-  boolean hasViewPermission(String remoteUser, String expPerm) throws Exception {
+  public boolean hasViewPermission(String remoteUser, String expPerm) throws Exception {
     if(expPerm == null) return false ;
     Permission permission = new Permission();
     permission.setPermissionExpression(expPerm);
@@ -120,7 +114,7 @@ public class UserACL {
     return handler.findMembershipByUserGroupAndType(remoteUser, groupId, membership) != null;
   }
   
-  boolean hasEditPermission(String owner, String remoteUser, String expPerm) throws Exception {
+  public boolean hasEditPermission(String owner, String remoteUser, String expPerm) throws Exception {
     if(owner != null && owner.equals(remoteUser)) return true;
     if(superUser_.equals(remoteUser)) return true;
     if(expPerm == null) return false ;

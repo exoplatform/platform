@@ -38,10 +38,16 @@ public class Page extends Container {
   }
   
   public String getOwnerId() { return ownerId; }
-  public void setOwnerId(String ownerId) { this.ownerId = ownerId; }
+  public void setOwnerId(String ownerId) {
+    this.ownerId = ownerId; 
+    this.pageId = null;
+  }
 
   public String getOwnerType() { return ownerType; }
-  public void setOwnerType(String ownerType) { this.ownerType = ownerType; }
+  public void setOwnerType(String ownerType) { 
+    this.ownerType = ownerType;
+    this.pageId = null;
+  }
   
   public String[] getAccessPermissions() { return accessPermissions ; }
   public void     setAccessPermissions(String[] s) { accessPermissions = s; }
@@ -52,6 +58,11 @@ public class Page extends Container {
   public boolean isShowMaxWindow() { return showMaxWindow; }  
   public void setShowMaxWindow(Boolean showMaxWindow) {
     this.showMaxWindow = showMaxWindow.booleanValue(); 
+  }
+  
+  public void setName(String name) {
+    super.setName(name);
+    this.pageId = null;
   }
   
   public String getPageId() {

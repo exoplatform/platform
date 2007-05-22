@@ -31,7 +31,6 @@ public class UIPagePreview extends UIComponentDecorator {
   public void setBackComponent(UIComponent uiComp) { uiBackComponent = uiComp ; }
   
   public boolean hasBackEvent(){ return uiBackComponent != null; }
-
   
   static public class BackActionListener extends EventListener<UIPagePreview> {
     public void execute(Event<UIPagePreview> event) throws Exception {

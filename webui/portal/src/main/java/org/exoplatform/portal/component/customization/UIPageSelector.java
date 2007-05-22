@@ -92,18 +92,6 @@ public class UIPageSelector extends UIFormInputContainer<String> {
   
   public Page getPage() { return page_; }
 
-//  public String getUIInputValue() { 
-//    if(value_ != null) return value_ ;
-//    return null ;
-//  }  
-//  
-//  public void setUIInputValue(Object input) throws Exception { 
-//    String id =  (String)input ; 
-//    PortalRequestContext pcontext = Util.getPortalRequestContext();      
-//    UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
-//    value_ = service.getPage(id, pcontext.getRemoteUser()) ;
-//  }
-
   public Class<String> getTypeValue() {  return String.class ; }
 
   public void processDecode(WebuiRequestContext context) throws Exception {   

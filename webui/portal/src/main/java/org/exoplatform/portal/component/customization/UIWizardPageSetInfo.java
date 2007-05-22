@@ -33,9 +33,7 @@ import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
     template = "app:/groovy/portal/webui/component/customization/UIWizardPageSetInfo.gtmpl",
-    events = @EventConfig(
-      listeners = UIWizardPageSetInfo.ChangeNodeActionListener.class, phase=Phase.DECODE
-    )
+    events = @EventConfig(listeners = UIWizardPageSetInfo.ChangeNodeActionListener.class, phase=Phase.DECODE)
 )
 public class UIWizardPageSetInfo extends UIForm {   
   

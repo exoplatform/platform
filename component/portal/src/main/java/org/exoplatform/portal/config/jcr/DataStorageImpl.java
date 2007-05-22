@@ -207,6 +207,7 @@ public class DataStorageImpl implements DataStorage {
     session.logout();
   }
 
+  //TODO review createDataNode
   public void save(PageNavigation navigation) throws Exception {
     Session session = jcrRegService_.getSession();
     Node portalNode = createDataNode(session, navigation.getOwnerType(), navigation.getOwnerId());

@@ -14,6 +14,7 @@ import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
@@ -57,19 +58,6 @@ public class UserPortalConfigService {
     pageConfigCache_     = cacheService.getCacheInstance(Page.class.getName()) ;
     pageNavigationCache_ = cacheService.getCacheInstance(PageNavigation.class.getName()) ;
   }
-
-
-  /**
-   * @return This method should the membership type that the user can access the portal, pages
-   * and the navigation.
-   */
-  public String getViewMembershipType()  { return userACL_.getViewMembershipType() ; }
-
-  /**
-   * @return This method should return the membership type that the user can edit the portal, pages
-   * and the navigation
-   */
-  public String getEditMembershipType()  { return userACL_.getEditMembershipType() ; }
 
   /**
    * This  method should load the PortalConfig object according to the portalName,  set the view and edit
@@ -116,41 +104,49 @@ public class UserPortalConfigService {
    * This method  should create a  the portal  config, pages and navigation according to the template 
    * name
    * @param portalName
-   * @param ownerId
+   * @param template
    * @return
    * @throws Exception
    */
-  public UserPortalConfig createUserPortalConfig(String portalName, String ownerId) throws Exception {
-    PortalConfig pconfig = storage_.getPortalConfig(portalName) ;
-    if (pconfig != null) {
-      pconfig.setName(portalName) ;
-      storage_.create(pconfig) ;
-    }
-
+  public UserPortalConfig createUserPortalConfig(String portalName, String template) throws Exception {
+    PortalConfig pconfig = storage_.getPortalConfig(template) ;
+    pconfig.setName(portalName) ;
+    storage_.create(pconfig) ;
+    
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + ownerId) ;
+    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + template) ;
     if (navigation != null) {
-      navigation.setOwnerId(portalName);
-      storage_.create(navigation);
+      navigation.setOwnerId(portalName);      
       navigations.add(navigation);
     }
-    Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
-    query.setOwnerType(PortalConfig.PORTAL_TYPE) ;
-    query.setOwnerId(ownerId) ;
+    
+    Query<Page> query = new Query<Page>(PortalConfig.PORTAL_TYPE, template, null, Page.class) ;
     PageList pagelist = storage_.find(query) ;
     pagelist.setPageSize(10);
     int i = 1;
-    while(i < pagelist.getAvailablePage()) {
+    while(i <= pagelist.getAvailablePage()) {
       List<?>  list = pagelist.getPage(i);
       for(Object ele : list) {
         Page page  = (Page)ele;
+        String oldID = page.getPageId();
         page.setOwnerId(portalName);
         storage_.create(page);
+        if(navigation != null) replacePageReference(navigation.getNodes(), oldID, page.getPageId());
       }
       i++;
     }
     
+    if(navigation != null) storage_.create(navigation);
+    
     return new UserPortalConfig(pconfig, navigations); 
+  }
+  
+  private void replacePageReference(List<PageNode> nodes, String oldID, String newID) {
+    if(nodes == null) return;
+    for(PageNode node : nodes) {
+      if(oldID.equals(node.getPageReference())) node.setPageReference(newID);      
+      replacePageReference(node.getChildren(), oldID, newID);
+    }
   }
   
   /**
@@ -180,9 +176,18 @@ public class UserPortalConfigService {
     PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
     if (navigation != null) remove(navigation);
   }
+  
+  /**
+   * This method should create the PortalConfig  object
+   * @param config
+   * @throws Exception
+   */
+  public void create(PortalConfig config) throws Exception {    
+    storage_.create(config) ;    
+  }
 
   /**
-   * This method should create or update the PortalConfig  object
+   * This method should update the PortalConfig  object
    * @param config
    * @throws Exception
    */
@@ -275,47 +280,8 @@ public class UserPortalConfigService {
   public void computeModifiable(PageNavigation navigation, String accessUser) throws Exception {
     userACL_.hasEditPermission(navigation.getCreator(), accessUser, navigation.getEditPermission());
   }
-
   
-/*//TODO: Tung.Pham modified
-  PageNavigation getPageNavigation(String id) throws Exception {
-    PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(id) ;
-    if(navigation != null) return navigation ; 
-    navigation  = storage_.getPageNavigation(id) ;
-    if (navigation != null) {
-      pageNavigationCache_.put(id, navigation);
-      return navigation ; 
-    }
-    
-    return null ;
-  }
-  
-  //TODO: Tung.Pham added
-  private void copyPages(PageNavigation navi, String portalName) throws Exception {
-    if (navi == null) return ;
-    List<PageNode> pageNodes = navi.getNodes() ;
-    for (PageNode ele : pageNodes) {
-      copyPages(ele, portalName) ;
-    }
-  }
-  
-  //TODO: Tung.Pham added
-  private void copyPages(PageNode node, String portalName) throws Exception {
-    String pageId = node.getPageReference() ;
-    if (pageId != null) {
-      Page page = storage_.getPage(pageId) ;
-      if (page != null) {
-        page.setOwnerId(portalName) ;
-        storage_.create(page) ;
-      }
-    }
-    List<PageNode> children = node.getChildren() ;
-    if (children == null) return ;
-    for (PageNode ele : children) {
-      copyPages(ele, portalName) ;
-    }
-
-  }*/
+  public UserACL getUserACL() { return userACL_; }
 
   @SuppressWarnings("unused")
   public void initListener(ComponentPlugin listener) { }

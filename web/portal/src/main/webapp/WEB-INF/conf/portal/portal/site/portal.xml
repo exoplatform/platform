@@ -5,7 +5,7 @@
   <factory-id>office</factory-id>
   <access-permission>*:/guest,*:/user</access-permission>
   <edit-permission>*:/user</edit-permission>
-  <creator>exo</creator>
+  <creator>exoadmin</creator>
   
   <widget-layout>
     <container>

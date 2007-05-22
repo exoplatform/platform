@@ -73,6 +73,7 @@ public class UIPortalBrowser extends UIContainer {
       if(userPortalConfig == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-viewPermission", null)) ;;
         prContext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()); 
+        return;
       }
       
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
