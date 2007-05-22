@@ -47,18 +47,7 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="ActionButton">
-        <div class="LightBlueStyle">
-          <div class="ButtonLeft">
-            <div class="ButtonRight">
-              <div class="ButtonMiddle">
-                <a href="javascript:eXo.webui.UIForm.submitForm('UIPortalForm','Close', true)">Cancel</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </div>     
     </div>
   </div>
 

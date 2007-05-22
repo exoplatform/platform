@@ -44,12 +44,12 @@ import org.exoplatform.webui.event.Event.Phase;
   @ComponentConfig(
       type = UITree.class, id = "UITreeGroupSelector",
       template = "system:/groovy/webui/component/UITree.gtmpl",
-      events = @EventConfig(listeners = UITree.ChangeNodeActionListener.class)
+      events = @EventConfig(listeners = UITree.ChangeNodeActionListener.class, phase = Phase.DECODE)
   ),
   @ComponentConfig(
       type = UIBreadcumbs.class, id = "BreadcumbGroupSelector",
       template = "system:/groovy/webui/component/UIBreadcumbs.gtmpl",
-      events = @EventConfig(listeners = UIBreadcumbs.SelectPathActionListener.class)
+      events = @EventConfig(listeners = UIBreadcumbs.SelectPathActionListener.class, phase = Phase.DECODE)
   )
 })
 
@@ -117,28 +117,30 @@ public class UIGroupSelector extends UIContainer {
     return list ;
   }
   
-  public void processDecode(WebuiRequestContext context) throws Exception {
-    super.processDecode(context);
-    UIForm uiForm  = getAncestorOfType(UIForm.class);
-    String action = uiForm.getSubmitAction(); 
-    if(action == null) return;    
-    Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;
-    if(event != null) event.broadcast() ;
-  }
+//  public void processDecode(WebuiRequestContext context) throws Exception {
+//    super.processDecode(context);
+//    UIForm uiForm  = getAncestorOfType(UIForm.class);
+//    String action = uiForm.getSubmitAction(); 
+//    if(action == null) return;    
+//    Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;
+//    if(event != null) event.broadcast() ;
+//  }
   
   public String event(String name) throws Exception {
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
-    if(uiForm != null) return uiForm.event(name, getId());
+    if(uiForm != null) return uiForm.event(name, getId(), "");
     return super.event(name);
   }
   
-  static  public class ChangeNodeActionListener extends EventListener<UIGroupSelector> {   
-    public void execute(Event<UIGroupSelector> event) throws Exception {
-      String groupId = event.getRequestContext().getRequestParameter(OBJECTID)  ;    
-      UIGroupSelector uiSelector = event.getSource() ;
+  static  public class ChangeNodeActionListener extends EventListener<UITree> {   
+    public void execute(Event<UITree> event) throws Exception {
+      String groupId = event.getRequestContext().getRequestParameter(OBJECTID)  ;   
+      UIGroupSelector uiSelector = null;
+      UITree uicom = event.getSource() ;
+      uiSelector = uicom.getParent();
       uiSelector.changeGroup(groupId);
       
-      UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
+      UIForm uiForm = uiSelector.getAncestorOfType(UIForm.class) ;
       UIPopupWindow uiPopup = uiSelector.getParent();
       uiPopup.setShow(true);
       if(uiForm != null) {
@@ -171,18 +173,19 @@ public class UIGroupSelector extends UIContainer {
   
   static  public class SelectGroupActionListener extends EventListener<UIGroupSelector> {   
     public void execute(Event<UIGroupSelector> event) throws Exception {
+      System.out.println("\n\n\n\n == > run here \n\n\n");
       UIGroupSelector uiSelector = event.getSource();
-      UIComponent uiParent = uiSelector.<UIComponent>getParent().getParent();
-      uiParent.setRenderSibbling(uiParent.getClass());      
-      uiParent.broadcast(event, Event.Phase.PROCESS) ;
       
       UIPopupWindow uiPopup = uiSelector.getParent();
       uiPopup.setShow(false);
       UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
       if(uiForm != null) {
         event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
+        uiForm.broadcast(event, event.getExecutionPhase()) ;
       }else{
         event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
+        UIComponent uiParent = uiPopup.getParent();
+        uiParent.broadcast(event, event.getExecutionPhase()) ;
       }
            
     }
