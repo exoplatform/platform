@@ -19,7 +19,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
@@ -140,11 +139,13 @@ public class UIPageForm extends UIFormTabPane {
   public void setValues(UIPage uiPage) throws Exception {
     uiPage_ = uiPage;
     Page page = PortalDataMapper.toPageModel(uiPage) ;
+    invokeGetBindingBean(page) ;
+    
     getUIStringInput("name").setEditable(false) ;
     getUIStringInput("pageId").setValue(uiPage.getPageId());
-    invokeGetBindingBean(page) ;
     getUIFormCheckBoxInput("showMaxWindow").setValue(uiPage.isShowMaxWindow());
-    getUIFormSelectBox("ownerId").setEditable(false);
+    getUIStringInput("ownerId").setEditable(false);
+    getUIFormSelectBox("ownerType").setEnable(false);
     removeChild(UIPageTemplateOptions.class);
     removeChildById("UIPopupGroupSelector");
     
@@ -248,8 +249,6 @@ public class UIPageForm extends UIFormTabPane {
       } else {
         page.setCreator(pcontext.getRemoteUser());
         page.setModifiable(true);
-        page.setOwnerType(PortalConfig.USER_TYPE);
-        page.setOwnerId(pcontext.getRemoteUser());
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
         configService.create(page);
       }
@@ -287,6 +286,7 @@ public class UIPageForm extends UIFormTabPane {
         if(ele instanceof UIPortlet) list.add((UIPortlet)ele);
         else if(ele instanceof UIContainer) findAllPortlet(list, (UIContainer) ele); 
       }
+      
     }
   }
  
@@ -295,42 +295,34 @@ public class UIPageForm extends UIFormTabPane {
       UIPageForm uiForm = event.getSource();
       UIFormSelectBox selectBox = uiForm.getUIFormSelectBox("ownerType");
       String value = selectBox.getValue();
-      System.out.println("\n\n\n\n----------------------------->>FormSelecyBox: " + value);
       
       if(PortalConfig.USER_TYPE.equals(value)){
         UIFormStringInput ownerId = uiForm.getUIStringInput("ownerId");
         PortalRequestContext prContext = Util.getPortalRequestContext();
         ownerId.setValue(prContext.getRemoteUser());
-        System.out.println("\n\n\n\n---------------------- User: " + ownerId.getValue());
-        
-      } else if(PortalConfig.PORTAL_TYPE.equals(value)){
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
+        return;
+      } 
+      
+      if(PortalConfig.PORTAL_TYPE.equals(value)){
         UIFormStringInput ownerId = uiForm.getUIStringInput("ownerId");
         ownerId.setValue(Util.getUIPortal().getName());
-        System.out.println("\n\n\n\n----------------------Portal: " + ownerId.getValue());
-      } else {
-        String script = "eXo.webui.UIPopupWindow.show('UIPopupGroupSelector');";
-        event.getRequestContext().getJavascriptManager().addCustomizedOnLoadScript(script);
-        //eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIFormPopupWindow.class).getId();%>');
-//        UIFormStringInput ownerId = uiForm.getUIStringInput("ownerId");
-//        UIFormInputSet pageSetting = uiForm.getChildById("PageSetting");
-//        UIFormPopupWindow popupWindow = pageSetting.getChild(UIFormPopupWindow.class);
-//        popupWindow.setShow(true);
-//        ownerId.setValue("xxx");
-//        
-        System.out.println("\n\n\n\n----------------------Group: " + uiForm.findComponentById("TreeForSelectOwnerId"));
-      }
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
+        return;
+      } 
+      
+      String script = "eXo.webui.UIPopupWindow.show('UIPopupGroupSelector');";
+      event.getRequestContext().getJavascriptManager().addCustomizedOnLoadScript(script);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
     }
   }
   
   static public class SelectGroupActionListener  extends EventListener<UIGroupSelector> {
     public void execute(Event<UIGroupSelector> event) throws Exception {
-      
       UIGroupSelector groupSelector = event.getSource();
       UIPageForm parent = groupSelector.getAncestorOfType(UIPageForm.class);
-      System.out.println("\n\n\npaggeForm.SelectGroup-------> " + groupSelector.getSelectedGroup().getGroupName());
       UIFormStringInput ownerId = parent.getUIStringInput("ownerId");
-      ownerId.setValue(groupSelector.getSelectedGroup().getGroupName());
+      ownerId.setValue(groupSelector.getSelectedGroup().getId());
       event.getRequestContext().addUIComponentToUpdateByAjax(parent.getParent());
     }
   }

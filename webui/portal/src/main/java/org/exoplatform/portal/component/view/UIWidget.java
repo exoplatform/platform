@@ -14,11 +14,9 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  *          ha.pham@exoplatform.com
  * May 16, 2007  
  */
-
-@ComponentConfig(
-  lifecycle = UIWidgetLifecycle.class
-)
+@ComponentConfig(lifecycle = UIWidgetLifecycle.class)
 public class UIWidget extends UIComponent {
+  
   private String applicationInstanceId_ ;
   private String applicationOwnerType_ ;
   private String applicationOwnerId_ ;
