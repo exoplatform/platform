@@ -93,48 +93,48 @@
 }
 
 .UIWidgetContainer .LeftWidgetNavBar {
-	height: 25px;
-	background: url('DefaultSkin/background/LeftWidgetNavBar4x25.gif') no-repeat left;
-	padding-left: 4px;	
+	height: 28px;
+	background: url('VistaSkin/background/LeftWidgetNavBar12x28.png') no-repeat left;
+	padding-left: 12px;	
 }
 
 .UIWidgetContainer .RightWidgetNavBar {
-	height: 25px;
-	background: url('DefaultSkin/background/RightWidgetNavBar4x25.gif') no-repeat right;
-	padding-right: 4px;	
+	height: 28px;
+	background: url('VistaSkin/background/RightWidgetNavBar5x28.png') no-repeat right;
+	padding-right: 5px;	
 }
 
 .UIWidgetContainer .CenterWidgetNavBar {
-	height: 25px;
-	background: url('DefaultSkin/background/CenterWidgetNavBar1x25.gif') repeat-x;
+	height: 28px;
+	background: url('VistaSkin/background/CenterWidgetNavBar1x28.png') repeat-x;
 }
 
 .UIWidgetContainer .WidgetNavigator .Icon{
-	height: 16px;
-	width: 16px;
+	height: 24px;
+	width: 24px;
 	float: left;
-	margin: 4px 0px 0px 4px;
+	margin:2px 0px;
 	cursor: pointer;
 }	
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollDownButton{
-	background: url('/eXoResources/icons/16x16/DefaultSkin/GrayDownArrow.gif') no-repeat center;
+	background: url('VistaSkin/icons/DownSelectIcon.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollDownButton{
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BlueDownArrow.gif') no-repeat center;
+	background: url('VistaSkin/icons/DownNomalIcon.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollUpButton{
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BlueUpArrow.gif') no-repeat center;
+	background: url('VistaSkin/icons/UpSelectIcon.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollUpButton{
-	background: url('/eXoResources/icons/16x16/DefaultSkin/GrayUpArrow.gif') no-repeat center;
+	background: url('VistaSkin/icons/UpNomalIcon.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .AddWidgetButton{
-	background: url('DefaultSkin/icons/AddWidgetButton.gif') no-repeat center;
+	background: url('VistaSkin/icons/AddWidgetButton.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetControlBar {
@@ -152,28 +152,28 @@
 }
 
 .UIWidgetContainer .WidgetControl .LeftControlBar{
-	height: 19px;
-	background: url('DefaultSkin/background/LeftWidgetControlBar2x19.gif') no-repeat left;	
-	padding-left: 2px;
+	height: 21px;
+	background: url('VistaSkin/background/LeftWidgetControlBar3x21.png') no-repeat left;	
+	padding-left: 3px;
 }
 
 .UIWidgetContainer .WidgetControl .RightControlBar{
-	height: 19px;
-	background: url('DefaultSkin/background/RightWidgetControlBar2x19.gif') no-repeat right;	
-	padding-right: 2px;
+	height: 21px;
+	background: url('VistaSkin/background/RightWidgetControlBar3x21.png') no-repeat right;	
+	padding-right:3px;
 }
 
 .UIWidgetContainer .WidgetControl .CenterControlBar{
-	height: 19px;
-	background: url('DefaultSkin/background/CenterWidgetControlBar1x19.gif') repeat-x;	
+	height: 21px;
+	background: url('VistaSkin/background/CenterWidgetControlBar1x21.png') repeat-x;	
 }
 
 .UIWidgetContainer .WidgetControl .WidgetDragHandleArea {
 	float: left;
 	width: 17px; height: 13px;
 	cursor: move;
-	margin: 3px 3px 0px 3px;
-	background: url('DefaultSkin/background/WidgetDragArea2x2.gif');
+	margin: 4px 3px 0px 3px;
+	background: url('VistaSkin/background/WidgetDragArea3x2.gif');
 }
 
 .UIWidgetContainer .WidgetControl .SeparatorLine {
@@ -189,7 +189,7 @@
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 3px 0px 0px;
-	background: url('DefaultSkin/icons/EditWidgetIcon.gif');	
+	background: url('VistaSkin/icons/EditWidgetIcon.png');	
 }
 
 .UIWidgetContainer .WidgetControl .CloseWidgetIcon {
@@ -197,7 +197,7 @@
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 0px 0px 0px;
-	background: url('DefaultSkin/icons/CloseWidgetIcon.gif');	
+	background: url('VistaSkin/icons/CloseWidgetIcon.png');	
 }
 
 .UIWidgets .WidgetDecorator .BottomLeftWidgetsDecorator {
@@ -252,7 +252,7 @@
 
 .UIWidgetContainer .WidgetNavigator {
 	height: 27px;
-	width: 75px;
+	width: 90px;
 	float: right;
 }
 
@@ -302,7 +302,7 @@
 
 .UIWidgetContainer .UIInfoWidget {
 	margin: auto;
-	padding: 3px 0px 0px 0px;
+	padding: 10px 0px 0px 0px;
 	width: 185px; height: 206px;
 	background: url('VistaSkin/background/InfoImage185x203.png') no-repeat center;
 }
