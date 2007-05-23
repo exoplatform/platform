@@ -1,0 +1,83 @@
+<div class="UIFormWithTitle $uicomponent.id">
+  <div class="TitleBar">hello</div>
+	<form method="post" action="/portal/private/site:/?portal:componentId=testformportlet&portal:type=action&portal:isSecure=false&uicomponent=UITestForm" id="UITestForm" name="UITestForm" class="UIForm"><input type="hidden" value="" name="formOp"/>
+	  <div class="HorizontalLayout">
+	    <div class="FormContainer"> 
+		    <div class="FieldContainer">
+          <label>
+              Select Box:
+          </label>
+          <select onchange="javascript:eXo.webui.UIForm.submitEvent('UITestForm','Onchange','&subComponentId=UITestForm&objectId=null')" name="selectBox" class="selectbox">
+					<option value="sql">SQL</option>
+					<option value="xpath">xPath</option>
+					</select>
+		    </div>
+		    <div class="FieldContainer">
+		      <label>
+		          Upload:
+		      </label>
+					<div id="28156384">
+					  <input type="hidden" value="false" name="upload" id="input28156384"/>
+					  <div style="float: left;" class="UploadIframe" id="28156384UploadIframe">
+					    <iframe style="border: 0px none ; height: 40px;" id="28156384uploadFrame" class="TestIframe">  
+					    </iframe>
+					  </div>
+					  <div style="float: left; display: none;" class="ProgressIframe" id="28156384ProgressIframe"/>      
+					  <div style="clear: both;"><span/></div>
+					  
+					  <div style="display: none;" class="ProgressBarFrame">
+								<div class="SelectFileLabel">Upload file : </div>
+								<div class="ProgressBar">
+									<div class="ProgressBarLeft">
+										<div class="ProgressBarMiddle">
+											<div class="BlueProgressBar">
+												<div class="ProgressBarLabel">0%</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="DeleteFileFrame">
+									<div onclick="eXo.webui.UIUpload.abortUpload(28156384);" class="DeleteFileLable">Cancel
+					</div>
+								</div>
+							<div style="clear: both;"><span/></div>
+						</div>
+						<div style="display: none;" class="SelectFileFrame">
+							<div class="SelectFileLabel">Upload file 
+					 :</div>
+							<div class="FileName">
+								<div class="FileNameLabel">Uploaded
+					</div>
+							</div>
+							<div onclick="eXo.webui.UIUpload.deleteUpload(28156384);" class="RemoveFile">Remove
+					</div>
+							<div style="clear: both;"><span/></div>
+						</div>
+					</div>
+		    </div>
+		    <div class="FieldContainer">
+		      
+		                              
+		          <label>
+		             
+		              Date/Time:
+		            
+		          </label>
+		      
+		      <div class="LeftBlock"/><div class="MultiValueContainer"><input type="text" onmousedown="event.cancelBubble = true" name="dateTime0" onkeyup="eXo.webui.UICalendar.show();" onfocus="eXo.webui.UICalendar.init(this);"/><a href="javascript:eXo.webui.UIForm.submitEvent('UITestForm','Add','&objectId=dateTime')" class="AddNewNodeIcon LeftBlock"><span/></a><div style="clear: both;"><span/></div></div>
+		    </div>
+		    <div class="FieldContainer">
+		      
+		                              
+		          <label>
+		             
+		              Multi Value:
+		            
+		          </label>
+		      
+		      <div class="LeftBlock"/><div class="MultiValueContainer"><input type="text" id="multiValue0" name="multiValue0"/><a href="javascript:eXo.webui.UIForm.submitEvent('UITestForm','Add','&objectId=multiValue')" class="AddNewNodeIcon LeftBlock"><span/></a><div style="clear: both;"><span/></div></div>
+		    </div>
+	    </div>
+	  </div>
+  </form>
+</div>

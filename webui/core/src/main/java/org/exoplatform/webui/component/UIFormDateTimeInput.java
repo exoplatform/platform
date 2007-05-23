@@ -21,11 +21,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  *          trongtt@gmail.com
  * Jul 14, 2006  
  */
-
-// TODO : TrongTT
-
 public class UIFormDateTimeInput extends UIFormInputBase<String> {
-  
   private DateFormat formatter_ ;
   private boolean displayTime_ = true;
   private GregorianCalendar calendar_;

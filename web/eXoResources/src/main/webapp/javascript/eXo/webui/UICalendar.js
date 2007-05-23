@@ -1,11 +1,6 @@
 UICalendar = function(calendarId) {
-	if(!document.getElementById(calendarId)) {
-		var clndr = document.createElement("DIV") ;
-		clndr.id = calendarId ;
-		clndr.innerHTML = "<iframe id='UICalendarControlIFrame' src='javascript:false;' frameBorder='0' scrolling='no'></iframe><div style='position: absolute'></div>"
-		document.body.appendChild(clndr) ;
-	}
 	this.calendarId = calendarId;
+	this.create();
   this.dateField = null;
   
   this.currentDate = null;
@@ -16,8 +11,19 @@ UICalendar = function(calendarId) {
 
 UICalendar.prototype.init = function(field) {
 	this.dateField = field;
-  field.offsetParent.appendChild(document.getElementById(this.calendarId))
+	if(!document.getElementById(this.calendarId)) this.create();
+	if(field.offsetParent.style.position == '') field.offsetParent.style.position = 'relative';
+  field.parentNode.appendChild(document.getElementById(this.calendarId))
   this.show();
+}
+
+UICalendar.prototype.create = function() {
+	if(!document.getElementById(this.calendarId)) {
+		var clndr = document.createElement("DIV") ;
+		clndr.id = this.calendarId ;
+		clndr.innerHTML = "<iframe id='" + this.calendarId + "IFrame' src='javascript:false;' frameBorder='0' scrolling='no'></iframe><div style='position: absolute'></div>"
+		document.body.appendChild(clndr) ;
+	}
 }
 
 UICalendar.prototype.show = function() {
@@ -41,15 +47,15 @@ UICalendar.prototype.show = function() {
 
   var clndr = document.getElementById(this.calendarId);
   clndr.lastChild.innerHTML = this.renderCalendar();
-  var x = eXo.core.Browser.findPosX(this.dateField);
-  var y = eXo.core.Browser.findPosY(this.dateField) + this.dateField.offsetHeight;
+  var x = this.dateField.offsetLeft; //eXo.core.Browser.findPosX(this.dateField);
+  var y = this.dateField.offsetTop + this.dateField.offsetHeight;//eXo.core.Browser.findPosY(this.dateField) + this.dateField.offsetHeight;
 
   with(clndr.style) {
   	display = 'block';
 	  left = x + "px";
 	  top = y + "px";
   }
-	with(document.getElementById('UICalendarControlIFrame').style) {
+	with(document.getElementById('' + this.calendarId + 'IFrame').style) {
     display = 'block';
     width = clndr.lastChild.offsetWidth + "px";
     height = clndr.lastChild.offsetHeight + "px";
@@ -59,7 +65,7 @@ UICalendar.prototype.show = function() {
 UICalendar.prototype.hide = function() {
   if(this.dateField) {
     document.getElementById(this.calendarId).style.display = 'none';
-    document.getElementById('UICalendarControlIFrame').style.display = 'none';
+//    document.getElementById('' + this.calendarId + 'IFrame').style.display = 'none';
     this.dateField = null;
   }
  	document.onmousedown = null;

@@ -8,9 +8,8 @@
 }
 
 .UIForm .HorizontalLayout .FieldContainer {
-  overflow: hidden  ;
-  padding-top: 10px ;
-  width: 99% ;
+  line-height: 30px ;
+  clear: both;
 }
 
 

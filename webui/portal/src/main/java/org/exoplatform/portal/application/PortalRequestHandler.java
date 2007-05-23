@@ -27,6 +27,7 @@ public class PortalRequestHandler extends WebRequestHandler {
  public String[] getPath() { return PATHS ; }
   
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
+    res.setHeader("Cache-Control", "no-cache");
     PortalApplication app =  controller.getApplication(PortalApplication.PORTAL_APPLICATION_ID) ;
     WebuiRequestContext context = new  PortalRequestContext(app, req, res) ;  ;
     WebuiRequestContext.setCurrentInstance(context) ;
