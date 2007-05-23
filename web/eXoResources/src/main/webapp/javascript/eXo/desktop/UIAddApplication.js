@@ -102,7 +102,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 				             '		<div class="PortletIcon" title="'+portlet["title"]+'"' +
 			               '    	onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\');">' +
 			               '    	<span>' +
-			               '      	<img class="PlIcon" src="'+srcBG+'" onError="src=\''+srcNormalBG+'\'">' +
+			               '      	<img src="'+srcBG+'" onError="src=\''+srcNormalBG+'\'">' +
 			               '      </span>' +
 			               '    </div>' +
 			               '	  <div class="ApplicationContent">' +
