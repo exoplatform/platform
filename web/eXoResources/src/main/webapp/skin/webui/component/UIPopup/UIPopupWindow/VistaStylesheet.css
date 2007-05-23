@@ -259,3 +259,12 @@
 	background: url('VistaSkin/background/BCMessageDecorator1x24.png') repeat-x ; 
 	height: 24px;
 }
+
+.UIPopupWindow .UICategoryForm .FormContainer {
+	width: 460px;
+	margin: auto;
+}
+
+.UIPopupWindow .UICategoryForm .FormContainer .UIAction {
+	padding-left: 150px;
+}
