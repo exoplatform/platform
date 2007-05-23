@@ -33,9 +33,7 @@ public class PortalRequestHandler extends WebRequestHandler {
     WebuiRequestContext.setCurrentInstance(context) ;
     List<ApplicationLifecycle> lifecycles = app.getApplicationLifecycle();
     try {
-      for(ApplicationLifecycle lifecycle :  lifecycles)  {
-        lifecycle.onStartRequest(app, context) ;
-      }
+      for(ApplicationLifecycle lifecycle :  lifecycles) lifecycle.onStartRequest(app, context) ;
       UIApplication uiApp = app.getStateManager().restoreUIRootComponent(context) ;
       context.setUIApplication(uiApp) ;
       app.processDecode(uiApp, context) ;
@@ -51,9 +49,7 @@ public class PortalRequestHandler extends WebRequestHandler {
       ex.printStackTrace() ;
     } finally {
       try {
-        for(ApplicationLifecycle lifecycle :  lifecycles) {
-          lifecycle.onEndRequest(app, context) ;
-        }
+        for(ApplicationLifecycle lifecycle :  lifecycles) lifecycle.onEndRequest(app, context) ;
       } catch (Exception exception){
         //TODO: Need to use the log service
         exception.printStackTrace() ;

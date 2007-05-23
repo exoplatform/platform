@@ -4,8 +4,9 @@
  **************************************************************************/
 package org.exoplatform.widget.web;
 
-import org.exoplatform.web.application.mvc.MVCApplication;
-import org.exoplatform.web.application.mvc.MVCRequestContext;
+import java.io.Writer;
+
+import org.exoplatform.web.application.widget.WidgetApplication;
 
 /**
  * Created by The eXo Platform SARL
@@ -13,22 +14,14 @@ import org.exoplatform.web.application.mvc.MVCRequestContext;
  *          tuan.nguyen@exoplatform.com
  * Apr 23, 2007  
  */
-public class InfoWidget extends MVCApplication {
+public class InfoWidget extends WidgetApplication {
   public String getApplicationId() { return "exo.widget.web/InfoWidget"; }
 
   public String getApplicationName() { return "InfoWidget"; }
 
   public String getApplicationGroup() { return "exo.widget.web"; }
   
-  public String getApplicationType() { return "eXoWidget" ; }
-  
-  public void processAction(MVCRequestContext context) throws Exception {
-
-  }
-  
-  public void processRender(MVCRequestContext context) throws Exception {
-    String script = 
-      "eXo.desktop.UIDesktop.createJSApplication('eXo.widget.info.UIInfoWidget','Info','Info','/exo.widget.web/javascript/');";
-    context.getJavascriptManager().addCustomizedOnLoadScript(script) ;
+  public void processRender(Writer w) throws Exception {
+    w.write("Hello Widget") ;
   }
 }

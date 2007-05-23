@@ -2,24 +2,26 @@
 <widgets>
 	<owner-type>portal</owner-type>
 	<owner-id>site</owner-id>
-	<access-permission>*:/guest,*:/user</access-permission>
+	<access-permission>*:/guest, *:/user</access-permission>
 	<edit-permission>*:/user</edit-permission>
 	
 	<container id="Information">
     <application>
-      <instance-id>exoadmin:/information</instance-id>    
+      <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget1</instance-id>
       <application-type>widget</application-type> 
     </application>  
 	</container>
+  
 	<container id="Calendar">
   	<application>
-      <instance-id>exoadmin:/calendar</instance-id>    
+      <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget2</instance-id>
       <application-type>widget</application-type> 
     </application>
-	</container>
+  </container>
+
 	<container id="Calculator">
   	<application>
-      <instance-id>exoadmin:/calculator</instance-id>    
+      <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget3</instance-id>
       <application-type>widget</application-type> 
     </application>
 	</container>

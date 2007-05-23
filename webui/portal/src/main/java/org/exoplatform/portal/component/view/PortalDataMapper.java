@@ -20,7 +20,6 @@ import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.services.portletcontainer.pci.model.Supports;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
-
 /**
  * Created by The eXo Platform SARL
  * Author : Nhu Dinh Thuan
@@ -143,7 +142,7 @@ public class PortalDataMapper {
   }
   
   static public void toUIWidget(UIWidget uiWidget, Application model) throws Exception {
-    //TODO will implement 
+    uiWidget.setApplicationInstanceId(model.getInstanceId()) ;
   }
   
   static public void toUIPortlet(UIPortlet uiPortlet, Application model) throws Exception {
