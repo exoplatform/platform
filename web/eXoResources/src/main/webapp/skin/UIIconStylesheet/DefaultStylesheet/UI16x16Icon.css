@@ -35,7 +35,7 @@
 
 .PermissionSettingIcon {
   width: 17px; height: 17px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/PermissionSetting.gif');
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PermissionSetting.gif') no-repeat center;
 }
 
 .PreviewIcon {
@@ -491,7 +491,7 @@
 
 .ArrowS1Down16x16Icon {
   width: 22px ; height: 17px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowSLDown.gif');
+  background: url('/eXoResources/icons/16x16/DefaultSkin/ArrowSLDown.gif') no-repeat center;
 }
 
 .ArrowS1Up16x16Icon {
