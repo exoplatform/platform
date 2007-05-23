@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<configuration>
+
+  <component>
+    <key>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</key>
+    <type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationImpl</type>
+    <init-params>
+      <value-param>
+        <name>conf-path</name>
+        <description>JCR configuration file</description>
+        <value>war:/conf/jcr/exo-jcr-config.xml</value>
+      </value-param>
+    </init-params>
+   </component>
+
+  <component>
+    <key>org.exoplatform.services.jcr.RepositoryService</key>
+    <type>org.exoplatform.services.jcr.impl.RepositoryServiceImpl</type>
+  </component>
+
+  <component>
+      <type>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</type>
+      <component-plugins>
+        <component-plugin>
+          <name>addActions</name>
+          <set-method>addPlugin</set-method>
+          <type>org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin</type>
+          <description>add actions plugin</description>
+          <init-params>
+            <object-param>
+              <name>actions</name>
+              <object type="org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin$ActionsConfig">
+                <field  name="actions">
+                  <collection type="java.util.ArrayList">
+                    <value>
+                      <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                        <field  name="eventTypes"><string>addProperty,changeProperty</string></field>
+                        <!--<field  name="path"><string>/test</string></field>-->
+                        <!--<field  name="isDeep"><boolean>true</boolean></field>-->
+                        <!--<field  name="nodeType"><string>nt:base</string></field>-->
+                        <field  name="parentNodeType"><string>nt:resource</string></field>
+                        <!-- field  name="workspace"><string>production</string></field -->
+                        <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.metadata.AddMetadataAction</string></field>
+                      </object>
+                    </value>
+                  </collection>
+                </field>
+              </object>
+            </object-param>
+          </init-params>
+        </component-plugin>
+
+      </component-plugins>
+
+  </component>
+
+  <component>
+      <key>org.exoplatform.services.jcr.ext.audit.AuditService</key>
+      <type>org.exoplatform.services.jcr.ext.audit.AuditServiceImpl</type>
+  </component>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</target-component>
+    <component-plugin> 
+        <name>addActions</name>
+        <set-method>addPlugin</set-method>
+        <type>org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin</type>
+        <description>add actions plugin</description>
+        <init-params>
+          <object-param>
+            <name>actions</name>
+            <object type="org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin$ActionsConfig">
+              <field  name="actions">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                      <field  name="eventTypes"><string>addProperty,changeProperty,removeProperty</string></field> 
+                      <field  name="path"><string>/</string></field>
+                      <field  name="parentNodeType"><string>exo:auditable</string></field>
+                      <field  name="isDeep"><boolean>true</boolean></field>
+                      <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.audit.AuditAction</string></field>
+                    </object>
+                  </value>
+                  <value>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                      <field  name="eventTypes"><string>addMixin</string></field> 
+                      <field  name="path"><string>/</string></field>
+                      <field  name="nodeType"><string>exo:auditable</string></field>
+                      <field  name="isDeep"><boolean>true</boolean></field>
+                      <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.audit.AuditAction</string></field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </object-param>
+        </init-params>
+      </component-plugin>
+    </external-component-plugins>
+
+<!--
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.database.jdbc.DBSchemaCreator</target-component>
+      <component-plugin>
+          <name>jcr.dbschema</name>
+          <set-method>addPlugin</set-method>
+          <type>org.exoplatform.services.database.jdbc.CreateDBSchemaPlugin</type>
+          <init-params>
+            <value-param>
+              <name>data-source</name>
+              <value>jdbcjcr</value>
+            </value-param>
+            <value-param>
+              <name>script-file</name>
+              <value>conf/storage/jcr-sjdbc.sql</value>
+            </value-param>
+          </init-params>
+      </component-plugin>
+  </external-component-plugins>
+-->
+
+</configuration>
