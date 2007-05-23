@@ -99,6 +99,13 @@
   margin: 0px 0px 0px 5px ;  
 }
 
+.UIExoStart .StartMenuContainer .CreateNavigationIcon {
+  height: 33px ;
+  background: url('DefaultSkin/icons/32x32/EditPage.gif') no-repeat left ;
+  padding: 0px 0px 0px 30px ;
+  margin: 0px 0px 0px 5px ;
+}
+
 .UIExoStart .StartMenuContainer .EditNavigationIcon {
   height: 33px ;
   background: url('DefaultSkin/icons/32x32/EditPage.gif') no-repeat left ;

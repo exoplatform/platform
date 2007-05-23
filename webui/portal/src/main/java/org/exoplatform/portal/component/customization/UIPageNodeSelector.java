@@ -13,7 +13,6 @@ import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.AddNodeActionListener;
-import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.AddUserNavigationActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.CopyNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.DeleteNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.EditPageNodeActionListener;
@@ -23,7 +22,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIDropDownItemSelector;
@@ -69,7 +67,6 @@ import org.exoplatform.webui.event.EventListener;
       type = UIRightClickPopupMenu.class,
       template = "system:/groovy/webui/component/UIRightClickPopupMenu.gtmpl",
       events = {
-        @EventConfig(listeners = AddUserNavigationActionListener.class),
         @EventConfig(listeners = AddNodeActionListener.class),
         @EventConfig(listeners = PasteNodeActionListener.class)
       }
@@ -89,8 +86,6 @@ public class UIPageNodeSelector extends UIContainer {
   
   public PageNode getCopyPasteNote() { return copyNode_ ; }
   
-  private boolean hasUserNav_ = false;
-
 	public UIPageNodeSelector() throws Exception {    
     addChild(UIRightClickPopupMenu.class, "UIPageNodeSelectorPopupMenu", null).setRendered(false);  
     addChild(UIBreadcumbs.class, null, null).setRendered(false);  
@@ -110,21 +105,12 @@ public class UIPageNodeSelector extends UIContainer {
     loadNavigations();
 	}
   
-  public boolean hasUserNavigation(){
-    if(hasUserNav_) return hasUserNav_;
-    for(PageNavigation nav  : navigations_){
-      if(nav.getOwnerType().equalsIgnoreCase(PortalConfig.USER_TYPE)) hasUserNav_ = true;
-    }
-    return hasUserNav_;
-  }
-  
   public void loadNavigations() throws Exception {
     navigations_ = new ArrayList<PageNavigation>();
     List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();
     
     for(PageNavigation nav  : pnavigations){
       if(nav.isModifiable()) navigations_.add(nav.clone());
-      if(nav.getOwnerType().equalsIgnoreCase(PortalConfig.USER_TYPE)) hasUserNav_ = true;
     }
     
     if(navigations_.size() < 1) return;

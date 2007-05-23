@@ -20,6 +20,7 @@ import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.webui.component.UIContainer;
+import org.exoplatform.webui.component.UIRightClickPopupMenu;
 import org.exoplatform.webui.component.UIToolbar;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -35,6 +36,7 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
     template = "system:/groovy/webui/component/UIToolbar.gtmpl",
     events = {   
+        @EventConfig(listeners = UIPageNavigationControlBar.CreateNavigationActionListener.class),
         @EventConfig(listeners = UIPageNavigationControlBar.EditNavigationActionListener.class),
         @EventConfig(listeners = UIPageNavigationControlBar.SaveNavigationActionListener.class),
         @EventConfig(listeners = UIPageNavigationControlBar.SeparateLineActionListener.class),
@@ -101,19 +103,50 @@ public class UIPageNavigationControlBar extends UIToolbar {
 
     }
   }
-
-  static public class EditNavigationActionListener extends EventListener<UIPageNavigationControlBar> {
-    public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-      UIPageNavigationControlBar bar = event.getSource();
+  
+  static public class CreateNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
+    public void execute(Event<UIRightClickPopupMenu> event) throws Exception { 
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
 
-      UIPageNavigationForm navigationForm = uiMaskWS.createUIComponent(UIPageNavigationForm.class, null, null);
-      UIPageManagement management = bar.getParent();
-      UIPageNodeSelector uiNavigationSelector = management.findFirstComponentOfType(UIPageNodeSelector.class);      
-      navigationForm.setValues(uiNavigationSelector.getSelectedNavigation());
-      uiMaskWS.setUIComponent(navigationForm);      
+      UIPageNavigationForm uiNavigationForm = uiMaskWS.createUIComponent(UIPageNavigationForm.class, null, null);
+      uiMaskWS.setUIComponent(uiNavigationForm);      
+      uiMaskWS.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      
+      
+     /* PortalRequestContext prContext = Util.getPortalRequestContext();
+      PageNavigation navigation = new PageNavigation();
+      String userName = prContext.getRemoteUser();
+      navigation.setOwnerType(PortalConfig.USER_TYPE);
+      navigation.setOwnerId(userName);
+      navigation.setCreator(userName);
+      navigation.setModifier(userName);
+      navigation.setModifiable(true);
+      
+      UserPortalConfigService dataService = event.getSource().getApplicationComponent(UserPortalConfigService.class);
+      dataService.create(navigation);
+      
+      UIPageNodeSelector uiPageNodeSelector = event.getSource().getParent();
+      Util.getUIPortal().getNavigations().add(navigation);
+      uiPageNodeSelector.loadNavigations();
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector);*/
+    }
+  }
+
+  static public class EditNavigationActionListener extends EventListener<UIPageNavigationControlBar> {
+    public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
+      UIPageNavigationControlBar uiControlBar = event.getSource();
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
+
+      UIPageNavigationForm uiNavigationForm = uiMaskWS.createUIComponent(UIPageNavigationForm.class, null, null);
+      UIPageManagement uiPManagement = uiControlBar.getParent();
+      UIPageNodeSelector uiNavigationSelector = uiPManagement.findFirstComponentOfType(UIPageNodeSelector.class);      
+      uiNavigationForm.setValues(uiNavigationSelector.getSelectedNavigation());
+      uiMaskWS.setUIComponent(uiNavigationForm);      
       uiMaskWS.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }
@@ -183,4 +216,6 @@ public class UIPageNavigationControlBar extends UIToolbar {
     prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
     prContext.setFullRender(true);
   }
+  
+  
 }

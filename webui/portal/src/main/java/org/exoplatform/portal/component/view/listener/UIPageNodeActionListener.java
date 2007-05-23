@@ -26,7 +26,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIRightClickPopupMenu;
 import org.exoplatform.webui.component.UITree;
@@ -79,28 +78,6 @@ public class UIPageNodeActionListener {
       return null; 
     }
   } 
-  
-
-  static public class AddUserNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
-    public void execute(Event<UIRightClickPopupMenu> event) throws Exception {  
-      PortalRequestContext prContext = Util.getPortalRequestContext();
-      PageNavigation navigation = new PageNavigation();
-      String userName = prContext.getRemoteUser();
-      navigation.setOwnerType(PortalConfig.USER_TYPE);
-      navigation.setOwnerId(userName);
-      navigation.setCreator(userName);
-      navigation.setModifier(userName);
-      navigation.setModifiable(true);
-      
-      UserPortalConfigService dataService = event.getSource().getApplicationComponent(UserPortalConfigService.class);
-      dataService.create(navigation);
-      
-      UIPageNodeSelector uiPageNodeSelector = event.getSource().getParent();
-      Util.getUIPortal().getNavigations().add(navigation);
-      uiPageNodeSelector.loadNavigations();
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector);
-    }
-  }
 
   
   static public class EditPageNodeActionListener extends EventListener<UIRightClickPopupMenu> {

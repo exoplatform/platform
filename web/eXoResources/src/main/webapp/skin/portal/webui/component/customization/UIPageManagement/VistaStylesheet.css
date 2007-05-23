@@ -64,6 +64,13 @@
   background: url('/eXoResources/icons/24x24/VistaSkin/TriSmallBoxPencil.png') no-repeat ;
 }
 
+.UIPageManagement .CreateNavigationIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 3px 3px 0px 1px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/NavigationEdit.png') no-repeat center;
+}
+
 .UIPageManagement .EditNavigationIcon {
   float: left;
   width: 24px; height: 24px;

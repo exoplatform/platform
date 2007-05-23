@@ -290,8 +290,6 @@ public class UserPortalConfigService {
     userACL_.hasEditPermission(navigation.getCreator(), accessUser, navigation.getEditPermission());
   }
   
-  public UserACL getUserACL() { return userACL_; }
-
   @SuppressWarnings("unused")
   public void initListener(ComponentPlugin listener) { }
 }

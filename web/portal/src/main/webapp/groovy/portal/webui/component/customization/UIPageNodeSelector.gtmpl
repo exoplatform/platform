@@ -29,14 +29,7 @@
   	jsmanager.addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
     uicomponent.renderUIComponent(uiPopupMenu) ;
     
-    String navMenu = "";"AddNode,PasteNode";
-    if(uicomponent.hasUserNavigation()) {
-      navMenu = "AddNode,PasteNode";
-    } else {
-      navMenu = "AddUserNavigation,AddNode,PasteNode";
-    }
-    
-    popupMenu = uiPopupMenu.getJSOnclickShowPopup("", navMenu);
+    popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode");
   }
 %>
 	<div class="TopLeftContainerOptions">

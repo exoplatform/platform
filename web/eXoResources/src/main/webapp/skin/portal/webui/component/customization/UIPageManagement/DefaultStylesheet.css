@@ -71,6 +71,11 @@
 	background: url('/eXoResources/icons/24x24/DefaultSkin/AbortIcon.gif') no-repeat;
 }
 
+.UIPageManagement .CreateNavigationIcon {
+  width: 24px; height: 24px;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/EditNavigationIcon.gif') no-repeat;
+}
+
 .UIPageManagement .EditNavigationIcon {
   width: 24px; height: 24px;
   background: url('/eXoResources/icons/24x24/DefaultSkin/EditNavigationIcon.gif') no-repeat;
