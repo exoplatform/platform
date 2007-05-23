@@ -114,23 +114,51 @@ public class UIPageNodeSelector extends UIContainer {
     }
     
     if(navigations_.size() < 1) return;
-    selectedNavigation = navigations_.get(0);
+    loadSelectedNavigation();
+    if(selectedNavigation == null) selectedNavigation = navigations_.get(0);
+    if(selectedNavigation.getNodes().size() > 0) selectedPageNode = selectedNavigation.getNode(0);
+    
     UITree tree = getChild(UITree.class);
     tree.setSibbling(selectedNavigation.getNodes());
     
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     for(PageNavigation navigation: navigations_) {
       String label = navigation.getOwnerId() + "'s Nav";
-      options.add(new SelectItemOption<String>(label, navigation.getOwnerId()));
+      options.add(new SelectItemOption<String>(label, navigation.getId()));
     }
     UIDropDownItemSelector uiDopDownSelector = getChild(UIDropDownItemSelector.class);
     uiDopDownSelector.setOptions(options);
     if(options.size() > 0) uiDopDownSelector.setSelected(0);
   }
   
-  public void selectNavigation(String owner){    
+  public void loadSelectedNavigation() {
+    PageNode node = Util.getUIPortal().getSelectedNode();
+    if(node == null)  return;
+    List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();  
+    for(PageNavigation nav  : pnavigations){
+      if(findSelectedNode(nav, nav.getNodes(), node)) return;
+    }    
+  }
+  
+  private boolean findSelectedNode(PageNavigation nav, List<PageNode> nodes, PageNode node) {
+    if(nodes == null) return false;
+    for(PageNode ele : nodes) {
+      if(ele != node)  continue;        
+      if(nav.isModifiable()) {
+        selectNavigation(nav.getId());
+        selectPageNodeByUri(node.getUri());
+      }  
+      return true;
+    }
+    for(PageNode ele : nodes) {
+      if(findSelectedNode(nav, ele.getChildren(), node)) return true;
+    }
+    return false;
+  }
+  
+  public void selectNavigation(String id){    
     for(int i = 0; i < navigations_.size(); i++){
-      if(!navigations_.get(i).getOwnerId().equals(owner)) continue; 
+      if(!navigations_.get(i).getId().equals(id)) continue; 
       selectedNavigation = navigations_.get(i);
       UITree tree = getChild(UITree.class);
       tree.setSibbling(selectedNavigation.getNodes());      
@@ -270,15 +298,15 @@ public class UIPageNodeSelector extends UIContainer {
   
   static public class SelectNavigationActionListener  extends EventListener<UIPageNodeSelector> {
     public void execute(Event<UIPageNodeSelector> event) throws Exception {
-      String owner = event.getRequestContext().getRequestParameter(OBJECTID);
+      String id = event.getRequestContext().getRequestParameter(OBJECTID);
       UIPageNodeSelector uiPageNodeSelector = event.getSource();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent()) ;
-      if(owner == null){
+      if(id == null) {
         uiPageNodeSelector.setSelectedNavigation(null);
         return;
       }
       uiPageNodeSelector.setSelectedPageNode(null) ;
-      uiPageNodeSelector.selectNavigation(owner);
+      uiPageNodeSelector.selectNavigation(id);
     }
   }
 

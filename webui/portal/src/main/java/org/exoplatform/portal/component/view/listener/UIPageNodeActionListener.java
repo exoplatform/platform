@@ -84,18 +84,20 @@ public class UIPageNodeActionListener {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {     
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       PortalRequestContext pcontext  = (PortalRequestContext)event.getRequestContext();
-      UIRightClickPopupMenu popupMenu = event.getSource();
-      UIComponent parent = popupMenu.getParent();
-      UIPageNodeSelector uiPageNodeSelector = parent.getParent();
-      PageNode node  = uiPageNodeSelector.findPageNodeByUri(uri);
+      UIRightClickPopupMenu uiPopupMenu = event.getSource();
+      UIComponent uiParent = uiPopupMenu.getParent();
+      UIPageNodeSelector uiPageNodeSelector = uiParent.getParent();
+      uiPageNodeSelector.selectPageNodeByUri(uri);
 
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
       UIPageManagement uiManagement = uiPageNodeSelector.getParent();
       
-      if(node == null) node = Util.getUIPortal().getSelectedNode();
+      PageNode node = uiPageNodeSelector.getSelectedPageNode();
+      if(node == null) uiPageNodeSelector.loadSelectedNavigation();
+      node = uiPageNodeSelector.getSelectedPageNode();
       if(node == null) return;
-
-      UserPortalConfigService portalConfigService = popupMenu.getApplicationComponent(UserPortalConfigService.class);
+      
+      UserPortalConfigService portalConfigService = uiPopupMenu.getApplicationComponent(UserPortalConfigService.class);
       Page page  = portalConfigService.getPage(node.getPageReference(), pcontext.getRemoteUser());
       UIPage uiPage  = null;
       if(page != null)  uiPage = Util.toUIPage(page, uiToolPanel);
@@ -105,7 +107,7 @@ public class UIPageNodeActionListener {
       pcontext.addUIComponentToUpdateByAjax(uiControl);
       
       if(page == null || !uiPage.isModifiable()){
-        Class [] childrenToRender = {UIPageNodeSelector.class };      
+        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }

@@ -31,6 +31,7 @@ public abstract class UIPageWizard extends UIWizard {
   
   protected UIPopupWindow uiHelpWindow;
   private int numberStep_ ; 
+  
   public UIPageWizard() throws Exception {
     uiHelpWindow = createUIComponent(UIPopupWindow.class, null, null);      
     uiHelpWindow.setWindowSize(300, 200);  

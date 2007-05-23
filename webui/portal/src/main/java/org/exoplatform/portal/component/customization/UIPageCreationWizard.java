@@ -59,11 +59,14 @@ public class UIPageCreationWizard extends UIPageWizard {
   
   public UIPageCreationWizard() throws Exception {    
     addChild(UIContainer.class, "ViewStep1", null);
-    addChild(UIWizardPageSetInfo.class, null, null).setRendered(false);    
+    UIWizardPageSetInfo uiPageSetInfo = addChild(UIWizardPageSetInfo.class, null, null).setRendered(false);    
     addChild(UIWizardPageSelectLayoutForm.class, null, null).setRendered(false);
     addChild(UIPagePreview.class, null, null).setRendered(false); 
     setNumberSteps(4);
     setHasWelcome(true);
+    
+    UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
+    uiNodeSelector.loadSelectedNavigation();
   }     
   
   private void saveData() throws Exception {
@@ -125,12 +128,12 @@ public class UIPageCreationWizard extends UIPageWizard {
   static  public class ViewStep3ActionListener extends EventListener<UIPageCreationWizard> {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
-      UIWizardPageSetInfo pageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
-      UIPageNodeSelector uiNodeSelector = pageSetInfo.getChild(UIPageNodeSelector.class);
+      UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
+      UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
       uiWizard.setDescriptionWizard();
       uiWizard.updateWizardComponent();
       
-      PageNode pageNode = pageSetInfo.getPageNode();
+      PageNode pageNode = uiPageSetInfo.getPageNode();
       if (uiNodeSelector.findPageNodeByUri(pageNode.getUri()) != null) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;

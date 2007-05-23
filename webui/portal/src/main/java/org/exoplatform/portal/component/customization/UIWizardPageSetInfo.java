@@ -53,6 +53,7 @@ public class UIWizardPageSetInfo extends UIForm {
     isEdit = value;
     if(!value) return;
     UIPageNodeSelector  uiPageNodeSelector = getChild(UIPageNodeSelector.class);
+    uiPageNodeSelector.loadSelectedNavigation();
     if(uiPageNodeSelector.getSelectedPageNode() != null) return;
     PageNode pageNode = Util.getUIPortal().getSelectedNode();
     uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri()) ; 

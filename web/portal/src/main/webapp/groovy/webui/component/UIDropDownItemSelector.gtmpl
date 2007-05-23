@@ -9,12 +9,12 @@
 	jsmanager.importJavascript('eXo.webui.UIDropDownItemSelector') ;
 	jsmanager.addJavascript('eXo.webui.UIDropDownItemSelector.init();');
 	
-	String selected = uicomponent.getSelected();
+	def selected = uicomponent.getSelectedItem();
 	int size = uicomponent.getSize();
 	ArrayList options = uicomponent.getOptions();
 	if(selected == null && options != null && size > 0) {
 	  uicomponent.setSelected(0);
-	  selected = uicomponent.getSelected();
+	  selected = uicomponent.getSelectedItem();
 	}
 	String action = uicomponent.getOnChange();
 	int maxShow = uicomponent.getMaxShow();
@@ -33,10 +33,12 @@
 		  	<div class="RightItemInfoBar">
 		  		<div class="MiddleItemInfoBar" title="Show List" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
 		  			<div class="Icon ComponentIcon"><span></span></div>
-		  			<% String title = selected;
+		  			<% String title = "";
 		  			   if(selected == null) {
 		  			     title = uicomponent.getTitle();
-		  			   } 
+		  			   } else {
+		  			     title = selected.getLabel();
+		  			   }
 		  			%>
 		  			<div class="SelectedItemLabel">
 			  			<%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + title)%>

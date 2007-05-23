@@ -25,7 +25,7 @@ public class UIDropDownItemSelector extends UIComponent {
   private boolean onServer;
   private int maxShow = 5;
   
-  private SelectItemOption selected_;
+  private SelectItemOption<String> selected_;
   
   private List<SelectItemOption<String>> options_ ;
   private String onchange_;
@@ -50,12 +50,12 @@ public class UIDropDownItemSelector extends UIComponent {
   }
   
   public UIDropDownItemSelector(String title, List<SelectItemOption<String>> options, 
-                                boolean enable, SelectItemOption selected) {
+                                boolean enable, SelectItemOption<String> selected) {
     this(title, options, enable, selected, true);
   }
   
   public UIDropDownItemSelector(String title, List<SelectItemOption<String>> options, 
-                                boolean enable, SelectItemOption selected, boolean onServer) {
+                                boolean enable, SelectItemOption<String> selected, boolean onServer) {
     this.options_ = options;
     this.title = title;
     isEnable = enable;
@@ -69,22 +69,22 @@ public class UIDropDownItemSelector extends UIComponent {
   public boolean isOnServer() {return onServer; }
   public void setOnServer(boolean onSever) { onServer = onSever; }
 
-  public String getSelected() {
-    if(selected_ != null) return selected_.getLabel();
+  public String getSelectedValue() {
+    if(selected_ != null) return selected_.getValue();
     if(options_ == null || options_.size() < 1) return null;
-    setSelected(options_.get(0));
-    return selected_.getLabel();
+    setSelectedItem(options_.get(0));
+    return selected_.getValue();
   }
   
-  public SelectItemOption<String> getOption(String label){
+  public SelectItemOption<String> getOption(String value){
     for(SelectItemOption<String> option : options_) {
-      if( option.getValue().equals(label)) return option;
+      if( option.getValue().equals(value)) return option;
     }
     return null;
   }
-  public void setSelected(SelectItemOption select) { selected_ = select;}
+  public void setSelectedItem(SelectItemOption<String> select) { selected_ = select;}
   
-  public SelectItemOption<String> getSelectedOption() { return selected_ ; }
+  public SelectItemOption<String> getSelectedItem() { return selected_ ; }
   
   public void setSize(int i) { size = i ;}
   public int getSize() { return size; }

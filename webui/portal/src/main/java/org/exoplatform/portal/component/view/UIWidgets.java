@@ -95,7 +95,7 @@ public class UIWidgets extends UIContainer {
       UIWidgets uiWidgets = event.getSource();
       UIDropDownItemSelector uiDropDownItemSelector = uiWidgets.getChild(UIDropDownItemSelector.class);
       SelectItemOption<String> option = uiDropDownItemSelector.getOption(selectedContainerId);
-      if(option != null) uiDropDownItemSelector.setSelected(option);
+      if(option != null) uiDropDownItemSelector.setSelectedItem(option);
       if(uiWidgets.getSelectedContainer().getId().equals(selectedContainerId)) return;
       
       UIWidgetContainer newSelected = uiWidgets.getChildById(selectedContainerId) ;
