@@ -1,284 +1,260 @@
 .Save24x24Icon {
-  background: url('/eXoResources/icons/24x24/DefaultSkin/FloppyDisk.gif') no-repeat left center;
-  width: 24px ;  height: 24px ;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/FloppyDisk.gif') no-repeat ;
+  width: 24px ; height: 24px ;
 }
 
 .Delete24x24Icon {
-	width: 24px;
-	height: 24px;
+	width: 24px; height: 24px;
 	background: url('/eXoResources/icons/24x24/DefaultSkin/Delete.gif') no-repeat;
 }
 
 .DustBin24x24Icon {
-	width: 24px;
-	height: 24px;
+	width: 24px;	height: 24px;
 	background: url('/eXoResources/icons/24x24/DefaultSkin/DustBin.gif') no-repeat;
 }
 
 .RedDustBin24x24Icon {
-	width: 24px;
-	height: 24px;
+	width: 24px;	height: 24px;
 	background: url('/eXoResources/icons/24x24/DefaultSkin/RedDustBin.gif') no-repeat;
 }
 
 .LightBlueFolder24x24Icon {
-  background: url('/eXoResources/icons/24x24/DefaultSkin/LightBlueFolder.gif') no-repeat left center;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/LightBlueFolder.gif') no-repeat ;
   width: 24px ;  height: 24px ;
 }
 
 .VioletFolder24x24Icon {
-  background: url('/eXoResources/icons/24x24/DefaultSkin/VioletFolder.gif') no-repeat left center;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/VioletFolder.gif') no-repeat ;
   width: 24px ;  height: 24px ;
 }
 
 .LightBlueOpenFolder24x24Icon {
-  background: url('/eXoResources/icons/24x24/DefaultSkin/LightBlueOpenFolder.gif') no-repeat left center;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/LightBlueOpenFolder.gif') no-repeat ;
   width: 24px ;  height: 24px ;
 }
 
 .LightBlueFolderHome24x24Icon {
-  background: url('/eXoResources/icons/24x24/DefaultSkin/LightBlueFolderHome.gif') no-repeat left center;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/LightBlueFolderHome.gif') no-repeat ;
   width: 24px ;  height: 24px ;
 }
 
 .Paste24x24Icon {
-  background: url('/eXoResources/icons/24x24/DefaultSkin/Paste.gif') no-repeat left center ;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/Paste.gif') no-repeat  ;
   width: 24px ;  height: 24px ;
 }
 
 .BlackMagnifier24x24Icon {
-  background: url('/eXoResources/icons/24x24/DefaultSkin/BlackMagnifier.gif') no-repeat left center;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/BlackMagnifier.gif') no-repeat ;
   width: 24px ;  height: 24px ;
 }
 
 .BlueFloppyDisk24x24Icon {
-	width: 24px ;
-	height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueFloppyDisk.gif') no-repeat left center;
+	width: 24px ;	height: 24px ;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueFloppyDisk.gif') no-repeat ;
   margin: auto;
 }
 
 .UpLevel24x24Icon {
-	width: 24px ;
-	height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueUpLevelArrow.gif') no-repeat left center;
+	width: 24px ;	height: 24px ;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueUpLevelArrow.gif') no-repeat ;
   margin: auto;
 }
 
 .DiamondCircleRoundedArrows24x24Icon {
-	width: 24px ;
-	height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/DiamondCircleRoundedArrows.gif') no-repeat left center;
+	width: 24px ;	height: 24px ;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/DiamondCircleRoundedArrows.gif') no-repeat ;
   margin: auto;
 }
 
 .NavyBlueRecycleBin24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueRecycleBin.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueRecycleBin.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 
 }
+
 .DusBinFull24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/DusBinFull.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/DusBinFull.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 
 }
 
 .BoxBlueArrowDown24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/BoxBlueArrowDown.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/BoxBlueArrowDown.gif') no-repeat ;
 }
 
 .BlueInfoBox24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/BlueInfoBox.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/BlueInfoBox.gif') no-repeat ;
 }
 
 .BoxGreenPlus24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/BoxGreenPlus.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/BoxGreenPlus.gif') no-repeat ;
 }
 
 .BoxPencil24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/BoxPencil.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/BoxPencil.gif') no-repeat ;
 }
 
 .PointedHandBrownBox24x24Icon {
-	width: 24px ;
-	height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/PointedHandBrownBox.gif') no-repeat left center ;
+	width: 24px ;	height: 24px ;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/PointedHandBrownBox.gif') no-repeat;
   margin: auto;
 }
 
 .Selected24x24Icon {
-	width: 32px;
-	height:28px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/SelectedBlock.gif') no-repeat left center;
+	width: 32px;	height: 28px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/SelectedBlock.gif') no-repeat center left;
 	margin: auto;
 }
 
 .BlueArrowBox24x24Icon {
-	width: 24px ;
-	height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueArrowBox.gif') no-repeat left center;
+  width: 24px ;	height: 24px ;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueArrowBox.gif') no-repeat ;
   margin: auto;
 }
 
 .DiskArrow24x24Icon {
-	width: 24px ;
-	height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/DiskArrow.gif') no-repeat left center;
+	width: 24px ;	height: 24px ;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/DiskArrow.gif') no-repeat ;
   margin: auto;
 }
 
 .ColorGridSquare24x24Icon {
-	width: 24px ;
-	height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/ColorGridSquare.gif') no-repeat left center;
+	width: 24px ;	height: 24px ;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/ColorGridSquare.gif') no-repeat ;
   margin: auto;
 }
 
 .OnMouseOver24x24Icon {
-	width: 32px;
-	height:28px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/OnmouseOverBlock.gif') no-repeat left center;
+	width: 32px;	height: 28px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/OnmouseOverBlock.gif') no-repeat center;
 	margin: auto;	
 }
 
 .GreenPlusDataBox24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/GreenPlusDataBox.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/GreenPlusDataBox.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 	
 }
 .GreenPlusBrownBox24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/GreenPlusBrownBox.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/GreenPlusBrownBox.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 	
 }
 
 .YellowPenBrownBox24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/YellowPenBrownBox.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/YellowPenBrownBox.gif') no-repeat ;
 	margin: auto;
   cursor: pointer; 
 }
 
 .NavyBlueRecycleBin24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueRecycleBin.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueRecycleBin.gif') no-repeat ;
 	margin: auto;
   cursor: pointer;
 }
 
 .NavyBlueDocument24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueDocument.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueDocument.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 
 }
 
 .DataBoxDusBin24x24Icon {
-	width: 24px;
-	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/DataBoxDusBin.gif') no-repeat left center;
+	width: 24px;	height: 24px;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/DataBoxDusBin.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 
 }
 
 .LevelUpArrowIcon {
   width: 24px ;  height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueUpLevelArrow.gif') no-repeat left center;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueUpLevelArrow.gif') no-repeat ;
 }
 
 .BlueNavigation24x24Icon {
   width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueIconNavigation.gif') no-repeat left center;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueIconNavigation.gif') no-repeat ;
 }
-
 
 .BlueSyncArrow24x24Icon {
   width: 24px ;  height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueSync.gif') no-repeat left center;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/BlueSync.gif') no-repeat ;
 }
 
 .SiteMap24x24Icon {
   width: 24px ;  height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/SiteMap.gif') no-repeat left center;
+  background: url('/eXoResources/icons/24x24/DefaultSkin/SiteMap.gif') no-repeat ;
 }
 
 .YellowHammer24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/YellowHammer.gif') no-repeat left center;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/YellowHammer.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 	
 }
 
 .Refresh24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/Refresh.gif') no-repeat left center;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/Refresh.gif') no-repeat ;
 }
 
 .AddCatergory24x24Icon {
 	width: 24px;	height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/AddCatergory.gif') no-repeat left center;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/AddCatergory.gif') no-repeat ;
 }
 
 .Catergory24x24Icon {
 	width: 16px;	height: 16px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/Catergory.gif') no-repeat left center;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/Catergory.gif') no-repeat ;
 }
 
 .EditCatergory24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/EditCatergory.gif') no-repeat left center;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/EditCatergory.gif') no-repeat ;
 }
 
 .ImportCategory24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/ImportCategory.gif') no-repeat left center;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/ImportCategory.gif') no-repeat ;
 }
 
 .DeleteCategory24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/Delete.gif') no-repeat left center;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/Delete.gif') no-repeat ;
 }
 
 .Delete24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueTrashBin.gif') no-repeat left center ;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueTrashBin.gif') no-repeat  ;
 }
 
 .DeleteAll24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/DeleteAll.gif') no-repeat left center;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/DeleteAll.gif') no-repeat ;
 }
 
 .Rollback24x24Icon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/BlueBackArrow.gif') no-repeat left center;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/BlueBackArrow.gif') no-repeat ;
 }
 
 .UIListPermissionSelector24x24Icon {
   width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/IconAccessPermission.gif') no-repeat left center;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/IconAccessPermission.gif') no-repeat ;
 }
 
 .UIPermissionSelector24x24Icon {
   width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/IconEditPermission.gif') no-repeat left center;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/IconEditPermission.gif') no-repeat ;
 }

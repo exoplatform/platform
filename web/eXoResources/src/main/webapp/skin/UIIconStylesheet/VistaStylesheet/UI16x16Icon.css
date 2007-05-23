@@ -1,6 +1,6 @@
 .Reset16x16Icon {
 	background: url('/eXoResources/icons/16x16/VistaSkin/ResetCircleIcon.gif') ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Next16x16Icon {
@@ -10,25 +10,21 @@
 
 .BCHome16x16Icon {	
   background: url('/eXoResources/icons/16x16/VistaSkin/Home.png') no-repeat center left;
-  width: 22px ;
-  height: 22px ;
+  width: 22px ; height: 22px ;
 }
 
 .RightBlackGridArrow16x16Icon {
-  width: 16px ;
-  height: 16px ;
+  width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/RightBlackGridArrow.gif') ;
 }
 
 .DefaultPortlet16x16Icon {
-  width: 16px ;
-  height: 16px ;
+  width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/TriBlueRightArrow.gif') ;
 }
 
 .DefaultContainer16x16Icon {
-  width: 16px ;
-  height: 16px ;
+  width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueContainer.gif') ;
 }
 
@@ -62,7 +58,7 @@
 }
 
 .CancelIcon {
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/Cancel.gif') ;
 }
 
@@ -72,12 +68,12 @@
 }
 .GreenArrowPage16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/GreenRightArrowPage.gif') ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .GreenPlusPage16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/GreenPlusPage.gif')  ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .SelectPageIcon {
@@ -100,15 +96,9 @@
   width: 21px ;  height: 21px ;
 }
 
-.Save16x16Icon {
- /* background: url('/eXoResources/icons/16x16/VistaSkin/FloppyDisk.gif') no-repeat center left;
-  width: 16px ;  height: 16px ;*/
-
-}
-
 .Cancel16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/RedCrossCircle.gif') no-repeat center left;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Close16x16Icon {
@@ -118,58 +108,51 @@
 
 .Refresh16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Refresh.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Update16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Refresh.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Back16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueBackArrow.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .CloseFolder16x16Icon {
-	width: 16px;
-	height: 16px;
+	width: 16px; height: 16px;
 	background: url('/eXoResources/icons/16x16/VistaSkin/CloseFolder.gif') no-repeat center left;
 }
 
 .OpenFolder16x16Icon {
-	width: 16px;
-	height: 16px;
+	width: 16px; height: 16px;
 	background: url('/eXoResources/icons/16x16/VistaSkin/OpenFolder.gif') no-repeat center left;
 }
 
 .Pencil16x16Icon {
-	width: 17px ;
-	height: 17px ;
+	width: 17px ;	height: 17px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat center left ;
 }
 
 .DustBin16x16Icon {
-	width: 19px ;
-	height: 18px ;
+	width: 19px ;	height: 18px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') no-repeat center left ;   
 }
 
 .Level116x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ;	height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/LeftArrowBox.gif') no-repeat center left ;
 }
 
 .Level216x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ;	height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueSquare.gif') no-repeat center left ;
 }
 
 .Level316x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ;	height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/GreenMiniBox.gif') no-repeat center left ;
 }
 
@@ -184,8 +167,7 @@
 }
 
 .CircleInfo16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ;	height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/CircleInfo.gif') no-repeat center left ;
 }
 
@@ -210,33 +192,29 @@
 }
 
 .LoadingInfo16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/LoadingInfo.gif') no-repeat center left ;
 }
 
 .ScissorsEraser16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/ScissorsEraser.gif') no-repeat center left ;
 }
 
 .ScissorsEraserWarning16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/ScissorsEraserWarning.gif') no-repeat center left ;
 }
 
 .OrangeNote16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/OrangeNote.gif') no-repeat center left ;
 }
 
 /*##############- Misc Icons -#############*/
 .BlueArrowFloppy16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueArrowBlackFloppy.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .BlueInfoBox16x16Icon {
@@ -246,37 +224,37 @@
 
 .HandPoint16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/HandPoint.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .TripleBox16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/TripleBox.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Config16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Config.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .EditPortlet16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/EditPenBox.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .View16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueBoxLight.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Help16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueHelpBox.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Minimize16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueMinimizeBox.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Maximize16x16Icon {
@@ -286,7 +264,7 @@
 
 .Restore16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Restore.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .SelectPermissionIcon {
@@ -296,67 +274,67 @@
 
 .Node16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Node.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Level16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Level.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Feature16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Feature.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .RSS16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/RSS.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Earth16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Earth.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .AdminView16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/AdminView.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Briefcase16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Briefcase.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .AddNode16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/BluePlusCircle.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .ShowContainerControl16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/GreenArrowShape.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .ShowPageControl16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/YellowArrowShape.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .ShowPortletControl16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueArrowShape.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .Decorator16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/Decorator.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .ViewPage16x16Icon {
   background: url('/eXoResources/icons/16x16/VistaSkin/PageYellowLight.gif') no-repeat center left ;
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
 }
 
 .LayoutMode16x16Icon {
@@ -415,26 +393,22 @@
 }
 
 .ShieldGreenPlus16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ;	height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/ShieldGreenPlus.gif') no-repeat center left ;
 }
 
 .BlueSquare16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ;	height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueSquare.png') no-repeat center left ;
 }
 
 .YellowSquare16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ;	height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/YellowSquare.gif') no-repeat center left ;
 }
 
 .RedSquare16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ;	height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/RedSquare.gif') no-repeat center left ;
 }
 
@@ -454,8 +428,7 @@
 }
 
 .OrangePencilSourceBox16x16Icon {
-	width: 16px;
-	height: 16px;
+	width: 16px;	height: 16px;
 	background: url('/eXoResources/icons/16x16/VistaSkin/OrangePencilSourceBox.gif') no-repeat center left ;	
 }
 
@@ -495,8 +468,7 @@
 }
 
 .GreenPlusDataBox16x16Icon {
-	height: 16px;
-	width: 16px;	
+	height: 16px;	width: 16px;	
 	background: url('/eXoResources/icons/16x16/VistaSkin/GreenPlusDatabox.gif') no-repeat center left ;
 }
 
@@ -520,8 +492,7 @@
 }
 
 .Remove16x16Icon {
-	width: 16px ;
-	height: 16px ;
+	width: 16px ;	height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.gif') no-repeat center left ;   
 }
 
@@ -547,94 +518,79 @@
 }
 
 .BlueGridRightArrow16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueGridRightArrow.gif') no-repeat center left ;
 }
 
 .GrayDoubleGridDownArrow16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/GrayDoubleGridDownArrow.gif') no-repeat center left ;
 }
 
 .GrayFillRightArrow16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/GrayFillRightArrow.gif') no-repeat center left ;  
 }
 
 .BlueSquareRightArrow16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueSquareRightArrow.gif') no-repeat center left ;  
 }
 
 .DotArrowRight16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px;  height: 16px;  
   background: url('/eXoResources/icons/16x16/VistaSkin/DotArrowRight.gif') no-repeat center left ;  
 }
 
 .BlackGridRightArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px;  height: 16px;  
   background: url('/eXoResources/icons/16x16/VistaSkin/BlackGridRightArrow.gif') no-repeat center left ;  
 }
 
 .BlueCloseButton16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px;  height: 16px;  
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueCloseButton.gif') no-repeat center left ;
 }
 
 .Logout16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px;  height: 16px;  
   background: url('/eXoResources/icons/16x16/VistaSkin/RedLogoutIcon.gif') no-repeat center left ;
 }
 
 
 .TreeNode16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px;  height: 16px;  
   background: url('/eXoResources/icons/16x16/VistaSkin/TreeNodeIcon.gif') no-repeat center left ;
 }
 
 /*Need to be changed to S1*/
 .CyanDownArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px;  height: 16px;  
   background: url('/eXoResources/icons/16x16/VistaSkin/CyanDownArrow.gif') no-repeat center left ;
 }
 
 .CyanUpArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px;  height: 16px;  
   background: url('/eXoResources/icons/16x16/VistaSkin/CyanUpArrow.gif') no-repeat center left ;
 }
 
 .CyanNextArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px;  height: 16px;  
   background: url('/eXoResources/icons/16x16/VistaSkin/CyanNextArrow.gif') no-repeat center left ;
 }
 
 .CyanBackArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px;  height: 16px;  
   background: url('/eXoResources/icons/16x16/VistaSkin/CyanBackArrow.gif') no-repeat center left ;
 }
 
 .S1NextArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px;  height: 16px;  
   background: url('/eXoResources/icons/16x16/VistaSkin/CyanNextArrow.gif') no-repeat center left ;
 }
 
 .S1BackArrow16x16Icon {
-  width: 16px;
-  height: 16px;  
+  width: 16px;  height: 16px;  
   background: url('/eXoResources/icons/16x16/VistaSkin/CyanBackArrow.gif') no-repeat center left ;
 }
 
@@ -650,129 +606,107 @@
 }
 
 .YellowBulb16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/YellowBulb.gif') no-repeat center left ;
 }
 
 .VioletBulb16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/VioletBulb.gif') no-repeat center left ;
 }
 
-
 .LightBlueGlobal16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/LightBlueGlobal.gif') no-repeat center left ;
 }
 
 .BlueActionWheel16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueActionWheel.gif') no-repeat center left ;
 }
 
 .LockedKey16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/LockedKey.gif') no-repeat center left ;
 }
 
 .Scissors16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/Scissors.gif') no-repeat center left ;
 }
 
 .BlueBalanced16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueBalanced.gif') no-repeat center left ;
 }
 
 .Entertainment16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/Entertainment.gif') no-repeat center left ;
 }
 
 .BlueCogWheel16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/BlueCogWheel.gif') no-repeat center left ;  
 }
 
 .Earth16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/Earth.gif') no-repeat center left ;
 }
 
 .Finance16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/Earth.gif') no-repeat center left ;
 }
 
 .FootBall16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/FootBall.gif') no-repeat center left ;
 }
 
 .HotNews16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/HotNews.gif') no-repeat center left ;
 }
 
 .Medical16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/Medical.gif') no-repeat center left ;
 }
 
 .Politic16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/Politic.gif') no-repeat center left ;  
 }
 
 .RainyCloud16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/RainyCloud.gif') no-repeat center left ;
 }
 
 .Social16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background:  url('/eXoResources/icons/16x16/VistaSkin/Social.gif') no-repeat center left ;
 }
 
 .YellowTriangleFace16x16Icon {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/YellowTriangleFace.gif') no-repeat center left ;
 }
 
 .Software16x16Icon {
-	width: 16px ;
-  height: 16px ;
+	width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/Software.gif') no-repeat center left ;
 }
 
 .Hand16x16Icon {
-	width: 16px ;
-  height: 16px ;
+	width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/Hand.gif') no-repeat center left ;
 }
 
 .BrownBook16x16Icon {
-  width: 16px ;
-  height:16px ;
+  width: 16px ;  height:16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/BrownBook.gif') no-repeat center left ;
 }
 
@@ -792,8 +726,6 @@
 }
 
 /*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/
-
-
 /*===========================Misc Icons Stylesheet=======================*/
 .AcrobatFile {
   background: url('/eXoResources/icons/16x16/DefaultSkin/MiscIcons/AcrobatFile.gif') no-repeat center left;
@@ -1319,7 +1251,6 @@
 }
 
 /*===========================End Navigation Icons Stylesheet=======================*/
-
 /*===========================Office Icons Stylesheet=======================*/
 .AddressBook {
   background: url('/eXoResources/icons/16x16/DefaultSkin/OfficeIcons/AddressBook.gif') no-repeat center left;
@@ -1556,11 +1487,11 @@
 .YellowPen {
   background: url('/eXoResources/icons/16x16/DefaultSkin/OfficeIcons/YellowPen.gif') no-repeat center left;
 }
+
 .ZipFile {
   background: url('/eXoResources/icons/16x16/DefaultSkin/OfficeIcons/ZipFile.gif') no-repeat center left;
 }
 /*===========================End Office Icons Stylesheet=======================*/
-
 /*===========================Tool Icons Stylesheet=======================*/
 .Alarm {
   background: url('/eXoResources/icons/16x16/DefaultSkin/ToolIcons/Alarm.gif') no-repeat center left;
@@ -1809,8 +1740,8 @@
 .YellowFlag {
   background: url('/eXoResources/icons/16x16/DefaultSkin/ToolIcons/YellowFlag.gif') no-repeat center left;
 }
-/*===========================End Tool Icons Stylesheet=======================*/
 
+/*===========================End Tool Icons Stylesheet=======================*/
 /*===========================User Icons Stylesheet=======================*/
 .Comment {
   background: url('/eXoResources/icons/16x16/DefaultSkin/UserIcons/Comment.gif') no-repeat center left;
@@ -1887,6 +1818,4 @@
 .YellowComment {
   background: url('/eXoResources/icons/16x16/DefaultSkin/UserIcons/YellowComment.gif') no-repeat center left;
 }
-
 /*===========================End User Icons Stylesheet=======================*/
-
