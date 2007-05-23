@@ -209,21 +209,7 @@
 
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FieldContainer {
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle label{
-  float: left; 
-  width: 100px;
-  font-size: 11px;
-  padding-left: 5px; 
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle input{
-  width: 220px; height: 18px;
-  background: white;
-  font-size: 11px;
-  padding-left: 5px;
-  border: solid 1px gray ;
+  width: 380px;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle textarea {

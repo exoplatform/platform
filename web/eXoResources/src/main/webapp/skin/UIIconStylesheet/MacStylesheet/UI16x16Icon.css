@@ -284,7 +284,7 @@
 
 .Execute16x16Icon {
   width: 16px;  height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin//Execute.gif') no-repeat center left ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Execute.gif') no-repeat center left ;
 }
 
 .OrangePencilSourceBox16x16Icon {
@@ -295,7 +295,7 @@
 
 .Home16x16Icon {
   width: 16px;  height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin//Home.gif') no-repeat center left ;
+  background: url('/eXoResources/icons/16x16/MacSkin/Home.gif') no-repeat center left ;
 }
 
 .ColorPen16x16Icon {

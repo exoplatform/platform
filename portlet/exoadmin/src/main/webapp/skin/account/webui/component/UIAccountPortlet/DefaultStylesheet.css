@@ -37,50 +37,20 @@
 }
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
-  width: 400px;
-  overflow: hidden;
-  margin: auto;
-}
-
-.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer label {
-  margin-left: 0px; width: 120px; text-align: right;
-  float: left; font-size: 11px;
-  margin-right: 20px;
-}
-
-.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer input{
-  border: 1px gray solid;
-  width: 220px; height: 18px;
-  font-size: 11px;
-  padding-left: 5px;
+  width: 380px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetail .UIFormInputSet {
   padding-top: 15px;
-  font-size: 11px;
   border: none;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet .FieldContainer {
-  margin: 7px auto 5px auto;  padding: 0px;
-  overflow: hidden;
+  padding: 0px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet label {
-  float: left;
-  line-height: 20px;
   white-space: nowrap; 
-  width: 140px;
-  margin-right: 20px;
-  font-size: 11px; text-align: right;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet input {
-  width: 230px;
-  float: left;
-  font-size: 11px;
-  margin-left: 0px;
-  padding-left: 5px;
 }
 
 /*########################-Template Selector-###########################*/

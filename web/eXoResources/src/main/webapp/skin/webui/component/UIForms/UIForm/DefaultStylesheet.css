@@ -8,8 +8,7 @@
 }
 
 .UIForm .HorizontalLayout .FieldContainer {
-  line-height: 30px ;
-  clear: both;
+  margin: 6px auto;
 }
 
 
@@ -25,7 +24,7 @@
 
 .UIForm .HorizontalLayout .UIFormInputSet {
 	width: 97% ;
-  padding-bottom: 10px ; margin-right: 0px ;
+  padding-bottom: 10px ; margin: auto ;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .Title {
@@ -55,14 +54,14 @@
 
 .UIForm .HorizontalLayout label {
 	float:left;
-  width: 100px ;
-	text-align: right;
-	margin: 0px 10px 0px 25px;
+  width: 120px ;
+	text-align: right; font-size: 11px;
+	margin: 0px 10px 0px 0px;
 }
 
 .UIForm .HorizontalLayout input {
-	float:left;
   width: 228px ;
+  font-size: 11px;
 }
 
 .UIForm .HorizontalLayout input.checkbox {
@@ -81,7 +80,6 @@
 
 
 .UIForm .HorizontalLayout select {
-	float:left;
   width: 237px ;
   border: 1px solid #808080 ;
 }

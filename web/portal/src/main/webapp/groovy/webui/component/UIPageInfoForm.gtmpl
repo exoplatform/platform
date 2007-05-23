@@ -3,21 +3,21 @@
     <div class="FormContainer">
     
 	    <div class="FieldContainer">
-	       <label>Page Id </label>
+	       <label>Page Id: </label>
 	      <% 
 		      uicomponent.renderChild("pageId") ;
 	      %>
 	      <div style="clear: left"><span></span></div>
 	    </div>
 	    <div class="FieldContainer">
-	       <label>Owner Type </label>
+	       <label>Owner Type: </label>
 	      <% uicomponent.renderChild("selectOwnerType") ;
 	      %>
 	      
 	      <div style="clear: left"><span></span></div>
 	    </div>
 	    <div class="FieldContainer">
-	       <label>Owner Id </label>
+	       <label>Owner Id: </label>
 	      <% uicomponent.renderChild("ownerId") ;
 	      
 	      if(uicomponent.showButton) { %>
@@ -40,19 +40,19 @@
 	      <div style="clear: left"><span></span></div>
 	    </div>
 	    <div class="FieldContainer">
-	       <label>Page Name </label>
+	       <label>Page Name: </label>
 	      <% uicomponent.renderChild("name");
 	       %>
 	       <div style="clear: left"><span></span></div>
 	    </div>
 	    <div class="FieldContainer">
-	       <label>Page Title </label>
+	       <label>Page Title: </label>
 	      <% uicomponent.renderChild("title"); 
 	      %>
 	      <div style="clear: left"><span></span></div>
 	    </div>
 	    <div class="FieldContainer">
-	       <label>Show Max Window </label>
+	       <label>Show Max Window: </label>
 	      <% uicomponent.renderChild("showMaxWindow");
 	       %>
 	       <div style="clear: left"><span></span></div>

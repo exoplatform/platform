@@ -13,7 +13,7 @@
 }
  
 .UIApplicationRegistryPortlet {
-	background: #ffffff;
+	background: white;
 	border: 1px solid #b7b7b7;
 	margin: 5px;
 }
@@ -21,7 +21,7 @@
 .UIApplicationRegistryPortlet .Title {
   font-size: 14px; color: #058ee6; font-weight: bold; font-family: arial;
   margin: 5px 0px; 
-  padding-left: 10px;
+  padding-left: 10px; 
 }
 
 .UIApplicationRegistryPortlet .UIApplicationRegistryContainer {
@@ -43,7 +43,6 @@
 
 .ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout label {
   width: 185px;
-  font-size: 11px;
 }
 
 /*################################Application Registry Control################################*/
@@ -214,5 +213,4 @@
 
 .ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout label {
   width: 175px;
-  font-size: 11px;
 }

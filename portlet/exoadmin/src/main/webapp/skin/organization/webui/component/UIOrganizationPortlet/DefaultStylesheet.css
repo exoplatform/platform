@@ -13,10 +13,6 @@
   padding: 7px ;
 }
 
-.UIOrganizationPortlet .OrganizationPortletContainer {
-  
-}
-
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {
   float: left ;
   margin: 3px 8px 0px 10px ;
@@ -99,37 +95,12 @@
 	padding: 5px 0px 15px 0px;
 }
 
-.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer {
-	width: 70%;
-	margin: auto;
-	height: 28px;
-}
-
-.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer label {
-	width: 130px;
-	text-decoration: none;
-	font-size: 11px;
-}
-
-.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer input {
-  font-size: 11px;
-}
-
 .UIOrganizationPortlet .UIFormTabPane .UIPersonalInfo .UIFormInputSet {
 	border: none;
 }
 
-.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer {
-	width: 410px;
-	margin: auto;
-	height: auto;
-}
-
-.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer label {
-	width: 120px;
-	text-decoration: none;
-	margin: 0px 9px 0px 0px;
-  font-size: 11px;	
+.UIOrganizationPortlet .UIFormInputSet .FieldContainer {
+	width: 380px;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
@@ -281,10 +252,8 @@
   padding: 10px 5px 6px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIForm .HorizontalLayout label {
-  width: 150px;
-  margin: 0px 10px 0px 0px;
-  font-size: 11px;
+.UIOrganizationPortlet .UIGroupManagement .UISharedNavigation .HorizontalLayout label {
+  width: 170px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIForm .HorizontalLayout {
@@ -318,9 +287,4 @@
 
 .UIOrganizationPortlet .UIMembershipManagement .UIFormWithTitle .TitleBar {
   margin: 0px;
-}
-
-.UIOrganizationPortlet .UIMembershipManagement .UIForm .HorizontalLayout label {
-  width: 130px;
-  margin: 0px 10px 0px 0px;
 }
