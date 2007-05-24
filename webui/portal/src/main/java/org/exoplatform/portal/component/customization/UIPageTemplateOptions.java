@@ -69,6 +69,10 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
       for(SelectItemOption itemOption : itemCategory.getSelectItemOptions()){
         if(itemOption.getLabel().equals(value)){
           selectedItemOption_ = itemOption;
+          for(SelectItemOption item : itemCategory.getSelectItemOptions()){
+            item.setSelected(false);
+          }
+          itemOption.setSelected(true);
           return;
         }
       }

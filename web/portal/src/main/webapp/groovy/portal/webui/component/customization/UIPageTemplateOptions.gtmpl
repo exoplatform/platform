@@ -5,7 +5,7 @@
 	def rcontext = _ctx.getRequestContext() ;
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory') ;
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIItemSelector') ;
-	
+
   def categories = uicomponent.getItemCategories() ;
   UIForm form = uicomponent.getParent() ;
   

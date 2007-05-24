@@ -73,6 +73,10 @@ public class UIPageNodeForm extends UIFormTabPane {
 
   public void setValues(PageNode pageNode) throws Exception {  
     pageNode_ = pageNode;
+    String icon = pageNode_.getIcon();
+    if(icon != null && icon.length() > 0){
+      getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
+    }
     getUIStringInput("name").setEditable(UIFormStringInput.DISABLE);    
     if(pageNode == null){      
       getUIStringInput("name").setEditable(UIFormStringInput.ENABLE);

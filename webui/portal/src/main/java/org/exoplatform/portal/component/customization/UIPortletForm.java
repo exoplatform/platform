@@ -109,6 +109,10 @@ public class UIPortletForm extends UIFormTabPane {
   public void setValues(UIPortlet uiPortlet) throws Exception {
   	uiPortlet_ = uiPortlet;
     invokeGetBindingBean(uiPortlet_) ;
+    String icon = uiPortlet.getIcon();
+    if(icon != null && icon.length() > 0){
+      getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
+    }
     UIFormInputIconSelector uiIconSelector = getChild(UIFormInputIconSelector.class);
     uiIconSelector.setSelectedIcon(uiPortlet.getIcon());
   }

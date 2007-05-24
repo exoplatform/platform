@@ -70,7 +70,7 @@ public class UIUserMembershipSelector extends UISelector<String> {
     Collection<org.exoplatform.services.organization.Membership>  
                         collection = service.getMembershipHandler().findMembershipsByUser(user_);
     for(org.exoplatform.services.organization.Membership membership : collection){
-      addMembership(new Membership(membership.getUserName(),
+      addMembership(new Membership(membership.getUserName(), membership.getId(),
                                    membership.getGroupId(), membership.getMembershipType() ));
     }
   }
@@ -78,7 +78,7 @@ public class UIUserMembershipSelector extends UISelector<String> {
   public List<Membership> getMembership(){ return membership_; }  
   
   public void createMembership(String groupId, String membershipType){
-    Membership membership = new Membership(user_, groupId, membershipType);
+    Membership membership = new Membership(user_, "" , groupId, membershipType);
     addMembership(membership);
   }
   
@@ -114,15 +114,21 @@ public class UIUserMembershipSelector extends UISelector<String> {
   
   public String event(String actionName, String beanId) throws Exception {
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
-    if(uiForm != null) return uiForm.event(actionName, beanId);
+    if(uiForm != null) return uiForm.event(actionName, getId(), beanId);
     return super.event(name, beanId);
   }
   
   static public class DeleteMembershipActionListener extends EventListener<UIUserMembershipSelector>{
-    public void execute(Event<UIUserMembershipSelector> event) throws Exception{      
+    public void execute(Event<UIUserMembershipSelector> event) throws Exception{
+      System.out.println("\n\n\nUIUserMembershipSelector.java.Delete");
       UIUserMembershipSelector uiUserMembershipSelector = event.getSource();
       String index = event.getRequestContext().getRequestParameter(OBJECTID);  
-      uiUserMembershipSelector.getMembership().remove(Integer.parseInt(index));      
+      Membership membership = uiUserMembershipSelector.getMembership().get(Integer.parseInt(index));
+      OrganizationService service = uiUserMembershipSelector.getApplicationComponent(OrganizationService.class);
+      service.getMembershipHandler().removeMembership(membership.id_, true);
+     
+      uiUserMembershipSelector.getMembership().remove(Integer.parseInt(index));   
+      
     }
   }
   
@@ -131,12 +137,21 @@ public class UIUserMembershipSelector extends UISelector<String> {
     private String groupId_;
     private String membershipType_;
     private String userName_;
+    private String id_;
     
-    public Membership(String userName, String groupId, String membershipType){
+    public Membership(String userName, String id, String groupId, String membershipType){
       userName_ = userName;
+      id_ = id;
       groupId_ = groupId;
       membershipType_ = membershipType;
     }
+    
+    public Membership(String userName, String groupId, String membershipType){
+      this(userName, "", groupId, membershipType);
+    }
+    
+    public String getId(){return id_;}
+    public void setId(String id){id_ = id; }
     
     public String getUserName(){ return userName_; }
     public void setUserName(String userName){ userName_ = userName; }

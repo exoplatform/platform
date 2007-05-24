@@ -86,6 +86,8 @@
           
         </div>
       </div>
+	    
+	    
 	    <% 
 	      for(category in categories){
         templates = category.getSelectItemOptions();
@@ -131,7 +133,7 @@
 		%>
 			<div class="ItemDetailList" style="display: $display">
 		    <%    			     
-          for(template in templates){            
+          for(template in templates){        
             String label = template.getLabel();
             String description = template.getDescription();
  			    
