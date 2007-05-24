@@ -6,12 +6,12 @@
 %>
 <div id="$uploadId">
   <input type="hidden" id="input$uploadId" name="<%=uicomponent.getName();%>" value="false"/>
-  <div id="<%=uploadId;%>UploadIframe" class="UploadIframe" style="float: left">
-    <iframe class="TestIframe" id="<%=uploadId;%>uploadFrame" style="height: 40px; border: 0px;">  
+  <div id="<%=uploadId;%>UploadIframe" class="UploadIframe" style="">
+    <iframe class="TestIframe" id="<%=uploadId;%>uploadFrame" style="height: 22px; border:0px;">  
     </iframe>
+    <div style="clear: left"><span></span></div>
   </div>
-  <div id="<%=uploadId;%>ProgressIframe" class="ProgressIframe" style="float: left; display:none;"></div>      
-  <div style="clear: both"><span></span></div>
+  <div id="<%=uploadId;%>ProgressIframe" class="ProgressIframe" style=" display:none;"></div>      
   
   <div class="ProgressBarFrame" style="display: none;">
 			<div class="SelectFileLabel"><%=_ctx.appRes("UIFormUploadInput.label.Uploadfile")%>: </div>
@@ -27,7 +27,6 @@
 			<div class="DeleteFileFrame">
 				<div class="DeleteFileLable" onclick="eXo.webui.UIUpload.abortUpload($uploadId);"><%=_ctx.appRes("UIFormUploadInput.label.Cancel")%></div>
 			</div>
-		<div style="clear: both;"><span></span></div>
 	</div>
 	<div class="SelectFileFrame" style="display: none;">
 		<div class="SelectFileLabel"><%=_ctx.appRes("UIFormUploadInput.label.Uploadfile")%> :</div>
@@ -35,6 +34,5 @@
 			<div class="FileNameLabel"><%=_ctx.appRes("UIFormUploadInput.label.Uploaded")%></div>
 		</div>
 		<div class="RemoveFile" onclick="eXo.webui.UIUpload.deleteUpload($uploadId);"><%=_ctx.appRes("UIFormUploadInput.label.remove")%></div>
-		<div style="clear: both;"><span></span></div>
 	</div>
 </div>

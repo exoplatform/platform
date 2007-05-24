@@ -11,15 +11,21 @@
   margin: 6px auto;
 }
 
-
 .UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
-  margin-bottom: 15px ;
-  margin-left: 160px ;
+  margin: 7px 0px 10px 133px ;
+}
+
+.UIForm .HorizontalLayout .FieldContainer .MultiValueContainer input {
+  float: left;
+  margin-right: 5px;
 }
 
 .UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {
 	float: left ;
-	margin: 4px 10px 0px 5px ;
+	margin: 0px 10px 0px 5px ;
+}
+
+.UIForm .HorizontalLayout .FieldContainer .UploadIframe {
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet {
@@ -61,7 +67,6 @@
 
 .UIForm .HorizontalLayout input {
   width: 228px ;
-  font-size: 11px;
 }
 
 .UIForm .HorizontalLayout input.checkbox {

@@ -23,18 +23,11 @@
   background: url('/eXoResources/background/MacSkin/Background1x4.png');
 }
 
-.UIFormWithTitle .UIForm input {
-  margin-left: 8px ;
-  width: 215px;
-}
-
 .UIFormWithTitle .UIForm select {
-  margin-left: 10px ;
   width: 220px;
 }
 
 .UIFormWithTitle .UIForm textarea {
-  margin-left: 8px ;
   width: 220px;
 }
 

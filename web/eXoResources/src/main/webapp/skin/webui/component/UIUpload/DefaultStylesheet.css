@@ -11,12 +11,14 @@
 }
 
 .UploadButton {
-	float: right;
+  float: right;
 	background: url("DefaultSkin/Background/UpArrow16x16.gif") no-repeat left;
 	cursor: pointer;
 	padding-left: 16px;
 	color: #058ee6;
 	font-weight: bold;
+	margin-left: 150px;
+	border: 1px solid red;
 }
 
 .ProgressBarFrame {
