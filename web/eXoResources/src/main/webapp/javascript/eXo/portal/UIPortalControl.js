@@ -97,7 +97,7 @@ UIPortalControl.prototype.onEnterPress = function(e) {
 	
 	if(uiPortalLoginFormAction) {
 		var code;
-		if(!e) var e = window.event;
+		if(!e) e = window.event;
 		if(e.keyCode) code = e.keyCode;
 		else if (e.which) code = e.which;
 		
@@ -160,7 +160,7 @@ ScrollManager.prototype.mouseOverArrow = function(e) {
 	var arrow = this;
 	if (arrow.onclick && arrow.className == arrow.styleClass) {
 		// mouse over
-		if (!e) var e = window.event;
+		if (!e) e = window.event;
 		if (arrow == eXo.core.Browser.getEventSource(e)) arrow.className = arrow.overClass;
 	}
 };
@@ -259,7 +259,7 @@ ScrollManager.prototype.scroll = function(e) {
 	 * Function called when an arrow is clicked. Shows an additionnal element and calls the 
 	 * appropriate scroll function (left or right)
 	 */
-	if (!e) var e = window.event;
+	if (!e) e = window.event;
 	e.cancelBubble = true;
 	var src = eXo.core.Browser.getEventSource(e);
 	if (src.scrollMgr) {

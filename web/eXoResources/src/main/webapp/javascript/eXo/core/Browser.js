@@ -118,12 +118,12 @@ Browser.prototype.isIE6 = function() {
 };
 
 Browser.prototype.findMouseXInClient = function(e) {
-  if (!e) var e = window.event;
+  if (!e) e = window.event;
   return e.clientX;
 } ;
 
 Browser.prototype.findMouseYInClient = function(e) {
-  if (!e) var e = window.event;
+  if (!e) e = window.event;
   return e.clientY;
 } ;
 

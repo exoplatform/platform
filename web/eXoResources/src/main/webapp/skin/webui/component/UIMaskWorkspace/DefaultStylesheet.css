@@ -365,11 +365,9 @@
 
 .UIGroupSelector .RightGroupSelector .Content span {
   color: #2c2c2c;
-
-
+}
 
 /**************************************Container Form*************************************/
-
 .UIContainerForm .HorizontalLayout .FormContainer .FieldContainer label {
   width: 150px;
 }

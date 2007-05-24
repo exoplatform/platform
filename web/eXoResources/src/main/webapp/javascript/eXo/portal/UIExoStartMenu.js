@@ -58,7 +58,7 @@ UIExoStartMenu.prototype.startButtonOut = function() {
 };
 
 UIExoStartMenu.prototype.showStartMenu = function(e) {
-	if (!e) var e = window.event;
+	if (!e) e = window.event;
 	e.cancelBubble = true;
 
 	var uiStartContainer = document.getElementById("StartMenuContainer") ;

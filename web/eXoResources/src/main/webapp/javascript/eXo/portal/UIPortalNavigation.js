@@ -84,7 +84,7 @@ UIPortalNavigation.prototype.setTabStyle = function() {
 }
 
 UIPortalNavigation.prototype.toggleSubMenu = function(e) {
-	if (!e) var e = window.event;
+	if (!e) e = window.event;
 	e.cancelBubble = true;
 	//var src = this;
 	var src = eXo.core.Browser.getEventSource(e);

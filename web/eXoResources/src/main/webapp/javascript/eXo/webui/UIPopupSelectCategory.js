@@ -2,7 +2,7 @@ function UIPopupSelectCategory() {
 } ;
 
 UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
-	if(!e) var e = window.event;
+	if(!e) e = window.event;
 	e.cancelBubble = true;
 	if(e.stopPropagation) e.stopPropagation();
 	var DOMUtil = eXo.core.DOMUtil;
