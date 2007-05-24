@@ -20,7 +20,11 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  *          trongtt@gmail.com
  * Jul 14, 2006  
  */
+
+// TODO : TrongTT
+
 public class UIFormDateTimeInput extends UIFormInputBase<String> {
+  
   private DateFormat formatter_ ;
   private boolean displayTime_ = true;
   
@@ -34,6 +38,10 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
   public void setDisplayTime(boolean displayTime) { displayTime_ = displayTime; }
   public boolean isDisplayTime() { return displayTime_; }
   
+  public void setCalendar(Calendar date) {
+    formatter_.format(date.getTime()) ;
+  }
+
   public Calendar getCalendar() {
     try {
       Calendar calendar = new GregorianCalendar() ;
