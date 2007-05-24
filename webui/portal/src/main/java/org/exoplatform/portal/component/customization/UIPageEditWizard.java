@@ -185,7 +185,7 @@ public class UIPageEditWizard extends UIPageWizard {
     }
   }  
   
-  static  public class ViewStep2ActionListener extends EventListener<UIPageEditWizard> {
+  /*static  public class ViewStep2ActionListener extends EventListener<UIPageEditWizard> {
     public void execute(Event<UIPageEditWizard> event) throws Exception {
 
       UIPageEditWizard uiWizard = event.getSource();
@@ -206,7 +206,7 @@ public class UIPageEditWizard extends UIPageWizard {
         uiPageTemplateOptions.setSelectOptionItem("Desktop Layout");
       }
     }
-  }
+  }*/
   
   static public class AbortActionListener extends EventListener<UIPageEditWizard> {
     public void execute(Event<UIPageEditWizard> event) throws Exception {
