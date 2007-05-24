@@ -30,12 +30,6 @@
   margin: 8px 0px 0px 5px;
 }
 
-.UIGroupMembershipSelector .UIBreadcumbs .RightBlackGridArrow16x16Icon {
-	float: left;
-  margin: 5px 2px 5px 1px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/GridRightArrow.gif');
-}
-
 .UIGroupMembershipSelector .Container {
   padding: 10px;
   background: url(/eXoResources/background/MacSkin/Background1x4.png) repeat;

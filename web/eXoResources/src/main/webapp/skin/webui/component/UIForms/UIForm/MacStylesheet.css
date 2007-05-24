@@ -9,7 +9,7 @@
 
 .UIForm .HorizontalLayout .FieldContainer {
   overflow: hidden  ;
-  padding-top: 15px ;
+  padding: 7px 0px ;
   width: 100% ;
 }
 

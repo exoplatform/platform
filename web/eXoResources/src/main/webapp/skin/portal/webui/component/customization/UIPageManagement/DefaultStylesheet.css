@@ -48,7 +48,7 @@
 
 /*=================================Navigation Control Bar=================================*/
 .UIPageManagement .UIToolbar .ControlToolbar {
-	margin: 13px 2px 0px 34px; 
+	margin: 13px 2px 0px 15px; 
 }
 
 .UIPageManagement .RollbackIcon {
