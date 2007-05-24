@@ -27,19 +27,34 @@ public class TestCommandHandler extends BasicTestCase {
   
   public void testCommandHandler() throws Exception {
     CommandHandler handler = new CommandHandler() ;
-    Map<String,String> props = new HashMap<String,String>() ;
+    Map<String, Object> props = new HashMap<String, Object>() ;
     props.put("intProp", "10") ;
-    props.put("stringProp", "A String") ;
-    handler.createCommand("org.exoplatform.web.command.TestCommandHandler$CommandTest", props) ;
+    props.put("stringProp", "welcome to eXo") ;
+    props.put("doubleValues", new String[] {"10.0", "-6.7", "7.0"}) ;
+    Command command = handler.createCommand("org.exoplatform.web.command.TestCommandHandler$CommandTest", props) ;
+    command.execute(null, null);
   }
   
   static public class CommandTest extends Command {
-    private int    intProp    ;
+    
+    private double [] doubleValues;
+    
+    private Integer    intProp    ;
     private String stringProp ; 
     
     public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
+      System.out.println("\n\n");
       System.out.println("int    prop : "  +  intProp)   ;
       System.out.println("String prop : "  +  stringProp)   ;
+      for(double ele : doubleValues) {
+        System.out.println("===== > "+ele);
+      }
+      System.out.println("\n\n");
+    }
+    
+    public void setStringProp(String value) {
+      System.out.println("\n\n  invoke setter "+value +"\n\n");
+      stringProp = value;
     }
   }
 }
