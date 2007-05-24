@@ -29,7 +29,6 @@ public class CommandHandler extends WebRequestHandler {
     Map props = req.getParameterMap() ;
   }
   
-  
   /**
    * This method should use the java reflection to create the command object according to the command
    * type, then  populate the command  properties  

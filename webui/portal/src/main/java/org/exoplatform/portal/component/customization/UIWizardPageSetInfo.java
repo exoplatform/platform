@@ -54,8 +54,8 @@ public class UIWizardPageSetInfo extends UIForm {
     if(!value) return;
     UIPageNodeSelector  uiPageNodeSelector = getChild(UIPageNodeSelector.class);
     uiPageNodeSelector.loadSelectedNavigation();
-    if(uiPageNodeSelector.getSelectedPageNode() != null) return;
-    PageNode pageNode = Util.getUIPortal().getSelectedNode();
+    if(uiPageNodeSelector.getSelectedPageNode() == null) return;
+    PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
     uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri()) ; 
     this.<UIFormStringInput>getChildById("pageName").setEditable(false) ;
     invokeGetBindingBean(pageNode);
@@ -92,8 +92,8 @@ public class UIWizardPageSetInfo extends UIForm {
  }
   
   public PageNode getSelectedPageNode() {    
-    UIPageNodeSelector uip = getChild(UIPageNodeSelector.class);
-    return uip.getSelectedPageNode(); 
+    UIPageNodeSelector uiPageNodeSelector = getChild(UIPageNodeSelector.class);
+    return uiPageNodeSelector.getSelectedPageNode(); 
   } 
   
   public void processDecode(WebuiRequestContext context) throws Exception {   

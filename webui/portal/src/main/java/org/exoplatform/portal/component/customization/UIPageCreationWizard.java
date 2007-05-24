@@ -124,6 +124,16 @@ public class UIPageCreationWizard extends UIPageWizard {
       uiWizard.viewStep(1);      
     }
   }
+  
+  static  public class ViewStep2ActionListener extends EventListener<UIPageWizard> {
+    public void execute(Event<UIPageWizard> event) throws Exception {
+      UIPageWizard uiWizard = event.getSource();
+      uiWizard.setDescriptionWizard();
+      
+      uiWizard.updateWizardComponent();
+      uiWizard.viewStep(2);
+    }
+  }
 
   static  public class ViewStep3ActionListener extends EventListener<UIPageCreationWizard> {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
@@ -133,9 +143,17 @@ public class UIPageCreationWizard extends UIPageWizard {
       uiWizard.setDescriptionWizard();
       uiWizard.updateWizardComponent();
       
+      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+      PageNavigation nav = uiNodeSelector.getSelectedNavigation();
+      if(nav == null) {
+        uiApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.notSelectedPageNavigation", new String[]{})) ;;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
+        uiWizard.viewStep(2);
+        return ;
+      }
+      
       PageNode pageNode = uiPageSetInfo.getPageNode();
       if (uiNodeSelector.findPageNodeByUri(pageNode.getUri()) != null) {
-        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         uiWizard.viewStep(2);

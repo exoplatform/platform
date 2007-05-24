@@ -14,6 +14,7 @@ import org.exoplatform.web.application.mvc.MVCRequestContext;
  * Apr 23, 2007  
  */
 public class ExoConsoleApplication extends MVCApplication {
+  
   public String getApplicationId() { return "exo.app.web/eXoConsole"; }
 
   public String getApplicationName() { return "eXoConsole"; }

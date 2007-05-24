@@ -19,6 +19,7 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -92,6 +93,25 @@ public class UIPageEditWizard extends UIPageWizard {
       uiWizard.viewStep(1);   
     }
   }
+  
+  static  public class ViewStep2ActionListener extends EventListener<UIPageWizard> {
+    public void execute(Event<UIPageWizard> event) throws Exception {
+      UIPageWizard uiWizard = event.getSource();
+      UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
+      
+      UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class); 
+      UIPageNodeSelector uiPageNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);
+      if(uiPageNodeSelector.getSelectedNavigation() == null) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.notSelectedPageNavigation", new String[]{})) ;;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+        uiWizard.viewStep(1);
+        return ;
+      }
+      
+      uiWizard.updateWizardComponent();
+      uiWizard.viewStep(2);
+    }
+  }
 
   static  public class ViewStep3ActionListener extends EventListener<UIPageEditWizard> {
     public void execute(Event<UIPageEditWizard> event) throws Exception {
@@ -104,15 +124,14 @@ public class UIPageEditWizard extends UIPageWizard {
       
       UIPageEditBar uiPageEditBar = uiCreationBar.getChild(UIPageEditBar.class);
       UIWizardPageCreationBar uiParent = uiPageEditBar.getParent();
-
+      
       uiWizard.viewStep(3);      
       if(uiWizard.getSelectedStep() < 3){
         uiWizard.updateWizardComponent();
         return;
       }
-      
+      UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class); 
       UIPageTemplateOptions uiPageTemplateOptions = uiWizard.findFirstComponentOfType(UIPageTemplateOptions.class);
-      UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);      
       PageNode pageNode = uiPageInfo.getPageNode();
       
       Page page = null;

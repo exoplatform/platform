@@ -92,6 +92,10 @@ public class UIPageNodeActionListener {
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
       UIPageManagement uiManagement = uiPageNodeSelector.getParent();
       
+      UIPortalApplication uiApp = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class);
+      UIControlWorkspace uiControl = uiApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      pcontext.addUIComponentToUpdateByAjax(uiControl);
+      
       PageNode node = uiPageNodeSelector.getSelectedPageNode();
       if(node == null) uiPageNodeSelector.loadSelectedNavigation();
       node = uiPageNodeSelector.getSelectedPageNode();
@@ -101,11 +105,6 @@ public class UIPageNodeActionListener {
       Page page  = portalConfigService.getPage(node.getPageReference(), pcontext.getRemoteUser());
       UIPage uiPage  = null;
       if(page != null)  uiPage = Util.toUIPage(page, uiToolPanel);
-      
-      UIPortalApplication uiApp = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class);
-      UIControlWorkspace uiControl = uiApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      pcontext.addUIComponentToUpdateByAjax(uiControl);
-      
       if(page == null || !uiPage.isModifiable()){
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
@@ -128,7 +127,6 @@ public class UIPageNodeActionListener {
       }
       
       UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-      
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
       pcontext.setFullRender(true);
       

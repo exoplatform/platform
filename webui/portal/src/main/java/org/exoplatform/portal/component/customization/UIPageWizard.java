@@ -91,16 +91,6 @@ public abstract class UIPageWizard extends UIWizard {
     uiPageDescription.addChild(UIDescription.class, null, "pageWizard");
   }
   
-  static  public class ViewStep2ActionListener extends EventListener<UIPageWizard> {
-    public void execute(Event<UIPageWizard> event) throws Exception {
-      UIPageWizard uiWizard = event.getSource();
-      uiWizard.setDescriptionWizard();
-      
-      uiWizard.updateWizardComponent();
-      uiWizard.viewStep(2);
-    }
-  }
-  
   static public class AbortActionListener extends EventListener<UIPageWizard> {
     public void execute(Event<UIPageWizard> event) throws Exception {
       UIPageWizard uiWizard = event.getSource();
