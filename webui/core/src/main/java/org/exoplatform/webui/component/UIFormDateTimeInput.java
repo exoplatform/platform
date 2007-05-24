@@ -12,7 +12,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import org.exoplatform.commons.utils.ISO8601;
 import org.exoplatform.webui.application.WebuiRequestContext;
 
 /**
@@ -24,53 +23,30 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 public class UIFormDateTimeInput extends UIFormInputBase<String> {
   private DateFormat formatter_ ;
   private boolean displayTime_ = true;
-  private GregorianCalendar calendar_;
   
   public UIFormDateTimeInput(String name, String bindField, Date date) {
     super(name, bindField, String.class) ;
     formatter_ = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     if(!displayTime_) formatter_ = new SimpleDateFormat("MM/dd/yyyy");
-    calendar_ = new GregorianCalendar();
-    calendar_.setTime(new Date()) ;
     if(date != null) value_ = formatter_.format(date) ;
   }
   
   public void setDisplayTime(boolean displayTime) { displayTime_ = displayTime; }
   public boolean isDisplayTime() { return displayTime_; }
   
-  public String getValue() { return ISO8601.format(calendar_) ; }  
-  public UIFormDateTimeInput setValue(String value){
-    calendar_ = new GregorianCalendar();
-    calendar_.setGregorianChange(ISO8601.parse(value).getTime());
-    return this;
-  }  
-
-  public String getOriginalValue() { return value_ ; }
-  
-  public void setDateValue(Date date) { value_ = formatter_.format(date) ; }
-  public Date getDateValue() throws ParseException {
-    if(value_ != null) return formatter_.parse(value_ + " 00:00:00") ;
-    return null;
-  }
-  
-  public Calendar getCalendar() { return calendar_; }
-  
-  public UIFormDateTimeInput addTime(Date date) {
-    if (date != null) calendar_.setTime(date);
-    else calendar_= null;
-    return this;
+  public Calendar getCalendar() {
+    try {
+      Calendar calendar = new GregorianCalendar() ;
+      calendar.setTime(formatter_.parse(value_ + " 0:0:0")) ;
+      return calendar ;
+    } catch (ParseException e) {
+      return null;
+    }
   }
   
   @SuppressWarnings("unused")
   public void decode(Object input, WebuiRequestContext context) throws Exception {    
-    value_ = (String) input;
-    if (value_ != null && !value_.trim().equals("")) {
-      calendar_ = new GregorianCalendar();
-      Date date = formatter_.parse(value_) ;
-      addTime(date);
-    } else if (value_ != null && value_.trim().equals("")) {
-      addTime(new Date());
-    }
+    value_ = ((String)input).trim();
   }
 
   public void processRender(WebuiRequestContext context) throws Exception {
