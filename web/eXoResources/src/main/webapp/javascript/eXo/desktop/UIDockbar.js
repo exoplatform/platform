@@ -130,7 +130,7 @@ UIDockbar.prototype.animation = function(selectedIcon, e) {
 		
 	var d = middleIcon - selectedIconX ;
 	var delta = middleIcon - mouseX ;
-	var distanceWeight = (0.5 / curve) * (delta / d) ;
+	var distanceWeight =  delta /(2*curve*d) ;
 	
 	var selectedIconIndex = UIDockbar.findIndex(selectedIcon) ;
 	var icons = eXo.core.DOMUtil.findChildrenByClass(selectedIcon.parentNode, "img", "Icon") ;

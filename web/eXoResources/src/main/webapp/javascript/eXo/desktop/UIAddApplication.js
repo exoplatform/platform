@@ -40,7 +40,7 @@ function getUrl(src) {
 UIAddApplication.prototype.loadPortlets = function(refresh) {
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	var url = eXo.env.server.context + "/service?serviceName=portletRegistry";
-	if(refresh == null || refresh == undefined) var refresh = false;
+	if(refresh == null || refresh == undefined) refresh = false;
   var category = eXo.core.CacheJSonService.getData(url, refresh);
   if(category == null || category == undefined) return;
   var itemList = eXo.core.DOMUtil.findFirstDescendantByClass(uiAddApplicationContainer, "div", "ItemList") ;

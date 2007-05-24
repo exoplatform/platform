@@ -192,7 +192,7 @@ ScrollManager.prototype.checkAvailableSpace = function(maxSpace) { // in pixels
  /*
   * Calculates the available space for the elements, and inits the elements array
   */
-	if (!maxSpace) var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer);
+	if (!maxSpace) maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer);
 	var elementsSpace = 0;
 	for (var i = 0; i < this.elements.length; i++) {
 		elementsSpace += this.getElementSpace(this.elements[i]);
