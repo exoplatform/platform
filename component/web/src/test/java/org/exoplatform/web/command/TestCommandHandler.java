@@ -31,8 +31,19 @@ public class TestCommandHandler extends BasicTestCase {
     props.put("intProp", "10") ;
     props.put("stringProp", "welcome to eXo") ;
     props.put("doubleValues", new String[] {"10.0", "-6.7", "7.0"}) ;
-    Command command = handler.createCommand("org.exoplatform.web.command.TestCommandHandler$CommandTest", props) ;
+    props.put("booleanValue", "true") ;
+    Command command = handler.createCommand("org.exoplatform.web.command.TestCommandHandler$CommandTest2", props) ;
     command.execute(null, null);
+  }
+  
+   static public class CommandTest2 extends CommandTest {
+    
+     private boolean booleanValue = false;
+     
+     public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
+       super.execute(req, res);
+       System.out.println(" \n\n\n === >"+booleanValue+"\n\n");
+     }
   }
   
   static public class CommandTest extends Command {
