@@ -123,6 +123,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
       ApplicationRegistryControlArea uiRegistryCategory = event.getSource();
       UIPopupWindow popupWindow = uiRegistryCategory.getChild(UIPopupWindow.class);
+      popupWindow.setId("AddCategory");
       UICategoryForm categoryForm = (UICategoryForm) popupWindow.getUIComponent();
       categoryForm.setValue((ApplicationCategory)null);
       popupWindow.setShow(true);
@@ -133,7 +134,9 @@ public class ApplicationRegistryControlArea extends UIContainer {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
       ApplicationRegistryControlArea uiRegistryCategory = event.getSource();
       UIPopupWindow popupWindow = uiRegistryCategory.getChild(UIPopupWindow.class);
+      popupWindow.setId("EditCategory");
       UICategoryForm categoryForm = (UICategoryForm) popupWindow.getUIComponent();
+//      categoryForm.setId("EditCategory");
       categoryForm.setValue(uiRegistryCategory.getSelectedPortletCategory());
       popupWindow.setShow(true);
     }

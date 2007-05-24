@@ -8,6 +8,7 @@
   <page-nodes>  
 	  <node>
 	    <uri>exoadmin::/sitemap</uri>
+	    <name>siteMap</name>
 	    <label>Site Map</label>
 	    <page-reference>user::exoadmin::sitemap</page-reference>
 	    
