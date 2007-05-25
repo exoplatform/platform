@@ -26,6 +26,8 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIRightClickPopupMenu;
 import org.exoplatform.webui.component.UITree;
@@ -125,6 +127,10 @@ public class UIPageNodeActionListener {
         event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
         return ;
       }
+        UIApplication uiApplication = Util.getPortalRequestContext().getUIApplication() ;
+        uiApplication.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.notAvailable", null)) ;
+        
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApplication.getUIPopupMessages() );
       
       UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
