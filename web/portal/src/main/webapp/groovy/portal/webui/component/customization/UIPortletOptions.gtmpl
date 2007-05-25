@@ -30,6 +30,7 @@
 		<div class="UIPortletOptions ItemSelectorAncestor">	
 			<div class="PortletOptions">
 		  <%uicomponent.renderChild(UIDropDownItemSelector.class);%>
+		    <div class="ScrollArea">
 			<%
 			  for(portletCategoryData in portletCategoryDatas){ 
 			    String style = " style=\"display:none\" ";
@@ -63,6 +64,7 @@
 						</div>
 					</div>
 			<%}%>
+				</div>
 			</div>
 		</div>
   </div>

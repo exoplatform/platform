@@ -4,7 +4,7 @@
 }
 
 .ErrorMessage32x32Icon {
-  background: url('/eXoResources/icons/32x32/VistaSkin/MinusSign.gif');
+  background: url('/eXoResources/icons/32x32/VistaSkin/MinusSign.gif') ;
   width: 32px ; height: 32px ;
 }
 
@@ -19,22 +19,22 @@
 }
 
 .NavyWheelDataBox32x32Icon {
-  background: url('/eXoResources/icons/32x32/VistaSkin/NavyWheelDataBox.gif');
+  background: url('/eXoResources/icons/32x32/VistaSkin/NavyWheelDataBox.gif') ;
   width: 32px ; height: 32px ;
 }
 
 .Yellowbulb32x32Icon {
-  background: url('/eXoResources/icons/32x32/VistaSkin/Yellowbulb.gif');
+  background: url('/eXoResources/icons/32x32/VistaSkin/Yellowbulb.gif') ;
   width: 32px ; height: 32px ;
 }
 
 .PageMagnifier32x32Icon {
-  background: url('/eXoResources/icons/32x32/VistaSkin/PageMagnifier.gif');
+  background: url('/eXoResources/icons/32x32/VistaSkin/PageMagnifier.gif') ;
   width: 32px ; height: 32px ;
 }
 
 .BoxMagnifier32x32Icon {
-  background: url('/eXoResources/icons/32x32/VistaSkin/BoxMagnifier.gif');
+  background: url('/eXoResources/icons/32x32/VistaSkin/BoxMagnifier.gif') ;
   width: 32px ; height: 32px ;
 }
 

@@ -112,6 +112,7 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 			itemList[i].style.display = "none";
 		}
 	}
+	eXo.portal.UIPortalControl.fixHeight();
 };
 
 /** Created: by Duy Tu **/
