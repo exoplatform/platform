@@ -43,9 +43,10 @@
 }
 
 .UIItemSelector .ItemDetailList .LayoutHolder .DesktopImage {
-  background: url('DefaultSkin/background/DesktopPage.jpg') no-repeat center bottom;
-  height: 203px;
-  width: 323px;
+  background: url('DefaultSkin/background/DesktopLayout.jpg') no-repeat center bottom;
+  height: 170px;
+  width: 270px;
+  margin: auto;
 }
 
 .UIItemSelector .ItemDetailList .ItemDescription {
@@ -511,50 +512,60 @@
 
 .UIItemSelector .TwoColumnsLayout {
   width: 270px; height: 170px;
+  margin: auto;
   background: url('DefaultSkin/background/2Columns.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeColumnsLayout {
   width: 270px; height: 170px;
+  margin: auto;
   background: url('DefaultSkin/background/3Columns.gif') no-repeat;
 }
 
 .UIItemSelector .TwoColumnsOneRowLayout {
   width: 270px; height: 170px;
+  margin: auto;
   background: url('DefaultSkin/background/2Columns1Row.gif') no-repeat;
 }
 
 .UIItemSelector .TwoColumnsTwoRowsLayout {
   width: 270px; height: 170px;
+  margin: auto;
   background: url('DefaultSkin/background/2Columns2Rows.gif') no-repeat;
 }
 
 .UIItemSelector .TwoRowsLayout {
   width: 270px; height: 170px;
+  margin: auto;
   background: url('DefaultSkin/background/2Rows.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeRowsLayout {
   width: 270px; height: 170px;
+  margin: auto;
   background: url('DefaultSkin/background/3Rows.gif') no-repeat;
 }
 
 .UIItemSelector .OneRowTwoColumnsLayout {
   width: 270px; height: 170px;
+  margin: auto;
   background: url('DefaultSkin/background/1Row2Columns.gif') no-repeat;
 }
 
 .UIItemSelector .TwoTabsLayout {
   width: 270px; height: 170px;
+  margin: auto;
   background: url('DefaultSkin/background/2Tabs.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeTabsLayout {
   width: 270px; height: 170px;
+  margin: auto;
   background: url('DefaultSkin/background/3Tabs.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeRowsTwoColumnsLayout {
   width: 270px; height: 170px;
+  margin: auto;
   background: url('DefaultSkin/background/2Columns3Rows.gif') no-repeat;
 }

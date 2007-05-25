@@ -8,8 +8,10 @@
 		<div class="RightMiddleDescriptionDecorator">	
 		  <div class="DecriptionContainer">
 			  <div class="DescriptionContent">
-			  	<div class="DescriptionContentContainer">
-			  		<%=_ctx.appRes("UIDescription.content." + uicomponent.getId());%>
+			  	<div class="DescriptionContentContainer ScrollArea">
+			  		<div class="DescriptionContentMaxHeight">
+			  		  <%=_ctx.appRes("UIDescription.content." + uicomponent.getId());%>
+			  		</div>
 			  	</div>
 			  </div>
 			</div>

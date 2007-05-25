@@ -25,12 +25,14 @@
 .UIDescription .DescriptionContent {
   line-height: 20px;
   font-size: 11px;
-  text-align: justify;
-  padding: 8px;
+  text-align: center;
   border:1px #7e878f solid;
   background: url('VistaSkin/background/DescriptionContentBackgr.png') repeat;
+}
+
+.UIDescription .DescriptionContentMaxHeight {
+  padding: 8px;
   height: 300px;
-  overflow: auto;
 }
 
 .UIDescription .LeftTopDescriptionDecorator {
@@ -72,3 +74,5 @@
 	background: url('VistaSkin/background/CenterBottomDescriptionDecorator1x9.png') repeat-x;
 	height: 9px;
 }
+
+

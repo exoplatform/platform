@@ -29,9 +29,11 @@
   line-height: 20px;
   font-size: 11px;
   text-align: justify;
-  padding: 7px;
   border: 1px #cdcdcd solid;
   background: #f4f4f4;
+}
+
+.UIDescription .DescriptionContentMaxHeight {
+  padding: 5px;
   height: 300px;
-  overflow: auto;
 }

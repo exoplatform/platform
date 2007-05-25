@@ -242,7 +242,7 @@
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList {
   background: #ffffff;
   margin-right: 260px; 
-  padding: 10px;
+  padding: 5px 10px 10px 10px;
   border: solid 1px #b7b7b7 ;
 }
 
