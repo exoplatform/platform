@@ -71,7 +71,7 @@ UIForm.prototype.serializeForm = function (formElement) {
   
   for(var i = 0; i < elements.length; i++) {
     element = elements[i];
-    if(element.disabled) continue;
+    //if(element.disabled) continue;
     switch(element.type) {
       case "text":
       case "hidden":

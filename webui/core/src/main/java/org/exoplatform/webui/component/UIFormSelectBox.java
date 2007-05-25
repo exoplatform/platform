@@ -17,7 +17,7 @@ public class UIFormSelectBox extends UIFormStringInput {
   
 	public UIFormSelectBox(String name, String bindingExpression, List<SelectItemOption<String>> options) {
     super(name, bindingExpression, null);
-    this.options_ = options;
+    setOptions(options);
 	}
   
   final public UIFormSelectBox setSize(int i) { 
@@ -29,9 +29,11 @@ public class UIFormSelectBox extends UIFormStringInput {
   
   final public UIFormSelectBox setOptions(List<SelectItemOption<String>> options) { 
     options_ = options ; 
+    if(options_ == null || options_.size() < 1) return this;
+    value_ = options_.get(0).getValue();
     return this ;
   } 
- 
+  
   public void setOnChange(String onchange){ onchange_ = onchange; }    
   
   @SuppressWarnings("deprecation")

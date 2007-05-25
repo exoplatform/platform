@@ -67,14 +67,14 @@ public class UIPageNavigationForm extends UIFormTabPane {
   public UIPageNavigationForm() throws Exception {
     super("UIPageNavigationForm") ;
     
-    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-    ls.add(new SelectItemOption<String>("User", "user")) ;
-    ls.add(new SelectItemOption<String>("Portal", "portal")) ;
-    ls.add(new SelectItemOption<String>("Group", "group")) ;
-    UIFormSelectBox uiSelectBoxOwnerType = new UIFormSelectBox("ownerType","ownerType" , ls) ;
+    List<SelectItemOption<String>> ownerTypes = new ArrayList<SelectItemOption<String>>() ;
+    ownerTypes.add(new SelectItemOption<String>("User", PortalConfig.USER_TYPE)) ;
+    ownerTypes.add(new SelectItemOption<String>("Portal", PortalConfig.PORTAL_TYPE)) ;
+    ownerTypes.add(new SelectItemOption<String>("Group", PortalConfig.GROUP_TYPE)) ;
+    UIFormSelectBox uiSelectBoxOwnerType = new UIFormSelectBox("ownerType","ownerType" , ownerTypes) ;
     uiSelectBoxOwnerType.setOnChange("ChangeOwnerType");
     
-    UIFormStringInput uiOwnerId = new UIFormStringInput("ownerId", "ownerId",null);
+    UIFormStringInput uiOwnerId = new UIFormStringInput("ownerId", "ownerId", null);
     uiOwnerId.setEditable(false);
     
     List<SelectItemOption<String>> priorties = new ArrayList<SelectItemOption<String>>();

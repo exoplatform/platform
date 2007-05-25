@@ -393,12 +393,12 @@ public class DataStorageImpl implements DataStorage {
   }
 
   private Node createDataNode(Session session, String ownerType, String ownerId) throws Exception {
-    if(ownerType.equals(PortalConfig.PORTAL_TYPE)) {
+    if(PortalConfig.PORTAL_TYPE.equals(ownerType)) {
       Node appNode = jcrRegService_.getApplicationRegistryNode(session, PORTAL_DATA);
       return create(appNode, ownerId);
     } 
     
-    if(ownerType.equals(PortalConfig.USER_TYPE)){
+    if(PortalConfig.USER_TYPE.equals(ownerType)){
       jcrRegService_.createUserHome(ownerId, false);
       jcrRegService_.createApplicationRegistry(ownerId, new ApplicationRegistry(USER_DATA), false);
       Node appNode = jcrRegService_.getApplicationRegistryNode(session, ownerId, USER_DATA);
@@ -406,7 +406,7 @@ public class DataStorageImpl implements DataStorage {
       return create(create(portalNode, EXO_DATA_TYPE), PORTAL);
     }
     
-    if(ownerType.equals(PortalConfig.GROUP_TYPE)){
+    if(PortalConfig.GROUP_TYPE.equals(ownerType)){
       jcrRegService_.createApplicationRegistry(new ApplicationRegistry(GROUP_DATA), false);
       Node appNode = jcrRegService_.getApplicationRegistryNode(session, GROUP_DATA);
       String [] groups = ownerId.split("/");
