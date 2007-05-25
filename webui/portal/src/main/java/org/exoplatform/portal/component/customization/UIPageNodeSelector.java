@@ -169,7 +169,8 @@ public class UIPageNodeSelector extends UIContainer {
   
 //TODO: Tung.Pham modified
   public void selectPageNodeByUri(String uri){    
-    upLevelURI = null;    
+    upLevelURI = null; 
+    if (selectedNavigation == null) return ;
     UITree tree = getChild(UITree.class);
     List<?> sibbling = tree.getSibbling();
     tree.setSibbling(null);
