@@ -167,12 +167,15 @@ public class UIPageNodeSelector extends UIContainer {
     }
   }
   
+//TODO: Tung.Pham modified
   public void selectPageNodeByUri(String uri){    
     upLevelURI = null;    
     UITree tree = getChild(UITree.class);
     List<?> sibbling = tree.getSibbling();
     tree.setSibbling(null);
     tree.setParentSelected(null);
+    String owner = uri.split("::")[0] ;
+    if (!selectedNavigation.getOwnerId().equals(owner) && getPageNavigationByOwner(owner) != null) selectedNavigation = getPageNavigationByOwner(owner) ;
     selectedPageNode = findPageNodeByUri(selectedNavigation, uri, tree);
     if(selectedPageNode == null){      
       tree.setSelected(null);
@@ -251,6 +254,18 @@ public class UIPageNodeSelector extends UIContainer {
   public void setSelectedPageNode(PageNode node) { selectedPageNode = node ;}
   
   public String getUpLevelUri () { return upLevelURI ; }
+  
+  //TODO: Tung.Pham added
+  private PageNavigation getPageNavigationByOwner(String owner) {
+    for (int i = 0; i < navigations_.size(); i ++) {
+      if (!navigations_.get(i).getOwnerId().equals(owner)) continue ;
+      selectedNavigation = navigations_.get(i) ;
+      UIDropDownItemSelector dropdown = getChild(UIDropDownItemSelector.class) ;
+      dropdown.setSelected(i) ;
+    }
+    
+    return null ;
+  }
   
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {      

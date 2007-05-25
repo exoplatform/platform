@@ -1,0 +1,20 @@
+<div class="UIChagnePortal" id="<%=uicomponent.getId();%>">
+	<%uicomponent.renderChildren() %>	
+	<div class="UIAction">
+	  <div class="ActionContainer">
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	              <a class="ActionText" href="<%=uicomponent.event("Close")%>">
+	                <%=_ctx.appRes("UIChangePortal.action.close")%>
+	              </a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>			    
+</div>

@@ -336,6 +336,13 @@
   padding: 0px 0px 0px 16px ;
   margin: 0px 0px 0px 4px;
 }
+
+.UIExoStart .StartMenuContainer .ChangePortalIcon {
+  height: 32px ;  
+  background: url('DefaultSkin/icons/32x32/ChangeSkin.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
 /*========================Start Menu Decorator======================*/
 .UIExoStart .StartMenuDecorator {
 	width: 100%;

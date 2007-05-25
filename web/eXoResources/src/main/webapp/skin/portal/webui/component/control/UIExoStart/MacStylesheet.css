@@ -329,6 +329,14 @@
   padding: 0px 0px 0px 16px ;
   margin: 0px 0px 0px 4px;
 }
+
+.UIExoStart .StartMenuContainer .ChangePortalIcon {
+  height: 38px ;  
+  background: url('MacSkin/icons/32x32/ChangeSkin.png') no-repeat left ;
+  padding: 0px 0px 0px 37px ;
+  margin: 0px 0px 0px 4px;
+}
+
 /*========================Start Menu Decorator======================*/
 .UIExoStart .StartMenuDecorator {
 }

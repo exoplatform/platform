@@ -11,10 +11,12 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.customization.UIChangeLanguage;
+import org.exoplatform.portal.component.customization.UIChangePortal;
 import org.exoplatform.portal.component.customization.UIChangeSkin;
 import org.exoplatform.portal.component.customization.UIPageCreationWizard;
 import org.exoplatform.portal.component.customization.UIPageEditWizard;
 import org.exoplatform.portal.component.customization.UIPageManagement;
+import org.exoplatform.portal.component.customization.UIPortalBrowser;
 import org.exoplatform.portal.component.customization.UIPortalManagement;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.customization.UIWizardPageCreationBar;
@@ -62,7 +64,8 @@ import org.exoplatform.webui.event.EventListener;
     @EventConfig(listeners = UIExoStart.LoginActionListener.class),
     @EventConfig(listeners = UILogged.LogoutActionListener.class),
     @EventConfig(listeners = UIExoStart.LanguageSettingsActionListener.class),
-    @EventConfig(listeners = UIExoStart.SkinSettingsActionListener.class)
+    @EventConfig(listeners = UIExoStart.SkinSettingsActionListener.class),
+    @EventConfig(listeners = UIExoStart.ChangePortalActionListener.class)
   }
 )
 public class UIExoStart extends UIComponent {
@@ -328,5 +331,20 @@ public class UIExoStart extends UIComponent {
       UIExoStart uicomp = event.getSource() ;
       uicomp.setUIControlWSWorkingComponent(UIWelcomeComponent.class) ;       
     }
-  }  
+  }
+  
+  //TODO: Tung.Pham added
+  static public class ChangePortalActionListener extends EventListener<UIExoStart> {
+    public void execute(Event<UIExoStart> event) throws Exception {
+      UIPortal uiPortal = Util.getUIPortal() ;
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class) ;
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      
+      UIChangePortal uiChangePortal = uiMaskWS.createUIComponent(UIChangePortal.class, null, null) ;
+      uiMaskWS.setUIComponent(uiChangePortal) ;
+      uiMaskWS.setShow(true) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
+      
+    }
+  }
 }

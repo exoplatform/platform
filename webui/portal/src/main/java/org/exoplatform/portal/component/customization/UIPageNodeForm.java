@@ -104,6 +104,7 @@ public class UIPageNodeForm extends UIFormTabPane {
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       String remoteUser = Util.getPortalRequestContext().getRemoteUser();
+      String owner = remoteUser ;
       
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       uiMaskWS.setUIComponent(null);
@@ -124,7 +125,9 @@ public class UIPageNodeForm extends UIFormTabPane {
       if(selectedParent instanceof PageNavigation){
         pageNav = (PageNavigation)selectedParent;
         pageNav.setModifier(remoteUser);
-        pageNode.setUri(pageNode.getName());
+        //pageNode.setUri(pageNode.getName());
+        owner = pageNav.getOwnerId() ;
+        pageNode.setUri(owner + "::" + pageNode.getName()) ;
         if(!pageNav.getNodes().contains(pageNode)) pageNav.addNode(pageNode);
       } else if(selectedParent instanceof PageNode) {
         PageNode parentNode = (PageNode)selectedParent; 
