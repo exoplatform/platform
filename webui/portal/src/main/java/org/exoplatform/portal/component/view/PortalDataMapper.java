@@ -221,7 +221,9 @@ public class PortalDataMapper {
   static public void toUIPortal(UIPortal uiPortal, UserPortalConfig userPortalConfig) throws Exception {
     PortalConfig model = userPortalConfig.getPortalConfig();
     
-    uiPortal.setId("UIPortal") ;   
+    uiPortal.setId("UIPortal") ; 
+    uiPortal.setCreator(model.getCreator());
+    uiPortal.setModifier(model.getModifier());
     uiPortal.setName(model.getName());
     uiPortal.setFactoryId(model.getFactoryId());
     uiPortal.setOwner(model.getName());
