@@ -7,19 +7,25 @@
 	
 	<container id="Information">
     <application>
-      <instance-id>exoadmin:/information</instance-id>    
+      <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget1</instance-id>
       <application-type>widget</application-type> 
-    </application>  
-	</container>
-	<container id="Calendar">
-  	<application>
-      <instance-id>exoadmin:/calendar</instance-id>    
+    </application>
+    <application>
+      <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget1</instance-id>
       <application-type>widget</application-type> 
     </application>
 	</container>
+  
+	<container id="Calendar">
+  	<application>
+      <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget2</instance-id>
+      <application-type>widget</application-type> 
+    </application>
+  </container>
+
 	<container id="Calculator">
   	<application>
-      <instance-id>exoadmin:/calculator</instance-id>    
+      <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget2</instance-id>
       <application-type>widget</application-type> 
     </application>
 	</container>
