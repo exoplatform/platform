@@ -52,11 +52,11 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
   
   /**Repaired: by Vu Duy Tu **/
    itemDetails += '<div class="ItemDetailTitle">' +
-        	    	'	 <div class="TitleIcon ViewListIcon"><span></span></div>' +
-				  	    '	 <div class="Title">Select Portlets</div>' +
-				  	    '	 <div style="clear: left;"><span></span></div>' +
-        	      '</div>';
-   itemDetails += '<div class="ApplicationListContainer">';
+        	    	  '	 <div class="TitleIcon ViewListIcon"><span></span></div>' +
+				  	      '	 <div class="Title">Select Portlets</div>' +
+				  	      '	 <div style="clear: left;"><span></span></div>' +
+        	        '</div>' +
+        	        '<div class="ApplicationListContainer">';
   for(id in category.portletRegistry) {  	
 		var cate = category.portletRegistry[id];
 		if(!selected){
@@ -73,20 +73,14 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 						 '    </div>' + 
 	           '  </div>' + 
 	           '</div> ' ;
-	           
-	  
 	  if(!selected) {
  	    itemDetails += '<div class="ItemDetail" style="display: block">';
 	  } else {
 	  	itemDetails += '<div class="ItemDetail" style="display: none">';
 	  }
-	          	      
-	  
 	  var portlets = cate["portlets"];
-
 	  for(id in portlets) {
 	  	portlet = portlets[id];
-
       var srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + portlet["title"]+".png";
       var srcNormalBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png";
 			srcBG = getUrl(srcBG);
@@ -129,13 +123,11 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 						      	 '</div>';
 	  }
     itemDetails += '</div>';
-
 		if(!selected) selected = true;
   }
   itemDetails += '</div>';
   itemList.innerHTML = items;  
   itemDetailList.innerHTML = itemDetails;
-
 };
 
 UIAddApplication.prototype.addPortlet = function(id, save) {
