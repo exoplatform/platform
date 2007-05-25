@@ -30,8 +30,11 @@
   overflow: hidden;
 }
 
+.UIPortletOptions .ScrollArea {
+  border: 1px solid #b7b7b7;
+}
+
 .UIPortletOptions .CategoryContainer {
-  border:solid 1px #b7b7b7; 
   background: white;
   padding-top: 5px;
   overflow: auto;

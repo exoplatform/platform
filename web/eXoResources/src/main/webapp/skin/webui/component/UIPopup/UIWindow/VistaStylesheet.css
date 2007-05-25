@@ -8,6 +8,10 @@
   border: none;
 }
 
+.UIPageDesktop .UIWindow .UIApplication {
+  height: 360px ;
+}
+
 /*##########################################################*/
 
 .UIWindow .WindowPortletControl {

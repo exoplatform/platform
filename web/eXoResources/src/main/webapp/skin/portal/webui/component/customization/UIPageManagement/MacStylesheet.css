@@ -125,13 +125,9 @@
 
 /*================================== Control Toolbar ==================================*/
 
-.UIToolbar .ControlToolbar {
-  margin: 0px 2px 0px 7px;
-}
-
 .UIPageManagement .UIToolbar .ControlToolbar .Icon {
   float: left;
-  margin: 3px 2px 0px 3px; 
+  margin: 3px 0px 0px 0px; 
 }
 
 .UIPageManagement .CreateNavigationIcon {

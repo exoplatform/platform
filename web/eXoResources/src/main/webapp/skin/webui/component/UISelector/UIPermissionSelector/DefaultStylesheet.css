@@ -66,14 +66,12 @@
   margin: 8px 0px 5px 40px ;
   float: left ;
   width: 150px ;
-  font-size: 12px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Info {
   float: left ;
   margin: 8px 0px 5px 15px ;
   color: #0749c4 ;
-  font-size: 12px;
   background: none;
 }
 

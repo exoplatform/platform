@@ -1,7 +1,7 @@
 .UIGroupMembershipSelector {
 	margin: auto;
   padding: 5px; 
-  width: 502px;
+  width: 500px;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs {
@@ -25,12 +25,32 @@
   height: 35px;
 }
 
-.UIGroupMembershipSelector .UITree {
-  width: 281px; height: 150px; 
-  overflow: auto;
-  border: 1px #5f90ba solid;
+.UIGroupMembershipSelector .Container {
+  padding: 10px;
+}
+
+.UIGroupMembershipSelector .MembershipTitle{
+  background: url('VistaSkin/background/TitleBG1x20.gif') repeat-x;
+  border: 1px #5f90ba solid; 
+  height: 20px; line-height: 20px; vertical-align: middle;
+  padding-left: 15px;
+}
+
+.UIGroupMembershipSelector .GroupSelector {
   float: left;
+  width: 230px;
+  border: 1px solid white;
+}
+
+.UIGroupMembershipSelector .UITree {
+  border: 1px #5f90ba solid;
+  border-top: none;  
   background: white;
+}
+
+.UIGroupMembershipSelector .UITree .TreeContainer{
+  width: 226px; height: 150px;
+  overflow: auto;
 }
 
 .UIGroupMembershipSelector .BlueLevelUpArrow24x24Icon {
@@ -38,55 +58,47 @@
 }
 
 .UIGroupMembershipSelector .UITree .Node {
+  margin: 0px 0px 2px 3px ;
   width: auto;
-  margin: 0px 0px 2px 3px ; padding-left: 3px;
-  color: black;
+}
+
+.UIGroupMembershipSelector .UITree .Node .NodeLabel .NodeSelected {
+  color: #058ee6;
 }
 
 .UIGroupMembershipSelector .MembershipSelector {
-  width: 203px;
-  font-weight: normal;
-  background-color: white;
-  padding: 1px ;
-  border: 1px #5f90ba solid; 
-  float: left;
-  margin-left: 10px;
+  background: #f4f4f4;
+  border: 1px solid white; 
+  margin-left: 240px; height: 183px;
 }
 
-.UIGroupMembershipSelector .MembershipSelector .MembershipTitle{
-  font-weight: normal;
-  background: url('VistaSkin/background/TitleBG1x20.gif') repeat-x;
-  border-bottom: 1px #5f90ba solid; 
-  height: 20px; line-height: 20px; vertical-align: middle;
-  text-align: center;
+.UIGroupMembershipSelector .MembershipSelector .OverflowContainer {
+  border: #5f90ba 1px solid;
+  border-top: none;
+  background: white;
+  height: 150px; width: auto;
+  padding: 5px 10px;
+  overflow: auto;
 }
 
 .UIGroupMembershipSelector .MembershipSelector .Label {
-  float: left;
-  height: 24px; vertical-align: middle;  line-height: 24px ;
-  font-size: 12px; color: black;
+  line-height: 24px ;
 }
 
 .UIGroupMembershipSelector .MembershipSelector  a {
-  color: black;
+  color: black; font-size: 11px; 
 }
 
 .UIGroupMembershipSelector .MembershipSelector  a:hover {
-  color: blue; font-weight: normal; font-size: 12px;
+  color: blue; 
 }
 
 .UIGroupMembershipSelector  .MembershipSelector .OddRow {
-  height: 26px ;  vertical-align: middle;  line-height: 26px ;
-  background: #e9ebf5 ;
-  margin: 1px ;
-  font-size: 12px;
+  line-height: 26px ;
 }
 
 .UIGroupMembershipSelector  .MembershipSelector .EvenRow {
-  height: 26px ; vertical-align: middle;  line-height: 26px ;
-  background: #e9ebf5 ;
-  margin: 1px ;
-  font-size: 12px;
+  line-height: 26px ;
 }
 
 .UIGroupMembershipSelector .MembershipSelector .ItemIcon {
@@ -95,3 +107,4 @@
   width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/GrayBorderRightArrow.gif') no-repeat;  
 }
+

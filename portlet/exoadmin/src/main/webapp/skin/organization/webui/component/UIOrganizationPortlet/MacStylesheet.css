@@ -89,49 +89,22 @@
   width: 170px;
 }
 
+.UIOrganizationPortlet .UIForm .HorizontalLayout .FieldContainer {
+  width: 400px;
+}
+
 /*##############################- UIUserManagement -###########################*/
 .UIOrganizationPortlet .UIFormTabPane {
 	width: 96%;
 	margin: auto;
 }
 
-.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer {
-	width: 70%;
-	margin: auto;
-	height: 28px;
-	padding-top: 5px;
-}
-
-.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer label {
-	width: 130px;
-	text-decoration: none;
-	line-height: 18px;
-}
-
-.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer input {
-	height: 20px;
-}
-
 .UIOrganizationPortlet .UIFormTabPane .UIPersonalInfo {
   padding: 0px;
 }
 
-.UIOrganizationPortlet .UIFormTabPane .UIPersonalInfo .UIFormInputSet {
-	border: none;
-}
-
-.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer {
-	width: 410px;
-	margin: auto;
-	height: 22px;
-	padding: 0px 0px 8px 0px;
-}
-
-.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer label {
-	width: 120px;
-	text-decoration: none;
-	line-height: 18px;
-	margin: 0px 5px 0px 0px;
+.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet label {
+  width: 100px;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
@@ -149,16 +122,6 @@
 
 .UIOrganizationPortlet .UIUserManagement .UIGrid {  
   margin: 1px auto ;
-}
-
-.UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer label {
-}
-
-.UIOrganizationPortlet .UITabContent .UIFormInputSet .FieldContainer input {
-  width: 220px;
-  font-size: 11px;
-  height: 16px; 
-  border: 1px gray solid;
 }
 
 /*#######################- UIUserInfo - #####################*/
@@ -242,10 +205,6 @@
   width: 99.5%;
 }
 
-
-.UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle .HorizontalLayout .FormContainer {
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UITabContentContainer {
   background: url('MacSkin/background/LightGrayLinedBG1x4.gif');
 }
@@ -260,7 +219,11 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .FieldContainer label{
-  width: 110px;
+  width: 100px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .FieldContainer input{
+  width: 210px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIAction {

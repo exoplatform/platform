@@ -70,9 +70,8 @@
 }
 
 .UIGroupMembershipSelector .UITree .Node {
+  margin: 0px 0px 2px 3px ;
   width: auto;
-  margin: 0px 0px 2px 3px ; padding-left: 3px;
-  color: black;
 }
 
 .UIGroupMembershipSelector .UITree .Node .NodeLabel .NodeSelected {

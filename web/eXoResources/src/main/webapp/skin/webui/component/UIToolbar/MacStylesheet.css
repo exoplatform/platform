@@ -380,7 +380,7 @@
 /*#################################- ControlToolbar -##############################*/
 
 .UIToolbar .ControlToolbar {
-  margin-top: 15px;
+  margin: 15px 2px 0px 6px;
 }
 
 .UIToolbar .ControlToolbar .LeftBar {

@@ -32,55 +32,14 @@
 /*########################-UIPersonalInfo-###########################*/
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
   width: 400px;
-  overflow: hidden;
-  margin: auto;
-  padding-top: 5px;
-}
-
-.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer label {
-  margin-left: 0px; width: 120px; text-align: right;
-  float: left; margin-right: 5px;
-}
-
-.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer input{
-  border: 1px #b7b7b7 solid;
-  width: 220px; height: 18px;
-  font-size: 11px;
-  padding-left: 5px;
 }
 
 .UIAccountPortlet .UIForm .HorizontalLayout select {
   width: 238px;
-  margin: 0px;
 }
 
 .UIAccountPortlet .UIItemSelector .UIFormInputSet {
   padding-top: 12px;
-  font-size: 11px;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet .FieldContainer {
-  width: 390px;
-  margin: 5px auto;
-  overflow: hidden;
-  padding: 0px;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet label {
-  float: left;
-  line-height: 20px; vertical-align: middle;
-  white-space: nowrap; 
-  width: 100px;
-  margin-right: 20px;
-  font-size: 11px; text-align: right;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet input {
-  width: 230px;
-  float: left;
-  font-size: 11px;
-  margin-left: 0px;
-  padding-left: 5px;
 }
 
 /*########################-Template Selector-###########################*/

@@ -72,7 +72,7 @@
     <node>
       <uri>/portal/admin::groupware</uri>
       <name>groupWare</name>
-      <label>GROUPWARE</label>
+      <label>Collaboration Suit</label>
       <page-reference>group::/portal/admin::groupwaredesktop</page-reference>
       
       <node>

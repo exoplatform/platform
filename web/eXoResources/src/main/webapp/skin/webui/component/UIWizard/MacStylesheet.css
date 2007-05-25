@@ -211,8 +211,7 @@
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
   width: 520px;
-  margin: auto;
-  margin-top: 5px;
+  margin: 5px auto 0px auto;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction{
@@ -225,24 +224,7 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FieldContainer {
-	width: 380px;
-	margin: 0px auto;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle label{
-  float: left; 
-  width: 100px;
-  text-align: left; font-size: 11px;
-  padding-left: 5px;
-  margin-right: 0px;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle input{
-  float: left;
-  width: 230px; height: 18px;
-  background: white; font-size: 11px;
-  border: solid 1px gray ;
-  padding-left: 5px;
+	width: 450px;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle textarea {

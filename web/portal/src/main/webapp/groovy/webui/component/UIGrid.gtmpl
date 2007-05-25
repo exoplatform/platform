@@ -67,9 +67,9 @@
 		            if(action != null) {           
 	                if(uiForm != null){
 		          %>	           
-		                <a class="${action}Icon" href="<%=uiForm.event(action, uicomponent.getParent().getId(), beanId)%>" title = "$action"><span></span></a>	           
+		                <a class="${action}Icon" href="<%=uiForm.event(action, uicomponent.getParent().getId(), beanId)%>" title = "<%=_ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action)%>"><span></span></a>
 		          <%  }else{ %>
-      		          <a class="${action}Icon" href="<%=uiParent.event(action, beanId)%>" title = "$action"><span></span></a>	           
+      		          <a class="${action}Icon" href="<%=uiParent.event(action, beanId)%>" title = "<%=_ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action)%>"><span></span></a>	           
 		          <%  } %> 
 		          <%} %> 
 	          <%}%>                 

@@ -118,7 +118,7 @@
 .UISitemap .SitemapItemBox .Level1 {
   height: 26px ;
   border: solid 1px #cecece ;
-  background: #eeeeee ;
+  background: url(/eXoResources/background/MacSkin/BgItemSelector1x4.png) repeat;
   margin-top: 3px;
 }
 
