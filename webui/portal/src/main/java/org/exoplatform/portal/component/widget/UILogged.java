@@ -7,6 +7,7 @@ package org.exoplatform.portal.component.widget;
 import javax.servlet.http.HttpServletRequest;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -40,13 +41,17 @@ public class UILogged extends UIContainer {
     public String getRemoteUser() { return remoteUser_ ; }
     
     @SuppressWarnings("unused")
+    //TODO: Tung.Pham Modified
     static  public class LogoutActionListener extends EventListener {
       public void execute(Event event) throws Exception {
         PortalRequestContext prContext = Util.getPortalRequestContext();
         HttpServletRequest request = prContext.getRequest() ;
         request.getSession().invalidate() ;
         prContext.setResponseComplete(true) ;
-        String redirect = request.getContextPath() ;
+        //String redirect = request.getContextPath() ;
+        UIPortal currentPortal = Util.getUIPortal() ;
+        String portalName = currentPortal.getName() ;
+        String redirect = request.getContextPath() + "/public/" + portalName + ":/" ;
         prContext.getResponse().sendRedirect(redirect) ;
       }
     }    

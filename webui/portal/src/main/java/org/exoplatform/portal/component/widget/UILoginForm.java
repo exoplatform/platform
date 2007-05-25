@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -79,6 +81,7 @@ public class UILoginForm extends UIForm {
 //    return cookie;
 //  }
 
+  //TODO: Tung.Pham Modified
   static public class SigninActionListener  extends EventListener<UILoginForm> {
     
     public void execute(Event<UILoginForm> event) throws Exception {
@@ -105,7 +108,10 @@ public class UILoginForm extends UIForm {
         response.addCookie(loadCookie(request, "authentication.password", password));
       }
       prContext.setResponseComplete(true);     
-      String redirect = request.getContextPath() + "/private/site:/";
+      //String redirect = request.getContextPath() + "/private/site:/";
+      UIPortal currentPortal = Util.getUIPortal() ;
+      String portalName = currentPortal.getName() ;
+      String redirect = request.getContextPath() + "/private/" + portalName + ":/";
       prContext.getResponse().sendRedirect(redirect);      
     }   
     
