@@ -103,5 +103,5 @@ public class PortalRequestContext extends WebuiRequestContext {
   final public boolean getFullRender() { return forceFullUpdate; }
 
   final public void setFullRender(boolean forceFullUpdate) { this.forceFullUpdate = forceFullUpdate; }
-  
+
 }

@@ -69,7 +69,7 @@ public class WebAppController {
   }
   
   public void service(HttpServletRequest req, HttpServletResponse res) throws Exception {
-    System.out.println("\n\n ==> Servelt Path " +  req.getServletPath());
+    System.out.println("\n\n ==> Servlet Path " +  req.getServletPath());
     WebRequestHandler handler = handlers_.get(req.getServletPath()) ;
     System.out.println("\n\n ==> Handler " +  handler);
     if(handler != null) {

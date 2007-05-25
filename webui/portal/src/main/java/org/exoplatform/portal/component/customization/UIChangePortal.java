@@ -91,6 +91,9 @@ public class UIChangePortal extends UIContainer {
       UIPortal oldPortal = uiWorkspace.getChild(UIPortal.class) ;
       uiWorkspace.replaceChild(oldPortal.getId(), uiPortal) ;
       uiWorkspace.setRenderedChild(UIPortal.class) ;
+      if(uiPortal.getSkin() != null && uiPortal.getSkin().trim().length() > 0){
+        uiPortalApp.setSkin(uiPortal.getSkin());
+      }
       
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID) ;
       UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID) ;
@@ -99,6 +102,10 @@ public class UIChangePortal extends UIContainer {
       prContext.addUIComponentToUpdateByAjax(uiControl) ;
       prContext.addUIComponentToUpdateByAjax(uiWorkspace) ;
       prContext.setFullRender(true) ;
+      
+      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
+      uiMaskWS.setUIComponent(null);
+      prContext.addUIComponentToUpdateByAjax(uiMaskWS) ;
     }
   }
 }

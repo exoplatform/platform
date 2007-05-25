@@ -78,11 +78,13 @@ public class UIPortalBrowser extends UIContainer {
       
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
       PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
-      
       UIPortal oldUIPortal = uiWorkingWS.getChild(UIPortal.class);      
-      
       uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
       uiWorkingWS.setRenderedChild(UIPortal.class) ;
+      if(uiPortal.getSkin() != null && uiPortal.getSkin().trim().length() > 0){
+        uiPortalApp.setSkin(uiPortal.getSkin());
+      }
+      
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
       uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
