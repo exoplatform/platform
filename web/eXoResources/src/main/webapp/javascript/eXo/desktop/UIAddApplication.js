@@ -51,6 +51,12 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
   var selected  = false;
   
   /**Repaired: by Vu Duy Tu **/
+   itemDetails += '<div class="ItemDetailTitle">' +
+        	    	'	 <div class="TitleIcon ViewListIcon"><span></span></div>' +
+				  	    '	 <div class="Title">Select Portlets</div>' +
+				  	    '	 <div style="clear: left;"><span></span></div>' +
+        	      '</div>';
+   itemDetails += '<div class="ApplicationListContainer">';
   for(id in category.portletRegistry) {  	
 		var cate = category.portletRegistry[id];
 		if(!selected){
@@ -74,13 +80,8 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 	  } else {
 	  	itemDetails += '<div class="ItemDetail" style="display: none">';
 	  }
-	   itemDetails += '<div class="ItemDetailTitle">' +
-	          	    	'	 <div class="TitleIcon ViewListIcon"><span></span></div>' +
-						  	    '	 <div class="Title">Select Portlets</div>' +
-						  	    '	 <div style="clear: left;"><span></span></div>' +
-	          	      '</div>';
 	          	      
-	  itemDetails += '<div class="ApplicationListContainer">';
+	  
 	  var portlets = cate["portlets"];
 
 	  for(id in portlets) {
@@ -127,10 +128,11 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 						      	 '	<div style="clear: right;"><span></span></div>' +
 						      	 '</div>';
 	  }
-    itemDetails += '  </div>' +
-									 '</div>';  
+    itemDetails += '</div>';
+
 		if(!selected) selected = true;
   }
+  itemDetails += '</div>';
   itemList.innerHTML = items;  
   itemDetailList.innerHTML = itemDetails;
 
