@@ -23,9 +23,7 @@ public class Application {
   private Date createdDate;
   private String owner;
   private Date modifiedDate;
-  private String accessPermission ;
-  private transient String[] accessPermissions ;
-  private String editPermission ;
+  private String[] accessPermissions ;
   private String applicationGroup ;
   private String applicationName ;
   private String applicationType ;
@@ -39,8 +37,7 @@ public class Application {
   public void setDisplayName(String displayName) { this.displayName = displayName; }
   
   public String getDescription() {
-    if(description == null ) return "" ;
-    return description;
+    return description == null? "" : description;
   }  
   public void setDescription(String s) { description = s; }
 
@@ -60,30 +57,8 @@ public class Application {
   
   public void setOwner(String s) { this.owner = s; }
   
-  public void setAccessPermissions(String[] permiss) { accessPermissions = permiss ; }  
+  public void setAccessPermissions(String[] accessPerms) { accessPermissions = accessPerms ; }  
   public String[] getAccessPermissions() { return accessPermissions ; }
-  
-  public String getAccessPermission() {
-    if (accessPermissions == null || accessPermissions.length < 1) return null ;
-    StringBuilder builder = new StringBuilder() ;
-    for (int i= 0; i < accessPermissions.length; i ++) {
-      builder.append(accessPermissions[i]) ;
-      if (i < (accessPermissions.length - 1)) builder.append(',') ;
-    }
-    
-    return builder.toString() ;
-  }
-  public void setAccessPermission(String permiss) {
-    accessPermission = permiss ;
-    if (accessPermission == null) return ;
-    accessPermissions = accessPermission.split(",") ;
-    for (int i = 0; i < accessPermissions.length ; i++) {
-      accessPermissions[i] = accessPermissions[i].trim() ;
-    }
-  } 
-  
-  public String getEditPermission() { return editPermission ; }
-  public void setEditPermission(String editPermiss) { editPermission = editPermiss; }
   
   public String getApplicationGroup() { return applicationGroup; }
   public void setApplicationGroup(String applicationGroup) {

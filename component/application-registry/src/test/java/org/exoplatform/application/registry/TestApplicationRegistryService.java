@@ -25,6 +25,7 @@ import org.exoplatform.web.WebAppController;
  * Date: 16 juin 2004
  */
 public class TestApplicationRegistryService extends BasicTestCase {
+  
   protected static String demo  = "demo" ;
   protected static String Group1 = "Group1" ;
   protected static String Group2 = "Group2" ;
@@ -116,7 +117,7 @@ public class TestApplicationRegistryService extends BasicTestCase {
     service.save(officeCategory) ;
     String[] officeApps = {"MS Office", "OpenOffice"} ;
     Application msApp = createApplication(officeApps[0], "TestType", officeCategoryName) ;
-    msApp.setAccessPermission("member:/users") ;
+    msApp.setAccessPermissions(new String[]{"member:/users"}) ;
     service.save(officeCategory, msApp) ;
     Application openApp = createApplication(officeApps[1], "TestType", officeCategoryName) ;
     service.save(officeCategory, openApp) ;
@@ -126,10 +127,10 @@ public class TestApplicationRegistryService extends BasicTestCase {
     service.save(gameCategory) ;
     String[] gameApps = {"HaftLife", "Chess"} ;
     Application haftlifeApp = createApplication(gameApps[0], "TestType", gameCategoryName) ;
-    haftlifeApp.setAccessPermission("member:/portal/admin") ;
+    haftlifeApp.setAccessPermissions(new String[]{"member:/portal/admin"}) ;
     service.save(gameCategory, haftlifeApp) ;
     Application chessApp = createApplication(gameApps[1], "TestType", gameCategoryName) ;
-    chessApp.setAccessPermission("member:/portal/admin") ;
+    chessApp.setAccessPermissions(new String[]{"member:/portal/admin"}) ;
     service.save(gameCategory, chessApp) ;
 
     List<ApplicationCategory> returnCategorys =  service.getApplicationCategories(username1) ;
@@ -137,7 +138,7 @@ public class TestApplicationRegistryService extends BasicTestCase {
       System.out.println("\n\n\ncateName: " + cate.getName());
       List<Application> apps = service.getApplications(cate) ;
       for (Application app : apps) {
-        System.out.println("\nappName: "  + app.getApplicationName() + "---" + app.getAccessPermission());
+        System.out.println("\nappName: "  + app.getApplicationName() + "---" + app.getAccessPermissions());
       }
     }
     assertEquals(1, returnCategorys.size()) ;

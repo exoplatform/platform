@@ -4,8 +4,15 @@
  **************************************************************************/
 package org.exoplatform.application.registry.jcr;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
 import javax.jcr.Node;
+import javax.jcr.Property;
+import javax.jcr.PropertyIterator;
+import javax.jcr.Value;
+
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 
@@ -31,7 +38,6 @@ class DataMapper {
   private final static String APPLICATION_TYPE= "exo:applicationType";
   
   private final static String ACCESS_PERMISSION = "exo:accessPermission";
-  private final static String EDIT_PERMISSION = "exo:editPermission" ;
   private final static String MIN_WIDTH_RESOLUTION = "exo:minWidthResolution";
   
 
@@ -62,7 +68,6 @@ class DataMapper {
     node.setProperty(MODIFIED_DATE, calendar);
   }
 
-  //TODO: Tung.Pham: Modified
   Application nodeToApplication(Node node) throws Exception {
     Application application = new Application();
     if(!node.hasProperty(ID)) return null;
@@ -79,19 +84,17 @@ class DataMapper {
     application.setApplicationGroup(node.getProperty(APPLICATION_GROUP).getString());
     
     if(node.hasProperty(ACCESS_PERMISSION)) {
-//      List<String> values = new ArrayList<String>();
-//      PropertyIterator iterator  = node.getProperties();
-//      while(iterator.hasNext()) {
-//        values.add(iterator.next().toString());
-//      }
-//      String [] accessGroups = new String[values.size()];
-//      values.toArray(accessGroups);
-//      application.setPermissions(accessGroups);
-      application.setAccessPermission(node.getProperty(ACCESS_PERMISSION).getString()) ;
+      List<String> values = new ArrayList<String>();
+      Property property  = node.getProperty(ACCESS_PERMISSION);
+      Value [] jcrValues = property.getValues();
+      for(Value value : jcrValues) {
+        values.add(value.getString());
+      }
+      String [] accessGroups = new String[values.size()];
+      values.toArray(accessGroups);
+      application.setAccessPermissions(accessGroups);
     }
-    if (node.hasProperty(EDIT_PERMISSION)) {
-      application.setEditPermission(node.getProperty(EDIT_PERMISSION).getString()) ;
-    }
+    
     application.setMinWidthResolution((int)node.getProperty(MIN_WIDTH_RESOLUTION).getLong());
     application.setCreatedDate(node.getProperty(CREATED_DATE).getDate().getTime());
     application.setModifiedDate(node.getProperty(MODIFIED_DATE).getDate().getTime());
@@ -104,9 +107,7 @@ class DataMapper {
     node.setProperty(DESCRIPTION, application.getDescription());
     node.setProperty(CATEGORY_NAME, application.getCategoryName());
     node.setProperty(MIN_WIDTH_RESOLUTION, application.getMinWidthResolution());
-    node.setProperty(ACCESS_PERMISSION, application.getAccessPermission());
-    node.setProperty(EDIT_PERMISSION, application.getEditPermission()) ;
-    
+    node.setProperty(ACCESS_PERMISSION, application.getAccessPermissions());
     node.setProperty(APPLICATION_NAME, application.getApplicationName());
     node.setProperty(APPLICATION_GROUP, application.getApplicationGroup());
     node.setProperty(APPLICATION_TYPE, application.getApplicationType());

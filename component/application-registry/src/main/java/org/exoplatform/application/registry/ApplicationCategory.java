@@ -6,6 +6,7 @@
 package org.exoplatform.application.registry;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created y the eXo platform team
@@ -21,6 +22,8 @@ public class ApplicationCategory {
   private Date createdDate;
   private Date modifiedDate;
   
+  private transient List<Application> applications;
+  
   public String getName() { return name; }
   public void   setName(String id) { this.name = id; }
 
@@ -35,5 +38,8 @@ public class ApplicationCategory {
 
   public Date getModifiedDate() { return modifiedDate; }
   public void setModifiedDate(Date d) { modifiedDate = d; }
+  
+  public List<Application> getApplications() { return applications; }
+  public void setApplications(List<Application> applications) { this.applications = applications; }
   
 }

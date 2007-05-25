@@ -18,9 +18,12 @@ import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
 import org.exoplatform.services.organization.Membership;
+import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
@@ -192,49 +195,28 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   
   
   @SuppressWarnings("unchecked")
-    //TODO: Not complete
   public List<ApplicationCategory> getApplicationCategories(String accessUser) throws Exception {
     List<ApplicationCategory> categories = getApplicationCategories();
+    Iterator<ApplicationCategory> iterCategory = categories.iterator();
     
-    List<Membership> memberships = (List<Membership>) orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
-    String [] permissions = new String[memberships.size()];
-    for(int i = 0; i < memberships.size(); i++) {
-      permissions[i] = memberships.get(i).getMembershipType() + ":" + memberships.get(i).getGroupId() ;
-    }
+    PortalContainer manager  = PortalContainer.getInstance();
+    UserACL userACL = ( UserACL) manager.getComponentInstanceOfType(UserACL.class) ;
     
-    Iterator<ApplicationCategory> iter = categories.iterator();
-    while(iter.hasNext()) {
-      ApplicationCategory category = iter.next();
-      if(permissions == null || computeAccessPermission(category, permissions)) continue;
-      iter.remove();
+    while(iterCategory.hasNext()) {
+      ApplicationCategory category = iterCategory.next();
+      List<Application> apps = getApplications(category);
+      Iterator<Application> iterApp = apps.iterator();
+      while(iterApp.hasNext()) {
+        Application app = iterApp.next();      
+        String [] permissions = app.getAccessPermissions();
+        if(!userACL.hasViewPermission(app.getOwner(), accessUser, permissions)) iterApp.remove();
+      }
+      category.setApplications(apps);      
+      if(apps.size() < 1) iterCategory.remove();
     }
-
     return categories;
   }
-  //TODO: Not complete
-  private boolean computeAccessPermission(ApplicationCategory category, String [] permissions) throws Exception {
-    List<Application> apps = getApplications(category);
-    Iterator<Application> iter = apps.iterator();
-    boolean remove = true;
-    while(iter.hasNext()) {
-      Application app = iter.next();
-      String [] appAccessPermissions = app.getAccessPermissions();
-      if(appAccessPermissions == null) continue;
-      remove = true;      
-      for(String accessPermission : appAccessPermissions) {
-        for(String permission : permissions) {
-          if(accessPermission.equals(permission)) {
-            remove = false;
-            break;            
-          }
-        }
-        if(!remove) break;
-      }
-      if(remove) iter.remove();
-    }
-
-    return apps.size() > 0;
-  }
+  
 
   public void importJSR168Portlets() throws Exception {
     Session session = jcrRegService_.getSession();
