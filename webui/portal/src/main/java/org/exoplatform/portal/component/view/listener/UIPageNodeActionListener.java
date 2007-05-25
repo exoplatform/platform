@@ -127,10 +127,11 @@ public class UIPageNodeActionListener {
         event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
         return ;
       }
-        UIApplication uiApplication = Util.getPortalRequestContext().getUIApplication() ;
-        uiApplication.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.notAvailable", null)) ;
-        
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApplication.getUIPopupMessages() );
+      // TODO Add Message to
+//        UIApplication uiApplication = Util.getPortalRequestContext().getUIApplication() ;
+//        uiApplication.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.notAvailable", null)) ;
+//        
+//        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApplication.getUIPopupMessages() );
       
       UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
