@@ -133,7 +133,6 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     private Application clonePortlet(Application portlet){
       Application newPortlet = new Application();
       newPortlet.setAccessPermissions(portlet.getAccessPermissions()) ;
-      newPortlet.setEditPermission(portlet.getEditPermission()) ;
       newPortlet.setApplicationGroup(portlet.getApplicationGroup());
       newPortlet.setApplicationType(portlet.getApplicationType());
       newPortlet.setApplicationName(portlet.getApplicationName()) ;

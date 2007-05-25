@@ -29,7 +29,7 @@ public class UserACL {
   
   private String superUser_;
 
-  UserACL(InitParams params, OrganizationService  orgService) throws Exception {
+  public UserACL(InitParams params, OrganizationService orgService) throws Exception {
     this.orgService_ = orgService;
     
     ValueParam valueParam = params.getValueParam("super.user");
@@ -87,7 +87,7 @@ public class UserACL {
     return hasViewPermission(owner, accessUser, nav.getAccessPermissions()) ;
   }
   
-  boolean hasViewPermission(String owner, String remoteUser, String[] expPerms) throws Exception {
+  public boolean hasViewPermission(String owner, String remoteUser, String[] expPerms) throws Exception {
     if(owner != null && owner.equals(remoteUser)) return true;
     if(superUser_.equals(remoteUser)) return true;
     if(expPerms == null || expPerms.length < 1) expPerms = new String[] {"*:/guest"};
@@ -97,7 +97,7 @@ public class UserACL {
     return false;
   }
   
-  boolean hasViewPermission(String remoteUser, String expPerm) throws Exception {
+  public boolean hasViewPermission(String remoteUser, String expPerm) throws Exception {
     if(expPerm == null) return false ;
     Permission permission = new Permission();
     permission.setPermissionExpression(expPerm);
@@ -114,7 +114,7 @@ public class UserACL {
     return handler.findMembershipByUserGroupAndType(remoteUser, groupId, membership) != null;
   }
   
-  boolean hasEditPermission(String owner, String remoteUser, String expPerm) throws Exception {
+  public boolean hasEditPermission(String owner, String remoteUser, String expPerm) throws Exception {
     if(owner != null && owner.equals(remoteUser)) return true;
     if(superUser_.equals(remoteUser)) return true;
     if(expPerm == null) return false ;

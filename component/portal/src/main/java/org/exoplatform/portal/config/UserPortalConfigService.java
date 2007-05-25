@@ -46,14 +46,14 @@ public class UserPortalConfigService {
    *The constructor should create the DataStorage object and broadcast "the UserPortalConfigService.onInit"
    *event
    */
-  public UserPortalConfigService(InitParams params, 
+  public UserPortalConfigService(UserACL userACL,
                                  DataStorage storage,
                                  CacheService cacheService,
                                  OrganizationService  orgService) throws Exception {
     storage_ = storage ;
     orgService_ = orgService;
 
-    userACL_ = new UserACL(params, orgService);
+    userACL_ = userACL;
 
     portalConfigCache_   = cacheService.getCacheInstance(PortalConfig.class.getName()) ;
     pageConfigCache_     = cacheService.getCacheInstance(Page.class.getName()) ;

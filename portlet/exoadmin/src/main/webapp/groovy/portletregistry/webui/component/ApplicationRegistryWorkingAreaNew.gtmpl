@@ -11,10 +11,15 @@
 		String name = portlet.getApplicationName(); 
 	  String displayName = portlet.getDisplayName();
 	  String creator = portlet.getOwner();
-	  String accessPermission = portlet.getAccessPermission();
-	  String editPermission = portlet.getEditPermission();
-	  if(editPermission == null) editPermission = "";
-	  if(accessPermission == null) accessPermission = "";
+	  String [] accessPermissions = portlet.getAccessPermissions();
+	  String accessPermission = "";
+	  if(accessPermissions != null) {
+	    for(i in 0..(accessPermissions.length - 1)) {
+	      accessPermission += accessPermissions[i];
+	      if(i < accessPermissions.length - 1) accessPermission += ", ";
+	    }
+	    
+	  }
 	  String applicationType = portlet.getApplicationType();
 	  String desription = portlet.getDescription();
 	  String srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/";
@@ -48,10 +53,6 @@
 							<span class="LeftLabel">Description:</span>
 							<span class="RightLabel"><%=desription%></span>
 	          </div>
-            <div class="ContentLabel">
-							<span class="LeftLabel">Edit Permissions:</span>
-							<span class="RightLabel"><%=editPermission%> </span>
-		        </div>
 		        <div class="ContentLabel">
 							<span class="LeftLabel">Access Permissions:</span>
 							<span class="RightLabel"><%=accessPermission%> </span>

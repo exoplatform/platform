@@ -40,28 +40,15 @@ public class UIPortletOptions extends UIContainer {
   
     String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
     List<ApplicationCategory> pCategories = service.getApplicationCategories(remoteUser) ; 
-  
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
-    
     PortletComparator portletComparator = new PortletComparator() ;
     for(ApplicationCategory pCategory : pCategories) {
-      List<Application> portlets = service.getApplications(pCategory) ;
-      if(portlets.size() < 1)  continue;
-
-//      Iterator<Application> iterator = portlets.iterator();
-//      
-//      while (iterator.hasNext()) {
-//        Application portlet = iterator.next();
-//        String perm = null;//portlet.getViewPermission();
-//        if(perm == null) perm = "member:/user";
-////        if(userACL.hasPermission(null, remoteUser, perm)) continue;
-//        iterator.remove();
-//      }
-      
+      List<Application> portlets = pCategory.getApplications();
       if(selectedPCategory == null) selectedPCategory = pCategory;
       Collections.sort(portlets, portletComparator) ;
       pCategoryDatas.add(new PortletCategoryData(pCategory, portlets)); 
     }    
+    
     for(PortletCategoryData categoryData: pCategoryDatas) {
       categoryData.getPortlets();
       options.add(new SelectItemOption<String>(categoryData.getPortletCategory().getName()));

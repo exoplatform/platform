@@ -59,7 +59,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
     portletCategories = service.getApplicationCategories(); 
     
     if(portletCategories == null) portletCategories = new ArrayList<ApplicationCategory>(0);
-    if(portletCategories.size() > 0){
+    if(portletCategories.size() > 0) {
       setSelectedCategory(portletCategories.get(0));
       return;
     }
@@ -165,7 +165,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
       ApplicationRegistryControlArea uiSource = event.getSource();
       ApplicationRegistryService service = uiSource.getApplicationComponent(ApplicationRegistryService.class);
       List<ApplicationCategory> list = uiSource.getPortletCategory();
-      for(ApplicationCategory ele : list){
+      for(ApplicationCategory ele : list) {
         service.remove(ele) ;
       }
       uiSource.initApplicationCategories();

@@ -6,16 +6,22 @@
   </component> 
   
   <component>
-    <key>org.exoplatform.portal.config.UserPortalConfigService</key>
-    <type>org.exoplatform.portal.config.UserPortalConfigService</type>
+    <key>org.exoplatform.portal.config.UserACL</key>
+    <type>org.exoplatform.portal.config.UserACL</type>   
     <init-params>	     
       <value-param>
         <name>super.user</name>
         <description>administrator</description>
         <value>exoadmin</value>	    
       </value-param>    
-	  </init-params>             
+	  </init-params>   
+  </component>
+  
+  <component>
+    <key>org.exoplatform.portal.config.UserPortalConfigService</key>
+    <type>org.exoplatform.portal.config.UserPortalConfigService</type>
   </component>     
+  
   <external-component-plugins>  
     <target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>      
     <component-plugin>
