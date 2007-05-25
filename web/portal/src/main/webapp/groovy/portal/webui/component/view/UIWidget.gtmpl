@@ -4,8 +4,8 @@
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
-  jsmanager.importJavascript('eXo.widgets.UIWidget');
-  jsmanager.addJavascript('eXo.widgets.UIWidget.init();');
+  jsmanager.importJavascript('eXo.widget.UIWidget');
+  jsmanager.addJavascript('eXo.widget.UIWidget.init();');
   uicontent = uicomponent.getUIComponent();
 %>
 
@@ -27,7 +27,7 @@
   </div>
  	<div style="clear: right"><span></span></div>
   <div class="WidgetApplication">
-   <%uicontent.processRender(rcontext); %>
+  	<%uicontent.processRender(rcontext); %>
   </div>
   <div><span></span></div>
 </div>

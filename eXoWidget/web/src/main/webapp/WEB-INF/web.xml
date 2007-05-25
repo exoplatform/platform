@@ -9,7 +9,8 @@
   <context-param>
     <param-name>exo.application</param-name>
     <param-value>
-      org.exoplatform.widget.web.InfoWidget
+      org.exoplatform.widget.web.InfoWidget,
+      org.exoplatform.widget.web.WelcomeWidget
     </param-value>
   </context-param>
   

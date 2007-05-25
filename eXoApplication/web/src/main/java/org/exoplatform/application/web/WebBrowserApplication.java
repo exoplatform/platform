@@ -25,6 +25,7 @@ public class WebBrowserApplication extends MVCApplication {
   }
   
   public void processRender(MVCRequestContext context) throws Exception {
+    //Application.init() ;
     String script = 
       "eXo.desktop.UIDesktop.createJSApplication('eXo.application.browser.UIBrowserApplication','eXoBrowser','eXoBrowser','/exo.app.web/javascript/');";
     context.getJavascriptManager().addCustomizedOnLoadScript(script) ;

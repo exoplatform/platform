@@ -6,11 +6,11 @@
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
-  jsmanager.importJavascript('eXo.widgets.UIWidgetContainerManagement');
-  String showWCM = "eXo.widgets.UIWidgetContainerManagement.show();" ;
+  jsmanager.importJavascript('eXo.widget.UIWidgetContainerManagement');
+  String showWCM = "eXo.widget.UIWidgetContainerManagement.show();" ;
 
-  jsmanager.importJavascript('eXo.widgets.UIAddWidget');
-  String showUIAddWidget = "eXo.widgets.UIAddWidget.show();" ;
+  jsmanager.importJavascript('eXo.widget.UIAddWidget');
+  String showUIAddWidget = "eXo.widget.UIAddWidget.show();" ;
 %>
 
 <div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">

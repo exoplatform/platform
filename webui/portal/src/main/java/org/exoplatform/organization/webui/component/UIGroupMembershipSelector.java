@@ -8,9 +8,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
@@ -72,7 +76,7 @@ public class UIGroupMembershipSelector extends UIContainer {
     tree.setSelectedIcon("Icon PortalIcon");
     tree.setBeanIdField("id");
     tree.setBeanLabelField("groupName");
-    uiBreadcumbs.setBreadcumbsStyle("UIExplorerHistoryPath") ;    
+    uiBreadcumbs.setBreadcumbsStyle("UIExplorerHistoryPath") ;
   }
   
   /*public void processDecode(WebuiRequestContext context) throws Exception {   
@@ -151,11 +155,11 @@ public class UIGroupMembershipSelector extends UIContainer {
     public void execute(Event<UITree> event) throws Exception {     
       String groupId = event.getRequestContext().getRequestParameter(OBJECTID)  ;
       UITree uiTree = event.getSource();
-      UIGroupMembershipSelector uiSelector = uiTree.getParent() ;    
-      uiSelector.changeGroup(groupId) ;
+      UIGroupMembershipSelector uiSelector = uiTree.getParent();    
+      uiSelector.changeGroup(groupId);
       UIComponent uiParent = uiSelector.<UIComponent>getParent().getParent();
       uiParent.setRenderSibbling(uiParent.getClass()); 
-      uiParent.broadcast(event, Event.Phase.PROCESS) ;      
+      uiParent.broadcast(event, Event.Phase.PROCESS);
       UIPopupWindow uiPopup = uiSelector.getParent();
       uiPopup.setShow(true); 
       
@@ -172,12 +176,20 @@ public class UIGroupMembershipSelector extends UIContainer {
     public void execute(Event<UIGroupMembershipSelector> event) throws Exception {
       UIGroupMembershipSelector uiSelector = event.getSource();
       UIComponent uiParent = uiSelector.<UIComponent>getParent().getParent();
-      uiParent.setRenderSibbling(uiParent.getClass());      
-      if(uiSelector.getCurrentGroup() == null) return;
-      uiParent.broadcast(event, event.getExecutionPhase()) ;
+      uiParent.setRenderSibbling(uiParent.getClass());
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
       
       UIPopupWindow uiPopup = uiSelector.getParent();
-      uiPopup.setShow(false);
+      if(uiSelector.getCurrentGroup() == null) {
+        UIApplication uiApp = pcontext.getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipSelector.msg.selectGroup", null)) ;
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return ;
+      } else {
+        uiParent.broadcast(event, event.getExecutionPhase());
+        
+        uiPopup.setShow(false);
+      }
       
       UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
       if(uiForm != null) {

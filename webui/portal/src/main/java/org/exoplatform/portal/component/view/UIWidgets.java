@@ -101,6 +101,7 @@ public class UIWidgets extends UIContainer {
       UIWidgetContainer newSelected = uiWidgets.getChildById(selectedContainerId) ;
       uiWidgets.getSelectedContainer().setRendered(false);
       uiWidgets.setSelectedContainer(newSelected);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiWidgets.getParent());
     }
   }
 }

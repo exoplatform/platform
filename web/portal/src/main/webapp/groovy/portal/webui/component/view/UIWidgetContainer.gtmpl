@@ -4,8 +4,8 @@
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
-  jsmanager.importJavascript('eXo.widgets.UIAddWidget');
-  String showUIAddWidget = "eXo.widgets.UIAddWidget.show();" ;
+  jsmanager.importJavascript('eXo.widget.UIAddWidget');
+  String showUIAddWidget = "eXo.widget.UIAddWidget.show();" ;
 %>
 
 <div class="UIWidgetContainer" id="UIWidgetContainer">

@@ -1,0 +1,42 @@
+<div class="UIWelcomeWidget">
+	<div class="LoggedDecorator">
+    <div class="LeftTopLoggedDecorator">
+      <div class="RightTopLoggedDecorator">
+        <div class="CenterTopLoggedDecorator"><span></span></div>
+			</div>
+		</div>
+		<div class="LeftMiddleLoggedDecorator">
+		  <div class="RightMiddleLoggedDecorator">
+        <div class="DecoratorBackground">
+        
+	        <div class="StyleContent">
+	        	<div class="AvatarContainer">
+		        	<div class="LeftAvatarContainer">
+		        		<div class="RightAvataContainer">
+		        			<div class="CenterAvataContainer">
+		        				<div class="AvatarImage"><span></span></div>
+		        			</div>
+		        		</div>
+		        	</div>
+		        </div>        
+	          
+	          <div class="WelcomeBox">
+							<div class="UserWelcomeBox">
+							  <div class="StateMessage">Hello</div>
+							  <div class="LoggedUserName">eXo</div>
+							</div>
+							<div class="LabelSignout" title="Sign Out" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
+							</div>
+						</div>
+						<div style="clear: left"><span></span></div>
+		    	</div>
+	      </div>
+	    </div>
+	  </div> 
+	  <div class="LeftBottomLoggedDecorator">
+	    <div class="RightBottomLoggedDecorator">
+	      <div class="CenterBottomLoggedDecorator"><span></span></div>
+	    </div>
+	  </div>
+  </div>
+</div>

@@ -25,7 +25,6 @@ public class UIWidget extends UIComponent {
   private String applicationInstanceUniqueId_ ;
   private String applicationId_ ;
   
-  
   public UIWidget() throws Exception {
   }
   

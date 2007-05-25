@@ -6,6 +6,9 @@ package org.exoplatform.widget.web;
 
 import java.io.Writer;
 
+import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.web.application.widget.WidgetApplication;
 
 /**
@@ -15,6 +18,7 @@ import org.exoplatform.web.application.widget.WidgetApplication;
  * Apr 23, 2007  
  */
 public class InfoWidget extends WidgetApplication {
+  
   public String getApplicationId() { return "exo.widget.web/InfoWidget"; }
 
   public String getApplicationName() { return "InfoWidget"; }
@@ -22,6 +26,11 @@ public class InfoWidget extends WidgetApplication {
   public String getApplicationGroup() { return "exo.widget.web"; }
   
   public void processRender(Writer w) throws Exception {
-    w.write("Hello Widget") ;
+    PortalRequestContext pContext = Util.getPortalRequestContext();
+    MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
+    
+    String script = 
+      "eXo.desktop.UIDesktop.createJSApplication('eXo.widget.web.info.UIInfoWidget','UIInfoWidget','UIInfoWidget','/exo.widget.web/javascript/');";
+    appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
 }
