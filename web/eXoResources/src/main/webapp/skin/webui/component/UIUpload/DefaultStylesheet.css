@@ -1,7 +1,5 @@
-
 .SelectFileFrame {
 	width: 400px;
-	margin: 10px 0px 10px 0px;
 }
 
 .SelectFileLabel {
@@ -11,33 +9,23 @@
 }
 
 .UploadButton {
-  float: right;
+  width: 20px; height: 20px; 
+	cursor: pointer; vertical-align: bottom;
 	background: url("DefaultSkin/Background/UpArrow16x16.gif") no-repeat left;
-	cursor: pointer;
-	padding-left: 16px;
-	color: #058ee6;
-	font-weight: bold;
-	margin-left: 150px;
-	border: 1px solid red;
 }
 
 .ProgressBarFrame {
-	width: 400px;
-	margin: 10px 0px 10px 0px;
+	height: 23px;
 }
 
 .ProgressBar {
 	float: left;
 	width: 230px;
-	margin-left: 10px;
 }
 
 .ProgressBarLeft {
 	padding: 1px ;
 	border: solid 1px gray;
-}
-
-.ProgressBarMiddle {
 }
 
 .BlueProgressBar {
@@ -78,7 +66,6 @@
 	line-height: 12px;
 	vertical-align: middle;
 	width: 215px;
-	padding: 0px 0px 0px 8px;
 }
 
 .RemoveFile {

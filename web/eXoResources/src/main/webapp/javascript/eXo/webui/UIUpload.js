@@ -4,29 +4,21 @@ function UIUpload() {
 
 //TODO: Try to use the javascript template here
 UIUpload.prototype.createUploadEntry = function(uploadId) {
-  var iframe = document.getElementById(uploadId+'uploadFrame');   
+  var iframe = document.getElementById(uploadId+'uploadFrame');
   var idoc = iframe.contentWindow.document ;
   var uploadAction = eXo.env.server.context + "/upload?uploadId=" + uploadId+"&action=upload" ;
   idoc.open();
   idoc.write("<head>");
+  idoc.write("<link rel='stylesheet' type='text/css' href= '/eXoResources/skin/webui/component/UIUpload/DefaultStylesheet.css' />");
   idoc.write("<script type='text/javascript'>var eXo = parent.eXo</script>");
-  idoc.write("<style type='text/css'>");
-  idoc.write("  .UploadButton{");
-  idoc.write("    background: url('/eXoResources/skin/webui/component/UIUpload/DefaultSkin/Background/UpArrow16x16.gif') no-repeat left; ");
-  idoc.write("    float:right; font-size: 16px; cursor:pointer; color: blue; padding-left: 20px;");
-  idoc.write("  }");
-  idoc.write("</style>");
   idoc.write("</head>");
   idoc.write("<body style='margin: 0px; border: 0px;'>");
   idoc.write("  <form id='"+uploadId+"' class='UIUploadForm' style='margin: 0px; padding: 0px;' action='"+uploadAction+"' enctype='multipart/form-data' method='post'>");
-  idoc.write("    <input type='file' name='file' id='file' value='' style='float:left;'/>");
-  idoc.write("    <div class='UploadButton' onclick='eXo.webui.UIUpload.upload(this, "+uploadId+")'>upload</div>");
-  idoc.write("    <div style='clear:both;'><span></span></div>");
+  idoc.write("    <input type='file' name='file' id='file' value=''/>");
+  idoc.write("    <img class='UploadButton' onclick='eXo.webui.UIUpload.upload(this, "+uploadId+")' src='/eXoResources/background/DefaultSkin/Blank.gif'/>");
   idoc.write("  </form>");
   idoc.write("</body>");
-  idoc.body.style.margin = "0px" ;
-  idoc.body.style.padding = "0px" ;
-  idoc.close();  
+  idoc.close();
 };
 
 UIUpload.prototype.refeshProgress = function(elementId) {
@@ -75,8 +67,8 @@ UIUpload.prototype.refeshProgress = function(elementId) {
     
     var tmp = element.parentNode;
     var temp = tmp.parentNode;
-    var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");
-    child[0].style.visibility =  "hidden" ;
+//    var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");
+//    child[0].style.visibility =  "hidden" ;
     return;
   }
   if (element){
@@ -102,8 +94,8 @@ UIUpload.prototype.abortUpload = function(id) {
 
   var tmp = progressIframe.parentNode;
   var temp = tmp.parentNode;
-  var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");
-  child[0].style.visibility =  "visible" ;
+//  var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");
+//  child[0].style.visibility =  "visible" ;
   var progressBarFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "none" ;
   var selectFileFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "SelectFileFrame") ;
@@ -129,8 +121,8 @@ UIUpload.prototype.deleteUpload = function(id) {
 
   var tmp = progressIframe.parentNode;
   var temp = tmp.parentNode;
-  var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");
-  child[0].style.visibility =  "visible" ;
+//  var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");
+//  child[0].style.visibility =  "visible" ;
   var progressBarFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "none" ;
   var selectFileFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "SelectFileFrame") ;
@@ -169,8 +161,8 @@ UIUpload.prototype.upload = function(clickEle, id) {
 
   var tmp = progressIframe.parentNode;
   var temp = tmp.parentNode;
-  var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");// Label contains string "Upload File" in front of File Chooseer.
-  child[0].style.visibility = "hidden" ;
+//  var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");// Label contains string "Upload File" in front of File Chooseer.
+//  child[0].style.visibility = "hidden" ;
   
   form.submit() ;
   

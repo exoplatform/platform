@@ -1,11 +1,9 @@
 .UITestFormPortlet .UIFormWithTitle {
 	margin: 0px;
-	width: 700px;
 }
 
 .UIFormWithTitle {
   width: 500px;
-  margin: 50px;
 }
 
 .UIFormWithTitle .TitleBar {
@@ -28,6 +26,15 @@
   background: white ;
   font-size: 11px;
   border: 1px #cdcdcd solid;
+}
+
+.UIFormWithTitle .HorizontalLayout .FieldContainer .FieldLabel {
+  float: left; width: 120px;
+  text-align: right;
+}
+
+.UIFormWithTitle .HorizontalLayout .FieldContainer .FieldComponent {
+  margin-left: 130px;
 }
 
 .UIFormWithTitle .UIForm .UIAction {  

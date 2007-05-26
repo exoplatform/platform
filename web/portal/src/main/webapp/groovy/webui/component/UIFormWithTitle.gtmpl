@@ -11,13 +11,13 @@
             <div class="FieldContainer">
               <%fieldName = uicomponent.getLabel(field.getName());%>
               <%if(!fieldName.equals(uicomponent.getId())) { %>                        
-                  <label>
+                  <div class="FieldLabel">
                     <%if(fieldName != null && fieldName.length() > 0) {%> 
                       <%=uicomponent.getLabel(field.getName())+":" %>
                     <%}%>
-                  </label>
+                  </div>
               <%}%>
-              <% uiform.renderField(field) %>
+              <div class="FieldComponent"><% uiform.renderField(field) %></div>
             </div>
       <%
           }

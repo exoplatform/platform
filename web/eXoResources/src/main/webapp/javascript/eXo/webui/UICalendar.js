@@ -1,6 +1,5 @@
 UICalendar = function(calendarId) {
 	this.calendarId = calendarId;
-	this.create();
   this.dateField = null;
   
   this.currentDate = null;
@@ -12,8 +11,8 @@ UICalendar = function(calendarId) {
 UICalendar.prototype.init = function(field) {
 	this.dateField = field;
 	if(!document.getElementById(this.calendarId)) this.create();
-	if(field.offsetParent.style.position == '') field.offsetParent.style.position = 'relative';
-  field.parentNode.appendChild(document.getElementById(this.calendarId))
+	if(field.parentNode.style.position == '') field.parentNode.style.position = 'relative';
+  field.parentNode.appendChild(document.getElementById(this.calendarId));
   this.show();
 }
 
@@ -52,7 +51,7 @@ UICalendar.prototype.show = function() {
 
   with(clndr.style) {
   	display = 'block';
-	  left = x + "px";
+	  left = 0 + "px";
 	  top = y + "px";
   }
 	with(document.getElementById('' + this.calendarId + 'IFrame').style) {

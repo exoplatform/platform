@@ -87,7 +87,6 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
     if(getChildren() == null || getChildren().size() < 1) createUIFormInput(0);
     
     Writer writer = context.getWriter() ;    
-    writer.append("<div class=\"LeftBlock\"></div>") ;
 
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
     int size = getChildren().size() ;
@@ -99,15 +98,15 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
 
       if(i == size - 1) {
         if(size >= 2){
-          writer.append("<a class=\"UIFormMultiValueInputSet DustBin16x16Icon\" href=\"");
+          writer.append("<a href=\"");
           writer.append(uiForm.event("Remove", getId()+String.valueOf(i))).append("\">");
-          writer.append("<span></span></a>");
+          writer.append("<img class=\"DustBin16x16Icon\" src=\"/eXoResources/background/DefaultSkin/Blank.gif\"></a>");
         }
-        writer.append("<a class=\"AddNewNodeIcon  LeftBlock\" href=\"");
+        writer.append("<a href=\"");
         writer.append(uiForm.event("Add", getId())).append("\">");
-        writer.append("<span></span></a>");
+        writer.append("<img class=\"AddNewNodeIcon\" src=\"/eXoResources/background/DefaultSkin/Blank.gif\"></a>");
       }      
-      writer.append("<div style=\"clear: both\"><span></span></div></div>") ;
+      writer.append("</div>") ;
     }    
   }
 

@@ -11,21 +11,23 @@
   margin: 6px auto;
 }
 
-.UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
-  margin: 7px 0px 10px 133px ;
+.UIForm .HorizontalLayout label {
+	float:left;
+  width: 120px ;
+	text-align: right;
 }
 
-.UIForm .HorizontalLayout .FieldContainer .MultiValueContainer input {
-  float: left;
-  margin-right: 5px;
+.UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
+  margin-bottom: 6px;
+}
+
+.UIForm .HorizontalLayout .FieldContainer .MultiValueContainer a {
+  margin: 0px 3px;
 }
 
 .UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {
 	float: left ;
 	margin: 0px 10px 0px 5px ;
-}
-
-.UIForm .HorizontalLayout .FieldContainer .UploadIframe {
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet {
@@ -56,13 +58,6 @@
   height: 50px ;
   border: solid 1px gray ;
   background: white ;
-}
-
-.UIForm .HorizontalLayout label {
-	float:left;
-  width: 120px ;
-	text-align: right; font-size: 11px;
-	margin: 0px 10px 0px 0px;
 }
 
 .UIForm .HorizontalLayout input {

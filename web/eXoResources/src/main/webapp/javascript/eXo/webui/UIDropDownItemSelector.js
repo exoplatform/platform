@@ -119,6 +119,7 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 UIDropDownItemSelector.prototype.onload = function() {
 	var DOMUtil = eXo.core.DOMUtil;
 	var uiDropDownItemSelector = document.getElementById("UIDropDownItemSelector");
+	if(!uiDropDownItemSelector) return;
 	var selectedItemLabel = DOMUtil.findFirstDescendantByClass(uiDropDownItemSelector, "div", "SelectedItemLabel");
 	var strLabel = selectedItemLabel.innerHTML;
 	//alert(strLabel + " :  " + strLabel.length);
