@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
+import org.exoplatform.groovyscript.text.BindingContext;
 import org.exoplatform.resolver.ResourceResolver;
-import org.exoplatform.templates.groovy.BindingContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;

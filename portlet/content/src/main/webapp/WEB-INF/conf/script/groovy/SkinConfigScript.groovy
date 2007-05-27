@@ -1,4 +1,3 @@
-
 SkinService.addSkin(
     "content/CrawlerPortlet",
     "Default",
@@ -35,4 +34,3 @@ SkinService.addSkin(
     "Vista",
     "/content/skin/content/webui/component/UIContentPortlet/VistaStylesheet.css"
 ) ;
- 

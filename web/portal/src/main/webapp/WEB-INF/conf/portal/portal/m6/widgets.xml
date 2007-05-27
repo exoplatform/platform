@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<widgets>
+	<owner-type>portal</owner-type>
+	<owner-id>m6</owner-id>
+	<access-permission>*:/guest, *:/user</access-permission>
+	<edit-permission>*:/user</edit-permission>
+	
+	<container id="Information">
+    <application>
+      <instance-id>m6:/exo.widget.web/InfoWidget/InfoWidget1</instance-id>
+      <application-type>widget</application-type> 
+    </application>
+    <application>
+      <instance-id>m6:/exo.widget.web/WelcomeWidget/WelcomeWidget1</instance-id>
+      <application-type>widget</application-type> 
+    </application>
+	</container>
+  
+	<container id="Calendar">
+  	<application>
+      <instance-id>m6:/exo.widget.web/InfoWidget/InfoWidget2</instance-id>
+      <application-type>widget</application-type> 
+    </application>
+  </container>
+
+	<container id="Calculator">
+  	<application>
+      <instance-id>m6:/exo.widget.web/WelcomeWidget/WelcomeWidget2</instance-id>
+      <application-type>widget</application-type> 
+    </application>
+	</container>
+</widgets>

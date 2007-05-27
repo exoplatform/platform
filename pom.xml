@@ -13,10 +13,12 @@
     <module>component/application-registry</module>
     <module>component/portal</module>
     <module>component/web</module>
+    <module>component/scripting</module>
 
     <module>eXoApplication/web</module>
 
     <module>eXoWidget/web</module>
+    <module>sample/framework</module>
 
     <module>webui/core</module>
     <module>webui/portal</module>
@@ -52,6 +54,7 @@
         <includes>
           <include>**/*.properties</include>
           <include>**/*.xml</include>
+          <include>**/*.jstmpl</include>
         </includes>
       </testResource>
     </testResources>

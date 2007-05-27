@@ -7,8 +7,8 @@ package org.exoplatform.webui.component.lifecycle;
 import groovy.text.Template;
 
 import org.exoplatform.container.ExoContainer;
+import org.exoplatform.groovyscript.text.TemplateService;
 import org.exoplatform.resolver.ResourceResolver;
-import org.exoplatform.templates.groovy.GroovyTemplateService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.event.Event;
@@ -65,8 +65,8 @@ public class Lifecycle {
     bcontext.put("decorator", decorator_) ;
     WebuiRequestContext context = bcontext.getRequestContext() ;
     ExoContainer pcontainer =  context.getApplication().getApplicationServiceContainer() ;
-    GroovyTemplateService service = 
-      (GroovyTemplateService) pcontainer.getComponentInstanceOfType(GroovyTemplateService.class) ;
+    TemplateService service = 
+      (TemplateService) pcontainer.getComponentInstanceOfType(TemplateService.class) ;
     ResourceResolver resolver = bcontext.getResourceResolver() ;
     
     if(DEVELOPING) {

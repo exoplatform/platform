@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+  <owner-type>portal</owner-type>
+  <owner-id>m6</owner-id>
+  <access-permission>*:/guest</access-permission>  
+  <page-nodes>
+    <node>
+      <uri>m6::home</uri>
+      <name>home</name>
+      <label>Home</label>
+      <page-reference>portal::m6::content</page-reference>
+    </node> 
+  </page-nodes>
+</node-navigation>
