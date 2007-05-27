@@ -1,4 +1,4 @@
-package org.exoplatform.templates.groovy ;
+package org.exoplatform.groovyscript.text ;
 
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;

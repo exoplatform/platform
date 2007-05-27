@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.resolver ;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
@@ -38,6 +40,18 @@ abstract public class ResourceResolver {
   
   public boolean isResolvable(String url) {
     return url.startsWith(getResourceScheme()) ;
+  }
+  
+  public byte[] getResourceContentAsBytes(String url) throws Exception {
+    InputStream is = getInputStream(url) ;
+    BufferedInputStream buffer = new BufferedInputStream(is);    
+    ByteArrayOutputStream output = new ByteArrayOutputStream();
+    byte[] data  = new byte[buffer.available()];      
+    int available = -1;
+    while( (available = buffer.read(data)) > -1){
+      output.write(data, 0, available);
+    }   
+    return output.toByteArray();
   }
   
   abstract public boolean isModified(String url, long lastAccess) ;

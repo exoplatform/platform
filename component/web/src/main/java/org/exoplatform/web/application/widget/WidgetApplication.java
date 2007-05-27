@@ -9,7 +9,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import org.exoplatform.web.application.Application;
-
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen

@@ -2,7 +2,7 @@
  * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.templates.groovy;
+package org.exoplatform.groovyscript.text;
 
 import java.io.Writer;
 import java.util.HashMap;
@@ -20,7 +20,7 @@ public class BindingContext extends  HashMap<String, Object> {
   
   protected ResourceResolver  resolver_ ;
   protected Writer writer_ ;
-  protected GroovyTemplateService service_ ;
+  protected TemplateService service_ ;
   
   public BindingContext(ResourceResolver resolver, Writer w) {
     resolver_ = resolver ;
@@ -31,7 +31,7 @@ public class BindingContext extends  HashMap<String, Object> {
   
   public Writer  getWriter() { return writer_ ; }
   
-  public void setGroovyTemplateService(GroovyTemplateService service) { service_ = service ; }
+  public void setGroovyTemplateService(TemplateService service) { service_ = service ; }
    
   public BindingContext clone() {
     BindingContext newContext = new BindingContext(resolver_, writer_) ;

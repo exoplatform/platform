@@ -2,7 +2,7 @@
  * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.templates.groovy;
+package org.exoplatform.groovyscript.text;
 
 import groovy.lang.Writable;
 import groovy.text.Template;
@@ -20,7 +20,7 @@ import org.exoplatform.services.cache.ExoCache;
  *          tuan08@users.sourceforge.net
  * Dec 26, 2005
  */
-public class GroovyTemplateService  {
+public class TemplateService  {
   
   private SimpleTemplateEngine engine_  ;
   private ExoCache templatesCache_ ;
@@ -28,10 +28,10 @@ public class GroovyTemplateService  {
   private boolean cacheTemplate_  =  true ;
 
   @SuppressWarnings("unused")
-  public GroovyTemplateService(InitParams params, 
+  public TemplateService(InitParams params, 
                                CacheService cservice) throws Exception {
     engine_ = new SimpleTemplateEngine() ;
-    templatesCache_ = cservice.getCacheInstance(GroovyTemplateService.class.getName()) ;
+    templatesCache_ = cservice.getCacheInstance(TemplateService.class.getName()) ;
     templatesCache_.setLiveTime(10000) ;
   }
   
