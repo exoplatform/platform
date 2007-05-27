@@ -1,0 +1,21 @@
+<%
+  var context = {}  ;
+  context.value = 'Hello Value' ;
+  context.test = {} ;
+  context.test.nested = 'Hello Test Nested' ;
+    
+  function blockcode(param) {
+    return 'call blockcode with param' + param;
+  }
+%>
+
+<%function myfunc(param) { %>
+<%  return 'call myfunc with param' + param; %>
+<%}%>
+  	   
+<%for(var i = 0 ; i < 10; i++) { %>
+  this is a test <%=context.value%> html
+  <%=context.value%> , nested test <%=context.test.nested%>
+<%}%>
+<%= myfunc(context.value)%>
+<%= blockcode(context.value)%>
