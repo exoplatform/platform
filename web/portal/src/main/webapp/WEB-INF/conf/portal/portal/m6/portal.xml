@@ -17,7 +17,32 @@
           <show-info-bar>false</show-info-bar>
         </application>
 
-        <page-body> </page-body>
+        <application>
+          <instance-id>m6:/m6PortletWeb/BreadcumbsPortlet/breadcumbs</instance-id>
+          <show-info-bar>false</show-info-bar>
+        </application>
+
+        <container template="system:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl">
+          <container template="system:/groovy/portal/webui/component/view/UIContainer.gtmpl">
+            <application>
+              <instance-id>m6:/m6PortletWeb/ClockPortlet/clock</instance-id>
+              <show-info-bar>false</show-info-bar>
+            </application>
+            <application>
+              <instance-id>m6:/m6PortletWeb/StockInfoPortlet/stockinfo</instance-id>
+              <show-info-bar>false</show-info-bar>
+            </application>
+            <application>
+              <instance-id>m6:/m6PortletWeb/LoginPortlet/login</instance-id>
+              <show-info-bar>false</show-info-bar>
+            </application>
+            <application>
+              <instance-id>m6:/m6PortletWeb/AnnouncementPortlet/announcement</instance-id>
+              <show-info-bar>false</show-info-bar>
+            </application>
+          </container>
+          <page-body> </page-body>
+        </container>
 
         <application>
           <instance-id>m6:/m6PortletWeb/FooterPortlet/footer</instance-id>
