@@ -24,12 +24,14 @@
           <show-info-bar>false</show-info-bar>
         </application>
       </container>
+
       <container template="system:/groovy/portal/webui/component/view/UIContainer.gtmpl">
         <application>
-          <instance-id>m6:/m6PortletWeb/FooterPortlet/menu</instance-id>
+          <instance-id>m6:/m6PortletWeb/MenuPortlet/menu</instance-id>
           <show-info-bar>false</show-info-bar>
         </application>
       </container>
+
     </container>
   </portal-layout>
 
