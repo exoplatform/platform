@@ -3,31 +3,35 @@
   <page>    
 		<owner-type>portal</owner-type>
     <owner-id>m6</owner-id>
-    <name>content</name>
-    <title>Content</title>
+    <name>home</name>
+    <title>Home</title>
     <access-permission>*:/guest</access-permission>
-    
-    <application>
-      <instance-id>m6:/content/ContentPortlet/contentportlet</instance-id>
-      <title>Content Portlet</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>  
+
+    <container template="system:/groovy/portal/webui/component/view/UITableColumnContainer.gtmpl">
+      <container template="system:/groovy/portal/webui/component/view/UIContainer.gtmpl">
+        <application>
+          <instance-id>m6:/m6PortletWeb/StaticContentPortlet/today</instance-id>
+          <show-info-bar>false</show-info-bar>
+        </application>
+
+        <application>
+          <instance-id>m6:/m6PortletWeb/ContentBrowserPortlet/company-news</instance-id>
+          <show-info-bar>false</show-info-bar>
+        </application>
+      </container>
+
+      <container template="system:/groovy/portal/webui/component/view/UIContainer.gtmpl">
+        <application>
+          <instance-id>m6:/m6PortletWeb/ContentBrowserPortlet/m6-contents</instance-id>
+          <show-info-bar>false</show-info-bar>
+        </application>
+
+        <application>
+          <instance-id>m6:/m6PortletWeb/StaticContentPortlet/hot-news</instance-id>
+          <show-info-bar>false</show-info-bar>
+        </application>
+      </container>
+    </container>
+
   </page>    
-  
-  <page>
-    <owner-type>portal</owner-type>
-    <owner-id>m6</owner-id>
-    <name>register</name>
-    <title>Register</title>
-    <access-permission>*:/guest</access-permission>      
-    <application>
-      <instance-id>m6:/exoadmin/AccountPortlet/Account</instance-id>
-      <title>Account Portlet</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>  
-  </page>
 </page-set>

@@ -8,7 +8,7 @@
       <uri>m6::home</uri>
       <name>home</name>
       <label>Home</label>
-      <page-reference>portal::m6::content</page-reference>
+      <page-reference>portal::m6::home</page-reference>
     </node> 
   </page-nodes>
 </node-navigation>
