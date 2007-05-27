@@ -10,11 +10,12 @@ table {
   width: 100% ;
 	padding: 0px ; margin: 0px ;
 	border-spacing:	0px ;
-	/*border-collapse: collapse ;*/
+	border-collapse: collapse ;
 }
 
 th, td {
 	padding: 0px ; margin: 0px ;
+	vertical-align: top;
 }
 
 img {
@@ -32,7 +33,7 @@ html {
 body {
 	background: #9ed0f3 url('/eXoResources/background/DefaultSkin/eXoBodyBG.jpg') no-repeat fixed ;
 	margin: 0px ; padding: 0px;
-	font-family: Verdana, Arial, Helvetica, sans-serif ;
+	font-family: Tahoma,Verdana, Arial, Helvetica, sans-serif ;
 	font-size: 12px;
 	overflow-x: hidden;
 }
