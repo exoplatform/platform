@@ -1,6 +1,5 @@
 /*##############################-Page Layout Decorator-################################*/
-.UIPage {
-}
+.UIPage {}
 
 .UIPage .PageLayoutDecorator {
 	padding: 0px 5px 0px 10px ;
@@ -38,10 +37,6 @@
   padding: 0px 15px 0px 0px ;
 }
 
-.UIPage .PageLayoutDecorator .PageContent {
-
-}
-
 .UIPage .PageLayoutDecorator .BottomLeftPage {
   height: 15px;  
   background: url('VistaSkin/background/PageLayoutBL12x15.png') no-repeat left ;
@@ -57,4 +52,3 @@
   height: 15px ;   
   background: url('VistaSkin/background/PageLayoutBC1x15.png') repeat-x center ; 
 }
-

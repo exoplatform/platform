@@ -23,12 +23,11 @@
 }
 
 .UIControlWorkspace .CloseControlWorkspace {
-	width: 18px ;
-	height: 18px ;
 	float: right ;
+	width: 18px ;	height: 18px ;
+	margin: 3px 7px 0px 0px ;
 	background: url('MacSkin/background/CloseControlWorkspace.gif') no-repeat ;
 	cursor: pointer ;
-	margin: 3px 7px 0px 0px ;
 }
 
 .UIControlWorkspace .UIWorkspaceControl { 
@@ -36,7 +35,6 @@
 }
 
 /*########################### Tab ###########################*/
-
 .UIControlWorkspace .UIWorkspacePanel .ControlPanelExpandContainer {
   margin: 10px 4px;
 }
@@ -62,8 +60,7 @@
 }
 
 .UIControlWorkspace .SlidebarButton {
-	height: 100% ;
-	width: 8px ;
+	height: 100% ;	width: 8px ;
 	background: url("MacSkin/background/SlidebarButton8x137.gif") no-repeat center center ;
 }
 

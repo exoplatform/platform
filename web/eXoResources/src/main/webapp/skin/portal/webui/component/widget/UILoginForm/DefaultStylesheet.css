@@ -4,7 +4,6 @@
 }
 
 /*##############################- LoginBox Style-################################*/
-
 .UILoginForm .LoginDecorator {
 	width: 540px;
 	margin: auto;
@@ -63,11 +62,7 @@
   background: url('DefaultSkin/background/WhiteRoundedBoxRightBottom13x13.gif') no-repeat right ;
   padding: 0px 13px 0px 0px ;
 }
-
 /* ============================End LoginDecorator============================== */
-
-.UILoginForm .LoginDetailBox .VerticalLayout {
-}
 
 .UILoginForm .LoginDetailBox .UserNameField {
 	padding: 16px 0px 5px 0px;
@@ -164,5 +159,3 @@
 .UILoginForm .UIForm .VerticalLayout .UIAction .ActionButton {
   margin-left: 50px;
 }
-
-

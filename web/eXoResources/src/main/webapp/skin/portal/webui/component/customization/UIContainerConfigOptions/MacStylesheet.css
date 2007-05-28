@@ -28,8 +28,8 @@
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .Icon {
-	margin: 3px 5px 0px 7px;
 	float: left;
+	margin: 3px 5px 0px 7px;
 	width: 16px; height: 16px;
 }
 

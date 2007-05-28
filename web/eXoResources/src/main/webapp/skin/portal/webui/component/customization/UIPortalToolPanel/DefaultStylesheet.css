@@ -5,9 +5,7 @@
  * December 13, 2006
  * version: $Id$
  */
-
-.UIPortalToolPanel {
-}
+.UIPortalToolPanel {}
 
 .UIPortalToolPanel .Body {
   padding: 7px 6px 5px 6px;
@@ -20,14 +18,11 @@
 }
 
 .UIPortalToolPanel .Body .PageDecoratorContent {
-  border-top: 1px #a5a5a5 solid;
-  border-left: 1px #a5a5a5 solid; 
+  border: 1px #a5a5a5 solid;
   border-bottom: 1px #d0d0d0 solid;
   border-right: 1px #d0d0d0 solid;
   padding: 10px 7px 10px 10px;
 }
-
-
 
 .UIPortalToolPanel .Body .UIPage {
   width: 99%;

@@ -5,9 +5,7 @@
  * December 15, 2006
  * version: $Id$
  */
- 
-.DecoratorBox {
-}
+.DecoratrBox {}
 
 /*##############################- GrayRoundedFillBox Style -################################*/
 .DecoratorBox .GrayRoundedFillBoxStyle {
@@ -62,11 +60,7 @@
 }
 
 /*##############################- WhiteRoundedBox Style Nested-################################*/
-.DecoratorBoxNested {
-}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested {
-}
+.DecoratorBoxNested {}
 
 .DecoratorBoxNested .WhiteRoundedBoxStyleNested .DecoratorBackgroundNested {
   background: white ;

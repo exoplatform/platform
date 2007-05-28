@@ -43,11 +43,6 @@
   line-height: 37px;
 }
 
-.UIExoStart .StartMenuContainer {
-	/*display: none;
-	visibility: visible;*/
-}
-
 .UIExoStart .StartMenuContainer .LoginContainer {
   height: 35px ;
   background: url('DefaultSkin/background/LoginBg1x35.gif') repeat-x ;

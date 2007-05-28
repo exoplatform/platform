@@ -30,16 +30,16 @@
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
   float: left ;
   width: 24px ; height: 15px ;
+  margin: 4px 0px 0px 5px ;
   background: url('DefaultSkin/background/DragBg2x2.gif');
   cursor: move ;
-  margin: 4px 0px 0px 5px ;
 }
 
 .UIPortlet .ViewPortletIcon {
   float: left;
   width: 16px; height: 16px; 
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueBoxLight.gif') no-repeat;
   margin: 3px 5px 0px 0px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueBoxLight.gif') no-repeat;
   cursor: pointer;
 }
 
@@ -87,7 +87,6 @@
   margin: 4px 10px 0px 5px;
   cursor: pointer;
 }
-
 
 .UIPortlet .HelpPortletIcon {
   float: left;
@@ -228,8 +227,4 @@
 	background: url('DefaultSkin/background/DragAndDropPreview4x4.gif');
   border: 1px solid #c4c4c4;
   margin: 0px 12px 10px 12px;
-}
-
-.UIPage .LAYOUT-PAGE {
- 
 }

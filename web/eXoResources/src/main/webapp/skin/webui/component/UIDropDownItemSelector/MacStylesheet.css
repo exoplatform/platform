@@ -1,9 +1,5 @@
 /******************************* UICaegorySelector  **********************************/
-.UIDropDownItemSelector {
-}
-
-.UIDropDownItemSelector .ItemInfoBar {
-}
+.UIDropDownItemSelector {}
 
 .UIDropDownItemSelector .ItemInfoBar .LeftItemInfoBar {
   background: url('MacSkin/background/LeftItemInfoBar4x24.png') no-repeat left;
@@ -76,7 +72,6 @@
   margin: 4px 2px 0px 0px;
 }
 
-
 .UIItemList .ItemSelectorLabel {
   line-height: 26px;
   font-size: 11px;
@@ -94,7 +89,6 @@
 }
 
 /*=================================Popup Category Decorator====================================*/
-
 .UIItemList .LTItemSelector {
   height:2px;
   background: url('MacSkin/background/TLItemSelector3x2.png') no-repeat left;
@@ -156,4 +150,3 @@
 		BC: Bottom Right.
 		BG: Background.
 		*/
-

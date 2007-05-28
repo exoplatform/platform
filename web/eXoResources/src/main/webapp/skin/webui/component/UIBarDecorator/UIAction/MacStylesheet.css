@@ -29,6 +29,7 @@
 .UIAction .ActionButton .Icon {
 	float: left;
 } 
+
 /*##############################-LightBlueStyle ActionButton-################################*/
 .UIAction .ActionButton .LightBlueStyle {
   line-height: 28px;
@@ -81,9 +82,7 @@
 }
 
 /*##############################-SimpleStyle ActionButton-################################*/
-.UIAction .ActionButton .SimpleStyle {
-
-}
+.UIAction .ActionButton .SimpleStyle {}
 
 .UIAction .ActionButton .SimpleStyle .ButtonLeft {
   background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left top;

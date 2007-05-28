@@ -13,9 +13,9 @@
 }
 
 .UICreatePage .PageNodeSelectorContainer {
+  padding: 5px ;
   border: 1px #cdcdcd solid;
   background: url('MacSkin/background/GrayLinedBG.gif');
-  padding: 5px ;
 }
 
 .UICreatePage .PageNodeSelectorContainer .UIVerticalSlideTabs {

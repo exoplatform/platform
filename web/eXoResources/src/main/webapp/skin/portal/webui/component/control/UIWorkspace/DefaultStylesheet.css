@@ -6,7 +6,7 @@
 }
 
 .UIControlWorkspace .TopTitleBar{
-  padding: 15px 0px 15px 0px;
+  padding: 15px 0px ;
 }
 
 .UIControlWorkspace .UIVerticalSlideTabs {
@@ -23,12 +23,11 @@
 }
 
 .UIControlWorkspace .CloseControlWorkspace {
-	width: 21px ;
-	height: 15px ;
 	float: right ;
+	width: 21px ;	height: 15px ;
+	margin: 3px 5px 0px 0px ;
 	background: url('DefaultSkin/background/CloseControlWorkspace21x15.gif') no-repeat ;
 	cursor: pointer ;
-	margin: 3px 5px 0px 0px ;
 }
 
 .UIControlWorkspace .UIWorkspaceControl { 
@@ -36,7 +35,6 @@
 }
 
 /*########################### Tab ###########################*/
-
 .UIControlWorkspace .UIWorkspacePanel .ControlPanelExpandContainer {
   margin: 10px 4px;
 }
@@ -62,8 +60,7 @@
 }
 
 .UIControlWorkspace .SlidebarButton {
-	height: 100% ;
-	width: 6px ;
+	height: 100% ;	width: 6px ;
 	background: url("DefaultSkin/background/SlidebarButton6x160.gif") no-repeat center center ;
 }
 

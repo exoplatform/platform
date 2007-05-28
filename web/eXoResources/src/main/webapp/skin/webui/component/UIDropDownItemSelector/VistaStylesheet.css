@@ -13,10 +13,10 @@
 .UIDropDownItemSelector .ItemInfoBar {
 	background: url('/eXoResources/background/VistaSkin/IconLabelContentBG1x1.png') repeat;
 	padding-left: 8px;
-	border-left: 1px solid #717171;
-	border-right: 1px solid #717171;
-	border-bottom: 1px solid #717171;
+	border: 1px solid #717171;
+	border-top: none;
 }
+
 .ComponentIcon {
   width: 16px; height: 16px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/ImagesList.gif') no-repeat;
@@ -42,9 +42,7 @@
 }
 
 /********************************   UIItemList   ****************************************/
-
-.UIItemList {
-}
+.UIItemList {}
 
 .UIItemList .ItemSelector {
   height: 22px; line-height: 22px;
@@ -91,7 +89,6 @@
 }
 
 /*=================================Popup Category Decorator====================================*/
-
 .UIItemList .LTItemSelector {
   height:10px;
   background: url('VistaSkin/background/TLItemSelector14x10.png') no-repeat left;

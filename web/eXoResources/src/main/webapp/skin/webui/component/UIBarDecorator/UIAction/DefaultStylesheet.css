@@ -30,7 +30,8 @@
 
 .UIAction .ActionButton .Icon {
 	float: left;
-} 
+}
+
 /*##############################-Normal ActionButton-################################*/
 .UIAction .ActionButton .NormalStyle {
 }
@@ -91,7 +92,6 @@
 /*##############################-SimpleStyle ActionButton-################################*/
 .UIAction .ActionButton .SimpleStyle {
 }
-
 
 .UIAction .ActionButton .SimpleStyle .ButtonLeft {
   background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left top;

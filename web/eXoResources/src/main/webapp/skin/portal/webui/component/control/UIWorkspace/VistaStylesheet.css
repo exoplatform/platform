@@ -22,12 +22,11 @@
 }
 
 .UIControlWorkspace .CloseControlWorkspace {
-	width: 28px ;
-	height: 22px ;
 	float: right ;
+	width: 28px ;	height: 22px ;
+	margin: 0px 0px 0px 0px ;
 	background: url('VistaSkin/background/CloseControlWorkspace.png') no-repeat ;
 	cursor: pointer ;
-	margin: 0px 0px 0px 0px ;
 }
 
 .UIControlWorkspace .UIWorkspacePanel {
@@ -50,8 +49,8 @@
 .UIControlWorkspace .UIWorkspacePanel .TabPortalIcon {
   float: left;  
   width: 30px ; height: 25px ;
-  background: url('VistaSkin/background/PortalManagement.gif') no-repeat ;
   margin: 7px 10px 0px 5px; 
+  background: url('VistaSkin/background/PortalManagement.gif') no-repeat ;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .ControlPanelExpandContainer {
@@ -61,22 +60,22 @@
 .UIControlWorkspace .UIWorkspacePanel .TabPageIcon {
   float: left;
   width: 30px ; height: 25px ;
-  background: url('VistaSkin/background/PageManagement.gif') no-repeat center;
   margin: 6px 10px 0px 5px;
+  background: url('VistaSkin/background/PageManagement.gif') no-repeat center;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .HideContentVTab {
   display: none ;
   background: #f8f8f8 ; 
-  border: solid 1px #a3abb6 ;
   margin: 2px 0px ;
+  border: solid 1px #a3abb6 ;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .ShowContent {
   display: block ;
   background: #f8f8f8 ;
-  border: solid 1px #a3abb6 ;
   margin: 2px 0px ;
+  border: solid 1px #a3abb6 ;
 }
 /*########################### End Tab ###########################*/
 
@@ -88,8 +87,7 @@
 }
 
 .UIControlWorkspace .SlidebarButton {
-	height: 100% ;
-	width: 6px ;
+	height: 100% ;	width: 6px ;
 	background: url("DefaultSkin/background/SlidebarButton6x61.gif") no-repeat center center ;
 }
 

@@ -7,13 +7,6 @@
   padding: 5px;
 }
 
-.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 {
-  
-}
-
-.UIPortletOptions .UIVerticalSlideTabs .SelectedVTabStyle3 {
-}
-
 .UIPortletOptions .UIVerticalSlideTabs .UIVTab .UIVTabContent {
   margin: 1px 8px 5px 8px ;
   padding: 3px ;
@@ -25,16 +18,15 @@
   float: left ;
   font-size: 11px ;
   font-weight: bold ;
+  text-decoration: none;
 }
 
 .UIPortletOptions .PortletTitle a { 
   color: #000000;
-  text-decoration: none;
 }
 
 .UIPortletOptions .PortletTitle a:hover { 
   color: blue;
-  text-decoration: none;
 }
 
 .UIPortletOptions .CategoryContainer {
@@ -75,11 +67,13 @@
   margin:0px 3px 0px 3px;
   background: url('/eXoResources/skin/webui/component/UITabSystem/UIVerticalSlideTabs/VistaSkin/background/SmoothRoundedLeftBar3x27.gif') no-repeat left ; 
 }
+
 .UIPortletOptions .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRight{
   height: 27px ; width: auto ;
   padding-right: 4px ;
   background: url('/eXoResources/skin/webui/component/UITabSystem/UIVerticalSlideTabs/VistaSkin/background/SmoothRoundedRightBar3x27.gif') no-repeat right ; 
 }
+
 .UIPortletOptions .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRepeat{
   height: 27px ;
   background: url('/eXoResources/skin/webui/component/UITabSystem/UIVerticalSlideTabs/VistaSkin/background/SmoothRoundedRepeatBar1x27.gif') repeat-x ;
@@ -89,5 +83,3 @@
 	width: 16px; height: 16px;
 	background: url('/eXoResources/icons/16x16/VistaSkin/DefaultPortletIcons.png') no-repeat;
 }
-
-

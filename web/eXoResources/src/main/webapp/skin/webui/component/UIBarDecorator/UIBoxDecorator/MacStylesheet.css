@@ -5,9 +5,7 @@
  * December 15, 2006
  * version: $Id$
  */
- 
-.DecoratorBox {
-}
+.DecoratorBox {}
 
 /*##############################- WhiteRoundedBox Style -################################*/
 .DecoratorBox .WhiteRoundedBoxStyle {
@@ -132,11 +130,7 @@
 }
 
 /*##############################- WhiteRoundedBox Style Nested-################################*/
-.DecoratorBoxNested {
-}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested {
-}
+.DecoratorBoxNested {}
 
 .DecoratorBoxNested .WhiteRoundedBoxStyleNested .DecoratorBackgroundNested {
   background: url('MacSkin/background/RoundCornerLinedMC1x4.gif') repeat ;
@@ -237,8 +231,3 @@
   background: url('MacSkin/background/GrayLinedBR19x23.gif') no-repeat right ;
   padding: 0px 19px  0px 0px ;
 }
-
-/*##############################- MacStyle -################################*/
-
-
-

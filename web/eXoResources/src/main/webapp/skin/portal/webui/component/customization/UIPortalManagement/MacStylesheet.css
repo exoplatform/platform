@@ -1,5 +1,4 @@
-.UIPortalManagement {
-}
+.UIPortalManagement {}
 
 .UIPortalManagement .TopTitleBar {
   padding: 15px 85px 15px 0px;
@@ -10,7 +9,7 @@
 }
 
 .UIPortalManagement .UIPortalManagementEditBar {
-  padding: 0px 7px 0px 7px;
+  padding: 0px 7px ;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
@@ -71,5 +70,3 @@
 	width: 32px; height: 32px;
 	background: url('/eXoResources/icons/32x32/MacSkin/AbortButton.png') no-repeat;
 }
-
-

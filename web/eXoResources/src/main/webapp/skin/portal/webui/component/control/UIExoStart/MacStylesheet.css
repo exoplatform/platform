@@ -221,16 +221,12 @@
   position: relative ;
 }
 
-.UIExoStart .StartMenuContainer .MenuItemContainer .MenuItem {
-}
-
 .UIExoStart .StartMenuContainer .MenuItemContainer .Icon {
   padding: 0px 0px 0px 33px;
   margin: 0px 0px 0px 5px;
   height: 35px;
   width: auto;
 }
-
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {
 	background: #cbdaf4;

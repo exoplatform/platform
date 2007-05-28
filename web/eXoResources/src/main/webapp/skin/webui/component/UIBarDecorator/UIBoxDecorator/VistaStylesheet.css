@@ -1,5 +1,4 @@
-.DecoratorBox {  
-}
+.DecoratorBox {}
 
 /*##############################- WhiteRoundedBox Style -################################*/
 .DecoratorBox .WhiteRoundedBoxStyle {
@@ -31,13 +30,12 @@
 .DecoratorBox .WhiteRoundedBoxStyle .MiddleLeftSideBoxDecorator {
   background: url('VistaSkin/background/MiddleLeftSideBoxDecorator10x2.png') repeat-y;
   padding: 0px 0px 0px 10px;
- }
+}
  
 .DecoratorBox .WhiteRoundedBoxStyle .MiddleRightSideBoxDecorator {
   background: url('VistaSkin/background/MiddleRightSideBoxDecorator10x1.png') repeat-y right;
   padding: 0px 10px 0px 0px ;
- /*fix bug on IE*/
- }
+}
  
 .DecoratorBox .WhiteRoundedBoxStyle .MiddleRightSideBoxDecorator .CenterSideBoxDecorator {
    background: url('VistaSkin/background/MiddleLeftSideBoxDecoratorrBG.png') repeat;
@@ -122,11 +120,7 @@
 }
 
 /*##############################- WhiteRoundedBox Style Nested-################################*/
-.DecoratorBoxNested {
-}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested {
-}
+.DecoratorBoxNested {}
 
 .DecoratorBoxNested .WhiteRoundedBoxStyleNested .DecoratorBackgroundNested {
   background: white ;
@@ -179,8 +173,7 @@
   padding: 0px 7px 0px 0px ;
 }
 /*##############################- LightBlueRoundedBoxStyleNested-################################*/
-.DecoratorBoxNested .LightBlueBoxNested {
-}
+.DecoratorBoxNested .LightBlueBoxNested {}
 
 .DecoratorBoxNested .LightBlueBoxNested  .CenterDecoratorNestedBG {
   background: #d9d9eb ;
@@ -230,7 +223,6 @@
 }
 
 /* ====================Decorator Container Options=================*/
-
 .TopLeftContainerOptions {
 	background: url('VistaSkin/background/TopLeftContainerOptions4x2.png') no-repeat left;
 	padding-left: 4px;

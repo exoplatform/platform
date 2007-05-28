@@ -6,8 +6,7 @@
  * version: $Id$
  */
 
-.UIPortalToolPanel {
-}
+.UIPortalToolPanel {}
 
 .UIPortalToolPanel .Banner {
   background: url('MacSkin/background/EditBannerRepeat1x121.jpg') repeat-x ;
@@ -29,9 +28,9 @@
 }
 
 .UIPortalToolPanel .BannerRight {
-  background: url('MacSkin/background/EditRightBanner220x121.jpg') no-repeat right ;
   float: right ;
   height: 121px ; width: 220px;
+  background: url('MacSkin/background/EditRightBanner220x121.jpg') no-repeat right ;
 }
 
 .UIPortalToolPanel .Body {
@@ -49,8 +48,7 @@
 }
 
 .UIPortalToolPanel .Body .PageDecoratorContent {
-  border-top: 1px #a5a5a5 solid;
-  border-left: 1px #a5a5a5 solid; 
+  border: 1px #a5a5a5 solid;
   border-bottom: 1px #d0d0d0 solid;
   border-right: 1px #d0d0d0 solid;
   padding: 10px 7px 10px 7px;

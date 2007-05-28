@@ -15,7 +15,6 @@
 }
 
 /*############################- UIPageManagementControlBar Icons -#####################*/
-
 .UIPageManagement .RollbackBar {
   width: 135px;
   margin: auto;
@@ -28,7 +27,6 @@
   width: 30px; height: 25px;
   margin: 4px 20px 0px 20px;
   background: url('VistaSkin/background/PageNavigation.gif') no-repeat;  
-  
 }
 
 .UIPageManagement .BrowserPageIcon {
@@ -162,10 +160,8 @@
   cursor: pointer ;
 }
 
-
 .UIPageManagement .SavePageIcon {
   width: 26px; height: 26px;
   margin: 7px 5px 0px 5px; 
   background: url('/eXoResources/icons/24x24/VistaSkin/BlackFloppyDiskPage.png') ;
 }
-

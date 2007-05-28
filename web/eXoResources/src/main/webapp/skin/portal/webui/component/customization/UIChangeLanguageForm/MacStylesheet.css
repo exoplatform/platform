@@ -70,8 +70,6 @@
 
 .UIChangeLanguageForm .ItemDetail .NormalItem a:hover {
 	height: 24px;
-	border-bottom: solid 1px #e9e7e7;
-	cursor: pointer ;
 	color: blue;
 }
 

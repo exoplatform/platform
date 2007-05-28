@@ -25,13 +25,11 @@
   background: white ;
   border: 1px solid #b7b7b7 ; 
   margin-bottom: 5px;
-  
 }
 
 .UIPageNodeSelector .TabLabel {
   font-size: 11px ;
   margin-left: 10px;
- 
 }
 
 .UIPageNodeSelector .UITree {
@@ -44,8 +42,8 @@
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .TreeLevelContainer {
-  margin: 0px 0px 4px 0px;  
   float: none;
+  margin: 0px 0px 4px 0px;  
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .ExpandIcon {
@@ -66,11 +64,10 @@
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .NodeLabel  {
-  cursor: pointer ;
   float: left ;
+  cursor: pointer ;
   height:20px; line-height: 20px; vertical-align: middle ;
   font-size: 11px; color: black; 
-  
 }
 
 .UIPageNodeSelector .OrganizationIcon {
@@ -79,7 +76,6 @@
 
 .UIPageNodeSelector .PortalAdminIcon {
   background: url('/eXoResources/icons/16x16/VistaSkin/16x16/PortalAdmin.gif') no-repeat;
-  
 }
 
 .UIPageNodeSelector .NavigationPortalIcon {

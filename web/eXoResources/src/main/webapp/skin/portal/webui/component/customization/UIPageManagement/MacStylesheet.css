@@ -1,5 +1,4 @@
-.UIPageManagement {
-}
+.UIPageManagement {}
 
 .UIPageManagement .TopTitleBar {
   padding: 15px 80px 15px 0px;
@@ -75,7 +74,6 @@
 }
 
 /*##########################Edit Page Control Bar#############################*/
-
 .UIPageManagement .UIToolbar .EditToolbar .Icon {
   float: left;
   margin: 3px 6px 0px 6px;
@@ -116,15 +114,14 @@
 }
 
 .UIPageManagement .NavigationConfigIcon{
+  float: left;
   width: 35px; height: 28px;
+  margin: 5px 7px 0px 8px;
   background: url('MacSkin/background/NavigationCommunityConfig.gif') no-repeat center;
   cursor: pointer ;
-  float: left;
-  margin: 5px 7px 0px 8px;
 }
 
 /*================================== Control Toolbar ==================================*/
-
 .UIPageManagement .UIToolbar .ControlToolbar .Icon {
   float: left;
   margin: 3px 0px 0px 0px; 
@@ -144,7 +141,6 @@
   width: 32px; height: 32px;
   background: url('/eXoResources/icons/32x32/MacSkin/SaveButton.png') no-repeat ;
 }
-
 
 .UIPageManagement .BackIcon {
 	width: 32px; height: 32px;
@@ -170,4 +166,3 @@
 	width: 32px; height: 32px;
 	background: url('/eXoResources/icons/32x32/MacSkin/AbortButton.png') no-repeat;
 }
-

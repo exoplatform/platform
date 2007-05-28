@@ -1,6 +1,4 @@
-.UIPageManagement {
-}
-
+.UIPageManagement {}
 .UIPageManagement .TopTitleBar {
   margin-bottom: 10px;
   padding: 15px 10px 0px 0px;
@@ -84,4 +82,3 @@
   width: 24px; height: 24px;
   background: url('/eXoResources/icons/24x24/DefaultSkin/BackIcon.gif') no-repeat;
 }
-

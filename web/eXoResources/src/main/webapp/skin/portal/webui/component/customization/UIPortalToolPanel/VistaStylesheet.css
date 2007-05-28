@@ -64,29 +64,26 @@
 }
 
 .UIPortalToolPanel .BannerLeft {
-  background: url('VistaSkin/background/EditBannerLBg410x92.png') no-repeat left ;
   float: left ;
   height: 92px ; width: 40%;
+  background: url('VistaSkin/background/EditBannerLBg410x92.png') no-repeat left ;
 }
 
 .UIPortalToolPanel .BannerMiddle {
-  background: url('VistaSkin/background/EditBannerMBg250x92.png') no-repeat center ;
   float: left ;
   height: 92px ; width:25%;
+  background: url('VistaSkin/background/EditBannerMBg250x92.png') no-repeat center ;
 }
 
 .UIPortalToolPanel .BannerRight {
-  background: url('VistaSkin/background/EditBannerRBg260x92.png') no-repeat right ;
   float: right ;
   height: 92px ; width: 26%;
+  background: url('VistaSkin/background/EditBannerRBg260x92.png') no-repeat right ;
 }
 
 .UIPortalToolPanel .Body {
   padding:7px 6px 5px;
   height: 100%;
-}
-
-.UIPortalToolPanel .Body .UIPageBrowser {
 }
 
 .UIPortalToolPanel .Footer {
@@ -139,8 +136,7 @@
 }
 
 .UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer {
-	height: 100% ;
-	width: 247px ;
+	height: 100% ;	width: 247px ;
 }
 
 .UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemList {
@@ -159,4 +155,4 @@
 	font-weight: bold;
 	margin: 0px 0px 0px 0px;
 	background: url('VistaSkin/background/TitleBG1x28.gif') repeat-x ;
-	}
+}

@@ -41,7 +41,6 @@
   width: 30px;  height: 25px;
   margin: 2px 0px 0px 0px;
   background: url('VistaSkin/background/BlueCircleBackArrow.png') no-repeat;
-
 }
 
 .UIPortalManagement .UIPortalManagementEditBar {
@@ -53,7 +52,6 @@
   width: 30px;  height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControlIcon.png') no-repeat;
 }
-
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
 	margin: 8px 11px 0px 11px;
@@ -68,7 +66,6 @@
   cursor : pointer;
   background: url('/eXoResources/icons/24x24/VistaSkin/LayoutMode.gif') no-repeat;
 }
-
 
 .UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
   margin: 8px 11px 0px 11px;

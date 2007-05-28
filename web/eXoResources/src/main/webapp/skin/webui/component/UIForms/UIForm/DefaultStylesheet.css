@@ -1,8 +1,6 @@
-.UIForm  {
-}
+.UIForm  {}
 
 /*####################- HorizontalLayout -#################*/
-
 .UIForm .HorizontalLayout {
   border: 1px solid #aeaeae;
 }
@@ -114,7 +112,6 @@
 
 
 /*####################- UIPermissionForm -#################*/
-
 .UIPermissionForm .UIAccessGroup .UIAction {
   width: 200px;
 }
