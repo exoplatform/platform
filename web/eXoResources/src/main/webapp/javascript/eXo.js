@@ -46,7 +46,6 @@ eXo.require = function(module, jsLocation) {
 }
 
 eXo.env.server.createPortalURL = function(targetComponentId, actionName, useAjax, params) {
-//	alert("createPortalURL:::::::::::::: " + targetComponentId);
   var href = eXo.env.server.portalBaseURL + "?portal:componentId=" +  targetComponentId +
              "&portal:action=" + actionName;
   if(params != null) {
