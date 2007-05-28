@@ -111,21 +111,21 @@ UIUpload.prototype.deleteUpload = function(id) {
   request.open('GET', url, false);
   request.setRequestHeader("Cache-Control", "max-age=86400");
   request.send(null);
-  
+  var DOMUtil = eXo.core.DOMUtil;
   var container = parent.document.getElementById(id);
-  var uploadIframe =  eXo.core.DOMUtil.findDescendantById(container, id+"UploadIframe");
+  var uploadIframe =  DOMUtil.findDescendantById(container, id+"UploadIframe");
   uploadIframe.style.display = "block";
   eXo.webui.UIUpload.createUploadEntry(id);
-  var progressIframe = eXo.core.DOMUtil.findDescendantById(container, id+"ProgressIframe");
+  var progressIframe = DOMUtil.findDescendantById(container, id+"ProgressIframe");
   progressIframe.style.display = "none";
 
   var tmp = progressIframe.parentNode;
   var temp = tmp.parentNode;
 //  var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");
 //  child[0].style.visibility =  "visible" ;
-  var progressBarFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
+  var progressBarFrame = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "none" ;
-  var selectFileFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "SelectFileFrame") ;
+  var selectFileFrame = DOMUtil.findFirstDescendantByClass(container, "div", "SelectFileFrame") ;
   selectFileFrame.style.display = "none" ;
    
   var  input = parent.document.getElementById('input' + id);
@@ -133,35 +133,36 @@ UIUpload.prototype.deleteUpload = function(id) {
 } ;
 
 
-UIUpload.prototype.upload = function(clickEle, id) {  
+UIUpload.prototype.upload = function(clickEle, id) {
+	var DOMUtil = eXo.core.DOMUtil;  
   var container = parent.document.getElementById(id);  
   var uploadFrame = parent.document.getElementById(id+"uploadFrame");
   var form = uploadFrame.contentWindow.document.getElementById(id);
 
-  var file  = eXo.core.DOMUtil.findDescendantById(form, "file");
+  var file  = DOMUtil.findDescendantById(form, "file");
   if(file.value == null || file.value == '') return;  
   var infoUploaded = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "FileNameLabel") ;
   infoUploaded.innerHTML = "Uploaded "+file.value;
   
-  var progressBarFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
+  var progressBarFrame = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "block" ;  
-  var progressBarMiddle = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarMiddle") ;
-  var blueProgressBar = eXo.core.DOMUtil.findFirstChildByClass(progressBarMiddle, "div", "BlueProgressBar") ;
-  var progressBarLabel = eXo.core.DOMUtil.findFirstChildByClass(blueProgressBar, "div", "ProgressBarLabel") ;
+  var progressBarMiddle = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarMiddle") ;
+  var blueProgressBar = DOMUtil.findFirstChildByClass(progressBarMiddle, "div", "BlueProgressBar") ;
+  var progressBarLabel = DOMUtil.findFirstChildByClass(blueProgressBar, "div", "ProgressBarLabel") ;
   blueProgressBar.style.width = "0%" ;
   progressBarLabel.innerHTML = "0%" ;
   
   var  input = parent.document.getElementById('input' + id);
   input.value = "true";
   
-  var uploadIframe =  eXo.core.DOMUtil.findDescendantById(container, id+"UploadIframe");
+  var uploadIframe = DOMUtil.findDescendantById(container, id+"UploadIframe");
   uploadIframe.style.display = "none";
-  var progressIframe = eXo.core.DOMUtil.findDescendantById(container, id+"ProgressIframe");
+  var progressIframe = DOMUtil.findDescendantById(container, id+"ProgressIframe");
   progressIframe.style.display = "none";
 
   var tmp = progressIframe.parentNode;
   var temp = tmp.parentNode;
-//  var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");// Label contains string "Upload File" in front of File Chooseer.
+//  var child = DOMUtil.getChildrenByTagName(temp,"label");// Label contains string "Upload File" in front of File Chooseer.
 //  child[0].style.visibility = "hidden" ;
   
   form.submit() ;

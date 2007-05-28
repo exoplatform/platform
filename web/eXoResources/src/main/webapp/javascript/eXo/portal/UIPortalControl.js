@@ -10,26 +10,6 @@ UIPortalControl.prototype.changeWindowState = function(id, state) {
 	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "ChangeWindowState", true, params));
 };
 
-/* Created Function by Duy Tu */
-UIPortalControl.prototype.showHiddenContent = function(selectedElement) {
-	var DOMUtil = eXo.core.DOMUtil ;
-	var ancestorClass = DOMUtil.findAncestorByClass(selectedElement, "UILoggedInfo");
-	var classNormal = DOMUtil.findAncestorByClass(selectedElement, "NormalBG");
-	var classSelected = DOMUtil.findFirstDescendantByClass(ancestorClass, "div", "SelectedBG");
-	var contentStyle = DOMUtil.findDescendantsByClass(ancestorClass, "div", "StyleContent") ;
-	if(classNormal != null){
-		classNormal.className = "SelectedBG";
-		classSelected.className = "NormalBG";
-		if(selectedElement.className == "UserIcon"){
-		  contentStyle[0].style.display = "block";
-			contentStyle[1].style.display = "none";
-		} else {
-		  contentStyle[0].style.display = "none";
-		  contentStyle[1].style.display = "block";
-		}
-	} 
-};
-
 /*For Navigation Tree*/
 UIPortalControl.prototype.collapseTree = function(selectedElement ) {
   var DOMUtil = eXo.core.DOMUtil ;
@@ -55,21 +35,23 @@ UIPortalControl.prototype.fixHeight = function() {
 	} else {
 	var objectParent = document.getElementById("UIControlWorkspace");
 	if(objectParent) {
+		var DOMUtil = eXo.core.DOMUtil;
 		var uiControlWSWorkingArea = document.getElementById("UIControlWSWorkingArea");
-		var uiWorkspaceContainer = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
+		var uiWorkspaceContainer = DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
 		if(uiWorkspaceContainer.style.display == "block") {
-			var scrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
+			var scrollArea = DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
 			var tmp = objectParent.offsetHeight - 72;
 			if(scrollArea != null) {
 				scrollArea.style.height = "auto";
 				var heightChild = scrollArea.offsetHeight;
-				var jsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
+				var jsContainer = DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
 				if(jsContainer){
 					scrollArea.style.width = "210px";
 					jsContainer.style.width = "208px";
 				}
+				var maxHeight = 0;
 				if(uiControlWSWorkingArea) {
-				  var maxHeight = uiControlWSWorkingArea.offsetHeight ;
+				  maxHeight = uiControlWSWorkingArea.offsetHeight ;
 				} 
 				var deltaResize = maxHeight - tmp;
 				if(deltaResize > 0) {
