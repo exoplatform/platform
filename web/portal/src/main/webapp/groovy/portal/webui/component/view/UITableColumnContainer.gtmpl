@@ -36,7 +36,7 @@
     <%/*End InfoBar*/ %>
   </div>
   
-  <div class="LAYOUT-CONTAINER" style="display: none;"></div>
+  <div class="LAYOUT-CONTAINER" style="display: none;"><span></span></div>
   <% 
      String style = "";
      String width  = uicomponent.getWidth();
@@ -58,5 +58,4 @@
     </div>    
   </div>
   <%/*Debug On IE  -----For DND */%>
-  <div style="height:2px"><span></span></div>
 </div>

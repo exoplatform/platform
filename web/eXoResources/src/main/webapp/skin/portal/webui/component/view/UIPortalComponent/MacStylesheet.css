@@ -1,6 +1,6 @@
 .UIPortlet .LAYOUT-PORTLET {
   font-size: 11px ;
-  margin: 0px 7px 8px 10px ;
+  margin: 0px 5px 8px 8px ;
 }
 
 .UIPortlet .CONTROL-PORTLET {
@@ -147,7 +147,6 @@
 /*############### End Decorator ###################################################*/
 
 .VIEW-PORTAL .UIContainer .UITableColumnContainer {
-	width: 99.7%;
 }
 
 .UIContainer .LAYOUT-CONTAINER {
@@ -155,11 +154,11 @@
   background: url('MacSkin/background/ContainerBackground1x4.gif') repeat;
   border: solid 1px #7b7b7b ; border-bottom: solid 1px #1e1f1f;
   padding: 8px 0px 0px 0px ;
-  margin: 0px 10px 10px 13px;
+  margin: 0px 8px 7px 8px;
 }
 
 .UIContainer .CONTROL-CONTAINER {
-  margin: 0px 7px -1px 10px;
+  margin: 0px 5px -1px 5px;
 }
 
 .UIContainer .CONTROL-CONTAINER .DragControlArea {
