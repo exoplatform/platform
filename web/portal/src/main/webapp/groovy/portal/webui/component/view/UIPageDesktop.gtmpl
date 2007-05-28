@@ -1,5 +1,6 @@
 <%
   import org.exoplatform.portal.component.view.UIPortlet;
+  import org.exoplatform.web.application.widget.WidgetApplication;
   import org.exoplatform.web.application.JavascriptManager;
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -71,6 +72,7 @@
             uiChild.setShowInfoBar(true);
             uiChild.setPortletStyle("Window");
 	          uicomponent.renderUIComponent(uiChild);
+	          System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n  ID COMPONENT: "+uiChild.getId()+"  \n\n\n\n\n\n\n\n\n\n");
             jsmanager.addJavascript("eXo.desktop.UIWindow.init('${popupId}-portlet-window', true, ${x}, ${y});") ;
         %>
         <%  x += 10; y += 20 ;%>

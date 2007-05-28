@@ -2,9 +2,15 @@ function UIWidget() {
 	
 };
 
-UIWidget.prototype.init = function() {
+UIWidget.prototype.init = function(factoryId) {
 	var DOMUtil = eXo.core.DOMUtil ;
-	var uiWidgetContainer = document.getElementById("UIWidgetContainer");
+	var uiWidgetContainer ;
+	
+	if(factoryId == null) {
+		uiWidgetContainer = document.getElementById("UIWidgetContainer");
+	} else {
+		uiWidgetContainer = document.getElementById("UIPageDesktop") ;
+	}
 	
 	var uiWidgets = DOMUtil.findDescendantsByClass(uiWidgetContainer, "div", "UIWidget");
 	

@@ -392,6 +392,12 @@ UIPortal.prototype.onLoads = function() {
 	}
 } ;
 
+UIPortal.prototype.createJSApplication = function(application, applicationId, instanceId, appLocation) {
+	eXo.require(application, appLocation);
+	var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
+	eval(createApplication);
+} ;
+
 eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;
 eXo.portal.UIPortal = new UIPortal() ;
 eXo.portal.UIComponent = UIPortal.prototype.constructor ;

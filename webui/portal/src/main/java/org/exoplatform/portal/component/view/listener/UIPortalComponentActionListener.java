@@ -67,7 +67,7 @@ public class UIPortalComponentActionListener {
       pcontext.setFullRender(true);
     }
   }
-  
+    
   static public class MoveChildActionListener  extends EventListener<UIContainer> {    
     public void execute(Event<UIContainer> event) throws Exception {
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();

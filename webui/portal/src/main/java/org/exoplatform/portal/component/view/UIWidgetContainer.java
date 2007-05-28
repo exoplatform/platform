@@ -5,6 +5,9 @@
 package org.exoplatform.portal.component.view;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 /**
  * Created by The eXo Platform SARL
  * Author : Pham Dung Ha
@@ -12,16 +15,17 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * May 16, 2007  
  */
 
-@ComponentConfig( template = "system:/groovy/portal/webui/component/view/UIWidgetContainer.gtmpl")
+@ComponentConfig( 
+  template = "system:/groovy/portal/webui/component/view/UIWidgetContainer.gtmpl"
+)
 public class UIWidgetContainer extends UIContainer {
   
   public UIWidgetContainer() throws Exception {
 //    UIWidget widgetSystem = addChild(UIWidget.class, null, null);
 //    UISystemWidgets systemWidgets = createUIComponent(UISystemWidgets.class, null, null);
 //    widgetSystem.setUIComponent(systemWidgets);
-//    
 //    UIWidget widgetInfo = addChild(UIWidget.class, null, null);
 //    UIInfoWidget uiInfoWidget = createUIComponent(UIInfoWidget.class, null, null);
 //    widgetInfo.setUIComponent(uiInfoWidget);
-  }  
+  }
 }

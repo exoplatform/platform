@@ -126,7 +126,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 		if(!selected) selected = true;
   }
   itemDetails += '</div>';
-  itemList.innerHTML = items;  
+  itemList.innerHTML = items;
   itemDetailList.innerHTML = itemDetails;
 };
 
@@ -141,7 +141,8 @@ UIAddApplication.prototype.addPortlet = function(id, save) {
 
 UIAddApplication.prototype.showAddApplication = function(object) {
 	eXo.core.UIMaskLayer.createMask("UIPortalApplication", object, 30) ;
-	eXo.desktop.UIDockbar.reset() ;
+	var uiPageDesktop = document.getElementById("UIPageDesktop");
+	if(uiPageDesktop) eXo.desktop.UIDockbar.reset() ;
 };
 
 UIAddApplication.prototype.removeAddApplication = function() {

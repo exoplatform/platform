@@ -29,8 +29,17 @@ public class WelcomeWidget extends WidgetApplication {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     
+//    UIPortal uiPortal = Util.getUIPortal();
+//    UIPage uiPage = uiPortal.findFirstComponentOfType(UIPage.class);
+//    String factoryId = uiPage.getFactoryId();
+//        
+//    System.out.println("\n\n\n\n\n\n\n\n FactoryID: "+factoryId+"  \n\n\n\n\n\n\n\n\n");
+    
+//    System.out.println("\n\n\n\n\n\n\n\n PROCESS RENDER WELCOME WIDGET  \n\n\n\n\n\n\n\n\n");
+    
+    w.write("<div id = 'UIWelcomeWidget'><span></span></div>") ;
     String script = 
-      "eXo.desktop.UIDesktop.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','UIWelcomeWidget','/exo.widget.web/javascript/');";
+      "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','UIWelcomeWidget','/exo.widget.web/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
 }

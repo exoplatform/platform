@@ -290,6 +290,7 @@ function HttpResponseHandler(){
 /*****************************************************************************************/
 // Modified by Philippe : added callback function
 function ajaxGet(url, callback) {
+	alert("AJAX GET::::::::--:::::: " + url);
 	if (!callback) callback = null;
   doRequest("Get", url, null, callback) ;
 }

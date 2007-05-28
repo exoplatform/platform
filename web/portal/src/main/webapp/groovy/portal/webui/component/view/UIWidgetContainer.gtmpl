@@ -5,7 +5,10 @@
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
   jsmanager.importJavascript('eXo.widget.UIAddWidget');
-  String showUIAddWidget = "eXo.widget.UIAddWidget.show();" ;
+  jsmanager.importJavascript('eXo.desktop.UIAddApplication') ;
+  
+  String componentId = uicomponent.getId();
+  String addWidgetAction = "eXo.desktop.UIAddApplication.init('UIWidgetContainer', '$componentId');" ;
 %>
 
 <div class="UIWidgetContainer" id="UIWidgetContainer">
@@ -14,7 +17,7 @@
 		<div class="LeftWidgetNavBar">
 			<div class="RightWidgetNavBar">
 				<div class="CenterWidgetNavBar">
-					<div class="Icon AddWidgetButton" onclick="$showUIAddWidget" title="Add Widget"><span></span></div>
+					<div class="Icon AddWidgetButton" onclick="$addWidgetAction" title="Add Widget"><span></span></div>
 					<div class="Icon DisableScrollDownButton" style="display: none"><span></span></div>
 					<div class="Icon ScrollDownButton" title="Scroll down"><span></span></div>
 					<div class="Icon DisableScrollDownButton" style="display: none"><span></span></div>

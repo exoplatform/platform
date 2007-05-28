@@ -42,7 +42,14 @@ UIWelcomeWidget.prototype.initApplication = function(applicationId, instanceId) 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.welcome.UIWelcomeWidget);
 	  
 	var appInstance = appDescriptor.createApplication();
-	
+//	appInstance.factoryId = factoryId ;
+//	
+//	if(factoryId == "Desktop") {
+//		eXo.widget.UIAddWidget.addWidgetToDesktop(appInstance);
+//	}
+
+	var app = document.getElementById("UIWelcomeWidget");
+//	alert(app);
 	eXo.widget.UIAddWidget.addWidget(appInstance);
 }
 

@@ -7,6 +7,9 @@ package org.exoplatform.portal.component.view;
 import org.exoplatform.portal.component.view.lifecycle.UIWidgetLifecycle;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 
 /**
  * Created by The eXo Platform SARL
@@ -14,7 +17,12 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  *          ha.pham@exoplatform.com
  * May 16, 2007  
  */
-@ComponentConfig(lifecycle = UIWidgetLifecycle.class)
+
+@ComponentConfig(
+  lifecycle = UIWidgetLifecycle.class,
+  events = @EventConfig(listeners = UIWidget.DeleteWidgetActionListener.class)
+)
+
 public class UIWidget extends UIComponent {
   
   private String applicationInstanceId_ ;
@@ -53,5 +61,15 @@ public class UIWidget extends UIComponent {
   public String getApplicationId() { return applicationId_ ; }
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
+  
+  static public class DeleteWidgetActionListener extends EventListener<UIWidget> {
+    public void execute(Event<UIWidget> event) throws Exception {
+      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n DeleteWidgetActionListener \n\n\n\n\n\n\n\n\n\n\n\n");
+      String id  = event.getRequestContext().getRequestParameter(OBJECTID);
+      UIWidget uiWidget = event.getSource();
+      UIContainer parentWidget = (UIContainer)uiWidget.getParent() ; 
+      parentWidget.removeChildById(id) ;
+    }
+  }
   
 }

@@ -1,4 +1,5 @@
-<% eXo.require('eXo.widget.UIWidget') %>
+<% eXo.require('eXo.widget.UIWidget')%>
+<% var deleteWidget = 'ajaxGet(eXo.env.server.createPortalURL(\'UIWidgetContainer\', \'DeleteWidget\', true))'%>
 <div class="UIWidget">
   <div class="WidgetControlBar">
     <div class="WidgetControl" style="display: none">
@@ -8,7 +9,7 @@
 			    	<div class="WidgetDragHandleArea" title="Drag this Widget"><span></span></div>
 			    	<div class="SeparatorLine"><span></span></div>
 				    <a class="EditWidgetIcon" title="Edit this Widget" href="#"><span></span></a>
-				  	<a class="CloseWidgetIcon" href="#" title="Close this Widget"><span></span></a>
+				  	<a class="CloseWidgetIcon" href="<%=deleteWidget%>" title="Delete This Widget"><span></span></a>
 				  	<div style="clear: left"><span></span></div>
 				  </div>
 				</div>

@@ -30,7 +30,7 @@ public class InfoWidget extends WidgetApplication {
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     
     String script = 
-      "eXo.desktop.UIDesktop.createJSApplication('eXo.widget.web.info.UIInfoWidget','UIInfoWidget','UIInfoWidget','/exo.widget.web/javascript/');";
+      "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.info.UIInfoWidget','UIInfoWidget','UIInfoWidget','/exo.widget.web/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
 }

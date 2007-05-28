@@ -31,4 +31,12 @@ UIAddWidget.prototype.addWidget = function(widgetElement) {
 	eXo.core.Skin.addSkin(styleId, appDescriptor.application.skin[eXo.env.client.skin]);
 };
 
+UIAddWidget.prototype.addWidgetToDesktop = function(widgetElement) {
+	var appDescriptor = widgetElement.applicationDescriptor;
+	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+	if(uiPageDesktop == null) return ;
+	uiPageDesktop.appendChild(widgetElement);
+	eXo.widget.UIWidget.init(widgetElement.factoryId);
+};
+
 eXo.widget.UIAddWidget = new UIAddWidget();

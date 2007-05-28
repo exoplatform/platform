@@ -88,12 +88,6 @@ UIDesktop.prototype.backupWindowProperties = function(uiWindow) {
   uiWindow.isFirstTime = false ;
 } ;
 
-UIDesktop.prototype.createJSApplication = function(application, applicationId, instanceId, appLocation) {
-	eXo.require(application, appLocation);
-	var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
-	eval(createApplication);
-} ;
-
 UIDesktop.prototype.saveJSApplication = function(application, applicationId, instanceId, appLocation) {
   var params = [
   	{name: "jsApplication", value : application},

@@ -27,7 +27,7 @@ public class ExoConsoleApplication extends MVCApplication {
   
   public void processRender(MVCRequestContext context) throws Exception {
     String script = 
-      "eXo.desktop.UIDesktop.createJSApplication('eXo.application.console.UIConsoleApplication','eXoConsole','eXoConsole','/exo.app.web/javascript/');";
+      "eXo.portal.UIPortal.createJSApplication('eXo.application.console.UIConsoleApplication','eXoConsole','eXoConsole','/exo.app.web/javascript/');";
     context.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
 }
