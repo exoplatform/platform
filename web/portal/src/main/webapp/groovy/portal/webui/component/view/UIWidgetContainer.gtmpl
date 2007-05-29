@@ -9,8 +9,6 @@
   
   String componentId = uicomponent.getId();
   String addWidgetAction = "eXo.desktop.UIAddApplication.init('"+uicomponent.getId()+"', '$componentId');" ;
-  
-  System.out.println("\n\n\n\n == > see id of uiwidgetcontainer :"+uicomponent.getId()+"\n\n");
 %>
 
 <div class="UIWidgetContainer" id="<%=uicomponent.getId();%>">
