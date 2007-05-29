@@ -28,6 +28,11 @@
   line-height: 20px;
 }
 
+.UIFormWithTitle .HorizontalLayout .FieldContainer .FieldLabel {
+  float: left; width: 120px;
+  text-align: right;
+}
+
 .UIFormWithTitle .UIForm .UIAction {  
   width: 180px;
 }
