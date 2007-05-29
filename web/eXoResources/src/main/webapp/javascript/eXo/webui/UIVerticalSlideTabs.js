@@ -1,14 +1,33 @@
-function UIVerticalSlideTabs() {
-  
-};
+function UIVerticalSlideTabs() {};
 
-UIVerticalSlideTabs.prototype.init = function() {
+UIVerticalSlideTabs.prototype.slideEffect = function() {
+	with(this.selectedTab.style) {
+		while(parseInt(height) > 0) {
+			height = (parseInt(height) - 1) + "px";
+		}
+		height = "0px";
+	}
+}
 
+UIVerticalSlideTabs.prototype.swicthVTab = function(clickedElement) {
+  var uiClickedVTab = eXo.core.DOMUtil.findAncestorByClass(clickedElement, "UIVTab");
+	var uiClickedVTabContent = eXo.core.DOMUtil.findFirstChildByClass(uiClickedVTab, "div", "UIVTabContent");
+  var uiVerticalSlideTabs =  eXo.core.DOMUtil.findAncestorByClass(clickedElement, "UIVerticalSlideTabs");
+  var uiVTab = eXo.core.DOMUtil.findChildrenByClass(uiVerticalSlideTabs, "div", "UIVTab") ;
+ 	for(var i = 0; i < uiVTab.length; i++) {
+    if(eXo.core.DOMUtil.getChildrenByTagName(uiVTab[i], "div")[0].className == "SelectedStyle"){
+    	this.selectedTab =  eXo.core.DOMUtil.findFirstChildByClass(uiVTab[i], "div", "UIVTabContent") ;
+    	break;
+    }    
+  }
+  this.clickedTab = uiClickedVTab ;
+  this.slideEffect() ;
+  //setTimeout("eXo.webui.UIVerticalSlideTabs.slideEffect()",10) ;
 };
 
 UIVerticalSlideTabs.prototype.onTabClick = function(clickedElement, normalStyle, selectedStyle) {
   var uiClickedVTab = eXo.core.DOMUtil.findAncestorByClass(clickedElement, "UIVTab");
-	var uiClickedVTabContent = eXo.core.DOMUtil.findFirstChildByClass(uiClickedVTab, "div", "UIVTabContent")
+	var uiClickedVTabContent = eXo.core.DOMUtil.findFirstChildByClass(uiClickedVTab, "div", "UIVTabContent");
   var uiVerticalSlideTabs =  eXo.core.DOMUtil.findAncestorByClass(clickedElement, "UIVerticalSlideTabs");
   var uiVTab = eXo.core.DOMUtil.findChildrenByClass(uiVerticalSlideTabs, "div", "UIVTab") ;
 	

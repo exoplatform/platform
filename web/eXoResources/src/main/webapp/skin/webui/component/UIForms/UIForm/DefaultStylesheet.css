@@ -5,6 +5,14 @@
   border: 1px solid #aeaeae;
 }
 
+.UIForm .HorizontalLayout .MultiValueContainer {
+  margin-bottom: 5px;
+}
+
+.UIForm .HorizontalLayout .MultiValueContainer a {
+  margin: 0px 3px;
+}
+
 .UIForm .HorizontalLayout .FieldContainer {
   margin: 6px auto;
 }
@@ -13,14 +21,6 @@
 	float:left;
   width: 120px ;
 	text-align: right;
-}
-
-.UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
-  margin-bottom: 6px;
-}
-
-.UIForm .HorizontalLayout .FieldContainer .MultiValueContainer a {
-  margin: 0px 3px;
 }
 
 .UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {

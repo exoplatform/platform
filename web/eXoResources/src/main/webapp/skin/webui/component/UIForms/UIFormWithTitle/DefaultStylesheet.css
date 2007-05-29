@@ -28,13 +28,13 @@
   border: 1px #cdcdcd solid;
 }
 
-.UIFormWithTitle .HorizontalLayout .FieldContainer .FieldLabel {
-  float: left; width: 120px;
-  text-align: right;
+.UIFormWithTitle .HorizontalLayout .UIFormGrid td {
+  padding: 4px;
+  vertical-align: middle;
 }
 
-.UIFormWithTitle .HorizontalLayout .FieldContainer .FieldComponent {
-  margin-left: 130px;
+.UIFormWithTitle .HorizontalLayout .UIFormGrid td.FieldLabel {
+  text-align: right;
 }
 
 .UIFormWithTitle .UIForm .UIAction {  

@@ -3,26 +3,28 @@
   <div class="TitleBar"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
   <% uiform.begin() %>
   <div class="HorizontalLayout">
-    <div class="FormContainer"> 
-      <% 
-        for(field in uiform.getChildren()) { 
-          if(field.isRendered()) {
-      %>
-            <div class="FieldContainer">
-              <%fieldName = uicomponent.getLabel(field.getName());%>
-              <%if(!fieldName.equals(uicomponent.getId())) { %>                        
-                  <div class="FieldLabel">
+    <div class="FormContainer">
+      <table class="UIFormGrid">
+        <% 
+	        for(field in uiform.getChildren()) { 
+	          if(field.isRendered()) {
+        %>
+              <tr>
+	              <td class="FieldLabel">
+	              <%fieldName = uicomponent.getLabel(field.getName());%>
+	              <%if(!fieldName.equals(uicomponent.getId())) { %>                        
                     <%if(fieldName != null && fieldName.length() > 0) {%> 
                       <%=uicomponent.getLabel(field.getName())+":" %>
                     <%}%>
-                  </div>
-              <%}%>
-              <div class="FieldComponent"><% uiform.renderField(field) %></div>
-            </div>
-      <%
-          }
-        }
-      %>
+	              <%}%>
+	              </td>
+	              <td class="FieldComponent"><% uiform.renderField(field) %></td>
+	            </tr>
+        <%
+	          }
+	        }
+        %>
+      </table>
       <%//Rerender this  component with the new structure%>
       <%// start render action%>
       <div class="UIAction"> 
