@@ -19,6 +19,7 @@ import org.exoplatform.portal.component.model.PortalTemplateConfigOption;
 import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -26,9 +27,11 @@ import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
 import org.exoplatform.webui.component.UIFormInputSet;
 import org.exoplatform.webui.component.UIFormSelectBox;
@@ -203,6 +206,7 @@ public class UIPortalForm extends UIFormTabPane {
 
   static public class SaveActionListener  extends EventListener<UIPortalForm> {
     public void execute(Event<UIPortalForm> event) throws Exception {
+      
       UIPortalForm uiForm  =  event.getSource();
       String locale = uiForm.getUIStringInput("locale").getValue() ;
       LocaleConfigService localeConfigService  = uiForm.getApplicationComponent(LocaleConfigService.class) ;
@@ -243,7 +247,15 @@ public class UIPortalForm extends UIFormTabPane {
       UIPortalForm uiForm = event.getSource();
       String template = uiForm.getChild(UIFormInputItemSelector.class).getSelectedItemOption().getValue().toString();
       String portalName = uiForm.getUIStringInput("name").getValue();
-      
+      DataStorage dataService = uiForm.getApplicationComponent(DataStorage.class) ;
+      PortalConfig config = dataService.getPortalConfig(portalName);
+      if(config !=null ) {
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIPortalForm.msg.sameName", null)) ;
+        
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return;
+      }
       UserPortalConfigService service = uiForm.getApplicationComponent(UserPortalConfigService.class);
       UserPortalConfig userPortalConfig = service.createUserPortalConfig(portalName, template);
       PortalConfig pconfig = userPortalConfig.getPortalConfig();

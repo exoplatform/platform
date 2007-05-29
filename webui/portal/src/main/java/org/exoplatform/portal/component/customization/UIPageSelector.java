@@ -61,11 +61,19 @@ public class UIPageSelector extends UIFormInputContainer<String> {
   public UIFormInput setValue(String value) throws Exception {
     PortalRequestContext pcontext = Util.getPortalRequestContext();
     UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
-    Page page = service.getPage(value, pcontext.getRemoteUser()) ;
+    Page page = service.getPage(value) ;
 
     UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
     if(page == null){
       uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{value})) ;;
+      pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+      return this;
+    }
+    
+    page = service.getPage(value, pcontext.getRemoteUser()) ;
+    
+    if(page == null){
+      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{value})) ;;
       pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
       return this;
     }

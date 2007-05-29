@@ -13,7 +13,7 @@
 	  String creator = portlet.getOwner();
 	  String [] accessPermissions = portlet.getAccessPermissions();
 	  String accessPermission = "";
-	  if(accessPermissions != null) {
+	  if(accessPermissions != null && accessPermissions.length > 0) {
 	    for(i in 0..(accessPermissions.length - 1)) {
 	      accessPermission += accessPermissions[i];
 	      if(i < accessPermissions.length - 1) accessPermission += ", ";

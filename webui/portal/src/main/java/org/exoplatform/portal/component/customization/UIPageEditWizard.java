@@ -157,7 +157,12 @@ public class UIPageEditWizard extends UIPageWizard {
       page.setModifier(context.getRemoteUser());
       
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
-      UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
+      UIPage uiPage = null;
+      if(Page.DEFAULT_PAGE.equals(page.getFactoryId())) {
+        uiPage = uiPagePreview.createUIComponent(context, UIPage.class, null, null);
+      } else {
+        uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
+      }
       PortalDataMapper.toUIPage(uiPage, page);
       uiPagePreview.setUIComponent(uiPage);
       
