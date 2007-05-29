@@ -10,18 +10,18 @@
 }
 
 .UILoginForm .LoginDecorator .LoginDecoratorBackground {
-  background: url('VistaSkin/background/WhiteRoundedBoxCenterMiddle1x191.png') repeat-x ;
+  background: url('VistaSkin/background/BoxCenterMiddle1x191.png') repeat-x ;
   font-size: 11px;
   height:191px;
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
-  background: url('VistaSkin/background/WhiteRoundedBoxLeftTop36x30.png') no-repeat left ;
+  background: url('VistaSkin/background/BoxLeftTop36x30.png') no-repeat left ;
   padding: 0px 0px 0px 36px ;
 }
 
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator {
-  background: url('VistaSkin/background/WhiteRoundedBoxCenterTop1x30.png') repeat-x ;
+  background: url('VistaSkin/background/BoxCenterTop1x30.png') repeat-x ;
   height: 30px;
 }
 
@@ -33,32 +33,32 @@
 }
 
 .UILoginForm .LoginDecorator .TopRightLoginDecorator {
-  background: url('VistaSkin/background/WhiteRoundedBoxRightTop54x30.png') no-repeat right ;
+  background: url('VistaSkin/background/BoxRightTop54x30.png') no-repeat right ;
   padding: 0px 54px 0px 0px ;
 }
 
 .UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
-  background: url('VistaSkin/background/WhiteRoundedBoxLeftMiddle136x191.png') no-repeat left ;
+  background: url('VistaSkin/background/BoxLeftMiddle136x191.png') no-repeat left ;
   padding: 0px 0px 0px 136px ;
 }
 
 .UILoginForm .LoginDecorator .MiddleRightLoginDecorator {
-  background: url('VistaSkin/background/WhiteRoundedBoxRightMiddle16x1.png') repeat-y right ;
+  background: url('VistaSkin/background/BoxRightMiddle16x1.png') repeat-y right ;
   padding: 0px 16px 0px 0px ;
 }
 
 .UILoginForm .LoginDecorator .BottomLeftLoginDecorator {
-  background: url('VistaSkin/background/WhiteRoundedBoxLeftBottom14x41.png') no-repeat left ;
+  background: url('VistaSkin/background/BoxLeftBottom14x41.png') no-repeat left ;
   padding: 0px 0px 0px 14px ;
 }
 
 .UILoginForm .LoginDecorator .BottomCenterLoginDecorator {
-  background: url('VistaSkin/background/WhiteRoundedBoxCenterBottom1x41.png') repeat-x ;
+  background: url('VistaSkin/background/BoxCenterBottom1x41.png') repeat-x ;
   height: 41px;
 }
 
 .UILoginForm .LoginDecorator .BottomRightLoginDecorator {
-  background: url('VistaSkin/background/WhiteRoundedBoxRightBottom16x41.png') no-repeat right ;
+  background: url('VistaSkin/background/BoxRightBottom16x41.png') no-repeat right ;
   padding: 0px 16px 0px 0px ;
 }
 /* ============================End LoginDecorator============================== */
