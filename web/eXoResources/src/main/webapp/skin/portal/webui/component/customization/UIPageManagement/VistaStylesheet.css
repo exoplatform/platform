@@ -37,7 +37,7 @@
 }
 
 .UIPageManagement .UIToolbar .ControlToolbar {
-	margin: 13px 2px 0px 34px; 
+	margin: 12px 2px 0px 14px; 
 }
 
 .UIPageManagement .RollbackIcon {
@@ -74,6 +74,12 @@
   width: 24px; height: 24px;
   margin: 3px 3px 0px 1px;
   background: url('/eXoResources/icons/24x24/VistaSkin/NavigationEdit.png') no-repeat center;
+}
+ 
+.UIPageManagement .BackIcon {
+  background:transparent url('/eXoResources/icons/24x24/VistaSkin/BackIcon24x24.png') no-repeat;
+  height:24px;
+  width:24px;
 }
 
 .UIPageManagement .EditPageNodeIcon {
