@@ -7,7 +7,8 @@ UIWidget.prototype.init = function(factoryId) {
 	var uiWidgetContainer ;
 	
 	if(factoryId == null) {
-		uiWidgetContainer = document.getElementById("UIWidgetContainer");
+		var uiWidgets = document.getElementById("UIWidgets");
+		uiWidgetContainer = DOMUtil.findFirstDescendantByClass(uiWidgets, "div", "UIWidgetContainer");
 	} else {
 		uiWidgetContainer = document.getElementById("UIPageDesktop") ;
 	}
