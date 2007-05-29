@@ -71,7 +71,7 @@
 }
 
 .UIPageSelector .UIFormInfo {
-  background: white ;
+  background:url(VistaSkin/background/UIFormInfoBG1x21.png) repeat-x scroll center top ;
   border: 1px solid #b7b7b7;
   margin-top: 1px;
 }
