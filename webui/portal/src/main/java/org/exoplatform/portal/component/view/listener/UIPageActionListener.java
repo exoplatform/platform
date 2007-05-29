@@ -73,14 +73,16 @@ public class UIPageActionListener {
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = Util.getPortalRequestContext();     
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
+      uiPortal_.setRenderSibbling(UIPortal.class);
+      pcontext.setFullRender(true);
+
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      if(uiControl == null) return;
       UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
       if(uiControl != null) pcontext.addUIComponentToUpdateByAjax(uiControl);      
-      uiPortal_.setRenderSibbling(UIPortal.class);   
       if(!UIWelcomeComponent.class.isInstance(uiWorking.getUIComponent())) {
         uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null)) ;
       } 
-      pcontext.setFullRender(true);
     }
 
     private PageNode searchPageNodeByUri(String uri, PageNode node){
