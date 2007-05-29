@@ -110,7 +110,7 @@ public class UIPageNodeSelector extends UIContainer {
     List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();
     
     for(PageNavigation nav  : pnavigations){
-      if(nav.isModifiable()) navigations_.add(nav.clone());
+      if(nav.isModifiable()) navigations_.add(nav.clone()) ;
     }
     
     if(navigations_.size() < 1) return;
@@ -176,7 +176,10 @@ public class UIPageNodeSelector extends UIContainer {
     tree.setSibbling(null);
     tree.setParentSelected(null);
     String owner = uri.split("::")[0] ;
-    if (!selectedNavigation.getOwnerId().equals(owner) && getPageNavigationByOwner(owner) != null) selectedNavigation = getPageNavigationByOwner(owner) ;
+    if (!selectedNavigation.getOwnerId().equals(owner))  {
+      PageNavigation navi = getPageNavigationByOwner(owner) ; 
+      if (navi != null) selectedNavigation = navi ;
+    }
     selectedPageNode = findPageNodeByUri(selectedNavigation, uri, tree);
     if(selectedPageNode == null){      
       tree.setSelected(null);
