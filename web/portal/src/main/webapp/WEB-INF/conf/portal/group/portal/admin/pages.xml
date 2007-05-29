@@ -21,7 +21,7 @@
     <factory-id>Desktop</factory-id>
     <access-permission>*:/guest</access-permission>  
     <show-max-window>true</show-max-window>
-    
+    	  
 	  <application>
       <instance-id>admin:/exo.widget.web/InfoWidget/InfoWidget</instance-id>
       <application-type>eXoWidget</application-type>

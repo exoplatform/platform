@@ -137,68 +137,7 @@
 	background: url('VistaSkin/icons/AddWidgetButton.png') no-repeat center;
 }
 
-.UIWidgetContainer .WidgetControlBar {
-  float: right;
-	width: 76px; height: 20px;
-	padding-right: 7px;
-}
 
-.UIWidgetContainer .WidgetControl {
-	width: 74px; height: 20px;
-}
-
-.UIWidgetContainer .WidgetApplication {
-	padding: 0px 0px 5px 0px;
-}
-
-.UIWidgetContainer .WidgetControl .LeftControlBar{
-	height: 21px;
-	background: url('VistaSkin/background/LeftWidgetControlBar3x21.png') no-repeat left;	
-	padding-left: 3px;
-}
-
-.UIWidgetContainer .WidgetControl .RightControlBar{
-	height: 21px;
-	background: url('VistaSkin/background/RightWidgetControlBar3x21.png') no-repeat right;	
-	padding-right:3px;
-}
-
-.UIWidgetContainer .WidgetControl .CenterControlBar{
-	height: 21px;
-	background: url('VistaSkin/background/CenterWidgetControlBar1x21.png') repeat-x;	
-}
-
-.UIWidgetContainer .WidgetControl .WidgetDragHandleArea {
-	float: left;
-	width: 17px; height: 13px;
-	cursor: move;
-	margin: 4px 3px 0px 3px;
-	background: url('VistaSkin/background/WidgetDragArea3x2.gif');
-}
-
-.UIWidgetContainer .WidgetControl .SeparatorLine {
-	float: left;
-	width: 2px; height: 13px;
-	margin: 3px 2px 0px 2px;
-	background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y;
-	
-}
-
-.UIWidgetContainer .WidgetControl .EditWidgetIcon {
-	float: left;
-	width: 16px; height: 16px;
-	cursor: pointer;
-	margin: 2px 3px 0px 0px;
-	background: url('VistaSkin/icons/EditWidgetIcon.png');	
-}
-
-.UIWidgetContainer .WidgetControl .CloseWidgetIcon {
-	float: left;
-	width: 16px; height: 16px;
-	cursor: pointer;
-	margin: 2px 0px 0px 0px;
-	background: url('VistaSkin/icons/CloseWidgetIcon.png');	
-}
 
 .UIWidgets .WidgetDecorator .BottomLeftWidgetsDecorator {
   background: url('VistaSkin/background/BottomLeftWidgets6x9.png') no-repeat left bottom;
@@ -296,4 +235,69 @@
 	width: 185px; height: 203px;
 	background:url('VistaSkin/background/MarketStock.png') no-repeat center;
 	margin:auto;
+}
+
+/***************************************  UIWidget   **************************************/
+
+.UIWidget .WidgetControlBar {
+  float: right;
+	width: 76px; height: 20px;
+	padding-right: 7px;
+}
+
+.UIWidget .WidgetControl {
+	width: 74px; height: 20px;
+}
+
+.UIWidget .WidgetApplication {
+	padding: 0px 0px 5px 0px;
+}
+
+.UIWidget .WidgetControl .LeftControlBar{
+	height: 21px;
+	background: url('VistaSkin/background/LeftWidgetControlBar3x21.png') no-repeat left;	
+	padding-left: 3px;
+}
+
+.UIWidget .WidgetControl .RightControlBar{
+	height: 21px;
+	background: url('VistaSkin/background/RightWidgetControlBar3x21.png') no-repeat right;	
+	padding-right:3px;
+}
+
+.UIWidget .WidgetControl .CenterControlBar{
+	height: 21px;
+	background: url('VistaSkin/background/CenterWidgetControlBar1x21.png') repeat-x;	
+}
+
+.UIWidget .WidgetControl .WidgetDragHandleArea {
+	float: left;
+	width: 17px; height: 13px;
+	cursor: move;
+	margin: 4px 3px 0px 3px;
+	background: url('VistaSkin/background/WidgetDragArea3x2.gif');
+}
+
+.UIWidget .WidgetControl .SeparatorLine {
+	float: left;
+	width: 2px; height: 13px;
+	margin: 3px 2px 0px 2px;
+	background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y;
+	
+}
+
+.UIWidget .WidgetControl .EditWidgetIcon {
+	float: left;
+	width: 16px; height: 16px;
+	cursor: pointer;
+	margin: 2px 3px 0px 0px;
+	background: url('VistaSkin/icons/EditWidgetIcon.png');	
+}
+
+.UIWidget .WidgetControl .CloseWidgetIcon {
+	float: left;
+	width: 16px; height: 16px;
+	cursor: pointer;
+	margin: 2px 0px 0px 0px;
+	background: url('VistaSkin/icons/CloseWidgetIcon.png');	
 }

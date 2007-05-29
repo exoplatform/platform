@@ -90,38 +90,40 @@
 	background: url('MacSkin/icons/AddWidgetButton.gif') no-repeat center;
 }
 
-.UIWidgetContainer .WidgetControlBar {
+/***************************************  UIWidget   **************************************/
+
+.UIWidget .WidgetControlBar {
   float: right;
 	width: 94px; height: 23px;
 	padding-right: 3px;
 }
 
-.UIWidgetContainer .WidgetControl {
+.UIWidget .WidgetControl {
 	width: 94px; height: 23px;
 }
 
-.UIWidgetContainer .WidgetApplication {
+.UIWidget .WidgetApplication {
 	padding: 0px 0px 5px 0px;
 }
 
-.UIWidgetContainer .WidgetControl .LeftControlBar{
+.UIWidget .WidgetControl .LeftControlBar{
 	height: 23px;
 	background: url('MacSkin/background/LeftWidgetControlBar10x23.png') no-repeat left;	
 	padding-left: 10px;
 }
 
-.UIWidgetContainer .WidgetControl .RightControlBar{
+.UIWidget .WidgetControl .RightControlBar{
 	height: 23px;
 	background: url('MacSkin/background/RightWidgetControlBar10x23.png') no-repeat right;	
 	padding-right: 10px;
 }
 
-.UIWidgetContainer .WidgetControl .CenterControlBar{
+.UIWidget .WidgetControl .CenterControlBar{
 	height: 23px;
 	background: url('MacSkin/background/CenterWidgetControlBar1x23.png') repeat-x;	
 }
 
-.UIWidgetContainer .WidgetControl .WidgetDragHandleArea {
+.UIWidget .WidgetControl .WidgetDragHandleArea {
 	float: left;
 	width: 17px; height: 13px;
 	cursor: move;
@@ -129,7 +131,7 @@
 	background: url('MacSkin/background/WidgetDragArea2x2.gif');
 }
 
-.UIWidgetContainer .WidgetControl .SeparatorLine {
+.UIWidget .WidgetControl .SeparatorLine {
 	float: left;
 	width: 2px; height: 15px;
 	margin: 3px 3px 0px 3px;
@@ -137,7 +139,7 @@
 	
 }
 
-.UIWidgetContainer .WidgetControl .EditWidgetIcon {
+.UIWidget .WidgetControl .EditWidgetIcon {
 	float: left;
 	width: 16px; height: 16px;
 	cursor: pointer;
@@ -145,7 +147,7 @@
 	background: url('MacSkin/icons/EditWidgetIcon.gif');	
 }
 
-.UIWidgetContainer .WidgetControl .CloseWidgetIcon {
+.UIWidget .WidgetControl .CloseWidgetIcon {
 	float: left;
 	width: 16px; height: 16px;
 	cursor: pointer;

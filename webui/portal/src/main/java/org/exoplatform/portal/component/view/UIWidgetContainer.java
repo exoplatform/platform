@@ -4,6 +4,12 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
+import java.util.List;
+
+import org.exoplatform.portal.component.widget.UIWelcomeComponent;
+import org.exoplatform.web.application.widget.WidgetApplication;
+import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -33,10 +39,17 @@ public class UIWidgetContainer extends UIContainer {
   static public class DeleteWidgetActionListener extends EventListener<UIWidgetContainer> {
     public void execute(Event<UIWidgetContainer> event) throws Exception {
       String id  = event.getRequestContext().getRequestParameter(OBJECTID);
-      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n DeleteWidgetActionListener "+id+" \n\n\n\n\n\n\n\n\n\n\n\n");
+//      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n DeleteWidgetActionListener "+id+" \n\n\n\n\n\n\n\n\n\n\n\n");
       UIWidgetContainer uiWidgetContainer = event.getSource();
-      // id is null, use params when createPortalURL 
-//      uiWidgetContainer.removeChildById(id) ;
+      
+      List<UIComponent> children = uiWidgetContainer.getChildren();
+      for(UIComponent com: children){
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n CHILD NAME: "+com.getName()+" \nCHILD ID: "+com.getId()+"  \n\n\n\n\n\n\n\n\n\n\n\n");
+      }
+      
+      uiWidgetContainer.removeChildById(id) ;
+      UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);
     }
   }
 }

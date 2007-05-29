@@ -46,7 +46,7 @@ public class UIWidget extends UIComponent {
   }
   
   public String getApplicationOwnerType() { return applicationOwnerType_ ;}
-  public void setApplicationOwnerType(String ownerType){ applicationOwnerType_ = ownerType;} 
+  public void setApplicationOwnerType(String ownerType){ applicationOwnerType_ = ownerType;}
   
   public String getApplicationOwnerId() { return applicationOwnerId_ ;}
   public void setApplicationOwnerId(String ownerId){ applicationOwnerId_ = ownerId;} 

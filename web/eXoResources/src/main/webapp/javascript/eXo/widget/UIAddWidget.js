@@ -45,6 +45,9 @@ UIAddWidget.prototype.addWidgetToDesktop = function(widgetElement) {
 	widgetElement.style.left = "20px" ;
 	
 	eXo.widget.UIWidget.init(true);
+	/*Get Application's Stylesheet*/
+	var styleId = appDescriptor.appId + "Stylesheet" ;
+	eXo.core.Skin.addSkin(styleId, appDescriptor.application.skin[eXo.env.client.skin]);
 };
 
 eXo.widget.UIAddWidget = new UIAddWidget();

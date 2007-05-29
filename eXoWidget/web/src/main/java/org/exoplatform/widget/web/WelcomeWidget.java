@@ -28,8 +28,9 @@ public class WelcomeWidget extends WidgetApplication {
   public void processRender(Writer w) throws Exception {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
-        
-    w.write("<div id = 'UIWelcomeWidget'><span></span></div>") ;
+    
+    String applicationId = getApplicationId() ;
+    w.write("<div id = 'UIWelcomeWidget' applicationId = '"+applicationId+"'><span></span></div>") ;
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','UIWelcomeWidget','/exo.widget.web/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;

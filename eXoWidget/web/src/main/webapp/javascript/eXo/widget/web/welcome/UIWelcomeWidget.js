@@ -47,6 +47,7 @@ UIWelcomeWidget.prototype.initApplication = function(applicationId, instanceId) 
 	var appInstance = appDescriptor.createApplication();
 
 	var app = document.getElementById("UIWelcomeWidget");
+	appInstance.id = app.getAttribute('applicationId') ;
 	var uiPageDesktop = DOMUtil.findAncestorByClass(app, "UIPageDesktop") ;
 
 	if(uiPageDesktop == null) {

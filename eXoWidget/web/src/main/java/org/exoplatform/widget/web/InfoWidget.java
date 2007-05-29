@@ -29,7 +29,8 @@ public class InfoWidget extends WidgetApplication {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     
-    w.write("<div id = 'UIInfoWidget'><span></span></div>") ;
+    String applicationId = getApplicationId() ;
+    w.write("<div id = 'UIInfoWidget' applicationId = '"+applicationId+"'><span></span></div>") ;
     
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.info.UIInfoWidget','UIInfoWidget','UIInfoWidget','/exo.widget.web/javascript/');";
