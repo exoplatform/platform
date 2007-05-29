@@ -1,0 +1,3 @@
+<div class="ApplicationContent">
+<% uicomponent.renderChildren(); %>
+</div>

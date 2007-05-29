@@ -27,5 +27,30 @@
       <keywords>test</keywords>
     </portlet-info>     
   </portlet>
+ 
+  <portlet>
+    <description xml:lang="EN">Hello Portlet</description>
+    <portlet-name>HelloPortlet</portlet-name>
+    <display-name xml:lang="EN">Hello Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
     
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/test/HelloPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    <resource-bundle>locale.portlet.hello.HelloPortlet</resource-bundle>    
+    <portlet-info>
+      <title>Hello Portlet</title>
+      <short-title>Hello Portlet</short-title>
+      <keywords>hello</keywords>
+    </portlet-info>     
+  </portlet>
+   
 </portlet-app>

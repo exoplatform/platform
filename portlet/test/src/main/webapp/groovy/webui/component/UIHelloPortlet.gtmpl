@@ -1,0 +1,19 @@
+<div id="<%=uicomponent.getId();%>">
+  <% uicomponent.renderChildren(); %>
+	<div style="clear: left;"><span></span></div> 
+	<div class="UIAction" > 
+		<div class="ActionContainer">
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	              <a href="<%=uicomponent.event("OpenPopup", "")%>">Open Form Popup</a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	  	</div>
+		</div>
+	</div>
+</div>	
