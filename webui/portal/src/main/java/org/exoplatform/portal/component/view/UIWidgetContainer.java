@@ -30,13 +30,13 @@ public class UIWidgetContainer extends UIContainer {
 //    widgetInfo.setUIComponent(uiInfoWidget);
   }
   
-  static public class DeleteWidgetActionListener extends EventListener<UIWidget> {
-    public void execute(Event<UIWidget> event) throws Exception {
-      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n DeleteWidgetActionListener \n\n\n\n\n\n\n\n\n\n\n\n");
+  static public class DeleteWidgetActionListener extends EventListener<UIWidgetContainer> {
+    public void execute(Event<UIWidgetContainer> event) throws Exception {
       String id  = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIWidget uiWidget = event.getSource();
-      UIContainer parentWidget = (UIContainer)uiWidget.getParent() ; 
-      parentWidget.removeChildById(id) ;
+      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n DeleteWidgetActionListener "+id+" \n\n\n\n\n\n\n\n\n\n\n\n");
+      UIWidgetContainer uiWidgetContainer = event.getSource();
+      // id is null, use params when createPortalURL 
+//      uiWidgetContainer.removeChildById(id) ;
     }
   }
 }
