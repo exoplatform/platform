@@ -146,7 +146,7 @@ abstract public class UIComponent {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     try {
       URLBuilder urlBuilder = context.getURLBuilder();
-      if(urlBuilder == null)  return "??builder??";     
+      if(urlBuilder == null)  return "??builder??";
       String confirm = event.getConfirm();
       if(confirm.length() > 0) confirm = context.getApplicationResourceBundle().getString(confirm);
       return urlBuilder.createAjaxURL(this, event.getName(), confirm, beanId, params).toString();

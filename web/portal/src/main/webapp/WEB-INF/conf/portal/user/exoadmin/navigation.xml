@@ -17,6 +17,13 @@
 		    <label>Test Form</label>
 		    <page-reference>user::exoadmin::testform</page-reference>
 		  </node>
+		 
+		  <node>
+		    <uri>exoadmin::/hello</uri>
+		    <label>Hello</label>
+		    <page-reference>user::exoadmin::hello</page-reference>
+		  </node>
+		  
 	  </node>
   </page-nodes>
 </node-navigation>

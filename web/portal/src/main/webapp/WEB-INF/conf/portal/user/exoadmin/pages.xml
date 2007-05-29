@@ -12,8 +12,9 @@
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
-    </application>  
+    </application>
   </page>
+  
   <page>
     <owner-type>user</owner-type>
     <owner-id>exoadmin</owner-id>
@@ -26,6 +27,22 @@
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>
-    </application>  
+    </application>       
   </page>
+  
+  <page>
+    <owner-type>user</owner-type>
+    <owner-id>exoadmin</owner-id>
+    <name>hello</name>
+    <title>Hello</title>
+    <access-permission>owner:/portal/exoadmin</access-permission>
+    <application>
+      <instance-id>exoadmin:/test/HelloPortlet/hello</instance-id>
+      <title>Hello portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>
+  </page>
+  
 </page-set>
