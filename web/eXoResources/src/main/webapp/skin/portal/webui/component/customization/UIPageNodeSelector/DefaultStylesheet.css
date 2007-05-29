@@ -83,3 +83,31 @@
 .UIPageNodeSelector .NavigationPortalIcon {
   background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPageIcon.gif') no-repeat;
 }
+
+/*Created by Vu Duy Tu*/
+.UIPageNodeSelector .NavigationLabel {
+	line-height: 22px;
+	font-weight: bold; font-size: 11px;
+	color: #656565;
+	text-align: center;
+}
+
+.UIPageNodeSelector .AddNavigationIcon {
+	background: url('/eXoResources/icons/24x24/DefaultSkin/EditNavigation.gif') no-repeat left top;
+	cursor: pointer;
+	float: left;margin-left: -1px;
+	height: 21px; width: 21px;
+}
+
+.UIWizard .UIPageNodeSelector .NavigationLabel {
+	display: none;
+}
+
+.UIWizard .UIPageNodeSelector .AddNavigationIcon {
+	display: none;
+}
+
+.UIControlWorkspace .UIPageNodeSelector .UIDropDownItemSelector {
+  float: left; 
+  width: 197px;
+}

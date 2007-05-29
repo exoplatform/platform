@@ -514,6 +514,21 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGroup.gif') ;
 }
 
+.PasteNode16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PasteIcon.gif') no-repeat;
+}
+
+.DeleteNode16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat;
+}
+
+.EditNode16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat;
+}
+
+.SaveNode16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/FloppyDisk.gif') no-repeat;
+}
 /*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/
 
 /*===========================Misc Icons Stylesheet=======================*/
@@ -1609,5 +1624,4 @@
 .YellowComment {
   background: url('/eXoResources/icons/16x16/DefaultSkin/UserIcons/YellowComment.gif') no-repeat center left;
 }
-
 /*===========================End User Icons Stylesheet=======================*/

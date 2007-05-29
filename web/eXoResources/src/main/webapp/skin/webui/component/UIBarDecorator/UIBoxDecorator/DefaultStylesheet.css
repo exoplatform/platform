@@ -160,15 +160,3 @@
   background: url('DefaultSkin/background/LightBlueBR.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
-
-/*Created by Vu Duy Tu*/
-.UIPageNodeSelector .NavigationLabel {
-	line-height: 22px;
-	font-weight: bold; font-size: 11px;
-	color: #656565;
-	text-align: center;
-}
-
-.UIWizard .UIPageNodeSelector .NavigationLabel {
-	display: none;
-}
