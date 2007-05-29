@@ -12,7 +12,7 @@ package org.exoplatform.portal.config.model;
 public class Application {
   
   public final static String TYPE_PORTLET = "portlet";
-  public final static String TYPE_WIDGET = "widget";
+  public final static String TYPE_WIDGET = "eXoWidget";
   public final static String EXO_APPLICATION_TYPE = "eXoApplication";
   
   private String id;

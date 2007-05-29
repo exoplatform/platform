@@ -205,7 +205,9 @@ public class PortalDataMapper {
   }
   
   static public void toUIPage(UIPage uiPage, Page model) throws Exception {
+    System.out.println("\n\n=== >page model has child "+model.getChildren().size());
     toUIContainer(uiPage, model);
+    System.out.println("=== >uipage has child "+uiPage.getChildren().size()+"\n\n");
     uiPage.setCreator(model.getCreator());
     uiPage.setModifier(model.getModifier());
     uiPage.setOwnerId(model.getOwnerId());
@@ -275,7 +277,7 @@ public class PortalDataMapper {
       uiComponent = uiPageBody;
     }else if(model instanceof Application){
       Application application = (Application) model;
-      String factoryId = application.getApplicationType();      
+      String factoryId = application.getApplicationType();    
       if(factoryId == null || factoryId.equals(Application.TYPE_PORTLET)){
         UIPortlet uiPortlet = uiParent.createUIComponent(context, UIPortlet.class, null, null);
         toUIPortlet(uiPortlet, application);

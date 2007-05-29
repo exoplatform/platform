@@ -56,7 +56,6 @@
       <div class="UIPageDesktop" id="UIPageDesktop">
         <%int x = 15; y = 15 %>
         <%for(uiChild in uicomponent.getChildren()) {
-          //System.out.println("\n\n\n\n\n\n\n\n\nHHH: "+uiChild.getClass().getSimpleName()+"\n\n\n\n\n\n\n\n");
             if(!(uiChild instanceof UIPortlet)){      
               uicomponent.renderUIComponent(uiChild);
               continue; 
@@ -72,7 +71,6 @@
             uiChild.setShowInfoBar(true);
             uiChild.setPortletStyle("Window");
 	          uicomponent.renderUIComponent(uiChild);
-	          System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n  ID COMPONENT: "+uiChild.getId()+"  \n\n\n\n\n\n\n\n\n\n");
             jsmanager.addJavascript("eXo.desktop.UIWindow.init('${popupId}-portlet-window', true, ${x}, ${y});") ;
         %>
         <%  x += 10; y += 20 ;%>
