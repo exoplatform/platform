@@ -37,7 +37,7 @@
 }
 
 .UIPageManagement .UIToolbar .ControlToolbar {
-	margin: 12px 2px 0px 14px; 
+	margin: 13px 2px 0px 14px; 
 }
 
 .UIPageManagement .RollbackIcon {
@@ -170,4 +170,9 @@
   width: 26px; height: 26px;
   margin: 7px 5px 0px 5px; 
   background: url('/eXoResources/icons/24x24/VistaSkin/BlackFloppyDiskPage.png') ;
+}
+
+.UIPageManagement .BackIcon {
+  width: 24px; height: 24px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BackIcon.png') no-repeat;
 }

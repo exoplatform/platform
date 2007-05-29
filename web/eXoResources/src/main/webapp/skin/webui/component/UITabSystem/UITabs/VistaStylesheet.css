@@ -1,6 +1,7 @@
 
 .UIHorizontalTabs {
   height: 31px;
+  font-size: 11px;
 }
 
 .UIHorizontalTabs .LeftHorizontalTabs{
@@ -203,7 +204,6 @@
 .UIHorizontalTabs .NormalTabStyle .NormalTab{
   line-height: 26px;
   margin-right: 1px;
-  font-size: 11px;
   color: #474849;
   font-weight: normal;
 }
@@ -240,7 +240,6 @@
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab {
   line-height: 26px;
-  font-size: 11px;
   color: #000000;
 }
 .UIHorizontalTabs .NormalTabStyle .HighlightTab a:hover{
@@ -270,7 +269,6 @@
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab {
   line-height: 26px;
-  font-size: 11px;
   color: #307dcc;
   margin-right: 1px;
 }
@@ -423,7 +421,7 @@
 .UIHorizontalTabs .MessageTabDialog .NormalTab {
   line-height: 27px;
   margin-right: 1px;
-  font-size: 11px; color: #202020; font-weight: normal;
+  color: #202020; font-weight: normal;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .LeftTab {
@@ -442,7 +440,7 @@
   vertical-align: middle;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
-  color: black; font-size: 11px; font-weight: normal;
+  color: black; font-weight: normal;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab div:hover{
@@ -473,7 +471,7 @@
 .UIHorizontalTabs .MessageTabDialog .DisabledTab {
   line-height: 31px;
   margin-right: 1px;
-  font-size: 11px; color: #202020; font-weight: normal;
+  color: #202020; font-weight: normal;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .LeftTab {
@@ -492,7 +490,7 @@
   vertical-align: middle;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
-  color: grey; font-size: 11px; font-weight: normal;
+  color: grey;  font-weight: normal;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .TabIcon {
@@ -517,7 +515,6 @@
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab {
   line-height: 27px;
-  font-size: 11px;
   color: #058ee6;
 }
 
@@ -539,7 +536,7 @@
   background: url('VistaSkin/background/CenterSelectedMessageTab1x31.png') repeat-x;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
-  color: #058ee6; font-size: 11px; font-weight: normal;
+  color: #058ee6;  font-weight: normal;
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab  div:hover{

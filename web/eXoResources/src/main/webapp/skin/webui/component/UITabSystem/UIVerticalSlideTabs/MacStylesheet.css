@@ -1,6 +1,7 @@
 .UIVerticalSlideTabs {
   margin: 3px 7px 10px 7px ;
   padding: 0px 0px 0px 12px;
+  font-size: 11px ;
 }
 
 /*####################################- VerticalSlideTabs - FlatStyle -#################################*/
@@ -65,7 +66,7 @@
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel {
   float: left ;
   height: 25px ; line-height: 25px ;  vertical-align: middle ;
-  color: #5c5c5c; font-weight: bold; font-size: 11px;
+  color: #5c5c5c; font-weight: bold; 
 }
 
 /*#######################-SelectedVTabSimpleStyle VerticalSlideTabs-######################*/
@@ -87,7 +88,7 @@
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLabel {
   float: left;
   height: 25px ; line-height: 25px ;  vertical-align: middle ;
-  color: #1e5bfb; font-weight: bold; font-size: 11px;
+  color: #1e5bfb; font-weight: bold; 
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .ControlContainer {
@@ -114,7 +115,6 @@
   border: 1px solid #d6d6d6; border-top: none;
   padding: 10px ;
   margin: 0px 2px 3px 2px;
-  font-size: 11px;
   background: white;
 }
 
@@ -122,7 +122,6 @@
   border: 1px solid #d6d6d6; border-top: none;
   padding: 10px ;
   margin: 0px 1px;
-  font-size: 11px;
   background: white;
 }
 
@@ -278,7 +277,6 @@
 
 .UIVerticalSlideTabs .SmoothRoundedStyle .UIVTab .UIVTabContent {
   background: #ffffff ;
-  font-size: 11px ;
 }
 
 /*#######################-NormalCustomizationTab VerticalSlideTabs-######################*/
@@ -293,13 +291,11 @@
 }
 
 .UIVerticalSlideTabs .NormalCustomizationTab .TabLeft {
-  height: 48px ;
   background: url('MacSkin/background/NormalVTabL11x48.gif') no-repeat left ;
   padding: 0px 0px 0px 11px ;
 }
 
 .UIVerticalSlideTabs .NormalCustomizationTab .TabRight {
-  height: 48px ;
   padding: 0px 11px 0px 0px ;
   background: url('MacSkin/background/NormalVTabR11x48.gif') no-repeat right ;
 }
@@ -327,7 +323,7 @@
 }
 
 .UIVerticalSlideTabs .NormalCustomizationTab .UIVTabContent {
-  background: #ffffff ;  font-size: 11px ;
+  background: #ffffff ;  
   border: solid 1px #958f8f ;
 }
 
@@ -343,13 +339,11 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab .TabLeft {
-  height: 48px ;
   background: url('MacSkin/background/SelectedVTabL11x48.gif') no-repeat left ;
   padding: 0px 0px 0px 11px ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab .TabRight {
-  height: 48px ;
   background: url('MacSkin/background/SelectedVTabR11x48.gif') no-repeat right ;
   padding: 0px 11px 0px 0px ;
 }
@@ -379,7 +373,7 @@
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab .UIVTabContent {
   border: solid 1px #958f8f ;
-  background: #ffffff ; font-size: 11px ;
+  background: #ffffff ; 
 }
 
 /*#######################- FlatStyle VerticalSlideTabs- ######################*/
@@ -405,7 +399,7 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .FlatStyle .TabName {
-  color: black; font-size: 11px; text-align: center;
+  color: black;  text-align: center;
   margin: 0px 0px 0px 5px; 
 }
 
@@ -432,7 +426,7 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedFlatStyle .TabName {
-  color: blue; font-size: 11px; text-align: center;
+  color: blue;  text-align: center;
   margin: 0px 0px 0px 5px;
 }
 
@@ -443,13 +437,12 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLeft {
-  height: 27px ; 
   padding: 0px 0px 0px 4px ;
   background: url('MacSkin/background/LeftSmoothRoundedBarS4x27.gif') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRight {
-  height: 27px ; width: auto ;
+  width: auto ;
   background: url('MacSkin/background/RightSmoothRoundedBarS4x27.gif') no-repeat right ;
   padding: 0px 4px 0px 0px ;
 }
@@ -495,13 +488,12 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLeft {
-  height: 27px ; 
   padding: 0px 0px 0px 4px ;
   background: url('MacSkin/background/LeftSmoothRoundedBar4x27.gif') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabRight {
-  height: 27px ; width: auto ;
+  width: auto ;
   padding: 0px 4px 0px 0px;
   background: url('MacSkin/background/RightSmoothRoundedBar4x27.gif') no-repeat right ;
 }
@@ -555,7 +547,7 @@
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle4 .TabLabel {
   float: left ;
-  color: #373737 ; font-weight: bold ; font-size: 11px ;
+  color: #373737 ; font-weight: bold ; 
   line-height: 26px ; vertical-align: middle ;
   margin: 3px 0px 0px 0px ;
   cursor: pointer ;
@@ -583,7 +575,6 @@
   line-height: 26px ; vertical-align: middle ;
   color: #e78505 ;
   font-weight: bold ;
-  font-size: 11px ;
   cursor: pointer ;
 }
 

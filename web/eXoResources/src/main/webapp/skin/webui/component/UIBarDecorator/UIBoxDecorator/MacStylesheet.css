@@ -18,7 +18,6 @@
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .TopLeftCornerBoxDecorator {
-  height: 10px ;
   background: url('MacSkin/background/RoundCornerLinedTL10x10.gif') no-repeat left ;
   padding: 0px 0px 0px 10px ;
 }
@@ -29,7 +28,6 @@
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .TopRightCornerBoxDecorator {
-  height: 10px ;
   background: url('MacSkin/background/RoundCornerLinedTR10x10.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
@@ -49,7 +47,6 @@
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .BottomLeftCornerBoxDecorator {
-  height: 10px ;
   background: url('MacSkin/background/RoundCornerLinedBL10x10.gif') no-repeat left ;
   padding: 0px 0px 0px 10px;
 }
@@ -61,7 +58,6 @@
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .BottomRightCornerBoxDecorator {
-  height: 10px;
   background: url('MacSkin/background/RoundCornerLinedBR10x10.gif') no-repeat right ;
   padding: 0px 10px 0px  0px ;
 }
@@ -80,8 +76,6 @@
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .TopLeftCornerBoxDecorator {
-  height: 10px ; 
-  line-height: 10px;
   background: url('MacSkin/background/RoundDecoratorTL10x10.gif') no-repeat left ;
   padding: 0px 0px 0px 10px ;
 }
@@ -93,8 +87,6 @@
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .TopRightCornerBoxDecorator {
-  height: 10px ; 
-  line-height: 10px;
   background: url('MacSkin/background/RoundDecoratorTR10x10.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
@@ -110,8 +102,6 @@
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .BottomLeftCornerBoxDecorator {
-  height: 11px ; 
-  line-height: 11px;
   background: url('MacSkin/background/RoundDecoratorBL10x11.gif') no-repeat left ;
   padding: 0px 0px 0px 10px;
 }
@@ -123,8 +113,6 @@
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .BottomRightCornerBoxDecorator {
-  height: 11px; 
-  line-height: 11px;
   background: url('MacSkin/background/RoundDecoratorBR10x11.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
@@ -137,7 +125,6 @@
 }
 
 .DecoratorBoxNested .WhiteRoundedBoxStyleNested .TopLeftCornerBoxDecoratorNested {
-  height: 10px ;
   background: url('MacSkin/background/RoundCornerLinedTL10x10.gif') no-repeat left ;
   padding: 0px 0px 0px 10px ;
 }
@@ -148,7 +135,6 @@
 }
 
 .DecoratorBoxNested .WhiteRoundedBoxStyleNested .TopRightCornerBoxDecoratorNested {
-  height: 10px ;
   background: url('MacSkin/background/RoundCornerLinedTR10x10.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
@@ -164,7 +150,6 @@
 }
 
 .DecoratorBoxNested .WhiteRoundedBoxStyleNested .BottomLeftCornerBoxDecoratorNested {
-  height: 10px ;
   background: url('MacSkin/background/RoundCornerLinedBL10x10.gif') no-repeat left ;
   padding: 0px 0px 0px 10px;
 }
@@ -176,7 +161,6 @@
 }
 
 .DecoratorBoxNested .WhiteRoundedBoxStyleNested .BottomRightCornerBoxDecoratorNested {
-  height: 10px;
   background: url('MacSkin/background/RoundCornerLinedBR10x10.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
@@ -190,7 +174,6 @@
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .TopLeftCornerNested {
-  height: 9px;
   background: url('MacSkin/background/GrayLinedTL8x9.gif') no-repeat left ;
   padding: 0px 0px 0px 8px;
 }
@@ -201,7 +184,6 @@
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .TopRightCornerNested {
-  height: 9px;
   background: url('MacSkin/background/GrayLinedTR8x9.gif') no-repeat right ;
   padding: 0px 8px 0px 0px ;
 }
@@ -217,7 +199,7 @@
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .BottomLeftCornerNested {
-  width: auto; height: 23px ; 
+  width: auto;
   background: url('MacSkin/background/GrayLinedBL11x23.gif') no-repeat left ;
   padding: 0px 0px 0px 11px ;
 }

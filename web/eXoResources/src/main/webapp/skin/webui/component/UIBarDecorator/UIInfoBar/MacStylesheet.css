@@ -4,13 +4,11 @@
 
 /*######################-Rounded Style-######################*/
 .UIInfoBar .RoundedStyle .LeftBar {
-  height: 25px ;
   background: url('DefaultSkin/background/LRoundedBar6x25.gif') no-repeat left ;
   padding: 0px 0px 0px 6px ;
 }
 
 .UIInfoBar .RoundedStyle .RightBar {
-  height: 25px ;
   background: url('DefaultSkin/background/RRoundedBar6x25.gif') no-repeat right ;
   padding: 0px 6px 0px 0px ;
 }
@@ -164,13 +162,11 @@
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .LeftBar {
-	height: 26px;
 	background: url('DefaultSkin/background/LPolygonNavy3x26.gif') no-repeat left;
 	padding: 0px 0px 0px 3px;
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .RightBar {
-	height: 26px;
 	background: url('DefaultSkin/background/RPolygonNavy3x26.gif') no-repeat right;
 	padding: 0px 3px 0px 0px ;
 }
@@ -187,13 +183,11 @@
 }
 
 .UIInfoBar .SmoothStyle .LeftBar {
-	height: 22px;
 	background: url('MactSkin/background/LeftSmoothStyle1x22.gif') no-repeat left;
 	padding: 0px 0px 0px 1px;
 }
 
 .UIInfoBar .SmoothStyle .RightBar {
-	height: 22px;
 	background: url('MacSkin/background/RightSmoothStyle1x22.gif') no-repeat right;
 	padding: 0px 1px 0px 0px;
 }
@@ -209,13 +203,11 @@
 }
 
 .UIInfoBar .SmoothStyle26 .LeftBar {
-	height: 26px;
 	background: url('MacSkin/background/LSmoothStyleBig2x26.gif') no-repeat left;
 	padding: 0px 0px 0px 1px;
 }
 
 .UIInfoBar .SmoothStyle26 .RightBar {
-	height: 26px;
 	background: url('MacSkin/background/RSmoothStyleBig2x26.gif') no-repeat right;
 	padding: 0px 1px 0px 0px ;
 }
@@ -231,13 +223,11 @@
 }
 
 .UIInfoBar .GrayRoundedStyle .LeftBar {
-	height: 27px;
 	background: url('DefaultSkin/background/LGrayRounded10x27.gif') no-repeat left;
 	padding: 0px 0px 0px 10px;
 }
 
 .UIInfoBar .GrayRoundedStyle .RightBar {
-	height: 27px;
 	background: url('DefaultSkin/background/RGrayRounded10x27.gif') no-repeat right;
 	padding: 0px 10px 0px 0px;
 }
@@ -269,13 +259,11 @@
 }
 
 .UIInfoBar .LightBlueBevelStyle .LeftBar {
-	height: 31px;
 	background: url('DefaultSkin/background/LBevelBarBg9x31.gif') no-repeat left;
 	padding: 0px 0px 0px 9px;
 }
 
 .UIInfoBar .LightBlueBevelStyle .RightBar {
-	height: 31px;
 	background: url('DefaultSkin/background/RBevelBarBg9x31.gif') no-repeat right;
 	padding: 0px 9px 0px 0px ;
 }

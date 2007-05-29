@@ -1,4 +1,5 @@
 .UIPopupMessages {
+	font-size: 11px;
 }
 
 .UIPopupMessages .UIHorizontalTabs {
@@ -21,20 +22,17 @@
   color: orange;
   padding: 4px 0px 4px 10px;
   border-bottom: 1px dotted #c3c3c3;
-  font-size: 11px;
 }
 
 .UIPopupMessages .ErrorMessage .MessageContainer  {
   color: red;
   padding: 4px 0px 4px 10px;
   border-bottom: 1px dotted #c3c3c3;
-  font-size: 11px;
 }
 
 .UIPopupMessages .InfoMessage .MessageContainer {
   padding: 4px 0px 4px 10px;
   border-bottom: 1px dotted #c3c3c3;
-  font-size: 11px;
 }
 
 .UIPopupMessages .PopupMessageContainer .PopupIcon {

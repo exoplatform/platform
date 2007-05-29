@@ -7,13 +7,11 @@
 }
 
 .UIBarStyle .RoundedBarStyle .LeftBar {
-  height: 25px;
   background: url('DefaultSkin/background/WhiteRoundedBarL8x25.gif') no-repeat left;
   padding: 0px 0px 0px 8px;
 }
 
 .UIBarStyle .RoundedBarStyle .RightBar {
-  height: 25px;
   background: url('DefaultSkin/background/WhiteRoundedBarR8x25.gif') no-repeat right;
   padding: 0px 8px 0px 0px ;
 }
@@ -29,13 +27,11 @@
 }
 
 .UIBarStyle StyleBar .LeftBar {
-  height: 22px;
   background: url('MacSkin/background/MacStyleBarL71x22.gif') no-repeat left;
   padding: 0px 0px 0px 71px;
 }
 
 .UIBarStyle StyleBar .RightBar {
-  height: 22px;
   background: url('MacSkin/background/MacStyleBarR36x22.gif') no-repeat right;
   padding: 0px 36px 0px 0px ;
 }
@@ -51,13 +47,11 @@
 }
 
 .UIBarStyle .GrayRoundedBarStyle .LeftBar {
-  height: 26px;
   background: url('MacSkin/background/GrayRoundedBarLeft12x26.gif') no-repeat left;
   padding: 0px 0px 0px 12px;
 }
 
 .UIBarStyle .GrayRoundedBarStyle .RightBar {
-  height: 26px;
   background: url('MacSkin/background/GrayRoundedBarRight12x26.gif') no-repeat right;
   padding: 0px 12px 0px 0px ;
 }
@@ -73,13 +67,11 @@
 }
 
 .UIBarStyle .BarStyle2 .LeftBar {
-  height: 37px;
   background: url('MacSkin/background/RoundedTopBarL9x37.gif') no-repeat left;
   padding: 0px 0px 0px 9px;
 }
 
 .UIBarStyle .BarStyle2 .RightBar {
-  height: 37px;
   background: url('MacSkin/background/RoundedTopBarR9x37.gif') no-repeat right;
   padding: 0px 9px 0px 0px ;
 }
@@ -96,13 +88,11 @@
 }
 
 .UIBarStyle .Style3 .LeftBar {
-  height: 26px ;
   background: url('DefaultSkin/background/SmoothRoundedLeftBar3x26.gif') no-repeat left ;
   padding: 0px 0px 0px 3px ;
 }
 
 .UIBarStyle .Style3 .RightBar {
-  height: 26px ;
   background: url('DefaultSkin/background/SmoothRoundedRightBar3x26.gif') no-repeat right ;
   padding: 0px 3px 0px 0px ;
 }
@@ -119,13 +109,11 @@
 }
 
 .UIBarStyle .Style4 .LeftBar {
-  height: 29px ;
   background: url('MacSkin/background/MiddleStyle4Bar1x29.png') no-repeat ;
   padding: 0px 0px 0px 1px ;
 }
 
 .UIBarStyle .Style4 .RightBar {
-  height: 29px ;
   background: url('MacSkin/background/RightStyle4Bar12x29.png') no-repeat right ;
   padding: 0px 12px 0px 0px ;
 }
@@ -143,13 +131,11 @@
 }
 
 .UIBarStyle .Style5 .LeftBar {
-  height: 39px ;
   background: url('MacSkin/background/Style5BarL16x39.gif') no-repeat left ;
   padding: 0px 0px 0px 16px ;
 }
 
 .UIBarStyle .Style5 .RightBar {
-  height: 39px ;
   background: url('MacSkin/background/Style5BarR16x39.gif') no-repeat right ;
   padding: 0px 16px 0px 0px ;
 }
@@ -166,7 +152,7 @@
 }
 
 .UIBarStyle .Style5 .MiddleBar a:hover{
-  font-size: 11px; color: #0538ca;
+  color: #0538ca;
 }
 
 /*###########################-WhiteRoundedBarStyle-###########################*/
@@ -175,13 +161,11 @@
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .LeftBar {
-  height: 26px;
   background: url('MacSkin/background/WhiteRoundedBarLeft12x26.gif') no-repeat left;
   padding: 0px 0px 0px 12px;
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .RightBar {
-  height: 26px;
   background: url('MacSkin/background/WhiteRoundedBarRight12x26.gif') no-repeat right;
   padding: 0px 12px 0px 0px;
 }
@@ -199,13 +183,11 @@
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .LeftBar {
-  height: 36px;
   background: url('MacSkin/background/GrayPolygonBigBarLeft4x36.gif') no-repeat left;
   padding: 0px 0px 0px 4px;
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .RightBar {
-  height: 36px;
   background: url('MacSkin/background/GrayPolygonBigBarRight4x36.gif') no-repeat right;
   padding: 0px 4px 0px 0px ;
 }
@@ -221,13 +203,11 @@
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .LeftBar {
-  height: 36px;
   background: url('MacSkin/background/BluePolygonBigBarLeft4x36.gif') no-repeat left;
   padding: 0px 0px 0px 4px;
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .RightBar {
-  height: 36px;
   background: url('MacSkin/background/BluePolygonBigBarRight4x36.gif') no-repeat right;
   padding: 0px 4px 0px 0px ;
 }
@@ -243,13 +223,11 @@
 }
 
 .UIBarStyle .BluePolygonBarStyle .LeftBar {
-  height: 37px;
   background: url('MacSkin/background/RoundedTopBarL9x37.gif') no-repeat left;
   padding: 0px 0px 0px 9px;
 }
 
 .UIBarStyle .BluePolygonBarStyle .RightBar {
-  height: 37px;
   background: url('MacSkin/background/RoundedTopBarR9x37.gif') no-repeat right;
   padding: 0px 9px 0px 0px ;
 }
@@ -265,13 +243,11 @@
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .LeftBar {
-  height: 32px;
   background: url('MacSkin/background/NavyBlueBar32Left3x32.gif') no-repeat left;
   padding: 0px 0px 0px 3px;
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .RightBar {
-  height: 32px;
   background: url('MacSkin/background/NavyBlueBar32Right3x32.gif') no-repeat right;
   padding: 0px 3px 0px 0px ;
 }
@@ -287,13 +263,11 @@
 }
 
 .UIBarStyle .GrayRoundedFlatBarStyle .LeftBar {
-  height: 35px;
   background: url('MacSkin/background/GrayRoundedFlatLeft16x35.gif') no-repeat left;
   padding: 0px 0px 0px 16px;
 }
 
 .UIBarStyle .GrayRoundedFlatBarStyle .RightBar {
-  height: 35px;
   background: url('MacSkin/background/GrayRoundedFlatRight16x35.gif') no-repeat right;
   padding: 0px 16px 0px 0px ;
 }
@@ -311,13 +285,11 @@
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .LeftBar {
-  height: 32px;
   background: url('MacSkin/background/NavyBluePolygonLeft3x32.gif') no-repeat left;
   padding: 0px 0px 0px 3px;
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .RightBar {
-  height: 32px;
   background: url('MacSkin/background/NavyBluePolygonRight3x32.gif') no-repeat right;
   padding: 0px 3px 0px 0px ;
 }
@@ -333,13 +305,11 @@
 }
 
 .UIBarStyle .SmoothRounded26Style .LeftBar {
-  height: 26px ;
   background: url('MacSkin/background/SmoothRoundedLeftBar3x26.gif') no-repeat left ;
   padding: 0px 0px 0px 3px ;
 }
 
 .UIBarStyle .SmoothRounded26Style .RightBar {
-  height: 26px ;
   background: url('MacSkin/background/SmoothRoundedRightBar3x26.gif') no-repeat right ; 
   padding: 0px 3px 0px 0px ;
 }
@@ -355,13 +325,11 @@
 }
 
 .UIBarStyle .SmoothNavy40Style .LeftBar {
-  height: 62px ;
   background: url('MacSkin/background/QuickBarL15x62.gif') no-repeat left ;
   padding: 0px 0px 0px 15px ;
 }
 
 .UIBarStyle .SmoothNavy40Style .RightBar {
-  height: 62px ;
   background: url('MacSkin/background/QuickBarR15x62.gif') no-repeat right ;
   padding: 0px 15px 0px 0px ;
 }
@@ -377,13 +345,11 @@
 }
 
 .UIBarStyle .GrayBevelRoundedBar35Style .LeftBar {
-  height: 35px ;
   background: url('MacSkin/background/GrayBevel35Left15x35.gif') no-repeat left ;
   padding: 0px 0px 0px 15px ;
 }
 
 .UIBarStyle .GrayBevelRoundedBar35Style .RightBar {
-  height: 35px ;
   background: url('MacSkin/background/GrayBevel35Right15x35.gif') no-repeat right ;
   padding: 0px 15px 0px 0px ;
 }
@@ -411,13 +377,11 @@
 }
 
 .UIBarStyle .GrayBevelRoundBar40 .LeftBar {
-  height: 48px ;
   background: url('MacSkin/background/GrayLinedBarL8x48.gif') no-repeat left ;
   padding: 0px 0px 0px 8px ;
 }
 
 .UIBarStyle .GrayBevelRoundBar40 .RightBar {
-  height: 48px ;
   background: url('MacSkin/background/GrayLinedBarR8x48.gif') no-repeat right ;
   padding: 0px 8px 0px 0px ;
 }
@@ -433,13 +397,11 @@
 }
 
 .UIBarStyle .GrayBevelRoundBar36 .LeftBar {
-  height: 36px ;
   background: url('MacSkin/background/GrayBevelBarL9x36.gif') no-repeat left ;
   padding: 0px 0px 0px 9px ;
 }
 
 .UIBarStyle .GrayBevelRoundBar36 .RightBar {
-  height: 36px ;
   background: url('MacSkin/background/GrayBevelBarR9x36.gif') no-repeat right ;
   padding: 0px 9px 0px 0px ;
 }
@@ -455,13 +417,11 @@
 }
 
 .UIBarStyle .BlueBevelRoundBar36 .LeftBar {
-  height: 36px ;
   background: url('MacSkin/background/BlueBevelBarL9x36.gif') no-repeat left ;
   padding: 0px 0px 0px 9px ;
 }
 
 .UIBarStyle .BlueBevelRoundBar36 .RightBar {
-  height: 36px ;
   background: url('MacSkin/background/BlueBevelBarR9x36.gif') no-repeat right ;
   padding: 0px 9px 0px 0px ;
 }

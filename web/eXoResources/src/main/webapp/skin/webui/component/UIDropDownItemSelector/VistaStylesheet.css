@@ -42,12 +42,14 @@
 }
 
 /********************************   UIItemList   ****************************************/
-.UIItemList {}
+
+.UIItemList {
+	font-size: 11px;
+}
 
 .UIItemList .ItemSelector {
   height: 22px; line-height: 22px;
   background: url('VistaSkin/background/BGNormalItem1x22.png') repeat-x;
-  font-size: 11px;
   border-bottom: 1px #cdcdcd solid;
   cursor: pointer ;
 }
@@ -56,18 +58,15 @@
 	background: url('VistaSkin/background/BGOverItem1x22.png') repeat-x;
 	height: 22px; line-height: 22px;
 	border-bottom: 1px #cdcdcd solid;
-	font-size: 11px;
 	color: blue;
 }
 
 .UIItemList .ItemSelectorLabel {
   height: 22px; line-height: 22px;
-  font-size: 11px;
 }
 
 .UIItemList .ItemSelectedLabel {
   height: 22px; line-height: 22px;
-  font-size: 11px;
   color: orange;
 }
 
@@ -90,7 +89,6 @@
 
 /*=================================Popup Category Decorator====================================*/
 .UIItemList .LTItemSelector {
-  height:10px;
   background: url('VistaSkin/background/TLItemSelector14x10.png') no-repeat left;
   padding-left: 14px;
 }
@@ -101,7 +99,6 @@
 }
 
 .UIItemList .TRItemSelector {
-  height: 10px;
   background: url('VistaSkin/background/TRItemSelector18x10.png') no-repeat right;
   padding-right:18px;
 }
@@ -116,8 +113,11 @@
   padding-right:12px;
 }
 
+.UIItemList .MCItemSelector {
+  background: #ffffff;
+}
+
 .UIItemList .BLItemSelector {
-  height: 14px;
   background: url('VistaSkin/background/BLItemSelector13x14.png') no-repeat left;
   padding-left: 13px;
 }

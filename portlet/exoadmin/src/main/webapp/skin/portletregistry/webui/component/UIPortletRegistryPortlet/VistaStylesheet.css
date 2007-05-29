@@ -136,7 +136,7 @@
 
 .ApplicationRegistryWorkingArea .Icon {
   float: left;
-  margin: 3px 0px;
+  margin: 3px 2px 0px 0px;
 }
 
 .ApplicationRegistryWorkingArea .DeleteIcon {
@@ -175,6 +175,6 @@
   background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png) no-repeat;
 }
 
-.ApplicationRegistryWorkingArea .UIAction {
-  width: 140px;
+.ApplicationRegistryWorkingArea .UIForm .HorizontalLayout .UIAction {
+  width: 170px;
 }

@@ -131,13 +131,11 @@
 }
 
 .UIWindow .BottomDecoratorLeft {
-  height: 23px ;
   background: url('MacSkin/background/PortletWindowBL5x23.png') no-repeat left ;
   padding: 0px 0px 0px 5px ;
 }
 
 .UIWindow .BottomDecoratorRight {
-  height: 23px ;
   padding: 0px 5px 0px 0px ;
   background: url('MacSkin/background/PortletWindowBR5x23.png') no-repeat right ;
 }
@@ -160,13 +158,11 @@
 }
 
 .UIWindow .WindowBarLeft {
-  height: 23px ;
   padding: 0px 0px 0px 12px ;
   background: url('MacSkin/background/PortletWindowTL12x23.png') no-repeat left ;
 }
 
 .UIWindow .WindowBarRight {
-  height: 23px ;
   padding: 0px 12px 0px 0px ;
   background: url('MacSkin/background/PortletWindowTR12x23.png') no-repeat right ;
 }

@@ -134,13 +134,11 @@
 }
 
 .UIWindow .BottomDecoratorLeft {
-  height: 24px ;
   padding-left:12px ;
   background: url('VistaSkin/background/LeftBottomDecorator12x24.png') no-repeat left ;
 }
 
 .UIWindow .BottomDecoratorRight {
-  height: 24px ;
   padding-right: 13px ;
   background: url('VistaSkin/background/RightBottomDecorator13x24.png') no-repeat right ;
 }
@@ -157,13 +155,11 @@
 }
 
 .UIWindow .WindowBarLeft {
-  height: 29px ; 
   padding-left: 12px ;
   background: url('VistaSkin/background/LeftTopBar12x29.png') no-repeat left ;
 }
 
 .UIWindow .WindowBarRight {
-  height: 29px ;
   padding-right: 16px ;
   background: url('VistaSkin/background/RightTopBar16x29.png') no-repeat right ;
 }
@@ -172,15 +168,7 @@
   height: 29px ;
   background: url('VistaSkin/background/CenterTopBar1x29.png') repeat-x ;
 }
-/*
-.UIWindow .UITestFormPortlet {
-	overflow: auto;
-}
 
-.UIWindow .UIAddPortletPortlet {
-	overflow: auto;
-}
-*/
 /**************************** UIPageBody ************************************/
 
 .UIPageBody .UIWindow {

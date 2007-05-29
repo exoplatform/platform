@@ -11,10 +11,9 @@
 }
 
 .UIPopupWindow .PopupTitle {
-  margin: 0px 26px 0px 26px;
-  margin-top: 4px; 
+  margin: 4px 26px 0px 26px;
   font-weight: bold; font-size: 11px;  text-align: center;
-  height: 16px; line-height: 16px; vertical-align: middle; text-align: center;
+  height: 16px; line-height: 16px; vertical-align: middle; 
   background: url('DefaultSkin/background/PopupTitleBG.gif') repeat-x bottom;
   cursor: move;
 }
@@ -29,7 +28,6 @@
 
 .UIPopupWindow .TopLeftCornerDecorator {
   background: url('DefaultSkin/background/PopupWindowTL3x23.gif') no-repeat left;
-  height: 23px;
   padding-left: 3px;
 }
 
@@ -40,7 +38,6 @@
 
 .UIPopupWindow .TopRightCornerDecorator {
   background: url('DefaultSkin/background/PopupWindowTR3x23.gif') no-repeat right ;
-  height: 23px;
   padding-right: 3px;
 }
 
@@ -101,13 +98,11 @@
 .UIPopupWindow .CaledarStyle .TopLeftCornerDecorator {
 	background: url('DefaultSkin/background/PopupCreatEventTL12x25.gif') no-repeat left; 
 	padding-left: 12px;
-	height: 25px;
 }
 
 .UIPopupWindow .CaledarStyle .TopRightCornerDecorator {
 	background: url('DefaultSkin/background/PopupCreatEventTR3x25.gif') no-repeat right; 
 	padding-right: 3px;
-	height: 25px;
 }
 
 .UIPopupWindow .CaledarStyle .TopCenterDecorator {
@@ -236,7 +231,7 @@
 
 .UIPopupWindow .ExoMessageDecorator .BottomLeftCornerDecorator {
 	background: url('DefaultSkin/background/BLMessageDecorator4x4.gif') no-repeat left; 
-	padding-left: 4px; height: 4px;
+	padding-left: 4px; 
 }
 
 .UIPopupWindow .ExoMessageDecorator  .UIWindowContent {
@@ -252,7 +247,7 @@
 
 .UIPopupWindow .ExoMessageDecorator .BottomRightCornerDecorator {
 	background: url('DefaultSkin/background/BRMessageDecorator4x4.gif') no-repeat right; 
-	padding-right: 4px;height: 4px;
+	padding-right: 4px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomCenterDecorator {

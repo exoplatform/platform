@@ -11,7 +11,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
-  height: 16px;
   background: url('DefaultSkin/background/PopupCategoryTL6x16.gif') no-repeat left;
   padding-left: 6px;
 }
@@ -22,7 +21,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
-  height: 16px;
   background: url('DefaultSkin/background/PopupCategoryTR35x16.gif') no-repeat right;
   padding-right: 35px;
 }
@@ -42,7 +40,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
-  height: 7px;
   background: url('DefaultSkin/background/PopupCategoryBL6x7.gif') no-repeat left;
   padding-left: 6px;
 }
@@ -53,7 +50,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
-  height: 7px;
   background: url('DefaultSkin/background/PopupCategoryBR8x7.gif') no-repeat right;
   padding-right: 8px;
 }

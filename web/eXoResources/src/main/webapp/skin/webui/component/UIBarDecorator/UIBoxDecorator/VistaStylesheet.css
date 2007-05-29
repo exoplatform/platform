@@ -11,7 +11,6 @@
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .TopLeftCornerBoxDecorator {
-  height: 14px ;
   background: url('VistaSkin/background/WhiteRoundedBoxLeftTop10x14.png') no-repeat left ;
   padding: 0px 0px 0px 10px ;
 }
@@ -22,7 +21,6 @@
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .TopRightCornerBoxDecorator {
-  height: 14px ;
   background: url('VistaSkin/background/WhiteRoundedBoxRightTop10x14.png') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
@@ -43,7 +41,6 @@
 }
  
 .DecoratorBox .WhiteRoundedBoxStyle .BottomLeftCornerBoxDecorator {
-  height: 12px ;
   background: url('VistaSkin/background/WhiteRoundedBoxLeftBottom10x12.png') no-repeat left ;
   padding: 0px 0px 0px 10px ;
 }
@@ -54,7 +51,6 @@
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .BottomRightCornerBoxDecorator {
-  height:12px;
   background: url('VistaSkin/background/WhiteRoundedBoxRightBottom10x12.png') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
@@ -64,15 +60,11 @@
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .TopLeftCornerBoxDecorator {
-  height:11px; 
-  line-height:11px;
   background: url('VistaSkin/background/TopLeftCorner10x11.png') no-repeat left ;
   padding: 0px 0px 0px 10px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .TopRightCornerBoxDecorator {
-  height: 11px; 
-  line-height: 11px;
   background: url('VistaSkin/background/TopRightCorner14x11.png') no-repeat right ;
   padding: 0px 14px 0px 0px ;
 }
@@ -100,15 +92,11 @@
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .BottomLeftCornerBoxDecorator {
-  height: 15px; 
-  line-height: 15px;
   background: url('VistaSkin/background/BottomLeftCorner10x15.png') no-repeat left ;
   padding: 0px 0px 0px 10px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .BottomRightCornerBoxDecorator {
-  height: 15px; 
-  line-height: 15px;
   background: url('VistaSkin/background/BottomRightCorner14x15.png') no-repeat right ;
   padding: 0px 14px 0px 0px ;
 }
@@ -180,7 +168,6 @@
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .TopLeftCornerNested {
-  height: 10px;
   background: url('VistaSkin/background/LightBlueTL.gif') no-repeat left ;
   padding: 0px 0px 0px 10px;
 }
@@ -191,7 +178,6 @@
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .TopRightCornerNested {
-  height: 10px;
   background: url('VistaSkin/background/LightBlueTR.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ; 
 }
@@ -207,7 +193,7 @@
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .BottomLeftCornerNested {
-  width: auto; height: 10px ; 
+  width: auto;  
   background: url('VistaSkin/background/LightBlueBL.gif') no-repeat left ;
   padding: 0px 0px 0px 10px ;
 }

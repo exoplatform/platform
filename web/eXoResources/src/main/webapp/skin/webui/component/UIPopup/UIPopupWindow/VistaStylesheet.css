@@ -28,7 +28,6 @@
 
 .UIPopupWindow .TopLeftCornerDecorator {
   background: url('../UIWindow/VistaSkin/background/LeftTopBar12x29.png') no-repeat left top;
-  height: 29px;
   padding-left: 12px;
 }
 
@@ -39,7 +38,6 @@
 
 .UIPopupWindow .TopRightCornerDecorator {
   background: url('../UIWindow/VistaSkin/background/RightTopBar16x29.png') no-repeat right top;
-  height: 29px;
   padding-right: 16px;
 }
 
@@ -103,13 +101,11 @@
 .UIPopupWindow .CaledarStyle .TopLeftCornerDecorator {
 	background: url('VistaSkin/background/TopPopupWDLeft17x32.png') no-repeat left; 
 	padding-left: 17px;
-	height: 32px;
 }
 
 .UIPopupWindow .CaledarStyle .TopRightCornerDecorator {
 	background: url('VistaSkin/background/TopPopupWDRight19x32.png') no-repeat right; 
 	padding-right: 19px;
-	height: 32px;
 }
 
 .UIPopupWindow .CaledarStyle .TopCenterDecorator {
@@ -144,12 +140,12 @@
 }
 
 .UIPopupWindow .CaledarStyle .UIWindowContent {
-	padding: 0px; margin:0px;
+	padding: 0px; margin: 0px;
 	background: url('null') no-repeat;
 }
 
 .UIPopupWindow .CaledarStyle .UIWindowContent .Content {
-	padding: 0px; margin:0px;
+	padding: 0px; margin: 0px;
 	border: none;
 	background: url('null') no-repeat;
 }
@@ -171,12 +167,12 @@
 
 .UIPopupWindow .CaledarStyle .BottomLeftCornerDecorator {
 	background: url('VistaSkin/background/ButtomPoupWDLeft17x19.png') no-repeat left; 
-	padding-left: 17px; height: 19px;
+	padding-left: 17px; 
 }
 
 .UIPopupWindow .CaledarStyle .BottomRightCornerDecorator {
 	background: url('VistaSkin/background/ButtomPoupWDRight19x19.png') no-repeat right; 
-	padding-right: 19px;height: 19px;
+	padding-right: 19px;
 }
 
 .UIPopupWindow .CaledarStyle .BottomCenterDecorator {
@@ -185,6 +181,11 @@
 }
 /***************************End PoupWindow Caledar**********************************/
 
+.UIPopupWindow .Content .UIPageBrowser {
+  padding: 7px 4px 0px 8px;
+  width: 96%;
+  margin: auto;
+}
 
 /***************************Begin PoupWindow ExoMessage**********************************/
 .UIPopupWindow .ExoMessageDecorator {
@@ -194,13 +195,11 @@
 .UIPopupWindow .ExoMessageDecorator .TopLeftCornerDecorator {
 	background: url('VistaSkin/background/TLMessageDecorator12x29.png') no-repeat left; 
 	padding-left: 12px;
-	height: 29px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopRightCornerDecorator {
 	background: url('VistaSkin/background/TRMessageDecorator16x29.png') no-repeat right; 
 	padding-right: 16px;
-	height: 29px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopCenterDecorator {
@@ -236,23 +235,23 @@
 
 .UIPopupWindow .ExoMessageDecorator .BottomLeftCornerDecorator {
 	background: url('VistaSkin/background/BLMessageDecorator12x24.png') no-repeat left; 
-	padding-left: 12px; height: 24px;
+	padding-left: 12px; 
 }
 
 .UIPopupWindow .ExoMessageDecorator  .UIWindowContent {
-	padding: 0px; margin:0px;
+	padding: 0px; margin: 0px;
 	background: url('null') no-repeat;
 }
 
 .UIPopupWindow .ExoMessageDecorator  .UIWindowContent .Content {
-	padding: 0px; margin:0px;
+	padding: 0px; margin: 0px;
 	border: none;
 	background: url('null') no-repeat;
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomRightCornerDecorator {
 	background: url('VistaSkin/background/BRMessageDecorator13x24.png') no-repeat right; 
-	padding-right: 13px;height: 24px;
+	padding-right: 13px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomCenterDecorator {

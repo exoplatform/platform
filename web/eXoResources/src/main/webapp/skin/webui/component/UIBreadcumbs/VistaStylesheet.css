@@ -25,14 +25,14 @@
 
 .UIBreadcumbs .LeftBreadcumbsBar {
   padding-left: 8px ;
-  background: url('VistaSkin/background/LeftBreadcumbsBar8x33.png') no-repeat left;
   height: 33px;
+  background: url('VistaSkin/background/LeftBreadcumbsBar8x33.png') no-repeat left;
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
   padding-right: 9px;
-  background: url('VistaSkin/background/RightBreadcumbsBar9x33.png') no-repeat right;
   height: 33px;
+  background: url('VistaSkin/background/RightBreadcumbsBar9x33.png') no-repeat right;
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {

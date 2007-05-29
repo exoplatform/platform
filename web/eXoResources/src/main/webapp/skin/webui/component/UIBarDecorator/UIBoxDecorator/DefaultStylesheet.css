@@ -121,7 +121,6 @@
 }
 
 .DecoratorBoxNested .LightBlueBoxNested .TopLeftCornerNested {
-  height: 10px;
   background: url('DefaultSkin/background/LightBlueTL.gif') no-repeat left ;
   padding: 0px 0px 0px 10px;
 }
@@ -132,7 +131,6 @@
 }
 
 .DecoratorBoxNested .LightBlueBoxNested .TopRightCornerNested {
-  height: 10px;
   background: url('DefaultSkin/background/LightBlueTR.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
@@ -148,7 +146,7 @@
 }
 
 .DecoratorBoxNested .LightBlueBoxNested .BottomLeftCornerNested {
-  width: auto; height: 10px ; 
+  width: auto; 
   background: url('DefaultSkin/background/LightBlueBL.gif') no-repeat left ;
   padding: 0px 0px 0px 10px ;
 }

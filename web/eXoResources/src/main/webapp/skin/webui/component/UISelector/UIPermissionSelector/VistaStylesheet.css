@@ -81,12 +81,35 @@
   font-size: 12px;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
-  width: 160px; height: 22px; line-height: 22px; vertical-align: middle;
-  margin: auto;  margin-top: 8px;
-  background: url('VistaSkin/background/TitleBG1x20.gif') repeat-x; 
-  border: solid 1px #b1b5c0 ;
+.UIPermissionSelector .UIAction  {
+  padding-top: 0px;
 } 
+
+.UIPermissionSelector .PermissionInfoContainer .UIAction .ActionButton {
+  width: 165px;
+  margin: auto;
+  float: none;
+} 
+
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
+  width: 195px; 
+  margin: 8px auto 0px auto; 
+}
+
+.UIPermissionSelector .SelectPermissionButton .LeftButton {
+  background: url('VistaSkin/background/LeftSimpleButton20x24.png') no-repeat left; 
+  padding-left: 20px;
+}
+
+.UIPermissionSelector .SelectPermissionButton .RightButton {
+  background: url('VistaSkin/background/RightSimpleButton20x24.png') no-repeat right; 
+  padding-right: 20px;
+} 
+
+.UIPermissionSelector .SelectPermissionButton .CenterButton {
+  background: url('VistaSkin/background/CenterSimpleButton3x24.png') repeat-x; 
+  height: 24px; line-height: 24px;
+}
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
   float: left;

@@ -28,13 +28,11 @@
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {
-  height: 25px ;
   padding: 0px 0px 0px 5px ;
   background: url('DefaultSkin/background/LeftBreadcumbsBar5x25.gif') no-repeat left;
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
-  height: 25px;
   padding: 0px 5px 0px 0px;
   background: url('DefaultSkin/background/RightBreadcumbsBar5x25.gif') no-repeat right;
 }

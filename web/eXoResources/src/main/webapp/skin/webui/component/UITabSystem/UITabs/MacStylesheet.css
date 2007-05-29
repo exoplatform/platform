@@ -1,5 +1,5 @@
 .UIHorizontalTabs {
-
+	font-size: 11px;
 }
 
 .UIHorizontalTabs .LeftHorizontalTabs{
@@ -172,7 +172,7 @@
 .UIHorizontalTabs .NormalTabStyle .NormalTab{
   line-height: 25px;
   margin-right: 1px; margin-bottom: 6px;
-  font-size: 11px; color: #474849;
+  color: #474849;
   
 }
 
@@ -209,7 +209,7 @@
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab {
   line-height: 25px;
-  font-size: 11px; color: black;
+  color: black;
   margin-right: 1px; margin-bottom: 6px;
 }
 
@@ -241,7 +241,7 @@
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab{
   line-height: 25px;
-  font-size: 11px; color: black;
+  color: black;
   margin-right: 1px; margin-bottom: 5px;
 }
 
@@ -276,7 +276,7 @@
 .UIHorizontalTabs .MessageTabDialog .NormalTab {
   line-height: 32px;
   margin-right: 1px;
-  font-size: 11px; color: #202020; font-weight: normal;
+  color: #202020; font-weight: normal;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .LeftTab {
@@ -368,7 +368,6 @@
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab {
   line-height: 32px;
-  font-size: 11px;
   color: #058ee6;
 }
 

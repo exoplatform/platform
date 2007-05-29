@@ -6,7 +6,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
-  height: 19px;
   background: url('MacSkin/background/PopupCategoryTL5x19.png') no-repeat left;
   padding-left: 5px;
 }
@@ -17,7 +16,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
-  height: 19px;
   background: url('MacSkin/background/PopupCategoryTR47x19.png') no-repeat right;
   padding: 0px 47px 0px 0px;
 }
@@ -37,7 +35,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
-  height: 9px;
   background: url('MacSkin/background/PopupCategoryBL9x9.png') no-repeat left;
   padding-left: 9px;
 }
@@ -48,7 +45,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
-  height: 9px;
   background: url('MacSkin/background/PopupCategoryBR8x9.png') no-repeat right;
   padding-right: 8px;
 }

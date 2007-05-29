@@ -10,8 +10,7 @@
 }
 
 .UIPopupWindow .PopupTitle {
-  margin: 0px 20px 0px 20px;
-  margin-top: 6px;
+  margin: 5px 20px 0px 20px;
   text-align: center;
   font-weight: bold; font-size: 11px;
   height: 24px; line-height: 22px; vertical-align: middle;
@@ -28,7 +27,6 @@
 
 .UIPopupWindow .TopLeftCornerDecorator {
   background: url('MacSkin/background/PopupWindowTL15x29.png') no-repeat left;
-  height: 29px;
   padding-left: 15px;
 }
 
@@ -39,7 +37,6 @@
 
 .UIPopupWindow .TopRightCornerDecorator {
   background: url('MacSkin/background/PopupWindowTR15x29.png') no-repeat right ;
-  height: 29px;
   padding-right: 15px;
 }
 
@@ -107,13 +104,11 @@
 .UIPopupWindow .CaledarStyle .TopLeftCornerDecorator {
 	background: url('DefaultSkin/background/PopupCreatEventTL12x25.gif') no-repeat left; 
 	padding-left: 12px;
-	height: 25px;
 }
 
 .UIPopupWindow .CaledarStyle .TopRightCornerDecorator {
 	background: url('DefaultSkin/background/PopupCreatEventTR3x25.gif') no-repeat right; 
 	padding-right: 3px;
-	height: 25px;
 }
 
 .UIPopupWindow .CaledarStyle .TopCenterDecorator {
@@ -194,13 +189,11 @@
 .UIPopupWindow .ExoMessageDecorator .TopLeftCornerDecorator {
 	background: url('MacSkin/background/TLMessageDecorator17x32.png') no-repeat left; 
 	padding-left: 17px;
-	height: 32px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopRightCornerDecorator {
 	background: url('MacSkin/background/TRMessageDecorator18x32.png') no-repeat right; 
 	padding-right: 18px;
-	height: 32px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopCenterDecorator {
@@ -241,7 +234,7 @@
 
 .UIPopupWindow .ExoMessageDecorator .BottomLeftCornerDecorator {
 	background: url('MacSkin/background/BLMessageDecorator17x19.png') no-repeat left; 
-	padding-left: 17px; height: 19px;
+	padding-left: 17px; 
 }
 
 .UIPopupWindow .ExoMessageDecorator  .UIWindowContent {
@@ -257,7 +250,7 @@
 
 .UIPopupWindow .ExoMessageDecorator .BottomRightCornerDecorator {
 	background: url('MacSkin/background/BRMessageDecorator19x19.png') no-repeat right; 
-	padding-right: 19px; height: 19px;
+	padding-right: 19px; 
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomCenterDecorator {

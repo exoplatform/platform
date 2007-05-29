@@ -23,7 +23,6 @@
 
 .UIAction .ActionButton  a:hover {
   color: white;
-  cursor: pointer;
 }
 
 .UIAction .ActionButton .Icon {

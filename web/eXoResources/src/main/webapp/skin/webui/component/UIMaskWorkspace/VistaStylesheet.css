@@ -152,7 +152,7 @@
 .UIAddApplication .Application {
   margin: 10px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
-	border-bottom:none;
+	border-bottom: none;
 	background: white url('VistaSkin/background/AddApplicationrBG1x20.gif') repeat-x bottom;
 	padding: 10px;
 }
@@ -212,13 +212,11 @@
 .UIAddApplication .TitleBarContainer .LeftTitleBar {
   background: url('VistaSkin/background/LeftTitleBar15x32.png') no-repeat left;
   padding: 0px 0px 0px 15px ;
-  height: 32px;
 }
 
 .UIAddApplication .TitleBarContainer .RightTitleBar {
   background: url('VistaSkin/background/RightTitleBar10x32.png') no-repeat right;
   padding: 0px 10px 0px 0px ;
-  height: 32px;
 }
 
 .UIAddApplication .TitleBarContainer .CenterTitleBar {

@@ -129,13 +129,11 @@
 }
 
 .UIToolbar .LightToolbar .LeftBar {
-  height: 33px;
   padding-left: 3px;
   background: url('DefaultSkin/background/PolyBarL3x33.gif') no-repeat left;
 }
 
 .UIToolbar .LightToolbar .RightBar {
-  height: 33px;
   padding-right: 3px;
   background: url('DefaultSkin/background/PolyBarR3x33.gif') no-repeat right;
 }
@@ -153,13 +151,11 @@
 }
 
 .UIToolbar .EditToolbar .LeftBar {
-  height: 30px;
   background: url('DefaultSkin/background/LeftEditToolbar2x30.gif') no-repeat left;
   padding-left: 2px;
 }
 
 .UIToolbar .EditToolbar .RightBar {
-  height: 30px;
   padding-right: 2px;
   background: url('DefaultSkin/background/RightEditToolbar2x30.gif') no-repeat right;
 }
@@ -182,13 +178,11 @@
 }
 
 .UIToolbar .IceBlueToolbar .LeftBar {
-  height: 30px;
   padding-left: 4px;
   background: url('DefaultSkin/background/IceBlueToolBarLBg4x30.gif') no-repeat left;
 }
 
 .UIToolbar .IceBlueToolbar .RightBar {
-  height: 30px;
   padding-right: 4px;
   background: url('DefaultSkin/background/IceBlueToolBarRBg4x30.gif') no-repeat right;
 }
@@ -204,13 +198,11 @@
 }
 
 .UIToolbar .ControlToolbar .LeftBar {
-  height: 27px;
   padding-left: 12px;
   background: url('DefaultSkin/background/LeftControlToolbar12x27.gif') no-repeat left;
 }
 
 .UIToolbar .ControlToolbar .RightBar {
-  height: 27px;
   padding-right: 1px;
   background: url('DefaultSkin/background/MiddleControlToolbar1x27.gif') repeat-x;
 }
@@ -238,13 +230,11 @@
 }
 
 .UIToolbar .GrayBevelRoundedBar35Style .LeftBar {
-  height: 35px ;
   padding-left: 15px ;
   background: url('DefaultSkin/background/GrayBevel35Left15x35.gif') no-repeat left ;
 }
 
 .UIToolbar .GrayBevelRoundedBar35Style .RightBar {
-  height: 35px ;
   padding-right: 15px ;
   background: url('DefaultSkin/background/GrayBevel35Right15x35.gif') no-repeat right ;
 }
@@ -270,13 +260,13 @@
 }
 
 .UIToolbar .Style1Toolbar .LeftBar {
-  height: 28px ; line-height: 28px;
+  line-height: 28px;
   padding-left: 8px ;
   background: url('DefaultSkin/background/BlueRoundedToolbarL8x28.gif') no-repeat left ;
 }
 
 .UIToolbar .Style1Toolbar .RightBar {
-  height: 28px ; line-height: 28px;
+  line-height: 28px;
   padding-right: 8px ;
   background: url('DefaultSkin/background/BlueRoundedToolbarR8x28.gif') no-repeat right ;
 }
@@ -292,13 +282,13 @@
 }
 
 .UIToolbar .Style2Toolbar .LeftBar {
-  height: 31px ; line-height: 31px;
+  height: 31px; line-height: 31px;
   padding-left: 6px ;
   background: url('DefaultSkin/background/Style2BarL6x31.gif') no-repeat left ;
 }
 
 .UIToolbar .Style2Toolbar .RightBar {
-  height: 31px ; line-height: 31px;
+  height: 31px; line-height: 31px;
   padding-right: 6px ;
   background: url('DefaultSkin/background/Style2BarR6x31.gif') no-repeat right ;
 }
@@ -334,13 +324,11 @@
 }
 
 .UIToolbar .GrayBevelBar .LeftBar {
-  height: 35px ;
   padding-left: 9px ;
   background: url('DefaultSkin/background/GrayBevelBarL9x35.gif') no-repeat left ;
 }
 
 .UIToolbar .GrayBevelBar .RightBar {
-  height: 35px ;
   padding-right: 9px ;
   background: url('DefaultSkin/background/GrayBevelBarR9x35.gif') no-repeat right ;
 }
@@ -356,13 +344,11 @@
 }
 
 .UIToolbar .NavyBluePoly44 .LeftBar {
-  height: 44px ;
   padding-left: 7px ;
   background: url('DefaultSkin/background/NavyBluePolyStyleL7x44.gif') no-repeat left ;
 }
 
 .UIToolbar .NavyBluePoly44 .RightBar {
-  height: 44px ;
   padding-right: 7px ;
   background: url('DefaultSkin/background/NavyBluePolyStyleR7x44.gif') no-repeat right ;
 }

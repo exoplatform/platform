@@ -1,5 +1,6 @@
 .UIItemSelector {
   margin: 2px 0px 2px 2px;
+  font-size: 11px;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalOfficeImage {
@@ -49,7 +50,7 @@
 }
 
 .UIItemSelector .ItemDetailList .ItemDetail .ItemValueDescription {
-  padding-left: 15px; margin-top: 12px; font-size: 11px;
+  padding-left: 15px; margin-top: 12px; 
   height: 53px; 
   overflow: auto;
   width: 50%;
@@ -64,7 +65,7 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemListContainer{
-  width: 220px;
+  width: 270px;
   float: right;
 }
 
@@ -86,26 +87,24 @@
 
 .UIItemSelector .ItemListContainer .ItemListTitle  {
   height: 30px; line-height: 30px; vertical-align: middle; 
-  font-size: 11px; font-weight: bold;
+  font-weight: bold;
   color: #000000;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemListContainer .ItemListTitle {
 	height: 25px; line-height: 25px; vertical-align: middle; 
-  font-size: 11px; font-weight: bold; text-align: center;
+  font-weight: bold; text-align: center;
   background: url('/eXoResources/background/VistaSkin/ItemListTitleBG1x25.png') repeat-x ;
 }
 
 .UIItemSelector .ItemListContainer .LeftItemListTitle  {
   background: url('/eXoResources/background/VistaSkin/LeftItemListTitle30x25.png') no-repeat left;
   padding-left: 30px;
-  height: 25px;
 }
 
 .UIItemSelector .ItemListContainer .RightItemListTitle  {
   background: url('/eXoResources/background/VistaSkin/RightItemListTitle30x25.png') no-repeat right;
   padding-right: 30px;
-  height: 25px;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalOfficeImage {
@@ -148,20 +147,20 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .LeftItem {
-  height: 24px;
   background: url('VistaSkin/background/LeftNormalItem30x24.png') no-repeat left;
   padding-left: 30px;
+  height: 24px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .RightItem {
-  height: 24px;
   background: url('VistaSkin/background/RightNormalItem3x24.png') no-repeat right;
   padding-right: 2px;
+  height: 24px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .ItemTitle {
   height: 24px; line-height: 24px; vertical-align: middle;
-  color: #676767; font-size: 11px;
+  color: #676767;
   background: url('VistaSkin/background/MiddleNormalItem1x24.png') repeat-x ;
 }
 
@@ -178,7 +177,7 @@
 
 .UIItemSelector .RightColumnStyle .ItemDetailList {
   height: auto;
-  margin-right: 225px;
+  margin-right: 280px;
   padding: 1px ;
 }
 
@@ -190,7 +189,7 @@
 
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailTitle{
   height: 29px; line-height: 29px; vertical-align: middle;
-  font-size: 11px; font-weight: bold; color: #5c5c5c;
+  font-weight: bold; color: #5c5c5c;
 }
 
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailContainer{
@@ -204,15 +203,15 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .LeftItem {
-  height: 24px;
   background: url('VistaSkin/background/LeftSelectItem30x24.png') no-repeat left;
   padding-left: 30px;
+  height: 24px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .RightItem {
-  height: 24px;
   background: url('VistaSkin/background/RightSelectItem30x24.png') no-repeat right;
   padding-right: 30px;
+  height: 24px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .ItemTitle {
@@ -231,16 +230,16 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .LeftItem {
-  height: 24px;
   background: url('VistaSkin/background/LeftOverItem30x24.png') no-repeat;
   padding-left: 30px;
+  height: 24px;
 }
 
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .RightItem {
-  height: 24px;
   background: url('VistaSkin/background/RightOverItem30x24.png') no-repeat right;
   padding-right: 30px;
+  height: 24px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .ItemTitle {
@@ -302,7 +301,7 @@
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .UserProfileIcon {  
-  height: 26px;line-height:26px;
+  height: 26px; line-height: 26px;
   background: url('VistaSkin/background/BigStyleProfileItem.png') no-repeat;
   padding-left: 34px;
 }
@@ -329,7 +328,7 @@
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .ItemTitle {
   height: 26px; line-height:26px; vertical-align: middle;
   background: url('VistaSkin/background/BigStyleNormalRepeatBG.png') repeat-x ;
-  font-size: 11px; color: #3e3d3d;
+  color: #3e3d3d;
   padding-left: 10px;
 }
 
@@ -380,7 +379,7 @@
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemTitle {
   height: 26px; line-height: 26px; vertical-align: middle;
   background: url('VistaSkin/background/BigStyleSelectedRepeatBG.png') repeat-x ;
-  font-size: 11px;  color: black;
+  color: black;
   padding-left: 10px;
 }
 /*###########################- FloatRightStyle -#########################*/
@@ -417,7 +416,7 @@
 
 .UIItemSelector .LeftColumnStyle .Title {
   line-height: 22px; vertical-align: middle;
-  font-weight: bold; color: #5c5c5c; font-size: 11px;
+  font-weight: bold; color: #5c5c5c; 
   float: left;
 }
 
@@ -443,7 +442,7 @@
   font-size: 12px; text-align: center;
   height: 20px; line-height: 20px;
   border: solid 1px #b7b7b7;
-  font-size: 11px; font-weight: bold;
+  font-weight: bold;
   background: url('VistaSkin/background/TitleBG1x20.png') repeat-x;
 }
 
@@ -468,7 +467,7 @@
 .UIItemSelector .LeftColumnStyle .ItemList .Item .ItemTitle {
   height: 24px; line-height: 24px; vertical-align: middle;
   background: url('VistaSkin/background/MiddleNormalItem1x24.png') repeat-x ;
-  font-size: 11px; color: #526791;
+  color: #526791;
   padding-left: 3px;
 }
 
@@ -494,7 +493,7 @@
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .ItemTitle {
   height: 24px; line-height: 24px; vertical-align: middle;
   background: url('VistaSkin/background/MiddleOverItem1x24.png') repeat-x ;
-  font-size: 11px; color: #059ce2;
+  color: #059ce2;
   padding-left: 3px;
 }
 
@@ -519,7 +518,7 @@
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .ItemTitle {
   height: 24px; line-height: 24px; vertical-align: middle;
   background: url('VistaSkin/background/MiddleSelectItem1x24.png') repeat-x ;
-  font-size: 11px; color: black;
+  color: black;
   padding-left: 3px;
 }
 

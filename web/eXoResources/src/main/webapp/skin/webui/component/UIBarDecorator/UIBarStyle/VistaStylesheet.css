@@ -7,13 +7,11 @@
 }
 
 .UIBarStyle .RoundedBarStyle .LeftBar {
-  height: 25px;
   background: url('VistaSkin/background/WhiteRoundedBarL8x25.gif') no-repeat left;
   padding: 0px 0px 0px 8px;
 }
 
 .UIBarStyle .RoundedBarStyle .RightBar {
-  height: 25px;
   background: url('VistaSkin/background/WhiteRoundedBarR8x25.gif') no-repeat right;
   padding: 0px 8px 0px 0px ;
 }
@@ -31,13 +29,11 @@
 }
 
 .UIBarStyle StyleBar .LeftBar {
-  height: 22px;
   background: url('VistaSkin/background/MacStyleBarL71x22.gif') no-repeat left;
   padding: 0px 0px 0px 71px;
 }
 
 .UIBarStyle StyleBar .RightBar {
-  height: 22px;
   background: url('VistaSkin/background/MacStyleBarR36x22.gif') no-repeat right;
   padding: 0px 36px 0px 0px ;
 }
@@ -55,13 +51,11 @@
 }
 
 .UIBarStyle .GrayRoundedBarStyle .LeftBar {
-  height: 26px;
   background: url('VistaSkin/background/GrayRoundedBarLeft12x26.gif') no-repeat left;
   padding: 0px 0px 0px 12px;
 }
 
 .UIBarStyle .GrayRoundedBarStyle .RightBar {
-  height: 26px;
   background: url('VistaSkin/background/GrayRoundedBarRight12x26.gif') no-repeat right;
   padding: 0px 12px 0px 0px ;
 }
@@ -79,15 +73,15 @@
 }
 
 .UIBarStyle .BarStyle2 .LeftBar {
-  height: 39px;
   background: url('VistaSkin/background/RoundedTopBarL7x39.png') no-repeat left;
   padding: 0px 0px 0px 7px;
+  height: 39px;
 }
 
 .UIBarStyle .BarStyle2 .RightBar {
-  height: 39px;
   padding: 0px 7px 0px 0px ;
   background: url('VistaSkin/background/RoundedTopBarR7x39.png') no-repeat right;
+  height: 39px;
 }
 
 .UIBarStyle .BarStyle2 .MiddleBar {
@@ -104,13 +98,11 @@
 }
 
 .UIBarStyle .Style3 .LeftBar {
-  height: 26px ;
   background: url('VistaSkin/background/SmoothRoundedLeftBar3x26.gif') no-repeat left ;
   padding: 0px 0px 0px 3px ;
 }
 
 .UIBarStyle .Style3 .RightBar {
-  height: 26px ;
   background: url('VistaSkin/background/SmoothRoundedRightBar3x26.gif') no-repeat right ;
   padding: 0px 3px 0px 0px ;
 }
@@ -129,7 +121,6 @@
 }
 
 .UIBarStyle .Style4 .RightBar {
-  height:28px ;
   background: url('VistaSkin/background/Style4BarR11x28.png') no-repeat right ;
   padding: 0px 11px 0px 0px ;
 }
@@ -148,13 +139,11 @@
 }
 
 .UIBarStyle .Style5 .LeftBar {
-  height: 32px ;
   background: url('VistaSkin/background/Style5BarL11x32.png') no-repeat left ;
   padding: 0px 0px 0px 11px ;
 }
 
 .UIBarStyle .Style5 .RightBar {
-  height: 32px ;
   background: url('VistaSkin/background/Style5BarR15x32.png') no-repeat right ; 
   padding: 0px 15px 0px 0px ;
 }
@@ -182,7 +171,7 @@
 }
 
 .UIBarStyle .Style5 .MiddleBar a:hover{
-  font-size: 11px; color: #0538ca;
+  color: #0538ca;
 }
 
 /*###########################-WhiteRoundedBarStyle-###########################*/
@@ -191,13 +180,11 @@
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .LeftBar {
-  height: 26px;
   background: url('VistaSkin/background/WhiteRoundedBarLeft12x26.gif') no-repeat left;
   padding: 0px 0px 0px 12px;
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .RightBar {
-  height: 26px;
   background: url('VistaSkin/background/WhiteRoundedBarRight12x26.gif') no-repeat right;
   padding: 0px 12px 0px 0px ;
 }
@@ -217,13 +204,11 @@
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .LeftBar {
-  height: 36px;
   background: url('VistaSkin/background/GrayPolygonBigBarLeft4x36.gif') no-repeat left;
   padding: 0px 0px 0px 4px;
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .RightBar {
-  height: 36px;
   background: url('VistaSkin/background/GrayPolygonBigBarRight4x36.gif') no-repeat right;
   padding: 0px 4px 0px 0px ;
 }
@@ -241,13 +226,11 @@
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .LeftBar {
-  height: 36px;
   background: url('VistaSkin/background/BluePolygonBigBarLeft4x36.gif') no-repeat left;
   padding: 0px 0px 0px 4px;
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .RightBar {
-  height: 36px;
   background: url('VistaSkin/background/BluePolygonBigBarRight4x36.gif') no-repeat right;
   padding: 0px 4px 0px 0px ;
 }
@@ -265,13 +248,11 @@
 }
 
 .UIBarStyle .BluePolygonBarStyle .LeftBar {
-  height: 37px;
   background: url('VistaSkin/background/RoundedTopBarL9x37.gif') no-repeat left;
   padding: 0px 0px 0px 9px;
 }
 
 .UIBarStyle .BluePolygonBarStyle .RightBar {
-  height: 37px;
   background: url('VistaSkin/background/RoundedTopBarR9x37.gif') no-repeat right;
   padding: 0px 9px 0px 0px ;
 }
@@ -289,13 +270,11 @@
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .LeftBar {
-  height: 32px;
   background: url('VistaSkin/background/NavyBlueBar32Left3x32.gif') no-repeat left;
   padding: 0px 0px 0px 3px;
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .RightBar {
-  height: 32px;
   background: url('VistaSkin/background/NavyBlueBar32Right3x32.gif') no-repeat right;
   padding: 0px 3px 0px 0px ;
 }
@@ -312,20 +291,17 @@
 }
 
 .UIBarStyle .GrayRoundedFlatBarStyle .LeftBar {
-  height: 35px;
   background: url('VistaSkin/background/GrayRoundedFlatLeft16x35.gif') no-repeat left;
   padding: 0px 0px 0px 16px;
 }
 
 .UIBarStyle .GrayRoundedFlatBarStyle .RightBar {
-  height: 35px;
   background: url('VistaSkin/background/GrayRoundedFlatRight16x35.gif') no-repeat right;
   padding: 0px 16px 0px 0px ;
 }
 
 .UIBarStyle .GrayRoundedFlatBarStyle .MiddleBar {
-  height: 33px;
-  line-height: 33px;
+  height: 33px;  line-height: 33px;
   vertical-align: middle;
   background: #f3f3f3;
   border-top: solid 1px #c6c6c9;
@@ -338,13 +314,11 @@
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .LeftBar {
-  height: 32px;
   background: url('VistaSkin/background/NavyBluePolygonLeft3x32.gif') no-repeat left;
   padding: 0px 0px 0px 3px;
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .RightBar {
-  height: 32px;
   background: url('VistaSkin/background/NavyBluePolygonRight3x32.gif') no-repeat right;
   padding: 0px 3px 0px 0px ;
 }
@@ -362,20 +336,17 @@
 }
 
 .UIBarStyle .SmoothRounded26Style .LeftBar {
-  height: 26px ;
   background: url('VistaSkin/background/SmoothRoundedLeftBar3x26.gif') no-repeat left ;
   padding: 0px 0px 0px 3px ;
 }
 
 .UIBarStyle .SmoothRounded26Style .RightBar {
-  height: 26px ;
   background: url('VistaSkin/background/SmoothRoundedRightBar3x26.gif') no-repeat right ;
   padding: 0px 3px 0px 0px ;
 }
 
 .UIBarStyle .SmoothRounded26Style .MiddleBar {
-  height: 26px ;
-  line-height: 26px ;
+  height: 26px ;  line-height: 26px ;
   vertical-align: middle ;
   background: url('VistaSkin/background/SmoothRoundedRepeatBar1x26.gif') repeat-x ;
 }
@@ -386,20 +357,17 @@
 }
 
 .UIBarStyle .SmoothNavy40Style .LeftBar {
-  height: 62px ;
   background: url('VistaSkin/background/QuickBarL15x62.gif') no-repeat left ;
   padding: 0px 0px 0px 15px ;
 }
 
 .UIBarStyle .SmoothNavy40Style .RightBar {
-  height: 62px ;
   background: url('VistaSkin/background/QuickBarR15x62.gif') no-repeat right ;
   padding: 0px 15px 0px 0px ;
 }
 
 .UIBarStyle .SmoothNavy40Style .MiddleBar {
-  height: 62px ;
-  line-height: 62px ;
+  height: 62px ;  line-height: 62px ;
   vertical-align: middle ;
   background: url('VistaSkin/background/QuickBarM1x62.gif') repeat-x ;
 }
@@ -410,20 +378,17 @@
 }
 
 .UIBarStyle .GrayBevelRoundedBar35Style .LeftBar {
-  height: 35px ;
   background: url('VistaSkin/background/GrayBevel35Left15x35.gif') no-repeat left ;
   padding: 0px 0px 0px 15px ;
 }
 
 .UIBarStyle .GrayBevelRoundedBar35Style .RightBar {
-  height: 35px ;
   background: url('VistaSkin/background/GrayBevel35Right15x35.gif') no-repeat right ;
   padding: 0px 15px 0px 0px ;
 }
 
 .UIBarStyle .GrayBevelRoundedBar35Style .MiddleBar {
-  height: 35px ;
-  line-height: 35px ;
+  height: 35px ;  line-height: 35px ;
   vertical-align: middle ;
   background: url('VistaSkin/background/GrayBevel35Center1x35.gif') repeat-x ;
 }
@@ -448,20 +413,17 @@
 }
 
 .UIBarStyle .GrayBevelRoundBar40 .LeftBar {
-  height: 48px ;
   background: url('VistaSkin/background/GrayLinedBarL8x48.gif') no-repeat left ;
   padding: 0px 0px 0px 8px ;
 }
 
 .UIBarStyle .GrayBevelRoundBar40 .RightBar {
-  height: 48px ;
   background: url('VistaSkin/background/GrayLinedBarR8x48.gif') no-repeat right ;
   padding: 0px 8px 0px 0px ;
 }
 
 .UIBarStyle .GrayBevelRoundBar40 .MiddleBar {
-  height: 48px ;
-  line-height: 48px ;
+  height: 48px ;  line-height: 48px ;
   vertical-align: middle ;
   background: url('VistaSkin/background/GrayLinedBarM1x48.gif') repeat-x ;
 }
@@ -472,20 +434,17 @@
 }
 
 .UIBarStyle .GrayBevelRoundBar36 .LeftBar {
-  height: 36px ;
   background: url('VistaSkin/background/GrayBevelBarL9x36.gif') no-repeat left ;
   padding: 0px 0px 0px 9px ;
 }
 
 .UIBarStyle .GrayBevelRoundBar36 .RightBar {
-  height: 36px ;
   background: url('VistaSkin/background/GrayBevelBarR9x36.gif') no-repeat right ;
   padding: 0px 9px 0px 0px ;
 }
 
 .UIBarStyle .GrayBevelRoundBar36 .MiddleBar {
-  height: 36px ;
-  line-height: 36px ;
+  height: 36px ;  line-height: 36px ;
   vertical-align: middle ;
   background: url('VistaSkin/background/GrayBevelBarRepeat1x36.gif') repeat-x ;
 }
@@ -496,20 +455,17 @@
 }
 
 .UIBarStyle .BlueBevelRoundBar36 .LeftBar {
-  height: 36px ;
   background: url('VistaSkin/background/BlueBevelBarL9x36.gif') no-repeat left ;
   padding: 0px 0px 0px 9px ;
 }
 
 .UIBarStyle .BlueBevelRoundBar36 .RightBar {
-  height: 36px ;
   background: url('VistaSkin/background/BlueBevelBarR9x36.gif') no-repeat right ;
   padding: 0px 9px 0px 0px ;
 }
 
 .UIBarStyle.BlueBevelRoundBar36 .MiddleBar {
-  height: 36px ;
-  line-height: 36px ;
+  height: 36px ;  line-height: 36px ;
   vertical-align: middle ;
   background: url('VistaSkin/background/BlueBevelBarRepeat1x36.gif') repeat-x ;
 }

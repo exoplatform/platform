@@ -1,4 +1,6 @@
-.UIForm  {}
+.UIForm  {
+	font-size: 11px ;
+}
 
 /*####################- HorizontalLayout -#################*/
 .UIForm .HorizontalLayout {
@@ -17,7 +19,6 @@
 .UIForm .HorizontalLayout .UIFormInputSet .Title {
   margin: 10px 0px 0px 10px ;
   color: #5f7fd6 ;
-  font-size: 11px ;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .ItemLabel {
@@ -57,7 +58,6 @@
 	float:left;
   width: 130px ;
 	text-align:right;
-	font-size: 11px;
 	margin-right: 10px;
 }
 

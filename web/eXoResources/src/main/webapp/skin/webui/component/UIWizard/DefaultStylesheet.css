@@ -199,7 +199,7 @@
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
   background: white;
   padding: 10px 0px 15px 0px;
-  height: 165px;
+  height: 133px;
 }
 
 
@@ -267,6 +267,14 @@
 }
 
 .UIWizard .ScrollArea {
-	height: 250px;
+	height: 220px;
 	overflow: auto;
+}
+
+.UIWizard .UITree .TreeContainer .ChildrenContainer .Node {
+	overflow: auto;
+}
+
+.UIWizard .PageNodeContainer .UITree .JSContainer {
+	width:210px;
 }

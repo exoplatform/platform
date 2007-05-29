@@ -4,13 +4,11 @@
 }
 
 .UITabSelector .UIHorizontalTabs .LeftHorizontalTabs{
-  height: 31px;
   background: url('DefaultSkin/background/LeftFlatTabStyle2x31.gif') no-repeat left;
   padding-left: 2px;
 }
 
 .UITabSelector .UIHorizontalTabs .RightHorizontalTabs{
-  height: 31px;
   background: url('DefaultSkin/background/RightFlatTabStyle2x31.gif') no-repeat right;
   padding-right: 2px;
 }
@@ -32,8 +30,7 @@
 .UITabSelector .UIHorizontalTabs .LineSeparator {
   float: left;
   background: url('DefaultSkin/background/LineSeparator2x29.gif') no-repeat left;
-  height: 29px;
-  width: 2px;
+  height: 29px;  width: 2px;
   margin-top: 2px;
 }
 

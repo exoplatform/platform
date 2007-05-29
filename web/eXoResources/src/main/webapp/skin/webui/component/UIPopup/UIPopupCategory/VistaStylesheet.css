@@ -5,7 +5,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
-  height: 16px;
   background: url('VistaSkin/background/PopupCategoryTL12x16.png') no-repeat left;
   padding-left:12px;
 }
@@ -17,7 +16,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
-  height: 16px;
   background: url('VistaSkin/background/PopupCategoryTR45x16.png') no-repeat right;
   padding-right: 45px;
 }
@@ -37,7 +35,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
-  height:18px;
   background: url('VistaSkin/background/PopupCategoryBL12x18.png') no-repeat left;
   padding-left:12px;
 }
@@ -48,7 +45,6 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
-  height:18px;
   background: url('VistaSkin/background/PopupCategoryBR14x18.png') no-repeat right;
   padding-right:14px;
 }

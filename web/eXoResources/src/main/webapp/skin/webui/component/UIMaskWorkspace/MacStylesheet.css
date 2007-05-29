@@ -16,13 +16,11 @@
 }
 
 .UIMaskWorkspace .TitleBarContainer .LeftTitleBar {
-  height: 37px;
   background: url('MacSkin/background/LeftTitleBar68x37.gif') no-repeat left;
   padding: 0px 0px 0px 68px ;
 }
 
 .UIMaskWorkspace .TitleBarContainer .RightTitleBar {
-  height: 37px;
   background: url('MacSkin/background/RightTitleBar43x37.gif') no-repeat right;
   padding: 0px 43px 0px 0px ;
 }

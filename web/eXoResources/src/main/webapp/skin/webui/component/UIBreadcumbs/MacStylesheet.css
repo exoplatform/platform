@@ -29,13 +29,11 @@
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {
-  height: 33px ;
   padding: 0px 0px 0px 5px ;
   background: url('MacSkin/background/LeftBreadcumbsBar5x33.png') no-repeat left;
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
-  height: 33px;
   padding: 0px 7px 0px 0px;
   background: url('MacSkin/background/RightBreadcumbsBar7x33.png') no-repeat right;
 }

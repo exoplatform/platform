@@ -1,6 +1,6 @@
 .UIVerticalSlideTabs {
   padding-bottom: 10px;
-  
+  font-size: 11px;
 }
 .UIVerticalSlideTabs .UIVTab {
 }
@@ -71,13 +71,13 @@
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel {
   float: left ;
   height: 23px ; line-height: 23px ;  vertical-align: middle ;
-  color: #2e7eb2;  font-size: 11px;
+  color: #2e7eb2;  
 }
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel a{
-  color: black; font-size: 11px; 
+  color: black;  
 }
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel a:hover{
-  color: #4986eb; font-size: 11px; 
+  color: #4986eb; 
 }
 
 /*#######################-SelectedVTabSimpleStyle VerticalSlideTabs-######################*/
@@ -104,7 +104,7 @@
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLabel {
   float: left;
   height: 23px ; line-height: 22px ;  vertical-align: middle ;
-  color: #058ee6; font-size: 11px;
+  color: #058ee6;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .ControlContainer {
@@ -128,13 +128,12 @@
 
 .UIVerticalSlideTabs .UIVTab .UIVTabContent {
   padding: 10px ;
-  font-size: 11px;
   border: 1px solid #b7b7b7;
   border-top: none;
   margin: 0px 5px 0px 5px;
 }
 .UIVerticalSlideTabs .UIVTab .SelectedVTabSimpleStyle .TabLabel a{
-  color: #4986eb; font-size: 11px;
+  color: #4986eb; 
 }
 
 /*#######################-PolygonNavyViolet Style VerticalSlideTabs-######################*/
@@ -146,14 +145,14 @@
 
 .UIVerticalSlideTabs .UIVTab .PolygonNavyVioletStyle .TabLeft {
   float: none ;  /*Override LeftBar class properties*/
-  height: 26px;  width: auto;
+  width: auto;
   padding-left: 2px ;
   background: url('VistaSkin/background/LightBottomDottedLBg2x26.gif') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .UIVTab .PolygonNavyVioletStyle .TabRight {
   float: none ;  /*Override LeftBar class properties*/
-  height: 26px; width: auto;
+  width: auto;
   padding-right: 2px ;
   background: url('VistaSkin/background/LightBottomDottedRBg2x26.gif') no-repeat right ;
 }
@@ -172,16 +171,14 @@
 .UIVerticalSlideTabs .UIVTab .PolygonNavyVioletStyle .CollapseButton {
   margin: 5px 5px 0px 0px ;
   cursor: pointer ;
-  width: 16px ;
-  height: 16px ;
+  width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/GrayGridDownArrow.gif') ;
 }
 
 .UIVerticalSlideTabs .UIVTab .PolygonNavyVioletStyle .ExpandButton {
   margin: 5px 5px 0px 0px ;
   cursor: pointer ;
-  width: 16px ;
-  height: 16px ;
+  width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/GrayGridUpArrow.gif') ;
 }
 
@@ -206,7 +203,6 @@
 
 .UIVerticalSlideTabs .UIVTab .SmoothRoundedStyle .TabLeft {
   float: none ;  
-  height: 26px ;
   width: auto ;
   padding-left: 3px ;
   background: url('VistaSkin/background/SmoothRoundedBarLBg3x26.gif') no-repeat left ;
@@ -214,7 +210,6 @@
 
 .UIVerticalSlideTabs .UIVTab .SmoothRoundedStyle .TabRight {
   float: none ; 
-  height: 26px ;
   width: auto ;
   padding-right: 3px ;
   background: url('VistaSkin/background/SmoothRoundedBarRBg3x26.gif') no-repeat right ;
@@ -229,16 +224,14 @@
 .UIVerticalSlideTabs .UIVTab .SmoothRoundedStyle  .CollapseButton {
   margin: 5px 5px 0px 0px ;
   cursor: pointer ;
-  width: 16px ;
-  height: 16px ;
+  width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/GrayFillDownArrow.gif') ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SmoothRoundedStyle  .ExpandButton {
   margin: 5px 5px 0px 0px ;
   cursor: pointer ;
-  width: 16px ;
-  height: 16px ;
+  width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/GrayFillUpArrow.gif') ;
 }
 
@@ -247,7 +240,6 @@
   border: solid 1px #958f8f ;
   background: #ffffff ;
   padding: 5px ;
-  font-size: 11px ;
 }
 
 /*#######################-NormalCustomizationTab VerticalSlideTabs-######################*/
@@ -259,13 +251,11 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .NormalCustomizationTab .TabLeft {
-  height: 36px ;
   padding-left: 7px ;
   background: url('VistaSkin/background/NormalCustomizationTabL7x36.gif') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .UIVTab .NormalCustomizationTab .TabRight {
-  height: 36px ;
   padding-right: 7px ;
   background: url('VistaSkin/background/NormalCustomizationTabR7x36.gif') no-repeat right ;
 }
@@ -293,8 +283,7 @@
   float: right;
   margin-top: 9px;
   cursor: pointer ;
-  width: 16px ;
-  height: 16px ;
+  width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/GrayDoubleGridDownArrow.gif') ;
 }
 
@@ -303,7 +292,6 @@
   border: solid 1px #958f8f ;
   background: #ffffff ;
   padding: 5px ;
-  font-size: 11px ;
 }
 
 /*#######################-SelectedCustomizationTab VerticalSlideTabs-######################*/
@@ -315,13 +303,11 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab .TabLeft {
-  height: 36px ;
   padding-left: 7px ;
   background: url('VistaSkin/background/CustomizationTabL7x36.gif') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedCustomizationTab .TabRight {
-  height: 36px ;
   padding-right: 7px ;
   background: url('VistaSkin/background/CustomizationTabR7x36.gif') no-repeat right ;
 }
@@ -352,8 +338,7 @@
   float: right;
   margin-top: 9px;
   cursor: pointer ;
-  width: 16px ;
-  height: 16px ;
+  width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/GrayDoubleGridUpArrow.gif') ;
 }
 
@@ -362,7 +347,6 @@
   border: solid 1px #958f8f ;
   background: #ffffff ;
   padding: 5px ;
-  font-size: 11px ;
 }
 
 /*#######################- FlatStyle VerticalSlideTabs- ######################*/
@@ -384,8 +368,7 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .FlatStyle .LeftIcon { 
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   float: left;
   margin: 5px 0px 5px 4px;
 }
@@ -404,8 +387,7 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedFlatStyle .CollapseExpand {
-  width: 16px;
-  height: 16px;
+  width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/CyanUpArrow.gif') no-repeat;
   float: right;
   margin: 5px 4px;
@@ -432,14 +414,13 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLeft {
-  height: 27px ; 
   padding-left: 3px ;
   margin:0px 3px 0px 3px;
   background: url('VistaSkin/background/SmoothRoundedLeftBar3x27.gif') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRight {
-  height: 27px ; width: auto ;
+  width: auto ;
   padding-right: 4px ;
   background: url('VistaSkin/background/SmoothRoundedRightBar3x27.gif') no-repeat right ;
 }
@@ -486,14 +467,13 @@
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLeft {
-  height: 27px ; 
   margin: 0px 3px 0px 3px;
   padding-left: 3px ;
   background: url('VistaSkin/background/SmoothRoundedLeftBar3x27.gif') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabRight {
-  height: 27px ; width: auto ;
+  width: auto ;
   padding-right: 3px ;
   background: url('VistaSkin/background/SmoothRoundedRightBar3x27.gif') no-repeat right ;
 }
@@ -547,7 +527,6 @@
   margin: 3px 0px 0px 0px ;
   line-height: 26px ; vertical-align: middle ;
   font-weight: bold ;
-  font-size: 11px ;
   cursor: pointer ;
 }
 
@@ -573,7 +552,6 @@
   line-height: 26px ; vertical-align: middle ;
   color: black ;
   font-weight: bold ;
-  font-size: 11px ;
   cursor: pointer ;
 }
 

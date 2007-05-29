@@ -1,5 +1,6 @@
 .UIItemSelector {
   margin: 2px 0px 2px 2px;
+  font-size: 11px;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalOfficeImage {
@@ -58,7 +59,6 @@
 
 .UIItemSelector .ItemDetailList .ItemDetail .ItemValueDescription {
   width: 50%; height: 53px; 
-  font-size: 11px;
   padding-left: 15px; margin-top: 12px; 
   overflow: auto;
   border: none;
@@ -123,7 +123,7 @@
 
 .UIItemSelector .RightColumnStyle .Title {
   line-height: 22px; vertical-align: middle;
-  font-weight: bold; color: #5c5c5c; font-size: 11px;
+  font-weight: bold; color: #5c5c5c; 
   float: left;
 }
 
@@ -159,7 +159,6 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .ItemTitle {
   height: 26px; line-height: 26px; vertical-align: middle;
-  font-size: 11px;
   padding-left: 3px;
 }
 
@@ -172,7 +171,6 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .LeftItem {
-  height: 26px;
   background: url('DefaultSkin/background/LeftOverItem15x26.gif') no-repeat left;
   padding-left: 15px;
 }
@@ -185,7 +183,7 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .ItemTitle {
   height: 26px; line-height: 26px; vertical-align: middle;
-  font-size: 11px; color: #f67a02;
+  color: #f67a02;
   padding-left: 3px;
 }
 
@@ -197,7 +195,6 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .LeftItem {
-  height: 26px;
   background: url('DefaultSkin/background/LeftSelectedItem15x26.gif') no-repeat left;
   padding-left: 15px;
 }
@@ -209,7 +206,7 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .ItemTitle {
   height: 26px; line-height: 26px; vertical-align: middle;
-  font-size: 11px; color: #0575CA;; 
+  color: #0575CA;; 
   padding-left: 3px;
 }
 
@@ -246,7 +243,7 @@
   font-size: 12px; text-align: center;
   height: 19px; line-height: 19px;
   border: solid 1px #b7b7b7;
-  font-size: 11px; font-weight: bold; 
+  font-weight: bold; 
   margin-bottom: 2px;
   background: url('/eXoResources/background/DefaultSkin/TitleBG1x20.gif') repeat-x;
 }
@@ -269,7 +266,7 @@
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .MembershipIcon {  
-   height: 32px;
+  height: 32px;
   background: url('DefaultSkin/background/BigStyleMembershipItem.gif') no-repeat;
 }
 
@@ -403,7 +400,7 @@
 
 .UIItemSelector .LeftColumnStyle .Title {
   line-height: 22px; vertical-align: middle;
-  font-weight: bold; color: #5c5c5c; font-size: 11px;
+  font-weight: bold; color: #5c5c5c; 
   float: left;
 }
 
@@ -428,7 +425,6 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .LeftItem {
-  height: 26px;
   background: url('DefaultSkin/background/LeftDefaultItem15x26.gif') no-repeat left;
   padding-left: 15px;
 }
@@ -439,7 +435,6 @@
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .ItemTitle {
   height: 26px; line-height: 26px; vertical-align: middle;
-  font-size: 11px;
   padding-left: 5px;
 }
 
@@ -453,7 +448,6 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .LeftItem {
-  height: 26px;
   background: url('DefaultSkin/background/LeftOverItem15x26.gif') no-repeat left;
   padding-left: 15px;
 }
@@ -466,7 +460,7 @@
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .ItemTitle {
   height: 26px; line-height: 26px; vertical-align: middle;
-  font-size: 11px; color: #f67a02;
+  color: #f67a02;
   padding-left: 5px;
 }
 
@@ -479,7 +473,6 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .LeftItem {
-  height: 26px;
   background: url('DefaultSkin/background/LeftSelectedItem15x26.gif') no-repeat left;
   padding-left: 15px;
 }
@@ -491,7 +484,7 @@
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .ItemTitle {
   height: 26px; line-height: 26px; vertical-align: middle;
-  font-size: 11px; color: #0575CA; 
+  color: #0575CA; 
   padding-left: 5px;
 }
 

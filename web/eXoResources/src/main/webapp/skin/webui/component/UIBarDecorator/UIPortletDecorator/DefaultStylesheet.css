@@ -60,7 +60,6 @@
 .UIPortletDecorator .RoundedTopCornerLinedStyle .TopLeftCorner {
 	background: url('DefaultSkin/background/RoundTopCornerLinedBgTL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ; 
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .TopCenter {
@@ -71,7 +70,6 @@
 .UIPortletDecorator .RoundedTopCornerLinedStyle .TopRightCorner {
 	background: url('DefaultSkin/background/RoundTopCornerLinedBgTR.gif') no-repeat right ;
 	padding-right: 10px ;
-	height: 10px ; 
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .MiddleRightSide {
@@ -82,7 +80,6 @@
 .UIPortletDecorator .RoundedTopCornerLinedStyle .BottomRightCorner {	
 	background: url('DefaultSkin/background/RoundTopCornerLinedBgBR.gif') no-repeat right;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .BottomCenter {	
@@ -93,7 +90,6 @@
 .UIPortletDecorator .RoundedTopCornerLinedStyle .BottomLeftCorner {
 	background: url('DefaultSkin/background/RoundTopCornerLinedBgBL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .MiddleLeftSide {
@@ -111,7 +107,6 @@
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .TopLeftCorner {
 	background: url('DefaultSkin/background/CornerLeftTop11x11.gif') no-repeat left ;
 	padding-left: 11px ;
-	height: 11px ;
 }
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .TopCenter {
@@ -122,7 +117,6 @@
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .TopRightCorner {
 	background: url('DefaultSkin/background/CornerRightTop11x11.gif') no-repeat right ;
 	padding-right: 11px;
-	height: 11px ;
 }
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .MiddleRightSide {
@@ -133,7 +127,6 @@
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .BottomRightCorner {	
 	background: url('DefaultSkin/background/CornerRightBottom11x11.gif') no-repeat right;
 	padding-right: 11px ;
-	height: 11px ;
 }
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .BottomCenter {	
@@ -144,7 +137,6 @@
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .BottomLeftCorner {
 	background: url('DefaultSkin/background/CornerLeftBottom11x11.gif') no-repeat left ;
 	padding-left: 11px ;
-	height: 11px ;
 }
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .MiddleLeftSide {
@@ -162,7 +154,6 @@
 .UIPortletDecorator .BlueCloudBackgroundStyle .TopLeftCorner {
 	background: url('DefaultSkin/background/BlueCloudBgTL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .TopCenter {
@@ -173,7 +164,6 @@
 .UIPortletDecorator .BlueCloudBackgroundStyle .TopRightCorner {
 	background: url('DefaultSkin/background/BlueCloudBgTR.gif') no-repeat right ;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .MiddleRightSide {
@@ -184,7 +174,6 @@
 .UIPortletDecorator .BlueCloudBackgroundStyle .BottomRightCorner {	
 	background: url('DefaultSkin/background/BlueCloudBgBR.gif') no-repeat right;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .BottomCenter {	
@@ -195,7 +184,6 @@
 .UIPortletDecorator .BlueCloudBackgroundStyle .BottomLeftCorner {
 	background: url('DefaultSkin/background/BlueCloudBgBL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .MiddleLeftSide {
@@ -215,7 +203,6 @@
 .UIPortletDecorator .CuttedShapeCornerStyle .TopLeftCorner {
 	background: url('DefaultSkin/background/CuttedShapeCornerTL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .TopCenter {
@@ -226,7 +213,6 @@
 .UIPortletDecorator .CuttedShapeCornerStyle .TopRightCorner {
 	background: url('DefaultSkin/background/CuttedShapeCornerTR.gif') no-repeat right ;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .MiddleRightSide {
@@ -237,7 +223,6 @@
 .UIPortletDecorator .CuttedShapeCornerStyle .BottomRightCorner {	
 	background: url('DefaultSkin/background/CuttedShapeCornerBR.gif') no-repeat right;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .BottomCenter {	
@@ -248,7 +233,6 @@
 .UIPortletDecorator .CuttedShapeCornerStyle .BottomLeftCorner {
 	background: url('DefaultSkin/background/CuttedShapeCornerBL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .MiddleLeftSide {
@@ -268,7 +252,6 @@
 .UIPortletDecorator .DottedShapeCornerStyle .TopLeftCorner {
 	background: url('DefaultSkin/background/DottedCornerTL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .TopCenter {
@@ -279,7 +262,6 @@
 .UIPortletDecorator .DottedShapeCornerStyle .TopRightCorner {
 	background: url('DefaultSkin/background/DottedCornerTR.gif') no-repeat right ;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .MiddleRightSide {
@@ -290,7 +272,6 @@
 .UIPortletDecorator .DottedShapeCornerStyle .BottomRightCorner {	
 	background: url('DefaultSkin/background/DottedCornerBR.gif') no-repeat right;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .BottomCenter {	
@@ -301,7 +282,6 @@
 .UIPortletDecorator .DottedShapeCornerStyle .BottomLeftCorner {
 	background: url('DefaultSkin/background/DottedCornerBL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .MiddleLeftSide {
@@ -321,7 +301,6 @@
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .TopLeftCorner {
 	background: url('DefaultSkin/background/DottedBorderTL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .TopCenter {
@@ -332,7 +311,6 @@
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .TopRightCorner {
 	background: url('DefaultSkin/background/DottedBorderTR.gif') no-repeat right ;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .MiddleRightSide {
@@ -343,7 +321,6 @@
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .BottomRightCorner {	
 	background: url('DefaultSkin/background/DottedBorderBR.gif') no-repeat right;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .BottomCenter {	
@@ -354,7 +331,6 @@
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .BottomLeftCorner {
 	background: url('DefaultSkin/background/DottedBorderBL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .MiddleLeftSide {
@@ -374,7 +350,6 @@
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .TopLeftCorner {
 	background: url('DefaultSkin/background/BlueBorderRoundCornerTL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .TopCenter {
@@ -385,7 +360,6 @@
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .TopRightCorner {
 	background: url('DefaultSkin/background/BlueBorderRoundCornerTR.gif') no-repeat right ;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .MiddleRightSide {
@@ -396,7 +370,6 @@
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .BottomRightCorner {	
 	background: url('DefaultSkin/background/BlueBorderRoundCornerBR.gif') no-repeat right;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .BottomCenter {	
@@ -407,7 +380,6 @@
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .BottomLeftCorner {
 	background: url('DefaultSkin/background/BlueBorderRoundCornerBL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .MiddleLeftSide {
@@ -427,7 +399,6 @@
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .TopLeftCorner {
 	background: url('DefaultSkin/background/RoundCornerInnerGlowTL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .TopCenter {
@@ -438,7 +409,6 @@
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .TopRightCorner {
 	background: url('DefaultSkin/background/RoundCornerInnerGlowTR.gif') no-repeat right ;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .MiddleRightSide {
@@ -449,7 +419,6 @@
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .BottomRightCorner {	
 	background: url('DefaultSkin/background/RoundCornerInnerGlowBR.gif') no-repeat right;
 	padding-right: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .BottomCenter {	
@@ -460,7 +429,6 @@
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .BottomLeftCorner {
 	background: url('DefaultSkin/background/RoundCornerInnerGlowBL.gif') no-repeat left ;
 	padding-left: 10px ;
-	height: 10px ;
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .MiddleLeftSide {

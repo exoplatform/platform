@@ -13,7 +13,6 @@
 
 .UIDropDownItemSelector .ItemInfoBar .RightItemInfoBar {
   background: url('MacSkin/background/RightItemInfoBar3x24.png') no-repeat right;
-  height: 24px;
   padding-right: 3px;
 }
 
@@ -90,7 +89,6 @@
 
 /*=================================Popup Category Decorator====================================*/
 .UIItemList .LTItemSelector {
-  height:2px;
   background: url('MacSkin/background/TLItemSelector3x2.png') no-repeat left;
   padding-left: 3px;
 }
@@ -101,7 +99,6 @@
 }
 
 .UIItemList .TRItemSelector {
-  height: 2px;
   background: url('MacSkin/background/TRItemSelector3x2.png') no-repeat right;
   padding-right:3px;
 }
@@ -117,7 +114,6 @@
 }
 
 .UIItemList .BLItemSelector {
-  height: 4px;
   background: url('MacSkin/background/BLItemSelector4x4.png') no-repeat left;
   padding-left: 4px;
 }
@@ -125,7 +121,6 @@
 .UIItemList .BRItemSelector {
   padding-right: 4px;
   background: url('MacSkin/background/BRItemSelector4x4.png') no-repeat right;
-  height: 4px;
 }
 
 .UIItemList .BCItemSelector {
@@ -147,6 +142,6 @@
 		MC: Middle Center.
 		BL: Bottom Left.
 		BR: Bottom Right.
-		BC: Bottom Right.
+		BC: Bottom Center.
 		BG: Background.
 		*/

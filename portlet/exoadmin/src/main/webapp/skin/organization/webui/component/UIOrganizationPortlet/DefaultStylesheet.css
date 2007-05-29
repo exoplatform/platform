@@ -6,11 +6,14 @@
   border: none;
 }
 
+.UIWindow .UIOrganizationPortlet .OrganizationPortletContainer {
+	padding: 7px;
+}
+
 .UIOrganizationPortlet {
   background: white;
   border: 1px solid #b7b7b7;
   margin: 5px;
-  padding: 7px ;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {
