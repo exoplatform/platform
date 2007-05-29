@@ -88,18 +88,18 @@
 .UIAction .ActionButton .SimpleStyle {}
 
 .UIAction .ActionButton .SimpleStyle .ButtonLeft {
-  background: url('VistaSkin/background/LeftSimpleButton20x24.png') no-repeat left top;
-  padding: 0px 0px 0px 20px;
+  background: url('VistaSkin/background/LeftSimpleButton12x24.png') no-repeat left top;
+  padding: 0px 0px 0px 12px;
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonRight {
-  background: url('VistaSkin/background/RightSimpleButton20x24.png') no-repeat right top;
-  padding: 0px 20px 0px 0px ;
+  background: url('VistaSkin/background/RightSimpleButton12x24.png') no-repeat right top;
+  padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonMiddle {
-  line-height: 21px;
-	background: url('VistaSkin/background/CenterSimpleButton3x24.png') repeat-x top;
+  line-height: 24px;
+	background: url('VistaSkin/background/CenterSimpleButton1x24.png') repeat-x top;
 	text-align: center;	
 }
 
