@@ -31,6 +31,7 @@ public class WelcomeWidget extends WidgetApplication {
     
     String applicationId = getApplicationId() ;
     w.write("<div id = 'UIWelcomeWidget' applicationId = '"+applicationId+"'><span></span></div>") ;
+    
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','UIWelcomeWidget','/exo.widget.web/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;

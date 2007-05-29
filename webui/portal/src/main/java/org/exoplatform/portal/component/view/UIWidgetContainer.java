@@ -39,15 +39,16 @@ public class UIWidgetContainer extends UIContainer {
   static public class DeleteWidgetActionListener extends EventListener<UIWidgetContainer> {
     public void execute(Event<UIWidgetContainer> event) throws Exception {
       String id  = event.getRequestContext().getRequestParameter(OBJECTID);
-//      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n DeleteWidgetActionListener "+id+" \n\n\n\n\n\n\n\n\n\n\n\n");
       UIWidgetContainer uiWidgetContainer = event.getSource();
       
       List<UIComponent> children = uiWidgetContainer.getChildren();
       for(UIComponent com: children){
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n CHILD NAME: "+com.getName()+" \nCHILD ID: "+com.getId()+"  \n\n\n\n\n\n\n\n\n\n\n\n");
+        UIWidget uiWidget = (UIWidget) com;
+        if(uiWidget.getApplicationId().equals(id)) {
+          children.remove(uiWidget);
+        }
       }
       
-      uiWidgetContainer.removeChildById(id) ;
       UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);
     }

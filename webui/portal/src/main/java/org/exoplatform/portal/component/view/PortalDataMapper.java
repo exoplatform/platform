@@ -143,6 +143,7 @@ public class PortalDataMapper {
   
   static public void toUIWidget(UIWidget uiWidget, Application model) throws Exception {
     uiWidget.setApplicationInstanceId(model.getInstanceId()) ;
+    uiWidget.setId(model.getInstanceId());
   }
   
   static public void toUIPortlet(UIPortlet uiPortlet, Application model) throws Exception {
