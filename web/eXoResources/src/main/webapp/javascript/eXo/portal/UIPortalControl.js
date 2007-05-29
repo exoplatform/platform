@@ -46,8 +46,8 @@ UIPortalControl.prototype.fixHeight = function() {
 				var heightChild = scrollArea.offsetHeight;
 				var jsContainer = DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
 				if(jsContainer){
-					scrollArea.style.width = "210px";
-					jsContainer.style.width = "208px";
+					scrollArea.style.width = "216px";
+					jsContainer.style.width = "210px";
 				}
 				var maxHeight = 0;
 				if(uiControlWSWorkingArea) {

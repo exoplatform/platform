@@ -116,49 +116,61 @@
 .DecoratorBoxNested .LightBlueBoxNested {
 }
 
-.DecoratorBoxNested .LightBlueBoxNested  .CenterDecoratorNestedBG {
+.DecoratorBoxNested .LightBlueBoxNested .CenterDecoratorNestedBG {
   background: #d9d9eb ;
 }
 
-.DecoratorBoxNested .LightBlueBoxNested  .TopLeftCornerNested {
+.DecoratorBoxNested .LightBlueBoxNested .TopLeftCornerNested {
   height: 10px;
   background: url('DefaultSkin/background/LightBlueTL.gif') no-repeat left ;
   padding: 0px 0px 0px 10px;
 }
 
-.DecoratorBoxNested .LightBlueBoxNested  .TopCenterNested {
+.DecoratorBoxNested .LightBlueBoxNested .TopCenterNested {
   height: 10px ;
   background: url('DefaultSkin/background/LightBlueTC.gif') repeat-x ;
 }
 
-.DecoratorBoxNested .LightBlueBoxNested  .TopRightCornerNested {
+.DecoratorBoxNested .LightBlueBoxNested .TopRightCornerNested {
   height: 10px;
   background: url('DefaultSkin/background/LightBlueTR.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
 
-.DecoratorBoxNested .LightBlueBoxNested  .MiddleLeftSideNested {
+.DecoratorBoxNested .LightBlueBoxNested .MiddleLeftSideNested {
   background: url('DefaultSkin/background/LightBlueML.gif') repeat-y ;
   padding: 0px 0px 0px 10px ;
 }
 
-.DecoratorBoxNested .LightBlueBoxNested  .MiddleRightSideNested {
+.DecoratorBoxNested .LightBlueBoxNested .MiddleRightSideNested {
   background: url('DefaultSkin/background/LightBlueMR.gif') repeat-y right;
   padding: 0px 10px 0px 0px ;
 }
 
-.DecoratorBoxNested .LightBlueBoxNested  .BottomLeftCornerNested {
+.DecoratorBoxNested .LightBlueBoxNested .BottomLeftCornerNested {
   width: auto; height: 10px ; 
   background: url('DefaultSkin/background/LightBlueBL.gif') no-repeat left ;
   padding: 0px 0px 0px 10px ;
 }
 
-.DecoratorBoxNested .LightBlueBoxNested  .BottomCenterNested {
+.DecoratorBoxNested .LightBlueBoxNested .BottomCenterNested {
   height: 10px ;
   background: url('DefaultSkin/background/LightBlueBC.gif') repeat-x ;
 }
 
-.DecoratorBoxNested .LightBlueBoxNested  .BottomRightCornerNested {
+.DecoratorBoxNested .LightBlueBoxNested .BottomRightCornerNested {
   background: url('DefaultSkin/background/LightBlueBR.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
+}
+
+/*Created by Vu Duy Tu*/
+.UIPageNodeSelector .NavigationLabel {
+	line-height: 22px;
+	font-weight: bold; font-size: 11px;
+	color: #656565;
+	text-align: center;
+}
+
+.UIWizard .UIPageNodeSelector .NavigationLabel {
+	display: none;
 }

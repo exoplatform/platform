@@ -85,4 +85,21 @@
   background: url('/eXoResources/icons/24x24/DefaultSkin/SelectedGroup.gif') no-repeat ;  
 }
 
+/** ################# UIPageNodeSelector.UITree.Controlbar ###################*/
+.UIWizard .UITree .Controlbar {
+	border: solid 1px red;
+	display: none;
+}
+
+.UITree .Controlbar {
+	border: solid 1px red;
+	height: 20px;
+}
+
+
+
+
+
+
+
 
