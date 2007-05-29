@@ -28,15 +28,6 @@
   border: 1px #cdcdcd solid;
 }
 
-.UIFormWithTitle .HorizontalLayout .UIFormGrid td {
-  padding: 4px;
-  vertical-align: middle;
-}
-
-.UIFormWithTitle .HorizontalLayout .UIFormGrid td.FieldLabel {
-  text-align: right;
-}
-
 .UIFormWithTitle .UIForm .UIAction {  
   width: 200px;
 }

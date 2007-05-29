@@ -1,28 +1,53 @@
 function UIVerticalSlideTabs() {};
 
-UIVerticalSlideTabs.prototype.slideEffect = function() {
-	with(this.selectedTab.style) {
-		while(parseInt(height) > 0) {
-			height = (parseInt(height) - 1) + "px";
-		}
-		height = "0px";
+UIVerticalSlideTabs.prototype.slideInEffect = function() {
+	if((parseInt(this.selectedTab.style.height) - 50) > 0) {
+		this.selectedTab.style.height = (parseInt(this.selectedTab.style.height) - 50) + "px";
+		setTimeout("eXo.webui.UIVerticalSlideTabs.slideInEffect()",3) ;
+	} else {
+		this.selectedTab.style.height = "0px";
+		this.selectedTab.style.display = "none";
+		this.clickedTab.style.overflow = "hidden";
+		this.clickedTab.style.display = "block";
+		delete this.selectedTab;
+		setTimeout("eXo.webui.UIVerticalSlideTabs.slideOutEffect()",3) ;
 	}
 }
 
-UIVerticalSlideTabs.prototype.swicthVTab = function(clickedElement) {
+UIVerticalSlideTabs.prototype.slideOutEffect = function() {
+	if((parseInt(this.clickedTab.style.height) + 30) < this.clickedTab.scrollHeight) {
+		this.clickedTab.style.height = (parseInt(this.clickedTab.style.height) + 30) + "px";
+		setTimeout("eXo.webui.UIVerticalSlideTabs.slideOutEffect()",3) ;
+	} else {
+		this.clickedTab.style.height = this.clickedTab.scrollHeight + "px";
+		this.clickedTab.style.overflow = "auto";
+		delete this.clickedTab ;
+	}
+}
+
+UIVerticalSlideTabs.prototype.switchVTab = function(clickedElement) {
   var uiClickedVTab = eXo.core.DOMUtil.findAncestorByClass(clickedElement, "UIVTab");
 	var uiClickedVTabContent = eXo.core.DOMUtil.findFirstChildByClass(uiClickedVTab, "div", "UIVTabContent");
   var uiVerticalSlideTabs =  eXo.core.DOMUtil.findAncestorByClass(clickedElement, "UIVerticalSlideTabs");
-  var uiVTab = eXo.core.DOMUtil.findChildrenByClass(uiVerticalSlideTabs, "div", "UIVTab") ;
- 	for(var i = 0; i < uiVTab.length; i++) {
-    if(eXo.core.DOMUtil.getChildrenByTagName(uiVTab[i], "div")[0].className == "SelectedStyle"){
-    	this.selectedTab =  eXo.core.DOMUtil.findFirstChildByClass(uiVTab[i], "div", "UIVTabContent") ;
+  var uiVTabs = eXo.core.DOMUtil.findChildrenByClass(uiVerticalSlideTabs, "div", "UIVTab") ;
+ 	for(var i = 0; i < uiVTabs.length; i++) {
+    if(eXo.core.DOMUtil.getChildrenByTagName(uiVTabs[i], "div")[0].className == "SelectedTab"){
+    	this.selectedTab =  eXo.core.DOMUtil.findFirstChildByClass(uiVTabs[i], "div", "UIVTabContent") ;
+    	this.selectedTab.style.overflow = "hidden";
+    	eXo.core.DOMUtil.getChildrenByTagName(uiVTabs[i], "div")[0].className = "NormalTab";
     	break;
     }    
   }
-  this.clickedTab = uiClickedVTab ;
-  this.slideEffect() ;
-  //setTimeout("eXo.webui.UIVerticalSlideTabs.slideEffect()",10) ;
+	eXo.core.DOMUtil.getChildrenByTagName(uiClickedVTab, "div")[0].className = "SelectedTab";
+  this.clickedTab = uiClickedVTabContent ;
+  if(this.clickedTab != this.selectedTab) {
+  	if(this.selectedTab) this.slideInEffect() ;
+  	else {
+  		this.clickedTab.style.overflow = "hidden";
+			this.clickedTab.style.display = "block";
+  		this.slideOutEffect() ;
+  	}
+  }
 };
 
 UIVerticalSlideTabs.prototype.onTabClick = function(clickedElement, normalStyle, selectedStyle) {

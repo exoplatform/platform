@@ -8,6 +8,15 @@
   border: 1px solid #aeaeae;
 }
 
+.UIForm .HorizontalLayout .UIFormGrid td {
+  padding: 4px;
+  vertical-align: middle;
+}
+
+.UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
+  text-align: right;
+}
+
 .UIForm .HorizontalLayout .MultiValueContainer {
   margin-bottom: 5px;
 }

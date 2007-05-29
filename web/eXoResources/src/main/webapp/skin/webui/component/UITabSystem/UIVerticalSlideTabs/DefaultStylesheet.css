@@ -114,39 +114,39 @@
 
 /*#######################-VTabStyle3 VerticalSlideTabs-######################*/
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 {
+.UIVerticalSlideTabs .VTabStyle3 {
 	cursor: pointer;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLeft {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
   padding-left: 4px ;
   background: url('DefaultSkin/background/LeftSmoothRoundedBarS4x26.gif') no-repeat left ;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRight {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight {
   width: auto ;
   padding-right: 4px ;
   background: url('DefaultSkin/background/RightSmoothRoundedBarS4x26.gif') no-repeat right ;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRepeat {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat {
   height: 26px ;
   background: url('DefaultSkin/background/MiddleSmoothRoundedBarS1x26.gif') repeat-x ;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .LeftIcon {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .LeftIcon {
   float: left ;
   width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueNextArrow.gif') no-repeat;
   margin: 6px 5px 0px 5px;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLabel {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLabel {
   float: left ;
   height: 26px ; line-height: 26px ;  vertical-align: middle ;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .SwitchButton {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueNextArrow.gif') no-repeat ;
@@ -154,55 +154,55 @@
   cursor: pointer ;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .UIVTabContent {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .UIVTabContent {
   background: #ffffff ;
   border: solid 1px #b2b1b1 ;
   padding: 5px ;
   margin: 1px 0px ;
 }
 
-/*#######################-SeltectedVTabStyle3 VerticalSlideTabs-######################*/
+/*#######################-SeltectedNormalTab VerticalSlideTabs-######################*/
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab {
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLeft {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLeft {
   padding-left: 3px ;
   background: url('DefaultSkin/background/LeftSmoothRoundedBar4x26.gif') no-repeat left ;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabRight {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRight {
   width: auto ;
   padding-right: 3px ;
   background: url('DefaultSkin/background/RightSmoothRoundedBar4x26.gif') no-repeat right ;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabRepeat {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRepeat {
   height: 26px ;
   background: url('DefaultSkin/background/MiddleSmoothRoundedBar1x26.gif') repeat-x ;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .LeftIcon {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .LeftIcon {
   float: left ;
   width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueDownArrow.gif') no-repeat ;
   margin: 6px 5px 0px 5px;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLabel {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLabel {
   float: left ;
   height: 26px ; line-height: 26px ;  vertical-align: middle ;
   color: blue;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .SwitchButton {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueDownArrow.gif') no-repeat ;
   margin: 6px 3px 0px 0px ;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .UIVTabContent {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .UIVTabContent {
   background: #ffffff ;
   border: solid 1px #b2b1b1 ;
   margin: 1px 0px ;
