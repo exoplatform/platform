@@ -20,32 +20,35 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  *          trongtt@gmail.com
  * Jul 14, 2006  
  */
-
 // TODO : TrongTT
-
 public class UIFormDateTimeInput extends UIFormInputBase<String> {
   
-  private DateFormat formatter_ ;
+  private DateFormat dateFormat_ ;
   private boolean displayTime_ = true;
+  
+  public UIFormDateTimeInput(String name, String bindField, Date date, DateFormat dateFormat) {
+    super(name, bindField, String.class) ;
+    dateFormat_ = dateFormat;
+    if(!displayTime_) dateFormat_ = new SimpleDateFormat("MM/dd/yyyy");
+    if(date != null) value_ = dateFormat_.format(date) ;
+  }
   
   public UIFormDateTimeInput(String name, String bindField, Date date) {
     super(name, bindField, String.class) ;
-    formatter_ = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-    if(!displayTime_) formatter_ = new SimpleDateFormat("MM/dd/yyyy");
-    if(date != null) value_ = formatter_.format(date) ;
+    dateFormat_ = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+    if(!displayTime_) dateFormat_ = new SimpleDateFormat("MM/dd/yyyy");
+    if(date != null) value_ = dateFormat_.format(date) ;
   }
   
   public void setDisplayTime(boolean displayTime) { displayTime_ = displayTime; }
   public boolean isDisplayTime() { return displayTime_; }
   
-  public void setCalendar(Calendar date) {
-    formatter_.format(date.getTime()) ;
-  }
+  public void setCalendar(Calendar date) { dateFormat_.format(date.getTime()) ; }
 
   public Calendar getCalendar() {
     try {
       Calendar calendar = new GregorianCalendar() ;
-      calendar.setTime(formatter_.parse(value_ + " 0:0:0")) ;
+      calendar.setTime(dateFormat_.parse(value_ + " 0:0:0")) ;
       return calendar ;
     } catch (ParseException e) {
       return null;
@@ -68,4 +71,6 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
     }
     w.write(" onmousedown='event.cancelBubble = true' />") ;
   }
+
+  public void setDateFormat(DateFormat formatter) { this.dateFormat_ = formatter; }
 }

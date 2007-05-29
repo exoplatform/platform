@@ -7,6 +7,7 @@ import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 
 abstract public class UIPortletApplication extends  UIApplication {
+  
   static public String VIEW_MODE = "ViewMode" ;
   static public String EDIT_MODE = "EditMode" ;
   static public String HELP_MODE = "HelpMode" ;

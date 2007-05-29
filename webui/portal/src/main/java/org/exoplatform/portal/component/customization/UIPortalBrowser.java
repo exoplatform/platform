@@ -7,19 +7,13 @@ import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
-import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.control.UIControlWorkspace.UIControlWSWorkingArea;
-import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIContainer;
-import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIGrid;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -30,7 +24,7 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
   template = "app:/groovy/portal/webui/component/customization/UIPortalBrowser.gtmpl",
   events = { 
-      @EventConfig(listeners = UIPortalBrowser.SelectPortalActionListener.class),
+//      @EventConfig(listeners = UIPortalBrowser.SelectPortalActionListener.class),
       @EventConfig(listeners = UIPortalBrowser.AddNewPortalActionListener.class),
       @EventConfig(listeners = UIPortalBrowser.DeletePortalActionListener.class, confirm = "UIPortalBrowser.deletePortal")
   }
@@ -38,7 +32,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIPortalBrowser extends UIContainer {
 
   public static String[] BEAN_FIELD = {"creator", "name", "skin", "factoryId"} ;  
-  public static String[] SELECT_ACTIONS = {"SelectPortal", "DeletePortal"} ; 
+  public static String[] SELECT_ACTIONS = {"DeletePortal"} ; 
   
   public UIPortalBrowser() throws Exception {
     setName("UIPortalBrowser");
@@ -56,7 +50,7 @@ public class UIPortalBrowser extends UIContainer {
     uiGrid.getUIPageIterator().setPageList(pagelist);
   } 
 
-  static public class SelectPortalActionListener extends EventListener<UIPortalBrowser> {
+ /* static public class SelectPortalActionListener extends EventListener<UIPortalBrowser> {
     public void execute(Event<UIPortalBrowser> event) throws Exception {
       String portalName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UIPortalBrowser uiPageBrowser = event.getSource() ;
@@ -93,7 +87,7 @@ public class UIPortalBrowser extends UIContainer {
       prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
       prContext.setFullRender(true);
     }
-  } 
+  } */
   
   static public class DeletePortalActionListener extends EventListener<UIPortalBrowser> {
     public void execute(Event<UIPortalBrowser> event) throws Exception {

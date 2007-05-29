@@ -5,7 +5,7 @@
 	import org.exoplatform.webui.component.UIComponent;
 	
   def rcontext = _ctx.getRequestContext() ;
-  String docBase =  rcontext.getRequestContextPath() ;
+  String docBase =  rcontext.getRequestContextPath() ;  
   String skin = uicomponent.getSkin();
   def portalSkin = uicomponent.getSkin("PortalSkin") ;
   def coreSkin = uicomponent.getSkin("CoreSkin") ;

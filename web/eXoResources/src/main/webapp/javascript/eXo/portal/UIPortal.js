@@ -368,6 +368,10 @@ UIPortal.prototype.changeLanguage = function(url) {
   window.location = url + '&language='+language;
 } ;
 
+UIPortal.prototype.changePortal = function(accessPath, portal) {
+  window.location = eXo.env.server.context + "/" + accessPath + "/" + portal+":/";
+} ;
+
 /** Created: by Lxchiati **/
 
 UIPortal.prototype.popupButton = function(url, action) {

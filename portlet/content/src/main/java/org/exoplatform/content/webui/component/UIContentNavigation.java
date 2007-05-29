@@ -7,12 +7,6 @@ package org.exoplatform.content.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.organization.webui.component.UIGroupMembershipSelector;
-import org.exoplatform.organization.webui.component.UIPermissionSelector;
-import org.exoplatform.portal.component.UIPortalApplication;
-import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.customization.UIPopupDialog;
-import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.content.ContentDAO;
 import org.exoplatform.portal.content.model.ContentNavigation;
@@ -20,16 +14,11 @@ import org.exoplatform.portal.content.model.ContentNode;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIDescription;
-import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UIFormPopupWindow;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.event.EventListener;
 
 /**

@@ -38,7 +38,6 @@ public class UIPageIterator extends UIComponent {
   
   public int getTo() { return pageList_ .getTo() ; }
   
-  
   public Object getObjectInPage(int index) throws Exception {
     return pageList_.currentPage().get(index) ;
   }
