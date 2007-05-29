@@ -43,7 +43,6 @@
               <collection type="java.util.HashSet">                
                 <value><string>site</string></value>
                 <value><string>webos</string></value>
-                <value><string>m6</string></value>
               </collection>
             </field>
             <field  name="ownerType"><string>portal</string></field>
