@@ -7,13 +7,14 @@ function UIDesktop() {
 
 UIDesktop.prototype.init = function() {
   var pageDesktop = document.getElementById("UIPageDesktop") ;
-
-	eXo.desktop.UIDesktop.fixDesktop() ;
-  var uiWindows = eXo.core.DOMUtil.findChildrenByClass(pageDesktop, "div", "UIWindow") ;
-  for(var i = 0; i < uiWindows.length; i++) {
-  	if(uiWindows[i].isFirstTime == false)	continue ;
-  	eXo.desktop.UIDesktop.backupWindowProperties(uiWindows[i]);
-  }
+	if(pageDesktop) {
+		eXo.desktop.UIDesktop.fixDesktop() ;
+	  var uiWindows = eXo.core.DOMUtil.findChildrenByClass(pageDesktop, "div", "UIWindow") ;
+	  for(var i = 0; i < uiWindows.length; i++) {
+	  	if(uiWindows[i].isFirstTime == false)	continue ;
+	  	eXo.desktop.UIDesktop.backupWindowProperties(uiWindows[i]);
+	  }
+	}
 };
 
 UIDesktop.prototype.fixDesktop = function() {

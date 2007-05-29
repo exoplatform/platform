@@ -22,6 +22,7 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 	maskLayer.style.zIndex = maskLayer.maxZIndex ;
 	maskLayer.style.top = "0px" ;
 	maskLayer.style.left = "0px" ;
+	maskLayer.style.right = "0px" ;
 
 	if(opacity) {
 		Browser.setOpacity(maskLayer, opacity) ;
@@ -46,11 +47,11 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 		object.style.left = blockContainer.offsetWidth - object.offsetWidth + "px" ;
 	}
 
-	//var scrollTop = document.documentElement.scrollTop ;
-	//var maskLayerHeight = (blockContainer.offsetHeight > Browser.getBrowserHeight()) ? blockContainer.offsetHeight : eXo.core.Browser.getBrowserHeight() ;
+//	var scrollTop = document.documentElement.scrollTop ;
+//	var maskLayerHeight = (blockContainer.offsetHeight > Browser.getBrowserHeight()) ? blockContainer.offsetHeight : eXo.core.Browser.getBrowserHeight() ;
 	var maskLayerHeight = (document.body.offsetHeight > Browser.getBrowserHeight()) ? document.body.offsetHeight : eXo.core.Browser.getBrowserHeight() ;
 	maskLayer.style.width = blockContainer.offsetWidth + "px" ;
-	//maskLayer.style.height = (maskLayerHeight + scrollTop) + "px" ;
+//	maskLayer.style.height = (maskLayerHeight + scrollTop) + "px" ;
 	maskLayer.style.height = document.documentElement.scrollTop + maskLayerHeight + "px";
 	return maskLayer ;
 } ;
@@ -99,6 +100,18 @@ UIMaskLayer.prototype.removeMask = function(maskLayer) {
 	}
 	
 	parentNode.removeChild(maskLayer) ;
+} ;
+
+UIMaskLayer.prototype.resizeMaskLayer = function() {
+	var maskLayer = document.getElementById("MaskLayer") ;
+	if(maskLayer) {
+		if(maskLayer.style.display == "block") {
+			var ojectHeight = document.getElementById("UIPortalApplication");
+			maskLayer.style.width = "100%" ;
+			var maskLayerHeight = (document.body.offsetHeight > ojectHeight.offsetHeight) ? document.body.offsetHeight : ojectHeight.offsetHeight ;
+			maskLayer.style.height = maskLayerHeight + "px";
+		}
+	}
 } ;
 
 eXo.core.UIMaskLayer = new UIMaskLayer() ;
