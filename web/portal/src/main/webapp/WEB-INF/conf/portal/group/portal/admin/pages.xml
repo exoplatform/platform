@@ -22,11 +22,11 @@
     <access-permission>*:/guest</access-permission>  
     <show-max-window>true</show-max-window>
     
-    <application>
-	    <instance-id>admin:/exo.widget.web/WelcomeWidget/WelcomeWidget</instance-id>
-	    <application-type>eXoWidget</application-type>
-	    <title>Welcome Widget</title>
-	  </application>
+	  <application>
+      <instance-id>admin:/exo.widget.web/InfoWidget/InfoWidget</instance-id>
+      <application-type>eXoWidget</application-type>
+      <title>Info Widget</title>
+    </application>
     
     <application>
       <instance-id>admin:/exoadmin/OrganizationPortlet/Organization</instance-id>

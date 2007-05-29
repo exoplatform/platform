@@ -272,5 +272,10 @@ DOMUtil.prototype.listHideElements = function(object) {
 	}
 } ;
 
+DOMUtil.prototype.removeTemporaryElement = function(element) {
+	var parentElement = element.parentNode ;
+	parentElement.removeChild(element);
+};
+
 /****************************************************************************/
 eXo.core.DOMUtil = new DOMUtil() ;

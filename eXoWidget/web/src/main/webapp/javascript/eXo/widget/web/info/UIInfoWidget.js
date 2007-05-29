@@ -10,6 +10,8 @@ function UIInfoWidget() {
 	  Mac:     "/exo.widget.web/skin/info/MacStylesheet.css",
 	  Vista:   "/exo.widget.web/skin/info/VistaStylesheet.css"
 	} ;
+	this.width = "220px" ;
+	this.height = "auto" ;
 };
 
 UIInfoWidget.prototype.createApplicationInstance = function(appDescriptor) {
@@ -32,6 +34,7 @@ UIInfoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 };
 
 UIInfoWidget.prototype.initApplication = function(applicationId, instanceId) {
+	var DOMUtil = eXo.core.DOMUtil;
 	if(instanceId == null) {
 	  instanceId = eXo.core.DOMUtil.generateId(applicationId);
 	  var application = "eXo.widget.web.info.UIInfoWidget";
@@ -42,9 +45,17 @@ UIInfoWidget.prototype.initApplication = function(applicationId, instanceId) {
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.info.UIInfoWidget);
 	  
 	var appInstance = appDescriptor.createApplication();
-	//alert("APPLICATION: " + appInstance.innerHTML);
-	eXo.widget.UIAddWidget.addWidget(appInstance);
-	//eXo.desktop.UIDesktop.addJSApplication(appInstance);
+	
+	var app = document.getElementById("UIInfoWidget");
+	var uiPageDesktop = DOMUtil.findAncestorByClass(app, "UIPageDesktop") ;
+
+	if(uiPageDesktop == null) {
+		eXo.widget.UIAddWidget.addWidget(appInstance);
+		DOMUtil.removeTemporaryElement(app);
+	} else {
+		eXo.widget.UIAddWidget.addWidgetToDesktop(appInstance);
+		DOMUtil.removeTemporaryElement(app);
+	}	
 }
 
 UIInfoWidget.prototype.destroyApplicationInstance = function(appDescriptor) {
