@@ -9,9 +9,10 @@
   
   String componentId = uicomponent.getId();
   String addWidgetAction = "eXo.desktop.UIAddApplication.init('"+uicomponent.getId()+"', '$componentId');" ;
+  
 %>
 
-<div class="UIWidgetContainer" id="<%=uicomponent.getId();%>">
+<div class="UIWidgetContainer" id="<%=uicomponent.getId()%>">
 	<% uicomponent.renderChildren() %>
 	<div class="WidgetNavigator">
 		<div class="LeftWidgetNavBar">

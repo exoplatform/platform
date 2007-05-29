@@ -2,11 +2,10 @@ function UIWidget() {
 	
 };
 
-UIWidget.prototype.init = function(factoryId) {
+UIWidget.prototype.init = function(inDesktop) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiWidgetContainer ;
-	
-	if(factoryId == null) {
+	if(!inDesktop) {
 		var uiWidgets = document.getElementById("UIWidgets");
 		uiWidgetContainer = DOMUtil.findFirstDescendantByClass(uiWidgets, "div", "UIWidgetContainer");
 	} else {
@@ -33,12 +32,32 @@ UIWidget.prototype.showWidgetControl = function() {
 	var uiWidget = this ;
 	var widgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiWidget, "div", "WidgetControl");
 	widgetControl.style.display = "block" ;
+	
+	var uiPageDesktop = eXo.core.DOMUtil.findAncestorByClass(uiWidget, "UIPageDesktop");
+	if(uiPageDesktop) widgetControl.onmousedown = eXo.widget.UIWidget.initDND ;
 };
 
 UIWidget.prototype.hideWidgetControl = function() {
 	var uiWidget = this ;
 	var widgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiWidget, "div", "WidgetControl");
 	widgetControl.style.display = "none" ;
+};
+
+UIWidget.prototype.initDND = function(e) {
+  var DragDrop = eXo.core.DragDrop ;
+
+	DragDrop.initCallback = function (dndEvent) {
+  }
+
+  DragDrop.dragCallback = function (dndEvent) {
+  }
+
+  DragDrop.dropCallback = function (dndEvent) {	
+  }
+  
+  var clickBlock = this ;
+  var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
+  DragDrop.init(null, clickBlock, dragBlock, e) ;
 };
 
 eXo.widget.UIWidget = new UIWidget();

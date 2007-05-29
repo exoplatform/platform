@@ -37,7 +37,14 @@ UIAddWidget.prototype.addWidgetToDesktop = function(widgetElement) {
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	if(uiPageDesktop == null) return ;
 	uiPageDesktop.appendChild(widgetElement);
-	eXo.widget.UIWidget.init(widgetElement.factoryId);
+	
+	widgetElement.style.width = appDescriptor.application.width ;
+	widgetElement.style.height = appDescriptor.application.height ;
+	widgetElement.style.position = "absolute" ;
+	widgetElement.style.top = "40px" ;
+	widgetElement.style.left = "20px" ;
+	
+	eXo.widget.UIWidget.init(true);
 };
 
 eXo.widget.UIAddWidget = new UIAddWidget();

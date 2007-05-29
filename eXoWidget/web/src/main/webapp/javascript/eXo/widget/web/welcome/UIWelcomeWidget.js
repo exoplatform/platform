@@ -10,6 +10,8 @@ function UIWelcomeWidget() {
 	  Mac:     "/exo.widget.web/skin/welcome/MacStylesheet.css",
 	  Vista:   "/exo.widget.web/skin/welcome/VistaStylesheet.css"
 	} ;
+	this.width = "220px" ;
+	this.height = "auto" ;
 };
 
 UIWelcomeWidget.prototype.createApplicationInstance = function(appDescriptor) {
@@ -49,8 +51,17 @@ UIWelcomeWidget.prototype.initApplication = function(applicationId, instanceId) 
 //	}
 
 	var app = document.getElementById("UIWelcomeWidget");
-//	alert(app);
-	eXo.widget.UIAddWidget.addWidget(appInstance);
+	var uiPageDesktop = eXo.core.DOMUtil.findAncestorByClass(app, "UIPageDesktop") ;
+
+	if(uiPageDesktop == null) {
+		//alert("Widget Container");
+		eXo.widget.UIAddWidget.addWidget(appInstance);
+		eXo.widget.web.welcome.UIWelcomeWidget.removeTempEle(app);
+	} else {
+		//alert("UIPageDesktop");
+		eXo.widget.UIAddWidget.addWidgetToDesktop(appInstance);
+		eXo.widget.web.welcome.UIWelcomeWidget.removeTempEle(app);
+	}	
 }
 
 UIWelcomeWidget.prototype.destroyApplicationInstance = function(appDescriptor) {
@@ -68,6 +79,11 @@ UIWelcomeWidget.prototype.destroyInstance = function(instanceId) {
     var removeAppInstance = appDescriptor.destroyApplication();
     eXo.desktop.UIDesktop.removeJSApplication(removeAppInstance);
   }	
+};
+
+UIWelcomeWidget.prototype.removeTempEle = function(element) {
+	var parentElement = element.parentNode ;
+	parentElement.removeChild(element);
 };
 
 if(eXo.widget.web == null) eXo.widget.web = {} ;

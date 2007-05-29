@@ -128,38 +128,40 @@
 	background: url('DefaultSkin/icons/AddWidgetButton.gif') no-repeat center;
 }
 
-.UIWidgetContainer .WidgetControlBar {
+/***************************************  UIWidget   **************************************/
+
+.UIWidget .WidgetControlBar {
   float: right;
 	width: 76px; height: 20px;
 	padding-right: 7px;
 }
 
-.UIWidgetContainer .WidgetControl {
+.UIWidget .WidgetControl {
 	width: 74px; height: 20px;
 }
 
-.UIWidgetContainer .WidgetApplication {
+.UIWidget .WidgetApplication {
 	padding: 0px 0px 5px 0px;
 }
 
-.UIWidgetContainer .WidgetControl .LeftControlBar{
+.UIWidget .WidgetControl .LeftControlBar{
 	height: 19px;
 	background: url('DefaultSkin/background/LeftWidgetControlBar2x19.gif') no-repeat left;	
 	padding-left: 2px;
 }
 
-.UIWidgetContainer .WidgetControl .RightControlBar{
+.UIWidget .WidgetControl .RightControlBar{
 	height: 19px;
 	background: url('DefaultSkin/background/RightWidgetControlBar2x19.gif') no-repeat right;	
 	padding-right: 2px;
 }
 
-.UIWidgetContainer .WidgetControl .CenterControlBar{
+.UIWidget .WidgetControl .CenterControlBar{
 	height: 19px;
 	background: url('DefaultSkin/background/CenterWidgetControlBar1x19.gif') repeat-x;	
 }
 
-.UIWidgetContainer .WidgetControl .WidgetDragHandleArea {
+.UIWidget .WidgetControl .WidgetDragHandleArea {
 	float: left;
 	width: 17px; height: 13px;
 	cursor: move;
@@ -167,7 +169,7 @@
 	background: url('DefaultSkin/background/WidgetDragArea2x2.gif');
 }
 
-.UIWidgetContainer .WidgetControl .SeparatorLine {
+.UIWidget .WidgetControl .SeparatorLine {
 	float: left;
 	width: 2px; height: 13px;
 	margin: 3px 3px 0px 3px;
@@ -175,7 +177,7 @@
 	
 }
 
-.UIWidgetContainer .WidgetControl .EditWidgetIcon {
+.UIWidget .WidgetControl .EditWidgetIcon {
 	float: left;
 	width: 16px; height: 16px;
 	cursor: pointer;
@@ -183,7 +185,7 @@
 	background: url('DefaultSkin/icons/EditWidgetIcon.gif');	
 }
 
-.UIWidgetContainer .WidgetControl .CloseWidgetIcon {
+.UIWidget .WidgetControl .CloseWidgetIcon {
 	float: left;
 	width: 16px; height: 16px;
 	cursor: pointer;
