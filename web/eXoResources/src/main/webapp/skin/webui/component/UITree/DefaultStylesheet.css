@@ -12,8 +12,15 @@
 }
 
 .UITree .TreeLevelContainer {
-  padding-left: 7px;
+  height: 18px; line-height: 18px;
+  padding-left: 12px;
+  margin: 0px 0px 10px 0px ;
+}
+
+.UITree .TreeLevelContainer .LevelUpArrowIcon {
   float: left;
+  width: 26px; line-height: 18px;
+  background: url(/eXoResources/icons/24x24/DefaultSkin/BlueUpLevelArrow.gif) no-repeat;
 }
 
 .UITree .TreeContainer .Node {

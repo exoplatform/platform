@@ -56,7 +56,7 @@
 
 .DeleteFileFrame {
 	float: left;
-	background: url("DefaultSkin/Background/Round18x18.gif") no-repeat;
+	background: url("MacSkin/background/Delete.gif") no-repeat;
 	cursor: pointer;
 	padding-left: 23px;
 	margin-left: 5px;
@@ -82,8 +82,8 @@
 .RemoveFile {
 	float: left;
 	padding-left: 25px;
-	background:  url("DefaultSkin/Background/Delete18x18.gif") no-repeat;
-	height: 18px;
+	background:  url("MacSkin/background/DustBin.gif") no-repeat;
+	height: 16px;
 	cursor: pointer;
 	margin-left: 10px;
 }
