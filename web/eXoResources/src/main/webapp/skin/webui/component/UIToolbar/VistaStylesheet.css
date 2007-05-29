@@ -45,10 +45,10 @@
 }
 
 .UIToolbar .ControlToolbar .SeparateLine{
-  width: 2px; height: 20px;
+  width: 2px; height: 19px;
   float: left;
-  margin: 2px 2px 0px 3px;
-  background: url('DefaultSkin/background/SeparateLine2x1.gif') repeat-y ;
+  margin: 4px 2px 0px 3px;
+  background: url('VistaSkin/background/SeparateLine2x19.png') repeat-y ;
 }
 
 .UIToolbar .ControlToolbar .Icon {
