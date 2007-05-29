@@ -189,11 +189,7 @@
   background: url('DefaultSkin/background/WindowControlBarM1x23.gif') repeat-x ;
 }
 
-/**************************** UIPageBody ************************************/
-.UIPageBody {
-  width: 99.5%;
-  margin: auto;
-}
+/*======================== UIPageBody ================================*/
 
 .UIPageBody .WindowPortletControl {
 	float: right;

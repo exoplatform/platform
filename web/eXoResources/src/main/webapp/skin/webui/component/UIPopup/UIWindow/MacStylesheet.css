@@ -184,10 +184,6 @@
 	overflow: auto;
 }
 /**************************** UIPageBody ************************************/
-.UIPageBody {
-  width: 99%;
-  margin: auto;
-}
 
 .UIPageBody .UIWindow {
   width: auto ; height: auto;
