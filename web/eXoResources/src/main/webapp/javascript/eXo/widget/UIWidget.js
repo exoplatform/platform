@@ -22,6 +22,13 @@ UIWidget.prototype.init = function(factoryId) {
 	
 };
 
+UIWidget.prototype.deleteWidget = function(selectedElement) {
+	var DOMUtil = eXo.core.DOMUtil ;
+	var uiWidgetContainer = DOMUtil.findAncestorByClass(selectedElement, "UIWidgetContainer") ;
+
+	ajaxGet(eXo.env.server.createPortalURL(uiWidgetContainer.id, "DeleteWidget", true)) ;
+};
+
 UIWidget.prototype.showWidgetControl = function() {
 	var uiWidget = this ;
 	var widgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiWidget, "div", "WidgetControl");

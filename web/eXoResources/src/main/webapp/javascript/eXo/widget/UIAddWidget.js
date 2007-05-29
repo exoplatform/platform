@@ -15,7 +15,7 @@ UIAddWidget.prototype.show = function() {
 	var innerHTML = eXo.core.TemplateEngine.merge("eXo/portal/UIMaskWorkspace.jstmpl", context) ;
  	var uiMaskWorkspaceNode = DOMUtil.createElementNode(innerHTML, "div");
 		
-	eXo.core.UIMaskLayer.createMask("UIPortalApplication", uiMaskWorkspaceNode, 30) ;	
+	eXo.core.UIMaskLayer.createMask("UIPortalApplication", uiMaskWorkspaceNode, 30) ;
 };
 
 UIAddWidget.prototype.addWidget = function(widgetElement) {
