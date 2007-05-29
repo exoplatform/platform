@@ -66,6 +66,7 @@ public class UIPortalApplication extends UIApplication {
   @SuppressWarnings("hiding")
   public  UIPortalApplication(InitParams initParams) throws Exception { 
     PortalRequestContext  context = PortalRequestContext.getCurrentInstance() ;
+    context.setUIApplication(this);
     userPortalConfig_ = (UserPortalConfig)context.getAttribute(UserPortalConfig.class);
     if(userPortalConfig_ == null) throw new Exception("Can't load user portal config");
     if(context.getAccessPath() == PortalRequestContext.PUBLIC_ACCESS) {
@@ -174,7 +175,7 @@ public class UIPortalApplication extends UIApplication {
     if(w instanceof HtmlValidator) {
       HtmlValidator validator = (HtmlValidator) w ;
       validator.finish() ;
-      System.out.println("===> IN HtmlValidator") ;
+//      System.out.println("===> IN HtmlValidator") ;
     }
   }
 

@@ -10,7 +10,6 @@ import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIApplication;
 
 public class PortalRequestContext extends WebuiRequestContext {
    
@@ -59,10 +58,6 @@ public class PortalRequestContext extends WebuiRequestContext {
     
     writer_ = new HtmlValidator(res.getWriter()) ;
     urlBuilder = new PortalURLBuilder(nodeURI_);
-  }
-  
-  public void  setUIApplication(UIApplication uiApplication) throws Exception { 
-    super.setUIApplication(uiApplication) ;    
   }
   
   public String getRequestParameter(String name) { return request_.getParameter(name) ; }

@@ -6,7 +6,7 @@
 
 <div class="UIPortal" id="UIPortal-$uicomponent.id">
   <div class="META-DATA-BLOCK" style="display: none">
-	  <div class="id">$uicomponent.id</div>
+	  <div class="id"></div>
 	  <div class="title"><%=_ctx.appRes("UIPortal.label.title")%></div>
     <div class="description"><%=_ctx.appRes("UIPortal.label.description")%></div>
   </div>	
@@ -15,7 +15,7 @@
   <div class="VIEW-PORTAL">
     <div id="$uicomponent.id">
 	    <div class="UIRowContainer">
-      	<%uicomponent.renderChildren()%>
+      	<%uicomponent.renderChildren();%>
 	    </div>
 	  </div>
   </div>

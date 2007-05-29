@@ -319,10 +319,6 @@ public class UIExoStart extends UIComponent {
       PageNodeEvent<UIPortal> pnevent = 
         new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;      
-      uiPortal.setRenderSibbling(UIPortal.class);      
-      
-      UIExoStart uicomp = event.getSource() ;
-      uicomp.setUIControlWSWorkingComponent(UIWelcomeComponent.class) ;
     }
   }
   

@@ -14,6 +14,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIControlWorkspace;
+import org.exoplatform.portal.component.control.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.portal.component.customization.UIPageForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.PortalDataMapper;
@@ -24,6 +25,7 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
+import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -41,8 +43,10 @@ import org.exoplatform.webui.event.EventListener;
 public class UIPageActionListener {
 
   static public class ChangePageNodeActionListener  extends EventListener {    
+    
     private UIPortal uiPortal_ ;    
-    private List<PageNode> selectedPaths_;    
+    private List<PageNode> selectedPaths_;   
+    
     public void execute(Event event) throws Exception {     
       PageNodeEvent pnevent = (PageNodeEvent) event ;
       uiPortal_ = (UIPortal) event.getSource();
@@ -70,7 +74,10 @@ public class UIPageActionListener {
       PortalRequestContext pcontext = Util.getPortalRequestContext();     
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      if(uiControl  != null) pcontext.addUIComponentToUpdateByAjax(uiControl);      
+      UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
+      if(uiControl != null) pcontext.addUIComponentToUpdateByAjax(uiControl);      
+      uiPortal_.setRenderSibbling(UIPortal.class);      
+      uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null)) ;
       pcontext.setFullRender(true);
     }
 

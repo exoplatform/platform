@@ -7,6 +7,7 @@ package org.exoplatform.portal.component.widget;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIWidgets;
 import org.exoplatform.portal.component.view.Util;
@@ -34,7 +35,8 @@ public class UIWelcomeComponent extends UIContainer {
       return ;
     }
     
-    UserPortalConfig userPortalConfig = (UserPortalConfig)prContext.getAttribute(UserPortalConfig.class);
+    UIPortalApplication uiPortalApplication = (UIPortalApplication)prContext.getUIApplication();
+    UserPortalConfig userPortalConfig = uiPortalApplication.getUserPortalConfig();
     if(userPortalConfig == null) return;
     List<Widgets> list = userPortalConfig.getWidgets();
     for(Widgets widgets : list) {
