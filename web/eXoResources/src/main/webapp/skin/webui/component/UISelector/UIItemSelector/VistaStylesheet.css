@@ -469,7 +469,7 @@
   height: 24px; line-height: 24px; vertical-align: middle;
   background: url('VistaSkin/background/MiddleNormalItem1x24.png') repeat-x ;
   font-size: 11px; color: #526791;
-  padding-left: 10px;
+  padding-left: 3px;
 }
 
 /*###########################- Item Over -############################*/
@@ -495,7 +495,7 @@
   height: 24px; line-height: 24px; vertical-align: middle;
   background: url('VistaSkin/background/MiddleOverItem1x24.png') repeat-x ;
   font-size: 11px; color: #059ce2;
-  padding-left: 10px;
+  padding-left: 3px;
 }
 
 /*##########################- Item Selected -#########################*/
@@ -520,7 +520,7 @@
   height: 24px; line-height: 24px; vertical-align: middle;
   background: url('VistaSkin/background/MiddleSelectItem1x24.png') repeat-x ;
   font-size: 11px; color: black;
-  padding-left: 10px;
+  padding-left: 3px;
 }
 
 /*###########################- End RightItemListStyle -#########################*/
