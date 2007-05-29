@@ -5,7 +5,7 @@
 }
 
 .UIDropDownItemSelector .ItemSelectorContainer {
-	border-top: 1px solid #717171;
+	border-top: 1px solid #959595;
 	border-right: none;
 	height: 20px;
 }
@@ -13,7 +13,7 @@
 .UIDropDownItemSelector .ItemInfoBar {
 	background: url('/eXoResources/background/VistaSkin/IconLabelContentBG1x1.png') repeat;
 	padding-left: 8px;
-	border: 1px solid #717171;
+	border: 1px solid #959595;
 	border-top: none;
 }
 

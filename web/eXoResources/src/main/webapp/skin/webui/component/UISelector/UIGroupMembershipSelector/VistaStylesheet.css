@@ -26,13 +26,15 @@
 }
 
 .UIGroupMembershipSelector .Container {
-  padding: 10px;
+  padding: 12px;
+  border:1px solid #E4E4E4;
+  background:white url('VistaSkin/background/UIGroupMembershipSelectorBG.gif') repeat-x bottom;
 }
 
 .UIGroupMembershipSelector .MembershipTitle{
-  background: url('VistaSkin/background/TitleBG1x20.gif') repeat-x;
-  border: 1px #5f90ba solid; 
-  height: 20px; line-height: 20px; vertical-align: middle;
+  background: url('VistaSkin/background/TitleBG1x22.png') repeat-x;
+  border: 1px #aeaeae solid; 
+  height: 22px; line-height: 22px; vertical-align: middle;
   padding-left: 15px;
 }
 
@@ -43,7 +45,7 @@
 }
 
 .UIGroupMembershipSelector .UITree {
-  border: 1px #5f90ba solid;
+  border: 1px #aeaeae solid;
   border-top: none;  
   background: white;
 }
@@ -73,7 +75,7 @@
 }
 
 .UIGroupMembershipSelector .MembershipSelector .OverflowContainer {
-  border: #5f90ba 1px solid;
+  border: #aeaeae 1px solid;
   border-top: none;
   background: white;
   height: 150px; width: auto;
@@ -90,7 +92,7 @@
 }
 
 .UIGroupMembershipSelector .MembershipSelector  a:hover {
-  color: blue; 
+  color: #218AA8; 
 }
 
 .UIGroupMembershipSelector  .MembershipSelector .OddRow {
