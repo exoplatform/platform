@@ -17,13 +17,14 @@
 }
 
 .UIForm .HorizontalLayout .FieldContainer {
-  margin: 6px auto;
+  margin: 10px auto;
 }
 
 .UIForm .HorizontalLayout label {
 	float:left;
   width: 120px ;
-	text-align: right;
+	text-align: right; font-size: 11px;
+	margin-right: 10px;
 }
 
 .UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {
@@ -72,6 +73,7 @@
 >>>>>>> .r16078
 .UIForm .HorizontalLayout input {
   width: 228px ;
+  font-size: 11px;
 }
 
 .UIForm .HorizontalLayout input.checkbox {

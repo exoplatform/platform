@@ -23,13 +23,17 @@
   background: url('/eXoResources/background/MacSkin/Background1x4.png');
 }
 
-.UIFormWithTitle .UIForm select {
-  width: 220px;
+.UIFormWithTitle .HorizontalLayout .FieldContainer .FieldLabel {
+  float: left; width: 120px;
+  text-align: right;
 }
 
-.UITestForm .ActionContainer {
-	width: 380px;
-	padding: 10px 0px;
+.UIFormWithTitle .HorizontalLayout .FieldContainer .FieldComponent {
+  margin-left: 130px;
+}
+
+.UIFormWithTitle .UIForm select {
+  width: 220px;
 }
 
 .UIFormWithTitle .UIForm .UIAction {  
@@ -37,6 +41,6 @@
   padding-top: 15px;
 }
 
-.UITestForm .UIAction {
- 	width: 80px;
+.UITestForm .UIForm .UIAction {
+ 	width: 240px;
 }

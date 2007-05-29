@@ -1,8 +1,7 @@
 /**
  * Created by The eXo Platform SARL
- * Modifile : Vu Duy Tu
- *           duytucntt@gmail.com
- * December 12, 2006
+ * Modifile : Nguyen Ngoc Thuy
+ * May 8, 2007
  * version: $Id$
  */
  
@@ -33,17 +32,27 @@
 }
 
 .UIApplicationRegistryPortlet .UIPopupWindow .UIWindowContent .Content {
-  padding: 20px;
+  padding: 10px;
   overflow: auto;
+  height: 300px;
 }
 
-.ApplicationRegistryWorkingArea .UIFormWithTitle .UIForm .UIAction {
+.UIApplicationRegistryPortlet .UIFormWithTitle .UIForm .UIAction {
   width: 150px;
 }
 
-.ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout label {
+.UIApplicationRegistryPortlet .UIForm .HorizontalLayout {
+  border: none;
+}
+
+.UIApplicationRegistryPortlet .UICategoryForm .HorizontalLayout label {
   width: 185px;
 }
+
+.UIApplicationRegistryPortlet .UIPageIterator .Number {
+  float: right;
+}
+
 
 /*################################Application Registry Control################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
@@ -127,11 +136,6 @@
 	background: #f5f5f5; 
 }
 
-.ApplicationRegistryWorkingArea .ApplicationContainer {
-  padding: 0px 5px 10px 5px;
-  border:  1px solid white;
-}
-
 .ApplicationRegistryWorkingArea .Application {
   margin: 7px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
@@ -140,20 +144,51 @@
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContent {
-  padding: 0px 0px 0px 12px;
-  width: 540px ;
-  overflow: hidden;
+  margin-left: 85px;
+  padding-bottom: 5px;
+  padding: 0px 5px 10px 5px;
+  border:  1px solid white;
 }
 
 .ApplicationRegistryWorkingArea .TitleBarApplication {
 	background: none;
-	height: 21px;
-	font-weight: bold ; font-size: 13px; color: #1553B9; font-family: arial;
+	border-bottom: 1px solid #dfdfdf;
+	width: 93.9%;
+	padding: 0px 1px 3px 1px;
+	margin: 0px auto 5px auto;
+}
+
+.ApplicationRegistryWorkingArea .TitleBarApplication label {
+  float: left;
+  margin-top: 6px;
+  font-weight: bold ; font-size: 13px; color: #1553B9; font-family: arial;
+}
+
+.ApplicationRegistryWorkingArea .ApplicationButton {
+  margin-left: 200px;
+}
+
+.ApplicationRegistryWorkingArea .Icon {
+  float: right;
+	cursor: pointer ;
+	margin: 3px 3px 0px 3px;
+}
+
+.ApplicationRegistryWorkingArea .DeleteIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
+}
+
+.ApplicationRegistryWorkingArea .EditInfoIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat ;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContentLabel {
   font-size: 11px;
   line-height: 16px;
+  width: 93%;
+  margin: auto;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContentLabel .RightLabel {
@@ -167,39 +202,8 @@
 	margin-top: 2px;
 }
 
-.ApplicationRegistryWorkingArea .ApplicationDescription {
-  margin-right: 30px;
-}
-
 .ApplicationRegistryWorkingArea .UIAction  {
   width: 140px;
-}
-
-.ApplicationRegistryWorkingArea .ApplicationButton {
-  float: right;
-  width: 28px;
-  padding: 4px 0px 0px 0px;
-}
-
-.ApplicationRegistryWorkingArea .Icon {
-	float: left;
-	cursor: pointer ;
-	margin: 5px;
-	width: 20px;
-}
-
-.ApplicationRegistryWorkingArea .DeleteIcon {
-  width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
-}
-
-.ApplicationRegistryWorkingArea .EditInfoIcon {
-  width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat ;
-}
-
-.ApplicationRegistryWorkingArea .eXoBrowserIcon {
-	background: url('/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png') no-repeat ;
 }
 
 .ApplicationRegistryWorkingArea .UIAvailablePortletForm .HorizontalLayout .FieldContainer {

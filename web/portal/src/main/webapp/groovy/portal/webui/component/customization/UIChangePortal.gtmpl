@@ -1,20 +1,34 @@
-<div class="UIChagnePortal" id="<%=uicomponent.getId();%>">
-	<%uicomponent.renderChildren() %>	
-	<div class="UIAction">
-	  <div class="ActionContainer">
-	    <div class="ActionButton">
-	      <div class="LightBlueStyle">
-	        <div class="ButtonLeft">
-	          <div class="ButtonRight">
-	            <div class="ButtonMiddle">
-	              <a class="ActionText" href="<%=uicomponent.event("Close")%>">
-	                <%=_ctx.appRes("UIChangePortal.action.close")%>
-	              </a>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	</div>			    
+<div class="UIChagnePortalForm" id="<%=uicomponent.getId();%>">
+	
+	  <div class="LeftFormTitle">
+			<div class="RightFormTitle">
+				<div class="MiddleFormTitle"><%=_ctx.appRes("UIChangeSkin.title.PortalSetting")%></div>
+			</div>
+		</div>
+		<div class="TabPaneContent">
+	    <div class="WorkingArea">
+	    	<%uicomponent.renderChildren() %>	
+		  </div>
+		</div>
+		
+		<div class="Button">
+			<div class="UIAction">
+			  <div class="ActionContainer">
+			    <div class="ActionButton">
+			      <div class="LightBlueStyle">
+			        <div class="ButtonLeft">
+			          <div class="ButtonRight">
+			            <div class="ButtonMiddle">
+			              <a class="ActionText" href="<%=uicomponent.event("Close")%>">
+			                <%=_ctx.appRes("UIChangePortal.action.close")%>
+			              </a>
+			            </div>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</div>			    
+	
 </div>

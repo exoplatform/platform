@@ -1,0 +1,43 @@
+.UIChagnePortalForm {
+  padding: 10px;
+}
+
+.UIChagnePortalForm .LeftFormTitle {
+	padding: 0px 0px 0px 34px;
+	background: url('MacSkin/background/LeftFormTitle34x22.gif') no-repeat left bottom;
+}
+
+.UIChagnePortalForm .RightFormTitle {
+	padding: 0px 3px 0px 0px;
+	background: url('MacSkin/background/RightFormTitle3x22.gif') no-repeat right bottom;
+}
+
+.UIChagnePortalForm .MiddleFormTitle {
+	background: url('MacSkin/background/MiddleFormTitle1x22.gif') repeat-x bottom;
+	line-height: 22px;
+	font-weight: bold;
+	color:#404040;
+	padding-left: 7px;
+}
+
+.UIChagnePortalForm .TabPaneContent {
+  border: 1px solid gray;
+  border-top: none;
+  padding: 0px 1px 1px 1px;
+}
+
+.UIChagnePortalForm .WorkingArea {
+  background:url(/eXoResources/background/MacSkin/Background1x4.png) repeat;
+  border: 1px solid #b7b7b7;
+  padding: 20px;
+  height: 230px;
+}
+
+.UIChagnePortalForm .Button .UIAction {
+  width: 70px;
+  margin: auto;
+}
+
+.UIChagnePortalForm .UIGrid .ActionContainer {
+  width: 20px;
+}

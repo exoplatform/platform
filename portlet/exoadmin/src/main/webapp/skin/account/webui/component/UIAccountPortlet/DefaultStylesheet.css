@@ -13,6 +13,11 @@
   margin: 0px 5px 7px 5px;
 }
 
+.UIAccountPortlet .UIFormTabPane{
+  width: 700px;
+  margin: 15px auto;
+}
+
 .UIAccountPortlet .UIFormTabPane .UITabPane {
   padding: 3px 3px 0px 3px;
 }
@@ -30,6 +35,11 @@
   width: 160px;
 } 
 
+.UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
+  height: 280px; width: auto;
+  padding-top: 30px;
+}
+
 /*########################-UIPersonalInfo-###########################*/
 
 .UIAccountPortlet .UIFormTabPane {
@@ -41,12 +51,7 @@
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetail .UIFormInputSet {
-  padding-top: 15px;
-  border: none;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet .FieldContainer {
-  padding: 0px;
+  padding-top: 7px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet label {

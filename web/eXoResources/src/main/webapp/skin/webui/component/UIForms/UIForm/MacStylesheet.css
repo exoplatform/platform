@@ -8,7 +8,7 @@
 }
 
 .UIForm .HorizontalLayout .FieldContainer {
-  margin: 6px auto;
+  margin: 10px auto;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet {
@@ -41,7 +41,7 @@
 }
 
 .UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
-  margin: 7px 0px 10px 143px ;
+  margin: 7px 0px 10px 0px ;
 }
 
 .UIForm .HorizontalLayout .FieldContainer .MultiValueContainer input {
@@ -63,12 +63,11 @@
 
 .UIForm .HorizontalLayout input {
   width: 230px ;
-  padding-left: 5px;
+  font-size: 11px;
 }
 
 .UIForm .HorizontalLayout input.checkbox {
   width: 15px ; height: 15px ;
-  
 }
 
 .UIForm .HorizontalLayout  input.radio {

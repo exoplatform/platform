@@ -251,8 +251,8 @@
   margin: auto ;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle .HorizontalLayout .FormContainer {
-  padding: 10px 5px 6px;
+.UIOrganizationPortlet .UIGroupManagement .UIGrid th {
+  padding: 0px 3px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UISharedNavigation .HorizontalLayout label {
@@ -261,6 +261,11 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIForm .HorizontalLayout {
   border: none;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle .TitleBar {
+  margin: 0px 1px;
+  border: 1px solid #cdcdcd;
 }
 
 /*#######################  UIMemberShipManagement #################################*/

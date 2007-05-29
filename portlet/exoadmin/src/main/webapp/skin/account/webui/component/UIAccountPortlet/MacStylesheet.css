@@ -12,7 +12,9 @@
   border: 1px solid #b7b7b7;
 }
 
-.UIAccountPortlet .UIFormTabPane {
+.UIAccountPortlet .UIFormTabPane{
+  width: 700px;
+  margin: 15px auto;
   padding: 6px; padding-bottom: 0px;
 }
 
@@ -29,6 +31,11 @@
   width: 140px;
 }
 
+.UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
+  height: 280px; width: auto;
+  padding-top: 30px;
+}
+
 /*########################-UIPersonalInfo-###########################*/
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
   width: 400px;
@@ -38,8 +45,8 @@
   width: 238px;
 }
 
-.UIAccountPortlet .UIItemSelector .UIFormInputSet {
-  padding-top: 12px;
+.UIAccountPortlet .UIItemSelector .ItemDetail .UIFormInputSet {
+  padding-top: 7px;
 }
 
 /*########################-Template Selector-###########################*/

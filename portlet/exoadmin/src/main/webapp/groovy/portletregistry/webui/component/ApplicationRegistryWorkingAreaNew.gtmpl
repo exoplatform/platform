@@ -26,12 +26,6 @@
 	%>
 
 	  <div class="Application">
-	    <div class="ApplicationButton">
-	  		<a class="Icon PermissionSettingIcon" href="<%=uicomponent.event("EditPermission", name)%>" title=" Select Permission"><span></span></a>
-	  	  <a class="Icon EditInfoIcon" href="<%=uicomponent.event("EditPortlet", name)%>" title="Edit this Application"><span></span></a>
-	  	  <a class="Icon DeleteIcon" href="<%=uicomponent.event("DeletePortlet", name)%>" title="Delete this Application"><span></span></a>
-	  	  <div style="clear: left;"><span></span></div>
-	  	</div>
 	    <div class="ApplicationDescription">
 	  		<div class="PortletIcons" title="$displayName" >
 	  		  <span>
@@ -39,7 +33,15 @@
 	  		  </span>
 	  		</div>
 	  		<div class="ApplicationContent">
-	  		  <div class="TitleBarApplication"><%=displayName%></div>
+	  		  <div class="TitleBarApplication">
+	  		    <label><%=displayName%></label>
+	  		    <div class="ApplicationButton">
+				  		<a class="Icon DeleteIcon" href="<%=uicomponent.event("DeletePortlet", name)%>" title="Delete this Application"><span></span></a>
+				  		<a class="Icon EditInfoIcon" href="<%=uicomponent.event("EditPortlet", name)%>" title="Edit this Application"><span></span></a>
+				  		<a class="Icon PermissionSettingIcon" href="<%=uicomponent.event("EditPermission", name)%>" title=" Select Permission"><span></span></a>
+				  	  <div style="clear: right;"><span></span></div>
+				  	</div>
+	  		  </div>
 	  		  <div class="ApplicationContentLabel">
 	  		    <div class="ContentLabel">
 	  		      <span class="LeftLabel">Type:</span>
@@ -60,7 +62,6 @@
 	  		  </div>
 	  		</div>
 			</div>
-		  <div style="clear: right;"><span></span></div>
 	  </div>
   <% } %>
   <div class="UIAction" > 

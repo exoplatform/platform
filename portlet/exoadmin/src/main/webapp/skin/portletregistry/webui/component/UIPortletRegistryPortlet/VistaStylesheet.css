@@ -113,34 +113,38 @@
 	background: url('VistaSkin/background/BGApplication1x24.png') repeat-x bottom;
 }
 
-.ApplicationRegistryWorkingArea .ApplicationDescription {
-  margin-right: 30px;
-}
-
-.ApplicationRegistryWorkingArea .TitleBarContainer {
-  padding: 10px 10px 0px 10px; 
-  width: 550px;
-}
-
 .ApplicationRegistryWorkingArea .ApplicationContent {
-  padding: 0px 0px 0px 12px;
-  width: 260px ;
-  overflow: hidden;
+  margin-left: 85px;
+  padding-bottom: 5px;
+  padding: 0px 5px 5px 5px;
+}
+
+.ApplicationRegistryWorkingArea .TitleBarApplication {
+	background: none;
+	border-bottom: 1px solid #dfdfdf;
+	width: 100%;
+	padding: 0px 1px;
+	margin: 0px auto 5px auto;
+}
+
+.ApplicationRegistryWorkingArea .TitleBarApplication label {
+  float: left;
+  margin-top: 6px;
+  font-weight: bold ; font-size: 12px; color: #1465B9; font-family: arial; 
 }
 
 .ApplicationRegistryWorkingArea .ApplicationButton {
-  float: right;
-  width: 28px;
-  padding: 9px 0px 0px 0px;
+  margin-left: 200px;
 }
 
 .ApplicationRegistryWorkingArea .Icon {
-  float: left;
-  margin: 3px 2px 0px 0px;
+  float: right;
+	cursor: pointer ;
+	margin: 0px 3px;
 }
 
 .ApplicationRegistryWorkingArea .DeleteIcon {
-  width: 16px ;  height: 16px ;
+  width: 18px ;  height: 18px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') no-repeat ;
 }
 
@@ -164,11 +168,6 @@
   float: left;
   height: 80px;
   width: 80px;
-}
-
-.ApplicationRegistryWorkingArea .TitleBarApplication {
-	height: 21px ;
-  color: #1465B9; vertical-align: middle ;	font-weight:bold; font-size: 13px;
 }
 
 .ApplicationRegistryWorkingArea .eXoBrowserIcon {

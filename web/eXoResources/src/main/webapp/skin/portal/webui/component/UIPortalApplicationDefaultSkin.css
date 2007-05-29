@@ -34,8 +34,8 @@ body {
 	background: #9ed0f3 url('/eXoResources/background/DefaultSkin/eXoBodyBG.jpg') no-repeat fixed ;
 	margin: 0px ; padding: 0px;
 	font-family: Tahoma,Verdana, Arial, Helvetica, sans-serif ;
-	font-size: 12px;
-	overflow-x: hidden;
+	font-size: 12px; letter-spacing: 0.8px;
+	overflow-x: hidden; 
 }
 
 html {

@@ -21,15 +21,12 @@
   padding-bottom: 1px;
 }
 
-.UIGrid tr {
-}
-
 .UIGrid td {
   height: 26px ;
   border-right: 1px solid #cccccc;
   border-left: 1px solid #cccccc;
   border-top: 1px solid white;
-  padding-left: 7px;
+  padding: 4px 0px 0px 7px;
 }
 
 .UIGrid .OddRow {
@@ -41,8 +38,7 @@
 }
 
 .UIGrid .ActionContainer {
-  margin-left: auto ;
-  margin-right: auto ;  
+  margin: auto ;
 }
 
 .UIGrid .ActionContainer a {
@@ -50,8 +46,7 @@
   color: #024369;
   text-decoration: none;
   float: left ;
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
 }
 
 .UIGrid .Datetime {
@@ -92,7 +87,6 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif') no-repeat ;
 }
 
-
 /*###################### UIListUsers Icon ######################*/
 
 .UIGrid .DeleteUserIcon {
@@ -125,4 +119,3 @@
   width: 16px ;  height: 16px ;
   margin: auto;
 }
-

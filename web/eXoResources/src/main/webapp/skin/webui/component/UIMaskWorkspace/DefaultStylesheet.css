@@ -71,17 +71,6 @@
   margin: auto;
 }
 
-.UIMaskWorkspace .UIForm .HorizontalLayout .FieldContainer {
-  padding-top: 8px;
-}
-
-.UIMaskWorkspace .UIForm .HorizontalLayout label {
-  padding-top: 2px;
-}
-
-.UIMaskWorkspace .UIForm .HorizontalLayout input {
-  font-size: 11px;
-}
 /*********************************** End UITabContent  ************************************/
 
 .UIMaskWorkspace .IconLayout {
