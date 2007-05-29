@@ -18,12 +18,12 @@
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .SitePortalImage {
-  background: url('VistaSkin/background/Default.png') no-repeat center;
+  background: url('VistaSkin/background/FrontOffice.png') no-repeat center;
   height: 240px;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .WebOSPortalImage {
-  background: url('VistaSkin/background/DesktopImage.png') no-repeat center;
+  background: url('VistaSkin/background/WebOSPortalImage.png') no-repeat center;
   height: 240px;
 }
 .UIItemSelector .ItemDetailList .TemplateContainer .PageDesktopImage {
