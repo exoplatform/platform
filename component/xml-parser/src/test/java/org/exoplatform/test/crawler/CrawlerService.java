@@ -20,7 +20,7 @@ import org.exoplatform.services.parser.html.util.HyperLinkUtil;
  *          laivankhoi46pm1@yahoo.com
  * Dec 1, 2006  
  */
-public class CrawlerService extends Thread{
+public class CrawlerService extends Thread {
   private SingleCrawlThread[] childrenThread;
   private boolean complete=false;
   
