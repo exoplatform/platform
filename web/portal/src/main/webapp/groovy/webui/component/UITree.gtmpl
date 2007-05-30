@@ -18,15 +18,6 @@
   }
 %>
 <div class="UITree ScrollArea">
- 	<div class="Controlbar">
- 		<div class="IconBar AddNode16x16Icon" title="Add New Note"><span></span></div>
- 		<div class="IconBar PasteNode16x16Icon" title="Paste Note"><span></span></div>
- 		<div class="Separator"><span></span></div>
- 		<div class="IconBar EditNode16x16Icon" title="Edit Navigation"><span></span></div>
- 		<div class="IconBar DeleteNode16x16Icon" title="Delete Navigation"><span></span></div>
- 		<div class="IconBar SaveNode16x16Icon" title="Sava Navigation"><span></span></div>
- 		<div style="clear: left;"><span></span></div>
- 	</div>
   <div class="TreeContainer JSContainer">
     <div class="TreeLevelContainer">
 	    <a class="LevelUpArrowIcon" href="<%=uicomponent.getActionLink();%>" title="Up Level" style="display: block;"><span></span></a>
