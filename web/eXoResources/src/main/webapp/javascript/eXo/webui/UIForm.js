@@ -1,7 +1,7 @@
 eXo.require('eXo.webui.UIItemSelector');
 
 function UIForm() {
-	this.backupAction ;
+	//this.backupAction ;
 };
 
 UIForm.prototype.onFixSize = function() {
@@ -38,11 +38,11 @@ UIForm.prototype.submitEvent = function(formId, action, params) {
   form.elements['formOp'].value = action ; 
   //-----------------------------------------------
   //TODO: Tung.Pham modified
-	//form.action =  form.action + "&" +  params ;
-	if (eXo.webui.UIForm.backupAction == null) {
-		eXo.webui.UIForm.backupAction = form.action ;
-	}
-	form.action = eXo.webui.UIForm.backupAction + "&" + params ;
+	form.action =  form.action + "&" +  params ;
+	//if (eXo.webui.UIForm.backupAction == null) {
+	//	eXo.webui.UIForm.backupAction = form.action ;
+	//}
+	//form.action = eXo.webui.UIForm.backupAction + "&" + params ;
 	//-----------------------------------------------
   //form.submit();
   ajaxPost(form) ;
