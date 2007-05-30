@@ -130,13 +130,13 @@
 
 .UIWizard .UIWizardPageSetInfo .PageNodeContainer {
   float: left;
-  width: 230px;
+  width: 250px;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo {
   border: solid 1px #939393 ;
   padding: 1px;
-  margin-left: 240px;
+  margin-left: 250px;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageInfoContainer{
@@ -235,7 +235,7 @@
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer {
   float: right;
-  width: 260px;
+  width: 240px;
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer .TemplateImage {
@@ -253,7 +253,7 @@
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList {
   height: 242px; 
   background: #ffffff;
-  padding: 10px; margin-right: 265px; 
+  padding: 10px; margin-right: 245px; 
   border: 1px solid #b7b7b7;
 }
 

@@ -65,7 +65,7 @@
 }fsdf
 
 .UIItemSelector .RightColumnStyle .ItemListContainer{
-  width: 220px;
+  width: 240px;
   float: right;
 }
 
@@ -177,7 +177,7 @@
 
 .UIItemSelector .RightColumnStyle .ItemDetailList {
   height: auto;
-  margin-right: 280px;
+  margin-right: 245px;
   padding: 1px ;
 }
 
