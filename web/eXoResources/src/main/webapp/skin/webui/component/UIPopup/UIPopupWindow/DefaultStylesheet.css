@@ -254,3 +254,7 @@
 	background: url('DefaultSkin/background/BCMessageDecorator1x4.gif') repeat-x ; 
 	height: 4px;
 }
+
+.UIPopupWindow .UIPageBrowser .UIGrid .ActionContainer {
+  width: 20px;
+}

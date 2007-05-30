@@ -13,6 +13,7 @@
 .UIPageIterator .PageIteratorContainer .LeftPageIteratorBlock{    
   float: right ;
   margin-right: 15px;
+  font-size: 11px;
 }
 
 .UIPageIterator .PageIteratorContainer .RightPageIteratorBlock{    
@@ -61,21 +62,21 @@
 .UIPageIterator .Number {
   float: left ;
   padding: 0px 4px 0px 4px ;
-  margin: 0px 8px 0px 5px;
+  margin: 0px 5px ;
 }
 
 .UIPageIterator .Number a.PageSelected {
   color: #e73c14;
   font-weight: bold;
   border: 1px solid #b5b5b5;
-  margin: 0px 2px 0px 2px ;
-  padding: 0px 5px 0px 5px ;
+  margin: 0px 2px ;
+  padding: 0px 5px 1px 5px ;
 }
 
 .UIPageIterator .Number a {
 	height: 17px; 
   margin: 3px 2px ;
-  padding: 0px 5px 0px 5px ;
+  padding: 0px 5px 1px 5px ;
   color: #333333 ;
   border: 1px solid #dfdfdf;
   background: url('MacSkin/background/NumberBackground1x15.gif') repeat-x center;

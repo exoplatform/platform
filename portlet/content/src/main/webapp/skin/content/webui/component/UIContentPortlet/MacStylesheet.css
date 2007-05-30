@@ -286,14 +286,8 @@
   float: right;
 }
 
-.UIContentPortlet .UIContentWorkingArea .Number {
-  float: left ;
-  text-align: center;
-  height: 20px; line-height: 20px; vertical-align: middle;
-}
-
 .UIContentPortlet .UIContentWorkingArea .Number a {
-  margin: 0px 3px 0px 5px ;
+  margin: 0px 3px 0px 3px ;
   color: black ;
   font-weight: bold ;
   font-size: 11px ;
