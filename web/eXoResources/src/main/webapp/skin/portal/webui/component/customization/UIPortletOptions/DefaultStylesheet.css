@@ -11,11 +11,11 @@
   padding: 5px;
 }
 
-.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 {
+.UIPortletOptions .UIVerticalSlideTabs .NormalTab {
   margin: 5px 5px 0px 5px ;
 }
 
-.UIPortletOptions .UIVerticalSlideTabs .SelectedVTabStyle3 {
+.UIPortletOptions .UIVerticalSlideTabs .SelectedTab {
   margin: 5px 5px 0px 5px ;
 }
 

@@ -47,15 +47,15 @@
           <div class="NavigationUpArrowIcon"><span></span></div>
         </a>
       </div>
-      <div class="UIVTab">
+      <div class="UIVTab VTabStyle3">
         <%
           for(node in navigations) {
-            String cTab = "VTabStyle3" ; 
+            String cTab = "NormalTab" ; 
             String cButton = "SwitchButton" ;
             String cIcon = "NavigationIcon ClosedFolderIcon" ;
             String cLabel = "NavigationLabel" ;
             if(uicomponent.isSelectedNode(node) || uicomponent.isParentNode(node)) {   
-              cTab = "SelectedVTabStyle3" ;
+              cTab = "SelectedTab" ;
               cButton = "SwitchButton" ;
               cIcon = "NavigationIcon OpenFolderIcon" ;
               cLabel = "NavigationLabel NavigationSelected" ; 

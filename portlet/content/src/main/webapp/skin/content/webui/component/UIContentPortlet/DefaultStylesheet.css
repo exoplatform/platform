@@ -48,11 +48,11 @@
   background: url('/eXoResources/background/DefaultSkin/NavigationBG.gif');
 }
 
-.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .VTabStyle3{
+.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NormalTab{
   margin-top: 4px;
 }
 
-.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .SelectedVTabStyle3{
+.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .SelectedTab {
   margin-top: 4px;
 }
 

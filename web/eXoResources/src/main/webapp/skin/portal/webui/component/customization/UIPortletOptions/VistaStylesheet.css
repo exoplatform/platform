@@ -61,20 +61,20 @@
 }
 
 /*######################-Override VerticalSlideTab-######################*/
-.UIPortletOptions .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLeft {
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
 	height: 27px ; 
   padding-left: 3px ;
   margin:0px 3px 0px 3px;
   background: url('/eXoResources/skin/webui/component/UITabSystem/UIVerticalSlideTabs/VistaSkin/background/SmoothRoundedLeftBar3x27.gif') no-repeat left ; 
 }
 
-.UIPortletOptions .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRight{
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight{
   height: 27px ; width: auto ;
   padding-right: 4px ;
   background: url('/eXoResources/skin/webui/component/UITabSystem/UIVerticalSlideTabs/VistaSkin/background/SmoothRoundedRightBar3x27.gif') no-repeat right ; 
 }
 
-.UIPortletOptions .UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRepeat{
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat{
   height: 27px ;
   background: url('/eXoResources/skin/webui/component/UITabSystem/UIVerticalSlideTabs/VistaSkin/background/SmoothRoundedRepeatBar1x27.gif') repeat-x ;
 }

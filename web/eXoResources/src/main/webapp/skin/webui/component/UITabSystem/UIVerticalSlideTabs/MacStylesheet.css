@@ -432,39 +432,39 @@
 
 /*#######################-PolygonNavyBlue Style VerticalSlideTabs-######################*/
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab  {
 	cursor: pointer;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLeft {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab  .TabLeft {
   padding: 0px 0px 0px 4px ;
   background: url('MacSkin/background/LeftSmoothRoundedBarS4x27.gif') no-repeat left ;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRight {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab  .TabRight {
   width: auto ;
   background: url('MacSkin/background/RightSmoothRoundedBarS4x27.gif') no-repeat right ;
   padding: 0px 4px 0px 0px ;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabRepeat {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab  .TabRepeat {
   height: 27px ;
   background: url('MacSkin/background/MiddleSmoothRoundedBarS1x27.gif') repeat-x ;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .LeftIcon {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab  .LeftIcon {
   float: left ;
   width: 16px;  height: 16px;
   background: url('/eXoResources/icons/16x16/MacSkin/BlackNextArrow.gif') no-repeat;
   margin: 6px 2px 0px 3px;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .TabLabel {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLabel {
   float: left ;
   line-height: 27px ;  vertical-align: middle ;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .SwitchButton {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat;
@@ -472,65 +472,65 @@
   cursor: pointer ;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .UIVTabContent {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .UIVTabContent {
   background: #ffffff ;
   border: solid 1px #b2b1b1 ;
   margin: 1px 0px ;
   padding: 5px ;
 }
 
-.UIVerticalSlideTabs .UIVTab .VTabStyle3 .NavigationIcon {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .NavigationIcon {
   margin: 6px 0px 0px 0px ;
 }
 /*#######################-SeltectedVTabStyle3 VerticalSlideTabs-######################*/
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab {
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLeft {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLeft {
   padding: 0px 0px 0px 4px ;
   background: url('MacSkin/background/LeftSmoothRoundedBar4x27.gif') no-repeat left ;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabRight {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRight {
   width: auto ;
   padding: 0px 4px 0px 0px;
   background: url('MacSkin/background/RightSmoothRoundedBar4x27.gif') no-repeat right ;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabRepeat {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRepeat {
   height: 27px ;
   background: url('MacSkin/background/MiddleSmoothRoundedBar1x27.gif') repeat-x ;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .LeftIcon {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .LeftIcon {
   float: left ;
   width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat ;
   margin: 8px 2px 0px 3px;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .TabLabel {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLabel {
   float: left ;
   line-height: 27px ;  vertical-align: middle ;
   color: blue;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .SwitchButton {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat;
   margin: 6px 3px 0px 0px ;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .UIVTabContent {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .UIVTabContent {
   background: #ffffff ;
   border: solid 1px #b2b1b1 ;
   margin: 1px 0px ;
   padding: 5px ;
 }
 
-.UIVerticalSlideTabs .UIVTab .SelectedVTabStyle3 .NavigationIcon {
+.UIVerticalSlideTabs .VTabStyle3 .SelectedTab .NavigationIcon {
   margin-top: 6px;
 }
 

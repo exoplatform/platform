@@ -45,12 +45,12 @@
 						    String des = portlet.getDescription();
 						    if(des == null || des.equals("")) des = _ctx.appRes("UIPortletOptions.label.description");
 					  %>
-					      <div class="UIVTab DragObjectPortlet" id="<%=portlet.getId();%>">
-						      <div class="VTabStyle3">
+					      <div class="UIVTab DragObjectPortlet VTabStyle3" id="<%=portlet.getId();%>">
+						      <div class="NormalTab">
 						        <div class="TabLeft">
 						          <div class="TabRight">
 						            <div class="TabRepeat">
-						              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabStyle3', 'SelectedVTabStyle3')">
+						              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabStyle3', 'SelectedTab')">
 											      <div class="LeftIcon"><span></span></div>
 									          <div class="TabLabel" title="$name Portlet">$name</div>
 								          </div>
