@@ -4,18 +4,13 @@
  **************************************************************************/
 package org.exoplatform.web.framework.portlet.mvc;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.PortletURL;
 import javax.portlet.RenderResponse;
 
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.javascript.JavaScriptEngine;
-import org.exoplatform.resolver.ApplicationResourceResolver;
-import org.mozilla.javascript.Script;
+import org.exoplatform.javascript.TemplateContext;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
@@ -25,27 +20,22 @@ import org.mozilla.javascript.Script;
 abstract public class EventHandler {
   protected PortletResponse response_ ;
   protected PortletRequest  request_ ;
-  protected JavaScriptEngine javascriptEngine_ ;
-  protected ApplicationResourceResolver resourceResolver_ ;
   
-  protected Map<String, Object> context_ = new HashMap<String, Object>() ;
+  protected TemplateContext templateContext_ ; 
   protected String useTemplate_ ;
   protected Throwable error_ ;
   
   public void setPortletRequest(PortletRequest req) { request_ =  req ; }
   public void setPortletResponse(PortletResponse res) { response_  = res ; }
-  public void setJavaScriptEngine(JavaScriptEngine engine) { javascriptEngine_ = engine ; }
-  public void setApplicationResourceResolver(ApplicationResourceResolver resolver) {
-    resourceResolver_ = resolver ;
-  }
+  
+  public void setTemplateContext(TemplateContext context) { templateContext_  = context ; }
   
   public void setUseTemplate(String template) { useTemplate_ =  template ; }
   public void setError(Throwable error) { error_ =  error ; }
   
-  
-  public <T extends EventHandler> PortletURL createEventURL(Class<T> handler) {
+  public <T extends EventHandler> PortletURL createEventURL(String handler) {
     PortletURL url = response_.createActionURL() ;
-    url.setParameter(MVCPortlet.EVENT_HANDLER, handler.getName()) ;
+    url.setParameter(MVCPortlet.EVENT_HANDLER, handler) ;
     return url ;
   }
   
@@ -58,15 +48,10 @@ abstract public class EventHandler {
   } 
   
   public void onRender() throws Exception {
-    Map<String, Object> context = this.context_ ;
-    this.context_ = null ;
-    
-    context.put("request", request_) ;
-    context.put("response", response_) ;
-    context.put("eventHandler", this) ;
-    
-    Script template = javascriptEngine_.loadTemplate(resourceResolver_, useTemplate_,  true) ;
-    RenderResponse renderResponse = (RenderResponse) response_ ;
-    javascriptEngine_.merge(template, context, renderResponse.getWriter()) ;
+    templateContext_.setVariable("request", request_) ;
+    templateContext_.setVariable("response", response_) ;
+    templateContext_.setVariable("EventHandler", this) ;
+    templateContext_.setWriter(((RenderResponse) response_).getWriter());
+    templateContext_.render(useTemplate_) ;
   }
 } 

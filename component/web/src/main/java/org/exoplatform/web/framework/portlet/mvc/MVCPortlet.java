@@ -15,6 +15,7 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import org.exoplatform.javascript.JavaScriptEngine;
+import org.exoplatform.javascript.TemplateContext;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.PortletResourceResolver;
 /**
@@ -39,17 +40,17 @@ abstract public class MVCPortlet extends GenericPortlet {
   final public void processAction(ActionRequest req, ActionResponse res) throws PortletException, IOException {
     EventHandler handler = null ;
     try {
-      Class<EventHandler> eventHandlerType = getDefaultEventHandler() ;
+      Class eventHandlerType = getDefaultEventHandler() ;
       String eventHandlerName = req.getParameter(EVENT_HANDLER) ;
       if(eventHandlerName == null) {
         eventHandlerType = getDefaultEventHandler() ;
       } else {
         eventHandlerType = 
-          (Class<EventHandler>)Thread.currentThread().getContextClassLoader().loadClass(eventHandlerName) ;
+          Thread.currentThread().getContextClassLoader().loadClass(eventHandlerName) ;
       }
-      handler = eventHandlerType.newInstance() ;
-      handler.setJavaScriptEngine(javascriptEngine_) ;
-      handler.setApplicationResourceResolver(resourceResolver_) ;
+      handler = (EventHandler)eventHandlerType.newInstance() ;
+      TemplateContext context = new TemplateContext(javascriptEngine_, resourceResolver_, null) ;
+      handler.setTemplateContext(context) ;
       handler.setPortletRequest(req) ;
       handler.setPortletResponse(res) ;
       handler.onAction() ;
@@ -67,8 +68,8 @@ abstract public class MVCPortlet extends GenericPortlet {
       EventHandler handler =  (EventHandler)req.getPortletSession().getAttribute(EVENT_HANDLER) ;
       if(handler == null)  {
         handler = (EventHandler) getDefaultEventHandler().newInstance() ;
-        handler.setJavaScriptEngine(javascriptEngine_) ;
-        handler.setApplicationResourceResolver(resourceResolver_) ;
+        TemplateContext context = new TemplateContext(javascriptEngine_, resourceResolver_, null) ;
+        handler.setTemplateContext(context) ;
       }
       handler.setPortletRequest(req) ;
       handler.setPortletResponse(res) ;

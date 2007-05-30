@@ -21,6 +21,14 @@
       <short-title>Sample MVC</short-title>
       <keywords>sample</keywords>
     </portlet-info>
+
+    <portlet-preferences>
+    	<preference>
+        <name>configure.template</name>
+        <value>app:/templates/test/ConfigureTemplate.jstmpl</value>
+        <read-only>false</read-only>
+      </preference>
+    </portlet-preferences>
   </portlet>  
   
 </portlet-app>

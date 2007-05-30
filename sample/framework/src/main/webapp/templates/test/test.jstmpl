@@ -3,7 +3,8 @@
   context.value = 'Hello Value' ;
   context.test = {} ;
   context.test.nested = 'Hello Test Nested' ;
-    
+  
+  
   function blockcode(param) {
     return 'call blockcode with param' + param;
   }
@@ -19,3 +20,19 @@
 <%}%>
 <%= myfunc(context.value)%>
 <%= blockcode(context.value)%>
+<br/>==========================================================<br/>
+<%TemplateContext.include("app:/templates/test/include.jstmpl")%>
+
+<br/>==========================================================<br/>
+
+<%
+  var testEventUrl = EventHandler.createEventURL("org.exoplatform.sample.portlet.mvc.TestEventHandler") ; 
+%>
+Test Action <a href="<%=testEventUrl.toString()%>">Click Me</a>
+
+<br/>==========================================================<br/>
+<%
+  var showConfigureTemplateUrl = 
+    EventHandler.createEventURL("org.exoplatform.sample.portlet.mvc.ShowConfigureTemplateEventHandler") ; 
+%>
+Show Configure Template <a href="<%=showConfigureTemplateUrl.toString()%>">Click Me</a>

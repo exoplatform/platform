@@ -36,7 +36,7 @@ public class JavaScriptEngine {
     if(script == null) {
       InputStream is = resolver.getInputStream(url) ;
       Reader reader = new InputStreamReader(is) ;
-      script = this.compileScript(url, reader) ;
+      script = compileScript(url, reader) ;
       scripts_.put(url, script) ;
     }
     return script ;
@@ -56,6 +56,7 @@ public class JavaScriptEngine {
   public void  runScript(Script script, Map<String, Object> context) throws Exception {
     Context cx = Context.enter();
     try {
+      cx.setApplicationClassLoader(Thread.currentThread().getContextClassLoader()) ;
       Scriptable scope = cx.initStandardObjects() ;
       Iterator<Map.Entry<String, Object>> i = context.entrySet().iterator() ;
       while(i.hasNext()) {
@@ -76,6 +77,7 @@ public class JavaScriptEngine {
   public Script compileScript(String name, String script) throws Exception {
     Context cx = Context.enter();
     try {
+      cx.setApplicationClassLoader(Thread.currentThread().getContextClassLoader()) ;
       Script scriptObject = cx.compileString(script, name, 1, null) ;
       return scriptObject ;
     } finally {
@@ -86,6 +88,7 @@ public class JavaScriptEngine {
   public Script compileScript(String name, Reader reader) throws Exception {
     Context cx = Context.enter();
     try {
+      cx.setApplicationClassLoader(Thread.currentThread().getContextClassLoader()) ;
       Script scriptObject = cx.compileReader(reader, name, 1, null) ;
       return scriptObject ;
     } finally {
