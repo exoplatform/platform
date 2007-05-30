@@ -29,7 +29,7 @@
   	jsmanager.addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
     uicomponent.renderUIComponent(uiPopupMenu) ;
     
-    popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode");
+    popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode,CreateNavigation,EditNavigation,SaveNavigation,DeleteNavigation");
   }
 %>
 	<div class="TopLeftContainerOptions">

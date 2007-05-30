@@ -14,10 +14,14 @@ import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.AddNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.CopyNodeActionListener;
+import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.CreateNavigationActionListener;
+import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.DeleteNavigationActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.DeleteNodeActionListener;
+import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.EditNavigationActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.EditPageNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.EditSelectedNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.PasteNodeActionListener;
+import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.SaveNavigationActionListener;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -68,7 +72,11 @@ import org.exoplatform.webui.event.EventListener;
       template = "system:/groovy/webui/component/UIRightClickPopupMenu.gtmpl",
       events = {
         @EventConfig(listeners = AddNodeActionListener.class),
-        @EventConfig(listeners = PasteNodeActionListener.class)
+        @EventConfig(listeners = PasteNodeActionListener.class),
+        @EventConfig(listeners = CreateNavigationActionListener.class),
+        @EventConfig(listeners = SaveNavigationActionListener.class),
+        @EventConfig(listeners = EditNavigationActionListener.class),
+        @EventConfig(listeners = DeleteNavigationActionListener.class)
       }
   )
 })

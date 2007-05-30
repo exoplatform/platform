@@ -37,10 +37,6 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
     template = "system:/groovy/webui/component/UIToolbar.gtmpl",
     events = {   
-        @EventConfig(listeners = UIPageNavigationControlBar.CreateNavigationActionListener.class),
-        @EventConfig(listeners = UIPageNavigationControlBar.EditNavigationActionListener.class),
-        @EventConfig(listeners = UIPageNavigationControlBar.SaveNavigationActionListener.class),
-        @EventConfig(listeners = UIPageNavigationControlBar.SeparateLineActionListener.class),
         @EventConfig(listeners = UIPageNavigationControlBar.BackActionListener.class),
         @EventConfig(listeners = UIPageNavigationControlBar.RollbackActionListener.class),
         @EventConfig(listeners = UIPageNavigationControlBar.AbortActionListener.class),
@@ -104,60 +100,6 @@ public class UIPageNavigationControlBar extends UIToolbar {
 
     }
   }
-  
-  static public class CreateNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
-    public void execute(Event<UIRightClickPopupMenu> event) throws Exception { 
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
-
-      UIPageNavigationForm uiNavigationForm = uiMaskWS.createUIComponent(UIPageNavigationForm.class, null, null);
-      uiMaskWS.setUIComponent(uiNavigationForm);      
-      uiMaskWS.setShow(true);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      
-      
-     /* PortalRequestContext prContext = Util.getPortalRequestContext();
-      PageNavigation navigation = new PageNavigation();
-      String userName = prContext.getRemoteUser();
-      navigation.setOwnerType(PortalConfig.USER_TYPE);
-      navigation.setOwnerId(userName);
-      navigation.setCreator(userName);
-      navigation.setModifier(userName);
-      navigation.setModifiable(true);
-      
-      UserPortalConfigService dataService = event.getSource().getApplicationComponent(UserPortalConfigService.class);
-      dataService.create(navigation);
-      
-      UIPageNodeSelector uiPageNodeSelector = event.getSource().getParent();
-      Util.getUIPortal().getNavigations().add(navigation);
-      uiPageNodeSelector.loadNavigations();
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector);*/
-    }
-  }
-
-  static public class EditNavigationActionListener extends EventListener<UIPageNavigationControlBar> {
-    public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-      UIPageNavigationControlBar uiControlBar = event.getSource();
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
-
-      UIPageNavigationForm uiNavigationForm = uiMaskWS.createUIComponent(UIPageNavigationForm.class, null, null);
-      UIPageManagement uiPManagement = uiControlBar.getParent();
-      UIPageNodeSelector uiNavigationSelector = uiPManagement.findFirstComponentOfType(UIPageNodeSelector.class);
-      PageNavigation nav = uiNavigationSelector.getSelectedNavigation();
-      if(nav == null) {
-        uiApp.addMessage(new ApplicationMessage("UIPageNavigationControlBar.msg.noEditablePageNavigation", new String[]{})) ;;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());  
-        return ;
-      }
-      uiNavigationForm.setValues(nav);
-      uiMaskWS.setUIComponent(uiNavigationForm);      
-      uiMaskWS.setShow(true);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-    }
-  }
 
   static public class SaveNavigationActionListener extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
@@ -173,7 +115,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
         return ;
       }
       
-      uiControlBar.saveNavigation(event);
+      uiControlBar.saveNavigation();
 
     }
   }
@@ -183,7 +125,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
       UIPageManagement uiPageManagement = event.getSource().getParent(); 
       UIPageEditBar uiPageEditBar = uiPageManagement.getChild(UIPageEditBar.class);
       uiPageEditBar.savePage();
-      event.getSource().saveNavigation(event);
+      event.getSource().saveNavigation();
       event.getSource().abort(event);
     }
   }
@@ -195,9 +137,8 @@ public class UIPageNavigationControlBar extends UIToolbar {
     }
   }
 
-  public void saveNavigation(Event<UIPageNavigationControlBar> event) throws Exception {
-    UIPageNavigationControlBar uiPageNav = event.getSource();
-    UIPageManagement uiManagement = uiPageNav.getParent();
+  public void saveNavigation() throws Exception {
+    UIPageManagement uiManagement = getAncestorOfType(UIPageManagement.class);
     UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
 
     List<PageNavigation> navs = uiNodeSelector.getNavigations();

@@ -16,17 +16,22 @@ import org.exoplatform.portal.component.customization.UIPageEditBar;
 import org.exoplatform.portal.component.customization.UIPageForm;
 import org.exoplatform.portal.component.customization.UIPageManagement;
 import org.exoplatform.portal.component.customization.UIPageNavigationControlBar;
+import org.exoplatform.portal.component.customization.UIPageNavigationForm;
 import org.exoplatform.portal.component.customization.UIPageNodeForm;
 import org.exoplatform.portal.component.customization.UIPageNodeSelector;
 import org.exoplatform.portal.component.customization.UIPageTemplateOptions;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.UIPage;
+import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIRightClickPopupMenu;
 import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.event.Event;
@@ -314,5 +319,94 @@ public class UIPageNodeActionListener {
       for(PageNode child : children) replaceURI(preReplacePattern, afterReplacePattern, child); 
     }
 
+  }
+  
+  static public class EditNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
+    public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
+      UIRightClickPopupMenu uiControlBar = event.getSource();
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
+
+      UIPageNavigationForm uiNavigationForm = uiMaskWS.createUIComponent(UIPageNavigationForm.class, null, null);
+      UIPageManagement uiPManagement = uiControlBar.getAncestorOfType(UIPageManagement.class);
+      UIPageNodeSelector uiNavigationSelector = uiPManagement.findFirstComponentOfType(UIPageNodeSelector.class);
+      PageNavigation nav = uiNavigationSelector.getSelectedNavigation();
+      if(nav == null) {
+        uiApp.addMessage(new ApplicationMessage("UIPageNavigationControlBar.msg.noEditablePageNavigation", new String[]{})) ;;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());  
+        return ;
+      }
+      uiNavigationForm.setValues(nav);
+      uiMaskWS.setUIComponent(uiNavigationForm);      
+      uiMaskWS.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+    }
+  }
+  
+  static public class CreateNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
+    public void execute(Event<UIRightClickPopupMenu> event) throws Exception { 
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
+
+      UIPageNavigationForm uiNavigationForm = uiMaskWS.createUIComponent(UIPageNavigationForm.class, null, null);
+      uiMaskWS.setUIComponent(uiNavigationForm);      
+      uiMaskWS.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      
+      
+     /* PortalRequestContext prContext = Util.getPortalRequestContext();
+      PageNavigation navigation = new PageNavigation();
+      String userName = prContext.getRemoteUser();
+      navigation.setOwnerType(PortalConfig.USER_TYPE);
+      navigation.setOwnerId(userName);
+      navigation.setCreator(userName);
+      navigation.setModifier(userName);
+      navigation.setModifiable(true);
+      
+      UserPortalConfigService dataService = event.getSource().getApplicationComponent(UserPortalConfigService.class);
+      dataService.create(navigation);
+      
+      UIPageNodeSelector uiPageNodeSelector = event.getSource().getParent();
+      Util.getUIPortal().getNavigations().add(navigation);
+      uiPageNodeSelector.loadNavigations();
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector);*/
+    }
+  }
+  
+  static public class DeleteNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
+    public void execute(Event<UIRightClickPopupMenu> event) throws Exception { 
+      System.out.println("\n\n\n-------------DeleteNavigationssssssssssss");
+      UIRightClickPopupMenu uiPopup = event.getSource();
+      UIPageNodeSelector pageNodeSelector = uiPopup.getAncestorOfType(UIPageNodeSelector.class);
+      PageNavigation k = pageNodeSelector.getSelectedNavigation();
+      DataStorage storage = pageNodeSelector.getApplicationComponent(DataStorage.class);
+      pageNodeSelector.getNavigations().remove(k);
+      storage.remove(k);
+      Util.getUIPortal().getNavigations().remove(k);
+      pageNodeSelector.loadNavigations();
+      event.getRequestContext().addUIComponentToUpdateByAjax(pageNodeSelector);      
+    }
+  }
+  
+  static public class SaveNavigationActionListener extends EventListener<UIComponent> {
+    public void execute(Event<UIComponent> event) throws Exception {
+      UIComponent uiPopup = event.getSource();
+      
+      UIPageManagement uiManagement = uiPopup.getAncestorOfType(UIPageManagement.class);
+      UIPageNavigationControlBar uiControlBar = uiManagement.getChild(UIPageNavigationControlBar.class);
+      UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
+      List<PageNavigation> navs = uiNodeSelector.getNavigations();
+      if(navs == null || navs.size() < 1) {
+        UIPortalApplication uiApp = uiManagement.getAncestorOfType(UIPortalApplication.class);
+        uiApp.addMessage(new ApplicationMessage("UIPageNavigationControlBar.msg.noEditablePageNavigation", new String[]{})) ;;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());  
+        return ;
+      }
+      
+      uiControlBar.saveNavigation();
+
+    }
   }
 }
