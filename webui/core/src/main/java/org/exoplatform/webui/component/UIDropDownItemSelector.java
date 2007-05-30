@@ -115,6 +115,16 @@ public class UIDropDownItemSelector extends UIComponent {
     if(options_ == null || i >= options_.size()) return;
     selected_ = options_.get(i); 
   }
+  
+  public void setSelected(String value) {
+    if(options_ == null) return ;
+    for(SelectItemOption<String> option: options_){
+      if( option.getValue().equals(value)){
+        setSelectedItem(option);
+        break;
+      }
+    }
+  }
 
   public void cleanItem() {
     options_.clear();
