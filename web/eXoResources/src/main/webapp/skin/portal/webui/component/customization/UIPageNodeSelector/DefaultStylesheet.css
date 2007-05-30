@@ -85,19 +85,15 @@
 }
 
 /*Created by Vu Duy Tu*/
-
-.UIPageNodeSelector .AddNavigationIcon {
+.UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
 	background: url('/eXoResources/icons/24x24/DefaultSkin/EditNavigation.gif') no-repeat left top;
 	cursor: pointer;
 	float: left;margin-left: -1px;
 	height: 21px; width: 21px;
+	display: block;
 }
 
-.UIWizard .UIPageNodeSelector .NavigationLabel {
-	display: none;
-}
-
-.UIWizard .UIPageNodeSelector .AddNavigationIcon {
+.AddNavigationIcon {
 	display: none;
 }
 
