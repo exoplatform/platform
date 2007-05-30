@@ -8,7 +8,7 @@
   jsmanager.importJavascript('eXo.desktop.UIAddApplication') ;
   
   String componentId = uicomponent.getId();
-  String addWidgetAction = "eXo.desktop.UIAddApplication.init('"+uicomponent.getId()+"', '$componentId');" ;
+  String addWidgetAction = "eXo.desktop.UIAddApplication.init('"+uicomponent.getId()+"', true);" ;
   
 %>
 

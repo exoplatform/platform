@@ -98,7 +98,7 @@
                   <img class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/AddPortlet.png"
                        alt="/eXoResources/background/DefaultSkin/Blank.gif"
                        id="UIAddApplicationIcon"
-                       onclick="eXo.desktop.UIAddApplication.init('UIPageDesktop','$comId')" />
+                       onclick="eXo.desktop.UIAddApplication.init('UIPageDesktop')" />
                   <%/*Tool Tip*/%>
                   
 	                <span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>

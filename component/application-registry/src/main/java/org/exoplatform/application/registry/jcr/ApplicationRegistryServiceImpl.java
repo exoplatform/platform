@@ -260,9 +260,12 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     PortalContainer container  = PortalContainer.getInstance() ;
     WebAppController appController = 
       (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
-    List<org.exoplatform.web.application.Application> applications = 
+    List<org.exoplatform.web.application.Application> eXoApplications = 
       appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE) ;
-    for (org.exoplatform.web.application.Application app : applications) {
+    List<org.exoplatform.web.application.Application> eXoWidgets = 
+      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE) ;
+    eXoApplications.addAll(eXoWidgets);
+    for (org.exoplatform.web.application.Application app : eXoApplications) {
       ApplicationCategory category = getApplicationCategory(app.getApplicationGroup()) ;
       if (category == null) {
         category = new ApplicationCategory() ;

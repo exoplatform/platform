@@ -6,7 +6,8 @@ function UIAddApplication() {
   
 };
 
-UIAddApplication.prototype.init = function(containerId) {
+UIAddApplication.prototype.init = function(containerId, isWidget) {
+  
 	var DOMUtil = eXo.core.DOMUtil ;
 	var container = document.getElementById(containerId);
 	var context = new Object();
@@ -27,7 +28,7 @@ UIAddApplication.prototype.init = function(containerId) {
 	}
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	eXo.desktop.UIAddApplication.showAddApplication(uiAddApplicationContainer);
-	this.loadPortlets(true);
+	this.loadPortlets(true, isWidget);
 };
 
 /**Created: by Duy Tu**/
@@ -37,7 +38,7 @@ function getUrl(src) {
 	return(img.src);
 };
 
-UIAddApplication.prototype.loadPortlets = function(refresh) {
+UIAddApplication.prototype.loadPortlets = function(refresh, isWidget) {
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	var url = eXo.env.server.context + "/service?serviceName=portletRegistry";
 	if(refresh == null || refresh == undefined) refresh = false;
@@ -81,6 +82,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 	  var portlets = cate["portlets"];
 	  for(id in portlets) {
 	  	portlet = portlets[id];
+  	  if( !isWidget || (isWidget && portlet["type"] == "eXoWidget")) {
       var srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + portlet["title"]+".png";
       var srcNormalBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png";
 			srcBG = getUrl(srcBG);
@@ -105,7 +107,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 			               '      <div class="ApplicationContentLabel">' +
 			               '        <div class="ContentLabel">' +
 			               '          <span class="LeftLabel">Type:</span>' +
-			               '	        <span class="RightLabel"> JSR 170 Portlet</span>' +
+			               '	        <span class="RightLabel">' +portlet["type"]+'</span>' +
 			               '	      </div>' +
 			               '	      <div class="ContentLabel">' +
 			               '	        <span class="LeftLabel">Created by:</span>' +
@@ -121,6 +123,7 @@ UIAddApplication.prototype.loadPortlets = function(refresh) {
 						      	 '	</div>' +
 						      	 '	<div style="clear: right;"><span></span></div>' +
 						      	 '</div>';
+  	  }
 	  }
     itemDetails += '</div>';
 		if(!selected) selected = true;
