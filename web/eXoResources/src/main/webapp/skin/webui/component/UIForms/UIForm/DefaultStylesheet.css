@@ -10,11 +10,11 @@
 
 .UIForm .HorizontalLayout .UIFormGrid td {
   padding: 4px;
-  vertical-align: middle;
 }
 
 .UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
   text-align: right;
+  vertical-align: top;
 }
 
 .UIForm .HorizontalLayout .MultiValueContainer {
@@ -70,7 +70,6 @@
   background: white ;
 }
 
-<<<<<<< .mine
 .UIForm .HorizontalLayout label {
 	float:left;
   width: 120px ;
@@ -78,8 +77,6 @@
 	margin: 0px 10px 0px 0px;
 }
 
-=======
->>>>>>> .r16078
 .UIForm .HorizontalLayout input {
   width: 228px ;
   font-size: 11px;
@@ -101,7 +98,7 @@
 
 
 .UIForm .HorizontalLayout select {
-  width: 237px ;
+  width: 232px ;
   border: 1px solid #808080 ;
 }
 

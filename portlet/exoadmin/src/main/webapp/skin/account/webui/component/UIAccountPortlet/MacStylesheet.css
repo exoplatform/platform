@@ -41,10 +41,6 @@
   width: 400px;
 }
 
-.UIAccountPortlet .UIForm .HorizontalLayout select {
-  width: 238px;
-}
-
 .UIAccountPortlet .UIItemSelector .ItemDetail .UIFormInputSet {
   padding-top: 7px;
 }

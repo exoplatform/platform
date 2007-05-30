@@ -32,10 +32,6 @@
   margin-left: 130px;
 }
 
-.UIFormWithTitle .UIForm select {
-  width: 220px;
-}
-
 .UIFormWithTitle .UIForm .UIAction {  
   width: 180px;
   padding-top: 15px;

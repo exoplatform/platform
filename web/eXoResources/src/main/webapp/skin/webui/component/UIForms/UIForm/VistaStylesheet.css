@@ -12,6 +12,15 @@
   width: 100% ;
 }
 
+.UIForm .HorizontalLayout .UIFormGrid td {
+  padding: 4px;
+}
+
+.UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
+  text-align: right;
+  vertical-align: top;
+}
+
 .UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
   margin-top: 3px ;
   margin-left: 145px ;
