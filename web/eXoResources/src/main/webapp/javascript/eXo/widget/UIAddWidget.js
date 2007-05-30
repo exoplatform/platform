@@ -19,12 +19,14 @@ UIAddWidget.prototype.show = function() {
 };
 
 UIAddWidget.prototype.addWidget = function(widgetElement) {
-	var appDescriptor = widgetElement.applicationDescriptor;
 	
+	var appDescriptor = widgetElement.applicationDescriptor;
 	var uiWidgets = document.getElementById("UIWidgets");
 	var uiWidgetContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiWidgets, "div", "UIWidgetContainer");
-	var firstChild = eXo.core.DOMUtil.getChildrenByTagName(uiWidgetContainer, "div")[0];
-	uiWidgetContainer.insertBefore(widgetElement, firstChild) ;
+	var widgetNavigator = eXo.core.DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetNavigator");
+	
+	uiWidgetContainer.insertBefore(widgetElement, widgetNavigator) ;
+	
 	eXo.widget.UIWidget.init();
 	
 	/*Get Application's Stylesheet*/

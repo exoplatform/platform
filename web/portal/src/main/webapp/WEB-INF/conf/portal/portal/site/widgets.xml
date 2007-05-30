@@ -6,12 +6,13 @@
 	<edit-permission>*:/user</edit-permission>
 	
 	<container id="Information">
-    <application>
-      <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget1</instance-id>
+		<application>
+      <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget1</instance-id>
       <application-type>eXoWidget</application-type> 
     </application>
+	
     <application>
-      <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget1</instance-id>
+      <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget1</instance-id>
       <application-type>eXoWidget</application-type> 
     </application>
 	</container>

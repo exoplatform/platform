@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
@@ -28,12 +29,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIWidgetContainer extends UIContainer {
   
   public UIWidgetContainer() throws Exception {
-//    UIWidget widgetSystem = addChild(UIWidget.class, null, null);
-//    UISystemWidgets systemWidgets = createUIComponent(UISystemWidgets.class, null, null);
-//    widgetSystem.setUIComponent(systemWidgets);
-//    UIWidget widgetInfo = addChild(UIWidget.class, null, null);
-//    UIInfoWidget uiInfoWidget = createUIComponent(UIInfoWidget.class, null, null);
-//    widgetInfo.setUIComponent(uiInfoWidget);
+    
   }
   
   static public class DeleteWidgetActionListener extends EventListener<UIWidgetContainer> {
@@ -42,10 +38,12 @@ public class UIWidgetContainer extends UIContainer {
       UIWidgetContainer uiWidgetContainer = event.getSource();
       
       List<UIComponent> children = uiWidgetContainer.getChildren();
-      for(UIComponent com: children){
-        UIWidget uiWidget = (UIWidget) com;
+      Iterator<UIComponent> iter = children.iterator();
+      while(iter.hasNext()) {
+        UIWidget uiWidget = (UIWidget) iter.next();
         if(uiWidget.getApplicationId().equals(id)) {
-          children.remove(uiWidget);
+          iter.remove();
+          break;
         }
       }
       
