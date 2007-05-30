@@ -18,7 +18,9 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormCheckBoxInput;
 import org.exoplatform.webui.component.UIFormInputItemSelector;
@@ -199,12 +201,13 @@ public class UIPageForm extends UIFormTabPane {
   static public class SaveActionListener  extends EventListener<UIPageForm> {
     public void execute(Event<UIPageForm> event) throws Exception {
       UIPageForm uiPageForm = event.getSource();   
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIPage uiPage = uiPageForm.getUIPage();
       Page page = new Page() ;
       uiPageForm.invokeSetBindingBean(page);
       UserPortalConfigService configService = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
-      
+
       if(uiPage != null) {
         page.setOwnerType(uiPage.getOwnerType());
         List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
@@ -238,6 +241,19 @@ public class UIPageForm extends UIFormTabPane {
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
         configService.update(page);
       } else {
+        //------------------------------------------------------------------------------
+        //TODO: Tung.Pham added
+        String ownerType = uiPageForm.getUIFormSelectBox("ownerType").getValue() ;
+        String ownerId = uiPageForm.getUIStringInput("ownerId").getValue() ;
+        String pageName = uiPageForm.getUIStringInput("name").getValue() ;
+        String pageId = ownerType + "::" + ownerId + "::" + pageName ;
+        Page existPage = configService.getPage(pageId) ;
+        if (existPage != null) {
+          uiPortalApp.addMessage(new ApplicationMessage("UIPageForm.msg.SameName", null)) ;
+          pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+          return ;
+        }
+        //------------------------------------------------------------------------------
         page.setCreator(pcontext.getRemoteUser());
         page.setModifiable(true);
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
@@ -245,7 +261,6 @@ public class UIPageForm extends UIFormTabPane {
       }
       
       WebuiRequestContext rcontext = event.getRequestContext();
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       uiMaskWS.setUIComponent(null);
       uiMaskWS.setShow(false);
