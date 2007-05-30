@@ -28,7 +28,7 @@ public class HttpClientImpl  {
   
   private DataBuffer buffer;  
   
-  public static int HTTP_TIMEOUT = 5000;
+  public static int HTTP_TIMEOUT = 25000;
   
   public static int METHOD_TIMEOUT = 25000;
   

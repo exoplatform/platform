@@ -51,7 +51,10 @@ public class UIWizardPageCreationBar extends UIContainer {
   public void processRender(WebuiRequestContext context) throws Exception {
     Writer w = context.getWriter();    
     w.append("<div class=\"UICreatePage\" id=\"UIWizardPageCreationBar\">") ;
+    w.append("  <div class=\"CreatePageContainer\">") ;
+    w.append("    <div class=\"CreatePageLabel\">Page Management</div>") ;
     renderChildren() ;
+    w.append("  </div>") ;
     w.append("</div>") ;
   }  
 

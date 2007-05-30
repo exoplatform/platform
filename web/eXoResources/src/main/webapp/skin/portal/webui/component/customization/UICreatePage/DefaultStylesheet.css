@@ -2,6 +2,12 @@
   padding: 8px 5px 5px 5px;
 }
 
+.UICreatePage .CreatePageContainer {
+	border: solid 1px #bcbcbc;
+	background: #f2f2f2;
+	padding-bottom: 5px;
+}
+
 .UICreatePage .TopTitleBar {
   margin-bottom: 10px;
   padding: 0px 10px ;
@@ -102,9 +108,37 @@
 }
 
 .UICreatePage .UIToolbar .EditToolbar {
-  margin-top: 10px;
+  padding: 0px 6px;
 }
 
 .UICreatePage .UIToolbar .EditToolbar .Icon{
 	margin: 5px 12px 0px 27px;
+}
+
+.UICreatePage .CreatePageContainer .BackNavigationContent {
+	padding: 5px 0px 0px 15px;
+}
+
+.UICreatePage .BackNavigationContent .BackNavigationIcon {
+	height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/BackIcon.gif') no-repeat;
+	padding-left: 22px;
+	cursor: pointer ;
+}
+
+.UICreatePage .BackNavigationContent .BackNavigationLabel {
+	line-height: 16px;
+	font-size: 11px;
+}
+
+.UICreatePage .CreatePageContainer .CreatePageLabel {
+	color:#656565;
+	font-size:11px;
+	font-weight:bold;
+	line-height:22px;
+	text-align:center;
+}
+
+.UICreatePage .UIPortletOptions {
+	margin: 0px 6px;
 }

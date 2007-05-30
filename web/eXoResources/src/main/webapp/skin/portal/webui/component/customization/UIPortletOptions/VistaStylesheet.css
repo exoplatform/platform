@@ -83,3 +83,7 @@
 	width: 16px; height: 16px;
 	background: url('/eXoResources/icons/16x16/VistaSkin/DefaultPortletIcons.png') no-repeat;
 }
+
+#UIPortletOptions .BackNavigationContent {
+	display: none;
+}
