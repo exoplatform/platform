@@ -316,8 +316,4 @@ public class UserPortalConfigService {
   
   @SuppressWarnings("unused")
   public void initListener(ComponentPlugin listener) { }
-  
-  public void printTree() throws Exception {
-    storage_.printTree() ;
-  }
 }
