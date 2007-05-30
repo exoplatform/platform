@@ -115,22 +115,6 @@
 	margin: 5px 12px 0px 27px;
 }
 
-.UICreatePage .CreatePageContainer .BackNavigationContent {
-	padding: 5px 0px 0px 15px;
-}
-
-.UICreatePage .BackNavigationContent .BackNavigationIcon {
-	height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BackIcon.gif') no-repeat;
-	padding-left: 22px;
-	cursor: pointer ;
-}
-
-.UICreatePage .BackNavigationContent .BackNavigationLabel {
-	line-height: 16px;
-	font-size: 11px;
-}
-
 .UICreatePage .CreatePageContainer .CreatePageLabel {
 	color:#656565;
 	font-size:11px;
@@ -141,4 +125,23 @@
 
 .UICreatePage .UIPortletOptions {
 	margin: 0px 6px;
+}
+
+
+
+
+.BackNavigationContent {
+	padding: 5px 0px 0px 15px;
+}
+
+.BackNavigationContent .BackNavigationIcon {
+	height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/BackIcon.gif') no-repeat;
+	padding-left: 22px;
+	cursor: pointer ;
+}
+
+.BackNavigationContent .BackNavigationLabel {
+	line-height: 16px;
+	font-size: 11px;
 }

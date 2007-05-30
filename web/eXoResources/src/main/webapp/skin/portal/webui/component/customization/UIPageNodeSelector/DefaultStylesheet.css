@@ -85,12 +85,6 @@
 }
 
 /*Created by Vu Duy Tu*/
-.UIPageNodeSelector .NavigationLabel {
-	line-height: 22px;
-	font-weight: bold; font-size: 11px;
-	color: #656565;
-	text-align: center;
-}
 
 .UIPageNodeSelector .AddNavigationIcon {
 	background: url('/eXoResources/icons/24x24/DefaultSkin/EditNavigation.gif') no-repeat left top;

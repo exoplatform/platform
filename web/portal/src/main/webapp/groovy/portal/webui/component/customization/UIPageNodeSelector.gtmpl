@@ -43,7 +43,6 @@
 			  <%/*Begin PageNodeSelectorContainer*/%>
 			  <div class="UIContainerConfigOptions ItemSelectorAncestor"> 
 				  <div class="ContainerConfigOptions">
-				  <div class="NavigationLabel">Navigation Management</div>
 						<%uicomponent.renderChild(UIDropDownItemSelector.class);%>
 						<div class="AddNavigationIcon" title="Create new Page Navigation"><span></span></div>
 		        <div style="clear: left"><span></span></div>	
