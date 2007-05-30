@@ -199,7 +199,7 @@ public class PortalDataMapper {
     
     List<Object> children  = model.getChildren();
     if(children == null)  return;
-    for(Object child : children) {   
+    for(Object child : children) {
       UIComponent uiComp = buildChild(uiContainer, child);
       if(uiComp != null) uiContainer.addChild(uiComp);
     }

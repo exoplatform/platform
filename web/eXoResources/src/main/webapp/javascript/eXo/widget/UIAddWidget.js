@@ -21,6 +21,9 @@ UIAddWidget.prototype.show = function() {
 UIAddWidget.prototype.addWidget = function(widgetElement) {
 	
 	var appDescriptor = widgetElement.applicationDescriptor;
+	
+//	alert("Widget Name: " + appDescriptor.application.appName);
+	
 	var uiWidgets = document.getElementById("UIWidgets");
 	var uiWidgetContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiWidgets, "div", "UIWidgetContainer");
 	var widgetNavigator = eXo.core.DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetNavigator");
@@ -36,6 +39,7 @@ UIAddWidget.prototype.addWidget = function(widgetElement) {
 
 UIAddWidget.prototype.addWidgetToDesktop = function(widgetElement) {
 	var appDescriptor = widgetElement.applicationDescriptor;
+//	alert("ADD DESKTOP: " + appDescriptor.application.appName);
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	if(uiPageDesktop == null) return ;
 	uiPageDesktop.appendChild(widgetElement);
