@@ -140,18 +140,18 @@
 
 
 .UIWidgets .WidgetDecorator .BottomLeftWidgetsDecorator {
-  background: url('VistaSkin/background/BottomLeftWidgets6x9.png') no-repeat left bottom;
+  background: url('VistaSkin/background/BottomLeftWidgets6x12.png') no-repeat left bottom;
 	padding: 0px 0px 0px 6px;
 }
 
 .UIWidgets .WidgetDecorator .BottomRightWidgetsDecorator {
-  background: url('VistaSkin/background/BottomRightWidgets7x9.png') no-repeat right bottom;
+  background: url('VistaSkin/background/BottomRightWidgets7x12.png') no-repeat right bottom;
 	padding: 0px 7px 0px 0px;
 }
 
 .UIWidgets .WidgetDecorator .BottomCenterWidgetsDecorator {
-  background: url('VistaSkin/background/BottomMiddleWidgets1x9.png') repeat-x bottom;
-	height: 9px;
+  background: url('VistaSkin/background/BottomMiddleWidgets1x12.png') repeat-x bottom;
+	height:12px;
 }
 
 .UIWidgetContainer .eXoInfoWidgetImage .TopWidgetImage {
