@@ -21,6 +21,7 @@ import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
+import org.jgroups.util.GetNetworkInterfaces;
 
 /**
  * Created by The eXo Platform SARL
@@ -164,25 +165,42 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public void  removeUserPortalConfig(String portalName) throws Exception {
-    PortalConfig portalConfig = storage_.getPortalConfig(portalName) ;
-    if(portalConfig != null) storage_.remove(portalConfig);
+//    PortalConfig portalConfig = storage_.getPortalConfig(portalName) ;
+//    if(portalConfig != null) storage_.remove(portalConfig);
+//    
+//    Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
+//    query.setOwnerType(PortalConfig.PORTAL_TYPE) ;
+//    query.setOwnerId(portalName) ;
+//    PageList pagelist = storage_.find(query) ;
+//    pagelist.setPageSize(10);
+//    int i = 1;
+//    while(i < pagelist.getAvailablePage()) {
+//      List<?>  list = pagelist.getPage(i);
+//      for(Object ele : list) {
+//        storage_.remove((Page)ele);
+//      }
+//      i++;
+//    }
+//    
+//    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
+//    if (navigation != null) remove(navigation);
     
+    //TODO: Tung.Pham replace
+    //-------------------------------------------------------------------------------------------------------
     Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
     query.setOwnerType(PortalConfig.PORTAL_TYPE) ;
     query.setOwnerId(portalName) ;
-    PageList pagelist = storage_.find(query) ;
-    pagelist.setPageSize(10);
-    int i = 1;
-    while(i < pagelist.getAvailablePage()) {
-      List<?>  list = pagelist.getPage(i);
-      for(Object ele : list) {
-        storage_.remove((Page)ele);
-      }
-      i++;
+    PageList pageList = storage_.find(query) ;
+    for (Object page : pageList.getAll()) {
+     remove((Page)page) ; 
     }
     
-    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
-    if (navigation != null) remove(navigation);
+    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + portalName) ;
+    if (navigation != null) remove(navigation) ;
+    
+    PortalConfig config = storage_.getPortalConfig(portalName) ;
+    if (config != null) storage_.remove(config) ;
+    //-------------------------------------------------------------------------------------------------------
   }
   
   /**
@@ -298,4 +316,8 @@ public class UserPortalConfigService {
   
   @SuppressWarnings("unused")
   public void initListener(ComponentPlugin listener) { }
+  
+  public void printTree() throws Exception {
+    storage_.printTree() ;
+  }
 }

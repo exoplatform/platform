@@ -120,9 +120,14 @@ public class DataStorageImpl implements DataStorage {
     Session session = jcrRegService_.getSession();
     Node appNode = jcrRegService_.getApplicationRegistryNode(session, PORTAL_DATA);
     Node portalNode = appNode.getNode(config.getName()) ;
-    Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
-    portalConfigNode.remove() ;
-    portalNode.save() ;
+    //TODO: Tung.Pham modified
+    //-------------------------------------------------------------------------------------
+    //Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
+    //portalConfigNode.remove() ;
+    //portalNode.save() ;
+    if (portalNode != null) portalNode.remove() ;
+    appNode.save() ;
+    //-------------------------------------------------------------------------------------
     session.save() ;
     session.logout();
   }
@@ -425,5 +430,5 @@ public class DataStorageImpl implements DataStorage {
     Node node = parent.addNode(name, NT_FOLDER_TYPE);
     parent.save();
     return node;    
-  }
+  }  
 }
