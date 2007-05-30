@@ -202,6 +202,21 @@
 	margin: 4px 10px 0px 0px ;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon  {
+	width: 28px; height: 22px;
+	background: url("DefaultSkin/background/RemoveGroup.gif") no-repeat;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon  {
+	width: 28px; height: 22px;
+	background: url("DefaultSkin/background/AddGroup.gif") no-repeat;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon  {
+	width: 28px; height: 22px;
+	background: url("DefaultSkin/background/EditGroup.gif") no-repeat;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
   margin-left: 227px ;
   width: auto;
@@ -226,6 +241,10 @@
 	overflow: visible;
 	margin: 5px auto;
 	width: 450px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm tr{
+	height: 25px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITab {

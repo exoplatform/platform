@@ -31,7 +31,7 @@ html {
 
 body {
   background: url('/eXoResources/background/VistaSkin/eXoDesktopBG1.jpg') no-repeat fixed ;
-	font-family: Verdana, Arial, Helvetica, sans-serif ;
+	font-family: tahoma, Verdana, Arial, Helvetica, sans-serif ;
 	font-size: 12px;
 	margin: 0px ; padding: 0px;
 	overflow-x: hidden;

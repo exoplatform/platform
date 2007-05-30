@@ -82,4 +82,32 @@
    
 }
 
+/** ################# UIPageNodeSelector.UITree.Controlbar ###################*/
+.UIWizard .UITree .Controlbar {
+	display: none;
+}
+
+.UITree .Controlbar {
+	border: solid 1px #ffffff;
+	background: #f2f2f2;
+	height: 25px;
+	padding-left: 3px;
+}
+
+.UITree .Controlbar .IconBar {
+	float: left;
+	width: 24px;	height: 22px;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: 1px;
+	cursor: pointer;
+}
+
+.UITree .Controlbar .Separator {
+	float: left;
+	border-left: 1px #d0d0d0 solid;
+	border-right: 1px #ffffff solid;
+	height: 20px;
+	margin: 2px;
+}
 

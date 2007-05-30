@@ -31,6 +31,11 @@
   float: left;
 }
 
+.UIRightClickPopupMenu .Rename16x16Icon{
+   width: 24px; height: 24px;
+   background: url('/eXoResources/icons/16x16/VistaSkin/Rename.gif') no-repeat center ;   
+}
+
 .UIRightClickPopupMenu .AddNode16x16Icon{
   width: 19px;
   height: 19px;
