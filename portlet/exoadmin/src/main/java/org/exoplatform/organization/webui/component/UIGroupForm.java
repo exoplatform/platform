@@ -10,7 +10,9 @@ import org.exoplatform.services.organization.GroupHandler;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.component.UIApplication;
+import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIForm;
+import org.exoplatform.webui.component.UIFormInputBase;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTextAreaInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
@@ -64,6 +66,15 @@ public class UIGroupForm extends UIForm {
   
   public void setName(String componentName) { componentName_ = componentName; }
   
+  //TODO: Tung.Pham added
+  public void setEditableAll() {
+    for (UIComponent component : getChildren()) {
+      if (component  instanceof UIFormInputBase<?>)  {
+        ((UIFormInputBase<?>)component).setEditable(true) ;
+      }
+    }
+  }
+  
   static  public class SaveActionListener extends EventListener<UIGroupForm> {
     public void execute(Event<UIGroupForm> event) throws Exception {
       UIGroupForm uiGroupForm = event.getSource() ;
@@ -106,7 +117,7 @@ public class UIGroupForm extends UIForm {
         uiGroupExplorer.changeGroup(currentGroupId) ;
       }      
       uiGroupForm.reset();
-    }
+    }    
   }
   
   static  public class BackActionListener extends EventListener<UIGroupForm> {

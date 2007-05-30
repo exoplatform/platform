@@ -15,6 +15,7 @@ import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIFormPopupWindow;
+import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIPopupWindow;
 
 import org.exoplatform.webui.component.UIBreadcumbs.LocalPath;
@@ -66,6 +67,10 @@ public class UIGroupManagement extends UIContainer {
       UIGroupDetail uiGroupDetail = uiGroupManagement.getChild(UIGroupDetail.class) ;
       uiGroupDetail.setRenderedChild(UIGroupForm.class) ;
       UIGroupForm uiGroupForm = uiGroupDetail.getChild(UIGroupForm.class);
+      //TODO: Tung.Pham added
+      //------------------------------------------------------------------------------
+      uiGroupForm.setEditableAll() ;
+      //------------------------------------------------------------------------------
       uiGroupForm.setName("AddGroup");
       uiGroupForm.setGroup(null);
     }
@@ -80,7 +85,7 @@ public class UIGroupManagement extends UIContainer {
       
       UIGroupDetail uiGroupDetail = uiGroupManagement.getChild(UIGroupDetail.class) ;
       UIGroupExplorer uiGroupExplorer = uiGroupManagement.getChild(UIGroupExplorer.class) ;
-//            
+            
       Group currentGroup = uiGroupExplorer.getCurrentGroup();
       if (currentGroup == null) {
         uiApp.addMessage(new ApplicationMessage("UIGroupManagement.msg.Edit", null)) ;
@@ -88,6 +93,10 @@ public class UIGroupManagement extends UIContainer {
       }
       uiGroupDetail.setRenderedChild(UIGroupForm.class) ;
       UIGroupForm uiGroupForm = uiGroupDetail.getChild(UIGroupForm.class);
+      //TODO: Tung.Pham added
+      //------------------------------------------------------------------------------
+      uiGroupForm.getUIStringInput("groupName").setEditable(false) ;
+      //------------------------------------------------------------------------------
       uiGroupForm.setName("EditGroup");
       uiGroupForm.setGroup(currentGroup);
     }
