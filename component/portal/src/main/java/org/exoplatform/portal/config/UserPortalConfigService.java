@@ -21,8 +21,6 @@ import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
-import org.jgroups.util.GetNetworkInterfaces;
-
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
