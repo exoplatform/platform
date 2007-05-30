@@ -2,7 +2,7 @@
 	
 	  <div class="LeftFormTitle">
 			<div class="RightFormTitle">
-				<div class="MiddleFormTitle"><%=_ctx.appRes("UIChangeSkin.title.PortalSetting")%></div>
+				<div class="MiddleFormTitle">Select Portal</div>
 			</div>
 		</div>
 		<div class="TabPaneContent">

@@ -155,7 +155,7 @@
   margin-left: 200px;
 }
 
-.ApplicationRegistryWorkingArea .Icon {
+.ApplicationRegistryWorkingArea .ApplicationButton .Icon {
   float: right;
 	cursor: pointer ;
 	margin: 0px 3px;
@@ -174,7 +174,6 @@
 .ApplicationRegistryWorkingArea .ApplicationContentLabel {
   font-size: 11px;
   line-height: 16px;
-
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContentLabel .RightLabel {
@@ -190,6 +189,10 @@
 
 .ApplicationRegistryWorkingArea .eXoBrowserIcon {
   background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png) no-repeat;
+}
+
+.ApplicationRegistryWorkingArea .UIAction  {
+  width: 145px;
 }
 
 .ApplicationRegistryWorkingArea .UIForm .HorizontalLayout .UIAction {

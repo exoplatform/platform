@@ -262,7 +262,7 @@
 
 .UIContentPortlet .UIContentWorkingArea .Number {
   float: left ;
-  width: 280px;  height: 20px; 
+  height: 20px; 
   text-align: center;
   line-height: 20px; vertical-align: middle;
 }

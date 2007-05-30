@@ -176,7 +176,6 @@
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageInfoContainer{
   background: #f4f4f4;
-  font-size: 11px;
   border: solid 1px #cdcdcd ;
   padding: 13px 10px;
 }
@@ -184,7 +183,7 @@
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo{
   width: 518px; height: 24px; 
   line-height: 24px; vertical-align: middle;
-  background: white; font-size: 11px; 
+  background: white; 
   border: solid 1px #b7b7b7;
   margin: auto; 
 }
@@ -293,7 +292,7 @@
 
 
 .UIWizard .ScrollArea {
-	height: 220px;
+	height: 205px;
 	overflow: auto;
 }
 

@@ -11,6 +11,7 @@
   border:none;
   padding: 5px;
   margin: 0px;
+  width: auto;
 }
 
 .UIContentPortlet {
@@ -22,6 +23,8 @@
 }
 
 .UIContentPortlet .ContentPortletContainer {
+  width: 99%;
+  margin: auto;
 }
 
 .UIContentPortlet .DecoratorBox .GrayRoundedFillBoxStyle {
@@ -287,8 +290,6 @@
   float: left ;
   text-align: center;
   height: 20px; line-height: 20px; vertical-align: middle;
-  width: 280px;
-  
 }
 
 .UIContentPortlet .UIContentWorkingArea .Number a {

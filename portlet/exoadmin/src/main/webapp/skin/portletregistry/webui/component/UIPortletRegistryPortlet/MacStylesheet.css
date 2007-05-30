@@ -27,10 +27,6 @@
   padding: 10px;
 }
 
-.UIApplicationRegistryPortlet .UIPageIterator .Number {
-  float: right;
-}
-
 /*################################Application Registry Control################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
 	float: left;
@@ -164,7 +160,7 @@
   margin-left: 200px;
 }
 
-.ApplicationRegistryWorkingArea .Icon {
+.ApplicationRegistryWorkingArea .ApplicationButton .Icon {
   float: right;
 	cursor: pointer ;
 	margin: 3px 3px 0px 3px;

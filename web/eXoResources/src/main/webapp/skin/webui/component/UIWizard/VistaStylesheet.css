@@ -140,7 +140,6 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageInfoContainer{
-  font-size: 11px;
   background: #f4f4f4;
   padding: 10px;
 }
@@ -148,7 +147,6 @@
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo {
   width: 90%;
   height: 26px; line-height:26px; vertical-align: middle;
-  font-size: 11px; 
   background: white;
   border: solid 1px #9d9d9d;
   margin: auto;

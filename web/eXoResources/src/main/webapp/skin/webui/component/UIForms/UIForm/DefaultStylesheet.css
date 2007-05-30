@@ -96,13 +96,13 @@
   border: 1px solid #b7b7b7 ;
 }
 
-
 .UIForm .HorizontalLayout select {
   width: 232px ;
   border: 1px solid #808080 ;
 }
 
 /*####################- VerticalLayout -#################*/
+
 .UIForm .VerticalLayout {
 }
 
@@ -114,7 +114,7 @@
 
 .UIForm .VerticalLayout input {
   width: 170px ;
-  border:  1px  solid gray ;
+  border:  1px solid gray ;
 }
 
 .UIForm .VerticalLayout input.checkbox {
@@ -129,7 +129,6 @@
 .UIForm .VerticalLayout select {
   width: 170px ;
 }
-
 
 /*####################- UIPermissionForm -#################*/
 .UIPermissionForm .UIAccessGroup .UIAction {
