@@ -7,9 +7,6 @@ package org.exoplatform.portal.component.view;
 import org.exoplatform.portal.component.view.lifecycle.UIWidgetLifecycle;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 
 /**
  * Created by The eXo Platform SARL
@@ -18,10 +15,7 @@ import org.exoplatform.webui.event.EventListener;
  * May 16, 2007  
  */
 
-@ComponentConfig(
-  lifecycle = UIWidgetLifecycle.class
-)
-
+@ComponentConfig(lifecycle = UIWidgetLifecycle.class)
 public class UIWidget extends UIComponent {
   
   private String applicationInstanceId_ ;

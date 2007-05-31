@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2001-2006 The eXo Platform SARL         All rights reserved.  *
+ * Copyright 2001-2007 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.portal.application.handler;
@@ -19,63 +19,59 @@ import org.exoplatform.json.BeanToJSONPlugin;
 import org.exoplatform.json.JSONService;
 import org.exoplatform.portal.application.PortalApplication;
 import org.exoplatform.web.WebAppController;
-import org.exoplatform.web.WebRequestHandler;
+import org.exoplatform.web.command.Command;
+
 /**
  * Created by The eXo Platform SARL
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
- * Dec 9, 2006  
+ * May 31, 2007  
  */
-public class ServiceRequestHandler extends WebRequestHandler {
+public class GetApplicationHandler extends Command {
   
-  static String[]  PATHS = {"/service"} ;
-
-  public String[] getPath() { return PATHS ; }
-
+  private String [] applicationType;
+  
+  public void setApplicationType(String [] type) { applicationType = type; }
+  
   public void execute(WebAppController controller, HttpServletRequest req, HttpServletResponse res) throws Exception {
     PortalApplication app =  controller.getApplication(PortalApplication.PORTAL_APPLICATION_ID) ;
-    String serviceName = req.getParameter("serviceName");
-    
-    if(serviceName.equals("portletRegistry")){
-      Writer writer = res.getWriter();
-      try{
-        String remoteUser = req.getRemoteUser();
-        StringBuilder value = getPortlets(app, remoteUser, req.isUserInRole("admin"));
-        writer.append(value);
-      }catch (Exception e) {
-        e.printStackTrace() ;
-        throw new IOException(e.getMessage());
-      }
+    Writer writer = res.getWriter();
+    try{
+      StringBuilder value = getApplications(app, req.getRemoteUser());
+      writer.append(value);
+    }catch (Exception e) {
+      e.printStackTrace() ;
+      throw new IOException(e.getMessage());
     }
   }
-
+  
   @SuppressWarnings("unchecked")
-  private StringBuilder getPortlets(PortalApplication app, String remoteUser, boolean isRoleAdmin) throws Exception {
+  private StringBuilder getApplications(PortalApplication app, String remoteUser) throws Exception {
     ExoContainer container = app.getApplicationServiceContainer() ;
     ApplicationRegistryService prService = 
       (ApplicationRegistryService)container.getComponentInstanceOfType(ApplicationRegistryService.class) ;    
 
-    List<ApplicationCategory> portletCategories = prService.getApplicationCategories(remoteUser);
-    PortletCategoryToJSONPlugin toJSON = new PortletCategoryToJSONPlugin();
+    List<ApplicationCategory> appCategories = prService.getApplicationCategories(remoteUser);
+    ApplicationCategoryToJSONPlugin toJSON = new ApplicationCategoryToJSONPlugin();
 
     StringBuilder value = new StringBuilder();
     JSONService jsonService = new JSONService();
     jsonService.register(ApplicationCategory.class, toJSON);
     
-    if(portletCategories.size() < 1) return value;
+    if(appCategories.size() < 1) return value;
     
-    value.append("{\n").append("  portletRegistry : {\n");
-    for(int i = 0; i < portletCategories.size(); i++) {
-      ApplicationCategory category = portletCategories.get(i);
+    value.append("{\n").append("  applicationRegistry : {\n");
+    for(int i = 0; i < appCategories.size(); i++) {
+      ApplicationCategory category = appCategories.get(i);
       jsonService.toJSONScript(category, value, 1);
-      if(i < portletCategories.size() - 1) value.append("   ,\n");
+      if(i < appCategories.size() - 1) value.append("   ,\n");
     }    
     value.append("  }\n").append("}\n");
     
     return value; 
   }
   
-  class PortletCategoryToJSONPlugin extends BeanToJSONPlugin<ApplicationCategory> {
+  private class ApplicationCategoryToJSONPlugin extends BeanToJSONPlugin<ApplicationCategory> {
 
     @SuppressWarnings("unchecked")
     public void toJSONScript(ApplicationCategory category, StringBuilder builder, int indentLevel) throws Exception {
@@ -87,7 +83,7 @@ public class ServiceRequestHandler extends WebRequestHandler {
       appendIndentation(builder, indentLevel+1);
       builder.append("'name' : '").append(category.getName()).append("',\n");
       appendIndentation(builder, indentLevel+1);
-      builder.append("'portlets' : {\n");
+      builder.append("'applications' : {\n");
       builder.append(builderPortlet);      
       appendIndentation(builder, indentLevel+1);
       builder.append("}\n");
@@ -98,11 +94,11 @@ public class ServiceRequestHandler extends WebRequestHandler {
     @SuppressWarnings("unchecked")
     private StringBuilder toJSONScript(ApplicationCategory category, int indentLevel) throws Exception {
       StringBuilder builder = new StringBuilder();
-      List<Application> portlets = category.getApplications();
+      List<Application> applications = category.getApplications();
       
-      for(int j = 0; j<portlets.size(); j++){
-        toJSONScript(portlets.get(j), builder, indentLevel);
-        if(j < portlets.size() - 1){
+      for(int j = 0; j<applications.size(); j++){
+        toJSONScript(applications.get(j), builder, indentLevel);
+        if(j < applications.size() - 1){
           appendIndentation(builder, indentLevel);
           builder.append(",\n");
         }
@@ -111,15 +107,15 @@ public class ServiceRequestHandler extends WebRequestHandler {
       return builder;
     }
     
-    private void toJSONScript(Application portlet, StringBuilder builder, int indentLevel) {
+    private void toJSONScript(Application application, StringBuilder builder, int indentLevel) {
       appendIndentation(builder, indentLevel);
-      builder.append('\'').append(portlet.getId()).append("' : {\n");
+      builder.append('\'').append(application.getId()).append("' : {\n");
       appendIndentation(builder, indentLevel+1);
-      builder.append("'title' : ").append("'").append(portlet.getApplicationName()).append("',\n");
+      builder.append("'title' : ").append("'").append(application.getApplicationName()).append("',\n");
       appendIndentation(builder, indentLevel+1);
-      builder.append("'des' : ").append("'").append(portlet.getDescription()).append("',\n");
+      builder.append("'des' : ").append("'").append(application.getDescription()).append("',\n");
       appendIndentation(builder, indentLevel+1);
-      builder.append("'type' : ").append("'").append(portlet.getApplicationType()).append("'\n");
+      builder.append("'type' : ").append("'").append(application.getApplicationType()).append("'\n");
       appendIndentation(builder, indentLevel);
       builder.append("}\n");
     }

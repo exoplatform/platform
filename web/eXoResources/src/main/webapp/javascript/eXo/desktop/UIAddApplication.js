@@ -6,15 +6,12 @@ function UIAddApplication() {
   
 };
 
-UIAddApplication.prototype.init = function(containerId, isWidget) {
-  
+UIAddApplication.prototype.init = function(containerId, addOnlyWidget) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var container = document.getElementById(containerId);
 	var context = new Object();
 	
-	context.uiMaskWorkspace = {
-		width: "700px"
-	}
+	context.uiMaskWorkspace = { width: "700px" }
 	
 	if(document.getElementById("UIMaskWorkspaceJSTemplate") == null) {
 		var uiAddAppContainer = document.createElement('div') ;
@@ -28,19 +25,20 @@ UIAddApplication.prototype.init = function(containerId, isWidget) {
 	}
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	eXo.desktop.UIAddApplication.showAddApplication(uiAddApplicationContainer);
-	this.loadPortlets(true, isWidget);
+	this.loadApplications(true, addOnlyWidget);
 };
 
 /**Created: by Duy Tu**/
 function getUrl(src) {
 	var img = document.createElement('img');	
-        img.src = src;
+	img.src = src;
 	return(img.src);
 };
 
-UIAddApplication.prototype.loadPortlets = function(refresh, isWidget) {
+UIAddApplication.prototype.loadApplications = function(refresh, addOnlyWidget) {
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
-	var url = eXo.env.server.context + "/service?serviceName=portletRegistry";
+	var url = eXo.env.server.context + "/command?";
+	url += "type=org.exoplatform.portal.application.handler.GetApplicationHandler";
 	if(refresh == null || refresh == undefined) refresh = false;
   var category = eXo.core.CacheJSonService.getData(url, refresh);
   if(category == null || category == undefined) return;
@@ -54,12 +52,26 @@ UIAddApplication.prototype.loadPortlets = function(refresh, isWidget) {
   /**Repaired: by Vu Duy Tu **/
    itemDetails += '<div class="ItemDetailTitle">' +
         	    	  '	 <div class="TitleIcon ViewListIcon"><span></span></div>' +
-				  	      '	 <div class="Title">Select Portlets</div>' +
+				  	      '	 <div class="Title">Select Application</div>' +
 				  	      '	 <div style="clear: left;"><span></span></div>' +
         	        '</div>' +
         	        '<div class="ApplicationListContainer">';
-  for(id in category.portletRegistry) {  	
-		var cate = category.portletRegistry[id];
+  for(id in category.applicationRegistry) {  	
+		var cate = category.applicationRegistry[id];
+		var applications = cate["applications"];
+		if(addOnlyWidget) {
+			var widgets = new Array();
+			var i = 0;
+			for(id in applications) {
+				portlet = applications[id]; 
+			 	if(portlet["type"] != "eXoWidget") continue;			 	
+				alert(portlet["type"]);
+			 	widgets[i] == portlet;
+			 	i++;
+			}			
+			if(i < 1)	applications = 'undefined'; else applications = widgets;		
+		}
+		if(applications == 'undefined') continue;
 		if(!selected){
       items += '<div class="SelectedItem Item" onclick="eXo.webui.UIItemSelector.onClick(this);"';
 		} else {
@@ -79,10 +91,9 @@ UIAddApplication.prototype.loadPortlets = function(refresh, isWidget) {
 	  } else {
 	  	itemDetails += '<div class="ItemDetail" style="display: none">';
 	  }
-	  var portlets = cate["portlets"];
-	  for(id in portlets) {
-	  	portlet = portlets[id];
-  	  if( !isWidget || (isWidget && portlet["type"] == "eXoWidget")) {
+	  //var portlets = cate["portlets"];
+	  for(id in applications) {
+	  	portlet = applications[id];  	 
       var srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + portlet["title"]+".png";
       var srcNormalBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png";
 			srcBG = getUrl(srcBG);
@@ -123,7 +134,6 @@ UIAddApplication.prototype.loadPortlets = function(refresh, isWidget) {
 						      	 '	</div>' +
 						      	 '	<div style="clear: right;"><span></span></div>' +
 						      	 '</div>';
-  	  }
 	  }
     itemDetails += '</div>';
 		if(!selected) selected = true;

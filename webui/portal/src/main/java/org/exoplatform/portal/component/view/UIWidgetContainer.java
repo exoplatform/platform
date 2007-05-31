@@ -8,9 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
-import org.exoplatform.web.application.widget.WidgetApplication;
 import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;

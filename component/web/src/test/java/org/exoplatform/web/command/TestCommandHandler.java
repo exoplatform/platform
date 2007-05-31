@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.test.BasicTestCase;
+import org.exoplatform.web.WebAppController;
 
 /**
  * Created by The eXo Platform SARL
@@ -33,15 +34,15 @@ public class TestCommandHandler extends BasicTestCase {
     props.put("doubleValues", new String[] {"10.0", "-6.7", "7.0"}) ;
     props.put("booleanValue", "true") ;
     Command command = handler.createCommand("org.exoplatform.web.command.TestCommandHandler$CommandTest2", props) ;
-    command.execute(null, null);
+    command.execute(null, null, null);
   }
   
    static public class CommandTest2 extends CommandTest {
     
      private boolean booleanValue = false;
      
-     public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
-       super.execute(req, res);
+     public void execute(WebAppController controller, HttpServletRequest req, HttpServletResponse res) throws Exception {
+       super.execute(controller, req, res);
        System.out.println(" \n\n\n === >"+booleanValue+"\n\n");
      }
   }
@@ -53,7 +54,7 @@ public class TestCommandHandler extends BasicTestCase {
     private Integer    intProp    ;
     private String stringProp ; 
     
-    public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception {
+    public void execute(WebAppController controller, HttpServletRequest req, HttpServletResponse res) throws Exception {
       System.out.println("\n\n");
       System.out.println("int    prop : "  +  intProp)   ;
       System.out.println("String prop : "  +  stringProp)   ;

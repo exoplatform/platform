@@ -27,24 +27,28 @@ public class CommandHandler extends WebRequestHandler {
 
   public String[] getPath() { return new String[] { "/command"} ; }
 
-  public void execute(WebAppController app,  HttpServletRequest req, HttpServletResponse res) throws Exception {
-    System.out.println("IN COMMAND " + req.getServletPath());
-    System.out.println("IN COMMAND " + req.getPathInfo());
+  public void execute(WebAppController controller, HttpServletRequest req, HttpServletResponse res) throws Exception {
     Map props = req.getParameterMap() ;
+    String type =  req.getParameter("type");
+    if(type == null || type.trim().length() < 1) throw new Exception("Unknown type command handler");
+    Command command = createCommand(type, props);
+    if(command == null) throw new Exception("Unknown command handler with type is "+type);
+    command.execute(controller, req, res);
   }
 
   /**
    * This method should use the java reflection to create the command object according to the command
    * type, then  populate the command  properties  
    * 
-   * @param command  The command class type 
+   * @param type  The command class type 
    * @param props    list of the properties that should be set in the command object
    * @return         The command object instance
    * @throws Exception
    */
-  public Command createCommand(String command, Map props) throws Exception  {
+  @SuppressWarnings("unchecked")
+  public Command createCommand(String type, Map props) throws Exception  {
     ClassLoader classLoader = Thread.currentThread().getContextClassLoader() ;
-    Class<?> clazz =  classLoader.loadClass(command);
+    Class<?> clazz =  classLoader.loadClass(type);
     Object object = clazz.newInstance();
     Iterator<Object> iter = props.keySet().iterator();
     while(iter.hasNext()) {

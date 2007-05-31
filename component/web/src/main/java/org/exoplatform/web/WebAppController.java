@@ -24,6 +24,7 @@ import org.exoplatform.web.command.CommandHandler;
  * Mar 21, 2007  
  */
 public class WebAppController {
+  
   private HashMap<String, Object>  attributes_ ;
   private HashMap<String, Application>  applications_ ;
   private HashMap<String, WebRequestHandler> handlers_ ;
@@ -35,9 +36,8 @@ public class WebAppController {
     register(new CommandHandler()) ;
   }
   
-  public Object  getAttribute(String name, Object value) {
-    return attributes_.get(name) ;
-  }
+  @SuppressWarnings("unused")
+  public Object  getAttribute(String name, Object value) { return attributes_.get(name) ; }
   
   @SuppressWarnings("unchecked")
   public <T extends Application> T getApplication(String appId) { 

@@ -7,6 +7,8 @@ package org.exoplatform.web.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.exoplatform.web.WebAppController;
+
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
@@ -17,5 +19,5 @@ abstract public class Command {
   
   public String[] getRequiredMemberships() { return null ; }
 
-  abstract public void execute(HttpServletRequest req, HttpServletResponse res) throws Exception ;
+  abstract public void execute(WebAppController controller, HttpServletRequest req, HttpServletResponse res) throws Exception ;
 }

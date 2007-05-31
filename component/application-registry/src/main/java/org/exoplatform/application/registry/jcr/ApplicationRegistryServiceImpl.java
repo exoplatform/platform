@@ -200,7 +200,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     Iterator<ApplicationCategory> iterCategory = categories.iterator();
     
     PortalContainer manager  = PortalContainer.getInstance();
-    UserACL userACL = ( UserACL) manager.getComponentInstanceOfType(UserACL.class) ;
+    UserACL userACL = (UserACL) manager.getComponentInstanceOfType(UserACL.class) ;
     
     while(iterCategory.hasNext()) {
       ApplicationCategory category = iterCategory.next();

@@ -21,6 +21,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
   template = "system:/groovy/portal/webui/component/view/UIPortlet.gtmpl"
 )
 public class UIExoApplication extends UIPortalComponent {
+  
   transient private MVCApplication application_ ;
   transient private MVCRequestContext requestContext_ ;
   
