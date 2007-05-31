@@ -380,19 +380,13 @@ public class UIPageNodeActionListener {
       UIRightClickPopupMenu uiPopup = event.getSource();
       UIPageNodeSelector pageNodeSelector = uiPopup.getAncestorOfType(UIPageNodeSelector.class);
       PageNavigation k = pageNodeSelector.getSelectedNavigation();
-//      String abc = k.getId();
-//      DataStorage storage = pageNodeSelector.getApplicationComponent(DataStorage.class);
       UserPortalConfigService configService = pageNodeSelector.getApplicationComponent(UserPortalConfigService.class);
-//      pageNodeSelector.getNavigations().remove(k);
-      
-      boolean ppp = Util.getUIPortal().getNavigations().remove(k);
+      Util.getUIPortal().getNavigations().remove(k);
       
       List<PageNavigation> list = Util.getUIPortal().getNavigations();
       int i = 0;
       for( i = 0; i < list.size(); i ++) {
-        if( list.get(i).getId().equals(k.getId())){
-          break; 
-        }
+        if( list.get(i).getId().equals(k.getId())) break; 
       }
       list.remove(i);
       configService.remove(k);
