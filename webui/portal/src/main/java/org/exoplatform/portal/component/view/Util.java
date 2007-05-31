@@ -67,9 +67,11 @@ public class Util {
       for(UIComponent comp : children ) setShowEditControl(comp, clazz);
       return;
     }
-    UIComponentDecorator uiDecorator = (UIComponentDecorator) uiComponent;
-    if(uiDecorator.getUIComponent() == null) return;
-    setShowEditControl(uiDecorator.getUIComponent(), clazz);
+    if(uiComponent instanceof UIComponentDecorator) {
+      UIComponentDecorator uiDecorator = (UIComponentDecorator) uiComponent;
+      if(uiDecorator.getUIComponent() == null) return;
+      setShowEditControl(uiDecorator.getUIComponent(), clazz);
+    }
   }
 
   /**
