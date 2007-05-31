@@ -6,7 +6,7 @@ function UIAddApplication() {
   
 };
 
-UIAddApplication.prototype.init = function(containerId, addOnlyWidget) {
+UIAddApplication.prototype.init = function(containerId, applicationTypes) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var container = document.getElementById(containerId);
 	var context = new Object();
@@ -25,7 +25,7 @@ UIAddApplication.prototype.init = function(containerId, addOnlyWidget) {
 	}
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	eXo.desktop.UIAddApplication.showAddApplication(uiAddApplicationContainer);
-	this.loadApplications(true, addOnlyWidget);
+	this.loadApplications(true, applicationTypes);
 };
 
 /**Created: by Duy Tu**/
@@ -35,10 +35,15 @@ function getUrl(src) {
 	return(img.src);
 };
 
-UIAddApplication.prototype.loadApplications = function(refresh, addOnlyWidget) {
+UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes) {
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	var url = eXo.env.server.context + "/command?";
 	url += "type=org.exoplatform.portal.application.handler.GetApplicationHandler";
+	
+	forvar i = 0; i < applicationTypes.length; i++) {
+		url += "&applicationType="+applicationTypes[i];
+	}
+	
 	if(refresh == null || refresh == undefined) refresh = false;
   var category = eXo.core.CacheJSonService.getData(url, refresh);
   if(category == null || category == undefined) return;
@@ -50,7 +55,7 @@ UIAddApplication.prototype.loadApplications = function(refresh, addOnlyWidget) {
   var selected  = false;
   
   /**Repaired: by Vu Duy Tu **/
-   itemDetails += '<div class="ItemDetailTitle">' +
+  itemDetails += '<div class="ItemDetailTitle">' +
         	    	  '	 <div class="TitleIcon ViewListIcon"><span></span></div>' +
 				  	      '	 <div class="Title">Select Application</div>' +
 				  	      '	 <div style="clear: left;"><span></span></div>' +
@@ -59,19 +64,6 @@ UIAddApplication.prototype.loadApplications = function(refresh, addOnlyWidget) {
   for(id in category.applicationRegistry) {  	
 		var cate = category.applicationRegistry[id];
 		var applications = cate["applications"];
-		if(addOnlyWidget) {
-			var widgets = new Array();
-			var i = 0;
-			for(id in applications) {
-				portlet = applications[id]; 
-			 	if(portlet["type"] != "eXoWidget") continue;			 	
-				alert(portlet["type"]);
-			 	widgets[i] == portlet;
-			 	i++;
-			}			
-			if(i < 1)	applications = 'undefined'; else applications = widgets;		
-		}
-		if(applications == 'undefined') continue;
 		if(!selected){
       items += '<div class="SelectedItem Item" onclick="eXo.webui.UIItemSelector.onClick(this);"';
 		} else {

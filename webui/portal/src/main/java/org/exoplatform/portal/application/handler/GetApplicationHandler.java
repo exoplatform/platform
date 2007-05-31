@@ -31,14 +31,13 @@ public class GetApplicationHandler extends Command {
   
   private String [] applicationType;
   
-  public void setApplicationType(String [] type) { applicationType = type; }
+  public void setApplicationTypes(String [] type) { applicationType = type; }
   
   public void execute(WebAppController controller, HttpServletRequest req, HttpServletResponse res) throws Exception {
     PortalApplication app =  controller.getApplication(PortalApplication.PORTAL_APPLICATION_ID) ;
     Writer writer = res.getWriter();
     try{
-      StringBuilder value = getApplications(app, req.getRemoteUser());
-      writer.append(value);
+      writer.append(getApplications(app, req.getRemoteUser()));
     }catch (Exception e) {
       e.printStackTrace() ;
       throw new IOException(e.getMessage());
@@ -51,7 +50,8 @@ public class GetApplicationHandler extends Command {
     ApplicationRegistryService prService = 
       (ApplicationRegistryService)container.getComponentInstanceOfType(ApplicationRegistryService.class) ;    
 
-    List<ApplicationCategory> appCategories = prService.getApplicationCategories(remoteUser);
+    if(applicationType == null) applicationType = new String[]{};
+    List<ApplicationCategory> appCategories = prService.getApplicationCategories(remoteUser, applicationType);
     ApplicationCategoryToJSONPlugin toJSON = new ApplicationCategoryToJSONPlugin();
 
     StringBuilder value = new StringBuilder();

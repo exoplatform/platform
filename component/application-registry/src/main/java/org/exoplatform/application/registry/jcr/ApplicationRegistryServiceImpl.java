@@ -19,12 +19,8 @@ import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.UserACL;
-import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
-import org.exoplatform.services.organization.Membership;
-import org.exoplatform.services.organization.MembershipHandler;
-import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
 import org.exoplatform.web.WebAppController;
@@ -42,13 +38,11 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   private final static String CATEGORY_NODE_TYPE = "exo:applicationCategory";
   
   private DataMapper mapper = new DataMapper();
-  private OrganizationService orgService_ ;
   private JCRRegistryService jcrRegService_;
   
-  public ApplicationRegistryServiceImpl(JCRRegistryService jcrRegService, OrganizationService orgService) throws Exception {
+  public ApplicationRegistryServiceImpl(JCRRegistryService jcrRegService) throws Exception {
     jcrRegService_ = jcrRegService ;
     jcrRegService_.createApplicationRegistry(new ApplicationRegistry(APPLICATION_NAME), false);
-    this.orgService_ = orgService;
   }
   
   public List<ApplicationCategory> getApplicationCategories() throws Exception {
@@ -106,7 +100,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     return null;
   }
 
-  public List<Application> getApplications(ApplicationCategory category) throws Exception {
+  public List<Application> getApplications(ApplicationCategory category, String...appTypes) throws Exception {
     Session session = jcrRegService_.getSession();
     List<Application> list = new ArrayList<Application>();
     Node root = jcrRegService_.getApplicationRegistryNode(session, APPLICATION_NAME);
@@ -117,11 +111,20 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     Node categoryNode = root.getNode(category.getName());
     NodeIterator iterator  = categoryNode.getNodes();
     while(iterator.hasNext()){
-      Node portletNode = iterator.nextNode();
-      list.add(mapper.nodeToApplication(portletNode));
+      Node appNode = iterator.nextNode();
+      Application application =  mapper.nodeToApplication(appNode);
+      if(isApplicationType(application, appTypes)) list.add(application);
     }
     session.logout();
     return list;
+  }
+  
+  private boolean isApplicationType(Application app, String...appTypes){
+    if(appTypes == null || appTypes.length < 1) return true;
+    for(String appType : appTypes) {
+      if(appType.equals(app.getApplicationType()))  return true;
+    }
+    return false;
   }
 
   public Application getApplication(String id) throws Exception {
@@ -195,19 +198,18 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   
   
   @SuppressWarnings("unchecked")
-  public List<ApplicationCategory> getApplicationCategories(String accessUser) throws Exception {
+  public List<ApplicationCategory> getApplicationCategories(String accessUser, String...appTypes) throws Exception {
     List<ApplicationCategory> categories = getApplicationCategories();
     Iterator<ApplicationCategory> iterCategory = categories.iterator();
     
     PortalContainer manager  = PortalContainer.getInstance();
     UserACL userACL = (UserACL) manager.getComponentInstanceOfType(UserACL.class) ;
-    
     while(iterCategory.hasNext()) {
       ApplicationCategory category = iterCategory.next();
-      List<Application> apps = getApplications(category);
+      List<Application> apps = getApplications(category, appTypes);
       Iterator<Application> iterApp = apps.iterator();
       while(iterApp.hasNext()) {
-        Application app = iterApp.next();      
+        Application app = iterApp.next();
         String [] permissions = app.getAccessPermissions();
         if(!userACL.hasViewPermission(app.getOwner(), accessUser, permissions)) iterApp.remove();
       }
