@@ -50,7 +50,7 @@ public class UIFormSelectBox extends UIFormStringInput {
 //  }
   
   protected String renderOnChangeEvent(UIForm uiForm) throws Exception {
-    return uiForm.event(onchange_, getId(), (String)null);
+    return uiForm.event(onchange_, (String)null);
   }
   
   public void processRender(WebuiRequestContext context) throws Exception {
