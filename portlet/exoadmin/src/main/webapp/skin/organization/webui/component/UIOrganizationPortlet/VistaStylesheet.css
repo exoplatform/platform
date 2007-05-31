@@ -163,8 +163,8 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/SmallGroup.gif') no-repeat;
-  height: 16px; width: 16px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/NormalGroup.png') no-repeat;
+  height: 24px; width: 24px;
 
 }
 
@@ -204,17 +204,17 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon  {
 	width: 28px; height: 22px;
-	background: url("DefaultSkin/background/RemoveGroup.gif") no-repeat;
+	background: url("VistaSkin/background/RemoveGroup.png") no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon  {
 	width: 28px; height: 22px;
-	background: url("DefaultSkin/background/AddGroup.gif") no-repeat;
+	background: url("VistaSkin/background/AddGroup.png") no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon  {
 	width: 28px; height: 22px;
-	background: url("DefaultSkin/background/EditGroup.gif") no-repeat;
+	background: url("VistaSkin/background/EditGroup.png") no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {

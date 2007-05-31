@@ -29,6 +29,7 @@
 .UIRightClickPopupMenu .ItemIcon {
   margin: 2px; margin-left: 4px;
   float: left;
+  widht:24px; height:20px;
 }
 
 .UIRightClickPopupMenu .Rename16x16Icon{
