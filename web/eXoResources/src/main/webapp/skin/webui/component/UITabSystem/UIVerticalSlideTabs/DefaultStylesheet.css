@@ -62,7 +62,7 @@
 .UIVerticalSlideTabs .UIVTab .VTabSimpleStyle .TabLabel {
   float: left ;
   height: 26px ; line-height: 26px ;  vertical-align: middle ;
-  color: #2e7eb2; font-weight: bold; 
+  color: #606060; font-weight: bold; 
 }
 
 /*#######################-SelectedVTabSimpleStyle VerticalSlideTabs-######################*/

@@ -140,7 +140,7 @@
 .ApplicationRegistryWorkingArea .TitleBarApplication {
 	background: none;
 	border-bottom: 1px solid #dfdfdf;
-	width: 100%;
+	width: 98%;
 	padding: 0px 1px;
 	margin: 0px auto 5px auto;
 }
@@ -152,7 +152,6 @@
 }
 
 .ApplicationRegistryWorkingArea .ApplicationButton {
-  margin-left: 200px;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationButton .Icon {

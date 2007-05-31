@@ -15,6 +15,7 @@
 	background: white;
 	border: 1px solid #b7b7b7;
 	margin: 5px;
+	letter-spacing: 0.4px;
 }
 
 .UIApplicationRegistryPortlet .Title {
@@ -47,6 +48,10 @@
 
 .UIApplicationRegistryPortlet .UICategoryForm .HorizontalLayout label {
   width: 185px;
+}
+
+.UIApplicationRegistryPortlet .UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
+  padding: 5px 0px;
 }
 
 /*################################Application Registry Control################################*/
@@ -142,14 +147,13 @@
 .ApplicationRegistryWorkingArea .ApplicationContent {
   margin-left: 85px;
   padding-bottom: 5px;
-  padding: 0px 5px 10px 5px;
   border:  1px solid white;
 }
 
 .ApplicationRegistryWorkingArea .TitleBarApplication {
 	background: none;
 	border-bottom: 1px solid #dfdfdf;
-	width: 93.9%;
+	width: 98%;
 	padding: 0px 1px 3px 1px;
 	margin: 0px auto 5px auto;
 }
@@ -161,7 +165,6 @@
 }
 
 .ApplicationRegistryWorkingArea .ApplicationButton {
-  margin-left: 200px;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationButton .Icon {
@@ -183,7 +186,7 @@
 .ApplicationRegistryWorkingArea .ApplicationContentLabel {
   font-size: 11px;
   line-height: 16px;
-  width: 93%;
+  width: 98%;
   margin: auto;
 }
 

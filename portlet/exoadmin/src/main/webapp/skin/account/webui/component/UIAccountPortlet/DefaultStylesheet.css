@@ -15,7 +15,7 @@
 
 .UIAccountPortlet .UIFormTabPane{
   width: 700px;
-  margin: 15px auto;
+  margin: auto;
 }
 
 .UIAccountPortlet .UIFormTabPane .UITabPane {
@@ -37,14 +37,10 @@
 
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
   height: 280px; width: auto;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 /*########################-UIPersonalInfo-###########################*/
-
-.UIAccountPortlet .UIFormTabPane {
-  padding: 5px; 
-}
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
   width: 480px;
@@ -101,4 +97,3 @@
   margin: auto;
   background: url('DefaultSkin/background/CompanyAccountImage.jpg') no-repeat;
 }
-

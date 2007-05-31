@@ -14,8 +14,8 @@
 
 .UIAccountPortlet .UIFormTabPane{
   width: 700px;
-  margin: 15px auto;
-  padding: 6px; padding-bottom: 0px;
+  margin: auto;
+  padding: 0px 6px;
 }
 
 .UIAccountPortlet .UIFormTabPane .UITabPane {
@@ -32,7 +32,7 @@
 }
 
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
-  height: 280px; width: auto;
+  height: 280px;
   padding-top: 20px;
 }
 

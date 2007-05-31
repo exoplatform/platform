@@ -1,6 +1,7 @@
 .UINavigationPortlet {
   height: 48px;
   font-size: 11px;
+  letter-spacing: 0.5px;
 }
 
 .UINavigationPortlet .UINavigationBar {

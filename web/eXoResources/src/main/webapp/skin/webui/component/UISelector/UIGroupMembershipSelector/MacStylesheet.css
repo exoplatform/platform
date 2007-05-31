@@ -58,7 +58,8 @@
 
 .UIGroupMembershipSelector .UITree .TreeContainer{
   width: 226px; height: 145px;
-  overflow: auto; 
+  overflow-y: auto; 
+  overflow-x: hidden;
   border: none;
 }
 

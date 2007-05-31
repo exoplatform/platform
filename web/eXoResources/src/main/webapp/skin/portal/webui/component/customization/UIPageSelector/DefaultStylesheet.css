@@ -45,8 +45,8 @@
 
 .UIPageSelector .UIFormInfo .PropertyName {
   float: left;
-  width: 130px;
-  padding: 4px 0px 4px 10px;
+  width: 100px; text-align: right;
+  padding: 4px 10px 4px 0px;
 }
 
 .UIPageSelector .UIFormInfo .PropertyValue {

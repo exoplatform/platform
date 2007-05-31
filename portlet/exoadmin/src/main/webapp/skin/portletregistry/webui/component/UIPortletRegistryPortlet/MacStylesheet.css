@@ -27,6 +27,10 @@
   padding: 10px;
 }
 
+.UIApplicationRegistryPortlet .UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
+  padding: 5px 0px;
+}
+
 /*################################Application Registry Control################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
 	float: left;
@@ -36,6 +40,7 @@
 .ApplicationRegistryControlArea .ApplicationRegistryCategory {
   border: 1px solid #d7d7d7;
   background: url('/eXoResources/background/MacSkin/BgApplicationRegistryPortle1x4.gif');
+  letter-spacing: 0.5px;
 }
 
 .ApplicationRegistryControlArea .CategoryManagement {
@@ -108,11 +113,12 @@
 /*################################Application Registry Working################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryWorkingArea {
 	margin-left: 245px;
-	height: 100%;
+	height: 100%; 
 }
 
 .ApplicationRegistryWorkingArea .ApplicationWorkingAreaContainer {
   border: 1px solid #dfdfdf;
+  letter-spacing: 0.5px;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContainer {
@@ -138,14 +144,13 @@
 .ApplicationRegistryWorkingArea .ApplicationContent {
   margin-left: 85px;
   padding-bottom: 5px;
-  padding: 0px 5px 5px 5px;
   border:  1px solid white;
 }
 
 .ApplicationRegistryWorkingArea .TitleBarApplication {
 	background: none;
 	border-bottom: 1px solid #dfdfdf;
-	width: 100%;
+	width: 98%;
 	padding: 0px 1px 3px 1px;
 	margin: 0px auto 5px auto;
 }
@@ -157,7 +162,6 @@
 }
 
 .ApplicationRegistryWorkingArea .ApplicationButton {
-  margin-left: 200px;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationButton .Icon {
@@ -179,7 +183,7 @@
 .ApplicationRegistryWorkingArea .ApplicationContentLabel {
   font-size: 11px;
   line-height: 16px;
-  width: 100%;
+  width: 99%;
   margin: auto;
 }
 
@@ -195,7 +199,7 @@
 }
 
 .ApplicationRegistryWorkingArea .UIAction {
-  width: 150px;
+  width: 160px;
 }
 
 .ApplicationRegistryWorkingArea .eXoBrowserIcon {
@@ -212,4 +216,8 @@
 
 .ApplicationRegistryWorkingArea .UIAvailablePortletForm {
   padding: 10px;
+}
+
+.ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout .UIFormGrid {
+  margin-top: 15px;
 }

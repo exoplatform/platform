@@ -80,8 +80,8 @@
 									      <div class="LeftIcon"><span></span></div>
 							            <a class="TabLabel" href="<%=uicomponent.event("ShowCategory", cName)%>"><%=cName%></a>
 								          <div class="ControlContainer" style ="$display">
-								            <a class="ControlIcon EditIcon" href="<%=uicomponent.event("EditCategory", cName)%>"><span></span></a>
-								            <a class="ControlIcon DeleteIcon" href="<%=uicomponent.event("DeleteCategory", cName)%>"><span></span></a>
+								            <a class="ControlIcon EditIcon" title="Edit category" href="<%=uicomponent.event("EditCategory", cName)%>"><span></span></a>
+								            <a class="ControlIcon DeleteIcon" title="Delete category" href="<%=uicomponent.event("DeleteCategory", cName)%>"><span></span></a>
 								            <div style="clear: left"><span></span></div>
 								          </div>
 							          <div style="clear: both"><span></span></div>

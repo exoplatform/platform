@@ -77,6 +77,7 @@
 
 .UIForm .HorizontalLayout input.checkbox {
   width: 15px ; height: 15px ;
+  margin: 0px;
 }
 
 .UIForm .HorizontalLayout  input.radio {
@@ -90,6 +91,7 @@
 
 .UIForm .HorizontalLayout select {
   width: 235px ;
+  font-size: 11px;
 }
 
 /*####################- VerticalLayout -#################*/

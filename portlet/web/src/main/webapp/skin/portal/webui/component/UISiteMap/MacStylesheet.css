@@ -135,20 +135,3 @@
   background: white ;
   padding-left: 40px;
 }
-
-.UISitemap .SitemapItemBox .Level4 {
-  height: 20px ; line-height: 20px; vertical-align: middle;
-  border: solid 1px #b7b7b7 ;
-  border-top: none;
-  background: white ;
-}
-
-.UISitemap .SitemapItemBox .Level5 {
-  height: 20px ; line-height: 20px; vertical-align: middle;
-  border: solid 1px #c7c7c7 ;
-  background: white ;
-  border-top: none;
-  margin: 0px 20px 2px 20px ;
-}
-
-

@@ -10,11 +10,10 @@
 }
 
 .UIFooterPortlet .FooterInfoContainer {
-  height: 25px ;
+  line-height: 25px ;
 }
 
 .UIFooterPortlet .CopyrightInfo {
   line-height: 25px;
-  vertical-align: middle;
   text-align: center;
 }
