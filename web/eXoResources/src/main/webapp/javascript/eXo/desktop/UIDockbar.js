@@ -71,7 +71,8 @@ UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
 	} else {
 		for(var j = 0; j < children.length; j++) {
 			if(children[j].className!="UIDockBar") {
-				children[j].style.display = "none" ;
+				if (String(children[j].className).indexOf("UIWidget")>=0) continue;
+				children[j].style.display = "none" ;				
 				if(children[j].isShowed) {
 					this.showDesktop = true ;
 				}

@@ -62,15 +62,24 @@ UIWidget.prototype.initDND = function(e) {
   var DragDrop = eXo.core.DragDrop ;
 
 	DragDrop.initCallback = function (dndEvent) {
-		window.status = "MOUSE DOWN" ;
   }
 
-  DragDrop.dragCallback = function (dndEvent) {
-  	window.status = "MOUSE MOVING" ;
+  DragDrop.dragCallback = function (dndEvent) {  	
   }
 
-  DragDrop.dropCallback = function (dndEvent) {	
-  	window.status = "MOUSE UP" ;
+  DragDrop.dropCallback = function (dndEvent) {	  	
+  	var dragObject = dndEvent.dragObject ;
+  	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+  	var offsetHeight = uiPageDesktop.offsetHeight - dragObject.offsetHeight ;
+  	var offsetTop = dragObject.offsetTop ;
+  	var offsetWidth = uiPageDesktop.offsetWidth - dragObject.offsetWidth ;
+  	var offsetLeft = dragObject.offsetLeft ;
+  	
+  	if (dragObject.offsetLeft < 0) dragObject.style.left = "0px" ;
+  	if (dragObject.offsetTop < 0) dragObject.style.top = "0px" ;
+  	if (offsetTop > offsetHeight) dragObject.style.top = offsetHeight + "px" ;  	
+  	if (offsetLeft > offsetWidth) dragObject.style.left = offsetWidth + "px" ;  	
+  	//window.status = "MOUSE UP : " + uiPageDesktop.offsetHeight + "---" + dragObject.offsetTop + "---" + dragObject.offsetHeight ;
   }
   
   var clickBlock = this ;
