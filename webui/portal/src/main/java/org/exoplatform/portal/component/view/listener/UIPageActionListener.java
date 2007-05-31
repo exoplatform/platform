@@ -199,7 +199,7 @@ public class UIPageActionListener {
       UIPage uiPage = event.getSource();
       uiPage.removeChildById(id);
       
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();      
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
