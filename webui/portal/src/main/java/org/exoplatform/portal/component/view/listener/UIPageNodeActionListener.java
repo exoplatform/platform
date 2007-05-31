@@ -395,11 +395,12 @@ public class UIPageNodeActionListener {
         }
       }
       list.remove(i);
-      System.out.println(Util.getUIPortal().getNavigations().contains(k) + " -- Size: " + Util.getUIPortal().getNavigations().size() + ppp);
       configService.remove(k);
       
       pageNodeSelector.loadNavigations();
-      pageNodeSelector.selectNavigation(pageNodeSelector.getNavigations().get(0).getId());
+      if(pageNodeSelector.getNavigations().size() > 0) {
+        pageNodeSelector.selectNavigation(pageNodeSelector.getNavigations().get(0).getId());
+      }
       event.getRequestContext().addUIComponentToUpdateByAjax(pageNodeSelector.getAncestorOfType(UIPageManagement.class));      
     }
   }
