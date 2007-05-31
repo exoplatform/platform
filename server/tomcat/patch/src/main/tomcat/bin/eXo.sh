@@ -1,16 +1,22 @@
 #!/bin/sh
 
-PRG="$0"
+# Computes the absolute path of eXo
+PRGDIR=`dirname "$0"`
 
-PRGDIR=`dirname "$PRG"`
+# Sets some variables
 LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
 SECURITY_OPTS="-Djava.security.auth.login.config=$PRGDIR/../conf/jaas.conf"
 EXO_OPTS="-Dexo.product.developing=true"
+JPDA_TRANSPORT=dt_socket
+JPDA_ADDRESS=8000
+JAVA_OPTS="$YOURKIT_PROFILE_OPTION $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS"
+export JAVA_OPTS
 
+# For profiling
 #DYLD_LIBRARY_PATH="/Users/tuannguyen/Desktop/YourKit.app/bin/mac/"
 #export  DYLD_LIBRARY_PATH
 #YOURKIT_PROFILE_OPTION="-agentlib:yjpagent"
 
-JAVA_OPTS="$YOURKIT_PROFILE_OPTION $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS"
-export JAVA_OPTS
-exec "$PRGDIR"/catalina.sh "$@"
+# Launches the server
+cd "$PRGDIR"
+exec catalina.sh "$@"
