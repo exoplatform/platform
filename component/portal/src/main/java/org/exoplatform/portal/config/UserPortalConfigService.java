@@ -39,6 +39,7 @@ public class UserPortalConfigService {
   protected ExoCache portalConfigCache_ ;
   protected ExoCache pageConfigCache_ ;
   protected ExoCache pageNavigationCache_ ;
+  protected ExoCache widgetsCache_ ;
 
   /**
    *The constructor should create the DataStorage object and broadcast "the UserPortalConfigService.onInit"
@@ -56,6 +57,7 @@ public class UserPortalConfigService {
     portalConfigCache_   = cacheService.getCacheInstance(PortalConfig.class.getName()) ;
     pageConfigCache_     = cacheService.getCacheInstance(Page.class.getName()) ;
     pageNavigationCache_ = cacheService.getCacheInstance(PageNavigation.class.getName()) ;
+    widgetsCache_ = cacheService.getCacheInstance(Widgets.class.getName()) ;
   }
 
   /**
@@ -244,6 +246,22 @@ public class UserPortalConfigService {
   }
 
   /**
+   * This method should load all pages of given owner
+   * @param ownerType
+   * @param ownerId
+   * @return List of Page
+   * @throws Exception
+   */
+  @SuppressWarnings("unchecked")
+  //TODO: Tung.Pham added
+  public List<Page> getPages(String ownerType, String ownerId) throws Exception {
+    Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
+    query.setOwnerType(ownerType) ;
+    query.setOwnerId(ownerId) ;
+    PageList pageList = storage_.find(query) ;
+    return (List<Page>)pageList.getAll() ; 
+  }
+  /**
    * This method should remove the page object in the database and  broadcast the event 
    * UserPortalConfigService.page.onRemove
    * @param config
@@ -308,10 +326,57 @@ public class UserPortalConfigService {
     return navigation ;   
   }
   
+  /**
+   * This method should create the widgets object in the database
+   * @param widgets
+   * @throws Exception
+   */
+  //TODO: Tung.Pham added
+  public void create(Widgets widgets) throws Exception {
+    storage_.create(widgets) ;
+    widgetsCache_.put(widgets.getId(), widgets) ;
+  }
+  
+  /**
+   * This method should update the widgets object in the database
+   * @param widgets
+   * @throws Exception
+   */
+  //TODO: Tung.Pham added
+  public void update(Widgets widgets) throws Exception {
+    storage_.save(widgets) ;
+    widgetsCache_.select(new ExpireKeyStartWithSelector(widgets.getId())) ;
+  }
+  
+  /**
+   * This method should remove the widgets object from the database
+   * @param widgets
+   * @throws Exception
+   */
+  //TODO: Tung.Pham added
+  public void remove(Widgets widgets) throws Exception {
+    storage_.remove(widgets) ;
+    widgetsCache_.remove(widgets.getId()) ;
+  }
+  
+  /**
+   * This method load the widgets according to the id
+   * @param id
+   * @return Widgets
+   * @throws Exception
+   */
+  //TODO: Tung.Pham added
+  public Widgets getWidgets(String id) throws Exception {
+    Widgets widgets = storage_.getWidgets(id) ;
+    widgetsCache_.put(id, widgets) ;
+    return widgets ;
+  }
+  
   public void computeModifiable(PageNavigation navigation, String accessUser) throws Exception {
     userACL_.hasEditPermission(navigation.getCreator(), accessUser, navigation.getEditPermission());
   }
   
   @SuppressWarnings("unused")
   public void initListener(ComponentPlugin listener) { }
+  
 }
