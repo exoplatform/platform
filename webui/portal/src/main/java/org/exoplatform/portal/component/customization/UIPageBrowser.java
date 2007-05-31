@@ -337,7 +337,19 @@ public class UIPageBrowser extends UISearch {
     }
     static public class FinishActionListener extends EventListener<UIPageBrowseControlBar> {
       public void execute(Event<UIPageBrowseControlBar> event) throws Exception {
-        System.out.println("\n\n\n@@@@@@@@@@@@@@@@@@@@@Finish rooi haha");
+        UIPageBrowseControlBar browseControlBar = event.getSource();
+        UIPageManagement pageManagement = browseControlBar.getParent();
+        UIPageEditBar uiEditBar = pageManagement.getChild(UIPageEditBar.class);
+        uiEditBar.savePage();
+        
+        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();      
+        UIComponent uiComp = browseControlBar.getBackComponent() ;
+        uiToolPanel.setUIComponent(uiComp) ;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiToolPanel) ;
+        
+        UIPageManagement uiManagement = browseControlBar.getParent();
+        uiManagement.setRenderedChild(UIDescription.class);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
         
       }
     }
