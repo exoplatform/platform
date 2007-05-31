@@ -202,6 +202,11 @@ public class UIPageActionListener {
       for(UIWidget uiWidget : uiWidgets) {
         if(uiWidget.getApplicationInstanceId().equals(id)) {
           uiPage.getChildren().remove(uiWidget);
+          
+          Page page = PortalDataMapper.toPageModel(uiPage);    
+          UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
+          if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+          configService.update(page);
           break;
         }
       }
