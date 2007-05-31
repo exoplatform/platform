@@ -23,7 +23,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.container.PortalContainer ;
 /**
  * Created by The eXo Platform SARL
  * Author : lxchiati  
@@ -37,7 +36,8 @@ import org.exoplatform.container.PortalContainer ;
       @EventConfig(listeners = UITestForm.SaveActionListener.class),
       @EventConfig(listeners = UITestForm.ResetActionListener.class),
       @EventConfig(listeners = UITestForm.CancelActionListener.class),
-      @EventConfig(listeners = UITestForm.OnchangeActionListener.class)
+      @EventConfig(listeners = UITestForm.OnchangeActionListener.class),
+      @EventConfig(listeners = UITestForm.Onchange1ActionListener.class)
     }
 )
 public class UITestForm extends UIForm { 
@@ -59,7 +59,10 @@ public class UITestForm extends UIForm {
     ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
     uiSelectBox.setOnChange("Onchange");
+    UIFormSelectBox uiSelectBox1 = new UIFormSelectBox(FIELD_SELECT_BOX + "1", FIELD_SELECT_BOX + "1", ls) ;
+    uiSelectBox1.setOnChange("Onchange");
     addUIFormInput(uiSelectBox) ;
+    addUIFormInput(uiSelectBox1) ;
     
     UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);
     UIFormCheckBoxInput aaaa = new UIFormCheckBoxInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, ls);
@@ -100,7 +103,14 @@ public class UITestForm extends UIForm {
   @SuppressWarnings("unused")
   static  public class OnchangeActionListener extends EventListener<UITestForm> {
     public void execute(Event<UITestForm> event) throws Exception {
-//      System.out.println("\n\n\n\n\n == > onchange action \n\n");
+      System.out.println("\n\n\n\n\n == > onchange action : " + event.getSource().getId() + "\n\n");
+//      UIFormSelectBox uiSelectBox = event.getSource().getChild(UIFormSelectBox.class);
+//      System.out.println(">>>>>>>>>>>>>>>>>> " + uiSelectBox.getValue() + "\n\n");
+    }
+  }
+  static  public class Onchange1ActionListener extends EventListener<UITestForm> {
+    public void execute(Event<UITestForm> event) throws Exception {
+      System.out.println("\n\n\n\n\n == > onchange action 1 : " + event.getSource().getId() + "\n\n");
 //      UIFormSelectBox uiSelectBox = event.getSource().getChild(UIFormSelectBox.class);
 //      System.out.println(">>>>>>>>>>>>>>>>>> " + uiSelectBox.getValue() + "\n\n");
     }

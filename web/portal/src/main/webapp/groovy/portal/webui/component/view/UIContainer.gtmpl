@@ -3,8 +3,8 @@
 	String uiComponentWidth = uicomponent.getWidth();
 	String uiComponentHeight = uicomponent.getHeight();
 	if(uiComponentWidth != null || uiComponentHeight != null) cssStyle = "style=\"";
-	if(uiComponentWidth != null) cssStyle += "width: "+uiComponentWidth+"px;"
-	if(uiComponentHeight != null) cssStyle += "height: "+uiComponentHeight+"px;"
+	if(uiComponentWidth != null) cssStyle += "width: "+uiComponentWidth+";"
+	if(uiComponentHeight != null) cssStyle += "height: "+uiComponentHeight+";"
 	if(cssStyle.length() > 0) cssStyle += "\"";
 %>
 

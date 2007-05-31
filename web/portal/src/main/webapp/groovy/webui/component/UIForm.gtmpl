@@ -24,8 +24,6 @@
 	        }
 	      %>
       </table>
-      <%//Rerender this  component with the new structure%>
-      <%// start render action%>
       <div class="UIAction"> 
         <div class="ActionContainer">
           <% for(action in uicomponent.getActions()) { %>
@@ -35,7 +33,7 @@
                   <div class="ButtonRight">
                     <div class="ButtonMiddle">
                       <% 
-                        String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) 
+                        String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) ;
                         String link = uicomponent.event(action) ;
                       %>
                       <a href="$link">$actionLabel</a>
@@ -47,7 +45,6 @@
           <%}%>          
         </div>
       </div>
-      <%// end render action%>
     </div>
   </div>
   <%uiform.end()%>

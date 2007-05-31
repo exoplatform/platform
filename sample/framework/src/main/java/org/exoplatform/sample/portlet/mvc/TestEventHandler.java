@@ -13,8 +13,14 @@ import org.exoplatform.web.framework.portlet.mvc.EventHandler;
  * May 26, 2007  
  */
 public class TestEventHandler extends EventHandler {
+  private String test ;
+  public void onAction() throws Exception {
+    test = " hello......." ;
+  }
+  
   public void onRender() throws Exception {
     setUseTemplate("app:/templates/test/TestEvent.jstmpl") ;
+    this.templateContext_.setVariable("test", test) ;
     super.onRender() ;
   }
 }

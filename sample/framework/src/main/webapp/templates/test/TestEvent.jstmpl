@@ -4,4 +4,4 @@
 
 This is the TestEvent.jstmpl template
 <br/>==========================================================<br/>
-Return Home <a href="<%=homeEventUrl.toString()%>">Click Me</a>
+Return Home <a href="<%=homeEventUrl.toString()%>">Click Me</a>tran the trong
