@@ -77,6 +77,10 @@
 .UIWidgetContainer {
 }
 
+.UIWidgetContainer .WidgetContainerScrollArea {
+	overflow: hidden ;	
+}
+
 .UIWidgetContainer .WidgetNavigator {
 	height: 27px;
 	width: 75px;

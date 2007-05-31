@@ -102,15 +102,11 @@ UIWidget.prototype.resizeContainer = function() {
 	var uiWidgetContainer = DOMUtil.findFirstDescendantByClass(widgets, "div", "UIWidgetContainer");
 	var workspacePanel = document.getElementById("UIWorkspacePanel") ;	
 	var widgetNavigator = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetNavigator") ;	
+	var widgetContainerScrollArea = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetContainerScrollArea") ;
 	var itemSelectorContainer = DOMUtil.findFirstChildByClass(widgets, "div", "ItemSelectorContainer") ;
 
-	var height = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + extraHeight) ;
-	uiWidgetContainer.style.height = height + "px" ;
-	uiWidgetContainer.style.overflow = "auto" ;
-	
-	widgetNavigator.style.position = "absolute" ;
-	widgetNavigator.style.bottom = "60px" ;
-	widgetNavigator.style.left = "160px" ;
+	var availableHeight = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + extraHeight) ;
+	widgetContainerScrollArea.style.height = availableHeight + "px" ;
 } ;
 
 eXo.widget.UIWidget = new UIWidget();

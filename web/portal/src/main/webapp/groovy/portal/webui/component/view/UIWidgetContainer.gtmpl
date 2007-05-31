@@ -14,7 +14,9 @@
 %>
 
 <div class="UIWidgetContainer" id="<%=uicomponent.getId()%>">
-	<% uicomponent.renderChildren() %>
+	<div class="WidgetContainerScrollArea">
+		<% uicomponent.renderChildren() %>
+	</div>
 	<div class="WidgetNavigator">
 		<div class="LeftWidgetNavBar">
 			<div class="RightWidgetNavBar">

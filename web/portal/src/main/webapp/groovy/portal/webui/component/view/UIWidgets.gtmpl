@@ -11,7 +11,7 @@
   
   jsmanager.importJavascript('eXo.widget.UIWidget');
   
-  //jsmanager.addOnLoadJavascript('eXo.widget.UIWidget.resizeContainer');
+  jsmanager.addOnLoadJavascript('eXo.widget.UIWidget.resizeContainer');
   jsmanager.addOnResizeJavascript('eXo.widget.UIWidget.resizeContainer');
 %>
 

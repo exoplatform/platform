@@ -92,6 +92,10 @@
 	padding: 5px 0px 15px 0px;
 }
 
+.UIWidgetContainer .WidgetContainerScrollArea {
+	overflow: hidden ;	
+}
+
 .UIWidgetContainer .LeftWidgetNavBar {
 	height: 28px;
 	background: url('VistaSkin/background/LeftWidgetNavBar12x28.png') no-repeat left;

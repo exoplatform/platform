@@ -1,5 +1,5 @@
 function UIAddWidget() {
-	
+
 }
 
 UIAddWidget.prototype.show = function() {
@@ -22,13 +22,10 @@ UIAddWidget.prototype.addWidget = function(widgetElement) {
 	
 	var appDescriptor = widgetElement.applicationDescriptor;
 	
-//	alert("Widget Name: " + appDescriptor.application.appName);
-	
 	var uiWidgets = document.getElementById("UIWidgets");
-	var uiWidgetContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiWidgets, "div", "UIWidgetContainer");
-	var widgetNavigator = eXo.core.DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetNavigator");
+	var widgetContainerScrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiWidgets, "div", "WidgetContainerScrollArea");
 	
-	uiWidgetContainer.insertBefore(widgetElement, widgetNavigator) ;
+	widgetContainerScrollArea.appendChild(widgetElement);
 	
 	eXo.widget.UIWidget.init();
 	
@@ -39,7 +36,6 @@ UIAddWidget.prototype.addWidget = function(widgetElement) {
 
 UIAddWidget.prototype.addWidgetToDesktop = function(widgetElement) {
 	var appDescriptor = widgetElement.applicationDescriptor;
-//	alert("ADD DESKTOP: " + appDescriptor.application.appName);
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	if(uiPageDesktop == null) return ;
 	uiPageDesktop.appendChild(widgetElement);
@@ -47,13 +43,13 @@ UIAddWidget.prototype.addWidgetToDesktop = function(widgetElement) {
 	widgetElement.style.width = appDescriptor.application.width ;
 	widgetElement.style.height = appDescriptor.application.height ;
 	widgetElement.style.position = "absolute" ;
-	widgetElement.style.top = "40px" ;
+	widgetElement.style.top = "20px" ;
 	widgetElement.style.left = "20px" ;
 	
 	eXo.widget.UIWidget.init(true);
 	/*Get Application's Stylesheet*/
 	var styleId = appDescriptor.appId + "Stylesheet" ;
-	eXo.core.Skin.addSkin(styleId, appDescriptor.application.skin[eXo.env.client.skin]);
+	eXo.core.Skin.addSkin(styleId, appDescriptor.application.skin[eXo.env.client.skin]);	
 };
 
 eXo.widget.UIAddWidget = new UIAddWidget();
