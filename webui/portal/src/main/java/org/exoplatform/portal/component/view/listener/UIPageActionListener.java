@@ -197,7 +197,14 @@ public class UIPageActionListener {
     public void execute(Event<UIPage> event) throws Exception {
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UIPage uiPage = event.getSource();
-      uiPage.removeChildById(id);
+      List<UIWidget> uiWidgets = new ArrayList<UIWidget>();
+      uiPage.findComponentOfType(uiWidgets, UIWidget.class);
+      for(UIWidget uiWidget : uiWidgets) {
+        if(uiWidget.getApplicationInstanceId().equals(id)) {
+          uiPage.getChildren().remove(uiWidget);
+          break;
+        }
+      }
       
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
