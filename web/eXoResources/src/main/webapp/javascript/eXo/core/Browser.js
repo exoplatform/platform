@@ -145,6 +145,11 @@ Browser.prototype.addOnResizeCallback = function(id, method) {
 };
 
 Browser.prototype.onResize = function(event) {
+//	if(eXo.core.Browser.browserType == "ie") {
+//		event = window.event ;
+//	}
+//	
+//	alert("Event Type: " + event.type);
   var callback = eXo.core.Browser.onResizeCallback ;
   for(var name in callback.properties) {
     var method = callback.get(name) ;

@@ -8,9 +8,11 @@
   
   jsmanager.importJavascript('eXo.widget.UIWidgetContainerManagement');
   String showWCM = "eXo.widget.UIWidgetContainerManagement.show();" ;
-
-  jsmanager.importJavascript('eXo.widget.UIAddWidget');
-  String showUIAddWidget = "eXo.widget.UIAddWidget.show();" ;
+  
+  jsmanager.importJavascript('eXo.widget.UIWidget');
+  
+  //jsmanager.addOnLoadJavascript('eXo.widget.UIWidget.resizeContainer');
+  jsmanager.addOnResizeJavascript('eXo.widget.UIWidget.resizeContainer');
 %>
 
 <div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">

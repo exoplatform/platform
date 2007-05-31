@@ -1,4 +1,4 @@
-function UIWidget() {
+	function UIWidget() {
 	
 };
 
@@ -62,17 +62,46 @@ UIWidget.prototype.initDND = function(e) {
   var DragDrop = eXo.core.DragDrop ;
 
 	DragDrop.initCallback = function (dndEvent) {
+		window.status = "MOUSE DOWN" ;
   }
 
   DragDrop.dragCallback = function (dndEvent) {
+  	window.status = "MOUSE MOVING" ;
   }
 
   DragDrop.dropCallback = function (dndEvent) {	
+  	window.status = "MOUSE UP" ;
   }
   
   var clickBlock = this ;
   var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
   DragDrop.init(null, clickBlock, dragBlock, e) ;
 };
+
+/*
+ * Coder      : Dunghm
+ * Date       : 30-05-2007
+ * Description: resize workspace frame
+ * */
+UIWidget.prototype.resizeContainer = function() {
+	var widgets  = document.getElementById("UIWidgets") ;
+	if(widgets == null) return ;	
+	
+	var DOMUtil = eXo.core.DOMUtil ;
+	
+	var extraHeight = 40 ;
+	var uiWidgetContainer = DOMUtil.findFirstDescendantByClass(widgets, "div", "UIWidgetContainer");
+	var workspacePanel = document.getElementById("UIWorkspacePanel") ;	
+	var widgetNavigator = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetNavigator") ;	
+	var itemSelectorContainer = DOMUtil.findFirstChildByClass(widgets, "div", "ItemSelectorContainer") ;
+
+	var height = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + extraHeight) ;
+	uiWidgetContainer.style.height = height + "px" ;
+	uiWidgetContainer.style.overflow = "auto" ;
+	
+	widgetNavigator.style.position = "absolute" ;
+	widgetNavigator.style.bottom = "60px" ;
+	widgetNavigator.style.left = "160px" ;
+} ;
 
 eXo.widget.UIWidget = new UIWidget();
