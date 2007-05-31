@@ -342,7 +342,6 @@ public class UserPortalConfigService {
    * @param widgets
    * @throws Exception
    */
-  //TODO: Tung.Pham added
   public void update(Widgets widgets) throws Exception {
     storage_.save(widgets) ;
     widgetsCache_.select(new ExpireKeyStartWithSelector(widgets.getId())) ;

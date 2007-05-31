@@ -35,12 +35,38 @@ public class PortalDataMapper {
     Object model = null;
     if(uiComponent instanceof UIPageBody){
       model =  toPageBodyModel((UIPageBody)uiComponent);
+    }else if(uiComponent instanceof UIExoApplication){
+      model = toExoApplication((UIExoApplication)uiComponent);
+    }else if(uiComponent instanceof UIWidget){
+      model = toWidget((UIWidget)uiComponent);  
     }else if(uiComponent instanceof UIPortlet){
       model = toPortletModel((UIPortlet)uiComponent);
     } else if(uiComponent instanceof UIContainer){       
       model = toContainer((UIContainer) uiComponent);
     }
     return (T)model;
+  }
+  
+  static final public Application toWidget(UIWidget uiWidget) {
+    Application model = new Application();
+    model.setApplicationType(Application.WIDGET_TYPE);
+    model.setInstanceId(uiWidget.getApplicationInstanceId());
+    model.setId(uiWidget.getId());
+    return model;
+  }
+  
+  static final public Application toExoApplication(UIExoApplication uiExoApp) {
+    Application model = new Application();
+    model.setApplicationType(Application.EXO_APPLICATION_TYPE);
+    model.setId(uiExoApp.getId());
+    model.setInstanceId(uiExoApp.getApplicationInstanceId()) ;
+    model.setShowInfoBar(uiExoApp.getShowInfoBar());
+    model.setShowApplicationState(uiExoApp.getShowWindowState());
+    model.setShowApplicationMode(uiExoApp.getShowPortletMode());
+    model.setTitle(uiExoApp.getTitle());
+    model.setIcon(uiExoApp.getIcon());
+    model.setDescription(uiExoApp.getDescription());
+    return model;
   }
   
   static private void toContainer(Container model, UIContainer uiContainer) {
@@ -127,8 +153,31 @@ public class PortalDataMapper {
     return new PageBody();
   }
   
+  static final public Widgets toWidgets(UIWidgets uiWidgets) throws Exception {
+    Widgets model = new Widgets();
+    model.setAccessPermissions(uiWidgets.getAccessPermissions());
+    model.setEditPermission(uiWidgets.getEditPermission());
+    model.setOwnerType(uiWidgets.getOwnerType());
+    model.setOwnerId(uiWidgets.getOwnerId());
+    
+    List<UIComponent> uiChildren  = uiWidgets.getChildren();
+    if(uiChildren == null)  return model;
+    ArrayList<Container> modelChildren = new ArrayList<Container>(); 
+    for(int i = 1; i < uiChildren.size(); i++) { 
+      Container container = toContainer((UIContainer)uiChildren.get(i));
+      modelChildren.add(container);
+    }
+    model.setChildren(modelChildren);
+    return model;
+  }
+  
+  
+  
+  
 //  ************************************************************************************************
 
+  
+  
   
   static public void toUIExoApplication(UIExoApplication uiExoApp, Application model) throws Exception {
     uiExoApp.setApplicationInstanceId(model.getInstanceId()) ;

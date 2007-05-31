@@ -135,11 +135,20 @@ public class UIPageActionListener {
       Application application = getApplication(uiPortal, applicationId);
       
       if(org.exoplatform.portal.config.model.Application.EXO_APPLICATION_TYPE.equals(application.getApplicationType())){
-        UIExoApplication exoApplication = uiPage.createUIComponent(UIExoApplication.class, null, null);
-        windowId.append(exoApplication.hashCode());
-        exoApplication.setApplicationInstanceId(windowId.toString());
-        exoApplication.init();
-        uiPage.addChild(exoApplication);
+        UIExoApplication uiExoApp = uiPage.createUIComponent(UIExoApplication.class, null, null);
+        windowId.append(uiExoApp.hashCode());
+        uiExoApp.setApplicationInstanceId(windowId.toString());
+        uiExoApp.init();
+        uiPage.addChild(uiExoApp);
+      } else if(org.exoplatform.portal.config.model.Application.WIDGET_TYPE.equals(application.getApplicationType())){
+        UIWidget uiWidget = uiPage.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
+        windowId.append('/').append(uiWidget.hashCode());
+        uiWidget.setApplicationInstanceId(windowId.toString());
+        uiWidget.setApplicationName(application.getApplicationName());
+        uiWidget.setApplicationGroup(application.getApplicationGroup());
+        uiWidget.setApplicationOwnerType(application.getApplicationType());
+        uiWidget.setApplicationOwnerId(application.getOwner());
+        uiPage.addChild(uiWidget);
       } else {// if(org.exoplatform.portal.config.model.Application.PORTLET_TYPE.equals(application.getApplicationType())){
         UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);  
         windowId.append(":/").append(applicationId).append('/').append(uiPortlet.hashCode());
@@ -188,15 +197,7 @@ public class UIPageActionListener {
     public void execute(Event<UIPage> event) throws Exception {
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UIPage uiPage = event.getSource();
-      List<UIComponent> children = uiPage.getChildren();
-      Iterator<UIComponent> iter = children.iterator();
-      while(iter.hasNext()) {
-        UIWidget uiWidget = (UIWidget) iter.next();
-        if(uiWidget.getApplicationId().equals(id)) {
-          iter.remove();
-          break;
-        }
-      }
+      uiPage.removeChildById(id);
       
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();      
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
