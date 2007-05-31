@@ -32,8 +32,8 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = ApplicationRegistryControlArea.EditCategoryActionListener.class),
         @EventConfig(listeners = ApplicationRegistryControlArea.ImportPortletActionListener.class),
         @EventConfig(listeners = ApplicationRegistryControlArea.ImportApplicationActionListener.class),
-        @EventConfig(listeners = ApplicationRegistryControlArea.DeleteCategoryActionListener.class),
-        @EventConfig(listeners = ApplicationRegistryControlArea.DeleteAllCategoryActionListener.class),
+        @EventConfig(listeners = ApplicationRegistryControlArea.DeleteCategoryActionListener.class, confirm = "ApplicationRegistryControlArea.deleteCategory"),
+        @EventConfig(listeners = ApplicationRegistryControlArea.DeleteAllCategoryActionListener.class, confirm = "ApplicationRegistryControlArea.deleteAllCategory"),
         @EventConfig(listeners = ApplicationRegistryControlArea.ShowCategoryActionListener.class)
     }
 )
