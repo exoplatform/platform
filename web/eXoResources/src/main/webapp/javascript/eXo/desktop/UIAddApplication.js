@@ -40,7 +40,7 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 	var url = eXo.env.server.context + "/command?";
 	url += "type=org.exoplatform.portal.application.handler.GetApplicationHandler";
 	
-	forvar i = 0; i < applicationTypes.length; i++) {
+	for(var i = 0; i < applicationTypes.length; i++) {
 		url += "&applicationType="+applicationTypes[i];
 	}
 	
