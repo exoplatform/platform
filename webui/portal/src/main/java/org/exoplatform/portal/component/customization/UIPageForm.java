@@ -10,6 +10,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
+import org.exoplatform.portal.component.customization.UIPageBrowser.UIPageBrowseControlBar;
 import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIContainer;
 import org.exoplatform.portal.component.view.UIPage;
@@ -268,15 +269,8 @@ public class UIPageForm extends UIFormTabPane {
       
       UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
       
-      UIPageBrowser uiBrowser = uiPortalApp.findFirstComponentOfType(UIPageBrowser.class);
-      if(uiBrowser != null) {
-        UIPageIterator  iterator = uiBrowser.getChild(UIGrid.class).getUIPageIterator();
-        int currentPage = iterator.getCurrentPage();
-        uiBrowser.defaultValue(uiBrowser.getLastQuery());
-        if(currentPage > iterator.getAvailablePage()) currentPage = iterator.getAvailablePage();
-        iterator.setCurrentPage(currentPage);
-        UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-        rcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      
+      if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
         return;
       } 
       

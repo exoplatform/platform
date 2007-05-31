@@ -302,7 +302,10 @@ public class UIPageBrowser extends UISearch {
   
   @ComponentConfig(
       template = "system:/groovy/webui/component/UIToolbar.gtmpl",
-      events = @EventConfig(listeners = UIPageBrowseControlBar.BackActionListener.class)
+      events = { 
+          @EventConfig(listeners = UIPageBrowseControlBar.BackActionListener.class),
+          @EventConfig(listeners = UIPageBrowseControlBar.FinishActionListener.class)
+      }
   )
   static public class UIPageBrowseControlBar extends UIToolbar {
     
@@ -330,6 +333,12 @@ public class UIPageBrowser extends UISearch {
         UIPageManagement uiManagement = uiPageControlBar.getParent();
         uiManagement.setRenderedChild(UIDescription.class);
         event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+      }
+    }
+    static public class FinishActionListener extends EventListener<UIPageBrowseControlBar> {
+      public void execute(Event<UIPageBrowseControlBar> event) throws Exception {
+        System.out.println("\n\n\n@@@@@@@@@@@@@@@@@@@@@Finish rooi haha");
+        
       }
     }
   }
