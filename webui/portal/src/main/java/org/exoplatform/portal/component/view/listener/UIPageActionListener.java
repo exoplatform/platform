@@ -5,6 +5,7 @@
 package org.exoplatform.portal.component.view.listener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
@@ -23,6 +24,8 @@ import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPageBody;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
+import org.exoplatform.portal.component.view.UIWidget;
+import org.exoplatform.portal.component.view.UIWidgetContainer;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
@@ -115,24 +118,6 @@ public class UIPageActionListener {
     }
   }
   
-  static public class RemoveChildActionListener  extends EventListener<UIPage> {
-    public void execute(Event<UIPage> event) throws Exception {
-      UIPage uiPage = event.getSource();
-      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      uiPage.removeChildById(id);  
-      Page page = PortalDataMapper.toPageModel(uiPage);    
-      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
-      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-      configService.update(page);
-      
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();      
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      pcontext.setFullRender(true);
-    }
-  }
-  
   static public class AddExoApplicationActionListener  extends EventListener<UIPageBody> {
     public void execute(Event<UIPageBody> event) throws Exception {
       UIPortal uiPortal = Util.getUIPortal();  
@@ -201,4 +186,43 @@ public class UIPageActionListener {
     }
   }
   
+  static public class DeleteWidgetActionListener extends EventListener<UIPage> {
+    public void execute(Event<UIPage> event) throws Exception {
+      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      UIPage uiPage = event.getSource();
+      List<UIComponent> children = uiPage.getChildren();
+      Iterator<UIComponent> iter = children.iterator();
+      while(iter.hasNext()) {
+        UIWidget uiWidget = (UIWidget) iter.next();
+        if(uiWidget.getApplicationId().equals(id)) {
+          iter.remove();
+          break;
+        }
+      }
+      
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();      
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      pcontext.setFullRender(true);
+    }
+  }
+  
+  static public class RemoveChildActionListener  extends EventListener<UIPage> {
+    public void execute(Event<UIPage> event) throws Exception {
+      UIPage uiPage = event.getSource();
+      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      uiPage.removeChildById(id);  
+      Page page = PortalDataMapper.toPageModel(uiPage);    
+      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
+      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+      configService.update(page);
+      
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();      
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      pcontext.setFullRender(true);
+    }
+  }
 }

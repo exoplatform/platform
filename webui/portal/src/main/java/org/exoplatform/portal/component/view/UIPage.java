@@ -8,6 +8,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 import org.exoplatform.portal.component.view.lifecycle.UIPageLifecycle;
+import org.exoplatform.portal.component.view.listener.UIPageActionListener.DeleteWidgetActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.EditPageActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.RemoveChildActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.MoveChildActionListener;
@@ -37,7 +38,8 @@ import org.exoplatform.webui.config.annotation.EventConfig;
         @EventConfig(listeners = EditPageActionListener.class ),
         @EventConfig(listeners = MoveChildActionListener.class),
         @EventConfig(listeners = RemoveChildActionListener.class),
-        @EventConfig(listeners = ShowLoginFormActionListener.class)
+        @EventConfig(listeners = ShowLoginFormActionListener.class),
+        @EventConfig(listeners = DeleteWidgetActionListener.class)
       }
   )
 })
@@ -84,5 +86,4 @@ public class UIPage extends UIContainer {
       return res.getString("UIPageDesktop.img.DefaultPortlet") ;
     }
   }
-  
 }

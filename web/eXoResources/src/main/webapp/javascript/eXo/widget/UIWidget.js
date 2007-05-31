@@ -24,13 +24,23 @@ UIWidget.prototype.init = function(inDesktop) {
 UIWidget.prototype.deleteWidget = function(selectedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiWidgetContainer = DOMUtil.findAncestorByClass(selectedElement, "UIWidgetContainer") ;
+	var uiPage = DOMUtil.findAncestorByClass(selectedElement, "UIPage") ;
 	var uiWidget = DOMUtil.findAncestorByClass(selectedElement, "UIWidget") ;
+	
+	var containerBlockId ;
+	if(uiPage) {
+		var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
+		containerBlockId = uiPageIdNode.innerHTML;
+	}
+	else {
+		containerBlockId = uiWidgetContainer.id ;
+	}
 
 	var params = [
   	{name: "objectId", value : uiWidget.id}
   ] ;
 
-	ajaxGet(eXo.env.server.createPortalURL(uiWidgetContainer.id, "DeleteWidget", true, params)) ;
+	ajaxGet(eXo.env.server.createPortalURL(containerBlockId, "DeleteWidget", true, params)) ;
 };
 
 UIWidget.prototype.showWidgetControl = function() {
