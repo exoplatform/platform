@@ -29,7 +29,7 @@
   	jsmanager.addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
     uicomponent.renderUIComponent(uiPopupMenu) ;
     
-    popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode,CreateNavigation,EditNavigation,SaveNavigation,DeleteNavigation");
+    popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode,EditNavigation,SaveNavigation,DeleteNavigation");
   }
 %>
 	<div class="TopLeftContainerOptions">
@@ -44,7 +44,7 @@
 			  <div class="UIContainerConfigOptions ItemSelectorAncestor"> 
 				  <div class="ContainerConfigOptions">
 						<%uicomponent.renderChild(UIDropDownItemSelector.class);%>
-						<div class="AddNavigationIcon" title="Create new Page Navigation"><span></span></div>
+						<a class="AddNavigationIcon" href = "<%=uicomponent.event("CreateNavigation"); %>" title="Create new Page Navigation"><span></span></a>
 		        <div style="clear: left"><span></span></div>	
 						<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
 							<%

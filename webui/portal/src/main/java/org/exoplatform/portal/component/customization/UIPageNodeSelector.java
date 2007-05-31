@@ -50,6 +50,7 @@ import org.exoplatform.webui.event.EventListener;
       template = "app:/groovy/portal/webui/component/customization/UIPageNodeSelector.gtmpl" ,
       events = {
         @EventConfig(listeners = UIPageNodeSelector.ChangeNodeActionListener.class),
+        @EventConfig(listeners = CreateNavigationActionListener.class),
         @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class) 
       }
   ),
@@ -73,7 +74,6 @@ import org.exoplatform.webui.event.EventListener;
       events = {
         @EventConfig(listeners = AddNodeActionListener.class),
         @EventConfig(listeners = PasteNodeActionListener.class),
-        @EventConfig(listeners = CreateNavigationActionListener.class),
         @EventConfig(listeners = SaveNavigationActionListener.class),
         @EventConfig(listeners = EditNavigationActionListener.class),
         @EventConfig(listeners = DeleteNavigationActionListener.class)
@@ -116,13 +116,13 @@ public class UIPageNodeSelector extends UIContainer {
   public void loadNavigations() throws Exception {
     navigations_ = new ArrayList<PageNavigation>();
     List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();
-    
     for(PageNavigation nav  : pnavigations){
       if(nav.isModifiable()) navigations_.add(nav.clone()) ;
     }
     
     if(navigations_.size() < 1) return;
     loadSelectedNavigation();
+    
     if(selectedNavigation == null) selectedNavigation = navigations_.get(0);
     if(selectedNavigation.getNodes().size() > 0) selectedPageNode = selectedNavigation.getNode(0);
     

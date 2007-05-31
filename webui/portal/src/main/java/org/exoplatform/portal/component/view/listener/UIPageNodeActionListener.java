@@ -344,8 +344,8 @@ public class UIPageNodeActionListener {
     }
   }
   
-  static public class CreateNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
-    public void execute(Event<UIRightClickPopupMenu> event) throws Exception { 
+  static public class CreateNavigationActionListener extends EventListener<UIPageNodeSelector> {
+    public void execute(Event<UIPageNodeSelector> event) throws Exception { 
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
@@ -377,16 +377,30 @@ public class UIPageNodeActionListener {
   
   static public class DeleteNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception { 
-      System.out.println("\n\n\n-------------DeleteNavigationssssssssssss");
       UIRightClickPopupMenu uiPopup = event.getSource();
       UIPageNodeSelector pageNodeSelector = uiPopup.getAncestorOfType(UIPageNodeSelector.class);
       PageNavigation k = pageNodeSelector.getSelectedNavigation();
-      DataStorage storage = pageNodeSelector.getApplicationComponent(DataStorage.class);
-      pageNodeSelector.getNavigations().remove(k);
-      storage.remove(k);
-      Util.getUIPortal().getNavigations().remove(k);
+//      String abc = k.getId();
+//      DataStorage storage = pageNodeSelector.getApplicationComponent(DataStorage.class);
+      UserPortalConfigService configService = pageNodeSelector.getApplicationComponent(UserPortalConfigService.class);
+//      pageNodeSelector.getNavigations().remove(k);
+      
+      boolean ppp = Util.getUIPortal().getNavigations().remove(k);
+      
+      List<PageNavigation> list = Util.getUIPortal().getNavigations();
+      int i = 0;
+      for( i = 0; i < list.size(); i ++) {
+        if( list.get(i).getId().equals(k.getId())){
+          break; 
+        }
+      }
+      list.remove(i);
+      System.out.println(Util.getUIPortal().getNavigations().contains(k) + " -- Size: " + Util.getUIPortal().getNavigations().size() + ppp);
+      configService.remove(k);
+      
       pageNodeSelector.loadNavigations();
-      event.getRequestContext().addUIComponentToUpdateByAjax(pageNodeSelector);      
+      pageNodeSelector.selectNavigation(pageNodeSelector.getNavigations().get(0).getId());
+      event.getRequestContext().addUIComponentToUpdateByAjax(pageNodeSelector.getAncestorOfType(UIPageManagement.class));      
     }
   }
   
