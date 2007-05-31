@@ -22,7 +22,10 @@ import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig( 
   template = "system:/groovy/portal/webui/component/view/UIWidgetContainer.gtmpl",
-  events = @EventConfig(listeners = UIWidgetContainer.DeleteWidgetActionListener.class)
+  events = {
+      @EventConfig(listeners = UIWidgetContainer.DeleteWidgetActionListener.class),
+      @EventConfig(listeners = UIWidgetContainer.AddApplicationActionListener.class)
+  }
 )
 public class UIWidgetContainer extends UIContainer {
   
@@ -47,6 +50,12 @@ public class UIWidgetContainer extends UIContainer {
       
       UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);
+    }
+  }
+  
+  static public class AddApplicationActionListener  extends EventListener<UIWidgetContainer> {
+    public void execute(Event<UIWidgetContainer> event) throws Exception {
+      System.out.println("\n\n\n == > da call vao day \n\n\n");
     }
   }
 }

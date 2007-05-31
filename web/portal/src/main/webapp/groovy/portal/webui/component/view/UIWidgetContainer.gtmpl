@@ -9,7 +9,7 @@
   
   //System.out.println("\n\n\n == > is uicontainer la "+ uicomponent.getChildren().size()+"\n\n\n");
   String componentId = uicomponent.getId();
-  String addWidgetAction = "eXo.desktop.UIAddApplication.init('"+uicomponent.getId()+"', ['eXoWidget']);" ;
+  String addWidgetAction = "eXo.desktop.UIAddApplication.init('"+componentId+"','"+componentId+"', ['eXoWidget']);" ;
   
 %>
 

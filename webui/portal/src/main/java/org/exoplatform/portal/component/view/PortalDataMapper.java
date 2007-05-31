@@ -277,7 +277,7 @@ public class PortalDataMapper {
     }else if(model instanceof Application){
       Application application = (Application) model;
       String factoryId = application.getApplicationType();    
-      if(factoryId == null || factoryId.equals(Application.TYPE_PORTLET)){
+      if(factoryId == null || factoryId.equals(Application.PORTLET_TYPE)){
         UIPortlet uiPortlet = uiParent.createUIComponent(context, UIPortlet.class, null, null);
         toUIPortlet(uiPortlet, application);
         uiComponent = uiPortlet;
@@ -287,7 +287,7 @@ public class PortalDataMapper {
         toUIExoApplication(uiExoApp, application) ;
 //        uiExoApp.init() ;
         uiComponent = uiExoApp ;
-      } else if(factoryId.equals(Application.TYPE_WIDGET)) {
+      } else if(factoryId.equals(Application.WIDGET_TYPE)) {
         UIWidget uiWidget = uiParent.createUIComponent(context, UIWidget.class, null, null);
         toUIWidget(uiWidget, application) ;
         uiComponent = uiWidget ;

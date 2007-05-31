@@ -5,7 +5,7 @@
 package org.exoplatform.portal.component.view;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.portal.component.view.listener.UIPageActionListener.AddExoApplicationActionListener;
+import org.exoplatform.portal.component.view.listener.UIPageActionListener.AddApplicationActionListener;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
@@ -21,10 +21,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
  *          nhudinhthuan@yahoo.com
  * May 19, 2006
  */
-@ComponentConfig(
-    template = "system:/groovy/portal/webui/component/view/UIPageBody.gtmpl",
-    events = @EventConfig(listeners = AddExoApplicationActionListener.class)
-)
+@ComponentConfig(template = "system:/groovy/portal/webui/component/view/UIPageBody.gtmpl")
 public class UIPageBody extends UIComponentDecorator {
   
   private UIPortalComponent maximizedUIComponent;

@@ -6,7 +6,7 @@ function UIAddApplication() {
   
 };
 
-UIAddApplication.prototype.init = function(containerId, applicationTypes) {
+UIAddApplication.prototype.init = function(parentId, containerId, applicationTypes) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var container = document.getElementById(containerId);
 	var context = new Object();
@@ -25,7 +25,7 @@ UIAddApplication.prototype.init = function(containerId, applicationTypes) {
 	}
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	eXo.desktop.UIAddApplication.showAddApplication(uiAddApplicationContainer);
-	this.loadApplications(true, applicationTypes);
+	this.loadApplications(true, applicationTypes, parentId);
 };
 
 /**Created: by Duy Tu**/
@@ -35,7 +35,7 @@ function getUrl(src) {
 	return(img.src);
 };
 
-UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes) {
+UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes, parentId) {
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	var url = eXo.env.server.context + "/command?";
 	url += "type=org.exoplatform.portal.application.handler.GetApplicationHandler";
@@ -85,40 +85,40 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 	  }
 	  //var portlets = cate["portlets"];
 	  for(id in applications) {
-	  	portlet = applications[id];  	 
-      var srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + portlet["title"]+".png";
+	  	application = applications[id];  	 
+      var srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + application["title"]+".png";
       var srcNormalBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png";
 			srcBG = getUrl(srcBG);
 			srcNormalBG = getUrl(srcNormalBG);
 	    itemDetails += '<div class="Application">' +
 			               '  <div class="ApplicationButton">' +
-				             ' 	  <div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'false\');" ><span></span></div>' +
-				             ' 		<div class="AddButton" onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\');"' +
+				             ' 	  <div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'false\');" ><span></span></div>' +
+				             ' 		<div class="AddButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'true\');"' +
 				             '      title="Add this application to the desktop page">' +
 						         ' 			<span></span>' +
 						      	 '		</div>' +
 						      	 '	</div>' +
 				             '  <div class="ApplicationDescription">' +
-				             '		<div class="PortletIcon" title="'+portlet["title"]+'"' +
-			               '    	onclick="eXo.desktop.UIAddApplication.addPortlet(\''+id+'\',\'true\');">' +
+				             '		<div class="PortletIcon" title="'+application["title"]+'"' +
+			               '    	onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'true\');">' +
 			               '    	<span>' +
 			               '      	<img src="'+srcBG+'" onError="src=\''+srcNormalBG+'\'">' +
 			               '      </span>' +
 			               '    </div>' +
 			               '	  <div class="ApplicationContent">' +
-			               '	    <div class="TitleBarApplication">'+portlet["title"]+'</div>' +
+			               '	    <div class="TitleBarApplication">'+application["title"]+'</div>' +
 			               '      <div class="ApplicationContentLabel">' +
 			               '        <div class="ContentLabel">' +
 			               '          <span class="LeftLabel">Type:</span>' +
-			               '	        <span class="RightLabel">' +portlet["type"]+'</span>' +
+			               '	        <span class="RightLabel">' +application["type"]+'</span>' +
 			               '	      </div>' +
 			               '	      <div class="ContentLabel">' +
 			               '	        <span class="LeftLabel">Created by:</span>' +
-			               '	        <span class="RightLabel">'+ portlet["owner"]+ '</span>' +
+			               '	        <span class="RightLabel">'+ application["owner"]+ '</span>' +
 			               '	      </div>' +
 			               '	      <div class="ContentLabel">' +
                      '          <span class="LeftLabel">Description:</span>' +
-                     '          <span class="RightLabel">'+portlet["title"]+' Description</span>' +
+                     '          <span class="RightLabel">'+application["title"]+' Description</span>' +
                      '        </div>' +
 			               '	    </div>' +
 			               '	  </div>' +
@@ -135,13 +135,13 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
   itemDetailList.innerHTML = itemDetails;
 };
 
-UIAddApplication.prototype.addPortlet = function(id, save) {
+UIAddApplication.prototype.addApplication = function(parentId, id, save) {
 	var params = [
-		{name: "portletId", value : id},
+		{name: "applicationId", value : id},
 		{name: "save", value : save},
 	] ;
 	
-	ajaxGet(eXo.env.server.createPortalURL("UIPageBody", "AddExoApplication", true, params)) ;
+	ajaxGet(eXo.env.server.createPortalURL(parentId, "AddApplication", true, params)) ;
 };
 
 UIAddApplication.prototype.showAddApplication = function(object) {

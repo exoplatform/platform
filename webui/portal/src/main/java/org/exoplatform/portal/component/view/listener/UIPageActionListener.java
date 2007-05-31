@@ -25,7 +25,6 @@ import org.exoplatform.portal.component.view.UIPageBody;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.UIWidget;
-import org.exoplatform.portal.component.view.UIWidgetContainer;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
@@ -118,8 +117,8 @@ public class UIPageActionListener {
     }
   }
   
-  static public class AddExoApplicationActionListener  extends EventListener<UIPageBody> {
-    public void execute(Event<UIPageBody> event) throws Exception {
+  static public class AddApplicationActionListener  extends EventListener<UIPage> {
+    public void execute(Event<UIPage> event) throws Exception {
       UIPortal uiPortal = Util.getUIPortal();  
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       UIPage uiPage = null;
@@ -130,33 +129,32 @@ public class UIPageActionListener {
         uiPage = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
       }      
       
-      String portletId = event.getRequestContext().getRequestParameter("portletId");  
+      String applicationId = event.getRequestContext().getRequestParameter("applicationId");  
       StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
-      windowId.append(":/").append(portletId).append('/');
-      Application portlet = getPortlet(uiPortal, portletId);
+      windowId.append(":/").append(applicationId).append('/');
+      Application application = getApplication(uiPortal, applicationId);
       
-      if("eXoApplication".equals(portlet.getApplicationType())){
+      if(org.exoplatform.portal.config.model.Application.EXO_APPLICATION_TYPE.equals(application.getApplicationType())){
         UIExoApplication exoApplication = uiPage.createUIComponent(UIExoApplication.class, null, null);
-        String [] components = portletId.split("/");
         windowId.append(exoApplication.hashCode());
         exoApplication.setApplicationInstanceId(windowId.toString());
         exoApplication.init();
         uiPage.addChild(exoApplication);
-      } else {
+      } else {// if(org.exoplatform.portal.config.model.Application.PORTLET_TYPE.equals(application.getApplicationType())){
         UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);  
-        windowId.append(":/").append(portletId).append('/').append(uiPortlet.hashCode());
+        windowId.append(":/").append(applicationId).append('/').append(uiPortlet.hashCode());
         uiPortlet.setWindowId(windowId.toString());
-        if(portlet != null){
-          if(portlet.getDisplayName() != null) {
-            uiPortlet.setTitle(portlet.getDisplayName());
-          } else if(portlet.getApplicationName() != null) {
-            uiPortlet.setTitle(portlet.getApplicationName());
+        if(application != null){
+          if(application.getDisplayName() != null) {
+            uiPortlet.setTitle(application.getDisplayName());
+          } else if(application.getApplicationName() != null) {
+            uiPortlet.setTitle(application.getApplicationName());
           }
-          uiPortlet.setDescription(portlet.getDescription());
+          uiPortlet.setDescription(application.getDescription());
         }
         uiPage.addChild(uiPortlet);
       }
-      
+
       String save = event.getRequestContext().getRequestParameter("save");
       if(save != null && Boolean.valueOf(save).booleanValue()) {
         Page page = PortalDataMapper.toPageModel(uiPage); 
@@ -172,14 +170,14 @@ public class UIPageActionListener {
     }
     
     @SuppressWarnings("unchecked")
-    private Application getPortlet(UIPortal uiPortal, String id) throws Exception {
+    private Application getApplication(UIPortal uiPortal, String id) throws Exception {
       ApplicationRegistryService service = uiPortal.getApplicationComponent(ApplicationRegistryService.class) ;
       List<ApplicationCategory> pCategories = service.getApplicationCategories();   
 
       for(ApplicationCategory pCategory : pCategories) {
-        List<Application> portlets = service.getApplications(pCategory) ;
-        for(Application portlet : portlets){
-          if(portlet.getId().equals(id)) return portlet;
+        List<Application> applications = service.getApplications(pCategory) ;
+        for(Application application : applications){
+          if(application.getId().equals(id)) return application;
         }  
       }    
       return null;
