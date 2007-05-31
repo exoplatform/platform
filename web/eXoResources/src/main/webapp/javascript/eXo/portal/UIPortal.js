@@ -385,21 +385,25 @@ UIPortal.prototype.onLoads = function() {
 	DOMUtil = eXo.core.DOMUtil;
 	var tabContents = document.getElementById("TabContents") ;
 	var uiTabContent = DOMUtil.findDescendantsByClass(tabContents, "div", "UITabContent");
-	for(var i = 0;i < uiTabContent.length; ++i ){
-		var uiInfoBar = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "UIInfoBar") ;
-		var layOutContainer = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "LAYOUT-CONTAINER") ;
-		if(uiInfoBar != null) uiInfoBar.style.display = "none";
-		if(layOutContainer != null) {
-			layOutContainer.style.border = "none";
-		  layOutContainer.style.background = "none";
+	if(uiTabContent.length > 0) {
+		for(var i = 0;i < uiTabContent.length; ++i ){
+			var uiInfoBar = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "UIInfoBar") ;
+			var layOutContainer = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "LAYOUT-CONTAINER") ;
+			if(uiInfoBar) uiInfoBar.style.display = "none";
+			if(layOutContainer) {
+				layOutContainer.style.border = "none";
+			  layOutContainer.style.background = "none";
+			}
 		}
 	}
 } ;
 
 UIPortal.prototype.createJSApplication = function(application, applicationId, instanceId, appLocation) {
-	eXo.require(application, appLocation);
-	var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
-	eval(createApplication);
+	if(application) {
+		eXo.require(application, appLocation);
+		var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
+		eval(createApplication);
+	}
 } ;
 
 eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;

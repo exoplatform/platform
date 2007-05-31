@@ -5,6 +5,10 @@
 }
 
 /*================================= UIPageManagementEditBar Icons =================================*/
+.UIPageManagement .UIPageNavigationControlBar .UIToolbar .ControlToolbar {
+	margin: 13px 2px 0px 105px; 
+}
+
 .UIPageManagement .UIToolbar .EditToolbar {
   margin-top: 15px;
 }
@@ -45,7 +49,7 @@
 
 /*=================================Navigation Control Bar=================================*/
 .UIPageManagement .UIToolbar .ControlToolbar {
-	margin: 13px 2px 0px 15px; 
+	margin: 13px 2px 0px 160px; 
 }
 
 .UIPageManagement .RollbackIcon {

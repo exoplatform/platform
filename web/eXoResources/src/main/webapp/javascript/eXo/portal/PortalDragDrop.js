@@ -27,6 +27,7 @@ PortalDragDrop.prototype.onLoad = function(e) {
 
 PortalDragDrop.prototype.init = function(e) {
 	var DOMUtil = eXo.core.DOMUtil ;
+	var Browser = eXo.core.Browser ;
   var DragDrop = eXo.core.DragDrop ;
 
   DragDrop.initCallback = function (dndEvent) {
@@ -36,10 +37,10 @@ PortalDragDrop.prototype.init = function(e) {
     var properties = ["top", "left", "zIndex", "opacity", "filter", "position"] ;
     this.origDragObjectStyle.copyProperties(properties, dragObject.style) ;
    	
-    PortalDragDrop.originalDragObjectTop = eXo.core.Browser.findPosY(dragObject) ;
-    var originalDragObjectLeft = eXo.core.Browser.findPosX(dragObject) ;
-    var originalMousePositionY = eXo.core.Browser.findMouseYInPage(e) ;
-    var originalMousePositionX = eXo.core.Browser.findMouseXInPage(e) ;
+    PortalDragDrop.originalDragObjectTop = Browser.findPosY(dragObject) ;
+    var originalDragObjectLeft = Browser.findPosX(dragObject) ;
+    var originalMousePositionY = Browser.findMouseYInPage(e) ;
+    var originalMousePositionX = Browser.findMouseXInPage(e) ;
     PortalDragDrop.deltaYDragObjectAndMouse = originalMousePositionY - PortalDragDrop.originalDragObjectTop ;
     PortalDragDrop.deltaXDragObjectAndMouse = originalMousePositionX - originalDragObjectLeft ;
     
@@ -59,10 +60,10 @@ PortalDragDrop.prototype.init = function(e) {
       dndEvent.dragObject = cloneObject ;
       
       cloneObject.style.position = "absolute" ;
-      cloneObject.style.left = (eXo.core.Browser.findMouseXInPage(e) - 
+      cloneObject.style.left = (Browser.findMouseXInPage(e) - 
                                PortalDragDrop.deltaXDragObjectAndMouse) + "px" ;
             
-      cloneObject.style.top = (eXo.core.Browser.findMouseYInPage(e) - 
+      cloneObject.style.top = (Browser.findMouseYInPage(e) - 
                               PortalDragDrop.deltaYDragObjectAndMouse - document.documentElement.scrollTop) + "px" ;
       cloneObject.style.opacity = 0.5 ;
       cloneObject.style.filter = "alpha(opacity=50)" ;
@@ -74,9 +75,8 @@ PortalDragDrop.prototype.init = function(e) {
     var dragObject = dndEvent.dragObject ;
     /* Control Scroll */
     eXo.portal.PortalDragDrop.scrollOnDrag(dragObject, dndEvent.backupMouseEvent) ;
-    
 //    window.status = "foundTargetObject: " + dndEvent.foundTargetObject + "    lastFoundTargetObject: " + dndEvent.lastFoundTargetObject;
-    if((dndEvent.foundTargetObject != null) && (dndEvent.lastFoundTargetObject != null)) {
+    if((dndEvent.foundTargetObject) && (dndEvent.lastFoundTargetObject)) {
       /*Check and asign UIPage to uiComponentLayout when DND on UIPage*/
       var uiComponentLayout ;
       if(dndEvent.foundTargetObject.className == "UIPage") {
