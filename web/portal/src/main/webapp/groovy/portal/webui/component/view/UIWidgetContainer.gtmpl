@@ -13,7 +13,7 @@
   
 %>
 
-<div class="UIWidgetContainer" id="<%=uicomponent.getId()%>">
+<div class="UIWidgetContainer" id="<%=componentId%>">
 	<div class="WidgetContainerScrollArea">
 		<% uicomponent.renderChildren() %>
 	</div>

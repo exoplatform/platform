@@ -19,7 +19,7 @@ abstract public class WidgetApplication extends Application {
   
   public String getApplicationType() { return "eXoWidget" ; }
   
-  abstract public void processRender(Writer w) throws Exception ;
+  abstract public void processRender(String instanceId, Writer w) throws Exception ;
   
   public ResourceBundle getOwnerResourceBundle(String username, Locale locale) throws Exception {
     throw new Exception("This method is not supported") ;

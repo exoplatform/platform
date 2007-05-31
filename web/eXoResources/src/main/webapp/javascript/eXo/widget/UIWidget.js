@@ -35,7 +35,7 @@ UIWidget.prototype.deleteWidget = function(selectedElement) {
 	else {
 		containerBlockId = uiWidgetContainer.id ;
 	}
-
+	
 	var params = [
   	{name: "objectId", value : uiWidget.id}
   ] ;

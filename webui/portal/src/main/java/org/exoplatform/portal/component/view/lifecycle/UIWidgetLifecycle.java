@@ -30,6 +30,6 @@ public class UIWidgetLifecycle extends Lifecycle {
       (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
     WidgetApplication application =
       (WidgetApplication) controller.getApplication(uiWidget.getApplicationId()) ;
-    application.processRender(context.getWriter()) ;
+    application.processRender(uiWidget.getApplicationInstanceId(), context.getWriter()) ;
   }
 }

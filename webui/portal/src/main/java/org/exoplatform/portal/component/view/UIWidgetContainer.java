@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,8 +11,6 @@ import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.UserPortalConfigService;
-import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.webui.component.UIComponent;
@@ -21,8 +18,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-
-import com.sun.corba.se.impl.oa.poa.AOMEntry;
 /**
  * Created by The eXo Platform SARL
  * Author : Pham Dung Ha
@@ -52,7 +47,7 @@ public class UIWidgetContainer extends UIContainer {
       Iterator<UIComponent> iter = children.iterator();
       while(iter.hasNext()) {
         UIWidget uiWidget = (UIWidget) iter.next();
-        if(uiWidget.getApplicationId().equals(id)) {
+        if(uiWidget.getApplicationInstanceId().equals(id)) {
           iter.remove();
           break;
         }
@@ -80,7 +75,7 @@ public class UIWidgetContainer extends UIContainer {
       
       if(application != null) {
         UIWidget uiWidget = uiWidgetContainer.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
-        windowId.append('/').append(uiWidget.hashCode());
+        windowId.append(uiWidget.hashCode());
         uiWidget.setApplicationInstanceId(windowId.toString());
         uiWidget.setApplicationName(application.getApplicationName());
         uiWidget.setApplicationGroup(application.getApplicationGroup());

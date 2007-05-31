@@ -18,7 +18,6 @@ UIWelcomeWidget.prototype.createApplicationInstance = function(appDescriptor) {
 	var DOMUtil = eXo.core.DOMUtil ;
 
 	appDescriptor.widget = {
-		
 	};
 
  	appDescriptor.widget.content = 
@@ -35,11 +34,12 @@ UIWelcomeWidget.prototype.createApplicationInstance = function(appDescriptor) {
 
 UIWelcomeWidget.prototype.initApplication = function(applicationId, instanceId) {
 	var DOMUtil = eXo.core.DOMUtil ;
-	if(instanceId == null) {
-	  instanceId = DOMUtil.generateId(applicationId);
-	  var application = "eXo.widget.web.welcome.UIWelcomeWidget";
-	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId) ;
-  }
+//	if(instanceId == null) {
+//	  instanceId = DOMUtil.generateId(applicationId);
+//	  var application = "eXo.widget.web.welcome.UIWelcomeWidget";
+//	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId);
+//  }
+	
 
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.welcome.UIWelcomeWidget) ;
@@ -48,6 +48,7 @@ UIWelcomeWidget.prototype.initApplication = function(applicationId, instanceId) 
 
 	var app = document.getElementById("UIWelcomeWidget");
 	appInstance.id = app.getAttribute('applicationId') ;
+	
 	var uiPageDesktop = DOMUtil.findAncestorByClass(app, "UIPageDesktop") ;
 
 	if(uiPageDesktop == null) {

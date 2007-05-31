@@ -117,14 +117,14 @@ public class UIPortalActionListener {
   
   //TODO: Rename this class to AddExoApplicationActionListener,  if the listener can remove only
   //the application page , then it should be UIPageActionListener class
-  static public class AddJSApplicationToDesktopActionListener  extends EventListener<UIPortal> {
-    public void execute(Event<UIPortal> event) throws Exception {
-      String application  = event.getRequestContext().getRequestParameter("jsApplication");
-      String applicationId  = event.getRequestContext().getRequestParameter("jsApplicationId");
-      String instanceId  = event.getRequestContext().getRequestParameter("jsInstanceId");
-      String appLoc= event.getRequestContext().getRequestParameter("jsApplicationLocation");
-    }
-  }
+//  static public class AddJSApplicationToDesktopActionListener  extends EventListener<UIPortal> {
+//    public void execute(Event<UIPortal> event) throws Exception {
+//      String application  = event.getRequestContext().getRequestParameter("jsApplication");
+//      String applicationId  = event.getRequestContext().getRequestParameter("jsApplicationId");
+//      String instanceId  = event.getRequestContext().getRequestParameter("jsInstanceId");
+//      String appLoc= event.getRequestContext().getRequestParameter("jsApplicationLocation");
+//    }
+//  }
   
   //TODO: Rename this class to RemoveApplicationActionListener,  if the listener can remove only
   //the application in the page , then it should be UIPageActionListener class

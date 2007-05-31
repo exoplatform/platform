@@ -142,7 +142,7 @@ public class UIPageActionListener {
         uiPage.addChild(uiExoApp);
       } else if(org.exoplatform.portal.config.model.Application.WIDGET_TYPE.equals(application.getApplicationType())){
         UIWidget uiWidget = uiPage.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
-        windowId.append('/').append(uiWidget.hashCode());
+        windowId.append(uiWidget.hashCode());
         uiWidget.setApplicationInstanceId(windowId.toString());
         uiWidget.setApplicationName(application.getApplicationName());
         uiWidget.setApplicationGroup(application.getApplicationGroup());

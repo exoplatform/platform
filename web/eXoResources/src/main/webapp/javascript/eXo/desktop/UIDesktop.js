@@ -89,15 +89,17 @@ UIDesktop.prototype.backupWindowProperties = function(uiWindow) {
   uiWindow.isFirstTime = false ;
 } ;
 
-UIDesktop.prototype.saveJSApplication = function(application, applicationId, instanceId, appLocation) {
+/*UIDesktop.prototype.saveJSApplication = function(application, applicationId, instanceId, appLocation) {
   var params = [
   	{name: "jsApplication", value : application},
   	{name: "jsApplicationId", value : applicationId},
   	{name: "jsInstanceId", value : instanceId},
   	{name: "jsApplicationLocation", value : appLocation}
   ] ;
-	ajaxGet(eXo.env.server.createPortalURL("UIPortal", "AddJSApplicationToDesktop", true, params)) ;
-} ;
+  var url = eXo.env.server.createPortalURL("UIPortal", "AddJSApplicationToDesktop", true, params);
+  alert(url);
+	ajaxGet(url) ;
+} ;*/
 
 UIDesktop.prototype.addApplicationToDesktop = function(application, appId, appLocation) {
 	try {

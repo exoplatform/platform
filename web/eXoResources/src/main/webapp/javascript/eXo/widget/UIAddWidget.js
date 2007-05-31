@@ -19,7 +19,7 @@ UIAddWidget.prototype.show = function() {
 };
 
 UIAddWidget.prototype.addWidget = function(widgetElement) {
-	
+
 	var appDescriptor = widgetElement.applicationDescriptor;
 	
 	var uiWidgets = document.getElementById("UIWidgets");

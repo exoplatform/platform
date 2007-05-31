@@ -31,11 +31,11 @@ UIConsoleApplication.prototype.createApplicationInstance = function(appDescripto
 };
 
 UIConsoleApplication.prototype.initApplication = function(applicationId, instanceId) {
-	if(instanceId == null) {
-	  instanceId = eXo.core.DOMUtil.generateId(applicationId);
-	  var application = "eXo.application.console.UIConsoleApplication";
-	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId);
-  }
+//	if(instanceId == null) {
+//	  instanceId = eXo.core.DOMUtil.generateId(applicationId);
+//	  var application = "eXo.application.console.UIConsoleApplication";
+//	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId);
+//  }
 
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.application.console.UIConsoleApplication);

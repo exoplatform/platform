@@ -43,11 +43,11 @@ UIBrowserApplication.prototype.initApplication = function(applicationId, instanc
 
 
 UIBrowserApplication.prototype.initApplication = function(applicationId, instanceId) {
-	if(instanceId == null) {
+	/*if(instanceId == null) {
 	  instanceId = eXo.core.DOMUtil.generateId(applicationId);
 	  var application = "eXo.application.browser.UIBrowserApplication";
 	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId);
-  }
+  }*/
 
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.application.browser.UIBrowserApplication);

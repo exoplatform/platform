@@ -25,15 +25,15 @@ public class InfoWidget extends WidgetApplication {
 
   public String getApplicationGroup() { return "exo.widget.web"; }
   
-  public void processRender(Writer w) throws Exception {
+  public void processRender(String instanceId, Writer w) throws Exception {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     
     String applicationId = getApplicationId() ;
-    w.write("<div id = 'UIInfoWidget' applicationId = '"+applicationId+"'><span></span></div>") ;
+    w.write("<div id = 'UIInfoWidget' applicationId = '"+instanceId+"'><span></span></div>") ;
     
     String script = 
-      "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.info.UIInfoWidget','UIInfoWidget','UIInfoWidget','/exo.widget.web/javascript/');";
+      "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.info.UIInfoWidget','UIInfoWidget','"+instanceId+"','/exo.widget.web/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
 }
