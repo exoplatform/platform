@@ -1,10 +1,10 @@
-eXo.require('eXo.core.TemplateEngine');
-eXo.require('eXo.application.ApplicationDescriptor');
+eXo.require('eXo.core.TemplateEngine') ;
+eXo.require('eXo.application.ApplicationDescriptor') ;
 
 function UIWelcomeWidget() {
 	this.appCategory = "exo.widget.web" ;
 	this.appName = "UIWelcomeWidget" ;
-	this.appIcon = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png";
+	this.appIcon = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png" ;
 	this.skin = {
 	  Default: "/exo.widget.web/skin/welcome/DefaultStylesheet.css",
 	  Mac:     "/exo.widget.web/skin/welcome/MacStylesheet.css",
@@ -19,14 +19,14 @@ UIWelcomeWidget.prototype.createApplicationInstance = function(appDescriptor) {
 
 	appDescriptor.widget = {
 		
-	}
-	
+	};
+
  	appDescriptor.widget.content = 
     eXo.core.TemplateEngine.merge("eXo/widget/web/welcome/UIWelcomeWidget.jstmpl", appDescriptor, "/exo.widget.web/javascript/") ;
  	appDescriptor.widget.removeApplication = 
- 		"eXo.widget.web.UIWelcomeWidget.destroyInstance('" + appDescriptor.appId + "');";
+ 		"eXo.widget.web.UIWelcomeWidget.destroyInstance('" + appDescriptor.appId + "');" ;
  	
- 	var innerHTML = eXo.core.TemplateEngine.merge("eXo/widget/UIWidget.jstmpl", appDescriptor);
+ 	var innerHTML = eXo.core.TemplateEngine.merge("eXo/widget/UIWidget.jstmpl", appDescriptor) ;
  	var applicationNode = DOMUtil.createElementNode(innerHTML, "div");
  	applicationNode.applicationDescriptor = appDescriptor;
  	
@@ -38,11 +38,11 @@ UIWelcomeWidget.prototype.initApplication = function(applicationId, instanceId) 
 	if(instanceId == null) {
 	  instanceId = DOMUtil.generateId(applicationId);
 	  var application = "eXo.widget.web.welcome.UIWelcomeWidget";
-	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId);
+	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId) ;
   }
 
 	var appDescriptor = 
-	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.welcome.UIWelcomeWidget);
+	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.welcome.UIWelcomeWidget) ;
 	  
 	var appInstance = appDescriptor.createApplication();
 
@@ -51,13 +51,13 @@ UIWelcomeWidget.prototype.initApplication = function(applicationId, instanceId) 
 	var uiPageDesktop = DOMUtil.findAncestorByClass(app, "UIPageDesktop") ;
 
 	if(uiPageDesktop == null) {
-		eXo.widget.UIAddWidget.addWidget(appInstance);
-		DOMUtil.removeTemporaryElement(app);
+		eXo.widget.UIAddWidget.addWidget(appInstance) ;
+		DOMUtil.removeTemporaryElement(app) ;
 	} else {
-		eXo.widget.UIAddWidget.addWidgetToDesktop(appInstance);
-		DOMUtil.removeTemporaryElement(app);
+		eXo.widget.UIAddWidget.addWidgetToDesktop(appInstance) ;
+		DOMUtil.removeTemporaryElement(app) ;
 	}	
-}
+} ;
 
 UIWelcomeWidget.prototype.destroyApplicationInstance = function(appDescriptor) {
 	var applicationNode = document.getElementById(appDescriptor.appId);
