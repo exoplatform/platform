@@ -52,12 +52,6 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/EditNode.gif') no-repeat;
 }
 
-.UIRightClickPopupMenu .EditNavigation16x16Icon{
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/EditNavigation.gif') no-repeat;
-}
-
 .UIRightClickPopupMenu .CopyNode16x16Icon{
   width: 16px;
   height: 16px;
@@ -74,6 +68,26 @@
   width: 16px;
   height: 16px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .PasteNavigation16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PasteIcon.gif') no-repeat;
+  width: 16px; height: 16px;
+}
+
+.UIRightClickPopupMenu .DeleteNavigation16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat;
+  width: 16px; height: 16px;
+}
+
+.UIRightClickPopupMenu .EditNavigation16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat;
+  width: 16px; height: 16px;
+}
+
+.UIRightClickPopupMenu .SaveNavigation16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/FloppyDisk.gif') no-repeat center;
+  width: 16px; height: 16px;
 }
 
 .UIRightClickPopupMenu a {
