@@ -16,6 +16,7 @@ import org.exoplatform.portal.component.view.UIContainer;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -248,9 +249,10 @@ public class UIPageForm extends UIFormTabPane {
         String ownerId = uiPageForm.getUIStringInput("ownerId").getValue() ;
         String pageName = uiPageForm.getUIStringInput("name").getValue() ;
         String pageId = ownerType + "::" + ownerId + "::" + pageName ;
-        Page existPage = configService.getPage(pageId) ;
+        DataStorage dataStorage = uiPageForm.getApplicationComponent(DataStorage.class) ;
+        Page existPage = dataStorage.getPage(pageId) ;
         if (existPage != null) {
-          uiPortalApp.addMessage(new ApplicationMessage("UIPageForm.msg.SameName", null)) ;
+          uiPortalApp.addMessage(new ApplicationMessage("UIPageForm.msg.sameName", null)) ;
           pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
           return ;
         }

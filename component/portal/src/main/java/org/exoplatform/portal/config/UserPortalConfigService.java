@@ -242,13 +242,6 @@ public class UserPortalConfigService {
     pageConfigCache_.put(pageId, page);
     return page ; 
   }
-  
-  public Page getPage(String pageId) throws Exception {
-    Page page = (Page) pageConfigCache_.get(pageId) ;    
-    if(page == null) page  = storage_.getPage(pageId) ;
-    pageConfigCache_.put(pageId, page);
-    return page ; 
-  }
 
   /**
    * This method should load all pages of given owner

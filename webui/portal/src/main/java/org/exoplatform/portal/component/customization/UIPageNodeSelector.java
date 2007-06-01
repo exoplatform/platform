@@ -12,16 +12,16 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.component.view.listener.UIPageNavigationActionListener.CreateNavigationActionListener;
+import org.exoplatform.portal.component.view.listener.UIPageNavigationActionListener.DeleteNavigationActionListener;
+import org.exoplatform.portal.component.view.listener.UIPageNavigationActionListener.EditNavigationActionListener;
+import org.exoplatform.portal.component.view.listener.UIPageNavigationActionListener.SaveNavigationActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.AddNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.CopyNodeActionListener;
-import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.CreateNavigationActionListener;
-import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.DeleteNavigationActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.DeleteNodeActionListener;
-import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.EditNavigationActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.EditPageNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.EditSelectedNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.PasteNodeActionListener;
-import org.exoplatform.portal.component.view.listener.UIPageNodeActionListener.SaveNavigationActionListener;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -80,7 +80,6 @@ import org.exoplatform.webui.event.EventListener;
       }
   )
 })
-
 public class UIPageNodeSelector extends UIContainer {
   
   private List<PageNavigation> navigations_;  
@@ -175,7 +174,6 @@ public class UIPageNodeSelector extends UIContainer {
     }
   }
   
-//TODO: Tung.Pham modified
   public void selectPageNodeByUri(String uri){    
     upLevelURI = null; 
     if (selectedNavigation == null) return ;
@@ -267,15 +265,13 @@ public class UIPageNodeSelector extends UIContainer {
   
   public String getUpLevelUri () { return upLevelURI ; }
   
-  //TODO: Tung.Pham added
   private PageNavigation getPageNavigationByOwner(String owner) {
     for (int i = 0; i < navigations_.size(); i ++) {
       if (!navigations_.get(i).getOwnerId().equals(owner)) continue ;
       selectedNavigation = navigations_.get(i) ;
-      UIDropDownItemSelector dropdown = getChild(UIDropDownItemSelector.class) ;
-      dropdown.setSelected(i) ;
+      UIDropDownItemSelector uiDropdown = getChild(UIDropDownItemSelector.class) ;
+      uiDropdown.setSelected(i) ;
     }
-    
     return null ;
   }
   
@@ -298,7 +294,7 @@ public class UIPageNodeSelector extends UIContainer {
       if(node == null) return;  
       
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
-      Page page  = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
+      Page page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
 
       if(page == null || !page.isModifiable()){
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      

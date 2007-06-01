@@ -18,7 +18,6 @@ import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIToolbar;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -48,7 +47,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
     setToolbarStyle("ControlToolbar") ;
     setJavascript("Preview","onClick='eXo.portal.UIPortal.switchMode(this);'") ;
   }
-
+  
   static public class RollbackActionListener extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
       UIPageNavigationControlBar uiPageNav = event.getSource();
@@ -75,7 +74,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
     }
   }
-
+  
   static public class BackActionListener extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
       UIPageNavigationControlBar uiPageNav = event.getSource();
@@ -91,33 +90,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
     }
   }
-
-  static public class SeparateLineActionListener extends EventListener<UIPageNavigationControlBar> {
-    @SuppressWarnings("unused")
-    public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-
-    }
-  }
-
-  static public class SaveNavigationActionListener extends EventListener<UIPageNavigationControlBar> {
-    public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-      UIPageNavigationControlBar uiControlBar = event.getSource();
-      
-      UIPageManagement uiManagement = uiControlBar.getParent();
-      UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
-      List<PageNavigation> navs = uiNodeSelector.getNavigations();
-      if(navs == null || navs.size() < 1) {
-        UIPortalApplication uiApp = uiManagement.getAncestorOfType(UIPortalApplication.class);
-        uiApp.addMessage(new ApplicationMessage("UIPageNavigationControlBar.msg.noEditablePageNavigation", new String[]{})) ;;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());  
-        return ;
-      }
-      
-      uiControlBar.saveNavigation();
-
-    }
-  }
-
+  
   static public class FinishActionListener  extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
       UIPageManagement uiPageManagement = event.getSource().getParent(); 

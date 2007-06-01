@@ -60,36 +60,22 @@ public class UIPageSelector extends UIFormInputContainer<String> {
   
   public UIFormInput setValue(String value) throws Exception {
     PortalRequestContext pcontext = Util.getPortalRequestContext();
-    UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
-    Page page = service.getPage(value) ;
-
-    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
-    if(page == null){
-      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{value})) ;;
-      pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
-      return this;
-    }
-    
-    page = service.getPage(value, pcontext.getRemoteUser()) ;
-    if(page == null){
-      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{value})) ;;
-      pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
-      return this;
-    }
-
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
     if(uiForm != null) {
       pcontext.addUIComponentToUpdateByAjax(uiForm.getParent()); 
     } else {
       pcontext.addUIComponentToUpdateByAjax(getParent());
     }
-
-    if(page == null) {
-      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
+    
+    UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
+    Page page = service.getPage(value, pcontext.getRemoteUser()) ;
+    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
+    if(page == null){
+      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{value})) ;;
       pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
       return this;
     }
-
+   
     UIFormPopupWindow uiPopup = getAncestorOfType(UIFormPopupWindow.class);
     if(uiPopup != null) uiPopup.setShow(false);
     page_ = page;
@@ -114,7 +100,6 @@ public class UIPageSelector extends UIFormInputContainer<String> {
       event.getRequestContext().getRequestContextPath();
       UIPageSelector uiPageSelector = uiPageBrowser.getAncestorOfType(UIPageSelector.class) ;
       uiPageSelector.setValue(id);
-     
     }
   }
   

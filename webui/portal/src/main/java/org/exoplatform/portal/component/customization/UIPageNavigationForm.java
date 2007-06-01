@@ -15,7 +15,6 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.DataStorage;
-import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -167,7 +166,6 @@ public class UIPageNavigationForm extends UIFormTabPane {
         pageNav.setModifier(pcontext.getRemoteUser());        
       }
       
-      UserPortalConfigService dataService = uiForm.getApplicationComponent(UserPortalConfigService.class);
       if(isNewNavigation) {
         DataStorage storage = uiForm.getApplicationComponent(DataStorage.class);
         UIPortalApplication uiPortalApp = uiForm.getAncestorOfType(UIPortalApplication.class);
@@ -176,16 +174,13 @@ public class UIPageNavigationForm extends UIFormTabPane {
           pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
           return ;
         }
-        dataService.create(pageNav);
         UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
         if(uiPageNodeSelector != null) {
           Util.getUIPortal().getNavigations().add(pageNav);
           uiPageNodeSelector.loadNavigations();
           pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());  
         }
-      } else {
-        dataService.update(pageNav);
-      }
+      } 
       
       UIComponentDecorator uiFormParent = uiForm.getParent(); 
       uiFormParent.setUIComponent(null);
