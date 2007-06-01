@@ -11,7 +11,6 @@ import org.exoplatform.portal.component.view.UIWidgets.ChangeOptionActionListene
 import org.exoplatform.portal.component.view.lifecycle.UIPortalLifecycle;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.ChangePageNodeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalActionListener.ChangeWindowStateActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalActionListener.RemoveJSApplicationToDesktopActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.MoveChildActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.portal.component.widget.UILogged.LogoutActionListener;
@@ -36,8 +35,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
       @EventConfig(listeners = ChangeWindowStateActionListener.class),
       @EventConfig(listeners = ShowLoginFormActionListener.class),
       @EventConfig(listeners = LogoutActionListener.class),
-      @EventConfig(listeners = ChangeOptionActionListener.class),
-      @EventConfig(listeners = RemoveJSApplicationToDesktopActionListener.class)
+      @EventConfig(listeners = ChangeOptionActionListener.class)
     }
 )
 public class UIPortal extends UIContainer { 

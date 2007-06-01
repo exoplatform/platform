@@ -360,24 +360,6 @@ public class UIPageNodeActionListener {
       uiMaskWS.setUIComponent(uiNavigationForm);      
       uiMaskWS.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      
-      
-     /* PortalRequestContext prContext = Util.getPortalRequestContext();
-      PageNavigation navigation = new PageNavigation();
-      String userName = prContext.getRemoteUser();
-      navigation.setOwnerType(PortalConfig.USER_TYPE);
-      navigation.setOwnerId(userName);
-      navigation.setCreator(userName);
-      navigation.setModifier(userName);
-      navigation.setModifiable(true);
-      
-      UserPortalConfigService dataService = event.getSource().getApplicationComponent(UserPortalConfigService.class);
-      dataService.create(navigation);
-      
-      UIPageNodeSelector uiPageNodeSelector = event.getSource().getParent();
-      Util.getUIPortal().getNavigations().add(navigation);
-      uiPageNodeSelector.loadNavigations();
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector);*/
     }
   }
   
@@ -421,7 +403,6 @@ public class UIPageNodeActionListener {
       }
       
       uiControlBar.saveNavigation();
-
     }
   }
 }

@@ -5,7 +5,6 @@
 package org.exoplatform.portal.component.view.listener;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
@@ -149,7 +148,7 @@ public class UIPageActionListener {
         uiWidget.setApplicationOwnerType(application.getApplicationType());
         uiWidget.setApplicationOwnerId(application.getOwner());
         uiPage.addChild(uiWidget);
-      } else {// if(org.exoplatform.portal.config.model.Application.PORTLET_TYPE.equals(application.getApplicationType())){
+      } else {
         UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);  
         windowId.append(":/").append(applicationId).append('/').append(uiPortlet.hashCode());
         uiPortlet.setWindowId(windowId.toString());

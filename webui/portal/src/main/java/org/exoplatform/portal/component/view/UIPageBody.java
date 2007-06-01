@@ -5,7 +5,6 @@
 package org.exoplatform.portal.component.view;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.portal.component.view.listener.UIPageActionListener.AddApplicationActionListener;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
@@ -14,7 +13,6 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.EventConfig;
 
 /**
  * Author : Nhu Dinh Thuan
