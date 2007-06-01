@@ -26,6 +26,9 @@ public class UIWidget extends UIComponent {
   private String applicationInstanceUniqueId_ ;
   private String applicationId_ ;
   
+  private int locationX;
+  private int locationY;
+  
   public UIWidget() throws Exception {
   }
   
@@ -54,5 +57,11 @@ public class UIWidget extends UIComponent {
   public String getApplicationId() { return applicationId_ ; }
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
+  
+  public int getLocationX() { return locationX; }
+  public void setLocationX(int locationX) { this.locationX = locationX; }
+
+  public int getLocationY() { return locationY; }
+  public void setLocationY(int locationY) { this.locationY = locationY; }
   
 }

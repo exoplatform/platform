@@ -27,6 +27,9 @@ public class Application {
   private boolean  showApplicationState = true ;
   private boolean  showApplicationMode = true ;
   
+  private int locationX;
+  private int locationY;
+  
   public Application(){
   }
   
@@ -56,4 +59,10 @@ public class Application {
   
   public String getTitle() { return title ; }
   public void   setTitle(String value) { title = value ; }
+
+  public int getLocationX() { return locationX; }
+  public void setLocationX(int locationX) { this.locationX = locationX; }
+
+  public int getLocationY() { return locationY; }
+  public void setLocationY(int locationY) { this.locationY = locationY; }
 }

@@ -49,6 +49,9 @@ public class UIPortlet extends UIPortalComponent {
   private boolean  showPortletMode = true ;
   private String   description;
   private String   icon;
+  
+  private int locationX;
+  private int locationY;
    
   private Map renderParametersMap_ ;
   private ExoWindowID exoWindowId_ ;
@@ -96,5 +99,11 @@ public class UIPortlet extends UIPortalComponent {
 
   public  List<String> getSupportModes() { return supportModes_; }
   public void setSupportModes(List<String> supportModes) { supportModes_ = supportModes; }
+  
+  public int getLocationX() { return locationX; }
+  public void setLocationX(int locationX) { this.locationX = locationX; }
+
+  public int getLocationY() { return locationY; }
+  public void setLocationY(int locationY) { this.locationY = locationY; }
   
 }

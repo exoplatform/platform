@@ -9,6 +9,8 @@
     <value name="show-application-mode" field="showApplicationMode" usage="optional" />
     <value name="description" field="description" usage="optional"/>
     <value name="icon" field="icon" usage="optional"/>
+    <value name="location-x" field="locationX" usage="optional"/>
+    <value name="location-y" field="locationY" usage="optional"/>
   </mapping>
   
   <mapping name="page-body" label="pageBody" class="org.exoplatform.portal.config.model.PageBody">

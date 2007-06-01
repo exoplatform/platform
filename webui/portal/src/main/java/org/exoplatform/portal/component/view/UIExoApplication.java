@@ -39,6 +39,9 @@ public class UIExoApplication extends UIPortalComponent {
   private String applicationName_ ;
   private String applicationInstanceUniqueId_ ;
   
+  private int locationX;
+  private int locationY;
+  
   public UIExoApplication(){
   }
 
@@ -86,6 +89,12 @@ public class UIExoApplication extends UIPortalComponent {
   
   public String getApplicationName() { return applicationName_ ;}
   public void setApplicationName(String name) { applicationName_ = name;}
+  
+  public int getLocationX() { return locationX; }
+  public void setLocationX(int locationX) { this.locationX = locationX; }
+
+  public int getLocationY() { return locationY; }
+  public void setLocationY(int locationY) { this.locationY = locationY; }
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
   
