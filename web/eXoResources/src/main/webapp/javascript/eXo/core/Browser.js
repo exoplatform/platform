@@ -14,7 +14,6 @@ MouseObject.prototype.init = function(mouseEvent) {
 
   this.lastMousexInClient = null ;
   this.lastMouseyInClient = null ;
-  
 
   this.deltax = null ;
   this.deltay = null ;
@@ -63,59 +62,61 @@ function Browser() {
 } ;
 
 Browser.prototype.initCommon = function() {
-  this.getBrowserHeight = function() { return document.documentElement.clientHeight ; } ;
-  this.getBrowserWidth = function() { return document.documentElement.clientWidth ; } ;
-  this.createHttpRequest = function() { return new XMLHttpRequest() ; } ;
+  this.getBrowserHeight = function() { return document.documentElement.clientHeight ; }
+  this.getBrowserWidth = function() { return document.documentElement.clientWidth ; }
+  this.createHttpRequest = function() { return new XMLHttpRequest() ; }
 };
 
 Browser.prototype.initIE = function() {
   this.browserType = "ie" ;
   this.createHttpRequest = function() {
   	 return new ActiveXObject("Msxml2.XMLHTTP") ; 
-  } ;
+  }
   this.eventListener = function(object, event, operation) {
     event = "on" + event ;
     object.attachEvent(event, operation) ;
-  } ;
-  this.setOpacity = function(component, value) { component.style.filter = "alpha(opacity=" + value + ")" ; } ; 
-  this.getEventSource = function(e) { return window.event.srcElement; };
+  }
+  this.setOpacity = function(component, value) { component.style.filter = "alpha(opacity=" + value + ")" ; }
+  this.getEventSource = function(e) { return window.event.srcElement; }
 };
 
 Browser.prototype.initMozilla = function() {
   this.browserType = "mozilla" ;
-  this.eventListener = function(object, event, operation) { object.addEventListener(event, operation, false) ; } ;
-  this.setOpacity = function(component, value) { component.style.opacity = value/100 ; } ;
-  this.getEventSource = function(e) { return e.target; };
+  this.eventListener = function(object, event, operation) { object.addEventListener(event, operation, false) ; }
+  this.setOpacity = function(component, value) { component.style.opacity = value/100 ; }
+  this.getEventSource = function(e) { return e.target; }
 };
 
 Browser.prototype.initSafari = function() {
   this.browserType = "safari" ;
   this.getBrowserHeight = function() { return self.innerHeight ; } ;
   this.getBrowserWidth = function() { return self.innerWidth ; } ;
-  this.eventListener = function(object, event, operation) { object.addEventListener(event, operation, false) ; } ;
-  this.setOpacity = function(component, value) { component.style.opacity = value/100 ; } ;
+  this.eventListener = function(object, event, operation) { object.addEventListener(event, operation, false) ; }
+  this.setOpacity = function(component, value) { component.style.opacity = value/100 ; }
   this.getEventSource = function(e) {
   	var targ = e.target;
   	if (targ.nodeType == 3) targ = targ.parentNode;
   	return targ;
-  };
+  }
 };
 
 Browser.prototype.initOpera = function() {
   this.browserType = "opera" ;
   this.getBrowserHeight = function() {
     return document.body.clientHeight ;
-  } ;
+  }
   this.getBrowserWidth = function() {
     return document.body.clientWidth ;
-  } ;
+  }
 };
 
 Browser.prototype.isIE6 = function() {
   if(typeof document.body.style.maxHeight == "undefined") {
     return true ;
+  } else {
+  	return false ;
   }
-};
+} ;
 
 Browser.prototype.findMouseXInClient = function(e) {
   if (!e) e = window.event;
@@ -201,7 +202,6 @@ Browser.prototype.findPosXInContainer = function(obj, container) {
 Browser.prototype.findPosYInContainer = function(obj, container) {
   var objY = eXo.core.Browser.findPosY(obj) ;
   var containerY = eXo.core.Browser.findPosY(container) ;
-  
   return (objY - containerY) ;
 } ;
 
@@ -214,7 +214,6 @@ Browser.prototype.findMouseXInPage = function(e) {
   } else if (e.clientX || e.clientY) {
     posx = e.clientX + document.body.scrollLeft ;
   }
-  
   return posx ;
 } ;
 

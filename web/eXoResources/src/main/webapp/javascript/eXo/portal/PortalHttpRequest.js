@@ -223,7 +223,7 @@ function HttpResponseHandler(){
 	  } catch(err) {                  
 	  }
 	  var elements = script.split(';') ;
-	  if(elements.length) {
+	  if(elements != null && elements.length > 0) {
 		  for(i = 0; i < elements.length; i++) {
 		    try {
 		      eval(elements[i]) ;

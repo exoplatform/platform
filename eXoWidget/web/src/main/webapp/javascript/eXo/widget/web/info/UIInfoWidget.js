@@ -19,7 +19,7 @@ UIInfoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 
 	appDescriptor.widget = {
 		
-	}
+	};
 	
  	appDescriptor.widget.content = 
     eXo.core.TemplateEngine.merge("eXo/widget/web/info/UIInfoWidget.jstmpl", appDescriptor, "/exo.widget.web/javascript/") ;
@@ -59,7 +59,7 @@ UIInfoWidget.prototype.initApplication = function(applicationId, instanceId) {
 		eXo.widget.UIAddWidget.addWidgetToDesktop(appInstance);
 		DOMUtil.removeTemporaryElement(appElement);
 	}	
-}
+};
 
 UIInfoWidget.prototype.destroyApplicationInstance = function(appDescriptor) {
 	var applicationNode = document.getElementById(appDescriptor.appId);

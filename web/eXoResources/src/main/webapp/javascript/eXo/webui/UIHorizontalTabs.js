@@ -13,7 +13,7 @@ UIHorizontalTabs.prototype.changeTabNavigationStyle = function(clickedEle, over)
 	if(over) {
 		this.backupNavigationTabStyle = tabStyle.className ;
 		tabStyle.className = "HighlightNavigationTab" ;
-	} else if (this.backupNavigationTabStyle != null){
+	} else if (this.backupNavigationTabStyle){
 		tabStyle.className = this.backupNavigationTabStyle ;
 	}
 }

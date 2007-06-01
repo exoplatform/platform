@@ -189,8 +189,8 @@ ScrollManager.prototype.checkAvailableSpace = function(maxSpace) { // in pixels
 
 ScrollManager.prototype.getElementsSpace = function(indexStart, indexEnd) {
 	if (indexStart == null && indexEnd == null) {
-		var indexStart = 0;
-		var indexEnd = this.elements.length-1;
+		indexStart = 0 ;
+		indexEnd = this.elements.length-1 ;
 	}
 	var elementsSpace = 0;
 	if (indexStart >= 0 && indexEnd <= this.elements.length-1) {
