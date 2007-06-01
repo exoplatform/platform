@@ -19,10 +19,6 @@ import org.exoplatform.web.application.widget.WidgetApplication;
  */
 public class WelcomeWidget extends WidgetApplication {
   
-//  public WelcomeWidget() {
-//    System.out.println("\n\n\n\n\n\n\n\n\n\n\n INIT WelcomeWidget \n\n\n\n\n\n\n\n\n\n");
-//  }
-  
   public String getApplicationId() { return "exo.widget.web/WelcomeWidget" ; }
 
   public String getApplicationName() { return "WelcomeWidget"; }
@@ -33,10 +29,7 @@ public class WelcomeWidget extends WidgetApplication {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     
-    String applicationId = getApplicationId() ;
-//    System.out.println("\n\n\n\n\n\n\n\n\n\n applicationId:     "+applicationId+" \n\n\n\n\n\n\n\n\n\n");
     w.write("<div id = 'UIWelcomeWidget' applicationId = '"+instanceId+"'><span></span></div>") ;
-    
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','"+instanceId+"','/exo.widget.web/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;

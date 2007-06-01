@@ -18,7 +18,6 @@ UIInfoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 	var DOMUtil = eXo.core.DOMUtil ;
 
 	appDescriptor.widget = {
-		
 	};
 	
  	appDescriptor.widget.content = 
@@ -36,22 +35,14 @@ UIInfoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 UIInfoWidget.prototype.initApplication = function(applicationId, instanceId) {
 	var DOMUtil = eXo.core.DOMUtil;
 	
-//	if(instanceId == null) {
-//	  instanceId = eXo.core.DOMUtil.generateId(applicationId);
-//	  var application = "eXo.widget.web.info.UIInfoWidget";
-//	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId);
-//  }
-
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.info.UIInfoWidget);
 	  
 	var appInstance = appDescriptor.createApplication();
-	
 	var appElement = document.getElementById("UIInfoWidget");
 	appInstance.id = appElement.getAttribute('applicationId') ;
 	
 	var uiPageDesktop = DOMUtil.findAncestorByClass(appElement, "UIPageDesktop") ;
-
 	if(uiPageDesktop == null) {
 		eXo.widget.UIAddWidget.addWidget(appInstance);
 		DOMUtil.removeTemporaryElement(appElement);

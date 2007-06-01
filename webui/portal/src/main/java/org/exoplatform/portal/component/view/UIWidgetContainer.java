@@ -73,25 +73,26 @@ public class UIWidgetContainer extends UIContainer {
       ApplicationRegistryService service = uiWidgetContainer.getApplicationComponent(ApplicationRegistryService.class) ;
       Application application = service.getApplication(applicationId);
       
-      if(application != null) {
-        UIWidget uiWidget = uiWidgetContainer.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
-        windowId.append(uiWidget.hashCode());
-        uiWidget.setApplicationInstanceId(windowId.toString());
-        uiWidget.setApplicationName(application.getApplicationName());
-        uiWidget.setApplicationGroup(application.getApplicationGroup());
-        uiWidget.setApplicationOwnerType(application.getApplicationType());
-        uiWidget.setApplicationOwnerId(application.getOwner());
-        
-        uiWidgetContainer.addChild(uiWidget);
-        
-        UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
-        Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
-        UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
-        configService.update(widgets);
-      }
-      
       UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);
+      
+      if(application == null) return;
+      UIWidget uiWidget = uiWidgetContainer.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
+      windowId.append(uiWidget.hashCode());
+      uiWidget.setApplicationInstanceId(windowId.toString());
+      uiWidget.setApplicationName(application.getApplicationName());
+      uiWidget.setApplicationGroup(application.getApplicationGroup());
+      uiWidget.setApplicationOwnerType(application.getApplicationType());
+      uiWidget.setApplicationOwnerId(application.getOwner());
+
+      uiWidgetContainer.addChild(uiWidget);
+
+      String save = event.getRequestContext().getRequestParameter("save");
+      if(save == null || !Boolean.valueOf(save).booleanValue()) return;
+      UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
+      Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
+      UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
+      configService.update(widgets);
     }
   }
 }

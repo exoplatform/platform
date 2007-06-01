@@ -16,7 +16,6 @@ UIConsoleApplication.prototype.createApplicationInstance = function(appDescripto
 	var DOMUtil = eXo.core.DOMUtil ;
 
 	appDescriptor.window = {
-		
 	}
 	
  	appDescriptor.window.content = 

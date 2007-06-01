@@ -29,7 +29,6 @@ public class InfoWidget extends WidgetApplication {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     
-    String applicationId = getApplicationId() ;
     w.write("<div id = 'UIInfoWidget' applicationId = '"+instanceId+"'><span></span></div>") ;
     
     String script = 
