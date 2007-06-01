@@ -110,7 +110,7 @@
 
 .UISitemap .SitemapItemBox .Item .Icon {
   float: left ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/BlackNextArrow.gif') center no-repeat;
+  background: url('/eXoResources/icons/16x16/VistaSkin/DefaultPageIcon.png') center no-repeat;
   width:20px;
   height:20px;
 }

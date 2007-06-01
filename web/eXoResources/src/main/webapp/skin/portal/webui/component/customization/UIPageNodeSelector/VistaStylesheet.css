@@ -81,3 +81,10 @@
 .UIPageNodeSelector .NavigationPortalIcon {
   background: url('/eXoResources/icons/24x24/VistaSkin/MiniOrangeBoxPage.png') no-repeat;
 }
+.UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
+	background: url('/eXoResources/icons/24x24/DefaultSkin/EditNavigation.gif') no-repeat left top;
+	cursor: pointer;
+	float: left;margin-left: -1px;
+	height: 21px; width: 21px;
+	display: block;
+}
