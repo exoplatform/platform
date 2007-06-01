@@ -6,7 +6,10 @@ function UIUpload() {
 UIUpload.prototype.createUploadEntry = function(uploadId) {
   var iframe = document.getElementById(uploadId+'uploadFrame');
   var idoc = iframe.contentWindow.document ;
-  var uploadAction = eXo.env.server.context + "/upload?uploadId=" + uploadId+"&action=upload" ;
+  var uploadAction = eXo.env.server.context + "/command?" ;
+  uploadAction += "type=org.exoplatform.portal.application.handler.UploadHandler";
+  uploadAction += "&uploadId=" + uploadId+"&action=upload" ;
+//  var uploadAction = eXo.env.server.context + "/upload?uploadId=" + uploadId+"&action=upload" ;
   idoc.open();
   idoc.write("<head>");
   idoc.write("<link rel='stylesheet' type='text/css' href= '/eXoResources/skin/webui/component/UIUpload/DefaultStylesheet.css' />");
@@ -24,7 +27,9 @@ UIUpload.prototype.createUploadEntry = function(uploadId) {
 UIUpload.prototype.refeshProgress = function(elementId) {
   var list =  eXo.webui.UIUpload.listUpload;
   if(list.length < 1) return;
-  var url =  eXo.env.server.context + "/upload?action=progress";  
+  var url = eXo.env.server.context + "/command?" ;
+	url += "type=org.exoplatform.portal.application.handler.UploadHandler&action=progress" ;
+//  var url =  eXo.env.server.context + "/upload?action=progress";  
   for(var i = 0; i < list.length; i++){
     url = url + "&uploadId=" + list[i];
   }
@@ -79,7 +84,9 @@ UIUpload.prototype.refeshProgress = function(elementId) {
 
 UIUpload.prototype.abortUpload = function(id) {
   eXo.webui.UIUpload.listUpload.remove(id);
-  var url = eXo.env.server.context + "/upload?uploadId=" +id+"&action=abort" ;
+  var url = eXo.env.server.context + "/command?" ;
+	url += "type=org.exoplatform.portal.application.handler.UploadHandler&uploadId=" +id+"&action=abort" ;
+//  var url = eXo.env.server.context + "/upload?uploadId=" +id+"&action=abort" ;
   var request =  eXo.core.Browser.createHttpRequest();
   request.open('GET', url, false);
   request.setRequestHeader("Cache-Control", "max-age=86400");
@@ -106,7 +113,9 @@ UIUpload.prototype.abortUpload = function(id) {
 };
 
 UIUpload.prototype.deleteUpload = function(id) {
-  var url = eXo.env.server.context + "/upload?uploadId=" +id+"&action=delete" ;
+	var url = eXo.env.server.context + "/command?";
+	url += "type=org.exoplatform.portal.application.handler.UploadHandler&uploadId=" +id+"&action=delete" ;
+//  var url = eXo.env.server.context + "/upload?uploadId=" +id+"&action=delete" ;
   var request =  eXo.core.Browser.createHttpRequest();
   request.open('GET', url, false);
   request.setRequestHeader("Cache-Control", "max-age=86400");
@@ -121,8 +130,6 @@ UIUpload.prototype.deleteUpload = function(id) {
 
   var tmp = progressIframe.parentNode;
   var temp = tmp.parentNode;
-//  var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");
-//  child[0].style.visibility =  "visible" ;
   var progressBarFrame = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "none" ;
   var selectFileFrame = DOMUtil.findFirstDescendantByClass(container, "div", "SelectFileFrame") ;
@@ -162,8 +169,6 @@ UIUpload.prototype.upload = function(clickEle, id) {
 
   var tmp = progressIframe.parentNode;
   var temp = tmp.parentNode;
-//  var child = DOMUtil.getChildrenByTagName(temp,"label");// Label contains string "Upload File" in front of File Chooseer.
-//  child[0].style.visibility = "hidden" ;
   
   form.submit() ;
   

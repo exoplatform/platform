@@ -336,16 +336,5 @@ public class UIPageNodeSelector extends UIContainer {
       uiPageNodeSelector.selectNavigation(id);
     }
   }
-
-  /*private void updateDropdown() {
-    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
-    for(PageNavigation navigation: navigations_) {
-      String label = navigation.getOwnerId() + "'s Nav";
-      options.add(new SelectItemOption<String>(label, navigation.getOwnerId()));
-    }
-    UIDropDownItemSelector uiDopDownSelector = getChild(UIDropDownItemSelector.class);
-    uiDopDownSelector.setOptions(options);
-    uiDopDownSelector.setSelected(0);
-  } */
   
 }

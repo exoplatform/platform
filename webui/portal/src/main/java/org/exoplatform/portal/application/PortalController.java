@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
 import org.exoplatform.portal.application.handler.DownloadRequestHandler;
-import org.exoplatform.portal.application.handler.ServiceRequestHandler;
 import org.exoplatform.portal.application.handler.UploadRequestHandler;
 import org.exoplatform.web.WebAppController;
 
@@ -35,7 +34,6 @@ public class PortalController  extends HttpServlet {
       controller.register(new PortalRequestHandler()) ;
       controller.register(new DownloadRequestHandler()) ;
       controller.register(new UploadRequestHandler()) ;
-      controller.register(new ServiceRequestHandler()) ;
       PortalContainer.setInstance(null) ;
     } catch (Throwable t){
       throw new ServletException(t) ;

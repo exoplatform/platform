@@ -190,29 +190,6 @@ public class UIPageEditWizard extends UIPageWizard {
     }
   }  
   
-  /*static  public class ViewStep2ActionListener extends EventListener<UIPageEditWizard> {
-    public void execute(Event<UIPageEditWizard> event) throws Exception {
-
-      UIPageEditWizard uiWizard = event.getSource();
-      UIWizardPageSetInfo pageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
-      
-      PageNode pageSelector = pageSetInfo.getSelectedPageNode();
-      DataStorage configService = uiWizard.getApplicationComponent(DataStorage.class);
-      Page page = configService.getPage(pageSelector.getPageReference());
-      uiWizard.setDescriptionWizard();
-      
-      uiWizard.updateWizardComponent();
-      uiWizard.viewStep(2);
-//      System.out.println("\n\n\n\n-------------------->>>>Step2. FactoryId: " + page.getFactoryId());
-//      System.out.println("\n\n\n\n-------------------->>>>Step2. Name: " + page.getName());
-      if( Page.DESKTOP_PAGE.equalsIgnoreCase(page.getFactoryId())){
-//        System.out.println("\n\n000000000000000000000000000000000000000000kkkkkkkkkkkkkkkkkkkk");
-        UIPageTemplateOptions uiPageTemplateOptions = uiWizard.findFirstComponentOfType(UIPageTemplateOptions.class);
-        uiPageTemplateOptions.setSelectOptionItem("Desktop Layout");
-      }
-    }
-  }*/
-  
   static public class AbortActionListener extends EventListener<UIPageEditWizard> {
     public void execute(Event<UIPageEditWizard> event) throws Exception {
       UIPageEditWizard uiWizard = event.getSource();

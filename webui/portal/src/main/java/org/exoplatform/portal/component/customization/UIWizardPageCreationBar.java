@@ -74,7 +74,6 @@ public class UIWizardPageCreationBar extends UIContainer {
       UIWizardPageCreationBar uiParent = uiEditBar.getParent();
       Class [] childrenToRender = { UIPageEditBar.class, UIPortletOptions.class}; 
       uiParent.setRenderedChildrenOfTypes(childrenToRender);
-      
       Util.updateUIApplication(event);
     }
   }

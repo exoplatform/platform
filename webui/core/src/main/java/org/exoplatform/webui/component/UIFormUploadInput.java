@@ -71,7 +71,10 @@ public class UIFormUploadInput extends UIFormInputBase<String> {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     WebuiRequestContext pcontext = (WebuiRequestContext)context.getParentAppRequestContext();
     if(pcontext == null) pcontext = context;
-    String uploadAction = pcontext.getRequestContextPath() + "/upload?uploadId=" + uploadId_+"&action=upload" ;
+//    String uploadAction = pcontext.getRequestContextPath() + "/upload?uploadId=" + uploadId_+"&action=upload" ;
+    String uploadAction = pcontext.getRequestContextPath() + "/command?";
+    uploadAction += "type=org.exoplatform.portal.application.handler.UploadHandler";
+    uploadAction += "&uploadId=" + uploadId_+"&action=upload" ;
     return uploadAction;
   }
 

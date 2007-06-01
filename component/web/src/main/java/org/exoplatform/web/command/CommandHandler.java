@@ -8,6 +8,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.rmi.activation.UnknownObjectException;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -30,9 +31,9 @@ public class CommandHandler extends WebRequestHandler {
   public void execute(WebAppController controller, HttpServletRequest req, HttpServletResponse res) throws Exception {
     Map props = req.getParameterMap() ;
     String type =  req.getParameter("type");
-    if(type == null || type.trim().length() < 1) throw new Exception("Unknown type command handler");
+    if(type == null || type.trim().length() < 1) throw new NullPointerException("Unknown type command handler");
     Command command = createCommand(type, props);
-    if(command == null) throw new Exception("Unknown command handler with type is "+type);
+    if(command == null) throw new UnknownObjectException("Unknown command handler with type is "+type);
     command.execute(controller, req, res);
   }
 
@@ -67,6 +68,7 @@ public class CommandHandler extends WebRequestHandler {
     } else if(type.isArray() && value.getClass().isArray()){
       value = toValues(type, value);
     } else {
+      if(!type.isArray() && value.getClass().isArray()) value = Array.get(value, 0);
       value = toValue(type, value);
     }
     Class clazz = bean.getClass();
