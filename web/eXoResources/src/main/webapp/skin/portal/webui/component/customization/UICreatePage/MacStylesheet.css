@@ -1,9 +1,24 @@
 .UICreatePage {
-  padding: 15px 0px 5px 0px;
+  padding: 15px 6px 5px 6px;
+}
+
+.UICreatePage .CreatePageContainer {
+  background: url('MacSkin/background/LightGrayLinedBG1x4.gif');
+  border: 1px solid #b7b7b7;
+  padding-bottom: 8px;
+}
+
+.UICreatePage .CreatePageLabel {
+  text-align: center; font-weight: bold; color: #515151;
+  padding: 6px;
+}
+
+.UICreatePage .UIPortletOptions {
+  margin: 0px 7px;
 }
 
 .UICreatePage .UIToolbar {
-  padding: 0px 7px;
+  padding: 0px 5px;
 }
 
 .UICreatePage .UIToolbar .EditToolbar .Icon {

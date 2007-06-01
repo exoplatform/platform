@@ -2,6 +2,10 @@
   padding: 8px 5px 5px 5px;
 }
 
+.UICreatePage .UIContainerConfigOptions {
+  margin: 0px 6px;
+}
+
 .UICreatePage .CreatePageContainer {
 	border: solid 1px #bcbcbc;
 	background: #f2f2f2;

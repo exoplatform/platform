@@ -70,3 +70,16 @@
 .UIPageNodeSelector .NavigationPortalIcon {
   background: url('/eXoResources/icons/16x16/MacSkin/PageNode.gif') no-repeat;
 }
+
+.UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
+	background: url('/eXoResources/icons/24x24/MacSkin/AddNavigationButton.png') no-repeat left top;
+	cursor: pointer;
+	height: 24px; width: 24px;
+	margin-left: 195px;
+	display: block;
+}
+
+.UIControlWorkspace .UIPageNodeSelector .UIDropDownItemSelector {
+  float: left; 
+  width: 195px;
+}

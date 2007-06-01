@@ -68,8 +68,6 @@
 }
 
 .UITree .TreeContainer .Node .NodeLabel a:hover{
-  color: blue;
-  background: #e2e6ea;
   padding: 0px 5px 0px 4px ;
   margin: 0px 0px 0px 1px ;
   font-size: 11px; font-weight: bold;
@@ -78,7 +76,7 @@
 .UITree .TreeContainer .Node .NodeLabel .NodeSelected {
   height: 20px ; line-height: 20px;
   margin: 0px 0px 0px 1px ;
-  color: red;
+  color: #FF7A22;
 }
 
 /** ################# Icons ###################*/

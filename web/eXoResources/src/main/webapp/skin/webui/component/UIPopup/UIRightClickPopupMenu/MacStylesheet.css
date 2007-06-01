@@ -19,8 +19,6 @@
   color: white;
 }
 
-
-
 .UIRightClickPopupMenu .MenuItem {
   clear: both;
   cursor: pointer;
@@ -59,6 +57,12 @@
   background: url('MacSkin/icons/EditNode.png') no-repeat;
 }
 
+.UIRightClickPopupMenu .EditNavigation16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url(/eXoResources/icons/16x16/MacSkin/EditIcon.png) no-repeat;
+}
+
 .UIRightClickPopupMenu .CopyNode16x16Icon{
   width: 16px;
   height: 16px;
@@ -78,17 +82,12 @@
 }
 
 .UIRightClickPopupMenu .DeleteNavigation16x16Icon {
-  background: url('MacSkin/icons/Delete.gif') no-repeat;
-  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/Delete.gif') no-repeat;
+  width: 17px; height: 17   px;
 }
 
 .UIRightClickPopupMenu .PasteNavigation16x16Icon {
   background: url('/eXoResources/icons/16x16/MacSkin/PasteIcon.gif') no-repeat;
-  width: 16px; height: 16px;
-}
-
-.UIRightClickPopupMenu .EditNavigation16x16Icon {
-  background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat;
   width: 16px; height: 16px;
 }
 

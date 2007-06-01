@@ -267,7 +267,8 @@
 
 .UIWizard .ScrollArea {
 	height: 220px;
-	overflow: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .UIWizard .UITree .TreeContainer .ChildrenContainer .Node {

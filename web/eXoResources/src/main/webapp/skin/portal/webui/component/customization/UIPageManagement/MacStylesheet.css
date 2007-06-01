@@ -75,7 +75,7 @@
 
 /*##########################Edit Page Control Bar#############################*/
 .UIPageManagement .UIPageNavigationControlBar .UIToolbar .ControlToolbar {
-	margin: 13px 2px 0px 95px; 
+	margin: 13px 2px 0px 70px; 
 }
 
 .UIPageManagement .UIToolbar .EditToolbar .Icon {
@@ -132,7 +132,7 @@
 
 .UIPageManagement .UIToolbar .ControlToolbar .Icon {
   float: left;
-  margin: 3px 0px 0px 0px; 
+  margin: 3px 0px 0px 7px; 
 }
 
 .UIPageManagement .CreateNavigationIcon {
