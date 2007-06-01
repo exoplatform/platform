@@ -112,8 +112,10 @@ UIWidget.prototype.resizeContainer = function() {
 	var widgetNavigator = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetNavigator") ;	
 	var widgetContainerScrollArea = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetContainerScrollArea") ;
 	var itemSelectorContainer = DOMUtil.findFirstChildByClass(widgets, "div", "ItemSelectorContainer") ;
-
+	
 	var availableHeight = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + extraHeight) ;
+	if (availableHeight < 0)  return ;
+	
 	widgetContainerScrollArea.style.height = availableHeight + "px" ;
 } ;
 
