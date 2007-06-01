@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Computes the absolute path of eXo
-PRGDIR=`dirname "$0"`
+cd `dirname "$0"`
 
 # Sets some variables
 LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
-SECURITY_OPTS="-Djava.security.auth.login.config=$PRGDIR/../conf/jaas.conf"
+SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
 EXO_OPTS="-Dexo.product.developing=true"
 JPDA_TRANSPORT=dt_socket
 JPDA_ADDRESS=8000
@@ -18,5 +18,4 @@ export JAVA_OPTS
 #YOURKIT_PROFILE_OPTION="-agentlib:yjpagent"
 
 # Launches the server
-cd "$PRGDIR"
 exec catalina.sh "$@"
