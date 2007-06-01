@@ -173,12 +173,15 @@
 	background: url('DefaultSkin/background/WidgetDragArea2x2.gif');
 }
 
+.UIWorkspacePanel .UIWidget .WidgetControl .WidgetDragHandleArea {
+	cursor: auto;
+}
+
 .UIWidget .WidgetControl .SeparatorLine {
 	float: left;
 	width: 2px; height: 13px;
 	margin: 3px 3px 0px 3px;
 	background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y;
-	
 }
 
 .UIWidget .WidgetControl .EditWidgetIcon {

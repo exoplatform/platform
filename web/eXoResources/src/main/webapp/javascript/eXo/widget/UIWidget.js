@@ -41,12 +41,16 @@ UIWidget.prototype.deleteWidget = function(selectedElement) {
 };
 
 UIWidget.prototype.showWidgetControl = function() {
+	var DOMUtil = eXo.core.DOMUtil;
 	var uiWidget = this ;
-	var widgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiWidget, "div", "WidgetControl");
+	var widgetControl = DOMUtil.findFirstDescendantByClass(uiWidget, "div", "WidgetControl");
 	widgetControl.style.display = "block" ;
-	
-	var uiPageDesktop = eXo.core.DOMUtil.findAncestorByClass(uiWidget, "UIPageDesktop");
-	if(uiPageDesktop) widgetControl.onmousedown = eXo.widget.UIWidget.initDND ;
+	var uiPageDesktop = DOMUtil.findAncestorByClass(uiWidget, "UIPageDesktop");
+	if(uiPageDesktop) {
+		var dragHandleArea = DOMUtil.findFirstDescendantByClass(widgetControl, "div", "WidgetDragHandleArea");
+		dragHandleArea.title = "Drag this Widget";
+		widgetControl.onmousedown = eXo.widget.UIWidget.initDND ;
+	}
 };
 
 UIWidget.prototype.hideWidgetControl = function() {

@@ -6,7 +6,7 @@
     	<div class="LeftControlBar">
     		<div class="RightControlBar">
     			<div class="CenterControlBar">
-			    	<div class="WidgetDragHandleArea" title="Drag this Widget"><span></span></div>
+			    	<div class="WidgetDragHandleArea"><span></span></div>
 			    	<div class="SeparatorLine"><span></span></div>
 				    <div class="EditWidgetIcon" title="Edit this Widget"><span></span></div>
 				  	<div class="CloseWidgetIcon" onclick="<%=deleteWidget%>" title="Delete This Widget"><span></span></div>

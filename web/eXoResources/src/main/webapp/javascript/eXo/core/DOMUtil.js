@@ -67,6 +67,7 @@ DOMUtil.prototype.findFirstChildByClass = function(root,  elementName, cssClass)
 } ;
 
 DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
+  if(element == null) return null;
   var parent = element.parentNode ;
   while(parent != null) {
     if(parent.className == null) {
