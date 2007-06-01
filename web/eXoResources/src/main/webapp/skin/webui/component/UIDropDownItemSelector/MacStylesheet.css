@@ -16,13 +16,19 @@
   padding-right: 3px;
 }
 
-.ComponentIcon {
-  width: 22px; height: 23px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/ImagesList.gif') no-repeat center;
+.UIPageNodeSelector .UIContainerConfigOptions .ComponentIcon {
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/NavigationIcon.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .ComponentIcon {
+  width: 16px; height: 16px;
+	background: url(/eXoResources/icons/16x16/MacSkin/DefaultContainerIcon.gif) no-repeat;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .Icon {
 	float: left;
+	margin: 3px 0px 0px 3px ;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .SelectedItemLabel {

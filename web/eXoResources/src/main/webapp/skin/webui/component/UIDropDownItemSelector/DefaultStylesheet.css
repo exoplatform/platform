@@ -15,9 +15,14 @@
 	cursor: pointer;
 }
 
-.ComponentIcon {
+.UIPageNodeSelector .UIContainerConfigOptions .ComponentIcon {
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/ImagesList.gif') no-repeat;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/NavigationIcon.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .ComponentIcon {
+  width: 16px; height: 16px;
+	background: url(/eXoResources/icons/16x16/DefaultSkin/DefaultContainerIcon.gif) no-repeat;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .Icon {

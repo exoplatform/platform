@@ -60,16 +60,14 @@
 
 .UIBannerPortlet .LoginContent .LogoutIcon {
   float: left;
-  width: 19px; height: 15px;
+  width: 24px; height: 24px;
   background: url('DefaultSkin/background/SignoutButton.gif') no-repeat top;
   cursor: pointer;
-  margin: 3px 0px 0px 0px;
 }
 
 .UIBannerPortlet .LoginContent .LoginIcon {
   float: left;
-  width: 19px; height: 15px;
+  width: 24px; height: 24px;
   background: url('DefaultSkin/background/SigninButton.gif') no-repeat top;
   cursor: pointer;
-  margin: 3px 0px 0px 0px;
 }
