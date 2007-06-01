@@ -71,7 +71,6 @@ public class UIPageSelector extends UIFormInputContainer<String> {
     }
     
     page = service.getPage(value, pcontext.getRemoteUser()) ;
-    System.out.println("\n\n\n====================>>>>UIPageSelector.setValue() =  " + value + " with user: " + pcontext.getRemoteUser());
     if(page == null){
       uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{value})) ;;
       pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
@@ -113,7 +112,6 @@ public class UIPageSelector extends UIFormInputContainer<String> {
       UIPageBrowser uiPageBrowser = event.getSource();
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       event.getRequestContext().getRequestContextPath();
-      System.out.println("\n\n\n\n------------------>>>>>>>>>>>>>>>> ID= " + id);
       UIPageSelector uiPageSelector = uiPageBrowser.getAncestorOfType(UIPageSelector.class) ;
       uiPageSelector.setValue(id);
      
