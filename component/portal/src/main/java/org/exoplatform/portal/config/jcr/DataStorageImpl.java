@@ -61,7 +61,12 @@ public class DataStorageImpl implements DataStorage {
     Session session = jcrRegService_.getSession();
     Node appNode = jcrRegService_.getApplicationRegistryNode(session, PORTAL_DATA);
     Node portalNode = create(appNode, config.getName());
-    Node configNode = portalNode.addNode(PORTAL_CONFIG_FILE_NAME, EXO_DATA_TYPE) ;
+    //TODO: Tung.Pham modified
+    //----------------------------------------------------------------
+    Node configNode = null ;
+    if (portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)) configNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
+    else configNode = portalNode.addNode(PORTAL_CONFIG_FILE_NAME, EXO_DATA_TYPE) ;
+    //----------------------------------------------------------------
     portalNode.save();
     mapper_.map(configNode, config) ;    
     configNode.save() ;
@@ -120,14 +125,9 @@ public class DataStorageImpl implements DataStorage {
     Session session = jcrRegService_.getSession();
     Node appNode = jcrRegService_.getApplicationRegistryNode(session, PORTAL_DATA);
     Node portalNode = appNode.getNode(config.getName()) ;
-    //TODO: Tung.Pham modified
-    //-------------------------------------------------------------------------------------
-    //Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
-    //portalConfigNode.remove() ;
-    //portalNode.save() ;
-    if (portalNode != null) portalNode.remove() ;
-    appNode.save() ;
-    //-------------------------------------------------------------------------------------
+    Node portalConfigNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
+    portalConfigNode.remove() ;
+    portalNode.save() ;
     session.save() ;
     session.logout();
   }

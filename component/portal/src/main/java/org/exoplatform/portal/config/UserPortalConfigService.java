@@ -196,12 +196,25 @@ public class UserPortalConfigService {
     query.setOwnerType(PortalConfig.PORTAL_TYPE) ;
     query.setOwnerId(portalName) ;
     PageList pageList = storage_.find(query) ;
-    for (Object page : pageList.getAll()) {
-     remove((Page)page) ; 
+    pageList.setPageSize(10) ;
+    int i = 1 ;
+    while(i <= pageList.getAvailablePage()) {
+      List<?> list = pageList.getPage(i) ;
+      Iterator<?> itr = list.iterator() ;
+      while(itr.hasNext()) {
+        Page page = (Page) itr.next() ;
+        remove(page) ;
+      }
+      
+      i++;
     }
     
-    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + portalName) ;
+    String id = PortalConfig.PORTAL_TYPE + "::" + portalName ;
+    PageNavigation navigation = storage_.getPageNavigation(id) ;
     if (navigation != null) remove(navigation) ;
+    
+    Widgets widgets = storage_.getWidgets(id) ;
+    if (widgets != null) remove(widgets) ;
     
     PortalConfig config = storage_.getPortalConfig(portalName) ;
     if (config != null) storage_.remove(config) ;
@@ -250,16 +263,6 @@ public class UserPortalConfigService {
    * @return List of Page
    * @throws Exception
    */
-  @SuppressWarnings("unchecked")
-  //TODO: Tung.Pham added
-  public List<Page> getPages(String ownerType, String ownerId) throws Exception {
-    Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
-    query.setOwnerType(ownerType) ;
-    query.setOwnerId(ownerId) ;
-    PageList pageList = storage_.find(query) ;
-    return pageList.getAll() ; 
-  }
-  
   /**
    * This method should remove the page object in the database and  broadcast the event 
    * UserPortalConfigService.page.onRemove

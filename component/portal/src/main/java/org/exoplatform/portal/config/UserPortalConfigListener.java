@@ -4,15 +4,15 @@
  **************************************************************************/
 package org.exoplatform.portal.config;
 
+import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
-import org.exoplatform.portal.content.ContentDAO;
-import org.exoplatform.portal.content.model.ContentNavigation;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 
@@ -34,28 +34,35 @@ public class UserPortalConfigListener extends UserEventListener {
     //DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
     //System.out.println("\n\n == > prepare remove user "+dataStorage+" : "+user.getUserName()+"\n\n");
     // user data Storage get navigation and page then remove it
-    UserPortalConfigService configService = (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
-    ContentDAO contentService = (ContentDAO)container.getComponentInstanceOfType(ContentDAO.class) ;
+    DataStorage dataService = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
     String userName = user.getUserName() ;
     
     //Delete pages
-    List<Page> pages = configService.getPages(PortalConfig.USER_TYPE, userName) ;
-    for (Page ele : pages) {
-      configService.remove(ele) ;
+    Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
+    query.setOwnerType(PortalConfig.USER_TYPE) ;
+    query.setOwnerId(userName) ;
+    PageList pageList = dataService.find(query) ;
+    pageList.setPageSize(10) ;
+    int i =  1;
+    while(i <= pageList.getAvailablePage()) {
+      List<?> list = pageList.getPage(i) ;
+      Iterator<?> itr = list.iterator() ;
+      while(itr.hasNext()) {
+        Page page = (Page) itr.next() ;
+        dataService.remove(page) ;
+      }
+      
+      i++;
     }
-    
+   
     //Delete Navigation
     String id = PortalConfig.USER_TYPE + "::" + userName ;
-    PageNavigation navigation = configService.getPageNavigation(id, userName) ;
-    if (navigation != null) configService.remove(navigation) ;
+    PageNavigation navigation = dataService.getPageNavigation(id) ;
+    if (navigation != null) dataService.remove(navigation) ;
 
     //Delete Widgets
-    Widgets widgets = configService.getWidgets(id) ;
-    if (widgets != null) configService.remove(widgets);
-    
-    //Delete Content
-    ContentNavigation contentNavigation = contentService.get(userName) ;
-    if (contentNavigation != null) contentService.remove(userName) ;
+    Widgets widgets = dataService.getWidgets(id) ;
+    if (widgets != null) dataService.remove(widgets);
     //----------------------------------------------------------------------------------------------------
   }
 
