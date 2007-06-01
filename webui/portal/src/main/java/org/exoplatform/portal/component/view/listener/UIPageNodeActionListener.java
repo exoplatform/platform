@@ -24,14 +24,13 @@ import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
-import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIRightClickPopupMenu;
 import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.event.Event;
@@ -50,7 +49,14 @@ public class UIPageNodeActionListener {
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UIRightClickPopupMenu uiMenu = event.getSource();
       UIPageNodeSelector uiPageNodeSelector = uiMenu.getAncestorOfType(UIPageNodeSelector.class);
-      
+      if(uiPageNodeSelector.getSelectedNavigation() == null) {
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.NoPageNavigation", null)) ;
+        
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
+        return;
+      }
       UIPortalApplication uiApp = uiPageNodeSelector.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
