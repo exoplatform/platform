@@ -238,9 +238,18 @@ public class UIPageActionListener {
   
   static public class SavePropertiesActionListener  extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
-      String posX  = event.getRequestContext().getRequestParameter("posX");
-      String posY  = event.getRequestContext().getRequestParameter("posY");
-      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n SAVE POSITION!!! \n\n POSX: "+posX+" \n\n POSY: "+posY+"\n\n\n\n\n\n\n\n\n");
+      UIPage uiPage = event.getSource();
+      String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      UIWidget uiWidget = uiPage.findComponentById(objectId) ;
+      if(uiWidget == null) return;
+      
+      int posX  = Integer.parseInt(event.getRequestContext().getRequestParameter("posX"));
+      int posY  = Integer.parseInt(event.getRequestContext().getRequestParameter("posY"));
+      
+      uiWidget.setLocationX(posX) ;
+      uiWidget.setLocationY(posY) ;
+      
+//      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n SAVE POSITION!!! \n\n POSX: "+posX+" \n\n POSY: "+posY+"\n\n\n\n\n\n\n\n\n");
     }
   }
   
