@@ -22,6 +22,10 @@
   text-align: center;
 }
 /*############################- UIPageManagementControlBar Icons -#####################*/
+.UIPageManagement .UIPageNavigationControlBar .UIToolbar .ControlToolbar {
+	margin: 13px 2px 0px 100px; 
+}
+
 .UIPageManagement .EditNavigationControlIcon {
   float: left;
   width: 30px; height: 25px;
@@ -36,10 +40,6 @@
   background: url('VistaSkin/background/PageBrowse.gif') no-repeat;
 }
 
-.UIPageManagement .UIToolbar .ControlToolbar {
-	margin: 13px 2px 0px 14px; 
-}
-
 .UIPageManagement .RollbackIcon {
   float: left;
   width: 30px; height: 24px;
@@ -48,6 +48,10 @@
 }
 
 /*############################- UIPageManagementEditBar Icons -#####################*/
+.UIPageManagement .UIToolbar .ControlToolbar {
+	margin: 13px 2px 0px 150px; 
+}
+
 .UIPageManagement .AddNodeIcon {
   float: left;
   width: 24px; height:24px;

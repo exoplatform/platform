@@ -59,12 +59,6 @@
   background: url('MacSkin/icons/EditNode.png') no-repeat;
 }
 
-.UIRightClickPopupMenu .EditNavigation16x16Icon{
-  width: 16px;
-  height: 16px;
-  background: url('MacSkin/icons/EditNavigation.gif') no-repeat;
-}
-
 .UIRightClickPopupMenu .CopyNode16x16Icon{
   width: 16px;
   height: 16px;
@@ -81,4 +75,24 @@
   width: 17px;
   height: 18px;
   background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat;
+}
+
+.UIRightClickPopupMenu .DeleteNavigation16x16Icon {
+  background: url('MacSkin/icons/Delete.gif') no-repeat;
+  width: 16px; height: 16px;
+}
+
+.UIRightClickPopupMenu .PasteNavigation16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/PasteIcon.gif') no-repeat;
+  width: 16px; height: 16px;
+}
+
+.UIRightClickPopupMenu .EditNavigation16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat;
+  width: 16px; height: 16px;
+}
+
+.UIRightClickPopupMenu .SaveNavigation16x16Icon {
+  background: url('/eXoResources/icons/16x16/MacSkin/FloppyDisk.gif') no-repeat center;
+  width: 16px; height: 16px;
 }

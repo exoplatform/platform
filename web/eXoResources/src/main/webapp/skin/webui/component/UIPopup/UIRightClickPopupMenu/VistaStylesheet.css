@@ -12,7 +12,7 @@
 .UIRightClickPopupMenu .MenuItem {
   clear: both;
   cursor: pointer;
-  line-height: 26px;
+  line-height: 24px;
 }
 
 .UIRightClickPopupMenu .RightClickCustomItem {
@@ -22,61 +22,60 @@
 .UIRightClickPopupMenu .SelectedMenuItem {
   clear: both;
   cursor: pointer;
-  line-height: 26px;
+  line-height: 24px;
   background: #dee4f2;
 }
 
 .UIRightClickPopupMenu .ItemIcon {
-  margin: 2px; margin-left: 4px;
   float: left;
-  widht:24px; height:20px;
+  width: 24px; height: 24px;
+  margin: 0px 3px;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .UIRightClickPopupMenu .Rename16x16Icon{
-   width: 24px; height: 24px;
-   background: url('/eXoResources/icons/16x16/VistaSkin/Rename.gif') no-repeat center ;   
+   background-image: url('/eXoResources/icons/16x16/VistaSkin/Rename.gif') ;   
 }
 
 .UIRightClickPopupMenu .AddNode16x16Icon{
-  width: 19px;
-  height: 19px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/BlueCirclePlus.png') no-repeat;
+  background-image: url('/eXoResources/icons/16x16/VistaSkin/BlueCirclePlus.png') ;
 }
 
 .UIRightClickPopupMenu .EditPageNode16x16Icon{
-  width: 19px;
-  height: 19px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/EditPageNode.png') no-repeat;
+  background-image: url('/eXoResources/icons/16x16/VistaSkin/EditPageNode.png') ;
 }
 
 .UIRightClickPopupMenu .EditSelectedNode16x16Icon{
-  width: 19px;
-  height: 19px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/EditNode.png') no-repeat;
-}
-
-.UIRightClickPopupMenu .EditNavigation16x16Icon{
-  width: 19px;
-  height: 19px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/EditNavigation.png') no-repeat;
+  background-image: url('/eXoResources/icons/16x16/VistaSkin/EditNode.png') ;
 }
 
 .UIRightClickPopupMenu .CopyNode16x16Icon{
-  width: 19px;
-  height: 19px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/CopyIcon.png') no-repeat;
+  background-image: url('/eXoResources/icons/16x16/VistaSkin/CopyIcon.png') ;
 }
 
 .UIRightClickPopupMenu .PasteNode16x16Icon{
-  width: 19px;
-  height: 19px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/PasteIcon.png') no-repeat;
+  background-image: url('/eXoResources/icons/16x16/VistaSkin/PasteIcon.png') ;
 }
 
 .UIRightClickPopupMenu .DeleteNode16x16Icon{
-  width: 19px;
-  height: 19px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') no-repeat;
+  background-image: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') ;
+}
+
+.UIRightClickPopupMenu .DeleteNavigation16x16Icon {
+  background-image: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') ;
+}
+
+.UIRightClickPopupMenu .PasteNavigation16x16Icon {
+  background-image: url('/eXoResources/icons/16x16/VistaSkin/PasteIcon.gif') ;
+}
+
+.UIRightClickPopupMenu .EditNavigation16x16Icon {
+  background-image: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') ;
+}
+
+.UIRightClickPopupMenu .SaveNavigation16x16Icon {
+  background-image: url('/eXoResources/icons/16x16/VistaSkin/FloppyDisk.gif') ;
 }
 
 .UIRightClickPopupMenu a {
@@ -128,6 +127,3 @@
 	background: url('VistaSkin/background/BottomCenterRightClickPopupMenu1x19.png') repeat-x ;
 	height: 19px;
 }
-
-
-
