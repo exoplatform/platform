@@ -1,6 +1,5 @@
 <%
   import org.exoplatform.webui.component.UIDropDownItemSelector;
-  import org.exoplatform.portal.component.view.UIWidgetContainer;
   import org.exoplatform.web.application.JavascriptManager;
 
   def rcontext = _ctx.getRequestContext() ;
@@ -17,12 +16,10 @@
 
 <div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">
 	<div class="ItemSelectorContainer ItemSelectorAncestor">
-		<% 
- 		  if(uicomponent.hasChildren() == true) {
- 		    uicomponent.renderChild(UIDropDownItemSelector.class);
- 		  } else {
- 		    System.out.println("\n\nRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR\n\n");
- 		  }
+		<%
+		  if(uicomponent.hasChildren() == true) {
+  		  uicomponent.renderChild(UIDropDownItemSelector.class);
+  		}
  		%>
  		<div class="EditIcon" onclick="$showWCM" title="Edit Widgets Categories"><span></span></div>
 		<div style="clear: left"><span></span></div>
@@ -39,14 +36,12 @@
 	 		<div class="MiddleRightWidgetsDecorator">
 	 			<div class="MiddleCenterWidgetsDecorator">
 	 				<div class="WidgetsDecoratorBackground">
-	 						<%
-					  		   //uicomponent.renderChild(UIWidgetContainer.class);
-					  		  for(uiChild in uicomponent.getChildren()) {
-					  		    if(!(uiChild instanceof UIDropDownItemSelector) && uiChild.isRendered()) {
-					  		      uiChild.processRender(rcontext);
-					  		    }
-					  		  }
-					  	%>
+ 					<%
+		  		  for(uiChild in uicomponent.getChildren()) {
+		  		    if((uiChild instanceof UIDropDownItemSelector) || !uiChild.isRendered()) continue;
+		  		    uiChild.processRender(rcontext);
+		  		  }
+			  	%>
 	 				</div>
 	 			</div>
 	 		</div>

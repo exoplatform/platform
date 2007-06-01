@@ -59,32 +59,30 @@ public class UIWidgets extends UIContainer {
     return id; 
   }
   
-  public UIWidgetContainer getSelectedContainer() {
-    UIWidgetContainer uiSelectedContainer = null;
+  public UIContainer getSelectedContainer() {
+    UIContainer uiSelectedContainer = null;
     for(UIComponent uiChild : getChildren()) {
-      if(uiChild  instanceof UIWidgetContainer && uiChild.isRendered()) {
-        uiSelectedContainer = (UIWidgetContainer) uiChild;
+      if(uiChild  instanceof UIContainer && uiChild.isRendered()) {
+        uiSelectedContainer = (UIContainer) uiChild;
         break;
       }
     }
     return uiSelectedContainer; 
   }
   
-  public void setSelectedContainer(UIWidgetContainer uiWidgetContainer) {
-    UIWidgetContainer uiSelectedContainer = getSelectedContainer();
+  public void setSelectedContainer(UIContainer uiWidgetContainer) {
+    UIContainer uiSelectedContainer = getSelectedContainer();
     if(uiSelectedContainer != null) uiSelectedContainer.setRendered(false);
     if(uiWidgetContainer != null) uiWidgetContainer.setRendered(true);
   }
   
   public void updateDropdownList() {
-    setSelectedContainer(getChild(UIWidgetContainer.class));
-    UIDropDownItemSelector dropDownItemSelector = getChild(UIDropDownItemSelector.class);
-    dropDownItemSelector.cleanItem();
-    List<UIComponent> children = getChildren();
-    for(UIComponent child : children) {
-      if(child instanceof UIWidgetContainer) {
-        dropDownItemSelector.addItem(child.getId());
-      }
+    setSelectedContainer(getChild(UIContainer.class));
+    UIDropDownItemSelector uiDropDownItemSelector = getChild(UIDropDownItemSelector.class);
+    uiDropDownItemSelector.cleanItem();
+    List<UIComponent> uiChildren = getChildren();
+    for(int i = 1; i < uiChildren.size(); i++) {
+      uiDropDownItemSelector.addItem(uiChildren.get(i).getId());
     }
   }
   
@@ -98,7 +96,7 @@ public class UIWidgets extends UIContainer {
       if(option != null) uiDropDownItemSelector.setSelectedItem(option);
       if(uiWidgets.getSelectedContainer().getId().equals(selectedContainerId)) return;
       
-      UIWidgetContainer newSelected = uiWidgets.getChildById(selectedContainerId) ;
+      UIContainer newSelected = uiWidgets.getChildById(selectedContainerId) ;
       uiWidgets.getSelectedContainer().setRendered(false);
       uiWidgets.setSelectedContainer(newSelected);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWidgets.getParent());

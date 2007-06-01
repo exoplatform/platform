@@ -318,11 +318,10 @@ public class PortalDataMapper {
     if(children == null)  return;
     WebuiRequestContext  context = Util.getPortalRequestContext() ;
     for(Container child : children) { 
-      UIWidgetContainer uiWidgetContainer = 
-        uiWidgets.createUIComponent(context, UIWidgetContainer.class, null, null);
-      uiWidgetContainer.setRendered(false);
-      toUIContainer(uiWidgetContainer, child);
-      uiWidgets.addChild(uiWidgetContainer);
+      UIContainer uiContainer = uiWidgets.createUIComponent(context, UIContainer.class, "WidgetContainer", null);
+      uiContainer.setRendered(false);
+      toUIContainer(uiContainer, child);
+      uiWidgets.addChild(uiContainer);
     }
     uiWidgets.updateDropdownList();
   }
