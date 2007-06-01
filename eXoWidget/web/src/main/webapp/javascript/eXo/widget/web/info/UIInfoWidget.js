@@ -41,6 +41,8 @@ UIInfoWidget.prototype.initApplication = function(applicationId, instanceId) {
 	var appInstance = appDescriptor.createApplication();
 	var appElement = document.getElementById("UIInfoWidget");
 	appInstance.id = appElement.getAttribute('applicationId') ;
+	appInstance.positionX = appElement.getAttribute('posX');
+	appInstance.positionY = appElement.getAttribute('posY');
 	
 	var uiPageDesktop = DOMUtil.findAncestorByClass(appElement, "UIPageDesktop") ;
 	if(uiPageDesktop == null) {

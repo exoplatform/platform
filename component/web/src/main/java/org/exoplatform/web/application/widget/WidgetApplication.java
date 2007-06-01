@@ -15,11 +15,11 @@ import org.exoplatform.web.application.Application;
  *          tuan.nguyen@exoplatform.com
  * Apr 23, 2007  
  */
-abstract public class WidgetApplication extends Application {
+abstract public class WidgetApplication<T> extends Application {
   
   public String getApplicationType() { return "eXoWidget" ; }
   
-  abstract public void processRender(String instanceId, Writer w) throws Exception ;
+  abstract public void processRender(T uiWidget, Writer w) throws Exception ;
   
   public ResourceBundle getOwnerResourceBundle(String username, Locale locale) throws Exception {
     throw new Exception("This method is not supported") ;

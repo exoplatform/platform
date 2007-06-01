@@ -38,7 +38,9 @@ UIWelcomeWidget.prototype.initApplication = function(applicationId, instanceId) 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.welcome.UIWelcomeWidget) ;
 	var appInstance = appDescriptor.createApplication();
 	var app = document.getElementById("UIWelcomeWidget");
-	appInstance.id = app.getAttribute('applicationId') ;
+	appInstance.id = app.getAttribute('applicationId');
+	appInstance.positionX = app.getAttribute('posX');
+	appInstance.positionY = app.getAttribute('posY');
 	
 	var uiPageDesktop = DOMUtil.findAncestorByClass(app, "UIPageDesktop") ;
 	if(uiPageDesktop == null) {

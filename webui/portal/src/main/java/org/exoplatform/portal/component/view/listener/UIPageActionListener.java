@@ -236,4 +236,13 @@ public class UIPageActionListener {
       pcontext.setFullRender(true);
     }
   }
+  
+  static public class SavePropertiesActionListener  extends EventListener<UIPage> {
+    public void execute(Event<UIPage> event) throws Exception {
+      String posX  = event.getRequestContext().getRequestParameter("posX");
+      String posY  = event.getRequestContext().getRequestParameter("posY");
+      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n SAVE POSITION!!! \n\n POSX: "+posX+" \n\n POSY: "+posY+"\n\n\n\n\n\n\n\n\n");
+    }
+  }
+  
 }

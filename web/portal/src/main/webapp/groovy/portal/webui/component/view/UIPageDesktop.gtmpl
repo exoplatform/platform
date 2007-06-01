@@ -56,7 +56,7 @@
       <div class="UIPageDesktop" id="UIPageDesktop">
         <%int x = 15; y = 15 %>
         <%for(uiChild in uicomponent.getChildren()) {
-            if(!(uiChild instanceof UIPortlet)){      
+            if(!(uiChild instanceof UIPortlet)){
               uicomponent.renderUIComponent(uiChild);
               continue; 
             }

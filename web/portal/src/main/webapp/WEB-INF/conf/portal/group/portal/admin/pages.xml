@@ -22,7 +22,7 @@
     <access-permission>*:/guest</access-permission>  
     <show-max-window>true</show-max-window>
     
-    <application>
+    <application location-x="100" location-y="150">
       <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget</instance-id>
       <application-type>eXoWidget</application-type>
     </application>

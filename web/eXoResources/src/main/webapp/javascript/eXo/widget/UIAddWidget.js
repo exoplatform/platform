@@ -1,3 +1,5 @@
+eXo.require('eXo.widget.UIWidget');
+
 function UIAddWidget() {
 
 }
@@ -27,7 +29,7 @@ UIAddWidget.prototype.addWidget = function(widgetElement) {
 	
 	widgetContainerScrollArea.appendChild(widgetElement);
 	
-	eXo.widget.UIWidget.init();
+	eXo.widget.UIWidget.init(widgetElement);
 	
 	/*Get Application's Stylesheet*/
 	var styleId = appDescriptor.appId + "Stylesheet" ;
@@ -40,16 +42,10 @@ UIAddWidget.prototype.addWidgetToDesktop = function(widgetElement) {
 	if(uiPageDesktop == null) return ;
 	uiPageDesktop.appendChild(widgetElement);
 	
-	widgetElement.style.width = appDescriptor.application.width ;
-	widgetElement.style.height = appDescriptor.application.height ;
-	widgetElement.style.position = "absolute" ;
-	widgetElement.style.top = "20px" ;
-	widgetElement.style.left = "20px" ;
-	
-	eXo.widget.UIWidget.init(true);
+	eXo.widget.UIWidget.init(widgetElement, true);
 	/*Get Application's Stylesheet*/
 	var styleId = appDescriptor.appId + "Stylesheet" ;
-	eXo.core.Skin.addSkin(styleId, appDescriptor.application.skin[eXo.env.client.skin]);	
+	eXo.core.Skin.addSkin(styleId, appDescriptor.application.skin[eXo.env.client.skin]);
 };
 
 eXo.widget.UIAddWidget = new UIAddWidget();

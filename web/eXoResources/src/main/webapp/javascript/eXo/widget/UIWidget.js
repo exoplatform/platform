@@ -1,24 +1,21 @@
-	function UIWidget() {
+function UIWidget() {
 	
 };
 
-UIWidget.prototype.init = function(inDesktop) {
-	var DOMUtil = eXo.core.DOMUtil ;
-	var uiWidgetContainer ;
-	if(!inDesktop) {
-		var uiWidgets = document.getElementById("UIWidgets");
-		uiWidgetContainer = DOMUtil.findFirstDescendantByClass(uiWidgets, "div", "UIWidgetContainer");
-	} else {
-		uiWidgetContainer = document.getElementById("UIPageDesktop") ;
+UIWidget.prototype.init = function(uiWidget, inDesktop) {
+	
+	uiWidget.onmouseover = eXo.widget.UIWidget.showWidgetControl ;
+	uiWidget.onmouseout = eXo.widget.UIWidget.hideWidgetControl ;
+	
+	if(inDesktop) {
+		var appDescriptor = uiWidget.applicationDescriptor;
+		uiWidget.style.width = appDescriptor.application.width ;
+		uiWidget.style.height = appDescriptor.application.height ;
+		
+		uiWidget.style.position = "absolute" ;		
+		uiWidget.style.left = uiWidget.positionX + "px" ;
+		uiWidget.style.top = uiWidget.positionY + "px" ;
 	}
-	
-	var uiWidgets = DOMUtil.findDescendantsByClass(uiWidgetContainer, "div", "UIWidget");
-	
-	for(var i = 0; i < uiWidgets.length; i++) {
-		uiWidgets[i].onmouseover = eXo.widget.UIWidget.showWidgetControl ;
-		uiWidgets[i].onmouseout = eXo.widget.UIWidget.hideWidgetControl ;
-	}
-	
 };
 
 UIWidget.prototype.deleteWidget = function(selectedElement) {
@@ -60,6 +57,7 @@ UIWidget.prototype.hideWidgetControl = function() {
 
 UIWidget.prototype.initDND = function(e) {
   var DragDrop = eXo.core.DragDrop ;
+  var DOMUtil = eXo.core.DOMUtil ;
 
 	DragDrop.initCallback = function (dndEvent) {
   }
@@ -79,7 +77,17 @@ UIWidget.prototype.initDND = function(e) {
   	if (dragObject.offsetTop < 0) dragObject.style.top = "0px" ;
   	if (offsetTop > offsetHeight) dragObject.style.top = offsetHeight + "px" ;  	
   	if (offsetLeft > offsetWidth) dragObject.style.left = offsetWidth + "px" ;  	
-  	//window.status = "MOUSE UP : " + uiPageDesktop.offsetHeight + "---" + dragObject.offsetTop + "---" + dragObject.offsetHeight ;
+  	
+  	/*Save Position*/
+  	var uiPage = DOMUtil.findAncestorByClass(dragObject, "UIPage") ;
+  	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
+		containerBlockId = uiPageIdNode.innerHTML;
+  	var params = [
+	  	{name: "objectId", value : dragObject.id} ,
+	  	{name: "posX", value : dragObject.offsetLeft},
+	  	{name: "posY", value : dragObject.offsetTop}
+	  ] ;
+  	ajaxGet(eXo.env.server.createPortalURL(containerBlockId, "SaveProperties", true, params)) ;
   }
   
   var clickBlock = this ;

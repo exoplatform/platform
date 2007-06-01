@@ -7,6 +7,7 @@ package org.exoplatform.widget.web;
 import java.io.Writer;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.component.view.UIWidget;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.web.application.widget.WidgetApplication;
@@ -17,7 +18,7 @@ import org.exoplatform.web.application.widget.WidgetApplication;
  *          ha.pham@exoplatform.com
  * May 25, 2007
  */
-public class WelcomeWidget extends WidgetApplication {
+public class WelcomeWidget extends WidgetApplication<UIWidget> {
   
   public String getApplicationId() { return "exo.widget.web/WelcomeWidget" ; }
 
@@ -25,11 +26,15 @@ public class WelcomeWidget extends WidgetApplication {
 
   public String getApplicationGroup() { return "exo.widget.web"; }
   
-  public void processRender(String instanceId, Writer w) throws Exception {
+  public void processRender(UIWidget uiWidget, Writer w) throws Exception {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     
-    w.write("<div id = 'UIWelcomeWidget' applicationId = '"+instanceId+"'><span></span></div>") ;
+    String instanceId = uiWidget.getApplicationInstanceId() ;
+    int posX = uiWidget.getLocationX() ;
+    int posY = uiWidget.getLocationY() ;
+    
+    w.write("<div id = 'UIWelcomeWidget' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"'><span></span></div>") ;
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','"+instanceId+"','/exo.widget.web/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
