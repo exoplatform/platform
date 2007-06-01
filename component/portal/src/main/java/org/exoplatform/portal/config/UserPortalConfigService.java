@@ -176,6 +176,11 @@ public class UserPortalConfigService {
 //    int i = 1;
 //    while(i < pagelist.getAvailablePage()) {
 //      List<?>  list = pagelist.getPage(i);
+//      Iterator<?> iter = list.iterator();
+//    while(iter.hasNext()) {
+//      Page page = (Page) iter.next();
+//      remove(page);
+//    }
 //      for(Object ele : list) {
 //        storage_.remove((Page)ele);
 //      }
@@ -259,8 +264,9 @@ public class UserPortalConfigService {
     query.setOwnerType(ownerType) ;
     query.setOwnerId(ownerId) ;
     PageList pageList = storage_.find(query) ;
-    return (List<Page>)pageList.getAll() ; 
+    return pageList.getAll() ; 
   }
+  
   /**
    * This method should remove the page object in the database and  broadcast the event 
    * UserPortalConfigService.page.onRemove
