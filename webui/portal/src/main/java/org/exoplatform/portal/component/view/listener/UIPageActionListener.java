@@ -32,6 +32,7 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -148,6 +149,16 @@ public class UIPageActionListener {
         uiWidget.setApplicationGroup(application.getApplicationGroup());
         uiWidget.setApplicationOwnerType(application.getApplicationType());
         uiWidget.setApplicationOwnerId(application.getOwner());
+        
+        /*--------------------Set Properties For Widget--------------------*/
+        
+        int posX = (int)(Math.random()*400) ;
+        int posY = (int)(Math.random()*200) ;
+        
+        if(uiWidget.getProperties() == null) uiWidget.setProperties(new Properties());
+        uiWidget.getProperties().put("locationX", String.valueOf(posX)) ;
+        uiWidget.getProperties().put("locationY", String.valueOf(posY)) ;
+        
         uiPage.addChild(uiWidget);
       } else {
         UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);  
@@ -241,15 +252,23 @@ public class UIPageActionListener {
     public void execute(Event<UIPage> event) throws Exception {
       UIPage uiPage = event.getSource();
       String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      UIWidget uiWidget = uiPage.findComponentById(objectId) ;
-      
+      List<UIWidget> uiWidgets = new ArrayList<UIWidget>();
+      uiPage.findComponentOfType(uiWidgets, UIWidget.class);
+      UIWidget uiWidget = null;
+      for(UIWidget ele : uiWidgets) {
+        if(ele.getApplicationInstanceId().equals(objectId)) {
+          uiWidget = ele;
+          break;
+        }
+      }
+
       if(uiWidget == null) return;
       
-      int posX  = Integer.parseInt(event.getRequestContext().getRequestParameter("posX"));
-      int posY  = Integer.parseInt(event.getRequestContext().getRequestParameter("posY"));
+      String posX  = event.getRequestContext().getRequestParameter("posX");
+      String posY  = event.getRequestContext().getRequestParameter("posY");
       
-      uiWidget.getProperties().put("locationX", String.valueOf(posX)) ;
-      uiWidget.getProperties().put("locationY", String.valueOf(posY)) ;
+      uiWidget.getProperties().put("locationX", posX) ;
+      uiWidget.getProperties().put("locationY", posY) ;
     }
   }
   
