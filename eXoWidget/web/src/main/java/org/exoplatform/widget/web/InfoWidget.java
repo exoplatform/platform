@@ -33,7 +33,7 @@ public class InfoWidget extends WidgetApplication<UIWidget> {
     
     String instanceId = uiWidget.getApplicationInstanceId() ;
     
-    HashMap<String, String> properties = uiWidget.getProperites();
+    HashMap<String, String> properties = uiWidget.getProperties();
     int posX = 0;
     int posY = 0;
     if(properties != null) {

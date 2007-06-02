@@ -52,7 +52,7 @@ public class PortalDataMapper {
     model.setApplicationType(Application.WIDGET_TYPE);
     model.setInstanceId(uiWidget.getApplicationInstanceId());
     model.setId(uiWidget.getId());
-    model.setProperites(uiWidget.getProperites());
+    model.setProperties(uiWidget.getProperties());
     return model;
   }
   
@@ -67,7 +67,7 @@ public class PortalDataMapper {
     model.setTitle(uiExoApp.getTitle());
     model.setIcon(uiExoApp.getIcon());
     model.setDescription(uiExoApp.getDescription());
-    model.setProperites(uiExoApp.getProperites());
+    model.setProperties(uiExoApp.getProperties());
     return model;
   }
   
@@ -101,7 +101,7 @@ public class PortalDataMapper {
     model.setShowApplicationMode(uiPortlet.getShowPortletMode());    
     model.setDescription(uiPortlet.getDescription());
     model.setIcon(uiPortlet.getIcon());
-    model.setProperites(uiPortlet.getProperites());
+    model.setProperties(uiPortlet.getProperties());
     return model;
   }
   
@@ -190,14 +190,14 @@ public class PortalDataMapper {
     uiExoApp.setTitle(model.getTitle());
     uiExoApp.setIcon(model.getIcon());
     uiExoApp.setDescription(model.getDescription());
-    uiExoApp.setProperites(model.getProperites());
+    uiExoApp.setProperties(model.getProperties());
     uiExoApp.init() ;
   }
   
   static public void toUIWidget(UIWidget uiWidget, Application model) throws Exception {
     uiWidget.setApplicationInstanceId(model.getInstanceId()) ;
     uiWidget.setId(model.getInstanceId());
-    uiWidget.setProperites(model.getProperites());
+    uiWidget.setProperties(model.getProperties());
   }
   
   static public void toUIPortlet(UIPortlet uiPortlet, Application model) throws Exception {
@@ -210,7 +210,7 @@ public class PortalDataMapper {
     uiPortlet.setShowInfoBar(model.getShowInfoBar());
     uiPortlet.setShowWindowState(model.getShowApplicationState());
     uiPortlet.setShowPortletMode(model.getShowApplicationMode());
-    uiPortlet.setProperites(model.getProperites());
+    uiPortlet.setProperties(model.getProperties());
   
     PortletContainerService portletContainer =  uiPortlet.getApplicationComponent(PortletContainerService.class);
     ExoWindowID windowId = uiPortlet.getExoWindowID();    

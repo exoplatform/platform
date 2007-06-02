@@ -59,7 +59,7 @@ public class UIWidget extends UIComponent {
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
   
-  public HashMap<String, String> getProperites() { return properties; }
-  public void setProperites(HashMap<String, String> properties) { this.properties = properties; }
+  public HashMap<String, String> getProperties() { return properties; }
+  public void setProperties(HashMap<String, String> properties) { this.properties = properties; }
   
 }

@@ -91,8 +91,8 @@ public class UIExoApplication extends UIPortalComponent {
   public String getApplicationName() { return applicationName_ ;}
   public void setApplicationName(String name) { applicationName_ = name;}
   
-  public HashMap<String, String> getProperites() { return properties; }
-  public void setProperites(HashMap<String, String> properties) { this.properties = properties; }
+  public HashMap<String, String> getProperties() { return properties; }
+  public void setProperties(HashMap<String, String> properties) { this.properties = properties; }
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
   

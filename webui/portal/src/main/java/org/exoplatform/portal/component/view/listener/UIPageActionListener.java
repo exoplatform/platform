@@ -248,9 +248,9 @@ public class UIPageActionListener {
       int posX  = Integer.parseInt(event.getRequestContext().getRequestParameter("posX"));
       int posY  = Integer.parseInt(event.getRequestContext().getRequestParameter("posY"));
       
-      if(uiWidget.getProperites() == null) uiWidget.setProperites(new HashMap<String, String>());
-      uiWidget.getProperites().put("locationX", String.valueOf(posX)) ;
-      uiWidget.getProperites().put("locationY", String.valueOf(posY)) ;
+      if(uiWidget.getProperties() == null) uiWidget.setProperties(new HashMap<String, String>());
+      uiWidget.getProperties().put("locationX", String.valueOf(posX)) ;
+      uiWidget.getProperties().put("locationY", String.valueOf(posY)) ;
     }
   }
   
