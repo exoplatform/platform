@@ -90,7 +90,10 @@ public class UIExoApplication extends UIPortalComponent {
   public String getApplicationName() { return applicationName_ ;}
   public void setApplicationName(String name) { applicationName_ = name;}
   
-  public Properties getProperties() { return properties; }
+  public Properties getProperties() {
+    if(properties == null) properties  = new Properties();
+    return properties; 
+  }
   public void setProperties(Properties properties) { this.properties = properties; }
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}

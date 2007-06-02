@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.config.model;
 
-import java.util.HashMap;
 
 /**
  * May 13, 2004

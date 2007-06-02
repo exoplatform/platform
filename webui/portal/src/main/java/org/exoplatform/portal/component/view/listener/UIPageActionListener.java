@@ -5,7 +5,6 @@
 package org.exoplatform.portal.component.view.listener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;

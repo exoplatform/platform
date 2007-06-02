@@ -9,10 +9,13 @@ import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
 
+import org.apache.commons.httpclient.HostConfiguration;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.HttpVersion;
 import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
+import org.apache.commons.httpclient.NTCredentials;
+import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.cookie.CookiePolicy;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.params.HttpConnectionManagerParams;
@@ -52,7 +55,7 @@ public class HttpClientImpl  {
     para.setDefaultMaxConnectionsPerHost( 10);
     para.setMaxTotalConnections( 20);
     para.setStaleCheckingEnabled( true);    
-    manager.setParams( para);
+    manager.setParams(para);
     http = new HttpClient(manager);   
     http.getParams().setParameter("http.protocol.version", HttpVersion.HTTP_1_1);
     http.getParams().setParameter("http.socket.timeout", new Integer(HTTP_TIMEOUT));
@@ -60,7 +63,18 @@ public class HttpClientImpl  {
     http.getParams().setCookiePolicy(CookiePolicy.RFC_2109);
     http.getParams().setCookiePolicy(CookiePolicy.BROWSER_COMPATIBILITY);
     if( port < 0) port = 80;
-    http.getHostConfiguration().setHost( host, port, protocol);   
+    HostConfiguration hostConfig= http.getHostConfiguration();
+    hostConfig.setHost(host, port, protocol);   
+    
+    String proxyHost = System.getProperty("httpclient.proxy.host");
+    if(proxyHost == null || proxyHost.trim().length() < 1) return;
+    String proxyPort  = System.getProperty("httpclient.proxy.port");
+    hostConfig.setProxy(proxyHost, Integer.parseInt(proxyPort));
+    
+    String username = System.getProperty("httpclient.proxy.username");
+    String password = System.getProperty("httpclient.proxy.password");
+    NTCredentials ntCredentials = new NTCredentials("userid","password", username, password);
+    http.getState().setProxyCredentials(AuthScope.ANY, ntCredentials);
   } 
   
   public HttpClient getHttpClient(){

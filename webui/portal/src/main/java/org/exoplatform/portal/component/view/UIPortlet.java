@@ -100,7 +100,10 @@ public class UIPortlet extends UIPortalComponent {
   public  List<String> getSupportModes() { return supportModes_; }
   public void setSupportModes(List<String> supportModes) { supportModes_ = supportModes; }
   
-  public Properties getProperties() { return properties; }
+  public Properties getProperties() {
+    if(properties == null) properties  = new Properties();
+    return properties; 
+  }
   public void setProperties(Properties properties) { this.properties = properties; }
   
 }

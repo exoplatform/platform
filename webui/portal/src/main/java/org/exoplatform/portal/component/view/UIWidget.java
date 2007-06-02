@@ -58,7 +58,10 @@ public class UIWidget extends UIComponent {
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
   
-  public Properties getProperties() { return properties; }
+  public Properties getProperties() {
+    if(properties == null) properties  = new Properties();
+    return properties; 
+  }
   public void setProperties(Properties properties) { this.properties = properties; }
   
 }
