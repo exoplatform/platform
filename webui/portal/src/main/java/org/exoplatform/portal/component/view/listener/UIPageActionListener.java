@@ -5,6 +5,7 @@
 package org.exoplatform.portal.component.view.listener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
@@ -247,8 +248,9 @@ public class UIPageActionListener {
       int posX  = Integer.parseInt(event.getRequestContext().getRequestParameter("posX"));
       int posY  = Integer.parseInt(event.getRequestContext().getRequestParameter("posY"));
       
-      uiWidget.setLocationX(posX) ;
-      uiWidget.setLocationY(posY) ;
+      if(uiWidget.getProperites() == null) uiWidget.setProperites(new HashMap<String, String>());
+      uiWidget.getProperites().put("locationX", String.valueOf(posX)) ;
+      uiWidget.getProperites().put("locationY", String.valueOf(posY)) ;
     }
   }
   

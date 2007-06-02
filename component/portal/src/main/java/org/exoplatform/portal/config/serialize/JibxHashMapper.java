@@ -1,3 +1,7 @@
+/***************************************************************************
+ * Copyright 2001-2007 The eXo Platform SARL         All rights reserved.  *
+ * Please look at license.txt in info directory for more license detail.   *
+ **************************************************************************/
 package org.exoplatform.portal.config.serialize;
 
 import java.util.HashMap;
@@ -12,7 +16,12 @@ import org.jibx.runtime.IUnmarshallingContext;
 import org.jibx.runtime.JiBXException;
 import org.jibx.runtime.impl.MarshallingContext;
 import org.jibx.runtime.impl.UnmarshallingContext;
-
+/**
+ * Created by The eXo Platform SARL
+ * Author : Nhu Dinh Thuan
+ *          nhudinhthuan@exoplatform.com
+ * Jun 2, 2007  
+ */
 public class JibxHashMapper implements IMarshaller, IUnmarshaller, IAliasable {
 
   private static final String SIZE_ATTRIBUTE_NAME = "size";

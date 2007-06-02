@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
+import java.util.HashMap;
+
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.component.view.lifecycle.UIExoApplicationLifecycle;
 import org.exoplatform.web.WebAppController;
@@ -39,8 +41,7 @@ public class UIExoApplication extends UIPortalComponent {
   private String applicationName_ ;
   private String applicationInstanceUniqueId_ ;
   
-  private int locationX;
-  private int locationY;
+  private HashMap<String, String> properties;
   
   public UIExoApplication(){
   }
@@ -90,11 +91,8 @@ public class UIExoApplication extends UIPortalComponent {
   public String getApplicationName() { return applicationName_ ;}
   public void setApplicationName(String name) { applicationName_ = name;}
   
-  public int getLocationX() { return locationX; }
-  public void setLocationX(int locationX) { this.locationX = locationX; }
-
-  public int getLocationY() { return locationY; }
-  public void setLocationY(int locationY) { this.locationY = locationY; }
+  public HashMap<String, String> getProperites() { return properties; }
+  public void setProperites(HashMap<String, String> properties) { this.properties = properties; }
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
   

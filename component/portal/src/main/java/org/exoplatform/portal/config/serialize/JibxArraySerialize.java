@@ -38,4 +38,5 @@ public class JibxArraySerialize {
     list.toArray(values);
     return values;
   }
+  
 }

@@ -18,8 +18,6 @@
     <value name="description" field="description" usage="optional"/>
     <value name="icon" field="icon" usage="optional"/>
     <structure field="properties" usage="optional"/>
-    <value name="location-x" field="locationX" usage="optional" style="attribute"/>
-    <value name="location-y" field="locationY" usage="optional" style="attribute"/>
   </mapping>
   
   <mapping name="page-body" label="pageBody" class="org.exoplatform.portal.config.model.PageBody">

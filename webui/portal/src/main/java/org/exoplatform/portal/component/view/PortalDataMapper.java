@@ -52,8 +52,7 @@ public class PortalDataMapper {
     model.setApplicationType(Application.WIDGET_TYPE);
     model.setInstanceId(uiWidget.getApplicationInstanceId());
     model.setId(uiWidget.getId());
-    model.setLocationX(uiWidget.getLocationX());
-    model.setLocationY(uiWidget.getLocationY());
+    model.setProperites(uiWidget.getProperites());
     return model;
   }
   
@@ -68,8 +67,7 @@ public class PortalDataMapper {
     model.setTitle(uiExoApp.getTitle());
     model.setIcon(uiExoApp.getIcon());
     model.setDescription(uiExoApp.getDescription());
-    model.setLocationX(uiExoApp.getLocationX());
-    model.setLocationY(uiExoApp.getLocationY());
+    model.setProperites(uiExoApp.getProperites());
     return model;
   }
   
@@ -103,8 +101,7 @@ public class PortalDataMapper {
     model.setShowApplicationMode(uiPortlet.getShowPortletMode());    
     model.setDescription(uiPortlet.getDescription());
     model.setIcon(uiPortlet.getIcon());
-    model.setLocationX(uiPortlet.getLocationX());
-    model.setLocationY(uiPortlet.getLocationY());
+    model.setProperites(uiPortlet.getProperites());
     return model;
   }
   
@@ -193,16 +190,14 @@ public class PortalDataMapper {
     uiExoApp.setTitle(model.getTitle());
     uiExoApp.setIcon(model.getIcon());
     uiExoApp.setDescription(model.getDescription());
-    uiExoApp.setLocationX(model.getLocationX());
-    uiExoApp.setLocationY(model.getLocationY());
+    uiExoApp.setProperites(model.getProperites());
     uiExoApp.init() ;
   }
   
   static public void toUIWidget(UIWidget uiWidget, Application model) throws Exception {
     uiWidget.setApplicationInstanceId(model.getInstanceId()) ;
     uiWidget.setId(model.getInstanceId());
-    uiWidget.setLocationX(model.getLocationX());
-    uiWidget.setLocationY(model.getLocationY());
+    uiWidget.setProperites(model.getProperites());
   }
   
   static public void toUIPortlet(UIPortlet uiPortlet, Application model) throws Exception {
@@ -215,8 +210,7 @@ public class PortalDataMapper {
     uiPortlet.setShowInfoBar(model.getShowInfoBar());
     uiPortlet.setShowWindowState(model.getShowApplicationState());
     uiPortlet.setShowPortletMode(model.getShowApplicationMode());
-    uiPortlet.setLocationX(model.getLocationX());
-    uiPortlet.setLocationY(model.getLocationY());
+    uiPortlet.setProperites(model.getProperites());
   
     PortletContainerService portletContainer =  uiPortlet.getApplicationComponent(PortletContainerService.class);
     ExoWindowID windowId = uiPortlet.getExoWindowID();    

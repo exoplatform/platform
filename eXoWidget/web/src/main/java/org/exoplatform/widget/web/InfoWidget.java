@@ -5,6 +5,7 @@
 package org.exoplatform.widget.web;
 
 import java.io.Writer;
+import java.util.HashMap;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.view.UIWidget;
@@ -31,8 +32,16 @@ public class InfoWidget extends WidgetApplication<UIWidget> {
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     
     String instanceId = uiWidget.getApplicationInstanceId() ;
-    int posX = uiWidget.getLocationX() ;
-    int posY = uiWidget.getLocationY() ;
+    
+    HashMap<String, String> properties = uiWidget.getProperites();
+    int posX = 0;
+    int posY = 0;
+    if(properties != null) {
+      String value = properties.get("locationX");
+      if(value != null && value.trim().length() > 0) posX = Integer.parseInt(value) ;
+      value = properties.get("locationY");
+      if(value != null && value.trim().length() > 0) posY = Integer.parseInt(value) ;
+    }
     
     w.write("<div id = 'UIInfoWidget' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"'><span></span></div>") ;
     

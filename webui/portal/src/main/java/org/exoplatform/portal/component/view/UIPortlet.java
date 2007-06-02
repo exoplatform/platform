@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -50,15 +51,14 @@ public class UIPortlet extends UIPortalComponent {
   private String   description;
   private String   icon;
   
-  private int locationX;
-  private int locationY;
-   
   private Map renderParametersMap_ ;
   private ExoWindowID exoWindowId_ ;
   private PortletMode currentPortletMode_ = PortletMode.VIEW;
   private WindowState currentWindowState_ = WindowState.NORMAL;  
   
   private List<String> supportModes_ ;
+  
+  private HashMap<String, String> properties;
   
   public String getId()  { return exoWindowId_.getUniqueID() ; }
   
@@ -100,10 +100,7 @@ public class UIPortlet extends UIPortalComponent {
   public  List<String> getSupportModes() { return supportModes_; }
   public void setSupportModes(List<String> supportModes) { supportModes_ = supportModes; }
   
-  public int getLocationX() { return locationX; }
-  public void setLocationX(int locationX) { this.locationX = locationX; }
-
-  public int getLocationY() { return locationY; }
-  public void setLocationY(int locationY) { this.locationY = locationY; }
+  public HashMap<String, String> getProperites() { return properties; }
+  public void setProperites(HashMap<String, String> properties) { this.properties = properties; }
   
 }
