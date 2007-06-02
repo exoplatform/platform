@@ -33,15 +33,8 @@ public class InfoWidget extends WidgetApplication<UIWidget> {
     
     String instanceId = uiWidget.getApplicationInstanceId() ;
     
-    HashMap<String, String> properties = uiWidget.getProperties();
-    int posX = 0;
-    int posY = 0;
-    if(properties != null) {
-      String value = properties.get("locationX");
-      if(value != null && value.trim().length() > 0) posX = Integer.parseInt(value) ;
-      value = properties.get("locationY");
-      if(value != null && value.trim().length() > 0) posY = Integer.parseInt(value) ;
-    }
+    int posX = uiWidget.getProperties().getIntValue("locationX") ;
+    int posY = uiWidget.getProperties().getIntValue("locationY") ;
     
     w.write("<div id = 'UIInfoWidget' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"'><span></span></div>") ;
     
