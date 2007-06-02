@@ -30,7 +30,10 @@
 }
 
 .UIPortletOptions .CategoryContainer {
+  border:solid 1px #959595; 
+  background: white;
   overflow: auto;
+  
 }
 
 .UIPortletOptions .Title {

@@ -48,33 +48,33 @@
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
-	margin: 8px 11px 0px 11px;
+	margin: 4px 11px 0px 11px;
   width: 30px;  height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControlIcon.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
-	margin: 8px 11px 0px 11px;
+	margin: 4px 11px 0px 11px;
   width: 30px;  height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControlIcon.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
   float: left;
-  margin: 8px 11px 0px 11px;
+  margin: 4px 11px 0px 11px;
   width: 24px;  height: 24px;
   cursor : pointer;
   background: url('/eXoResources/icons/24x24/VistaSkin/LayoutMode.gif') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
-  margin: 8px 11px 0px 11px;
+  margin: 4px 11px 0px 11px;
   width: 30px;  height: 24px;  
   background: url('/eXoResources/icons/24x24/VistaSkin/Preview.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
-  margin: 8px 11px 0px 11px;
+  margin: 4px 11px 0px 11px;
   width: 30px;  height: 24px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortalControl.png');
 }

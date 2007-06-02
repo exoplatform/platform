@@ -4,22 +4,22 @@
 /*#################################- EditToolbar -##############################*/
 
 .UIToolbar .EditToolbar {
-  height: 36px;
+  height: 31px;
 }
 
 .UIToolbar .EditToolbar .LeftBar {
-  padding-left: 7px;
-  background: url('VistaSkin/background/PolyBarL7x36.png') no-repeat left;
+  padding-left: 4px;
+  background: url('VistaSkin/background/PolyBarL4x31.png') no-repeat left;
 }
 
 .UIToolbar .EditToolbar .RightBar {
-  padding-right: 8px;
-  background: url('VistaSkin/background/PolyBarR8x36.png') no-repeat right;
+  padding-right: 5px;
+  background: url('VistaSkin/background/PolyBarR5x31.png') no-repeat right;
 }
 
 .UIToolbar .EditToolbar .MiddleBar {
-  height: 36px;
-  background: url('VistaSkin/background/PolyBarM1x36.png') repeat-x ;
+  height: 31px;
+  background: url('VistaSkin/background/PolyBarM1x31.png') repeat-x ;
 }
 
 .UIToolbar .EditToolbar .Icon {

@@ -5,7 +5,7 @@
 .UICreatePage .PagePreviewIcon {
   float: left;
   width: 26px; height: 26px;
-  margin: 7px 8px 0px 25px;
+  margin: 3px 8px 0px 25px;
   background: url('/eXoResources/icons/24x24/VistaSkin/PagePreview.png') no-repeat ;
 }
 
@@ -20,14 +20,14 @@
 .UICreatePage .EditContainerIcon {
   float: left;
   width: 34px; height: 26px;
-  margin: 7px 8px 0px 26px;
+  margin: 3px 8px 0px 26px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControl.png') no-repeat ;
 }
 
 .UICreatePage .EditPortletIcon {
   float: left;
   width: 28px; height: 24px;
-  margin: 7px 8px 0px 25px;
+  margin: 3px 8px 0px 25px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControlIcon.png') no-repeat ;
 }
 
@@ -118,5 +118,25 @@
 }
 
 .UICreatePage .WizardPageEditBar {
-	padding: 8px 8px 0px 7px;
+	padding: 0px 8px 0px 7px;
+}
+
+.UICreatePage .CreatePageContainer .CreatePageBarLeft {
+	padding-left: 7px;
+  background: url('VistaSkin/background/PolyBarL7x30.png') no-repeat left;
+  margin: 0px 8px 0px 7px; 
+}
+
+.UICreatePage .CreatePageContainer .CreatePageBarRight {
+  padding-right: 8px;
+  background: url('VistaSkin/background/PolyBarR8x30.png') no-repeat right;
+}
+
+.UICreatePage .CreatePageContainer .CreatePageLabel {
+  height: 30px;
+  background: url('VistaSkin/background/PolyBarM1x30.png') repeat-x ;
+  font-size:11px;
+	font-weight:bold;
+	line-height:30px;
+	text-align:center;
 }

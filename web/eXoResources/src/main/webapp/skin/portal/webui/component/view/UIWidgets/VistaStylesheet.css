@@ -36,9 +36,13 @@
 	padding: 0px 0px 0px 4px;
 }
 
-.UIWidgets .WidgetDecorator .MiddleRightWidgetsDecorator{
+.UIWidgets .WidgetDecorator .MiddleRightWidgetsDecorator {
 	background: url('VistaSkin/background/CenterRightWidgets5x1.png') repeat-y right;
 	padding: 0px 5px 0px 0px;
+}
+
+.UIWidgets .WidgetDecorator .MiddleCenterWidgetsDecorator {
+	background: url('VistaSkin/background/CenterBGWidgets1x214.png') repeat-x top;
 }
 
 /******************************* UICaegorySelector  **********************************/

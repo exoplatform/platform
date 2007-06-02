@@ -77,7 +77,6 @@
 .UIForm .HorizontalLayout input {
 	float:left;
   width: 230px ;
-  border: 1px solid gray ;
 }
 
 .UIForm .HorizontalLayout input.checkbox {

@@ -3,6 +3,13 @@
   padding: 5px ;
 }
 
+.UIContainerConfigOptions .CategoryContainer {
+  border: solid 1px #929292;
+  border-bottom: solid 1px #c3c3c3; border-right: solid 1px #c3c3c3;
+  padding: 10px 0px 20px 0px;
+  background: white;
+}
+
 .UIContainerConfigOptions .TabContent {
   border:solid 1px #5f90ba; 
   background: white; 
