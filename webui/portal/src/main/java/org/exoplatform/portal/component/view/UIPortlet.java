@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +17,7 @@ import org.exoplatform.portal.component.view.listener.UIPortletActionListener.Ch
 import org.exoplatform.portal.component.view.listener.UIPortletActionListener.EditPortletActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortletActionListener.ProcessActionActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortletActionListener.RenderActionListener;
+import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -58,7 +58,7 @@ public class UIPortlet extends UIPortalComponent {
   
   private List<String> supportModes_ ;
   
-  private HashMap<String, String> properties;
+  private Properties properties;
   
   public String getId()  { return exoWindowId_.getUniqueID() ; }
   
@@ -100,7 +100,7 @@ public class UIPortlet extends UIPortalComponent {
   public  List<String> getSupportModes() { return supportModes_; }
   public void setSupportModes(List<String> supportModes) { supportModes_ = supportModes; }
   
-  public HashMap<String, String> getProperties() { return properties; }
-  public void setProperties(HashMap<String, String> properties) { this.properties = properties; }
+  public Properties getProperties() { return properties; }
+  public void setProperties(Properties properties) { this.properties = properties; }
   
 }

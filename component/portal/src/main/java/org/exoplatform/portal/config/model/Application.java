@@ -30,7 +30,7 @@ public class Application {
   private boolean  showApplicationState = true ;
   private boolean  showApplicationMode = true ;
   
-  private HashMap<String, String> properties;
+  private Properties properties;
   
   public Application(){
   }
@@ -62,7 +62,10 @@ public class Application {
   public String getTitle() { return title ; }
   public void   setTitle(String value) { title = value ; }
 
-  public HashMap<String, String> getProperties() { return properties; }
-  public void setProperties(HashMap<String, String> properties) { this.properties = properties; }
+  public Properties getProperties() {
+    if(properties == null) properties  = new Properties();
+    return properties; 
+  }
+  public void setProperties(Properties properties) { this.properties = properties; }
   
 }

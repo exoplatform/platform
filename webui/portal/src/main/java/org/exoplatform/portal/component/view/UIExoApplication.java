@@ -4,10 +4,9 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
-import java.util.HashMap;
-
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.component.view.lifecycle.UIExoApplicationLifecycle;
+import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.application.mvc.MVCApplication;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
@@ -41,7 +40,7 @@ public class UIExoApplication extends UIPortalComponent {
   private String applicationName_ ;
   private String applicationInstanceUniqueId_ ;
   
-  private HashMap<String, String> properties;
+  private Properties properties;
   
   public UIExoApplication(){
   }
@@ -91,8 +90,8 @@ public class UIExoApplication extends UIPortalComponent {
   public String getApplicationName() { return applicationName_ ;}
   public void setApplicationName(String name) { applicationName_ = name;}
   
-  public HashMap<String, String> getProperties() { return properties; }
-  public void setProperties(HashMap<String, String> properties) { this.properties = properties; }
+  public Properties getProperties() { return properties; }
+  public void setProperties(Properties properties) { this.properties = properties; }
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
   

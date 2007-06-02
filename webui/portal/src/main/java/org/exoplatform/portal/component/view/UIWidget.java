@@ -4,9 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
-import java.util.HashMap;
-
 import org.exoplatform.portal.component.view.lifecycle.UIWidgetLifecycle;
+import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 
@@ -28,7 +27,7 @@ public class UIWidget extends UIComponent {
   private String applicationInstanceUniqueId_ ;
   private String applicationId_ ;
   
-  private HashMap<String, String> properties;
+  private Properties properties;
   
   public UIWidget() throws Exception {
   }
@@ -59,7 +58,7 @@ public class UIWidget extends UIComponent {
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
   
-  public HashMap<String, String> getProperties() { return properties; }
-  public void setProperties(HashMap<String, String> properties) { this.properties = properties; }
+  public Properties getProperties() { return properties; }
+  public void setProperties(Properties properties) { this.properties = properties; }
   
 }
