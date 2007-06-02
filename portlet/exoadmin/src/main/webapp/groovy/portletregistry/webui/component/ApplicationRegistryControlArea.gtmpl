@@ -63,20 +63,20 @@
 				    description = category.getDescription();
 				    if(description == null || description.length() < 1) description = cName;
 				    if(selectedCategory != null && cName == selectedCategory.getName()) {
-				      cTab = "SelectedVTabSimpleStyle" ;
+				      cTab = "SelectedTab" ;
 				      display = "display: block";
 				    }else {
-				    	cTab = "VTabSimpleStyle" ;
+				    	cTab = "NormalTab" ;
 		          display = "display: none";
 				    }
 				    String actionLink = uicomponent.event("ShowCategory", cName) - "javascript:";
 				%>	
-						<div class="UIVTab">
+						<div class="UIVTab VTabSimpleStyle">
 				      <div class="$cTab">
 				        <div class="TabLeft">
 				          <div class="TabRight">
 				            <div class="TabRepeat">
-				              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'VTabSimpleStyle', 'SelectedVTabSimpleStyle')">
+				              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
 									      <div class="LeftIcon"><span></span></div>
 							            <a class="TabLabel" href="<%=uicomponent.event("ShowCategory", cName)%>"><%=cName%></a>
 								          <div class="ControlContainer" style ="$display">

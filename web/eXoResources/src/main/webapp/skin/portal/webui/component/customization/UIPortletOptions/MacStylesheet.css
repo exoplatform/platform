@@ -36,8 +36,7 @@
 
 .UIPortletOptions .CategoryContainer {
   background: white;
-  padding-top: 5px;
-  overflow: auto;
+  padding: 5px 7px 9px 7px;
 }
 
 .UIPortletOptions .Title {
@@ -85,7 +84,7 @@
 
 .UIPortletOptions .UIDropDownItemSelector .ComponentIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat center;
+	background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat top;
 }
 
 #UIPortletOptions .BackNavigationContent {

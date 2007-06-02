@@ -59,6 +59,7 @@
   width: 24px; height: 24px;
   background: url('MacSkin/background/SignoutButton.gif') no-repeat bottom;
   cursor: pointer;
+  margin: 1px 2px 0px 0px;
 }
 
 .UIBannerPortlet .LoginContent .LoginSeperatorLine {
@@ -73,4 +74,5 @@
   width: 24px; height: 24px;
   background: url('MacSkin/background/SigninButton.gif') no-repeat top;
   cursor: pointer;
+  margin: 1px 2px 0px 0px;
 } 
