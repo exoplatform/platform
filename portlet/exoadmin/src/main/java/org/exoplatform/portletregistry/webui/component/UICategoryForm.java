@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portletregistry.webui.component;
 
+import org.exolab.castor.xml.validators.NameValidator;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.webui.component.UIForm;
@@ -42,9 +43,11 @@ public class UICategoryForm extends UIForm {
 
   public UICategoryForm() throws Exception {
     addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).
-                   addValidator(EmptyFieldValidator.class));
+                   addValidator(EmptyFieldValidator.class).
+                   addValidator(NameValidator.class));
     addUIFormInput(new UIFormStringInput(FIELD_DISPLAY_NAME, FIELD_DISPLAY_NAME, null).
-                   addValidator(EmptyFieldValidator.class));
+                   addValidator(EmptyFieldValidator.class).
+                   addValidator(NameValidator.class));
     addUIFormInput(new UIFormTextAreaInput(FIELD_DESCRIPTION, FIELD_DESCRIPTION, null)); 
   } 
 
