@@ -82,9 +82,13 @@
   background: url('/eXoResources/icons/24x24/VistaSkin/MiniOrangeBoxPage.png') no-repeat;
 }
 .UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
-	background: url('/eXoResources/icons/24x24/DefaultSkin/EditNavigation.gif') no-repeat left top;
+	background: url('/eXoResources/icons/24x24/VistaSkin/EditNavigation.png') no-repeat left top;
 	cursor: pointer;
-	float: left;margin-left: -1px;
-	height: 21px; width: 21px;
+	float: left;margin-left: -3px;
+	height: 22px; width: 19px;
 	display: block;
+}
+.UIControlWorkspace .UIPageNodeSelector .UIDropDownItemSelector {
+  float: left; 
+  width: 197px;
 }
