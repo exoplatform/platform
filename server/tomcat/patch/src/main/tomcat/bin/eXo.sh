@@ -18,4 +18,4 @@ export JAVA_OPTS
 #YOURKIT_PROFILE_OPTION="-agentlib:yjpagent"
 
 # Launches the server
-exec "$PRGDIR"/catalina.sh "$@"
+exec "$PRGDIR"./catalina.sh "$@"
