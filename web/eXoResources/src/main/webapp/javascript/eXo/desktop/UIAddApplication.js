@@ -45,7 +45,9 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 	}
 	
 	if(refresh == null || refresh == undefined) refresh = false;
+	
   var category = eXo.core.CacheJSonService.getData(url, refresh);
+  
   if(category == null || category == undefined) return;
   var itemList = eXo.core.DOMUtil.findFirstDescendantByClass(uiAddApplicationContainer, "div", "ItemList") ;
   var itemDetailList = eXo.core.DOMUtil.findFirstDescendantByClass(uiAddApplicationContainer, "div", "ItemDetailList") ;

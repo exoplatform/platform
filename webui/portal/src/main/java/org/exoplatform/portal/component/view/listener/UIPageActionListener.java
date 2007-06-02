@@ -118,7 +118,7 @@ public class UIPageActionListener {
   
   static public class AddApplicationActionListener  extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
-      UIPortal uiPortal = Util.getUIPortal();  
+      UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       UIPage uiPage = null;
       if(uiPortal.isRendered()){
@@ -241,6 +241,7 @@ public class UIPageActionListener {
       UIPage uiPage = event.getSource();
       String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UIWidget uiWidget = uiPage.findComponentById(objectId) ;
+      
       if(uiWidget == null) return;
       
       int posX  = Integer.parseInt(event.getRequestContext().getRequestParameter("posX"));
@@ -248,8 +249,6 @@ public class UIPageActionListener {
       
       uiWidget.setLocationX(posX) ;
       uiWidget.setLocationY(posY) ;
-      
-//      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n SAVE POSITION!!! \n\n POSX: "+posX+" \n\n POSY: "+posY+"\n\n\n\n\n\n\n\n\n");
     }
   }
   
