@@ -34,7 +34,7 @@ public class DataMapper {
     node.setProperty("ownerId", "portalConfig");
     node.setProperty("name", config.getName()) ;    
     node.setProperty("editPermission", config.getEditPermission());
-    node.setProperty("accessPermissions", config.getAccessPermission()) ;
+    node.setProperty("accessPermissions", config.getAccessPermissions()) ;
     node.setProperty("dataType", config.getClass().getSimpleName()) ;    
     node.setProperty("data", toXML(config)) ;
   }
@@ -51,7 +51,7 @@ public class DataMapper {
     node.setProperty("ownerId", page.getOwnerId());
     node.setProperty("name", page.getName()) ;
     node.setProperty("editPermission", page.getEditPermission());
-    node.setProperty("accessPermissions", page.getAccessPermission()) ;
+    node.setProperty("accessPermissions", page.getAccessPermissions()) ;
     node.setProperty("dataType", page.getClass().getSimpleName()) ;
     node.setProperty("data", toXML(page)) ;
   }
@@ -68,7 +68,7 @@ public class DataMapper {
     node.setProperty("ownerId", navigation.getOwnerId());
     node.setProperty("name", navigation.getId()) ;
     node.setProperty("editPermission", navigation.getEditPermission());
-    node.setProperty("accessPermissions", navigation.getAccessPermission()) ;
+    node.setProperty("accessPermissions", navigation.getAccessPermissions()) ;
     node.setProperty("dataType", navigation.getClass().getSimpleName()) ;    
     node.setProperty("data", toXML(navigation)) ;
   }
@@ -101,7 +101,7 @@ public class DataMapper {
     node.setProperty("ownerId", widgets.getOwnerId());
     node.setProperty("name", widgets.getId());
     node.setProperty("editPermission", widgets.getEditPermission());
-    node.setProperty("accessPermissions", widgets.getAccessPermission()) ;
+    node.setProperty("accessPermissions", widgets.getAccessPermissions()) ;
     node.setProperty("dataType", widgets.getClass().getSimpleName()) ;
     node.setProperty("data", toXML(widgets)) ;
   }

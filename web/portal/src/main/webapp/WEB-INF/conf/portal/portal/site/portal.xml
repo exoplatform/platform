@@ -3,7 +3,7 @@
   <portal-name>site</portal-name>
   <locale>en</locale>
   <factory-id>office</factory-id>
-  <access-permission>*:/guest,*:/user</access-permission>
+  <access-permissions>*:/guest;*:/user</access-permissions>
   <edit-permission>*:/user</edit-permission>
   <creator>exoadmin</creator>
   

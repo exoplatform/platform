@@ -22,8 +22,7 @@ public class PortalConfig {
 	private String    factoryId;
   private String    locale ;
   
-  private String    accessPermission;
-  private transient String[]  accessPermissions ;
+  private String[]  accessPermissions ;
   private String editPermission;
   
   private String    skin;
@@ -82,24 +81,6 @@ public class PortalConfig {
   
   public String getTitle() { return title ; }
   public void   setTitle(String value) { title = value ; }
-  
-  public String getAccessPermission(){
-    if(accessPermissions == null)  return "";
-    StringBuilder builder = new StringBuilder();
-    for(int i = 0; i < accessPermissions.length; i++) {
-      builder.append(accessPermissions[i]) ;
-      if (i < accessPermissions.length -1) builder.append(',');
-    }
-    return builder.toString();
-  }
-  public void setAccessPermission(String s){ 
-    this.accessPermission = s;
-    if(accessPermission == null) return ;
-    accessPermissions = accessPermission.split(",");
-    for(int i = 0; i < accessPermissions.length; i++) {
-      accessPermissions[i] = accessPermissions[i].trim(); 
-    }
-  }
   
   static public class PortalConfigSet {
     private ArrayList<PortalConfig> portalConfigs ;

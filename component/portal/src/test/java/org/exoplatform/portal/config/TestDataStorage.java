@@ -195,7 +195,7 @@ public class TestDataStorage extends BasicTestCase {
     
     String oldPermisstion = "*:/guest" ;
     for (Page p : pages) {
-      p.setAccessPermission(oldPermisstion) ;
+      p.setAccessPermissions(new String[]{oldPermisstion}) ;
       storage_.create(p) ;
     }
     
@@ -203,12 +203,12 @@ public class TestDataStorage extends BasicTestCase {
       String pageId = p.getPageId() ;
       
       Page aPage = storage_.getPage(pageId) ;
-      assertEquals(oldPermisstion, aPage.getAccessPermission()) ;
+      assertEquals(oldPermisstion, aPage.getAccessPermissions()[0]) ;
     }
     
     String newPermission = "*:/admin" ;
     for (Page p : pages) {
-      p.setAccessPermission(newPermission) ;
+      p.setAccessPermissions(new String[]{newPermission}) ;
       storage_.save(p) ;
     }
 
@@ -217,7 +217,7 @@ public class TestDataStorage extends BasicTestCase {
       String pageId = p.getPageId() ;
 
       Page aPage = storage_.getPage(pageId) ;
-      assertEquals(newPermission, aPage.getAccessPermission()) ;
+      assertEquals(newPermission, aPage.getAccessPermissions()[0]) ;
       returnPages.add(aPage) ;
     }
     assertEquals(2, returnPages.size()) ;
@@ -288,14 +288,14 @@ public class TestDataStorage extends BasicTestCase {
 
   void assertWidgetsSave(String ownerId) throws Exception {
     Widgets widgets = createWidgets(ownerId) ;
-    assertEquals("*:/guest,*:/user", widgets.getAccessPermission()) ;
+    assertEquals("*:/guest,*:/user", widgets.getAccessPermissions()) ;
     storage_.create(widgets) ;
     
     String newAccessPermission = "/tester" ;
-    widgets.setAccessPermission(newAccessPermission) ;
+    widgets.setAccessPermissions(new String[]{newAccessPermission}) ;
     storage_.save(widgets) ;
     Widgets returnWidgets = storage_.getWidgets(widgets.getId()) ;
-    assertEquals(newAccessPermission, returnWidgets.getAccessPermission()) ;
+    assertEquals(newAccessPermission, returnWidgets.getAccessPermissions()) ;
     
     storage_.remove(widgets) ;
   }

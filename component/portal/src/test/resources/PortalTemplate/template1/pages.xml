@@ -4,7 +4,7 @@
 	  <owner-type>portal</owner-type>
 	  <owner-id>portalone</owner-id>
 		<name>page-one</name>
-    <access-permission>*:/guest</access-permission>
+    <access-permissions>*:/guest</access-permissions>
     <container template="ContainerColumnRenderer" width="100%" height="100%">
       
       <container template="ContainerRowRenderer" width="394px" height="100%">

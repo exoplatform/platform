@@ -1,4 +1,12 @@
 <binding>  
+  <format type="java.lang.String[]" 
+          serializer="org.exoplatform.portal.config.serialize.JibxArraySerialize.serializeStringArray"
+          deserializer="org.exoplatform.portal.config.serialize.JibxArraySerialize.deserializeStringArray"/>
+          
+  <mapping class="java.util.HashMap" name="properties" 
+           marshaller="org.exoplatform.portal.config.serialize.JibxHashMapper" 
+           unmarshaller="org.exoplatform.portal.config.serialize.JibxHashMapper"/>           
+  
   <mapping name="application" label="application" class="org.exoplatform.portal.config.model.Application">
     <value name="instance-id" field="instanceId"/>
     <value name="id" usage="optional" field="id" style="attribute"/>
@@ -9,6 +17,7 @@
     <value name="show-application-mode" field="showApplicationMode" usage="optional" />
     <value name="description" field="description" usage="optional"/>
     <value name="icon" field="icon" usage="optional"/>
+    <structure field="properties" usage="optional"/>
     <value name="location-x" field="locationX" usage="optional" style="attribute"/>
     <value name="location-y" field="locationY" usage="optional" style="attribute"/>
   </mapping>
@@ -41,8 +50,7 @@
     <value name="title" field="title" usage="optional"/>
     <value name="template" field="template" usage="optional"/>
     <value name="factory-id" field="factoryId" usage="optional"/>
-    <value name="access-permission" field="accessPermission" 
-           set-method="setAccessPermission" get-method="getAccessPermission" usage="optional"/>
+    <value name="access-permissions" field="accessPermissions" usage="optional"/>
     <value name="edit-permission" field="editPermission" usage="optional"/>
     <value name="show-max-window" field="showMaxWindow" usage="optional"/>
     <value name="creator" field="creator" usage="optional"/>
@@ -67,8 +75,7 @@
     <value name="portal-name" field="name"/>
     <value name="locale" field="locale"/>    
     <value name="factory-id" field="factoryId" usage="optional"/>
-    <value name="access-permission" field="accessPermission" 
-           set-method="setAccessPermission" get-method="getAccessPermission" usage="optional"/>
+    <value name="access-permissions" field="accessPermissions" usage="optional"/>
     <value name="edit-permission" field="editPermission" usage="optional"/>
     <value name="skin" field="skin" usage="optional"/>
     <value name="title" field="title" usage="optional"/>
@@ -86,8 +93,7 @@
     <value name="owner-type" field="ownerType"/>
     <value name="owner-id" field="ownerId"/>
     <value name="priority" field="priority" usage="optional"/>
-    <value name="access-permission" field="accessPermission" 
-           set-method="setAccessPermission" get-method="getAccessPermission" usage="optional"/>
+    <value name="access-permissions" field="accessPermissions" usage="optional"/>
     <value name="edit-permission" field="editPermission" usage="optional"/>
     <value name="creator" field="creator" usage="optional"/>
     <value name="modifier" field="modifier" usage="optional"/>
@@ -123,8 +129,7 @@
   <mapping name="widgets" label="widgets" class="org.exoplatform.portal.config.model.Widgets">
     <value name="owner-type" field="ownerType"/>
     <value name="owner-id" field="ownerId"/>
-    <value name="access-permission" field="accessPermission" 
-           set-method="setAccessPermission" get-method="getAccessPermission" usage="optional"/>
+    <value name="access-permissions" field="accessPermissions" usage="optional"/>
     <value name="edit-permission" field="editPermission" usage="optional"/>
     <collection field="children" ordered="false">
       <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>

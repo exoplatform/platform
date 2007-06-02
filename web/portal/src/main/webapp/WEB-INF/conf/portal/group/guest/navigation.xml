@@ -2,7 +2,7 @@
 <node-navigation>
   <owner-type>group</owner-type>  
 	<owner-id>/guest</owner-id>
-  <access-permission>*:/guest</access-permission>
+  <access-permissions>*:/guest</access-permissions>
   <description>description for node navigation </description>
   
   <page-nodes>  

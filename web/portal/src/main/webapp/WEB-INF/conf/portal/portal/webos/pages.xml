@@ -5,7 +5,7 @@
 		<owner-id>webos</owner-id>
     <name>content</name>		
     <factory-id>Desktop</factory-id>
-    <access-permission>*:/guest</access-permission>
+    <access-permissions>*:/guest</access-permissions>
     <show-max-window>true</show-max-window>
     
     <application>
@@ -43,7 +43,7 @@
 		<owner-id>webos</owner-id>  	
     <name>desktop</name>		
     <factory-id>Desktop</factory-id>
-    <access-permission>*:/guest</access-permission>
+    <access-permissions>*:/guest</access-permissions>
     <show-max-window>true</show-max-window>
 
     <application>

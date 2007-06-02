@@ -3,7 +3,7 @@
   <portal-name>webos</portal-name>
   <locale>en</locale>
   <factory-id>office</factory-id>
-  <access-permission>*:/guest</access-permission>
+  <access-permissions>*:/guest</access-permissions>
   <edit-permission>owner:/portal/admin</edit-permission>
   <creator>exoadmin</creator>
   

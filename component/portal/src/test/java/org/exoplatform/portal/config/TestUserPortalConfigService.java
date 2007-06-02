@@ -76,7 +76,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     
     PortalConfig sitePortalConfig = sitePortal.getPortalConfig() ;
     PortalConfig newPortalConfig = newportal.getPortalConfig() ;
-    assertEquals(newPortalConfig.getAccessPermission(), sitePortalConfig.getAccessPermission()) ;
+    assertEquals(newPortalConfig.getAccessPermissions(), sitePortalConfig.getAccessPermissions()) ;
     assertTrue(!newPortalConfig.getName().equals(sitePortalConfig.getName())) ;
     
     List<PageNavigation> siteNavigations = sitePortal.getNavigations() ;
@@ -94,7 +94,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
       assertEquals(newPage.getOwnerType(), sitePage.getOwnerType()) ;
       assertEquals(newPage.getTitle(), sitePage.getTitle()) ;
       assertEquals(newPage.getOwnerType(), sitePage.getOwnerType()) ;
-      assertEquals(newPage.getAccessPermission(), sitePage.getAccessPermission()) ;
+      assertEquals(newPage.getAccessPermissions(), sitePage.getAccessPermissions()) ;
       assertTrue(!newPage.getOwnerId().equals(sitePage.getOwnerId())) ;
     }
     

@@ -3,6 +3,9 @@
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.portal.config.model;
+
+import java.util.HashMap;
+
 /**
  * May 13, 2004
  * @author: Tuan Nguyen
@@ -29,6 +32,8 @@ public class Application {
   
   private int locationX;
   private int locationY;
+  
+  private HashMap<String, String> properties;
   
   public Application(){
   }
@@ -65,4 +70,8 @@ public class Application {
 
   public int getLocationY() { return locationY; }
   public void setLocationY(int locationY) { this.locationY = locationY; }
+  
+  public HashMap<String, String> getProperites() { return properties; }
+  public void setProperites(HashMap<String, String> properties) { this.properties = properties; }
+  
 }

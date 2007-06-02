@@ -4,7 +4,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
     <name>web</name>
-    <access-permission>*:/guest</access-permission>        
+    <access-permissions>*:/guest</access-permissions>        
     
     <application>
       <instance-id>admin:/content/ContentPortlet/contentportlet</instance-id>
@@ -19,7 +19,7 @@
     <owner-id>/portal/admin</owner-id>  	
     <name>administration</name>
     <factory-id>Desktop</factory-id>
-    <access-permission>*:/guest</access-permission>  
+    <access-permissions>*:/guest</access-permissions>  
     <show-max-window>true</show-max-window>
     
     <application location-x="100" location-y="150">
@@ -64,7 +64,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
     <name>portletregistry</name>
-    <access-permission>*:/guest</access-permission>  
+    <access-permissions>*:/guest</access-permissions>  
     
     <application>
       <instance-id>admin:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
@@ -77,7 +77,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
     <name>ecmadmin</name>
-    <access-permission>*:/guest</access-permission>  
+    <access-permissions>*:/guest</access-permissions>  
     
     <application>
       <instance-id>admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>
@@ -90,7 +90,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
     <name>jcrexplorer</name>
-    <access-permission>*:/guest</access-permission>     
+    <access-permissions>*:/guest</access-permissions>     
     
     <application>
       <instance-id>admin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
@@ -104,7 +104,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
     <name>dialog</name>
-    <access-permission>*:/guest</access-permission>     
+    <access-permissions>*:/guest</access-permissions>     
     
     <application>
       <instance-id>admin:/ecm/DialogPortlet/dialog</instance-id>
@@ -118,7 +118,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
     <name>browsecontent</name>
-    <access-permission>*:/guest</access-permission>          
+    <access-permissions>*:/guest</access-permissions>          
     
     <application>
       <instance-id>admin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
@@ -132,7 +132,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
     <name>workflowcontroller</name>
-    <access-permission>*:/guest</access-permission>          
+    <access-permissions>*:/guest</access-permissions>          
     
     <application>
       <instance-id>admin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>    
@@ -146,7 +146,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
     <name>workflowmonitoring</name>
-    <access-permission>*:/guest</access-permission>          
+    <access-permissions>*:/guest</access-permissions>          
     
     <application>
       <instance-id>admin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</instance-id>    
@@ -160,7 +160,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
     <name>forum</name>
-    <access-permission>*:/guest</access-permission>          
+    <access-permissions>*:/guest</access-permissions>          
     
     <application>
       <instance-id>admin:/forum/ForumPortlet/forum</instance-id>    
@@ -174,7 +174,7 @@
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
     <name>mail</name>
-    <access-permission>*:/guest</access-permission>          
+    <access-permissions>*:/guest</access-permissions>          
     
     <application>
       <instance-id>admin:/mail/MailPortlet/mail</instance-id>    
@@ -189,7 +189,7 @@
     <owner-id>/portal/admin</owner-id>
     <name>ecmdesktop</name>    
     <factory-id>Desktop</factory-id>
-    <access-permission>*:/guest</access-permission>          
+    <access-permissions>*:/guest</access-permissions>          
     <show-max-window>true</show-max-window>
 
     <application>
@@ -234,7 +234,7 @@
     <owner-id>/portal/admin</owner-id>
     <name>groupwaredesktop</name>
     <factory-id>Desktop</factory-id>
-    <access-permission>*:/guest</access-permission>          
+    <access-permissions>*:/guest</access-permissions>          
     <show-max-window>true</show-max-window>
 
     <application>

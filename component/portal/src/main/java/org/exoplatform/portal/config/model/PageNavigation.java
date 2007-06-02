@@ -17,8 +17,7 @@ public class PageNavigation {
   private String      ownerType;
   private String      ownerId;
   
-  private String accessPermission;
-  private transient String[]    accessPermissions ;
+  private String[]    accessPermissions ;
   
   private String editPermission;
   
@@ -86,24 +85,6 @@ public class PageNavigation {
 
   public ArrayList<PageNode> getNodes(){ return pageNodes; }
   public void setNodes(ArrayList<PageNode> nodes) { pageNodes = nodes; }
-  
-  public String getAccessPermission(){
-    if(accessPermissions == null)  return "";
-    StringBuilder builder = new StringBuilder();
-    for(int i = 0; i < accessPermissions.length; i++) {
-      builder.append(accessPermissions[i]) ;
-      if (i < accessPermissions.length - 1) builder.append(',');
-    }
-    return builder.toString();
-  }
-  public void setAccessPermission(String s){ 
-    this.accessPermission = s;
-    if(accessPermission == null) return ;
-    accessPermissions = accessPermission.split(",");
-    for(int i = 0; i < accessPermissions.length; i++) {
-      accessPermissions[i] = accessPermissions[i].trim(); 
-    }
-  }
   
   public PageNavigation clone() {
     PageNavigation newNav = new PageNavigation();

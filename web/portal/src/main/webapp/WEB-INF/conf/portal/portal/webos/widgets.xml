@@ -2,7 +2,7 @@
 <widgets>
 	<owner-type>portal</owner-type>
 	<owner-id>webos</owner-id>
-	<access-permission>*:/guest,*:/user</access-permission>
+	<access-permissions>*:/guest;*:/user</access-permissions>
 	<edit-permission>*:/user</edit-permission>
 	
 	<container id="Information">
