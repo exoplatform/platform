@@ -460,3 +460,24 @@
   padding: 0px 5px 0px 0px;
   height: 27px;
 }
+
+/*============================== Title Bar ========================================*/
+.UIBarStyle .TitleBar .LeftBar {
+  background: url('DefaultSkin/background/LeftTitleBar11x30.gif') no-repeat left ;
+  padding-left: 11px ;
+  height: 30px;
+}
+
+.UIBarStyle .TitleBar .RightBar {
+  padding-right: 11px ;
+  background: url('DefaultSkin/background/RightTitleBar11x30.gif') no-repeat right ;
+  height: 30px;
+}
+
+.UIBarStyle .TitleBar .MiddleBar {
+  background: url('DefaultSkin/background/CenterTitleBar1x30.gif') repeat-x;
+  padding-left: 8px;
+  height: 30px; line-height: 30px;
+  color: #058ee6;
+  font-size: 15px;
+}

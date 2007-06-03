@@ -45,7 +45,7 @@
 .UIForm .HorizontalLayout .UIFormInputSet .ItemValueDescription {
   margin-top: 10px ;
   height: 50px ;
-  border: solid 1px #dedee1 ;
+  border: 1px #a0a0a0 solid;
   background: white ;
 }
 
@@ -71,8 +71,10 @@
 }
 
 .UIForm .HorizontalLayout input {
-  width: 230px ;
+  width: 230px ; height: 18px;
   font-size: 11px;
+  padding-left: 3px;
+  border: 1px #a0a0a0 solid;
 }
 
 .UIForm .HorizontalLayout input.checkbox {
@@ -85,8 +87,9 @@
 }
 
 .UIForm .HorizontalLayout textarea {
-  width: 235px ;  height: 75px ;
-  border: 1px gray solid;
+  width: 230px ;  height: 75px ;
+  border: 1px #a0a0a0 solid;
+  padding-left: 3px;
 }
 
 .UIForm .HorizontalLayout select {
@@ -110,17 +113,17 @@
 
 .UIForm .VerticalLayout input {
   width: 170px ;
-  border:  1px  solid #7f9db9 ;
+  border: 1px #a0a0a0 solid;
 }
 
 .UIForm .VerticalLayout input.checkbox {
   width:  15px ; height:  15px ;
-  border:  1px  solid black ;
+  border: 1px #a0a0a0 solid;
 }
 
 .UIForm .VerticalLayout textarea {
   width: 170px ;  height: 75px ;
-  border: 1px solid #7f9db9 ;
+  border: 1px #a0a0a0 solid;
 }
 
 .UIForm .VerticalLayout select {

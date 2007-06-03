@@ -1,3 +1,100 @@
 <div class="UIWidgetContainerManagement">
-  This is UIWidgetContainerManagement
+	<div class="UIBarStyle">
+		<div class="TitleBar">
+			<div class="LeftBar">
+				<div class="RightBar">
+					<div class="MiddleBar">Widget Containers Management</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ContainerManagementBlock">
+		<div class="ContainerManagementDetail">
+			<div class="WidgetContainerCategory">
+				<div class="HeadTitle">Categories</div>
+				<div class="PortalWidgetContainer">
+					<div class="CategoryTitleBar">
+						<div class="Title">Portal Widget Containers</div>
+						<a class="AddContainerIcon" href="#" title="Add a widget container"><span></span></a>
+						<div style="clear: both"><span></span></div>
+					</div>
+					<div class="ContainerList">
+						<a class="SelectedItem" href="#">Container 1</a>
+						<a class="NormalItem" href="#">Container 2</a>	
+						<a class="NormalItem" href="#">Container 3</a>
+						<a class="NormalItem" href="#">Container 4</a>
+						<a class="NormalItem" href="#">Container 5</a>
+						<a class="NormalItem" href="#">Container 6</a>
+						<a class="NormalItem" href="#">Container 7</a>
+						<a class="NormalItem" href="#">Container 8</a>
+					</div>
+				</div>
+				<div class="UserWidgetContainer">
+					<div class="CategoryTitleBar">
+						<div class="Title">User Widget Containers</div>
+						<a class="AddContainerIcon" href="#" title="Add a widget container"><span></span></a>
+						<div style="clear: both"><span></span></div>
+					</div>
+					<div class="ContainerList">
+						<%/* In case, This category is empty, the below message will appear */%>
+						<div class="EmptyListMessage">There is no container in this category.</div>
+					</div>
+				</div>
+			</div>
+			<div class="WidgetContainerView">
+				<div class="HeadTitle">View and edit Widget Container</div>
+				<div class="ContainerDetail">
+					<div class="UIForm">
+					  <div class="HorizontalLayout">
+					    <div class="FormContainer">
+					      <table class="UIFormGrid">
+		              <tr>
+			              <td class="FieldLabel">Container name:</td>
+			              <td class="FieldComponent">
+			              	<input type="text" id="name" name="id" value="Container 1"/>
+			              </td>
+			            </tr>
+			            <tr>
+			              <td class="FieldLabel">Description:</td>
+			              <td class="FieldComponent">
+			              	<textarea class="textarea" name="description"></textarea>
+			              </td>
+			            </tr>
+					      </table>
+					    </div>
+					  </div>
+					</div>
+					<a class="RemoveContainerAction">Remove this container</a>
+				</div>
+			</div>
+			<div style="clear: left"><span></span></div>
+		</div>
+	</div>
+	<div class="UIAction">
+	  <div class="ActionContainer">
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	  				    <a href="#">Save</a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	  				    <a href="#">Cancel</a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
 </div>

@@ -449,3 +449,24 @@
   background: url('MacSkin/background/MiddleControlBar1x32.png') repeat-x ;
   height: 32px;
 }
+
+/*============================== Title Bar ========================================*/
+.UIBarStyle .TitleBar .LeftBar {
+  background: url('MacSkin/background/LeftTitleBar11x32.gif') no-repeat left ;
+  padding-left: 11px ;
+  height: 32px;
+}
+
+.UIBarStyle .TitleBar .RightBar {
+  padding-right: 11px ;
+  background: url('MacSkin/background/RightTitleBar11x32.gif') no-repeat right ;
+  height: 32px;
+}
+
+.UIBarStyle .TitleBar .MiddleBar {
+  background: url('MacSkin/background/CenterTitleBar1x32.gif') repeat-x;
+  padding-left: 6px;
+  height: 32px; line-height: 32px;
+  color: #124ed7;
+  font-size: 15px;
+}
