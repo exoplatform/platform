@@ -14,7 +14,8 @@
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
       <properties>
-        <entry key="locationX" value="23432">sdfsdds </entry>
+        <entry key="locationX">23432</entry>
+        <entry key="locationY">343534</entry>
       </properties>
     </application>  
   </page>    

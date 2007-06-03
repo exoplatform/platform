@@ -27,7 +27,6 @@ public class JibxPropertiesMapper implements IMarshaller, IUnmarshaller, IAliasa
   private static final String SIZE_ATTRIBUTE_NAME = "size";
   private static final String ENTRY_ELEMENT_NAME = "entry";
   private static final String KEY_ATTRIBUTE_NAME = "key";
-  private static final String KEY_ATTRIBUTE_VALUE = "value";
   private static final int DEFAULT_SIZE = 10;
 
   private String marshalURI;
@@ -37,7 +36,7 @@ public class JibxPropertiesMapper implements IMarshaller, IUnmarshaller, IAliasa
   public JibxPropertiesMapper() {
     marshalURI = null;
     marshallIndex = 0;
-    marshallName = "hashmap";
+    marshallName = "properties";
   }
 
   public JibxPropertiesMapper(String uri, int index, String name) {
@@ -61,12 +60,13 @@ public class JibxPropertiesMapper implements IMarshaller, IUnmarshaller, IAliasa
     Iterator iter = map.entrySet().iterator();
     while (iter.hasNext()) {
       Map.Entry entry = (Map.Entry)iter.next();
+      String key = entry.getKey().toString();
+      String value = entry.getValue().toString();
+      if(key == null || value == null) continue;
       ctx.startTagAttributes(marshallIndex, ENTRY_ELEMENT_NAME);
-      if(entry.getKey() != null) {
-        ctx.attribute(marshallIndex, KEY_ATTRIBUTE_NAME, entry.getKey().toString());
-        ctx.attribute(marshallIndex, KEY_ATTRIBUTE_VALUE, entry.getValue().toString());
-      }
+      ctx.attribute(marshallIndex, KEY_ATTRIBUTE_NAME, key);      
       ctx.closeStartContent();
+      ctx.content(value);
       ctx.endTag(marshallIndex, ENTRY_ELEMENT_NAME);
     }
 
@@ -89,7 +89,8 @@ public class JibxPropertiesMapper implements IMarshaller, IUnmarshaller, IAliasa
     ctx.parsePastStartTag(marshalURI, marshallName);
     while (ctx.isAt(marshalURI, ENTRY_ELEMENT_NAME)) {
       Object key = ctx.attributeText(marshalURI, KEY_ATTRIBUTE_NAME, null);
-      Object value = ctx.attributeText(marshalURI, KEY_ATTRIBUTE_VALUE, null);
+      ctx.next();
+      Object value = ctx.getText();
       map.put(key.toString(), value.toString());
       ctx.parsePastEndTag(marshalURI, ENTRY_ELEMENT_NAME);
     }

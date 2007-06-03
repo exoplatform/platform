@@ -38,14 +38,14 @@ public class TestJIBXXmlMapping  extends BasicTestCase {
     IBindingFactory bfact = BindingDirectory.getFactory(PageSet.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
     Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/PortalApp/portalone/pages.xml"), null);
-    System.out.print(obj) ;
+    System.out.print(" === step 1 ===== > "+obj) ;
 
     IMarshallingContext mctx = bfact.createMarshallingContext();
     mctx.setIndent(2);
     mctx.marshalDocument(obj, "UTF-8", null,  new FileOutputStream("target/pages.xml")) ;
 
     obj = uctx.unmarshalDocument(new FileInputStream("target/pages.xml"), null);
-    System.out.print(obj) ;
+    System.out.print(" === step 2 ===== > "+obj) ;
   }
 
   public void testPortalConfigMapping() throws Exception {
