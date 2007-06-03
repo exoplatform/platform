@@ -41,10 +41,10 @@
       </node>
       
       <node>
-        <uri>/portal/admin::ecm/dialog</uri>
+        <uri>/portal/admin::ecm/fastcontentcreator</uri>
         <name>dialog</name>
-        <label>Dialog</label>
-        <page-reference>group::/portal/admin::dialog</page-reference>
+        <label>Fast Content Creator</label>
+        <page-reference>group::/portal/admin::fastcontentcreator</page-reference>
       </node>
       
       <node>

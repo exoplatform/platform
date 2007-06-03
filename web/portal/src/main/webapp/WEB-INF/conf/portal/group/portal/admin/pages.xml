@@ -108,7 +108,7 @@
     
     <application>
       <instance-id>admin:/ecm/DialogPortlet/dialog</instance-id>
-      <title>Dialog Portlet</title>
+      <title>Fast Content Creator Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
     </application>  
@@ -205,8 +205,8 @@
     </application>   
     
     <application>
-      <instance-id>admin:/ecm/DialogPortlet/dialog</instance-id>
-      <title>Dialog Portlet</title>
+      <instance-id>admin:/ecm/FastContentCreatorPortlet/fastcontentcreator</instance-id>
+      <title>Fast Content Creator Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>  
   
