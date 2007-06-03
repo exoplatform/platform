@@ -9,13 +9,19 @@
 <div class="UIChangeLanguageForm">
 	<div class="UIFormTabPane">
 	  <div class="UITabPane">
-		<div class="LeftFormTitle">
-			<div class="RightFormTitle">
-				<div class="MiddleFormTitle">
-				  <span><%=_ctx.appRes("UIChangeLanguage.title.LanguageSetting")%></span>
-			  </div>
+	  
+		  <div class="UIBarStyle">
+				<div class="TitleBar">
+					<div class="LeftBar">
+						<div class="RightBar">
+							<div class="MiddleBar">
+								<span><%=_ctx.appRes("UIChangeLanguage.title.LanguageSetting")%></span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
+		
 			<div class="TabPaneContent">
 
 		    <div class="WorkingArea">	

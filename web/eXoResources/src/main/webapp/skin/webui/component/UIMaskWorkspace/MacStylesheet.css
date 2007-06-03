@@ -15,32 +15,11 @@
   padding: 10px 13px 0px 10px;
 }
 
-.UIMaskWorkspace .TitleBarContainer .LeftTitleBar {
-  background: url('MacSkin/background/LeftTitleBar68x37.gif') no-repeat left;
-  padding: 0px 0px 0px 68px ;
-}
-
-.UIMaskWorkspace .TitleBarContainer .RightTitleBar {
-  background: url('MacSkin/background/RightTitleBar43x37.gif') no-repeat right;
-  padding: 0px 43px 0px 0px ;
-}
-
-.UIMaskWorkspace .TitleBarContainer .CenterTitleBar {
-  height: 37px;
-  line-height: 37px ; vertical-align: middle ;
-  font-weight: bold ; color: #565656; font-size: 14px;
-  background: url('MacSkin/background/CenterTitleBar1x37.gif') repeat-x;
-  padding-left: 20px;
-}
-
 .UIMaskWorkspace .ContentContainerDetail {
   padding: 15px 15px 2px 15px;
 }
 
 .UIMaskWorkspace .UITabContentContainer {
-  padding: 6px 0px 0px 2px;
-  border: solid 1px #a4a4a4; border-top:none;
-  background: url('/eXoResources/background/MacSkin/Background1x4.png');
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
@@ -89,6 +68,10 @@
 }
 
 /**************************** UIAddApplication ******************************************/
+.UIAddApplication {
+	padding: 10px 10px 0px 10px;
+}
+
 .UIAddApplication .ApplicationListContainer {
   background: white none repeat scroll 0%;
   border: 1px solid #C3C3C3;
@@ -98,7 +81,16 @@
 }
 
 .UIAddApplication .UITabContentContainer {
-  border: 1px solid #a4a4a4;
+  border: none;
+  background: none;
+  padding: 0px;
+}
+
+.UIAddApplication .ContentContainerDetail {
+  border: 1px solid #c2c2c2;
+  border-top: none;
+  padding: 5px 5px 0px 5px;
+  background: #f7f7f7;  
 }
 
 .UIAddApplication .Application {
@@ -121,7 +113,8 @@
 .UIAddApplication .TitleBarApplication {
 	background: none; 
 	height: 21px;
-	font-weight: bold ; font-size: 13px; color: #1553B9; font-family: arial;
+	color: #1553B9;
+	font-weight: bold;
 }
 
 .UIAddApplication .ApplicationContentLabel {
@@ -141,7 +134,7 @@
 }
 
 .UIAddApplication .ApplicationContent {
-  padding: 0px 0px 0px 12px;
+  padding: 4px 0px 0px 12px;
   width: 270px ;
   overflow: hidden;
 }
@@ -171,11 +164,6 @@
 	background: url("MacSkin/icons/SelectButton.png") no-repeat center;
   margin: auto;
 	cursor: pointer ;
-}
-
-.UIAddApplication  .UITabContent {
-	width: 653px;
-	padding-left: 3px;
 }
 
 .UIAddApplication .ApplicationItemIcon {

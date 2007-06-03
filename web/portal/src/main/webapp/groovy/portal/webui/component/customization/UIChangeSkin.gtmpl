@@ -9,9 +9,13 @@
 	<div class="UIFormTabPane">
 	  <div class="UITabPane">
 			
-			<div class="LeftFormTitle">
-				<div class="RightFormTitle">
-					<div class="MiddleFormTitle"><%=_ctx.appRes("UIChangeSkin.title.SkinSetting")%></div>
+			<div class="UIBarStyle">
+				<div class="TitleBar">
+					<div class="LeftBar">
+						<div class="RightBar">
+							<div class="MiddleBar"><%=_ctx.appRes("UIChangeSkin.title.SkinSetting")%></div>
+						</div>
+					</div>
 				</div>
 			</div>
 			

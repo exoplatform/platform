@@ -5,18 +5,18 @@
 <% var eXoForum = 'eXo.desktop.UIDesktop.addApplicationToDesktop(\'eXo.application.forum.UIForumApplication\',\'eXoForum\',\'/forum/javascript/\');'%>
 
 <div class="UIAddApplication">
-	<div class="TitleBarContainer">
-	  <div class="LeftTitleBar">
-	    <div class="RightTitleBar">
-	      <div class="CenterTitleBar">Add Application</div>
-	    </div>
+	<div class="UIBarStyle">
+		<div class="TitleBar">
+	  	<div class="LeftBar">
+	    	<div class="RightBar">
+	      	<div class="MiddleBar">Add Application</div>
+	    	</div>
+	  	</div>
 	  </div>
 	</div>
 	
 	<div class="ContentContainerDetail">
 	  <div class="CategoryContainer">
-	    
-	    
 	    
 	    <div class="UITabContentContainer">
 	      <div class="UITabContent" style="display: block">
@@ -53,7 +53,7 @@
 	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true);" onmouseout="eXo.webui.UIItemSelector.onOver(this, false);">
 	          	        <div class="LeftItem">
 	          	          <div class="RightItem">
-											  	  <div class="ItemTitle">eXo Browser</div>
+										  	  <div class="ItemTitle">eXo Browser</div>
 						            </div>
 	          	        </div>
 	          	      </div>
@@ -62,8 +62,8 @@
 	          	           onmouseover="eXo.webui.UIItemSelector.onOver(this, true);" onmouseout="eXo.webui.UIItemSelector.onOver(this, false);">
 	          	        <div class="LeftItem">
 	          	          <div class="RightItem">  
-											  	  <div class="ItemTitle">Accessories</div>
-						              </div>
+										  	  <div class="ItemTitle">Accessories</div>
+					              </div>
 	          	        </div>
 	          	      </div>
 	          	      
@@ -81,8 +81,8 @@
 	              	       
 	              	    <div class="Application">
 	              	      <div class="ApplicationButton">
-				              			<div class="SelectButton"><span></span></div>
-				              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
+			              			<div class="SelectButton"><span></span></div>
+			              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
 						      			</div>
 				                <div class="ApplicationDescription">
 				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
@@ -109,8 +109,8 @@
 				              </div>
 	              	    <div class="Application">
 	              	      <div class="ApplicationButton">
-				              			<div class="SelectButton"><span></span></div>
-				              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
+			              			<div class="SelectButton"><span></span></div>
+			              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
 						      			</div>
 				                <div class="ApplicationDescription">
 				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
@@ -137,8 +137,8 @@
 				              </div>
 	              	    <div class="Application">
 	              	      <div class="ApplicationButton">
-				              			<div class="SelectButton"><span></span></div>
-				              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
+			              			<div class="SelectButton"><span></span></div>
+			              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
 						      			</div>
 				                <div class="ApplicationDescription">
 				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
@@ -165,8 +165,8 @@
 				              </div>
 	              	    <div class="Application">
 	              	      <div class="ApplicationButton">
-				              			<div class="SelectButton"><span></span></div>
-				              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
+			              			<div class="SelectButton"><span></span></div>
+			              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
 						      			</div>
 				                <div class="ApplicationDescription">
 				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>
@@ -193,8 +193,8 @@
 				              </div>
 	              	    <div class="Application">
 	              	      <div class="ApplicationButton">
-				              			<div class="SelectButton"><span></span></div>
-				              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
+			              			<div class="SelectButton"><span></span></div>
+			              			<div class="AddButton" onclick="<%=eXoBrowser%>" title="Add this application to the desktop page"><span></span></div>
 						      			</div>
 				                <div class="ApplicationDescription">
 				              		<div class="PortletIcon eXoBrowserIcon" title="eXoBrowser Portlet" onclick="<%=eXoBrowser%>"><span></span></div>

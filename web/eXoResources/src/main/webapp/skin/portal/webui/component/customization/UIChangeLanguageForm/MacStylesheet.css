@@ -1,26 +1,7 @@
 .UIChangeLanguageForm {
 }
 
-.UIChangeLanguageForm .LeftFormTitle {
-	padding: 0px 0px 0px 34px;
-	background: url('MacSkin/background/LeftFormTitle34x22.gif') no-repeat left bottom;
-}
-
-.UIChangeLanguageForm .RightFormTitle {
-	padding: 0px 3px 0px 0px;
-	background: url('MacSkin/background/RightFormTitle3x22.gif') no-repeat right bottom;
-}
-
-.UIChangeLanguageForm .MiddleFormTitle {
-	background: url('MacSkin/background/MiddleFormTitle1x22.gif') repeat-x bottom;
-	line-height: 22px;
-	font-weight: bold;
-	color:#404040;
-	padding-left: 7px;
-}
-
 .UIChangeLanguageForm .UIFormTabPane .TabPaneContent .UITabContentContainer {
-	padding: 0px 2px 2px 2px;
 	font-size: 11px;
 }
 
@@ -30,7 +11,7 @@
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .Title {
- color: #404040;
+ color: #585858;
 }
 
 .UIChangeLanguageForm .UIItemSelector .ItemListContainer .ItemList {
@@ -87,7 +68,7 @@
 .UIChangeLanguageForm .ItemDetail .SelectedItem .Icon {
 	float: left;
 	height: 24px; width: 24px;
-  background: url('DefaultSkin/background/PickIcon.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/MacSkin/CheckerIcon.gif') no-repeat center;
 }
 
 .UIChangeLanguageForm .ItemDetail .NodeLabel {

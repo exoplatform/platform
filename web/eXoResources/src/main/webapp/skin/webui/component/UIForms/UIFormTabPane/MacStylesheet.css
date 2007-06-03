@@ -13,7 +13,7 @@
 
  .UIFormTabPane .UITabPane {
   border: none;
-  margin-bottom: 4px; padding: 0px;
+  padding: 0px;
 }
 
  .UIFormTabPane .UITabPane .TabPaneContent .HorizontalLayout {
@@ -22,9 +22,8 @@
 }
 
 .UIFormTabPane .UITabPane .TabPaneContent .UITabContentContainer {
-  padding: 1px;
   background: url('/eXoResources/background/MacSkin/Background1x4.png');
-  border: 1px solid gray; border-top:none;
+  border: 1px solid #c2c2c2; border-top:none;
 }
 
  .UIFormTabPane .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {
