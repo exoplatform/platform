@@ -4,8 +4,8 @@
           deserializer="org.exoplatform.portal.config.serialize.JibxArraySerialize.deserializeStringArray"/>
           
   <mapping class="org.exoplatform.portal.config.model.Properties" name="properties" 
-           marshaller="org.exoplatform.portal.config.serialize.JibxHashMapper" 
-           unmarshaller="org.exoplatform.portal.config.serialize.JibxHashMapper"/>           
+           marshaller="org.exoplatform.portal.config.serialize.JibxPropertiesMapper" 
+           unmarshaller="org.exoplatform.portal.config.serialize.JibxPropertiesMapper"/>           
   
   <mapping name="application" label="application" class="org.exoplatform.portal.config.model.Application">
     <value name="instance-id" field="instanceId"/>

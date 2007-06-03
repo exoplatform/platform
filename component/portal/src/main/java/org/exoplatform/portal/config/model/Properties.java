@@ -15,6 +15,14 @@ import java.util.HashMap;
 @SuppressWarnings("serial")
 public class Properties extends HashMap<String, String> {
   
+  public Properties() {
+    super(10);
+  }
+  
+  public Properties(int size) {
+    super(size);
+  }
+  
   public int getIntValue(String key) { 
     String value = super.get(key);
     if(value == null || value.trim().length() < 1) return -1;

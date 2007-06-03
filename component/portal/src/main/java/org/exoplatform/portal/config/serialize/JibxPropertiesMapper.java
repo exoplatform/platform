@@ -4,10 +4,10 @@
  **************************************************************************/
 package org.exoplatform.portal.config.serialize;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.exoplatform.portal.config.model.Properties;
 import org.jibx.runtime.IAliasable;
 import org.jibx.runtime.IMarshaller;
 import org.jibx.runtime.IMarshallingContext;
@@ -22,7 +22,7 @@ import org.jibx.runtime.impl.UnmarshallingContext;
  *          nhudinhthuan@exoplatform.com
  * Jun 2, 2007  
  */
-public class JibxHashMapper implements IMarshaller, IUnmarshaller, IAliasable {
+public class JibxPropertiesMapper implements IMarshaller, IUnmarshaller, IAliasable {
 
   private static final String SIZE_ATTRIBUTE_NAME = "size";
   private static final String ENTRY_ELEMENT_NAME = "entry";
@@ -34,13 +34,13 @@ public class JibxHashMapper implements IMarshaller, IUnmarshaller, IAliasable {
   private int marshallIndex;
   private String marshallName;
 
-  public JibxHashMapper() {
+  public JibxPropertiesMapper() {
     marshalURI = null;
     marshallIndex = 0;
     marshallName = "hashmap";
   }
 
-  public JibxHashMapper(String uri, int index, String name) {
+  public JibxPropertiesMapper(String uri, int index, String name) {
     marshalURI = uri;
     marshallIndex = index;
     marshallName = name;
@@ -50,11 +50,11 @@ public class JibxHashMapper implements IMarshaller, IUnmarshaller, IAliasable {
   public boolean isExtension(int index) { return false; }
 
   public void marshal(Object obj, IMarshallingContext ictx) throws JiBXException {
-    if (!(obj instanceof HashMap)) throw new JiBXException("Invalid object type for marshaller");
+    if (!(obj instanceof Properties)) throw new JiBXException("Invalid object type for marshaller");
     if (!(ictx instanceof MarshallingContext)) throw new JiBXException("Invalid object type for marshaller");
     
     MarshallingContext ctx = (MarshallingContext)ictx;
-    HashMap map = (HashMap)obj;
+    Properties map = (Properties)obj;
     MarshallingContext mContext = ctx.startTagAttributes(marshallIndex, marshallName);
     mContext.attribute(marshallIndex, SIZE_ATTRIBUTE_NAME, map.size()).closeStartContent();
 
@@ -83,8 +83,8 @@ public class JibxHashMapper implements IMarshaller, IUnmarshaller, IAliasable {
     if (!ctx.isAt(marshalURI, marshallName)) ctx.throwStartTagNameError(marshalURI, marshallName);
 
     int size = ctx.attributeInt(marshalURI, SIZE_ATTRIBUTE_NAME, DEFAULT_SIZE);
-    HashMap<String, String> map = (HashMap<String, String>)obj;
-    if (map == null) map = new HashMap<String, String>(size);
+    Properties map = (Properties)obj;
+    if (map == null) map = new Properties(size);
 
     ctx.parsePastStartTag(marshalURI, marshallName);
     while (ctx.isAt(marshalURI, ENTRY_ELEMENT_NAME)) {
