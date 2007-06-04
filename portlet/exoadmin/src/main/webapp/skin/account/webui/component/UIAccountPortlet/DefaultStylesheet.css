@@ -11,6 +11,7 @@
   background: white;
   border: 1px solid #b7b7b7;
   margin: 0px 5px 7px 5px;
+  padding: 10px 0px;
 }
 
 .UIAccountPortlet .UIFormTabPane{
@@ -28,22 +29,30 @@
 }
 
 .UIAccountPortlet .UIAction  {
-  width: 170px;
+  width: 150px;
+  padding-left: 25px;
 }
 
 .UIAccountPortlet .UIMembership .UIAction  {
   width: 160px;
+  padding-left: 15px;
 } 
 
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
   height: 280px; width: auto;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 /*########################-UIPersonalInfo-###########################*/
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
   width: 480px;
+  padding:6px 0px 0px 35px;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetail .FieldContainer {
+  width: 480px;
+  padding:0px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetail .UIFormInputSet {
@@ -56,44 +65,12 @@
 
 /*########################-Template Selector-###########################*/
 
-.UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnStyle .ItemList {
-  height: 240px;
-}
-
-.UIAccountPortlet .UIItemSelector .RightColumnStyle .ItemDetailList .Template {
-  background: white;
-  height: 240px;
-  margin: auto;
+.UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnBigItemStyle .ItemList {
+  height: 329px;
 }
 
 .UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
   background: white;
+  height: 350px;
 }
 
-.UIAccountPortlet .UIItemSelector .ItemDetailList .DefaultAccountImage{
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('DefaultSkin/background/DefaultAccountImage.jpg') no-repeat;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetailList .AdminAccountImage{
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('DefaultSkin/background/AdminAccountImage.jpg') no-repeat;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetailList .CommunityAccountImage{
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('DefaultSkin/background/CommunityAccountImage.jpg') no-repeat;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetailList .CompanyAccountImage{
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('DefaultSkin/background/CompanyAccountImage.jpg') no-repeat;
-}

@@ -25,10 +25,12 @@
 
 .UIAccountPortlet .UIAction  {
   width: 160px;
+  padding-left: 30px;
 }
 
 .UIAccountPortlet .UIMembership .UIAction {
   width: 140px;
+  padding-left: 10px;
 }
 
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
@@ -36,13 +38,23 @@
   padding-top: 20px;
 }
 
-/*########################-UIPersonalInfo-###########################*/
+/*============================== UIPersonalInfo ==============================*/
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
-  width: 500px;
+  width: 490px;
+  padding:6px 0px 0px 35px;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetail .FieldContainer {
+  width: 480px;
+  padding:0px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetail .UIFormInputSet {
   padding-top: 7px;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet label {
+  white-space: nowrap; 
 }
 
 /*########################-Template Selector-###########################*/
@@ -55,28 +67,13 @@
   padding: 6px;
 }
 
-.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .DefaultAccountImage{
-  width: 330px; height: 225px;
-  margin: auto;
-  background: url('MacSkin/background/DefaultAccountImage.jpg') no-repeat;
+.UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
+  background: white;
+  height: 350px;
 }
 
-.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .AdminAccountImage{
-  width: 330px; height: 225px;
-  margin: auto;
-  background: url('MacSkin/background/AdminAccountImage.jpg') no-repeat;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .CommunityAccountImage{
-  width: 330px;  height: 225px;
-  margin: auto;
-  background: url('MacSkin/background/CommunityAccountImage.jpg') no-repeat;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetailList .Template .CompanyAccountImage{
-  width: 330px;  height: 225px;
-  margin: auto;
-  background: url('MacSkin/background/CompanyAccountImage.jpg') no-repeat;
+.UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnBigItemStyle .ItemList {
+  height: 329px;
 }
 
 

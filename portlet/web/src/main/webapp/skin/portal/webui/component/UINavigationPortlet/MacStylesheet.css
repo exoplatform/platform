@@ -31,9 +31,8 @@
 }
 
 .UINavigationPortlet .UIHorizontalTabs .TabsContainer {
-  overflow: hidden;
-  margin-left: 1px;
-  height: 100$%;
+  float:none;
+  overflow: visible;
 }
 
 /* Portal Navigation sub menus */

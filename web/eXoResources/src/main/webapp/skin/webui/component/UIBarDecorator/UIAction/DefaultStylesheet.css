@@ -11,7 +11,7 @@
 /*##############################-ActionButton-################################*/
 .UIAction .ActionButton {
 	float:left;
-	height: 22px ; line-height:22px;
+	line-height:22px;
 	margin: 0px 2px 0px 2px ;
 	text-align: center;
 }
@@ -19,7 +19,7 @@
 .UIAction .ActionButton  a {
   font-weight: normal ; color: black; font-size: 11px;
   margin: 0px 12px 0px 12px ; text-align: center;
-  height: 22px; line-height: 22px; vertical-align: top;
+  line-height: 22px; vertical-align: top;
   cursor: pointer;
 }
 
@@ -116,8 +116,4 @@
 
 .UIAction .ActionButton .SimpleStyle a:hover {
   color: #1273df;
-}
-
-.UIAddPortletPortlet .UIAction {
-	width: 180px;
 }

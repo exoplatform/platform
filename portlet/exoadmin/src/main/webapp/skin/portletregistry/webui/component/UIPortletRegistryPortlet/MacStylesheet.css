@@ -18,7 +18,7 @@
 }
 
 .UIApplicationRegistryPortlet .Title {
-  font-size: 14px; color: #3470d4; font-weight: bold; font-family: arial;
+  font-size: 14px; color: #3470d4;
   margin: 5px 0px; 
   padding-left: 10px;
 }
@@ -102,8 +102,12 @@
   padding: 0px;
 }
 
-.ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout label {
-  width: 185px;
+.ApplicationRegistryControlArea .UICategoryForm {
+  padding: 10px;
+}
+
+.ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout{
+  padding: 10px 10px 10px 40px;
 }
 
 .ApplicationRegistryControlArea .UICategoryForm .UIAction {
@@ -122,7 +126,7 @@
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContainer {
-  padding: 0px 5px 10px 5px;
+  padding: 0px 5px 5px 5px;
   border:  1px solid white;
   background: url('/eXoResources/background/MacSkin/BgApplicationRegistryPortle1x4.gif');
 }
@@ -158,10 +162,7 @@
 .ApplicationRegistryWorkingArea .TitleBarApplication label {
   float: left;
   margin-top: 6px;
-  font-weight: bold ; font-size: 12px; color: #1553B9; font-family: arial; 
-}
-
-.ApplicationRegistryWorkingArea .ApplicationButton {
+  font-weight: bold ; font-size: 12px; color: #1553B9; 
 }
 
 .ApplicationRegistryWorkingArea .ApplicationButton .Icon {
@@ -216,6 +217,37 @@
 
 .ApplicationRegistryWorkingArea .UIAvailablePortletForm {
   padding: 10px;
+}
+
+.UIApplicationRegistryPortlet .UIAvailablePortletForm td.text{
+  padding-left: 10px;
+}
+
+.UIApplicationRegistryPortlet .UIAvailablePortletForm input.checkbox{
+  margin: 0px 0px 0px 25px; 
+  width: 16px; height: 14px;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIAccessGroup .UIGrid td.text{
+  padding-left: 8px;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIAction{
+  width: 80px;
+  padding: 0px 0px 10px 15px;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIAccessGroup .UIAction{
+  width: 180px;
+  padding: 0px 0px 0px 20px;
+}
+
+.ApplicationRegistryWorkingArea .UIInfoPortletForm {
+  padding-left: 25px;
+}
+
+.ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout{
+  padding: 10px 10px 10px 40px;
 }
 
 .ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout .UIFormGrid {

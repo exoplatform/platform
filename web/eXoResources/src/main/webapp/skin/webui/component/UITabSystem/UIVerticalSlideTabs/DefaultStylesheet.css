@@ -4,6 +4,7 @@
 	cursor: pointer;
 	line-height: 26px;
 	background: #f3f3f3 url(DefaultSkin/background/BottomVTabSimpleStyle224x1.gif) no-repeat bottom right;
+	font-size: 11px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .LeftIcon {
@@ -16,14 +17,14 @@
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabLabel {
   float: left ;
   height: 26px ; line-height: 26px ;  vertical-align: middle ;
-  color: #606060; font-weight: bold; 
+  color: #606060; font-weight: bold;
 }
 
 /***-SelectedTab VTabSimpleStyle VerticalSlideTabs-***/
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab {
 	cursor: pointer;
-	margin: 1px 0px 1px 1px;
 	background: #e3e4e4 url(DefaultSkin/background/BottomVTabSimpleStyle224x1.gif) no-repeat bottom right;
+	font-size: 11px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .LeftIcon {
@@ -63,6 +64,7 @@
   background: #ffffff url(DefaultSkin/background/BottomVTabSimpleStyle224x1.gif) no-repeat bottom right;
   padding: 10px ;
   margin: 1px 0px 1px 1px;
+  font-size: 11px;
 }
 
 

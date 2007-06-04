@@ -38,7 +38,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title>Login</title>
-    <link rel='stylesheet' type='text/css' href='<%=contextPath%>/login/skin/Stylesheet.css' />
+    <link rel='stylesheet' type='text/css' href='<%=contextPath%>/login/skin/Stylesheet.css'/>
     <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
     <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIPortalControl.js"></script>
   </head>
@@ -52,23 +52,23 @@
               <%/*Begin form*/%>
               <form name="loginForm" action="<%=loginAction%>">        
 	              <div class="FieldContainer">
-		              <label>User name:</label><input name="j_username" value="" />
+		              <label>User name:</label><input name="j_username" value=""/>
 			          </div>
 		            <div class="FieldContainer" id="UIPortalLoginFormControl">
-		              <label>Password:</label><input type="password" name="j_password" value="" />
+		              <label>Password:</label><input type="password" name="j_password" value=""/>
 		            </div>
 			            
-		            <div class="TextHelp">Forgot Your User Name/Password?</div>
+		            <a class="TextHelp" href="#">Forgot Your User Name/Password?</a>
 			          <div class="OverflowContainer">  
-			            <input type="checkbox" />
+			            <input type="checkbox"/>
 			            <div class="ForgotMessage">Remember my login on this computer</div>
 			          </div>  
 			          <div class="LoginButton">
 			            <div class="LoginButtonContainer">
 			              <div class="Button">
-			                <div class="ButtonLeft">
-			                  <div class="ButtonRight">
-			                    <div class="ButtonMiddle"><a href="javascript:login();" id="UIPortalLoginFormAction">Login</a></div>
+			                <div class="LeftButton">
+			                  <div class="RightButton">
+			                    <div class="MiddleButton"><a href="javascript:login();" id="UIPortalLoginFormAction">Login</a></div>
 			                  </div>
 			                </div>
 			              </div>

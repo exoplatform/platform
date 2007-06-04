@@ -9,6 +9,7 @@
 	margin: 2px 1px;
 	background: url(MacSkin/background/RightOverItem1x24.gif) repeat-x;
 	border: 1px solid #d6d6d6;
+	font-size: 11px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .LeftIcon {
@@ -31,6 +32,7 @@
 	margin: 2px 1px 0px 1px;
 	background: url(MacSkin/background/RightSelectedItem1x24.gif) repeat-x;
 	border: 1px solid #8bc0e4;
+	font-size: 11px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .LeftIcon {
@@ -78,6 +80,7 @@
   padding: 10px ;
   margin: 0px 1px;
   background: white;
+  font-size: 11px;
 }
 
 

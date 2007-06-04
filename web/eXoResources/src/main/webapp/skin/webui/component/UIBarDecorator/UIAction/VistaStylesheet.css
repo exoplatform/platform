@@ -79,10 +79,6 @@
 	background: url('VistaSkin/background/LightButtonMiddle1x24.png') repeat-x;
 }
 
-.UIAddPortletPortlet .UIAction {
-	width: 180px;
-}
-
 /*##############################-SimpleStyle ActionButton-################################*/
 .UIAction .ActionButton .SimpleStyle {}
 

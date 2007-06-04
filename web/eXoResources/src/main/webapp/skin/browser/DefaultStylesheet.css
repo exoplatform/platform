@@ -166,7 +166,6 @@
 	font-size: 11px;
 	text-align: center;
 	overflow: hidden;
-	text-overflow: ellipsis;
 	line-height: 18px;
 	vertical-align: middle;
 	cursor: pointer;

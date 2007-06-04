@@ -19,7 +19,7 @@
 }
 
 .UIApplicationRegistryPortlet .Title {
-  font-size: 14px; color: #058ee6; font-weight: bold; font-family: arial;
+  font-size: 14px; color: #1553B9;
   margin: 5px 0px; 
   padding-left: 10px; 
 }
@@ -32,22 +32,62 @@
   margin: auto;
 }
 
+.UIApplicationRegistryPortlet .UIAvailablePortletForm td.text{
+  padding-left: 10px;
+}
+
+.UIApplicationRegistryPortlet .UIAvailablePortletForm input.checkbox{
+  margin: 0px 0px 0px 25px; 
+  width: 16px; height: 14px;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIAccessGroup .UIGrid td.text{
+  padding-left: 5px;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIAction{
+  width: 80px;
+  padding: 0px 0px 10px 15px;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIAccessGroup .UIAction{
+  width: 180px;
+  padding-left: 15px;
+}
+
 .UIApplicationRegistryPortlet .UIPopupWindow .UIWindowContent .Content {
   padding: 10px;
-  overflow: auto;
-  height: 300px;
 }
 
 .UIApplicationRegistryPortlet .UIFormWithTitle .UIForm .UIAction {
   width: 150px;
+  padding-left: 10px;
 }
 
 .UIApplicationRegistryPortlet .UIForm .HorizontalLayout {
   border: none;
 }
 
-.UIApplicationRegistryPortlet .UICategoryForm .HorizontalLayout label {
-  width: 185px;
+.ApplicationRegistryWorkingArea .UIInfoPortletForm {
+  padding-left: 25px;
+}
+
+.ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout{
+  padding: 10px 10px 0px 40px;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIAccessGroup .UIGrid td.text{
+  padding-left: 8px;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIAction{
+  width: 80px;
+  padding: 0px 0px 10px 15px;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIAccessGroup .UIAction{
+  width: 180px;
+  padding: 0px 0px 0px 20px;
 }
 
 .UIApplicationRegistryPortlet .UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
@@ -55,7 +95,7 @@
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 /*################################Application Registry Control################################*/
@@ -74,6 +114,10 @@
 
 .ApplicationRegistryControlArea .CategoryManagement {
   border: 1px solid white;
+}
+
+.ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout{
+  padding: 0px 0px 0px 40px;
 }
 
 .ApplicationRegistryControlArea  .CategoryControlBar {
@@ -148,6 +192,10 @@
 	background: white;
 }
 
+.ApplicationRegistryWorkingArea .ApplicationContainer {
+  padding: 10px 0px;
+}
+
 .ApplicationRegistryWorkingArea .ApplicationContent {
   margin-left: 85px;
   padding-bottom: 5px;
@@ -164,8 +212,8 @@
 
 .ApplicationRegistryWorkingArea .TitleBarApplication label {
   float: left;
-  margin-top: 6px;
-  font-weight: bold ; font-size: 13px; color: #1553B9; font-family: arial;
+  margin-top: 2px;
+  font-weight: bold ; font-size: 12px; color: #1553B9;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationButton {

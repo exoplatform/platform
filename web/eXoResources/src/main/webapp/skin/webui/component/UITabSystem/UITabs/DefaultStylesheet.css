@@ -2,19 +2,10 @@
 	font-size: 11px;
 }
 
-.UIHorizontalTabs .LeftHorizontalTabs{
-  background: url('DefaultSkin/background/LeftHorizontalTabs6x26.gif') no-repeat left;
-  padding-left: 6px;
-}
-
-.UIHorizontalTabs .RightHorizontalTabs{
-  background: url('DefaultSkin/background/RightHorizontalTabs6x26.gif') no-repeat right;
-  padding-right: 6px;
-}
-
 .UIHorizontalTabs .CenterHorizontalTabs {
-  height: 26px;
-  background: url('DefaultSkin/background/MiddleHorizontalTabs1x26.gif') repeat-x;
+  height: 24px;
+  padding: 0px 6px;
+  background: url('DefaultSkin/background/HorizontalTabBackground.gif') repeat-x bottom;
 }
 
 .UIHorizontalTabs .TabsContainer {
@@ -232,6 +223,7 @@
   vertical-align: middle;
   background: url('DefaultSkin/background/MiddleSelectedTab1x24.gif') repeat-x;
   cursor: pointer;
+  font-weight: normal;
   padding: 0px 4px 0px 4px;
 }
 
