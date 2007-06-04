@@ -25,17 +25,6 @@
   margin: 0px 3px;
 }
 
-.UIForm .HorizontalLayout .FieldContainer {
-  margin: 10px auto;
-}
-
-.UIForm .HorizontalLayout label {
-	float:left;
-  width: 120px ;
-	text-align: right; font-size: 11px;
-	margin-right: 10px;
-}
-
 .UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {
 	float: left ;
 	margin: 0px 10px 0px 5px ;
@@ -70,21 +59,11 @@
   background: white ;
 }
 
-.UIForm .HorizontalLayout input {
+.UIForm .HorizontalLayout input[type=text] {
   width: 230px ; height: 18px;
   font-size: 11px;
   padding-left: 3px;
   border: 1px #a0a0a0 solid;
-}
-
-.UIForm .HorizontalLayout input.checkbox {
-	width: auto;
-	margin: 0px;
-}
-
-.UIForm .HorizontalLayout input.radio {
-	float: none;
-  width: auto;
 }
 
 .UIForm .HorizontalLayout textarea {
