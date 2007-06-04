@@ -31,7 +31,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -45,7 +44,6 @@ import org.exoplatform.webui.event.EventListener;
 public class UIPageActionListener {
 
   static public class ChangePageNodeActionListener  extends EventListener {    
-    
     private UIPortal uiPortal_ ;    
     private List<PageNode> selectedPaths_;   
     
@@ -82,9 +80,8 @@ public class UIPageActionListener {
       if(uiControl == null) return;
       UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
       if(uiControl != null) pcontext.addUIComponentToUpdateByAjax(uiControl);      
-      if(!UIWelcomeComponent.class.isInstance(uiWorking.getUIComponent())) {
-        uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null)) ;
-      } 
+      if(UIWelcomeComponent.class.isInstance(uiWorking.getUIComponent())) return;
+      uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null)) ;
     }
 
     private PageNode searchPageNodeByUri(String uri, PageNode node){
@@ -153,8 +150,6 @@ public class UIPageActionListener {
         
         int posX = (int)(Math.random()*400) ;
         int posY = (int)(Math.random()*200) ;
-        
-        if(uiWidget.getProperties() == null) uiWidget.setProperties(new Properties());
         uiWidget.getProperties().put("locationX", String.valueOf(posX)) ;
         uiWidget.getProperties().put("locationY", String.valueOf(posY)) ;
         
@@ -175,7 +170,7 @@ public class UIPageActionListener {
       }
 
       String save = event.getRequestContext().getRequestParameter("save");
-      if(save != null && Boolean.valueOf(save).booleanValue()) {
+      if(save != null && Boolean.valueOf(save).booleanValue() && uiPage.isModifiable()) {
         Page page = PortalDataMapper.toPageModel(uiPage); 
         UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);     
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
@@ -213,10 +208,12 @@ public class UIPageActionListener {
         if(uiWidget.getApplicationInstanceId().equals(id)) {
           uiPage.getChildren().remove(uiWidget);
           
-          Page page = PortalDataMapper.toPageModel(uiPage);    
-          UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
-          if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-          configService.update(page);
+          if(uiPage.isModifiable()) {
+            Page page = PortalDataMapper.toPageModel(uiPage);    
+            UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
+            if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+            configService.update(page);
+          }
           break;
         }
       }
@@ -234,10 +231,12 @@ public class UIPageActionListener {
       UIPage uiPage = event.getSource();
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       uiPage.removeChildById(id);  
-      Page page = PortalDataMapper.toPageModel(uiPage);    
-      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
-      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-      configService.update(page);
+      if(uiPage.isModifiable()) {
+        Page page = PortalDataMapper.toPageModel(uiPage); 
+        UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
+        if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+        configService.update(page);
+      }
       
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();      
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
@@ -260,14 +259,17 @@ public class UIPageActionListener {
           break;
         }
       }
-
       if(uiWidget == null) return;
-      
       String posX  = event.getRequestContext().getRequestParameter("posX");
       String posY  = event.getRequestContext().getRequestParameter("posY");
-      
       uiWidget.getProperties().put("locationX", posX) ;
       uiWidget.getProperties().put("locationY", posY) ;
+      
+      if(!uiPage.isModifiable())  return;
+      Page page = PortalDataMapper.toPageModel(uiPage); 
+      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
+      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+      configService.update(page);
     }
   }
   

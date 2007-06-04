@@ -32,6 +32,6 @@ public class SetCurrentIdentityListener extends Listener<WebAppController, HttpS
       }
       authService.setCurrentIdentity(identity) ;
     }
-    System.out.println("\n\nSet Identity for user " + remoteUser);
+//    System.out.println("\n\nSet Identity for user " + remoteUser);
   }
 }

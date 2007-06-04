@@ -65,7 +65,7 @@
             if(title == null || title.trim().length() < 1) {
               title = popupId;
               uiChild.setTitle(title);
-             }
+            }
             String removeChildAction = uicomponent.event("RemoveChild", popupId) ;
         
             uiChild.setShowInfoBar(true);
