@@ -31,7 +31,20 @@
 	          	    </div>
 	          	    <div class="ItemList"><span></span></div>
 	          	  </div>          	  
-	          	  <div class="ItemDetailList"><span></span></div>
+	          	  <div class="ItemDetailList">
+	          	  	<div class="ItemDetail" style="display: block">
+	          	    	<div class="ItemDetailTitle">
+	          	    		<div class="TitleIcon ViewListIcon"><span></span></div>
+						  	    	<div class="Title">Select Applications</div>
+						  	    	<div style="clear: left;"><span></span></div>
+	          	      </div>
+	          	      <div class="ApplicationListContainer">
+	          	      	<div class="NoneAppsMessage">
+	          	      		There is no application in this location. Go to Application Registry portlet to import applications.
+	          	      	</div>
+	          	      </div>
+	          	    </div>
+	          	  </div>
 		            <div style="clear: left"><span></span></div>
 		      	  </div>
 		      	</div>

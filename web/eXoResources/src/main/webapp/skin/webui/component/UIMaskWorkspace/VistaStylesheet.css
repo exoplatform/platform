@@ -153,6 +153,14 @@
 	padding: 0px 10px;
 }
 
+.UIAddApplication .UITabContentContainer .NoneAppsMessage{
+	padding: 10px;
+	text-align: center;
+	color: gray;
+	width: 300px;
+	margin: 40px auto 0px auto;
+}
+
 .UIAddApplication .Application {
   margin: 10px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
