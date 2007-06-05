@@ -38,7 +38,7 @@ UIUpload.prototype.refeshProgress = function(elementId) {
 //  request.setRequestHeader("Cache-Control", "max-age=86400");
 //  request.send(null);
 
-  var responseText = ajaxSyncGet(url);
+  var responseText = ajaxAsyncGetRequest(url, false);
   
   if(list.length > 0) {
     setTimeout("eXo.webui.UIUpload.refeshProgress('" + elementId + "');", 1000); 

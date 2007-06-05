@@ -16,7 +16,6 @@ import org.exoplatform.portal.component.customization.UIChangeSkin;
 import org.exoplatform.portal.component.customization.UIPageCreationWizard;
 import org.exoplatform.portal.component.customization.UIPageEditWizard;
 import org.exoplatform.portal.component.customization.UIPageManagement;
-import org.exoplatform.portal.component.customization.UIPortalBrowser;
 import org.exoplatform.portal.component.customization.UIPortalManagement;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.customization.UIWizardPageCreationBar;

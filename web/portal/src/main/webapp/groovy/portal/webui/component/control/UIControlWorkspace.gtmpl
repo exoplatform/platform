@@ -14,10 +14,16 @@
   jsmanager.addOnScrollJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
   jsmanager.addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
   jsmanager.addOnResizeJavascript('eXo.portal.UIPortalControl.fixHeight');
+  
+  String visible = uicomponent.getVisible();
+  if(visible.equals("true")) { 
+    String showWorkspace = "eXo.portal.UIControlWorkspace.showWorkspace();";
+  	rcontext.getJavascriptManager().addCustomizedOnLoadScript(showWorkspace);
+  }
 %>
 
 <div id="UIControlWorkspace" class="UIControlWorkspace UIWorkspace" style="float:left; position: relative; z-index: 1; display: inline">
-	<div class="UIWorkspaceContainer" id="UIWorkspaceContainer" style="display: none">
+	<div class="UIWorkspaceContainer" id="UIWorkspaceContainer" style="display: none;">
 	  <%/*User Workspace Title  */%>
 	  <div class="UserWorkspaceTitle">
 	  	<div class="CloseControlWorkspace" title="Close this workspace" onclick="eXo.portal.UIControlWorkspace.showWorkspace();"><span></span></div>

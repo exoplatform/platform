@@ -98,6 +98,8 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	eXo.portal.UIPortalControl.initAllManagers();
 	
 	if(document.getElementById("UIWidgets")) eXo.widget.UIWidget.resizeContainer();
+	var params = [ {name: "objectId", value : cws.showControlWorkspace} ] ;
+	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(this.id, "SetVisible", true, params), false) ;
 };
 
 /*#############################-Working Workspace-##############################*/

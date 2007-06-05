@@ -294,14 +294,6 @@ function ajaxGet(url, callback) {
   doRequest("Get", url, null, callback) ;
 }
 
-function ajaxSyncGet(url) {
-	var request =  eXo.core.Browser.createHttpRequest();
-  request.open('GET', url, false);
-  request.setRequestHeader("Cache-Control", "max-age=86400");
-  request.send(null);  
-  return request.responseText;
-}
-
 function ajaxPost(formElement) {
   var queryString = eXo.webui.UIForm.serializeForm(formElement) ;
   var url = formElement.action + "&ajaxRequest=true" ;
@@ -326,6 +318,15 @@ function ajaxAbort() {
   eXo.portal.CurrentRequest.request.abort();  
   eXo.portal.CurrentRequest.aborted = true;
   eXo.portal.CurrentRequest = null;
+}
+
+function ajaxAsyncGetRequest(url, async) {
+	if(async == undefined) async = true;
+	var request =  eXo.core.Browser.createHttpRequest();
+  request.open('GET', url, async);
+  request.setRequestHeader("Cache-Control", "max-age=86400");
+  request.send(null);  
+	if(!async) return request.responseText;
 }
 
 eXo.portal.AjaxRequest = AjaxRequest.prototype.constructor ;

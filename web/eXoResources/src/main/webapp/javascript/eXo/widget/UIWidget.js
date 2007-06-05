@@ -91,7 +91,8 @@ UIWidget.prototype.initDND = function(e) {
 	  	{name: "posX", value : dragObject.offsetLeft},
 	  	{name: "posY", value : dragObject.offsetTop}
 	  ] ;
-  	ajaxGet(eXo.env.server.createPortalURL(containerBlockId, "SaveProperties", true, params)) ;
+	  
+  	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveProperties", true, params), false) ;
   }
   
   var clickBlock = this ;
