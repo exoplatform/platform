@@ -69,11 +69,13 @@
 .UIBarStyle .BarStyle2 .LeftBar {
   background: url('MacSkin/background/RoundedTopBarL9x37.gif') no-repeat left;
   padding: 0px 0px 0px 9px;
+  height: 37px;
 }
 
 .UIBarStyle .BarStyle2 .RightBar {
   background: url('MacSkin/background/RoundedTopBarR9x37.gif') no-repeat right;
   padding: 0px 9px 0px 0px ;
+  height: 37px;
 }
 
 .UIBarStyle .BarStyle2 .MiddleBar {
@@ -468,5 +470,5 @@
   padding-left: 6px;
   height: 32px; line-height: 32px;
   color: #124ed7; font-weight: bold; font-family: arial;
-  font-size: 15px;
+  font-size: 14px;
 }

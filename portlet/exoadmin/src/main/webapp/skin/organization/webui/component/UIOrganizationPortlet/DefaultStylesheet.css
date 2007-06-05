@@ -264,13 +264,12 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle .TitleBar {
-  margin: 0px 1px;
   border: 1px solid #cdcdcd;
 }
 
 /*#######################  UIMemberShipManagement #################################*/
 .UIOrganizationPortlet .UIFormWithTitle {
-	width: 440px ;
+	width: auto ;
 	margin: auto;
 }
 

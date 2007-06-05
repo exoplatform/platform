@@ -1,10 +1,14 @@
 <div class="UIChagnePortalForm" id="<%=uicomponent.getId();%>">
 	
-	  <div class="LeftFormTitle">
-			<div class="RightFormTitle">
-				<div class="MiddleFormTitle">Select Portal</div>
-			</div>
-		</div>
+	    <div class="UIBarStyle">
+				<div class="TitleBar">
+					<div class="LeftBar">
+						<div class="RightBar">
+							<div class="MiddleBar">Select Portal</div>
+			      </div>
+		      </div>
+		    </div>
+		  </div>
 		<div class="TabPaneContent">
 	    <div class="WorkingArea">
 	    	<%uicomponent.renderChildren() %>	

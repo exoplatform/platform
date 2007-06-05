@@ -427,6 +427,7 @@
 .UIItemSelector .LeftColumnStyle .ItemList .Item .LeftItem {
   background: url('DefaultSkin/background/LeftDefaultItem15x26.gif') no-repeat left;
   padding-left: 15px;
+  height: 26px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .RightItem {
@@ -475,6 +476,7 @@
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .LeftItem {
   background: url('DefaultSkin/background/LeftSelectedItem15x26.gif') no-repeat left;
   padding-left: 15px;
+  height: 26px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .RightItem {
