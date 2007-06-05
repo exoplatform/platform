@@ -10,18 +10,22 @@ import java.util.List;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.content.ContentDAO;
 import org.exoplatform.portal.content.model.ContentNode;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.component.UIForm;
+import org.exoplatform.webui.component.UIFormInput;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormTextAreaInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.component.validator.EmptyFieldValidator;
+import org.exoplatform.webui.component.validator.Validator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.exception.MessageException;
 /**
  * Created by The eXo Platform SARL
  * Author : Dang Van Minh
@@ -56,7 +60,8 @@ public class UIContentForm extends UIForm {
       option_.add(new SelectItemOption<String>(types.get(i).toUpperCase(), types.get(i).toString())) ;
     }
     addUIFormInput(new UIFormStringInput(FIELD_ID, FIELD_ID, null));
-    addUIFormInput(new UIFormStringInput(FIELD_URL, FIELD_URL, null));
+    addUIFormInput(new UIFormStringInput(FIELD_URL, FIELD_URL, null).
+                   addValidator(URLValidator.class));
     addUIFormInput(new UIFormStringInput(FIELD_LABEL, FIELD_LABEL, null).
                    addValidator(EmptyFieldValidator.class));
     addUIFormInput(new UIFormTextAreaInput(FIELD_DESCRIPTION, FIELD_DESCRIPTION, null)).
@@ -107,4 +112,33 @@ public class UIContentForm extends UIForm {
     }
   }
   
+  static public class URLValidator implements Validator {
+
+    @SuppressWarnings("unchecked")
+    public void validate(UIFormInput uiInput) throws Exception {
+      String s = (String)uiInput.getValue();
+      if(s == null || s.length() == 0) { return;
+      }
+      s=s.trim();
+      if (!s.startsWith("http://") && !s.startsWith("shttp://")){ 
+        if(!s.startsWith("//")) s = "//" + s;
+        s = "http:" + s;
+      }
+      String[] k = s.split(":");
+      if(k.length > 3) {
+        Object[] args = { uiInput.getName(), uiInput.getBindingField() };
+        throw new MessageException(new ApplicationMessage("URLValidator.msg.Invalid-config", args)) ;
+      }
+      for(int i = 0; i < s.length(); i ++){
+        char c = s.charAt(i);
+        if (Character.isLetter(c) || Character.isDigit(c) || c=='_' || c=='-' || c=='.' || c==':' || c=='/' ){
+          continue;
+        }
+        Object[] args = { uiInput.getName(), uiInput.getBindingField() };
+        throw new MessageException(new ApplicationMessage("IdentifierValidator.msg.Invalid-char", args)) ;
+      }
+      uiInput.setValue(s);
+    }
+    
+  }
 }

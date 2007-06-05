@@ -41,9 +41,9 @@ public class UIContainerActionListener {
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;       
     
-      
+      UIContainer child = uiContainer.getChildById(event.getRequestContext().getRequestParameter(UIContainer.OBJECTID));
       UIContainerForm containerForm = uiMaskWS.createUIComponent(UIContainerForm.class, null, null); 
-      containerForm.setValues(uiContainer);
+      containerForm.setValues(child);
       uiMaskWS.setUIComponent(containerForm);      
       
       uiMaskWS.setShow(true);

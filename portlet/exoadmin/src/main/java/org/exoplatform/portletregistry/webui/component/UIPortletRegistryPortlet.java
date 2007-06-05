@@ -1,6 +1,7 @@
 package org.exoplatform.portletregistry.webui.component;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIPopupMessages;
 import org.exoplatform.webui.component.UIPortletApplication;
 import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -16,10 +17,18 @@ public class UIPortletRegistryPortlet extends UIPortletApplication {
     uiControlArea.initApplicationCategories();
   }
   
+  public void renderPopupMessages() throws Exception {
+    UIPopupMessages popupMess = getUIPopupMessages();
+    if(popupMess == null)  return ;
+    WebuiRequestContext  context =  WebuiRequestContext.getCurrentInstance() ;
+    popupMess.processRender(context);
+  }
+  /*
   public void processRender(WebuiRequestContext context) throws Exception {
+    System.out.println("\n\n\nhello\n\n\n");
     super.processRender(context);
     context.getWriter().append("<div id=\"").append(getId()).append("\">");
     renderChildren(context) ;
     context.getWriter().append("</div>");
-  }
+  }*/
 }

@@ -186,7 +186,9 @@
 		            <div class="PopupCategoryMR">
 		              <div class="PopupCategoryMC">
 		                <% 
-		                  List supportModes = uicomponent.getSupportModes();                  
+		                  List supportModes = uicomponent.getSupportModes();    
+		                  if(supportModes!=null) {
+		                  }
 		                  for(String mode in supportModes) {
 		                    String actionLink = uicomponent.event("ChangePortletMode", mode);
 		                    String upper = mode.charAt(0).toString();

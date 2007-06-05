@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +19,10 @@ import org.exoplatform.portal.component.view.listener.UIPortletActionListener.Ed
 import org.exoplatform.portal.component.view.listener.UIPortletActionListener.ProcessActionActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortletActionListener.RenderActionListener;
 import org.exoplatform.portal.config.model.Properties;
+import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
+import org.exoplatform.services.portletcontainer.pci.PortletData;
+import org.exoplatform.services.portletcontainer.pci.model.Supports;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event.Phase;
@@ -97,7 +101,37 @@ public class UIPortlet extends UIPortalComponent {
   public WindowState getCurrentWindowState() { return currentWindowState_ ;}
   public void  setCurrentWindowState(WindowState state) { currentWindowState_ = state;}
 
-  public  List<String> getSupportModes() { return supportModes_; }
+  public  List<String> getSupportModes() { 
+    if (supportModes_ != null) return supportModes_;
+    PortletContainerService portletContainer =  getApplicationComponent(PortletContainerService.class);
+    String  portletId = exoWindowId_.getPortletApplicationName() + "/" + exoWindowId_.getPortletName();   
+    PortletData portletData = (PortletData) portletContainer.getAllPortletMetaData().get(portletId);
+    if(portletData == null) return null;
+    List supportsList = portletData.getSupports() ;
+    List<String> supportModes = new ArrayList<String>() ;
+    for (int i = 0; i < supportsList.size(); i++) {
+      Supports supports = (Supports) supportsList.get(i) ;
+      String mimeType = supports.getMimeType() ;
+      if ("text/html".equals(mimeType)) {
+        List modes = supports.getPortletMode() ;
+        for (int j =0 ; j < modes.size() ; j++) {
+          String mode =(String)modes.get(j) ;
+          mode = mode.toLowerCase() ;
+          //check role admin
+          if("config".equals(mode)) { 
+            //if(adminRole) 
+            supportModes.add(mode) ;
+          } else {
+            supportModes.add(mode) ;
+          }
+        }
+        break ;
+      }
+    }
+    if(supportModes.size() > 1) supportModes.remove("view");
+    setSupportModes(supportModes);
+    return supportModes;
+  }
   public void setSupportModes(List<String> supportModes) { supportModes_ = supportModes; }
   
   public Properties getProperties() {

@@ -75,6 +75,12 @@ public class UIPageNavigationActionListener {
       UserPortalConfigService configService = pageNodeSelector.getApplicationComponent(UserPortalConfigService.class);
       configService.remove(selectedNavigation);
       Util.getUIPortal().getNavigations().remove(selectedNavigation);
+      List<PageNavigation> oldList = Util.getUIPortal().getNavigations();
+      int i = 0;
+      for(i = 0; i< oldList.size(); i ++) {
+        if(oldList.get(i).getId().equals(selectedNavigation.getId())) break;
+      }
+      if( i< oldList.size()) oldList.remove(i);
       pageNodeSelector.loadNavigations();
       event.getRequestContext().addUIComponentToUpdateByAjax(pageNodeSelector.getAncestorOfType(UIPageManagement.class));      
     }

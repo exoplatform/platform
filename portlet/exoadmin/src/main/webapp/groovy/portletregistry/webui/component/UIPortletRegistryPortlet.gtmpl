@@ -22,5 +22,6 @@
 			</div>
 			<div style="clear: left"><span></span></div>
 		</div>
+	  <%uicomponent.renderPopupMessages(); %>
 	</div>
 </div>

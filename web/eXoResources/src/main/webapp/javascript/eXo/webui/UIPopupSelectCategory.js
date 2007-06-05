@@ -11,7 +11,6 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 	var controlCategory = DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
   var uiPopupCategory = DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
   var uiPageDesktop = DOMUtil.findAncestorByClass(ancestorPopupCategory, "UIPageDesktop");
-  
 	if(uiPopupCategory == null) return;
 
 	if(uiPopupCategory.style.display == "none") {

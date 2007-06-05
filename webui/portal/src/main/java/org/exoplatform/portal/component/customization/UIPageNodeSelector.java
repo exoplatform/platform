@@ -64,7 +64,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = EditSelectedNodeActionListener.class),
         @EventConfig(listeners = CopyNodeActionListener.class),
         @EventConfig(listeners = PasteNodeActionListener.class),
-        @EventConfig(listeners = DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNode")
+        @EventConfig(listeners = DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNavigation")
       }
   ),
   @ComponentConfig(
@@ -76,7 +76,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = PasteNodeActionListener.class),
         @EventConfig(listeners = SaveNavigationActionListener.class),
         @EventConfig(listeners = EditNavigationActionListener.class),
-        @EventConfig(listeners = DeleteNavigationActionListener.class)
+        @EventConfig(listeners = DeleteNavigationActionListener.class, confirm = "UIPageNodeSelector.deleteNode")
       }
   )
 })

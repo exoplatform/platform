@@ -158,7 +158,6 @@ public class UIPageActionListener {
       } else {
         UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);  
         windowId.append(uiPortlet.hashCode());
-        
         uiPortlet.setWindowId(windowId.toString());
         if(application != null){
           if(application.getDisplayName() != null) {
@@ -197,7 +196,6 @@ public class UIPageActionListener {
         }  
       }    
       
-      System.out.println("\n\n\n-------------->>>>>>>>> Return null;");
       return null;
     }
   }
