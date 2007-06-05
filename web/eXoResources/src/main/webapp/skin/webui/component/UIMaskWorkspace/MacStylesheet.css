@@ -108,7 +108,6 @@
 }
 
 .UIAddApplication .ApplicationDescription {
-  margin-right: 30px;
 }
 
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
@@ -116,13 +115,6 @@
   overflow: auto ;
   border: 1px solid #C3C3C3;
   background: white url('MacSkin/background/ApplicationBackground165x65.gif') no-repeat left bottom;
-}
-
-.UIAddApplication .TitleBarApplication {
-	background: none; 
-	height: 21px;
-	color: #1553B9;
-	font-weight: bold;
 }
 
 .UIAddApplication .ApplicationContentLabel {
@@ -142,15 +134,20 @@
 }
 
 .UIAddApplication .ApplicationContent {
-  padding: 4px 0px 0px 12px;
-  width: 270px ;
-  overflow: hidden;
+  margin-left: 85px;
 }
 
-.UIAddApplication .ApplicationButton {
-  float: right;
-  width: 28px;
-  padding: 3px 0px 0px 0px;
+.UIAddApplication .TitleBarApplication {
+	background: none; height: 24px;
+	color: #1553B9;	font-weight: bold;
+	margin: 0px auto 5px auto;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+.UIAddApplication .TitleBarApplication .Title {
+  float: left;
+  margin-top: 4px;
+  font-weight: bold ; font-size: 13px; color: #1553B9; font-family: arial;
 }
 
 .UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {
@@ -159,15 +156,15 @@
 }
 
 .UIAddApplication .AddButton {
-	float: none ; 
+	float: right ; 
 	width: 24px ; height: 24px ;
 	background: url('MacSkin/icons/AddIcon.png') no-repeat center;
-  margin: 5px auto;
+  margin: 2px auto;
 	cursor: pointer ;
 }
 
 .UIAddApplication .SelectButton {
-	float: none ; 
+	float: right ; 
 	width: 24px ; height: 24px ;
 	background: url("MacSkin/icons/SelectButton.png") no-repeat center;
   margin: auto;

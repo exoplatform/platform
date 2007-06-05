@@ -75,6 +75,11 @@
   font-size: 11px;
 }
 
+.UIForm .HorizontalLayout input[type=password] {
+  width: 228px ;
+  font-size: 11px;
+}
+
 .UIForm .HorizontalLayout input.checkbox {
 	width: auto;
 	margin: 0px;

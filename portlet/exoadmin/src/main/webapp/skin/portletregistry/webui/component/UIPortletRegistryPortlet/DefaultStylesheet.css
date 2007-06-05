@@ -20,7 +20,7 @@
 
 .UIApplicationRegistryPortlet .Title {
   font-size: 14px; color: #1553B9;
-  margin: 5px 0px; 
+  margin: 5px 0px; font-family: arial; font-weight: bold;
   padding-left: 10px; 
 }
 
@@ -205,7 +205,7 @@
 .ApplicationRegistryWorkingArea .TitleBarApplication {
 	background: none;
 	border-bottom: 1px solid #dfdfdf;
-	width: 98%;
+	width: 93%;
 	padding: 0px 1px 3px 1px;
 	margin: 0px auto 5px auto;
 }
@@ -238,7 +238,7 @@
 .ApplicationRegistryWorkingArea .ApplicationContentLabel {
   font-size: 11px;
   line-height: 16px;
-  width: 98%;
+  width: 93%;
   margin: auto;
 }
 

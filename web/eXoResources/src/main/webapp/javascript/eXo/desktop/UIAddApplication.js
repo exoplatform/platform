@@ -93,13 +93,6 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 			srcBG = getUrl(srcBG);
 			srcNormalBG = getUrl(srcNormalBG);
 	    itemDetails += '<div class="Application">' +
-			               '  <div class="ApplicationButton">' +
-				             ' 	  <div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'false\');" ><span></span></div>' +
-				             ' 		<div class="AddButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'true\');"' +
-				             '      title="Add this application to the desktop page">' +
-						         ' 			<span></span>' +
-						      	 '		</div>' +
-						      	 '	</div>' +
 				             '  <div class="ApplicationDescription">' +
 				             '		<div class="PortletIcon" title="'+application["title"]+'"' +
 			               '    	onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'true\');">' +
@@ -108,7 +101,17 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 			               '      </span>' +
 			               '    </div>' +
 			               '	  <div class="ApplicationContent">' +
-			               '	    <div class="TitleBarApplication">'+application["title"]+'</div>' +
+			               '	    <div class="TitleBarApplication">' +
+			               '				<div class="Title">'+application["title"]+'</div>' +
+			               '  			<div class="ApplicationButton">' +
+				             ' 	  			<div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'false\');" ><span></span></div>' +
+				             ' 					<div class="AddButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'true\');"' +
+				             '     			title="Add this application to the desktop page">' +
+						         ' 					<span></span>' +
+						      	 '					</div>' +
+						      	 '					<div style="clear: right;"><span></span></div>' +				
+						      	 '				</div>' +
+			               '			</div>' +
 			               '      <div class="ApplicationContentLabel">' +
 			               '        <div class="ContentLabel">' +
 			               '          <span class="LeftLabel">Type:</span>' +

@@ -46,7 +46,7 @@
 /*########################-UIPersonalInfo-###########################*/
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
-  width: 480px;
+  width: 430px;
   padding:6px 0px 0px 35px;
 }
 
@@ -70,7 +70,37 @@
 }
 
 .UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
-  background: white;
   height: 350px;
 }
 
+.UIAccountPortlet .UIItemSelector .ItemDetailList .DefaultAccountImage{
+  width: 330px;
+  height: 195px;
+  margin: auto;
+  background: url('DefaultSkin/background/DefaultAccountImage.jpg') no-repeat;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .AdminAccountImage{
+  width: 330px;
+  height: 195px;
+  margin: auto;
+  background: url('DefaultSkin/background/AdminAccountImage.jpg') no-repeat;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .CommunityAccountImage{
+  width: 330px;
+  height: 195px;
+  margin: auto;
+  background: url('DefaultSkin/background/CommunityAccountImage.jpg') no-repeat;
+}
+
+.UIAccountPortlet .UIItemSelector .ItemDetailList .CompanyAccountImage{
+  width: 330px;
+  height: 195px;
+  margin: auto;
+  background: url('DefaultSkin/background/CompanyAccountImage.jpg') no-repeat;
+}
+
+.UIAccountForm .UITabPane .TabPaneContent .UITabContentContainer {
+  border: 1px solid #939393;
+}

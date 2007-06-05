@@ -12,10 +12,8 @@
   width: auto;
 }
 
-.UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
-  border: 1px solid #d5d5d5; 
+.UITabPane .TabPaneContent .UITabContentContainer {
   border-top: none;
-  background: #f4f4f4;
 }
 
 .UITabPane .TabPaneContent .UITabContentContainer .UITabContent {

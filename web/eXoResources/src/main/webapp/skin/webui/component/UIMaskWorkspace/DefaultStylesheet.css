@@ -145,10 +145,11 @@
 }
 
 .UIAddApplication .ApplicationListContainer {
-	height: 240px;
+	height: 240px; width: 449px;
 	border: 1px solid #c3c3c3;
 	background: white;
-	overflow: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 	padding: 0px 10px;
 }
 
@@ -159,15 +160,7 @@
 }
 
 .UIAddApplication .ApplicationContent {
-  padding: 4px 0px 0px 12px;
-  width: 280px ;
-  overflow: hidden;
-}
-
-.UIAddApplication .TitleBarApplication {
-	background: none;
-	height: 21px;
-	color: #1553B9; font-weight: bold;
+  margin-left: 85px;
 }
 
 .UIAddApplication .ApplicationContentLabel {
@@ -186,29 +179,35 @@
 	margin-top: 2px;
 }
 
-.UIAddApplication .ApplicationDescription {
-  margin-right: 30px;
+.UIAddApplication .TitleBarApplication {
+	background: none;
+	width: 96%;	height: 21px;
+	color: #1553B9; font-weight: bold;
+	border-bottom: 1px solid #dfdfdf;
+	padding: 0px 1px 3px 1px;
+	margin: 0px auto 5px auto;
 }
 
-.UIAddApplication .ApplicationButton {
-  float: right;
-  width: 28px;
-  padding: 4px 0px 0px 0px;
+.UIAddApplication .TitleBarApplication .Title {
+  float: left;
+  margin-top: 4px;
+  font-weight: bold ; font-size: 13px; color: #1553B9; font-family: arial;
 }
 
 .UIAddApplication .AddButton {
-	float: none;
 	width: 20px ; height: 24px ;
 	background: url("DefaultSkin/icons/16x16/AddIcon.gif") no-repeat center;
+	float: right;
 	cursor: pointer ;
-	margin: auto;
+	margin: 0px 3px;
 }
 
 .UIAddApplication .SelectButton {
 	width: 20px ; height: 24px ;
 	background: url("DefaultSkin/icons/16x16/SelectButton.gif") no-repeat center;
-	margin: auto;
+	float: right;
 	cursor: pointer ;
+	margin: 0px 3px;
 }
 
 

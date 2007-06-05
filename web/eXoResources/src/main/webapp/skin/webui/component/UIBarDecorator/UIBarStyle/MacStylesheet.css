@@ -467,6 +467,6 @@
   background: url('MacSkin/background/CenterTitleBar1x32.gif') repeat-x;
   padding-left: 6px;
   height: 32px; line-height: 32px;
-  color: #124ed7;
+  color: #124ed7; font-weight: bold; font-family: arial;
   font-size: 15px;
 }
