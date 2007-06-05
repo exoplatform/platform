@@ -24,7 +24,7 @@
 %>
 
 <div class="UIMaskWorkspace" id="$maskId" style="display: none;">
-  <div class="TopLeftDecorator">
+  <div class="TopLeftDecorator" >
     <div class="TopRightDecorator">
       <div class="TopCenterDecorator"><span></span></div>
     </div>
