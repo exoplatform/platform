@@ -44,7 +44,11 @@ public class PortalRequestContext extends WebuiRequestContext {
     
     String pathInfo = req.getPathInfo() ;
     int colonIndex = pathInfo.indexOf(':') ;
-    portalOwner_ =  pathInfo.substring(1, colonIndex) ;
+    if(colonIndex > 0) {
+      portalOwner_ =  pathInfo.substring(1, colonIndex) ;
+    } else {
+      portalOwner_ =  pathInfo.substring(1, pathInfo.indexOf("/", 1)) ;
+    }
     nodePath_ = pathInfo.substring(colonIndex + 1, pathInfo.length()) ;
     if(nodeURI_.indexOf("/public/") >= 0) accessPath =  PUBLIC_ACCESS ;
     else if(nodeURI_.indexOf("/private/") >= 0) accessPath =  PRIVATE_ACCESS ;
