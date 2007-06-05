@@ -5,6 +5,7 @@
 	line-height: 26px;
 	background: #f3f3f3 url(DefaultSkin/background/BottomVTabSimpleStyle224x1.gif) no-repeat bottom right;
 	font-size: 11px;
+	height: 26px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .LeftIcon {
@@ -25,6 +26,7 @@
 	cursor: pointer;
 	background: #e3e4e4 url(DefaultSkin/background/BottomVTabSimpleStyle224x1.gif) no-repeat bottom right;
 	font-size: 11px;
+	height: 26px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .LeftIcon {
