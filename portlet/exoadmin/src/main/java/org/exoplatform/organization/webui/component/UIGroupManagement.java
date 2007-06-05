@@ -14,17 +14,12 @@ import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIFormPopupWindow;
-import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIPopupWindow;
-
 import org.exoplatform.webui.component.UIBreadcumbs.LocalPath;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.organization.webui.component.UIGroupManagement.*;
-import org.exoplatform.portal.component.customization.UIPopupDialog;
 
 /**
  * Created by The eXo Platform SARL
@@ -36,10 +31,10 @@ import org.exoplatform.portal.component.customization.UIPopupDialog;
 @ComponentConfig(
   template = "app:/groovy/organization/webui/component/UIGroupManagement.gtmpl",
   events = {
-    @EventConfig(listeners = AddGroupActionListener.class),
-    @EventConfig(listeners = DeleteGroupActionListener.class, confirm = "UIGroupManagement.deleteGroup"),
-    @EventConfig(listeners = SelectPathActionListener.class),
-    @EventConfig(listeners = EditGroupActionListener.class)
+    @EventConfig(listeners = UIGroupManagement.AddGroupActionListener.class),
+    @EventConfig(listeners = UIGroupManagement.DeleteGroupActionListener.class, confirm = "UIGroupManagement.deleteGroup"),
+    @EventConfig(listeners = UIGroupManagement.SelectPathActionListener.class),
+    @EventConfig(listeners = UIGroupManagement.EditGroupActionListener.class)
     
   }
 )

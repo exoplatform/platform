@@ -104,7 +104,6 @@ public class UIPageNavigationForm extends UIFormTabPane {
     uiPermissionSetting.addChild(uiEditPermission);
     
     UIFormPopupWindow uiPopupGroupSelector = addChild(UIFormPopupWindow.class, null, "UIPopupGroupSelector");
-//    uiPopupGroupSelector.setShowCloseButton(false);
     uiPopupGroupSelector.setWindowSize(540, 0);
     UIGroupSelector uiGroupSelector = createUIComponent(UIGroupSelector.class, null, null) ;
     uiPopupGroupSelector.setUIComponent(uiGroupSelector);

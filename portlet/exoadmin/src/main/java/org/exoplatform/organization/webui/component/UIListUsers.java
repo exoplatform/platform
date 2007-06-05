@@ -8,6 +8,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -15,21 +16,16 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIFormInputSet;
-import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.component.UIFormSelectBox;
 import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIGrid;
 import org.exoplatform.webui.component.UIPageIterator;
-import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.UISearch;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.organization.webui.component.UIListUsers.*;
-import org.exoplatform.portal.component.customization.UIPopupDialog;
-import org.exoplatform.portal.component.view.Util;
 
 /**
  * Created by The eXo Platform SARL
@@ -40,8 +36,8 @@ import org.exoplatform.portal.component.view.Util;
  */
 @ComponentConfig(
     events = {
-      @EventConfig(listeners = ViewUserInfoActionListener.class),
-      @EventConfig(listeners = DeleteUserActionListener.class, confirm = "UIListUsers.deleteUser")
+      @EventConfig(listeners = UIListUsers.ViewUserInfoActionListener.class),
+      @EventConfig(listeners = UIListUsers.DeleteUserActionListener.class, confirm = "UIListUsers.deleteUser")
     }
 )
 public class UIListUsers extends UISearch {

@@ -369,7 +369,7 @@ UIPortal.prototype.changeLanguage = function(url) {
 } ;
 
 UIPortal.prototype.changePortal = function(accessPath, portal) {
-  window.location = eXo.env.server.context + "/" + accessPath + "/" + portal+":/";
+  window.location = eXo.env.server.context + "/" + accessPath + "/" + portal+"/";
 } ;
 
 /** Created: by Lxchiati **/
