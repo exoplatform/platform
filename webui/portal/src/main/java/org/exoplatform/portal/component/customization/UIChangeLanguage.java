@@ -33,7 +33,7 @@ import org.exoplatform.webui.event.EventListener;
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)
     }
 )
-public class UIChangeLanguage extends UIContainer{
+public class UIChangeLanguage extends UIContainer {
   
   private String name_;
   

@@ -33,10 +33,12 @@ UIUpload.prototype.refeshProgress = function(elementId) {
   for(var i = 0; i < list.length; i++){
     url = url + "&uploadId=" + list[i];
   }
-  var request =  eXo.core.Browser.createHttpRequest();
-  request.open('GET', url, false);
-  request.setRequestHeader("Cache-Control", "max-age=86400");
-  request.send(null);
+//  var request =  eXo.core.Browser.createHttpRequest();
+//  request.open('GET', url, false);
+//  request.setRequestHeader("Cache-Control", "max-age=86400");
+//  request.send(null);
+
+  var responseText = ajaxSyncGet(url);
   
   if(list.length > 0) {
     setTimeout("eXo.webui.UIUpload.refeshProgress('" + elementId + "');", 1000); 
@@ -44,7 +46,7 @@ UIUpload.prototype.refeshProgress = function(elementId) {
     
   var response;
    try{
-    eval("response = "+request.responseText);
+    eval("response = "+responseText);
   }catch(err){
     return;  
   }

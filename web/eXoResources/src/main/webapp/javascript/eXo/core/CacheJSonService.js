@@ -14,18 +14,15 @@ CacheJSonService.prototype.getData = function(url, invalidCache) {
 		if(value != null && value != undefined)	return value;	
   }
 	
-	var request =  eXo.core.Browser.createHttpRequest();
-  request.open('GET', url, false);
-  request.setRequestHeader("Cache-Control", "max-age=86400");
-  request.send(null);
+	var responseText = ajaxSyncGet(url);
   
   var response;
   try {
   	if(request.responseText != '') {
-  	  eval("response = "+request.responseText);
+  	  eval("response = "+responseText);
   	}
   } catch(err) {
-  	alert(err + " : "+request.responseText);
+  	alert(err + " : "+responseText);
     return  null;  
   }
   
