@@ -5,7 +5,10 @@
 package org.exoplatform.organization.webui.component;
 
 import org.exoplatform.services.organization.Group;
+import org.exoplatform.webui.component.UIContainer;
+import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UITabPane;
+import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
  * Created by The eXo Platform SARL
@@ -14,8 +17,13 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * Jun 23, 2006
  * 10:08:51 AM 
  */
-@ComponentConfig( template = "system:/groovy/webui/component/UITabPane.gtmpl" )
-public class UIGroupInfo extends UITabPane {
+//TODO: Tung.Pham modified
+//@ComponentConfig( template = "system:/groovy/webui/component/UITabPane.gtmpl" )
+@ComponentConfig(
+    template = "system:/groovy/webui/component/UIContainerWithTitle.gtmpl"
+)
+//public class UIGroupInfo extends UITabPane {
+public class UIGroupInfo extends UIContainer {
   
   public UIGroupInfo() throws Exception {
     addChild(UIUserInGroup.class, null, null) ;
