@@ -2,9 +2,7 @@ eXo.require('eXo.core.TemplateEngine');
 eXo.require('eXo.webui.UIHorizontalTabs');
 eXo.require('eXo.core.CacheJSonService');
 
-function UIAddApplication() {
-  
-};
+function UIAddApplication() {};
 
 UIAddApplication.prototype.init = function(parentId, containerId, applicationTypes) {
 	var DOMUtil = eXo.core.DOMUtil ;
@@ -43,9 +41,7 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 	for(var i = 0; i < applicationTypes.length; i++) {
 		url += "&applicationType="+applicationTypes[i];
 	}
-	
 	if(refresh == null || refresh == undefined) refresh = false;
-	
   var category = eXo.core.CacheJSonService.getData(url, refresh);
   
   if(category == null || category == undefined) return;
@@ -58,11 +54,11 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
   
   /**Repaired: by Vu Duy Tu **/
   itemDetails += '<div class="ItemDetailTitle">' +
-        	    	  '	 <div class="TitleIcon ViewListIcon"><span></span></div>' +
-				  	      '	 <div class="Title">Select Application</div>' +
-				  	      '	 <div style="clear: left;"><span></span></div>' +
-        	        '</div>' +
-        	        '<div class="ApplicationListContainer">';
+        	    	 '	<div class="TitleIcon ViewListIcon"><span></span></div>' +
+				  	     '	<div class="Title">Select Application</div>' +
+				  	     '	<div style="clear: left;"><span></span></div>' +
+        	       '</div>' +
+        	       '<div class="ApplicationListContainer">';
   for(id in category.applicationRegistry) {  	
 		var cate = category.applicationRegistry[id];
 		var applications = cate["applications"];
@@ -85,7 +81,6 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 	  } else {
 	  	itemDetails += '<div class="ItemDetail" style="display: none">';
 	  }
-	  //var portlets = cate["portlets"];
 	  for(id in applications) {
 	  	application = applications[id];  	 
       var srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + application["title"]+".png";
@@ -104,10 +99,10 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 			               '	    <div class="TitleBarApplication">' +
 			               '				<div class="Title">'+application["title"]+'</div>' +
 			               '  			<div class="ApplicationButton">' +
-				             ' 	  			<div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'false\');" ><span></span></div>' +
+				             ' 	  			<div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'false\');"><span></span></div>' +
 				             ' 					<div class="AddButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'true\');"' +
-				             '     			title="Add this application to the desktop page">' +
-						         ' 					<span></span>' +
+				             '     			  title="Add this application to the desktop page">' +
+						         ' 					  <span></span>' +
 						      	 '					</div>' +
 						      	 '					<div style="clear: right;"><span></span></div>' +				
 						      	 '				</div>' +
@@ -115,11 +110,11 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 			               '      <div class="ApplicationContentLabel">' +
 			               '        <div class="ContentLabel">' +
 			               '          <span class="LeftLabel">Type:</span>' +
-			               '	        <span class="RightLabel">' +application["type"]+'</span>' +
+			               '	        <span class="RightLabel">'+application["type"]+'</span>' +
 			               '	      </div>' +
 			               '	      <div class="ContentLabel">' +
 			               '	        <span class="LeftLabel">Created by:</span>' +
-			               '	        <span class="RightLabel">'+ application["owner"]+ '</span>' +
+			               '	        <span class="RightLabel">'+application["owner"]+'</span>' +
 			               '	      </div>' +
 			               '	      <div class="ContentLabel">' +
                      '          <span class="LeftLabel">Description:</span>' +
