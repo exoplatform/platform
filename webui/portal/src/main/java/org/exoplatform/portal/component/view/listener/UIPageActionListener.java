@@ -128,23 +128,19 @@ public class UIPageActionListener {
       
       String applicationId = event.getRequestContext().getRequestParameter("applicationId");
       
-      System.out.println("\n\n\n-------------->>>> appId: " + applicationId);
       StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
       windowId.append(":/").append(applicationId).append('/');
       Application application = getApplication(uiPortal, applicationId);
-      System.out.println("\n\n--------->> App Id " + application.getApplicationName());
       
       if(org.exoplatform.portal.config.model.Application.EXO_APPLICATION_TYPE.equals(application.getApplicationType())){
         UIExoApplication uiExoApp = uiPage.createUIComponent(UIExoApplication.class, null, null);
         windowId.append(uiExoApp.hashCode());
-        System.out.println("\n++++++++++> is exoapp");
         uiExoApp.setApplicationInstanceId(windowId.toString());
         uiExoApp.init();
         uiPage.addChild(uiExoApp);
       } else if(org.exoplatform.portal.config.model.Application.WIDGET_TYPE.equals(application.getApplicationType())){
         UIWidget uiWidget = uiPage.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
         windowId.append(uiWidget.hashCode());
-        System.out.println("\n++++++++++> is widget");
         uiWidget.setApplicationInstanceId(windowId.toString());
         uiWidget.setApplicationName(application.getApplicationName());
         uiWidget.setApplicationGroup(application.getApplicationGroup());
