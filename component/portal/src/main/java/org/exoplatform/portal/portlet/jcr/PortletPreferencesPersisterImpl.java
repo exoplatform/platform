@@ -23,12 +23,11 @@ import org.exoplatform.services.portletcontainer.persistence.PortletPreferencesP
  */
 public class PortletPreferencesPersisterImpl implements PortletPreferencesPersister {
   
-  final public static String PORTLET_TPREFERENCES = "portletPreferences";
   final public static String PORTLE_TPREFERENCES_TYPE = "exo:portletPreferences";
+  final private static String PORTLET_PREFERENCES_SET_NODE = "portletPreferences" ;
   final public static String ID = "id" ;
   
   final private static String PORTAL_DATA = "MainPortalData" ;
-  final private static String NT_FOLDER_TYPE = "nt:folder" ;
   
   final private DataMapper mapper_ = new DataMapper();
   
@@ -43,18 +42,23 @@ public class PortletPreferencesPersisterImpl implements PortletPreferencesPersis
   }
 
   public ExoPortletPreferences getPortletPreferences(WindowID windowID) throws Exception {
+    String owner = windowID.getOwner();
+    String [] components = owner.split("/");
+    if(components.length < 2) return null; 
+    String ownerType = components[0];
+    String ownerId = components[1];
     Session session = jcrRegService_.getSession();
-    Node appNode = jcrRegService_.getApplicationRegistryNode(session, PORTAL_DATA);
-    Node rootNode = create(appNode, windowID.getOwner());
-    if(rootNode == null || !rootNode.hasNode(PORTLET_TPREFERENCES)) {
+    Node appNode = jcrRegService_.getApplicationRegistryNode(session, ownerType);
+    if(appNode == null || !appNode.hasNode(ownerId)) {
       session.logout();
       return null;
     }
-    Node portletPreNode = rootNode.getNode(PORTLET_TPREFERENCES);
-    if(portletPreNode == null)  {
+    Node ownerNode = appNode.getNode(ownerId);
+    if(!ownerNode.hasNode(PORTLET_PREFERENCES_SET_NODE)) {
       session.logout();
       return null;
     }
+    Node portletPreNode = ownerNode.getNode(PORTLET_PREFERENCES_SET_NODE);
     ExoWindowID exoWindowID = (ExoWindowID) windowID ; 
     String name  = exoWindowID.getPersistenceId().replace('/', '_').replace(':', '_');
     if(!portletPreNode.hasNode(name)) {
@@ -65,13 +69,6 @@ public class PortletPreferencesPersisterImpl implements PortletPreferencesPersis
     ExoPortletPreferences portletPreferences = mapper_.toPortletPreferences(node).toExoPortletPreferences() ;
     session.logout();
     return portletPreferences;
-  }
-  
-  private Node create(Node parent, String name) throws Exception {
-    if(parent.hasNode(name)) return parent.getNode(name);    
-    Node node = parent.addNode(name, NT_FOLDER_TYPE);
-    parent.save();
-    return node;    
   }
   
   @SuppressWarnings("unused")

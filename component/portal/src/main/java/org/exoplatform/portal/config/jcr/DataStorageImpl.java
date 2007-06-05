@@ -33,8 +33,6 @@ import org.exoplatform.registry.JCRRegistryService;
  */
 public class DataStorageImpl implements DataStorage {
   
-  final public static String PORTLET_TPREFERENCES = "portletPreferences";
-
   final private static String NT_FOLDER_TYPE = "nt:folder" ;
   final private static String EXO_DATA_TYPE = "exo:data" ;
 
@@ -48,6 +46,8 @@ public class DataStorageImpl implements DataStorage {
   final private static String NAVIGATION_CONFIG_FILE_NAME = "navigation.xml" ;
   final private static String WIDGETS_CONFIG_FILE_NAME = "widgets.xml" ;
   final private static String PAGE_SET_NODE = "pages" ;
+  final private static String PORTLET_PREFERENCES_SET_NODE = "portletPreferences" ;
+  
 
   private DataMapper mapper_ = new DataMapper();
   private JCRRegistryService jcrRegService_;
@@ -136,7 +136,7 @@ public class DataStorageImpl implements DataStorage {
 
   public void create(Page page) throws Exception {
     Session session = jcrRegService_.getSession();
-    Node pageSetNode = createPageSetNode(session, page.getOwnerType(), page.getOwnerId());
+    Node pageSetNode = createSetNode(session, PAGE_SET_NODE, page.getOwnerType(), page.getOwnerId());
     Node pageNode = pageSetNode.addNode(page.getName(), EXO_DATA_TYPE) ;
     pageSetNode.save() ;
     mapper_.map(pageNode, page) ;
@@ -147,7 +147,7 @@ public class DataStorageImpl implements DataStorage {
 
   public void save(Page page) throws Exception {  
     Session session = jcrRegService_.getSession();
-    Node pageSetNode = createPageSetNode(session, page.getOwnerType(), page.getOwnerId()); 
+    Node pageSetNode = createSetNode(session, PAGE_SET_NODE, page.getOwnerType(), page.getOwnerId()); 
     Node pageNode = pageSetNode.getNode(page.getName()) ;
     mapper_.map(pageNode, page) ;
     pageNode.save() ;
@@ -157,7 +157,7 @@ public class DataStorageImpl implements DataStorage {
 
   public void remove(Page page) throws Exception {
     Session session = jcrRegService_.getSession();
-    Node pageSetNode = createPageSetNode(session, page.getOwnerType(), page.getOwnerId());  
+    Node pageSetNode = createSetNode(session, PAGE_SET_NODE, page.getOwnerType(), page.getOwnerId());  
     if(pageSetNode == null || !pageSetNode.hasNode(page.getName())) {
       session.logout();
       return;
@@ -174,7 +174,7 @@ public class DataStorageImpl implements DataStorage {
     String [] components = pageId.split("::");
     if(components.length < 3) throw new Exception ("Invalid pageId :"+pageId);        
     Session session = jcrRegService_.getSession();
-    Node pageSetNode = getPageSetNode(session, components[0], components[1]); 
+    Node pageSetNode = getSetNode(session, PAGE_SET_NODE, components[0], components[1]); 
     if(pageSetNode == null || !pageSetNode.hasNode(components[2])) {
       session.logout();
       return null;
@@ -185,20 +185,6 @@ public class DataStorageImpl implements DataStorage {
     return page;
   }
   
-  private Node getPageSetNode(Session session, String ownerType, String ownerId) throws Exception {
-    Node portalNode = getDataNode(session, ownerType, ownerId);
-    if(portalNode == null || !portalNode.hasNode(PAGE_SET_NODE)) return  null;
-    return portalNode.getNode(PAGE_SET_NODE) ;    
-  }
-
-  private Node createPageSetNode(Session session, String ownerType, String ownerId) throws Exception {
-    Node portalNode = createDataNode(session, ownerType, ownerId);
-    if (portalNode.hasNode(PAGE_SET_NODE)) return portalNode.getNode(PAGE_SET_NODE) ;
-    Node pageSetNode = portalNode.addNode(PAGE_SET_NODE, NT_FOLDER_TYPE) ;
-    portalNode.save() ;
-    return pageSetNode;
-  }
-
 //------------------------------------------------- Page Navigation --------------------------------
   
   public void create(PageNavigation navigation) throws Exception {
@@ -258,18 +244,12 @@ public class DataStorageImpl implements DataStorage {
   
   public void savePortletPreferencesConfig(PortletPreferences portletPreferences) throws Exception {
     Session session = jcrRegService_.getSession();
-    Node appNode = jcrRegService_.getApplicationRegistryNode(session, PORTAL_DATA);
-    Node rootNode = create(appNode, portletPreferences.getOwner());
-    Node portletPreNode = null;
-    if(rootNode.hasNode(PORTLET_TPREFERENCES)) {
-      portletPreNode = rootNode.getNode(PORTLET_TPREFERENCES) ;
-    } else {
-      portletPreNode = rootNode.addNode(PORTLET_TPREFERENCES, NT_FOLDER_TYPE) ;
-      rootNode.save();
-    }
+    String ownerType =  portletPreferences.getOwnerType();
+    String ownerId = portletPreferences.getOwnerId();
+    Node portletPrefSetNode = createSetNode(session, PORTLET_PREFERENCES_SET_NODE, ownerType, ownerId);  
     String name  = portletPreferences.getWindowId().replace('/', '_').replace(':', '_');
-    Node node = portletPreNode.addNode(name, EXO_DATA_TYPE);
-    portletPreNode.save();
+    Node node = portletPrefSetNode.addNode(name, EXO_DATA_TYPE);
+    portletPrefSetNode.save();
     mapper_.map(node, portletPreferences) ;    
     node.save() ;
     session.save() ;
@@ -363,6 +343,21 @@ public class DataStorageImpl implements DataStorage {
   }
   
 //------------------------------------------------- Util method-------- ----------------------------
+  
+  private Node getSetNode(Session session, String set, String ownerType, String ownerId) throws Exception {
+    Node portalNode = getDataNode(session, ownerType, ownerId);
+    if(portalNode == null || !portalNode.hasNode(set)) return  null;
+    return portalNode.getNode(set) ;    
+  }
+
+  private Node createSetNode(Session session, String set, String ownerType, String ownerId) throws Exception {
+    Node portalNode = createDataNode(session, ownerType, ownerId);
+    if (portalNode.hasNode(set)) return portalNode.getNode(set) ;
+    Node pageSetNode = portalNode.addNode(set, NT_FOLDER_TYPE) ;
+    portalNode.save() ;
+    return pageSetNode;
+  }
+  
   
   private Node getDataNode(Session session, String ownerType, String ownerId) throws Exception {
     if(ownerType.equals(PortalConfig.PORTAL_TYPE)) {

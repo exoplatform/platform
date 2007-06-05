@@ -17,8 +17,9 @@ import org.exoplatform.services.portletcontainer.pci.model.ExoPortletPreferences
  */
 public class PortletPreferences  {
  
-  private String windowId;  
-  private String owner ;
+  private String windowId;
+  private String ownerType;
+  private String ownerId;
   
   private String preferencesValidator ;
   
@@ -47,9 +48,6 @@ public class PortletPreferences  {
     }    
   }
   
-  public String getOwner() {  return owner ; }
-  public void   setOwner(String s) {  owner  = s ; }
-  
   public String getWindowId() { return windowId ; }
   public void   setWindowId(String s) { windowId = s ;}
   
@@ -58,6 +56,12 @@ public class PortletPreferences  {
   
   public List getPreferences() { return preferences ; }
   public void setPreferences(ArrayList<Preference> l) { preferences = l ; }
+  
+  public String getOwnerId() { return ownerId; }
+  public void setOwnerId(String ownerId) { this.ownerId = ownerId; }
+
+  public String getOwnerType() { return ownerType; }
+  public void setOwnerType(String ownerType) { this.ownerType = ownerType; }
   
   public ExoPortletPreferences toExoPortletPreferences() {
     ExoPortletPreferences prefs = new ExoPortletPreferences() ;
