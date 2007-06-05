@@ -88,18 +88,19 @@ UIMaskLayer.prototype.setPosition = function() {
 } ;
 
 UIMaskLayer.prototype.removeMask = function(maskLayer) {
-	var parentNode = maskLayer.parentNode ;
-	maskLayer.nextSibling.style.display = "none" ;
-	
-	if(maskLayer.nextSiblingOfObject) {
-		maskLayer.nextSiblingOfObject.parentNode.insertBefore(maskLayer.nextSibling, maskLayer.nextSiblingOfObject) ;
-		maskLayer.nextSiblingOfObject = null ;
-	} else {
-		maskLayer.parentOfObject.appendChild(maskLayer.nextSibling) ;
-		maskLayer.parentOfObject = null ;
+	if(maskLayer) {
+		var parentNode = maskLayer.parentNode ;
+		maskLayer.nextSibling.style.display = "none" ;
+		
+		if(maskLayer.nextSiblingOfObject) {
+			maskLayer.nextSiblingOfObject.parentNode.insertBefore(maskLayer.nextSibling, maskLayer.nextSiblingOfObject) ;
+			maskLayer.nextSiblingOfObject = null ;
+		} else {
+			maskLayer.parentOfObject.appendChild(maskLayer.nextSibling) ;
+			maskLayer.parentOfObject = null ;
+		}
+		parentNode.removeChild(maskLayer) ;
 	}
-	
-	parentNode.removeChild(maskLayer) ;
 } ;
 
 UIMaskLayer.prototype.resizeMaskLayer = function() {

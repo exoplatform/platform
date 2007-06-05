@@ -35,9 +35,9 @@ UIBrowserApplication.prototype.destroyApplicationInstance = function(appDescript
 };
 
 /*##############################################################################################*/
-UIBrowserApplication.prototype.initApplication = function(applicationId, instanceId) {
-	
-}
+//UIBrowserApplication.prototype.initApplication = function(applicationId, instanceId) {
+//	
+//}
 
 
 UIBrowserApplication.prototype.initApplication = function(applicationId, instanceId) {

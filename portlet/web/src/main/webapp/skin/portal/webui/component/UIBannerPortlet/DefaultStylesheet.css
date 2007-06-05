@@ -26,7 +26,7 @@
 
 .UIBannerPortlet .LoginContainer .LoginContent {
   float: right;
-  line-height: 19px;
+  line-height: 22px;
   font-size: 11px;
   padding: 4px 13px 0px 0px;
 }
@@ -42,21 +42,18 @@
 .UIBannerPortlet .LoginContent .LoginLabel {
 	float: left;
   cursor: pointer;
-	padding: 0px 8px 0px 0px;
+	padding: 0px 0px 0px 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 11px;
 }
 
 .UIBannerPortlet .LoginContainer .LoginContent a {
-  font-size: 11px;
-  font-weight: bold;
   color: #0d62af;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .UIBannerPortlet .LoginContainer .LoginContent a:hover {
   color: #058ee6;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .UIBannerPortlet .LoginContent .LoginSeperatorLine {
