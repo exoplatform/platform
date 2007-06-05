@@ -449,7 +449,7 @@
 /*##########################- Item Defaul -#########################*/
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item {
-  margin: 8px 4px ;
+  margin: 4px 4px ;
   height: 24px ;
   cursor: pointer ;
 }
@@ -474,7 +474,7 @@
 /*###########################- Item Over -############################*/
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem {
-  margin: 8px 4px ;
+  margin: 4px 4px ;
   height: 24px ;
   cursor: pointer ;
 }
@@ -500,7 +500,7 @@
 /*##########################- Item Selected -#########################*/
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem {
-  margin: 8px 4px ;
+  margin: 4px 4px ;
   height: 24px ;
   cursor: pointer ;
 }

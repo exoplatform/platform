@@ -191,8 +191,7 @@
 
 .UIAddApplication .ApplicationButton {
   float: right;
-  width: 28px;
-  padding: 9px 0px 0px 0px;
+  width: 58px;
 }
 
 
@@ -265,18 +264,18 @@
 }
 
 .UIAddApplication .SelectButton {
-	float: none ; 
+	float: left ; 
 	width: 20px ; height: 20px ;
 	background: url("VistaSkin/icons/16x16/SelectButton.png") no-repeat center;
-	margin: 5px 3px ;
+	margin: 0px 3px ;
 	cursor: pointer ;
 }
 
 .UIAddApplication .AddButton {
-	float: none ; 
+	float: left ; 
 	width: 20px ; height: 20px ;
 	background: url("VistaSkin/icons/16x16/Add.png") no-repeat center;
-	margin: 5px 3px ;
+	margin: 0px 3px ;
 	cursor: pointer ;
 }
 

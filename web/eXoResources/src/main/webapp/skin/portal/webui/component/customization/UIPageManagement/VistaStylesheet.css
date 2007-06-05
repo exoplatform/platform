@@ -132,19 +132,19 @@
 
 .UIPageManagement .EditContainerIcon {
   width: 34px; height: 26px;
-  margin: 7px 7px 0px 7px;
+  margin: 3px 7px 0px 7px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControl.png') no-repeat ;
 }
 
 .UIPageManagement .EditPortletIcon {
   width:34px; height: 24px;
-  margin: 7px 7px 0px 7px;
+  margin: 3px 7px 0px 7px;
   background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControl.png') no-repeat ;
 }
 
 .UIPageManagement .EditPageIcon {
   width: 26px; height: 26px;
-  margin: 7px 5px 0px 5px;
+  margin: 3px 5px 0px 5px;
   background: url('/eXoResources/icons/24x24/VistaSkin/EditPageProperty.png') no-repeat ;
 }
 
@@ -158,21 +158,21 @@
 
 .UIPageManagement .PagePreviewIcon {
   width: 26px; height: 26px;
-  margin: 7px 5px 0px 7px;
+  margin: 3px 5px 0px 14px;
   background: url('/eXoResources/icons/24x24/VistaSkin/PagePreview.png') no-repeat ;
 }
 
 .UIPageManagement .PageLayoutModeIcon {
   float: left;
   width: 32px; height: 32px;
-  margin: 7px 5px 0px 7px;
+  margin: 3px 5px 0px 7px;
   background: url('/eXoResources/icons/24x24/VistaSkin/PageLayoutMode.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageManagement .SavePageIcon {
   width: 26px; height: 26px;
-  margin: 7px 5px 0px 5px; 
+  margin: 3px 5px 0px 5px; 
   background: url('/eXoResources/icons/24x24/VistaSkin/BlackFloppyDiskPage.png') ;
 }
 

@@ -1,13 +1,10 @@
 .eXoBrowser {
-	border: solid 0px gray ;
 }
 
 .eXoBrowser .UIToolbar {
   background: url("VistaSkin/background/UIToolbarBG1x68.png") repeat-x ;
 	margin: 0px;
 	padding: 0px 0px 0px 5px ;
-	border: solid 1px #454545 ;
-	border-bottom:none ;
 }
 
 .eXoBrowser .ButtonContainer {
@@ -95,7 +92,7 @@
   height: 20px ;
 	background: url("VistaSkin/icons/24x24/ActiveGlobal.png") white no-repeat left ;
 	padding: 0px 2px 0px 17px ;
-	margin: 3px 80px 0px 5px ;
+	margin: 3px 78px 0px 5px ;
 	border: solid 1px #8c8c94 ;
 
 }
@@ -117,14 +114,14 @@
 .eXoBrowser .TabBackground {
 	background: url("VistaSkin/background/TabContainerBG1x34.png") repeat-x ;
 	padding: 0px 0px 0px 5px ;
-	border: solid 1px #454545;
-	border-top: none;
-	border-bottom: solid 1px #ffffff ;
 	margin: 0px;
+	height: 34px; 
+	border-top: 1px solid #a4a4a4;
 }
 
 .eXoBrowser .TabContainer {
 	overflow: hidden ;
+	padding-top: 4px;
 }
 
 .eXoBrowser .ActiveTabDetailBackground {

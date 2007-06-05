@@ -109,10 +109,6 @@
   padding: 10px;
 }
 
-.UIAddApplication .UITabContentContainer {
-  border: none;
-}
-
 .UIAddApplication .TitleBarContainer {
 	background: #f6f6f6;
 	font-size: 11px; 
@@ -124,6 +120,7 @@
 
 .UIAddApplication .UITabContentContainer {
 	padding-bottom: 5px;
+	border: none;
 }
 
 .UIAddApplication .UITabContentContainer .NoneAppsMessage{
