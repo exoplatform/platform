@@ -156,7 +156,6 @@ public class UIPageActionListener {
         
         uiPage.addChild(uiWidget);
       } else {
-        System.out.println("\n++++++++++> is " + application.getApplicationType());
         UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);  
         windowId.append(uiPortlet.hashCode());
         
@@ -169,7 +168,6 @@ public class UIPageActionListener {
           }
           uiPortlet.setDescription(application.getDescription());
         }
-        System.out.println("\n\n--------->> Id in java. " + uiPortlet.getId());
         uiPage.addChild(uiPortlet);
       }
 
@@ -180,7 +178,6 @@ public class UIPageActionListener {
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
         configService.update(page);
       }
-      System.out.println("\n\n\n+++++++++++++>>> importal - WindowId: " + windowId );
       
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    

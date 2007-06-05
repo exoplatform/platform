@@ -211,37 +211,6 @@ public class UIPageBrowser extends UISearch {
       
       UIPageBrowseControlBar uiBrowseControlBar = uiManagement.getChild(UIPageBrowseControlBar.class);
       if (uiBrowseControlBar != null) uiBrowseControlBar.setBackComponent(uiPageBrowser);
-      
-      /*UIPageBrowser uiPageBrowser = event.getSource();
-      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext(); 
-      
-      String id = pcontext.getRequestParameter(OBJECTID) ;
-      UserPortalConfigService dao = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class) ;
-      Page page = dao.getPage(id, pcontext.getRemoteUser()) ;
-      
-      UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);      
-
-      if(page == null) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-        return;
-      }
-      
-      if(!page.isModifiable()) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-        return ;
-      }
-      
-      UIPage uiPage =  uiPageBrowser.createUIComponent(pcontext, UIPage.class, null, null) ;
-      PortalDataModelUtil.toUIPage(uiPage, page);
-      
-      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
-      uiPageForm.setValues(uiPage);
-      uiMaskWS.setUIComponent(uiPageForm);
-      uiMaskWS.setShow(true);
-      pcontext.addUIComponentToUpdateByAjax(uiMaskWS);*/
     }
   }
   

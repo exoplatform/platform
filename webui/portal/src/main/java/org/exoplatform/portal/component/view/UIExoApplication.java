@@ -50,8 +50,6 @@ public class UIExoApplication extends UIPortalComponent {
     WebAppController controller = 
       (WebAppController)pcontainer.getComponentInstanceOfType(WebAppController.class) ;
     application_ = controller.getApplication(applicationGroup_ + "/" + applicationName_) ;
-    System.out.println(applicationGroup_ + "/" + applicationName_ + " ==> " + application_);
-    System.out.println("\n\nInit UIExoApplication Component\n\n") ;
   }
   
   public String getApplicationInstanceId() { return applicationInstanceId_ ; }
