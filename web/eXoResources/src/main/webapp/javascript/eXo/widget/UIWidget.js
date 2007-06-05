@@ -62,16 +62,36 @@ UIWidget.prototype.hideWidgetControl = function() {
 UIWidget.prototype.initDND = function(e) {
   var DragDrop = eXo.core.DragDrop ;
   var DOMUtil = eXo.core.DOMUtil ;
+  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+  var limitX = 50 ;
 
 	DragDrop.initCallback = function (dndEvent) {
+		var dragObject = dndEvent.dragObject ;
+		var dragObjectX = dragObject.offsetLeft ;
+		
+		if(dragObjectX > limitX)	dragObject.isIn = false ;
+		else dragObject.isIn = true ;
   }
 
-  DragDrop.dragCallback = function (dndEvent) {  	
-  }
-
-  DragDrop.dropCallback = function (dndEvent) {	  	
+  DragDrop.dragCallback = function (dndEvent) {
   	var dragObject = dndEvent.dragObject ;
-  	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+  	var dragObjectX = dragObject.offsetLeft ;
+  	var dragObjectY = dragObject.offsetTop ;
+  	
+   	if(dragObjectX < limitX && dragObject.isIn == false) {
+  		dragObject.style.left = "0px" ;
+  	}
+  	
+  }
+
+  DragDrop.dropCallback = function (dndEvent) {
+  	var dragObject = dndEvent.dragObject ;
+  	var dragObjectX = dragObject.offsetLeft ;
+  	
+  	if(dragObjectX < limitX && dragObject.isIn == true) {
+  		dragObject.style.left = "0px" ;
+  	}
+  	
   	var offsetHeight = uiPageDesktop.offsetHeight - dragObject.offsetHeight ;
   	var offsetTop = dragObject.offsetTop ;
   	var offsetWidth = uiPageDesktop.offsetWidth - dragObject.offsetWidth ;
@@ -79,8 +99,8 @@ UIWidget.prototype.initDND = function(e) {
   	
   	if (dragObject.offsetLeft < 0) dragObject.style.left = "0px" ;
   	if (dragObject.offsetTop < 0) dragObject.style.top = "0px" ;
-  	if (offsetTop > offsetHeight) dragObject.style.top = offsetHeight + "px" ;  	
-  	if (offsetLeft > offsetWidth) dragObject.style.left = offsetWidth + "px" ;  	
+  	if (offsetTop > offsetHeight) dragObject.style.top = offsetHeight + "px" ;
+  	if (offsetLeft > offsetWidth) dragObject.style.left = offsetWidth + "px" ;
   	
   	/*Save Position*/
   	var uiPage = DOMUtil.findAncestorByClass(dragObject, "UIPage") ;

@@ -27,7 +27,6 @@
       <application-type>eXoWidget</application-type>
     </application>
    
-  
     <application>
       <instance-id>admin:/exoadmin/OrganizationPortlet/Organization</instance-id>
       <title>Organization Portlet</title>
