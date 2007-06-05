@@ -126,20 +126,25 @@ public class UIPageActionListener {
         uiPage = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
       }      
       
-      String applicationId = event.getRequestContext().getRequestParameter("applicationId");  
+      String applicationId = event.getRequestContext().getRequestParameter("applicationId");
+      
+      System.out.println("\n\n\n-------------->>>> appId: " + applicationId);
       StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
       windowId.append(":/").append(applicationId).append('/');
       Application application = getApplication(uiPortal, applicationId);
+      System.out.println("\n\n--------->> App Id " + application.getApplicationName());
       
       if(org.exoplatform.portal.config.model.Application.EXO_APPLICATION_TYPE.equals(application.getApplicationType())){
         UIExoApplication uiExoApp = uiPage.createUIComponent(UIExoApplication.class, null, null);
         windowId.append(uiExoApp.hashCode());
+        System.out.println("\n++++++++++> is exoapp");
         uiExoApp.setApplicationInstanceId(windowId.toString());
         uiExoApp.init();
         uiPage.addChild(uiExoApp);
       } else if(org.exoplatform.portal.config.model.Application.WIDGET_TYPE.equals(application.getApplicationType())){
         UIWidget uiWidget = uiPage.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
         windowId.append(uiWidget.hashCode());
+        System.out.println("\n++++++++++> is widget");
         uiWidget.setApplicationInstanceId(windowId.toString());
         uiWidget.setApplicationName(application.getApplicationName());
         uiWidget.setApplicationGroup(application.getApplicationGroup());
@@ -155,8 +160,10 @@ public class UIPageActionListener {
         
         uiPage.addChild(uiWidget);
       } else {
+        System.out.println("\n++++++++++> is " + application.getApplicationType());
         UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);  
-        windowId.append(":/").append(applicationId).append('/').append(uiPortlet.hashCode());
+        windowId.append(uiPortlet.hashCode());
+        
         uiPortlet.setWindowId(windowId.toString());
         if(application != null){
           if(application.getDisplayName() != null) {
@@ -166,6 +173,7 @@ public class UIPageActionListener {
           }
           uiPortlet.setDescription(application.getDescription());
         }
+        System.out.println("\n\n--------->> Id in java. " + uiPortlet.getId());
         uiPage.addChild(uiPortlet);
       }
 
@@ -176,7 +184,8 @@ public class UIPageActionListener {
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
         configService.update(page);
       }
-
+      System.out.println("\n\n\n+++++++++++++>>> importal - WindowId: " + windowId );
+      
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
@@ -194,6 +203,8 @@ public class UIPageActionListener {
           if(application.getId().equals(id)) return application;
         }  
       }    
+      
+      System.out.println("\n\n\n-------------->>>>>>>>> Return null;");
       return null;
     }
   }
