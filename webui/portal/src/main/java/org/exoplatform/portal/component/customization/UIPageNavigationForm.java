@@ -20,6 +20,7 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.component.UIApplication;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.component.UIFormInputSet;
@@ -104,6 +105,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
     uiPermissionSetting.addChild(uiEditPermission);
     
     UIFormPopupWindow uiPopupGroupSelector = addChild(UIFormPopupWindow.class, null, "UIPopupGroupSelector");
+    uiPopupGroupSelector.setShowCloseButton(false);
     uiPopupGroupSelector.setWindowSize(540, 0);
     UIGroupSelector uiGroupSelector = createUIComponent(UIGroupSelector.class, null, null) ;
     uiPopupGroupSelector.setUIComponent(uiGroupSelector);
@@ -212,8 +214,15 @@ public class UIPageNavigationForm extends UIFormTabPane {
     public void execute(Event<UIGroupSelector> event) throws Exception {
       UIGroupSelector uiGroupSelector = event.getSource();
       UIPageNavigationForm uiPageNavigationForm = uiGroupSelector.getAncestorOfType(UIPageNavigationForm.class);
-      UIFormStringInput ownerId = uiPageNavigationForm.getUIStringInput("ownerId");
-      ownerId.setValue(uiGroupSelector.getSelectedGroup().getId());
+      UIFormStringInput ownerIdStringInput = uiPageNavigationForm.getUIStringInput("ownerId");
+      if(uiGroupSelector.getSelectedGroup() == null) {
+        UIFormSelectBox uiSelectBox = uiPageNavigationForm.getUIFormSelectBox("ownerType");
+        uiSelectBox.setValue(PortalConfig.USER_TYPE);
+        PortalRequestContext prContext = Util.getPortalRequestContext();
+        ownerIdStringInput.setValue(prContext.getRemoteUser());
+        return;
+      }
+      ownerIdStringInput.setValue(uiGroupSelector.getSelectedGroup().getId());
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNavigationForm.getParent());
     }
   }

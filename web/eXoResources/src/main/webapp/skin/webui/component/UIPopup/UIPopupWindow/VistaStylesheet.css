@@ -10,6 +10,13 @@
   background: url('DefaultSkin/background/PopupWindowIcon16x16.gif') no-repeat;
 }
 
+.UIPopupWindow .PopupTitleIconRight {
+  float: right;
+  margin: 5px 3px 0px 0px;
+  width: 19px; height: 15px;
+  background: url('DefaultSkin/background/PopupWindowIcon16x16.gif') no-repeat;
+}
+
 .UIPopupWindow .PopupTitle {
   margin-top: 6px; 
   text-align: center;

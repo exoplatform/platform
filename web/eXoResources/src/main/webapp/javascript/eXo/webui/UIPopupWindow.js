@@ -3,7 +3,7 @@ eXo.require('eXo.webui.UIPopup');
 function UIPopupWindow() {	
 };
 
-UIPopupWindow.prototype.init = function(popupId, isShow, isResizable) {
+UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseButton) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	this.superClass = eXo.webui.UIPopup ;
 	var popup = document.getElementById(popupId) ;
@@ -22,9 +22,12 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable) {
 	popupBar.onmousedown = this.initDND ;
 	
 	if(isShow == false) this.superClass.hide(popup) ; 
-	var popupCloseButton = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'CloseButton') ;
-	popupCloseButton.onmouseup = function() {
-		DOMUtil.findAncestorByClass(this, "UIDragObject").style.display = "none" ;
+	
+	if(showCloseButton == true) {
+		var popupCloseButton = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'CloseButton') ;
+		popupCloseButton.onmouseup = function() {
+			DOMUtil.findAncestorByClass(this, "UIDragObject").style.display = "none" ;
+		}
 	}
 	
 	if(isResizable) {

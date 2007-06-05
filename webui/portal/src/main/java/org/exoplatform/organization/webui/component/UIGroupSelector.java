@@ -172,7 +172,6 @@ public class UIGroupSelector extends UIContainer {
   
   static  public class SelectGroupActionListener extends EventListener<UIGroupSelector> {   
     public void execute(Event<UIGroupSelector> event) throws Exception {
-      System.out.println("\n\n\n\n == > run here \n\n\n");
       UIGroupSelector uiSelector = event.getSource();
       
       UIPopupWindow uiPopup = uiSelector.getParent();

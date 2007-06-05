@@ -25,6 +25,7 @@ public class UIPopupWindow extends UIComponentDecorator {
   
   private int width_  = -1 ;
   private int height_ =  -1 ;
+  private boolean showCloseButton = true;
   private boolean isShow = false ;
   private boolean isResizable = false ;
   
@@ -50,5 +51,12 @@ public class UIPopupWindow extends UIComponentDecorator {
       WebuiRequestContext context =  event.getRequestContext() ;
       context.addUIComponentToUpdateByAjax(uiPopupWindow) ;
     }
+  }
+
+  public boolean isShowCloseButton() {
+    return showCloseButton;
+  }
+  public void setShowCloseButton(boolean showCloseButton) {
+    this.showCloseButton = showCloseButton;
   }
 }
