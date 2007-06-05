@@ -46,6 +46,8 @@ public class UIControlWorkspace extends UIWorkspace {
 
     UIControlWSWorkingArea uiWorking = addChild(UIControlWSWorkingArea.class, null, WORKING_AREA_ID);
     uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
+    
+//    WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance();
   } 
   
   public String getVisible() { return visible; }

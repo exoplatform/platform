@@ -17,7 +17,7 @@
   
   String visible = uicomponent.getVisible();
   if(visible.equals("true")) { 
-    String showWorkspace = "eXo.portal.UIControlWorkspace.showWorkspace();";
+    String showWorkspace = "eXo.portal.UIControlWorkspace.setVisible('true');";
   	rcontext.getJavascriptManager().addCustomizedOnLoadScript(showWorkspace);
   }
 %>
