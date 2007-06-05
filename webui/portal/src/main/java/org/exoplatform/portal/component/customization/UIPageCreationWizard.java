@@ -59,14 +59,15 @@ public class UIPageCreationWizard extends UIPageWizard {
   
   public UIPageCreationWizard() throws Exception {    
     addChild(UIContainer.class, "ViewStep1", null);
-    UIWizardPageSetInfo uiPageSetInfo = addChild(UIWizardPageSetInfo.class, null, null).setRendered(false);    
+    //UIWizardPageSetInfo uiPageSetInfo = addChild(UIWizardPageSetInfo.class, null, null).setRendered(false);
+    addChild(UIWizardPageSetInfo.class, null, null).setRendered(false);
     addChild(UIWizardPageSelectLayoutForm.class, null, null).setRendered(false);
     addChild(UIPagePreview.class, null, null).setRendered(false); 
     setNumberSteps(4);
     setHasWelcome(true);
     
-    UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
-    uiNodeSelector.loadSelectedNavigation();
+    //UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
+    //uiNodeSelector.loadSelectedNavigation();
   }     
   
   private void saveData() throws Exception {

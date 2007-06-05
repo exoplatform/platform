@@ -121,13 +121,19 @@ public class UIPageNodeSelector extends UIContainer {
     
     if(navigations_.size() < 1) return;
     loadSelectedNavigation();
+    //TODO: Tung.Pham modified
+    //-----------------------------------------------------------------------------------------------
+    //if(selectedNavigation == null) { selectedNavigation = navigations_.get(0);
+    //if(selectedNavigation.getNodes().size() > 0) selectedPageNode = selectedNavigation.getNode(0);
     
-    if(selectedNavigation == null) selectedNavigation = navigations_.get(0);
-    if(selectedNavigation.getNodes().size() > 0) selectedPageNode = selectedNavigation.getNode(0);
-    
-    UITree tree = getChild(UITree.class);
-    tree.setSibbling(selectedNavigation.getNodes());
-    
+    //UITree tree = getChild(UITree.class);
+    //tree.setSibbling(selectedNavigation.getNodes());
+    if (selectedNavigation == null) {
+      selectedNavigation = navigations_.get(0) ;
+      UITree tree = getChild(UITree.class) ;
+      tree.setSibbling(selectedNavigation.getNodes()) ;
+    }
+    //-----------------------------------------------------------------------------------------------
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     for(PageNavigation navigation: navigations_) {
       String label = navigation.getOwnerId() + "'s Nav";

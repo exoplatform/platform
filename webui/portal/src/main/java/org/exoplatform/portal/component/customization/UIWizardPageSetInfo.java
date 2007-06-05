@@ -54,10 +54,15 @@ public class UIWizardPageSetInfo extends UIForm {
     if(!value) return;
     UIPageNodeSelector  uiPageNodeSelector = getChild(UIPageNodeSelector.class);
     uiPageNodeSelector.loadSelectedNavigation();
-    if(uiPageNodeSelector.getSelectedPageNode() == null) return;
-    PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
-    uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri()) ; 
+    //TODO: Tung.Pham modified
+    //----------------------------------------------------------------
+    //if(uiPageNodeSelector.getSelectedPageNode() == null) return;
+    //PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
+    //uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri()) ;
     this.<UIFormStringInput>getChildById("pageName").setEditable(false) ;
+    PageNode pageNode = uiPageNodeSelector.getSelectedPageNode() ;
+    if (pageNode == null) return ;
+    //---------------------------------------------------------------- 
     invokeGetBindingBean(pageNode);
   }
   
