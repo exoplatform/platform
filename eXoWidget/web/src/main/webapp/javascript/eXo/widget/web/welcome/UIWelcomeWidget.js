@@ -16,10 +16,19 @@ function UIWelcomeWidget() {
 
 UIWelcomeWidget.prototype.createApplicationInstance = function(appDescriptor) {
 	var DOMUtil = eXo.core.DOMUtil ;
+	
+	var app = document.getElementById("UIWelcomeWidget");
 
 	appDescriptor.widget = {
+		uiWelcomeWidget : {
+			temporary : app,
+			appId : app.getAttribute('applicationId'),
+			positionX : app.getAttribute('posX'),
+			positionY : app.getAttribute('posY'),
+			userName : app.getAttribute('userName')
+		}
 	};
-
+	
  	appDescriptor.widget.content = 
     eXo.core.TemplateEngine.merge("eXo/widget/web/welcome/UIWelcomeWidget.jstmpl", appDescriptor, "/exo.widget.web/javascript/") ;
  	appDescriptor.widget.removeApplication = 
@@ -37,10 +46,8 @@ UIWelcomeWidget.prototype.initApplication = function(applicationId, instanceId) 
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.welcome.UIWelcomeWidget) ;
 	var appInstance = appDescriptor.createApplication();
-	var app = document.getElementById("UIWelcomeWidget");
-	appInstance.id = app.getAttribute('applicationId');
-	appInstance.positionX = app.getAttribute('posX');
-	appInstance.positionY = app.getAttribute('posY');
+	appInstance.id = appInstance.applicationDescriptor.widget.uiWelcomeWidget.appId ;
+	var app = appInstance.applicationDescriptor.widget.uiWelcomeWidget.temporary ;
 	
 	var uiPageDesktop = DOMUtil.findAncestorByClass(app, "UIPageDesktop") ;
 	if(uiPageDesktop == null) {

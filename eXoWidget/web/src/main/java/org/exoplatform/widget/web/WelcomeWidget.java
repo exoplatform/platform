@@ -32,11 +32,11 @@ public class WelcomeWidget extends WidgetApplication<UIWidget> {
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     
     String instanceId = uiWidget.getApplicationInstanceId() ;
+    String userName = pContext.getRemoteUser() ;
     
     int posX = uiWidget.getProperties().getIntValue("locationX") ;
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
-    
-    w.write("<div id = 'UIWelcomeWidget' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"'><span></span></div>") ;
+    w.write("<div id = 'UIWelcomeWidget' userName = '"+userName+"' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"'><span></span></div>") ;
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','"+instanceId+"','/exo.widget.web/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;

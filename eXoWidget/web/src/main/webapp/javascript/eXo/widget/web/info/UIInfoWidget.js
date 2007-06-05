@@ -17,7 +17,14 @@ function UIInfoWidget() {
 UIInfoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 	var DOMUtil = eXo.core.DOMUtil ;
 
+	var appElement = document.getElementById("UIInfoWidget");
 	appDescriptor.widget = {
+		uiInfoWidget : {
+			temporaty : appElement,
+			appId : appElement.getAttribute('applicationId'),
+			positionX : appElement.getAttribute('posX'),
+			positionY : appElement.getAttribute('posY')
+		}
 	};
 	
  	appDescriptor.widget.content = 
@@ -37,12 +44,9 @@ UIInfoWidget.prototype.initApplication = function(applicationId, instanceId) {
 	
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.info.UIInfoWidget);
-	  
 	var appInstance = appDescriptor.createApplication();
-	var appElement = document.getElementById("UIInfoWidget");
-	appInstance.id = appElement.getAttribute('applicationId') ;
-	appInstance.positionX = appElement.getAttribute('posX');
-	appInstance.positionY = appElement.getAttribute('posY');
+	appInstance.id = appInstance.applicationDescriptor.widget.uiInfoWidget.appId;
+	var appElement = appInstance.applicationDescriptor.widget.uiInfoWidget.temporaty;
 	
 	var uiPageDesktop = DOMUtil.findAncestorByClass(appElement, "UIPageDesktop") ;
 	if(uiPageDesktop == null) {
@@ -56,7 +60,6 @@ UIInfoWidget.prototype.initApplication = function(applicationId, instanceId) {
 
 UIInfoWidget.prototype.destroyApplicationInstance = function(appDescriptor) {
 	var applicationNode = document.getElementById(appDescriptor.appId);
-	
 	return applicationNode ;
 };
 
