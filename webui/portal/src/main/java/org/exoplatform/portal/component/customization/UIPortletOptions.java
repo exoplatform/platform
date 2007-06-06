@@ -20,8 +20,12 @@ import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIDropDownItemSelector;
 import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
-  template = "app:/groovy/portal/webui/component/customization/UIPortletOptions.gtmpl"
+  template = "app:/groovy/portal/webui/component/customization/UIPortletOptions.gtmpl",
+  events = @EventConfig(listeners = UIPortletOptions.ChangeOptionActionListener.class)
 )
 public class UIPortletOptions extends UIContainer {
 
@@ -37,7 +41,8 @@ public class UIPortletOptions extends UIContainer {
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     dropCategorys.setOptions(options);
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
-  
+    dropCategorys.setOnServer(true);
+    dropCategorys.setOnChange("ChangeOption");
     String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
     List<ApplicationCategory> pCategories = service.getApplicationCategories(remoteUser) ; 
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
@@ -73,7 +78,13 @@ public class UIPortletOptions extends UIContainer {
   }
 
   public ApplicationCategory getSelectedPCategory() { return selectedPCategory; }
-
+  public void setCategorySelected(String selectedContainerId) {
+    for(PortletCategoryData categoryData: pCategoryDatas){
+      if(categoryData.getPortletCategory().getName().equals(selectedContainerId)){
+        selectedPCategory = categoryData.getPortletCategory();
+      }
+    }
+  }
   public List<PortletCategoryData> getPortletCategorDatas() { return pCategoryDatas ; }
   
   public void processRender(WebuiRequestContext context) throws Exception {   
@@ -107,5 +118,25 @@ public class UIPortletOptions extends UIContainer {
 
     public List<Application> getPortlets() { return portlets; }
   }
+  
+  static  public class ChangeOptionActionListener extends EventListener<UIPortletOptions> {
+    public void execute(Event<UIPortletOptions> event) throws Exception {
+     
+      String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);
+      UIPortletOptions uiContainerOptions = event.getSource();
+      UIDropDownItemSelector uiDropDownItemSelector = uiContainerOptions.getChild(UIDropDownItemSelector.class);
+      SelectItemOption<String> option = uiDropDownItemSelector.getOption(selectedContainerId);
+      if(option != null) uiDropDownItemSelector.setSelectedItem(option);
+      uiContainerOptions.setCategorySelected(selectedContainerId);
+//      if(uiWidgets.getSelectedContainer().getId().equals(selectedContainerId)) return;
+//      
+//      UIContainer newSelected = uiWidgets.getChildById(selectedContainerId) ;
+//      uiWidgets.getSelectedContainer().setRendered(false);
+//      uiWidgets.setSelectedContainer(newSelected);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiContainerOptions.getParent());
+    }
+  }
+
+  
 
 }
