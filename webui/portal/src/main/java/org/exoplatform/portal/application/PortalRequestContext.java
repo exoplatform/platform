@@ -44,6 +44,7 @@ public class PortalRequestContext extends WebuiRequestContext {
     
     String pathInfo = req.getPathInfo() ;
     int colonIndex = pathInfo.indexOf("/", 1)  ;
+    if(colonIndex < 0) colonIndex = pathInfo.length();
     portalOwner_ =  pathInfo.substring(1, colonIndex) ;
     nodePath_ = pathInfo.substring(colonIndex , pathInfo.length()) ;
     
