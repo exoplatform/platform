@@ -42,7 +42,6 @@
           </div>
         </div>
         <%/*End Top Decorator*/%>
-        
         <%//Begin the Middle Decorator %>
         <div class="MiddleLeftSideBoxDecorator">
           <div class="MiddleRightSideBoxDecorator">

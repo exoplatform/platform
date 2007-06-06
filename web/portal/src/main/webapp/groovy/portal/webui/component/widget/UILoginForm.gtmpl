@@ -32,7 +32,7 @@
 		              <% uiform.renderChild(1)%>
 		            </div> 
 		            
-		            <div style="display:none"> 
+		            <div style="display:block"> 
 				          <div class="Message">
 				            <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
 				              <%=_ctx.appRes("UILoginForm.label.forgot")%>
@@ -66,7 +66,7 @@
 			        </div>
 	          <%uiform.end()%>
 	          
-	          <div class="SignUpBar" style="display: none">
+	          <div class="SignUpBar" style="display: block">
 	          	<div class="LeftSignUpBar">
 		          	<div class="SignUpBackground">
 		          		<div style="float: left ; margin-left: 10px">

@@ -1,5 +1,5 @@
 <div class="UIGroupInfoContainer $uicomponent.id">
-<div class="TitleBar"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
+	<div class="TitleBar"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
   <div class="HorizontalLayout">
     <div class="FormContainer">
       <%

@@ -48,7 +48,7 @@ public class UIUserInGroup extends UIContainer {
   public UIUserInGroup() throws Exception {
     UIGrid uiGrid = addChild(UIGridUser.class, "UIGridUser", null) ;
     uiGrid.configure("id", USER_BEAN_FIELD, USER_ACTION) ;
-    addChild(UIGroupMembershipForm.class, null, null);
+    //addChild(UIGroupMembershipForm.class, null, null);
   }  
 
   public Group getSelectedGroup(){

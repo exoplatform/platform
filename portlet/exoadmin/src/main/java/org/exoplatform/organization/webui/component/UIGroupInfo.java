@@ -10,6 +10,9 @@ import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UITabPane;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.services.organization.Membership;
+import org.exoplatform.services.organization.MembershipHandler;
+
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
@@ -27,6 +30,7 @@ public class UIGroupInfo extends UIContainer {
   
   public UIGroupInfo() throws Exception {
     addChild(UIUserInGroup.class, null, null) ;
+    addChild(UIGroupMembershipForm.class, null, null);
   }
   
   public void setGroup(Group group) throws Exception {
