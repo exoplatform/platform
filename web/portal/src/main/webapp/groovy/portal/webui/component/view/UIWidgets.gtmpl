@@ -6,12 +6,14 @@
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
   jsmanager.importJavascript('eXo.widget.UIWidgetContainerManagement');
+  jsmanager.importJavascript('eXo.webui.UIVerticalScroller') ;
   String showWCM = "eXo.widget.UIWidgetContainerManagement.show();" ;
   
   jsmanager.importJavascript('eXo.widget.UIWidget');
   
   jsmanager.addOnLoadJavascript('eXo.widget.UIWidget.resizeContainer');
   jsmanager.addOnResizeJavascript('eXo.widget.UIWidget.resizeContainer');
+  //jsmanager.addOnResizeJavascript('eXo.webui.UIVerticalScroller.init');  
 %>
 
 <div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">

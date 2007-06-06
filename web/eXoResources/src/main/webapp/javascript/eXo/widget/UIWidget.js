@@ -1,5 +1,6 @@
-function UIWidget() {
-	
+eXo.require('eXo.webui.UIVerticalScroller');
+
+function UIWidget() {	
 };
 
 UIWidget.prototype.init = function(uiWidget, inDesktop) {
@@ -68,9 +69,16 @@ UIWidget.prototype.initDND = function(e) {
 	DragDrop.initCallback = function (dndEvent) {
 		var dragObject = dndEvent.dragObject ;
 		var dragObjectX = dragObject.offsetLeft ;
+		var dragObjectY = dragObject.offsetTop ;
 		
-		if(dragObjectX > limitX)	dragObject.isIn = false ;
+		if(dragObjectX > limitX )	dragObject.isIn = false ;
 		else dragObject.isIn = true ;
+		
+		UIDesktop = eXo.desktop.UIDesktop ;
+		UIDesktop.resetZIndex(dragObject) ;
+		dragObject.onclick = function () {
+			UIDesktop.resetZIndex(this) ;
+		}
   }
 
   DragDrop.dragCallback = function (dndEvent) {
@@ -80,27 +88,35 @@ UIWidget.prototype.initDND = function(e) {
   	
    	if(dragObjectX < limitX && dragObject.isIn == false) {
   		dragObject.style.left = "0px" ;
-  	}
+  	} 	
   	
-  }
-
+  	/*if(dragObjectY < limitX && dragObject.isIn == true) {
+  		dragObject.style.top = "0px" ;
+  	}
+  	window.status = "uiPageDesktop : " + uiPageDesktop.offsetWidth ;*/
+  }	
   DragDrop.dropCallback = function (dndEvent) {
   	var dragObject = dndEvent.dragObject ;
   	var dragObjectX = dragObject.offsetLeft ;
+  	var dragObjectY = dragObject.offsetTop ;
   	
   	if(dragObjectX < limitX && dragObject.isIn == true) {
   		dragObject.style.left = "0px" ;
   	}
   	
-  	var offsetHeight = uiPageDesktop.offsetHeight - dragObject.offsetHeight ;
+  	if(dragObjectY < limitX ) {
+  		dragObject.style.top = "0px" ;
+  	}
+  	  	
+  	var offsetHeight = uiPageDesktop.offsetHeight - dragObject.offsetHeight  - limitX;
   	var offsetTop = dragObject.offsetTop ;
-  	var offsetWidth = uiPageDesktop.offsetWidth - dragObject.offsetWidth ;
+  	var offsetWidth = uiPageDesktop.offsetWidth - dragObject.offsetWidth - limitX ;
   	var offsetLeft = dragObject.offsetLeft ;
   	
   	if (dragObject.offsetLeft < 0) dragObject.style.left = "0px" ;
   	if (dragObject.offsetTop < 0) dragObject.style.top = "0px" ;
-  	if (offsetTop > offsetHeight) dragObject.style.top = offsetHeight + "px" ;
-  	if (offsetLeft > offsetWidth) dragObject.style.left = offsetWidth + "px" ;
+  	if (offsetTop > offsetHeight) dragObject.style.top = (offsetHeight + limitX) + "px" ;
+  	if (offsetLeft > offsetWidth) dragObject.style.left = (offsetWidth + limitX) + "px" ;
   	
   	/*Save Position*/
   	var uiPage = DOMUtil.findAncestorByClass(dragObject, "UIPage") ;
@@ -118,12 +134,12 @@ UIWidget.prototype.initDND = function(e) {
   var clickBlock = this ;
   var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
   DragDrop.init(null, clickBlock, dragBlock, e) ;
+  
 };
-
 /*
- * Coder      : Dunghm
- * Date       : 30-05-2007
- * Description: resize workspace frame
+ * Coder       : Dunghm
+ * Date        : 30-05-2007
+ * Description : resize workspace frame
  * */
 UIWidget.prototype.resizeContainer = function() {
 	var widgets  = document.getElementById("UIWidgets") ;
@@ -139,9 +155,11 @@ UIWidget.prototype.resizeContainer = function() {
 	var itemSelectorContainer = DOMUtil.findFirstChildByClass(widgets, "div", "ItemSelectorContainer") ;
 	
 	var availableHeight = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + extraHeight) ;
+	window.status = "workspacePanel.clientHeight: " + workspacePanel.clientHeight + "    widgetContainerScrollArea: " + widgetContainerScrollArea.clientHeight;
 	if (availableHeight < 0)  return ;
 	
 	widgetContainerScrollArea.style.height = availableHeight + "px" ;
+	widgetContainerScrollArea.style.overflow = "hidden" ;
 } ;
 
 eXo.widget.UIWidget = new UIWidget();

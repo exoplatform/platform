@@ -6,15 +6,18 @@
   
   jsmanager.importJavascript('eXo.widget.UIAddWidget');
   jsmanager.importJavascript('eXo.desktop.UIAddApplication') ;
-  
+  //jsmanager.importJavascript('eXo.webui.UIVerticalScroller') ;  
+  //jsmanager.addOnResizeJavascript('eXo.webui.UIVerticalScroller.init');  
+  //jsmanager.addOnLoadJavascript('eXo.webui.UIVerticalScroller.init');
   //System.out.println("\n\n\n == > is uicontainer la "+ uicomponent.getChildren().size()+"\n\n\n");
   String componentId = uicomponent.getId();
   String addWidgetAction = "eXo.desktop.UIAddApplication.init('"+componentId+"','"+componentId+"', ['eXoWidget']);" ;
-  
+  String scrollUpAction = "javascript:;" ;//"eXo.webui.UIVerticalScroller.scrollUp(this, 'UIWidgetContainer', 'UIWidget');";
+  String scrollDownAction = "javascript:;" ; //"eXo.webui.UIVerticalScroller.scrollDown(this, 'UIWidgetContainer', 'UIWidget');";
 %>
 
 <div class="UIWidgetContainer" id="<%=componentId%>">
-	<div class="WidgetContainerScrollArea">
+	<div class="WidgetContainerScrollArea ScrollZone" style = "height:300px ; overflow-y : hidden ;">
 		<% uicomponent.renderChildren() %>
 	</div>
 	<div class="WidgetNavigator">
@@ -22,14 +25,14 @@
 			<div class="RightWidgetNavBar">
 				<div class="CenterWidgetNavBar">
 					<div class="Icon AddWidgetButton" onclick="$addWidgetAction" title="Add Widget"><span></span></div>
-					<div class="Icon DisableScrollDownButton" style="display: none"><span></span></div>
-					<div class="Icon ScrollDownButton" title="Scroll down"><span></span></div>
-					<div class="Icon DisableScrollDownButton" style="display: none"><span></span></div>
-  				<div class="Icon ScrollUpButton" title="Scroll up"><span></span></div>
+					<div class="Icon ScrollDownButton" onclick="$scrollDownAction" title="Scroll down"><span></span></div>
+  				<div class="Icon DisableScrollUpButton" onclick="$scrollUpAction" title="Scroll up"><span></span></div>
    				<div style="clear: left"><span></span></div> 									
   			</div>
   		</div>
   	</div>
   </div>
-  <div style="clear: right"><span></span></div>
+  <div style="clear: right"><span></span></div> 									
 </div>
+<% jsmanager.addJavascript("eXo.webui.UIVerticalScroller.init();") ; %>
+  

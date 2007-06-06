@@ -1,3 +1,4 @@
+eXo.require('eXo.webui.UIVerticalScroller') ;
 function UIWorkspace(id) {
   this.id = id ;
   this.showControlWorkspace = false ;
@@ -66,7 +67,7 @@ eXo.portal.UIControlWorkspace.setVisible = function(visible) {
 	}
 }
    	
-eXo.portal.UIControlWorkspace.showWorkspace = function() {
+eXo.portal.UIControlWorkspace.showWorkspace = function() {	
 	var cws = eXo.portal.UIControlWorkspace ;
 	var uiWorkspace = document.getElementById(this.id) ;
 	var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
@@ -104,7 +105,38 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	/* Resizes the scrollable containers */
 	eXo.portal.UIPortalControl.initAllManagers();
 	
-	if(document.getElementById("UIWidgets")) eXo.widget.UIWidget.resizeContainer();
+	if(document.getElementById("UIWidgets")) {
+		eXo.widget.UIWidget.resizeContainer();
+		eXo.webui.UIVerticalScroller.init();
+	}
+	/* BEGIN - Check positon of widgets in order to avoid hide widgets when we expand/collapse workspace*/
+	if(uiPageDesktop = document.getElementById("UIPageDesktop")) {
+		var DOMUtil = eXo.core.DOMUtil ;
+		var uiWidget = DOMUtil.findChildrenByClass(uiPageDesktop, "div", "UIWidget") ;
+		var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
+		var size = uiWidget.length ;
+		var limitX = 50 ;
+			
+		for(var i = 0 ; i < size ; i ++) {
+			var dragObject = uiWidget[i] ;
+			if (cws.showControlWorkspace == true) {
+				dragObject.style.left = (dragObject.offsetLeft - uiControlWorkspace.offsetWidth) + "px";				
+			}
+			else {				
+				dragObject.style.left = (dragObject.offsetLeft + uiControlWorkspace.offsetWidth + dragObject.offsetWidth) + "px";				
+			}
+			var offsetHeight = uiPageDesktop.offsetHeight - dragObject.offsetHeight  - limitX;
+	  	var offsetTop = dragObject.offsetTop ;
+	  	var offsetWidth = uiPageDesktop.offsetWidth - dragObject.offsetWidth - limitX ;
+	  	var offsetLeft = dragObject.offsetLeft ;
+	  	
+	  	if (dragObject.offsetLeft < 0) dragObject.style.left = "0px" ;
+	  	if (dragObject.offsetTop < 0) dragObject.style.top = "0px" ;
+	  	if (offsetTop > offsetHeight) dragObject.style.top = (offsetHeight + limitX) + "px" ;
+	  	if (offsetLeft > offsetWidth) dragObject.style.left = (offsetWidth + limitX) + "px" ;				
+		}		
+	}
+	/* -- END -- */
 	var params = [ {name: "objectId", value : cws.showControlWorkspace} ] ;
 	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(this.id, "SetVisible", true, params), false) ;
 };
@@ -189,4 +221,4 @@ eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace)
 			}
 		}
 	} else {return;}
-};
+};	

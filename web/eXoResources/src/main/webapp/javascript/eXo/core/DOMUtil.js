@@ -213,6 +213,19 @@ DOMUtil.prototype.findNextElementByTagName = function(element, tagName) {
 	return null ;
 } ;
 
+DOMUtil.prototype.findPreviousElementByTagName = function(element, tagName) {
+	var previousElement = element.previousSibling ;
+	while(previousElement != null) {
+		var nodeName = previousElement.nodeName ;
+    if(nodeName != null) nodeName = nodeName.toLowerCase() ;
+		if(nodeName == tagName) return previousElement ;
+			
+		previousElement = previousElement.previousSibling ;
+	}
+	
+	return null ;
+} ;
+
 DOMUtil.prototype.createElementNode = function(innerHTML, tagName) {
 	var temporaryContainer = document.createElement(tagName);
 	temporaryContainer.innerHTML = innerHTML ;
