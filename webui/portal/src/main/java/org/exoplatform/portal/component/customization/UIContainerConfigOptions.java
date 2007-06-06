@@ -109,18 +109,12 @@ public class UIContainerConfigOptions extends UIContainer {
   
   static  public class ChangeOptionActionListener extends EventListener<UIContainerConfigOptions> {
     public void execute(Event<UIContainerConfigOptions> event) throws Exception {
-     
       String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);
       UIContainerConfigOptions uiContainerOptions = event.getSource();
       UIDropDownItemSelector uiDropDownItemSelector = uiContainerOptions.getChild(UIDropDownItemSelector.class);
       SelectItemOption<String> option = uiDropDownItemSelector.getOption(selectedContainerId);
       if(option != null) uiDropDownItemSelector.setSelectedItem(option);
       uiContainerOptions.setCategorySelected(selectedContainerId);
-//      if(uiWidgets.getSelectedContainer().getId().equals(selectedContainerId)) return;
-//      
-//      UIContainer newSelected = uiWidgets.getChildById(selectedContainerId) ;
-//      uiWidgets.getSelectedContainer().setRendered(false);
-//      uiWidgets.setSelectedContainer(newSelected);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiContainerOptions.getParent());
     }
   }

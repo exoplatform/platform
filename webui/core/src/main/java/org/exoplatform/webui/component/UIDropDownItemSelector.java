@@ -126,9 +126,7 @@ public class UIDropDownItemSelector extends UIComponent {
     }
   }
 
-  public void cleanItem() {
-    options_.clear();
-  }
+  public void cleanItem() { options_.clear(); }
   
   public boolean addItem(String s) {
     if( s == null || s.length() < 1) return false ;
