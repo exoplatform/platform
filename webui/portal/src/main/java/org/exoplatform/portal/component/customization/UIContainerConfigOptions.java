@@ -46,7 +46,7 @@ public class UIContainerConfigOptions extends UIContainer {
     setComponentConfig(UIContainerConfigOptions.class, null);    
     selectedCategory_ = null;
     UIDropDownItemSelector dropCategorys = addChild(UIDropDownItemSelector.class, null, null);
-    dropCategorys.setTitle("Container Category");
+    dropCategorys.setTitle("ContainerCategory");
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     dropCategorys.setOptions(options);
     if(initParams == null) return ;
