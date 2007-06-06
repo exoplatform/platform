@@ -298,19 +298,15 @@ UIDockbar.prototype.resetDesktopShowedStatus = function(uiPageDesktop, uiDockBar
 		}
 	}
 	if(this.showDesktop) {
-		var classViewer = "PortletsViewer";
-		for(var i = 0; i < 2; ++i) {
-			var portletsViewer = eXo.core.DOMUtil.findDescendantById(uiDockBar, classViewer) ;
-			var blankImage = portletsViewer.src ;
-			var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Hide"+classViewer+".png" ;
-			if(eXo.core.Browser.isIE6()) {
-		  	portletsViewer.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcMonitoringImage + "', sizingMethod='scale')" ;
-		  	portletsViewer.src = blankImage ;
-			} else {
-				portletsViewer.src = srcMonitoringImage ;
-			}
-			classViewer = "WidgetsViewer";
-		}	
+		var portletsViewer = eXo.core.DOMUtil.findDescendantById(uiDockBar, "PortletsViewer") ;
+		var blankImage = portletsViewer.src ;
+		var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Hide"+classViewer+".png" ;
+		if(eXo.core.Browser.isIE6()) {
+	  	portletsViewer.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcMonitoringImage + "', sizingMethod='scale')" ;
+	  	portletsViewer.src = blankImage ;
+		} else {
+			portletsViewer.src = srcMonitoringImage ;
+		}
 		this.showDesktop = false ;
 	}
 };

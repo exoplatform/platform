@@ -20,7 +20,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 //TODO: Tung.Pham modified
 //@ComponentConfig( template = "system:/groovy/webui/component/UITabPane.gtmpl" )
 @ComponentConfig(
-    template = "system:/groovy/webui/component/UIContainerWithTitle.gtmpl"
+    template = "system:/groovy/webui/component/UIGroupInfoContainer.gtmpl"
 )
 //public class UIGroupInfo extends UITabPane {
 public class UIGroupInfo extends UIContainer {
