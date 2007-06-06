@@ -70,6 +70,36 @@ config = "<page>" +
          "</page>";
 rowPageConfigs.addSelectItemOption(new SelectItemOption("Three Rows Layout", config, "ThreeRowsLayout"));
 
+SelectItemCategory tabsPageConfigs = new SelectItemCategory("tabsPageConfigs") ;
+categories.add(tabsPageConfigs) ;
+
+config = "<page>" +
+				 "	<owner-type></owner-type>" +
+				 "	<owner-id></owner-id>" +
+				 "	<name>UIPage</name>" +
+				 "	<container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\">" +
+         "		<container template=\"system:/groovy/portal/webui/component/view/UITabContainer.gtmpl\">" +
+         "  		<container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+         "  		<container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+         "		</container>" +
+         "	</container>" +
+         "</page>" ;
+tabsPageConfigs.addSelectItemOption(new SelectItemOption("Two Tabs", config, "TwoTabsLayout")) ;
+
+config = "<page>" +
+				 "	<owner-type></owner-type>" +
+				 "	<owner-id></owner-id>" +
+				 "	<name>UIPage</name>" +
+         "	<container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\">" +
+         "		<container template=\"system:/groovy/portal/webui/component/view/UITabContainer.gtmpl\">" +
+         "  		<container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+         "  		<container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+         "  		<container template=\"system:/groovy/portal/webui/component/view/UIContainer.gtmpl\"></container>" +
+         "		</container>" +
+	       "	</container>" +
+         "</page>" ;
+tabsPageConfigs.addSelectItemOption(new SelectItemOption("Three Tabs", config, "ThreeTabsLayout")) ;
+
 SelectItemCategory mixPageConfigs = new SelectItemCategory("mixPageConfigs") ;
 categories.add(mixPageConfigs); 
   
