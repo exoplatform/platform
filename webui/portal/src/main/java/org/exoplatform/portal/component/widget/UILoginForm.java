@@ -111,7 +111,7 @@ public class UILoginForm extends UIForm {
       //String redirect = request.getContextPath() + "/private/site:/";
       UIPortal currentPortal = Util.getUIPortal() ;
       String portalName = currentPortal.getName() ;
-      String redirect = request.getContextPath() + "/private/" + portalName + ":/";
+      String redirect = request.getContextPath() + "/private/" + portalName + "/";
       prContext.getResponse().sendRedirect(redirect);      
     }   
     

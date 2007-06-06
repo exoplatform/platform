@@ -51,7 +51,7 @@ public class UILogged extends UIContainer {
         //String redirect = request.getContextPath() ;
         UIPortal currentPortal = Util.getUIPortal() ;
         String portalName = currentPortal.getName() ;
-        String redirect = request.getContextPath() + "/public/" + portalName + ":/" ;
+        String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
         prContext.getResponse().sendRedirect(redirect) ;
       }
     }    
