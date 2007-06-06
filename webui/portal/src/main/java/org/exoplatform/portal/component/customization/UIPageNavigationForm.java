@@ -176,6 +176,10 @@ public class UIPageNavigationForm extends UIFormTabPane {
           pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
           return ;
         }
+        //TODO: Tung.Pham added
+        //-----------------------------------
+        storage.create(pageNav) ;
+        //-----------------------------------
         UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
         if(uiPageNodeSelector != null) {
           Util.getUIPortal().getNavigations().add(pageNav);
