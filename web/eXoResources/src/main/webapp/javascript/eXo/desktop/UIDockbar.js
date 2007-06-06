@@ -41,24 +41,42 @@ UIDockbar.prototype.init = function() {
 	uiDockbar.originalDockbarHeight = uiDockbar.offsetHeight ;
 	
 	var portletsViewer = document.getElementById("PortletsViewer") ;
+	var widgetsViewer = document.getElementById("WidgetsViewer") ;
 	
 	portletsViewer.onclick = function() {
 		UIDockbar.viewShowDesktop(portletsViewer) ;
+	};
+	
+	widgetsViewer.onclick = function() {
+		UIDockbar.viewShowDesktop(widgetsViewer) ;
 	};
 };
 
 UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
 	var uiPageDesktop = document.getElementById("UIPageDesktop");
   var children = eXo.core.DOMUtil.getChildrenByTagName(uiPageDesktop, "div");
-  
   var blankImage = portletsViewer.src ;
-  var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/HideDesktop.png" ;
-	var srcPortletsViewerImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/PortletsViewer.png" ;
-
+  var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Hide"+portletsViewer.id+".png" ;
+	var srcPortletsViewerImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Show"+portletsViewer.id+".png" ;
+	var uiWidget = eXo.core.DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWidget");
+	if(uiWidget && portletsViewer.id == "WidgetsViewer") {
+		for(var i = 0; i < uiWidget.length; ++i) {
+			if(uiWidget[i].style.display == "block") {
+				this.showDesktop = false;
+				break;
+			}
+		}
+	}
 	if(this.showDesktop) {
 		for(var j = 0; j < children.length; j++) {
-			if(children[j].isShowed==true && children[j].className!="UIDockBar") {
-				children[j].style.display = "block" ;
+			if(children[j].className!="UIDockBar") {
+				if(portletsViewer.id == "WidgetsViewer") {
+					if(children[j].className == "UIWidget UIDragObject")
+				  children[j].style.display = "block" ;
+				} else {
+					if(children[j].className == "UIWindow UIDragObject")
+					children[j].style.display = "block" ;
+				}
 			}
 	  }
 	  if(eXo.core.Browser.isIE6()) {
@@ -71,10 +89,17 @@ UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
 	} else {
 		for(var j = 0; j < children.length; j++) {
 			if(children[j].className!="UIDockBar") {
-				if (String(children[j].className).indexOf("UIWidget")>=0) continue;
-				children[j].style.display = "none" ;				
-				if(children[j].isShowed) {
-					this.showDesktop = true ;
+				if(portletsViewer.id == "PortletsViewer") {
+				  if (String(children[j].className).indexOf("UIWidget")>=0) continue;
+					children[j].style.display = "none" ;				
+					if(children[j].isShowed) {
+						this.showDesktop = true ;
+					}
+				} else {
+					if (children[j].className == "UIWidget UIDragObject") {
+					  children[j].style.display = "none" ;	
+					  this.showDesktop = true ;
+					}
 				}
 			}
 	  }
@@ -273,15 +298,19 @@ UIDockbar.prototype.resetDesktopShowedStatus = function(uiPageDesktop, uiDockBar
 		}
 	}
 	if(this.showDesktop) {
-		var portletsViewer = eXo.core.DOMUtil.findDescendantById(uiDockBar, "PortletsViewer") ;
-		var blankImage = portletsViewer.src ;
-		var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/HideDesktop.png" ;
-		if(eXo.core.Browser.isIE6()) {
-	  	portletsViewer.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcMonitoringImage + "', sizingMethod='scale')" ;
-	  	portletsViewer.src = blankImage ;
-		} else {
-			portletsViewer.src = srcMonitoringImage ;
-		}
+		var classViewer = "PortletsViewer";
+		for(var i = 0; i < 2; ++i) {
+			var portletsViewer = eXo.core.DOMUtil.findDescendantById(uiDockBar, classViewer) ;
+			var blankImage = portletsViewer.src ;
+			var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Hide"+classViewer+".png" ;
+			if(eXo.core.Browser.isIE6()) {
+		  	portletsViewer.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcMonitoringImage + "', sizingMethod='scale')" ;
+		  	portletsViewer.src = blankImage ;
+			} else {
+				portletsViewer.src = srcMonitoringImage ;
+			}
+			classViewer = "WidgetsViewer";
+		}	
 		this.showDesktop = false ;
 	}
 };
