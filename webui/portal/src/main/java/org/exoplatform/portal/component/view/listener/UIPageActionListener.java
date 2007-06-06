@@ -44,6 +44,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIPageActionListener {
 
   static public class ChangePageNodeActionListener  extends EventListener {
+    
     private UIPortal uiPortal_ ;
     private List<PageNode> selectedPaths_;
     

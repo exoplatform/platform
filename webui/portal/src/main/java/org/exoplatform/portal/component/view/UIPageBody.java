@@ -39,11 +39,15 @@ public class UIPageBody extends UIComponentDecorator {
   
   @SuppressWarnings("unused")
   public void setPageBody(PageNode pageNode, UIPortal uiPortal) throws Exception {
+    setPage(pageNode.getPageReference(), uiPortal);
+  }
+  
+  public void setPage(String pageId, UIPortal uiPortal) throws Exception {
     WebuiRequestContext  context = Util.getPortalRequestContext() ;
     ExoContainer appContainer  =  context.getApplication().getApplicationServiceContainer() ;
     UserPortalConfigService userPortalConfigService = 
       (UserPortalConfigService)appContainer.getComponentInstanceOfType(UserPortalConfigService.class);
-    Page page  = userPortalConfigService.getPage(pageNode.getPageReference(), context.getRemoteUser());
+    Page page  = userPortalConfigService.getPage(pageId, context.getRemoteUser());
     UIPage uiPage = null;
     if(page != null) {
     if(Page.DEFAULT_PAGE.equals(page.getFactoryId())) page.setFactoryId(null);

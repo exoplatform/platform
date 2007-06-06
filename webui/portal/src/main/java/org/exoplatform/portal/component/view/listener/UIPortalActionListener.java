@@ -4,12 +4,18 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view.listener;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
+import org.exoplatform.portal.component.control.UIControlWorkspace;
+import org.exoplatform.portal.component.control.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.portal.component.customization.UIPortalForm;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
+import org.exoplatform.portal.component.view.UIPageBody;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
+import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -45,14 +51,30 @@ public class UIPortalActionListener {
   }
   
  
-  //TODO: Rename this class to RemoveApplicationActionListener,  if the listener can remove only
-  //the application in the page , then it should be UIPageActionListener class
-  /*static public class RemoveJSApplicationToDesktopActionListener  extends EventListener<UIPortal> {
+  static public class LoadPageActionListener extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {
-      String instanceId  = event.getRequestContext().getRequestParameter("jsInstanceId");
-      UIPage uiPage  = event.getSource().findFirstComponentOfType(UIPage.class);
-      uiPage.removeChildById(instanceId);
+      UIPortal uiPortal  = event.getSource();
+      String pageId = event.getRequestContext().getRequestParameter("pageId");
+      
+      System.out.println("\n\n\n == > ta thay co page "+pageId +"\n\n\n");
+      
+      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);          
+      uiPageBody.setPage(pageId, uiPortal);
+      
+      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      PortalRequestContext pcontext = Util.getPortalRequestContext();     
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
+      uiPortal.setRenderSibbling(UIPortal.class);
+      pcontext.setFullRender(true);
+
+      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      if(uiControl == null) return;
+      UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
+      if(uiControl != null) pcontext.addUIComponentToUpdateByAjax(uiControl);      
+      if(UIWelcomeComponent.class.isInstance(uiWorking.getUIComponent())) return;
+      uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null)) ;
     }
-  }*/
+  }
   
 }
