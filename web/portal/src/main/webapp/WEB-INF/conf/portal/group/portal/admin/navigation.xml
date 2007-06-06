@@ -62,10 +62,10 @@
       </node>
       
       <node>
-        <uri>/portal/admin::workflow/monitoring</uri>
-        <name>workflowMonitoring</name>
-        <label>Workflow Monitoring</label>
-        <page-reference>group::/portal/admin::workflowmonitoring</page-reference>
+        <uri>/portal/admin::workflow/administration</uri>
+        <name>workflowAdministration</name>
+        <label>Workflow Administration</label>
+        <page-reference>group::/portal/admin::workflowadministration</page-reference>
       </node>
     </node>
     

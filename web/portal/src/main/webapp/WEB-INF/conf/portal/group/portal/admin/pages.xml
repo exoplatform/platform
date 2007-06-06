@@ -144,12 +144,12 @@
   <page>
   	<owner-type>group</owner-type>
     <owner-id>/portal/admin</owner-id>
-    <name>workflowmonitoring</name>
+    <name>workflowadministration</name>
     <access-permissions>*:/guest</access-permissions>          
     
     <application>
-      <instance-id>admin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</instance-id>    
-      <title>Workflow Monitoring Portlet</title>
+      <instance-id>admin:/workflow/WorkflowAdministrationPortlet/workflowadministration</instance-id>    
+      <title>Workflow Administration Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
     </application>  
@@ -222,8 +222,8 @@
     </application>    
 
     <application>
-      <instance-id>admin:/workflow/WorkflowMonitoringPortlet/workflowmonitoring</instance-id>    
-      <title>Workflow Monitoring Portlet</title>
+      <instance-id>admin:/workflow/WorkflowAdministrationPortlet/workflowadministration</instance-id>    
+      <title>Workflow Administration Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>    
   </page>
