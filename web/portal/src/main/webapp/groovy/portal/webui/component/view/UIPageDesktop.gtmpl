@@ -125,10 +125,16 @@
                   <%}%>
 
                   <img class="Separator" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/MacSkin/background/Separator2x1.png" />
-                  <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/PortletsViewer.png"
+                  <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/ShowPortletsViewer.png"
                        alt="/eXoResources/background/DefaultSkin/Blank.gif" />
                   <%/*Tool Tip*/%>
-                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowDesktop")%></span>
+                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowPortletDesktop")%></span>
+                  <%/*End Tool Tip*/%>
+
+                  <img id="WidgetsViewer" class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/HideWidgetsViewer.png"
+                       alt="/eXoResources/background/DefaultSkin/Blank.gif" />
+                  <%/*Tool Tip*/%>
+                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
                   <%/*End Tool Tip*/%>
                 </div>
               </div>
