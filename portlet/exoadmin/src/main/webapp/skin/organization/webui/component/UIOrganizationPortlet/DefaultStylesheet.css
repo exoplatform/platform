@@ -160,6 +160,8 @@
   padding-top: 3px;
 }
 
+.UIOrganizationPortlet .UITabPane .WorkingAreaWithHelp .UITabContentContainer .UITabContent
+
 .UIOrganizationPortlet .UIGroupManagement .UITabPane {
   width: 99.0%;
   float: none; margin: auto;
@@ -271,6 +273,19 @@
 .UIOrganizationPortlet .UIFormWithTitle {
 	width: auto ;
 	margin: auto;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupInfo {
+	width: auto;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupInfo .UIGroupMembershipForm {
+	width: auto;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupInfo .UIGroupMembershipForm .UIFormGrid{
+	width: 440px;
+	margin:auto;
 }
 
 .UIOrganizationPortlet .UIFormWithTitle .UIForm {

@@ -52,7 +52,11 @@ public class UIWizardPageCreationBar extends UIContainer {
     Writer w = context.getWriter();    
     w.append("<div class=\"UICreatePage\" id=\"UIWizardPageCreationBar\">") ;
     w.append("  <div class=\"CreatePageContainer\">") ;
-    w.append("    <div class=\"CreatePageLabel\">Page Management</div>") ;
+    w.append("    <div class=\"CreatePageBarLeft\">") ;
+    w.append("      <div class=\"CreatePageBarRight\">") ;
+    w.append("        <div class=\"CreatePageLabel\">Page Management</div>") ;
+    w.append("      </div>") ;
+    w.append("    </div>") ;
     renderChildren() ;
     w.append("  </div>") ;
     w.append("</div>") ;
