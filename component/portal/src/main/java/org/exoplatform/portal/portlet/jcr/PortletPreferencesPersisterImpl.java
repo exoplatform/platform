@@ -49,7 +49,7 @@ public class PortletPreferencesPersisterImpl implements PortletPreferencesPersis
 
   public ExoPortletPreferences getPortletPreferences(WindowID windowID) throws Exception {
     String owner = windowID.getOwner();
-    String [] components = owner.split("/");
+    String [] components = owner.split("#");
     if(components.length < 2) return null;
     String ownerType = components[0];
     String ownerId = components[1];

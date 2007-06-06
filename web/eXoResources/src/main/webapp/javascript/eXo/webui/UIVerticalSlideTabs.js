@@ -1,8 +1,8 @@
 function UIVerticalSlideTabs() {};
 
 UIVerticalSlideTabs.prototype.slideInEffect = function() {
-	if((parseInt(this.selectedTab.style.height) - 50) > 0) {
-		this.selectedTab.style.height = (parseInt(this.selectedTab.style.height) - 50) + "px";
+	if((parseInt(this.selectedTab.style.height) - 30) > 0) {
+		this.selectedTab.style.height = (parseInt(this.selectedTab.style.height) - 30) + "px";
 		setTimeout("eXo.webui.UIVerticalSlideTabs.slideInEffect()",3) ;
 	} else {
 		this.selectedTab.style.height = "0px";
