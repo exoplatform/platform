@@ -40,12 +40,11 @@
 
 /*============================== UIPersonalInfo ==============================*/
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
-  width: 490px;
+  width: 380px;
   padding:6px 0px 0px 35px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetail .FieldContainer {
-  width: 480px;
   padding:0px;
 }
 

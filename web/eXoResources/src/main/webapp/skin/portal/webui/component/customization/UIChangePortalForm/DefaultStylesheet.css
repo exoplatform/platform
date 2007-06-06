@@ -24,3 +24,8 @@
 .UIChagnePortalForm .UIGrid .ActionContainer {
   width: 20px;
 }
+
+.UIChagnePortalForm .UITabPane .TabPaneContent .UITabContentContainer { 
+	border: 1px solid #d4d4d4;
+	border-top: none;
+}

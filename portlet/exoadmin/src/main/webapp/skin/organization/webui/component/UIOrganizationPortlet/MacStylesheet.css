@@ -76,21 +76,8 @@
   margin-top: 4px;
 }
 
-
-.UIOrganizationPortlet .UIMembership .UIAction  {
-  width: 155px;
-} 
-
-.UIOrganizationPortlet .ManagementTabContent .UIFormWithTitle .UIAction {
-	width: 70px;
-}
-
-.UIOrganizationPortlet .UISharedPortalForm .UIAction {
-  width: 170px;
-}
-
 .UIOrganizationPortlet .UIForm .HorizontalLayout .FieldContainer {
-  width: 400px;
+  width: 380px;
 }
 
 /*##############################- UIUserManagement -###########################*/
@@ -101,10 +88,6 @@
 
 .UIOrganizationPortlet .UIFormTabPane .UIPersonalInfo {
   padding: 0px;
-}
-
-.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet label {
-  width: 100px;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
@@ -122,6 +105,10 @@
 
 .UIOrganizationPortlet .UIUserManagement .UIGrid {  
   margin: 1px auto ;
+}
+
+.UIOrganizationPortlet .UIUserManagement .UIAction {  
+  width: 180px ;
 }
 
 /*#######################- UIUserInfo - #####################*/
@@ -193,20 +180,20 @@
   margin-left: 230px ;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .GroupDetail .WorkingArea {
-  padding-left: 2px ;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIHorizontalTabs  {
   width: 100%;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .HorizontalLayout  {
-  width: 99.5%;
+	border: 1px solid #b7b7b7;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITabContentContainer {
   background: url('MacSkin/background/LightGrayLinedBG1x4.gif');
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGrid th {
+	padding: 0px 3px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGrid .ActionContainer {  
@@ -214,37 +201,22 @@
   width: 22px; height: 16px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormWithTitle {
-  width: 390px;
+.UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle {
+	width: auto;
+	margin: auto;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .GroupDetail .FieldContainer label{
-  width: 100px;
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
+	width: 370px;
+	margin: 10px auto;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .FieldContainer input{
-  width: 210px;
+.UIOrganizationPortlet .UIGroupManagement .UIAction {
+  width: 155px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIAction {
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .UIAction {
   width: 80px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle {  
-  margin-top: 12px;
-}
-
-
-.UIOrganizationPortlet .UIGroupManagement .UISharedNavigationForm .UIAction {  
-  width: 170px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UISharedNavigation .UIAction {  
-  width: 150px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIGroupForm .UIAction {
-  width: 160px;
 }
 
 /*#######################  UIMemberShipManagement #################################*/
@@ -252,11 +224,6 @@
 .UIOrganizationPortlet .UIMembershipManagement {
   width: 97%; 
   margin: auto;
-}
-
-.UIOrganizationPortlet .UIFormWithTitle  {
-	margin: auto ;
-	margin-top: 15px;	 
 }
 
 .UIOrganizationPortlet .UIGrid .ActionContainer {  
@@ -270,6 +237,6 @@
   width: 99.5%;
 }
 
-.UIOrganizationPortlet .ManagementTabContent .UIUserManagement .UIAction{
-  width: 180px;
+.UIOrganizationPortlet .UIMembershipManagement .UIAction{
+  width: 85px;
 }
