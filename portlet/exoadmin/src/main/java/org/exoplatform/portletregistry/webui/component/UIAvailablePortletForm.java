@@ -64,23 +64,23 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     uiTableInputSet.setColumns(TABLE_COLUMNS);
     addChild(uiTableInputSet);
     
-    PortletContainerService containerService = getApplicationComponent(PortletContainerService.class);
-    Map map = containerService.getAllPortletMetaData();
-    Iterator iter = map.keySet().iterator();
     ApplicationRegistryService registeryService = getApplicationComponent(ApplicationRegistryService.class) ;
-    while(iter.hasNext()){
-      String id = String.valueOf(iter.next());
-      Application portlet = null; 
-      try{
-         portlet = registeryService.getApplication(id);
-      }catch (Exception exp) {
-        exp.printStackTrace();
-      }
-      if(portlet == null) continue;  
+    List<Application> applications = registeryService.getAllApplications();
+//    while(iter.hasNext()){
+//      String id = String.valueOf(iter.next());
+//      Application portlet = null; 
+//      try{
+//         portlet = registeryService.getApplication(id);
+//      }catch (Exception exp) {
+//        exp.printStackTrace();
+//      }
+//      if(portlet == null) continue;  
+    for(Application portlet: applications) {
+      String id = portlet.getId();
       UIFormInputSet uiInputSet = new UIFormInputSet(portlet.getId()) ;
       UIFormInputInfo uiInfo = new UIFormInputInfo("label", null, portlet.getDisplayName());
       uiInputSet.addChild(uiInfo);
-      uiInfo = new UIFormInputInfo("description", null, portlet.getDescription());
+      uiInfo = new UIFormInputInfo("description", null, portlet.getApplicationType());
       uiInputSet.addChild(uiInfo);
       UIFormCheckBoxInput<String> uiCheckbox = new UIFormCheckBoxInput<String>(id, null, id);       
       uiCheckbox.setValue(id);

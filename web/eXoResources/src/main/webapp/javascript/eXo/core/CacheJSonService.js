@@ -13,21 +13,18 @@ CacheJSonService.prototype.getData = function(url, invalidCache) {
 	  var value = this.cacheData.get(url);
 		if(value != null && value != undefined)	return value;	
   }
-	
 	var responseText = ajaxAsyncGetRequest(url, false);
-  
   var response;
   try {
   	if(request.responseText != '') {
   	  eval("response = "+responseText);
   	}
   } catch(err) {
-  	alert(err + " : "+responseText);
+    /**Created: Comment by Le Bien Thuy**/
+  	//TODO. alert(err + " : "+responseText);
     return  null;  
   }
-  
   if(response == null || response == undefined) return null;
   this.cacheData.put(url, response);
-  
   return response;
 };

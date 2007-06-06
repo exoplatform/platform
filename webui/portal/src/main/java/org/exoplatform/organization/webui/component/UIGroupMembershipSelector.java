@@ -153,7 +153,9 @@ public class UIGroupMembershipSelector extends UIContainer {
 
   static  public class ChangeNodeActionListener extends EventListener<UITree> {   
     public void execute(Event<UITree> event) throws Exception {     
+     
       String groupId = event.getRequestContext().getRequestParameter(OBJECTID)  ;
+      System.out.println("\n\n\n ChangeNode roi ne: " + groupId);
       UITree uiTree = event.getSource();
       UIGroupMembershipSelector uiSelector = uiTree.getParent();    
       uiSelector.changeGroup(groupId);
@@ -185,11 +187,10 @@ public class UIGroupMembershipSelector extends UIContainer {
         uiApp.addMessage(new ApplicationMessage("UIGroupMembershipSelector.msg.selectGroup", null)) ;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return ;
-      } else {
-        uiParent.broadcast(event, event.getExecutionPhase());
-        
-        uiPopup.setShow(false);
-      }
+      } 
+      
+      uiParent.broadcast(event, event.getExecutionPhase());
+      uiPopup.setShow(false);
       
       UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
       if(uiForm != null) {
@@ -220,5 +221,5 @@ public class UIGroupMembershipSelector extends UIContainer {
       }
     }
   }
-
+ 
 }

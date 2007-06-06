@@ -36,14 +36,13 @@ function getUrl(src) {
 UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes, parentId) {
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	var url = eXo.env.server.context + "/command?";
-	url += "type=org.exoplatform.portal.application.handler.GetApplicationHandler";
 	
+	url += "type=org.exoplatform.portal.application.handler.GetApplicationHandler";
 	for(var i = 0; i < applicationTypes.length; i++) {
 		url += "&applicationType="+applicationTypes[i];
 	}
 	if(refresh == null || refresh == undefined) refresh = false;
   var category = eXo.core.CacheJSonService.getData(url, refresh);
-  
   if(category == null || category == undefined) return;
   var itemList = eXo.core.DOMUtil.findFirstDescendantByClass(uiAddApplicationContainer, "div", "ItemList") ;
   var itemDetailList = eXo.core.DOMUtil.findFirstDescendantByClass(uiAddApplicationContainer, "div", "ItemDetailList") ;

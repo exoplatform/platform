@@ -8,6 +8,7 @@ import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.component.view.UIWidgets;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -18,7 +19,10 @@ import org.exoplatform.webui.component.model.SelectItemOption;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IUnmarshallingContext;
@@ -34,7 +38,8 @@ import org.jibx.runtime.IUnmarshallingContext;
     initParams = @ParamConfig(
         name = "ContainerConfigOption",
         value = "system:/WEB-INF/conf/uiconf/portal/webui/component/customization/ContainerConfigOption.groovy"
-    )
+    ),
+    events = @EventConfig(listeners = UIContainerConfigOptions.ChangeOptionActionListener.class)
 )
 public class UIContainerConfigOptions extends UIContainer {
 
@@ -49,6 +54,8 @@ public class UIContainerConfigOptions extends UIContainer {
     dropCategorys.setTitle("ContainerCategory");
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     dropCategorys.setOptions(options);
+    dropCategorys.setOnServer(true);
+    dropCategorys.setOnChange("ChangeOption");
     if(initParams == null) return ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("ContainerConfigOption");          
@@ -63,6 +70,15 @@ public class UIContainerConfigOptions extends UIContainer {
   public void setCategorySelected(SelectItemCategory selectedCategory) {
     selectedCategory_ = selectedCategory ;
   }  
+  
+  public void setCategorySelected(String name) {
+    for(SelectItemCategory itemCategory: categories_) {
+      if(itemCategory.getName().equals(name)){
+        selectedCategory_ = itemCategory;
+        return;
+      }
+    }
+  }
   public SelectItemCategory getCategorySelected() { return selectedCategory_ ; }
 
   public List<SelectItemCategory> getCategories() { return  categories_ ; }
@@ -89,5 +105,23 @@ public class UIContainerConfigOptions extends UIContainer {
     super.processRender(context);    
     Util.showComponentLayoutMode(UIContainer.class);
 //    context.addJavascript("eXo.webui.UIContainerConfigOptions.init();"); 
+  }
+  
+  static  public class ChangeOptionActionListener extends EventListener<UIContainerConfigOptions> {
+    public void execute(Event<UIContainerConfigOptions> event) throws Exception {
+     
+      String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);
+      UIContainerConfigOptions uiContainerOptions = event.getSource();
+      UIDropDownItemSelector uiDropDownItemSelector = uiContainerOptions.getChild(UIDropDownItemSelector.class);
+      SelectItemOption<String> option = uiDropDownItemSelector.getOption(selectedContainerId);
+      if(option != null) uiDropDownItemSelector.setSelectedItem(option);
+      uiContainerOptions.setCategorySelected(selectedContainerId);
+//      if(uiWidgets.getSelectedContainer().getId().equals(selectedContainerId)) return;
+//      
+//      UIContainer newSelected = uiWidgets.getChildById(selectedContainerId) ;
+//      uiWidgets.getSelectedContainer().setRendered(false);
+//      uiWidgets.setSelectedContainer(newSelected);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiContainerOptions.getParent());
+    }
   }
 }

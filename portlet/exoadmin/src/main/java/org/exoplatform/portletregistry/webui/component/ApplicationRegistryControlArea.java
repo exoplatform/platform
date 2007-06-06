@@ -169,6 +169,10 @@ public class ApplicationRegistryControlArea extends UIContainer {
         service.remove(ele) ;
       }
       uiSource.initApplicationCategories();
+      UIPortletRegistryPortlet parent = uiSource.getParent();
+      ApplicationRegistryWorkingArea workingArea = parent.getChild(ApplicationRegistryWorkingArea.class);
+      workingArea.setPortlets(new ArrayList<Application>());
+      event.getRequestContext().addUIComponentToUpdateByAjax(parent);
     }
   }
 

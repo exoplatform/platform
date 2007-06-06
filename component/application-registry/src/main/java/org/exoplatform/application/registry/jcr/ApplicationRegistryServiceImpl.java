@@ -119,6 +119,15 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     return list;
   }
   
+  public List<Application> getAllApplications() throws Exception {
+    List<Application> list = new ArrayList<Application>();
+    List<ApplicationCategory> listCategorys = getApplicationCategories();
+    for(ApplicationCategory cate: listCategorys) {
+      list.addAll(getApplications(cate));
+    }    
+    return list;
+  }
+  
   private boolean isApplicationType(Application app, String...appTypes){
     if(appTypes == null || appTypes.length < 1) return true;
     for(String appType : appTypes) {

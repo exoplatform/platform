@@ -14,6 +14,7 @@ import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.component.UIFormPopupWindow;
 import org.exoplatform.webui.component.UIGrid;
 import org.exoplatform.webui.component.UIPageIterator;
+import org.exoplatform.webui.component.UIPopupWindow;
 import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -30,8 +31,9 @@ import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfig(
   template = "system:/groovy/organization/webui/component/UIListPermissionSelector.gtmpl",
   events = {
+      @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.CloseActionListener.class),
     @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.DeleteActionListener.class, confirm = "UIAccessGroup.deleteAccessGroup"),
-    @EventConfig (phase = Phase.DECODE, listeners = UIPermissionSelector.SelectMembershipActionListener.class)
+    @EventConfig(phase = Phase.DECODE, listeners = UIPermissionSelector.SelectMembershipActionListener.class)
   }
 )
 public class UIListPermissionSelector extends UISelector<String[]> { 
@@ -136,6 +138,13 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       uiPermissions.removePermission(permission);
       UIForm uiForm = uiPermissions.getAncestorOfType(UIForm.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
+    }
+  }
+  
+  static  public class CloseActionListener extends EventListener<UIPopupWindow> {
+    public void execute(Event<UIPopupWindow> event) throws Exception {
+      UIPopupWindow uiPopupWindow = event.getSource();
+      System.out.println("\n\n\n+++++++++++++++++++>>>>>>>>>>>>>>>>>> HUN");
     }
   }
 
