@@ -34,7 +34,7 @@
 .UILoginPortlet .LoginContent .FieldContainer {
   width: 320px ;
   overflow: hidden ;
-  padding-top: 9px ;
+  padding-top: 7px ;
   margin: auto ;
 }
 
@@ -73,7 +73,7 @@
   width: 250px;
   overflow: hidden;
   margin: auto; 
-  padding-top: 10px;
+  padding-top: 7px;
 }
 
 .UILoginPortlet .LoginContent .OverflowContainer input {
@@ -89,7 +89,7 @@
 
 .UILoginPortlet .LoginContent .LoginButton {
   height: 22px ;
-  padding: 10px 0px 10px 0px;
+  padding: 8px 0px;
   margin-left: 40px;
 }
 

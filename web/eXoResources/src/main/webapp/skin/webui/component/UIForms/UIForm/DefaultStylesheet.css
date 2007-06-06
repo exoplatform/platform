@@ -70,24 +70,19 @@
   background: white ;
 }
 
-.UIForm .HorizontalLayout input[type=text] {
-  width: 228px ;
-  font-size: 11px;
-}
-
-.UIForm .HorizontalLayout input[type=password] {
+.UIForm .HorizontalLayout input {
   width: 228px ;
   font-size: 11px;
 }
 
 .UIForm .HorizontalLayout input.checkbox {
-	width: auto;
+	width: 16px;
 	margin: 0px;
 }
 
 .UIForm .HorizontalLayout input.radio {
 	float: none;
-  width: auto;
+  width: 15px;
 }
 
 .UIForm .HorizontalLayout textarea {
