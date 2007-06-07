@@ -5,7 +5,7 @@
 
 /*##############################- LoginBox Style-################################*/
 .UILoginForm .LoginDecorator {
-	width: 540px;
+	width: 550px;
 	margin: auto;
 }
 
@@ -82,9 +82,10 @@
 
 .UILoginForm .LoginDetailBox .CheckField {
   height: 20px;
-  width: 190px;
+  width: 170px;
   margin: auto 40px 0px auto;
   padding-left: 30px;
+  padding-top:4px;
 }
 
 .UILoginForm .LoginDetailBox .CheckField input {
@@ -105,22 +106,22 @@
 
 .UILoginForm .LoginDetailBox .UserNameField input {
   background: white url('DefaultSkin/background/UsernameIcon20x20.gif') no-repeat left ;
-  width: 180px; height: 18px;
-  border: solid 1px #b7b7b7 ;
+  width: 180px; height: 20px;
+  border: solid 1px #c4c4c4 ;
   padding: 0px 0px 0px 22px;
 }
 
 .UILoginForm .LoginDetailBox .PasswordField input {
   background: white url('DefaultSkin/background/PasswordIcon20x20.gif') no-repeat left ;
-  width: 180px; height: 18px;
-  border: solid 1px #b7b7b7 ;
+  width: 180px; height: 20px;
+  border: solid 1px #c4c4c4 ;
   padding: 0px 0px 0px 22px;
 }
 
 .UILoginForm .LoginDetailBox .Message {
-  width: 300px; margin: auto; 
+  width:280px; margin: auto; 
   height: 26px; line-height: 26px; text-align: right;
-  color: blue ;
+  color: #2169d4 ;
   white-space: nowrap;
   padding: 0px 10px 0px 0px;
   cursor: pointer;
@@ -136,12 +137,10 @@
 }
 
 .UILoginForm .LoginDecorator .LeftSignUpBar {
-  background: url('DefaultSkin/background/SignUpRoundLeft11x24.gif') no-repeat left ;
-  padding: 0px 0px 0px 11px ;
+  padding: 0px 0px 0px 55px ;
 }
 
 .UILoginForm .LoginDecorator .SignUpBackground {
-  background: url('DefaultSkin/background/SignUpBackground1x24.gif') repeat-x ;
   height: 24px;
   line-height: 24px;
   text-align: right;
@@ -155,7 +154,7 @@
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {
   width: 160px;
-  margin-top: 8px;
+  margin-top: 10px;
   padding: 0px;
 }
 
