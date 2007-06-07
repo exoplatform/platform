@@ -58,9 +58,11 @@
       <div class="UIVerticalSlideTabs">
    	    <% 
 				  for(category in portletCategories) { 			     
-	 			    String cTab, cName , display, description;
+	 			    String cTab, cName , display, description, displayName;
 				    cName  = category.getName();
+				    displayName =category.getDisplayName();
 				    description = category.getDescription();
+				    if(displayName == null || displayName.length() < 1 ) displayName = cName;
 				    if(description == null || description.length() < 1) description = cName;
 				    if(selectedCategory != null && cName == selectedCategory.getName()) {
 				      cTab = "SelectedTab" ;
@@ -78,7 +80,7 @@
 				            <div class="TabRepeat">
 				              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
 									      <div class="LeftIcon"><span></span></div>
-							            <a class="TabLabel" href="<%=uicomponent.event("ShowCategory", cName)%>"><%=cName%></a>
+							            <a class="TabLabel" href="<%=uicomponent.event("ShowCategory", cName)%>"><%=displayName%></a>
 								          <div class="ControlContainer" style ="$display">
 								            <a class="ControlIcon EditIcon" title="Edit category" href="<%=uicomponent.event("EditCategory", cName)%>"><span></span></a>
 								            <a class="ControlIcon DeleteIcon" title="Delete category" href="<%=uicomponent.event("DeleteCategory", cName)%>"><span></span></a>
