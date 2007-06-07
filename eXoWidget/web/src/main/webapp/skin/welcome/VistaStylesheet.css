@@ -116,6 +116,7 @@
 	padding-right: 25px;
 	text-decoration: underline;
 	cursor: pointer;
+	width: 60px; margin: auto;
 }
 
 .UIWelcomeWidget .StyleContent {

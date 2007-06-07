@@ -89,10 +89,11 @@
 }
 
 .UIWelcomeWidget .StyleContent .LabelSignout {
-	color: #feb000;	text-align: center;
+	color: #feb000;	
 	font-weight: bold; text-decoration: underline;
 	cursor: pointer;
-	padding-right: 20px;
+	margin: auto;
+	width: 65px;
 }
 
 .UIWelcomeWidget .StyleContent {
