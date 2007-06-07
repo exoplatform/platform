@@ -110,7 +110,7 @@
 
 .UIAction .ActionButton .SimpleStyle a {
   color: #058ee6; font-weight: bold; font-size: 11px;
-  margin: 0px 6px;
+  margin: 0px 6px; white-space: nowrap;
   line-height: 21px; height: 21px;
 }
 
