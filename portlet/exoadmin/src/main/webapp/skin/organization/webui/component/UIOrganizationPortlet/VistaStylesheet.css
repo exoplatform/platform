@@ -248,7 +248,7 @@
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
 	overflow: visible;
 	margin: 5px auto;
-	width: 450px;
+	width: 95%;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm tr{
@@ -282,6 +282,12 @@
 	width: 100px;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
+  border: none;
+  width: 330px;
+  margin: auto;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UIAction {
 	width: 45px;
 }
@@ -303,7 +309,7 @@
 }
 
 .UIOrganizationPortlet .UIMembershipTypeForm {
-	width: auto; 
+	width: 97%; 
 	margin: 10px auto 0px auto ; 
 }
 

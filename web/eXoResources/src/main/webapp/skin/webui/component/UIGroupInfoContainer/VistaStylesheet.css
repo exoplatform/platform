@@ -6,6 +6,11 @@
 	padding: 4px;
 }
 
+.UIGroupInfoContainer .UIGroupMembershipForm .HorizontalLayout {
+	border: solid 1px #BEC1C7;
+	padding: 4px;
+}
+
 .UIGroupInfoContainer .HorizontalLayout .FormContainer {
 	background: #ffffff;
 	border: solid 1px #b7b7b7;
@@ -14,7 +19,11 @@
 
 .UIGroupInfoContainer .TitleBar {
 	font-weight: bold;
-	margin: 0px 0px 5px 0px;
-	padding: 0px 0px 0px 5px;
+	padding: 0px 0px 0px 15px;
 	font-size: 11px;
+	line-height: 20px;
+}
+
+.UIGroupInfoContainer .UIGroupMembershipForm .TitleBar {
+	font-weight: normal;
 }

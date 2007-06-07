@@ -212,8 +212,13 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
-	width: 370px;
 	margin: 10px auto;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
+  border: none;
+  width: 330px;
+  margin: auto;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIAction {
@@ -230,6 +235,12 @@
   width: 97%; 
   margin: auto;
 }
+
+.UIOrganizationPortlet .UIMembershipTypeForm {
+	width: 99.7%; 
+	margin: 10px auto 0px auto ; 
+}
+
 
 .UIOrganizationPortlet .UIGrid .ActionContainer {  
   margin: auto ;

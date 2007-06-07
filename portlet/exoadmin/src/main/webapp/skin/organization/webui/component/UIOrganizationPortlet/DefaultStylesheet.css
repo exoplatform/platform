@@ -235,10 +235,11 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
   border: none;
+  width: 330px;
+  margin: auto;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
-	width: 370px;
 	margin: 10px auto;
 }
 
@@ -252,7 +253,6 @@
 
 /*#######################  UIMemberShipManagement #################################*/
 .UIOrganizationPortlet .UIMembershipTypeForm {
-	width: 370px;
 	margin: auto;
 	padding: 10px 0px;
 }
