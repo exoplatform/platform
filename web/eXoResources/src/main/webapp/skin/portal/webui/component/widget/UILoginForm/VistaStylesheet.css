@@ -15,12 +15,12 @@
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
-  background: url('VistaSkin/background/BoxLeftTop36x30.png') no-repeat left top;
+  background: url('VistaSkin/background/BoxLeftTop36x30.png') no-repeat left bottom;
   padding: 0px 0px 0px 36px ;
 }
 
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator {
-  background: url('VistaSkin/background/BoxCenterTop1x30.png') repeat-x top;
+  background: url('VistaSkin/background/BoxCenterTop1x30.png') repeat-x bottom ;
   height: 30px;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .UILoginForm .LoginDecorator .TopRightLoginDecorator {
-  background: url('VistaSkin/background/BoxRightTop54x30.png') no-repeat right top;
+  background: url('VistaSkin/background/BoxRightTop54x30.png') no-repeat right bottom ;
   padding: 0px 54px 0px 0px ;
 }
 
