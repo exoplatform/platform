@@ -5,6 +5,7 @@
 package org.exoplatform.portal.component.view;
 
 import org.exoplatform.portal.component.view.listener.UIContainerActionListener.AddApplicationActionListener;
+import org.exoplatform.portal.component.view.listener.UIContainerActionListener.AddWidgetContainerActionListener;
 import org.exoplatform.portal.component.view.listener.UIContainerActionListener.DeleteWidgetActionListener;
 import org.exoplatform.portal.component.view.listener.UIContainerActionListener.EditContainerActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.DeleteComponentActionListener;
@@ -29,7 +30,8 @@ import org.exoplatform.webui.config.annotation.EventConfig;
       template = "system:/groovy/portal/webui/component/view/UIWidgetContainer.gtmpl",
       events = {
           @EventConfig(listeners = DeleteWidgetActionListener.class),
-          @EventConfig(listeners = AddApplicationActionListener.class)
+          @EventConfig(listeners = AddApplicationActionListener.class),
+          @EventConfig(listeners = AddWidgetContainerActionListener.class)
       }
   )
 })

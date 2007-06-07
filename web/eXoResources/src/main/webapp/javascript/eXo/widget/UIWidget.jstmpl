@@ -21,4 +21,4 @@
 	<%=context.widget.content %>
 	</div>
 </div>
-<% eXo.webui.UIVerticalScroller.init(); %>
+<% //eXo.webui.UIVerticalScroller.init(); %>

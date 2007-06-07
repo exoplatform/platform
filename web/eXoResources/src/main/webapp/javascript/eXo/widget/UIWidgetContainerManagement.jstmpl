@@ -1,4 +1,8 @@
-<div class="UIWidgetContainerManagement">
+<% var addWidgetContainer = 'eXo.widget.UIWidgetContainerManagement.addWidgetContainer();'%>
+<% var closeContainerManagement = 'eXo.widget.UIWidgetContainerManagement.destroy();'%>
+
+
+<div class="UIWidgetContainerManagement" id="UIWidgetContainerManagement">
 	<div class="UIBarStyle">
 		<div class="TitleBar">
 			<div class="LeftBar">
@@ -15,7 +19,7 @@
 				<div class="PortalWidgetContainer">
 					<div class="CategoryTitleBar">
 						<div class="Title">Portal Widget Containers</div>
-						<a class="AddContainerIcon" href="#" title="Add a widget container"><span></span></a>
+						<a class="AddContainerIcon" href="javascript: <%=addWidgetContainer%>" title="Add a widget container"><span></span></a>
 						<div style="clear: both"><span></span></div>
 					</div>
 					<div class="ContainerList">
@@ -88,7 +92,7 @@
 	        <div class="ButtonLeft">
 	          <div class="ButtonRight">
 	            <div class="ButtonMiddle">
-	  				    <a href="#">Cancel</a>
+	  				    <a href="javascript: <%=closeContainerManagement%>">Cancel</a>
 	            </div>
 	          </div>
 	        </div>
@@ -96,5 +100,6 @@
 	    </div>
 	  </div>
 	</div>
-
 </div>
+
+<% eXo.widget.UIWidgetContainerManagement.loadWidgetContainer(true, []);%>

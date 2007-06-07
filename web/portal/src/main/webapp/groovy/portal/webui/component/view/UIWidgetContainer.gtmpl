@@ -34,5 +34,5 @@
   </div>
   <div style="clear: right"><span></span></div> 									
 </div>
-<% jsmanager.addJavascript("eXo.webui.UIVerticalScroller.init();") ; %>
+<% //jsmanager.addJavascript("eXo.webui.UIVerticalScroller.init();") ; %>
   

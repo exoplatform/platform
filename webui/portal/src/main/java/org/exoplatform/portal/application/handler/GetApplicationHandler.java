@@ -65,7 +65,7 @@ public class GetApplicationHandler extends Command {
       ApplicationCategory category = appCategories.get(i);
       jsonService.toJSONScript(category, value, 1);
       if(i < appCategories.size() - 1) value.append("   ,\n");
-    }    
+    }
     value.append("  }\n").append("}\n");
     
     return value; 

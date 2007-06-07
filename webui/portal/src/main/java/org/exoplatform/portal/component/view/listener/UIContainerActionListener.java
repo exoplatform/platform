@@ -44,7 +44,7 @@ public class UIContainerActionListener {
       UIContainer child = uiContainer.getChildById(event.getRequestContext().getRequestParameter(UIContainer.OBJECTID));
       UIContainerForm containerForm = uiMaskWS.createUIComponent(UIContainerForm.class, null, null); 
       containerForm.setValues(child);
-      uiMaskWS.setUIComponent(containerForm);      
+      uiMaskWS.setUIComponent(containerForm);
       
       uiMaskWS.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
@@ -107,6 +107,16 @@ public class UIContainerActionListener {
       Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
       UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
       configService.update(widgets);
+    }
+  }
+  
+  static public class AddWidgetContainerActionListener extends EventListener<UIContainer> {
+    public void execute(Event<UIContainer> event) throws Exception {
+      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      UIContainer uiWidgetContainer = event.getSource();
+      
+      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n ADD WIDGET CONTAINER \n\n\n\n\n\n\n\n\n\n\n\n");
+      
     }
   }
   

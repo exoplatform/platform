@@ -14,6 +14,9 @@ CacheJSonService.prototype.getData = function(url, invalidCache) {
 		if(value != null && value != undefined)	return value;	
   }
 	var responseText = ajaxAsyncGetRequest(url, false);
+	
+	if(responseText == null || responseText == '') return null;
+
   var response;
   try {
   	if(request.responseText != '') {

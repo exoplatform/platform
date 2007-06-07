@@ -1,4 +1,4 @@
-eXo.require('eXo.webui.UIVerticalScroller');
+//eXo.require('eXo.webui.UIVerticalScroller');
 
 function UIWidget() {	
 };
