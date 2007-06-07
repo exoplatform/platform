@@ -184,6 +184,20 @@
   margin: 0px 2px 8px 2px;
 }
 
+.LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
+	background:transparent url(/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif) no-repeat center bottom;
+	float:left;
+	height:20px;
+	width:16px;
+}
+
+.LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
+	background:transparent url(/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif) no-repeat center bottom;
+	float:left;
+	height:20px;
+	width:16px;
+}
+
 .UIContainer .CONTROL-CONTAINER {
   margin: 0px 1px -1px 1px;
 }

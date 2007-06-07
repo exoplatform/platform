@@ -190,9 +190,6 @@
 	width: auto; height: 23px;
 }
 
-.UIPortal .VIEW-PORTLET {
-}
-
 .UIPortal .VIEW-PORTLET .UIWindow {
   width: 99% ; height: auto;
   margin: 0px auto 7px auto; 
@@ -207,12 +204,6 @@
   float: right ;
   width: 0px ; height: 0px ;
   background: url('null') repeat bottom right;
-}
-
-.UIPageBody .UIBannerPortlet {
-}
-
-.UIPage .UIBreadcumbsPortlet {
 }
 
 /********************* Icon InfoBar ************************************/

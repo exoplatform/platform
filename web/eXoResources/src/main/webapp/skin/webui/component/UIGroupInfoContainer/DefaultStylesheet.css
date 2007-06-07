@@ -17,9 +17,15 @@
 	font-weight: bold;
 	padding: 0px 0px 0px 15px;
 	font-size: 11px;
-	line-height: 20px;
+	line-height: 30px;
+	border: 1px solid #b7b7b7; border-top: none; border-bottom: none;
+	margin-bottom: 1px;
+	background: url(DefaultSkin/background/Style2BarM1x31.gif) repeat-x;
 }
 
 .UIGroupInfoContainer .UIGroupMembershipForm .TitleBar {
 	font-weight: normal;
+	background: url(DefaultSkin/background/TitleBG1x20.gif) repeat-x ;
+	line-height: 19px;
+	border: 1px solid #b7b7b7;
 }

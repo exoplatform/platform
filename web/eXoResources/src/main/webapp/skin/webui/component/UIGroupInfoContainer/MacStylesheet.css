@@ -9,16 +9,19 @@
 .UIGroupInfoContainer .HorizontalLayout .FormContainer {
 	border: solid 1px #b7b7b7;
 	padding: 10px;
-	background: #ffffff;
 }
 
 .UIGroupInfoContainer .TitleBar {
-	font-weight: bold;
+	font-weight: bold; font-size: 11px;
 	padding: 0px 0px 0px 15px;
-	font-size: 11px;
-	line-height: 20px;
+	margin-bottom: 1px;
+	line-height: 30px;
+	border: 1px solid #b7b7b7;
+	background: white;
 }
 
 .UIGroupInfoContainer .UIGroupMembershipForm .TitleBar {
 	font-weight: normal;
+	line-height: 19px;
+	background: url(/eXoResources/background/MacSkin/TitleBG1x19.gif) repeat-x;
 }

@@ -215,18 +215,17 @@
 	margin: 10px auto;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
-  border: none;
-  width: 330px;
-  margin: auto;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIAction {
   width: 155px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .UIAction {
   width: 80px;
+}
+
+.UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
+	background: url(/eXoResources/background/MacSkin/Background1x4.png) repeat;
+	border: none;
 }
 
 /*#######################  UIMemberShipManagement #################################*/

@@ -17,15 +17,13 @@
 .UIAccountPortlet .UIFormTabPane{
   width: 700px;
   margin: auto;
-}
-
-.UIAccountPortlet .UIFormTabPane .UITabPane {
-  padding: 3px 3px 0px 3px;
+  padding: 0px;
 }
 
 .UIAccountPortlet .UIFormTabPane .UITabPaneTitle {
   padding: 3px 3px 8px 3px;
   font-weight: bold; font-size: 15px; color: blue;
+  border: 1px solid red;
 }
 
 .UIAccountPortlet .UIAction  {
