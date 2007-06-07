@@ -81,7 +81,7 @@
 
 /*##############################-SimpleStyle ActionButton-################################*/
 .UIAction .ActionButton .SimpleStyle {
-  padding-left:40px;
+   margin-left:40px;
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonLeft {
@@ -104,8 +104,9 @@
   color: #3d80e4; font-weight: bold; font-size: 11px;
   margin: 0px 6px;
   line-height: 24px; height: 24px;
+  white-space: nowrap;
 }
 
 .UIAction .ActionButton .SimpleStyle a:hover {
-  color: #2169d4;
+  color: #2169d4; white-space: nowrap;
 }

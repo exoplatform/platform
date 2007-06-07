@@ -62,8 +62,8 @@
 }
 /* ============================End LoginDecorator============================== */
 
-.UILoginForm .LoinDetailBox .VerticalLayout {
-	padding-top: 2px;
+.UILoginForm .LoginDetailBox .VerticalLayout {
+	padding-top: 10px;
 }
 
 .UILoginForm .LoginDetailBox .UserNameField {
@@ -141,8 +141,6 @@
 }
 
 .UILoginForm .LoginDecorator .SignUpBackground {
-  height: 24px;
-  line-height: 24px;
   text-align: right;
 }
 
