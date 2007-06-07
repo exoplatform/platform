@@ -12,16 +12,15 @@
 .UILoginForm .LoginDecorator .LoginDecoratorBackground {
   background: url('VistaSkin/background/BoxCenterMiddle1x191.png') repeat-x ;
   font-size: 11px;
-  height:191px;
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
-  background: url('VistaSkin/background/BoxLeftTop36x30.png') no-repeat left ;
+  background: url('VistaSkin/background/BoxLeftTop36x30.png') no-repeat left top;
   padding: 0px 0px 0px 36px ;
 }
 
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator {
-  background: url('VistaSkin/background/BoxCenterTop1x30.png') repeat-x ;
+  background: url('VistaSkin/background/BoxCenterTop1x30.png') repeat-x top;
   height: 30px;
 }
 
@@ -33,7 +32,7 @@
 }
 
 .UILoginForm .LoginDecorator .TopRightLoginDecorator {
-  background: url('VistaSkin/background/BoxRightTop54x30.png') no-repeat right ;
+  background: url('VistaSkin/background/BoxRightTop54x30.png') no-repeat right top;
   padding: 0px 54px 0px 0px ;
 }
 
@@ -64,7 +63,7 @@
 /* ============================End LoginDecorator============================== */
 
 .UILoginForm .LoinDetailBox .VerticalLayout {
-	padding-top: 6px;
+	padding-top: 2px;
 }
 
 .UILoginForm .LoginDetailBox .UserNameField {
