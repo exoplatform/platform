@@ -51,7 +51,6 @@ public class GroupPortalConfigListener extends GroupEventListener {
       Iterator<?> itr = list.iterator() ;
       while(itr.hasNext()) {
         Page page = (Page)itr.next() ;
-        System.out.println("\n\n\n\npage: " + page.getPageId());
         dataService.remove(page) ;
       }
       i ++ ;
@@ -80,7 +79,6 @@ public class GroupPortalConfigListener extends GroupEventListener {
       Iterator<?> itr = list.iterator() ;
       while(itr.hasNext()) {
         PortletPreferences portletPref = (PortletPreferences)itr.next() ;
-        System.out.println("\n\n\n\n\nportlet: " + portletPref.getWindowId());
         dataService.remove(portletPref) ;
       }
       j ++ ;
