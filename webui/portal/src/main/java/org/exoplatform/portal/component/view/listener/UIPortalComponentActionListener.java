@@ -133,7 +133,8 @@ public class UIPortalComponentActionListener {
           uiPortlet.setDescription(portlet.getDescription());
           StringBuilder windowId = new StringBuilder();
           windowId.append(Util.getUIPortal().getOwner()).append(":/");
-          windowId.append(sourceId).append('/');
+//        TODO review code in next line. It was changed by Le Bien Thuy
+          windowId.append(portlet.getApplicationGroup()+ "/" + portlet.getApplicationName()).append('/');
           windowId.append(uiPortlet.hashCode());
           uiPortlet.setWindowId(windowId.toString());
           uiPortlet.setShowEditControl(true);
