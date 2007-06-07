@@ -46,8 +46,7 @@ public class UICategoryForm extends UIForm {
                    addValidator(EmptyFieldValidator.class).
                    addValidator(IdentifierValidator.class));
     addUIFormInput(new UIFormStringInput(FIELD_DISPLAY_NAME, FIELD_DISPLAY_NAME, null).
-                   addValidator(EmptyFieldValidator.class).
-                   addValidator(IdentifierValidator.class));
+                   addValidator(EmptyFieldValidator.class));
     addUIFormInput(new UIFormTextAreaInput(FIELD_DESCRIPTION, FIELD_DESCRIPTION, null)); 
   } 
 
