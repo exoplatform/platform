@@ -151,6 +151,11 @@
 	margin: 0px 25px 0px 0px;
 	cursor: pointer;
 }
+.UILoginForm .LoginDecorator .SignUpBackground a:hover {
+	font-weight: bold; color: #ffa837;
+	margin: 0px 25px 0px 0px;
+	cursor: pointer;
+}
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {
   width: 160px;
