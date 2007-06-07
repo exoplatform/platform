@@ -4,21 +4,10 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.component;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UIFormCheckBoxInput;
-import org.exoplatform.webui.component.UIFormDateTimeInput;
 import org.exoplatform.webui.component.UIFormMultiValueInputSet;
-import org.exoplatform.webui.component.UIFormRadioBoxInput;
-import org.exoplatform.webui.component.UIFormSelectBox;
-import org.exoplatform.webui.component.UIFormStringInput;
 import org.exoplatform.webui.component.UIFormUploadInput;
 import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.component.model.SelectItemOption;
-import org.exoplatform.webui.component.validator.DateTimeValidator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
@@ -53,44 +42,49 @@ public class UITestForm extends UIForm {
 
   public UITestForm() throws Exception {  
     
-    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
-    ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
-    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
-    uiSelectBox.setOnChange("Onchange");
-    UIFormSelectBox uiSelectBox1 = new UIFormSelectBox(FIELD_SELECT_BOX + "1", FIELD_SELECT_BOX + "1", ls) ;
-    uiSelectBox1.setOnChange("Onchange");
-    addUIFormInput(uiSelectBox) ;
-    addUIFormInput(uiSelectBox1) ;
+    UIFormUploadInput upload = new UIFormUploadInput("TestUpload", null); 
+    UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
+    test.setType(UIFormUploadInput.class);
+    addChild(upload);
+    addChild(test);
     
-    UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);
-    UIFormCheckBoxInput aaaa = new UIFormCheckBoxInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, ls);
+//    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
+//    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
+//    ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
+//    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
+//    uiSelectBox.setOnChange("Onchange");
+//    UIFormSelectBox uiSelectBox1 = new UIFormSelectBox(FIELD_SELECT_BOX + "1", FIELD_SELECT_BOX + "1", ls) ;
+//    uiSelectBox1.setOnChange("Onchange");
+//    addUIFormInput(uiSelectBox) ;
+//    addUIFormInput(uiSelectBox1) ;
 //    
-    addUIFormInput(radioBoxInput);
-    addUIFormInput(aaaa);
-//    UIFormMultiValueInputSet uiFormMultiValue = new UIFormMultiValueInputSet("trong", "trong") ;
-//    uiFormMultiValue.setType(UIFormUploadInput.class) ;
-//    addUIFormInput(uiFormMultiValue) ;
-//    addUIFormInput(new UIFormTextAreaInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, null));
-    addUIFormInput(new UIFormDateTimeInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null).addValidator(DateTimeValidator.class));
-    addUIFormInput(new UIFormDateTimeInput(FIELD_DATE_TIME, FIELD_DATE_TIME, new Date()).addValidator(DateTimeValidator.class));
-//    addUIFormInput(new UIFormHiddenInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null));
-    addUIFormInput(new UIFormStringInput(FIELD_STRING_INPUT, FIELD_STRING_INPUT, null));
-    addUIFormInput(new UIFormUploadInput("upload", "upload")) ;
-//    addUIFormInput(new UIFormUploadInput("upload2", "upload2")) ;
+//    UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);
+//    UIFormCheckBoxInput aaaa = new UIFormCheckBoxInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, ls);
+////    
+//    addUIFormInput(radioBoxInput);
+//    addUIFormInput(aaaa);
+////    UIFormMultiValueInputSet uiFormMultiValue = new UIFormMultiValueInputSet("trong", "trong") ;
+////    uiFormMultiValue.setType(UIFormUploadInput.class) ;
+////    addUIFormInput(uiFormMultiValue) ;
+////    addUIFormInput(new UIFormTextAreaInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, null));
+//    addUIFormInput(new UIFormDateTimeInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null).addValidator(DateTimeValidator.class));
+//    addUIFormInput(new UIFormDateTimeInput(FIELD_DATE_TIME, FIELD_DATE_TIME, new Date()).addValidator(DateTimeValidator.class));
+////    addUIFormInput(new UIFormHiddenInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null));
+//    addUIFormInput(new UIFormStringInput(FIELD_STRING_INPUT, FIELD_STRING_INPUT, null));
+//    addUIFormInput(new UIFormUploadInput("upload", "upload")) ;
+////    addUIFormInput(new UIFormUploadInput("upload2", "upload2")) ;
+////    
+   
+////    addUIFormInput(test);
+////
+////    
+////    UIFormMultiValueInputSet multiValueInputSet2 = new UIFormMultiValueInputSet("StringMultiValue", "StringMultiValue");
+////    multiValueInputSet2.setType(UIFormStringInput.class);
+////    addUIFormInput(multiValueInputSet2);
 //    
-//    UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
-//    test.setType(UIFormDateTimeInput.class);
-//    addUIFormInput(test);
-//
-//    
-//    UIFormMultiValueInputSet multiValueInputSet2 = new UIFormMultiValueInputSet("StringMultiValue", "StringMultiValue");
-//    multiValueInputSet2.setType(UIFormStringInput.class);
-//    addUIFormInput(multiValueInputSet2);
-    
-    UIFormMultiValueInputSet multiValueInputSet = new UIFormMultiValueInputSet(FIELD_MULTI_VALUE, FIELD_MULTI_VALUE);
-    multiValueInputSet.setType(UIFormStringInput.class);
-    addUIFormInput(multiValueInputSet);
+//    UIFormMultiValueInputSet multiValueInputSet = new UIFormMultiValueInputSet(FIELD_MULTI_VALUE, FIELD_MULTI_VALUE);
+//    multiValueInputSet.setType(UIFormStringInput.class);
+//    addUIFormInput(multiValueInputSet);
     
     setActions(new String[]{"Save", "Reset", "Cancel"}) ;
   }

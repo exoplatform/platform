@@ -25,7 +25,7 @@ import org.exoplatform.webui.event.EventListener;
  * 10:07:15 AM
  */
 @ComponentConfig(    
-    template = "app:/groovy/portletregistry/webui/component/ApplicationRegistryWorkingAreaNew.gtmpl",
+    template = "app:/groovy/portletregistry/webui/component/ApplicationRegistryWorkingArea.gtmpl",
     events = {
         @EventConfig(listeners = ApplicationRegistryWorkingArea.AddPortletActionListener.class),
         @EventConfig(listeners = ApplicationRegistryWorkingArea.DeletePortletActionListener.class, confirm = "ApplicationRegistryWorkingAreaNew.deleteApplication"),
