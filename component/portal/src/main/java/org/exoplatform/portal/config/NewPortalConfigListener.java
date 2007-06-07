@@ -129,7 +129,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     PortletPreferencesSet portletSet = fromXML(getDefaultConfig(config, owner, "portlet-preferences"), PortletPreferencesSet.class);
     ArrayList<PortletPreferences> list = portletSet.getPortlets();
     for(PortletPreferences portlet : list){
-      pdcService_.savePortletPreferencesConfig(portlet);
+      pdcService_.save(portlet);
     }
   } 
   

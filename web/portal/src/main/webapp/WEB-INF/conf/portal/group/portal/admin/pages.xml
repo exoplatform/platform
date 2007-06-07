@@ -2,12 +2,12 @@
 <page-set>  
   <page>    
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>web</name>
     <access-permissions>*:/guest</access-permissions>        
     
     <application>
-      <instance-id>admin:/content/ContentPortlet/contentportlet</instance-id>
+      <instance-id>group#portal/admin:/content/ContentPortlet/contentportlet</instance-id>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
@@ -28,20 +28,20 @@
     </application>
    
     <application>
-      <instance-id>admin:/exoadmin/OrganizationPortlet/Organization</instance-id>
+      <instance-id>group#portal/admin:/exoadmin/OrganizationPortlet/Organization</instance-id>
       <title>Organization Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
     </application>  
 
     <application>
-      <instance-id>admin:/exoadmin/AccountPortlet/Account</instance-id>
+      <instance-id>group#portal/admin:/exoadmin/AccountPortlet/Account</instance-id>
       <title>Account Portlet</title>
       <show-info-bar>false</show-info-bar>
     </application>  
 
     <application>
-      <instance-id>admin:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
+      <instance-id>group#portal/admin:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
       <title>Portlet-Registry Portlet</title>
       <show-info-bar>false</show-info-bar>
     </application>  
@@ -61,12 +61,12 @@
   
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>portletregistry</name>
     <access-permissions>*:/guest</access-permissions>  
     
     <application>
-      <instance-id>admin:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
+      <instance-id>group#portal/admin:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
       <title>Portlet-Registry Portlet</title>
       <show-info-bar>false</show-info-bar>
     </application>  
@@ -74,12 +74,12 @@
   
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>ecmadmin</name>
     <access-permissions>*:/guest</access-permissions>  
     
     <application>
-      <instance-id>admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>
+      <instance-id>group#portal/admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>
       <title>ECM Admin Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>  
@@ -87,12 +87,12 @@
 
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>jcrexplorer</name>
     <access-permissions>*:/guest</access-permissions>     
     
     <application>
-      <instance-id>admin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
+      <instance-id>group#portal/admin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
       <title>JCR Explorer Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
@@ -101,12 +101,12 @@
   
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>dialog</name>
     <access-permissions>*:/guest</access-permissions>     
     
     <application>
-      <instance-id>admin:/ecm/DialogPortlet/dialog</instance-id>
+      <instance-id>group#portal/admin:/ecm/DialogPortlet/dialog</instance-id>
       <title>Fast Content Creator Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
@@ -115,7 +115,7 @@
   
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>browsecontent</name>
     <access-permissions>*:/guest</access-permissions>          
     
@@ -129,12 +129,12 @@
 
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>workflowcontroller</name>
     <access-permissions>*:/guest</access-permissions>          
     
     <application>
-      <instance-id>admin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>    
+      <instance-id>group#portal/admin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>    
       <title>Workflow Controller Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
@@ -143,12 +143,12 @@
   
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>workflowadministration</name>
     <access-permissions>*:/guest</access-permissions>          
     
     <application>
-      <instance-id>admin:/workflow/WorkflowAdministrationPortlet/workflowadministration</instance-id>    
+      <instance-id>group#portal/admin:/workflow/WorkflowAdministrationPortlet/workflowadministration</instance-id>    
       <title>Workflow Administration Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
@@ -157,12 +157,12 @@
   
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>forum</name>
     <access-permissions>*:/guest</access-permissions>          
     
     <application>
-      <instance-id>admin:/forum/ForumPortlet/forum</instance-id>    
+      <instance-id>group#portal/admin:/forum/ForumPortlet/forum</instance-id>    
       <title>Forum Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
@@ -171,12 +171,12 @@
   
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>mail</name>
     <access-permissions>*:/guest</access-permissions>          
     
     <application>
-      <instance-id>admin:/mail/MailPortlet/mail</instance-id>    
+      <instance-id>group#portal/admin:/mail/MailPortlet/mail</instance-id>    
       <title>Mail Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
@@ -185,44 +185,44 @@
   
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>ecmdesktop</name>    
     <factory-id>Desktop</factory-id>
     <access-permissions>*:/guest</access-permissions>          
     <show-max-window>true</show-max-window>
 
     <application>
-      <instance-id>admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>    
+      <instance-id>group#portal/admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>    
       <title>ECM Admin Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>  
 
     <application>
-      <instance-id>admin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
+      <instance-id>group#portal/admin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
       <title>JCR Explorer Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>   
     
     <application>
-      <instance-id>admin:/ecm/FastContentCreatorPortlet/fastcontentcreator</instance-id>
+      <instance-id>group#portal/admin:/ecm/FastContentCreatorPortlet/fastcontentcreator</instance-id>
       <title>Fast Content Creator Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>  
   
     <application>
-      <instance-id>admin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
+      <instance-id>group#portal/admin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
       <title>Browse Content Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>
         
     <application>
-      <instance-id>admin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>
+      <instance-id>group#portal/admin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>
       <title>Workflow Control Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>    
 
     <application>
-      <instance-id>admin:/workflow/WorkflowAdministrationPortlet/workflowadministration</instance-id>    
+      <instance-id>group#portal/admin:/workflow/WorkflowAdministrationPortlet/workflowadministration</instance-id>    
       <title>Workflow Administration Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>    
@@ -230,20 +230,20 @@
   
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>
+    <owner-id>portal/admin</owner-id>
     <name>groupwaredesktop</name>
     <factory-id>Desktop</factory-id>
     <access-permissions>*:/guest</access-permissions>          
     <show-max-window>true</show-max-window>
 
     <application>
-      <instance-id>admin:/forum/ForumPortlet/forum</instance-id>
+      <instance-id>group#portal/admin:/forum/ForumPortlet/forum</instance-id>
       <title>Forum Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>    
 
     <application>
-      <instance-id>admin:/mail/MailPortlet/mail</instance-id>
+      <instance-id>group#portal/admin:/mail/MailPortlet/mail</instance-id>
       <title>Mail Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>

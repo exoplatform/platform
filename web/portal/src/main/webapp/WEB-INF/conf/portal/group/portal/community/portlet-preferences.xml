@@ -2,8 +2,8 @@
 <portlet-preferences-set> 
   <portlet-preferences>
     <owner-type>group</owner-type>
-    <owner-id>community</owner-id>
-    <window-id>group/community:/site/SitePortlet/siteportlet</window-id>
+    <owner-id>portal/community</owner-id>
+    <window-id>group#portal/community:/site/SitePortlet/siteportlet</window-id>
     <preference>
       <name>site.location</name>
       <value>par:/community</value>

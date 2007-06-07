@@ -24,6 +24,8 @@ import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.portlet.PortletPreferences;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
+import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
+import org.exoplatform.services.portletcontainer.pci.WindowID;
 
 /**
  * Created by The eXo Platform SARL
@@ -242,14 +244,19 @@ public class DataStorageImpl implements DataStorage {
   
 //------------------------------------------------- Portlet Preferences ----------------------------
   
-  public void savePortletPreferencesConfig(PortletPreferences portletPreferences) throws Exception {
+  public void save(PortletPreferences portletPreferences) throws Exception {
     Session session = jcrRegService_.getSession();
     String ownerType =  portletPreferences.getOwnerType();
     String ownerId = portletPreferences.getOwnerId();
     Node portletPrefSetNode = createSetNode(session, PORTLET_PREFERENCES_SET_NODE, ownerType, ownerId);  
-    String name  = portletPreferences.getWindowId().replace('/', '_').replace(':', '_');
-    Node node = portletPrefSetNode.addNode(name, EXO_DATA_TYPE);
-    portletPrefSetNode.save();
+    String name  = portletPreferences.getWindowId().replace('/', '_').replace(':', '_').replace('#','_');
+    Node node = null;
+    if(portletPrefSetNode.hasNode(name)) {
+      node = portletPrefSetNode.getNode(name);
+    } else {
+      node = portletPrefSetNode.addNode(name, EXO_DATA_TYPE);
+      portletPrefSetNode.save();
+    }
     mapper_.map(node, portletPreferences) ;    
     node.save() ;
     session.save() ;
@@ -260,18 +267,41 @@ public class DataStorageImpl implements DataStorage {
     Session session = jcrRegService_.getSession() ;
     String ownerType = portletPreferences.getOwnerType() ;
     String ownerId = portletPreferences.getOwnerId() ;
-    String name = portletPreferences.getWindowId().replace('/', '_').replace(':', '_') ;
+    String name = portletPreferences.getWindowId().replace('/', '_').replace(':', '_').replace('#','_') ;
     Node portletPrefSetNode = getSetNode(session, PORTLET_PREFERENCES_SET_NODE, ownerType, ownerId) ;
     if(portletPrefSetNode == null || !portletPrefSetNode.hasNode(name)) {
       session.logout();
       return;
     }
-
     Node portletPrefNode = portletPrefSetNode.getNode(name) ;
     portletPrefNode.remove() ;
     portletPrefSetNode.save() ;
     session.save() ;
     session.logout() ;
+  }
+  
+  public PortletPreferences getPortletPreferences(WindowID windowID) throws Exception {
+    String owner = windowID.getOwner();
+    String [] components = owner.split("#");
+    if(components.length < 2) return null;
+    String ownerType = components[0];
+    String ownerId = components[1];
+    Session session = jcrRegService_.getSession();
+    Node portletPrefSetNode = getSetNode(session, PORTLET_PREFERENCES_SET_NODE, ownerType, ownerId);  
+    if(portletPrefSetNode == null) {
+      session.logout();
+      return null;
+    }
+    ExoWindowID exoWindowID = (ExoWindowID) windowID ; 
+    String name  = exoWindowID.getPersistenceId().replace('/', '_').replace(':', '_').replace('#','_');
+    if(!portletPrefSetNode.hasNode(name)) {
+      session.logout();
+      return null;
+    }
+    Node node = portletPrefSetNode.getNode(name);
+    PortletPreferences portletPreferences = mapper_.toPortletPreferences(node);
+    session.logout();
+    return portletPreferences;
   }
   
 //------------------------------------------------- Common functions ----------------------------

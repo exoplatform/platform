@@ -36,13 +36,14 @@ public class PortletPreferences  {
       org.exoplatform.services.portletcontainer.pci.model.Preference pref = 
         (org.exoplatform.services.portletcontainer.pci.model.Preference )i.next() ;
       Preference tmp = new Preference() ;
+      
       tmp.setName(pref.getName()) ;
       tmp.setReadOnly(pref.isReadOnly()) ;
       List values = pref.getValues() ;
-      if(values != null) {
-        for(int j = 0; j < values.size(); j++) {
-          tmp.addValue((String)values.get(j)) ;
-        }
+      if(values == null) continue;
+      for(int j = 0; j < values.size(); j++) {
+        if(values.get(j) == null) continue;
+        tmp.addValue((String)values.get(j)) ;
       }
       preferences.add(tmp) ;
     }    

@@ -14,12 +14,14 @@ import org.exoplatform.portal.component.customization.UIContainerConfigOptions;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.customization.UIPortletOptions;
 import org.exoplatform.portal.component.view.PortalDataMapper;
+import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortalComponent;
 import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UILoginForm;
 import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.event.Event;
@@ -132,7 +134,10 @@ public class UIPortalComponentActionListener {
           }
           uiPortlet.setDescription(portlet.getDescription());
           StringBuilder windowId = new StringBuilder();
-          windowId.append(Util.getUIPortal().getOwner()).append(":/");
+          UIPage uiPage  = uiTarget.getAncestorOfType(UIPage.class);
+          if(uiPage != null) windowId.append(uiPage.getOwnerType()); 
+          else windowId.append(PortalConfig.PORTAL_TYPE);
+          windowId.append('#').append(Util.getUIPortal().getOwner()).append(":/");
 //        TODO review code in next line. It was changed by Le Bien Thuy
           windowId.append(portlet.getApplicationGroup()+ "/" + portlet.getApplicationName()).append('/');
           windowId.append(uiPortlet.hashCode());

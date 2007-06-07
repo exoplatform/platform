@@ -129,7 +129,8 @@ public class UIPageActionListener {
       
       String applicationId = event.getRequestContext().getRequestParameter("applicationId");
       
-      StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
+      StringBuilder windowId = new StringBuilder(uiPage.getOwnerType());
+      windowId.append('#').append(uiPage.getOwnerId());
       windowId.append(":/").append(applicationId).append('/');
       Application application = getApplication(uiPortal, applicationId);
       

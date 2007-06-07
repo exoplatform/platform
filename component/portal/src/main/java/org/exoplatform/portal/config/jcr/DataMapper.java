@@ -8,6 +8,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 import javax.jcr.Node;
+import javax.jcr.Property;
+import javax.jcr.Value;
 
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -94,8 +96,16 @@ public class DataMapper {
   }
   
   public PortletPreferences toPortletPreferences(Node node) throws Exception {
-    String  xml = node.getProperty("data").getValue().getString() ;
-    return fromXML(xml, PortletPreferences.class) ;
+    Property property = node.getProperty("data"); 
+    if(property == null) return null;
+    Value value = property.getValue();
+    if(value == null) return null;
+    try{
+      return fromXML(value.getString(), PortletPreferences.class) ;
+    }catch (Exception e) {
+      System.err.println(e.toString());
+      return null;
+    }
   }
   
 //------------------------------- Widgets ---------------------------------------------------------

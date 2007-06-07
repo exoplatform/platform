@@ -24,55 +24,36 @@ import org.exoplatform.services.organization.GroupEventListener;
  */
 public class GroupPortalConfigListener extends GroupEventListener {
   
-//  private DataStorage dataStorage_;  
-  
-  public GroupPortalConfigListener() throws Exception {
-//    dataStorage_ = dataStorage; 
-  }
-
-  //TODO: Tung.Pham implement
   public void preDelete(Group group) throws Exception {
-    //System.out.println("\n\n == > prepare remove group "+group.getId()+"\n\n");
-    // user data Storage get navigation and page then remove it
     PortalContainer container  = PortalContainer.getInstance() ;
-    DataStorage dataService = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
-    String ownerId = group.getId() ;
+    UserPortalConfigService portalConfigService = 
+      (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
+    DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
+    String groupId = group.getId() ;
     
-    //Delete Pages
-    Query<Page> pageQuery = new Query<Page>(null, null, null, Page.class) ;
-    pageQuery.setOwnerType(PortalConfig.GROUP_TYPE) ;
-    pageQuery.setOwnerId(ownerId) ;
-    PageList pageList = dataService.find(pageQuery) ;
+    Query<Page> pageQuery = new Query<Page>(PortalConfig.GROUP_TYPE, groupId,  Page.class) ;
+    PageList pageList = dataStorage.find(pageQuery) ;
     int i = 1 ;
     while(i <= pageList.getAvailablePage()) {
       List<?> list = pageList.getPage(i) ;
-      Iterator<?> itr = list.iterator() ;
-      while(itr.hasNext()) {
-        Page page = (Page)itr.next() ;
-        dataService.remove(page) ;
-      }
-      i ++ ;
+      Iterator<?> iterator = list.iterator() ;
+      while(iterator.hasNext()) portalConfigService.remove((Page)iterator.next() ) ;
+      i++ ;
     }
 
-    //Delete Navigation
-    PageNavigation navigation = dataService.getPageNavigation(PortalConfig.GROUP_TYPE + "::" + ownerId) ;
-    if (navigation != null) dataService.remove(navigation) ;
-    
-    //Delete PortletPreferences
-    Query<PortletPreferences> portletPrefQuery = new Query<PortletPreferences>(null, null, null, PortletPreferences.class) ;
-    portletPrefQuery.setOwnerType(PortalConfig.GROUP_TYPE) ;
-    portletPrefQuery.setOwnerId(ownerId) ;
-    pageList = dataService.find(portletPrefQuery) ;
-    int j = 1 ;
-    while(j <= pageList.getAvailablePage()) {
-      List<?> list = pageList.getPage(j) ;
-      Iterator<?> itr = list.iterator() ;
-      while(itr.hasNext()) {
-        PortletPreferences portletPref = (PortletPreferences)itr.next() ;
-        dataService.remove(portletPref) ;
-      }
-      j ++ ;
+    Query<PortletPreferences> portletPrefQuery = 
+      new Query<PortletPreferences>(PortalConfig.GROUP_TYPE, groupId, PortletPreferences.class) ;
+    pageList = dataStorage.find(portletPrefQuery) ;
+    i = 1 ;
+    while(i <= pageList.getAvailablePage()) {
+      List<?> list = pageList.getPage(i) ;
+      Iterator<?> iterator = list.iterator() ;
+      while(iterator.hasNext()) dataStorage.remove((PortletPreferences)iterator.next()) ;
+      i++ ;
     }
+    
+    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.GROUP_TYPE + "::" + groupId) ;
+    if (navigation != null) portalConfigService.remove(navigation) ;
   }
 
 }

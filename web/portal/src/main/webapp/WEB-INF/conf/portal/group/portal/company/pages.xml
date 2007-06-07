@@ -2,13 +2,13 @@
 <page-set>
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/company</owner-id>
+    <owner-id>portal/company</owner-id>
     <name>home</name>
     <access-permissions>*:/portal/admin</access-permissions>   
     <show-max-window>true</show-max-window>
     
     <application>
-	    <instance-id>company:/site/SitePortlet/siteportlet</instance-id>
+	    <instance-id>group#portal/company:/site/SitePortlet/siteportlet</instance-id>
       <title>Company site portlet</title>
 	    <show-info-bar>false</show-info-bar>
 	  </application>
@@ -16,12 +16,12 @@
   
   <page>
  		<owner-type>group</owner-type>
-    <owner-id>/portal/company</owner-id>
+    <owner-id>portal/company</owner-id>
     <name>organization</name>
     <access-permissions>*:/portal/company; *:/portal/admin</access-permissions>
     
     <application>
-      <instance-id>company:/exoadmin/OrganizationPortlet/Organization</instance-id>    
+      <instance-id>group#portal/company:/exoadmin/OrganizationPortlet/Organization</instance-id>    
       <title>Organization portlet</title>
 	  	<show-info-bar>true</show-info-bar>
 	  	<show-application-state>true</show-application-state>
@@ -30,12 +30,12 @@
   
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/company</owner-id>
+    <owner-id>portal/company</owner-id>
     <name>myaccount</name>
     <access-permissions>*:/portal/company</access-permissions>
     
     <application>
-      <instance-id>company:/exoadmin/AccountPortlet/Account</instance-id>    
+      <instance-id>group#portal/company:/exoadmin/AccountPortlet/Account</instance-id>    
       <title>Account portlet</title>
       <show-info-bar>false</show-info-bar>
     </application>  

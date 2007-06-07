@@ -108,7 +108,7 @@
   </mapping>  
   
   <mapping class="org.exoplatform.portal.portlet.Preference"  name="preference" label="preference">
-    <value name="name"  field="name"/>
+    <value name="name"  field="name" usage="optional"/>
     <collection field="values">
       <value name="value" style="element"/>
     </collection>

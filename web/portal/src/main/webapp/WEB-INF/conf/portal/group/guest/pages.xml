@@ -2,13 +2,13 @@
 <page-set>  
   <page>
 	  <owner-type>group</owner-type>
-	  <owner-id>/guest</owner-id>
+	  <owner-id>guest</owner-id>
     <name>content</name>
     <title>Content</title>
     <access-permissions>*:/guest</access-permissions>
     
     <application>
-      <instance-id>guest:/content/ContentPortlet/contentportlet</instance-id>
+      <instance-id>group#guest:/content/ContentPortlet/contentportlet</instance-id>
       <title>Content Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>

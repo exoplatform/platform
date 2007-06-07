@@ -15,11 +15,11 @@
 	  </application>
     
     <application>
-      <instance-id>webos:/content/ContentPortlet/contentportlet</instance-id>
+      <instance-id>portal#webos:/content/ContentPortlet/contentportlet</instance-id>
     </application>
 
     <application>
-      <instance-id>webos:/web/SiteMapPortlet/SitemapPortlet</instance-id>    
+      <instance-id>portal#webos:/web/SiteMapPortlet/SitemapPortlet</instance-id>    
       <title>Site Map Portlet</title>
     </application>
 
@@ -47,12 +47,12 @@
     <show-max-window>true</show-max-window>
 
     <application>
-      <instance-id>webos:/web/SiteMapPortlet/SitemapPortlet</instance-id>    
+      <instance-id>portal#webos:/web/SiteMapPortlet/SitemapPortlet</instance-id>    
       <title>Site Map Portlet</title>
     </application>
 
     <application>
-      <instance-id>webos:/exoadmin/AccountPortlet/Account</instance-id>    
+      <instance-id>portal#webos:/exoadmin/AccountPortlet/Account</instance-id>    
       <title>Account Portlet</title>
     </application>
   </page>

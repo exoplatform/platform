@@ -12,6 +12,7 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.portlet.PortletPreferences;
+import org.exoplatform.services.portletcontainer.pci.WindowID;
 
 /**
  * Created by The eXo Platform SARL
@@ -112,7 +113,9 @@ public interface DataStorage {
    */
   public void remove(PageNavigation navigation) throws Exception ;
   
-  public void savePortletPreferencesConfig(PortletPreferences portletPreferences)  throws Exception;
+  public void save(PortletPreferences portletPreferences)  throws Exception;
+  
+  public PortletPreferences getPortletPreferences(WindowID windowID)  throws Exception;
   
   public void remove(PortletPreferences portletPreferences) throws Exception ;
   

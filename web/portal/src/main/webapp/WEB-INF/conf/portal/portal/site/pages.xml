@@ -8,7 +8,7 @@
     <access-permissions>*:/guest</access-permissions>
     
     <application>
-      <instance-id>site:/content/ContentPortlet/contentportlet</instance-id>
+      <instance-id>portal#site:/content/ContentPortlet/contentportlet</instance-id>
       <title>Content Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
@@ -23,7 +23,7 @@
     <title>Register</title>
     <access-permissions>*:/guest</access-permissions>      
     <application>
-      <instance-id>site:/exoadmin/AccountPortlet/Account</instance-id>
+      <instance-id>portal#site:/exoadmin/AccountPortlet/Account</instance-id>
       <title>Account Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>

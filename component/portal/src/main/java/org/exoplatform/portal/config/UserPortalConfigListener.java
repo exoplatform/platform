@@ -13,6 +13,7 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
+import org.exoplatform.portal.portlet.PortletPreferences;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 
@@ -24,46 +25,43 @@ import org.exoplatform.services.organization.UserEventListener;
  */
 public class UserPortalConfigListener extends UserEventListener {
   
-  public UserPortalConfigListener() throws Exception {
-  }
-
   public void preDelete(User user) throws Exception {
     PortalContainer container  = PortalContainer.getInstance() ;
-    //TODO: Tung.Pham modified
-    //----------------------------------------------------------------------------------------------------
-    //DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
-    //System.out.println("\n\n == > prepare remove user "+dataStorage+" : "+user.getUserName()+"\n\n");
-    // user data Storage get navigation and page then remove it
-    DataStorage dataService = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
+    UserPortalConfigService portalConfigService = 
+      (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
+    DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
     String userName = user.getUserName() ;
     
-    //Delete pages
-    Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
-    query.setOwnerType(PortalConfig.USER_TYPE) ;
-    query.setOwnerId(userName) ;
-    PageList pageList = dataService.find(query) ;
+    Query<Page> query = new Query<Page>(PortalConfig.USER_TYPE, userName, Page.class) ;
+    PageList pageList = dataStorage.find(query) ;
     pageList.setPageSize(10) ;
     int i =  1;
     while(i <= pageList.getAvailablePage()) {
       List<?> list = pageList.getPage(i) ;
-      Iterator<?> itr = list.iterator() ;
-      while(itr.hasNext()) {
-        Page page = (Page) itr.next() ;
-        dataService.remove(page) ;
-      }
-      
+      Iterator<?> iterator = list.iterator() ;
+      while(iterator.hasNext()) portalConfigService.remove((Page) iterator.next()) ;
       i++;
     }
+    
+    Query<PortletPreferences> portletPrefQuery = 
+      new Query<PortletPreferences>(PortalConfig.USER_TYPE, userName, PortletPreferences.class) ;
+    pageList = dataStorage.find(portletPrefQuery) ;
+    i = 1 ;
+    while(i <= pageList.getAvailablePage()) {
+      List<?> list = pageList.getPage(i) ;
+      Iterator<?> iterator = list.iterator() ;
+      while(iterator.hasNext()) dataStorage.remove((PortletPreferences)iterator.next()) ;
+      i++ ;
+    }
    
-    //Delete Navigation
     String id = PortalConfig.USER_TYPE + "::" + userName ;
-    PageNavigation navigation = dataService.getPageNavigation(id) ;
-    if (navigation != null) dataService.remove(navigation) ;
+    PageNavigation navigation = dataStorage.getPageNavigation(id) ;
+    if (navigation != null) portalConfigService.remove(navigation) ;
 
-    //Delete Widgets
-    Widgets widgets = dataService.getWidgets(id) ;
-    if (widgets != null) dataService.remove(widgets);
-    //----------------------------------------------------------------------------------------------------
+    Widgets widgets = dataStorage.getWidgets(id) ;
+    if (widgets != null) portalConfigService.remove(widgets);
+    
+    
   }
 
 }
