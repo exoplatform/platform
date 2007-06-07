@@ -216,6 +216,7 @@
   overflow: auto ;
   background: #ffffff;
   border: 1px solid #c3c3c3;
+  text-transform: capitalize;
 }
 
 .UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {

@@ -24,7 +24,7 @@
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabLabel {
   float: left ;
   height: 26px ; line-height: 26px ;  vertical-align: middle ;
-  color: #606060;  
+  color: #606060; text-transform: capitalize; 
 }
 
 /***-SelectedTab VTabSimpleStyle VerticalSlideTabs-***/
@@ -52,7 +52,7 @@
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
   float: left;
   height: 26px ; line-height: 26px ;  vertical-align: middle ;
-  color: #196aaa; 
+  color: #196aaa; text-transform: capitalize;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .ControlContainer {
@@ -81,6 +81,7 @@
   border: 1px solid #bec1c7;
   border-top: none;
   margin: 0px 5px;
+  text-transform: capitalize;
 }
 
 

@@ -113,6 +113,7 @@
   height: 240px ;
   overflow: auto ;
   border: 1px solid #C3C3C3;
+  text-transform: capitalize;
   background: white url('MacSkin/background/ApplicationBackground165x65.gif') no-repeat left bottom;
 }
 

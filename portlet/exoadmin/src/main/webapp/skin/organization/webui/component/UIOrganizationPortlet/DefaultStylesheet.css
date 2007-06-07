@@ -86,6 +86,7 @@
 .UIOrganizationPortlet .GrayRoundedFillBoxStyle .CenterBoxDecorator {
   width: 97.5%;
   margin: auto;
+  padding-bottom:  10px;
 }
 
 .UIOrganizationPortlet .UIForm .UIFormInputSet {
@@ -178,7 +179,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UITree {
   background: white;
-  border: 1px gray solid;
+  border: 1px #b7b7b7 solid;
   padding: 1px;
 }
 
@@ -254,7 +255,7 @@
 /*#######################  UIMemberShipManagement #################################*/
 .UIOrganizationPortlet .UIMembershipTypeForm {
 	margin: auto;
-	padding: 10px 0px;
+	padding: 10px; padding-bottom: 0px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupInfo {

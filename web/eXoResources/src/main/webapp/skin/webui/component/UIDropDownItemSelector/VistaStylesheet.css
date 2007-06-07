@@ -41,6 +41,10 @@
 	cursor: pointer;	
 }
 
+.UIDropDownItemSelector .UIItemList .ItemSelectorLabel {
+	text-transform: capitalize; 
+}
+
 /********************************   UIItemList   ****************************************/
 
 .UIItemList {

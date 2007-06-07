@@ -66,6 +66,10 @@
 	cursor: pointer;	
 }
 
+.UIDropDownItemSelector .UIItemList .ItemSelectorLabel {
+	text-transform: capitalize; 
+}
+
 /********************************   UIItemList   ****************************************/
 .UIItemList {
 	border: 1px solid #787878;

@@ -19,9 +19,11 @@
   float: left ;
   height: 26px ; line-height: 26px ;  vertical-align: middle ;
   color: #606060; font-weight: bold;
+  text-transform: capitalize;
 }
 
 /***-SelectedTab VTabSimpleStyle VerticalSlideTabs-***/
+
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab {
 	cursor: pointer;
 	background: #e3e4e4 url(DefaultSkin/background/BottomVTabSimpleStyle224x1.gif) no-repeat bottom right;
@@ -40,6 +42,7 @@
   float: left;
   height: 26px ; line-height: 26px ;  vertical-align: middle ;
   color: #058ee6; font-weight: bold; 
+  text-transform: capitalize;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .ControlContainer {
@@ -67,6 +70,7 @@
   padding: 10px ;
   margin: 1px 0px 1px 1px;
   font-size: 11px;
+  text-transform: capitalize;
 }
 
 
