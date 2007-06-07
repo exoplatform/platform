@@ -8,13 +8,30 @@
 
 <div id="<%=uicomponent.getId();%>">  
 	<%/*Begin Content Detail*/ %>
-	<div class="RefreshBar">
-		<a class="RefreshIcon" href="<%=uicomponent.event("Refresh")%>" title="Refresh News"></a>
-	</div>
 	<div class="ContentBreadcumbs">
-		<div class="BreadcumbsContainer">
-			<div class="Icon"><span></span></div>
-			<div class="CategoryName"><%=nodeLabel%></div>
+		<div class="CategoryControlBar">
+			<div class="LeftBar">
+				<div class="RightBar">
+					<div class="MiddleBar">
+						<div class="BreadcumbsContainer">
+							<div class="Icon OpenNewsIcon"><span></span></div>
+							<a class="CategoryName"><%=nodeLabel%></a>
+							<div class="PathArrowIcon"><span></span></div>
+							<div style="clear: left;"><span></span></div>
+						</div>
+						<div class="RefreshBar">
+							<div class="SeparatorLine"><span></span></div>
+							<a class="LeftRefreshBar" href="<%=uicomponent.event("Refresh")%>" title="Refresh News">
+								<div class="RightRefreshBar">
+									<div class="CenterRefreshBar">Refresh News</div>
+								</div>
+							</a>
+							<div style="clear: left;"><span></span></div>
+						</div>
+						<div style="clear: both;"><span></span></div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	
@@ -30,19 +47,19 @@
 	    <%  } %>		            
 	          <div class="NewsDetail">
 						  <div class="ContentDetailTitle">
-							  <div class="Level216x16Icon" style="float:left;"><span></span></div>
-							  <a href="<%=meta.getLink()%>" target="_blank" title="<%=meta.getTitle()%>">
+							  <div class="ContentItemIcon ItemIcon"><span></span></div>
+							  <a href="<%=meta.getLink()%>" target="_blank" title="Go to <%=meta.getTitle()%>">
 							    <%=meta.getTitle()%>
 							  </a>
 							</div>
 							<%
 							  if(meta.getImage() != null && meta.getImage().length() > 0){ 
 							%>
-	   						  <div class="ContentDetailImage">
-	                  <img src="<%=meta.getImage();%>" height="120" border="0">
+	   						  <div class="HeadlineImage">
+	                  <img src="<%=meta.getImage();%>" height="120" width="120" border="0" alt=""/>
 	                </div>
 	            <%}%>														
-					    <div class="ContentDetailDescription">
+					    <div class="HeadlineNews">
 					      <%if(meta.getDesc() != null){%>
 	  						    <p align="justify"><%=meta.getDesc();%></p>
 	  					  <%}%>  
