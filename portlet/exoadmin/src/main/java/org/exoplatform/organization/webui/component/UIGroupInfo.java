@@ -30,7 +30,6 @@ public class UIGroupInfo extends UIContainer {
   
   public UIGroupInfo() throws Exception {
     addChild(UIUserInGroup.class, null, null) ;
-    addChild(UIGroupMembershipForm.class, null, null);
   }
   
   public void setGroup(Group group) throws Exception {
