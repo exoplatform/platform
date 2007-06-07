@@ -6,6 +6,8 @@
 	<edit-permission>*:/user</edit-permission>
 	
 	<container id="Information">
+		<name>Information</name>
+		<description>Information's Description</description>
 		<application>
       <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget1</instance-id>
       <application-type>eXoWidget</application-type> 
@@ -18,6 +20,8 @@
 	</container>
   
 	<container id="Calendar">
+		<name>Calendar</name>
+		<description>Calendar's Description</description>
   	<application>
       <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget2</instance-id>
       <application-type>eXoWidget</application-type> 
@@ -25,6 +29,8 @@
   </container>
 
 	<container id="Calculator">
+		<name>Calculator</name>
+		<description>Calculator's Description</description>
   	<application>
       <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget2</instance-id>
       <application-type>eXoWidget</application-type> 

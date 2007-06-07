@@ -53,18 +53,61 @@ UIWidgetContainerManagement.prototype.loadWidgetContainer = function(refresh) {
 	
 	for(container in containers.widgetContainer) {
 		var containerName = containers.widgetContainer[container] ;
-		itemList += '<a class="NormalItem" href="#">'+containerName+'</a>' ;
+		itemList += '<div class="NormalItem"  onclick="eXo.widget.UIWidgetContainerManagement.selectContainer(this);">'+containerName+'</div>' ;
 	}
 	
 	containerList.innerHTML = itemList ;
-
+	
+	/*Set Selected For The First Item*/
+	var containerListElement = DOMUtil.getChildrenByTagName(containerList, "div");
+	containerListElement[0].className = "SelectedItem";
 };
 
-UIWidgetContainerManagement.prototype.addWidgetContainer = function() {
-	var params = [
-  	{name: "objectId", value : "Test"}
-  ] ;
-	ajaxGet(eXo.env.server.createPortalURL("UIWidgets", "AddWidgetContainer", true, params)) ;
+UIWidgetContainerManagement.prototype.selectContainer = function(selectedElement) {	
+	var DOMUtil = eXo.core.DOMUtil ;
+	var containerList = DOMUtil.findAncestorByClass(selectedElement, "ContainerList");
+	var containers = DOMUtil.getChildrenByTagName(containerList, "div");
+	
+	selectedElement.className = "SelectedItem" ;
+	for(var i = 0; i < containers.length; i++) {
+		if(containers[i] != selectedElement) containers[i].className = "NormalItem" ;
+	}
+};
+
+UIWidgetContainerManagement.prototype.showAddPopup = function() {
+	var DOMUtil = eXo.core.DOMUtil ;
+	var context = new Object();
+	context = {
+		popup : {
+			title : "Add New Widget Container",
+			popupId : "UIAddWidgetContainerForm",
+			width : "400px",
+			height : "180px",
+			closeAction : "eXo.widget.UIWidgetContainerManagement.closeAddPopup('UIAddWidgetContainerForm');"
+		}
+	}
+	context.popup.content = eXo.core.TemplateEngine.merge("eXo/widget/UIAddWidgetContainerForm.jstmpl");
+	
+	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement");
+	
+	var uiPopupWindowTemplate = eXo.core.TemplateEngine.merge('eXo/webui/UIPopupWindow.jstmpl', context);
+ 	var uiPopupWindowNode = DOMUtil.createElementNode(uiPopupWindowTemplate, "div");
+ 	uiPopupWindowNode.style.width = context.popup.width;
+ 	uiWidgetContainerManagement.appendChild(uiPopupWindowNode);
+ 	eXo.webui.UIPopupWindow.init(context.popup.popupId, false);
+ 	
+	eXo.webui.UIPopupWindow.show(context.popup.popupId);
+	
+//	var params = [
+//  	{name: "objectId", value : "Test"}
+//  ] ;
+//	ajaxGet(eXo.env.server.createPortalURL("UIWidgets", "AddWidgetContainer", true, params)) ;
+};
+
+UIWidgetContainerManagement.prototype.closeAddPopup = function(popupId) {
+	var popup = document.getElementById(popupId);
+	var parentPopup = popup.parentNode ;
+	parentPopup.removeChild(popup);
 };
 
 eXo.widget.UIWidgetContainerManagement = new UIWidgetContainerManagement();

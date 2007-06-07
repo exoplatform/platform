@@ -1,12 +1,12 @@
-<div class="UIPopupWindow UIDragObject" id="<%=context.window.popup.popupId%>" style="display: none;">
-	<div class="<%=context.window.popup.style%>">
+<div class="UIPopupWindow UIDragObject" id="<%=context.popup.popupId%>" style="display: none;">
+	<div class="<%=context.popup.style%>">
 	  <div class="TopLeftCornerDecorator">
 	    <div class="TopRightCornerDecorator">
 	      <div class="TopCenterDecorator">
 	        <div class="OverflowContainer">
 		        <div class="PopupTitleIcon"><span></span></div>
-		        <div class="CloseButton" title="Close Window"><span></span></div>
-		        <div class="PopupTitle"><%=context.window.popup.title%></div>
+		        <div class="CloseButton" title="Close Window" onclick="<%=context.popup.closeAction%>"><span></span></div>
+		        <div class="PopupTitle"><%=context.popup.title%></div>
 		      </div>
 	      </div>
 	    </div>
@@ -15,8 +15,8 @@
 		  <div class="MiddleRightSideDecorator">
 		    <div class="MiddleCenterDecorator">
 	        <div class="UIWindowContent">
-	          <div class="Content" style="height: 360px">
-	            <%=context.window.popup.content%>
+	          <div class="Content" style="height: <%=context.popup.height%>">
+	            <%=context.popup.content%>
 	          </div>
 	        </div>
 	        <div class="BottomBar">

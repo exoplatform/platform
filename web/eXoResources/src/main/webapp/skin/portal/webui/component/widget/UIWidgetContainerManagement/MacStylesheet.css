@@ -55,15 +55,16 @@
 	color: #797979;
 }
 
-.UIWidgetContainerManagement .ContainerList a.NormalItem{
-	display: block;
+.UIWidgetContainerManagement .ContainerList .NormalItem {
+	cursor: pointer ;
 	color: #000000;
 	text-decoration: none;
 	height: 21px; line-height: 21px;
 	padding-left: 17px;
 }
 
-.UIWidgetContainerManagement .ContainerList a.SelectedItem{
+.UIWidgetContainerManagement .ContainerList .SelectedItem {
+	cursor: pointer ;
 	display: block;
 	color: #0e3fa8;
 	text-decoration: none;

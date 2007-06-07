@@ -1,4 +1,4 @@
-<% var addWidgetContainer = 'eXo.widget.UIWidgetContainerManagement.addWidgetContainer();'%>
+<% var addWidgetContainer = 'eXo.widget.UIWidgetContainerManagement.showAddPopup();'%>
 <% var closeContainerManagement = 'eXo.widget.UIWidgetContainerManagement.destroy();'%>
 
 

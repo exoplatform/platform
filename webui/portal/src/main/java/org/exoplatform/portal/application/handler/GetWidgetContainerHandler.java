@@ -42,6 +42,7 @@ public class GetWidgetContainerHandler extends Command {
   private StringBuilder getWidgetContainers(PortalApplication app, String remoteUser) throws Exception {
     ExoContainer container = app.getApplicationServiceContainer() ;
     DataStorage dataService = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
+    /*Anh Thuan cho dung hashcode : site , co loi gi kien anh Thuan!!!  :D */
     String portalWidgetId = PortalConfig.PORTAL_TYPE + "::site" ;
     Widgets widgets = dataService.getWidgets(portalWidgetId) ;
     
@@ -51,7 +52,7 @@ public class GetWidgetContainerHandler extends Command {
     
     value.append("{\n").append("widgetContainer : {\n");
     for (int i = 0; i < widgetContainers.size(); i ++) {
-      value.append("'container"+i+"' : '").append(widgetContainers.get(i).getId()) ;
+      value.append("'container"+i+"' : '").append(widgetContainers.get(i).getName()) ;
       if (i < (widgetContainers.size() - 1)) value.append("',\n") ;
       else value.append("'\n") ;
     }

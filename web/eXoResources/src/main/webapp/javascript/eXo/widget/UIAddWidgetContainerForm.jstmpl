@@ -1,0 +1,35 @@
+<div class="UIForm">
+  <div class="HorizontalLayout" style="border: 0px; padding: 10px 0px">
+    <div class="FormContainer">
+      <table class="UIFormGrid">
+		  	<tr>
+		      <td class="FieldLabel">Container name:</td>
+		      <td class="FieldComponent">
+		      	<input type="text" id="name" name="id"/>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td class="FieldLabel">Description:</td>
+		      <td class="FieldComponent">
+		      	<textarea class="textarea" name="description"></textarea>
+		      </td>
+		    </tr>
+      </table>
+    </div>
+  </div>
+  
+  <div class="UIAction" style="width: 80px">
+		<div class="ActionContainer">
+			<div class="ActionButton">
+				<div class="LightBlueStyle">
+					<div class="ButtonLeft">
+						<div class="ButtonRight">
+							<div class="ButtonMiddle" style="width: 70px">Add</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
