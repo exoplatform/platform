@@ -52,6 +52,7 @@ public class UITestForm extends UIForm {
 
 
   public UITestForm() throws Exception {  
+    
     List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
     ls.add(new SelectItemOption<String>("SQL", "sql")) ;
     ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
