@@ -236,8 +236,6 @@ public class UserPortalConfigService {
     
     PortalConfig config = storage_.getPortalConfig(portalName) ;
     if (config != null) storage_.remove(config) ;
-    
-    storage_.printTree() ;
     //-------------------------------------------------------------------------------------------------------
   }
   
