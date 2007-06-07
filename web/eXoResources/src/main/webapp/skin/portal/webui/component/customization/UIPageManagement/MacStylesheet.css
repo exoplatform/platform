@@ -75,7 +75,7 @@
 
 /*##########################Edit Page Control Bar#############################*/
 .UIPageManagement .UIPageNavigationControlBar .UIToolbar .ControlToolbar {
-	margin: 13px 2px 0px 70px; 
+	margin: 13px 2px 0px 60px; 
 }
 
 .UIPageManagement .UIToolbar .EditToolbar .Icon {
@@ -127,21 +127,23 @@
 
 /*================================== Control Toolbar ==================================*/
 .UIPageManagement .UIToolbar .ControlToolbar {
-	margin: 13px 2px 0px 160px; 
+	margin: 13px 2px 0px 150px; 
 }
 
 .UIPageManagement .UIToolbar .ControlToolbar .Icon {
   float: left;
   margin: 3px 0px 0px 7px; 
+  width: 32px;
+  height: 32px;
 }
 
 .UIPageManagement .CreateNavigationIcon {
-  width: 32px; height: 32px;
+	width: 32px; height: 32px;
   background: url('/eXoResources/icons/32x32/MacSkin/EditNavigation.png') no-repeat ;
 }
 
 .UIPageManagement .EditNavigationIcon {
-  width: 32px; height: 32px;
+	width: 32px; height: 32px;
   background: url('/eXoResources/icons/32x32/MacSkin/EditNavigation.png') no-repeat ;
 }
 
@@ -151,22 +153,18 @@
 }
 
 .UIPageManagement .BackIcon {
-	width: 32px; height: 32px;
 	background: url('/eXoResources/icons/32x32/MacSkin/BackButton.png') no-repeat;
 }
 
 .UIPageManagement .RollbackIcon {
-	width: 32px; height: 32px;
 	background: url('/eXoResources/icons/32x32/MacSkin/RollBackButton.png') no-repeat;
 }
 
 .UIPageManagement .FinishIcon {
-	width: 32px; height: 32px;
 	background: url('/eXoResources/icons/32x32/MacSkin/FinishButton.png') no-repeat;
 }
 
 .UIPageManagement .SaveIcon {
-	width: 32px; height: 32px;
 	background: url('/eXoResources/icons/32x32/MacSkin/SaveButton.png') no-repeat;
 }
 

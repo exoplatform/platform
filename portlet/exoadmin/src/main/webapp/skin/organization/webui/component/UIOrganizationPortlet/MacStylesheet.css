@@ -95,6 +95,10 @@
 	padding-bottom:0px;
 }
 
+.UIOrganizationPortlet .UIUserManagement .HorizontalLayout .UIFormInputSet {
+	height: 305px;
+}
+
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemList {
 	height: 297px;
 }

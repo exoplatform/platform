@@ -5,9 +5,6 @@
   width: 100%; overflow: hidden ;
 }
 
-.UITabPane .TabPaneContent .WorkingArea {
-}
-
 .UITabPane .TabPaneContent .WorkingAreaWithHelp {  
   width: auto;
 }
@@ -18,11 +15,8 @@
 
 .UITabPane .TabPaneContent .UITabContentContainer .UITabContent {
   background: #f7f7f7;
-  border: solid 1px #ffffff; border-top: none;
-  padding: 7px ;
-}
-
-.UITabPane .UITabContent .UIHorizontalTabs {
+  border: solid 1px white; border-top: none;
+  padding: 15px ;
 }
 
 .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer {

@@ -16,6 +16,7 @@
 .UITabSelector .UIHorizontalTabs .CenterHorizontalTabs {
   height: 31px;
   background: url('DefaultSkin/background/CenterFlatTabStyle1x31.gif') repeat-x;
+  padding: 0px;
 }
 
 .UITabSelector .UIHorizontalTabs .TabsContainer {
