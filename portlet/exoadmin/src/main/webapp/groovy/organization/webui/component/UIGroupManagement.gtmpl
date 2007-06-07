@@ -31,7 +31,7 @@
       <div class="GroupNavigationContainer"><% uicomponent.renderChild(UIGroupExplorer.class) %></div>
   	</div>
     <div class="GroupDetail">
-      <div style="width: 98%;">
+      <div >
         <% uicomponent.renderChild(UIGroupDetail.class) %>
       </div>
     </div>

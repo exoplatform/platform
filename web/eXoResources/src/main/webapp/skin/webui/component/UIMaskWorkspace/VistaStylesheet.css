@@ -169,10 +169,6 @@
 	padding: 10px;
 }
 
-.UIAddApplication .ApplicationDescription {
-  margin-right: 30px;
-}
-
 .UIAddApplication .ContentContainerDetail {
 	padding: 0px 15px;
 	border-top: none;
@@ -185,13 +181,11 @@
 
 .UIAddApplication .ApplicationContent {
   padding: 0px 0px 0px 12px;
-  width: 240px ;
   overflow: hidden;
 }
 
 .UIAddApplication .ApplicationButton {
   float: right;
-  width: 58px;
 }
 
 
@@ -212,7 +206,7 @@
 }
 
 .UIAddApplication .TitleBarApplication {
-	height: 21px ;
+	height: 24px ;
   color: #1465B9; vertical-align: middle ;	font-weight:bold; font-size: 13px;
 }
 

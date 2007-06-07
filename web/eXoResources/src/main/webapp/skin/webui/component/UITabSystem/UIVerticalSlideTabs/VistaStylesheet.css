@@ -92,18 +92,18 @@
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
   padding-left: 3px ;
-  background: url('VistaSkin/background/SmoothRoundedBarLBg3x26.gif') no-repeat left ;
+  background: url('VistaSkin/background/SmoothRoundLeftBar3x27.gif') no-repeat left ;
   margin: 4px 0px 0px 0px;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight {
   padding-right: 3px ;
-  background: url('VistaSkin/background/SmoothRoundedBarRBg3x26.gif') no-repeat right ;
+  background: url('VistaSkin/background/SmoothRoundRightBar3x27.gif') no-repeat right ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat {
-  height: 26px ;
-  background: url('VistaSkin/background/SmoothRoundedBarRepeatBg1x26.gif') repeat-x ;
+  height: 27px ;
+  background: url('VistaSkin/background/SmoothRoundRepeatBar1x27.gif') repeat-x ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .LeftIcon {
@@ -140,18 +140,18 @@
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLeft {
   padding-left: 3px ;
-  background: url('VistaSkin/background/SmoothRoundedLeftBar3x27.gif') no-repeat left ;
+  background: url('VistaSkin/background/SmoothRoundedLeftBar3x27.png') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRight {
   width: auto ;
   padding-right: 3px ;
-  background: url('VistaSkin/background/SmoothRoundedRightBar3x27.gif') no-repeat right ;
+  background: url('VistaSkin/background/SmoothRoundedRightBar3x27.png') no-repeat right ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRepeat {
   height: 27px ;
-  background: url('VistaSkin/background/SmoothRoundedRepeatBar1x27.gif') repeat-x ;
+  background: url('VistaSkin/background/SmoothRoundedRepeatBar1x27.png') repeat-x ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .LeftIcon {

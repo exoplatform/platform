@@ -130,8 +130,17 @@
 
 .UIOrganizationPortlet .UIUserManagement .UIGrid {  
   margin: 1px auto ;
+  width: 97%;
 }
 
+.UIOrganizationPortlet .UIUserManagement .UISearch {  
+  margin: auto ;
+  width: 97%;
+}
+
+.UIOrganizationPortlet .UIUserManagement .UIPageIterator {  
+  width: 97%;
+}
 /*#######################- UIUserInfo - #####################*/
 
 .UIOrganizationPortlet .UIUserManagement .UIUserInfo {
@@ -171,11 +180,10 @@
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
   margin-top: 7px ;
   overflow: hidden ;
-  width: 100%;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation {
-  width: 220px ;
+  width: 210px ;
   float: left ;
 }
 
@@ -218,7 +226,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
-  margin-left: 227px ;
+  margin-left: 220px ;
   width: auto;
 }
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UITabPane {
@@ -265,13 +273,6 @@
   width: 80px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .FormContainer {
-	width: 440px;
-	margin: auto;
-	padding: 10px 0px;
-	background: url(null);
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIForm .HorizontalLayout label {
   width: 190px;
   margin: 0px 10px 0px 0px;
@@ -284,6 +285,17 @@
 .UIOrganizationPortlet .UIGroupManagement .UIAction {
 	width: 45px;
 }
+
+.UIOrganizationPortlet .UIGroupManagement .UIGrid {
+	width: 95%;
+	margin: auto;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIPageIterator {
+	width: 95%;
+	margin: auto;
+}
+
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMemberShipManagement {

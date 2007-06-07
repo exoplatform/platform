@@ -127,5 +127,10 @@
 }
 
 .UIListMembershipType .UIGrid {
-	width: 99.7%;
+	width: 97%;
+	margin: auto;
+}
+
+.UIListMembershipType .UIPageIterator {
+	width: 97%;
 }

@@ -261,13 +261,8 @@
 	width: auto;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIGroupInfo .UIGroupMembershipForm {
+.UIOrganizationPortlet .UIGroupManagement .UIGroupInfo .UIFormGrid {
 	width: auto;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIGroupInfo .UIGroupMembershipForm .UIFormGrid{
-	width: 440px;
-	margin:auto;
 }
 
 .UIOrganizationPortlet .UIFormWithTitle .UIForm {

@@ -94,7 +94,6 @@
 	padding: 0px 2px 0px 17px ;
 	margin: 3px 78px 0px 5px ;
 	border: solid 1px #8c8c94 ;
-
 }
 
 .eXoBrowser .ArrowDownButton {
@@ -182,7 +181,6 @@
 	width: 13px ; height: 21px ;
 	background: url("VistaSkin/icons/16x16/ActiveClose.png") no-repeat center ;
 	cursor: pointer ;
-	
 }
 
 .eXoBrowser .NewTabButtonOver {
