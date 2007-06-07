@@ -103,7 +103,13 @@
     <component-plugin> 
       <name>content.nav.listener</name>
       <set-method>addListenerPlugin</set-method>
-      <type>org.exoplatform.portal.content.ContentNavListener</type>
+      <type>org.exoplatform.portal.content.UserContentNavListener</type>
+    </component-plugin>        
+
+    <component-plugin> 
+      <name>content.nav.listener</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.portal.content.GroupContentNavListener</type>
     </component-plugin>        
   </external-component-plugins> 
 </configuration>

@@ -15,9 +15,9 @@ import org.exoplatform.services.organization.UserEventListener;
  *          tung.pham@exoplatform.com
  * Jun 1, 2007  
  */
-public class ContentNavListener extends UserEventListener {
+public class UserContentNavListener extends UserEventListener {
 
-  public ContentNavListener() throws Exception {
+  public UserContentNavListener() throws Exception {
   }
   
   public void preDelete(User user) throws Exception {

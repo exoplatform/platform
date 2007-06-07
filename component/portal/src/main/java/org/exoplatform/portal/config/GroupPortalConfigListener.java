@@ -16,8 +16,6 @@ import org.exoplatform.portal.portlet.PortletPreferences;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupEventListener;
 
-import com.sun.mail.util.QEncoderStream;
-
 /**
  * Created by The eXo Platform SARL
  * Author : Nhu Dinh Thuan

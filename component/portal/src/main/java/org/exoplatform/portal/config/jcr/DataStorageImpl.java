@@ -260,17 +260,13 @@ public class DataStorageImpl implements DataStorage {
     Session session = jcrRegService_.getSession() ;
     String ownerType = portletPreferences.getOwnerType() ;
     String ownerId = portletPreferences.getOwnerId() ;
+    String name = portletPreferences.getWindowId().replace('/', '_').replace(':', '_') ;
     Node portletPrefSetNode = getSetNode(session, PORTLET_PREFERENCES_SET_NODE, ownerType, ownerId) ;
-    if(portletPrefSetNode == null) {
+    if(portletPrefSetNode == null || !portletPrefSetNode.hasNode(name)) {
       session.logout();
       return;
     }
-    String name = portletPreferences.getWindowId().replace('/', '_').replace(':', '_') ;
-    if (portletPrefSetNode == null || !portletPrefSetNode.hasNode(name)) {
-      session.logout() ;
-      return ;
-    }
-    
+
     Node portletPrefNode = portletPrefSetNode.getNode(name) ;
     portletPrefNode.remove() ;
     portletPrefSetNode.save() ;
