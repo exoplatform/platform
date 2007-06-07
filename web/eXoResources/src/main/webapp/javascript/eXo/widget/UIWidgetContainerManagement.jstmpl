@@ -23,14 +23,7 @@
 						<div style="clear: both"><span></span></div>
 					</div>
 					<div class="ContainerList">
-						<a class="SelectedItem" href="#">Container 1</a>
-						<a class="NormalItem" href="#">Container 2</a>	
-						<a class="NormalItem" href="#">Container 3</a>
-						<a class="NormalItem" href="#">Container 4</a>
-						<a class="NormalItem" href="#">Container 5</a>
-						<a class="NormalItem" href="#">Container 6</a>
-						<a class="NormalItem" href="#">Container 7</a>
-						<a class="NormalItem" href="#">Container 8</a>
+						<span></span>
 					</div>
 				</div>
 				<div class="UserWidgetContainer">
@@ -101,5 +94,3 @@
 	  </div>
 	</div>
 </div>
-
-<% eXo.widget.UIWidgetContainerManagement.loadWidgetContainer(true, []);%>

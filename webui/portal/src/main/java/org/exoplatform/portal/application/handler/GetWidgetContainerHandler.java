@@ -49,7 +49,6 @@ public class GetWidgetContainerHandler extends Command {
     
     ArrayList<Container> widgetContainers = widgets.getChildren() ;
     
-    
     value.append("{\n").append("widgetContainer : {\n");
     for (int i = 0; i < widgetContainers.size(); i ++) {
       value.append("'container"+i+"' : '").append(widgetContainers.get(i).getId()) ;

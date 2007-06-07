@@ -18,6 +18,8 @@ UIWidgetContainerManagement.prototype.show = function() {
  	var uiMaskWorkspaceNode = DOMUtil.createElementNode(innerHTML, "div");
 		
 	eXo.core.UIMaskLayer.createMask("UIPortalApplication", uiMaskWorkspaceNode, 30) ;
+	
+	eXo.widget.UIWidgetContainerManagement.loadWidgetContainer(true);
 };
 
 UIWidgetContainerManagement.prototype.destroy = function() {
@@ -31,7 +33,10 @@ UIWidgetContainerManagement.prototype.destroy = function() {
 };
 
 UIWidgetContainerManagement.prototype.loadWidgetContainer = function(refresh) {
+	var DOMUtil = eXo.core.DOMUtil ;
+	
 	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement");
+	
 	var url = eXo.env.server.context + "/command?";
 	url += "type=org.exoplatform.portal.application.handler.GetWidgetContainerHandler";
 	
@@ -40,11 +45,18 @@ UIWidgetContainerManagement.prototype.loadWidgetContainer = function(refresh) {
 	var containers = eXo.core.CacheJSonService.getData(url, refresh);
 	
 	if(containers == null || containers == undefined) return;
-
+	
+	var portalWidgetContainer = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "PortalWidgetContainer");
+	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList");
+	
+	var itemList = '' ;
+	
 	for(container in containers.widgetContainer) {
 		var containerName = containers.widgetContainer[container] ;
-		alert(containerName);
-	}	
+		itemList += '<a class="NormalItem" href="#">'+containerName+'</a>' ;
+	}
+	
+	containerList.innerHTML = itemList ;
 
 };
 
