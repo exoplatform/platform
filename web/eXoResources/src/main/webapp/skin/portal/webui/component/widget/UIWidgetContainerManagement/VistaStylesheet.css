@@ -1,5 +1,4 @@
 .UIWidgetContainerManagement {
-	padding: 15px 15px 5px 15px;
 }
 
 .UIWidgetContainerManagement .UIAction{
@@ -10,6 +9,7 @@
 	border: 1px solid #999999;
   border-top: none;
   font-size: 11px; 
+  margin: 0px 15px 5px 15px;
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail{
