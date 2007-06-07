@@ -74,8 +74,10 @@ UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
 					if(children[j].className == "UIWidget UIDragObject")
 				  children[j].style.display = "block" ;
 				} else {
-					if(children[j].className == "UIWindow UIDragObject")
-					children[j].style.display = "block" ;
+					if(children[j].isShowed) {
+						if (String(children[j].className).indexOf("UIWidget") >= 0) continue;
+						children[j].style.display = "block" ;
+					}
 				}
 			}
 	  }
@@ -90,7 +92,7 @@ UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
 		for(var j = 0; j < children.length; j++) {
 			if(children[j].className!="UIDockBar") {
 				if(portletsViewer.id == "PortletsViewer") {
-				  if (String(children[j].className).indexOf("UIWidget")>=0) continue;
+				  if (String(children[j].className).indexOf("UIWidget") >= 0) continue;
 					children[j].style.display = "none" ;				
 					if(children[j].isShowed) {
 						this.showDesktop = true ;

@@ -20,7 +20,7 @@ UIDesktop.prototype.init = function() {
 UIDesktop.prototype.fixDesktop = function() {
 	var pageDesktop = document.getElementById("UIPageDesktop") ;
 	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
-	pageDesktop.style.height = browserHeight + "px" ;
+	if(pageDesktop)pageDesktop.style.height = browserHeight + "px" ;
 	window.scroll(0,0);
 	
   eXo.desktop.UIDockbar.init() ;
