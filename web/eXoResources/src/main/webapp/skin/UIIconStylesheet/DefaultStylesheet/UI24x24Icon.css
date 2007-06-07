@@ -209,29 +209,29 @@
 	background: url('/eXoResources/icons/24x24/DefaultSkin/Refresh.gif') no-repeat ;
 }
 
-.AddCatergory24x24Icon {
+.AddCategory24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/AddCatergory.gif') no-repeat ;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/AddCategory.gif') no-repeat center;
 }
 
 .Catergory24x24Icon {
 	width: 16px ;	height: 16px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/Catergory.gif') no-repeat ;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/Catergory.gif') no-repeat center;
 }
 
-.EditCatergory24x24Icon {
+.EditCategory24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/EditCatergory.gif') no-repeat ;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/EditCategory.gif') no-repeat center;
 }
 
 .ImportCategory24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/ImportCategory.gif') no-repeat ;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/ImportCategory.gif') no-repeat center;
 }
 
 .DeleteCategory24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/Delete.gif') no-repeat ;
+	background: url('/eXoResources/icons/24x24/DefaultSkin/DeleteCategory.gif') no-repeat center;
 }
 
 .Delete24x24Icon {
