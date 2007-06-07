@@ -27,7 +27,7 @@ eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 	 * 	23 is the height of User Workspace Title.
 	 * */
 	
-	if(eXo.portal.UIControlWorkspace.showControlWorkspace == true) {
+	if(eXo.portal.UIControlWorkspace.showControlWorkspace) {
 		uiWorkspaceContainer.style.display = "block" ;
 		uiWorkspaceContainer.style.width = eXo.portal.UIControlWorkspace.defaultWidth + "px" ;
 	}
@@ -65,7 +65,7 @@ eXo.portal.UIControlWorkspace.setVisible = function(visible) {
 		cws.isFirstTime = false ;
 		cws.showWorkspace();
 	}
-}
+};
    	
 eXo.portal.UIControlWorkspace.showWorkspace = function() {	
 	var cws = eXo.portal.UIControlWorkspace ;
@@ -74,7 +74,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	var uiWorkspacePanel = document.getElementById("UIWorkspacePanel") ;
 	var slidebar = document.getElementById("ControlWorkspaceSlidebar") ;
 
-	if(cws.showControlWorkspace == false) {
+	if(!cws.showControlWorkspace) {
 		// shows the workspace
 		cws.showControlWorkspace = true ;
 		slidebar.style.display = "none" ;
@@ -101,7 +101,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	eXo.portal.UIWorkingWorkspace.reorganizeWindows(this.showControlWorkspace);
 	/*Resize Dockbar*/
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-	if(uiPageDesktop != null) eXo.desktop.UIDockbar.resizeDockBar() ;
+	if(uiPageDesktop) eXo.desktop.UIDockbar.resizeDockBar() ;
 	/* Resizes the scrollable containers */
 	eXo.portal.UIPortalControl.initAllManagers();
 	
@@ -110,7 +110,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 		//eXo.webui.UIVerticalScroller.init();
 	}
 	/* BEGIN - Check positon of widgets in order to avoid hide widgets when we expand/collapse workspace*/
-	if(uiPageDesktop = document.getElementById("UIPageDesktop")) {
+	if(uiPageDesktop) {
 		var DOMUtil = eXo.core.DOMUtil ;
 		var uiWidget = DOMUtil.findChildrenByClass(uiPageDesktop, "div", "UIWidget") ;
 		var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
@@ -119,7 +119,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 			
 		for(var i = 0 ; i < size ; i ++) {
 			var dragObject = uiWidget[i] ;
-			if (cws.showControlWorkspace == true) {
+			if (cws.showControlWorkspace) {
 				dragObject.style.left = (dragObject.offsetLeft - uiControlWorkspace.offsetWidth) + "px";				
 			}
 			else {				
@@ -144,7 +144,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 /*#############################-Working Workspace-##############################*/
 if(eXo.portal.UIWorkingWorkspace == undefined) {
   eXo.portal.UIWorkingWorkspace = new UIWorkspace("UIWorkingWorkspace") ;
-}
+};
 
 eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {
 	var uiWorkspace = document.getElementById(this.id) ;
@@ -182,7 +182,7 @@ eXo.portal.UIWorkingWorkspace.resizeWorkspacePanel = function(h) {
 
 eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace) {
 	var uiDesk = document.getElementById("UIPageDesktop");
-	if (uiDesk != null) {
+	if (uiDesk) {
 		var uiCtrl = document.getElementById("UIControlWorkspace");
 		var uiWindows = eXo.core.DOMUtil.findDescendantsByClass(uiDesk, "div", "UIWindow");
 		for (var k = 0; k < uiWindows.length; k++) {
@@ -213,12 +213,12 @@ eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace)
 					// When the ControlWorkspace is hidden
 					if (uiWindow.maximized) {
 						// If the window is maximized, we set the size to its maximum : the desktop size
-						uiWindow.style.width = uiDesk.offsetWidth+"px";
+						uiWindow.style.width = uiDesk.offsetWidth + "px";
 					} else {
-						uiWindow.style.width = uiWindow.oldW+"px";
+						uiWindow.style.width = uiWindow.oldW + "px";
 					}
 				}
 			}
 		}
-	} else {return;}
+	}
 };	

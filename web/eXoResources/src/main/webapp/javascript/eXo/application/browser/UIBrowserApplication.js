@@ -111,8 +111,8 @@ UIBrowserApplication.prototype.init = function() {
 } ;
 
 UIBrowserApplication.prototype.onKeyPress = function(e) {
-	var e = e || window.event ;
-	if(e.keyCode == 13) {
+	var _e = e || window.event ;
+	if(_e.keyCode == 13) {
 		eXo.application.browser.UIBrowserApplication.getUrl() ;
 	}
 } ;
