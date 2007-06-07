@@ -7,7 +7,7 @@ UIToolbar.prototype.init = function() {
 };
 
 UIToolbar.prototype.displayBlockContent = function(clickedEle) {
-
+	if(clickedEle == null) return;
   var uiToolbar = eXo.core.DOMUtil.findAncestorByClass(clickedEle, "UIToolbar");
   var parentUIToolbar = uiToolbar.parentNode;
   

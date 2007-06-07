@@ -7,6 +7,7 @@ UIHorizontalTabs.prototype.init = function() {
 } ;
 
 UIHorizontalTabs.prototype.changeTabNavigationStyle = function(clickedEle, over) {
+	if(clickedEle == null) return;
 	if (clickedEle.className != "UITab") clickedEle = eXo.core.DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
 	//var uiMouseOverTab = eXo.core.DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
 	var tabStyle = eXo.core.DOMUtil.getChildrenByTagName(clickedEle, "div")[0] ;
