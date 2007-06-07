@@ -121,19 +121,13 @@ public class UIPortletOptions extends UIContainer {
   
   static  public class ChangeOptionActionListener extends EventListener<UIPortletOptions> {
     public void execute(Event<UIPortletOptions> event) throws Exception {
-     
       String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIPortletOptions uiContainerOptions = event.getSource();
-      UIDropDownItemSelector uiDropDownItemSelector = uiContainerOptions.getChild(UIDropDownItemSelector.class);
+      UIPortletOptions uiPortletOptions = event.getSource();
+      UIDropDownItemSelector uiDropDownItemSelector = uiPortletOptions.getChild(UIDropDownItemSelector.class);
       SelectItemOption<String> option = uiDropDownItemSelector.getOption(selectedContainerId);
       if(option != null) uiDropDownItemSelector.setSelectedItem(option);
-      uiContainerOptions.setCategorySelected(selectedContainerId);
-//      if(uiWidgets.getSelectedContainer().getId().equals(selectedContainerId)) return;
-//      
-//      UIContainer newSelected = uiWidgets.getChildById(selectedContainerId) ;
-//      uiWidgets.getSelectedContainer().setRendered(false);
-//      uiWidgets.setSelectedContainer(newSelected);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiContainerOptions.getParent());
+      uiPortletOptions.setCategorySelected(selectedContainerId);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortletOptions.getParent());
     }
   }
 

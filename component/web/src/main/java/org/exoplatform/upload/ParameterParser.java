@@ -27,17 +27,16 @@ class ParameterParser {
   private boolean hasChar() { return this.pos < this.len; }
 
   private String getToken(boolean quoted) {
-    while ((i1 < i2) && (Character.isWhitespace(chars_[i1]))) {
-      i1++;
-    }
-    while ((i2 > i1) && (Character.isWhitespace(chars_[i2 - 1]))) {
-      i2--;
-    }
+    while ((i1 < i2) && (Character.isWhitespace(chars_[i1]))) i1++;
+    
+    while ((i2 > i1) && (Character.isWhitespace(chars_[i2 - 1]))) i2--;
+
     if (quoted && ((i2 - i1) >= 2) && (chars_[i1] == '"') && (chars_[i2 - 1] == '"')) {
       i1++;
       i2--;
     }
-    if (i2 > i1) return new String(chars_, i1, i2 - i1);    
+    if (i2 > i1) return new String(chars_, i1, i2 - i1);
+    
     return null;
   }
 
@@ -97,11 +96,14 @@ class ParameterParser {
     while (hasChar()) {
       paramName = parseToken(new char[] {'=', separator });
       paramValue = null;
+      
       if (hasChar() && (chars_[pos] == '=')) {
         pos++; 
         paramValue = parseQuotedToken(new char[] {separator});
       }
-      if (hasChar() && (chars_[pos] == separator)) pos++;      
+      
+      if (hasChar() && (chars_[pos] == separator)) pos++;
+      
       if ((paramName != null) && (paramName.length() > 0)) {
         if (this.lowerCaseNames) paramName = paramName.toLowerCase();        
         params.put(paramName, paramValue);

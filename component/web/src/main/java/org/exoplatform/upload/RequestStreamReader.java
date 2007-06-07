@@ -14,12 +14,15 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * Author : Oleg Kalnichevski
+ *          oleg@ural.ru
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
  * Dec 26, 2006
- * <a href="mailto:oleg@ural.ru">Oleg Kalnichevski</a>
+ * 
  */
 class RequestStreamReader {
+  
   private static final byte LF = 0x0A;
   private static final byte DASH = 0x2D;
   private static final byte CR = 0x0D;

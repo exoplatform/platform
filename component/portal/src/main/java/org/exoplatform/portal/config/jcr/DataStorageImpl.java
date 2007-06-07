@@ -256,12 +256,15 @@ public class DataStorageImpl implements DataStorage {
     session.logout();
   }
   
-  //TODO: Tung.Pham added
   public void remove(PortletPreferences portletPreferences) throws Exception {
     Session session = jcrRegService_.getSession() ;
     String ownerType = portletPreferences.getOwnerType() ;
     String ownerId = portletPreferences.getOwnerId() ;
-    Node portletPrefSetNode = createSetNode(session, PORTLET_PREFERENCES_SET_NODE, ownerType, ownerId) ;
+    Node portletPrefSetNode = getSetNode(session, PORTLET_PREFERENCES_SET_NODE, ownerType, ownerId) ;
+    if(portletPrefSetNode == null) {
+      session.logout();
+      return;
+    }
     String name = portletPreferences.getWindowId().replace('/', '_').replace(':', '_') ;
     if (portletPrefSetNode == null || !portletPrefSetNode.hasNode(name)) {
       session.logout() ;
@@ -274,6 +277,9 @@ public class DataStorageImpl implements DataStorage {
     session.save() ;
     session.logout() ;
   }
+  
+//------------------------------------------------- Common functions ----------------------------
+  
   @SuppressWarnings("unchecked")
   public  PageList find(org.exoplatform.portal.config.Query cq) throws Exception {
     StringBuilder  builder = new StringBuilder("select * from "+NT_FOLDER_TYPE);

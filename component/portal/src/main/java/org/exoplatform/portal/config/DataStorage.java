@@ -114,10 +114,7 @@ public interface DataStorage {
   
   public void savePortletPreferencesConfig(PortletPreferences portletPreferences)  throws Exception;
   
-  //TODO: Tung.Pham added
-  //--------------------------------------------------------------------------
   public void remove(PortletPreferences portletPreferences) throws Exception ;
-  //--------------------------------------------------------------------------
   
   public  PageList find(Query q) throws Exception ;
   

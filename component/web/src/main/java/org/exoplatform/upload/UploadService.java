@@ -58,7 +58,9 @@ public class UploadService {
       upResource.setStatus(UploadResource.UPLOADED_STATUS) ;
       return;
     }
+    
     uploadResources.remove(uploadId) ;
+    
     File file  = new File(upResource.getStoreLocation());
     file.delete();  
   }  

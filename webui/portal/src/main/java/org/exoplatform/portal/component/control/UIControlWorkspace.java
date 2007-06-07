@@ -58,6 +58,7 @@ public class UIControlWorkspace extends UIWorkspace {
     public void execute(Event<UIControlWorkspace> event) throws Exception {
       UIControlWorkspace uiControlWorkspace = event.getSource();
       uiControlWorkspace.setVisible(event.getRequestContext().getRequestParameter(OBJECTID));
+      event.getRequestContext().setResponseComplete(true) ;
     }
   }
 

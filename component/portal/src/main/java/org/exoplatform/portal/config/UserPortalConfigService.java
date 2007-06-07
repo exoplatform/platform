@@ -166,33 +166,6 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public void  removeUserPortalConfig(String portalName) throws Exception {
-//    PortalConfig portalConfig = storage_.getPortalConfig(portalName) ;
-//    if(portalConfig != null) storage_.remove(portalConfig);
-//    
-//    Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
-//    query.setOwnerType(PortalConfig.PORTAL_TYPE) ;
-//    query.setOwnerId(portalName) ;
-//    PageList pagelist = storage_.find(query) ;
-//    pagelist.setPageSize(10);
-//    int i = 1;
-//    while(i < pagelist.getAvailablePage()) {
-//      List<?>  list = pagelist.getPage(i);
-//      Iterator<?> iter = list.iterator();
-//    while(iter.hasNext()) {
-//      Page page = (Page) iter.next();
-//      remove(page);
-//    }
-//      for(Object ele : list) {
-//        storage_.remove((Page)ele);
-//      }
-//      i++;
-//    }
-//    
-//    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
-//    if (navigation != null) remove(navigation);
-    
-    //TODO: Tung.Pham replace
-    //-------------------------------------------------------------------------------------------------------
     Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
     query.setOwnerType(PortalConfig.PORTAL_TYPE) ;
     query.setOwnerId(portalName) ;
@@ -206,7 +179,6 @@ public class UserPortalConfigService {
         Page page = (Page) itr.next() ;
         remove(page) ;
       }
-      
       i++;
     }
     
@@ -217,26 +189,24 @@ public class UserPortalConfigService {
     Widgets widgets = storage_.getWidgets(id) ;
     if (widgets != null) remove(widgets) ;
     
-    //Remove PortletPreferences
     Query<PortletPreferences> portletPrefQuery = new Query<PortletPreferences>(null, null, null, PortletPreferences.class) ;
     portletPrefQuery.setOwnerType(PortalConfig.PORTAL_TYPE) ;
     portletPrefQuery.setOwnerId(portalName) ;
     pageList = storage_.find(portletPrefQuery) ;
     pageList.setPageSize(10) ;
-    int j = 1 ;
-    while(j <= pageList.getAvailablePage()) {
-      List<?> list = pageList.getPage(j) ;
+    i = 1 ;
+    while(i <= pageList.getAvailablePage()) {
+      List<?> list = pageList.getPage(i) ;
       Iterator<?> itr = list.iterator() ;
       while(itr.hasNext()) {
         PortletPreferences portletPreferences = (PortletPreferences) itr.next() ;
         storage_.remove(portletPreferences) ;
       }
-      j ++ ;
+      i++ ;
     }
     
     PortalConfig config = storage_.getPortalConfig(portalName) ;
     if (config != null) storage_.remove(config) ;
-    //-------------------------------------------------------------------------------------------------------
   }
   
   /**
@@ -244,8 +214,8 @@ public class UserPortalConfigService {
    * @param config
    * @throws Exception
    */
-  public void create(PortalConfig config) throws Exception {    
-    storage_.create(config) ;    
+  public void create(PortalConfig config) throws Exception { 
+    storage_.create(config) ; 
   }
 
   /**
@@ -253,8 +223,8 @@ public class UserPortalConfigService {
    * @param config
    * @throws Exception
    */
-  public void update(PortalConfig config) throws Exception {    
-    storage_.save(config) ;    
+  public void update(PortalConfig config) throws Exception { 
+    storage_.save(config) ; 
   }
 
 //**************************************************************************************************
@@ -274,13 +244,6 @@ public class UserPortalConfigService {
     return page ; 
   }
 
-  /**
-   * This method should load all pages of given owner
-   * @param ownerType
-   * @param ownerId
-   * @return List of Page
-   * @throws Exception
-   */
   /**
    * This method should remove the page object in the database and  broadcast the event 
    * UserPortalConfigService.page.onRemove
@@ -351,7 +314,6 @@ public class UserPortalConfigService {
    * @param widgets
    * @throws Exception
    */
-  //TODO: Tung.Pham added
   public void create(Widgets widgets) throws Exception {
     storage_.create(widgets) ;
     widgetsCache_.put(widgets.getId(), widgets) ;
@@ -372,7 +334,6 @@ public class UserPortalConfigService {
    * @param widgets
    * @throws Exception
    */
-  //TODO: Tung.Pham added
   public void remove(Widgets widgets) throws Exception {
     storage_.remove(widgets) ;
     widgetsCache_.remove(widgets.getId()) ;
@@ -389,10 +350,6 @@ public class UserPortalConfigService {
     Widgets widgets = storage_.getWidgets(id) ;
     widgetsCache_.put(id, widgets) ;
     return widgets ;
-  }
-  
-  public void computeModifiable(PageNavigation navigation, String accessUser) throws Exception {
-    userACL_.hasEditPermission(navigation.getCreator(), accessUser, navigation.getEditPermission());
   }
   
   @SuppressWarnings("unused")
