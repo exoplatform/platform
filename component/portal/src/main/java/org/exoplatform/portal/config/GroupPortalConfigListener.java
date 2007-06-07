@@ -55,15 +55,7 @@ public class GroupPortalConfigListener extends GroupEventListener {
       }
       i ++ ;
     }
-//    Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
-//    query.setOwnerType(PortalConfig.GROUP_TYPE) ;
-//    query.setOwnerId(ownerId) ;
-//    PageList pageList = dataService.find(query) ;
-//    for (Object page : pageList.getAll()) {
-//     dataService.remove(((Page)page)) ; 
-//    }
-    
-    
+
     //Delete Navigation
     PageNavigation navigation = dataService.getPageNavigation(PortalConfig.GROUP_TYPE + "::" + ownerId) ;
     if (navigation != null) dataService.remove(navigation) ;
@@ -84,4 +76,5 @@ public class GroupPortalConfigListener extends GroupEventListener {
       j ++ ;
     }
   }
+
 }
