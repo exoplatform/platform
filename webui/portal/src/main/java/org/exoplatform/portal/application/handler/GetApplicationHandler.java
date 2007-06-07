@@ -81,7 +81,7 @@ public class GetApplicationHandler extends Command {
       appendIndentation(builder, indentLevel);
       builder.append('\'').append(category.getName()).append("' : {\n");
       appendIndentation(builder, indentLevel+1);
-      builder.append("'name' : '").append(category.getName()).append("',\n");
+      builder.append("'name' : '").append(category.getDisplayName()).append("',\n");
       appendIndentation(builder, indentLevel+1);
       builder.append("'applications' : {\n");
       builder.append(builderPortlet);      
