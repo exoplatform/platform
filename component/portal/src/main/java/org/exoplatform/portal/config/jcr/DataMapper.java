@@ -85,7 +85,11 @@ public class DataMapper {
     node.setProperty("ownerType", portlet.getOwnerType());
     node.setProperty("ownerId", portlet.getOwnerId());
     node.setProperty("name", portlet.getWindowId().replace('/', '_').replace(':', '_')) ;
-    node.setProperty("dataType", "portletPreferences") ;    
+    //TODO: Tung.Pham modified
+    //-------------------------------------------------------------------------
+    //node.setProperty("dataType", "portletPreferences") ;
+    node.setProperty("dataType", portlet.getClass().getSimpleName()) ;
+    //-------------------------------------------------------------------------
     node.setProperty("data", toXML(portlet)) ;
   }
   

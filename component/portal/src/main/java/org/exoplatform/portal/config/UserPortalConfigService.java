@@ -16,6 +16,7 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
+import org.exoplatform.portal.portlet.PortletPreferences;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
@@ -216,8 +217,27 @@ public class UserPortalConfigService {
     Widgets widgets = storage_.getWidgets(id) ;
     if (widgets != null) remove(widgets) ;
     
+    //Remove PortletPreferences
+    Query<PortletPreferences> portletPrefQuery = new Query<PortletPreferences>(null, null, null, PortletPreferences.class) ;
+    portletPrefQuery.setOwnerType(PortalConfig.PORTAL_TYPE) ;
+    portletPrefQuery.setOwnerId(portalName) ;
+    pageList = storage_.find(portletPrefQuery) ;
+    pageList.setPageSize(10) ;
+    int j = 1 ;
+    while(j <= pageList.getAvailablePage()) {
+      List<?> list = pageList.getPage(j) ;
+      Iterator<?> itr = list.iterator() ;
+      while(itr.hasNext()) {
+        PortletPreferences portletPreferences = (PortletPreferences) itr.next() ;
+        storage_.remove(portletPreferences) ;
+      }
+      j ++ ;
+    }
+    
     PortalConfig config = storage_.getPortalConfig(portalName) ;
     if (config != null) storage_.remove(config) ;
+    
+    storage_.printTree() ;
     //-------------------------------------------------------------------------------------------------------
   }
   

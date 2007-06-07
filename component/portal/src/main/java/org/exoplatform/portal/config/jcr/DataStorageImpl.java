@@ -256,6 +256,24 @@ public class DataStorageImpl implements DataStorage {
     session.logout();
   }
   
+  //TODO: Tung.Pham added
+  public void remove(PortletPreferences portletPreferences) throws Exception {
+    Session session = jcrRegService_.getSession() ;
+    String ownerType = portletPreferences.getOwnerType() ;
+    String ownerId = portletPreferences.getOwnerId() ;
+    Node portletPrefSetNode = createSetNode(session, PORTLET_PREFERENCES_SET_NODE, ownerType, ownerId) ;
+    String name = portletPreferences.getWindowId().replace('/', '_').replace(':', '_') ;
+    if (portletPrefSetNode == null || !portletPrefSetNode.hasNode(name)) {
+      session.logout() ;
+      return ;
+    }
+    
+    Node portletPrefNode = portletPrefSetNode.getNode(name) ;
+    portletPrefNode.remove() ;
+    portletPrefSetNode.save() ;
+    session.save() ;
+    session.logout() ;
+  }
   @SuppressWarnings("unchecked")
   public  PageList find(org.exoplatform.portal.config.Query cq) throws Exception {
     StringBuilder  builder = new StringBuilder("select * from "+NT_FOLDER_TYPE);
@@ -263,7 +281,6 @@ public class DataStorageImpl implements DataStorage {
     generateScript(builder, "name", cq.getName());
     generateScript(builder, "ownerType", cq.getOwnerType());
     generateScript(builder, "ownerId", cq.getOwnerId());
-    
     Session session = jcrRegService_.getSession();
     QueryManager queryManager = session.getWorkspace().getQueryManager() ;
     Query query = queryManager.createQuery(builder.toString(), "sql") ;
@@ -425,5 +442,5 @@ public class DataStorageImpl implements DataStorage {
     Node node = parent.addNode(name, NT_FOLDER_TYPE);
     parent.save();
     return node;    
-  }  
+  }
 }
