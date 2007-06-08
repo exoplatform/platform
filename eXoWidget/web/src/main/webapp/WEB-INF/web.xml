@@ -5,7 +5,7 @@
   "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-  <display-name>exo.widget.web</display-name>
+  <display-name>eXoWidgetWeb</display-name>
   <context-param>
     <param-name>exo.application</param-name>
     <param-value>

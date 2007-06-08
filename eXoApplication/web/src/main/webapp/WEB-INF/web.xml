@@ -5,7 +5,7 @@
   "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-  <display-name>eXoApplication.web</display-name>
+  <display-name>eXoAppWeb</display-name>
 	<description>
     This application is a portlet. It can not be used outside a portal.
     This web.xml file is mandatory in each .par archive file.

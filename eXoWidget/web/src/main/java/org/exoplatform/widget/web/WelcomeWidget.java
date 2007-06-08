@@ -21,11 +21,11 @@ import org.exoplatform.web.application.widget.WidgetApplication;
  */
 public class WelcomeWidget extends WidgetApplication<UIWidget> {
   
-  public String getApplicationId() { return "exo.widget.web/WelcomeWidget" ; }
+  public String getApplicationId() { return "eXoWidgetWeb/WelcomeWidget" ; }
 
   public String getApplicationName() { return "WelcomeWidget"; }
 
-  public String getApplicationGroup() { return "exo.widget.web"; }
+  public String getApplicationGroup() { return "eXoWidgetWeb"; }
   
   public void processRender(UIWidget uiWidget, Writer w) throws Exception {
     PortalRequestContext pContext = Util.getPortalRequestContext();
@@ -38,7 +38,7 @@ public class WelcomeWidget extends WidgetApplication<UIWidget> {
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
     w.write("<div id = 'UIWelcomeWidget' userName = '"+userName+"' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"'><span></span></div>") ;
     String script = 
-      "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','"+instanceId+"','/exo.widget.web/javascript/');";
+      "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','"+instanceId+"','/eXoWidgetWeb/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
 }

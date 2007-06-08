@@ -15,10 +15,10 @@ import org.exoplatform.web.application.mvc.MVCRequestContext;
  */
 public class ExoConsoleApplication extends MVCApplication {
   
-  public String getApplicationId() { return "exo.app.web/eXoConsole"; }
+  public String getApplicationId() { return "eXoAppWeb/eXoConsole"; }
 
   public String getApplicationName() { return "eXoConsole"; }
-  public String getApplicationGroup() { return "exo.app.web"; }
+  public String getApplicationGroup() { return "eXoAppWeb"; }
   public String getApplicationType() { return EXO_APPLICATION_TYPE; }
   
   public void processAction(MVCRequestContext context) throws Exception {
@@ -27,7 +27,7 @@ public class ExoConsoleApplication extends MVCApplication {
   
   public void processRender(MVCRequestContext context) throws Exception {
     String script = 
-      "eXo.portal.UIPortal.createJSApplication('eXo.application.console.UIConsoleApplication','eXoConsole','eXoConsole','/exo.app.web/javascript/');";
+      "eXo.portal.UIPortal.createJSApplication('eXo.application.console.UIConsoleApplication','eXoConsole','eXoConsole','/eXoAppWeb/javascript/');";
     context.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
 }

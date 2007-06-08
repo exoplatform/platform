@@ -1,0 +1,15 @@
+<project>
+  <parent>
+    <groupId>org.exoplatform.portal</groupId>
+    <artifactId>config</artifactId>
+    <version>2.0</version>
+  </parent> 
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>exo.portal.server.jonas.plugin</artifactId>
+  <version>${org.exoplatform.portal.version}</version>
+  <packaging>jar</packaging>
+  <name>eXo Jonas Plugin</name>
+  <url>http://www.exoplatform.org</url>
+  <description>eXo Jonas Server Plugin</description>
+</project>

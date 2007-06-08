@@ -9,12 +9,12 @@
 		<name>Information</name>
 		<description>Information's Description</description>
 		<application>
-      <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget1</instance-id>
+      <instance-id>portal:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget1</instance-id>
       <application-type>eXoWidget</application-type> 
     </application>
 	
     <application>
-      <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget1</instance-id>
+      <instance-id>portal:/eXoWidgetWeb/InfoWidget/InfoWidget1</instance-id>
       <application-type>eXoWidget</application-type> 
     </application>
 	</container>
@@ -23,7 +23,7 @@
 		<name>Calendar</name>
 		<description>Calendar's Description</description>
   	<application>
-      <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget2</instance-id>
+      <instance-id>portal:/eXoWidgetWeb/InfoWidget/InfoWidget2</instance-id>
       <application-type>eXoWidget</application-type> 
     </application>
   </container>
@@ -32,7 +32,7 @@
 		<name>Calculator</name>
 		<description>Calculator's Description</description>
   	<application>
-      <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget2</instance-id>
+      <instance-id>portal:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget2</instance-id>
       <application-type>eXoWidget</application-type> 
     </application>
 	</container>

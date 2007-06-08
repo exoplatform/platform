@@ -21,11 +21,11 @@ import org.exoplatform.web.application.widget.WidgetApplication;
  */
 public class InfoWidget extends WidgetApplication<UIWidget> {
   
-  public String getApplicationId() { return "exo.widget.web/InfoWidget"; }
+  public String getApplicationId() { return "eXoWidgetWeb/InfoWidget"; }
 
   public String getApplicationName() { return "InfoWidget"; }
 
-  public String getApplicationGroup() { return "exo.widget.web"; }
+  public String getApplicationGroup() { return "eXoWidgetWeb"; }
   
   public void processRender(UIWidget uiWidget, Writer w) throws Exception {
     PortalRequestContext pContext = Util.getPortalRequestContext();
@@ -39,7 +39,7 @@ public class InfoWidget extends WidgetApplication<UIWidget> {
     w.write("<div id = 'UIInfoWidget' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"'><span></span></div>") ;
     
     String script = 
-      "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.info.UIInfoWidget','UIInfoWidget','"+instanceId+"','/exo.widget.web/javascript/');";
+      "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.info.UIInfoWidget','UIInfoWidget','"+instanceId+"','/eXoWidgetWeb/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
 }

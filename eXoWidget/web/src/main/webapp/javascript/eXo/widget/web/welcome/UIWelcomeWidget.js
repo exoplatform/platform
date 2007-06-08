@@ -2,13 +2,13 @@ eXo.require('eXo.core.TemplateEngine') ;
 eXo.require('eXo.application.ApplicationDescriptor') ;
 
 function UIWelcomeWidget() {
-	this.appCategory = "exo.widget.web" ;
+	this.appCategory = "eXoWidgetWeb" ;
 	this.appName = "UIWelcomeWidget" ;
 	this.appIcon = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png" ;
 	this.skin = {
-	  Default: "/exo.widget.web/skin/welcome/DefaultStylesheet.css",
-	  Mac:     "/exo.widget.web/skin/welcome/MacStylesheet.css",
-	  Vista:   "/exo.widget.web/skin/welcome/VistaStylesheet.css"
+	  Default: "/eXoWidgetWeb/skin/welcome/DefaultStylesheet.css",
+	  Mac:     "/eXoWidgetWeb/skin/welcome/MacStylesheet.css",
+	  Vista:   "/eXoWidgetWeb/skin/welcome/VistaStylesheet.css"
 	} ;
 	this.width = "220px" ;
 	this.height = "auto" ;
@@ -30,7 +30,7 @@ UIWelcomeWidget.prototype.createApplicationInstance = function(appDescriptor) {
 	};
 	
  	appDescriptor.widget.content = 
-    eXo.core.TemplateEngine.merge("eXo/widget/web/welcome/UIWelcomeWidget.jstmpl", appDescriptor, "/exo.widget.web/javascript/") ;
+    eXo.core.TemplateEngine.merge("eXo/widget/web/welcome/UIWelcomeWidget.jstmpl", appDescriptor, "/eXoWidgetWeb/javascript/") ;
  	appDescriptor.widget.removeApplication = 
  		"eXo.widget.web.UIWelcomeWidget.destroyInstance('" + appDescriptor.appId + "');" ;
  	

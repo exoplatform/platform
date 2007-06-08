@@ -23,7 +23,7 @@
     <show-max-window>true</show-max-window>
     
     <application location-x="100" location-y="150">
-      <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget</instance-id>
+      <instance-id>portal:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget</instance-id>
       <application-type>eXoWidget</application-type>
     </application>
    
@@ -47,13 +47,13 @@
     </application>  
 
     <application>
-      <instance-id>admin:/exo.app.web/eXoBrowser/eXoBrowser</instance-id>
+      <instance-id>admin:/eXoAppWeb/eXoBrowser/eXoBrowser</instance-id>
       <application-type>eXoApplication</application-type>
       <title>eXo Browser</title>
     </application>
 
     <application>
-      <instance-id>admin:/exo.app.web/eXoConsole/eXoConsole</instance-id>
+      <instance-id>admin:/eXoAppWeb/eXoConsole/eXoConsole</instance-id>
       <application-type>eXoApplication</application-type>
       <title>eXo Console</title>
     </application>

@@ -9,7 +9,7 @@
     <show-max-window>true</show-max-window>
     
     <application>
-	    <instance-id>admin:/exo.widget.web/WelcomeWidget/WelcomeWidget</instance-id>
+	    <instance-id>admin:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget</instance-id>
 	    <application-type>eXoWidget</application-type>
 	    <title>Welcome Widget</title>
 	  </application>
@@ -22,20 +22,6 @@
       <instance-id>portal#webos:/web/SiteMapPortlet/SitemapPortlet</instance-id>    
       <title>Site Map Portlet</title>
     </application>
-
-    <!--
-    <application>
-      <instance-id>webos:/exo.app.web/eXoBrowser/eXoBrowser</instance-id>    
-      <application-type>eXoApplication</application-type>
-      <title>eXo Browser</title>
-    </application>
-     
-    <application>
-      <instance-id>webos:/exo.app.web/eXoConsole/eXoConsole</instance-id>    
-      <application-type>eXoApplication</application-type>
-      <title>eXo Console</title>
-    </application>
-    -->
   </page>
 
   <page>

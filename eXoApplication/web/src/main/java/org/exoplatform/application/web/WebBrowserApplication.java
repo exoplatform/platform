@@ -14,10 +14,10 @@ import org.exoplatform.web.application.mvc.MVCRequestContext;
  * Apr 23, 2007  
  */
 public class WebBrowserApplication extends MVCApplication {
-  public String getApplicationId() { return "exo.app.web/eXoBrowser"; }
+  public String getApplicationId() { return "eXoAppWeb/eXoBrowser"; }
 
   public String getApplicationName() { return "eXoBrowser"; }
-  public String getApplicationGroup() { return "exo.app.web"; }
+  public String getApplicationGroup() { return "eXoAppWeb"; }
   public String getApplicationType() { return EXO_APPLICATION_TYPE; }
   
   public void processAction(MVCRequestContext context) throws Exception {
@@ -27,7 +27,7 @@ public class WebBrowserApplication extends MVCApplication {
   public void processRender(MVCRequestContext context) throws Exception {
     //Application.init() ;
     String script = 
-      "eXo.portal.UIPortal.createJSApplication('eXo.application.browser.UIBrowserApplication','eXoBrowser','eXoBrowser','/exo.app.web/javascript/');";
+      "eXo.portal.UIPortal.createJSApplication('eXo.application.browser.UIBrowserApplication','eXoBrowser','eXoBrowser','/eXoAppWeb/javascript/');";
     context.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
 }

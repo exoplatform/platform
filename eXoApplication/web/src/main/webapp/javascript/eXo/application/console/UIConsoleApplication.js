@@ -6,9 +6,9 @@ function UIConsoleApplication() {
 	this.appName = "console" ;
 	this.appIcon = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png";
 	this.skin = {
-	  Default: "/exo.app.web/skin/console/DefaultStylesheet.css",
-	  Mac:     "/exo.app.web/skin/console/MacStylesheet.css",
-	  Vista:   "/exo.app.web/skin/console/VistaStylesheet.css"
+	  Default: "/eXoAppWeb/skin/console/DefaultStylesheet.css",
+	  Mac:     "/eXoAppWeb/skin/console/MacStylesheet.css",
+	  Vista:   "/eXoAppWeb/skin/console/VistaStylesheet.css"
 	} ;
 };
 
@@ -19,7 +19,7 @@ UIConsoleApplication.prototype.createApplicationInstance = function(appDescripto
 	}
 	
  	appDescriptor.window.content = 
-    eXo.core.TemplateEngine.merge("eXo/application/console/UIConsoleApplication.jstmpl", appDescriptor, "/exo.app.web/javascript/") ;
+    eXo.core.TemplateEngine.merge("eXo/application/console/UIConsoleApplication.jstmpl", appDescriptor, "/eXoAppWeb/javascript/") ;
  	appDescriptor.window.removeApplication = 
  		"eXo.application.console.UIConsoleApplication.destroyInstance('" + appDescriptor.appId + "');";
  	

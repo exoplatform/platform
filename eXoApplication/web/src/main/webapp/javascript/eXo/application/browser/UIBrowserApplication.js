@@ -6,9 +6,9 @@ function UIBrowserApplication() {
 	this.appName = "browser" ;
 	this.appIcon = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png";
 	this.skin = {
-	  Default: "/exo.app.web/skin/browser/DefaultStylesheet.css",
-	  Mac:     "/exo.app.web/skin/browser/MacStylesheet.css",
-	  Vista:   "/exo.app.web/skin/browser/VistaStylesheet.css"
+	  Default: "/eXoAppWeb/skin/browser/DefaultStylesheet.css",
+	  Mac:     "/eXoAppWeb/skin/browser/MacStylesheet.css",
+	  Vista:   "/eXoAppWeb/skin/browser/VistaStylesheet.css"
 	} ;
 };
 
