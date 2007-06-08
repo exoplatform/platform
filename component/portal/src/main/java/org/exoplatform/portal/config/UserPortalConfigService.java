@@ -41,6 +41,8 @@ public class UserPortalConfigService {
   protected ExoCache pageConfigCache_ ;
   protected ExoCache pageNavigationCache_ ;
   protected ExoCache widgetsCache_ ;
+  
+  private NewPortalConfigListener newPortalConfigListener_;
 
   /**
    *The constructor should create the DataStorage object and broadcast "the UserPortalConfigService.onInit"
@@ -118,37 +120,12 @@ public class UserPortalConfigService {
    * @return
    * @throws Exception
    */
-  public UserPortalConfig createUserPortalConfig(String portalName, String template) throws Exception {
-    PortalConfig pconfig = storage_.getPortalConfig(template) ;
-    pconfig.setName(portalName) ;
-    storage_.create(pconfig) ;
-    
-    List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + template) ;
-    if (navigation != null) {
-      navigation.setOwnerId(portalName);      
-      navigations.add(navigation);
-    }
-    
-    Query<Page> query = new Query<Page>(PortalConfig.PORTAL_TYPE, template, null, Page.class) ;
-    PageList pagelist = storage_.find(query) ;
-    pagelist.setPageSize(10);
-    int i = 1;
-    while(i <= pagelist.getAvailablePage()) {
-      List<?>  list = pagelist.getPage(i);
-      for(Object ele : list) {
-        Page page  = (Page)ele;
-        String oldID = page.getPageId();
-        page.setOwnerId(portalName);
-        storage_.create(page);
-        if(navigation != null) replacePageReference(navigation.getNodes(), oldID, page.getPageId());
-      }
-      i++;
-    }
-    
-    if(navigation != null) storage_.create(navigation);
-    //TODO implement widgets
-    return new UserPortalConfig(pconfig, navigations, new ArrayList<Widgets>()); 
+  public void createUserPortalConfig(String portalName, String template) throws Exception {
+    NewPortalConfig portalConfig = newPortalConfigListener_.getPortalConfig(PortalConfig.PORTAL_TYPE);
+    portalConfig.setTemplateOwner(template);
+    portalConfig.getPredefinedOwner().clear();
+    portalConfig.getPredefinedOwner().add(portalName);
+    newPortalConfigListener_.initPortalTypeDB(portalConfig);
   }
   
   private void replacePageReference(List<PageNode> nodes, String oldID, String newID) {
@@ -353,6 +330,10 @@ public class UserPortalConfigService {
   }
   
   @SuppressWarnings("unused")
-  public void initListener(ComponentPlugin listener) { }
+  public void initListener(ComponentPlugin listener) { 
+    if(listener instanceof  NewPortalConfigListener) {
+      newPortalConfigListener_ = (NewPortalConfigListener)listener;
+    }
+  }
   
 }

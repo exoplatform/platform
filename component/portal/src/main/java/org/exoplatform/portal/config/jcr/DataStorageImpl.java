@@ -281,13 +281,10 @@ public class DataStorageImpl implements DataStorage {
   }
   
   public PortletPreferences getPortletPreferences(WindowID windowID) throws Exception {
-    String owner = windowID.getOwner();
-    String [] components = owner.split("#");
+    String [] components = windowID.getOwner().split("#");
     if(components.length < 2) return null;
-    String ownerType = components[0];
-    String ownerId = components[1];
     Session session = jcrRegService_.getSession();
-    Node portletPrefSetNode = getSetNode(session, PORTLET_PREFERENCES_SET_NODE, ownerType, ownerId);  
+    Node portletPrefSetNode = getSetNode(session, PORTLET_PREFERENCES_SET_NODE, components[0], components[1]);  
     if(portletPrefSetNode == null) {
       session.logout();
       return null;

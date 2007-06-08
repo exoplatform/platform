@@ -72,7 +72,8 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     String siteName = "site" ;
     String newName = "newportal" ;
     UserPortalConfig sitePortal = service_.getUserPortalConfig(siteName, "none") ;
-    UserPortalConfig newportal = service_.createUserPortalConfig(newName, siteName) ;
+    service_.createUserPortalConfig(newName, siteName) ;
+    UserPortalConfig newportal = service_.getUserPortalConfig(newName, "exoadmin");
     
     PortalConfig sitePortalConfig = sitePortal.getPortalConfig() ;
     PortalConfig newPortalConfig = newportal.getPortalConfig() ;

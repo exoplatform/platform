@@ -249,19 +249,19 @@ public class UIPortalForm extends UIFormTabPane {
       String portalName = uiForm.getUIStringInput("name").getValue();
       DataStorage dataService = uiForm.getApplicationComponent(DataStorage.class) ;
       PortalConfig config = dataService.getPortalConfig(portalName);
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       if(config !=null ) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPortalForm.msg.sameName", null)) ;
-        
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
       UserPortalConfigService service = uiForm.getApplicationComponent(UserPortalConfigService.class);
-      UserPortalConfig userPortalConfig = service.createUserPortalConfig(portalName, template);
+      service.createUserPortalConfig(portalName, template);
+      UserPortalConfig userPortalConfig = service.getUserPortalConfig(portalName, pcontext.getRemoteUser());
       PortalConfig pconfig = userPortalConfig.getPortalConfig();
       uiForm.invokeSetBindingBean(pconfig);
       
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       pconfig.setCreator(pcontext.getRemoteUser());
       service.update(pconfig);
       

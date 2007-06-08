@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<widgets>
+	<owner-type>portal</owner-type>
+	<owner-id>@owner@</owner-id>
+	<access-permissions>*:/guest;*:/user</access-permissions>
+	<edit-permission>*:/user</edit-permission>
+	
+	<container id="Information">
+    <application>
+      <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget1</instance-id>
+      <application-type>eXoWidget</application-type> 
+    </application>
+    <application>
+      <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget1</instance-id>
+      <application-type>eXoWidget</application-type> 
+    </application>
+	</container>
+</widgets>

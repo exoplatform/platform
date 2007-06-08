@@ -46,7 +46,6 @@
               </collection>
             </field>
             <field  name="ownerType"><string>portal</string></field>
-            <field  name="templateOwner"><string>template</string></field>
             <field  name="templateLocation"><string>war:/conf/portal</string></field> 
           </object>
         </object-param> 
@@ -63,7 +62,6 @@
               </collection>
             </field>
             <field  name="ownerType"><string>group</string></field>
-            <field  name="templateOwner"><string>template</string></field>
             <field  name="templateLocation"><string>war:/conf/portal</string></field> 
           </object>
         </object-param>       
@@ -77,7 +75,6 @@
               </collection>
             </field>
             <field  name="ownerType"><string>user</string></field>
-            <field  name="templateOwner"><string>template</string></field>
             <field  name="templateLocation"><string>war:/conf/portal</string></field> 
           </object>
         </object-param>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+	<owner-type>portal</owner-type>
+  <owner-id>@owner@</owner-id>
+  <access-permissions>*:/guest</access-permissions>
+  
+  <page-nodes>
+    <node>
+      <uri>@owner@::home</uri>
+      <label>Home</label>
+      <page-reference>portal::@owner@::content</page-reference>
+    </node> 
+    
+    <node>
+      <uri>@owner@::desktop</uri>
+      <label>Desktop</label>
+      <page-reference>portal::@owner@::desktop</page-reference>
+    </node>
+  </page-nodes>
+</node-navigation>

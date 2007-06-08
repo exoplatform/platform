@@ -38,6 +38,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   
   private ConfigurationManager cmanager_ ;
   private DataStorage pdcService_;  
+  private List configs;
   
   public NewPortalConfigListener(DataStorage pdcService,
                                  ConfigurationManager cmanager,                                        
@@ -49,10 +50,12 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     ValueParam valueParam = params.getValueParam("check.portal");
     if(valueParam != null) checkPortal = valueParam.getValue();
     if(checkPortal == null  || checkPortal.trim().length() == 0) checkPortal = "site";    
+    
+    configs = params.getObjectParamValues(NewPortalConfig.class);
+   
     if(isInitedDB(checkPortal)) return;
     
-    List list = params.getObjectParamValues(NewPortalConfig.class);
-    for (Object ele : list) {
+    for (Object ele : configs) {
       NewPortalConfig portalConfig  = (NewPortalConfig)ele;
       if(portalConfig.getOwnerType().equals("user")) {
         initUserTypeDB(portalConfig);  
@@ -61,7 +64,16 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       } else {
         initPortalTypeDB(portalConfig);
       }
+      portalConfig.getPredefinedOwner().clear();
     }
+  }
+  
+  NewPortalConfig getPortalConfig(String ownerType) {
+    for(Object object : configs) {
+      NewPortalConfig portalConfig  = (NewPortalConfig) object;
+      if(portalConfig.getOwnerType().equals(ownerType)) return portalConfig;
+    }
+    return null;
   }
   
   private boolean isInitedDB(String user) throws Exception {
@@ -69,7 +81,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     return pconfig != null;
   }
   
-  private void initUserTypeDB(NewPortalConfig config) throws Exception {
+  public void initUserTypeDB(NewPortalConfig config) throws Exception {
     HashSet owners = config.getPredefinedOwner();
     Iterator iter  = owners.iterator();
     while(iter.hasNext()){
@@ -80,7 +92,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     }
   }
   
-  private void initGroupTypeDB(NewPortalConfig config) throws Exception {
+  public void initGroupTypeDB(NewPortalConfig config) throws Exception {
     HashSet owners = config.getPredefinedOwner();
     Iterator iter  = owners.iterator();
     while(iter.hasNext()){
@@ -91,7 +103,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     }
   }
   
-  private void initPortalTypeDB(NewPortalConfig config) throws Exception {
+  public void initPortalTypeDB(NewPortalConfig config) throws Exception {
     HashSet owners = config.getPredefinedOwner();
     Iterator iter  = owners.iterator();
     while(iter.hasNext()){
@@ -104,29 +116,61 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     }
   }
   
-  private void createPortalConfig(NewPortalConfig config, String owner) throws Exception { 
-    PortalConfig pconfig = fromXML(getDefaultConfig(config, owner, "portal"), PortalConfig.class);
+  private void createPortalConfig(NewPortalConfig config, String owner) throws Exception {
+    String xml = null;
+    if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
+      xml = getDefaultConfig(config, owner, "portal");
+    } else {
+      xml = getTemplateConfig(config, owner, "portal");
+    }
+    PortalConfig pconfig = fromXML(xml, PortalConfig.class);
     pdcService_.create(pconfig);
   }
   
   private void createPage(NewPortalConfig config, String owner) throws Exception {
-    PageSet pageSet = fromXML(getDefaultConfig(config, owner, "pages"), PageSet.class);
+    String xml = null;
+    if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
+      xml = getDefaultConfig(config, owner, "pages");
+    } else {
+      xml = getTemplateConfig(config, owner, "pages");
+    }
+    PageSet pageSet = fromXML(xml, PageSet.class);
     ArrayList<Page> list = pageSet.getPages();
-    for(Page page : list) pdcService_.create(page);
+    for(Page page : list) {
+      pdcService_.create(page);
+    }
   }
   
   private void createPageNavigation(NewPortalConfig config, String owner) throws Exception {    
-    PageNavigation navigation = fromXML(getDefaultConfig(config, owner, "navigation"), PageNavigation.class);
+    String xml = null;
+    if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
+      xml = getDefaultConfig(config, owner, "navigation");
+    } else {
+      xml = getTemplateConfig(config, owner, "navigation");
+    }
+    PageNavigation navigation = fromXML(xml, PageNavigation.class);
     pdcService_.create(navigation);
   }
   
-  private void createWidgets(NewPortalConfig config, String owner) throws Exception {    
-    Widgets widgets = fromXML(getDefaultConfig(config, owner, "widgets"), Widgets.class);
+  private void createWidgets(NewPortalConfig config, String owner) throws Exception { 
+    String xml = null;
+    if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
+      xml = getDefaultConfig(config, owner, "widgets");
+    } else {
+      xml = getTemplateConfig(config, owner, "widgets");
+    }
+    Widgets widgets = fromXML(xml, Widgets.class);
     pdcService_.create(widgets);
   }
   
   private void createPortletPreferences(NewPortalConfig config, String owner) throws Exception {
-    PortletPreferencesSet portletSet = fromXML(getDefaultConfig(config, owner, "portlet-preferences"), PortletPreferencesSet.class);
+    String xml = null;
+    if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
+      xml = getDefaultConfig(config, owner, "portlet-preferences");
+    } else {
+      xml = getTemplateConfig(config, owner, "portlet-preferences");
+    }
+    PortletPreferencesSet portletSet = fromXML(xml, PortletPreferencesSet.class);
     ArrayList<PortletPreferences> list = portletSet.getPortlets();
     for(PortletPreferences portlet : list){
       pdcService_.save(portlet);
@@ -135,19 +179,18 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   
   private String getDefaultConfig(NewPortalConfig portalConfig, String owner, String dataType) throws Exception {
     String ownerType = portalConfig.getOwnerType();
-    
-    String config = null;
-    String templateLoc = portalConfig.getTemplateLocation() ;
     String path = "/" + ownerType + "/" + owner +"/"+dataType+".xml";
-    if(portalConfig.isPredefinedOwner(owner)) {
-      String location = portalConfig.getTemplateLocation() ;
-      config = IOUtil.getStreamContentAsString(cmanager_.getInputStream(location + path));
-    }else {
-      InputStream is = cmanager_.getInputStream(templateLoc + path);
-      String template = IOUtil.getStreamContentAsString(is);
-      config = StringUtils.replace(template, "@owner@", owner);
-    }
-    return config;
+    String location = portalConfig.getTemplateLocation() ;
+    return IOUtil.getStreamContentAsString(cmanager_.getInputStream(location + path));
+  }
+  
+  private String getTemplateConfig(NewPortalConfig portalConfig, String owner, String dataType) throws Exception {
+    String ownerType = portalConfig.getOwnerType();
+    String templateLoc = portalConfig.getTemplateLocation() ;
+    String path = "/" + ownerType + "/template/" +portalConfig.getTemplateOwner()+ "/" + dataType+".xml";
+    InputStream is = cmanager_.getInputStream(templateLoc + path);
+    String template = IOUtil.getStreamContentAsString(is);
+    return StringUtils.replace(template, "@owner@", owner);
   }
   
   private <T> T fromXML(String xml, Class<T> clazz) throws Exception {

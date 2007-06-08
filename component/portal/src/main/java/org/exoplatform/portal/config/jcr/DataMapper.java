@@ -8,8 +8,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 import javax.jcr.Node;
-import javax.jcr.Property;
-import javax.jcr.Value;
 
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -42,8 +40,7 @@ public class DataMapper {
   }
   
   PortalConfig toPortalConfig(Node node) throws Exception  {
-    String xml = node.getProperty("data").getValue().getString() ;
-    return fromXML(xml, PortalConfig.class) ;
+    return fromXML(node.getProperty("data").getValue().getString(), PortalConfig.class) ;
   }
   
 //------------------------------- Page ---------------------------------------------------------
@@ -59,8 +56,7 @@ public class DataMapper {
   }
   
   Page toPage(Node node) throws Exception {
-    String xml = node.getProperty("data").getValue().getString() ;
-    return fromXML(xml, Page.class) ;
+    return fromXML(node.getProperty("data").getValue().getString(), Page.class) ;
   }
   
 //------------------------------ Page Navigation ----------------------------------------------  
@@ -76,36 +72,23 @@ public class DataMapper {
   }
 
   PageNavigation toPageNavigation(Node node) throws Exception {
-    String  xml = node.getProperty("data").getValue().getString() ;
-    return fromXML(xml, PageNavigation.class) ;
+    return fromXML(node.getProperty("data").getValue().getString(), PageNavigation.class) ;
   }
   
 //------------------------------ Portlet Preferences -----------------------------------------------
   
-  void map(Node node, PortletPreferences portlet) throws Exception {
-    node.setProperty("id", portlet.getWindowId()) ;
-    node.setProperty("ownerType", portlet.getOwnerType());
-    node.setProperty("ownerId", portlet.getOwnerId());
-    node.setProperty("name", portlet.getWindowId().replace('/', '_').replace(':', '_')) ;
-    //TODO: Tung.Pham modified
-    //-------------------------------------------------------------------------
-    //node.setProperty("dataType", "portletPreferences") ;
-    node.setProperty("dataType", portlet.getClass().getSimpleName()) ;
-    //-------------------------------------------------------------------------
-    node.setProperty("data", toXML(portlet)) ;
+  void map(Node node, PortletPreferences portletPref) throws Exception {
+    node.setProperty("id", portletPref.getWindowId()) ;
+    node.setProperty("ownerType", portletPref.getOwnerType());
+    node.setProperty("ownerId", portletPref.getOwnerId());
+    node.setProperty("name", portletPref.getWindowId().replace('/', '_').replace(':', '_')) ;
+    node.setProperty("dataType", portletPref.getClass().getSimpleName()) ;
+    String xml = toXML(portletPref);
+    node.setProperty("data", xml) ;
   }
   
   public PortletPreferences toPortletPreferences(Node node) throws Exception {
-    Property property = node.getProperty("data"); 
-    if(property == null) return null;
-    Value value = property.getValue();
-    if(value == null) return null;
-    try{
-      return fromXML(value.getString(), PortletPreferences.class) ;
-    }catch (Exception e) {
-      System.err.println(e.toString());
-      return null;
-    }
+    return fromXML(node.getProperty("data").getValue().getString(), PortletPreferences.class) ;
   }
   
 //------------------------------- Widgets ---------------------------------------------------------
@@ -121,8 +104,7 @@ public class DataMapper {
   }
   
   Widgets toWidgets(Node node) throws Exception {
-    String xml = node.getProperty("data").getValue().getString() ;
-    return fromXML(xml, Widgets.class) ;
+    return fromXML(node.getProperty("data").getValue().getString(), Widgets.class) ;
   }
   
 //------------------------------ Util method -----------------------------------------------  

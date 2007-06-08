@@ -269,6 +269,7 @@ UIWindow.prototype.initDND = function(e) {
 	  	for (var i = 0; i < hiddenElements.length; i++) {
 	  		hiddenElements[i].style.overflow = "auto";
 	  	}
+	  	
 	  }
 	  DragDrop.init(null, clickBlock, dragBlock, e) ;
 	}

@@ -4,8 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.portlet.jcr;
 
-import java.util.IllegalFormatException;
-
 import org.apache.commons.logging.Log;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.portlet.PortletPreferences;
@@ -27,7 +25,6 @@ public class PortletPreferencesPersisterImpl implements PortletPreferencesPersis
   private transient Log log_;
   
   private DataStorage dataStorage_;
-  
   
   public PortletPreferencesPersisterImpl(DataStorage dataStorage, LogService lservice) {
     log_ = lservice.getLog(getClass()); 
