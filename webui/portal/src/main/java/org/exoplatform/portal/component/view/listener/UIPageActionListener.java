@@ -129,8 +129,7 @@ public class UIPageActionListener {
       
       String applicationId = event.getRequestContext().getRequestParameter("applicationId");
       
-      StringBuilder windowId = new StringBuilder(uiPage.getOwnerType());
-      windowId.append('#').append(uiPage.getOwnerId());
+      StringBuilder windowId = new StringBuilder(uiPage.getOwnerId());      
       windowId.append(":/").append(applicationId).append('/');
       Application application = getApplication(uiPortal, applicationId);
       
@@ -158,6 +157,7 @@ public class UIPageActionListener {
         
         uiPage.addChild(uiWidget);
       } else {
+        windowId.insert('#', 0).insert(0, uiPage.getOwnerType());
         UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);  
         windowId.append(uiPortlet.hashCode());
         uiPortlet.setWindowId(windowId.toString());
