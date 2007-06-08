@@ -129,20 +129,24 @@ public class UIPageActionListener {
       
       String applicationId = event.getRequestContext().getRequestParameter("applicationId");
       
-      StringBuilder windowId = new StringBuilder(uiPage.getOwnerId());      
-      windowId.append(":/").append(applicationId).append('/');
       Application application = getApplication(uiPortal, applicationId);
       
       if(org.exoplatform.portal.config.model.Application.EXO_APPLICATION_TYPE.equals(application.getApplicationType())){
         UIExoApplication uiExoApp = uiPage.createUIComponent(UIExoApplication.class, null, null);
-        windowId.append(uiExoApp.hashCode());
+        
+        StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
+        windowId.append(":/").append(applicationId).append('/').append(uiExoApp.hashCode());
         uiExoApp.setApplicationInstanceId(windowId.toString());
+        
         uiExoApp.init();
         uiPage.addChild(uiExoApp);
       } else if(org.exoplatform.portal.config.model.Application.WIDGET_TYPE.equals(application.getApplicationType())){
         UIWidget uiWidget = uiPage.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
-        windowId.append(uiWidget.hashCode());
+        
+        StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
+        windowId.append(":/").append(applicationId).append('/').append(uiWidget.hashCode());
         uiWidget.setApplicationInstanceId(windowId.toString());
+        
         uiWidget.setApplicationName(application.getApplicationName());
         uiWidget.setApplicationGroup(application.getApplicationGroup());
         uiWidget.setApplicationOwnerType(application.getApplicationType());
@@ -157,10 +161,13 @@ public class UIPageActionListener {
         
         uiPage.addChild(uiWidget);
       } else {
-        windowId.insert('#', 0).insert(0, uiPage.getOwnerType());
-        UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);  
-        windowId.append(uiPortlet.hashCode());
+        UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);
+        
+        StringBuilder windowId = new StringBuilder(uiPage.getOwnerType());
+        windowId.append('#').append(uiPage.getOwnerId());
+        windowId.append(":/").append(applicationId).append('/').append(uiPortlet.hashCode());
         uiPortlet.setWindowId(windowId.toString());
+        
         if(application != null){
           if(application.getDisplayName() != null) {
             uiPortlet.setTitle(application.getDisplayName());
