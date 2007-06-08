@@ -25,9 +25,6 @@
   width: 240px;
 }
 
-.UIContentPortlet .CategoryControlBar {
-}
-
 .UIContentPortlet .CategoryControlBar .LeftBar{
 	background: url(DefaultSkin/background/LeftControlBar4x26.gif) no-repeat left; 
 	padding-left: 4px;
@@ -52,25 +49,21 @@
 	background: url('DefaultSkin/icons/RSSReaderIcon.gif') no-repeat left;
 }
 
-
 .UIContentPortlet .UIContentWorkingArea {
   margin-left: 247px;
-}
-
-.UIContentPortlet .UIContentNavigation .UIContentNavigationContainer {
 }
 
 .UIContentPortlet .UIContentNavigation .NewsCategory {
   border: 1px solid #c3c3c3;
   background: #f4f4f4;
   margin: 0px 1px;
-  
 }
 
 .UIContentPortlet .UIContentNavigation .NewsCategory .UIVerticalSlideTabs {
   border: 1px solid #ffffff;
   padding: 5px; padding-bottom: 10px;
   background: url('/eXoResources/background/DefaultSkin/NavigationBG.gif');
+	width: auto;
 }
 
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NormalTab{
@@ -100,7 +93,7 @@
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .SubItem {
 	border: 1px #e4e4e4 solid; border-top: none;
 	margin: 0px 3px 0px 3px;
-	background: white;
+	background: white; width: 97%;
 }
 
 .UIContentPortlet .UIContentNavigation .NavigationControlIcon{
