@@ -1,47 +1,79 @@
+/**
+ * Cated by The eXo Platform SAS
+ * Modified : Phuong Pham Dang
+ *           phuongexodesign@gmail.com
+ * 7 june, 2007
+ * version: $Id$
+ */
+
 .UIWindow .UIContentPortlet {
   overflow: auto ;
+  border: none;
+  margin: 0px;
 }
 
-.UIPageBody .UIContentPortlet {
-  background: url('VistaSkin/background/ContentPortletBG.png') repeat;
-  padding: 10px;
-  overflow: auto ;
-}
-
-.UIContentPortlet { 
-  margin: 5px 6px 5px 0px;
+.UIContentPortlet {
+  padding:7px;
+  margin: 5px;
   border: 1px solid #b7b7b7;
-}
-
-.UIContentPortlet .ContentPortletContainer {
-  padding: 5px 8px;
-}
-
-.UIContentPortlet .DecoratorBox .GrayRoundedFillBoxStyle {
-  margin: 0px ; 
+  background: white url('MacSkin/background/eXoRSS.gif') no-repeat bottom right;
+  height: auto;
 }
 
 .UIContentPortlet .UIContentNavigation {
   float: left;
-  width: 250px;
+  width: 240px;
 }
+
+.UIContentPortlet .CategoryControlBar {
+}
+
+.UIContentPortlet .CategoryControlBar .LeftBar{
+	background: url('DefaultSkin/background/LeftControlBar4x26.gif') no-repeat left; 
+	padding-left: 4px;
+	height: 26px;
+}
+
+.UIContentPortlet .CategoryControlBar .RightBar{
+	background: url('DefaultSkin/background/RightControlBar4x26.gif') no-repeat right; 
+	padding-right: 4px;
+	height: 26px;
+}
+
+.UIContentPortlet .CategoryControlBar .MiddleBar{
+	background: url('DefaultSkin/background/CenterControlBar1x26.gif') repeat-x; 
+	height: 26px;
+}
+
+.UIContentPortlet .UIContentNavigation .RSSReaderHeader {
+	line-height: 22px;
+	padding: 0px 10px 0px 28px;
+	font-size: 12px; font-weight: bold;
+	background: url('DefaultSkin/icons/RSSReaderIcon.gif') no-repeat left;
+}
+
 
 .UIContentPortlet .UIContentWorkingArea {
-  margin-left: 260px;
+  margin-left: 247px;
 }
 
-.UIContentPortlet .UIContentNavigation .UIToolbar{
-  margin-top: 0px;
+.UIContentPortlet .UIContentNavigation .UIContentNavigationContainer {
 }
 
-.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs {
-  padding: 7px; padding-bottom: 10px;
-  border: 1px solid #aeaeae;
-  background:white;
-  margin-right: 1px;
+.UIContentPortlet .UIContentNavigation .NewsCategory {
+  border: 1px solid #c3c3c3;
+  background: #f4f4f4;
+  margin: 0px 1px;
+  
 }
 
-.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .VTabStyle3 {
+.UIContentPortlet .UIContentNavigation .NewsCategory .UIVerticalSlideTabs {
+  border: 1px solid #ffffff;
+  padding: 5px; padding-bottom: 10px;
+  background: url('/eXoResources/background/DefaultSkin/NavigationBG.gif');
+}
+
+.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NormalTab{
   margin-top: 4px;
 }
 
@@ -50,185 +82,204 @@
 }
 
 .UIContentPortlet .UIContentNavigation .UpArrowBar {
-  width: 34px; height: 20px;
-  padding-left: 8px; 
+  width: 24px; height: 24px;
+  padding-left: 7px;
+  float: left;
+}
+
+.UIContentPortlet .UIContentNavigation .ActionBar {
+  float: right;
+  padding-right: 8px;
 }
 
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NavigationUpArrowIcon {
-  width: 33px; height: 25px;
-  background: url('VistaSkin/background/NavigationUpArrowIcon.png') no-repeat ;
+  width: 24px; height: 24px;
+  background: url('DefaultSkin/icons/UpNewsLevel.gif') no-repeat center;
 }
 
-.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NodeLevel2 {
-	border: 1px #cdcdcd solid; border-top: none;
+.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .SubItem {
+	border: 1px #e4e4e4 solid; border-top: none;
+	margin: 0px 3px 0px 3px;
 	background: white;
 }
 
-.UIContentPortlet .UIContentNavigation .NavigationControlIcon {
+.UIContentPortlet .UIContentNavigation .NavigationControlIcon{
 	float: left ;
-	margin-left: 10px ;
-	margin-top: 4px ;
+	margin-left: 8px ;
 }
 
-.UIContentPortlet .UIContentNavigation .RSSReaderSymbol {
+.UIContentPortlet .UIContentNavigation .CategoryIcon{
 	float: left ;
-	margin-top: 4px ;
-	width: 112px; height: 22px;
-	background: url('VistaSkin/background/RSSReaderIcon.png') no-repeat;
+	margin: 4px 5px 0px 5px ;
 }
 
-.UIContentPortlet .UIContentNavigation .ExpandButton {
-	float: right ;
-	margin: 5px 3px 0px 0px ;
-  cursor: pointer ;
-  width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/BlackUpArrow.gif') ; 
-}
-
-.UIContentPortlet .UIContentNavigation .CollapseButton {
-	float: right ;
-	margin:10px 3px 0px 0px ;
-  cursor: pointer ;
-  width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/BlackDownArrow.gif') ;
-}
-
-.UIContentPortlet .UIContentNavigation .NavigationIcon {
+.UIContentPortlet .ItemIcon{
 	float: left ;
-	margin: 4px 5px 0px 10px ;
+	margin: 5px 0px 0px 5px ;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat left;
 }
 
-.UIContentPortlet .UIContentNavigation .OpenFolderIcon {
-	background: url('VistaSkin/background/OpenFolder.png') no-repeat;
-	width: 19px; height: 19px;
+.UIContentPortlet .ContentItemIcon{
+	margin: 2px 0px 0px 0px;
 }
 
-.UIContentPortlet .UIContentNavigation .ClosedFolderIcon {
-	background: url('VistaSkin/background/ClosedFolder.png') no-repeat;
-	width:19px; height:19px;
+.UIContentPortlet .OpenNewsIcon {
+	background: url('DefaultSkin/icons/OpenNewsIcon.gif') no-repeat;
+	width: 18px; height: 16px;
+	margin-top: 5px;
 }
 
-.UIContentPortlet .UIContentNavigation .NavigationLabel {
+.UIContentPortlet .NewsIcon {
+	background: url('DefaultSkin/icons/NewsIcon.gif') no-repeat;
+	width: 18px; height: 16px;
+}
+
+.UIContentPortlet .UIContentNavigation .TabLabel {
   float: left ;
 	height: 25px ;
 	line-height: 25px ;
-	vertical-align: middle ;
 	font-weight: bold ; font-size: 11px ;
-  color: black ;
-  margin-left: 5px;
+  color: #333333 ;
 }
 
-.UIContentPortlet .UIContentNavigation .PortletLabel {
-  float: left ;
-	height: 25px ; line-height: 25px ; vertical-align: middle ;
-	font-size: 11px ; color: black ;
+.UIContentPortlet .UIContentNavigation .SelectedTabLabel {
+	color: #0548ac;
+	float: left ;
+	height: 25px ;
+	line-height: 25px ;
+	font-weight: bold ; font-size: 11px ;
 }
 
-.UIContentPortlet .UIContentNavigation .PortletLabel a {
-	text-decoration: none;
-	color: black ;
-  line-height: 18px ;
+.UIContentPortlet .UIContentNavigation a.TabLabel:hover {
+	color: #058ee6;
 }
 
-.UIContentPortlet .UIContentNavigation .NavigationLabel a {
-	text-decoration: none ;
-	color: black ;
+.UIContentPortlet .UIContentNavigation a.SelectedTabLabel:hover {
+	color: #058ee6;
 }
 
-.UIContentPortlet .UIContentNavigation .VTabStyle3 a:hover {
-	text-decoration: none ;
+.UIContentPortlet .UIContentNavigation a.ItemLabel {
+	line-height: 24px ;
+	font-size: 11px ;
+  color: #000000 ;
+  display: block;
+}
+
+.UIContentPortlet .UIContentNavigation  a.ItemLabel:hover {
 	color: orange ;
 }
 
-.UIContentPortlet .UIContentNavigation .NavigationSelected {
-	color: #006fa3 ;
-}
-
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs {
-  height: 33px;
-  background: url('VistaSkin/background/ContentBreadcumbsBG1x33.png') repeat-x;
-  margin: 0px 30px 5px 0px ; 
+  font-size: 11px; 
 }
 
 .UIContentPortlet .UIContentWorkingArea .UIDescription{
-  padding: 0px;
-  margin: 0px;
+ padding: 0px;
+ margin: 0px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .BreadcumbsContainer {
-  height: 27px; line-height: 27px;
+  padding: 3px 0px 0px 3px;
   font-size: 11px; 
-  border: 1px #636a4f solid;
-  border-top: none; border-bottom: none;
-  padding: 0px 4px 0px 5px;
+  height: 18px;
+  float: left;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .Icon {
   float: left;
-  width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/NewsIcon.png') no-repeat;
-  margin: 2px 0px 0px 0px;
+  margin: 1px 7px 0px 4px;
 }
 
-.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .CategoryName {
+.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .PathArrowIcon {
+  float: left ;
+  margin: 2px 3px 0px 0px;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/BlueNextArrow.gif') no-repeat left;
+}
+
+.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs a.CategoryName {
   float: left;
-  line-height: 22px; vertical-align: middle; 
-  color: black; font-weight: bold;
-  margin: 3px 0px 0px 10px ;
+  color: #058ee6;
+  line-height: 18px; vertical-align: middle;
+  cursor: pointer;
 }
 
-.UIContentPortlet .UIContentWorkingArea .RefreshBar {
+.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs a.CategoryName:hover {
+  color: #0437b8;
+}
+
+.UIContentPortlet .RefreshBar {
   float: right;
+  padding: 1px 10px 0px 5px;
 }
 
-.UIContentPortlet .UIContentWorkingArea .RefreshIcon {
-	float: left ;
-	margin: 0px 0px 0px 5px;
-	width: 27px; height: 28px;
-	background: url('/eXoResources/icons/32x32/VistaSkin/RefreshIcon.png') no-repeat; 
+.UIContentPortlet .RefreshBar a{
+	display: block;
+	line-height: 22px;
+	color: #000000;
 }
 
-.UIContentPortlet .UIContentWorkingArea .NewsDetailLayout {
-  border: 1px solid #949494;
+.UIContentPortlet .RefreshBar a:hover{
+	color: #058ee6;
+	text-decoration: underline;
+}
+
+.UIContentPortlet .RefreshBar .SeparatorLine{
+	background: url('DefaultSkin/background/SeparatorLine.gif') repeat-y ;
+	width: 2px; height: 18px;
+	margin: 2px 5px 0px 0px;
+	float: left; 
+}
+
+.UIContentPortlet .RefreshBar .LeftRefreshBar{
+	background: url('/eXoResources/icons/16x16/DefaultSkin/RefreshIcon.gif') no-repeat left center;
+	height: 22px;
+	padding-left: 25px;
+	float: left;
 }
 
 .UIContentPortlet .UIContentWorkingArea .NewsDetailContainer {
-  padding: 4px;
-  background: url('VistaSkin/background/PortletBG.png');
+  padding: 5px 7px;
+  border: 1px solid #cdcdcd;
+  background: #f4f4f4;
 }
 
 .UIContentPortlet  .UIContentWorkingArea .NewsDetail {
-  border: 1px solid #959595;
+  border: 1px solid #cdcdcd;
   background: white;
-  padding: 8px;
+  padding: 10px 10px 5px 5px;
+  margin: 3px 0px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentDetailTitle a {
-	color: #006fa3;
-	font-size: 11px ;font-weight: bold ;
+	color: #0548ac ;
+	font-size: 15px ;
 }
 
-.UIContentPortlet .UIContentWorkingArea .ContentDetailImage {
+.UIContentPortlet .UIContentWorkingArea .ContentDetailTitle a:hover {
+	color: #058ee6;
+}
+
+.UIContentPortlet .UIContentWorkingArea .HeadlineImage {
 	float: left ;
 	padding: 5px ;
 }
 
-.UIContentPortlet .UIContentWorkingArea img {
-	border: 0px ;
-}
-
 .UIContentPortlet .UIContentWorkingArea .UIFormWithTitle {
 	width: 460px;
-	margin: 0px 50px;
+	margin: 0px auto;
 }
 
-.UIContentPortlet .UIContentWorkingArea .UIFormWithTitle .UIAction {
-	width: 190px;
+.UIContentPortlet .UIContentWorkingArea .UIFormWithTitle .UIAction{
+	width: 160px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .DateTime {
-	color: #5d5d5e; font-size: 11px; text-align: right;
+	color: #5d5d5e;
+	font-size: 11px;
 	padding: 10px 5px 3px 5px;
+	text-align: right;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentDetailImageDescription {
@@ -237,45 +288,14 @@
 	font-size: 11px ;
 }
 
-.UIContentPortlet .UIContentWorkingArea .ContentDetailDescription {
-	padding-left: 20px ;
+.UIContentPortlet .UIContentWorkingArea .HeadlineNews {
+	padding: 2px 10px 2px 15px;
 }
 
-.UIContentPortlet .UIContentWorkingArea .ContentPageIterator {
-  width: 340px; height: 30px;
-  margin-left: auto;
-  margin-top: 3px;
+.UIContentPortlet .UIContentWorkingArea .HeadlineNews a{
+	color: #0548ac ;
 }
 
-.UIContentPortlet .ContentPageIterator .BackIcon {
-  float: left;
-  width: 17px; height: 17px;
-  margin-top: 3px;
-}
-
-.UIContentPortlet .ContentPageIterator .NextIcon {
-  float: right;
-  width: 17px; height: 17px;
-  margin-top: 3px;
-}
-
-.UIContentPortlet .UIContentWorkingArea .Number {
-  float: left ;
-  height: 20px; 
-  text-align: center;
-  line-height: 20px; vertical-align: middle;
-}
-
-.UIContentPortlet .UIContentWorkingArea .Number a {
-  margin: 0px 3px 0px 5px ;
-  color: black ;
-  font-size: 11px ; font-weight: bold ;
-}
-
-.UIContentPortlet .UIContentWorkingArea .Number a:hover {
-  color: blue ;
-}
-
-.UIContentPortlet .UIContentWorkingArea .Number a.PageSelected {
-  color: red ;
+.UIContentPortlet .UIContentWorkingArea .HeadlineNews a:hover{
+	color: #058ee6;
 }

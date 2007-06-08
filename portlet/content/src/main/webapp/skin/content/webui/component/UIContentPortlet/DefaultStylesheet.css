@@ -1,8 +1,8 @@
 /**
  * Cated by The eXo Platform SAS
- * Modifile : Vu Duy Tu
- *           duytucntt@gmail.com
- * December 15, 2006
+ * Modified : Phuong Pham Dang
+ *           phuongexodesign@gmail.com
+ * 7 june, 2007
  * version: $Id$
  */
 
@@ -16,7 +16,7 @@
   padding:7px;
   margin: 5px;
   border: 1px solid #b7b7b7;
-  background: white;
+  background: white url('MacSkin/background/eXoRSS.gif') no-repeat bottom right;
   height: auto;
 }
 
@@ -26,19 +26,19 @@
 }
 
 .UIContentPortlet .CategoryControlBar .LeftBar{
-	background: url(DefaultSkin/background/LeftControlBar4x26.gif) no-repeat left; 
+	background: url('DefaultSkin/background/LeftControlBar4x26.gif') no-repeat left; 
 	padding-left: 4px;
 	height: 26px;
 }
 
 .UIContentPortlet .CategoryControlBar .RightBar{
-	background: url(DefaultSkin/background/RightControlBar4x26.gif) no-repeat right; 
+	background: url('DefaultSkin/background/RightControlBar4x26.gif') no-repeat right; 
 	padding-right: 4px;
 	height: 26px;
 }
 
 .UIContentPortlet .CategoryControlBar .MiddleBar{
-	background: url(DefaultSkin/background/CenterControlBar1x26.gif) repeat-x; 
+	background: url('DefaultSkin/background/CenterControlBar1x26.gif') repeat-x; 
 	height: 26px;
 }
 
@@ -153,12 +153,10 @@
 }
 
 .UIContentPortlet .UIContentNavigation a.ItemLabel {
-  float: left ;
-	height: 24px ;
 	line-height: 24px ;
-	vertical-align: middle ;
 	font-size: 11px ;
   color: #000000 ;
+  display: block;
 }
 
 .UIContentPortlet .UIContentNavigation  a.ItemLabel:hover {
@@ -221,21 +219,17 @@
 }
 
 .UIContentPortlet .RefreshBar .SeparatorLine{
-	background: url(DefaultSkin/background/SeparatorLine.gif) repeat-y ;
+	background: url('DefaultSkin/background/SeparatorLine.gif') repeat-y ;
 	width: 2px; height: 18px;
 	margin: 2px 5px 0px 0px;
 	float: left; 
 }
 
 .UIContentPortlet .RefreshBar .LeftRefreshBar{
-	background: url(/eXoResources/icons/16x16/DefaultSkin/RefreshIcon.gif) no-repeat left center;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/RefreshIcon.gif') no-repeat left center;
 	height: 22px;
 	padding-left: 25px;
 	float: left;
-}
-
-.UIContentPortlet .UIContentWorkingArea .NewsDetailLayout {
-  padding: 1px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .NewsDetailContainer {

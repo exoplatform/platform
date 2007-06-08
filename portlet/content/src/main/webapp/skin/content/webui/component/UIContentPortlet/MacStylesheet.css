@@ -1,8 +1,8 @@
 /**
  * Cated by The eXo Platform SAS
- * Modifile : Vu Duy Tu
- *           duytucntt@gmail.com
- * December 15, 2006
+ * Modified : Phuong Pham Dang
+ *           phuongexodesign@gmail.com
+ * 7 june, 2007
  * version: $Id$
  */
 
@@ -16,7 +16,7 @@
   padding:7px;
   margin: 5px;
   border: 1px solid #b7b7b7;
-  background: white;
+  background: white url('MacSkin/background/eXoRSS.gif') no-repeat bottom right;
   height: auto;
 }
 
@@ -26,23 +26,17 @@
 }
 
 .UIContentPortlet .CategoryControlBar {
+	height: 25px;
 }
 
 .UIContentPortlet .CategoryControlBar .LeftBar{
-	background: url(DefaultSkin/background/LeftControlBar4x26.gif) no-repeat left; 
-	padding-left: 4px;
-	height: 26px;
+
 }
 
 .UIContentPortlet .CategoryControlBar .RightBar{
-	background: url(DefaultSkin/background/RightControlBar4x26.gif) no-repeat right; 
-	padding-right: 4px;
-	height: 26px;
 }
 
 .UIContentPortlet .CategoryControlBar .MiddleBar{
-	background: url(DefaultSkin/background/CenterControlBar1x26.gif) repeat-x; 
-	height: 26px;
 }
 
 .UIContentPortlet .UIContentNavigation .RSSReaderHeader {
@@ -67,7 +61,7 @@
 .UIContentPortlet .UIContentNavigation .NewsCategory .UIVerticalSlideTabs {
   border: 1px solid #ffffff;
   padding: 5px; padding-bottom: 10px;
-  background: url('/eXoResources/background/DefaultSkin/NavigationBG.gif');
+  background: url('/eXoResources/background/MacSkin/Background1x4.png');
 }
 
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NormalTab{
@@ -157,10 +151,7 @@
 }
 
 .UIContentPortlet .UIContentNavigation a.ItemLabel {
-  float: left ;
-	height: 24px ;
 	line-height: 24px ;
-	vertical-align: middle ;
 	font-size: 11px ;
   color: #000000 ;
 }
@@ -194,7 +185,7 @@
   float: left ;
   margin: 2px 3px 0px 0px;
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BlueNextArrow.gif') no-repeat left;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/BlackNextArrow.gif') no-repeat left;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs a.CategoryName {
@@ -210,42 +201,41 @@
 
 .UIContentPortlet .RefreshBar {
   float: right;
-  padding: 1px 10px 0px 5px;
 }
 
 .UIContentPortlet .RefreshBar a{
 	display: block;
 	line-height: 22px;
 	color: #000000;
+	cursor: pointer;
 }
 
 .UIContentPortlet .RefreshBar a:hover{
 	color: #058ee6;
-	text-decoration: underline;
-}
-
-.UIContentPortlet .RefreshBar .SeparatorLine{
-	background: url(DefaultSkin/background/SeparatorLine.gif) repeat-y ;
-	width: 2px; height: 18px;
-	margin: 2px 5px 0px 0px;
-	float: left; 
 }
 
 .UIContentPortlet .RefreshBar .LeftRefreshBar{
-	background: url(/eXoResources/icons/16x16/DefaultSkin/RefreshIcon.gif) no-repeat left center;
+	background: url('MacSkin/background/LeftRefreshButton22x22.gif') no-repeat left center;
 	height: 22px;
-	padding-left: 25px;
-	float: left;
+	padding-left: 22px;
 }
 
-.UIContentPortlet .UIContentWorkingArea .NewsDetailLayout {
-  padding: 1px;
+.UIContentPortlet .RefreshBar .RightRefreshBar{
+	background: url('MacSkin/background/RightRefreshButton13x22.gif') no-repeat right center;
+	height: 22px;
+	padding-right: 13px;
+}
+
+.UIContentPortlet .RefreshBar .CenterRefreshBar{
+	background: url('MacSkin/background/CenterRefreshButton1x22.gif') repeat-x;
+	height: 22px; line-height: 20px;
+	padding: 0px 5px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .NewsDetailContainer {
   padding: 5px 7px;
   border: 1px solid #cdcdcd;
-  background: #f4f4f4;
+  background: url('/eXoResources/background/MacSkin/Background1x4.png');
 }
 
 .UIContentPortlet  .UIContentWorkingArea .NewsDetail {
