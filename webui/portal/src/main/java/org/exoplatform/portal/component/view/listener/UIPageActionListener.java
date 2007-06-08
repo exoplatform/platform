@@ -130,7 +130,7 @@ public class UIPageActionListener {
       String applicationId = event.getRequestContext().getRequestParameter("applicationId");
       
       Application application = getApplication(uiPortal, applicationId);
-      
+      //review windowId for eXoWidget and eXoApplication
       if(org.exoplatform.portal.config.model.Application.EXO_APPLICATION_TYPE.equals(application.getApplicationType())){
         UIExoApplication uiExoApp = uiPage.createUIComponent(UIExoApplication.class, null, null);
         
