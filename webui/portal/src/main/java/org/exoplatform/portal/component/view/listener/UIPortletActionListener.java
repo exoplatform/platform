@@ -15,6 +15,7 @@ import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIPortletForm;
+import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.portal.component.view.UIPageBody;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
@@ -58,6 +59,23 @@ public class UIPortletActionListener   {
       actionInput.setStateChangeAuthorized(true);
       ActionOutput output = 
         portletContainer.processAction(prcontext.getRequest(), prcontext.getResponse(), actionInput);
+      
+      WindowState state = output.getNextState() ;
+      if (state != null ) {
+        UIPage uiPage =  uiPortlet.getAncestorOfType(UIPage.class) ;
+        if (state == WindowState.MAXIMIZED) {
+          uiPortlet.setCurrentWindowState(WindowState.MAXIMIZED) ;
+          if (uiPage != null) uiPage.setMaximizedUIPortlet(uiPortlet) ;
+        } else if (state == WindowState.MINIMIZED ) {
+          uiPortlet.setCurrentWindowState(WindowState.MINIMIZED) ;
+          if(uiPage != null) uiPage.setMaximizedUIPortlet(null) ;
+        } else {
+          uiPortlet.setCurrentWindowState(WindowState.NORMAL) ;
+          if(uiPage != null) uiPage.setMaximizedUIPortlet(null) ;
+        }
+
+      }
+
       uiPortlet.setRenderParametersMap(output.getRenderParameters()) ;
     }
   }
