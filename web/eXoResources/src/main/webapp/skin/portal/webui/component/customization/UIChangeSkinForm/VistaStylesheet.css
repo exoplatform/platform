@@ -35,21 +35,21 @@
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .DefaultImage {
 	margin: auto;
 	width: 329px; height:204px;
-	background: url('VistaSkin/background/DefaultImage.png') no-repeat center;
+	background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center;
 	cursor: pointer ;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .MacImage {
 	margin: auto;
 	width: 329px; height: 204px;
-	background: url('VistaSkin/background/MacImage.png') no-repeat center;
+	background: url('DefaultSkin/background/MacImage.jpg') no-repeat center;
 	cursor: pointer ;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .VistaImage {
 	margin: auto;
 	width: 329px; height: 204px;
-	background: url('VistaSkin/background/VistaImage.png') no-repeat center;
+	background: url('DefaultSkin/background/VistaImage.jpg') no-repeat center;
 	cursor: pointer ;
 }
 

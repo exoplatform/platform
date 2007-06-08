@@ -12,8 +12,8 @@
 
 .UIPopupWindow .PopupTitleIconRight {
   float: right;
-  margin: 5px 3px 0px 0px;
-  width: 19px; height: 15px;
+  margin: 9px 3px 0px 0px;
+  width: 16px; height: 16px;
   background: url('DefaultSkin/background/PopupWindowIcon16x16.gif') no-repeat;
 }
 
