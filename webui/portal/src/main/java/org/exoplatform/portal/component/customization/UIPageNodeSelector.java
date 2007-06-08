@@ -26,6 +26,7 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.component.UIBreadcumbs;
 import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.component.UIDropDownItemSelector;
@@ -296,22 +297,34 @@ public class UIPageNodeSelector extends UIContainer {
       UIContainer uiParent = uiPageNodeSelector.getParent();
       pcontext.addUIComponentToUpdateByAjax(uiParent) ;
       UIPageEditBar uiEditBar = uiParent.getChild(UIPageEditBar.class);      
-      PageNode node  = uiPageNodeSelector.getSelectedPageNode();      
+      PageNode node  = uiPageNodeSelector.getSelectedPageNode();
       if(node == null) return;  
       
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
-
-      if(page == null || !page.isModifiable()){
+      
+      if(page == null){
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
+      //TODO: Tung.Pham added
+      //-------------------------------------------------------------------------
+      if (!page.isModifiable()) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", new String[]{page.getTitle()})) ;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        return ;
+      }
+      //-------------------------------------------------------------------------
       
       uiEditBar.setRendered(true);
       UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
-      Util.getUIPortalToolPanel().setUIComponent(uiPage);
-      
+      UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
+      toolPanel.setUIComponent(uiPage);
+      //TODO: Tung.Pham added
+      //------------------------------------------------------
+      toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
+      //------------------------------------------------------
       if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId())) {
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
