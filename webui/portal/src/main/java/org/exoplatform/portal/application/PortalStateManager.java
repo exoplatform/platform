@@ -89,8 +89,7 @@ public class PortalStateManager extends StateManager {
       (UserPortalConfigService)appContainer.getComponentInstanceOfType(UserPortalConfigService.class);
     String remoteUser = context.getRemoteUser();
     String ownerUser = context.getPortalOwner();  
-    UserPortalConfig userPortalConfig = service_.getUserPortalConfig(ownerUser, remoteUser);
-    return userPortalConfig  ;
+    return service_.getUserPortalConfig(ownerUser, remoteUser) ;
   }
   
   @SuppressWarnings("serial")

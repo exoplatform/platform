@@ -31,8 +31,8 @@
       <description>this listener init the portal configuration</description>
       <init-params>
         <value-param>
-          <name>check.portal</name>
-          <description>The check portal for checking db is empty or not</description>
+          <name>default.portal</name>
+          <description>The default portal for checking db is empty or not</description>
           <value>site</value>
         </value-param> 
         <object-param>

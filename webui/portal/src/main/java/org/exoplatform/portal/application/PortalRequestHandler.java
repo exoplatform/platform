@@ -50,16 +50,17 @@ public class PortalRequestHandler extends WebRequestHandler {
       
       uiApp.setLastAccessApplication(System.currentTimeMillis()) ;
     } catch(Exception ex){
-      PortalContainer container  = PortalContainer.getInstance() ;
+      /*PortalContainer container  = PortalContainer.getInstance() ;
       LogService logService = (LogService)container.getComponentInstanceOfType(LogService.class);
-      logService.getLog(PortalRequestHandler.class).error(ex);
+      logService.getLog(PortalRequestHandler.class).error(ex);*/
+      //TODO: Need to use the log service
+      ex.printStackTrace() ;
     } finally {
       try {
         for(ApplicationLifecycle lifecycle :  lifecycles) lifecycle.onEndRequest(app, context) ;
       } catch (Exception exception){
-        PortalContainer container  = PortalContainer.getInstance() ;
-        LogService logService = (LogService)container.getComponentInstanceOfType(LogService.class);
-        logService.getLog(PortalRequestHandler.class).error(exception);
+        //TODO: Need to use the log service
+        exception.printStackTrace() ;
       }
       WebuiRequestContext.setCurrentInstance(null) ;
     }

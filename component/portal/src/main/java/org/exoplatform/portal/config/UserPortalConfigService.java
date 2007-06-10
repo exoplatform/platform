@@ -13,7 +13,6 @@ import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.portlet.PortletPreferences;
@@ -120,6 +119,7 @@ public class UserPortalConfigService {
    * @return
    * @throws Exception
    */
+  @SuppressWarnings("unchecked")
   public void createUserPortalConfig(String portalName, String template) throws Exception {
     NewPortalConfig portalConfig = newPortalConfigListener_.getPortalConfig(PortalConfig.PORTAL_TYPE);
     portalConfig.setTemplateOwner(template);
@@ -128,13 +128,13 @@ public class UserPortalConfigService {
     newPortalConfigListener_.initPortalTypeDB(portalConfig);
   }
   
-  private void replacePageReference(List<PageNode> nodes, String oldID, String newID) {
+  /*private void replacePageReference(List<PageNode> nodes, String oldID, String newID) {
     if(nodes == null) return;
     for(PageNode node : nodes) {
       if(oldID.equals(node.getPageReference())) node.setPageReference(newID);      
       replacePageReference(node.getChildren(), oldID, newID);
     }
-  }
+  }*/
   
   /**
    * This method should remove the PortalConfig, Page and PageNavigation  that  belong to the portal 
@@ -335,5 +335,7 @@ public class UserPortalConfigService {
       newPortalConfigListener_ = (NewPortalConfigListener)listener;
     }
   }
+  
+  public String getDefaultPortal() { return newPortalConfigListener_.getDefaultPortal(); }
   
 }

@@ -40,6 +40,8 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   private DataStorage pdcService_;  
   private List configs;
   
+  private String defaultPortal ;
+  
   public NewPortalConfigListener(DataStorage pdcService,
                                  ConfigurationManager cmanager,                                        
                                  InitParams params) throws Exception {
@@ -47,7 +49,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     pdcService_ = pdcService;
     
     String checkPortal = "site";
-    ValueParam valueParam = params.getValueParam("check.portal");
+    ValueParam valueParam = params.getValueParam("default.portal");
     if(valueParam != null) checkPortal = valueParam.getValue();
     if(checkPortal == null  || checkPortal.trim().length() == 0) checkPortal = "site";    
     
@@ -199,5 +201,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
     return clazz.cast(uctx.unmarshalDocument(is, null));
   }
+  
+  String getDefaultPortal() { return defaultPortal; }
   
 }
