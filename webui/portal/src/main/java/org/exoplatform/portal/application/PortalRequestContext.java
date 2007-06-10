@@ -27,6 +27,7 @@ public class PortalRequestContext extends WebuiRequestContext {
   
   private HttpServletRequest request_ ;
   private HttpServletResponse response_ ;
+  
   private boolean  ajaxRequest_ = true ;
   private boolean  forceFullUpdate = false;
   private Writer writer_ ;

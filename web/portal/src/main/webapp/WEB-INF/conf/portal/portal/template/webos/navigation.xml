@@ -6,13 +6,13 @@
   
   <page-nodes>
     <node>
-      <uri>@owner@::home</uri>
+      <uri>home</uri>
       <label>Home</label>
       <page-reference>portal::@owner@::content</page-reference>
     </node> 
     
     <node>
-      <uri>@owner@::desktop</uri>
+      <uri>desktop</uri>
       <label>Desktop</label>
       <page-reference>portal::@owner@::desktop</page-reference>
     </node>

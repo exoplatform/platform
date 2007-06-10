@@ -6,13 +6,13 @@
   
   <page-nodes>
     <node>
-      <uri>webos::home</uri>
+      <uri>home</uri>
       <label>Home</label>
       <page-reference>portal::webos::content</page-reference>
     </node> 
     
     <node>
-      <uri>webos::desktop</uri>
+      <uri>desktop</uri>
       <label>Desktop</label>
       <page-reference>portal::webos::desktop</page-reference>
     </node>

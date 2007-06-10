@@ -9,7 +9,6 @@ import java.util.List;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.customization.UIPageManagement;
-import org.exoplatform.portal.component.customization.UIPageNavigationControlBar;
 import org.exoplatform.portal.component.customization.UIPageNavigationForm;
 import org.exoplatform.portal.component.customization.UIPageNodeSelector;
 import org.exoplatform.portal.component.view.UIPortal;

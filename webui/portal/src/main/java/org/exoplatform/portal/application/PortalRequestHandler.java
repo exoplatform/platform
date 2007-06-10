@@ -9,6 +9,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.services.log.LogService;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.WebRequestHandler;
 import org.exoplatform.web.application.ApplicationLifecycle;
@@ -22,10 +24,11 @@ import org.exoplatform.webui.component.UIApplication;
  * Dec 9, 2006  
  */
 public class PortalRequestHandler extends WebRequestHandler {
- static String[]  PATHS = {"/public", "/private"} ;
-  
- public String[] getPath() { return PATHS ; }
-  
+
+  static String[]  PATHS = {"/public", "/private"} ;
+
+  public String[] getPath() { return PATHS ; }
+
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     res.setHeader("Cache-Control", "no-cache");
     PortalApplication app =  controller.getApplication(PortalApplication.PORTAL_APPLICATION_ID) ;
@@ -36,23 +39,27 @@ public class PortalRequestHandler extends WebRequestHandler {
       for(ApplicationLifecycle lifecycle :  lifecycles) lifecycle.onStartRequest(app, context) ;
       UIApplication uiApp = app.getStateManager().restoreUIRootComponent(context) ;
       if(context.getUIApplication() != uiApp) context.setUIApplication(uiApp) ;
+      
       app.processDecode(uiApp, context) ;
+      
       if(!context.isResponseComplete() && !context.getProcessRender()) {
         app.processAction(uiApp, context) ;
       }
-      if(!context.isResponseComplete()) {
-        uiApp.processRender(context) ;
-      }
+      
+      if(!context.isResponseComplete()) uiApp.processRender(context) ;
+      
       uiApp.setLastAccessApplication(System.currentTimeMillis()) ;
     } catch(Exception ex){
-      //TODO: Need to use the log service
-      ex.printStackTrace() ;
+      PortalContainer container  = PortalContainer.getInstance() ;
+      LogService logService = (LogService)container.getComponentInstanceOfType(LogService.class);
+      logService.getLog(PortalRequestHandler.class).error(ex);
     } finally {
       try {
         for(ApplicationLifecycle lifecycle :  lifecycles) lifecycle.onEndRequest(app, context) ;
       } catch (Exception exception){
-        //TODO: Need to use the log service
-        exception.printStackTrace() ;
+        PortalContainer container  = PortalContainer.getInstance() ;
+        LogService logService = (LogService)container.getComponentInstanceOfType(LogService.class);
+        logService.getLog(PortalRequestHandler.class).error(exception);
       }
       WebuiRequestContext.setCurrentInstance(null) ;
     }

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <node-navigation>
 	<owner-type>group</owner-type>
-  <owner-id>/portal/community</owner-id>
+  <owner-id>portal/community</owner-id>
   <access-permissions>*:/portal/community</access-permissions>  
   <edit-permission>owner:/portal/community</edit-permission>
   
   <page-nodes>
     <node>
-      <uri>/portal/community::site</uri>
+      <uri>site</uri>
       <label>Website</label>
       <page-reference>group::/portal/community::home</page-reference>
     </node>    
       
     <node>
-      <uri>/portal/community::management</uri>
+      <uri>management</uri>
       <label>Management</label>
       <page-reference>group::/portal/community::management</page-reference>
     </node>    

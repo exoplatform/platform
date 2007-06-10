@@ -95,6 +95,7 @@ public class PortalStateManager extends StateManager {
   
   @SuppressWarnings("serial")
   static  public  class PortalApplicationState extends HashMap<String, UIApplication> {
+    
     private UIPortalApplication uiPortalApplication_ ;
     private int accessPath_ ;
     

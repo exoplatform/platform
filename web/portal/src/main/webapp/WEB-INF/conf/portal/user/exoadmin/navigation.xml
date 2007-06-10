@@ -7,19 +7,19 @@
   
   <page-nodes>  
 	  <node>
-	    <uri>exoadmin::/sitemap</uri>
+	    <uri>sitemap</uri>
 	    <name>siteMap</name>
 	    <label>Site Map</label>
 	    <page-reference>user::exoadmin::sitemap</page-reference>
 	    
 	    <node>
-		    <uri>exoadmin::/testform</uri>
+		    <uri>sitemap/testform</uri>
 		    <label>Test Form</label>
 		    <page-reference>user::exoadmin::testform</page-reference>
 		  </node>
 		 
 		  <node>
-		    <uri>exoadmin::/hello</uri>
+		    <uri>sitemap/hello</uri>
 		    <label>Hello</label>
 		    <page-reference>user::exoadmin::hello</page-reference>
 		  </node>

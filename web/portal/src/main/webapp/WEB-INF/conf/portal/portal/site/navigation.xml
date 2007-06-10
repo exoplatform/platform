@@ -5,14 +5,14 @@
   <access-permissions>*:/guest</access-permissions>  
   <page-nodes>
     <node>
-      <uri>site::home</uri>
+      <uri>home</uri>
       <name>home</name>
       <label>Home</label>
       <page-reference>portal::site::content</page-reference>
     </node> 
     
     <node>
-      <uri>site::register</uri>
+      <uri>register</uri>
       <name>register</name>
       <label>Register</label>
       <page-reference>portal::site::register</page-reference>

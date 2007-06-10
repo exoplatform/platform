@@ -13,6 +13,7 @@ import org.exoplatform.services.resources.ResourceBundleService;
 import org.exoplatform.webui.application.WebuiApplication;
 
 public class PortalApplication extends WebuiApplication {
+  
   final static public String PORTAL_APPLICATION_ID = "PortalApplication" ;
   
   private ServletConfig sconfig_ ;

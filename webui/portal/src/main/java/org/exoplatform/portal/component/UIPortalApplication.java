@@ -17,6 +17,7 @@ import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.view.PortalDataMapper;
 import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.UIPortlet;
+import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.skin.SkinConfig;
 import org.exoplatform.portal.skin.SkinService;
@@ -28,6 +29,7 @@ import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.ParamConfig;
+import org.exoplatform.webui.event.Event;
 /**
  * UIPortalApplication 
  *   - UIControlWorkSpace 
@@ -50,6 +52,8 @@ import org.exoplatform.webui.config.annotation.ParamConfig;
 public class UIPortalApplication extends UIApplication {
   
   public static boolean DEVELOPING = false;
+  
+  private String nodePath_;
   
   static {
     DEVELOPING =  "true".equals(System.getProperty("exo.product.developing")) ;
@@ -132,6 +136,29 @@ public class UIPortalApplication extends UIApplication {
     uiWorkingWorkspace.addChild(UIPortalToolPanel.class, null, null).setRendered(false) ;    
     addChild(uiWorkingWorkspace) ;
     addChild(UIMaskWorkspace.class, UIPortalApplication.UI_MASK_WS_ID, null) ;
+  }
+  
+  public void  processDecode(WebuiRequestContext context) throws Exception {
+    PortalRequestContext pcontext = (PortalRequestContext) context;
+    String nodePath = pcontext.getNodePath();
+    if(nodePath == null) {
+      super.processDecode(context);
+      return ;
+    }
+
+    nodePath = nodePath.trim();
+    if(nodePath.charAt(0) == '/') nodePath = nodePath.substring(1);
+    if(nodePath.equals(nodePath_)) {
+      super.processDecode(context);
+      return;
+    }
+    
+    nodePath_ = nodePath;
+    UIPortal uiPortal = findFirstComponentOfType(UIPortal.class);
+    PageNodeEvent<UIPortal> pnevent = 
+      new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, nodePath_) ;
+    uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
+    super.processDecode(context);
   }
   
   public void  processRender(WebuiRequestContext context) throws Exception {
