@@ -23,7 +23,6 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
-import org.exoplatform.organization.webui.component.UIGroupForm.*;
 
 /**
  * Created by The eXo Platform SARL
@@ -36,8 +35,8 @@ import org.exoplatform.organization.webui.component.UIGroupForm.*;
   lifecycle = UIFormLifecycle.class,
   template = "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
   events = {
-    @EventConfig(listeners = SaveActionListener.class),
-    @EventConfig(phase = Phase.DECODE, listeners = BackActionListener.class)      
+    @EventConfig(listeners = UIGroupForm.SaveActionListener.class),
+    @EventConfig(phase = Phase.DECODE, listeners = UIGroupForm.BackActionListener.class)      
   }
 )
 public class UIGroupForm extends UIForm {

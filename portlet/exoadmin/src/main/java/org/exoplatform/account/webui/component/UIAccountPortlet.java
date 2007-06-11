@@ -1,9 +1,9 @@
 package org.exoplatform.account.webui.component;
 
-import org.exoplatform.organization.webui.component.UIAccountForm;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+import org.exoplatform.webui.organization.UIAccountForm;
 
 @ComponentConfig(  
     lifecycle = UIApplicationLifecycle.class,

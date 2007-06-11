@@ -1,6 +1,6 @@
 <% 
   //Fixed by Phuong 12/08/2006  
-  import org.exoplatform.organization.webui.component.UIGroupMembershipSelector;
+  import org.exoplatform.webui.organization.UIGroupMembershipSelector;
   import org.exoplatform.webui.core.UIPopupWindow; 
 
 	def permission =  uicomponent.getPermission();

@@ -23,7 +23,6 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
-import org.exoplatform.organization.webui.component.UIGroupMembershipForm.*;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
@@ -34,7 +33,7 @@ import org.exoplatform.organization.webui.component.UIGroupMembershipForm.*;
 @ComponentConfig(
   lifecycle = UIFormLifecycle.class,
   template = "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
-  events = @EventConfig(listeners = SaveActionListener.class)
+  events = @EventConfig(listeners = UIGroupMembershipForm.SaveActionListener.class)
 )
 public class UIGroupMembershipForm extends UIForm {  
     

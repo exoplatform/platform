@@ -14,12 +14,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.core.UIContainer;
-/**
- * Created by The eXo Platform SARL
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
- * Jul 10, 2006  
- */
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 @ComponentConfigs({

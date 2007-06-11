@@ -57,8 +57,7 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
   
   @SuppressWarnings("unused")
   public void decode(Object input, WebuiRequestContext context) throws Exception {
-    if(input == null) return ;
-    value_ = ((String)input).trim();
+    if(input != null) value_ = ((String)input).trim();
   }
 
   public void processRender(WebuiRequestContext context) throws Exception {

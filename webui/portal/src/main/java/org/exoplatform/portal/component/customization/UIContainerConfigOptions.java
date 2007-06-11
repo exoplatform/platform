@@ -8,7 +8,6 @@ import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.portal.component.view.UIWidgets;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.webui.application.WebuiRequestContext;

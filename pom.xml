@@ -21,6 +21,7 @@
     <module>sample/framework</module>
 
     <module>webui/core</module>
+    <module>webui/eXo</module>
     <module>webui/portal</module>
     
     <module>portlet/content</module>

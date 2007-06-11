@@ -17,7 +17,7 @@ import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
  *          tuan08@users.sourceforge.net
  * May 7, 2006
  */
-@ComponentConfig(  lifecycle = UIContainerLifecycle.class )
+@ComponentConfig( lifecycle = UIContainerLifecycle.class )
 public class UIContainer extends UIComponent {
   
   private List<UIComponent> children ;

@@ -7,6 +7,7 @@ package org.exoplatform.organization.webui.component;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.application.WebuiRequestContext;

@@ -1,5 +1,5 @@
 <% 
-  import org.exoplatform.organization.webui.component.UIGroupMembershipSelector;
+  import org.exoplatform.webui.organization.UIGroupMembershipSelector;
   import org.exoplatform.webui.core.UIPopupWindow; 
   import org.exoplatform.webui.core.UIGrid;
   def membership = uicomponent.getMembership();

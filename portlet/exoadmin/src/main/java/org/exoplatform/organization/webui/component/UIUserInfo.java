@@ -18,6 +18,9 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormInputContainer;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormTabPane;
+import org.exoplatform.webui.organization.UIAccountInputSet;
+import org.exoplatform.webui.organization.UIUserMembershipSelector;
+import org.exoplatform.webui.organization.UIUserProfileInputSet;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv

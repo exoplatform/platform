@@ -15,7 +15,7 @@ import org.exoplatform.webui.core.lifecycle.Lifecycle;
  *          tuan08@users.sourceforge.net
  * May 7, 2006
  */
-@ComponentConfig(  lifecycle = UIComponentDecorator.UIComponentDecoratorLifecycle.class )
+@ComponentConfig( lifecycle = UIComponentDecorator.UIComponentDecoratorLifecycle.class )
 public class UIComponentDecorator extends UIComponent {
   
   protected  UIComponent uicomponent_ ;

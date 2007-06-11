@@ -9,8 +9,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.organization.webui.component.UIListPermissionSelector;
-import org.exoplatform.organization.webui.component.UIPermissionSelector;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
@@ -54,6 +52,8 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.NameValidator;
+import org.exoplatform.webui.organization.UIListPermissionSelector;
+import org.exoplatform.webui.organization.UIPermissionSelector;
 @ComponentConfigs({
   @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
