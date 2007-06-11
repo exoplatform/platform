@@ -51,12 +51,22 @@ UIWidgetContainerManagement.prototype.loadWidgetContainer = function(refresh) {
 	
 	var itemList = '' ;
 	var formContainer = '' ;
+	var isFirst = true ;
+	var display = '' ;
 	
 	for(container in containers.widgetContainer) {
 		var containerObject = containers.widgetContainer[container] ;
 		itemList += '<div class="NormalItem"  onclick="eXo.widget.UIWidgetContainerManagement.selectContainer(this);">'+containerObject["name"]+'</div>' ;
 		
-		formContainer += '<div class="ContainerDetail">' + 
+		if(isFirst) { 
+			display = 'block' ;
+			alert("Check1: " + isFirst);
+			isFirst = false ;
+		} else {
+			display = 'none' ;
+		}
+		
+		formContainer += '<div class="ContainerDetail" style="'+display+'">' + 
 										 '	<div class="UIForm">' + 
 										 '		<div class="HorizontalLayout">' + 
 										 '			<div class="FormContainer">' + 
@@ -74,6 +84,7 @@ UIWidgetContainerManagement.prototype.loadWidgetContainer = function(refresh) {
 									 	 '		</div>' +
 										 '	</div>' +
 										 '</div>' ;
+										 
 	}
 	
 	containerList.innerHTML = itemList ;
