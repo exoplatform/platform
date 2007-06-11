@@ -275,10 +275,10 @@ public class UIPageActionListener {
       String posY  = event.getRequestContext().getRequestParameter("posY");
       uiWidget.getProperties().put("locationX", posX) ;
       uiWidget.getProperties().put("locationY", posY) ;
-      
-      if(!uiPage.isModifiable())  return;
-      Page page = PortalDataMapper.toPageModel(uiPage); 
-      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
+            
+      if(!uiPage.isModifiable()) return;
+      Page page = PortalDataMapper.toPageModel(uiPage);
+      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
       if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
       configService.update(page);
     }

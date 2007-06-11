@@ -12,10 +12,16 @@ UIWidget.prototype.init = function(uiWidget, inDesktop) {
 		var appDescriptor = uiWidget.applicationDescriptor;
 		uiWidget.style.width = appDescriptor.application.width ;
 		uiWidget.style.height = appDescriptor.application.height ;
+		uiWidget.style.position = "absolute" ;
 		
-		uiWidget.style.position = "absolute" ;		
-		uiWidget.style.left = uiWidget.positionX + "px" ;
-		uiWidget.style.top = uiWidget.positionY + "px" ;
+		var posX = appDescriptor.widget.positionX ;
+		var posY = appDescriptor.widget.positionY ;
+		
+		if(posX < 0) posX = 0 ;
+		if(posY < 0) posY = 0 ;
+		
+		uiWidget.style.left = posX + "px" ;
+		uiWidget.style.top = posY + "px" ;
 	}
 };
 

@@ -19,11 +19,11 @@ UIInfoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 
 	var appElement = document.getElementById("UIInfoWidget");
 	appDescriptor.widget = {
+		positionX : appElement.getAttribute('posX'),
+		positionY : appElement.getAttribute('posY'),
 		uiInfoWidget : {
 			temporaty : appElement,
-			appId : appElement.getAttribute('applicationId'),
-			positionX : appElement.getAttribute('posX'),
-			positionY : appElement.getAttribute('posY')
+			appId : appElement.getAttribute('applicationId')
 		}
 	};
 	
