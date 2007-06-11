@@ -52,11 +52,16 @@ public class GetWidgetContainerHandler extends Command {
     
     value.append("{\n").append("widgetContainer : {\n");
     for (int i = 0; i < widgetContainers.size(); i ++) {
-      value.append("'container"+i+"' : '").append(widgetContainers.get(i).getName()) ;
-      if (i < (widgetContainers.size() - 1)) value.append("',\n") ;
-      else value.append("'\n") ;
+      value.append("      \"container"+i+"\" : ").append(" {");
+      value.append("\n          \"name\" : \"").append(widgetContainers.get(i).getName()).append("\",") ;
+      value.append("\n          \"description\" : \"").append(widgetContainers.get(i).getDescription()).append("\"\n") ;
+      value.append("      }");
+      if (i < (widgetContainers.size() - 1)) value.append(",\n") ;
+      else value.append("\n") ;
+      
+      System.out.println("\n\n\n\n\n\n\n\n\n\n Description: "+widgetContainers.get(i).getDescription()+" \n\n\n\n\n\n\n\n\n\n\n");
     }
-    value.append("  }\n").append("  }\n") ;
+    value.append("    }\n").append("}\n") ;
     
     return value ;
   }

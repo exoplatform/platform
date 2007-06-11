@@ -50,20 +50,44 @@ UIWidgetContainerManagement.prototype.loadWidgetContainer = function(refresh) {
 	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList");
 	
 	var itemList = '' ;
+	var formContainer = '' ;
 	
 	for(container in containers.widgetContainer) {
-		var containerName = containers.widgetContainer[container] ;
-		itemList += '<div class="NormalItem"  onclick="eXo.widget.UIWidgetContainerManagement.selectContainer(this);">'+containerName+'</div>' ;
+		var containerObject = containers.widgetContainer[container] ;
+		itemList += '<div class="NormalItem"  onclick="eXo.widget.UIWidgetContainerManagement.selectContainer(this);">'+containerObject["name"]+'</div>' ;
+		
+		formContainer += '<div class="ContainerDetail">' + 
+										 '	<div class="UIForm">' + 
+										 '		<div class="HorizontalLayout">' + 
+										 '			<div class="FormContainer">' + 
+										 '				<table class="UIFormGrid">' +
+										 '					<tr>' + 
+										 '						<td class="FieldLabel">Container name:</td>' + 
+										 '						<td class="FieldComponent"><input type="text" id="name" name="id" value="'+containerObject["name"]+'"/></td>' +
+										 '					</tr>' + 
+										 '					<tr>' + 
+										 '						<td class="FieldLabel">Description:</td>' + 
+										 '						<td class="FieldComponent"><textarea class="textarea" name="description">'+containerObject["description"]+'</textarea></td>' + 
+										 '					</tr>' + 
+										 '				</table>' + 
+										 '			</div>' + 
+									 	 '		</div>' +
+										 '	</div>' +
+										 '</div>' ;
 	}
 	
 	containerList.innerHTML = itemList ;
+	
+	/*Render Form*/
+	var widgetContainerView = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "WidgetContainerView");
+	widgetContainerView.innerHTML = formContainer ;
 	
 	/*Set Selected For The First Item*/
 	var containerListElement = DOMUtil.getChildrenByTagName(containerList, "div");
 	containerListElement[0].className = "SelectedItem";
 };
 
-UIWidgetContainerManagement.prototype.selectContainer = function(selectedElement) {	
+UIWidgetContainerManagement.prototype.selectContainer = function(selectedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var containerList = DOMUtil.findAncestorByClass(selectedElement, "ContainerList");
 	var containers = DOMUtil.getChildrenByTagName(containerList, "div");

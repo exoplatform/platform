@@ -40,29 +40,7 @@
 			</div>
 			<div class="WidgetContainerView">
 				<div class="HeadTitle">View and edit Widget Container</div>
-				<div class="ContainerDetail">
-					<div class="UIForm">
-					  <div class="HorizontalLayout">
-					    <div class="FormContainer">
-					      <table class="UIFormGrid">
-		              <tr>
-			              <td class="FieldLabel">Container name:</td>
-			              <td class="FieldComponent">
-			              	<input type="text" id="name" name="id" value="Container 1"/>
-			              </td>
-			            </tr>
-			            <tr>
-			              <td class="FieldLabel">Description:</td>
-			              <td class="FieldComponent">
-			              	<textarea class="textarea" name="description"></textarea>
-			              </td>
-			            </tr>
-					      </table>
-					    </div>
-					  </div>
-					</div>
-					<a class="RemoveContainerAction">Remove this container</a>
-				</div>
+				df
 			</div>
 			<div style="clear: left"><span></span></div>
 		</div>

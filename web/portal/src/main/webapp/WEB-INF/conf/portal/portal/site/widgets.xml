@@ -15,7 +15,7 @@
 	
     <application>
       <instance-id>portal:/eXoWidgetWeb/InfoWidget/InfoWidget1</instance-id>
-      <application-type>eXoWidget</application-type> 
+      <application-type>eXoWidget</application-type>
     </application>
 	</container>
   
