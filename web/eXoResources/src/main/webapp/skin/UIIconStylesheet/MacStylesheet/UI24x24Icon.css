@@ -305,8 +305,8 @@
 }
 
 .AddCategory24x24Icon {
-	width: 24px ;	height: 24px ;
-	background: url('/eXoResources/icons/24x24/MacSkin/AddCategory.gif') no-repeat ;
+	width: 31px ;	height: 24px ;
+	background: url('/eXoResources/icons/24x24/MacSkin/AddCategoryIcon.png') no-repeat bottom ;
 }
 
 .Catergory24x24Icon {
@@ -315,8 +315,8 @@
 }
 
 .EditCategory24x24Icon {
-	width: 24px ; height: 24px ;
-	background: url('/eXoResources/icons/24x24/MacSkin/EditCategory.gif') no-repeat ;
+	width: 31px ; height: 24px ;
+	background: url('/eXoResources/icons/24x24/MacSkin/EditCategoryIcon.png') no-repeat bottom;
 }
 
 .Delete24x24Icon {
