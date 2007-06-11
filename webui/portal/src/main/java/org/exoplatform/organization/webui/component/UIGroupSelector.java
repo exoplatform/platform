@@ -10,19 +10,19 @@ import java.util.List;
 
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.webui.component.UIBreadcumbs;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UIPopupWindow;
-import org.exoplatform.webui.component.UITree;
-import org.exoplatform.webui.component.UIBreadcumbs.LocalPath;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIBreadcumbs;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.UITree;
+import org.exoplatform.webui.core.UIBreadcumbs.LocalPath;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIForm;
 
 /**
  * Created by The eXo Platform SARL
@@ -42,12 +42,12 @@ import org.exoplatform.webui.event.Event.Phase;
   ),
   @ComponentConfig(
       type = UITree.class, id = "UITreeGroupSelector",
-      template = "system:/groovy/webui/component/UITree.gtmpl",
+      template = "system:/groovy/webui/core/UITree.gtmpl",
       events = @EventConfig(listeners = UITree.ChangeNodeActionListener.class, phase = Phase.DECODE)
   ),
   @ComponentConfig(
       type = UIBreadcumbs.class, id = "BreadcumbGroupSelector",
-      template = "system:/groovy/webui/component/UIBreadcumbs.gtmpl",
+      template = "system:/groovy/webui/core/UIBreadcumbs.gtmpl",
       events = @EventConfig(listeners = UIBreadcumbs.SelectPathActionListener.class, phase = Phase.DECODE)
   )
 })

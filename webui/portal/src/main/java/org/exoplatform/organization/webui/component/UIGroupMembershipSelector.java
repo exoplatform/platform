@@ -14,20 +14,20 @@ import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webui.component.UIApplication;
-import org.exoplatform.webui.component.UIBreadcumbs;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UIPopupWindow;
-import org.exoplatform.webui.component.UITree;
-import org.exoplatform.webui.component.UIBreadcumbs.LocalPath;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIBreadcumbs;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.UITree;
+import org.exoplatform.webui.core.UIBreadcumbs.LocalPath;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIForm;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
@@ -44,12 +44,12 @@ import org.exoplatform.webui.event.Event.Phase;
   ),
   @ComponentConfig(
       type = UITree.class, id = "UITreeGroupSelector",
-      template = "system:/groovy/webui/component/UITree.gtmpl",
+      template = "system:/groovy/webui/core/UITree.gtmpl",
       events = @EventConfig(phase = Phase.DECODE, listeners = UITree.ChangeNodeActionListener.class)
   ),
   @ComponentConfig(
       type = UIBreadcumbs.class, id = "BreadcumbGroupSelector",
-      template = "system:/groovy/webui/component/UIBreadcumbs.gtmpl",
+      template = "system:/groovy/webui/core/UIBreadcumbs.gtmpl",
       events = @EventConfig(phase = Phase.DECODE, listeners = UIBreadcumbs.SelectPathActionListener.class)
   )
 })

@@ -1,6 +1,6 @@
 package org.exoplatform.webui.application;
 
-import org.exoplatform.webui.component.UIApplication;
+import org.exoplatform.webui.core.UIApplication;
 
 abstract public class StateManager {
   abstract public UIApplication restoreUIRootComponent(WebuiRequestContext context) throws Exception ;

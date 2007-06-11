@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.exoplatform.webui.Util;
-import org.exoplatform.webui.component.lifecycle.Lifecycle;
+import org.exoplatform.webui.core.lifecycle.Lifecycle;
 import org.exoplatform.webui.event.EventListener;
 
 /**

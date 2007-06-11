@@ -4,11 +4,11 @@
  **************************************************************************/
 package org.exoplatform.portal.component.customization;
 
-import org.exoplatform.webui.component.UIFormTabPane;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.ParamConfig;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
+import org.exoplatform.webui.form.UIFormTabPane;
 
 /**
  * Created by The eXo Platform SARL
@@ -19,7 +19,7 @@ import org.exoplatform.webui.config.annotation.ParamConfig;
 @ComponentConfigs({
   @ComponentConfig(
       lifecycle = UIFormLifecycle.class,
-      template =  "system:/groovy/webui/component/UIFormTabPane.gtmpl"
+      template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl"
   ),
   @ComponentConfig(
       id = "PageTemplateOption",

@@ -1,6 +1,6 @@
 <% 
   import org.exoplatform.portal.content.model.ContentItem; 
-  import org.exoplatform.webui.component.UIPageIterator;
+  import org.exoplatform.webui.core.UIPageIterator;
 
   String nodeLabel = uicomponent.getContentNode().getLabel() ;  
   items = uicomponent.getListItems() ;  

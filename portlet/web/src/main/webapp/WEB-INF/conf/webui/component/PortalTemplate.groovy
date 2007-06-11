@@ -1,4 +1,4 @@
-import org.exoplatform.webui.component.model.SelectItemOption ;
+import org.exoplatform.webui.bean.SelectItemOption ;
 import java.util.List;
 import java.util.ArrayList;
 

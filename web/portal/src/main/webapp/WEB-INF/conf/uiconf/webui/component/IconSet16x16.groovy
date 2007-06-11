@@ -1,4 +1,4 @@
-import org.exoplatform.webui.component.UIFormInputIconSelector ;
+import org.exoplatform.webui.form.UIFormInputIconSelector ;
 
 UIFormInputIconSelector.CategoryIcon categorySet = new UIFormInputIconSelector.CategoryIcon("misc","16x16"); 
 UIFormInputIconSelector.IconSet misc = 

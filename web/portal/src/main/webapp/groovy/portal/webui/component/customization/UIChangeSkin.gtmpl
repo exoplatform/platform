@@ -1,5 +1,5 @@
 <%
-  import org.exoplatform.webui.component.UIItemSelector; 
+  import org.exoplatform.webui.core.UIItemSelector; 
   
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs') ;

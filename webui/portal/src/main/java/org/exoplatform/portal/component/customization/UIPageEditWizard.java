@@ -33,7 +33,7 @@ import org.exoplatform.webui.event.EventListener;
  * Jun 23, 2006
  */
 @ComponentConfig(
-    template = "app:/groovy/webui/component/UIWizard.gtmpl" ,
+    template = "system:/groovy/webui/core/UIWizard.gtmpl" ,
     events = {
         @EventConfig(listeners = UIPageEditWizard.ViewStep1ActionListener.class),
         @EventConfig(listeners = UIPageEditWizard.ViewStep2ActionListener.class),

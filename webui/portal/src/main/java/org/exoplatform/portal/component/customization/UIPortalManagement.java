@@ -12,9 +12,9 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIDescription;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIDescription;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.Event.Phase;
 /**

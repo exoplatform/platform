@@ -9,11 +9,11 @@ import java.io.Writer;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIComponentDecorator;
-import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponentDecorator;
+import org.exoplatform.webui.core.UIContainer;
 /**
  * Created by The eXo Platform SARL
  * Author : Nhu Dinh Thuan

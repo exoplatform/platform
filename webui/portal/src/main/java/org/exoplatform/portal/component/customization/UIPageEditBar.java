@@ -20,10 +20,10 @@ import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIToolbar;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIToolbar;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 /**
@@ -34,7 +34,7 @@ import org.exoplatform.webui.event.EventListener;
  * 10:07:15 AM
  */
 @ComponentConfig(  
-    template = "system:/groovy/webui/component/UIToolbar.gtmpl",
+    template = "system:/groovy/webui/core/UIToolbar.gtmpl",
     events = {
         @EventConfig(listeners = UIPageEditBar.PagePreviewActionListener.class),
         @EventConfig(listeners = UIPageEditBar.EditPageActionListener.class),        

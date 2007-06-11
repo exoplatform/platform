@@ -11,21 +11,21 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.content.ContentDAO;
 import org.exoplatform.portal.content.model.ContentNode;
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UIFormInput;
-import org.exoplatform.webui.component.UIFormSelectBox;
-import org.exoplatform.webui.component.UIFormStringInput;
-import org.exoplatform.webui.component.UIFormTextAreaInput;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.component.model.SelectItemOption;
-import org.exoplatform.webui.component.validator.EmptyFieldValidator;
-import org.exoplatform.webui.component.validator.Validator;
+import org.exoplatform.webui.bean.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.exception.MessageException;
+import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormInput;
+import org.exoplatform.webui.form.UIFormSelectBox;
+import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UIFormTextAreaInput;
+import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.Validator;
 /**
  * Created by The eXo Platform SARL
  * Author : Dang Van Minh
@@ -35,7 +35,7 @@ import org.exoplatform.webui.exception.MessageException;
 
 @ComponentConfig(
   lifecycle = UIFormLifecycle.class,
-  template =  "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
+  template =  "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
   events = {
     @EventConfig(listeners = UIContentForm.SaveActionListener.class ),
     @EventConfig(listeners = UIContentForm.CancelActionListener.class,  phase = Phase.DECODE)

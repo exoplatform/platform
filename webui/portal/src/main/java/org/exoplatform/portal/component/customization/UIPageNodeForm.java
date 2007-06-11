@@ -15,20 +15,20 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIFormInputIconSelector;
-import org.exoplatform.webui.component.UIFormInputSet;
-import org.exoplatform.webui.component.UIFormStringInput;
-import org.exoplatform.webui.component.UIFormTabPane;
-import org.exoplatform.webui.component.UIPopupWindow;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.component.validator.EmptyFieldValidator;
-import org.exoplatform.webui.component.validator.IdentifierValidator;
-import org.exoplatform.webui.component.validator.NullFieldValidator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIFormInputIconSelector;
+import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UIFormTabPane;
+import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.NullFieldValidator;
 /**
  * Author : Dang Van Minh, Pham Tuan
  *          minhdv81@yahoo.com
@@ -36,7 +36,7 @@ import org.exoplatform.webui.event.Event.Phase;
  */
 @ComponentConfig(  
     lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/webui/component/UIFormTabPane.gtmpl" ,    
+    template = "system:/groovy/webui/form/UIFormTabPane.gtmpl" ,    
     events = {
       @EventConfig(listeners = UIPageNodeForm.SaveActionListener.class ),
       @EventConfig(phase = Phase.DECODE, listeners = UIMaskWorkspace.CloseActionListener.class )

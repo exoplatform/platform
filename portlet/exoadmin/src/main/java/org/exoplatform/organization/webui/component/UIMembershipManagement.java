@@ -9,8 +9,8 @@ import java.io.Writer;
 import org.exoplatform.organization.webui.component.UIOrganizationPortlet.UIViewMode;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIContainer;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv

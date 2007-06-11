@@ -4,8 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.component;
 
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIComponent;
 
 /**
  * Created by The eXo Platform SARL

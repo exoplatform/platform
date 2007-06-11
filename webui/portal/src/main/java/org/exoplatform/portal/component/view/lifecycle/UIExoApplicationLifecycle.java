@@ -8,8 +8,8 @@ import org.exoplatform.portal.component.view.UIExoApplication;
 import org.exoplatform.web.application.mvc.MVCApplication;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.lifecycle.Lifecycle;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.lifecycle.Lifecycle;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen

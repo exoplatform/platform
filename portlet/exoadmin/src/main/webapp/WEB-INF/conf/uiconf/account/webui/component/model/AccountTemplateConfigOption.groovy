@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.ArrayList;
 import org.exoplatform.account.webui.component.model.UIAccountTemplateConfigOption ;
 import org.exoplatform.organization.webui.component.UIUserMembershipSelector;
-import org.exoplatform.webui.component.model.SelectItemCategory;
+import org.exoplatform.webui.bean.SelectItemCategory;
 
 List options = new ArrayList();
 

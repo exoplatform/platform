@@ -9,20 +9,20 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UIFormStringInput;
-import org.exoplatform.webui.component.UIRightClickPopupMenu;
-import org.exoplatform.webui.component.UITree;
-import org.exoplatform.webui.component.UIWizard;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.component.validator.EmptyFieldValidator;
-import org.exoplatform.webui.component.validator.IdentifierValidator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIRightClickPopupMenu;
+import org.exoplatform.webui.core.UITree;
+import org.exoplatform.webui.core.UIWizard;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.IdentifierValidator;
 
 /**
  * Created by The eXo Platform SARL

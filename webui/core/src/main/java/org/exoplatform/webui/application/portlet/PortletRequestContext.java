@@ -10,7 +10,7 @@ import javax.portlet.RenderResponse;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIApplication;
+import org.exoplatform.webui.core.UIApplication;
 
 public class PortletRequestContext extends WebuiRequestContext {
   

@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.test;
 
-import org.exoplatform.webui.component.lifecycle.Lifecycle;
+import org.exoplatform.webui.core.lifecycle.Lifecycle;
 
 /**
  * Author : Nhu Dinh Thuan

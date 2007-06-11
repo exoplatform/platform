@@ -5,11 +5,11 @@
 package org.exoplatform.portal.webui.component;
 
 import org.exoplatform.portal.component.widget.UIPortalNavigation;
-import org.exoplatform.webui.component.UIPortletApplication;
-import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
 /**
  * Created by The eXo Platform SARL
@@ -20,12 +20,12 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 @ComponentConfigs({
   @ComponentConfig(
     lifecycle = UIApplicationLifecycle.class,
-    template = "system:/groovy/webui/component/UIApplication.gtmpl"
+    template = "system:/groovy/webui/core/UIApplication.gtmpl"
   ),
   @ComponentConfig(
     type = UIPortalNavigation.class,
     id = "UISiteMap",
-    template = "system:/groovy/webui/component/UISitemap.gtmpl" ,
+    template = "system:/groovy/webui/core/UISitemap.gtmpl" ,
     events = @EventConfig(listeners = UIPortalNavigation.SelectNodeActionListener.class)
   )
 })

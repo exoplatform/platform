@@ -6,8 +6,8 @@ package org.exoplatform.portal.component.control.lifecycle;
 
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.lifecycle.Lifecycle;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.lifecycle.Lifecycle;
 
 /**
  * Created by The eXo Platform SARL

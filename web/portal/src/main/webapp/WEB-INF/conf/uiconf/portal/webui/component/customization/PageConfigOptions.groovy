@@ -1,5 +1,5 @@
-import org.exoplatform.webui.component.model.SelectItemOption;
-import org.exoplatform.webui.component.model.SelectItemCategory;
+import org.exoplatform.webui.bean.SelectItemOption;
+import org.exoplatform.webui.bean.SelectItemCategory;
 
 List categories = new ArrayList(); 
 String config = null ;

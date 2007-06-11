@@ -18,10 +18,10 @@ import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIGrid;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIGrid;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 /**
@@ -36,7 +36,7 @@ import org.exoplatform.webui.event.EventListener;
   @ComponentConfig(
      type = org.exoplatform.organization.webui.component.UIUserInGroup.UIGridUser.class,
      id = "UIGridUser",
-     template = "system:/groovy/webui/component/UIGrid.gtmpl"
+     template = "system:/groovy/webui/core/UIGrid.gtmpl"
   )
 })
 public class UIUserInGroup extends UIContainer {

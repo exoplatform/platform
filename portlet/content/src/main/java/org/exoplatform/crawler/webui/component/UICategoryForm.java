@@ -4,8 +4,8 @@
  **************************************************************************/
 package org.exoplatform.crawler.webui.component;
 
-import org.exoplatform.webui.component.UIForm;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.form.UIForm;
 
 /**
  * Created by The eXo Platform SARL

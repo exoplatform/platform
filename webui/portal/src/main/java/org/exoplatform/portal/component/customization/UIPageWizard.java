@@ -13,11 +13,11 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIComponentDecorator;
-import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIDescription;
-import org.exoplatform.webui.component.UIPopupWindow;
-import org.exoplatform.webui.component.UIWizard;
+import org.exoplatform.webui.core.UIComponentDecorator;
+import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIDescription;
+import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.UIWizard;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 

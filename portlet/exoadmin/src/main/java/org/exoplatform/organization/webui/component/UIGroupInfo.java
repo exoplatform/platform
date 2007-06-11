@@ -5,13 +5,8 @@
 package org.exoplatform.organization.webui.component;
 
 import org.exoplatform.services.organization.Group;
-import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UITabPane;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.services.organization.Membership;
-import org.exoplatform.services.organization.MembershipHandler;
+import org.exoplatform.webui.core.UIContainer;
 
 /**
  * Created by The eXo Platform SARL
@@ -21,11 +16,9 @@ import org.exoplatform.services.organization.MembershipHandler;
  * 10:08:51 AM 
  */
 //TODO: Tung.Pham modified
-//@ComponentConfig( template = "system:/groovy/webui/component/UITabPane.gtmpl" )
 @ComponentConfig(
-    template = "system:/groovy/webui/component/UIGroupInfoContainer.gtmpl"
+    template = "app:/groovy/organization/webui/component/UIGroupInfoContainer.gtmpl"
 )
-//public class UIGroupInfo extends UITabPane {
 public class UIGroupInfo extends UIContainer {
   
   public UIGroupInfo() throws Exception {

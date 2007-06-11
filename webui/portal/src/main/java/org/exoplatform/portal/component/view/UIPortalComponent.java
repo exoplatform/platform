@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view;
 
-import org.exoplatform.webui.component.UIContainer;
+import org.exoplatform.webui.core.UIContainer;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com

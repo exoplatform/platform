@@ -15,8 +15,8 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIComponentDecorator;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.event.Event;
 
 /**
@@ -62,8 +62,8 @@ public class Util {
         uiContainer.setShowEditControl(false);
       }
     }
-    if(uiComponent instanceof org.exoplatform.webui.component.UIContainer){
-      List<UIComponent> children  = (( org.exoplatform.webui.component.UIContainer)uiComponent).getChildren();
+    if(uiComponent instanceof org.exoplatform.webui.core.UIContainer){
+      List<UIComponent> children  = (( org.exoplatform.webui.core.UIContainer)uiComponent).getChildren();
       for(UIComponent comp : children ) setShowEditControl(comp, clazz);
       return;
     }

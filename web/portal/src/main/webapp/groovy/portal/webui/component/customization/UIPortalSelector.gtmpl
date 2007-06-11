@@ -1,6 +1,6 @@
 <%
-  import org.exoplatform.webui.component.UIComponent ;
-  import org.exoplatform.webui.component.UIForm;
+  import org.exoplatform.webui.core.UIComponent ;
+  import org.exoplatform.webui.form.UIForm;
 
   String[] beanFields =  uicomponent.getBeanFields() ;  
   String[] beanActions =  uicomponent.getBeanActions() ;

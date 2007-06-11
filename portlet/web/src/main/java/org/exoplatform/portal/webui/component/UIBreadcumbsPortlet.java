@@ -11,12 +11,12 @@ import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.view.event.PageNodeEvent;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.webui.component.UIBreadcumbs;
-import org.exoplatform.webui.component.UIPortletApplication;
-import org.exoplatform.webui.component.UIBreadcumbs.LocalPath;
-import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIBreadcumbs;
+import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.core.UIBreadcumbs.LocalPath;
+import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.portal.webui.component.UIBreadcumbsPortlet.*;
@@ -28,7 +28,7 @@ import org.exoplatform.portal.webui.component.UIBreadcumbsPortlet.*;
  */
 @ComponentConfig(
   lifecycle =UIApplicationLifecycle.class,
-  template = "system:/groovy/webui/component/UIApplication.gtmpl" ,
+  template = "system:/groovy/webui/core/UIApplication.gtmpl" ,
   events = @EventConfig(listeners = SelectPathActionListener.class)    
 )
 public class UIBreadcumbsPortlet extends UIPortletApplication {

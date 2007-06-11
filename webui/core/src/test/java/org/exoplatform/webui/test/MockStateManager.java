@@ -3,7 +3,7 @@ package org.exoplatform.webui.test;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.StateManager;
-import org.exoplatform.webui.component.UIApplication;
+import org.exoplatform.webui.core.UIApplication;
 
 public class MockStateManager extends StateManager {
   

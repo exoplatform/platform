@@ -11,14 +11,14 @@ import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIItemSelector;
-import org.exoplatform.webui.component.model.SelectItemCategory;
+import org.exoplatform.webui.bean.SelectItemCategory;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
+import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIItemSelector;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(

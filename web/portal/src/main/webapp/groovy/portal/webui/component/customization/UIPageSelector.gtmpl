@@ -1,5 +1,5 @@
 <% import org.exoplatform.portal.config.model.Page; %>
-<% import org.exoplatform.webui.component.UIPopupWindow; %>
+<% import org.exoplatform.webui.core.UIPopupWindow; %>
 
 <%
 	Page page  = uicomponent.getPage();    

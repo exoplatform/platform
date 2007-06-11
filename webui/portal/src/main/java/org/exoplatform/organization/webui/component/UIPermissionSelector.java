@@ -5,11 +5,10 @@
 package org.exoplatform.organization.webui.component;
 
 import org.exoplatform.portal.config.UserACL.Permission;
-import org.exoplatform.webui.component.UIBreadcumbs;
-import org.exoplatform.webui.component.UIFormPopupWindow;
-import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIBreadcumbs;
+import org.exoplatform.webui.core.UITree;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
@@ -18,6 +17,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
  * 10:07:15 AM
  */
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIFormPopupWindow;
 @ComponentConfig(
   template = "system:/groovy/organization/webui/component/UIPermissionSelector.gtmpl",
   events = @EventConfig (phase = Phase.DECODE, listeners = UIPermissionSelector.SelectMembershipActionListener.class)

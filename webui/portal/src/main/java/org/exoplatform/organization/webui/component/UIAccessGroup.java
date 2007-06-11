@@ -10,15 +10,15 @@ import java.util.List;
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.webui.component.UIFormInputContainer;
-import org.exoplatform.webui.component.UIFormPopupWindow;
-import org.exoplatform.webui.component.UIGrid;
-import org.exoplatform.webui.component.UIPageIterator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIFormInputContainer;
+import org.exoplatform.webui.form.UIFormPopupWindow;
 
 /**
  * Created by The eXo Platform SARL

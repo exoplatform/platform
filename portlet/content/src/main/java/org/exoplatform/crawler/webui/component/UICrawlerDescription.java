@@ -4,8 +4,8 @@
  **************************************************************************/
 package org.exoplatform.crawler.webui.component;
 
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIComponent;
 
 /**
  * Created by The eXo Platform SARL
@@ -14,7 +14,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * Jul 26, 2006  
  */
 
-@ComponentConfig(template = "war:/groovy/webui/component/UIDescription.gtmpl")
+@ComponentConfig(template = "war:/groovy/webui/core/UIDescription.gtmpl")
 public class UICrawlerDescription  extends UIComponent {
 
   public UICrawlerDescription() throws Exception {

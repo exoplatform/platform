@@ -27,15 +27,15 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webui.component.UIBreadcumbs;
-import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIDropDownItemSelector;
-import org.exoplatform.webui.component.UIRightClickPopupMenu;
-import org.exoplatform.webui.component.UITree;
-import org.exoplatform.webui.component.model.SelectItemOption;
+import org.exoplatform.webui.bean.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIBreadcumbs;
+import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIDropDownItemSelector;
+import org.exoplatform.webui.core.UIRightClickPopupMenu;
+import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -58,7 +58,7 @@ import org.exoplatform.webui.event.EventListener;
   @ComponentConfig(
       id = "PageNodePopupMenu",
       type = UIRightClickPopupMenu.class,
-      template = "system:/groovy/webui/component/UIRightClickPopupMenu.gtmpl",
+      template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl",
       events = {
         @EventConfig(listeners = AddNodeActionListener.class),
         @EventConfig(listeners = EditPageNodeActionListener.class),
@@ -71,7 +71,7 @@ import org.exoplatform.webui.event.EventListener;
   @ComponentConfig(
       id = "UIPageNodeSelectorPopupMenu",
       type = UIRightClickPopupMenu.class,
-      template = "system:/groovy/webui/component/UIRightClickPopupMenu.gtmpl",
+      template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl",
       events = {
         @EventConfig(listeners = AddNodeActionListener.class),
         @EventConfig(listeners = PasteNodeActionListener.class),

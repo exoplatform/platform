@@ -20,23 +20,23 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIApplication;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIComponentDecorator;
-import org.exoplatform.webui.component.UIFormInputSet;
-import org.exoplatform.webui.component.UIFormPopupWindow;
-import org.exoplatform.webui.component.UIFormSelectBox;
-import org.exoplatform.webui.component.UIFormStringInput;
-import org.exoplatform.webui.component.UIFormTabPane;
-import org.exoplatform.webui.component.UIFormTextAreaInput;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.component.model.SelectItemOption;
+import org.exoplatform.webui.bean.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIComponentDecorator;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormPopupWindow;
+import org.exoplatform.webui.form.UIFormSelectBox;
+import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UIFormTabPane;
+import org.exoplatform.webui.form.UIFormTextAreaInput;
 
 /**
  * Author : Nguyen Thi Hoa, Pham Dung Ha
@@ -46,7 +46,7 @@ import org.exoplatform.webui.event.Event.Phase;
 @ComponentConfigs({
   @ComponentConfig(
       lifecycle = UIFormLifecycle.class,
-      template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",
+      template = "system:/groovy/webui/form/UIFormTabPane.gtmpl",
       events = {
         @EventConfig(listeners = UIPageNavigationForm.SaveActionListener.class),
         @EventConfig(listeners = UIPageNavigationForm.ChangeOwnerTypeActionListener.class, phase = Phase.DECODE),
@@ -57,7 +57,7 @@ import org.exoplatform.webui.event.Event.Phase;
   @ComponentConfig(
       type = UIFormInputSet.class,
       id = "PermissionSetting",
-      template = "system:/groovy/webui/component/UITabSelector.gtmpl"
+      template = "system:/groovy/webui/core/UITabSelector.gtmpl"
   )
 })
 public class UIPageNavigationForm extends UIFormTabPane {

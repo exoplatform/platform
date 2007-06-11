@@ -25,8 +25,8 @@ import org.exoplatform.resolver.PortletResourceResolver;
 import org.exoplatform.web.application.ApplicationLifecycle;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIApplication;
-import org.exoplatform.webui.component.UIPortletApplication;
+import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIPortletApplication;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com

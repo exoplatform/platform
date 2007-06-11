@@ -1,4 +1,4 @@
-<%	import org.exoplatform.webui.component.UIDescription; %>
+<%	import org.exoplatform.webui.core.UIDescription; %>
 
 <div class="TopTitleBar" >
 	<div class="UIBarStyle">

@@ -4,9 +4,9 @@
  **************************************************************************/
 package org.exoplatform.content.webui.component;
 
-import org.exoplatform.webui.component.UIPortletApplication;
-import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
 /**
  * Author : Nhu Dinh Thuan

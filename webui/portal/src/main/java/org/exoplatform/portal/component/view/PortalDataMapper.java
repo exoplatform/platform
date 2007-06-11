@@ -19,7 +19,7 @@ import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.services.portletcontainer.pci.model.Supports;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.core.UIComponent;
 /**
  * Created by The eXo Platform SARL
  * Author : Nhu Dinh Thuan

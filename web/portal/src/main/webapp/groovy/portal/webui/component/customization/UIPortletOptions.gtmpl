@@ -1,6 +1,6 @@
 <% 
   import org.exoplatform.web.application.JavascriptManager;
-  import org.exoplatform.webui.component.UIDropDownItemSelector;
+  import org.exoplatform.webui.core.UIDropDownItemSelector;
   
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();

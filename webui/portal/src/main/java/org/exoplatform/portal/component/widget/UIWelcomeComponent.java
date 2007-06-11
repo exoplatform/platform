@@ -13,9 +13,9 @@ import org.exoplatform.portal.component.view.UIWidgets;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
-import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.lifecycle.UIContainerLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
 
 /**
  * Created by The eXo Platform SARL

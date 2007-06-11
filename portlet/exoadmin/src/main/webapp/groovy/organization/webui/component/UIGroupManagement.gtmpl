@@ -1,8 +1,8 @@
 <%
   import  org.exoplatform.organization.webui.component.UIGroupExplorer;
   import  org.exoplatform.organization.webui.component.UIGroupDetail;
-  import org.exoplatform.webui.component.UIPopupWindow;
-  import  org.exoplatform.webui.component.UIBreadcumbs;
+  import org.exoplatform.webui.core.UIPopupWindow;
+  import  org.exoplatform.webui.core.UIBreadcumbs;
   def rcontext = _ctx.getRequestContext() ;
   
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');

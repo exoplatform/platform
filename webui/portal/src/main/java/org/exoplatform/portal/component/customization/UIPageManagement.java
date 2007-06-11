@@ -10,11 +10,11 @@ import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIDescription;
-import org.exoplatform.webui.component.UIRightClickPopupMenu;
-import org.exoplatform.webui.component.UITree;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIDescription;
+import org.exoplatform.webui.core.UIRightClickPopupMenu;
+import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
 
 @ComponentConfig(

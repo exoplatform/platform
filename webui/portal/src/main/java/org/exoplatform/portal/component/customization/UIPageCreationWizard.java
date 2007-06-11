@@ -24,11 +24,11 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIApplication;
-import org.exoplatform.webui.component.UIContainer;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 /**
@@ -39,7 +39,7 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfigs({
   @ComponentConfig(
-    template = "app:/groovy/webui/component/UIWizard.gtmpl" ,
+    template = "system:/groovy/webui/core/UIWizard.gtmpl" ,
     events = {
       @EventConfig(listeners = UIPageCreationWizard.ViewStep1ActionListener.class),
       @EventConfig(listeners = UIPageCreationWizard.ViewStep2ActionListener.class),

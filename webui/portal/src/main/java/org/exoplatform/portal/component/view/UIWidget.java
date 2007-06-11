@@ -6,8 +6,8 @@ package org.exoplatform.portal.component.view;
 
 import org.exoplatform.portal.component.view.lifecycle.UIWidgetLifecycle;
 import org.exoplatform.portal.config.model.Properties;
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIComponent;
 
 /**
  * Created by The eXo Platform SARL

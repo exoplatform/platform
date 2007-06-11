@@ -1,6 +1,6 @@
 <%
-  import org.exoplatform.webui.component.UIForm;
-  import org.exoplatform.webui.component.UIPopupWindow; 
+  import org.exoplatform.webui.form.UIForm;
+  import org.exoplatform.webui.core.UIPopupWindow; 
   navigations = uicomponent.getSibbingNodes();
   def selectedNode = uicomponent.getSelectedNode() ;
   def rcontext = _ctx.getRequestContext() ;

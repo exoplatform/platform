@@ -8,16 +8,16 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIFormInputContainer;
-import org.exoplatform.webui.component.UIFormInputSet;
-import org.exoplatform.webui.component.UIFormTabPane;
-import org.exoplatform.webui.component.UIPopupWindow;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIFormInputContainer;
+import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormTabPane;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
@@ -27,7 +27,7 @@ import org.exoplatform.webui.event.Event.Phase;
  */
 @ComponentConfig(    
   lifecycle = UIFormLifecycle.class,
-  template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",
+  template = "system:/groovy/webui/form/UIFormTabPane.gtmpl",
   events = {
     @EventConfig(listeners = UIUserInfo.SaveActionListener.class),
     @EventConfig(listeners = UIUserInfo.BackActionListener.class, phase = Phase.DECODE) 

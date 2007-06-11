@@ -5,16 +5,16 @@
 package org.exoplatform.organization.webui.component;
 
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.webui.component.UIFormInputSet;
-import org.exoplatform.webui.component.UIFormTabPane;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormTabPane;
 /**
  * Created by The eXo Platform SARL
  * Author : Dang Van Minh
@@ -23,7 +23,7 @@ import org.exoplatform.webui.event.Event.Phase;
  */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template =  "system:/groovy/webui/component/UIFormTabPane.gtmpl",
+    template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl",
     initParams = {   
       @ParamConfig(
           name = "AccountTemplateConfigOption", 

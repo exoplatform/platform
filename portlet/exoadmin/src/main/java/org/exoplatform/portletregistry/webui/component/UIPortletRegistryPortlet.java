@@ -1,10 +1,10 @@
 package org.exoplatform.portletregistry.webui.component;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIPopupMessages;
-import org.exoplatform.webui.component.UIPortletApplication;
-import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIPopupMessages;
+import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 @ComponentConfig(
     lifecycle = UIApplicationLifecycle.class,
     template = "app:/groovy/portletregistry/webui/component/UIPortletRegistryPortlet.gtmpl"

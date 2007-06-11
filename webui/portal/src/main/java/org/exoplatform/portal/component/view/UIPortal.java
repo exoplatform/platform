@@ -17,9 +17,9 @@ import org.exoplatform.portal.component.view.listener.UIPortalComponentActionLis
 import org.exoplatform.portal.component.widget.UILogged.LogoutActionListener;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.webui.component.UIComponent;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
 
 /**
  * Date: Aug 11, 2003

@@ -12,14 +12,14 @@ import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.organization.UserProfileHandler;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIApplication;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIFormInput;
-import org.exoplatform.webui.component.UIFormInputSet;
-import org.exoplatform.webui.component.UIFormSelectBox;
-import org.exoplatform.webui.component.UIFormStringInput;
-import org.exoplatform.webui.component.model.SelectItemOption;
+import org.exoplatform.webui.bean.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.form.UIFormInput;
+import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormSelectBox;
+import org.exoplatform.webui.form.UIFormStringInput;
 
 /**
  * Created by The eXo Platform SARL
@@ -27,7 +27,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  *          minhdv81@yahoo.com
  * Jun 28, 2006
  */
-@ComponentConfig( template = "system:/groovy/webui/component/UIVTabInputSet.gtmpl" )
+@ComponentConfig( template = "system:/groovy/webui/form/UIVTabInputSet.gtmpl" )
 public class UIUserProfileInputSet extends UIFormInputSet {
   
   private String user_ ;

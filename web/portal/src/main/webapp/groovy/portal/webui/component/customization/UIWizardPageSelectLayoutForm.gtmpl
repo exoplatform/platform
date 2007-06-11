@@ -1,6 +1,6 @@
 <%
-  import  org.exoplatform.webui.component.UIForm; 
-  import org.exoplatform.webui.component.UIDropDownItemSelector;
+  import  org.exoplatform.webui.form.UIForm; 
+  import org.exoplatform.webui.core.UIDropDownItemSelector;
 %>
 <% 
   def rcontext = _ctx.getRequestContext() ;

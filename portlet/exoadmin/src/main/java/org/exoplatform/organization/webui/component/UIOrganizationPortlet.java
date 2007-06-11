@@ -12,13 +12,13 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIContainer;
-import org.exoplatform.webui.component.UIPopupMessages;
-import org.exoplatform.webui.component.UIPortletApplication;
-import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIPopupMessages;
+import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 /**
@@ -31,7 +31,7 @@ import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
   lifecycle = UIApplicationLifecycle.class,
-  template = "system:/groovy/webui/component/UIApplication.gtmpl",
+  template = "system:/groovy/webui/core/UIApplication.gtmpl",
   events = @EventConfig(listeners = UIOrganizationPortlet.ClosePopupActionListener.class)
 )
 public class UIOrganizationPortlet extends UIPortletApplication {

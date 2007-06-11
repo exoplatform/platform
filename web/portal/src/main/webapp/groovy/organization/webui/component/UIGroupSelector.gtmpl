@@ -1,6 +1,6 @@
 <% 
-  import  org.exoplatform.webui.component.UIBreadcumbs; 
-  import  org.exoplatform.webui.component.UITree; 
+  import  org.exoplatform.webui.core.UIBreadcumbs; 
+  import  org.exoplatform.webui.core.UITree; 
   import  org.exoplatform.services.organization.Group;
 %>
 

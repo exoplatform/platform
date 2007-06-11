@@ -1,0 +1,45 @@
+<%
+  import org.exoplatform.webui.core.UIRightClickPopupMenu ;
+  
+  def selected = uicomponent.getSelected();
+  def sibling = uicomponent.getSibbling();
+  def children = uicomponent.getChildren();  
+  
+  UIRightClickPopupMenu uiPopupMenu = uicomponent.getUIRightClickPopupMenu();
+
+  if(uiPopupMenu != null){
+	  def rcontext = _ctx.getRequestContext() ;
+    String id = uicomponent.getParent().getId();
+  
+  	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIRightClickPopupMenu') ;
+  	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
+  	rcontext.getJavascriptManager().addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
+    uicomponent.renderUIComponent(uiPopupMenu) ; 
+  }
+%>
+<div class="UITree ScrollArea">
+  <div class="TreeContainer JSContainer">
+    <div class="TreeLevelContainer">
+	    <a class="LevelUpArrowIcon" href="<%=uicomponent.getActionLink();%>" title="Up Level" style="display: block;"><span></span></a>
+  	</div>
+    <%for(object in sibling) {%>		
+		    <div class="Node" style="padding-top: 2px;">
+		    <% 
+		    String objId = String.valueOf(uicomponent.getId(object)) ;
+        String actionLink = uicomponent.event("ChangeNode", objId);
+		    %>
+		    <%=uicomponent.renderNode(object);%>		      	      		
+		    <%  
+				  if(uicomponent.isSelected(object)){%>
+				    <div class = "ChildrenContainer" actionLink="$actionLink" display = "block">
+				  <%  for(child in children) { %>								      		 
+					    <div class="Node" style="padding-top: 2px; margin-left: 10px; ">
+					      <%=uicomponent.renderNode(child);%>
+					    </div>
+			      <%}	%>			    			
+			      </div>				  	
+			  <%}%>						   
+			  </div>
+		<%}%>
+  </div>  
+</div>

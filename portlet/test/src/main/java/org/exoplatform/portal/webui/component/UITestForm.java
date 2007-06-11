@@ -4,14 +4,14 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.component;
 
-import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UIFormMultiValueInputSet;
-import org.exoplatform.webui.component.UIFormUploadInput;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormMultiValueInputSet;
+import org.exoplatform.webui.form.UIFormUploadInput;
 /**
  * Created by The eXo Platform SARL
  * Author : lxchiati  
@@ -20,7 +20,7 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template =  "system:/groovy/webui/component/UIFormWithTitle.gtmpl",
+    template =  "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
     events = {
       @EventConfig(listeners = UITestForm.SaveActionListener.class),
       @EventConfig(listeners = UITestForm.ResetActionListener.class),

@@ -5,7 +5,7 @@
   import  org.exoplatform.portal.component.customization.UIPortletOptions;
   import  org.exoplatform.portal.component.customization.UIPageNavigationControlBar;
   import  org.exoplatform.portal.component.customization.UIPageBrowser;
-  import org.exoplatform.webui.component.UIDescription;
+  import org.exoplatform.webui.core.UIDescription;
   
 %>
 <div class="UIPageManagement" id="UIPageManagement">

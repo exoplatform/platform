@@ -8,7 +8,7 @@
 <% 
 	import org.exoplatform.content.webui.component.UIContentNavigation ;
 	import org.exoplatform.content.webui.component.UIContentWorkingArea ;
-	import org.exoplatform.webui.component.UIPopupMessages;
+	import org.exoplatform.webui.core.UIPopupMessages;
 %>
 <div class="UIContentPortlet UIApplication" id="$uicomponent.id">
   <div class="ApplicationMinWidth">

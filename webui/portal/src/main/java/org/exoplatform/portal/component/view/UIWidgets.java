@@ -6,11 +6,11 @@ package org.exoplatform.portal.component.view;
 
 import java.util.List;
 
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIDropDownItemSelector;
-import org.exoplatform.webui.component.model.SelectItemOption;
+import org.exoplatform.webui.bean.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIDropDownItemSelector;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 

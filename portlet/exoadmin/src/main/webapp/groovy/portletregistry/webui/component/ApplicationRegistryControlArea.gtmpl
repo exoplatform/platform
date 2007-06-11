@@ -1,8 +1,8 @@
 
 <% 
   import org.exoplatform.web.application.JavascriptManager;
-  import org.exoplatform.webui.component.UIForm;
-  import org.exoplatform.webui.component.UIPopupWindow; 
+  import org.exoplatform.webui.form.UIForm;
+  import org.exoplatform.webui.core.UIPopupWindow; 
   
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();

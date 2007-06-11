@@ -6,9 +6,9 @@ package org.exoplatform.portal.component.customization;
 
 import org.exoplatform.portal.component.view.UIPage;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIComponentDecorator;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIComponentDecorator;
 
 /**
  * Created by The eXo Platform SARL

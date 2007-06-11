@@ -7,7 +7,7 @@ package org.exoplatform.portal.component.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.component.model.SelectItemOption;
+import org.exoplatform.webui.bean.SelectItemOption;
 
 /**
  * Created by The eXo Platform SARL

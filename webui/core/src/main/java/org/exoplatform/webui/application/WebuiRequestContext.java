@@ -13,8 +13,8 @@ import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.RequestContext;
-import org.exoplatform.webui.component.UIApplication;
-import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen

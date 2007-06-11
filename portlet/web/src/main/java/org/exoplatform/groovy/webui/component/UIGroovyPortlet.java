@@ -4,9 +4,9 @@ import javax.portlet.PortletRequest;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIPortletApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIPortletApplication;
 
 @ComponentConfig()
 public class UIGroovyPortlet extends UIPortletApplication {

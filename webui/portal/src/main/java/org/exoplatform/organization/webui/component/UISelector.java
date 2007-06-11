@@ -4,10 +4,10 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIFormInputContainer;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.form.UIFormInputContainer;
 
 /**
  * Created by The eXo Platform SARL

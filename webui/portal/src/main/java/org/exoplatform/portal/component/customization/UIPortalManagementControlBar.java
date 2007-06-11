@@ -17,9 +17,9 @@ import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.webui.component.UIToolbar;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIToolbar;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -30,7 +30,7 @@ import org.exoplatform.webui.event.EventListener;
  * Mar 16, 2007  
  */
 @ComponentConfig(
-    template = "system:/groovy/webui/component/UIToolbar.gtmpl",
+    template = "system:/groovy/webui/core/UIToolbar.gtmpl",
     events = {   
         @EventConfig(listeners = UIPortalManagementControlBar.RollbackActionListener.class),
         @EventConfig(listeners = UIPortalManagementControlBar.AbortActionListener.class),

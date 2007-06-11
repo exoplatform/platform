@@ -31,19 +31,8 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIApplication;
-import org.exoplatform.webui.component.UIFormInputItemSelector;
-import org.exoplatform.webui.component.UIFormInputSet;
-import org.exoplatform.webui.component.UIFormSelectBox;
-import org.exoplatform.webui.component.UIFormStringInput;
-import org.exoplatform.webui.component.UIFormTabPane;
-import org.exoplatform.webui.component.UIGrid;
-import org.exoplatform.webui.component.UIPageIterator;
-import org.exoplatform.webui.component.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.component.model.SelectItemCategory;
-import org.exoplatform.webui.component.model.SelectItemOption;
-import org.exoplatform.webui.component.validator.EmptyFieldValidator;
-import org.exoplatform.webui.component.validator.NameValidator;
+import org.exoplatform.webui.bean.SelectItemCategory;
+import org.exoplatform.webui.bean.SelectItemOption;
 import org.exoplatform.webui.config.Component;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
@@ -51,13 +40,24 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
+import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIPageIterator;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIFormInputItemSelector;
+import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormSelectBox;
+import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UIFormTabPane;
+import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.NameValidator;
 @ComponentConfigs({
   @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",     
+    template = "system:/groovy/webui/form/UIFormTabPane.gtmpl",     
     events = {
       @EventConfig(listeners = UIPortalForm.SaveActionListener.class),
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
@@ -66,7 +66,7 @@ import org.exoplatform.webui.event.Event.Phase;
   @ComponentConfig(
     id = "CreatePortal",
     lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/webui/component/UIFormTabPane.gtmpl",
+    template = "system:/groovy/webui/form/UIFormTabPane.gtmpl",
     initParams = @ParamConfig(
         name = "PortalTemplateConfigOption", 
         value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/PortalTemplateConfigOption.groovy"
@@ -80,7 +80,7 @@ import org.exoplatform.webui.event.Event.Phase;
   @ComponentConfig(
       type = UIFormInputSet.class,
       id = "PermissionSetting",
-      template = "system:/groovy/webui/component/UITabSelector.gtmpl"
+      template = "system:/groovy/webui/core/UITabSelector.gtmpl"
   )
 })
 public class UIPortalForm extends UIFormTabPane {

@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.component.view.event;
 
-import org.exoplatform.webui.component.UIComponent;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 /**
  * Author : Nhu Dinh Thuan

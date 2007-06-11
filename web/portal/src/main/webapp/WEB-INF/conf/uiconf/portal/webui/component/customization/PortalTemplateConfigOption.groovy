@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
 import org.exoplatform.portal.component.model.PortalTemplateConfigOption ;
-import org.exoplatform.webui.component.model.SelectItemCategory;
+import org.exoplatform.webui.bean.SelectItemCategory;
 
 List options = new ArrayList();
 

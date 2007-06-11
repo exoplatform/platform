@@ -1,7 +1,7 @@
-import org.exoplatform.webui.component.UIFormInputIconSelector.IconSet ;
-import org.exoplatform.webui.component.UIFormInputIconSelector.IconCategory;
-import org.exoplatform.webui.component.UIFormInputIconSelector.CategoryIconSet ;
-import org.exoplatform.webui.component.UIFormInputIconSelector.CategoryIcon ;
+import org.exoplatform.webui.form.UIFormInputIconSelector.IconSet ;
+import org.exoplatform.webui.form.UIFormInputIconSelector.IconCategory;
+import org.exoplatform.webui.form.UIFormInputIconSelector.CategoryIconSet ;
+import org.exoplatform.webui.form.UIFormInputIconSelector.CategoryIcon ;
 
 CategoryIcon categorySet = new CategoryIcon("misc","24x24");
 

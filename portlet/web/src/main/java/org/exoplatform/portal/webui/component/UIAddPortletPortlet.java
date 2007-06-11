@@ -4,9 +4,9 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.component;
 
-import org.exoplatform.webui.component.UIPortletApplication;
-import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com
@@ -15,7 +15,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  */
 @ComponentConfig(
   lifecycle =UIApplicationLifecycle.class,
-  template = "system:/groovy/webui/component/UIApplication.gtmpl" 
+  template = "system:/groovy/webui/core/UIApplication.gtmpl" 
 )
 public class UIAddPortletPortlet extends UIPortletApplication {
   

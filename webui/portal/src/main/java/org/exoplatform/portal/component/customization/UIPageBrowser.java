@@ -19,25 +19,25 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.component.UIApplication;
-import org.exoplatform.webui.component.UIComponent;
-import org.exoplatform.webui.component.UIComponentDecorator;
-import org.exoplatform.webui.component.UIDescription;
-import org.exoplatform.webui.component.UIForm;
-import org.exoplatform.webui.component.UIFormInputItemSelector;
-import org.exoplatform.webui.component.UIFormInputSet;
-import org.exoplatform.webui.component.UIFormSelectBox;
-import org.exoplatform.webui.component.UIFormStringInput;
-import org.exoplatform.webui.component.UIGrid;
-import org.exoplatform.webui.component.UIPageIterator;
-import org.exoplatform.webui.component.UIPopupWindow;
-import org.exoplatform.webui.component.UISearch;
-import org.exoplatform.webui.component.UIToolbar;
-import org.exoplatform.webui.component.model.SelectItemOption;
+import org.exoplatform.webui.bean.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIComponentDecorator;
+import org.exoplatform.webui.core.UIDescription;
+import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIPageIterator;
+import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.UISearch;
+import org.exoplatform.webui.core.UIToolbar;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormInputItemSelector;
+import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormSelectBox;
+import org.exoplatform.webui.form.UIFormStringInput;
 
 @ComponentConfig(
   template = "app:/groovy/portal/webui/component/customization/UIPageBrowser.gtmpl" ,
@@ -270,7 +270,7 @@ public class UIPageBrowser extends UISearch {
   }
   
   @ComponentConfig(
-      template = "system:/groovy/webui/component/UIToolbar.gtmpl",
+      template = "system:/groovy/webui/core/UIToolbar.gtmpl",
       events = { 
           @EventConfig(listeners = UIPageBrowseControlBar.BackActionListener.class),
           @EventConfig(listeners = UIPageBrowseControlBar.FinishActionListener.class)

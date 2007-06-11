@@ -12,9 +12,9 @@
 
 package org.exoplatform.groovy.webui.component;
 
-import org.exoplatform.webui.component.UIPortletApplication;
-import org.exoplatform.webui.component.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 /**
  * Author : Pham Dung Ha
  *          ha.pham@exoplatform.com

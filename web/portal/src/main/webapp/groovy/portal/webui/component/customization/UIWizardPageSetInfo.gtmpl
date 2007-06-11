@@ -1,7 +1,7 @@
 <%  
   import org.exoplatform.portal.component.customization.UIPageNodeSelector;
   import org.exoplatform.portal.config.model.PageNode;
-  import org.exoplatform.webui.component.UIComponent;
+  import org.exoplatform.webui.core.UIComponent;
 %>
 <%  
   PageNode pageNode = uicomponent.getSelectedPageNode();

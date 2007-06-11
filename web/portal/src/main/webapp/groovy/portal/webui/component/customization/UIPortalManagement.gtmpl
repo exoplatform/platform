@@ -3,7 +3,7 @@
 	import org.exoplatform.portal.component.customization.UIContainerConfigOptions;
 	import org.exoplatform.portal.component.customization.UIPortalManagementControlBar;
 	import org.exoplatform.portal.component.customization.UIPortletOptions;	
-	import org.exoplatform.webui.component.UIDescription;
+	import org.exoplatform.webui.core.UIDescription;
 
 %>
 <div class="UIPortalManagement" id="UIPortalManagement">
