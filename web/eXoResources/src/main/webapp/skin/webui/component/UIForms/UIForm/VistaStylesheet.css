@@ -123,17 +123,10 @@
 
 .UIForm .VerticalLayout input {
   width: 170px ;
-  border:  1px  solid gray ;
-}
-
-.UIForm .VerticalLayout input.checkbox {
-  width:  15px ; height:  15px ;
-  border:  1px  solid gray ;
 }
 
 .UIForm .VerticalLayout textarea {
   width: 170px ;  height: 75px ;
-  border: 1px solid gray ;
 }
 
 .UIForm .VerticalLayout select {

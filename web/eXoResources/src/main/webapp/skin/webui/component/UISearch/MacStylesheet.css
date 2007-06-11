@@ -36,9 +36,9 @@
 }
 
 .UISearch .UISearchForm .QuickSet .SimpleSearchIcon {
-  margin: 3px 0px 0px 5px; 
+  margin: 7px 0px 0px 5px; 
   width: 32px ;  height: 32px ;
-  background: url('/eXoResources/icons/32x32/MacSkin/GrayCircleMagnifier.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/MacSkin/BlueMagnifier.gif') no-repeat ;
   float: left ;
 }
 

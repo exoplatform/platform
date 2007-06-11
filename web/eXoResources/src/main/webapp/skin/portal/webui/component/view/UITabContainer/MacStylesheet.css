@@ -41,18 +41,6 @@
 	padding: 0px 10px 0px 2px;
 }
 
-.UITabContainer .SelectedTab .EditIcon {
-	float: left;
-	width: 16px; height: 20px;
-  background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat bottom;
-}
-
-.UITabContainer .NormalTab .EditIcon {
-	float: left;
-	width: 16px; height: 20px;
-	background: url('/eXoResources/icons/16x16/MacSkin/DisableEditIcon.gif') no-repeat bottom;
-}
-
 .UITabContainer .SelectedTab .CloseIcon {
 	float: left;
 	width: 16px; height: 20px;

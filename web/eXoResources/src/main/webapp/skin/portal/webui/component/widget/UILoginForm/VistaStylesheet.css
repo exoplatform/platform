@@ -67,7 +67,7 @@
 }
 
 .UILoginForm .LoginDetailBox .UserNameField {
-	padding: 16px 0px 5px 0px;
+	padding: 8px 0px 5px 0px;
   width: 300px;
   margin: auto;
   text-align: right;
@@ -146,7 +146,7 @@
 
 .UILoginForm .LoginDecorator .SignUpBackground a {
 	font-weight: bold; color: #ffa837;
-	margin: 0px 28px 0px 0px;
+	margin: 0px 20px 0px 0px;
 	cursor: pointer;
 }
 .UILoginForm .LoginDecorator .SignUpBackground a:hover {

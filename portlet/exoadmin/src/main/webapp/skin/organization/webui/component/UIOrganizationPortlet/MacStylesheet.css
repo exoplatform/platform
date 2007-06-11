@@ -198,7 +198,8 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
-	height: 100%;
+	height: 220px;
+	overflow: auto;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGrid th {

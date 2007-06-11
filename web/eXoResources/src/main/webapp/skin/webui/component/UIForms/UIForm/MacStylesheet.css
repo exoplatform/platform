@@ -113,12 +113,12 @@
 
 .UIForm .VerticalLayout input {
   width: 170px ;
-  border:  1px  solid #7f9db9 ;
+  border: 1px solid #7f9db9 ;
 }
 
 .UIForm .VerticalLayout input.checkbox {
-  width:  15px ; height:  15px ;
-  border:  1px  solid black ;
+  width: 17px ; height: 17px ;
+  margin: 0px;
 }
 
 .UIForm .VerticalLayout textarea {

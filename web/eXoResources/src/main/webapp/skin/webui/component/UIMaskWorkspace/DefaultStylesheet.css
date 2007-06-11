@@ -162,6 +162,7 @@
 .UIAddApplication .ApplicationContentLabel {
   font-size: 11px;
   line-height: 16px;
+  width: 94%; margin: auto;
 }
 
 .UIAddApplication .ApplicationContentLabel .RightLabel {
@@ -177,7 +178,7 @@
 
 .UIAddApplication .TitleBarApplication {
 	background: none;
-	width: 96%;	height: 21px;
+	width: 94%; height: 20px;
 	color: #1553B9; font-weight: bold;
 	border-bottom: 1px solid #dfdfdf;
 	padding: 0px 1px 3px 1px;
@@ -205,7 +206,6 @@
 	cursor: pointer ;
 	margin: 0px 3px;
 }
-
 
 .UIAddApplication .UIItemSelector .LeftColumnStyle {
   width: auto;

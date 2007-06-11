@@ -190,12 +190,15 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UITree {
  background: url('VistaSkin/background/UITreeBG.png') repeat;
+ padding: 4px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
-  margin: 4px;
-  border: 1px #b7b7b7 solid;
-  padding-bottom: 10px;  
+	border: 1px solid #b7b7b7;
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 197px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {
@@ -301,6 +304,10 @@
 .UIOrganizationPortlet .UIGroupManagement .UIPageIterator {
 	width: 95%;
 	margin: auto;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle {
+	width: auto;
 }
 
 /*#######################  UIMemberShipManagement #################################*/

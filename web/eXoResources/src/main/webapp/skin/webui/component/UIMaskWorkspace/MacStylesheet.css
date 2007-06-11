@@ -246,9 +246,12 @@
 }
 
 .UIGroupSelector .UITree .TreeContainer{
-  overflow-y: auto; 
-  overflow-x: hidden;
   border: none;
+  height: 140px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: auto;
+  width: 216px;
 }
 
 .UIGroupSelector .BlueLevelUpArrow24x24Icon {

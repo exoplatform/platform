@@ -40,9 +40,7 @@
           <div class="ButtonLeft">
             <div class="ButtonRight">
               <div class="ButtonMiddle">
-                <a href="<%=uicomponent.event("SelectGroup");%>">
-			            Done
-			          </a>
+                <a href="<%=uicomponent.event("SelectGroup");%>"> Done </a>
               </div>
             </div>
           </div>

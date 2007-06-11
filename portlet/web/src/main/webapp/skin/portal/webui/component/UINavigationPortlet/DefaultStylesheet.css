@@ -68,7 +68,6 @@
   background: url('DefaultSkin/background/BottomMenuItem220x1.gif') no-repeat bottom center;
 	white-space: nowrap;
 	cursor: pointer;
-	height: 24px; 
 	text-align: left;
 }
 
@@ -81,13 +80,13 @@
 .UINavigationPortlet .MenuItemContainer .OverItem {
 	background: #dfe0e0 url('DefaultSkin/background/BottomMenuItem220x1.gif') no-repeat bottom center;
  	line-height: 24px;
-	height: 24px; width: auto; 
+	width: auto; 
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem {
 	background: #dfe0e0 url('DefaultSkin/background/BottomMenuItem22x1.gif') no-repeat bottom center;
 	line-height: 24px;
-	height: 24px; width: auto; 
+	width: auto; 
 }
 
 .UINavigationPortlet .MenuItemContainer .NormalItem .ItemIcon {
