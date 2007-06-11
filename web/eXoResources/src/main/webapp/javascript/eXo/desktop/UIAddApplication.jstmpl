@@ -1,79 +1,79 @@
 <% /*Repair: by Vu Duy Tu */ %>
 <div class="UIAddApplication">
-	<div class="UIBarStyle">
-		<div class="TitleBar">
-	  	<div class="LeftBar">
-	    	<div class="RightBar">
-	      	<div class="MiddleBar">Add Application</div>
-	    	</div>
-	  	</div>
-	  </div>
-	</div>
-	
-	<div class="ContentContainerDetail">
-	  <div class="CategoryContainer">
-	    
-	    <div class="UITabContentContainer">
-	      <div class="UITabContent" style="display: block">
-	      	<div class="UIAddPortlet">
-		      	<div class="UIItemSelector">
-		      	  <div class="LeftColumnStyle">
-	          	  <div class="ItemListContainer">
-	          	    <div class="ItemListTitle">
-	          	    	<div class="TitleIcon ItemListIcon"><span></span></div>
-	          	    	<div class="Title">Categories</div>
-	          	    	<div style="clear: left;"><span></span></div>
-	          	    </div>
-	          	    <div class="ItemList"><span></span></div>
-	          	  </div>          	  
-	          	  <div class="ItemDetailList">
-	          	  	<div class="ItemDetail" style="display: block">
-	          	    	<div class="ItemDetailTitle">
-	          	    		<div class="TitleIcon ViewListIcon"><span></span></div>
-						  	    	<div class="Title">Select Applications</div>
-						  	    	<div style="clear: left;"><span></span></div>
-	          	      </div>
-	          	      <div class="ApplicationListContainer">
-	          	      	<div class="NoneAppsMessage">
-	          	      		There is no application in this location. Go to Application Registry portlet to import applications.
-	          	      	</div>
-	          	      </div>
-	          	    </div>
-	          	  </div>
-		            <div style="clear: left"><span></span></div>
-		      	  </div>
-		      	</div>
-	      	</div>
-	      </div>
-	    </div>
-	    
-	  </div>
-	</div>
-	
-	<div class="UIAction">
-	  <div class="ActionContainer">
-	    <div class="ActionButton">
-	      <div class="LightBlueStyle">
-	        <div class="ButtonLeft">
-	          <div class="ButtonRight">
-	            <div class="ButtonMiddle">
-	  				    <div onClick="eXo.desktop.UIAddApplication.loadApplications(true, [], 'UIPageDesktop');"><a>Refresh</a></div>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-	    <div class="ActionButton">
-	      <div class="LightBlueStyle">
-	        <div class="ButtonLeft">
-	          <div class="ButtonRight">
-	            <div class="ButtonMiddle">
-	  				    <a href="javascript:eXo.desktop.UIAddApplication.removeAddApplication();">Close</a>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	</div>       
+  <div class="UIBarStyle">
+    <div class="TitleBar">
+      <div class="LeftBar">
+        <div class="RightBar">
+          <div class="MiddleBar">Add Application</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="ContentContainerDetail">
+    <div class="CategoryContainer">
+      
+      <div class="UITabContentContainer">
+        <div class="UITabContent" style="display: block">
+          <div class="UIAddPortlet">
+            <div class="UIItemSelector">
+              <div class="LeftColumnStyle">
+                <div class="ItemListContainer">
+                  <div class="ItemListTitle">
+                    <div class="TitleIcon ItemListIcon"><span></span></div>
+                    <div class="Title">Categories</div>
+                    <div style="clear: left;"><span></span></div>
+                  </div>
+                  <div class="ItemList"><span></span></div>
+                </div>              
+                <div class="ItemDetailList">
+                  <div class="ItemDetail" style="display: block">
+                    <div class="ItemDetailTitle">
+                      <div class="TitleIcon ViewListIcon"><span></span></div>
+                      <div class="Title">Select Applications</div>
+                      <div style="clear: left;"><span></span></div>
+                    </div>
+                    <div class="ApplicationListContainer">
+                      <div class="NoneAppsMessage">
+                        There is no application in this location. Go to Application Registry portlet to import applications.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div style="clear: left"><span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="UIAction">
+    <div class="ActionContainer">
+      <div class="ActionButton">
+        <div class="LightBlueStyle">
+          <div class="ButtonLeft">
+            <div class="ButtonRight">
+              <div class="ButtonMiddle">
+            <div onClick="eXo.desktop.UIAddApplication.loadApplications(true, [], 'UIPageDesktop');"><a>Refresh</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ActionButton">
+        <div class="LightBlueStyle">
+          <div class="ButtonLeft">
+            <div class="ButtonRight">
+              <div class="ButtonMiddle">
+            <a href="javascript:eXo.desktop.UIAddApplication.removeAddApplication();">Close</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>       
 </div>
