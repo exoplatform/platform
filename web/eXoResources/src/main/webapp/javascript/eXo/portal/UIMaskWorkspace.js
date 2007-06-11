@@ -17,7 +17,7 @@ UIMaskWorkspace.prototype.init = function(maskId, show, width, height) {
 		eXo.portal.UIMaskWorkspace.maskLayer = null;
 		maskWorkpace.style.display = "none";
 	}
-
+	if(height < 0) return;
 };
 
 eXo.portal.UIMaskWorkspace = new UIMaskWorkspace() ;

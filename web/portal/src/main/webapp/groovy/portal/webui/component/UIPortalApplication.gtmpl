@@ -89,7 +89,7 @@
     
     <script type="text/javascript">
       <%=rcontext.getJavascriptManager().getJavascript()%>
-      eXo.core.Browser.onLoad();
+        eXo.core.Browser.onLoad();
       <%=rcontext.getJavascriptManager().getCustomizedOnLoadScript();%>
     </script>
   </body>

@@ -29,10 +29,7 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
 /** Created: by Duy Tu - fixHeight function to UIControlWorkspace**/
 
 UIPortalControl.prototype.fixHeight = function() {
-	if(eXo.core.Browser.isIE6()) {
-		var e = window.event ;
-		if(e) e.cancelBubble = true ;
-	} else {
+	if(!eXo.core.Browser.isIE6()) {
 	var objectParent = document.getElementById("UIControlWorkspace");
 	if(objectParent) {
 		var DOMUtil = eXo.core.DOMUtil;

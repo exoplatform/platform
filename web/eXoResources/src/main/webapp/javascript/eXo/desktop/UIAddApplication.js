@@ -51,7 +51,7 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
   var checkSrc = ''; 
   var selected  = false;
   
-  /**Repaired: by Vu Duy Tu **/
+  /**Repaired: by Vu Duy Tu **/ alert(parentId);
   itemDetails += '<div class="ItemDetailTitle">' +
         	    	 '	<div class="TitleIcon ViewListIcon"><span></span></div>' +
 				  	     '	<div class="Title">Select Application</div>' +

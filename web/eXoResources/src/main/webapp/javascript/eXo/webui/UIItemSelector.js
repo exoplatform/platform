@@ -5,7 +5,7 @@ function UIItemSelector() {
 UIItemSelector.prototype.onOver = function(selectedElement, mouseOver) {
 	
 	if(selectedElement.className == "Item"){
-		eXo.webui.UIItemSelector.beforeActionHappen(selectedElement);
+	  eXo.webui.UIItemSelector.beforeActionHappen(selectedElement);
   }
   if(mouseOver) {
     this.backupClass = selectedElement.className;
@@ -68,38 +68,38 @@ UIItemSelector.prototype.onClickOption = function(clickedElement, form, componen
 	var itemDetailList = eXo.core.DOMUtil.findAncestorByClass(clickedElement, "ItemDetailList");
 	var selectedItems = eXo.core.DOMUtil.findDescendantsByClass(itemDetailList, "div", "SelectedItem");
 	for (var i = 0; i < selectedItems.length; i++) {
-		selectedItems[i].className = "NormalItem";
-	}
-	clickedElement.className = "SelectedItem";
-	if (eXo.webui.UIItemSelector.SelectedItem == null) {
-		eXo.webui.UIItemSelector.SelectedItem = new Object();
-	}
+	  selectedItems[i].className = "NormalItem";
+  }
+  clickedElement.className = "SelectedItem";
+  if (eXo.webui.UIItemSelector.SelectedItem == null) {
+    eXo.webui.UIItemSelector.SelectedItem = new Object();
+  }
   eXo.webui.UIItemSelector.SelectedItem.component = component;
   eXo.webui.UIItemSelector.SelectedItem.option = option;  
 };
 
 /*TODO: Review This Function (Ha's comment)*/
 UIItemSelector.prototype.beforeActionHappen = function(selectedItem) {
-	DOMUtil = eXo.core.DOMUtil;
-	this.uiItemSelector = DOMUtil.findAncestorByClass(selectedItem, "UIItemSelector");
+  DOMUtil = eXo.core.DOMUtil;
+  this.uiItemSelector = DOMUtil.findAncestorByClass(selectedItem, "UIItemSelector");
   this.itemList = DOMUtil.findAncestorByClass(selectedItem, "ItemList");
   this.itemListContainer = DOMUtil.findAncestorByClass(selectedItem, "ItemListContainer") ;
   this.itemListAray = DOMUtil.findDescendantsByClass(this.itemListContainer.parentNode, "div", "ItemList");
 
   if(this.itemListAray.length > 1) {
-	  this.itemDetailLists = DOMUtil.findDescendantsByClass(this.itemListContainer.parentNode, "div", "ItemDetailList");
-		this.itemDetailList = null;
-	  for(var i = 0; i < this.itemListAray.length; i++) {
-	  	if(this.itemListAray[i].style.display == "none") {
-	  		this.itemDetailLists[i].style.display = "none" ;
-	  	} else {
-		  	this.itemDetailList = this.itemDetailLists[i];
-		  	this.itemDetailList.style.display = "block";
-	  	}
-	  }
-	} else {
-	  this.itemDetailList = DOMUtil.findFirstDescendantByClass(this.itemListContainer.parentNode, "div", "ItemDetailList");
-	}
+    this.itemDetailLists = DOMUtil.findDescendantsByClass(this.itemListContainer.parentNode, "div", "ItemDetailList");
+    this.itemDetailList = null;
+    for(var i = 0; i < this.itemListAray.length; i++) {
+      if(this.itemListAray[i].style.display == "none") {
+        this.itemDetailLists[i].style.display = "none" ;
+      } else {
+        this.itemDetailList = this.itemDetailLists[i];
+        this.itemDetailList.style.display = "block";
+      }
+    }
+  } else {
+    this.itemDetailList = DOMUtil.findFirstDescendantByClass(this.itemListContainer.parentNode, "div", "ItemDetailList");
+  }
   //this.itemDetails = eXo.core.DOMUtil.findChildrenByClass(this.itemDetailList, "div", "ItemDetail");
   this.itemDetails = DOMUtil.findDescendantsByClass(this.itemDetailList, "div", "ItemDetail");
   var firstItemDescendant = DOMUtil.findFirstDescendantByClass(this.itemList, "div", "Item");
@@ -108,52 +108,52 @@ UIItemSelector.prototype.beforeActionHappen = function(selectedItem) {
 };
 
 UIItemSelector.prototype.showPopupCategory = function(selectedNode) {
-	var DOMUtil = eXo.core.DOMUtil ;
-	var itemListContainer = DOMUtil.findAncestorByClass(selectedNode, "ItemListContainer") ;
-	var uiPopupCategory = DOMUtil.findFirstDescendantByClass(itemListContainer, "div", "UIPopupCategory") ;
-	
-	itemListContainer.style.position = "relative" ;
-	
-	if(uiPopupCategory.style.display == "none") {
-		uiPopupCategory.style.position = "absolute" ;
-		uiPopupCategory.style.top = "23px" ;
-		uiPopupCategory.style.left = "0px" ;
-		uiPopupCategory.style.display = "block" ;
-		uiPopupCategory.style.width = "100%" ;
-	} else {
-		uiPopupCategory.style.display = "none" ;
-	}		
+  var DOMUtil = eXo.core.DOMUtil ;
+  var itemListContainer = DOMUtil.findAncestorByClass(selectedNode, "ItemListContainer") ;
+  var uiPopupCategory = DOMUtil.findFirstDescendantByClass(itemListContainer, "div", "UIPopupCategory") ;
+  
+  itemListContainer.style.position = "relative" ;
+  
+  if(uiPopupCategory.style.display == "none") {
+    uiPopupCategory.style.position = "absolute" ;
+    uiPopupCategory.style.top = "23px" ;
+    uiPopupCategory.style.left = "0px" ;
+    uiPopupCategory.style.display = "block" ;
+    uiPopupCategory.style.width = "100%" ;
+  } else {
+    uiPopupCategory.style.display = "none" ;
+  }    
 };
 
 UIItemSelector.prototype.selectCategory = function(selectedNode) {
-	var DOMUtil = eXo.core.DOMUtil ;
-	var uiPopupCategory = DOMUtil.findAncestorByClass(selectedNode, "UIPopupCategory") ;
-	var itemListContainer = DOMUtil.findAncestorByClass(selectedNode, "OverflowContainer") ;
-	var selectedNodeIndex = eXo.webui.UIItemSelector.findIndex(selectedNode) ;
-	
-	var itemLists = DOMUtil.findDescendantsByClass(itemListContainer, "div", "ItemList") ;
-	var itemDetailLists = DOMUtil.findDescendantsByClass(itemListContainer, "div", "ItemDetailList");
-	
-	for(var i = 0; i < itemLists.length; i++) {
-		if(i != selectedNodeIndex){
-			itemLists[i].style.display = "none" ;
-			itemDetailLists[i].style.display = "none" ;
-		}	else{
-			itemDetailLists[i].style.display = "block" ;
-			itemLists[i].style.display = "block" ;
-		}
-	}
-	
-	uiPopupCategory.style.display = "none" ;
+  var DOMUtil = eXo.core.DOMUtil ;
+  var uiPopupCategory = DOMUtil.findAncestorByClass(selectedNode, "UIPopupCategory") ;
+  var itemListContainer = DOMUtil.findAncestorByClass(selectedNode, "OverflowContainer") ;
+  var selectedNodeIndex = eXo.webui.UIItemSelector.findIndex(selectedNode) ;
+  
+  var itemLists = DOMUtil.findDescendantsByClass(itemListContainer, "div", "ItemList") ;
+  var itemDetailLists = DOMUtil.findDescendantsByClass(itemListContainer, "div", "ItemDetailList");
+  
+  for(var i = 0; i < itemLists.length; i++) {
+    if(i != selectedNodeIndex){
+      itemLists[i].style.display = "none" ;
+      itemDetailLists[i].style.display = "none" ;
+    }  else{
+      itemDetailLists[i].style.display = "block" ;
+      itemLists[i].style.display = "block" ;
+    }
+  }
+  
+  uiPopupCategory.style.display = "none" ;
 
 };
 
 UIItemSelector.prototype.findIndex = function(object) {
-	var parentNode = object.parentNode ;
-	var objectElements = eXo.core.DOMUtil.findChildrenByClass(parentNode, "div", object.className) ;
-	for(var i = 0; i < objectElements.length; i++) {
-		if(objectElements[i] == object) return i ;
-	}
+  var parentNode = object.parentNode ;
+  var objectElements = eXo.core.DOMUtil.findChildrenByClass(parentNode, "div", object.className) ;
+  for(var i = 0; i < objectElements.length; i++) {
+    if(objectElements[i] == object) return i ;
+  }
 };
 
 eXo.webui.UIItemSelector = new UIItemSelector() ;
