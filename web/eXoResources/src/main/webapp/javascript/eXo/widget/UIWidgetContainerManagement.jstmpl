@@ -40,7 +40,9 @@
 			</div>
 			<div class="WidgetContainerView">
 				<div class="HeadTitle">View and edit Widget Container</div>
-				df
+				<div class="WidgetContainerForm">
+					<span></span>
+				</div>
 			</div>
 			<div style="clear: left"><span></span></div>
 		</div>

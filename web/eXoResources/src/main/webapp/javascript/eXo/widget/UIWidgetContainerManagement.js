@@ -53,20 +53,23 @@ UIWidgetContainerManagement.prototype.loadWidgetContainer = function(refresh) {
 	var formContainer = '' ;
 	var isFirst = true ;
 	var display = '' ;
+	var containerClassName = '' ;
 	
 	for(container in containers.widgetContainer) {
 		var containerObject = containers.widgetContainer[container] ;
-		itemList += '<div class="NormalItem"  onclick="eXo.widget.UIWidgetContainerManagement.selectContainer(this);">'+containerObject["name"]+'</div>' ;
 		
 		if(isFirst) { 
 			display = 'block' ;
-			alert("Check1: " + isFirst);
+			containerClassName = 'SelectedItem' ;
 			isFirst = false ;
 		} else {
 			display = 'none' ;
+			containerClassName = 'NormalItem' ;
 		}
 		
-		formContainer += '<div class="ContainerDetail" style="'+display+'">' + 
+		itemList += '<div class="'+containerClassName+'"  onclick="eXo.widget.UIWidgetContainerManagement.selectContainer(this);">'+containerObject["name"]+'</div>' ;
+		
+		formContainer += '<div class="ContainerDetail" style="display: '+display+'">' + 
 										 '	<div class="UIForm">' + 
 										 '		<div class="HorizontalLayout">' + 
 										 '			<div class="FormContainer">' + 
@@ -84,28 +87,30 @@ UIWidgetContainerManagement.prototype.loadWidgetContainer = function(refresh) {
 									 	 '		</div>' +
 										 '	</div>' +
 										 '</div>' ;
-										 
 	}
 	
 	containerList.innerHTML = itemList ;
 	
-	/*Render Form*/
-	var widgetContainerView = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "WidgetContainerView");
-	widgetContainerView.innerHTML = formContainer ;
-	
-	/*Set Selected For The First Item*/
-	var containerListElement = DOMUtil.getChildrenByTagName(containerList, "div");
-	containerListElement[0].className = "SelectedItem";
+	var widgetContainerForm = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "WidgetContainerForm");
+	widgetContainerForm.innerHTML = formContainer ;
 };
 
 UIWidgetContainerManagement.prototype.selectContainer = function(selectedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
+	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement");
 	var containerList = DOMUtil.findAncestorByClass(selectedElement, "ContainerList");
 	var containers = DOMUtil.getChildrenByTagName(containerList, "div");
+	var widgetContainerForm = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "WidgetContainerForm");
+	var childContainerForms = DOMUtil.getChildrenByTagName(widgetContainerForm, "div");
 	
 	selectedElement.className = "SelectedItem" ;
 	for(var i = 0; i < containers.length; i++) {
-		if(containers[i] != selectedElement) containers[i].className = "NormalItem" ;
+		if(containers[i] != selectedElement) {
+			containers[i].className = "NormalItem" ;
+			childContainerForms[i].style.display = "none" ;
+		} else {
+			childContainerForms[i].style.display = "block" ;
+		}
 	}
 };
 
