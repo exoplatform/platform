@@ -140,6 +140,7 @@
 /*#######################-SeltectedVTabStyle3 VerticalSlideTabs-######################*/
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab {
+	width: 100%;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLeft {

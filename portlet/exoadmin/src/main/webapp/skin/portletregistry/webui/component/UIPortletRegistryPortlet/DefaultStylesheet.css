@@ -211,8 +211,7 @@
 }
 
 .ApplicationRegistryWorkingArea .TitleBarApplication label {
-  float: left;
-  margin-top: 2px;
+  float: left; line-height: 17px;
   font-weight: bold ; font-size: 12px; color: #1553B9;
 }
 

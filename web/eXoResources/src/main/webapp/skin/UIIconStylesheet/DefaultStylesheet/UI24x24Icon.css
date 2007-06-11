@@ -214,22 +214,12 @@
 	background: url('/eXoResources/icons/24x24/DefaultSkin/AddCategory.gif') no-repeat center;
 }
 
-.AddCatergory24x24Icon {
-	width: 24px ;	height: 24px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/AddCategory.gif') no-repeat center;
-}
-
 .Catergory24x24Icon {
 	width: 16px ;	height: 16px ;
 	background: url('/eXoResources/icons/24x24/DefaultSkin/Catergory.gif') no-repeat center;
 }
 
 .EditCategory24x24Icon {
-	width: 24px ; height: 24px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/EditCategory.gif') no-repeat center;
-}
-
-.EditCatergory24x24Icon {
 	width: 24px ; height: 24px ;
 	background: url('/eXoResources/icons/24x24/DefaultSkin/EditCategory.gif') no-repeat center;
 }

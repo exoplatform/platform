@@ -304,7 +304,7 @@
 	background: url('/eXoResources/icons/24x24/MacSkin/Refresh.gif') no-repeat ;
 }
 
-.AddCatergory24x24Icon {
+.AddCategory24x24Icon {
 	width: 24px ;	height: 24px ;
 	background: url('/eXoResources/icons/24x24/MacSkin/AddCategory.gif') no-repeat ;
 }
@@ -314,7 +314,7 @@
 	background: url('/eXoResources/icons/24x24/MacSkin/Category.gif') no-repeat ;
 }
 
-.EditCatergory24x24Icon {
+.EditCategory24x24Icon {
 	width: 24px ; height: 24px ;
 	background: url('/eXoResources/icons/24x24/MacSkin/EditCategory.gif') no-repeat ;
 }
@@ -335,8 +335,8 @@
 }
 
 .DeleteCategory24x24Icon {
-	width: 24px ; height: 24px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/Delete.gif') no-repeat ;
+	width: 31px ; height: 24px ;
+	background: url('/eXoResources/icons/24x24/MacSkin/DeleteCategoryIcon.png') no-repeat  bottom center;
 }
 
 .UIListPermissionSelector24x24Icon {

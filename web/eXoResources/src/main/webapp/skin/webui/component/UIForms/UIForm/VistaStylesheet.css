@@ -87,6 +87,7 @@
 .UIForm .HorizontalLayout input.radio {
 	float: none;
   width: auto;
+  border: none;
 }
 
 .UIForm .HorizontalLayout textarea {

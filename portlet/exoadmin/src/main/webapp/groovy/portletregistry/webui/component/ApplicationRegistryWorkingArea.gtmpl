@@ -67,7 +67,7 @@
 			</div>
 	  </div>
   <% } } else {%>
-  <div style="padding: 20px 10px; width: 200px; font-size: 11px; margin: auto; color: red;"> There is no application in this category!</div>
+  <div style="padding: 20px 10px; width: 220px; font-size: 11px; margin: auto; color: red;"> There is no application in this category!</div>
   <% } %>
   <div class="UIAction" > 
     <div class="ActionContainer">

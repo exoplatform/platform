@@ -45,6 +45,7 @@
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
   height: 18px; line-height: 18px; vertical-align: middle;
+  padding-left: 10px;
 }
 
 .UIOrganizationPortlet .ManagementIconContainer {
@@ -91,7 +92,7 @@
 
 .UIOrganizationPortlet .UIForm .UIFormInputSet {
 	background: white;
-	width: 99%; height: 330px; margin: auto;
+	width: 99%; height: 300px; margin: auto;
 	border: solid 1px #b7b7b7;
 	padding: 30px 0px ;
 }
@@ -279,12 +280,16 @@
   margin: auto ;
 }
 
-.UIOrganizationPortlet .UIPageIterator  {
+.UIOrganizationPortlet .UIPageIterator {
 	height: 22px;
   margin-top: 3px;
   width: 99.5%;
 }
 
-.UIOrganizationPortlet .UIMembershipManagement .UIAction  {
+.UIOrganizationPortlet .UIMembershipManagement .UIAction {
   width: 65px;
 } 
+
+.UIOrganizationPortlet .UIMembershipManagement .UIGrid {
+	margin-top: 10px;
+}
