@@ -248,9 +248,9 @@
 
 .UIContentPortlet  .UIContentWorkingArea .NewsDetail {
   border: 1px solid #cdcdcd;
-  background: white;
   padding: 10px 10px 5px 5px;
   margin: 3px 0px;
+  background: white url('VistaSkin/background/NewsDetailBG.gif') repeat-x center top;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentDetailTitle a {
