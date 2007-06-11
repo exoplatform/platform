@@ -205,12 +205,12 @@
   background: url('/eXoResources/icons/24x24/VistaSkin/Refresh.gif') no-repeat ;
 }
 
-.AddCatergory24x24Icon {
+.AddCategory24x24Icon {
   width: 24px ; height: 24px ;
   background: url('/eXoResources/icons/24x24/DefaultSkin/AddCatergory.gif') no-repeat ;
 }
 
-.EditCatergory24x24Icon {
+.EditCategory24x24Icon {
   width: 24px ; height: 24px ;
   background: url('/eXoResources/icons/24x24/DefaultSkin/EditCatergory.gif') no-repeat ;
 }
@@ -222,7 +222,7 @@
 
 .DeleteCategory24x24Icon {
   width: 26px ; height: 27px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/Delete.png') no-repeat center left;
+  background: url('/eXoResources/icons/24x24/VistaSkin/DeleteCategory.png') no-repeat center left;
 }
 
 .Delete24x24Icon {
@@ -235,12 +235,12 @@
  background: url('/eXoResources/icons/24x24/VistaSkin/DeleteAll.png') no-repeat center left;
 }
 
-.AddCatergory24x24Icon {
+.AddCategory24x24Icon {
   width: 27px ; height: 25px ;
   background: url('/eXoResources/icons/24x24/VistaSkin/AddCatergory.png') no-repeat center left;
 }
 
-.EditCatergory24x24Icon {
+.EditCategory24x24Icon {
   width: 27px ; height: 25px ;
   background: url('/eXoResources/icons/24x24/VistaSkin/EditCatergory.png') no-repeat center left;
 }

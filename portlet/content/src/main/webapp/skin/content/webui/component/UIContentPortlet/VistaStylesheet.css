@@ -29,27 +29,27 @@
 }
 
 .UIContentPortlet .CategoryControlBar .LeftBar{
-	background: url('DefaultSkin/background/LeftControlBar4x26.gif') no-repeat left; 
-	padding-left: 4px;
-	height: 26px;
+	background: url('VistaSkin/background/LeftControlBar8x25.gif') no-repeat left; 
+	padding-left: 8px;
+	height: 25px;
 }
 
 .UIContentPortlet .CategoryControlBar .RightBar{
-	background: url('DefaultSkin/background/RightControlBar4x26.gif') no-repeat right; 
-	padding-right: 4px;
-	height: 26px;
+	background: url('VistaSkin/background/RightControlBar6x25.gif') no-repeat right; 
+	padding-right: 6px;
+	height: 25px;
 }
 
 .UIContentPortlet .CategoryControlBar .MiddleBar{
-	background: url('DefaultSkin/background/CenterControlBar1x26.gif') repeat-x; 
-	height: 26px;
+	background: url('VistaSkin/background/CenterControlBar1x25.gif') repeat-x; 
+	height: 25px;
 }
 
 .UIContentPortlet .UIContentNavigation .RSSReaderHeader {
 	line-height: 22px;
 	padding: 0px 10px 0px 28px;
 	font-size: 12px; font-weight: bold;
-	background: url('DefaultSkin/icons/RSSReaderIcon.gif') no-repeat left;
+	background: url('VistaSkin/icons/RSSReaderIcon.gif') no-repeat left;
 }
 
 
@@ -62,15 +62,15 @@
 
 .UIContentPortlet .UIContentNavigation .NewsCategory {
   border: 1px solid #c3c3c3;
-  background: #f4f4f4;
-  margin: 0px 1px;
+  background: #ffffff;
+  margin: 2px 0px;
   
 }
 
 .UIContentPortlet .UIContentNavigation .NewsCategory .UIVerticalSlideTabs {
   border: 1px solid #ffffff;
   padding: 5px; padding-bottom: 10px;
-  background: url('/eXoResources/background/DefaultSkin/NavigationBG.gif');
+  background: url('VistaSkin/background/NewsCategoryBG1x22.png') repeat-x center top;
 }
 
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NormalTab{
@@ -83,7 +83,7 @@
 
 .UIContentPortlet .UIContentNavigation .UpArrowBar {
   width: 24px; height: 24px;
-  padding-left: 7px;
+  padding-left: 2px;
   float: left;
 }
 
@@ -93,8 +93,8 @@
 }
 
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NavigationUpArrowIcon {
-  width: 24px; height: 24px;
-  background: url('DefaultSkin/icons/UpNewsLevel.gif') no-repeat center;
+  width: 25px; height: 24px;
+  background: url('VistaSkin/icons/UpNewsLevel.gif') no-repeat center;
 }
 
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .SubItem {
@@ -125,14 +125,14 @@
 }
 
 .UIContentPortlet .OpenNewsIcon {
-	background: url('DefaultSkin/icons/OpenNewsIcon.gif') no-repeat;
+	background: url('VistaSkin/icons/OpenNewsIcon.gif') no-repeat;
 	width: 18px; height: 16px;
 	margin-top: 5px;
 }
 
 .UIContentPortlet .NewsIcon {
-	background: url('DefaultSkin/icons/NewsIcon.gif') no-repeat;
-	width: 18px; height: 16px;
+	background: url('VistaSkin/icons/NewsIcon.gif') no-repeat;
+	width: 20px; height: 17px;
 }
 
 .UIContentPortlet .UIContentNavigation .TabLabel {
@@ -144,7 +144,7 @@
 }
 
 .UIContentPortlet .UIContentNavigation .SelectedTabLabel {
-	color: #0548ac;
+	color: #0073a9;
 	float: left ;
 	height: 25px ;
 	line-height: 25px ;
@@ -152,11 +152,11 @@
 }
 
 .UIContentPortlet .UIContentNavigation a.TabLabel:hover {
-	color: #058ee6;
+	color: #0073a9;
 }
 
 .UIContentPortlet .UIContentNavigation a.SelectedTabLabel:hover {
-	color: #058ee6;
+	color: #0691d3;
 }
 
 .UIContentPortlet .UIContentNavigation a.ItemLabel {
@@ -200,7 +200,7 @@
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs a.CategoryName {
   float: left;
-  color: #058ee6;
+  color: #000000;
   line-height: 18px; vertical-align: middle;
   cursor: pointer;
 }
@@ -217,11 +217,11 @@
 .UIContentPortlet .RefreshBar a{
 	display: block;
 	line-height: 22px;
-	color: #000000;
+	color: #058ee6;
 }
 
 .UIContentPortlet .RefreshBar a:hover{
-	color: #058ee6;
+	color: #000000;
 	text-decoration: underline;
 }
 
@@ -241,6 +241,7 @@
 
 .UIContentPortlet .UIContentWorkingArea .NewsDetailContainer {
   padding: 5px 7px;
+  margin:2px 0px;
   border: 1px solid #cdcdcd;
   background: #f4f4f4;
 }
@@ -253,7 +254,7 @@
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentDetailTitle a {
-	color: #0548ac ;
+	color: #006da3 ;
 	font-size: 15px ;
 }
 

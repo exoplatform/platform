@@ -207,7 +207,8 @@
 }
 
 .UIWindow .WindowPortletInfo .Content {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/MiscIcons/RSS.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/VistaSkin/RSS.gif') no-repeat center;
+  width: 26px; height:16px;
 }
 
 .UIWindow .WindowPortletInfo .Account {
