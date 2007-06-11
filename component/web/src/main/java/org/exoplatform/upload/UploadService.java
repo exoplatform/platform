@@ -13,7 +13,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.exoplatform.container.xml.PortalContainerInfo;
-import org.exoplatform.services.parser.html.refs.RefsDecoder;
 
 /**
  * Created by The eXo Platform SARL
