@@ -3,9 +3,6 @@
  **************************************************************************/
 package org.exoplatform.services.parser.html.refs;
 
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-
 import org.exoplatform.services.parser.text.CharsUtil;
 
 /**
@@ -14,21 +11,10 @@ import org.exoplatform.services.parser.text.CharsUtil;
  * May 8, 2006
  */
 public class RefsDecoder {
-
-  private Lock lock = new ReentrantLock();
   
-  public String decode (String text) {
-    return new String(text.toCharArray());
-  }
+  public String decode (String text) { return new String(decodeChars(text.toCharArray())); }
 
-  public char[] decode (char [] chars) { 
-    try {
-      lock.lock();
-      return decodeChars(chars);
-    }finally{
-      lock.unlock();
-    }    
-  }
+  public char[] decode (char [] chars) { return decodeChars(chars); }
 
   private char[] decodeChars(char [] chars) {    
     CharRefs charRefs = DecodeService.DECODE_CHARS_REF.getRef();

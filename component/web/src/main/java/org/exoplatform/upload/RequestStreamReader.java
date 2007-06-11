@@ -13,6 +13,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.exoplatform.services.parser.html.refs.RefsDecoder;
+
 /**
  * Author : Oleg Kalnichevski
  *          oleg@ural.ru
@@ -45,6 +47,7 @@ class RequestStreamReader {
   private byte[] buffer;
 
   private UploadResource upResource_;
+  private RefsDecoder refsDecoder_;
 
   RequestStreamReader(UploadResource upResource){
     upResource_ = upResource;    
@@ -52,6 +55,7 @@ class RequestStreamReader {
     tail = 0;
     bufSize = DEFAULT_BUFSIZE;
     buffer = new byte[bufSize];
+    refsDecoder_ = new RefsDecoder();
   }
 
   void readBodyData(HttpServletRequest request, OutputStream output) throws IOException {
@@ -188,6 +192,7 @@ class RequestStreamReader {
     Map<String, String> params = parser.parse(cd, ';');
     if (params.containsKey("filename")) {  
       String fileName = params.get("filename");
+      fileName = refsDecoder_.decode(fileName);
       if (fileName != null)  return fileName.trim();
       return "";
     }

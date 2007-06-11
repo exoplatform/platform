@@ -13,6 +13,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.exoplatform.container.xml.PortalContainerInfo;
+import org.exoplatform.services.parser.html.refs.RefsDecoder;
 
 /**
  * Created by The eXo Platform SARL
@@ -29,7 +30,7 @@ public class UploadService {
     String tmpDir = System.getProperty("java.io.tmpdir") ;
     uploadLocation_ = tmpDir + "/" + pinfo.getContainerName() + "/eXoUpload" ;
     File uploadDir = new File(uploadLocation_) ;
-    if(!uploadDir.exists()) uploadDir.mkdirs() ;    
+    if(!uploadDir.exists()) uploadDir.mkdirs() ;
   }
 
   public void createUploadResource(HttpServletRequest request) throws IOException {
@@ -43,6 +44,7 @@ public class UploadService {
     String fileName = reader.getFileName(headers);
     if(fileName == null) fileName = uploadId;
     fileName = new File(fileName).getName();
+    
     upResource.setFileName(fileName);
     upResource.setMimeType(headers.get(RequestStreamReader.CONTENT_TYPE));
     upResource.setStoreLocation(uploadLocation_ + "/" + uploadId+"."+fileName) ;
