@@ -2,7 +2,7 @@
  * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.portal.component.view;
+package org.exoplatform.portal.webui.portal;
 
 import org.exoplatform.webui.core.UIContainer;
 /**

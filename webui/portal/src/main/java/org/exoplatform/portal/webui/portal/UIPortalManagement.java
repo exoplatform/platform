@@ -2,13 +2,16 @@
  * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.portal.component.customization;
+package org.exoplatform.portal.webui.portal;
 
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
-import org.exoplatform.portal.component.view.UIPortal;
+import org.exoplatform.portal.component.customization.UIContainerConfigOptions;
+import org.exoplatform.portal.component.customization.UIManagement;
+import org.exoplatform.portal.component.customization.UIPortalToolPanel;
+import org.exoplatform.portal.component.customization.UIPortletOptions;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -24,7 +27,7 @@ import org.exoplatform.webui.event.Event.Phase;
  * Jun 23, 2006
  * 10:07:15 AM
  */
-@ComponentConfig(template = "app:/groovy/portal/webui/component/customization/UIPortalManagement.gtmpl")
+@ComponentConfig(template = "app:/groovy/portal/webui/portal/UIPortalManagement.gtmpl")
 public class UIPortalManagement extends UIManagement {
   
 	public UIPortalManagement() throws Exception {

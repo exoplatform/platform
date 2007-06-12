@@ -12,13 +12,14 @@ import javax.portlet.PortletMode;
 import javax.portlet.WindowState;
 
 import org.exoplatform.portal.component.view.lifecycle.UIPortletLifecycle;
-import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.DeleteComponentActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortletActionListener.ChangePortletModeActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortletActionListener.ChangeWindowStateActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortletActionListener.EditPortletActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortletActionListener.ProcessActionActionListener;
 import org.exoplatform.portal.component.view.listener.UIPortletActionListener.RenderActionListener;
 import org.exoplatform.portal.config.model.Properties;
+import org.exoplatform.portal.webui.portal.UIPortalComponent;
+import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.DeleteComponentActionListener;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.PortletData;

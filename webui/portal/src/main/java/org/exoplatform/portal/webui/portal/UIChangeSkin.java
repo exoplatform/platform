@@ -1,16 +1,13 @@
-package org.exoplatform.portal.component.customization;
+package org.exoplatform.portal.webui.portal;
 
 import java.util.List;
 
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
 import org.exoplatform.portal.component.view.PortalDataMapper;
-import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.services.resources.LocaleConfig;
-import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
@@ -23,56 +20,65 @@ import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
-    template = "system:/groovy/portal/webui/component/customization/UIChangeLanguage.gtmpl",
-    initParams = @ParamConfig(
-          name = "ChangeLanguageTemplateConfigOption",
-          value = "system:/WEB-INF/conf/uiconf/portal/webui/component/customization/LanguageConfigOption.groovy"
-    ),    
-    events = {
-      @EventConfig(listeners = UIChangeLanguage.SaveActionListener.class),
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)
-    }
+  template = "app:/groovy/portal/webui/portal/UIChangeSkin.gtmpl",
+  initParams = @ParamConfig(
+    name = "ChangeSkinTemplateConfigOption",
+    value = "system:/WEB-INF/conf/uiconf/portal/webui/portal/SkinConfigOption.groovy"
+  ),
+  events = {
+    @EventConfig(listeners = UIChangeSkin.SaveActionListener.class),
+    @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)
+  }
 )
-public class UIChangeLanguage extends UIContainer {
-  
+public class UIChangeSkin extends UIContainer {
+ 
   private String name_;
   
   @SuppressWarnings("unchecked")
-  public UIChangeLanguage(InitParams initParams) throws Exception  { 
-    name_ = "UIChangeLanguage";
-    
+  public UIChangeSkin(InitParams initParams) throws Exception  { 
+    name_ = "UIChangeSkin";    
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
-    Param param = initParams.getParam("ChangeLanguageTemplateConfigOption");
+    Param param = initParams.getParam("ChangeSkinTemplateConfigOption");
     List<SelectItemCategory> itemCategories = (List<SelectItemCategory>)param.getMapGroovyObject(context);
     
-    UIItemSelector selector = new UIItemSelector("Language");
-    selector.setItemCategories(itemCategories );
+    UIPortal uiPortal = Util.getUIPortal();
+    String currentSkin = uiPortal.getSkin();
+    
+    if(currentSkin == null ) currentSkin = "Default"; 
+    for(SelectItemCategory ele : itemCategories) {
+      if(ele.getName().equals(currentSkin)) ele.setSelected(true);
+      else  ele.setSelected(false);
+    }
+    
+    UIItemSelector selector = new UIItemSelector("Skin");
+    selector.setItemCategories(itemCategories);
     selector.setRendered(true);
     addChild(selector);
   }
   
   public String getName() { return name_; }
+
+  public void setName(String name) { name_ = name; }
   
-  static public class SaveActionListener  extends EventListener<UIChangeLanguage> {
-    public void execute(Event<UIChangeLanguage> event) throws Exception {
-      String language  = event.getRequestContext().getRequestParameter("language");
+  static public class SaveActionListener  extends EventListener<UIChangeSkin> {
+    public void execute(Event<UIChangeSkin> event) throws Exception {
+      String skin  = event.getRequestContext().getRequestParameter("skin");
       
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);    
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
       uiMaskWS.setUIComponent(null);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiApp) ;
       
-      if(language == null || language.trim().length() < 1) return;       
+      if(skin == null || skin.trim().length() < 1) return;       
       if(!uiPortal.isModifiable()) return;
       
-      LocaleConfigService localeConfigService  = event.getSource().getApplicationComponent(LocaleConfigService.class) ;
-      LocaleConfig localeConfig = localeConfigService.getLocaleConfig(language);
-      if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
+      uiPortal.setSkin(skin);
       PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);
       UserPortalConfigService dataService = uiPortal.getApplicationComponent(UserPortalConfigService.class);
       dataService.update(portalConfig);
-      uiApp.setLocale(localeConfig.getLocale());
+
+      uiApp.setSkin(skin);
     }
   }
 

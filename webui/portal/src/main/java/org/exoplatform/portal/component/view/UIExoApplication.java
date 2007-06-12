@@ -7,6 +7,7 @@ package org.exoplatform.portal.component.view;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.component.view.lifecycle.UIExoApplicationLifecycle;
 import org.exoplatform.portal.config.model.Properties;
+import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.application.mvc.MVCApplication;
 import org.exoplatform.web.application.mvc.MVCRequestContext;

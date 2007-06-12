@@ -7,7 +7,7 @@ package org.exoplatform.organization.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.ViewChildActionListener;
+import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ViewChildActionListener;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;

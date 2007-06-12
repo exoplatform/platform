@@ -2,7 +2,7 @@
  * Copyright 2001-2007 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.portal.component.customization;
+package org.exoplatform.portal.webui.portal;
 
 import java.util.List;
 
@@ -25,14 +25,14 @@ import org.exoplatform.webui.core.UIGrid;
  */
 @ComponentConfigs({
   @ComponentConfig(
-    template = "app:/groovy/portal/webui/component/customization/UIChangePortal.gtmpl",
+    template = "app:/groovy/portal/webui/portal/UIChangePortal.gtmpl",
     events = @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class) 
 //      @EventConfig(listeners = UIChangePortal.SelectPortalActionListener.class),
   ),
   @ComponentConfig(
     id = "PortalSelector",
     type = UIGrid.class,
-    template = "app:/groovy/portal/webui/component/customization/UIPortalSelector.gtmpl"
+    template = "app:/groovy/portal/webui/portal/UIPortalSelector.gtmpl"
   )
 })
 

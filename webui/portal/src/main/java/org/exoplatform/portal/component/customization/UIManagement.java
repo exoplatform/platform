@@ -16,7 +16,7 @@ import org.exoplatform.webui.event.Event;
  */
 abstract public class UIManagement extends UIContainer {
   
-  ManagementMode mode_ = ManagementMode.EDIT;
+  protected ManagementMode mode_ = ManagementMode.EDIT;
   
   public static enum ManagementMode { EDIT, BROWSE }
   

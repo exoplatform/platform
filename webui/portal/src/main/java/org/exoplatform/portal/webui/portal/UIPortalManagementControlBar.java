@@ -2,7 +2,7 @@
  * Copyright 2001-2007 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.portal.component.customization;
+package org.exoplatform.portal.webui.portal;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
@@ -11,7 +11,6 @@ import org.exoplatform.portal.component.control.UIControlWorkspace;
 import org.exoplatform.portal.component.control.UIExoStart;
 import org.exoplatform.portal.component.control.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.portal.component.view.PortalDataMapper;
-import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
 import org.exoplatform.portal.config.UserPortalConfig;

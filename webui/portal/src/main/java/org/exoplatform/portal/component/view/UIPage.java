@@ -13,8 +13,8 @@ import org.exoplatform.portal.component.view.listener.UIPageActionListener.Delet
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.EditPageActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.RemoveChildActionListener;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.SavePropertiesActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.MoveChildActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.ShowLoginFormActionListener;
+import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.MoveChildActionListener;
+import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;

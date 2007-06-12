@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.component;
 
-import org.exoplatform.portal.component.view.UIPortal;
+import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIContainer;
 

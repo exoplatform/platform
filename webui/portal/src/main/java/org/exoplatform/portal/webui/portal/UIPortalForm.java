@@ -2,7 +2,7 @@
  * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.portal.component.customization;
+package org.exoplatform.portal.webui.portal;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,9 +13,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
 import org.exoplatform.portal.component.control.UIMaskWorkspace;
-import org.exoplatform.portal.component.model.PortalTemplateConfigOption;
 import org.exoplatform.portal.component.view.PortalDataMapper;
-import org.exoplatform.portal.component.view.UIPortal;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
@@ -69,7 +67,7 @@ import org.exoplatform.webui.organization.UIPermissionSelector;
     template = "system:/groovy/webui/form/UIFormTabPane.gtmpl",
     initParams = @ParamConfig(
         name = "PortalTemplateConfigOption", 
-        value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/PortalTemplateConfigOption.groovy"
+        value = "app:/WEB-INF/conf/uiconf/portal/webui/portal/PortalTemplateConfigOption.groovy"
     ),
     events = {
       @EventConfig(name  = "Save", listeners = UIPortalForm.CreateActionListener.class),

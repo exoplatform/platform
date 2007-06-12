@@ -2,21 +2,22 @@
  * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.portal.component.view;
+package org.exoplatform.portal.webui.portal;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.component.view.UIContainer;
+import org.exoplatform.portal.component.view.UIPageBody;
 import org.exoplatform.portal.component.view.UIWidgets.ChangeOptionActionListener;
-import org.exoplatform.portal.component.view.lifecycle.UIPortalLifecycle;
 import org.exoplatform.portal.component.view.listener.UIPageActionListener.ChangePageNodeActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalActionListener.ChangeWindowStateActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalActionListener.LoadPageActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.MoveChildActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.portal.component.widget.UILogged.LogoutActionListener;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.webui.portal.UIPortalActionListener.ChangeWindowStateActionListener;
+import org.exoplatform.portal.webui.portal.UIPortalActionListener.LoadPageActionListener;
+import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.MoveChildActionListener;
+import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
@@ -29,7 +30,7 @@ import org.exoplatform.webui.core.UIComponent;
  */
 @ComponentConfig(
     lifecycle = UIPortalLifecycle.class,
-    template = "system:/groovy/portal/webui/component/view/UIPortal.gtmpl",
+    template = "system:/groovy/portal/webui/portal/UIPortal.gtmpl",
     events = {
       @EventConfig(listeners = ChangePageNodeActionListener.class),
       @EventConfig(listeners = MoveChildActionListener.class),

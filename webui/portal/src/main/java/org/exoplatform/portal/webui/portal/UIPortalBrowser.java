@@ -1,4 +1,4 @@
-package org.exoplatform.portal.component.customization;
+package org.exoplatform.portal.webui.portal;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
-  template = "app:/groovy/portal/webui/component/customization/UIPortalBrowser.gtmpl",
+  template = "app:/groovy/portal/webui/portal/UIPortalBrowser.gtmpl",
   events = { 
 //      @EventConfig(listeners = UIPortalBrowser.SelectPortalActionListener.class),
       @EventConfig(listeners = UIPortalBrowser.AddNewPortalActionListener.class),

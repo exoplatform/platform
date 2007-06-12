@@ -8,7 +8,8 @@ import org.exoplatform.portal.component.view.listener.UIContainerActionListener.
 import org.exoplatform.portal.component.view.listener.UIContainerActionListener.AddWidgetContainerActionListener;
 import org.exoplatform.portal.component.view.listener.UIContainerActionListener.DeleteWidgetActionListener;
 import org.exoplatform.portal.component.view.listener.UIContainerActionListener.EditContainerActionListener;
-import org.exoplatform.portal.component.view.listener.UIPortalComponentActionListener.DeleteComponentActionListener;
+import org.exoplatform.portal.webui.portal.UIPortalComponent;
+import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.DeleteComponentActionListener;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;

@@ -1,7 +1,7 @@
 <%
-	import org.exoplatform.portal.component.customization.UIPortalManagementEditBar;	
+	import org.exoplatform.portal.webui.portal.UIPortalManagementEditBar;	
 	import org.exoplatform.portal.component.customization.UIContainerConfigOptions;
-	import org.exoplatform.portal.component.customization.UIPortalManagementControlBar;
+	import org.exoplatform.portal.webui.portal.UIPortalManagementControlBar;
 	import org.exoplatform.portal.component.customization.UIPortletOptions;	
 	import org.exoplatform.webui.core.UIDescription;
 

@@ -196,10 +196,10 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   }
   
   private <T> T fromXML(String xml, Class<T> clazz) throws Exception {
-    ByteArrayInputStream is = new ByteArrayInputStream(xml.getBytes()) ;
+    ByteArrayInputStream is = new ByteArrayInputStream(xml.getBytes("UTF-8")) ;
     IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
-    return clazz.cast(uctx.unmarshalDocument(is, null));
+    return clazz.cast(uctx.unmarshalDocument(is, "UTF-8"));
   }
   
   String getDefaultPortal() { return defaultPortal; }
