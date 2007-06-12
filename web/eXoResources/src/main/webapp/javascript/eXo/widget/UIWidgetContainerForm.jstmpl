@@ -1,0 +1,19 @@
+<div class="ContainerDetail" style="display: <%=context.display%>">
+	<div class="UIForm">
+		<div class="HorizontalLayout">
+			<div class="FormContainer">
+				<table class="UIFormGrid">
+					<tr>
+						<td class="FieldLabel">Container name:</td>
+						<td class="FieldComponent"><input type="text" name="ContainerName" value="<%=context.cName%>"/></td>
+					</tr>
+					<tr>
+						<td class="FieldLabel">Description:</td>
+						<td class="FieldComponent"><textarea class="textarea" name="description"><%=context.cDescription%></textarea></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="RemoveContainerAction" onclick="eXo.widget.UIWidgetContainerManagement.deleteContainer(this);">Remove this container</div>
+</div>

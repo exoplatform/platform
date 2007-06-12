@@ -5,7 +5,7 @@
 		  	<tr>
 		      <td class="FieldLabel">Container name:</td>
 		      <td class="FieldComponent">
-		      	<input type="text" id="name" name="id"/>
+		      	<input type="text" name="ContainerName" />
 		      </td>
 		    </tr>
 		    <tr>
@@ -24,7 +24,7 @@
 				<div class="LightBlueStyle">
 					<div class="ButtonLeft">
 						<div class="ButtonRight">
-							<div class="ButtonMiddle" style="width: 70px">Add</div>
+							<div class="ButtonMiddle" style="width: 70px; cursor: pointer" onclick="eXo.widget.UIWidgetContainerManagement.addWidgetContainer(this);">Add</div>
 						</div>
 					</div>
 				</div>
