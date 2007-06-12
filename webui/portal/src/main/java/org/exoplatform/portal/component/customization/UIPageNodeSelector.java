@@ -308,14 +308,12 @@ public class UIPageNodeSelector extends UIContainer {
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
-      //TODO: Tung.Pham added
-      //-------------------------------------------------------------------------
-      if (!page.isModifiable()) {
+      
+      if(!page.isModifiable()) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", new String[]{page.getTitle()})) ;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         return ;
       }
-      //-------------------------------------------------------------------------
       
       uiEditBar.setRendered(true);
       UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());

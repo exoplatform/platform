@@ -7,6 +7,8 @@ package org.exoplatform.portal.component.control;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.portlet.WindowState;
+
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.component.UIPortalApplication;
 import org.exoplatform.portal.component.UIWorkspace;
@@ -16,6 +18,8 @@ import org.exoplatform.portal.component.customization.UIPageManagement;
 import org.exoplatform.portal.component.customization.UIPortalToolPanel;
 import org.exoplatform.portal.component.customization.UIWizardPageCreationBar;
 import org.exoplatform.portal.component.customization.UIManagement.ManagementMode;
+import org.exoplatform.portal.component.view.UIPageBody;
+import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.component.widget.UILogged;
 import org.exoplatform.portal.component.widget.UIWelcomeComponent;
@@ -315,6 +319,14 @@ public class UIExoStart extends UIComponent {
     public void execute(Event<UIExoStart> event) throws Exception {
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
       UIPortal uiPortal = Util.getUIPortal();
+      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
+      if(uiPageBody != null) {
+        if(uiPageBody.getMaximizedUIComponent() != null) {
+          UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
+          currentPortlet.setCurrentWindowState(WindowState.NORMAL);
+          uiPageBody.setMaximizedUIComponent(null);
+        }
+      }
       PageNodeEvent<UIPortal> pnevent = 
         new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;      

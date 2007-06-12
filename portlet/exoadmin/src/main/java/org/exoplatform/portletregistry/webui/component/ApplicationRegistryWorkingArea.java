@@ -9,9 +9,12 @@ import java.util.List;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
@@ -68,7 +71,19 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
   static public class AddPortletActionListener extends EventListener<ApplicationRegistryWorkingArea> {
     public void execute(Event<ApplicationRegistryWorkingArea> event) throws Exception {
       ApplicationRegistryWorkingArea workingArea = event.getSource();
+      UIPortletRegistryPortlet parent = workingArea.getParent();
+      ApplicationRegistryControlArea controlArea = parent.getChild(ApplicationRegistryControlArea.class);
+      String msg = "ApplicationRegistryWorkingArea.msg.selectCategory";
+      if(controlArea.getPortletCategory() == null || controlArea.getPortletCategory().size() < 1) {
+        msg = "ApplicationRegistryWorkingArea.msg.nullCategory";
+      }
       
+      if(controlArea.getSelectedPortletCategory() == null ) {
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage(msg, null)) ;
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return;
+      }
       UIPopupWindow popupWindow = workingArea.getChild(UIPopupWindow.class);
       UIAvailablePortletForm availablePortletForm = workingArea.createUIComponent(UIAvailablePortletForm.class, null, null);
       availablePortletForm.setValue();

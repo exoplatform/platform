@@ -6,6 +6,10 @@ package org.exoplatform.portal.component.widget;
 
 import java.util.List;
 
+import javax.portlet.WindowState;
+
+import org.exoplatform.portal.component.view.UIPageBody;
+import org.exoplatform.portal.component.view.UIPortlet;
 import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -81,9 +85,18 @@ public class UIPortalNavigation extends UIComponent {
     public void execute(Event<UIPortalNavigation> event) throws Exception {      
       UIPortalNavigation uiNavigation = event.getSource();
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
+      System.out.println("\n\n\n------------------------UIPortalNavigation.java: " + uri);
       uiNavigation.setSelectedPageNode(uri) ;
       
-      UIPortal uiPortal = Util.getUIPortal();      
+      UIPortal uiPortal = Util.getUIPortal();     
+      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
+      if(uiPageBody != null) {
+        if(uiPageBody.getMaximizedUIComponent() != null) {
+          UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
+          currentPortlet.setCurrentWindowState(WindowState.NORMAL);
+          uiPageBody.setMaximizedUIComponent(null);
+        }
+      }
       PageNodeEvent<UIPortal> pnevent ;
       pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;

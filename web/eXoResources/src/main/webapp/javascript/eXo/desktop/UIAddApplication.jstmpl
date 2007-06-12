@@ -57,18 +57,7 @@
           <div class="ButtonLeft">
             <div class="ButtonRight">
               <div class="ButtonMiddle">
-            <div onClick="eXo.desktop.UIAddApplication.loadApplications(true, [], 'UIPageDesktop');"><a>Refresh</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="ActionButton">
-        <div class="LightBlueStyle">
-          <div class="ButtonLeft">
-            <div class="ButtonRight">
-              <div class="ButtonMiddle">
-            <a href="javascript:eXo.desktop.UIAddApplication.removeAddApplication();">Close</a>
+           		  <a href="javascript:eXo.desktop.UIAddApplication.removeAddApplication();">Close</a>
               </div>
             </div>
           </div>

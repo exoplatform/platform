@@ -5,13 +5,20 @@
 package org.exoplatform.portletregistry.webui.component;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.services.portletcontainer.PortletContainerService;
+import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
+import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -44,6 +51,7 @@ import org.exoplatform.webui.form.UIFormTableInputSet;
 public class UIAvailablePortletForm extends UIFormTabPane {   
 
   final static String [] TABLE_COLUMNS = {"label", "description", "input"};
+  List<Application> list_ = new ArrayList<Application>();
   
   public UIAvailablePortletForm() throws Exception {
     super("UIFormAvailablePortlet", false);
@@ -51,7 +59,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     setRenderResourceTabName(false) ;
   } 
 
-  @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
   public void setValue() throws Exception {
     getChildren().clear();
     
@@ -61,30 +69,64 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     uiTableInputSet.setColumns(TABLE_COLUMNS);
     addChild(uiTableInputSet);
     
+    
+    PortletContainerService containerService = getApplicationComponent(PortletContainerService.class);
+    Map map = containerService.getAllPortletMetaData();
+    Iterator iter = map.keySet().iterator();
     ApplicationRegistryService registeryService = getApplicationComponent(ApplicationRegistryService.class) ;
-    List<Application> applications = registeryService.getAllApplications();
-//    while(iter.hasNext()){
-//      String id = String.valueOf(iter.next());
-//      Application portlet = null; 
-//      try{
-//         portlet = registeryService.getApplication(id);
-//      }catch (Exception exp) {
-//        exp.printStackTrace();
-//      }
-//      if(portlet == null) continue;  
-    for(Application portlet: applications) {
-      String id = portlet.getId();
+    int i = 0;
+    while(iter.hasNext()){
+      String id = String.valueOf(iter.next());
+      Application portlet = null; 
+      try{
+         portlet = registeryService.getApplication(id);
+      }catch (Exception exp) {
+        exp.printStackTrace();
+      }
+      if(portlet == null)  portlet = findPortletInDataRuntime(id);
+      if(portlet == null ) continue;
+      list_.add(portlet);
+      
       UIFormInputSet uiInputSet = new UIFormInputSet(portlet.getId()) ;
       UIFormInputInfo uiInfo = new UIFormInputInfo("label", null, portlet.getDisplayName());
       uiInputSet.addChild(uiInfo);
-      uiInfo = new UIFormInputInfo("description", null, portlet.getApplicationType());
+      uiInfo = new UIFormInputInfo("description", null, portlet.getDescription());
       uiInputSet.addChild(uiInfo);
-      UIFormCheckBoxInput<String> uiCheckbox = new UIFormCheckBoxInput<String>(id, null, id);       
-      uiCheckbox.setValue(id);
+      UIFormCheckBoxInput<Integer> uiCheckbox = new UIFormCheckBoxInput<Integer>(id, null, i);    
+      i++;
       uiInputSet.addChild(uiCheckbox);
       uiTableInputSet.addChild(uiInputSet);
+    } 
+  }
+  
+  public List<Application> getListApplication() { return list_;}
+  public void setListApplication(List<Application> list) {this.list_ = list; }
+
+  private Application findPortletInDataRuntime(String id) {
+    PortalContainer manager  = PortalContainer.getInstance();
+    PortletContainerMonitor monitor =
+      (PortletContainerMonitor) manager.getComponentInstanceOfType(PortletContainerMonitor.class) ;
+    Collection portletDatas = monitor.getPortletRuntimeDataMap().values();  
+    Iterator iterator = portletDatas.iterator();
+    while(iterator.hasNext()) {
+      PortletRuntimeData portletRuntimeData = (PortletRuntimeData) iterator.next();
+      String categoryName = portletRuntimeData.getPortletAppName();
+      String portletName = portletRuntimeData.getPortletName();
+      String fullName = categoryName + "/" + portletName;
+      if(id.equals(fullName)){
+        Application app = new Application();
+        app.setId(fullName);
+        app.setDisplayName(portletName) ;
+        app.setApplicationName(portletName);
+        app.setApplicationGroup(categoryName);
+        app.setApplicationType("jsr168-portlet");
+        app.setDescription("jsr168 portlet application");
+        app.setAccessPermissions(new String[]{});
+        return  app;
+      }
     }
-  } 
+      return null;
+    }
 
   public void processDecode(WebuiRequestContext context) throws Exception {
     super.processDecode(context);
@@ -116,9 +158,9 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       List<Application> oldPortlets = uiRegistryCategory.getPortlets();      
       Collections.sort(oldPortlets, portletComparator);
       
-      for(UIFormCheckBoxInput<String> ele : listCheckbox){
+      for(UIFormCheckBoxInput<Integer> ele : listCheckbox){
         if(!ele.isChecked())continue;    
-        Application portlet = service.getApplication(ele.getValue());       
+        Application portlet = event.getSource().getListApplication().get(ele.getValue());    
         if(Collections.binarySearch(oldPortlets, portlet, portletComparator) > -1) continue;
         Application newPortlet = clonePortlet(portlet);
         service.save(selectedCategory, newPortlet);
@@ -147,5 +189,6 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     }
   }
 
+ 
 }
 

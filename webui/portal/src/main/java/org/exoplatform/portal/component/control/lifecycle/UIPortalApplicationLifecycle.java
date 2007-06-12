@@ -18,7 +18,7 @@ import org.exoplatform.webui.core.lifecycle.Lifecycle;
 public class UIPortalApplicationLifecycle extends Lifecycle {  
   
   public void processDecode(UIComponent uicomponent , WebuiRequestContext context) throws Exception {  
-    UIPortalApplication uiApp = (UIPortalApplication) uicomponent ;    
+    UIPortalApplication uiApp = (UIPortalApplication) uicomponent ; 
     String componentId =  context.getRequestParameter(context.getUIComponentIdParameterName()) ;    
     if(componentId == null)  return ;
     UIComponent uiTarget =  uiApp.findComponentById(componentId);

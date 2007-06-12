@@ -53,9 +53,12 @@
 				          <% 
 				            String portletIcon = uicomponent.getIcon();
 				            if(portletIcon == null) portletIcon = portletTitle + "Icon";
+				            String title = portletTitle;
+				            if(uicomponent.getId() !=null) title = uicomponent.getId() + " portlet";
+				            if(uicomponent.getTitle() !=null) title = uicomponent.getTitle() + "portlet";
 				          %>
 				          <div class="Icon $portletIcon" ><span></span></div>
-		              <div class="Title">$portletTitle</div>
+		              <div class="Title">$title</div>
 			            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeletePortletIcon" title="Delete Portlet"><span></span></a>
 			            <a href="<%=uicomponent.event("EditPortlet","$uicomponent.id")%>" class="EditPortletPropertiesIcon" title="Edit Portlet"><span></span></a>
 			            <div style="clear: both"><span></span></div>
@@ -86,8 +89,12 @@
 		            <div class="GardientBackground">
 		            <%if(uicomponent.getDescription() != null) {%>
   		            <%=uicomponent.getDescription();%>
-		            <%} else {%>
-		              <%=_ctx.appRes("UIPortlet.label.portletContent")%>
+		            <%} else {
+		               String des = _ctx.appRes("UIPortlet.label.portletContent");
+			            if(uicomponent.getId() !=null) des = uicomponent.getId() + " portlet";
+			            if(uicomponent.getTitle() !=null) des = uicomponent.getTitle() + "portlet";
+		            %>
+		              <%=des%>
       		      <%}%>
       		      </div>
 		          </div>
