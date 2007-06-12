@@ -16,6 +16,7 @@
   String scrollDownAction = "eXo.webui.UIVerticalScroller.scrollDown(this, 'UIWidgetContainer', 'UIWidget');";
 %>
 
+
 <div class="UIWidgetContainer" id="<%=componentId%>">
 	<div class="WidgetContainerScrollArea ScrollZone" style = "height:300px ; ">
 		<% uicomponent.renderChildren() %>
