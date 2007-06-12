@@ -42,7 +42,7 @@
       
       <node>
         <uri>ecm/fastcontentcreator</uri>
-        <name>dialog</name>
+        <name>fastContentCreator</name>
         <label>Fast Content Creator</label>
         <page-reference>group::/portal/admin::fastcontentcreator</page-reference>
       </node>
