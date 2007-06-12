@@ -20,6 +20,14 @@
   margin: 10px auto;
 }
 
+.UIForm .HorizontalLayout .MultiValueContainer {
+  margin-bottom: 5px;
+}
+
+.UIForm .HorizontalLayout .MultiValueContainer a {
+  margin: 0px 3px;
+}
+
 .UIForm .HorizontalLayout .UIFormInputSet {
 	width: 97% ;
   padding-bottom: 10px ; margin-right: 0px ;
