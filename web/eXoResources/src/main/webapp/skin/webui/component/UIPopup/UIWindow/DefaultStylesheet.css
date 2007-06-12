@@ -206,6 +206,11 @@
   background: url('null') repeat bottom right;
 }
 
+.UIPageBody ..UIApplicationRegistryPortlet {
+	width: 99%;
+	margin: auto;
+	margin-bottom: 10px;
+}
 /********************* Icon InfoBar ************************************/
 .UIWindow .OrganizationPortletIcon {
   background: url('/eXoResources/icons/16x16/DefaultSkin/AddNodeIcon.gif') no-repeat center;

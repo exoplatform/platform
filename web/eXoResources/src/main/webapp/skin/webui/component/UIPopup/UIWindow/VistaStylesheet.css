@@ -185,6 +185,12 @@
   overflow: hidden;
 }
 
+.UIPageBody ..UIApplicationRegistryPortlet {
+	width: 99%;
+	margin: auto;
+	margin-bottom: 10px;
+}
+
 .UIPortal .VIEW-PORTLET .UIWindow {
   width: 99% ; height: auto;
   margin: auto; 
