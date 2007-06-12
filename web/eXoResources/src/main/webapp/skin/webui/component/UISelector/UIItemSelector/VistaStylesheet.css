@@ -88,7 +88,7 @@
 .UIItemSelector .ItemListContainer .ItemListTitle {
   height: 30px; line-height: 30px; vertical-align: middle; 
   font-weight: bold;
-  color: #000000;
+  color: #5c5c5c;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemListContainer .ItemListTitle {

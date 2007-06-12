@@ -512,6 +512,5 @@
   background: url('VistaSkin/background/CenterTitleBar1x30.png') repeat-x;
   padding-left: 8px;
   height: 30px; line-height: 30px;
-  color: #058ee6;
-  font-size: 15px;
+  color: #058ee6; font-size: 15px; font-weight: bold;
 }
