@@ -176,6 +176,7 @@ UIWidgetContainerManagement.prototype.addWidgetContainer = function(selectedElem
 		widgetContainerForm.insertBefore(containerFormElement, firstContainerForm);
 	} else {
 		widgetContainerForm.appendChild(containerFormElement);
+		eXo.widget.UIWidgetContainerManagement.selectContainer(newContainerElement);
 	}
 	
 	/*Close Popup*/
@@ -184,10 +185,33 @@ UIWidgetContainerManagement.prototype.addWidgetContainer = function(selectedElem
 
 UIWidgetContainerManagement.prototype.deleteContainer = function(selectedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
-	var containerForm = DOMUtil.findAncestorByClass(selectedElement, "ContainerDetail");
+	var selectedContainerForm = DOMUtil.findAncestorByClass(selectedElement, "ContainerDetail");
+	var widgetContainerForm = DOMUtil.findAncestorByClass(selectedContainerForm, "WidgetContainerForm");
 	
+	var containerFormList = DOMUtil.findChildrenByClass(widgetContainerForm, "div", "ContainerDetail");
 	
-//	alert(containerForm.className);
+	var selectedIndex;
+	for(var i = 0; i < containerFormList.length; i++) {
+		if(containerFormList[i] == selectedContainerForm) {
+			selectedIndex = i ;
+			break ;
+		}
+	}
+	
+	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement");
+	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList");
+	var containers = DOMUtil.getChildrenByTagName(containerList, "div");
+	
+	widgetContainerForm.removeChild(selectedContainerForm);
+	containerList.removeChild(containers[selectedIndex]);
+	
+	if(containers[selectedIndex + 1] != null) {
+		eXo.widget.UIWidgetContainerManagement.selectContainer(containers[selectedIndex + 1]);
+	} else if(containers[selectedIndex - 1]) {
+		eXo.widget.UIWidgetContainerManagement.selectContainer(containers[selectedIndex - 1]);
+	}
+	
+//	alert(widgetContainerForm.className);
 };
 
 UIWidgetContainerManagement.prototype.closeAddPopup = function(popupId) {
