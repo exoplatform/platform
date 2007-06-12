@@ -87,11 +87,15 @@ public class UIWizardPageSetInfo extends UIForm {
     
     UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
     PageNode selectedNode = uiNodeSelector.getSelectedPageNode();
-    PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();    
+    //PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();    
     if(selectedNode != null) {
       pageNode.setUri(selectedNode.getUri()+"/"+pageNode.getName());
     } else {       
-      pageNode.setUri(pageNav.getOwnerId() + "::" + pageNode.getName());
+      //TODO: Tung.Pham modified
+      //--------------------------------------------------------------------
+      //pageNode.setUri(pageNav.getOwnerId() + "::" + pageNode.getName());
+      pageNode.setUri(pageNode.getName()) ;
+      //--------------------------------------------------------------------
     }
     return pageNode;
  }

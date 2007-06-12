@@ -188,11 +188,6 @@ public class UIPageNodeSelector extends UIContainer {
     List<?> sibbling = tree.getSibbling();
     tree.setSibbling(null);
     tree.setParentSelected(null);
-    String owner = uri.split("::")[0] ;
-    if (!selectedNavigation.getOwnerId().equals(owner))  {
-      PageNavigation navi = getPageNavigationByOwner(owner) ; 
-      if (navi != null) selectedNavigation = navi ;
-    }
     selectedPageNode = findPageNodeByUri(selectedNavigation, uri, tree);
     if(selectedPageNode == null){      
       tree.setSelected(null);
@@ -272,15 +267,15 @@ public class UIPageNodeSelector extends UIContainer {
   
   public String getUpLevelUri () { return upLevelURI ; }
   
-  private PageNavigation getPageNavigationByOwner(String owner) {
-    for (int i = 0; i < navigations_.size(); i ++) {
-      if (!navigations_.get(i).getOwnerId().equals(owner)) continue ;
-      selectedNavigation = navigations_.get(i) ;
-      UIDropDownItemSelector uiDropdown = getChild(UIDropDownItemSelector.class) ;
-      uiDropdown.setSelected(i) ;
-    }
-    return null ;
-  }
+//  private PageNavigation getPageNavigationByOwner(String owner) {
+//    for (int i = 0; i < navigations_.size(); i ++) {
+//      if (!navigations_.get(i).getOwnerId().equals(owner)) continue ;
+//      selectedNavigation = navigations_.get(i) ;
+//      UIDropDownItemSelector uiDropdown = getChild(UIDropDownItemSelector.class) ;
+//      uiDropdown.setSelected(i) ;
+//    }
+//    return null ;
+//  }
   
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {      

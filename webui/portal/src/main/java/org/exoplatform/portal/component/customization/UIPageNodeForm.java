@@ -30,7 +30,6 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
-import org.exoplatform.webui.form.validator.NullFieldValidator;
 /**
  * Author : Dang Van Minh, Pham Tuan
  *          minhdv81@yahoo.com
@@ -90,6 +89,23 @@ public class UIPageNodeForm extends UIFormTabPane {
   public Object getSelectedParent(){ return selectedParent; }  
   public void setSelectedParent(Object obj) { this.selectedParent = obj; }
   
+  //TODO: Tung.Pham added
+  public boolean checkNodeExsit(PageNode pageNode) {
+    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class) ;
+    UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID) ;
+    UIPageNodeSelector nodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class) ;
+    if (nodeSelector.findPageNodeByUri(pageNode.getUri()) != null) {
+      uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.SameName", null)) ;
+      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+      setRenderedChild("PageNodeSetting") ;
+      setWithRenderTab(true) ;
+      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
+      return true ;
+    }
+    return false ;
+  }
+  
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
     
@@ -119,12 +135,6 @@ public class UIPageNodeForm extends UIFormTabPane {
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       String remoteUser = Util.getPortalRequestContext().getRemoteUser();
-      String owner = remoteUser ;
-      UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
-      pcontext.addUIComponentToUpdateByAjax(uiManagement);
-      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      uiMaskWS.setUIComponent(null);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);
       pageNode.setIcon(uiIconSelector.getSelectedIcon());
       
@@ -134,10 +144,10 @@ public class UIPageNodeForm extends UIFormTabPane {
       if(selectedParent instanceof PageNavigation){
         pageNav = (PageNavigation)selectedParent;
         pageNav.setModifier(remoteUser);
-        //pageNode.setUri(pageNode.getName());
-        owner = pageNav.getOwnerId() ;
-        pageNode.setUri(owner + "::" + pageNode.getName()) ;
-        if(!pageNav.getNodes().contains(pageNode)) pageNav.addNode(pageNode);
+        pageNode.setUri(pageNode.getName());
+        //if(!pageNav.getNodes().contains(pageNode)) pageNav.addNode(pageNode);
+        if(uiPageNodeForm.checkNodeExsit(pageNode)) return ;
+        pageNav.addNode(pageNode) ;
       } else if(selectedParent instanceof PageNode) {
         PageNode parentNode = (PageNode)selectedParent; 
         List<PageNode> children = parentNode.getChildren();
@@ -145,10 +155,18 @@ public class UIPageNodeForm extends UIFormTabPane {
           children = new ArrayList<PageNode>();
           parentNode.setChildren((ArrayList<PageNode>)children);
         }
-        if(!children.contains(pageNode)) children.add(pageNode);
+        //if(!children.contains(pageNode)) children.add(pageNode);
         pageNode.setUri(parentNode.getUri()+"/"+pageNode.getName());       
+        if(uiPageNodeForm.checkNodeExsit(pageNode)) return ;
+        children.add(pageNode) ;
       }
       if(pageNode.getLabel() == null) pageNode.setLabel(pageNode.getName());
+      
+      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      uiMaskWS.setUIComponent(null);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
+      pcontext.addUIComponentToUpdateByAjax(uiManagement);
       
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
