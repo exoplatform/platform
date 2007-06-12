@@ -5,19 +5,19 @@ function UIForm() {
 };
 
 UIForm.prototype.onFixSize = function() {
-	var arrowIcon = eXo.core.DOMUtil.findFirstDescendantByClass(document, "div", "Button");
+	var DOMUtil = eXo.core.DOMUtil;
+	var arrowIcon = DOMUtil.findFirstDescendantByClass(document, "div", "Button");
 	if(arrowIcon != null) {
 		arrowIcon.className = "IconHolder ArrowS1Down16x16Icon" ;
 	}
-	
-  var uiFormTabPane = eXo.core.DOMUtil.findFirstDescendantByClass(document, "div", "UIFormTabPane");
-  var tabPaneContent = eXo.core.DOMUtil.findFirstDescendantByClass(uiFormTabPane, "div", "TabPaneContent");
-  var uiQuickHelp = eXo.core.DOMUtil.findFirstChildByClass(tabPaneContent, "div", "UIQuickHelp");
-  
+  var uiFormTabPane = DOMUtil.findFirstDescendantByClass(document, "div", "UIFormTabPane");
+  if(!uiFormTabPane) return ;
+  var tabPaneContent = DOMUtil.findFirstDescendantByClass(uiFormTabPane, "div", "TabPaneContent");
+  var uiQuickHelp = DOMUtil.findFirstChildByClass(tabPaneContent, "div", "UIQuickHelp");
   if(uiQuickHelp == null) return ;
   
-  var workingAreaWithHelp = eXo.core.DOMUtil.findFirstChildByClass(tabPaneContent, "div", "WorkingAreaWithHelp");
-  var scrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiQuickHelp, "div", "ScrollArea");
+  var workingAreaWithHelp = DOMUtil.findFirstChildByClass(tabPaneContent, "div", "WorkingAreaWithHelp");
+  var scrollArea = DOMUtil.findFirstDescendantByClass(uiQuickHelp, "div", "ScrollArea");
 
   scrollArea.style.height = (workingAreaWithHelp.offsetHeight - 78 ) + "px";
 
