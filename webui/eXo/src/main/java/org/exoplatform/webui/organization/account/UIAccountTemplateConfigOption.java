@@ -7,7 +7,7 @@ package org.exoplatform.webui.organization.account;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.bean.SelectItemOption;
+import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.organization.UIUserMembershipSelector.Membership;
 
 /**

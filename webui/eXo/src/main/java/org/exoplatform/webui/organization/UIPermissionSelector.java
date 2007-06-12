@@ -9,13 +9,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIBreadcumbs;
 import org.exoplatform.webui.core.UITree;
-/**
- * Created by The eXo Platform SARL
- * Author : chungnv
- *          nguyenchung136@yahoo.com
- * Jun 23, 2006
- * 10:07:15 AM
- */
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormPopupWindow;
 @ComponentConfig(

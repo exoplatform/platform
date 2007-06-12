@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
-import org.exoplatform.webui.bean.SelectItemCategory;
-import org.exoplatform.webui.bean.SelectItemOption;
+import org.exoplatform.webui.core.model.SelectItemCategory;
+import org.exoplatform.webui.core.model.SelectItemOption;
 
 List categories = new ArrayList();
 

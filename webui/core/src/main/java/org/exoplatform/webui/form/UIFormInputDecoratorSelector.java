@@ -7,8 +7,8 @@ package org.exoplatform.webui.form;
 import java.util.List;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.bean.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.model.SelectItemOption;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen

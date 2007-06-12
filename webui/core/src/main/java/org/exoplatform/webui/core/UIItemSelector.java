@@ -7,9 +7,9 @@ package org.exoplatform.webui.core;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.webui.bean.SelectItemCategory;
-import org.exoplatform.webui.bean.SelectItemOption;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.model.SelectItemCategory;
+import org.exoplatform.webui.core.model.SelectItemOption;
 
 /**
  * Created by The eXo Platform SARL

@@ -47,7 +47,7 @@ public class JCRRegistryService  {
   }
   
   public Session getSession() throws Exception{
-    return repositoryService_.getRepository().getSystemSession(WORKSPACE);
+    return repositoryService_.getDefaultRepository().getSystemSession(WORKSPACE);
   }
   
   public RepositoryService  getJCRRepositoryService() { return repositoryService_ ; }

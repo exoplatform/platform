@@ -6,8 +6,8 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.bean.SelectItemOption;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.model.SelectItemOption;
 
 public class UIFormSelectBox extends UIFormStringInput {
   

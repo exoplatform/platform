@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.bean.SelectItemOption;
+import org.exoplatform.webui.core.model.SelectItemOption;
 
 public class UIFormRadioBoxInput extends UIFormInputBase<String>  {
   

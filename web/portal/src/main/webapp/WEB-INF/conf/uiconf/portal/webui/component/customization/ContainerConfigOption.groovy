@@ -1,5 +1,5 @@
-import org.exoplatform.webui.bean.SelectItemCategory ;
-import org.exoplatform.webui.bean.SelectItemOption ;
+import org.exoplatform.webui.core.model.SelectItemCategory ;
+import org.exoplatform.webui.core.model.SelectItemOption ;
   
   List templates = new ArrayList() ;
   
