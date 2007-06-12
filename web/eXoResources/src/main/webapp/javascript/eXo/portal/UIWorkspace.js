@@ -1,4 +1,4 @@
-//eXo.require('eXo.webui.UIVerticalScroller') ;
+eXo.require('eXo.webui.UIVerticalScroller') ;
 function UIWorkspace(id) {
   this.id = id ;
   this.showControlWorkspace = false ;
@@ -99,7 +99,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	
 	/* Reorganize opened windows */
 	eXo.portal.UIWorkingWorkspace.reorganizeWindows(this.showControlWorkspace);
-	/*Resize Dockbar*/
+	/* Resize Dockbar */
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	if(uiPageDesktop) eXo.desktop.UIDockbar.resizeDockBar() ;
 	/* Resizes the scrollable containers */
@@ -107,7 +107,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	
 	if(document.getElementById("UIWidgets")) {
 		eXo.widget.UIWidget.resizeContainer();
-		//eXo.webui.UIVerticalScroller.init();
+		eXo.webui.UIVerticalScroller.init();
 	}
 	/* BEGIN - Check positon of widgets in order to avoid hide widgets when we expand/collapse workspace*/
 	if(uiPageDesktop) {

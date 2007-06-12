@@ -12,12 +12,12 @@
   //System.out.println("\n\n\n == > is uicontainer la "+ uicomponent.getChildren().size()+"\n\n\n");
   String componentId = uicomponent.getId();
   String addWidgetAction = "eXo.desktop.UIAddApplication.init('"+componentId+"','"+componentId+"', ['eXoWidget']);" ;
-  String scrollUpAction = "javascript:;" ;//"eXo.webui.UIVerticalScroller.scrollUp(this, 'UIWidgetContainer', 'UIWidget');";
-  String scrollDownAction = "javascript:;" ; //"eXo.webui.UIVerticalScroller.scrollDown(this, 'UIWidgetContainer', 'UIWidget');";
+  String scrollUpAction = "eXo.webui.UIVerticalScroller.scrollUp(this, 'UIWidgetContainer', 'UIWidget');";
+  String scrollDownAction = "eXo.webui.UIVerticalScroller.scrollDown(this, 'UIWidgetContainer', 'UIWidget');";
 %>
 
 <div class="UIWidgetContainer" id="<%=componentId%>">
-	<div class="WidgetContainerScrollArea ScrollZone" style = "height:300px ; overflow-y : hidden ;">
+	<div class="WidgetContainerScrollArea ScrollZone" style = "height:300px ; ">
 		<% uicomponent.renderChildren() %>
 	</div>
 	<div class="WidgetNavigator">
@@ -34,5 +34,5 @@
   </div>
   <div style="clear: right"><span></span></div> 									
 </div>
-<% //jsmanager.addJavascript("eXo.webui.UIVerticalScroller.init();") ; %>
+<% jsmanager.addJavascript("eXo.webui.UIVerticalScroller.init();") ; %>
   
