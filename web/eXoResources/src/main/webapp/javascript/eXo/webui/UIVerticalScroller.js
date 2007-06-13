@@ -2,6 +2,7 @@
  * Coder       : Dunghm
  * Description : Vertical Scroller
  * */
+
 UIVerticalScroller = function () {
 	this.index = 0 ;
 	this.enableUpClass = "Icon ScrollUpButton" ;
@@ -15,19 +16,30 @@ UIVerticalScroller.prototype.init = function() {
 	this.container = document.getElementById("UIWorkspaceContainer") ;
 	if((this.container.style.display != "block") || !this.container) return ;
 	this.itemContainer = document.getElementById("UIWidgets") ;
-	this.items = this.DOMUtil.findDescendantsByClass(this.itemContainer,"div","UIWidget") ;
-	this.scrollZone = this.DOMUtil.findFirstDescendantByClass(this.itemContainer,"div","ScrollZone") ;
+	this.items = this.DOMUtil.findDescendantsByClass(this.itemContainer, "div", "UIWidget") ;
+	if(!this.items[0]) return;
+	this.scrollZone = this.DOMUtil.findFirstDescendantByClass(this.itemContainer, "div", "ScrollZone") ;
 	this.itemSize = this.items.length ;
-		
-	var height = 0 ;//alert(this.index); alert(this.DOMUtil.findFirstDescendantByClass(this.itemContainer,"div","UIWidget"));
-	for(var i = this.index ; i < this.itemSize ; i++) {
-		height += this.items[i].offsetHeight ;//alert(2);
-		if (height > this.scrollZone.offsetHeight) {
+	//alert(this.itemSize);
+	var t = 0;
+	if(typeof(this.index) == "undefined") { 
+		this.index = 0 ; 
+	} else {
+		t = this.index ;
+	}alert(t);
+	var height = 0 ;
+	for(var i = t; i< this.itemSize; ++i) {
+		this.items[i].style.display = "block" ;
+	}
+	for(var i = t; i < this.itemSize; ++i) {
+		height += this.items[i].offsetHeight ; 
+		if (height < this.scrollZone.offsetHeight) {
+			this.items[i].style.display = "block" ;
+		}	else {
 			this.items[i].style.display = "none" ;
 		}
-		else this.items[i].style.display = "block" ;
 	}
-	//alert("sdfksd");
+	alert(t);
 } ;
 
 UIVerticalScroller.prototype.scrollDown = function(element, containerClass, itemClass) {
@@ -37,6 +49,7 @@ UIVerticalScroller.prototype.scrollDown = function(element, containerClass, item
 			j ++ ;
 		}
 	}	
+	if(!this.items[this.index]) return;
 	if ((this.index + j) >= this.itemSize) {
 		element.className = this.disableDownClass ;//"Icon DisableScrollDownButton" ;
 		return ;
@@ -49,8 +62,7 @@ UIVerticalScroller.prototype.scrollDown = function(element, containerClass, item
 		try {
 			this.items[this.index + j + 1].style.display = "block" ;				
 		}
-		catch (e){
-			
+		  catch (e){
 		};
 	}	
 	this.index ++ ;
