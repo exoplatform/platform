@@ -19,14 +19,12 @@ eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 	var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
 	this.uiWorkspaceControl = document.getElementById("UIWorkspaceControl") ;
 	var uiWorkspacePanel = document.getElementById("UIWorkspacePanel") ;
-	
 	uiWorkspace.style.width = width + "px" ;
 	uiWorkspace.style.height = height + "px" ;
 		
 	/*	In case uiWorkspaceContainer is setted display to none, uiWorkspaceControl.offsetHeight equal 0 
 	 * 	23 is the height of User Workspace Title.
 	 * */
-	
 	if(eXo.portal.UIControlWorkspace.showControlWorkspace) {
 		uiWorkspaceContainer.style.display = "block" ;
 		uiWorkspaceContainer.style.width = eXo.portal.UIControlWorkspace.defaultWidth + "px" ;

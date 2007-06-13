@@ -10,23 +10,24 @@ UIVerticalScroller = function () {
 	this.disableDownClass = "Icon DisableScrollDownButton" ;		
 } ;
 
-UIVerticalScroller.prototype.init = function() {	
+UIVerticalScroller.prototype.init = function() {
 	this.DOMUtil =  eXo.core.DOMUtil ;
 	this.container = document.getElementById("UIWorkspaceContainer") ;
-	if((this.container.style.display == "none") || this.container.style.display == "") return ;
-	this.itemContainer = document.getElementById('UIWidgets') ;
-	this.items = this.DOMUtil.findDescendantsByClass(this.itemContainer,"div",'UIWidget') ;
+	if((this.container.style.display != "block") || !this.container) return ;
+	this.itemContainer = document.getElementById("UIWidgets") ;
+	this.items = this.DOMUtil.findDescendantsByClass(this.itemContainer,"div","UIWidget") ;
 	this.scrollZone = this.DOMUtil.findFirstDescendantByClass(this.itemContainer,"div","ScrollZone") ;
 	this.itemSize = this.items.length ;
 		
-	var height = 0 ;
+	var height = 0 ;//alert(this.index); alert(this.DOMUtil.findFirstDescendantByClass(this.itemContainer,"div","UIWidget"));
 	for(var i = this.index ; i < this.itemSize ; i++) {
-		height += this.items[i].offsetHeight ;
+		height += this.items[i].offsetHeight ;//alert(2);
 		if (height > this.scrollZone.offsetHeight) {
 			this.items[i].style.display = "none" ;
 		}
 		else this.items[i].style.display = "block" ;
 	}
+	//alert("sdfksd");
 } ;
 
 UIVerticalScroller.prototype.scrollDown = function(element, containerClass, itemClass) {

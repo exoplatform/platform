@@ -9,11 +9,16 @@
 	jsmanager.importJavascript('eXo.portal.UIWorkspace');
 	jsmanager.importJavascript('eXo.portal.UIPortalControl') ;
 	
+	jsmanager.importJavascript('eXo.webui.UIVerticalScroller') ;
+	
   jsmanager.addOnLoadJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
   jsmanager.addOnResizeJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
   jsmanager.addOnScrollJavascript('eXo.portal.UIControlWorkspace.onResizeDefault');
   jsmanager.addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
   jsmanager.addOnResizeJavascript('eXo.portal.UIPortalControl.fixHeight');
+  
+  jsmanager.addOnLoadJavascript('eXo.webui.UIVerticalScroller.init');
+  jsmanager.addOnResizeJavascript('eXo.webui.UIVerticalScroller.init');
   
   String visible = uicomponent.getVisible();
   if(visible.equals("true")) { 
