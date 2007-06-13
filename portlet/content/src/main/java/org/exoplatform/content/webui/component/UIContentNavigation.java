@@ -7,10 +7,10 @@ package org.exoplatform.content.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.content.ContentDAO;
 import org.exoplatform.portal.content.model.ContentNavigation;
 import org.exoplatform.portal.content.model.ContentNode;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;

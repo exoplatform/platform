@@ -39,17 +39,7 @@
     <servlet-name>portal</servlet-name>
     <url-pattern>/admin/*</url-pattern>
   </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>portal</servlet-name>
-    <url-pattern>/upload</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-    <servlet-name>portal</servlet-name>
-    <url-pattern>/download</url-pattern>
-  </servlet-mapping>
-  
+ 
   <servlet-mapping>
     <servlet-name>portal</servlet-name>
     <url-pattern>/service</url-pattern>

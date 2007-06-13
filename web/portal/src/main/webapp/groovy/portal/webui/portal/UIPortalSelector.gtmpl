@@ -1,83 +1,38 @@
-<%
-  import org.exoplatform.webui.core.UIComponent ;
-  import org.exoplatform.webui.form.UIForm;
-
-  String[] beanFields =  uicomponent.getBeanFields() ;  
-  String[] beanActions =  uicomponent.getBeanActions() ;
-  UIComponent uiParent = uicomponent.getParent() ;
-  String name = uicomponent.getLabel() ;
-  
-  def rcontext = _ctx.getRequestContext() ; 
-  rcontext.getJavascriptManager().importJavascript('eXo.portal.UIPortal') ;
-%>
-
-<table class="UIGrid" id="$uicomponent.id" cellspacing="0" borderspacing="0">
-  <thead>
-  	<tr>
-      <%if(name != null) {%>
-	      <%for(field in beanFields) { %>
-	        <th><%=_ctx.appRes(name+".header."+field)%></th>
-	      <%}%>
-	      <%if(beanActions != null) { %>
-	        <th><%=_ctx.appRes(name+".header.action")%></th>
-	      <%}%>
-      <%}%>
-      <%if(name == null) {%>
-      	<%for(field in beanFields) { %>
-	        <th><%=_ctx.appRes(uiParent.getName()+".header."+field)%></th>
-	      <%}%>
-	      <%if(beanActions != null && beanActions.length > 0) { %>
-	        <th><%=_ctx.appRes(uiParent.getName()+".header.action")%></th>
-	      <%}%>
-	    <%}%>
-    </tr>
-  </thead>
-  <tbody>
-  <%
-    def rowClass = null ;
-    boolean even = true ;
-    for (bean in uicomponent.getBeans())  {
-      if(even) rowClass = "EvenRow" ;  
-      else rowClass =  "OddRow" ; 
-      even = !even ;
-  %>
-    <tr class="$rowClass">
-      <%
-        for(field in beanFields) { 
-          def fieldValue = uicomponent.getFieldValue(bean, field) ;
-          def cssClass = "" ;
-          if(fieldValue != null) {
-            def fieldClass = fieldValue.getClass() ;
-            if(fieldClass == Integer.class)  cssClass = "number" ;
-            else if(fieldClass == java.util.Date.class)  cssClass = "Datetime" ;
-            else cssClass = "text" ;
-          } else {
-          	fieldValue = "";
-          }
-      %>
-          <td class="$cssClass">$fieldValue</td>
-        	
-      <%}%>
-      <%if(beanActions != null && beanActions.length > 0) { %>
-	      <td>         
-	        <div class="ActionContainer" style="margin: 0px auto;">
-	          <div class="OverflowContainer" style="margin: auto;">          
-	          <%	          
-	            def beanIdField = uicomponent.getBeanIdField() ;      
-	            def access = rcontext.getAccessPath();
-	            def accessPath  = "public";
-	            if(access == 1) accessPath  = "private";
-	            for(action in beanActions) { 
-	              def beanId = uicomponent.getFieldValue(bean, beanIdField)  ;
-	          %>     
-		            <a class="${action}Icon" href="javascript:eXo.portal.UIPortal.changePortal('<%=accessPath%>', '<%=beanId%>');" title = "<%=_ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action)%>"><span></span></a>	           
-	          <%}%>                 
-	          </div>
-	        </div>
-	      </td>
-	    <% } %>  
-    </tr>
-  <%}%>
-  </tbody>
-</table> <!--End UIGrid-->
-<%_ctx.renderUIComponent(uicomponent.getUIPageIterator())%>
+<div class="UIChagnePortalForm" id="<%=uicomponent.getId();%>">
+	
+	    <div class="UIBarStyle">
+				<div class="TitleBar">
+					<div class="LeftBar">
+						<div class="RightBar">
+							<div class="MiddleBar">Select Portal</div>
+			      </div>
+		      </div>
+		    </div>
+		  </div>
+		<div class="TabPaneContent">
+	    <div class="WorkingArea">
+	    	<%uicomponent.renderChildren() %>	
+		  </div>
+		</div>
+		
+		<div class="Button">
+			<div class="UIAction">
+			  <div class="ActionContainer">
+			    <div class="ActionButton">
+			      <div class="LightBlueStyle">
+			        <div class="ButtonLeft">
+			          <div class="ButtonRight">
+			            <div class="ButtonMiddle">
+			              <a class="ActionText" href="<%=uicomponent.event("Close")%>">
+			                <%=_ctx.appRes("UIChangePortal.action.close")%>
+			              </a>
+			            </div>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		</div>			    
+	
+</div>

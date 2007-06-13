@@ -1,0 +1,76 @@
+<% 
+  import org.exoplatform.web.application.JavascriptManager;
+  import org.exoplatform.webui.core.UIDropDownItemSelector;
+  
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  
+  jsmanager.importJavascript('eXo.webui.UIVerticalSlideTabs');
+  jsmanager.importJavascript('eXo.webui.UIConfigOptions'); 
+	jsmanager.addOnLoadJavascript('eXo.webui.UIConfigOptions.init'); 
+%>
+
+<%
+	String showPortletCategory  = "eXo.webui.UIPopupSelectCategory.show(this, 217);" ;
+	String selectCategory = "eXo.webui.UIPopupSelectCategory.selectdCategory(this);" ;
+	
+	String onMouseOver 		= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
+  String onMouseOut			= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
+  
+  List portletCategoryDatas = uicomponent.getPortletCategorDatas();
+%>
+
+<div class="TopLeftContainerOptions">
+	<div class="TopRightContainerOptions">
+  	<div class="TopCenterContainerOptions"><span></span></div>
+  </div>
+</div>
+<div class="MiddleLeftContainerOptions">
+	<div class="MiddleRightContainerOptions">
+		<div class="UIPortletOptions ItemSelectorAncestor">	
+			<div class="PortletOptions">
+		  <%uicomponent.renderChild(UIDropDownItemSelector.class);%>
+		    <div class="ScrollArea">
+			<%
+			  for(portletCategoryData in portletCategoryDatas){ 
+			    String style = " style=\"display:none\" ";
+			    if(portletCategoryData.getPortletCategory() == uicomponent.getSelectedPCategory()) style = "style=\"display:block\"";
+			    //renderPortlets(portletCategoryData.getPortlets(), style);
+			%>
+					<div class="CategoryContainer ItemList" $style>
+						<div class="UIVerticalSlideTabs">
+						<%
+							for(portlet in portletCategoryData.getPortlets()) {
+						    String name = uicomponent.removeStringPortlet(portlet.getApplicationName()) ;
+						    String des = portlet.getDescription();
+						    if(des == null || des.equals("")) des = _ctx.appRes("UIPortletOptions.label.description");
+					  %>
+					      <div class="UIVTab DragObjectPortlet VTabStyle3" id="<%=portlet.getId();%>">
+						      <div class="NormalTab">
+						        <div class="TabLeft">
+						          <div class="TabRight">
+						            <div class="TabRepeat">
+						              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
+											      <div class="LeftIcon"><span></span></div>
+									          <div class="TabLabel" title="$name Portlet">$name</div>
+								          </div>
+						            </div>
+						          </div>
+						        </div>
+								  </div>
+								  <div class="UIVTabContent" style="display: none">$des</div>
+								</div>
+						<%}%>
+						</div>
+					</div>
+			<%}%>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>
+<div class="BottomLeftContainerOptions">
+	<div class="BottomRightContainerOptions">
+  	<div class="BottomCenterContainerOptions"><span></span></div>
+  </div>
+</div>

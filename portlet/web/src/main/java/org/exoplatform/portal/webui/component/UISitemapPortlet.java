@@ -4,7 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.component;
 
-import org.exoplatform.portal.component.widget.UIPortalNavigation;
+import org.exoplatform.portal.webui.navigation.UIPortalNavigation;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;

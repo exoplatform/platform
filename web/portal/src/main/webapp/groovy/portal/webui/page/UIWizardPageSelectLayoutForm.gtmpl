@@ -1,0 +1,157 @@
+<%
+  import  org.exoplatform.webui.form.UIForm; 
+  import org.exoplatform.webui.core.UIDropDownItemSelector;
+%>
+<% 
+  def rcontext = _ctx.getRequestContext() ;
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory');
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIItemSelector');
+
+  def categories = uicomponent.getItemCategories();
+  UIForm form = uicomponent.getParent();
+  UIDropDownItemSelector drop = form.getChild(UIDropDownItemSelector.class);
+  
+  
+  String showCategory  	= 		"eXo.webui.UIPopupSelectCategory.show(this, 250);" ;
+	String selectCategory =			"eXo.webui.UIPopupSelectCategory.selectdCategory(this);" ;
+	String onMouseOver1		= 		"eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
+  String onMouseOut1		= 		"eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
+	
+%>
+<div class="UIItemSelector">
+	<%
+		 rcontext.getJavascriptManager().addJavascript("eXo.require('eXo.webui.UIPopupSelectCategory');");
+	%>
+	
+  <div class="RightColumnStyle" style="width: 99.5%;">
+    <input type="hidden" name="<%=uicomponent.getName();%>" value ="">
+    <%/*Begin ItemList*/%>
+    <div class="ItemListContainer ItemSelectorAncestor">
+      <% 
+        uicomponent.renderChild(UIDropDownItemSelector.class)  ;
+      %>
+      <div class="UIPopupCategory" style="display: none">
+        <div class="PopupCategoryDecorator">
+        
+          <div class="PopupCategoryTL">
+            <div class="PopupCategoryTR">
+              <div class="PopupCategoryTC"><span></span></div>
+            </div>
+          </div>
+        
+          <div class="PopupCategoryML">
+            <div class="PopupCategoryMR">
+              <div class="PopupCategoryMC">
+                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver1" onmouseout="$onMouseOut1">
+                  <div class="Icon"><span></span></div>
+                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.DefaultPage")%></a>
+                  <div style="clear: left"><span></span></div>
+                </div>
+                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver1" onmouseout="$onMouseOut1">
+                  <div class="Icon"><span></span></div>
+                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.ColumnPage")%></a>
+                </div>
+                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver1" onmouseout="$onMouseOut1">
+                  <div class="Icon"><span></span></div>
+                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.RowsPage")%></a>
+                  <div style="clear: left"><span></span></div>
+                </div>
+                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver1" onmouseout="$onMouseOut1">
+                  <div class="Icon"><span></span></div>
+                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.MixinPage")%></a>
+                  <div style="clear: left"><span></span></div>
+                </div>
+                <%
+                //<div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver1" onmouseout="$onMouseOut1">
+                //  <div class="Icon"><span></span></div>
+                //  <a class="CategoryItemLabel"> 
+                %>
+                <%
+                  //=_ctx.appRes("UIPageTemplateOptions.label.TabPage")
+                %>
+                <%
+                // </a>
+                //  <div style="clear: left"><span></span></div>
+                //</div>
+                %>
+              </div>
+            </div>
+          </div>
+          
+          <div class="PopupCategoryBL">
+            <div class="PopupCategoryBR">
+              <div class="PopupCategoryBC"><span></span></div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+	    
+	    
+	    <% 
+	      for(category in categories){
+        templates = category.getSelectItemOptions();
+        String display = "none";  
+        if(category.isSelected()) { 
+          display = "block";             
+        }else {
+          templates.get(0).setSelected(true);
+        }
+        
+	    %>
+			    <div class="ItemList ItemListBackground"  style="display: $display;">
+						<%    					  
+						  for(template in templates){
+						    String itemSelected = "Item" ;
+					      String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('"+form.getName()+"', '"+uicomponent.getName()+"','"+template.getLabel()+"' )";
+		            String submitEvent = "eXo.webui.UIForm.submitEvent('"+form.getId()+"','SelectItemOption', '')";
+		            String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true, '"+template.getIcon()+"')";
+		            String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false, '"+template.getIcon()+"')";
+		            String onClick = "eXo.webui.UIItemSelector.onClick(this, '"+template.getIcon()+"')";
+		            if(template.isSelected()) itemSelected = "SelectedItem Item" ;
+					  %>
+						    <div class="$itemSelected" onmouseover="$onMouseOver"
+						         onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;">
+							  	<div class="LeftItem">
+							  	  <div class="RightItem">  
+								  	  <div class="ItemTitle"><%=template.getLabel();%></div>
+			              </div>
+			            </div>
+			  	      </div>
+	          <%}%>
+		      </div>
+		  <%}%>
+		</div>
+	  <%/*End ItemList*/%>
+    	    
+	  <%/*Begin ItemDetailList*/%>	    
+    <%          
+		  for(category in categories){
+		    String display = "none";
+		    if(category.isSelected()) display = "block" ;
+      templates = category.getSelectItemOptions() ;
+		%>
+			<div class="ItemDetailList" style="display: $display">
+		    <%    			     
+          for(template in templates){        
+            String label = template.getLabel();
+            String description = template.getDescription();
+ 			    
+ 			    if(template.isSelected()) displayImage = "block"; 
+ 			    else displayImage = "none";
+	      %>
+      	    <%/*--Begin Layout Style--*/%>
+      	    <div class="ItemDetail"  style="display: $displayImage;">
+  					    <div class="LayoutHolder">
+  					      <div class="LayoutLabel"><%=template.getLabel();%></div>
+    					  <div class="<%=template.getIcon();%>" title="<%=template.getLabel();%>"><span></span></div>
+	  				  </div> 
+		  	    </div> 
+					  <%/*--End Layout Style--*/%>
+		    <%}%>
+	      </div>	
+	  <%}%>
+		<%/*End ItemDetailList*/%> 
+	      	
+	</div>
+</div>

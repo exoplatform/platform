@@ -7,7 +7,6 @@ package org.exoplatform.portal.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.portal.component.view.Util;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -20,6 +19,7 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.portal.webui.component.UIBreadcumbsPortlet.*;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
+import org.exoplatform.portal.webui.util.Util;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com

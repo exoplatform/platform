@@ -1,0 +1,23 @@
+<div class="UIQuickBar">
+  <div class="UIQuickBarBackground">
+    <div class="UIBarStyle">
+      <div class="SmoothNavy40Style">
+        <div class="LeftBar">
+          <div class="RightBar">
+            <div class="MiddleBar">
+              <div class="OverflowContainer">
+                <%
+                  def events = uicomponent.getEvents() ;
+                  for(event in events) {
+                %>
+                  <a class="${event.Name}Icon" href="<%=uicomponent.event("$event.Name")%>" title="<%=_ctx.appRes(uicomponent.id + ".tooltip." + event.Name)%>"><span></span></a>
+                  System.out.println("\n========> event name: " + event.getName());
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

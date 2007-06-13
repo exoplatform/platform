@@ -11,6 +11,7 @@ package org.exoplatform.portal.skin;
  * Jan 19, 2007  
  */
 public class SkinConfig {
+  
   private String module_ ;
   private String skinName_ ;
   private String cssPath_ ;

@@ -8,8 +8,8 @@ import java.io.Writer;
 import java.util.HashMap;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.component.view.UIWidget;
-import org.exoplatform.portal.component.view.Util;
+import org.exoplatform.portal.webui.application.UIWidget;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.web.application.widget.WidgetApplication;
 

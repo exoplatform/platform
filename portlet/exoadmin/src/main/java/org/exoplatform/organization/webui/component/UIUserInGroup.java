@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.portal.component.view.UIContainer;
+import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipHandler;

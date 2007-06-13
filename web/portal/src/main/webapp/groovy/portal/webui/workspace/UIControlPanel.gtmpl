@@ -1,0 +1,44 @@
+<%
+	import org.exoplatform.portal.webui.workspace.UIQuickBar;
+	import org.exoplatform.portal.webui.workspace.UIControlPanelContentPane;
+%>
+<%
+	String docBase =  _ctx.getRequestContext().getRequestContextPath() ;
+%>
+<div id="UIPortalControlPanel" class="UIPortalControlPanel">
+	<div class="OverflowContainer">
+		<%/*Begin Control Panel */%>
+		<div id="controlPanelContainer" class="InlineLeft ControlPanelContainer" style="height:100%">
+			<%/*Begin Top Control Panel*/%>
+      <div id="TopControlPanel">
+			  <div class="TopBotBar">
+				  <div class="DotBar"><span></span></div>
+			  </div>
+        <% uicomponent.renderChild(UIQuickBar.class) %>
+      </div>
+      <%/*End Top Control Panel*/%>
+      
+      <%/*Tab System */%>
+     	<% uicomponent.renderChild(UIControlPanelContentPane.class) %>
+			<%/*End Tab System*/ %>
+			
+			<%/*Begin Bottom Control Panel */%>
+      <div id="BottomControlPanel">
+			  <div class="ImageBottomBackground">
+				  <div class="ImageBottom"><span></span></div>
+			  </div>
+			  <div class="TopBotBar">
+				  <div class="DotBar"><span></span></div>
+			  </div>
+      </div>
+      <%/*Begin Bottom Control Panel */%>
+		</div>
+		<%/*End Control Panel */%>
+ 
+		<%/*SplitBar */%>
+		<div id="splitBar" class="SplitBar InlineRight">
+			<div id="swapImage" class="SplitBarButtonHide" onclick="eXo.portal.UIControlPanel.showHide();"><span></span></div>
+		</div>
+		<%/*End SplitBar */%>
+	</div>
+</div>

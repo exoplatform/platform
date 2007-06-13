@@ -1,0 +1,57 @@
+<%
+  import org.exoplatform.webui.core.UIDropDownItemSelector;
+  import org.exoplatform.web.application.JavascriptManager;
+
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  
+  jsmanager.importJavascript('eXo.widget.UIWidgetContainerManagement');
+//  jsmanager.importJavascript('eXo.webui.UIVerticalScroller') ;
+  String showWCM = "eXo.widget.UIWidgetContainerManagement.show();" ;
+  
+  jsmanager.importJavascript('eXo.widget.UIWidget');
+  
+  jsmanager.addOnLoadJavascript('eXo.widget.UIWidget.resizeContainer');
+  jsmanager.addOnResizeJavascript('eXo.widget.UIWidget.resizeContainer');
+  //jsmanager.addOnResizeJavascript('eXo.webui.UIVerticalScroller.init');  
+%>
+
+<div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">
+	<div class="ItemSelectorContainer ItemSelectorAncestor">
+		<%
+		  if(uicomponent.hasChildren() == true) {
+  		  uicomponent.renderChild(UIDropDownItemSelector.class);
+  		}
+ 		%>
+ 		<div class="EditIcon" onclick="$showWCM" title="Edit Widgets Categories"><span></span></div>
+		<div style="clear: left"><span></span></div>
+	</div>
+	
+	<div class="WidgetDecorator">
+	 	<div class="TopLeftWidgetsDecorator">
+	 		<div class="TopRightWidgetsDecorator">
+	 			<div class="TopCenterWidgetsDecorator"><span></span></div>
+	 		</div>
+	 	</div>
+	 	
+	 	<div class="MiddleLeftWidgetsDecorator">
+	 		<div class="MiddleRightWidgetsDecorator">
+	 			<div class="MiddleCenterWidgetsDecorator">
+	 				<div class="WidgetsDecoratorBackground">
+ 					<%
+		  		  for(uiChild in uicomponent.getChildren()) {
+		  		    if((uiChild instanceof UIDropDownItemSelector) || !uiChild.isRendered()) continue;
+		  		    uiChild.processRender(rcontext);
+		  		  }
+			  	%>
+	 				</div>
+	 			</div>
+	 		</div>
+	 	</div>
+	 	<div class="BottomLeftWidgetsDecorator">
+	 		<div class="BottomRightWidgetsDecorator">
+	 			<div class="BottomCenterWidgetsDecorator"><span></span></div>
+	 		</div>
+	 	</div>
+	</div>
+</div>

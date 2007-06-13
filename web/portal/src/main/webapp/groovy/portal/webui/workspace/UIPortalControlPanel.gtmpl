@@ -1,0 +1,4 @@
+<div class="UIPortalControlPanel" id="$uicomponent.id">
+  <% uicomponent.renderChild(0) %>
+  <div class="ControlPanelExpandContainer"><%uicomponent.renderChild(1);%></div>
+</div>

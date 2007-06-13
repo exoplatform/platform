@@ -1,0 +1,72 @@
+<% 
+  import org.exoplatform.webui.core.UITree ; 
+  import org.exoplatform.webui.core.UIDropDownItemSelector;  
+  import org.exoplatform.webui.core.UIRightClickPopupMenu ;
+  import org.exoplatform.web.application.JavascriptManager;
+
+  def rcontext = _ctx.getRequestContext() ;
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory');  
+  
+  navigations = uicomponent.getNavigations();
+  def selectedNav =  uicomponent.getSelectedNavigation();
+
+  String showCategory 	= "eXo.webui.UIPopupSelectCategory.show(this, 215);" ;
+  String OnMouseUp			= "eXo.webui.UIPopupSelectCategory.onMouseUp(this);" ;
+  String onMouseOver 		= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
+  String onMouseOut			= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
+  String selectCategory		= "eXo.webui.UIPopupSelectCategory.selectdCategory(this);" ;
+  
+  UIRightClickPopupMenu uiPopupMenu = uicomponent.getChild(UIRightClickPopupMenu.class);
+  String popupMenu = "";
+%>
+<div id="UIPageNodeSelector">
+<%
+  if(uiPopupMenu != null) {
+    String id = uicomponent.getParent().getId();
+  	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  	jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
+  	
+  	jsmanager.addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
+    uicomponent.renderUIComponent(uiPopupMenu) ;
+    
+    popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode,EditNavigation,SaveNavigation,DeleteNavigation");
+  }
+%>
+	<div class="TopLeftContainerOptions">
+		<div class="TopRightContainerOptions">
+	  	<div class="TopCenterContainerOptions"><span></span></div>
+	  </div>
+	</div>
+	<div class="MiddleLeftContainerOptions" $popupMenu>
+		<div class="MiddleRightContainerOptions">
+			<div class="UIPageNodeSelector" id="UIPageNodeSelector">
+			  <%/*Begin PageNodeSelectorContainer*/%>
+			  <div class="UIContainerConfigOptions ItemSelectorAncestor"> 
+				  <div class="ContainerConfigOptions">
+						<%uicomponent.renderChild(UIDropDownItemSelector.class);%>
+						<a class="AddNavigationIcon" href = "<%=uicomponent.event("CreateNavigation"); %>" title="Create new Page Navigation"><span></span></a>
+		        <div style="clear: left"><span></span></div>	
+						<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
+							<%
+							  if(navigations != null) {
+					    	  for(nav in navigations) {
+									  if(selectedNav != null && nav == selectedNav) {
+										  uicomponent.renderChild(UITree.class);
+								    }
+					   		  }
+					   	  }
+							%>
+						</div>
+					</div>
+				</div>
+			</div>
+	  </div>
+	</div>
+	<div class="BottomLeftContainerOptions">
+		<div class="BottomRightContainerOptions">
+	  	<div class="BottomCenterContainerOptions"><span></span></div>
+	  </div>
+	</div> 
+</div>
+
+
