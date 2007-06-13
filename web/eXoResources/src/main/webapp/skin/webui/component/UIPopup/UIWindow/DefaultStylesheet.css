@@ -25,7 +25,7 @@
 .UIWindow .WindowPortletInfo .PortletIcon {
   float: left ;
   width: 16px ; height: 16px ;
-  margin: 5px 0px 0px 5px ;
+  margin: 8px 0px 0px 5px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPortletIcon.gif') no-repeat ;
 }
 
@@ -38,14 +38,14 @@
   float: right ;
   height: 18px ;
   display: block ;
-  margin: 0px 3px 0px 0px;
+  margin: 5px 3px 0px 0px;
 	padding-left: 8px;
 }
 
 .UIWindow .WindowPortletControl .ControlIcon {
   float: left;
-  width: 24px ; height: 18px ;
-  margin: 3px 2px 0px 0px ;
+  width: 22px ; height: 18px ;
+  margin: 4px 2px 0px 0px ;
   cursor: pointer ;
 }
 
@@ -105,7 +105,7 @@
   float: right ;
   width: 18px ; height: 18px ;
   cursor: nw-resize ;
-  background: url('DefaultSkin/background/ResizeArea18x18.png') no-repeat ;
+  background: url('DefaultSkin/background/ResizeArea18x18.gif') no-repeat ;
 }
 
 .UIWindow .Information {
@@ -115,72 +115,57 @@
   margin-right: 18px ;
 }
 
-.UIWindow .TopDecoratorLeft {
-  padding-left: 5px ;
-  background: url('DefaultSkin/background/WindowTL5x3.gif') no-repeat left ;
-}
-
-.UIWindow .TopDecoratorRight {
-  padding-right: 5px ;
-  background: url('DefaultSkin/background/WindowTR5x3.gif') no-repeat right ;
-}
-
-.UIWindow .TopDecoratorCenter {
-  height: 3px ;
-  background: url('DefaultSkin/background/WindowTC1x3.gif') repeat-x ;
-}
-
 .UIWindow .MiddleDecoratorLeft {
-  padding-left: 5px ;
-  background: url('DefaultSkin/background/WindowML5x1.gif') repeat-y left ;
+  padding-left: 12px ;
+  background: url('/eXoResources/background/DefaultSkin/LeftMiddleWindow.png') repeat-y left ;
 }
 
 .UIWindow .MiddleDecoratorRight {
-  padding-right: 5px ;
-  background: url('DefaultSkin/background/WindowMR5x1.gif') repeat-y right ;
+  padding-right: 11px ;
+  background: url('/eXoResources/background/DefaultSkin/RightMiddleWindow.png') repeat-y right ;
 }
 
 .UIWindow .BottomDecoratorLeft {
-  padding-left: 5px ;
-  background: url('DefaultSkin/background/WindowBL5x23.gif') no-repeat left ;
+  padding-left: 12px ;
+  background: url('/eXoResources/background/DefaultSkin/LeftBottomWindow.png') no-repeat left ;
 }
 
 .UIWindow .BottomDecoratorRight {
-  padding-right: 5px ;
-  background: url('DefaultSkin/background/WindowBR5x23.gif') no-repeat right ;
+  padding-right: 11px ;
+  background: url('/eXoResources/background/DefaultSkin/RightBottomWindow.png') no-repeat right ;
 }
 
 .UIWindow .BottomDecoratorCenter {
-  height: 23px ;
-  background: url('DefaultSkin/background/WindowBC1x23.gif') repeat-x ;
+  height: 30px ;
+  background: url('/eXoResources/background/DefaultSkin/CenterBottomWindow.png') repeat-x ;
 }
 
 .UIWindow .WindowPortletInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  margin: 4px 2px 0px 5px;
+  margin: 9px 0px 0px 5px;
 }
 
 .UIWindow .WindowPortletInfo .PortletName {
   float: left ;
-  margin: 5px 0px 0px 5px;
+  padding: 10px 0px 0px 5px;
   font-size: 11px ; font-weight: bold;
   color: #333333;
 }
 
 .UIWindow .WindowBarLeft {
-  padding-left: 3px ;
-  background: url('DefaultSkin/background/WindowControlBarL3x23.gif') no-repeat left ;
+  padding-left: 12px ;
+  background: url('/eXoResources/background/DefaultSkin/LeftWindowBar.png') no-repeat left ;
 }
 
 .UIWindow .WindowBarRight {
-  padding-right: 3px ;
-  background: url('DefaultSkin/background/WindowControlBarR3x23.gif') no-repeat right ;
+  padding-right: 11px ;
+  background: url('/eXoResources/background/DefaultSkin/RightWindowBar.png') no-repeat right ;
 }
 
 .UIWindow .WindowBarCenter {
-  height: 23px ;
-  background: url('DefaultSkin/background/WindowControlBarM1x23.gif') repeat-x ;
+  height: 29px ;
+  background: url('/eXoResources/background/DefaultSkin/CenterWindowBar.png') repeat-x ;
 }
 
 /*======================== UIPageBody ================================*/
