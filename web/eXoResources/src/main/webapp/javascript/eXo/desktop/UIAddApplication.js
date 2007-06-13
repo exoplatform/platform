@@ -36,7 +36,6 @@ function getUrl(src) {
 UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes, parentId) {
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	var url = eXo.env.server.context + "/command?";
-	
 	url += "type=org.exoplatform.portal.application.handler.GetApplicationHandler";
 	for(var i = 0; i < applicationTypes.length; i++) {
 		url += "&applicationType="+applicationTypes[i];
@@ -50,8 +49,7 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
   var itemDetails = '';
   var checkSrc = ''; 
   var selected  = false;
-  
-  /**Repaired: by Vu Duy Tu **/ alert(parentId);
+  /**Repaired: by Vu Duy Tu **/ 
   itemDetails += '<div class="ItemDetailTitle">' +
         	    	 '	<div class="TitleIcon ViewListIcon"><span></span></div>' +
 				  	     '	<div class="Title">Select Application</div>' +
