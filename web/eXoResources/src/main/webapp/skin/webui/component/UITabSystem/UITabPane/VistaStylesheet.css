@@ -12,7 +12,7 @@
 
 }
 
-.UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
+.UITabPane .TabPaneContent .UITabContentContainer {
   background: white url('VistaSkin/background/TabContainerBG1x11.png') repeat-x top;
 }
 

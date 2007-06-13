@@ -14,10 +14,15 @@
 	padding-left:10px;
 }
 
-.UIChangeLanguageForm .UIFormTabPane .TabPaneContent .UITabContentContainer {
+.UIChangeLanguageForm .UIBarStyle .TitleBar {
+	padding: 15px 5px 0px 5px; 
+}
+
+.UIChangeLanguageForm .UITabPane .TabPaneContent .UITabContentContainer {
 	padding: 0px 10px 0px 10px;
 	font-size: 11px;
 	background: #ffffff;
+	border-top: none;
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemListContainer {

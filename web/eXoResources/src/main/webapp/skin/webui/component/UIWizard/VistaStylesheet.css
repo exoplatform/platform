@@ -125,7 +125,7 @@
 
 /*========================== Start UIWizard Step2 ==============================*/
 .UIWizard .UIWizardPageSetInfo {
-  padding: 15px 10px 10px 10px;
+  padding: 15px 10px 20px 10px;
 }
 
 .UIWizard .UIWizardPageSetInfo .PageNodeContainer {
@@ -190,34 +190,12 @@
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
   padding: 10px 0px 15px 0px;
   background: #ffffff;
+  height: 185px;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FieldContainer {
 	width: 380px;
 	margin-left: auto; margin-right: auto;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle label {
-  padding-left: 5px; margin-right: 0px;
-  font-size: 11px;
-  float: left; text-align: left;
-  width: 100px;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle input {
-  float: left;
-  width: 230px; height: 18px;
-  background: white; font-size: 11px;
-  border: solid 1px #909090 ;
-  padding-left: 5px;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle textarea {
-  width: 230px; height:80px;
-  background: white;
-  font-size: 11px; font-family: verdana;
-  border: solid 1px #909090 ;
-  padding-left: 5px;
 }
 
 /*========================== Start UIWizard Step 3 ==============================*/
@@ -251,7 +229,7 @@
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList {
-  height: 242px; 
+  height: 245px; 
   background: #ffffff;
   padding: 10px; margin-right: 245px; 
   border: 1px solid #b7b7b7;
@@ -281,7 +259,8 @@
 
 .UIWizard .ScrollArea {
 	height: 250px;
-	overflow: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .UIWizard .UITree .TreeContainer .ChildrenContainer .Node {
