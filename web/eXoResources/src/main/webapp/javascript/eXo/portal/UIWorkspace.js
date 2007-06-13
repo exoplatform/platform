@@ -150,7 +150,6 @@ eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {
 	var uiWorkspace = document.getElementById(this.id) ;
 	var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
   var controlWorkspaceWidth = eXo.portal.UIControlWorkspace.width ;
-    
 //  if(eXo.core.Browser.isIE6()) {
 //  	var slidebar = document.getElementById("ControlWorkspaceSlidebar") ;
 //  	if(slidebar) {
@@ -162,7 +161,6 @@ eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {
 		var tabs = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkspace, "div", "UIHorizontalTabs") ;
 		tabs.style.left = 0;
 	}
-
   if(uiControlWorkspace) {
   	uiWorkspace.style.marginLeft = controlWorkspaceWidth + "px" ;
   } else {
@@ -171,7 +169,7 @@ eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {
   //var uiApplication = document.getElementById("UIPortalApplication");
 };
 
-eXo.portal.UIWorkingWorkspace.onResizeDefault = function(event) {
+eXo.portal.UIWorkingWorkspace.onResizeDefault = function() {
   eXo.portal.UIWorkingWorkspace.onResize(null, null) ;
 };
 
