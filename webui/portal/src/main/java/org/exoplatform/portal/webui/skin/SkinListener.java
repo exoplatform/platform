@@ -3,7 +3,7 @@
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 
-package org.exoplatform.portal.skin;
+package org.exoplatform.portal.webui.skin;
 
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;

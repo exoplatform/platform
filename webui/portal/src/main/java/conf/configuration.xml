@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
   <component>
-   <key>org.exoplatform.portal.skin.SkinService</key>
-   <type>org.exoplatform.portal.skin.SkinService</type>
+   <key>org.exoplatform.portal.webui.skin.SkinService</key>
+   <type>org.exoplatform.portal.webui.skin.SkinService</type>
   </component>  
 
   <external-component-plugins>
@@ -10,7 +10,7 @@
     <component-plugin>
       <name>skin.deployer.listener</name>
       <set-method>addListenerPlugin</set-method>
-      <type>org.exoplatform.portal.skin.SkinListener</type>
+      <type>org.exoplatform.portal.webui.skin.SkinListener</type>
       <description>this listener register the skin config with the skin service</description>
     </component-plugin>
   </external-component-plugins>

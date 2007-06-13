@@ -2,7 +2,7 @@
  * Copyright 2001-2007 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.portal.skin;
+package org.exoplatform.portal.webui.skin;
 
 import java.util.HashMap;
 import java.util.HashSet;
