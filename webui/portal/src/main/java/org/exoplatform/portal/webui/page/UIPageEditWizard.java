@@ -7,6 +7,7 @@ package org.exoplatform.portal.webui.page;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
@@ -99,16 +100,34 @@ public class UIPageEditWizard extends UIPageWizard {
     public void execute(Event<UIPageWizard> event) throws Exception {
       UIPageWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
+      PortalRequestContext pcontext = Util.getPortalRequestContext() ;
       
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class); 
       UIPageNodeSelector uiPageNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);
       if(uiPageNodeSelector.getSelectedNavigation() == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.notSelectedPageNavigation", new String[]{})) ;;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+        //event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         uiWizard.viewStep(1);
         return ;
       }
-      
+      //TODO: Tung.Pham added
+      //----------------------------------------------------
+      PageNode pageNode = uiPageNodeSelector.getSelectedPageNode() ;
+      UserPortalConfigService configService = uiWizard.getApplicationComponent(UserPortalConfigService.class) ;
+      Page page = configService.getPage(pageNode.getPageReference(), pcontext.getRemoteUser()) ;
+      if(page == null) {
+        uiWizard.viewStep(1) ;
+        return ;
+      }
+
+      if(!page.isModifiable()) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.Invalid-editPermission", null)) ;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        uiWizard.viewStep(1);
+        return ;
+      }
+      //----------------------------------------------------      
       uiWizard.updateWizardComponent();
       uiWizard.viewStep(2);
     }
