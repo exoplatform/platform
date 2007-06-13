@@ -85,16 +85,16 @@
   width: 230px ;
 }
 
-.UIForm .HorizontalLayout input.checkbox {
-  width: auto;
-  border: none;
-  margin: 0px;
-}
-
 .UIForm .HorizontalLayout input.radio {
 	float: none;
-  width: auto;
-  border: none;
+	border: none;
+  width: 15px;
+}
+
+.UIForm .HorizontalLayout input.checkbox {
+	width: 16px;
+	margin: 0px;
+	border: none;
 }
 
 .UIForm .HorizontalLayout textarea {

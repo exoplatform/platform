@@ -83,15 +83,15 @@
   font-size: 11px;
 }
 
-.UIForm .HorizontalLayout input.checkbox {
-  width: 15px ;
-  margin: 0px;
-  border: none;
+.UIForm .HorizontalLayout input.radio {
+	float: none;
+	border: none;
+  width: 15px;
 }
 
-.UIForm .HorizontalLayout  input.radio {
-	float:left;
-	width: 115px;
+.UIForm .HorizontalLayout input.checkbox {
+	width: 16px;
+	margin: 0px;
 	border: none;
 }
 
