@@ -154,10 +154,9 @@ eXo.portal.UIWorkingWorkspace.onResize = function(width, height) {
 //  		uiWorkspace.style.width = (eXo.core.Browser.getBrowserWidth() - controlWorkspaceWidth - slidebar.offsetWidth) + "px";
 //  	}
 //  }
-
 	if(eXo.core.Browser.isIE6()) {
 		var tabs = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkspace, "div", "UIHorizontalTabs") ;
-		tabs.style.left = 0;
+		if(tabs) tabs.style.left = 0;
 	}
   if(uiControlWorkspace) {
   	uiWorkspace.style.marginLeft = controlWorkspaceWidth + "px" ;
