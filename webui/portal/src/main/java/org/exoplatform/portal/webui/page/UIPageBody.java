@@ -36,6 +36,7 @@ public class UIPageBody extends UIComponentDecorator {
   public UIPageBody() throws Exception {
     setId("UIPageBody");
   }
+  
   @SuppressWarnings("unused")
   public  void init(PageBody model) throws Exception {
     setId("UIPageBody");

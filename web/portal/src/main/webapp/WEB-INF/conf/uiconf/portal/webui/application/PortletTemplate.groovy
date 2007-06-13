@@ -7,7 +7,7 @@ import java.util.ArrayList;
   
   SelectItemCategory item  = new SelectItemCategory("Default");
   item.addSelectItemOption(new SelectItemOption("Portlet template",
-                           "war:/groovy/portal/webui/component/view/UIPortlet.gtmpl",
+                           "war:/groovy/portal/webui/application/UIPortlet.gtmpl",
                            "Description","Default"));
   
   options.add(item); 

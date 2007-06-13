@@ -85,7 +85,6 @@ public class UIPortalNavigation extends UIComponent {
     public void execute(Event<UIPortalNavigation> event) throws Exception {      
       UIPortalNavigation uiNavigation = event.getSource();
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
-      System.out.println("\n\n\n------------------------UIPortalNavigation.java: " + uri);
       uiNavigation.setSelectedPageNode(uri) ;
       
       UIPortal uiPortal = Util.getUIPortal();     
