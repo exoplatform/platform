@@ -40,7 +40,7 @@ public class PortalRequestHandler extends WebRequestHandler {
       UIApplication uiApp = app.getStateManager().restoreUIRootComponent(context) ;
       if(context.getUIApplication() != uiApp) context.setUIApplication(uiApp) ;
       
-      app.processDecode(uiApp, context) ;
+      if(uiApp != null) app.processDecode(uiApp, context) ;
       
       if(!context.isResponseComplete() && !context.getProcessRender()) {
         app.processAction(uiApp, context) ;
@@ -48,7 +48,7 @@ public class PortalRequestHandler extends WebRequestHandler {
       
       if(!context.isResponseComplete()) uiApp.processRender(context) ;
       
-      uiApp.setLastAccessApplication(System.currentTimeMillis()) ;
+      if(uiApp != null) uiApp.setLastAccessApplication(System.currentTimeMillis()) ;
     } catch(Exception ex){
       /*PortalContainer container  = PortalContainer.getInstance() ;
       LogService logService = (LogService)container.getComponentInstanceOfType(LogService.class);

@@ -52,7 +52,7 @@ public class PortalController  extends HttpServlet {
       controller.service(req, res) ;
       PortalContainer.setInstance(null) ;
     } catch (Throwable t){
-      t.printStackTrace() ;
+      throw new ServletException(t) ;
     }
   }
 }

@@ -3,6 +3,8 @@ package org.exoplatform.portal.application;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.UserPortalConfig;
@@ -57,6 +59,12 @@ public class PortalStateManager extends StateManager {
         ClassLoader cl = Thread.currentThread().getContextClassLoader() ;
         Class type = cl.loadClass(uirootClass) ;
         UserPortalConfig config = getUserPortalConfig(pcontext) ;
+        if(config == null) {
+          HttpServletResponse response = pcontext.getResponse();
+          response.sendRedirect(pcontext.getRequestContextPath());
+          pcontext.setResponseComplete(true);
+          return null;
+        }
         pcontext.setAttribute(UserPortalConfig.class, config);
         UIPortalApplication uiApplication = 
           (UIPortalApplication)app.createUIComponent(type, config.getPortalConfig().getFactoryId(), null, context) ;
