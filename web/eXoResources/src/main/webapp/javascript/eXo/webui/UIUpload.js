@@ -7,7 +7,7 @@ UIUpload.prototype.createUploadEntry = function(uploadId) {
   var iframe = document.getElementById(uploadId+'uploadFrame');
   var idoc = iframe.contentWindow.document ;
   var uploadAction = eXo.env.server.context + "/command?" ;
-  uploadAction += "type=org.exoplatform.portal.application.handler.UploadHandler";
+  uploadAction += "type=org.exoplatform.web.command.handler.UploadHandler";
   uploadAction += "&uploadId=" + uploadId+"&action=upload" ;
 //  var uploadAction = eXo.env.server.context + "/upload?uploadId=" + uploadId+"&action=upload" ;
   idoc.open();
@@ -28,7 +28,7 @@ UIUpload.prototype.refeshProgress = function(elementId) {
   var list =  eXo.webui.UIUpload.listUpload;
   if(list.length < 1) return;
   var url = eXo.env.server.context + "/command?" ;
-	url += "type=org.exoplatform.portal.application.handler.UploadHandler&action=progress" ;
+	url += "type=org.exoplatform.web.command.handler.UploadHandler&action=progress" ;
 //  var url =  eXo.env.server.context + "/upload?action=progress";  
   for(var i = 0; i < list.length; i++){
     url = url + "&uploadId=" + list[i];
@@ -87,7 +87,7 @@ UIUpload.prototype.refeshProgress = function(elementId) {
 UIUpload.prototype.abortUpload = function(id) {
   eXo.webui.UIUpload.listUpload.remove(id);
   var url = eXo.env.server.context + "/command?" ;
-	url += "type=org.exoplatform.portal.application.handler.UploadHandler&uploadId=" +id+"&action=abort" ;
+	url += "type=org.exoplatform.web.command.handler.UploadHandler&uploadId=" +id+"&action=abort" ;
 //  var url = eXo.env.server.context + "/upload?uploadId=" +id+"&action=abort" ;
   var request =  eXo.core.Browser.createHttpRequest();
   request.open('GET', url, false);
@@ -116,7 +116,7 @@ UIUpload.prototype.abortUpload = function(id) {
 
 UIUpload.prototype.deleteUpload = function(id) {
 	var url = eXo.env.server.context + "/command?";
-	url += "type=org.exoplatform.portal.application.handler.UploadHandler&uploadId=" +id+"&action=delete" ;
+	url += "type=org.exoplatform.web.command.handler.UploadHandler&uploadId=" +id+"&action=delete" ;
 //  var url = eXo.env.server.context + "/upload?uploadId=" +id+"&action=delete" ;
   var request =  eXo.core.Browser.createHttpRequest();
   request.open('GET', url, false);

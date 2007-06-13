@@ -38,7 +38,7 @@ UIWidgetContainerManagement.prototype.loadWidgetContainer = function(refresh) {
 	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement");
 	
 	var url = eXo.env.server.context + "/command?";
-	url += "type=org.exoplatform.portal.application.handler.GetWidgetContainerHandler";
+	url += "type=org.exoplatform.web.command.handler.GetWidgetContainerHandler";
 	
 	if(refresh == null || refresh == undefined) refresh = false;
 		

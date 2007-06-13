@@ -31,6 +31,6 @@
       <artifactId>exo.portal.component.xml-parser</artifactId>
       <version>${org.exoplatform.portal.version}</version>
     </dependency>
-
+    
   </dependencies>
 </project>

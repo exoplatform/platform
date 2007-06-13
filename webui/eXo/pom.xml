@@ -25,5 +25,11 @@
       <artifactId>exo.portal.component.portal</artifactId>
       <version>${org.exoplatform.portal.version}</version>
     </dependency> 
+    
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.application-registry</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+    </dependency> 
   </dependencies>
 </project>

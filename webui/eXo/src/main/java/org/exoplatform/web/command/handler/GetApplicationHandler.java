@@ -2,7 +2,7 @@
  * Copyright 2001-2007 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.portal.application.handler;
+package org.exoplatform.web.command.handler;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -14,10 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.json.BeanToJSONPlugin;
 import org.exoplatform.json.JSONService;
-import org.exoplatform.portal.application.PortalApplication;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.command.Command;
 
@@ -33,11 +32,11 @@ public class GetApplicationHandler extends Command {
   
   public void setApplicationTypes(String [] type) { applicationType = type; }
   
+  @SuppressWarnings("unused")
   public void execute(WebAppController controller, HttpServletRequest req, HttpServletResponse res) throws Exception {
-    PortalApplication app =  controller.getApplication(PortalApplication.PORTAL_APPLICATION_ID) ;
     Writer writer = res.getWriter();
     try{
-      writer.append(getApplications(app, req.getRemoteUser()));
+      writer.append(getApplications(req.getRemoteUser()));
     }catch (Exception e) {
       e.printStackTrace() ;
       throw new IOException(e.getMessage());
@@ -45,8 +44,8 @@ public class GetApplicationHandler extends Command {
   }
   
   @SuppressWarnings("unchecked")
-  private StringBuilder getApplications(PortalApplication app, String remoteUser) throws Exception {
-    ExoContainer container = app.getApplicationServiceContainer() ;
+  private StringBuilder getApplications(String remoteUser) throws Exception {
+    PortalContainer container  = PortalContainer.getInstance();
     ApplicationRegistryService prService = 
       (ApplicationRegistryService)container.getComponentInstanceOfType(ApplicationRegistryService.class) ;    
 

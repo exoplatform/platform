@@ -36,7 +36,7 @@ function getUrl(src) {
 UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes, parentId) {
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	var url = eXo.env.server.context + "/command?";
-	url += "type=org.exoplatform.portal.application.handler.GetApplicationHandler";
+	url += "type=org.exoplatform.web.command.handler.GetApplicationHandler";
 	for(var i = 0; i < applicationTypes.length; i++) {
 		url += "&applicationType="+applicationTypes[i];
 	}
