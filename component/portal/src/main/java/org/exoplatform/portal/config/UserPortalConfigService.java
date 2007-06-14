@@ -187,15 +187,6 @@ public class UserPortalConfigService {
   }
   
   /**
-   * This method should create the PortalConfig  object
-   * @param config
-   * @throws Exception
-   */
-  public void create(PortalConfig config) throws Exception { 
-    storage_.create(config) ; 
-  }
-
-  /**
    * This method should update the PortalConfig  object
    * @param config
    * @throws Exception
@@ -322,7 +313,6 @@ public class UserPortalConfigService {
    * @return Widgets
    * @throws Exception
    */
-  //TODO: Tung.Pham added
   public Widgets getWidgets(String id) throws Exception {
     Widgets widgets = storage_.getWidgets(id) ;
     widgetsCache_.put(id, widgets) ;

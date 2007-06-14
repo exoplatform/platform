@@ -24,7 +24,6 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
   template = "app:/groovy/portal/webui/portal/UIPortalBrowser.gtmpl",
   events = { 
-//      @EventConfig(listeners = UIPortalBrowser.SelectPortalActionListener.class),
       @EventConfig(listeners = UIPortalBrowser.AddNewPortalActionListener.class),
       @EventConfig(listeners = UIPortalBrowser.DeletePortalActionListener.class, confirm = "UIPortalBrowser.deletePortal")
   }
@@ -50,45 +49,6 @@ public class UIPortalBrowser extends UIContainer {
     uiGrid.getUIPageIterator().setPageList(pagelist);
   } 
 
- /* static public class SelectPortalActionListener extends EventListener<UIPortalBrowser> {
-    public void execute(Event<UIPortalBrowser> event) throws Exception {
-      String portalName = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      UIPortalBrowser uiPageBrowser = event.getSource() ;
-      if(portalName == null) return;
-      
-      UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-      
-      UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);     
-      PortalRequestContext prContext = Util.getPortalRequestContext();  
-      String remoteUser = prContext.getRemoteUser();
-      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, remoteUser);
-      
-      if(userPortalConfig == null) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-viewPermission", null)) ;;
-        prContext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()); 
-        return;
-      }
-      
-      UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
-      PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
-      UIPortal oldUIPortal = uiWorkingWS.getChild(UIPortal.class);      
-      uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
-      uiWorkingWS.setRenderedChild(UIPortal.class) ;
-      if(uiPortal.getSkin() != null && uiPortal.getSkin().trim().length() > 0){
-        uiPortalApp.setSkin(uiPortal.getSkin());
-      }
-      
-      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-      uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
-      prContext.addUIComponentToUpdateByAjax(uiControl);
-      
-      prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
-      prContext.setFullRender(true);
-    }
-  } */
-  
   static public class DeletePortalActionListener extends EventListener<UIPortalBrowser> {
     public void execute(Event<UIPortalBrowser> event) throws Exception {
       String portalName = event.getRequestContext().getRequestParameter(OBJECTID) ;

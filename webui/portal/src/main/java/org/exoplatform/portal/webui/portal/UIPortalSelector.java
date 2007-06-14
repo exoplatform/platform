@@ -49,6 +49,7 @@ public class UIPortalSelector extends UIContainer {
     List<PortalConfig> configs = dataService.getAllPortalConfig() ;
     PageList pageList = new ObjectPageList(configs, 10) ;
     uiGrid.getUIPageIterator().setPageList(pageList) ;
+    //TODO check view permission for portal
   }
   
 }
