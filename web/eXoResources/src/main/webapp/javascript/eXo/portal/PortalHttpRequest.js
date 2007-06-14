@@ -234,11 +234,19 @@ function HttpResponseHandler(){
 	  } 
 	} ;
 	
-	instance.updateBlocks = function(blocksToUpdate) {
+	instance.updateBlocks = function(blocksToUpdate, parentId) {
 	  if(blocksToUpdate == null) return ;
+	  var parentBlock = null;
+	  if(parentId != null && parentId != "") parentBlock =  document.getElementById(parentId) ;
+	  
 	  for(var i = 0; i < blocksToUpdate.length; i++) {
-	    var blockToUpdate =  blocksToUpdate[i] ;
-	    var target = document.getElementById(blockToUpdate.blockId) ;
+	    var blockToUpdate =  blocksToUpdate[i] ;	
+	    var target = null;   	
+	    if(parentBlock != null) {    
+	    	target = eXo.core.DOMUtil.findDescendantById(parentBlock, blockToUpdate.blockId) ;
+	    } else {
+	    	target = document.getElementById(blockToUpdate.blockId) ;
+	    }
 	    if(target == null) alert("target  BlockToUpdate.blockId " + blockToUpdate.blockId);
 	    var newData =  eXo.core.DOMUtil.findDescendantById(blockToUpdate.data, blockToUpdate.blockId) ;
 	    if(newData == null) alert("block to update Id" + blockToUpdate.blockId);
@@ -263,7 +271,7 @@ function HttpResponseHandler(){
 	  if(portletResponses != null) {
 	    for(var i = 0; i < portletResponses.length; i++) {
 	      var portletResponse = portletResponses[i] ;
-	      instance.updateBlocks(portletResponse.blocksToUpdate) ;    
+	      instance.updateBlocks(portletResponse.blocksToUpdate, "UIPortlet-"+portletResponse.portletId) ;    
 	      instance.executeScript(portletResponse.script) ;    
 	    }
 	  }

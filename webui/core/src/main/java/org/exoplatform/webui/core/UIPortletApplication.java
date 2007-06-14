@@ -3,6 +3,11 @@ package org.exoplatform.webui.core;
 import java.io.Writer;
 import java.util.List;
 
+import javax.portlet.PortletResponse;
+
+import org.exoplatform.services.portletcontainer.ExoPortletRequest;
+import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
+import org.exoplatform.services.portletcontainer.pci.WindowID;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 
@@ -19,10 +24,12 @@ abstract public class UIPortletApplication extends  UIApplication {
   
   public void  processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
     WebuiRequestContext pContext = (WebuiRequestContext)context.getParentAppRequestContext();
+    ExoPortletRequest renderRequest = (ExoPortletRequest) context.getRequest();
+    WindowID windowID = renderRequest.getWindowID();
     if(context.useAjax() && !pContext.getFullRender()) {
       Writer w =  context.getWriter() ;
       w.write("<div class=\"PortletResponse\" style=\"display: none\">") ;
-      w.  append("<div class=\"PortletResponsePortletId\"></div>") ;
+      w.  append("<div class=\"PortletResponsePortletId\">"+windowID.getUniqueID()+"</div>") ;
       w.  append("<div class=\"PortletResponsePortletTitle\"></div>") ;
       w.  append("<div class=\"PortletResponsePortletMode\"></div>") ;
       w.  append("<div class=\"PortletResponsePortletState\"></div>") ;

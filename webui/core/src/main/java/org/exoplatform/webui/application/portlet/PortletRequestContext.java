@@ -85,7 +85,6 @@ public class PortletRequestContext extends WebuiRequestContext {
   public  void    setProcessAction(boolean b) { hasProcessAction_ = b ; }
   
   public URLBuilder getURLBuilder() {
-    if(urlBuilder.getBaseURL() != null) return urlBuilder;
     RenderResponse renderRes = (RenderResponse)  response_ ;
     urlBuilder.setBaseURL(renderRes.createActionURL().toString());
     return urlBuilder ;
