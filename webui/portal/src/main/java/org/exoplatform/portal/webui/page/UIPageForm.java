@@ -10,13 +10,11 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainer;
-import org.exoplatform.portal.webui.navigation.UIPageManagement;
-import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
-import org.exoplatform.portal.webui.page.UIPageBrowser.UIPageBrowseControlBar;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
@@ -26,7 +24,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.core.model.SelectItemOption;
@@ -258,6 +255,15 @@ public class UIPageForm extends UIFormTabPane {
         page.setModifiable(true);
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
         configService.create(page);
+        //TODO: Tung.Pham added
+        //---------------------------------------------------------------------------
+        UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ;      
+        UIPageBrowser browser = (UIPageBrowser)toolPanel.getUIComponent() ;
+        if(browser != null) {
+          browser.defaultValue(null) ;
+          pcontext.addUIComponentToUpdateByAjax(toolPanel) ; 
+        }
+        //---------------------------------------------------------------------------------
       }
       
       WebuiRequestContext rcontext = event.getRequestContext();
@@ -265,18 +271,17 @@ public class UIPageForm extends UIFormTabPane {
       uiMaskWS.setUIComponent(null);
       uiMaskWS.setShow(false);
       rcontext.addUIComponentToUpdateByAjax(uiMaskWS) ; 
-      
-      UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
-      
-      
-      if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
-        return;
-      } 
-      
-      if(uiManagement == null)  return;
-      UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
-      UITree uiTree = uiNodeSelector.getChild(UITree.class);        
-      uiTree.createEvent("ChangeNode", event.getExecutionPhase(), rcontext).broadcast();
+
+      //TODO: Tung.Pham modified
+//      UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
+//      if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
+//        return;
+//      } 
+//      if(uiManagement == null)  return;
+//      UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
+//      UITree uiTree = uiNodeSelector.getChild(UITree.class);        
+//      uiTree.createEvent("ChangeNode", event.getExecutionPhase(), rcontext).broadcast();
+      //---------------------------------------------------------------------------
     }
     
     private void findAllPortlet(List<UIPortlet> list, UIContainer uiContainer) {

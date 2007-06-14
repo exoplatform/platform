@@ -314,6 +314,12 @@ public class UIPageBrowser extends UISearch {
         
         UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();      
         UIComponent uiComp = browseControlBar.getBackComponent() ;
+        //TODO: Tung.Pham added
+        //--------------------------------------------
+        if(uiComp instanceof UIPageBrowser) {
+          ((UIPageBrowser)uiComp).defaultValue(null) ;
+        }
+        //--------------------------------------------
         uiToolPanel.setUIComponent(uiComp) ;
         event.getRequestContext().addUIComponentToUpdateByAjax(uiToolPanel) ;
         
