@@ -26,7 +26,7 @@ UIVerticalScroller.prototype.init = function() {
 		this.index = 0 ; 
 	} else {
 		t = this.index ;
-	}alert(t);
+	}//alert(t);
 	var height = 0 ;
 	for(var i = t; i< this.itemSize; ++i) {
 		this.items[i].style.display = "block" ;
@@ -39,7 +39,7 @@ UIVerticalScroller.prototype.init = function() {
 			this.items[i].style.display = "none" ;
 		}
 	}
-	alert(t);
+	//alert(t);
 } ;
 
 UIVerticalScroller.prototype.scrollDown = function(element, containerClass, itemClass) {
