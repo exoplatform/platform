@@ -3,7 +3,7 @@ function UIWindow() {
 
 } ;
 
-UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
+UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {	
 	var DOMUtil = eXo.core.DOMUtil ;
 	this.superClass = eXo.webui.UIPopup ;
 	var UIWindow = eXo.desktop.UIWindow ;
@@ -12,7 +12,10 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 		
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	var uiApplication = DOMUtil.findFirstDescendantByClass(popup, "div", "UIApplication") ;
-		
+	if (!uiApplication) {
+		//alert ("UIApplication css class is missing") ;
+		return ;
+	}	
 	var applicationMinWidth = DOMUtil.findFirstDescendantByClass(popup, "div", "ApplicationMinWidth") ;
 
   if(applicationMinWidth) {
@@ -35,7 +38,12 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
   
   /*Fix Bug On IE6*/
 	if(eXo.core.Browser.isIE6()) {
-		uiApplication.style.width = (popup.offsetWidth - 8) + "px" ;
+		try {
+			var appWidth = popup.offsetWidth - 8 ;
+			if(appWidth > 0) uiApplication.style.width = (popup.offsetWidth - 8) + "px" ;
+		} catch (e) {
+			alert (e.message) ;
+		}		
 	}
 	
 	popup.style.zIndex = ++zIndex ;
@@ -69,11 +77,11 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 		var iconContainer = document.getElementById("IconContainer");
 		var children = DOMUtil.findChildrenByClass(iconContainer, "img", "Icon");
 		eXo.desktop.UIDesktop.showHideWindow(popup, children[index + 1]);
-	}
+	} ;
 	
 	maximizedIcon.onclick = function() {
 		UIWindow.maximizeWindow(popup, this) ;
-	}
+	} ;
 	
 	var resizeArea = DOMUtil.findFirstDescendantByClass(popup, "div", "ResizeArea") ;
 	

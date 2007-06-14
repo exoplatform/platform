@@ -15,7 +15,7 @@ ImplodeExplode.prototype.doInit = function(uiWindow, clickedElement, containerId
 	if(this.object.animation == null) {
 		this.object.animation = document.createElement("div") ;
 		container.appendChild(this.object.animation) ;
-		
+
 		this.object.animation.style.display = "block" ;
 		this.object.animation.style.background = "white" ;
 		this.object.animation.style.position = "absolute" ;
@@ -52,7 +52,7 @@ ImplodeExplode.prototype.doCenterInit = function(uiWindow, clickedElement, conta
 } ;
 
 ImplodeExplode.prototype.explode = function(uiWindow, clickedElement, containerId, numberOfFrame, type) {
-//	alert("Object: " + uiWindow.className + "\nIcon: " + clickedElement.className + "\n Container: " + containerId);
+//alert("Object: " + uiWindow.className + "\nIcon: " + clickedElement.className + "\n Container: " + containerId);
 	if(type) {
 		eXo.animation.ImplodeExplode.doCenterInit(uiWindow, clickedElement, containerId, numberOfFrame) ;
 	} else {
@@ -60,7 +60,6 @@ ImplodeExplode.prototype.explode = function(uiWindow, clickedElement, containerI
 	}
 	this.object.step = numberOfFrame - 1 ;
 	this.object.isShowed = true ;
-	
 	eXo.animation.ImplodeExplode.doExplode(containerId) ;
 } ;
 

@@ -42,8 +42,10 @@ UIDesktop.prototype.resetZIndex = function(windowObject) {
   }
   
   windowObject.style.zIndex = maxZIndex ;
-  uiDockbar.style.zIndex = parseInt(maxZIndex) + 1 ;
-  
+  //uiDockbar.style.zIndex = parseInt(maxZIndex) + 1 ;
+  uiDockbar.style.zIndex = windowsInDesktop.length ;
+  //window.status = "maxZIndex : " + maxZIndex ;
+  //alert("maxZIndex : " + maxZIndex + " windowObject.style.zIndex : " + windowObject.style.zIndex) ;
   return maxZIndex ;
 };
 
@@ -51,7 +53,6 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
 //  alert("Window: " + uiWindow.className + "\n Icon: " + clickedElement.className) ;
   if(typeof(uiWindow) == "string") this.object = document.getElementById(uiWindow) ;
   else this.object = uiWindow ;
-//  alert("display: " + this.object.style.display + "\n visibility: " + this.object.style.visibility) ;
   this.object.maxIndex = eXo.desktop.UIDesktop.resetZIndex(this.object) ;
   var numberOfFrame = 10 ;
   if(this.object.style.display == "block") {

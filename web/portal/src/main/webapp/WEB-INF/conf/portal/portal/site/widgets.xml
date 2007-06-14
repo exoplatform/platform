@@ -12,7 +12,12 @@
       <instance-id>portal:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget1</instance-id>
       <application-type>eXoWidget</application-type> 
     </application>
-	
+      
+    <application>
+      <instance-id>portal:/eXoWidgetWeb/StickerWidget/StickerWidget</instance-id>
+      <application-type>eXoWidget</application-type> 
+    </application>
+    
     <application>
       <instance-id>portal:/eXoWidgetWeb/InfoWidget/InfoWidget1</instance-id>
       <application-type>eXoWidget</application-type>

@@ -10,7 +10,8 @@
     <param-name>exo.application</param-name>
     <param-value>
       org.exoplatform.widget.web.InfoWidget,
-      org.exoplatform.widget.web.WelcomeWidget
+      org.exoplatform.widget.web.WelcomeWidget,
+      org.exoplatform.widget.web.StickerWidget
     </param-value>
   </context-param>
   

@@ -1,5 +1,3 @@
-//eXo.require('eXo.webui.UIVerticalScroller');
-
 function UIWidget() {	
 };
 

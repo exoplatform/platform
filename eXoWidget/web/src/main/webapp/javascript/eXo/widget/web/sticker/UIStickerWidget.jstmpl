@@ -1,0 +1,6 @@
+<div class="UIStickerWidget">
+	<div class="UIStickerWidgetTitle"></div>
+	<div class="UIStickerWidgetContent">
+		<textarea class="UIStickerWidgetContentArea" onclick = "javascript:eXo.widget.web.sticker.UIStickerWidget.sendContent(this);"></textarea>
+	</div>
+</div>
