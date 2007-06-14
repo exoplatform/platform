@@ -24,6 +24,7 @@ import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UILanguageSelector;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalManagement;
+import org.exoplatform.portal.webui.portal.UIPortalSelector;
 import org.exoplatform.portal.webui.portal.UISkinSelector;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -61,7 +62,8 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIExoStart.LoginActionListener.class),
         @EventConfig(listeners = UILogged.LogoutActionListener.class),
         @EventConfig(listeners = UIExoStart.LanguageSettingsActionListener.class),
-        @EventConfig(listeners = UIExoStart.SkinSettingsActionListener.class)
+        @EventConfig(listeners = UIExoStart.SkinSettingsActionListener.class),
+        @EventConfig(listeners = UIExoStart.ChangePortalActionListener.class)
     }
 )
 public class UIExoStart extends UIComponent {
@@ -310,6 +312,19 @@ public class UIExoStart extends UIComponent {
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uicomp = event.getSource() ;
       uicomp.setUIControlWSWorkingComponent(UIWelcomeComponent.class) ;       
+    }
+  }
+  
+  static public class ChangePortalActionListener extends EventListener<UIExoStart> {
+    public void execute(Event<UIExoStart> event) throws Exception {
+      UIPortal uiPortal = Util.getUIPortal() ;
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class) ;
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      
+      UIPortalSelector uiPortalSelector = uiMaskWS.createUIComponent(UIPortalSelector.class, null, null) ;
+      uiMaskWS.setUIComponent(uiPortalSelector) ;
+      uiMaskWS.setShow(true) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
     }
   }
 
