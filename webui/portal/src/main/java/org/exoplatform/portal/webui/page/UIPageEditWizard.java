@@ -26,6 +26,7 @@ import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 /**
@@ -138,6 +139,17 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPageEditWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
 
+     
+      uiWizard.viewStep(3);      
+      if(uiWizard.getSelectedStep() < 3){
+        uiWizard.updateWizardComponent();
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.selectStep2", null)) ;
+        
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return;
+      }
+      
       UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);      
       uiExoStart.setUIControlWSWorkingComponent(UIWizardPageCreationBar.class);
       UIWizardPageCreationBar uiCreationBar = uiExoStart.getUIControlWSWorkingComponent();
@@ -145,11 +157,6 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPageEditBar uiPageEditBar = uiCreationBar.getChild(UIPageEditBar.class);
       UIWizardPageCreationBar uiParent = uiPageEditBar.getParent();
       
-      uiWizard.viewStep(3);      
-      if(uiWizard.getSelectedStep() < 3){
-        uiWizard.updateWizardComponent();
-        return;
-      }
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class); 
       UIPageTemplateOptions uiPageTemplateOptions = uiWizard.findFirstComponentOfType(UIPageTemplateOptions.class);
       PageNode pageNode = uiPageInfo.getPageNode();

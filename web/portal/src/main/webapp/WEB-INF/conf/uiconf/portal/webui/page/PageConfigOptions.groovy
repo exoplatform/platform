@@ -131,11 +131,12 @@ config = "<page>" +
          "  <owner-type></owner-type>" +
          "  <owner-id></owner-id>" +
          "  <name>UIPage</name>" +
-         "  <container template='system:/groovy/portal/webui/container/UIContainer.gtmpl'></container>" +
          "  <container template='system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl'>" +
          "    <container template='system:/groovy/portal/webui/container/UIContainer.gtmpl'></container>" +
          "    <container template='system:/groovy/portal/webui/container/UIContainer.gtmpl'></container>" +
          "  </container>" +
+         "  <container template='system:/groovy/portal/webui/container/UIContainer.gtmpl'></container>" +
+         "  <container template='system:/groovy/portal/webui/container/UIContainer.gtmpl'></container>" +
          "  <container template='system:/groovy/portal/webui/container/UIContainer.gtmpl'></container>" +
          "</page>";
 mixPageConfigs.addSelectItemOption(new SelectItemOption("Three Rows Two Columns Layout", config, "ThreeRowsTwoColumnsLayout"));
