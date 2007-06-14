@@ -54,8 +54,8 @@
 				            String portletIcon = uicomponent.getIcon();
 				            if(portletIcon == null) portletIcon = portletTitle + "Icon";
 				            String title = portletTitle;
-				            if(uicomponent.getId() !=null) title = uicomponent.getId() + " portlet";
-				            if(uicomponent.getTitle() !=null) title = uicomponent.getTitle() + "portlet";
+				            if(uicomponent.getId() !=null) title = uicomponent.getId() ;
+				            if(uicomponent.getTitle() !=null) title = uicomponent.getTitle() ;
 				          %>
 				          <div class="Icon $portletIcon" ><span></span></div>
 		              <div class="Title">$title</div>

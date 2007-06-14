@@ -10,12 +10,5 @@
       <label>Home</label>
       <page-reference>portal::@owner@::content</page-reference>
     </node> 
-    
-    <node>
-      <uri>register</uri>
-      <name>register</name>
-      <label>Register</label>
-      <page-reference>portal::@owner@::register</page-reference>
-    </node>
   </page-nodes>
 </node-navigation>

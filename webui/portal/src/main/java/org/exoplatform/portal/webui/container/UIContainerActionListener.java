@@ -34,14 +34,22 @@ public class UIContainerActionListener {
   
   static public class EditContainerActionListener  extends EventListener<UIContainer> {
     public void execute(Event<UIContainer> event) throws Exception {
+     
       UIContainer uiContainer = event.getSource();
+      String id = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+     
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;       
-      UIContainerForm containerForm = uiMaskWS.createUIComponent(UIContainerForm.class, null, null); 
-      containerForm.setValues(uiContainer);
+      UIContainerForm containerForm = uiMaskWS.createUIComponent(UIContainerForm.class, null, null);
+      if(uiContainer.getId().equals(id)){
+        containerForm.setValues(uiContainer);
+      } else {
+        if(uiContainer.getChildById(id) !=null ){
+          containerForm.setValues((UIContainer) uiContainer.getChildById(id));
+        } else return ;
+      }
       uiMaskWS.setUIComponent(containerForm);
-      
       uiMaskWS.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       Util.updateUIApplication(event);
