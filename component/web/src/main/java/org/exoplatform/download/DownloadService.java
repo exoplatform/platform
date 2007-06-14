@@ -55,7 +55,8 @@ public class DownloadService {
   }
   
   public String getDownloadLink(String id)  {
-    return "/" + pinfo_.getContainerName() + "/download?resourceId=" + id  ;
+    return "/" + pinfo_.getContainerName() + "/command?"
+           + "type=org.exoplatform.web.command.handler.DownloadHandler&resourceId=" + id  ;
   }
   
   @SuppressWarnings("serial")

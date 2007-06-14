@@ -25,12 +25,14 @@ import org.exoplatform.web.command.Command;
 public class DownloadHandler extends Command {
   
   static String[]  PATHS = {"/download"} ;
+  
+  private String resourceId;
 
   public String[] getPath() { return PATHS ; }
 
+  @SuppressWarnings("unused")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     res.setHeader("Cache-Control", "private max-age=600, s-maxage=120");
-    String resourceId = req.getParameter("resourceId") ;      
     ExoContainer container =  PortalContainer.getInstance();
     DownloadService dservice = (DownloadService)container.getComponentInstanceOfType(DownloadService.class) ;
     DownloadResource dresource = dservice.getDownloadResource(resourceId);
@@ -49,6 +51,8 @@ public class DownloadHandler extends Command {
     res.setContentType(dresource.getResourceMimeType()) ;          
     res.getOutputStream().write(buf) ;        
     is.close();
-  }  
+  }
+
+  public String getResourceId() { return resourceId; }  
 
 }
