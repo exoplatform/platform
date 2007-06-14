@@ -16,6 +16,7 @@ UIVerticalScroller.prototype.init = function() {
 	this.container = document.getElementById("UIWorkspaceContainer") ;
 	if((this.container.style.display != "block") || !this.container) return ;
 	this.itemContainer = document.getElementById("UIWidgets") ;
+	if(this.itemContainer == null) return;
 	this.items = this.DOMUtil.findDescendantsByClass(this.itemContainer, "div", "UIWidget") ;
 	if(!this.items[0]) return;
 	this.scrollZone = this.DOMUtil.findFirstDescendantByClass(this.itemContainer, "div", "ScrollZone") ;

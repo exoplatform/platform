@@ -21,10 +21,7 @@ UIAddWidget.prototype.show = function() {
 };
 
 UIAddWidget.prototype.addWidget = function(widgetElement) {
-	var appDescriptor = widgetElement.applicationDescriptor;
 	
-	var uiWidgets = document.getElementById("UIWidgets");
-	var widgetContainerScrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiWidgets, "div", "WidgetContainerScrollArea");
 	
 	widgetContainerScrollArea.appendChild(widgetElement);
 	
