@@ -42,8 +42,8 @@ UIDesktop.prototype.resetZIndex = function(windowObject) {
   }
   
   windowObject.style.zIndex = maxZIndex ;
-  //uiDockbar.style.zIndex = parseInt(maxZIndex) + 1 ;
-  uiDockbar.style.zIndex = windowsInDesktop.length ;
+  uiDockbar.style.zIndex = parseInt(maxZIndex) + 1 ;
+  //uiDockbar.style.zIndex = windowsInDesktop.length ;
   //window.status = "maxZIndex : " + maxZIndex ;
   //alert("maxZIndex : " + maxZIndex + " windowObject.style.zIndex : " + windowObject.style.zIndex) ;
   return maxZIndex ;
