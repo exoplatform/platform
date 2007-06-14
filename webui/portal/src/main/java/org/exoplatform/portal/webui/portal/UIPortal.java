@@ -52,6 +52,7 @@ public class UIPortal extends UIContainer {
   private List<PageNavigation> navigations ;  
   private List<PageNode> selectedPaths_;
   private PageNode selectedNode_;
+  private PageNavigation selectedNavigation_;
 
   private UIComponent maximizedUIComponent ;
 
@@ -89,6 +90,11 @@ public class UIPortal extends UIContainer {
 
   public List<PageNode> getSelectedPaths() { return selectedPaths_ ; }
   public void setSelectedPaths(List<PageNode> nodes){  selectedPaths_ = nodes; }
+  
+  public PageNavigation getSelectedNavigation() { return selectedNavigation_; }
+  public void setSelectedNavigation_(PageNavigation selectedNavigation) { 
+    selectedNavigation_ = selectedNavigation;
+  }
 
   public UIComponent getMaximizedUIComponent() { return maximizedUIComponent; }
   public void setMaximizedUIComponent(UIComponent maximizedReferenceComponent) {

@@ -36,6 +36,10 @@ public class UIPortalNavigation extends UIComponent {
   public List<PageNavigation> getNavigations() {
     return Util.getUIPortal().getNavigations(); 
   }
+  
+  public PageNavigation getSelectedNavigation() {
+    return Util.getUIPortal().getSelectedNavigation(); 
+  }
 
   public Object getSelectedParent() { return selectedParent_ ; }
   public PageNode getSelectedPageNode() {

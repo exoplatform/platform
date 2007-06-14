@@ -52,16 +52,39 @@ public class UIPageActionListener {
 
       List<PageNavigation> navigations = uiPortal_.getNavigations();
       String uri = pnevent.getTargetNodeUri();
-
-      for(PageNavigation nav : navigations){
-        List<PageNode>  nodes = nav.getNodes();
-        for(PageNode node : nodes){       
-          PageNode nodeResult = searchPageNodeByUri(uri, node);
-          if(nodeResult == null) continue;
-          selectedPaths_.add(0, nodeResult);          
-          break;
+      int idx = uri.lastIndexOf("::");
+      if(idx > -1)  {
+        String navId = uri.substring(0, idx);
+        uri = uri.substring(idx+2, uri.length());
+        PageNavigation nav = null;
+        for(PageNavigation ele : navigations){
+          if(ele.getId().equals(navId)) {
+            nav = ele;
+            break;
+          }
         }
-      }      
+        if(nav != null) {
+          List<PageNode>  nodes = nav.getNodes();
+          for(PageNode node : nodes){       
+            PageNode nodeResult = searchPageNodeByUri(uri, node);
+            if(nodeResult == null) continue;
+            selectedPaths_.add(0, nodeResult);          
+            break;
+          }
+          uiPortal_.setSelectedNavigation_(nav);
+        }
+      } else {
+        for(PageNavigation nav : navigations){
+          List<PageNode>  nodes = nav.getNodes();
+          for(PageNode node : nodes){       
+            PageNode nodeResult = searchPageNodeByUri(uri, node);
+            if(nodeResult == null) continue;
+            selectedPaths_.add(0, nodeResult);          
+            break;
+          }
+          uiPortal_.setSelectedNavigation_(nav);
+        }      
+      }
       
       uiPortal_.setSelectedPaths(selectedPaths_);     
       UIPageBody uiPageBody = uiPortal_.findFirstComponentOfType(UIPageBody.class);          

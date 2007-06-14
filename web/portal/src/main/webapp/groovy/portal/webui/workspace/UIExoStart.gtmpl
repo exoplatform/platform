@@ -14,8 +14,8 @@
   String docBase =  rcontext.getRequestContextPath() ;
   String onclick = "eXo.portal.UIExoStartMenu.showStartMenu(event);" ;
   
-  void renderSinglePageNode(PageNode node) {
-    String  href = uicomponent.event("ChangePage",  node.getUri()) ;
+  void renderSinglePageNode(PageNavigation nav, PageNode node) {
+    String  href = uicomponent.event("ChangePage",  nav.getId() + "::" + node.getUri()) ;
     String icon = node.getIcon();
     if(icon == null) icon = "PageNodeIcon";
     print """
@@ -29,8 +29,8 @@
     """ ;
   }
   
-  void renderPageNode(PageNode node) {
-     String  href = uicomponent.event("ChangePage",  node.getUri()) ;
+  void renderPageNode(PageNavigation nav, PageNode node) {
+     String  href = uicomponent.event("ChangePage",   nav.getId() + "::" +  node.getUri()) ;
      String icon = node.getIcon();
      if(icon == null) icon = "PageNodeIcon";
      print """
@@ -55,7 +55,7 @@
       """ ;
       for(child in node.getChildren()) {
         if(child.getChildren() != null && child.getChildren().size() > 0) renderPageNode(child) ;
-        else renderSinglePageNode(child) ;
+        else renderSinglePageNode(nav, child) ;
       }
       print """
                 </div>
@@ -80,8 +80,10 @@
     """ ;
     nodes = navigation.getNodes() ;
     for(node in nodes) {
-      if(node.getChildren() != null && node.getChildren().size() > 0) renderPageNode(node) ;
-      else renderSinglePageNode(node) ;
+      if(node.getChildren() != null && node.getChildren().size() > 0) {
+        renderPageNode(navigation, node) ;
+      }
+      else renderSinglePageNode(navigation, node) ;
     }
     print """
     		</div>

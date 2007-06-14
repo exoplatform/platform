@@ -13,8 +13,8 @@
 	jsmanager.addOnResizeJavascript('eXo.portal.UIPortalNavigation.initScroll');
 
   navigations = uicomponent.getNavigations();
-	
-  public void renderChildrenContainer(PageNode node) {
+
+  public void renderChildrenContainer(PageNavigation nav, PageNode node) {
   	print """
   		<div class="MenuItemContainer" style="display: none;">
   			<div class="MenuItemDecorator">
@@ -29,7 +29,7 @@
   						<div class="CenterMiddleMenuDecorator">
   	""" ;
   		for(child in node.getChildren()) {
-	   		renderChildNode(child) ;
+	   		renderChildNode(nav, child) ;
     	}
   	print """
   						</div>
@@ -46,13 +46,17 @@
   	""" ;
   }
   
-  public void renderChildNode(PageNode node) {
-  	PageNode selectedNode = uicomponent.getSelectedPageNode() ;
+  public void renderChildNode(PageNavigation nav, PageNode node) {
+    PageNode selectedNode = uicomponent.getSelectedPageNode() ;
+    PageNavigation selectedNav = uicomponent.getSelectedNavigation() ;
   	String tabStyleNavigation = "NormalItem" ; // OverItem
-  	if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
+  	if(selectedNode != null &&  selectedNav != null &&
+  	   selectedNav.getId () == nav.getId() &&
+  	   node.getUri() == selectedNode.getUri()) {
+  	   
 			tabStyleNavigation = "SelectedItem" ;
 		}
-  	String actionLink = uicomponent.event("SelectNode", node.getUri()) ;
+  	String actionLink = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) ;
   	String icon = node.getIcon();
     if(icon == null) icon = "PageNodeIcon";
     String arrowIcon = "MenuItemRight";
@@ -72,7 +76,7 @@
 		""" ;
 		
     if (node.getChildren() != null && node.getChildren().size() > 0) {
-    	renderChildrenContainer(node) ;
+    	renderChildrenContainer(nav, node) ;
     }
 			    
 		print """
@@ -91,14 +95,17 @@
 	        <div class="TabsContainer">
 		        <%
 		          if(navigations != null) {
-		            PageNode selectedNode = uicomponent.getSelectedPageNode() ;
 		            for(nav in navigations) {
+  		            PageNavigation selectedNav = uicomponent.getSelectedNavigation() ;
+  		            PageNode selectedNode = uicomponent.getSelectedPageNode() ;
 		              def pageNodes = nav.getNodes() ;
 		              for(PageNode node in pageNodes) {
-		                def actionLink = uicomponent.event("SelectNode", node.getUri()) ;
+		                def actionLink = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) ;
 		              
 		                String tabStyleNavigation = "NormalNavigationTab" ;
-		                if(selectedNode != null && node.getUri() == selectedNode.getUri()) {
+		                if(selectedNode != null && selectedNav != null &&
+		                   selectedNav.getId() == nav.getId() &&
+		                   node.getUri() == selectedNode.getUri()) {
 		                  tabStyleNavigation = "SelectedNavigationTab" ;
 		                }
 		                String icon = node.getIcon();
@@ -114,7 +121,7 @@
 		                   <%
 		                   	String arrowIcon = "";
 							           if (node.getChildren() != null && node.getChildren().size() > 0) {
-							           		arrowIcon = "DropDownArrowIcon";
+							           	 arrowIcon = "DropDownArrowIcon";
 										     }
 						           %>
 		                   	<div class="$arrowIcon"><a href="$actionLink">$node.label</a></div><!--  onclick="return false;" -->
@@ -127,8 +134,7 @@
 		           <%
 		           /*Render Popup Menu*/
 		           if (node.getChildren() != null && node.getChildren().size() > 0) {
-		           
-						     	renderChildrenContainer(node) ;
+						     	renderChildrenContainer(nav, node) ;
 					     }
 		           %>
 		         </div>
