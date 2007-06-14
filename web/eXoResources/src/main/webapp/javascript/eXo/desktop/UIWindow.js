@@ -27,7 +27,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
   		//alert("MinWidth is undefinded");
 //  		applicationMinWidth.style.width = "720px" ;
   		popup.applicationOriginalWidth = 750 ;
-  		popup.style.width = "750px" ;
+  		if(popup.style.width == "") popup.style.width = "750px" ;
   	}
   	
   	if(DOMUtil.hasDescendantClass(uiApplication, "UIResizableBlock")) {
@@ -46,10 +46,13 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 		}		
 	}
 	
-	popup.style.zIndex = ++zIndex ;
+	if(popup.style.zIndex == "") popup.style.zIndex = ++zIndex ;
 	
 	popup.onmousedown = function() {
 		eXo.desktop.UIDesktop.resetZIndex(this) ;
+		
+		/*Save window's zIndex */
+		eXo.desktop.UIWindow.saveWindowProperties(this, "ZINDEX");
 	}
 
 	var windowPortletInfo = DOMUtil.findFirstDescendantByClass(popup, "div", "WindowPortletInfo") ;
@@ -110,6 +113,11 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	    uiPageDesktop.onmousemove = UIWindow.resizeWindow ;
 		}
   } ;
+  
+  resizeArea.onmouseup = function(e) {
+  	/*Save Width and Height of Window*/
+  	eXo.desktop.UIWindow.saveWindowProperties(popup, "DIMENSION");
+  }
   
   uiPageDesktop.onmouseup = function() {
     uiPageDesktop.onmousemove = null ;
@@ -219,9 +227,11 @@ UIWindow.prototype.backupObjectProperties = function(windowPortlet, resizableCom
 } ;
 
 UIWindow.prototype.initDND = function(e) {
+	var DOMUtil = eXo.core.DOMUtil ;
   var DragDrop = eXo.core.DragDrop ;
   var clickBlock = this ;
-  var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
+  var dragBlock = DOMUtil.findAncestorByClass(this, "UIDragObject") ;
+  
   if (!dragBlock.maximized) {
   	// Can drag n drop only when the window is NOT maximized
 	  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
@@ -232,18 +242,18 @@ UIWindow.prototype.initDND = function(e) {
 	  	uiPageDesktopX = uiPageDesktopX / 2 ;
 	  }
 	  
-		var uiApplication = eXo.core.DOMUtil.findFirstDescendantByClass(dragBlock, "div", "UIApplication");
+		var uiApplication = DOMUtil.findFirstDescendantByClass(dragBlock, "div", "UIApplication");
 		var hiddenElements = new Array();
 		
 	  DragDrop.initCallback = function (dndEvent) {
 	  	// A workaround to make the window go under the workspace panel during drag
-	  	if (eXo.core.Browser.getBrowserType() == "mozilla" && eXo.core.DOMUtil.getStyle(uiApplication, "overflow") == "auto") {
+	  	if (eXo.core.Browser.getBrowserType() == "mozilla" && DOMUtil.getStyle(uiApplication, "overflow") == "auto") {
 	  		hiddenElements.push(uiApplication);
 	  		uiApplication.style.overflow = "hidden";
 	  	}
-	  	uiAppDescendants = eXo.core.DOMUtil.findDescendantsByTagName(uiApplication, "div");
+	  	uiAppDescendants = DOMUtil.findDescendantsByTagName(uiApplication, "div");
 	  	for (var i=0; i<uiAppDescendants.length; i++) {
-	  		if (eXo.core.DOMUtil.getStyle(uiAppDescendants[i], "overflow") == "auto") {
+	  		if (DOMUtil.getStyle(uiAppDescendants[i], "overflow") == "auto") {
 	  			hiddenElements.push(uiAppDescendants[i]);
 	  			uiAppDescendants[i].style.overflow = "hidden";
 	  		}
@@ -273,6 +283,11 @@ UIWindow.prototype.initDND = function(e) {
 	    
 	  }
 		  DragDrop.dropCallback = function (dndEvent) {
+	  	var dragObject = dndEvent.dragObject ;
+	  	
+	  	/*Save Window's Position*/
+	  	eXo.desktop.UIWindow.saveWindowProperties(dragObject, "POSITION");
+	  	
 	  	// A workaround to make the window properly resizable after drop
 	  	for (var i = 0; i < hiddenElements.length; i++) {
 	  		hiddenElements[i].style.overflow = "auto";
@@ -359,6 +374,46 @@ UIWindow.prototype.onControlOver = function(element, isOver) {
       element.className   = overElementName;
     }
   }
+};
+
+UIWindow.prototype.saveWindowProperties = function(object, action, appStatus) {
+	var DOMUtil = eXo.core.DOMUtil;
+	var uiPage = DOMUtil.findAncestorByClass(object, "UIPage");
+	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
+	containerBlockId = uiPageIdNode.innerHTML;
+	var params;
+
+	if(action == "POSITION") {
+		params = [
+	  	{name : "objectId", value : object.id},
+	  	{name : "posX", value : object.offsetLeft},
+	  	{name : "posY", value : object.offsetTop}
+	  ] ;
+	}
+	
+	if(action == "ZINDEX") {
+		params = [
+	  	{name : "objectId", value : object.id},
+	  	{name : "zIndex", value : object.style.zIndex}
+	  ] ;
+	}
+	
+	if(action == "DIMENSION") {
+		params = [
+	  	{name : "objectId", value : object.id},
+	  	{name : "width", value : object.offsetWidth},
+	  	{name : "height", value : object.offsetHeight}
+	  ] ;
+	}
+	
+	if(action == "SHOW_HIDE_WINDOW") {
+		params = [
+	  	{name : "objectId", value : object.id},
+	  	{name : "appStatus", value : appStatus}
+	  ] ;
+	}
+	
+	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveWindowProperties", true, params), false);
 };
 
 eXo.desktop.UIWindow = new UIWindow() ;

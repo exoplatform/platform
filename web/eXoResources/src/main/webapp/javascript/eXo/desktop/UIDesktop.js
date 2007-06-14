@@ -50,17 +50,24 @@ UIDesktop.prototype.resetZIndex = function(windowObject) {
 };
 
 UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
-//  alert("Window: " + uiWindow.className + "\n Icon: " + clickedElement.className) ;
   if(typeof(uiWindow) == "string") this.object = document.getElementById(uiWindow) ;
   else this.object = uiWindow ;
   this.object.maxIndex = eXo.desktop.UIDesktop.resetZIndex(this.object) ;
   var numberOfFrame = 10 ;
   if(this.object.style.display == "block") {
     eXo.animation.ImplodeExplode.implode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
+    
+    /* Save Status Show Window */
+    eXo.desktop.UIWindow.saveWindowProperties(this.object, "SHOW_HIDE_WINDOW", "HIDE");
   } else {
+
     var uiDockBar = document.getElementById("UIDockBar") ;
     eXo.desktop.UIDockbar.resetDesktopShowedStatus(uiPageDesktop, uiDockBar) ;
     eXo.animation.ImplodeExplode.explode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
+    
+    /*Save Status Show Window*/
+    eXo.desktop.UIWindow.saveWindowProperties(this.object, "SHOW_HIDE_WINDOW", "SHOW");
+
   }
   eXo.desktop.UIDockbar.containerMouseOver() ;
 };
@@ -85,7 +92,8 @@ UIDesktop.prototype.backupWindowProperties = function(uiWindow) {
   uiWindow.originalW = uiWindow.offsetWidth ;
   uiWindow.originalH = uiWindow.offsetHeight ;
   uiWindow.style.visibility = "visible" ;
-  uiWindow.style.display = "none" ;
+  if(uiWindow.style.display == "") uiWindow.style.display = "none" ;
+  
   uiWindow.isShowed = false ;
   uiWindow.isFirstTime = false ;
 } ;

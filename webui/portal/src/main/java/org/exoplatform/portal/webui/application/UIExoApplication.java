@@ -21,7 +21,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
   lifecycle = UIExoApplicationLifecycle.class,    
   template = "system:/groovy/portal/webui/application/UIPortlet.gtmpl"
 )
-public class UIExoApplication extends UIPortalComponent {
+public class UIExoApplication extends UIApplication {
   
   transient private MVCApplication application_ ;
   transient private MVCRequestContext requestContext_ ;
@@ -39,8 +39,6 @@ public class UIExoApplication extends UIPortalComponent {
   private String applicationGroup_ ;
   private String applicationName_ ;
   private String applicationInstanceUniqueId_ ;
-  
-  private Properties properties;
   
   public UIExoApplication(){
   }
@@ -87,12 +85,6 @@ public class UIExoApplication extends UIPortalComponent {
   
   public String getApplicationName() { return applicationName_ ;}
   public void setApplicationName(String name) { applicationName_ = name;}
-  
-  public Properties getProperties() {
-    if(properties == null) properties  = new Properties();
-    return properties; 
-  }
-  public void setProperties(Properties properties) { this.properties = properties; }
   
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
   

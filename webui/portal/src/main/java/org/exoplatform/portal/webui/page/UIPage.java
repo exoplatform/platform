@@ -13,7 +13,8 @@ import org.exoplatform.portal.webui.page.UIPageActionListener.AddApplicationActi
 import org.exoplatform.portal.webui.page.UIPageActionListener.DeleteWidgetActionListener;
 import org.exoplatform.portal.webui.page.UIPageActionListener.EditPageActionListener;
 import org.exoplatform.portal.webui.page.UIPageActionListener.RemoveChildActionListener;
-import org.exoplatform.portal.webui.page.UIPageActionListener.SavePropertiesActionListener;
+import org.exoplatform.portal.webui.page.UIPageActionListener.SaveWidgetPropertiesActionListener;
+import org.exoplatform.portal.webui.page.UIPageActionListener.SaveWindowPropertiesActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.MoveChildActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -44,7 +45,8 @@ import org.exoplatform.webui.config.annotation.EventConfig;
         @EventConfig(listeners = ShowLoginFormActionListener.class),
         @EventConfig(listeners = DeleteWidgetActionListener.class),
         @EventConfig(listeners = AddApplicationActionListener.class),
-        @EventConfig(listeners = SavePropertiesActionListener.class)
+        @EventConfig(listeners = SaveWidgetPropertiesActionListener.class),
+        @EventConfig(listeners = SaveWindowPropertiesActionListener.class)
       }
   )
 })

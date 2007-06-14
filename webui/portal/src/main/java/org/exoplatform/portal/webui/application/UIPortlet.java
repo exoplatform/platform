@@ -44,7 +44,7 @@ import org.exoplatform.webui.event.Event.Phase;
       @EventConfig(phase = Phase.PROCESS, listeners = ProcessActionActionListener.class)
     }    
 )
-public class UIPortlet extends UIPortalComponent { 
+public class UIPortlet extends UIApplication { 
   
   private String windowId ;
   private String portletStyle ;
@@ -61,8 +61,6 @@ public class UIPortlet extends UIPortalComponent {
   private WindowState currentWindowState_ = WindowState.NORMAL;  
   
   private List<String> supportModes_ ;
-  
-  private Properties properties;
   
   public String getId()  { return exoWindowId_.getUniqueID() ; }
   
@@ -133,11 +131,5 @@ public class UIPortlet extends UIPortalComponent {
     return supportModes;
   }
   public void setSupportModes(List<String> supportModes) { supportModes_ = supportModes; }
-  
-  public Properties getProperties() {
-    if(properties == null) properties  = new Properties();
-    return properties; 
-  }
-  public void setProperties(Properties properties) { this.properties = properties; }
   
 }

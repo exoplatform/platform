@@ -127,12 +127,12 @@ UIWidget.prototype.initDND = function(e) {
   	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
 		containerBlockId = uiPageIdNode.innerHTML;
   	var params = [
-	  	{name: "objectId", value : dragObject.id} ,
+	  	{name: "objectId", value : dragObject.id},
 	  	{name: "posX", value : dragObject.offsetLeft},
 	  	{name: "posY", value : dragObject.offsetTop}
 	  ] ;
 	  
-  	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveProperties", true, params), false) ;
+  	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveWidgetProperties", true, params), false) ;
   }
   
   var clickBlock = this ;

@@ -28,6 +28,7 @@
   boolean isWindow = "Window".equals(uicomponent.getPortletStyle());  
   
   if(!isWindow) {
+  
 %>
 	  <div class="UIPortlet" id="UIPortlet-${uicomponent.id}">
 		  <div class="META-DATA-BLOCK" style="display: none">
@@ -123,10 +124,31 @@
 	    <%/*Begin Window Portlet Bar*/ %>
 	    <%
 	      String visibility = "visible" ;
-	      if(isWindow) visibility = "hidden" ;
-	      String windowId = popupId + "-portlet-window" ;
+	      String appDisplay = "block";
+	      String appZIndex = "" ;
+	      String appWidth = "" ;
+	      String appHeight = "" ;
+	      if(isWindow) {
+	      	appDisplay = "";
+	      	visibility = "hidden" ;
+	      	
+	      	/*###################################################################*/
+	      	String appStatus = uicomponent.getProperties().get("appStatus") ;
+					
+					if("SHOW".equals(appStatus)) {
+						appDisplay = "block" ;
+						appZIndex = uicomponent.getProperties().get("zIndex");
+						appWidth = (String)uicomponent.getProperties().getIntValue("appWidth") + "px" ;
+						appHeight = (String)uicomponent.getProperties().getIntValue("appHeight") + "px" ;
+					} 
+				  /*###################################################################*/
+	      	
+	      	
+	      	
+	      	
+      	}
 	    %>
-    		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}-portlet-window" style="visibility: $visibility">
+    		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}" style="visibility: $visibility; display: $appDisplay; z-index: $appZIndex; width: $appWidth; height: $appHeight">
 		      <div class="WindowBarLeft">
 		        <div class="WindowBarRight">
 		          <div class="WindowBarCenter">

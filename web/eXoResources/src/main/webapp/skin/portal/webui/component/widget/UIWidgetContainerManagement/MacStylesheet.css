@@ -108,18 +108,13 @@
 	height: 221px;
 }
 
-.UIWidgetContainerManagement .WidgetContainerView a.RemoveContainerAction{
+.UIWidgetContainerManagement .WidgetContainerView .RemoveContainerAction{
 	background: url(/eXoResources/icons/16x16/MacSkin/DeleteIcon.gif) no-repeat left center;
 	padding:0px 55px 0px 23px;
 	height: 22px; line-height: 22px;
 	float: right;
 	color: #000000;
 	display: block; cursor: pointer;
-}
-
-.UIWidgetContainerManagement .WidgetContainerView a.RemoveContainerAction:hover{
-	color: #124ed7;
-	text-decoration: underline;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .UIForm .HorizontalLayout{

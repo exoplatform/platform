@@ -9,10 +9,6 @@
 }
 
 /*##########################################################*/
-.UIWindow {
-  height: auto;
-}
-
 .UIWindow .WindowPortletControl {
   float: right ;
   height: 23px ;

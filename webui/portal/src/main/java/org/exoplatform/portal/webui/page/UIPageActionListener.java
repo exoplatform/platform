@@ -16,6 +16,7 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
+import org.exoplatform.portal.webui.application.UIApplication;
 import org.exoplatform.portal.webui.application.UIExoApplication;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIWidget;
@@ -276,8 +277,8 @@ public class UIPageActionListener {
       pcontext.setFullRender(true);
     }
   }
-  
-  static public class SavePropertiesActionListener  extends EventListener<UIPage> {
+    
+  static public class SaveWidgetPropertiesActionListener  extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
       UIPage uiPage = event.getSource();
       String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
@@ -303,5 +304,68 @@ public class UIPageActionListener {
       configService.update(page);
     }
   }
+  
+  static public class SaveWindowPropertiesActionListener  extends EventListener<UIPage> {
+    public void execute(Event<UIPage> event) throws Exception {
+      UIPage uiPage = event.getSource();
+      String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+//      List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
+//      
+//      List<UIComponent> uiComponents = new ArrayList<UIComponent>();
+//      
+//      uiPage.findComponentOfType(uiPortlets,UIPortlet.class);
+//      List<UIExoApplication> uiExoApplications = new ArrayList<UIExoApplication>();
+//      uiPage.findComponentOfType(uiExoApplications , UIExoApplication.class);
+//      
+//      uiPage.findComponentOfType(uiPortlets, UIPortlet.class);
+//      
+//      UIPortlet uiPortlet = null;
+//      for(UIPortlet ele : uiPortlets) {
+//        if(ele.getId().equals(objectId)) {
+//          uiPortlet = ele;
+//          break;
+//        }
+//      }
+//      if(uiPortlet == null) return;
+      
+      UIApplication uiComponent = uiPage.getChildById(objectId) ;
+      if(uiComponent == null) return ;
+      
+      /*########################## Save Position ##########################*/
+      String posX = event.getRequestContext().getRequestParameter("posX");
+      String posY = event.getRequestContext().getRequestParameter("posY");
+      
+      if(posX != null) uiComponent.getProperties().put("locationX", posX);
+      if(posY != null) uiComponent.getProperties().put("locationY", posY);
+      
+      /*########################## Save ZIndex ##########################*/
+      String zIndex = event.getRequestContext().getRequestParameter("zIndex");
+      
+      if(zIndex != null) uiComponent.getProperties().put("zIndex", zIndex) ;
+      
+      /*########################## Save Dimension ##########################*/
+      String appWidth = event.getRequestContext().getRequestParameter("width");
+      String appHeight = event.getRequestContext().getRequestParameter("height");
+      
+      System.out.println("\n\n\n\n\n\n\n\n   WIDTHewrewre: "+appWidth+"  \n\n\n\n\n\n");
+      
+      if(appWidth != null) uiComponent.getProperties().put("appWidth", appWidth);
+      if(appHeight != null) uiComponent.getProperties().put("appHeight", appHeight);
+      
+     
+      
+      /*########################## Save Window status (SHOW / HIDE) ##########################*/
+      String appStatus = event.getRequestContext().getRequestParameter("appStatus");
+      if(appStatus != null) uiComponent.getProperties().put("appStatus", appStatus);
+      
+            
+      if(!uiPage.isModifiable()) return;
+      Page page = PortalDataMapper.toPageModel(uiPage);
+      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
+      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+      configService.update(page);
+    }
+  }
+  
   
 }
