@@ -30,37 +30,37 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
 
 UIPortalControl.prototype.fixHeight = function() {
 	if(!eXo.core.Browser.isIE6()) {
-	var objectParent = document.getElementById("UIControlWorkspace");
-	if(objectParent) {
-		var DOMUtil = eXo.core.DOMUtil;
-		var uiControlWSWorkingArea = document.getElementById("UIControlWSWorkingArea");
-		var uiWorkspaceContainer = DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
-		if(uiWorkspaceContainer.style.display == "block") {
-			var scrollArea = DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
-			var tmp = objectParent.offsetHeight - 72;
-			if(scrollArea != null) {
-				scrollArea.style.height = "auto";
-				var heightChild = scrollArea.offsetHeight;
-				var jsContainer = DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
-				if(jsContainer){
-					scrollArea.style.width = "216px";
-					jsContainer.style.width = "210px";
-				}
-				var maxHeight = 0;
-				if(uiControlWSWorkingArea) {
-				  maxHeight = uiControlWSWorkingArea.offsetHeight ;
-				} 
-				var deltaResize = maxHeight - tmp;
-				if(deltaResize > 0) {
-					scrollArea.style.overflow = "auto";
-					scrollArea.style.height = heightChild - deltaResize + "px";
-					if(jsContainer) {
-						jsContainer.style.width = scrollArea.offsetWidth - 22 + "px";
+		var objectParent = document.getElementById("UIControlWorkspace");
+		if(objectParent) {
+			var DOMUtil = eXo.core.DOMUtil;
+			var uiControlWSWorkingArea = document.getElementById("UIControlWSWorkingArea");
+			var uiWorkspaceContainer = DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
+			if(uiWorkspaceContainer.style.display == "block") {
+				var scrollArea = DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
+				var tmp = objectParent.offsetHeight - 72;
+				if(scrollArea != null) {
+					scrollArea.style.height = "auto";
+					var heightChild = scrollArea.offsetHeight;
+					var jsContainer = DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
+					if(jsContainer){
+						scrollArea.style.width = "216px";
+						jsContainer.style.width = "210px";
+					}
+					var maxHeight = 0;
+					if(uiControlWSWorkingArea) {
+					  maxHeight = uiControlWSWorkingArea.offsetHeight ;
+					} 
+					var deltaResize = maxHeight - tmp;
+					if(deltaResize > 0) {
+						scrollArea.style.overflow = "auto";
+						scrollArea.style.height = heightChild - deltaResize + "px";
+						if(jsContainer) {
+							jsContainer.style.width = scrollArea.offsetWidth - 22 + "px";
+						}
 					}
 				}
 			}
 		}
-	}
 	}
 } ;
 

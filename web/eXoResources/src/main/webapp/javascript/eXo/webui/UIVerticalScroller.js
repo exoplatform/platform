@@ -45,12 +45,12 @@ UIVerticalScroller.prototype.init = function() {
 
 UIVerticalScroller.prototype.scrollDown = function(element, containerClass, itemClass) {
 	var j = 0 ;
+	if(!this.items[this.index]) return;
 	for(var i = 0 ; i < this.itemSize ; i ++ ) {
 		if(this.items[i].style.display != "none") {			
 			j ++ ;
 		}
 	}	
-	if(!this.items[this.index]) return;
 	if ((this.index + j) >= this.itemSize) {
 		element.className = this.disableDownClass ;//"Icon DisableScrollDownButton" ;
 		return ;
