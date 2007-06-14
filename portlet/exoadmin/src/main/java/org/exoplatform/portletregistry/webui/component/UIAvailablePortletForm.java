@@ -19,6 +19,7 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
+import org.exoplatform.web.WebAppController;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -61,20 +62,10 @@ public class UIAvailablePortletForm extends UIFormTabPane {
 
     @SuppressWarnings("unchecked")
   public void setValue() throws Exception {
-    getChildren().clear();
-    
-    String tableName = getClass().getSimpleName();    
-    UIFormTableInputSet uiTableInputSet = createUIComponent(UIFormTableInputSet.class, null, null) ;
-    uiTableInputSet.setName(tableName);
-    uiTableInputSet.setColumns(TABLE_COLUMNS);
-    addChild(uiTableInputSet);
-    
-    
     PortletContainerService containerService = getApplicationComponent(PortletContainerService.class);
     Map map = containerService.getAllPortletMetaData();
     Iterator iter = map.keySet().iterator();
     ApplicationRegistryService registeryService = getApplicationComponent(ApplicationRegistryService.class) ;
-    int i = 0;
     while(iter.hasNext()){
       String id = String.valueOf(iter.next());
       Application portlet = null; 
@@ -86,19 +77,66 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       if(portlet == null)  portlet = findPortletInDataRuntime(id);
       if(portlet == null ) continue;
       list_.add(portlet);
-      
+    } 
+    findExoApplication();
+    setup();
+  }
+  
+  private void setup() throws Exception {
+    getChildren().clear();
+    String tableName = getClass().getSimpleName();    
+    UIFormTableInputSet uiTableInputSet = createUIComponent(UIFormTableInputSet.class, null, null) ;
+    uiTableInputSet.setName(tableName);
+    uiTableInputSet.setColumns(TABLE_COLUMNS);
+    addChild(uiTableInputSet);
+    int i = 0;
+    for(Application portlet: list_) {
       UIFormInputSet uiInputSet = new UIFormInputSet(portlet.getId()) ;
       UIFormInputInfo uiInfo = new UIFormInputInfo("label", null, portlet.getDisplayName());
       uiInputSet.addChild(uiInfo);
-      uiInfo = new UIFormInputInfo("description", null, portlet.getDescription());
+      String description = portlet.getDescription();
+      if(description == null || description.length() < 1) description = portlet.getApplicationType();
+      uiInfo = new UIFormInputInfo("description", null, description);
       uiInputSet.addChild(uiInfo);
-      UIFormCheckBoxInput<Integer> uiCheckbox = new UIFormCheckBoxInput<Integer>(id, null, i);    
+      UIFormCheckBoxInput<Integer> uiCheckbox = new UIFormCheckBoxInput<Integer>(portlet.getId(), null, i);    
       i++;
       uiInputSet.addChild(uiCheckbox);
       uiTableInputSet.addChild(uiInputSet);
-    } 
+    }
+    
+  }
+
+  private  void findExoApplication() throws Exception {
+    PortalContainer container  = PortalContainer.getInstance() ;
+    WebAppController appController = 
+      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
+    List<org.exoplatform.web.application.Application> eXoApplications = 
+      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE) ;
+    List<org.exoplatform.web.application.Application> eXoWidgets = 
+      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE) ;
+    eXoApplications.addAll(eXoWidgets);     
+    ApplicationRegistryService registeryService = getApplicationComponent(ApplicationRegistryService.class) ;
+    for(org.exoplatform.web.application.Application app: eXoApplications) {
+      String temp = app.getApplicationGroup()+ "/" + app.getApplicationName();
+      Application portlet = registeryService.getApplication(temp);
+      if(portlet == null) list_.add( convertApplication(app));
+      else list_.add(portlet);
+     }
   }
   
+  private Application convertApplication(org.exoplatform.web.application.Application app) {
+    Application returnApplication = new Application() ;
+    returnApplication.setApplicationGroup(app.getApplicationGroup()) ;
+    returnApplication.setApplicationType(app.getApplicationType()) ;
+    returnApplication.setApplicationName(app.getApplicationName()) ;
+    returnApplication.setId(app.getApplicationId()) ;
+    returnApplication.setCategoryName(app.getApplicationGroup()) ;
+    returnApplication.setDisplayName(app.getApplicationName()) ;
+    returnApplication.setDescription(app.getDescription()) ;
+    
+    return returnApplication ;
+  }
+
   public List<Application> getListApplication() { return list_;}
   public void setListApplication(List<Application> list) {this.list_ = list; }
 
