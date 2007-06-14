@@ -29,11 +29,11 @@ public class UIWelcomeComponent extends UIContainer {
 
   public UIWelcomeComponent() throws Exception {
     PortalRequestContext prContext = Util.getPortalRequestContext();
-    int accessibility = prContext.getAccessPath() ;
-    if(accessibility == PortalRequestContext.PUBLIC_ACCESS) {
-      addChild(UILoginForm.class, null, "LoginWelcomeComponent");
-      return ;
-    }
+//    int accessibility = prContext.getAccessPath() ;
+//    if(accessibility == PortalRequestContext.PUBLIC_ACCESS) {
+//      addChild(UILoginForm.class, null, "LoginWelcomeComponent");
+//      return ;
+//    }
     
     UIPortalApplication uiPortalApplication = (UIPortalApplication)prContext.getUIApplication();
     UserPortalConfig userPortalConfig = uiPortalApplication.getUserPortalConfig();
