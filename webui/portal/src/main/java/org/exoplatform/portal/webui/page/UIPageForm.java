@@ -237,33 +237,24 @@ public class UIPageForm extends UIFormTabPane {
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
         configService.update(page);
       } else {
-        //------------------------------------------------------------------------------
-        //TODO: Tung.Pham added
-        String ownerType = uiPageForm.getUIFormSelectBox("ownerType").getValue() ;
-        String ownerId = uiPageForm.getUIStringInput("ownerId").getValue() ;
-        String pageName = uiPageForm.getUIStringInput("name").getValue() ;
-        String pageId = ownerType + "::" + ownerId + "::" + pageName ;
         DataStorage dataStorage = uiPageForm.getApplicationComponent(DataStorage.class) ;
-        Page existPage = dataStorage.getPage(pageId) ;
+        Page existPage = dataStorage.getPage(page.getPageId()) ;
         if (existPage != null) {
           uiPortalApp.addMessage(new ApplicationMessage("UIPageForm.msg.sameName", null)) ;
           pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
           return ;
         }
-        //------------------------------------------------------------------------------
         page.setCreator(pcontext.getRemoteUser());
         page.setModifiable(true);
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
         configService.create(page);
-        //TODO: Tung.Pham added
-        //---------------------------------------------------------------------------
-        UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ;      
-        UIPageBrowser browser = (UIPageBrowser)toolPanel.getUIComponent() ;
+        
+        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;      
+        UIPageBrowser browser = (UIPageBrowser)uiToolPanel.getUIComponent() ;
         if(browser != null) {
           browser.defaultValue(null) ;
-          pcontext.addUIComponentToUpdateByAjax(toolPanel) ; 
+          pcontext.addUIComponentToUpdateByAjax(uiToolPanel) ; 
         }
-        //---------------------------------------------------------------------------------
       }
       
       WebuiRequestContext rcontext = event.getRequestContext();
@@ -271,17 +262,6 @@ public class UIPageForm extends UIFormTabPane {
       uiMaskWS.setUIComponent(null);
       uiMaskWS.setShow(false);
       rcontext.addUIComponentToUpdateByAjax(uiMaskWS) ; 
-
-      //TODO: Tung.Pham modified
-//      UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
-//      if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
-//        return;
-//      } 
-//      if(uiManagement == null)  return;
-//      UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
-//      UITree uiTree = uiNodeSelector.getChild(UITree.class);        
-//      uiTree.createEvent("ChangeNode", event.getExecutionPhase(), rcontext).broadcast();
-      //---------------------------------------------------------------------------
     }
     
     private void findAllPortlet(List<UIPortlet> list, UIContainer uiContainer) {
