@@ -3,10 +3,7 @@ package org.exoplatform.webui.core;
 import java.io.Writer;
 import java.util.List;
 
-import javax.portlet.PortletResponse;
-
 import org.exoplatform.services.portletcontainer.ExoPortletRequest;
-import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.WindowID;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;

@@ -15,6 +15,7 @@ import java.io.Writer;
  * May 10, 2007  
  */
 public class HtmlValidator extends Writer {
+  
   private Writer finalWriter_ ;
   private CharArrayWriter writer_ ;
   

@@ -21,7 +21,6 @@ public class EmptyFieldValidator implements Validator {
       return ;
     }
     Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
-//  System.out.println("====>>Name: " + uiInput.getName() + "_++++>> BindingField " + uiInput.getBindingField());
     throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args)) ;
   }
 }

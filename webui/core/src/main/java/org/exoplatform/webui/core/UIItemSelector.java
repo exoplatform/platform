@@ -16,7 +16,6 @@ import org.exoplatform.webui.core.model.SelectItemOption;
  * Author : Pham Thanh Tung
  * Apr 16, 2007  
  */
-
 @ComponentConfig(template = "system:/groovy/webui/core/UIItemSelector.gtmpl")
 public class UIItemSelector extends UIComponent {
 
@@ -63,49 +62,5 @@ public class UIItemSelector extends UIComponent {
     if (selectedCategory != null) return selectedCategory.getSelectedItemOption();
     return null;
   }
-
+  
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -19,6 +19,7 @@ import org.exoplatform.webui.event.EventListener;
  * May 7, 2006
  */
 public class Application {
+  
   private InitParams initParams ;
   private String uiroot ;
   private String stateManager ;

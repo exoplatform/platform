@@ -14,14 +14,12 @@ import org.exoplatform.webui.form.UIForm;
  *          nhudinhthuan@exoplatform.com
  * Jun 29, 2006
  */
-
 abstract public class UIWizard  extends UIContainer { 
   
   private int currentStep  = 1;
   private int selectedStep = 1 ;
   
 	public UIWizard() throws Exception {
-
 	}  
   
   public String url(String name) throws Exception {

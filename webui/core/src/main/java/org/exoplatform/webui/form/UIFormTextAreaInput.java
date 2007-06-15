@@ -30,7 +30,6 @@ public class UIFormTextAreaInput extends UIFormStringInput {
   public int getColumns() { return columns; }
 
   public void setColumns(int columns) { this.columns = columns; }
-
   
   public int getRows() { return rows; }
 

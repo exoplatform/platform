@@ -18,10 +18,12 @@ import org.exoplatform.webui.core.lifecycle.Lifecycle;
  */
 public class UIWidgetLifecycle extends Lifecycle {
   
+  @SuppressWarnings("unused")
   public void processAction(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
     
   }
   
+  @SuppressWarnings("unchecked")
   public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     UIWidget uiWidget = (UIWidget)  uicomponent ;
     PortalContainer container = PortalContainer.getInstance() ;

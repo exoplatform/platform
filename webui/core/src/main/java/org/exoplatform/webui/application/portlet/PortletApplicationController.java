@@ -66,6 +66,7 @@ public class PortletApplicationController extends GenericPortlet {
     return application ;
   }
   
+  @SuppressWarnings("unchecked")
   public void destroy() {
     RootContainer rootContainer =  RootContainer.getInstance() ;
     List<PortalContainer> containers = 

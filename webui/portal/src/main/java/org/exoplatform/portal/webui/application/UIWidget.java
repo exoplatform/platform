@@ -14,7 +14,6 @@ import org.exoplatform.webui.core.UIComponent;
  *          ha.pham@exoplatform.com
  * May 16, 2007  
  */
-
 @ComponentConfig(lifecycle = UIWidgetLifecycle.class)
 public class UIWidget extends UIComponent {
   

@@ -12,7 +12,6 @@ import org.exoplatform.webui.event.EventListener;
     template = "system:/groovy/webui/core/UIPageIterator.gtmpl",
     events = @EventConfig(listeners = UIPageIterator.ShowPageActionListener.class )    
 )
-
 public class UIPageIterator extends UIComponent {
   
 	private PageList pageList_ = PageList.EMPTY_LIST ;

@@ -14,7 +14,7 @@ import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormInputSet;
 
 /**
- * Author : Nhu Dinh Thuan nhudinhthuan@exoplatform.com Oct 13, 2006
+ * Author : Nhu Dinh Thuan thuan.nhu@exoplatform.com Oct 13, 2006
  */
 public class ReflectionDataMapping implements BeanDataMapping {
 
