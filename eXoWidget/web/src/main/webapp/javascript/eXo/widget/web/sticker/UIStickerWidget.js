@@ -54,7 +54,7 @@ UIStickerWidget.prototype.initApplication = function(applicationId, instanceId) 
 	} else {
 		eXo.widget.UIAddWidget.addWidgetToDesktop(appInstance) ;
 		DOMUtil.removeTemporaryElement(appElement) ;
-	}	
+	}
 };
 
 UIStickerWidget.prototype.destroyApplicationInstance = function(appDescriptor) {

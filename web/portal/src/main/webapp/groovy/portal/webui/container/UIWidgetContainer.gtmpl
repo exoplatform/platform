@@ -11,11 +11,16 @@
   String addWidgetAction = "eXo.desktop.UIAddApplication.init('"+componentId+"','"+componentId+"', ['eXoWidget']);" ;
   String scrollUpAction = "eXo.webui.UIVerticalScroller.scrollUp(this, 'UIWidgetContainer', 'UIWidget');";
   String scrollDownAction = "eXo.webui.UIVerticalScroller.scrollDown(this, 'UIWidgetContainer', 'UIWidget');";
+
+  jsmanager.importJavascript('eXo.widget.UIWidget');
+	jsmanager.importJavascript('eXo.webui.UIVerticalScroller') ;
+	jsmanager.addOnLoadJavascript('eXo.webui.UIVerticalScroller.init');
+  jsmanager.addOnResizeJavascript('eXo.webui.UIVerticalScroller.init');
 %>
 
 
 <div class="UIWidgetContainer" id="<%=componentId%>">
-	<div class="WidgetContainerScrollArea ScrollZone" style = "height:300px ; ">
+	<div class="WidgetContainerScrollArea ScrollZone">
 		<% uicomponent.renderChildren() %>
 	</div>
 	<div class="WidgetNavigator">
@@ -32,5 +37,4 @@
   </div>
   <div style="clear: right"><span></span></div> 									
 </div>
-<% jsmanager.addJavascript("eXo.webui.UIVerticalScroller.init();") ; %>
   

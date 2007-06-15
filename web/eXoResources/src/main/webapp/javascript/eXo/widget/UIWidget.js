@@ -21,6 +21,7 @@ UIWidget.prototype.init = function(uiWidget, inDesktop) {
 		uiWidget.style.left = posX + "px" ;
 		uiWidget.style.top = posY + "px" ;
 	}
+	eXo.webui.UIVerticalScroller.init();
 };
 
 UIWidget.prototype.deleteWidget = function(selectedElement) {
@@ -150,7 +151,7 @@ UIWidget.prototype.resizeContainer = function() {
 	if(widgets == null) return ;	
 	
 	var DOMUtil = eXo.core.DOMUtil ;
-	
+	//alert("test");
 	var extraHeight = 40 ;
 	var uiWidgetContainer = DOMUtil.findFirstDescendantByClass(widgets, "div", "UIWidgetContainer");
 	var workspacePanel = document.getElementById("UIWorkspacePanel") ;	

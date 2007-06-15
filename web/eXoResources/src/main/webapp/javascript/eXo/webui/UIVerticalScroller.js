@@ -11,7 +11,8 @@ UIVerticalScroller = function () {
 	this.disableDownClass = "Icon DisableScrollDownButton" ;		
 } ;
 
-UIVerticalScroller.prototype.init = function() {
+UIVerticalScroller.prototype.init = function() {//alert("asfas Onload");
+	eXo.widget.UIWidget.resizeContainer();
 	this.DOMUtil =  eXo.core.DOMUtil ;
 	this.container = document.getElementById("UIWorkspaceContainer") ;
 	if((this.container.style.display != "block") || !this.container) return ;
@@ -32,6 +33,7 @@ UIVerticalScroller.prototype.init = function() {
 	for(var i = t; i< this.itemSize; ++i) {
 		this.items[i].style.display = "block" ;
 	}
+	
 	for(var i = t; i < this.itemSize; ++i) {
 		height += this.items[i].offsetHeight ; 
 		if (height < this.scrollZone.offsetHeight) {
@@ -48,7 +50,9 @@ UIVerticalScroller.prototype.scrollDown = function(element, containerClass, item
 	if(typeof(this.index) == "undefined") { 
 		this.index = 0 ; 
 	}
+	//alert(this.index);
 	if(!this.items[this.index]) return;
+	//alert(this.itemSize);
 	for(var i = 0 ; i < this.itemSize ; i ++ ) {
 		if(this.items[i].style.display != "none") {			
 			j ++ ;
@@ -109,5 +113,4 @@ UIVerticalScroller.prototype.scrollUp = function(element, containerClass, itemCl
 		}
 	}	
 } ;
-
 eXo.webui.UIVerticalScroller = new UIVerticalScroller() ;

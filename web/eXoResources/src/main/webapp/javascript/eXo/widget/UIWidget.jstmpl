@@ -1,5 +1,6 @@
 <%	eXo.require('eXo.widget.UIWidget')	%>
 <%	var deleteWidget = 'eXo.widget.UIWidget.deleteWidget(this);' %>
+
 <div class="UIWidget UIDragObject">
   <div class="WidgetControlBar">
     <div class="WidgetControl" style="display: none">
@@ -21,4 +22,3 @@
 	<%=context.widget.content %>
 	</div>
 </div>
-<% //eXo.webui.UIVerticalScroller.init(); %>
