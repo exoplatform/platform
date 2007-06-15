@@ -5,8 +5,6 @@
 package org.exoplatform.portal.webui.application;
 
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.portal.config.model.Properties;
-import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.application.mvc.MVCApplication;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
@@ -28,12 +26,6 @@ public class UIExoApplication extends UIApplication {
   
   private String applicationInstanceId_ ;
 
-  private boolean  showInfoBar = true ;
-  private boolean  showWindowState = true ;
-  private boolean  showPortletMode = true ;
-  private String   description;
-  private String   icon;
-  
   private String applicationOwnerType_ ;
   private String applicationOwnerId_ ;
   private String applicationGroup_ ;
@@ -58,21 +50,6 @@ public class UIExoApplication extends UIApplication {
     applicationName_ = tmp[2] ;
     applicationInstanceUniqueId_ = tmp[3] ;
   }
-  
-  public String getDescription() {  return  description ; }
-  public void   setDescription(String s) { description = s ;}
-  
-  public boolean getShowInfoBar() { return showInfoBar ; }
-  public void    setShowInfoBar(boolean b) {showInfoBar = b ;}
-  
-  public String getIcon() { return icon ; }
-  public void   setIcon(String s) { icon = s ; } 
-  
-  public boolean getShowWindowState() { return showWindowState ; }
-  public void    setShowWindowState(boolean b) { showWindowState = b ; }
-  
-  public boolean getShowPortletMode() { return showPortletMode ; }
-  public void    setShowPortletMode(boolean b) { showPortletMode = b ; }
   
   public String getApplicationOwnerType() { return applicationOwnerType_ ;}
   public void setApplicationOwnerType(String ownerType){ applicationOwnerType_ = ownerType;} 

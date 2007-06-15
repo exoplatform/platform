@@ -182,9 +182,7 @@ public class UIPageForm extends UIFormTabPane {
   }
 
   public UIComponent getBackUIComponent() { return returnComponent_ ; }
-  public void setBackUIComponent(UIComponent uiComp) throws Exception {
-    returnComponent_ = uiComp ;
-  }   
+  public void setBackUIComponent(UIComponent uiComp) throws Exception { returnComponent_ = uiComp ; }   
   
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);

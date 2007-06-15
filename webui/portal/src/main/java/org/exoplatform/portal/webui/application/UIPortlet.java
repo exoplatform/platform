@@ -11,13 +11,11 @@ import java.util.Map;
 import javax.portlet.PortletMode;
 import javax.portlet.WindowState;
 
-import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ChangePortletModeActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ChangeWindowStateActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.EditPortletActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ProcessActionActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.RenderActionListener;
-import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.DeleteComponentActionListener;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
@@ -49,11 +47,7 @@ public class UIPortlet extends UIApplication {
   private String windowId ;
   private String portletStyle ;
 
-  private boolean  showInfoBar = true ;
-  private boolean  showWindowState = true ;
   private boolean  showPortletMode = true ;
-  private String   description;
-  private String   icon;
   
   private Map renderParametersMap_ ;
   private ExoWindowID exoWindowId_ ;
@@ -72,18 +66,6 @@ public class UIPortlet extends UIApplication {
   
   public String getPortletStyle() {  return  portletStyle ; }
   public void   setPortletStyle(String s) { portletStyle = s ;}
-  
-  public String getDescription() {  return  description ; }
-  public void   setDescription(String s) { description = s ;}
-  
-  public boolean getShowInfoBar() { return showInfoBar ; }
-  public void    setShowInfoBar(Boolean b) {showInfoBar = b ;}
-  
-  public String getIcon() { return icon ; }
-  public void   setIcon(String s) { icon = s ; } 
-  
-  public boolean getShowWindowState() { return showWindowState ; }
-  public void    setShowWindowState(Boolean b) { showWindowState = b ; }
   
   public boolean getShowPortletMode() { return showPortletMode ; }
   public void    setShowPortletMode(Boolean b) { showPortletMode = b ; }

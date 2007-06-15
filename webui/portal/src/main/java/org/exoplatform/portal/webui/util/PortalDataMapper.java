@@ -72,7 +72,6 @@ public class PortalDataMapper {
     model.setInstanceId(uiExoApp.getApplicationInstanceId()) ;
     model.setShowInfoBar(uiExoApp.getShowInfoBar());
     model.setShowApplicationState(uiExoApp.getShowWindowState());
-    model.setShowApplicationMode(uiExoApp.getShowPortletMode());
     model.setTitle(uiExoApp.getTitle());
     model.setIcon(uiExoApp.getIcon());
     model.setDescription(uiExoApp.getDescription());
@@ -195,7 +194,6 @@ public class PortalDataMapper {
     uiExoApp.setApplicationInstanceId(model.getInstanceId()) ;
     uiExoApp.setShowInfoBar(model.getShowInfoBar());
     uiExoApp.setShowWindowState(model.getShowApplicationState());
-    uiExoApp.setShowPortletMode(model.getShowApplicationMode());
     uiExoApp.setTitle(model.getTitle());
     uiExoApp.setIcon(model.getIcon());
     uiExoApp.setDescription(model.getDescription());

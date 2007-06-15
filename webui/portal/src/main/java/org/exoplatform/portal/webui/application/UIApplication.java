@@ -17,9 +17,28 @@ public class UIApplication  extends UIPortalComponent {
   
   private Properties properties;
   
+  private boolean  showInfoBar = true ;
+  private boolean  showWindowState = true ;
+  
+  private String   description;
+  private String   icon;
+  
   public Properties getProperties() {
     if(properties == null) properties  = new Properties();
     return properties; 
   }
+  
   public void setProperties(Properties properties) { this.properties = properties; }
+  
+  public boolean getShowWindowState() { return showWindowState ; }
+  public void    setShowWindowState(Boolean b) { showWindowState = b ; }
+  
+  public boolean getShowInfoBar() { return showInfoBar ; }
+  public void    setShowInfoBar(Boolean b) {showInfoBar = b ;}
+  
+  public String getDescription() {  return  description ; }
+  public void   setDescription(String s) { description = s ;}
+  
+  public String getIcon() { return icon ; }
+  public void   setIcon(String s) { icon = s ; } 
 }
