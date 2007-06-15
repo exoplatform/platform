@@ -39,6 +39,11 @@ public class UIPortalBrowser extends UIContainer {
     setName("UIPortalBrowser");
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("name", BEAN_FIELD, SELECT_ACTIONS) ;
+    //TODO: Tung.Pham added
+    //--------------------------
+    addChild(uiGrid.getUIPageIterator()) ;
+    uiGrid.getUIPageIterator().setRendered(false) ;
+    //--------------------------
     loadPortalConfigs();
   }
 
@@ -67,6 +72,10 @@ public class UIPortalBrowser extends UIContainer {
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     uiGrid.setUseAjax(false);
     uiGrid.getUIPageIterator().setPageList(pageList);
+    //TODO: Tung.Pham added
+    //---------------------------
+    uiGrid.getUIPageIterator().setRendered(false) ;
+    //---------------------------
   } 
 
   static public class DeletePortalActionListener extends EventListener<UIPortalBrowser> {
