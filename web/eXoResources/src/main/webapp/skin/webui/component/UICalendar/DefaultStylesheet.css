@@ -3,7 +3,6 @@
   background: #e0e5f7 url('CalendarBG.gif') repeat-x top;
   padding: 7px 5px;
   font: normal 12px verdana;
-  width: 210px;
 	text-align: center;
 }
 
@@ -132,10 +131,10 @@
 }
 
 #UICalendarControlIFrame {
-  display: none;
   position: absolute;
   top: 0px;
   left: 0px;
+  width: 100%;
 }
 
 #UICalendarControl {
@@ -144,4 +143,5 @@
   margin:0;
   padding:0;
   display:none;
+  width: 225px;
 }

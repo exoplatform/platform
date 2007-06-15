@@ -9,20 +9,25 @@ UICalendar = function(calendarId) {
 }
 
 UICalendar.prototype.init = function(field) {
+	if(this.dateField) {
+		this.dateField.parentNode.style.position = '' ;
+	}
 	this.dateField = field;
 	if(!document.getElementById(this.calendarId)) this.create();
-//	if(field.parentNode.style.position == '') field.parentNode.style.position = 'relative';
-//  field.parentNode.appendChild(document.getElementById(this.calendarId));
+	field.parentNode.style.position = 'relative';
+  field.parentNode.appendChild(document.getElementById(this.calendarId));
   this.show();
 }
 
 UICalendar.prototype.create = function() {
-	if(!document.getElementById(this.calendarId)) {
-		var clndr = document.createElement("DIV") ;
-		clndr.id = this.calendarId ;
+	var clndr = document.createElement("DIV") ;
+	clndr.id = this.calendarId ;
+	if(document.all) {
 		clndr.innerHTML = "<iframe id='" + this.calendarId + "IFrame' src='javascript:false;' frameBorder='0' scrolling='no'></iframe><div style='position: absolute'></div>"
-		document.body.appendChild(clndr) ;
+	} else {
+		clndr.innerHTML = "<div style='position: absolute; width: 100%;'></div>"
 	}
+	document.body.appendChild(clndr) ;
 }
 
 UICalendar.prototype.show = function() {
@@ -46,10 +51,10 @@ UICalendar.prototype.show = function() {
 
   var clndr = document.getElementById(this.calendarId);
   clndr.lastChild.innerHTML = this.renderCalendar();
-//  var x = this.dateField.offsetLeft;
-//  var y = this.dateField.offsetTop + this.dateField.offsetHeight;
-  var x = eXo.core.Browser.findPosX(this.dateField);
-  var y = eXo.core.Browser.findPosY(this.dateField) + this.dateField.offsetHeight;
+  var x = this.dateField.offsetLeft;
+  var y = this.dateField.offsetTop + this.dateField.offsetHeight;
+//  var x = eXo.core.Browser.findPosX(this.dateField);
+//  var y = eXo.core.Browser.findPosY(this.dateField) + this.dateField.offsetHeight;
 //	alert(x + " : " + y);
 
   with(clndr.style) {
@@ -57,17 +62,13 @@ UICalendar.prototype.show = function() {
 	  left = x + "px";
 	  top = y + "px";
   }
-	with(document.getElementById('' + this.calendarId + 'IFrame').style) {
-    display = 'block';
-    width = clndr.lastChild.offsetWidth + "px";
-    height = clndr.lastChild.offsetHeight + "px";
-	}
 }
 
 UICalendar.prototype.hide = function() {
   if(this.dateField) {
     document.getElementById(this.calendarId).style.display = 'none';
 //    document.getElementById('' + this.calendarId + 'IFrame').style.display = 'none';
+		this.dateField.parentNode.style.position = '';
     this.dateField = null;
   }
  	document.onmousedown = null;

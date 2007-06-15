@@ -20,7 +20,6 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  *          trongtt@gmail.com
  * Jul 14, 2006  
  */
-// TODO : TrongTT
 public class UIFormDateTimeInput extends UIFormInputBase<String> {
   
   private DateFormat dateFormat_ ;
@@ -63,12 +62,12 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
   public void processRender(WebuiRequestContext context) throws Exception {
     context.getJavascriptManager().importJavascript("eXo.webui.UICalendar") ;
     Writer w = context.getWriter();
-    w.write("<input type='text' onfocus='eXo.webui.UICalendar.init(this);' onkeyup='eXo.webui.UICalendar.show();' name='") ;
+    w.write("<span><input type='text' onfocus='eXo.webui.UICalendar.init(this);' onkeyup='eXo.webui.UICalendar.show();' name='") ;
     w.write(getName()) ; w.write('\'') ;
     if(value_ != null && value_.length() > 0) {      
       w.write(" value='"); w.write(value_.toString()); w.write('\'');
     }
-    w.write(" onmousedown='event.cancelBubble = true' />") ;
+    w.write(" onmousedown='event.cancelBubble = true' /></span>") ;
   }
 
   public void setDateFormat(DateFormat formatter) { this.dateFormat_ = formatter; }
