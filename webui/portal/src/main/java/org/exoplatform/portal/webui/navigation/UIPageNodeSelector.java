@@ -282,9 +282,12 @@ public class UIPageNodeSelector extends UIContainer {
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {      
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
+      //TODO: Tung.Pham modified
+      //----------------------------------------------------------
       UIPageNodeSelector uiPageNodeSelector = event.getSource().getParent();
-      if(uri != null && uri.trim().length() > 0) uiPageNodeSelector.selectPageNodeByUri(uri);      
-      
+      //if(uri != null && uri.trim().length() > 0) uiPageNodeSelector.selectPageNodeByUri(uri);      
+      uiPageNodeSelector.selectPageNodeByUri(uri);
+      //----------------------------------------------------------
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
@@ -305,9 +308,8 @@ public class UIPageNodeSelector extends UIContainer {
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
-      
       if(!page.isModifiable()) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", new String[]{page.getTitle()})) ;
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         return ;
       }
