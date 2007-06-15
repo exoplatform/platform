@@ -10,6 +10,7 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormDateTimeInput;
 import org.exoplatform.webui.form.UIFormMultiValueInputSet;
 import org.exoplatform.webui.form.UIFormUploadInput;
 /**
@@ -44,7 +45,7 @@ public class UITestForm extends UIForm {
     
     UIFormUploadInput upload = new UIFormUploadInput("TestUpload", null); 
     UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
-    test.setType(UIFormUploadInput.class);
+    test.setType(UIFormDateTimeInput.class);
     addChild(upload);
     addChild(test);
     
