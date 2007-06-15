@@ -18,17 +18,10 @@ public class UIPortletRegistryPortlet extends UIPortletApplication {
   }
   
   public void renderPopupMessages() throws Exception {
-    UIPopupMessages popupMess = getUIPopupMessages();
-    if(popupMess == null)  return ;
+    UIPopupMessages uiPopupMsg = getUIPopupMessages();
+    if(uiPopupMsg == null)  return ;
     WebuiRequestContext  context =  WebuiRequestContext.getCurrentInstance() ;
-    popupMess.processRender(context);
+    uiPopupMsg.processRender(context);
   }
-  /*
-  public void processRender(WebuiRequestContext context) throws Exception {
-    System.out.println("\n\n\nhello\n\n\n");
-    super.processRender(context);
-    context.getWriter().append("<div id=\"").append(getId()).append("\">");
-    renderChildren(context) ;
-    context.getWriter().append("</div>");
-  }*/
+
 }

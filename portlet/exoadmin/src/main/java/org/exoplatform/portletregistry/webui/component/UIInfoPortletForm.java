@@ -63,8 +63,8 @@ public class UIInfoPortletForm extends UIForm {
   static public class SaveActionListener extends EventListener<UIInfoPortletForm> {
     public void execute(Event<UIInfoPortletForm> event) throws Exception{
       UIInfoPortletForm uiForm = event.getSource() ;
-      UIPopupWindow parent = uiForm.getParent();
-      parent.setShow(false);
+      UIPopupWindow uiParent = uiForm.getParent();
+      uiParent.setShow(false);
       ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class) ;
       Application portlet = uiForm.getPortlet() ;
       uiForm.invokeSetBindingBean(portlet);

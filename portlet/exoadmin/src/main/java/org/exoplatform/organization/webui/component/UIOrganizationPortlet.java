@@ -61,7 +61,6 @@ public class UIOrganizationPortlet extends UIPortletApplication {
       setRenderedComponent(edit,  true) ;
       setRenderedComponent(help,  false) ;
     } else if(portletReqContext.getApplicationMode() == PortletRequestContext.HELP_MODE) {
-      System.out.println("\n\n>>>>>>>>>>>>>>>>>>> IN HELP  MODE \n");
       UIPopupMessages uiPopup = (UIPopupMessages)help;
       ApplicationMessage message = new ApplicationMessage("Help document", new Object[]{});
       List<ApplicationMessage> infors = new ArrayList<ApplicationMessage>();

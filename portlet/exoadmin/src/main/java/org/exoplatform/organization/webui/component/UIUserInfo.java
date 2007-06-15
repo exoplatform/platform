@@ -50,9 +50,9 @@ public class UIUserInfo extends UIFormTabPane {
     userProfileSet.setRendered(false) ;
     addChild(userProfileSet) ;    
     
-    UIFormInputContainer userMembershipSelectorSet = new UIUserMembershipSelector();
-    userMembershipSelectorSet.setRendered(false);
-    addChild(userMembershipSelectorSet);
+    UIFormInputContainer<?> uiUserMembershipSelectorSet = new UIUserMembershipSelector();
+    uiUserMembershipSelectorSet.setRendered(false);
+    addChild(uiUserMembershipSelectorSet);
   }
 		
 	public void setUser(String userName) throws Exception {

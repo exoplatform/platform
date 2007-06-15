@@ -8,9 +8,11 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 
 public class PortalApplicationLifecycle  implements  ApplicationLifecycle<WebuiRequestContext> {
   
+  @SuppressWarnings("unused")
   public void onInit(Application app) {
   }
  
+  @SuppressWarnings("unused")
   public void onStartRequest(Application app, WebuiRequestContext rcontext) throws Exception {
     PortalContainer pcontainer = PortalContainer.getInstance() ;
     SessionContainer.setInstance(pcontainer.getSessionManager().getSessionContainer(rcontext.getSessionId())) ;
@@ -22,6 +24,7 @@ public class PortalApplicationLifecycle  implements  ApplicationLifecycle<WebuiR
     PortalContainer.setInstance(null) ;
   }
   
+  @SuppressWarnings("unused")
   public void onDestroy(Application app) {
   }
 

@@ -119,27 +119,28 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     for(org.exoplatform.web.application.Application app: eXoApplications) {
       String temp = app.getApplicationGroup()+ "/" + app.getApplicationName();
       Application portlet = registeryService.getApplication(temp);
-      if(portlet == null) list_.add( convertApplication(app));
+      if(portlet == null) list_.add( cloneApplication(app));
       else list_.add(portlet);
      }
   }
   
-  private Application convertApplication(org.exoplatform.web.application.Application app) {
-    Application returnApplication = new Application() ;
-    returnApplication.setApplicationGroup(app.getApplicationGroup()) ;
-    returnApplication.setApplicationType(app.getApplicationType()) ;
-    returnApplication.setApplicationName(app.getApplicationName()) ;
-    returnApplication.setId(app.getApplicationId()) ;
-    returnApplication.setCategoryName(app.getApplicationGroup()) ;
-    returnApplication.setDisplayName(app.getApplicationName()) ;
-    returnApplication.setDescription(app.getDescription()) ;
+  private Application cloneApplication(org.exoplatform.web.application.Application app) {
+    Application newApplication = new Application() ;
+    newApplication.setApplicationGroup(app.getApplicationGroup()) ;
+    newApplication.setApplicationType(app.getApplicationType()) ;
+    newApplication.setApplicationName(app.getApplicationName()) ;
+    newApplication.setId(app.getApplicationId()) ;
+    newApplication.setCategoryName(app.getApplicationGroup()) ;
+    newApplication.setDisplayName(app.getApplicationName()) ;
+    newApplication.setDescription(app.getDescription()) ;
     
-    return returnApplication ;
+    return newApplication ;
   }
 
   public List<Application> getListApplication() { return list_;}
   public void setListApplication(List<Application> list) {this.list_ = list; }
 
+  @SuppressWarnings("unchecked")
   private Application findPortletInDataRuntime(String id) {
     PortalContainer manager  = PortalContainer.getInstance();
     PortletContainerMonitor monitor =

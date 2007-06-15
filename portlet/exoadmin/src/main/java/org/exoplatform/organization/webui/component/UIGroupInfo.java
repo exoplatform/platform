@@ -15,10 +15,7 @@ import org.exoplatform.webui.core.UIContainer;
  * Jun 23, 2006
  * 10:08:51 AM 
  */
-//TODO: Tung.Pham modified
-@ComponentConfig(
-    template = "app:/groovy/organization/webui/component/UIGroupInfoContainer.gtmpl"
-)
+@ComponentConfig(template = "app:/groovy/organization/webui/component/UIGroupInfoContainer.gtmpl")
 public class UIGroupInfo extends UIContainer {
   
   public UIGroupInfo() throws Exception {

@@ -66,6 +66,7 @@ public class PortalApplication extends WebuiApplication {
     return res;
   }
 
+  @SuppressWarnings("hiding")
   public String getApplicationInitParam(String name) { 
     String value = sconfig_.getInitParameter(name);
     return value ;

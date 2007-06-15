@@ -68,8 +68,8 @@ public class UICategoryForm extends UIForm {
   static public class SaveActionListener extends EventListener<UICategoryForm> {
     public void execute(Event<UICategoryForm> event) throws Exception{
       UICategoryForm uiForm = event.getSource() ;
-      UIPopupWindow parent = uiForm.getParent();
-      parent.setShow(false);
+      UIPopupWindow uiParent = uiForm.getParent();
+      uiParent.setShow(false);
       ApplicationCategory category = uiForm.getCategory() ;
 
       ApplicationRegistryControlArea uiRegistryCategory = uiForm.getAncestorOfType(ApplicationRegistryControlArea.class);
@@ -92,8 +92,8 @@ public class UICategoryForm extends UIForm {
   static public class CloseActionListener extends EventListener<UICategoryForm>{
     public void execute(Event<UICategoryForm> event) throws Exception{
       UICategoryForm uiForm = event.getSource() ;
-      UIPopupWindow parent = uiForm.getParent();
-      parent.setShow(false);
+      UIPopupWindow uiParent = uiForm.getParent();
+      uiParent.setShow(false);
     }
   }
   

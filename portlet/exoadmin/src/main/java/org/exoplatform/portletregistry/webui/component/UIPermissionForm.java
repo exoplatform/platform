@@ -52,13 +52,13 @@ public class UIPermissionForm extends UIForm {
     public void execute(Event<UIPermissionForm> event) throws Exception {
       UIPermissionForm  uiPermissionForm = event.getSource();
       Application portlet = uiPermissionForm.getPortlet() ;
-      UIListPermissionSelector listPermissionSelector = uiPermissionForm.getChild(UIListPermissionSelector.class) ;
-      portlet.setAccessPermissions(listPermissionSelector.getValue()) ;
+      UIListPermissionSelector uiListPermissionSelector = uiPermissionForm.getChild(UIListPermissionSelector.class) ;
+      portlet.setAccessPermissions(uiListPermissionSelector.getValue()) ;
       ApplicationRegistryService service = uiPermissionForm.getApplicationComponent(ApplicationRegistryService.class) ;
       portlet.setModifiedDate(Calendar.getInstance().getTime());
       service.update(portlet) ;      
-      UIPopupWindow popupWindow = uiPermissionForm.getParent();
-      popupWindow.setShow(false);
+      UIPopupWindow uiPopupWindow = uiPermissionForm.getParent();
+      uiPopupWindow.setShow(false);
     }
   }
 

@@ -38,6 +38,8 @@ import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 public class UIGroupMembershipForm extends UIForm {  
     
   List<SelectItemOption<String>> listOption = new ArrayList<SelectItemOption<String>>();
+  
+  @SuppressWarnings("unchecked")
   public UIGroupMembershipForm() throws Exception {
     listOption.clear(); 
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
@@ -55,6 +57,7 @@ public class UIGroupMembershipForm extends UIForm {
   public String getUserName() { return getUIStringInput("username").getValue(); }
   public String getMembership() { return getUIStringInput("membership").getValue(); }
   
+  @SuppressWarnings("unchecked")
   public void removeOptionMembershipType(MembershipType membership) {
     for(SelectItemOption op : listOption) {
       if(op.getLabel().equals(membership.getName())) {
@@ -79,7 +82,7 @@ public class UIGroupMembershipForm extends UIForm {
       String username = uiForm.getUserName();
       User user = service.getUserHandler().findUserByName(username) ;
       if(user==null) {
-        Object[]  args = { "UserName", username } ;
+        Object[]  args = {"UserName", username } ;
         uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-doesn't-exist", args)) ;
         return ;
       }

@@ -70,24 +70,24 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
   }
   static public class AddPortletActionListener extends EventListener<ApplicationRegistryWorkingArea> {
     public void execute(Event<ApplicationRegistryWorkingArea> event) throws Exception {
-      ApplicationRegistryWorkingArea workingArea = event.getSource();
-      UIPortletRegistryPortlet parent = workingArea.getParent();
-      ApplicationRegistryControlArea controlArea = parent.getChild(ApplicationRegistryControlArea.class);
+      ApplicationRegistryWorkingArea uiWorkingArea = event.getSource();
+      UIPortletRegistryPortlet uiParent = uiWorkingArea.getParent();
+      ApplicationRegistryControlArea uiControlArea = uiParent.getChild(ApplicationRegistryControlArea.class);
       String msg = "ApplicationRegistryWorkingArea.msg.selectCategory";
-      if(controlArea.getPortletCategory() == null || controlArea.getPortletCategory().size() < 1) {
+      if(uiControlArea.getPortletCategory() == null || uiControlArea.getPortletCategory().size() < 1) {
         msg = "ApplicationRegistryWorkingArea.msg.nullCategory";
       }
       
-      if(controlArea.getSelectedPortletCategory() == null ) {
+      if(uiControlArea.getSelectedPortletCategory() == null ) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage(msg, null)) ;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
-      UIPopupWindow popupWindow = workingArea.getChild(UIPopupWindow.class);
-      UIAvailablePortletForm availablePortletForm = workingArea.createUIComponent(UIAvailablePortletForm.class, null, null);
-      availablePortletForm.setValue();
-      popupWindow.setUIComponent(availablePortletForm);
+      UIPopupWindow popupWindow = uiWorkingArea.getChild(UIPopupWindow.class);
+      UIAvailablePortletForm uiAvailablePortletForm = uiWorkingArea.createUIComponent(UIAvailablePortletForm.class, null, null);
+      uiAvailablePortletForm.setValue();
+      popupWindow.setUIComponent(uiAvailablePortletForm);
       popupWindow.setShow(true);
     }
   }
@@ -95,13 +95,13 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
   static public class EditPortletActionListener extends EventListener<ApplicationRegistryWorkingArea> {
     public void execute(Event<ApplicationRegistryWorkingArea> event) throws Exception {
       String appName = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      ApplicationRegistryWorkingArea workingArea = event.getSource();
-      workingArea.setSeletcApplication(appName);
-      UIPopupWindow popupWindow = workingArea.getChild(UIPopupWindow.class);
-      UIInfoPortletForm availablePortletForm= workingArea.createUIComponent(UIInfoPortletForm.class, null, null);
-      availablePortletForm.setName("UIInfoPortletForm");
-      availablePortletForm.setValues(workingArea.getSelectApplication());
-      popupWindow.setUIComponent(availablePortletForm);
+      ApplicationRegistryWorkingArea uiWorkingArea = event.getSource();
+      uiWorkingArea.setSeletcApplication(appName);
+      UIPopupWindow popupWindow = uiWorkingArea.getChild(UIPopupWindow.class);
+      UIInfoPortletForm uiAvailablePortletForm= uiWorkingArea.createUIComponent(UIInfoPortletForm.class, null, null);
+      uiAvailablePortletForm.setName("UIInfoPortletForm");
+      uiAvailablePortletForm.setValues(uiWorkingArea.getSelectApplication());
+      popupWindow.setUIComponent(uiAvailablePortletForm);
       popupWindow.setShow(true);
     }
   }

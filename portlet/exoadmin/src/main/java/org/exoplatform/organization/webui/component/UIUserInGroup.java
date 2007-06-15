@@ -100,9 +100,9 @@ public class UIUserInGroup extends UIContainer {
       super();
     }
 
-    public List getBeans() throws Exception { 
-      List list = super.getBeans();      
-      Iterator it = list.iterator() ;
+    public List<?> getBeans() throws Exception { 
+      List<?> list = super.getBeans();      
+      Iterator<?> it = list.iterator() ;
       boolean add = true;
       List<MembershipUser> memberships = new ArrayList<MembershipUser>() ;
       while(it.hasNext()){
@@ -121,8 +121,8 @@ public class UIUserInGroup extends UIContainer {
     private void loadMemberships(User user, List<MembershipUser> memberships) throws Exception{
       OrganizationService service = getApplicationComponent(OrganizationService.class) ;
       MembershipHandler handler = service.getMembershipHandler();
-      Collection mt = handler.findMembershipsByUserAndGroup(user.getUserName(), groupId_) ;
-      Iterator it = mt.iterator() ;
+      Collection<?> mt = handler.findMembershipsByUserAndGroup(user.getUserName(), groupId_) ;
+      Iterator<?> it = mt.iterator() ;
       while(it.hasNext()){
         Membership type = (Membership)it.next() ;
         memberships.add(new MembershipUser(user, type.getMembershipType(), type.getId()));

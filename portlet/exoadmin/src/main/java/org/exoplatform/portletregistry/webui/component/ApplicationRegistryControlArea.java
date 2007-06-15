@@ -50,7 +50,6 @@ public class ApplicationRegistryControlArea extends UIContainer {
     UICategoryForm uiCategoryForm = createUIComponent(UICategoryForm.class, null, null);
     addCategoryPopup.setUIComponent(uiCategoryForm);
     uiCategoryForm.setValue(null);
-//    initApplicationCategories() ;
   }  
 
   @SuppressWarnings("unchecked")
@@ -133,12 +132,11 @@ public class ApplicationRegistryControlArea extends UIContainer {
   static public class EditCategoryActionListener extends EventListener<ApplicationRegistryControlArea>{
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
       ApplicationRegistryControlArea uiRegistryCategory = event.getSource();
-      UIPopupWindow popupWindow = uiRegistryCategory.getChild(UIPopupWindow.class);
-      popupWindow.setId("EditCategory");
-      UICategoryForm categoryForm = (UICategoryForm) popupWindow.getUIComponent();
-//      categoryForm.setId("EditCategory");
-      categoryForm.setValue(uiRegistryCategory.getSelectedPortletCategory());
-      popupWindow.setShow(true);
+      UIPopupWindow uiPopupWindow = uiRegistryCategory.getChild(UIPopupWindow.class);
+      uiPopupWindow.setId("EditCategory");
+      UICategoryForm uiCategoryForm = (UICategoryForm) uiPopupWindow.getUIComponent();
+      uiCategoryForm.setValue(uiRegistryCategory.getSelectedPortletCategory());
+      uiPopupWindow.setShow(true);
     }
   }
 

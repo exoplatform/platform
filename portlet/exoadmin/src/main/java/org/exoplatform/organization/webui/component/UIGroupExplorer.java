@@ -30,9 +30,12 @@ import org.exoplatform.webui.event.EventListener;
 public class UIGroupExplorer extends UIContainer {
   
 	private Group selectedGroup_ ;
+	@SuppressWarnings("unchecked")
 	private Collection sibblingsGroup_ ;
+	@SuppressWarnings("unchecked")
 	private Collection childrenGroup_ ;
   
+	@SuppressWarnings("unchecked")
 	public UIGroupExplorer() throws Exception {
 	  UITree tree = addChild(UITree.class, null, "TreeGroupExplorer");
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
@@ -45,6 +48,7 @@ public class UIGroupExplorer extends UIContainer {
     tree.setBeanLabelField("groupName");
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void changeGroup(String groupId) throws Exception {	  
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     
@@ -90,10 +94,13 @@ public class UIGroupExplorer extends UIContainer {
 	public Group getCurrentGroup() { return selectedGroup_ ; }
   public void setCurrentGroup(Group g) { selectedGroup_ = g; }
   
+  @SuppressWarnings("unchecked")
 	public Collection getChildrenGroup() { return childrenGroup_ ;}
   
+  @SuppressWarnings("unchecked")
 	public Collection getSibblingGroups() { return sibblingsGroup_ ; }
   
+  @SuppressWarnings("unchecked")
 	public void setChildGroup(Collection childrendGroup) { childrenGroup_ = childrendGroup ;	}
   
   @SuppressWarnings("unused")

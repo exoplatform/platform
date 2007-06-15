@@ -41,6 +41,7 @@ public class UIListMembershipType extends UIContainer {
   
   public String getName() { return "UIMembershipList" ; }
 	
+  @SuppressWarnings("unchecked")
 	public void update(UIGrid uiGrid) throws Exception {
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     List memberships = (List)service.getMembershipTypeHandler().findMembershipTypes();
