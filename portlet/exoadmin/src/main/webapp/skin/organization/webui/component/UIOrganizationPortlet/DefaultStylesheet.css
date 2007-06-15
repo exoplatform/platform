@@ -248,6 +248,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
 	margin: 10px auto;
+	height: 100%;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIAction  {

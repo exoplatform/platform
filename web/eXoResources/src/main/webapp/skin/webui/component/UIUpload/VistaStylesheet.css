@@ -26,7 +26,6 @@
 .ProgressBar {
 	float: left;
 	width: 230px;
-	margin-left: 10px;
 }
 
 .ProgressBarLeft {
@@ -75,7 +74,6 @@
 	line-height: 12px;
 	vertical-align: middle;
 	width: 215px;
-	padding: 0px 0px 0px 8px;
 }
 
 .RemoveFile {
