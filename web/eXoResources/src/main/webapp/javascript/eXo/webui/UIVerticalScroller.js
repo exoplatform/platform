@@ -103,7 +103,7 @@ UIVerticalScroller.prototype.scrollUp = function(element, containerClass, itemCl
 	var downButton = this.DOMUtil.findPreviousElementByTagName(element,'div') ;
 	this.items[this.index - 1].style.display = "block" ;
 	downButton.className = this.enableDownClass ;//"Icon ScrollDownButton" ;
-	this.items[j + this.index - 1].style.display = "none" ;
+	if((j + this.index) > 0)this.items[j + this.index - 1].style.display = "none" ;
 	this.index -- ;
 	height = 0;
 	for(var i = 0 ; i < this.itemSize ; i ++ ) {
