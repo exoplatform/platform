@@ -1,11 +1,13 @@
 package org.exoplatform.portal.webui.portal;
 
+import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.Query;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -42,11 +44,29 @@ public class UIPortalBrowser extends UIContainer {
 
   public void loadPortalConfigs() throws Exception {    
     DataStorage service = getApplicationComponent(DataStorage.class) ;
-    List<PortalConfig> configs = service.getAllPortalConfig();
-    PageList pagelist = new ObjectPageList(configs, 10);
+    //TODO: Tung.Pham modified
+    //-------------------------------------------------------
+    //List<PortalConfig> configs = service.getAllPortalConfig();
+    //PageList pagelist = new ObjectPageList(configs, 10);
+    UserACL userACL = getApplicationComponent(UserACL.class) ;
+    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
+    Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, PortalConfig.class) ;
+    PageList pageList = service.find(query) ;
+    pageList.setPageSize(10) ;
+    int i = 1 ;
+    while(i <= pageList.getAvailablePage()) {
+      List<?> list = pageList.getPage(i) ;
+      Iterator<?> itr = list.iterator() ;
+      while(itr.hasNext()) {
+        PortalConfig config = (PortalConfig)itr.next() ;
+        if(!userACL.hasViewPermission(config.getCreator(), accessUser, config.getAccessPermissions())) itr.remove() ;
+      }
+      i ++ ;
+    }
+    //-------------------------------------------------------
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     uiGrid.setUseAjax(false);
-    uiGrid.getUIPageIterator().setPageList(pagelist);
+    uiGrid.getUIPageIterator().setPageList(pageList);
   } 
 
   static public class DeletePortalActionListener extends EventListener<UIPortalBrowser> {

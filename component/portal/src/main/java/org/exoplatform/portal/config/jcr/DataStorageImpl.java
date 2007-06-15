@@ -5,7 +5,6 @@
 package org.exoplatform.portal.config.jcr;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -105,23 +104,23 @@ public class DataStorageImpl implements DataStorage {
     return portalConfig;
   }
   
-  public List<PortalConfig> getAllPortalConfig() throws Exception{
-    Session session = jcrRegService_.getSession();
-    Node appNode = jcrRegService_.getApplicationRegistryNode(session, PORTAL_DATA);
-    List<PortalConfig> configs = new ArrayList<PortalConfig>();
-    NodeIterator iterator = appNode.getNodes();
-    while(iterator.hasNext()){
-      Node portalNode = iterator.nextNode();
-      if(!portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)) {
-        continue;
-      }
-      Node configNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
-      PortalConfig portalConfig = mapper_.toPortalConfig(configNode) ;
-      configs.add(portalConfig);
-    }
-    session.logout();
-    return configs;
-  }
+//  public List<PortalConfig> getAllPortalConfig() throws Exception{
+//    Session session = jcrRegService_.getSession();
+//    Node appNode = jcrRegService_.getApplicationRegistryNode(session, PORTAL_DATA);
+//    List<PortalConfig> configs = new ArrayList<PortalConfig>();
+//    NodeIterator iterator = appNode.getNodes();
+//    while(iterator.hasNext()){
+//      Node portalNode = iterator.nextNode();
+//      if(!portalNode.hasNode(PORTAL_CONFIG_FILE_NAME)) {
+//        continue;
+//      }
+//      Node configNode = portalNode.getNode(PORTAL_CONFIG_FILE_NAME) ;
+//      PortalConfig portalConfig = mapper_.toPortalConfig(configNode) ;
+//      configs.add(portalConfig);
+//    }
+//    session.logout();
+//    return configs;
+//  }
 
   public void remove(PortalConfig config) throws Exception {
     Session session = jcrRegService_.getSession();

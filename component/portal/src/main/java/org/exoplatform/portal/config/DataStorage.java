@@ -121,7 +121,7 @@ public interface DataStorage {
   
   public  PageList find(Query q) throws Exception ;
   
-  public List<PortalConfig> getAllPortalConfig() throws Exception;
+  //public List<PortalConfig> getAllPortalConfig() throws Exception;
   
   public void create(Widgets widgets)  throws Exception ;
   

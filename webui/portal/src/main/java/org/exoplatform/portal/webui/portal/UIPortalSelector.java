@@ -4,13 +4,16 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.portal;
 
+import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.Query;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.container.UIContainer;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -46,35 +49,30 @@ public class UIPortalSelector extends UIContainer {
     uiGrid.configure("name", BEAN_FEILD, SELECT_ACTIONS) ;
   
     DataStorage dataService = getApplicationComponent(DataStorage.class) ;
-    List<PortalConfig> configs = dataService.getAllPortalConfig() ;
-    PageList pageList = new ObjectPageList(configs, 10) ;
+    //TODO: Tung.Pham modified
+    //----------------------------------------------------------------
+    //List<PortalConfig> configs = dataService.getAllPortalConfig() ;
+    //PageList pageList = new ObjectPageList(configs, 10) ;
+    //uiGrid.getUIPageIterator().setPageList(pageList) ;
+    UserACL userACL = getApplicationComponent(UserACL.class) ;
+    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
+    Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, PortalConfig.class) ;
+    PageList pageList = dataService.find(query) ;
+    pageList.setPageSize(10) ;
+    int i = 1 ;
+    while(i <= pageList.getAvailablePage()) {
+      List<?> list = pageList.getPage(i) ;
+      Iterator<?> itr = list.iterator() ;
+      while(itr.hasNext()) {
+        PortalConfig config = (PortalConfig)itr.next() ;
+        if(!userACL.hasViewPermission(config.getCreator(), accessUser, config.getAccessPermissions())) itr.remove() ;
+      }
+      i ++ ;
+    }
     uiGrid.getUIPageIterator().setPageList(pageList) ;
+    
+    //----------------------------------------------------------------   
     //TODO check view permission for portal
   }
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
