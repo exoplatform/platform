@@ -46,8 +46,6 @@
   padding-right: 10px;
 }
 
-/* Portal Navigation sub menus */
-
 .UINavigationPortlet .MenuItemContainer {
 	white-space: nowrap;
 	border: solid #b7b7b7 1px;
@@ -55,7 +53,7 @@
 	text-align: left; 
 }
 
-.UINavigationPortlet  .MenuItemContainer .MenuItemDecorator {
+.UINavigationPortlet .MenuItemContainer .MenuItemDecorator {
   border: 1px solid #fcfcfc;
   background: #f3f3f3;
   padding-bottom: 6px;
@@ -137,9 +135,7 @@
   background: url('DefaultSkin/background/GreyItemArrow.gif') no-repeat right;
 }
 
-
 /*============ Scroll Buttons =====================*/
-
 .UINavigationPortlet .ScrollButtons {
 	float: right;
 	padding: 5px 0px;

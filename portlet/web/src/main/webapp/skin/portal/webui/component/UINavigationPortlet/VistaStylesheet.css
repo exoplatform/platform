@@ -39,7 +39,6 @@
 }
 
 /*======================== Menu Item Container ===================*/
-
 .UINavigationPortlet .MenuItemContainer {
 	text-align: left; 
 }
@@ -48,6 +47,7 @@
   height: 24px; width: auto;
   padding-left: 20px;
 }
+
 .UINavigationPortlet .MenuItemContainer .RightItemIcon {
   height: 24px; width: auto;
   padding-right: 20px;
@@ -80,7 +80,6 @@
 }
 
 /*================ Menu Item Decorator =====================*/
-
 .UINavigationPortlet .MenuItemContainer .MenuItemDecorator {
   padding: 0px;
 }
@@ -193,4 +192,3 @@
   margin: 0px 5px;
   float: left;
 }
-

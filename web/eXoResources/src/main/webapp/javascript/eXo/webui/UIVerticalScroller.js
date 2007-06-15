@@ -45,6 +45,9 @@ UIVerticalScroller.prototype.init = function() {
 
 UIVerticalScroller.prototype.scrollDown = function(element, containerClass, itemClass) {
 	var j = 0 ;
+	if(typeof(this.index) == "undefined") { 
+		this.index = 0 ; 
+	}
 	if(!this.items[this.index]) return;
 	for(var i = 0 ; i < this.itemSize ; i ++ ) {
 		if(this.items[i].style.display != "none") {			
@@ -80,6 +83,10 @@ UIVerticalScroller.prototype.scrollDown = function(element, containerClass, item
 
 UIVerticalScroller.prototype.scrollUp = function(element, containerClass, itemClass) {
 	var j = 0 ;
+		if(typeof(this.index) == "undefined") { 
+		this.index = 0 ; 
+	}
+	if(!this.items[this.index]) return;
 	for(var i = 0 ; i < this.itemSize ; i ++ ) {
 		if(this.items[i].style.display != "none") {
 			j ++ ;
