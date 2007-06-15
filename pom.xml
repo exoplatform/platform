@@ -36,6 +36,7 @@
     <module>server/tomcat/patch</module>
     <module>server/tomcat/plugin</module>
     <module>server/jboss/patch</module>
+    <module>server/jboss/plugin</module>
     <module>server/jonas/patch</module>
     <module>server/jonas/plugin</module>
   </modules>

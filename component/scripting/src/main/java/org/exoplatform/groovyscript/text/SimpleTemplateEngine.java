@@ -201,6 +201,5 @@ public class SimpleTemplateEngine extends TemplateEngine {
       }
       sw.write(";\nout.print(\"");
     }
-
   }
 }
