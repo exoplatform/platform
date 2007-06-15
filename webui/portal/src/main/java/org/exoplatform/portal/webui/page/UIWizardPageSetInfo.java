@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.page;
 
-import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.util.Util;

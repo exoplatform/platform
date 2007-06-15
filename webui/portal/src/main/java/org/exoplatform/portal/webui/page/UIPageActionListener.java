@@ -347,7 +347,7 @@ public class UIPageActionListener {
       String appWidth = event.getRequestContext().getRequestParameter("width");
       String appHeight = event.getRequestContext().getRequestParameter("height");
       
-      System.out.println("\n\n\n\n\n\n\n\n   WIDTHewrewre: "+appWidth+"  \n\n\n\n\n\n");
+//      System.out.println("\n\n\n\n\n\n\n\n   WIDTHewrewre: "+appWidth+"  \n\n\n\n\n\n");
       
       if(appWidth != null) uiComponent.getProperties().put("appWidth", appWidth);
       if(appHeight != null) uiComponent.getProperties().put("appHeight", appHeight);

@@ -402,7 +402,7 @@ UIPortal.prototype.createJSApplication = function(application, applicationId, in
 	if(application) {
 		eXo.require(application, appLocation); 
 		var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
-		eval(createApplication);
+	  eval(createApplication);
 	}
 } ;
 

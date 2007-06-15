@@ -14,7 +14,6 @@ import org.exoplatform.webui.event.Event;
 public class  PageNodeEvent<T extends UIComponent> extends Event<T> {
   
   final static  public String CHANGE_PAGE_NODE = "ChangePageNode" ;
-  //final static  public String REMOVE_NODE = "removeNode" ;
   
   private String  sourceNodeUri ; 
   private String  targetNodeUri ; 
