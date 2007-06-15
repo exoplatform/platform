@@ -159,16 +159,6 @@
   margin-left: 85px;
 }
 
-.UIAddApplication .ApplicationContentLabel {
-  font-size: 11px;
-  line-height: 16px;
-  width: 94%; margin: auto;
-}
-
-.UIAddApplication .ApplicationContentLabel .RightLabel {
-  color: #058ee6;
-}
-
 .UIAddApplication .PortletIcon {
 	float: left;
 	width: 80px; height: 80px;
@@ -178,7 +168,7 @@
 
 .UIAddApplication .TitleBarApplication {
 	background: none;
-	width: 94%; height: 20px;
+	width: 93%; height: 20px;
 	color: #1553B9; font-weight: bold;
 	border-bottom: 1px solid #dfdfdf;
 	padding: 0px 1px 3px 1px;
@@ -205,6 +195,17 @@
 	float: right;
 	cursor: pointer ;
 	margin: 0px 3px;
+}
+
+.UIAddApplication .ApplicationContentLabel {
+  font-size: 11px;
+  line-height: 16px;
+  width: 93%; margin: auto;
+  border: 1px solid red;
+}
+
+.UIAddApplication .ApplicationContentLabel .RightLabel {
+  color: #058ee6;
 }
 
 .UIAddApplication .UIItemSelector .LeftColumnStyle {

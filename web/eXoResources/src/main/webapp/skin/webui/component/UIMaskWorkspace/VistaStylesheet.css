@@ -128,7 +128,7 @@
 }
 
 .UIAddApplication .LeftColumnStyle .ItemListContainer {
-  width: 175px;
+  width: 180px;
 }
 
 .UIAddApplication .LeftColumnStyle .ItemListContainer .ItemListTitle {
@@ -146,7 +146,7 @@
 .UIAddApplication .ApplicationListContainer {
 	height: 240px; 
 	border: 1px solid #b7b7b7;
-	background: white url('VistaSkin/background/ApplicationListContainerBG1x13.png') repeat-x bottom;
+	background: white;
 	overflow: auto;
 	font-family: arial;
 	color:#555555;
@@ -208,6 +208,7 @@
 .UIAddApplication .TitleBarApplication {
 	height: 24px ;
   color: #1465B9; vertical-align: middle ;	font-weight:bold; font-size: 13px;
+  border-bottom: 1px solid #b7b7b7;
 }
 
 .UIAddApplication .UIItemSelector {
@@ -237,13 +238,13 @@
   background: #ffffff;
   border: 1px solid #a4a4a4;
   text-transform: capitalize;
-  background: white url('VistaSkin/background/ApplicationListContainerBG1x13.png') repeat-x bottom;
+  background: white;
 }
 
 .UIAddApplication .UIItemSelector .ItemDetailList {
   background: none;
   border: none;
-  margin-left: 180px;
+  margin-left: 185px;
 }
 
 .UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {

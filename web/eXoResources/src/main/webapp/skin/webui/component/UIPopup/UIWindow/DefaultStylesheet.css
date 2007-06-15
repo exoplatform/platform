@@ -113,27 +113,27 @@
 
 .UIWindow .MiddleDecoratorLeft {
   padding-left: 12px ;
-  background: url('/eXoResources/background/DefaultSkin/LeftMiddleWindow.png') repeat-y left ;
+  background: url('DefaultSkin/background/LeftMiddleWindow.png') repeat-y left ;
 }
 
 .UIWindow .MiddleDecoratorRight {
   padding-right: 11px ;
-  background: url('/eXoResources/background/DefaultSkin/RightMiddleWindow.png') repeat-y right ;
+  background: url('DefaultSkin/background/RightMiddleWindow.png') repeat-y right ;
 }
 
 .UIWindow .BottomDecoratorLeft {
   padding-left: 12px ;
-  background: url('/eXoResources/background/DefaultSkin/LeftBottomWindow.png') no-repeat left ;
+  background: url('DefaultSkin/background/LeftBottomWindow.png') no-repeat left ;
 }
 
 .UIWindow .BottomDecoratorRight {
   padding-right: 11px ;
-  background: url('/eXoResources/background/DefaultSkin/RightBottomWindow.png') no-repeat right ;
+  background: url('DefaultSkin/background/RightBottomWindow.png') no-repeat right ;
 }
 
 .UIWindow .BottomDecoratorCenter {
   height: 30px ;
-  background: url('/eXoResources/background/DefaultSkin/CenterBottomWindow.png') repeat-x ;
+  background: url('DefaultSkin/background/CenterBottomWindow.png') repeat-x ;
 }
 
 .UIWindow .WindowPortletInfo .Icon {
@@ -151,17 +151,17 @@
 
 .UIWindow .WindowBarLeft {
   padding-left: 12px ;
-  background: url('/eXoResources/background/DefaultSkin/LeftWindowBar.png') no-repeat left ;
+  background: url('DefaultSkin/background/LeftWindowBar.png') no-repeat left ;
 }
 
 .UIWindow .WindowBarRight {
   padding-right: 11px ;
-  background: url('/eXoResources/background/DefaultSkin/RightWindowBar.png') no-repeat right ;
+  background: url('DefaultSkin/background/RightWindowBar.png') no-repeat right;
 }
 
 .UIWindow .WindowBarCenter {
   height: 29px ;
-  background: url('/eXoResources/background/DefaultSkin/CenterWindowBar.png') repeat-x ;
+  background: url('DefaultSkin/background/CenterWindowBar.png') repeat-x ;
 }
 
 /*======================== UIPageBody ================================*/

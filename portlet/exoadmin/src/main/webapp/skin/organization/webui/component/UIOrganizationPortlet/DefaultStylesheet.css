@@ -242,6 +242,10 @@
   margin: auto;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .UIForm .FormContainer {
+	width: 300px;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
 	margin: 10px auto;
 }

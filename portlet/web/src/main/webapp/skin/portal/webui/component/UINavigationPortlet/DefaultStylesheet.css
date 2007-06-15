@@ -17,6 +17,7 @@
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
   height: 28px;
+  position: relative;
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
@@ -52,9 +53,6 @@
 	border: solid #b7b7b7 1px;
 	background: #f3f3f3;
 	text-align: left; 
-	display: block;
-	visibility: visible;
-	position: relative;
 }
 
 .UINavigationPortlet  .MenuItemContainer .MenuItemDecorator {
@@ -88,21 +86,21 @@
 	width: auto; 
 }
 
-.UINavigationPortlet .MenuItemContainer .NormalItem .ItemIcon {
+.UINavigationPortlet .MenuItemContainer .ItemIcon {
   height: 24px; width: auto;
   padding-left: 20px;
   margin-left: 5px;
 }
 
-.UINavigationPortlet .MenuItemContainer .NormalItem .MenuItemLabel {
+.UINavigationPortlet .MenuItemContainer .MenuItemLabel {
   line-height: 24px; 
-  padding: 0px 5px 0px 3px;
+  padding: 0px 5px 0px 3px; 
+  font-weight: normal;
 }
 
 .UINavigationPortlet .MenuItemContainer .NormalItem a {
   color: #333333;
   line-height: 24px;
-  font-weight: normal;
 }
 
 .UINavigationPortlet .MenuItemContainer .NormalItem .RightItemIcon {
@@ -111,38 +109,15 @@
   background: url('DefaultSkin/background/GreyItemArrow.gif') no-repeat right;
 }
 
-.UINavigationPortlet .MenuItemContainer .OverItem .ItemIcon {
-  height: 24px; width: auto;
-  padding-left: 20px;
-  margin-left: 5px;
-}
-
-.UINavigationPortlet .MenuItemContainer .OverItem .MenuItemLabel {
-  line-height: 24px;
-  padding: 0px 5px 0px 3px;
-}
-
 .UINavigationPortlet .MenuItemContainer .OverItem a {
   color: #3e8df0;
   line-height: 24px;
-  font-weight: normal;
 }
 
 .UINavigationPortlet .MenuItemContainer .OverItem .RightItemIcon {
   height: 24px; width: auto;
   padding-right: 20px;
   background: url('DefaultSkin/background/GreyItemArrow.gif') no-repeat right;
-}
-
-.UINavigationPortlet .MenuItemContainer .SelectedItem .ItemIcon {
-  height: 24px; width: auto;
-  padding-left: 20px;
-  margin-left: 5px;
-}
-
-.UINavigationPortlet .MenuItemContainer .SelectedItem .MenuItemLabel {
-  line-height: 24px;
-  padding: 0px 5px 0px 3px;
 }
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
@@ -154,7 +129,6 @@
 .UINavigationPortlet .MenuItemContainer .SelectedItem a {
   color: #3e8df0;
   line-height: 24px;
-  font-weight: normal;  
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem .RightItemIcon {

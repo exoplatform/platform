@@ -1,7 +1,6 @@
 .UINavigationPortlet {
   height: 48px;
   font-size: 11px;
-  letter-spacing: 0.5px;
 }
 
 .UINavigationPortlet .UINavigationBar {
@@ -27,6 +26,7 @@
 .UINavigationPortlet .UIHorizontalTabs  {
   height: 41px;
   background: none;
+  position: relative;
 }
 
 .UINavigationPortlet .UIHorizontalTabs .TabsContainer {
@@ -37,7 +37,6 @@
 /* Portal Navigation sub menus */
 
 .UINavigationPortlet .MenuItemContainer {
-	overflow: visible;
 	white-space: nowrap;
 	text-align: left; 
 }
@@ -80,12 +79,9 @@
 .UINavigationPortlet .MenuItemContainer .MenuItem {
 	white-space: nowrap;
 	cursor: pointer;
-	line-height: 26px; 
-	text-align: left;
 }
 
 .UINavigationPortlet .MenuItemContainer .NormalItem {
-	line-height: 25px; height: 25px;
 	border-bottom: 1px solid #dbdbdb;
 }
 
@@ -101,37 +97,15 @@
 	border-bottom: 1px solid #dbdbdb;
 }
 
-.UINavigationPortlet .MenuItemContainer .NormalItem .ItemIcon {
+.UINavigationPortlet .MenuItemContainer .ItemIcon {
   line-height: 25px; 
   padding-left: 20px;
-  margin-left: 6px;
+  margin-left: 4px;
 }
 
-.UINavigationPortlet .MenuItemContainer .NormalItem .MenuItemLabel {
+.UINavigationPortlet .MenuItemContainer .MenuItemLabel {
   line-height: 25px; 
-  padding: 0px 5px 0px 3px;
-}
-
-.UINavigationPortlet .MenuItemContainer .NormalItem a {
-  color: #1d1d1d;
-  line-height: 25px;
-}
-
-.UINavigationPortlet .MenuItemContainer .NormalItem .RightItemIcon {
-  line-height: 25px; 
-  padding-right: 20px;
-  background: url('MacSkin/icons/GrayArrow.png') no-repeat right;
-}
-
-.UINavigationPortlet .MenuItemContainer .OverItem .ItemIcon {
-  line-height: 25px; 
-  padding-left: 20px;
-  margin-left: 6px;
-}
-
-.UINavigationPortlet .MenuItemContainer .OverItem .MenuItemLabel {
-  line-height: 25px;
-  padding: 0px 5px 0px 3px;
+  padding: 0px 6px 0px 0px;
 }
 
 .UINavigationPortlet .MenuItemContainer .OverItem a {
@@ -145,21 +119,21 @@
   background: url('MacSkin/icons/WhiteArrow.png') no-repeat right;
 }
 
-.UINavigationPortlet .MenuItemContainer .SelectedItem .ItemIcon {
-  line-height: 25px; 
-  padding-left: 20px;
-  margin-left: 6px;
-}
-
-.UINavigationPortlet .MenuItemContainer .SelectedItem .MenuItemLabel {
-  line-height: 25px;
-  padding: 0px 5px 0px 3px;
-}
-
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
   line-height: 25px ;
   background: url('/eXoResources/icons/16x16/MacSkin/DefaultPageIcon.png') no-repeat left center;
-  padding: 0px 0px 0px 22px ;
+  padding: 0px 0px 0px 20px ;
+}
+
+.UINavigationPortlet .MenuItemContainer .NormalItem a {
+  color: #1d1d1d;
+  line-height: 25px;
+}
+
+.UINavigationPortlet .MenuItemContainer .NormalItem .RightItemIcon {
+  line-height: 25px; 
+  padding-right: 20px;
+  background: url('MacSkin/icons/GrayArrow.png') no-repeat right;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem a {
