@@ -107,7 +107,7 @@ public class UserACL {
     String membership = permission.getMembership() ;
     MembershipHandler handler = orgService_.getMembershipHandler();
     if(membership == null || "*".equals(membership)) {
-      Collection c = handler.findMembershipsByUserAndGroup(remoteUser, groupId) ;
+      Collection<?> c = handler.findMembershipsByUserAndGroup(remoteUser, groupId) ;
       if(c == null) return false ;
       return c.size() > 0 ;
     } 
@@ -125,7 +125,7 @@ public class UserACL {
     String membership = permission.getMembership() ;
     MembershipHandler handler = orgService_.getMembershipHandler();
     if(membership == null || "*".equals(membership)) {
-      Collection c = handler.findMembershipsByUserAndGroup(remoteUser, groupId) ;
+      Collection<?> c = handler.findMembershipsByUserAndGroup(remoteUser, groupId) ;
       if(c == null) return false ;
       return c.size() > 0 ;
     } 

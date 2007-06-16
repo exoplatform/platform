@@ -49,11 +49,6 @@ public class UIPortalSelector extends UIContainer {
     uiGrid.configure("name", BEAN_FEILD, SELECT_ACTIONS) ;
   
     DataStorage dataService = getApplicationComponent(DataStorage.class) ;
-    //TODO: Tung.Pham modified
-    //----------------------------------------------------------------
-    //List<PortalConfig> configs = dataService.getAllPortalConfig() ;
-    //PageList pageList = new ObjectPageList(configs, 10) ;
-    //uiGrid.getUIPageIterator().setPageList(pageList) ;
     UserACL userACL = getApplicationComponent(UserACL.class) ;
     String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
     Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, PortalConfig.class) ;
@@ -64,15 +59,13 @@ public class UIPortalSelector extends UIContainer {
       List<?> list = pageList.getPage(i) ;
       Iterator<?> itr = list.iterator() ;
       while(itr.hasNext()) {
-        PortalConfig config = (PortalConfig)itr.next() ;
-        if(!userACL.hasViewPermission(config.getCreator(), accessUser, config.getAccessPermissions())) itr.remove() ;
+        PortalConfig pConfig = (PortalConfig)itr.next() ;
+        String [] permission = pConfig.getAccessPermissions();
+        if(!userACL.hasViewPermission(pConfig.getCreator(), accessUser, permission)) itr.remove() ;
       }
-      i ++ ;
+      i++ ;
     }
     uiGrid.getUIPageIterator().setPageList(pageList) ;
-    
-    //----------------------------------------------------------------   
-    //TODO check view permission for portal
   }
   
 }

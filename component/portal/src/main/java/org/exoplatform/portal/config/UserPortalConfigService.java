@@ -80,8 +80,8 @@ public class UserPortalConfigService {
     navigation = storage_.getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser) ;
     if (navigation != null) navigations.add(navigation) ;
 
-    Collection memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
-    Iterator mitr = memberships.iterator() ;
+    Collection<?> memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
+    Iterator<?> mitr = memberships.iterator() ;
     
     boolean newNav = true;
     while(mitr.hasNext()) {
@@ -127,14 +127,6 @@ public class UserPortalConfigService {
     portalConfig.getPredefinedOwner().add(portalName);
     newPortalConfigListener_.initPortalTypeDB(portalConfig);
   }
-  
-  /*private void replacePageReference(List<PageNode> nodes, String oldID, String newID) {
-    if(nodes == null) return;
-    for(PageNode node : nodes) {
-      if(oldID.equals(node.getPageReference())) node.setPageReference(newID);      
-      replacePageReference(node.getChildren(), oldID, newID);
-    }
-  }*/
   
   /**
    * This method should remove the PortalConfig, Page and PageNavigation  that  belong to the portal 
