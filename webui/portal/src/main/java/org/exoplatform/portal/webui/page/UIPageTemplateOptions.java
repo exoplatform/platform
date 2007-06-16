@@ -37,7 +37,7 @@ import org.jibx.runtime.IUnmarshallingContext;
 )
 public class UIPageTemplateOptions extends UIFormInputItemSelector {
   
-  private SelectItemOption selectedItemOption_  = null;
+  private SelectItemOption<?> selectedItemOption_  = null;
 
   @SuppressWarnings("unchecked")
   public UIPageTemplateOptions(InitParams initParams) throws Exception {
@@ -49,7 +49,7 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
     
     SelectItemCategory category = getSelectedCategory();
     if(category == null) return ;
-    SelectItemOption itemOption = category.getSelectedItemOption();
+    SelectItemOption<?> itemOption = category.getSelectedItemOption();
     if(itemOption == null) return ;
     selectedItemOption_ = itemOption;
     
@@ -66,10 +66,10 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
   
   public void setSelectOptionItem(String value) {
     for(SelectItemCategory itemCategory : categories_){      
-      for(SelectItemOption itemOption : itemCategory.getSelectItemOptions()){
+      for(SelectItemOption<?> itemOption : itemCategory.getSelectItemOptions()){
         if(itemOption.getLabel().equals(value)){
           selectedItemOption_ = itemOption;
-          for(SelectItemOption item : itemCategory.getSelectItemOptions()){
+          for(SelectItemOption<?> item : itemCategory.getSelectItemOptions()){
             item.setSelected(false);
           }
           itemOption.setSelected(true);

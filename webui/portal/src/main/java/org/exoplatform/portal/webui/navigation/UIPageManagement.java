@@ -50,7 +50,7 @@ public class UIPageManagement extends UIManagement {
     PageNode node = uiNodeSelector.getSelectedPageNode();
     if (node == null) return;
 
-    Class[] childrenToRender = { UIPageNodeSelector.class, UIPageNavigationControlBar.class};
+    Class<?>[] childrenToRender = { UIPageNodeSelector.class, UIPageNavigationControlBar.class};
     setRenderedChildrenOfTypes(childrenToRender);
 
     UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();

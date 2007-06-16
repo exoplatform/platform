@@ -233,7 +233,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       }
       
       uiWizard.updateWizardComponent();
-      Class [] childrenToRender = {UIPageEditBar.class, UIPortletOptions.class}; 
+      Class<?> [] childrenToRender = {UIPageEditBar.class, UIPortletOptions.class}; 
       uiParent.setRenderedChildrenOfTypes(childrenToRender);
       uiPageEditBar.setUIPage(uiPage);      
       uiPageTemplateOptions.setSelectedOption(null);

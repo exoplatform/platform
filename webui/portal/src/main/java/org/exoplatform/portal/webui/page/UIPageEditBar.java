@@ -86,11 +86,11 @@ public class UIPageEditBar extends UIToolbar {
       uiEditBar.showUIPage();      
 
       UIPageManagement uiPManagement = uiEditBar.getParent();
-      Class [] childrenToRender = {};
+      Class<?> [] childrenToRender = {};
       if(uiPManagement.getChild(UIPageNavigationControlBar.class).isRendered()) {
-        childrenToRender = new Class[]{UIPageEditBar.class, UIContainerConfigOptions.class, UIPageNavigationControlBar.class};
+        childrenToRender = new Class<?>[]{UIPageEditBar.class, UIContainerConfigOptions.class, UIPageNavigationControlBar.class};
       } else {
-        childrenToRender = new Class[]{UIPageEditBar.class, UIContainerConfigOptions.class, UIPageBrowseControlBar.class};
+        childrenToRender = new Class<?>[]{UIPageEditBar.class, UIContainerConfigOptions.class, UIPageBrowseControlBar.class};
       }
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       
@@ -110,7 +110,7 @@ public class UIPageEditBar extends UIToolbar {
       uiEditBar.showUIPage();
 
       UIPageManagement uiPManagement = uiEditBar.getParent();
-      Class [] childrenToRender = {};
+      Class<?> [] childrenToRender = {};
       if(uiPManagement.getChild(UIPageNavigationControlBar.class).isRendered()) {
         childrenToRender = new Class[]{UIPageEditBar.class, UIPortletOptions.class, UIPageNavigationControlBar.class};
       } else {
