@@ -92,7 +92,7 @@ public class UIPortal extends UIContainer {
   public void setSelectedPaths(List<PageNode> nodes){  selectedPaths_ = nodes; }
   
   public PageNavigation getSelectedNavigation() { return selectedNavigation_; }
-  public void setSelectedNavigation_(PageNavigation selectedNavigation) { 
+  public void setSelectedNavigation(PageNavigation selectedNavigation) { 
     selectedNavigation_ = selectedNavigation;
   }
 

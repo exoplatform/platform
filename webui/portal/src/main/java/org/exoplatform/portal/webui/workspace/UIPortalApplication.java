@@ -143,7 +143,6 @@ public class UIPortalApplication extends UIApplication {
     }
 
     nodePath = nodePath.trim();
-    if(nodePath.charAt(0) == '/') nodePath = nodePath.substring(1);
     if(nodePath.equals(nodePath_)) {
       super.processDecode(context);
       return;

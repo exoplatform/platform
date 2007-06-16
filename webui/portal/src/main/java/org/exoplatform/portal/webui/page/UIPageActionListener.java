@@ -41,40 +41,55 @@ import org.exoplatform.webui.event.EventListener;
  */
 public class UIPageActionListener {
 
+  @SuppressWarnings("unchecked")
   static public class ChangePageNodeActionListener  extends EventListener {
     
-    private UIPortal uiPortal_ ;
+    private UIPortal uiPortal ;
     private List<PageNode> selectedPaths_;
     
     public void execute(Event event) throws Exception {     
-      PageNodeEvent pnevent = (PageNodeEvent) event ;
-      uiPortal_ = (UIPortal) event.getSource();
+      PageNodeEvent<?> pnevent = (PageNodeEvent<?>) event ;
+      uiPortal = (UIPortal) event.getSource();
+      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
+
+      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      PortalRequestContext pcontext = Util.getPortalRequestContext();     
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
+      uiPortal.setRenderSibbling(UIPortal.class);
+      pcontext.setFullRender(true);
+
+      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      if(uiControl != null) {
+        UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
+        pcontext.addUIComponentToUpdateByAjax(uiControl);      
+        if(UIWelcomeComponent.class.isInstance(uiWorking.getUIComponent())) {
+          uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
+        }
+      }
+
       selectedPaths_ = new ArrayList<PageNode>(5);
 
-      List<PageNavigation> navigations = uiPortal_.getNavigations();
+      List<PageNavigation> navigations = uiPortal.getNavigations();
       String uri = pnevent.getTargetNodeUri();
+
+      if(uri == null || (uri = uri.trim()).length() < 1) return;
+      
+      if(uri.length() == 1 && uri.charAt(0) == '/') {
+        PageNavigation selectedNav = navigations.get(0);
+        if(selectedNav.getNodes().size() > 0) {
+          selectedPaths_.add(selectedNav.getNode(0));
+          uiPortal.setSelectedNode(selectedNav.getNode(0));
+        }
+        uiPortal.setSelectedPaths(selectedPaths_);  
+        uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
+        return;
+      }
+      
+      if(uri.charAt(0) == '/') uri = uri.substring(1);
+
       int idx = uri.lastIndexOf("::");
-      if(idx > -1)  {
-        String navId = uri.substring(0, idx);
-        uri = uri.substring(idx+2, uri.length());
-        PageNavigation nav = null;
-        for(PageNavigation ele : navigations){
-          if(ele.getId().equals(navId)) {
-            nav = ele;
-            break;
-          }
-        }
-        if(nav != null) {
-          List<PageNode>  nodes = nav.getNodes();
-          for(PageNode node : nodes){       
-            PageNode nodeResult = searchPageNodeByUri(uri, node);
-            if(nodeResult == null) continue;
-            selectedPaths_.add(0, nodeResult);          
-            break;
-          }
-          uiPortal_.setSelectedNavigation_(nav);
-        }
-      } else {
+      if(idx < 0)  {
         for(PageNavigation nav : navigations){
           List<PageNode>  nodes = nav.getNodes();
           for(PageNode node : nodes){       
@@ -83,32 +98,39 @@ public class UIPageActionListener {
             selectedPaths_.add(0, nodeResult);          
             break;
           }
-          uiPortal_.setSelectedNavigation_(nav);
+          uiPortal.setSelectedNavigation(nav);
         }      
+        uiPortal.setSelectedPaths(selectedPaths_);     
+        uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
+        return;
       }
       
-      uiPortal_.setSelectedPaths(selectedPaths_);     
-      UIPageBody uiPageBody = uiPortal_.findFirstComponentOfType(UIPageBody.class);          
-      uiPageBody.setPageBody(uiPortal_.getSelectedNode(), uiPortal_);
-      
-      UIPortalApplication uiPortalApp = uiPortal_.getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-      PortalRequestContext pcontext = Util.getPortalRequestContext();     
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
-      uiPortal_.setRenderSibbling(UIPortal.class);
-      pcontext.setFullRender(true);
-
-      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      if(uiControl == null) return;
-      UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
-      if(uiControl != null) pcontext.addUIComponentToUpdateByAjax(uiControl);      
-      if(UIWelcomeComponent.class.isInstance(uiWorking.getUIComponent())) return;
-      uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null)) ;
+      String navId = uri.substring(0, idx);
+      uri = uri.substring(idx+2, uri.length());
+      PageNavigation nav = null;
+      for(PageNavigation ele : navigations){
+        if(ele.getId().equals(navId)) {
+          nav = ele;
+          break;
+        }
+      }
+      if(nav != null) {
+        List<PageNode>  nodes = nav.getNodes();
+        for(PageNode node : nodes){       
+          PageNode nodeResult = searchPageNodeByUri(uri, node);
+          if(nodeResult == null) continue;
+          selectedPaths_.add(0, nodeResult);          
+          break;
+        }
+        uiPortal.setSelectedNavigation(nav);
+      }
+      uiPortal.setSelectedPaths(selectedPaths_);     
+      uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
     }
 
     private PageNode searchPageNodeByUri(String uri, PageNode node){
       if(node.getUri().equals(uri)){
-        uiPortal_.setSelectedNode(node);
+        uiPortal.setSelectedNode(node);
         return node;
       }
       List<PageNode> children = node.getChildren();
