@@ -42,7 +42,11 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     UIGrid uiGrid = addChild(UIGrid.class, null, "PermissionGrid") ;
     uiGrid.configure("expression", new String[]{"groupId", "membership"}, new String[]{"Delete"});
     uiGrid.getUIPageIterator().setPageList(new ObjectPageList(new ArrayList<Permission>(), 10));
-    
+    //TODO: Tung.Pham added
+    //-------------------------------------------
+    addChild(uiGrid.getUIPageIterator()) ;
+    uiGrid.getUIPageIterator().setRendered(false) ;
+    //-------------------------------------------
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "UIGroupMembershipSelector");
     uiPopup.setWindowSize(540, 0);
     

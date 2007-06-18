@@ -72,10 +72,6 @@ public class UIPortalBrowser extends UIContainer {
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     uiGrid.setUseAjax(false);
     uiGrid.getUIPageIterator().setPageList(pageList);
-    //TODO: Tung.Pham added
-    //---------------------------
-    uiGrid.getUIPageIterator().setRendered(false) ;
-    //---------------------------
   } 
 
   static public class DeletePortalActionListener extends EventListener<UIPortalBrowser> {

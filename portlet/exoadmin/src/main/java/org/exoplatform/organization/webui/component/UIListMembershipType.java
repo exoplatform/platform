@@ -31,6 +31,10 @@ public class UIListMembershipType extends UIContainer {
     UIGrid uiGrid = addChild(UIGrid.class, null, null);
     uiGrid.setId("UIGrid");
     uiGrid.configure("name", USER_BEAN_FIELD, USER_ACTION);
+    //TODO: Tung.Pham added
+    //--------------------------------------------------------
+    uiGrid.getUIPageIterator().setId("UIListMembershipTypeIterator") ;
+    //--------------------------------------------------------
     update(uiGrid);
 	}
 	

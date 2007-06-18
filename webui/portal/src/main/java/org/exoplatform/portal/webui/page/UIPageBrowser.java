@@ -71,8 +71,11 @@ public class UIPageBrowser extends UISearch {
     super(OPTIONS);
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("pageId", BEAN_FIELD, ACTIONS) ;
+    //TODO: Tung.Pham
+    //---------------------------------------------------
     addChild(uiGrid.getUIPageIterator());
     uiGrid.getUIPageIterator().setRendered(false);
+    //---------------------------------------------------
     
     defaultValue(null) ;
   }
@@ -89,8 +92,8 @@ public class UIPageBrowser extends UISearch {
     
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     uiGrid.getUIPageIterator().setPageList(pagelist);
-    addChild(uiGrid.getUIPageIterator());
-    uiGrid.getUIPageIterator().setRendered(false);
+    //addChild(uiGrid.getUIPageIterator());
+    //uiGrid.getUIPageIterator().setRendered(false);
     UIPageIterator pageIterator = uiGrid.getUIPageIterator();
     if(pageIterator.getAvailable() == 0 ) {
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;

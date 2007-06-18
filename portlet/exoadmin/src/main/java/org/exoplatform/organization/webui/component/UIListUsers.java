@@ -8,6 +8,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
@@ -60,6 +61,10 @@ public class UIListUsers extends UISearch {
 		super(OPTIONS_) ;
     UIGrid uiGrid = addChild(UIGrid.class, null, "UIListUsers") ;
     uiGrid.configure("userName", USER_BEAN_FIELD, USER_ACTION) ;
+    //TODO: Tung.Pham added
+    //--------------------------------------------
+    uiGrid.getUIPageIterator().setId("UIListUsersIterator") ;
+    //--------------------------------------------
 		search(new Query()) ;
 	}
   
@@ -75,7 +80,13 @@ public class UIListUsers extends UISearch {
     lastQuery_ = query ;
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-    uiGrid.getUIPageIterator().setPageList(service.getUserHandler().findUsers(query)) ;
+    //TODO: Tung.Pham modified
+    //------------------------------------------------------------------
+    //uiGrid.getUIPageIterator().setPageList(service.getUserHandler().findUsers(query)) ;
+    PageList pageList = service.getUserHandler().findUsers(query) ;
+    pageList.setPageSize(10) ;
+    uiGrid.getUIPageIterator().setPageList(pageList) ;
+    //------------------------------------------------------------------    
     UIPageIterator pageIterator = uiGrid.getUIPageIterator();
     if(pageIterator.getAvailable() == 0 ) {
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;

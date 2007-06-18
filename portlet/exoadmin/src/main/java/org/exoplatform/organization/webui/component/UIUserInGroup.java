@@ -48,6 +48,11 @@ public class UIUserInGroup extends UIContainer {
   public UIUserInGroup() throws Exception {
     UIGrid uiGrid = addChild(UIGridUser.class, "UIGridUser", null) ;
     uiGrid.configure("id", USER_BEAN_FIELD, USER_ACTION) ;
+    //TODO: Tung.Pham added
+    //--------------------------------------------
+    uiGrid.getUIPageIterator().setId("UIUserInGroupIterator") ;
+    //--------------------------------------------
+
     addChild(UIGroupMembershipForm.class, null, null);
   }  
 
@@ -69,6 +74,7 @@ public class UIUserInGroup extends UIContainer {
     if(group != null) groupId = group.getId();
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     PageList pagelist = service.getUserHandler().findUsersByGroup(groupId);
+    pagelist.setPageSize(10) ;
     UIGridUser uiGrid = getChild(UIGridUser.class) ;
     uiGrid.setGroupId(groupId);
     uiGrid.getUIPageIterator().setPageList(pagelist);
