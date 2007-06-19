@@ -31,25 +31,28 @@ UIDesktop.prototype.resetZIndex = function(windowObject) {
   var uiDockbar = document.getElementById("UIDockBar") ;
   
   var maxZIndex = windowsInDesktop[0].style.zIndex ;
+ 
+  var uiPopupWindow = eXo.core.DOMUtil.findDescendantsByClass(windowObject.parentNode,'div','UIPopupWindow') ;
+  for (var i = 0; i < uiPopupWindow.length; i ++) {
+ 		if (uiPopupWindow[i].style.display == "block") return ;
+  }
+  
   for(var i = 0; i < windowsInDesktop.length; i++) {
-    if(parseInt(maxZIndex) < parseInt(windowsInDesktop[i].style.zIndex)) {
-      maxZIndex = windowsInDesktop[i].style.zIndex ;
+  	
+    if(parseInt(maxZIndex) < parseInt(windowsInDesktop[i].style.zIndex)) {    	
+      maxZIndex = windowsInDesktop[i].style.zIndex ;      
     }
     
     if(parseInt(windowsInDesktop[i].style.zIndex) > parseInt(windowObject.style.zIndex)) {
       windowsInDesktop[i].style.zIndex = parseInt(windowsInDesktop[i].style.zIndex) - 1 ;
     }
-  }
-  
+  }  
   windowObject.style.zIndex = maxZIndex ;
   uiDockbar.style.zIndex = parseInt(maxZIndex) + 1 ;
-  //uiDockbar.style.zIndex = windowsInDesktop.length ;
-  //window.status = "maxZIndex : " + maxZIndex ;
-  //alert("maxZIndex : " + maxZIndex + " windowObject.style.zIndex : " + windowObject.style.zIndex) ;
   return maxZIndex ;
 };
 
-UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
+UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {	
   if(typeof(uiWindow) == "string") this.object = document.getElementById(uiWindow) ;
   else this.object = uiWindow ;
   this.object.maxIndex = eXo.desktop.UIDesktop.resetZIndex(this.object) ;
@@ -67,8 +70,8 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
     
     /*Save Status Show Window*/
     eXo.desktop.UIWindow.saveWindowProperties(this.object, "SHOW_HIDE_WINDOW", "SHOW");
-
   }
+
   eXo.desktop.UIDockbar.containerMouseOver() ;
 };
 

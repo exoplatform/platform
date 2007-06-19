@@ -299,6 +299,7 @@ UIWindow.prototype.initDND = function(e) {
 } ;
 
 UIWindow.prototype.resizeWindow = function(e) {
+	//alert ("Test Test Test") ;
 	var UIWindow = eXo.desktop.UIWindow;
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
@@ -341,7 +342,9 @@ UIWindow.prototype.resizeWindow = function(e) {
 	}
 	
 	uiWindow.style.height = (UIWindow.originalHeight + deltaY) + "px" ;
-	
+	uiWindow.style.overflowY = "visible" ;
+	//alert(uiWindow.style.height) ;
+	//alert ("Window Height : " + UIWindow.originalHeight + " deltaY : " + deltaY) ;
 //	if((UIWindow.originalHeight + deltaY) < UIWindow.windowMinHeight) {
 //		uiWindow.style.height = UIWindow.windowMinHeight + "px" ;
 //	} else {
