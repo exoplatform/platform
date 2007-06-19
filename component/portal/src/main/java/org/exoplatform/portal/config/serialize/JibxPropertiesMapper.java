@@ -57,9 +57,9 @@ public class JibxPropertiesMapper implements IMarshaller, IUnmarshaller, IAliasa
     MarshallingContext mContext = ctx.startTagAttributes(marshallIndex, marshallName);
     mContext.attribute(marshallIndex, SIZE_ATTRIBUTE_NAME, map.size()).closeStartContent();
 
-    Iterator iter = map.entrySet().iterator();
+    Iterator<Map.Entry<String, String>> iter = map.entrySet().iterator();
     while (iter.hasNext()) {
-      Map.Entry entry = (Map.Entry)iter.next();
+      Map.Entry<String, String> entry = iter.next();
       String key = entry.getKey().toString();
       String value = entry.getValue().toString();
       if(key == null || value == null) continue;

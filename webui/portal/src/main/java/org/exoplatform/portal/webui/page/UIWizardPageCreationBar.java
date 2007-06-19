@@ -9,7 +9,6 @@ import java.io.Writer;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
-import org.exoplatform.portal.webui.page.UIPageEditBar.PagePreviewActionListener;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;

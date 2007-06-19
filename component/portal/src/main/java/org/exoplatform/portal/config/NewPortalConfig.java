@@ -13,13 +13,13 @@ import java.util.HashSet;
  */
 public class NewPortalConfig {
   
-  private HashSet predefinedOwner = new HashSet(5);
+  private HashSet<String> predefinedOwner = new HashSet<String>(5);
   private String  ownerType;
   private String  templateOwner ;
   private String  templateLocation ;
   
-  public HashSet getPredefinedOwner() {   return predefinedOwner; }
-  public void setPredefinedOwner(HashSet s) {  this.predefinedOwner = s; }
+  public HashSet<String> getPredefinedOwner() {   return predefinedOwner; }
+  public void setPredefinedOwner(HashSet<String> s) {  this.predefinedOwner = s; }
   
   public String getTemplateLocation() {  return templateLocation; }
   public void setTemplateLocation(String s) { this.templateLocation = s; }

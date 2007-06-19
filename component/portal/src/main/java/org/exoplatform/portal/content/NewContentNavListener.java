@@ -55,10 +55,10 @@ public class NewContentNavListener extends BaseComponentPlugin {
   }
   
   private void initDB() throws Exception {
-    HashSet users = config_.getPredefinedOwner();
-    Iterator iter  = users.iterator();
+    HashSet<String> users = config_.getPredefinedOwner();
+    Iterator<String> iter  = users.iterator();
     while(iter.hasNext()){
-      String user = (String)iter.next();
+      String user = iter.next();
       createContentConfigForUser(user);
     }
   }

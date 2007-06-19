@@ -38,7 +38,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   
   private ConfigurationManager cmanager_ ;
   private DataStorage pdcService_;  
-  private List configs;
+  private List<?> configs;
   
   private String defaultPortal ;
   
@@ -84,10 +84,10 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   }
   
   public void initUserTypeDB(NewPortalConfig config) throws Exception {
-    HashSet owners = config.getPredefinedOwner();
-    Iterator iter  = owners.iterator();
+    HashSet<String> owners = config.getPredefinedOwner();
+    Iterator<String> iter  = owners.iterator();
     while(iter.hasNext()){
-      String owner = (String)iter.next();
+      String owner = iter.next();
       createPage(config, owner);
       createPageNavigation(config, owner);
       createWidgets(config, owner);
@@ -95,10 +95,10 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   }
   
   public void initGroupTypeDB(NewPortalConfig config) throws Exception {
-    HashSet owners = config.getPredefinedOwner();
-    Iterator iter  = owners.iterator();
+    HashSet<String> owners = config.getPredefinedOwner();
+    Iterator<String> iter  = owners.iterator();
     while(iter.hasNext()){
-      String owner = (String)iter.next();
+      String owner = iter.next();
       createPage(config, owner);
       createPageNavigation(config, owner);
       createPortletPreferences(config, owner);
@@ -106,10 +106,10 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   }
   
   public void initPortalTypeDB(NewPortalConfig config) throws Exception {
-    HashSet owners = config.getPredefinedOwner();
-    Iterator iter  = owners.iterator();
+    HashSet<String> owners = config.getPredefinedOwner();
+    Iterator<String> iter  = owners.iterator();
     while(iter.hasNext()){
-      String owner = (String)iter.next();
+      String owner = iter.next();
       createPortalConfig(config, owner);
       createPage(config, owner);
       createPageNavigation(config, owner);

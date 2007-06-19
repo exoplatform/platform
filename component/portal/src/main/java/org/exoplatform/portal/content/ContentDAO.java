@@ -47,6 +47,6 @@ public interface ContentDAO {
   
   public String toXML(Object object) throws Exception;
   
-  public Object fromXML(String xml, Class type) throws Exception;
+  public Object fromXML(String xml, Class<?> type) throws Exception;
   
 }

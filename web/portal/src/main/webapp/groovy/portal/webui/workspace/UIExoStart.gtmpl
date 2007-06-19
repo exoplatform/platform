@@ -54,7 +54,7 @@
                 <div class="StartMenuBG" style="padding-bottom: 6px">
       """ ;
       for(child in node.getChildren()) {
-        if(child.getChildren() != null && child.getChildren().size() > 0) renderPageNode(child) ;
+        if(child.getChildren() != null && child.getChildren().size() > 0) renderPageNode(nav, child) ;
         else renderSinglePageNode(nav, child) ;
       }
       print """

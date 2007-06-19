@@ -69,7 +69,7 @@ public class DownloadService {
     }
     
     @SuppressWarnings("unused")
-    protected boolean removeEldestEntry(Map.Entry eldest) {
+    protected boolean removeEldestEntry(Map.Entry<String, DownloadResource> eldest) {
       return size() > maxSize_ ;
     }
   }

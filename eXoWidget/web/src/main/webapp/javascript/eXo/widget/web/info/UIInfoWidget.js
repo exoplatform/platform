@@ -18,6 +18,7 @@ UIInfoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 	var DOMUtil = eXo.core.DOMUtil ;
 
 	var appElement = document.getElementById("UIInfoWidget");
+	if(appElement == null) return;
 	appDescriptor.widget = {
 		positionX : appElement.getAttribute('posX'),
 		positionY : appElement.getAttribute('posY'),
@@ -42,12 +43,12 @@ UIInfoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 };
 
 UIInfoWidget.prototype.initApplication = function(applicationId, instanceId) {
-//	alert("INIT UIINFO WIDGET");
 	var DOMUtil = eXo.core.DOMUtil;
 	
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.info.UIInfoWidget);
 	var appInstance = appDescriptor.createApplication();
+	if(appInstance == null) return;
 	appInstance.id = appInstance.applicationDescriptor.widget.uiInfoWidget.appId;
 	var appElement = appInstance.applicationDescriptor.widget.uiInfoWidget.temporaty;
 	

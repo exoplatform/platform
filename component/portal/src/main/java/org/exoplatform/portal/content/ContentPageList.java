@@ -38,6 +38,6 @@ public class ContentPageList<T extends ContentItem> extends PageList {
     currentListPage_ = list;
   }
   
-  public List getAll(){ return null; }
+  public List<?> getAll(){ return null; }
   
 }

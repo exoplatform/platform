@@ -117,7 +117,7 @@ public interface DataStorage {
   
   public void remove(PortletPreferences portletPreferences) throws Exception ;
   
-  public  PageList find(Query q) throws Exception ;
+  public  PageList find(Query<?> q) throws Exception ;
   
   public void create(Widgets widgets)  throws Exception ;
   

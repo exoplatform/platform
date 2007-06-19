@@ -63,7 +63,7 @@ public class UIPageActionListener {
       if(uiControl != null) {
         UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
         pcontext.addUIComponentToUpdateByAjax(uiControl);      
-        if(UIWelcomeComponent.class.isInstance(uiWorking.getUIComponent())) {
+        if(!UIWelcomeComponent.class.isInstance(uiWorking.getUIComponent())) {
           uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
         }
       }

@@ -24,11 +24,7 @@ import org.exoplatform.web.command.Command;
  */
 public class DownloadHandler extends Command {
   
-  static String[]  PATHS = {"/download"} ;
-  
   private String resourceId;
-
-  public String[] getPath() { return PATHS ; }
 
   @SuppressWarnings("unused")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {

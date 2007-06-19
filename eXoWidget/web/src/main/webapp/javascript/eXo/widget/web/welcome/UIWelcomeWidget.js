@@ -18,7 +18,7 @@ UIWelcomeWidget.prototype.createApplicationInstance = function(appDescriptor) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	
 	var app = document.getElementById("UIWelcomeWidget");
-
+ 	if(app == null) return;
 	appDescriptor.widget = {
 		positionX : app.getAttribute('posX'),
 		positionY : app.getAttribute('posY'),
@@ -49,7 +49,7 @@ UIWelcomeWidget.prototype.initApplication = function(applicationId, instanceId) 
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.welcome.UIWelcomeWidget) ;
 	var appInstance = appDescriptor.createApplication();
-	
+	if(appInstance == null) return;
 	appInstance.id = appInstance.applicationDescriptor.widget.uiWelcomeWidget.appId ;
 	var app = appInstance.applicationDescriptor.widget.uiWelcomeWidget.temporary ;
 	

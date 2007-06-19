@@ -17,6 +17,7 @@ function UIStickerWidget() {
 UIStickerWidget.prototype.createApplicationInstance = function(appDescriptor) {
 	var DOMUtil = eXo.core.DOMUtil ;	
 	var appElement = document.getElementById("UIStickerWidget");
+	if(appElement == null) return;
 	appDescriptor.widget = {
 		positionX : appElement.getAttribute('posX'),
 		positionY : appElement.getAttribute('posY'),
@@ -46,6 +47,7 @@ UIStickerWidget.prototype.initApplication = function(applicationId, instanceId) 
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.widget.web.sticker.UIStickerWidget);
 	var appInstance = appDescriptor.createApplication();
+	if(appInstance == null) return;
 	appInstance.id = appInstance.applicationDescriptor.widget.uiStickerWidget.appId;
 	
 	var appElement = appInstance.applicationDescriptor.widget.uiStickerWidget.temporaty;

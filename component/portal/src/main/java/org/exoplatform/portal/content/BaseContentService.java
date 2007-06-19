@@ -88,12 +88,12 @@ public abstract class BaseContentService {
     return new String(os.toByteArray()) ;
   }
   
-  public Object fromXML(String xml, Class type) throws Exception {
+  public Object fromXML(String xml, Class<?> type) throws Exception {
     ByteArrayInputStream is = new ByteArrayInputStream( xml.getBytes()) ;    
     return unmarshall(is, type) ;
   }
   
-  private Object unmarshall(InputStream is, Class type) throws Exception {
+  private Object unmarshall(InputStream is, Class<?> type) throws Exception {
     IBindingFactory bfact = BindingDirectory.getFactory(type);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
     return uctx.unmarshalDocument(is, null);
