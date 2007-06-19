@@ -294,6 +294,7 @@ public class UIExoStart extends UIComponent {
     public void execute(Event<UIExoStart> event) throws Exception {
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
       UIPortal uiPortal = Util.getUIPortal();
+      uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
       if(uiPageBody != null) {
         if(uiPageBody.getMaximizedUIComponent() != null) {
