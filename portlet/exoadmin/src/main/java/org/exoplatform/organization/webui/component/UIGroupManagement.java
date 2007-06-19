@@ -108,6 +108,11 @@ public class UIGroupManagement extends UIContainer {
         uiApp.addMessage(new ApplicationMessage("UIGroupManagement.msg.Edit", null)) ;
         return;
       }
+      UIGroupForm groupForm = uiGroupManagement.findFirstComponentOfType(UIGroupForm.class);
+      if(groupForm.getGroup()!= null ){
+        uiApp.addMessage(new ApplicationMessage("UIGroupManagement.msg.Delete", null)) ;
+        return;
+      }
       String parentId = currentGroup.getParentId();
       OrganizationService service = uiGroupManagement.getApplicationComponent(OrganizationService.class) ;
       service.getGroupHandler().removeGroup(currentGroup, true);

@@ -87,6 +87,9 @@ public class UIGroupForm extends UIForm {
       if(currentGroup != null) {
         uiGroupForm.invokeSetBindingBean(currentGroup);
         service.getGroupHandler().saveGroup(currentGroup, false);
+        uiGroupForm.reset();
+        uiGroupForm.setGroup(null);
+        uiGroupForm.setRenderSibbling(UIGroupInfo.class) ;
         return ;
       }    
       
@@ -118,6 +121,8 @@ public class UIGroupForm extends UIForm {
         uiGroupExplorer.changeGroup(currentGroupId) ;
       }      
       uiGroupForm.reset();
+      uiGroupForm.setGroup(null);
+      uiGroupForm.setRenderSibbling(UIGroupInfo.class) ;
     }    
   }
   
@@ -125,6 +130,7 @@ public class UIGroupForm extends UIForm {
     public void execute(Event<UIGroupForm> event) throws Exception {
       UIGroupForm uiGroupForm = event.getSource() ;
       uiGroupForm.reset();
+      uiGroupForm.setGroup(null);
       uiGroupForm.setRenderSibbling(UIGroupInfo.class) ;
       event.getRequestContext().setProcessRender(true) ;
     }
