@@ -97,11 +97,6 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/FloppyDisk.gif') ;
 }
 
-.Remove16x16Icon {
-  width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') ;
-}
-
 .Cancel16x16Icon {
   width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/RedCrossCircle.gif') ;

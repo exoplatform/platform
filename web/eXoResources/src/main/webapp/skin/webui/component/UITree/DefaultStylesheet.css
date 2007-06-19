@@ -69,6 +69,7 @@
 
 .UITree .TreeContainer .Node .NodeLabel a:hover {
   color: orange; font-weight: bold;
+  margin: 2px 0px 0px 4px ;
 }
 
 .UITree .TreeContainer .NodeSelected {
