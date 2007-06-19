@@ -73,7 +73,7 @@
       <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
       <init-params>
         <values-param>
-          <name>nodeTypesFiles</name><value>jar:/conf/portal/resource-nodetypes.xml</value> 
+          <name>autoCreatedInNewRepository</name><value>jar:/conf/portal/resource-nodetypes.xml</value> 
         </values-param>
       </init-params>
     </component-plugin>
