@@ -1,9 +1,6 @@
 .UIPopupCategory {
 }
 
-.UIPopupCategory .PopupCategoryDecorator {
-}
-
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
   background: url('VistaSkin/background/PopupCategoryTL12x16.png') no-repeat left;
   padding-left:12px;
@@ -12,7 +9,6 @@
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTC {
   height:16px;
   background: url('VistaSkin/background/PopupCategoryTC1x16.png') repeat-x;
-  
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
@@ -53,7 +49,6 @@
   height: 22px; line-height: 22px;
   background: url('VistaSkin/background/NormalItemBG1x22.png') repeat-x;
   border-bottom: 1px #b1b5c0 solid;
-  font-size: 11px;
   cursor: pointer ;
   
 }
@@ -65,13 +60,8 @@
   background: url('/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif') no-repeat center;
 }
 
-.UIPopupCategory .CategoryItem .ModifiedIcon {
-
-}
-
 .UIPopupCategory .CategoryItem .CategoryItemLabel {
   line-height: 14px;
-  font-size: 11px;
   margin: 0px;
 }
 
@@ -87,5 +77,4 @@
 
 .UIPopupCategory .OverCategoryItem {
 	background: url('VistaSkin/background/OverItemBG1x22.png') repeat-x;
-	
 }

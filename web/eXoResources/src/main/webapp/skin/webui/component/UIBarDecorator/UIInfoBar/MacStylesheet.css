@@ -27,7 +27,7 @@
   float: left ;
   height: 24px; 
   line-height: 24px; vertical-align: middle;
-  font-size: 11px ; font-weight: bold ;
+  font-weight: bold ;
   overflow: visible ;
   margin: 0px 0px 0px 5px;
 }
@@ -55,7 +55,7 @@
 
 .UIInfoBar .BlueRoundedStyle .Title {
   float: left ; 
-  font-size: 11px ; text-align: left ;
+  text-align: left ;
   font-weight: bold ; color: black;
   line-height: 23px; vertical-align: middle ;
   padding-left: 3px;
@@ -97,7 +97,7 @@
 .UIInfoBar .SimpleStyle .Title {
   float: left ;
   height: 21px ; line-height: 21px ;  
-  vertical-align: middle ; text-align: left ; font-size: 11px ;
+  vertical-align: middle ; text-align: left ;
   margin: 0px 0px 0px 5px;
 }
 
@@ -135,7 +135,7 @@
 
 .UIInfoBar .FlatStyle .Title {
   float: left ;
-  font-size: 11px ; color: #0026c9 ;
+  color: #0026c9 ;
   text-align: left ;
   margin: 3px 0px 0px 0px ;
 }

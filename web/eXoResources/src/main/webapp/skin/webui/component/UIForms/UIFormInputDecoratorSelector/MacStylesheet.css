@@ -22,7 +22,6 @@
 	border: 1px #c7c7c7 solid;
 	overflow: auto;
 	padding: 10px;
-	font-size: 11px;
 }
 
  .UIFormInputDecoratorSelector .SampleBackground {
@@ -77,4 +76,3 @@
 	padding-left: 10px;	
 	height: 10px;
 }
-

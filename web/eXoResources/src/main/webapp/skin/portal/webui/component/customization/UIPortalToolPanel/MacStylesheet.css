@@ -55,7 +55,6 @@
 }
 
 .UIPortalToolPanel .Footer {
-  font-size: 11px ;
   height: 32px ;
   line-height: 32px ;
   vertical-align: middle ;
@@ -93,7 +92,6 @@
   line-height: 24px ;
   text-align: center ; 
   width: 260px ;
-  font-size: 11px ;
 }
 
 .UIPortalToolPanel .Footer .CopyrightInfo .CompanyTitleText {
@@ -101,12 +99,10 @@
   line-height: 24px ; 
   text-align: center ;
   width: 124px ;
-  font-size: 11px ;
   margin-right: 5px;
 }
 
 .UIPortalToolPanel .Footer .Footer .CopyrightText {
-  font-size: 11px ;
   height: 20px ; width: 380px;  line-height: 20px ;  vertical-align: middle ;
   text-align: center;
   border: 1px solid #5f90ba ;

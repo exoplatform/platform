@@ -54,7 +54,7 @@
 .UIDropDownItemSelector .ItemInfoBarDisable .SelectedItemLabel {
 	float: left;
 	line-height: 19px;
-	font-size: 11px; font-weight: bold;
+	font-weight: bold;
 	margin-left: 8px;
 	overflow: hidden;
 }
@@ -76,7 +76,6 @@
 	border-right: 1px solid #454545;
 	border-bottom: 1px solid #454545;
 	background: white;
-	font-size: 11px;
 }
 
 .UIItemList .ItemSelector {

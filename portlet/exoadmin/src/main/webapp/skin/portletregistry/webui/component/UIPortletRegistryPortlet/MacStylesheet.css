@@ -28,7 +28,7 @@
 }
 
 .UIApplicationRegistryPortlet .UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
-  padding: 5px 0px;
+	line-height: 18px;
 }
 
 /*################################Application Registry Control################################*/

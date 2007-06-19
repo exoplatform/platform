@@ -20,14 +20,12 @@
 .UIGroupInfoContainer .TitleBar {
 	font-weight: bold;
 	padding: 0px 0px 0px 15px;
-	font-size: 11px;
 	line-height: 20px;
 }
 
 .UIGroupInfoContainer .TitleBar {
 	font-weight: bold;
 	padding: 0px 0px 0px 15px;
-	font-size: 11px;
 	line-height: 29px;
 	border: 1px solid #b7b7b7; border-top: none; border-bottom: none;
 	background: url(VistaSkin/background/Style2BarM1x29.gif) repeat-x;

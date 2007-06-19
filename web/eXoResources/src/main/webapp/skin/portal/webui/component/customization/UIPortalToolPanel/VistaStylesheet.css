@@ -88,7 +88,6 @@
 
 .UIPortalToolPanel .Footer {
   background: url('VistaSkin/background/FooterRepeat1x32.png') repeat-x ;
-  font-size: 11px ;
   height: 32px ;
   padding: 4px 0px 0px 0px ;
   line-height:32px ;
@@ -110,7 +109,6 @@
   float: left;
   height: 18px ; line-height: 18px ; vertical-align: middle; 
   width: 260px ;
-  font-size: 11px ;
   padding-left: 5px ;
 }
 

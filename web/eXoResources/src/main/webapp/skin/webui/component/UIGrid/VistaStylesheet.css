@@ -1,10 +1,8 @@
 .UIGrid {
   border: 1px solid #a3a3a3;
   border-collapse: collapse ;
-  font-size: 11px ;
   padding-left: 1px;
 }
-
 
 .UIGrid thead {
   border: 1px solid #747474;
@@ -14,7 +12,6 @@
   height: 22px; line-height: 22px;
   border: 1px solid #a3a3a3;
   background: url('VistaSkin/background/ThGridRepeatBg1x20.png') repeat-x;
-  font-size: 11px ;
   font-weight: normal;
   padding: 0px 4px;
 }

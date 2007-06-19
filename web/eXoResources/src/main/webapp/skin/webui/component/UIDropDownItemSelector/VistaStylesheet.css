@@ -30,7 +30,7 @@
 .UIDropDownItemSelector .ItemInfoBar .SelectedItemLabel {
 	float: left;
 	line-height: 19px;
-	font-size: 11px; font-weight: bold;
+	font-weight: bold;
 	margin-left: 6px;
 }
 
@@ -48,7 +48,6 @@
 /********************************   UIItemList   ****************************************/
 
 .UIItemList {
-	font-size: 11px;
 }
 
 .UIItemList .ItemSelector {

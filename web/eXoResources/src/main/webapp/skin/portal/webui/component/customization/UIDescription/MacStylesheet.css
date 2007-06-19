@@ -8,7 +8,7 @@
 }
 
 .UIDescription .DecriptionContainer {
-  padding: 2px;
+  padding: 8px 5px 5px 5px;
 }
 
 .UIDescription .DescriptionTitle {
@@ -21,7 +21,7 @@
 
 .UIDescription .DescriptionContent {
   padding: 1px;
-  border: 1px #b7b7b7 solid; border-top: none;
+  border: 1px #b7b7b7 solid; 
   background: white;
 }
 

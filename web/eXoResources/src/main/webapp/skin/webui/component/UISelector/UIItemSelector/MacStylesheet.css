@@ -421,6 +421,7 @@
 .UIItemSelector .LeftColumnStyle .ItemList .Item .LeftItem {
   background: url('MacSkin/background/LeftDefaultItem13x24.gif') no-repeat left;
   padding-left: 13px;
+  height: 24px ;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .RightItem {
@@ -443,6 +444,7 @@
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .LeftItem {
   background: url('MacSkin/background/LeftOverItem13x24.gif') no-repeat left;
   padding-left: 13px;
+  height: 24px ;
 }
 
 
@@ -467,6 +469,7 @@
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .LeftItem {
   background: url('MacSkin/background/LeftSelectedItem13x24.gif') no-repeat left;
   padding-left: 13px;
+  height: 24px ;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .RightItem {

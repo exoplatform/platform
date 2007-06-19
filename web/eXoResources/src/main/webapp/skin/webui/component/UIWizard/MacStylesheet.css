@@ -81,6 +81,7 @@
 .UIWizard .UIWizardContent .WizardStepContent {
   background: white;  
   border: solid 1px #aeaeae; border-bottom: none;
+  height: 100%;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar {

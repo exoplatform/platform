@@ -80,7 +80,7 @@
 
 .UIBarStyle .BarStyle2 .MiddleBar {
   height: 37px; line-height: 37px;
-  font-size: 11px; vertical-align: middle;
+  vertical-align: middle;
   background: url('MacSkin/background/RoundedTopBarM1x37.gif') repeat-x;
 }
 
@@ -122,7 +122,7 @@
 
 .UIBarStyle .Style4 .MiddleBar {
   height: 29px ; line-height: 27px ;
-  font-weight: bold; font-size: 11px;
+  font-weight: bold; 
   background: url('MacSkin/background/MiddleStyle4Bar1x29.png') repeat-x ;
   padding: 0px 10px;
 }
@@ -149,7 +149,7 @@
 }
 
 .UIBarStyle .Style5 .MiddleBar a{
-  font-size: 11px; color: black;
+  color: black;
   cursor: pointer;
 }
 
@@ -370,7 +370,7 @@
 
 .UIBarStyle .GrayBevelRoundedBar35Style .ButtonLabel {
   height: 33px ;  line-height: 33px ; vertical-align: middle ;
-  font-weight: bold; color: black; font-size: 11px;
+  font-weight: bold; color: black; 
 }
 
 /*###########################-GrayBevelRoundBar40-###########################*/

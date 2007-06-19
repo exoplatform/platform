@@ -2,6 +2,10 @@
   padding: 20px 15px 10px 15px;
 }
 
+.UIChagnePortalForm .UIBarStyle .TitleBar {
+  margin: 15px 5px 0px 5px;
+}
+
 .UIChagnePortalForm .MiddleFormTitle {
 	background: url('VistaSkin/background/MiddleFormTitle1x29.png') repeat-x;
 	height: 29px;

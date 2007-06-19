@@ -1,9 +1,7 @@
 .UIGrid {
   border: 1px solid #afaeae;
   border-collapse: collapse ;
-  font-size: 11px ;
 }
-
 
  .UIGrid thead {
 }
@@ -12,9 +10,7 @@
   height: 19px;
   border: 1px solid #afaeae;
   background: white url('MacSkin/background/ThGridRepeatBg1x19.gif') repeat-x;
-  font-size: 11px ;
   font-weight: normal;
-  
 }
 
  .UIGrid tbody {
@@ -110,8 +106,6 @@
   width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat ;
 }
-
-
 
  .UIGrid .DeleteUserIcon {
   width: 17px ;  height: 18px ;

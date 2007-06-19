@@ -87,7 +87,6 @@
 .UIBarStyle .BarStyle2 .MiddleBar {
   height: 39px;
   line-height: 39px;
-  font-size: 11px;
   vertical-align: middle;
   background: url('VistaSkin/background/RoundedTopBarM1x39.png') repeat-x;
 }
@@ -129,7 +128,7 @@
   height: 28px ;
   line-height: 28px ;
   text-align: center;
-  font-weight: bold; font-size: 11px;
+  font-weight: bold; 
   background: url('VistaSkin/background/Style4BarM1x28.png') repeat-x ;
 }
 
@@ -157,7 +156,7 @@
 }
 
 .UIBarStyle .Style5 .MiddleBar a{
-  font-size: 11px; color: black;
+  color: black;
   cursor: pointer;
 }
 
@@ -404,7 +403,7 @@
   height: 33px ; 
   line-height: 33px ;
   vertical-align: middle ;
-  font-weight: bold; color: black; font-size: 11px;
+  font-weight: bold; color: black;
 }
 
 /*###########################-GrayBevelRoundBar40-###########################*/

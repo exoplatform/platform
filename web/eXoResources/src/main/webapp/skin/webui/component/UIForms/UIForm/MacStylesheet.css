@@ -1,5 +1,4 @@
 .UIForm  {
-	font-size: 11px ;
 }
 
 /*####################- HorizontalLayout -#################*/
@@ -13,7 +12,6 @@
 
 .UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
   text-align: right;
-  vertical-align: top;
 }
 
 .UIForm .HorizontalLayout .FieldContainer {
@@ -76,6 +74,7 @@
   width: 110px ;
 	text-align:right;
 	margin-right: 10px;
+	line-height: 18px;
 }
 
 .UIForm .HorizontalLayout input {
@@ -102,7 +101,6 @@
 
 .UIForm .HorizontalLayout select {
   width: 235px ;
-  font-size: 11px;
 }
 
 /*####################- VerticalLayout -#################*/

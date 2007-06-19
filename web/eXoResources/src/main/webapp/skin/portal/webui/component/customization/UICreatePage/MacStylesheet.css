@@ -22,8 +22,6 @@
 }
 
 .UICreatePage .UIToolbar .EditToolbar .Icon {
-  float: left;
-  cursor: pointer;
   margin: 4px 10px 0px 25px;
 }
 
@@ -45,11 +43,8 @@
 }
 
 .UICreatePage .PageLayoutModeIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 4px 18px 0px 25px;
-  background: url('MacSkin/background/LayoutMode.gif') no-repeat;
-  cursor: pointer ;
+  width: 32px; height: 32px;
+  background: url('MacSkin/background/PageLayout.gif') no-repeat;
 }
 
 .UICreatePage .PagePreviewIcon {

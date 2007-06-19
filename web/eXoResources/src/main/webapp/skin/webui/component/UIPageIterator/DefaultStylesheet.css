@@ -28,7 +28,6 @@
 .UIPageIterator .TotalPages {
   float: left ;
   line-height: 19px ; vertical-align: middle;
-  font-size: 11px ;
 }
 
 .UIPageIterator .PagesTotalNumber {

@@ -58,7 +58,6 @@
   height: 22px; line-height: 22px;
   background: url('DefaultSkin/background/NormalItemBG1x22.png') repeat-x;
   border-bottom: 1px #cdcdcd solid;
-  font-size: 11px;
   cursor: pointer ;
 }
 
@@ -75,7 +74,6 @@
 
 .UIPopupCategory .CategoryItem .CategoryItemLabel {
   height: 22px; line-height: 22px;
-  font-size: 11px;
 }
 
 .UIPopupCategory .CategoryItem a {

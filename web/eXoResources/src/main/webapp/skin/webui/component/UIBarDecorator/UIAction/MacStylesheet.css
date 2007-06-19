@@ -16,7 +16,7 @@
 .UIAction .ActionButton  a {
   line-height: 24px ; vertical-align: top;
   text-decoration: none ; text-align: center;
-  font-size: 11px ;color: black;
+  color: black;
   margin: 0px 11px 0px 11px; 
   cursor: pointer;
 }
@@ -100,7 +100,7 @@
 }
 
 .UIAction .ActionButton .SimpleStyle a {
-  color: #058ee6; font-weight: bold; font-size: 11px;
+  color: #058ee6; font-weight: bold; 
   margin: 0px 6px;white-space: nowrap;
   line-height: 21px; height: 21px;
 }

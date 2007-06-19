@@ -6,7 +6,6 @@
 .UIFormWithTitle .TitleBar {
   background: url('/eXoResources/background/MacSkin/TitleBG1x19.gif') repeat-x;
   height: 19px; line-height: 19px; vertical-align: middle; 
-  font-size: 11px; 
   padding-left: 15px;
   border: 1px solid #b7b7b7;
   border-bottom: none;
@@ -18,7 +17,6 @@
 
 .UIFormWithTitle .HorizontalLayout .FormContainer {
   padding: 10px 18px 6px 18px;
-  font-size: 11px;
   border: 1px white solid;
   background: url('/eXoResources/background/MacSkin/Background1x4.png');
 }

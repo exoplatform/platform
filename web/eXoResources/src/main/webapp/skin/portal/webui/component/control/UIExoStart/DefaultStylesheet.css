@@ -34,7 +34,7 @@
 
 .UIExoStart .DigitalClockContainer {
   float: right ;
-  font-size: 11px ; text-align: center ;
+  text-align: center ;
   margin: 0px 9px;
 }
 
@@ -144,7 +144,6 @@
 }
 
 .UIExoStart .StartMenuContainer .LabelText {
-  font-size: 11px ;
   white-space: nowrap ;
   padding: 10px 5px 0px 6px ;
 }
@@ -257,7 +256,6 @@
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
   height: 20px ; line-height: 20px;
-  font-size: 11px ;
   background: url('DefaultSkin/background/TitleBar1x20.gif') repeat-x ;
   padding-left: 10px ;
 }

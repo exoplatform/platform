@@ -14,7 +14,7 @@
 .UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
   padding: 4px;
   text-align: right;
-  vertical-align: top;
+	line-height: 18px;
 }
 
 .UIForm .HorizontalLayout .MultiValueContainer {
