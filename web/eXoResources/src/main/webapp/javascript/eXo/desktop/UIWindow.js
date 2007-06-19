@@ -382,7 +382,7 @@ UIWindow.prototype.saveWindowProperties = function(object, action, appStatus) {
 	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
 	containerBlockId = uiPageIdNode.innerHTML;
 	var params;
-
+	
 	if(action == "POSITION") {
 		params = [
 	  	{name : "objectId", value : object.id},
@@ -412,6 +412,8 @@ UIWindow.prototype.saveWindowProperties = function(object, action, appStatus) {
 	  	{name : "appStatus", value : appStatus}
 	  ] ;
 	}
+	
+//	alert("OBJECT ID: " + object.id + "\n Z-INDEX: " + object.style.zIndex);
 	
 	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveWindowProperties", true, params), false);
 };

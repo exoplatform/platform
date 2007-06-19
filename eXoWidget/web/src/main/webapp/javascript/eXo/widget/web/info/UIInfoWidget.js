@@ -21,6 +21,8 @@ UIInfoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 	appDescriptor.widget = {
 		positionX : appElement.getAttribute('posX'),
 		positionY : appElement.getAttribute('posY'),
+		zIndex : appElement.getAttribute('zIndex'),
+		
 		uiInfoWidget : {
 			temporaty : appElement,
 			appId : appElement.getAttribute('applicationId')
@@ -40,6 +42,7 @@ UIInfoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 };
 
 UIInfoWidget.prototype.initApplication = function(applicationId, instanceId) {
+//	alert("INIT UIINFO WIDGET");
 	var DOMUtil = eXo.core.DOMUtil;
 	
 	var appDescriptor = 

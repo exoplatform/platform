@@ -316,7 +316,7 @@ function doRequest(method, url, queryString, callback) {
   request.onTimeout = handler.ajaxTimeout;
   request.callBack = callback;
  	eXo.portal.CurrentRequest = request;
-  request.process();  
+  request.process(); 
 }	;
 
 function ajaxAbort() {

@@ -313,12 +313,16 @@ public class UIPageActionListener {
           break;
         }
       }
+      
       if(uiWidget == null) return;
       String posX  = event.getRequestContext().getRequestParameter("posX");
       String posY  = event.getRequestContext().getRequestParameter("posY");
+      String zIndex = event.getRequestContext().getRequestParameter("zIndex");
+      
       uiWidget.getProperties().put("locationX", posX) ;
       uiWidget.getProperties().put("locationY", posY) ;
-            
+      uiWidget.getProperties().put("zIndex", zIndex) ;
+      
       if(!uiPage.isModifiable()) return;
       Page page = PortalDataMapper.toPageModel(uiPage);
       UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
@@ -369,12 +373,8 @@ public class UIPageActionListener {
       String appWidth = event.getRequestContext().getRequestParameter("width");
       String appHeight = event.getRequestContext().getRequestParameter("height");
       
-//      System.out.println("\n\n\n\n\n\n\n\n   WIDTHewrewre: "+appWidth+"  \n\n\n\n\n\n");
-      
       if(appWidth != null) uiComponent.getProperties().put("appWidth", appWidth);
       if(appHeight != null) uiComponent.getProperties().put("appHeight", appHeight);
-      
-     
       
       /*########################## Save Window status (SHOW / HIDE) ##########################*/
       String appStatus = event.getRequestContext().getRequestParameter("appStatus");

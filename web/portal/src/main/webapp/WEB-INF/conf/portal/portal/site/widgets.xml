@@ -10,7 +10,7 @@
 		<description>Information's Description</description>
 		<application>
       <instance-id>portal:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget1</instance-id>
-      <application-type>eXoWidget</application-type> 
+      <application-type>eXoWidget</application-type>
     </application>
       
     <application>

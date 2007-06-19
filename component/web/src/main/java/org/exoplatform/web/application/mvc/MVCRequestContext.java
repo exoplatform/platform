@@ -4,8 +4,6 @@
  **************************************************************************/
 package org.exoplatform.web.application.mvc;
 
-import java.io.Writer;
-
 import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.web.application.URLBuilder;
@@ -16,16 +14,11 @@ import org.exoplatform.web.application.URLBuilder;
  * Apr 23, 2007
  */
 public class MVCRequestContext extends RequestContext {
-
   public MVCRequestContext(Application app, RequestContext parent) {
     super(app) ;
     setParentAppRequestContext(parent) ;
   }
   
-  public String getRemoteUser() {
-    return null ;
-  }
-
   public String getRequestParameter(String arg0) {
     return null ;
   }
@@ -36,14 +29,6 @@ public class MVCRequestContext extends RequestContext {
 
   public URLBuilder getURLBuilder() {
     return null ;
-  }
-
-  public Writer getWriter() throws Exception {
-    return null;
-  }
-
-  public boolean isUserInRole(String arg0) {
-    return false;
   }
 
   public boolean useAjax() {

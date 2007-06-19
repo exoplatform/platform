@@ -42,12 +42,12 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     
     String instanceId = uiWidget.getApplicationInstanceId() ;
-    System.out.println("\n\n\n\n------------->StickerWidget.java.ComponentId = " + instanceId + " and id= " );
     
     int posX = uiWidget.getProperties().getIntValue("locationX") ;
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
+    int zIndex = uiWidget.getProperties().getIntValue("zIndex") ;
     
-    w.write("<div id = 'UIStickerWidget' applicatinonId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"'><span></span></div>") ;
+    w.write("<div id = 'UIStickerWidget' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"' zIndex = '"+zIndex+"'><span></span></div>") ;
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.sticker.UIStickerWidget','UIStickerWidget','"+instanceId+"','/eXoWidgetWeb/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;

@@ -14,12 +14,15 @@ UIWidget.prototype.init = function(uiWidget, inDesktop) {
 		
 		var posX = appDescriptor.widget.positionX ;
 		var posY = appDescriptor.widget.positionY ;
+		var zIndex = appDescriptor.widget.zIndex ;
 		
 		if(posX < 0) posX = 0 ;
 		if(posY < 0) posY = 0 ;
+		if(zIndex < 0) zIndex = 0 ;
 		
 		uiWidget.style.left = posX + "px" ;
 		uiWidget.style.top = posY + "px" ;
+		uiWidget.style.zIndex = zIndex ;
 	}
 	eXo.webui.UIVerticalScroller.init();
 };
@@ -126,11 +129,13 @@ UIWidget.prototype.initDND = function(e) {
   	/*Save Position*/
   	var uiPage = DOMUtil.findAncestorByClass(dragObject, "UIPage") ;
   	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
+  	
 		containerBlockId = uiPageIdNode.innerHTML;
   	var params = [
 	  	{name: "objectId", value : dragObject.id},
 	  	{name: "posX", value : dragObject.offsetLeft},
-	  	{name: "posY", value : dragObject.offsetTop}
+	  	{name: "posY", value : dragObject.offsetTop},
+	  	{name: "zIndex", value : dragObject.style.zIndex}
 	  ] ;
 	  
   	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveWidgetProperties", true, params), false) ;
