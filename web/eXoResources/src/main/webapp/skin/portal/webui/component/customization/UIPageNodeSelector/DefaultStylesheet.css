@@ -19,7 +19,7 @@
 /*###############################- UITree -############################*/
 .UIPageNodeSelector .TreeSelectorTitle {
   text-align: center; 
-  font-size:11px; font-weight: bold;
+  font-weight: bold;
   height: 20px; line-height: 20px; 
   vertical-align: middle ;
   background: white ;
@@ -28,12 +28,11 @@
 }
 
 .UIPageNodeSelector .TabLabel {
-  font-size: 11px ;
   margin-left: 10px;
 }
 
 .UIPageNodeSelector .UITree {
-  padding: 0px;
+  padding: 0px 0px 10px 0px;
   background: white;
   border: 1px #b7b7b7 solid;
 }
@@ -69,7 +68,7 @@
   cursor: pointer ;
   float: left ;
   height: 17px; line-height: 17px; vertical-align: middle ;
-  font-size: 11px; color: black; font-weight: bold;
+  color: black; font-weight: bold;
 }
 
 .UIPageNodeSelector .OrganizationIcon {

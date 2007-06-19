@@ -11,7 +11,6 @@
 
 .UILoginForm .LoginDecorator .LoginDecoratorBackground {
   background: url('VistaSkin/background/BoxCenterMiddle1x191.png') repeat-x ;
-  font-size: 11px;
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
@@ -119,7 +118,7 @@
 }
 
 .UILoginForm .LoginDetailBox .Message {
-  width:280px; margin: auto; 
+  width: 280px; margin: auto; 
   height: 26px; line-height: 26px; text-align: right;
   color: #2169d4 ;
   white-space: nowrap;

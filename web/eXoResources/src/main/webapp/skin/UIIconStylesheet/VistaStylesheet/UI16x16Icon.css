@@ -87,8 +87,9 @@
 }
 
 .DeletePortalIcon {
-  width: 16px ;  height: 16px ; margin: auto;
-  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png')no-repeat;
+  width: 16px ;  height: 16px ; 
+  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') no-repeat;
+  
 }
 
 .OnLightPage16x16Icon {

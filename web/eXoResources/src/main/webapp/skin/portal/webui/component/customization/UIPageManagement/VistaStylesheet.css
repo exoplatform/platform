@@ -162,14 +162,6 @@
   background: url('/eXoResources/icons/24x24/VistaSkin/PagePreview.png') no-repeat ;
 }
 
-.UIPageManagement .PageLayoutModeIcon {
-  float: left;
-  width: 32px; height: 32px;
-  margin: 3px 5px 0px 7px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/PageLayoutMode.gif') no-repeat ;
-  cursor: pointer ;
-}
-
 .UIPageManagement .SavePageIcon {
   width: 26px; height: 26px;
   margin: 3px 5px 0px 5px; 

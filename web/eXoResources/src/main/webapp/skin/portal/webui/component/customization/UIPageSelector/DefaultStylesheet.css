@@ -17,7 +17,7 @@
 
 .UIPageSelector .PageSelectorTitle .Title {
   float: left;
-  font-weight: bold; font-size: 11px;
+  font-weight: bold; 
   margin-left: 10px;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .UIPageSelector .UIFormInfo .SelectedPageText {
-  font-weight: bold; font-size: 11px;
+  font-weight: bold; 
   margin-top: 2px;
 }
 
@@ -51,12 +51,10 @@
 
 .UIPageSelector .UIFormInfo .PropertyValue {
   color: #3176e3;
-  font-size: 11px;
   padding: 4px;
 }
 
 .UIPageSelector .UIPopupWindow .UIPageBrowser .UIGrid .ActionContainer {
-  border: 1px red solid;
 }
 
 .UIPageSelector .SelectPageAction {
@@ -91,7 +89,7 @@
 
 .UIPageSelector .SelectPageAction .ActionLabel {
   float: left; 
-  font-size: 11px; font-weight: bold;
+  font-weight: bold;
 }
 
 .UIPageSelector .SelectPageAction .ActionLabel a{

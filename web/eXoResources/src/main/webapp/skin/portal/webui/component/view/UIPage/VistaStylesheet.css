@@ -23,7 +23,7 @@
 .UIPage .PageLayoutDecorator .TopCenterPage {
   height: 78px ; line-height: 78px;
   background: url('VistaSkin/background/PageLayoutTC1x78.png') repeat-x center ; 
-  color: #3b3b3b; font-size: 11px;
+  color: #3b3b3b; 
   font-weight: bold;
 }
 

@@ -105,7 +105,7 @@
 .UICreatePage .UITree .TreeContainer .Node {
   margin: 3px 0px 0px 0px;
   padding-left: 5px;
-  font-size: 11px; color: black;
+  color: black;
   width: auto;
 }
 

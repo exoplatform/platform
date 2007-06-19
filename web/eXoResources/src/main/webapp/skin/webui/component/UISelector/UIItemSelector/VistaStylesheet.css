@@ -451,6 +451,7 @@
 .UIItemSelector .LeftColumnStyle .ItemList .Item {
   margin: 4px 4px ;
   height: 24px ;
+  line-height: 24px;
   cursor: pointer ;
 }
 
@@ -465,7 +466,7 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .ItemTitle {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 23px; 
   background: url('VistaSkin/background/MiddleNormalItem1x24.png') repeat-x ;
   color: #526791;
   padding-left: 3px;
@@ -475,6 +476,7 @@
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem {
   margin: 4px 4px ;
+  line-height: 24px;
   height: 24px ;
   cursor: pointer ;
 }
@@ -491,7 +493,7 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .ItemTitle {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 23px; 
   background: url('VistaSkin/background/MiddleOverItem1x24.png') repeat-x ;
   color: #059ce2;
   padding-left: 3px;
@@ -502,6 +504,7 @@
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem {
   margin: 4px 4px ;
   height: 24px ;
+  line-height: 24px;
   cursor: pointer ;
 }
 
@@ -516,7 +519,7 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .ItemTitle {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 23px; 
   background: url('VistaSkin/background/MiddleSelectItem1x24.png') repeat-x ;
   color: black;
   padding-left: 3px;

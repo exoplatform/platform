@@ -14,7 +14,7 @@
 .UIDescription .DescriptionTitle {
   border: 1px #b7b7b7 solid;
   background: white;
-  text-align: center; font-size: 11px; font-weight: bold;
+  text-align: center; font-weight: bold;
   height: 19px; line-height: 19px; vertical-align: middle;
   background: url('/eXoResources/background/MacSkin/TitleBG1x19.gif') repeat-x;
 }
@@ -27,7 +27,6 @@
 
 .UIDescription .DescriptionContentContainer {
   line-height: 20px;
-  font-size: 11px;
   text-align: center;
   border: 1px #cdcdcd solid;
   background: #f4f4f4;

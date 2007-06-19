@@ -17,14 +17,13 @@
   border :1px #ffffff solid;
   border-top:none;
   border-bottom:none;
-  text-align: center; font-size: 11px; font-weight: bold;
+  text-align: center; font-weight: bold;
   height: 23px; line-height: 23px; vertical-align: middle;
   background: url('VistaSkin/background/TitleBG1x23.png') repeat-x;
 }
 
 .UIDescription .DescriptionContent {
   line-height: 20px;
-  font-size: 11px;
   text-align: center;
   border:1px #7e878f solid;
   background: url('VistaSkin/background/DescriptionContentBackgr.png') repeat;

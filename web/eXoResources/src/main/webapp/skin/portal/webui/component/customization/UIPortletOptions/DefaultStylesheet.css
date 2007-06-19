@@ -30,7 +30,8 @@
 .UIPortletOptions .CategoryContainer {
   border:solid 1px #b7b7b7; 
   background: white;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .UIPortletOptions .UIDropDownItemSelector .ComponentIcon {
