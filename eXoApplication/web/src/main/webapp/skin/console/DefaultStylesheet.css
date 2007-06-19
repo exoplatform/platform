@@ -1,14 +1,16 @@
 
 .UIConsoleApplication {
-	border: 1px solid gray;
+	border: 0px solid green;
 }
 
 .UIConsoleApplication .UIApplication {
-	padding: 6px;
+	background-color: black;
 }
 
 .UIConsoleApplication .UIApplication .eXoConsoleResult {
-	border: 1px solid green;
+	color: white;
+	font-size: 14px;
+	font-weight: normal;
 }
 
 .UIConsoleApplication .eXoConsoleCommand {

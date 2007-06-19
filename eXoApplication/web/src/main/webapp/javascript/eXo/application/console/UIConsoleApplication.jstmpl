@@ -15,6 +15,6 @@
 		  </div>
 	</div>
 	<div class="eXoConsoleCommand" onclick="eXo.core.Editor.init(this);">
-		  	<span>command : </span>
+		  	<span> Command : </span>
 	</div>
 </div>
