@@ -71,6 +71,7 @@ function Editor() {
   this.cursor = "*|*" ;
   this.afterCursor = null ;
   this.currentNode = null ;
+
 }
 
 Editor.prototype.init = function(node) {

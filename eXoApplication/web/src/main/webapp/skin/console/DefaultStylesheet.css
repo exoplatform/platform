@@ -1,0 +1,19 @@
+
+.UIConsoleApplication {
+	border: 1px solid gray;
+}
+
+.UIConsoleApplication .UIApplication {
+	padding: 6px;
+}
+
+.UIConsoleApplication .UIApplication .eXoConsoleResult {
+	border: 1px solid green;
+}
+
+.UIConsoleApplication .eXoConsoleCommand {
+	height: 23px;
+	background: #effffe;
+	width: 100%;
+	line-height: 23px;
+}

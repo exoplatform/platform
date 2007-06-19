@@ -1,6 +1,20 @@
-<div style="width: 100%; height: 450px; border: 1px solid blue">
-  <div id="eXoConsoleResult" onclick="eXo.core.Editor.init(this)">
-    This is a test
-  </div>
-  <div onclick="eXo.core.Editor.init(this)">webos$</div>
+<div class="UIConsoleApplication" >
+	<div class="UIApplication">
+		  <div class="eXoConsoleResult" id="eXoConsoleResult" onclick="eXo.core.Editor.init(this);">
+		  	<span>Display Area </span> <br />
+				<br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br />
+				<span>Display Area </span><br />
+				<span>Display Area </span><br />
+				<span>Display Area </span><br />
+				<span>Display Area </span><br />
+		  </div>
+	</div>
+	<div class="eXoConsoleCommand" onclick="eXo.core.Editor.init(this);">
+		  	<span>command : </span>
+	</div>
 </div>
