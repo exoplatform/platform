@@ -148,7 +148,7 @@
 	      	
       	}
 	    %>
-    		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}" style="visibility: $visibility; display: $appDisplay; z-index: $appZIndex; width: $appWidth; height: $appHeight; ; background-color: blue ;">
+    		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}" style="visibility: $visibility; display: $appDisplay; z-index: $appZIndex; width: $appWidth; height: $appHeight;">
 		      <div class="WindowBarLeft">
 		        <div class="WindowBarRight">
 		          <div class="WindowBarCenter">

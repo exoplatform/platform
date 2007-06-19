@@ -299,7 +299,6 @@ UIWindow.prototype.initDND = function(e) {
 } ;
 
 UIWindow.prototype.resizeWindow = function(e) {
-	//alert ("Test Test Test") ;
 	var UIWindow = eXo.desktop.UIWindow;
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;

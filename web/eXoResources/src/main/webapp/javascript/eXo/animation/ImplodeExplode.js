@@ -116,9 +116,8 @@ ImplodeExplode.prototype.doExplode = function(containerId) {
 	
 	win.animation.style.left = Y0 + "px" ;
 	win.animation.style.width = W0 + "px" ;
-	//win.animation.style.height = H0 + "px" ;
-	if (document.all) win.animation.style.height = H0 + "px" ;
-	else win.animation.style.height = (H0 - 2) + "px" ;
+	win.animation.style.height = H0 + "px" ;
+	
 	win.step--;
 	
 	
@@ -128,18 +127,13 @@ ImplodeExplode.prototype.doExplode = function(containerId) {
 		win.style.top = X0 + "px" ;
 		win.style.left = Y0 + "px" ;
 		win.style.width = W0 + "px" ;
-		win.style.height = (H0 - 2) + "px" ;
-		//win.style.height = H0 + "px" ;
-		//if (document.all) win.style.height = H0 + "px" ;
-		//else win.style.height = (H0 - 2) + "px" ;
+		win.style.height = H0 + "px" ;
 		win.style.display = "block" ;
 		
 		container.removeChild(win.animation) ;
 		
 		win.animation = null ;
-	}
-	//alert (win.style.border = "solid 1px red") ;
-	//alert ("Window Height :  " + win.style.height) ;
+	}	
 };
 
 eXo.animation.ImplodeExplode = new ImplodeExplode() ;
