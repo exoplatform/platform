@@ -68,6 +68,9 @@ UIForm.prototype.setHiddenValue = function(formId, typeId, hiddenValue) {
 } ;
 
 UIForm.prototype.serializeForm = function (formElement) {
+	//TODO: TrongTT -> Solve the temporary problem about WYSIWYG Editor
+	try{eXo.ecm.ExoEditor.saveHandler();} catch(err) {}
+	
 	var queryString = "";
   var element ;
   var elements = formElement.elements;
