@@ -14,6 +14,8 @@ import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponentDecorator;
@@ -52,7 +54,13 @@ public class UIPageBody extends UIComponentDecorator {
     ExoContainer appContainer  =  context.getApplication().getApplicationServiceContainer() ;
     UserPortalConfigService userPortalConfigService = 
       (UserPortalConfigService)appContainer.getComponentInstanceOfType(UserPortalConfigService.class);
-    Page page  = userPortalConfigService.getPage(pageId, context.getRemoteUser());
+    Page page  = null;
+    try {
+      page  = userPortalConfigService.getPage(pageId, context.getRemoteUser());
+    }catch (Exception e) {
+      UIPortalApplication uiApp = getAncestorOfType(UIPortalApplication.class);
+      uiApp.addMessage(new ApplicationMessage(e.getMessage(), new Object[]{}));
+    }
     UIPage uiPage = null;
     if(page != null) {
     if(Page.DEFAULT_PAGE.equals(page.getFactoryId())) page.setFactoryId(null);

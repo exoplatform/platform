@@ -92,12 +92,14 @@ public class UIPageActionListener {
       if(idx < 0)  {
         for(PageNavigation nav : navigations){
           List<PageNode>  nodes = nav.getNodes();
+          PageNode nodeResult = null;
           for(PageNode node : nodes){       
-            PageNode nodeResult = searchPageNodeByUri(uri, node);
+            nodeResult = searchPageNodeByUri(uri, node);
             if(nodeResult == null) continue;
             selectedPaths_.add(0, nodeResult);          
             break;
           }
+          if(nodeResult == null) continue;
           uiPortal.setSelectedNavigation(nav);
         }      
         uiPortal.setSelectedPaths(selectedPaths_);     

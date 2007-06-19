@@ -18,7 +18,7 @@ public class UIPortalApplicationLifecycle extends Lifecycle {
   
   public void processDecode(UIComponent uicomponent , WebuiRequestContext context) throws Exception {  
     UIPortalApplication uiApp = (UIPortalApplication) uicomponent ; 
-    String componentId =  context.getRequestParameter(context.getUIComponentIdParameterName()) ;    
+    String componentId =  context.getRequestParameter(context.getUIComponentIdParameterName()) ;
     if(componentId == null)  return ;
     UIComponent uiTarget =  uiApp.findComponentById(componentId);
     if(uiTarget == null)  return ;

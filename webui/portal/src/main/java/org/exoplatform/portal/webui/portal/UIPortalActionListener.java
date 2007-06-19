@@ -48,13 +48,11 @@ public class UIPortalActionListener {
     }
   }
   
- 
+//http://localhost:8080/portal/private/site/?portal:componentId=UIPortal&portal:action=LoadPage&pageId=portal::site::content
   static public class LoadPageActionListener extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {
       UIPortal uiPortal  = event.getSource();
       String pageId = event.getRequestContext().getRequestParameter("pageId");
-      
-      System.out.println("\n\n\n == > ta thay co page "+pageId +"\n\n\n");
       
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);          
       uiPageBody.setPage(pageId, uiPortal);
