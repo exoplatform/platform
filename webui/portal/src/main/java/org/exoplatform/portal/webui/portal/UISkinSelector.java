@@ -79,6 +79,7 @@ public class UISkinSelector extends UIContainer {
       dataService.update(portalConfig);
 
       uiApp.setSkin(skin);
+      uiApp.getUserPortalConfig().getPortalConfig().setSkin(skin);
     }
   }
 
