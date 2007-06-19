@@ -520,30 +520,6 @@ PortalDragDrop.prototype.resizeRows = function() {
 			}
 			
 		}
-		/*
-	  var trContainers = eXo.core.DOMUtil.findDescendantsByClass(uiPortal, "tr", "TRContainer");
-	  for(var j = 0; j < trContainers.length; j++) {
-	  	var trContainer = trContainers[j];
-		  var tdList = eXo.core.DOMUtil.getChildrenByTagName(trContainer, "td") ;
-		  var offsetWidthTR = trContainer.offsetWidth ;
-		  var tdWidth = offsetWidthTR / tdList.length;
-		  for (var i = 0; i < tdList.length; i++) {
-		  	var td = tdList[i];
-				td.style.width = tdWidth + "px";
-				var innerContainer = eXo.core.DOMUtil.findFirstDescendantByClass(td, "div", "LAYOUT-CONTAINER");
-				if (innerContainer) {
-					 innerContainer.style.height = "auto";
-					 if (eXo.core.DOMUtil.findFirstDescendantByClass(innerContainer, "div", "UIContainer") == null) {
-					 		var ancestor = eXo.core.DOMUtil.findAncestorByClass(innerContainer, "LAYOUT-CONTAINER");
-					 		if (ancestor) ancestor.style.height = "auto";
-		      		innerContainer.style.height = "60px" ;
-		      	}
-				}
-				//actionButtons.pushAll(td.getElementsByTagName("a"));
-		  }
-		  //var parentContainer = eXo.core.DOMUtil.findAncestorByClass(trContainer, "UIContainer");
-		  //actionButtons.pushAll(parentContainer.getElementsByTagName("a"));
-	  }*/
 	  for (var k = 0; k < actionButtons.length; k++) {
 	  	var url = actionButtons[k].href;
 	  	if (url && url.indexOf("resizeRows") == -1) {
