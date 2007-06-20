@@ -1,6 +1,5 @@
 .UIItemSelector {
   margin: 2px 0px 2px 2px;
-  font-size: 11px;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalOfficeImage {
@@ -122,7 +121,7 @@
 }
 
 .UIItemSelector .RightColumnStyle .Title {
-  line-height: 22px; vertical-align: middle;
+  line-height: 22px; 
   font-weight: bold; color: #5c5c5c; 
   float: left;
 }
@@ -153,12 +152,12 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .RightItem {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px;
   background: url('MacSkin/background/RightDefaultItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .ItemTitle {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px; 
   padding-left: 8px;
 }
 
@@ -176,12 +175,12 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .RightItem {
-  height: 24px; line-height: 24px;  vertical-align: middle;
+  height: 24px; line-height: 24px; 
   background: url('MacSkin/background/RightOverItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .ItemTitle {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px; 
   color: #F7810F;
   padding-left: 8px;
 }
@@ -200,12 +199,12 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .RightItem {
-  height: 24px; line-height: 24px; vertical-align: middle ;
+  height: 24px; line-height: 24px; 
   background: url('MacSkin/background/RightSelectedItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .ItemTitle {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px; 
   padding-left: 8px;
 }
 
@@ -286,13 +285,12 @@
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .ItemName {
   height: 32px; line-height: 32px;
-  vertical-align: middle;
   background: url('DefaultSkin/background/BigStyleItemNormalR.gif') no-repeat right;
   padding-right: 15px; color: #526791;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .ItemTitle {
-  height: 32px; line-height: 32px; vertical-align: middle;
+  height: 32px; line-height: 32px;
   background: url('DefaultSkin/background/BigStyleNormalRepeatBG.gif') repeat-x ;
   color: gray;
   padding-left: 10px;
@@ -336,14 +334,14 @@
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemName {
-  height: 32px; line-height: 32px; vertical-align: middle;
+  height: 32px; line-height: 32px;
   background: url('DefaultSkin/background/BigStyleItemSelectedR.gif') no-repeat right;
   padding-right: 15px;
   color: black;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemTitle {
-  height: 32px; line-height: 32px; vertical-align: middle;
+  height: 32px; line-height: 32px; 
   background: #d3d3eb;
   font-weight: bold; color: black;
   padding-left: 10px;
@@ -394,7 +392,7 @@
 }
 
 .UIItemSelector .LeftColumnStyle .Title {
-  line-height: 22px; vertical-align: middle;
+  line-height: 22px;
   font-weight: bold; color: #444444;
   float: left;
 }
@@ -425,12 +423,12 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .RightItem {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px; 
   background: url('MacSkin/background/RightDefaultItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .ItemTitle {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px; 
   padding-left: 8px;
 }
 
@@ -449,12 +447,12 @@
 
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .RightItem {
-  height: 24px; line-height: 24px;  vertical-align: middle;
+  height: 24px; line-height: 24px; 
   background: url('MacSkin/background/RightOverItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .ItemTitle {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px;
   color: #F7810F;
   padding-left: 8px;
 }
@@ -473,12 +471,12 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .RightItem {
-  height: 24px; line-height: 24px; vertical-align: middle ;
+  height: 24px; line-height: 24px; 
   background: url('MacSkin/background/RightSelectedItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .ItemTitle {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px; 
   padding-left: 8px;
 }
 

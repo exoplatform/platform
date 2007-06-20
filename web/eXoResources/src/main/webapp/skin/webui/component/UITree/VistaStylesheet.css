@@ -57,16 +57,16 @@
   margin-left: 4px ; margin-top: 5px;
   float: left ;
   height: 16px ;  line-height: 16px ;
-  font-size: 11px; color: black; 
+   color: black; 
 }
 
 .UITree .TreeContainer .Node .NodeLabel a:hover {
-  font-size: 11px; color: orange; 
+  color: orange; 
 }
 
 .UITree .TreeContainer .NodeSelected {
   height: 20px ; line-height: 20px;
-  color: blue; font-size: 11px;
+  color: blue; 
 }
 
 /** ################# Icons ###################*/
@@ -108,4 +108,3 @@
 	height: 20px;
 	margin: 2px;
 }
-

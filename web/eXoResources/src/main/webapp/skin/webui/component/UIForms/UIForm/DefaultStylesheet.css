@@ -1,5 +1,4 @@
 .UIForm  {
-	font-size: 11px;
 }
 
 /*####################- HorizontalLayout -#################*/
@@ -32,7 +31,7 @@
 .UIForm .HorizontalLayout label {
 	float:left;
   width: 120px ;
-	text-align: right; font-size: 11px;
+	text-align: right; 
 	margin-right: 10px;
 }
 
@@ -72,7 +71,6 @@
 
 .UIForm .HorizontalLayout input {
   width: 228px ;
-  font-size: 11px;
 }
 
 .UIForm .HorizontalLayout input.checkbox {
@@ -94,7 +92,6 @@
 .UIForm .HorizontalLayout select {
   width: 232px ;
   border: 1px solid #808080 ;
-  font-size: 11px;
 }
 
 /*####################- VerticalLayout -#################*/

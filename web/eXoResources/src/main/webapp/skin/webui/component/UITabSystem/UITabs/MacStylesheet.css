@@ -1,5 +1,4 @@
 .UIHorizontalTabs {
-	font-size: 11px;
 }
 
 .UIHorizontalTabs .LeftHorizontalTabs{
@@ -22,7 +21,6 @@
 .UIHorizontalTabs .TabsContainer {
   overflow: hidden;
   margin-left: 10px;
-
 }
 
 .UIHorizontalTabs .PreviousTabButton  {
@@ -201,7 +199,6 @@
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
   line-height: 24px;
-  vertical-align: middle;
   background: url('MacSkin/background/MiddleNormalTab1x24.png') repeat-x top;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
@@ -233,7 +230,6 @@
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab .MiddleTab {
   line-height: 24px;
-  vertical-align: middle;
   background: url('MacSkin/background/MiddleHighlightTab1x24.png') repeat-x top;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
@@ -259,7 +255,6 @@
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .MiddleTab {
   line-height: 24px;
-  vertical-align: middle;
   background: url('MacSkin/background/MiddleSelectedTab1x24.png') repeat-x top;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
@@ -292,7 +287,6 @@
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .MiddleTab {
   line-height: 32px;
-  vertical-align: middle;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
   color: black; font-size: 12px; font-weight: normal;
@@ -341,7 +335,6 @@
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {
   line-height: 32px;
-  vertical-align: middle;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
   color: grey; font-size: 12px; font-weight: normal;
@@ -385,7 +378,6 @@
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .MiddleTab {
   line-height: 32px;
-  vertical-align: middle;
   background: #e6e6e6;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
@@ -413,4 +405,3 @@
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .WarningIcon {
   background: url('MacSkin/background/YellowWarningSign.png') no-repeat;
 }
-

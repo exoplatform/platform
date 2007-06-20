@@ -19,7 +19,7 @@
 
 .UIPopupWindow .PopupTitle {
   margin: 4px 26px 0px 26px;
-  font-weight: bold; font-size: 11px;  text-align: center;
+  font-weight: bold; text-align: center;
   height: 16px; line-height: 16px; vertical-align: middle; 
   background: url('DefaultSkin/background/PopupTitleBG.gif') repeat-x bottom;
   cursor: move;

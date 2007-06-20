@@ -39,7 +39,7 @@
 .UITabSelector .FlatTabStyle .NormalTab {
   line-height: 29px;
   margin: 2px 0px 0px 0px;
-  font-size: 11px;color: #202020; font-weight: normal;
+  color: #202020; font-weight: normal;
 }
 
 .UITabSelector .FlatTabStyle .NormalTab a {
@@ -76,7 +76,7 @@
 .UITabSelector .FlatTabStyle .SelectedTab {
   line-height: 29px;
   margin: 2px 0px 0px 0px;
-  font-size: 11px; font-weight: normal; color: #307dcc;
+  font-weight: normal; color: #307dcc;
 }
 
 .UITabSelector .FlatTabStyle .SelectedTab .LeftTab {

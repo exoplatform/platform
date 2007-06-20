@@ -1,6 +1,5 @@
 .UIItemSelector {
   margin: 2px 0px 2px 2px;
-  font-size: 11px;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalOfficeImage {
@@ -86,13 +85,13 @@
 }
 
 .UIItemSelector .ItemListContainer .ItemListTitle {
-  height: 30px; line-height: 30px; vertical-align: middle; 
+  height: 30px; line-height: 30px;
   font-weight: bold;
   color: #5c5c5c;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemListContainer .ItemListTitle {
-	height: 25px; line-height: 25px; vertical-align: middle; 
+	height: 25px; line-height: 25px;
   font-weight: bold; text-align: center;
   background: url('/eXoResources/background/VistaSkin/ItemListTitleBG1x25.png') repeat-x ;
 }
@@ -159,7 +158,7 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .ItemTitle {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px;
   color: #676767;
   background: url('VistaSkin/background/MiddleNormalItem1x24.png') repeat-x ;
 }
@@ -188,7 +187,7 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailTitle{
-  height: 29px; line-height: 29px; vertical-align: middle;
+  height: 29px; line-height: 29px; 
   font-weight: bold; color: #5c5c5c;
 }
 
@@ -216,7 +215,7 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .ItemTitle {
 	background: url('VistaSkin/background/MiddleSelectItem1x24.png') repeat-x ;
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px; 
   color: black; 
 }
 
@@ -320,13 +319,12 @@
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .ItemName {
   height: 26px; line-height: 26px;
-  vertical-align: middle;
   background: url('VistaSkin/background/BigStyleItemNormalR.png') no-repeat right;
   padding-right: 30px; color: #526791;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .ItemTitle {
-  height: 26px; line-height:26px; vertical-align: middle;
+  height: 26px; line-height:26px;
   background: url('VistaSkin/background/BigStyleNormalRepeatBG.png') repeat-x ;
   color: #3e3d3d;
   padding-left: 10px;
@@ -370,14 +368,14 @@
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemName {
-  height: 26px; line-height: 26px; vertical-align: middle;
+  height: 26px; line-height: 26px; 
   background: url('VistaSkin/background/BigStyleItemSelectedR.png') no-repeat right;
   padding-right: 2px;
   color: black;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemTitle {
-  height: 26px; line-height: 26px; vertical-align: middle;
+  height: 26px; line-height: 26px; 
   background: url('VistaSkin/background/BigStyleSelectedRepeatBG.png') repeat-x ;
   color: black;
   padding-left: 10px;
@@ -415,7 +413,7 @@
 }
 
 .UIItemSelector .LeftColumnStyle .Title {
-  line-height: 22px; vertical-align: middle;
+  line-height: 22px; 
   font-weight: bold; color: #5c5c5c; 
   float: left;
 }
@@ -584,4 +582,3 @@
   background: url('VistaSkin/background/ThreeRowsTwoColumnsLayout.jpg') no-repeat;
   width: 250px; height: 170px;
 }
-

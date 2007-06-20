@@ -15,7 +15,7 @@
 }
 
 .UIPermissionSelector .PermissionSelectorTitleBar .Title {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px;
   font-size: 12px; font-weight: bold; color: #0a80d2;
   float: left;
 }
@@ -29,7 +29,7 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionTypeBar {
-  height: 22px; line-height: 22px; vertical-align: middle;
+  height: 22px; line-height: 22px; 
   background: url('VistaSkin/background/TitleBG1x20.gif') repeat-x; 
   border: solid 1px #b1b5c0 ; border-bottom: none;
 }
@@ -63,7 +63,7 @@
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .PermissionInfoTitle {
   margin-left: 5px ;
   float: left;
-  font-size: 11px; font-weight: bold;
+  font-weight: bold;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Label {
@@ -119,8 +119,7 @@
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a{
-  font-size: 11px; font-weight: bold; color: black;
-  text-decoration: none;
+  font-weight: bold; color: black;
   float: left;
   padding-left: 6px;
 }
@@ -128,6 +127,3 @@
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a:hover{
   color: #0a80d2;
 }
-
-
-

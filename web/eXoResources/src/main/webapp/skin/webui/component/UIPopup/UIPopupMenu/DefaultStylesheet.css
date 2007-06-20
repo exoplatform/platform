@@ -1,7 +1,7 @@
 .UIPopupMenu {
   display: none;
   background: #e4e4fc ;
-  text-align: left ; font-size: 11px;
+  text-align: left ; 
   border: 1px solid #232e8d ;
   cursor: default;
 }

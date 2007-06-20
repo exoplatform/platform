@@ -4,7 +4,6 @@
 	cursor: pointer;
 	line-height: 26px;
 	background: #f3f3f3 url(DefaultSkin/background/BottomVTabSimpleStyle224x1.gif) no-repeat bottom right;
-	font-size: 11px;
 	height: 26px;
 }
 
@@ -17,7 +16,7 @@
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabLabel {
   float: left ;
-  height: 26px ; line-height: 26px ;  vertical-align: middle ;
+  height: 26px ; line-height: 26px ;  
   color: #606060; font-weight: bold;
   text-transform: capitalize;
 }
@@ -27,7 +26,6 @@
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab {
 	cursor: pointer;
 	background: #e3e4e4 url(DefaultSkin/background/BottomVTabSimpleStyle224x1.gif) no-repeat bottom right;
-	font-size: 11px;
 	height: 26px;
 }
 
@@ -40,7 +38,7 @@
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
   float: left;
-  height: 26px ; line-height: 26px ;  vertical-align: middle ;
+  height: 26px ; line-height: 26px ;  
   color: #058ee6; font-weight: bold; 
   text-transform: capitalize;
 }
@@ -69,7 +67,6 @@
   background: #ffffff url(DefaultSkin/background/BottomVTabSimpleStyle224x1.gif) no-repeat bottom right;
   padding: 10px ;
   margin: 1px 0px 1px 1px;
-  font-size: 11px;
   text-transform: capitalize;
 }
 
@@ -105,7 +102,7 @@
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLabel {
   float: left ;
-  height: 26px ; line-height: 26px ;  vertical-align: middle ;
+  height: 26px ; line-height: 26px ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .SwitchButton {
@@ -153,7 +150,7 @@
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLabel {
   float: left ;
-  height: 26px ; line-height: 26px ;  vertical-align: middle ;
+  height: 26px ; line-height: 26px ;  
   color: blue;
 }
 

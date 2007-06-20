@@ -67,15 +67,14 @@
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a {
   float: left;
   width: 18px; height: 18px; 
-  line-height: 18px; vertical-align: middle;
-  font-size: 11px; font-weight: bold;
-  text-align: center; text-decoration: none; color: black;
+  line-height: 18px;
+  font-weight: bold; text-align: center; color: black;
   border: solid 1px gray;
   margin: 7px 3px 0px 3px;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a:hover {
-  height: 18px; line-height: 18px; vertical-align: middle;
+  height: 18px; line-height: 18px; 
   background: #f8f8f8;
   border: solid 1px #fdb913 ;
   color: orange;
@@ -87,8 +86,8 @@
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationTitle {
   float: left;
-  height: 33px; line-height: 33px; vertical-align: middle;
-  font-size: 11px; font-weight: bold;
+  height: 33px; line-height: 33px; 
+  font-weight: bold;
   margin: 0px 10px 0px 15px;
 }
 
@@ -120,7 +119,7 @@
 }
 
 .UIWizard .UIWizardWelcome .WelcomeText {
-  line-height: 20px; font-size: 11px;
+  line-height: 20px;
   padding: 20px 40px 20px 15px;
 }
 
@@ -247,15 +246,14 @@
 
 .UIWizard .UIFormTabPane .LayoutHolder {
   width: 250px; height: 200px; 
-  text-align: center; font-size: 11px;
+  text-align: center; 
   margin: auto; margin-top: 20px;
 }
 
 .UIWizard .UIFormTabPane .LayoutHolder .LayoutLabel {
-  height: 30px;  line-height: 30px; vertical-align: middle;
+  height: 30px;  line-height: 30px; 
   text-align: center;
   margin: auto;
-  font-size: 11px;
 }
 
 .UIWizard .ScrollArea {

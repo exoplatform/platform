@@ -230,13 +230,12 @@
 .UIToolbar .GrayBevelRoundedBar35Style .Button {
   float: left;
   height: 33px ; line-height: 33px ;
-  vertical-align: middle ;
 }
 
 .UIToolbar .GrayBevelRoundedBar35Style .ButtonLabel {
   height: 33px ; line-height: 33px ;
   vertical-align: middle ;
-  font-weight: bold; color: black; font-size: 11px;
+  font-weight: bold; color: black;
 }
 
 /*#################################- NavyBluePolyToolbar-##############################*/
@@ -257,7 +256,6 @@
 .UIToolbar .GrayBevelBar .MiddleBar {
   height: 35px ;
   line-height: 35px ;
-  vertical-align: middle ;
   background: url('MacSkin/background/GrayBevelBarRepeat1x35.gif') repeat-x ;
 }
 
@@ -278,20 +276,17 @@
 .UIToolbar .NavyBluePoly44 .MiddleBar {
   height: 44px ;
   line-height: 44px ;
-  vertical-align: middle ;
   background: url('MacSkin/background/NavyBluePolyStyleRepeat1x44.gif') repeat-x ;
 }
 
 .UIToolbar .NavyBluePoly44 .Button {
   float: left;
   height: 44px ; line-height: 44px ;
-  vertical-align: middle ;
 }
 
 .UIToolbar .NavyBluePoly44 .ButtonLabel {
   height: 44px ; line-height: 44px ;
-  vertical-align: middle ;
-  font-weight: bold; color: black; font-size: 11px;
+  font-weight: bold; color: black;
 }
 
 /*#################################- Style2Toolbar-##############################*/
@@ -314,13 +309,12 @@
 .UIToolbar .Style2Toolbar .MiddleBar {
   height: 31px ;
   line-height: 31px ;
-  vertical-align: middle ;
   background: url('MacSkin/background/Style2BarM1x31.gif') repeat-x ;
 }
 
 .UIToolbar .Style2Toolbar .Title {
   height: 31px ; line-height: 31px ; vertical-align: middle ;
-  font-size: 11px; font-weight: bold;
+  font-weight: bold;
   float: left;
   padding-left: 3px;
 }
@@ -357,7 +351,7 @@
 }
 
 .UIToolbar .EditToolbar .MiddleBar {
-  height: 39px; line-height: 39px; vertical-align: middle;
+  height: 39px; line-height: 39px; 
   background: url('MacSkin/background/MiddleEditToolbar1x39.png') repeat-x;
 }
 
@@ -400,4 +394,3 @@
   float: left;
   margin: 3px 5px 0px 8px;
 }
-

@@ -1,5 +1,4 @@
 .UIHorizontalTabs {
-	font-size: 11px;
 }
 
 .UIHorizontalTabs .CenterHorizontalTabs {
@@ -151,7 +150,6 @@
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab a {
-  text-decoration: none;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
@@ -168,7 +166,6 @@
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
   line-height: 24px;
-  vertical-align: middle;
   background: url('DefaultSkin/background/MiddleNormalTab1x24.gif') repeat-x;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
@@ -194,7 +191,6 @@
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab .MiddleTab {
   line-height: 24px;
-  vertical-align: middle;
   background: url('DefaultSkin/background/MiddleHighlightTab1x24.gif') repeat-x;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
@@ -220,7 +216,6 @@
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .MiddleTab {
   line-height: 24px;
-  vertical-align: middle;
   background: url('DefaultSkin/background/MiddleSelectedTab1x24.gif') repeat-x;
   cursor: pointer;
   font-weight: normal;
@@ -248,7 +243,6 @@
 .UIHorizontalTabs .UITab .NormalStyle1 .MiddleTab {
   line-height: 27px;
   line-height: 27px;
-  vertical-align: middle;
   background: url('DefaultSkin/background/GrayRectangleBg1x27.gif') repeat-x;
 }
 
@@ -296,7 +290,6 @@
 
 .UIHorizontalTabs .UITab .NormalCommunityTab .MiddleTab {
   line-height: 31px;
-  vertical-align: middle ;
   background: url('DefaultSkin/background/NormalCommunityTabM1x31.gif') repeat-x;
 }
 
@@ -346,7 +339,6 @@
 
 .UIHorizontalTabs .UITab .SelectedCommunityTab .MiddleTab {
   line-height: 31px ;
-  vertical-align: middle ;
   background: url('DefaultSkin/background/SelectedCommunityM1x31.gif') repeat-x ;
 }
 
@@ -373,7 +365,6 @@
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .MiddleTab {
   line-height: 27px;
-  vertical-align: middle;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
   color: black; font-weight: normal;
@@ -422,7 +413,6 @@
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {
   line-height: 27px;
-  vertical-align: middle;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
   color: gray;  font-weight: normal;
@@ -466,7 +456,6 @@
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .MiddleTab {
   line-height: 27px;
-  vertical-align: middle;
   background: url('DefaultSkin/background/CenterSelectedMessageTab1x27.gif') repeat-x;
   cursor: pointer;
   padding: 0px 8px 0px 4px;
@@ -494,4 +483,3 @@
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .WarningIcon {
   background: url('DefaultSkin/background/YellowWarningSign.gif') no-repeat;
 }
-

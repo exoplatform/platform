@@ -3,7 +3,7 @@
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs {
-  font-size: 11px; font-weight: normal;
+  font-weight: normal;
   margin-bottom: 3px; padding: 0px;
 }
 
@@ -44,7 +44,7 @@
 .UIGroupMembershipSelector .MembershipTitle{
   background: url('DefaultSkin/background/TitleBG1x20.gif') repeat-x;
   border: 1px #b7b7b7 solid; 
-  height: 20px; line-height: 20px; vertical-align: middle;
+  height: 20px; line-height: 20px;
   padding-left: 15px;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .UIGroupMembershipSelector .MembershipSelector  a {
-  color: black; font-size: 11px; 
+  color: black; 
 }
 
 .UIGroupMembershipSelector .MembershipSelector  a:hover {

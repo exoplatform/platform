@@ -1,5 +1,4 @@
 .UIPermissionSelector {
-  font-size: 11px;
   padding: 10px;
 }
 
@@ -15,7 +14,7 @@
 }
 
 .UIPermissionSelector .PermissionSelectorTitleBar .Title {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px; 
   font-weight: bold;
   float: left;
 }
@@ -25,7 +24,7 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionTypeBar {
-  height: 21px; line-height: 21px; vertical-align: middle;
+  height: 21px; line-height: 21px;
   background: url('DefaultSkin/background/TypeBarBG1x22.gif') repeat-x; 
   border: solid 1px #b7b7b7; border-bottom: none;
   margin: 0px 10px;
@@ -122,5 +121,3 @@
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a:hover{
   color: #0a80d2;
 }
-
-

@@ -20,7 +20,7 @@
 .UIPopupWindow .PopupTitle {
   margin-top: 6px; 
   text-align: center;
-  font-weight: bold; font-size: 11px;
+  font-weight: bold; 
   line-height: 20px; vertical-align: middle;
   cursor: move;
 }

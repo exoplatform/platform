@@ -4,7 +4,7 @@
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs {
-  font-size: 11px; font-weight: normal;
+  font-weight: normal;
   margin-bottom: 3px; 
 }
 
@@ -87,7 +87,7 @@
 }
 
 .UIGroupMembershipSelector .MembershipSelector  a {
-  color: black; font-size: 11px; 
+  color: black;
 }
 
 .UIGroupMembershipSelector .MembershipSelector  a:hover {
@@ -108,4 +108,3 @@
   width: 16px; height: 16px;
   background: url('/eXoResources/icons/16x16/VistaSkin/GrayBorderRightArrow.gif') no-repeat;  
 }
-

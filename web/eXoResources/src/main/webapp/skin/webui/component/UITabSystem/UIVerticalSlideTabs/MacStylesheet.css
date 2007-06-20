@@ -3,13 +3,11 @@
 
 /*#######################-VTabSimpleStyle VerticalSlideTabs-######################*/
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab {
+	line-height: 25px; height: 25px;
 	cursor: pointer;
-	line-height: 25px;
-	height: 25px;
 	margin: 2px 1px;
 	background: url(MacSkin/background/RightOverItem1x24.gif) repeat-x;
 	border: 1px solid #d6d6d6;
-	font-size: 11px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .LeftIcon {
@@ -21,18 +19,17 @@
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabLabel {
   float: left ;
-  height: 25px ; line-height: 25px ;  vertical-align: middle ;
+  height: 25px ; line-height: 25px ;  
   color: #5c5c5c; font-weight: bold; text-transform: capitalize;
 }
 
 /****-SelectedTab VerticalSlideTabs-****/
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab {
-	cursor: pointer;
 	height: 25px;
+	cursor: pointer;
 	margin: 2px 1px 0px 1px;
 	background: url(MacSkin/background/RightSelectedItem1x24.gif) repeat-x;
 	border: 1px solid #8bc0e4;
-	font-size: 11px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .LeftIcon {
@@ -44,7 +41,7 @@
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
   float: left;
-  height: 25px ; line-height: 25px ;  vertical-align: middle ;
+  height: 25px ; line-height: 25px ; 
   color: #1e5bfb; font-weight: bold; text-transform: capitalize;
 }
 
@@ -81,9 +78,7 @@
   padding: 10px ;
   margin: 0px 1px;
   background: white;
-  font-size: 11px;
 }
-
 
 /*#######################-VTabStyle3 Style VerticalSlideTabs-######################*/
 
@@ -116,7 +111,7 @@
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLabel {
   float: left ;
-  line-height: 27px ;  vertical-align: middle ;
+  line-height: 27px ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .SwitchButton {

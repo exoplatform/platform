@@ -64,7 +64,6 @@
 
 .UIToolbar .Button .ButtonLabel {
   float: left ;
-  font-size: 11px;
 }
 
 .UIToolbar .HorizontalSeparator {
@@ -74,7 +73,6 @@
   background: url('VistaSkin/background/GrayLine2x4.png') repeat-y ;
 
 }
-
 
 /*##############################- LargeToolbar style -#########################*/
 
@@ -97,7 +95,7 @@
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
   height: 75px; margin-top: 1px;
-  line-height: 75px ; vertical-align: middle;
+  line-height: 75px ; 
   background: url('VistaSkin/background/GrayLargeToolbarM1x75.png') repeat-x ;
 }
 
@@ -123,7 +121,7 @@
   float: left ;
   background: url('VistaSkin/background/StandardToolbarLBg3x42.gif') no-repeat ;
   background-color: #d6e7ee ;
-  width: 3px ;  height: 42px ;
+  width: 3px ; height: 42px ;
 }
 
 .UIToolbar .StandardToolbar .MiddleToolbar {
@@ -142,10 +140,9 @@
 
 .UIToolbar .StandardToolbar .ButtonLabel {
   height: 32px ;
-  vertical-align: middle ;  line-height: 32px ;
+  line-height: 32px ;
   margin-left: 5px ;
 }
-
 
 .UIToolbar .StandardToolbar .Button .SelectedButton {
   font-weight: bold;
@@ -165,7 +162,7 @@
 }
 
 .UIToolbar .SmallToolbar a {
-  width: 16px ;  height: 16px ;
+  width: 16px ; height: 16px ;
   float: left ;
   margin: 4px 13px 0px 0px ;
 }
@@ -223,7 +220,7 @@
 }
 
 .UIToolbar .PolyToolbar .MiddleBar {
-  height: 37px; line-height: 37px; vertical-align: middle;
+  height: 37px; line-height: 37px;
   background: url('VistaSkin/background/Poly2BarM1x37.png') repeat-x ;
 }
 
@@ -244,7 +241,7 @@
 }
 
 .UIToolbar .Poly2Toolbar .MiddleBar {
-  height: 37px; line-height: 37px; vertical-align: middle;
+  height: 37px; line-height: 37px; 
   background: url('VistaSkin/background/Poly2BarM1x37.png') repeat-x ;
 }
 
@@ -290,20 +287,17 @@
 .UIToolbar .GrayBevelRoundedBar35Style .MiddleBar {
   height: 35px ;
   line-height: 35px ;
-  vertical-align: middle ;
   background: url('VistaSkin/background/GrayBevel35Center1x35.gif') repeat-x ;
 }
 
 .UIToolbar .GrayBevelRoundedBar35Style .Button {
   float: left;
   height: 33px ; line-height: 33px ;
-  vertical-align: middle ;
 }
 
 .UIToolbar .GrayBevelRoundedBar35Style .ButtonLabel {
   height: 33px ; line-height: 33px ;
-  vertical-align: middle ;
-  font-weight: bold; color: black; font-size: 11px;
+  font-weight: bold; color: black;
 }
 
 /*#################################- Style1Toolbar-##############################*/
@@ -326,7 +320,6 @@
 .UIToolbar .Style1Toolbar .MiddleBar {
   height: 28px ;
   line-height: 28px ;
-  vertical-align: middle ;
   background: url('VistaSkin/background/BlueRoundedToolbarM1x28.gif') repeat-x ;
 }
 
@@ -350,13 +343,12 @@
 .UIToolbar .Style2Toolbar .MiddleBar {
   height: 29px ;
   line-height: 29px ;
-  vertical-align: middle ;
   background: url('VistaSkin/background/Style2BarM1x29.gif') repeat-x ;
 }
 
 .UIToolbar .Style2Toolbar .Title {
   height:29px ; line-height: 29px ; vertical-align: middle ;
-  font-size: 11px; font-weight: bold;
+  font-weight: bold;
   float: left;
   padding-left: 3px;
 }
@@ -367,7 +359,6 @@
   margin: 1px 0px 0px 0px;
   cursor: pointer;
 }
-
 
 /*#################################- GrayBevelToolbar-##############################*/
 .UIToolbar .GrayBevelBar {
@@ -387,10 +378,8 @@
 .UIToolbar .GrayBevelBar .MiddleBar {
   height: 35px ;
   line-height: 35px ;
-  vertical-align: middle ;
   background: url('VistaSkin/background/GrayBevelBarRepeat1x35.gif') repeat-x ;
 }
-
 
 /*#################################- NavyBluePolyToolbar-##############################*/
 .UIToolbar .NavyBluePoly44 {
@@ -410,20 +399,17 @@
 .UIToolbar .NavyBluePoly44 .MiddleBar {
   height: 44px ;
   line-height: 44px ;
-  vertical-align: middle ;
   background: url('VistaSkin/background/NavyBluePolyStyleRepeat1x44.gif') repeat-x ;
 }
 
 .UIToolbar .NavyBluePoly44 .Button {
   float: left;
   height: 44px ; line-height: 44px ;
-  vertical-align: middle ;
 }
 
 .UIToolbar .NavyBluePoly44 .ButtonLabel {
   height: 44px ; line-height: 44px ;
-  vertical-align: middle ;
-  font-weight: bold; color: black; font-size: 11px;
+  font-weight: bold; color: black;
 }
 
 .UIToolbar .RollbackIcon {

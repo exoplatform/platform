@@ -1,9 +1,9 @@
 
 /*#######################-VTabSimpleStyle VerticalSlideTabs-######################*/
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab{
-	cursor: pointer;
 	line-height: 26px;
 	margin: 5px;
+	cursor: pointer;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabLeft {
@@ -29,8 +29,8 @@
 
 /***-SelectedTab VTabSimpleStyle VerticalSlideTabs-***/
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab {
-	cursor: pointer;
 	margin: 5px 5px 0px 5px;
+	cursor: pointer;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLeft {

@@ -8,7 +8,6 @@
 
 .UIToolbar .Button .ButtonLabel {
   float: left ;
-  font-size: 11px;
 }
 
 .UIToolbar .HorizontalSeparator {
@@ -38,7 +37,7 @@
 }
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
-  height: 64px; line-height: 64px ; vertical-align: middle;
+  height: 64px; line-height: 64px ; 
   background: url('DefaultSkin/background/GrayLargeToolbarM1x64.gif') repeat-x ;
 }
 
@@ -81,7 +80,7 @@
 }
 
 .UIToolbar .StandardToolbar .ButtonLabel {
-  height: 32px ;  vertical-align: middle ;  line-height: 32px ;
+  height: 32px ; line-height: 32px ;
   margin-left: 5px ;
 }
 
@@ -163,7 +162,7 @@
 }
 
 .UIToolbar .EditToolbar .MiddleBar {
-  height: 30px; line-height: 30px; vertical-align: middle;
+  height: 30px; line-height: 30px;
   background: url('DefaultSkin/background/CenterEditToolbar1x30.gif') repeat-x ;
 }
 
@@ -242,18 +241,18 @@
 }
 
 .UIToolbar .GrayBevelRoundedBar35Style .MiddleBar {
-  height: 35px ;  line-height: 35px ; vertical-align: middle ;
+  height: 35px ;  line-height: 35px ;
   background: url('DefaultSkin/background/GrayBevel35Center1x35.gif') repeat-x ;
 }
 
 .UIToolbar .GrayBevelRoundedBar35Style .Button {
   float: left;
-  height: 33px ; line-height: 33px ; vertical-align: middle ;
+  height: 33px ; line-height: 33px ;
 }
 
 .UIToolbar .GrayBevelRoundedBar35Style .ButtonLabel {
-  height: 33px ; line-height: 33px ; vertical-align: middle ;
-  font-weight: bold; color: black; font-size: 11px;
+  height: 33px ; line-height: 33px ; 
+  font-weight: bold; color: black;
 }
 
 /*#################################- Style1Toolbar-##############################*/
@@ -274,7 +273,7 @@
 }
 
 .UIToolbar .Style1Toolbar .MiddleBar {
-  height: 28px ; line-height: 28px ; vertical-align: middle ;
+  height: 28px ; line-height: 28px ; 
   background: url('DefaultSkin/background/BlueRoundedToolbarM1x28.gif') repeat-x ;
 }
 
@@ -296,14 +295,14 @@
 }
 
 .UIToolbar .Style2Toolbar .MiddleBar {
-  height: 31px ; line-height: 31px ; vertical-align: middle ;
+  height: 31px ; line-height: 31px ; 
   background: url('DefaultSkin/background/Style2BarM1x31.gif') repeat-x ;
 }
 
 .UIToolbar .Style2Toolbar .Title {
   float: left;
-  height: 31px ; line-height: 31px ; vertical-align: middle ;
-  font-size: 11px; font-weight: bold;
+  height: 31px ; line-height: 31px ;
+  font-weight: bold;
   padding-left: 3px;
 }
 
@@ -336,7 +335,7 @@
 }
 
 .UIToolbar .GrayBevelBar .MiddleBar {
-  height: 35px ; line-height: 35px ; vertical-align: middle ;
+  height: 35px ; line-height: 35px ;
   background: url('DefaultSkin/background/GrayBevelBarRepeat1x35.gif') repeat-x ;
 }
 
@@ -369,8 +368,5 @@
 
 .UIToolbar .NavyBluePoly44 .ButtonLabel {
   height: 44px ; line-height: 44px ;
-  vertical-align: middle ;
-  font-weight: bold; color: black; font-size: 11px;
+  font-weight: bold; color: black;
 }
-
-
