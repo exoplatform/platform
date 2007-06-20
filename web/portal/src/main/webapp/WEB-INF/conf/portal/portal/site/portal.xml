@@ -34,7 +34,7 @@
 	  </application>
 		
 	  <application>
-	    <instance-id>portal#site:/web/BreadcumbsPortlet/breacumbs</instance-id>
+	    <instance-id>portal#site:/web/BreadcumbsPortlet/breadcumbs</instance-id>
 	    <show-info-bar>false</show-info-bar>
 	  </application>
 	  
