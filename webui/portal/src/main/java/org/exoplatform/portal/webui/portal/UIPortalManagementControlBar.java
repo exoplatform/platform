@@ -106,8 +106,20 @@ public class UIPortalManagementControlBar extends UIToolbar {
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      
       PortalRequestContext prContext = Util.getPortalRequestContext();  
-      uiWorkingWS.setRenderedChild(UIPortal.class) ;
+      UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);     
+      
+      String remoteUser = prContext.getRemoteUser();
+      String ownerUser = prContext.getPortalOwner();   
+      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);      
+      UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
+      PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
+      
+      UIPortal oldUIPortal =uiWorkingWS.getChild(UIPortal.class);
+      uiWorkingWS.setBackupUIPortal(oldUIPortal);
+      uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
+      uiWorkingWS.setRenderedChild(UIPortal.class) ;  
       
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
