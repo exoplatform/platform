@@ -1,8 +1,6 @@
 eXo.require('eXo.widget.UIWidget');
 
-function UIAddWidget() {
-
-}
+function UIAddWidget() {};
 
 UIAddWidget.prototype.show = function() {
 	var DOMUtil = eXo.core.DOMUtil ;

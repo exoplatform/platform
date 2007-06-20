@@ -17,7 +17,7 @@
   //jsmanager.addJavascript('eXo.portal.UIPortalControl.fixHeight');
   jsmanager.addOnResizeJavascript('eXo.portal.UIPortalControl.fixHeight');
   
-  jsmanager.addOnLoadJavascript('eXo.widget.UIWidget.resizeContainer');
+  jsmanager.addJavascript('eXo.widget.UIWidget.resizeContainer');
 
   String visible = uicomponent.getVisible();
   if(visible.equals("true")) { 

@@ -24,7 +24,6 @@ UIWidget.prototype.init = function(uiWidget, inDesktop) {
 		uiWidget.style.top = posY + "px" ;
 		uiWidget.style.zIndex = zIndex ;
 	}
-	//eXo.webui.UIVerticalScroller.init();
 };
 
 UIWidget.prototype.deleteWidget = function(selectedElement) {

@@ -1,10 +1,5 @@
-/*
- * Coder       : Dunghm
- * Description : Vertical Scroller
- * */
-
-UIVerticalScroller = function () {
-} ;
+/*### Created by: Duy Tu  ###*/
+UIVerticalScroller = function () {} ;
 
 UIVerticalScroller.prototype.init = function() {
 	eXo.widget.UIWidget.resizeContainer();
@@ -18,7 +13,6 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 	var itemContainer = document.getElementById("UIWidgets") ;
 	if(itemContainer == null) return;
 	var items = DOMUtil.findDescendantsByClass(itemContainer, "div", "UIWidget") ;
-	//if(!items[0]) return;
 	var scrollZone = DOMUtil.findFirstDescendantByClass(itemContainer, "div", "ScrollZone") ;
 	var widgetNavigator = DOMUtil.findFirstDescendantByClass(container, "div", "WidgetNavigator") ;
 	var iconButton = DOMUtil.findDescendantsByClass(widgetNavigator, "div", "Icon") ;
