@@ -337,24 +337,6 @@ public class UIPageActionListener {
     public void execute(Event<UIPage> event) throws Exception {
       UIPage uiPage = event.getSource();
       String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-//      List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
-//      
-//      List<UIComponent> uiComponents = new ArrayList<UIComponent>();
-//      
-//      uiPage.findComponentOfType(uiPortlets,UIPortlet.class);
-//      List<UIExoApplication> uiExoApplications = new ArrayList<UIExoApplication>();
-//      uiPage.findComponentOfType(uiExoApplications , UIExoApplication.class);
-//      
-//      uiPage.findComponentOfType(uiPortlets, UIPortlet.class);
-//      
-//      UIPortlet uiPortlet = null;
-//      for(UIPortlet ele : uiPortlets) {
-//        if(ele.getId().equals(objectId)) {
-//          uiPortlet = ele;
-//          break;
-//        }
-//      }
-//      if(uiPortlet == null) return;
       
       UIApplication uiComponent = uiPage.getChildById(objectId) ;
       if(uiComponent == null) return ;
@@ -366,6 +348,7 @@ public class UIPageActionListener {
       if(posX != null) uiComponent.getProperties().put("locationX", posX);
       if(posY != null) uiComponent.getProperties().put("locationY", posY);
       
+//      System.out.println("\n\n\n\n\n\n\n\n SAVE POSX: "+posX+" \n SAVE POSY: "+posY+"\n\n\n\n\n\n\n\n");
       /*########################## Save ZIndex ##########################*/
       String zIndex = event.getRequestContext().getRequestParameter("zIndex");
       
@@ -381,13 +364,12 @@ public class UIPageActionListener {
       /*########################## Save Window status (SHOW / HIDE) ##########################*/
       String appStatus = event.getRequestContext().getRequestParameter("appStatus");
       if(appStatus != null) uiComponent.getProperties().put("appStatus", appStatus);
-      
             
-      if(!uiPage.isModifiable()) return;
-      Page page = PortalDataMapper.toPageModel(uiPage);
-      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
-      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-      configService.update(page);
+//      if(!uiPage.isModifiable()) return;
+//      Page page = PortalDataMapper.toPageModel(uiPage);
+//      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
+//      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+//      configService.update(page);
     }
   }
   
