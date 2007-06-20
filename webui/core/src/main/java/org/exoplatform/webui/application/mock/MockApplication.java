@@ -39,6 +39,7 @@ public class MockApplication extends WebuiApplication {
     return null;
   }
 
+  @SuppressWarnings("unused")
   public String getApplicationInitParam(String name) {  return initParams_.get(name); }
 
   public ExoContainer getApplicationServiceContainer() {

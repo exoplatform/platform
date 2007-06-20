@@ -71,7 +71,7 @@ public class ConfigurationManager {
     }
   }
   
-  public List<Component> getComponentConfig(Class clazz) {
+  public List<Component> getComponentConfig(Class<?> clazz) {
     List<Component> configs = new ArrayList<Component>();
     Collection<Component> values = configs_.values();
     String type = clazz.getName();
@@ -81,7 +81,7 @@ public class ConfigurationManager {
     return configs;
   }
 
-  public Component getComponentConfig(Class type, String id) {
+  public Component getComponentConfig(Class<?> type, String id) {
     String key =  type.getName() ;   
     if(id != null )  key = key + ":" + id  ;    
     Component config = configs_.get(key) ;
@@ -121,11 +121,11 @@ public class ConfigurationManager {
     return new Component [] {};   
   }  
 
-  private Component toComponentConfig(ComponentConfig annotation, Class clazz) throws Exception {
+  private Component toComponentConfig(ComponentConfig annotation, Class<?> clazz) throws Exception {
     Component config = new Component();    
     if(annotation.id().length() > 0) config.setId(annotation.id());
 
-    Class type = annotation.type() == void.class ? clazz : annotation.type();
+    Class<?> type = annotation.type() == void.class ? clazz : annotation.type();
     config.setType(type.getName());
     if(annotation.template().length() > 0) config.setTemplate(annotation.template());    
     if(annotation.lifecycle() != void.class) config.setLifecycle(annotation.lifecycle().getName());
@@ -162,7 +162,7 @@ public class ConfigurationManager {
     event.setConfirm(annotation.confirm());
     event.setInitParams(toInitParams(annotation.initParams()));
     ArrayList<String> listeners = new ArrayList<String>();    
-    for(Class clazz : annotation.listeners()){
+    for(Class<?> clazz : annotation.listeners()){
       listeners.add(clazz.getName());
     }
     if(annotation.name().length() > 0){

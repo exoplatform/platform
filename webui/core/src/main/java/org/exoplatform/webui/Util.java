@@ -14,7 +14,7 @@ import org.exoplatform.webui.config.InitParams;
  */
 public class Util {
   
-  static Class[] CONSTRUCTOR_PARAMS = {InitParams.class} ; 
+  static Class<?>[] CONSTRUCTOR_PARAMS = {InitParams.class} ; 
   
   static public Object createObject(String type, InitParams params) throws Exception {
     ClassLoader cl = Thread.currentThread().getContextClassLoader() ;
