@@ -6,15 +6,13 @@
   
   jsmanager.importJavascript('eXo.widget.UIAddWidget');
   jsmanager.importJavascript('eXo.desktop.UIAddApplication') ;
-  //jsmanager.importJavascript('eXo.webui.UIVerticalScroller') ;  
   String componentId = uicomponent.getId();
   String addWidgetAction = "eXo.desktop.UIAddApplication.init('"+componentId+"','"+componentId+"', ['eXoWidget']);" ;
-  String scrollUpAction = "eXo.webui.UIVerticalScroller.scrollUp(this, 'UIWidgetContainer', 'UIWidget');";
-  String scrollDownAction = "eXo.webui.UIVerticalScroller.scrollDown(this, 'UIWidgetContainer', 'UIWidget');";
+  String scrollUpAction = "eXo.webui.UIVerticalScroller.refreshScroll(1);";
+  String scrollDownAction = "eXo.webui.UIVerticalScroller.refreshScroll(-1);";
 
-  jsmanager.importJavascript('eXo.widget.UIWidget');
 	jsmanager.importJavascript('eXo.webui.UIVerticalScroller') ;
-	jsmanager.addOnLoadJavascript('eXo.webui.UIVerticalScroller.init');
+	jsmanager.addJavascript('eXo.webui.UIVerticalScroller.init');
   jsmanager.addOnResizeJavascript('eXo.webui.UIVerticalScroller.init');
 %>
 

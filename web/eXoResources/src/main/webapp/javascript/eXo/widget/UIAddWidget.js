@@ -33,6 +33,8 @@ UIAddWidget.prototype.addWidget = function(widgetElement) {
 	/*Get Application's Stylesheet*/
 	var styleId = appDescriptor.appId + "Stylesheet" ;
 	eXo.core.Skin.addSkin(styleId, appDescriptor.application.skin[eXo.env.client.skin]);
+	
+	//alert("kfljds");
 };
 
 UIAddWidget.prototype.addWidgetToDesktop = function(widgetElement) {

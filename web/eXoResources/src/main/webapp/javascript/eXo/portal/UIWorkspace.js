@@ -84,6 +84,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 		uiWorkspacePanel.style.height = (eXo.portal.UIControlWorkspace.height - 
 																		 eXo.portal.UIControlWorkspace.uiWorkspaceControl.offsetHeight - 23) + "px" ;
 		/*23 is height of User Workspace Title*/
+		eXo.webui.UIVerticalScroller.init();
 		eXo.portal.UIPortalControl.fixHeight();
 	} else {
 		// hides the workspace
@@ -103,9 +104,6 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	/* Resizes the scrollable containers */
 	eXo.portal.UIPortalControl.initAllManagers();
 	
-	if(document.getElementById("UIWidgets")) {
-		eXo.webui.UIVerticalScroller.init();
-	}
 	/* BEGIN - Check positon of widgets in order to avoid hide widgets when we expand/collapse workspace*/
 	if(uiPageDesktop) {
 		var DOMUtil = eXo.core.DOMUtil ;

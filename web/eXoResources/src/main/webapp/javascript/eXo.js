@@ -43,11 +43,11 @@ eXo.require = function(module, jsLocation) {
   }catch(err){
     alert(err + " : "+request.responseText);
   }
-}
+};
 
 eXo.env.server.createPortalURL = function(targetComponentId, actionName, useAjax, params) {
-  var href = eXo.env.server.portalBaseURL + "?portal:componentId=" +  targetComponentId +
-             "&portal:action=" + actionName;
+  var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + targetComponentId + "&portal:action=" + actionName;
+  //alert(params);
   if(params != null) {
     for(var i = 0; i < params.length; i++) {
       href += "&" +  params[i].name + "=" + params[i].value ;
@@ -55,4 +55,4 @@ eXo.env.server.createPortalURL = function(targetComponentId, actionName, useAjax
   }
   if(useAjax) href += "&ajaxRequest=true" ;
   return  href ;
-}
+};
