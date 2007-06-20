@@ -141,7 +141,6 @@ UIAddApplication.prototype.addApplication = function(parentId, id, save) {
 	] ;
 	
 	ajaxGet(eXo.env.server.createPortalURL(parentId, "AddApplication", true, params)) ;
-	eXo.widget.UIWidget.resizeContainer();
 };
 
 UIAddApplication.prototype.showAddApplication = function(object) {

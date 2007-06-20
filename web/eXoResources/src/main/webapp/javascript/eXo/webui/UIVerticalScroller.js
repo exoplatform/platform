@@ -18,7 +18,7 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 	var itemContainer = document.getElementById("UIWidgets") ;
 	if(itemContainer == null) return;
 	var items = DOMUtil.findDescendantsByClass(itemContainer, "div", "UIWidget") ;
-	if(!items[0]) return;
+	//if(!items[0]) return;
 	var scrollZone = DOMUtil.findFirstDescendantByClass(itemContainer, "div", "ScrollZone") ;
 	var widgetNavigator = DOMUtil.findFirstDescendantByClass(container, "div", "WidgetNavigator") ;
 	var iconButton = DOMUtil.findDescendantsByClass(widgetNavigator, "div", "Icon") ;
@@ -32,10 +32,12 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 			break;
 		}
 	}
-	if(index-id < 0 || index-id > items.length-1) {
+	if(index-id > itemSize-1 || index >= itemSize-1) downButton.className = "Icon DisableScrollDownButton";
+	if(index == 0) {
 		upButton.className = "Icon DisableScrollUpButton";
-		return ;
+		if(id == 1)return;
 	}
+	if(itemSize <= 0) return;
 	for(var i = index; i < itemSize; ++i) {
 		items[i].style.display = "block";
 	}
@@ -58,13 +60,14 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 		} else {
 			maxIndex = i;
 		}
-	} 
+	}
 	if(maxIndex == (itemSize-1)) downButton.className = "Icon DisableScrollDownButton";
 	else downButton.className = "Icon ScrollDownButton";
 	if(maxHeight >= itemsHeight + temp) {
 		if(id < 0) {
 			items[index].style.display = "block";
 			downButton.className = "Icon DisableScrollDownButton";
+			if(index == 0) index =-1;
 		}
 	}
 	if(id < 0) ++index;
