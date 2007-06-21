@@ -4,8 +4,8 @@ function UIItemSelector() {
 
 UIItemSelector.prototype.onOver = function(selectedElement, mouseOver) {
 	
-	if(selectedElement.className == "Item"){
-	  eXo.webui.UIItemSelector.beforeActionHappen(selectedElement);
+  if(selectedElement.className == "Item"){
+    eXo.webui.UIItemSelector.beforeActionHappen(selectedElement);
   }
   if(mouseOver) {
     this.backupClass = selectedElement.className;
@@ -19,23 +19,23 @@ UIItemSelector.prototype.onOver = function(selectedElement, mouseOver) {
 
 UIItemSelector.prototype.onClick = function(clickedElement) {
   var itemListContainer = clickedElement.parentNode;
-	var allItems =  eXo.core.DOMUtil.findDescendantsByClass(itemListContainer, "div", "Item");
-	eXo.webui.UIItemSelector.beforeActionHappen(clickedElement);
-	
+  var allItems =  eXo.core.DOMUtil.findDescendantsByClass(itemListContainer, "div", "Item");
+  eXo.webui.UIItemSelector.beforeActionHappen(clickedElement);
+  if(this.allItems.length <= 0) return;
   for(var i = 0; i < allItems.length; i++) {
     if(allItems[i] != clickedElement) {
       allItems[i].className = "Item";
-		  this.onChangeItemDetail(clickedElement, true);
+      this.onChangeItemDetail(clickedElement, true);
     } else {
       allItems[i].className = "SelectedItem Item";
-	    this.backupClass = "SelectedItem Item";
-  		this.onChangeItemDetail(clickedElement, false);
+      this.backupClass = "SelectedItem Item";
+      this.onChangeItemDetail(clickedElement, false);
     }
   }
 };
 
 UIItemSelector.prototype.onChangeItemDetail = function(itemSelected, mouseOver) {
-  if(this.allItems[0] == null) return;
+  if(this.allItems.length <= 0) return;
   if(mouseOver) {
     for(var i = 0; i < this.allItems.length; i++) {
       if(this.allItems[i] == itemSelected) {
@@ -57,19 +57,19 @@ UIItemSelector.prototype.onChangeItemDetail = function(itemSelected, mouseOver) 
 
 /* Pham Thanh Tung added */
 UIItemSelector.prototype.onClickCategory = function(clickedElement, form, component, option) {
-	eXo.webui.UIItemSelector.onClick(clickedElement);
-  if (eXo.webui.UIItemSelector.SelectedItem == null)	
-	  eXo.webui.UIItemSelector.SelectedItem = new Object();
+  eXo.webui.UIItemSelector.onClick(clickedElement);
+  if (eXo.webui.UIItemSelector.SelectedItem == null)  
+    eXo.webui.UIItemSelector.SelectedItem = new Object();
   eXo.webui.UIItemSelector.SelectedItem.component = component;
   eXo.webui.UIItemSelector.SelectedItem.option = option;  
 };
 
 /* Pham Thanh Tung added */
 UIItemSelector.prototype.onClickOption = function(clickedElement, form, component, option) {
-	var itemDetailList = eXo.core.DOMUtil.findAncestorByClass(clickedElement, "ItemDetailList");
-	var selectedItems = eXo.core.DOMUtil.findDescendantsByClass(itemDetailList, "div", "SelectedItem");
-	for (var i = 0; i < selectedItems.length; i++) {
-	  selectedItems[i].className = "NormalItem";
+  var itemDetailList = eXo.core.DOMUtil.findAncestorByClass(clickedElement, "ItemDetailList");
+  var selectedItems = eXo.core.DOMUtil.findDescendantsByClass(itemDetailList, "div", "SelectedItem");
+  for (var i = 0; i < selectedItems.length; i++) {
+    selectedItems[i].className = "NormalItem";
   }
   clickedElement.className = "SelectedItem";
   if (eXo.webui.UIItemSelector.SelectedItem == null) {
@@ -144,9 +144,7 @@ UIItemSelector.prototype.selectCategory = function(selectedNode) {
       itemLists[i].style.display = "block" ;
     }
   }
-  
   uiPopupCategory.style.display = "none" ;
-
 };
 
 UIItemSelector.prototype.findIndex = function(object) {

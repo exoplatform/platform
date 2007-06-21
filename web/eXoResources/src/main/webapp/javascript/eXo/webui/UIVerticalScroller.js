@@ -26,7 +26,7 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 			break;
 		}
 	}
-	if(index-id > itemSize-1 || index >= itemSize-1) downButton.className = "Icon DisableScrollDownButton";
+	if(index-id > itemSize-1 || index == itemSize-1) downButton.className = "Icon DisableScrollDownButton";
 	if(index == 0) {
 		upButton.className = "Icon DisableScrollUpButton";
 		if(id == 1)return;
@@ -35,7 +35,7 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 	for(var i = index; i < itemSize; ++i) {
 		items[i].style.display = "block";
 	}
-	var maxHeight = scrollZone.offsetHeight;
+	var maxHeight = scrollZone.offsetHeight + 10;
 	var itemsHeight = 0; var tmp = 0;
 	var maxIndex = 0;
 	var temp = items[index].offsetHeight;
@@ -47,14 +47,18 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 	if(index < 0) index = 0;
 	for(var i = index - id; i < itemSize; ++i) {
 		tmp = items[i].offsetHeight;
-		if(tmp > 0 && tmp < 120) tmp = 120;
+		if(tmp > 0 && tmp < 120) {
+			tmp = 120;
+			if(DOMUtil.findFirstDescendantByClass(items[i], "div", "UIStickerWidget"))tmp = 212;
+			if(DOMUtil.findFirstDescendantByClass(items[i], "div", "UIInfoWidget"))tmp = 222;
+		}
 		itemsHeight += tmp;
 		if(itemsHeight > maxHeight) {
 			items[i].style.display = "none";
 		} else {
 			maxIndex = i;
 		}
-	}
+	}//alert(maxIndex);
 	if(maxIndex == (itemSize-1)) downButton.className = "Icon DisableScrollDownButton";
 	else downButton.className = "Icon ScrollDownButton";
 	if(maxHeight >= itemsHeight + temp) {
