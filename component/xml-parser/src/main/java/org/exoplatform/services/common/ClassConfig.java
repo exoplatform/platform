@@ -16,5 +16,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
 public @interface ClassConfig {
-  Class [] classes() default {};
+  Class<?> [] classes() default {};
 }

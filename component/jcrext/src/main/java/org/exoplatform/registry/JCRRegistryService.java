@@ -211,7 +211,7 @@ public class JCRRegistryService  {
    */
   public void createApplicationRegistry(String username, ApplicationRegistry desc, boolean overwrite) throws Exception {
     desc.preAction(null) ;
-    Session session = repositoryService_.getRepository().getSystemSession(WORKSPACE);
+    Session session = repositoryService_.getDefaultRepository().getSystemSession(WORKSPACE);
     Node appsNode = session.getRootNode().getNode("users/" +username +"/exo:registry/exo:applications");
     if( appsNode.hasNode(desc.getName())){
       if(!overwrite){

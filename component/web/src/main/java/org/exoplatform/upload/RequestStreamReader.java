@@ -13,7 +13,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.exoplatform.services.parser.html.refs.RefsDecoder;
+import org.exoplatform.services.html.refs.RefsDecoder;
 
 /**
  * Author : Oleg Kalnichevski

@@ -114,7 +114,7 @@ abstract public class UIComponent {
     setId(componentId) ;
   }
   
-  public  void setComponentConfig(Class clazz, String id) {
+  public  void setComponentConfig(Class<?> clazz, String id) {
     WebuiRequestContext context =  WebuiRequestContext.getCurrentInstance() ;
     WebuiApplication app = (WebuiApplication) context.getApplication() ;
     this.config = app.getConfigurationManager().getComponentConfig(clazz, id) ;

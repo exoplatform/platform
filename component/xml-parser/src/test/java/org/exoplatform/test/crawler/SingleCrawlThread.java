@@ -11,10 +11,10 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.net.URL;
 
-import org.exoplatform.services.parser.html.HTMLDocument;
-import org.exoplatform.services.parser.html.parser.HTMLParser;
-import org.exoplatform.services.parser.html.path.NodePath;
-import org.exoplatform.services.parser.html.path.NodePathUtil;
+import org.exoplatform.services.html.HTMLDocument;
+import org.exoplatform.services.html.parser.HTMLParser;
+import org.exoplatform.services.html.path.NodePath;
+import org.exoplatform.services.html.path.NodePathUtil;
 
 /**
  * Created by The eXo Platform SARL

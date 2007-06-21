@@ -8,14 +8,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.services.parser.html.HTMLDocument;
-import org.exoplatform.services.parser.html.HTMLNode;
-import org.exoplatform.services.parser.html.Name;
-import org.exoplatform.services.parser.html.parser.HTMLParser;
-import org.exoplatform.services.parser.html.path.NodePathParser;
-import org.exoplatform.services.parser.html.path.NodePathUtil;
-import org.exoplatform.services.parser.html.util.HyperLinkUtil;
-import org.exoplatform.services.parser.html.util.URLCreator;
+import org.exoplatform.services.html.HTMLDocument;
+import org.exoplatform.services.html.HTMLNode;
+import org.exoplatform.services.html.Name;
+import org.exoplatform.services.html.parser.HTMLParser;
+import org.exoplatform.services.html.path.NodePathParser;
+import org.exoplatform.services.html.path.NodePathUtil;
+import org.exoplatform.services.html.util.HyperLinkUtil;
+import org.exoplatform.services.html.util.URLCreator;
 import org.exoplatform.test.BasicTestCase;
 
 /**

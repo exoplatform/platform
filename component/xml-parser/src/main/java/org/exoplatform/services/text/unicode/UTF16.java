@@ -6,7 +6,7 @@
  */
 package org.exoplatform.services.text.unicode;
 
-import org.exoplatform.services.parser.container.ThreadSoftRef;
+import org.exoplatform.services.common.ThreadSoftRef;
 
 public class UTF16 {
   

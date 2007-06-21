@@ -6,16 +6,15 @@ package org.exoplatform.services.parser.html.test;
 
 import java.io.File;
 
-import org.exoplatform.services.parser.common.TypeToken;
-import org.exoplatform.services.parser.html.HTMLDocument;
-import org.exoplatform.services.parser.html.HTMLNode;
-import org.exoplatform.services.parser.html.Name;
-import org.exoplatform.services.parser.html.parser.HTML;
-import org.exoplatform.services.parser.html.parser.HTMLParser;
-import org.exoplatform.services.parser.html.parser.NodeImpl;
-import org.exoplatform.services.parser.html.path.NodePath;
-import org.exoplatform.services.parser.html.path.NodePathParser;
-import org.exoplatform.services.parser.html.path.NodePathUtil;
+import org.exoplatform.services.html.HTMLDocument;
+import org.exoplatform.services.html.HTMLNode;
+import org.exoplatform.services.html.Name;
+import org.exoplatform.services.html.parser.HTML;
+import org.exoplatform.services.html.parser.HTMLParser;
+import org.exoplatform.services.html.parser.NodeImpl;
+import org.exoplatform.services.html.path.NodePath;
+import org.exoplatform.services.html.path.NodePathParser;
+import org.exoplatform.services.html.path.NodePathUtil;
 import org.exoplatform.test.BasicTestCase;
 
 /**
@@ -60,7 +59,7 @@ public class TestNodeParser extends BasicTestCase {
     assertEquals(node.getName(),Name.TITLE);
     
     //Add a Tag to HTMLDocument.
-    NodeImpl impl = new NodeImpl("h2 id = \"dds\"".toCharArray(), HTML.getConfig("H2"), TypeToken.TAG);
+    NodeImpl impl = new NodeImpl("h2 id = \"dds\"".toCharArray(), Name.H2);
     node.addChild(impl);
     assertNotNull(node.getChildrenNode().get(1));
     assertEquals(node.getChildren().get(1).getName(),Name.H2);

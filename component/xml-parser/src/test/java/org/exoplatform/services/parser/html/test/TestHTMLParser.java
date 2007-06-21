@@ -14,16 +14,16 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.services.parser.attribute.Attribute;
-import org.exoplatform.services.parser.attribute.AttributeParser;
-import org.exoplatform.services.parser.attribute.Attributes;
-import org.exoplatform.services.parser.html.HTMLDocument;
-import org.exoplatform.services.parser.html.HTMLNode;
-import org.exoplatform.services.parser.html.Name;
-import org.exoplatform.services.parser.html.parser.HTMLParser;
-import org.exoplatform.services.parser.html.path.NodePath;
-import org.exoplatform.services.parser.html.path.NodePathParser;
-import org.exoplatform.services.parser.html.path.NodePathUtil;
+import org.exoplatform.services.html.HTMLDocument;
+import org.exoplatform.services.html.HTMLNode;
+import org.exoplatform.services.html.Name;
+import org.exoplatform.services.html.parser.HTMLParser;
+import org.exoplatform.services.html.path.NodePath;
+import org.exoplatform.services.html.path.NodePathParser;
+import org.exoplatform.services.html.path.NodePathUtil;
+import org.exoplatform.services.token.attribute.Attribute;
+import org.exoplatform.services.token.attribute.AttributeParser;
+import org.exoplatform.services.token.attribute.Attributes;
 import org.exoplatform.test.BasicTestCase;
 
 public class TestHTMLParser extends BasicTestCase {

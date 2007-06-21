@@ -7,16 +7,14 @@ package org.exoplatform.services.parser.html.test;
 import java.io.File;
 import java.util.List;
 
-import org.exoplatform.services.parser.common.TypeToken;
-import org.exoplatform.services.parser.html.HTMLDocument;
-import org.exoplatform.services.parser.html.HTMLNode;
-import org.exoplatform.services.parser.html.Name;
-import org.exoplatform.services.parser.html.parser.HTML;
-import org.exoplatform.services.parser.html.parser.HTMLParser;
-import org.exoplatform.services.parser.html.parser.NodeImpl;
-import org.exoplatform.services.parser.html.path.NodePath;
-import org.exoplatform.services.parser.html.path.NodePathParser;
-import org.exoplatform.services.parser.html.path.NodePathUtil;
+import org.exoplatform.services.html.HTMLDocument;
+import org.exoplatform.services.html.HTMLNode;
+import org.exoplatform.services.html.Name;
+import org.exoplatform.services.html.parser.HTML;
+import org.exoplatform.services.html.parser.HTMLParser;
+import org.exoplatform.services.html.path.NodePath;
+import org.exoplatform.services.html.path.NodePathParser;
+import org.exoplatform.services.html.path.NodePathUtil;
 import org.exoplatform.test.BasicTestCase;
 
 /**
@@ -172,7 +170,7 @@ public class TestExceptionParser extends BasicTestCase {
     
     //There are two Ways for creating a Table.
     //1st Way.
-    NodeImpl nodeImpl =new NodeImpl("table bgcolor='blue' border='0'".toCharArray(),HTML.getConfig("TABLE"),TypeToken.TAG);    
+   /* NodeImpl nodeImpl =new NodeImpl("table bgcolor='blue' border='0'".toCharArray(),HTML.getConfig("TABLE"),TypeToken.TAG);    
     _node.addChild(nodeImpl);    
     HTMLNode _node1 = new NodeImpl("tbody".toCharArray(),HTML.getConfig(Name.TBODY),TypeToken.TAG);
     nodeImpl.addChild(_node1);    
@@ -199,6 +197,6 @@ public class TestExceptionParser extends BasicTestCase {
     HTMLNode commentNode = new NodeImpl("sdfsdfsdf Comment".toCharArray(),HTML.getConfig(Name.COMMENT),TypeToken.COMMENT);
     _node.addChild(commentNode);
     
-    System.out.println(document.getTextValue());
+    System.out.println(document.getTextValue());*/
   }
 }

@@ -13,8 +13,8 @@ package org.exoplatform.test;
 import java.io.File;
 import java.util.List;
 
-import org.exoplatform.services.parser.html.HTMLNode;
-import org.exoplatform.services.parser.html.parser.HTMLParser;
+import org.exoplatform.services.html.HTMLNode;
+import org.exoplatform.services.html.parser.HTMLParser;
 
 public class TestParser extends BasicTestCase{
   

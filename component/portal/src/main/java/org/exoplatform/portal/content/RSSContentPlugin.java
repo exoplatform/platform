@@ -10,10 +10,10 @@ import java.util.List;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.content.model.ContentItem;
 import org.exoplatform.portal.content.model.ContentNode;
-import org.exoplatform.services.parser.rss.DefaultRSSChannel;
-import org.exoplatform.services.parser.rss.DefaultRSSItem;
-import org.exoplatform.services.parser.rss.RSSDocument;
-import org.exoplatform.services.parser.rss.RSSParser;
+import org.exoplatform.services.rss.parser.DefaultRSSChannel;
+import org.exoplatform.services.rss.parser.DefaultRSSItem;
+import org.exoplatform.services.rss.parser.RSSDocument;
+import org.exoplatform.services.rss.parser.RSSParser;
 
 /**
  * Created by The eXo Platform SARL

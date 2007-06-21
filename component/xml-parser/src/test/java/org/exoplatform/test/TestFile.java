@@ -16,9 +16,9 @@ import java.io.FileInputStream;
 
 import junit.framework.TestCase;
 
-import org.exoplatform.services.parser.chardet.Detector;
-import org.exoplatform.services.parser.chardet.ICharsetDetectionObserver;
-import org.exoplatform.services.parser.chardet.PSMDetector;
+import org.exoplatform.services.chars.chardet.Detector;
+import org.exoplatform.services.chars.chardet.ICharsetDetectionObserver;
+import org.exoplatform.services.chars.chardet.PSMDetector;
 
 public class TestFile extends TestCase{
   public static boolean found=false;

@@ -9,10 +9,10 @@ import java.net.URL;
 import java.util.List;
 
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.services.parser.rss.DefaultRSSChannel;
-import org.exoplatform.services.parser.rss.DefaultRSSItem;
-import org.exoplatform.services.parser.rss.RSSDocument;
-import org.exoplatform.services.parser.rss.RSSParser;
+import org.exoplatform.services.rss.parser.DefaultRSSChannel;
+import org.exoplatform.services.rss.parser.DefaultRSSItem;
+import org.exoplatform.services.rss.parser.RSSDocument;
+import org.exoplatform.services.rss.parser.RSSParser;
 import org.exoplatform.test.BasicTestCase;
 
 /**

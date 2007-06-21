@@ -4,10 +4,10 @@
  **************************************************************************/
 package org.exoplatform.test;
 
-import org.exoplatform.services.parser.attribute.Attribute;
-import org.exoplatform.services.parser.attribute.AttributeParser;
-import org.exoplatform.services.parser.attribute.Attributes;
-import org.exoplatform.services.parser.common.Node;
+import org.exoplatform.services.token.Node;
+import org.exoplatform.services.token.attribute.Attribute;
+import org.exoplatform.services.token.attribute.AttributeParser;
+import org.exoplatform.services.token.attribute.Attributes;
 
 /**
  * Created by The eXo Platform SARL

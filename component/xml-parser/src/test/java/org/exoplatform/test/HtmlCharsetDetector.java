@@ -32,9 +32,9 @@ package org.exoplatform.test;
 import java.io.BufferedInputStream;
 import java.net.URL;
 
-import org.exoplatform.services.parser.chardet.Detector;
-import org.exoplatform.services.parser.chardet.ICharsetDetectionObserver;
-import org.exoplatform.services.parser.chardet.PSMDetector;
+import org.exoplatform.services.chars.chardet.Detector;
+import org.exoplatform.services.chars.chardet.ICharsetDetectionObserver;
+import org.exoplatform.services.chars.chardet.PSMDetector;
 /**
  * Created by The eXo Platform SARL
  * Author : Lai Van Khoi

@@ -71,7 +71,7 @@ public abstract class BaseContentService {
       }
     }
     return new PageList(0){
-      public List getAll(){ return null; }
+      public List<?> getAll(){ return null; }
       @SuppressWarnings("unused")
       public void populateCurrentPage(int page) throws Exception   {}
     };

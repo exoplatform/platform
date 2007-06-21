@@ -32,7 +32,7 @@ public abstract class Holder<T> extends AbstractList<T> {
 
   public static class Factory {
 
-    private static Class cacheDefaultClass = null;
+    private static Class<?> cacheDefaultClass = null;
     private static ClassConfig cacheClassConfig = null;
 
     public static <T> ClassConfig createBean(Class<T> clazz){   

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
   <component>
-   <key>org.exoplatform.services.parser.rss.RSSParser</key>
-   <type>org.exoplatform.services.parser.rss.RSSParser</type>
+   <key>org.exoplatform.services.rss.parser.RSSParser</key>
+   <type>org.exoplatform.services.rss.parser.RSSParser</type>
   </component>
 </configuration>  

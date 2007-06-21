@@ -2,7 +2,7 @@ package org.exoplatform.services.text.unicode;
 
 import java.util.BitSet;
 
-import org.exoplatform.services.parser.container.ThreadSoftRef;
+import org.exoplatform.services.common.ThreadSoftRef;
 
 /**
  * Builds the normalization tables. This is a separate class so that it
