@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.config.UserPortalConfigService;
@@ -65,20 +66,30 @@ public class UIPageNavigationActionListener {
   static public class DeleteNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception { 
       UIRightClickPopupMenu uiPopup = event.getSource();
-      UIPageNodeSelector pageNodeSelector = uiPopup.getAncestorOfType(UIPageNodeSelector.class);
-      PageNavigation selectedNavigation = pageNodeSelector.getSelectedNavigation();
-     
-      UserPortalConfigService configService = pageNodeSelector.getApplicationComponent(UserPortalConfigService.class);
-      configService.remove(selectedNavigation);
-      Util.getUIPortal().getNavigations().remove(selectedNavigation);
-      List<PageNavigation> oldList = Util.getUIPortal().getNavigations();
-      int i = 0;
-      for(i = 0; i< oldList.size(); i ++) {
-        if(oldList.get(i).getId().equals(selectedNavigation.getId())) break;
+      UIPageNodeSelector uiPageNodeSelector = uiPopup.getAncestorOfType(UIPageNodeSelector.class);
+      PageNavigation selectedNavigation = uiPageNodeSelector.getSelectedNavigation();
+      
+      //TODO: Tung.Pham modified
+      //---------------------------------------------------------
+//      UserPortalConfigService configService = pageNodeSelector.getApplicationComponent(UserPortalConfigService.class);
+//      configService.remove(selectedNavigation);
+//      Util.getUIPortal().getNavigations().remove(selectedNavigation);
+//      List<PageNavigation> oldList = Util.getUIPortal().getNavigations();
+//      int i = 0;
+//      for(i = 0; i< oldList.size(); i ++) {
+//        if(oldList.get(i).getId().equals(selectedNavigation.getId())) break;
+//      }
+//      if( i< oldList.size()) oldList.remove(i);
+//      pageNodeSelector.loadNavigations();
+      List<PageNavigation> oldList = Util.getUIPortal().getNavigations() ;
+      Iterator<PageNavigation> itr = oldList.iterator() ;
+      while(itr.hasNext()) {
+        PageNavigation navi = itr.next() ;
+        if(navi.getId().equals(selectedNavigation.getId())) itr.remove() ;
       }
-      if( i< oldList.size()) oldList.remove(i);
-      pageNodeSelector.loadNavigations();
-      event.getRequestContext().addUIComponentToUpdateByAjax(pageNodeSelector.getAncestorOfType(UIPageManagement.class));      
+      uiPageNodeSelector.loadNavigations() ;
+      //----------------------------------------------------
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getAncestorOfType(UIPageManagement.class));      
     }
   }
   

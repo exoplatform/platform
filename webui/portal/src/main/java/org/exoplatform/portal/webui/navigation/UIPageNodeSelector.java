@@ -269,16 +269,6 @@ public class UIPageNodeSelector extends UIContainer {
   
   public String getUpLevelUri () { return upLevelURI ; }
   
-//  private PageNavigation getPageNavigationByOwner(String owner) {
-//    for (int i = 0; i < navigations_.size(); i ++) {
-//      if (!navigations_.get(i).getOwnerId().equals(owner)) continue ;
-//      selectedNavigation = navigations_.get(i) ;
-//      UIDropDownItemSelector uiDropdown = getChild(UIDropDownItemSelector.class) ;
-//      uiDropdown.setSelected(i) ;
-//    }
-//    return null ;
-//  }
-  
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {      
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
@@ -303,16 +293,16 @@ public class UIPageNodeSelector extends UIContainer {
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
       
-      if(page == null){
+      if(page == null || !page.isModifiable()){
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
-      if(!page.isModifiable()) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
-        return ;
-      }
+//      if(!page.isModifiable()) {
+//        uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
+//        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+//        return ;
+//      }
       
       uiEditBar.setRendered(true);
       UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());

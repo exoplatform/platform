@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.util.Util;
@@ -144,6 +143,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
     uiSelectBox.setValue(String.valueOf(pageNavigation.getPriority()));
   }
 
+  //TODO: Tung.Pham modified
   static public class SaveActionListener extends EventListener<UIPageNavigationForm> {
     public void execute(Event<UIPageNavigationForm> event) throws Exception {   
       UIPageNavigationForm uiForm = event.getSource();
@@ -168,22 +168,24 @@ public class UIPageNavigationForm extends UIFormTabPane {
       }
       
       if(isNewNavigation) {
-        DataStorage storage = uiForm.getApplicationComponent(DataStorage.class);
+        //DataStorage storage = uiForm.getApplicationComponent(DataStorage.class);
         UIPortalApplication uiPortalApp = uiForm.getAncestorOfType(UIPortalApplication.class);
-        if(storage.getPageNavigation(pageNav.getId()) != null) {
+        UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
+        boolean hasUIPageNodeSelector = (uiPageNodeSelector != null) ;
+        //if((hasUIPageNodeSelector && isExist(uiPageNodeSelector.getNavigations(), pageNav)) || storage.getPageNavigation(pageNav.getId()) != null) {
+        if((hasUIPageNodeSelector && isExist(uiPageNodeSelector.getNavigations(), pageNav))) {
           uiPortalApp.addMessage(new ApplicationMessage("UIPageNavigationForm.msg.existPageNavigation", new String[]{pageNav.getOwnerId()})) ;;
           pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
           return ;
         }
-        //TODO: Tung.Pham added
-        //-----------------------------------
-        storage.create(pageNav) ;
-        //-----------------------------------
-        UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
-        if(uiPageNodeSelector != null) {
+
+        //UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
+        if(hasUIPageNodeSelector) {
           Util.getUIPortal().getNavigations().add(pageNav);
           uiPageNodeSelector.loadNavigations();
-          pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());  
+          uiPageNodeSelector.setSelectedPageNode(null) ;
+          uiPageNodeSelector.selectNavigation(pageNav.getId()) ;
+          pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
         }
       } 
       
@@ -191,6 +193,16 @@ public class UIPageNavigationForm extends UIFormTabPane {
       uiFormParent.setUIComponent(null);
       pcontext.addUIComponentToUpdateByAjax(uiFormParent); 
     }
+    
+    //TODO: Tung.Pham added
+    private boolean isExist(List<PageNavigation> navis, PageNavigation navi) {
+      for(PageNavigation ele : navis) {
+        if(ele.getId().equals(navi.getId())) return true ;
+      }
+      
+      return false ;
+    }
+
   }
   
   static public class ChangeOwnerTypeActionListener  extends EventListener<UIPageNavigationForm> {

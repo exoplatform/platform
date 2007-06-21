@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -14,6 +15,7 @@ import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
+import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
@@ -114,15 +116,69 @@ public class UIPageNavigationControlBar extends UIToolbar {
       UIPageManagement uiPageManagement = event.getSource().getParent(); 
       UIPageEditBar uiPageEditBar = uiPageManagement.getChild(UIPageEditBar.class);
       uiPageEditBar.savePage();
+      //TODO: Tung.Pham added
+      //------------------
+      event.getSource().deleteNavigation() ;
+      //------------------
       event.getSource().saveNavigation();
       event.getSource().abort(event);
+      //TODO: Tung.Pham added
+      //------------------
+      UIPortal uiPortal = Util.getUIPortal() ;
+      UIPageNodeSelector uiPageNodeSelector = uiPageManagement.getChild(UIPageNodeSelector.class) ;
+      PageNode node = uiPageNodeSelector.getSelectedPageNode() ;
+      if(node == null) {
+        node = getExistPageNode(uiPageNodeSelector.getNavigations()) ;
+      }
+      if(node != null) {
+        String uri = node.getUri() ;
+        PageNodeEvent<UIPortal> pnevent ;
+        pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
+        uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
+      }
+      //--------------------
+
     }
+    
+    //TODO: Tung.Pham added
+    private PageNode getExistPageNode(List<PageNavigation> navis) {
+      if(navis == null || navis.size() < 1) return null ;
+      for(PageNavigation ele : navis) {
+        if(getExistPageNode(ele) == null) continue ;
+        return getExistPageNode(ele) ;
+      }
+      return null ;
+    }
+
+    //TODO: Tung.Pham added
+    private PageNode getExistPageNode(PageNavigation navi) {
+      if(navi == null || navi.getNodes().size() < 1) return null ;
+      return navi.getNode(0) ;
+    }
+
   }
 
   static public class AbortActionListener  extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      PortalRequestContext prContext = Util.getPortalRequestContext();  
+      //-----------------------------
       UIPageNavigationControlBar uiControlBar = event.getSource(); 
       uiControlBar.abort(event);
+      //TODO: Tung.Pham added
+      //--------------------------------------------------------------
+      UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class) ;
+      UIPortal oldPortal = Util.getUIPortal() ;
+      PageNode selectedNode = oldPortal.getSelectedNode() ;
+      String portalName = oldPortal.getName() ;
+      String accessUser = prContext.getRemoteUser() ;
+      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, accessUser) ;
+      oldPortal.setNavigation(userPortalConfig.getNavigations()) ;
+      String uri = selectedNode.getUri() ;
+      PageNodeEvent<UIPortal> pnevent ;
+      pnevent = new PageNodeEvent<UIPortal>(oldPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
+      oldPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
+      //--------------------------------------------------------------
     }
   }
 
@@ -132,16 +188,55 @@ public class UIPageNavigationControlBar extends UIToolbar {
 
     List<PageNavigation> navs = uiNodeSelector.getNavigations();
     UserPortalConfigService dataService = uiManagement.getApplicationComponent(UserPortalConfigService.class);
+    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
     for(PageNavigation nav : navs) {
-      dataService.update(nav);    
+      //TODO: Tung.Pham modified
+      //------------------------------------------------
+      //dataService.update(nav);
+      if(dataService.getPageNavigation(nav.getId(), accessUser) == null) dataService.create(nav) ;
+      else dataService.update(nav) ;
     }
     
-    UIPortal uiPortal = Util.getUIPortal();
-    for(PageNavigation editNav : navs) {
-      setNavigation(uiPortal.getNavigations(), editNav);
+    //UIPortal uiPortal = Util.getUIPortal();
+    //for(PageNavigation editNav : navs) {
+    //  setNavigation(uiPortal.getNavigations(), editNav);
+    //}
+    List<PageNavigation> portalNavigations = Util.getUIPortal().getNavigations() ;
+    for(int i = 0; i < navs.size(); i++) {
+      if(i < portalNavigations.size()) setNavigation(portalNavigations, navs.get(i)) ;
+      else portalNavigations.add(navs.get(i)) ;
+    }
+    //------------------------------------------------
+  }
+  
+  //TODO: Tung.Pham added
+  public void deleteNavigation() throws Exception {
+    UIPageManagement uiManagement = getAncestorOfType(UIPageManagement.class) ;
+    UIPageNodeSelector uiPageNodeSelector = uiManagement.getChild(UIPageNodeSelector.class) ;
+    
+    List<PageNavigation> newNavis = uiPageNodeSelector.getNavigations() ;
+    UserPortalConfigService configService = uiManagement.getApplicationComponent(UserPortalConfigService.class) ;
+    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
+    String portalName = Util.getUIPortal().getName() ;
+    UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, accessUser) ;
+    if(userPortalConfig == null) return ;
+    List<PageNavigation> originNavis = userPortalConfig.getNavigations() ;
+    Iterator<PageNavigation> itr = originNavis.iterator() ;
+    while(itr.hasNext()) {
+      PageNavigation navi = itr.next() ;
+      if(!isExist(newNavis, navi)) configService.remove(navi) ;
     }
   }
   
+  //TODO: Tung.Pham added
+  private boolean isExist(List<PageNavigation> navis, PageNavigation navi) {
+    for(PageNavigation ele : navis) {
+      if(ele.getId().equals(navi.getId())) return true ;
+    }
+    
+    return false ;
+  }
+
   private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
     for(int i = 0; i < navs.size(); i++) {
       if(navs.get(i).getId().equals(nav.getId())) {
