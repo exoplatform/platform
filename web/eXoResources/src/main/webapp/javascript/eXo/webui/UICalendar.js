@@ -8,7 +8,8 @@ UICalendar = function(calendarId) {
   this.months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 }
 
-UICalendar.prototype.init = function(field) {
+UICalendar.prototype.init = function(field, isDisplayTime) {
+	this.isDisplayTime = isDisplayTime;
 	if(this.dateField) {
 		this.dateField.parentNode.style.position = '' ;
 	}
@@ -152,9 +153,10 @@ UICalendar.prototype.changeYear = function(change) {
 
 UICalendar.prototype.setDate = function(year, month, day) {
   if (this.dateField) {
-    if (month < 10) {month = "0" + month;}
-    if (day < 10) {day = "0" + day;}
-    var dateString = month+"/"+day+"/"+year + " " + this.currentDate.getHours() + ":" + this.currentDate.getMinutes() + ":" + this.currentDate.getSeconds();
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
+    var dateString = month + "/" + day + "/" + year;
+    if(this.isDisplayTime) dateString += " " + this.currentDate.getHours() + ":" + this.currentDate.getMinutes() + ":" + this.currentDate.getSeconds();
     this.dateField.value = dateString;
     this.hide();
   }
