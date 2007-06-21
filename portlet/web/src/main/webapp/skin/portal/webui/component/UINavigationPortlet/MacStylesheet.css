@@ -26,7 +26,7 @@
 .UINavigationPortlet .UIHorizontalTabs  {
   height: 41px;
   background: none;
-  position: relative;
+ /* position: relative; */
 }
 
 .UINavigationPortlet .UIHorizontalTabs .TabsContainer {

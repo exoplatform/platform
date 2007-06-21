@@ -1,0 +1,20 @@
+.UIStickerWidget {
+	background: url('DefaultSkin/background/Sticker.png') no-repeat top;
+	height: 187px ;
+	width: 213px ;	
+}
+
+.UIStickerWidgetTitle {
+	height: 30px ;
+}
+
+.UIStickerWidgetContentArea {
+	border: 0px ;
+	width: 180px ;
+	height: 127px ;
+	margin: 0px 0px 0px 15px;
+	background: transparent ;
+	overflow: hidden ;
+	font-family: Verdana ;
+	font-size: 11px ;
+}
