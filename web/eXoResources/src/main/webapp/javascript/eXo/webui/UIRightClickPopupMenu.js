@@ -39,7 +39,6 @@ UIRightClickPopupMenu.prototype.prepareObjectId = function(elemt) {
 	var aTag = elemt.getElementsByTagName('a') ;
 	var str = aTag[0].getAttribute('href') ;
 	var contextMenu = eXo.core.DOMUtil.findAncestorByClass(elemt, "UIRightClickPopupMenu");
-	alert(contextMenu.objId.replace(/'/g, "\\'"));
 	aTag[0].setAttribute('href',str.replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'"))) ;
 }
 
