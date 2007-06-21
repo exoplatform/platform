@@ -21,29 +21,26 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  * Jul 14, 2006  
  */
 public class UIFormDateTimeInput extends UIFormInputBase<String> {
-  
   private DateFormat dateFormat_ ;
-  private boolean displayTime_ = true;
+  private boolean isDisplayTime_ ;
   
-  public UIFormDateTimeInput(String name, String bindField, Date date, DateFormat dateFormat) {
+  public UIFormDateTimeInput(String name, String bindField, Date date, boolean isDisplayTime) {
     super(name, bindField, String.class) ;
-    dateFormat_ = dateFormat;
-    if(!displayTime_) dateFormat_ = new SimpleDateFormat("MM/dd/yyyy");
+    setDisplayTime(isDisplayTime) ;
     if(date != null) value_ = dateFormat_.format(date) ;
   }
   
   public UIFormDateTimeInput(String name, String bindField, Date date) {
-    super(name, bindField, String.class) ;
-    dateFormat_ = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-    if(!displayTime_) dateFormat_ = new SimpleDateFormat("MM/dd/yyyy");
-    if(date != null) value_ = dateFormat_.format(date) ;
+    this(name, bindField, date, true) ;
   }
   
-  public void setDisplayTime(boolean displayTime) { displayTime_ = displayTime; }
-  public boolean isDisplayTime() { return displayTime_; }
+  public void setDisplayTime(boolean isDisplayTime) {
+    isDisplayTime_ = isDisplayTime;
+    if(isDisplayTime_) dateFormat_ = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+    else dateFormat_ = new SimpleDateFormat("MM/dd/yyyy");    
+  }
   
-  public void setCalendar(Calendar date) { dateFormat_.format(date.getTime()) ; }
-
+  public void setCalendar(Calendar date) { value_ = dateFormat_.format(date.getTime()) ; }
   public Calendar getCalendar() {
     try {
       Calendar calendar = new GregorianCalendar() ;
@@ -62,13 +59,13 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
   public void processRender(WebuiRequestContext context) throws Exception {
     context.getJavascriptManager().importJavascript("eXo.webui.UICalendar") ;
     Writer w = context.getWriter();
-    w.write("<span><input type='text' onfocus='eXo.webui.UICalendar.init(this);' onkeyup='eXo.webui.UICalendar.show();' name='") ;
+    w.write("<span><input type='text' onfocus='eXo.webui.UICalendar.init(this,") ;
+    w.write(String.valueOf(isDisplayTime_));
+    w.write(");' onkeyup='eXo.webui.UICalendar.show();' name='") ;
     w.write(getName()) ; w.write('\'') ;
     if(value_ != null && value_.length() > 0) {      
       w.write(" value='"); w.write(value_.toString()); w.write('\'');
     }
     w.write(" onmousedown='event.cancelBubble = true' /></span>") ;
   }
-
-  public void setDateFormat(DateFormat formatter) { this.dateFormat_ = formatter; }
 }
