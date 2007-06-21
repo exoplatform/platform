@@ -46,6 +46,10 @@ public class UIPageBody extends UIComponentDecorator {
   
   @SuppressWarnings("unused")
   public void setPageBody(PageNode pageNode, UIPortal uiPortal) throws Exception {
+    if(pageNode == null){
+      setPage(null, uiPortal); 
+      return;
+    }
     setPage(pageNode.getPageReference(), uiPortal);
   }
   
@@ -55,15 +59,18 @@ public class UIPageBody extends UIComponentDecorator {
     UserPortalConfigService userPortalConfigService = 
       (UserPortalConfigService)appContainer.getComponentInstanceOfType(UserPortalConfigService.class);
     Page page  = null;
-    try {
-      page  = userPortalConfigService.getPage(pageId, context.getRemoteUser());
-    }catch (Exception e) {
-      UIPortalApplication uiApp = getAncestorOfType(UIPortalApplication.class);
-      uiApp.addMessage(new ApplicationMessage(e.getMessage(), new Object[]{}));
-    }
     UIPage uiPage = null;
+    if(pageId!= null){
+      try {
+        page  = userPortalConfigService.getPage(pageId, context.getRemoteUser());
+      }catch (Exception e) {
+        UIPortalApplication uiApp = getAncestorOfType(UIPortalApplication.class);
+        uiApp.addMessage(new ApplicationMessage(e.getMessage(), new Object[]{}));
+      }
+    }
+    
     if(page != null) {
-    if(Page.DEFAULT_PAGE.equals(page.getFactoryId())) page.setFactoryId(null);
+      if(Page.DEFAULT_PAGE.equals(page.getFactoryId())) page.setFactoryId(null);
       uiPage = createUIComponent(context, UIPage.class, page.getFactoryId(), null);
       PortalDataMapper.toUIPage(uiPage, page);
     } else {
@@ -71,7 +78,7 @@ public class UIPageBody extends UIComponentDecorator {
       uiPage.setOwnerId(context.getRemoteUser());
       uiPage.setOwnerType(PortalConfig.USER_TYPE);
     }
-    
+  
     setUIComponent(uiPage);
     
     if(uiPage.isShowMaxWindow()) {
