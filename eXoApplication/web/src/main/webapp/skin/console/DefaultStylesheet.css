@@ -2,20 +2,49 @@
 .UIConsoleApplication {
 	border: 0px solid green;
 }
+.UIConsoleApplication .pointReference {
+	position: relative;
+	width: 100%;
+
+}
 
 .UIConsoleApplication .UIApplication {
-	background-color: black;
+	background: black;
 }
 
 .UIConsoleApplication .UIApplication .eXoConsoleResult {
 	color: white;
 	font-size: 14px;
 	font-weight: normal;
+	padding: 10px;
 }
 
-.UIConsoleApplication .eXoConsoleCommand {
-	height: 23px;
-	background: #effffe;
+.UIConsoleApplication .eXoConsole {
+	height: 23px;	
 	width: 100%;
+}
+.UIConsoleApplication .CommandButton {
+	float: right;
+	width: 18px;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	cursor: pointer;
+	background: red;
+}
+
+.UIConsoleApplication .CommandType {
+	margin-right: 21px;
+	background: #effffe;
 	line-height: 23px;
+}
+
+.UIConsoleApplication .UIMaskWindowConsole {
+	text-align: center;
+	text-weight: bold;
+	font-size: 14px;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	overflow: hidden;
 }

@@ -5,9 +5,9 @@
     </div>
   </div>
   
-  <div class="MiddleLeftDecorator">
-    <div class="MiddleRightDecorator">
-      <div class="ContentContainer">
+  <div class="MiddleLeftDecorator UIDescendantDetector">
+    <div class="MiddleRightDecorator UIDescendantDetector">
+      <div class="ContentContainer UIDescendantDetector">
         <%=context.uiMaskWorkspace.content%>
    		</div>
     </div>
