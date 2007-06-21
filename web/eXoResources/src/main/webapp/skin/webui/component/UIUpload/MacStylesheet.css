@@ -61,6 +61,7 @@
 	padding-left: 23px;
 	margin-left: 5px;
 }
+
 .DeleteFileLable {
 	font-family: verdana;
 	line-height: 18px;
@@ -80,7 +81,7 @@
 	float: left;
 	padding-left: 25px;
 	background:  url("MacSkin/background/DustBin.gif") no-repeat;
-	height: 16px;
+	height: 18px;
 	cursor: pointer;
 	margin-left: 10px;
 }

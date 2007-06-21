@@ -27,6 +27,10 @@
   margin-left: 8px;
 }
 
+.UIPageNodeSelector .UITree .TreeContainer .Node .ExpandIcon {
+  margin: 3px 0px 0px 0px ;
+}
+
 .UIPageNodeSelector .UITree .TreeContainer {
   padding: 7px 0px 10px 0px;
   margin: 0px;

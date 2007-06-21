@@ -78,6 +78,10 @@
   padding: 0px;
 }
 
+.UICreatePage .UITree .TreeContainer .Node .ExpandIcon {
+  margin: 2px 2px 0px 0px ;
+}
+
 .UICreatePage .UITree .TreeLevelContainer {
   padding-left: 0px;
   margin: 8px 0px 5px 3px; background: none; border: none;

@@ -12,6 +12,7 @@
 
 .UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
   text-align: right;
+  vertical-align: top;
 }
 
 .UIForm .HorizontalLayout .FieldContainer {

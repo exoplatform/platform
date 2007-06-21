@@ -35,7 +35,7 @@
   width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat ;
   cursor: pointer ;
-  margin: 2px 0px 0px 0px;
+  margin: 4px 0px 0px 0px;
 }
   
 .UITree .TreeContainer .Node .ColapseIcon {
@@ -43,7 +43,7 @@
   width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat ;
   cursor: pointer ;
-  margin: 2px 0px 0px 0px ;
+  margin: 4px 0px 0px 0px ;
 }
 
 .UITree .TreeContainer .Node .EmptyIcon {
@@ -63,13 +63,13 @@
   height: 20px ; line-height: 20px ;
   cursor: pointer ;
   padding: 0px 5px 0px 4px ; 
-  margin: 3px 0px 0px 1px ;
+  margin: 1px 0px 0px 1px ;
   color: black; font-size: 11px; font-weight: bold;
 }
 
 .UITree .TreeContainer .Node .NodeLabel a:hover{
   padding: 0px 5px 0px 4px ;
-  margin: 3px 0px 0px 1px ;
+  margin: 1px 0px 0px 1px ;
   font-size: 11px; font-weight: bold;
 }
 
