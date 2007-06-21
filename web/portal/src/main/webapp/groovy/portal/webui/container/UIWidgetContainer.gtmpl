@@ -12,7 +12,7 @@
   String scrollDownAction = "eXo.webui.UIVerticalScroller.refreshScroll(-1);";
 
 	jsmanager.importJavascript('eXo.webui.UIVerticalScroller') ;
-	jsmanager.addJavascript('eXo.webui.UIVerticalScroller.init');
+	jsmanager.addJavascript('eXo.webui.UIVerticalScroller.init();');
   jsmanager.addOnResizeJavascript('eXo.webui.UIVerticalScroller.init');
 %>
 
