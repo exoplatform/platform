@@ -7,7 +7,6 @@
   
   jsmanager.importJavascript('eXo.portal.UIWorkspace');
   
-  jsmanager.importJavascript('eXo.portal.UIWorkingWorkspace') ;
   jsmanager.addOnLoadJavascript('eXo.portal.UIWorkingWorkspace.onResizeDefault') ;
   jsmanager.addOnResizeJavascript('eXo.portal.UIWorkingWorkspace.onResizeDefault') ;
 %>

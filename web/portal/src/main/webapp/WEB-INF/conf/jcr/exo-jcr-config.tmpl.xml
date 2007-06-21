@@ -16,7 +16,7 @@
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcjcr"/>
-              <property name="db-type" value="generic"/>
+              <property name="dialect" value="generic"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
@@ -50,7 +50,7 @@
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcjcr"/>
-              <property name="db-type" value="generic"/>
+              <property name="dialect" value="generic"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
@@ -84,7 +84,7 @@
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcjcr"/>
-              <property name="db-type" value="generic"/>
+              <property name="dialect" value="generic"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
@@ -118,7 +118,7 @@
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcjcr"/>
-              <property name="db-type" value="generic"/>
+              <property name="dialect" value="generic"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>

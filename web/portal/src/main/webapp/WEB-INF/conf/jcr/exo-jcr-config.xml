@@ -16,7 +16,7 @@
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcjcr"/>
-              <property name="db-type" value="${dbtype}"/>
+              <property name="dialect" value="${dialect}"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
@@ -50,8 +50,8 @@
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcjcr"/>
-              <property name="db-type" value="${dbtype}"/>
-              <!-- property name="db-type" value="mysql"/ -->
+              <!-- possible dialect: hsql, mysql -->
+              <property name="dialect" value="${dialect}"/>
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
               <property name="max-buffer-size" value="204800"/>
@@ -84,8 +84,7 @@
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcjcr"/>
-              <property name="db-type" value="${dbtype}"/>
-              <!-- property name="db-type" value="mysql"/ -->
+              <property name="dialect" value="${dialect}"/>
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
               <property name="max-buffer-size" value="204800"/>
@@ -118,7 +117,7 @@
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcjcr"/>
-              <property name="db-type" value="${dbtype}"/>
+              <property name="dialect" value="${dialect}"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
