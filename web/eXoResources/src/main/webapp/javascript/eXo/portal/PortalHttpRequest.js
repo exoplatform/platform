@@ -337,4 +337,9 @@ function ajaxAsyncGetRequest(url, async) {
 	if(!async) return request.responseText;
 }
 
+function ajaxRedirect(url) {
+	url =	url.replace(/&amp;/g, "&") ;
+	window.location.href = url;
+}
+
 eXo.portal.AjaxRequest = AjaxRequest.prototype.constructor ;
