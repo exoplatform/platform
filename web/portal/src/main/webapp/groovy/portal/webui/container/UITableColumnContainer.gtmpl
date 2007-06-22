@@ -5,7 +5,7 @@
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
   jsmanager.importJavascript('eXo.portal.PortalDragDrop');
-  jsmanager.addJavascript('eXo.portal.PortalDragDrop.onLoad');
+  jsmanager.addJavascript('eXo.portal.PortalDragDrop.onLoad();');
 %>
 <div class="UIContainer" id="UIContainer-${uicomponent.id}">
   <div class="META-DATA-BLOCK" style="display: none">
