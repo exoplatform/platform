@@ -1,8 +1,6 @@
 eXo.require('eXo.core.TemplateEngine');
 
-function UIWidgetContainerManagement() {
-	
-}
+function UIWidgetContainerManagement() {};
 
 UIWidgetContainerManagement.prototype.show = function() {
 	var DOMUtil = eXo.core.DOMUtil ;
