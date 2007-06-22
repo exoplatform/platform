@@ -4,6 +4,9 @@
  **************************************************************************/
 package org.exoplatform.application.console;
 
+import java.io.Writer;
+
+import org.exoplatform.portal.webui.application.UIExoApplication;
 import org.exoplatform.web.application.mvc.MVCApplication;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
 
@@ -26,8 +29,43 @@ public class ExoConsoleApplication extends MVCApplication {
   }
   
   public void processRender(MVCRequestContext context) throws Exception {
+    
+    UIExoApplication uiExoApplication = (UIExoApplication)context.getAttribute(UIExoApplication.class) ;
+    String instanceId = uiExoApplication.getApplicationInstanceId() ;
+    
+    String posX = uiExoApplication.getProperties().get("locationX") ;
+    String posY = uiExoApplication.getProperties().get("locationY") ;
+    String zIndex = uiExoApplication.getProperties().get("zIndex") ;
+    String appWidth = uiExoApplication.getProperties().get("appWidth") ;
+    String appHeight = uiExoApplication.getProperties().get("appHeight") ;
+    
+    String display = "" ;
+    String appStatus = uiExoApplication.getProperties().get("appStatus") ;
+    
+    if("SHOW".equals(appStatus)) display = "block" ;
+    
+    else display = "" ;
+    
+    String cssStyle = "style=\"";
+//    if(posX != null || posY != null || zIndex != null || appWidth != null || appHeight != null) {
+//      cssStyle = "style=\"";
+//    }
+        
+    if(posX != null) cssStyle += "left: "+ posX +"px; " ;
+    if(posY != null)  cssStyle += "top: "+ posY +"px; " ;
+    if(zIndex != null) cssStyle += "z-index: "+ zIndex +"; " ;
+    if(appWidth != null) cssStyle += "width: "+ appWidth +"px; " ;
+    if(appHeight != null) cssStyle += "height: "+ appHeight +"px; " ;
+    cssStyle += "display: "+ display +"; " ;
+    cssStyle += "visibility: hidden; " ;
+    
+    if(cssStyle.length() > 0) cssStyle += "\"";
+    
+    Writer w =  context.getWriter() ;
+    w.write("<div id='WebConsoleApplicationDetector' cssStyle='"+cssStyle+"'><span></span></div>") ;
+    
     String script = 
-      "eXo.portal.UIPortal.createJSApplication('eXo.application.console.UIConsoleApplication','eXoConsole','eXoConsole','/eXoAppWeb/javascript/');";
+      "eXo.portal.UIPortal.createJSApplication('eXo.application.console.UIConsoleApplication','eXoConsole','"+instanceId+"','/eXoAppWeb/javascript/');";
     context.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
 }

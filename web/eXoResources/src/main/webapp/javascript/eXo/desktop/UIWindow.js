@@ -3,13 +3,16 @@ function UIWindow() {
 
 } ;
 
-UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {	
+UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	this.superClass = eXo.webui.UIPopup ;
 	var UIWindow = eXo.desktop.UIWindow ;
 	popup.maximized = false;
-	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
-		
+	
+	if(typeof(popup) == "string") {
+		popup = document.getElementById(popup) ;
+	}
+	
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	var uiApplication = DOMUtil.findFirstDescendantByClass(popup, "div", "UIApplication") ;
 	if (!uiApplication) {
@@ -50,9 +53,10 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	
 	popup.onmousedown = function() {
 		eXo.desktop.UIDesktop.resetZIndex(this) ;
-		
-		/*Save window's zIndex */
-		eXo.desktop.UIWindow.saveWindowProperties(this, "ZINDEX");
+	}
+
+	popup.onmouseup = function() {
+		eXo.desktop.UIWindow.saveWindowProperties(this);
 	}
 
 	var windowPortletInfo = DOMUtil.findFirstDescendantByClass(popup, "div", "WindowPortletInfo") ;
@@ -114,10 +118,10 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 		}
   } ;
   
-  resizeArea.onmouseup = function(e) {
-  	/*Save Width and Height of Window*/
-  	eXo.desktop.UIWindow.saveWindowProperties(popup, "DIMENSION");
-  }
+//  resizeArea.onmouseup = function(e) {
+//  	/*Save Width and Height of Window*/
+//  	eXo.desktop.UIWindow.saveWindowProperties(popup);
+//  }
   
   uiPageDesktop.onmouseup = function() {
     uiPageDesktop.onmousemove = null ;
@@ -285,8 +289,8 @@ UIWindow.prototype.initDND = function(e) {
 		  DragDrop.dropCallback = function (dndEvent) {
 	  	var dragObject = dndEvent.dragObject ;
 	  	
-	  	/*Save Window's Position*/
-	  	eXo.desktop.UIWindow.saveWindowProperties(dragObject, "POSITION");
+//	  	/*Save Window's Position*/
+//	  	eXo.desktop.UIWindow.saveWindowProperties(dragObject);
 	  	
 	  	// A workaround to make the window properly resizable after drop
 	  	for (var i = 0; i < hiddenElements.length; i++) {
@@ -378,44 +382,29 @@ UIWindow.prototype.onControlOver = function(element, isOver) {
   }
 };
 
-UIWindow.prototype.saveWindowProperties = function(object, action, appStatus) {
+UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 	var DOMUtil = eXo.core.DOMUtil;
 	var uiPage = DOMUtil.findAncestorByClass(object, "UIPage");
 	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
 	containerBlockId = uiPageIdNode.innerHTML;
-	var params;
 	
-	if(action == "POSITION") {
-		params = [
+	var params ;
+		
+	if(!appStatus) {
+	  params = [
 	  	{name : "objectId", value : object.id},
 	  	{name : "posX", value : object.offsetLeft},
-	  	{name : "posY", value : object.offsetTop}
-	  ] ;
-	}
-	
-	if(action == "ZINDEX") {
-		params = [
-	  	{name : "objectId", value : object.id},
-	  	{name : "zIndex", value : object.style.zIndex}
-	  ] ;
-	}
-	
-	if(action == "DIMENSION") {
-		params = [
-	  	{name : "objectId", value : object.id},
+	  	{name : "posY", value : object.offsetTop},
+	  	{name : "zIndex", value : object.style.zIndex},
 	  	{name : "width", value : object.offsetWidth},
-	  	{name : "height", value : object.offsetHeight}
+		  {name : "height", value : object.offsetHeight}
 	  ] ;
-	}
-	
-	if(action == "SHOW_HIDE_WINDOW") {
+	} else {
 		params = [
 	  	{name : "objectId", value : object.id},
-	  	{name : "appStatus", value : appStatus}
+		  {name : "appStatus", value : appStatus}
 	  ] ;
 	}
-	
-//	alert("OBJECT ID: " + object.id + "\n Z-INDEX: " + object.style.zIndex);
 	
 	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveWindowProperties", true, params), false);
 };

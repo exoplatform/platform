@@ -38,11 +38,6 @@ UIBrowserApplication.prototype.destroyApplicationInstance = function(appDescript
 
 /*##############################################################################################*/
 UIBrowserApplication.prototype.initApplication = function(applicationId, instanceId) {
-	
-};
-
-
-UIBrowserApplication.prototype.initApplication = function(applicationId, instanceId) {
 	/*if(instanceId == null) {
 	  instanceId = eXo.core.DOMUtil.generateId(applicationId);
 	  var application = "eXo.application.browser.UIBrowserApplication";

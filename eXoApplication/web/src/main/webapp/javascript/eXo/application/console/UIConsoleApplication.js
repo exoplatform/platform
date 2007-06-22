@@ -15,7 +15,11 @@ function UIConsoleApplication() {
 UIConsoleApplication.prototype.createApplicationInstance = function(appDescriptor) {
 	var DOMUtil = eXo.core.DOMUtil ;
 
+	var webConsoleDetector = document.getElementById("WebConsoleApplicationDetector");
+	var cssStyle = webConsoleDetector.getAttribute('cssStyle') ;
+	
 	appDescriptor.window = {
+		cssElementStyle : cssStyle
 	}
 	
  	appDescriptor.window.content = 

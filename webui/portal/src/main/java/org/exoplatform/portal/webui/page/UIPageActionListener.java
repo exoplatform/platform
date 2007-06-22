@@ -348,7 +348,6 @@ public class UIPageActionListener {
       if(posX != null) uiComponent.getProperties().put("locationX", posX);
       if(posY != null) uiComponent.getProperties().put("locationY", posY);
       
-//      System.out.println("\n\n\n\n\n\n\n\n SAVE POSX: "+posX+" \n SAVE POSY: "+posY+"\n\n\n\n\n\n\n\n");
       /*########################## Save ZIndex ##########################*/
       String zIndex = event.getRequestContext().getRequestParameter("zIndex");
       
@@ -364,7 +363,7 @@ public class UIPageActionListener {
       /*########################## Save Window status (SHOW / HIDE) ##########################*/
       String appStatus = event.getRequestContext().getRequestParameter("appStatus");
       if(appStatus != null) uiComponent.getProperties().put("appStatus", appStatus);
-            
+      
 //      if(!uiPage.isModifiable()) return;
 //      Page page = PortalDataMapper.toPageModel(uiPage);
 //      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);

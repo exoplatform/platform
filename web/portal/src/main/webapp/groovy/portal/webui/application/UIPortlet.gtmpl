@@ -128,6 +128,7 @@
 	      String appZIndex = "" ;
 	      String appWidth = "" ;
 	      String appHeight = "" ;
+	      
 	      if(isWindow) {
 	      	appDisplay = "";
 	      	visibility = "hidden" ;
@@ -140,15 +141,19 @@
 						appZIndex = uicomponent.getProperties().get("zIndex");
 						appWidth = (String)uicomponent.getProperties().getIntValue("appWidth") + "px" ;
 						appHeight = (String)uicomponent.getProperties().getIntValue("appHeight") + "px" ;
-					} 
+					}
 				  /*###################################################################*/
-	      	
-	      	
-	      	
-	      	
       	}
+      	
+      	String cssStyle = "style=\"";
+      	cssStyle += "visibility: "+ visibility +";" ;
+      	cssStyle += "display: "+ appDisplay +";" ;
+      	cssStyle += "z-index: "+ appZIndex +";" ;
+      	cssStyle += "width: "+ appWidth +";" ;
+      	cssStyle += "height: "+ appHeight +";" ;
+      	cssStyle += "\"";
 	    %>
-    		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}" style="visibility: $visibility; display: $appDisplay; z-index: $appZIndex; width: $appWidth; height: $appHeight;">
+    		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}"  ${cssStyle}>
 		      <div class="WindowBarLeft">
 		        <div class="WindowBarRight">
 		          <div class="WindowBarCenter">

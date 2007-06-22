@@ -1,6 +1,8 @@
 <%
   import org.exoplatform.portal.webui.application.UIPortlet;
   import org.exoplatform.web.application.widget.WidgetApplication;
+  import org.exoplatform.portal.webui.application.UIWidget;
+  import org.exoplatform.portal.webui.application.UIExoApplication;
   import org.exoplatform.web.application.JavascriptManager;
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -56,29 +58,29 @@
       <div class="UIPageDesktop" id="UIPageDesktop">
         <%int x = 15; y = 15 %>
         <%for(uiChild in uicomponent.getChildren()) {
-            if(!(uiChild instanceof UIPortlet)){
+            if(!(uiChild instanceof UIPortlet)) {
               uicomponent.renderUIComponent(uiChild);
-              continue; 
+              continue;
             }
+            
             String  popupId = uiChild.getId() ;
             String title = uiChild.getTitle() ;
             if(title == null || title.trim().length() < 1) {
               title = popupId;
               uiChild.setTitle(title);
             }
+            
             String removeChildAction = uicomponent.event("RemoveChild", popupId) ;
         
             uiChild.setShowInfoBar(true);
             uiChild.setPortletStyle("Window");
 	          uicomponent.renderUIComponent(uiChild);
 	          
-	          /*################################################################*/
 	          String posX = uiChild.getProperties().get("locationX");
 	          String posY = uiChild.getProperties().get("locationY");
+	          
 	          if(posX == null) posX = (String)x ;
 	          if(posY == null) posY = (String)y ;
-	          
-	          /*################################################################*/
 	          
             jsmanager.addJavascript("eXo.desktop.UIWindow.init('${popupId}', true, ${posX}, ${posY});") ;
         %>

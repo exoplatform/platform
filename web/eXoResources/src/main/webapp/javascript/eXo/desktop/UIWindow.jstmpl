@@ -1,4 +1,4 @@
-<div id="<%=context.appId%>" class="UIWindow UIDragObject" style="visibility: hidden;">
+<div id="<%=context.appId%>" class="UIWindow UIDragObject" <%=context.window.cssElementStyle%>>
   <div class="WindowBarLeft">
     <div class="WindowBarRight">
       <div class="WindowBarCenter">

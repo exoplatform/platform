@@ -35,6 +35,8 @@ public class WelcomeWidget extends WidgetApplication<UIWidget> {
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
     int zIndex = uiWidget.getProperties().getIntValue("zIndex") ;
     
+//    System.out.println("\n\n\n\n\n\n\n\n\n  WIDGET INSTANCE ID: "+instanceId+"  \n\n\n\n\n\n\n\n\n");
+    
     w.write("<div id = 'UIWelcomeWidget' userName = '"+userName+"' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"' zIndex = '"+zIndex+"'><span></span></div>") ;
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','"+instanceId+"','/eXoWidgetWeb/javascript/');";

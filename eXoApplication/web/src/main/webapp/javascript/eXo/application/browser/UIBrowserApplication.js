@@ -15,7 +15,11 @@ function UIBrowserApplication() {
 UIBrowserApplication.prototype.createApplicationInstance = function(appDescriptor) {
 	var DOMUtil = eXo.core.DOMUtil ;
 
+	var webBrowserDetector = document.getElementById("WebBrowserApplicationDetector");
+	var cssStyle = webBrowserDetector.getAttribute('cssStyle') ;
+	
 	appDescriptor.window = {
+		cssElementStyle : cssStyle
 	}
 	
  	appDescriptor.window.content = eXo.core.TemplateEngine.merge("eXo/application/browser/UIBrowserApplication.jstmpl", appDescriptor) ;
@@ -35,10 +39,6 @@ UIBrowserApplication.prototype.destroyApplicationInstance = function(appDescript
 };
 
 /*##############################################################################################*/
-//UIBrowserApplication.prototype.initApplication = function(applicationId, instanceId) {
-//	
-//}
-
 
 UIBrowserApplication.prototype.initApplication = function(applicationId, instanceId) {
 //	if(instanceId == null) {
@@ -46,7 +46,7 @@ UIBrowserApplication.prototype.initApplication = function(applicationId, instanc
 //	  var application = "eXo.application.browser.UIBrowserApplication";
 //	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId);
 //  }
-
+	
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.application.browser.UIBrowserApplication);
 	  

@@ -23,7 +23,10 @@ public class UIExoApplicationLifecycle extends Lifecycle {
   
   public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     UIExoApplication uiExoApp = (UIExoApplication)  uicomponent ;
-    uiExoApp.setId(uiExoApp.getApplicationInstanceId());
+    
+    String instanceId = uiExoApp.getApplicationInstanceId();
+    uiExoApp.setId(instanceId);
+    
     MVCApplication application =  uiExoApp.getApplication() ;
     MVCRequestContext appReqContext = new MVCRequestContext(application, context) ;
     appReqContext.setAttribute(UIExoApplication.class, uiExoApp) ;

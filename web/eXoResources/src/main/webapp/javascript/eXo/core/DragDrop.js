@@ -43,9 +43,11 @@ var DragDrop = {
 		document.onmouseup		= DragDrop.onDrop ;
 		
 		// *************************************
-		dragObject.onmouseup = null;
+		
+		//dragObject.onmouseup = null;
+		
 		// *************************************
-		// 		
+		
     if(this.initCallback != null) {
       this.initCallback(dndEvent) ;
     }
