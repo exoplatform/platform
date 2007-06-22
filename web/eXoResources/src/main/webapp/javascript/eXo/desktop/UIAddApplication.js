@@ -137,9 +137,8 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 UIAddApplication.prototype.addApplication = function(parentId, id, save) {
 	var params = [
 		{name: "applicationId", value : id},
-		{name: "save", value : save},
-	] ;
-	
+		{name: "save", value : save}
+	] 
 	ajaxGet(eXo.env.server.createPortalURL(parentId, "AddApplication", true, params)) ;
 };
 

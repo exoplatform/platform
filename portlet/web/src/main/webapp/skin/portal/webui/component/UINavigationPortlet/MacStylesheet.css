@@ -22,10 +22,10 @@
   padding-right: 10px;
 }
 
-.UINavigationPortlet .UIHorizontalTabs  {
+.UINavigationPortlet .UINavigationBar .UIHorizontalTabs  {
   height: 41px;
   background: none;
- /* position: relative; */
+ 	position: static !important ; position: relative ;
 }
 
 .UINavigationPortlet .UIHorizontalTabs .TabsContainer {
