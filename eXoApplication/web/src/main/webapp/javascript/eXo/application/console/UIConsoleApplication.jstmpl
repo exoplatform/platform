@@ -1,8 +1,9 @@
 <div class="UIConsoleApplication" >
 	<div class="UIInnerMaskLayer" >
 		<div class="UIApplication" id="UIConsoleDisplayArea">
-		  <div class="eXoConsoleResult" id="eXoConsoleResult" onclick="eXo.core.Editor.init(this);">
+		  <div class="eXoConsoleResult" id="eXoConsoleResult" editcontainer="1">
 		  	<span>Display Area </span> <br />
+		  	
 				<br /><br /><br /><br /><br />
 				<br /><br /><br /><br /><br />
 				<br /><br /><br /><br /><br />
@@ -22,8 +23,9 @@
 		<div class="CommandButton" onclick="eXo.application.console.UIConsoleApplication.showMaskWorkspace();">
 			<span></span>
 		</div>
-		<div class="CommandType" onclick="eXo.core.Editor.init(this);">
+		<div class="CommandType" editcontainer="1">
 			<span> Command : </span>
+			<span editable="1" style="color: red;"> command 1 </span> <span editable="1" style="color: blue;"> command 2</span>
 		</div>
 	</div>
 </div>
