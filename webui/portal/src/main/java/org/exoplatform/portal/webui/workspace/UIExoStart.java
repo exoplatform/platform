@@ -5,14 +5,11 @@
 package org.exoplatform.portal.webui.workspace;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.portlet.WindowState;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.config.UserPortalConfig;
-import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.webui.UILogged;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
@@ -91,34 +88,7 @@ public class UIExoStart extends UIComponent {
   public List<List<MenuItemContainer>>  getMenus() {  return menus ; }
 
   public List<PageNavigation> getNavigations() throws Exception {
-    //TODO: Tung.Pham added
-    //--------------------------------------------------------------
-    UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
-    PortalRequestContext prContext = Util.getPortalRequestContext();
-    UIPortal uiPortal = Util.getUIPortal() ;
-    String portalName = uiPortal.getName() ;
-    String accessUser = prContext.getRemoteUser() ;
-    UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, accessUser) ;
-    List<PageNavigation> realNavis = userPortalConfig.getNavigations() ;
-    List<PageNavigation> currentNavis = Util.getUIPortal().getNavigations() ;
-    Iterator<PageNavigation> itr = currentNavis.iterator() ;
-    while(itr.hasNext()) {
-      PageNavigation navi = itr.next() ;
-      if(!isExist(realNavis, navi)) itr.remove() ; 
-    }
-    
-    //return org.exoplatform.portal.webui.util.Util.getUIPortal().getNavigations() ;
-    return currentNavis ;
-    //-------------------------------------------------------------
-  }
-  
-  //TODO: Tung.Pham added
-  private boolean isExist(List<PageNavigation> navis, PageNavigation navi) {
-    for(PageNavigation ele : navis) {
-      if(ele.getId().equals(navi.getId())) return true ;
-    }
-    
-    return false ;
+    return org.exoplatform.portal.webui.util.Util.getUIPortal().getNavigations() ;
   }
 
   static public class MenuItem {
