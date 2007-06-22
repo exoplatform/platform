@@ -1,6 +1,6 @@
 .UILoginPortlet {
  	width: 548px; height: 348px;
-	font-family: verdana; font-size: 12px;
+	font-family: verdana; font-size: 11px;
 	margin: auto;
 	margin-top: 100px;
 }
@@ -41,8 +41,8 @@
 .UILoginPortlet .LoginContent .FieldContainer label {
   float: left;
   width: 80px ; height: 20px; 
-  line-height: 20px; vertical-align: middle;
-	text-align: left; font-size: 11px; font-weight: bold ;
+  line-height: 20px; 
+	text-align: left; font-weight: bold ;
 	margin-right: 5px;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .UILoginPortlet a.TextHelp {
-  font-size: 11px; color: #3c78b5;
+  color: #3c78b5;
   margin-top: 7px; 
   padding-left: 50px;
   display: block;
@@ -83,8 +83,7 @@
 
 .UILoginPortlet .LoginContent .ForgotMessage {
   float: right;
-  font-size: 11px;
-  line-height: 18px; vertical-align: middle;
+  line-height: 18px;
 }
 
 .UILoginPortlet .LoginContent .LoginButton {
@@ -126,9 +125,8 @@
 
 .UILoginPortlet .LoginContent .LoginButton .Button .MiddleButton {
   height: 22px; 
-  line-height: 21px; vertical-align: middle;
+  line-height: 21px; 
 	background: url('../skin/images/MiddleLightStyleButton1x22.gif') repeat-x;
-	font-size: 11px;
 }
 
 .UILoginPortlet .LoginContent .MessageContainer {
@@ -138,7 +136,7 @@
 
 .UILoginPortlet .LoginContent .SignupMessage {
   width: 250px; height: 24px; 
-  line-height: 24px; vertical-align: bottom;
+  line-height: 24px; 
   color: #3c78b5 ; text-align: center;
   margin-right: 33px;
   border-top: solid 1px #c3c3c3 ;
@@ -146,7 +144,7 @@
 }
 
 .UILoginPortlet .LoginContent .SignupMessage a {
-  color: orange; font-size: 11px; font-weight: bold ; text-decoration: none;
+  color: orange; font-weight: bold ; text-decoration: none;
   cursor: pointer ;
 }
 
@@ -178,7 +176,6 @@
 }
 
 .UILoginPortlet .CopyrightInfo {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px; 
   text-align: center;
-  font-size: 11px;
 }

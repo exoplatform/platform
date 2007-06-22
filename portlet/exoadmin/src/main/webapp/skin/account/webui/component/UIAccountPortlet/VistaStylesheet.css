@@ -37,19 +37,17 @@
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer label {
   margin-left: 0px; width: 140px; text-align: right;
   margin-right: 20px;
-  float: left; font-size: 11px;
+  float: left; 
 }
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer input{
   border: 1px gray solid;
   width: 220px; height: 18px;
-  font-size: 11px;
   padding-left: 5px;  
 }
 
 .UIAccountPortlet .UIItemSelector .UIFormInputSet {
   padding-top: 10px;
-  font-size: 11px;
 }
 
 .UIAccountPortlet .UIItemSelector .UIFormInputSet .FieldContainer {
@@ -64,21 +62,19 @@
   height: 22px; line-height: 22px;
   margin-right: 20px; padding-left: 5px;
   white-space: nowrap; 
-  font-size: 11px; text-align: right;
+  text-align: right;
 }
 
 .UIAccountPortlet .UIItemSelector .UIFormInputSet input {
   width: 240px;
   margin-left: 10px;
   float: right;
-  font-size: 11px;
   padding-left: 5px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet input {
   width: 220px;
   float: left;
-  font-size: 11px;
   margin-left: 0px;
   padding-left: 5px;
 }
@@ -87,7 +83,6 @@
 
 .UIAccountPortlet .UIItemSelector .NormalStyle .ItemList {
   height: 220px;
-
 }
 
 .UIAccountPortlet .UIItemSelector .NormalStyle .ItemList .Item {
@@ -131,4 +126,3 @@
   margin: auto;
   background: url('VistaSkin/background/CompanyAccountImage.jpg') no-repeat;
 }
-

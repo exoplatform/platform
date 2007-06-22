@@ -27,7 +27,6 @@
 .UIBannerPortlet .LoginContainer .LoginContent {
   float: right;
   line-height: 22px;
-  font-size: 11px;
   padding: 4px 13px 0px 0px;
 }
 
@@ -45,7 +44,6 @@
 	padding: 0px 0px 0px 5px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 11px;
 }
 
 .UIBannerPortlet .LoginContainer .LoginContent a {

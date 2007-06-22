@@ -49,7 +49,6 @@
 }
 
 .UIOrganizationPortlet .ManagementIconContainer {
-  font-size: 11px;
   padding-top: 4px;
   margin-left: 5px;
 }
@@ -225,7 +224,6 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITab {
-  font-size: 11px ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGrid .ActionContainer {  

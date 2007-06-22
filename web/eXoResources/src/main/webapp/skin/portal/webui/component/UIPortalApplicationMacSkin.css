@@ -19,7 +19,7 @@ th, td {
 
 img {
 	padding: 0px ; margin: 0px ;
-	border: none ;
+	border: none ; vertical-align: bottom;
 }
 
 form {

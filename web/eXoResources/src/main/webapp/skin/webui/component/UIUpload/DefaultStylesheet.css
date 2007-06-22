@@ -41,7 +41,7 @@
 }
 
 .ProgressBarLabel {
-	font-size: 11px;  text-align: center;
+	text-align: center;
 }
 
 .DeleteFileFrame {
@@ -53,7 +53,6 @@
 }
 
 .DeleteFileLable {
-	font-size: 11px;
 	font-family: verdana;
 	line-height: 18px;
 }
@@ -64,9 +63,7 @@
 
 .FileNameLabel {
 	font-weight: bold;
-	font-size: 11px;
 	line-height: 12px;
-	vertical-align: middle;
 	width: 215px;
 }
 

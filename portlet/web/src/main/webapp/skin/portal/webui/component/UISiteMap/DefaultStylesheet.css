@@ -34,7 +34,7 @@
 }
 
 .UISitemap .TitleBar a {
-  font-size: 11px; font-weight: bold; color: #058ee6;
+  font-weight: bold; color: #058ee6;
 }
 
 .UISitemap .TitleBar a:hover {
@@ -94,17 +94,16 @@
 }
 
 .UISitemap .SitemapItemBox .Item a {
-  color: black; font-size: 11px;
+  color: black; 
 }
 
 .UISitemap .SitemapItemBox .Item a:hover {
-  color: blue; font-size: 11px; 
+  color: blue; 
 }
 
 .UISitemap .SitemapItemBox .Item .Label {
   float: left ;
   line-height: 22px ;
-  vertical-align: middle ;
   color: black ;
 }
 
@@ -117,7 +116,7 @@
 .UISitemap .SitemapItemBox .Message {
   float: left; margin-left: 10px; 
   width: 170px;
-  text-align: center; font-size: 11px; color: #a5a5a5;
+  text-align: center; color: #a5a5a5;
 }
 
 .UISitemap .SitemapItemBox .Level1 {

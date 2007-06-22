@@ -132,7 +132,7 @@
   float: left ;
 	height: 25px ;
 	line-height: 25px ;
-	font-weight: bold ; font-size: 11px ;
+	font-weight: bold ;
   color: #333333 ;
 }
 
@@ -141,7 +141,7 @@
 	float: left ;
 	height: 25px ;
 	line-height: 25px ;
-	font-weight: bold ; font-size: 11px ;
+	font-weight: bold ;
 }
 
 .UIContentPortlet .UIContentNavigation a.TabLabel:hover {
@@ -154,7 +154,6 @@
 
 .UIContentPortlet .UIContentNavigation a.ItemLabel {
 	line-height: 24px ;
-	font-size: 11px ;
   color: #000000 ;
   display: block;
 }
@@ -164,7 +163,6 @@
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs {
-  font-size: 11px; 
 }
 
 .UIContentPortlet .UIContentWorkingArea .UIDescription{
@@ -174,7 +172,6 @@
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .BreadcumbsContainer {
   padding: 3px 0px 0px 3px;
-  font-size: 11px; 
   height: 18px;
   float: left;
 }
@@ -270,7 +267,6 @@
 
 .UIContentPortlet .UIContentWorkingArea .DateTime {
 	color: #5d5d5e;
-	font-size: 11px;
 	padding: 10px 5px 3px 5px;
 	text-align: right;
 }
@@ -278,7 +274,6 @@
 .UIContentPortlet .UIContentWorkingArea .ContentDetailImageDescription {
 	color: #1d28fb ;
 	text-align: center ;
-	font-size: 11px ;
 }
 
 .UIContentPortlet .UIContentWorkingArea .HeadlineNews {

@@ -24,13 +24,13 @@
 
 .UISitemap .TitleBar {
   background: url('/eXoResources/background/MacSkin/TitleBG1x19.gif') repeat-x;
-  height: 22px; line-height: 22px; vertical-align: middle;
+  height: 22px; line-height: 22px;
   border: 1px solid #aeaeae;
   border-bottom: none;
 }
 
 .UISitemap .TitleBar a {
-  font-size: 11px; color: black;
+  color: black;
   margin-left: 5px;
 }
 
@@ -41,8 +41,7 @@
 .UISitemap .TitleBar .Icon {
   margin: 2px 0px 0px 6px;
   float: left;
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
 }
 
 .UISitemap .DefaultPageIcon{
@@ -89,17 +88,16 @@
 }
 
 .UISitemap .SitemapItemBox .Item a {
-  color: black; font-size: 11px;
+  color: black;
 }
 
 .UISitemap .SitemapItemBox .Item a:hover {
-  color: blue; font-size: 11px; 
+  color: blue;
 }
 
 .UISitemap .SitemapItemBox .Item .Label {
   float: left ;
   line-height: 22px ;
-  vertical-align: middle ;
   color: black ;
 }
 
@@ -112,7 +110,7 @@
 .UISitemap .SitemapItemBox .Message {
   float: left; margin-left: 10px; 
   width: 170px;
-  text-align: center; font-size: 11px; color: gray;
+  text-align: center; color: gray;
 }
 
 .UISitemap .SitemapItemBox .Level1 {

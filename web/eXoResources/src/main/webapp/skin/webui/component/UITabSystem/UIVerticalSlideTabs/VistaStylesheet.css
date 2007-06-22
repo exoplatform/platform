@@ -51,8 +51,12 @@
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
   float: left;
   height: 26px ; line-height: 24px ;  
-  color: #196aaa; text-transform: capitalize;
+  text-transform: capitalize;
   margin-left: 2px;
+}
+
+.UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
+	color: #065DA1;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .ControlContainer {
@@ -75,7 +79,6 @@
   background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') no-repeat;
 }
 
-
 .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
   padding: 10px ;
   border: 1px solid #bec1c7;
@@ -83,7 +86,6 @@
   margin: 0px 5px;
   text-transform: capitalize;
 }
-
 
 /*#######################-VTabStyle3 VerticalSlideTabs-######################*/
 

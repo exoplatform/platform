@@ -39,7 +39,7 @@
 }
 
 .UISitemap .SitemapItemBox .TitleBar a {
-  font-size: 11px; color: black; font-weight: bold;
+  color: black; font-weight: bold;
   line-height: 20px;
 }
 
@@ -84,17 +84,16 @@
 }
 
 .UISitemap .SitemapItemBox .Item a {
-  color: black; font-size: 11px;
+  color: black;
 }
 
 .UISitemap .SitemapItemBox .Item a:hover {
-  color:#265fb5; font-size: 11px; 
+  color:#265fb5; 
 }
 
 .UISitemap .SitemapItemBox .Item .Label {
   float: left ;
   line-height: 22px ;
-  vertical-align: middle ;
   color: black ;
 }
 
@@ -118,7 +117,7 @@
 .UISitemap .SitemapItemBox .Message {
   float: left; margin-left: 10px; 
   width: 170px;
-  text-align: center; font-size: 11px;
+  text-align: center;
 }
 
 .UISitemap .SitemapItemBox .Level1 {
@@ -150,6 +149,3 @@
   background: url('VistaSkin/background/SitemapItemBoxBG1x22.gif') repeat-x top;
   padding-left: 110px;
 }
-
-
-

@@ -107,6 +107,7 @@
 .UIForm .VerticalLayout input {
   width: 170px ;
   border:  1px solid gray ;
+  font-size: 11px;
 }
 
 .UIForm .VerticalLayout input.checkbox {
@@ -116,10 +117,12 @@
 .UIForm .VerticalLayout textarea {
   width: 170px ;  height: 75px ;
   border: 1px solid gray ;
+  font-size: 11px;  
 }
 
 .UIForm .VerticalLayout select {
   width: 170px ;
+  font-size: 11px; 
 }
 
 /*####################- UIPermissionForm -#################*/

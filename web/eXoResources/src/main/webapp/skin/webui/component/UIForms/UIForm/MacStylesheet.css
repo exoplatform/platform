@@ -80,6 +80,7 @@
 
 .UIForm .HorizontalLayout input {
   width: 230px ;
+  font-size: 11px;
 }
 
 .UIForm .HorizontalLayout input.radio {
@@ -97,10 +98,12 @@
 .UIForm .HorizontalLayout textarea {
   width: 235px ;  height: 75px ;
   border: 1px gray solid;
+  font-size: 11px;  
 }
 
 .UIForm .HorizontalLayout select {
   width: 235px ;
+  font-size: 11px;  
 }
 
 /*####################- VerticalLayout -#################*/

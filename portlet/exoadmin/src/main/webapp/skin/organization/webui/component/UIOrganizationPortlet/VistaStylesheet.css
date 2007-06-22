@@ -48,7 +48,6 @@
 
 .UIOrganizationPortlet .ManagementIconContainer {
   margin-left: 5px;
-  font-size: 11px;
   padding-top: 6px;
 }
 
@@ -257,10 +256,6 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm tr{
 	height: 25px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UITab {
-  font-size: 11px ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGrid .ActionContainer {  
