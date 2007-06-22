@@ -110,9 +110,17 @@ public class UIPageNodeActionListener {
       Page page  = portalConfigService.getPage(node.getPageReference(), pcontext.getRemoteUser());
       UIPage uiPage  = null;
       if(page != null)  uiPage = Util.toUIPage(page, uiToolPanel);
-      if(page == null || !uiPage.isModifiable()){
+      if(page == null){
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        return;
+      }
+      
+      if(!page.isModifiable()){
+        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
+        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
         return;
       }
             

@@ -174,7 +174,7 @@ public class UIPageNodeForm extends UIFormTabPane {
       UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
       pcontext.addUIComponentToUpdateByAjax(uiManagement);   
       
-      uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri());
+      //uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri());
     }
   }
 

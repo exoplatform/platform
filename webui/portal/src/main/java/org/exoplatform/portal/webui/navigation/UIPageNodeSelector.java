@@ -338,25 +338,31 @@ public class UIPageNodeSelector extends UIContainer {
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
       
-      if(page == null || !page.isModifiable()){
+      if(page == null){
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
-//      if(!page.isModifiable()) {
-//        uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
-//        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
-//        return ;
-//      }
       
-      uiEditBar.setRendered(true);
       UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
       UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
       toolPanel.setUIComponent(uiPage);
-      //TODO: Tung.Pham added
-      //------------------------------------------------------
       toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
-      //------------------------------------------------------
+
+      if(!page.isModifiable()) {
+        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+        uiParent.setRenderedChildrenOfTypes(childrenToRender);
+        return;
+      }
+      
+      uiEditBar.setRendered(true);
+//      UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
+//      UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
+//      toolPanel.setUIComponent(uiPage);
+//      //TODO: Tung.Pham added
+//      //------------------------------------------------------
+//      toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
+//      //------------------------------------------------------
       if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId())) {
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
