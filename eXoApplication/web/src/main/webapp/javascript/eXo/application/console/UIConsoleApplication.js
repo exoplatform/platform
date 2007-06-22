@@ -45,7 +45,7 @@ UIConsoleApplication.prototype.initApplication = function(applicationId, instanc
 	  
 	var appInstance = appDescriptor.createApplication();
 	eXo.desktop.UIDesktop.addJSApplication(appInstance);
-}
+};
 
 UIConsoleApplication.prototype.destroyApplicationInstance = function(appDescriptor) {
 	var applicationNode = document.getElementById(appDescriptor.appId);
@@ -67,7 +67,7 @@ UIConsoleApplication.prototype.destroyInstance = function(instanceId) {
 
 eXo.application.console  = {
   UIConsoleApplication : new UIConsoleApplication()
-}  ;
+} ;
 /********************************/
 //create a Mask for window command Console.
 //start: 4:39 20/6/2007
@@ -108,12 +108,12 @@ UIConsoleApplication.prototype.showMaskWorkspace = function() {
 	//disable scroll for eXoConsoleResult
 	if (document.getElementById("eXoConsoleResult").scroll) {alert("ol")};
 	}
-}
+};
 
 UIConsoleApplication.prototype.hiddenMaskWorkspace = function() {
 	var maskLayer = document.getElementById("MaskLayer") ;
 			eXo.core.UIMaskLayer.removeMask(maskLayer);
-}
+};
 // end 10:31 22/6/2007
 /*******************************/
 /********************************************************************************************************/
@@ -123,7 +123,7 @@ function Editor() {
   this.afterCursor = null ;
   this.currentNode = null ;
 
-}
+};
 
 Editor.prototype.init = function(node) {
   this.onFinish() ;
@@ -142,7 +142,7 @@ Editor.prototype.init = function(node) {
   node.innerHTML = this.beforeCursor + this.cursor + this.afterCursor ;
   node.style.border = "1px solid blue"
   this.currentNode = node ;
-}
+};
 
 Editor.prototype.onFinish = function(node) {
   if(this.currentNode == null) return ;
@@ -150,13 +150,13 @@ Editor.prototype.onFinish = function(node) {
   this.currentNode.style.border = null ;
   this.currentNode = null ;
   document.onkeypress = null ;
-}
+};
 
 Editor.prototype.getTextClickPosition = function(node) {
   var sel = window.getSelection();
   var range = document.createRange();
   return sel.anchorOffset ;
-}
+};
 
 Editor.prototype.registerKeyboardHandler = function() {
   var keyboard = eXo.core.Keyboard ;
@@ -164,7 +164,7 @@ Editor.prototype.registerKeyboardHandler = function() {
   keyboard.register(keyboard.onBackspace, this.onBackspaceKey) ;
   keyboard.register(keyboard.onEnter, this.onEnterKey) ;
   keyboard.register(keyboard.onDefault, this.onDefaultKey) ;
-}
+};
 
 Editor.prototype.onDefaultKey = function(keynum) {
   var keychar = String.fromCharCode(keynum) ;
@@ -172,15 +172,15 @@ Editor.prototype.onDefaultKey = function(keynum) {
   editor.beforeCursor += c ;
   editor.currentNode.innerHTML = editor.beforeCursor + editor.cursor + editor.afterCursor ;
   return true ;
-}
+};
 
 Editor.prototype.onBackspaceKey = function() {
   return true ;
-}
+};
 
 Editor.prototype.onEnterKey = function() {
   return true ;
-}
+};
 
 function Keyboard() {
   this.onAlphabet          = 0 ;
@@ -193,23 +193,23 @@ function Keyboard() {
   this.clearRegisteredHandler() ;
   this.clearDefaultRegisteredHandler() ;
   document.onkeypress =  this.onKeyPress ;
-}
+};
 
 Keyboard.prototype.register = function(eventCode, handler) {
   this.keyHandler[eventCode] = handler ;
-}
+};
 
 Keyboard.prototype.clearRegisteredHandler = function() {
   this.keyHandler =  [null, null, null] ;
-}
+};
 
 Keyboard.prototype.registerDefault = function(eventCode, handler) {
   this.defaultKeyHandler[eventCode] = handler ;
-}
+};
 
 Keyboard.prototype.clearDefaultRegisteredHandler = function() {
   this.defaultKeyHandler = [null, null, null] ;
-}
+};
 
 Keyboard.prototype.onKeyPress = function(event) {
   var keynum ;
@@ -230,7 +230,7 @@ Keyboard.prototype.onKeyPress = function(event) {
   if(handler != null) return handler(keynum, keychar) ;
 
   return false ;
-}
+};
 
 eXo.core.Keyboard = new Keyboard() ;
 eXo.core.Editor = new Editor() ;
