@@ -103,13 +103,17 @@ UIMaskLayer.prototype.removeMask = function(maskLayer) {
 UIMaskLayer.prototype.resizeMaskLayer = function() {
 	var maskLayer = document.getElementById("MaskLayer") ;
 	if(maskLayer) {
-		if(maskLayer.style.display == "block") {
-			var ojectHeight = document.getElementById("UIPortalApplication");
-			maskLayer.style.width = "100%" ;
-			var maskLayerHeight = (document.body.offsetHeight > ojectHeight.offsetHeight) ? document.body.offsetHeight : ojectHeight.offsetHeight ;
-			  maskLayer.style.height = maskLayerHeight + "px";
+		var UIInnerMaskLayer = eXo.core.DOMUtil.findAncestorByClass(maskLayer, "UIInnerMaskLayer");
+		if (UIInnerMaskLayer) return;
+		else if(maskLayer.style.display == "block") {
+					var ojectHeight = document.getElementById("UIPortalApplication");
+							maskLayer.style.width = "100%" ;
+					var maskLayerHeight = (document.body.offsetHeight > ojectHeight.offsetHeight) ? document.body.offsetHeight : ojectHeight.offsetHeight ;
+			  			maskLayer.style.height = maskLayerHeight + "px";
 		}
 	}
 } ;
+
+
 
 eXo.core.UIMaskLayer = new UIMaskLayer() ;

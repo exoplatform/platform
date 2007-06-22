@@ -9,6 +9,7 @@ function UIDockbar() {
 UIDockbar.prototype.init = function() {
   var UIDockbar = eXo.desktop.UIDockbar ;
   var uiDockbar = document.getElementById("UIDockBar") ;
+  if(!uiDockbar) return;
   var imgObject = eXo.core.DOMUtil.findDescendantsByClass(uiDockbar, "img", "Icon") ;
   
   this.resetDefault = false ;

@@ -2,7 +2,7 @@
 .UIConsoleApplication {
 	border: 0px solid green;
 }
-.UIConsoleApplication .pointReference {
+.UIConsoleApplication .UIInnerMaskLayer {
 	position: relative;
 	width: 100%;
 
@@ -30,11 +30,11 @@
 	line-height: 22px;
 	text-align: center;
 	cursor: pointer;
-	background: red;
+	background: url("DefaultSkin/icons/ArrowShape.gif") no-repeat center;
 }
 
 .UIConsoleApplication .CommandType {
-	margin-right: 21px;
+	margin-right: 18px;
 	background: #effffe;
 	line-height: 23px;
 }
@@ -46,5 +46,5 @@
 	width: 100%;
 	height: 100%;
 	margin: auto;
-	overflow: hidden;
+	overflow: auto;
 }

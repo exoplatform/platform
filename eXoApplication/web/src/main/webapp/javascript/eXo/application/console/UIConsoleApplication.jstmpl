@@ -1,5 +1,5 @@
 <div class="UIConsoleApplication" >
-	<div class="pointReference" >
+	<div class="UIInnerMaskLayer" >
 		<div class="UIApplication" id="UIConsoleDisplayArea">
 		  <div class="eXoConsoleResult" id="eXoConsoleResult" onclick="eXo.core.Editor.init(this);">
 		  	<span>Display Area </span> <br />
@@ -20,7 +20,7 @@
 
 	<div class="eXoConsole" id="eXoConsoleComand">
 		<div class="CommandButton" onclick="eXo.application.console.UIConsoleApplication.showMaskWorkspace();">
-			<span> up </span>
+			<span></span>
 		</div>
 		<div class="CommandType" onclick="eXo.core.Editor.init(this);">
 			<span> Command : </span>

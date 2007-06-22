@@ -1,6 +1,7 @@
 .UIInfoWidget{
 	width: 220px; height: 204px;
-	background: url('DefaultSkin/background/eXoInfoWidgetBackground.png') no-repeat center top;	
+	background: url('DefaultSkin/background/eXoInfoWidgetBackground.png') no-repeat center top;
+	
 }
 
 .UIInfoWidget .eXoInfoWidgetTitle{

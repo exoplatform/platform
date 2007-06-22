@@ -70,16 +70,13 @@ eXo.application.console  = {
 }  ;
 /********************************/
 //create a Mask for window command Console.
-// 4:39 20/6/2007
-// eXo.core.UIMaskLayer.createMask ()
-// nhan vao 4 doi so
-// 1. id cua element can phu typeof string.
-// 2. object : doi tuong se xuat hien giua lop phu typeof object.
-// 3. opacity : thiet lap do trong suot cua lop phu typeof number.
-// 4. position: vi tri cua lop phu se xuat hien ra screen.
+//start: 4:39 20/6/2007
+//reference class : eXo.core.UIMaskLayer;
+//in file: UIMaskLayer.js
 /*******************************/
 UIConsoleApplication.prototype.showMaskWorkspace = function() {
-	if (!document.getElementById("UIMaskWindowConsole")){
+	if ( !document.getElementById("UIMaskWindowConsole") ) {
+	document.body.scroll = "no";
 	var wsContent = eXo.core.TemplateEngine.merge("eXo/application/console/UIMaskConsoleSpace.jstmpl", null, "/eXoAppWeb/javascript/") ;
 	var context = {
 			uiMaskWorkspace : {
@@ -89,29 +86,27 @@ UIConsoleApplication.prototype.showMaskWorkspace = function() {
 	}
 	var uiMaskWorkspace = eXo.core.TemplateEngine.merge("eXo/portal/UIMaskWorkspace.jstmpl", context) ;
 	var uiMaskWorkspaceElement = eXo.core.DOMUtil.createElementNode(uiMaskWorkspace, "div") ;
-			eXo.core.UIMaskLayer.createMask("UIConsoleDisplayArea", uiMaskWorkspaceElement, 70) ;
+			eXo.core.UIMaskLayer.createMask("UIConsoleDisplayArea", uiMaskWorkspaceElement, 64) ;
 	var maskLayer = document.getElementById("MaskLayer") ;
 			maskLayer.style.height =  "100%";
 			maskLayer.style.width =  "100%";
 			maskLayer.style.position = "absolute";
 	var infoObj =  document.getElementById("UIMaskWindowConsole");
-	//fix height
+	//fix height.
 	var fixObj =	document.getElementById("UIMaskWorkspaceJSTemplate");
-	var paObj = eXo.core.DOMUtil.findFirstDescendantByClass(fixObj, "div", "ContentContainer");
-	
 	var maHeight = eXo.core.DOMUtil.findDescendantsByClass(fixObj, "div", "UIDescendantDetector");
-	
 	for (k=0; k < maHeight.length; k ++) {
-			maHeight[k].style.height = "99%";
-
-		}
-			fixObj.style.position = "absolute";
-			fixObj.style.height = "60%";
-			fixObj.style.top =  "20%";	
-			fixObj.style.overflow =  "hidden";		
-//			paObj.style.height = "200px";
-//			paObj.style.border = "red 2px solid";
-//			paObj.className = "ContentContainer UIResizableBlock" ;
+		maHeight[k].style.height = "100%";
+		maHeight[k].style.overflow =  "hidden";
+	}
+	//fix position.
+	fixObj.style.position = "absolute";
+	fixObj.style.height = "60%";
+	fixObj.style.top =  "20%";
+	fixObj.style.left =  "25%";	
+	fixObj.style.overflow =  "hidden";
+	//disable scroll for eXoConsoleResult
+	if (document.getElementById("eXoConsoleResult").scroll) {alert("ol")};
 	}
 }
 
@@ -119,7 +114,7 @@ UIConsoleApplication.prototype.hiddenMaskWorkspace = function() {
 	var maskLayer = document.getElementById("MaskLayer") ;
 			eXo.core.UIMaskLayer.removeMask(maskLayer);
 }
-// end of method
+// end 10:31 22/6/2007
 /*******************************/
 /********************************************************************************************************/
 function Editor() {
