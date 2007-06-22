@@ -168,23 +168,21 @@ public class UIPageNavigationForm extends UIFormTabPane {
       }
       
       if(isNewNavigation) {
-        //DataStorage storage = uiForm.getApplicationComponent(DataStorage.class);
         UIPortalApplication uiPortalApp = uiForm.getAncestorOfType(UIPortalApplication.class);
         UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
         boolean hasUIPageNodeSelector = (uiPageNodeSelector != null) ;
-        //if((hasUIPageNodeSelector && isExist(uiPageNodeSelector.getNavigations(), pageNav)) || storage.getPageNavigation(pageNav.getId()) != null) {
         if((hasUIPageNodeSelector && isExist(uiPageNodeSelector.getNavigations(), pageNav))) {
           uiPortalApp.addMessage(new ApplicationMessage("UIPageNavigationForm.msg.existPageNavigation", new String[]{pageNav.getOwnerId()})) ;;
           pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
           return ;
         }
 
-        //UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
         if(hasUIPageNodeSelector) {
-          Util.getUIPortal().getNavigations().add(pageNav);
-          uiPageNodeSelector.loadNavigations();
-          uiPageNodeSelector.setSelectedPageNode(null) ;
+          //Util.getUIPortal().getNavigations().add(pageNav);
+          //uiPageNodeSelector.loadNavigations();
+          uiPageNodeSelector.addNavigation(pageNav) ;  
           uiPageNodeSelector.selectNavigation(pageNav.getId()) ;
+          uiPageNodeSelector.setSelectedPageNode(null) ;
           pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
         }
       } 

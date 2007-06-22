@@ -4,15 +4,17 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
-import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
+import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
@@ -81,13 +83,16 @@ public class UIPageNavigationActionListener {
 //      }
 //      if( i< oldList.size()) oldList.remove(i);
 //      pageNodeSelector.loadNavigations();
-      List<PageNavigation> oldList = Util.getUIPortal().getNavigations() ;
-      Iterator<PageNavigation> itr = oldList.iterator() ;
-      while(itr.hasNext()) {
-        PageNavigation navi = itr.next() ;
-        if(navi.getId().equals(selectedNavigation.getId())) itr.remove() ;
-      }
-      uiPageNodeSelector.loadNavigations() ;
+      uiPageNodeSelector.removeNavigation(selectedNavigation) ;
+      
+      UIPortalApplication uiPortalApp = uiPopup.getAncestorOfType(UIPortalApplication.class) ;
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
+      toolPanel.setUIComponent(null);
+      toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      pcontext.setFullRender(true);
       //----------------------------------------------------
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getAncestorOfType(UIPageManagement.class));      
     }

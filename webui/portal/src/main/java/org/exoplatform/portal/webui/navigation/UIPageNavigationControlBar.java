@@ -215,16 +215,31 @@ public class UIPageNavigationControlBar extends UIToolbar {
     UIPageNodeSelector uiPageNodeSelector = uiManagement.getChild(UIPageNodeSelector.class) ;
     
     List<PageNavigation> newNavis = uiPageNodeSelector.getNavigations() ;
+    //Remove navis from Database
     UserPortalConfigService configService = uiManagement.getApplicationComponent(UserPortalConfigService.class) ;
     String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
     String portalName = Util.getUIPortal().getName() ;
     UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, accessUser) ;
     if(userPortalConfig == null) return ;
     List<PageNavigation> originNavis = userPortalConfig.getNavigations() ;
-    Iterator<PageNavigation> itr = originNavis.iterator() ;
+    for(PageNavigation navi : originNavis) {
+      if(!isExist(newNavis, navi) && navi.isModifiable()) configService.remove(navi) ;
+    }
+    
+//    Iterator<PageNavigation> itr = originNavis.iterator() ;
+//    while(itr.hasNext()) {
+//      PageNavigation navi = itr.next() ;
+//      if(!isExist(newNavis, navi) && navi.isModifiable()) {
+//        itr.remove() ;
+//        configService.remove(navi) ;
+//      }
+//    }
+    
+    //Remove navis from UIPortal
+    Iterator<PageNavigation> itr = Util.getUIPortal().getNavigations().iterator() ;
     while(itr.hasNext()) {
       PageNavigation navi = itr.next() ;
-      if(!isExist(newNavis, navi)) configService.remove(navi) ;
+      if(!isExist(newNavis, navi)) itr.remove() ;
     }
   }
   

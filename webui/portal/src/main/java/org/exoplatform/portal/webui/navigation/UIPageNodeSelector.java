@@ -5,6 +5,7 @@
 package org.exoplatform.portal.webui.navigation;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -28,7 +29,6 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
-import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -121,22 +121,45 @@ public class UIPageNodeSelector extends UIContainer {
     for(PageNavigation nav  : pnavigations){
       if(nav.isModifiable()) navigations_.add(nav.clone()) ;
     }
-    
-    if(navigations_.size() < 1) return;
-    loadSelectedNavigation();
+
     //TODO: Tung.Pham modified
-    //-----------------------------------------------------------------------------------------------
-    //if(selectedNavigation == null) { selectedNavigation = navigations_.get(0);
-    //if(selectedNavigation.getNodes().size() > 0) selectedPageNode = selectedNavigation.getNode(0);
-    
-    //UITree tree = getChild(UITree.class);
-    //tree.setSibbling(selectedNavigation.getNodes());
+//-----------------------------------------------------------------------------------------------
+    configure() ;
+//    if(navigations_.size() < 1) return;
+//    loadSelectedNavigation();
+//    if (selectedNavigation == null) {
+//      selectedNavigation = navigations_.get(0) ;
+//      UITree tree = getChild(UITree.class) ;
+//      tree.setSibbling(selectedNavigation.getNodes()) ;
+//    }
+//    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
+//    for(PageNavigation navigation: navigations_) {
+//      String label = navigation.getOwnerId() + "'s Nav";
+//      options.add(new SelectItemOption<String>(label, navigation.getId()));
+//    }
+//    UIDropDownItemSelector uiDopDownSelector = getChild(UIDropDownItemSelector.class);
+//    uiDopDownSelector.setOptions(options);
+//    if(options.size() > 0) uiDopDownSelector.setSelected(0);
+//-----------------------------------------------------------------------------------------------
+  }
+  
+  //TODO: Tung.Pham added
+  private void configure() {
+    loadSelectedNavigation();
     if (selectedNavigation == null) {
-      selectedNavigation = navigations_.get(0) ;
       UITree tree = getChild(UITree.class) ;
-      tree.setSibbling(selectedNavigation.getNodes()) ;
+      if(navigations_ != null && navigations_.size() > 0) {
+        selectedNavigation = navigations_.get(0) ;
+        tree.setSibbling(selectedNavigation.getNodes()) ;
+      }
+      else {
+        getChild(UIDropDownItemSelector.class).setOptions(null) ;
+        getChild(UIDropDownItemSelector.class).setSelectedItem(null) ;
+        tree.setSibbling(null) ;
+        return ;
+      }
     }
-    //-----------------------------------------------------------------------------------------------
+
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     for(PageNavigation navigation: navigations_) {
       String label = navigation.getOwnerId() + "'s Nav";
@@ -148,10 +171,15 @@ public class UIPageNodeSelector extends UIContainer {
   }
   
   public void loadSelectedNavigation() {
+    selectedNavigation = null ;
     PageNode node = Util.getUIPortal().getSelectedNode();
-    if(node == null)  return;
-    List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();  
-    for(PageNavigation nav  : pnavigations){
+    if(node == null || navigations_.size() < 1)  return;
+    //TODO: Tung.Pham modified
+    //----------------------------------------------
+    //List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();  
+    //for(PageNavigation nav  : pnavigations){
+    //----------------------------------------------
+    for(PageNavigation nav  : navigations_){
       if(findSelectedNode(nav, nav.getNodes(), node)) return;
     }    
   }
@@ -191,7 +219,7 @@ public class UIPageNodeSelector extends UIContainer {
     tree.setSibbling(null);
     tree.setParentSelected(null);
     selectedPageNode = findPageNodeByUri(selectedNavigation, uri, tree);
-    if(selectedPageNode == null){      
+    if(selectedPageNode == null){
       tree.setSelected(null);
       tree.setChildren(null);
       tree.setSibbling(sibbling);
@@ -268,6 +296,23 @@ public class UIPageNodeSelector extends UIContainer {
   public void setSelectedPageNode(PageNode node) { selectedPageNode = node ;}
   
   public String getUpLevelUri () { return upLevelURI ; }
+  
+  //TODO: Tung.Pham added
+  public void addNavigation(PageNavigation navi) {
+    if(navigations_ == null) navigations_ = new ArrayList<PageNavigation>() ;
+    navigations_.add(navi) ;
+    configure() ;
+  }
+  
+  //TODO: Tung.Pham added
+  public void removeNavigation(PageNavigation navi) {
+    if(navigations_ == null || navigations_.size() < 1) return ;
+    Iterator<PageNavigation> itr = navigations_.iterator() ;
+    while(itr.hasNext()){
+      if(itr.next().getId().equals(navi.getId())) itr.remove() ;
+    }
+    configure() ;
+  }
   
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {      
