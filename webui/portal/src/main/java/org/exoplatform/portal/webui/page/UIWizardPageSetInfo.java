@@ -124,7 +124,13 @@ public class UIWizardPageSetInfo extends UIForm {
       
       if(!event.getSource().isEdit) return ;
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
-      if (pageNode == null) return ;
+      if (pageNode == null){
+        UIFormStringInput uiNameInput = event.getSource().getChildById("pageName") ;
+        uiNameInput.setValue(null) ;
+        UIFormStringInput uiDisplayNameInput = event.getSource().getChildById("pageDisplayName") ;
+        uiDisplayNameInput.setValue(null) ;
+        return ;
+      }
       UIFormStringInput uiNameInput = event.getSource().getChildById("pageName") ;
       if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
       UIFormStringInput uiDisplayNameInput = event.getSource().getChildById("pageDisplayName") ;
