@@ -103,7 +103,8 @@
         </div>
     """ ;
     navigations = uicomponent.getNavigations() ;
-   	if (navigations != null && navigations.size() > 0 && navigations.get(0).getNodes().size() > 0) {
+   	//if (navigations != null && navigations.size() > 0 && navigations.get(0).getNodes().size() > 0) {
+   	if (navigations != null && navigations.size() > 0) {
        	print """ 
         <div class="MenuItemContainer NavigationContainer">
           <div class="StartMenuDecorator">
