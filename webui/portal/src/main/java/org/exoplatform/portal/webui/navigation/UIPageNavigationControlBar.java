@@ -223,7 +223,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
     if(userPortalConfig == null) return ;
     List<PageNavigation> originNavis = userPortalConfig.getNavigations() ;
     for(PageNavigation navi : originNavis) {
-      if(!isExist(newNavis, navi) && navi.isModifiable()) configService.remove(navi) ;
+      if(!isExist(newNavis, navi) && navi.isModifiable()) configService.remove(navi);
     }
     
 //    Iterator<PageNavigation> itr = originNavis.iterator() ;
@@ -239,7 +239,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
     Iterator<PageNavigation> itr = Util.getUIPortal().getNavigations().iterator() ;
     while(itr.hasNext()) {
       PageNavigation navi = itr.next() ;
-      if(!isExist(newNavis, navi)) itr.remove() ;
+      if(!isExist(newNavis, navi) && navi.isModifiable()) itr.remove() ;
     }
   }
   
