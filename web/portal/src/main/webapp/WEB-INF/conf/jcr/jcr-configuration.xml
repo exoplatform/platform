@@ -10,8 +10,15 @@
         <description>JCR configuration file</description>
         <value>war:/conf/jcr/exo-jcr-config.xml</value>
       </value-param>
+      <properties-param>
+        <name>working-conf</name>
+        <description>working-conf</description>
+        <property name="persisterClassName" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
+        <property name="sourceName" value="jdbcjcr"/>
+        <property name="dialect" value="hsqldb"/>
+     </properties-param>
     </init-params>
-   </component>
+  </component>
 
   <component>
     <key>org.exoplatform.services.jcr.RepositoryService</key>
@@ -98,25 +105,5 @@
       </component-plugin>
     </external-component-plugins>
 
-<!--
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.database.jdbc.DBSchemaCreator</target-component>
-      <component-plugin>
-          <name>jcr.dbschema</name>
-          <set-method>addPlugin</set-method>
-          <type>org.exoplatform.services.database.jdbc.CreateDBSchemaPlugin</type>
-          <init-params>
-            <value-param>
-              <name>data-source</name>
-              <value>jdbcjcr</value>
-            </value-param>
-            <value-param>
-              <name>script-file</name>
-              <value>conf/storage/jcr-sjdbc.sql</value>
-            </value-param>
-          </init-params>
-      </component-plugin>
-  </external-component-plugins>
--->
 
 </configuration>
