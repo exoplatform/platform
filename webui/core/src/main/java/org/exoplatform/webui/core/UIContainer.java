@@ -17,7 +17,7 @@ import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
  *          tuan08@users.sourceforge.net
  * May 7, 2006
  */
-@ComponentConfig( lifecycle = UIContainerLifecycle.class )
+@ComponentConfig(lifecycle = UIContainerLifecycle.class )
 public class UIContainer extends UIComponent {
   
   private List<UIComponent> children ;
@@ -163,11 +163,11 @@ public class UIContainer extends UIComponent {
   	}
   }
   
-  public void setRenderedChildrenOfTypes(Class [] types) {
+  public void setRenderedChildrenOfTypes(Class<?> [] types) {
     List<UIComponent> list = getChildren() ;
     for(UIComponent child : list) {
       child.setRendered(false) ;     
-      for(Class type : types){
+      for(Class<?> type : types){
         if(type.isInstance(child)) {
           child.setRendered(true) ;
           break;

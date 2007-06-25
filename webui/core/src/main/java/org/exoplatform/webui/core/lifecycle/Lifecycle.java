@@ -80,13 +80,21 @@ public class Lifecycle {
     }    
     
     try {
-      Template groovyTemplate = service.getTemplate(template, resolver) ; 
-      service.merge(groovyTemplate, bcontext) ;
+      Template groovyTemplate = service.getTemplate(template, resolver) ;
+      if(bcontext.getWriter() instanceof HtmlValidator) {
+        HtmlValidator validator = (HtmlValidator) bcontext.getWriter();
+        validator.startComponent();
+      }
+      service.merge(groovyTemplate, bcontext) ;     
+      if(bcontext.getWriter() instanceof HtmlValidator) {
+        HtmlValidator validator = (HtmlValidator) bcontext.getWriter();
+        validator.endComponent();
+      }
     } catch (Exception e) {
       //for log file
       System.out.println("\n\n template : " + template);
       System.out.println(e.toString()+"\n\n");
-      e.printStackTrace();
+//      e.printStackTrace();
     }
   }
   

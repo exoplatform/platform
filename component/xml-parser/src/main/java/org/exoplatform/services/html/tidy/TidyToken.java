@@ -4,12 +4,14 @@
  * Created on January 24, 2006, 7:50 PM
  */
 
-package org.exoplatform.services.html.parser;
+package org.exoplatform.services.html.tidy;
 
 import org.exoplatform.services.chars.CharsUtil;
 import org.exoplatform.services.chars.SpecChar;
-import org.exoplatform.services.html.HTMLDocument;
 import org.exoplatform.services.html.Name;
+import org.exoplatform.services.html.parser.HTML;
+import org.exoplatform.services.html.parser.NodeImpl;
+import org.exoplatform.services.token.TokenParser;
 import org.exoplatform.services.token.TypeToken;
 import org.exoplatform.services.token.TokenParser.Factory;
 /**
@@ -18,15 +20,13 @@ import org.exoplatform.services.token.TokenParser.Factory;
  * Email: nhudinhthuan@yahoo.com
  */
 @SuppressWarnings("serial")
-public class CharsToken extends Factory<NodeImpl> { 
+public class TidyToken extends Factory<NodeImpl> { 
 
   private char [] script = {'s','c','r','i','p','t'};
   private char [] style = {'s','t','y','l','e'};
   
-  private HTMLDocument document;
+  private TokenParser parser ;
   
-  public void setDocument(HTMLDocument document) { this.document = document; }
-
   public int create(char [] data, int start, int end, int type){ 
     if(start >= end) return end;
     if(start > data.length) return data.length;   
@@ -62,10 +62,7 @@ public class CharsToken extends Factory<NodeImpl> {
     if(nameValue.charAt(nameValue.length()-1) == SpecChar.END_TAG){      
       nameValue = nameValue.substring(0, nameValue.length()-1).trim();      
     }   
-    if(nameValue.equals("!DOCTYPE")){
-      if(document != null) document.setDoctype(new NodeImpl(value, Name.DOCTYPE));
-      return end;
-    }
+    if(nameValue.equals("!DOCTYPE")) return end;
     name = HTML.getName(nameValue); 
     if(name != null){
       push(new NodeImpl(value, name, TypeToken.TAG));    
@@ -96,10 +93,9 @@ public class CharsToken extends Factory<NodeImpl> {
       is = true;
       idx[0] = i;
       int k = i+1;
-      if(value[k] == SpecChar.PUNCTUATION_MASK 
-          && ParserService.getTokenParser().isComment(value, k)){
+      if(value[k] == SpecChar.PUNCTUATION_MASK && parser.isComment(value, k)){
         int startComment = k;          
-        int endComment  = ParserService.getTokenParser().findEndComment(value, k); 
+        int endComment  = parser.findEndComment(value, k); 
         startComment = create(value, startComment-1, endComment, TypeToken.COMMENT); 
         if(startComment < value.length  && value[startComment] == SpecChar.OPEN_TAG) {
           i = startComment + 1;
@@ -133,5 +129,9 @@ public class CharsToken extends Factory<NodeImpl> {
     }
     return new int[0];
   }
+
+  public TokenParser getParser() { return parser; }
+
+  public void setParser(TokenParser parser) { this.parser = parser; }
 
 }

@@ -8,7 +8,6 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.portal.application.HtmlValidator;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.webui.application.UIPortlet;
@@ -194,11 +193,12 @@ public class UIPortalApplication extends UIApplication {
       w.  write("</div>") ;
       w.write("</div>") ;
     }
-    if(w instanceof HtmlValidator) {
-      HtmlValidator validator = (HtmlValidator) w ;
-      validator.finish() ;
-//      System.out.println("===> IN HtmlValidator") ;
-    }
+    
+//    if(w instanceof HtmlValidator) {
+//      HtmlValidator validator = (HtmlValidator) w ;
+//      validator.finish() ;
+//      validator.flush();
+//    }
   }
 
   private String getAddSkinScript(List<UIComponent> updateComponents) {

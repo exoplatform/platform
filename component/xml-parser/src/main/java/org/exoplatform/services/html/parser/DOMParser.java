@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2003-2006 by eXoPlatform - All rights reserved.  *
+ * Copyright 2003-2006 by VietSpider - All rights reserved.  *
  *    *
  **************************************************************************/
 package org.exoplatform.services.html.parser;
@@ -21,21 +21,27 @@ final class DOMParser {
   final void parse(CharsToken tokens) {    
     if(!tokens.hasNext()) return;
     NodeImpl temp = tokens.pop();    
+    
+    NodeCreator creator = ParserService.getNodeCreator();
+    NodeSetter setter = ParserService.getNodeSetter();
+    NodeCloser closer = ParserService.getNodeCloser();
+    
     while(tokens.hasNext()){    
       NodeConfig config = temp.getConfig();
-      if(config.hidden()){
-        Services.ADD_NODE.getRef().add(Services.OPEN_NODE.getRef().getLast(), temp);
-      }else if(temp.getType() == TypeToken.CLOSE){    
-        Services.CLOSE_NODE.getRef().close(config);
-      }else if(temp.getType() == TypeToken.TAG){
-        Services.ADD_NODE.getRef().add(temp);
-      }else{
-        Services.ADD_NODE.getRef().add(Services.OPEN_NODE.getRef().getLast(), temp);
-      }
+      
+      if(config.hidden()) setter.add(creator.getLast(), temp);
+        
+      else if(temp.getType() == TypeToken.CLOSE) closer.close(config);
+      
+      else if(temp.getType() == TypeToken.TAG) setter.add(temp);
+      
+      else setter.add(creator.getLast(), temp);
+      
       temp = tokens.pop(); 
     }   
-    move(Services.ROOT);
-    Services.CLOSE_NODE.getRef().close(Services.ROOT);   
+    
+    move(ParserService.getRootNode());
+    closer.close(ParserService.getRootNode());   
   } 
 
   private void move(HTMLNode root){
@@ -47,8 +53,8 @@ final class DOMParser {
       if(child.isNode(Name.HEAD)) head = child;
       if(child.isNode(Name.BODY)) body = child;
     }
-    if(head == null) head = Services.createHeader();      
-    if(body == null) body = Services.createBody();
+    if(head == null) head = ParserService.createHeader();      
+    if(body == null) body = ParserService.createBody();
     
     Iterator<HTMLNode> iter = children.iterator();
     while(iter.hasNext()){

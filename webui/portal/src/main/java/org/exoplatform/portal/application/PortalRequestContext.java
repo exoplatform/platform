@@ -10,6 +10,7 @@ import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.core.lifecycle.HtmlValidator;
 
 public class PortalRequestContext extends WebuiRequestContext {
    

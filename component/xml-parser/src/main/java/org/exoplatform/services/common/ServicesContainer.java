@@ -80,6 +80,7 @@ public class ServicesContainer {
     return null;*/
   }
 
+  @SuppressWarnings("unchecked")
   private static <T> T create(Class<T> clazz) throws Exception {
     Constructor<T> [] constructors = clazz.getDeclaredConstructors();
     Arrays.sort(constructors, new Comparator<Constructor<T>>() {

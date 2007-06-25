@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2003-2006 by eXoPlatform - All rights reserved.  *
+ * Copyright 2003-2006 by VietSpider - All rights reserved.  *
  *    *
  **************************************************************************/
 package org.exoplatform.services.html.parser;

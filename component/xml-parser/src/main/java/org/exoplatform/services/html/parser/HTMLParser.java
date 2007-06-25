@@ -1,5 +1,5 @@
 /*
- * Copyright 2004-2006 The eXoPlatform        All rights reserved.
+ * Copyright 2004-2006 The VietSpider        All rights reserved.
  *
  * Created on January 24, 2006, 7:48 PM
  */
@@ -44,8 +44,8 @@ public final class HTMLParser {
     HTMLDocument document = new HTMLDocument();
     CharsToken tokens = new CharsToken();
     tokens.setDocument(document);
-    Services.TOKEN_PARSER.getRef().createBeans(tokens, data);
-    Services.parse(tokens, document);
+    ParserService.getTokenParser().createBeans(tokens, data);
+    ParserService.parse(tokens, document);
     return document;
   }
 

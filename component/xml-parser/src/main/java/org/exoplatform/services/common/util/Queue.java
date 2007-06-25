@@ -9,6 +9,8 @@ public class Queue<T> {
   protected Node<T> current = null;
   
   protected Node<T> first = null;
+  
+  protected Node<T> last = null;
 
   public T pop() {
     T result = first.value;

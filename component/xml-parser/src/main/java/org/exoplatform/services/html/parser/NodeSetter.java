@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2003-2006 by eXoPlatform - All rights reserved.  *
+ * Copyright 2003-2006 by VietSpider - All rights reserved.  *
  *    *
  **************************************************************************/
 package org.exoplatform.services.html.parser;
@@ -23,22 +23,22 @@ final class NodeSetter {
       return;
     }
 
-    HTMLNode parent = Services.OPEN_NODE.getRef().getOpenParent(node.getConfig(), true);    
+    HTMLNode parent = ParserService.getNodeCreator().getOpenParent(node.getConfig(), true);    
     if(parent  != null && 
         parent.getConfig().end() == Tag.OPTIONAL  && HTML.isEndType(node, parent.getConfig()) ){
-      Services.CLOSE_NODE.getRef().close((NodeImpl)parent);     
-      parent = Services.OPEN_NODE.getRef().getOpenParent(node.getConfig(), true);   
+      ParserService.getNodeCloser().close((NodeImpl)parent);     
+      parent = ParserService.getNodeCreator().getOpenParent(node.getConfig(), true);   
     }  
     
     //close all older children in parent #Bug 28/11 
     List<HTMLNode> children = parent.getChildren();
     if(children.size() > 0) {
-      Services.CLOSE_NODE.getRef().close((NodeImpl)children.get(children.size() - 1));
+      ParserService.getNodeCloser().close((NodeImpl)children.get(children.size() - 1));
     }
 
     add(parent, node);    
     if(node.getConfig().end() != Tag.FORBIDDEN){    
-      if(node.isOpen()) Services.OPEN_NODE.getRef().getOpens().add(node);      
+      if(node.isOpen()) ParserService.getNodeCreator().getOpens().add(node);      
     }    
 
   }
@@ -51,8 +51,8 @@ final class NodeSetter {
   }
 
   NodeImpl set(NodeImpl node){ 
-    if(node.getName() == Name.HTML) return Services.ROOT;
-    List<HTMLNode> children = Services.ROOT.getChildren(); 
+    if(node.getName() == Name.HTML) return ParserService.getRootNode();
+    List<HTMLNode> children = ParserService.getRootNode().getChildren(); 
 
     for(HTMLNode ele : children){
       if(ele.getConfig().name() != node.getConfig().name()) continue;
@@ -61,13 +61,13 @@ final class NodeSetter {
     }
 
     if(node.getName() == Name.BODY){
-      add(Services.ROOT, node);
-      Services.OPEN_NODE.getRef().getOpens().add(1, node);  
+      add(ParserService.getRootNode(), node);
+      ParserService.getNodeCreator().getOpens().add(1, node);  
       return node;
     }
 
     children.add(0, node);    
-    node.setParent(Services.ROOT);
+    node.setParent(ParserService.getRootNode());
     node.setIsOpen(false);
     return node;
   } 

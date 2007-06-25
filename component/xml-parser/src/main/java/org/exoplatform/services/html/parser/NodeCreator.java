@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2003-2006 by eXoPlatform - All rights reserved.  *
+ * Copyright 2003-2006 by VietSpider - All rights reserved.  *
  *    *
  **************************************************************************/
 package org.exoplatform.services.html.parser;
@@ -12,7 +12,6 @@ import org.exoplatform.services.html.HTMLNode;
 import org.exoplatform.services.html.Name;
 import org.exoplatform.services.html.NodeConfig;
 import org.exoplatform.services.token.TypeToken;
-
 /**
  *  Author : Nhu Dinh Thuan
  *          Email:nhudinhthuan@yahoo.com
@@ -72,7 +71,7 @@ final class NodeCreator {
       Name name = names[0];
       child = new NodeImpl(name.toString().toCharArray(), name, TypeToken.TAG);      
       if(child.getConfig().only()){
-        parent = Services.ADD_NODE.getRef().set(child);
+        parent = ParserService.getNodeSetter().set(child);
       }else{
         parent.addChild(child);
         child.setParent(parent);

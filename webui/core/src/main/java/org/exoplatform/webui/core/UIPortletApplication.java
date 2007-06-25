@@ -42,5 +42,6 @@ abstract public class UIPortletApplication extends  UIApplication {
     }  else {
       super.processRender(context) ;
     }
+    
   }
 }

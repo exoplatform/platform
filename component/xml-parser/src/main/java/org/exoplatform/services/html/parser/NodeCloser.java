@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2003-2006 by eXoPlatform - All rights reserved.  *
+ * Copyright 2003-2006 by VietSpider - All rights reserved.  *
  *    *
  **************************************************************************/
 package org.exoplatform.services.html.parser;
@@ -22,7 +22,7 @@ final class NodeCloser {
     if(config.only()) return;
 
     if(config.parent().length > 0){
-      NodeImpl parent = Services.OPEN_NODE.getRef().getOpenParent(config, false); 
+      NodeImpl parent = ParserService.getNodeCreator().getOpenParent(config, false); 
       if(parent == null) return; 
       List<HTMLNode> children = parent.getChildrenNode();
       for(int j = children.size()-1; j > -1; j--){        
@@ -34,7 +34,7 @@ final class NodeCloser {
       return;
     }
 
-    List<NodeImpl> opens = Services.OPEN_NODE.getRef().getOpens();
+    List<NodeImpl> opens = ParserService.getNodeCreator().getOpens();
     for(int i = opens.size() - 1; i > -1; i--){
       if(opens.get(i).getConfig().name() != config.name()){
         if(opens.get(i).getConfig().block()) break;
@@ -48,7 +48,7 @@ final class NodeCloser {
   void close(NodeImpl node){
     if(!node.isOpen()) return;
     node.setIsOpen(false);
-    Services.OPEN_NODE.getRef().getOpens().remove(node);
+    ParserService.getNodeCreator().getOpens().remove(node);
 
     List<HTMLNode> children = node.getChildrenNode();    
     for(HTMLNode ele : children) close((NodeImpl)ele);
@@ -68,11 +68,11 @@ final class NodeCloser {
     if(config.move() != MoveType.HEADER) return; 
     
     HTMLNode header = null;
-    if(Services.ROOT.getChildren().size() > 0){
-      header = Services.ROOT.getChildren().get(0);
+    if(ParserService.getRootNode().getChildren().size() > 0){
+      header = ParserService.getRootNode().getChildren().get(0);
     }
     if(header  == null || !header.isNode(Name.HEAD)){
-      header = Services.createHeader();
+      header = ParserService.createHeader();
     }
     node.getParent().getChildren().remove(node);
     header.addChild(node);

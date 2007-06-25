@@ -11,6 +11,7 @@ import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.lifecycle.HtmlValidator;
 
 public class PortletRequestContext extends WebuiRequestContext {
   
@@ -42,7 +43,8 @@ public class PortletRequestContext extends WebuiRequestContext {
   public void init(Writer writer,  PortletRequest req, PortletResponse res) {
     request_ = req ;
     response_ =  res ;
-    writer_ =  writer ;
+    writer_ = new HtmlValidator(writer) ;
+//    writer_ =  writer ;
   }
 
   public void  setUIApplication(UIApplication uiApplication) throws Exception { 

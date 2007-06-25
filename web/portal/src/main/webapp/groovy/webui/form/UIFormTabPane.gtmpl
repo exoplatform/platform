@@ -80,8 +80,8 @@
 	            <%}%>
 	          </div>
  	        </div>
-          <%uiform.end()%>
 		    </div>
+        <%uiform.end()%>
 		  </div>
 		</div>  
   </div>  
