@@ -132,7 +132,7 @@ public class UIPageNodeSelector extends UIContainer {
   
   //TODO: Tung.Pham added
   private void setDropdownItemSelector() {
-    if(navigations_ == null && navigations_.size() < 1) {
+    if(navigations_ == null || navigations_.size() < 1) {
       getChild(UIDropDownItemSelector.class).setOptions(null) ;
       getChild(UIDropDownItemSelector.class).setSelectedItem(null) ;
       getChild(UITree.class).setSibbling(null) ;
@@ -154,7 +154,7 @@ public class UIPageNodeSelector extends UIContainer {
       if(navigations_ != null && navigations_.size() > 0) {
         selectNavigation(navigations_.get(0).getId()) ;
       }
-    }
+    }else selectNavigation(selectedNavigation.getId()) ;
   }
   
 //  private boolean findSelectedNode(PageNavigation nav, List<PageNode> nodes, PageNode node) {
@@ -175,7 +175,7 @@ public class UIPageNodeSelector extends UIContainer {
   
   public void selectNavigation(String id){    
     for(int i = 0; i < navigations_.size(); i++){
-      if(!navigations_.get(i).getId().equals(id)) continue; 
+      if(!navigations_.get(i).getId().equals(id)) continue ;
       selectedNavigation = navigations_.get(i);
       UITree tree = getChild(UITree.class);
       tree.setSibbling(selectedNavigation.getNodes());      

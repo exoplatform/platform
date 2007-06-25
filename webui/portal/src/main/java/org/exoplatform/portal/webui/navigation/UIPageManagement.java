@@ -48,11 +48,15 @@ public class UIPageManagement extends UIManagement {
   private void update() throws Exception {
     UIPageNodeSelector uiPageNodeSelector = getChild(UIPageNodeSelector.class);
     uiPageNodeSelector.loadNavigations();
-    PageNode selectedNode = Util.getUIPortal().getSelectedNode();
-    if(selectedNode != null) uiPageNodeSelector.selectPageNodeByUri(selectedNode.getUri());
-    UIPageNodeSelector uiNodeSelector = findFirstComponentOfType(UIPageNodeSelector.class);
-
-    PageNode node = uiNodeSelector.getSelectedPageNode();
+    //TODO: Tung.Pham
+    //-----------------------------------
+//    PageNode selectedNode = Util.getUIPortal().getSelectedNode();
+//    if(selectedNode != null) uiPageNodeSelector.selectPageNodeByUri(selectedNode.getUri());
+//    UIPageNodeSelector uiNodeSelector = findFirstComponentOfType(UIPageNodeSelector.class);
+//
+//    PageNode node = uiNodeSelector.getSelectedPageNode();
+    //-----------------------------------
+    PageNode node = uiPageNodeSelector.getSelectedPageNode();
     if (node == null) return;
 
     Class<?>[] childrenToRender = { UIPageNodeSelector.class, UIPageNavigationControlBar.class};
@@ -84,18 +88,14 @@ public class UIPageManagement extends UIManagement {
       //UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);
       //uiPopupMenu.createEvent("EditPageNode", event.getExecutionPhase(), event.getRequestContext()).broadcast();
       PageNode selectedNode = uiNodeSelector.getSelectedPageNode() ;
-      if(selectedNode == null) return ;
+      if(selectedNode == null) {
+        setPage(null) ;
+        return ;
+      }
       UserPortalConfigService portalConfigService = getApplicationComponent(UserPortalConfigService.class);
       Page page  = portalConfigService.getPage(selectedNode.getPageReference(), pcontext.getRemoteUser());
-      if(page == null){
-        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
-        setRenderedChildrenOfTypes(childrenToRender);
-        return;
-      }
-      
+
       if(!page.isModifiable()){
-        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
-        setRenderedChildrenOfTypes(childrenToRender);
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
         pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
         return;
@@ -126,9 +126,18 @@ public class UIPageManagement extends UIManagement {
     
     UIControlWorkspace uiControl = uiApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
     pcontext.addUIComponentToUpdateByAjax(uiControl);
-
-    UIPage uiPage  = Util.toUIPage(page, uiToolPanel);
-    uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;  
+    uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
+    
+    if(page == null){
+      Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+      setRenderedChildrenOfTypes(childrenToRender);
+      uiToolPanel.setUIComponent(null);
+      UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      return;
+    }
+    
+    UIPage uiPage  = Util.toUIPage(page, uiToolPanel);  
     uiToolPanel.setUIComponent(uiPage);
 
     if (Page.DESKTOP_PAGE.equals(page.getFactoryId())) {

@@ -182,7 +182,6 @@ public class UIPageNavigationForm extends UIFormTabPane {
           //uiPageNodeSelector.loadNavigations();
           uiPageNodeSelector.addNavigation(pageNav) ;  
           uiPageNodeSelector.selectNavigation(pageNav.getId()) ;
-          uiPageNodeSelector.setSelectedPageNode(null) ;
           pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
         }
       } 

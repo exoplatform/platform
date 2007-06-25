@@ -99,6 +99,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
       
       UIPageNodeSelector nodeSelector =uiManagement.getChild(UIPageNodeSelector.class);
       PageNode node  = nodeSelector.getSelectedPageNode();
+      if(node == null) return ;
       UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
       UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
       toolPanel.setUIComponent(uiPage);
@@ -160,25 +161,8 @@ public class UIPageNavigationControlBar extends UIToolbar {
 
   static public class AbortActionListener  extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-//      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-//      PortalRequestContext prContext = Util.getPortalRequestContext();  
-      //-----------------------------
       UIPageNavigationControlBar uiControlBar = event.getSource(); 
       uiControlBar.abort(event);
-//      //TODO: Tung.Pham added
-//      //--------------------------------------------------------------
-//      UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class) ;
-//      UIPortal oldPortal = Util.getUIPortal() ;
-//      PageNode selectedNode = oldPortal.getSelectedNode() ;
-//      String portalName = oldPortal.getName() ;
-//      String accessUser = prContext.getRemoteUser() ;
-//      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, accessUser) ;
-//      oldPortal.setNavigation(userPortalConfig.getNavigations()) ;
-//      String uri = selectedNode.getUri() ;
-//      PageNodeEvent<UIPortal> pnevent ;
-//      pnevent = new PageNodeEvent<UIPortal>(oldPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
-//      oldPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
-//      //--------------------------------------------------------------
     }
   }
 
@@ -203,8 +187,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
     //}
     List<PageNavigation> portalNavigations = Util.getUIPortal().getNavigations() ;
     for(int i = 0; i < navs.size(); i++) {
-      if(i < portalNavigations.size()) setNavigation(portalNavigations, navs.get(i)) ;
-      else portalNavigations.add(navs.get(i)) ;
+      if(!setNavigation(portalNavigations, navs.get(i))) portalNavigations.add(navs.get(i)) ;        
     }
     //------------------------------------------------
   }
@@ -252,13 +235,24 @@ public class UIPageNavigationControlBar extends UIToolbar {
     return false ;
   }
 
-  private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
+//  private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
+//    for(int i = 0; i < navs.size(); i++) {
+//      if(navs.get(i).getId().equals(nav.getId())) {
+//        navs.set(i, nav);
+//        return;
+//      }
+//    }
+//  }
+
+  //TODO: Tung.Pham added
+  private boolean setNavigation(List<PageNavigation> navs, PageNavigation nav) {
     for(int i = 0; i < navs.size(); i++) {
       if(navs.get(i).getId().equals(nav.getId())) {
         navs.set(i, nav);
-        return;
+        return true ;
       }
     }
+    return false ;
   }
 
   public void abort(Event<UIPageNavigationControlBar> event) throws Exception {
