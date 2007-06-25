@@ -85,13 +85,32 @@ public class UIPortal extends UIContainer {
     uiPageBody.setPageBody(selectedNode_, this);
   }
 
-  public void setSelectedNode(PageNode node) {  selectedNode_ = node; }
-  public PageNode getSelectedNode(){ return selectedNode_; }
+  public void setSelectedNode(PageNode node) { selectedNode_ = node; }
+  
+  public PageNode getSelectedNode(){ 
+    if(selectedNode_ != null)return selectedNode_;
+    if(getSelectedNavigation() == null || selectedNavigation_.getNodes() == null ||
+       selectedNavigation_.getNodes().size()< 1) return null;
+    selectedNode_ = selectedNavigation_.getNodes().get(0);
+    return selectedNode_;
+  }
 
   public List<PageNode> getSelectedPaths() { return selectedPaths_ ; }
   public void setSelectedPaths(List<PageNode> nodes){  selectedPaths_ = nodes; }
   
-  public PageNavigation getSelectedNavigation() { return selectedNavigation_; }
+  public PageNavigation getSelectedNavigation() {
+    if(selectedNavigation_ != null) return selectedNavigation_;
+    if(getNavigations().size() < 1) return null;
+    setSelectedNavigation(getNavigations().get(0));
+    return getNavigations().get(0);
+  }
+  
+  public PageNavigation getPageNavigation(String id){
+    for(PageNavigation nav: navigations){
+      if(nav.getId().equals(id)) return nav;
+    }
+    return null;
+  }
   public void setSelectedNavigation(PageNavigation selectedNavigation) { 
     selectedNavigation_ = selectedNavigation;
   }
