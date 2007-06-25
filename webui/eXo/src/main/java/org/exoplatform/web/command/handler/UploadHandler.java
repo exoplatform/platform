@@ -40,13 +40,13 @@ public class UploadHandler extends Command {
     ExoContainer container =  PortalContainer.getInstance();
     UploadService service = (UploadService)container.getComponentInstanceOfType(UploadService.class) ;
     if(action == null ||  action.length() < 1) return;
-   
+    
     UploadServiceAction  uploadActionService = UploadServiceAction.valueOf(action.toUpperCase());
     if(uploadActionService == UploadServiceAction.PROGRESS){
       Writer  writer = res.getWriter();
       if(uploadId == null) return;        
       StringBuilder value = new StringBuilder();
-      value.append("{percent : {");
+      value.append("{\n  upload : {");
       for(int i=0; i<uploadId.length; i++){
         UploadResource upResource = service.getUploadResource(uploadId[i]);
         if(upResource == null) continue;
@@ -54,11 +54,13 @@ public class UploadHandler extends Command {
         if(upResource.getStatus() == UploadResource.UPLOADING_STATUS){
           percent = (upResource.getUploadedSize()*100)/upResource.getEstimatedSize();
         }
-        value.append("\"").append(uploadId[i]).append("\":");
-        value.append("\"").append((int)percent).append("\"");
+        value.append("\n    \"").append(uploadId[i]).append("\": {");
+        value.append("\n      \"percent\":").append('\"').append((int)percent).append("\",");
+        value.append("\n      \"fileName\":").append('\"').append(upResource.getFileName()).append("\"");
+        value.append("\n    }");
         if(i < uploadId.length - 1) value.append(',');
       }       
-      value.append("}}");
+      value.append("\n  }\n}");
       writer.append(value);        
     }else if(uploadActionService == UploadServiceAction.UPLOAD){
       service.createUploadResource(req) ;       

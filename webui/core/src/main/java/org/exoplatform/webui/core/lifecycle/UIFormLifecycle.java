@@ -41,7 +41,7 @@ public class UIFormLifecycle  extends Lifecycle {
     }
     String action =  uiForm.getSubmitAction();
     String subComponentId = context.getRequestParameter(UIForm.SUBCOMPONENT_ID);
-    
+    System.out.println("\n\n action la === > "+subComponentId +"\n\n\n");
     if(subComponentId == null || subComponentId.trim().length() < 1) {
       Event<UIComponent> event = uiForm.createEvent(action, Event.Phase.DECODE, context) ;
       if(event != null) event.broadcast() ;

@@ -2,6 +2,24 @@ function UIUpload() {
   this.listUpload = new Array();
 };
 
+UIUpload.prototype.initUploadEntry = function(uploadId) {
+	var url = eXo.env.server.context + "/command?" ;
+	url += "type=org.exoplatform.web.command.handler.UploadHandler&action=progress&uploadId="+uploadId ;
+	var responseText = ajaxAsyncGetRequest(url, false);
+	
+	var response;
+   try{
+    eval("response = "+responseText);
+  }catch(err){
+    return;  
+  }
+	if(response.upload[uploadId] == undefined || response.upload[uploadId].percent == undefined) {
+		this.createUploadEntry(uploadId);
+	} else if(response.upload[uploadId].percent == 100)  {
+		this.showUploaded(uploadId, response.upload[uploadId].fileName);
+	} 
+} 
+
 //TODO: Try to use the javascript template here
 UIUpload.prototype.createUploadEntry = function(uploadId) {
   var iframe = document.getElementById(uploadId+'uploadFrame');
@@ -51,38 +69,49 @@ UIUpload.prototype.refeshProgress = function(elementId) {
     return;  
   }
   
-  for(id in response.percent) {
+  for(id in response.upload) {
     var element = document.getElementById(id+"ProgressIframe");
-    var value  =   response.percent[id];
+    var percent  =   response.upload[id].percent;
     var container = parent.document.getElementById(elementId);
     var progressBarMiddle = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarMiddle") ;
     var blueProgressBar = eXo.core.DOMUtil.findFirstChildByClass(progressBarMiddle, "div", "BlueProgressBar") ;
     var progressBarLabel = eXo.core.DOMUtil.findFirstChildByClass(blueProgressBar, "div", "ProgressBarLabel") ;
-    blueProgressBar.style.width = value + "%" ;
-    progressBarLabel.innerHTML = value + "%" ;
-  }
-
-  if(value == 100){
-    eXo.webui.UIUpload.listUpload.remove(id);
-    element.innerHTML =  "<span></span>";
-      
-    var selectFileFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "SelectFileFrame") ;
-    selectFileFrame.style.display = "block" ;
-    var progressBarFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
-    progressBarFrame.style.display = "none" ;
-    var fileNameLabel = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "FileNameLabel") ;
+    blueProgressBar.style.width = percent + "%" ;
+    progressBarLabel.innerHTML = percent + "%" ;
     
-    var tmp = element.parentNode;
-    var temp = tmp.parentNode;
-//    var child = eXo.core.DOMUtil.getChildrenByTagName(temp,"label");
-//    child[0].style.visibility =  "hidden" ;
-    return;
+    if(percent == 100) this.showUploaded(id, "");
   }
+  
+  if(eXo.webui.UIUpload.listUpload.length < 1) return;
+
   if (element){
-    element.innerHTML = "Uploaded "+ value + "% " +
+    element.innerHTML = "Uploaded "+ percent + "% " +
                         "<span onclick='parent.eXo.webui.UIUpload.abortUpload("+id+")'>Abort</span>";
   }
 };
+
+UIUpload.prototype.showUploaded = function(id, fileName) {
+	eXo.webui.UIUpload.listUpload.remove(id);
+	var container = parent.document.getElementById(id);
+  var element = document.getElementById(id+"ProgressIframe");
+  element.innerHTML =  "<span></span>";
+  
+  var uploadIframe = eXo.core.DOMUtil.findDescendantById(container, id+"UploadIframe");
+  uploadIframe.style.display = "none";
+  var progressIframe = eXo.core.DOMUtil.findDescendantById(container, id+"ProgressIframe");
+  progressIframe.style.display = "none";
+    
+  var selectFileFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "SelectFileFrame") ;
+  selectFileFrame.style.display = "block" ;
+  var fileNameLabel = eXo.core.DOMUtil.findFirstDescendantByClass(selectFileFrame, "div", "FileNameLabel") ;
+  if(fileName != null) fileNameLabel.innerHTML += " "+fileName;
+  var progressBarFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
+  progressBarFrame.style.display = "none" ;
+  var fileNameLabel = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "FileNameLabel") ;
+  
+  var tmp = element.parentNode;
+  var temp = tmp.parentNode;
+}
 
 UIUpload.prototype.abortUpload = function(id) {
   eXo.webui.UIUpload.listUpload.remove(id);
