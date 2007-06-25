@@ -48,3 +48,32 @@
 	margin: auto;
 	overflow: auto;
 }
+
+.UIConsoleApplication .Filter {
+	margin: auto;
+	width: 202px;
+	height: 200px;
+	background: url("DefaultSkin/background/Sticker.png") no-repeat center;
+	margin-bottom: 30px;
+}
+
+*html .UIConsoleApplication .Filter {
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://localhost:8080/eXoAppWeb/skin/console/DefaultSkin/background/Sticker.png",  sizingMethod='scale');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

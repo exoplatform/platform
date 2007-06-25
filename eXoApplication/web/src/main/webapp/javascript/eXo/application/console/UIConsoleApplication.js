@@ -79,7 +79,6 @@ eXo.application.console  = {
 /*******************************/
 UIConsoleApplication.prototype.showMaskWorkspace = function() {
 	if ( !document.getElementById("UIMaskWindowConsole") ) {
-	document.body.scroll = "no";
 	var wsContent = eXo.core.TemplateEngine.merge("eXo/application/console/UIMaskConsoleSpace.jstmpl", null, "/eXoAppWeb/javascript/") ;
 	var context = {
 			uiMaskWorkspace : {
@@ -109,7 +108,7 @@ UIConsoleApplication.prototype.showMaskWorkspace = function() {
 	fixObj.style.left =  "25%";	
 	fixObj.style.overflow =  "hidden";
 	//disable scroll for eXoConsoleResult
-	if (document.getElementById("eXoConsoleResult").scroll) {alert("ol")};
+
 	}
 };
 
