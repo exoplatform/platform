@@ -30,6 +30,7 @@ public class PageNavigation {
   private ArrayList<PageNode>	pageNodes = new ArrayList<PageNode>();
   private int         priority = 0 ;
   
+  
   public String getOwnerId() { return ownerId; }
   public void setOwnerId(String ownerId) { this.ownerId = ownerId; }
 
@@ -105,5 +106,23 @@ public class PageNavigation {
     return newNav;
   }
   
+  public PageNode findPageNodeByUri(String uri){
+    if(uri  == null ) return null;
+    if( pageNodes == null ) return null;
+    for(PageNode page: pageNodes) {
+      PageNode resuilt = page.findPageNodeByUri( uri);
+      if(resuilt!= null) return resuilt;
+    }
+    return null;
+  }
+  
 
+  public boolean hasNode(PageNode p){
+    if(p == null) return false;
+    return (findPageNodeByUri(p.getUri()) != null);
+  }
+  
+  public boolean hasNode(String uri){
+    return (findPageNodeByUri(uri) != null);
+  }
 }

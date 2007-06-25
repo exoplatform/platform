@@ -20,6 +20,10 @@ public class PageNode  {
   protected String icon ;
   protected String name;
   
+  //TODO Le Bien Thuy add
+//  protected PageNavigation navigation;
+//  protected PageNode parent;
+  //---------------------------------------
   private String pageReference ;
   
   private transient boolean modifiable ;
@@ -43,9 +47,12 @@ public class PageNode  {
   
   public List<PageNode> getChildren() { return children ;  }
   public void setChildren(ArrayList<PageNode> list) { children = list ; }
+  
   public void addChild(PageNode node){
     if(children == null) children = new ArrayList<PageNode>();
     children.add(node);
+//    node.setParent(this);
+//    node.setNavigation(navigation);
   }
   
   public boolean isModifiable() { return modifiable ; }
@@ -66,4 +73,63 @@ public class PageNode  {
     return newNode;
   }
 
+  public void removeNode(String str) {
+    for(PageNode pageNode: children){
+      if(pageNode.getUri().equalsIgnoreCase(str)) {
+        children.remove(pageNode);
+        return;
+      }
+    }
+  }
+  
+  public PageNode findPageNodeByUri(String childUri){
+    if(uri.equalsIgnoreCase(childUri) ) return this;
+    if(childUri  == null ) return null;
+    if( children == null ) return null;
+    for(PageNode page: children) {
+      PageNode resuilt = findPageNodeByUri(page, childUri);
+      if(resuilt!= null) return resuilt;
+    }
+    return null;
+  }
+  
+  private PageNode findPageNodeByUri(PageNode page, String childUri) {
+    if(page.getUri().equals(childUri)) return page;
+    List<PageNode> list = page.getChildren();
+    if(list == null || list.size() < 1 ) return null;
+    for(PageNode child: list) {
+      PageNode resuilt = findPageNodeByUri(child, childUri);
+      if(resuilt!= null) return resuilt;
+    }
+    return null;
+  }
+
+  public boolean hasNode(PageNode p){
+    if(p == null) return false;
+    return (findPageNodeByUri(p.getUri()) != null);
+  }
+  
+  public boolean hasNode(String str){
+    return (findPageNodeByUri(str) != null);
+  }
+
+  public void removeNode(PageNode page) { children.remove(page); }
+
+//  public PageNavigation getNavigation() {
+//    return navigation;
+//  }
+//
+//  public void setNavigation(PageNavigation navigation) {
+//    this.navigation = navigation;
+//  }
+
+//  public PageNode getParent() {
+//    return parent;
+//  }
+//
+//  public void setParent(PageNode parent) {
+//    this.parent = parent;
+//  }
+
+  
 }
