@@ -4,7 +4,8 @@
 	def prContext = _ctx.getRequestContext().getParentAppRequestContext();
 	String signInAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;" ;
 %>
-<div class="UIBannerPortlet">
+<div class="UIBannerPortlet UIApplication">
+	<div class="ApplicationMinWidth">
   <div class="InlineContainer">
     <div class="LeftBanner">
       <div class="RightBanner">
@@ -40,5 +41,6 @@
         </div>
       </div>   
     </div>
+  </div>
   </div>
 </div>

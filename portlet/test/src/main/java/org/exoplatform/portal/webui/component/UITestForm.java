@@ -12,7 +12,10 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormDateTimeInput;
 import org.exoplatform.webui.form.UIFormMultiValueInputSet;
+import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormUploadInput;
+import org.exoplatform.webui.form.validator.NumberFormatValidator;
+import org.exoplatform.webui.form.validator.PositiveNumberFormatValidator;
 /**
  * Created by The eXo Platform SARL
  * Author : lxchiati  
@@ -39,15 +42,25 @@ public class UITestForm extends UIForm {
   public static final String FIELD_STRING_INPUT = "stringInput" ;
   public static final String FIELD_DATE_TIME = "dateTime" ;
   public static final String FIELD_MULTI_VALUE = "multiValue" ;
+  
+  public static final String INTER_NUMBER_VALUE = "IntegerNumber" ;
+  public static final String  POSIT_NUMBER_VALUE = "PositiveNumber" ;
 
 
   public UITestForm() throws Exception {  
-    
     UIFormUploadInput upload = new UIFormUploadInput("TestUpload", null); 
     UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
     test.setType(UIFormDateTimeInput.class);
     addChild(upload);
     addChild(test);
+    
+    UIFormStringInput newtest = new UIFormStringInput(INTER_NUMBER_VALUE, INTER_NUMBER_VALUE, null);
+    newtest.addValidator(NumberFormatValidator.class);
+    addChild(newtest);
+
+    UIFormStringInput posittest = new UIFormStringInput(POSIT_NUMBER_VALUE, POSIT_NUMBER_VALUE, null);
+    posittest.addValidator(PositiveNumberFormatValidator.class);
+    addChild(posittest);
     
 //    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
 //    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
@@ -125,7 +138,7 @@ public class UITestForm extends UIForm {
 
   static  public class SaveActionListener extends EventListener<UITestForm> {
     public void execute(Event<UITestForm> event) throws Exception {
-      System.out.println("\n\n\n\nHello the world\n\n\n\n");
+//     System.out.println("\n\n\n\nHello the world\n\n\n\n");
 //      UITestForm uiForm = event.getSource();
 //      String selectChoise = uiForm.getUIFormSelectBox(FIELD_SELECT_BOX).getValue() ;
 //      System.out.println("Select box: " + selectChoise);     
