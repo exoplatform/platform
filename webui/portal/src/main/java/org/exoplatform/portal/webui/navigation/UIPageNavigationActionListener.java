@@ -68,6 +68,8 @@ public class UIPageNavigationActionListener {
   static public class DeleteNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception { 
       UIRightClickPopupMenu uiPopup = event.getSource();
+      UIPortalApplication uiPortalApp = uiPopup.getAncestorOfType(UIPortalApplication.class) ;
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       UIPageNodeSelector uiPageNodeSelector = uiPopup.getAncestorOfType(UIPageNodeSelector.class);
       PageNavigation selectedNavigation = uiPageNodeSelector.getSelectedNavigation();
       
@@ -83,18 +85,15 @@ public class UIPageNavigationActionListener {
 //      }
 //      if( i< oldList.size()) oldList.remove(i);
 //      pageNodeSelector.loadNavigations();
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getAncestorOfType(UIPageManagement.class));
       uiPageNodeSelector.removeNavigation(selectedNavigation) ;
-      
-      UIPortalApplication uiPortalApp = uiPopup.getAncestorOfType(UIPortalApplication.class) ;
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      uiPageNodeSelector.loadSelectedNavigation() ;
       UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
       toolPanel.setUIComponent(null);
-      toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      pcontext.setFullRender(true);
-      //----------------------------------------------------
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getAncestorOfType(UIPageManagement.class));      
+      pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getAncestorOfType(UIPageManagement.class));
+      //----------------------------------------------------      
     }
   }
   

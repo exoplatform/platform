@@ -121,45 +121,24 @@ public class UIPageNodeSelector extends UIContainer {
     for(PageNavigation nav  : pnavigations){
       if(nav.isModifiable()) navigations_.add(nav.clone()) ;
     }
-
-    //TODO: Tung.Pham modified
-//-----------------------------------------------------------------------------------------------
-    configure() ;
-//    if(navigations_.size() < 1) return;
-//    loadSelectedNavigation();
-//    if (selectedNavigation == null) {
-//      selectedNavigation = navigations_.get(0) ;
-//      UITree tree = getChild(UITree.class) ;
-//      tree.setSibbling(selectedNavigation.getNodes()) ;
-//    }
-//    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
-//    for(PageNavigation navigation: navigations_) {
-//      String label = navigation.getOwnerId() + "'s Nav";
-//      options.add(new SelectItemOption<String>(label, navigation.getId()));
-//    }
-//    UIDropDownItemSelector uiDopDownSelector = getChild(UIDropDownItemSelector.class);
-//    uiDopDownSelector.setOptions(options);
-//    if(options.size() > 0) uiDopDownSelector.setSelected(0);
-//-----------------------------------------------------------------------------------------------
+    setDropdownItemSelector() ;
+    PageNavigation portalSelectedNavi = Util.getUIPortal().getSelectedNavigation() ;
+    if(getNavigation(portalSelectedNavi.getId()) != null) {
+      selectNavigation(portalSelectedNavi.getId()) ;
+      PageNode portalSelectedNode = Util.getUIPortal().getSelectedNode() ;
+      selectPageNodeByUri(portalSelectedNode.getUri()) ;  
+    } else loadSelectedNavigation();
   }
   
   //TODO: Tung.Pham added
-  private void configure() {
-    loadSelectedNavigation();
-    if (selectedNavigation == null) {
-      UITree tree = getChild(UITree.class) ;
-      if(navigations_ != null && navigations_.size() > 0) {
-        selectedNavigation = navigations_.get(0) ;
-        tree.setSibbling(selectedNavigation.getNodes()) ;
-      }
-      else {
-        getChild(UIDropDownItemSelector.class).setOptions(null) ;
-        getChild(UIDropDownItemSelector.class).setSelectedItem(null) ;
-        tree.setSibbling(null) ;
-        return ;
-      }
+  private void setDropdownItemSelector() {
+    if(navigations_ == null && navigations_.size() < 1) {
+      getChild(UIDropDownItemSelector.class).setOptions(null) ;
+      getChild(UIDropDownItemSelector.class).setSelectedItem(null) ;
+      getChild(UITree.class).setSibbling(null) ;
+      return ;
     }
-
+    
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     for(PageNavigation navigation: navigations_) {
       String label = navigation.getOwnerId() + "'s Nav";
@@ -171,34 +150,28 @@ public class UIPageNodeSelector extends UIContainer {
   }
   
   public void loadSelectedNavigation() {
-    selectedNavigation = null ;
-    PageNode node = Util.getUIPortal().getSelectedNode();
-    if(node == null || navigations_.size() < 1)  return;
-    //TODO: Tung.Pham modified
-    //----------------------------------------------
-    //List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();  
-    //for(PageNavigation nav  : pnavigations){
-    //----------------------------------------------
-    for(PageNavigation nav  : navigations_){
-      if(findSelectedNode(nav, nav.getNodes(), node)) return;
-    }    
+    if (selectedNavigation == null || getNavigation(selectedNavigation.getId()) == null) {
+      if(navigations_ != null && navigations_.size() > 0) {
+        selectNavigation(navigations_.get(0).getId()) ;
+      }
+    }
   }
   
-  private boolean findSelectedNode(PageNavigation nav, List<PageNode> nodes, PageNode node) {
-    if(nodes == null) return false;
-    for(PageNode ele : nodes) {
-      if(ele != node)  continue;        
-      if(nav.isModifiable()) {
-        selectNavigation(nav.getId());
-        selectPageNodeByUri(node.getUri());
-      }  
-      return true;
-    }
-    for(PageNode ele : nodes) {
-      if(findSelectedNode(nav, ele.getChildren(), node)) return true;
-    }
-    return false;
-  }
+//  private boolean findSelectedNode(PageNavigation nav, List<PageNode> nodes, PageNode node) {
+//    if(nodes == null) return false;
+//    for(PageNode ele : nodes) {
+//      if(ele != node)  continue;        
+//      if(nav.isModifiable()) {
+//        selectNavigation(nav.getId());
+//        selectPageNodeByUri(node.getUri());
+//      }  
+//      return true;
+//    }
+//    for(PageNode ele : nodes) {
+//      if(findSelectedNode(nav, ele.getChildren(), node)) return true;
+//    }
+//    return false;
+//  }
   
   public void selectNavigation(String id){    
     for(int i = 0; i < navigations_.size(); i++){
@@ -213,7 +186,6 @@ public class UIPageNodeSelector extends UIContainer {
   
   public void selectPageNodeByUri(String uri){    
     upLevelURI = null; 
-    if (selectedNavigation == null) return ;
     UITree tree = getChild(UITree.class);
     List<?> sibbling = tree.getSibbling();
     tree.setSibbling(null);
@@ -226,7 +198,7 @@ public class UIPageNodeSelector extends UIContainer {
       return ;
     }
     tree.setSelected(selectedPageNode);   
-    tree.setChildren(selectedPageNode.getChildren());    
+    tree.setChildren(selectedPageNode.getChildren());
   }
   
   public PageNode findPageNodeByUri(PageNavigation pageNav, String uri, UITree tree){
@@ -301,7 +273,7 @@ public class UIPageNodeSelector extends UIContainer {
   public void addNavigation(PageNavigation navi) {
     if(navigations_ == null) navigations_ = new ArrayList<PageNavigation>() ;
     navigations_.add(navi) ;
-    configure() ;
+    setDropdownItemSelector() ;
   }
   
   //TODO: Tung.Pham added
@@ -311,7 +283,16 @@ public class UIPageNodeSelector extends UIContainer {
     while(itr.hasNext()){
       if(itr.next().getId().equals(navi.getId())) itr.remove() ;
     }
-    configure() ;
+    setDropdownItemSelector() ;
+  }
+
+  //TODO: Tung.Pham
+  private PageNavigation getNavigation(String id) {
+    for(PageNavigation ele : getNavigations()) {
+      if(ele.getId().equals(id)) return ele ;
+    }
+    
+    return null ;
   }
   
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
@@ -356,13 +337,6 @@ public class UIPageNodeSelector extends UIContainer {
       }
       
       uiEditBar.setRendered(true);
-//      UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
-//      UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
-//      toolPanel.setUIComponent(uiPage);
-//      //TODO: Tung.Pham added
-//      //------------------------------------------------------
-//      toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
-//      //------------------------------------------------------
       if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId())) {
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
@@ -385,7 +359,7 @@ public class UIPageNodeSelector extends UIContainer {
         uiPageNodeSelector.setSelectedNavigation(null);
         return;
       }
-      uiPageNodeSelector.setSelectedPageNode(null) ;
+      //uiPageNodeSelector.setSelectedPageNode(null) ;
       uiPageNodeSelector.selectNavigation(id);
     }
   }

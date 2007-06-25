@@ -160,25 +160,25 @@ public class UIPageNavigationControlBar extends UIToolbar {
 
   static public class AbortActionListener  extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      PortalRequestContext prContext = Util.getPortalRequestContext();  
+//      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+//      PortalRequestContext prContext = Util.getPortalRequestContext();  
       //-----------------------------
       UIPageNavigationControlBar uiControlBar = event.getSource(); 
       uiControlBar.abort(event);
-      //TODO: Tung.Pham added
-      //--------------------------------------------------------------
-      UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class) ;
-      UIPortal oldPortal = Util.getUIPortal() ;
-      PageNode selectedNode = oldPortal.getSelectedNode() ;
-      String portalName = oldPortal.getName() ;
-      String accessUser = prContext.getRemoteUser() ;
-      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, accessUser) ;
-      oldPortal.setNavigation(userPortalConfig.getNavigations()) ;
-      String uri = selectedNode.getUri() ;
-      PageNodeEvent<UIPortal> pnevent ;
-      pnevent = new PageNodeEvent<UIPortal>(oldPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
-      oldPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
-      //--------------------------------------------------------------
+//      //TODO: Tung.Pham added
+//      //--------------------------------------------------------------
+//      UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class) ;
+//      UIPortal oldPortal = Util.getUIPortal() ;
+//      PageNode selectedNode = oldPortal.getSelectedNode() ;
+//      String portalName = oldPortal.getName() ;
+//      String accessUser = prContext.getRemoteUser() ;
+//      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, accessUser) ;
+//      oldPortal.setNavigation(userPortalConfig.getNavigations()) ;
+//      String uri = selectedNode.getUri() ;
+//      PageNodeEvent<UIPortal> pnevent ;
+//      pnevent = new PageNodeEvent<UIPortal>(oldPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
+//      oldPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
+//      //--------------------------------------------------------------
     }
   }
 

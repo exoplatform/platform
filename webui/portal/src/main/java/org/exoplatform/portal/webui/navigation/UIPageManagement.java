@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNode;
@@ -13,14 +14,18 @@ import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageBrowser;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
+import org.exoplatform.portal.webui.page.UIPageForm;
+import org.exoplatform.portal.webui.page.UIPageTemplateOptions;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
+import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIDescription;
-import org.exoplatform.webui.core.UIRightClickPopupMenu;
-import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
 
 @ComponentConfig(
@@ -70,10 +75,33 @@ public class UIPageManagement extends UIManagement {
   public void setMode(ManagementMode mode, Event<? extends UIComponent> event) throws Exception {
     mode_ = mode;
     if (mode == ManagementMode.EDIT) {
+      //TODO: Tung.Pham modified
+      //------------------------------------------------------------
+      PortalRequestContext pcontext  = Util.getPortalRequestContext() ;
+      UIPortalApplication uiApp = getAncestorOfType(UIPortalApplication.class);
       UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
-      UITree uiTree = uiNodeSelector.getChild(UITree.class);
-      UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);
-      uiPopupMenu.createEvent("EditPageNode", event.getExecutionPhase(), event.getRequestContext()).broadcast();
+      //UITree uiTree = uiNodeSelector.getChild(UITree.class);
+      //UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);
+      //uiPopupMenu.createEvent("EditPageNode", event.getExecutionPhase(), event.getRequestContext()).broadcast();
+      PageNode selectedNode = uiNodeSelector.getSelectedPageNode() ;
+      if(selectedNode == null) return ;
+      UserPortalConfigService portalConfigService = getApplicationComponent(UserPortalConfigService.class);
+      Page page  = portalConfigService.getPage(selectedNode.getPageReference(), pcontext.getRemoteUser());
+      if(page == null){
+        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+        setRenderedChildrenOfTypes(childrenToRender);
+        return;
+      }
+      
+      if(!page.isModifiable()){
+        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+        setRenderedChildrenOfTypes(childrenToRender);
+        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
+        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
+        return;
+      }
+      setPage(page) ;
+      //------------------------------------------------------------
       getChild(UIDescription.class).setRendered(false);
       return;
     }
@@ -88,6 +116,48 @@ public class UIPageManagement extends UIManagement {
     uiToolPanel.setUIComponent(uiPageBrowser);
     uiPageBrowser.setShowAddNewPage(true);    
     uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+  }
+  
+  //TODO: Tung.Pham added
+  public void setPage(Page page) throws Exception {
+    PortalRequestContext pcontext  = Util.getPortalRequestContext() ;
+    UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
+    UIPortalApplication uiApp = getAncestorOfType(UIPortalApplication.class);
+    
+    UIControlWorkspace uiControl = uiApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+    pcontext.addUIComponentToUpdateByAjax(uiControl);
+
+    UIPage uiPage  = Util.toUIPage(page, uiToolPanel);
+    uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;  
+    uiToolPanel.setUIComponent(uiPage);
+
+    if (Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;      
+      UIPageForm uiPageForm =  uiMaskWS.createUIComponent(UIPageForm.class);
+      uiPageForm.removeChild(UIPageTemplateOptions.class);
+      uiPageForm.setValues(uiPage);
+      uiMaskWS.setUIComponent(uiPageForm);
+      uiMaskWS.setWindowSize(640, 400);
+      uiMaskWS.setShow(true);
+      pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
+      return ;
+    }
+    
+    if(!page.isModifiable()) {
+      Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+      setRenderedChildrenOfTypes(childrenToRender);
+      return;
+    }
+    
+    UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
+    pcontext.setFullRender(true);
+    
+    Class [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+    setRenderedChildrenOfTypes(childrenToRender);
+    UIPageEditBar uiPageEditBar = getChild(UIPageEditBar.class);
+    uiPageEditBar.setUIPage(uiPage); 
+    uiPageEditBar.showUIPage();
   }
 
 }
