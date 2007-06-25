@@ -124,13 +124,20 @@ public class UIPortalNavigation extends UIComponent {
       UIPortal uiPortal = Util.getUIPortal();
       
       int index = uri.lastIndexOf("::");
-      String navId = uri.substring(0, index );
       String id = uri.substring(index +2);
-      System.out.println("id= " + id);
-      PageNavigation selectNav = uiPortal.getPageNavigation(navId);
+      PageNavigation selectNav = null;
+      if(index <= 0) {selectNav = uiPortal.getSelectedNavigation();}
+      else {
+        String navId = uri.substring(0, index);
+        selectNav = uiPortal.getPageNavigation(navId);
+      }
       PageNode selectNode = selectNav.findPageNodeByUri(id);
-      uiNavigation.setSelectedPageNode(selectNode) ;
-      
+      uiNavigation.selectedNode_ = selectNode;
+      String parentUri = null;
+      index = uri.lastIndexOf("/");
+      if(index > 0) parentUri = uri.substring(0, index);
+      if(parentUri == null || parentUri.length() < 1) uiNavigation.selectedParent_ = selectNav;
+      else uiNavigation.selectedParent_ = selectNav.findPageNodeByUri(parentUri);
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
       if(uiPageBody != null) {
         if(uiPageBody.getMaximizedUIComponent() != null) {
