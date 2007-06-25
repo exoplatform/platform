@@ -73,7 +73,6 @@ public class UIPortalNavigation extends UIComponent {
     int index = seletctUri.lastIndexOf("/");
     String parentUri = null;
     if(index > 0) parentUri = seletctUri.substring(0, seletctUri.lastIndexOf("/"));
-    System.out.println("\n\n\n--------------> Parent URI =" + parentUri);
     List <PageNavigation> pageNavs = getNavigations() ;
     for(PageNavigation pageNav : pageNavs) {
       if(pageNav.hasNode(selectedNode)){
