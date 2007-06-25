@@ -82,7 +82,6 @@ public class UIPageManagement extends UIManagement {
       //TODO: Tung.Pham modified
       //------------------------------------------------------------
       PortalRequestContext pcontext  = Util.getPortalRequestContext() ;
-      UIPortalApplication uiApp = getAncestorOfType(UIPortalApplication.class);
       UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
       //UITree uiTree = uiNodeSelector.getChild(UITree.class);
       //UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);
@@ -94,12 +93,6 @@ public class UIPageManagement extends UIManagement {
       }
       UserPortalConfigService portalConfigService = getApplicationComponent(UserPortalConfigService.class);
       Page page  = portalConfigService.getPage(selectedNode.getPageReference(), pcontext.getRemoteUser());
-
-      if(!page.isModifiable()){
-        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
-        return;
-      }
       setPage(page) ;
       //------------------------------------------------------------
       getChild(UIDescription.class).setRendered(false);
@@ -134,11 +127,21 @@ public class UIPageManagement extends UIManagement {
       uiToolPanel.setUIComponent(null);
       UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      pcontext.addUIComponentToUpdateByAjax(this) ;
       return;
     }
     
     UIPage uiPage  = Util.toUIPage(page, uiToolPanel);  
     uiToolPanel.setUIComponent(uiPage);
+    
+    if(!page.isModifiable()) {
+      Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+      setRenderedChildrenOfTypes(childrenToRender);
+      uiApp.addMessage(new ApplicationMessage("UIPageManagement.msg.Invalid-editPermission", null)) ;
+      pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
+      pcontext.addUIComponentToUpdateByAjax(this) ;
+      return;
+    }
 
     if (Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;      
@@ -150,12 +153,6 @@ public class UIPageManagement extends UIManagement {
       uiMaskWS.setShow(true);
       pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
       return ;
-    }
-    
-    if(!page.isModifiable()) {
-      Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
-      setRenderedChildrenOfTypes(childrenToRender);
-      return;
     }
     
     UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);

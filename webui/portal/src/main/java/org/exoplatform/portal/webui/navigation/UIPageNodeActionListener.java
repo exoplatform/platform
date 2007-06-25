@@ -87,7 +87,6 @@ public class UIPageNodeActionListener {
       UIComponent uiParent = uiPopupMenu.getParent();
       UIPageNodeSelector uiPageNodeSelector = uiParent.getParent();
       uiPageNodeSelector.selectPageNodeByUri(uri);
-      UIPortalApplication uiApp = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class);
       UIPageManagement uiManagement = uiPageNodeSelector.getParent();
 
       PageNode node = uiPageNodeSelector.getSelectedPageNode();
@@ -100,14 +99,6 @@ public class UIPageNodeActionListener {
       if(page == null){
         Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-        return;
-      }
-
-      if(!page.isModifiable()){
-        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
-        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
         return;
       }
       uiManagement.setPage(page) ;
