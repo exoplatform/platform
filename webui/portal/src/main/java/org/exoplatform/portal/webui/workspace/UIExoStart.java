@@ -188,6 +188,7 @@ public class UIExoStart extends UIComponent {
 
       UIPageManagement uiManagement = uiComp.getUIControlWSWorkingComponent();      
       String mode  = event.getRequestContext().getRequestParameter(OBJECTID);
+      mode = mode.substring(0, mode.indexOf("."));
       uiManagement.setMode(ManagementMode.valueOf(mode.toUpperCase()), event);
     }
   }
