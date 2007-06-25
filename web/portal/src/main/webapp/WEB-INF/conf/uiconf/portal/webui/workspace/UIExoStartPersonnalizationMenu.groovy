@@ -12,8 +12,8 @@ UIExoStart.MenuItemContainer menu = new UIExoStart.MenuItemContainer("Administra
           add(new UIExoStart.MenuItemAction("Edit", "EditCurrentPortalIcon", "PortalManagement", true)).
           add(new UIExoStart.MenuItemAction("Browse", "BrowsePortalsIcon", "PortalManagement", true))).
       add(new UIExoStart.MenuItemContainer("Page").
-          add(new UIExoStart.MenuItemAction("Edit","EditNavigationIcon", "PageManagement", true)).
-          add(new UIExoStart.MenuItemAction("Browse", "BrowsePagesIcon", "PageManagement", true)))).  
+          add(new UIExoStart.MenuItemAction("Edit.Page","EditNavigationIcon", "PageManagement", true)).
+          add(new UIExoStart.MenuItemAction("Browse.Page", "BrowsePagesIcon", "PageManagement", true)))).  
       /*add(new UIExoStart.MenuItemContainer("ChangeSkin").
               add(new UIExoStart.MenuItemAction("Default", "DefaultSkinIcon", "ChangeSkin", false)).
               add(new UIExoStart.MenuItemAction("Mac", "MacSkinIcon", "ChangeSkin", false)).
