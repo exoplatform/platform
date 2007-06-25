@@ -7,13 +7,17 @@ function PortalDragDrop() {
 
 PortalDragDrop.prototype.onLoad = function(e) {
 	// Sets the ajaxGet callback function to resizeRows
-	var editBar = document.getElementById("UIPortalManagementEditBar");
+	var portalEditBar = document.getElementById("UIPortalManagementEditBar");
+	var wizardEditBar = document.getElementById("WizardPageEditBar");
+	// Check if an EditBar exists on the page
+	var editBar = (portalEditBar != null) ? portalEditBar : ((wizardEditBar != null) ? wizardEditBar : null);
+	//console.dir(editBar);
 	if (editBar) {
 		// editBar exists only in layout mode
 	  var editButtons = new Array();
 	  editButtons.pushAll(editBar.getElementsByTagName("a"));
 	  var controlBar = document.getElementById("UIPortalManagementControlBar");
-	  editButtons.pushAll(controlBar.getElementsByTagName("a"));
+	  if (controlBar) editButtons.pushAll(controlBar.getElementsByTagName("a"));
 	  for (var i = 0; i < editButtons.length; i++) {
 	  	var url = editButtons[i].href;
 	  	if (url && url.indexOf("resizeRows") == -1) {
@@ -491,10 +495,10 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
 };
 // Function resizeRows added by Philippe
 PortalDragDrop.prototype.resizeRows = function() {
-	var uiPortal = document.getElementById("UIPortal");
-	if (uiPortal) {
+	var uiWS = document.getElementById("UIWorkingWorkspace");
+	if (uiWS) {
 		var actionButtons = new Array();
-		var uiContainers = eXo.core.DOMUtil.findDescendantsByClass(uiPortal, "div", "UIContainer");
+		var uiContainers = eXo.core.DOMUtil.findDescendantsByClass(uiWS, "div", "UIContainer");
 		for (var i = 0; i < uiContainers.length; i++) {
 			var uiContainer = uiContainers[i];
 			actionButtons.pushAll(uiContainer.getElementsByTagName("a"));
@@ -518,7 +522,6 @@ PortalDragDrop.prototype.resizeRows = function() {
 	      		layoutContainer.style.height = "60px" ;
 	      	}
 			}
-			
 		}
 	  for (var k = 0; k < actionButtons.length; k++) {
 	  	var url = actionButtons[k].href;
