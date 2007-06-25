@@ -28,8 +28,8 @@ import org.exoplatform.webui.event.EventListener;
 
 public class UIPortalNavigation extends UIComponent {
 
-  private PageNode selectedNode_ ;
-  private Object selectedParent_ ; 
+  protected PageNode selectedNode_ ;
+  protected Object selectedParent_ ; 
 
   public UIComponent getViewModeUIComponent() { return null; }
 
@@ -38,7 +38,10 @@ public class UIPortalNavigation extends UIComponent {
   }
   
   public PageNavigation getSelectedNavigation() {
-    return Util.getUIPortal().getSelectedNavigation(); 
+    PageNavigation nav = Util.getUIPortal().getSelectedNavigation();
+    if(nav != null) return nav;
+    if(Util.getUIPortal().getNavigations().size() < 1) return null;
+    return Util.getUIPortal().getNavigations().get(0);
   }
 
   public Object getSelectedParent() { return selectedParent_ ; }
@@ -47,16 +50,6 @@ public class UIPortalNavigation extends UIComponent {
     selectedNode_ = Util.getUIPortal().getSelectedNode();    
     return selectedNode_ ; 
   }  
-
-  public void setSelectedPageNode(String uri) {
-    selectedNode_ = null ;
-    selectedParent_ = null ;
-    if (uri == null)  return;
-    List <PageNavigation> pageNavs = getNavigations() ;
-    for(PageNavigation pageNav : pageNavs) {
-      findPageNode(pageNav, pageNav.getNodes(), uri);
-    }   
-  } 
   
   public boolean isSelectedNode(PageNode node){
     if(selectedNode_ != null && node.getUri().equals(selectedNode_.getUri())) return true;
@@ -68,30 +61,49 @@ public class UIPortalNavigation extends UIComponent {
   public void processRender(WebuiRequestContext context) throws Exception {
     UIPortal uiPortal = Util.getUIPortal(); 
     if(uiPortal.getSelectedNode() != selectedNode_){
-      setSelectedPageNode(uiPortal.getSelectedNode().getUri()) ;      
+      setSelectedPageNode(uiPortal.getSelectedNode()) ;      
     }
     super.processRender(context);
   }
-
-  private void findPageNode(Object parent, List<PageNode> children, String uri) {
-    for(PageNode node : children) {
-      if(node.getUri().equals(uri)) {
-        selectedNode_ = node ;
-        selectedParent_ = parent ;
-        return;
+  
+  private void setSelectedPageNode(PageNode selectedNode) {
+    selectedNode_ = selectedNode;
+    selectedParent_ = null;
+    String seletctUri = selectedNode.getUri();
+    int index = seletctUri.lastIndexOf("/");
+    String parentUri = null;
+    if(index > 0) parentUri = seletctUri.substring(0, seletctUri.lastIndexOf("/"));
+    System.out.println("\n\n\n--------------> Parent URI =" + parentUri);
+    List <PageNavigation> pageNavs = getNavigations() ;
+    for(PageNavigation pageNav : pageNavs) {
+      if(pageNav.hasNode(selectedNode)){
+        if(parentUri == null || parentUri.length() < 1 ) selectedParent_ = pageNav;
+        else selectedParent_ = pageNav.findPageNodeByUri(parentUri);
+        break;
       }
-      if(node.getChildren() == null) continue;
-      findPageNode(node, node.getChildren(), uri);
-    }
+    } 
   }
 
   static  public class SelectNodeActionListener extends EventListener<UIPortalNavigation> {
     public void execute(Event<UIPortalNavigation> event) throws Exception {      
       UIPortalNavigation uiNavigation = event.getSource();
+      UIPortal uiPortal = Util.getUIPortal();
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
-      uiNavigation.setSelectedPageNode(uri) ;
-      
-      UIPortal uiPortal = Util.getUIPortal();     
+      int index = uri.lastIndexOf("::");
+      String id = uri.substring(index +2);
+      PageNavigation selectNav = null;
+      if(index <= 0) {selectNav = uiPortal.getSelectedNavigation();}
+      else {
+        String navId = uri.substring(0, index);
+        selectNav = uiPortal.getPageNavigation(navId);
+      }
+      PageNode selectNode = selectNav.findPageNodeByUri(id);
+      uiNavigation.selectedNode_ = selectNode;
+      String parentUri = null;
+      index = uri.lastIndexOf("/");
+      if(index > 0) parentUri = uri.substring(0, index);
+      if(parentUri == null || parentUri.length() < 1) uiNavigation.selectedParent_ = selectNav;
+      else uiNavigation.selectedParent_ = selectNav.findPageNodeByUri(parentUri);
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
       if(uiPageBody != null) {
         if(uiPageBody.getMaximizedUIComponent() != null) {
@@ -109,10 +121,26 @@ public class UIPortalNavigation extends UIComponent {
   static  public class UpLevelActionListener extends EventListener<UIPortalNavigation> {
     public void execute(Event<UIPortalNavigation> event) throws Exception {
       UIPortalNavigation uiNavigation = event.getSource();      
-      String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
-      uiNavigation.setSelectedPageNode(uri) ;
-      
+      String uri  = event.getRequestContext().getRequestParameter(OBJECTID); 
       UIPortal uiPortal = Util.getUIPortal();
+      
+      int index = uri.lastIndexOf("::");
+      String navId = uri.substring(0, index );
+      String id = uri.substring(index +2);
+      System.out.println("id= " + id);
+      PageNavigation selectNav = uiPortal.getPageNavigation(navId);
+      PageNode selectNode = selectNav.findPageNodeByUri(id);
+      uiNavigation.setSelectedPageNode(selectNode) ;
+      
+      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
+      if(uiPageBody != null) {
+        if(uiPageBody.getMaximizedUIComponent() != null) {
+          UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
+          currentPortlet.setCurrentWindowState(WindowState.NORMAL);
+          uiPageBody.setMaximizedUIComponent(null);
+        }
+      }
+     
       PageNodeEvent<UIPortal> pnevent = 
         new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;      
