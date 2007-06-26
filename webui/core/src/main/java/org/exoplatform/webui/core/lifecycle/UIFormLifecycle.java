@@ -41,7 +41,6 @@ public class UIFormLifecycle  extends Lifecycle {
     }
     String action =  uiForm.getSubmitAction();
     String subComponentId = context.getRequestParameter(UIForm.SUBCOMPONENT_ID);
-    System.out.println("\n\n action la === > "+subComponentId +"\n\n\n");
     if(subComponentId == null || subComponentId.trim().length() < 1) {
       Event<UIComponent> event = uiForm.createEvent(action, Event.Phase.DECODE, context) ;
       if(event != null) event.broadcast() ;
@@ -65,6 +64,7 @@ public class UIFormLifecycle  extends Lifecycle {
     UIApplication uiApp = uiForm.getAncestorOfType(UIApplication.class) ;
     List<UIComponent>  children = uiForm.getChildren() ;
     validateChildren(children, uiApp, context);
+    
     /*List<Validator> validators = uiForm.getValidators() ;
     if(validators != null) {
       try {
@@ -78,6 +78,7 @@ public class UIFormLifecycle  extends Lifecycle {
         context.setProcessRender(true) ;
       }
     }*/
+    
     if(context.getProcessRender()) {
       if(uiApp instanceof UIPortletApplication){
         context.addUIComponentToUpdateByAjax(uiApp);
@@ -102,32 +103,32 @@ public class UIFormLifecycle  extends Lifecycle {
     }    
   }
   
-//  private void processMultipartRequest(UIForm uiForm, RequestContext context) throws Exception {
-//    HttpServletRequest httpRequest = (HttpServletRequest)context.getRequest() ;
-//    ServletFileUpload upload = new ServletFileUpload(new DiskFileItemFactory());
-//    List items = upload.parseRequest(httpRequest);
-//    Iterator iter = items.iterator();
-//    while (iter.hasNext()) {
-//      FileItem item = (FileItem) iter.next();
-//      String fieldName = item.getFieldName();      
-//      if (item.isFormField()) {  //Normal  inputs
-//        String inputValue = item.getString() ;
-//        if (UIForm.ACTION.equals(fieldName)) {
-//          uiForm.setSubmitAction(inputValue) ;
-//          continue;
-//        } else if(UIFormTabPane.RENDER_TAB.equals(fieldName)){
-//          ((UIFormTabPane)uiForm).setRenderTabId(inputValue);
-//          continue;
-//        }
-//        UIFormInputBase input =  uiForm.findComponentById(fieldName) ;
-//        if(input != null) input.decode(inputValue, context) ;
-//        continue;
-//      }
-//      UIFormInputBase input =  uiForm.findComponentById(fieldName) ;  // File input
-//      if(input != null) input.decode(item, context) ;
-//    }
-//    
-//  }
+  /*private void processMultipartRequest(UIForm uiForm, RequestContext context) throws Exception {
+    HttpServletRequest httpRequest = (HttpServletRequest)context.getRequest() ;
+    ServletFileUpload upload = new ServletFileUpload(new DiskFileItemFactory());
+    List items = upload.parseRequest(httpRequest);
+    Iterator iter = items.iterator();
+    while (iter.hasNext()) {
+      FileItem item = (FileItem) iter.next();
+      String fieldName = item.getFieldName();      
+      if (item.isFormField()) {  //Normal  inputs
+        String inputValue = item.getString() ;
+        if (UIForm.ACTION.equals(fieldName)) {
+          uiForm.setSubmitAction(inputValue) ;
+          continue;
+        } else if(UIFormTabPane.RENDER_TAB.equals(fieldName)){
+          ((UIFormTabPane)uiForm).setRenderTabId(inputValue);
+          continue;
+        }
+        UIFormInputBase input =  uiForm.findComponentById(fieldName) ;
+        if(input != null) input.decode(inputValue, context) ;
+        continue;
+      }
+      UIFormInputBase input =  uiForm.findComponentById(fieldName) ;  // File input
+      if(input != null) input.decode(item, context) ;
+    }
+    
+  }*/
   
   @SuppressWarnings("unchecked")
   private void validateChildren(List<UIComponent>  children, UIApplication uiApp, WebuiRequestContext context) {

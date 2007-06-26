@@ -88,8 +88,8 @@ public class UIPageNavigationActionListener {
 //      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getAncestorOfType(UIPageManagement.class));
       uiPageNodeSelector.removeNavigation(selectedNavigation) ;
       uiPageNodeSelector.loadSelectedNavigation() ;
-      UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
-      toolPanel.setUIComponent(null);
+      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ; 
+      uiToolPanel.setUIComponent(null);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
       pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getAncestorOfType(UIPageManagement.class));

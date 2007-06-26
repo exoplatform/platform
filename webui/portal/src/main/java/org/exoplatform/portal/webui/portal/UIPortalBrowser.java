@@ -11,7 +11,7 @@ import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.container.UIContainer;
+import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -36,23 +36,18 @@ public class UIPortalBrowser extends UIContainer {
   public static String[] SELECT_ACTIONS = {"DeletePortal"} ; 
   
   public UIPortalBrowser() throws Exception {
-    setName("UIPortalBrowser");
+    setId("UIPortalBrowser");
+    
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("name", BEAN_FIELD, SELECT_ACTIONS) ;
-    //TODO: Tung.Pham added
-    //--------------------------
     addChild(uiGrid.getUIPageIterator()) ;
     uiGrid.getUIPageIterator().setRendered(false) ;
-    //--------------------------
+    
     loadPortalConfigs();
   }
 
   public void loadPortalConfigs() throws Exception {    
     DataStorage service = getApplicationComponent(DataStorage.class) ;
-    //TODO: Tung.Pham modified
-    //-------------------------------------------------------
-    //List<PortalConfig> configs = service.getAllPortalConfig();
-    //PageList pagelist = new ObjectPageList(configs, 10);
     UserACL userACL = getApplicationComponent(UserACL.class) ;
     String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
     Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, PortalConfig.class) ;
@@ -63,12 +58,13 @@ public class UIPortalBrowser extends UIContainer {
       List<?> list = pageList.getPage(i) ;
       Iterator<?> itr = list.iterator() ;
       while(itr.hasNext()) {
-        PortalConfig config = (PortalConfig)itr.next() ;
-        if(!userACL.hasViewPermission(config.getCreator(), accessUser, config.getAccessPermissions())) itr.remove() ;
+        PortalConfig portalConfig = (PortalConfig)itr.next() ;
+        String creator = portalConfig.getCreator();
+        String [] accessPerm = portalConfig.getAccessPermissions();
+        if(!userACL.hasViewPermission(creator, accessUser, accessPerm)) itr.remove() ;
       }
-      i ++ ;
+      i++ ;
     }
-    //-------------------------------------------------------
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     uiGrid.setUseAjax(false);
     uiGrid.getUIPageIterator().setPageList(pageList);

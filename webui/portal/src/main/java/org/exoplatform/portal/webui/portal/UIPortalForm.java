@@ -164,9 +164,9 @@ public class UIPortalForm extends UIFormTabPane {
   
   private void createDefaultItem() throws Exception {
     LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
-    Collection listLocaleConfig = localeConfigService.getLocalConfigs() ;
+    Collection<?> listLocaleConfig = localeConfigService.getLocalConfigs() ;
 
-    Iterator iterator = listLocaleConfig.iterator() ;
+    Iterator<?> iterator = listLocaleConfig.iterator() ;
     while(iterator.hasNext()) {
       LocaleConfig localeConfig = (LocaleConfig) iterator.next() ;
       languages.add(new SelectItemOption<String>(localeConfig.getLanguage(), localeConfig.getLanguage())) ;

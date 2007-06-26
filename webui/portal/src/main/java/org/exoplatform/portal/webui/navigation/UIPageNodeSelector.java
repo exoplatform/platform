@@ -291,7 +291,6 @@ public class UIPageNodeSelector extends UIContainer {
     for(PageNavigation ele : getNavigations()) {
       if(ele.getId().equals(id)) return ele ;
     }
-    
     return null ;
   }
   
@@ -320,7 +319,7 @@ public class UIPageNodeSelector extends UIContainer {
       Page page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
       
       if(page == null){
-        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+        Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
@@ -331,20 +330,20 @@ public class UIPageNodeSelector extends UIContainer {
       toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
 
       if(!page.isModifiable()) {
-        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+        Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
       
       uiEditBar.setRendered(true);
       if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId())) {
-        Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+        Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
       
       uiEditBar.setUIPage(uiPage);
-      Class [] childrenToRender = {UIPageEditBar.class, 
+      Class<?> [] childrenToRender = {UIPageEditBar.class, 
                                    UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
       uiParent.setRenderedChildrenOfTypes(childrenToRender);
     }
