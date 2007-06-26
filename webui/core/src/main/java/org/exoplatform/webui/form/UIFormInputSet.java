@@ -97,26 +97,24 @@ public class UIFormInputSet extends  UIContainer {
     }
     Writer w = context.getWriter() ;
     w.write("<div class=\"UIFormInputSet\">") ;
-
+    w.write("<table class=\"UIFormGrid\">") ;
     ResourceBundle res = context.getApplicationResourceBundle() ;
     UIForm uiForm = getAncestorOfType(UIForm.class);
     for(UIComponent inputEntry :  getChildren()) {     
-      String label = null ;
+      String label ;
       try {
         label = uiForm.getLabel(res, inputEntry.getId());
-      } catch(MissingResourceException ex){ 
+      } catch(MissingResourceException ex){
+        label = "&nbsp;" ;
         System.err.println("\n "+uiForm.getId()+".label." + inputEntry.getId()+" not found value");
       }
-      
-      w.write("<div class=\"FieldContainer\">") ;
-      if(label.trim().length() > 0) {
-        w.write("<label style=\"float: left;\">") ; w.write(label); w.write("</label>") ;
-      }
-      renderUIComponent(inputEntry) ;
-      w.write("<div style=\"clear: left;\"><span></span></div>");
-      w.write("</div>") ;
-     }
-     w.write("</div>") ;
+      w.write("<tr>") ;
+      w.write("<td class=\"FieldLabel\">") ; w.write(label); w.write("</td>") ;
+      w.write("<td class=\"FieldComponent\">") ; renderUIComponent(inputEntry) ; w.write("</td>") ;
+      w.write("</tr>") ;
+    }
+    w.write("</table>") ;
+    w.write("</div>") ;
   }
   
 }
