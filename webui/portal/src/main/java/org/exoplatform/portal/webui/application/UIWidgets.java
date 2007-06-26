@@ -38,7 +38,9 @@ public class UIWidgets extends UIContainer {
   private String editPermission;
   
   public UIWidgets() throws Exception {
+    setName(getClass().getSimpleName()) ;
     UIDropDownItemSelector uiDropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
+    uiDropDownItemSelector.setTitle("SelectContainer") ;
     uiDropDownItemSelector.setOnServer(true);
     uiDropDownItemSelector.setOnChange("ChangeOption");
   }
