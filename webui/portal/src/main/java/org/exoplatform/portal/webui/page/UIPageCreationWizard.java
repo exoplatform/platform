@@ -66,8 +66,8 @@ public class UIPageCreationWizard extends UIPageWizard {
     setNumberSteps(4);
     setHasWelcome(true);
     
-    UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
-    uiNodeSelector.loadSelectedNavigation();
+    //UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
+    //uiNodeSelector.loadSelectedNavigation();
   }     
   
   private void saveData() throws Exception {

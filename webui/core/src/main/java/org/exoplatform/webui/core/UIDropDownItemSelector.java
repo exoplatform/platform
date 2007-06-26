@@ -88,7 +88,11 @@ public class UIDropDownItemSelector extends UIComponent {
   public SelectItemOption<String> getSelectedItem() { return selected_ ; }
   
   public void setSize(int i) { size = i ;}
-  public int getSize() { return size; }
+  public int getSize() { 
+    //return size;
+    if(options_ != null) return options_.size() ;
+    else return 0 ;
+    }
   
   public String getTitle() {return title;}
   public void setTitle(String title){ this.title =title;}

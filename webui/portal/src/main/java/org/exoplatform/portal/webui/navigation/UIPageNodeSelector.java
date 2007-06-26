@@ -154,7 +154,10 @@ public class UIPageNodeSelector extends UIContainer {
       if(navigations_ != null && navigations_.size() > 0) {
         selectNavigation(navigations_.get(0).getId()) ;
       }
-    }else selectNavigation(selectedNavigation.getId()) ;
+    }else {
+      selectNavigation(selectedNavigation.getId()) ;
+      if(selectedPageNode != null) selectPageNodeByUri(selectedPageNode.getUri()) ;
+    }
   }
   
 //  private boolean findSelectedNode(PageNavigation nav, List<PageNode> nodes, PageNode node) {
