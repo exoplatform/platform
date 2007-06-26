@@ -153,17 +153,18 @@ UIWidget.prototype.initDND = function(e) {
 UIWidget.prototype.resizeContainer = function() {
 	var widgets  = document.getElementById("UIWidgets") ;
 	if(widgets == null) return ;	
-	
 	var DOMUtil = eXo.core.DOMUtil ;
 	var extraHeight = 40 ;
 	var uiWidgetContainer = DOMUtil.findFirstDescendantByClass(widgets, "div", "UIWidgetContainer");
-	var workspacePanel = document.getElementById("UIWorkspacePanel") ;	
+	var workspacePanel = document.getElementById("UIWorkspacePanel") ;
+	if(workspacePanel.style.display == "none") return;
 	var widgetNavigator = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetNavigator") ;	
 	var widgetContainerScrollArea = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetContainerScrollArea") ;
 	var itemSelectorContainer = DOMUtil.findFirstChildByClass(widgets, "div", "ItemSelectorContainer") ;
-	var availableHeight = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + extraHeight) ;
+	var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;	
+	var maxHeight = (uiControlWorkspace.offsetHeight >= workspacePanel.offsetHeight)? workspacePanel.offsetHeight : (uiControlWorkspace.offsetHeight - 62);
+	var availableHeight = maxHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + extraHeight) ;
 	if (availableHeight < 0)  return ;
-	
 	widgetContainerScrollArea.style.height = availableHeight + "px" ;
 	widgetContainerScrollArea.style.overflow = "hidden" ;
 } ;

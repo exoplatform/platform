@@ -12,7 +12,7 @@
   jsmanager.addOnResizeJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
   jsmanager.addOnScrollJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
   String docBase =  rcontext.getRequestContextPath() ;
-  String onclick = "eXo.portal.UIExoStartMenu.showStartMenu(event);" ;
+  String onclick = "eXo.portal.UIExoStartMenu.showStartMenu(event,this);" ;
   
   void renderSinglePageNode(PageNavigation nav, PageNode node) {
     String  href = uicomponent.event("ChangePage",  nav.getId() + "::" + node.getUri()) ;
@@ -235,7 +235,7 @@
     <div style="clear: both"><span></span></div>
   </div>
   
-  <div id="StartMenuContainer" class="StartMenuContainer">
+  <div id="StartMenuContainer" class="StartMenuContainer" style="display: none;">
     <div class="StartMenuDecorator">
       <div class="TopDecorator"><span></span></div>
       <div class="StartMenuML">
