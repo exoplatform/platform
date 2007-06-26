@@ -55,8 +55,10 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIExoStart.MyPortalActionListener.class),
         @EventConfig(listeners = UIExoStart.PageCreationWizardActionListener.class),
         @EventConfig(listeners = UIExoStart.EditCurrentPageActionListener.class),
-        @EventConfig(listeners = UIExoStart.PageManagementActionListener.class),
-        @EventConfig(listeners = UIExoStart.PortalManagementActionListener.class),
+        @EventConfig(listeners = UIExoStart.EditPageActionListener.class),
+        @EventConfig(listeners = UIExoStart.BrowsePageActionListener.class),
+        @EventConfig(listeners = UIExoStart.EditPortalActionListener.class),
+        @EventConfig(listeners = UIExoStart.BrowsePortalActionListener.class),
         @EventConfig(listeners = UIExoStart.RefreshActionListener.class),
         @EventConfig(listeners = UIExoStart.ChangePageActionListener.class),
         @EventConfig(listeners = UIExoStart.LoginActionListener.class),
@@ -180,30 +182,48 @@ public class UIExoStart extends UIComponent {
     }
   }
 
-  static public class PageManagementActionListener extends EventListener<UIExoStart> {    
+  static public class EditPageActionListener extends EventListener<UIExoStart> {    
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uiComp = event.getSource() ;
       uiComp.setUIControlWSWorkingComponent(UIPageManagement.class) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiComp);
 
       UIPageManagement uiManagement = uiComp.getUIControlWSWorkingComponent();      
-      String mode  = event.getRequestContext().getRequestParameter(OBJECTID);
-      mode = mode.substring(0, mode.indexOf("."));
-      uiManagement.setMode(ManagementMode.valueOf(mode.toUpperCase()), event);
+      uiManagement.setMode(ManagementMode.EDIT, event);
     }
   }
+  
+  static public class BrowsePageActionListener extends EventListener<UIExoStart> {    
+    public void execute(Event<UIExoStart> event) throws Exception {
+      UIExoStart uiComp = event.getSource() ;
+      uiComp.setUIControlWSWorkingComponent(UIPageManagement.class) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiComp);
 
-  static public class PortalManagementActionListener extends EventListener<UIExoStart> {    
+      UIPageManagement uiManagement = uiComp.getUIControlWSWorkingComponent();      
+      uiManagement.setMode(ManagementMode.BROWSE, event);
+    }
+  }
+  
+  static public class EditPortalActionListener extends EventListener<UIExoStart> {    
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uiComp = event.getSource() ;
       uiComp.setUIControlWSWorkingComponent(UIPortalManagement.class) ;
 
       UIPortalManagement uiManagement = uiComp.getUIControlWSWorkingComponent();      
-      String mode  = event.getRequestContext().getRequestParameter(OBJECTID);
-      uiManagement.setMode(ManagementMode.valueOf(mode.toUpperCase()), event);
+      uiManagement.setMode(ManagementMode.EDIT, event);
     }
   }
+  
+  static public class BrowsePortalActionListener extends EventListener<UIExoStart> {    
+    public void execute(Event<UIExoStart> event) throws Exception {
+      UIExoStart uiComp = event.getSource() ;
+      uiComp.setUIControlWSWorkingComponent(UIPortalManagement.class) ;
 
+      UIPortalManagement uiManagement = uiComp.getUIControlWSWorkingComponent();      
+      uiManagement.setMode(ManagementMode.BROWSE, event);
+    }
+  }
+ 
   static public class MyPortalActionListener extends EventListener<UIExoStart> {    
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uicomp = event.getSource() ;
