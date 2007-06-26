@@ -394,6 +394,13 @@ UIPortal.prototype.onLoads = function() {
 				layOutContainer.style.border = "none";
 			  layOutContainer.style.background = "none";
 			}
+			if (eXo.webui.UIHorizontalTabs) {
+				if (eXo.webui.UIHorizontalTabs.currentTab == i) {
+					var uiTabContainer = eXo.core.DOMUtil.findAncestorByClass(uiTabContent[i], "UITabContainer");
+					var tabs = eXo.core.DOMUtil.findDescendantsByClass(uiTabContainer, "div", "UITab");
+					eXo.webui.UIHorizontalTabs.displayTabContent(tabs[i].firstChild);
+				}
+			}
 		}
 	}
 } ;

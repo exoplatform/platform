@@ -43,19 +43,21 @@ UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
   var contentTabContainer = DOMUtil.findFirstDescendantByClass(parentdHorizontalTab, "div", "UITabContentContainer") ;
   var uiTabContent = DOMUtil.getChildrenByTagName(contentTabContainer, "div") ;
   
-  var index = 0 ;
+  //var index = 0 ;
   for(var i = 0; i < uiTab.length; i++) {
     var styleTabDiv = DOMUtil.getChildrenByTagName(uiTab[i], "div")[0] ;
     if(styleTabDiv.className == "DisabledTab") continue ;
+    console.log("%s, %s ",uiSelectTab, uiTab[i]);
     if(uiSelectTab == uiTab[i]) {
       styleTabDiv.className = "SelectedTab" ;
-    	index = i ; continue ;
+      eXo.webui.UIHorizontalTabs.currentTab = i;
+    	/*index = i ;*/ continue ;
     }
     styleTabDiv.className = "NormalTab" ;
     uiTabContent[i].style.display = "none" ;
   }
-  uiTabContent[index].style.display = "block" ;
-  eXo.webui.WebUI.fixHeight(uiTabContent[index],'UIWorkspacePanel') ;
+  uiTabContent[eXo.webui.UIHorizontalTabs.currentTab].style.display = "block" ;
+  eXo.webui.WebUI.fixHeight(uiTabContent[eXo.webui.UIHorizontalTabs.currentTab],'UIWorkspacePanel') ;
   // Used for UIFormTabPane
   if(DOMUtil.findFirstDescendantByClass(document, "div", "UIFormTabPane")) eXo.webui.UIForm.onFixSize();
 

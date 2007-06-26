@@ -171,6 +171,7 @@ function AjaxRequest(method, url, queryString) {
 		if (instance.request.status == 200 && typeof(instance.onSuccess) == "function") {
 			instance.onSuccess(instance);
 			instance.onCompleteInternalHandled = true;
+			// Added by Philippe
 			if (typeof(instance.callBack) == "function") instance.callBack(instance);
 		} else if (typeof(instance.onError) == "function") {
 			instance.onError(instance);
