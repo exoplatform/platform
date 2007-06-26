@@ -45,7 +45,7 @@
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
-  line-height: 25px; vertical-align: middle;
+  line-height: 25px; 
   text-align: center;
 	background: url('MacSkin/background/BlueAquaButtonM1x25.png') repeat-x top;
 }
@@ -65,7 +65,7 @@
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonMiddle {
-	line-height: 25px; vertical-align: middle;
+	line-height: 25px; 
 	text-align: center; 
 	background: url('MacSkin/background/GrayAquaButtonM1x25.png') repeat-x top;
 }

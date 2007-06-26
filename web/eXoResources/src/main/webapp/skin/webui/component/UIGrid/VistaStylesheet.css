@@ -49,12 +49,9 @@
   color: #024369;
   text-decoration: none;
   float: left ;
-  width: 18px;
-  height: 18px;
 }
 
 .UIGrid .Datetime {
-  text-align: center;
 }
 
 .UIGrid .Number {

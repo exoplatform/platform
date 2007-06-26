@@ -38,7 +38,7 @@
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .NodeSelected {
-  height: 16px ; line-height: 16px; vertical-align: middle;
+  height: 16px ; line-height: 16px;
   width: auto;
   color: #FD7426;
   font-weight: bold;
@@ -56,7 +56,7 @@
 .UIPageNodeSelector .UITree .TreeContainer .NodeLabel a{
   margin-left: 0px ; padding-left: 2px; 
   height: 16px ; width: auto;
-  vertical-align: middle ; line-height: 16px ;
+  line-height: 16px ;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .NodeLabel a:hover{

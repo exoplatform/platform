@@ -35,7 +35,7 @@
 
 .UIContainerConfigOptions .Title .TitleContainer .LabelText {
 	padding-left: 12px;
-	height: 22px; line-height: 22px; vertical-align: middle;
+	height: 22px; line-height: 22px; 
 }
 .UIContainerConfigOptions .Title .TitleContainer .ArrowButton {
 	float: right;

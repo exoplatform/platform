@@ -21,7 +21,6 @@
   text-align: center; 
   font-weight: normal;
   height: 20px; line-height: 20px; 
-  vertical-align: middle ;
   background: white ;
   border: 1px solid #b7b7b7 ; 
   margin-bottom: 5px;
@@ -65,7 +64,7 @@
 .UIPageNodeSelector .UITree .TreeContainer .Node .NodeLabel  {
   float: left ;
   cursor: pointer ;
-  height:20px; line-height: 20px; vertical-align: middle ;
+  height:20px; line-height: 20px;
   color: black; 
 }
 
@@ -83,7 +82,7 @@
 .UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
 	background: url('/eXoResources/icons/24x24/VistaSkin/EditNavigation.png') no-repeat left top;
 	cursor: pointer;
-	float: left;margin-left: -3px;
+	float: left; margin-left: -3px;
 	height: 22px; width: 19px;
 	display: block;
 }

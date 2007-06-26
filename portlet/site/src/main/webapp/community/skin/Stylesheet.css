@@ -76,7 +76,6 @@
 .UICommunityPortlet .UICommunityBody .TitleMiddle{   
   margin-right: 131px;
   line-height: 34px;
-  vertical-align: middle ;
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;
@@ -212,7 +211,6 @@
 
 .UICommunityPortlet .UICommunityBody .RightVerticalNavigation .NormalRightTab   {
   line-height: 31px;
-  vertical-align: middle; 
   border-top: solid 1px #b7b7b7;
   background: url('images/background/NormalRightNavigation1x36.jpg') repeat-x;
   padding: 2px 0px 2px 0px;
@@ -231,7 +229,6 @@
 
 .UICommunityPortlet .UICommunityBody .RightVerticalNavigation .SelectRightTab {
   line-height: 31px;
-  vertical-align: middle;
   border-top: solid 1px #b7b7b7;
   background: url('images/background/SelectRightNavigation1x36.jpg') repeat-x;
   padding: 2px 0px 2px 0px;
@@ -274,7 +271,7 @@
 .UICommunityPortlet .UICommunityBody .RightVerticalNavigation .GetSupportsMiddle{
   border-top: solid 1px #b7b7b7;
   border-bottom: solid 1px #b7b7b7;  
-  height: 38px; line-height: 38px; vertical-align: middle;
+  height: 38px; line-height: 38px; 
   background: white;
 }
 

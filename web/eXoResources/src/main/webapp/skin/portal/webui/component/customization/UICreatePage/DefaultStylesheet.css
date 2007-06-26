@@ -83,7 +83,7 @@
 
 .UICreatePage .UITree .TreeContainer .NodeSelected {
   background: #d8def4;
-  height: 16px ; line-height: 16px; vertical-align: middle;
+  height: 16px ; line-height: 16px; 
   border: 1px solid #b0c7e9;
   font-weight: bold; color: blue; 
   margin-left: 0px;
@@ -107,7 +107,6 @@
   margin: 0px 0px 0px 2px ;
   float: left ;
   height: 16px; line-height: 16px; 
-  vertical-align: middle ;
   color: black; font-weight: bold;
 }
 

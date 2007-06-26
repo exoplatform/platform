@@ -26,7 +26,7 @@
 .UIInfoBar .RoundedStyle .Title {
   float: left ;
   height: 24px; 
-  line-height: 24px; vertical-align: middle;
+  line-height: 24px;
   font-weight: bold ;
   overflow: visible ;
   margin: 0px 0px 0px 5px;
@@ -57,7 +57,7 @@
   float: left ; 
   text-align: left ;
   font-weight: bold ; color: black;
-  line-height: 15px; vertical-align: middle ;
+  line-height: 15px;
   margin: 4px 0px 0px 4px ;
 }
 
@@ -97,7 +97,7 @@
 .UIInfoBar .SimpleStyle .Title {
   float: left ;
   height: 21px ; line-height: 21px ;  
-  vertical-align: middle ; text-align: left ;
+  text-align: left ;
   margin: 0px 0px 0px 5px;
 }
 
@@ -121,7 +121,7 @@
 .UIInfoBar .FlatStyle .MiddleBar .Title {
   float: left ;
   height: 16px ; 
-  line-height: 16px; vertical-align: middle;
+  line-height: 16px;
   font-weight: bold; color: black; 
   padding: 0px 0px 0px 5px;
 }
@@ -248,7 +248,7 @@
 .UIInfoBar .GrayRoundedStyle .Title {
   float: left ;
   height: 27px ;
-  line-height: 27px ;  vertical-align: middle ;
+  line-height: 27px ; 
   color: #005cff ;
   font-weight: bold ; text-align: left ;
 }
@@ -284,6 +284,6 @@
 .UIInfoBar .LightBlueBevelStyle .Title {
   float: left ;
   height: 31px ; 
-  line-height: 31px ;  vertical-align: middle ;
+  line-height: 31px ; 
   font-weight: bold ; font-size: 12px;
 }

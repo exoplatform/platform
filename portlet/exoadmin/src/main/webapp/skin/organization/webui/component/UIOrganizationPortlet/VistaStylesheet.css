@@ -42,7 +42,7 @@
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
-  height: 18px; line-height: 18px; vertical-align: middle;
+  height: 18px; line-height: 18px; 
   padding-left: 10px;
 }
 
@@ -81,38 +81,18 @@
 	border: none;
 }
 
-.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer {
-	width: 70%;
-	margin: auto;
-	height: 28px;
-}
-
-.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer label {
-	width: 130px;
-	text-decoration: none;
-	line-height: 18px;
-}
-
-.UIOrganizationPortlet .UIFormTabPane .UIFormInputSet .FieldContainer input {
-	height: 20px;
-}
-
 .UIOrganizationPortlet .UIFormTabPane .UIPersonalInfo .UIFormInputSet {
 	border: none;
+}
+
+.UIOrganizationPortlet .UIUserManagement .UIFormInputSet .FieldContainer {
+	width: 410px;
+	margin: auto;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer {
 	width: 410px;
 	margin: auto;
-	height: 22px;
-	padding: 0px 0px 8px 0px;
-}
-
-.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .FieldContainer label {
-	width: 120px;
-	text-decoration: none;
-	line-height: 18px;
-	margin: 0px 8px 0px 0px;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
@@ -270,15 +250,6 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle .UIAction {  
   width: 80px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIForm .HorizontalLayout label {
-  width: 190px;
-  margin: 0px 10px 0px 0px;
-}
-
-.UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer label {
-	width: 100px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {

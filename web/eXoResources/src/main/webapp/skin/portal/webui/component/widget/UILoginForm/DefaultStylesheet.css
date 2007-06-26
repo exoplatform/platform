@@ -79,8 +79,8 @@
 .UILoginForm .LoginDetailBox .CheckField {
   height: 20px;
   width: 190px;
-  margin: auto 40px 0px auto;
-  padding-left: 30px;
+  margin: 0px auto;
+  padding-left: 76px;
 }
 
 .UILoginForm .LoginDetailBox .CheckField input {
@@ -92,7 +92,7 @@
 .UILoginForm .LoginDetailBox .CheckField .RememberLoginTitle {
   float: left;
   margin-left: 7px;
-  line-height: 20px; vertical-align: middle;
+  line-height: 20px;
 }
 
 .UILoginForm .LoginDetailBox label {
@@ -118,7 +118,7 @@
   height: 26px; line-height: 26px; text-align: right;
   color: blue ;
   white-space: nowrap;
-  padding: 0px 10px 0px 0px;
+  padding: 0px 70px 0px 0px;
   cursor: pointer;
 }
 

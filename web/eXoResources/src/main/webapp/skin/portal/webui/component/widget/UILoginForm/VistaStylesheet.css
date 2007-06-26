@@ -96,7 +96,7 @@
 .UILoginForm .LoginDetailBox .CheckField .RememberLoginTitle {
   float: left;
   margin-left: 7px;
-  line-height: 20px; vertical-align: middle;
+  line-height: 20px; 
 }
 
 .UILoginForm .LoginDetailBox label {

@@ -53,7 +53,6 @@
 .UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemListTitle {
 	height: 28px ; 
 	line-height: 27px ; 
-	vertical-align: middle;
 	margin: 0px 0px 0px 0px;
 	background: url('DefaultSkin/background/MenuBackground1x27.gif') repeat-x ;
 }

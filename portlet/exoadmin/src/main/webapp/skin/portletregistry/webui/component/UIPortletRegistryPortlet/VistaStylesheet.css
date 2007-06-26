@@ -22,17 +22,8 @@
   margin: auto;
 }
 
-.UIApplicationRegistryPortlet .UIPopupWindow .UIWindowContent .Content {
-  padding: 20px;
-  overflow: auto;
-}
-
 .ApplicationRegistryWorkingArea .UIFormWithTitle .UIForm .UIAction {
   width: 150px;
-}
-
-.ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout label {
-  width: 185px;
 }
 
 
@@ -195,4 +186,5 @@
 
 .ApplicationRegistryWorkingArea .UIForm .HorizontalLayout .UIAction {
   width: 170px;
+  border: 1px soild red;
 }

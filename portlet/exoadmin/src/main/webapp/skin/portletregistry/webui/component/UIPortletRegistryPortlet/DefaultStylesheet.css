@@ -55,10 +55,6 @@
   padding-left: 15px;
 }
 
-.UIApplicationRegistryPortlet .UIPopupWindow .UIWindowContent .Content {
-  padding: 10px;
-}
-
 .UIApplicationRegistryPortlet .UIFormWithTitle .UIForm .UIAction {
   width: 150px;
   padding-left: 10px;
@@ -261,8 +257,4 @@
 .ApplicationRegistryWorkingArea .UIAvailablePortletForm .UIGrid {
   width: 99%;
   margin: auto;
-}
-
-.ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout label {
-  width: 175px;
 }

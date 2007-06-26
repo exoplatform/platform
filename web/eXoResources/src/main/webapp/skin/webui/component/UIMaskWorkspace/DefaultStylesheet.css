@@ -341,10 +341,6 @@
 }
 
 /**************************************Container Form*************************************/
-.UIContainerForm .HorizontalLayout .FormContainer .FieldContainer label {
-  width: 150px;
-}
-
 .UIMaskWorkspace .UIContainerForm .UIForm .UIAction  {
   width: 150px;
 }

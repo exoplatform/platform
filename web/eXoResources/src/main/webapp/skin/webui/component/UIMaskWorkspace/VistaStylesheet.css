@@ -2,10 +2,6 @@
    width: 700px ;
 }
 
-.UIMaskWorkspace .UIForm .HorizontalLayout label {
-	width:105px;
-}
-
 .UIMaskWorkspace .ContentContainer {
   background:#ffffff;
   border: solid 1px #5a5b5d ;

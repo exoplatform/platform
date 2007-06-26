@@ -53,8 +53,6 @@
   height: 33px ;
   padding: 0px 5px 0px 2px ;
   cursor: pointer ;
-  display: inherit;
-  visibility: inherit;
 }
 
 .UIExoStart .StartMenuContainer .PortalIcon {
@@ -196,7 +194,6 @@
   padding: 0px 25px 0px 0px ;
   display: inherit;
   visibility: inherit;
-  width: auto;
 }
 
 .UIExoStart .StartMenuContainer .NavigationBackground {
@@ -212,7 +209,6 @@
 
 .UIExoStart .StartMenuContainer .NavigationArrowIcon {
   height: 30px ;
-  vertical-align: middle ;
   background: url('DefaultSkin/icons/24x24/GreenArrow.gif') no-repeat right ;
   padding: 0px 35px 0px 0px ;
 }

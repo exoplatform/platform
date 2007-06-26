@@ -18,12 +18,7 @@
 }
 
 .UIFormWithTitle .HorizontalLayout .FormContainer {
-  padding: 10px 18px 6px 18px;
-}
-
-.UIFormWithTitle .HorizontalLayout .FormContainer label {
-  width:100px;
-  line-height: 20px;
+  padding: 5px 15px;
 }
 
 .UIFormWithTitle .HorizontalLayout .FieldContainer .FieldLabel {

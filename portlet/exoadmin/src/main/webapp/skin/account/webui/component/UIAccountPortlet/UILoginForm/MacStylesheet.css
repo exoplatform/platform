@@ -6,13 +6,13 @@
 
 .UIWelcomePortlet .WelcomeText {
   color: black; font-size: 12px;
-  height: 20px; line-height: 20px; vertical-align: middle;
+  height: 20px; line-height: 20px;
   float: left;
 }
 
 .UIWelcomePortlet .LoggedUser {
   float:left;
-  height: 20px;line-height: 20px; vertical-align: middle;  
+  height: 20px;line-height: 20px;
   text-align: left; color: blue; font-size: 12px;
   margin-left: 5px;
 }

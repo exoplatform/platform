@@ -180,8 +180,8 @@
   	                    restore = "Restore";
 	                    }
 	                %>
-    	                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction"  title="$restore" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
-	                		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction"  title="$restoreDown" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+    	                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction"  title="Minimize" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+	                		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction"  title="Maximize" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	                <%}%>    
 	                <%
 	                  if(isWindow && (rcontext.getRemoteUser() != null)) {

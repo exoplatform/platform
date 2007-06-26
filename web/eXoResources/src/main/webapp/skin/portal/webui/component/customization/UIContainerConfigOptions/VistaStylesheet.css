@@ -20,7 +20,6 @@
   text-align: center; 
   font-weight: bold ;
   height: 20px ; line-height: 20px ;
-  vertical-align: middle;
   border: 1px solid #6c767c;
   background: url('/eXoResources/background/VistaSkin/IconLabelContentBG1x1.png') repeat;  
  }
@@ -37,7 +36,7 @@
 
 .UIContainerConfigOptions .Title .TitleContainer .LabelText {
 	padding-left: 3px;
-	height: 20px; line-height: 20px; vertical-align: middle;
+	height: 20px; line-height: 20px; 
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .ArrowButton {

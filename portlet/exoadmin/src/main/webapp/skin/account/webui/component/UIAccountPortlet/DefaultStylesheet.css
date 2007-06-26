@@ -57,10 +57,6 @@
   padding:0px;
 }
 
-.UIAccountPortlet .UIItemSelector .ItemDetailList .UIFormInputSet label {
-  white-space: nowrap; 
-}
-
 /*########################-Template Selector-###########################*/
 
 .UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnBigItemStyle .ItemList {

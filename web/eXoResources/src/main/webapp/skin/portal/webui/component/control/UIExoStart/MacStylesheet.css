@@ -211,7 +211,6 @@
 
 .UIExoStart .StartMenuContainer .NavigationArrowIcon {
   height: 32px ;
-  vertical-align: middle ;
   background: url('MacSkin/icons/32x32/GrayArrowButton.png') no-repeat right ;
   padding: 0px 35px 0px 0px ;
 }
@@ -248,7 +247,7 @@
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
   height: 19px ; 
-  line-height: 19px; vertical-align: middle;
+  line-height: 19px; 
   background: url('MacSkin/background/TitleBG1x19.gif') repeat-x ;
   padding: 0px 0px 0px 10px ;
   border-bottom: solid 1px #a4b0b0 ;

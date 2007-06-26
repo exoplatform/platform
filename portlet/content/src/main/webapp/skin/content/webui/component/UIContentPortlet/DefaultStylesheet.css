@@ -191,7 +191,7 @@
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs a.CategoryName {
   float: left;
   color: #058ee6;
-  line-height: 18px; vertical-align: middle;
+  line-height: 18px; 
   cursor: pointer;
 }
 

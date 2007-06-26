@@ -17,7 +17,7 @@
 }
 
 .UIBarStyle .RoundedBarStyle .MiddleBar {
-  height: 25px; line-height: 25px; vertical-align: middle;
+  height: 25px; line-height: 25px;
   background: url('DefaultSkin/background/WhiteRoundedBarM1x25.gif') repeat-x;  
 }
 
@@ -37,7 +37,7 @@
 }
 
 .UIBarStyle StyleBar .MiddleBar {
-  height: 22px; line-height: 22px; vertical-align: middle;
+  height: 22px; line-height: 22px; 
   background: url('MacSkin/background/MacStyleBarM1x22.gif') repeat-x;
 }
 
@@ -57,7 +57,7 @@
 }
 
 .UIBarStyle .GrayRoundedBarStyle .MiddleBar {
-  height: 26px; line-height: 26px; vertical-align: middle;
+  height: 26px; line-height: 26px;
   background: url('MacSkin/background/GrayRoundedBarCenter1x26.gif') repeat-x;  
 }
 
@@ -80,7 +80,6 @@
 
 .UIBarStyle .BarStyle2 .MiddleBar {
   height: 37px; line-height: 37px;
-  vertical-align: middle;
   background: url('MacSkin/background/RoundedTopBarM1x37.gif') repeat-x;
 }
 
@@ -173,7 +172,7 @@
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .MiddleBar {
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px;
   background: white;
   border-top: solid 1px #c0bfbf;
   border-bottom: solid 1px #c0bfbf;  
@@ -195,7 +194,7 @@
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .MiddleBar {
-  height: 36px; line-height: 36px; vertical-align: middle;
+  height: 36px; line-height: 36px; 
   background: url('MacSkin/background/GrayPolygonBigBarCenter1x36.gif') repeat-x;
 }
 
@@ -215,7 +214,7 @@
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .MiddleBar {
-  height: 36px; line-height: 36px; vertical-align: middle;
+  height: 36px; line-height: 36px;
   background: url('MacSkin/background/BluePolygonBigBarCenter1x36.gif') repeat-x;
 }
 
@@ -235,7 +234,7 @@
 }
 
 .UIBarStyle .BluePolygonBarStyle .MiddleBar {
-  height: 37px; line-height: 37px; vertical-align: middle;
+  height: 37px; line-height: 37px; 
   background: url('MacSkin/background/RoundedTopBarM1x37.gif') repeat-x;
 }
 
@@ -255,7 +254,7 @@
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .MiddleBar {  
-  line-height: 32px; vertical-align: middle;
+  line-height: 32px;
   background: url('MacSkin/background/NavyBlueBar32Center1x32.gif') repeat-x;
 }
 
@@ -275,7 +274,7 @@
 }
 
 .UIBarStyle .GrayRoundedFlatBarStyle .MiddleBar {
-  height: 33px; line-height: 33px; vertical-align: middle;
+  height: 33px; line-height: 33px; 
   background: #f3f3f3;
   border-top: solid 1px #c6c6c9;
   border-bottom: solid 1px #c6c6c9;
@@ -297,7 +296,7 @@
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .MiddleBar {
-  height: 32px; line-height: 32px; vertical-align: middle;
+  height: 32px; line-height: 32px; 
   background: url('MacSkin/background/NavyBluePolygonCenter1x32.gif') repeat-x;
 }
 

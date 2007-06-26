@@ -26,7 +26,7 @@
 .UIInfoBar .RoundedStyle .Title {
   float: left ;
   height: 24px; 
-  line-height: 24px; vertical-align: middle;
+  line-height: 24px;
   font-weight: bold ;
   overflow: visible ;
   margin: 0px 0px 0px 5px;
@@ -121,7 +121,7 @@
 .UIInfoBar .FlatStyle .MiddleBar .Title {
   float: left ;
   height: 16px ; 
-  line-height: 16px; vertical-align: middle;
+  line-height: 16px; 
   font-weight: bold; color: black; 
   padding: 0px 0px 0px 5px;
 }

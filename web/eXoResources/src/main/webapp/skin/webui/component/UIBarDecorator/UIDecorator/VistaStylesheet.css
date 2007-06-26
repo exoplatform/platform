@@ -16,7 +16,7 @@
 .LineDecorator23px {
 	height: 20px;	
 	background: url('VistaSkin/background/TitleBG1x20.gif') repeat-x;
-	line-height: 20px; vertical-align: middle;
+	line-height: 20px;
 	margin: 1px 0px 0px 0px ;
   border: solid 1px #cdcdcd;
 }

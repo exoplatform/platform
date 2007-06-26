@@ -53,7 +53,7 @@
 .UIPortletOptions .Title .TitleContainer .LabelText {
 	padding-left: 7px;
 	float: left;
-	height: 20px; line-height: 20px; vertical-align: middle;
+	height: 20px; line-height: 20px; 
 }
 
 .UIPortletOptions .Title .TitleContainer .ArrowButton {

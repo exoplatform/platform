@@ -109,7 +109,7 @@
 }
 
 .UICreatePage .UITree .TreeContainer .NodeSelected {
-  height: 16px ; line-height: 16px; vertical-align: middle;
+  height: 16px ; line-height: 16px; 
   width: auto; 
 }
 
@@ -129,5 +129,5 @@
 .UICreatePage .UITree .TreeContainer .NodeLabel a {
   margin-left: 0px ; padding-left: 2px; 
   height: 16px ; width: auto;
-  vertical-align: middle ; line-height: 16px ;
+  line-height: 16px ;
 }

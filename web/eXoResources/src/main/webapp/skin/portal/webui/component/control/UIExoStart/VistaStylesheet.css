@@ -232,7 +232,6 @@
 
 .UIExoStart .StartMenuContainer .NavigationArrowIcon {
   height: 30px ;
-  vertical-align: middle ;
   background: url('VistaSkin/icons/32x32/Navigation.png') no-repeat right ;
   padding: 0px 35px 0px 0px ;
 }

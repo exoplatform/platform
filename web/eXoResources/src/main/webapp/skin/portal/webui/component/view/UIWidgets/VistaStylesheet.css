@@ -126,11 +126,11 @@
 }	
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollDownButton{
-	background: url('VistaSkin/icons/DownSelectIcon.png') no-repeat center;
+	background: url('VistaSkin/icons/DownNomalIcon.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollDownButton{
-	background: url('VistaSkin/icons/DownNomalIcon.png') no-repeat center;
+	background: url('VistaSkin/icons/DownSelectIcon.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollUpButton{

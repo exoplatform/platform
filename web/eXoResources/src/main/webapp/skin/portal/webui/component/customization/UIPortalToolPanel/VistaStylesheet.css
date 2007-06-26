@@ -59,7 +59,6 @@
 .UIPortalToolPanel .Banner {
   background: url('VistaSkin/background/EditBannerRepeatBg4x92.png') repeat-x ;
   height: 92px ;
-  vertical-align: middle ;
   line-height: 92px ; text-align: center ;
 }
 
@@ -91,7 +90,6 @@
   height: 32px ;
   padding: 4px 0px 0px 0px ;
   line-height:32px ;
-  vertical-align: middle ;
 }
 
 .UIPortalToolPanel .Footer .FooterInfoContainer {
@@ -107,7 +105,7 @@
 
 .UIPortalToolPanel .Footer .CopyrightInfo .CopyrightText {
   float: left;
-  height: 18px ; line-height: 18px ; vertical-align: middle; 
+  height: 18px ; line-height: 18px ; 
   width: 260px ;
   padding-left: 5px ;
 }
@@ -115,7 +113,7 @@
 .UIPortalToolPanel .Footer .CopyrightInfo .CompanyTitleText {
   float: right ;
   height: 18px ; 
-  line-height: 18px ; vertical-align: middle; 
+  line-height: 18px ; 
   width: 124px ;
   font-size: 10px ;
   padding-left: 5px ;
@@ -149,7 +147,6 @@
 .UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemListTitle{
 	height: 28px ; 
 	line-height: 27px ; 
-	vertical-align: middle;
 	font-weight: bold;
 	margin: 0px 0px 0px 0px;
 	background: url('VistaSkin/background/TitleBG1x28.gif') repeat-x ;

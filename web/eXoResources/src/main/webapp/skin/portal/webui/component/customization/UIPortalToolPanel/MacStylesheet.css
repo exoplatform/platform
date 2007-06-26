@@ -11,7 +11,6 @@
 .UIPortalToolPanel .Banner {
   background: url('MacSkin/background/EditBannerRepeat1x121.jpg') repeat-x ;
   height: 121px ;
-  vertical-align: middle ;
   line-height: 121px ; text-align: center;
 }
 
@@ -57,7 +56,6 @@
 .UIPortalToolPanel .Footer {
   height: 32px ;
   line-height: 32px ;
-  vertical-align: middle ;
 }
 
 .UIPortalToolPanel .Footer .LeftFooter {
@@ -103,7 +101,7 @@
 }
 
 .UIPortalToolPanel .Footer .Footer .CopyrightText {
-  height: 20px ; width: 380px;  line-height: 20px ;  vertical-align: middle ;
+  height: 20px ; width: 380px;  line-height: 20px ;
   text-align: center;
   border: 1px solid #5f90ba ;
   background: white;
@@ -139,7 +137,6 @@
 .UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemListTitle{
 	height: 28px ; 
 	line-height: 27px ; 
-	vertical-align: middle;
 	font-weight: bold;
 	margin: 0px 0px 0px 0px;
 	background: url('MacSkin/background/TitleBG1x28.gif') repeat-x ;

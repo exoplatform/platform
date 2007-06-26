@@ -26,7 +26,7 @@
 .UIInfoBar .RoundedStyle .Title {
   float: left ;
   height: 26px; 
-  line-height: 26px; vertical-align: middle;
+  line-height: 26px; 
   overflow: visible ;
   margin: 0px 0px 0px 5px;
 }
@@ -52,7 +52,7 @@
 }
 
 .UIInfoBar .GrayRounded .TitleBar {
-  height: 23px; line-height: 23px; vertical-align: middle;
+  height: 23px; line-height: 23px;
   overflow: visible ;
   float: left ;
   margin-left: 5px;
@@ -121,7 +121,7 @@
 .UIInfoBar .SimpleStyle .Title {
   float: left ;
   height: 21px ;
-  line-height: 21px ;  vertical-align: middle ;
+  line-height: 21px ; 
   text-align: left ;
   margin-left: 5px;
 }

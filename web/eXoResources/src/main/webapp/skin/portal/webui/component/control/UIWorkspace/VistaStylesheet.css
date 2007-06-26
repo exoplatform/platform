@@ -17,7 +17,7 @@
   height: 23px ;
   background: url('VistaSkin/background/UserWorkspaceTitleBG1x23.png') repeat-x ;
   font-weight: bold ;
-  line-height: 22px ; vertical-align: middle ;
+  line-height: 22px ; 
   margin-right: 2px ; text-align: center;
 }
 
@@ -110,7 +110,7 @@
 .WarningLayer {
 	width: 300px ;	height: 100px ;
 	background: white ;
-	line-height: 100px ;	vertical-align: middle ;
+	line-height: 100px ;	
 	text-align: center ;
 	position: absolute ;
 	opacity: 0.5 !important ;
