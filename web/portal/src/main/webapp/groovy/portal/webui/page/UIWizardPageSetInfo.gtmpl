@@ -28,20 +28,22 @@
 			  	<div class="TitleBar"><%=_ctx.appRes(uicomponent.getId() + ".title")%></div>			  
 				  <div class="HorizontalLayout">
 				  	<div class="FormContainer">
-						  <%  
-						    List children = uiform.getChildren();		
-						    int bound = children.size() - 1;
-						    for(i in 1..bound) { 
-						      if(children.get(i).isRendered()) {			    		   
-						  %>
-						        <div class="FieldContainer">		          					
-								      <label><%=uicomponent.getLabel(children.get(i).getName())+": " %></label>
-								      <% uiform.renderField(children.get(i)) %>
-								    </div>
-						  <%
-						      }
-						    }	    
-						  %>
+  				  	<table class="UIFormGrid">
+							  <%  
+							    List children = uiform.getChildren();		
+							    int bound = children.size() - 1;
+							    for(i in 1..bound) { 
+							      if(children.get(i).isRendered()) {			    		   
+							  %>
+							        <tr>
+									      <td class="FieldLabel"><%=uicomponent.getLabel(children.get(i).getName())+": " %></td>
+									      <td class="FieldComponent"><% uiform.renderField(children.get(i)) %></td>
+									    </tr>
+							  <%
+							      }
+							    }	    
+							  %>
+						  </table>
 						</div>
 					</div> 
 					

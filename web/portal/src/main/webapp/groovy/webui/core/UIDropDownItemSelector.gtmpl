@@ -3,7 +3,6 @@
 	import org.exoplatform.web.application.JavascriptManager;
   import org.exoplatform.webui.core.UIComponent;
 	
-	
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	jsmanager.importJavascript('eXo.webui.UIDropDownItemSelector') ;
@@ -22,7 +21,7 @@
 	maxShow = size + 1;
 %>
 
-<div id="UIDropDownItemSelector" class="UIDropDownItemSelector">
+<div id="UIDropDownItemSelector" class="UIDropDownItemSelector" onmousedown="event.cancelBubble = true;">
 	<div class="ItemSelectorContainer">
 	  <%if(uicomponent.isEnable()){%>
 	  	<div class="ItemInfoBar" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
