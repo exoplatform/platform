@@ -15,7 +15,7 @@ import org.exoplatform.portal.config.model.PageNode;
  *          nhudinhthuan@exoplatform.com
  * Jun 27, 2007  
  */
-public class NavigationUtils {
+public class PageNavigationUtils {
   
   public static void removeNode(List<PageNode> list, String uri) {
     if(list == null) return;
@@ -27,12 +27,12 @@ public class NavigationUtils {
     }
   }
   
-  public static PageNode[] findPageNodesByUri(PageNode node, String uri){
+  public static PageNode[] searchPageNodesByUri(PageNode node, String uri){
     if(node.getUri().equals(uri) ) return new PageNode[] {null, node};
     if(node.getChildren() == null) return null;
     List<PageNode> children = node.getChildren(); 
     for(PageNode ele : children) {
-      PageNode[] returnNodes = findPageNodesByUri(ele, uri);
+      PageNode[] returnNodes = searchPageNodesByUri(ele, uri);
       if(returnNodes != null) {
         if(returnNodes[0] == null) returnNodes[0] = node;
         return returnNodes;
@@ -41,32 +41,32 @@ public class NavigationUtils {
     return null;
   }
   
-  public static PageNode[] findPageNodesByUri(PageNavigation nav, String uri){
+  public static PageNode[] searchPageNodesByUri(PageNavigation nav, String uri){
     if(nav.getNodes() == null) return null;
     List<PageNode> nodes = nav.getNodes(); 
     for(PageNode ele : nodes) {
-      PageNode [] returnNodes = findPageNodesByUri(ele, uri);
+      PageNode [] returnNodes = searchPageNodesByUri(ele, uri);
       if(returnNodes != null) return returnNodes;
     }
     return null;
   }
   
-  public static PageNode findPageNodeByUri(PageNode node, String uri){
+  public static PageNode searchPageNodeByUri(PageNode node, String uri){
     if(node.getUri().equals(uri) ) return node;
     if(node.getChildren() == null) return null;
     List<PageNode> children = node.getChildren(); 
     for(PageNode ele : children) {
-      PageNode returnNode = findPageNodeByUri(ele, uri);
+      PageNode returnNode = searchPageNodeByUri(ele, uri);
       if(returnNode != null) return returnNode;
     }
     return null;
   }
   
-  public static PageNode findPageNodeByUri(PageNavigation nav, String uri){
+  public static PageNode searchPageNodeByUri(PageNavigation nav, String uri){
     if(nav.getNodes() == null) return null;
     List<PageNode> nodes = nav.getNodes(); 
     for(PageNode ele : nodes) {
-      PageNode returnNode = findPageNodeByUri(ele, uri);
+      PageNode returnNode = searchPageNodeByUri(ele, uri);
       if(returnNode != null) return returnNode;
     }
     return null;

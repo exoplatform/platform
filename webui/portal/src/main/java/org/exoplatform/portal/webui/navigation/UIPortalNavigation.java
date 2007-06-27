@@ -75,9 +75,9 @@ public class UIPortalNavigation extends UIComponent {
     if(index > 0) parentUri = seletctUri.substring(0, seletctUri.lastIndexOf("/"));
     List <PageNavigation> pageNavs = getNavigations() ;
     for(PageNavigation pageNav : pageNavs) {
-      if( NavigationUtils.findPageNodeByUri(pageNav, selectedNode.getUri()) != null){
+      if( PageNavigationUtils.searchPageNodeByUri(pageNav, selectedNode.getUri()) != null){
         if(parentUri == null || parentUri.length() < 1 ) selectedParent_ = pageNav;
-        else selectedParent_ = NavigationUtils.findPageNodeByUri(pageNav, parentUri);
+        else selectedParent_ = PageNavigationUtils.searchPageNodeByUri(pageNav, parentUri);
         break;
       }
     } 
@@ -96,13 +96,13 @@ public class UIPortalNavigation extends UIComponent {
         String navId = uri.substring(0, index);
         selectNav = uiPortal.getPageNavigation(navId);
       }
-      PageNode selectNode = NavigationUtils.findPageNodeByUri(selectNav, id);
+      PageNode selectNode = PageNavigationUtils.searchPageNodeByUri(selectNav, id);
       uiNavigation.selectedNode_ = selectNode;
       String parentUri = null;
       index = uri.lastIndexOf("/");
       if(index > 0) parentUri = uri.substring(0, index);
       if(parentUri == null || parentUri.length() < 1) uiNavigation.selectedParent_ = selectNav;
-      else uiNavigation.selectedParent_ = NavigationUtils.findPageNodeByUri(selectNav, parentUri);
+      else uiNavigation.selectedParent_ = PageNavigationUtils.searchPageNodeByUri(selectNav, parentUri);
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
       if(uiPageBody != null) {
         if(uiPageBody.getMaximizedUIComponent() != null) {
@@ -131,13 +131,13 @@ public class UIPortalNavigation extends UIComponent {
         String navId = uri.substring(0, index);
         selectNav = uiPortal.getPageNavigation(navId);
       }
-      PageNode selectNode = NavigationUtils.findPageNodeByUri(selectNav, id);
+      PageNode selectNode = PageNavigationUtils.searchPageNodeByUri(selectNav, id);
       uiNavigation.selectedNode_ = selectNode;
       String parentUri = null;
       index = uri.lastIndexOf("/");
       if(index > 0) parentUri = uri.substring(0, index);
       if(parentUri == null || parentUri.length() < 1) uiNavigation.selectedParent_ = selectNav;
-      else uiNavigation.selectedParent_ = NavigationUtils.findPageNodeByUri(selectNav, parentUri);
+      else uiNavigation.selectedParent_ = PageNavigationUtils.searchPageNodeByUri(selectNav, parentUri);
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
       if(uiPageBody != null) {
         if(uiPageBody.getMaximizedUIComponent() != null) {

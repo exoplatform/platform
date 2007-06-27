@@ -228,7 +228,7 @@ public class UIPageNodeActionListener {
       PageNavigation nav = uiPageNodeSelector.getSelectedNavigation();
       if(nav == null) return;
       
-      PageNode [] pageNodes = NavigationUtils.findPageNodesByUri(nav, uri);
+      PageNode [] pageNodes = PageNavigationUtils.searchPageNodesByUri(nav, uri);
       if(pageNodes == null) return;
       if(pageNodes[0] == null) {
         nav.getNodes().remove(pageNodes[1]);
@@ -251,7 +251,7 @@ public class UIPageNodeActionListener {
       
       PageNavigation nav = uiPageNodeSelector.getSelectedNavigation();
       if(nav == null) return;
-      PageNode [] pageNodes = NavigationUtils.findPageNodesByUri(nav, uri);
+      PageNode [] pageNodes = PageNavigationUtils.searchPageNodesByUri(nav, uri);
       if(pageNodes == null) return;
       SelectedNode selectedNode = new SelectedNode(nav, pageNodes[0], pageNodes[1]);
       selectedNode.setDeleteNode(false);
@@ -298,7 +298,7 @@ public class UIPageNodeActionListener {
       }
       
       PageNavigation targetNav = uiPageNodeSelector.getSelectedNavigation();
-      PageNode targetNode = NavigationUtils.findPageNodeByUri(targetNav, targetUri);
+      PageNode targetNode = PageNavigationUtils.searchPageNodeByUri(targetNav, targetUri);
       if(targetNode != null) newNode.setUri(targetNode.getUri()+"/"+newNode.getUri());
 
       if( (targetNode != null && hasNode(targetNode, newNode.getUri())) || 
