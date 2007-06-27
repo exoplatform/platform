@@ -50,6 +50,7 @@ public class PageNode  {
   
   public void addChild(PageNode node){
     if(children == null) children = new ArrayList<PageNode>();
+//    node.setUri(uri + "/" + node.name);
     children.add(node);
 //    node.setParent(this);
 //    node.setNavigation(navigation);
@@ -114,6 +115,18 @@ public class PageNode  {
   }
 
   public void removeNode(PageNode page) { children.remove(page); }
+  
+  public PageNode getChildNodeByName(String nodeName){
+    String childUri = getUri()+ "/" + nodeName;
+    for(PageNode ele: children){
+      if( ele.getUri().equals(childUri) ) return ele; 
+    }
+    return null;
+  }
+  
+  public boolean hasChildNode(String nodeName){
+    return getChildNodeByName(nodeName)!= null;
+  }
 
 //  public PageNavigation getNavigation() {
 //    return navigation;
