@@ -60,25 +60,6 @@ public class PageNavigation {
   
   public String getId() { return ownerType +"::"+ownerId; }
   
-  public PageNode getNode(int idx) {  return pageNodes.get(idx); }
-
-  public PageNode removeNode(int idx) {  
-    PageNode node = pageNodes.get(idx);
-    pageNodes.remove(idx);
-    return node;
-  }  
-
-  public void removeNode(String uri) {
-    for(PageNode pageNode: pageNodes){
-      if(pageNode.getUri().equalsIgnoreCase(uri)) {
-        pageNodes.remove(pageNode);
-        break;
-      }
-    }
-  }
-
-  public void removeNode(PageNode page) { pageNodes.remove(page); }
-
   public void addNode(PageNode node) {
     if(pageNodes == null) pageNodes = new ArrayList<PageNode>();
     pageNodes.add(node); 
@@ -105,24 +86,5 @@ public class PageNavigation {
     }
     return newNav;
   }
-  
-  public PageNode findPageNodeByUri(String uri){
-    if(uri  == null ) return null;
-    if( pageNodes == null ) return null;
-    for(PageNode page: pageNodes) {
-      PageNode resuilt = page.findPageNodeByUri( uri);
-      if(resuilt!= null) return resuilt;
-    }
-    return null;
-  }
-  
-
-  public boolean hasNode(PageNode p){
-    if(p == null) return false;
-    return (findPageNodeByUri(p.getUri()) != null);
-  }
-  
-  public boolean hasNode(String uri){
-    return (findPageNodeByUri(uri) != null);
-  }
+ 
 }

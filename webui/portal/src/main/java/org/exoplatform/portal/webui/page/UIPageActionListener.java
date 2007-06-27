@@ -81,8 +81,8 @@ public class UIPageActionListener {
         PageNavigation selectedNav = null;
         if( navigations.size() >0) selectedNav = navigations.get(0);
         if(selectedNav != null && selectedNav.getNodes().size() > 0) {
-          selectedPaths_.add(selectedNav.getNode(0));
-          uiPortal.setSelectedNode(selectedNav.getNode(0));
+          selectedPaths_.add(selectedNav.getNodes().get(0));
+          uiPortal.setSelectedNode(selectedNav.getNodes().get(0));
         }
         uiPortal.setSelectedPaths(selectedPaths_);  
         uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);

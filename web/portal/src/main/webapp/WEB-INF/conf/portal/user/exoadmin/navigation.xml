@@ -14,12 +14,14 @@
 	    
 	    <node>
 		    <uri>sitemap/testform</uri>
+		    <name>testform</name>
 		    <label>Test Form</label>
 		    <page-reference>user::exoadmin::testform</page-reference>
 		  </node>
 		 
 		  <node>
 		    <uri>sitemap/hello</uri>
+		    <name>hello</name>
 		    <label>Hello</label>
 		    <page-reference>user::exoadmin::hello</page-reference>
 		  </node>

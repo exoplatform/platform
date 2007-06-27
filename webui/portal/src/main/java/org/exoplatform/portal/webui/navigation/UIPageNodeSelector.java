@@ -26,7 +26,6 @@ import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditSele
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.PasteNodeActionListener;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
-import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
@@ -34,7 +33,6 @@ import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIBreadcumbs;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIDropDownItemSelector;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
@@ -94,8 +92,8 @@ public class UIPageNodeSelector extends UIContainer {
   private PageNode selectedPageNode;
   
   private String upLevelURI ;
-  private boolean cut_;
-  private  String copyNodeUri_;
+  
+  private SelectedNode copyNode;
   
 	public UIPageNodeSelector() throws Exception {    
     addChild(UIRightClickPopupMenu.class, "UIPageNodeSelectorPopupMenu", null).setRendered(false);  
@@ -125,7 +123,7 @@ public class UIPageNodeSelector extends UIContainer {
       if(nav.isModifiable()) navigations_.add(nav.clone()) ;
     }
     
-    setDropdownItemSelector() ;
+    refreshUI() ;
     
     PageNavigation portalSelectedNav = Util.getUIPortal().getSelectedNavigation() ;
     if(getNavigation(portalSelectedNav.getId()) != null) {
@@ -137,7 +135,7 @@ public class UIPageNodeSelector extends UIContainer {
     loadSelectedNavigation();
   }
   
-  private void setDropdownItemSelector() {
+  private void refreshUI() {
     if(navigations_ == null || navigations_.size() < 1) {
       getChild(UIDropDownItemSelector.class).setOptions(null) ;
       getChild(UIDropDownItemSelector.class).setSelectedItem(null) ;
@@ -179,22 +177,6 @@ public class UIPageNodeSelector extends UIContainer {
     }
   }
   
-  public PageNode getCopyNode(){
-    if(copyNodeUri_ == null || copyNodeUri_.length() < 1)  return null;
-    int index = copyNodeUri_.lastIndexOf("::");
-    if(index < 1) return null;
-    String navId = copyNodeUri_.substring(0, index );
-    String nodeId = copyNodeUri_.substring(index + 2);
-    PageNavigation nav = null;
-    for(PageNavigation ele: navigations_){
-      if(ele.getId().equals(navId)){
-        nav = ele;
-        break;
-      }
-    }
-    if(nav == null) return null;
-    return nav.findPageNodeByUri(nodeId);
-  }
   public void selectPageNodeByUri(String uri){    
     upLevelURI = null; 
     UITree tree = getChild(UITree.class);
@@ -284,7 +266,7 @@ public class UIPageNodeSelector extends UIContainer {
   public void addNavigation(PageNavigation navi) {
     if(navigations_ == null) navigations_ = new ArrayList<PageNavigation>() ;
     navigations_.add(navi) ;
-    setDropdownItemSelector() ;
+    refreshUI() ;
   }
   
   public void removeNavigation(PageNavigation navi) {
@@ -293,7 +275,7 @@ public class UIPageNodeSelector extends UIContainer {
     while(itr.hasNext()){
       if(itr.next().getId().equals(navi.getId())) itr.remove() ;
     }
-    setDropdownItemSelector() ;
+    refreshUI() ;
   }
 
   private PageNavigation getNavigation(String id) {
@@ -302,6 +284,9 @@ public class UIPageNodeSelector extends UIContainer {
     }
     return null ;
   }
+  
+  public SelectedNode getCopyNode() { return copyNode; }
+  public void setCopyNode(SelectedNode copyNode) { this.copyNode = copyNode; }
   
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {      
@@ -350,7 +335,7 @@ public class UIPageNodeSelector extends UIContainer {
       
       uiEditBar.setUIPage(uiPage);
       Class<?> [] childrenToRender = {UIPageEditBar.class, 
-                                   UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+                                      UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
       uiParent.setRenderedChildrenOfTypes(childrenToRender);
     }
   }
@@ -362,46 +347,40 @@ public class UIPageNodeSelector extends UIContainer {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent()) ;
       if(id == null) {
         uiPageNodeSelector.setSelectedNavigation(null);
-        return;
+      } else {
+        uiPageNodeSelector.selectNavigation(id);
       }
-      uiPageNodeSelector.selectNavigation(id);
     }
   }
 
-  public void setCut(boolean b) { cut_ = b; }
-  public boolean isCut(){ return cut_;}
+  public static class SelectedNode {
+    
+    private PageNavigation nav;
+    
+    private PageNode parentNode;
+    
+    private PageNode node;
+    
+    private boolean deleteNode = false;
+    
+    public SelectedNode(PageNavigation nav, PageNode parentNode, PageNode node) {
+      this.nav = nav;
+      this.parentNode = parentNode;
+      this.node = node;
+    }
 
-  public String getCopyNodeUri() {
-    return copyNodeUri_;
+    public PageNavigation getPageNavigation() { return nav; }
+    public void setPageNavigation(PageNavigation nav) { this.nav = nav; }
+
+    public PageNode getParentNode() { return parentNode; }
+    public void setParentNode(PageNode parentNode) { this.parentNode = parentNode; }
+
+    public PageNode getNode() { return node; }
+    public void setNode(PageNode node) { this.node = node; }
+
+    public boolean isDeleteNode() { return deleteNode; }
+    public void setDeleteNode(boolean deleteNode) { this.deleteNode = deleteNode; }
+    
   }
-
-  public void setCopyNodeUri(String copyNodeUri_) {
-    this.copyNodeUri_ = copyNodeUri_;
-  }
-
   
-  private PageNavigation getPageNavigation(String id){
-    for(PageNavigation ele: navigations_){
-      if(ele.getId().equals(id)) return ele;
-    }
-    return null;
-  }
-  public void deleteNode(String copyNodeUri) {
-    if(copyNodeUri == null || copyNodeUri.length() < 1)  return ;
-    int index = copyNodeUri.lastIndexOf("::");
-    if(index < 1) return ;
-    String navId = copyNodeUri.substring(0, index );
-    PageNavigation nav = getPageNavigation(navId);
-    if(nav == null) return;
-    String nodeId = copyNodeUri.substring(index + 2);
-    index = -1;
-    index = nodeId.lastIndexOf("/");
-    if(index < 0 && nav.hasNode(nodeId) ){
-      nav.removeNode(nodeId);
-      return;
-    }
-    String parentUri = nodeId.substring(0, index);
-    PageNode parentNode = nav.findPageNodeByUri(parentUri);
-    parentNode.removeNode(nodeId);
-  }
 }

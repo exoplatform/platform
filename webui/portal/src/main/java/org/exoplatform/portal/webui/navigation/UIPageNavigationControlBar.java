@@ -152,9 +152,9 @@ public class UIPageNavigationControlBar extends UIToolbar {
     }
 
     //TODO: Tung.Pham added
-    private PageNode getExistPageNode(PageNavigation navi) {
-      if(navi == null || navi.getNodes().size() < 1) return null ;
-      return navi.getNode(0) ;
+    private PageNode getExistPageNode(PageNavigation nav) {
+      if(nav == null || nav.getNodes().size() < 1) return null ;
+      return nav.getNodes().get(0) ;
     }
 
   }

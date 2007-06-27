@@ -8,12 +8,14 @@
   <page-nodes>
     <node>
       <uri>site</uri>
+      <name>site</name>
       <label>Website</label>
       <page-reference>group::/portal/community::home</page-reference>
     </node>    
       
     <node>
       <uri>management</uri>
+      <name>management</name>
       <label>Management</label>
       <page-reference>group::/portal/community::management</page-reference>
     </node>    
