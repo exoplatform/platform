@@ -30,6 +30,10 @@
 	    <%}%>
     </tr>
   </thead>
+  <% if(uicomponent.getNumberRow() == 0) { %>
+    </table>
+    <div><%=_ctx.appRes(uiParent.getName()+".msg.empty", "No result found!")%></div>
+  <%} else { %>
   <tbody>
   <%
     def rowClass = null ;
@@ -82,3 +86,4 @@
   </tbody>
 </table> <!--End UIGrid-->
 <%_ctx.renderUIComponent(uicomponent.getUIPageIterator())%>
+<% } %>
