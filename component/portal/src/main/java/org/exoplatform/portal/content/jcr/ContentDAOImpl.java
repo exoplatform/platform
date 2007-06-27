@@ -68,7 +68,12 @@ public class ContentDAOImpl extends BaseContentService implements ContentDAO {
   
   public void save(ContentNavigation navigation) throws Exception {
     Session session = jcrRegService_.getSession() ;
-    Node portalNode = jcrRegService_.getApplicationRegistryNode(session, navigation.getOwner(), APPLICATION_NAME);    
+    Node portalNode = jcrRegService_.getApplicationRegistryNode(session, navigation.getOwner(), APPLICATION_NAME);
+    if(portalNode == null) {
+      session.logout();
+      create(navigation);
+      return;
+    }
     ContentData data = new ContentData();
     data.setDataType(ContentNavigation.class.getName());    
     data.setId(navigation.getOwner()+"::"+ContentNavigation.class.getName());
