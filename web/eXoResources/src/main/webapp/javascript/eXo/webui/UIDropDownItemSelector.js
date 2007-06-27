@@ -68,6 +68,15 @@ UIDropDownItemSelector.prototype.mouseOutItem = function(e) {
 };
 
 UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, actionName) {
+	
+	if(this.getAttribute("onServer") == "true") {
+	  var params = [
+	  	{name: "objectId", value : this.getAttribute("itemId")}
+	  ] ;
+		ajaxGet(eXo.env.server.createPortalURL(this.getAttribute("targetParent"), this.getAttribute("action"), true, params)) ;
+		return;
+	}
+	
 	var i;
 	var DOMUtil = eXo.core.DOMUtil;
 	var targ = eXo.core.Browser.getEventSource(e);
@@ -89,15 +98,6 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 	} 
 	targ.className = targ.oldClassName = "OverItemSelector";
 	eXo.webui.UIDropDownItemSelector.hideList(parentSelector);
-	
-	if(this.getAttribute("onServer") == "true") {
-	  var params = [
-	  	{name: "objectId", value : this.getAttribute("itemId")}
-	  ] ;
-		ajaxGet(eXo.env.server.createPortalURL(this.getAttribute("targetParent"), this.getAttribute("action"), true, params)) ;
-		return;
-	}
-	
 	var itemSelectorAncestor = DOMUtil.findAncestorByClass(parentSelector, "ItemSelectorAncestor") ;
 	var itemList = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemList") ;
 	var itemSelectorLabel = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemSelectorLabel") ;

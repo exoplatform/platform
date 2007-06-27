@@ -10,10 +10,7 @@
   jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory') ;
   jsmanager.importJavascript('eXo.desktop.UIWindow') ;
   jsmanager.importJavascript('eXo.portal.UIPortalControl');
-  jsmanager.importJavascript('eXo.portal.PortalDragDrop') ;
-  
-  //jsmanager.addOnLoadJavascript('eXo.portal.PortalDragDrop.fixCss') ;
-  
+
   String showCategory = "eXo.webui.UIPopupSelectCategory.show(this, 120, event);"
   String setDefault     = "";//"eXo.webui.UIPopupSelectCategory.setDefault(this);" ;
   

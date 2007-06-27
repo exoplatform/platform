@@ -173,21 +173,6 @@
   border: none ;
 }
 
-
-.LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
-	background:transparent url(/eXoResources/icons/16x16/MacSkin/EditIcon.png) no-repeat center bottom;
-	float:left;
-	height:20px;
-	width:16px;
-}
-
-.LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
-	background:transparent url(/eXoResources/icons/16x16/MacSkin/DisableEditIcon.gif) no-repeat center bottom;
-	float:left;
-	height:20px;
-	width:16px;
-}
-
 .UIContainer .EditContainerIcon {
 	float: right;
 	width: 16px; height: 16px;

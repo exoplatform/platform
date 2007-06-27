@@ -29,3 +29,17 @@
 	width: 16px; height: 20px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalCloseTab.gif') no-repeat bottom;
 }
+
+.LAYOUT-PORTAL .UITabContainer .SelectedTab .EditIcon {
+	background:transparent url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat center bottom;
+	float:left;
+	height:20px;
+	width:16px;
+}
+
+.LAYOUT-PORTAL .UITabContainer .NormalTab .EditIcon  {
+	background:transparent url('/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif') no-repeat center bottom;
+	float:left;
+	height:20px;
+	width:16px;
+} 
