@@ -274,12 +274,29 @@ public class UIPageNodeActionListener {
       UIRightClickPopupMenu popupMenu = event.getSource();
       UIComponent parent = popupMenu.getParent();
       UIPageNodeSelector uiPageNodeSelector = parent.getParent();
+      PageNavigation nav = uiPageNodeSelector.getSelectedNavigation();
+      String uri = nav.getId() + "::" + value;
+      uiPageNodeSelector.setCopyNodeUri(uri);
+      uiPageNodeSelector.setCut(false);
       UIPageManagement uiManagement = uiPageNodeSelector.getParent();
 
-      PageNode selectedPageNode = uiPageNodeSelector.findPageNodeByUri(value);     
-      if(selectedPageNode == null)   return;      
-      PageNode pageNode = selectedPageNode.clone();
-      uiPageNodeSelector.setCopyPageNote(pageNode) ;
+      Class [] childrenToRender = new Class[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class };
+      uiManagement.setRenderedChildrenOfTypes(childrenToRender);      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
+    }
+  }
+  
+  static public class CutNodeActionListener extends EventListener<UIRightClickPopupMenu> {
+    public void execute(Event<UIRightClickPopupMenu> event) throws Exception {      
+      String value  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      UIRightClickPopupMenu popupMenu = event.getSource();
+      UIComponent parent = popupMenu.getParent();
+      UIPageNodeSelector uiPageNodeSelector = parent.getParent();
+      UIPageManagement uiManagement = uiPageNodeSelector.getParent();
+      PageNavigation nav = uiPageNodeSelector.getSelectedNavigation();
+      String uri = nav.getId() + "::" + value;
+      uiPageNodeSelector.setCopyNodeUri(uri);
+      uiPageNodeSelector.setCut(true);
       Class [] childrenToRender = new Class[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class };
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
@@ -293,55 +310,37 @@ public class UIPageNodeActionListener {
       UIPageNodeSelector uiPageNodeSelector =  popupMenu.getAncestorOfType(UIPageNodeSelector.class);
       UIPageManagement uiPageManagement = uiPageNodeSelector.getParent();
 
-      PageNode srcNode = uiPageNodeSelector.getCopyPasteNote() ;
+      PageNode srcNode = uiPageNodeSelector.getCopyNode();
       if(srcNode == null)  return;
+      srcNode = srcNode.clone();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageManagement);
+      String name = srcNode.getName();
 
-      String nodeUri = srcNode.getUri();
-      int index = nodeUri.lastIndexOf("/") ;
-      String preReplaceUri = "";
-      if(index > -1) preReplaceUri = nodeUri.substring(0, index).trim();
-
-      PageNode targetNode = uiPageNodeSelector.findPageNodeByUri(value) ;    
-      String targetUri = null;       
+      PageNode targetNode = uiPageNodeSelector.findPageNodeByUri(value) ;  
+      if(targetNode.hasNode(srcNode)) return;
+      if(targetNode.hasChildNode(name)){
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.sameName", null)) ;
+        
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return;
+      }
+      String targetUri= "";
       if(targetNode != null) targetUri = targetNode.getUri();
-
-      replaceURI(preReplaceUri, targetUri, srcNode);      
-
-      if(targetNode != null){
-        if(!isChild(targetNode.getChildren(), srcNode)) targetNode.addChild(srcNode);
-      }else{
-        PageNavigation targetNav = uiPageNodeSelector.getSelectedNavigation();
-        if(!isChild(targetNav.getNodes(), srcNode)) targetNav.addNode(srcNode);
+      srcNode.setUri(targetUri + "/" + name);
+      targetNode.addChild(srcNode);
+      if(uiPageNodeSelector.isCut()){
+        uiPageNodeSelector.setCut(false);
+        uiPageNodeSelector.deleteNode(uiPageNodeSelector.getCopyNodeUri());
       }
       Class [] childrenToRender = new Class[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
       uiPageManagement.setRenderedChildrenOfTypes(childrenToRender);      
-      uiPageNodeSelector.setCopyPageNote(null);     
 
       if(targetNode == null)  return ; 
-      UITree uiTree = uiPageManagement.findFirstComponentOfType(UITree.class);      
-      uiTree.setChildren(targetNode.getChildren());
-    }
-
-    private boolean isChild(List<PageNode> children, PageNode node){
-      if(children == null) return false;
-      for(PageNode child : children){
-        if(child.getUri().equals(node.getUri())) return true;
+      UITree uiTree = uiPageManagement.findFirstComponentOfType(UITree.class);  
+      if(uiPageNodeSelector.getSelectedPageNode().getUri().equals(targetNode.getUri())){
+        uiTree.setChildren(targetNode.getChildren());
       }
-      return false;
-    }
-
-    private void replaceURI(String preReplacePattern, String afterReplacePattern, PageNode node){      
-      if(afterReplacePattern == null) return;
-      if(preReplacePattern.length() < 1){
-        node.setUri(afterReplacePattern +"/"+node.getUri());
-      }else{
-        node.setUri(node.getUri().replaceFirst(preReplacePattern, afterReplacePattern));
-      }
-      List<PageNode> children = node.getChildren();
-      if(children == null)  return; 
-      for(PageNode child : children) replaceURI(preReplacePattern, afterReplacePattern, child); 
     }
   }
-  
 }

@@ -48,10 +48,12 @@ public class UIPageActionListener {
     private List<PageNode> selectedPaths_;
     
     public void execute(Event event) throws Exception {     
+      try{int i = 0; i = 3/i; } catch (Exception e) { e.printStackTrace(); }
       PageNodeEvent<?> pnevent = (PageNodeEvent<?>) event ;
       uiPortal = (UIPortal) event.getSource();
+      System.out.println("\n\n\n----------->ChangePageNodeActionListener: uri =" + pnevent.getTargetNodeUri());
+      
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
-
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = Util.getPortalRequestContext();     
@@ -76,8 +78,9 @@ public class UIPageActionListener {
       if(uri == null || (uri = uri.trim()).length() < 1) return;
       
       if(uri.length() == 1 && uri.charAt(0) == '/') {
-        PageNavigation selectedNav = navigations.get(0);
-        if(selectedNav.getNodes().size() > 0) {
+        PageNavigation selectedNav = null;
+        if( navigations.size() >0) selectedNav = navigations.get(0);
+        if(selectedNav != null && selectedNav.getNodes().size() > 0) {
           selectedPaths_.add(selectedNav.getNode(0));
           uiPortal.setSelectedNode(selectedNav.getNode(0));
         }
@@ -99,8 +102,10 @@ public class UIPageActionListener {
             selectedPaths_.add(0, nodeResult);          
             break;
           }
-          if(nodeResult == null) continue;
-          uiPortal.setSelectedNavigation(nav);
+          if(nodeResult != null) {
+            uiPortal.setSelectedNavigation(nav);
+            break;
+          }
         }      
         uiPortal.setSelectedPaths(selectedPaths_);     
         uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);

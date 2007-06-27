@@ -19,6 +19,7 @@ import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.Ed
 import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.SaveNavigationActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.AddNodeActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CopyNodeActionListener;
+import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CutNodeActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.DeleteNodeActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditPageNodeActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditSelectedNodeActionListener;
@@ -67,6 +68,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = EditPageNodeActionListener.class),
         @EventConfig(listeners = EditSelectedNodeActionListener.class),
         @EventConfig(listeners = CopyNodeActionListener.class),
+        @EventConfig(listeners = CutNodeActionListener.class),
         @EventConfig(listeners = PasteNodeActionListener.class),
         @EventConfig(listeners = DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNavigation")
       }
@@ -84,18 +86,16 @@ import org.exoplatform.webui.event.EventListener;
       }
   )
 })
+
 public class UIPageNodeSelector extends UIContainer {
   
   private List<PageNavigation> navigations_;  
   private PageNavigation selectedNavigation;  
   private PageNode selectedPageNode;
   
-  private PageNode copyNode_;
   private String upLevelURI ;
-  
-  public void setCopyPageNote(PageNode note) {  copyNode_ = note ; }
-  
-  public PageNode getCopyPasteNote() { return copyNode_ ; }
+  private boolean cut_;
+  private  String copyNodeUri_;
   
 	public UIPageNodeSelector() throws Exception {    
     addChild(UIRightClickPopupMenu.class, "UIPageNodeSelectorPopupMenu", null).setRendered(false);  
@@ -179,6 +179,22 @@ public class UIPageNodeSelector extends UIContainer {
     }
   }
   
+  public PageNode getCopyNode(){
+    if(copyNodeUri_ == null || copyNodeUri_.length() < 1)  return null;
+    int index = copyNodeUri_.lastIndexOf("::");
+    if(index < 1) return null;
+    String navId = copyNodeUri_.substring(0, index );
+    String nodeId = copyNodeUri_.substring(index + 2);
+    PageNavigation nav = null;
+    for(PageNavigation ele: navigations_){
+      if(ele.getId().equals(navId)){
+        nav = ele;
+        break;
+      }
+    }
+    if(nav == null) return null;
+    return nav.findPageNodeByUri(nodeId);
+  }
   public void selectPageNodeByUri(String uri){    
     upLevelURI = null; 
     UITree tree = getChild(UITree.class);
@@ -351,5 +367,41 @@ public class UIPageNodeSelector extends UIContainer {
       uiPageNodeSelector.selectNavigation(id);
     }
   }
+
+  public void setCut(boolean b) { cut_ = b; }
+  public boolean isCut(){ return cut_;}
+
+  public String getCopyNodeUri() {
+    return copyNodeUri_;
+  }
+
+  public void setCopyNodeUri(String copyNodeUri_) {
+    this.copyNodeUri_ = copyNodeUri_;
+  }
+
   
+  private PageNavigation getPageNavigation(String id){
+    for(PageNavigation ele: navigations_){
+      if(ele.getId().equals(id)) return ele;
+    }
+    return null;
+  }
+  public void deleteNode(String copyNodeUri) {
+    if(copyNodeUri == null || copyNodeUri.length() < 1)  return ;
+    int index = copyNodeUri.lastIndexOf("::");
+    if(index < 1) return ;
+    String navId = copyNodeUri.substring(0, index );
+    PageNavigation nav = getPageNavigation(navId);
+    if(nav == null) return;
+    String nodeId = copyNodeUri.substring(index + 2);
+    index = -1;
+    index = nodeId.lastIndexOf("/");
+    if(index < 0 && nav.hasNode(nodeId) ){
+      nav.removeNode(nodeId);
+      return;
+    }
+    String parentUri = nodeId.substring(0, index);
+    PageNode parentNode = nav.findPageNodeByUri(parentUri);
+    parentNode.removeNode(nodeId);
+  }
 }
