@@ -122,6 +122,8 @@ public class UIPortletForm extends UIFormTabPane {
       uiPortlet.setIcon(uiIconSelector.getSelectedIcon());
       uiPortletForm.invokeSetBindingBean(uiPortlet) ;
       
+      System.out.println("\n\n\n title la "+uiPortlet.getTitle() +"\n\n\n");
+      
       UIMaskWorkspace uiMaskWorkspace = uiPortletForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
       

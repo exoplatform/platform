@@ -48,7 +48,7 @@ public class UIPortletActionListener   {
       UserProfile userProfile = service.getUserProfileHandler().findUserProfileByName(uiPortalApp.getOwner()) ;
       actionInput.setWindowID(uiPortlet.getExoWindowID());
       if(userProfile != null) actionInput.setUserAttributes(userProfile.getUserInfoMap());
-      else actionInput.setUserAttributes(new HashMap<?>());
+      else actionInput.setUserAttributes(new HashMap());
       //TODO: Need to maintain the current portlet mode in the UIPortlet
       actionInput.setPortletMode(uiPortlet.getCurrentPortletMode());
       //TODO: Need to maintain the current portlet state in the UIPortlet
