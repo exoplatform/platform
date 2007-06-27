@@ -98,9 +98,4 @@ UIPopupSelectCategory.prototype.setDefault = function(selectedElement) {
 	ancestorPopupCategory.style.position = "absolute" ;
 };
 
-UIPopupSelectCategory.prototype.onMouseUp = function(selectedElement) {
-	var uiPopupCategory = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "UIPopupCategory") ;
-	uiPopupCategory.style.display = "none" ;
-} ;
-
 eXo.webui.UIPopupSelectCategory = new UIPopupSelectCategory() ;
