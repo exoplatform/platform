@@ -47,7 +47,7 @@ UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
   for(var i = 0; i < uiTab.length; i++) {
     var styleTabDiv = DOMUtil.getChildrenByTagName(uiTab[i], "div")[0] ;
     if(styleTabDiv.className == "DisabledTab") continue ;
-    console.log("%s, %s ",uiSelectTab, uiTab[i]);
+    //console.log("%s, %s ",uiSelectTab, uiTab[i]);
     if(uiSelectTab == uiTab[i]) {
       styleTabDiv.className = "SelectedTab" ;
       eXo.webui.UIHorizontalTabs.currentTab = i;
