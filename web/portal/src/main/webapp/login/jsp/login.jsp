@@ -83,7 +83,12 @@
 			        </form>
 			        <%/*End form*/%>
 		          <div class="MessageContainer">
-		            <div class="SignupMessage">Not a member? <a href="#">Signup</a> for an account</div>
+		            <div class="SignupMessage">Not a member? 
+		              <a href="/portal/public/site/?portal:componentId=UIPortal&portal:action=LoadPage&pageId=portal::site::register">
+		                Signup
+		              </a> 
+		              for an account
+	              </div>
 		          </div>			         
             </div>
           </div>
