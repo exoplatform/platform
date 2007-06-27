@@ -58,7 +58,7 @@ public class UIPageSelector extends UIFormInputContainer<String> {
     setBindingField(bfield) ;    
   }
   
-  public UIFormInput setValue(String value) throws Exception {
+  public UIFormInput<?> setValue(String value) throws Exception {
     PortalRequestContext pcontext = Util.getPortalRequestContext();
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
     if(uiForm != null) {

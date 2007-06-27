@@ -25,6 +25,7 @@ import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditSele
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.PasteNodeActionListener;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
+import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
@@ -98,7 +99,8 @@ public class UIPageNodeSelector extends UIContainer {
   
 	public UIPageNodeSelector() throws Exception {    
     addChild(UIRightClickPopupMenu.class, "UIPageNodeSelectorPopupMenu", null).setRendered(false);  
-    addChild(UIBreadcumbs.class, null, null).setRendered(false);  
+//    addChild(UIBreadcumbs.class, null, null).setRendered(false);  
+    
     UIDropDownItemSelector uiDopDownSelector = addChild(UIDropDownItemSelector.class, null, null);
     uiDopDownSelector.setTitle("Select Navigations");
     uiDopDownSelector.setOnServer(true);
@@ -112,6 +114,7 @@ public class UIPageNodeSelector extends UIContainer {
     uiTree.setBeanIconField("icon");
     UIRightClickPopupMenu uiPopupMenu = createUIComponent(UIRightClickPopupMenu.class, "PageNodePopupMenu", null) ;
     uiTree.setUIRightClickPopupMenu(uiPopupMenu);
+    
     loadNavigations();
 	}
   
@@ -121,16 +124,19 @@ public class UIPageNodeSelector extends UIContainer {
     for(PageNavigation nav  : pnavigations){
       if(nav.isModifiable()) navigations_.add(nav.clone()) ;
     }
+    
     setDropdownItemSelector() ;
-    PageNavigation portalSelectedNavi = Util.getUIPortal().getSelectedNavigation() ;
-    if(getNavigation(portalSelectedNavi.getId()) != null) {
-      selectNavigation(portalSelectedNavi.getId()) ;
+    
+    PageNavigation portalSelectedNav = Util.getUIPortal().getSelectedNavigation() ;
+    if(getNavigation(portalSelectedNav.getId()) != null) {
+      selectNavigation(portalSelectedNav.getId()) ;
       PageNode portalSelectedNode = Util.getUIPortal().getSelectedNode() ;
       selectPageNodeByUri(portalSelectedNode.getUri()) ;  
-    } else loadSelectedNavigation();
+      return;
+    } 
+    loadSelectedNavigation();
   }
   
-  //TODO: Tung.Pham added
   private void setDropdownItemSelector() {
     if(navigations_ == null || navigations_.size() < 1) {
       getChild(UIDropDownItemSelector.class).setOptions(null) ;
@@ -151,30 +157,16 @@ public class UIPageNodeSelector extends UIContainer {
   
   public void loadSelectedNavigation() {
     if (selectedNavigation == null || getNavigation(selectedNavigation.getId()) == null) {
-      if(navigations_ != null && navigations_.size() > 0) {
-        selectNavigation(navigations_.get(0).getId()) ;
+      if(navigations_ == null || navigations_.size() < 0) {
+        selectedNavigation = null;
+        return;
       }
-    }else {
-      selectNavigation(selectedNavigation.getId()) ;
-      if(selectedPageNode != null) selectPageNodeByUri(selectedPageNode.getUri()) ;
+      selectNavigation(navigations_.get(0).getId()) ;
+      return ;
     }
+    selectNavigation(selectedNavigation.getId()) ;
+    if(selectedPageNode != null) selectPageNodeByUri(selectedPageNode.getUri()) ;
   }
-  
-//  private boolean findSelectedNode(PageNavigation nav, List<PageNode> nodes, PageNode node) {
-//    if(nodes == null) return false;
-//    for(PageNode ele : nodes) {
-//      if(ele != node)  continue;        
-//      if(nav.isModifiable()) {
-//        selectNavigation(nav.getId());
-//        selectPageNodeByUri(node.getUri());
-//      }  
-//      return true;
-//    }
-//    for(PageNode ele : nodes) {
-//      if(findSelectedNode(nav, ele.getChildren(), node)) return true;
-//    }
-//    return false;
-//  }
   
   public void selectNavigation(String id){    
     for(int i = 0; i < navigations_.size(); i++){
@@ -193,31 +185,32 @@ public class UIPageNodeSelector extends UIContainer {
     List<?> sibbling = tree.getSibbling();
     tree.setSibbling(null);
     tree.setParentSelected(null);
-    selectedPageNode = findPageNodeByUri(selectedNavigation, uri, tree);
-    if(selectedPageNode == null){
-      tree.setSelected(null);
-      tree.setChildren(null);
-      tree.setSibbling(sibbling);
+    selectedPageNode = findPageNodeByUri(selectedNavigation, uri);
+    if(selectedPageNode != null) {
+      tree.setSelected(selectedPageNode);   
+      tree.setChildren(selectedPageNode.getChildren());
       return ;
     }
-    tree.setSelected(selectedPageNode);   
-    tree.setChildren(selectedPageNode.getChildren());
+    tree.setSelected(null);
+    tree.setChildren(null);
+    tree.setSibbling(sibbling);
   }
   
-  public PageNode findPageNodeByUri(PageNavigation pageNav, String uri, UITree tree){
+  private PageNode findPageNodeByUri(PageNavigation pageNav, String uri) {
     if(pageNav == null) return null;
-    List<PageNode> pageNodes = pageNav.getNodes();    
+    List<PageNode> pageNodes = pageNav.getNodes();
+    UITree uiTree = getChild(UITree.class);
     for(PageNode ele : pageNodes){
-      PageNode returnPageNode = findPageNodeByUri(ele, uri, tree);
+      PageNode returnPageNode = findPageNodeByUri(ele, uri, uiTree);
       if(returnPageNode == null) continue;
-      if(tree.getSibbling() == null) tree.setSibbling(pageNodes);      
+      if(uiTree.getSibbling() == null) uiTree.setSibbling(pageNodes);      
       return returnPageNode;
     }
     return null; 
   }  
   
-  public PageNode findPageNodeByUri(String uri) {
-    return findPageNodeByUri(selectedNavigation, uri, getChild(UITree.class));
+  public PageNode findPageNodeByUri(String uri) { 
+    return findPageNodeByUri(selectedNavigation, uri); 
   }
   
   public PageNode findPageNodeByName(String name){
@@ -272,14 +265,12 @@ public class UIPageNodeSelector extends UIContainer {
   
   public String getUpLevelUri () { return upLevelURI ; }
   
-  //TODO: Tung.Pham added
   public void addNavigation(PageNavigation navi) {
     if(navigations_ == null) navigations_ = new ArrayList<PageNavigation>() ;
     navigations_.add(navi) ;
     setDropdownItemSelector() ;
   }
   
-  //TODO: Tung.Pham added
   public void removeNavigation(PageNavigation navi) {
     if(navigations_ == null || navigations_.size() < 1) return ;
     Iterator<PageNavigation> itr = navigations_.iterator() ;
@@ -289,7 +280,6 @@ public class UIPageNodeSelector extends UIContainer {
     setDropdownItemSelector() ;
   }
 
-  //TODO: Tung.Pham
   private PageNavigation getNavigation(String id) {
     for(PageNavigation ele : getNavigations()) {
       if(ele.getId().equals(id)) return ele ;
@@ -300,12 +290,9 @@ public class UIPageNodeSelector extends UIContainer {
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {      
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
-      //TODO: Tung.Pham modified
-      //----------------------------------------------------------
       UIPageNodeSelector uiPageNodeSelector = event.getSource().getParent();
-      //if(uri != null && uri.trim().length() > 0) uiPageNodeSelector.selectPageNodeByUri(uri);      
       uiPageNodeSelector.selectPageNodeByUri(uri);
-      //----------------------------------------------------------
+      
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
@@ -361,7 +348,6 @@ public class UIPageNodeSelector extends UIContainer {
         uiPageNodeSelector.setSelectedNavigation(null);
         return;
       }
-      //uiPageNodeSelector.setSelectedPageNode(null) ;
       uiPageNodeSelector.selectNavigation(id);
     }
   }

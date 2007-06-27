@@ -68,7 +68,7 @@ public class UIWizardPageCreationBar extends UIContainer {
     public void execute(Event<UIPageEditBar> event) throws Exception {
       UIPageEditBar uiEditBar = event.getSource();                
       UIWizardPageCreationBar uiParent = uiEditBar.getParent();
-      Class [] childrenToRender ={UIPageEditBar.class, UIContainerConfigOptions.class }; 
+      Class<?> [] childrenToRender ={UIPageEditBar.class, UIContainerConfigOptions.class }; 
       uiParent.setRenderedChildrenOfTypes(childrenToRender);
       Util.updateUIApplication(event);
     }    
@@ -78,7 +78,7 @@ public class UIWizardPageCreationBar extends UIContainer {
     public void execute(Event<UIPageEditBar> event) throws Exception {
       UIPageEditBar uiEditBar = event.getSource();         
       UIWizardPageCreationBar uiParent = uiEditBar.getParent();
-      Class [] childrenToRender = { UIPageEditBar.class, UIPortletOptions.class}; 
+      Class<?> [] childrenToRender = { UIPageEditBar.class, UIPortletOptions.class}; 
       uiParent.setRenderedChildrenOfTypes(childrenToRender);
       Util.updateUIApplication(event);
     }
