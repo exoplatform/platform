@@ -2,38 +2,62 @@ function  DOMUtil() {
 	this.hideElementList = new eXo.core.Array() ;
 } ;
 
-DOMUtil.prototype.getChildrenByTagName = function(element, tagName) {
-  var list = new Array() ;
-  var children = element.childNodes ;
-  for(var k = 0; k < children.length; k++) {
-    var child = children[k] ;
-    var nodeName = child.nodeName ;
-    if(nodeName != null) nodeName = nodeName.toLowerCase() ;
-    if(nodeName == tagName) {
-      list.push(child) ;
-    }
-  }
-  return list ;
+DOMUtil.prototype.hasClass = function(elemt, className) {
+	var reg = new RegExp('(^|\\s+)' + className + '(\\s+|$)');
+	return reg.test(elemt['className']);
 } ;
 
+DOMUtil.prototype.getChildrenByTagName = function(element, tagName) {
+	var ln = (element && element.childNodes) ? element.childNodes.length : 0;
+	var arr = [];	
+	for (var z=0; z<ln; z++) {
+		if (element.childNodes[z].nodeName == tagName.toUpperCase()) arr.push(element.childNodes[z]);
+	}
+	return arr;
+} ;
+//DOMUtil.prototype.getChildrenByTagName = function(element, tagName) {
+//  var list = new Array() ;
+//  var children = element.childNodes ;
+//  for(var k = 0; k < children.length; k++) {
+//    var child = children[k] ;
+//    var nodeName = child.nodeName ;
+//    if(nodeName != null) nodeName = nodeName.toLowerCase() ;
+//    if(nodeName == tagName) {
+//      list.push(child) ;
+//    }
+//  }
+//  return list ;
+//} ;
+
 DOMUtil.prototype.findChildrenByClass = function(root, elementName, cssClass) {
-  if(elementName != null)  elementName = elementName.toUpperCase() ;
+  if(elementName != null) elementName = elementName.toUpperCase() ;
   var list = new Array();
   var elements = root.childNodes ;
   for(var k = 0; k < elements.length; k++) {
-    if(elementName == elements[k].nodeName) {
-      if(elements[k].className.indexOf(" ") >= 0) {
-        var classes = elements[k].className.split(" ");
-        for(var j = 0; j < classes.length; j++) {
-          if(classes[j] == cssClass) list.push(elements[k]);
-        }
-      } else if(elements[k].className == cssClass) {
-        list.push(elements[k]);
-      }
+    if(elementName == elements[k].nodeName && this.hasClass(elements[k], cssClass)) {
+    	list.push(elements[k]);
     }
   }
   return list;
 } ;
+//DOMUtil.prototype.findChildrenByClass = function(root, elementName, cssClass) {
+//  if(elementName != null)  elementName = elementName.toUpperCase() ;
+//  var list = new Array();
+//  var elements = root.childNodes ;
+//  for(var k = 0; k < elements.length; k++) {
+//    if(elementName == elements[k].nodeName) {
+//      if(elements[k].className.indexOf(" ") >= 0) {
+//        var classes = elements[k].className.split(" ");
+//        for(var j = 0; j < classes.length; j++) {
+//          if(classes[j] == cssClass) list.push(elements[k]);
+//        }
+//      } else if(elements[k].className == cssClass) {
+//        list.push(elements[k]);
+//      }
+//    }
+//  }
+//  return list;
+//} ;
 
 DOMUtil.prototype.findChildrenByAttribute = function(root,  elementName, attrName, attrValue) {
   if(elementName != null)  elementName = elementName.toUpperCase() ;
@@ -52,55 +76,83 @@ DOMUtil.prototype.findFirstChildByClass = function(root,  elementName, cssClass)
   if(elementName != null)  elementName = elementName.toUpperCase() ;
   var elements = root.childNodes ;
   for(var k = 0; k < elements.length; k++) {
-    if(elementName == elements[k].nodeName) {
-      if(elements[k].className.indexOf(" ") >= 0) {
-        var classes = elements[k].className.split(" ");
-        for(var j = 0; j < classes.length; j++) {
-          if(classes[j] == cssClass) return elements[k] ;
-        }
-      } else if(elements[k].className == cssClass) {
-        return elements[k] ;
-      }
+    if(elementName == elements[k].nodeName && this.hasClass(elements[k], cssClass)) {
+    	return elements[k] ;
     }
   }
   return null;
 } ;
+//DOMUtil.prototype.findFirstChildByClass = function(root,  elementName, cssClass) {
+//  if(elementName != null)  elementName = elementName.toUpperCase() ;
+//  var elements = root.childNodes ;
+//  for(var k = 0; k < elements.length; k++) {
+//    if(elementName == elements[k].nodeName) {
+//      if(elements[k].className.indexOf(" ") >= 0) {
+//        var classes = elements[k].className.split(" ");
+//        for(var j = 0; j < classes.length; j++) {
+//          if(classes[j] == cssClass) return elements[k] ;
+//        }
+//      } else if(elements[k].className == cssClass) {
+//        return elements[k] ;
+//      }
+//    }
+//  }
+//  return null;
+//} ;
 
 DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
   if(element == null) return null;
   var parent = element.parentNode ;
   while(parent != null) {
-    if(parent.className == null) {
-    } else if(parent.className.indexOf(" ") >= 0) {
-      var classes = parent.className.split(" ");
-      for(var j = 0;j < classes.length; j++) {
-        if(classes[j] == clazz)  return parent ;
-      }
-    } else if(parent.className == clazz)  {
-      return parent ;
-    }
+  	if(this.hasClass(parent, clazz)) return parent ;
     parent = parent.parentNode ;
   }
   return null ;
 } ;
+//DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
+//  if(element == null) return null;
+//  var parent = element.parentNode ;
+//  while(parent != null) {
+//    if(parent.className == null) {
+//    } else if(parent.className.indexOf(" ") >= 0) {
+//      var classes = parent.className.split(" ");
+//      for(var j = 0;j < classes.length; j++) {
+//        if(classes[j] == clazz)  return parent ;
+//      }
+//    } else if(parent.className == clazz)  {
+//      return parent ;
+//    }
+//    parent = parent.parentNode ;
+//  }
+//  return null ;
+//} ;
 
 DOMUtil.prototype.findAncestorsByClass = function(element, clazz) {
 	var result = new Array();
   var parent = element.parentNode ;
   while(parent != null) {
-    if(parent.className == null) {
-    } else  if(parent.className.indexOf(" ") >= 0) {
-      var classes = parent.className.split(" ");
-      for(var j = 0;j < classes.length; j++) {
-        if(classes[j] == clazz)  result.push(parent) ;
-      }
-    } else if(parent.className == clazz)  {
-      result.push(parent) ;
-    }
+  	if(this.hasClass(parent, clazz)) result.push(parent) ;
     parent =  parent.parentNode ;
   }
   return result ;
 } ;
+//DOMUtil.prototype.findAncestorsByClass = function(element, clazz) {
+//	var result = new Array();
+//  var parent = element.parentNode ;
+//  while(parent != null) {
+//    if(parent.className == null) {
+//    } else  if(parent.className.indexOf(" ") >= 0) {
+//      var classes = parent.className.split(" ");
+//      for(var j = 0;j < classes.length; j++) {
+//        if(classes[j] == clazz)  result.push(parent) ;
+//      }
+//    } else if(parent.className == clazz)  {
+//      result.push(parent) ;
+//    }
+//    parent =  parent.parentNode ;
+//  }
+//  return result ;
+//} ;
 
 DOMUtil.prototype.findAncestorById = function(element,  id) {
   var parent = element.parentNode ;
@@ -120,55 +172,6 @@ DOMUtil.prototype.findAncestorByTagName = function(element, tagName) {
   return null ;
 } ;
 
-DOMUtil.prototype.findDescendantsByClass = function(root, elementName, clazz) {
-  var listElements = new Array() ;
-  var elements = root.getElementsByTagName(elementName) ;
-  this.findDescendantsByTag(root, elementName, elements);
-  for(var k = 0; k < elements.length; k++) { 
-  	if(elements[k].className == clazz) {
-      listElements.push(elements[k]) ;
-      continue;
-    } 	
-    if(elements[k].className.indexOf(" ") >= 0) {
-      var classes = elements[k].className.split(" ") ;
-      for(var j = 0; j < classes.length; j++) {
-        if(classes[j] == clazz) listElements.push(elements[k]) ;
-      }
-    }
-  }
-  return listElements;
-} ;
-
-DOMUtil.prototype.findFirstDescendantByClass = function(root, elementName, clazz) {		
-  var elements = root.getElementsByTagName(elementName);		
-  for(var k = 0; k < elements.length; k++) {  	  	
-  	if(elements[k].className == clazz) return elements[k] ;  
-  	if(elements[k].className.indexOf(" ") >= 0){
-  		var classes = elements[k].className.split(" ");	
-    	for(var j = 0;j < classes.length; j++) {
-      	if(classes[j] == clazz) return elements[k] ;      
-    	} 	 
-  	}
-  }
-  return null;
-} ;
-
-DOMUtil.prototype.findDescendantById = function(root, id) {
-  var elements =  root.getElementsByTagName('*') ;
-  for(var i = 0; i < elements.length; i++) {
-    if(elements[i].id == id) {
-      return elements[i] ;
-    }
-  }
-  return null ;
-} ;
-
-DOMUtil.prototype.findDescendantsByTagName = function(root, tagName) {
-  var list = new Array() ;
-  this.findDescendantsByTag(root, tagName, list) ;
-  return list ;
-} ;
-
 DOMUtil.prototype.findDescendantsByTag = function(root, tagName, list) {
   var  children = root.childNodes ;
   for(var k = 0; k < children.length; k++) {
@@ -184,6 +187,72 @@ DOMUtil.prototype.findDescendantsByTag = function(root, tagName, list) {
   }
 } ;
 
+DOMUtil.prototype.findDescendantsByTagName = function(root, tagName) {
+  var list = new Array() ;
+  this.findDescendantsByTag(root, tagName, list) ;
+  return list ;
+} ;
+
+DOMUtil.prototype.findDescendantsByClass = function(root, elementName, clazz) {
+  var listElements = new Array() ;
+  var elements = root.getElementsByTagName(elementName) ;
+  this.findDescendantsByTag(root, elementName, elements);
+  for(var k = 0; k < elements.length; k++) { 
+  	if(this.hasClass(elements[k], clazz)) listElements.push(elements[k]);
+  }
+  return listElements
+} ;
+//DOMUtil.prototype.findDescendantsByClass = function(root, elementName, clazz) {
+//  var listElements = new Array() ;
+//  var elements = root.getElementsByTagName(elementName) ;
+//  this.findDescendantsByTag(root, elementName, elements);
+//  for(var k = 0; k < elements.length; k++) { 
+//  	if(elements[k].className == clazz) {
+//      listElements.push(elements[k]) ;
+//      continue;
+//    } 	
+//    if(elements[k].className.indexOf(" ") >= 0) {
+//      var classes = elements[k].className.split(" ") ;
+//      for(var j = 0; j < classes.length; j++) {
+//        if(classes[j] == clazz) listElements.push(elements[k]) ;
+//      }
+//    }
+//  }
+//  alert(listElements.length) ;
+//  return listElements;
+//} ;
+
+DOMUtil.prototype.findFirstDescendantByClass = function(root, elementName, clazz) {
+  var elements = root.getElementsByTagName(elementName);		
+  for(var k = 0; k < elements.length; k++) {  	  	
+  	if(this.hasClass(elements[k], clazz)) return elements[k] ;  
+  }
+  return null;
+} ;
+//DOMUtil.prototype.findFirstDescendantByClass = function(root, elementName, clazz) {		
+//  var elements = root.getElementsByTagName(elementName);		
+//  for(var k = 0; k < elements.length; k++) {  	  	
+//  	if(elements[k].className == clazz) return elements[k] ;  
+//  	if(elements[k].className.indexOf(" ") >= 0){
+//  		var classes = elements[k].className.split(" ");	
+//    	for(var j = 0;j < classes.length; j++) {
+//      	if(classes[j] == clazz) return elements[k] ;      
+//    	} 	 
+//  	}
+//  }
+//  return null;
+//} ;
+
+DOMUtil.prototype.findDescendantById = function(root, id) {
+  var elements =  root.getElementsByTagName('*') ;
+  for(var i = 0; i < elements.length; i++) {
+    if(elements[i].id == id) {
+      return elements[i] ;
+    }
+  }
+  return null ;
+} ;
+
 DOMUtil.prototype.hasDescendant= function(root, obj) {
   var elements =  root.getElementsByTagName("*") ;
   for(var i = 0; i < elements.length; i++) {
@@ -195,7 +264,7 @@ DOMUtil.prototype.hasDescendant= function(root, obj) {
 DOMUtil.prototype.hasDescendantClass = function(root, clazz) {
   var elements =  root.getElementsByTagName("*") ;
   for(var i = 0; i < elements.length; i++) {
-    if(elements[i].className == clazz) return true ;
+    if(this.hasClass(elements[i], clazz)) return true ;
   }
   return false ;
 } ;
