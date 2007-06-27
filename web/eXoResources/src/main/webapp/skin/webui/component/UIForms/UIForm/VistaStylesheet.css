@@ -7,17 +7,14 @@
   padding-top: 15px; 
 }
 
-.UIForm .HorizontalLayout .FieldContainer {
-  padding-top: 10px ;
-}
-
-.UIForm .HorizontalLayout .UIFormGrid td {
-  padding: 4px;
-}
-
 .UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
+  padding: 4px;
   text-align: right;
-  vertical-align: top;
+	vertical-align: top;
+}
+
+.UIForm .HorizontalLayout .UIFormGrid td.FieldComponent {
+  padding: 4px;
 }
 
 .UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
@@ -100,7 +97,6 @@
   border: 1px solid gray ;
   font-size: 11px;
 }
-
 
 .UIForm .HorizontalLayout select {
 	float:left;

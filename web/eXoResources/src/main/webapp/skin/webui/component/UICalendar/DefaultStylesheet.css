@@ -24,6 +24,7 @@
   border: 1px solid #d4d4d4;
   font: normal bold 11px tahoma;
   color: #0960c1;
+  line-height: 18px;
 }
 
 .UICalendar .MonthYearBox .NextMonth {
