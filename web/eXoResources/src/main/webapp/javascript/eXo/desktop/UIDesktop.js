@@ -39,8 +39,8 @@ UIDesktop.prototype.resetZIndex = function(windowObject) {
   
   for(var i = 0; i < windowsInDesktop.length; i++) {
   	
-    if(parseInt(maxZIndex) < parseInt(windowsInDesktop[i].style.zIndex)) {    	
-      maxZIndex = windowsInDesktop[i].style.zIndex ;      
+    if(parseInt(maxZIndex) < parseInt(windowsInDesktop[i].style.zIndex)) {
+      maxZIndex = windowsInDesktop[i].style.zIndex ;
     }
     
     if(parseInt(windowsInDesktop[i].style.zIndex) > parseInt(windowObject.style.zIndex)) {
@@ -49,7 +49,26 @@ UIDesktop.prototype.resetZIndex = function(windowObject) {
   }  
   windowObject.style.zIndex = maxZIndex ;
   uiDockbar.style.zIndex = parseInt(maxZIndex) + 1 ;
-  return maxZIndex ;
+  //return maxZIndex ;
+};
+
+UIDesktop.prototype.isMaxZIndex = function(object) {
+	var isMax = false ;
+	var DOMUtil = eXo.core.DOMUtil ;
+	var uiPageDesktop = document.getElementById("UIPageDesktop");
+	var uiDockbar = document.getElementById("UIDockBar");
+	var desktopApps = DOMUtil.getChildrenByTagName(uiPageDesktop, "div") ;
+	
+	var maxZIndex = object.style.zIndex ;
+	for(var i = 0; i < desktopApps.length; i++) {
+		if((desktopApps[i] != uiDockbar) && (desktopApps[i].style.zIndex > maxZIndex)) {
+			maxZIndex = desktopApps[i].style.zIndex ;
+		}
+	}
+	
+	if(object.style.zIndex == maxZIndex) isMax = true ;
+	
+	return isMax ;
 };
 
 UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {	
