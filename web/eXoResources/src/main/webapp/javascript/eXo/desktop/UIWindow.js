@@ -1,6 +1,6 @@
 eXo.require('eXo.webui.UIPopup');
 function UIWindow() {
-
+	this.deltaYAppWin = 59 ;
 } ;
 
 UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
@@ -15,10 +15,16 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	var uiApplication = DOMUtil.findFirstDescendantByClass(popup, "div", "UIApplication") ;
-	if (!uiApplication) {
+	if(!uiApplication) {
 		//alert ("UIApplication css class is missing") ;
 		return ;
-	}	
+	}
+	
+	//uiApplication.style.width = (popup.offsetWidth - this.deltaYAppWin) + "px" ;
+	
+	//uiApplication.style.border = "solid 1px red" ;
+//	alert("Application Width: " + uiApplication.offsetHeight + "\nWindow Width: " + popup.offsetHeight);
+	
 	var applicationMinWidth = DOMUtil.findFirstDescendantByClass(popup, "div", "ApplicationMinWidth") ;
 
   if(applicationMinWidth) {
@@ -38,7 +44,6 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 		}
   }
 
-  
   /*Fix Bug On IE6*/
 	if(eXo.core.Browser.isIE6()) {
 		try {
@@ -46,13 +51,17 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 			if(appWidth > 0) uiApplication.style.width = (popup.offsetWidth - 8) + "px" ;
 		} catch (e) {
 			alert (e.message) ;
-		}		
+		}
 	}
 	
 	if(popup.style.zIndex == "") popup.style.zIndex = ++zIndex ;
 	
 	popup.onmousedown = function() {
-		eXo.desktop.UIDesktop.resetZIndex(this) ;
+		var isMaxZIndex = eXo.desktop.UIDesktop.isMaxZIndex(this);
+		window.status = "TEST ZINDEX: " + isMaxZIndex ;
+		if(!isMaxZIndex) {
+			eXo.desktop.UIDesktop.resetZIndex(this) ;
+		}
 	}
 
 	popup.onmouseup = function() {
@@ -71,7 +80,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	var minimizedIcon = DOMUtil.findFirstDescendantByClass(windowPortletControl, "div", "MinimizedIcon");
 	var maximizedIcon = DOMUtil.findFirstDescendantByClass(windowPortletControl, "div", "MaximizedIcon");
 	
-	minimizedIcon.onclick = function() {
+	minimizedIcon.onmouseup = function() {
 		var index = 0 ;
 		var windows = DOMUtil.getChildrenByTagName(popup.parentNode, "div") ;
 		for(var j = 0; j < windows.length; j++) {
@@ -86,7 +95,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 		eXo.desktop.UIDesktop.showHideWindow(popup, children[index + 1]);
 	} ;
 	
-	maximizedIcon.onclick = function() {
+	maximizedIcon.onmouseup = function() {
 		UIWindow.maximizeWindow(popup, this) ;
 	} ;
 	
@@ -117,11 +126,6 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	    uiPageDesktop.onmousemove = UIWindow.resizeWindow ;
 		}
   } ;
-  
-//  resizeArea.onmouseup = function(e) {
-//  	/*Save Width and Height of Window*/
-//  	eXo.desktop.UIWindow.saveWindowProperties(popup);
-//  }
   
   uiPageDesktop.onmouseup = function() {
     uiPageDesktop.onmousemove = null ;
@@ -388,6 +392,7 @@ UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
 	containerBlockId = uiPageIdNode.innerHTML;
 	
+//	var uiApplication = DOMUtil.findFirstDescendantByClass(object, "div", "UIApplication");
 	var params ;
 		
 	if(!appStatus) {
@@ -396,8 +401,9 @@ UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 	  	{name : "posX", value : object.offsetLeft},
 	  	{name : "posY", value : object.offsetTop},
 	  	{name : "zIndex", value : object.style.zIndex},
-	  	{name : "width", value : object.offsetWidth},
-		  {name : "height", value : object.offsetHeight}
+	  	{name : "windowWidth", value : object.offsetWidth},
+		  {name : "windowHeight", value : object.offsetHeight}
+//		  ,{name : "applicationHeight", value : uiApplication.offsetHeight}
 	  ] ;
 	} else {
 		params = [
