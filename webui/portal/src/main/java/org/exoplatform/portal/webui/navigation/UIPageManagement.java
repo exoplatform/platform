@@ -122,7 +122,7 @@ public class UIPageManagement extends UIManagement {
     uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
     
     if(page == null){
-      Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+      Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
       setRenderedChildrenOfTypes(childrenToRender);
       uiToolPanel.setUIComponent(null);
       UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
@@ -135,7 +135,7 @@ public class UIPageManagement extends UIManagement {
     uiToolPanel.setUIComponent(uiPage);
     
     if(!page.isModifiable()) {
-      Class [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+      Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
       setRenderedChildrenOfTypes(childrenToRender);
       uiApp.addMessage(new ApplicationMessage("UIPageManagement.msg.Invalid-editPermission", null)) ;
       pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
