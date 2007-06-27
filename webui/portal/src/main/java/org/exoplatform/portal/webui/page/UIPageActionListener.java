@@ -48,10 +48,10 @@ public class UIPageActionListener {
     private List<PageNode> selectedPaths_;
     
     public void execute(Event event) throws Exception {     
-      try{int i = 0; i = 3/i; } catch (Exception e) { e.printStackTrace(); }
+//      try{int i = 0; i = 3/i; } catch (Exception e) { e.printStackTrace(); }
       PageNodeEvent<?> pnevent = (PageNodeEvent<?>) event ;
       uiPortal = (UIPortal) event.getSource();
-      System.out.println("\n\n\n----------->ChangePageNodeActionListener: uri =" + pnevent.getTargetNodeUri());
+//      System.out.println("\n\n\n----------->ChangePageNodeActionListener: uri =" + pnevent.getTargetNodeUri());
       
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
