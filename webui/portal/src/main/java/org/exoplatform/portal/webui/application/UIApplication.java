@@ -23,6 +23,14 @@ public class UIApplication  extends UIPortalComponent {
   private String   description;
   private String   icon;
   
+  public static final String locationX = "locationX";
+  public static final String locationY = "locationY";
+  public static final String zIndex = "zIndex";
+  public static final String appWidth = "appWidth";
+  public static final String appHeight = "appHeight";
+  public static final String appStatus = "appStatus";
+  
+  
   public Properties getProperties() {
     if(properties == null) properties  = new Properties();
     return properties; 

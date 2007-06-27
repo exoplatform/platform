@@ -201,8 +201,8 @@ public class UIPageActionListener {
         
         int posX = (int)(Math.random()*400) ;
         int posY = (int)(Math.random()*200) ;
-        uiWidget.getProperties().put("locationX", String.valueOf(posX)) ;
-        uiWidget.getProperties().put("locationY", String.valueOf(posY)) ;
+        uiWidget.getProperties().put(UIApplication.locationX, String.valueOf(posX)) ;
+        uiWidget.getProperties().put(UIApplication.locationY, String.valueOf(posY)) ;
         
         uiPage.addChild(uiWidget);
       } else {
@@ -319,11 +319,11 @@ public class UIPageActionListener {
       if(uiWidget == null) return;
       String posX  = event.getRequestContext().getRequestParameter("posX");
       String posY  = event.getRequestContext().getRequestParameter("posY");
-      String zIndex = event.getRequestContext().getRequestParameter("zIndex");
+      String zIndex = event.getRequestContext().getRequestParameter(UIApplication.zIndex);
       
-      uiWidget.getProperties().put("locationX", posX) ;
-      uiWidget.getProperties().put("locationY", posY) ;
-      uiWidget.getProperties().put("zIndex", zIndex) ;
+      uiWidget.getProperties().put(UIApplication.locationX, posX) ;
+      uiWidget.getProperties().put(UIApplication.locationY, posY) ;
+      uiWidget.getProperties().put(UIApplication.zIndex, zIndex) ;
       
       if(!uiPage.isModifiable()) return;
       Page page = PortalDataMapper.toPageModel(uiPage);
@@ -345,24 +345,24 @@ public class UIPageActionListener {
       String posX = event.getRequestContext().getRequestParameter("posX");
       String posY = event.getRequestContext().getRequestParameter("posY");
       
-      if(posX != null) uiComponent.getProperties().put("locationX", posX);
-      if(posY != null) uiComponent.getProperties().put("locationY", posY);
+      if(posX != null) uiComponent.getProperties().put(UIApplication.locationX, posX);
+      if(posY != null) uiComponent.getProperties().put(UIApplication.locationY, posY);
       
       /*########################## Save ZIndex ##########################*/
-      String zIndex = event.getRequestContext().getRequestParameter("zIndex");
+      String zIndex = event.getRequestContext().getRequestParameter(UIApplication.zIndex);
       
-      if(zIndex != null) uiComponent.getProperties().put("zIndex", zIndex) ;
+      if(zIndex != null) uiComponent.getProperties().put(UIApplication.zIndex, zIndex) ;
       
       /*########################## Save Dimension ##########################*/
       String appWidth = event.getRequestContext().getRequestParameter("width");
       String appHeight = event.getRequestContext().getRequestParameter("height");
       
-      if(appWidth != null) uiComponent.getProperties().put("appWidth", appWidth);
-      if(appHeight != null) uiComponent.getProperties().put("appHeight", appHeight);
+      if(appWidth != null) uiComponent.getProperties().put(UIApplication.appWidth, appWidth);
+      if(appHeight != null) uiComponent.getProperties().put(UIApplication.appHeight, appHeight);
       
       /*########################## Save Window status (SHOW / HIDE) ##########################*/
-      String appStatus = event.getRequestContext().getRequestParameter("appStatus");
-      if(appStatus != null) uiComponent.getProperties().put("appStatus", appStatus);
+      String appStatus = event.getRequestContext().getRequestParameter(UIApplication.appStatus);
+      if(appStatus != null) uiComponent.getProperties().put(UIApplication.appStatus, appStatus);
       
 //      if(!uiPage.isModifiable()) return;
 //      Page page = PortalDataMapper.toPageModel(uiPage);
