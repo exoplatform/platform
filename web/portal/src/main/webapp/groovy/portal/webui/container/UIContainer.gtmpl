@@ -12,7 +12,7 @@
   <div class="META-DATA-BLOCK" style="display: none">
     <div class="id">$uicomponent.id</div>
     <div class="title"><%=_ctx.appRes("UIContainer.title.Container")%></div>
-    <div class="description"><%=_ctx.appRes("UIContainer.label.Thecontainerr")%></div>
+    <div class="description"><%=_ctx.appRes("UIContainer.label.Thecontainer")%></div>
   </div>
   
   <div class="CONTROL-CONTAINER CONTROL-BLOCK" style="display: none">

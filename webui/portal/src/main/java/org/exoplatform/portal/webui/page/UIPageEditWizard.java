@@ -52,7 +52,7 @@ public class UIPageEditWizard extends UIPageWizard {
     addChild(UIWizardPageSelectLayoutForm.class, null, null).setRendered(false);
     addChild(UIPagePreview.class, null, null).setRendered(false); 
     setNumberSteps(3);
-    setHasWelcome(false);
+    setShowWelcomeComponent(false);
   }
   
   private void saveData() throws Exception {

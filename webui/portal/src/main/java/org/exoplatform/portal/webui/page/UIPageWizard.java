@@ -31,6 +31,7 @@ public abstract class UIPageWizard extends UIWizard {
   
   protected UIPopupWindow uiHelpWindow;
   private int numberStep_ ; 
+  private boolean showWelcome = true;
   
   public UIPageWizard() throws Exception {
     uiHelpWindow = createUIComponent(UIPopupWindow.class, null, null);      
@@ -41,15 +42,14 @@ public abstract class UIPageWizard extends UIWizard {
   
   public void setNumberSteps(int s) { numberStep_ = s; }
   public int getNumberSteps() {return numberStep_; }
-  public boolean hasWelcome = true;
   
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
     uiHelpWindow.processRender(context);
   }
   
-  public boolean hasWelcome(){ return hasWelcome; }
-  public void setHasWelcome(boolean has) { hasWelcome = has; }
+  public boolean isShowWelcomeComponent(){ return showWelcome; }
+  public void setShowWelcomeComponent(boolean value) { showWelcome = value; }
   
   public UIPopupWindow getHelpWindow() { return uiHelpWindow; }
   
