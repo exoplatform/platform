@@ -15,7 +15,7 @@
           <!-- for system storage -->
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
-              <property name="sourceName" value="jdbcjcr"/>
+              <property name="sourceName" value="jdbcexo"/>
               <property name="dialect" value="${dialect}"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
@@ -49,7 +49,7 @@
        <workspace name="draft" auto-init-root-nodetype="nt:unstructured">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
-              <property name="sourceName" value="jdbcjcr"/>
+              <property name="sourceName" value="jdbcexo"/>
               <!-- possible dialect: hsql, mysql -->
               <property name="dialect" value="${dialect}"/>
               <property name="multi-db" value="false"/>
@@ -83,7 +83,7 @@
        <workspace name="backup" auto-init-root-nodetype="nt:unstructured">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
-              <property name="sourceName" value="jdbcjcr"/>
+              <property name="sourceName" value="jdbcexo"/>
               <property name="dialect" value="${dialect}"/>
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
@@ -116,7 +116,7 @@
        <workspace name="digital-assets" auto-init-root-nodetype="nt:folder">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
-              <property name="sourceName" value="jdbcjcr"/>
+              <property name="sourceName" value="jdbcexo"/>
               <property name="dialect" value="${dialect}"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
