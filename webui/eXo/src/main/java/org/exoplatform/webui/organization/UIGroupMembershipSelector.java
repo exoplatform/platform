@@ -152,9 +152,7 @@ public class UIGroupMembershipSelector extends UIContainer {
 
   static  public class ChangeNodeActionListener extends EventListener<UITree> {   
     public void execute(Event<UITree> event) throws Exception {     
-     
       String groupId = event.getRequestContext().getRequestParameter(OBJECTID)  ;
-      System.out.println("\n\n\n ChangeNode roi ne: " + groupId);
       UITree uiTree = event.getSource();
       UIGroupMembershipSelector uiSelector = uiTree.getParent();    
       uiSelector.changeGroup(groupId);
