@@ -29,8 +29,8 @@ UIDesktop.prototype.fixDesktop = function() {
 UIDesktop.prototype.resetZIndex = function(windowObject) {
   var windowsInDesktop = eXo.core.DOMUtil.getChildrenByTagName(windowObject.parentNode, "div") ;
   var uiDockbar = document.getElementById("UIDockBar") ;
-  
-  var maxZIndex = windowsInDesktop[0].style.zIndex ;
+  	
+  var maxZIndex = windowObject.style.zIndex ;
  
   var uiPopupWindow = eXo.core.DOMUtil.findDescendantsByClass(windowObject.parentNode,'div','UIPopupWindow') ;
   for (var i = 0; i < uiPopupWindow.length; i ++) {
@@ -38,17 +38,21 @@ UIDesktop.prototype.resetZIndex = function(windowObject) {
   }
   
   for(var i = 0; i < windowsInDesktop.length; i++) {
-  	
-    if(parseInt(maxZIndex) < parseInt(windowsInDesktop[i].style.zIndex)) {
-      maxZIndex = windowsInDesktop[i].style.zIndex ;
-    }
-    
-    if(parseInt(windowsInDesktop[i].style.zIndex) > parseInt(windowObject.style.zIndex)) {
-      windowsInDesktop[i].style.zIndex = parseInt(windowsInDesktop[i].style.zIndex) - 1 ;
-    }
-  }  
+  	if((windowsInDesktop[i].className.indexOf("UIWindow") >= 0) || (windowsInDesktop[i].className.indexOf("UIWidget") >= 0)) {
+  		
+	    if(parseInt(maxZIndex) < parseInt(windowsInDesktop[i].style.zIndex)) {
+	      maxZIndex = windowsInDesktop[i].style.zIndex ;
+	    }
+	    
+	    if(parseInt(windowsInDesktop[i].style.zIndex) >= parseInt(windowObject.style.zIndex)) {
+	      windowsInDesktop[i].style.zIndex = parseInt(windowsInDesktop[i].style.zIndex) - 1 ;
+	    }
+  	}
+  }
+	
   windowObject.style.zIndex = maxZIndex ;
   uiDockbar.style.zIndex = parseInt(maxZIndex) + 1 ;
+//  alert("MaxZIndex: " + maxZIndex);
   //return maxZIndex ;
 };
 
@@ -59,15 +63,18 @@ UIDesktop.prototype.isMaxZIndex = function(object) {
 	var uiDockbar = document.getElementById("UIDockBar");
 	var desktopApps = DOMUtil.getChildrenByTagName(uiPageDesktop, "div") ;
 	
-	var maxZIndex = object.style.zIndex ;
+	var maxZIndex = parseInt(object.style.zIndex) ;
 	for(var i = 0; i < desktopApps.length; i++) {
-		if((desktopApps[i] != uiDockbar) && (desktopApps[i].style.zIndex > maxZIndex)) {
-			maxZIndex = desktopApps[i].style.zIndex ;
+		if((desktopApps[i].className.indexOf("UIWindow") >= 0) || (desktopApps[i].className.indexOf("UIWidget") >= 0)) {
+			if(parseInt(desktopApps[i].style.zIndex) > maxZIndex) maxZIndex = desktopApps[i].style.zIndex ;
+//			alert("AppZIndex: " + desktopApps[i].style.zIndex + "\n MaxZIndex: " + maxZIndex);
 		}
 	}
 	
+//	alert("Object zIndex: " + object.style.zIndex + "\nmaxZIndex: " + maxZIndex);
 	if(object.style.zIndex == maxZIndex) isMax = true ;
-	
+//	window.status = "MAX ZINDEX111: " + maxZIndex;
+//	alert("MAX ZINDEX: " + maxZIndex);
 	return isMax ;
 };
 
