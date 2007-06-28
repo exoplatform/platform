@@ -191,6 +191,7 @@ public class UIPageEditWizard extends UIPageWizard {
         uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
       }
       PortalDataMapper.toUIPage(uiPage, page);
+      uiPortalApp.findFirstComponentOfType(UIPageBody.class).setUIComponent(null) ;
       uiPagePreview.setUIComponent(uiPage);
       
       if(isDesktopPage){
