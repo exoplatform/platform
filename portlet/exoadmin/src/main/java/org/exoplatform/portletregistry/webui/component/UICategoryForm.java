@@ -51,10 +51,8 @@ public class UICategoryForm extends UIForm {
   } 
 
   public void setValue(ApplicationCategory category) throws Exception {
+    reset();
     if(category == null) {
-      getUIStringInput(FIELD_NAME).setEditable(true).setValue(null);
-      getUIStringInput(FIELD_DISPLAY_NAME).setEditable(true).setValue(null);
-      getUIStringInput(FIELD_DESCRIPTION).setValue(null);
       category_ = null;
       return ;
     }
