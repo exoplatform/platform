@@ -153,7 +153,6 @@ UIWidget.prototype.initDND = function(e) {
  * */
 UIWidget.prototype.resizeContainer = function() {
 	var widgets  = document.getElementById("UIWidgets") ;
-  var html = document.getElementsByTagName("html")[0]; 
 	if(widgets == null) return ;	
 	
 	var DOMUtil = eXo.core.DOMUtil ;
@@ -168,6 +167,7 @@ UIWidget.prototype.resizeContainer = function() {
 	var maxHeight = (uiControlWorkspace.offsetHeight >= workspacePanel.offsetHeight)? workspacePanel.offsetHeight : (uiControlWorkspace.offsetHeight - 62);
 	var availableHeight = maxHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + extraHeight) ;
 	if(eXo.core.Browser.isIE6()) {
+		var html = document.getElementsByTagName("html")[0];
 		var fixHeight = html.offsetHeight - 153;
 		if(widgetContainerScrollArea.offsetHeight == fixHeight) return;
 		widgetContainerScrollArea.style.height = fixHeight + "px" ;
