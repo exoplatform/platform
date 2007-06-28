@@ -75,7 +75,9 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	
 	if(!cws.showControlWorkspace) {
 		if(eXo.core.Browser.isIE6()) {
-			eXo.webui.UIVerticalScroller.init();
+			eXo.widget.UIWidget.resizeContainer(0);
+			eXo.webui.UIVerticalScroller.refreshScroll(0);
+			//alert(145);
 		}
 		cws.showControlWorkspace = true ;
 		slidebar.style.display = "none" ;
