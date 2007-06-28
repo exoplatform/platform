@@ -50,20 +50,6 @@ public class WebuiBindingContext extends BindingContext {
     return value ;
   }
   
-  public String appRes(String mesgKey, String defaultValue) throws Exception {
-    String value ;
-    try {
-      ResourceBundle res = rcontext_.getApplicationResourceBundle() ;
-      value = res.getString(mesgKey) ;
-    } catch(MissingResourceException ex) {      
-      //TODO review logic
-      System.err.println("\nMaybe need this key for changing language: "+mesgKey+"\n");
-      if(defaultValue != null && defaultValue.length() > 0) value = defaultValue;
-      else value = mesgKey.substring(mesgKey.lastIndexOf('.') + 1) ;
-    }
-    return value ;
-  }
-  
   public void renderChildren() throws Exception {
     if(uicomponent_ instanceof UIComponentDecorator){
       UIComponentDecorator uiComponentDecorator = (UIComponentDecorator) uicomponent_;

@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.exoplatform.util.ReflectionUtil;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.jgroups.util.GetNetworkInterfaces;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
@@ -47,12 +46,7 @@ public class UIGrid extends UIComponent {
   
   public String[]  getBeanActions() { return action_ ; }
   
-  public int getNumberRow() {
-    if(uiIterator_ == null) return 0;
-    return uiIterator_.getAvailable();
-  }
-  
-  public List getBeans() throws Exception { return uiIterator_.getCurrentPageData() ; }
+  public List<?> getBeans() throws Exception { return uiIterator_.getCurrentPageData() ; }
   
   public String getName() { return classname_ ; }
   

@@ -14,76 +14,84 @@
   	<tr>
       <%if(name != null) {%>
 	      <%for(field in beanFields) { %>
-	        <th><%=_ctx.appRes(name+".header."+field)%></th>
+	          <th><%=_ctx.appRes(name+".header."+field)%></th>
 	      <%}%>
 	      <%if(beanActions != null) { %>
-	        <th><%=_ctx.appRes(name+".header.action")%></th>
+	          <th><%=_ctx.appRes(name+".header.action")%></th>
 	      <%}%>
       <%}%>
       <%if(name == null) {%>
       	<%for(field in beanFields) { %>
-	        <th><%=_ctx.appRes(uiParent.getName()+".header."+field)%></th>
+	          <th><%=_ctx.appRes(uiParent.getName()+".header."+field)%></th>
 	      <%}%>
 	      <%if(beanActions != null && beanActions.length > 0) { %>
-	        <th><%=_ctx.appRes(uiParent.getName()+".header.action")%></th>
+	          <th><%=_ctx.appRes(uiParent.getName()+".header.action")%></th>
 	      <%}%>
 	    <%}%>
     </tr>
   </thead>
-  <% if(uicomponent.getNumberRow() == 0) { %>
-    </table>
-    <div class="EmptyGrid"><%=_ctx.appRes(uicomponent.getId()+".msg.empty", "No result found!")%></div>
-  <%} else { %>
   <tbody>
-  <%
-    def rowClass = null ;
-    boolean even = true ;
-    for (bean in uicomponent.getBeans())  {
-      if(even) rowClass = "EvenRow" ;  
-      else rowClass =  "OddRow" ; 
-      even = !even ;
+  <%if(uicomponent.getUIPageIterator().getAvailable() < 1) {%>
+    <tr>
+      <td align="center" colspan="<%=beanFields.length+1%>">
+        <%=_ctx.appRes("UIGrid.msg.empty")%>
+      </td>
+    </tr>  
+  <%} else { 
+	    def rowClass = null ;
+	    boolean even = true ;
+	    for (bean in uicomponent.getBeans())  {
+	      if(even) rowClass = "EvenRow" ;  
+	      else rowClass =  "OddRow" ; 
+	      even = !even ;
   %>
-    <tr class="$rowClass">
-      <%
-        for(field in beanFields) { 
-          def fieldValue = uicomponent.getFieldValue(bean, field) ;
-          def cssClass = "" ;
-          if(fieldValue != null) {
-            def fieldClass = fieldValue.getClass() ;
-            if(fieldClass == Integer.class)  cssClass = "number" ;
-            else if(fieldClass == java.util.Date.class)  cssClass = "Datetime" ;
-            else cssClass = "text" ;
-          } else {
-          	fieldValue = "";
-          }
-      %>
-          <td class="$cssClass">$fieldValue</td>
-        	
-      <%}%>
-      <%if(beanActions != null && beanActions.length > 0) { %>
-	      <td>         
+	      <tr class="$rowClass">
+  <%
+		    for(field in beanFields) { 
+		       def fieldValue = uicomponent.getFieldValue(bean, field) ;
+		      def cssClass = "" ;
+		      if(fieldValue != null) {
+		        def fieldClass = fieldValue.getClass() ;
+		        if(fieldClass == Integer.class)  cssClass = "number" ;
+		        else if(fieldClass == java.util.Date.class)  cssClass = "Datetime" ;
+		        else cssClass = "text" ;
+		      } else {
+		      	fieldValue = "";
+		      }
+		      println "<td class=\""+cssClass+"\">"+fieldValue+"</td>";
+	    
+	      }  
+        if(beanActions != null && beanActions.length > 0) { 
+  %>
+			  <td>         
 	        <div class="ActionContainer" style="margin: 0px auto;">
 	          <div class="OverflowContainer" style="margin: auto;">          
 	          <%	          
 	            def beanIdField = uicomponent.getBeanIdField() ;           
 	            for(action in beanActions) { 
 	              def beanId = uicomponent.getFieldValue(bean, beanIdField)  ;
-		            if(action != null) {           
-	                if(uiForm != null){
-		          %>	           
-		                <a class="${action}Icon" href="<%=uiForm.event(action, uicomponent.getParent().getId(), beanId)%>" title = "<%=_ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action)%>"><span></span></a>
-		          <%  }else{ %>
-      		          <a class="${action}Icon" href="<%=uiParent.event(action, beanId)%>" title = "<%=_ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action)%>"><span></span></a>	           
-		          <%  } %> 
-		          <%} %> 
+		            if(action == null) continue;           
+	              String title = _ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action);
+	              String actionLink = "";
+	              if(uiForm != null){
+	                actionLink = uiForm.event(action, uicomponent.getParent().getId(), beanId);
+	              } else {
+	                actionLink = uiParent.event(action, beanId);
+	              }
+		        %>	           
+		            <a class="${action}Icon" href="$actionLink" title="$title"><span></span></a>		          
 	          <%}%>                 
 	          </div>
 	        </div>
 	      </td>
-	    <% } %>  
-    </tr>
-  <%}%>
+  <%
+        }
+  %>  
+		    </tr>
+	<%
+	    }
+	  }
+	%> 
   </tbody>
 </table> <!--End UIGrid-->
 <%_ctx.renderUIComponent(uicomponent.getUIPageIterator())%>
-<% } %>
