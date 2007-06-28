@@ -128,6 +128,18 @@ public class UIContainer extends UIComponent {
     }
     return null ;
   } 
+  
+  /*@SuppressWarnings("unchecked")
+  public <T extends UIComponent> T findRenderComponentById(String id) {
+    if(!isRendered()) return null;
+    if(getId().equals(id)) return (T)this ;
+    if(children == null)  return null ;
+    for (UIComponent uichild : children) {
+      UIComponent found =  uichild.findComponentById(id) ;
+      if(found != null)  return (T)found ;
+    }
+    return null ;
+  } */
    
   public <T extends UIComponent> T findFirstComponentOfType(Class<T> type) {
     if (type.isInstance(this)) return type.cast(this);

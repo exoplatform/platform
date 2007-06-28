@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNode;
@@ -14,19 +13,17 @@ import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageBrowser;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
-import org.exoplatform.portal.webui.page.UIPageForm;
-import org.exoplatform.portal.webui.page.UIPageTemplateOptions;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
-import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
-import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIDescription;
+import org.exoplatform.webui.core.UIRightClickPopupMenu;
+import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.Event.Phase;
 
 @ComponentConfig(
   template = "app:/groovy/portal/webui/navigation/UIPageManagement.gtmpl"
@@ -79,22 +76,12 @@ public class UIPageManagement extends UIManagement {
   public void setMode(ManagementMode mode, Event<? extends UIComponent> event) throws Exception {
     mode_ = mode;
     if (mode == ManagementMode.EDIT) {
-      //TODO: Tung.Pham modified
-      //------------------------------------------------------------
-      PortalRequestContext pcontext  = Util.getPortalRequestContext() ;
       UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
-      //UITree uiTree = uiNodeSelector.getChild(UITree.class);
-      //UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);
-      //uiPopupMenu.createEvent("EditPageNode", event.getExecutionPhase(), event.getRequestContext()).broadcast();
-      PageNode selectedNode = uiNodeSelector.getSelectedPageNode() ;
-      if(selectedNode == null) {
-        setPage(null) ;
-        return ;
-      }
-      UserPortalConfigService portalConfigService = getApplicationComponent(UserPortalConfigService.class);
-      Page page  = portalConfigService.getPage(selectedNode.getPageReference(), pcontext.getRemoteUser());
-      setPage(page) ;
-      //------------------------------------------------------------
+      UITree uiTree = uiNodeSelector.getChild(UITree.class);
+      UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);
+      Phase phase = event.getExecutionPhase();
+      WebuiRequestContext rcontext = event.getRequestContext();
+      uiPopupMenu.createEvent("EditPageNode", phase, rcontext).broadcast();
       getChild(UIDescription.class).setRendered(false);
       return;
     }
@@ -110,8 +97,9 @@ public class UIPageManagement extends UIManagement {
     uiPageBrowser.setShowAddNewPage(true);    
     uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
   }
+
   
-  //TODO: Tung.Pham added
+  /*//TODO: Tung.Pham added
   public void setPage(Page page) throws Exception {
     PortalRequestContext pcontext  = Util.getPortalRequestContext() ;
     UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
@@ -132,6 +120,7 @@ public class UIPageManagement extends UIManagement {
     }
     
     UIPage uiPage  = Util.toUIPage(page, uiToolPanel);  
+    UIPageBody uiPageBody = uiApp.findComponentOfType()
     uiToolPanel.setUIComponent(uiPage);
     
     if(!page.isModifiable()) {
@@ -159,11 +148,11 @@ public class UIPageManagement extends UIManagement {
     pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
     pcontext.setFullRender(true);
     
-    Class [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+    Class<?> [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
     setRenderedChildrenOfTypes(childrenToRender);
     UIPageEditBar uiPageEditBar = getChild(UIPageEditBar.class);
     uiPageEditBar.setUIPage(uiPage); 
     uiPageEditBar.showUIPage();
-  }
+  }*/
 
 }

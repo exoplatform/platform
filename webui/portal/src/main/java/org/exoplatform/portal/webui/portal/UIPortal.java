@@ -111,6 +111,7 @@ public class UIPortal extends UIContainer {
     }
     return null;
   }
+  
   public void setSelectedNavigation(PageNavigation selectedNavigation) { 
     selectedNavigation_ = selectedNavigation;
   }
