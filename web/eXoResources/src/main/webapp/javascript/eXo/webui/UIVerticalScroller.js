@@ -2,7 +2,7 @@
 UIVerticalScroller = function () {} ;
 
 UIVerticalScroller.prototype.init = function() {
-	eXo.widget.UIWidget.resizeContainer(1);
+	eXo.widget.UIWidget.resizeContainer();
 	eXo.webui.UIVerticalScroller.refreshScroll(0);
 } ;
 

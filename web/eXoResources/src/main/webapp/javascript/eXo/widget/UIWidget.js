@@ -151,7 +151,7 @@ UIWidget.prototype.initDND = function(e) {
  * Date        : 30-05-2007
  * Description : resize workspace frame
  * */
-UIWidget.prototype.resizeContainer = function(fixie) {
+UIWidget.prototype.resizeContainer = function() {
 	var widgets  = document.getElementById("UIWidgets") ;
   var html = document.getElementsByTagName("html")[0]; 
 	if(widgets == null) return ;	
@@ -168,13 +168,9 @@ UIWidget.prototype.resizeContainer = function(fixie) {
 	var maxHeight = (uiControlWorkspace.offsetHeight >= workspacePanel.offsetHeight)? workspacePanel.offsetHeight : (uiControlWorkspace.offsetHeight - 62);
 	var availableHeight = maxHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + extraHeight) ;
 	if(eXo.core.Browser.isIE6()) {
-		if(this.temp == 0 && fixie == 0) {
-			widgetContainerScrollArea.style.height = (html.offsetHeight - 262) + "px" ;
-			++this.temp;
-		} else {
-			if(availableHeight < 0 || fixie == 0) return ;
-			widgetContainerScrollArea.style.height = (html.offsetHeight - 262) + "px" ;
-		}
+		var fixHeight = html.offsetHeight - 153;
+		if(widgetContainerScrollArea.offsetHeight == fixHeight) return;
+		widgetContainerScrollArea.style.height = fixHeight + "px" ;
 		widgetContainerScrollArea.style.overflow = "hidden" ;
 		return;
 	} else {

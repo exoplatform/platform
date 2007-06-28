@@ -74,11 +74,6 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
 	
 	if(!cws.showControlWorkspace) {
-		if(eXo.core.Browser.isIE6()) {
-			eXo.widget.UIWidget.resizeContainer(0);
-			eXo.webui.UIVerticalScroller.refreshScroll(0);
-			//alert(145);
-		}
 		cws.showControlWorkspace = true ;
 		slidebar.style.display = "none" ;
 		eXo.portal.UIControlWorkspace.width = cws.defaultWidth;
@@ -89,9 +84,8 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 		uiWorkspacePanel.style.height = (eXo.portal.UIControlWorkspace.height - 
 																		 eXo.portal.UIControlWorkspace.uiWorkspaceControl.offsetHeight - 23) + "px" ;
 		/*23 is height of User Workspace Title*/
-		if(!(eXo.core.Browser.isIE6())) {
-			eXo.webui.UIVerticalScroller.init();
-		}
+
+		eXo.webui.UIVerticalScroller.init();
 		eXo.portal.UIPortalControl.fixHeight();
 	} else {
 		// hides the workspace
