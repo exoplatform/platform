@@ -281,13 +281,6 @@ public class UIPageNodeActionListener {
       SelectedNode selectedNode = uiPageNodeSelector.getCopyNode(); 
       if(selectedNode == null) return;
       
-      if(selectedNode.isDeleteNode()) {
-        if(selectedNode.getParentNode() != null) {
-          selectedNode.getParentNode().getChildren().remove(selectedNode.getNode());
-        } else {
-          selectedNode.getPageNavigation().getNodes().remove(selectedNode.getNode());
-        }
-      }
       PageNode newNode = selectedNode.getNode().clone();
       if(selectedNode.getParentNode() != null) {
         String parentUri = selectedNode.getParentNode().getUri();
@@ -308,6 +301,14 @@ public class UIPageNodeActionListener {
         
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
+      }
+      
+      if(selectedNode.isDeleteNode()) {
+        if(selectedNode.getParentNode() != null) {
+          selectedNode.getParentNode().getChildren().remove(selectedNode.getNode());
+        } else {
+          selectedNode.getPageNavigation().getNodes().remove(selectedNode.getNode());
+        }
       }
       
       if(targetNode == null) { 
