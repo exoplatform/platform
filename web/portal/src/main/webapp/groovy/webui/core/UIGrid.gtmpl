@@ -32,7 +32,7 @@
   </thead>
   <% if(uicomponent.getNumberRow() == 0) { %>
     </table>
-    <div><%=_ctx.appRes(uiParent.getName()+".msg.empty", "No result found!")%></div>
+    <div class="EmptyGrid"><%=_ctx.appRes(uicomponent.getId()+".msg.empty", "No result found!")%></div>
   <%} else { %>
   <tbody>
   <%
