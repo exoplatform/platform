@@ -90,6 +90,9 @@ public class UIPageBody extends UIComponentDecorator {
   
   public void renderChildren() throws Exception {
     if(maximizedUIComponent == null) {
+      if(getUIComponent() == null) {
+        setPageBody(Util.getUIPortal().getSelectedNode(), Util.getUIPortal());
+      }
       super.renderChildren();
     } else {
       maximizedUIComponent.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;

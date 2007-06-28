@@ -232,4 +232,5 @@ public class UIPortalApplication extends UIApplication {
   public void setUserPortalConfig(UserPortalConfig userPortalConfig) {
     this.userPortalConfig_ = userPortalConfig; 
   }
+ 
 }
