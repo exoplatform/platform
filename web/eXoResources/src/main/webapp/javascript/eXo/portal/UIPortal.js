@@ -212,6 +212,7 @@ UIPortal.prototype.showViewLayoutModeForPage = function() {
   /**Repaired: by Vu Duy Tu 25/04/07**/
 UIPortal.prototype.showLayoutModeForPage = function(control) {
 	var uiPage = eXo.core.DOMUtil.findFirstDescendantByClass(document.body, "div", "UIPage") ;
+	if(uiPage == null) return;
 	var viewPage = eXo.core.DOMUtil.findFirstDescendantByClass(uiPage, "div", "VIEW-PAGE") ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	var uiPortalApplication = document.getElementById("UIPortalApplication");
