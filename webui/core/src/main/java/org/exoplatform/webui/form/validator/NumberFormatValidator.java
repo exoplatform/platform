@@ -21,7 +21,7 @@ public class NumberFormatValidator implements Validator {
     if(s == null || s.trim().length() < 1) return ;
     for(int i = 0; i < s.length(); i ++){
       char c = s.charAt(i);
-      if (Character.isDigit(c) || (s.charAt(0) == '-' && i == 0)){
+      if (Character.isDigit(c) || (s.charAt(0) == '-' && i == 0 && s.length() > 1)){
         continue;
       }
       Object[] args = { uiInput.getName(), uiInput.getBindingField() };

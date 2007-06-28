@@ -105,13 +105,14 @@ UIUpload.prototype.showUploaded = function(id, fileName) {
   selectFileFrame.style.display = "block" ;
   var fileNameLabel = eXo.core.DOMUtil.findFirstDescendantByClass(selectFileFrame, "div", "FileNameLabel") ;
   if(fileName != null) fileNameLabel.innerHTML += " "+fileName;
+  alert(fileName);
   var progressBarFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "none" ;
-  var fileNameLabel = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "FileNameLabel") ;
+ // var fileNameLabel = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "FileNameLabel") ;
   
   var tmp = element.parentNode;
   var temp = tmp.parentNode;
-}
+};
 
 UIUpload.prototype.abortUpload = function(id) {
   eXo.webui.UIUpload.listUpload.remove(id);
@@ -180,8 +181,8 @@ UIUpload.prototype.upload = function(clickEle, id) {
   var file  = DOMUtil.findDescendantById(form, "file");
   if(file.value == null || file.value == '') return;  
   var infoUploaded = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "FileNameLabel") ;
-  infoUploaded.innerHTML = "Uploaded "+file.value;
-  
+  infoUploaded.innerHTML = "Uploaded: "+file.value;
+  alert(file.value);
   var progressBarFrame = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "block" ;  
   var progressBarMiddle = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarMiddle") ;
