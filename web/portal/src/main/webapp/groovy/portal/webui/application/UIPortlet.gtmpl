@@ -150,7 +150,8 @@
       	cssStyle += "height: "+ appHeight +";" ;
       	cssStyle += "\"";
 	    %>
-    		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}"  ${cssStyle}>
+    		
+    		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}"  ${cssStyle} >
 		      <div class="WindowBarLeft">
 		        <div class="WindowBarRight">
 		          <div class="WindowBarCenter">
@@ -227,7 +228,7 @@
 		                %>
 		                    <div class="CategoryItem" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onmouseup="$onMouseUp">
 		                      <div class="Icon ModifiedIcon"><span></span></div>
-		                      <a class="CategoryItemLabel" href="$actionLink">$mode</a>
+		                      <a class="CategoryItemLabel" href="$actionLink" onmousedown="$actionLink">$mode</a><% /* TODO : insert onmousedown event because of event model of browser*/ %>
 		                      <div style="clear: left"><span></span></div>
 		                    </div>
 		                <%        
@@ -271,7 +272,8 @@
 		          </div>
 		        </div>
 		      </div>
-		      <div><span></span></div>
+		      <div style="clear:both ;"><span></span></div>
+		      
 		      <%//Begin Bottom Decorator %>
 		      <div class="BottomDecoratorLeft">
 		        <div class="BottomDecoratorRight">
