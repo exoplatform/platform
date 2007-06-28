@@ -173,7 +173,7 @@ UIWidget.prototype.resizeContainer = function(fixie) {
 			++this.temp;
 		} else {
 			if(availableHeight < 0 || fixie == 0) return ;
-			widgetContainerScrollArea.style.height = availableHeight + "px" ;
+			widgetContainerScrollArea.style.height = (html.offsetHeight - 262) + "px" ;
 		}
 		widgetContainerScrollArea.style.overflow = "hidden" ;
 		return;
