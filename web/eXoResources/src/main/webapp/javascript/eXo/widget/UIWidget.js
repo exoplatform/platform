@@ -169,6 +169,8 @@ UIWidget.prototype.resizeContainer = function() {
 	if(eXo.core.Browser.isIE6()) {
 		var html = document.getElementsByTagName("html")[0];
 		var fixHeight = html.offsetHeight - 153;
+		/* 153 is total value (HeightTop + HeightBottom)
+		 * */
 		if(widgetContainerScrollArea.offsetHeight == fixHeight) return;
 		widgetContainerScrollArea.style.height = fixHeight + "px" ;
 		widgetContainerScrollArea.style.overflow = "hidden" ;
