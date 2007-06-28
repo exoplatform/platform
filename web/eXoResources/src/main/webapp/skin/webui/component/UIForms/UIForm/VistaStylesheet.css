@@ -68,13 +68,6 @@
   margin-bottom: 0px;
 }
 
-.UIForm .HorizontalLayout label {
-	float:left;
-  width: 100px ;
-	text-align: right;
-	margin: 0px 10px 0px 25px ;
-}
-
 .UIForm .HorizontalLayout input {
   width: 230px ;
   font-size: 11px;

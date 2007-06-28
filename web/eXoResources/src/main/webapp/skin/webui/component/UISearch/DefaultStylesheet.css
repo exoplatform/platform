@@ -62,7 +62,7 @@
 
 .UISearch .UISearchForm .QuickSet select {
   float: left ;
-  width: 115px ; height: 18px; 
+  width: 115px ; 
   padding: 1px;
   border: solid 1px gray;
   font-size: 11px;

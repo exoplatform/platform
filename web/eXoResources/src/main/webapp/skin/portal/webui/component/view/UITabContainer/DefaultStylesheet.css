@@ -18,6 +18,11 @@
 	padding: 0px 10px 0px 2px;
 }
 
+.UITabContainer .EditIcon {
+	float: left;
+	padding: 0px 10px 0px 2px;
+}
+
 .UITabContainer .SelectedTab .CloseIcon {
 	float: left;
 	width: 16px; height: 20px;

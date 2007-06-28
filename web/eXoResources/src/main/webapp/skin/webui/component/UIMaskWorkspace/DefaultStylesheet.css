@@ -246,6 +246,10 @@
   width: 0px;
 }
 
+.UIMaskWorkspace .UIAddApplication .UIAction {
+	width: 80px;
+}
+
 /************************************ Select Permission *******************************/
 
 .UIMaskWorkspace .UIAccessGroup .UIAction {

@@ -57,25 +57,31 @@
   background: url('MacSkin/icons/EditNode.png') no-repeat;
 }
 
-.UIRightClickPopupMenu .EditNavigation16x16Icon{
+.UIRightClickPopupMenu .EditNavigation16x16Icon {
   width: 16px;
   height: 16px;
   background: url(/eXoResources/icons/16x16/MacSkin/EditIcon.png) no-repeat;
 }
 
-.UIRightClickPopupMenu .CopyNode16x16Icon{
+.UIRightClickPopupMenu .CutNode16x16Icon {
+  width: 16px;
+  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Cut.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .CopyNode16x16Icon {
   width: 16px;
   height: 16px;
   background: url('MacSkin/icons/Copy.gif') no-repeat;
 }
 
-.UIRightClickPopupMenu .PasteNode16x16Icon{
+.UIRightClickPopupMenu .PasteNode16x16Icon {
   width: 16px;
   height: 16px;
   background: url('MacSkin/icons/Paste.gif') no-repeat;
 }
 
-.UIRightClickPopupMenu .DeleteNode16x16Icon{
+.UIRightClickPopupMenu .DeleteNode16x16Icon {
   width: 17px;
   height: 18px;
   background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat;

@@ -43,10 +43,10 @@
 }
 
 .UIPageDesktop .UIDockBar .Tooltip {
-	height: 20px ;
+	line-height: 20px ;
 	position: absolute ;
-	background: #ededed ; white-space: nowrap ;
-	padding: 2px 5px 0px 5px ;
+	background: white ; white-space: nowrap ;
+	padding: 0px 5px ;
 	border: solid 1px black ;
 }
 

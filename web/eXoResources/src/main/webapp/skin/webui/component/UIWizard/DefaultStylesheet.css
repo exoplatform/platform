@@ -151,7 +151,7 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo {
-  width: 450px; height: 25px; 
+  width: 90%; height: 25px; 
   line-height: 25px;
   background: white;
   margin: auto;
@@ -181,7 +181,7 @@
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
   margin: auto;
   margin-top: 5px;
-  width: 450px;
+  width: 90%;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction {

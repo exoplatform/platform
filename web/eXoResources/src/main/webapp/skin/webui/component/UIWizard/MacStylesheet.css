@@ -181,7 +181,7 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo{
-  width: 518px; height: 24px; 
+  width: 90%; height: 24px; 
   line-height: 24px;
   background: white; 
   border: solid 1px #b7b7b7;
@@ -209,7 +209,7 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
-  width: 520px;
+  width: 90%;
   margin: 5px auto 0px auto;
 }
 

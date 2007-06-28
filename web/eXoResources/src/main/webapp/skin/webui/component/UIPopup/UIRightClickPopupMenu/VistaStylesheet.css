@@ -50,6 +50,10 @@
   background-image: url('/eXoResources/icons/16x16/VistaSkin/EditNode.png') ;
 }
 
+.UIRightClickPopupMenu .CutNode16x16Icon{
+  background-image: url('/eXoResources/icons/16x16/VistaSkin/icon-cut.gif') ;
+}
+
 .UIRightClickPopupMenu .CopyNode16x16Icon{
   background-image: url('/eXoResources/icons/16x16/VistaSkin/CopyIcon.png') ;
 }

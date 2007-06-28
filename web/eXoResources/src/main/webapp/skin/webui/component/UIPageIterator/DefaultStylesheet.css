@@ -37,6 +37,8 @@
   margin-left: 5px;
 }
 
+
+
 .UIPageIterator .LastTopPageIcon {
   background: url('DefaultSkin/background/DoubleBackArrows.gif') no-repeat ;
   cursor: pointer ;
@@ -54,6 +56,26 @@
 
 .UIPageIterator .NextPageIcon {
   background: url('DefaultSkin/background/SingleNextArrow.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageIterator a:hover.LastTopPageIcon {
+  background: url('DefaultSkin/background/HoverDoubleBackArrows.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageIterator a:hover.NextTopPageIcon {
+  background: url('DefaultSkin/background/HoverDoubleNextArrows.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageIterator a:hover.LastPageIcon {
+  background: url('DefaultSkin/background/HoverSingleBackArrow.gif') no-repeat ;
+  cursor: pointer ; 
+}
+
+.UIPageIterator a:hover.NextPageIcon {
+  background: url('DefaultSkin/background/HoverSingleNextArrow.gif') no-repeat ;
   cursor: pointer ;
 }
 

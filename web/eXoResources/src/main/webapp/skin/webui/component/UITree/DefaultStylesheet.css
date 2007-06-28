@@ -28,6 +28,7 @@
   overflow: hidden ;
   padding-left: 9px;
   clear: both ;
+  width: 90%;
 }
 
 .UITree .TreeContainer .Node .ExpandIcon {

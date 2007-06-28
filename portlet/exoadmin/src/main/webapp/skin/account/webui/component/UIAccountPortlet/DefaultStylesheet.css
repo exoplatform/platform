@@ -37,13 +37,8 @@
 } 
 
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
-  height: 295px; width: auto;
+  height: 295px; width: 350px;
   padding-top: 15px;
-}
-
-.UIAccountPortlet .UIForm .HorizontalLayout .ItemDetail .UIFormInputSet {
-  padding: 0px;
-  height: auto;
 }
 
 /*########################-UIPersonalInfo-###########################*/

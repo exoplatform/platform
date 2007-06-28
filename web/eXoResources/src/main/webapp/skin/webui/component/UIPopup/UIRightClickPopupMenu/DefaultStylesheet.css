@@ -58,6 +58,12 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/CopyIcon.gif') no-repeat;
 }
 
+.UIRightClickPopupMenu .CutNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Cut.gif') no-repeat;
+}
+
 .UIRightClickPopupMenu .PasteNode16x16Icon{
   width: 16px;
   height: 16px;

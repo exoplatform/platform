@@ -10,6 +10,7 @@
   padding: 4px;
   text-align: right;
 	vertical-align: top;
+  padding: 4px;
 }
 
 .UIForm .HorizontalLayout .UIFormGrid td.FieldComponent {
@@ -65,14 +66,6 @@
 .UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {
 	float: left ;
 	margin: 0px 10px 0px 5px ;
-}
-
-.UIForm .HorizontalLayout label {
-	float:left;
-  width: 110px ;
-	text-align:right;
-	margin-right: 10px;
-	line-height: 18px;
 }
 
 .UIForm .HorizontalLayout input {

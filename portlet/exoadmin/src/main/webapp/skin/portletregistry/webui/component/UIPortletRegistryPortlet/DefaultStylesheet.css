@@ -18,6 +18,10 @@
 	letter-spacing: 0.4px;
 }
 
+.UIApplicationRegistryPortlet .UICategoryForm {
+	padding: 10px;
+}
+
 .UIApplicationRegistryPortlet .Title {
   font-size: 14px; color: #1553B9;
   margin: 5px 0px; font-family: arial; font-weight: bold;
@@ -65,7 +69,7 @@
 }
 
 .ApplicationRegistryWorkingArea .UIInfoPortletForm {
-  padding-left: 25px;
+  padding: 10px 0px 10px 25px;
 }
 
 .ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout{
@@ -105,7 +109,7 @@
 }
 
 .ApplicationRegistryControlArea .ApplicationRegistryCategory .UICategoryForm .UIAction {
-  width: 140px;
+  width: 170px;
 }
 
 .ApplicationRegistryControlArea .CategoryManagement {
@@ -247,7 +251,11 @@
 }
 
 .ApplicationRegistryWorkingArea .UIAction  {
-  width: 140px;
+  width: 120px;
+}
+
+.ApplicationRegistryWorkingArea .UIInfoPortletForm .UIAction  {
+	width: 190px;
 }
 
 .ApplicationRegistryWorkingArea .UIAvailablePortletForm .HorizontalLayout .FieldContainer {

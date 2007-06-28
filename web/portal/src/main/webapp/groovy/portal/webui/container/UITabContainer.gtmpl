@@ -23,10 +23,10 @@
 				          	<div class="LeftTab">
 				            	<div class="RightTab">
 				              	<div class="MiddleTab"> 
-				              		<a class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"> <%=title%> </a>
+				              		<a class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=title%></a>
 					              	<a class="EditIcon" href="<%=uicomponent.event("EditContainer","$uiChild.id")%>"><span></span></a>
 					                <a style="display: none" class="CloseIcon" href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>"><span></span></a> 
-					              	<div style="clear: left"><span></span></div>
+					              	<div style="clear: left;"><span></span></div>
 					              </div>
 				            	</div>
 				          	</div>
