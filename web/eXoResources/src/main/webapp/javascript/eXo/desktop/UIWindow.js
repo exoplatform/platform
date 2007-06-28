@@ -73,7 +73,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	try {
 		windowPortletInfo.onmousedown = this.initDND ;
 	} catch(err) {
-		alert(err);
+		alert("Error In DND: " + err);
 	}
 	
 	var windowPortletControl = DOMUtil.findFirstDescendantByClass(popup, "div", "WindowPortletControl");
