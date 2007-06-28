@@ -65,7 +65,7 @@ UIPopupWindow.prototype.initDND = function(e) {
   DragDrop.dropCallback = function (dndEvent) {
   	var dragObject = dndEvent.dragObject ;
   	dragObject.uiWindowContent.style.overflow = "auto" ;
-  	
+  	// --- BEGIN : check position --
   	var dragObjectX = dragObject.offsetLeft ;
   	var dragObjectY = dragObject.offsetTop ;
   	var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
@@ -73,31 +73,39 @@ UIPopupWindow.prototype.initDND = function(e) {
 		var extraLeft = (uiWindow) ? uiWindow.offsetLeft : 0 ;
  		var extraHeight = (uiWindow) ? uiWindow.offsetTop : 0 ;  	
   	var uiPageDeskop = document.getElementById("UIPageDesktop") ;
-		//alert("UIWindow OffsetLeft : " +  uiWindow.offsetLeft + " UIWindow OffsetTop : " +  uiWindow.offsetTop + " dragObjectX : " + dragObject.style.left + " dragObjectY : " + dragObject.style.top) ;
-  	if (uiPageDeskop) {
-  		if (dragObject.offsetLeft < (0 - extraLeft)) dragObject.style.left =(0 - extraLeft) +  "px" ;
-	  	if (dragObject.offsetTop < (0 - extraHeight)) dragObject.style.top = (0 - extraHeight) + "px" ;  		
+		var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
+		
+  	if (uiPageDeskop) {  		
+  		if (dragObjectX < (0 - extraLeft)) dragObject.style.left =(0 - extraLeft) +  "px" ;
+	  	if (dragObjectY < (0 - extraHeight)) dragObject.style.top = (0 - extraHeight) + "px" ;	  	
   	}
-  	else {
-  		if (dragObject.offsetLeft < 0) dragObject.style.left = "0px" ;
-	  	if (dragObject.offsetTop < 0) dragObject.style.top = "0px" ;  
+  	else {  		 		
+ 			if (dragObjectX < 0){
+ 				dragObject.style.left = "0px" ;
+ 				return ;
+ 			} 			
+  		if (dragObjectY < 0) dragObject.style.top = "0px" ;
+  		if (uiWorkspaceContainer && (uiWorkspaceContainer.style.display == "block")){
+				if (document.all) {
+					if (dragObjectX < 0) dragObject.style.left = "0px" ;
+				}
+			}
   	}
   	  	
   	if (uiWorkingWorkspace) {  		
 			var offsetWidth = uiWorkingWorkspace.offsetWidth - dragObject.offsetWidth ;
 			var offsetHeight = uiWorkingWorkspace.offsetHeight - dragObject.offsetHeight ;
-			if (dragObjectX > (offsetWidth - extraLeft)) dragObject.style.left = (offsetWidth - extraLeft) + "px" ;
-			if (dragObjectY > (offsetHeight - extraHeight)) dragObject.style.top = (offsetHeight - extraHeight) + "px" ;
-  	}
-  	//alert ("extraLeft : " + extraLeft + " extraHeight : " + extraHeight + " dragObject Left : " + dragObject.offsetLeft + " dragObject Top : " + dragObject.offsetTop) ;
-  	//alert ("dragObject Left : " + dragObject.style.left + " dragObject Top : " + dragObject.style.top) ;
-  }  
+			if (dragObjectX > (offsetWidth + extraLeft)){
+				if (!document.all) dragObject.style.left = (offsetWidth - extraLeft) + "px" ;
+				else  dragObject.style.left = offsetWidth + "px" ;				
+			}		 			
+  	}  	
+  } 
+  // --- END ---  
   var clickBlock = this ;
   var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
   DragDrop.init(null, clickBlock, dragBlock, e) ;
 };
-
-
 
 UIPopupWindow.prototype.resize = function(e) {
 	var targetPopup = document.getElementById(this.getAttribute("popupId"));
