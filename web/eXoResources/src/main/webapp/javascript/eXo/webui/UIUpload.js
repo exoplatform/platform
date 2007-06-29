@@ -104,7 +104,7 @@ UIUpload.prototype.showUploaded = function(id, fileName) {
   var selectFileFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "SelectFileFrame") ;
   selectFileFrame.style.display = "block" ;
   var fileNameLabel = eXo.core.DOMUtil.findFirstDescendantByClass(selectFileFrame, "div", "FileNameLabel") ;
-  if(fileName != null) fileNameLabel.innerHTML += "Uploaded: " + fileName;
+  if(fileName != null) fileNameLabel.innerHTML += " " + fileName;
   var progressBarFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "none" ;
  // var fileNameLabel = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "FileNameLabel") ;
