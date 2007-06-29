@@ -12,6 +12,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 	if(typeof(popup) == "string") {
 		popup = document.getElementById(popup) ;
 	}
+	if(popup == null) return;
 	
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	var uiApplication = DOMUtil.findFirstDescendantByClass(popup, "div", "UIApplication") ;

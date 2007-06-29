@@ -74,6 +74,10 @@ public class UIPageNavigationControlBar extends UIToolbar {
 
       UIPageNodeSelector uiPageNodeSelector = uiPageNav.<UIContainer>getParent().findFirstComponentOfType(UIPageNodeSelector.class);
       uiPageNodeSelector.loadNavigations();
+      
+      Class<?> [] classes = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
+      UIPageManagement uiManagement = uiPageNav.getParent();
+      uiManagement.setRenderedChildrenOfTypes(classes);
 
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiControl);
@@ -96,14 +100,13 @@ public class UIPageNavigationControlBar extends UIToolbar {
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);
       pContext.addUIComponentToUpdateByAjax(uiManagement);
       
-      
       UIPageNodeSelector nodeSelector =uiManagement.getChild(UIPageNodeSelector.class);
       PageNode node  = nodeSelector.getSelectedPageNode();
       if(node == null) return ;
       UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
-      UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
-      toolPanel.setUIComponent(uiPage);
-      toolPanel.getUIComponent().setRendered(true);
+      UIPortalToolPanel uiPortalToolPanel = Util.getUIPortalToolPanel() ; 
+      uiPortalToolPanel.setUIComponent(uiPage);
+      uiPortalToolPanel.getUIComponent().setRendered(true);
       
       UIPortalApplication uiPortalApp = uiPageNav.getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
