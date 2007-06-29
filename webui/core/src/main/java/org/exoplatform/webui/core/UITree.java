@@ -64,7 +64,7 @@ public class UITree extends UIComponent {
   
   private boolean isSelected(Object obj){
     if(selected == null) return false;    
-    return obj == selected;
+    return obj.equals(selected);
   }
 
   public String getColapseIcon() { return colapseIcon; }
