@@ -1,7 +1,5 @@
 /*### Created by: Duy Tu  ###*/
-UIVerticalScroller = function () {
-	this.saveIndex = 0;
-} ;
+UIVerticalScroller = function () {} ;
 
 UIVerticalScroller.prototype.init = function() {
 	eXo.widget.UIWidget.resizeContainer();
@@ -28,9 +26,6 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 			break;
 		}
 	}
-	if(this.saveIndex != index && this.saveIndex > 0 && this.saveIndex < itemSize)
-		index = this.saveIndex;
-	this.saveIndex = index;
 	if(index-id > itemSize-1 || index == itemSize-1) downButton.className = "Icon DisableScrollDownButton";
 	if(index == 0) {
 		upButton.className = "Icon DisableScrollUpButton";
