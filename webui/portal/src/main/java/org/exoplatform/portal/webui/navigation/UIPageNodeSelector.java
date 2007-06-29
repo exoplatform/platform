@@ -155,7 +155,7 @@ public class UIPageNodeSelector extends UIContainer {
   
   public void loadSelectedNavigation() {
     if (selectedNavigation == null || getNavigation(selectedNavigation.getId()) == null) {
-      if(navigations_ == null || navigations_.size() < 0) {
+      if(navigations_ == null || navigations_.size() < 1) {
         selectedNavigation = null;
         return;
       }
