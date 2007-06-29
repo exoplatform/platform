@@ -1,5 +1,5 @@
 .UIWidgets {
-	padding: 10px 0px;
+	padding: 10px 0px 0px 0px;
 }
 
 .UIWidgets .ItemSelectorContainer .UIDropDownItemSelector{
@@ -93,7 +93,7 @@
 
 /***************************************  UIWidgetContainer   **************************************/
 .UIWidgetContainer {
-	padding: 5px 0px 15px 0px;
+	padding: 5px 0px 8px 0px;
 }
 
 .UIWidgetContainer .WidgetContainerScrollArea {

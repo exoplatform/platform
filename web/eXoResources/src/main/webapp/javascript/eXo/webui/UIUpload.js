@@ -104,7 +104,7 @@ UIUpload.prototype.showUploaded = function(id, fileName) {
   var selectFileFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "SelectFileFrame") ;
   selectFileFrame.style.display = "block" ;
   var fileNameLabel = eXo.core.DOMUtil.findFirstDescendantByClass(selectFileFrame, "div", "FileNameLabel") ;
-  if(fileName != null) fileNameLabel.innerHTML += " "+fileName;
+  if(fileName != null) fileNameLabel.innerHTML += "Uploaded: " + fileName;
   var progressBarFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "none" ;
  // var fileNameLabel = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "FileNameLabel") ;
@@ -190,7 +190,6 @@ UIUpload.prototype.upload = function(clickEle, id) {
   	temp += tmp.charAt(i);
   }
   infoUploaded.innerHTML = "Uploaded: " + temp;
-  alert(temp);
   var progressBarFrame = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "block" ;  
   var progressBarMiddle = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarMiddle") ;
@@ -219,7 +218,6 @@ UIUpload.prototype.upload = function(clickEle, id) {
   } else {
     eXo.webui.UIUpload.listUpload.push(form.id);  
   }
- 
 } ;
 
 eXo.webui.UIUpload = new UIUpload();

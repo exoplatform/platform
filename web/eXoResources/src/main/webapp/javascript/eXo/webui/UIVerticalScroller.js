@@ -1,5 +1,7 @@
 /*### Created by: Duy Tu  ###*/
-UIVerticalScroller = function () {} ;
+UIVerticalScroller = function () {
+	this.saveIndex = 0;
+} ;
 
 UIVerticalScroller.prototype.init = function() {
 	eXo.widget.UIWidget.resizeContainer();
@@ -26,6 +28,9 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 			break;
 		}
 	}
+	if(this.saveIndex != index && this.saveIndex > 0 && this.saveIndex < itemSize)
+		index = this.saveIndex;
+	this.saveIndex = index;
 	if(index-id > itemSize-1 || index == itemSize-1) downButton.className = "Icon DisableScrollDownButton";
 	if(index == 0) {
 		upButton.className = "Icon DisableScrollUpButton";
@@ -47,6 +52,8 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 	if(index < 0) index = 0;
 	for(var i = index - id; i < itemSize; ++i) {
 		tmp = items[i].offsetHeight;
+		/* TODO: fix Height for Widgets when onload
+		 * */
 		if(tmp > 0 && tmp < 120) {
 			tmp = 120;
 			if(DOMUtil.findFirstDescendantByClass(items[i], "div", "UIStickerWidget"))tmp = 212;

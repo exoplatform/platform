@@ -146,40 +146,33 @@ UIWidget.prototype.initDND = function(e) {
   DragDrop.init(null, clickBlock, dragBlock, e) ;
   
 };
-/*
- * Coder       : Dunghm
- * Date        : 30-05-2007
- * Description : resize workspace frame
- * */
+
 UIWidget.prototype.resizeContainer = function() {
 	var widgets  = document.getElementById("UIWidgets") ;
 	if(widgets == null) return ;	
 	
 	var DOMUtil = eXo.core.DOMUtil ;
-	var extraHeight = 40 ;
 	var workspacePanel = document.getElementById("UIWorkspacePanel") ;
 	if(workspacePanel.style.display == "none") return;
-	var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
 	var uiWidgetContainer = DOMUtil.findFirstDescendantByClass(widgets, "div", "UIWidgetContainer");
 	var widgetNavigator = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetNavigator") ;	
 	var widgetContainerScrollArea = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetContainerScrollArea") ;
 	var itemSelectorContainer = DOMUtil.findFirstChildByClass(widgets, "div", "ItemSelectorContainer") ;
-	var maxHeight = (uiControlWorkspace.offsetHeight >= workspacePanel.offsetHeight)? workspacePanel.offsetHeight : (uiControlWorkspace.offsetHeight - 62);
-	var availableHeight = maxHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + extraHeight) ;
+	
+	var availableHeight = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + 40) ;
 	if(eXo.core.Browser.isIE6()) {
 		var html = document.getElementsByTagName("html")[0];
 		var fixHeight = html.offsetHeight - 153;
-		/* 153 is total value (HeightTop + HeightBottom)
+		/* 153 is total value (HeightTop + HeightBottom + 40)
+		 * 40 is distance between UIWidgets and UIExoStart 
 		 * */
 		if(widgetContainerScrollArea.offsetHeight == fixHeight) return;
 		widgetContainerScrollArea.style.height = fixHeight + "px" ;
-		widgetContainerScrollArea.style.overflow = "hidden" ;
-		return;
 	} else {
 		if(availableHeight < 0) return ;
 		widgetContainerScrollArea.style.height = availableHeight + "px" ;
-	  widgetContainerScrollArea.style.overflow = "hidden" ;
 	}
+  widgetContainerScrollArea.style.overflow = "hidden" ;
 } ;
 
 eXo.widget.UIWidget = new UIWidget();
