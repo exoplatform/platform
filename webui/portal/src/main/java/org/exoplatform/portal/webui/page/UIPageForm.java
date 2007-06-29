@@ -297,7 +297,12 @@ public class UIPageForm extends UIFormTabPane {
       UIGroupSelector uiGroupSelector = event.getSource();
       UIPageForm uiPageForm = uiGroupSelector.getAncestorOfType(UIPageForm.class);
       UIFormStringInput uiOwnerId = uiPageForm.getUIStringInput("ownerId");
-      uiOwnerId.setValue(uiGroupSelector.getSelectedGroup().getId());
+      if(uiGroupSelector.getSelectedGroup() == null) {
+        UIFormSelectBox uiSelectBox = uiPageForm.getUIFormSelectBox("ownerType");
+        uiSelectBox.setValue(PortalConfig.USER_TYPE);
+      } else {
+        uiOwnerId.setValue(uiGroupSelector.getSelectedGroup().getId());
+      }
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm.getParent());
     }
   }

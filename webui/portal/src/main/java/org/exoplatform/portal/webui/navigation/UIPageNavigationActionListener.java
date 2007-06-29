@@ -50,8 +50,8 @@ public class UIPageNavigationActionListener {
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
 
       UIPageNavigationForm uiNavigationForm = uiMaskWS.createUIComponent(UIPageNavigationForm.class, null, null);
-      UIPageManagement uiPManagement = uiControlBar.getAncestorOfType(UIPageManagement.class);
-      UIPageNodeSelector uiNavigationSelector = uiPManagement.findFirstComponentOfType(UIPageNodeSelector.class);
+      UIPageManagement uiManagement = uiControlBar.getAncestorOfType(UIPageManagement.class);
+      UIPageNodeSelector uiNavigationSelector = uiManagement.findFirstComponentOfType(UIPageNodeSelector.class);
       PageNavigation nav = uiNavigationSelector.getSelectedNavigation();
       if(nav == null) {
         uiApp.addMessage(new ApplicationMessage("UIPageNavigationControlBar.msg.noEditablePageNavigation", new String[]{})) ;;
@@ -62,6 +62,7 @@ public class UIPageNavigationActionListener {
       uiMaskWS.setUIComponent(uiNavigationForm);      
       uiMaskWS.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);      
     }
   }
   
