@@ -8,7 +8,6 @@
 }
 
 .UIHorizontalTabs .TabsContainer {
-  float: left;
   overflow: hidden;
 }
 
@@ -201,7 +200,6 @@
   line-height: 24px;
   margin-right: 1px;
   color: #307dcc; overflow: hidden;
-  border: 1px solid red;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
