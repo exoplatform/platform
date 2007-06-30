@@ -10,46 +10,29 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 	var categoryDetectPosition = DOMUtil.findAncestorByClass(selectedElement, "CategoryDetectPosition") ;
 	var controlCategory = DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
   var uiPopupCategory = DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
-  var uiPageDesktop = DOMUtil.findAncestorByClass(ancestorPopupCategory, "UIPageDesktop");
 	if(uiPopupCategory == null) return;
-
-	if(uiPopupCategory.style.display == "none") {
+	/**Repaired: by Vu Duy Tu 30/06/07
+	 * TODO: check for IE7 
+	 **/ 
+	if(uiPopupCategory.style.display != "block") {
 		uiPopupCategory.style.position = "absolute" ;
-		uiPopupCategory.style.display = "block" ;
-		var posTop = eXo.core.Browser.findPosY(ancestorPopupCategory) + 22;
-		if (uiPageDesktop != null) posTop -= ancestorPopupCategory.offsetTop;
-		uiPopupCategory.style.top = posTop + "px" ;
-		uiPopupCategory.style.width = width + "px" ;
+		uiPopupCategory.style.display = "block";
+		uiPopupCategory.style.width = width + "px";
 		
-		if(controlCategory != null) {
-			var count = 2;
-			if (eXo.core.Browser.browserType == "mozilla") count = 1;
-			if(DOMUtil.findAncestorByClass(ancestorPopupCategory, "UITableColumnContainer")) {
-			  var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - width + 35;
-			  if (eXo.portal.UIControlWorkspace.showControlWorkspace) {
-			  	posLeft -= (count * eXo.portal.UIControlWorkspace.defaultWidth) ;
-			  }
-			} else {
-			  var styleSkin = document.getElementById("UIPortalApplication");
-				if(count == 1){
-					var posLeft = categoryDetectPosition.offsetLeft - uiPopupCategory.offsetWidth + 44 ; 
-					if(styleSkin.className == "Mac") posLeft += 6;
-				}
-				else {
-					if(uiPageDesktop) {
-						var posLeft = (categoryDetectPosition.offsetLeft - categoryDetectPosition.offsetWidth) + 36 ;
-						if(styleSkin.className == "Vista") posLeft += 20;
-					} else {
-						var posLeft = categoryDetectPosition.offsetLeft - categoryDetectPosition.offsetWidth + 20;
-						if(styleSkin.className == "Vista") posLeft += 10;
-					}
-				}
-			}
-			uiPopupCategory.style.left = posLeft + "px";
+		var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - width + controlCategory.offsetWidth + 28;
+		/* 28 is distance between arrow and PopupCategoryRight */
+		  posLeft -= ancestorPopupCategory.offsetLeft;
+		if (eXo.portal.UIControlWorkspace.showControlWorkspace) {
+			 posLeft -= eXo.portal.UIControlWorkspace.defaultWidth ;
+		} else {
+			posLeft -= 5;
+			/* SlidebarButton Width */
 		}
+		uiPopupCategory.style.left = posLeft + "px";
 	} else {
-		uiPopupCategory.style.display = "none" ;
+		uiPopupCategory.style.display = "none";
 	}
+	
 	/*Add uiPopupCategory to the list element will be display to "none" when click on document*/
 	eXo.core.DOMUtil.listHideElements(uiPopupCategory);
 } ;
@@ -57,7 +40,7 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 UIPopupSelectCategory.prototype.selectedCategoryIndex = function(selectedElement) {
 	var parentNode = selectedElement.parentNode ;
 	var categoryItems = eXo.core.DOMUtil.findChildrenByClass(parentNode, "div", "CategoryItem") ;
-	for(var i =0; i < categoryItems.length; i++) {
+	for(var i = 0; i < categoryItems.length; i++) {
 		if(categoryItems[i] == selectedElement) return i ;
 	}
 } ;

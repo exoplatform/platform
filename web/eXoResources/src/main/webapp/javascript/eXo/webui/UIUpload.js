@@ -186,7 +186,7 @@ UIUpload.prototype.upload = function(clickEle, id) {
   	tmp += temp.charAt(i);
   }
   temp = '';
-  for(var i = tmp.length; i >= 0 ; --i) {
+  for(var i = (tmp.length - 1); i >= 0 ; --i) {
   	temp += tmp.charAt(i);
   }
   infoUploaded.innerHTML = "Uploaded: " + temp;

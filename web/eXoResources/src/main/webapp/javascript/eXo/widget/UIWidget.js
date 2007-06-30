@@ -147,6 +147,9 @@ UIWidget.prototype.initDND = function(e) {
   
 };
 
+/** Created: by Duy Tu 
+ *         duytucntt@gmail.com
+ */
 UIWidget.prototype.resizeContainer = function() {
 	var widgets  = document.getElementById("UIWidgets") ;
 	if(widgets == null) return ;	
@@ -163,7 +166,7 @@ UIWidget.prototype.resizeContainer = function() {
 	if(eXo.core.Browser.isIE6()) {
 		var html = document.getElementsByTagName("html")[0];
 		var fixHeight = html.offsetHeight - 153;
-		/* 153 is total value (HeightTop + HeightBottom + 40)
+		/* 153 is total value (UserWorkspaceTitleHeight + UIExoStartHeight + WidgetNavigatorHeight + 40)
 		 * 40 is distance between UIWidgets and UIExoStart 
 		 * */
 		if(widgetContainerScrollArea.offsetHeight == fixHeight) return;

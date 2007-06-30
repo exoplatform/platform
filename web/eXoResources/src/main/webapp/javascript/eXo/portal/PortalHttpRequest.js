@@ -43,9 +43,8 @@ function PortletResponse(responseDiv) {
   this.portletMode =  div[2].innerHTML ;
   this.portletState =  div[3].innerHTML ;
   this.portletData =  div[4].innerHTML ;
-  this.script = div[5].innerHTML ;
+  if(div[5])this.script = div[5].innerHTML ;
   this.blocksToUpdate = null ;
-  
   var blocks = DOMUtil.findChildrenByClass(div[4], "div", "BlockToUpdate") ;
   if(blocks.length > 0 ) {
     this.blocksToUpdate = new Array() ;
@@ -83,7 +82,7 @@ function PortalResponse(responseDiv) {
         this.blocksToUpdate[j] = obj ;
       }
     } else if(div[i].className == "PortalResponseScript") {
-      this.script = div[i].innerHTML ;
+      this.script = div[i].innerHTML;
     }
   }
 };

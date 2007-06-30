@@ -41,6 +41,9 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 		if (arrow) {
 			item.onclick = eXo.portal.UIPortalNavigation.toggleSubMenu;
 		}
+		/**
+		 * TODO: fix IE7;
+		 */
 		var container = DOMUtil.findFirstDescendantByClass(item, "div", this.containerStyleClass);
 		if (container) {
 			if (eXo.core.Browser.browserType == "mozilla") container.style.minWidth = item.offsetWidth + "px";

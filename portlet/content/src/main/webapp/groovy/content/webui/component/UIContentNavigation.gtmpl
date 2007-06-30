@@ -9,7 +9,7 @@
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');
 %>
 
-<%//The class UIContentNavigationContainer for fix bug %>
+<%/*The class UIContentNavigationContainer for fix bug */%>
 <div class="UIContentNavigationContainer">
 	<div class="CategoryControlBar">
 		<div class="LeftBar">

@@ -37,7 +37,7 @@
 			    if(portletCategoryData.getPortletCategory() == uicomponent.getSelectedPCategory()) style = "style=\"display:block\"";
 			    //renderPortlets(portletCategoryData.getPortlets(), style);
 			%>
-					<div class="CategoryContainer ItemList" $style>
+					<div class="CategoryContainer" $style>
 						<div class="UIVerticalSlideTabs">
 						<%
 							for(portlet in portletCategoryData.getPortlets()) {

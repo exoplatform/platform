@@ -28,16 +28,18 @@
 /*#############################  Begin Icon WindowBar ##############################################*/
 .UIWindow .WindowPortletControl {
   float: right ;
-  height: 18px ;
-  display: block ;
-  margin: 5px 3px 0px 0px;
-	padding-left: 8px;
+  height: 22px ;
+	padding: 0px 3px 0px 12px;
+}
+
+.UIPageDesktop .UIWindow .WindowPortletControl {
+	padding: 0px 3px 0px 15px;
 }
 
 .UIWindow .WindowPortletControl .ControlIcon {
   float: left;
-  width: 22px ; height: 18px ;
-  margin: 4px 2px 0px 0px ;
+  width: 22px ; height: 16px ;
+  margin: 9px 2px 0px 0px ;
   cursor: pointer ;
 }
 
@@ -161,11 +163,6 @@
 }
 
 /*======================== UIPageBody ================================*/
-
-.UIPageBody .WindowPortletControl {
-	float: right;
-	width: auto; height: 23px;
-}
 
 .UIPortal .VIEW-PORTLET .UIWindow {
   width: 99% ; height: auto;

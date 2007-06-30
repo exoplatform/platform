@@ -16,7 +16,11 @@
 .UIWindow .WindowPortletControl {
   float: right ;
   height: 24px ;
-  padding-top:4px;
+  padding:4px 0px 0px 6px;
+}
+
+.UIPageDesktop .UIWindow .WindowPortletControl {
+  padding:4px 0px 0px 12px;
 }
 
 .UIPageDesktop .UIWindow .WindowPortletInfo {
@@ -192,11 +196,6 @@
 .UIPortal .VIEW-PORTLET .UIWindow {
   width: 99% ; height: auto;
   margin: auto; 
-}
-
-.UIPageBody .WindowPortletControl {
-  float: right ;
-  height: 24px ;
 }
 
 .UIPageBody .UIWindow .ResizeArea {

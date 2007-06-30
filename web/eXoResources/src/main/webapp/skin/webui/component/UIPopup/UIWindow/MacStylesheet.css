@@ -12,7 +12,7 @@
 .UIWindow .WindowPortletControl {
   float: right ;
   height: 23px ;
-  padding-left: 6px;
+  padding-left: 0px;
 }
 
 .UIPageDesktop .UIWindow .WindowPortletInfo {

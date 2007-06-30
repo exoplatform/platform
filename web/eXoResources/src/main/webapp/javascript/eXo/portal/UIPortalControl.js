@@ -26,7 +26,8 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
   eXo.portal.UIPortalControl.fixHeight();
 };
 
-/** Created: by Duy Tu - fixHeight function to UIControlWorkspace**/
+/** Created: by Duy Tu - fixHeight function to UIControlWorkspace
+ * TODO: fix**/
 
 UIPortalControl.prototype.fixHeight = function() {
 	if(!eXo.core.Browser.isIE6()) {
@@ -42,10 +43,6 @@ UIPortalControl.prototype.fixHeight = function() {
 					scrollArea.style.height = "auto";
 					var heightChild = scrollArea.offsetHeight;
 					var jsContainer = DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
-					if(jsContainer){
-						scrollArea.style.width = "216px";
-						jsContainer.style.width = "210px";
-					}
 					var maxHeight = 0;
 					if(uiControlWSWorkingArea) {
 					  maxHeight = uiControlWSWorkingArea.offsetHeight ;
@@ -62,6 +59,7 @@ UIPortalControl.prototype.fixHeight = function() {
 			}
 		}
 	}
+//	alert(435543543);
 } ;
 
 UIPortalControl.prototype.onKeyPress = function() {

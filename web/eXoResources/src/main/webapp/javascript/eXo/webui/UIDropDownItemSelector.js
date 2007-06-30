@@ -68,7 +68,6 @@ UIDropDownItemSelector.prototype.mouseOutItem = function(e) {
 };
 
 UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, actionName) {
-	
 	if(this.getAttribute("onServer") == "true") {
 	  var params = [
 	  	{name: "objectId", value : this.getAttribute("itemId")}
@@ -76,11 +75,9 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 		ajaxGet(eXo.env.server.createPortalURL(this.getAttribute("targetParent"), this.getAttribute("action"), true, params)) ;
 		return;
 	}
-	
 	var i;
 	var DOMUtil = eXo.core.DOMUtil;
 	var targ = eXo.core.Browser.getEventSource(e);
-	
 	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector") {
 		targ = targ.parentNode;
 	}
@@ -107,12 +104,10 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 		if(i >= itemList.length) continue;
 		if(itemLabel == itemSelectorLabel[i]) {
 			itemList[i].style.display = "block";
-			
 		} else {
 			itemList[i].style.display = "none";
 		}
 	}
-	eXo.portal.UIPortalControl.fixHeight();
 };
 
 /** Created: by Duy Tu **/

@@ -60,7 +60,7 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 		} else {
 			maxIndex = i;
 		}
-	}//alert(maxIndex);
+	}
 	if(maxIndex == (itemSize-1)) downButton.className = "Icon DisableScrollDownButton";
 	else downButton.className = "Icon ScrollDownButton";
 	if(maxHeight >= itemsHeight + temp) {
