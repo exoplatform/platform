@@ -33,6 +33,8 @@ function getUrl(src) {
 	return(img.src);
 };
 
+/*TODO: Move HTML code to javascript template (.jstmpl) */
+
 UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes, parentId) {
 	var uiAddApplicationContainer = document.getElementById("UIAddApplicationContainer");
 	var url = eXo.env.server.context + "/command?";

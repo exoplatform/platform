@@ -4,14 +4,19 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
+import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormDateTimeInput;
 import org.exoplatform.webui.form.UIFormMultiValueInputSet;
+import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormUploadInput;
 import org.exoplatform.webui.form.validator.NumberFormatValidator;
@@ -51,25 +56,26 @@ public class UITestForm extends UIForm {
     UIFormUploadInput upload = new UIFormUploadInput("TestUpload", null); 
     UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
     test.setType(UIFormDateTimeInput.class);
-    addChild(upload);
-    addChild(test);
+//    addChild(upload);
+//    addChild(test);
     
-    UIFormStringInput newtest = new UIFormStringInput(INTER_NUMBER_VALUE, INTER_NUMBER_VALUE, null);
-    newtest.addValidator(NumberFormatValidator.class);
-    addChild(newtest);
-
-    UIFormStringInput posittest = new UIFormStringInput(POSIT_NUMBER_VALUE, POSIT_NUMBER_VALUE, null);
-    posittest.addValidator(PositiveNumberFormatValidator.class);
-    addChild(posittest);
+//    UIFormStringInput newtest = new UIFormStringInput(INTER_NUMBER_VALUE, INTER_NUMBER_VALUE, null);
+//    newtest.addValidator(NumberFormatValidator.class);
+//    addChild(newtest);
+//
+//    UIFormStringInput posittest = new UIFormStringInput(POSIT_NUMBER_VALUE, POSIT_NUMBER_VALUE, null);
+//    posittest.addValidator(PositiveNumberFormatValidator.class);
+//    addChild(posittest);
     
-//    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-//    ls.add(new SelectItemOption<String>("SQL", "sql")) ;
-//    ls.add(new SelectItemOption<String>("xPath", "xpath")) ;
-//    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
+    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
+    for(int i = 0; i < 40; i++) {
+      ls.add(new SelectItemOption<String>("Select Box Item "+i+"", "select")) ;
+    }
+    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
 //    uiSelectBox.setOnChange("Onchange");
 //    UIFormSelectBox uiSelectBox1 = new UIFormSelectBox(FIELD_SELECT_BOX + "1", FIELD_SELECT_BOX + "1", ls) ;
 //    uiSelectBox1.setOnChange("Onchange");
-//    addUIFormInput(uiSelectBox) ;
+    addUIFormInput(uiSelectBox) ;
 //    addUIFormInput(uiSelectBox1) ;
 //    
 //    UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);

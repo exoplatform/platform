@@ -67,14 +67,10 @@ UIDesktop.prototype.isMaxZIndex = function(object) {
 	for(var i = 0; i < desktopApps.length; i++) {
 		if((desktopApps[i].className.indexOf("UIWindow") >= 0) || (desktopApps[i].className.indexOf("UIWidget") >= 0)) {
 			if(parseInt(desktopApps[i].style.zIndex) > maxZIndex) maxZIndex = desktopApps[i].style.zIndex ;
-//			alert("AppZIndex: " + desktopApps[i].style.zIndex + "\n MaxZIndex: " + maxZIndex);
 		}
 	}
 	
-//	alert("Object zIndex: " + object.style.zIndex + "\nmaxZIndex: " + maxZIndex);
 	if(object.style.zIndex == maxZIndex) isMax = true ;
-//	window.status = "MAX ZINDEX111: " + maxZIndex;
-//	alert("MAX ZINDEX: " + maxZIndex);
 	return isMax ;
 };
 

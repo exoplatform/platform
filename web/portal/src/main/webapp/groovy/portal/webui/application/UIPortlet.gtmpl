@@ -19,7 +19,6 @@
   
   String onMouseOver     = "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
   String onMouseOut      = "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
-  String onMouseUp      = "eXo.webui.UIPopupSelectCategory.onMouseUp(this);" ;
   
   WindowState windowState = uicomponent.getCurrentWindowState();  
   boolean isWindow = "Window".equals(uicomponent.getPortletStyle());  
@@ -123,8 +122,8 @@
 	      String visibility = "visible" ;
 	      String appDisplay = "block";
 	      String appZIndex = "" ;
-	      String appWidth = "" ;
-	      String appHeight = "" ;
+	      String windowWidth = "" ;
+	      String windowHeight = "" ;
 	      
 	      if(isWindow) {
 	      	appDisplay = "";
@@ -136,8 +135,8 @@
 					if("SHOW".equals(appStatus)) {
 						appDisplay = "block" ;
 						appZIndex = uicomponent.getProperties().get("zIndex");
-						appWidth = (String)uicomponent.getProperties().getIntValue("appWidth") + "px" ;
-						appHeight = (String)uicomponent.getProperties().getIntValue("appHeight") + "px" ;
+						windowWidth = (String)uicomponent.getProperties().getIntValue("windowWidth") + "px" ;
+						windowHeight = (String)uicomponent.getProperties().getIntValue("windowHeight") + "px" ;
 					}
 				  /*###################################################################*/
       	}
@@ -146,8 +145,8 @@
       	cssStyle += "visibility: "+ visibility +";" ;
       	cssStyle += "display: "+ appDisplay +";" ;
       	cssStyle += "z-index: "+ appZIndex +";" ;
-      	cssStyle += "width: "+ appWidth +";" ;
-      	cssStyle += "height: "+ appHeight +";" ;
+      	cssStyle += "width: "+ windowWidth +";" ;
+      	cssStyle += "height: "+ windowHeight +";" ;
       	cssStyle += "\"";
 	    %>
     		
@@ -220,7 +219,7 @@
 		            <div class="PopupCategoryMR">
 		              <div class="PopupCategoryMC">
 		                <% 
-		                  List supportModes = uicomponent.getSupportModes();    
+		                  List supportModes = uicomponent.getSupportModes();
 		                  if(supportModes!=null) {
 		                  }
 		                  for(String mode in supportModes) {
@@ -228,7 +227,7 @@
 		                    String upper = mode.charAt(0).toString();
 		                    mode = mode.replaceFirst(upper, upper.toUpperCase());
 		                %>
-		                    <div class="CategoryItem" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onmouseup="$onMouseUp">
+		                    <div class="CategoryItem" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
 		                      <div class="Icon ModifiedIcon"><span></span></div>
 		                      <a class="CategoryItemLabel" href="$actionLink" onmousedown="$actionLink">$mode</a><% /* TODO : insert onmousedown event because of event model of browser*/ %>
 		                      <div style="clear: left"><span></span></div>
@@ -237,7 +236,7 @@
 		                  }
 		                  if(supportModes != null && supportModes.size() > 0) {
 		                %> 
-		                  	<div class="CategoryItem" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onmouseup="$onMouseUp">
+		                  	<div class="CategoryItem" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
 		                    	<div class="Icon ModifiedIcon"><span></span></div>
 		                    	<a class="CategoryItemLabel" href="<%=uicomponent.event("ChangePortletMode", "view")%>">
 		                    		<%=_ctx.appRes("UIPageDesktop.label.View")%>

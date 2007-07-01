@@ -28,7 +28,7 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
 
 /** Created: by Duy Tu - fixHeight function to UIControlWorkspace
  * TODO: fix**/
-
+/* TODO: avoid hashcode too much! */
 UIPortalControl.prototype.fixHeight = function() {
 	if(!eXo.core.Browser.isIE6()) {
 		var objectParent = document.getElementById("UIControlWorkspace");

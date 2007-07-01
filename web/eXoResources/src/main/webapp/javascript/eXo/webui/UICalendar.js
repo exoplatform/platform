@@ -75,6 +75,8 @@ UICalendar.prototype.hide = function() {
  	document.onmousedown = null;
 }
 
+/* TODO: Move HTML code to a javascript template file (.jstmpl) */
+
 UICalendar.prototype.renderCalendar = function() {
   var dayOfMonth = 1;
   var validDay = 0;

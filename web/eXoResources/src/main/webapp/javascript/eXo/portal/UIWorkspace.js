@@ -64,6 +64,10 @@ eXo.portal.UIControlWorkspace.setVisible = function(visible) {
 		cws.showWorkspace();
 	}
 };
+
+/* TODO: too many function were added in this function, 
+ * need to find another way to manage them!
+ * */
    	
 eXo.portal.UIControlWorkspace.showWorkspace = function() {	
 	var cws = eXo.portal.UIControlWorkspace ;

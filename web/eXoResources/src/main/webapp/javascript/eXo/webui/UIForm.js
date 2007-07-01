@@ -1,7 +1,6 @@
 eXo.require('eXo.webui.UIItemSelector');
 
 function UIForm() {
-	//this.backupAction ;
 };
 
 UIForm.prototype.onFixSize = function() {

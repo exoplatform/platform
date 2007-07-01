@@ -1,6 +1,8 @@
 ImplodeExplode = function() {
 } ;
 
+/*TODO: it has a confusion posX and posY */
+
 ImplodeExplode.prototype.doInit = function(uiWindow, clickedElement, containerId, numberOfFrame) {
 	
 	var container = document.getElementById(containerId) ;

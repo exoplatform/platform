@@ -47,7 +47,7 @@ public class UIPageActionListener {
     private UIPortal uiPortal ;
     private List<PageNode> selectedPaths_;
     
-    public void execute(Event event) throws Exception {     
+    public void execute(Event event) throws Exception {
 //      try{int i = 0; i = 3/i; } catch (Exception e) { e.printStackTrace(); }
       PageNodeEvent<?> pnevent = (PageNodeEvent<?>) event ;
       uiPortal = (UIPortal) event.getSource();
@@ -131,7 +131,7 @@ public class UIPageActionListener {
         }
         uiPortal.setSelectedNavigation(nav);
       }
-      uiPortal.setSelectedPaths(selectedPaths_);     
+      uiPortal.setSelectedPaths(selectedPaths_);
       uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
     }
 
@@ -353,17 +353,24 @@ public class UIPageActionListener {
       if(posX != null) uiComponent.getProperties().put(UIApplication.locationX, posX);
       if(posY != null) uiComponent.getProperties().put(UIApplication.locationY, posY);
       
+      //System.out.println("\n\n\n\n\n\n\n\n\n\n\n SAVE POSX: "+posX+"\n SAVE POSY: "+posY+"\n\n\n\n\n\n\n\n\n");
       /*########################## Save ZIndex ##########################*/
       String zIndex = event.getRequestContext().getRequestParameter(UIApplication.zIndex);
       
       if(zIndex != null) uiComponent.getProperties().put(UIApplication.zIndex, zIndex) ;
       
       /*########################## Save Dimension ##########################*/
-      String appWidth = event.getRequestContext().getRequestParameter("width");
-      String appHeight = event.getRequestContext().getRequestParameter("height");
+      String windowWidth = event.getRequestContext().getRequestParameter("windowWidth");
+      String windowHeight = event.getRequestContext().getRequestParameter("windowHeight");
       
-      if(appWidth != null) uiComponent.getProperties().put(UIApplication.appWidth, appWidth);
-      if(appHeight != null) uiComponent.getProperties().put(UIApplication.appHeight, appHeight);
+      if(windowWidth != null) uiComponent.getProperties().put("windowWidth", windowWidth);
+      if(windowHeight != null) uiComponent.getProperties().put("windowHeight", windowHeight);
+      
+//      if(appWidth != null) uiComponent.getProperties().put(UIApplication.appWidth, appWidth);
+//      if(appHeight != null) uiComponent.getProperties().put(UIApplication.appHeight, appHeight);
+      
+//      String applicationHeight = event.getRequestContext().getRequestParameter("applicationHeight");
+//      if(applicationHeight != null) uiComponent.getProperties().put("applicationHeight", applicationHeight);
       
       /*########################## Save Window status (SHOW / HIDE) ##########################*/
       String appStatus = event.getRequestContext().getRequestParameter(UIApplication.appStatus);

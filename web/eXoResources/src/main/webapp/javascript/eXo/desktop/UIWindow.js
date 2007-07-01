@@ -1,6 +1,5 @@
 eXo.require('eXo.webui.UIPopup');
 function UIWindow() {
-	this.deltaYAppWin = 59 ;
 } ;
 
 UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
@@ -21,9 +20,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 		return ;
 	}
 	
-	//uiApplication.style.width = (popup.offsetWidth - this.deltaYAppWin) + "px" ;
-	
-	//uiApplication.style.border = "solid 1px red" ;
+//uiApplication.style.border = "solid 1px red" ;
 //	alert("Application Width: " + uiApplication.offsetHeight + "\nWindow Width: " + popup.offsetHeight);
 	
 	var applicationMinWidth = DOMUtil.findFirstDescendantByClass(popup, "div", "ApplicationMinWidth") ;

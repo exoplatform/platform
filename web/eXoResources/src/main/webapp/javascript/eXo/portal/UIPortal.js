@@ -408,7 +408,7 @@ UIPortal.prototype.onLoads = function() {
 
 UIPortal.prototype.createJSApplication = function(application, applicationId, instanceId, appLocation) {
 	if(application) {
-		eXo.require(application, appLocation); 
+		eXo.require(application, appLocation);
 		var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
 //	alert(createApplication);
 //  error: double load;

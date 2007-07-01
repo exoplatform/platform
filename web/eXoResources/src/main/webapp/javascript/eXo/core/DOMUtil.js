@@ -338,6 +338,7 @@ DOMUtil.prototype.getStyle = function(element, style, intValue) {
 	return result;
 };
 
+/* TODO: review this function: document.onclick */
 DOMUtil.prototype.hideElements = function() {
 	document.onclick = function() {
 		if(eXo.core.DOMUtil.hideElementList.length > 0) {

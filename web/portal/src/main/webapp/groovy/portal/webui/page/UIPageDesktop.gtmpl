@@ -1,8 +1,5 @@
 <%
   import org.exoplatform.portal.webui.application.UIPortlet;
-  import org.exoplatform.web.application.widget.WidgetApplication;
-  import org.exoplatform.portal.webui.application.UIWidget;
-  import org.exoplatform.portal.webui.application.UIExoApplication;
   import org.exoplatform.web.application.JavascriptManager;
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -78,6 +75,8 @@
 	          
 	          String posX = uiChild.getProperties().get("locationX");
 	          String posY = uiChild.getProperties().get("locationY");
+	          
+	          //System.out.println("\n\n\n\n\n\n\n\n GET POSX: "+posX+" \n GET POSY: "+posY+"\n\n\n\n\n\n\n\n");
 	          
 	          if(posX == null) posX = (String)x ;
 	          if(posY == null) posY = (String)y ;

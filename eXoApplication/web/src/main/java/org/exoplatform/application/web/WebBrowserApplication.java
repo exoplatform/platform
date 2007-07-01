@@ -36,8 +36,8 @@ public class WebBrowserApplication extends MVCApplication {
     String posX = uiExoApplication.getProperties().get("locationX") ;
     String posY = uiExoApplication.getProperties().get("locationY") ;
     String zIndex = uiExoApplication.getProperties().get("zIndex") ;
-    String appWidth = uiExoApplication.getProperties().get("appWidth") ;
-    String appHeight = uiExoApplication.getProperties().get("appHeight") ;
+    String windowWidth = uiExoApplication.getProperties().get("windowWidth") ;
+    String windowHeight = uiExoApplication.getProperties().get("windowHeight") ;
     
     String display = "" ;
     String appStatus = uiExoApplication.getProperties().get("appStatus") ;
@@ -54,8 +54,8 @@ public class WebBrowserApplication extends MVCApplication {
     if(posX != null) cssStyle += "left: "+ posX +"px; " ;
     if(posY != null)  cssStyle += "top: "+ posY +"px; " ;
     if(zIndex != null) cssStyle += "z-index: "+ zIndex +"; " ;
-    if(appWidth != null) cssStyle += "width: "+ appWidth +"px; " ;
-    if(appHeight != null) cssStyle += "height: "+ appHeight +"px; " ;
+    if(windowWidth != null) cssStyle += "width: "+ windowWidth +"px; " ;
+    if(windowHeight != null) cssStyle += "height: "+ windowHeight +"px; " ;
     cssStyle += "display: "+ display +"; " ;
     cssStyle += "visibility: hidden; " ;
     
