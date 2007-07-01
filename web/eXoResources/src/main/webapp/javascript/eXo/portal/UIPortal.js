@@ -410,6 +410,9 @@ UIPortal.prototype.createJSApplication = function(application, applicationId, in
 	if(application) {
 		eXo.require(application, appLocation); 
 		var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
+//	alert(createApplication);
+//  error: double load;
+//  uoon
 	  eval(createApplication);
 	}
 } ;

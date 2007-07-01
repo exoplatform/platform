@@ -4,6 +4,11 @@
 	width: 213px ;	
 }
 
+*html .UIStickerWidget {
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='DefaultSkin/background/Sticker.png',  sizingMethod='scale');
+}
+
 .UIStickerWidgetTitle {
 	height: 30px ;
 }

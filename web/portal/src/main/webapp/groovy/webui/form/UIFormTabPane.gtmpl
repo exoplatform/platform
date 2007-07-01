@@ -52,7 +52,7 @@
                 String display = "none" ;
                 if(formInput.isRendered()) display="block" ;
             %>
-                <div class="UITabContent" id="UITabContent" style="display: $display;">
+                <div class="UITabContent" id="UITabContent"  style="display: $display;">
                   <%
                   	uicomponent.renderUIComponent(formInput) ;
                   %>

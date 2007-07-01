@@ -25,9 +25,9 @@
     <% 
       for(portletSkin in portletSkins) { 
     %> 
-      <link id="$portletSkin.id" rel="stylesheet" type="text/css" href= "$portletSkin.CSSPath" />
+      <link id="${portletSkin.id}" rel="stylesheet" type="text/css" href= "$portletSkin.CSSPath" />
     <%}%>    
-    
+
     <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
     <script type="text/javascript">
       eXo.env.developing = <%=uicomponent.DEVELOPING%> ;

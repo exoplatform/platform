@@ -11,14 +11,19 @@ ImplodeExplode.prototype.doInit = function(uiWindow, clickedElement, containerId
 	this.object.iconY = eXo.core.Browser.findPosXInContainer(clickedElement, container) ;
 	this.object.iconW = clickedElement.offsetWidth ;
 	this.object.iconH = clickedElement.offsetHeight ;
-	
+
 	if(this.object.animation == null) {		
 		this.object.animation = document.createElement("div") ;		
 		container.appendChild(this.object.animation) ;	
 		this.object.animation.style.display = "block" ;
-		this.object.animation.style.background = "white" ;
-		this.object.animation.style.position = "absolute" ;		
+		this.object.animation.style.background = "#ffffff" ;
+		this.object.animation.style.position = "absolute" ;	
+		//4h20 27/06/2007
+		//alert(this.object.animation.innerHTML);
+		//this.object.animation.style.filter = "alpha(opacity= 50)";
+		//alert(this.object.animation.innerHTML);
 		eXo.core.Browser.setOpacity(this.object.animation, 50) ;
+		// uoon
 		this.object.animation.style.zIndex = this.object.maxIndex ;
 	}
 } ;
@@ -40,7 +45,6 @@ ImplodeExplode.prototype.doCenterInit = function(uiWindow, clickedElement, conta
 	if(this.object.animation == null) {
 		this.object.animation = document.createElement("div") ;
 		container.appendChild(this.object.animation) ;
-		
 		this.object.animation.style.display = "block" ;
 		this.object.animation.style.background = "white" ;
 		this.object.animation.style.position = "absolute" ;
@@ -51,11 +55,13 @@ ImplodeExplode.prototype.doCenterInit = function(uiWindow, clickedElement, conta
 
 ImplodeExplode.prototype.explode = function(uiWindow, clickedElement, containerId, numberOfFrame, type) {
 //alert("Object: " + uiWindow.className + "\nIcon: " + clickedElement.className + "\n Container: " + containerId);
+
 	if(type) {
 		eXo.animation.ImplodeExplode.doCenterInit(uiWindow, clickedElement, containerId, numberOfFrame) ;
 	} else {
 		eXo.animation.ImplodeExplode.doInit(uiWindow, clickedElement, containerId, numberOfFrame) ;
 	}
+
 	this.object.step = numberOfFrame - 1 ;
 	this.object.isShowed = true ;
 	eXo.animation.ImplodeExplode.doExplode(containerId) ;
@@ -94,13 +100,14 @@ ImplodeExplode.prototype.doImplode = function(containerId) {
 	win.animation.style.height = H0 + "px" ;
 
 	win.step++;
-
+//	alert("break 10h44 27/06/2007");
 	if(W0 > win.iconW) {
 		setTimeout("eXo.animation.ImplodeExplode.doImplode('" + containerId + "');", 0) ;
 	}	else {
 		container.removeChild(win.animation) ;
 		win.animation = null ;
 	}
+
 } ;
 
 ImplodeExplode.prototype.doExplode = function(containerId) {
@@ -119,7 +126,6 @@ ImplodeExplode.prototype.doExplode = function(containerId) {
 	win.animation.style.height = H0 + "px" ;
 	
 	win.step--;
-	
 	
 	if(W0 < win.originalW) {
 		setTimeout("eXo.animation.ImplodeExplode.doExplode('" + containerId + "');", 0) ;

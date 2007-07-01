@@ -34,24 +34,27 @@ UIConsoleApplication.prototype.createApplicationInstance = function(appDescripto
  	return applicationNode ;
 };
 
+// double load initApplication
+//  uoon
 UIConsoleApplication.prototype.initApplication = function(applicationId, instanceId) {
 //	if(instanceId == null) {
 //	  instanceId = eXo.core.DOMUtil.generateId(applicationId);
 //	  var application = "eXo.application.console.UIConsoleApplication";
 //	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId);
 //  }
-
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.application.console.UIConsoleApplication);
-	  
+
 	var appInstance = appDescriptor.createApplication();
-	eXo.desktop.UIDesktop.addJSApplication(appInstance);    
+	eXo.desktop.UIDesktop.addJSApplication(appInstance);
   eXo.core.Editor.registerEditors(appInstance) ;  
 };
 
+
+
 UIConsoleApplication.prototype.destroyApplicationInstance = function(appDescriptor) {
 	var applicationNode = document.getElementById(appDescriptor.appId);
-	
+// note this
 	return applicationNode ;
 };
 

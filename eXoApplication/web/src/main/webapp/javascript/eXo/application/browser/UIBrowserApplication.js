@@ -39,20 +39,20 @@ UIBrowserApplication.prototype.destroyApplicationInstance = function(appDescript
 };
 
 /*##############################################################################################*/
-
+// phuong thuc nay duoc trieu goi 2 lan
 UIBrowserApplication.prototype.initApplication = function(applicationId, instanceId) {
 //	if(instanceId == null) {
 //	  instanceId = eXo.core.DOMUtil.generateId(applicationId);
 //	  var application = "eXo.application.browser.UIBrowserApplication";
 //	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId);
 //  }
-	
+//	alert(applicationId);
+//  start debug
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.application.browser.UIBrowserApplication);
 	  
 	var appInstance = appDescriptor.createApplication();
 	eXo.desktop.UIDesktop.addJSApplication(appInstance);
-	
 	eXo.application.browser.UIBrowserApplication.init();
 };
 

@@ -85,7 +85,7 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
   var numberOfFrame = 10 ;
   if(this.object.style.display == "block") {
     eXo.animation.ImplodeExplode.implode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
-    
+
     /* Save Status Show Window */
     eXo.desktop.UIWindow.saveWindowProperties(this.object, "HIDE");
   } else {
@@ -93,12 +93,13 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
     var uiDockBar = document.getElementById("UIDockBar") ;
     eXo.desktop.UIDockbar.resetDesktopShowedStatus(uiPageDesktop, uiDockBar) ;
     eXo.animation.ImplodeExplode.explode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
-    
+ //   alert("break 10h44 27/06/2007");
     /*Save Status Show Window*/
     eXo.desktop.UIWindow.saveWindowProperties(this.object, "SHOW");
   }
 
   eXo.desktop.UIDockbar.containerMouseOver() ;
+//  alert("Break: 5h24 26/6/2007");
 };
 
 UIDesktop.prototype.findPosXInDesktop = function(object) {
@@ -145,7 +146,6 @@ UIDesktop.prototype.addApplicationToDesktop = function(application, appId, appLo
   } catch(err) {
     alert("Can Not Load Application!");
   }
-  
   eval(application).appLocation = appLocation ;
   eval(application).initApplication(appId);
 } ;
@@ -205,6 +205,7 @@ UIDesktop.prototype.addJSApplication = function(applicationNode) {
   
   eXo.desktop.UIDockbar.resizeDockBar() ;
 } ;
+
 
 UIDesktop.prototype.removeJSApplication = function(applicationNode) {
   var uiPageDesktop = document.getElementById("UIPageDesktop") ;
