@@ -1,6 +1,6 @@
-<repository-service default-repository="db1">
+<repository-service default-repository="repository">
   <repositories>
-    <repository name="db1" system-workspace="production" default-workspace="production">
+    <repository name="repository" system-workspace="production" default-workspace="production">
       <security-domain>exo-domain</security-domain>
       <access-control>enable</access-control>
       <authentication-policy>org.exoplatform.services.jcr.impl.core.access.PortalAuthenticationPolicy</authentication-policy>
@@ -9,7 +9,7 @@
           <!-- for system storage -->
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
-              <property name="sourceName" value="jdbcjcr"/>
+              <property name="sourceName" value="jdbcexo"/>
               <property name="db-type" value="generic"/>
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="false"/>
