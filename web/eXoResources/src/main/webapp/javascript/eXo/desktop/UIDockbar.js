@@ -62,19 +62,18 @@ UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
   var uiWidget = eXo.core.DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWidget");
   if(uiWidget && portletsViewer.id == "WidgetsViewer") {
   	var temp = this.showDesktop;
+  	this.showDesktop = true;
     for(var i = 0; i < uiWidget.length; ++i) {
-      if(uiWidget[i].style.display == "block") {
+      if(uiWidget[i].style.display != "none") {
         this.showDesktop = false;
         break;
-      } else {
-        this.showDesktop = true;
       }
     }
   }
   if(this.showDesktop) {
     for(var j = 0; j < children.length; j++) {
       if(children[j].className!="UIDockBar") {
-        if(UIWidget && portletsViewer.id == "WidgetsViewer") {
+        if(uiWidget && portletsViewer.id == "WidgetsViewer") {
           if (String(children[j].className).indexOf("UIWidget") >= 0)
           children[j].style.display = "block" ;
           this.showDesktop = temp;
@@ -117,7 +116,6 @@ UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
       portletsViewer.src = srcPortletsViewerImage ;
     }
   }
-  
   eXo.desktop.UIDockbar.containerMouseOver() ;
 } ;
 
