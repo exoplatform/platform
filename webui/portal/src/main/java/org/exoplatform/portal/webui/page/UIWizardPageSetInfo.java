@@ -109,7 +109,21 @@ public class UIWizardPageSetInfo extends UIForm {
   public PageNode getSelectedPageNode() {    
     UIPageNodeSelector uiPageNodeSelector = getChild(UIPageNodeSelector.class);
     return uiPageNodeSelector.getSelectedPageNode(); 
-  } 
+  }
+  
+  //TODO: Tung.Pham added
+  public void processRender(WebuiRequestContext context) throws Exception {
+    UIPageNodeSelector uiPageNodeSelector = getChild(UIPageNodeSelector.class);
+    UIFormStringInput uiNameInput = getChildById(PAGE_NAME) ;
+    UIFormStringInput uiDisplayNameInput = getChildById(PAGE_DISPLAY_NAME) ;
+    PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
+    
+    if (pageNode == null){
+      uiNameInput.setValue(null) ;
+      uiDisplayNameInput.setValue(null) ;
+    }
+    super.processRender(context) ;
+  }
   
   public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
@@ -129,17 +143,13 @@ public class UIWizardPageSetInfo extends UIForm {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWizard);
       
       if(!event.getSource().isEdit) return ;
-      UIFormStringInput uiNameInput = event.getSource().getChildById(PAGE_NAME) ;
-      UIFormStringInput uiDisplayNameInput = event.getSource().getChildById(PAGE_DISPLAY_NAME) ;
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
-      if (pageNode == null){
-        uiNameInput.setValue(null) ;
-        uiDisplayNameInput.setValue(null) ;
-        return ;
-      }
+      if (pageNode == null) return ;
       String pageName = pageNode.getPageReference().split("::")[2] ;
       //if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
+      UIFormStringInput uiNameInput = event.getSource().getChildById(PAGE_NAME) ;
       if(pageNode.getName() != null) uiNameInput.setValue(pageName);
+      UIFormStringInput uiDisplayNameInput = event.getSource().getChildById(PAGE_DISPLAY_NAME) ;
       if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getLabel());
     }
   }

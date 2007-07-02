@@ -98,8 +98,12 @@ public class UIPageCreationWizard extends UIPageWizard {
     for(PageNavigation editNav : uiNodeSelector.getNavigations()) {
       setNavigation(uiPortal.getNavigations(), editNav);
     }
-    String uri = pageNode.getUri();
-    PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;
+    //TODO: Tung.Pham modified
+    //------------------------------------------------------
+    //String uri = pageNode.getUri();
+    String fullUri = pageNav.getId() + "::" + pageNode.getUri() ;
+    //------------------------------------------------------
+    PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, fullUri) ;
     uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
   }
   

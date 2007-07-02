@@ -195,7 +195,7 @@ public class UIPageNodeSelector extends UIContainer {
   }
   
   private PageNode findPageNodeByUri(PageNavigation pageNav, String uri) {
-    if(pageNav == null) return null;
+    if(pageNav == null || uri == null) return null;
     List<PageNode> pageNodes = pageNav.getNodes();
     UITree uiTree = getChild(UITree.class);
     for(PageNode ele : pageNodes){
@@ -349,6 +349,7 @@ public class UIPageNodeSelector extends UIContainer {
         uiPageNodeSelector.setSelectedNavigation(null);
       } else {
         uiPageNodeSelector.selectNavigation(id);
+        uiPageNodeSelector.selectPageNodeByUri(null) ;
       }
     }
   }
