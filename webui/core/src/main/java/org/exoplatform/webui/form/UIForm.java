@@ -123,6 +123,10 @@ public class UIForm extends UIContainer  {
     if(multipart_) {
       writer.append(" enctype=\"multipart/form-data\"") ;
     }
+
+    // TODO : minh.bk Fix for problem onmousedown of component SelectBox on Firefox.
+    writer.append(" onmousedown=\"event.cancelBubble = true;\"") ;
+    
     writer.append(" method=\"post\">");
     writer.append("<input type=\"hidden\" name=\"").append(ACTION).append("\" value=\"\"/>") ;
   }
