@@ -2,6 +2,7 @@
 	background: url('DefaultSkin/background/Sticker.png') no-repeat top;
 	height: 187px ;
 	width: 213px ;	
+	margin: auto;
 }
 
 .UIStickerWidgetTitle {

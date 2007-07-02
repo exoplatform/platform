@@ -16,7 +16,7 @@
   padding:7px;
   margin: 5px;
   border: 1px solid #b7b7b7;
-  background: white url('MacSkin/background/eXoRSS.gif') no-repeat bottom right;
+  background: url('MacSkin/background/eXoRSS.gif') no-repeat bottom right;
   height: auto;
 }
 
@@ -236,7 +236,7 @@
 }
 
 .UIContentPortlet .UIContentWorkingArea .NewsDetailLayout {
-	height: auto;
+	border: 1px solid red;
 }
 
 .UIContentPortlet  .UIContentWorkingArea .NewsDetail {

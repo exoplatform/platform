@@ -124,13 +124,13 @@
 }
 
 .UICreatePage .WizardPageEditBar {
-	padding: 0px 8px 0px 7px;
+	padding: 0px 5px;
 }
 
 .UICreatePage .CreatePageContainer .CreatePageBarLeft {
 	padding-left: 7px;
   background: url('VistaSkin/background/PolyBarL7x30.png') no-repeat left;
-  margin: 0px 8px 0px 7px; 
+  margin: 0px 5px; 
 }
 
 .UICreatePage .CreatePageContainer .CreatePageBarRight {

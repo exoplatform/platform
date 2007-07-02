@@ -50,14 +50,14 @@
 	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalCloseTab.gif') no-repeat bottom;
 }
 
-.LAYOUT-PORTAL .UITabContainer .SelectedTab .EditIcon {
+.LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
 	background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat center bottom;
 	float:left;
 	height:20px;
 	width:16px;
 }
 
-.LAYOUT-PORTAL .UITabContainer .NormalTab .EditIcon  {
+.LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
 	background: url('/eXoResources/icons/16x16/MacSkin/DisableEditIcon.gif') no-repeat center bottom;
 	float:left;
 	height:20px;

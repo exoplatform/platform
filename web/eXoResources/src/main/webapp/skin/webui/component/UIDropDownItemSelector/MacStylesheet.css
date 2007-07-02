@@ -9,6 +9,7 @@
 .UIDropDownItemSelector .ItemInfoBar .MiddleItemInfoBar {
   background: url('MacSkin/background/ItemInfoBarBG1x24.png') repeat-x center;
   height: 24px;
+  cursor: pointer;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .RightItemInfoBar {
