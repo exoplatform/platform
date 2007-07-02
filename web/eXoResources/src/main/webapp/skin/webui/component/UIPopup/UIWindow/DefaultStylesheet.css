@@ -29,11 +29,11 @@
 .UIWindow .WindowPortletControl {
   float: right ;
   height: 22px ;
-	padding: 0px 3px 0px 12px;
+	padding: 0px 3px 0px 10px;
 }
 
 .UIPageDesktop .UIWindow .WindowPortletControl {
-	padding: 0px 3px 0px 15px;
+	padding: 0px 3px 0px 14px;
 }
 
 .UIWindow .WindowPortletControl .ControlIcon {

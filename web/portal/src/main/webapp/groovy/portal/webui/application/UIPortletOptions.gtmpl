@@ -8,6 +8,7 @@
   jsmanager.importJavascript('eXo.webui.UIVerticalSlideTabs');
   jsmanager.importJavascript('eXo.webui.UIConfigOptions'); 
 	jsmanager.addOnLoadJavascript('eXo.webui.UIConfigOptions.init'); 
+	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
 %>
 
 <%

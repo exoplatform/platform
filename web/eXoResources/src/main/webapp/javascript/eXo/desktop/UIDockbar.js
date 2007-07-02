@@ -61,25 +61,29 @@ UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
   var srcPortletsViewerImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Show"+portletsViewer.id+".png" ;
   var uiWidget = eXo.core.DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWidget");
   if(uiWidget && portletsViewer.id == "WidgetsViewer") {
+  	var temp = this.showDesktop;
     for(var i = 0; i < uiWidget.length; ++i) {
       if(uiWidget[i].style.display == "block") {
         this.showDesktop = false;
         break;
+      } else {
+        this.showDesktop = true;
       }
     }
   }
   if(this.showDesktop) {
     for(var j = 0; j < children.length; j++) {
       if(children[j].className!="UIDockBar") {
-        if(portletsViewer.id == "WidgetsViewer") {
-        	/* TODO: Use indexOf to check UIWidget: children[j].className).indexOf("UIWidget") >= 0 */
-          if(children[j].className == "UIWidget UIDragObject")
+        if(UIWidget && portletsViewer.id == "WidgetsViewer") {
+          if (String(children[j].className).indexOf("UIWidget") >= 0)
           children[j].style.display = "block" ;
+          this.showDesktop = temp;
         } else {
           if(children[j].isShowed) {
             if (String(children[j].className).indexOf("UIWidget") >= 0) continue;
             children[j].style.display = "block" ;
           }
+          this.showDesktop = false ;
         }
       }
     }
@@ -89,7 +93,6 @@ UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
     } else {
       portletsViewer.src = srcMonitoringImage ;
     }
-    this.showDesktop = false ;
   } else {
     for(var j = 0; j < children.length; j++) {
       if(children[j].className!="UIDockBar") {
@@ -100,21 +103,18 @@ UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
             this.showDesktop = true ;
           }
         } else {
-        	/* TODO: Use indexOf to check UIWidget: children[j].className).indexOf("UIWidget") >= 0 */
-          if (children[j].className == "UIWidget UIDragObject") {
+          if (String(children[j].className).indexOf("UIWidget") >= 0) {
             children[j].style.display = "none" ;  
-            this.showDesktop = true ;
+            this.showDesktop = temp ;
           }
         }
       }
     }
-    if(this.showDesktop) {
-      if(eXo.core.Browser.isIE6()) {
-        portletsViewer.src = blankImage ;
-        portletsViewer.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcPortletsViewerImage + "', sizingMethod='scale')" ;
-      } else {
-        portletsViewer.src = srcPortletsViewerImage ;
-      }
+    if(eXo.core.Browser.isIE6()) {
+      portletsViewer.src = blankImage ;
+      portletsViewer.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcPortletsViewerImage + "', sizingMethod='scale')" ;
+    } else {
+      portletsViewer.src = srcPortletsViewerImage ;
     }
   }
   

@@ -25,7 +25,8 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 		if (eXo.portal.UIControlWorkspace.showControlWorkspace) {
 			 posLeft -= eXo.portal.UIControlWorkspace.defaultWidth ;
 		} else {
-			posLeft -= 5;
+			if(document.getElementById("UIControlWorkspace"))
+			   posLeft -= 5;
 			/* SlidebarButton Width */
 		}
 		uiPopupCategory.style.left = posLeft + "px";

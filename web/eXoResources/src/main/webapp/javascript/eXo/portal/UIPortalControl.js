@@ -1,5 +1,6 @@
 function UIPortalControl() {
   this.scrollManagers = new Array();
+  this.t = 0;
 };
 
 UIPortalControl.prototype.changeWindowState = function(id, state) {
@@ -27,39 +28,41 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
 };
 
 /** Created: by Duy Tu - fixHeight function to UIControlWorkspace
- * TODO: fix**/
-/* TODO: avoid hashcode too much! */
+ **/
 UIPortalControl.prototype.fixHeight = function() {
-	if(!eXo.core.Browser.isIE6()) {
-		var objectParent = document.getElementById("UIControlWorkspace");
-		if(objectParent) {
-			var DOMUtil = eXo.core.DOMUtil;
-			var uiControlWSWorkingArea = document.getElementById("UIControlWSWorkingArea");
-			var uiWorkspaceContainer = DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
-			if(uiWorkspaceContainer.style.display == "block") {
-				var scrollArea = DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
-				var tmp = objectParent.offsetHeight - 72;
-				if(scrollArea != null) {
-					scrollArea.style.height = "auto";
-					var heightChild = scrollArea.offsetHeight;
-					var jsContainer = DOMUtil.findFirstDescendantByClass(scrollArea, "div", "JSContainer") ;
-					var maxHeight = 0;
-					if(uiControlWSWorkingArea) {
-					  maxHeight = uiControlWSWorkingArea.offsetHeight ;
-					} 
-					var deltaResize = maxHeight - tmp;
-					if(deltaResize > 0) {
-						scrollArea.style.overflow = "auto";
-						scrollArea.style.height = heightChild - deltaResize + "px";
-						if(jsContainer) {
-							jsContainer.style.width = scrollArea.offsetWidth - 22 + "px";
-						}
-					}
+	var objectParent = document.getElementById("UIControlWorkspace");
+	if(objectParent) {
+		var DOMUtil = eXo.core.DOMUtil;
+		var uiControlWSWorkingArea = document.getElementById("UIControlWSWorkingArea");
+		var uiWorkspaceContainer = DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
+		if(uiWorkspaceContainer.style.display == "block") {
+			var scrollArea = DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
+			if(scrollArea != null) {
+				if(eXo.core.Browser.isIE6()) {
+					var html = document.getElementsByTagName("html")[0];
+				  var tmp = html.offsetHeight - 82;
+				} else {
+				  var tmp = objectParent.offsetHeight - 72;
+				}
+				/* 72 is total value (UserWorkspaceTitleHeight + UIExoStartHeight)
+				 */
+				var firstHeight = scrollArea.offsetHeight;
+				scrollArea.style.height = "auto";
+				scrollArea.style.width = "auto";
+				var heightChild = scrollArea.offsetHeight;
+				var maxHeight = 0;
+				if(uiControlWSWorkingArea) {
+				  maxHeight = uiControlWSWorkingArea.offsetHeight ;
+				} 
+				var deltaResize = maxHeight - tmp;
+				if(deltaResize > 0 && (heightChild - deltaResize) > 0) {
+					scrollArea.style.overflow = "auto";
+					scrollArea.style.height = heightChild - deltaResize + "px";
+					scrollArea.style.width = scrollArea.offsetWidth  + "px";
 				}
 			}
 		}
 	}
-//	alert(435543543);
 } ;
 
 UIPortalControl.prototype.onKeyPress = function() {
@@ -77,9 +80,11 @@ UIPortalControl.prototype.onEnterPress = function(e) {
 		if(!e) e = window.event;
 		if(e.keyCode) code = e.keyCode;
 		else if (e.which) code = e.which;
-		
-		if(code == 13) {
-			window.location.href = uiPortalLoginFormAction.href ;
+		if(code ==13) {
+			if(this.t != 13) {
+		    window.location.href = uiPortalLoginFormAction.href ;
+			}
+		  this.t = code;
 		}
 	}
 };
@@ -229,7 +234,7 @@ ScrollManager.prototype.cleanElements = function() {
 		this.elements[i].space = null;
 		if (this.elements[i].decorator) this.elements[i].decorator.space = null;
 	}
-}
+};
 
 ScrollManager.prototype.scroll = function(e) {
 	/*
