@@ -32,6 +32,7 @@
       <title>Organization Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
     </application>  
 
     <application>
@@ -82,6 +83,7 @@
       <instance-id>group#portal/admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>
       <title>ECM Admin Portlet</title>
       <show-info-bar>true</show-info-bar>
+      <show-application-mode>true</show-application-mode>
     </application>  
   </page>  
 
@@ -96,6 +98,7 @@
       <title>JCR Explorer Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
     </application>  
   </page>
   
@@ -110,6 +113,7 @@
       <title>Fast Content Creator Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
     </application>  
   </page>
   
@@ -124,6 +128,7 @@
       <title>Browse Content Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
     </application>  
   </page>
 
@@ -138,6 +143,7 @@
       <title>Workflow Controller Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
     </application>  
   </page>
   
@@ -152,6 +158,7 @@
       <title>Workflow Administration Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
     </application>  
   </page>
   
@@ -195,36 +202,42 @@
       <instance-id>group#portal/admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>    
       <title>ECM Admin Portlet</title>
       <show-info-bar>true</show-info-bar>
+      <show-application-mode>true</show-application-mode>
     </application>  
 
     <application>
       <instance-id>group#portal/admin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
       <title>JCR Explorer Portlet</title>
       <show-info-bar>true</show-info-bar>
+      <show-application-mode>true</show-application-mode>
     </application>   
     
     <application>
       <instance-id>group#portal/admin:/ecm/FastContentCreatorPortlet/fastcontentcreator</instance-id>
       <title>Fast Content Creator Portlet</title>
       <show-info-bar>true</show-info-bar>
+      <show-application-mode>true</show-application-mode>
     </application>  
   
     <application>
       <instance-id>group#portal/admin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
       <title>Browse Content Portlet</title>
       <show-info-bar>true</show-info-bar>
+      <show-application-mode>true</show-application-mode>
     </application>
         
     <application>
       <instance-id>group#portal/admin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>
       <title>Workflow Control Portlet</title>
       <show-info-bar>true</show-info-bar>
+      <show-application-mode>true</show-application-mode>
     </application>    
 
     <application>
       <instance-id>group#portal/admin:/workflow/WorkflowAdministrationPortlet/workflowadministration</instance-id>    
       <title>Workflow Administration Portlet</title>
       <show-info-bar>true</show-info-bar>
+      <show-application-mode>true</show-application-mode>
     </application>    
   </page>
   
