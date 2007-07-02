@@ -40,30 +40,6 @@
         </value-param>
       </init-params>
   </component>    
-  <!-- ============================================================================= -->
-  <!--    C O N F I G U R A T I O N   S E R V I C E    C O N F I G U R A T I O N     --> 
-  <!-- ============================================================================= -->
-<!--
-  <component>
-    <key>org.exoplatform.services.config.ConfigurationService</key>
-    <type>org.exoplatform.services.config.ConfigurationServiceImpl</type>
-  </component>
-
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.database.HibernateService</target-component>
-    <component-plugin> 
-      <name>add.hibernate.mapping</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.database.impl.AddHibernateMappingPlugin</type>
-      <init-params>
-        <values-param>
-          <name>hibernate.mapping</name>
-          <value>org/exoplatform/services/config/ConfigurationData.hbm.xml</value>
-        </values-param>
-      </init-params>
-    </component-plugin>
-  </external-component-plugins>
--->
   
   <external-component-plugins>
     <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
@@ -73,7 +49,8 @@
       <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
       <init-params>
         <values-param>
-          <name>autoCreatedInNewRepository</name><value>jar:/conf/portal/resource-nodetypes.xml</value> 
+          <name>autoCreatedInNewRepository</name>
+          <value>jar:/conf/portal/resource-nodetypes.xml</value> 
         </values-param>
       </init-params>
     </component-plugin>

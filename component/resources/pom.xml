@@ -55,6 +55,7 @@
       <version>${org.exoplatform.portal.version}</version>
     </dependency>
 
+    <!--
     <dependency>
       <groupId>lucene</groupId>
       <artifactId>lucene</artifactId>
@@ -67,5 +68,6 @@
       <artifactId>exo.jcr.component.core</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
     </dependency>
+    -->
   </dependencies>
 </project>
