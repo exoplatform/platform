@@ -1,42 +1,48 @@
 <html>
   <head>
     <script language="javascript" src="eXo.js"></script>
+    <script language="javascript" src="eXo/core/Util.js"></script>
     <script language="javascript" src="eXo/core/DOMUtil.js"></script>
     <script language="javascript" type="text/javascript">
-      var DOMUtil = eXo.core.DOMUtil ;
-    </script>
+      function test() {
+	      var DOMUtil = eXo.core.DOMUtil ;
+	      var root = document.getElementById('root');
+	      
+	      
+      	var T1 = (new Date()).getTime();
+				for (var i = 0; i < 3000; ++i)
+					DOMUtil.findChildrenByClass(root, "div", "class4") ;
+				alert(((new Date()).getTime() - T1) / 1000);
+      }
+	  </script>
   </head>
 
   <body>
+    <div style="border: solid 1px red;" onclick="test();">click here</div>
     <div class="Root" id="root">
-      <div class="FirstLevel" id="FirstLevel_first">
-        <div>Test1</div>
-        <div class="SecondLevel">Test1.1</div>
-      </div>
-      <div id="FirstLevel_second" class="FirstLevel">
-        Test2
-        <a id="link" class="SecondLevel" href="#">Test1</a>
-      </div>
-    </div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class2 class3">The div</div>
+      <div class="class1 class4 class3">The div</div>
     <div>
-      <div>Test DOMUtil.getElementByClass(element, className)</div>
-      <script language="javascript" type="text/javascript">
-        var root =  document.getElementById('root') ;
-        var link =  document.getElementById('link') ;
-
-        document.write("Expect found 2 div, script  found " + DOMUtil.findDescendantsByClass(root, "div","FirstLevel").length);
-        document.write("<br/>") ;
-        document.write("Expect found 1 a, script  found " + DOMUtil.findDescendantsByClass(root, "a","SecondLevel").length);
-
-        document.write("<br/>") ;
-        document.write("Expect found FirstLevel_first, script  found " + DOMUtil.findDescendantById(root,"FirstLevel_first").id);
-
-        document.write("<br/>") ;
-        document.write("Expect found ancestor with className Root, script  found " + DOMUtil.findAncestorByClass(link,"Root").className);
-
-        document.write("<br/>") ;
-        document.write("Expect found ancestor with id FistLevelt_second, script  found " + DOMUtil.findAncestorById(link,"FirstLevel_second").className);
-      </script>
-  </div>
   </body>
 <html>

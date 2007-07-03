@@ -78,7 +78,7 @@ PortalDragDrop.prototype.init = function(e) {
   DragDrop.dragCallback = function(dndEvent) {
     var dragObject = dndEvent.dragObject ;
     /* Control Scroll */
-    eXo.portal.PortalDragDrop.scrollOnDrag(dragObject, dndEvent.backupMouseEvent) ;
+    eXo.portal.PortalDragDrop.scrollOnDrag(dragObject, dndEvent) ;
 //    window.status = "foundTargetObject: " + dndEvent.foundTargetObject + "    lastFoundTargetObject: " + dndEvent.lastFoundTargetObject;
     if((dndEvent.foundTargetObject) && (dndEvent.lastFoundTargetObject)) {
       /*Check and asign UIPage to uiComponentLayout when DND on UIPage*/
@@ -292,10 +292,10 @@ PortalDragDrop.prototype.findDropableTargets = function() {
    return dropableTargets ;
 };
 
-PortalDragDrop.prototype.scrollOnDrag = function(dragObject, e) {
+PortalDragDrop.prototype.scrollOnDrag = function(dragObject, dndEvent) {
   var dragObjectTop = eXo.core.Browser.findPosY(dragObject) ;
   var browserHeight = eXo.core.Browser.getBrowserHeight() ;
-  var mouseY = eXo.core.Browser.findMouseYInClient(e) ;
+  var mouseY = eXo.core.Browser.findMouseYInClient(dndEvent.backupMouseEvent) ;
   var deltaTopMouse = eXo.core.Browser.findMouseYInPage(dndEvent.backupMouseEvent) - mouseY ;
   var deltaTop = mouseY - (Math.round(browserHeight * 5/6)) ;
   var deltaBottom = mouseY - (Math.round(browserHeight/6)) ;
@@ -347,7 +347,6 @@ PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComp
   if(eXo.core.Browser.getBrowserType() == "ie" && (uiPage == null)) csWidth = csWidth * 2 ;
 
   dragObject.style.position = "absolute" ;
-  
   if(eXo.core.DOMUtil.findFirstChildByClass(dragObject, "div", "CONTROL-BLOCK") == null) {
     dragObject.style.top = (eXo.core.Browser.findMouseYInPage(e) - 
                             eXo.portal.PortalDragDrop.deltaYDragObjectAndMouse - document.documentElement.scrollTop) + "px" ;
@@ -382,7 +381,7 @@ PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComp
 
 PortalDragDrop.prototype.createPreview = function(layoutType) {
   var previewBlock = document.createElement("div") ;
-  var components = dndEvent.foundTargetObject.listComponentInTarget ;
+  var components = eXo.core.DragDrop.dndEvent.foundTargetObject.listComponentInTarget ;
   
   previewBlock.className = "DragAndDropPreview" ;
   previewBlock.id = "DragAndDropPreview" ;
@@ -455,7 +454,7 @@ PortalDragDrop.prototype.undoPreview = function(dndEvent) {
 };
 
 PortalDragDrop.prototype.divRowContainerAddChild = function(insertBlock, targetElement, insertPosition) {
-  var listComponent = dndEvent.foundTargetObject.listComponentInTarget ;
+  var listComponent = eXo.core.DragDrop.dndEvent.foundTargetObject.listComponentInTarget ;
   var uiRowContainer = eXo.core.DOMUtil.findFirstDescendantByClass(targetElement, "div", "UIRowContainer") ;
   insertBlock.style.width = "auto" ;
   
@@ -471,7 +470,7 @@ PortalDragDrop.prototype.divRowContainerAddChild = function(insertBlock, targetE
 };
 
 PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, targetElement, insertPosition) {
-  var listComponent = dndEvent.foundTargetObject.listComponentInTarget ;
+  var listComponent = eXo.core.DragDrop.dndEvent.foundTargetObject.listComponentInTarget ;
   var DOMUtil = eXo.core.DOMUtil ;
   var trContainer = DOMUtil.findFirstDescendantByClass(targetElement, "tr", "TRContainer") ;
   var tdInserted = document.createElement('td') ;
