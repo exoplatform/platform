@@ -153,7 +153,7 @@ public class UIPageNodeSelector extends UIContainer {
   }
   
   private void selectNavigation() {
-    if(navigations == null || navigations.size() < 0) return;
+    if(navigations == null || navigations.size() < 1) return;
     if (selectedNode == null) {
       PageNavigation navigation = navigations.get(0);
       selectedNode = new SelectedNode(navigation, null, null);
@@ -167,6 +167,7 @@ public class UIPageNodeSelector extends UIContainer {
     for(int i = 0; i < navigations.size(); i++){
       if(!navigations.get(i).getId().equals(id)) continue ;
       selectedNode = new SelectedNode(navigations.get(i), null, null);
+      selectPageNodeByUri(null) ;
       UITree tree = getChild(UITree.class);
       tree.setSibbling(navigations.get(i).getNodes());      
       UIDropDownItemSelector uiDopDownSelector = getChild(UIDropDownItemSelector.class);
