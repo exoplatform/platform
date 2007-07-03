@@ -4,8 +4,8 @@
  *   @returns void
  */
 Array.prototype.clear = function () {
-  this.length = 0;
-};
+  this.length = 0 ;
+} ;
 
 /**
  *   Array convenience method to remove element.
@@ -14,22 +14,22 @@ Array.prototype.clear = function () {
  *   @returns boolean
  */
 Array.prototype.remove = function (element) {
-  var result = false;
-  var array = [];
+  var result = false ;
+  var array = [] ;
   for (var i = 0; i < this.length; i++) {
     if (this[i] == element) {
-      result = true;
+      result = true ;
     } else {
-      array.push(this[i]);
+      array.push(this[i]) ;
     }
   }
-  this.clear();
+  this.clear() ;
   for (var i = 0; i < array.length; i++) {
-    this.push(array[i]);
+    this.push(array[i]) ;
   }
-  array = null;
-  return result;
-};
+  array = null ;
+  return result ;
+} ;
 
 /**
  *   Array convenience method to check for membership.
@@ -40,30 +40,30 @@ Array.prototype.remove = function (element) {
 Array.prototype.contains = function (element) {
   for (var i = 0; i < this.length; i++) {
     if (this[i] == element) {
-      return true;
+      return true ;
     }
   }
-  return false;
+  return false ;
 } ;
 
 Array.prototype.insertAt = function (what, iIndex) {
   if (iIndex < this.length) {
-    var aAfter = this.splice(iIndex, 100000, what);
+    var aAfter = this.splice(iIndex, 100000, what) ;
     for (var i = 0; i < aAfter.length; i++) {
-      this.push(aAfter[i]);
+      this.push(aAfter[i]) ;
     }
   } else {
-    this.push(what);
+    this.push(what) ;
   }
-};
+} ;
 
 Array.prototype.pushAll = function (array) {
 	if (array != null) {
 		for (var i = 0; i < array.length; i++) {
-			this.push(array[i]);
+			this.push(array[i]) ;
 		}
 	}
-};
+} ;
 
 /*************************************************************************/
 function  HashMap() { 
@@ -72,7 +72,7 @@ function  HashMap() {
 } ;
 
 HashMap.prototype.copyProperties = function(names, object) {
-  for(i = 0; i < names.length; i++) {
+  for (var i = 0; i < names.length; i++) {
     var name = names[i] ;
     this.put(name, object[name]) ;
   }
@@ -80,7 +80,7 @@ HashMap.prototype.copyProperties = function(names, object) {
 
 
 HashMap.prototype.setProperties = function(object, clear) {
-  for(name in this.properties) {
+  for(var name in this.properties) {
     object[name] = this.properties[name] ; 
   }
 } ;
@@ -91,8 +91,8 @@ HashMap.prototype.get = function (name) {
 
 HashMap.prototype.remove = function (name) {
   var value = this.properties[name] ;
-  if(value != null)  { 
-    this.properties[name] = null  ;
+  if (value != null)  { 
+    this.properties[name] = null ;
     this.length-- ;
     return value ;
   } else {
@@ -101,13 +101,13 @@ HashMap.prototype.remove = function (name) {
 } ;
 
 HashMap.prototype.put = function (name, value) {
-  if(this.properties[name] == null) {
+  if (this.properties[name] == null) {
     this.length++ ;
   }
-  this.properties[name] =  value
+  this.properties[name] =  value ;
 } ;
 
-HashMap.prototype.size = function () { return this.length ; }
+HashMap.prototype.size = function () { return this.length ; } ;
 
 HashMap.prototype.clear = function() {
  this.properties = new Object() ;
@@ -115,11 +115,9 @@ HashMap.prototype.clear = function() {
 } ;
 
 /*************************************************************************/
-
 eXo.core.Array = Array.prototype.constructor ;
 eXo.core.HashMap = HashMap.prototype.constructor ;
 /*************************************************************************/
-//DateAndTime
 
 function ExoDateTime() {
 };
@@ -130,14 +128,13 @@ ExoDateTime.prototype.getTime = function() {
   var minute = dateTime.getMinutes() ;
   var second = dateTime.getSeconds() ;
   
-  if(hour <= 9) hour = "0" + hour ;
-  if(minute <= 9) minute = "0" + minute ;
-//  if(second <= 9) second = "0" + second ;
-  
+  if (hour <= 9) hour = "0" + hour ;
+  if (minute <= 9) minute = "0" + minute ;
+
   var AM_PM = "" ;
-  if(hour < 12) {
+  if (hour < 12) {
     AM_PM = "AM" ;
-  } else if(hour == 12) {
+  } else if (hour == 12) {
     AM_PM = "PM" ;
   } else {
     AM_PM = "PM" ;
@@ -149,7 +146,7 @@ ExoDateTime.prototype.getTime = function() {
   var digitalClock = document.getElementById("DigitalClock") ;
   digitalClock.innerHTML = time ;
   setTimeout("eXo.core.ExoDateTime.getTime()", 60000) ;
-};
+} ;
 
 ExoDateTime.prototype.getDate = function() {
   var dateTime = new Date() ;

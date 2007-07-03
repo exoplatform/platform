@@ -1,75 +1,47 @@
-function  DOMUtil() {
+function DOMUtil() {
 	this.hideElementList = new eXo.core.Array() ;
 } ;
 
 DOMUtil.prototype.hasClass = function(elemt, className) {
-	var reg = new RegExp('(^|\\s+)' + className + '(\\s+|$)');
-	return reg.test(elemt['className']);
+	var reg = new RegExp('(^|\\s+)' + className + '(\\s+|$)') ;
+	return reg.test(elemt['className']) ;
 } ;
 
 DOMUtil.prototype.getChildrenByTagName = function(element, tagName) {
-	var ln = (element && element.childNodes) ? element.childNodes.length : 0;
-	var arr = [];	
-	for (var z=0; z<ln; z++) {
-		if (element.childNodes[z].nodeName == tagName.toUpperCase()) arr.push(element.childNodes[z]);
+	var ln = 0 ;
+	var list = [] ;
+	if (element && element.childNodes) ln = element.childNodes.length ;
+	for (var k = 0; k < ln; k++) {
+		if (element.childNodes[k].nodeName == tagName.toUpperCase()) list.push(element.childNodes[k]) ;
 	}
-	return arr;
+	return list ;
 } ;
-//DOMUtil.prototype.getChildrenByTagName = function(element, tagName) {
-//  var list = new Array() ;
-//  var children = element.childNodes ;
-//  for(var k = 0; k < children.length; k++) {
-//    var child = children[k] ;
-//    var nodeName = child.nodeName ;
-//    if(nodeName != null) nodeName = nodeName.toLowerCase() ;
-//    if(nodeName == tagName) {
-//      list.push(child) ;
-//    }
-//  }
-//  return list ;
-//} ;
 
 DOMUtil.prototype.findChildrenByClass = function(root, elementName, cssClass) {
-  if(elementName != null) elementName = elementName.toUpperCase() ;
-  var list = new Array();
+  if (elementName) elementName = elementName.toUpperCase() ;
   var elements = root.childNodes ;
-  for(var k = 0; k < elements.length; k++) {
-    if(elementName == elements[k].nodeName && this.hasClass(elements[k], cssClass)) {
+  var ln = elements.length ;
+	var list = [] ;
+  for (var k = 0; k < ln; k++) {
+    if (elementName == elements[k].nodeName && this.hasClass(elements[k], cssClass)) {
     	list.push(elements[k]);
     }
   }
-  return list;
+  return list ;
 } ;
-//DOMUtil.prototype.findChildrenByClass = function(root, elementName, cssClass) {
-//  if(elementName != null)  elementName = elementName.toUpperCase() ;
-//  var list = new Array();
-//  var elements = root.childNodes ;
-//  for(var k = 0; k < elements.length; k++) {
-//    if(elementName == elements[k].nodeName) {
-//      if(elements[k].className.indexOf(" ") >= 0) {
-//        var classes = elements[k].className.split(" ");
-//        for(var j = 0; j < classes.length; j++) {
-//          if(classes[j] == cssClass) list.push(elements[k]);
-//        }
-//      } else if(elements[k].className == cssClass) {
-//        list.push(elements[k]);
-//      }
-//    }
-//  }
-//  return list;
-//} ;
 
 DOMUtil.prototype.findChildrenByAttribute = function(root,  elementName, attrName, attrValue) {
-  if(elementName != null)  elementName = elementName.toUpperCase() ;
-  var list = new Array();
+  if (elementName) elementName = elementName.toUpperCase() ;
   var elements = root.childNodes ;
-  for(var k = 0; k < elements.length; k++) {
-    if(elementName == elements[k].nodeName) {
-      var retValue = elements[k].getAttribute(attrName);
-      if(retValue == attrValue) list.push(elements[k]);
+  var ln = elements.length ;
+  var list = [] ;
+  for(var k = 0; k < ln; k++) {
+    if (elementName == elements[k].nodeName) {
+      var retValue = elements[k].getAttribute(attrName) ;
+      if (retValue == attrValue) list.push(elements[k]) ;
     }
   }
-  return list;
+  return list ;
 } ;
 
 DOMUtil.prototype.findFirstChildByClass = function(root,  elementName, cssClass) {
@@ -82,82 +54,31 @@ DOMUtil.prototype.findFirstChildByClass = function(root,  elementName, cssClass)
   }
   return null;
 } ;
-//DOMUtil.prototype.findFirstChildByClass = function(root,  elementName, cssClass) {
-//  if(elementName != null)  elementName = elementName.toUpperCase() ;
-//  var elements = root.childNodes ;
-//  for(var k = 0; k < elements.length; k++) {
-//    if(elementName == elements[k].nodeName) {
-//      if(elements[k].className.indexOf(" ") >= 0) {
-//        var classes = elements[k].className.split(" ");
-//        for(var j = 0; j < classes.length; j++) {
-//          if(classes[j] == cssClass) return elements[k] ;
-//        }
-//      } else if(elements[k].className == cssClass) {
-//        return elements[k] ;
-//      }
-//    }
-//  }
-//  return null;
-//} ;
 
 DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
-  if(element == null) return null;
+  if(element == null) return null ;
   var parent = element.parentNode ;
-  while(parent != null) {
-  	if(this.hasClass(parent, clazz)) return parent ;
+  while (parent != null) {
+  	if (this.hasClass(parent, clazz)) return parent ;
     parent = parent.parentNode ;
   }
   return null ;
 } ;
-//DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
-//  if(element == null) return null;
-//  var parent = element.parentNode ;
-//  while(parent != null) {
-//    if(parent.className == null) {
-//    } else if(parent.className.indexOf(" ") >= 0) {
-//      var classes = parent.className.split(" ");
-//      for(var j = 0;j < classes.length; j++) {
-//        if(classes[j] == clazz)  return parent ;
-//      }
-//    } else if(parent.className == clazz)  {
-//      return parent ;
-//    }
-//    parent = parent.parentNode ;
-//  }
-//  return null ;
-//} ;
 
 DOMUtil.prototype.findAncestorsByClass = function(element, clazz) {
-	var result = new Array();
+	var list = [] ;
   var parent = element.parentNode ;
-  while(parent != null) {
-  	if(this.hasClass(parent, clazz)) result.push(parent) ;
+  while (parent != null) {
+  	if (this.hasClass(parent, clazz)) list.push(parent) ;
     parent =  parent.parentNode ;
   }
-  return result ;
+  return list ;
 } ;
-//DOMUtil.prototype.findAncestorsByClass = function(element, clazz) {
-//	var result = new Array();
-//  var parent = element.parentNode ;
-//  while(parent != null) {
-//    if(parent.className == null) {
-//    } else  if(parent.className.indexOf(" ") >= 0) {
-//      var classes = parent.className.split(" ");
-//      for(var j = 0;j < classes.length; j++) {
-//        if(classes[j] == clazz)  result.push(parent) ;
-//      }
-//    } else if(parent.className == clazz)  {
-//      result.push(parent) ;
-//    }
-//    parent =  parent.parentNode ;
-//  }
-//  return result ;
-//} ;
 
 DOMUtil.prototype.findAncestorById = function(element,  id) {
   var parent = element.parentNode ;
-  while(parent != null) {
-    if(parent.id == id)  return parent ;
+  while (parent != null) {
+    if (parent.id == id) return parent ;
     parent = parent.parentNode ;
   }
   return null ;
@@ -166,87 +87,60 @@ DOMUtil.prototype.findAncestorById = function(element,  id) {
 DOMUtil.prototype.findAncestorByTagName = function(element, tagName) {
   var parent = element.parentNode ;
   while(parent != null) {
-    if(parent.nodeName && parent.nodeName.toLowerCase() == tagName)  return parent ;
+    if(parent.nodeName && parent.nodeName.toLowerCase() == tagName) return parent ;
     parent = parent.parentNode ;
   }
   return null ;
 } ;
 
 DOMUtil.prototype.findDescendantsByTag = function(root, tagName, list) {
-  var  children = root.childNodes ;
-  for(var k = 0; k < children.length; k++) {
-    var child = children[k] ;
-    if(tagName == null) {
+  var children = root.childNodes ;
+  var ln = children.length ;
+  var child = null;
+  for (var k = 0; k < ln; k++) {
+    child = children[k] ;
+    if (tagName == null) {
       list[list.length] = child ;
-    } else if(child.nodeName == null) {
-    	continue;
-    }else {    
-      if(tagName == child.nodeName.toLowerCase())  list[list.length] = child ;
+    } else if (child.nodeName == null) {
+    	continue ;
+    } else {    
+      if (tagName == child.nodeName.toLowerCase()) list[list.length] = child ;
     }
     this.findDescendantsByTag(child, tagName, list) ;
   }
 } ;
 
 DOMUtil.prototype.findDescendantsByTagName = function(root, tagName) {
-  var list = new Array() ;
+  var list = [] ;
   this.findDescendantsByTag(root, tagName, list) ;
   return list ;
 } ;
 
 DOMUtil.prototype.findDescendantsByClass = function(root, elementName, clazz) {
-  var listElements = new Array() ;
   var elements = root.getElementsByTagName(elementName) ;
-  this.findDescendantsByTag(root, elementName, elements);
-  for(var k = 0; k < elements.length; k++) { 
-  	if(this.hasClass(elements[k], clazz)) listElements.push(elements[k]);
+  var ln = elements.length ;
+  var list = [] ;
+  this.findDescendantsByTag(root, elementName, elements) ;
+  for (var k = 0; k < ln; k++) { 
+  	if (this.hasClass(elements[k], clazz)) list.push(elements[k]);
   }
-  return listElements
+  return list ;
 } ;
-//DOMUtil.prototype.findDescendantsByClass = function(root, elementName, clazz) {
-//  var listElements = new Array() ;
-//  var elements = root.getElementsByTagName(elementName) ;
-//  this.findDescendantsByTag(root, elementName, elements);
-//  for(var k = 0; k < elements.length; k++) { 
-//  	if(elements[k].className == clazz) {
-//      listElements.push(elements[k]) ;
-//      continue;
-//    } 	
-//    if(elements[k].className.indexOf(" ") >= 0) {
-//      var classes = elements[k].className.split(" ") ;
-//      for(var j = 0; j < classes.length; j++) {
-//        if(classes[j] == clazz) listElements.push(elements[k]) ;
-//      }
-//    }
-//  }
-//  alert(listElements.length) ;
-//  return listElements;
-//} ;
 
 DOMUtil.prototype.findFirstDescendantByClass = function(root, elementName, clazz) {
-  var elements = root.getElementsByTagName(elementName);		
-  for(var k = 0; k < elements.length; k++) {  	  	
+  var elements = root.getElementsByTagName(elementName);
+  var ln = elements.length ;	
+  for(var k = 0; k < ln; k++) {  	  	
   	if(this.hasClass(elements[k], clazz)) return elements[k] ;  
   }
   return null;
 } ;
-//DOMUtil.prototype.findFirstDescendantByClass = function(root, elementName, clazz) {		
-//  var elements = root.getElementsByTagName(elementName);		
-//  for(var k = 0; k < elements.length; k++) {  	  	
-//  	if(elements[k].className == clazz) return elements[k] ;  
-//  	if(elements[k].className.indexOf(" ") >= 0){
-//  		var classes = elements[k].className.split(" ");	
-//    	for(var j = 0;j < classes.length; j++) {
-//      	if(classes[j] == clazz) return elements[k] ;      
-//    	} 	 
-//  	}
-//  }
-//  return null;
-//} ;
 
 DOMUtil.prototype.findDescendantById = function(root, id) {
-  var elements =  root.getElementsByTagName('*') ;
-  for(var i = 0; i < elements.length; i++) {
-    if(elements[i].id == id) {
+  var elements = root.getElementsByTagName('*') ;
+  var ln = elements.length ;
+  for (var i = 0; i < ln; i++) {
+    if (elements[i].id == id) {
       return elements[i] ;
     }
   }
@@ -255,111 +149,104 @@ DOMUtil.prototype.findDescendantById = function(root, id) {
 
 DOMUtil.prototype.hasDescendant= function(root, obj) {
   var elements =  root.getElementsByTagName("*") ;
-  for(var i = 0; i < elements.length; i++) {
-    if(elements[i] == obj) return true ;
+  var ln = elements.length ;
+  for (var k = 0; k < ln; k++) {
+    if (elements[k] == obj) return true ;
   }
   return false ;
 } ;
 
 DOMUtil.prototype.hasDescendantClass = function(root, clazz) {
   var elements =  root.getElementsByTagName("*") ;
-  for(var i = 0; i < elements.length; i++) {
-    if(this.hasClass(elements[i], clazz)) return true ;
+  var ln = elements.length ;
+  for (var k = 0; k < ln; k++) {
+    if (this.hasClass(elements[k], clazz)) return true ;
   }
   return false ;
 } ;
 
 DOMUtil.prototype.findNextElementByTagName = function(element, tagName) {
 	var nextElement = element.nextSibling ;
-	while(nextElement != null) {
+	while (nextElement != null) {
 		var nodeName = nextElement.nodeName ;
-    if(nodeName != null) nodeName = nodeName.toLowerCase() ;
-		if(nodeName == tagName) return nextElement ;
-			
+    if (nodeName != null) nodeName = nodeName.toLowerCase() ;
+		if (nodeName == tagName) return nextElement ;
 		nextElement = nextElement.nextSibling ;
 	}
-	
 	return null ;
 } ;
 
 DOMUtil.prototype.findPreviousElementByTagName = function(element, tagName) {
 	var previousElement = element.previousSibling ;
-	while(previousElement != null) {
+	while (previousElement != null) {
 		var nodeName = previousElement.nodeName ;
-    if(nodeName != null) nodeName = nodeName.toLowerCase() ;
-		if(nodeName == tagName) return previousElement ;
-			
+    if (nodeName != null) nodeName = nodeName.toLowerCase() ;
+		if (nodeName == tagName) return previousElement ;
 		previousElement = previousElement.previousSibling ;
 	}
-	
 	return null ;
 } ;
 
 DOMUtil.prototype.createElementNode = function(innerHTML, tagName) {
-	var temporaryContainer = document.createElement(tagName);
+	var temporaryContainer = document.createElement(tagName) ;
 	temporaryContainer.innerHTML = innerHTML ;
-	var applicationNode = this.getChildrenByTagName(temporaryContainer, "div")[0];
-	
+	var applicationNode = this.getChildrenByTagName(temporaryContainer, "div")[0] ;
 	return applicationNode ;
 } ;
 
 DOMUtil.prototype.generateId = function(objectId) {
-	var dateTime = new Date();
-	var time = dateTime.getTime();
-	return (objectId + "-" + time);
+	var dateTime = new Date() ;
+	var time = dateTime.getTime() ;
+	return (objectId + "-" + time) ;
 } ;
 
 DOMUtil.prototype.swapPosition = function(e1, e2) {
-  if(e1.parentNode != e2.parentNode) alert("Report  bug to the admin, cannot swap element position"); 
-  var tmpSwap = document.createElement("div");
-  
+  if (e1.parentNode != e2.parentNode) alert("Report  bug to the admin, cannot swap element position") ; 
+  var tmpSwap = document.createElement("div") ;
 } ;
 
 DOMUtil.prototype.getStyle = function(element, style, intValue) {
-	var result = null;
+	var result = null ;
 	if (element.style[style]) {
-		result = element.style[style];
-	}
-	else if (element.currentStyle) {
-		result = element.currentStyle[style];
-	}
-	else if (document.defaultView && document.defaultView.getComputedStyle) {
-		style = style.replace(/([A-Z])/g, "-$1");
-		style = style.toLowerCase();
-		
-		var s = document.defaultView.getComputedStyle(element, "");
-		result = s && s.getPropertyValue(style);
+		result = element.style[style] ;
+	}	else if (element.currentStyle) {
+		result = element.currentStyle[style] ;
+	}	else if (document.defaultView && document.defaultView.getComputedStyle) {
+		style = style.replace(/([A-Z])/g, "-$1") ;
+		style = style.toLowerCase() ;
+		var s = document.defaultView.getComputedStyle(element, "") ;
+		result = s && s.getPropertyValue(style) ;
 	}
 	if (intValue && result) {
-		// if intValue is specified to true, returns only the numeric value of the property
-		var intRes = Number(result.match(/\d+/)); // \d is any number (0-9), + is 1 or more times
-		if (!isNaN(intRes)) result = intRes; // if intRes is numeric, put it in result
+		var intRes = Number(result.match(/\d+/)) ;
+		if(!isNaN(intRes)) result = intRes ;
 	}
-	return result;
-};
+	return result ;
+} ;
 
 /* TODO: review this function: document.onclick */
 DOMUtil.prototype.hideElements = function() {
 	document.onclick = function() {
-		if(eXo.core.DOMUtil.hideElementList.length > 0) {
-			for (var i = 0; i < eXo.core.DOMUtil.hideElementList.length; i++) {
-				eXo.core.DOMUtil.hideElementList[i].style.display = "none";
+		var ln = eXo.core.DOMUtil.hideElementList.length;
+		if (ln > 0) {
+			for (var i = 0; i < ln; i++) {
+				eXo.core.DOMUtil.hideElementList[i].style.display = "none" ;
 			}
-			eXo.core.DOMUtil.hideElementList.clear();
+			eXo.core.DOMUtil.hideElementList.clear() ;
 		}
 	}
 } ;
 
 DOMUtil.prototype.listHideElements = function(object) {
-	if(!eXo.core.DOMUtil.hideElementList.contains(object)) {
+	if (!eXo.core.DOMUtil.hideElementList.contains(object)) {
 		eXo.core.DOMUtil.hideElementList.push(object) ;
 	}
 } ;
 
 DOMUtil.prototype.removeTemporaryElement = function(element) {
 	var parentElement = element.parentNode ;
-	parentElement.removeChild(element);
-};
+	parentElement.removeChild(element) ;
+} ;
 
 /****************************************************************************/
 eXo.core.DOMUtil = new DOMUtil() ;

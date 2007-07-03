@@ -63,21 +63,21 @@ UIMaskLayer.prototype.setPosition = function() {
 	
 	var left ;
 	var top ;
-	if(position == "TOP-LEFT") {
+	if (position == "TOP-LEFT") {
 	  left = 0 ;
 	  top = 0 ;
-	} else if(position == "TOP-RIGHT") {
+	} else if (position == "TOP-RIGHT") {
 	  left = blockContainer.offsetWidth - object.offsetWidth ;
 	  top = 0 ;
-	} else if(position == "BOTTOM-LEFT") {
+	} else if (position == "BOTTOM-LEFT") {
 	  left = 0 ;
-	  top = Browser.getBrowserHeight() - object.offsetHeight + document.documentElement.scrollTop;
-	} else if(position == "BOTTOM-RIGHT") {
+	  top = Browser.getBrowserHeight() - object.offsetHeight + document.documentElement.scrollTop ;
+	} else if (position == "BOTTOM-RIGHT") {
 	  left = blockContainer.offsetWidth - object.offsetWidth ;
 	  top = Browser.getBrowserHeight() - object.offsetHeight + document.documentElement.scrollTop ;
 	} else {
 	  left = (blockContainer.offsetWidth - object.offsetWidth) / 2 ;
-	  top = (Browser.getBrowserHeight() - object.offsetHeight) / 2 +  document.documentElement.scrollTop;
+	  top = (Browser.getBrowserHeight() - object.offsetHeight) / 2 +  document.documentElement.scrollTop ;
 	}
 	
 	object.style.left = left + "px" ;
@@ -85,11 +85,11 @@ UIMaskLayer.prototype.setPosition = function() {
 } ;
 
 UIMaskLayer.prototype.removeMask = function(maskLayer) {
-	if(maskLayer) {
+	if (maskLayer) {
 	  var parentNode = maskLayer.parentNode ;
 	  maskLayer.nextSibling.style.display = "none" ;
   
-	  if(maskLayer.nextSiblingOfObject) {
+	  if (maskLayer.nextSiblingOfObject) {
 	  	maskLayer.nextSiblingOfObject.parentNode.insertBefore(maskLayer.nextSibling, maskLayer.nextSiblingOfObject) ;
 	  	maskLayer.nextSiblingOfObject = null ;
 	  } else {
@@ -102,14 +102,14 @@ UIMaskLayer.prototype.removeMask = function(maskLayer) {
 
 UIMaskLayer.prototype.resizeMaskLayer = function() {
 	var maskLayer = document.getElementById("MaskLayer") ;
-	if(maskLayer) {
-	  var UIInnerMaskLayer = eXo.core.DOMUtil.findAncestorByClass(maskLayer, "UIInnerMaskLayer");
-	  if (UIInnerMaskLayer) return;
-	  else if(maskLayer.style.display == "block") {
-    	var ojectHeight = document.getElementById("UIPortalApplication");
+	if (maskLayer) {
+	  var UIInnerMaskLayer = eXo.core.DOMUtil.findAncestorByClass(maskLayer, "UIInnerMaskLayer") ;
+	  if (UIInnerMaskLayer) return ;
+	  else if (maskLayer.style.display == "block") {
+    	var ojectHeight = document.getElementById("UIPortalApplication") ;
     	  maskLayer.style.width = "100%" ;
     	var maskLayerHeight = (document.body.offsetHeight > ojectHeight.offsetHeight) ? document.body.offsetHeight : ojectHeight.offsetHeight ;
-  	    maskLayer.style.height = maskLayerHeight + "px";
+  	    maskLayer.style.height = maskLayerHeight + "px" ;
 	  }
 	}
 } ;
