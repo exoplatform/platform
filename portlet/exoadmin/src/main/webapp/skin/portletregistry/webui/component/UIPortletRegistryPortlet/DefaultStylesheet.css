@@ -262,7 +262,15 @@
   margin: auto;
 }
 
+.ApplicationRegistryWorkingArea .UIAvailablePortletForm .FormContainer {
+	padding: 10px;
+}
+
 .ApplicationRegistryWorkingArea .UIAvailablePortletForm .UIGrid {
   width: 99%;
   margin: auto;
+}
+
+.ApplicationRegistryWorkingArea .UIAvailablePortletForm .UIAction {
+	width: 140px;
 }

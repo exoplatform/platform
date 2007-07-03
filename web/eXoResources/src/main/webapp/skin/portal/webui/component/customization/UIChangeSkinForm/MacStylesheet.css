@@ -7,7 +7,7 @@
 }
 
 .UIChangeSkinForm .UIFormTabPane .TabPaneContent .UITabContentContainer {
-	border: 1px solid red;
+	height: auto;
 }
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemListContainer {

@@ -67,20 +67,18 @@
 }
 
 .UIBarStyle .BarStyle2 .LeftBar {
-  background: url('MacSkin/background/RoundedTopBarL9x37.gif') no-repeat left;
+  background: url('MacSkin/background/RoundedTopBarL9x37.gif') no-repeat left center;
   padding: 0px 0px 0px 9px;
-  height: 37px;
 }
 
 .UIBarStyle .BarStyle2 .RightBar {
-  background: url('MacSkin/background/RoundedTopBarR9x37.gif') no-repeat right;
+  background: url('MacSkin/background/RoundedTopBarR9x37.gif') no-repeat right center;
   padding: 0px 9px 0px 0px ;
-  height: 37px;
 }
 
 .UIBarStyle .BarStyle2 .MiddleBar {
-  height: 37px; line-height: 37px;
-  background: url('MacSkin/background/RoundedTopBarM1x37.gif') repeat-x;
+  line-height: 37px; height: 37px;
+  background: url('MacSkin/background/RoundedTopBarM1x37.gif') repeat-x center;
 }
 
 /*###########################-Style3Bar-###########################*/

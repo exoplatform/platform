@@ -155,18 +155,18 @@
 .UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
   padding-left: 12px; 
   line-height: 24px;
-  background: url('DefaultSkin/background/LeftNormalTab12x24.gif') no-repeat left top;
+  background: url('DefaultSkin/background/LeftNormalTab12x24.gif') no-repeat left bottom;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
   line-height: 24px;
   padding-right: 3px;
-  background: url('DefaultSkin/background/RightNormalTab3x24.gif') no-repeat right top;
+  background: url('DefaultSkin/background/RightNormalTab3x24.gif') no-repeat right bottom;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
   line-height: 24px;
-  background: url('DefaultSkin/background/MiddleNormalTab1x24.gif') repeat-x top;
+  background: url('DefaultSkin/background/MiddleNormalTab1x24.gif') repeat-x bottom;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
 }
@@ -180,18 +180,18 @@
 .UIHorizontalTabs .NormalTabStyle .HighlightTab .LeftTab {
   line-height: 24px;
   padding-left: 12px;
-  background: url('DefaultSkin/background/LeftHighlightTab12x24.gif') no-repeat left top;
+  background: url('DefaultSkin/background/LeftHighlightTab12x24.gif') no-repeat left bottom;
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab .RightTab {
   line-height: 24px;
   padding-right: 3px;
-  background: url('DefaultSkin/background/RightHighlightTab3x24.gif') no-repeat right top;
+  background: url('DefaultSkin/background/RightHighlightTab3x24.gif') no-repeat right bottom;
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab .MiddleTab {
   line-height: 24px;
-  background: url('DefaultSkin/background/MiddleHighlightTab1x24.gif') repeat-x top;
+  background: url('DefaultSkin/background/MiddleHighlightTab1x24.gif') repeat-x bottom;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
 }
@@ -205,18 +205,18 @@
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
   line-height: 24px;
   padding-left: 15px;
-  background: url('DefaultSkin/background/LeftSelectedTab15x24.gif') no-repeat left top;
+  background: url('DefaultSkin/background/LeftSelectedTab15x24.gif') no-repeat left bottom;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
   line-height: 24px;
   padding-right: 3px;
-  background: url('DefaultSkin/background/RightSelectedTab3x24.gif') no-repeat right top;
+  background: url('DefaultSkin/background/RightSelectedTab3x24.gif') no-repeat right bottom;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .MiddleTab {
   line-height: 24px;
-  background: url('DefaultSkin/background/MiddleSelectedTab1x24.gif') repeat-x top;
+  background: url('DefaultSkin/background/MiddleSelectedTab1x24.gif') repeat-x bottom;
   cursor: pointer;
   font-weight: normal;
   padding: 0px 4px 0px 4px;

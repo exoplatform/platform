@@ -63,7 +63,7 @@
 
 .UIMaskWorkspace .UITabContent {
 	overflow: auto;
-	height: 273px;
+	height: 275px;
 }
 
 .UIMaskWorkspace .UIForm .HorizontalLayout .UIFormInputSet {
@@ -96,10 +96,11 @@
 }
 
 .UIMaskWorkspace .UITabPane .TabPaneContent .CSSContent .UITabContent {
-  height: 190px;
+  height: auto;
   border: 1px solid white;
   border-top: none;
   margin: auto;
+  overflow: hidden;
 }
 
 /**************************** UIAddApplication ******************************************/

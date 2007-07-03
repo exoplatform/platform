@@ -35,6 +35,10 @@
 	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalCloseTab.gif') no-repeat bottom;
 }
 
+.LAYOUT-CONTAINER .UIHorizontalTabs .UITab  {
+	height: 24px;
+}
+
 .LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
 	background:transparent url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat center bottom;
 	float:left;
@@ -48,3 +52,11 @@
 	height:20px;
 	width:16px;
 } 
+
+.VIEW-PAGE .UIHorizontalTabs .NormalTabStyle .NormalTab {
+	border-bottom: 1px solid #aeaeae; /*Fix bug IE6*/
+}
+
+.VIEW-PAGE .UIHorizontalTabs .NormalTabStyle .SelectedTab {
+	border-bottom: 1px solid white; /*Fix bug IE6*/
+}

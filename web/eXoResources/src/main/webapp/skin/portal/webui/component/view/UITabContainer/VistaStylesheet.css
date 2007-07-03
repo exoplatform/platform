@@ -31,16 +31,24 @@
 	padding: 0px 10px 10px;
 }
 
-.LAYOUT-PORTAL .UITabContainer .SelectedTab .EditIcon {
+.LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
 	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat center bottom;
 	float:left;
 	height:20px;
 	width:16px;
 }
 
-.LAYOUT-PORTAL .UITabContainer .NormalTab .EditIcon  {
+.LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
 	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif') no-repeat center bottom;
 	float:left;
 	height:20px;
 	width:16px;
+}
+
+.LAYOUT-CONTAINER .UIHorizontalTabs .NormalTabStyle .NormalTab {
+	border-bottom: 1px solid white; /*Fix bug IE6*/
+}
+
+.LAYOUT-CONTAINER .UIHorizontalTabs .NormalTabStyle .SelectedTab {
+	border-bottom: 1px solid white; /*Fix bug IE6*/
 }

@@ -71,4 +71,6 @@
   height: 329px;
 }
 
-
+.UIAccountPortlet .UIAction {
+	width: 180px;
+}

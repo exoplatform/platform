@@ -213,19 +213,19 @@
 
 .UIContentPortlet .RefreshBar .LeftRefreshBar{
 	background: url('MacSkin/background/LeftRefreshButton22x22.gif') no-repeat left center;
-	height: 22px;
 	padding-left: 22px;
+	line-height: 22px;
 }
 
 .UIContentPortlet .RefreshBar .RightRefreshBar{
+	line-height: 22px;
 	background: url('MacSkin/background/RightRefreshButton13x22.gif') no-repeat right center;
-	height: 22px;
 	padding-right: 13px;
 }
 
 .UIContentPortlet .RefreshBar .CenterRefreshBar{
-	background: url('MacSkin/background/CenterRefreshButton1x22.gif') repeat-x;
-	height: 22px; line-height: 20px;
+	background: url('MacSkin/background/CenterRefreshButton1x22.gif') repeat-x center;
+	line-height: 22px;
 	padding: 0px 5px;
 }
 

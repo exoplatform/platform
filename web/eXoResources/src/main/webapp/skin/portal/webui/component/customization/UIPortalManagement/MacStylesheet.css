@@ -52,21 +52,21 @@
 }
 
 .UIPortalManagement .RollbackIcon {
-	width: 32px; height: 32px;
+	width: 32px; height: 30px;
 	background: url('/eXoResources/icons/32x32/MacSkin/RollBackButton.png') no-repeat;
 }
 
 .UIPortalManagement .FinishIcon {
-	width: 32px; height: 32px;
+	width: 32px; height: 30px;
 	background: url('/eXoResources/icons/32x32/MacSkin/FinishButton.png') no-repeat;
 }
 
 .UIPortalManagement .SaveIcon {
-	width: 32px; height: 32px;
+	width: 32px; height: 30px;
 	background: url('/eXoResources/icons/32x32/MacSkin/SaveButton.png') no-repeat;
 }
 
 .UIPortalManagement .AbortIcon {
-	width: 32px; height: 32px;
+	width: 32px; height: 30px;
 	background: url('/eXoResources/icons/32x32/MacSkin/AbortButton.png') no-repeat;
 }

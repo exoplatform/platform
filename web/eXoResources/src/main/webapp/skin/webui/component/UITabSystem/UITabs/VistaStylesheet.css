@@ -213,19 +213,19 @@
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
   padding-left: 5px;
-  line-height: 26px;
-  background: url('VistaSkin/background/NormalTabLBg5x26.png') no-repeat left;
+  line-height: 26px; 
+  background: url('VistaSkin/background/NormalTabLBg5x26.png') no-repeat left top;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
   line-height: 26px;
   padding-right: 5px;
-  background: url('VistaSkin/background/NormalTabRBg5x26.png') no-repeat right;
+  background: url('VistaSkin/background/NormalTabRBg5x26.png') no-repeat right top;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
   line-height: 26px;
-  background: url('VistaSkin/background/NormalTabRepeatBg1x26.png') repeat-x;
+  background: url('VistaSkin/background/NormalTabRepeatBg1x26.png') repeat-x top;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
 }
@@ -266,18 +266,18 @@
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
   line-height: 26px;
   padding-left: 4px;
-  background: url('VistaSkin/background/LeftSelectedTab4x26.png') no-repeat left;;
+  background: url('VistaSkin/background/LeftSelectedTab4x26.png') no-repeat left top;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
   line-height: 26px;
   padding-right: 4px;
-  background: url('VistaSkin/background/RightSelectedTab4x26.png') no-repeat right;
+  background: url('VistaSkin/background/RightSelectedTab4x26.png') no-repeat right top;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .MiddleTab {
   line-height: 26px;
-  background: url('VistaSkin/background/MiddleSelectedTab1x26.png') repeat-x;
+  background: url('VistaSkin/background/MiddleSelectedTab1x26.png') repeat-x top;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
 }

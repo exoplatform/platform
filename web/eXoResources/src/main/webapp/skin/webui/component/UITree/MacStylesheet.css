@@ -68,8 +68,6 @@
 }
 
 .UITree .TreeContainer .Node .NodeLabel a:hover{
-  padding: 0px 5px 0px 4px ;
-  margin: 1px 0px 0px 1px ;
   font-weight: bold;
 }
 

@@ -92,16 +92,22 @@
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
-	height: 310px;
+	height: 300px;
 	padding-bottom:0px;
 }
 
 .UIOrganizationPortlet .UIUserManagement .HorizontalLayout .UIFormInputSet {
-	height: 305px;
+	height: 290px;
+	padding-top: 10px;
+}
+
+.UIOrganizationPortlet .UIMembership {
+	height: 300px;
+	padding-top: 20px;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemList {
-	height: 297px;
+	height: 287px;
 }
 
 .UIOrganizationPortlet .UIUserManagement .GroupGridIterator {
@@ -198,7 +204,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
-	height: 220px;
+	height: 225px;
 	overflow: auto;
 }
 
@@ -213,6 +219,11 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle {
 	width: auto;
+	margin: auto;
+}
+
+.UIOrganizationPortlet .UIFormGrid {
+	width: 350px;
 	margin: auto;
 }
 

@@ -178,9 +178,9 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
-  border: 1px #b7b7b7 solid;
+  border: 1px solid #b7b7b7;
   padding-bottom: 10px;  
-  height: 208px;
+  height: 214px;
   overflow: auto;
 }
 
@@ -250,6 +250,12 @@
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .UIAction {
 	width: 65px;
 }
+
+.UIOrganizationPortlet .UIGroupForm { 
+	height: 260px;
+	border: 1px solid red;
+}
+
 
 /*#######################  UIMemberShipManagement #################################*/
 .UIOrganizationPortlet .UIMembershipTypeForm {

@@ -2,6 +2,7 @@
 }
 
 .UIChangeLanguageForm .UIFormTabPane .TabPaneContent .UITabContentContainer {
+	height: auto;
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemListContainer {

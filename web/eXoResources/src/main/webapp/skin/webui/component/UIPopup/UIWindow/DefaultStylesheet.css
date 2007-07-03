@@ -150,11 +150,13 @@
 .UIWindow .WindowBarLeft {
   padding-left: 12px ;
   background: url('DefaultSkin/background/LeftWindowBar.png') no-repeat left ;
+  height: 29px ;
 }
 
 .UIWindow .WindowBarRight {
   padding-right: 11px ;
   background: url('DefaultSkin/background/RightWindowBar.png') no-repeat right;
+  height: 29px ;
 }
 
 .UIWindow .WindowBarCenter {
