@@ -37,6 +37,8 @@ public class UploadHandler extends Command {
 
   @SuppressWarnings("unused")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception { 
+    res.setHeader("Cache-Control", "no-cache");
+    
     ExoContainer container =  PortalContainer.getInstance();
     UploadService service = (UploadService)container.getComponentInstanceOfType(UploadService.class) ;
     if(action == null ||  action.length() < 1) return;
@@ -61,7 +63,8 @@ public class UploadHandler extends Command {
         if(i < uploadId.length - 1) value.append(',');
       }       
       value.append("\n  }\n}");
-      writer.append(value);        
+      writer.append(value);
+      System.out.println("\n\n ================ > ResponseText = " + value + "\n\n");
     }else if(uploadActionService == UploadServiceAction.UPLOAD){
       service.createUploadResource(req) ;       
     }else if(uploadActionService == UploadServiceAction.DELETE){
