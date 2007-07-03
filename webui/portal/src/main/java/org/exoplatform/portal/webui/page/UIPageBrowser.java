@@ -80,7 +80,7 @@ public class UIPageBrowser extends UISearch {
     defaultValue(null) ;
   }
   
-  public Query getLastQuery() { return lastQuery_; }
+  public Query<Page> getLastQuery() { return lastQuery_; }
   
   public void defaultValue(Query<Page> query) throws Exception {
     lastQuery_ = query ;
@@ -112,6 +112,7 @@ public class UIPageBrowser extends UISearch {
     if(selectBoxValue.equals("ownerType")) query.setOwnerType(value) ;
     if(selectBoxValue.equals("ownerId")) query.setOwnerId(value) ;
     if(selectBoxValue.equals("name")) query.setName(value) ;
+    lastQuery_ = query ;
     defaultValue(query) ;
     if (this.<UIComponent>getParent() instanceof UIPopupWindow ) {
       UIPopupWindow popupWindow = getParent();
@@ -163,7 +164,11 @@ public class UIPageBrowser extends UISearch {
       }
       
       service.remove(page);
-      uiPageBrowser.defaultValue(null);       
+      //TODO: Tung.Pham modified
+      //-------------------------------------------
+      //uiPageBrowser.defaultValue(null);
+      uiPageBrowser.defaultValue(uiPageBrowser.getLastQuery()) ;
+      //-------------------------------------------
       pcontext.addUIComponentToUpdateByAjax(uiPageBrowser);
     }
   }
@@ -320,7 +325,8 @@ public class UIPageBrowser extends UISearch {
         //TODO: Tung.Pham added
         //--------------------------------------------
         if(uiComp instanceof UIPageBrowser) {
-          ((UIPageBrowser)uiComp).defaultValue(null) ;
+          UIPageBrowser uiPageBrowser = (UIPageBrowser)uiComp ;
+          uiPageBrowser.defaultValue((uiPageBrowser.getLastQuery())) ;
         }
         //--------------------------------------------
         uiToolPanel.setUIComponent(uiComp) ;

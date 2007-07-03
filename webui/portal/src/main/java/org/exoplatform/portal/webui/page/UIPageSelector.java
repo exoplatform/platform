@@ -15,6 +15,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
@@ -70,8 +71,10 @@ public class UIPageSelector extends UIFormInputContainer<String> {
     UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
     Page page = service.getPage(value, pcontext.getRemoteUser()) ;
     UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
-    if(page == null){
-      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{value})) ;;
+    if(page == null) return this ;
+    
+    if(!page.isModifiable()){
+      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{value})) ;;
       pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
       return this;
     }
@@ -100,6 +103,13 @@ public class UIPageSelector extends UIFormInputContainer<String> {
       event.getRequestContext().getRequestContextPath();
       UIPageSelector uiPageSelector = uiPageBrowser.getAncestorOfType(UIPageSelector.class) ;
       uiPageSelector.setValue(id);
+      //TODO: Tung.Pham added
+      //---------------------------------------------------
+      uiPageBrowser.defaultValue(null) ;
+      UIFormPopupWindow uiPopup =uiPageSelector.getChild(UIFormPopupWindow.class) ;
+      uiPopup.setShow(false) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageSelector) ;
+      //---------------------------------------------------
     }
   }
   

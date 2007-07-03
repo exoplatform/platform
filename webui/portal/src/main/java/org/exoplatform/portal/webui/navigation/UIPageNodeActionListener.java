@@ -105,6 +105,8 @@ public class UIPageNodeActionListener {
       if(page == null) {
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.notAvailable", null)) ;
+        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
         return;
       } 
       

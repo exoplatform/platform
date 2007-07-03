@@ -12,6 +12,7 @@ import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIBreadcumbs;
+import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIGrid;
 import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.UIPopupWindow;
@@ -140,6 +141,8 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       String permission  = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UIListPermissionSelector uiPermissions = event.getSource() ;
       uiPermissions.removePermission(permission);
+      UIContainer uiParent = uiPermissions.getParent() ;
+      uiParent.setRenderedChild(UIListPermissionSelector.class) ;
       UIForm uiForm = uiPermissions.getAncestorOfType(UIForm.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
     }
