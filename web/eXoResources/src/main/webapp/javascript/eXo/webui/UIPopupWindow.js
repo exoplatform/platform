@@ -24,9 +24,7 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	
 	if(showCloseButton == true) {
 		var popupCloseButton = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'CloseButton') ;
-		popupCloseButton.onmouseup = function() {
-			DOMUtil.findAncestorByClass(this, "UIDragObject").style.display = "none" ;
-		}
+		popupCloseButton.onmouseup = this.closePopupEvt ;
 	}
 	
 	if(isResizable) {
@@ -46,6 +44,41 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	if(isShow == true) this.show(popup);
 	
 };
+
+UIPopupWindow.prototype.show = function(popup) {
+	var DOMUtil = eXo.core.DOMUtil;
+	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
+	var portalApp = document.getElementById("UIPortalApplication");
+	
+	var maskLayer = DOMUtil.findFirstDescendantByClass(portalApp, "div", "UIMaskWorkspace");
+	zIndex = 0;
+	var currZIndex = 0;
+	if (maskLayer != null) {
+		currZIndex = DOMUtil.getStyle(maskLayer, "zIndex");
+		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex;
+	}
+	var popupWindows = DOMUtil.findDescendantsByClass(portalApp, "div", "UIPopupWindow");
+	for (var i = 0; i<popupWindows.length; i++) {
+		currZIndex = DOMUtil.getStyle(popupWindows[i], "zIndex");
+		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex;
+	}
+  
+	if (zIndex == 0) zIndex = 2000;
+	// We don't increment zIndex here because it is done in the superClass.show function
+	popup.style.visibility = "hidden";
+	this.superClass.show(popup) ;
+	var offsetParent = popup.offsetParent ;
+	if(offsetParent) {
+		popup.style.top = ((offsetParent.offsetHeight - popup.offsetHeight) / 2) + "px" ;
+		popup.style.left = ((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
+	}
+	popup.style.visibility = "visible";
+};
+
+UIPopupWindow.prototype.closePopupEvt = function(e) {
+	alert('torng') ;
+	eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject").style.display = "none" ;
+}
 
 UIPopupWindow.prototype.initDND = function(e) {
   var DragDrop = eXo.core.DragDrop ;
@@ -97,8 +130,6 @@ UIPopupWindow.prototype.initDND = function(e) {
   DragDrop.init(null, clickBlock, dragBlock, e) ;
 };
 
-
-
 UIPopupWindow.prototype.resize = function(e) {
 	var targetPopup = document.getElementById(this.getAttribute("popupId"));
 	var content = eXo.core.DOMUtil.findFirstDescendantByClass(targetPopup, "div", "Content");
@@ -109,36 +140,6 @@ UIPopupWindow.prototype.resize = function(e) {
 	if((1*pointerY-delta) > 0) content.style.height = (1*pointerY-delta)+"px";
 	targetPopup.style.height = "auto";
 	if(pointerX > 200) targetPopup.style.width = (pointerX+5) + "px";
-};
-
-UIPopupWindow.prototype.show = function(popup) {
-	var DOMUtil = eXo.core.DOMUtil;
-	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
-	var portalApp = document.getElementById("UIPortalApplication");
-	
-	var maskLayer = DOMUtil.findFirstDescendantByClass(portalApp, "div", "UIMaskWorkspace");
-	zIndex = 0;
-	var currZIndex = 0;
-	if (maskLayer != null) {
-		currZIndex = DOMUtil.getStyle(maskLayer, "zIndex");
-		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex;
-	}
-	var popupWindows = DOMUtil.findDescendantsByClass(portalApp, "div", "UIPopupWindow");
-	for (var i = 0; i<popupWindows.length; i++) {
-		currZIndex = DOMUtil.getStyle(popupWindows[i], "zIndex");
-		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex;
-	}
-  
-	if (zIndex == 0) zIndex = 2000;
-	// We don't increment zIndex here because it is done in the superClass.show function
-	popup.style.visibility = "hidden";
-	this.superClass.show(popup) ;
-	var offsetParent = popup.offsetParent ;
-	if(offsetParent) {
-		popup.style.top = ((offsetParent.offsetHeight - popup.offsetHeight) / 2) + "px" ;
-		popup.style.left = ((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
-	}
-	popup.style.visibility = "visible";
 };
 
 eXo.webui.UIPopupWindow = new UIPopupWindow();
