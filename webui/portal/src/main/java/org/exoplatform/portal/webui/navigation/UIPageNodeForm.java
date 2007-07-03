@@ -133,7 +133,7 @@ public class UIPageNodeForm extends UIFormTabPane {
         pageNode.setUri(pageNode.getName());
         //if(!children.contains(pageNode)) children.add(pageNode);
         if(!pageNav.getNodes().contains(pageNode)) {
-          if(uiPageNodeSelector.findPageNodeByUri(pageNode.getUri()) != null) {
+          if(uiPageNodeSelector.searchPageNodeByUri(pageNav, pageNode.getUri()) != null) {
             uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.SameName", null)) ;
             pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
             uiPageNodeForm.setRenderedChild("PageNodeSetting") ;
@@ -154,7 +154,7 @@ public class UIPageNodeForm extends UIFormTabPane {
         //if(!children.contains(pageNode)) children.add(pageNode);
         pageNode.setUri(parentNode.getUri()+"/"+pageNode.getName());
         if(!children.contains(pageNode)) {
-          if(uiPageNodeSelector.findPageNodeByUri(pageNode.getUri()) != null) {
+          if(uiPageNodeSelector.searchPageNodeByUri(pageNav, pageNode.getUri()) != null) {
             uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.SameName", null)) ;
             pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
             uiPageNodeForm.setRenderedChild("PageNodeSetting") ;

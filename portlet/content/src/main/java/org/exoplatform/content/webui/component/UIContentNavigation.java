@@ -136,7 +136,7 @@ public class UIContentNavigation extends UIContainer {
       if(child == null)  continue;
       ContentNode value = findNode(nodeId, child);
       if(value == null) continue;
-      if(parentNode_ == null) parentNode_ = node;  else if(grandNode_ == null) grandNode_ = node;
+      if(parentNode_ == null) parentNode_ = node; else if(grandNode_ == null) grandNode_ = node;
       return value;
     }
     return null;
@@ -194,7 +194,7 @@ public class UIContentNavigation extends UIContainer {
       UIContentForm uiForm = uiWorkingArea.getChild(UIContentForm.class) ;
       uiForm.setContentNode(null);
       uiWorkingArea.setRenderedChild(UIContentForm.class) ;
-      Class [] childrenToRender = {UIContentNavigation.class, UIContentWorkingArea.class };
+      Class<?> [] childrenToRender = {UIContentNavigation.class, UIContentWorkingArea.class };
       uiParent.setRenderedChildrenOfTypes(childrenToRender) ;
     }
   }
@@ -202,7 +202,6 @@ public class UIContentNavigation extends UIContainer {
 
   static  public class EditNodeActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
-      
 //      UIContentNavigation uiNav = event.getSource();
 //      UIPortal uiPortal = Util.getUIPortal();
 //      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
@@ -247,10 +246,10 @@ public class UIContentNavigation extends UIContainer {
       ContentNode parentNode = uiNav.getParentNode() ;      
       List<ContentNode> children = null;
       if(parentNode != null) children = parentNode.getChildren();
-      else children = uiNav.nav_.getNodes();   
+      else children = uiNav.getContentNavigation().getNodes();   
       if(children == null) return;
       children.remove(uiNav.getSelectedNode());
-      if(children.size() < 1) children = uiNav.nav_.getNodes();
+      if(children.size() < 1) children = uiNav.getContentNavigation().getNodes();
       if(children.size() > 0) uiNav.setSelectedNode(children.get(0).getId());
       ContentDAO service = uiNav.getApplicationComponent(ContentDAO.class) ; 
       service.save(uiNav.getContentNavigation());
@@ -259,10 +258,9 @@ public class UIContentNavigation extends UIContainer {
 
   static  public class GetNodeInfoActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
-      
       UIContentPortlet uiParent = event.getSource().getParent() ;
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
-     uiWorkingArea.setRenderedChild(UIDescription.class) ;
+      uiWorkingArea.setRenderedChild(UIDescription.class) ;
     }
   }
 

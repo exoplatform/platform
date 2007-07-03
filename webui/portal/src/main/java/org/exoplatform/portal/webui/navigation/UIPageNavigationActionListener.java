@@ -13,11 +13,10 @@ import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
+import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -69,32 +68,13 @@ public class UIPageNavigationActionListener {
   static public class DeleteNavigationActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception { 
       UIRightClickPopupMenu uiPopup = event.getSource();
-      UIPortalApplication uiPortalApp = uiPopup.getAncestorOfType(UIPortalApplication.class) ;
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       UIPageNodeSelector uiPageNodeSelector = uiPopup.getAncestorOfType(UIPageNodeSelector.class);
       PageNavigation selectedNavigation = uiPageNodeSelector.getSelectedNavigation();
       
-      //TODO: Tung.Pham modified
-      //---------------------------------------------------------
-//      UserPortalConfigService configService = pageNodeSelector.getApplicationComponent(UserPortalConfigService.class);
-//      configService.remove(selectedNavigation);
-//      Util.getUIPortal().getNavigations().remove(selectedNavigation);
-//      List<PageNavigation> oldList = Util.getUIPortal().getNavigations();
-//      int i = 0;
-//      for(i = 0; i< oldList.size(); i ++) {
-//        if(oldList.get(i).getId().equals(selectedNavigation.getId())) break;
-//      }
-//      if( i< oldList.size()) oldList.remove(i);
-//      pageNodeSelector.loadNavigations();
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getAncestorOfType(UIPageManagement.class));
-      uiPageNodeSelector.removeNavigation(selectedNavigation) ;
-      uiPageNodeSelector.loadSelectedNavigation() ;
-      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ; 
-      uiToolPanel.setUIComponent(null);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getAncestorOfType(UIPageManagement.class));
-      //----------------------------------------------------      
+      uiPageNodeSelector.deletePageNavigation(selectedNavigation) ;
+      UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
+      uiTree.createEvent("ChangeNode", event.getExecutionPhase(), pcontext).broadcast();
     }
   }
   
@@ -105,7 +85,7 @@ public class UIPageNavigationActionListener {
       WebuiRequestContext rcontext = event.getRequestContext();  
       
       UIPageManagement uiManagement = uiNodeSelector.getParent();
-      List<PageNavigation> navs = uiNodeSelector.getNavigations();
+      List<PageNavigation> navs = uiNodeSelector.getPageNavigations();
       if(navs == null || navs.size() < 1) {
         UIPortalApplication uiApp = uiManagement.getAncestorOfType(UIPortalApplication.class);
         uiApp.addMessage(new ApplicationMessage("UIPageNavigationControlBar.msg.noEditablePageNavigation", new String[]{})) ;;

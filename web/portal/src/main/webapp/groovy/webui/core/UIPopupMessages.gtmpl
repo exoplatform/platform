@@ -51,14 +51,15 @@
 	  println "      <div class=\"$messType\">";
 		println "		      <div class=\"PopupMessageContainer\">";
     for(mess in messages) {
+      if(mess.messageKey == null) continue;
       println "		        <div class=\"MessageContainer\">";
       println "	            <div class=\"PopupIcon ${messType}Icon\"><span></span></div>";
-			println "	            <div class=\"PopupMessage\">";
+			println "	            <div class=\"PopupMessage\">";			
 		  String msgValue = _ctx.appRes(mess.messageKey);
 			Object[] msgArguments = mess.getMessageAruments();
 			if(msgArguments != null && msgArguments.length > 0) {
   		  for(i in 0..msgArguments.length-1){ 
-	  		 msgValue = msgValue.replaceAll("\\{" + i + "\\}", msgArguments [i]);
+	  		  msgValue = msgValue.replaceAll("\\{" + i + "\\}", msgArguments [i]);
 		    }
 		  }
 			println msgValue;

@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -15,7 +14,6 @@ import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
-import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
@@ -118,46 +116,27 @@ public class UIPageNavigationControlBar extends UIToolbar {
   static public class FinishActionListener  extends EventListener<UIPageNavigationControlBar> {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
       UIPageManagement uiPageManagement = event.getSource().getParent(); 
-      UIPageEditBar uiPageEditBar = uiPageManagement.getChild(UIPageEditBar.class);
-      uiPageEditBar.savePage();
-      //TODO: Tung.Pham added
-      //------------------
-      event.getSource().deleteNavigation() ;
-      //------------------
-      event.getSource().saveNavigation();
+      uiPageManagement.getChild(UIPageEditBar.class).savePage();
+      
+      UIPageNodeSelector uiNodeSelector = uiPageManagement.getChild(UIPageNodeSelector.class);
+      UserPortalConfigService dataService = uiPageManagement.getApplicationComponent(UserPortalConfigService.class);
+      List<PageNavigation> deleteNavigations = uiNodeSelector.getDeleteNavigations();
+      for(PageNavigation nav : deleteNavigations) dataService.remove(nav);
+      
+      List<PageNavigation> navigations = uiNodeSelector.getPageNavigations();
+      String accessUser = event.getRequestContext().getRemoteUser();
+      for(PageNavigation nav : navigations) {       
+        if(dataService.getPageNavigation(nav.getId(), accessUser) != null) {
+          dataService.update(nav) ;
+          continue;
+        }
+        dataService.create(nav) ;
+      }
+      UIPortal uiPortal = Util.getUIPortal();
+      UserPortalConfig userPortalConfig = dataService.getUserPortalConfig(uiPortal.getName(), accessUser);
+      uiPortal.setNavigation(userPortalConfig.getNavigations());
+      
       event.getSource().abort(event);
-      //TODO: Tung.Pham added
-      //------------------
-      UIPortal uiPortal = Util.getUIPortal() ;
-      UIPageNodeSelector uiPageNodeSelector = uiPageManagement.getChild(UIPageNodeSelector.class) ;
-      PageNode node = uiPageNodeSelector.getSelectedPageNode() ;
-      if(node == null) {
-        node = getExistPageNode(uiPageNodeSelector.getNavigations()) ;
-      }
-      if(node != null) {
-        String uri = node.getUri() ;
-        PageNodeEvent<UIPortal> pnevent ;
-        pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
-        uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
-      }
-      //--------------------
-
-    }
-    
-    //TODO: Tung.Pham added
-    private PageNode getExistPageNode(List<PageNavigation> navis) {
-      if(navis == null || navis.size() < 1) return null ;
-      for(PageNavigation ele : navis) {
-        if(getExistPageNode(ele) == null) continue ;
-        return getExistPageNode(ele) ;
-      }
-      return null ;
-    }
-
-    //TODO: Tung.Pham added
-    private PageNode getExistPageNode(PageNavigation nav) {
-      if(nav == null || nav.getNodes().size() < 1) return null ;
-      return nav.getNodes().get(0) ;
     }
 
   }
@@ -169,95 +148,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
     }
   }
 
-  public void saveNavigation() throws Exception {
-    UIPageManagement uiManagement = getAncestorOfType(UIPageManagement.class);
-    UIPageNodeSelector uiNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
-
-    List<PageNavigation> navs = uiNodeSelector.getNavigations();
-    UserPortalConfigService dataService = uiManagement.getApplicationComponent(UserPortalConfigService.class);
-    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
-    for(PageNavigation nav : navs) {
-      //TODO: Tung.Pham modified
-      //------------------------------------------------
-      //dataService.update(nav);
-      if(dataService.getPageNavigation(nav.getId(), accessUser) == null) dataService.create(nav) ;
-      else dataService.update(nav) ;
-    }
-    
-    //UIPortal uiPortal = Util.getUIPortal();
-    //for(PageNavigation editNav : navs) {
-    //  setNavigation(uiPortal.getNavigations(), editNav);
-    //}
-    List<PageNavigation> portalNavigations = Util.getUIPortal().getNavigations() ;
-    for(int i = 0; i < navs.size(); i++) {
-      if(!setNavigation(portalNavigations, navs.get(i))) portalNavigations.add(navs.get(i)) ;        
-    }
-    //------------------------------------------------
-  }
-  
-  //TODO: Tung.Pham added
-  public void deleteNavigation() throws Exception {
-    UIPageManagement uiManagement = getAncestorOfType(UIPageManagement.class) ;
-    UIPageNodeSelector uiPageNodeSelector = uiManagement.getChild(UIPageNodeSelector.class) ;
-    
-    List<PageNavigation> newNavis = uiPageNodeSelector.getNavigations() ;
-    //Remove navis from Database
-    UserPortalConfigService configService = uiManagement.getApplicationComponent(UserPortalConfigService.class) ;
-    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
-    String portalName = Util.getUIPortal().getName() ;
-    UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, accessUser) ;
-    if(userPortalConfig == null) return ;
-    List<PageNavigation> originNavis = userPortalConfig.getNavigations() ;
-    for(PageNavigation navi : originNavis) {
-      if(!isExist(newNavis, navi) && navi.isModifiable()) configService.remove(navi);
-    }
-    
-//    Iterator<PageNavigation> itr = originNavis.iterator() ;
-//    while(itr.hasNext()) {
-//      PageNavigation navi = itr.next() ;
-//      if(!isExist(newNavis, navi) && navi.isModifiable()) {
-//        itr.remove() ;
-//        configService.remove(navi) ;
-//      }
-//    }
-    
-    //Remove navis from UIPortal
-    Iterator<PageNavigation> itr = Util.getUIPortal().getNavigations().iterator() ;
-    while(itr.hasNext()) {
-      PageNavigation navi = itr.next() ;
-      if(!isExist(newNavis, navi) && navi.isModifiable()) itr.remove() ;
-    }
-  }
-  
-  //TODO: Tung.Pham added
-  private boolean isExist(List<PageNavigation> navis, PageNavigation navi) {
-    for(PageNavigation ele : navis) {
-      if(ele.getId().equals(navi.getId())) return true ;
-    }
-    
-    return false ;
-  }
-
-//  private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
-//    for(int i = 0; i < navs.size(); i++) {
-//      if(navs.get(i).getId().equals(nav.getId())) {
-//        navs.set(i, nav);
-//        return;
-//      }
-//    }
-//  }
-
-  //TODO: Tung.Pham added
-  private boolean setNavigation(List<PageNavigation> navs, PageNavigation nav) {
-    for(int i = 0; i < navs.size(); i++) {
-      if(navs.get(i).getId().equals(nav.getId())) {
-        navs.set(i, nav);
-        return true ;
-      }
-    }
-    return false ;
-  }
-
+ 
   public void abort(Event<UIPageNavigationControlBar> event) throws Exception {
     UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
     PortalRequestContext prContext = Util.getPortalRequestContext();  

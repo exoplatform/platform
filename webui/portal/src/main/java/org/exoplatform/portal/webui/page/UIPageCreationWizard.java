@@ -95,7 +95,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     service.update(pageNav);
     
     UIPortal uiPortal = Util.getUIPortal();
-    for(PageNavigation editNav : uiNodeSelector.getNavigations()) {
+    for(PageNavigation editNav : uiNodeSelector.getPageNavigations()) {
       setNavigation(uiPortal.getNavigations(), editNav);
     }
     //TODO: Tung.Pham modified
@@ -146,8 +146,8 @@ public class UIPageCreationWizard extends UIPageWizard {
       uiWizard.updateWizardComponent();
       
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-      PageNavigation nav = uiNodeSelector.getSelectedNavigation();
-      if(nav == null) {
+      PageNavigation navigation = uiNodeSelector.getSelectedNavigation();
+      if(navigation == null) {
         uiApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.notSelectedPageNavigation", new String[]{})) ;;
         event.getRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
         uiWizard.viewStep(2);
@@ -155,7 +155,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       }
       
       PageNode pageNode = uiPageSetInfo.getPageNode();
-      if (uiNodeSelector.findPageNodeByUri(pageNode.getUri()) != null) {
+      if (uiNodeSelector.searchPageNodeByUri(navigation, pageNode.getUri()) != null) {
         uiApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         uiWizard.viewStep(2);

@@ -36,6 +36,7 @@ import org.exoplatform.webui.form.validator.IdentifierValidator;
     events = @EventConfig(listeners = UIWizardPageSetInfo.ChangeNodeActionListener.class, phase=Phase.DECODE)
 )
 public class UIWizardPageSetInfo extends UIForm {   
+
   final private static String PAGE_NAME = "pageName" ;
   final private static String PAGE_DISPLAY_NAME = "pageDisplayName" ;
   private boolean isEdit = false;
@@ -53,8 +54,8 @@ public class UIWizardPageSetInfo extends UIForm {
   public void setEditPageNode(boolean value) throws Exception {
     isEdit = value;
     if(!value) return;
-    UIPageNodeSelector  uiPageNodeSelector = getChild(UIPageNodeSelector.class);
-    uiPageNodeSelector.loadSelectedNavigation();
+    UIPageNodeSelector uiPageNodeSelector = getChild(UIPageNodeSelector.class);
+    uiPageNodeSelector.loadNavigations();
     UIFormStringInput uiNameInput = getChildById(PAGE_NAME) ;
     UIFormStringInput uiDisplayNameInput = getChildById(PAGE_DISPLAY_NAME) ;
     //TODO: Tung.Pham modified

@@ -224,13 +224,13 @@ public class PortalDataMapper {
     String  portletId = windowId.getPortletApplicationName() + "/" + windowId.getPortletName();   
     PortletData portletData = (PortletData) portletContainer.getAllPortletMetaData().get(portletId);
     if(portletData == null) return;
-    List supportsList = portletData.getSupports() ;
+    List<?> supportsList = portletData.getSupports() ;
     List<String> supportModes = new ArrayList<String>() ;
     for (int i = 0; i < supportsList.size(); i++) {
       Supports supports = (Supports) supportsList.get(i) ;
       String mimeType = supports.getMimeType() ;
       if ("text/html".equals(mimeType)) {
-        List modes = supports.getPortletMode() ;
+        List<?> modes = supports.getPortletMode() ;
         for (int j =0 ; j < modes.size() ; j++) {
           String mode =(String)modes.get(j) ;
           mode = mode.toLowerCase() ;

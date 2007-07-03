@@ -171,7 +171,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
         UIPortalApplication uiPortalApp = uiForm.getAncestorOfType(UIPortalApplication.class);
         UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
         boolean hasUIPageNodeSelector = (uiPageNodeSelector != null) ;
-        if((hasUIPageNodeSelector && isExist(uiPageNodeSelector.getNavigations(), pageNav))) {
+        if((hasUIPageNodeSelector && isExist(uiPageNodeSelector.getPageNavigations(), pageNav))) {
           uiPortalApp.addMessage(new ApplicationMessage("UIPageNavigationForm.msg.existPageNavigation", new String[]{pageNav.getOwnerId()})) ;;
           pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
           return ;
@@ -180,7 +180,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
         if(hasUIPageNodeSelector) {
           //Util.getUIPortal().getNavigations().add(pageNav);
           //uiPageNodeSelector.loadNavigations();
-          uiPageNodeSelector.addNavigation(pageNav) ;  
+          uiPageNodeSelector.addPageNavigation(pageNav) ;  
           uiPageNodeSelector.selectNavigation(pageNav.getId()) ;
           pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
         }

@@ -70,7 +70,7 @@ public class UIPageEditWizard extends UIPageWizard {
     service.update(pageNav);
     
     UIPortal uiPortal = Util.getUIPortal();
-    for(PageNavigation editNav : uiNodeSelector.getNavigations()) {
+    for(PageNavigation editNav : uiNodeSelector.getPageNavigations()) {
       setNavigation(uiPortal.getNavigations(), editNav);
     }
     //TODO: Tung.Pham modified

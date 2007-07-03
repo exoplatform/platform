@@ -112,7 +112,7 @@
 
 <% 
   }
-	if(uicomponent.getShowInfoBar()){ 
+	if(uicomponent.getShowInfoBar()) { 
     String  popupId = uicomponent.getId() ;
   	String title = uicomponent.getTitle() ;
     if(title == null || title.trim().length() < 1) title = popupId;
