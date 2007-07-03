@@ -10,21 +10,21 @@
       <uri>company</uri>
       <name>company</name>
       <label>Company</label>
-      <page-reference>group::/portal/company::home</page-reference>
+      <page-reference>group::portal/company::home</page-reference>
     </node>
     
     <node>
       <uri>organization</uri>
       <name>organization</name>
       <label>Organization</label>
-      <page-reference>group::/portal/company::organization</page-reference>
+      <page-reference>group::portal/company::organization</page-reference>
     </node>
     
     <node>
       <uri>myaccount</uri>
       <name>myaccount</name>
       <label>My Account</label>
-      <page-reference>group::/portal/company::myaccount</page-reference>
+      <page-reference>group::portal/company::myaccount</page-reference>
     </node>       
   </page-nodes>  
   

@@ -2,7 +2,7 @@
 <page-set>
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/community</owner-id>
+    <owner-id>portal/community</owner-id>
 	  <name>home</name>
     <factory-id>Desktop</factory-id>
     <access-permissions>*:/guest</access-permissions>
@@ -41,7 +41,7 @@
 
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/community</owner-id>
+    <owner-id>portal/community</owner-id>
     <name>management</name>    
     <factory-id>Desktop</factory-id>
     <access-permissions>*:/user</access-permissions>

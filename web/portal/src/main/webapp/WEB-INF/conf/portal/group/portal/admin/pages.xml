@@ -16,7 +16,7 @@
   
   <page>
   	<owner-type>group</owner-type>
-    <owner-id>/portal/admin</owner-id>  	
+    <owner-id>portal/admin</owner-id>  	
     <name>administration</name>
     <factory-id>Desktop</factory-id>
     <access-permissions>*:/guest</access-permissions>  

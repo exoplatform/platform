@@ -10,13 +10,13 @@
       <uri>administration</uri>
       <name>Administration</name>
       <label>Administration</label>     
-      <page-reference>group::/portal/admin::administration</page-reference>
+      <page-reference>group::portal/admin::administration</page-reference>
       
       <node>
         <uri>administration/portletregistry</uri>
         <name>portletRegistry</name>
         <label>Portlet Registry</label>
-        <page-reference>group::/portal/admin::portletregistry</page-reference>
+        <page-reference>group::portal/admin::portletregistry</page-reference>
       </node>
     </node> 
 
@@ -24,48 +24,48 @@
       <uri>ecm</uri>
       <name>ecm</name>
       <label>ECM</label>
-      <page-reference>group::/portal/admin::ecmdesktop</page-reference>
+      <page-reference>group::portal/admin::ecmdesktop</page-reference>
       
       <node>
         <uri>ecm/ecmadmin</uri>
         <name>ecmAdmin</name>
         <label>ECMAdmin</label>
-        <page-reference>group::/portal/admin::ecmadmin</page-reference>
+        <page-reference>group::portal/admin::ecmadmin</page-reference>
       </node>
 
       <node>
         <uri>ecm/jcrexplorer</uri>
         <name>jcrExplorer</name>
         <label>JCRExplorer</label>
-        <page-reference>group::/portal/admin::jcrexplorer</page-reference>
+        <page-reference>group::portal/admin::jcrexplorer</page-reference>
       </node>
       
       <node>
         <uri>ecm/fastcontentcreator</uri>
         <name>fastContentCreator</name>
         <label>Fast Content Creator</label>
-        <page-reference>group::/portal/admin::fastcontentcreator</page-reference>
+        <page-reference>group::portal/admin::fastcontentcreator</page-reference>
       </node>
       
       <node>
         <uri>ecm/browsecontent</uri>
         <name>browseContent</name>
         <label>Browse Content</label>
-        <page-reference>group::/portal/admin::browsecontent</page-reference>
+        <page-reference>group::portal/admin::browsecontent</page-reference>
       </node>
       
       <node>
         <uri>workflow/controller</uri>
         <name>workflowController</name>
         <label>Workflow Controller</label>
-        <page-reference>group::/portal/admin::workflowcontroller</page-reference>
+        <page-reference>group::portal/admin::workflowcontroller</page-reference>
       </node>
       
       <node>
         <uri>workflow/administration</uri>
         <name>workflowAdministration</name>
         <label>Workflow Administration</label>
-        <page-reference>group::/portal/admin::workflowadministration</page-reference>
+        <page-reference>group::portal/admin::workflowadministration</page-reference>
       </node>
     </node>
     
@@ -73,20 +73,20 @@
       <uri>groupware</uri>
       <name>groupWare</name>
       <label>Collaboration Suite</label>
-      <page-reference>group::/portal/admin::groupwaredesktop</page-reference>
+      <page-reference>group::portal/admin::groupwaredesktop</page-reference>
       
       <node>
         <uri>groupware/forum</uri>
         <name>forum</name>
         <label>Forum</label>
-        <page-reference>group::/portal/admin::forum</page-reference>
+        <page-reference>group::portal/admin::forum</page-reference>
       </node>
 
       <node>
         <uri>groupware/mail</uri>
         <name>mail</name>
         <label>Mail</label>
-        <page-reference>group::/portal/admin::mail</page-reference>
+        <page-reference>group::portal/admin::mail</page-reference>
       </node>
     </node>
     
