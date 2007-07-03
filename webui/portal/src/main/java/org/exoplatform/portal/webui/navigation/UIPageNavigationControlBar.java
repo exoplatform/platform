@@ -12,12 +12,14 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
+import org.exoplatform.portal.webui.UIManagement.ManagementMode;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
+import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
@@ -28,6 +30,8 @@ import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIToolbar;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+
+import com.sun.corba.se.impl.ior.OldPOAObjectKeyTemplate;
 
 /**
  * Created by The eXo Platform SARL
@@ -60,8 +64,10 @@ public class UIPageNavigationControlBar extends UIToolbar {
 
       UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
       PortalRequestContext prcontext = Util.getPortalRequestContext();
-
+      
       UIPortal oldUIPortal = Util.getUIPortal();
+      PageNavigation oldSelectedNavi = oldUIPortal.getSelectedNavigation() ;
+      PageNode oldSelectedNode = oldUIPortal.getSelectedNode() ; 
       String remoteUser = prcontext.getRemoteUser();
       String ownerUser = oldUIPortal.getOwner();
 
@@ -69,17 +75,21 @@ public class UIPageNavigationControlBar extends UIToolbar {
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prcontext, UIPortal.class, null, null);
       PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
       oldUIPortal.setNavigation(uiPortal.getNavigations());
-
+      //TODO: Tung.Pham
+      //------------------------------------------------
+      oldUIPortal.setSelectedNavigation(oldSelectedNavi) ;
+      oldUIPortal.setSelectedNode(oldSelectedNode) ;
       UIPageNodeSelector uiPageNodeSelector = uiPageNav.<UIContainer>getParent().findFirstComponentOfType(UIPageNodeSelector.class);
       uiPageNodeSelector.loadNavigations();
       
-      Class<?> [] classes = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
+      //Class<?> [] classes = new Class<?>[]{UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};
       UIPageManagement uiManagement = uiPageNav.getParent();
-      uiManagement.setRenderedChildrenOfTypes(classes);
-
-      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiControl);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
+      //uiManagement.setRenderedChildrenOfTypes(classes);
+      uiManagement.setMode(ManagementMode.EDIT, event) ;
+      //UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      //event.getRequestContext().addUIComponentToUpdateByAjax(uiControl);
+      //event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
+      //------------------------------------------------
     }
   }
   
