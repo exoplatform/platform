@@ -18,7 +18,7 @@ MouseObject.prototype.init = function(mouseEvent) {
   this.deltax = null ;
   this.deltay = null ;
   if(mouseEvent != null) this.update(mouseEvent) ;
-};
+} ;
 
 MouseObject.prototype.update = function(mouseEvent) {
   var  x = eXo.core.Browser.findMouseXInPage(mouseEvent) ;
@@ -41,12 +41,12 @@ MouseObject.prototype.update = function(mouseEvent) {
 
   this.deltax = this.mousexInClient - this.lastMousexInClient ;
   this.deltay = this.mouseyInClient - this.lastMouseyInClient ;
-};
+} ;
 
 /************************************************************************************/
 
 function Browser() {
-  this.onLoadCallback = new eXo.core.HashMap();
+  this.onLoadCallback = new eXo.core.HashMap() ;
   this.onResizeCallback = new eXo.core.HashMap() ;
   this.onScrollCallback = new eXo.core.HashMap() ;
   
@@ -65,7 +65,7 @@ Browser.prototype.initCommon = function() {
   this.getBrowserHeight = function() { return document.documentElement.clientHeight ; }
   this.getBrowserWidth = function() { return document.documentElement.clientWidth ; }
   this.createHttpRequest = function() { return new XMLHttpRequest() ; }
-};
+} ;
 
 Browser.prototype.initIE = function() {
   this.browserType = "ie" ;
@@ -80,15 +80,15 @@ Browser.prototype.initIE = function() {
   this.setOpacity = function(component, value) {component.style.filter = "alpha(opacity=" + value + ")" ;}
 //alert("Time : "+ new Date().getTime());
 //uoon
-  this.getEventSource = function(e) { return window.event.srcElement; }
-};
+  this.getEventSource = function(e) { return window.event.srcElement ; }
+} ;
 
 Browser.prototype.initMozilla = function() {
   this.browserType = "mozilla" ;
   this.eventListener = function(object, event, operation) { object.addEventListener(event, operation, false) ; }
   this.setOpacity = function(component, value) { component.style.opacity = value/100 ; }
-  this.getEventSource = function(e) { return e.target; }
-};
+  this.getEventSource = function(e) { return e.target ; }
+} ;
 
 Browser.prototype.initSafari = function() {
   this.browserType = "safari" ;
@@ -97,11 +97,11 @@ Browser.prototype.initSafari = function() {
   this.eventListener = function(object, event, operation) { object.addEventListener(event, operation, false) ; }
   this.setOpacity = function(component, value) { component.style.opacity = value/100 ; }
   this.getEventSource = function(e) {
-  	var targ = e.target;
-  	if (targ.nodeType == 3) targ = targ.parentNode;
-  	return targ;
+  	var targ = e.target ;
+  	if (targ.nodeType == 3) targ = targ.parentNode ;
+  	return targ ;
   }
-};
+} ;
 
 Browser.prototype.initOpera = function() {
   this.browserType = "opera" ;
@@ -111,10 +111,19 @@ Browser.prototype.initOpera = function() {
   this.getBrowserWidth = function() {
     return document.body.clientWidth ;
   }
-};
+} ;
+
+//Browser.prototype.isIE6 = function() {
+//  if(typeof document.body.style.maxHeight == "undefined") {
+//    return true ;
+//  } else {
+//  	return false ;
+//  }
+//} ;
 
 Browser.prototype.isIE6 = function() {
-  if(typeof document.body.style.maxHeight == "undefined") {
+  var agent = navigator.userAgent ;
+  if(agent.indexOf("MSIE 6") >=0 ) {
     return true ;
   } else {
   	return false ;
@@ -122,18 +131,18 @@ Browser.prototype.isIE6 = function() {
 } ;
 
 Browser.prototype.findMouseXInClient = function(e) {
-  if (!e) e = window.event;
-  return e.clientX;
+  if (!e) e = window.event ;
+  return e.clientX ;
 } ;
 
 Browser.prototype.findMouseYInClient = function(e) {
-  if (!e) e = window.event;
-  return e.clientY;
+  if (!e) e = window.event ;
+  return e.clientY ;
 } ;
 
 Browser.prototype.addOnLoadCallback = function(id, method) {
   this.onLoadCallback.put(id, method) ;
-};
+} ;
 
 Browser.prototype.onLoad = function() {
   var callback = eXo.core.Browser.onLoadCallback ;
@@ -142,28 +151,23 @@ Browser.prototype.onLoad = function() {
     method() ;
   }
   this.onLoadCallback = new eXo.core.HashMap();
-};
+} ;
 
 Browser.prototype.addOnResizeCallback = function(id, method) {
   this.onResizeCallback.put(id, method) ;
-};
+} ;
 
 Browser.prototype.onResize = function(event) {
-//	if(eXo.core.Browser.browserType == "ie") {
-//		event = window.event ;
-//	}
-//	
-//	alert("Event Type: " + event.type);
   var callback = eXo.core.Browser.onResizeCallback ;
   for(var name in callback.properties) {
     var method = callback.get(name) ;
     method(event) ;
   }
-};
+} ;
 
 Browser.prototype.addOnScrollCallback = function(id, method) {
   this.onScrollCallback.put(id, method) ;
-};
+} ;
 
 Browser.prototype.onScroll = function(event) {
   var callback = eXo.core.Browser.onScrollCallback ;
@@ -171,7 +175,7 @@ Browser.prototype.onScroll = function(event) {
     var method = callback.get(name) ;
     method(event) ;
   }
-};
+} ;
 /************************************TO BROWSER PAGE CLASS************************************************/
 Browser.prototype.getBrowserType = function() {  
   return this.browserType ;
@@ -181,24 +185,23 @@ Browser.prototype.findPosX = function(obj) {
   var curleft = 0;
   while (obj) {
     curleft += obj.offsetLeft ;
-    obj = obj.offsetParent;
+    obj = obj.offsetParent ;
   }
-  return curleft;
+  return curleft ;
 } ;
 
 Browser.prototype.findPosY = function(obj) {
-  var curtop = 0;
+  var curtop = 0 ;
   while (obj) {
     curtop += obj.offsetTop ;
-    obj = obj.offsetParent;
+    obj = obj.offsetParent ;
   }
-  return curtop;
+  return curtop ;
 } ;
 
 Browser.prototype.findPosXInContainer = function(obj, container) {
   var objX = eXo.core.Browser.findPosX(obj) ;
-  var containerX = eXo.core.Browser.findPosX(container) ;
-  
+  var containerX = eXo.core.Browser.findPosX(container) ;  
   return (objX - containerX) ;
 } ;
 
@@ -224,7 +227,7 @@ Browser.prototype.findMouseYInPage = function(e) {
   var posy = -1 ;
   if (!e) e = window.event ;
   if (e.pageY) {
-    posy = e.pageY;
+    posy = e.pageY ;
   } else if (e.clientX || e.clientY) {
     //IE 6
     if (document.documentElement && document.documentElement.scrollTop) {

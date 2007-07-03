@@ -60,7 +60,7 @@ KeyboardListener.prototype.onKeyPress = function(event) {
     eventCode = this.onBackspace ;
   } else if(keynum == 46) {
     eventCode = this.onDelete ;
-  } else if(keynum >= 37 && keynum <= 40){
+  } else if(keynum >= 37 && keynum <= 40) {
     eventCode = this.onNavigate ;
   }
 
