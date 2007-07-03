@@ -64,7 +64,6 @@ public class UploadHandler extends Command {
       }       
       value.append("\n  }\n}");
       writer.append(value);
-      System.out.println("\n\n ================ > ResponseText = " + value + "\n\n");
     }else if(uploadActionService == UploadServiceAction.UPLOAD){
       service.createUploadResource(req) ;       
     }else if(uploadActionService == UploadServiceAction.DELETE){
