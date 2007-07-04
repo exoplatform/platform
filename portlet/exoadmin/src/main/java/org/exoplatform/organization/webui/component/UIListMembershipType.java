@@ -7,9 +7,11 @@ import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIGrid;
@@ -78,6 +80,15 @@ public class UIListMembershipType extends UIContainer {
       UIListMembershipType uiMembership = event.getSource();
       String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UIMembershipManagement membership = uiMembership.getParent() ;
+      //TODO: Tung.Pham added
+      //--------------------------------------
+      UIMembershipTypeForm uiForm = membership.findFirstComponentOfType(UIMembershipTypeForm.class) ;
+      if(uiForm.getMembershipType() != null) {
+        UIApplication uiApp = event.getRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIMembershipList.msg.InUse", null)) ;
+        return ;
+      }
+      //--------------------------------------
       OrganizationService service = uiMembership.getApplicationComponent(OrganizationService.class);
       MembershipType membershipType = service.getMembershipTypeHandler().findMembershipType(name) ;
       service.getMembershipTypeHandler().removeMembershipType(name,true);
