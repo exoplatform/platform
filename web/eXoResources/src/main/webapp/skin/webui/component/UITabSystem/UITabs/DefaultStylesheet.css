@@ -8,7 +8,6 @@
 }
 
 .UIHorizontalTabs .TabsContainer {
-  overflow: hidden;
 }
 
 .UIHorizontalTabs .UITab {
@@ -155,18 +154,18 @@
 .UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
   padding-left: 12px; 
   line-height: 24px;
-  background: url('DefaultSkin/background/LeftNormalTab12x24.gif') no-repeat left bottom;
+  background: url('DefaultSkin/background/LeftNormalTab12x24.gif') no-repeat left top;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
   line-height: 24px;
   padding-right: 3px;
-  background: url('DefaultSkin/background/RightNormalTab3x24.gif') no-repeat right bottom;
+  background: url('DefaultSkin/background/RightNormalTab3x24.gif') no-repeat right top;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
   line-height: 24px;
-  background: url('DefaultSkin/background/MiddleNormalTab1x24.gif') repeat-x bottom;
+  background: url('DefaultSkin/background/MiddleNormalTab1x24.gif') repeat-x top;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
 }

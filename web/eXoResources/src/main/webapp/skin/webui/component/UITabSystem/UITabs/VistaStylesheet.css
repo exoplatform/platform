@@ -22,7 +22,6 @@
 .UIHorizontalTabs .TabsContainer {
   padding: 0px 0px 0px 10px;
   float: left;
-  overflow: hidden;
 }
 
 .UIHorizontalTabs .UITab {

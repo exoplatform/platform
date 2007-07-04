@@ -19,7 +19,6 @@
 }
 
 .UIHorizontalTabs .TabsContainer {
-  overflow: hidden;
   margin-left: 10px;
 }
 
@@ -175,29 +174,28 @@
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab a {
   color: #5a5a5a;
-  line-height: 25px;
+  line-height: 25px; 
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab a:hover {
   color: blue;
-  text-decoration: none;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
   padding-left: 6px;
   line-height: 25px;
-  background: url('MacSkin/background/LeftNormalTab6x24.png') no-repeat left top;
+  background: url('MacSkin/background/LeftNormalTab6x24.png') no-repeat left center;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
   line-height: 25px;
   padding-right: 6px;
-  background: url('MacSkin/background/RightNormalTab6x24.png') no-repeat right top;
+  background: url('MacSkin/background/RightNormalTab6x24.png') no-repeat right center;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
   line-height: 24px;
-  background: url('MacSkin/background/MiddleNormalTab1x24.png') repeat-x top;
+  background: url('MacSkin/background/MiddleNormalTab1x24.png') repeat-x center;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
 }
@@ -210,9 +208,7 @@
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab a:hover{
   color: blue;
-  text-decoration: none;
 }
-
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab .LeftTab {
   line-height: 24px;
@@ -260,7 +256,6 @@
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab a{
   color: blue;
-  text-decoration: none;
 }
 
 /*###########################-- MessageTabDialog --############################*/

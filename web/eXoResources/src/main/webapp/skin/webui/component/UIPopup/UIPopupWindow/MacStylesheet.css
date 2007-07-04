@@ -194,18 +194,21 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopLeftCornerDecorator {
-	background: url('MacSkin/background/TLMessageDecorator17x32.png') no-repeat left; 
+	background: url('MacSkin/background/TLMessageDecorator17x32.png') no-repeat left bottom; 
 	padding-left: 17px;
+	height: 31px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopRightCornerDecorator {
-	background: url('MacSkin/background/TRMessageDecorator18x32.png') no-repeat right; 
+	background: url('MacSkin/background/TRMessageDecorator18x32.png') no-repeat right bottom; 
 	padding-right: 18px;
+	height: 31px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopCenterDecorator {
-	background: url('MacSkin/background/TCMessageDecorator1x32.png') repeat-x ; 
-	height: 32px;
+	background: url('MacSkin/background/TCMessageDecorator1x32.png') repeat-x bottom ; 
+	line-height: 31px;
+	height: 31px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitle {

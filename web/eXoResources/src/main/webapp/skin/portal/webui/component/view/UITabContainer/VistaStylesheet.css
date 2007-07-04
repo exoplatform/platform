@@ -13,6 +13,7 @@
 .UITabContainer .TabLabel {
 	float: left;
 	padding: 0px 10px 0px 2px;
+	height: 26px; line-height: 26px;
 }
 
 .UITabContainer .SelectedTab .CloseIcon {
@@ -32,23 +33,13 @@
 }
 
 .LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
-	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat center bottom;
-	float:left;
-	height:20px;
-	width:16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat center ;
+	height: 26px; line-height: 26px;
+	width: 16px;
 }
 
 .LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
-	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif') no-repeat center bottom;
-	float:left;
-	height:20px;
-	width:16px;
-}
-
-.LAYOUT-CONTAINER .UIHorizontalTabs .NormalTabStyle .NormalTab {
-	border-bottom: 1px solid white; /*Fix bug IE6*/
-}
-
-.LAYOUT-CONTAINER .UIHorizontalTabs .NormalTabStyle .SelectedTab {
-	border-bottom: 1px solid white; /*Fix bug IE6*/
+	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif') no-repeat center ;
+	height: 26px; line-height: 26px;
+	width: 16px;
 }

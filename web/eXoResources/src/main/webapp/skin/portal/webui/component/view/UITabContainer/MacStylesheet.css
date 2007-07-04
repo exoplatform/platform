@@ -28,14 +28,10 @@
 	margin-left: 4px;
 }
 
-.UITabContainer .SelectedTab .TabLabel {
+.UITabContainer a.TabLabel {
 	float: left;
 	padding: 0px 10px 0px 2px;
-}
-
-.UITabContainer .NormalTab .TabLabel {
-	float: left;
-	padding: 0px 10px 0px 2px;
+	line-height: 25px; height: 25px;
 }
 
 .UITabContainer .SelectedTab .CloseIcon {
@@ -50,16 +46,18 @@
 	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalCloseTab.gif') no-repeat bottom;
 }
 
+.UITabContainer .UIHorizontalTabs .UITab  {
+	height: 24px;
+}
+
 .LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
-	background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat center bottom;
-	float:left;
-	height:20px;
-	width:16px;
+	background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat center ;
+	height: 24px; line-height: 24px;
+	width: 16px;
 }
 
 .LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
-	background: url('/eXoResources/icons/16x16/MacSkin/DisableEditIcon.gif') no-repeat center bottom;
-	float:left;
-	height:20px;
-	width:16px;
+	background: url('/eXoResources/icons/16x16/MacSkin/DisableEditIcon.gif') no-repeat center ;
+	height: 24px; line-height: 24px;
+	width: 16px;
 }

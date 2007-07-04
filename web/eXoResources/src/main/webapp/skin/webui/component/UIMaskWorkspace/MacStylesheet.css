@@ -20,11 +20,11 @@
 }
 
 .UIMaskWorkspace .UITabContentContainer {
-  height: 273px ; 
-  overflow: auto;
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
+  height: 273px ; 
+  overflow: auto;
 }
 
 .UIMaskWorkspace .IconLayout {
@@ -55,13 +55,13 @@
 .UIMaskWorkspace .UITabPane .TabPaneContent .WorkingArea .CSSContent {
   border: 1px solid #d5d5d5;
   padding: 0px;
-  background: white;
 }
 
 .UIMaskWorkspace .UITabPane .TabPaneContent .CSSContent .UITabContent {
   border: 1px solid white;
   border-top: none;
-  margin: auto;
+  margin: auto; height: auto;
+  background: white;
 }
 
 /**************************** UIAddApplication ******************************************/

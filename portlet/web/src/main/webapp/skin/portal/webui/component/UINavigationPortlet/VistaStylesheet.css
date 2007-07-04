@@ -20,7 +20,6 @@
 }
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
   float:none;
-  overflow: visible;
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .PageNodeIcon {

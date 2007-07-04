@@ -30,7 +30,6 @@
 
 .UINavigationPortlet .UIHorizontalTabs .TabsContainer {
   float:none;
-  overflow: visible;
 }
 
 /* Portal Navigation sub menus */

@@ -121,6 +121,10 @@
   width: 30px;
 }
 
+.UIAccessGroup .UIPageIterator {
+	width: 90%;
+}
+
 .UIAccessGroup .UIAction .SimpleStyle .Icon {
   float: left;
   margin: 3px 0px;
