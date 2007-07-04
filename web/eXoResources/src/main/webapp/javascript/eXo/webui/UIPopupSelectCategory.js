@@ -2,32 +2,27 @@ function UIPopupSelectCategory() {
 } ;
 
 UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
-	if(!e) e = window.event;
+	if (!e) e = window.event;
 	e.cancelBubble = true;
-	if(e.stopPropagation) e.stopPropagation();
+	if (e.stopPropagation) e.stopPropagation();
 	var DOMUtil = eXo.core.DOMUtil;
+	var categoryDetectPosition = selectedElement.parentNode;
 	var ancestorPopupCategory = DOMUtil.findAncestorByClass(selectedElement, "AncestorPopupCategory") ;
-	var categoryDetectPosition = DOMUtil.findAncestorByClass(selectedElement, "CategoryDetectPosition") ;
-	var controlCategory = DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "ControlIcon") ;
   var uiPopupCategory = DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
 	if(uiPopupCategory == null) return;
-	/**Repaired: by Vu Duy Tu 30/06/07
-	 * TODO: check for IE7 
-	 **/ 
 	if(uiPopupCategory.style.display != "block") {
 		uiPopupCategory.style.position = "absolute" ;
-		uiPopupCategory.style.display = "block";
-		uiPopupCategory.style.width = width + "px";
-		
-		var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - width + controlCategory.offsetWidth + 28;
+		uiPopupCategory.style.display = "block" ;
+		uiPopupCategory.style.width = width + "px" ;
+		var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - width + selectedElement.offsetWidth + 28;
 		/* 28 is distance between arrow and PopupCategoryRight */
-		  posLeft -= ancestorPopupCategory.offsetLeft;
-		if (eXo.portal.UIControlWorkspace.showControlWorkspace) {
-			 posLeft -= eXo.portal.UIControlWorkspace.defaultWidth ;
+	  posLeft -= ancestorPopupCategory.offsetLeft;
+		if(eXo.portal.UIControlWorkspace.showControlWorkspace) {
+			posLeft -= eXo.portal.UIControlWorkspace.defaultWidth ;
 		} else {
-			if(document.getElementById("UIControlWorkspace"))
-			   posLeft -= 5;
-			/* SlidebarButton Width */
+			if(document.getElementById("UIControlWorkspace")) {
+				posLeft -= 5;
+			}
 		}
 		uiPopupCategory.style.left = posLeft + "px";
 	} else {
@@ -41,8 +36,8 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 UIPopupSelectCategory.prototype.selectedCategoryIndex = function(selectedElement) {
 	var parentNode = selectedElement.parentNode ;
 	var categoryItems = eXo.core.DOMUtil.findChildrenByClass(parentNode, "div", "CategoryItem") ;
-	for(var i = 0; i < categoryItems.length; i++) {
-		if(categoryItems[i] == selectedElement) return i ;
+	for (var i = 0; i < categoryItems.length; i++) {
+		if (categoryItems[i] == selectedElement) return i ;
 	}
 } ;
 

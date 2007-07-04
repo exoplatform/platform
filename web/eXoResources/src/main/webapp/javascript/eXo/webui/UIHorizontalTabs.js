@@ -57,7 +57,6 @@ UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
     uiTabContent[i].style.display = "none" ;
   }
   uiTabContent[eXo.webui.UIHorizontalTabs.currentTab].style.display = "block" ;
-  eXo.webui.WebUI.fixHeight(uiTabContent[eXo.webui.UIHorizontalTabs.currentTab],'UIWorkspacePanel') ;
   // Used for UIFormTabPane
   if(DOMUtil.findFirstDescendantByClass(document, "div", "UIFormTabPane")) eXo.webui.UIForm.onFixSize();
 
