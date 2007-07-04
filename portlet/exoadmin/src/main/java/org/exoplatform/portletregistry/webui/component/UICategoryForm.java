@@ -4,10 +4,14 @@
  **************************************************************************/
 package org.exoplatform.portletregistry.webui.component;
 
+import java.util.Date;
+
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
@@ -54,6 +58,7 @@ public class UICategoryForm extends UIForm {
     reset();
     if(category == null) {
       category_ = null;
+      getUIStringInput(FIELD_NAME).setEditable(UIFormStringInput.ENABLE) ;
       return ;
     }
     getUIStringInput(FIELD_NAME).setEditable(false);    
@@ -65,25 +70,52 @@ public class UICategoryForm extends UIForm {
 
   static public class SaveActionListener extends EventListener<UICategoryForm> {
     public void execute(Event<UICategoryForm> event) throws Exception{
+      //TODO: Tung.Pham replaced
       UICategoryForm uiForm = event.getSource() ;
       UIPopupWindow uiParent = uiForm.getParent();
-      uiParent.setShow(false);
-      ApplicationCategory category = uiForm.getCategory() ;
-
       ApplicationRegistryControlArea uiRegistryCategory = uiForm.getAncestorOfType(ApplicationRegistryControlArea.class);
       ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
 
-      if(category == null) {
-        String name = uiForm.getUIStringInput(FIELD_NAME).getValue();
-        category = uiRegistryCategory.getCategory(name);
+      ApplicationCategory category = uiForm.getCategory() ;
+      if(category == null) category = new ApplicationCategory();
+      uiForm.invokeSetBindingBean(category) ;
+      if(category == uiForm.getCategory()) {
+        category.setModifiedDate(new Date()) ;
+      }else {
+        ApplicationCategory existCategory = uiRegistryCategory.getCategory(category.getName()) ; 
+        if(existCategory != null) {
+          UIApplication uiApp = event.getRequestContext().getUIApplication() ;
+          uiApp.addMessage(new ApplicationMessage("UICategoryForm.msg.SameName", null)) ;
+          return ;
+        }
+        category.setModifiedDate(new Date()) ;
+        category.setCreatedDate(new Date()) ;
       }
 
-      if(category == null) category = new ApplicationCategory();
-
-      uiForm.invokeSetBindingBean(category) ;
       service.save(category) ; 
       uiRegistryCategory.initApplicationCategories();
       uiRegistryCategory.setSelectedCategory(category);
+      uiParent.setShow(false);
+      //---------------------------------------------------------------------
+//      UICategoryForm uiForm = event.getSource() ;
+//      UIPopupWindow uiParent = uiForm.getParent();
+//      uiParent.setShow(false);
+//      ApplicationCategory category = uiForm.getCategory() ;
+//
+//      ApplicationRegistryControlArea uiRegistryCategory = uiForm.getAncestorOfType(ApplicationRegistryControlArea.class);
+//      ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
+//
+//      if(category == null) {
+//        String name = uiForm.getUIStringInput(FIELD_NAME).getValue();
+//        category = uiRegistryCategory.getCategory(name);
+//      }
+//
+//      if(category == null) category = new ApplicationCategory();
+//
+//      uiForm.invokeSetBindingBean(category) ;
+//      service.save(category) ; 
+//      uiRegistryCategory.initApplicationCategories();
+//      uiRegistryCategory.setSelectedCategory(category);
     }
   }
 

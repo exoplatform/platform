@@ -68,7 +68,6 @@ public class UIMembershipTypeForm extends UIForm {
 
       if(mt == uiForm.getMembershipType())
       {
-        mt.setDescription(mt.getDescription());
         mt.setModifiedDate(new Date());
         service.getMembershipTypeHandler().saveMembershipType(mt, true);
       } else {
@@ -89,7 +88,7 @@ public class UIMembershipTypeForm extends UIForm {
       uiMembershipList.update(uiGrid) ;
       uiForm.setMembershipType(null) ;
       uiForm.reset();
-      
+      //---------------------------------------------------
 //      UIMembershipTypeForm uiForm = event.getSource();
 //      UIMembershipManagement membership = uiForm.getParent() ;
 //      OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class);
