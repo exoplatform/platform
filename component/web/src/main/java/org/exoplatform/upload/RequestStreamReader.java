@@ -65,35 +65,42 @@ class RequestStreamReader {
 
     byte[] bdr = getBoundary(request.getContentType());
     byte [] boundary = new byte[bdr.length + BOUNDARY_PREFIX.length];
-    int keepRegion = boundary.length + 3;
+    int keepRegion = boundary.length + 4 ;
 
-    InputStream input = request.getInputStream();
-    while(upResource_.getStatus() == UploadResource.UPLOADING_STATUS) {   
-      if (tail - head > keepRegion) {
-        pad = keepRegion;
-      } else {
-        pad = tail - head;
+    InputStream input = null;
+    try {
+      input = request.getInputStream();
+
+      while(upResource_.getStatus() == UploadResource.UPLOADING_STATUS) {   
+        if (tail - head > keepRegion) {
+          pad = keepRegion;
+        } else {
+          pad = tail - head;
+        }
+        output.write(buffer, head, tail - head - pad);
+        upResource_.addUploadedBytes(tail - head - pad) ;
+
+        total += tail - head - pad;
+        System.arraycopy(buffer, tail - pad, buffer, 0, pad);
+
+        head = 0;
+        bytesRead = input.read(buffer, pad, bufSize - pad);
+
+        if (bytesRead != -1) {
+          tail = pad + bytesRead;
+          continue;
+        }   
+        output.flush();
+        total += pad;
+        break;     
       }
-      output.write(buffer, head, tail - head - pad);
-      upResource_.addUploadedBytes(tail - head - pad) ;
-
-      total += tail - head - pad;
-      System.arraycopy(buffer, tail - pad, buffer, 0, pad);
-
-      head = 0;
-      bytesRead = input.read(buffer, pad, bufSize - pad);
-
-      if (bytesRead != -1) {
-        tail = pad + bytesRead;
-        continue;
-      }      
-      output.flush();
-      total += pad;
-      break;     
+    } finally { 
+      if(input != null) input.close() ;
+      if(output != null) output.close();  
     }
+    
+    
 
-    input.close() ;
-    output.close();  
   }
 
   Map<String, String> parseHeaders(InputStream input, String headerEncoding)  throws IOException {
