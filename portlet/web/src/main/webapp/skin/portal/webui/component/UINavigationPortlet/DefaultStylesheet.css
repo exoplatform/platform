@@ -16,12 +16,7 @@
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
   height: 28px;
-  position: static !important ; position: relative ;
-}
-
-.UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
-  float:none;
-  overflow: visible;
+  position: expression('relative');
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .PageNodeIcon {

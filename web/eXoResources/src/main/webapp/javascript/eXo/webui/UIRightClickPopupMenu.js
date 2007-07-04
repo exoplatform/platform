@@ -4,6 +4,9 @@ function UIRightClickPopupMenu() {};
 
 UIRightClickPopupMenu.prototype.init = function(contextMenuId) {
 	var contextMenu = document.getElementById(contextMenuId) ;
+	// TODO: Fix temporary for the problem Minimize window in Page Mode
+	if(!contextMenu) return;
+	
 	contextMenu.onmousedown = function(e) {
 		if(!e) e = window.event ;
 		e.cancelBubble = true ;

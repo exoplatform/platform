@@ -1,14 +1,9 @@
-function MouseEventManager () {
+function EventManager () {
 	this.onMouseDownHandlers = new Array() ;
 	this.onMouseUpHandlers = new Array() ;
 	document.onmousedown = this.preOnMouseDown ;
 	document.onmouseup = this.preOnMouseUp ;
 } ;
-
-MouseEventManager.prototype.fixEvent = function(evt) {
-	if(!event) return window.event ;
-	else return evt ;
-}
 
 MouseEventManager.prototype.preOnMouseDown = function(evt) {
 	evt.cancelBubble = true ;

@@ -30,14 +30,8 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	if(isResizable) {
 		var resizeBtn = DOMUtil.findFirstDescendantByClass(popup, "div", "ResizeButton");
 		resizeBtn.style.display = 'block' ;
-		resizeBtn.onmousedown = function(e) {
-			portalApp.setAttribute("popupId", popupId);
-
-			portalApp.onmousemove = eXo.webui.UIPopupWindow.resize;
-		}
-		portalApp.onmouseup = function(e) {
-			portalApp.onmousemove = null;
-		}
+		resizeBtn.onmousedown = this.startResizeEvt ;
+		portalApp.onmouseup = this.endResizeEvt ; 
 	}
 	
 	popup.style.visibility = "visible" ;
@@ -75,8 +69,18 @@ UIPopupWindow.prototype.show = function(popup) {
 	popup.style.visibility = "visible";
 };
 
-UIPopupWindow.prototype.closePopupEvt = function(e) {
+UIPopupWindow.prototype.closePopupEvt = function(evt) {
 	eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject").style.display = "none" ;
+}
+
+UIPopupWindow.prototype.startResizeEvt = function(evt) {
+	var portalApp = document.getElementById("UIPortalApplication") ;
+	portalApp.setAttribute("popupId", popupId);
+	portalApp.onmousemove = eXo.webui.UIPopupWindow.resize;
+}
+
+UIPopupWindow.prototype.endResizeEvt = function(evt) {
+	document.getElementById("UIPortalApplication").onmousemove = null;
 }
 
 UIPopupWindow.prototype.initDND = function(e) {
