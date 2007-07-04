@@ -233,7 +233,8 @@ public class UIPageForm extends UIFormTabPane {
         PortalDataMapper.toUIPage(uiPage, page);  
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
-        configService.update(page);
+        //TODO: Tung.Pham modified
+        //configService.update(page);
       } else {
         DataStorage dataStorage = uiPageForm.getApplicationComponent(DataStorage.class) ;
         Page existPage = dataStorage.getPage(page.getPageId()) ;
