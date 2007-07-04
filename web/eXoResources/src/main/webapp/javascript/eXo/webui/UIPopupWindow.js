@@ -76,7 +76,6 @@ UIPopupWindow.prototype.show = function(popup) {
 };
 
 UIPopupWindow.prototype.closePopupEvt = function(e) {
-	alert('torng') ;
 	eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject").style.display = "none" ;
 }
 
