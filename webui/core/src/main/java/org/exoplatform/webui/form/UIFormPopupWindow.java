@@ -39,7 +39,7 @@ public class UIFormPopupWindow extends UIPopupWindow implements UIFormInput {
   
   public String event(String name) throws Exception {
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
-    if(uiForm != null) return uiForm.event(name, getId());
+    if(uiForm != null) return uiForm.event(name, getId(), (String)null);
     return super.event(name);
   }
   

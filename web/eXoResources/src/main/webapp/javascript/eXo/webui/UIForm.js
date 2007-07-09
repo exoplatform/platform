@@ -35,15 +35,7 @@ UIForm.prototype.submitForm = function(formId, action, useAjax) {
 UIForm.prototype.submitEvent = function(formId, action, params) {
   var form = document.getElementById(formId) ;
   form.elements['formOp'].value = action ; 
-  //-----------------------------------------------
-  //TODO: Tung.Pham modified
-	form.action =  form.action + "&" +  params ;
-	//if (eXo.webui.UIForm.backupAction == null) {
-	//	eXo.webui.UIForm.backupAction = form.action ;
-	//}
-	//form.action = eXo.webui.UIForm.backupAction + "&" + params ;
-	//-----------------------------------------------
-  //form.submit();
+	form.action =  form.action +  params ;
   ajaxPost(form) ;
 } ;
 

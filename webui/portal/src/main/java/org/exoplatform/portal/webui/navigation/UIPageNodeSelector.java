@@ -177,19 +177,19 @@ public class UIPageNodeSelector extends UIContainer {
   
   public void selectPageNodeByUri(String uri){    
     if(selectedNode == null) return ;
-    UITree tree = getChild(UITree.class);
-    List<?> sibbling = tree.getSibbling();
-    tree.setSibbling(null);
-    tree.setParentSelected(null);
+    UITree uiTree = getChild(UITree.class);
+    List<?> sibbling = uiTree.getSibbling();
+    uiTree.setSibbling(null);
+    uiTree.setParentSelected(null);
     selectedNode.setNode(searchPageNodeByUri(selectedNode.getPageNavigation(), uri));
     if(selectedNode.getNode() != null) {
-      tree.setSelected(selectedNode.getNode());   
-      tree.setChildren(selectedNode.getNode().getChildren());
+      uiTree.setSelected(selectedNode.getNode());   
+      uiTree.setChildren(selectedNode.getNode().getChildren());
       return ;
     }
-    tree.setSelected(null);
-    tree.setChildren(null);
-    tree.setSibbling(sibbling);
+    uiTree.setSelected(null);
+    uiTree.setChildren(null);
+    uiTree.setSibbling(sibbling);
   }
   
   public PageNode searchPageNodeByUri(PageNavigation pageNav, String uri) {
@@ -308,17 +308,8 @@ public class UIPageNodeSelector extends UIContainer {
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       UIPageNodeSelector uiPageNodeSelector = event.getSource();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent()) ;
-//<<<<<<< .mine
       if(id == null) return ;
       uiPageNodeSelector.selectNavigation(id);
-//=======
-//      if(id == null) {
-//        uiPageNodeSelector.setSelectedNavigation(null);
-//      } else {
-//        uiPageNodeSelector.selectNavigation(id);
-//        uiPageNodeSelector.selectPageNodeByUri(null) ;
-//      }
-//>>>>>>> .r17450
     }
   }
 

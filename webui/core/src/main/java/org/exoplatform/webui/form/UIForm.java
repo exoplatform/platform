@@ -181,7 +181,9 @@ public class UIForm extends UIContainer  {
     b.append("javascript:eXo.webui.UIForm.submitEvent('").append(getId()).append("','");
     b.append(name).append("','");
     b.append("&amp;").append(SUBCOMPONENT_ID).append("=").append(componentId);
-    b.append("&amp;").append(OBJECTID).append("=").append(beanId).append("')");    
+    if(beanId != null) {
+      b.append("&amp;").append(OBJECTID).append("=").append(beanId).append("')");
+    }
     return b.toString() ;
   }
   
