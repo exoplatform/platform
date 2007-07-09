@@ -18,14 +18,14 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 @ComponentConfig(template = "system:/groovy/webui/core/UIGrid.gtmpl")
 public class UIGrid extends UIComponent {
   
-  private UIPageIterator uiIterator_ ;
+  protected UIPageIterator uiIterator_ ;
   
-  private String beanIdField_ ;
-  private String[] beanField_ ;
-  private String[] action_ ;
-  private String classname_;
-  private String label_ ;
-  private boolean useAjax = true;
+  protected  String beanIdField_ ;
+  protected  String[] beanField_ ;
+  protected  String[] action_ ;
+  protected  String classname_;
+  protected  String label_ ;
+  protected  boolean useAjax = true;
   
   public UIGrid() throws Exception {
     uiIterator_ = createUIComponent(UIPageIterator.class, null, null);

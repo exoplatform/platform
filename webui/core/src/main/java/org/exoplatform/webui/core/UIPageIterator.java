@@ -16,7 +16,7 @@ public class UIPageIterator extends UIComponent {
   
 	private PageList pageList_ = PageList.EMPTY_LIST ;
 	
-	public UIPageIterator() throws Exception {
+	public UIPageIterator() {
 	}
 	
 	public void setPageList(PageList pageList) { 

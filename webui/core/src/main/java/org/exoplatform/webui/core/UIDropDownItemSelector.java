@@ -134,14 +134,14 @@ public class UIDropDownItemSelector extends UIComponent {
   public void cleanItem() { options_.clear(); }
   
   public boolean addItem(String s) {
-    if( s == null || s.length() < 1) return false ;
+    if(s == null || s.length() < 1) return false ;
     SelectItemOption<String> option = new SelectItemOption<String>(s);
     options_.add(option);
     return true;
   }
   
   public boolean addItem(SelectItemOption<String> s) {
-    if( s == null ) return false ;
+    if(s == null ) return false ;
     options_.add(s); return true;
   }
   

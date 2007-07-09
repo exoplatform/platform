@@ -21,6 +21,7 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormGrid;
 import org.exoplatform.webui.form.UIFormPopupWindow;
 
 /**
@@ -40,7 +41,7 @@ import org.exoplatform.webui.form.UIFormPopupWindow;
 public class UIListPermissionSelector extends UISelector<String[]> { 
 
   public UIListPermissionSelector() throws Exception {
-    UIGrid uiGrid = addChild(UIGrid.class, null, "PermissionGrid") ;
+    UIFormGrid uiGrid = addChild(UIFormGrid.class, null, "PermissionGrid") ;
     uiGrid.configure("expression", new String[]{"groupId", "membership"}, new String[]{"Delete"});
     uiGrid.getUIPageIterator().setPageList(new ObjectPageList(new ArrayList<Permission>(), 10));
     //TODO: Tung.Pham added

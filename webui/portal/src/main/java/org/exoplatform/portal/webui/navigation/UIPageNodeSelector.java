@@ -179,19 +179,19 @@ public class UIPageNodeSelector extends UIContainer {
   
   public void selectPageNodeByUri(String uri){    
     if(selectedNode == null) return ;
-    UITree uiTree = getChild(UITree.class);
-    List<?> sibbling = uiTree.getSibbling();
-    uiTree.setSibbling(null);
-    uiTree.setParentSelected(null);
+    UITree tree = getChild(UITree.class);
+    List<?> sibbling = tree.getSibbling();
+    tree.setSibbling(null);
+    tree.setParentSelected(null);
     selectedNode.setNode(searchPageNodeByUri(selectedNode.getPageNavigation(), uri));
     if(selectedNode.getNode() != null) {
-      uiTree.setSelected(selectedNode.getNode());   
-      uiTree.setChildren(selectedNode.getNode().getChildren());
+      tree.setSelected(selectedNode.getNode());   
+      tree.setChildren(selectedNode.getNode().getChildren());
       return ;
     }
-    uiTree.setSelected(null);
-    uiTree.setChildren(null);
-    uiTree.setSibbling(sibbling);
+    tree.setSelected(null);
+    tree.setChildren(null);
+    tree.setSibbling(sibbling);
   }
   
   public PageNode searchPageNodeByUri(PageNavigation pageNav, String uri) {
