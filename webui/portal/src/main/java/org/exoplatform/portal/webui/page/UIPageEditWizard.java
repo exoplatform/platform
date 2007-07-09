@@ -48,7 +48,8 @@ import org.exoplatform.webui.event.EventListener;
 public class UIPageEditWizard extends UIPageWizard {
   
   public UIPageEditWizard() throws Exception {
-    addChild(UIWizardPageSetInfo.class, null, "EditWizard").setEditPageNode(true);    
+    //addChild(UIWizardPageSetInfo.class, null, "EditWizard").setEditPageNode(true);
+    addChild(UIWizardPageSetInfo.class, null, "EditWizard") ;
     addChild(UIWizardPageSelectLayoutForm.class, null, null).setRendered(false);
     addChild(UIPagePreview.class, null, null).setRendered(false); 
     setNumberSteps(3);
@@ -111,7 +112,6 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPageNodeSelector uiPageNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);
       if(uiPageNodeSelector.getSelectedNavigation() == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.notSelectedPageNavigation", new String[]{})) ;;
-        //event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         uiWizard.viewStep(1);
         return ;

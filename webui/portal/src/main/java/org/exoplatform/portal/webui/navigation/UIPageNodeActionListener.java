@@ -102,10 +102,11 @@ public class UIPageNodeActionListener {
         node = uiPageNodeSelector.getSelectedPageNode();
       }
       if(node == null) return;
-      
+      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
       UserPortalConfigService portalConfigService = uiPopupMenu.getApplicationComponent(UserPortalConfigService.class);
       Page page  = portalConfigService.getPage(node.getPageReference(), pcontext.getRemoteUser());
       if(page == null) {
+        uiToolPanel.setUIComponent(null) ;
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.notAvailable", null)) ;
@@ -122,7 +123,7 @@ public class UIPageNodeActionListener {
         return;
       }
             
-      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;  
+      //uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;  
       uiApp.findFirstComponentOfType(UIPageBody.class).setUIComponent(null);
       uiToolPanel.setUIComponent(uiPage);
       

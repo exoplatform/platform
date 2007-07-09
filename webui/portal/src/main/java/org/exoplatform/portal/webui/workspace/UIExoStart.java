@@ -19,7 +19,9 @@ import org.exoplatform.portal.webui.navigation.UIPageManagement;
 import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.page.UIPageCreationWizard;
 import org.exoplatform.portal.webui.page.UIPageEditWizard;
+import org.exoplatform.portal.webui.page.UIPageSelector;
 import org.exoplatform.portal.webui.page.UIWizardPageCreationBar;
+import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UILanguageSelector;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -265,12 +267,16 @@ public class UIExoStart extends UIComponent {
       uiToolPanel.setWorkingComponent(UIPageEditWizard.class, null);
       UIPageEditWizard uiWizard = (UIPageEditWizard)uiToolPanel.getUIComponent();
       uiWizard.setDescriptionWizard();
-
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
       UIContainer uiParent = uiExoStart.getParent();
       UIComponentDecorator uiWorkingControl = uiParent.getChildById(UIControlWorkspace.WORKING_AREA_ID);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingControl) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiExoStart);
+      //TODO: Tung.Pham added
+      //------------------------
+      uiWizard.getChild(UIWizardPageSetInfo.class).setEditPageNode(event) ;
+      //------------------------
+
     }
   }
 
