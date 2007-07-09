@@ -34,8 +34,8 @@ UIConsoleApplication.prototype.createApplicationInstance = function(appDescripto
  	return applicationNode ;
 };
 
-// double load initApplication
-//  uoon
+//double load initApplication
+//minh.js.exo
 UIConsoleApplication.prototype.initApplication = function(applicationId, instanceId) {
 //	if(instanceId == null) {
 //	  instanceId = eXo.core.DOMUtil.generateId(applicationId);
@@ -75,8 +75,8 @@ eXo.application.console  = {
 } ;
 
 /********************************/
+//minh.js.exo
 //create a Mask for window command Console.
-//start: 4:39 20/6/2007
 //reference class : eXo.core.UIMaskLayer;
 //in file: UIMaskLayer.js
 /*******************************/
@@ -100,7 +100,7 @@ UIConsoleApplication.prototype.showMaskWorkspace = function() {
 	//fix height.
 	var fixObj =	document.getElementById("UIMaskWorkspaceJSTemplate");
 	var maHeight = eXo.core.DOMUtil.findDescendantsByClass(fixObj, "div", "UIDescendantDetector");
-	for (k=0; k < maHeight.length; k ++) {
+	for(var k=0; k < maHeight.length; k ++) {
 		maHeight[k].style.height = "100%";
 		maHeight[k].style.overflow =  "hidden";
 	}

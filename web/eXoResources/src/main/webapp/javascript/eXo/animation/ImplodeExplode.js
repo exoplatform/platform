@@ -25,7 +25,7 @@ ImplodeExplode.prototype.doInit = function(uiWindow, clickedElement, containerId
 		//this.object.animation.style.filter = "alpha(opacity= 50)";
 		//alert(this.object.animation.innerHTML);
 		eXo.core.Browser.setOpacity(this.object.animation, 50) ;
-		// uoon
+		//minh.js.exo
 		this.object.animation.style.zIndex = this.object.maxIndex ;
 	}
 } ;

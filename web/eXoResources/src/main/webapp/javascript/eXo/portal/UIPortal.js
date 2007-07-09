@@ -209,7 +209,7 @@ UIPortal.prototype.showViewLayoutModeForPage = function() {
   }
 } ;
 
-  /**Repaired: by Vu Duy Tu 25/04/07**/
+ /**Repaired: by Vu Duy Tu 25/04/07**/
 UIPortal.prototype.showLayoutModeForPage = function(control) {
 	var uiPage = eXo.core.DOMUtil.findFirstDescendantByClass(document.body, "div", "UIPage") ;
 	if(uiPage == null) return;
@@ -412,7 +412,7 @@ UIPortal.prototype.createJSApplication = function(application, applicationId, in
 		var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
 //	alert(createApplication);
 //  error: double load;
-//  uoon
+//  minh.js.exo
 	  eval(createApplication);
 	}
 } ;

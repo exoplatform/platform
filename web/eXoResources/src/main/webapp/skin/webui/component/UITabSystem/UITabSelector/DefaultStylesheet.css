@@ -39,6 +39,10 @@
   margin-top: 2px;
 }
 
+/*
+ minh.js.exo
+*/
+
 .UITabSelector .FlatTabStyle .NormalTab {
   line-height: 29px;
   margin: 2px 0px 0px 0px;
@@ -59,19 +63,26 @@
   padding: 0px 6px;
 }
 
-.UITabSelector .FlatTabStyle .NormalTab .MiddleTab .TabIcon {
+.UITabSelector .FlatTabStyle .NormalTab .TabIcon {
   float: left;
   margin: 1px 4px 0px 0px;
 }
 
-.UITabSelector .FlatTabStyle .NormalTab .MiddleTab .Title {
+.UITabSelector .FlatTabStyle .NormalTab a.Title {
   margin-left: 30px;
   line-height: 28px;
   margin: 0px;
   font-weight: bold;
-  color: #404040;  
+  display: block;
+	color: gray; 
 }
 
+.UITabSelector .FlatTabStyle .NormalTab a.Title:hover {
+	color: #058ee6; 
+}
+/*
+ minh.js.exo
+*/
 .UITabSelector .FlatTabStyle .SelectedTab {
   line-height: 29px;
   margin: 2px 0px 0px 0px;
@@ -93,17 +104,21 @@
   padding: 0px 6px;
 }
 
-.UITabSelector .FlatTabStyle .SelectedTab .MiddleTab .TabIcon {
+.UITabSelector .FlatTabStyle .SelectedTab .TabIcon {
   float: left;
   margin: 1px 4px 0px 0px;
 }
 
-.UITabSelector .FlatTabStyle .SelectedTab .MiddleTab .Title {
+.UITabSelector .FlatTabStyle .SelectedTab .Title {
   margin-left: 30px;
   line-height: 28px;
   margin: 0px;
   font-weight: bold;
-  color: #404040;
+  color: black;
+}
+
+.UITabSelector .FlatTabStyle .SelectedTab a.Title:hover {
+  color: #058ee6;
 }
 
 /************************************ List Permission Selector *******************************/
