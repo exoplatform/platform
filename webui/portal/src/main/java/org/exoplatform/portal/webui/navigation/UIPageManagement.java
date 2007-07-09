@@ -78,10 +78,14 @@ public class UIPageManagement extends UIManagement {
     if (mode == ManagementMode.EDIT) {
       UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
       UITree uiTree = uiNodeSelector.getChild(UITree.class);
-      UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);
+      //TODO: Tung.Pham modified
+      //-----------------------------------------------------------
+      //UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);
       Phase phase = event.getExecutionPhase();
       WebuiRequestContext rcontext = event.getRequestContext();
-      uiPopupMenu.createEvent("EditPageNode", phase, rcontext).broadcast();
+      //uiPopupMenu.createEvent("EditPageNode", phase, rcontext).broadcast();
+      uiTree.createEvent("ChangeNode", phase, rcontext).broadcast();
+      //-----------------------------------------------------------
       getChild(UIDescription.class).setRendered(false);
       return;
     }

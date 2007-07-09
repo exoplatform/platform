@@ -25,7 +25,9 @@ import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditSele
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.PasteNodeActionListener;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
+import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
@@ -258,15 +260,26 @@ public class UIPageNodeSelector extends UIContainer {
       
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID) ;
+      pcontext.addUIComponentToUpdateByAjax(uiControl) ;
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
       pcontext.setFullRender(true);
       
       UIContainer uiParent = uiPageNodeSelector.getParent();
-      pcontext.addUIComponentToUpdateByAjax(uiParent) ;
+      //pcontext.addUIComponentToUpdateByAjax(uiParent) ;
       UIPageEditBar uiEditBar = uiParent.getChild(UIPageEditBar.class);   
       if(uiPageNodeSelector.getSelectedNode() == null) return;
       PageNode node  = uiPageNodeSelector.getSelectedNode().getNode();
+      //TODO: Tung.Pham added
+      //-------------------------------------------------------------
+      if(node == null) {
+        UIPortal uiPortal = Util.getUIPortal();
+        uiPageNodeSelector.selectNavigation(uiPortal.getSelectedNavigation().getId());
+        uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri());
+        node = uiPageNodeSelector.getSelectedPageNode();
+      }
+      //-------------------------------------------------------------
       if(node == null) return;  
       
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);

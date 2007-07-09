@@ -113,7 +113,7 @@ public class UIPageBrowser extends UISearch {
     if(selectBoxValue.equals("ownerId")) query.setOwnerId(value) ;
     if(selectBoxValue.equals("name")) query.setName(value) ;
     lastQuery_ = query ;
-    defaultValue(query) ;
+    defaultValue(lastQuery_) ;
     if (this.<UIComponent>getParent() instanceof UIPopupWindow ) {
       UIPopupWindow popupWindow = getParent();
       popupWindow.setShow(true);

@@ -90,6 +90,9 @@ public class UIPageNodeActionListener {
       UIPortalApplication uiApp = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class);
       UIControlWorkspace uiControl = uiApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiControl);
+      UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
+      pcontext.setFullRender(true);
       
       PageNode node = uiPageNodeSelector.getSelectedPageNode();
       if(node == null) {
@@ -135,9 +138,9 @@ public class UIPageNodeActionListener {
         return ;
       }
       
-      UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
-      pcontext.setFullRender(true);
+//      UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+//      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
+//      pcontext.setFullRender(true);
       
       Class<?> [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);

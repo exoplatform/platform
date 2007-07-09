@@ -249,10 +249,12 @@ public class UIPageForm extends UIFormTabPane {
         configService.create(page);
         
         UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;      
-        UIPageBrowser browser = (UIPageBrowser)uiToolPanel.getUIComponent() ;
-        if(browser != null) {
+        UIComponent uiComponent = uiToolPanel.getUIComponent() ;
+        if(uiComponent != null && uiComponent instanceof UIPageBrowser) {
+          UIPageBrowser browser = (UIPageBrowser)uiComponent ;
           browser.defaultValue(null) ;
-          pcontext.addUIComponentToUpdateByAjax(uiToolPanel) ; 
+          browser.getUISearchForm().getQuickSearchInputSet().reset() ;
+          pcontext.addUIComponentToUpdateByAjax(uiToolPanel) ;
         }
       }
       
