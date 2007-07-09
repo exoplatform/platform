@@ -1,28 +1,27 @@
 var eXo  = {
-  animation : { } ,
+  animation : { },
   
-  browser : { } ,
+  browser : { },
     
-  desktop : { } ,
+  desktop : { },
   
-  core : { } ,
+  core : { },
   
-  ecm : { } ,
+  ecm : { },
 
   env : { client: {}, server: {} },
 
-  portal : { } ,
+  portal : { },
     
-  util    : { },
+  util : { },
   
-  webui : { } ,
+  webui : { },
 
-  widget : { } ,
+  widget : { },
   
   application : { 
-  	browser: {}
-  } 
-  
+  	browser : { }
+  }  
 } ;
 
 eXo.require = function(module, jsLocation) {
@@ -33,26 +32,27 @@ eXo.require = function(module, jsLocation) {
   }
   window.status = "Loading Javascript Module " + module ;
   if(jsLocation == null) jsLocation = '/eXoResources/javascript/' ;
-  var path = jsLocation  + module.replace(/\./g, '/')  + '.js';
+  var path = jsLocation  + module.replace(/\./g, '/')  + '.js' ;
   var request = eXo.core.Browser.createHttpRequest() ;
-  request.open('GET', path, false);
-  request.setRequestHeader("Cache-Control", "max-age=86400");
-  request.send(null);
-  try{
-    eval(request.responseText);
-  }catch(err){
-    alert(err + " : "+request.responseText);
+  request.open('GET', path, false) ;
+  request.setRequestHeader("Cache-Control", "max-age=86400") ;
+  request.send(null) ;
+  try {
+    eval(request.responseText) ;
+  } catch(err) {
+    alert(err + " : " + request.responseText) ;
   }
-};
+} ;
 
 eXo.env.server.createPortalURL = function(targetComponentId, actionName, useAjax, params) {
-  var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + targetComponentId + "&portal:action=" + actionName;
-  //alert(params);
+  var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + targetComponentId + "&portal:action=" + actionName ;
+
   if(params != null) {
-    for(var i = 0; i < params.length; i++) {
+  	var len = params.length ;
+    for(var i = 0 ; i < len ; i++) {
       href += "&" +  params[i].name + "=" + params[i].value ;
     }
   }
   if(useAjax) href += "&ajaxRequest=true" ;
   return  href ;
-};
+} ;
