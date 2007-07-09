@@ -9,12 +9,12 @@
 	    <%if(currentPage > 10) { %>
 	    	  <a href="<%=uicomponent.event("ShowPage","${currentPage -10}")%>" class="Icon LastTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.backTenPages")%>"></a>
 	    <% }else { %>
-	    	  <a class="Icon LastTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.backTenPages")%>"></a>        
+	    	  <a class="Icon DisableLastTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.backTenPages")%>"></a>        
 	    <%}%>
 	    <%if( currentPage - 1 > 0 ){%>        
 	    	  <a href="<%=uicomponent.event("ShowPage","${currentPage - 1}")%>" class="Icon LastPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.previous")%>"></a>
 	    <% } else {%>
-	    	  <a class="Icon LastPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.previous")%>"><span></span></a>
+	    	  <a class="Icon DisableLastPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.previous")%>"><span></span></a>
 	    <%}%>
 	    <div class="Number">
 	      <%
@@ -42,14 +42,14 @@
 	    <% if(currentPage +1 <= totalPage) { %>
 	    	   <a href="<%=uicomponent.event("ShowPage","${currentPage + 1}")%>" class="Icon NextPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.next")%>"></a>
 	    <% } else { %>
-	    	   <a class="Icon NextPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.next")%>"><span></span></a>
+	    	   <a class="Icon DisableNextPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.next")%>"><span></span></a>
 	    <%}%>
 	    <% if(currentPage + 10 <= totalPage) {%>        
 	    	   <a href="<%=uicomponent.event("ShowPage","${currentPage + 10}")%>" class="Icon NextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"></a>
 	  	<% } else if(currentPage + 1 <= totalPage) { %>
-	    	   <a class="Icon NextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"><span></span></a>
+	    	   <a class="Icon DisableNextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"><span></span></a>
 	    <% } else {%>
-	    	   <a class="Icon NextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"><span></span></a>
+	    	   <a class="Icon DisableNextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"><span></span></a>
 	    <% }%>
 	    <div style="clear: left"><span></span></div>
 	  </div>

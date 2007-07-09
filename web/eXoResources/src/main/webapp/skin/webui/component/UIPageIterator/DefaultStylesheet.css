@@ -39,25 +39,51 @@
 
 
 
+/*
+* Repair by Duy Tu 09/07/07
+*/
 .UIPageIterator .LastTopPageIcon {
-  background: url('DefaultSkin/background/DoubleBackArrows.gif') no-repeat ;
+  vertical-align: middle ;
+  background: url('MacSkin/background/ScrollDoubleBackArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .NextTopPageIcon {
-  background: url('DefaultSkin/background/DoubleNextArrows.gif') no-repeat ;
+  background: url('MacSkin/background/ScrollDoubleNextArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
-.UIPageIterator .LastPageIcon {
-  background: url('DefaultSkin/background/SingleBackArrow.gif') no-repeat ;
+ .UIPageIterator .LastPageIcon {
+  background: url('MacSkin/background/ScrollSingleBackArrow.gif') no-repeat ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .NextPageIcon {
+  background: url('MacSkin/background/ScrollSingleNextArrow.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageIterator .DisableLastTopPageIcon {
+  vertical-align: middle ;
+  background: url('DefaultSkin/background/DoubleBackArrows.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageIterator .DisableNextTopPageIcon {
+  background: url('DefaultSkin/background/DoubleNextArrows.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+ .UIPageIterator .DisableLastPageIcon {
+  background: url('DefaultSkin/background/SingleBackArrow.gif') no-repeat ;
+  cursor: pointer ; 
+}
+
+.UIPageIterator .DisableNextPageIcon {
   background: url('DefaultSkin/background/SingleNextArrow.gif') no-repeat ;
   cursor: pointer ;
 }
+/* End */
 
 .UIPageIterator a:hover.LastTopPageIcon {
   background: url('DefaultSkin/background/HoverDoubleBackArrows.gif') no-repeat ;
