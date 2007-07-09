@@ -26,7 +26,7 @@ form {
 	padding:	0px ; margin: 0px ;
 }
 
-html {
+* html {
 	overflow-x: hidden;
 }
 
