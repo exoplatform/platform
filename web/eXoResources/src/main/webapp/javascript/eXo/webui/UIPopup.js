@@ -6,6 +6,7 @@ var popupArr = new Array() ;
 var zIndex = 0 ;
 
 function UIPopup() {
+	
 } ;
 
 UIPopup.prototype.init = function(popup, containerId) {
