@@ -1,7 +1,7 @@
-eXo.require('eXo.webui.UIPopup');
+eXo.require('eXo.webui.UIPopup') ;
 
 function UIPopupWindow() {	
-};
+} ;
 
 UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseButton) {
 	var DOMUtil = eXo.core.DOMUtil ;
@@ -35,39 +35,40 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	}
 	
 	popup.style.visibility = "visible" ;
-	if(isShow == true) this.show(popup);
+	if(isShow == true) this.show(popup) ;
 	
-};
-
+} ;
+//TODO: manage zIndex properties
 UIPopupWindow.prototype.show = function(popup) {
-	var DOMUtil = eXo.core.DOMUtil;
+	var DOMUtil = eXo.core.DOMUtil ;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
-	var portalApp = document.getElementById("UIPortalApplication");
+	var portalApp = document.getElementById("UIPortalApplication") ;
 	
-	var maskLayer = DOMUtil.findFirstDescendantByClass(portalApp, "div", "UIMaskWorkspace");
-	zIndex = 0;
-	var currZIndex = 0;
+	var maskLayer = DOMUtil.findFirstDescendantByClass(portalApp, "div", "UIMaskWorkspace") ;
+	var zIndex = 0 ;
+	var currZIndex = 0 ;
 	if (maskLayer != null) {
-		currZIndex = DOMUtil.getStyle(maskLayer, "zIndex");
-		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex;
+		currZIndex = DOMUtil.getStyle(maskLayer, "zIndex") ;
+		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex ;
 	}
-	var popupWindows = DOMUtil.findDescendantsByClass(portalApp, "div", "UIPopupWindow");
-	for (var i = 0; i<popupWindows.length; i++) {
-		currZIndex = DOMUtil.getStyle(popupWindows[i], "zIndex");
-		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex;
+	var popupWindows = DOMUtil.findDescendantsByClass(portalApp, "div", "UIPopupWindow") ;
+	var len = popupWindows.length ;
+	for (var i = 0 ; i < len ; i++) {
+		currZIndex = DOMUtil.getStyle(popupWindows[i], "zIndex") ;
+		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex ;
 	}
   
-	if (zIndex == 0) zIndex = 2000;
+	if (zIndex == 0) zIndex = 2000 ;
 	// We don't increment zIndex here because it is done in the superClass.show function
-	popup.style.visibility = "hidden";
+	popup.style.visibility = "hidden" ;
 	this.superClass.show(popup) ;
 	var offsetParent = popup.offsetParent ;
 	if(offsetParent) {
 		popup.style.top = ((offsetParent.offsetHeight - popup.offsetHeight) / 2) + "px" ;
 		popup.style.left = ((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
 	}
-	popup.style.visibility = "visible";
-};
+	popup.style.visibility = "visible" ;
+} ;
 
 UIPopupWindow.prototype.closePopupEvt = function(evt) {
 	eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject").style.display = "none" ;
@@ -83,15 +84,13 @@ UIPopupWindow.prototype.endResizeEvt = function(evt) {
 	document.getElementById("UIPortalApplication").onmousemove = null;
 }
 
-UIPopupWindow.prototype.initDND = function(e) {
+UIPopupWindow.prototype.initDND = function(evt) {
   var DragDrop = eXo.core.DragDrop ;
   var DOMUtil = eXo.core.DOMUtil ;
-//  var overflowObjectList = new Array() ;
 
 	DragDrop.initCallback = function (dndEvent) {
 		var dragObject = dndEvent.dragObject ;
-		dragObject.uiWindowContent = DOMUtil.findFirstDescendantByClass(dragObject, "div", "Content");
-//		var elements = uiWindowContent.getElementsByTagName("div") ;
+		dragObject.uiWindowContent = DOMUtil.findFirstDescendantByClass(dragObject, "div", "Content") ;
 		dragObject.uiWindowContent.style.overflow = "hidden" ;
   }
 
@@ -102,47 +101,45 @@ UIPopupWindow.prototype.initDND = function(e) {
   	var dragObject = dndEvent.dragObject ;
   	dragObject.uiWindowContent.style.overflow = "auto" ;
   	
-  	var dragObjectX = dragObject.offsetLeft ;
-  	var dragObjectY = dragObject.offsetTop ;
-  	var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
-		var uiWindow = DOMUtil.findAncestorByClass(dragObject,"UIWindow") ;
-		var extraLeft = (uiWindow) ? uiWindow.offsetLeft : 0 ;
- 		var extraHeight = (uiWindow) ? uiWindow.offsetTop : 0 ;  	
-  	var uiPageDeskop = document.getElementById("UIPageDesktop") ;
-		//alert("UIWindow OffsetLeft : " +  uiWindow.offsetLeft + " UIWindow OffsetTop : " +  uiWindow.offsetTop + " dragObjectX : " + dragObject.style.left + " dragObjectY : " + dragObject.style.top) ;
-  	if (uiPageDeskop) {
-  		if (dragObject.offsetLeft < (0 - extraLeft)) dragObject.style.left =(0 - extraLeft) +  "px" ;
-	  	if (dragObject.offsetTop < (0 - extraHeight)) dragObject.style.top = (0 - extraHeight) + "px" ;  		
-  	}
-  	else {
-  		if (dragObject.offsetLeft < 0) dragObject.style.left = "0px" ;
-	  	if (dragObject.offsetTop < 0) dragObject.style.top = "0px" ;  
-  	}
-  	  	
-  	if (uiWorkingWorkspace) {  		
-			var offsetWidth = uiWorkingWorkspace.offsetWidth - dragObject.offsetWidth ;
-			var offsetHeight = uiWorkingWorkspace.offsetHeight - dragObject.offsetHeight ;
-			if (dragObjectX > (offsetWidth - extraLeft)) dragObject.style.left = (offsetWidth - extraLeft) + "px" ;
-			if (dragObjectY > (offsetHeight - extraHeight)) dragObject.style.top = (offsetHeight - extraHeight) + "px" ;
-  	}
-  	//alert ("extraLeft : " + extraLeft + " extraHeight : " + extraHeight + " dragObject Left : " + dragObject.offsetLeft + " dragObject Top : " + dragObject.offsetTop) ;
-  	//alert ("dragObject Left : " + dragObject.style.left + " dragObject Top : " + dragObject.style.top) ;
+  	var DOMUtil = eXo.core.DOMUtil ;
+  	var dragObjectY = parseInt(dragObject.style.top) ;		
+		try {
+			var uiWindows = DOMUtil.findAncestorsByClass(dragObject, "UIWindow") ;
+			var len = uiWindows.length ;
+			var mLen = dragObject.childNodes.length ;
+			var isMessage = false ;
+			for(var i = 0 ; i < mLen ; i++) {
+				var className = dragObject.childNodes[i].className ;
+				if (className && (className.indexOf("Message") > -1)) {
+					isMessage = true ;
+					break ;
+				}
+			}
+			if (len > 0 && !isMessage) {
+				var offsetTop = (0 - uiWindows[0].offsetTop) ;
+				if (dragObjectY < offsetTop)	dragObject.style.top = offsetTop + "px" ;
+			} else {
+				if (dragObjectY < 0) dragObject.style.top = "0px" ;
+			}
+		} catch(err) {
+			alert(err.message) ;
+		} 	
   }  
   var clickBlock = this ;
   var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
-  DragDrop.init(null, clickBlock, dragBlock, e) ;
-};
+  DragDrop.init(null, clickBlock, dragBlock, evt) ;
+} ;
 
-UIPopupWindow.prototype.resize = function(e) {
-	var targetPopup = document.getElementById(this.getAttribute("popupId"));
-	var content = eXo.core.DOMUtil.findFirstDescendantByClass(targetPopup, "div", "Content");
-	var pointerX = eXo.core.Browser.findMouseRelativeX(targetPopup, e);
-	var pointerY = eXo.core.Browser.findMouseRelativeY(targetPopup, e);
+UIPopupWindow.prototype.resize = function(evt) {
+	var targetPopup = document.getElementById(this.getAttribute("popupId")) ;
+	var content = eXo.core.DOMUtil.findFirstDescendantByClass(targetPopup, "div", "Content") ;
+	var pointerX = eXo.core.Browser.findMouseRelativeX(targetPopup, evt) ;
+	var pointerY = eXo.core.Browser.findMouseRelativeY(targetPopup, evt) ;
 	var delta = eXo.core.Browser.findPosYInContainer(content,targetPopup) +
 							content.style.borderWidth + content.style.padding + content.style.margin ;
-	if((1*pointerY-delta) > 0) content.style.height = (1*pointerY-delta)+"px";
+	if((1*pointerY-delta) > 0) content.style.height = (1*pointerY-delta)+"px" ;
 	targetPopup.style.height = "auto";
-	if(pointerX > 200) targetPopup.style.width = (pointerX+5) + "px";
-};
+	if(pointerX > 200) targetPopup.style.width = (pointerX+5) + "px" ;
+} ;
 
 eXo.webui.UIPopupWindow = new UIPopupWindow();
