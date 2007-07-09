@@ -81,6 +81,8 @@
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
+ 	overflow: auto;
+	height: 280px;
   padding: 8px;
 }
 
@@ -90,6 +92,12 @@
 
 .UIMaskWorkspace .TabPaneContent {
 	margin: 0px 5px;
+}
+
+.UIMaskWorkspace .UIForm .HorizontalLayout .UIFormInputSet {
+  width: 450px;
+  margin: auto;
+  padding: 10px;
 }
 
 .UIMaskWorkspace .UIItemSelector .FloatRightStyle .ItemListContainer .ItemList {
@@ -112,6 +120,15 @@
 .UIMaskWorkspace .UINodeIconSelector .LeftColumnStyle .ItemDetailList {
   height: auto;
 }
+
+/**********************************UITabSelector*****************************************/
+
+.UIMaskWorkspace .UITabPane .TabPaneContent .CSSContent .UITabContent {
+  height: auto;
+  margin: auto;
+  overflow: hidden;
+}
+
 /**************************** UIAddApplication ******************************************/
 .UIAddApplication .UITabContentContainer {
   border: 1px solid #999999;

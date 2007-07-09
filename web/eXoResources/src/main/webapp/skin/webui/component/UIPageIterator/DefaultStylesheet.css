@@ -44,22 +44,22 @@
 */
 .UIPageIterator .LastTopPageIcon {
   vertical-align: middle ;
-  background: url('MacSkin/background/ScrollDoubleBackArrows.gif') no-repeat ;
+  background: url('DefaultSkin/background/ScrollDoubleBackArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .NextTopPageIcon {
-  background: url('MacSkin/background/ScrollDoubleNextArrows.gif') no-repeat ;
+  background: url('DefaultSkin/background/ScrollDoubleNextArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
  .UIPageIterator .LastPageIcon {
-  background: url('MacSkin/background/ScrollSingleBackArrow.gif') no-repeat ;
+  background: url('DefaultSkin/background/ScrollSingleBackArrow.gif') no-repeat ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .NextPageIcon {
-  background: url('MacSkin/background/ScrollSingleNextArrow.gif') no-repeat ;
+  background: url('DefaultSkin/background/ScrollSingleNextArrow.gif') no-repeat ;
   cursor: pointer ;
 }
 
@@ -84,26 +84,6 @@
   cursor: pointer ;
 }
 /* End */
-
-.UIPageIterator a:hover.LastTopPageIcon {
-  background: url('DefaultSkin/background/HoverDoubleBackArrows.gif') no-repeat ;
-  cursor: pointer ;
-}
-
-.UIPageIterator a:hover.NextTopPageIcon {
-  background: url('DefaultSkin/background/HoverDoubleNextArrows.gif') no-repeat ;
-  cursor: pointer ;
-}
-
-.UIPageIterator a:hover.LastPageIcon {
-  background: url('DefaultSkin/background/HoverSingleBackArrow.gif') no-repeat ;
-  cursor: pointer ; 
-}
-
-.UIPageIterator a:hover.NextPageIcon {
-  background: url('DefaultSkin/background/HoverSingleNextArrow.gif') no-repeat ;
-  cursor: pointer ;
-}
 
 .UIPageIterator .Number {
   float: left ;

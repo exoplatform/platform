@@ -51,6 +51,12 @@
   width: 460px;
 }
 
+.UIMaskWorkspace .UIForm .HorizontalLayout .UIFormInputSet {
+  width: 450px;
+  margin: auto;
+  padding: 10px;
+}
+
 /**********************************UITabSelector*****************************************/
 .UIMaskWorkspace .UITabPane .TabPaneContent .WorkingArea .CSSContent {
   border: 1px solid #d5d5d5;
@@ -183,6 +189,10 @@
 .UIAddApplication .LeftColumnStyle .ViewListIcon {
   background: none;
   width: 0px;
+}
+
+.UIAddApplication .UIAction {
+	width: 90px;
 }
 
 /**********************************************************************************/

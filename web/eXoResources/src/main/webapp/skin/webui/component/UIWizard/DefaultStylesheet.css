@@ -196,13 +196,13 @@
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
   background: white;
-  padding: 10px 0px 15px 0px;
-  height: 133px;
+  padding: 10px;
+  height: 143px;
 }
 
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FieldContainer {
-  width: 380px;
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
+	width: 380px;
+	margin: auto;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle textarea {

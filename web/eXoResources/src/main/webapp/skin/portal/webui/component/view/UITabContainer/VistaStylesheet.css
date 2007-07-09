@@ -32,14 +32,15 @@
 	padding: 0px 10px 10px;
 }
 
-.LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
-	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat center ;
+.UITabContainer .EditIcon {
 	height: 26px; line-height: 26px;
 	width: 16px;
 }
 
+.LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
+	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat center ;
+}
+
 .LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
 	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif') no-repeat center ;
-	height: 26px; line-height: 26px;
-	width: 16px;
 }

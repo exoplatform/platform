@@ -37,7 +37,7 @@
 } 
 
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
-  height: 295px; width: 350px;
+  height: 295px; width: 400px;
   padding-top: 15px;
 }
 
@@ -55,11 +55,11 @@
 /*########################-Template Selector-###########################*/
 
 .UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnBigItemStyle .ItemList {
-  height: 318px;
+  height: 302px;
 }
 
 .UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
-  height: 335px;
+  height: 320px;
   padding-top: 5px;
 }
 

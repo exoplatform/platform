@@ -91,9 +91,14 @@
 
 .UIOrganizationPortlet .UIForm .UIFormInputSet {
 	background: white;
-	height: 300px;
+	height: 280px; width: auto;
 	border: solid 1px #b7b7b7;
-	padding: 30px 0px ;
+	padding: 20px 0px ;
+}
+
+.UIOrganizationPortlet .UIForm .UIFormInputSet .UIFormGrid {
+	width: 500px;
+	margin: auto;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
@@ -109,6 +114,10 @@
 	border: none;
 	background: none;
 	height: auto;
+}
+
+.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .UIFormGrid {
+	width: 400px;
 }
 
 .UIOrganizationPortlet .UIUserManagement .UIGrid {

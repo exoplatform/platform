@@ -5,12 +5,6 @@
 
 /*========================== Wizard Decorator ==========================*/
 
-.UIWizard .WizardDecorator {
-}
-
-.UIWizard .WizardDecorator .WizardMiddleLeft {
-}
-
 .UIWizard .WizardDecorator .WizardMiddleRight {
   background: url('MacSkin/background/WizardMR7x1.png') repeat-y right;
   padding-right: 7px;  
@@ -222,16 +216,9 @@
   height: 150px;
 }
 
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FieldContainer {
-	width: 450px;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle textarea {
-  width: 230px; height:80px;
-  background: white;
-  font-family: verdana;
-  border: solid 1px gray ;
-  padding-left: 5px;
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
+	width: 380px;
+	margin: auto;
 }
 
 /*========================== Start UIWizard Step 3 ==============================*/

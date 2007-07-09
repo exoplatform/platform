@@ -168,7 +168,7 @@
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab{
   line-height: 25px;
-  margin-right: 1px; margin-bottom: 6px;
+  margin: 0px 1px 0px 0px; padding-bottom: 6px;
   color: #474849;
 }
 
@@ -184,18 +184,18 @@
 .UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
   padding-left: 6px;
   line-height: 25px;
-  background: url('MacSkin/background/LeftNormalTab6x24.png') no-repeat left center;
+  background: url('MacSkin/background/LeftNormalTab6x24.png') no-repeat left top;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
   line-height: 25px;
   padding-right: 6px;
-  background: url('MacSkin/background/RightNormalTab6x24.png') no-repeat right center;
+  background: url('MacSkin/background/RightNormalTab6x24.png') no-repeat right top;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
   line-height: 24px;
-  background: url('MacSkin/background/MiddleNormalTab1x24.png') repeat-x center;
+  background: url('MacSkin/background/MiddleNormalTab1x24.png') repeat-x top;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
 }
@@ -232,7 +232,7 @@
 .UIHorizontalTabs .NormalTabStyle .SelectedTab{
   line-height: 25px;
   color: black;
-  margin-right: 1px; margin-bottom: 5px;
+  margin-right: 1px; margin-bottom: 6px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {

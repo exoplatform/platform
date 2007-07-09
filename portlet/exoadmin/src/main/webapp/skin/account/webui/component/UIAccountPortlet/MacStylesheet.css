@@ -23,40 +23,12 @@
   padding-top: 5px;
 }
 
-.UIAccountPortlet .UIAction  {
-  width: 160px;
-  padding-left: 30px;
-}
-
-.UIAccountPortlet .UIMembership .UIAction {
-  width: 140px;
-  padding-left: 10px;
-}
-
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
-  height: 280px;
-  padding-top: 20px;
-}
-
-/*============================== UIPersonalInfo ==============================*/
-.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
-  width: 380px;
-  padding:6px 0px 0px 35px;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetail .FieldContainer {
-  padding:0px;
-}
-
-.UIAccountPortlet .UIItemSelector .ItemDetail .UIFormInputSet {
-  padding-top: 7px;
+  height: 280px; width: 390px;
+  padding: 10px 20px 0px 20px; margin: auto;
 }
 
 /*########################-Template Selector-###########################*/
-
-.UIAccountPortlet .UIItemSelector .ItemDetailList .Template {
-  margin: auto;
-}
 
 .UIPersonalInfo {
   padding: 6px;
@@ -64,13 +36,13 @@
 
 .UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
   background: white;
-  height: 350px;
+  height: 320px;
 }
 
 .UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnBigItemStyle .ItemList {
-  height: 329px;
+  height: 300px;
 }
 
 .UIAccountPortlet .UIAction {
-	width: 180px;
+	width: 160px;
 }

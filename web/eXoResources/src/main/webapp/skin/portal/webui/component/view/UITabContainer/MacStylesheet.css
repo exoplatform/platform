@@ -50,14 +50,15 @@
 	height: 24px;
 }
 
-.LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
-	background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat center ;
+.UITabContainer .EditIcon {
 	height: 24px; line-height: 24px;
 	width: 16px;
 }
 
+.LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
+	background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat center;
+}
+
 .LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
-	background: url('/eXoResources/icons/16x16/MacSkin/DisableEditIcon.gif') no-repeat center ;
-	height: 24px; line-height: 24px;
-	width: 16px;
+	background: url('/eXoResources/icons/16x16/MacSkin/DisableEditIcon.gif') no-repeat center;
 }

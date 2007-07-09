@@ -196,7 +196,7 @@
 /*###########################--NormalTab--############################*/
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab{
-  line-height: 26px;
+  line-height: 26px; 
   margin-right: 1px;
   color: #474849;
   font-weight: normal;
@@ -233,6 +233,7 @@
   line-height: 26px;
   color: #000000;
 }
+
 .UIHorizontalTabs .NormalTabStyle .HighlightTab a:hover{
   color: blue;
 }

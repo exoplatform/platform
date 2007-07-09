@@ -67,8 +67,9 @@
 }
 
 .UIMaskWorkspace .UIForm .HorizontalLayout .UIFormInputSet {
-  width: 460px;
+  width: 450px;
   margin: auto;
+  padding: 10px;
 }
 
 /*********************************** End UITabContent  ************************************/
