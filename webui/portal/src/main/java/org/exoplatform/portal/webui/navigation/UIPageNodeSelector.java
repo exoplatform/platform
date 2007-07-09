@@ -282,19 +282,22 @@ public class UIPageNodeSelector extends UIContainer {
       //-------------------------------------------------------------
       if(node == null) return;  
       
+      UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ;
+      toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
       
       if(page == null){
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
+        toolPanel.setUIComponent(null) ;
         return;
       }
       
-      UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
-      UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
+      UIPage uiPage = Util.toUIPage(node, toolPanel);
+      //UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
       toolPanel.setUIComponent(uiPage);
-      toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
+      //toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
 
       if(!page.isModifiable()) {
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
