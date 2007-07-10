@@ -109,7 +109,7 @@
   
   <mapping class="org.exoplatform.portal.portlet.Preference"  name="preference" label="preference">
     <value name="name"  field="name" usage="optional"/>
-    <collection field="values">
+    <collection field="values" item-type="java.lang.String">
       <value name="value" style="element"/>
     </collection>
     <value name="read-only" field="readOnly" usage="optional"/>

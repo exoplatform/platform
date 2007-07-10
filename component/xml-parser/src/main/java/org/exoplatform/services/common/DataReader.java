@@ -17,7 +17,7 @@ import java.nio.channels.FileChannel;
  */
 public class DataReader {
   
-  public synchronized byte[] load( String path) throws Exception {
+  public synchronized byte[] load(String path) throws Exception {
     File file = new File(path);       
     return load( file );
   }
