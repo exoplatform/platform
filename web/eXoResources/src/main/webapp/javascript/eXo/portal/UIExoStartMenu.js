@@ -58,23 +58,32 @@ UIExoStartMenu.prototype.startButtonOut = function() {
 };
 
 UIExoStartMenu.prototype.showStartMenu = function(e) {
-  if (!e) e = window.event;
-  e.cancelBubble = true;
+  if (!e) e = window.event ;
+  e.cancelBubble = true ;
 
   var uiStartContainer = document.getElementById("StartMenuContainer") ;
   eXo.portal.UIExoStartMenu.exoStartButton.className = "ExoStartButton ButtonClicked" ;
   if(uiStartContainer.style.display == "block") {
-    eXo.portal.UIExoStartMenu.hideUIStartMenu();
+    eXo.portal.UIExoStartMenu.hideUIStartMenu() ;
   } else {
     eXo.portal.UIExoStartMenu.buttonClicked = true ;
-    var menuY = eXo.core.Browser.findPosY(eXo.portal.UIExoStartMenu.exoStartButton);
-    this.superClass.show(uiStartContainer);
-    var y = menuY - uiStartContainer.offsetHeight;
-    if (window.pageYOffset) y -= window.pageYOffset;
-    else if (document.documentElement.scrollTop) y -= document.documentElement.scrollTop;
-    else if (document.body.scrollTop) y -= document.body.scrollTop;
-    this.superClass.setPosition(uiStartContainer, 0, y) ;
-    eXo.portal.UIExoStartMenu.setSize(uiStartContainer, 238, uiStartContainer.offsetHeight);
+    var menuY = eXo.core.Browser.findPosY(eXo.portal.UIExoStartMenu.exoStartButton) ;
+    this.superClass.show(uiStartContainer) ;		
+    var tmp = uiStartContainer.offsetHeight ;
+		var y = menuY - tmp ;
+		//var y = menuY - uiStartContainer.offsetHeight ;
+    if (window.pageYOffset) y -= window.pageYOffset ;
+    else if (document.documentElement.scrollTop) y -= document.documentElement.scrollTop ;
+    else if (document.body.scrollTop) y -= document.body.scrollTop ;
+		this.superClass.setPosition(uiStartContainer, 0, y) ;
+		//TODO : fix on IE6
+		if (eXo.core.Browser.isIE6()) {		
+			uiStartContainer.style.display = "block" ;
+			uiStartContainer.style.visibility = "visible" ;
+	    uiStartContainer.style.top = y + "px" ;
+	    uiStartContainer.style.left = "0px" ;
+		}
+    eXo.portal.UIExoStartMenu.setSize(uiStartContainer, 238, uiStartContainer.offsetHeight) ;
   }
   /*Hide eXoStartMenu whenever click on the UIApplication*/
   var uiPortalApplication = document.getElementById("UIPortalApplication") ;
@@ -155,7 +164,7 @@ UIExoStartMenu.prototype.setSize = function(popup, w, h) {
   if (popup) {
     popup.style.width = w + "px";
     popup.style.height = h + "px";
-  } 
+  }
 };
 
 eXo.portal.UIExoStartMenu = new UIExoStartMenu() ;
