@@ -194,7 +194,7 @@
   background: url('null') repeat bottom right;
 }
 
-.UIPageBody ..UIApplicationRegistryPortlet {
+.UIPageBody .UIApplicationRegistryPortlet {
 	width: 99%;
 	margin: auto;
 	margin-bottom: 10px;

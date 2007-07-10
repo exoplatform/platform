@@ -25,19 +25,19 @@
   width: 240px;
 }
 
-.UIContentPortlet .CategoryControlBar .LeftBar{
+.UIContentPortlet .CategoryControlBar .LeftBar {
 	background: url('DefaultSkin/background/LeftControlBar4x26.gif') no-repeat left; 
 	padding-left: 4px;
 	height: 26px;
 }
 
-.UIContentPortlet .CategoryControlBar .RightBar{
+.UIContentPortlet .CategoryControlBar .RightBar {
 	background: url('DefaultSkin/background/RightControlBar4x26.gif') no-repeat right; 
 	padding-right: 4px;
 	height: 26px;
 }
 
-.UIContentPortlet .CategoryControlBar .MiddleBar{
+.UIContentPortlet .CategoryControlBar .MiddleBar {
 	background: url('DefaultSkin/background/CenterControlBar1x26.gif') repeat-x; 
 	height: 26px;
 }
@@ -66,7 +66,7 @@
 	width: auto;
 }
 
-.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NormalTab{
+.UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NormalTab {
   margin-top: 4px;
 }
 

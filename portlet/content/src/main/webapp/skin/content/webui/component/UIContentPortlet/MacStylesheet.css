@@ -10,13 +10,14 @@
   overflow: auto ;
   border: none;
   margin: 0px;
+  height: auto;
 }
 
 .UIContentPortlet {
   padding:7px;
   margin: 5px;
   border: 1px solid #b7b7b7;
-  background: white url('MacSkin/background/eXoRSS.gif') no-repeat bottom right;
+  background: url('MacSkin/background/eXoRSS.gif') no-repeat bottom right;
   height: auto;
 }
 
@@ -30,13 +31,15 @@
 }
 
 .UIContentPortlet .CategoryControlBar .LeftBar{
-
+	height: 25px;
 }
 
 .UIContentPortlet .CategoryControlBar .RightBar{
+	height: 25px;
 }
 
 .UIContentPortlet .CategoryControlBar .MiddleBar{
+	height: 25px;
 }
 
 .UIContentPortlet .UIContentNavigation .RSSReaderHeader {
@@ -46,9 +49,13 @@
 	background: url('DefaultSkin/icons/RSSReaderIcon.gif') no-repeat left;
 }
 
-
 .UIContentPortlet .UIContentWorkingArea {
   margin-left: 247px;
+}
+
+.UIContentPortlet .ContentPortletContainer {
+  height: auto;
+  border: 1px solid white;
 }
 
 .UIContentPortlet .UIContentNavigation .NewsCategory {

@@ -77,26 +77,26 @@
 /*##############################- LargeToolbar style -#########################*/
 
 .UIToolbar .LargeToolbar {
-  height: 75px ; line-height: 75px ;
+  height: 74px ; line-height: 74px ;
   margin-bottom: 2px ;
 }
 
 .UIToolbar .LargeToolbar .LeftToolbar {
-  line-height: 75px ;
-  background: url('VistaSkin/background/GrayLargeToolbarL10x75.png') no-repeat left ;
+  height: 74px ;
+  background: url('VistaSkin/background/GrayLargeToolbarL10x74.png') no-repeat left top;
   padding-left: 10px;
 }
 
 .UIToolbar .LargeToolbar .RightToolbar {
-  line-height: 75px;
-  background: url('VistaSkin/background/GrayLargeToolbarR15x74.png') no-repeat right ;
+  height: 74px;
+  background: url('VistaSkin/background/GrayLargeToolbarR15x74.png') no-repeat right top;
   padding-right: 15px;
 }
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
-  height: 75px; margin-top: 1px;
-  line-height: 75px ; 
-  background: url('VistaSkin/background/GrayLargeToolbarM1x75.png') repeat-x ;
+  height: 74px; 
+  line-height: 74px ; 
+  background: url('VistaSkin/background/GrayLargeToolbarM1x74.png') repeat-x top;
 }
 
 .UIToolbar .LargeToolbar a {

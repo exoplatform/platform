@@ -180,11 +180,22 @@
   background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png) no-repeat;
 }
 
+.ApplicationRegistryWorkingArea .UIPermissionForm .HorizontalLayout .UIFormGrid td.FieldLabel {
+	padding: 0px;
+}
+
 .ApplicationRegistryWorkingArea .UIAction  {
   width: 145px;
 }
 
 .ApplicationRegistryWorkingArea .UIForm .HorizontalLayout .UIAction {
   width: 170px;
-  border: 1px soild red;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .HorizontalLayout .UIAction {
+  width: 80px;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .HorizontalLayout .UIFormGrid .UIAction {
+  width: 230px;
 }

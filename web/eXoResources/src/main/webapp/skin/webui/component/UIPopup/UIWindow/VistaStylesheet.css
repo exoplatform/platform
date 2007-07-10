@@ -191,7 +191,7 @@
   overflow: hidden;
 }
 
-.UIPageBody ..UIApplicationRegistryPortlet {
+.UIPageBody .UIApplicationRegistryPortlet {
 	width: 99%;
 	margin: auto;
 	margin-bottom: 10px;

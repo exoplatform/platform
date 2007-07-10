@@ -7,17 +7,17 @@
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabLeft {
-	background: url(VistaSkin/background/SimpleTabLeft29x24.png) no-repeat left;
+	background: url(VistaSkin/background/SimpleTabLeft29x24.png) no-repeat left bottom;
 	padding-left: 29px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabRight {
-	background: url(VistaSkin/background/SimpleTabRight3x24.png) no-repeat right;
+	background: url(VistaSkin/background/SimpleTabRight3x24.png) no-repeat right bottom;
 	padding-right: 3px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabRepeat {
-	background: url(VistaSkin/background/SimpleTabRepeat1x24.png) repeat-x ;
+	background: url(VistaSkin/background/SimpleTabRepeat1x24.png) repeat-x bottom;
 	height: 24px;
 }
 
@@ -28,23 +28,24 @@
 }
 
 /***-SelectedTab VTabSimpleStyle VerticalSlideTabs-***/
+
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab {
 	margin: 5px 5px 0px 5px;
 	cursor: pointer;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLeft {
-	background: url(VistaSkin/background/SelectedTabLeft27x24.png) no-repeat left;
+	background: url(VistaSkin/background/SelectedTabLeft27x24.png) no-repeat left bottom;
 	padding-left: 27px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabRight {
-	background: url(VistaSkin/background/SelectedTabRight17x24.png) no-repeat right;
+	background: url(VistaSkin/background/SelectedTabRight17x24.png) no-repeat right bottom;
 	padding-right: 17px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabRepeat {
-	background: url(VistaSkin/background/SelectedTabRepeat1x24.png) repeat-x ;
+	background: url(VistaSkin/background/SelectedTabRepeat1x24.png) repeat-x bottom;
 	height: 24px;
 }
 
