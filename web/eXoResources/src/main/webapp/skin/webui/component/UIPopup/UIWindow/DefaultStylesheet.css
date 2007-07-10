@@ -36,6 +36,10 @@
 	padding: 0px 3px 0px 14px;
 }
 
+.TRContainer .UIWindow .WindowPortletControl {
+  padding: 0px 3px 0px 12px;
+}
+
 .UIWindow .WindowPortletControl .ControlIcon {
   float: left;
   width: 22px ; height: 16px ;
