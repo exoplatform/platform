@@ -169,23 +169,33 @@ public class UIPageCreationWizard extends UIPageWizard {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
+      WebuiRequestContext context = Util.getPortalRequestContext() ;
       
+//      UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);      
+//      uiExoStart.setUIControlWSWorkingComponent(UIWizardPageCreationBar.class);
+//      UIWizardPageCreationBar uiCreationBar = uiExoStart.getUIControlWSWorkingComponent();
+//
+//      UIPageEditBar uiPageEditBar = uiCreationBar.getChild(UIPageEditBar.class);
+//      UIWizardPageCreationBar uiParent = uiPageEditBar.getParent();
+
+      uiWizard.viewStep(4);
+      
+      if(uiWizard.getSelectedStep() < 4){
+        uiWizard.updateWizardComponent();
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.StepByStep",null)) ;
+        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        return ;
+      }
+
       UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);      
       uiExoStart.setUIControlWSWorkingComponent(UIWizardPageCreationBar.class);
       UIWizardPageCreationBar uiCreationBar = uiExoStart.getUIControlWSWorkingComponent();
 
       UIPageEditBar uiPageEditBar = uiCreationBar.getChild(UIPageEditBar.class);
       UIWizardPageCreationBar uiParent = uiPageEditBar.getParent();
-
-      uiWizard.viewStep(4);      
-      if(uiWizard.getSelectedStep() < 4){
-        uiWizard.updateWizardComponent();
-        return;
-      }
       
       UIPageTemplateOptions uiPageTemplateOptions = uiWizard.findFirstComponentOfType(UIPageTemplateOptions.class);
-      UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);      
-      WebuiRequestContext context = Util.getPortalRequestContext() ;  
+      UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);        
       
       String ownerType = PortalConfig.USER_TYPE ;
       String ownerId = context.getRemoteUser() ;
