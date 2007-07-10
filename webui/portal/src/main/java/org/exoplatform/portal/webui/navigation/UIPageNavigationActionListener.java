@@ -7,6 +7,7 @@ package org.exoplatform.portal.webui.navigation;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -99,7 +100,23 @@ public class UIPageNavigationActionListener {
       String remoteUser = rcontext.getRemoteUser();
       PageNavigation oldNavigation = dataService.getPageNavigation(navigation.getId(), remoteUser);
       if(oldNavigation == null) dataService.create(navigation); else dataService.update(navigation);
+      //TODO: Tung.Pham added
+      //----------------------------------------
+      UIPortal uiPortal = Util.getUIPortal();
+      setNavigation(uiPortal.getNavigations(), navigation) ;
+      //----------------------------------------
       rcontext.addUIComponentToUpdateByAjax(uiManagement);      
     }
+    //TODO: Tung.Pham added    
+    private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
+      for(int i = 0; i < navs.size(); i++) {
+        if(navs.get(i).getId().equals(nav.getId())) {
+          navs.set(i, nav);
+          return;
+        }
+      }
+      navs.add(nav) ;
+    }
+    
   }
 }
