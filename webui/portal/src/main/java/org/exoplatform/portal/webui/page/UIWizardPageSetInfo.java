@@ -132,14 +132,9 @@ public class UIWizardPageSetInfo extends UIForm {
   //TODO: Tung.Pham added
   public void processRender(WebuiRequestContext context) throws Exception {
     UIPageNodeSelector uiPageNodeSelector = getChild(UIPageNodeSelector.class);
-    UIFormStringInput uiNameInput = getChildById(PAGE_NAME) ;
-    UIFormStringInput uiDisplayNameInput = getChildById(PAGE_DISPLAY_NAME) ;
     PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
+    if (pageNode == null) reset() ;
     
-    if (pageNode == null){
-      uiNameInput.setValue(null) ;
-      uiDisplayNameInput.setValue(null) ;
-    }
     super.processRender(context) ;
   }
   

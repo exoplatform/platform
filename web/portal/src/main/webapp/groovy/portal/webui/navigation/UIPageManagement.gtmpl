@@ -24,7 +24,8 @@
   </div>
 	<div class="ControlArea">    
     <%
-		  if(uicomponent.getChild(UIPageEditBar.class).isRendered()) { 
+    	navigations = uicomponent.getChild(UIPageNodeSelector.class).getPageNavigations();
+		  if(uicomponent.getChild(UIPageEditBar.class).isRendered() && navigations.size() >= 1) { 
    	    uicomponent.renderChild(UIPageEditBar.class) ;
  	    }
     %>

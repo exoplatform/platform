@@ -158,7 +158,7 @@ public class UIPageBrowser extends UISearch {
       }
       
       if(!page.isModifiable()){
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-deletePermission", new String[]{page.getName()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return;
       }

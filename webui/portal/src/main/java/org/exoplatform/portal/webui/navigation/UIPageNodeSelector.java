@@ -31,6 +31,7 @@ import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -247,6 +248,17 @@ public class UIPageNodeSelector extends UIContainer {
       if(ele.getId().equals(id)) return ele ;
     }
     return null ;
+  }
+  
+  //TODO: Tung.Pham added
+  public void processRender(WebuiRequestContext context) throws Exception {
+    UIRightClickPopupMenu uiPopupMenu = getChild(UIRightClickPopupMenu.class);
+    if(uiPopupMenu != null){
+      if(navigations == null || navigations.size() < 1) uiPopupMenu.setRendered(false) ;
+      else uiPopupMenu.setRendered(true) ;
+    }
+    
+    super.processRender(context) ;
   }
   
   public SelectedNode getCopyNode() { return copyNode; }
