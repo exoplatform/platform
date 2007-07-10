@@ -8,14 +8,11 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIGrid;
-import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
@@ -70,14 +67,15 @@ public class UIPageSelector extends UIFormInputContainer<String> {
     
     UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
     Page page = service.getPage(value, pcontext.getRemoteUser()) ;
-    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
+//    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
     if(page == null) return this ;
-    
-    if(!page.isModifiable()){
-      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{value})) ;;
-      pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
-      return this;
-    }
+
+    //TODO: Tung.Pham modified
+//    if(!page.isModifiable()){
+//      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{value})) ;;
+//      pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+//      return this;
+//    }
    
     UIFormPopupWindow uiPopup = getAncestorOfType(UIFormPopupWindow.class);
     if(uiPopup != null) uiPopup.setShow(false);
