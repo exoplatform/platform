@@ -24,6 +24,7 @@ import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditPage
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditSelectedNodeActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.PasteNodeActionListener;
 import org.exoplatform.portal.webui.page.UIPage;
+import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
@@ -307,7 +308,9 @@ public class UIPageNodeSelector extends UIContainer {
       }
       
       UIPage uiPage = Util.toUIPage(node, toolPanel);
-      //UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ; 
+      //UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ;
+      UIPageBody uiPageBody = uiPortalApp.findFirstComponentOfType(UIPageBody.class) ; 
+      if(uiPageBody.getUIComponent() != null) uiPageBody.setUIComponent(null);
       toolPanel.setUIComponent(uiPage);
       //toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
 

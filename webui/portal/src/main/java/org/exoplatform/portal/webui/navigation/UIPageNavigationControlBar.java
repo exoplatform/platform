@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -76,6 +77,9 @@ public class UIPageNavigationControlBar extends UIToolbar {
       //------------------------------------------------
       oldUIPortal.setSelectedNavigation(oldSelectedNavi) ;
       oldUIPortal.setSelectedNode(oldSelectedNode) ;
+      List<PageNode> selectedPaths = new ArrayList<PageNode>() ;
+      selectedPaths.add(oldSelectedNode) ;
+      oldUIPortal.setSelectedPaths(selectedPaths) ;
       UIPageNodeSelector uiPageNodeSelector = uiPageNav.<UIContainer>getParent().findFirstComponentOfType(UIPageNodeSelector.class);
       uiPageNodeSelector.loadNavigations();
       
