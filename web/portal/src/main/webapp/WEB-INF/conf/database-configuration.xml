@@ -15,7 +15,6 @@
         <description>Default Hibernate Service</description>
         <property name="hibernate.show_sql" value="false"/>
         <property name="hibernate.cglib.use_reflection_optimizer" value="true"/>
-        <!-- property name="hibernate.connection.url" value="jdbc:hsqldb:file:/tmp/hsql/exodb"/ -->
         <property name="hibernate.connection.url" value="${connectionUrl}"/>
         <property name="hibernate.connection.driver_class" value="${driverClass}"/>
         <property name="hibernate.connection.autocommit" value="true"/>
@@ -59,63 +58,5 @@
         </properties-param>
       </init-params>
     </component-plugin>
-    <!--
-    <component-plugin>
-      <name>bind.datasource</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
-      <init-params>
-        <value-param>
-          <name>bind-name</name>
-          <value>jdbcjcr</value>
-        </value-param>
-        <value-param>
-          <name>class-name</name>
-          <value>javax.sql.DataSource</value>
-        </value-param>
-        <value-param>
-          <name>factory</name>
-          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-        </value-param>
-        <properties-param>
-          <name>ref-addresses</name>
-          <description>ref-addresses</description>
-          <property name="driverClassName" value="${driverClass}"/>
-          <property name="url" value="${connectionUrl}"/>
-          <property name="username" value="${username}"/>
-          <property name="password" value="${password}"/>
-        </properties-param>
-      </init-params>
-    </component-plugin>
-    -->
-    <!--
-    <component-plugin>
-      <name>bind.datasource</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.naming.BindReferencePlugin</type>
-      <init-params>
-        <value-param>
-          <name>bind-name</name>
-          <value>jdbcjcr2</value>
-        </value-param>
-        <value-param>
-          <name>class-name</name>
-          <value>javax.sql.DataSource</value>
-        </value-param>
-        <value-param>
-          <name>factory</name>
-          <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-        </value-param>
-        <properties-param>
-          <name>ref-addresses</name>
-          <description>ref-addresses</description>
-          <property name="driverClassName" value="${driverClass}"/>
-          <property name="url" value="${connectionUrl}"/>
-          <property name="username" value="${username}"/>
-          <property name="password" value="${password}"/>
-        </properties-param>
-      </init-params>
-    </component-plugin>
-    -->
   </external-component-plugins>
 </configuration>

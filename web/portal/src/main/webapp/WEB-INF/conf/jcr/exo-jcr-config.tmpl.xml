@@ -1,6 +1,5 @@
 <repository-service default-repository="repository">
    <repositories>
-
     <repository name="repository" system-workspace="production" default-workspace="production">
      <security-domain>exo-domain</security-domain>
      <access-control>optional</access-control>

@@ -29,6 +29,7 @@ public class PortalRequestHandler extends WebRequestHandler {
 
   @SuppressWarnings("unchecked")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
+    System.out.println("SESSION ID = " + req.getSession().getId());
     res.setHeader("Cache-Control", "no-cache");
     
     PortalApplication app =  controller.getApplication(PortalApplication.PORTAL_APPLICATION_ID) ;

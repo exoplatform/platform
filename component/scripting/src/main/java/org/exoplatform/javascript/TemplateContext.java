@@ -10,7 +10,6 @@ import java.util.Map;
 
 import org.exoplatform.resolver.ResourceResolver;
 import org.mozilla.javascript.Script;
-
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen

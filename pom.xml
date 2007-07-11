@@ -111,6 +111,10 @@
               <name>org.apache.commons.logging.simplelog.log.net.hibernate</name>
               <value>warn</value>
             </property>
+            <property>
+              <name>java.naming.factory.initial</name>
+              <value>org.exoplatform.services.naming.SimpleContextFactory</value>
+            </property>
           </systemProperties>
         </configuration>
       </plugin>
