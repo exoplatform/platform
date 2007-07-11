@@ -1,6 +1,6 @@
 eXo.require('eXo.core.TemplateEngine');
 eXo.require('eXo.application.ApplicationDescriptor');
-eXo.require('eXo.application.console.Editor', '/eXoAppWeb/javascript/');
+eXo.require('eXo.core.Editor');
 
 function UIConsoleApplication() {
 	this.appCategory = "web" ;
@@ -37,11 +37,6 @@ UIConsoleApplication.prototype.createApplicationInstance = function(appDescripto
 //double load initApplication
 //minh.js.exo
 UIConsoleApplication.prototype.initApplication = function(applicationId, instanceId) {
-//	if(instanceId == null) {
-//	  instanceId = eXo.core.DOMUtil.generateId(applicationId);
-//	  var application = "eXo.application.console.UIConsoleApplication";
-//	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId);
-//  }
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.application.console.UIConsoleApplication);
 

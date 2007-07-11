@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>General test</title>
+      <script type="text/javascript" language="JavaScript">
+        var eXo = function() {} ;
+        eXo.core = function() {} ;      
+      </script>  
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/Util.js"></script>
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/Browser.js"></script>
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/DefaultKeyboardListener.js"></script>
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/SimpleNodeEditor.js"></script>
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/Keyboard.js"></script>
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/Editor.js"></script>
+      <script language="JavaScript" type="text/javascript" src="LogEngine.js"></script>
+      <link rel="stylesheet" type="text/css" href="LogEngineStyle.css">
+      <style type="text/css">
+        .RedText {
+          color: #ff0000;
+        }
+        
+        .BlueText {
+          color: #0000ff;
+        }
+      </style>
+	</head>
+	<body>
+	  <div contenteditable="true">trong saldkgj asldkjgas;ld</div>
+    <div class="Space"></div>
+    <div class="Editor" id="line1" editcontainer="1">
+      Test something <span class="RedText" editable="1">with red text...</span><span class="BlueText" editable="1"> and this is blue text</span>
+    </div>
+    <hr>
+    <div class="Editor" id="line2" editcontainer="1">Aptana Web ide</div>
+    <hr>
+    <div class="Editor" id="line3" editcontainer="1">Lighweight Editor</div>
+    <script language="JavaScript" type="text/javascript">
+      eXo.core.Editor.registerEditors(document.body) ;
+      eXo.core.LogEngine.createLogPanel() ;
+    </script>
+	</body>
+</html>
