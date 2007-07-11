@@ -46,7 +46,6 @@ public class UIFormPopupWindow extends UIPopupWindow implements UIFormInput<Obje
     public void execute(Event<UIPopupWindow> event) throws Exception {
       UIPopupWindow uiPopupWindow = event.getSource() ;
       UIForm uiForm = uiPopupWindow.getAncestorOfType(UIForm.class);   
-      if(!uiPopupWindow.isShow()) return;
       uiPopupWindow.setShow(false) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
     }
