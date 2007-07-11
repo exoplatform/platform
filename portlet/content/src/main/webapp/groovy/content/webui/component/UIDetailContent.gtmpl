@@ -6,7 +6,7 @@
   items = uicomponent.getListItems() ;  
 %>
 
-<div id="<%=uicomponent.getId();%>">  
+<div id="<%=uicomponent.getId();%>" style="width: 99%;">  
 	<%/*Begin Content Detail*/ %>
 	<div class="ContentBreadcumbs">
 		<div class="CategoryControlBar">

@@ -14,6 +14,10 @@
   margin: 5px 0px 0px 3px ;
 }
 
+.UIPortlet .CONTROL-PORTLET .UIInfoBar {
+	width: 99.5%;
+}
+
 .UIPortlet .ViewPortletIcon {
   float: left;
   width: 16px; height: 16px; 
@@ -89,6 +93,7 @@
 
 /*##############################- PortletLayoutDecorator  -################################*/
 .PortletLayoutDecorator {
+	width: 99.5%;
 }
 
 .PortletLayoutDecorator .TopLeft {

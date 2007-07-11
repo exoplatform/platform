@@ -17,13 +17,13 @@
 			  <% uicomponent.renderChild(UIContentNavigation.class); %>
 			</div>
 			<div class="UIContentWorkingArea">
-			  <% uicomponent.renderChild(UIContentWorkingArea.class); %>
- 				  <% 
- 				     UIPopupMessages uiPopup = uicomponent.getUIPopupMessages(); 
- 				     if(uiPopup != null) uicomponent.renderUIComponent(uiPopup);
- 				  %>  
+			  <% 
+			  	uicomponent.renderChild(UIContentWorkingArea.class);
+ 				  UIPopupMessages uiPopup = uicomponent.getUIPopupMessages(); 
+ 				  if(uiPopup != null) uicomponent.renderUIComponent(uiPopup);
+ 				%>  
 			</div>
-	  	<div style="clear: left;"><span></span></div>
+	  	<div style="clear: both;"><span></span></div>
 		</div>
 	</div>
 </div>

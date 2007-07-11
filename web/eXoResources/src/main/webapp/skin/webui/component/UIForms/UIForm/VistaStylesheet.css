@@ -64,10 +64,6 @@
   background: white ;
 }
 
-.UIForm .HorizontalLayout .UIAction {
-  margin-bottom: 0px;
-}
-
 .UIForm .HorizontalLayout input {
   width: 230px ;
   font-size: 11px;

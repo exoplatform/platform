@@ -14,6 +14,10 @@
   background: url('VistaSkin/background/DragBG30x20.gif');
 }
 
+.UIPortlet .CONTROL-PORTLET .UIInfoBar {
+	width: 99.5%;
+}
+
 .UIPortlet .PortletInfoBar .InfoBarLeft {
   padding-left: 10px ;margin: 0px 1px 0px 2px;
   background: url('VistaSkin/background/InfoBarL10x28.png') no-repeat left ;
@@ -169,6 +173,7 @@
 }
 /*##############################- PortletLayoutDecorator  -################################*/
 .PortletLayoutDecorator {
+	width: 99.5%;
 }
 
 .PortletLayoutDecorator .TopLeft {
