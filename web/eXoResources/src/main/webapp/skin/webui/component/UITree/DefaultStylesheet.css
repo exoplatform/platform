@@ -25,7 +25,6 @@
 
 .UITree .TreeContainer .Node {
   margin: 3px 0px 0px 0px ;
-  overflow: hidden ;
   padding-left: 9px;
   clear: both ;
   width: 90%;
