@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+  <component>
+    <key>org.exoplatform.services.organization.OrganizationService</key>
+    <type>org.exoplatform.services.organization.jdbc.OrganizationServiceImpl</type>
+  </component>
+  <import>classpath:/conf/portal/organization-configuration.xml</import>   
+</configuration>  
