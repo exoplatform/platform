@@ -1,4 +1,7 @@
-.UIExoStart {
+.UIExoStart {}
+
+#StartMenuContainer {
+  position: absolute;
 }
 
 .UIExoStart .StartBarContainer {

@@ -382,29 +382,29 @@ UIPortal.prototype.popupButton = function(url, action) {
 } ;
 
 /** Created: by Duy Tu **/
-UIPortal.prototype.onLoads = function() {
-	DOMUtil = eXo.core.DOMUtil;
-	var tabContents = document.getElementById("TabContents") ;
-	var uiTabContent = DOMUtil.findDescendantsByClass(tabContents, "div", "UITabContent");
-	if(uiTabContent.length > 0) {
-		for(var i = 0;i < uiTabContent.length; ++i ){
-			var uiInfoBar = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "UIInfoBar") ;
-			var layOutContainer = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "LAYOUT-CONTAINER") ;
-			if(uiInfoBar) uiInfoBar.style.display = "none";
-			if(layOutContainer) {
-				layOutContainer.style.border = "none";
-			  layOutContainer.style.background = "none";
-			}
-			if (eXo.webui.UIHorizontalTabs) {
-				if (eXo.webui.UIHorizontalTabs.currentTab == i) {
-					var uiTabContainer = eXo.core.DOMUtil.findAncestorByClass(uiTabContent[i], "UITabContainer");
-					var tabs = eXo.core.DOMUtil.findDescendantsByClass(uiTabContainer, "div", "UITab");
-					eXo.webui.UIHorizontalTabs.displayTabContent(tabs[i].firstChild);
-				}
-			}
-		}
-	}
-} ;
+//UIPortal.prototype.onLoads = function() {
+//	DOMUtil = eXo.core.DOMUtil;
+//	var tabContents = document.getElementById("TabContents") ;
+//	var uiTabContent = DOMUtil.findDescendantsByClass(tabContents, "div", "UITabContent");
+//	if(uiTabContent.length > 0) {
+//		for(var i = 0;i < uiTabContent.length; ++i ){
+//			var uiInfoBar = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "UIInfoBar") ;
+//			var layOutContainer = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "LAYOUT-CONTAINER") ;
+//			if(uiInfoBar) uiInfoBar.style.display = "none";
+//			if(layOutContainer) {
+//				layOutContainer.style.border = "none";
+//			  layOutContainer.style.background = "none";
+//			}
+//			if (eXo.webui.UIHorizontalTabs) {
+//				if (eXo.webui.UIHorizontalTabs.currentTab == i) {
+//					var uiTabContainer = eXo.core.DOMUtil.findAncestorByClass(uiTabContent[i], "UITabContainer");
+//					var tabs = eXo.core.DOMUtil.findDescendantsByClass(uiTabContainer, "div", "UITab");
+//					eXo.webui.UIHorizontalTabs.displayTabContent(tabs[i].firstChild);
+//				}
+//			}
+//		}
+//	}
+//} ;
 
 UIPortal.prototype.createJSApplication = function(application, applicationId, instanceId, appLocation) {
 	if(application) {

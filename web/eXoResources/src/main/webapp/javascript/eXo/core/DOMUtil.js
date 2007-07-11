@@ -1,11 +1,18 @@
 function DOMUtil() {
-	this.hideElementList = new eXo.core.Array() ;
+	this.hideElementList = new Array() ;
 } ;
 
 DOMUtil.prototype.hasClass = function(elemt, className) {
 	var reg = new RegExp('(^|\\s+)' + className + '(\\s+|$)') ;
 	return reg.test(elemt['className']) ;
 } ;
+
+DOMUtil.prototype.addClass = function(elemt, className) {
+  if (this.hasClass(elemt, className)) return ;
+	elemt['className'] = [elemt['className'], className].join(' ');
+} ;
+
+DOMUtil.prototype.replaceClass = function(elemt, oldClazz, newClazz) {} ;
 
 DOMUtil.prototype.getChildrenByTagName = function(element, tagName) {
 	var ln = 0 ;

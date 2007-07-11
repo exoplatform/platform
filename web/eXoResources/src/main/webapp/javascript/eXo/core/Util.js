@@ -115,7 +115,7 @@ HashMap.prototype.clear = function() {
 } ;
 
 /*************************************************************************/
-eXo.core.Array = Array.prototype.constructor ;
+//eXo.core.Array = Array.prototype.constructor ;
 eXo.core.HashMap = HashMap.prototype.constructor ;
 /*************************************************************************/
 

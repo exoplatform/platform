@@ -32,7 +32,7 @@ eXo.require = function(module, jsLocation) {
   }
   window.status = "Loading Javascript Module " + module ;
   if(jsLocation == null) jsLocation = '/eXoResources/javascript/' ;
-  var path = jsLocation  + module.replace(/\./g, '/')  + '.js' ;
+  var path = jsLocation  + module.replace(/\./g, '/')  + '.js?test='+ (new Date()).getTime() ;
   var request = eXo.core.Browser.createHttpRequest() ;
   request.open('GET', path, false) ;
   request.setRequestHeader("Cache-Control", "max-age=86400") ;

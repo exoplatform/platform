@@ -3,7 +3,8 @@
 	
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
-	jsmanager.addJavascript('eXo.portal.UIPortal.onLoads();');
+	//jsmanager.addJavascript('eXo.portal.UIPortal.onLoads();');
+	System.out.println(uicomponent.getParent().getParent()) ;
 %>
 <div class="UITabContainer">
 	<div class="UIHorizontalTabs">
@@ -52,7 +53,7 @@
 	     if(height != null) style += "height: "+height+"px;"
 	     if(style.length() > 0) style += "\"";
 	  %>	          
-		<div id="TabContents" class="UITabContentContainer" $style>
+		<div class="UITabContentContainer" $style>
 
 		<%
 		  status = "block";
