@@ -1,7 +1,8 @@
 eXo.require('eXo.core.Browser') ;
 
 function UIMaskLayer() {
-	this.count = 0 ;
+// TODO: This variable seem to be used
+//	this.count = 0 ;
 } ;
 
 UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, position) {

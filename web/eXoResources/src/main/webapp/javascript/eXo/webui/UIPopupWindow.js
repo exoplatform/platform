@@ -11,11 +11,10 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	if(popup == null) return;
 	popup.style.visibility = "hidden" ;
 	this.superClass.init(popup) ;
-	var contentBlock = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'Content');
+	var contentBlock = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'PopupContent');
 	if((eXo.core.Browser.getBrowserHeight() - 100 ) < contentBlock.offsetHeight) {
 		contentBlock.style.height = (eXo.core.Browser.getBrowserHeight() - 100) + "px";
 	}
-
 	var popupBar = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'PopupTitle') ;
 
 	popupBar.onmousedown = this.initDND ;
@@ -90,7 +89,7 @@ UIPopupWindow.prototype.initDND = function(evt) {
 
 	DragDrop.initCallback = function (dndEvent) {
 		var dragObject = dndEvent.dragObject ;
-		dragObject.uiWindowContent = DOMUtil.findFirstDescendantByClass(dragObject, "div", "Content") ;
+		dragObject.uiWindowContent = DOMUtil.findFirstDescendantByClass(dragObject, "div", "PopupContent") ;
 		dragObject.uiWindowContent.style.overflow = "hidden" ;
   }
 
@@ -132,7 +131,7 @@ UIPopupWindow.prototype.initDND = function(evt) {
 
 UIPopupWindow.prototype.resize = function(evt) {
 	var targetPopup = document.getElementById(this.getAttribute("popupId")) ;
-	var content = eXo.core.DOMUtil.findFirstDescendantByClass(targetPopup, "div", "Content") ;
+	var content = eXo.core.DOMUtil.findFirstDescendantByClass(targetPopup, "div", "PopupContent") ;
 	var pointerX = eXo.core.Browser.findMouseRelativeX(targetPopup, evt) ;
 	var pointerY = eXo.core.Browser.findMouseRelativeY(targetPopup, evt) ;
 	var delta = eXo.core.Browser.findPosYInContainer(content,targetPopup) +

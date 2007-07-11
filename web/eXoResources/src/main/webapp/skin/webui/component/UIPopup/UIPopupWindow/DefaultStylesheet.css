@@ -68,7 +68,7 @@
   
 }
 
-.UIPopupWindow .Content {
+.UIPopupWindow .PopupContent {
   background: white;
   border: 1px solid gray;
   border-right: 1px solid #b7b7b7;
