@@ -12,13 +12,11 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
-import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
-import org.exoplatform.webui.form.UIFormInputBase;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
@@ -43,24 +41,32 @@ public class UIGroupForm extends UIForm {
   
   private Group group_;
   private String componentName_ = "AddGroup";
+  private static String GROUP_NAME = "groupName",
+                        GROUP_LABEL = "label",
+                        GROUP_DESCRIPSION = "description" ;
   
   public UIGroupForm() throws Exception {
-    addUIFormInput(new UIFormStringInput("groupName", "groupName", null).
+    addUIFormInput(new UIFormStringInput(GROUP_NAME, GROUP_NAME, null).
                    addValidator(EmptyFieldValidator.class).
                    addValidator(IdentifierValidator.class));
-    addUIFormInput(new UIFormStringInput("label", "label", null).
-                   addValidator(EmptyFieldValidator.class));
-    addUIFormInput(new UIFormTextAreaInput("description","description",null));    
+    addUIFormInput(new UIFormStringInput(GROUP_LABEL, GROUP_LABEL, null)) ;
+    addUIFormInput(new UIFormTextAreaInput(GROUP_DESCRIPSION,GROUP_DESCRIPSION,null));    
   }
   
   public Group getGroup() { return group_; }
   
   public void setGroup(Group group) throws Exception { 
-    this.group_ = group;    
-    this.<UIFormStringInput>getUIInput("groupName").setValue("");
-    this.<UIFormStringInput>getUIInput("label").setValue("");
-    this.<UIFormTextAreaInput>getUIInput("description").setValue("");    
-    if(group != null) invokeGetBindingBean(group);
+    this.group_ = group;
+    //TODO: Tung.Pham modified
+    //-----------------------------------
+    if(group_ == null){
+      getUIStringInput(GROUP_NAME).setEditable(UIFormStringInput.ENABLE) ;
+      reset() ;
+      return ;
+    }
+    getUIStringInput(GROUP_NAME).setEditable(UIFormStringInput.DISABLE) ;
+    invokeGetBindingBean(group_);
+    //-----------------------------------
   }
   
   public String getName() { return componentName_; }
@@ -68,13 +74,13 @@ public class UIGroupForm extends UIForm {
   public void setName(String componentName) { componentName_ = componentName; }
   
   //TODO: Tung.Pham added
-  public void setEditableAll() {
-    for (UIComponent component : getChildren()) {
-      if (component  instanceof UIFormInputBase<?>)  {
-        ((UIFormInputBase<?>)component).setEditable(true) ;
-      }
-    }
-  }
+//  public void setEditableAll() {
+//    for (UIComponent component : getChildren()) {
+//      if (component  instanceof UIFormInputBase<?>)  {
+//        ((UIFormInputBase<?>)component).setEditable(true) ;
+//      }
+//    }
+//  }
   
   static  public class SaveActionListener extends EventListener<UIGroupForm> {
     public void execute(Event<UIGroupForm> event) throws Exception {
@@ -86,6 +92,12 @@ public class UIGroupForm extends UIForm {
       Group currentGroup =  uiGroupForm.getGroup();
       if(currentGroup != null) {
         uiGroupForm.invokeSetBindingBean(currentGroup);
+        //TODO: Tung.Pham added
+        //----------------------------------
+        if(currentGroup.getLabel() == null || currentGroup.getLabel().trim().length() == 0) {
+          currentGroup.setLabel(currentGroup.getGroupName()) ;
+        }
+        //----------------------------------
         service.getGroupHandler().saveGroup(currentGroup, false);
         uiGroupForm.reset();
         uiGroupForm.setGroup(null);
@@ -97,7 +109,7 @@ public class UIGroupForm extends UIForm {
       String currentGroupId = null ;
       currentGroup =  uiGroupExplorer.getCurrentGroup() ;
       if(currentGroup != null) currentGroupId = currentGroup.getId() ;
-      String groupName = "/"+ uiGroupForm.getUIStringInput("groupName").getValue() ;
+      String groupName = "/"+ uiGroupForm.getUIStringInput(GROUP_NAME).getValue() ;
       
       GroupHandler groupHandler = service.getGroupHandler() ;
       
@@ -112,6 +124,12 @@ public class UIGroupForm extends UIForm {
       }
       newGroup = groupHandler.createGroupInstance();
       uiGroupForm.invokeSetBindingBean(newGroup) ;
+      //TODO: Tung.Pham added
+      //----------------------------------
+      if(newGroup.getLabel() == null || newGroup.getLabel().trim().length() == 0) {
+        newGroup.setLabel(newGroup.getGroupName()) ;
+      }
+      //----------------------------------
       if(currentGroupId == null) {
         groupHandler.addChild(null, newGroup, true) ;
         uiGroupExplorer.changeGroup(groupName) ;

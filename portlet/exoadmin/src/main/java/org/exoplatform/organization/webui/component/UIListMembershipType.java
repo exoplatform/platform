@@ -83,7 +83,8 @@ public class UIListMembershipType extends UIContainer {
       //TODO: Tung.Pham added
       //--------------------------------------
       UIMembershipTypeForm uiForm = membership.findFirstComponentOfType(UIMembershipTypeForm.class) ;
-      if(uiForm.getMembershipType() != null) {
+      MembershipType existMembershipType = uiForm.getMembershipType();
+      if(existMembershipType != null && existMembershipType.getName().equals(name)) {
         UIApplication uiApp = event.getRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIMembershipList.msg.InUse", null)) ;
         return ;

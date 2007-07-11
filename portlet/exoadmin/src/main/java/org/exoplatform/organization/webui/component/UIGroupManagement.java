@@ -62,10 +62,6 @@ public class UIGroupManagement extends UIContainer {
       UIGroupDetail uiGroupDetail = uiGroupManagement.getChild(UIGroupDetail.class) ;
       uiGroupDetail.setRenderedChild(UIGroupForm.class) ;
       UIGroupForm uiGroupForm = uiGroupDetail.getChild(UIGroupForm.class);
-      //TODO: Tung.Pham added
-      //------------------------------------------------------------------------------
-      uiGroupForm.setEditableAll() ;
-      //------------------------------------------------------------------------------
       uiGroupForm.setName("AddGroup");
       uiGroupForm.setGroup(null);
     }
@@ -88,10 +84,6 @@ public class UIGroupManagement extends UIContainer {
       }
       uiGroupDetail.setRenderedChild(UIGroupForm.class) ;
       UIGroupForm uiGroupForm = uiGroupDetail.getChild(UIGroupForm.class);
-      //TODO: Tung.Pham added
-      //------------------------------------------------------------------------------
-      uiGroupForm.getUIStringInput("groupName").setEditable(false) ;
-      //------------------------------------------------------------------------------
       uiGroupForm.setName("EditGroup");
       uiGroupForm.setGroup(currentGroup);
     }

@@ -115,6 +115,10 @@ public class UIGroupExplorer extends UIContainer {
       uiGroupExplorer.changeGroup(groupId) ;
       UIGroupManagement uiGroupManagement = uiGroupExplorer.getParent();
       UIGroupDetail uiGroupDetail = uiGroupManagement.getChild(UIGroupDetail.class);
+      //TODO: Tung.Pham added
+      //---------------------------------------------
+      uiGroupDetail.getChild(UIGroupForm.class).setGroup(null) ;
+      //---------------------------------------------
       uiGroupDetail.setRenderedChild(UIGroupInfo.class);
 		}
 	}
