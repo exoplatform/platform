@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.services.organization.Group;
+import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
@@ -93,6 +94,14 @@ public class UIGroupMembershipForm extends UIForm {
       }
       MembershipType membershipType = 
         service.getMembershipTypeHandler().findMembershipType(uiForm.getMembership());
+      //TODO: Tung.Pham added
+      //-----------------------------------------
+      Membership membership = service.getMembershipHandler().findMembershipByUserGroupAndType(username, group.getId(), membershipType.getName());
+      if(membership != null){
+        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.membership-exist", new String[]{group.getGroupName()})) ;
+        return ;
+      }
+      //-----------------------------------------
       service.getMembershipHandler().linkMembership(user,group,membershipType,true);               
       userInGroup.setValues(); 
       uiForm.reset();
