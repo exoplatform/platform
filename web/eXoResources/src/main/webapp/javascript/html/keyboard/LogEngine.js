@@ -84,7 +84,9 @@ LogEngine.prototype.createUIControl = function(_btnType, _uiType) {
         eXo.core.LogEngine._defaultAction(e, this);
       };
   }            
-  controlBtn.onclick = clickAction;    
+  if(clickAction) {
+    controlBtn.onclick = clickAction;    
+  }
   return controlBtn;
 }
   

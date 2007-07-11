@@ -36,10 +36,16 @@ Keyboard.prototype.getKeynum = function(event) {
 Keyboard.prototype.onKeyDown = function(event) {
   var keynum = this.getKeynum(event) ; 
   var keychar = String.fromCharCode(keynum) ;
+  
+  if(keynum == 13) {
+    keychar = '' ;
+  }
   var eventHandler = false ;
  
   if(keynum == 13) {
     eventHandler = 'onEnter' ;
+  } else if(keynum == 9) {
+    eventHandler = 'onTab' ;
   } else if(keynum == 8) {
     eventHandler = 'onBackspace' ;
   } else if(keynum == 46) {

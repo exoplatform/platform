@@ -2,11 +2,9 @@
  * @author uoc.nb
  */
 
-/*
-eXo.require('eXo.core.DefaultListener');
+eXo.require('eXo.core.DefaultKeyboardListener');
 eXo.require('eXo.core.SimpleNodeEditor');
 eXo.require('eXo.core.Keyboard');
-*/
 
 function Editor() {
   this.containerIdentify = 'editcontainer' ;

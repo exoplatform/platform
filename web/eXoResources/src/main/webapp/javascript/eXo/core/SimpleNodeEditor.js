@@ -73,7 +73,14 @@ SimpleNodeEditor.prototype.onDelete = function(keynum, keychar) {
   return false ;
 }
 
-SimpleNodeEditor.prototype.onEnter = function(keynum, keychar) {}
+SimpleNodeEditor.prototype.onEnter = function(keynum, keychar) {
+  this.write(this.beforeCursor, '', this.afterCursor) ;
+  return false ;
+}
+
+SimpleNodeEditor.prototype.onTab = function(keynum, keychar) {
+  return false ;
+}
 
 // Navigate keys
 SimpleNodeEditor.prototype.onHome = function(keynum, keychar) {

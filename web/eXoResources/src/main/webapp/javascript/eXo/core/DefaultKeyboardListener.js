@@ -26,6 +26,8 @@ DefaultKeyboardListener.prototype.onDelete = function(keynum, keychar) { return 
 
 DefaultKeyboardListener.prototype.onEnter = function(keynum, keychar) { return true ;}
 
+DefaultKeyboardListener.prototype.onTab = function(keynum, keychar) { return true ;}
+
 // Navigate keys
 DefaultKeyboardListener.prototype.onLeftArrow = function(keynum, keychar) { return true ;}
 
