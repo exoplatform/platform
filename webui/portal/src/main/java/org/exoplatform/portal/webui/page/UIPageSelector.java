@@ -8,6 +8,8 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -67,8 +69,12 @@ public class UIPageSelector extends UIFormInputContainer<String> {
     
     UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
     Page page = service.getPage(value, pcontext.getRemoteUser()) ;
-//    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
-    if(page == null) return this ;
+    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
+    if(page == null){
+      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{value})) ;;
+      pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());      
+      return this ;
+    }
 
     //TODO: Tung.Pham modified
 //    if(!page.isModifiable()){
