@@ -8,7 +8,6 @@ UIVerticalSlideTabs.prototype.slideInEffect = function() {
 		this.selectedTab.style.height = "0px";
 		this.selectedTab.style.display = "none";
 		delete this.selectedTab;
-//		this.clickedTab.style.overflow = "hidden";
 		this.clickedTab.style.display = "block";
 		setTimeout("eXo.webui.UIVerticalSlideTabs.slideOutEffect()",3) ;
 	}
@@ -20,7 +19,6 @@ UIVerticalSlideTabs.prototype.slideOutEffect = function() {
 		setTimeout("eXo.webui.UIVerticalSlideTabs.slideOutEffect()",3) ;
 	} else {
 		this.clickedTab.style.height = this.clickedTab.scrollHeight + "px";
-//		this.clickedTab.style.overflow = "auto";
 		delete this.clickedTab ;
 	}
 }
@@ -33,7 +31,6 @@ UIVerticalSlideTabs.prototype.switchVTab = function(clickedElement) {
  	for(var i = 0; i < uiVTabs.length; i++) {
     if(eXo.core.DOMUtil.getChildrenByTagName(uiVTabs[i], "div")[0].className == "SelectedTab"){
     	this.selectedTab =  eXo.core.DOMUtil.findFirstChildByClass(uiVTabs[i], "div", "UIVTabContent") ;
-//    	this.selectedTab.style.overflow = "hidden";
     	eXo.core.DOMUtil.getChildrenByTagName(uiVTabs[i], "div")[0].className = "NormalTab";
     	break;
     }    
@@ -43,7 +40,6 @@ UIVerticalSlideTabs.prototype.switchVTab = function(clickedElement) {
   if(this.clickedTab != this.selectedTab) {
   	if(this.selectedTab) this.slideInEffect() ;
   	else {
-//  		this.clickedTab.style.overflow = "hidden";
 			this.clickedTab.style.display = "block";
   		this.slideOutEffect() ;
   	}

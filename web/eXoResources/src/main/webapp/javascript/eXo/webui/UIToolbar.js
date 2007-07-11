@@ -1,10 +1,4 @@
-function UIToolbar() {
-  
-};
-
-UIToolbar.prototype.init = function() {
-  
-};
+function UIToolbar() {};
 
 UIToolbar.prototype.displayBlockContent = function(clickedEle) {
 	if(clickedEle == null) return;

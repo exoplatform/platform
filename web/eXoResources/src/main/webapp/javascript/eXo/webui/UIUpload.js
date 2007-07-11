@@ -63,9 +63,9 @@ UIUpload.prototype.refeshProgress = function(elementId) {
   }
     
   var response;
-   try{
+  try {
     eval("response = "+responseText);
-  }catch(err){
+  }catch(err) {
     return;  
   }
   
