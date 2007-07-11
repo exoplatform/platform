@@ -81,21 +81,23 @@ public class UserPortalConfigService {
     if (navigation != null) navigations.add(navigation) ;
 
     Collection<?> memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
-    Iterator<?> iterator = memberships.iterator() ;
-    
-    while(iterator.hasNext()) {
-      Membership m = (Membership) iterator.next() ;   
-      navigation = storage_.getPageNavigation(PortalConfig.GROUP_TYPE+"::"+m.getGroupId()) ;
-      if(navigation == null) continue;
-      boolean add = true;
-      for(PageNavigation nav : navigations) {
-        if(nav.getId().equals(navigation.getId())) {
-          add = false;
-          break;
+    if(memberships != null) {
+      Iterator<?> iterator = memberships.iterator() ;
+      
+      while(iterator.hasNext()) {
+        Membership m = (Membership) iterator.next() ;   
+        navigation = storage_.getPageNavigation(PortalConfig.GROUP_TYPE+"::"+m.getGroupId()) ;
+        if(navigation == null) continue;
+        boolean add = true;
+        for(PageNavigation nav : navigations) {
+          if(nav.getId().equals(navigation.getId())) {
+            add = false;
+            break;
+          }
         }
+        if(add) navigations.add(navigation) ;
       }
-      if(add) navigations.add(navigation) ;
-    }   
+    }
     userACL_.computeNavigation(navigations, accessUser);
     
     ArrayList<Widgets> widgets = new ArrayList<Widgets>();
