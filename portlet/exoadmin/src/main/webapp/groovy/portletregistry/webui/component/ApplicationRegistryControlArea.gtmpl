@@ -58,7 +58,7 @@
       <div class="UIVerticalSlideTabs">
    	    <% 
 				  for(category in portletCategories) { 			     
-	 			    String cTab, cName , display, description, displayName;
+	 			    String cTab, cName , display, description, displayName, clickEvt;
 				    cName  = category.getName();
 				    displayName =category.getDisplayName();
 				    description = category.getDescription();
@@ -67,11 +67,11 @@
 				    if(selectedCategory != null && cName == selectedCategory.getName()) {
 				      cTab = "SelectedTab" ;
 				      display = "display: block";
-				      onclick = "" ;
+				      clickEvt = "" ;
 				    }else {
 				    	cTab = "NormalTab" ;
 		          display = "display: none";
-		          onclick = uicomponent.event("ShowCategory", cName) ;
+		          clickEvt = uicomponent.event("ShowCategory", cName) ;
 				    }
 				    String actionLink = uicomponent.event("ShowCategory", cName) - "javascript:";
 				%>	
@@ -80,7 +80,7 @@
 				        <div class="TabLeft">
 				          <div class="TabRight">
 				            <div class="TabRepeat">
-				              <div class="OverflowContainer" onclick="$onclick; eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
+				              <div class="OverflowContainer" onclick="$clickEvt; eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
 									      <div class="LeftIcon"><span></span></div>
 							            <a class="TabLabel" href="javascript: void(0);"><%=displayName%></a>
 								          <div class="ControlContainer" style ="$display">
