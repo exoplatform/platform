@@ -9,7 +9,7 @@
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
   height: 34px;
-  position: static !important ; position: relative ;
+  position: expression('relative');
   
 }
 
