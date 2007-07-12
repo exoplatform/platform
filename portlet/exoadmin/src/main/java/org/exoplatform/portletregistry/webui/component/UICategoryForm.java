@@ -92,7 +92,8 @@ public class UICategoryForm extends UIForm {
         category.setCreatedDate(new Date()) ;
       }
 
-      service.save(category) ; 
+      service.save(category) ;
+      uiForm.setValue(null) ;
       uiRegistryCategory.initApplicationCategories();
       uiRegistryCategory.setSelectedCategory(category);
       uiParent.setShow(false);
@@ -122,6 +123,7 @@ public class UICategoryForm extends UIForm {
   static public class CloseActionListener extends EventListener<UICategoryForm>{
     public void execute(Event<UICategoryForm> event) throws Exception{
       UICategoryForm uiForm = event.getSource() ;
+      uiForm.setValue(null) ;
       UIPopupWindow uiParent = uiForm.getParent();
       uiParent.setShow(false);
     }

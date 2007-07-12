@@ -10,9 +10,11 @@ import java.util.List;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
@@ -118,6 +120,14 @@ public class ApplicationRegistryControlArea extends UIContainer {
   public List<Application> getPortlets() { return portlets ;  }  
   public void setPortlets(List <Application> portlets) { this.portlets = portlets ; }
   
+  //TODO: Tung.Pham added
+  public boolean isInUse(ApplicationCategory category) {
+    UIPopupWindow uiPopup = getChild(UIPopupWindow.class) ;
+    UICategoryForm uiForm = (UICategoryForm)uiPopup.getUIComponent() ;
+    ApplicationCategory existingCategory = uiForm.getCategory() ;
+    return (existingCategory != null && existingCategory.getName().equals(category.getName())) ;
+  }
+  
   static public class AddCategoryActionListener extends EventListener<ApplicationRegistryControlArea>{
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
       ApplicationRegistryControlArea uiRegistryCategory = event.getSource();
@@ -164,7 +174,16 @@ public class ApplicationRegistryControlArea extends UIContainer {
       ApplicationRegistryService service = uiSource.getApplicationComponent(ApplicationRegistryService.class);
       List<ApplicationCategory> list = uiSource.getPortletCategory();
       for(ApplicationCategory ele : list) {
+        //TODO: Tung.Pham modified
+        //--------------------------------------
+        //service.remove(ele) ;
+        if(uiSource.isInUse(ele)){
+          UIApplication uiApp = event.getRequestContext().getUIApplication() ;
+          uiApp.addMessage(new ApplicationMessage("ApplicationRegistryControlArea.msg.CategoryExist", new String[]{ele.getName()})) ;
+          continue ;
+        }
         service.remove(ele) ;
+        //--------------------------------------
       }
       uiSource.initApplicationCategories();
       UIPortletRegistryPortlet parent = uiSource.getParent();
@@ -180,6 +199,14 @@ public class ApplicationRegistryControlArea extends UIContainer {
       ApplicationRegistryService service = uiComp.getApplicationComponent(ApplicationRegistryService.class);            
       ApplicationCategory selectedCategory = uiComp.getSelectedPortletCategory();
       if(selectedCategory == null) return;
+      //TODO: Tung.Pham added
+      //------------------------------------------------
+      if(uiComp.isInUse(selectedCategory)) {
+        UIApplication uiApp = event.getRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("ApplicationRegistryControlArea.msg.CategoryExist", new String[]{selectedCategory.getName()})) ;
+        return ;
+      }
+      //------------------------------------------------
       service.remove(selectedCategory) ; 
       uiComp.initApplicationCategories();
     }

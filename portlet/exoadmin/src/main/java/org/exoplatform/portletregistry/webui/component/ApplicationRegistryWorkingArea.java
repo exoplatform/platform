@@ -15,6 +15,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
@@ -123,17 +124,32 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
   static public class DeletePortletActionListener extends EventListener<ApplicationRegistryWorkingArea> {
     public void execute(Event<ApplicationRegistryWorkingArea> event) throws Exception {
       String categoryName = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      ApplicationRegistryWorkingArea uicomp = event.getSource();
-      uicomp.setSeletcApplication(categoryName);
-      Application selectedPortlet = uicomp.getSelectApplication() ;
+      ApplicationRegistryWorkingArea workingArea = event.getSource();
+      workingArea.setSeletcApplication(categoryName);
+      Application selectedPortlet = workingArea.getSelectApplication() ;
       if(selectedPortlet == null) return ;
 
-      ApplicationRegistryService service = uicomp.getApplicationComponent(ApplicationRegistryService.class) ;
+      ApplicationRegistryService service = workingArea.getApplicationComponent(ApplicationRegistryService.class) ;
       String portletSelectedId = selectedPortlet.getId() ;
       Application portlet = service.getApplication(portletSelectedId);
+      //TODO: Tung.Pham added
+      //-------------------------------------
+      UIPopupWindow uiPopup = workingArea.getChild(UIPopupWindow.class) ;
+      UIComponent uiComponent = uiPopup.getUIComponent();
+      if(uiComponent != null) {
+        UIInfoPortletForm uiInfoForm = (UIInfoPortletForm)uiComponent ;
+        Application existingApp = uiInfoForm.getPortlet() ;
+        if(existingApp != null && existingApp.getId().equals(portlet.getId())) {
+          UIApplication uiApp = event.getRequestContext().getUIApplication() ;
+          uiApp.addMessage(new ApplicationMessage("ApplicationRegistryWorkingArea.msg.AppExist", new String[]{existingApp.getApplicationName()})) ;
+          return ;
+        }
+      }
+        
+      //-------------------------------------
       service.remove(portlet) ;  
-      uicomp.getPortlets().remove(selectedPortlet) ;
-      uicomp.setSeletcApplication((Application)null);
+      workingArea.getPortlets().remove(selectedPortlet) ;
+      workingArea.setSeletcApplication((Application)null);
     }
   }
 

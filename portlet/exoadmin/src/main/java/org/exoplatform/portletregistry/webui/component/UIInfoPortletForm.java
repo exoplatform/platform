@@ -54,6 +54,10 @@ public class UIInfoPortletForm extends UIForm {
 
   public void setValues(Application portlet) throws Exception {
     portlet_ = portlet;
+    if(portlet_ == null) {
+      getUIStringInput("applicationName").setEditable(true);
+      return ;
+    }
     getUIStringInput("applicationName").setEditable(false);
     invokeGetBindingBean(portlet) ;
   }
@@ -70,12 +74,14 @@ public class UIInfoPortletForm extends UIForm {
       uiForm.invokeSetBindingBean(portlet);
       portlet.setModifiedDate(Calendar.getInstance().getTime());
       service.update(portlet) ;
+      uiForm.setValues(null) ;
     }
   }
 
   static public class BackActionListener extends EventListener<UIInfoPortletForm>{
     public void execute(Event<UIInfoPortletForm> event) throws Exception{
       UIInfoPortletForm uiForm = event.getSource() ;
+      uiForm.setValues(null) ;
       UIPopupWindow uiParent = uiForm.getParent();
       uiParent.setShow(false);
     }
