@@ -67,9 +67,11 @@
 				    if(selectedCategory != null && cName == selectedCategory.getName()) {
 				      cTab = "SelectedTab" ;
 				      display = "display: block";
+				      onclick = "" ;
 				    }else {
 				    	cTab = "NormalTab" ;
 		          display = "display: none";
+		          onclick = uicomponent.event("ShowCategory", cName) ;
 				    }
 				    String actionLink = uicomponent.event("ShowCategory", cName) - "javascript:";
 				%>	
@@ -78,7 +80,7 @@
 				        <div class="TabLeft">
 				          <div class="TabRight">
 				            <div class="TabRepeat">
-				              <div class="OverflowContainer" onclick="<%=uicomponent.event("ShowCategory", cName)%>; eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
+				              <div class="OverflowContainer" onclick="$onclick; eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
 									      <div class="LeftIcon"><span></span></div>
 							            <a class="TabLabel" href="javascript: void(0);"><%=displayName%></a>
 								          <div class="ControlContainer" style ="$display">
