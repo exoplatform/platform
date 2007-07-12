@@ -27,7 +27,11 @@ public class Query <T> {
     ownerType_ = ownerType ;
     ownerId_ = ownerId;
     classType_ = clazz;
-    name_ = name;
+    try {
+      name_ = name;
+    }catch (Exception e) {
+      e.printStackTrace();
+    }
   }
   
   

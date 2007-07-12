@@ -11,10 +11,6 @@ import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.web.application.widget.WidgetApplication;
-import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 
 /**
  * Created by The eXo Platform SARL
@@ -47,7 +43,10 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
     int zIndex = uiWidget.getProperties().getIntValue("zIndex") ;
     
-    w.write("<div id = 'UIStickerWidget' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"' zIndex = '"+zIndex+"'><span></span></div>") ;
+    w.append("<div id = 'UIStickerWidget' applicationId = '").
+      append(instanceId).append("' posX = '").append(String.valueOf(posX)). 
+      append("' posY = '").append(String.valueOf(posY)).
+      append("' zIndex = '").append(String.valueOf(zIndex)).append("'><span></span></div>") ;
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.sticker.UIStickerWidget','UIStickerWidget','"+instanceId+"','/eXoWidgetWeb/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
