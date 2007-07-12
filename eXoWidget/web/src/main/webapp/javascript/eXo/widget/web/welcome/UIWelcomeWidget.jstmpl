@@ -22,7 +22,7 @@
 	          
 	          <div class="WelcomeBox">
 							<div class="UserWelcomeBox">
-							  <div class="StateMessage">Hello</div>
+							  <div class="StateMessage">Hello tran the trong</div>
 							  <div class="LoggedUserName"><%=context.widget.uiWelcomeWidget.userName%></div>
 							</div>
 							<div class="LabelSignout" title="Sign Out" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
