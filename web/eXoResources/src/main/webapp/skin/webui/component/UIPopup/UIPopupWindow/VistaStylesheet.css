@@ -67,11 +67,10 @@
   border: solid 1px #ffffff;
 }
 
-.UIPopupWindow .Content {
-  overflow: auto;
-  padding:0px;
-  margin:0px;
+.UIPopupWindow .PopupContent {
+  width: 100%;
   background: white;
+  overflow: auto;
 }
 
 .UIPopupWindow .Content .UIPopupMessages {

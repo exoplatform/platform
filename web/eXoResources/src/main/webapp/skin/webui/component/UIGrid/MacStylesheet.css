@@ -67,6 +67,11 @@
   background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat ;
 }
 
+.UIGrid .ViewIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/MacSkin/LightBulbOn.gif') no-repeat ;
+}
+
  .UIGrid .EditInfoIcon {
   width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat ;

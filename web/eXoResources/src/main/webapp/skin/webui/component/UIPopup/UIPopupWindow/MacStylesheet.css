@@ -63,14 +63,11 @@
 
 .UIPopupWindow .UIWindowContent {
   padding: 0px 5px 1px 5px;
-  
 }
 
-.UIPopupWindow .Content {
+.UIPopupWindow .PopupContent {
+  width: 100%;
   background: white;
-  border: 1px solid #cdcdcd;
-  border-right: 1px solid #949494;
-  border-bottom: 1px solid #949494;
   overflow: auto;
 }
 
