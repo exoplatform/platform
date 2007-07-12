@@ -113,14 +113,6 @@ Browser.prototype.initOpera = function() {
   }
 } ;
 
-//Browser.prototype.isIE6 = function() {
-//  if(typeof document.body.style.maxHeight == "undefined") {
-//    return true ;
-//  } else {
-//  	return false ;
-//  }
-//} ;
-
 Browser.prototype.isIE6 = function() {
   var agent = navigator.userAgent ;
   if(agent.indexOf("MSIE 6") >=0 ) {

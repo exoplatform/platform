@@ -90,7 +90,9 @@ UIPopupWindow.prototype.initDND = function(evt) {
 	DragDrop.initCallback = function (dndEvent) {
 		var dragObject = dndEvent.dragObject ;
 		dragObject.uiWindowContent = DOMUtil.findFirstDescendantByClass(dragObject, "div", "PopupContent") ;
-		dragObject.uiWindowContent.style.overflow = "hidden" ;
+		if(eXo.core.Browser.browserType == "mozilla") {
+			dragObject.uiWindowContent.style.overflow = "hidden" ;
+		}
   }
 
   DragDrop.dragCallback = function (dndEvent) {
@@ -98,7 +100,9 @@ UIPopupWindow.prototype.initDND = function(evt) {
 
   DragDrop.dropCallback = function (dndEvent) {
   	var dragObject = dndEvent.dragObject ;
-  	dragObject.uiWindowContent.style.overflow = "auto" ;
+		if(eXo.core.Browser.browserType == "mozilla") {
+  		dragObject.uiWindowContent.style.overflow = "auto" ;
+		}
   	
   	var DOMUtil = eXo.core.DOMUtil ;
   	var dragObjectY = parseInt(dragObject.style.top) ;		
@@ -123,7 +127,7 @@ UIPopupWindow.prototype.initDND = function(evt) {
 		} catch(err) {
 			alert(err.message) ;
 		} 	
-  }  
+  }
   var clickBlock = this ;
   var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
   DragDrop.init(null, clickBlock, dragBlock, evt) ;

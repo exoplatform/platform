@@ -55,6 +55,7 @@
 
 .UIPopupWindow .MiddleCenterDecorator {
   background: #bcc6f7;
+  padding: 3px 5px 1px 5px;
 }
 
 .UIPopupWindow .MiddleRightSideDecorator {
@@ -63,16 +64,14 @@
 }
 
 .UIPopupWindow .UIWindowContent {
-  background: #bcc6f7;
-  padding: 3px 5px 1px 5px;
-  
-}
-
-.UIPopupWindow .PopupContent {
-  background: white;
   border: 1px solid gray;
   border-right: 1px solid #b7b7b7;
   border-bottom: 1px solid #b7b7b7;
+}
+
+.UIPopupWindow .PopupContent {
+  width: 100%;
+  background: white;
   overflow: auto;
 }
 

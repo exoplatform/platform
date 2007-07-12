@@ -49,7 +49,7 @@
 		  <div class="MiddleRightSideDecorator">
 		    <div class="MiddleCenterDecorator">
 	        <div class="UIWindowContent">
-	          <div class="PopupContent" style="$heightStyle"><% uicomponent.renderChildren(); %></div>
+	          <div class="PopupContent" style="width: 100%; $heightStyle"><% uicomponent.renderChildren(); %></div>
 	        </div>
 		    </div>
 		  </div>
