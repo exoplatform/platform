@@ -1,6 +1,7 @@
 <div class="UIMaskWindowConsole" id="UIMaskWindowConsole">
-	Copyright &#169 : eXo flatform <br />
-	<input type="button" value="hidden" onclick="eXo.application.console.UIConsoleApplication.hiddenMaskWorkspace();" /><br />
-	Copyright &#169 : eXo flatform <br />
-	<div class="Filter" ><span></span></div>
+	<div class="ConsoleQuickHelp">
+	  <div>
+      cd: usage: cd [-L|-P] [dir]
+    </div>
+	</div>
 </div>

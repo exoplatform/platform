@@ -1,10 +1,6 @@
 /**
- * @author uoc.nb
+ * @author Nguyen Ba Uoc
  */
-
-eXo.require('eXo.core.DefaultKeyboardListener');
-eXo.require('eXo.core.SimpleNodeEditor');
-eXo.require('eXo.core.Keyboard');
 
 function Editor() {
   this.containerIdentify = 'editcontainer' ;
@@ -38,8 +34,9 @@ Editor.prototype.registerSubEditor = function(node) {
       continue ;
     }
     if(child.getAttribute(this.editableIdentify) == 1) {
-      child.onclick = function() {
-        eXo.core.Editor.init(this);
+      child.onclick = function(event) {
+        eXo.core.Editor.cancelEvent(event) ;
+        return eXo.core.Editor.init(this);
       } ;
     }
   }
@@ -74,14 +71,7 @@ Editor.prototype.init = function(node) {
   eXo.core.SimpleNodeEditor.defaultWrite() ;
   eXo.core.Keyboard.clearListeners() ;
   eXo.core.Keyboard.register(eXo.core.SimpleNodeEditor) ;
-}
-
-// ----- Will remove ----
-Editor.prototype.highLightEditContainer = function() {
-  var parent = this.getEditContainer() ;
-  if(parent) {
-    parent.className = this.activeEditClass + ' ' + parent.className ;
-  }
+  return false ;
 }
 
 Editor.prototype.isMultipleSelection = function() {
@@ -132,6 +122,14 @@ Editor.prototype.getClickPosition = function(node) {
     clone.moveToElementText(node);
     clone.setEndPoint('EndToEnd', sel);
     return clone.text.length;
+  }
+}
+
+Editor.prototype.cancelEvent = function(event) {  
+  if(eXo.core.Browser.isIE6()) { // Cancel bubble for ie
+    window.event.cancelBubble = true ;
+  } else if(!eXo.core.Browser.isIE6()) { // Cancel event for Firefox, Opera, Safari
+    event.preventDefault() ;
   }
 }
 

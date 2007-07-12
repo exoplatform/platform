@@ -13,67 +13,48 @@
 }
 
 .UIConsoleApplication .UIApplication .eXoConsoleResult {
-	color: white;
+	color: #0098ff ;
 	font-size: 14px;
 	font-weight: normal;
 	padding: 10px;
 }
 
 .UIConsoleApplication .eXoConsole {
-	height: 23px;	
+  border-top: 2px #222222 groove ;
 	width: 100%;
-}
-.UIConsoleApplication .CommandButton {
-	float: right;
-	width: 18px;
-	height: 22px;
-	line-height: 22px;
-	text-align: center;
-	cursor: pointer;
-	background: url("DefaultSkin/icons/ArrowShape.gif") no-repeat center;
+	height: 69px;	
+	line-height: 69px ;
+	vertical-align: top ;
 }
 
 .UIConsoleApplication .CommandType {
-	margin-right: 18px;
-	background: #effffe;
-	line-height: 23px;
+	background: #ffffff;	
 }
 
 .UIConsoleApplication .UIMaskWindowConsole {
-	text-align: center;
-	text-weight: bold;
+	position: absolute;
+	top: 20% ;
+	left: 15% ;
+	padding: 5px ;
+	width: 70%;
+	height: 60%;
+	background-color: #ffffff ;
+	filter: alpha(opacity=72) ;
+	opacity: 0.72 ;
+}
+
+.UIConsoleApplication .UIMaskWindowConsole .ConsoleQuickHelp {
+	font-weight: bold;
 	font-size: 14px;
-	width: 100%;
-	height: 100%;
-	margin: auto;
+  background-color: #000000 ;
+  color: #FBB906 ;
+  width: 100% ;
+  height: 100% ;
 	overflow: auto;
+	filter: alpha(opacity=72) ;
+	opacity: 0.72 ;
 }
 
-.UIConsoleApplication .Filter {
-	margin: auto;
-	width: 202px;
-	height: 200px;
-	background: url("DefaultSkin/background/Sticker.png") no-repeat center;
-	margin-bottom: 30px;
+.UIConsoleApplication .UIMaskWindowConsole .ConsoleQuickHelp div {
+  padding: 15px 10px 15px 10px ;
 }
-
-*html .UIConsoleApplication .Filter {
-	background: none;
-	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://localhost:8080/eXoAppWeb/skin/console/DefaultSkin/background/Sticker.png",  sizingMethod='scale');
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -93,17 +93,8 @@ Keyboard.prototype.listenerCallback = function(eventHandler, event, keynum, keyc
   } 
   
   if(!retVal) {
-    // Cancel bubble for ie
-    if(eXo.core.Browser.isIE6()) {
-      window.event.cancelBubble = true ;
-      return false ;
-    }
-    
-    // Cancel event for Firefox, Opera, Safari
-    if(!eXo.core.Browser.isIE6()) {
-      event.preventDefault() ;
-      return false ;
-    }
+    eXo.core.Editor.cancelEvent(event) ;
+    return false ;
   }
   
   // Release event if nobody want to capture

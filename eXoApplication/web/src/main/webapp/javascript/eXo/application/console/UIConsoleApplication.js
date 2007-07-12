@@ -1,5 +1,8 @@
 eXo.require('eXo.core.TemplateEngine');
 eXo.require('eXo.application.ApplicationDescriptor');
+eXo.require('eXo.core.DefaultKeyboardListener');
+eXo.require('eXo.core.SimpleNodeEditor');
+eXo.require('eXo.core.Keyboard');
 eXo.require('eXo.core.Editor');
 
 function UIConsoleApplication() {
@@ -77,42 +80,33 @@ eXo.application.console  = {
 /*******************************/
 UIConsoleApplication.prototype.showMaskWorkspace = function() {
 	if ( !document.getElementById("UIMaskWindowConsole") ) {
-	var wsContent = eXo.core.TemplateEngine.merge("eXo/application/console/UIMaskConsoleSpace.jstmpl", null, "/eXoAppWeb/javascript/") ;
-	var context = {
-			uiMaskWorkspace : {
-			width : "50%",
-			content : wsContent
-		}
-	}
-	var uiMaskWorkspace = eXo.core.TemplateEngine.merge("eXo/portal/UIMaskWorkspace.jstmpl", context) ;
-	var uiMaskWorkspaceElement = eXo.core.DOMUtil.createElementNode(uiMaskWorkspace, "div") ;
-			eXo.core.UIMaskLayer.createMask("UIConsoleDisplayArea", uiMaskWorkspaceElement, 64) ;
-	var maskLayer = document.getElementById("MaskLayer") ;
-			maskLayer.style.height =  "100%";
-			maskLayer.style.width =  "100%";
-			maskLayer.style.position = "absolute";
-	var infoObj =  document.getElementById("UIMaskWindowConsole");
-	//fix height.
-	var fixObj =	document.getElementById("UIMaskWorkspaceJSTemplate");
-	var maHeight = eXo.core.DOMUtil.findDescendantsByClass(fixObj, "div", "UIDescendantDetector");
-	for(var k=0; k < maHeight.length; k ++) {
-		maHeight[k].style.height = "100%";
-		maHeight[k].style.overflow =  "hidden";
-	}
-	//fix position.
-	fixObj.style.position = "absolute";
-	fixObj.style.height = "60%";
-	fixObj.style.top =  "20%";
-	fixObj.style.left =  "25%";	
-	fixObj.style.overflow =  "hidden";
-	//disable scroll for eXoConsoleResult
-
+  	var wsContent = eXo.core.TemplateEngine.merge("eXo/application/console/UIMaskConsoleSpace.jstmpl", null, "/eXoAppWeb/javascript/") ;
+  	
+    var uiConsoleDisplayArea = document.getElementById("UIConsoleDisplayArea") ;
+    var wsNode = eXo.core.DOMUtil.createElementNode(wsContent, "div");
+    uiConsoleDisplayArea.appendChild(wsNode) ;
 	}
 };
 
 UIConsoleApplication.prototype.hiddenMaskWorkspace = function() {
-	var maskLayer = document.getElementById("MaskLayer") ;
-			eXo.core.UIMaskLayer.removeMask(maskLayer);
+	var uiMaskWindowConsole = document.getElementById("UIMaskWindowConsole") ;
+  if(uiMaskWindowConsole) {
+		document.getElementById("UIConsoleDisplayArea").removeChild(uiMaskWindowConsole) ;
+  }
 };
 // end 10:31 22/6/2007
 /*******************************/
+
+/**
+ * Nguyen Ba Uoc
+ * Toggle show/hide MaskWorkspace
+ * Date: 12/07/2007
+ */
+UIConsoleApplication.prototype.toggleMaskWorkspace = function() {
+	var maskLayer = document.getElementById("UIMaskWindowConsole") ;
+  if(maskLayer) {
+    this.hiddenMaskWorkspace() ;
+  } else {
+    this.showMaskWorkspace() ;
+  }
+};

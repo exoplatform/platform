@@ -1,5 +1,5 @@
 /**
- * @author uoc.nb
+ * @author Nguyen Ba Uoc
  * 
  * A Keyboard's listener implement. 
  * 
@@ -44,6 +44,8 @@ SimpleNodeEditor.prototype.defaultWrite = function() {
 SimpleNodeEditor.prototype.write = function(beforeCursor, cursor, afterCursor) {
   if(this.currentNode) {
     this.currentNode.innerHTML = beforeCursor + cursor + afterCursor ;
+    this.beforeCursor = beforeCursor ;
+    this.afterCursor = afterCursor ;
   }
 }
 
@@ -74,11 +76,12 @@ SimpleNodeEditor.prototype.onDelete = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onEnter = function(keynum, keychar) {
-  this.write(this.beforeCursor, '', this.afterCursor) ;
+  this.removeCursor() ;
   return false ;
 }
 
 SimpleNodeEditor.prototype.onTab = function(keynum, keychar) {
+  eXo.application.console.UIConsoleApplication.toggleMaskWorkspace();
   return false ;
 }
 
