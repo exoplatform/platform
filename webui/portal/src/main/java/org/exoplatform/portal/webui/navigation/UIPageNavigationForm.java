@@ -143,6 +143,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
     uiSelectBox.setValue(String.valueOf(pageNavigation.getPriority()));
     
   //TODO Tung: check  edit pageNavigation is ownerType = User when remove PermissionSetting tab 
+    if(pageNavigation.getOwnerType().equals(PortalConfig.USER_TYPE)) removeChildById("PermissionSetting") ;
   }
 
   //TODO: Tung.Pham modified
