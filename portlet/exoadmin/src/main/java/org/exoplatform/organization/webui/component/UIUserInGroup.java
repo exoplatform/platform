@@ -6,10 +6,10 @@ package org.exoplatform.organization.webui.component;
 
 import java.io.Writer;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.services.organization.Group;
@@ -17,6 +17,7 @@ import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
+import org.exoplatform.services.organization.UserHandler;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -69,16 +70,28 @@ public class UIUserInGroup extends UIContainer {
     setValues(getSelectedGroup());
   }
 
+//  public void setValues(Group group) throws Exception {
+//    String groupId = null;
+//    if(group != null) groupId = group.getId();
+//    OrganizationService service = getApplicationComponent(OrganizationService.class) ;
+//    PageList pagelist = service.getUserHandler().findUsersByGroup(groupId);
+//    pagelist.setPageSize(10) ;
+//    UIGridUser uiGrid = getChild(UIGridUser.class) ;
+//    uiGrid.setGroupId(groupId);
+//    uiGrid.getUIPageIterator().setPageList(pagelist);
+//  }
+
+  //TODO: Tung.Pham replaced
   public void setValues(Group group) throws Exception {
-    String groupId = null;
-    if(group != null) groupId = group.getId();
+    if(group == null) return ;
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-    PageList pagelist = service.getUserHandler().findUsersByGroup(groupId);
-    pagelist.setPageSize(10) ;
+    MembershipHandler handler = service.getMembershipHandler();
+    List memberships = (List)handler.findMembershipsByGroup(group) ;
+    PageList pageList = new ObjectPageList(memberships, 10) ;
     UIGridUser uiGrid = getChild(UIGridUser.class) ;
-    uiGrid.setGroupId(groupId);
-    uiGrid.getUIPageIterator().setPageList(pagelist);
+    uiGrid.getUIPageIterator().setPageList(pageList);
   }
+
 
   public void processRender(WebuiRequestContext context) throws Exception {
     Writer w =  context.getWriter() ;
@@ -106,34 +119,55 @@ public class UIUserInGroup extends UIContainer {
       super();
     }
 
-    public List<?> getBeans() throws Exception { 
-      List<?> list = super.getBeans();      
-      Iterator<?> it = list.iterator() ;
-      boolean add = true;
-      List<MembershipUser> memberships = new ArrayList<MembershipUser>() ;
-      while(it.hasNext()){
-        User user = (User)it.next() ;
-        add = true;
-        for(MembershipUser ele : memberships ){
-          if(ele.getUser() != user) continue;
-          add = false;
-          break;
-        }
-        if(add) loadMemberships(user, memberships) ;
-      } 
-      return  memberships;
+//    public List<?> getBeans() throws Exception { 
+//      List<?> list = super.getBeans();      
+//      Iterator<?> it = list.iterator() ;
+//      boolean add = true;
+//      List<MembershipUser> memberships = new ArrayList<MembershipUser>() ;
+//      while(it.hasNext()){
+//        User user = (User)it.next() ;
+//        add = true;
+//        for(MembershipUser ele : memberships ){
+//          if(ele.getUser() != user) continue;
+//          add = false;
+//          break;
+//        }
+//        if(add) loadMemberships(user, memberships) ;
+//      } 
+//      return  memberships;
+//    }
+    
+    //TODO: Tung.Pham replaced
+    public List<?> getBeans() throws Exception {
+      List<MembershipUser> membershipUsers = new ArrayList<MembershipUser>() ;
+      List<?> list = super.getBeans() ;
+      Iterator<?> itr = list.iterator() ;
+      while(itr.hasNext()){
+        Membership membership = (Membership)itr.next() ;
+        membershipUsers.add(convert(membership)) ;
+      }
+      return membershipUsers ;
     }
     
-    private void loadMemberships(User user, List<MembershipUser> memberships) throws Exception{
+    //TODO: Tung.Pham added
+    private MembershipUser convert(Membership membership) throws Exception {
       OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-      MembershipHandler handler = service.getMembershipHandler();
-      Collection<?> mt = handler.findMembershipsByUserAndGroup(user.getUserName(), groupId_) ;
-      Iterator<?> it = mt.iterator() ;
-      while(it.hasNext()){
-        Membership type = (Membership)it.next() ;
-        memberships.add(new MembershipUser(user, type.getMembershipType(), type.getId()));
-      }
+      String userName = membership.getUserName() ;
+      UserHandler handler = service.getUserHandler();
+      User user = handler.findUserByName(userName) ;
+      return new MembershipUser(user, membership.getMembershipType(), membership.getId()) ;
     }
+    
+//    private void loadMemberships(User user, List<MembershipUser> memberships) throws Exception{
+//      OrganizationService service = getApplicationComponent(OrganizationService.class) ;
+//      MembershipHandler handler = service.getMembershipHandler();
+//      Collection<?> mt = handler.findMembershipsByUserAndGroup(user.getUserName(), groupId_) ;
+//      Iterator<?> it = mt.iterator() ;
+//      while(it.hasNext()){
+//        Membership type = (Membership)it.next() ;
+//        memberships.add(new MembershipUser(user, type.getMembershipType(), type.getId()));
+//      }
+//    }
 
     public void setGroupId(String groupId) { this.groupId_ = groupId; }
   }
