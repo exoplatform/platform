@@ -6,14 +6,14 @@
 }
 
 .UIStickerWidgetTitle {
-	height: 30px ;
+	height: 45px ;
 }
 
 .UIStickerWidgetContentArea {
 	border: 0px ;
 	width: 180px ;
 	height: 127px ;
-	margin: 0px 0px 0px 15px;
+	margin: 0px 0px 0px 20px;
 	background: transparent ;
 	overflow: hidden ;
 	font-family: Verdana ;

@@ -19,10 +19,14 @@
 	margin: 0px;
 }
 
-.UIChangeLanguageForm .UITabPane .TabPaneContent .UITabContentContainer {
+.UIChangeLanguageForm .UIFormTabPane .UITabPane .TabPaneContent .UITabContentContainer {
 	padding: 0px 10px 0px 10px;
 	background: #ffffff;
 	border-top: none;
+}
+
+.UIChangeLanguageForm .UIItemSelector .ItemListContainer .ItemListTitle {
+	height: 29px; line-height: 29px;
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemListContainer {

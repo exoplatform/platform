@@ -22,21 +22,21 @@
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .UserButton {
   float: left;
-  padding-top: 3px;
+  margin-top: 6px;
   width: 120px;
   cursor: pointer;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .GroupButton {
   float: left;
-  padding-top: 3px;
+  margin-top: 6px;
   width: 130px;
   cursor: pointer;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
   float: left;
-  padding-top: 3px;
+  margin-top: 6px;
   width: 170px;
   cursor: pointer;
 }
@@ -52,19 +52,19 @@
 }
 
 .UIOrganizationPortlet .UserManagementIcon {
-  width: 32px; height: 32px; 
+  width: 32px; height: 30px; 
   margin: auto;
   background: url('/eXoResources/icons/32x32/VistaSkin/UserManagement.gif') no-repeat center;
 }
 
 .UIOrganizationPortlet .GroupManagementIcon {
-  width: 32px; height: 32px; 
+  width: 32px; height: 30px; 
   margin: auto;
   background: url('/eXoResources/icons/32x32/VistaSkin/GroupManagement.gif') no-repeat center;
 }
 
 .UIOrganizationPortlet .MembershipManagementIcon {
-  width: 32px; height: 32px; 
+  width: 32px; height: 30px; 
   margin: auto;
   background: url('/eXoResources/icons/32x32/VistaSkin/MembershipManagement.gif') no-repeat center ;
 }
