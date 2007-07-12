@@ -141,6 +141,8 @@ public class UIPageNavigationForm extends UIFormTabPane {
     
     UIFormSelectBox uiSelectBox = findComponentById("priority");
     uiSelectBox.setValue(String.valueOf(pageNavigation.getPriority()));
+    
+  //TODO Tung: check  edit pageNavigation is ownerType = User when remove PermissionSetting tab 
   }
 
   //TODO: Tung.Pham modified
