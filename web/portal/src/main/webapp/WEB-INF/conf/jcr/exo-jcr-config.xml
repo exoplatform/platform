@@ -11,7 +11,7 @@
      </replication>-->
      <authentication-policy>org.exoplatform.services.jcr.impl.core.access.PortalAuthenticationPolicy</authentication-policy>
      <workspaces>
-       <workspace name="production" auto-init-root-nodetype="nt:unstructured">
+       <workspace name="production" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove" >
           <!-- for system storage -->
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
@@ -46,7 +46,7 @@
           </properties>
          </query-handler>
        </workspace>
-       <workspace name="draft" auto-init-root-nodetype="nt:unstructured">
+       <workspace name="draft" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
@@ -80,7 +80,7 @@
           </properties>
          </query-handler>
        </workspace>
-       <workspace name="backup" auto-init-root-nodetype="nt:unstructured">
+       <workspace name="backup" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
@@ -113,7 +113,7 @@
           </properties>
          </query-handler>
        </workspace>
-       <workspace name="digital-assets" auto-init-root-nodetype="nt:folder">
+       <workspace name="digital-assets" auto-init-root-nodetype="nt:folder" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
