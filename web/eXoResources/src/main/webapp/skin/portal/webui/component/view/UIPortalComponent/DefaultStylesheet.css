@@ -136,6 +136,8 @@
 .PortletLayoutDecorator .MiddleLeft {
   background: url('DefaultSkin/background/LayoutML7x1.gif') repeat-y left;
   padding: 0px 0px 0px 7px ;
+  
+  
 }
 
 .PortletLayoutDecorator .MiddleRight {
