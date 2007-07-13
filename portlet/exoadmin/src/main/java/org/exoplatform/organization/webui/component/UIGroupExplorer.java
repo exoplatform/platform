@@ -65,10 +65,14 @@ public class UIGroupExplorer extends UIContainer {
     if(selectedGroup_ != null) parentGroupId = selectedGroup_.getParentId();
 	  Group parentGroup = null ;
 	  if(parentGroupId != null)	parentGroup = service.getGroupHandler().findGroupById(parentGroupId);
-	  
-    childrenGroup_ = service.getGroupHandler().findGroups(selectedGroup_);    
+    childrenGroup_ = service.getGroupHandler().findGroups(selectedGroup_); 
     sibblingsGroup_ = service.getGroupHandler().findGroups(parentGroup);  
-    
+    for(Object group: sibblingsGroup_) {
+      if(((Group)group).getId().equals(selectedGroup_.getId())){
+        selectedGroup_ = (Group) group;
+        break;
+      }
+    }
     UIGroupDetail uiGroupDetail = uiGroupManagement.getChild(UIGroupDetail.class);     
     UIGroupInfo uiGroupInfo = uiGroupDetail.getChild(UIGroupInfo.class) ;    
     uiGroupInfo.setGroup(selectedGroup_); 
