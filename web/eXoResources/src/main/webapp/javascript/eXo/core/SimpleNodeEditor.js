@@ -76,7 +76,7 @@ SimpleNodeEditor.prototype.onDelete = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onEnter = function(keynum, keychar) {
-  this.removeCursor() ;
+  this.write('', this.cursor, '') ;
   return false ;
 }
 
