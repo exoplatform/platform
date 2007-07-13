@@ -24,7 +24,6 @@ import org.exoplatform.web.application.widget.WidgetApplication;
 //    @EventConfig(listeners = StickerWidget.SaveContentActionListener.class )
 //  }
 //)
-
 public class StickerWidget extends WidgetApplication<UIWidget> {
   
   public String getApplicationId() { return "eXoWidgetWeb/StickerWidget"; }
