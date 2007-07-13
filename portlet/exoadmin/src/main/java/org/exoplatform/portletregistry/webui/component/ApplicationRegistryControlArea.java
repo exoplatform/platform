@@ -15,6 +15,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
@@ -123,9 +124,13 @@ public class ApplicationRegistryControlArea extends UIContainer {
   //TODO: Tung.Pham added
   public boolean isInUse(ApplicationCategory category) {
     UIPopupWindow uiPopup = getChild(UIPopupWindow.class) ;
-    UICategoryForm uiForm = (UICategoryForm)uiPopup.getUIComponent() ;
-    ApplicationCategory existingCategory = uiForm.getCategory() ;
-    return (existingCategory != null && existingCategory.getName().equals(category.getName())) ;
+    UIComponent uiComponent = uiPopup.getUIComponent() ;
+    if(uiComponent != null && uiComponent instanceof UICategoryForm) {
+      UICategoryForm uiForm = (UICategoryForm) uiComponent ;
+      ApplicationCategory existingCategory = uiForm.getCategory() ;
+      return (existingCategory != null && existingCategory.getName().equals(category.getName())) ;      
+    }
+    return false ;
   }
   
   static public class AddCategoryActionListener extends EventListener<ApplicationRegistryControlArea>{

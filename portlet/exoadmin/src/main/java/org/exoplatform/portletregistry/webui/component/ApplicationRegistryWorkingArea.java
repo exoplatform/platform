@@ -136,7 +136,7 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
       //-------------------------------------
       UIPopupWindow uiPopup = workingArea.getChild(UIPopupWindow.class) ;
       UIComponent uiComponent = uiPopup.getUIComponent();
-      if(uiComponent != null) {
+      if(uiComponent != null && uiComponent instanceof UIInfoPortletForm) {
         UIInfoPortletForm uiInfoForm = (UIInfoPortletForm)uiComponent ;
         Application existingApp = uiInfoForm.getPortlet() ;
         if(existingApp != null && existingApp.getId().equals(portlet.getId())) {
