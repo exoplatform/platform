@@ -1,9 +1,11 @@
 package org.exoplatform.portal.application;
 
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.PortalContainer;
@@ -47,12 +49,14 @@ public class PortalStateManager extends StateManager {
     PortalApplicationState state = uiApplications.get(pcontext.getSessionId()) ;
     if(state != null) {
       if(state.getAccessPath() != pcontext.getAccessPath()) {
-        pcontext.getRequest().getSession().invalidate();
-        HttpServletResponse response = pcontext.getResponse();
-        response.sendRedirect(pcontext.getNodeURI());
-        pcontext.setResponseComplete(true);
-        return null;
+        clearSession(pcontext.getRequest().getSession()) ;
+        state = null ;
+        //HttpServletResponse response = pcontext.getResponse();
+        //response.sendRedirect(pcontext.getNodeURI());
+        //pcontext.setResponseComplete(true);
+        //return null;
       } else if(!pcontext.getPortalOwner().equals(state.getUIPortalApplication().getOwner())) {
+        clearSession(pcontext.getRequest().getSession()) ;
         state = null ;
       }
     }
@@ -102,6 +106,14 @@ public class PortalStateManager extends StateManager {
     String remoteUser = context.getRemoteUser();
     String ownerUser = context.getPortalOwner();  
     return service_.getUserPortalConfig(ownerUser, remoteUser) ;
+  }
+  
+  private void clearSession(HttpSession session) {
+    Enumeration e = session.getAttributeNames() ;
+    while(e.hasMoreElements()) {
+      String name =  (String)e.nextElement() ;
+      session.removeAttribute(name) ;
+    }
   }
   
   @SuppressWarnings("serial")
