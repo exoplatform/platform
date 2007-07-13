@@ -117,8 +117,9 @@ public class UIForm extends UIContainer  {
     
     Writer writer = context.getWriter() ;
     writer.
-      append("<form class=\"UIForm ").append(getId()).append("\" name=\"").append(getId()).
-      append("\" id=\"").append(getId()).append("\" action=\"").append(b).append('\"') ;
+      append("<form class=\"UIForm\" name=\"").append(getId()).
+      append("\" id=\"").append(getId()).append("\" action=\"").
+      append(b).append('\"') ;
     if(multipart_) {
       writer.append(" enctype=\"multipart/form-data\"") ;
     }

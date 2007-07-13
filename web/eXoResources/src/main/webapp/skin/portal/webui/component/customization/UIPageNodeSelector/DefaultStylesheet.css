@@ -46,6 +46,11 @@
   float: none;
 }
 
+.UIPageNodeSelector .UITree .TreeContainer .Node {
+	height: 20px;
+	line-height: 20px;
+}	
+
 .UIPageNodeSelector .UITree .TreeContainer .Node .ExpandIcon {
   margin: 3px 0px 0px 0px ;
 }
