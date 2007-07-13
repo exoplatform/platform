@@ -189,7 +189,7 @@ UIUpload.prototype.upload = function(clickEle, id) {
   for(var i = (tmp.length - 1); i >= 0 ; --i) {
   	temp += tmp.charAt(i);
   }
-  infoUploaded.innerHTML = "Uploaded: " + temp;
+  infoUploaded.innerHTML = temp;
   var progressBarFrame = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "block" ;  
   var progressBarMiddle = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarMiddle") ;
