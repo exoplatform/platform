@@ -1,0 +1,17 @@
+.UIDropDownControl {
+	border: solid 1px red ;
+	padding: 4px 2px 4px 2px ;
+}
+
+.UIOptionItem:link , .UIOptionItem:visited{
+	display: block ;
+	padding: 5px 5px 5px 20px ;
+	text-decoration:none ;
+	background: transparent url(/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif) no-repeat scroll 0% ;
+	margin: 1px 0px 1px 0px ;
+}
+
+.UIOptionItem:hover {
+	background: blue url(/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif) no-repeat scroll 0% ;
+	color: white ;
+}
