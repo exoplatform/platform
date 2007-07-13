@@ -48,6 +48,11 @@
   margin-right: 2px ;
 }
 
+.UIPageNodeSelector .UITree .TreeContainer .Node {
+	height: 20px;
+	line-height: 20px;
+}	
+
 .UIPageNodeSelector .UITree .TreeContainer .Node .Icon {
   width: 16px;  height: 16px ;
   margin: 2px 7px 0px 1px;

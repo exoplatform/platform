@@ -31,7 +31,7 @@
 
 .UIGroupMembershipSelector .UIBreadcumbs .RightBlackGridArrow16x16Icon {
 	float: left;
-  margin: 5px 2px 5px 1px ;
+  margin: 5px 2px 0px 1px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/GridRightArrow.gif');
 }
 
