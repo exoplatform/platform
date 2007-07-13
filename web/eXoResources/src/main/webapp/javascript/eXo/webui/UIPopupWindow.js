@@ -74,7 +74,6 @@ UIPopupWindow.prototype.closePopupEvt = function(evt) {
 
 UIPopupWindow.prototype.startResizeEvt = function(evt) {
 	var portalApp = document.getElementById("UIPortalApplication") ;
-	alert(eXo.webui.UIPopupWindow.popupId) ;
 	eXo.webui.UIPopupWindow.popupId = eXo.core.DOMUtil.findAncestorByClass(this, "UIPopupWindow").id ;
 	portalApp.onmousemove = eXo.webui.UIPopupWindow.resize;
 }
