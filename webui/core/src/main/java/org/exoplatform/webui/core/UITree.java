@@ -61,7 +61,7 @@ public class UITree extends UIComponent {
     if(parentSelected == null) return event("ChangeNode");
     return event("ChangeNode", (String)getId(parentSelected));
   }
-  
+  //TODO review equals object with id
   private boolean isSelected(Object obj){
     if(selected == null) return false;    
     return obj.equals(selected);

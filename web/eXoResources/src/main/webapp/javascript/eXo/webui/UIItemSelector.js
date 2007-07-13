@@ -1,9 +1,9 @@
 function UIItemSelector() {
   this.backupClass;
+  this.backupItem;
 };
 
 UIItemSelector.prototype.onOver = function(selectedElement, mouseOver) {
-	
   if(selectedElement.className == "Item"){
     eXo.webui.UIItemSelector.beforeActionHappen(selectedElement);
   }

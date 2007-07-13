@@ -106,6 +106,22 @@
                 </value>
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
+                    <field  name="name"><string>hr</string></field>
+                    <field  name="parentId"><string>/portal/company</string></field>
+                    <field  name="type"><string>hierachy</string></field>
+                    <field  name="description"><string>the /portal/company/human resource</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
+                    <field  name="name"><string>management</string></field>
+                    <field  name="parentId"><string>/portal/company</string></field>
+                    <field  name="type"><string>hierachy</string></field>
+                    <field  name="description"><string>the /portal/company/management group</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>admin</string></field>
                     <field  name="parentId"><string>/portal</string></field>
                     <field  name="type"><string>hierachy</string></field>
@@ -157,7 +173,10 @@
                     <field  name="lastName"><string>exoadmin</string></field>
                     <field  name="email"><string>exoadmin@localhost</string></field>
                     <field  name="groups">
-                      <string>member:/admin,member:/user,owner:/portal/admin</string>
+                      <string>
+                        member:/admin,member:/user,owner:/portal/admin,
+                        member:/portal/company/hr,member:/portal/company/management
+                      </string>
                     </field>
                   </object>
                 </value>    

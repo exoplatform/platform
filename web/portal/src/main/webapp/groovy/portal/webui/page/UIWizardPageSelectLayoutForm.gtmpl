@@ -6,6 +6,7 @@
   def rcontext = _ctx.getRequestContext() ;
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory');
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIItemSelector');
+  rcontext.getJavascriptManager().addJavascript("eXo.require('eXo.webui.UIPopupSelectCategory');");
 
   def categories = uicomponent.getItemCategories();
   UIForm form = uicomponent.getParent();
@@ -19,20 +20,14 @@
 	
 %>
 <div class="UIItemSelector">
-	<%
-		 rcontext.getJavascriptManager().addJavascript("eXo.require('eXo.webui.UIPopupSelectCategory');");
-	%>
-	
   <div class="RightColumnStyle" style="width: 99.5%;">
     <input type="hidden" name="<%=uicomponent.getName();%>" value ="">
     <%/*Begin ItemList*/%>
     <div class="ItemListContainer ItemSelectorAncestor">
-      <% 
-        uicomponent.renderChild(UIDropDownItemSelector.class)  ;
-      %>
+      <%uicomponent.renderChild(UIDropDownItemSelector.class);%>
       <div class="UIPopupCategory" style="display: none">
         <div class="PopupCategoryDecorator">
-        
+          
           <div class="PopupCategoryTL">
             <div class="PopupCategoryTR">
               <div class="PopupCategoryTC"><span></span></div>
@@ -90,14 +85,9 @@
 	    
 	    <% 
 	      for(category in categories){
-        templates = category.getSelectItemOptions();
-        String display = "none";  
-        if(category.isSelected()) { 
-          display = "block";             
-        }else {
-          templates.get(0).setSelected(true);
-        }
-        
+	        templates = category.getSelectItemOptions();
+	        String display = "none";  
+	        if(category.isSelected()) display = "block"; else templates.get(0).setSelected(true);   
 	    %>
 			    <div class="ItemList ItemListBackground"  style="display: $display;">
 						<%    					  
@@ -125,25 +115,23 @@
 	  <%/*End ItemList*/%>
     	    
 	  <%/*Begin ItemDetailList*/%>	    
-    <%          
+    <%    
 		  for(category in categories){
 		    String display = "none";
 		    if(category.isSelected()) display = "block" ;
-      templates = category.getSelectItemOptions() ;
+        templates = category.getSelectItemOptions() ;
 		%>
-			<div class="ItemDetailList" style="display: $display">
+			  <div class="ItemDetailList" style="display: $display">
 		    <%    			     
           for(template in templates){        
             String label = template.getLabel();
             String description = template.getDescription();
- 			    
- 			    if(template.isSelected()) displayImage = "block"; 
- 			    else displayImage = "none";
+	 			    if(template.isSelected()) displayImage = "block"; else displayImage = "none";
 	      %>
       	    <%/*--Begin Layout Style--*/%>
       	    <div class="ItemDetail"  style="display: $displayImage;">
-  					    <div class="LayoutHolder">
-  					      <div class="LayoutLabel"><%=template.getLabel();%></div>
+  					  <div class="LayoutHolder">
+  					    <div class="LayoutLabel"><%=template.getLabel();%></div>
     					  <div class="<%=template.getIcon();%>" title="<%=template.getLabel();%>"><span></span></div>
 	  				  </div> 
 		  	    </div> 

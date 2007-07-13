@@ -16,7 +16,6 @@ public class SelectItemOption <T extends Object> {
   protected  String icon_;
   protected boolean selected_ =  false ;
   protected String description_ ;
-
   
   public SelectItemOption(String label, T value, String icon) {
     this(label, value, "", icon);

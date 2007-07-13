@@ -48,8 +48,8 @@ UIDropDownItemSelector.prototype.hideList = function(selector) {
 
 UIDropDownItemSelector.prototype.mouseOverItem = function(e) {
 	var targ = eXo.core.Browser.getEventSource(e);
-
-	while (targ.className != "ItemSelector" && targ.className != "OverItemSelector") {
+	
+	while(targ.className != "ItemSelector" && targ.className != "OverItemSelector") {
 		targ = targ.parentNode;
 	}
 	targ.oldClassName = targ.className;
@@ -90,22 +90,26 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 	var itemLabel = DOMUtil.findFirstDescendantByClass(targ, "div", "ItemSelectorLabel");
 	var strItemLabel = itemLabel.innerHTML;
 	selectedItemLabel.innerHTML = strItemLabel;
-	if(strItemLabel.length > 20) {
-		eXo.webui.UIDropDownItemSelector.onload();
-	} 
+	if(strItemLabel.length > 20) eXo.webui.UIDropDownItemSelector.onload();
+
 	targ.className = targ.oldClassName = "OverItemSelector";
 	eXo.webui.UIDropDownItemSelector.hideList(parentSelector);
 	var itemSelectorAncestor = DOMUtil.findAncestorByClass(parentSelector, "ItemSelectorAncestor") ;
 	var itemList = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemList") ;
 	var itemSelectorLabel = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemSelectorLabel") ;
 	
+	var uiItemSelector = DOMUtil.findAncestorByClass(targ, "UIItemSelector");
+	var itemDetailList = DOMUtil.findDescendantsByClass(uiItemSelector, "div", "ItemDetailList") 
+	
 	if(itemList == null) return;
 	for(i = 0; i < itemSelectorLabel.length; ++i) {
 		if(i >= itemList.length) continue;
 		if(itemLabel == itemSelectorLabel[i]) {
 			itemList[i].style.display = "block";
+			if(itemDetailList.length > 0) itemDetailList[i].style.display = "block";
 		} else {
 			itemList[i].style.display = "none";
+			if(itemDetailList.length > 0) itemDetailList[i].style.display = "none";
 		}
 	}
 };

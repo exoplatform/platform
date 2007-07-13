@@ -37,7 +37,6 @@ import org.exoplatform.webui.event.EventListener;
       }
   )
 })
-
 public class UIWizardPageCreationBar extends UIContainer {
 
   public UIWizardPageCreationBar() throws Exception{ 
