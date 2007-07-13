@@ -54,13 +54,6 @@
   padding-right: 8px;
 }
 
-.UIPopupCategory .CategoryItem {
-  height: 22px; line-height: 22px;
-  background: url('DefaultSkin/background/NormalItemBG1x22.png') repeat-x;
-  border-bottom: 1px #cdcdcd solid;
-  cursor: pointer ;
-}
-
 .UIPopupCategory .CategoryItem .Icon {
   width: 16px;
   height: 16px;
@@ -73,21 +66,22 @@
 	margin-left: 0px;
 }
 
-.UIPopupCategory .CategoryItem .CategoryItemLabel {
-  height: 22px;
-  line-height: 22px;
-}
-
-.UIPopupCategory .CategoryItem a {
+.UIPopupCategory .CategoryItem {
   color: black;
-  text-decoration: none ;
+  background: url('DefaultSkin/background/NormalItemBG1x22.png') repeat-x;
+  border-bottom: 1px #cdcdcd solid;
   cursor: pointer;
+  display: block;
 }
 
-.UIPopupCategory .CategoryItem a:hover {
+.UIPopupCategory .CategoryItem:hover {
+	background: url('DefaultSkin/background/OverItemBG1x22.png') repeat-x;
   color: blue;
 }
 
-.UIPopupCategory .OverCategoryItem {
-	background: url('DefaultSkin/background/OverItemBG1x22.png') repeat-x;
+.UIPopupCategory .CategoryItem .CategoryItemLabel {
+  padding-left: 20px;
+  height: 22px;
+  line-height: 22px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow1.gif')left center no-repeat;
 }

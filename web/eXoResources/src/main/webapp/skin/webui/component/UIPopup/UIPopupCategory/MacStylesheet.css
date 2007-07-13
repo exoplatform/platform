@@ -50,22 +50,20 @@
 }
 
 .UIPopupCategory .CategoryItem {
-  height: 22px; line-height: 22px;
+  color: black;
   cursor: pointer ;
+  display: block;
 }
 
-.UIPopupCategory .CategoryItem .Icon {
-  width: 16px; height: 16px;
-  float: left;
-  margin: 3px 7px 0px 7px;
-  background: url('MacSkin/background/CategoryItem.png') no-repeat;
+.UIPopupCategory .CategoryItem:hover {
+	background: #4079be;
+	color: white;
 }
 
 .UIPopupCategory .CategoryItem .CategoryItemLabel {
-  height: 22px; line-height: 22px;
-}
-
-.UIPopupCategory .OverCategoryItem {
-	background: #4079be;
-	color: white;
+  padding-left: 20px;
+  height: 22px;
+  line-height: 22px;
+  background: url('MacSkin/background/CategoryItem.png') left center no-repeat;
+  margin-left: 5px;
 }
