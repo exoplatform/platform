@@ -229,7 +229,7 @@
 		                %>
 		                    <div class="CategoryItem" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
 		                      <div class="Icon ModifiedIcon"><span></span></div>
-		                      <a class="CategoryItemLabel" href="$actionLink" onmousedown="$actionLink">$mode</a><% /* TODO : insert onmousedown event because of event model of browser*/ %>
+		                      <a class="CategoryItemLabel" href="$actionLink">$mode</a><% /* TODO : insert onmousedown event because of event model of browser*/ %>
 		                      <div style="clear: left"><span></span></div>
 		                    </div>
 		                <%        

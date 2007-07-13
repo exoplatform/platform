@@ -59,7 +59,7 @@ UIPopupSelectCategory.prototype.selectdCategory = function(selectedElement) {
 
 UIPopupSelectCategory.prototype.onMouseOver = function(selectedElement, over) {
 	if(over) {
-		selectedElement.onmouseup = function() {
+		selectedElement.onclick = function() {
 			var uiPopupCategory = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "UIPopupCategory") ;
 			uiPopupCategory.style.display = "none" ;
 		};

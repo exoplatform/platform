@@ -6,7 +6,6 @@ var popupArr = new Array() ;
 var zIndex = 2 ;
 
 function UIPopup() {
-	
 } ;
 
 UIPopup.prototype.init = function(popup, containerId) {
@@ -29,7 +28,6 @@ UIPopup.prototype.create = function() {
 		position = "relative" ;
 		display = "none" ;
 	}
-	
 	return popup ;
 } ;
 

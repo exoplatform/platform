@@ -62,7 +62,8 @@
 }
 
 .UIPopupCategory .CategoryItem .Icon {
-  width: 16px; height: 16px;
+  width: 16px;
+  height: 16px;
   float: left;
   margin: 3px 3px 0px 7px;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow1.gif') no-repeat;
@@ -73,7 +74,8 @@
 }
 
 .UIPopupCategory .CategoryItem .CategoryItemLabel {
-  height: 22px; line-height: 22px;
+  height: 22px;
+  line-height: 22px;
 }
 
 .UIPopupCategory .CategoryItem a {
