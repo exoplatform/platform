@@ -94,7 +94,6 @@
 						  for(template in templates){
 						    String itemSelected = "Item" ;
 					      String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('"+form.getName()+"', '"+uicomponent.getName()+"','"+template.getLabel()+"' )";
-		            String submitEvent = "eXo.webui.UIForm.submitEvent('"+form.getId()+"','SelectItemOption', '')";
 		            String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true, '"+template.getIcon()+"')";
 		            String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false, '"+template.getIcon()+"')";
 		            String onClick = "eXo.webui.UIItemSelector.onClick(this, '"+template.getIcon()+"')";
@@ -107,6 +106,7 @@
 								  	  <div class="ItemTitle"><%=template.getLabel();%></div>
 			              </div>
 			            </div>
+			            <div id="SetValue" style="display: none">$setHiddenValue;</div>
 			  	      </div>
 	          <%}%>
 		      </div>

@@ -106,7 +106,13 @@ UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, acti
 		if(i >= itemList.length) continue;
 		if(itemLabel == itemSelectorLabel[i]) {
 			itemList[i].style.display = "block";
-			if(itemDetailList.length > 0) itemDetailList[i].style.display = "block";
+			if(itemDetailList.length < 1)  continue;
+		  itemDetailList[i].style.display = "block";
+			var selectedItem = DOMUtil.findFirstDescendantByClass(itemList[i], "div", "SelectedItem");
+			if(selectedItem == null) continue;
+			var setValue = DOMUtil.findDescendantById(selectedItem, "SetValue");
+			if(setValue == null) continue;
+			eval(setValue.innerHTML);
 		} else {
 			itemList[i].style.display = "none";
 			if(itemDetailList.length > 0) itemDetailList[i].style.display = "none";

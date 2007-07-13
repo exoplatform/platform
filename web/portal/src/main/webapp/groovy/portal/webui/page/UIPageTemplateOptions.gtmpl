@@ -40,12 +40,13 @@
 		            if (template.isSelected()) itemSelected = "SelectedItem Item" ;
 					  %>
 						    <div class="$itemSelected" onmouseover="$onMouseOver" 
-						      onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;" >
+						         onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;" >
 							  	<div class="LeftItem">
-                  <div class="RightItem">  
+                    <div class="RightItem">  
 								  	  <div class="ItemTitle">$template.label</div>
 			              </div>
 			            </div>
+			            <div id="SetValue" style="display: none">$setHiddenValue;</div>
 			  	      </div>
 	          <%}%>
 	          
@@ -76,7 +77,7 @@
 	            String label = template.getLabel();
 	            String description = template.getDescription();
      			    display = "none";
-     			    if(category.isSelected()) display = "block";
+     			    if(template.isSelected()) display = "block";
      			    if(i==2) display = "none"; else if(i==4) i=3;
 		      %>
 	      	    <div class="ItemDetail"  style="display: $display;">
