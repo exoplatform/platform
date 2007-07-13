@@ -119,11 +119,10 @@ public class UIContentForm extends UIForm {
   }
   
   static public class URLValidator implements Validator {
-
     @SuppressWarnings("unchecked")
     public void validate(UIFormInput uiInput) throws Exception {
       String s = (String)uiInput.getValue();
-      System.out.println(" \n\n\nTest url: " + s);
+//      System.out.println(" \n\n\nTest url: " + s);
       if(s == null || s.length() == 0) { return; }
       s=s.trim();
       if (!s.startsWith("http://") && !s.startsWith("shttp://")){ 
