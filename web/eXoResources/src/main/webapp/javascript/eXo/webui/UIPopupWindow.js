@@ -74,12 +74,14 @@ UIPopupWindow.prototype.closePopupEvt = function(evt) {
 
 UIPopupWindow.prototype.startResizeEvt = function(evt) {
 	var portalApp = document.getElementById("UIPortalApplication") ;
-	portalApp.setAttribute("popupId", popupId);
+	alert(eXo.webui.UIPopupWindow.popupId) ;
+	eXo.webui.UIPopupWindow.popupId = eXo.core.DOMUtil.findAncestorByClass(this, "UIPopupWindow").id ;
 	portalApp.onmousemove = eXo.webui.UIPopupWindow.resize;
 }
 
 UIPopupWindow.prototype.endResizeEvt = function(evt) {
-	document.getElementById("UIPortalApplication").onmousemove = null;
+	delete eXo.webui.UIPopupWindow.popupId ;
+	this.onmousemove = null ;
 }
 
 UIPopupWindow.prototype.initDND = function(evt) {
@@ -133,7 +135,7 @@ UIPopupWindow.prototype.initDND = function(evt) {
 } ;
 
 UIPopupWindow.prototype.resize = function(evt) {
-	var targetPopup = document.getElementById(this.getAttribute("popupId")) ;
+	var targetPopup = document.getElementById(eXo.webui.UIPopupWindow.popupId) ;
 	var content = eXo.core.DOMUtil.findFirstDescendantByClass(targetPopup, "div", "PopupContent") ;
 	var pointerX = eXo.core.Browser.findMouseRelativeX(targetPopup, evt) ;
 	var pointerY = eXo.core.Browser.findMouseRelativeY(targetPopup, evt) ;

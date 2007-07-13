@@ -1,21 +1,17 @@
 function EventManager () {
-	this.onMouseDownHandlers = new Array() ;
-	this.onMouseUpHandlers = new Array() ;
+	this.onMouseDownHandlers = new eXo.core.HashMap() ;
+	this.onMouseUpHandlers = new eXo.core.HashMap() ;
 	document.onmousedown = this.preOnMouseDown ;
 	document.onmouseup = this.preOnMouseUp ;
 } ;
 
 MouseEventManager.prototype.preOnMouseDown = function(evt) {
 	evt.cancelBubble = true ;
-	var len = this.onMouseDownHandlers.length ;
-	if (len <= 0) return ;
-	for(var i = 0 ; i < len ; i++) {
-		try {
-			this.onMouseDownHandlers[i](evt) ;	
-		} catch(e) {
-			alert(e.message) ;
-		}		
-	}
+	var mouseDownHandlers = this.onMouseDownHandlers ;
+  for(var name in mouseDownHandlers.properties) {
+    var method = mouseDownHandlers.get(name) ;
+    method() ;
+  }
 } ;
 
 MouseEventManager.prototype.postOnMouseDown = function() {
@@ -30,12 +26,12 @@ MouseEventManager.prototype.postOnMouseUp = function() {
 	
 } ;
 
-MouseEventManager.prototype.addMouseDownHandler = function(method) {
-	this.onMouseDownHandlers.push(method) ;
+MouseEventManager.prototype.addMouseDownHandler = function(id, method) {
+	this.onMouseDownHandlers.put(id, method) ;
 } ;
 
-MouseEventManager.prototype.addMouseUpHandler = function(method) {
-	this.onMouseUpHandlers.push(method) ;
+MouseEventManager.prototype.addMouseUpHandler = function(id, method) {
+	this.onMouseUpHandlers.put(id, method) ;
 } ;
 
 eXo.core.MouseEventManager = new MouseEventManager() ;
