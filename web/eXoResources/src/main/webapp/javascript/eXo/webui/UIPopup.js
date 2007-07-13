@@ -1,25 +1,22 @@
 eXo.require('eXo.core.DragDrop') ;
 
 /* TODO: need to manage zIndex for all popup */
+//var zIndex = 2 ;
 
 var popupArr = new Array() ;
-var zIndex = 2 ;
 
 function UIPopup() {
+	this.zIndex = 3 ;
 } ;
 
 UIPopup.prototype.init = function(popup, containerId) {
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 	if(containerId) popup.containerId = containerId ;
 	popup.onmousedown = this.changezIndex ;
-//	popup.onmousedown = function() {
-//		this.style.zIndex = ++zIndex ;
-//		//alert("afa fas sdfsaf : " +this.className) ;
-//	}
 } ;
 
 UIPopup.prototype.changezIndex = function() {
-	this.style.zIndex = ++zIndex ;
+	this.style.zIndex = ++eXo.webui.UIPopup.zIndex;
 } ;
 
 UIPopup.prototype.create = function() {	
@@ -40,7 +37,7 @@ UIPopup.prototype.show = function(popup) {
 	if(typeof(popup) == "string") {	
 		popup = document.getElementById(popup) ;
 	}
-	popup.style.zIndex = ++zIndex ;
+	popup.style.zIndex = ++eXo.webui.UIPopup.zIndex ;
 	popup.style.display = "block" ;
 } ;
 

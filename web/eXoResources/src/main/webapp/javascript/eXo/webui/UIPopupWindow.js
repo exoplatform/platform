@@ -1,7 +1,6 @@
 eXo.require('eXo.webui.UIPopup') ;
 
-function UIPopupWindow() {	
-} ;
+function UIPopupWindow() {} ;
 
 UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseButton) {
 	var DOMUtil = eXo.core.DOMUtil ;

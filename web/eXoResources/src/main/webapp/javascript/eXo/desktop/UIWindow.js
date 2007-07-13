@@ -41,7 +41,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 		}
 	}
 	
-	if(popup.style.zIndex == "") popup.style.zIndex = ++zIndex ;
+	if(popup.style.zIndex == "") popup.style.zIndex = ++eXo.webui.UIPopup.zIndex ;
 	
 	popup.onmousedown = this.mousedownOnPopup ;
 	popup.onmouseup = this.mouseupOnPopup ; 
