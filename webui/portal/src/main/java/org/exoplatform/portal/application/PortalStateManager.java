@@ -48,13 +48,16 @@ public class PortalStateManager extends StateManager {
     PortalRequestContext  pcontext = (PortalRequestContext) context ;
     PortalApplicationState state = uiApplications.get(pcontext.getSessionId()) ;
     if(state != null) {
-      if(state.getAccessPath() != pcontext.getAccessPath()) {
+      if(state.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS  &&
+         pcontext.getAccessPath() != PortalRequestContext.PRIVATE_ACCESS) {
+        pcontext.getRequest().getSession().invalidate() ;
+        HttpServletResponse response = pcontext.getResponse();
+        response.sendRedirect(pcontext.getNodeURI());
+        pcontext.setResponseComplete(true) ;
+        return null;
+      } else if(state.getAccessPath() != pcontext.getAccessPath()) {
         clearSession(pcontext.getRequest().getSession()) ;
         state = null ;
-        //HttpServletResponse response = pcontext.getResponse();
-        //response.sendRedirect(pcontext.getNodeURI());
-        //pcontext.setResponseComplete(true);
-        //return null;
       } else if(!pcontext.getPortalOwner().equals(state.getUIPortalApplication().getOwner())) {
         clearSession(pcontext.getRequest().getSession()) ;
         state = null ;
