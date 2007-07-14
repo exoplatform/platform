@@ -4,7 +4,7 @@
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	//jsmanager.addJavascript('eXo.portal.UIPortal.onLoads();');
-	System.out.println(uicomponent.getParent().getParent()) ;
+	//System.out.println(uicomponent.getParent().getParent()) ;
 %>
 <div class="UITabContainer">
 	<div class="UIHorizontalTabs">
@@ -25,7 +25,13 @@
 				            	<div class="RightTab">
 				              	<div class="MiddleTab"> 
 				              		<a class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=title%></a>
-					              	<a href="<%=uicomponent.event("EditContainer","$uiChild.id")%>"><img class="EditIcon" src="/eXoResources/background/DefaultSkin/Blank.gif"></a>
+				              		<%if(uicomponent.isShowEditControl()){%>
+					              	  <a href="<%=uicomponent.event("EditContainer","$uiChild.id")%>">
+					              	<%}%>  
+					              	  <img class="EditIcon" src="/eXoResources/background/DefaultSkin/Blank.gif">
+					              	<%if(uicomponent.isShowEditControl()){%>
+					              	  </a>
+					              	<%}%>  
 					                <a style="display: none" class="CloseIcon" href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>"><span></span></a> 
 					              </div>
 				            	</div>
