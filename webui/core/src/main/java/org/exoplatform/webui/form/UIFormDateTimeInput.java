@@ -59,13 +59,13 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
   public void processRender(WebuiRequestContext context) throws Exception {
     context.getJavascriptManager().importJavascript("eXo.webui.UICalendar") ;
     Writer w = context.getWriter();
-    w.write("<span><input type='text' onfocus='eXo.webui.UICalendar.init(this,") ;
+    w.write("<input type='text' onfocus='eXo.webui.UICalendar.init(this,") ;
     w.write(String.valueOf(isDisplayTime_));
     w.write(");' onkeyup='eXo.webui.UICalendar.show();' name='") ;
     w.write(getName()) ; w.write('\'') ;
     if(value_ != null && value_.length() > 0) {      
       w.write(" value='"); w.write(value_.toString()); w.write('\'');
     }
-    w.write(" onmousedown='event.cancelBubble = true' /></span>") ;
+    w.write(" onmousedown='event.cancelBubble = true' />") ;
   }
 }

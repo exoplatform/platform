@@ -1,3 +1,19 @@
+#UICalendarControlIFrame {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.UICalendarComponent {
+  position:absolute;
+  background-color:#FFF;
+  margin:0;
+  padding:0;
+  display:none;
+  width: 225px;
+}
+
 .UICalendar {
   border: 1px solid #ccced7;
   background: #e0e5f7 url('CalendarBG.gif') repeat-x top;
@@ -129,20 +145,4 @@
   border: 0px;
   width: 15px;
   direction: rtl;
-}
-
-#UICalendarControlIFrame {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-}
-
-#UICalendarControl {
-  position:absolute;
-  background-color:#FFF;
-  margin:0;
-  padding:0;
-  display:none;
-  width: 225px;
 }
