@@ -3,6 +3,8 @@ eXo.require('eXo.webui.UIItemSelector');
 function UIForm() {
 };
 
+//TODO:Lambkin think Portal don't use this method.
+/*
 UIForm.prototype.onFixSize = function() {
 	var DOMUtil = eXo.core.DOMUtil;
 	var arrowIcon = DOMUtil.findFirstDescendantByClass(document, "div", "Button");
@@ -22,6 +24,7 @@ UIForm.prototype.onFixSize = function() {
 
   scrollArea.style.overflow = "auto";
 };
+*/
 
 /*ie bug  you cannot have more than one button tag*/
 UIForm.prototype.submitForm = function(formId, action, useAjax) {

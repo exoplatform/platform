@@ -37,29 +37,24 @@ UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
   var uiSelectTab = DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
 
   var uiHorizontalTabs = DOMUtil.findAncestorByClass(clickedEle, "UIHorizontalTabs") ;
-  var uiTab = eXo.core.DOMUtil.findDescendantsByClass(uiHorizontalTabs, "div", "UITab") ;
+  var uiTabs = eXo.core.DOMUtil.findDescendantsByClass(uiHorizontalTabs, "div", "UITab") ;
   var parentdHorizontalTab = uiHorizontalTabs.parentNode ;
 
   var contentTabContainer = DOMUtil.findFirstDescendantByClass(parentdHorizontalTab, "div", "UITabContentContainer") ;
   var uiTabContent = DOMUtil.getChildrenByTagName(contentTabContainer, "div") ;
   
-  //var index = 0 ;
-  for(var i = 0; i < uiTab.length; i++) {
-    var styleTabDiv = DOMUtil.getChildrenByTagName(uiTab[i], "div")[0] ;
+  var index = 0 ;
+  for(var i = 0; i < uiTabs.length; i++) {
+    var styleTabDiv = DOMUtil.getChildrenByTagName(uiTabs[i], "div")[0] ;
     if(styleTabDiv.className == "DisabledTab") continue ;
-    //console.log("%s, %s ",uiSelectTab, uiTab[i]);
-    if(uiSelectTab == uiTab[i]) {
+    if(uiSelectTab == uiTabs[i]) {
       styleTabDiv.className = "SelectedTab" ;
-      eXo.webui.UIHorizontalTabs.currentTab = i;
-    	/*index = i ;*/ continue ;
+    	index = i ; continue ;
     }
     styleTabDiv.className = "NormalTab" ;
     uiTabContent[i].style.display = "none" ;
   }
-  uiTabContent[eXo.webui.UIHorizontalTabs.currentTab].style.display = "block" ;
-  // Used for UIFormTabPane
-  if(DOMUtil.findFirstDescendantByClass(document, "div", "UIFormTabPane")) eXo.webui.UIForm.onFixSize();
-
+  uiTabContent[index].style.display = "block" ;
 };
 
 UIHorizontalTabs.prototype.changeTabForUIFormTabpane = function(clickedElemt, formId, hiddenValue) {
