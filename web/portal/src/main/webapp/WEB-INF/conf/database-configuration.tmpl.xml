@@ -29,6 +29,23 @@
     </init-params>
   </component>
 
+  <component> 
+    <key>org.exoplatform.services.database.DatabaseService</key>
+    <type>org.exoplatform.services.database.impl.XAPoolTxSupportDatabaseService</type>
+    <init-params>
+      <properties-param>
+        <name>default</name>
+        <description>Connection configuration</description>
+        <property name='connection.driver' value='${driverClass}'/>
+        <property name='connection.url' value='${connectionUrl}'/>
+        <property name='connection.login' value='${username}'/>
+        <property name='connection.password' value='${password}'/>
+        <property name='connection.min-size' value='3'/>
+        <property name='connection.max-size' value='5'/>
+      </properties-param>
+    </init-params>
+  </component>
+
   <external-component-plugins>
     <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
     <component-plugin>

@@ -2,11 +2,15 @@
 <configuration>
   <component>
     <type>org.exoplatform.groovyscript.text.TemplateService</type>
-      <init-params>
-        <value-param>
-          <name>name</name>
-          <value>false</value>
-        </value-param>
-      </init-params>
+    <init-params>
+      <value-param>
+        <name>name</name>
+        <value>false</value>
+      </value-param>
+    </init-params>
+  </component>
+
+  <component>
+    <type>org.exoplatform.javascript.JavaScriptEngineService</type>
   </component>
 </configuration>

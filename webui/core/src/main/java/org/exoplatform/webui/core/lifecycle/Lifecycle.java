@@ -6,8 +6,12 @@ package org.exoplatform.webui.core.lifecycle;
 
 import groovy.text.Template;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.groovyscript.text.TemplateService;
+import org.exoplatform.javascript.JavaScriptEngineService;
 import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
@@ -48,12 +52,18 @@ public class Lifecycle {
   
   public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     String template = uicomponent.getTemplate() ;
-    ResourceResolver resolver =  uicomponent.getTemplateResourceResolver(context, template); 
-    WebuiBindingContext bcontext = 
-      new WebuiBindingContext(resolver, context.getWriter(), uicomponent, context) ;
-    bcontext.put("uicomponent", uicomponent) ;
-    bcontext.put(uicomponent.getUIComponentName(), uicomponent) ;   
-    renderTemplate(template, bcontext) ;
+    if(template.endsWith(".gtmpl")) {
+      ResourceResolver resolver =  uicomponent.getTemplateResourceResolver(context, template); 
+      WebuiBindingContext bcontext = 
+        new WebuiBindingContext(resolver, context.getWriter(), uicomponent, context) ;
+      bcontext.put("uicomponent", uicomponent) ;
+      bcontext.put(uicomponent.getUIComponentName(), uicomponent) ;   
+      renderTemplate(template, bcontext) ;
+    } else if(template.endsWith(".jstmpl")) {
+      ResourceResolver resolver =  uicomponent.getTemplateResourceResolver(context, template);
+      Map<String, Object>  variables = new HashMap<String, Object>() ;
+      renderJSTemplate(template, variables, resolver, uicomponent, context) ;
+    }
   }
   
   @SuppressWarnings("unused")
@@ -91,11 +101,22 @@ public class Lifecycle {
         validator.endComponent();
       }
     } catch (Exception e) {
-      //for log file
       System.out.println("\n\n template : " + template);
-      System.out.println(e.toString()+"\n\n");
-//      e.printStackTrace();
+      System.out.println(e.toString()+"\n\n") ;
     }
   }
   
+  protected void renderJSTemplate(String template, Map<String, Object> variables, ResourceResolver resolver, 
+                                  UIComponent uicomponent, WebuiRequestContext context) throws Exception {
+    ExoContainer pcontainer =  context.getApplication().getApplicationServiceContainer() ;
+    JavaScriptEngineService service = 
+      (JavaScriptEngineService) pcontainer.getComponentInstanceOfType(JavaScriptEngineService.class) ;
+    WebuiTemplateContext webuiTmplContext = 
+      new WebuiTemplateContext(service, resolver, uicomponent, context) ;
+    webuiTmplContext.setVariables(variables) ;
+    webuiTmplContext.setVariable("decorator", decorator_) ;
+    webuiTmplContext.setVariable("uicomponent", uicomponent) ;
+    webuiTmplContext.setVariable(uicomponent.getUIComponentName(), uicomponent) ;
+    webuiTmplContext.render(template) ;
+  }
 }

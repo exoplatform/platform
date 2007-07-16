@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.Writer;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -16,7 +15,6 @@ import org.exoplatform.resolver.ResourceResolver;
 import org.mozilla.javascript.Context;
 import org.mozilla.javascript.Script;
 import org.mozilla.javascript.Scriptable;
-
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
@@ -24,32 +22,25 @@ import org.mozilla.javascript.Scriptable;
  * May 24, 2007  
  */
 public class JavaScriptEngine {
-  private Map<String, Script> scripts_ = new HashMap<String, Script>();
-  
-  public JavaScriptEngine() {
-    
-  }
   
   public Script loadScript(ResourceResolver resolver, String url, boolean reload) throws Exception {
-    Script script = null ;
-    if(!reload) script = scripts_.get(url) ;
-    if(script == null) {
-      InputStream is = resolver.getInputStream(url) ;
-      Reader reader = new InputStreamReader(is) ;
-      script = compileScript(url, reader) ;
-      scripts_.put(url, script) ;
-    }
-    return script ;
+    return loadScript(resolver, url) ;
   }
   
   public Script loadTemplate(ResourceResolver resolver, String url, boolean reload) throws Exception {
-    Script script = null ;
-    if(!reload) script = scripts_.get(url) ;
-    if(script == null) {
-      String template = new String(resolver.getResourceContentAsBytes(url)) ;
-      script = compileTemplate(url, template) ;
-      scripts_.put(url, script) ;
-    }
+    return loadTemplate(resolver, url) ;
+  }
+  
+  public Script loadScript(ResourceResolver resolver, String url) throws Exception {
+    InputStream is = resolver.getInputStream(url) ;
+    Reader reader = new InputStreamReader(is) ;
+    Script script = compileScript(url, reader) ;
+    return script ;
+  }
+  
+  public Script loadTemplate(ResourceResolver resolver, String url) throws Exception {
+    String template = new String(resolver.getResourceContentAsBytes(url)) ;
+    Script script = compileTemplate(url, template) ;
     return script ;
   }
   

@@ -41,6 +41,7 @@ public class TemplateContext {
 
   public Object getVariable(String name) { return variables_.get(name) ; } 
   public void   setVariable(String name, Object obj) { variables_.put(name, obj) ; }
+  public void   setVariables(Map<String, Object> variables) { variables_ =  variables ; }
   
   public void render(String templateUrl) throws Exception {
     variables_.put("TemplateContext", this) ;

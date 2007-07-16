@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.util.HashMap;
 
-import org.exoplatform.javascript.JavaScriptEngine;
+import org.exoplatform.javascript.DefaultJavaScriptEngine;
 import org.exoplatform.test.BasicTestCase;
 import org.mozilla.javascript.Script;
 /**
@@ -24,7 +24,7 @@ public class TestTemplateEngine extends BasicTestCase {
   }
 
   public void testEngine() throws Exception {
-    JavaScriptEngine engine = new JavaScriptEngine() ;
+    DefaultJavaScriptEngine engine = new DefaultJavaScriptEngine() ;
     HashMap<String, Object>  context = new HashMap<String, Object>() ;
     
     ClassLoader loader = Thread.currentThread().getContextClassLoader() ;

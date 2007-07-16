@@ -14,7 +14,7 @@ import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
-import org.exoplatform.javascript.JavaScriptEngine;
+import org.exoplatform.javascript.DefaultJavaScriptEngine;
 import org.exoplatform.javascript.TemplateContext;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.PortletResourceResolver;
@@ -27,12 +27,12 @@ import org.exoplatform.resolver.PortletResourceResolver;
 abstract public class MVCPortlet extends GenericPortlet {
   final public static String EVENT_HANDLER = "EventHandler" ;
   
-  private JavaScriptEngine javascriptEngine_ ;
+  private DefaultJavaScriptEngine javascriptEngine_ ;
   private ApplicationResourceResolver resourceResolver_ ;
   
   public void init(PortletConfig config) throws PortletException {
     super.init(config) ;
-    javascriptEngine_ = new JavaScriptEngine() ;
+    javascriptEngine_ = new DefaultJavaScriptEngine() ;
     resourceResolver_ = new ApplicationResourceResolver() ;
     resourceResolver_.addResourceResolver(new PortletResourceResolver(config.getPortletContext(), "app:")) ;
   }

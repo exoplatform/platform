@@ -17,7 +17,6 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
-
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
