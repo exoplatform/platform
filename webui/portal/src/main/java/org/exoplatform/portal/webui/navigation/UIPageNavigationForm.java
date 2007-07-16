@@ -88,24 +88,24 @@ public class UIPageNavigationForm extends UIFormTabPane {
                  addUIFormInput(new UIFormTextAreaInput("description","description", null)).
                  addUIFormInput(new UIFormSelectBox("priority", null, priorties));
     addUIFormInput(uiSettingSet) ;
-    //TODO: Tung.Pham modified
+//    //TODO: Tung.Pham modified
+//    //-----------------------------------
+//    if(!uiSelectBoxOwnerType.getValue().equals(PortalConfig.USER_TYPE)) {
+//      setPermissionSetting(true) ;
+//    }
     //-----------------------------------
-    if(!uiSelectBoxOwnerType.getValue().equals(PortalConfig.USER_TYPE)) {
-      setPermissionSetting(true) ;
-    }
-//    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
-//    uiPermissionSetting.setRendered(false);
-//    addUIComponentInput(uiPermissionSetting);
-//    
-//    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
-//    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-//    uiPermissionSetting.addChild(uiListPermissionSelector);
-//    
-//    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
-//    uiEditPermission.setRendered(false) ;
-//    uiEditPermission.configure("UIPermissionSelector", "editPermission");
-//    uiPermissionSetting.addChild(uiEditPermission);
-    //-----------------------------------
+    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
+    uiPermissionSetting.setRendered(false);
+    addUIComponentInput(uiPermissionSetting);
+    
+    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+    uiPermissionSetting.addChild(uiListPermissionSelector);
+    
+    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+    uiEditPermission.setRendered(false) ;
+    uiEditPermission.configure("UIPermissionSelector", "editPermission");
+    uiPermissionSetting.addChild(uiEditPermission);
     
     UIFormPopupWindow uiPopupGroupSelector = addChild(UIFormPopupWindow.class, null, "UIPopupGroupSelector");
     uiPopupGroupSelector.setShowCloseButton(false);
@@ -120,24 +120,24 @@ public class UIPageNavigationForm extends UIFormTabPane {
   }
   
   //TODO: Tung.Pham added
-  public void setPermissionSetting(boolean isCreate) throws Exception {
-    if(isCreate) {
-      UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
-      uiPermissionSetting.setRendered(false);
-      addUIComponentInput(uiPermissionSetting);
-      
-      UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
-      uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-      uiPermissionSetting.addChild(uiListPermissionSelector);
-      
-      UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
-      uiEditPermission.setRendered(false) ;
-      uiEditPermission.configure("UIPermissionSelector", "editPermission");
-      uiPermissionSetting.addChild(uiEditPermission);      
-    } else if(getChildById("PermissionSetting") != null) {
-      removeChildById("PermissionSetting") ;
-    }
-  }
+//  public void setPermissionSetting(boolean isCreate) throws Exception {
+//    if(isCreate) {
+//      UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
+//      uiPermissionSetting.setRendered(false);
+//      addUIComponentInput(uiPermissionSetting);
+//      
+//      UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+//      uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+//      uiPermissionSetting.addChild(uiListPermissionSelector);
+//      
+//      UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+//      uiEditPermission.setRendered(false) ;
+//      uiEditPermission.configure("UIPermissionSelector", "editPermission");
+//      uiPermissionSetting.addChild(uiEditPermission);      
+//    } else if(getChildById("PermissionSetting") != null) {
+//      removeChildById("PermissionSetting") ;
+//    }
+//  }
   
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
@@ -168,7 +168,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
     uiSelectBox.setValue(String.valueOf(pageNavigation.getPriority()));
     
   //TODO Tung: check  edit pageNavigation is ownerType = User when remove PermissionSetting tab 
-    if(!pageNavigation.getOwnerType().equals(PortalConfig.USER_TYPE)) setPermissionSetting(true) ;  
+    if(pageNavigation.getOwnerType().equals(PortalConfig.USER_TYPE)) removeChildById("PermissionSetting") ;  
   }
 
   //TODO: Tung.Pham modified
@@ -240,11 +240,9 @@ public class UIPageNavigationForm extends UIFormTabPane {
       
       if(PortalConfig.USER_TYPE.equals(ownerType)){
         uiOwnerId.setValue(prContext.getRemoteUser());
-        uiForm.setPermissionSetting(false) ;
       } else {
         if(PortalConfig.PORTAL_TYPE.equals(ownerType)){
           uiOwnerId.setValue(Util.getUIPortal().getName());
-          if(uiForm.getChildById("PermissionSetting") == null) uiForm.setPermissionSetting(true) ;
         } else {
           String script = "eXo.webui.UIPopupWindow.show('UIPopupGroupSelector');";
           prContext.getJavascriptManager().addCustomizedOnLoadScript(script);
@@ -264,11 +262,9 @@ public class UIPageNavigationForm extends UIFormTabPane {
         uiSelectBox.setValue(PortalConfig.USER_TYPE);
         PortalRequestContext prContext = Util.getPortalRequestContext();
         ownerIdStringInput.setValue(prContext.getRemoteUser());
-        uiPageNavigationForm.setPermissionSetting(false) ;
         return;
       }
       ownerIdStringInput.setValue(uiGroupSelector.getSelectedGroup().getId());
-      if(uiPageNavigationForm.getChildById("PermissionSetting") == null) uiPageNavigationForm.setPermissionSetting(true) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNavigationForm.getParent());
     }
   }
