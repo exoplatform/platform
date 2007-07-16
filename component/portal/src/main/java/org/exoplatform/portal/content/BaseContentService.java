@@ -62,7 +62,9 @@ public abstract class BaseContentService {
   
   public <T extends ContentItem> PageList getContentData(ContentNode node) throws Exception {
     PageList pageList = (PageList)contentCache_.get(node.getId());
-    if(pageList != null) return pageList;
+    //TODO: Tung.Pham modified
+    //if(pageList != null) return pageList;
+    if(pageList != null && !node.getType().equals("desc")) return pageList;
     for(ContentPlugin  plugin : plugins_){      
       if(plugin.getType().equals(node.getType())) {        
         pageList = plugin.loadContentMeta(node);

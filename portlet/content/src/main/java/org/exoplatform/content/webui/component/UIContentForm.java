@@ -14,6 +14,7 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -102,6 +103,13 @@ public class UIContentForm extends UIForm {
       try{
         uiNav.save(contentNode);
         uiNav.setSelectedNode(contentNode.getId());
+        //TODO: Tung.Pham added
+        //Need to review
+        //-----------------------------
+        UIDetailContent uiDetail = uiForm.<UIContainer>getParent().getChild(UIDetailContent.class) ;
+        uiDetail.refresh(true) ;
+        //-----------------------------
+
       }catch (Exception ex) {
         ApplicationMessage msg = new ApplicationMessage(ex.getMessage(), null, ApplicationMessage.ERROR);
         uiForm.getAncestorOfType(UIApplication.class).addMessage(msg) ;
