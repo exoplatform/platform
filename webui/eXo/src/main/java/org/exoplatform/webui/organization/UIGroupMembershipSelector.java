@@ -61,9 +61,9 @@ public class UIGroupMembershipSelector extends UIContainer {
     UIBreadcumbs uiBreadcumbs = addChild(UIBreadcumbs.class, "BreadcumbGroupSelector", "BreadcumbGroupSelector") ;
     UITree tree = addChild(UITree.class, "UITreeGroupSelector", "TreeGroupSelector");
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-    Collection sibblingsGroup = service.getGroupHandler().findGroups(null);
+    Collection<?> sibblingsGroup = service.getGroupHandler().findGroups(null);
     
-    Collection collection = service.getMembershipTypeHandler().findMembershipTypes();
+    Collection<?> collection = service.getMembershipTypeHandler().findMembershipTypes();
     listMemberhip  = new ArrayList<String>(5);
     for(Object obj : collection){
       listMemberhip.add(((MembershipType)obj).getName());
@@ -105,7 +105,7 @@ public class UIGroupMembershipSelector extends UIContainer {
     uiBreadcumb.setPath(getPath(null, groupId)) ;
 
     UITree tree = getChild(UITree.class);
-    Collection sibblingGroup;
+    Collection<?> sibblingGroup;
     
     if(groupId == null) {      
       sibblingGroup = service.getGroupHandler().findGroups(null);
@@ -150,11 +150,11 @@ public class UIGroupMembershipSelector extends UIContainer {
     return super.event(name, beanId);
   }
 
-  static  public class ChangeNodeActionListener extends EventListener<UITree> {   
-    public void execute(Event<UITree> event) throws Exception {     
+  static  public class ChangeNodeActionListener extends EventListener<UIComponent> {   
+    public void execute(Event<UIComponent> event) throws Exception {     
       String groupId = event.getRequestContext().getRequestParameter(OBJECTID)  ;
-      UITree uiTree = event.getSource();
-      UIGroupMembershipSelector uiSelector = uiTree.getParent();    
+      UIComponent uiComp = event.getSource();
+      UIGroupMembershipSelector uiSelector = uiComp.getParent();    
       uiSelector.changeGroup(groupId);
       UIComponent uiParent = uiSelector.<UIComponent>getParent().getParent();
       uiParent.setRenderSibbling(uiParent.getClass()); 

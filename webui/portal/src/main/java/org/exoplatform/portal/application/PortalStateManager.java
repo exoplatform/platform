@@ -37,8 +37,7 @@ public class PortalStateManager extends StateManager {
       synchronized(uiApplications) {
         ConfigurationManager cmanager = app.getConfigurationManager() ;
         String uirootClass = cmanager.getApplication().getUIRootComponent() ;
-        ClassLoader cl = Thread.currentThread().getContextClassLoader() ;
-        Class type = cl.loadClass(uirootClass) ;
+        Class type = Thread.currentThread().getContextClassLoader().loadClass(uirootClass) ;
         uiApplication = (UIApplication)app.createUIComponent(type, null, null, context) ;     
         state.put(key, uiApplication) ;
       }
@@ -67,8 +66,7 @@ public class PortalStateManager extends StateManager {
       synchronized(uiApplications) {
         ConfigurationManager cmanager = app.getConfigurationManager() ;
         String uirootClass = cmanager.getApplication().getUIRootComponent() ;
-        ClassLoader cl = Thread.currentThread().getContextClassLoader() ;
-        Class type = cl.loadClass(uirootClass) ;
+        Class type = Thread.currentThread().getContextClassLoader().loadClass(uirootClass) ;
         UserPortalConfig config = getUserPortalConfig(pcontext) ;
         if(config == null) {
           HttpServletResponse response = pcontext.getResponse();
@@ -107,12 +105,12 @@ public class PortalStateManager extends StateManager {
     UserPortalConfigService service_ = 
       (UserPortalConfigService)appContainer.getComponentInstanceOfType(UserPortalConfigService.class);
     String remoteUser = context.getRemoteUser();
-    String ownerUser = context.getPortalOwner();  
+    String ownerUser = context.getPortalOwner(); 
     return service_.getUserPortalConfig(ownerUser, remoteUser) ;
   }
   
   private void clearSession(HttpSession session) {
-    Enumeration e = session.getAttributeNames() ;
+    Enumeration<?> e = session.getAttributeNames() ;
     while(e.hasMoreElements()) {
       String name =  (String)e.nextElement() ;
       session.removeAttribute(name) ;

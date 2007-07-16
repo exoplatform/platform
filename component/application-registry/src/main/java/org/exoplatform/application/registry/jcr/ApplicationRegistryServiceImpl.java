@@ -18,9 +18,11 @@ import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
+import org.exoplatform.services.organization.MembershipHandler;
+import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
 import org.exoplatform.web.WebAppController;
@@ -212,7 +214,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     Iterator<ApplicationCategory> iterCategory = categories.iterator();
     
     PortalContainer manager  = PortalContainer.getInstance();
-    UserACL userACL = (UserACL) manager.getComponentInstanceOfType(UserACL.class) ;
+    OrganizationService orgService = (OrganizationService)manager.getComponentInstanceOfType(OrganizationService.class);
     while(iterCategory.hasNext()) {
       ApplicationCategory category = iterCategory.next();
       List<Application> apps = getApplications(category, appTypes);
@@ -220,7 +222,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       while(iterApp.hasNext()) {
         Application app = iterApp.next();
         String [] permissions = app.getAccessPermissions();
-        if(!userACL.hasViewPermission(app.getOwner(), accessUser, permissions)) iterApp.remove();
+        if(!hasViewPermission(orgService, accessUser, permissions)) iterApp.remove();
       }
       category.setApplications(apps);      
       if(apps.size() < 1) iterCategory.remove();
@@ -228,15 +230,39 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     return categories;
   }
   
+  private boolean hasViewPermission(OrganizationService orgService, String remoteUser, String [] expPerms) throws Exception {
+    if(expPerms == null || expPerms.length < 1) expPerms = new String[]{"*:/user"};
+    for(String ele : expPerms) {
+      if(hasViewPermission(orgService, remoteUser, ele)) return true;
+    }
+    return false;
+  }
+  
+  private boolean hasViewPermission(OrganizationService orgService, String remoteUser, String expPerm) throws Exception {
+    if(expPerm == null) return true;
+    Permission permission = new Permission();
+    permission.setPermissionExpression(expPerm);
+    String groupId = permission.getGroupId();
+    if("/guest".equals(groupId)) return true ;
+
+    String membership = permission.getMembership() ;
+    MembershipHandler handler = orgService.getMembershipHandler();
+    if(membership == null || "*".equals(membership)) {
+      Collection<?> c = handler.findMembershipsByUserAndGroup(remoteUser, groupId) ;
+      if(c == null) return false ;
+      return c.size() > 0 ;
+    } 
+    return handler.findMembershipByUserGroupAndType(remoteUser, groupId, membership) != null;
+  }
 
   public void importJSR168Portlets() throws Exception {
     Session session = jcrRegService_.getSession();
     PortalContainer manager  = PortalContainer.getInstance();
     PortletContainerMonitor monitor =
       (PortletContainerMonitor) manager.getComponentInstanceOfType(PortletContainerMonitor.class) ;
-    Collection portletDatas = monitor.getPortletRuntimeDataMap().values();  
+    Collection<?> portletDatas = monitor.getPortletRuntimeDataMap().values();  
     
-    Iterator iterator = portletDatas.iterator();
+    Iterator<?> iterator = portletDatas.iterator();
     while(iterator.hasNext()) {
       PortletRuntimeData portletRuntimeData = (PortletRuntimeData) iterator.next();
       String categoryName = portletRuntimeData.getPortletAppName();

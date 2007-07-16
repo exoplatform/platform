@@ -54,17 +54,16 @@ public class UserACL {
   }  
   
   boolean hasPermission(PortalConfig pconfig, String accessUser) throws Exception {
+    if(!hasViewPermission(pconfig.getCreator(), accessUser, pconfig.getAccessPermissions())) return false;
     if(hasEditPermission(pconfig.getCreator(), accessUser, pconfig.getEditPermission())) {
       pconfig.setModifiable(true);
       return true;
     }
     pconfig.setModifiable(false);
-    
-    return hasViewPermission(pconfig.getCreator(), accessUser, pconfig.getAccessPermissions()) ;
+    return true;
   }
   
   boolean hasPermission(Page page, String accessUser) throws Exception {
-    
     String owner = page.getCreator();
     if(page.getOwnerType().equals(PortalConfig.USER_TYPE)) owner = page.getOwnerId();
     if(hasEditPermission(owner, accessUser, page.getEditPermission())) {
@@ -89,7 +88,6 @@ public class UserACL {
   
   public boolean hasViewPermission(String owner, String remoteUser, String[] expPerms) throws Exception {
 //    System.out.println("\n\n\n\n------HasVeiwPermission(3) of owner and User: "  + owner + ":" + remoteUser);
-    
     if(owner != null && owner.equals(remoteUser)) return true;
     if(superUser_.equals(remoteUser)) return true;
     if(expPerms == null || expPerms.length < 1) expPerms = new String[] {"*:/guest"};
@@ -118,7 +116,6 @@ public class UserACL {
   }
   
   public boolean hasEditPermission(String owner, String remoteUser, String expPerm) throws Exception {
-    
 //  System.out.println("\n\n\n\n------HasEditPermission(3) of owner and user "  + owner + ":" + remoteUser);
 //    if(remoteUser==null) return false;
     if(owner != null && owner.equals(remoteUser)) return true;

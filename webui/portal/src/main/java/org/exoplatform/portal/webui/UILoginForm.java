@@ -106,10 +106,10 @@ public class UILoginForm extends UIForm {
         response.addCookie(loadCookie(request, "authentication.username", username));
         response.addCookie(loadCookie(request, "authentication.password", password));
       }
-      prContext.setResponseComplete(true);     
+      prContext.setResponseComplete(true);  
       //String redirect = request.getContextPath() + "/private/site:/";
-      UIPortal currentPortal = Util.getUIPortal() ;
-      String portalName = currentPortal.getName() ;
+      UIPortal uiCurrentPortal = Util.getUIPortal() ;
+      String portalName = uiCurrentPortal.getName() ;
       String redirect = request.getContextPath() + "/private/" + portalName + "/";
       prContext.getResponse().sendRedirect(redirect);      
     }   

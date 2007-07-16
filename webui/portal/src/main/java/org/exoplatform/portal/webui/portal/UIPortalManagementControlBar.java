@@ -51,7 +51,6 @@ public class UIPortalManagementControlBar extends UIToolbar {
     PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);
     UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);     
     configService.update(portalConfig);
-    Util.updateUIApplication(event);
   }
   
   public void abort(Event<UIPortalManagementControlBar> event) throws Exception {
@@ -91,6 +90,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalManagementControlBar uiPortalManagement = event.getSource(); 
       uiPortalManagement.save(event);
+      Util.updateUIApplication(event);
     }
   }  
   

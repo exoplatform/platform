@@ -70,14 +70,18 @@ public class UserPortalConfigService {
    * @return a UserPortalConfig object that contain the PortalConfig  and a list of the PageNavigation objects
    */
   public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
-    PortalConfig portal = storage_.getPortalConfig(portalName) ;
+    PortalConfig portal = (PortalConfig) portalConfigCache_.get(portalName) ;  
+    if(portal == null) {
+      portal = storage_.getPortalConfig(portalName) ;
+      if(portal != null) portalConfigCache_.put(portalName, portal);
+    }
     if(portal == null || !userACL_.hasPermission(portal, accessUser)) return null ;
 
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
+    PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName, accessUser) ;
     if (navigation != null) navigations.add(navigation);    
     
-    navigation = storage_.getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser) ;
+    navigation = getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser, accessUser) ;
     if (navigation != null) navigations.add(navigation) ;
 
     Collection<?> memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
@@ -86,7 +90,7 @@ public class UserPortalConfigService {
       
       while(iterator.hasNext()) {
         Membership m = (Membership) iterator.next() ;   
-        navigation = storage_.getPageNavigation(PortalConfig.GROUP_TYPE+"::"+m.getGroupId()) ;
+        navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+m.getGroupId(), accessUser) ;
         if(navigation == null) continue;
         boolean add = true;
         for(PageNavigation nav : navigations) {
@@ -101,10 +105,10 @@ public class UserPortalConfigService {
     userACL_.computeNavigation(navigations, accessUser);
     
     ArrayList<Widgets> widgets = new ArrayList<Widgets>();
-    Widgets widgetsItem = storage_.getWidgets(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
+    Widgets widgetsItem = getWidgets(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
     if(widgetsItem != null) widgets.add(widgetsItem);
     
-    widgetsItem = storage_.getWidgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
+    widgetsItem = getWidgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
     if(widgetsItem != null) widgets.add(widgetsItem);
     
     return new UserPortalConfig(portal, navigations, widgets) ;
@@ -174,16 +178,18 @@ public class UserPortalConfigService {
     }
     
     PortalConfig config = storage_.getPortalConfig(portalName) ;
+    portalConfigCache_.remove(config.getName()) ;
     if (config != null) storage_.remove(config) ;
   }
   
   /**
    * This method should update the PortalConfig  object
-   * @param config
+   * @param portal
    * @throws Exception
    */
-  public void update(PortalConfig config) throws Exception { 
-    storage_.save(config) ; 
+  public void update(PortalConfig portal) throws Exception { 
+    storage_.save(portal) ; 
+    portalConfigCache_.select(new ExpireKeyStartWithSelector(portal.getName())) ;
   }
 
 //**************************************************************************************************
@@ -305,7 +311,9 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public Widgets getWidgets(String id) throws Exception {
-    Widgets widgets = storage_.getWidgets(id) ;
+    Widgets widgets = (Widgets) pageConfigCache_.get(id) ;
+    if(widgets != null) return widgets;
+    widgets = storage_.getWidgets(id) ;
     widgetsCache_.put(id, widgets) ;
     return widgets ;
   }
