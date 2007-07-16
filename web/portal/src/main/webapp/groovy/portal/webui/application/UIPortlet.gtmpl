@@ -208,52 +208,50 @@
 		      <%/*End Window Portlet Bar*/ %>
 		      
 		      <% /*Begin Popup Menu*/ %>
-		      <div class="UIPopupCategory" style="display: none;">
-		        <div class="PopupCategoryDecorator">
-		          <div class="PopupCategoryTL">
-		            <div class="PopupCategoryTR">
-		              <div class="PopupCategoryTC"><span></span></div>
-		            </div>
-		          </div>
-		          <div class="PopupCategoryML">
-		            <div class="PopupCategoryMR">
-		              <div class="PopupCategoryMC">
-		                <% 
-		                  List supportModes = uicomponent.getSupportModes();
-		                  if(supportModes!=null) {
-		                  }
-		                  for(String mode in supportModes) {
-		                    String actionLink = uicomponent.event("ChangePortletMode", mode);
-		                    String upper = mode.charAt(0).toString();
-		                    mode = mode.replaceFirst(upper, upper.toUpperCase());
-		                %>
-		                    <div class="CategoryItem" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
-		                      <div class="Icon ModifiedIcon"><span></span></div>
-		                      <a class="CategoryItemLabel" href="$actionLink">$mode</a><% /* TODO : insert onmousedown event because of event model of browser*/ %>
-		                      <div style="clear: left"><span></span></div>
-		                    </div>
-		                <%        
-		                  }
-		                  if(supportModes != null && supportModes.size() > 0) {
-		                %> 
-		                  	<div class="CategoryItem" onmouseover="$onMouseOver" onmouseout="$onMouseOut">
-		                    	<div class="Icon ModifiedIcon"><span></span></div>
-		                    	<a class="CategoryItemLabel" href="<%=uicomponent.event("ChangePortletMode", "view")%>">
-		                    		<%=_ctx.appRes("UIPageDesktop.label.View")%>
-		                    	</a>
-		                    	<div style="clear: left"><span></span></div>
-		                  	</div>                       
-		                 <%}%> 	
-		              </div>
-		            </div>
-		          </div>
-		          <div class="PopupCategoryBL">
-		            <div class="PopupCategoryBR">
-		              <div class="PopupCategoryBC"><span></span></div>
-		            </div>
-		          </div>
-		        </div>
-		      </div>
+		      <div style="position: relative; float: right; ">
+			      <div class="UIPopupCategory" style="display: none; ">
+			        <div class="PopupCategoryDecorator">
+			          <div class="PopupCategoryTL">
+			            <div class="PopupCategoryTR">
+			              <div class="PopupCategoryTC"><span></span></div>
+			            </div>
+			          </div>
+			          <div class="PopupCategoryML">
+			            <div class="PopupCategoryMR">
+			              <div class="PopupCategoryMC">
+			                <% 
+			                  List supportModes = uicomponent.getSupportModes();
+			                  if(supportModes!=null) {
+			                  }
+			                  for(String mode in supportModes) {
+			                    String actionLink = uicomponent.event("ChangePortletMode", mode);
+			                    String upper = mode.charAt(0).toString();
+			                    mode = mode.replaceFirst(upper, upper.toUpperCase());
+			                %>
+					                  <a class="CategoryItem" href="$actionLink" >
+				                    	<div class="CategoryItemLabel" >$mode</div>
+				                    </a>
+			                <%        
+			                  }
+			                  if(supportModes != null && supportModes.size() > 0) {
+			                %> 
+														<a class="CategoryItem" href="<%=uicomponent.event("ChangePortletMode", "view")%>" >
+				                    	<div class="CategoryItemLabel">
+				                    		<%=_ctx.appRes("UIPageDesktop.label.View")%>
+				                    	</div>
+				                    </a>                        
+			                 <%}%> 	
+			              </div>
+			            </div>
+			          </div>
+			          <div class="PopupCategoryBL">
+			            <div class="PopupCategoryBR">
+			              <div class="PopupCategoryBC"><span></span></div>
+			            </div>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
 		      <% /*End Popup Menu*/ %>
 		      
 		      <%//Begin Top Decorator %>
