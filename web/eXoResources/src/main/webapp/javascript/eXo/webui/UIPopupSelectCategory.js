@@ -1,7 +1,9 @@
 function UIPopupSelectCategory() {
 } ;
 
-
+/*
+ * minh.js.exo
+ */
 UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 	if(!e) e = window.event ;
 	e.cancelBubble = true ;
@@ -10,28 +12,17 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 	var categoryDetectPosition = selectedElement.parentNode ;
 	var ancestorPopupCategory = DOMUtil.findAncestorByClass(selectedElement, "AncestorPopupCategory") ;
   var uiPopupCategory = DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
-	if(uiPopupCategory == null) return;
+	if(uiPopupCategory == null) return ;
 	if(uiPopupCategory.style.display != "block") {
 		uiPopupCategory.style.position = "absolute" ;
 		uiPopupCategory.style.display = "block" ;
 		uiPopupCategory.style.width = width + "px" ;
-		var posLeft = eXo.core.Browser.findPosX(categoryDetectPosition) - width + selectedElement.offsetWidth + 28 ;
-		// 28 is distance between arrow and PopupCategoryRight
-		
-	  posLeft -= ancestorPopupCategory.offsetLeft ;
-		if(eXo.portal.UIControlWorkspace.showControlWorkspace) {
-			posLeft -= eXo.portal.UIControlWorkspace.defaultWidth ;
-		} else {
-			if(document.getElementById("UIControlWorkspace")) {
-				posLeft -= 5 ;
-			}
-		}
-		uiPopupCategory.style.left = posLeft + "px" ;
+	var posLeft = -categoryDetectPosition.clientWidth - width + 38 ;
+	uiPopupCategory.style.left = posLeft + "px" ;
+	uiPopupCategory.style.top = -5 + "px" ;
 	} else {
 		uiPopupCategory.style.display = "none" ;
 	}
-	
-	//Add uiPopupCategory to the list element will be display to "none" when click on document
 	eXo.core.DOMUtil.listHideElements(uiPopupCategory) ;
 } ;
 
@@ -59,20 +50,6 @@ UIPopupSelectCategory.prototype.selectdCategory = function(selectedElement) {
 	uiPopupCategory.style.display = "none" ;
 
 } ;
-
-//TODO : minh.js.exo
-//UIPopupSelectCategory.prototype.onMouseOver = function(selectedElement, over) {
-//	if(over) {
-//		selectedElement.onclick = function() {
-//			var uiPopupCategory = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "UIPopupCategory") ;
-//			uiPopupCategory.style.display = "none" ;
-//		};
-//		selectedElement.className = "CategoryItem OverCategoryItem" ;
-//	} else {
-//		selectedElement.className = "CategoryItem" ;
-//	}
-//} ;
-
 
 UIPopupSelectCategory.prototype.setDefault = function(selectedElement) {
 	var ancestorPopupCategory = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "AncestorPopupCategory") ;
