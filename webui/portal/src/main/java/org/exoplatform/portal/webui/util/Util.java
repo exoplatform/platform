@@ -63,15 +63,16 @@ public class Util {
       UIPortalComponent uiContainer = (UIPortalComponent) uiComponent;
       if(clazz.isInstance(uiContainer)){
         uiContainer.setShowEditControl(true);
-      }else {
+      } else {
         uiContainer.setShowEditControl(false);
       }
     }
     if(uiComponent instanceof org.exoplatform.webui.core.UIContainer){
-      List<UIComponent> children  = (( org.exoplatform.webui.core.UIContainer)uiComponent).getChildren();
+      List<UIComponent> children  = ((org.exoplatform.webui.core.UIContainer)uiComponent).getChildren();
       for(UIComponent comp : children ) setShowEditControl(comp, clazz);
       return;
     }
+    
     if(uiComponent instanceof UIComponentDecorator) {
       UIComponentDecorator uiDecorator = (UIComponentDecorator) uiComponent;
       if(uiDecorator.getUIComponent() == null) return;
@@ -198,7 +199,7 @@ public class Util {
     }
     if(uiParent == null) return;
     String layoutMode = clazz.getSimpleName();
-    Util.setShowEditControl(uiPortal, clazz);
+    setShowEditControl(uiParent, clazz);
     
     PortalRequestContext context = Util.getPortalRequestContext() ;
     if(uiParent instanceof UIPortal){

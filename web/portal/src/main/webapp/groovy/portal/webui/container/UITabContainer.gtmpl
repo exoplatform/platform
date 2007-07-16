@@ -25,12 +25,16 @@
 				            	<div class="RightTab">
 				              	<div class="MiddleTab"> 
 				              		<a class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=title%></a>
-				              		<%if(uicomponent.isShowEditControl()){%>
-					              	  <a href="<%=uicomponent.event("EditContainer","$uiChild.id")%>">
+				              		<%
+				              		  String editCss = "";
+				              		  if(uiChild.isShowEditControl()){
+				              		    editCss = "EditIcon";
+				              		%>
+					              	    <a href="<%=uicomponent.event("EditContainer", "$uiChild.id")%>">
 					              	<%}%>  
-					              	  <img class="EditIcon" src="/eXoResources/background/DefaultSkin/Blank.gif">
-					              	<%if(uicomponent.isShowEditControl()){%>
-					              	  </a>
+					              	    <img class="$editCss" src="/eXoResources/background/DefaultSkin/Blank.gif">
+					              	<%if(uiChild.isShowEditControl()){%>
+					              	    </a>
 					              	<%}%>  
 					                <a style="display: none" class="CloseIcon" href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>"><span></span></a> 
 					              </div>

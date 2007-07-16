@@ -49,12 +49,12 @@ public class UIContainerConfigOptions extends UIContainer {
   public UIContainerConfigOptions(InitParams initParams) throws Exception{
     setComponentConfig(UIContainerConfigOptions.class, null);    
     selectedCategory_ = null;
-    UIDropDownItemSelector dropCategorys = addChild(UIDropDownItemSelector.class, null, null);
-    dropCategorys.setTitle("ContainerCategory");
+    UIDropDownItemSelector uiDropCategories = addChild(UIDropDownItemSelector.class, null, null);
+    uiDropCategories.setTitle("ContainerCategory");
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
-    dropCategorys.setOptions(options);
-    dropCategorys.setOnServer(true);
-    dropCategorys.setOnChange("ChangeOption");
+    uiDropCategories.setOptions(options);
+    uiDropCategories.setOnServer(true);
+    uiDropCategories.setOnChange("ChangeOption");
     if(initParams == null) return ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("ContainerConfigOption");          
@@ -102,7 +102,7 @@ public class UIContainerConfigOptions extends UIContainer {
   
   public void processRender(WebuiRequestContext context) throws Exception {   
     super.processRender(context);    
-    Util.showComponentLayoutMode(UIContainer.class);
+    Util.showComponentLayoutMode(org.exoplatform.portal.webui.container.UIContainer.class);
 //    context.addJavascript("eXo.webui.UIContainerConfigOptions.init();"); 
   }
   

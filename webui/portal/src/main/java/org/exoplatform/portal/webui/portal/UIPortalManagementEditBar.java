@@ -103,7 +103,7 @@ public class UIPortalManagementEditBar extends UIToolbar {
       uiPortal.setRenderSibbling(UIPortal.class);
       
       UIPortalManagement uiPManagement = uiEditBar.getParent();
-      Class [] childrenToRender = {UIPortalManagementEditBar.class, 
+      Class<?> [] childrenToRender = {UIPortalManagementEditBar.class, 
                                    UIPortletOptions.class, UIPortalManagementControlBar.class};
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       
