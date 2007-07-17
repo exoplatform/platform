@@ -276,6 +276,10 @@
 	width: auto;
 }
 
+.UIOrganizationPortlet .UIGroupForm .HorizontalLayout{ 
+	height: 224px;
+}
+
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMemberShipManagement {

@@ -34,13 +34,17 @@
   padding: 6px;
 }
 
+.UIAccountPortlet .UIForm .HorizontalLayout .RightColumnBigItemStyle .UIFormInputSet {
+	
+}
+
 .UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
   background: white;
-  height: 320px;
+  height: 300px;
 }
 
 .UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnBigItemStyle .ItemList {
-  height: 300px;
+  height: 280px;
 }
 
 .UIAccountPortlet .UIAction {

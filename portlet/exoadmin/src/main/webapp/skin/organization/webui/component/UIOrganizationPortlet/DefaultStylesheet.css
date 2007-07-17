@@ -261,10 +261,12 @@
 }
 
 .UIOrganizationPortlet .UIGroupForm { 
-	height: 260px;
-	border: 1px solid red;
 }
 
+.UIOrganizationPortlet .UIGroupForm .HorizontalLayout{ 
+	height: 240px;
+	background: white;
+}
 
 /*#######################  UIMemberShipManagement #################################*/
 .UIOrganizationPortlet .UIMembershipTypeForm {
@@ -296,7 +298,7 @@
 }
 
 .UIOrganizationPortlet .UIMembershipManagement .UIAction {
-  width: 65px;
+  width: 130px;
 } 
 
 .UIOrganizationPortlet .UIMembershipManagement .UIGrid {

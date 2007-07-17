@@ -248,6 +248,10 @@
 	width: 98%;
 	margin: auto;
 }
+
+.UIOrganizationPortlet .UIGroupForm .HorizontalLayout .FormContainer { 
+	height: 236px;
+}
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMembershipManagement {
@@ -273,5 +277,5 @@
 }
 
 .UIOrganizationPortlet .UIMembershipManagement .UIAction{
-  width: 85px;
+  width: 170px;
 }

@@ -8,16 +8,18 @@
 
 .UIWindow .UIContentPortlet {
   overflow: auto ;
-  margin: 0px;
+  margin: 0px auto;
   height: auto;
+  border: none;
 }
 
 .UIContentPortlet {
   padding:7px;
   margin: 5px;
   border: 1px solid #b7b7b7;
-  background: url('MacSkin/background/eXoRSS.gif') no-repeat bottom right;
+  background: white url('MacSkin/background/eXoRSS.gif') no-repeat bottom right;
   height: auto;
+  width: 97.5%;
 }
 
 .UIContentPortlet .UIContentNavigation {
