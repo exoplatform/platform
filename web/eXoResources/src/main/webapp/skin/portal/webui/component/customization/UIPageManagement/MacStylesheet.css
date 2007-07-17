@@ -8,6 +8,9 @@
   padding: 0px 7px;
 }
 
+.UIPageManagement .UITree .TreeContainer .Node {
+	height: 20px;
+}
 /*############################- UIPageManagementControlBar Icons -#####################*/
 .UIPageManagement .EditNavigationControlIcon {
   float: left;
