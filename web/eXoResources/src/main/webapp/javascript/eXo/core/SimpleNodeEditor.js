@@ -49,8 +49,12 @@ SimpleNodeEditor.prototype.write = function(beforeCursor, cursor, afterCursor) {
   }
 }
 
+// Overwrite DefaultKeyboardListener's methods.
+
 // Printable keys
 SimpleNodeEditor.prototype.onDefault = function(keynum, keychar) {
+  keychar = eXo.core.HTMLUtil.entitiesEncode(keychar) ;
+//  window.alert('[' + keychar + ']') ;
   this.beforeCursor += keychar ;
   this.defaultWrite() ;
   return false ;
@@ -64,7 +68,9 @@ SimpleNodeEditor.prototype.onPunctuation = SimpleNodeEditor.prototype.onDefault 
 
 // Control keys
 SimpleNodeEditor.prototype.onBackspace = function(keynum, keychar) {
+  this.beforeCursor = eXo.core.HTMLUtil.entitiesDecode(this.beforeCursor) ;
   this.beforeCursor = this.beforeCursor.substr(0, (this.beforeCursor.length - 1)) ;
+  this.beforeCursor = eXo.core.HTMLUtil.entitiesEncode(this.beforeCursor) ;
   this.defaultWrite() ;  
   return false ;
 }

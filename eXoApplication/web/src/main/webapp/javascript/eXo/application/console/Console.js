@@ -1,7 +1,5 @@
 function Console() {
-  this.commands = new Array();
-  this.commands['clear'] = new Clear() ;
-  this.commands['shownode'] = new ShowNode() ;
+  this.commands = [] ;
   this.consoleUINode = false ;
 }
 
@@ -9,28 +7,41 @@ Console.prototype.init = function(node) {
   this.consoleUINode = node ;
 } ;
 
+Console.prototype.register = function() {
+  
+}
+
 /**
- * TODO: rename the method to help
  * This method should:
  * 1. parse the command
- * 2. If the first argument is completed, look up  the command object that match the first 
+ * 2. If the first argument is not completed, look up all the possible match commands and show 
+ *    them in the help screen
+ * 3. If the first argument is completed, look up  the command object that match the first 
  *    first argument and call the method help of that command object. If no comand is found,
  *    show "No command is found"
- * 3. If the first argument is not completed, look up all the possible match commands and show 
- *    them in the help screen
  * @param {Object} command
  */
-Console.prototype.genericComplete = function(command) {
+Console.prototype.help = function(command) {
   var commandState = false ;
+  var commandLookup = [] ;
   for (var cmd in this.commands) {
     if (command == (cmd + ' ')) {
       commandState = true ;
       break ;
     }
+    if(cmd.indexOf(command) != -1) {
+      commandLookup[commandLookup.length] = cmd ;
+    }
   }
+  
+  // Command completed
   if (commandState) {
-    
+    return this.commands[command].help() ;
+  } else if(commandLookup.length > 0){
+    return commandLookup.join(' ') ;
   }
+  
+  return 'No command is found' ;
 } ;
 
 Console.prototype.addCommand = function(command) {
@@ -52,7 +63,7 @@ Console.prototype.addCommand = function(command) {
  * @param {Object} jsLocation
  */
 Console.prototype.registerJSModule = function(jsFile, jsLocation) {
-  eXo.require(js)
+  eXo.require(jsFile, '/eXoAppWeb/javascript/console/') ;
 } ;
 
 if(eXo.app.console == null) eXo.app.console = {} ; 

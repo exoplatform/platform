@@ -5,8 +5,9 @@
 		<title>General test</title>
       <script type="text/javascript" language="JavaScript">
         var eXo = function() {} ;
-        eXo.core = function() {} ;      
+        eXo.core = function() {} ;
       </script>  
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/HTMLUtil.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/Util.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/Browser.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/DefaultKeyboardListener.js"></script>
@@ -37,6 +38,14 @@
     <script language="JavaScript" type="text/javascript">
       eXo.core.Editor.registerEditors(document.body) ;
       eXo.core.LogEngine.createLogPanel() ;
+//      document.write('<pre>') ;
+//      for(var n in  eXo.core.HTMLUtil.entities) {
+//        document.writeln(n) ;
+//        document.writeln('&' + n + ';') ;
+//      }
+//      document.write('</pre>') ;
+      window.alert(eXo.core.HTMLUtil.entitiesEncode(' ')) ;
+//      window.alert(eXo.core.HTMLUtil.entitiesDecode(eXo.core.HTMLUtil.entitiesEncode('>s>>'))) ;
     </script>
 	</body>
 </html>

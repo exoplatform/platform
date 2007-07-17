@@ -6,6 +6,7 @@ function Editor() {
   this.containerIdentify = 'editcontainer' ;
   this.editableIdentify = 'editable' ;
   this.activeEditClass = 'ActiveEdit';
+  
 }
 
 Editor.prototype.registerEditors = function(node4Reg) {
@@ -57,7 +58,7 @@ Editor.prototype.init = function(node) {
   }
   var clickPosition =  this.getClickPosition(node) ;
   this.clearSelection() ;
-  var text = node.innerHTML ;
+  var text = eXo.core.HTMLUtil.entitiesDecode(node.innerHTML) ;
   var beforeCursor = '' ;
   var afterCursor = '' ;
   if(clickPosition > 0) {
@@ -67,6 +68,8 @@ Editor.prototype.init = function(node) {
     beforeCursor = '' ;
     afterCursor = text ;
   }
+  beforeCursor = eXo.core.HTMLUtil.entitiesEncode(beforeCursor) ;
+  afterCursor = eXo.core.HTMLUtil.entitiesEncode(afterCursor) ;
   eXo.core.SimpleNodeEditor.init(node, beforeCursor, afterCursor) ;
   eXo.core.SimpleNodeEditor.defaultWrite() ;
   eXo.core.Keyboard.clearListeners() ;
@@ -125,12 +128,16 @@ Editor.prototype.getClickPosition = function(node) {
   }
 }
 
-Editor.prototype.cancelEvent = function(event) {  
-  if(eXo.core.Browser.isIE6()) { // Cancel bubble for ie
+Editor.prototype.cancelEvent = function(event) {
+  if(eXo.core.Browser.browserType == 'ie') { // Cancel bubble for ie
     window.event.cancelBubble = true ;
   } else if(!eXo.core.Browser.isIE6()) { // Cancel event for Firefox, Opera, Safari
     event.preventDefault() ;
   }
+}
+
+Editor.prototype.entitiesEncode = function(htmlCode) {
+  
 }
 
 eXo.core.Editor = new Editor() ;

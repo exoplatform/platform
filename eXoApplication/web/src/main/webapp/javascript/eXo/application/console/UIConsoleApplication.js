@@ -1,5 +1,6 @@
 eXo.require('eXo.core.TemplateEngine');
 eXo.require('eXo.application.ApplicationDescriptor');
+eXo.require('eXo.core.HTMLUtil');
 eXo.require('eXo.core.DefaultKeyboardListener');
 eXo.require('eXo.core.SimpleNodeEditor');
 eXo.require('eXo.core.Keyboard');

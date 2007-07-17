@@ -72,11 +72,12 @@ Keyboard.prototype.onKeyPress = function(event) {
   var keychar = String.fromCharCode(keynum) ;
   var eventHandler = false ;
  
-  if(keynum >= 65 && keynum <= 90  || keynum >= 97 && keynum <= 122) {
+  if((keynum >= 65 && keynum <= 90) || (keynum >= 97 && keynum <= 122)) {
     eventHandler = 'onAlphabet' ;
   } else if(keynum >= 48 && keynum <= 57) {
     eventHandler = 'onDigit' ;
-  } else if(keynum == 32) {
+  } else if((keynum >= 32 && keynum <= 47) || (keynum >= 58 && keynum <= 64) || 
+            (keynum >= 91 && keynum <= 96) || (keynum >= 123 && keynum <= 65532)) {
     eventHandler = 'onPunctuation' ;
   }
   
