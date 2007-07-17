@@ -1,4 +1,4 @@
-function EventManager () {
+function MouseEventManager () {
 	this.onMouseDownHandlers = new eXo.core.HashMap() ;
 	this.onMouseUpHandlers = new eXo.core.HashMap() ;
 	document.onmousedown = this.preOnMouseDown ;
@@ -7,7 +7,7 @@ function EventManager () {
 
 MouseEventManager.prototype.preOnMouseDown = function(evt) {
 	evt.cancelBubble = true ;
-	var mouseDownHandlers = this.onMouseDownHandlers ;
+	var mouseDownHandlers = eXo.core.MouseEventManager.onMouseDownHandlers ;
   for(var name in mouseDownHandlers.properties) {
     var method = mouseDownHandlers.get(name) ;
     method() ;

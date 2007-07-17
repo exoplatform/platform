@@ -1,25 +1,32 @@
-<div style="background: white; padding: 10px; border: solid 2px red ; ">
-
-
-
-
-
-
-
-<div class="UIDropDownControl">UIDropDownControl</div>
-<div class="UIOptionContainer">
-	<a href="javascript:;" class="UIOptionItem">abc</a>
-	<a href="javascript:;" class="UIOptionItem">abc</a>
-	<a href="javascript:;" class="UIOptionItem">abc</a>
-	<a href="javascript:;" class="UIOptionItem">abc</a>
-	<a href="javascript:;" class="UIOptionItem">abc</a>
-	<a href="javascript:;" class="UIOptionItem">abc</a>
-</div>
-
-
-
-
-
-
-
+<%
+	import org.exoplatform.web.application.JavascriptManager;
+	
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  jsmanager.importJavascript('eXo.core.MouseEventManager') ;
+	jsmanager.importJavascript('eXo.webui.UIDropDownControl') ;
+	jsmanager.addJavascript('eXo.webui.UIDropDownControl.init(\'UIDropDownControl\');') ;
+	
+%>
+<div style="background: white; padding: 10px; width: 200px;">
+	<div class="UIDropDownControl" id="UIDropDownControl">	
+		<div class="UIDropDownTitle" onclick="eXo.webui.UIDropDownControl.show(this, event);">
+			<div class="UIDropDownLeftIcon">
+				<div class="UIDropDownRightIcon">
+					<div class="UIDropDownMiddleTitle"><span>DropDown Control</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="UIDropDownAnchor" style="position: relative ; display: none ;">
+			<div class="UIOptionContainer">
+				<div class="UIItemListContainer">
+					<div class="UIItemList">
+						<a href="javascript:void(0);" class="UIOptionItem" value="1" title="abc" onclick="eXo.webui.UIDropDownControl.selectItem(this,'this.test()');">Infomation</a>
+						<a href="javascript:void(0);" class="UIOptionItem" value="2" title="abc" onclick="eXo.webui.UIDropDownControl.selectItem(this);">Calendar</a>
+						<a href="javascript:void(0);" class="UIOptionItem" value="3" title="abc" onclick="eXo.webui.UIDropDownControl.selectItem(this,'this.test()');">Calculator</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
 </div>

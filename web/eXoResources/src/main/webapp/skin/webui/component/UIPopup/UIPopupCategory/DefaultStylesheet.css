@@ -5,6 +5,10 @@
 	opacity: 0.5; For Mozilla FireFox
 	khtml-opacity: 0.5;
 */
+position: absolute ;
+width: 120px ;
+top: 15px;
+left: -85px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator {
@@ -54,6 +58,14 @@
   padding-right: 8px;
 }
 
+.UIPopupCategory .CategoryItem .Icon {
+  width: 16px;
+  height: 16px;
+  float: left;
+  margin: 3px 3px 0px 7px;
+  background: transparent url('/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow1.gif') no-repeat;
+}
+
 .UIPopupCategory .CategoryItem .ModifiedIcon {
 	margin-left: 0px;
 }
@@ -75,5 +87,5 @@
   padding-left: 20px;
   height: 22px;
   line-height: 22px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow1.gif') left center no-repeat;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow1.gif') no-repeat left center;
 }

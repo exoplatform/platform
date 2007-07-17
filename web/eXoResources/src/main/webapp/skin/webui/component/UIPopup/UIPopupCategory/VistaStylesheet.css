@@ -1,4 +1,8 @@
 .UIPopupCategory {
+	position: absolute ;
+	width: 120px ;
+	top: 18px;
+	left: -75px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
@@ -63,6 +67,6 @@
   height: 22px;
   line-height: 22px;
   color: black;
-  background: url('/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif') left center no-repeat;
+  background: url('/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif') no-repeat left center;
   margin-left: 10px;
 }
