@@ -54,17 +54,24 @@ public class UIGroupExplorer extends UIContainer {
     
     UIGroupManagement uiGroupManagement = this.getParent() ;
     UIBreadcumbs uiBreadcumb = uiGroupManagement.getChild(UIBreadcumbs.class);
-    uiBreadcumb.setPath(getPath(null, groupId)) ;   
+    uiBreadcumb.setPath(getPath(null, groupId)) ;
+    UITree tree = getChild(UITree.class);
     
-    if(groupId != null){
-      selectedGroup_ = service.getGroupHandler().findGroupById(groupId);
-    } else {
+    //TODO: Tung.Pham replaced
+    //-------------------------------
+    if(groupId == null){
       selectedGroup_ = null;
+      tree.setSelected(null) ;
+      tree.setChildren(null) ;
+      tree.setParentSelected(null) ;
+      return ;  
     }
+    
+    selectedGroup_ = service.getGroupHandler().findGroupById(groupId);
     String parentGroupId = null ;
-    if(selectedGroup_ != null) parentGroupId = selectedGroup_.getParentId();
-	  Group parentGroup = null ;
-	  if(parentGroupId != null)	parentGroup = service.getGroupHandler().findGroupById(parentGroupId);
+    parentGroupId = selectedGroup_.getParentId();
+    Group parentGroup = null ;
+    if(parentGroupId != null) parentGroup = service.getGroupHandler().findGroupById(parentGroupId);
     childrenGroup_ = service.getGroupHandler().findGroups(selectedGroup_); 
     sibblingsGroup_ = service.getGroupHandler().findGroups(parentGroup);  
     for(Object group: sibblingsGroup_) {
@@ -77,11 +84,38 @@ public class UIGroupExplorer extends UIContainer {
     UIGroupInfo uiGroupInfo = uiGroupDetail.getChild(UIGroupInfo.class) ;    
     uiGroupInfo.setGroup(selectedGroup_); 
     
-    UITree tree = getChild(UITree.class);
     tree.setSibbling((List)sibblingsGroup_);
     tree.setChildren((List)childrenGroup_);
     tree.setSelected(selectedGroup_);
     tree.setParentSelected(parentGroup);
+    //-------------------------------
+    
+//    if(groupId != null){
+//      selectedGroup_ = service.getGroupHandler().findGroupById(groupId);
+//    } else {
+//      selectedGroup_ = null;
+//    }
+//    String parentGroupId = null ;
+//    if(selectedGroup_ != null) parentGroupId = selectedGroup_.getParentId();
+//	  Group parentGroup = null ;
+//	  if(parentGroupId != null)	parentGroup = service.getGroupHandler().findGroupById(parentGroupId);
+//    childrenGroup_ = service.getGroupHandler().findGroups(selectedGroup_); 
+//    sibblingsGroup_ = service.getGroupHandler().findGroups(parentGroup);  
+//    for(Object group: sibblingsGroup_) {
+//      if(((Group)group).getId().equals(selectedGroup_.getId())){
+//        selectedGroup_ = (Group) group;
+//        break;
+//      }
+//    }
+//    UIGroupDetail uiGroupDetail = uiGroupManagement.getChild(UIGroupDetail.class);     
+//    UIGroupInfo uiGroupInfo = uiGroupDetail.getChild(UIGroupInfo.class) ;    
+//    uiGroupInfo.setGroup(selectedGroup_); 
+//    
+//    UITree tree = getChild(UITree.class);
+//    tree.setSibbling((List)sibblingsGroup_);
+//    tree.setChildren((List)childrenGroup_);
+//    tree.setSelected(selectedGroup_);
+//    tree.setParentSelected(parentGroup);
 	}
 	
 	public List<LocalPath> getPath(List<LocalPath> list, String id) throws Exception {
