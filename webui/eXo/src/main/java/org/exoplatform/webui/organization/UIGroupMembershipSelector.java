@@ -179,22 +179,32 @@ public class UIGroupMembershipSelector extends UIContainer {
       WebuiRequestContext pcontext = event.getRequestContext();
       
       UIPopupWindow uiPopup = uiSelector.getParent();
-      if(uiSelector.getCurrentGroup() == null) {
-        UIApplication uiApp = pcontext.getUIApplication() ;
-        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipSelector.msg.selectGroup", null)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
-        return ;
-      } 
-      
-      uiParent.broadcast(event, event.getExecutionPhase());
-      uiPopup.setShow(false);
-      
+      //TODO: Tung.Pham modified
+      //-----------------------------------
       UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
       if(uiForm != null) {
         event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
       }else{
         event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
       }
+      //-----------------------------------
+      if(uiSelector.getCurrentGroup() == null) {
+        UIApplication uiApp = pcontext.getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipSelector.msg.selectGroup", null)) ;
+        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        uiPopup.setShow(true) ;
+        return ;
+      } 
+      
+      uiParent.broadcast(event, event.getExecutionPhase());
+      uiPopup.setShow(false);
+      
+//      UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
+//      if(uiForm != null) {
+//        event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
+//      }else{
+//        event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
+//      }
     }
   }
 
