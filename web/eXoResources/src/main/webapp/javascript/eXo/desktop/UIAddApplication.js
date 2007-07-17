@@ -100,9 +100,11 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 			               '	    <div class="TitleBarApplication">' +
 			               '				<div class="Title">'+application["title"]+'</div>' +
 			               '  			<div class="ApplicationButton">' +
-				             ' 	  			<div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'false\');"><span></span></div>' +
-				             ' 					<div class="AddButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'true\');"' +
+				             ' 	  			<div class="SelectButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'false\');"' +
 				             '     			  title="Add this application to the desktop page">' +
+				             '							<span></span></div>' +
+				             ' 					<div class="AddButton" onclick="eXo.desktop.UIAddApplication.addApplication(\''+parentId+'\',\''+id+'\',\'true\');"' +
+				             '     			  title="Add and keep this application in page">' +
 						         ' 					  <span></span>' +
 						      	 '					</div>' +
 						      	 '					<div style="clear: right;"><span></span></div>' +				
