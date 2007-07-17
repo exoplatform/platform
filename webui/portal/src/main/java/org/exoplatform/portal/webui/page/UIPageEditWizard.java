@@ -48,7 +48,6 @@ import org.exoplatform.webui.event.EventListener;
 public class UIPageEditWizard extends UIPageWizard {
   
   public UIPageEditWizard() throws Exception {
-    //addChild(UIWizardPageSetInfo.class, null, "EditWizard").setEditPageNode(true);
     addChild(UIWizardPageSetInfo.class, null, "EditWizard") ;
     addChild(UIWizardPageSelectLayoutForm.class, null, null).setRendered(false);
     addChild(UIPagePreview.class, null, null).setRendered(false); 
@@ -74,12 +73,8 @@ public class UIPageEditWizard extends UIPageWizard {
     for(PageNavigation editNav : uiNodeSelector.getPageNavigations()) {
       setNavigation(uiPortal.getNavigations(), editNav);
     }
-    //TODO: Tung.Pham modified
-    //--------------------------------------------------------
-    //String uri = uiPageInfo.getPageNode().getUri();
-    String fullUri = pageNav.getId() + "::" + uiPageInfo.getPageNode().getUri();
-    //--------------------------------------------------------
-    PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, fullUri) ;
+    String uri = pageNav.getId() + "::" + uiPageInfo.getPageNode().getUri();
+    PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;
     uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
   }
   
@@ -116,8 +111,7 @@ public class UIPageEditWizard extends UIPageWizard {
         uiWizard.viewStep(1);
         return ;
       }
-      //TODO: Tung.Pham added
-      //----------------------------------------------------
+      
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode() ;
       UserPortalConfigService configService = uiWizard.getApplicationComponent(UserPortalConfigService.class) ;
       Page page = configService.getPage(pageNode.getPageReference(), pcontext.getRemoteUser()) ;
@@ -132,7 +126,7 @@ public class UIPageEditWizard extends UIPageWizard {
         uiWizard.viewStep(1);
         return ;
       }
-      //----------------------------------------------------      
+      
       uiWizard.updateWizardComponent();
       uiWizard.viewStep(2);
     }

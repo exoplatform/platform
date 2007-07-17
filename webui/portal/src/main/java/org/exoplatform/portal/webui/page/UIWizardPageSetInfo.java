@@ -14,6 +14,7 @@ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
@@ -34,19 +35,37 @@ import org.exoplatform.webui.form.validator.IdentifierValidator;
  *          hoa.nguyen@exoplatform.com
  * Oct 31, 2006  
  */
-@ComponentConfig(
-    lifecycle = UIFormLifecycle.class,
-    template = "app:/groovy/portal/webui/page/UIWizardPageSetInfo.gtmpl",
-    events = @EventConfig(listeners = UIWizardPageSetInfo.ChangeNodeActionListener.class, phase=Phase.DECODE)
-)
+@ComponentConfigs({
+  @ComponentConfig(
+      lifecycle = UIFormLifecycle.class,
+      template = "app:/groovy/portal/webui/page/UIWizardPageSetInfo.gtmpl",
+      events = @EventConfig(listeners = UIWizardPageSetInfo.ChangeNodeActionListener.class, phase=Phase.DECODE)
+  ),
+  @ComponentConfig(
+      id = "WizardPageNodeSelector",
+      type = UIPageNodeSelector.class,
+      template = "app:/groovy/portal/webui/navigation/UIPageNodeSelector.gtmpl" ,
+      events = {
+         @EventConfig(listeners = UIWizardPageSetInfo.SelectNavigationActionListener.class, phase=Phase.DECODE) 
+      }
+  ),
+  @ComponentConfig(
+      id = "PageNodePopupMenu",
+      type = UIRightClickPopupMenu.class
+  ),
+  @ComponentConfig(
+      id = "UIPageNodeSelectorPopupMenu",
+      type = UIRightClickPopupMenu.class
+  )
+})
 public class UIWizardPageSetInfo extends UIForm {   
 
   final private static String PAGE_NAME = "pageName" ;
   final private static String PAGE_DISPLAY_NAME = "pageDisplayName" ;
-  private boolean isEdit = false;
+  private boolean isEditMode = false;
   
   public UIWizardPageSetInfo() throws Exception {
-    UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, null, null);    
+    UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, "WizardPageNodeSelector", null);    
     addUIFormInput(new UIFormStringInput(PAGE_NAME, "name", null).addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class));
     addUIFormInput(new UIFormStringInput(PAGE_DISPLAY_NAME, "label", null));
     
@@ -55,43 +74,16 @@ public class UIWizardPageSetInfo extends UIForm {
     uiPageNodeSelector.removeChild(UIRightClickPopupMenu.class);    
   } 
 
-  //TODO: Tung.Pham added
-  public void setEditPageNode(Event<? extends UIComponent> event) throws Exception {
-    isEdit = true ;
+  public void setEditMode() throws Exception {
+    isEditMode = true ;
     UIFormStringInput uiNameInput = getChildById(PAGE_NAME) ;
-    uiNameInput.setEditable(false) ;
-    WebuiRequestContext rcontext = event.getRequestContext() ;
-    createEvent("ChangeNode", Phase.DECODE, rcontext).broadcast() ; 
+    uiNameInput.setEditable(false) ;   
   }
   
-  public void setEditPageNode(boolean value) throws Exception {
-    isEdit = value;
-    if(!value) return;
-    UIPageNodeSelector uiPageNodeSelector = getChild(UIPageNodeSelector.class);
-    uiPageNodeSelector.loadNavigations();
-    UIFormStringInput uiNameInput = getChildById(PAGE_NAME) ;
-    UIFormStringInput uiDisplayNameInput = getChildById(PAGE_DISPLAY_NAME) ;
-    //TODO: Tung.Pham modified
-    //----------------------------------------------------------------
-    //if(uiPageNodeSelector.getSelectedPageNode() == null) return;
-    //PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
-    //uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri()) ;
-    uiNameInput.setEditable(false) ;
-    PageNode pageNode = uiPageNodeSelector.getSelectedPageNode() ;
-    if (pageNode == null) return ;
-    UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
-    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
-    Page page = configService.getPage(pageNode.getPageReference(), accessUser) ;
-    if(page == null) return ;
-    //invokeGetBindingBean(pageNode);
-    String pageName = pageNode.getPageReference().split("::")[2] ;
-    if(pageNode.getName() != null) uiNameInput.setValue(pageName);
-    if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getLabel());
-    //---------------------------------------------------------------- 
-  }
+  public boolean isEditMode() { return isEditMode; }
   
   public PageNode getPageNode() throws Exception {
-    if(isEdit) {
+    if(isEditMode) {
       PageNode pageNode = getSelectedPageNode() ;  
       invokeSetBindingBean(pageNode);
       if(pageNode.getLabel() == null || pageNode.getLabel().trim().length() == 0) {
@@ -111,16 +103,9 @@ public class UIWizardPageSetInfo extends UIForm {
     
     UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
     PageNode selectedNode = uiNodeSelector.getSelectedPageNode();
-    //PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();    
     if(selectedNode != null) {
       pageNode.setUri(selectedNode.getUri()+"/"+pageNode.getName());
-    } else {       
-      //TODO: Tung.Pham modified
-      //--------------------------------------------------------------------
-      //pageNode.setUri(pageNav.getOwnerId() + "::" + pageNode.getName());
-      pageNode.setUri(pageNode.getName()) ;
-      //--------------------------------------------------------------------
-    }
+    } else pageNode.setUri(pageNode.getName()) ;
     return pageNode;
  }
   
@@ -129,12 +114,8 @@ public class UIWizardPageSetInfo extends UIForm {
     return uiPageNodeSelector.getSelectedPageNode(); 
   }
   
-  //TODO: Tung.Pham added
   public void processRender(WebuiRequestContext context) throws Exception {
-    UIPageNodeSelector uiPageNodeSelector = getChild(UIPageNodeSelector.class);
-    PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
-    if (pageNode == null) reset() ;
-    
+    if(isEditMode && getChild(UIPageNodeSelector.class).getSelectedPageNode() == null) reset() ;
     super.processRender(context) ;
   }
   
@@ -143,6 +124,16 @@ public class UIWizardPageSetInfo extends UIForm {
     String action = context.getRequestParameter(UIForm.ACTION);
     Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;   
     if(event != null) event.broadcast() ;   
+  }
+  
+  static public class SelectNavigationActionListener  extends EventListener<UIPageNodeSelector> {
+    public void execute(Event<UIPageNodeSelector> event) throws Exception {
+      String id = event.getRequestContext().getRequestParameter(OBJECTID);
+      UIPageNodeSelector uiPageNodeSelector = event.getSource();
+      UIWizard uiWizard = uiPageNodeSelector.getAncestorOfType(UIWizard.class);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiWizard);
+      if(id != null) uiPageNodeSelector.selectNavigation(id);
+    }
   }
   
   static public class ChangeNodeActionListener  extends EventListener<UIWizardPageSetInfo> {
@@ -156,18 +147,17 @@ public class UIWizardPageSetInfo extends UIForm {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWizard);
       UIWizardPageSetInfo uiForm = event.getSource() ;
       
-      if(!event.getSource().isEdit) return ;
+      if(!event.getSource().isEditMode()) return ;
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
 
-      //TODO: Tung.Pham added
-      //---------------------------------------------------------
       if(pageNode == null) {
         UIPortal uiPortal = Util.getUIPortal();
         uiPageNodeSelector.selectNavigation(uiPortal.getSelectedNavigation().getId());
         uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri());
         pageNode = uiPageNodeSelector.getSelectedPageNode();
       }
-      if (pageNode == null) return ;
+      
+      if(pageNode == null) return ;
       UserPortalConfigService configService = uiWizard.getApplicationComponent(UserPortalConfigService.class) ;
       String accessUser = event.getRequestContext().getRemoteUser() ;
       Page page = configService.getPage(pageNode.getPageReference(), accessUser) ;
@@ -177,14 +167,12 @@ public class UIWizardPageSetInfo extends UIForm {
         uiForm.reset() ;
         return ;
       }
-      //---------------------------------------------------------
       String pageName = pageNode.getPageReference().split("::")[2] ;
-      //if(pageNode.getName() != null) uiNameInput.setValue(pageNode.getName());
       UIFormStringInput uiNameInput = uiForm.getChildById(PAGE_NAME) ;
       if(pageNode.getName() != null) uiNameInput.setValue(pageName);
       UIFormStringInput uiDisplayNameInput = uiForm.getChildById(PAGE_DISPLAY_NAME) ;
       if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getLabel());
     }
   }
- 
+
 }

@@ -258,25 +258,19 @@ public class UIExoStart extends UIComponent {
   static  public class EditCurrentPageActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uiExoStart = event.getSource();
-
       UIPortalApplication uiApp = uiExoStart.getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
       UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiExoStart.getParent()) ;
+      
       uiToolPanel.setWorkingComponent(UIPageEditWizard.class, null);
       UIPageEditWizard uiWizard = (UIPageEditWizard)uiToolPanel.getUIComponent();
       uiWizard.setDescriptionWizard();
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      UIContainer uiParent = uiExoStart.getParent();
-      UIComponentDecorator uiWorkingControl = uiParent.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingControl) ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiExoStart);
-      //TODO: Tung.Pham added
-      //------------------------
-      uiWizard.getChild(UIWizardPageSetInfo.class).setEditPageNode(event) ;
-      //------------------------
-
+      UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
+      uiPageSetInfo.setEditMode();
+      uiPageSetInfo.createEvent("ChangeNode", Event.Phase.DECODE, event.getRequestContext()).broadcast();   
     }
   }
 

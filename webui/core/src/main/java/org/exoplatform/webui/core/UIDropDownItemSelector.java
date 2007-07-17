@@ -89,10 +89,9 @@ public class UIDropDownItemSelector extends UIComponent {
   
   public void setSize(int i) { size = i ;}
   public int getSize() { 
-    //return size;
     if(options_ != null) return options_.size() ;
-    else return 0 ;
-    }
+    return 0 ;
+  }
   
   public String getTitle() {return title;}
   public void setTitle(String title){ this.title =title;}
@@ -143,6 +142,12 @@ public class UIDropDownItemSelector extends UIComponent {
   public boolean addItem(SelectItemOption<String> s) {
     if(s == null ) return false ;
     options_.add(s); return true;
+  }
+  
+  public String event(String name, String beanId) throws Exception {
+    UIForm uiForm = getAncestorOfType(UIForm.class) ;
+    if(uiForm != null) return uiForm.event(name, getId(), beanId);
+    return super.event(name, beanId);
   }
   
 }

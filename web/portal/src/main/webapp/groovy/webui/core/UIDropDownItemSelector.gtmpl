@@ -2,6 +2,7 @@
 	import org.exoplatform.webui.core.model.SelectItemOption;
 	import org.exoplatform.web.application.JavascriptManager;
   import org.exoplatform.webui.core.UIComponent;
+  import org.exoplatform.webui.form.UIForm;
 	
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -16,9 +17,10 @@
 	  selected = uicomponent.getSelectedItem();
 	}
 	String action = uicomponent.getOnChange();
-	int maxShow = uicomponent.getMaxShow();
+	int maxShow = size + 1;// uicomponent.getMaxShow();
 	
-	maxShow = size + 1;
+	UIForm uiForm = uicomponent.getAncestorOfType(UIForm.class) ;
+	String form = (uiForm != null) ? uiForm.getId() : "";
 %>
 
 <div id="UIDropDownItemSelector" class="UIDropDownItemSelector" onmousedown="event.cancelBubble = true;">
@@ -32,12 +34,8 @@
 		  	<div class="RightItemInfoBar">
 		  		<div class="MiddleItemInfoBar" title="Show List" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
 		  			<div class="Icon ComponentIcon"><span></span></div>
-		  			<% String title = "";
-		  			   if(selected == null) {
-		  			     title = uicomponent.getTitle();
-		  			   } else {
-		  			     title = selected.getLabel();
-		  			   }
+		  			<% 
+		  			  String title = (selected == null) ? uicomponent.getTitle() : selected.getLabel();
 		  			%>
 		  			<div class="SelectedItemLabel">
 			  			<%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + title)%>
@@ -67,14 +65,15 @@
 		            <div style="clear: left"><span></span></div>
 							</div>
 		      	<%}%>
-					  <%for(option in options) {
+					  <%
+					    for(option in options) {
 						    String label = option.getLabel();
 						    String value = option.getValue();
 			
 					  %>				    
 							<div class="ItemSelector" itemId="$value" 
 							     action="$action" onServer="<%=uicomponent.isOnServer();%>" 
-							     targetParent="<%=uicomponent.getParent().getId();%>">
+							     targetParent="<%=uicomponent.getParent().getId();%>" formId="$form">
 								<div class="Icon"><span></span></div>
 								<%if(action != null) {%>
 		              <div class="ItemSelectorLabel"><%=label%></div>

@@ -69,12 +69,19 @@ UIDropDownItemSelector.prototype.mouseOutItem = function(e) {
 
 UIDropDownItemSelector.prototype.clickItem = function(e, targetComponentId, actionName) {
 	if(this.getAttribute("onServer") == "true") {
-	  var params = [
-	  	{name: "objectId", value : this.getAttribute("itemId")}
-	  ] ;
-		ajaxGet(eXo.env.server.createPortalURL(this.getAttribute("targetParent"), this.getAttribute("action"), true, params)) ;
+	  var form = this.getAttribute("formId");
+	  var action = this.getAttribute("action");
+	  var targetParent = this.getAttribute("targetParent");
+	  var itemId = this.getAttribute("itemId");
+	  if(form == "") {
+	  	var params = [ {name: "objectId", value : itemId}	] ;
+			ajaxGet(eXo.env.server.createPortalURL(targetParent, action, true, params)) ;
+			return;
+	  }
+		eXo.webui.UIForm.submitEvent(form, action,'&subComponentId='+targetParent+'&objectId='+itemId);
 		return;
 	}
+	
 	var i;
 	var DOMUtil = eXo.core.DOMUtil;
 	var targ = eXo.core.Browser.getEventSource(e);

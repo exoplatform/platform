@@ -100,7 +100,7 @@ public class UIFormLifecycle  extends Lifecycle {
         inputValue = context.getRequestParameter(input.getName()) ;
       }
       input.decode(inputValue, context);
-    }    
+    }
   }
   
   /*private void processMultipartRequest(UIForm uiForm, RequestContext context) throws Exception {

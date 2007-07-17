@@ -100,7 +100,6 @@ public class UIPageNodeSelector extends UIContainer {
   
 	public UIPageNodeSelector() throws Exception {    
     addChild(UIRightClickPopupMenu.class, "UIPageNodeSelectorPopupMenu", null).setRendered(false);  
-//    addChild(UIBreadcumbs.class, null, null).setRendered(false);  
     
     UIDropDownItemSelector uiDopDownSelector = addChild(UIDropDownItemSelector.class, null, null);
     uiDopDownSelector.setTitle("Select Navigations");
@@ -251,14 +250,12 @@ public class UIPageNodeSelector extends UIContainer {
     return null ;
   }
   
-  //TODO: Tung.Pham added
   public void processRender(WebuiRequestContext context) throws Exception {
     UIRightClickPopupMenu uiPopupMenu = getChild(UIRightClickPopupMenu.class);
-    if(uiPopupMenu != null){
+    if(uiPopupMenu != null) {
       if(navigations == null || navigations.size() < 1) uiPopupMenu.setRendered(false) ;
       else uiPopupMenu.setRendered(true) ;
     }
-    
     super.processRender(context) ;
   }
   
@@ -280,7 +277,6 @@ public class UIPageNodeSelector extends UIContainer {
       pcontext.setFullRender(true);
       
       UIContainer uiParent = uiPageNodeSelector.getParent();
-      //pcontext.addUIComponentToUpdateByAjax(uiParent) ;
       UIPageEditBar uiEditBar = uiParent.getChild(UIPageEditBar.class);   
       if(uiPageNodeSelector.getSelectedNode() == null) return;
       PageNode node  = uiPageNodeSelector.getSelectedNode().getNode();
@@ -295,24 +291,22 @@ public class UIPageNodeSelector extends UIContainer {
       //-------------------------------------------------------------
       if(node == null) return;  
       
-      UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ;
-      toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
+      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
+      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
       
       if(page == null){
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
-        toolPanel.setUIComponent(null) ;
+        uiToolPanel.setUIComponent(null) ;
         return;
       }
       
-      UIPage uiPage = Util.toUIPage(node, toolPanel);
-      //UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel() ;
+      UIPage uiPage = Util.toUIPage(node, uiToolPanel);
       UIPageBody uiPageBody = uiPortalApp.findFirstComponentOfType(UIPageBody.class) ; 
       if(uiPageBody.getUIComponent() != null) uiPageBody.setUIComponent(null);
-      toolPanel.setUIComponent(uiPage);
-      //toolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
+      uiToolPanel.setUIComponent(uiPage);
 
       if(!page.isModifiable()) {
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
@@ -339,8 +333,7 @@ public class UIPageNodeSelector extends UIContainer {
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       UIPageNodeSelector uiPageNodeSelector = event.getSource();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent()) ;
-      if(id == null) return ;
-      uiPageNodeSelector.selectNavigation(id);
+      if(id != null) uiPageNodeSelector.selectNavigation(id);
     }
   }
 
