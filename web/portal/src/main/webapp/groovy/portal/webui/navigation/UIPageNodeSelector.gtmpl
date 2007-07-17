@@ -22,6 +22,7 @@
 <%
   if(uiPopupMenu != null && uiPopupMenu.isRendered()) {
     String id = uicomponent.getParent().getId();
+  	
   	JavascriptManager jsmanager = rcontext.getJavascriptManager();
   	jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
   	

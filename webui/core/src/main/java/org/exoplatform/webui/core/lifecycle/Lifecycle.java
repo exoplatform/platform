@@ -103,6 +103,7 @@ public class Lifecycle {
     } catch (Exception e) {
       System.out.println("\n\n template : " + template);
       System.out.println(e.toString()+"\n\n") ;
+      e.printStackTrace();
     }
   }
   
