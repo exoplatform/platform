@@ -1,6 +1,7 @@
 eXo.require('eXo.webui.UIPopup');
 function UIWindow() {
 } ;
+
 /*
  * minh.js.exo
  */

@@ -17,9 +17,9 @@ UIPopupSelectCategory.prototype.show = function(selectedElement, width, e) {
 		uiPopupCategory.style.position = "absolute" ;
 		uiPopupCategory.style.display = "block" ;
 		uiPopupCategory.style.width = width + "px" ;
-	var posLeft = -categoryDetectPosition.clientWidth - width + 38 ;
-	uiPopupCategory.style.left = posLeft + "px" ;
-	uiPopupCategory.style.top = -5 + "px" ;
+		var posLeft = -categoryDetectPosition.clientWidth - width + 38 ;
+		uiPopupCategory.style.left = posLeft + "px" ;
+		uiPopupCategory.style.top = -5 + "px" ;
 	} else {
 		uiPopupCategory.style.display = "none" ;
 	}
@@ -44,7 +44,6 @@ UIPopupSelectCategory.prototype.selectdCategory = function(selectedElement) {
 		if(i != selectedIndex ) categoryItems[i].style.display = "none" ;
 		else categoryItems[i].style.display = "block" ;
 	}
-	
 	var uiPopupCategory = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "UIPopupCategory") ;
 	ancestorPopupCategory.style.position = "static" ;
 	uiPopupCategory.style.display = "none" ;
@@ -54,7 +53,6 @@ UIPopupSelectCategory.prototype.selectdCategory = function(selectedElement) {
 UIPopupSelectCategory.prototype.setDefault = function(selectedElement) {
 	var ancestorPopupCategory = eXo.core.DOMUtil.findAncestorByClass(selectedElement, "AncestorPopupCategory") ;
 	var uiPopupCategory = eXo.core.DOMUtil.findFirstDescendantByClass(ancestorPopupCategory, "div", "UIPopupCategory") ;
-
 	uiPopupCategory.style.top = "22px" ;		
 	ancestorPopupCategory.style.position = "absolute" ;
 };

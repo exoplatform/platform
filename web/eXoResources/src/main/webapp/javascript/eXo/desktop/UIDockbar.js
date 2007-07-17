@@ -9,7 +9,7 @@ function UIDockbar() {
 UIDockbar.prototype.init = function() {
   var UIDockbar = eXo.desktop.UIDockbar ;
   var uiDockbar = document.getElementById("UIDockBar") ;
-  if(!uiDockbar) return;
+  if(!uiDockbar) return ;
   var imgObject = eXo.core.DOMUtil.findDescendantsByClass(uiDockbar, "img", "Icon") ;
   
   this.resetDefault = false ;
@@ -38,89 +38,136 @@ UIDockbar.prototype.init = function() {
   }
   
   UIDockbar.resizeDockBar() ;
-//  uiDockbar.originalY = eXo.desktop.UIDesktop.findPosYInDesktop(uiDockbar) ;
   uiDockbar.originalDockbarHeight = uiDockbar.offsetHeight ;
   
   var portletsViewer = document.getElementById("PortletsViewer") ;
   var widgetsViewer = document.getElementById("WidgetsViewer") ;
-  
-  portletsViewer.onclick = function() {
-    UIDockbar.viewShowDesktop(portletsViewer) ;
-  } ;
-  
-  widgetsViewer.onclick = function() {
-    UIDockbar.viewShowDesktop(widgetsViewer) ;
-  } ;
+  portletsViewer.onclick = this.viewPortlets ;
+  widgetsViewer.onclick = this.viewWidgets ;
+
+} ;
+/*
+ * minh.js.exo
+ */
+UIDockbar.prototype.viewPortlets = function() {
+	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+  var children = eXo.core.DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWindow") ; 
+	var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Hide"+this.id+".png" ;
+  var srcPortletsViewerImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Show"+this.id+".png" ;
+	eXo.desktop.UIDockbar.showDesktop = false ;
+	for(var i = 0; i < children.length; i++) {
+		if (children[i].style.display == "block" ) {
+			children[i].style.display = "none" ;
+			children[i].isShowed = true ;
+			eXo.desktop.UIDockbar.showDesktop = false ;
+		} else {
+			if (children[i].isShowed)	{
+				children[i].style.display = "block" ;
+				eXo.desktop.UIDockbar.showDesktop = true ;
+			}
+		}
+	}
+	
+	if (eXo.desktop.UIDockbar.showDesktop) {
+		if (eXo.core.Browser.isIE6()) {
+			this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcMonitoringImage + "', sizingMethod='scale')" ;
+		} else {
+			this.src = srcMonitoringImage ;
+		}
+	} else {
+		if (eXo.core.Browser.isIE6()) {
+			this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcPortletsViewerImage + "', sizingMethod='scale')" ;
+		} else {
+			this.src = srcPortletsViewerImage ;
+		}
+	}
+	eXo.desktop.UIDockbar.containerMouseOver() ;
 } ;
 
 
-UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
-  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-  var children = eXo.core.DOMUtil.getChildrenByTagName(uiPageDesktop, "div") ;
-  var blankImage = portletsViewer.src ;
-  var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Hide"+portletsViewer.id+".png" ;
-  var srcPortletsViewerImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Show"+portletsViewer.id+".png" ;
-  var uiWidget = eXo.core.DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWidget") ;
-  if(uiWidget && portletsViewer.id == "WidgetsViewer") {
-  	var temp = this.showDesktop ;
-  	this.showDesktop = true ;
-    for(var i = 0; i < uiWidget.length; ++i) {
-      if(uiWidget[i].style.display != "none") {
-        this.showDesktop = false ;
-        break ;
-      }
-    }
-  }
-  if(this.showDesktop) {
-    for(var j = 0; j < children.length; j++) {
-      if(children[j].className.indexOf("UIWidget") >= 0) {
-        if(uiWidget && portletsViewer.id == "WidgetsViewer") {
-          children[j].style.display = "block" ;
-          this.showDesktop = temp ;
-        } else {
-          if(children[j].isShowed) {
-            if (String(children[j].className).indexOf("UIWidget") >= 0) continue ;
-            children[j].style.display = "block" ;
-          }
-          this.showDesktop = false ;
-        }
-      }
-    }
-    if(eXo.core.Browser.isIE6()) {
-      portletsViewer.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcMonitoringImage + "', sizingMethod='scale')" ;
-      portletsViewer.src = blankImage ;
-    } else {
-      portletsViewer.src = srcMonitoringImage ;
-    }
-  } else {
-    for(var j = 0; j < children.length; j++) {
-      if(children[j].className != "UIDockBar") {
-        if(portletsViewer.id == "PortletsViewer") {
-          if (String(children[j].className).indexOf("UIWidget") >= 0) continue ;
-          children[j].style.display = "none" ;        
-          if(children[j].isShowed) this.showDesktop = true ;
-        } else {
-          if (String(children[j].className).indexOf("UIWidget") >= 0) {
-            children[j].style.display = "none" ;  
-            this.showDesktop = temp ;
-          }
-        }
-      }
-    }
-    if(eXo.core.Browser.isIE6()) {
-      portletsViewer.src = blankImage ;
-      portletsViewer.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcPortletsViewerImage + "', sizingMethod='scale')" ;
-    } else {
-      portletsViewer.src = srcPortletsViewerImage ;
-    }
-  }
-  eXo.desktop.UIDockbar.containerMouseOver() ;
+UIDockbar.prototype.viewWidgets = function() {
+	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+  var children = eXo.core.DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWidget") ; 
+	for(var i = 0; i < children.length; i++) {
+		if (children[i].style.display != "none" ) {
+			children[i].style.display = "none" ;
+		} else {
+			children[i].style.display = "block" ;
+		}
+	}
+	eXo.desktop.UIDockbar.containerMouseOver() ; 
 } ;
 
+//TODO : minh.js.exo
+//UIDockbar.prototype.viewShowDesktop = function(portletsViewer) {
+//  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+//  var children = eXo.core.DOMUtil.getChildrenByTagName(uiPageDesktop, "div") ;
+//  var blankImage = portletsViewer.src ;
+//  var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Hide"+portletsViewer.id+".png" ;
+//  var srcPortletsViewerImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Show"+portletsViewer.id+".png" ;
+//  var uiWidget = eXo.core.DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWidget") ;
+//  if(uiWidget && portletsViewer.id == "WidgetsViewer") {
+//  	var temp = this.showDesktop ;
+//  	this.showDesktop = true ;
+//    for(var i = 0; i < uiWidget.length; ++i) {
+//      if(uiWidget[i].style.display != "none") {
+//        this.showDesktop = false ;
+//        break ;
+//      }
+//    }
+//  }
+//  
+//  if(this.showDesktop) {
+//    for(var j = 0; j < children.length; j++) {
+//      if(children[j].className != "UIDockBar") {
+//        if(uiWidget && portletsViewer.id == "WidgetsViewer") {
+//          if (String(children[j].className).indexOf("UIWidget") >= 0)
+//          children[j].style.display = "block" ;
+//          this.showDesktop = temp ;
+//        } else {
+//          if(children[j].isShowed) {
+//            if (String(children[j].className).indexOf("UIWidget") >= 0) continue ;
+//            children[j].style.display = "block" ;
+//          }
+//          this.showDesktop = false ;
+//        }
+//      }
+//    }
+//    if(eXo.core.Browser.isIE6()) {
+//      portletsViewer.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcMonitoringImage + "', sizingMethod='scale')" ;
+//      portletsViewer.src = blankImage ;
+//    } else {
+//      portletsViewer.src = srcMonitoringImage ;
+//    }
+//  } else {
+//
+//    for(var j = 0; j < children.length; j++) {
+//      if(children[j].className != "UIDockBar") {
+//        if(portletsViewer.id == "PortletsViewer") {
+//          if(String(children[j].className).indexOf("UIWidget") >= 0) continue ;
+//          children[j].style.display = "none" ;        
+//          if(children[j].isShowed) {  
+//            this.showDesktop = true ;
+//          }
+//        } else {
+//          if(String(children[j].className).indexOf("UIWidget") >= 0) {
+//            children[j].style.display = "none" ;  
+//            this.showDesktop = temp ;
+//          }
+//        }
+//      }
+//    }
+//    if(eXo.core.Browser.isIE6()) {
+//      portletsViewer.src = blankImage ;
+//      portletsViewer.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcPortletsViewerImage + "', sizingMethod='scale')" ;
+//    } else {
+//      portletsViewer.src = srcPortletsViewerImage ;
+//    }
+//  }
+//  eXo.desktop.UIDockbar.containerMouseOver() ;
+//} ;
 
 UIDockbar.prototype.onMouseMoveIcon = function(e) {
-//  var selectedIcon = this ;
-//  eXo.desktop.UIDockbar.animation(selectedIcon, e) ;
 	eXo.desktop.UIDockbar.animation(this, e) ;
 };
 
@@ -165,8 +212,6 @@ UIDockbar.prototype.animation = function(selectedIcon, e) {
   var icons = eXo.core.DOMUtil.findChildrenByClass(selectedIcon.parentNode, "img", "Icon") ;
   var uiDockbar = document.getElementById("UIDockBar") ;
   var dockbarCenter = document.getElementById("DockbarCenter") ;
-
-//  uiDockbar.style.top = uiDockbar.originalY - (uiDockbar.defaultIconSize*(weight - 1)) + "px" ;
   
   fixBugImageElement.style.height = uiDockbar.defaultIconSize + (uiDockbar.defaultIconSize*(weight - 1)) + "px" ;
   
@@ -276,20 +321,17 @@ UIDockbar.prototype.resizeDockBar = function() {
   
   iconContainer.style.width = (widthItemControl + totalWidthSeparators + 10) + "px" ;
   uiDockbar.style.width = (iconContainer.offsetWidth + 10) + "px" ;
+  uiDockbar.style.height = "auto" ;
   
   uiDockbar.style.position = "absolute" ;
   if(eXo.desktop.UIDockbar.resetDefault) {
-//  uiDockbar.style.top = uiDockbar.originalY + "px" ;
     uiDockbar.style.bottom =   "0px" ;
     eXo.desktop.UIDockbar.resetDefault = false ;
   } else if(eXo.desktop.UIDockbar.onAnimation) {
  	   eXo.desktop.UIDockbar.onAnimation = false ;
   } else {
-//    uiDockbar.style.top = (uiPageDesktop.offsetHeight - uiDockbar.offsetHeight) + "px" ;
-//    uiDockbar.style.top = (uiPageDesktop.offsetHeight - uiDockbar.originalBGDockbarHeight) + "px" ;
       uiDockbar.style.bottom =   "0px" ;
   }
-  
   uiDockbar.style.left = ((uiPageDesktop.offsetWidth - uiDockbar.offsetWidth) / 2) + "px" ;
 } ;
 

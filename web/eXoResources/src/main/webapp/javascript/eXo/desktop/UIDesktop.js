@@ -74,6 +74,10 @@ UIDesktop.prototype.isMaxZIndex = function(object) {
 	return isMax ;
 };
 
+/*
+ * minh.js.exo
+ */
+ 
 UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {	
   if(typeof(uiWindow) == "string") this.object = document.getElementById(uiWindow) ;
   else this.object = uiWindow ;
@@ -81,21 +85,18 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
   var numberOfFrame = 10 ;
   if(this.object.style.display == "block") {
     eXo.animation.ImplodeExplode.implode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
-
-    /* Save Status Show Window */
     eXo.desktop.UIWindow.saveWindowProperties(this.object, "HIDE");
+    this.object.isShowed = false ;
   } else {
-
+  	this.object.isShowed = true ;
     var uiDockBar = document.getElementById("UIDockBar") ;
     eXo.desktop.UIDockbar.resetDesktopShowedStatus(uiPageDesktop, uiDockBar) ;
-    eXo.animation.ImplodeExplode.explode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
  //   alert("break 10h44 27/06/2007");
-    /*Save Status Show Window*/
+    eXo.animation.ImplodeExplode.explode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
+ //   bug : don't apply style css in IE6
     eXo.desktop.UIWindow.saveWindowProperties(this.object, "SHOW");
   }
-
   eXo.desktop.UIDockbar.containerMouseOver() ;
-//  alert("Break: 5h24 26/6/2007");
 };
 
 UIDesktop.prototype.findPosXInDesktop = function(object) {
