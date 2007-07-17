@@ -80,6 +80,12 @@ public class UIAccountForm extends UIFormTabPane {
 
   public String getSelectPortalTemplate(){  return "SelectPortalTemplate";  }
   
+  //TODO: Tung.Pham added
+  public void reset() {
+    getChild(UIAccountInputSet.class).reset() ;  
+    getChild(UIUserProfileInputSet.class).reset();
+  }
+  
 //  public void processRender(WebuiRequestContext context) throws Exception {
 //    super.processRender(context);
 //    UIUserMembershipSelector uiUserMembershipSelector = getChild(UIUserMembershipSelector.class);    
@@ -98,6 +104,7 @@ public class UIAccountForm extends UIFormTabPane {
       boolean saveAccountInput = uiAccountInput.save(service, true);
       if(saveAccountInput == false) return;
       uiForm.getChild(UIUserProfileInputSet.class).save(service, userName, true);
+      uiForm.reset() ;
 //      UIUserMembershipSelector uiMembershipSelector = uiForm.getChild(UIUserMembershipSelector.class);
 //      if(uiMembershipSelector == null) return ;
 //      uiMembershipSelector.setUserName(userName);
@@ -108,8 +115,12 @@ public class UIAccountForm extends UIFormTabPane {
   static  public class ResetActionListener extends EventListener<UIAccountForm> {
     public void execute(Event<UIAccountForm> event) throws Exception {
       UIAccountForm uiForm = event.getSource();
-      uiForm.getChild(UIAccountInputSet.class).reset() ;  
-      uiForm.getChild(UIUserProfileInputSet.class).reset();
+      //TODO: Tung.Pham modified
+      //--------------------------
+//      uiForm.getChild(UIAccountInputSet.class).reset() ;  
+//      uiForm.getChild(UIUserProfileInputSet.class).reset();
+      uiForm.reset() ;
+      //--------------------------
 //      UIUserMembershipSelector uiMembershipSelector = uiForm.getChild(UIUserMembershipSelector.class);
 //      if(uiMembershipSelector == null) return ;
 //      uiMembershipSelector.reset();
