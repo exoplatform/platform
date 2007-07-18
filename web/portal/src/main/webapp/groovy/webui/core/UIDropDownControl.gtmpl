@@ -21,7 +21,7 @@
 			<div class="UIOptionContainer">
 				<div class="UIItemListContainer">
 					<div class="UIItemList">
-						<a href="javascript:void(0);" class="UIOptionItem" value="1" title="abc" onclick="eXo.webui.UIDropDownControl.selectItem(this,'this.test()');">Infomation</a>
+						<a href="javascript:void(0);" class="UIOptionItem" value="1" title="abc" onclick="eXo.webui.UIDropDownControl.selectItem(this,'eXo.webui.UIDropDownControl.test()');">Infomation</a>
 						<a href="javascript:void(0);" class="UIOptionItem" value="2" title="abc" onclick="eXo.webui.UIDropDownControl.selectItem(this);">Calendar</a>
 						<a href="javascript:void(0);" class="UIOptionItem" value="3" title="abc" onclick="eXo.webui.UIDropDownControl.selectItem(this,'this.test()');">Calculator</a>
 					</div>

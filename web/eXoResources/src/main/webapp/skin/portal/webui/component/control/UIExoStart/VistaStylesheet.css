@@ -53,6 +53,7 @@
 
 .UIExoStart .StartMenuContainer {
 	display: none;
+	position:absolute ;
 }
 
 .UIExoStart .StartMenuContainer .LoginContainer {

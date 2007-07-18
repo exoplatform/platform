@@ -37,13 +37,14 @@ UIDropDownControl.prototype.selectItem = function(obj,callback) {
 	var uiDropDownAnchor = DOMUtil.findAncestorByClass(obj, 'UIDropDownAnchor') ;
 	var uiDropDownTitle = DOMUtil.findPreviousElementByTagName(uiDropDownAnchor, 'div') ;
 	var uiDropDownMiddleTitle = DOMUtil.findFirstDescendantByClass(uiDropDownTitle,'div','UIDropDownMiddleTitle') ;
-	uiDropDownMiddleTitle.firstChild.innerHTML = obj.innerHTML ;		
-	this.hide(uiDropDownAnchor) ;
+	uiDropDownMiddleTitle.firstChild.innerHTML = obj.innerHTML ;	
 	if (callback){		
 		eval(callback) ;
 	}
+	DOMUtil.listHideElements(uiDropDownAnchor) ;
 } ;
 UIDropDownControl.prototype.test = function() {
-	alert("Test Test") ;	
+	
 }
+
 eXo.webui.UIDropDownControl = new UIDropDownControl() ;
