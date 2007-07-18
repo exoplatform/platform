@@ -414,6 +414,7 @@ PortalDragDrop.prototype.createPreview = function(layoutType) {
 PortalDragDrop.prototype.undoPreview = function(dndEvent) {
 	var DOMUtil = eXo.core.DOMUtil ;
   var uiComponentLayout ;
+  try{
   if(dndEvent.lastFoundTargetObject.className == "UIPage") {
     uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "VIEW-PAGE") ;
   } else if(dndEvent.lastFoundTargetObject.className == "UIPortal") {
@@ -422,7 +423,7 @@ PortalDragDrop.prototype.undoPreview = function(dndEvent) {
     var foundUIComponent = new eXo.portal.UIPortalComponent(dndEvent.lastFoundTargetObject) ;
     uiComponentLayout = foundUIComponent.getLayoutBlock() ;
   }
-    
+  }catch(e) {}  
   var componentIdElement = DOMUtil.getChildrenByTagName(uiComponentLayout ,"div")[0] ;
   var layoutTypeElement = DOMUtil.getChildrenByTagName(componentIdElement ,"div")[0] ;
   
