@@ -109,15 +109,15 @@ UIWindow.prototype.mousedownOnResizeArea = function(evt) {
 //		if(eXo.core.Browser.isIE6()) {
 //			portletWindow.originalUIApplicationWidth = uiApplication.offsetWidth ;
 //		}
-		uiWindow.resizableObject = DOMUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
-//		uiWindow.resizableObject = new Array() ;
-//		var uiResizableBlock = DOMUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
+//		uiWindow.resizableObject = DOMUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
+		uiWindow.resizableObject = new Array() ;
 //		if(uiApplication != null) uiWindow.resizableObject.push(uiApplication) ;
-//		if(uiResizableBlock.length > 0) {
-//	    for(var i = 0; i < uiResizableBlock.length; i++) {
-//	      uiWindow.resizableObject.push(uiResizableBlock[i]) ;
-//	    }
-//	  }
+		var uiResizableBlock = DOMUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
+		if(uiResizableBlock.length > 0) {
+	    for(var i = 0; i < uiResizableBlock.length; i++) {
+	      uiWindow.resizableObject.push(uiResizableBlock[i]) ;
+	    }
+	  }
 		  
 		uiWindow.originalMouseXInDesktop = eXo.core.Browser.findMouseRelativeX(uiPageDesktop, evt) ;
 		uiWindow.originalMouseYInDesktop = eXo.core.Browser.findMouseRelativeY(uiPageDesktop, evt) ;
@@ -316,16 +316,16 @@ UIWindow.prototype.resizeWindow = function(e) {
 //		}
 //	}
 		
-	var windowMinWidth = 250 ;
-	if((UIWindow.originalWidth + deltaX) < windowMinWidth) {
-		uiWindow.style.width = windowMinWidth + "px" ;
-	} else {
+//	var windowMinWidth = 250 ;
+//	if((UIWindow.originalWidth + deltaX) < windowMinWidth) {
+//		uiWindow.style.width = windowMinWidth + "px" ;
+//	} else {
 		uiWindow.style.width = (UIWindow.originalWidth + deltaX) + "px" ;
 		/*Fix Bug On IE6*/
 //		if(eXo.core.Browser.isIE6()) {
 //			uiApplication.style.width = (uiWindow.originalUIApplicationWidth + deltaX) + "px" ;
 //		}
-	}
+//	}
 	
 //	uiWindow.style.height = (UIWindow.originalHeight + deltaY) + "px" ;
 //	uiWindow.style.overflowY = "visible" ;
@@ -336,7 +336,7 @@ UIWindow.prototype.resizeWindow = function(e) {
 			UIWindow.resizableObject[i].style.height = (UIWindow.resizableObject[i].originalHeight + deltaY) + "px" ;
 		}		
 	}
-	eXo.portal.UIPortalControl.initAllManagers() ;
+//	eXo.portal.UIPortalControl.initAllManagers() ;
 } ;
 
 UIWindow.prototype.onControlOver = function(element, isOver) {
