@@ -6,8 +6,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.organization.UIAccountForm;
 
 @ComponentConfig(  
-    lifecycle = UIApplicationLifecycle.class,
-    template = "app:/groovy/account/webui/component/UIAccountPortlet.gtmpl" 
+    lifecycle = UIApplicationLifecycle.class
 ) 
 public class UIAccountPortlet extends UIPortletApplication {
   public UIAccountPortlet() throws Exception{    
