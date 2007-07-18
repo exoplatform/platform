@@ -5,8 +5,8 @@
 package org.exoplatform.webui.core.lifecycle;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIPortletApplication;
 
 /**
  * Author : Nhu Dinh Thuan
@@ -39,8 +39,10 @@ public class UIApplicationLifecycle  extends Lifecycle {
       super.processRender(uicomponent, context) ;
       return ;
     }
-    context.getWriter().append("<div id=\"").append(uicomponent.getId()).append("\" class=\"").append(uicomponent.getId()).append("\">");
-    UIApplication uiApp = (UIApplication) uicomponent;
+    UIPortletApplication uiApp = (UIPortletApplication) uicomponent;
+    context.getWriter().append("<div id=\"").append(uicomponent.getId()).append("\" class=\"").append(uicomponent.getId()).
+                        append("\" exo:minWidth=\"").append(String.valueOf(uiApp.getMinWidth())).
+                        append("\" exo:minHeight=\"").append(String.valueOf(uiApp.getMinHeight())).append("\">");
     uiApp.renderChildren();
     context.getWriter().append("</div>");
   }

@@ -1,53 +1,21 @@
 eXo.require('eXo.webui.UIPopup');
-function UIWindow() {
-} ;
+function UIWindow() {} ;
 
-/*
- * minh.js.exo
- */
-
-UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
+UIWindow.prototype.init = function(popup, isShow, posX, posY) {
 	this.superClass = eXo.webui.UIPopup ;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 	if(popup == null) return ;
 
-	var DOMUtil = eXo.core.DOMUtil ;
-	var UIWindow = eXo.desktop.UIWindow ;
+	var domUtil = eXo.core.DOMUtil ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-	var uiApplication = DOMUtil.findFirstDescendantByClass(popup, "div", "UIApplication") ;
+	var uiApplication = domUtil.findFirstDescendantByClass(popup, "div", "UIApplication") ;
 	if(!uiApplication) return ;
-//	var applicationMinWidth = DOMUtil.findFirstDescendantByClass(popup, "div", "ApplicationMinWidth") ;
-//  if(applicationMinWidth) {
-//  	if(minWidth) {
-//  		popup.style.width = (minWidth + 8) + "px" ;
-//	  	applicationMinWidth.style.width = minWidth + "px" ;
-//	  	popup.applicationOriginalWidth = minWidth ;
-//  	} else {
-//  		popup.applicationOriginalWidth = 750 ;
-//  		if(popup.style.width == "") popup.style.width = "750px" ;
-//  	}
-//  	
-//  	if(DOMUtil.hasDescendantClass(uiApplication, "UIResizableBlock")) {
-//  		applicationMinWidth.style.width = "auto" ;
-//		}
-//  }
 
-  /*Fix Bug On IE6*/
-//	if(eXo.core.Browser.isIE6()) {
-//		try {
-//			var appWidth = popup.offsetWidth - 8 ;
-//			if(appWidth > 0) uiApplication.style.width = appWidth + "px" ;
-//		} catch(e) {
-//			alert(e.message) ;
-//		}
-//	}
-//	
 	if(popup.style.zIndex == "") popup.style.zIndex = ++eXo.webui.UIPopup.zIndex ;
 	
 	popup.onmousedown = this.mousedownOnPopup ;
-//	popup.onmouseup = this.mouseupOnPopup ; 
 
-	var windowPortletInfo = DOMUtil.findFirstDescendantByClass(popup, "div", "WindowPortletInfo") ;
+	var windowPortletInfo = domUtil.findFirstDescendantByClass(popup, "div", "WindowPortletInfo") ;
 	this.superClass.setPosition(popup, posX, posY) ;
 	try {
 		windowPortletInfo.onmousedown = this.initDND ;
@@ -55,25 +23,20 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY, minWidth) {
 		alert("Error In DND: " + err) ;
 	}
 	
-	var windowPortletControl = DOMUtil.findFirstDescendantByClass(popup, "div", "WindowPortletControl") ;
-	var minimizedIcon = DOMUtil.findFirstDescendantByClass(windowPortletControl, "div", "MinimizedIcon") ;
-	var maximizedIcon = DOMUtil.findFirstDescendantByClass(windowPortletControl, "div", "MaximizedIcon") ;
-	var resizeArea = DOMUtil.findFirstDescendantByClass(popup, "div", "ResizeArea") ;
+	var windowPortletControl = domUtil.findFirstDescendantByClass(popup, "div", "WindowPortletControl") ;
+	var minimizedIcon = domUtil.findFirstDescendantByClass(windowPortletControl, "div", "MinimizedIcon") ;
+	var maximizedIcon = domUtil.findFirstDescendantByClass(windowPortletControl, "div", "MaximizedIcon") ;
+	var resizeArea = domUtil.findFirstDescendantByClass(popup, "div", "ResizeArea") ;
 	minimizedIcon.onmouseup = this.mouseupOnMinimizedIcon ; 
 	maximizedIcon.onmouseup = this.mouseupOnMaximizedIcon ;
-	resizeArea.onmousedown = this.mousedownOnResizeArea ;
-	uiPageDesktop.onmouseup = this.mouseupOnUIPageDesktop ;
-  UIWindow.windowMinHeight = popup.offsetHeight ;
+	resizeArea.onmousedown = this.startResizeWindowEvt ;
+  eXo.desktop.UIWindow.windowMinHeight = popup.offsetHeight ;
 } ;
 
 
 UIWindow.prototype.mousedownOnPopup = function(evt) {
 	var isMaxZIndex = eXo.desktop.UIDesktop.isMaxZIndex(this) ;
 	if(!isMaxZIndex)	eXo.desktop.UIDesktop.resetZIndex(this) ;
-} ;
-
-UIWindow.prototype.mouseupOnPopup = function(evt) {
-	eXo.desktop.UIWindow.saveWindowProperties(this) ;
 } ;
 
 UIWindow.prototype.mouseupOnMaximizedIcon =	function(evt) {
@@ -97,39 +60,56 @@ UIWindow.prototype.mouseupOnMinimizedIcon =	function(evt) {
 	eXo.desktop.UIDesktop.showHideWindow(popup, children[index + 1]) ;
 } ;
 	
-UIWindow.prototype.mousedownOnResizeArea = function(evt) {
+UIWindow.prototype.startResizeWindowEvt = function(evt) {
+	if(!evt) evt = window.event ;
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiWindow = eXo.desktop.UIWindow ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	var portletWindow = eXo.core.DOMUtil.findAncestorByClass(this, "UIResizeObject") ;
-	portletWindow.maximized = false ;
-//	var uiApplication = DOMUtil.findFirstDescendantByClass(portletWindow, "div", "UIApplication") ;
-//  Can only resize when the window is NOT maximized
+	var uiApplication = eXo.core.DOMUtil.findFirstDescendantByClass(portletWindow, "div", "UIApplication") ;
+	var hasResizableClass = DOMUtil.hasDescendantClass(uiApplication, "UIResizableBlock")	;
+	if(hasResizableClass) {
+		uiApplication.style.overflow = "hidden" ;
+	}
+	var portlet = eXo.core.DOMUtil.getChildrenByTagName(uiApplication, "div")[0] ;
+	uiWindow.minWidth = portlet.getAttribute("exo:minWidth") || 400 ;
+	uiWindow.minHeight = portlet.getAttribute("exo:minHeight") || 300 ;
 	if(!portletWindow.maximized) {
-//		if(eXo.core.Browser.isIE6()) {
-//			portletWindow.originalUIApplicationWidth = uiApplication.offsetWidth ;
-//		}
-//		uiWindow.resizableObject = DOMUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
-		uiWindow.resizableObject = new Array() ;
-//		if(uiApplication != null) uiWindow.resizableObject.push(uiApplication) ;
-		var uiResizableBlock = DOMUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
-		if(uiResizableBlock.length > 0) {
-	    for(var i = 0; i < uiResizableBlock.length; i++) {
-	      uiWindow.resizableObject.push(uiResizableBlock[i]) ;
-	    }
-	  }
-		  
-		uiWindow.originalMouseXInDesktop = eXo.core.Browser.findMouseRelativeX(uiPageDesktop, evt) ;
-		uiWindow.originalMouseYInDesktop = eXo.core.Browser.findMouseRelativeY(uiPageDesktop, evt) ;
+		uiWindow.resizableObject = DOMUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
+		uiWindow.originalMouseXInDesktop = evt.clientX ;
+		uiWindow.originalMouseYInDesktop = evt.clientY ;
 		uiWindow.backupObjectProperties(portletWindow, uiWindow.resizableObject) ;
 		uiWindow.dragObject = this ;
-		uiPageDesktop.onmousemove = uiWindow.resizeWindow ;
+		uiPageDesktop.onmousemove = uiWindow.resizeWindowEvt ;
+		uiPageDesktop.onmouseup = uiWindow.endResizeWindowEvt ;
 	}
 } ;
 
-UIWindow.prototype.mouseupOnUIPageDesktop = function() {
+UIWindow.prototype.resizeWindowEvt = function(evt) {
+	if(!evt) evt = window.event ;
+	var UIWindow = eXo.desktop.UIWindow;
+	var DOMUtil = eXo.core.DOMUtil ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-  uiPageDesktop.onmousemove = null ;
+	var mouseXInDesktop = evt.clientX ;
+	var mouseYInDesktop = evt.clientY ;
+	var deltaX = mouseXInDesktop - UIWindow.originalMouseXInDesktop ;
+	var deltaY = mouseYInDesktop - UIWindow.originalMouseYInDesktop ;
+	var uiWindow = DOMUtil.findAncestorByClass(UIWindow.dragObject, "UIWindow") ;
+	var uiApplication = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIApplication") ;
+	
+	uiWindow.style.width = Math.max(UIWindow.minWidth,(UIWindow.originalWidth + deltaX)) + "px" ;
+	for(var i = 0; i < UIWindow.resizableObject.length; i++) {
+		UIWindow.resizableObject[i].style.height = (UIWindow.resizableObject[i].originalHeight + deltaY) + "px" ;
+	}
+//	eXo.portal.UIPortalControl.initAllManagers() ;
+} ;
+
+UIWindow.prototype.endResizeWindowEvt = function(evt) {
+	delete eXo.desktop.UIWindow.minWidth ;
+	delete eXo.desktop.UIWindow.minHeight ;
+	delete eXo.desktop.UIWindow.resizableObject ;
+  this.onmousemove = null ;
+  this.onmouseup = null ;
 } ;  
 
 
@@ -139,7 +119,6 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
   var uiPageDesktop = document.getElementById("UIPageDesktop") ;
   var desktopWidth = uiPageDesktop.offsetWidth  ;
   var desktopHeight = uiPageDesktop.offsetHeight  ;
-//  var applicationMinWidth = DOMUtil.findFirstDescendantByClass(windowObject, "div", "ApplicationMinWidth") ;
   var uiApplication = DOMUtil.findFirstDescendantByClass(windowObject, "div", "UIApplication") ;
   var uiResizableBlock = DOMUtil.findDescendantsByClass(windowObject, "div", "UIResizableBlock") ;
 
@@ -153,12 +132,6 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
   }
   
   if(!windowObject.maximized) {
-  	// Maximize...
-//  	if(applicationMinWidth) {
-//  		windowObject.backupApplicationMinWidth = applicationMinWidth.offsetWidth ;
-//    	applicationMinWidth.style.width = "auto" ;
-//  	}
-  	
     UIWindow.backupObjectProperties(windowObject, resizableObject) ;
     windowObject.style.top = "0px" ;
     windowObject.oldY = 0;
@@ -166,7 +139,6 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
     windowObject.oldX = 0;
     windowObject.style.width = desktopWidth + "px" ;
     windowObject.oldW = desktopWidth;
-//    windowObject.style.height = "auto" ;
     
     for(var i = 0; i < resizableObject.length; i++) {
     	if (resizableObject[i].nodeName.toLowerCase() == "table") {
@@ -186,7 +158,6 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
     }
 		
   } else {
-  	// Demaximize...
     windowObject.style.top = UIWindow.posY + "px" ;
     windowObject.oldY = UIWindow.posY ;
     windowObject.style.left = UIWindow.posX + "px" ;
@@ -201,10 +172,6 @@ UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
     if(eXo.core.Browser.isIE6()) {
     	uiApplication.style.width = windowObject.backupUIApplicationWidth + "px" ;
     }
-//    if(applicationMinWidth) {
-//    	applicationMinWidth.style.width = "auto" ;
-//    	applicationMinWidth.style.height = "auto" ;
-//    }
   }
 	eXo.portal.UIPortalControl.initAllManagers() ;
 } ;
@@ -228,15 +195,8 @@ UIWindow.prototype.initDND = function(e) {
   var clickBlock = this ;
   var dragBlock = DOMUtil.findAncestorByClass(this, "UIDragObject") ;
   
+	// Can drag n drop only when the window is NOT maximized
   if(!dragBlock.maximized) {
-  	// Can drag n drop only when the window is NOT maximized
-	  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-	  var uiPageDesktopX = eXo.core.Browser.findPosX(uiPageDesktop) ;
-	  
-	  /*Fix Bug On IE7, It's always double the value returned*/
-	  if((eXo.core.Browser.getBrowserType() == "ie") && (!eXo.core.Browser.isIE6())) {
-	  	uiPageDesktopX = uiPageDesktopX / 2 ;
-	  }
 	  
 		var uiApplication = DOMUtil.findFirstDescendantByClass(dragBlock, "div", "UIApplication");
 		var hiddenElements = new Array() ;
@@ -273,6 +233,14 @@ UIWindow.prototype.initDND = function(e) {
 	      document.onmousemove = DragDrop.onDrop ; /*Fix Bug On IE6*/
 	    }
 	    
+		  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+		  var uiPageDesktopX = eXo.core.Browser.findPosX(uiPageDesktop) ;
+		  
+		  /*Fix Bug On IE7, It's always double the value returned*/
+		  if((eXo.core.Browser.getBrowserType() == "ie") && (!eXo.core.Browser.isIE6())) {
+		  	uiPageDesktopX = uiPageDesktopX / 2 ;
+		  }
+		  
 	    if((mouseX < uiPageDesktopX) || (mouseX > browserWidth)) {
 	      document.onmousemove = DragDrop.onDrop ;
 	    }
@@ -281,62 +249,16 @@ UIWindow.prototype.initDND = function(e) {
 	
 	  DragDrop.dropCallback = function(dndEvent) {
 	  	var dragObject = dndEvent.dragObject ;
+	  	
 		  //TODO Lambkin: Save properties of window
 		  eXo.desktop.UIWindow.saveWindowProperties(dragBlock) ;
+		  
 	  	for (var i = 0; i < hiddenElements.length; i++) {
 	  		hiddenElements[i].style.overflow = "auto" ;
 	  	}
 	  } ;
 	  DragDrop.init(null, clickBlock, dragBlock, e) ;
 	}
-} ;
-
-UIWindow.prototype.resizeWindow = function(e) {
-	var UIWindow = eXo.desktop.UIWindow;
-	var DOMUtil = eXo.core.DOMUtil ;
-	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-	var mouseXInDesktop = eXo.core.Browser.findMouseRelativeX(uiPageDesktop, e) ;
-	var mouseYInDesktop = eXo.core.Browser.findMouseRelativeY(uiPageDesktop, e) ;
-	var deltaX = mouseXInDesktop - UIWindow.originalMouseXInDesktop ;
-	var deltaY = mouseYInDesktop - UIWindow.originalMouseYInDesktop ;
-	var uiWindow = DOMUtil.findAncestorByClass(UIWindow.dragObject, "UIWindow") ;
-	var uiApplication = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIApplication") ;
-//	var applicationMinWidth = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "ApplicationMinWidth") ;
-
-	var hasResizableClass = DOMUtil.hasDescendantClass(uiApplication, "UIResizableBlock")	;
-	if(hasResizableClass) {
-		uiApplication.style.overflow = "hidden" ;
-	}
-//	
-//	if(applicationMinWidth) {
-//		if(uiWindow.offsetWidth > uiWindow.applicationOriginalWidth) {
-//			applicationMinWidth.style.width = "auto" ;
-//		} else {
-//			applicationMinWidth.style.width = uiWindow.applicationOriginalWidth + "px" ;
-//		}
-//	}
-		
-//	var windowMinWidth = 250 ;
-//	if((UIWindow.originalWidth + deltaX) < windowMinWidth) {
-//		uiWindow.style.width = windowMinWidth + "px" ;
-//	} else {
-		uiWindow.style.width = (UIWindow.originalWidth + deltaX) + "px" ;
-		/*Fix Bug On IE6*/
-//		if(eXo.core.Browser.isIE6()) {
-//			uiApplication.style.width = (uiWindow.originalUIApplicationWidth + deltaX) + "px" ;
-//		}
-//	}
-	
-//	uiWindow.style.height = (UIWindow.originalHeight + deltaY) + "px" ;
-//	uiWindow.style.overflowY = "visible" ;
-	for(var i = 0; i < UIWindow.resizableObject.length; i++) {
-		if((UIWindow.resizableObject[i].originalHeight + deltaY) < UIWindow.resizableObject[i].minHeight) {
-			return ;
-		} else {
-			UIWindow.resizableObject[i].style.height = (UIWindow.resizableObject[i].originalHeight + deltaY) + "px" ;
-		}		
-	}
-//	eXo.portal.UIPortalControl.initAllManagers() ;
 } ;
 
 UIWindow.prototype.onControlOver = function(element, isOver) {
@@ -378,7 +300,7 @@ UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 	  ] ;
 	}
 	
-	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveWindowProperties", true, params), false) ;
+	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveWindowProperties", true, params), true) ;
 } ;
 
 eXo.desktop.UIWindow = new UIWindow() ;

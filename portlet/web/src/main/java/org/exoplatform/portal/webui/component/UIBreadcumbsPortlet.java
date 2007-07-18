@@ -27,7 +27,7 @@ import org.exoplatform.portal.webui.util.Util;
  * @version:: $Id$
  */
 @ComponentConfig(
-  lifecycle =UIApplicationLifecycle.class,
+  lifecycle = UIApplicationLifecycle.class,
   events = @EventConfig(listeners = SelectPathActionListener.class)    
 )
 public class UIBreadcumbsPortlet extends UIPortletApplication {

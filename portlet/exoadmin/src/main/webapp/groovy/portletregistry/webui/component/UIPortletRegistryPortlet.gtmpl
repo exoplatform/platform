@@ -3,25 +3,23 @@
   import org.exoplatform.portletregistry.webui.component.ApplicationRegistryWorkingArea ;  
 %>
 
-<div class="UIApplicationRegistryPortlet UIApplication" id="$uicomponent.id">
-  <div class="ApplicationMinWidth">
-	  <div class="UIApplicationRegistryContainer" >
-		  <%/* Begin Portlet Registry Control*/ %>
-			<div class="ApplicationRegistryControlArea" >
-			  <div class="Title">Application Categories</div>
-			  <div class="ApplicationRegistryCategory">
-			    <% uicomponent.renderChild(ApplicationRegistryControlArea.class);%>
-			  </div>
-			</div>
-		  <%/* End Portlet Registry Control */%>		  
-			<div class="ApplicationRegistryWorkingArea" >
-			  <div class="Title">Applications in a category</div>
-			  <div class="ApplicationWorkingAreaContainer" >
-				  <% uicomponent.renderChild(ApplicationRegistryWorkingArea.class);%>
-				</div>
-			</div>
-			<div style="clear: left"><span></span></div>
+<div class="UIApplicationRegistryPortlet" id="$uicomponent.id">
+  <div class="UIApplicationRegistryContainer" >
+	  <%/* Begin Portlet Registry Control*/ %>
+		<div class="ApplicationRegistryControlArea" >
+		  <div class="Title">Application Categories</div>
+		  <div class="ApplicationRegistryCategory">
+		    <% uicomponent.renderChild(ApplicationRegistryControlArea.class);%>
+		  </div>
 		</div>
-	  <%uicomponent.renderPopupMessages(); %>
+	  <%/* End Portlet Registry Control */%>		  
+		<div class="ApplicationRegistryWorkingArea" >
+		  <div class="Title">Applications in a category</div>
+		  <div class="ApplicationWorkingAreaContainer" >
+			  <% uicomponent.renderChild(ApplicationRegistryWorkingArea.class);%>
+			</div>
+		</div>
+		<div style="clear: left"><span></span></div>
 	</div>
+  <%uicomponent.renderPopupMessages(); %>
 </div>

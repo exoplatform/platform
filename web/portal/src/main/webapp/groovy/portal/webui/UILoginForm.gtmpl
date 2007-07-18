@@ -5,7 +5,6 @@
   
   jsmanager.importJavascript('eXo.portal.UIPortalControl');
   
-  jsmanager.addCustomizedOnLoadScript("document.getElementById('username').select();") ;
   jsmanager.addJavascript('eXo.portal.UIPortalControl.onKeyPress();') ;
 %>
 
