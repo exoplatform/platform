@@ -103,7 +103,7 @@ public class UIGroupMembershipForm extends UIForm {
       }
       //-----------------------------------------
       service.getMembershipHandler().linkMembership(user,group,membershipType,true);               
-      userInGroup.setValues(); 
+      userInGroup.refresh(); 
       uiForm.reset();
     }
   }

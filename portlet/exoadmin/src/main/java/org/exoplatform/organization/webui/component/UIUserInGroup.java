@@ -49,11 +49,7 @@ public class UIUserInGroup extends UIContainer {
   public UIUserInGroup() throws Exception {
     UIGrid uiGrid = addChild(UIGridUser.class, "UIGridUser", null) ;
     uiGrid.configure("id", USER_BEAN_FIELD, USER_ACTION) ;
-    //TODO: Tung.Pham added
-    //--------------------------------------------
     uiGrid.getUIPageIterator().setId("UIUserInGroupIterator") ;
-    //--------------------------------------------
-
     addChild(UIGroupMembershipForm.class, null, null);
   }  
 
@@ -66,22 +62,8 @@ public class UIUserInGroup extends UIContainer {
 
   public String getName() { return "UIUserInGroup" ; }  
 
-  public void setValues() throws Exception {    
-    setValues(getSelectedGroup());
-  }
+  public void refresh() throws Exception { setValues(getSelectedGroup()); }
 
-//  public void setValues(Group group) throws Exception {
-//    String groupId = null;
-//    if(group != null) groupId = group.getId();
-//    OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-//    PageList pagelist = service.getUserHandler().findUsersByGroup(groupId);
-//    pagelist.setPageSize(10) ;
-//    UIGridUser uiGrid = getChild(UIGridUser.class) ;
-//    uiGrid.setGroupId(groupId);
-//    uiGrid.getUIPageIterator().setPageList(pagelist);
-//  }
-
-  //TODO: Tung.Pham replaced
   public void setValues(Group group) throws Exception {
     if(group == null) return ;
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
@@ -107,69 +89,37 @@ public class UIUserInGroup extends UIContainer {
       OrganizationService service = uiUserInGroup.getApplicationComponent(OrganizationService.class);
       MembershipHandler handler = service.getMembershipHandler();
       handler.removeMembership(id, true) ;
-      uiUserInGroup.setValues();
+      uiUserInGroup.refresh();
     }
   }
 
   static public class UIGridUser extends UIGrid {
     
-    private String groupId_;
-
     public UIGridUser() throws Exception {
       super();
     }
-
-//    public List<?> getBeans() throws Exception { 
-//      List<?> list = super.getBeans();      
-//      Iterator<?> it = list.iterator() ;
-//      boolean add = true;
-//      List<MembershipUser> memberships = new ArrayList<MembershipUser>() ;
-//      while(it.hasNext()){
-//        User user = (User)it.next() ;
-//        add = true;
-//        for(MembershipUser ele : memberships ){
-//          if(ele.getUser() != user) continue;
-//          add = false;
-//          break;
-//        }
-//        if(add) loadMemberships(user, memberships) ;
-//      } 
-//      return  memberships;
-//    }
     
-    //TODO: Tung.Pham replaced
     public List<?> getBeans() throws Exception {
       List<MembershipUser> membershipUsers = new ArrayList<MembershipUser>() ;
       List<?> list = super.getBeans() ;
       Iterator<?> itr = list.iterator() ;
       while(itr.hasNext()){
         Membership membership = (Membership)itr.next() ;
-        membershipUsers.add(convert(membership)) ;
+        MembershipUser mu = toMembershipUser(membership);
+        if(mu != null) membershipUsers.add(mu) ;
       }
       return membershipUsers ;
     }
     
-    //TODO: Tung.Pham added
-    private MembershipUser convert(Membership membership) throws Exception {
+    private MembershipUser toMembershipUser(Membership membership) throws Exception {
       OrganizationService service = getApplicationComponent(OrganizationService.class) ;
       String userName = membership.getUserName() ;
       UserHandler handler = service.getUserHandler();
       User user = handler.findUserByName(userName) ;
+      if(user == null) return null;
       return new MembershipUser(user, membership.getMembershipType(), membership.getId()) ;
     }
-    
-//    private void loadMemberships(User user, List<MembershipUser> memberships) throws Exception{
-//      OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-//      MembershipHandler handler = service.getMembershipHandler();
-//      Collection<?> mt = handler.findMembershipsByUserAndGroup(user.getUserName(), groupId_) ;
-//      Iterator<?> it = mt.iterator() ;
-//      while(it.hasNext()){
-//        Membership type = (Membership)it.next() ;
-//        memberships.add(new MembershipUser(user, type.getMembershipType(), type.getId()));
-//      }
-//    }
 
-    public void setGroupId(String groupId) { this.groupId_ = groupId; }
   }
 
   static public class MembershipUser {    
