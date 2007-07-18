@@ -9,11 +9,13 @@
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabLeft {
 	background: url(VistaSkin/background/SimpleTabLeft29x24.png) no-repeat left bottom;
 	padding-left: 29px;
+	height: 24px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabRight {
 	background: url(VistaSkin/background/SimpleTabRight3x24.png) no-repeat right bottom;
 	padding-right: 3px;
+	height: 24px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabRepeat {
@@ -37,11 +39,13 @@
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLeft {
 	background: url(VistaSkin/background/SelectedTabLeft27x24.png) no-repeat left bottom;
 	padding-left: 27px;
+	height: 24px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabRight {
 	background: url(VistaSkin/background/SelectedTabRight17x24.png) no-repeat right bottom;
 	padding-right: 17px;
+	height: 24px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabRepeat {

@@ -370,3 +370,25 @@
   height: 44px ; line-height: 44px ;
   font-weight: bold; color: black;
 }
+
+/*#################################- HeaderToolbar-##############################*/
+.UIToolbar .HeaderToolbar {
+  height: 31px;
+}
+
+.UIToolbar .HeaderToolbar .LeftBar {
+  padding-left: 7px ;
+  background: url('DefaultSkin/background/LeftHeaderToolbar7x31.gif') no-repeat left ;
+}
+
+.UIToolbar .HeaderToolbar .RightBar {
+  padding-right: 7px ;
+  background: url('DefaultSkin/background/RightHeaderToolbar7x31.gif') no-repeat right ;
+}
+
+.UIToolbar .HeaderToolbar .CenterBar {
+  height: 31px ; line-height: 31px ;
+  background: url('DefaultSkin/background/CenterHeaderToolbar1x31.gif') repeat-x ;
+}
+
+
