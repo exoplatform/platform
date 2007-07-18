@@ -6,6 +6,7 @@ package org.exoplatform.webui.core.lifecycle;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIContainer;
 
 /**
  * Author : Nhu Dinh Thuan
@@ -30,6 +31,17 @@ public class UIApplicationLifecycle  extends Lifecycle {
       if(uiTarget == uicomponent) super.processAction(uicomponent, context) ;
       else if(uiTarget != null) uiTarget.processAction(context) ;
     }
-  } 
- 
+  }
+  
+  //TODO TrongTT : check for config template of portlet
+  public void processRender(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
+    if(uicomponent.getTemplate() != null) {
+      super.processRender(uicomponent, context) ;
+      return ;
+    }
+    context.getWriter().append("<div id=\"").append(uicomponent.getId()).append("\" class=\"").append(uicomponent.getId()).append("\">");
+    UIContainer uiContainer = (UIContainer) uicomponent;
+    uiContainer.renderChildren(context);
+    context.getWriter().append("</div>");
+  }
 }

@@ -1,7 +1,6 @@
 @import url(/eXoResources/skin/webui/component/UIToolbar/DefaultStylesheet.css) ;
 
 .UIWindow .UIOrganizationPortlet {
-  overflow: auto ;
   margin: 0px;
   border: none;
 }

@@ -11,9 +11,6 @@
   jsmanager.importJavascript('eXo.desktop.UIWindow') ;
   jsmanager.importJavascript('eXo.portal.UIPortalControl');
 
-  String showCategory = "eXo.webui.UIPopupSelectCategory.show(this, event);"
-  String setDefault     = "";//"eXo.webui.UIPopupSelectCategory.setDefault(this);" ;
-  
   String onControlOver  = "eXo.desktop.UIWindow.onControlOver(this, true);" ;
   String onControlOut    = "eXo.desktop.UIWindow.onControlOver(this, false);" ;
   
@@ -146,19 +143,21 @@
       	cssStyle += "display: "+ appDisplay +";" ;
       	cssStyle += "z-index: "+ appZIndex +";" ;
       	cssStyle += "width: "+ windowWidth +";" ;
-      	cssStyle += "height: "+ windowHeight +";" ;
+      	//cssStyle += "height: "+ windowHeight +";" ;
       	cssStyle += "\"";
 	    %>
     		
-    		<div class="UIWindow UIDragObject AncestorPopupCategory" id="${popupId}"  ${cssStyle} >
+    		<div class="UIWindow UIDragObject UIResizeObject" id="${popupId}"  ${cssStyle} >
 		      <div class="WindowBarLeft">
 		        <div class="WindowBarRight">
 		          <div class="WindowBarCenter">
 		            <div class="WindowPortletControl CategoryDetectPosition">
-		              <%if(uicomponent.getShowPortletMode()) {%>
+		              <%
+		                if(uicomponent.getShowPortletMode()) {
+		                  String showCategory = "eXo.webui.UIPopupSelectCategory.show(this, event);"
+		              %>
 		              		<div class="ControlIcon ArrowDownIcon" title="Portlet Mode" onclick="$showCategory" onmouseover="$onControlOver" onmouseout="$onControlOut">
-		              
-								      <% /*Begin Popup Menu*/ %>
+								        <% /*Begin Popup Menu*/ %>
 									      <div style="position: relative;">
 										      <div class="UIPopupCategory" style="display: none;">
 										        <div class="PopupCategoryDecorator">
@@ -204,7 +203,6 @@
 										      </div>
 										    </div>
 									      <% /*End Popup Menu*/ %>
-								      
 		              		</div>
 		              <%}%>
 		              <%if(isWindow) {%>
@@ -256,20 +254,16 @@
 		      </div>
 		      <%/*End Window Portlet Bar*/ %>
 		      
-		      <%//Begin Top Decorator %>
-		      <div class="TopDecoratorLeft">
-		        <div class="TopDecoratorRight">
-		          <div class="TopDecoratorCenter"><span></span></div>
-		        </div>
-		      </div>
-		      <%//End Top Decorator %>
-				
 		      <div class="MiddleDecoratorLeft">
 		        <div class="MiddleDecoratorRight">
 		          <div class="MiddleDecoratorCenter">
-		          <%if(windowState != WindowState.MINIMIZED){%>
-		              $portletContent
-		          <%}%>    
+		            <div style="width: 100%;">
+		              <div class="UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight">
+					          <%if(windowState != WindowState.MINIMIZED){%>
+					              $portletContent
+					          <%}%>
+				          </div>    
+		            </div>
 		          </div>
 		        </div>
 		      </div>

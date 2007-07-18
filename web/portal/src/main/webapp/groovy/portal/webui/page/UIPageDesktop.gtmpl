@@ -67,7 +67,7 @@
               uiChild.setTitle(title);
             }
             
-            String removeChildAction = uicomponent.event("RemoveChild", popupId) ;
+            //String removeChildAction = uicomponent.event("RemoveChild", popupId) ;
         
             uiChild.setShowInfoBar(true);
             uiChild.setPortletStyle("Window");

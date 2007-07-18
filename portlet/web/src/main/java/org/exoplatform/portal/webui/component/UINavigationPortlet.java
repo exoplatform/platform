@@ -9,8 +9,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
 @ComponentConfigs({
   @ComponentConfig(
-    lifecycle = UIApplicationLifecycle.class,
-    template = "system:/groovy/webui/core/UIApplication.gtmpl"
+    lifecycle = UIApplicationLifecycle.class
   ),
   @ComponentConfig(
     type = UIPortalNavigation.class,

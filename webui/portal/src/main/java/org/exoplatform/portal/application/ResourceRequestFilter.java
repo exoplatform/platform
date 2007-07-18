@@ -38,7 +38,7 @@ public class ResourceRequestFilter implements Filter  {
     } else {
       HttpServletRequest httpRequest = (HttpServletRequest) request ;
       String uri = httpRequest.getRequestURI();
-      if(uri.endsWith(".jstmpl") || uri.endsWith(".css")) {
+      if(uri.endsWith(".jstmpl") || uri.endsWith(".css") || uri.endsWith(".js")) {
         HttpServletResponse httpResponse = (HttpServletResponse)  response ;
         httpResponse.setHeader("Cache-Control", "no-cache");
       }

@@ -15,8 +15,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
  * Sep 27, 2006  
  */
 @ComponentConfig(
-    lifecycle =UIApplicationLifecycle.class,
-    template = "system:/groovy/webui/core/UIApplication.gtmpl"
+    lifecycle =UIApplicationLifecycle.class
 )
 public class UISitePortlet extends UIPortletApplication{
   public UISitePortlet() throws Exception {

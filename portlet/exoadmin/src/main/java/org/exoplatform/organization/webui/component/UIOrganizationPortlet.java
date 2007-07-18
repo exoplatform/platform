@@ -31,7 +31,6 @@ import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
   lifecycle = UIApplicationLifecycle.class,
-  template = "system:/groovy/webui/core/UIApplication.gtmpl",
   events = @EventConfig(listeners = UIOrganizationPortlet.ClosePopupActionListener.class)
 )
 public class UIOrganizationPortlet extends UIPortletApplication {

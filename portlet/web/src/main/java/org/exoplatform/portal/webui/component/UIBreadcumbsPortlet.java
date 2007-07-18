@@ -28,7 +28,6 @@ import org.exoplatform.portal.webui.util.Util;
  */
 @ComponentConfig(
   lifecycle =UIApplicationLifecycle.class,
-  template = "system:/groovy/webui/core/UIApplication.gtmpl" ,
   events = @EventConfig(listeners = SelectPathActionListener.class)    
 )
 public class UIBreadcumbsPortlet extends UIPortletApplication {

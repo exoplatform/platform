@@ -14,8 +14,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
  * May 30, 2006
  */
 @ComponentConfig(
-  lifecycle = UIApplicationLifecycle.class,
-  template = "system:/groovy/webui/core/UIApplication.gtmpl" 
+  lifecycle = UIApplicationLifecycle.class
 )
 
 public class UITestFormPortlet extends UIPortletApplication {
