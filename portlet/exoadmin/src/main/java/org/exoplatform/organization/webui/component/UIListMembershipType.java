@@ -27,32 +27,24 @@ public class UIListMembershipType extends UIContainer {
   
   private static String[] USER_BEAN_FIELD = {"name", "createdDate", "modifiedDate", "description"} ;
   private static String[] USER_ACTION = {"EditMembership", "DeleteMembership"} ;
-  private String membershipSelected_;
   
 	public UIListMembershipType() throws Exception { 
-    UIGrid uiGrid = addChild(UIGrid.class, null, null);
-    uiGrid.setId("UIGrid");
+    UIGrid uiGrid = addChild(UIGrid.class, null, "UIGrid");
     uiGrid.configure("name", USER_BEAN_FIELD, USER_ACTION);
-    //TODO: Tung.Pham added
-    //--------------------------------------------------------
     uiGrid.getUIPageIterator().setId("UIListMembershipTypeIterator") ;
-    //--------------------------------------------------------
-    update(uiGrid);
+    refresh();
 	}
-	
-  public String getMembershipSelected(){ return membershipSelected_; }
-  public void setMembershipSelected(String select) { membershipSelected_ = select; }
   
 	public UIComponent getViewModeUIComponent() {	return null; }
   
   public String getName() { return "UIMembershipList" ; }
 	
   @SuppressWarnings("unchecked")
-	public void update(UIGrid uiGrid) throws Exception {
+	public void refresh() throws Exception {
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     List memberships = (List)service.getMembershipTypeHandler().findMembershipTypes();
-    PageList pagelist = new ObjectPageList(memberships,10);
-    uiGrid.getUIPageIterator().setPageList(pagelist);
+    PageList pagelist = new ObjectPageList(memberships, 10);
+    getChild(UIGrid.class).getUIPageIterator().setPageList(pagelist);
   }
   
   public void processRender(WebuiRequestContext context) throws Exception {
@@ -80,23 +72,20 @@ public class UIListMembershipType extends UIContainer {
       UIListMembershipType uiMembership = event.getSource();
       String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UIMembershipManagement membership = uiMembership.getParent() ;
-      //TODO: Tung.Pham added
-      //--------------------------------------
       UIMembershipTypeForm uiForm = membership.findFirstComponentOfType(UIMembershipTypeForm.class) ;
+      
       MembershipType existMembershipType = uiForm.getMembershipType();
       if(existMembershipType != null && existMembershipType.getName().equals(name)) {
         UIApplication uiApp = event.getRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIMembershipList.msg.InUse", null)) ;
         return ;
       }
-      //--------------------------------------
+      
       OrganizationService service = uiMembership.getApplicationComponent(OrganizationService.class);
       MembershipType membershipType = service.getMembershipTypeHandler().findMembershipType(name) ;
       service.getMembershipTypeHandler().removeMembershipType(name,true);
       membership.deleteOptions(membershipType) ;
-      UIGrid uiGrid = uiMembership.findComponentById("UIGrid");
-      uiMembership.update(uiGrid);
-      
+      uiMembership.refresh();
     }
   }
   

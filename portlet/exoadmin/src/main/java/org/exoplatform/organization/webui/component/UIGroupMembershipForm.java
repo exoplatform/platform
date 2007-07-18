@@ -34,7 +34,7 @@ import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 @ComponentConfig(
   lifecycle = UIFormLifecycle.class,
   template = "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
-  events = @EventConfig(listeners = UIGroupMembershipForm.SaveActionListener.class)
+  events = @EventConfig(listeners = UIGroupMembershipForm.SaveActionListener.class) 
 )
 public class UIGroupMembershipForm extends UIForm {  
     
@@ -56,7 +56,7 @@ public class UIGroupMembershipForm extends UIForm {
   } 
   
   public String getUserName() { return getUIStringInput("username").getValue(); }
-  public String getMembership() { return getUIStringInput("membership").getValue(); }
+  public String getMembership() { return getUIStringInput("membership").getValue(); }  
   
   @SuppressWarnings("unchecked")
   public void removeOptionMembershipType(MembershipType membership) {
@@ -106,7 +106,7 @@ public class UIGroupMembershipForm extends UIForm {
       userInGroup.refresh(); 
       uiForm.reset();
     }
-  }
-
+  } 
 }
+
 
