@@ -33,6 +33,7 @@ import org.exoplatform.webui.event.Event;
  */
 @ComponentConfigs({
   @ComponentConfig (
+    id = "default" ,
     lifecycle = UIPortalApplicationLifecycle.class,
     template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl",
     initParams = @ParamConfig(name = "public.showControlWorkspace", value = "true" )

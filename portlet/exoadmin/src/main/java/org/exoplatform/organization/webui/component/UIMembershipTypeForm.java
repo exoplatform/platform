@@ -82,6 +82,7 @@ public class UIMembershipTypeForm extends UIForm {
   static  public class ResetActionListener extends EventListener<UIMembershipTypeForm> {
     public void execute(Event<UIMembershipTypeForm> event) throws Exception {
       UIMembershipTypeForm uiForm = event.getSource();           
+      uiForm.getUIStringInput(MEMBERSHIP_TYPE_NAME).setEditable(UIFormStringInput.ENABLE) ;
       uiForm.reset();      
     }
   } 

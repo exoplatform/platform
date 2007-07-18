@@ -11,7 +11,6 @@ import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -35,18 +34,17 @@ public class UIPortalActionListener {
     }
   }
   
-  static public class EditPortalActionListener  extends EventListener<UIPortal> {
+  /*static public class EditPortalActionListener  extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {
       UIPortal uiPortal = event.getSource();
       UIPortalForm uiForm = uiPortal.createUIComponent(UIPortalForm.class, null, null);
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      uiForm.setValues(uiPortalApp.getUserPortalConfig().getPortalConfig());
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
       uiToolPanel.setUIComponent(uiForm);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;      
     }
-  }
+  }*/
   
 //http://localhost:8080/portal/private/site/?portal:componentId=UIPortal&portal:action=LoadPage&pageId=portal::site::content
   static public class LoadPageActionListener extends EventListener<UIPortal> {
