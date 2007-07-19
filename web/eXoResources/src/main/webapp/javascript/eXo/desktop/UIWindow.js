@@ -76,8 +76,8 @@ UIWindow.prototype.startResizeWindowEvt = function(evt) {
 	uiWindow.minHeight = portlet.getAttribute("exo:minHeight") || 300 ;
 	if(!portletWindow.maximized) {
 		uiWindow.resizableObject = DOMUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
-		uiWindow.originalMouseXInDesktop = evt.clientX ;
-		uiWindow.originalMouseYInDesktop = evt.clientY ;
+		uiWindow.initMouseX = evt.clientX ;
+		uiWindow.initMouseY = evt.clientY ;
 		uiWindow.backupObjectProperties(portletWindow, uiWindow.resizableObject) ;
 		uiWindow.dragObject = this ;
 		uiPageDesktop.onmousemove = uiWindow.resizeWindowEvt ;
@@ -90,16 +90,14 @@ UIWindow.prototype.resizeWindowEvt = function(evt) {
 	var UIWindow = eXo.desktop.UIWindow;
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-	var mouseXInDesktop = evt.clientX ;
-	var mouseYInDesktop = evt.clientY ;
-	var deltaX = mouseXInDesktop - UIWindow.originalMouseXInDesktop ;
-	var deltaY = mouseYInDesktop - UIWindow.originalMouseYInDesktop ;
+	var deltaX = evt.clientX - UIWindow.initMouseX ;
+	var deltaY = evt.clientY - UIWindow.initMouseY ;
 	var uiWindow = DOMUtil.findAncestorByClass(UIWindow.dragObject, "UIWindow") ;
 	var uiApplication = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIApplication") ;
 	
 	uiWindow.style.width = Math.max(UIWindow.minWidth,(UIWindow.originalWidth + deltaX)) + "px" ;
 	for(var i = 0; i < UIWindow.resizableObject.length; i++) {
-		UIWindow.resizableObject[i].style.height = (UIWindow.resizableObject[i].originalHeight + deltaY) + "px" ;
+		UIWindow.resizableObject[i].style.height = Math.max(10,(UIWindow.resizableObject[i].originalHeight + deltaY)) + "px" ;
 	}
 //	eXo.portal.UIPortalControl.initAllManagers() ;
 } ;
