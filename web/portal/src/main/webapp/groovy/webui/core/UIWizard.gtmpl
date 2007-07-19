@@ -52,23 +52,18 @@
 				    
 				    <%/*Begin UIWizardActionBar*/%>	   
 			      <div class="ActionBar">
-			        <%
-								int realStep = step;
-								if(uicomponent.isShowWelcomeComponent()) realStep-- ;
-			        	if(realStep >= 2) {
+			        <% 
+			        int showBack = step;
+			        if (uicomponent.getClass().getName().contains("Edit"))  showBack++; 
+			        if(showBack > 2) {
 			        %>
 			        <div class="UIAction">
 					      <div class="ActionContainer">
 					        <div class="ActionButton">
 		                <%  
-						              if(step > 1) {
-						                actionLink = uicomponent.url("ViewStep" + String.valueOf(step-1));
-						              } else {
-  				                  actionLink = "#";     
-						              }
-				                  String display = "LightBlueStyle";
-				                  if(step==1) display = "DisabledStyle";				                  
-				                %> 
+						           actionLink = uicomponent.url("ViewStep" + String.valueOf(step-1));
+				               String display = "LightBlueStyle";
+				            %> 
 					          <div class="${display}">
 					            <div class="ButtonLeft">
 					              <div class="ButtonRight">
