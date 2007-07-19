@@ -11,6 +11,10 @@ import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.web.application.widget.WidgetApplication;
+//import org.exoplatform.webui.config.annotation.ComponentConfig;
+//import org.exoplatform.webui.config.annotation.EventConfig;
+//import org.exoplatform.webui.event.Event;
+//import org.exoplatform.webui.event.EventListener;
 
 /**
  * Created by The eXo Platform SARL
@@ -25,8 +29,18 @@ import org.exoplatform.web.application.widget.WidgetApplication;
 //  }
 //)
 public class StickerWidget extends WidgetApplication<UIWidget> {
+  private String content_;
   
-  public String getApplicationId() { return "eXoWidgetWeb/StickerWidget"; }
+  public String getContent() {
+    return content_;
+  }
+
+  public void setContent(String content) {
+    this.content_ = content;
+  }
+
+  public String getApplicationId() { 
+    return "eXoWidgetWeb/StickerWidget"; }
 
   public String getApplicationName() { return "StickerWidget"; }
 
@@ -35,9 +49,8 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
   public void processRender(UIWidget uiWidget, Writer w) throws Exception {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
-    
     String instanceId = uiWidget.getApplicationInstanceId() ;
-    
+//    System.out.println("\n\n\n-------------Id = " + instanceId);
     int posX = uiWidget.getProperties().getIntValue("locationX") ;
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
     int zIndex = uiWidget.getProperties().getIntValue("zIndex") ;
