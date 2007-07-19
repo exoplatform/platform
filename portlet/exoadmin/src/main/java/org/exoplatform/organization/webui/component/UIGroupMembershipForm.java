@@ -20,6 +20,7 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
@@ -34,7 +35,10 @@ import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 @ComponentConfig(
   lifecycle = UIFormLifecycle.class,
   template = "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
-  events = @EventConfig(listeners = UIGroupMembershipForm.SaveActionListener.class) 
+  events = {
+    @EventConfig(listeners = UIGroupMembershipForm.SaveActionListener.class), 
+    @EventConfig(listeners = UIGroupMembershipForm.RefreshActionListener.class, phase = Phase.DECODE)
+  }
 )
 public class UIGroupMembershipForm extends UIForm {  
     
@@ -105,6 +109,18 @@ public class UIGroupMembershipForm extends UIForm {
       service.getMembershipHandler().linkMembership(user,group,membershipType,true);               
       userInGroup.refresh(); 
       uiForm.reset();
+    }
+  } 
+  static  public class RefreshActionListener extends EventListener<UIGroupMembershipForm> {
+    public void execute(Event<UIGroupMembershipForm> event) throws Exception {
+      UIGroupMembershipForm uiForm = event.getSource() ;
+      uiForm.listOption.clear(); 
+      OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class) ;
+      List collection = (List) service.getMembershipTypeHandler().findMembershipTypes();
+      for(Object ele : collection){
+        MembershipType mt = (MembershipType) ele;
+        uiForm.listOption.add(new SelectItemOption<String>(mt.getName(), mt.getName(), mt.getDescription()));
+      }
     }
   } 
 }
