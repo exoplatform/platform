@@ -199,3 +199,6 @@
 .ApplicationRegistryWorkingArea .UIPermissionForm .HorizontalLayout .UIFormGrid .UIAction {
   width: 230px;
 }
+
+.ApplicationRegistryWorkingArea .UIFormTableInputSet {
+}

@@ -15,6 +15,8 @@ import java.util.Map;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.commons.utils.ObjectPageList;
+import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
@@ -22,6 +24,7 @@ import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIPopupWindow;
@@ -32,6 +35,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormInputInfo;
 import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormPageIterator;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.UIFormTableInputSet;
 /**
@@ -41,14 +45,23 @@ import org.exoplatform.webui.form.UIFormTableInputSet;
  * Jul 7, 2006
  * 11:43:12 AM 
  */
-@ComponentConfig(
-  lifecycle = UIFormLifecycle.class,
-  template = "system:/groovy/webui/form/UIForm.gtmpl",
-  events = {
-    @EventConfig(listeners = UIAvailablePortletForm.SaveActionListener.class),
-    @EventConfig(listeners = UIAvailablePortletForm.BackActionListener.class, phase = Phase.DECODE)
-  }
-)
+@ComponentConfigs({
+    @ComponentConfig(
+        lifecycle = UIFormLifecycle.class,
+        template = "system:/groovy/webui/form/UIForm.gtmpl",
+        events = {
+          @EventConfig(listeners = UIAvailablePortletForm.SaveActionListener.class),
+          @EventConfig(listeners = UIAvailablePortletForm.BackActionListener.class, phase = Phase.DECODE)
+        }
+      ),
+    //TODO: Tung.Pham added
+    @ComponentConfig(
+        type = UIFormTableInputSet.class,
+        id = "PortletFormTableInputSet",
+        template = "system:/groovy/webui/form/UIFormTablePageIteratorInputSet.gtmpl"
+    )
+
+})
 public class UIAvailablePortletForm extends UIFormTabPane {   
 
   final static String [] TABLE_COLUMNS = {"label", "description", "input"};
@@ -58,6 +71,16 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     super("UIFormAvailablePortlet", false);
     setInfoBar(false);
     setRenderResourceTabName(false) ;
+    //TODO: Tung Pham added
+    //-------------------------------------------
+    String tableName = getClass().getSimpleName();    
+    UIFormTableInputSet uiTableInputSet = createUIComponent(UIFormTableInputSet.class, "PortletFormTableInputSet", null) ;
+    uiTableInputSet.setName(tableName);
+    uiTableInputSet.setColumns(TABLE_COLUMNS);
+    UIFormPageIterator uiIterator = createUIComponent(UIFormPageIterator.class, null, null) ;
+    uiTableInputSet.addChild(uiIterator) ;
+    addChild(uiTableInputSet);
+    //-------------------------------------------
   } 
 
     @SuppressWarnings("unchecked")
@@ -83,12 +106,8 @@ public class UIAvailablePortletForm extends UIFormTabPane {
   }
   
   private void setup() throws Exception {
-    getChildren().clear();
-    String tableName = getClass().getSimpleName();    
-    UIFormTableInputSet uiTableInputSet = createUIComponent(UIFormTableInputSet.class, null, null) ;
-    uiTableInputSet.setName(tableName);
-    uiTableInputSet.setColumns(TABLE_COLUMNS);
-    addChild(uiTableInputSet);
+    List<UIFormInputSet> uiInputSetList = new ArrayList<UIFormInputSet>() ;
+    UIFormTableInputSet uiTableInputSet = getChild(UIFormTableInputSet.class) ;
     int i = 0;
     for(Application portlet: list_) {
       UIFormInputSet uiInputSet = new UIFormInputSet(portlet.getId()) ;
@@ -102,7 +121,13 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       i++;
       uiInputSet.addChild(uiCheckbox);
       uiTableInputSet.addChild(uiInputSet);
+      uiInputSetList.add(uiInputSet) ;
     }
+    //TODO: Tun.Pham added
+    UIFormPageIterator uiIterator = uiTableInputSet.getChild(UIFormPageIterator.class) ;
+    PageList pageList = new ObjectPageList(uiInputSetList, 10) ;
+    uiIterator.setPageList(pageList) ;
+    //--------------------------------
     
   }
 
