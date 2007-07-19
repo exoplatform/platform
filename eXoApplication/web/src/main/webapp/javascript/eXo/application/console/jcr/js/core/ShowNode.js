@@ -7,12 +7,12 @@ function ShowNode() {
 
 ShowNode.prototype.help = function() {
   return ('Usage: ShowNode [OPTION]... NodeID' +
-  '%nShow human readable DOM Node structor' +
-  '%nMandatory arguments to long options are mandatory for short options too.' +
-  '%n%s-ld, --leveldepth %2t level of depth node to show. If not provide default is unlimit level' +
-  '%nExamples: ' +
-  '%n%tShowNode firstDivID %2t will show all child node from firstDivID(unlimit level)' +
-  '%n%tShowNode firstDivID 3%2t will show 3 level dowm from firstDivID') ;
+  '<br/>Show human readable DOM Node structor' +
+  '<br/>Mandatory arguments to long options are mandatory for short options too.' +
+  '<br/> -ld, --leveldepth level of depth node to show. If not provide default is unlimit level' +
+  '<br/>Examples: ' +
+  '<br/>&&nbsp;nbsp;ShowNode firstDivID will show all child node from firstDivID(unlimit level)' +
+  '<br/>&&nbsp;nbsp;ShowNode firstDivID 3 will show 3 level dowm from firstDivID') ;
 } ;
 
 ShowNode.prototype.execute = function(args, screen) {
@@ -45,7 +45,7 @@ ShowNode.prototype.execute = function(args, screen) {
 ShowNode.prototype._getNodeInfo = function(node, maxLevel, level) {
   var nodeInfo = '' ;
   if (maxLevel == -1 || level <= maxLevel) {
-    nodeInfo += '%n%' + level + 's-Name: ' + node.nodeName + ' ; ID: ' + node.id + ' ; CLASS: ' + node.className ;
+    nodeInfo += '<br/>' + level + 's-Name: ' + node.nodeName + ' ; ID: ' + node.id + ' ; CLASS: ' + node.className ;
     level ++ ;
     if (node.childNodes.length > 0) {
       var nodeList = node.childNodes ;
