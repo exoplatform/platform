@@ -1,6 +1,7 @@
 <% 
   import org.exoplatform.portal.content.model.ContentItem; 
   import org.exoplatform.webui.core.UIPageIterator;
+  import  org.exoplatform.webui.core.UIBreadcumbs;
 
   String nodeLabel = uicomponent.getContentNode().getLabel() ;  
   items = uicomponent.getListItems() ;  
@@ -14,9 +15,7 @@
 				<div class="RightBar">
 					<div class="MiddleBar">
 						<div class="BreadcumbsContainer">
-							<div class="Icon OpenNewsIcon"><span></span></div>
-							<a class="CategoryName"><%=nodeLabel%></a>
-							<div class="PathArrowIcon"><span></span></div>
+							<%uicomponent.renderChild(UIBreadcumbs.class) ;%>
 							<div style="clear: left;"><span></span></div>
 						</div>
 						<div class="RefreshBar">

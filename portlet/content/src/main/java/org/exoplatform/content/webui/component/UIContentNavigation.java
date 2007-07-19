@@ -16,8 +16,10 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIBreadcumbs;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIDescription;
+import org.exoplatform.webui.core.UIBreadcumbs.LocalPath;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -96,7 +98,28 @@ public class UIContentNavigation extends UIContainer {
     }
     UIDetailContent uiDetail = uiWorkingArea.getChild(UIDetailContent.class) ;
     uiDetail.setContentNode(selectedNode_);
-    uiWorkingArea.setRenderedChild(UIDetailContent.class) ;    
+    uiWorkingArea.setRenderedChild(UIDetailContent.class) ;
+    //TODO: Tung.Pham added
+    //----------------------------
+    UIBreadcumbs uiBreadcumbs = uiDetail.getChild(UIBreadcumbs.class) ;
+    uiBreadcumbs.setPath(getPath(null, selectedNode_.getId())) ;
+    parentNode_ = null ;
+    grandNode_ = null ;
+    selectedNode_ = findNode(id) ;   
+    //----------------------------
+  }
+  
+  //TODO: Tung.Pham added
+  private List<LocalPath> getPath(List<LocalPath> pathList, String nodeId) {
+    if(pathList == null) pathList = new ArrayList<LocalPath>() ;
+    if(nodeId == null) return pathList ;
+    parentNode_ = null ;
+    grandNode_ = null ;
+    ContentNode node = findNode(nodeId) ;
+    pathList.add(0, new LocalPath(node.getId(), node.getLabel())) ;
+    if(parentNode_ != null) getPath(pathList, parentNode_.getId()) ;
+    
+    return pathList ;
   }
   
   boolean isSelectedNode(ContentNode node){

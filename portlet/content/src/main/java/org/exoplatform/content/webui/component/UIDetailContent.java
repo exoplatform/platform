@@ -15,8 +15,10 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIBreadcumbs;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPageIterator;
+import org.exoplatform.webui.core.UIBreadcumbs.LocalPath;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -28,14 +30,22 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfig(
   template =  "app:/groovy/content/webui/component/UIDetailContent.gtmpl",
-  events = @EventConfig(listeners = UIDetailContent.RefreshActionListener.class )
+  events = {
+      @EventConfig(listeners = UIDetailContent.RefreshActionListener.class ),
+      @EventConfig(listeners = UIDetailContent.SelectPathActionListener.class )
+  }
 )
 public class UIDetailContent extends UIContainer {
   
   private UIPageIterator uiIterator_ ;
   private ContentNode node_;
     
-  public UIDetailContent() throws Exception {  
+  public UIDetailContent() throws Exception {
+    //TODO: Tung.Pham added
+    //-----------------------------
+    UIBreadcumbs uiBreadcumbs = addChild(UIBreadcumbs.class, null, "ContentBreadcumbs") ;
+    uiBreadcumbs.setBreadcumbsStyle("UIExplorerHistoryPath") ;
+    //-----------------------------
     uiIterator_ = createUIComponent(UIPageIterator.class, null, null) ;
     addChild(uiIterator_);
   }
@@ -72,5 +82,22 @@ public class UIDetailContent extends UIContainer {
       uiDetail.refresh(true);
     }
   }
+  
+  //TODO: Tung.Pham added
+  static  public class SelectPathActionListener extends EventListener<UIBreadcumbs> {
+    public void execute(Event<UIBreadcumbs> event) throws Exception {
+      UIBreadcumbs uiBreadcumbs = event.getSource();
+      UIContentPortlet uiContentPortlet = uiBreadcumbs.getAncestorOfType(UIContentPortlet.class) ;
+      UIContentNavigation uiNavigation = uiContentPortlet.getChild(UIContentNavigation.class) ;
+      LocalPath localPath = uiBreadcumbs.getSelectLocalPath() ;
+      if(localPath != null) {
+        String selectedNodeId = localPath.getId() ;
+        uiNavigation.setSelectedNode(selectedNodeId) ;
+      } else {
+        uiNavigation.setSelectedNode(null) ;
+      }
+    }
+  }
+
   
 }
