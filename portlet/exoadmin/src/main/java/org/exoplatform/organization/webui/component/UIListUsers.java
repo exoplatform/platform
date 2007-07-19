@@ -20,7 +20,9 @@ import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIGrid;
 import org.exoplatform.webui.core.UIPageIterator;
+import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UISearch;
+import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -36,8 +38,10 @@ import org.exoplatform.webui.form.UIFormStringInput;
  * 10:07:15 AM
  */
 @ComponentConfig(
+    lifecycle = UIContainerLifecycle.class,
     events = {
       @EventConfig(listeners = UIListUsers.ViewUserInfoActionListener.class),
+      @EventConfig(listeners = UIListUsers.SelectUserActionListener.class),
       @EventConfig(listeners = UIListUsers.DeleteUserActionListener.class, confirm = "UIListUsers.deleteUser")
     }
 )
@@ -56,14 +60,15 @@ public class UIListUsers extends UISearch {
   
   private Query lastQuery_ ;
   private String userSelected_;
+  private UIGrid grid_;
   
 	public UIListUsers() throws Exception {
 		super(OPTIONS_) ;
-    UIGrid uiGrid = addChild(UIGrid.class, null, "UIListUsers") ;
-    uiGrid.configure("userName", USER_BEAN_FIELD, USER_ACTION) ;
+		grid_ = addChild(UIGrid.class, null, "UIListUsers") ;
+		grid_.configure("userName", USER_BEAN_FIELD, USER_ACTION) ;
     //TODO: Tung.Pham added
     //--------------------------------------------
-    uiGrid.getUIPageIterator().setId("UIListUsersIterator") ;
+		grid_.getUIPageIterator().setId("UIListUsersIterator") ;
     //--------------------------------------------
 		search(new Query()) ;
 	}
@@ -78,16 +83,16 @@ public class UIListUsers extends UISearch {
   }
 	public void search(Query query) throws Exception {
     lastQuery_ = query ;
-    UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
+//    UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     //TODO: Tung.Pham modified
     //------------------------------------------------------------------
     //uiGrid.getUIPageIterator().setPageList(service.getUserHandler().findUsers(query)) ;
     PageList pageList = service.getUserHandler().findUsers(query) ;
     pageList.setPageSize(10) ;
-    uiGrid.getUIPageIterator().setPageList(pageList) ;
+    grid_.getUIPageIterator().setPageList(pageList) ;
     //------------------------------------------------------------------    
-    UIPageIterator pageIterator = uiGrid.getUIPageIterator();
+    UIPageIterator pageIterator = grid_.getUIPageIterator();
     if(pageIterator.getAvailable() == 0 ) {
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
       uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
@@ -117,13 +122,6 @@ public class UIListUsers extends UISearch {
   public void advancedSearch(UIFormInputSet advancedSearchInput) throws Exception {
   }
   
-  public void processRender(WebuiRequestContext context) throws Exception {
-    Writer w =  context.getWriter() ;
-    w.write("<div class=\"UIListUsers\">");
-    renderChildren();
-    w.write("</div>");
-  }
-	
 	static  public class ViewUserInfoActionListener extends EventListener<UIListUsers> {
     public void execute(Event<UIListUsers> event) throws Exception {
     	String username = event.getRequestContext().getRequestParameter(OBJECTID) ;
@@ -156,6 +154,19 @@ public class UIListUsers extends UISearch {
       
       UIComponent uiToUpdateAjax = uiListUser.getAncestorOfType(UIUserManagement.class) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiToUpdateAjax) ;
+    }
+  }
+  
+  static  public class SelectUserActionListener extends EventListener<UIListUsers> {
+    public void execute(Event<UIListUsers> event) throws Exception {
+      UIListUsers uiListUser = event.getSource() ;
+      String userName = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      System.out.println("\n\n\n\n------------------------Hanaha");
+      UIPopupWindow popup = uiListUser.getAncestorOfType(UIPopupWindow.class);
+      popup.setShow( false);
+      UIGroupMembershipForm groupMembershipForm = popup.getParent();
+      groupMembershipForm.setUserName(userName);
+      event.getRequestContext().addUIComponentToUpdateByAjax(groupMembershipForm);
     }
   }
 }

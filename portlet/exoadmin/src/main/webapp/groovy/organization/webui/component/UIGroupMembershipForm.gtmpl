@@ -1,0 +1,63 @@
+<% 
+	import org.exoplatform.webui.form.UIFormSelectBox;
+	import org.exoplatform.webui.form.UIFormStringInput;
+	import org.exoplatform.webui.core.UIPopupWindow;
+	 uicomponent.renderChild(UIPopupWindow.class);
+ %>
+<div class="UIFormWithTitle $uicomponent.id">
+  <div class="TitleBar"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
+  <% uiform.begin() 
+ 
+  %>
+  <div class="HorizontalLayout">
+    <div class="FormContainer">
+      <table class="UIFormGrid">
+        <% 
+            System.out.println(" " + uicomponent + " -- " + uiform);
+            UIFormStringInput name = uicomponent.getChild(UIFormStringInput.class);
+            UIFormSelectBox membership = uicomponent.getChild(UIFormSelectBox.class);
+            UIPopupWindow popupWindow = uicomponent.getChild(UIPopupWindow.class);
+            
+         %>
+          <tr>
+  	        <td class="FieldLabel">User Name </td>
+  	        <td class="FieldComponent"><% uiform.renderField(name) %></td>
+  	        <td> 
+  	           <a class="ActionText" href="<%=uicomponent.event("SearchUser")%>">
+                  <%=_ctx.appRes(uicomponent.getId() + ".action.Search")%>
+               </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="FieldLabel">Membership </td>
+            <td class="FieldComponent"><% uiform.renderField(membership) %></td>
+            <td> 
+               <a class="ActionText" href="<%=uicomponent.event("Refresh")%>">
+                  <%=_ctx.appRes(uicomponent.getId() + ".action.Refresh")%>
+               </a>
+            </td>
+          </tr>
+      </table>
+      <%//Rerender this  component with the new structure%>
+      <%// start render action%>
+      <div class="UIAction"> 
+        <div class="ActionContainer">
+            <div class="ActionButton">
+              <div class="LightBlueStyle">
+                <div class="ButtonLeft">
+                  <div class="ButtonRight">
+                    <div class="ButtonMiddle">
+                      <a class="ActionText" href="<%=uicomponent.event("Save")%>">
+                      <%=_ctx.appRes(uicomponent.getId() + ".action.Save")%>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%uiform.end()%>
+</div>
