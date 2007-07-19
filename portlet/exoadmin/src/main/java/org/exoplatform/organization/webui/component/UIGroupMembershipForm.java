@@ -42,25 +42,29 @@ import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 )
 public class UIGroupMembershipForm extends UIForm {  
     
-  List<SelectItemOption<String>> listOption = new ArrayList<SelectItemOption<String>>();
+  private List<SelectItemOption<String>> listOption = new ArrayList<SelectItemOption<String>>();
   
   @SuppressWarnings("unchecked")
   public UIGroupMembershipForm() throws Exception {
+    addUIFormInput(new UIFormStringInput("username", "username", null).
+                   addValidator(EmptyFieldValidator.class));
+    addUIFormInput(new UIFormSelectBox("membership","membership", listOption).setSize(1));
+    
+    loadData();
+  } 
+  
+  public String getUserName() { return getUIStringInput("username").getValue(); }
+  public String getMembership() { return getUIStringInput("membership").getValue(); }
+  
+  private void loadData() throws Exception  {
     listOption.clear(); 
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-    List collection = (List) service.getMembershipTypeHandler().findMembershipTypes();
+    List<?> collection = (List<?>) service.getMembershipTypeHandler().findMembershipTypes();
     for(Object ele : collection){
       MembershipType mt = (MembershipType) ele;
       listOption.add(new SelectItemOption<String>(mt.getName(), mt.getName(), mt.getDescription()));
     }
-    
-    addUIFormInput(new UIFormStringInput("username", "username", null).
-                   addValidator(EmptyFieldValidator.class));
-    addUIFormInput(new UIFormSelectBox("membership","membership", listOption).setSize(1));
-  } 
-  
-  public String getUserName() { return getUIStringInput("username").getValue(); }
-  public String getMembership() { return getUIStringInput("membership").getValue(); }  
+  }
   
   @SuppressWarnings("unchecked")
   public void removeOptionMembershipType(MembershipType membership) {
@@ -71,13 +75,7 @@ public class UIGroupMembershipForm extends UIForm {
       }
     }
   }
-  
-  public void addOptionMembershipType(MembershipType membership) {
-    SelectItemOption<String> option = 
-      new SelectItemOption<String>(membership.getName(),membership.getName(),membership.getDescription()) ;
-    listOption.add(option) ;
-  }
-  
+ 
   static  public class SaveActionListener extends EventListener<UIGroupMembershipForm> {
     public void execute(Event<UIGroupMembershipForm> event) throws Exception {
       UIGroupMembershipForm uiForm = event.getSource() ;
@@ -114,13 +112,7 @@ public class UIGroupMembershipForm extends UIForm {
   static  public class RefreshActionListener extends EventListener<UIGroupMembershipForm> {
     public void execute(Event<UIGroupMembershipForm> event) throws Exception {
       UIGroupMembershipForm uiForm = event.getSource() ;
-      uiForm.listOption.clear(); 
-      OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class) ;
-      List collection = (List) service.getMembershipTypeHandler().findMembershipTypes();
-      for(Object ele : collection){
-        MembershipType mt = (MembershipType) ele;
-        uiForm.listOption.add(new SelectItemOption<String>(mt.getName(), mt.getName(), mt.getDescription()));
-      }
+      uiForm.loadData();
     }
   } 
 }
