@@ -1,8 +1,6 @@
 package org.exoplatform.organization.webui.component;
 
 import java.io.Writer;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.exoplatform.commons.utils.ObjectPageList;
@@ -43,7 +41,6 @@ public class UIListMembershipType extends UIContainer {
 	
   @SuppressWarnings("unchecked")
 	public void loadData() throws Exception {
-    DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss yyyy-mm-dd");
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     List memberships = (List)service.getMembershipTypeHandler().findMembershipTypes();
     PageList pagelist = new ObjectPageList(memberships, 10);
