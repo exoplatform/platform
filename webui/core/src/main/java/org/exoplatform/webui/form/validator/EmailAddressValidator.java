@@ -16,7 +16,7 @@ import org.exoplatform.webui.form.UIFormInput;
 public class EmailAddressValidator implements Validator {
   
   static private final String EMAIL_REGEX = 
-    "[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[_A-Za-z0-9-]+(\\.?)+([_A-Za-z0-9-]+)+";
+    "[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[_A-Za-z0-9-.]+";
   
   public void validate(UIFormInput uiInput) throws Exception {
     String s = (String)uiInput.getValue();
