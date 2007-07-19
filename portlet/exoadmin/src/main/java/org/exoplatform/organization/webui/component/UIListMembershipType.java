@@ -1,6 +1,8 @@
 package org.exoplatform.organization.webui.component;
 
 import java.io.Writer;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.exoplatform.commons.utils.ObjectPageList;
@@ -32,7 +34,7 @@ public class UIListMembershipType extends UIContainer {
     UIGrid uiGrid = addChild(UIGrid.class, null, "UIGrid");
     uiGrid.configure("name", USER_BEAN_FIELD, USER_ACTION);
     uiGrid.getUIPageIterator().setId("UIListMembershipTypeIterator") ;
-    refresh();
+    loadData();
 	}
   
 	public UIComponent getViewModeUIComponent() {	return null; }
@@ -40,7 +42,8 @@ public class UIListMembershipType extends UIContainer {
   public String getName() { return "UIMembershipList" ; }
 	
   @SuppressWarnings("unchecked")
-	public void refresh() throws Exception {
+	public void loadData() throws Exception {
+    DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss yyyy-mm-dd");
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     List memberships = (List)service.getMembershipTypeHandler().findMembershipTypes();
     PageList pagelist = new ObjectPageList(memberships, 10);
@@ -85,7 +88,7 @@ public class UIListMembershipType extends UIContainer {
       MembershipType membershipType = service.getMembershipTypeHandler().findMembershipType(name) ;
       service.getMembershipTypeHandler().removeMembershipType(name,true);
       membership.deleteOptions(membershipType) ;
-      uiMembership.refresh();
+      uiMembership.loadData();
     }
   }
   

@@ -107,6 +107,7 @@ public class UIGroupMembershipForm extends UIForm {
     if(com == null) return super.event(eventName, comId, beanId);
     return com.event(eventName, beanId);
   }
+  
   public void addOptionMembershipType(MembershipType membership) {
     SelectItemOption<String> option = 
       new SelectItemOption<String>(membership.getName(),membership.getName(),membership.getDescription()) ;

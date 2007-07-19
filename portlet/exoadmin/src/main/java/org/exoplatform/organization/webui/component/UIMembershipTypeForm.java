@@ -58,12 +58,13 @@ public class UIMembershipTypeForm extends UIForm {
       OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class);
 
       MembershipType mt = uiForm.getMembershipType() ;
-      if(mt == null) mt = service.getMembershipTypeHandler().createMembershipTypeInstance();
-      uiForm.invokeSetBindingBean(mt) ;
 
-      if(mt == uiForm.getMembershipType()) {
+      if(mt != null) {
+        uiForm.invokeSetBindingBean(mt) ;
         service.getMembershipTypeHandler().saveMembershipType(mt, true);
       } else {
+        mt = service.getMembershipTypeHandler().createMembershipTypeInstance();
+        uiForm.invokeSetBindingBean(mt) ;
         MembershipType existMembershipType = service.getMembershipTypeHandler().findMembershipType(mt.getName()) ;
         
         if(existMembershipType != null) {
@@ -73,7 +74,9 @@ public class UIMembershipTypeForm extends UIForm {
         }                   
         service.getMembershipTypeHandler().createMembershipType(mt, true);   
       }
-      uiMembershipManagement.getChild(UIListMembershipType.class).refresh() ;
+      
+      uiMembershipManagement.getChild(UIListMembershipType.class).loadData() ;
+      uiForm.getUIStringInput(MEMBERSHIP_TYPE_NAME).setEditable(UIFormStringInput.ENABLE) ;
       uiForm.setMembershipType(null) ;
       uiForm.reset();
     }
@@ -83,6 +86,7 @@ public class UIMembershipTypeForm extends UIForm {
     public void execute(Event<UIMembershipTypeForm> event) throws Exception {
       UIMembershipTypeForm uiForm = event.getSource();           
       uiForm.getUIStringInput(MEMBERSHIP_TYPE_NAME).setEditable(UIFormStringInput.ENABLE) ;
+      uiForm.setMembershipType(null) ;
       uiForm.reset();      
     }
   } 

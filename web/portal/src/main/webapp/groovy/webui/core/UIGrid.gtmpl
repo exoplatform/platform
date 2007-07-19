@@ -1,12 +1,16 @@
 <%
   import org.exoplatform.webui.core.UIComponent ;
   import org.exoplatform.webui.form.UIForm;
+  import java.text.DateFormat;
+  import java.text.SimpleDateFormat;
 
   String[] beanFields =  uicomponent.getBeanFields() ;  
   String[] beanActions =  uicomponent.getBeanActions() ;
   UIComponent uiParent = uicomponent.getParent() ;
   String name = uicomponent.getLabel() ;
   UIForm uiForm = uicomponent.getAncestorOfType(UIForm.class); 
+  
+  DateFormat dateFormat = null;
 %>
 
 <table class="UIGrid" id="$uicomponent.id" cellspacing="0" borderspacing="0">
@@ -48,12 +52,16 @@
 	      <tr class="$rowClass">
   <%
 		    for(field in beanFields) { 
-		       def fieldValue = uicomponent.getFieldValue(bean, field) ;
+		      def fieldValue = uicomponent.getFieldValue(bean, field) ;
 		      def cssClass = "" ;
 		      if(fieldValue != null) {
 		        def fieldClass = fieldValue.getClass() ;
 		        if(fieldClass == Integer.class)  cssClass = "number" ;
-		        else if(fieldClass == java.util.Date.class)  cssClass = "Datetime" ;
+		        else if(java.util.Date.class.isAssignableFrom(fieldClass)) {
+		          if(dateFormat == null) dateFormat = new SimpleDateFormat("HH:mm:ss yyyy-MM-dd");
+		          cssClass = "Datetime" ;
+		          fieldValue = dateFormat.format(fieldValue);
+		        } 
 		        else cssClass = "text" ;
 		      } else {
 		      	fieldValue = "";
