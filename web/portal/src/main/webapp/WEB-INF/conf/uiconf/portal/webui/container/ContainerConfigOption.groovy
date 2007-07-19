@@ -63,7 +63,7 @@ import org.exoplatform.webui.core.model.SelectItemOption ;
         "ThreeTabContainerLayout")) ;
   templates.add(tabs);  
   
-  SelectItemCategory mixed = new SelectItemCategory("mixed") ;
+  SelectItemCategory mixed = new SelectItemCategory("mix") ;
     mixed.addSelectItemOption(new SelectItemOption("twoColumnsOneRow",
         "<container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\">" +
         "  <container template=\"system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl\">" +
