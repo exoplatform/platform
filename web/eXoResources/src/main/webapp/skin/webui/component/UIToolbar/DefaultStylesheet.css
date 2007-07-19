@@ -17,6 +17,7 @@
   margin: 7px 10px 0px 10px ;
 }
 
+
 /*##############################- LargeToolbar style -#########################*/
 
 .UIToolbar .LargeToolbar {
@@ -53,7 +54,78 @@
   color: orange;
 }
 
+
+
+/*
+ * minh.js.exo
+ * fix bug don't apply style for OrganizationPortletContainer element in IE 6
+ */
+
+.UIWindow .UIOrganizationPortlet .OrganizationPortletContainer {
+	padding: 7px;
+}
+ 
+.UIToolbar .LargeToolbar .HorizontalSeparator {
+  float: left ;
+  margin: 3px 8px 0px 10px ;
+  width: 2px; height: 50px ;
+}
+
+.UIToolbar .LargeToolbar .UserButton {
+  float: left ;
+  width: 120px ;
+  padding-top: 3px ;
+  cursor: pointer;
+}
+
+.UIToolbar .LargeToolbar .GroupButton {
+  float: left;
+  width: 130px;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.UIToolbar .LargeToolbar .MembershipButton {
+  float: left;
+  width: 170px;
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.UIToolbar .LargeToolbar .ButtonLabel {
+  height: 18px; line-height: 18px;
+  padding-left: 10px;
+}
+
+.UIOrganizationPortlet .ManagementIconContainer {
+  padding-top: 4px;
+  margin-left: 5px;
+}
+
+.UIOrganizationPortlet .UserManagementIcon {
+  width: 32px; height: 32px; 
+  background: url('/eXoResources/icons/32x32/DefaultSkin/UserManagement.gif') no-repeat center;
+  margin: auto;
+}
+
+.UIOrganizationPortlet .GroupManagementIcon {
+  width: 32px; height: 32px; 
+  background: url('/eXoResources/icons/32x32/DefaultSkin/GroupManagement.gif') no-repeat center;
+  margin: auto;
+}
+
+.UIOrganizationPortlet .MembershipManagementIcon {
+  width: 32px; height: 32px; 
+  background: url('/eXoResources/icons/32x32/DefaultSkin/MembershipManagement.gif') no-repeat center ;
+  margin: auto;
+}
+
+/*
+ * minh.js.exo
+ */
+ 
 /*##############################- StandardToolbar style -#########################*/
+
 .UIToolbar .StandardToolbar {
   height: 42px ;
   background: url('DefaultSkin/background/StandardToolbarRepeatBg1x42.gif') repeat-x ;
