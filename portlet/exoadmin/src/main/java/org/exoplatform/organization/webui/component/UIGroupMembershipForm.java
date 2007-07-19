@@ -55,7 +55,16 @@ public class UIGroupMembershipForm extends UIForm {
     addUIFormInput(new UIFormStringInput("username", "username", null).
                    addValidator(EmptyFieldValidator.class));
     addUIFormInput(new UIFormSelectBox("membership","membership", listOption).setSize(1));
+    UIPopupWindow searchUserPopup = addChild(UIPopupWindow.class, null, "SearchUser");
+    searchUserPopup.setWindowSize(640, 0); 
+    UIListUsers listUsers = createUIComponent(UIListUsers.class, null, "ListUserForSearch");
+    searchUserPopup.setUIComponent(listUsers);
+    UIGrid grid = listUsers.findFirstComponentOfType(UIGrid.class);
+    grid.setId("NewGrid");
+    grid.configure(grid.getBeanIdField(), grid.getBeanFields(), new String[]{"SelectUser"});
+    grid.getUIPageIterator().setId("NewPageIterator");
     
+    listUsers.getChild(UISearchForm.class).setId("SearchUserForm");
     loadData();
   } 
   
@@ -70,23 +79,6 @@ public class UIGroupMembershipForm extends UIForm {
       MembershipType mt = (MembershipType) ele;
       listOption.add(new SelectItemOption<String>(mt.getName(), mt.getName(), mt.getDescription()));
     }
-    
-    addUIFormInput(new UIFormStringInput("username", "username", null).
-                   addValidator(EmptyFieldValidator.class));
-    addUIFormInput(new UIFormSelectBox("membership","membership", listOption).setSize(1));
-    
-    
-    UIPopupWindow searchUserPopup = addChild(UIPopupWindow.class, null, "SearchUser");
-    searchUserPopup.setWindowSize(640, 0); 
-    UIListUsers listUsers = createUIComponent(UIListUsers.class, null, "ListUserForSearch");
-    searchUserPopup.setUIComponent(listUsers);
-    UIGrid grid = listUsers.findFirstComponentOfType(UIGrid.class);
-    grid.setId("NewGrid");
-    grid.configure(grid.getBeanIdField(), grid.getBeanFields(), new String[]{"SelectUser"});
-    grid.getUIPageIterator().setId("NewPageIterator");
-    
-    listUsers.getChild(UISearchForm.class).setId("SearchUserForm");
-    
   } 
  public void setUserName(String userName) {
    getUIStringInput("username").setValue(userName); 
@@ -103,9 +95,9 @@ public class UIGroupMembershipForm extends UIForm {
   }
   
   public String event(String eventName, String comId, String beanId) throws Exception{
-    UIComponent com = findComponentById(comId);
-    if(com == null) return super.event(eventName, comId, beanId);
-    return com.event(eventName, beanId);
+    UIComponent component = findComponentById(comId);
+    if(component == null) return super.event(eventName, comId, beanId);
+    return component.event(eventName, beanId);
   }
   
   public void addOptionMembershipType(MembershipType membership) {
@@ -151,7 +143,6 @@ public class UIGroupMembershipForm extends UIForm {
   static  public class SearchUserActionListener extends EventListener<UIGroupMembershipForm> {
     public void execute(Event<UIGroupMembershipForm> event) throws Exception {
       UIGroupMembershipForm uiGroupForm = event.getSource() ;
-//      System.out.println("\n\n\n=================-aasdd=>hehehe");
       UIPopupWindow searchUserPopup = uiGroupForm.getChild(UIPopupWindow.class);
       searchUserPopup.setShow(true);
     }
