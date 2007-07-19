@@ -20,12 +20,12 @@ ImplodeExplode.prototype.doInit = function(uiWindow, clickedElement, containerId
 		this.object.animation.style.display = "block" ;
 		this.object.animation.style.background = "#ffffff" ;
 		this.object.animation.style.position = "absolute" ;	
-		//4h20 27/06/2007
-		//alert(this.object.animation.innerHTML);
-		//this.object.animation.style.filter = "alpha(opacity= 50)";
-		//alert(this.object.animation.innerHTML);
-		eXo.core.Browser.setOpacity(this.object.animation, 50) ;
-		//minh.js.exo
+//  	4h20 27/06/2007
+//		alert(this.object.animation.innerHTML);
+//		this.object.animation.style.filter = "alpha(opacity= 70)";
+//		alert(this.object.animation.innerHTML);
+//		eXo.core.Browser.setOpacity(this.object.animation, 50) ;
+//  	minh.js.exo
 		this.object.animation.style.zIndex = this.object.maxIndex ;
 	}
 } ;

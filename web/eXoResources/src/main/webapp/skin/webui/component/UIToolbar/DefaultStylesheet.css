@@ -37,7 +37,8 @@
 }
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
-  height: 64px; line-height: 64px ; 
+	height: 64px;
+  line-height: 64px ; 
   background: url('DefaultSkin/background/GrayLargeToolbarM1x64.gif') repeat-x ;
 }
 

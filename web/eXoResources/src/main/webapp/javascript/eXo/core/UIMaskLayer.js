@@ -68,8 +68,10 @@ UIMaskLayer.prototype.setPosition = function() {
 	  left = 0 ;
 	  top = 0 ;
 	} else if (position == "TOP-RIGHT") {
-	  left = blockContainer.offsetWidth - object.offsetWidth ;
-	  top = 0 ;
+		return ;
+		// for showMaskLayer() method, in file UIPortal.js
+	  // left = blockContainer.offsetWidth - object.offsetWidth ;
+	  // top = 0 ;
 	} else if (position == "BOTTOM-LEFT") {
 	  left = 0 ;
 	  top = Browser.getBrowserHeight() - object.offsetHeight + document.documentElement.scrollTop ;
