@@ -205,3 +205,14 @@ ExoDateTime.prototype.getDate = function() {
 
 eXo.core.ExoDateTime = new ExoDateTime() ;
 /*************************************************************************/
+
+/**
+ * @author Nguyen Ba Uoc
+ * 
+ * String util
+ */
+
+// Strip leading and trailing white-space
+String.prototype.trim = function () {
+    return this.replace(/^\s*|\s*$/, '');
+}

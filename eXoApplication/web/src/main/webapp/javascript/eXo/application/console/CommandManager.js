@@ -1,4 +1,5 @@
 function CommandManager() {
+  
   this.commands = [] ;
   this.commandNode = false ;
   this.commandTypeNode = false ;
@@ -15,8 +16,27 @@ CommandManager.prototype.init = function(node) {
 
 CommandManager.prototype.initCommon = function() {
   this.initUIConsoleApplication() ;
-  this.initCommandType() ;
-  this.initScreen() ;
+  if(!this.ready) {
+    return ;
+  }
+  var nodeLst = this.uiConsoleApplication.getElementsByTagName('DIV') ;
+  for(var node in nodeLst) {
+    if (nodeLst[node].className == 'ConsoleQuickHelp') {
+      this.screenNode = nodeLst[node] ;
+      continue ;
+    }
+    if (nodeLst[node].className == 'CommandType') {
+      this.commandTypeNode = nodeLst[node] ;
+      continue ;
+    }
+    if (nodeLst[node].className == 'eXoConsoleResult') {
+      this.eXoConsoleResult = nodeLst[node] ;
+      continue ;
+    }
+  }
+  if (!this.screenNode || !this.commandTypeNode || !this.eXoConsoleResult) {
+    this.ready = false ;
+  }
 } ;
 
 CommandManager.prototype.initUIConsoleApplication = function() {
@@ -36,36 +56,39 @@ CommandManager.prototype.initUIConsoleApplication = function() {
   }
 } ;
 
-CommandManager.prototype.initCommandType = function() {
-  if(!this.ready) {
-    return ;
-  }
-  var nodeList = this.uiConsoleApplication.getElementsByTagName('DIV') ;
-  for(var node in nodeList) {
-    if (nodeList[node].className == 'CommandType') {
-      this.commandTypeNode = node ;
-      this.ready = true ;
-      return ;
-    }
-  }
-  this.ready = false ;
+CommandManager.prototype.register = function() {
+  this.registerJSModule('eXo.application.console.jcr.js.core.Builtin') ;
+  this.registerJSModule('eXo.application.console.jcr.js.core.ShowNode') ;
 } ;
 
-CommandManager.prototype.initScreen = function() {
-  var nodeList = this.uiConsoleApplication.getElementsByTagName('DIV') ;
-  for(var node in nodeList) {
-    if (nodeList[node].className == 'ConsoleQuickHelp') {
-      this.screenNode = node ;
-      this.ready = true ;
+CommandManager.prototype.commandMatch = function(command, commandList) {
+  for (var cmd in this.commands) {
+    if(!this.commands[cmd].commandName) {
+      continue ;
+    }
+    if (command == cmd) {
       return true ;
     }
+    if(cmd.indexOf(command) == 0) {
+      commandList[commandList.length] = cmd ;
+    }
   }
-  this.ready = false ;
+  return false ;
+}
+
+CommandManager.prototype.showQuickHelp = function(text) {
+  eXo.application.console.UIConsoleApplication.showMaskWorkspace() ;
+  if (!this.ready) {
+    return ;
+  }
+  this.screenNode.innerHTML = '<div>' + text + '</div>' ;
 } ;
 
-CommandManager.prototype.register = function() {
-  this.registerJSModule('eXo.application.console.jcr.js.core.Builtin', '') ;
-  this.registerJSModule('eXo.application.console.jcr.js.core.ShowNode', '') ;
+CommandManager.prototype.consoleWrite = function(txt) {
+  var node = document.createElement('DIV') ;
+  node.innerHTML = txt ;
+  this.eXoConsoleResult.appendChild(node) ;
+  node.scrollIntoView(true) ;
 } ;
 
 /**
@@ -79,37 +102,58 @@ CommandManager.prototype.register = function() {
  * @param {Object} command
  */
 CommandManager.prototype.help = function(command) {
-  eXo.application.console.UIConsoleApplication.showMaskWorkspace() ;
-  if (!this.initScreen()) {
-    window.alert('Detect screen node failed...') ;
-    window.alert('ScreenNode: ' +  this.screenNode) ;
-    return ;
-  }
+  command = command.trim() ;
   var commandState = false ;
   var commandLookup = [] ;
-  for (var cmd in this.commands) {
-    if (command == (cmd + ' ')) {
-      commandState = true ;
-      break ;
-    }
-    if(cmd.indexOf(command) != -1) {
-      commandLookup[commandLookup.length] = cmd ;
-    }
-  }
+  commandState = this.commandMatch(command, commandLookup) ;
 
   var helpTxt = 'No command is found' ;
   
   // Command completed
   if (commandState) {
+    command = command.replace(' ', '') ;
     helpTxt = this.commands[command].help() ;
   } else if(commandLookup.length > 0){
     helpTxt = commandLookup.join(' ') ;
   }
-  this.screenNode.innerHTML = helpTxt ;
+  this.showQuickHelp(helpTxt) ;
+} ;
+
+CommandManager.prototype.execute = function(commandLine) {
+  if (commandLine == '') {
+    this.consoleWrite('&nbsp;') ;
+    return ;
+  }
+  commandLine = commandLine.trim() ;
+  var commandName = false ;
+  var parameters = false ;
+  // 1. Get command name
+  var firstSpacePos = commandLine.indexOf(' ') ;
+  if (firstSpacePos == -1) {
+    commandName = commandLine ;
+  } else {
+    commandName = commandLine.substring(0, firstSpacePos).trim() ;
+    parameters = commandLine.substring(firstSpacePos, commandLine.length).trim() ;
+  }
+  
+  // 2. Check command exist
+  if(!this.commands[commandName]) {
+    this.consoleWrite(commandLine + ': command not found') ;
+    return ;
+  }
+  var result = this.commands[commandName].execute(parameters, this.eXoConsoleResult) ;
+  if (result.retCode != 0) {
+    this.consoleWrite('Error: ' + result.msg) ;
+    this.consoleWrite('Exit code ' + result.retCode) ;
+    return ;
+  } else if(result.resultContent && result.resultContent != '') {
+    this.consoleWrite(result.resultContent) ;
+    return ;
+  }
 } ;
 
 CommandManager.prototype.addCommand = function(command) {
-  if(this.commands[command.commandName] != null) {
+  if(this.commands[command.commandName] && this.commands[command.commandName].help) {
     alert('Command ' + command.commandName + ' is already registered') ; 
     return ;
   }
@@ -121,12 +165,12 @@ CommandManager.prototype.addCommand = function(command) {
  * 1. Load the javascript file
  * 2. evaluate the javascript 
  * 3. In the javascript, the developer should call the method 
- * eXo.application.console.Application.addCommand(...) to register a command with the console
+ * eXo.application.console.CommandManager.addCommand(...) to register a command with the console
  * 
  * @param {Object} jsFile
  * @param {Object} jsLocation
  */
-CommandManager.prototype.registerJSModule = function(jsFile, jsLocation) {
+CommandManager.prototype.registerJSModule = function(jsFile) {
   eXo.require(jsFile, '/eXoAppWeb/javascript/') ;
 } ;
 

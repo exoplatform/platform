@@ -45,9 +45,19 @@ SimpleNodeEditor.prototype.defaultWrite = function() {
 SimpleNodeEditor.prototype.write = function(beforeCursor, cursor, afterCursor) {
   if(this.currentNode) {
     this.currentNode.innerHTML = beforeCursor + cursor + afterCursor ;
+    // Detect empty node
+    if (this.currentNode.innerHTML == '') {
+      this.currentNode.innerHTML = '&nbsp;' ;
+    }
     this.beforeCursor = beforeCursor ;
     this.afterCursor = afterCursor ;
   }
+}
+
+SimpleNodeEditor.prototype.getTextCommand = function() {
+  var command = this.beforeCursor + this.afterCursor ;
+  command = eXo.core.HTMLUtil.entitiesDecode(command) ;
+  return command ;
 }
 
 // Overwrite DefaultKeyboardListener's methods.
@@ -86,12 +96,14 @@ SimpleNodeEditor.prototype.onDelete = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onEnter = function(keynum, keychar) {
+  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
+  eXo.application.console.CommandManager.execute(this.getTextCommand()) ;
   this.write('', this.cursor, '') ;
   return false ;
 }
 
 SimpleNodeEditor.prototype.onTab = function(keynum, keychar) {
-  eXo.application.console.CommandManager.help(eXo.core.HTMLUtil.entitiesDecode(this.currentNode.innerHTML)) ;
+  eXo.application.console.CommandManager.help(this.getTextCommand()) ;
   return false ;
 }
 

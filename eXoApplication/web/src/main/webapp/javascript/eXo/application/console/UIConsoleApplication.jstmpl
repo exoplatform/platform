@@ -1,51 +1,20 @@
-<div class="UIConsoleApplication" >
+<div class="UIConsoleApplication" id="uiConsoleApplication">
 	<div class="UIInnerMaskLayer" >
-		<div class="UIApplication" id="UIConsoleDisplayArea">
-		  <div class="eXoConsoleResult" id="eXoConsoleResult">
-  		  	Component org.exoplatform.portal.application.PortalApplication, phase PROCESS<br />
-            Start event portal.execution.lifecycle.event at Tue Jun 12 18:14:20 ICT 2007<br />
-            End event portal.execution.lifecycle.event at Tue Jun 12 18:14:20 ICT 2007<br />
-            Execute the event in 0<br />
-          SESSION ID = C1A0BE43AD85320F2015312DF794BD75<br />
-          <br />
-          Component org.exoplatform.portal.application.PortalApplication, phase PROCESS<br />
-            Start event portal.execution.lifecycle.event at Tue Jun 12 18:14:20 ICT 2007<br />
-            End event portal.execution.lifecycle.event at Tue Jun 12 18:14:20 ICT 2007<br />
-            Execute the event in 0<br />
-          SESSION ID = C1A0BE43AD85320F2015312DF794BD75<br />
-          <br />
-          Component org.exoplatform.portal.application.PortalApplication, phase PROCESS<br />
-            Start event portal.execution.lifecycle.event at Tue Jun 12 18:14:20 ICT 2007<br />
-            End event portal.execution.lifecycle.event at Tue Jun 12 18:14:20 ICT 2007<br />
-            Execute the event in 0<br />
-          SESSION ID = C1A0BE43AD85320F2015312DF794BD75<br />
-          <br />
-          Component org.exoplatform.portal.application.PortalApplication, phase PROCESS<br />
-            Start event portal.execution.lifecycle.event at Tue Jun 12 18:14:21 ICT 2007<br />
-            End event portal.execution.lifecycle.event at Tue Jun 12 18:14:21 ICT 2007<br />
-            Execute the event in 0<br />
-          SESSION ID = C1A0BE43AD85320F2015312DF794BD75<br />
-          <br />
-          Component org.exoplatform.portal.application.PortalApplication, phase PROCESS<br />
-            Start event portal.execution.lifecycle.event at Tue Jun 12 18:14:21 ICT 2007<br />
-            End event portal.execution.lifecycle.event at Tue Jun 12 18:14:21 ICT 2007<br />
-            Execute the event in 0<br />
-          SESSION ID = C1A0BE43AD85320F2015312DF794BD75<br />
-          <br />
-          Component org.exoplatform.portal.application.PortalApplication, phase PROCESS<br />
-            Start event portal.execution.lifecycle.event at Tue Jun 12 18:14:21 ICT 2007<br />
-            End event portal.execution.lifecycle.event at Tue Jun 12 18:14:21 ICT 2007<br />
-            Execute the event in 0<br />
-          SESSION ID = C1A0BE43AD85320F2015312DF794BD75
+		<div class="UIApplication">
+			<div class="UIMaskWindowConsole">
+				<div class="ConsoleQuickHelp"></div>
+			</div>
+		  <div class="eXoConsoleResult">
+		    eXo javascript console version 1.0
 		  </div>
 		  <div id="divReference"><span></span></div>
 		</div>
 	</div>	
 
-	<div class="eXoConsole" id="eXoConsoleComand">
+	<div class="eXoConsole">
 		<div class="CommandType" editcontainer="1">
 			<span style="vertical-align: top; line-height: 100%; height: 100%"> exo-console$ </span>
-			<span editable="1" style="color: red;"> command 1 </span> <span editable="1" style="color: blue;"> command 2</span>
+			<span editable="1" style="color: red;">...</span>
 		</div>
 	</div>
 </div>

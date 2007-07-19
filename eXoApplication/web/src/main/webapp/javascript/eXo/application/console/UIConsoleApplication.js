@@ -40,22 +40,17 @@ UIConsoleApplication.prototype.createApplicationInstance = function(appDescripto
  	return applicationNode ;
 };
 
-//double load initApplication
-//minh.js.exo
 UIConsoleApplication.prototype.initApplication = function(applicationId, instanceId) {
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.application.console.UIConsoleApplication);
 
 	var appInstance = appDescriptor.createApplication();
 	eXo.desktop.UIDesktop.addJSApplication(appInstance);
-  eXo.core.Editor.registerEditors(appInstance) ;  
+  eXo.core.Editor.registerEditors(appInstance) ;
 };
-
-
 
 UIConsoleApplication.prototype.destroyApplicationInstance = function(appDescriptor) {
 	var applicationNode = document.getElementById(appDescriptor.appId);
-// note this
 	return applicationNode ;
 };
 
@@ -70,48 +65,33 @@ UIConsoleApplication.prototype.destroyInstance = function(instanceId) {
   }	
 };
 
-
 if(!eXo.application.console) {
   eXo.application.console = {} ;
 }
 
 eXo.application.console.UIConsoleApplication = new UIConsoleApplication() ;
 
-/********************************/
-//minh.js.exo
-//create a Mask for window command Console.
-//reference class : eXo.core.UIMaskLayer;
-//in file: UIMaskLayer.js
-/*******************************/
+UIConsoleApplication.prototype.getUIMaskWorkspace = function() {
+  var uiConsoleApplicationNode = document.getElementById("uiConsoleApplication") ;
+  var nodeLst = uiConsoleApplicationNode.getElementsByTagName('DIV') ;
+  for (var node in nodeLst) {
+    if (nodeLst[node].className == 'UIMaskWindowConsole') {
+      return nodeLst[node] ;
+    }
+  }
+  return false ;
+}
+
 UIConsoleApplication.prototype.showMaskWorkspace = function() {
-	if ( !document.getElementById("UIMaskWindowConsole") ) {
-  	var wsContent = eXo.core.TemplateEngine.merge("eXo/application/console/UIMaskConsoleSpace.jstmpl", null, "/eXoAppWeb/javascript/") ;
-  	
-    var uiConsoleDisplayArea = document.getElementById("UIConsoleDisplayArea") ;
-    var wsNode = eXo.core.DOMUtil.createElementNode(wsContent, "div");
-    uiConsoleDisplayArea.appendChild(wsNode) ;
-	}
+  var uiMaskWorkspace = this.getUIMaskWorkspace() ;
+  if (uiMaskWorkspace) {
+    uiMaskWorkspace.style.display = 'block' ;
+  }
 };
 
 UIConsoleApplication.prototype.hideMaskWorkspace = function() {
-	var uiMaskWindowConsole = document.getElementById("UIMaskWindowConsole") ;
-  if(uiMaskWindowConsole) {
-		document.getElementById("UIConsoleDisplayArea").removeChild(uiMaskWindowConsole) ;
-  }
-};
-// end 10:31 22/6/2007
-/*******************************/
-
-/**
- * Nguyen Ba Uoc
- * Toggle show/hide MaskWorkspace
- * Date: 12/07/2007
- */
-UIConsoleApplication.prototype.toggleMaskWorkspace = function() {
-	var maskLayer = document.getElementById("UIMaskWindowConsole") ;
-  if(maskLayer) {
-    this.hideMaskWorkspace() ;
-  } else {
-    this.showMaskWorkspace() ;
+	var uiMaskWorkspace = this.getUIMaskWorkspace() ;
+  if (uiMaskWorkspace) {
+    uiMaskWorkspace.style.display = 'none' ;
   }
 };

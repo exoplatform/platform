@@ -3,58 +3,74 @@
  */
 
 function ShowNode() {
+  this.commandName = 'shownode' ;
 } ;
 
 ShowNode.prototype.help = function() {
-  return ('Usage: ShowNode [OPTION]... NodeID' +
-  '<br/>Show human readable DOM Node structor' +
-  '<br/>Mandatory arguments to long options are mandatory for short options too.' +
-  '<br/> -ld, --leveldepth level of depth node to show. If not provide default is unlimit level' +
-  '<br/>Examples: ' +
-  '<br/>&&nbsp;nbsp;ShowNode firstDivID will show all child node from firstDivID(unlimit level)' +
-  '<br/>&&nbsp;nbsp;ShowNode firstDivID 3 will show 3 level dowm from firstDivID') ;
+  return ('Usage: ShowNode [OPTION]... NodeID \
+          <br/>Show human readable DOM Node structor\
+          <br/>Mandatory arguments to long options are mandatory for short options too.\
+          <br/> -ld, --leveldepth level of depth node to show. If not provide default is unlimit level\
+          <br/>Examples:\
+          <br/>ShowNode firstDivID will show all child node from firstDivID(unlimit level)\
+          <br/>ShowNode firstDivID 3 will show 3 level dowm from firstDivID') ;
 } ;
 
 ShowNode.prototype.execute = function(args, screen) {
-  if (args.length <= 0) {
-    return {retcode: -1,msg: 'Missing argument'} ;
+  if (!args || args == '') {
+    return {retCode: -1,msg: 'Missing argument'} ;
   }
 
   var leveldepth = -1 ;
 
-  if (args.length > 1) {
-    leveldepth = args[0] ;
-  }
-  
+  var nodeId = args.trim() ;
   var node = false ;
-  if (args.length < 2) {
-    node = args[0] ;
-  } else {
-    node = args[1] ;
-  }
 
-  node = document.getElementById(node) ;
+  node = document.getElementById(nodeId) ;
   if (!node) {
-    return {retcode: -1,msg: 'Node not found'} ;
+    return {retCode: -1,msg: nodeId + ': Node not found'} ;
   }
   
-  var treeNode = this._getNodeInfo(node, leveldepth, 0) ;
-  return {retcode: 0, result: treeNode} ;
+  var treeNode = 'DOM tree: [' + nodeId + ']' ;
+  treeNode += this._getNodeInfo(node, leveldepth, 0) ;
+  return {retCode: 0, resultContent: treeNode} ;
 } ;
 
 ShowNode.prototype._getNodeInfo = function(node, maxLevel, level) {
   var nodeInfo = '' ;
   if (maxLevel == -1 || level <= maxLevel) {
-    nodeInfo += '<br/>' + level + 's-Name: ' + node.nodeName + ' ; ID: ' + node.id + ' ; CLASS: ' + node.className ;
+    var nodeAttributes = [] ;
+    if (node.nodeName) {
+      nodeAttributes[nodeAttributes.length] = 'NAME: ' + node.nodeName ;
+    }
+    
+    if (node.id) {
+      nodeAttributes[nodeAttributes.length] = 'ID: ' + node.id ;
+    }
+    
+    if (node.className) {
+      nodeAttributes[nodeAttributes.length] = 'CLASS: ' + node.className ;
+    }
+    
+    nodeInfo += '<br/>' + this.getSpace(level * 2) + '-[' + nodeAttributes.join('; ') + ']' ;
     level ++ ;
-    if (node.childNodes.length > 0) {
-      var nodeList = node.childNodes ;
-      for (var item in nodeList) {
-        nodeInfo += this._getNodeInfo(item, maxLevel, level) ; 
+    if (node.nodeType == 1 && node.childNodes.length > 0) {
+      var nodeLst = node.childNodes ;
+      for (var item in nodeLst) {
+        nodeInfo += this._getNodeInfo(nodeLst[item], maxLevel, level) ; 
       }
     }
   } 
   return nodeInfo ;
 } ;
 
+ShowNode.prototype.getSpace = function(n) {
+  var strTmp = '' ;
+  for(var i=0; i<n; i++) {
+    strTmp += '&nbsp;' ;
+  }
+  return strTmp ;
+}
+
 eXo.application.console.ShowNode = new ShowNode() ;
+eXo.application.console.CommandManager.addCommand(eXo.application.console.ShowNode) ;
