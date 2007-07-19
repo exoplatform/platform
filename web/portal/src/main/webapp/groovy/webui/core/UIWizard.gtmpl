@@ -52,7 +52,11 @@
 				    
 				    <%/*Begin UIWizardActionBar*/%>	   
 			      <div class="ActionBar">
-			        <% if(step > 2) {%>
+			        <%
+								int realStep = step;
+								if(uicomponent.isShowWelcomeComponent()) realStep-- ;
+			        	if(realStep >= 2) {
+			        %>
 			        <div class="UIAction">
 					      <div class="ActionContainer">
 					        <div class="ActionButton">
