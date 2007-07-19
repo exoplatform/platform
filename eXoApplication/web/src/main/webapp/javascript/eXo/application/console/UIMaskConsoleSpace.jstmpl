@@ -1,7 +1,3 @@
 <div class="UIMaskWindowConsole" id="UIMaskWindowConsole">
-	<div class="ConsoleQuickHelp">
-	  <div>
-      cd: usage: cd [-L|-P] [dir]
-    </div>
-	</div>
+	<div class="ConsoleQuickHelp"></div>
 </div>

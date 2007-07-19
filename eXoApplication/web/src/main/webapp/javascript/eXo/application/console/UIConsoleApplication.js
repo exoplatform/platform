@@ -1,5 +1,7 @@
 eXo.require('eXo.core.TemplateEngine');
 eXo.require('eXo.application.ApplicationDescriptor');
+eXo.require('eXo.application.console.CommandManager', '/eXoAppWeb/javascript/');
+eXo.require('eXo.core.OS');
 eXo.require('eXo.core.HTMLUtil');
 eXo.require('eXo.core.DefaultKeyboardListener');
 eXo.require('eXo.core.SimpleNodeEditor');
@@ -69,9 +71,11 @@ UIConsoleApplication.prototype.destroyInstance = function(instanceId) {
 };
 
 
-eXo.application.console  = {
-  UIConsoleApplication : new UIConsoleApplication()
-} ;
+if(!eXo.application.console) {
+  eXo.application.console = {} ;
+}
+
+eXo.application.console.UIConsoleApplication = new UIConsoleApplication() ;
 
 /********************************/
 //minh.js.exo
@@ -89,7 +93,7 @@ UIConsoleApplication.prototype.showMaskWorkspace = function() {
 	}
 };
 
-UIConsoleApplication.prototype.hiddenMaskWorkspace = function() {
+UIConsoleApplication.prototype.hideMaskWorkspace = function() {
 	var uiMaskWindowConsole = document.getElementById("UIMaskWindowConsole") ;
   if(uiMaskWindowConsole) {
 		document.getElementById("UIConsoleDisplayArea").removeChild(uiMaskWindowConsole) ;
@@ -106,7 +110,7 @@ UIConsoleApplication.prototype.hiddenMaskWorkspace = function() {
 UIConsoleApplication.prototype.toggleMaskWorkspace = function() {
 	var maskLayer = document.getElementById("UIMaskWindowConsole") ;
   if(maskLayer) {
-    this.hiddenMaskWorkspace() ;
+    this.hideMaskWorkspace() ;
   } else {
     this.showMaskWorkspace() ;
   }

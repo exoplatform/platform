@@ -2,6 +2,9 @@
  * @author Nguyen Ba Uoc
  */
 
+function ShowNode() {
+} ;
+
 ShowNode.prototype.help = function() {
   return ('Usage: ShowNode [OPTION]... NodeID' +
   '%nShow human readable DOM Node structor' +
@@ -54,4 +57,4 @@ ShowNode.prototype._getNodeInfo = function(node, maxLevel, level) {
   return nodeInfo ;
 } ;
 
-eXo.app.console.ShowNode = ShowNode.constructor ;
+eXo.application.console.ShowNode = new ShowNode() ;

@@ -17,6 +17,7 @@ SimpleNodeEditor.prototype.init = function(node, beforeCursor, afterCursor) {
   this.currentNode = node ;
   this.beforeCursor = beforeCursor ;
   this.afterCursor = afterCursor ;
+  eXo.application.console.CommandManager.init(node) ;
 }
 
 SimpleNodeEditor.prototype.isSameNode = function(node) {
@@ -53,6 +54,7 @@ SimpleNodeEditor.prototype.write = function(beforeCursor, cursor, afterCursor) {
 
 // Printable keys
 SimpleNodeEditor.prototype.onDefault = function(keynum, keychar) {
+  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
   keychar = eXo.core.HTMLUtil.entitiesEncode(keychar) ;
 //  window.alert('[' + keychar + ']') ;
   this.beforeCursor += keychar ;
@@ -68,6 +70,7 @@ SimpleNodeEditor.prototype.onPunctuation = SimpleNodeEditor.prototype.onDefault 
 
 // Control keys
 SimpleNodeEditor.prototype.onBackspace = function(keynum, keychar) {
+  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
   this.beforeCursor = eXo.core.HTMLUtil.entitiesDecode(this.beforeCursor) ;
   this.beforeCursor = this.beforeCursor.substr(0, (this.beforeCursor.length - 1)) ;
   this.beforeCursor = eXo.core.HTMLUtil.entitiesEncode(this.beforeCursor) ;
@@ -76,6 +79,7 @@ SimpleNodeEditor.prototype.onBackspace = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onDelete = function(keynum, keychar) {
+  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
   this.afterCursor = this.afterCursor.substr(1, (this.afterCursor.length - 1)) ;
   this.defaultWrite() ;
   return false ;
@@ -87,12 +91,13 @@ SimpleNodeEditor.prototype.onEnter = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onTab = function(keynum, keychar) {
-  eXo.application.console.UIConsoleApplication.toggleMaskWorkspace();
+  eXo.application.console.CommandManager.help(eXo.core.HTMLUtil.entitiesDecode(this.currentNode.innerHTML)) ;
   return false ;
 }
 
 // Navigate keys
 SimpleNodeEditor.prototype.onHome = function(keynum, keychar) {
+  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
   if(this.beforeCursor.length == '') {
     return false ;
   }
@@ -103,6 +108,7 @@ SimpleNodeEditor.prototype.onHome = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onEnd = function(keynum, keychar) {
+  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
   if(this.afterCursor.length == '') {
     return false ;
   }
@@ -113,6 +119,7 @@ SimpleNodeEditor.prototype.onEnd = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onLeftArrow = function(keynum, keychar) {
+  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
   if(this.beforeCursor.length == '') {
     return false ;
   }
@@ -131,6 +138,7 @@ SimpleNodeEditor.prototype.onLeftArrow = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onRightArrow = function(keynum, keychar) {
+  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
   if(this.afterCursor.length == '') {
     return false ;
   }

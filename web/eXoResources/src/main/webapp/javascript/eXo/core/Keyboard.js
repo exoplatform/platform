@@ -46,7 +46,7 @@ Keyboard.prototype.onKeyDown = function(event) {
     eventHandler = 'onEnter' ;
   } else if(keynum == 9) {
     eventHandler = 'onTab' ;
-  } else if(keynum == 8) {
+  } else if(keynum == 8 || (eXo.core.OS.isMac && keynum == 33)) {
     eventHandler = 'onBackspace' ;
   } else if(keynum == 46) {
     eventHandler = 'onDelete' ;
@@ -88,6 +88,13 @@ Keyboard.prototype.listenerCallback = function(eventHandler, event, keynum, keyc
   var retVal = true ; 
   if(!eventHandler || eventHandler == '') {
     return retVal ;
+  }
+  
+  // Fix special character
+  if (keychar == '"') {
+    keychar = '\\"' ;
+  } else if (keychar == '\\') {
+    keychar = '\\\\' ;
   }
   for(var i=0; i<this.listeners.length; i++) {
     retVal &= eval('this.listeners[' + i + '].' + eventHandler + '(' + keynum + ', "' + keychar + '")') ;
