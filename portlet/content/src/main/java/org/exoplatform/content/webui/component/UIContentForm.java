@@ -34,6 +34,7 @@ import org.exoplatform.webui.form.validator.Validator;
  *          minhdv@exoplatform.com
  * Jul 25, 2006  
  */
+import org.jmock.core.constraint.IsAnything;
 
 @ComponentConfig(
   lifecycle = UIFormLifecycle.class,
@@ -144,13 +145,24 @@ public class UIContentForm extends UIForm {
       }
       for(int i = 0; i < s.length(); i ++){
         char c = s.charAt(i);
-        if (Character.isLetter(c) || Character.isDigit(c) || c=='_' || c=='-' || c=='.' || c==':' || c=='/' ){
+        //TODO: Tung.Pham modified
+        //if (Character.isLetter(c) || Character.isDigit(c) || c=='_' || c=='-' || c=='.' || c==':' || c=='/' || c== '?' || c=='%'){
+        if (Character.isLetter(c) || Character.isDigit(c) || isAllowedSpecialChar(c)) {
           continue;
         }
         Object[] args = { uiInput.getName(), uiInput.getBindingField() };
-        throw new MessageException(new ApplicationMessage("IdentifierValidator.msg.Invalid-char", args)) ;
+        throw new MessageException(new ApplicationMessage("URLValidator.msg.Invalid-Url", args)) ;
       }
       uiInput.setValue(s);
+    }
+    
+    //TODO: Tung.Pham added
+    private boolean isAllowedSpecialChar(char chr) {
+      char[] allowedCharArray = {'_', '-', '.', ':', '/', '?', '=', '&', '%'} ;
+      for(char ele : allowedCharArray) {
+        if(chr == ele) return true ;
+      }
+      return false ;
     }
     
   }
