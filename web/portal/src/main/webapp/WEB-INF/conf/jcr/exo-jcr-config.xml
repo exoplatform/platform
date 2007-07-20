@@ -1,6 +1,5 @@
 <repository-service default-repository="repository">
    <repositories>
-
     <repository name="repository" system-workspace="production" default-workspace="production">
      <security-domain>exo-domain</security-domain>
      <access-control>optional</access-control>
@@ -11,12 +10,12 @@
      </replication>-->
      <authentication-policy>org.exoplatform.services.jcr.impl.core.access.PortalAuthenticationPolicy</authentication-policy>
      <workspaces>
-       <workspace name="production" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove" >
+       <workspace name="production" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <!-- for system storage -->
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
-              <property name="dialect" value="${dialect}"/>
+              <property name="dialect" value="generic"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
@@ -50,8 +49,8 @@
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
-              <!-- possible dialect: hsql, mysql -->
-              <property name="dialect" value="${dialect}"/>
+              <property name="dialect" value="generic"/>
+              <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
               <property name="max-buffer-size" value="204800"/>
@@ -84,7 +83,8 @@
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
-              <property name="dialect" value="${dialect}"/>
+              <property name="dialect" value="generic"/>
+              <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
               <property name="max-buffer-size" value="204800"/>
@@ -117,7 +117,7 @@
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
-              <property name="dialect" value="${dialect}"/>
+              <property name="dialect" value="generic"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
