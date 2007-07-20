@@ -35,11 +35,13 @@ UIHorizontalTabs.prototype.itemOver = function(selectedElement, over) {
 UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
 	var DOMUtil = eXo.core.DOMUtil;
   var uiSelectTab = DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
-
+ 
+  
+ // alert("--" + componentId + " -+- " + selectedId);
   var uiHorizontalTabs = DOMUtil.findAncestorByClass(clickedEle, "UIHorizontalTabs") ;
   var uiTabs = eXo.core.DOMUtil.findDescendantsByClass(uiHorizontalTabs, "div", "UITab") ;
   var parentdHorizontalTab = uiHorizontalTabs.parentNode ;
-
+ 
   var contentTabContainer = DOMUtil.findFirstDescendantByClass(parentdHorizontalTab, "div", "UITabContentContainer") ;
   var uiTabContent = DOMUtil.getChildrenByTagName(contentTabContainer, "div") ;
   
@@ -55,6 +57,15 @@ UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
     uiTabContent[i].style.display = "none" ;
   }
   uiTabContent[index].style.display = "block" ;
+  var params = [ {name: "objectId", value : selectedId} ] ;
+  
+  var uiComponent = DOMUtil.findAncestorByClass(clickedEle, "UITabPane") ;
+  var uiparent = uiComponent.parentNode;
+  var componentId = uiComponent.id ;
+  var selectedId = clickedEle.id;
+  if(uiparent.className != "UIFormTabPane"){
+   ajaxAsyncGetRequest(eXo.env.server.createPortalURL(componentId, "ChangeTab", true, params), false) ;
+  }
 };
 
 UIHorizontalTabs.prototype.changeTabForUIFormTabpane = function(clickedElemt, formId, hiddenValue) {
