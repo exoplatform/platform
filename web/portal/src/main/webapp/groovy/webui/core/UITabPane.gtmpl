@@ -1,6 +1,7 @@
 <%
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
+	
 %>
 
 <div class="UITabPane" id="$uicomponent.id">
@@ -14,13 +15,15 @@
 			          <%
 			            for(uiChild in uicomponent.getChildren()) {
 			              String style = "NormalTab" ;
+			              String id = uiChild.getId();
+			              System.out.println("\n\n\n----------------->childId = " +id);
 			              if(uiChild.isRendered()) style = "SelectedTab" ;
 			          %>
 			            <div class="UITab NormalTabStyle">
 			              <div class="$style">
 			                <div class="LeftTab">
 			                  <div class="RightTab">                
-			                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=_ctx.appRes("UITabPane.title." + uiChild.getId());%></div>
+			                    <div class="MiddleTab" id="$id" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=_ctx.appRes("UITabPane.title." + uiChild.getId());%></div>
 			                  </div>
 			                </div>
 			              </div>
