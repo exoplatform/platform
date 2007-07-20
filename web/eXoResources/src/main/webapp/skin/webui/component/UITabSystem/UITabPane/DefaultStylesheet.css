@@ -8,22 +8,18 @@
   width: auto;
 }
 
-.UITabPane .TabPaneContent .UITabContentContainer {
-  border-top: none;
-}
-
 .UITabPane .TabPaneContent .UITabContentContainer .UITabContent {
   background: #f7f7f7;
   border: solid 1px white; border-top: none;
   padding: 7px ;
 }
 
-.UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer {
+.UITabPane .UITabContentContainer {
   border: solid 1px #d5d5d5; border-top: none;
   background: white;
 }
 
-.UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {
+.UITabPane .UITabContentContainer .UITabContent {
   background: #efefef;
   border: solid 1px #d5d5d5;
   padding: 7px ;

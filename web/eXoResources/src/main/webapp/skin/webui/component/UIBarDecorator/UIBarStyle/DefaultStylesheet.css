@@ -471,3 +471,28 @@
   color: #058ee6; font-weight: bold;
   font-size: 14px; font-family: arial;
 }
+
+/*======================================== NormalBarStyle ==================================*/
+
+.UIBarStyle .NormalBarStyle {
+  height: 38px;
+}
+
+.UIBarStyle .NormalBarStyle .LeftBar {
+  background: url('DefaultSkin/background/LeftNormalBar6x38.gif') no-repeat left;
+  padding: 0px 0px 0px 6px;
+}
+
+.UIBarStyle .NormalBarStyle .RightBar {
+  background: url('DefaultSkin/background/RightNormalBar6x38.gif') no-repeat right;
+  padding: 0px 6px 0px 0px ;
+}
+
+.UIBarStyle .NormalBarStyle .MiddleBar {
+  background: url('DefaultSkin/background/CenterNormalBar1x38.gif') repeat-x;
+  height: 38px;
+  line-height: 38px;
+}
+
+
+

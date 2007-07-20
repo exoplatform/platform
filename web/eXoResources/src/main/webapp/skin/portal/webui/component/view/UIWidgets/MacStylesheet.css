@@ -98,12 +98,12 @@
 
 .UIWidget .WidgetControlBar {
   float: right;
-	width: 100px; height: 23px;
+	width: 125px; height: 23px;
 	padding-right: 3px;
 }
 
 .UIWidget .WidgetControl {
-	width: 94px; height: 23px;
+	width: 115px; height: 23px;
 }
 
 .UIWidget .WidgetApplication {

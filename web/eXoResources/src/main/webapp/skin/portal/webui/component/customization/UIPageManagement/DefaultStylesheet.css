@@ -9,8 +9,8 @@
 	margin: 13px 2px 0px 105px; 
 }
 
-.UIPageManagement .UITree .TreeContainer .Node {
-	height: 20px;
+.UIPageManagement .UITree  {
+	overflow: hidden;
 }
 
 .UIPageManagement .UIToolbar .EditToolbar {
