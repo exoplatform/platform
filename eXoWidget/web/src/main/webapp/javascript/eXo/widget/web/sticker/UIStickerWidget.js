@@ -14,7 +14,6 @@ UIStickerWidget.prototype.sendContent = function(object) {
 	var uiWidgetContainer = DOMUtil.findAncestorByClass(object, "WidgetApplication") ;
 	containerBlockId = uiWidgetContainer.id;
 	var parent = uiWidgetContainer.parentNode ;
-  alert(object.value + " TO--> " +  parent.id);
 	var params = [
   	{name: "objectId", value : object.id} ,
   	{name: "stickerContent", value : object.value}
