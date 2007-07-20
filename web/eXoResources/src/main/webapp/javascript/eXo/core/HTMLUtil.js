@@ -7,10 +7,20 @@ function HTMLUtil() {
   this.entities = eXo.core.html.HTMLEntities ;
 }
 
+/**
+ * 
+ * @param {String} str
+ * 
+ * @return {String}
+ * 
+ */
 HTMLUtil.prototype.entitiesEncode = function(str) {
+  if (!str || str == '') {
+    return str ;
+  }
   for(var n in this.entities) {
     var entityChar = String.fromCharCode(this.entities[n]) ;
-    if(entityChar == '&' || entityChar == ';') {
+    if(entityChar == '&') {
       entityChar = '\\' + entityChar ;
     }
     while(str.indexOf(entityChar) != -1) {
@@ -20,7 +30,17 @@ HTMLUtil.prototype.entitiesEncode = function(str) {
   return str ;
 }
 
+/**
+ * 
+ * @param {String} str
+ * 
+ * @return {String}
+ * 
+ */
 HTMLUtil.prototype.entitiesDecode = function(str) {
+  if (!str || str == '') {
+    return str ;
+  }
   for(var n in this.entities) {
     var entityChar = String.fromCharCode(this.entities[n]) ;
     var htmlEntity = '&' + n + ';' ;

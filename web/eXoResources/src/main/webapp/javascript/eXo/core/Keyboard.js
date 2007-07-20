@@ -84,6 +84,13 @@ Keyboard.prototype.onKeyPress = function(event) {
   return this.listenerCallback(eventHandler, event, keynum, keychar) ;
 }
 
+/**
+ * 
+ * @param {String} eventHandler
+ * @param {Object} event
+ * @param {Number} keynum
+ * @param {Char} keychar
+ */
 Keyboard.prototype.listenerCallback = function(eventHandler, event, keynum, keychar) {
   var retVal = true ; 
   if(!eventHandler || eventHandler == '') {
@@ -101,12 +108,27 @@ Keyboard.prototype.listenerCallback = function(eventHandler, event, keynum, keyc
   } 
   
   if(!retVal) {
-    eXo.core.Editor.cancelEvent(event) ;
+    eXo.core.Keyboard.cancelEvent(event) ;
     return false ;
   }
   
   // Release event if nobody want to capture
   return true ;
-}
+} ;
+
+/**
+ * 
+ * @param {Event} event
+ */
+Keyboard.prototype.cancelEvent = function(event) {
+  if(eXo.core.Browser.browserType == 'ie') { // Cancel bubble for ie
+    window.event.cancelBubble = true ;
+    window.event.returnValue = true ;
+    return ;
+  } else { // Cancel event for Firefox, Opera, Safari
+    event.stopPropagation() ;
+    event.preventDefault() ;
+  }
+} ;
 
 eXo.core.Keyboard = new Keyboard() ;

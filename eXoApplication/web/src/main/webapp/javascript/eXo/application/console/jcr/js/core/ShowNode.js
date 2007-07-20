@@ -7,13 +7,16 @@ function ShowNode() {
 } ;
 
 ShowNode.prototype.help = function() {
-  return ('Usage: ShowNode [OPTION]... NodeID \
+  return ('Usage: ShowNode [OPTION]... NodeID\
+          <br>\
           <br/>Show human readable DOM Node structor\
           <br/>Mandatory arguments to long options are mandatory for short options too.\
-          <br/> -ld, --leveldepth level of depth node to show. If not provide default is unlimit level\
+          <br>\
+          <br/>  -ld, --leveldepth level of depth node to show. If not provide default is unlimit level\
+          <br>\
           <br/>Examples:\
-          <br/>ShowNode firstDivID will show all child node from firstDivID(unlimit level)\
-          <br/>ShowNode firstDivID 3 will show 3 level dowm from firstDivID') ;
+          <br/>  ShowNode firstDivID will show all child node from firstDivID(unlimit level)\
+          <br/>  ShowNode firstDivID 3 will show 3 level dowm from firstDivID') ;
 } ;
 
 ShowNode.prototype.execute = function(args, screen) {

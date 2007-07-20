@@ -76,11 +76,23 @@ CommandManager.prototype.commandMatch = function(command, commandList) {
   return false ;
 }
 
+/**
+ * 
+ * @param {String} str
+ */
+CommandManager.prototype.formatHelp = function(str) {
+  while(str.indexOf(' ') != -1) {
+    str = str.replace(' ', '&nbsp;') ;
+  }
+  return str ;
+}
+
 CommandManager.prototype.showQuickHelp = function(text) {
   eXo.application.console.UIConsoleApplication.showMaskWorkspace() ;
   if (!this.ready) {
     return ;
   }
+  text = this.formatHelp(text) ;
   this.screenNode.innerHTML = '<div>' + text + '</div>' ;
 } ;
 
@@ -114,7 +126,7 @@ CommandManager.prototype.help = function(command) {
     command = command.replace(' ', '') ;
     helpTxt = this.commands[command].help() ;
   } else if(commandLookup.length > 0){
-    helpTxt = commandLookup.join(' ') ;
+    helpTxt = '<strong>' + commandLookup.join(' ') + '</strong>' ;
   }
   this.showQuickHelp(helpTxt) ;
 } ;

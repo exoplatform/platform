@@ -6,6 +6,7 @@
  */
 function SimpleNodeEditor() {
   this.cursor = '<span style="border: solid 1px red; width: 2px; height: 100%;" cursor="1">&nbsp;</span>' ;
+  this.htmlUtil = eXo.core.HTMLUtil ;
 }
 
 SimpleNodeEditor.prototype = new eXo.core.DefaultKeyboardListener() ;
@@ -13,6 +14,11 @@ SimpleNodeEditor.prototype = new eXo.core.DefaultKeyboardListener() ;
 SimpleNodeEditor.prototype.init = function(node, beforeCursor, afterCursor) {
   if(!this.isSameNode(node)) {
     this.onFinish() ;
+  }
+  var cmdTmp = beforeCursor + afterCursor ;
+  if (cmdTmp == '...') {
+    beforeCursor = '' ;
+    afterCursor = '' ;
   }
   this.currentNode = node ;
   this.beforeCursor = beforeCursor ;
@@ -28,10 +34,14 @@ SimpleNodeEditor.prototype.isSameNode = function(node) {
 }
 
 SimpleNodeEditor.prototype.onFinish = function() {
+  var cmdTmp = this.beforeCursor + this.afterCursor + '' ;
+  if (cmdTmp.trim() == '') {
+    this.beforeCursor = '...' ;
+  }
+  this.removeCursor() ;
   this.currentNode = null ;
   this.beforeCursor = null ;
   this.afterCursor = null ;
-  this.removeCursor() ;
 }
 
 SimpleNodeEditor.prototype.removeCursor = function() {
@@ -39,34 +49,47 @@ SimpleNodeEditor.prototype.removeCursor = function() {
 }
 
 SimpleNodeEditor.prototype.defaultWrite = function() {
+  this.beforeCursor = this.htmlUtil.entitiesEncode(this.beforeCursor) ;
+  this.afterCursor = this.htmlUtil.entitiesEncode(this.afterCursor) ;
+//  window.alert('beforeCursor: ' + this.beforeCursor) ;
+//  window.alert('afterCursor: ' + this.afterCursor) ;
   this.write(this.beforeCursor, this.cursor, this.afterCursor) ;
 }
 
+/**
+ * 
+ * @param {String} beforeCursor
+ * @param {String} cursor
+ * @param {String} afterCursor
+ */
 SimpleNodeEditor.prototype.write = function(beforeCursor, cursor, afterCursor) {
   if(this.currentNode) {
     this.currentNode.innerHTML = beforeCursor + cursor + afterCursor ;
-    // Detect empty node
-    if (this.currentNode.innerHTML == '') {
-      this.currentNode.innerHTML = '&nbsp;' ;
-    }
     this.beforeCursor = beforeCursor ;
     this.afterCursor = afterCursor ;
   }
 }
 
+/**
+ * @return {String}
+ */
 SimpleNodeEditor.prototype.getTextCommand = function() {
   var command = this.beforeCursor + this.afterCursor ;
-  command = eXo.core.HTMLUtil.entitiesDecode(command) ;
+  command = this.htmlUtil.entitiesDecode(command) ;
   return command ;
+}
+
+SimpleNodeEditor.prototype.preKeyProcess = function() {
+  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
+  this.beforeCursor = this.htmlUtil.entitiesDecode(this.beforeCursor) ;
+  this.afterCursor = this.htmlUtil.entitiesDecode(this.afterCursor) ;
 }
 
 // Overwrite DefaultKeyboardListener's methods.
 
 // Printable keys
 SimpleNodeEditor.prototype.onDefault = function(keynum, keychar) {
-  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
-  keychar = eXo.core.HTMLUtil.entitiesEncode(keychar) ;
-//  window.alert('[' + keychar + ']') ;
+  this.preKeyProcess() ;
   this.beforeCursor += keychar ;
   this.defaultWrite() ;
   return false ;
@@ -76,20 +99,24 @@ SimpleNodeEditor.prototype.onAlphabet = SimpleNodeEditor.prototype.onDefault ;
 
 SimpleNodeEditor.prototype.onDigit = SimpleNodeEditor.prototype.onDefault ;
 
-SimpleNodeEditor.prototype.onPunctuation = SimpleNodeEditor.prototype.onDefault ;
+SimpleNodeEditor.prototype.onPunctuation = function(keynum, keychar) {
+  this.preKeyProcess() ;
+  keychar = this.htmlUtil.entitiesEncode(keychar) ;
+  this.beforeCursor += keychar ;
+  this.defaultWrite() ;
+  return false ;
+}
 
 // Control keys
 SimpleNodeEditor.prototype.onBackspace = function(keynum, keychar) {
-  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
-  this.beforeCursor = eXo.core.HTMLUtil.entitiesDecode(this.beforeCursor) ;
+  this.preKeyProcess() ;
   this.beforeCursor = this.beforeCursor.substr(0, (this.beforeCursor.length - 1)) ;
-  this.beforeCursor = eXo.core.HTMLUtil.entitiesEncode(this.beforeCursor) ;
   this.defaultWrite() ;  
   return false ;
 }
 
 SimpleNodeEditor.prototype.onDelete = function(keynum, keychar) {
-  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
+  this.preKeyProcess() ;
   this.afterCursor = this.afterCursor.substr(1, (this.afterCursor.length - 1)) ;
   this.defaultWrite() ;
   return false ;
@@ -131,7 +158,7 @@ SimpleNodeEditor.prototype.onEnd = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onLeftArrow = function(keynum, keychar) {
-  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
+  this.preKeyProcess() ;
   if(this.beforeCursor.length == '') {
     return false ;
   }
@@ -139,10 +166,8 @@ SimpleNodeEditor.prototype.onLeftArrow = function(keynum, keychar) {
     this.afterCursor = this.beforeCursor + this.afterCursor ;
     this.beforeCursor = '' ;
   } else {
-    this.afterCursor = this.beforeCursor.substr(
-                                                 (this.beforeCursor.length - 2), 
-                                                 (this.beforeCursor.length - 1)
-                                               ) + this.afterCursor ;
+    this.afterCursor = this.beforeCursor.substr((this.beforeCursor.length - 2), 
+                                                  (this.beforeCursor.length - 1)) + this.afterCursor ;
     this.beforeCursor = this.beforeCursor.substr(0, (this.beforeCursor.length - 2)) ;
   }
   this.defaultWrite() ;
@@ -150,7 +175,7 @@ SimpleNodeEditor.prototype.onLeftArrow = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onRightArrow = function(keynum, keychar) {
-  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
+  this.preKeyProcess() ;
   if(this.afterCursor.length == '') {
     return false ;
   }

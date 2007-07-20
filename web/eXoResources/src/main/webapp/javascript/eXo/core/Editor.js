@@ -36,7 +36,7 @@ Editor.prototype.registerSubEditor = function(node) {
     }
     if(child.getAttribute(this.editableIdentify) == 1) {
       child.onclick = function(event) {
-        eXo.core.Editor.cancelEvent(event) ;
+        eXo.core.Keyboard.cancelEvent(event) ;
         return eXo.core.Editor.init(this);
       } ;
     }
@@ -125,14 +125,6 @@ Editor.prototype.getClickPosition = function(node) {
     clone.moveToElementText(node);
     clone.setEndPoint('EndToEnd', sel);
     return clone.text.length;
-  }
-}
-
-Editor.prototype.cancelEvent = function(event) {
-  if(eXo.core.Browser.browserType == 'ie') { // Cancel bubble for ie
-    window.event.cancelBubble = true ;
-  } else if(!eXo.core.Browser.isIE6()) { // Cancel event for Firefox, Opera, Safari
-    event.preventDefault() ;
   }
 }
 
