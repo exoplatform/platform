@@ -76,13 +76,6 @@ public class UIPageSelector extends UIFormInputContainer<String> {
       return this ;
     }
 
-    //TODO: Tung.Pham modified
-//    if(!page.isModifiable()){
-//      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{value})) ;;
-//      pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
-//      return this;
-//    }
-   
     UIFormPopupWindow uiPopup = getAncestorOfType(UIFormPopupWindow.class);
     if(uiPopup != null) uiPopup.setShow(false);
     page_ = page;

@@ -24,27 +24,15 @@ import org.exoplatform.webui.event.EventListener;
  */
 public class UIPortalActionListener { 
   
-  static public class ChangeWindowStateActionListener extends EventListener<UIPortal> {
-    public void execute(Event<UIPortal> event) throws Exception {
-      UIPortal uiPortal  = event.getSource();
-      String portletId = event.getRequestContext().getRequestParameter("portletId");
-      UIPortlet uiPortlet = uiPortal.findComponentById(portletId);
-      WebuiRequestContext context = event.getRequestContext();
-      uiPortlet.createEvent("ChangeWindowState", event.getExecutionPhase(), context).broadcast();
-    }
-  }
-  
-  /*static public class EditPortalActionListener  extends EventListener<UIPortal> {
-    public void execute(Event<UIPortal> event) throws Exception {
-      UIPortal uiPortal = event.getSource();
-      UIPortalForm uiForm = uiPortal.createUIComponent(UIPortalForm.class, null, null);
-      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
-      uiToolPanel.setUIComponent(uiForm);
-      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;      
-    }
-  }*/
+//  static public class ChangeWindowStateActionListener extends EventListener<UIPortal> {
+//    public void execute(Event<UIPortal> event) throws Exception {
+//      UIPortal uiPortal  = event.getSource();
+//      String portletId = event.getRequestContext().getRequestParameter("portletId");
+//      UIPortlet uiPortlet = uiPortal.findComponentById(portletId);
+//      WebuiRequestContext context = event.getRequestContext();
+//      uiPortlet.createEvent("ChangeWindowState", event.getExecutionPhase(), context).broadcast();
+//    }
+//  }
   
 //http://localhost:8080/portal/private/site/?portal:componentId=UIPortal&portal:action=LoadPage&pageId=portal::site::content
   static public class LoadPageActionListener extends EventListener<UIPortal> {

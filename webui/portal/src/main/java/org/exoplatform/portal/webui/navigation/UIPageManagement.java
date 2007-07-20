@@ -16,13 +16,11 @@ import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIDescription;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.Event.Phase;
 
 @ComponentConfig(
   template = "app:/groovy/portal/webui/navigation/UIPageManagement.gtmpl"
@@ -80,12 +78,10 @@ public class UIPageManagement extends UIManagement {
       //TODO: Tung.Pham modified
       //-----------------------------------------------------------
       //UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);
-      Phase phase = event.getExecutionPhase();
-      WebuiRequestContext rcontext = event.getRequestContext();
       //uiPopupMenu.createEvent("EditPageNode", phase, rcontext).broadcast();
-      uiTree.createEvent("ChangeNode", phase, rcontext).broadcast();
       //-----------------------------------------------------------
       getChild(UIDescription.class).setRendered(false);
+      uiTree.createEvent("ChangeNode", event.getExecutionPhase(), event.getRequestContext()).broadcast();
       return;
     }
     
@@ -100,62 +96,5 @@ public class UIPageManagement extends UIManagement {
     uiPageBrowser.setShowAddNewPage(true);    
     uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
   }
-
-  
-  /*//TODO: Tung.Pham added
-  public void setPage(Page page) throws Exception {
-    PortalRequestContext pcontext  = Util.getPortalRequestContext() ;
-    UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
-    UIPortalApplication uiApp = getAncestorOfType(UIPortalApplication.class);
-    
-    UIControlWorkspace uiControl = uiApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-    pcontext.addUIComponentToUpdateByAjax(uiControl);
-    uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
-    
-    if(page == null){
-      Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
-      setRenderedChildrenOfTypes(childrenToRender);
-      uiToolPanel.setUIComponent(null);
-      UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      pcontext.addUIComponentToUpdateByAjax(this) ;
-      return;
-    }
-    
-    UIPage uiPage  = Util.toUIPage(page, uiToolPanel);  
-    UIPageBody uiPageBody = uiApp.findComponentOfType()
-    uiToolPanel.setUIComponent(uiPage);
-    
-    if(!page.isModifiable()) {
-      Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
-      setRenderedChildrenOfTypes(childrenToRender);
-      uiApp.addMessage(new ApplicationMessage("UIPageManagement.msg.Invalid-editPermission", null)) ;
-      pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
-      pcontext.addUIComponentToUpdateByAjax(this) ;
-      return;
-    }
-
-    if (Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;      
-      UIPageForm uiPageForm =  uiMaskWS.createUIComponent(UIPageForm.class);
-      uiPageForm.removeChild(UIPageTemplateOptions.class);
-      uiPageForm.setValues(uiPage);
-      uiMaskWS.setUIComponent(uiPageForm);
-      uiMaskWS.setWindowSize(640, 400);
-      uiMaskWS.setShow(true);
-      pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
-      return ;
-    }
-    
-    UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
-    pcontext.setFullRender(true);
-    
-    Class<?> [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
-    setRenderedChildrenOfTypes(childrenToRender);
-    UIPageEditBar uiPageEditBar = getChild(UIPageEditBar.class);
-    uiPageEditBar.setUIPage(uiPage); 
-    uiPageEditBar.showUIPage();
-  }*/
 
 }

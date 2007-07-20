@@ -10,6 +10,7 @@ import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.navigation.UIPageManagement;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
@@ -21,7 +22,9 @@ import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIComponentDecorator;
@@ -31,34 +34,59 @@ import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UISearch;
 import org.exoplatform.webui.core.UIToolbar;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormInputItemSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 
-@ComponentConfig(
-  template = "app:/groovy/portal/webui/page/UIPageBrowser.gtmpl" ,
-  events = {
-    @EventConfig(listeners = UIPageBrowser.DeleteActionListener.class, confirm = "UIPageBrowse.deletePage"),
-    @EventConfig(listeners = UIPageBrowser.EditInfoActionListener.class),
-    @EventConfig(listeners = UIPageBrowser.PreviewActionListener.class),
-    @EventConfig(listeners = UIPageBrowser.AddNewActionListener.class)   
-  }
-)
+@ComponentConfigs({
+  @ComponentConfig(
+      template = "app:/groovy/portal/webui/page/UIPageBrowser.gtmpl" ,
+      events = {
+          @EventConfig(listeners = UIPageBrowser.DeleteActionListener.class, confirm = "UIPageBrowse.deletePage"),
+          @EventConfig(listeners = UIPageBrowser.EditInfoActionListener.class),
+          @EventConfig(listeners = UIPageBrowser.PreviewActionListener.class),
+          @EventConfig(listeners = UIPageBrowser.AddNewActionListener.class)   
+      }
+  ),
+  @ComponentConfig(
+      id = "UIBrowserPageForm",
+      type = UIPageForm.class,
+      lifecycle = UIFormLifecycle.class,
+      template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl",    
+      events = {
+        @EventConfig(listeners = UIPageBrowser.SavePageActionListener.class, name = "Save"),
+        @EventConfig(listeners = UIPageForm.ChangeOwnerTypeActionListener.class, phase = Phase.DECODE),
+        @EventConfig(listeners = UIPageForm.SelectGroupActionListener.class, phase = Phase.DECODE),
+        @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+      },
+      initParams = @ParamConfig(
+          name = "PageTemplate",
+          value = "system:/WEB-INF/conf/uiconf/portal/webui/page/PageTemplate.groovy"
+      )
+  ),
+  @ComponentConfig(
+      type = UIFormInputSet.class,
+      id = "PermissionSetting",
+      template = "system:/groovy/webui/core/UITabSelector.gtmpl"
+  )
+})
 public class UIPageBrowser extends UISearch {
 
   public static String[] BEAN_FIELD = {"pageId", "name", "accessPermissions", "editPermission"} ;  
   public static String[] ACTIONS = {"Preview", "EditInfo", "Delete"} ; 
-  
+
   private boolean showAddNewPage = false;
   protected String pageSelectedId_;
-  
+
   private static List<SelectItemOption<String>> OPTIONS = new ArrayList<SelectItemOption<String>>(3);
-  
+
   static{
     OPTIONS.add(new SelectItemOption<String>("Owner Type", "ownerType"));
     OPTIONS.add(new SelectItemOption<String>("Owner Id", "ownerId"));
@@ -71,17 +99,13 @@ public class UIPageBrowser extends UISearch {
     super(OPTIONS);
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("pageId", BEAN_FIELD, ACTIONS) ;
-    //TODO: Tung.Pham
-    //---------------------------------------------------
     addChild(uiGrid.getUIPageIterator());
     uiGrid.getUIPageIterator().setRendered(false);
-    //---------------------------------------------------
-    
     defaultValue(null) ;
   }
-  
+
   public Query<Page> getLastQuery() { return lastQuery_; }
-  
+
   public void defaultValue(Query<Page> query) throws Exception {
     lastQuery_ = query ;
     DataStorage service = getApplicationComponent(DataStorage.class) ;
@@ -89,18 +113,16 @@ public class UIPageBrowser extends UISearch {
 
     PageList pagelist = service.find(lastQuery_) ;
     pagelist.setPageSize(10);
-    
+
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     uiGrid.getUIPageIterator().setPageList(pagelist);
-    //addChild(uiGrid.getUIPageIterator());
-    //uiGrid.getUIPageIterator().setRendered(false);
     UIPageIterator pageIterator = uiGrid.getUIPageIterator();
-    if(pageIterator.getAvailable() == 0 ) {
-      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-      uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
-      
-      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
-    }
+    
+    if(pageIterator.getAvailable() > 0 )  return;
+    UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+    uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
+
+    Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
   } 
 
   public void quickSearch(UIFormInputSet quickSearchInput) throws Exception {    
@@ -114,16 +136,15 @@ public class UIPageBrowser extends UISearch {
     if(selectBoxValue.equals("name")) query.setName(value) ;
     lastQuery_ = query ;
     defaultValue(lastQuery_) ;
-    if (this.<UIComponent>getParent() instanceof UIPopupWindow ) {
+    if(this.<UIComponent>getParent() instanceof UIPopupWindow ) {
       UIPopupWindow popupWindow = getParent();
       popupWindow.setShow(true);
     }
   }
-  
+
   public boolean isShowAddNewPage() { return showAddNewPage;  }
-  
   public void setShowAddNewPage(boolean showAddNewPage) { this.showAddNewPage = showAddNewPage; }
-  
+
   public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     UIForm uiForm  = getAncestorOfType(UIForm.class);
@@ -137,10 +158,18 @@ public class UIPageBrowser extends UISearch {
     Event<UIComponent> event = createEvent(action, Event.Phase.PROCESS, context) ;   
     if(event != null) event.broadcast()  ;    
   }
-  
+
   @SuppressWarnings("unused")
   public void advancedSearch(UIFormInputSet advancedSearchInput) throws Exception {
   }  
+  
+  private void reset() throws Exception {
+    UIPageIterator uiPageIterator = getChild(UIPageIterator.class);
+    int currentPage = uiPageIterator.getCurrentPage();
+    defaultValue(lastQuery_) ;
+    while(currentPage > uiPageIterator.getAvailablePage()) currentPage--;
+    if(currentPage > 0) uiPageIterator.setCurrentPage(currentPage);
+  }
 
   static  public class DeleteActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
@@ -149,80 +178,76 @@ public class UIPageBrowser extends UISearch {
       String id = pcontext.getRequestParameter(OBJECTID) ;
       UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class) ;
       Page page = service.getPage(id, pcontext.getRemoteUser()) ;
-      
+
       UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
       if(page == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
-      
+
       if(!page.isModifiable()){
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-deletePermission", new String[]{page.getName()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return;
       }
-      
+
       service.remove(page);
-      //TODO: Tung.Pham modified
-      //-------------------------------------------
-      //uiPageBrowser.defaultValue(null);
-      uiPageBrowser.defaultValue(uiPageBrowser.getLastQuery()) ;
-      //-------------------------------------------
+      uiPageBrowser.reset();
       pcontext.addUIComponentToUpdateByAjax(uiPageBrowser);
     }
   }
-  
+
   static public class EditInfoActionListener extends EventListener<UIPageBrowser> {    
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPageBrowser uiPageBrowser = event.getSource();
       UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
-      
+
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
       String id = pcontext.getRequestParameter(OBJECTID) ;
       UserPortalConfigService dao = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class) ;
       Page page = dao.getPage(id, pcontext.getRemoteUser()) ;
-      
+
       if(page == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return;
       }
-    
+
       if(!page.isModifiable()) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return ;
       }
-      
+
       UIPage uiPage =  uiPageBrowser.createUIComponent(pcontext, UIPage.class, null, null) ;
       PortalDataMapper.toUIPage(uiPage, page);
-      
+
       if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
         UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-        UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
+        UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, "UIBrowserPageForm", "UIPageForm");
         uiPageForm.setValues(uiPage);
         uiMaskWS.setUIComponent(uiPageForm);
         uiMaskWS.setShow(true);
         pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
         return;
       }
-      
+
       UIControlWorkspace uiControl =  uiPortalApp.findFirstComponentOfType(UIControlWorkspace.class) ;
       UIComponentDecorator uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID) ;
       UIPageManagement uiManagement = uiWorking.createUIComponent(UIPageManagement.class, null, null); 
       uiWorking.setUIComponent(uiManagement) ;
-      
+
       uiManagement.setRenderedChildrenOfTypes(new Class[]{UIPageEditBar.class});
       UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class);
       uiEditBar.setUIPage(uiPage);
       uiEditBar.createEvent("EditPortlet", event.getExecutionPhase(), event.getRequestContext()).broadcast();
-      
+
       UIPageBrowseControlBar uiBrowseControlBar = uiManagement.getChild(UIPageBrowseControlBar.class);
       if (uiBrowseControlBar != null) uiBrowseControlBar.setBackComponent(uiPageBrowser);
     }
   }
-  
+
   static public class PreviewActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPageBrowser uiPageBrowser = event.getSource() ;      
@@ -230,54 +255,54 @@ public class UIPageBrowser extends UISearch {
       String id = pcontext.getRequestParameter(OBJECTID) ;
       UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class) ;
       Page page = service.getPage(id, pcontext.getRemoteUser()) ;
-      
+
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       if(page == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
-      
+
       if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[]{page.getName()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
-      
+
       UIPage uiPage =  uiPageBrowser.createUIComponent(event.getRequestContext(), UIPage.class,null,null) ;
       PortalDataMapper.toUIPage(uiPage, page);
-      
+
       UIPagePreview uiPagePreview =  Util.showComponentOnWorking(uiPageBrowser, UIPagePreview.class);      
       uiPagePreview.setUIComponent(uiPage) ;
       uiPagePreview.setBackComponent(uiPageBrowser) ;
-      
+
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
       pcontext.setFullRender(true);
     }
   }
-  
+
   static public class AddNewActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
       PortalRequestContext prContext = Util.getPortalRequestContext();
       UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
+      UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, "UIBrowserPageForm", "UIPageForm");
       uiMaskWS.setUIComponent(uiPageForm);
       uiMaskWS.setShow(true);
 
       uiPageForm.getUIStringInput("ownerType").setValue(PortalConfig.USER_TYPE);
       uiPageForm.getUIStringInput("ownerId").setValue(prContext.getRemoteUser());      
       uiPageForm.removeChild(UIFormInputItemSelector.class);
-      
+
       UIPageTemplateOptions uiTemplateConfig = uiPageForm.createUIComponent(UIPageTemplateOptions.class, null, null);    
       uiTemplateConfig.setRendered(false) ;
       uiPageForm.addUIFormInput(uiTemplateConfig) ;
-      
+
       prContext.addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
-  
+
   @ComponentConfig(
       template = "system:/groovy/webui/core/UIToolbar.gtmpl",
       events = { 
@@ -286,58 +311,150 @@ public class UIPageBrowser extends UISearch {
       }
   )
   static public class UIPageBrowseControlBar extends UIToolbar {
-    
+
     private UIComponent uiBackComponent ;
-    
+
     public UIComponent getBackComponent() { return uiBackComponent ; }
     public void setBackComponent(UIComponent uiComp) { uiBackComponent = uiComp ; }
-    
+
     public boolean hasBackEvent(){ return uiBackComponent != null; }
 
 
-    public UIPageBrowseControlBar() throws Exception {
-      setToolbarStyle("ControlToolbar") ;
-    }
+    public UIPageBrowseControlBar() throws Exception { setToolbarStyle("ControlToolbar") ; }
 
     static public class BackActionListener extends EventListener<UIPageBrowseControlBar> {
       public void execute(Event<UIPageBrowseControlBar> event) throws Exception {
-        UIPageBrowseControlBar uiPageControlBar = event.getSource();
-        
-        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();      
-        UIComponent uiComp = uiPageControlBar.getBackComponent() ;
-        uiToolPanel.setUIComponent(uiComp) ;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiToolPanel) ;
-        
-        UIPageManagement uiManagement = uiPageControlBar.getParent();
+        UIPageBrowseControlBar uiBrowseControlBar = event.getSource();
+
+        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel(); 
+        uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
+        UIPageBrowser uiPageBrowser = (UIPageBrowser) uiBrowseControlBar.getBackComponent() ;
+        uiPageBrowser.reset();
+        uiToolPanel.setUIComponent(uiPageBrowser) ;
+
+        UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+        UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
+
+        UIPageManagement uiManagement = uiBrowseControlBar.getParent();
         uiManagement.setRenderedChild(UIDescription.class);
         event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
       }
     }
+
     static public class FinishActionListener extends EventListener<UIPageBrowseControlBar> {
       public void execute(Event<UIPageBrowseControlBar> event) throws Exception {
-        UIPageBrowseControlBar browseControlBar = event.getSource();
-        UIPageManagement pageManagement = browseControlBar.getParent();
+        UIPageBrowseControlBar uiBrowseControlBar = event.getSource();
+        UIPageManagement pageManagement = uiBrowseControlBar.getParent();
         UIPageEditBar uiEditBar = pageManagement.getChild(UIPageEditBar.class);
         uiEditBar.savePage();
-        
+
         UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();      
-        UIComponent uiComp = browseControlBar.getBackComponent() ;
-        //TODO: Tung.Pham added
-        //--------------------------------------------
-        if(uiComp instanceof UIPageBrowser) {
-          UIPageBrowser uiPageBrowser = (UIPageBrowser)uiComp ;
-          uiPageBrowser.defaultValue((uiPageBrowser.getLastQuery())) ;
-        }
-        //--------------------------------------------
-        uiToolPanel.setUIComponent(uiComp) ;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiToolPanel) ;
-        
-        UIPageManagement uiManagement = browseControlBar.getParent();
+        UIPageBrowser uiPageBrowser = (UIPageBrowser) uiBrowseControlBar.getBackComponent() ;
+        uiPageBrowser.reset();
+        uiToolPanel.setUIComponent(uiPageBrowser) ;
+
+        UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+        UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
+
+        UIPageManagement uiManagement = uiBrowseControlBar.getParent();
         uiManagement.setRenderedChild(UIDescription.class);
         event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
-        
       }
     }
   }
- 
+
+  @SuppressWarnings("unchecked")
+  static public class SavePageActionListener  extends UIPageForm.SaveActionListener {
+    public void execute(Event<UIPageForm> event) throws Exception {
+      UIPageForm uiPageForm = event.getSource();   
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
+      UIPage uiPage = uiPageForm.getUIPage();
+      Page page = new Page() ;
+      uiPageForm.invokeSetBindingBean(page);
+      UserPortalConfigService configService = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
+
+      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      uiMaskWS.setUIComponent(null);
+      uiMaskWS.setShow(false);
+      pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
+
+      //create new page
+      if(uiPage == null) {
+        DataStorage dataStorage = uiPageForm.getApplicationComponent(DataStorage.class) ;
+        Page existPage = dataStorage.getPage(page.getPageId()) ;
+        if (existPage != null) {
+          uiPortalApp.addMessage(new ApplicationMessage("UIPageForm.msg.sameName", null)) ;
+          pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+          return ;
+        }
+        
+        page.setCreator(pcontext.getRemoteUser());
+        page.setModifiable(true);
+        if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+        configService.create(page);
+
+        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;      
+        UIPageBrowser uiBrowser = (UIPageBrowser) uiToolPanel.getUIComponent() ;
+        uiBrowser.reset();
+        pcontext.addUIComponentToUpdateByAjax(uiBrowser) ;
+        return;
+      }
+
+
+      page.setOwnerType(uiPage.getOwnerType());
+      List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
+      findAllPortlet(uiPortlets, uiPage);
+      ArrayList<Object> applications = new ArrayList<Object>();
+      for(UIPortlet uiPortlet : uiPortlets) {
+        applications.add(PortalDataMapper.toPortletModel(uiPortlet));
+      }
+
+      if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId()) && !Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
+        page.setShowMaxWindow(false);
+        uiPage.getChildren().clear();
+        page.setChildren(applications);
+
+        page.setModifier(pcontext.getRemoteUser());
+        PortalDataMapper.toUIPage(uiPage, page);  
+        if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
+        if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
+
+        configService.update(page);
+
+        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;      
+        UIPageBrowser uiBrowser = (UIPageBrowser) uiToolPanel.getUIComponent() ;
+        uiBrowser.reset();
+        pcontext.addUIComponentToUpdateByAjax(uiBrowser) ;
+        return;
+      }
+
+      List<UIComponent> uiChildren = uiPage.getChildren();
+      if(uiChildren == null)  return ;
+      ArrayList<Object>  children = new ArrayList<Object>();
+      for(UIComponent child : uiChildren){ 
+        Object component = PortalDataMapper.buildChild(child);
+        if(component != null) children.add(component);
+      }
+      page.setChildren(children);
+      uiPage.getChildren().clear(); 
+
+      page.setModifier(pcontext.getRemoteUser());
+      PortalDataMapper.toUIPage(uiPage, page);  
+      if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
+      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
+      
+      if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId())) {
+        configService.update(page);
+        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;      
+        UIPageBrowser uiBrowser = (UIPageBrowser) uiToolPanel.getUIComponent() ;
+        uiBrowser.reset();
+        pcontext.addUIComponentToUpdateByAjax(uiBrowser) ;
+      }
+    }
+
+  }
+
 }

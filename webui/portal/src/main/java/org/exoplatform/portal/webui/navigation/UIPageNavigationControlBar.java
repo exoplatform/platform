@@ -14,14 +14,12 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.UIManagement.ManagementMode;
-import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -99,6 +97,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
       UIPageNavigationControlBar uiPageNav = event.getSource();
       UIPageManagement uiManagement = uiPageNav.getParent();
       PortalRequestContext pContext = (PortalRequestContext) event.getRequestContext();
+      
       UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
       Class<?> [] childrenToRender = null;
       if(uiPageEditBar.isRendered()) {
@@ -109,27 +108,17 @@ public class UIPageNavigationControlBar extends UIToolbar {
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);
       pContext.addUIComponentToUpdateByAjax(uiManagement);
 
-      //TODO: Tung.Pham
-      //----------------------------------------------------------
-//      UIPageNodeSelector nodeSelector =uiManagement.getChild(UIPageNodeSelector.class);
-//      PageNode node  = nodeSelector.getSelectedPageNode();
-//      if(node == null) return ;
-//      UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
-//      UIPortalToolPanel uiPortalToolPanel = Util.getUIPortalToolPanel() ; 
-//      uiPortalToolPanel.setUIComponent(uiPage);
-//      uiPortalToolPanel.getUIComponent().setRendered(true);
-
-      UIPortalToolPanel uiPortalToolPanel = Util.getUIPortalToolPanel() ;
+     /* UIPortalToolPanel uiPortalToolPanel = Util.getUIPortalToolPanel() ;
       UIPageNodeSelector nodeSelector =uiManagement.getChild(UIPageNodeSelector.class);
       PageNode node  = nodeSelector.getSelectedPageNode();
       if(node == null) {
         uiPortalToolPanel.setUIComponent(null) ;
-      }else {
+      } else {
+        UIPage currentPage = Util.getUIPortalToolPanel().getUIComponent();
         UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
         uiPortalToolPanel.setUIComponent(uiPage);
         uiPortalToolPanel.getUIComponent().setRendered(true); 
-      }
-      //----------------------------------------------------------
+      }*/
       
       UIPortalApplication uiPortalApp = uiPageNav.getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);

@@ -4,18 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainer;
+import org.exoplatform.portal.webui.navigation.UIPageManagement;
+import org.exoplatform.portal.webui.navigation.UIPageNavigationControlBar;
+import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
+import org.exoplatform.portal.webui.page.UIPageBrowser.UIPageBrowseControlBar;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
-import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
@@ -67,7 +70,6 @@ import org.exoplatform.webui.organization.UIPermissionSelector;
 public class UIPageForm extends UIFormTabPane {
   
   private UIPage uiPage_ ;
-  private UIComponent returnComponent_ ;
   
   @SuppressWarnings("unchecked")
   public UIPageForm(InitParams initParams) throws Exception  {
@@ -160,7 +162,7 @@ public class UIPageForm extends UIFormTabPane {
        
     UIFormInputItemSelector uiTemplate = getChildById("Template");
     if(uiTemplate != null) {
-      SelectItemOption itemOption = uiTemplate.getSelectedItemOption();
+      SelectItemOption<?> itemOption = uiTemplate.getSelectedItemOption();
       if(itemOption != null){
         page.setFactoryId(itemOption.getIcon());
         page.setTemplate((String)itemOption.getValue());
@@ -181,9 +183,6 @@ public class UIPageForm extends UIFormTabPane {
     page.setShowMaxWindow(Page.DESKTOP_PAGE.equals(page.getFactoryId()));
   }
 
-  public UIComponent getBackUIComponent() { return returnComponent_ ; }
-  public void setBackUIComponent(UIComponent uiComp) throws Exception { returnComponent_ = uiComp ; }   
-  
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
     
@@ -202,76 +201,97 @@ public class UIPageForm extends UIFormTabPane {
       uiPageForm.invokeSetBindingBean(page);
       UserPortalConfigService configService = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
 
-      if(uiPage != null) {
-        page.setOwnerType(uiPage.getOwnerType());
-        List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
-        findAllPortlet(uiPortlets, uiPage);
-        ArrayList<Object> applications = new ArrayList<Object>();
-        for(UIPortlet uiPortlet : uiPortlets) {
-          applications.add(PortalDataMapper.toPortletModel(uiPortlet));
-        }
-        
-        if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId()) && !Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
-          page.setShowMaxWindow(false);
-          uiPage.getChildren().clear();
-          page.setChildren(applications);
-        } else if(!Page.DESKTOP_PAGE.equals(uiPage.getFactoryId()) && Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
-          uiPage.getChildren().clear();         
-          page.setChildren(applications);   
-        } else {
-          List<UIComponent> uiChildren = uiPage.getChildren();
-          if(uiChildren == null)  return ;
-          ArrayList<Object>  children = new ArrayList<Object>();
-          for(UIComponent child : uiChildren){ 
-            Object component = PortalDataMapper.buildChild(child);
-            if(component != null) children.add(component);
-          }
-          page.setChildren(children);
-          uiPage.getChildren().clear(); 
-        }
+      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      uiMaskWS.setUIComponent(null);
+      uiMaskWS.setShow(false);
+      pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
+
+      if(uiPage == null)  return;
+      
+      page.setOwnerType(uiPage.getOwnerType());
+      List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
+      findAllPortlet(uiPortlets, uiPage);
+      ArrayList<Object> applications = new ArrayList<Object>();
+      for(UIPortlet uiPortlet : uiPortlets) {
+        applications.add(PortalDataMapper.toPortletModel(uiPortlet));
+      }
+
+      if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId()) && !Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
+        page.setShowMaxWindow(false);
+        uiPage.getChildren().clear();
+        page.setChildren(applications);
+
         page.setModifier(pcontext.getRemoteUser());
         PortalDataMapper.toUIPage(uiPage, page);  
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
-        //TODO: Tung.Pham modified
-        //configService.update(page);
-      } else {
-        DataStorage dataStorage = uiPageForm.getApplicationComponent(DataStorage.class) ;
-        Page existPage = dataStorage.getPage(page.getPageId()) ;
-        if (existPage != null) {
-          uiPortalApp.addMessage(new ApplicationMessage("UIPageForm.msg.sameName", null)) ;
-          pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
-          return ;
-        }
-        page.setCreator(pcontext.getRemoteUser());
-        page.setModifiable(true);
-        if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-        configService.create(page);
-        
-        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;      
-        UIComponent uiComponent = uiToolPanel.getUIComponent() ;
-        if(uiComponent != null && uiComponent instanceof UIPageBrowser) {
-          UIPageBrowser browser = (UIPageBrowser)uiComponent ;
-          browser.defaultValue(null) ;
-          browser.getUISearchForm().getQuickSearchInputSet().reset() ;
-          pcontext.addUIComponentToUpdateByAjax(uiToolPanel) ;
-        }
+
+        UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
+        UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class); 
+        uiEditBar.setRendered(true);
+        uiEditBar.setUIPage(uiPage);
+
+        pcontext.setFullRender(true);
+        UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID) ;
+        pcontext.addUIComponentToUpdateByAjax(uiControl) ;
+        UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+        pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
+
+        return;
       }
-      
-      WebuiRequestContext rcontext = event.getRequestContext();
-      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      uiMaskWS.setUIComponent(null);
-      uiMaskWS.setShow(false);
-      rcontext.addUIComponentToUpdateByAjax(uiMaskWS) ; 
+
+      if(!Page.DESKTOP_PAGE.equals(uiPage.getFactoryId()) && Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
+        uiPage.getChildren().clear();         
+        page.setChildren(applications);         
+
+        page.setModifier(pcontext.getRemoteUser());
+        PortalDataMapper.toUIPage(uiPage, page);  
+        if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
+        if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
+
+        configService.update(page);
+        
+        UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
+        UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class); 
+        uiEditBar.setUIPage(uiPage);
+        Class<?> [] childrenToRender = null;
+        if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
+          childrenToRender = new Class<?>[]{UIPageBrowseControlBar.class};
+        } else {
+          childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
+        }
+        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        pcontext.addUIComponentToUpdateByAjax(uiManagement);
+
+        pcontext.setFullRender(true);
+        UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
+        pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
+
+        return;
+      } 
+
+      List<UIComponent> uiChildren = uiPage.getChildren();
+      if(uiChildren == null)  return ;
+      ArrayList<Object>  children = new ArrayList<Object>();
+      for(UIComponent child : uiChildren){ 
+        Object component = PortalDataMapper.buildChild(child);
+        if(component != null) children.add(component);
+      }
+      page.setChildren(children);
+      uiPage.getChildren().clear(); 
+
+      page.setModifier(pcontext.getRemoteUser());
+      PortalDataMapper.toUIPage(uiPage, page);  
+      if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
+      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
     }
     
-    private void findAllPortlet(List<UIPortlet> list, UIContainer uiContainer) {
+    protected void findAllPortlet(List<UIPortlet> list, UIContainer uiContainer) {
       List<UIComponent> children = uiContainer.getChildren();
       for(UIComponent ele : children) {
         if(ele instanceof UIPortlet) list.add((UIPortlet)ele);
         else if(ele instanceof UIContainer) findAllPortlet(list, (UIContainer) ele); 
       }
-      
     }
   }
  
@@ -309,4 +329,5 @@ public class UIPageForm extends UIFormTabPane {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm.getParent());
     }
   }
+
 }

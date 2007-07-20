@@ -99,23 +99,15 @@ public class UIPageNavigationActionListener {
       String remoteUser = rcontext.getRemoteUser();
       PageNavigation oldNavigation = dataService.getPageNavigation(navigation.getId(), remoteUser);
       if(oldNavigation == null) dataService.create(navigation); else dataService.update(navigation);
-      //TODO: Tung.Pham added
-      //----------------------------------------
-      UIPortal uiPortal = Util.getUIPortal();
-      setNavigation(uiPortal.getNavigations(), navigation) ;
-      //----------------------------------------
-      rcontext.addUIComponentToUpdateByAjax(uiManagement);      
-    }
-    //TODO: Tung.Pham added    
-    private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
-      for(int i = 0; i < navs.size(); i++) {
-        if(navs.get(i).getId().equals(nav.getId())) {
-          navs.set(i, nav);
+      rcontext.addUIComponentToUpdateByAjax(uiManagement);   
+      List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();
+      for(int i = 0; i < pnavigations.size(); i++) {
+        if(pnavigations.get(i).getId().equals(navigation.getId())) {
+          pnavigations.set(i, navigation);
           return;
         }
       }
-      navs.add(nav) ;
+      pnavigations.add(navigation) ;
     }
-    
   }
 }

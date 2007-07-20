@@ -37,11 +37,12 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
   
   final private static String APPLLICATION_NAME = "ResourceBundles";
   private DataMapper mapper_ = new DataMapper();
+  
   public ResourceBundleServiceImpl(InitParams params, 
-                                      LogService lservice, 
-                                      CacheService cService, 
-                                      JCRRegistryService jcrRegService,
-                                      LocaleConfigService localeService) throws Exception {
+                                    LogService lservice, 
+                                    CacheService cService, 
+                                    JCRRegistryService jcrRegService,
+                                    LocaleConfigService localeService) throws Exception {
     log_ = lservice.getLog("org.exoplatform.services.resources");
     localeService_ = localeService;
     cache_ = cService.getCacheInstance(ResourceBundleData.class.getName());
