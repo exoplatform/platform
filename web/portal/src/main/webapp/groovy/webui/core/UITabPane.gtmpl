@@ -4,7 +4,7 @@
 	
 %>
 
-<div class="UITabPane" id="$uicomponent.id">
+<div class="UITabPane">
   <div class="TabPaneContent">
     <div class="WorkingAreaWithHelp">
       <div class="UIHorizontalTabs">
@@ -15,15 +15,15 @@
 			          <%
 			            for(uiChild in uicomponent.getChildren()) {
 			              String style = "NormalTab" ;
-			              String id = uiChild.getId();
-			              System.out.println("\n\n\n----------------->childId = " +id);
+			              String tabId = uiChild.getId();
+			              String paneId = uicomponent.getId();
 			              if(uiChild.isRendered()) style = "SelectedTab" ;
 			          %>
 			            <div class="UITab NormalTabStyle">
 			              <div class="$style">
 			                <div class="LeftTab">
 			                  <div class="RightTab">                
-			                    <div class="MiddleTab" id="$id" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=_ctx.appRes("UITabPane.title." + uiChild.getId());%></div>
+			                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '$paneId', '$tabId')"><%=_ctx.appRes("UITabPane.title." + uiChild.getId());%></div>
 			                  </div>
 			                </div>
 			              </div>
