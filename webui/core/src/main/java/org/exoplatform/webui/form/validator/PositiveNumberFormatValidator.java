@@ -20,18 +20,18 @@ public class PositiveNumberFormatValidator implements Validator {
   public void validate(UIFormInput uiInput) throws Exception {
     String s = (String)uiInput.getValue();    
     if(s == null || s.trim().length() < 1) return ;
-    int t = 0;
+    boolean t = false;
     for(int i = 0; i < s.length(); i ++){
       char c = s.charAt(i);
       if (Character.isDigit(c) || (s.charAt(0) == '-' && i == 0)){
-    	t = 1;
+      	t = true;
         continue;  
       }
-      t = 0;
+      t = false;
       Object[] args = { uiInput.getName(), uiInput.getBindingField() };
       throw new MessageException(new ApplicationMessage("NumberFormatValidator.msg.Invalid-number", args)) ;
     }
-    if(t == 1 && s.charAt(0) == '-') {
+    if(t == true && s.charAt(0) == '-') {
       Object[] args = { uiInput.getName(), uiInput.getBindingField() };
       throw new MessageException(new ApplicationMessage("PositiveNumberFormatValidator.msg.Invalid-number", args)) ;
     }
