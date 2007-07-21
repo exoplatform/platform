@@ -83,8 +83,7 @@ public class DataMapper {
     node.setProperty("ownerId", portletPref.getOwnerId());
     node.setProperty("name", portletPref.getWindowId().replace('/', '_').replace(':', '_')) ;
     node.setProperty("dataType", portletPref.getClass().getSimpleName()) ;
-    String xml = toXML(portletPref);
-    node.setProperty("data", xml) ;
+    node.setProperty("data", toXML(portletPref)) ;
   }
   
   public PortletPreferences toPortletPreferences(Node node) throws Exception {

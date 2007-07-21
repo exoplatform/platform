@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,6 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
@@ -161,7 +159,6 @@ public class UIListUsers extends UISearch {
     public void execute(Event<UIListUsers> event) throws Exception {
       UIListUsers uiListUser = event.getSource() ;
       String userName = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      System.out.println("\n\n\n\n------------------------Hanaha");
       UIPopupWindow popup = uiListUser.getAncestorOfType(UIPopupWindow.class);
       popup.setShow( false);
       UIGroupMembershipForm groupMembershipForm = popup.getParent();

@@ -90,7 +90,9 @@ public class UserPortalConfigService {
       
       while(iterator.hasNext()) {
         Membership m = (Membership) iterator.next() ;   
-        navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+m.getGroupId(), accessUser) ;
+        String groupId = m.getGroupId().trim();
+        if(groupId.charAt(0) == '/') groupId = groupId.substring(1);
+        navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+groupId, accessUser) ;
         if(navigation == null) continue;
         boolean add = true;
         for(PageNavigation nav : navigations) {
