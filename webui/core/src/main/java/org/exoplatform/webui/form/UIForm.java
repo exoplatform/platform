@@ -14,6 +14,8 @@ import org.exoplatform.webui.bean.ReflectionDataMapping;
 import org.exoplatform.webui.config.Event;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
+
+import com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException;
 /**
  * Created by The eXo Platform SARL
  * Author : Dang Van Minh
@@ -174,7 +176,22 @@ public class UIForm extends UIContainer  {
   
   public String event(String name, String componentId, String beanId) throws Exception {   
     StringBuilder b = new StringBuilder() ;
-    b.append("javascript:eXo.webui.UIForm.submitEvent('").append(getId()).append("','");
+    //TODO: Tung.Pham modified
+    //------------------------
+    b.append("javascript:") ;
+    WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance() ;
+    UIComponent subComponent = findComponentById(componentId) ;
+    org.exoplatform.webui.config.Event event = subComponent.getComponentConfig().getUIComponentEventConfig(name) ;
+    if(event == null) return "??config??" ;
+    String confirm = event.getConfirm() ;
+    if(confirm != null && confirm.trim().length() > 0) {
+      confirm = rcontext.getApplicationResourceBundle().getString(confirm) ;
+      b.append("if(confirm('").append(confirm).append("'))") ;
+    }
+    b.append("eXo.webui.UIForm.submitEvent('").append(getId()).append("','");
+    //b.append("javascript:eXo.webui.UIForm.submitEvent('").append(getId()).append("','");
+    //-------------------------
+    
     b.append(name).append("','");
     b.append("&amp;").append(SUBCOMPONENT_ID).append("=").append(componentId);
     if(beanId != null) b.append("&amp;").append(OBJECTID).append("=").append(beanId);    
