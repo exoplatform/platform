@@ -144,7 +144,7 @@ public class UIPageEditBar extends UIToolbar {
   }
 
   public void savePage() throws Exception {
-    if(getUIPage() == null) return;
+    if(uiPage_ == null) return;
     Page page = PortalDataMapper.toPageModel(getUIPage());      
     UserPortalConfigService dataService = getApplicationComponent(UserPortalConfigService.class);
     dataService.update(page); 

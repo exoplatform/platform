@@ -249,8 +249,6 @@ public class UIPageForm extends UIFormTabPane {
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
 
-        configService.update(page);
-        
         UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
         UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class); 
         uiEditBar.setUIPage(uiPage);
@@ -258,6 +256,7 @@ public class UIPageForm extends UIFormTabPane {
         if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
           childrenToRender = new Class<?>[]{UIPageBrowseControlBar.class};
         } else {
+          configService.update(page);
           childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
         }
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
