@@ -36,6 +36,7 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	if(isShow == true) this.show(popup) ;
 	
 } ;
+
 //TODO: manage zIndex properties
 UIPopupWindow.prototype.show = function(popup) {
 	var DOMUtil = eXo.core.DOMUtil ;
@@ -60,11 +61,17 @@ UIPopupWindow.prototype.show = function(popup) {
 	// We don't increment zIndex here because it is done in the superClass.show function
 	popup.style.visibility = "hidden" ;
 	this.superClass.show(popup) ;
-	var offsetParent = popup.offsetParent ;
+ 	var offsetParent = popup.offsetParent ;
+ 	var scrollY = (window.scrollY)?window.scrollY:document.documentElement.scrollTop ;
 	if(offsetParent) {
-		popup.style.top = ((offsetParent.offsetHeight - popup.offsetHeight) / 2) + "px" ;
-		popup.style.left = ((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
+		if(eXo.core.DOMUtil.hasClass(offsetParent, "UIPopupWindow") || eXo.core.DOMUtil.hasClass(offsetParent, "UIWindow")) {			
+			popup.style.top = Math.ceil((offsetParent.offsetHeight - popup.offsetHeight) / 2)  + "px" ;
+		} else {
+			popup.style.top = Math.ceil((window.screen.availHeight - 2*popup.offsetHeight ) / 2) + scrollY + "px" ;			
+		}
+		popup.style.left = Math.ceil((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
 	}
+	if (eXo.core.Browser.findPosY(popup) < 0) popup.style.top = scrollY + "px" ;
 	popup.style.visibility = "visible" ;
 } ;
 
@@ -105,28 +112,38 @@ UIPopupWindow.prototype.initDND = function(evt) {
 		}
   	
   	var DOMUtil = eXo.core.DOMUtil ;
-  	var dragObjectY = parseInt(dragObject.style.top) ;		
-		try {
-			var uiWindows = DOMUtil.findAncestorsByClass(dragObject, "UIWindow") ;
-			var len = uiWindows.length ;
-			var mLen = dragObject.childNodes.length ;
-			var isMessage = false ;
-			for(var i = 0 ; i < mLen ; i++) {
-				var className = dragObject.childNodes[i].className ;
-				if (className && (className.indexOf("Message") > -1)) {
-					isMessage = true ;
-					break ;
-				}
-			}
-			if (len > 0 && !isMessage) {
-				var offsetTop = (0 - uiWindows[0].offsetTop) ;
-				if (dragObjectY < offsetTop)	dragObject.style.top = offsetTop + "px" ;
-			} else {
-				if (dragObjectY < 0) dragObject.style.top = "0px" ;
-			}
-		} catch(err) {
-			alert(err.message) ;
-		} 	
+  	var offsetParent = dragObject.offsetParent ;
+  	if (offsetParent) {
+  		if (eXo.core.Browser.findPosY(dragObject) < 0)  dragObject.style.top = (0 - offsetParent.offsetTop) + "px" ;
+  	} else {
+  		dragObject.style.top = "0px" ;
+  	} 		
+//		try {
+//			var uiWindows = DOMUtil.findAncestorsByClass(dragObject, "UIWindow") ;
+//			var len = uiWindows.length ;
+//			var mLen = dragObject.childNodes.length ;
+//			var isMessage = false ;
+//			for(var i = 0 ; i < mLen ; i++) {
+//				var className = dragObject.childNodes[i].className ;
+//				if (className && (className.indexOf("Message") > -1)) {
+//					isMessage = true ;
+//					break ;
+//				}
+//			}
+//			if (len > 0 && !isMessage) {
+//				var offsetTop = (0 - uiWindows[0].offsetTop) ;
+//				if (dragObjectY < offsetTop)	dragObject.style.top = offsetTop + "px" ;
+//				alert("af adk ad df d") ;
+//			} else {
+//				if (!DOMUtil.hasClass(dragObject.offsetParent,"UIPopupWindow")) {
+//					if (dragObjectY < 0) dragObject.style.top = "0px" ;
+//				} else {
+//					if (eXo.core.Browser.findPosY(dragObject) < 0) dragObject.style.top = (0 - dragObject.offsetParent.offsetTop) + "px" ;
+//				}
+//			}
+//		} catch(err) {
+//			alert(err.message) ;
+//		}
   }
   var clickBlock = this ;
   var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
