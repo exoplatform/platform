@@ -74,36 +74,37 @@ Env.prototype.execute = function(args, screen) {
   
   if (subCmd == 'set') {
     var equalSignPos = paramStr.indexOf('=') ;
-    var name = paramStr.substring(0, equalSignPos) ;
-    var value = paramStr.substring(equalSignPos + 1, paramStr.length) ;
-    if (value) {
-      value = value.trim() ;
-    }
-    var found = false ;
-    for (var i=0; i<envVars.length; i++) {
-      var v = envVars[i] ;
-      if (v[0] == name) {
-        if (!value || value == '') {
-          envVars.remove(v) ;
-        } else {
-          v[1] = value ;
-        }
-        found = true ;
-        break ;
+    if (equalSignPos != -1) {
+      var name = paramStr.substring(0, equalSignPos) ;
+      var value = paramStr.substring(equalSignPos + 1, paramStr.length) ;
+      if (value) {
+        value = value.trim() ;
       }
+      var found = false ;
+      for (var i=0; i<envVars.length; i++) {
+        var v = envVars[i] ;
+        if (v[0] == name) {
+          v[1] = value ;
+          found = true ;
+          break ;
+        }
+      }
+      if (!found) {
+        envVars[envVars.length] = [name, value] ;
+      }
+      this.updateEnvVariables(envVars, screen) ;
+      return {retCode:0, resultContent: (name + '=' + value)} ;
+    } else {
+      return {retCode:-1, msg: (paramStr + ' missing =')} ;
     }
-    if (!found) {
-      envVars[envVars.length] = [name, value] ;      
-    }
-    this.updateEnvVariables(envVars, screen) ;
-    return {retCode:0, resultContent: (name + '=' + value)} ;
   } else if (subCmd == 'remove') {
     var value = false ;
     for (var i=0; i<envVars.length; i++) {
       var v = envVars[i] ;
       if (v[0] == paramStr) {
         value = v[1] ;
-        envVars.remove(v) ;
+        v[1] = false ;
+        this.updateEnvVariables(envVars, screen) ;
         break ;
       }
     }
@@ -114,7 +115,17 @@ Env.prototype.execute = function(args, screen) {
     }
   } else if (subCmd == 'display') {
     var envLstTmp = [] ;
-    return {retCode:0, resultContent: ('Not implement')} ;
+    for (var i=0; i<envVars.length; i++) {
+      var v = envVars[i] ;
+      if (v[0].indexOf(paramStr) == 0) {
+        envLstTmp[envLstTmp.length] = v ;
+      }
+    }
+    if (envLstTmp.length > 0) {
+      return {retCode:0, resultContent: (this.formatEnvList(envLstTmp))} ;
+    } else {
+      return {retCode:-1, msg: (paramStr + ' not defined')} ;
+    }
   }
   return {retCode:-1, msg: 'Sub command ' + subCmd + ' is not implement'} ;  
 } ;
@@ -165,7 +176,7 @@ Env.prototype.updateEnvVariables = function(envVars, node) {
   var envStr = '' ;
   for (var i=0; i<envVars.length; i++) {
     var v = envVars[i] ;
-    if (v) {
+    if (v && v[1] && v[1] != '') {
       envStr += v[0] + '=' + v[1] + ':' ;
     }
   }

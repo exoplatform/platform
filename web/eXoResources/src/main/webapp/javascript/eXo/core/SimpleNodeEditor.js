@@ -51,8 +51,6 @@ SimpleNodeEditor.prototype.removeCursor = function() {
 SimpleNodeEditor.prototype.defaultWrite = function() {
   this.beforeCursor = this.htmlUtil.entitiesEncode(this.beforeCursor) ;
   this.afterCursor = this.htmlUtil.entitiesEncode(this.afterCursor) ;
-//  window.alert('beforeCursor: ' + this.beforeCursor) ;
-//  window.alert('afterCursor: ' + this.afterCursor) ;
   this.write(this.beforeCursor, this.cursor, this.afterCursor) ;
 }
 
