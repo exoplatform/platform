@@ -137,11 +137,15 @@ Browser.prototype.addOnLoadCallback = function(id, method) {
 } ;
 
 Browser.prototype.onLoad = function() {
-  var callback = eXo.core.Browser.onLoadCallback ;
-  for(var name in callback.properties) {
-    var method = callback.get(name) ;
-    method() ;
-  }
+	try {
+  	var callback = eXo.core.Browser.onLoadCallback ;
+	  for(var name in callback.properties) {
+	    var method = callback.get(name) ;
+	    method() ;
+	  }
+	} catch(e) {
+		//alert(e.message) ;
+	}
   this.onLoadCallback = new eXo.core.HashMap();
 } ;
 
