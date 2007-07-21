@@ -36,16 +36,14 @@ UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
 	this.changeTabForUITabPane(clickedEle, null, null) ;
 };
 
-UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedElemt, panelId, tabId) {
-  var DOMUtil = eXo.core.DOMUtil;
+UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, panelId, tabId) {
+    var DOMUtil = eXo.core.DOMUtil;
   var uiSelectTab = DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
- 
-  
- // alert("--" + componentId + " -+- " + selectedId);
+
   var uiHorizontalTabs = DOMUtil.findAncestorByClass(clickedEle, "UIHorizontalTabs") ;
   var uiTabs = eXo.core.DOMUtil.findDescendantsByClass(uiHorizontalTabs, "div", "UITab") ;
   var parentdHorizontalTab = uiHorizontalTabs.parentNode ;
- 
+
   var contentTabContainer = DOMUtil.findFirstDescendantByClass(parentdHorizontalTab, "div", "UITabContentContainer") ;
   var uiTabContent = DOMUtil.getChildrenByTagName(contentTabContainer, "div") ;
   
@@ -61,7 +59,6 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedElemt, panelI
     uiTabContent[i].style.display = "none" ;
   }
   uiTabContent[index].style.display = "block" ;
- 
   
   if(panelId !=null && tabId !=null){
    var params = [ {name: "objectId", value : tabId} ] ;
