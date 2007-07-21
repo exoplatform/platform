@@ -159,9 +159,11 @@ ScrollManager.prototype.init = function() {
 	this.firstVisibleIndex = 0;
 	this.lastVisibleIndex = -1;
 	// Hides the arrows by default
-	this.arrowsContainer.style.display = "none";
-	this.arrowsContainer.space = null;
-	this.mainContainer.space = null;
+	if(this.conarrowsContainer)  {
+		this.arrowsContainer.style.display = "none";
+		this.arrowsContainer.space = null;
+		this.mainContainer.space = null;
+	}
 };
 
 ScrollManager.prototype.loadElements = function(elementClass, clean) {
