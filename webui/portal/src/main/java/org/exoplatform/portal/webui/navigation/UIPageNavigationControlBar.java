@@ -147,8 +147,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
         dataService.create(nav) ;
       }
       UIPortal uiPortal = Util.getUIPortal();
-      UserPortalConfig userPortalConfig = dataService.getUserPortalConfig(uiPortal.getName(), accessUser);
-      uiPortal.setNavigation(userPortalConfig.getNavigations());
+      uiPortal.setNavigation(navigations);
       
       event.getSource().abort(event);
     }
