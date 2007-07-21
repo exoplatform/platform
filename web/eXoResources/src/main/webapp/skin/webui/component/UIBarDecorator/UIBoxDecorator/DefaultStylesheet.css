@@ -160,3 +160,51 @@
   background: url('DefaultSkin/background/LightBlueBR.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
+
+/*##############################- View box style-################################*/
+
+.DecoratorBox .ViewBoxStyle .CenterViewBoxStyleBG {
+  background: #ffffff ;
+}
+
+.DecoratorBox .ViewBoxStyle .TopLeftViewBoxStyle {
+  background: url('DefaultSkin/background/TopLeftViewBoxStyle8x8.gif') no-repeat left ;
+  padding: 0px 0px 0px 8px;
+}
+
+.DecoratorBox .ViewBoxStyle .TopCenterViewBoxStyle {
+  height: 8px ;
+  background: url('DefaultSkin/background/TopCenterViewBoxStyle1x8.gif') repeat-x ;
+}
+
+.DecoratorBox .ViewBoxStyle .TopRightViewBoxStyle {
+  background: url('DefaultSkin/background/TopRightViewBoxStyle8x8.gif') no-repeat right ;
+  padding: 0px 8px 0px 0px ;
+}
+
+.DecoratorBox .ViewBoxStyle .MiddleLeftViewBoxStyle {
+  background: url('DefaultSkin/background/MiddleLeftViewBoxStyle4x1.gif') repeat-y ;
+  padding: 0px 0px 0px 4px ;
+}
+
+.DecoratorBox .ViewBoxStyle .MiddleRightViewBoxStyle {
+  background: url('DefaultSkin/background/MiddleRightViewBoxStyle4x1.gif') repeat-y right;
+  padding: 0px 4px 0px 0px ;
+}
+
+.DecoratorBox .ViewBoxStyle .BottomLeftViewBoxStyle {
+  width: auto; 
+  background: url('DefaultSkin/background/BottomLeftViewBoxStyle9x8.gif') no-repeat left ;
+  padding: 0px 0px 0px 9px ;
+}
+
+.DecoratorBox .ViewBoxStyle .BottomCenterViewBoxStyle {
+  height: 8px ;
+  background: url('DefaultSkin/background/BottomCenterViewBoxStyle1x8.gif') repeat-x ;
+}
+
+.DecoratorBox .ViewBoxStyle .BottomRightViewBoxStyle {
+  background: url('DefaultSkin/background/BottomRightViewBoxStyle8x8.gif') no-repeat right ;
+  padding: 0px 8px 0px 0px ;
+}
+

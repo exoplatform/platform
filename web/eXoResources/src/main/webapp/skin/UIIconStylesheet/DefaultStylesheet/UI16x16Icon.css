@@ -8,6 +8,10 @@
   background: url('/eXoResources/icons/16x16/DefaultSkin/Home.gif') ;
 }
 
+.BlueDownArrowIcon {
+	background: url('/eXoResources/icons/16x16/DefaultSkin/BlueDownArrow.gif') no-repeat right;
+}
+
 .RightBlackGridArrow16x16Icon {
   width: 16px ; height: 16px ;
   background: url('/eXoResources/icons/16x16/DefaultSkin/BreadcumbsArrowIcon.gif') ;
