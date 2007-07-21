@@ -62,7 +62,7 @@ public class UIListUsers extends UISearch {
   
 	public UIListUsers() throws Exception {
 		super(OPTIONS_) ;
-		grid_ = addChild(UIGrid.class, null, "UIListUsers") ;
+		grid_ = addChild(UIGrid.class, null, "UIListUsersGird") ;
 		grid_.configure("userName", USER_BEAN_FIELD, USER_ACTION) ;
     //TODO: Tung.Pham added
     //--------------------------------------------
