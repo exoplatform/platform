@@ -21,7 +21,6 @@ public class WidgetHandler extends Command {
   
   private String componentId ;
   
-
   @SuppressWarnings("unused")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     System.out.println("\n\n\n----------------------------->WidgetHandler");

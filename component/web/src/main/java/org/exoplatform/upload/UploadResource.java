@@ -11,6 +11,7 @@ package org.exoplatform.upload;
  * Dec 26, 2005
  */
 public class UploadResource {
+  
   final static public int UPLOADING_STATUS = 0 ; 
   final static public int UPLOADED_STATUS = 1 ; 
   

@@ -51,8 +51,9 @@ public class UploadService {
     
     uploadResources.put(upResource.getUploadId(), upResource) ;
     
-
-    FileOutputStream output = new FileOutputStream(upResource.getStoreLocation());
+    File fileStore = new File(upResource.getStoreLocation());
+    if(!fileStore.exists()) fileStore.createNewFile();
+    FileOutputStream output = new FileOutputStream(fileStore);
     reader.readBodyData(request, output);
 
     if(upResource.getStatus() == UploadResource.UPLOADING_STATUS){
@@ -61,9 +62,7 @@ public class UploadService {
     }
     
     uploadResources.remove(uploadId) ;
-    
-    File file  = new File(upResource.getStoreLocation());
-    file.delete();  
+    fileStore.delete();  
   }  
   
   public UploadResource getUploadResource(String uploadId) {//throws Exception 

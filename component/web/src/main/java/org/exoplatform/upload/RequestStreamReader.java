@@ -98,9 +98,6 @@ class RequestStreamReader {
       if(input != null) input.close() ;
       if(output != null) output.close();  
     }
-    
-    
-
   }
 
   Map<String, String> parseHeaders(InputStream input, String headerEncoding)  throws IOException {
@@ -159,14 +156,14 @@ class RequestStreamReader {
     }
 
     if (headerEncoding != null) {
-      try {
+      try {        
         return baos.toString(headerEncoding);
       } catch (Exception e) {
       }
     } 
-    return baos.toString();
+    return baos.toString("UTF-8");
   }
-
+ 
   private byte readByte(InputStream input) throws IOException {
     if (head != tail) return buffer[head++];  
     head = 0;
@@ -205,4 +202,5 @@ class RequestStreamReader {
     }
     return null;
   }
+  
 }
