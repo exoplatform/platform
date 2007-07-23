@@ -30,8 +30,15 @@
   margin-left: 10px;
 }
 
+/*
+	minh.js.exo
+	fix bug :  PORTAL-658
+	padding: 0px 0px 10px 0px;
+	}
+*/
+
 .UIPageNodeSelector .UITree {
-  padding: 0px 0px 10px 0px;
+  padding: 0px 0px 20px 0px;
   background: white;
   border: 1px #b7b7b7 solid;
 }

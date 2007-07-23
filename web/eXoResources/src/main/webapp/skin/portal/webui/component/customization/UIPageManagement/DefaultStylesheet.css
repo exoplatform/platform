@@ -9,9 +9,19 @@
 	margin: 13px 2px 0px 105px; 
 }
 
+
+/*
+	minh.js.exo
+	fix bug :  PORTAL-658
+	.UIPageManagement .UITree .TreeContainer .Node {
+		height: 20px;
+	}
+*/
+
 .UIPageManagement .UITree  {
 	overflow: hidden;
 }
+
 
 .UIPageManagement .UIToolbar .EditToolbar {
   margin-top: 15px;
