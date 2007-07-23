@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.util.Util;
@@ -88,12 +89,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
                  addUIFormInput(new UIFormTextAreaInput("description","description", null)).
                  addUIFormInput(new UIFormSelectBox("priority", null, priorties));
     addUIFormInput(uiSettingSet) ;
-//    //TODO: Tung.Pham modified
-//    //-----------------------------------
-//    if(!uiSelectBoxOwnerType.getValue().equals(PortalConfig.USER_TYPE)) {
-//      setPermissionSetting(true) ;
-//    }
-    //-----------------------------------
+
     UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
     uiPermissionSetting.setRendered(false);
     addUIComponentInput(uiPermissionSetting);
@@ -119,29 +115,8 @@ public class UIPageNavigationForm extends UIFormTabPane {
     setActions(new String[]{"Save", "Close" });
   }
   
-  //TODO: Tung.Pham added
-//  public void setPermissionSetting(boolean isCreate) throws Exception {
-//    if(isCreate) {
-//      UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
-//      uiPermissionSetting.setRendered(false);
-//      addUIComponentInput(uiPermissionSetting);
-//      
-//      UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
-//      uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-//      uiPermissionSetting.addChild(uiListPermissionSelector);
-//      
-//      UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
-//      uiEditPermission.setRendered(false) ;
-//      uiEditPermission.configure("UIPermissionSelector", "editPermission");
-//      uiPermissionSetting.addChild(uiEditPermission);      
-//    } else if(getChildById("PermissionSetting") != null) {
-//      removeChildById("PermissionSetting") ;
-//    }
-//  }
-  
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
-    
     UIFormPopupWindow uiPopupGroupSelector = getChildById("UIPopupGroupSelector");
     if(uiPopupGroupSelector != null) uiPopupGroupSelector.processRender(context);
   }
@@ -163,71 +138,55 @@ public class UIPageNavigationForm extends UIFormTabPane {
     invokeGetBindingBean(pageNavigation) ;
     
     getUIFormSelectBox("ownerType").setEnable(false);
-    
     UIFormSelectBox uiSelectBox = findComponentById("priority");
     uiSelectBox.setValue(String.valueOf(pageNavigation.getPriority()));
-    
-  //TODO Tung: check  edit pageNavigation is ownerType = User when remove PermissionSetting tab 
     if(pageNavigation.getOwnerType().equals(PortalConfig.USER_TYPE)) removeChildById("PermissionSetting") ;  
   }
 
-  //TODO: Tung.Pham modified
   static public class SaveActionListener extends EventListener<UIPageNavigationForm> {
     public void execute(Event<UIPageNavigationForm> event) throws Exception {   
       UIPageNavigationForm uiForm = event.getSource();
-      boolean isNewNavigation = false;
       PageNavigation pageNav = uiForm.getPageNavigation();
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
-      
-      if(pageNav == null) {
-        isNewNavigation = true;
-        pageNav = new PageNavigation();
+
+      if(pageNav != null) {
+        uiForm.invokeSetBindingBean(pageNav) ;
+        UIFormSelectBox uiSelectBox = uiForm.findComponentById("priority");
+        int priority = Integer.parseInt(uiSelectBox.getValue());
+        pageNav.setPriority(priority); 
+        pageNav.setModifier(pcontext.getRemoteUser());     
+
+        UIComponentDecorator uiFormParent = uiForm.getParent(); 
+        uiFormParent.setUIComponent(null);
+        pcontext.addUIComponentToUpdateByAjax(uiFormParent); 
+        return;
       }
-      
+
+      pageNav = new PageNavigation();
       uiForm.invokeSetBindingBean(pageNav) ;
       UIFormSelectBox uiSelectBox = uiForm.findComponentById("priority");
       int priority = Integer.parseInt(uiSelectBox.getValue());
       pageNav.setPriority(priority);
-      if(isNewNavigation) {
-        pageNav.setModifiable(true);
-        pageNav.setCreator(pcontext.getRemoteUser());
-      } else {
-        pageNav.setModifier(pcontext.getRemoteUser());        
-      }
-      
-      if(isNewNavigation) {
-        UIPortalApplication uiPortalApp = uiForm.getAncestorOfType(UIPortalApplication.class);
-        UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
-        boolean hasUIPageNodeSelector = (uiPageNodeSelector != null) ;
-        if((hasUIPageNodeSelector && isExist(uiPageNodeSelector.getPageNavigations(), pageNav))) {
-          uiPortalApp.addMessage(new ApplicationMessage("UIPageNavigationForm.msg.existPageNavigation", new String[]{pageNav.getOwnerId()})) ;;
-          pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-          return ;
-        }
+      pageNav.setModifiable(true);
+      pageNav.setCreator(pcontext.getRemoteUser());
 
-        if(hasUIPageNodeSelector) {
-          //Util.getUIPortal().getNavigations().add(pageNav);
-          //uiPageNodeSelector.loadNavigations();
-          uiPageNodeSelector.addPageNavigation(pageNav) ;  
-          uiPageNodeSelector.selectNavigation(pageNav.getId()) ;
-          pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
-        }
-      } 
+      UIPortalApplication uiPortalApp = uiForm.getAncestorOfType(UIPortalApplication.class);
+      UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
       
-      UIComponentDecorator uiFormParent = uiForm.getParent(); 
-      uiFormParent.setUIComponent(null);
-      pcontext.addUIComponentToUpdateByAjax(uiFormParent); 
+      DataStorage storage = uiForm.getApplicationComponent(DataStorage.class);
+      if(storage.getPageNavigation(pageNav.getId()) != null) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageNavigationForm.msg.existPageNavigation", new String[]{pageNav.getOwnerId()})) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+        return ;
+      }
+
+      if(uiPageNodeSelector != null) {
+        uiPageNodeSelector.addPageNavigation(pageNav) ;  
+        uiPageNodeSelector.selectNavigation(pageNav.getId()) ;
+        pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
+      }
     }
     
-    //TODO: Tung.Pham added
-    private boolean isExist(List<PageNavigation> navis, PageNavigation navi) {
-      for(PageNavigation ele : navis) {
-        if(ele.getId().equals(navi.getId())) return true ;
-      }
-      
-      return false ;
-    }
-
   }
   
   static public class ChangeOwnerTypeActionListener  extends EventListener<UIPageNavigationForm> {
@@ -256,15 +215,17 @@ public class UIPageNavigationForm extends UIFormTabPane {
     public void execute(Event<UIGroupSelector> event) throws Exception {
       UIGroupSelector uiGroupSelector = event.getSource();
       UIPageNavigationForm uiPageNavigationForm = uiGroupSelector.getAncestorOfType(UIPageNavigationForm.class);
-      UIFormStringInput ownerIdStringInput = uiPageNavigationForm.getUIStringInput("ownerId");
+      UIFormStringInput uiOwnerId = uiPageNavigationForm.getUIStringInput("ownerId");
       if(uiGroupSelector.getSelectedGroup() == null) {
         UIFormSelectBox uiSelectBox = uiPageNavigationForm.getUIFormSelectBox("ownerType");
         uiSelectBox.setValue(PortalConfig.USER_TYPE);
         PortalRequestContext prContext = Util.getPortalRequestContext();
-        ownerIdStringInput.setValue(prContext.getRemoteUser());
+        uiOwnerId.setValue(prContext.getRemoteUser());
         return;
       }
-      ownerIdStringInput.setValue(uiGroupSelector.getSelectedGroup().getId());
+      String groupId = uiGroupSelector.getSelectedGroup().getId();
+      if(groupId.charAt(0) == '/') groupId = groupId.substring(1);
+      uiOwnerId.setValue(groupId);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNavigationForm.getParent());
     }
   }
