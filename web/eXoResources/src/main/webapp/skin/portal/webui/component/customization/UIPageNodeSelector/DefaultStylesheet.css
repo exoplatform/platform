@@ -55,6 +55,8 @@
 
 .UIPageNodeSelector .UITree .TreeContainer .Node {
 	line-height: 20px;
+	width: 190px;
+	padding-left: 4px;
 }	
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .ExpandIcon {
@@ -77,7 +79,7 @@
 .UIPageNodeSelector .UITree .TreeContainer .Node .NodeLabel  {
   cursor: pointer ;
   float: left ;
-  height: 17px; line-height: 17px; 
+  line-height: 17px; 
   color: black; font-weight: bold;
 }
 

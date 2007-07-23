@@ -36,5 +36,6 @@
 	background: url(VistaSkin/background/TitleBG1x23.gif) repeat-x ;
 	line-height: 23px;
 	border: 1px solid #b7b7b7;
+	border-bottom: none;
 	margin: 0px;
 }

@@ -36,6 +36,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIOrganizationPortlet extends UIPortletApplication {
  
   public UIOrganizationPortlet() throws Exception {
+    setMinWidth(730) ;
   	addChild(UIViewMode.class, null, UIPortletApplication.VIEW_MODE);
     addChild(UIPopupMessages.class, null , UIPortletApplication.HELP_MODE) ;
   }

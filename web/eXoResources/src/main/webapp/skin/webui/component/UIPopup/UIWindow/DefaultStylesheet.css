@@ -193,7 +193,7 @@
 }
 /********************* Icon InfoBar ************************************/
 .UIWindow .OrganizationPortletIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/AddNodeIcon.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Earth.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Content {

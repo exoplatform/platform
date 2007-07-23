@@ -10,6 +10,10 @@
 	background: #ffffff;
 }
 
+.UITabContainer .UITabContent {
+	padding-top: 8px;
+}
+
 .UITabContainer .TabLabel {
 	float: left;
 	padding: 0px 10px 0px 2px;

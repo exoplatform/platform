@@ -21,7 +21,6 @@
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer{
   white-space: nowrap;
   margin: 0px;
-  padding: 10px 0px 0px 10px;
 }
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel{
@@ -65,4 +64,8 @@
   margin: 2px ;
   border: 1px red solid;
   cursor: pointer ;
+}
+
+.UIMaskWorkspace .UIForm .HorizontalLayout .UINodeIconSelector .UIFormInputSet {
+	width: auto;
 }

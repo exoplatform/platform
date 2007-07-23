@@ -125,37 +125,37 @@
 	margin: 2px 0px 0px 0px;
 }
 
-/*
-.UIContentPortlet .OpenNewsIcon {
-	background: url('VistaSkin/icons/OpenNewsIcon.gif') no-repeat;
-	width: 18px; height: 16px;
-	margin-top: 5px;
-}
-*/
-
 .UIContentPortlet .UIBreadcumbs .HomeIcon {
 	background: url('VistaSkin/icons/OpenNewsIcon.gif') no-repeat;
 	width: 18px; height: 16px;
 	margin-top: 1px;
 }
 
+.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .BreadcumbsContainer {
+  float: left;
+}
+
 .UIContentPortlet .UIBreadcumbs {
+  float: left;
 	padding: 0px ;
-	height: auto;
+	height: 25px;
+	border: 1px solid red;
 }
 
 .UIContentPortlet .UIBreadcumbs .LeftBreadcumbsBar {
 	background: none ;
 	padding: 0px ;
+	height: 25px;
 }
 
 .UIContentPortlet .UIBreadcumbs .RightBreadcumbsBar {
+	height: 25px;
 	background: none ;
 }
 
 .UIContentPortlet .UIBreadcumbs .BreadcumbsInfoBar {
+	height: 25px;
 	background: none ;
-	height: auto;
 }
  
 .UIContentPortlet .UIBreadcumbs a {
@@ -210,6 +210,7 @@
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs {
+	border: 1px solid red;
 }
 
 .UIContentPortlet .UIContentWorkingArea .UIDescription{
@@ -217,25 +218,10 @@
  margin: 0px;
 }
 
-.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .BreadcumbsContainer {
-  padding: 3px 0px 0px 3px;
-  height: 18px;
-  float: left;
-}
-
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .Icon {
   float: left;
   margin: 1px 7px 0px 4px;
 }
-
-/*
-.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .PathArrowIcon {
-  float: left ;
-  margin: 2px 3px 0px 0px;
-	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BlueNextArrow.gif') no-repeat left;
-}
-*/
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs a.CategoryName {
   float: left;
@@ -251,6 +237,7 @@
 .UIContentPortlet .RefreshBar {
   float: right;
   padding: 1px 10px 0px 5px;
+	border: 1px solid red;
 }
 
 .UIContentPortlet .RefreshBar a{

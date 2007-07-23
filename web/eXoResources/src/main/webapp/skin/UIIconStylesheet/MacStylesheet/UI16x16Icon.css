@@ -212,6 +212,11 @@
   width: 16px ;  height: 16px ;
 }
 
+.Refresh16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/RefreshIcon.gif') ;
+}
+
 .AddNode16x16Icon {
   background: url('/eXoResources/icons/16x16/MacSkin/BluePlusCircle.gif') no-repeat ;
   width: 16px ;  height: 16px ;

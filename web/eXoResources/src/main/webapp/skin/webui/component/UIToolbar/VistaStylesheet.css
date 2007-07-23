@@ -110,6 +110,63 @@
   color: orange;
 }
 
+/*********************fix bug in IE**********************/
+
+.UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {
+  float: left ;
+  margin: 13px 8px 0px 10px ;
+  width: 2px; height: 40px ;
+}
+
+.UIOrganizationPortlet .UIToolbar .LargeToolbar .UserButton {
+  float: left;
+  margin-top: 6px;
+  width: 120px;
+  cursor: pointer;
+}
+
+.UIOrganizationPortlet .UIToolbar .LargeToolbar .GroupButton {
+  float: left;
+  margin-top: 6px;
+  width: 130px;
+  cursor: pointer;
+}
+
+.UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
+  float: left;
+  margin-top: 6px;
+  width: 170px;
+  cursor: pointer;
+}
+
+.UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
+  height: 18px; line-height: 18px; 
+  padding-left: 10px;
+}
+
+.UIOrganizationPortlet .ManagementIconContainer {
+  margin-left: 5px;
+  padding-top: 6px;
+}
+
+.UIOrganizationPortlet .UserManagementIcon {
+  width: 32px; height: 30px; 
+  margin: auto;
+  background: url('/eXoResources/icons/32x32/VistaSkin/UserManagement.gif') no-repeat center;
+}
+
+.UIOrganizationPortlet .GroupManagementIcon {
+  width: 32px; height: 30px; 
+  margin: auto;
+  background: url('/eXoResources/icons/32x32/VistaSkin/GroupManagement.gif') no-repeat center;
+}
+
+.UIOrganizationPortlet .MembershipManagementIcon {
+  width: 32px; height: 30px; 
+  margin: auto;
+  background: url('/eXoResources/icons/32x32/VistaSkin/MembershipManagement.gif') no-repeat center ;
+}
+
 /*##############################- StandardToolbar style -#########################*/
 .UIToolbar .StandardToolbar {
   background: url('VistaSkin/background/StandardToolbarRepeatBg1x42.gif') repeat-x ;

@@ -201,7 +201,6 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
-	width: 380px;
 	margin: auto;
 }
 
@@ -283,5 +282,5 @@
 }
 
 .UIWizard .PageNodeContainer .UITree .JSContainer {
-	width:210px;
+	width: 210px;
 }

@@ -193,6 +193,11 @@
   background: url('/eXoResources/icons/16x16/VistaSkin/DoublePaper.gif') no-repeat ;
 }
 
+.Refresh16x16Icon {
+  width: 24px ;  height: 24px ;
+  background: url('/eXoResources/icons/16x16/VistaSkin/Refresh.png') ;
+}
+
 .LoadingInfo16x16Icon {
   width: 16px ;  height: 16px ;
   background: url('/eXoResources/icons/16x16/VistaSkin/LoadingInfo.gif') no-repeat ;

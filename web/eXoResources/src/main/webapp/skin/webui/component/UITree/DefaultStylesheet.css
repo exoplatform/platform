@@ -60,15 +60,14 @@
 
 .UITree .TreeContainer .Node .NodeLabel a {
   cursor: pointer ;
-  margin: 2px 0px 0px 4px ; 
+  margin: 2px 0px 0px 2px ; 
   float: left ;
-  height: 16px ;  line-height: 16px ;
+  line-height: 16px ;
   color: black; font-weight: bold;
 }
 
 .UITree .TreeContainer .Node .NodeLabel a:hover {
-  color: orange; font-weight: bold;
-  margin: 2px 0px 0px 4px ;
+  color: orange; 
 }
 
 .UITree .TreeContainer .NodeSelected {

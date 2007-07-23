@@ -252,6 +252,26 @@
 .UIOrganizationPortlet .UIGroupForm .HorizontalLayout .FormContainer { 
 	height: 236px;
 }
+
+.UIOrganizationPortlet .UIGroupMembershipForm .UIForm select {
+	float: left;
+}
+
+.UIOrganizationPortlet .UIGroupMembershipForm .UIForm input {
+	float: left;
+}
+
+.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm a.Icon{ 
+	background-position: left center;
+	background-repeat: no-repeat;
+	float: right;
+	height: 24px; width: 24px;
+}
+
+.UIOrganizationPortlet .UIGroupInfo .ListUserForSearch{ 
+	padding: 10px;
+}
+
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMembershipManagement {

@@ -16,7 +16,6 @@
 					<div class="MiddleBar">
 						<div class="BreadcumbsContainer">
 							<%uicomponent.renderChild(UIBreadcumbs.class) ;%>
-							<div style="clear: left;"><span></span></div>
 						</div>
 						<div class="RefreshBar">
 							<div class="SeparatorLine"><span></span></div>
