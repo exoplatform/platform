@@ -7,6 +7,7 @@ package org.exoplatform.portal.webui.portal;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
@@ -60,10 +61,9 @@ public class UIPortalManagementControlBar extends UIToolbar {
     uiPortalApp.setSkin(uiPortal.getSkin());
   }
   
-  public void abort(Event<UIPortalManagementControlBar> event) throws Exception {
-    UIPortal portal = Util.getUIPortal();
-    portal.setMode(UIPortal.COMPONENT_VIEW_MODE);
-    portal.setRenderSibbling(UIPortal.class) ;    
+  /*public void abort(Event<UIPortalManagementControlBar> event) throws Exception {
+    UIPortal uiPortal = Util.getUIPortal();
+    uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
     PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
     pcontext.setFullRender(true);
     UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
@@ -72,10 +72,11 @@ public class UIPortalManagementControlBar extends UIToolbar {
     
     UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
     UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+    uiWorkingWS.setRenderedChild(UIPortal.class) ; 
     pcontext.addUIComponentToUpdateByAjax(uiControl);
     pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;  
   }
-  
+  */
   static public class RollbackActionListener  extends EventListener<UIPortalManagementControlBar> {
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalManagementControlBar uiPortalManagement = event.getSource();      
@@ -110,7 +111,11 @@ public class UIPortalManagementControlBar extends UIToolbar {
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalManagementControlBar uiPortalManagement = event.getSource();   
       uiPortalManagement.save();
-      uiPortalManagement.abort(event);
+      
+      UIPortal uiPortal = Util.getUIPortal();
+      PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
+           PageNodeEvent.CHANGE_PAGE_NODE, null, uiPortal.getSelectedNode().getUri()) ;
+      uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;    
     }
   }
   
@@ -128,12 +133,14 @@ public class UIPortalManagementControlBar extends UIToolbar {
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
       PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
       
-      UIPortal oldUIPortal =uiWorkingWS.getChild(UIPortal.class);
+      UIPortal oldUIPortal = uiWorkingWS.getChild(UIPortal.class);
       uiWorkingWS.setBackupUIPortal(oldUIPortal);
       uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
       uiWorkingWS.setRenderedChild(UIPortal.class) ;  
       
-      event.getSource().abort(event);
+      PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
+           PageNodeEvent.CHANGE_PAGE_NODE, null, uiPortal.getSelectedNode().getUri()) ;
+      uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;    
     }
   }
 }
