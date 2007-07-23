@@ -1,4 +1,4 @@
-<div id="<%=context.appId%>" class="UIWindow UIDragObject" <%=context.window.cssElementStyle%>>
+<div id="<%=context.appId%>" class="UIWindow UIDragObject UIResizeObject" <%=context.window.cssElementStyle%>>
   <div class="WindowBarLeft">
     <div class="WindowBarRight">
       <div class="WindowBarCenter">
@@ -25,15 +25,15 @@
     </div>
   </div>
   
-  <div class="TopDecoratorLeft">
-    <div class="TopDecoratorRight">
-      <div class="TopDecoratorCenter"><span></span></div>
-    </div>
-  </div>
-  
   <div class="MiddleDecoratorLeft">
     <div class="MiddleDecoratorRight">
-      <div class="MiddleDecoratorCenter"><%=context.window.content%></div>
+      <div class="MiddleDecoratorCenter">
+        <div style="width: 100%;">
+          <div class="UIResizableBlock UIApplication" style="width: 100%; height: 300px;">
+            <%=context.window.content%>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   
