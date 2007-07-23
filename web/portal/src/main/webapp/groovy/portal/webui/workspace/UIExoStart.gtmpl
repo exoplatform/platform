@@ -216,7 +216,7 @@
     print """
       <div class="LoginContainer">
         <div class="LabelItem">
-          <div class="$icon">
+          <div class="$icon" onclick = "location.href='$href'; event.cancelBubble= true ;">
             <div class="LabelText"><a href="$href">$name</a></div>
           </div>
         </div>
