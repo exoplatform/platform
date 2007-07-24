@@ -100,7 +100,7 @@
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab {
   line-height: 24px; 
-  margin-left: 1px;
+  margin-left: 1px; 
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
@@ -197,18 +197,18 @@
 .UIHorizontalTabs .NormalTabStyle .SelectedTab {
   line-height: 24px;
   margin-right: 1px;
-  color: #307dcc; overflow: hidden;
+  color: #307dcc; 
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
-  line-height: 24px;
-  padding-left: 15px;
+	line-height: 24px;
+  padding-left: 15px; 
   background: url('DefaultSkin/background/LeftSelectedTab15x24.gif') no-repeat left bottom;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
-  line-height: 24px;
-  padding-right: 3px;
+	line-height: 24px;
+  padding-right: 3px; 
   background: url('DefaultSkin/background/RightSelectedTab3x24.gif') no-repeat right bottom;
 }
 
@@ -239,7 +239,6 @@
 }
 
 .UIHorizontalTabs .UITab .NormalStyle1 .MiddleTab {
-  line-height: 27px;
   line-height: 27px;
   background: url('DefaultSkin/background/GrayRectangleBg1x27.gif') repeat-x;
 }
