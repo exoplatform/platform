@@ -128,7 +128,7 @@
 .UIContentPortlet .UIBreadcumbs .HomeIcon {
 	background: url('VistaSkin/icons/OpenNewsIcon.gif') no-repeat;
 	width: 18px; height: 16px;
-	margin-top: 1px;
+	margin-top: 4px;
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .BreadcumbsContainer {
@@ -138,34 +138,32 @@
 .UIContentPortlet .UIBreadcumbs {
   float: left;
 	padding: 0px ;
-	height: 25px;
+	height: auto;
 }
 
 .UIContentPortlet .UIBreadcumbs .LeftBreadcumbsBar {
 	background: none ;
 	padding: 0px ;
-	height: 25px;
 }
 
 .UIContentPortlet .UIBreadcumbs .RightBreadcumbsBar {
-	height: 25px;
 	background: none ;
 }
 
 .UIContentPortlet .UIBreadcumbs .BreadcumbsInfoBar {
-	height: 25px;
+	height: auto;
 	background: none ;
 }
  
 .UIContentPortlet .UIBreadcumbs a {
-	line-height: 18px ;
+	line-height: 22px;
 }
 
 .UIContentPortlet .UIBreadcumbs a.Selected {
 }
 
 .UIContentPortlet .UIBreadcumbs .RightBlackGridArrowIcon {
-	margin-top: 2px ;
+	margin-top: 4px ;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/BlueNextArrow.gif') no-repeat left ;
 }
 

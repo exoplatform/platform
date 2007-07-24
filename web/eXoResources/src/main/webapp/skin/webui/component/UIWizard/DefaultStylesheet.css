@@ -197,11 +197,12 @@
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
   background: white;
   padding: 10px;
-  height: 143px;
+  height: 152px;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
 	margin: auto;
+	width: 400px;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle textarea {
@@ -247,7 +248,8 @@
 }
 
 .UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList .ItemDetail {
-  height: 248px;
+  height: 252px;
+  padding-top: 15px;
   border: none;
 }
 
@@ -258,7 +260,7 @@
 .UIWizard .UIFormTabPane .LayoutHolder {
   width: 310px;
   text-align: center;
-  margin: auto; margin-top: 20px;
+  margin: 0px auto; 
 }
 
 .UIWizard .UIFormTabPane .LayoutHolder .LayoutLabel {

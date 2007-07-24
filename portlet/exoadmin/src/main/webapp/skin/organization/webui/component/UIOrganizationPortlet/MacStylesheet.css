@@ -272,6 +272,10 @@
 	padding: 10px;
 }
 
+.UIOrganizationPortlet .SelectUserIcon {
+  background: url('/eXoResources/icons/16x16/MacSkin/CheckerIcon.gif') center ;
+}
+
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMembershipManagement {

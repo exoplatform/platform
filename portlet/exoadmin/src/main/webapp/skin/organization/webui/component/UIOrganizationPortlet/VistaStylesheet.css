@@ -244,8 +244,17 @@
 	height: 24px; width: 24px;
 }
 
-.UIOrganizationPortlet .UIGroupInfo .ListUserForSearch{ 
+.UIOrganizationPortlet .UIGroupInfo .ListUserForSearch { 
 	padding: 10px;
+}
+
+.UIOrganizationPortlet .ListUserForSearch .UIGrid { 
+	width: 100%;
+}
+
+.UIOrganizationPortlet .SelectUserIcon {
+	width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/SelectIcon.gif') center ;
 }
 
 /*#######################  UIMemberShipManagement #################################*/

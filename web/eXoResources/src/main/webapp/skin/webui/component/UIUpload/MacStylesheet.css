@@ -66,6 +66,7 @@
 	font-family: verdana;
 	line-height: 18px;
 }
+
 .FileName {
 	float: left;
 }
@@ -79,9 +80,7 @@
 
 .RemoveFile {
 	float: left;
-	padding-left: 25px;
-	background:  url("MacSkin/background/DustBin.gif") no-repeat;
-	height: 18px;
+	height: 18px; line-height: 18px;
 	cursor: pointer;
 	margin-left: 10px;
 }

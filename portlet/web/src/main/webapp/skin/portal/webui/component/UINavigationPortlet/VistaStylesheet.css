@@ -133,6 +133,7 @@
 .UINavigationPortlet .ScrollButtons {
 	float: right;
 	padding: 5px 0px;
+	display: none;
 }
 
 .UINavigationPortlet .ScrollLeftButton {

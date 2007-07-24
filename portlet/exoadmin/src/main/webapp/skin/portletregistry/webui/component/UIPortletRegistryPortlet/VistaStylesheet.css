@@ -20,12 +20,12 @@
 
 .UIApplicationRegistryPortlet .UIAvailablePortletForm {
   margin: auto;
+  padding: 0px 10px;
 }
 
 .ApplicationRegistryWorkingArea .UIFormWithTitle .UIForm .UIAction {
   width: 150px;
 }
-
 
 /*################################Application Registry Control################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
@@ -200,5 +200,7 @@
   width: 230px;
 }
 
-.ApplicationRegistryWorkingArea .UIFormTableInputSet {
+.ApplicationRegistryWorkingArea .UIInfoPortletForm {
+	width: 400px;
+	margin: auto;
 }

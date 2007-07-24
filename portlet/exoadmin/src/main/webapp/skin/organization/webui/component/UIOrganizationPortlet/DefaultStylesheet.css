@@ -234,7 +234,6 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGrid th {
-  padding: 0px 3px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
@@ -259,9 +258,6 @@
 	width: 65px;
 }
 
-.UIOrganizationPortlet .UIGroupForm { 
-}
-
 .UIOrganizationPortlet .UIGroupForm .HorizontalLayout{ 
 	height: 240px;
 	background: white;
@@ -284,6 +280,10 @@
 
 .UIOrganizationPortlet .UIGroupInfo .ListUserForSearch{ 
 	padding: 10px;
+}
+
+.UIOrganizationPortlet .SelectUserIcon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GreenCheckerIcon.gif') center ;
 }
 
 /*#######################  UIMemberShipManagement #################################*/
