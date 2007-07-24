@@ -184,16 +184,7 @@ public class UIWizardPageSetInfo extends UIForm {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWizard);
       UIWizardPageSetInfo uiForm = event.getSource() ;
       
-      if(!event.getSource().isEditMode()) {
-        UIFormStringInput uiNameInput = uiForm.getChildById(PAGE_NAME) ;
-        String name =  uiNameInput.getValue();
-        uiNameInput.setValue(name);
-        
-        String displayName =  uiNameInput.getValue();
-        UIFormStringInput uiDisplayNameInput = uiForm.getChildById(PAGE_DISPLAY_NAME) ;
-        uiDisplayNameInput.setValue(displayName);
-        return ;
-      }
+      if(!event.getSource().isEditMode())  return ;
       
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
 
