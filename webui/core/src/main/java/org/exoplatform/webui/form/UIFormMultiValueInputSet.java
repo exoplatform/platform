@@ -8,6 +8,7 @@ import java.io.Writer;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -91,6 +92,7 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
 
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
     int size = getChildren().size() ;
+    ResourceBundle res = context.getApplicationResourceBundle() ;
 
     for(int i = 0; i < size; i++) {
       UIFormInputBase uiInput = getChild(i) ;
@@ -101,11 +103,11 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
         if(size >= 2){
           writer.append("<a class=\"MultiFieldAction\" href=\"");
           writer.append(uiForm.event("Remove", getId()+String.valueOf(i))).append("\">");
-          writer.append("<img class=\"DustBin16x16Icon\" src=\"/eXoResources/background/DefaultSkin/Blank.gif\"></a>");
+          writer.append(res.getString("UIFormMultiValueInputSet.label.remove")).append("</a>");
         }
         writer.append("<a class=\"MultiFieldAction\" href=\"");
         writer.append(uiForm.event("Add", getId())).append("\">");
-        writer.append("<img class=\"AddNewNodeIcon\" src=\"/eXoResources/background/DefaultSkin/Blank.gif\"></a>");
+        writer.append(res.getString("UIFormMultiValueInputSet.label.add")).append("</a>");
       }      
       writer.append("</div>") ;
     }    

@@ -1,6 +1,5 @@
 package org.exoplatform.webui.core.lifecycle;
 
-import java.io.Writer;
 import java.util.List;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
