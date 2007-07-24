@@ -4,8 +4,10 @@
  **************************************************************************/
 package org.exoplatform.content.webui.component;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.content.ContentDAO;
@@ -65,7 +67,11 @@ public class UIDetailContent extends UIContainer {
       uiIterator_.setPageList(pageList);
     }catch (Exception e) {
       UIApplication uiApp = getAncestorOfType(UIApplication.class);
-      uiApp.addMessage(new ApplicationMessage(e.getMessage(), null));      
+      uiApp.addMessage(new ApplicationMessage(e.getMessage(), null, ApplicationMessage.ERROR));
+      //TODO: Tung.Pham added
+      //-----------------
+      uiIterator_.setPageList(new ObjectPageList((List)new ArrayList(), 10)) ;
+      //-----------------
     }
   }
   

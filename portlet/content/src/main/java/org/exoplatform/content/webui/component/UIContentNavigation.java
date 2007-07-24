@@ -66,7 +66,13 @@ public class UIContentNavigation extends UIContainer {
   void save(ContentNode node) throws Exception {
     ContentDAO service = getApplicationComponent(ContentDAO.class) ; 
     ContentNode tempNode = selectedNode_;
-    setSelectedNode(node.getId());
+    //TODO: Tung.Pham modified
+    //----------------------------------------
+    //setSelectedNode(node.getId());
+    parentNode_ = null ;
+    grandNode_ = null ;
+    selectedNode_ = findNode(node.getId()) ;
+    //----------------------------------------
     if(parentNode_ != null){
       int idx = parentNode_.getChildren().indexOf(selectedNode_);
       parentNode_.getChildren().set(idx, node);
@@ -78,9 +84,13 @@ public class UIContentNavigation extends UIContainer {
     }else{
       if(tempNode == null) nav_.addNode(node); else tempNode.addChild(node);      
     }
-    
-    selectedNode_ = node;    
+
+    //TODO: Tung.Pham modified
+    //----------------------------------------
+    //selectedNode_ = node;
     service.save(nav_);
+    setSelectedNode(node.getId());
+    //----------------------
   }
   
   public ContentNode getSelectedNode() { return selectedNode_ ; } 
@@ -142,7 +152,8 @@ public class UIContentNavigation extends UIContainer {
   
   public ContentNavigation getContentNavigation() { return nav_; }
 
-  private ContentNode findNode(String nodeId) {    
+  //private ContentNode findNode(String nodeId) {    
+  public ContentNode findNode(String nodeId) {
     if(nodeId == null || nav_.getNodes() == null) return null ;
     for(ContentNode node : nav_.getNodes()) {
       ContentNode value = findNode(nodeId, node);

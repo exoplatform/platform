@@ -14,7 +14,6 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
-import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -28,13 +27,6 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.Validator;
-/**
- * Created by The eXo Platform SARL
- * Author : Dang Van Minh
- *          minhdv@exoplatform.com
- * Jul 25, 2006  
- */
-import org.jmock.core.constraint.IsAnything;
 
 @ComponentConfig(
   lifecycle = UIFormLifecycle.class,
@@ -89,6 +81,8 @@ public class UIContentForm extends UIForm {
 
   static public class SaveActionListener extends EventListener<UIContentForm> {
     public void execute(Event<UIContentForm> event) throws Exception {
+      //TODO: Tung.Pham replaced
+      //-----------------------------
       UIContentForm uiForm = event.getSource() ;
       ContentNode contentNode = uiForm.getContentNode();         
       UIContentPortlet uiPortlet = uiForm.getAncestorOfType(UIContentPortlet.class) ;
@@ -97,24 +91,48 @@ public class UIContentForm extends UIForm {
       if(contentNode == null) contentNode= new ContentNode();
       uiForm.invokeSetBindingBean(contentNode);
       
+      if(contentNode != uiForm.getContentNode()) {
+        ContentNode existNode = uiNav.findNode(contentNode.getId()) ;
+        if(existNode != null) {
+          UIApplication uiApp = event.getRequestContext().getUIApplication() ;
+          uiApp.addMessage(new ApplicationMessage("UIContentForm.msg.SameNode", null, ApplicationMessage.WARNING)) ;
+          return ;
+        }  
+      }
+      
       if(contentNode.getId() == null || contentNode.getId().length() == 0){
         contentNode.setId(contentNode.getLabel());
       }
-      
-      try{
-        uiNav.save(contentNode);
-        uiNav.setSelectedNode(contentNode.getId());
-        //TODO: Tung.Pham added
-        //Need to review
-        //-----------------------------
-        UIDetailContent uiDetail = uiForm.<UIContainer>getParent().getChild(UIDetailContent.class) ;
-        uiDetail.refresh(true) ;
-        //-----------------------------
-
-      }catch (Exception ex) {
-        ApplicationMessage msg = new ApplicationMessage(ex.getMessage(), null, ApplicationMessage.ERROR);
-        uiForm.getAncestorOfType(UIApplication.class).addMessage(msg) ;
+      if(!contentNode.getType().equals("desc")){
+        if(contentNode.getUrl() == null || contentNode.getUrl().trim().length() == 0) {
+          UIApplication uiApp = event.getRequestContext().getUIApplication() ;
+          uiApp.addMessage(new ApplicationMessage("UIContentForm.msg.UrlNull", null, ApplicationMessage.WARNING)) ;
+          return ;  
+        }
       }
+
+      uiNav.save(contentNode);
+      //-----------------------------
+      
+//      UIContentForm uiForm = event.getSource() ;
+//      ContentNode contentNode = uiForm.getContentNode();         
+//      UIContentPortlet uiPortlet = uiForm.getAncestorOfType(UIContentPortlet.class) ;
+//      UIContentNavigation uiNav = uiPortlet.getChild(UIContentNavigation.class);
+//      
+//      if(contentNode == null) contentNode= new ContentNode();
+//      uiForm.invokeSetBindingBean(contentNode);
+//      
+//      if(contentNode.getId() == null || contentNode.getId().length() == 0){
+//        contentNode.setId(contentNode.getLabel());
+//      }
+//      
+//      try{
+//        uiNav.save(contentNode);
+//        uiNav.setSelectedNode(contentNode.getId());
+//      }catch (Exception ex) {
+//        ApplicationMessage msg = new ApplicationMessage(ex.getMessage(), null, ApplicationMessage.ERROR);
+//        uiForm.getAncestorOfType(UIApplication.class).addMessage(msg) ;
+//      }
     }
   }
   
