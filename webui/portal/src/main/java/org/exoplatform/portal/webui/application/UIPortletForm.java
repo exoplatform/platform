@@ -63,7 +63,7 @@ public class UIPortletForm extends UIFormTabPane {
   	uiSettingSet.
       addUIFormInput(new UIFormStringInput("id", "id", null).
                      addValidator(EmptyFieldValidator.class).setEditable(false)).
-      addUIFormInput(new UIFormStringInput("factoryId", "factoryId", null)).
+      addUIFormInput(new UIFormStringInput("windowId", "windowId", null).setEditable(false)).
     	addUIFormInput(new UIFormStringInput("title", "title", null)).
   		addUIFormInput(new UIFormStringInput("width", "width", null).
                      addValidator(NumberFormatValidator.class)).

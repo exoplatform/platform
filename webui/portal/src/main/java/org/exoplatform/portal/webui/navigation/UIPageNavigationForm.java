@@ -179,12 +179,17 @@ public class UIPageNavigationForm extends UIFormTabPane {
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return ;
       }
-
+      
       if(uiPageNodeSelector != null) {
         uiPageNodeSelector.addPageNavigation(pageNav) ;  
         uiPageNodeSelector.selectNavigation(pageNav.getId()) ;
         pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
       }
+      
+      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      uiMaskWS.setUIComponent(null);
+      uiMaskWS.setShow(false);
+      pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
     }
     
   }
