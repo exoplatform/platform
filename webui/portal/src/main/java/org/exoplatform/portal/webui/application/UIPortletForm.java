@@ -107,11 +107,8 @@ public class UIPortletForm extends UIFormTabPane {
   	uiPortlet_ = uiPortlet;
     invokeGetBindingBean(uiPortlet_) ;
     String icon = uiPortlet.getIcon();
-    if(icon != null && icon.length() > 0){
-      getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
-    }
-    UIFormInputIconSelector uiIconSelector = getChild(UIFormInputIconSelector.class);
-    uiIconSelector.setSelectedIcon(uiPortlet.getIcon());
+    if( icon == null || icon.length() < 0) icon = uiPortlet.getTitle() + "Icon";
+    getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
   }
   
 	static public class SaveActionListener extends EventListener<UIPortletForm> {

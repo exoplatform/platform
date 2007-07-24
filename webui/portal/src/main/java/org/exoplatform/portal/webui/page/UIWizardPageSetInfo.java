@@ -167,15 +167,34 @@ public class UIWizardPageSetInfo extends UIForm {
   static public class ChangeNodeActionListener  extends EventListener<UIWizardPageSetInfo> {
     public void execute(Event<UIWizardPageSetInfo> event) throws Exception {
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIPageNodeSelector uiPageNodeSelector = event.getSource().getChild(UIPageNodeSelector.class);      
-      uiPageNodeSelector.selectPageNodeByUri(uri);
+//      try{ int k = 3/0;
+//      }catch (Exception e) { e.printStackTrace();}
+      
+      UIPageNodeSelector uiPageNodeSelector = event.getSource().getChild(UIPageNodeSelector.class); 
+      UITree tree = uiPageNodeSelector.getChild(UITree.class);
+    
+      if(tree.getParentSelected() == null && (uri == null || uri.length() < 1)){
+        uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation().getId());
+      } else {
+        uiPageNodeSelector.selectPageNodeByUri(uri);
+      }
       
       UIPortalApplication uiPortalApp = uiPageNodeSelector.getAncestorOfType(UIPortalApplication.class);
       UIWizard uiWizard = uiPortalApp.findFirstComponentOfType(UIWizard.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWizard);
       UIWizardPageSetInfo uiForm = event.getSource() ;
       
-      if(!event.getSource().isEditMode()) return ;
+      if(!event.getSource().isEditMode()) {
+        UIFormStringInput uiNameInput = uiForm.getChildById(PAGE_NAME) ;
+        String name =  uiNameInput.getValue();
+        uiNameInput.setValue(name);
+        
+        String displayName =  uiNameInput.getValue();
+        UIFormStringInput uiDisplayNameInput = uiForm.getChildById(PAGE_DISPLAY_NAME) ;
+        uiDisplayNameInput.setValue(displayName);
+        return ;
+      }
+      
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
 
       if(pageNode == null) {

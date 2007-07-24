@@ -165,7 +165,11 @@ public class UITree extends UIComponent {
   
   static  public class ChangeNodeActionListener extends EventListener<UITree> {    
     public void execute(Event<UITree> event) throws Exception {
-      event.getSource().<UIComponent>getParent().broadcast(event, event.getExecutionPhase()) ;      
+//      UITree tree = event.getSource();
+//      String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
+//      System.out.println("\n\n\n--------------ParentNode " + tree.getParentSelected() + " selectNode " +uri);
+//      if(tree.getParentSelected() == null && (uri == null || uri.length() < 1)) return;
+      event.getSource().<UIComponent>getParent().broadcast(event, event.getExecutionPhase()) ;    
     }
   }
   
