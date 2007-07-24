@@ -168,6 +168,7 @@ SimpleNodeEditor.prototype.onLeftArrow = function(keynum, keychar) {
                                                   (this.beforeCursor.length - 1)) + this.afterCursor ;
     this.beforeCursor = this.beforeCursor.substr(0, (this.beforeCursor.length - 2)) ;
   }
+  window.alert('before: ' + this.beforeCursor) ;
   this.defaultWrite() ;
   return false ;
 }

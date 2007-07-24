@@ -7,104 +7,122 @@
 function DefaultKeyboardListener() {
 }
 
-DefaultKeyboardListener.prototype.init = function() {}
+DefaultKeyboardListener.prototype = {
+  init : function() {}
+  ,
+  
+  onFinish : function() {}
+  ,
+  
+  write : function() {}
+  ,
+  
+  // Printable keys
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onAlphabet : function(keynum, keychar) { return true ;}
+  ,
+  
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onDigit : function(keynum, keychar) { return true ;}
+  ,
+  
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onPunctuation : function(keynum, keychar) { return true ;}
+  ,
+  
+  // Control keys
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onBackspace : function(keynum, keychar) { return true ;}
+  ,
+  
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onDelete : function(keynum, keychar) { return true ;}
+  ,
+  
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onEnter : function(keynum, keychar) { return true ;}
+  ,
+  
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onTab : function(keynum, keychar) { return true ;}
+  ,
+  
+  // Navigate keys
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onLeftArrow : function(keynum, keychar) { return true ;}
+  ,
+  
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onRightArrow : function(keynum, keychar) { return true ;}
+  ,
+  
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onUpArrow : function(keynum, keychar) { return true ;}
+  ,
+  
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onDownArrow : function(keynum, keychar) { return true ;}
+  ,
+  
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onHome : function(keynum, keychar) { return true ;}
+  ,
+  
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onEnd : function(keynum, keychar) { return true ;}  
+} ;
 
-DefaultKeyboardListener.prototype.onFinish = function() {}
 
-DefaultKeyboardListener.prototype.write = function() {}
-
-// Printable keys
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onAlphabet = function(keynum, keychar) { return true ;}
-
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onDigit = function(keynum, keychar) { return true ;}
-
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onPunctuation = function(keynum, keychar) { return true ;}
-
-// Control keys
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onBackspace = function(keynum, keychar) { return true ;}
-
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onDelete = function(keynum, keychar) { return true ;}
-
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onEnter = function(keynum, keychar) { return true ;}
-
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onTab = function(keynum, keychar) { return true ;}
-
-// Navigate keys
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onLeftArrow = function(keynum, keychar) { return true ;}
-
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onRightArrow = function(keynum, keychar) { return true ;}
-
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onUpArrow = function(keynum, keychar) { return true ;}
-
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onDownArrow = function(keynum, keychar) { return true ;}
-
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onHome = function(keynum, keychar) { return true ;}
-
-/**
- * 
- * @param {Number} keynum
- * @param {Char} keychar
- */
-DefaultKeyboardListener.prototype.onEnd = function(keynum, keychar) { return true ;}
-
-eXo.core.DefaultKeyboardListener = DefaultKeyboardListener.prototype.constructor ;
+eXo.core.DefaultKeyboardListener = DefaultKeyboardListener ;

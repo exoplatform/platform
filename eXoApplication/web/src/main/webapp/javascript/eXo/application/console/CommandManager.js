@@ -1,5 +1,8 @@
+/**
+ * @author Nguyen Ba Uoc
+ */
+
 function CommandManager() {
-  
   this.commands = [] ;
   this.commandNode = false ;
   this.commandTypeNode = false ;
@@ -7,11 +10,16 @@ function CommandManager() {
   this.screenNode = false ;
   this.uiConsoleApplication = false ;
   this.ready = true ;
-}
+  this.envManager = eXo.application.console.EnvManager ;
+} ;
 
 CommandManager.prototype.init = function(node) {
   this.commandNode = node ;
   this.initCommon() ;
+  this.envManager.init(this.screenNode) ;
+  if (!this.envManager.getVariable('CMD_PREFIX')) {
+    this.envManager.setVariable('CMD_PREFIX', 'xhtml') ;
+  }
 } ;
 
 CommandManager.prototype.initCommon = function() {
@@ -59,18 +67,44 @@ CommandManager.prototype.initUIConsoleApplication = function() {
 CommandManager.prototype.register = function() {
   this.registerJSModule('eXo.application.console.jcr.js.core.Builtin') ;
   this.registerJSModule('eXo.application.console.jcr.js.core.ShowNode') ;
+  this.registerJSModule('eXo.application.console.jcr.js.core.Upload') ;
 } ;
 
+/**
+ * 
+ * @param {String} command
+ * 
+ * @return {String}
+ */
+CommandManager.prototype.getFullCmd = function(command) {
+  var envCmdPrefix = this.envManager.getVariable('CMD_PREFIX') ;
+  if (command.indexOf(':') != -1) {
+    return command ;
+  } else {
+    return envCmdPrefix + ':' + command ;
+  }
+} ;
+
+/**
+ * 
+ * 
+ * @param {String} command
+ * @param {Array} commandList
+ */
 CommandManager.prototype.commandMatch = function(command, commandList) {
+  var command = this.getFullCmd(command) ;
   for (var cmd in this.commands) {
     if(!this.commands[cmd].commandName) {
       continue ;
     }
-    if (command == cmd) {
+    var cmdObj = this.commands[cmd] ;
+    var fullCmd = cmdObj.getFullCmd() ;
+    if (command == fullCmd) {
       return true ;
     }
-    if(cmd.indexOf(command) == 0) {
-      commandList[commandList.length] = cmd ;
+    if(fullCmd.indexOf(command) == 0) {
+//      commandList[commandList.length] = cmdObj.commandName ;
+      commandList[commandList.length] = fullCmd ;
     }
   }
   return false ;
@@ -111,7 +145,7 @@ CommandManager.prototype.consoleWrite = function(txt) {
  * 3. If the first argument is completed, look up  the command object that match the first 
  *    first argument and call the method help of that command object. If no comand is found,
  *    show "No command is found"
- * @param {Object} command
+ * @param {String} command
  */
 CommandManager.prototype.help = function(command) {
   command = command.trim() ;
@@ -131,6 +165,10 @@ CommandManager.prototype.help = function(command) {
   this.showQuickHelp(helpTxt) ;
 } ;
 
+/**
+ * 
+ * @param {String} commandLine
+ */
 CommandManager.prototype.execute = function(commandLine) {
   if (commandLine == '') {
     this.consoleWrite('&nbsp;') ;
@@ -164,6 +202,10 @@ CommandManager.prototype.execute = function(commandLine) {
   }
 } ;
 
+/**
+ * 
+ * @param {Command} command
+ */
 CommandManager.prototype.addCommand = function(command) {
   if(this.commands[command.commandName] && this.commands[command.commandName].help) {
     alert('Command ' + command.commandName + ' is already registered') ; 
@@ -179,8 +221,8 @@ CommandManager.prototype.addCommand = function(command) {
  * 3. In the javascript, the developer should call the method 
  * eXo.application.console.CommandManager.addCommand(...) to register a command with the console
  * 
- * @param {Object} jsFile
- * @param {Object} jsLocation
+ * @param {String} jsFile
+ * @param {String} jsLocation
  */
 CommandManager.prototype.registerJSModule = function(jsFile) {
   eXo.require(jsFile, '/eXoAppWeb/javascript/') ;

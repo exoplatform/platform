@@ -6,6 +6,8 @@ function ShowNode() {
   this.commandName = 'shownode' ;
 } ;
 
+ShowNode.prototype = new eXo.application.console.Command() ;
+
 ShowNode.prototype.help = function() {
   return ('Usage: ShowNode [OPTION]... NodeID\
           <br>\

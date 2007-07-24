@@ -23,12 +23,8 @@
 	height: 69px;	
 }
 
-.UIConsoleApplication .CommandType * {
+.UIConsoleApplication .CommandType {
 	background: #ffffff;
-	width: 100%;
-	height: 100% ;
-	line-height: 100% ;
-	vertical-align: top ;
 }
 
 .UIConsoleApplication .UIMaskWindowConsole {
