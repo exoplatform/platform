@@ -3,11 +3,11 @@ function UIBrowseContent() {
 };
 
 UIBrowseContent.prototype.waitForLoadComplete = function() {
-	var bcPortlet = document.getElementById("UIBrowseContainer");
+	/*var bcPortlet = document.getElementById("UIBrowseContainer");
 	var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "HomeTab");
 	var tabs = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "UIHorizontalTabs");
 	if (homeButton && tabs && homeButton.offsetWidth == tabs.offsetWidth) window.setTimeout(eXo.portal.UIBrowseContent.waitForLoadComplete, 100);
-	else eXo.portal.UIBrowseContent.loadScroll();
+	else*/ eXo.portal.UIBrowseContent.loadScroll();
 };
 
 UIBrowseContent.prototype.loadScroll = function() {
@@ -77,7 +77,7 @@ UIBrowseContent.prototype.initScroll = function() {
 		// Main Manager initialization
 		var mainBarMgr = uiBC.bcManagers[0];
 		mainBarMgr.init();
-		mainBarMgr.loadElements("UITab");
+		mainBarMgr.loadElements("UITab", true);
 		var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(mainBarMgr.mainContainer, "div", "HomeTab");
 		if (homeButton) {
 			var maxSpace = mainBarMgr.getElementSpace(mainBarMgr.mainContainer)-mainBarMgr.getElementSpace(mainBarMgr.arrowsContainer)-mainBarMgr.getElementSpace(homeButton);
@@ -89,7 +89,7 @@ UIBrowseContent.prototype.initScroll = function() {
 		// Sub Manager initialization
 		var subBarMgr = uiBC.bcManagers[1];
 		subBarMgr.init();
-		subBarMgr.loadElements("ChildNodeItem");
+		subBarMgr.loadElements("ChildNodeItem", true);
 		subBarMgr.checkAvailableSpace();
 		subBarMgr.renderElements();
 	}
@@ -98,7 +98,7 @@ UIBrowseContent.prototype.initScroll = function() {
 		for (var i = 2; i < uiBC.bcManagers.length; i++) {
 			var currMgr = uiBC.bcManagers[i];
 			currMgr.init();
-			currMgr.loadElements("ChildNode");
+			currMgr.loadElements("ChildNode", true);
 			currMgr.checkAvailableSpace();
 			currMgr.renderElements();
 		}
