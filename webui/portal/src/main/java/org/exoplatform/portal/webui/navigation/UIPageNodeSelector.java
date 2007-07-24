@@ -380,4 +380,5 @@ public class UIPageNodeSelector extends UIContainer {
   public String getUpLevelUri () { return selectedNode.getParentNode().getUri() ; }
 
   public List<PageNavigation> getDeleteNavigations() { return deleteNavigations; }
+
 }

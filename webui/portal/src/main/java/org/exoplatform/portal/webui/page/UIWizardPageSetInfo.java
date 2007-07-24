@@ -91,6 +91,7 @@ public class UIWizardPageSetInfo extends UIForm {
   final private static String PAGE_NAME = "pageName" ;
   final private static String PAGE_DISPLAY_NAME = "pageDisplayName" ;
   private boolean isEditMode = false;
+  private boolean firstTime = true;
   
   public UIWizardPageSetInfo() throws Exception {
     UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, "WizardPageNodeSelector", null);    
@@ -154,6 +155,14 @@ public class UIWizardPageSetInfo extends UIForm {
     if(event != null) event.broadcast() ;   
   }
   
+  public boolean isFirstTime() {
+    return firstTime;
+  }
+  
+  public void setFirstTime(boolean firstTime){
+    this.firstTime = firstTime;
+  }
+  
   static public class SelectNavigationActionListener  extends EventListener<UIPageNodeSelector> {
     public void execute(Event<UIPageNodeSelector> event) throws Exception {
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
@@ -167,8 +176,7 @@ public class UIWizardPageSetInfo extends UIForm {
   static public class ChangeNodeActionListener  extends EventListener<UIWizardPageSetInfo> {
     public void execute(Event<UIWizardPageSetInfo> event) throws Exception {
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
-//      try{ int k = 3/0;
-//      }catch (Exception e) { e.printStackTrace();}
+      UIWizardPageSetInfo uiForm = event.getSource() ;
       
       UIPageNodeSelector uiPageNodeSelector = event.getSource().getChild(UIPageNodeSelector.class); 
       UITree tree = uiPageNodeSelector.getChild(UITree.class);
@@ -178,17 +186,19 @@ public class UIWizardPageSetInfo extends UIForm {
       } else {
         uiPageNodeSelector.selectPageNodeByUri(uri);
       }
-      
+     
       UIPortalApplication uiPortalApp = uiPageNodeSelector.getAncestorOfType(UIPortalApplication.class);
       UIWizard uiWizard = uiPortalApp.findFirstComponentOfType(UIWizard.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWizard);
-      UIWizardPageSetInfo uiForm = event.getSource() ;
       
-      if(!event.getSource().isEditMode())  return ;
       
+      if(!event.getSource().isEditMode()) {
+        return ;
+      }
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
 
-      if(pageNode == null) {
+      if(pageNode == null && uiForm.isFirstTime()) {
+        uiForm.setFirstTime(false);
         UIPortal uiPortal = Util.getUIPortal();
         uiPageNodeSelector.selectNavigation(uiPortal.getSelectedNavigation().getId());
         uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri());
@@ -212,5 +222,7 @@ public class UIWizardPageSetInfo extends UIForm {
       if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getLabel());
     }
   }
+
+  
 
 }
