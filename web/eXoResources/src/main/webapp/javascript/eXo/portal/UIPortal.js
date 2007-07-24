@@ -98,17 +98,9 @@ UIPortal.prototype.switchViewModeToLayoutMode = function(uicomponent, swapConten
   try {
 	  viewBlock.style.display = "none" ;
   	layoutBlock.style.display = "block" ;
-  	
-  	if((layoutBlock.className == "LAYOUT-CONTAINER") && (layoutBlock.offsetHeight < 30)) {
-  		var uiRowContainer = eXo.core.DOMUtil.findFirstDescendantByClass(layoutBlock, "div", "UIRowContainer");
-  		//if(uiRowContainer.innerHTML == "") layoutBlock.style.height = "60px" ;
-  		if (!eXo.core.DOMUtil.hasDescendantClass(layoutBlock, 'LAYOUT-CONTAINER')) layoutBlock.style.height = "60px";
-  	}
   } catch (err) {
-  	//alert(uicomponent.getId() + ":" + err.toString()) ; //Debug
+  	
   }
-  
-//  this.switchPageMode(uicomponent, "layoutMode");
 };
 
 UIPortal.prototype.switchLayoutModeToViewMode = function(uicomponent, swapContent) {
