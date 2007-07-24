@@ -57,8 +57,6 @@ public class UIGroupForm extends UIForm {
   
   public void setGroup(Group group) throws Exception { 
     this.group_ = group;
-    //TODO: Tung.Pham modified
-    //-----------------------------------
     if(group_ == null){
       getUIStringInput(GROUP_NAME).setEditable(UIFormStringInput.ENABLE) ;
       reset() ;
@@ -66,21 +64,11 @@ public class UIGroupForm extends UIForm {
     }
     getUIStringInput(GROUP_NAME).setEditable(UIFormStringInput.DISABLE) ;
     invokeGetBindingBean(group_);
-    //-----------------------------------
   }
   
   public String getName() { return componentName_; }
   
   public void setName(String componentName) { componentName_ = componentName; }
-  
-  //TODO: Tung.Pham added
-//  public void setEditableAll() {
-//    for (UIComponent component : getChildren()) {
-//      if (component  instanceof UIFormInputBase<?>)  {
-//        ((UIFormInputBase<?>)component).setEditable(true) ;
-//      }
-//    }
-//  }
   
   static  public class SaveActionListener extends EventListener<UIGroupForm> {
     public void execute(Event<UIGroupForm> event) throws Exception {
@@ -92,12 +80,9 @@ public class UIGroupForm extends UIForm {
       Group currentGroup =  uiGroupForm.getGroup();
       if(currentGroup != null) {
         uiGroupForm.invokeSetBindingBean(currentGroup);
-        //TODO: Tung.Pham added
-        //----------------------------------
         if(currentGroup.getLabel() == null || currentGroup.getLabel().trim().length() == 0) {
           currentGroup.setLabel(currentGroup.getGroupName()) ;
         }
-        //----------------------------------
         service.getGroupHandler().saveGroup(currentGroup, false);
         uiGroupForm.reset();
         uiGroupForm.setGroup(null);
@@ -124,16 +109,13 @@ public class UIGroupForm extends UIForm {
       }
       newGroup = groupHandler.createGroupInstance();
       uiGroupForm.invokeSetBindingBean(newGroup) ;
-      //TODO: Tung.Pham added
-      //----------------------------------
       if(newGroup.getLabel() == null || newGroup.getLabel().trim().length() == 0) {
         newGroup.setLabel(newGroup.getGroupName()) ;
       }
-      //----------------------------------
       if(currentGroupId == null) {
         groupHandler.addChild(null, newGroup, true) ;
         uiGroupExplorer.changeGroup(groupName) ;
-      }else {
+      } else {
         Group parrentGroup = groupHandler.findGroupById(currentGroupId) ;
         groupHandler.addChild(parrentGroup, newGroup, true) ;
         uiGroupExplorer.changeGroup(currentGroupId) ;

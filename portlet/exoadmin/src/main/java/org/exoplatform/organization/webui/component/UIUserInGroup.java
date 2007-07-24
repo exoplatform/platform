@@ -65,11 +65,15 @@ public class UIUserInGroup extends UIContainer {
   public void refresh() throws Exception { setValues(getSelectedGroup()); }
 
   public void setValues(Group group) throws Exception {
-    if(group == null) return ;
-    OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-    MembershipHandler handler = service.getMembershipHandler();
-    List memberships = (List)handler.findMembershipsByGroup(group) ;
-    PageList pageList = new ObjectPageList(memberships, 10) ;
+    PageList pageList = null;
+    if(group == null) {
+      pageList = new ObjectPageList(new ArrayList<Object>(), 10) ;
+    } else {
+      OrganizationService service = getApplicationComponent(OrganizationService.class) ;
+      MembershipHandler handler = service.getMembershipHandler();
+      List<?> memberships = (List<?>)handler.findMembershipsByGroup(group) ;
+      pageList = new ObjectPageList(memberships, 10) ;
+    }
     UIGridUser uiGrid = getChild(UIGridUser.class) ;
     uiGrid.getUIPageIterator().setPageList(pageList);
   }

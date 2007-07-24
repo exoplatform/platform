@@ -55,23 +55,31 @@ public class UIGroupExplorer extends UIContainer {
     UIGroupManagement uiGroupManagement = this.getParent() ;
     UIBreadcumbs uiBreadcumb = uiGroupManagement.getChild(UIBreadcumbs.class);
     uiBreadcumb.setPath(getPath(null, groupId)) ;
-    UITree tree = getChild(UITree.class);
     
-    //TODO: Tung.Pham replaced
-    //-------------------------------
+    UITree uiTree = getChild(UITree.class);
+    UIGroupDetail uiGroupDetail = uiGroupManagement.getChild(UIGroupDetail.class);     
+    UIGroupInfo uiGroupInfo = uiGroupDetail.getChild(UIGroupInfo.class) ;    
+    
     if(groupId == null){
+      sibblingsGroup_ = service.getGroupHandler().findGroups(null);
+      uiTree.setSibbling((List)sibblingsGroup_);
+      uiTree.setSelected(null) ;
+      uiTree.setChildren(null) ;
+      uiTree.setParentSelected(null) ;
       selectedGroup_ = null;
-      tree.setSelected(null) ;
-      tree.setChildren(null) ;
-      tree.setParentSelected(null) ;
+      uiGroupInfo.setGroup(null); 
       return ;  
     }
     
-    selectedGroup_ = service.getGroupHandler().findGroupById(groupId);
+    if(groupId != null){
+      selectedGroup_ = service.getGroupHandler().findGroupById(groupId);
+    } else {
+      selectedGroup_ = null;
+    }
     String parentGroupId = null ;
-    parentGroupId = selectedGroup_.getParentId();
-    Group parentGroup = null ;
-    if(parentGroupId != null) parentGroup = service.getGroupHandler().findGroupById(parentGroupId);
+    if(selectedGroup_ != null) parentGroupId = selectedGroup_.getParentId(); 
+	  Group parentGroup = null ;
+	  if(parentGroupId != null)	parentGroup = service.getGroupHandler().findGroupById(parentGroupId);
     childrenGroup_ = service.getGroupHandler().findGroups(selectedGroup_); 
     sibblingsGroup_ = service.getGroupHandler().findGroups(parentGroup);  
     for(Object group: sibblingsGroup_) {
@@ -80,42 +88,12 @@ public class UIGroupExplorer extends UIContainer {
         break;
       }
     }
-    UIGroupDetail uiGroupDetail = uiGroupManagement.getChild(UIGroupDetail.class);     
-    UIGroupInfo uiGroupInfo = uiGroupDetail.getChild(UIGroupInfo.class) ;    
     uiGroupInfo.setGroup(selectedGroup_); 
     
-    tree.setSibbling((List)sibblingsGroup_);
-    tree.setChildren((List)childrenGroup_);
-    tree.setSelected(selectedGroup_);
-    tree.setParentSelected(parentGroup);
-    //-------------------------------
-    
-//    if(groupId != null){
-//      selectedGroup_ = service.getGroupHandler().findGroupById(groupId);
-//    } else {
-//      selectedGroup_ = null;
-//    }
-//    String parentGroupId = null ;
-//    if(selectedGroup_ != null) parentGroupId = selectedGroup_.getParentId();
-//	  Group parentGroup = null ;
-//	  if(parentGroupId != null)	parentGroup = service.getGroupHandler().findGroupById(parentGroupId);
-//    childrenGroup_ = service.getGroupHandler().findGroups(selectedGroup_); 
-//    sibblingsGroup_ = service.getGroupHandler().findGroups(parentGroup);  
-//    for(Object group: sibblingsGroup_) {
-//      if(((Group)group).getId().equals(selectedGroup_.getId())){
-//        selectedGroup_ = (Group) group;
-//        break;
-//      }
-//    }
-//    UIGroupDetail uiGroupDetail = uiGroupManagement.getChild(UIGroupDetail.class);     
-//    UIGroupInfo uiGroupInfo = uiGroupDetail.getChild(UIGroupInfo.class) ;    
-//    uiGroupInfo.setGroup(selectedGroup_); 
-//    
-//    UITree tree = getChild(UITree.class);
-//    tree.setSibbling((List)sibblingsGroup_);
-//    tree.setChildren((List)childrenGroup_);
-//    tree.setSelected(selectedGroup_);
-//    tree.setParentSelected(parentGroup);
+    uiTree.setSibbling((List)sibblingsGroup_);
+    uiTree.setChildren((List)childrenGroup_);
+    uiTree.setSelected(selectedGroup_);
+    uiTree.setParentSelected(parentGroup);
 	}
 	
 	public List<LocalPath> getPath(List<LocalPath> list, String id) throws Exception {
@@ -153,10 +131,7 @@ public class UIGroupExplorer extends UIContainer {
       uiGroupExplorer.changeGroup(groupId) ;
       UIGroupManagement uiGroupManagement = uiGroupExplorer.getParent();
       UIGroupDetail uiGroupDetail = uiGroupManagement.getChild(UIGroupDetail.class);
-      //TODO: Tung.Pham added
-      //---------------------------------------------
       uiGroupDetail.getChild(UIGroupForm.class).setGroup(null) ;
-      //---------------------------------------------
       uiGroupDetail.setRenderedChild(UIGroupInfo.class);
 		}
 	}
