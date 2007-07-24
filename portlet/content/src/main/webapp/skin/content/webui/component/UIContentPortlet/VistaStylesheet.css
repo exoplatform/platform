@@ -139,7 +139,6 @@
   float: left;
 	padding: 0px ;
 	height: 25px;
-	border: 1px solid red;
 }
 
 .UIContentPortlet .UIBreadcumbs .LeftBreadcumbsBar {
@@ -210,7 +209,6 @@
 }
 
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs {
-	border: 1px solid red;
 }
 
 .UIContentPortlet .UIContentWorkingArea .UIDescription{
@@ -237,7 +235,6 @@
 .UIContentPortlet .RefreshBar {
   float: right;
   padding: 1px 10px 0px 5px;
-	border: 1px solid red;
 }
 
 .UIContentPortlet .RefreshBar a{
