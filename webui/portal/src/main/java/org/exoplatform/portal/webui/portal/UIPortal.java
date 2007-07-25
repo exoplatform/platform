@@ -17,6 +17,7 @@ import org.exoplatform.portal.webui.page.UIPageActionListener.ChangePageNodeActi
 import org.exoplatform.portal.webui.portal.UIPortalActionListener.ChangeWindowStateActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalActionListener.LoadPageActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.MoveChildActionListener;
+import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RemoveJSApplicationToDesktopActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -34,6 +35,7 @@ import org.exoplatform.webui.core.UIComponent;
     events = {
       @EventConfig(listeners = ChangePageNodeActionListener.class),
       @EventConfig(listeners = MoveChildActionListener.class),
+      @EventConfig(listeners = RemoveJSApplicationToDesktopActionListener.class),
       @EventConfig(listeners = ChangeWindowStateActionListener.class),
       @EventConfig(listeners = ShowLoginFormActionListener.class),
       @EventConfig(listeners = LogoutActionListener.class),

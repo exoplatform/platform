@@ -52,6 +52,16 @@ public class UIPortalComponentActionListener {
     }
   }
   
+  static public class RemoveJSApplicationToDesktopActionListener  extends EventListener<UIPortalComponent> {    
+    public void execute(Event<UIPortalComponent> event) throws Exception {
+     UIPortal uiPortal = Util.getUIPortal();
+     UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+     UIPage page = uiApp.findFirstComponentOfType(UIPage.class);
+     String id  = event.getRequestContext().getRequestParameter("jsInstanceId"); 
+     page.removeChildById(id);
+    }
+  }
+  
   static public class DeleteComponentActionListener extends EventListener<UIComponent> {
     public void execute(Event<UIComponent> event) throws Exception {
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);      
