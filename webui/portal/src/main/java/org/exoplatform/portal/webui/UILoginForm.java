@@ -4,9 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.webui;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -37,7 +35,6 @@ import org.exoplatform.webui.form.UIFormStringInput;
   template = "system:/groovy/portal/webui/UILoginForm.gtmpl" ,
   events = {
     @EventConfig(listeners = UILoginForm.SigninActionListener.class),
-//      @EventConfig(listeners = UILoginForm.SignUpActionListener.class),
     @EventConfig(phase = Phase.DECODE, listeners = UIMaskWorkspace.CloseActionListener.class)
   }
 )
@@ -80,14 +77,15 @@ public class UILoginForm extends UIForm {
 //    return cookie;
 //  }
 
-  //TODO: Tung.Pham Modified
+
   static public class SigninActionListener  extends EventListener<UILoginForm> {
     
     public void execute(Event<UILoginForm> event) throws Exception {
       UILoginForm uiForm = event.getSource();
       String username = uiForm.getUIStringInput("username").getValue();
       String password = uiForm.getUIStringInput("password").getValue();
-      boolean remember = uiForm.<UIFormCheckBoxInput >getUIInput("remember").isChecked();
+      
+//      boolean remember = uiForm.<UIFormCheckBoxInput >getUIInput("remember").isChecked();
       
       OrganizationService orgService = uiForm.getApplicationComponent(OrganizationService.class);
       boolean authentication = orgService.getUserHandler().authenticate(username, password);
@@ -101,11 +99,13 @@ public class UILoginForm extends UIForm {
       HttpSession session = request.getSession();
       session.setAttribute("authentication.username", username);
       session.setAttribute("authentication.password", password);
-      if(remember && authentication){
+      
+      /*if(remember && authentication){
         HttpServletResponse response = prContext.getResponse();
         response.addCookie(loadCookie(request, "authentication.username", username));
         response.addCookie(loadCookie(request, "authentication.password", password));
-      }
+      }*/
+      
       prContext.setResponseComplete(true);  
       //String redirect = request.getContextPath() + "/private/site:/";
       UIPortal uiCurrentPortal = Util.getUIPortal() ;
@@ -114,7 +114,7 @@ public class UILoginForm extends UIForm {
       prContext.getResponse().sendRedirect(redirect);      
     }   
     
-    protected Cookie loadCookie(HttpServletRequest request, String name, String value){
+   /* protected Cookie loadCookie(HttpServletRequest request, String name, String value){
       Cookie[] cookies = request.getCookies();
       Cookie cookie = null;
       if (cookies != null) {
@@ -126,7 +126,7 @@ public class UILoginForm extends UIForm {
       cookie.setDomain(request.getRemoteHost());
       cookie.setSecure(true);
       return cookie;
-    }
+    }*/
   }
   
 //  static public class SignUpActionListener  extends EventListener<UILoginForm> {

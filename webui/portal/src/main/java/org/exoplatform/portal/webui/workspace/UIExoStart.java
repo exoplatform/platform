@@ -19,7 +19,6 @@ import org.exoplatform.portal.webui.navigation.UIPageManagement;
 import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.page.UIPageCreationWizard;
 import org.exoplatform.portal.webui.page.UIPageEditWizard;
-import org.exoplatform.portal.webui.page.UIPageSelector;
 import org.exoplatform.portal.webui.page.UIWizardPageCreationBar;
 import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;

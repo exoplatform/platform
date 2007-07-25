@@ -3,6 +3,8 @@ package org.exoplatform.portal.webui.portal;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
@@ -45,6 +47,11 @@ public class UIPortalBrowser extends UIContainer {
     
     loadPortalConfigs();
   }
+  
+  public String event(String name, String beanId) throws Exception {
+    if(Util.getUIPortal().getName().equals(beanId)) return super.url(name, beanId); 
+    return super.event(name, beanId);
+  }
 
   public void loadPortalConfigs() throws Exception {    
     DataStorage service = getApplicationComponent(DataStorage.class) ;
@@ -75,10 +82,21 @@ public class UIPortalBrowser extends UIContainer {
       String portalName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UserPortalConfigService service = event.getSource().getApplicationComponent(UserPortalConfigService.class);
       WebuiRequestContext webuiContext = event.getRequestContext();
+      
       UserPortalConfig config = service.getUserPortalConfig(portalName, webuiContext.getRemoteUser());
       if(config != null && config.getPortalConfig().isModifiable()) {
         service.removeUserPortalConfig(portalName);
       }
+      
+      if(config == null || Util.getUIPortal().getName().equals(portalName)) {
+        PortalRequestContext prContext = Util.getPortalRequestContext();
+        HttpServletRequest request = prContext.getRequest() ;
+        request.getSession().invalidate() ;
+        prContext.setResponseComplete(true) ;
+        prContext.getResponse().sendRedirect(request.getContextPath()) ;
+        return;
+      }
+      
       event.getSource().loadPortalConfigs();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
