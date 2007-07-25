@@ -61,6 +61,19 @@
 			          				</div>
 			          			</div>
 			          		</div>
+			          		<div class="ActionButton">
+			          			<div class="SimpleStyle">
+			          				<div class="ButtonLeft">
+			          					<div class="ButtonRight">
+			          						<div class="ButtonMiddle">
+			          							<a href="<%=uicomponent.url("Signin");%>" id="UIPortalLoginFormAction">
+			          								<%=_ctx.appRes("UILoginForm.label.Discard")%>
+			          						  </a>
+			          						</div>
+			          					</div>
+			          				</div>
+			          			</div>
+			          		</div>
 			          	</div>
 			          </div>
 			        </div>
@@ -90,22 +103,5 @@
 	    </div>
 	  </div>
 	</div>
-	<div class="UIAction" style="width: 85px;">
-  	<div class="ActionContainer">
-  		<div class="ActionButton">
-  			<div class="LightBlueStyle">
-  				<div class="ButtonLeft">
-  					<div class="ButtonRight">
-  						<div class="ButtonMiddle">  						  
-  							<a href="<%=uicomponent.event("Close");%>">
-  								<%=_ctx.appRes("UILoginForm.label.Discard")%>
-  						  </a>
-  						</div>
-  					</div>
-  				</div>
-  			</div>
-  		</div>
-  	</div>
-  </div>
 </div>  
 

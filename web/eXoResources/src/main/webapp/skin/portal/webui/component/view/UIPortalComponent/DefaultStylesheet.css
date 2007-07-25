@@ -187,8 +187,9 @@
   border: solid 1px #38acf3 ;
   padding: 8px 8px 0px 5px ;
   margin: 0px 2px 8px 2px;
-  min-height: 60px;
+  height: 100%;
 }
+
 * html .UIContainer .LAYOUT-CONTAINER {
 	height: 60px ;
 }

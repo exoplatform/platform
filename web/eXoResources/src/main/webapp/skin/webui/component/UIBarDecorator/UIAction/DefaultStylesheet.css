@@ -103,7 +103,7 @@
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonMiddle {
-  height: 21px;
+  line-height: 21px;
 	background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x top;
 	text-align: center;	
 }
@@ -111,7 +111,7 @@
 .UIAction .ActionButton .SimpleStyle a {
   color: #058ee6; font-weight: bold; 
   margin: 0px 6px; white-space: nowrap;
-  line-height: 21px; height: 21px;
+  line-height: 21px; 
 }
 
 .UIAction .ActionButton .SimpleStyle a:hover {

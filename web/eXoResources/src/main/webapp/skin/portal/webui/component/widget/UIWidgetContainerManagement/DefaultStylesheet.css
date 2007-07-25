@@ -38,7 +38,16 @@
 	height: 16px;
 	background: url(/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif);
 	float: right;
-	margin: 2px 0px;
+	margin: 2px;
+	display: inline;
+}
+
+.UIWidgetContainerManagement .EditContainerIcon {
+	width: 16px;
+	height: 16px;
+	background: url(/eXoResources/icons/16x16/DefaultSkin/EditIcon.gif);
+	float: right;
+	margin: 2px ;
 	display: inline;
 }
 

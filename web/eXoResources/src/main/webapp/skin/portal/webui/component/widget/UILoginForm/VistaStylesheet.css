@@ -1,6 +1,6 @@
 .UILoginForm {
   margin: auto;
-  padding: 25px 17px 8px 17px ;
+  padding: 25px 17px;
 }
 
 /*##############################- LoginBox Style-################################*/
@@ -38,11 +38,13 @@
 .UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
   background: url('VistaSkin/background/BoxLeftMiddle136x191.png') no-repeat left ;
   padding: 0px 0px 0px 136px ;
+  border: 1px solid red;
 }
 
 .UILoginForm .LoginDecorator .MiddleRightLoginDecorator {
   background: url('VistaSkin/background/BoxRightMiddle16x1.png') repeat-y right ;
   padding: 0px 16px 0px 0px ;
+  border: 1px solid red;
 }
 
 .UILoginForm .LoginDecorator .BottomLeftLoginDecorator {
@@ -155,11 +157,5 @@
 }
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {
-  width: 160px;
-  margin-top: 10px;
-  padding: 0px;
-}
-
-.UILoginForm .UIForm .VerticalLayout .UIAction .ActionButton {
-  margin-left: 50px;
+  width: 190px;
 }
