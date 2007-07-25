@@ -3,6 +3,7 @@
  */
 function Keyboard() {
   this.listeners = [] ;
+  this.controlKeyCodes = [8, 9, 13, 35, 36, 37, 38, 39, 40, 46] ;
   document.onkeydown = function(e) {
     return eXo.core.Keyboard.onKeyDown(e) ;
   }
@@ -35,11 +36,8 @@ Keyboard.prototype.getKeynum = function(event) {
 
 Keyboard.prototype.onKeyDown = function(event) {
   var keynum = this.getKeynum(event) ; 
-  var keychar = String.fromCharCode(keynum) ;
+  var keychar = '' ;
   
-  if(keynum == 13) {
-    keychar = '' ;
-  }
   var eventHandler = false ;
  
   if(keynum == 13) {
@@ -71,6 +69,10 @@ Keyboard.prototype.onKeyPress = function(event) {
   var keynum = this.getKeynum(event) ; 
   var keychar = String.fromCharCode(keynum) ;
   var eventHandler = false ;
+
+  if (this.controlKeyCodes.contains(keynum)) {
+    return true ;
+  }
  
   if((keynum >= 65 && keynum <= 90) || (keynum >= 97 && keynum <= 122)) {
     eventHandler = 'onAlphabet' ;
@@ -104,7 +106,7 @@ Keyboard.prototype.listenerCallback = function(eventHandler, event, keynum, keyc
     keychar = '\\\\' ;
   }
   for(var i=0; i<this.listeners.length; i++) {
-    retVal &= eval('this.listeners[' + i + '].' + eventHandler + '(' + keynum + ', "' + keychar + '")') ;
+    retVal &= eval('this.listeners[' + i + '].' + eventHandler + '(' + keynum + ', "' + keychar + '") ;') ;
   } 
   
   if(!retVal) {

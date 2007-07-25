@@ -5,7 +5,7 @@
  * 
  */
 function SimpleNodeEditor() {
-  this.cursor = '<span style="border: solid 1px red; width: 2px; height: 100%;" cursor="1">&nbsp;</span>' ;
+  this.cursor = '<span style="border: solid 1px red; width: 2px; height: 1px;" cursor="1">&nbsp;</span>' ;
   this.htmlUtil = eXo.core.HTMLUtil ;
 }
 
@@ -51,6 +51,7 @@ SimpleNodeEditor.prototype.removeCursor = function() {
 SimpleNodeEditor.prototype.defaultWrite = function() {
   this.beforeCursor = this.htmlUtil.entitiesEncode(this.beforeCursor) ;
   this.afterCursor = this.htmlUtil.entitiesEncode(this.afterCursor) ;
+//  window.alert('In defaultWrite: ' + this.beforeCursor) ;
   this.write(this.beforeCursor, this.cursor, this.afterCursor) ;
 }
 
@@ -168,7 +169,7 @@ SimpleNodeEditor.prototype.onLeftArrow = function(keynum, keychar) {
                                                   (this.beforeCursor.length - 1)) + this.afterCursor ;
     this.beforeCursor = this.beforeCursor.substr(0, (this.beforeCursor.length - 2)) ;
   }
-  window.alert('before: ' + this.beforeCursor) ;
+//  window.alert('In onLeftArrow: ' + this.beforeCursor) ;
   this.defaultWrite() ;
   return false ;
 }

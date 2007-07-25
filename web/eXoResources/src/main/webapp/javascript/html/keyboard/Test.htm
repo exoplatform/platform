@@ -39,14 +39,11 @@
     <script language="JavaScript" type="text/javascript">
       eXo.core.Editor.registerEditors(document.body) ;
       eXo.core.LogEngine.createLogPanel() ;
-//      document.write('<pre>') ;
-//      for(var n in  eXo.core.HTMLUtil.entities) {
-//        document.writeln(n) ;
-//        document.writeln('&' + n + ';') ;
-//      }
-//      document.write('</pre>') ;
-//      window.alert(eXo.core.HTMLUtil.entitiesEncode(' ')) ;
-//      window.alert(eXo.core.HTMLUtil.entitiesDecode(eXo.core.HTMLUtil.entitiesEncode('>s>>'))) ;
+      var afterCursor = '|&nbsp;is wednesday' ;
+      var beforeCursor = 'today&nbsp;' ;
+      afterCursor = beforeCursor.substr((beforeCursor.length - 2), 
+                                                    (beforeCursor.length - 1)) + afterCursor ;
+      beforeCursor = beforeCursor.substr(0, (beforeCursor.length - 2)) ;
     </script>
 	</body>
 </html>
