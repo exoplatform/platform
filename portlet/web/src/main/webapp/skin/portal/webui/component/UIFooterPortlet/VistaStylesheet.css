@@ -11,8 +11,8 @@
 }
 
 .UIFooterPortlet .RightFooter {
-  background: url('VistaSkin/background/RightFooter28x32.png') no-repeat right;
-  padding-right: 28px;
+  background: url('VistaSkin/background/FooterRepeat1x32.png') no-repeat right;
+  padding-right: 1px;
   height: 32px;
 }
 

@@ -15,5 +15,31 @@
 			</div>
 		</div>
 	</div>
-	<div class="RemoveContainerAction" onclick="eXo.widget.UIWidgetContainerManagement.deleteContainer(this);">Remove this container</div>
+
+	<div class="UIAction">
+	  <div class="ActionContainer">
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	  				    <a href="#">Save</a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	  				    <a href="#">Reset</a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </div>

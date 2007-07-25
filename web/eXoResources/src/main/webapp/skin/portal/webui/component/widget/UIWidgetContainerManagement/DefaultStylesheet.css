@@ -38,6 +38,15 @@
 	height: 16px;
 	background: url(/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif);
 	float: right;
+	margin: 2px 0px;
+	display: inline;
+}
+
+.UIWidgetContainerManagement .RemoveContainerIcon{
+	background: url(/eXoResources/icons/16x16/DefaultSkin/DustBin.gif) no-repeat center;
+	width: 16px;
+	height: 16px;
+	float: right;
 	margin: 2px 5px;
 	display: inline;
 }
@@ -103,7 +112,7 @@
 	background: #ffffff;
 	border: 1px #b7b7b7 solid;
 	padding: 20px 10px;
-	height: 221px;
+	height: 217px;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .RemoveContainerAction{
@@ -123,4 +132,8 @@
 
 .UIWidgetContainerManagement .WidgetContainerView .UIForm .HorizontalLayout textarea{
 	height: 100px;
+}
+
+.UIWidgetContainerManagement .WidgetContainerView .UIAction {
+	padding-left: 90px;
 }

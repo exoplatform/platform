@@ -151,6 +151,21 @@
   background: url('/eXoResources/icons/32x32/DefaultSkin/BusinessInfo.gif') ;
 }
 
+.UIOrganizationPortlet .UIUserManagement .UISearchForm { 
+	float: left;
+	height: auto;
+}
+
+.UIOrganizationPortlet .UISearch .UISearchForm .QuickSet {
+	width: auto;
+}
+
+.UIOrganizationPortlet .UIUserManagement a.Refresh16x16Icon { 
+	float: right;
+	width: 20px; height: 20px;
+	margin: 10px ;
+}
+
 /*#######################  UIGroupManagement #################################*/
 
 .UIOrganizationPortlet .UIGroupManagement {
