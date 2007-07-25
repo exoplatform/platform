@@ -235,7 +235,7 @@ public class UIPageNodeActionListener {
       SelectedNode selectedNode = new SelectedNode(nav, pageNodes[0], pageNodes[1]);
       selectedNode.setDeleteNode(false);
       uiPageNodeSelector.setCopyNode(selectedNode);
-      event.getSource().setActions(new String[] {"AddNode", "EditPage", "EditSelectedNode", 
+      event.getSource().setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", 
                                                  "CopyNode", "CutNode", "PasteNode", "DeleteNode"});
     }
   }
@@ -295,7 +295,7 @@ public class UIPageNodeActionListener {
       uiPageNodeSelector.setCopyNode(null);
       UITree uitree = uiPageNodeSelector.getChild(UITree.class);
       UIRightClickPopupMenu popup = uitree.getUIRightClickPopupMenu();
-      popup.setActions(new String[] {"AddNode", "EditPage", "EditSelectedNode", "CopyNode", 
+      popup.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", 
                                      "CutNode", "DeleteNode"});
        
       if(targetNode == null) { 
