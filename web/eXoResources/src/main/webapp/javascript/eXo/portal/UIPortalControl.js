@@ -294,23 +294,35 @@ ScrollManager.prototype.renderElements = function() {
 	 * Called by a scroll function. Renders the visible elements depending on the elements array
 	 * If the new visible elements are too big, hides an additional element and keep its index in otherHiddenIndex
 	 */
+	/*
+	 * Each time a scroll event occurs, at least one element is hidden, and one is shown. These elements can have
+	 * a different width, hence the total width of the tabs changes. This is why we have to check if the
+	 * new width is short enough so the arrows buttons are still well rendered. To do that, we add the elements
+	 * width to each other, and we compare this width (elementsSpace) to the container width (maxSpace). If the
+	 * total width is too large (with a 3 pixels range), we have to hide another tab.
+	 * PS: for vertical tabs, replace width by height.
+	 */
 	var elementsSpace = 0;
 	var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer);
 	// Displays the elements
 	for (var i = 0; i < this.elements.length; i++) {
-		if (this.elements[i].isVisible) {
+		if (this.elements[i].isVisible) { // if the element should be rendered...
 			elementsSpace += this.getElementSpace(this.elements[i]);
 			if (maxSpace-elementsSpace <= 3) {
-				// In certain browsers, a difference of 0 or 1 pixel between the container and the elements length
-				// is too big and the last element doesn't fit in the remaining space, hence we have to check
-				// for a bigger difference
+				/* 
+				 * In certain browsers, a difference of 0 or 1 pixel between the container and the elements length
+				 * is too big and the last element doesn't fit in the remaining space, hence we have to check
+				 * for a bigger difference
+				 */ 
 				if (this.lastDirection == 1) {
+					// If we are scrolling right or down, we hide the lefter or upper element 
 					if (this.firstVisibleIndex < this.elements.length-1) {
 						this.otherHiddenIndex = this.firstVisibleIndex;
 						this.elements[this.firstVisibleIndex].isVisible = false;
 						this.elements[this.firstVisibleIndex++].style.display = "none";
 					}
 				} else {
+					// If we are scrolling left or up, we hide the righter or downer element
 					if (this.lastVisibleIndex > 0) {
 						this.otherHiddenIndex = this.lastVisibleIndex;
 						this.elements[this.lastVisibleIndex].isVisible = false;
@@ -320,7 +332,7 @@ ScrollManager.prototype.renderElements = function() {
 				if (this.otherHiddenIndex != -1) elementsSpace -= this.getElementSpace(this.elements[this.otherHiddenIndex]);
 			}
 			this.elements[i].style.display = "block";
-		} else {
+		} else { // if the element must not be rendered...
 			this.elements[i].style.display = "none";
 			this.arrowsContainer.style.display = "block";
 		}

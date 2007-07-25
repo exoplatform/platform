@@ -3,11 +3,11 @@ function UIBrowseContent() {
 };
 
 UIBrowseContent.prototype.waitForLoadComplete = function() {
-	/*var bcPortlet = document.getElementById("UIBrowseContainer");
+	var bcPortlet = document.getElementById("UIBrowseContainer");
 	var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "HomeTab");
 	var tabs = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "UIHorizontalTabs");
 	if (homeButton && tabs && homeButton.offsetWidth == tabs.offsetWidth) window.setTimeout(eXo.portal.UIBrowseContent.waitForLoadComplete, 100);
-	else*/ eXo.portal.UIBrowseContent.loadScroll();
+	else eXo.portal.UIBrowseContent.loadScroll();
 };
 
 UIBrowseContent.prototype.loadScroll = function() {
