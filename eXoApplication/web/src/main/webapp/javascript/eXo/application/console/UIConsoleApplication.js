@@ -60,7 +60,7 @@ UIConsoleApplication.prototype.destroyApplicationInstance = function(appDescript
 UIConsoleApplication.prototype.destroyInstance = function(instanceId) {
 	if(confirm("Are you sure you want to delete this application?")) {
     var appDescriptor = 
-      new eXo.application.ApplicationDescriptor(instanceId, eXo.application.console.UIBConsoleApplication);
+      new eXo.application.ApplicationDescriptor(instanceId, eXo.application.console.UIConsoleApplication);
     
     var removeAppInstance = appDescriptor.destroyApplication();
     eXo.desktop.UIDesktop.removeJSApplication(removeAppInstance);
