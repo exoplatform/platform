@@ -187,7 +187,6 @@ ScrollManager.prototype.checkAvailableSpace = function(maxSpace) { // in pixels
 			this.elements[i].isVisible = false;
 		}
 	}
-			console.log("tabs space ", elementsSpace);
 };
 
 ScrollManager.prototype.getElementsSpace = function(indexStart, indexEnd) {

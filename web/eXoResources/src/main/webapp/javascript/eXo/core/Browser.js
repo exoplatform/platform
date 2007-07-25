@@ -141,7 +141,7 @@ Browser.prototype.onLoad = function() {
   	var callback = eXo.core.Browser.onLoadCallback ;
 	  for(var name in callback.properties) {
 	    var method = callback.get(name) ;
-	    method() ;
+	    if (typeof(method) == "function") method() ;
 	  }
 	} catch(e) {
 		//alert(e.message) ;
@@ -157,7 +157,7 @@ Browser.prototype.onResize = function(event) {
   var callback = eXo.core.Browser.onResizeCallback ;
   for(var name in callback.properties) {
     var method = callback.get(name) ;
-    method(event) ;
+    if (typeof(method) == "function") method(event) ;
   }
 } ;
 
@@ -169,7 +169,7 @@ Browser.prototype.onScroll = function(event) {
   var callback = eXo.core.Browser.onScrollCallback ;
   for(var name in callback.properties) {
     var method = callback.get(name) ;
-    method(event) ;
+    if (typeof(method) == "function") method(event) ;
   }
 } ;
 /************************************TO BROWSER PAGE CLASS************************************************/
