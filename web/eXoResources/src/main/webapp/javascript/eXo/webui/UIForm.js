@@ -27,10 +27,11 @@ UIForm.prototype.onFixSize = function() {
 */
 
 /*ie bug  you cannot have more than one button tag*/
-UIForm.prototype.submitForm = function(formId, action, useAjax) {
+UIForm.prototype.submitForm = function(formId, action, useAjax, callback) {
+	if (!callback) callback = null;
   var form = document.getElementById(formId) ;
   form.elements['formOp'].value = action ;
-  if(useAjax) ajaxPost(form) ;
+  if(useAjax) ajaxPost(form, callback) ;
   else  form.submit();
 } ;
 

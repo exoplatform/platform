@@ -302,10 +302,11 @@ function ajaxGet(url, callback) {
   doRequest("Get", url, null, callback) ;
 }
 
-function ajaxPost(formElement) {
+function ajaxPost(formElement, callback) {
+	if (!callback) callback = null;
   var queryString = eXo.webui.UIForm.serializeForm(formElement) ;
   var url = formElement.action + "&ajaxRequest=true" ;
-  doRequest("POST", url, queryString) ;
+  doRequest("POST", url, queryString, callback) ;
 }
 
 function doRequest(method, url, queryString, callback) {
