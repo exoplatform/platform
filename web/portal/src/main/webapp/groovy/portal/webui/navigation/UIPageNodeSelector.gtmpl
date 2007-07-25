@@ -25,11 +25,14 @@
   	
   	JavascriptManager jsmanager = rcontext.getJavascriptManager();
   	jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
-  	
+    if( uicomponent.getCopyNode()!= null) {
+      popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode,EditNavigation,SaveNavigation,DeleteNavigation");
+    } else {
+      popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,EditNavigation,SaveNavigation,DeleteNavigation");
+    }
   	jsmanager.addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
     uicomponent.renderUIComponent(uiPopupMenu) ;
-    
-    popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode,EditNavigation,SaveNavigation,DeleteNavigation");
+   
   }
 %>
 	<div class="TopLeftContainerOptions">

@@ -29,6 +29,7 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
+import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -234,6 +235,8 @@ public class UIPageNodeActionListener {
       SelectedNode selectedNode = new SelectedNode(nav, pageNodes[0], pageNodes[1]);
       selectedNode.setDeleteNode(false);
       uiPageNodeSelector.setCopyNode(selectedNode);
+      event.getSource().setActions(new String[] {"AddNode", "EditPage", "EditSelectedNode", 
+                                                 "CopyNode", "CutNode", "PasteNode", "DeleteNode"});
     }
   }
   
@@ -288,7 +291,13 @@ public class UIPageNodeActionListener {
           selectedNode.getPageNavigation().getNodes().remove(selectedNode.getNode());
         }
       }
-      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector);
+      uiPageNodeSelector.setCopyNode(null);
+      UITree uitree = uiPageNodeSelector.getChild(UITree.class);
+      UIRightClickPopupMenu popup = uitree.getUIRightClickPopupMenu();
+      popup.setActions(new String[] {"AddNode", "EditPage", "EditSelectedNode", "CopyNode", 
+                                     "CutNode", "DeleteNode"});
+       
       if(targetNode == null) { 
         targetNav.addNode(newNode);
         return;

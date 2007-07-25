@@ -112,7 +112,9 @@ public class UIPageNodeSelector extends UIContainer {
     uiTree.setBeanIdField("uri");
     uiTree.setBeanLabelField("label");   
     uiTree.setBeanIconField("icon");
+    
     UIRightClickPopupMenu uiPopupMenu = createUIComponent(UIRightClickPopupMenu.class, "PageNodePopupMenu", null) ;
+    uiPopupMenu.setActions(new String[] {"AddNode", "EditPage", "EditSelectedNode", "CopyNode", "CutNode", "DeleteNode"});
     uiTree.setUIRightClickPopupMenu(uiPopupMenu);
     
     loadNavigations();
