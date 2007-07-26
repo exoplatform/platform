@@ -125,7 +125,7 @@ UICalendar.prototype.renderCalendar = function() {
 	table += 		'	</div>' ;
 	table += 		'	<div class="CalendarTimeBox">' ;
 	table += 		'		<div class="CalendarTimeBoxR">' ;
-	table += 		'			<div class="CalendarTimeBoxM"><span><input size="2" maxlength="2" value="' + this.currentDate.getHours() + '">:<input size="2" maxlength="2" value="' + this.currentDate.getMinutes() + '">:<input size="2" maxlength="2" value="' + this.currentDate.getSeconds() + '"></span></div>' ;
+	table += 		'			<div class="CalendarTimeBoxM"><span><input size="2" maxlength="2" value="' + this.currentDate.getHours() + '" onblur="eXo.webui.UICalendar.getChangedTime(this,\'h\') ;">:<input size="2" maxlength="2" value="' + this.currentDate.getMinutes() + '" onblur="eXo.webui.UICalendar.getChangedTime(this,\'m\') ;">:<input size="2" maxlength="2" value="' + this.currentDate.getSeconds() + '" onblur="eXo.webui.UICalendar.getChangedTime(this,\'s\') ;"></span></div>' ;
 	table += 		'		</div>' ;
 	table += 		'	</div>' ;
 	table += 		'</div>' ;
@@ -145,12 +145,15 @@ UICalendar.prototype.changeYear = function(change) {
   clndr.firstChild.lastChild.innerHTML = this.renderCalendar() ;
 }
 
-UICalendar.prototype.setDate = function(year, month, day) {
+UICalendar.prototype.setDate = function(year, month, day) {	
   if (this.dateField) {
     if (month < 10) month = "0" + month ;
     if (day < 10) day = "0" + day ;
     var dateString = month + "/" + day + "/" + year ;
-    if(this.isDisplayTime) dateString += " " + this.currentDate.getHours() + ":" + this.currentDate.getMinutes() + ":" + this.currentDate.getSeconds() ;
+    if (!this.currentHours) this.currentHours = this.currentDate.getHours() ;
+    if (!this.currentMinutes) this.currentMinutes = this.currentDate.getMinutes() ;
+    if (!this.currentSeconds) this.currentSeconds = this.currentDate.getSeconds() ;
+    if(this.isDisplayTime) dateString += " " + this.currentHours + ":" + this.currentMinutes + ":" + this.currentSeconds ;
     this.dateField.value = dateString ;
     this.hide() ;
   }
@@ -169,6 +172,13 @@ UICalendar.prototype.getDayOfWeek = function(year, month, day) {
 
 UICalendar.prototype.getDaysInMonth = function(year, month) {
 	return [31, ((!(year % 4 ) && ( (year % 100 ) || !( year % 400 ) ))? 29:28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month-1];
+}
+
+UICalendar.prototype.getChangedTime = function(input, type) {
+	var time = input.value ;
+	if (type == 'h') this.currentHours = time ;
+	else if (type == 'm') this.currentMinutes = time ;
+	else if (type == 's') this.currentSeconds = time ;
 }
 
 eXo.webui.UICalendar = new UICalendar('UICalendarControl') ;
