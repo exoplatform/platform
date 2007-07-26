@@ -56,7 +56,8 @@ public class UIUserInGroup extends UIContainer {
   }  
   
   @Override
-  protected String loadConfirmMesssage(String confirm, WebuiRequestContext context, String beanId) {
+  protected String loadConfirmMesssage(org.exoplatform.webui.config.Event event, WebuiRequestContext context, String beanId) {
+    String confirm = event.getConfirm();
     if(confirm.length() < 1) return confirm;
     UIGridUser uiGrid = getChild(UIGridUser.class);
     try {
