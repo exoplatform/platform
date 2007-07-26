@@ -30,11 +30,14 @@ Command.prototype = {
    */
   execute : function(args, screen) {
     return {retCode:-1, msg: 'Not implement'} ;
+  },
+
+  callServer(actionHandler, params) {
+    var url = eXo.env.server.context + "/command?" ;
+    url += 'type=org.exoplatform.web.command.handler.ConsoleUploadHandler&action=upload&uploadId=' + nodeId ;
+    return ajaxAsyncGetRequest(url, false) ;
   }
 } ;
 
-if (!eXo.application.console) {
-  eXo.application.console = {} ;
-}
-
+if (!eXo.application.console)  eXo.application.console = {} ;
 eXo.application.console.Command =  Command ;
