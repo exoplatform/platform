@@ -8,7 +8,8 @@ UIExoWidget.prototype.init = function(appName, appFolder) {
   this.appCategory = "eXoWidgetWeb" ;
 	this.appName = appName ;
 	this.appFolder = appFolder;
-	this.appIcon = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png" ;
+	var nameWidget = eXo.widget.UIExoWidget.getNameWidget(appName);
+	this.appIcon = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/"+nameWidget+".png" ;
 	this.skin = {
 	  Default: "/eXoWidgetWeb/skin/"+appFolder+"/DefaultStylesheet.css",
 	  Mac:     "/eXoWidgetWeb/skin/"+appFolder+"/MacStylesheet.css",
@@ -81,6 +82,14 @@ UIExoWidget.prototype.destroyInstance = function(instanceId) {
   var appDescriptor = new eXo.application.ApplicationDescriptor(instanceId, this);
   var removeAppInstance = appDescriptor.destroyApplication();
   eXo.desktop.UIDesktop.removeJSApplication(removeAppInstance);
+};
+
+UIExoWidget.prototype.getNameWidget = function(nameWidget) {
+	var strlabel = nameWidget.charAt(2); 
+	for(var i = 3; i < nameWidget.length; i ++) {
+		strlabel = strlabel + nameWidget.charAt(i);
+	}
+	return strlabel;
 };
 
 eXo.widget.UIExoWidget = new UIExoWidget();
