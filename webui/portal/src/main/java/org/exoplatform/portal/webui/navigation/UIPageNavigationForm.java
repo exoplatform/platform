@@ -62,14 +62,21 @@ import org.exoplatform.webui.organization.UIPermissionSelector;
 public class UIPageNavigationForm extends UIFormTabPane {
 
   public PageNavigation pageNav_;
+  
+  private UIFormInputSet uiPermissionSetting;
 
   public UIPageNavigationForm() throws Exception {
     super("UIPageNavigationForm") ;
     
     List<SelectItemOption<String>> ownerTypes = new ArrayList<SelectItemOption<String>>() ;
     ownerTypes.add(new SelectItemOption<String>("User", PortalConfig.USER_TYPE)) ;
-    ownerTypes.add(new SelectItemOption<String>("Portal", PortalConfig.PORTAL_TYPE)) ;
-    ownerTypes.add(new SelectItemOption<String>("Group", PortalConfig.GROUP_TYPE)) ;
+    if(Util.getUIPortal().isModifiable()) {
+      ownerTypes.add(new SelectItemOption<String>("Portal", PortalConfig.PORTAL_TYPE)) ;
+    }
+    PortalRequestContext pcontext = Util.getPortalRequestContext();
+    if(pcontext.isUserInRole("admin")) {
+      ownerTypes.add(new SelectItemOption<String>("Group", PortalConfig.GROUP_TYPE)) ;
+    }
     UIFormSelectBox uiSelectBoxOwnerType = new UIFormSelectBox("ownerType","ownerType" , ownerTypes) ;
     uiSelectBoxOwnerType.setOnChange("ChangeOwnerType");
     
@@ -90,9 +97,8 @@ public class UIPageNavigationForm extends UIFormTabPane {
                  addUIFormInput(new UIFormSelectBox("priority", null, priorties));
     addUIFormInput(uiSettingSet) ;
 
-    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
+    uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
     uiPermissionSetting.setRendered(false);
-    addUIComponentInput(uiPermissionSetting);
     
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
@@ -135,12 +141,16 @@ public class UIPageNavigationForm extends UIFormTabPane {
   
   public void setValues(PageNavigation pageNavigation) throws Exception {
     pageNav_ = pageNavigation;
+    if(pageNavigation.getOwnerType().equals(PortalConfig.USER_TYPE)) {
+      removeChildById("PermissionSetting") ;  
+    } else if(getChildById("PermissionSetting") == null) {
+      addUIComponentInput(uiPermissionSetting);
+    }
     invokeGetBindingBean(pageNavigation) ;
     
     getUIFormSelectBox("ownerType").setEnable(false);
     UIFormSelectBox uiSelectBox = findComponentById("priority");
     uiSelectBox.setValue(String.valueOf(pageNavigation.getPriority()));
-    if(pageNavigation.getOwnerType().equals(PortalConfig.USER_TYPE)) removeChildById("PermissionSetting") ;  
   }
 
   static public class SaveActionListener extends EventListener<UIPageNavigationForm> {
@@ -204,7 +214,11 @@ public class UIPageNavigationForm extends UIFormTabPane {
       
       if(PortalConfig.USER_TYPE.equals(ownerType)){
         uiOwnerId.setValue(prContext.getRemoteUser());
+        uiForm.removeChildById("PermissionSetting") ;  
       } else {
+        if(uiForm.getChildById("PermissionSetting") == null) {
+          uiForm.addUIComponentInput(uiForm.uiPermissionSetting);
+        }
         if(PortalConfig.PORTAL_TYPE.equals(ownerType)){
           uiOwnerId.setValue(Util.getUIPortal().getName());
         } else {

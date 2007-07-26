@@ -6,8 +6,6 @@ package org.exoplatform.organization.webui.component;
 
 import java.io.Writer;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -125,6 +123,7 @@ public class UIUserInGroup extends UIContainer {
     }
     
     public List<?> getBeans() throws Exception {
+      membershipUsers.clear();
       List<?> list = super.getBeans() ;
       Iterator<?> itr = list.iterator() ;
       while(itr.hasNext()){
