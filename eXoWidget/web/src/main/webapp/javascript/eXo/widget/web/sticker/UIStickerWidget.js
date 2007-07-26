@@ -8,7 +8,6 @@ function UIStickerWidget() {
 }
 
 UIStickerWidget.prototype.sendContent = function(object) {	
-
 	if (object.value == "")	return ;
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiWidgetContainer = DOMUtil.findAncestorByClass(object, "WidgetApplication") ;

@@ -101,7 +101,7 @@ public class UIContainerActionListener {
       uiWidget.setApplicationName(application.getApplicationName());
       uiWidget.setApplicationGroup(application.getApplicationGroup());
       uiWidget.setApplicationOwnerType(application.getApplicationType());
-      uiWidget.setApplicationOwnerId(application.getOwner());
+//      uiWidget.setApplicationOwnerId(application.getOwner());
 
       uiWidgetContainer.addChild(uiWidget);
 
