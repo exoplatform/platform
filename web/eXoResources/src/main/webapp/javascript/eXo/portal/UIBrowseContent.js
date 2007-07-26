@@ -17,7 +17,7 @@ UIBrowseContent.prototype.loadScroll = function() {
 	if (bcPortlet) {
 		// Main Navigation Configuration
 		var mainNav = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "UICBMainNavigation");
-		var mainBarMgr = eXo.portal.UIPortalControl.newScrollManager();
+		var mainBarMgr = eXo.portal.UIPortalControl.newScrollManager("UIBrowseContainer");
 		mainBarMgr.mainContainer = mainNav;
 		mainBarMgr.arrowsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(mainNav, "div", "NavigationButtonContainer");
 		mainBarMgr.loadElements("UITab", true);
@@ -31,7 +31,7 @@ UIBrowseContent.prototype.loadScroll = function() {
 		uiBC.bcManagers.push(mainBarMgr);
 		// Sub Navigation Configuration
 		var subNav = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "UICBSubNavigation");
-		var subBarMgr = eXo.portal.UIPortalControl.newScrollManager();
+		var subBarMgr = eXo.portal.UIPortalControl.newScrollManager("UIBrowseContainer");
 		subBarMgr.mainContainer = subNav;
 		subBarMgr.arrowsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(subNav, "div", "NavigationButtonContainer");
 		subBarMgr.loadElements("ChildNodeItem", true);
@@ -50,7 +50,7 @@ UIBrowseContent.prototype.loadScroll = function() {
 		var pageNav = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "UIEventViewer");
 		var pageMenus = eXo.core.DOMUtil.findDescendantsByClass(pageNav, "div", "SubContentTitle");
 		for (var i = 0; i < pageMenus.length; i++) {
-			var currMgr = eXo.portal.UIPortalControl.newScrollManager();
+			var currMgr = eXo.portal.UIPortalControl.newScrollManager("UIBrowseContainer");
 			currMgr.mainContainer = eXo.core.DOMUtil.findFirstDescendantByClass(pageMenus[i], "div", "MiddleBar");
 			currMgr.arrowsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(pageMenus[i], "div", "NavigationButtonContainer");
 			currMgr.loadElements("ChildNode", true);

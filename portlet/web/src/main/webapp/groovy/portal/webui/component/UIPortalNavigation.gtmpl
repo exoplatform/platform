@@ -10,7 +10,7 @@
 	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalNavigation.onLoad');
 	
 	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalNavigation.loadScroll');
-	jsmanager.addOnResizeJavascript('eXo.portal.UIPortalNavigation.initScroll');
+	//jsmanager.addOnResizeJavascript('eXo.portal.UIPortalNavigation.initScroll');
 
   navigations = uicomponent.getNavigations();
 

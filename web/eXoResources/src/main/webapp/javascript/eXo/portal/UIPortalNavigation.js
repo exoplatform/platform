@@ -189,12 +189,12 @@ UIPortalNavigation.prototype.onMenuItemOut = function(e) {
 /***** Scroll Management *****/
 UIPortalNavigation.prototype.loadScroll = function(e) {
 	var uiNav = eXo.portal.UIPortalNavigation;
-	// Creates new ScrollManager and initializes it
-	uiNav.scrollMgr = eXo.portal.UIPortalControl.newScrollManager();
-	uiNav.scrollMgr.initFunction = uiNav.initScroll;
-	// Adds the tab elements to the manager
 	var portalNav = document.getElementById("PortalNavigationTopContainer");
 	if (portalNav) {
+		// Creates new ScrollManager and initializes it
+		uiNav.scrollMgr = eXo.portal.UIPortalControl.newScrollManager("PortalNavigationTopContainer");
+		uiNav.scrollMgr.initFunction = uiNav.initScroll;
+		// Adds the tab elements to the manager
 		var tabs = eXo.core.DOMUtil.findAncestorByClass(portalNav, "UIHorizontalTabs");
 		uiNav.scrollMgr.mainContainer = tabs;
 		uiNav.scrollMgr.arrowsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(tabs, "div", "ScrollButtons");

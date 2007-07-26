@@ -100,6 +100,7 @@ UIPortalControl.prototype.onEnterPress = function(e) {
  *       (e.g. if an element must be always visible)
  */
 function ScrollManager() {
+	this.id = null;
 	this.elements = new Array();
 	this.firstVisibleIndex = 0;
 	this.lastVisibleIndex = -1;
@@ -349,18 +350,32 @@ ScrollManager.prototype.renderElements = function() {
 
 UIPortalControl.prototype.initAllManagers = function() {
 	/*
-	 * Called when the workspace is opened, to recalculate the available space for all managers
+	 * Called whenever the scroll managers present on the current page need to be re-calculated
+	 * e.g. when the workspace control is opened/closed, when a popup window is resized, etc
+	 * Inits only the scroll managers that manage tabs that appears on the current page
 	 */
 	var managers = eXo.portal.UIPortalControl.scrollManagers;
 	for (var i = 0; i < managers.length; i++) {
-		if (typeof(managers[i].initFunction) == "function") managers[i].initFunction();
+		var toInit = false;
+		toInit = (document.getElementById(managers[i].id) !== null);
+		toInit &= (typeof(managers[i].initFunction) == "function");
+		if (toInit) { managers[i].initFunction(); console.log("init scroll for ",managers[i].id); }
 	}
 };
 
-UIPortalControl.prototype.newScrollManager = function() {
-	var tmpMgr = new ScrollManager();
-	eXo.portal.UIPortalControl.scrollManagers.push(tmpMgr);
-	return tmpMgr;
+UIPortalControl.prototype.newScrollManager = function(id_) {
+	if (eXo.portal.UIPortalControl.scrollManagers.length == 0) {
+		eXo.core.Browser.addOnResizeCallback("initAllManagers", eXo.portal.UIPortalControl.initAllManagers);
+	}
+	if (id_) {
+		var tmpMgr = new ScrollManager();
+		tmpMgr.id = id_;
+		eXo.portal.UIPortalControl.scrollManagers.push(tmpMgr);
+		return tmpMgr;
+	} else {
+		alert('id needed !!');
+		return null;
+	}
 };
 /*********** Scroll Manager *************/
 
