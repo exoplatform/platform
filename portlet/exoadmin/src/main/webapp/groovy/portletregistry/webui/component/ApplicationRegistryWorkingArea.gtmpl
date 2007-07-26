@@ -13,7 +13,7 @@
 	  for (portlet in portlets)  {
 			String name = portlet.getApplicationName(); 
 		  String displayName = portlet.getDisplayName();
-		  String creator = portlet.getOwner();
+		  //String creator = portlet.getOwner();
 		  String [] accessPermissions = portlet.getAccessPermissions();
 		  String accessPermission = "";
 		  if(accessPermissions != null && accessPermissions.length > 0) {
@@ -50,10 +50,10 @@
 	  		      <span class="LeftLabel">Type:</span>
 	  		      <span class="RightLabel"><%=applicationType%></span>
 	  		    </div>
-	  		    <div class="ContentLabel">
+	  		    <!--<div class="ContentLabel">
 	  		      <span class="LeftLabel">Created by:</span>
-	  		      <span class="RightLabel"><%=creator%></span>
-	  		    </div>
+	  		      <span class="RightLabel">=creator</span>
+	  		    </div>-->
 	  		    <div class="ContentLabel">
 							<span class="LeftLabel">Description:</span>
 							<span class="RightLabel"><%=desription%></span>

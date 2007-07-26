@@ -24,6 +24,7 @@ import org.exoplatform.application.registry.ApplicationCategory;
 class DataMapper {
   
   private final static String ID = "exo:id" ;
+//  private final static String OWNER = "exo:owner" ;
   private final static String NAME = "exo:name";
   private final static String DISPLAY_NAME = "exo:displayName";
   private final static String DESCRIPTION = "exo:description";
@@ -77,6 +78,9 @@ class DataMapper {
     if(node.hasProperty(DESCRIPTION)) {
       application.setDescription(node.getProperty(DESCRIPTION).getString());
     }
+//    if(node.hasProperty(OWNER)) {
+//      application.setOwner(node.getProperty(OWNER).getString());
+//    }
     application.setCategoryName(node.getProperty(CATEGORY_NAME).getString());
     application.setApplicationName(node.getProperty(APPLICATION_NAME).getString());
     application.setApplicationType(node.getProperty(APPLICATION_TYPE).getString());
@@ -102,6 +106,7 @@ class DataMapper {
 
   void applicationToNode(Application application, Node node) throws Exception {
     node.setProperty(ID, application.getId());
+//    node.setProperty(OWNER, application.getOwner());
     node.setProperty(DISPLAY_NAME, application.getDisplayName());
     node.setProperty(DESCRIPTION, application.getDescription());
     node.setProperty(CATEGORY_NAME, application.getCategoryName());
