@@ -101,13 +101,13 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
 
       if(i == size - 1) {
         if(size >= 2){
-          writer.append("<a class=\"MultiFieldAction\" href=\"");
-          writer.append(uiForm.event("Remove", getId()+String.valueOf(i))).append("\">");
-          writer.append(res.getString("UIFormMultiValueInputSet.label.remove")).append("</a>");
+          writer.append("<a class=\"MultiFieldAction Remove16x16Icon\" href=\"");
+          writer.append(uiForm.event("Remove", getId()+String.valueOf(i))).append("\" title=\"Remove Item\">");
+          writer.append("<span></span></a>");
         }
-        writer.append("<a class=\"MultiFieldAction\" href=\"");
-        writer.append(uiForm.event("Add", getId())).append("\">");
-        writer.append(res.getString("UIFormMultiValueInputSet.label.add")).append("</a>");
+        writer.append("<a class=\"MultiFieldAction AddNewNodeIcon\" href=\"");
+        writer.append(uiForm.event("Add", getId())).append("\" title=\"Add Item\">");
+        writer.append("<span></span></a>");
       }      
       writer.append("</div>") ;
     }    

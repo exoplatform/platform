@@ -28,6 +28,6 @@
 		<div class="FileName">
 			<div class="FileNameLabel"></div>
 		</div>
-		<div class="RemoveFile" onclick="eXo.webui.UIUpload.deleteUpload($uploadId);"><%=_ctx.appRes("UIFormUploadInput.label.remove")%></div>
+		<div class="RemoveFile" title="Remove Uploaded" onclick="eXo.webui.UIUpload.deleteUpload($uploadId);"></div>
 	</div>
 </div>

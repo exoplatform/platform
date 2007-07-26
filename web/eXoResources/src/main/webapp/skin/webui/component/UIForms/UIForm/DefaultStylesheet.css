@@ -21,7 +21,8 @@
 }
 
 .UIForm .HorizontalLayout .MultiValueContainer a.MultiFieldAction {
-  margin: 0px 3px;
+  margin: 5px 3px;
+  float: left;
 }
 
 .UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {

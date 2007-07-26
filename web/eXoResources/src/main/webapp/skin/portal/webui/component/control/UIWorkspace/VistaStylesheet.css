@@ -123,4 +123,6 @@
 	position: absolute ;
 	cursor: pointer ;
 	margin: 36px 0px 0px 0px;
+	top: 0px;
+	right: 0px;
 }

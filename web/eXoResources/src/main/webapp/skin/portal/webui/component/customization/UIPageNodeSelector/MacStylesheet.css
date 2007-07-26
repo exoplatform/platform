@@ -11,7 +11,7 @@
 .UIPageNodeSelector .UITree {
   background: none;
   border:1px solid #B7B7B7;
-  padding: 0px;
+  padding: 0px 0px 10px 0px;
   margin: 0px;
 }
 

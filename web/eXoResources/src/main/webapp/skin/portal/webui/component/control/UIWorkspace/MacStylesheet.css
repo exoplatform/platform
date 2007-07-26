@@ -94,4 +94,6 @@
 	background: url("MacSkin/background/PreviewModeImage146x156.png") no-repeat top right;
 	position: absolute ;
 	cursor: pointer ;
+	top: 0px;
+	right: 0px;
 }

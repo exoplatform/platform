@@ -59,10 +59,12 @@
 	padding-left: 23px;
 	margin-left: 5px;
 }
+
 .DeleteFileLable {
 	font-family: verdana;
 	line-height: 18px;
 }
+
 .FileName {
 	float: left;
 }

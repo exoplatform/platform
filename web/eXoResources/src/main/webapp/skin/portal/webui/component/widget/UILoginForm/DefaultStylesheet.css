@@ -91,7 +91,6 @@
 
 .UILoginForm .LoginDetailBox .CheckField .RememberLoginTitle {
   float: left;
-  margin-left: 7px;
   line-height: 20px;
 }
 
@@ -151,5 +150,5 @@
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {
   width: 160px;
-  padding-left: 40px;
+  padding: 15px 0px 15px 100px;
 }
