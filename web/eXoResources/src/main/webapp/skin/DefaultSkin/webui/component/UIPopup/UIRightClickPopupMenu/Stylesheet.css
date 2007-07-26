@@ -1,0 +1,106 @@
+.UIRightClickPopupMenu {
+  width: 150px;
+  display: none;
+  position: absolute;
+  background: #c4c4c4;
+  border: 1px solid #7e7e7f;
+}
+
+.UIRightClickPopupMenu .UIRightPopupMenuContainer {
+  margin: 1px;
+  padding: 5px 0px;
+  background: #f6f6f6;
+}
+
+.UIRightClickPopupMenu .MenuItem {
+  clear: both;
+  cursor: pointer;
+  line-height: 26px;
+}
+
+.UIRightClickPopupMenu .RightClickCustomItem {
+	display: none;
+}
+	
+.UIRightClickPopupMenu .SelectedMenuItem {
+  clear: both;
+  cursor: pointer;
+  line-height: 26px;
+  background: #dee4f2;
+}
+
+.UIRightClickPopupMenu .ItemIcon {
+  margin: 5px; margin-left: 7px;
+  float: left;
+}
+
+.UIRightClickPopupMenu .AddNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .EditPageNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/EditPageNode.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .EditSelectedNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/EditNode.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .CopyNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/CopyIcon.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .CutNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Cut.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .PasteNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PasteIcon.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .DeleteNode16x16Icon{
+  width: 16px;
+  height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat;
+}
+
+.UIRightClickPopupMenu .PasteNavigation16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PasteIcon.gif') no-repeat;
+  width: 16px; height: 16px;
+}
+
+.UIRightClickPopupMenu .DeleteNavigation16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat;
+  width: 16px; height: 16px;
+}
+
+.UIRightClickPopupMenu .EditNavigation16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat;
+  width: 16px; height: 16px;
+}
+
+.UIRightClickPopupMenu .SaveNavigation16x16Icon {
+  background: url('/eXoResources/icons/16x16/DefaultSkin/FloppyDisk.gif') no-repeat center;
+  width: 16px; height: 16px;
+}
+
+.UIRightClickPopupMenu a {
+  color: black;
+  text-decoration: none;
+}
+
+.UIRightClickPopupMenu a:hover {
+  color: orange;
+}

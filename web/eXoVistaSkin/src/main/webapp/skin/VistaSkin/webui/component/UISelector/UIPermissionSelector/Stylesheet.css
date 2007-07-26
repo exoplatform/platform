@@ -1,0 +1,129 @@
+.UIPermissionSelector {
+  padding: 10px;
+}
+
+.UIPermissionSelector .PermissionSelectorTitleBar {
+  margin: 5px 0px 0px 5px; 
+  height: 30px;
+}
+
+.UIPermissionSelector .PermissionSelectorTitleBar .PermissionIcon {
+  background: url('/eXoResources/icons/24x24/VistaSkin/PermissionIcon.gif') no-repeat;
+  width: 24px; height: 24px;
+  margin: 2px 10px 0px 10px;
+  float: left;
+}
+
+.UIPermissionSelector .PermissionSelectorTitleBar .Title {
+  height: 24px; line-height: 24px;
+  font-size: 12px; font-weight: bold; color: #0a80d2;
+  float: left;
+}
+
+.UIPermissionSelector .PermissionInfoContainer {
+  padding: 10px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .InfoContentContainer {
+  padding: 0px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .PermissionTypeBar {
+  height: 22px; line-height: 22px; 
+  background: url('VistaSkin/background/TitleBG1x20.gif') repeat-x; 
+  border: solid 1px #b1b5c0 ; border-bottom: none;
+}
+
+.UIPermissionSelector .PermissionTypeBar .SeparateLine {
+  float: left;
+  height: 22px;
+  border-left: solid 1px #b1b5c0;
+  border-right: solid 1px #ffffff;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .PermissionButton {
+  color: black; text-align: center;
+  float: left ;
+  cursor: pointer ;
+  width: 140px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo {
+  border: solid 1px #b1b5c0 ;
+  background:url(VistaSkin/background/SelectedPermissionInfo1x21.png) repeat-x scroll center top ;
+  padding: 15px 0px 15px 0px ;
+  height: 90px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Icon {
+  margin: 0px 5px 0px 15px ;
+  float: left;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .PermissionInfoTitle {
+  margin-left: 5px ;
+  float: left;
+  font-weight: bold;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Label {
+  margin: 8px 0px 5px 40px ;
+  float: left ;
+  width: 150px ;
+  font-size: 12px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Info {
+  float: left ;
+  margin: 8px 0px 5px 15px ;
+  color: #0749c4 ;
+  background: none;
+  font-size: 12px;
+}
+
+.UIPermissionSelector .UIAction  {
+  padding-top: 0px;
+} 
+
+.UIPermissionSelector .PermissionInfoContainer .UIAction .ActionButton {
+  width: 165px;
+  margin: auto;
+  float: none;
+} 
+
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
+  width: 200px; 
+  margin: 8px auto 0px auto; 
+}
+
+.UIPermissionSelector .SelectPermissionButton .LeftButton {
+  background: url('VistaSkin/background/LeftSimpleButton20x24.png') no-repeat left; 
+  padding-left: 20px;
+}
+
+.UIPermissionSelector .SelectPermissionButton .RightButton {
+  background: url('VistaSkin/background/RightSimpleButton20x24.png') no-repeat right; 
+  padding-right: 20px;
+} 
+
+.UIPermissionSelector .SelectPermissionButton .CenterButton {
+  background: url('VistaSkin/background/CenterSimpleButton3x24.png') repeat-x; 
+  height: 24px; line-height: 24px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
+  float: left;
+  width: 19px; height: 20px; 
+  margin: 2px 0px 0px 5px;
+  background: url('/eXoResources/icons/16x16/VistaSkin/SelectPermissionIcon.png') no-repeat;
+} 
+
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a{
+  font-weight: bold; color: black;
+  float: left;
+  padding-left: 6px;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a:hover{
+  color: #0a80d2;
+}

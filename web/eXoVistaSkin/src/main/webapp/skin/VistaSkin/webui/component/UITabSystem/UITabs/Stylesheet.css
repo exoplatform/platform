@@ -1,0 +1,544 @@
+.UIHorizontalTabs {
+  height: 31px;
+}
+
+.UIHorizontalTabs .LeftHorizontalTabs{
+  height: 31px;
+  background: url('VistaSkin/background/LeftHorizontalTabs7x31.png') no-repeat left;
+  padding-left: 1px;
+}
+
+.UIHorizontalTabs .RightHorizontalTabs{
+  height: 31px;
+  background: url('VistaSkin/background/RightHorizontalTabs5x31.png') no-repeat right;
+  padding-right: 5px;
+}
+
+.UIHorizontalTabs .CenterHorizontalTabs {
+  height: 31px;
+  background: url('VistaSkin/background/MiddleHorizontalTabs1x31.png') repeat-x;
+}
+
+.UIHorizontalTabs .TabsContainer {
+  padding: 0px 0px 0px 10px;
+  float: left;
+}
+
+.UIHorizontalTabs .UITab {
+  float: left;
+  font-weight: normal;
+  text-align: center;
+}
+
+.UIHorizontalTabs .PreviousTabButton  {
+  float: left;
+  width: 14px; height: 24px;
+  margin-right: 1px;
+  cursor : pointer;
+  background: url('VistaSkin/background/YellowLastTabButton14x24.gif') no-repeat;
+}
+
+.UIHorizontalTabs .NextTabButton  {
+  float: left;
+  width: 14px; height: 24px;
+  cursor : pointer;
+  background: url('VistaSkin/background/YellowNextTabButton14x24.gif') no-repeat;
+}
+
+/*###########################--NavigationTabTab--############################*/
+
+
+.UIHorizontalTabs .UITab .NormalNavigationTab {
+	margin: 3px 0px 0px 0px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab a {
+  color: black;
+  text-decoration: none;
+  margin: 0px 8px ;  
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab a:hover {
+  color: blue;
+  text-decoration: none;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .LeftTab {
+  padding-left: 3px;
+  line-height: 24px;
+  background: url('VistaSkin/background/LeftNormalNaviTab3x24.gif') no-repeat left;
+  margin: 0px 2px 0px 0px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .RightTab {
+  line-height: 24px;
+  padding-right: 3px;
+  background: url('VistaSkin/background/RightNormalNaviTab3x24.gif') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
+  line-height: 24px;
+  background: url('VistaSkin/background/CenterNormalNaviTab1x24.gif') repeat-x;
+  cursor: pointer;
+  padding: 0px 3px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
+  color: white;
+  width: auto; 
+  line-height: 24px;
+  padding-left: 16px;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab a {
+  color: #000000;
+}
+
+.UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
+  padding-right: 4px;
+  background: url(/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif) no-repeat right;
+  cursor: pointer;
+}
+/*###############-Hightlight Navigation Tab-################*/
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab {
+	margin: 3px 0px 0px 0px;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab a {
+  color: #1052a3;
+  margin: 0px 8px;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
+  line-height: 24px;
+  padding-left: 3px;
+  margin: 0px 2px 0px 0px;
+  background: url('VistaSkin/background/LeftHighlightNaviTab3x24.gif') no-repeat left; 
+  
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .RightTab {
+  line-height: 24px;
+  padding-right: 3px;
+  background: url('VistaSkin/background/RightHighlightNaviTab3x24.gif') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
+  line-height: 24px;
+  background: url('VistaSkin/background/CenterHighlightNaviTab1x24.gif') repeat-x;
+  cursor: pointer;
+  padding: 0px 3px;
+}
+.UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
+  color: white;
+  width: auto;
+  line-height: 24px;
+  padding-left: 16px;
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab a {
+  color: #000000;
+ 
+}
+
+.UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {
+  padding-right: 4px;
+  background: url(/eXoResources/icons/16x16/VistaSkin/BlackDownArrow.gif) no-repeat right;
+  cursor: pointer;
+}
+
+/*###############-Selected Navigation Tab-################*/
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab {
+  margin: 3px 0px 0px 0px;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab a {
+  color: black;
+  margin: 2px 8px 0px 8px;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
+  line-height: 24px;
+  padding-left: 3px;
+  margin: 0px 2px 0px 0px;
+  background: url('VistaSkin/background/LeftSelectedNaviTab3x24.gif') no-repeat left;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .RightTab {
+  line-height: 24px;
+  padding-right: 3px;
+  background: url('VistaSkin/background/RightSelectedNaviTab3x24.gif') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
+  line-height: 24px;
+  background: url('VistaSkin/background/CenterSelectedNaviTab3x24.gif') repeat-x;
+  cursor: pointer;
+  padding: 0px 3px;
+}
+.UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
+  color: white;
+  width: auto; 
+  line-height: 24px;
+  padding-left: 16px;
+}
+.UIHorizontalTabs .UITab .SelectedNavigationTab a {
+  color: black;
+}
+.UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {
+  padding-right: 4px;
+  background: url(/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif) no-repeat right;
+  cursor: pointer;
+}
+
+/*###########################--NormalTab--############################*/
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab{
+  line-height: 26px; 
+  margin-right: 1px;
+  color: #474849;
+  font-weight: normal;
+}
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab a {
+  color: #979798;
+}
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab a:hover {
+  color: black;
+}
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
+  padding-left: 5px;
+  line-height: 26px; 
+  background: url('VistaSkin/background/NormalTabLBg5x26.png') no-repeat left top;
+}
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
+  line-height: 26px;
+  padding-right: 5px;
+  background: url('VistaSkin/background/NormalTabRBg5x26.png') no-repeat right top;
+}
+
+.UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
+  line-height: 26px;
+  background: url('VistaSkin/background/NormalTabRepeatBg1x26.png') repeat-x top;
+  cursor: pointer;
+  padding: 0px 4px 0px 4px;
+}
+
+.UIHorizontalTabs .NormalTabStyle .HighlightTab {
+  line-height: 26px;
+  color: #000000;
+}
+
+.UIHorizontalTabs .NormalTabStyle .HighlightTab a:hover{
+  color: blue;
+}
+
+.UIHorizontalTabs .NormalTabStyle .HighlightTab .LeftTab {
+  line-height: 26px;
+  padding-left:4px;
+  background: url('VistaSkin/background/HighlightTabLBg5x26.gif') no-repeat left;;
+}
+
+.UIHorizontalTabs .NormalTabStyle .HighlightTab .RightTab {
+  line-height: 26px;
+  padding-right:5px;
+  background: url('VistaSkin/background/HighlightTabRBg5x26.gif') no-repeat right;
+}
+
+.UIHorizontalTabs .NormalTabStyle .HighlightTab .MiddleTab {
+  line-height: 26px;
+  background: url('VistaSkin/background/HighlightTabRepeatBg1x26.gif') repeat-x;
+  cursor: pointer;
+  padding: 0px 5px 0px 5px;
+}
+
+.UIHorizontalTabs .NormalTabStyle .SelectedTab {
+  line-height: 26px;
+  color: #307dcc;
+  margin-right: 1px;
+}
+
+.UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
+  line-height: 26px;
+  padding-left: 4px;
+  background: url('VistaSkin/background/LeftSelectedTab4x26.png') no-repeat left top;
+}
+
+.UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
+  line-height: 26px;
+  padding-right: 4px;
+  background: url('VistaSkin/background/RightSelectedTab4x26.png') no-repeat right top;
+}
+
+.UIHorizontalTabs .NormalTabStyle .SelectedTab .MiddleTab {
+  line-height: 26px;
+  background: url('VistaSkin/background/MiddleSelectedTab1x26.png') repeat-x top;
+  cursor: pointer;
+  padding: 0px 4px 0px 4px;
+}
+
+/*###########################--GrayRectangle27Style--############################*/
+
+.UIHorizontalTabs .UITab .NormalStyle1 {
+  line-height: 27px ;
+
+}
+
+.UIHorizontalTabs .UITab .NormalStyle1 .LeftTab {
+  line-height: 27px ;
+  padding-left: 2px ;
+  background: url('VistaSkin/background/GrayRectangleL2x27.gif') no-repeat left;
+}
+
+.UIHorizontalTabs .UITab .NormalStyle1 .RightTab {
+  line-height: 27px;
+  padding-right: 1px;
+  background: url('VistaSkin/background/GrayRectangleR1x27.gif') no-repeat right;
+}
+
+.UIHorizontalTabs .UITab .NormalStyle1 .MiddleTab {
+  line-height: 27px;
+  background: url('VistaSkin/background/GrayRectangleBg1x27.gif') repeat-x;
+}
+
+/*###########################--NavyBlueRectangle27Style--############################*/
+
+.UIHorizontalTabs .UITab .HighlighStyle1 {
+  line-height: 27px ;
+}
+
+.UIHorizontalTabs .UITab .HighlighStyle1 .LeftTab {
+  line-height: 27px ;
+  padding-left: 2px ;
+  background: url('VistaSkin/background/NavyBlueRectangleL2x27.gif') no-repeat left;
+}
+
+.UIHorizontalTabs .UITab .HighlighStyle1 .RightTab {
+  line-height: 27px ;
+  padding-right: 1px ;
+  background: url('VistaSkin/background/NavyBlueRectangleR1x27.gif') no-repeat right ;
+}
+
+.UIHorizontalTabs .UITab .HighlighStyle1 .MiddleTab {
+  line-height: 27px ;
+  background: url('VistaSkin/background/NavyBlueRectangleBg1x27.gif') repeat-x ;
+}
+
+/*###########################--CommunityTab--############################*/
+.UIHorizontalTabs .UITab .NormalCommunityTab {
+  line-height: 31px ;    
+  margin-top: 6px;
+  margin-left: 15px;
+}
+
+.UIHorizontalTabs .UITab .NormalCommunityTab .LeftTab {
+  line-height: 31px ;
+  padding-left: 5px ;
+  background: url('VistaSkin/background/NormalCommunityTabL5x31.gif') no-repeat left ;
+}
+
+.UIHorizontalTabs .UITab .NormalCommunityTab .RightTab {
+  line-height: 31px;
+  padding-right: 5px;
+  background: url('VistaSkin/background/NormalCommunityTabR5x31.gif') no-repeat right ;
+}
+
+.UIHorizontalTabs .UITab .NormalCommunityTab .MiddleTab {
+  line-height: 31px;
+  background: url('VistaSkin/background/NormalCommunityTabM1x31.gif') repeat-x;
+}
+
+
+/*###########################--HighlightCommunityTab--############################*/
+
+.UIHorizontalTabs .UITab .HighlightCommunityTab{
+  line-height: 27px ;
+}
+
+.UIHorizontalTabs .UITab .HighlightCommunityTab .LeftTab {
+  line-height: 27px ;
+  padding-left: 2px ;
+  background: url('VistaSkin/background/NavyBlueRectangleL2x27.gif') no-repeat left;
+}
+
+.UIHorizontalTabs .UITab .HighlightCommunityTab .RightTab {
+  line-height: 27px ;
+  padding-right: 1px ;
+  background: url('VistaSkin/background/NavyBlueRectangleR1x27.gif') no-repeat right ;
+}
+
+.UIHorizontalTabs .UITab .HighlightCommunityTab .MiddleTab {
+  line-height: 27px ;
+  background: url('VistaSkin/background/NavyBlueRectangleBg1x27.gif') repeat-x ;
+}
+
+/*###########################--SelectedCommunityTab--############################*/
+
+.UIHorizontalTabs .UITab .SelectedCommunityTab{
+  line-height: 31px ;
+  margin-top: 6px;
+  margin-left: 1px;
+}
+
+.UIHorizontalTabs .UITab .SelectedCommunityTab .LeftTab {
+  line-height: 31px ;
+  padding-left: 5px ;
+  background: url('VistaSkin/background/SelectedCommunityL5x31.gif') no-repeat left;
+}
+
+.UIHorizontalTabs .UITab .SelectedCommunityTab .RightTab {
+  line-height: 31px ;
+  padding-right: 5px ;
+  background: url('VistaSkin/background/SelectedCommunityR5x31.gif') no-repeat right ;
+}
+
+.UIHorizontalTabs .UITab .SelectedCommunityTab .MiddleTab {
+  line-height: 31px ;
+  background: url('VistaSkin/background/SelectedCommunityM1x31.gif') repeat-x ;
+}
+
+/*==============================NormalTab for MessageTab=====================*/
+.UIHorizontalTabs .MessageTabDialog .NormalTab {
+  line-height: 27px;
+  margin-right: 1px;
+  color: #202020;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .LeftTab {
+  padding-left: 2px;
+  line-height: 27px;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .RightTab {
+  line-height: 27px;
+  padding-right: 7px;
+  background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y right;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .MiddleTab {
+  line-height: 27px;
+  cursor: pointer;
+  padding: 0px 8px 0px 4px;
+  color: black; font-weight: normal;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab div:hover{
+  color: orange;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .TabIcon {
+  float: left;
+  width: 32px; height: 21px;
+  margin-top: 4px;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .InfoIcon {
+  background: url('DefaultSkin/background/BlueInfoSign.gif') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .ErrorIcon {
+  background: url('DefaultSkin/background/RedErrorSign.gif') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .NormalTab .WarningIcon {
+  background: url('DefaultSkin/background/YellowWarningSign.gif') no-repeat;
+}
+
+
+/*==============================Disable Tab for MessageTab=====================*/
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab {
+  line-height: 31px;
+  margin-right: 1px;
+  color: #202020; font-weight: normal;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .LeftTab {
+  padding-left: 2px; padding-top: 2px;
+  line-height: 31px;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .RightTab {
+  line-height: 27px;
+  padding-right: 7px;
+  background: url('VistaSkin/background/SeparatorLine2x2.png') repeat-y right;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {
+  line-height: 27px;
+  cursor: pointer;
+  padding: 0px 8px 0px 4px;
+  color: grey;  font-weight: normal;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .TabIcon {
+  float: left;
+  width: 32px; height: 23px;
+  margin-top: 3px;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .InfoIcon {
+  background: url('VistaSkin/background/GreyInfoSign.png') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .ErrorIcon {
+  background: url('VistaSkin/background/GreyErrorSign.png') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .DisabledTab .WarningIcon {
+  background: url('VistaSkin/background/GreyWarningSign.png') no-repeat;
+}
+
+/*==============================Selected Tab for MessageTab=====================*/
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab {
+  line-height: 27px;
+  color: #058ee6;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .LeftTab {
+  line-height: 31px;
+  padding-left: 6px;
+  background: url('VistaSkin/background/LeftSelectedMessageTab6x31.png') no-repeat left;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .RightTab {
+  line-height: 31px;
+  padding-right: 11px;
+  background: url('VistaSkin/background/RightSelectedMessageTab11x31.png') no-repeat right;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .MiddleTab {
+  line-height: 31px;
+  background: url('VistaSkin/background/CenterSelectedMessageTab1x31.png') repeat-x;
+  cursor: pointer;
+  padding: 0px 8px 0px 4px;
+  color: #058ee6;  font-weight: normal;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab  div:hover{
+  color: orange;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .TabIcon {
+  float: left;
+  width: 32px; height: 23px;
+  margin-top: 3px;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .InfoIcon {
+  background: url('VistaSkin/background/BlueInfoSign.png') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .ErrorIcon {
+  background: url('VistaSkin/background/RedErrorSign.png') no-repeat;
+}
+
+.UIHorizontalTabs .MessageTabDialog .SelectedTab .WarningIcon {
+  background: url('VistaSkin/background/YellowWarningSign.png') no-repeat;
+}

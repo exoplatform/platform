@@ -1,0 +1,288 @@
+/**
+ * Created by The eXo Platform SAS
+ * Modifile : Vu Duy Tu
+ *           duytucntt@gmail.com
+ * December 14, 2006
+ * version: $Id$
+ */
+/*#######################################-----UIWizard-----##################################*/
+.UIWizard {
+	width: 99.5%;
+}
+
+/*========================== Wizard Content ==============================*/
+.UIWizard .UIWizardContent { 
+  background: white;
+}
+
+.UIWizard .UIWizardContent .WizardStepTitleBar {
+  height: 29px;
+  background: url('DefaultSkin/background/StepBarBG1x29.gif') repeat-x;
+  border: solid 1px #aeaeae; border-bottom: none;
+}
+
+.UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {
+  float:left;
+  width: 25px; height: 28px; 
+  background: url('DefaultSkin/icons/32x32/PageCreation.gif') no-repeat;
+  margin: 0px 8px 0px 10px;
+}
+
+.UIWizard .UIWizardContent .WizardStepTitleBar .WizardTitle {
+  float: left;
+  height: 28px; line-height: 28px;  
+  font-weight: bold;
+}
+
+.UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
+  float: right;
+  width: 28px; height: 28px;
+  background:  url('DefaultSkin/icons/24x24/HelpIcon.gif') no-repeat;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.UIWizard .UIWizardContent .WizardStepTitleBar .StepTitle {
+  float: left;
+  height: 28px; line-height: 28px; 
+  padding-left: 10px;
+  color: #0683f7;
+}
+
+.UIWizard .UIWizardContent .WizardStepContent {
+  border: solid 1px #aeaeae; border-bottom: none;
+  background: white;  
+}
+
+.UIWizard .UIWizardContent .WizardControlBar {
+  height: 34px;
+  border: solid 1px #b7b7b7;
+  background: url('DefaultSkin/background/StepBarBG1x34.gif') repeat-x;
+}
+
+.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar {
+  float: left;
+  height: 34px; line-height: 34px;
+}
+
+.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a{
+  float: left;
+  width: 18px; height: 18px; 
+  line-height: 18px; 
+  font-weight: bold;
+  text-align: center; color: black;
+  margin: 7px 3px 0px 3px;
+  border: solid 1px gray;
+}
+
+.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a:hover {
+  height: 18px; line-height: 18px;
+  color: orange;
+  background: #f8f8f8;
+  border: solid 1px #fdb913 ;
+}
+
+.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a.SelectedStep {
+  color: red;
+}
+
+.UIWizard .UIWizardContent .WizardControlBar .StepNavigationTitle {
+  float: left;
+  height: 33px; line-height: 33px;
+  font-weight: bold;
+  margin: 0px 10px 0px 15px;
+}
+
+.UIWizard .UIWizardContent .WizardControlBar .OverflowContainer {
+  height: 34px;
+}
+/*========================== End Wizard Content ==============================*/
+
+/*========================== Start ActionBar ==============================*/
+.UIWizard .UIWizardContent .WizardControlBar .ActionBar {
+  float: right;
+  padding-right: 5px;
+  height: 34px;
+  line-height: 34px;
+}
+
+.UIWizard .WizardControlBar .UIAction {
+  float: left;
+  width: 70px;
+}
+
+.UIWizard .WizardControlBar .UIAction .ActionButton{
+  width: 66px;
+}
+
+/*========================== Start UIWizard Welcome ==============================*/
+.UIWizard .UIWizardWelcome {
+  height: 233px;
+  background: url('DefaultSkin/background/WelcomeImage197x233.png') no-repeat left;
+  padding: 0px 0px 0px 210px ;
+  margin: 0px;
+}
+
+.UIWizard .UIWizardWelcome .WelcomeText {
+  padding: 20px 40px 20px 15px;
+  line-height: 20px;
+}
+
+/*========================== Start UIWizard Step2 ==============================*/
+.UIWizard .UIWizardPageSetInfo {
+  padding: 15px 10px 10px 10px;
+}
+
+.UIWizard .UIWizardPageSetInfo .PageNodeContainer {
+  float: left;
+  width: 240px;
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo {
+  border: 1px #b7b7b7 solid;
+  margin-left: 250px;
+  padding: 1px;
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageInfoContainer {
+  background: #efefef;
+  padding: 20px 0px;
+  border:  solid 1px #cdcdcd;
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo {
+  width: 90%; height: 25px; 
+  line-height: 25px;
+  background: white;
+  margin: auto;
+  border: solid 1px #b7b7b7;
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
+  float: left;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/MiniOrangeBoxPage.gif') no-repeat;
+  width: 16px; height: 16px;
+  margin: 5px 0px 0px 6px;
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Label {
+  float: left;
+  padding: 0px 5px;
+  font-weight: bold;
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Info {
+  float: left;
+  padding: 0px 5px;
+  color: #0683f7; 
+  background: none;
+}
+
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
+  margin: auto;
+  margin-top: 5px;
+  width: 90%;
+}
+
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction {
+  display: none;
+}
+
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .HorizontalLayout {
+  padding: 1px;
+  background: white;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
+  background: white;
+  padding: 10px;
+  height: 152px;
+}
+
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
+	margin: auto;
+	width: 400px;
+}
+
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle textarea {
+  width: 220px; height: 80px;
+  background: white;
+  font-family: verdana;
+  border: solid 1px gray ;
+  padding-left: 5px;
+}
+
+.UIWizard .UITree .TreeLevelContainer {
+	padding-left: 0px;
+}
+
+.UIWizard .UITree .TreeContainer .Node {
+	padding-left: 2px;
+}
+
+/*========================== Start UIWizard Step 3 ==============================*/
+.UIWizard .UIFormTabPane {
+  padding: 10px;
+  margin-bottom: 0px;
+}
+
+.UIWizard .UIFormTabPane .UIHorizontalTabs{
+  display: none;
+}
+
+.UIWizard .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
+  border-top: 1px solid #b7b7b7;
+}
+
+.UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer {
+  width: 250px;
+  height:auto;
+}
+
+.UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList {
+  background: #ffffff;
+  margin-right: 260px; 
+  padding: 5px 10px 10px 10px;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList .ItemDetail {
+  height: 252px;
+  padding-top: 15px;
+  border: none;
+}
+
+.UIWizard .UIFormTabPane .UIAction {
+  display: none;
+}
+
+.UIWizard .UIFormTabPane .LayoutHolder {
+  width: 310px;
+  text-align: center;
+  margin: 0px auto; 
+}
+
+.UIWizard .UIFormTabPane .LayoutHolder .LayoutLabel {
+  height: 30px; line-height: 30px; 
+  margin: auto;
+  text-align: center;
+}
+
+.UIWizard .UIContainerConfigOptions {
+	margin: 0px 3px;
+}
+
+.UIWizard .ScrollArea {
+	height: 220px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.UIWizard .UITree .TreeContainer .ChildrenContainer .Node {
+	overflow: auto;
+}
+
+.UIWizard .PageNodeContainer .UITree .JSContainer {
+	width: 210px;
+}

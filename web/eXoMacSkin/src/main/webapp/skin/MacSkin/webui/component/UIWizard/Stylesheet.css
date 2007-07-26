@@ -1,0 +1,296 @@
+/*#######################################-----UIWizard-----##################################*/
+.UIWizard {
+	width: 99.5%;
+}
+
+/*========================== Wizard Decorator ==========================*/
+
+.UIWizard .WizardDecorator .WizardMiddleRight {
+  background: url('MacSkin/background/WizardMR7x1.png') repeat-y right;
+  padding-right: 7px;  
+}
+
+.UIWizard .WizardDecorator .WizardMiddleCenter {
+  background: white;
+}
+
+.UIWizard .WizardDecorator .WizardBottomLeft {
+  height: 8px; line-height: 8px;
+  background: url('MacSkin/background/WizardBL6x8.png') no-repeat left;
+  padding-left: 6px;
+}
+
+.UIWizard .WizardDecorator .WizardBottomRight {
+  height: 8px; line-height: 8px;
+  background: url('MacSkin/background/WizardBR7x8.png') no-repeat right;
+  padding-right: 7px;
+}
+
+.UIWizard .WizardDecorator .WizardBottomCenter {
+  height: 8px; line-height: 8px;
+  background: url('MacSkin/background/WizardBC1x8.png') repeat-x;
+}
+
+/*========================== Wizard Content ==============================*/
+.UIWizard .UIWizardContent {
+  padding: 5px;
+  background: white;
+  border: solid 1px gray;
+}
+
+.UIWizard .UIWizardContent .WizardStepTitleBar {
+  height: 34px;
+  background: url('MacSkin/background/Background1x4.png');
+  border: solid 1px #aeaeae; border-bottom: none;
+}
+
+.UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {
+  float:left;
+  width: 32px; height: 32px; 
+  background: url('MacSkin/icons/32x32/PageCreation.png') no-repeat;
+  margin: 1px 8px 0px 8px;
+}
+
+.UIWizard .UIWizardContent .WizardStepTitleBar .WizardTitle {
+  float: left;
+  height: 32px; line-height: 32px;  vertical-align: middle;
+  font-weight: bold;
+}
+
+.UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
+  float: right;
+  width: 32px; height: 32px;
+  background:  url('MacSkin/icons/32x32/HelpIcon.png') no-repeat;
+  margin: 1px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UIWizard .UIWizardContent .WizardStepTitleBar .StepTitle {
+  float: left;
+  height: 32px; line-height: 32px; vertical-align: middle;
+  color: #3c3c3c;
+  padding-left: 10px;
+}
+
+.UIWizard .UIWizardContent .WizardStepContent {
+  background: white;  
+  border: solid 1px #aeaeae; border-bottom: none;
+  height: 100%;
+}
+
+.UIWizard .UIWizardContent .WizardControlBar {
+  height: 34px;
+  border: solid 1px #b7b7b7;
+  background: url('MacSkin/background/Background1x4.png');
+}
+
+.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar {
+  float: left;
+  height: 34px; line-height: 34px; 
+}
+
+.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a{
+  float: left;
+  width: 18px; height: 18px; 
+  line-height: 18px; font-weight: bold;
+  text-align: center; color: black;
+  border: solid 1px gray;
+  margin: 7px 3px 0px 3px;
+}
+
+.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a:hover{
+  height: 18px; line-height: 18px; 
+  color: orange;
+  background: #f8f8f8;
+  border: solid 1px #fdb913 ;
+}
+
+.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a.SelectedStep {
+  color: red;
+}
+
+.UIWizard .UIWizardContent .WizardControlBar .StepNavigationTitle {
+  float: left;
+  height: 33px; line-height: 33px; 
+  font-weight: bold;
+  margin: 0px 10px 0px 15px;
+}
+
+/*========================== End Wizard Content ==============================*/
+
+/*========================== Start ActionBar ==============================*/
+
+.UIWizard .UIWizardContent .WizardControlBar .ActionBar {
+  float: right;
+  height: 34px; line-height: 34px; 
+  padding-right: 5px;
+}
+
+.UIWizard .WizardControlBar .UIAction {
+  float: left;
+  width: 74px;
+  padding: 5px 0px;
+}
+
+/*========================== Start UIWizard Welcome ==============================*/
+.UIWizard .UIWizardWelcome {
+  height: 233px;
+  background: url('MacSkin/background/WelcomeImage197x233.png') no-repeat left;
+  padding: 0px 0px 0px 210px ;
+  margin: 0px;
+}
+
+.UIWizard .UIWizardWelcome .WelcomeText {
+  line-height: 20px;
+  padding: 20px 40px 20px 15px;
+}
+/*========================== Start UIWizard Step2 ==============================*/
+.UIWizard .UIWizardPageSetInfo {
+  padding: 15px 10px 10px 10px ; 
+}
+
+.UIWizard .UIWizardPageSetInfo .PageNodeContainer {
+  float: left;
+  width: 230px;
+}
+
+.UIWizard .UIWizardPageSetInfo .PageNodeContainer .UIContainerConfigOptions {
+	margin: 0px;
+}
+
+.UIWizard .UIWizardPageSetInfo .PageNodeContainer .ContainerConfigOptions {
+	height: 248px;
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo {
+  margin-left: 240px;
+  padding: 1px;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageInfoContainer{
+  background: #f4f4f4;
+  border: solid 1px #cdcdcd ;
+  padding: 13px 10px;
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo{
+  width: 90%; height: 24px; 
+  line-height: 24px;
+  background: white; 
+  border: solid 1px #b7b7b7;
+  margin: auto; 
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/MacSkin/PageNode.gif ') no-repeat;
+  margin: 5px 0px 0px 5px;
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Label {
+  float: left;
+  font-weight: bold;
+  padding: 0px 5px;
+}
+
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Info {
+  float: left;
+  color: blue; 
+  padding: 0px 5px;
+  background: none;
+}
+
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
+  width: 90%;
+  margin: 5px auto 0px auto;
+}
+
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction{
+  display: none;
+}
+
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer{
+  padding: 10px 0px 15px 0px;
+  height: 150px;
+}
+
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
+	width: 380px;
+	margin: auto;
+}
+
+/*========================== Start UIWizard Step 3 ==============================*/
+.UIWizard .UIFormTabPane {
+  padding: 10px;
+  margin-bottom: 0px;
+}
+
+.UIWizard .UIFormTabPane .UIHorizontalTabs{
+  display: none;
+}
+
+.UIWizard .UIFormTabPane .UITabPane .TabPaneContent{
+  border-top: solid 1px gray ;
+}
+
+.UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer {
+  float: right;
+  width: 250px;
+}
+
+.UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer .TemplateImage {
+  height: 240px; 
+  overflow: auto;
+  background: url('MacSkin/background/TemplateImage.jpg') no-repeat bottom;
+  padding-top: 10px;
+}
+
+.UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList {
+  height: 265px; 
+  background: #ffffff;
+  padding: 10px;
+  margin-right: 260px;
+  border: 1px solid #a4a4a4;
+}
+
+.UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList .ItemDetail {
+  height: 250px;
+  padding: 8px;
+  border: none;
+}
+
+.UIWizard .UIFormTabPane .UIAction {
+  display: none;
+}
+
+.UIWizard .UIFormTabPane .LayoutHolder {
+  width: 280px; height: 210px; 
+  margin: auto; margin-top: 20px;
+  text-align: center; 
+}
+
+.UIWizard .UIFormTabPane .LayoutHolder .LayoutLabel {
+  height: 30px;  line-height: 30px;
+  text-align: center; 
+  margin: auto;
+}
+
+.UIWizard .ScrollArea {
+	height: 205px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.UIWizard .UITree .TreeContainer .ChildrenContainer .Node {
+	overflow: auto;
+}
+
+.UIWizard .PageNodeContainer .UITree .JSContainer {
+	width:210px;
+}
+
+.UIWizard .LAYOUT-PAGE {
+	padding-top: 10px;
+}

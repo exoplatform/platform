@@ -1,0 +1,17 @@
+.UIPageBrowser {
+  width: 99.7%;
+}
+
+.UIPageBrowser .UIAction {
+	width: 140px;
+}
+
+.UIPageBrowser .UIGrid .ActionContainer {  
+  margin: auto ;
+  width: 100px; height: 16px;
+}
+
+.UIPageBrowser .UIPageSelector .UIGrid .ActionContainer {  
+  margin: auto ;
+  width: 20px; height: 16px;
+}

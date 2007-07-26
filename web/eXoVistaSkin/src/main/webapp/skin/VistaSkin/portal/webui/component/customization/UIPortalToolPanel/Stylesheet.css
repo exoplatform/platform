@@ -1,0 +1,153 @@
+.UIPortalToolPanel {
+  background: none; 
+}
+
+.UIPortalToolPanel .WizardDecorator {
+  margin: 0px;
+}
+
+.UIPortalToolPanel .WizardDecorator .WizardTopLeft {
+  height: 5px;
+  background: url('VistaSkin/background/WizardTL7x5.png') no-repeat left;
+  padding-left: 7px;
+}
+
+.UIPortalToolPanel .WizardDecorator .WizardTopRight{
+  height: 5px; 
+  background: url('VistaSkin/background/WizardTR7x5.png') no-repeat right;
+  padding-right: 7px;
+}
+
+.UIPortalToolPanel .WizardDecorator .WizardTopCenter {
+  height: 5px; 
+  background: url('VistaSkin/background/WizardTC1x5.png') repeat-x;
+}
+
+.UIPortalToolPanel .WizardDecorator .WizardMiddleLeft {
+  background: url('VistaSkin/background/WizardML5x1.png') repeat-y left;
+  padding-left: 5px;  
+}
+
+.UIPortalToolPanel .WizardDecorator .WizardMiddleRight {
+  background: url('VistaSkin/background/WizardMR5x1.png') repeat-y right;
+  padding-right: 5px;  
+}
+
+.UIPortalToolPanel .WizardDecorator .WizardMiddleCenter {
+  padding: 5px;
+  border: solid 1px #545454;
+  background: url('VistaSkin/background/UIWizardContentBG4x4.png') repeat;
+}
+
+.UIPortalToolPanel .WizardDecorator .WizardBottomLeft {
+  height: 7px; 
+  background: url('VistaSkin/background/WizardBL7x7.png') no-repeat left;
+  padding-left: 7px;
+}
+
+.UIPortalToolPanel .WizardDecorator .WizardBottomRight{
+  height: 7px; 
+  background: url('VistaSkin/background/WizardBR7x7.png') no-repeat right;
+  padding-right: 7px;
+}
+
+.UIPortalToolPanel .WizardDecorator .WizardBottomCenter {
+  height: 7px; 
+  background: url('VistaSkin/background/WizardBC1x7.png') repeat-x;
+}
+
+.UIPortalToolPanel .Banner {
+  background: url('VistaSkin/background/EditBannerRepeatBg4x92.png') repeat-x ;
+  height: 92px ;
+  line-height: 92px ; text-align: center ;
+}
+
+.UIPortalToolPanel .BannerLeft {
+  float: left ;
+  height: 92px ; width: 40%;
+  background: url('VistaSkin/background/EditBannerLBg410x92.png') no-repeat left ;
+}
+
+.UIPortalToolPanel .BannerMiddle {
+  float: left ;
+  height: 92px ; width:25%;
+  background: url('VistaSkin/background/EditBannerMBg250x92.png') no-repeat center ;
+}
+
+.UIPortalToolPanel .BannerRight {
+  float: right ;
+  height: 92px ; width: 26%;
+  background: url('VistaSkin/background/EditBannerRBg260x92.png') no-repeat right ;
+}
+
+.UIPortalToolPanel .Body {
+  padding:7px 6px 5px;
+  height: 100%;
+}
+
+.UIPortalToolPanel .Footer {
+  background: url('VistaSkin/background/FooterRepeat1x32.png') repeat-x ;
+  height: 32px ;
+  padding: 4px 0px 0px 0px ;
+  line-height:32px ;
+}
+
+.UIPortalToolPanel .Footer .FooterInfoContainer {
+  height: 18px ; 
+  width: 400px ;
+  margin: auto ;
+  margin-top: 1px;  
+}
+
+.UIPortalToolPanel .Footer .CopyrightInfo {
+  height: 18px ; width: 398px ;
+}
+
+.UIPortalToolPanel .Footer .CopyrightInfo .CopyrightText {
+  float: left;
+  height: 18px ; line-height: 18px ; 
+  width: 260px ;
+  padding-left: 5px ;
+}
+
+.UIPortalToolPanel .Footer .CopyrightInfo .CompanyTitleText {
+  float: right ;
+  height: 18px ; 
+  line-height: 18px ; 
+  width: 124px ;
+  font-size: 10px ;
+  padding-left: 5px ;
+}
+
+.UIPortalToolPanel .UIAction {
+  width: 160px;
+}
+
+.UIPortalToolPanel .UIAccountPortlet {
+  margin-top: 7px;
+}
+/**################################ ItemDetailList ######################*/
+.UIPortalToolPanel .UIItemSelector .NormalStyle {
+  height: 100% ;
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer {
+	height: 100% ;	width: 247px ;
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemList {
+	border: 1px #b7b7b7 solid;
+	height: 264px ;	
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .TemplateImage{
+	height: 240px; 
+}
+
+.UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemListTitle{
+	height: 28px ; 
+	line-height: 27px ; 
+	font-weight: bold;
+	margin: 0px 0px 0px 0px;
+	background: url('VistaSkin/background/TitleBG1x28.gif') repeat-x ;
+}

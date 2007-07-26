@@ -1,0 +1,129 @@
+.UIForm  {
+}
+
+/*####################- HorizontalLayout -#################*/
+.UIForm .HorizontalLayout {
+  border: solid 1px #b7b7b7; 
+}
+
+.UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
+  padding: 4px;
+  text-align: right;
+	vertical-align: top;
+}
+
+.UIForm .HorizontalLayout .UIFormGrid td.FieldComponent {
+  padding: 4px;
+}
+
+.UIForm .HorizontalLayout .MultiValueContainer {
+  margin-bottom: 5px;
+}
+
+.UIForm .HorizontalLayout .MultiValueContainer a {
+  margin: 0px 3px;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet {
+	width: 97% ;
+  padding: 10px ; margin-right: 0px ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .Title {
+  margin: 10px 0px 0px 10px ;
+  color: #5f7fd6 ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .ItemLabel {
+  float: left ;
+  font-weight: bold ;
+  width: 130px ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .ItemValue {
+  margin-left: 5px ;
+  float: left ;
+  color: #2f76e2 ;
+}
+
+.UIForm .HorizontalLayout .UIFormInputSet .ItemValueDescription {
+  margin-top: 10px ;
+  height: 50px ;
+  border: solid 1px #dedee1 ;
+  background: white ;
+}
+
+.UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
+  margin: 7px 0px 10px 0px ;
+}
+
+.UIForm .HorizontalLayout .FieldContainer .MultiValueContainer input {
+  float: left;
+  margin-right: 5px;
+}
+
+.UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {
+	float: left ;
+	margin: 0px 10px 0px 5px ;
+}
+
+.UIForm .HorizontalLayout input {
+  width: 230px ;
+  font-size: 11px;
+}
+
+.UIForm .HorizontalLayout input.radio {
+	float: none;
+	border: none;
+  width: 15px;
+}
+
+.UIForm .HorizontalLayout input.checkbox {
+	width: 16px;
+	margin: 0px;
+	border: none;
+}
+
+.UIForm .HorizontalLayout textarea {
+  width: 235px ;  height: 75px ;
+  border: 1px gray solid;
+  font-size: 11px;  
+}
+
+.UIForm .HorizontalLayout select {
+  width: 235px ;
+  font-size: 11px;  
+}
+
+/*####################- VerticalLayout -#################*/
+.UIForm .VerticalLayout {
+}
+
+.UIForm .VerticalLayout .UIAction {
+  width: 100px;
+}
+
+.UIForm .VerticalLayout  label {
+	text-align: left ;
+  font-weight: bold ;
+  margin-bottom: 15px ;
+}
+
+.UIForm .VerticalLayout input {
+  width: 170px ;
+  border: 1px solid #7f9db9 ;
+}
+
+.UIForm .VerticalLayout input.checkbox {
+  width: 17px ; height: 17px ;
+  margin: 0px;
+}
+
+.UIForm .VerticalLayout textarea {
+  width: 170px ;  height: 75px ;
+  border: 1px solid #7f9db9 ;
+}
+
+.UIForm .VerticalLayout select {
+  width: 170px ;
+}

@@ -1,0 +1,72 @@
+.UIPopupCategory {
+	position: absolute ;
+	width: 120px ;
+	top: 18px;
+	left: -75px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
+  background: url('VistaSkin/background/PopupCategoryTL12x16.png') no-repeat left;
+  padding-left:12px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTC {
+  height:16px;
+  background: url('VistaSkin/background/PopupCategoryTC1x16.png') repeat-x;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
+  background: url('VistaSkin/background/PopupCategoryTR45x16.png') no-repeat right;
+  padding-right: 45px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryML {
+  background: url('VistaSkin/background/PopupCategoryML12x1.png') repeat-y left;
+  padding-left: 12px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryMC {
+  background: #efefef;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryMR {
+  background: url('VistaSkin/background/PopupCategoryMR14x1.png') repeat-y right;
+  padding-right:14px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
+  background: url('VistaSkin/background/PopupCategoryBL12x18.png') no-repeat left;
+  padding-left:12px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBC {
+  height: 18px;
+  background: url('VistaSkin/background/PopupCategoryBC1x18.png') repeat-x;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
+  background: url('VistaSkin/background/PopupCategoryBR14x18.png') no-repeat right;
+  padding-right:14px;
+}
+
+.UIPopupCategory .CategoryItem {
+  color: black;
+  background: url('VistaSkin/background/NormalItemBG1x22.png') repeat-x;
+  border-bottom: 1px #b1b5c0 solid;
+  cursor: pointer ;
+  display: block;
+}
+
+.UIPopupCategory .CategoryItem:hover {
+	background: url('VistaSkin/background/OverItemBG1x22.png') repeat-x;
+  color: blue;
+}
+
+.UIPopupCategory .CategoryItem .CategoryItemLabel {
+  padding-left: 10px;
+  height: 22px;
+  line-height: 22px;
+  color: black;
+  background: url('/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif') no-repeat left center;
+  margin-left: 10px;
+}

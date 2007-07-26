@@ -1,0 +1,398 @@
+.UIExoStart {}
+
+#StartMenuContainer {
+  position: absolute;
+}
+
+.UIExoStart .StartBarContainer {
+  height: 38px;
+  background: url('DefaultSkin/background/ControlBg1x38.gif') repeat-x top;
+}
+
+.UIExoStart .ExoStartButton {
+  float: left ;
+  width: 103px ; height: 38px ;
+  margin: 0px ;
+  cursor: pointer ;
+}
+
+.UIExoStart .ButtonNormal {
+  background: url('DefaultSkin/background/ExoStartNormal.gif') ;
+}
+
+.UIExoStart .ButtonOver {
+  background: url('DefaultSkin/background/ExoStartOver.gif') ;
+}
+
+.UIExoStart .ButtonClicked {
+  background: url('DefaultSkin/background/ExoStartSelected.gif') ;
+}
+
+.UIExoStart .VLineSeparator {
+  float: right ;
+  width: 2px ; height: 38px ;
+  background: url('DefaultSkin/background/LineSeparator2x38.gif') no-repeat ;
+  margin: 0px 4px;
+}
+
+.UIExoStart .DigitalClockContainer {
+  float: right ;
+  text-align: center ;
+  margin: 0px 9px;
+}
+
+.UIExoStart .DigitalClock {
+  margin: 0px ;
+  line-height: 37px;
+}
+
+.UIExoStart .StartMenuContainer .LoginContainer {
+  height: 35px ;
+  background: url('DefaultSkin/background/LoginBg1x35.gif') repeat-x ;
+  border-top: solid 1px #b7b7b7;
+}
+
+.UIExoStart .StartMenuContainer .LabelItem {
+  height: 33px ;
+  padding: 0px 5px 0px 2px ;
+  cursor: pointer ;
+}
+
+.UIExoStart .StartMenuContainer .PortalIcon {
+  height: 33px ;
+  background: url('DefaultSkin/icons/32x32/Portal.gif') no-repeat left ;
+  padding: 0px 0px 0px 30px ;
+  margin: 0px 0px 0px 5px ;
+  display: inherit;
+  visibility: inherit;
+}
+
+.UIExoStart .StartMenuContainer .AdministrationIcon {
+  height: 33px ;
+  background: url('DefaultSkin/icons/32x32/Administration.gif') no-repeat left ;
+  padding: 0px 0px 0px 34px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .PageCreationWizardIcon {
+  height: 33px ;
+  background: url('DefaultSkin/icons/32x32/PageCreation.gif') no-repeat left ;
+  padding: 0px 0px 0px 30px ;
+  margin: 0px 0px 0px 5px ; 
+}
+
+.UIExoStart .StartMenuContainer .EditCurrentPageIcon {
+  height: 33px ;
+  background: url('DefaultSkin/icons/32x32/EditPage.gif') no-repeat left ;
+  padding: 0px 0px 0px 30px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .EditCurrentPortalIcon {
+  height: 33px ;
+  background: url('DefaultSkin/icons/32x32/EditPortal.gif') no-repeat left ;
+  padding: 0px 0px 0px 30px ;
+  margin: 0px 0px 0px 5px ;  
+}
+
+.UIExoStart .StartMenuContainer .CreateNavigationIcon {
+  height: 33px ;
+  background: url('DefaultSkin/icons/32x32/EditPage.gif') no-repeat left ;
+  padding: 0px 0px 0px 30px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .EditNavigationIcon {
+  height: 33px ;
+  background: url('DefaultSkin/icons/32x32/EditPage.gif') no-repeat left ;
+  padding: 0px 0px 0px 30px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .BrowsePortalsIcon {
+  height: 33px ;
+  background: url('DefaultSkin/icons/32x32/BrowsePortal.gif') no-repeat left ;
+  padding: 0px 0px 0px 30px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .BrowsePagesIcon {
+  height: 33px ;
+  background: url('DefaultSkin/icons/32x32/BrowsePage.gif') no-repeat left ;
+  padding: 0px 0px 0px 30px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .PageIcon {
+  height: 35px ;
+  background: url('DefaultSkin/icons/32x32/Page.gif') no-repeat left ;
+  padding: 0px 0px 0px 30px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .PageNodeIcon {
+  height: 35px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPageIcon.gif') no-repeat left ;
+  padding: 0px 0px 0px 18px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .SystemIcon {
+  height: 33px ;
+  background: url('DefaultSkin/icons/32x32/System.gif') no-repeat left ;
+  padding: 0px 0px 0px 34px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .LabelText {
+  white-space: nowrap ;
+  padding: 10px 5px 0px 6px ;
+}
+
+.UIExoStart .StartMenuContainer .LabelText a {
+  color: #201e1e ;
+}
+
+.UIExoStart .StartMenuContainer .LabelText a:hover {
+  color: blue ;
+}
+
+.UIExoStart .StartMenuContainer .SupportIcon {
+  height: 33px ;  
+  background: url('DefaultSkin/icons/24x24/HelpIcon.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .RefreshIcon {
+  height: 33px ;  
+  background: url('DefaultSkin/icons/32x32/Refresh.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 5px ;
+}
+
+.UIExoStart .StartMenuContainer .LogoutIcon {
+  height: 33px ;  
+  background: url('DefaultSkin/icons/32x32/LogoutIcon.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 120px ;
+}
+
+.UIExoStart .StartMenuContainer .LoginIcon {
+  height: 33px ;  
+  background: url('DefaultSkin/icons/24x24/BlueLoginIcon.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 120px ;
+}
+
+.UIExoStart .StartMenuContainer .HLineSeparator {
+  height: 1px ;
+  background: url('DefaultSkin/background/HLineSeparator165x1.jpg') no-repeat center ;
+  margin: 3px 0px 5px 0px ;
+}
+
+.UIExoStart .StartMenuContainer .BlackArrowIcon {
+  height: 33px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat right ;
+  padding: 0px 25px 0px 0px ;
+  display: inherit;
+  visibility: inherit;
+}
+
+.UIExoStart .StartMenuContainer .NavigationBackground {
+  padding: 3px 30px 0px 0px;
+}
+
+.UIExoStart .StartMenuContainer .NavigationBackground .LabelText {
+  font-weight: bold ;
+  text-align: right ;
+  padding: 7px 0px 0px 0px ;
+  width: auto;
+}
+
+.UIExoStart .StartMenuContainer .NavigationArrowIcon {
+  height: 30px ;
+  background: url('DefaultSkin/icons/24x24/GreenArrow.gif') no-repeat right ;
+  padding: 0px 35px 0px 0px ;
+}
+
+.UIExoStart .StartMenuContainer .MenuItemContainer {
+  position: relative ;
+  visibility: visible;
+}
+
+.UIExoStart .StartMenuContainer .MenuItemContainer .MenuItem {
+	background: transparent;
+}
+
+.UIExoStart .StartMenuContainer .MenuItemContainer .Icon {
+  padding: 0px 0px 0px 30px;
+  margin: 0px 0px 0px 5px;
+  height: 35px; width: auto;
+}
+
+.UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {
+	background: #cbdaf4;
+}
+
+.UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemContainer {
+  position: absolute ;
+  display: none;
+}
+
+.UIExoStart .StartMenuContainer .NavigationContainer {
+  width: 220px ;
+}
+
+.UIExoStart .StartMenuContainer .DecoratorBlock {
+  padding: 2px 0px;
+}
+
+.UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer{
+  background: #efeefa ;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
+  height: 20px ; line-height: 20px;
+  background: url('DefaultSkin/background/TitleBar1x20.gif') repeat-x ;
+  padding-left: 10px ;
+}
+
+.UIExoStart .StartMenuContainer .BasicIcon {
+  height: 33px;
+  background: url('DefaultSkin/icons/32x32/BasicCustomization.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px; 
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .AdvancedIcon {
+  height: 33px;  
+  background: url('DefaultSkin/icons/32x32/AdvancedCustomization.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .ChangeSkinIcon {
+  height: 32px ;  
+  background: url('DefaultSkin/icons/32x32/ChangeSkin.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .SkinSettingIcon {
+  height: 32px ;  
+  background: url('DefaultSkin/icons/32x32/ChangeSkin.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .DefaultSkinIcon {
+  height: 32px ;  
+  background: url('DefaultSkin/icons/32x32/ExoSkin.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .MacSkinIcon {
+  height: 32px ;  
+  background: url('DefaultSkin/icons/32x32/MacSkin.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .VistaSkinIcon {
+  height: 32px ;  
+  background: url('DefaultSkin/icons/32x32/VistaSkin.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .ChangeLanguageIcon {
+  height: 33px ;  
+  background: url('DefaultSkin/icons/32x32/ChangeLanguage.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .LanguageSettingIcon {
+  height: 33px ;  
+  background: url('DefaultSkin/icons/32x32/ChangeLanguage.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .LanguageItemIcon {
+  height: 33px ;  
+  background: url('DefaultSkin/icons/16x16/LanguageIcon.gif') no-repeat left ;
+  padding: 0px 0px 0px 16px ;
+  margin: 0px 0px 0px 4px;
+}
+
+.UIExoStart .StartMenuContainer .ChangePortalIcon {
+  height: 32px ;  
+  background: url('DefaultSkin/icons/32x32/ChangeSkin.gif') no-repeat left ;
+  padding: 0px 0px 0px 32px ;
+  margin: 0px 0px 0px 4px;
+}
+/*========================Start Menu Decorator======================*/
+.UIExoStart .StartMenuDecorator {
+	width: 100%;
+	display: inherit;
+	visibility: inherit;
+}
+
+.UIExoStart .StartMenuDecorator .TopDecorator {
+  width: 238px ; height: 35px ;
+  background: url('DefaultSkin/background/TopMenuDecorator238x35.gif') bottom no-repeat ;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuTL {
+  height:6px;
+  background: url('DefaultSkin/background/StartMenuTL3x6.gif') no-repeat left;
+  padding: 0px 0px 0px 3px;
+  width: auto;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuTC {
+  height:6px;
+  background: url('DefaultSkin/background/StartMenuTC1x6.gif') repeat-x;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuTR {
+  height:6px;
+  background: url('DefaultSkin/background/StartMenuTR3x6.gif') no-repeat right;
+  padding: 0px 3px 0px 0px ;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuML {
+  background: url('DefaultSkin/background/StartMenuML3x1.gif') repeat-y left;
+  padding: 0px 0px 0px 3px;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuMR {
+  background: url('DefaultSkin/background/StartMenuMR3x1.gif') repeat-y right;
+  padding: 0px 3px 0px 0px ;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuBG {
+  background: white;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuBL {
+  background: url('DefaultSkin/background/StartMenuBL3x3.gif') no-repeat left;
+  height: 3px;
+  padding: 0px 0px 0px 3px;
+  width: auto;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuBR {
+  height: 3px;
+  background: url('DefaultSkin/background/StartMenuBR3x3.gif') no-repeat right;
+  padding: 0px 3px 0px 0px ;
+}
+
+.UIExoStart .StartMenuDecorator .StartMenuBC {
+  height: 3px;
+  background: url('DefaultSkin/background/StartMenuBC1x3.gif') repeat-x ;
+}

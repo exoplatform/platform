@@ -1,0 +1,121 @@
+.UIGroupMembershipSelector {
+  padding: 10px;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs {
+  font-weight: normal;
+  margin-bottom: 3px; padding: 0px;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs .LeftBreadcumbsBar {
+  background: white;
+  border: 1px solid #b7b7b7;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs .RightBreadcumbsBar {
+  background: white;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs .BreadcumbsInfoBar {
+  background: white;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs a.Selected {
+  color: #058ee6;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
+	float: left;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGroup.gif') no-repeat;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs .RightBlackGridArrow16x16Icon {
+	float: left;
+  margin: 5px 2px 0px 1px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GridRightArrow.gif');
+}
+
+.UIGroupMembershipSelector .Container {
+  padding: 10px;
+  background: #f4f4f4;
+  border: 1px solid #e4e4e4;
+}
+
+.UIGroupMembershipSelector .MembershipTitle{
+  background: url('DefaultSkin/background/TitleBG1x20.gif') repeat-x;
+  border: 1px #b7b7b7 solid; 
+  height: 20px; line-height: 20px;
+  padding-left: 15px;
+}
+
+.UIGroupMembershipSelector .GroupSelector {
+  float: left;
+  width: 230px;
+  border: 1px solid white;
+}
+
+.UIGroupMembershipSelector .UITree {
+  border: 1px #b7b7b7 solid;
+  border-top: none;  
+  background: white;
+}
+
+.UIGroupMembershipSelector .UITree .TreeContainer{
+  width: 226px; height: 150px;
+  overflow: auto;
+}
+
+.UIGroupMembershipSelector .BlueLevelUpArrow24x24Icon {
+  margin-left: 7px;
+}
+
+.UIGroupMembershipSelector .UITree .Node {
+  margin: 0px 0px 2px 3px ;
+  width: auto;
+}
+
+.UIGroupMembershipSelector .UITree .Node .NodeLabel .NodeSelected {
+  color: #058ee6;
+}
+
+.UIGroupMembershipSelector .MembershipSelector {
+  background: #f4f4f4;
+  border: 1px solid white; 
+  margin-left: 240px; height: 183px;
+}
+
+.UIGroupMembershipSelector .MembershipSelector .OverflowContainer {
+  border: #b7b7b7 1px solid;
+  border-top: none;
+  background: white;
+  height: 150px; width: auto;
+  padding: 5px 10px;
+  overflow: auto;
+}
+
+.UIGroupMembershipSelector .MembershipSelector .Label {
+  line-height: 24px ;
+}
+
+.UIGroupMembershipSelector .MembershipSelector  a {
+  color: black; 
+}
+
+.UIGroupMembershipSelector .MembershipSelector  a:hover {
+  color: blue; 
+}
+
+.UIGroupMembershipSelector  .MembershipSelector .OddRow {
+  line-height: 26px ;
+}
+
+.UIGroupMembershipSelector  .MembershipSelector .EvenRow {
+  line-height: 26px ;
+}
+
+.UIGroupMembershipSelector .MembershipSelector .ItemIcon {
+  margin: 6px 3px 0px 1px ;  
+  float: left ;
+  width: 16px; height: 16px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat;  
+}

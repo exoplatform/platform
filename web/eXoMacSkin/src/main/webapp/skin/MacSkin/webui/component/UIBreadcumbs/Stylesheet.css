@@ -1,0 +1,52 @@
+
+.UIBreadcumbsPortlet {
+	height: 34px;
+}
+
+.UIBreadcumbs {
+  height:33px ;  line-height: 29px ;
+  vertical-align: middle ; 
+  padding: 0px 4px 0px 6px;
+}
+
+.UIBreadcumbs a {
+	float: left ;
+	color: black ;
+}
+
+.UIBreadcumbs a.Selected {
+	color: #0574db  ; 
+}
+
+.UIBreadcumbs .HomeIcon {
+	float: left;
+	width: 24px; height: 24px;
+  margin: 3px 3px 0px 3px ;
+  background: url('/eXoResources/icons/24x24/MacSkin/BreadcumbsHomeIcon.gif') no-repeat;
+}
+
+.UIBreadcumbs .Home16x16Icon {
+  display: none;
+}
+
+.UIBreadcumbs .LeftBreadcumbsBar {
+  padding: 0px 0px 0px 5px ;
+  background: url('MacSkin/background/LeftBreadcumbsBar5x33.png') no-repeat left;
+}
+
+.UIBreadcumbs .RightBreadcumbsBar {
+  padding: 0px 7px 0px 0px;
+  background: url('MacSkin/background/RightBreadcumbsBar7x33.png') no-repeat right;
+}
+
+.UIBreadcumbs .BreadcumbsInfoBar {
+  height: 33px; line-height: 33px; vertical-align: middle;
+  background: url('MacSkin/background/MiddleBreadcumbsBar1x33.png') repeat-x;
+}
+
+.UIBreadcumbs .RightBlackGridArrowIcon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 10px 2px 0px 2px;
+  background: url('/eXoResources/icons/16x16/MacSkin/OrangeRightArrow.gif') no-repeat;
+}

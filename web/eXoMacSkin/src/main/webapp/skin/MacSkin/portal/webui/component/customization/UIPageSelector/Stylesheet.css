@@ -1,0 +1,106 @@
+.UIPageSelector {
+	padding: 10px ;
+	width: 500px ;
+	margin: auto;
+}
+
+.UIPageSelector .PageSelectorTitle  {
+  height: 20px; line-height: 20px;
+  margin-bottom: 5px;
+  padding-left: 15px;
+}
+
+.UIPageSelector .PageSelectorTitle .Icon{
+  float: left;
+  margin: 2px 1px 0px 0px;
+}
+
+.UIPageSelector .PageSelectorTitle .Title {
+  float: left;
+  font-weight: bold; 
+  margin-left: 10px;
+}
+
+.UIPageSelector .SelectPageAction {
+  width: 215px;
+  margin: 7px auto 0px auto;
+}
+
+.UIPageSelector .SelectPageAction .LeftButton {
+  background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left;
+  padding-left: 10px;
+}
+
+.UIPageSelector .SelectPageAction .RightButton {
+  background: url('DefaultSkin/background/RightSimpleButton10x21.gif') no-repeat right;
+  padding-right: 10px;
+}
+
+.UIPageSelector .SelectPageAction .CenterButton {
+  background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x;
+  height: 21px; line-height: 18px;
+  padding: 0px 3px;
+}
+
+.UIPageSelector .SelectPageAction .SelectPageIcon{
+  float: left;
+  margin: 2px 10px 0px 0px;
+}
+
+.UIPageSelector .SelectPageAction .ActionLabel {
+  font-weight: bold;
+  float: left; 
+}
+
+.UIPageSelector .SelectPageAction .ActionLabel a {
+  color: black;
+}
+
+.UIPageSelector .SelectPageAction .ActionLabel a:hover {
+  color: #058ee6;
+}
+
+.UIPageSelector .PageMagnifier32x32Icon {
+  float: left;
+  margin: 5px 4px 0px 10px;
+  cursor: pointer;
+  background: url('MacSkin/background/PageBrowser.gif') no-repeat;
+}
+
+.UIPageSelector .UIFormInfo {
+  background: white;
+  border: 1px solid #b7b7b7;
+}
+
+.UIPageSelector .FormInfoIcon {
+  padding: 15px 15px 20px 15px;
+  background: url('MacSkin/background/FormInfoIcon80x80.gif') no-repeat center right ;
+}
+
+.UIPageSelector .FormInfoBG {
+  background: url('MacSkin/background/FormInfoBG360x1.gif') repeat-y right ;
+  padding-right: 30px;
+  height: 100%;
+}
+
+.UIPageSelector .UIFormInfo .PageTicker16x16Icon {
+  float: left;
+  margin-right: 5px; margin-left: 13px;
+}
+
+.UIPageSelector .UIFormInfo .SelectedPageText {
+  color: black;
+  margin-left: 20px;
+}
+
+.UIPageSelector .UIFormInfo .PropertyName {
+  float: left;
+  padding: 6px 5px 6px 10px ;
+  width: 60px;
+  text-align: right;
+}
+
+.UIPageSelector .UIFormInfo .PropertyValue {
+  color: #3176e3;
+  padding: 6px;
+}

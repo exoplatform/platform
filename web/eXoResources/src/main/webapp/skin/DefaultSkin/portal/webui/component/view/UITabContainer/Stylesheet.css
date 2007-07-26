@@ -1,0 +1,50 @@
+.UITabContainer {
+	padding: 3px 7px 9px 7px;
+}
+
+.UITabContainer .HorizontalLayout {
+	margin: 0px;
+	border: 1px solid #b7b7b7;
+	border-top: none;
+	background: #ffffff;
+}
+
+.UITabContainer .HorizontalLayout .UITabContentContainer .UITabContent{
+	padding-top: 10px;
+}
+
+.UITabContainer a.TabLabel {
+	padding: 0px 10px 0px 2px;
+	line-height: 24px; height: 24px;
+	float: left;
+}
+
+.UITabContainer .EditIcon {
+	padding: 0px 10px 0px 2px;
+	height: 24px; line-height: 24px;
+	width: 16px;
+}
+
+.UITabContainer .SelectedTab .CloseIcon {
+	float: left;
+	width: 16px; height: 20px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedCloseTab.gif') no-repeat bottom;
+}
+
+.UITabContainer .NormalTab .CloseIcon {
+	float: left;
+	width: 16px; height: 20px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalCloseTab.gif') no-repeat bottom;
+}
+
+.LAYOUT-CONTAINER .UIHorizontalTabs .UITab  {
+	height: 24px; 
+}
+
+.LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
+	background:transparent url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat center ;
+}
+
+.LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
+	background:transparent url('/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif') no-repeat center;
+} 

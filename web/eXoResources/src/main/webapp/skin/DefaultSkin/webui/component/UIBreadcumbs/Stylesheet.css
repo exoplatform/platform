@@ -1,0 +1,48 @@
+.UIWindow .UIBreadcumbsPortlet {
+  margin: 0px;
+}
+
+.UIBreadcumbsPortlet {
+  margin: 5px;
+  padding: 5px 0px;
+}
+
+.UIBreadcumbs {
+  height: 26px ;  line-height: 26px ;
+  vertical-align: middle ;
+  padding: 0px 6px 0px 5px;
+}
+
+.UIBreadcumbs a {
+	float: left ;
+	color: black ;
+}
+
+.UIBreadcumbs a.Selected {
+	color: #fc7605 ; 
+}
+
+.UIBreadcumbs .HomeIcon {
+	float: left;
+  margin: 5px 5px 0px 3px ;
+}
+
+.UIBreadcumbs .LeftBreadcumbsBar {
+  padding: 0px 0px 0px 5px ;
+  background: url('DefaultSkin/background/LeftBreadcumbsBar5x25.gif') no-repeat left;
+}
+
+.UIBreadcumbs .RightBreadcumbsBar {
+  padding: 0px 5px 0px 0px;
+  background: url('DefaultSkin/background/RightBreadcumbsBar5x25.gif') no-repeat right;
+}
+
+.UIBreadcumbs .BreadcumbsInfoBar {
+  height: 25px; line-height: 25px; vertical-align: middle;
+  background: url('DefaultSkin/background/MiddleBreadcumbsBar1x25.gif') repeat-x;
+}
+
+.UIBreadcumbs .RightBlackGridArrowIcon {
+  float: left;
+  margin: 5px 0px 0px 0px;
+}

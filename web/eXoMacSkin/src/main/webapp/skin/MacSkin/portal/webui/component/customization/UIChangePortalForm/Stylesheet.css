@@ -1,0 +1,29 @@
+.UIChagnePortalForm {
+  padding: 20px 15px 10px 15px;
+}
+
+.UIChagnePortalForm .TabPaneContent {
+  border: 1px solid #c2c2c2;
+  border-top: none;
+  padding: 0px 1px 1px 1px;
+}
+
+.UIChagnePortalForm .WorkingArea {
+  background:url(/eXoResources/background/MacSkin/Background1x4.png) repeat;
+  padding: 15px 15px 25px 15px;
+  height: 250px;
+  overflow: auto;
+}
+
+.UIChagnePortalForm .Button .UIAction {
+  width: 70px;
+  margin: auto;
+}
+
+.UIChagnePortalForm .UIGrid .ActionContainer {
+  width: 20px;
+}
+
+.UIChagnePortalForm .UIFormTabPane .TabPaneContent .UITabContentContainer {
+	height: auto;
+}

@@ -1,0 +1,36 @@
+.UITabPane {
+}
+
+.UITabPane .TabPaneContent {
+}
+
+.UITabPane .TabPaneContent .WorkingArea {
+}
+
+.UITabPane .TabPaneContent .UITabContentContainer {
+
+}
+
+.UITabPane .TabPaneContent .UITabContentContainer {
+  background: white url('VistaSkin/background/TabContainerBG1x11.png') repeat-x top;
+}
+
+.UITabPane .TabPaneContent .WorkingArea .UITabContentContainer .UITabContent {
+  padding: 8px;
+  border: none;
+}
+
+.UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {
+  padding: 6px 7px 12px 8px;
+  background: url('VistaSkin/background/TabContentBG.png') repeat;
+  border:1px #868686 solid;
+}
+
+.UITabPane .TabPaneContent .UIQuickHelp {
+  float: right ;
+  width: 25% ;
+}
+
+.UITabPane .UIForm .UIAction .ActionContainer .Button {
+  float: right ;
+}

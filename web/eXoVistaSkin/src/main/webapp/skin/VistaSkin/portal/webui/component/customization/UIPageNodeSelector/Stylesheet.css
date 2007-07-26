@@ -1,0 +1,92 @@
+/*########################- UIPageNodeSelector -######################*/
+.UIPageNodeSelector {
+}
+
+.UIPageNodeSelector .PageNodeSelectorContainer {
+  background: #f3f3f3 ;
+  padding: 5px ;
+  border: 1px solid #c6c6c9 ;
+}
+
+.UIPageNodeSelector .UIVerticalSlideTabs {
+  border: none; 
+}
+
+.UIPageNodeSelector .UIDropDownItemSelector {
+  padding: 0px 1px;
+}
+
+/*###############################- UITree -############################*/
+.UIPageNodeSelector .TreeSelectorTitle {
+  text-align: center; 
+  font-weight: normal;
+  height: 20px; line-height: 20px; 
+  background: white ;
+  border: 1px solid #b7b7b7 ; 
+  margin-bottom: 5px;
+}
+
+.UIPageNodeSelector .TabLabel {
+  margin-left: 10px;
+}
+
+.UIPageNodeSelector .UITree {
+  border: 1px #828282 solid;
+  background: white ;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer {
+  padding: 6px 0px 6px 0px ;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .TreeLevelContainer {
+  float: none;
+  margin: 0px 0px 4px 0px;  
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .ExpandIcon {
+  margin: 3px 0px 0px 0px ;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .CollapseIcon {
+  margin: 2px 2px 0px 2px ;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .Icon {
+  width: 24px;  height: 24px ;
+  margin: 0px 2px 0px 2px;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .NodeSelected {
+ color: blue;
+}
+
+.UIPageNodeSelector .UITree .TreeContainer .Node .NodeLabel  {
+  float: left ;
+  cursor: pointer ;
+  height:20px; line-height: 20px;
+  color: black; 
+}
+
+.UIPageNodeSelector .OrganizationIcon {
+  background: url('/eXoResources/icons/24x24/VistaSkin/MiniOrangeBoxPage.png') no-repeat;
+}
+
+.UIPageNodeSelector .PortalAdminIcon {
+  background: url('/eXoResources/icons/16x16/VistaSkin/16x16/PortalAdmin.gif') no-repeat;
+}
+
+.UIPageNodeSelector .NavigationPortalIcon {
+  background: url('/eXoResources/icons/24x24/VistaSkin/MiniOrangeBoxPage.png') no-repeat;
+}
+.UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
+	background: url('/eXoResources/icons/24x24/VistaSkin/EditNavigation.png') no-repeat left top;
+	cursor: pointer;
+	float: left; margin-left: -3px;
+	height: 22px; width: 19px;
+	display: block;
+}
+.UIControlWorkspace .UIPageNodeSelector .UIDropDownItemSelector {
+  float: left; 
+  width: 201px;
+}

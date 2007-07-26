@@ -1,0 +1,71 @@
+.UIPageDesktop {
+  position: relative ;
+  z-index: 0 ;
+  top: 0px; left: 0px ;
+  overflow: hidden ;
+}
+
+.UIPageDesktop .UIDockBar {
+  margin: auto ;
+  height: auto ;
+  z-index: 30 ;
+  cursor: pointer ;
+}
+
+.UIPageDesktop .UIDockBar .Icon {
+  width: 40px ; height: 40px ;
+}
+
+.UIPageDesktop .UIDockBar .IconControl {
+  width: 40px ; height: 40px ;
+}
+
+.UIPageDesktop .UIDockBar .DockbarLeft {
+  background: url('DefaultSkin/background/DockbarLeft2x47.gif') no-repeat left bottom ;
+  padding: 0px 0px 0px 2px ;
+}
+
+.UIPageDesktop .UIDockBar .DockbarRight {
+  background: url('DefaultSkin/background/DockbarRight2x47.gif') no-repeat right bottom ;
+  padding: 0px 2px 0px 0px ;
+}
+
+.UIPageDesktop .UIDockBar .DockbarCenter {
+  height: 47px ;
+  background: url('DefaultSkin/background/DockbarCenterBG1x47.gif') repeat-x bottom ;
+}
+
+.UIPageDesktop .UIDockBar .IconContainer {
+  vertical-align: bottom ;
+	padding: 3px 0px 0px 0px;
+  margin: auto ;
+}
+
+.UIPageDesktop .UIDockBar .Separator {
+	width: 2px; height: 40px; 
+	margin: 0px 5px ;
+}
+
+.UIPageDesktop .UIDockBar .Tooltip {
+	background: white ;
+	line-height: 20px ;
+	white-space: nowrap ;
+	position: absolute ;
+	padding: 0px 5px ;
+	border: solid 1px black ;
+}
+
+.UIPageDesktop .MoveResizeArea {
+  float: right ;
+  width: 12px ; height: 18px ;
+  background: blue ; 
+  cursor: nw-resize ;
+}
+
+.UIPageDesktop .UIWindow .UIFormInputSet {
+	width: 100%;
+}
+
+.UIPageDesktop .UIApplication {
+  overflow: auto ;
+}

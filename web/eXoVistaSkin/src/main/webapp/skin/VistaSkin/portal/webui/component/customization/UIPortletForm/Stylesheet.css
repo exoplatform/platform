@@ -1,0 +1,17 @@
+.UIPortletForm {
+  padding: 10px ;
+}
+
+.UIPortletForm .UITabPane {
+  background: white ;
+  border: solid 1px black ;
+  padding: 7px ;
+}
+
+.UIPortletForm .SaveIcon {
+  background: url('/eXoResources/icons/16x16/VistaSkin/Save.gif') no-repeat ;
+}
+
+.UIPortletForm .BackIcon {
+  background: url('/eXoResources/icons/16x16/VistaSkin/BackArrowBlue.gif') no-repeat ; 
+}

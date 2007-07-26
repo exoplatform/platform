@@ -1,0 +1,75 @@
+.UIDescription {
+  padding: 0px 5px 7px 5px;
+}
+
+.UIDescription .DecoratorBox .DecoratorBackground{
+  background: #efefef;
+  padding: 0px 3px 0px 3px;
+}
+
+.UIDescription .DecriptionContainer {
+  padding: 0px 5px 5px 5px;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+}
+
+.UIDescription .DescriptionTitle {
+  border :1px #ffffff solid;
+  border-top:none;
+  border-bottom:none;
+  text-align: center; font-weight: bold;
+  height: 23px; line-height: 23px;
+  background: url('VistaSkin/background/TitleBG1x23.png') repeat-x;
+}
+
+.UIDescription .DescriptionContent {
+  line-height: 20px;
+  text-align: center;
+  border:1px #7e878f solid;
+  background: url('VistaSkin/background/DescriptionContentBackgr.png') repeat;
+}
+
+.UIDescription .DescriptionContentMaxHeight {
+  padding: 8px;
+  height: 300px;
+}
+
+.UIDescription .LeftTopDescriptionDecorator {
+	background: url('VistaSkin/background/LeftTopDescriptionDecorator7x11.png') no-repeat left;
+	padding-left: 7px;
+}
+
+.UIDescription .RightTopDescriptionDecorator {
+	background: url('VistaSkin/background/RightTopDescriptionDecorator8x11.png') no-repeat Right;
+	padding-right: 8px;
+}
+
+.UIDescription .CenterTopDescriptionDecorator {
+	background: url('VistaSkin/background/CenterTopDescriptionDecorator1x11.png') repeat-x;
+	height: 11px;
+}
+
+.UIDescription .LeftMiddleDescriptionDecorator {
+	background: url('VistaSkin/background/LeftMiddleDescriptionDecorator3x1.png') repeat-y left;
+	padding-left: 3px;
+}
+
+.UIDescription .RightMiddleDescriptionDecorator {
+	background: url('VistaSkin/background/RightMiddleDescriptionDecorator4x1.png') repeat-y Right;
+	padding-right: 4px;
+}
+
+.UIDescription .LeftBottomDescriptionDecorator {
+	background: url('VistaSkin/background/LeftBottomDescriptionDecorator8x9.png') no-repeat left;
+	padding-left: 8px;
+}
+
+.UIDescription .RightBottomDescriptionDecorator {
+	background: url('VistaSkin/background/RightBottomDescriptionDecorator8x9.png') no-repeat Right;
+	padding-right: 8px;
+}
+
+.UIDescription .CenterBottomDescriptionDecorator {
+	background: url('VistaSkin/background/CenterBottomDescriptionDecorator1x9.png') repeat-x;
+	height: 9px;
+}

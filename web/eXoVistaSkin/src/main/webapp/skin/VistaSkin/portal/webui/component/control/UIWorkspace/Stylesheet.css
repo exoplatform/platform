@@ -1,0 +1,126 @@
+.UIControlWorkspace {
+  width: 3px ; height: 100% ;
+  padding: 0px ;
+  top: 0px ;
+  background: url("VistaSkin/background/SlidebarBackground6x1.png") repeat-y right;
+}
+
+.UIControlWorkspace .TopTitleBar{
+  padding: 15px 0px 15px 0px;
+}
+
+.UIControlWorkspace .UIVerticalSlideTabs {
+  padding: 3px; 
+}
+
+.UIControlWorkspace .UserWorkspaceTitle {
+  height: 23px ;
+  background: url('VistaSkin/background/UserWorkspaceTitleBG1x23.png') repeat-x ;
+  font-weight: bold ;
+  line-height: 22px ; 
+  margin-right: 2px ; text-align: center;
+}
+
+.UIControlWorkspace .CloseControlWorkspace {
+	float: right ;
+	width: 28px ;	height: 22px ;
+	margin: 0px 0px 0px 0px ;
+	background: url('VistaSkin/background/CloseControlWorkspace.png') no-repeat ;
+	cursor: pointer ;
+}
+
+.UIControlWorkspace .UIWorkspacePanel {
+  height: 100%; 
+}
+
+.UIControlWorkspace .UIWorkspaceControl {
+  height: 35px ;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .WhiteRoundedBoxStyle {
+  margin: 2px 4px 5px 4px;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .UIMyPortal {
+  background: none;
+  border: solid 1px #dbe4e4 ;  /*Fix Bug On IE*/  
+}
+/*########################### Tab ###########################*/
+.UIControlWorkspace .UIWorkspacePanel .TabPortalIcon {
+  float: left;  
+  width: 30px ; height: 25px ;
+  margin: 7px 10px 0px 5px; 
+  background: url('VistaSkin/background/PortalManagement.gif') no-repeat ;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .ControlPanelExpandContainer {
+  margin: 10px 4px;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .TabPageIcon {
+  float: left;
+  width: 30px ; height: 25px ;
+  margin: 6px 10px 0px 5px;
+  background: url('VistaSkin/background/PageManagement.gif') no-repeat center;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .HideContentVTab {
+  display: none ;
+  background: #f8f8f8 ; 
+  margin: 2px 0px ;
+  border: solid 1px #a3abb6 ;
+}
+
+.UIControlWorkspace .UIWorkspacePanel .ShowContent {
+  display: block ;
+  background: #f8f8f8 ;
+  margin: 2px 0px ;
+  border: solid 1px #a3abb6 ;
+}
+/*########################### End Tab ###########################*/
+
+/*########################### Slidebar ###########################*/
+.UIControlWorkspace .Slidebar {
+	float: right ;
+  width: 6px ; height: 100% ;
+  cursor: pointer ;
+}
+
+.UIControlWorkspace .SlidebarButton {
+	height: 100% ;	width: 6px ;
+	background: url("VistaSkin/background/SlidebarButton6x160.gif") no-repeat center center ;
+}
+
+.UIControlWorkspace .UIWorkspaceContainer {
+	float: left ;
+	height: 100%;
+}
+/*########################### End Slidebar ###########################*/
+.UIWorkingWorkspace {
+	margin: 0px;
+	padding: 0px;
+}
+
+.MaskLayer {
+	background: #000 ;
+	text-align: center ;
+	position: absolute ;
+}
+
+.WarningLayer {
+	width: 300px ;	height: 100px ;
+	background: white ;
+	line-height: 100px ;	
+	text-align: center ;
+	position: absolute ;
+	opacity: 0.5 !important ;
+	filter: alpha(opacity=50) ;
+}
+
+.PreviewMode {
+	width: 172px ;	height: 38px ;
+	background: url("VistaSkin/background/PreviewModeImage172x38.png") no-repeat ;
+	position: absolute ;
+	cursor: pointer ;
+	margin: 36px 0px 0px 0px;
+}

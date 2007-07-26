@@ -1,0 +1,110 @@
+.UIPortletOptions {
+  background: url('VistaSkin/background/UIPortletOptionsBackground.png') repeat ;
+  padding: 5px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs {
+  padding: 5px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .UIVTab .UIVTabContent {
+  margin: 1px 0px 5px 0px ;
+  padding: 3px ;
+  border: solid 1px #958f8f ;
+}
+
+.UIPortletOptions .PortletTitle { 
+  float: left ;
+  font-weight: bold ;
+  text-decoration: none;
+}
+
+.UIPortletOptions .PortletTitle a { 
+  color: #000000;
+}
+
+.UIPortletOptions .PortletTitle a:hover { 
+  color: blue;
+}
+
+.UIPortletOptions .CategoryContainer {
+  border:solid 1px #959595; 
+  background: white;
+  overflow: auto;
+  
+}
+
+.UIPortletOptions .Title {
+  background: url('/eXoResources/background/VistaSkin/IconLabelContentBG1x1.png') repeat;
+	padding-left: 8px;
+	border: 1px solid #6c767c;
+	height: 20px;
+}
+
+.UIPortletOptions .Title .TitleContainer {
+	height: 20px;
+}
+
+.UIPortletOptions .Title .TitleContainer .Icon {
+	float: left;
+	width: 19px; height: 20px;
+}
+
+.UIPortletOptions .Title .TitleContainer .LabelText {
+	padding-left: 7px;
+	float: left;
+	height: 20px; line-height: 20px; 
+}
+
+.UIPortletOptions .Title .TitleContainer .ArrowButton {
+	float: right;
+	cursor: pointer ;
+}
+
+/*######################-Normal VerticalSlideTab-######################*/
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
+	height: 26px ; 
+  padding-left: 2px ;
+  background: url('VistaSkin/background/SmoothRoundedLeftBar2x26.png') no-repeat left ; 
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight{
+  height: 26px ; width: auto ;
+  padding-right: 2px ;
+  background: url('VistaSkin/background/SmoothRoundedRightBar2x26.png') no-repeat right ; 
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat{
+  height: 26px ;
+  background: url('VistaSkin/background/SmoothRoundedRepeatBar1x26.png') repeat-x ;
+}
+  
+/***-SelectedTab VTabSimpleStyle VerticalSlideTabs-***/
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .SelectedTab {
+	margin-top: 4px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLeft {
+	background: url(VistaSkin/background/SelectedTabLeft2x26.png) no-repeat left;
+	padding-left: 2px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRight {
+	background: url(VistaSkin/background/SelectedTabRight2x26.png) no-repeat right;
+	padding-right: 2px;
+}
+
+.UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRepeat {
+	background: url(VistaSkin/background/SelectedTabRepeat1x26.png) repeat-x ;
+	height: 26px;
+}
+  
+  
+.UIPortletOptions .UIDropDownItemSelector .ComponentIcon {
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/VistaSkin/DefaultPortletIcons.png') no-repeat;
+}
+
+#UIPortletOptions .BackNavigationContent {
+	display: none;
+}

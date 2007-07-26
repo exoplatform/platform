@@ -1,0 +1,9 @@
+.UIPortalBrowser {
+  padding: 5px;
+  width: auto;
+}
+
+.UIPortalBrowser .UIGrid .ActionContainer {  
+  margin: auto ;
+  width: 17px; height: 16px;
+}

@@ -1,0 +1,113 @@
+.UIPageIterator {    
+  margin: 3px auto 0px auto ;
+  width: 99%;
+}
+
+.UIPageIterator .PageIteratorContainer {    
+  float: right ;
+  line-height: 24px ;  vertical-align: middle ;
+  padding: 0px 5px 0px 5px ;
+  overflow: hidden; 
+}
+
+.UIPageIterator .PageIteratorContainer .LeftPageIteratorBlock{    
+  float: right ;
+  margin-right: 15px;
+}
+
+.UIPageIterator .PageIteratorContainer .RightPageIteratorBlock{    
+  float: right ;
+}
+
+.UIPageIterator .Icon {
+  float: left ;
+  margin: 4px 2px 0px 2px ;
+  width: 18px ;  height: 17px ;
+}
+
+.UIPageIterator .TotalPages {
+  float: left ;
+  line-height: 22px ; vertical-align: middle;
+}
+
+.UIPageIterator .PagesTotalNumber {
+  float: left ;
+  line-height: 22px ; vertical-align: middle;
+  color: #058ee6; font-weight: bold;
+  margin-left: 5px;
+}
+
+/*
+* Repair by Duy Tu 09/07/07
+*/
+.UIPageIterator .LastTopPageIcon {
+  vertical-align: middle ;
+  background: url('MacSkin/background/ScrollDoubleBackArrows.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageIterator .NextTopPageIcon {
+  background: url('MacSkin/background/ScrollDoubleNextArrows.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+ .UIPageIterator .LastPageIcon {
+  background: url('MacSkin/background/ScrollSingleBackArrow.gif') no-repeat ;
+  cursor: pointer ; 
+}
+
+.UIPageIterator .NextPageIcon {
+  background: url('MacSkin/background/ScrollSingleNextArrow.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageIterator .DisableLastTopPageIcon {
+  vertical-align: middle ;
+  background: url('MacSkin/background/DoubleBackArrows.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageIterator .DisableNextTopPageIcon {
+  background: url('MacSkin/background/DoubleNextArrows.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+ .UIPageIterator .DisableLastPageIcon {
+  background: url('MacSkin/background/SingleBackArrow.gif') no-repeat ;
+  cursor: pointer ; 
+}
+
+.UIPageIterator .DisableNextPageIcon {
+  background: url('MacSkin/background/SingleNextArrow.gif') no-repeat ;
+  cursor: pointer ;
+}
+/* End */
+
+.UIPageIterator .Number {
+  float: left ;
+  padding: 0px 4px 0px 4px ;
+  margin: 0px 5px ;
+}
+
+.UIPageIterator .Number a.PageSelected {
+  color: #e73c14;
+  font-weight: bold;
+  border: 1px solid #b5b5b5;
+  margin: 0px 2px ;
+  padding: 0px 5px 1px 5px ;
+}
+
+.UIPageIterator .Number a {
+	height: 17px; 
+  margin: 3px 2px ;
+  padding: 0px 5px 1px 5px ;
+  color: #333333 ;
+  border: 1px solid #dfdfdf;
+  background: url('MacSkin/background/NumberBackground1x15.gif') repeat-x center;
+}
+
+.UIPageIterator .Number a:hover {
+  color: #0585D7 ;
+  border: 1px solid #0585D7;
+  background:white;
+}

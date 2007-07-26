@@ -1,0 +1,86 @@
+.UITree {
+  background: url('MacSkin/background/GrayLinedBG.gif');
+  border: solid #b7b7b7 1px ;    
+  padding: 1px;
+}
+
+.UITree .TreeContainer {
+  background: white; 
+  border: 1px #b7b7b7 solid;
+  padding: 7px 0px ;
+}
+
+.UITree .TreeLevelContainer {
+  height: 18px; line-height: 18px;
+  padding-left: 12px;
+  margin: 0px 0px 10px 0px ;
+}
+
+.UITree .TreeLevelContainer .LevelUpArrowIcon {
+  float: left;
+  width: 26px; line-height: 18px;
+  background: url('MacSkin/background/AquaBlueUpLevel.gif') no-repeat;
+}
+
+.UITree .TreeContainer .Node {
+  width: 93% ;
+  clear: both ;
+  padding: 0px 0px 0px 9px;
+  margin: 3px 0px 5px 0px ;
+}
+
+.UITree .TreeContainer .Node .ExpandIcon {
+  float: left ;
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat ;
+  cursor: pointer ;
+  margin: 4px 0px 0px 0px;
+}
+  
+.UITree .TreeContainer .Node .ColapseIcon {
+  float: left ;
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat ;
+  cursor: pointer ;
+  margin: 4px 0px 0px 0px ;
+}
+
+.UITree .TreeContainer .Node .EmptyIcon {
+  float: left ;
+  width: 16px ;  height: 16px ;
+  margin: 0px 1px 0px 0px;
+}
+
+.UITree .TreeContainer .Node .Icon {
+  float: left ;
+  width: 24px ;  height: 24px ;
+  margin: 0px 0px 0px 3px;
+}
+
+.UITree .TreeContainer .Node .NodeLabel a {
+  float: left ;
+  height: 20px ; line-height: 20px ;
+  cursor: pointer ;
+  padding: 0px 5px 0px 4px ; 
+  margin: 1px 0px 0px 1px ;
+  color: black; font-weight: bold;
+}
+
+.UITree .TreeContainer .Node .NodeLabel a:hover{
+  font-weight: bold;
+}
+
+.UITree .TreeContainer .Node .NodeLabel .NodeSelected {
+  height: 20px ; line-height: 20px;
+  margin: 0px 0px 0px 1px ;
+  color: #FF7A22;
+}
+
+/** ################# Icons ###################*/
+.UITree .TreeContainer .GroupAdminIcon {
+  background: url('/eXoResources/icons/24x24/MacSkin/NormalGroup.gif') no-repeat ;
+}
+
+.UITree .TreeContainer .PortalIcon {
+  background: url('/eXoResources/icons/24x24/MacSkin/SelectedGroup.gif') no-repeat ;
+}

@@ -1,0 +1,82 @@
+.UISearch {
+  height: 37px;
+  line-height: 37px ;
+  margin-bottom: 2px;
+}
+
+.UISearch .UISearchForm {
+  height: 34px;
+  line-height: 34px;  
+}
+
+.UISearch .UISearchForm .QuickSet {
+  overflow: hidden ;
+  width: 100% ;
+}
+
+.UISearch .UISearchForm .QuickSet .SearchTitle {
+  float: left;
+  height: 20px; line-height: 20px; 
+  padding-left: 10px; margin-top: 10px;
+}
+
+.UISearch .UISearchForm .QuickSet .AdvancedSearchIcon {
+  margin: 7px 2px 0px 0px ;
+  width: 24px ;  height: 24px ;
+  background: url('/eXoResources/icons/24x24/MacSkin/AdvancedSearch.gif') no-repeat ;
+  float: left ;
+}
+
+.UISearch .UISearchForm .QuickSet .AdvancedSearch {
+  float: right ;
+  margin-right: 10px;
+  font-weight: normal; color: black;
+}
+
+.UISearch .UISearchForm .QuickSet .SimpleSearchIcon {
+  margin: 7px 0px 0px 5px; 
+  width: 32px ;  height: 32px ;
+  background: url('/eXoResources/icons/24x24/MacSkin/BlueMagnifier.gif') no-repeat ;
+  float: left ;
+}
+
+.UISearch .UISearchForm .QuickSet a {
+  color: black;
+}
+
+.UISearch .UISearchForm .QuickSet a:hover {
+  color: blue;
+}
+
+.UISearch .UISearchForm .QuickSet .UIForm {
+	background-color: transparent ;
+	border: none ;
+}
+
+.UISearch .UISearchForm .QuickSet select {
+  float: left ;
+  margin-top: 8px ;
+  width: 115px ; height: 20px;
+  border: 1px solid gray;
+  padding: 1px;
+  font-size: 11px;
+}
+
+.UISearch .UISearchForm .QuickSet input {
+  float: left ;
+  margin: 8px 5px 0px 10px ;
+  width: 180px ; height: 18px;
+  border: 1px solid gray;
+}
+
+.UIFormTabPane .UISearch .UISearchForm .QuickSet select {
+  float: left ;
+  margin-top: 8px ;
+  width: 120px ;
+}
+
+.UIFormTabPane .UISearch .UISearchForm .QuickSet input {
+  float: left ;
+  margin: 3px 5px 0px 0px ;
+  width: 185px ;
+}

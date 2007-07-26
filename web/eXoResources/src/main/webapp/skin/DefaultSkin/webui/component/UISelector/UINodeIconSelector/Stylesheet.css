@@ -1,0 +1,69 @@
+.UINodeIconSelector {
+}
+
+.UINodeIconSelector .LeftColumnStyle .ItemListContainer .ItemList {
+  height: 240px;
+  background: white url('DefaultSkin/background/IconsBoxBg100x65.gif') no-repeat bottom center;
+}
+
+.UINodeIconSelector .LeftColumnStyle .ItemListContainer .ItemDetailList {
+  height: 263px;
+}
+
+.UINodeIconSelector .SelectedIconInfo {
+  background: white;
+  border: solid 1px #b7b7b7 ;
+  height: 35px;
+  margin-top: 6px;
+}
+
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer{
+  white-space: nowrap;
+  margin: 0px;
+}
+
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel{
+  font-size: 12px; font-weight: normal;
+  float: left;
+  width: 190px;
+}
+
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue{
+  margin-left: 0px;
+  float: left;
+}
+
+.UINodeIconSelector .IconSelector {
+  background: white ;
+  border: 1px solid  #b7b7b7 ;
+  height: 197px; 
+  overflow: auto;
+}
+
+.UINodeIconSelector .IconSelector .Icon {
+  float: left;
+  margin: 2px ;
+  width: 16px; height: 16px;
+}
+
+.UINodeIconSelector .IconSelector a {
+  float: left;
+  border: 1px white solid;
+  margin: 2px;
+  cursor: pointer ;
+}
+
+.UINodeIconSelector .IconSelector a:hover {
+  border: 1px #c0c0c0 solid;
+}
+
+.UINodeIconSelector .IconSelector .SelectedBackground {
+  float: left;
+  border: 1px red solid;
+  margin: 2px;
+  cursor: pointer ;
+}
+
+.UIMaskWorkspace .UIForm .HorizontalLayout .UINodeIconSelector .UIFormInputSet {
+	width: auto;
+}

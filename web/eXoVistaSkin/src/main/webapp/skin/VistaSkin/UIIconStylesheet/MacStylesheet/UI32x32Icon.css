@@ -1,0 +1,69 @@
+
+.CyanUpArrowDotted32x32Icon {
+  background: url('/eXoResources/icons/32x32/MacSkin/CyanUpArrowDotted.gif') ;
+  width: 32px ;  height: 32px ;
+}
+
+.ErrorMessage32x32Icon {
+  background: url('/eXoResources/icons/32x32/MacSkin/MinusSign.gif') ;
+  width: 32px ;  height: 32px ;
+}
+
+.WarningMessage32x32Icon {
+  background: url('/eXoResources/icons/32x32/MacSkin/WarningSign.gif') ;
+  width: 32px ;  height: 32px ;
+}
+
+.InfoMessage32x32Icon {
+  background: url('/eXoResources/icons/32x32/MacSkin/CircleInfo.gif') ;
+  width: 32px ;  height: 32px ;
+}
+
+.NavyWheelDataBox32x32Icon {
+  background: url('/eXoResources/icons/32x32/MacSkin/NavyWheelDataBox.gif') ;
+  width: 32px ;  height: 32px ;
+}
+
+.Yellowbulb32x32Icon {
+  background: url('/eXoResources/icons/32x32/MacSkin/Yellowbulb.gif') ;
+  width: 32px ;  height: 32px ;
+}
+
+.PageMagnifier32x32Icon {
+  background: url('/eXoResources/icons/32x32/MacSkin/PageMagnifier.gif') ;
+  width: 32px ;  height: 32px ;
+}
+
+.BoxMagnifier32x32Icon {
+  background: url('/eXoResources/icons/32x32/MacSkin/BoxMagnifier.gif') ;
+  width: 32px ;  height: 32px ;
+}
+
+.ImagePlain32x32Layout {
+  width: 32px ;  height: 32px ;
+  background: url('/eXoResources/icons/32x32/MacSkin/ImagePlainLayout.gif') ;
+}
+
+.ImageDouble32x32Layout {
+  width: 32px ;  height: 32px ;
+  background: url('/eXoResources/icons/32x32/MacSkin/ImageDoubleLayout.gif') ;
+}
+
+.ImageLeft32x32Layout {
+  width: 32px ;  height: 32px ;
+  background: url('/eXoResources/icons/32x32/MacSkin/ImageLeftLayout.gif') ;
+}
+.ImageRight32x32Layout {
+  width: 32px ;  height: 32px ;
+  background: url('/eXoResources/icons/32x32/MacSkin/ImageRightLayout.gif') ;
+}
+
+.ImageDoubleCol32x32Layout {
+  width: 32px ;  height: 32px ;
+  background: url('/eXoResources/icons/32x32/MacSkin/ImageDoubleColLayout.gif') ;
+}
+
+.ImageCenter32x32Layout {
+  width: 32px ;  height: 32px ;
+  background: url('/eXoResources/icons/32x32/MacSkin/ImageCenterLayout.gif') ;
+}

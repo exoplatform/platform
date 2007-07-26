@@ -1,0 +1,174 @@
+.UIPageManagement {
+  padding: 0px 1px 1px 1px ;
+}
+
+.UIPageManagement .UIQuickHelp {
+  margin-top: 3px;
+}
+
+.UIPageManagement .UIPageEditBar{
+  padding: 0px 5px;
+}
+
+.UIPageManagement .TopTitleBar {
+  padding: 15px 0px;
+}
+
+/*############################- UIPageManagementControlBar Icons -#####################*/
+.UIPageManagement .RollbackBar {
+  width: 135px;
+  margin: auto;
+  margin-top: 10px;
+  text-align: center;
+}
+/*############################- UIPageManagementControlBar Icons -#####################*/
+.UIPageManagement .UIPageNavigationControlBar .UIToolbar .ControlToolbar {
+	margin: 13px 2px 0px 100px; 
+}
+
+.UIPageManagement .EditNavigationControlIcon {
+  float: left;
+  width: 30px; height: 25px;
+  margin: 4px 20px 0px 20px;
+  background: url('VistaSkin/background/PageNavigation.gif') no-repeat;  
+}
+
+.UIPageManagement .BrowserPageIcon {
+  float: left;
+  width: 32px; height: 24px;
+  margin: 4px 20px 0px 25px;
+  background: url('VistaSkin/background/PageBrowse.gif') no-repeat;
+}
+
+.UIPageManagement .RollbackIcon {
+  float: left;
+  width: 30px; height: 24px;
+  margin: 2px 0px 0px 0px;
+  background: url('VistaSkin/background/BlueCircleBackArrow.png') no-repeat;
+}
+
+/*############################- UIPageManagementEditBar Icons -#####################*/
+.UIPageManagement .UIToolbar .ControlToolbar {
+	margin: 13px 2px 0px 150px; 
+}
+
+.UIPageManagement .AddNodeIcon {
+  float: left;
+  width: 24px; height:24px;
+  margin: 3px 3px 0px 3px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlueCirclePlus.png') no-repeat ;
+}
+
+.UIPageManagement .EditSelectedNodeIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin:3px 3px 0px 1px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/TriSmallBoxPencil.png') no-repeat ;
+}
+
+.UIPageManagement .CreateNavigationIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 3px 3px 0px 1px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/NavigationEdit.png') no-repeat center;
+}
+
+.UIPageManagement .EditNavigationIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 3px 3px 0px 1px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/NavigationEdit.png') no-repeat center;
+}
+ 
+.UIPageManagement .BackIcon {
+  background:transparent url('/eXoResources/icons/24x24/VistaSkin/BackIcon24x24.png') no-repeat;
+  height:24px;
+  width:24px;
+}
+
+.UIPageManagement .EditPageNodeIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 3px 3px 0px 1px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlueSmallBoxPencilPage.png') no-repeat ;
+}
+
+.UIPageManagement .CopyNodeIcon {
+  float: left;
+  width: 26px; height: 26px;
+  margin: 3px 1px 0px 1px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/CopyPagesSmallBox.png') no-repeat ;
+}
+
+.UIPageManagement .PasteNodeIcon {
+  float: left;
+  width: 26px; height: 26px;
+  margin: 3px 1px 0px 1px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/SmallBoxBrownPaste.png') no-repeat ;
+}
+
+.UIPageManagement .DeleteNodeIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 4px 1px 0px 1px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/NavyBlueTrashBin.png') no-repeat ;
+}
+
+.UIPageManagement .SaveNavigationIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 4px 1px 0px 1px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlackSaveFloppyDisk.png') no-repeat ;
+}
+
+/*##########################Edit Page Control Bar#############################*/
+.UIPageManagement .UIPageManagementEditBar .PolyToolbar {
+  margin: 4px 0px 2px 0px;
+}
+
+.UIPageManagement .UIPageEditBar .PolyToolbar {
+  margin: 4px 0px 2px 0px;
+}
+
+.UIPageManagement .EditContainerIcon {
+  width: 34px; height: 26px;
+  margin: 3px 7px 0px 7px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControl.png') no-repeat ;
+}
+
+.UIPageManagement .EditPortletIcon {
+  width:34px; height: 24px;
+  margin: 3px 7px 0px 7px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControl.png') no-repeat ;
+}
+
+.UIPageManagement .EditPageIcon {
+  width: 26px; height: 26px;
+  margin: 3px 5px 0px 5px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/EditPageProperty.png') no-repeat ;
+}
+
+.UIPageManagement .PageLayoutModeIcon {
+  float: left;
+  width: 24px; height:24px;
+  margin: 3px 10px 0px 12px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/PageLayoutMode.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UIPageManagement .PagePreviewIcon {
+  width: 26px; height: 26px;
+  margin: 3px 5px 0px 14px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/PagePreview.png') no-repeat ;
+}
+
+.UIPageManagement .SavePageIcon {
+  width: 26px; height: 26px;
+  margin: 3px 5px 0px 5px; 
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlackFloppyDiskPage.png') ;
+}
+
+.UIPageManagement .BackIcon {
+  width: 24px; height: 24px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BackIcon.png') no-repeat;
+}

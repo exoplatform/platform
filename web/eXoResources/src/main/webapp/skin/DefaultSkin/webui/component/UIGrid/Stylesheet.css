@@ -1,0 +1,118 @@
+.UIGrid {
+  border: 1px solid #b7b7b7;
+  border-collapse: collapse ;
+  padding-left: 1px;
+}
+
+.UIGrid thead {
+  border: 1px solid #b7b7b7;
+}
+
+.UIGrid th {
+  line-height: 19px;
+  border: 1px solid #b7b7b7;
+  background: #d2ddf1 url('DefaultSkin/background/ThGridRepeatBg1x19.jpg') repeat-x;
+  font-weight: normal;
+}
+
+.UIGrid tbody {
+  padding-bottom: 1px;
+}
+
+.UIGrid td {
+  height: 26px ;
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  border-top: 1px solid white;
+  padding: 4px 0px 0px 7px;
+}
+
+.UIGrid .OddRow {
+  background: #f0f0f0;
+}
+
+.UIGrid .EvenRow {
+  background: #f5f5f5;
+}
+
+.UIGrid .ActionContainer {
+  margin: auto ;
+}
+
+.UIGrid .ActionContainer a {
+  margin-right: 8px ;
+  color: #024369;
+  text-decoration: none;
+  float: left ;
+  width: 16px; height: 16px;
+}
+
+.UIGrid .Datetime {
+}
+
+.UIGrid .Number {
+  text-align: center;
+}
+
+.UIGrid .ValueWithIcon {
+  float: left ;
+  text-align: right;
+}
+
+.UIGrid .ViewIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/LightBulbOn.gif') no-repeat ;
+}
+
+.UIGrid .DeleteIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
+}
+
+.UIGrid .EditInfoIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat ;
+}
+
+.UIGrid .ExcuteIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/PageYellowLight.gif') no-repeat ;
+}
+
+.UIGrid .AddNewIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif') no-repeat ;
+}
+
+/*###################### UIListUsers Icon ######################*/
+
+.UIGrid .DeleteUserIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
+  margin: auto;
+}
+
+.UIGrid .ViewUserInfoIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat ;
+  margin: auto;
+}
+
+/*###################### UIListMembershipType Icon ######################*/
+
+.UIGrid .DeleteMembershipIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
+  margin: auto;  
+}
+
+.UIGrid .EditMembershipIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat ;
+  margin: auto;
+}
+
+.UIGrid input.checkbox {
+  width: 15px ;  height: 15px ;
+  margin: auto;
+}

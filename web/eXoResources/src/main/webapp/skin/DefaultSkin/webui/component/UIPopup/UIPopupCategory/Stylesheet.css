@@ -1,0 +1,91 @@
+.UIPopupCategory {
+/*
+	filter:alpha(opacity=50);
+	-moz-opacity: 0.5 ;
+	opacity: 0.5; For Mozilla FireFox
+	khtml-opacity: 0.5;
+*/
+position: absolute ;
+width: 120px ;
+top: 15px;
+left: -85px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator {
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
+  background: url('background/PopupCategoryTL6x16.gif') no-repeat left;
+  padding-left: 6px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTC {
+  height: 16px;
+  background: url('background/PopupCategoryTC1x16.gif') repeat-x;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
+  background: url('background/PopupCategoryTR35x16.gif') no-repeat right;
+  padding-right: 35px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryML {
+  background: url('background/PopupCategoryML6x1.gif') repeat-y left;
+  padding-left: 6px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryMC {
+  background: #efefef;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryMR {
+  background: url('background/PopupCategoryMR8x1.gif') repeat-y right;
+  padding-right: 8px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
+  background: url('background/PopupCategoryBL6x7.gif') no-repeat left;
+  padding-left: 6px;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBC {
+  height: 7px;
+  background: url('background/PopupCategoryBC1x7.gif') repeat-x;
+}
+
+.UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
+  background: url('background/PopupCategoryBR8x7.gif') no-repeat right;
+  padding-right: 8px;
+}
+
+.UIPopupCategory .CategoryItem .Icon {
+  width: 16px;
+  height: 16px;
+  float: left;
+  margin: 3px 3px 0px 7px;
+  background: transparent url('/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow1.gif') no-repeat;
+}
+
+.UIPopupCategory .CategoryItem .ModifiedIcon {
+	margin-left: 0px;
+}
+
+.UIPopupCategory .CategoryItem {
+  color: black;
+  background: url('background/NormalItemBG1x22.png') repeat-x;
+  border-bottom: 1px #cdcdcd solid;
+  cursor: pointer;
+  display: block;
+}
+
+.UIPopupCategory .CategoryItem:hover {
+	background: url('background/OverItemBG1x22.png') repeat-x;
+  color: blue;
+}
+
+.UIPopupCategory .CategoryItem .CategoryItemLabel {
+  padding-left: 20px;
+  height: 22px;
+  line-height: 22px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow1.gif') no-repeat left center;
+}

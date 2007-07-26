@@ -1,0 +1,142 @@
+/******************************* UIDropDownItemSelector  **********************************/
+.UIDropDownItemSelector {
+	margin-bottom: 3px;
+}
+
+.UIDropDownItemSelector .ItemSelectorContainer {
+	border-right: none;
+	height: 19px;
+}
+
+.UIDropDownItemSelector .ItemInfoBar {
+	background: white url(DefaultSkin/background/DropDownItemSelectorBG1x2.gif) repeat-x top;
+	padding-left: 5px;
+	border: 1px solid #929292;
+	cursor: pointer;
+}
+
+.UIPageNodeSelector .UIContainerConfigOptions .ComponentIcon {
+	width: 16px; height: 16px;
+	background: url('/eXoResources/icons/16x16/DefaultSkin/NavigationIcon.gif') no-repeat;
+}
+
+.UIContainerConfigOptions .ComponentIcon {
+  width: 16px; height: 16px;
+	background: url(/eXoResources/icons/16x16/DefaultSkin/DefaultContainerIcon.gif) no-repeat;
+}
+
+.UIDropDownItemSelector .ItemInfoBar .Icon {
+	float: left;
+	margin: 2px 0px 0px 0px;
+}
+
+.UIDropDownItemSelector .ItemInfoBar .SelectedItemLabel {
+	float: left;
+	line-height: 19px;
+	font-size: 10px; font-weight: bold; color: #333333;
+	margin-left: 7px;
+}
+
+.UIDropDownItemSelector .ItemInfoBarDisable {
+	background: gray;
+	padding-left: 8px;
+	border-left: 1px solid #bdbcbc;
+	border-right: 1px solid #929292;
+	border-bottom: 1px solid #929292;
+	cursor: pointer;
+}
+
+.UIDropDownItemSelector .ItemInfoBarDisable .Icon {
+	float: left;
+	height: 19px; width: 20px;
+}
+
+.UIDropDownItemSelector .ItemInfoBarDisable .SelectedItemLabel {
+	float: left;
+	line-height: 19px;
+	font-weight: bold;
+	margin-left: 8px;
+	overflow: hidden;
+}
+
+.UIDropDownItemSelector .DropDownSelectIcon {
+	float: right; 
+	width: 20px; height: 19px;
+	background: url('DefaultSkin/background/DropDownButton.gif') no-repeat right;
+	cursor: pointer;	
+}
+
+.UIDropDownItemSelector .UIItemList .ItemSelectorLabel {
+	text-transform: capitalize; 
+}
+
+/********************************   UIItemList   ****************************************/
+.UIItemList {
+	border: 1px solid #787878;
+	border-right: 1px solid #454545;
+	border-bottom: 1px solid #454545;
+	background: white;
+}
+
+.UIItemList .ItemSelector {
+  height: 22px; line-height: 22px;
+  border-top: 1px #ffffff solid;
+  border-bottom: 1px #e0e0e0 solid;
+  cursor: pointer ;
+}
+
+.UIItemList .OverItemSelector {
+	background: #7aafe5;
+	height: 22px; line-height: 22px;
+	border-bottom: 1px #e0e0e0 solid;
+	border-top: 1px #ffffff solid;
+	cursor: pointer ;
+  color: white;
+}
+
+.UIItemList .ItemSelectorLabel {
+  height: 22px; line-height: 22px;
+}
+
+.UIItemList .ItemSelectedLabel {
+  height: 22px; line-height: 22px;
+  color: orange;
+}
+
+.UIItemList .ItemSelector a {
+  color: black;
+  text-decoration: none ;
+  cursor: pointer;
+}
+
+.UIItemList .ItemSelector a:hover {
+  color: blue;
+}
+
+.UIItemList .Icon {
+  width: 16px; height: 16px;
+  float: left;
+  margin: 3px 1px 0px 4px;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat;
+}
+
+/*=================================Popup Category Decorator====================================*/
+.UIItemList .MCItemSelector {
+  background: #f3f3f3;
+  border: 1px solid #e0e0e0;
+  border-bottom: none;
+  margin: 4px;
+}
+
+/*  Supply footnotes to:
+		TL: Top Left.
+		TR: Top Right.
+		TC: Top Center.
+		ML: Middle Left.
+		MR: Middle Right.
+		MC: Middle Center.
+		BL: Bottom Left.
+		BR: Bottom Right.
+		BC: Bottom Center.
+		BG: Background.
+*/

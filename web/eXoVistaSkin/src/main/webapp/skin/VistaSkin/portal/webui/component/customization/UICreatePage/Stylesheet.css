@@ -1,0 +1,147 @@
+.UICreatePage {
+  padding: 8px 5px 5px 5px; 
+}
+
+.UICreatePage .PagePreviewIcon {
+  float: left;
+  width: 26px; height: 26px;
+  margin: 3px 8px 0px 28px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/PagePreview.png') no-repeat ;
+}
+
+.UICreatePage .PageLayoutModeIcon {
+  float: left;
+  width: 24px; height:24px;
+  margin: 3px 10px 0px 25px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/PageLayoutMode.gif') no-repeat ;
+  cursor: pointer ;
+}
+
+.UICreatePage .EditPageIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 3px 5px 0px 8px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/EditPageProperty.png') no-repeat ;
+ 
+}
+
+.UICreatePage .EditContainerIcon {
+  float: left;
+  width: 34px; height: 26px;
+  margin: 3px 8px 0px 26px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControl.png') no-repeat ;
+}
+
+.UICreatePage .EditPortletIcon {
+  float: left;
+  width: 28px; height: 24px;
+  margin: 3px 8px 0px 25px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControlIcon.png') no-repeat ;
+}
+
+.UICreatePage .SavePageIcon {
+  float: left;
+  width: 24px; height: 24px;
+  margin: 3px 5px 0px 8px;
+  background: url('/eXoResources/icons/24x24/VistaSkin/BlackFloppyDiskPage.gif') ;
+}
+
+.UICreatePage .TreeSelectorTitle {
+  text-align: center; 
+  font-weight: bold;
+  height: 22px; line-height: 22px; 
+  vertical-align:middle;
+  background: white; 
+  border: 1px solid #afaeae ;
+  margin: 6px 0px ;
+}
+
+.UICreatePage .TabLabel {
+}
+
+.UICreatePage .NavigationPortalIcon {
+  background: url('/eXoResources/icons/16x16/VistaSkin/MiniOrangeBoxPage.gif') ;
+}
+
+.UICreatePage .UITree {
+  padding: 3px;
+  background: white;
+  border: 1px #5f90ba solid;
+}
+
+.UICreatePage .UITree .TreeContainer {
+  padding: 6px 0px 6px 0px ;
+  border: 1px #b7b7b7 solid;
+}
+
+.UICreatePage .UITree .TreeContainer .TreeLevelContainer {
+  margin: 6px 0px 3px 0px;
+}
+
+.UICreatePage .UITree .TreeContainer .Node {
+  margin: 5px 0px 4px 0px ;
+  padding-left: 5px;
+  width: auto;
+  height: 20px;
+  color: black;
+}
+
+.UICreatePage .UITree .TreeContainer .Node a {
+  color: black;
+}
+
+.UICreatePage .UITree .TreeContainer .Node a:hover {
+  color: orange;
+}
+
+.UICreatePage .UITree .TreeContainer .NodeSelected {
+  background: #d8def4;
+  height: 16px ; line-height: 16px;
+  border: 1px solid #b0c7e9;
+  font-weight: bold; color: blue; 
+  margin-left: 0px;
+}
+
+.UICreatePage .UITree .TreeContainer .Node .ExpandIcon {
+  margin: 2px 2px 0px 0px ;
+}
+
+.UICreatePage .UITree .TreeContainer .Node .ColapseIcon {
+  margin: 2px 2px 0px 0px ;
+}
+
+.UICreatePage .UITree .TreeContainer .Node .Icon {
+  width: 16px;  height: 16px ;
+  margin: 2px 0px 0px 2px;
+}
+
+.UICreatePage .UITree .TreeContainer .Node .NoteLabel {
+  cursor: pointer ;
+  margin: 0px 0px 0px 2px ;
+  float: left ;
+  height: 16px; line-height: 16px; 
+  color: black; font-weight: bold;
+}
+
+.UICreatePage .WizardPageEditBar {
+	padding: 0px 5px;
+}
+
+.UICreatePage .CreatePageContainer .CreatePageBarLeft {
+	padding-left: 7px;
+  background: url('VistaSkin/background/PolyBarL7x30.png') no-repeat left;
+  margin: 0px 5px; 
+}
+
+.UICreatePage .CreatePageContainer .CreatePageBarRight {
+  padding-right: 8px;
+  background: url('VistaSkin/background/PolyBarR8x30.png') no-repeat right;
+}
+
+.UICreatePage .CreatePageContainer .CreatePageLabel {
+  height: 30px;
+  background: url('VistaSkin/background/PolyBarM1x30.png') repeat-x ;
+	font-weight: bold;
+	line-height: 30px;
+	text-align: center;
+}

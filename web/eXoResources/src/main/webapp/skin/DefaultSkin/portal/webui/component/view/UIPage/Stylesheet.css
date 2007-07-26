@@ -1,0 +1,67 @@
+/*##############################-Page Layout Decorator-################################*/
+.UIPage .PageLayoutDecorator  {
+  padding: 0px ;
+  margin: auto;
+}
+
+.UIPage .VIEW-PAGE {
+  padding: 0px;
+}
+
+.UIPage .PageLayoutDecorator .MiddlePageBG {
+  background: white ;
+}
+
+.UIPage .PageLayoutDecorator .TopLeftPage {
+  background: url('DefaultSkin/background/TLPageLayout143x112.gif') no-repeat left ;
+  padding: 0px 0px 0px 143px ;
+}
+
+.UIPage .PageLayoutDecorator .TopRightPage {
+  background: url('DefaultSkin/background/TRPageLayout47x112.gif') no-repeat right ;
+  padding: 0px 47px 0px 0px ; 
+}
+
+.UIPage .PageLayoutDecorator .TopCenterPage {
+  height: 112px ; line-height: 98px;  
+  background: url('DefaultSkin/background/TCPageLayout1x112.gif') repeat-x center ;  
+  color: #525252; text-align: center;
+  font-weight: bold; font-size: 10px;
+  padding: 0px;
+}
+
+.UIPage .PageLayoutDecorator .MiddleLeftPage {
+  background: url('DefaultSkin/background/MLPageLayout21x1.gif') repeat-y left ;
+  padding: 0px 0px 0px 22px ;
+}
+
+.UIPage .PageLayoutDecorator .MiddleRightPage {
+ background: url('DefaultSkin/background/MRPageLayout23x1.gif') repeat-y right;
+ padding: 0px 23px 0px 0px ;
+}
+
+.UIPage .PageLayoutDecorator .MiddlePageBG {
+ height: 80px; 
+ background: white;
+}
+
+.UIPage .PageLayoutDecorator .BottomLeftPage {  
+  background: url('DefaultSkin/background/BLPageLayout46x38.gif') no-repeat left ;
+  padding: 0px 0px 0px 46px ;
+  margin-bottom: 7px;
+}
+
+.UIPage .PageLayoutDecorator .BottomRightPage {
+  background: url('DefaultSkin/background/BRPageLayout35x38.gif') no-repeat right ;
+  padding: 0px 35px 0px 0px ; 
+}
+
+.UIPage .PageLayoutDecorator .BottomCenterPage {
+  height: 38px ;   
+  background: url('DefaultSkin/background/BCPageLayout1x38.gif') repeat-x ; 
+}
+
+.UIPage .UIRowContainer .UITabContainer .UIHorizontalTabs {
+  padding: 0px;
+}
+

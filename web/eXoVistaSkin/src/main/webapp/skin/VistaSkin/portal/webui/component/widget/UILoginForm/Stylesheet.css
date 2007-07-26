@@ -1,0 +1,161 @@
+.UILoginForm {
+  margin: auto;
+  padding: 25px 17px;
+}
+
+/*##############################- LoginBox Style-################################*/
+.UILoginForm .LoginDecorator {
+	width: 550px;
+	margin: auto;
+}
+
+.UILoginForm .LoginDecorator .LoginDecoratorBackground {
+  background: url('VistaSkin/background/BoxCenterMiddle1x191.png') repeat-x ;
+}
+
+.UILoginForm .LoginDecorator .TopLeftLoginDecorator {
+  background: url('VistaSkin/background/BoxLeftTop36x30.png') no-repeat left bottom;
+  padding: 0px 0px 0px 36px ;
+}
+
+.UILoginForm .LoginDecorator .TopCenterLoginDecorator {
+  background: url('VistaSkin/background/BoxCenterTop1x30.png') repeat-x bottom ;
+  height: 30px;
+}
+
+.UILoginForm .LoginDecorator .TopCenterLoginDecorator .SigninTitle {
+  color: #2169D4 ;
+  font-size: 13px; font-family: Verdana; font-weight: bold;
+	line-height: 32px;
+	padding: 0px;
+}
+
+.UILoginForm .LoginDecorator .TopRightLoginDecorator {
+  background: url('VistaSkin/background/BoxRightTop54x30.png') no-repeat right bottom ;
+  padding: 0px 54px 0px 0px ;
+}
+
+.UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
+  background: url('VistaSkin/background/BoxLeftMiddle136x191.png') no-repeat left ;
+  padding: 0px 0px 0px 136px ;
+  border: 1px solid red;
+}
+
+.UILoginForm .LoginDecorator .MiddleRightLoginDecorator {
+  background: url('VistaSkin/background/BoxRightMiddle16x1.png') repeat-y right ;
+  padding: 0px 16px 0px 0px ;
+  border: 1px solid red;
+}
+
+.UILoginForm .LoginDecorator .BottomLeftLoginDecorator {
+  background: url('VistaSkin/background/BoxLeftBottom14x41.png') no-repeat left ;
+  padding: 0px 0px 0px 14px ;
+}
+
+.UILoginForm .LoginDecorator .BottomCenterLoginDecorator {
+  background: url('VistaSkin/background/BoxCenterBottom1x41.png') repeat-x ;
+  height: 41px;
+}
+
+.UILoginForm .LoginDecorator .BottomRightLoginDecorator {
+  background: url('VistaSkin/background/BoxRightBottom16x41.png') no-repeat right ;
+  padding: 0px 16px 0px 0px ;
+}
+/* ============================End LoginDecorator============================== */
+
+.UILoginForm .LoginDetailBox .VerticalLayout {
+	padding-top: 10px;
+}
+
+.UILoginForm .LoginDetailBox .UserNameField {
+	padding: 8px 0px 5px 0px;
+  width: 300px;
+  margin: auto;
+  text-align: right;
+}
+
+.UILoginForm .LoginDetailBox .PasswordField {
+	padding: 5px;
+  width: 300px;
+  margin: auto;
+  text-align: right;
+}
+
+.UILoginForm .LoginDetailBox .CheckField {
+  height: 20px;
+  width: 170px;
+  margin: auto 40px 0px auto;
+  padding-left: 30px;
+  padding-top:4px;
+}
+
+.UILoginForm .LoginDetailBox .CheckField input {
+  float: left;
+  width: 20px;
+  border: none;
+}
+
+.UILoginForm .LoginDetailBox .CheckField .RememberLoginTitle {
+  float: left;
+  margin-left: 7px;
+  line-height: 20px; 
+}
+
+.UILoginForm .LoginDetailBox label {
+  font-weight: bold;
+}
+
+.UILoginForm .LoginDetailBox .UserNameField input {
+  background: white url('DefaultSkin/background/UsernameIcon20x20.gif') no-repeat left ;
+  width: 180px; height: 20px;
+  border: solid 1px #c4c4c4 ;
+  padding: 0px 0px 0px 22px;
+}
+
+.UILoginForm .LoginDetailBox .PasswordField input {
+  background: white url('DefaultSkin/background/PasswordIcon20x20.gif') no-repeat left ;
+  width: 180px; height: 20px;
+  border: solid 1px #c4c4c4 ;
+  padding: 0px 0px 0px 22px;
+}
+
+.UILoginForm .LoginDetailBox .Message {
+  width: 280px; margin: auto; 
+  height: 26px; line-height: 26px; text-align: right;
+  color: #2169d4 ;
+  white-space: nowrap;
+  padding: 0px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UILoginForm .LoginDetailBox .Message a:hover{
+  cursor: pointer;
+  color: orange;
+}
+
+.UILoginForm .LoginDecorator .SignUpBar {
+	padding: 5px 0px 2px 70px ;
+}
+
+.UILoginForm .LoginDecorator .LeftSignUpBar {
+  padding: 0px 0px 0px 55px ;
+}
+
+.UILoginForm .LoginDecorator .SignUpBackground {
+  text-align: right;
+}
+
+.UILoginForm .LoginDecorator .SignUpBackground a {
+	font-weight: bold; color: #ffa837;
+	margin: 0px 20px 0px 0px;
+	cursor: pointer;
+}
+.UILoginForm .LoginDecorator .SignUpBackground a:hover {
+	font-weight: bold; color: #ee8804 ;
+	margin: 0px 28px 0px 0px;
+	cursor: pointer;
+}
+
+.UILoginForm .UIForm .VerticalLayout .UIAction {
+  width: 190px;
+}

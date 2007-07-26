@@ -1,0 +1,22 @@
+.UIWelcomeComponent {
+}
+
+.UIWelcomeComponent .DecoratorBox {
+  margin: 6px 2px 6px 2px;
+}
+
+.UIWelcomeComponent .WelcomeMessage {
+  float: left ;
+}
+
+.UIWelcomeComponent .OrangeMessage {
+  color: #fa8006 ;
+  font-weight: bold ;
+}
+
+.UIWelcomeComponent .LoginDetailBox {
+  width: 185px ;
+  background: white ; 
+  border: solid 1px #b7b7b7 ;
+  padding: 10px ; margin: auto;
+}

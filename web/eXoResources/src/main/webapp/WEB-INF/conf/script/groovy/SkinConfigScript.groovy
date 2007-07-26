@@ -8,5 +8,5 @@ SkinService.addSkin("PortalSkin","Mac", "/eXoResources/skin/portal/webui/compone
 SkinService.addSkin("PortalSkin","Default", "/eXoResources/skin/portal/webui/component/UIPortalApplicationDefaultSkin.css");
 SkinService.addSkin("PortalSkin","Vista", "/eXoResources/skin/portal/webui/component/UIPortalApplicationVistaSkin.css");
 */
-SkinService.addSkin("CoreSkin", "Default", "/eXoResources/skin/webui/component/DefaultStylesheet.css") ;    
-SkinService.addSkin("PortalSkin","Default", "/eXoResources/skin/portal/webui/component/UIPortalApplicationDefaultSkin.css");
+SkinService.addSkin("PortalSkin","Default", "/eXoResources/skin/DefaultSkin/portal/webui/component/UIPortalApplicationSkin.css");
+SkinService.addSkin("CoreSkin", "Default", "/eXoResources/skin/DefaultSkin/webui/component/Stylesheet.css") ;
