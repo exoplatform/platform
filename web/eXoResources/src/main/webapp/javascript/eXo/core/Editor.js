@@ -6,8 +6,7 @@ function Editor() {
   this.containerIdentify = 'editcontainer' ;
   this.editableIdentify = 'editable' ;
   this.activeEditClass = 'ActiveEdit';
-  
-}
+} ;
 
 Editor.prototype.registerEditors = function(node4Reg) {
   if (!node4Reg || node4Reg.nodeType != 1) {
@@ -20,7 +19,7 @@ Editor.prototype.registerEditors = function(node4Reg) {
       this.registerSubEditor(node) ;
     }
   }
-}
+} ;
 
 Editor.prototype.registerSubEditor = function(node) {
   var childNodes = node.childNodes ;
@@ -41,7 +40,7 @@ Editor.prototype.registerSubEditor = function(node) {
       } ;
     }
   }
-}
+} ;
 
 // Create editable node wrapper for text node.
 Editor.prototype.createEditableNode = function(nodeContent) {
@@ -49,7 +48,7 @@ Editor.prototype.createEditableNode = function(nodeContent) {
   editableNode.setAttribute(this.editableIdentify, '1') ;
   editableNode.innerHTML = nodeContent ;
   return editableNode ;
-}
+} ;
 
 Editor.prototype.init = function(node) {
   if(node == null) return ;
@@ -74,8 +73,14 @@ Editor.prototype.init = function(node) {
   eXo.core.SimpleNodeEditor.defaultWrite() ;
   eXo.core.Keyboard.clearListeners() ;
   eXo.core.Keyboard.register(eXo.core.SimpleNodeEditor) ;
+  document.onclick = eXo.core.Editor.onFinish ;
   return false ;
-}
+} ;
+
+Editor.prototype.onFinish = function(event) {
+  eXo.core.Keyboard.clearListeners() ;
+  eXo.core.SimpleNodeEditor.onFinish() ;
+} ;
 
 Editor.prototype.isMultipleSelection = function() {
   if(window.getSelection) { /* Netscape/Firefox/Opera */
@@ -92,7 +97,7 @@ Editor.prototype.isMultipleSelection = function() {
       return false ;
     }
   }
-}
+} ;
 
 Editor.prototype.clearSelection = function() {  
   if (window.getSelection) { /* Netscape/Firefox/Opera */    
@@ -101,7 +106,7 @@ Editor.prototype.clearSelection = function() {
     document.selection.clear() ;
   }
   eXo.core.SimpleNodeEditor.removeCursor() ;
-}
+} ;
 
 Editor.prototype.getClickPosition = function(node) {
   if(window.getSelection) { /* Netscape/Firefox/Opera */
@@ -126,10 +131,6 @@ Editor.prototype.getClickPosition = function(node) {
     clone.setEndPoint('EndToEnd', sel);
     return clone.text.length;
   }
-}
-
-Editor.prototype.entitiesEncode = function(htmlCode) {
-  
-}
+} ;
 
 eXo.core.Editor = new Editor() ;

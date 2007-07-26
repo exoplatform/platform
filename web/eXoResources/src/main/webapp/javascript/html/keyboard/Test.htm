@@ -10,6 +10,7 @@
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/html/HTMLEntities.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/HTMLUtil.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/Util.js"></script>
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/OS.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/Browser.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/DefaultKeyboardListener.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/SimpleNodeEditor.js"></script>
@@ -36,14 +37,24 @@
     <div class="Editor" id="line2" editcontainer="1">Aptana Web ide</div>
     <hr>
     <div class="Editor" id="line3" editcontainer="1">Lighweight Editor</div>
+    <input type="text" style="background: black; color: white; width: 250px; height: 120px;" onkeypress="keyHandler(event)">
     <script language="JavaScript" type="text/javascript">
       eXo.core.Editor.registerEditors(document.body) ;
       eXo.core.LogEngine.createLogPanel() ;
-      var afterCursor = '|&nbsp;is wednesday' ;
-      var beforeCursor = 'today&nbsp;' ;
-      afterCursor = beforeCursor.substr((beforeCursor.length - 2), 
-                                                    (beforeCursor.length - 1)) + afterCursor ;
-      beforeCursor = beforeCursor.substr(0, (beforeCursor.length - 2)) ;
+      
+      document.onkeypress = function() {
+        eXo.core.LogEngine.logWriteLn('keydown fired on document...')
+        //window.alert('keydown fired on document...') ;
+        //eXo.core.Keyboard.cancelEvent(event) ;
+        return false ;
+      }
+      
+      function keyHandler(event) {
+        eXo.core.LogEngine.logWriteLn('keydown fired in element') ;
+        eXo.core.Keyboard.cancelEvent(event) ;
+        return true ;
+      }
+      
     </script>
 	</body>
 </html>

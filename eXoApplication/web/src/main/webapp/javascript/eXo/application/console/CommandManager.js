@@ -22,6 +22,14 @@ CommandManager.prototype.init = function(node) {
   }
 } ;
 
+CommandManager.prototype.onFinish = function() {
+  this.commandNode = false ;
+  this.commandTypeNode = false ;
+  this.eXoConsoleResult = false ;
+  this.screenNode = false ;
+  this.uiConsoleApplication = false ;
+} ;
+
 CommandManager.prototype.initCommon = function() {
   this.initUIConsoleApplication() ;
   if(!this.ready) {

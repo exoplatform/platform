@@ -44,7 +44,7 @@ Keyboard.prototype.onKeyDown = function(event) {
     eventHandler = 'onEnter' ;
   } else if(keynum == 9) {
     eventHandler = 'onTab' ;
-  } else if(keynum == 8 || (eXo.core.OS.isMac && keynum == 33)) {
+  } else if(keynum == 8 || (eXo.core.OS.isMac && keynum == 51)) {
     eventHandler = 'onBackspace' ;
   } else if(keynum == 46) {
     eventHandler = 'onDelete' ;
