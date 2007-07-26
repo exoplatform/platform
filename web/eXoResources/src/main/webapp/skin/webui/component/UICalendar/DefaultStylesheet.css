@@ -133,8 +133,8 @@
 }
 
 .UICalendar .CalendarTimeBoxM {
-  line-height: 21px;
-  height: 21px;
+  line-height: 20px;
+  height: 20px;
   background: url('DefaultSkin/CalendarDecoratorM.gif');
   vertical-align: bottom;
 }

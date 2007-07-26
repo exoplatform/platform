@@ -168,7 +168,7 @@
 
 .Lock16x16Icon {
 	width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Lock.gif') ;
+  background: url('/eXoResources/icons/16x16/DefaultSkin/Lock.gif') no-repeat ;
 }
 
 .PastePalate16x16Icon {

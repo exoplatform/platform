@@ -17,12 +17,12 @@ UIRightClickPopupMenu.prototype.init = function(contextMenuId) {
 	parentNode.onmousedown = function() {
 		this.contextMenu.style.display = 'none' ;
 	}
-	
-	var items = eXo.core.DOMUtil.findDescendantsByClass(contextMenu, "div", "MenuItem");
-	for(var i = 0; i < items.length; i++) {
-		items[i].onmouseout = new Function("this.className = 'MenuItem'") ;
-		items[i].onmouseover = new Function("this.className = 'SelectedMenuItem'") ;
-	}
+//	
+//	var items = eXo.core.DOMUtil.findDescendantsByClass(contextMenu, "div", "MenuItem");
+//	for(var i = 0; i < items.length; i++) {
+//		items[i].onmouseout = new Function("this.className = 'MenuItem'") ;
+//		items[i].onmouseover = new Function("this.className = 'SelectedMenuItem'") ;
+//	}
 	
 	this.disableContextMenu(parentNode) ;
 }
@@ -39,11 +39,19 @@ UIRightClickPopupMenu.prototype.disableContextMenu = function(comp) {
 };
 
 UIRightClickPopupMenu.prototype.prepareObjectId = function(elemt) {
-	var aTag = elemt.getElementsByTagName('a') ;
-	var str = aTag[0].getAttribute('href') ;
-	var contextMenu = eXo.core.DOMUtil.findAncestorByClass(elemt, "UIRightClickPopupMenu");
-	aTag[0].setAttribute('href',str.replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'"))) ;
+	var contextMenu = eXo.core.DOMUtil.findAncestorByClass(elemt, "UIRightClickPopupMenu") ;
+			contextMenu.style.dispay = "none" ;
+	var str = elemt.getAttribute('href') ;
+	elemt.setAttribute('href',str.replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'"))) ;
+			
 }
+
+//UIRightClickPopupMenu.prototype.prepareObjectId = function(elemt) {
+//	var aTag = elemt.getElementsByTagName('a') ;
+//	var str = aTag[0].getAttribute('href') ;
+//	var contextMenu = eXo.core.DOMUtil.findAncestorByClass(elemt, "UIRightClickPopupMenu");
+//	aTag[0].setAttribute('href',str.replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'"))) ;
+//}
 
 UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId, objId, params) {
 	event.cancelBubble = true;
@@ -56,7 +64,7 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 
 	if(params) {
 		params = "," + params + "," ;
-		var items = eXo.core.DOMUtil.findDescendantsByClass(contextMenu, "div", "MenuItem");
+		var items = contextMenu.getElementsByTagName("a") ;
 		for(var i = 0; i < items.length; i++) {
 			if(params.indexOf(items[i].getAttribute("exo:attr")) > -1) {
 				items[i].style.display = 'block' ;
