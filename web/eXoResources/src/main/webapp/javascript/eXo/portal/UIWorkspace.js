@@ -103,7 +103,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	}
 	
 	/* Reorganize opened windows */
-	eXo.portal.UIWorkingWorkspace.reorganizeWindows(this.showControlWorkspace);
+//	eXo.portal.UIWorkingWorkspace.reorganizeWindows(this.showControlWorkspace);
 	/* Resize Dockbar */
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	if(uiPageDesktop) eXo.desktop.UIDockbar.resizeDockBar() ;

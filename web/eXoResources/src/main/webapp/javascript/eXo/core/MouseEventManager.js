@@ -1,8 +1,14 @@
 function MouseEventManager () {
 	this.onMouseDownHandlers = new eXo.core.HashMap() ;
 	this.onMouseUpHandlers = new eXo.core.HashMap() ;
-	document.onmousedown = this.preOnMouseDown ;
-	document.onmouseup = this.preOnMouseUp ;
+	document.onmousedown = this.docMouseDownEvt ;
+	document.onmouseup = this.docMouseUpEvt ;
+} ;
+
+MouseEventManager.prototype.docMouseDownEvt = function(evt) {
+	if(!evt) evt = window.event ;
+	eXo.core.MouseEventManager.preOnMouseDown(evt) ;
+	eXo.core.MouseEventManager.postOnMouseDown(evt) ;
 } ;
 
 MouseEventManager.prototype.preOnMouseDown = function(evt) {
@@ -14,7 +20,12 @@ MouseEventManager.prototype.preOnMouseDown = function(evt) {
   }
 } ;
 
-MouseEventManager.prototype.postOnMouseDown = function() {
+MouseEventManager.prototype.postOnMouseDown = function(evt) {
+	
+} ;
+
+MouseEventManager.prototype.docMouseUpEvt = function() {
+	var mouseUpHandlers = eXo.core.MouseEventManager.onMouseUpHandlers ;
 	
 } ;
 

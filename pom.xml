@@ -31,6 +31,8 @@
     <module>portlet/test</module>
 
     <module>web/eXoResources</module>
+    <module>web/eXoMacSkin</module>
+    <module>web/eXoVistaSkin</module>
     <module>web/portal</module>
 
     <module>server/tomcat/patch</module>
