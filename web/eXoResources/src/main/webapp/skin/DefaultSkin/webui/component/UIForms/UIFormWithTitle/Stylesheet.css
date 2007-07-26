@@ -8,7 +8,7 @@
 
 .UIFormWithTitle .TitleBar {
   padding-left: 15px ;
-  background: url('DefaultSkin/background/TitleBG1x20.gif') repeat-x ;
+  background: url('background/TitleBG1x20.gif') repeat-x ;
   height: 19px ;
   vertical-align: middle ;  line-height: 19px ;
   border: solid 1px #b7b7b7 ; border-bottom: none;

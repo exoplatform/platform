@@ -16,7 +16,7 @@
 
 .UICalendar {
   border: 1px solid #ccced7;
-  background: #e0e5f7 url('CalendarBG.gif') repeat-x top;
+  background: #e0e5f7 url('background/CalendarBG.gif') repeat-x top;
   padding: 7px 5px;
   font: normal 12px verdana;
 	text-align: center;
@@ -44,11 +44,11 @@
 }
 
 .UICalendar .MonthYearBox .NextMonth {
-  background: url('DefaultSkin/NextMonth.gif') no-repeat center center;
+  background: url('background/NextMonth.gif') no-repeat center center;
 }
 
 .UICalendar .MonthYearBox .PreviousMonth {
-  background: url('DefaultSkin/PreviousMonth.gif') no-repeat center center;
+  background: url('background/PreviousMonth.gif') no-repeat center center;
 }
 
 .UICalendar .MonthYearBox td {
@@ -78,20 +78,20 @@
 }
 
 .UICalendar .MonthYearBox a.NextYear {
-  background: url('DefaultSkin/NextYear.gif') no-repeat center center;
+  background: url('background/NextYear.gif') no-repeat center center;
 }
 
 .UICalendar .MonthYearBox a:hover.NextYear {
-  background: url('DefaultSkin/NextYear.gif') no-repeat center center;
+  background: url('background/NextYear.gif') no-repeat center center;
 }
 
 
 .UICalendar .MonthYearBox a.PreviousYear {
-  background: url('DefaultSkin/PreviousYear.gif') no-repeat center center;
+  background: url('background/PreviousYear.gif') no-repeat center center;
 }
 
 .UICalendar .MonthYearBox a:hover.PreviousYear {
-  background: url('DefaultSkin/PreviousYear.gif') no-repeat center center;
+  background: url('background/PreviousYear.gif') no-repeat center center;
 }
 
 .UICalendar .MonthYearBox .YearButton a:hover {
@@ -123,19 +123,19 @@
 
 .UICalendar .CalendarTimeBox {
   width: 130px; margin: 5px auto;
-  background: url('DefaultSkin/CalendarDecoratorL.gif') no-repeat left;
+  background: url('background/CalendarDecoratorL.gif') no-repeat left;
   padding-left: 9px;
 }
 
 .UICalendar .CalendarTimeBoxR {
-  background: url('DefaultSkin/CalendarDecoratorR.gif') no-repeat right;
+  background: url('background/CalendarDecoratorR.gif') no-repeat right;
   padding-right: 9px;
 }
 
 .UICalendar .CalendarTimeBoxM {
   line-height: 21px;
   height: 21px;
-  background: url('DefaultSkin/CalendarDecoratorM.gif');
+  background: url('background/CalendarDecoratorM.gif');
   vertical-align: bottom;
 }
 

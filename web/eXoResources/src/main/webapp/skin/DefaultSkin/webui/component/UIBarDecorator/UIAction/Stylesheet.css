@@ -36,18 +36,18 @@
 }
 
 .UIAction .ActionButton .NormalStyle .ButtonLeft {
-  background: url('DefaultSkin/background/LeftNormalStyleButton3x22.gif') no-repeat left;
+  background: url('background/LeftNormalStyleButton3x22.gif') no-repeat left;
   padding: 0px 0px 0px 3px;
 }
 
 .UIAction .ActionButton .NormalStyle .ButtonRight {
-  background: url('DefaultSkin/background/RightNormalStyleButton3x22.gif') no-repeat right;
+  background: url('background/RightNormalStyleButton3x22.gif') no-repeat right;
   padding: 0px 3px 0px 0px ;
 }
 
 .UIAction .ActionButton .NormalStyle .ButtonMiddle {
   line-height: 22px;
-	background: url('DefaultSkin/background/MiddleNormalStyleButton1x22.gif') repeat-x;
+	background: url('background/MiddleNormalStyleButton1x22.gif') repeat-x;
 }
 
 /*##############################-Disabled ActionButton-################################*/
@@ -55,18 +55,18 @@
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonLeft {
-  background: url('DefaultSkin/background/LeftDisableButton3x22.gif') no-repeat left;
+  background: url('background/LeftDisableButton3x22.gif') no-repeat left;
   padding: 0px 0px 0px 3px;
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonRight {
-  background: url('DefaultSkin/background/RifghtDisableButton3x22.gif') no-repeat right;
+  background: url('background/RifghtDisableButton3x22.gif') no-repeat right;
   padding: 0px 3px 0px 0px ;
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonMiddle {
 	height: 22px; text-align: center; 
-	background: url('DefaultSkin/background/MiddleDisableButton1x22.gif') repeat-x;
+	background: url('background/MiddleDisableButton1x22.gif') repeat-x;
 }
 
 /*##############################-LightBlueStyle ActionButton-################################*/
@@ -74,18 +74,18 @@
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonLeft {
-  background: url('DefaultSkin/background/LeftLightStyleButton3x22.gif') no-repeat left;
+  background: url('background/LeftLightStyleButton3x22.gif') no-repeat left;
   padding: 0px 0px 0px 3px;
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonRight {
-  background: url('DefaultSkin/background/RightLightStyleButton3x22.gif') no-repeat right;
+  background: url('background/RightLightStyleButton3x22.gif') no-repeat right;
   padding: 0px 3px 0px 0px ;
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
  	line-height: 22px; text-align: center; 
-	background: url('DefaultSkin/background/MiddleLightStyleButton1x22.gif') repeat-x;
+	background: url('background/MiddleLightStyleButton1x22.gif') repeat-x;
 }
 
 /*##############################-SimpleStyle ActionButton-################################*/
@@ -93,18 +93,18 @@
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonLeft {
-  background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left top;
+  background: url('background/LeftSimpleButton10x21.gif') no-repeat left top;
   padding: 0px 0px 0px 10px;
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonRight {
-  background: url('DefaultSkin/background/RightSimpleButton10x21.gif') no-repeat right top;
+  background: url('background/RightSimpleButton10x21.gif') no-repeat right top;
   padding: 0px 10px 0px 0px ;
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonMiddle {
   line-height: 21px;
-	background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x top;
+	background: url('background/CenterSimpleButton1x21.gif') repeat-x top;
 	text-align: center;	
 }
 

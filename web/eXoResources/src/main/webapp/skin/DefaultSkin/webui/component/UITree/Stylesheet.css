@@ -20,7 +20,7 @@
 .UITree .TreeLevelContainer .LevelUpArrowIcon {
   float: left;
   width: 26px; line-height: 18px;
-  background: url(/eXoResources/icons/24x24/DefaultSkin/BlueUpLevelArrow.gif) no-repeat;
+  background: url(/eXoResources/icons/24x24/BlueUpLevelArrow.gif) no-repeat;
 }
 
 .UITree .TreeContainer .Node {
@@ -34,7 +34,7 @@
   cursor: pointer ;
   margin-top: 3px ;
   float: left ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGrayMinus.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/SmallGrayMinus.gif') no-repeat ;
   width: 16px ;  height: 16px ;
 }
   
@@ -42,7 +42,7 @@
   cursor: pointer ;
   margin-top: 3px ;
   float: left ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGrayPlus.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/SmallGrayPlus.gif') no-repeat ;
   width: 16px ;  height: 16px ;
 }
 
@@ -77,9 +77,9 @@
 
 /** ################# Icons ###################*/
 .UITree .TreeContainer .GroupAdminIcon {
-  background: url('/eXoResources/icons/24x24/DefaultSkin/NormalGroup.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/NormalGroup.gif') no-repeat ;
 }
 
 .UITree .TreeContainer .PortalIcon {
-  background: url('/eXoResources/icons/24x24/DefaultSkin/SelectedGroup.gif') no-repeat ;  
+  background: url('/eXoResources/icons/24x24/SelectedGroup.gif') no-repeat ;  
 }

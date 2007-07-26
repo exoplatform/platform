@@ -11,7 +11,7 @@
 .UIGrid th {
   line-height: 19px;
   border: 1px solid #b7b7b7;
-  background: #d2ddf1 url('DefaultSkin/background/ThGridRepeatBg1x19.jpg') repeat-x;
+  background: #d2ddf1 url('background/ThGridRepeatBg1x19.jpg') repeat-x;
   font-weight: normal;
 }
 
@@ -61,40 +61,40 @@
 
 .UIGrid .ViewIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/LightBulbOn.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/LightBulbOn.gif') no-repeat ;
 }
 
 .UIGrid .DeleteIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DustBin.gif') no-repeat ;
 }
 
 .UIGrid .EditInfoIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/Pencil.gif') no-repeat ;
 }
 
 .UIGrid .ExcuteIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/PageYellowLight.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/PageYellowLight.gif') no-repeat ;
 }
 
 .UIGrid .AddNewIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueCirclePlus.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/BlueCirclePlus.gif') no-repeat ;
 }
 
 /*###################### UIListUsers Icon ######################*/
 
 .UIGrid .DeleteUserIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DustBin.gif') no-repeat ;
   margin: auto;
 }
 
 .UIGrid .ViewUserInfoIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/Pencil.gif') no-repeat ;
   margin: auto;
 }
 
@@ -102,13 +102,13 @@
 
 .UIGrid .DeleteMembershipIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DustBin.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DustBin.gif') no-repeat ;
   margin: auto;  
 }
 
 .UIGrid .EditMembershipIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Pencil.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/Pencil.gif') no-repeat ;
   margin: auto;
 }
 

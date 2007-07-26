@@ -22,7 +22,7 @@
   float: left ;
   width: 16px ; height: 16px ;
   margin: 8px 0px 0px 5px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPortletIcon.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultPortletIcon.gif') no-repeat ;
 }
 
 /*#############################  Begin Icon WindowBar ##############################################*/
@@ -48,51 +48,51 @@
 }
 
 .UIWindow .WindowPortletControl .ArrowDownIcon {
-  background: url('DefaultSkin/icons/24x24/ArrowDown.gif') no-repeat ;
+  background: url('icons/24x24/ArrowDown.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverArrowDownIcon {
-  background: url('DefaultSkin/icons/24x24/ArrowDownOver.gif') no-repeat ;
+  background: url('icons/24x24/ArrowDownOver.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .MinimizedIcon {
-  background: url('DefaultSkin/icons/24x24/Minimize.gif') no-repeat ;
+  background: url('icons/24x24/Minimize.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverMinimizedIcon {
-  background: url('DefaultSkin/icons/24x24/MinimizeOver.gif') no-repeat ;
+  background: url('icons/24x24/MinimizeOver.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .MaximizedIcon {
-  background: url('DefaultSkin/icons/24x24/Maximize.gif') no-repeat ;
+  background: url('icons/24x24/Maximize.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverMaximizedIcon {
-  background: url('DefaultSkin/icons/24x24/MaximizeOver.gif') no-repeat ;
+  background: url('icons/24x24/MaximizeOver.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .RestoreIcon {
-  background: url('DefaultSkin/icons/24x24/Restore.gif') no-repeat top;
+  background: url('icons/24x24/Restore.gif') no-repeat top;
 }
 
 .UIWindow .WindowPortletControl .OverRestoreIcon {
-  background: url('DefaultSkin/icons/24x24/RestoreOver.gif') no-repeat top;
+  background: url('icons/24x24/RestoreOver.gif') no-repeat top;
 }
 
 .UIWindow .WindowPortletControl .NormalIcon {
-  background: url('DefaultSkin/icons/24x24/Restore.gif') no-repeat top;
+  background: url('icons/24x24/Restore.gif') no-repeat top;
 }
 
 .UIWindow .WindowPortletControl .OverNormalIcon {
-  background: url('DefaultSkin/icons/24x24/RestoreOver.gif') no-repeat top;
+  background: url('icons/24x24/RestoreOver.gif') no-repeat top;
 }
 
 .UIWindow .WindowPortletControl .CloseButtonIcon {
-  background: url('DefaultSkin/icons/24x24/Close.gif') no-repeat top;
+  background: url('icons/24x24/Close.gif') no-repeat top;
 }
 
 .UIWindow .WindowPortletControl .OverCloseButtonIcon {
-  background: url('DefaultSkin/icons/24x24/CloseOver.gif') no-repeat top;
+  background: url('icons/24x24/CloseOver.gif') no-repeat top;
 }
 
 .UIWindow .MiddleDecoratorCenter {
@@ -103,7 +103,7 @@
   float: right ;
   width: 18px ; height: 18px ;
   cursor: nw-resize ;
-  background: url('DefaultSkin/background/ResizeArea18x18.gif') no-repeat ;
+  background: url('background/ResizeArea18x18.gif') no-repeat ;
 }
 
 .UIWindow .Information {
@@ -115,27 +115,27 @@
 
 .UIWindow .MiddleDecoratorLeft {
   padding-left: 12px ;
-  background: url('DefaultSkin/background/LeftMiddleWindow.png') repeat-y left ;
+  background: url('background/LeftMiddleWindow.png') repeat-y left ;
 }
 
 .UIWindow .MiddleDecoratorRight {
   padding-right: 11px ;
-  background: url('DefaultSkin/background/RightMiddleWindow.png') repeat-y right ;
+  background: url('background/RightMiddleWindow.png') repeat-y right ;
 }
 
 .UIWindow .BottomDecoratorLeft {
   padding-left: 12px ;
-  background: url('DefaultSkin/background/LeftBottomWindow.png') no-repeat left ;
+  background: url('background/LeftBottomWindow.png') no-repeat left ;
 }
 
 .UIWindow .BottomDecoratorRight {
   padding-right: 11px ;
-  background: url('DefaultSkin/background/RightBottomWindow.png') no-repeat right ;
+  background: url('background/RightBottomWindow.png') no-repeat right ;
 }
 
 .UIWindow .BottomDecoratorCenter {
   height: 30px ;
-  background: url('DefaultSkin/background/CenterBottomWindow.png') repeat-x ;
+  background: url('background/CenterBottomWindow.png') repeat-x ;
 }
 
 .UIWindow .WindowPortletInfo .Icon {
@@ -153,19 +153,19 @@
 
 .UIWindow .WindowBarLeft {
   padding-left: 12px ;
-  background: url('DefaultSkin/background/LeftWindowBar.png') no-repeat left ;
+  background: url('background/LeftWindowBar.png') no-repeat left ;
   height: 29px ;
 }
 
 .UIWindow .WindowBarRight {
   padding-right: 11px ;
-  background: url('DefaultSkin/background/RightWindowBar.png') no-repeat right;
+  background: url('background/RightWindowBar.png') no-repeat right;
   height: 29px ;
 }
 
 .UIWindow .WindowBarCenter {
   height: 29px ;
-  background: url('DefaultSkin/background/CenterWindowBar.png') repeat-x ;
+  background: url('background/CenterWindowBar.png') repeat-x ;
 }
 
 /*======================== UIPageBody ================================*/
@@ -193,56 +193,56 @@
 }
 /********************* Icon InfoBar ************************************/
 .UIWindow .OrganizationPortletIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Earth.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/Earth.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Content {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/MiscIcons/RSS.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/MiscIcons/RSS.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Account {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/UserAccount.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/UserAccount.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Registry-Portlet {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/RegistryPortlet.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/RegistryPortlet.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Site {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SiteMap.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/SiteMap.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Login {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ToolIcons/Key.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/ToolIcons/Key.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Mail {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/OfficeIcons/Email.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/OfficeIcons/Email.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Forum {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ForumIcon.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/ForumIcon.gif') no-repeat center;
 }
 
 
 .UIWindow .WindowPortletInfo .ECM {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ECMAdmin.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/ECMAdmin.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .JCR{
-  background: url('/eXoResources/icons/16x16/DefaultSkin/JCRExplorer.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/JCRExplorer.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Dialog{
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DialogIcon.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/DialogIcon.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Browse{
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BrowseContent.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/BrowseContent.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Workflow{
-  background: url('/eXoResources/icons/16x16/DefaultSkin/WorkflowIcon.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/WorkflowIcon.gif') no-repeat center;
 }
 
 /*#############################  End Icon InfoBar ##############################################*/

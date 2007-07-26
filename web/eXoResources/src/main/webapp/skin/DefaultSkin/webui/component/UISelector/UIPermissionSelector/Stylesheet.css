@@ -7,7 +7,7 @@
 }
 
 .UIPermissionSelector .PermissionSelectorTitleBar .PermissionIcon {
-  background: url('/eXoResources/icons/24x24/DefaultSkin/PermissionIcon.gif') no-repeat;
+  background: url('/eXoResources/icons/24x24/PermissionIcon.gif') no-repeat;
   width: 24px; height: 24px;
   margin: 0px 5px 0px 10px;
   float: left;
@@ -25,7 +25,7 @@
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionTypeBar {
   height: 21px; line-height: 21px;
-  background: url('DefaultSkin/background/TypeBarBG1x22.gif') repeat-x; 
+  background: url('background/TypeBarBG1x22.gif') repeat-x; 
   border: solid 1px #b7b7b7; border-bottom: none;
   margin: 0px 10px;
 }
@@ -33,7 +33,7 @@
 .UIPermissionSelector .PermissionTypeBar .SeparateLine {
   float: left;
   width: 2px; height: 22px;
-  background: url('DefaultSkin/background/GrayLine2x2.gif') repeat-y ;
+  background: url('background/GrayLine2x2.gif') repeat-y ;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton {
@@ -90,17 +90,17 @@
 }
 
 .UIPermissionSelector .SelectPermissionButton .LeftButton {
-  background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left; 
+  background: url('background/LeftSimpleButton10x21.gif') no-repeat left; 
   padding-left: 10px;
 }
 
 .UIPermissionSelector .SelectPermissionButton .RightButton {
-  background: url('DefaultSkin/background/RightSimpleButton10x21.gif') no-repeat right; 
+  background: url('background/RightSimpleButton10x21.gif') no-repeat right; 
   padding-right: 10px;
 } 
 
 .UIPermissionSelector .SelectPermissionButton .CenterButton {
-  background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x; 
+  background: url('background/CenterSimpleButton1x21.gif') repeat-x; 
   height: 21px; line-height: 20px;
   padding: 0px 5px;
 }
@@ -108,7 +108,7 @@
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
   float: left;
   width: 16px; height: 16px; margin: 2px 0px 0px 0px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SelectPermission.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/SelectPermission.gif') no-repeat;
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a{

@@ -9,7 +9,7 @@
 }
 
 .UIDropDownItemSelector .ItemInfoBar {
-	background: white url(DefaultSkin/background/DropDownItemSelectorBG1x2.gif) repeat-x top;
+	background: white url(background/DropDownItemSelectorBG1x2.gif) repeat-x top;
 	padding-left: 5px;
 	border: 1px solid #929292;
 	cursor: pointer;
@@ -17,12 +17,12 @@
 
 .UIPageNodeSelector .UIContainerConfigOptions .ComponentIcon {
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/NavigationIcon.gif') no-repeat;
+	background: url('/eXoResources/icons/16x16/NavigationIcon.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .ComponentIcon {
   width: 16px; height: 16px;
-	background: url(/eXoResources/icons/16x16/DefaultSkin/DefaultContainerIcon.gif) no-repeat;
+	background: url(/eXoResources/icons/16x16/DefaultContainerIcon.gif) no-repeat;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .Icon {
@@ -62,7 +62,7 @@
 .UIDropDownItemSelector .DropDownSelectIcon {
 	float: right; 
 	width: 20px; height: 19px;
-	background: url('DefaultSkin/background/DropDownButton.gif') no-repeat right;
+	background: url('background/DropDownButton.gif') no-repeat right;
 	cursor: pointer;	
 }
 
@@ -117,7 +117,7 @@
   width: 16px; height: 16px;
   float: left;
   margin: 3px 1px 0px 4px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/GrayNextArrow.gif') no-repeat;
 }
 
 /*=================================Popup Category Decorator====================================*/

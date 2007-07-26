@@ -63,7 +63,7 @@ left: -85px;
   height: 16px;
   float: left;
   margin: 3px 3px 0px 7px;
-  background: transparent url('/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow1.gif') no-repeat;
+  background: transparent url('/eXoResources/icons/16x16/BlackRightArrow1.gif') no-repeat;
 }
 
 .UIPopupCategory .CategoryItem .ModifiedIcon {
@@ -87,5 +87,5 @@ left: -85px;
   padding-left: 20px;
   height: 22px;
   line-height: 22px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackRightArrow1.gif') no-repeat left center;
+  background: url('/eXoResources/icons/16x16/BlackRightArrow1.gif') no-repeat left center;
 }

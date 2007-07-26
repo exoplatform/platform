@@ -7,21 +7,21 @@
   float: left;
   margin-top: 5px; margin-left: 3px;
   width: 16px; height: 16px;
-  background: url('DefaultSkin/background/PopupWindowIcon16x16.gif') no-repeat;
+  background: url('background/PopupWindowIcon16x16.gif') no-repeat;
 }
 
 .UIPopupWindow .PopupTitleIconRight {
   float: right;
   margin: 5px 3px 0px 0px;
   width: 19px; height: 16px;
-  background: url('DefaultSkin/background/PopupWindowIcon16x16.gif') no-repeat;
+  background: url('background/PopupWindowIcon16x16.gif') no-repeat;
 }
 
 .UIPopupWindow .PopupTitle {
   margin: 4px 26px 0px 26px;
   font-weight: bold; text-align: center;
   height: 16px; line-height: 16px; vertical-align: middle; 
-  background: url('DefaultSkin/background/PopupTitleBG.gif') repeat-x bottom;
+  background: url('background/PopupTitleBG.gif') repeat-x bottom;
   cursor: move;
 }
 
@@ -30,26 +30,26 @@
   margin: 5px 3px 0px 0px;
   cursor: pointer;
   width: 19px; height: 15px;
-  background: url('DefaultSkin/background/CloseButton19x15.gif') no-repeat;
+  background: url('background/CloseButton19x15.gif') no-repeat;
 }
 
 .UIPopupWindow .TopLeftCornerDecorator {
-  background: url('DefaultSkin/background/PopupWindowTL3x23.gif') no-repeat left;
+  background: url('background/PopupWindowTL3x23.gif') no-repeat left;
   padding-left: 3px;
 }
 
 .UIPopupWindow .TopCenterDecorator {
-  background: url('DefaultSkin/background/PopupWindowTC1x23.gif') repeat-x;
+  background: url('background/PopupWindowTC1x23.gif') repeat-x;
   height: 23px; 
 }
 
 .UIPopupWindow .TopRightCornerDecorator {
-  background: url('DefaultSkin/background/PopupWindowTR3x23.gif') no-repeat right ;
+  background: url('background/PopupWindowTR3x23.gif') no-repeat right ;
   padding-right: 3px;
 }
 
 .UIPopupWindow .MiddleLeftSideDecorator {
-  background: url('DefaultSkin/background/PopupWindowML3x1.gif') repeat-y left;
+  background: url('background/PopupWindowML3x1.gif') repeat-y left;
   padding-left: 3px ;  
 }
 
@@ -59,7 +59,7 @@
 }
 
 .UIPopupWindow .MiddleRightSideDecorator {
-  background: url('DefaultSkin/background/PopupWindowMR3x1.gif') repeat-y right;
+  background: url('background/PopupWindowMR3x1.gif') repeat-y right;
   padding-right: 3px ;  
 }
 
@@ -80,39 +80,39 @@
   width: 8px; height:8px; 
   float: right;
   margin-right: 2px;
-  background: url('DefaultSkin/background/ResizeBG.gif') no-repeat ;
+  background: url('background/ResizeBG.gif') no-repeat ;
   cursor: nw-resize;
 }
 
 .UIPopupWindow .BottomLeftCornerDecorator {
-  background: url('DefaultSkin/background/BottomLeftPopupWindow3x15.gif') no-repeat left ;
+  background: url('background/BottomLeftPopupWindow3x15.gif') no-repeat left ;
   padding-left: 3px;
 }
 
 .UIPopupWindow .BottomCenterDecorator {
-  background: url('DefaultSkin/background/BottomCenterPopupWindow1x15.gif') repeat-x;
+  background: url('background/BottomCenterPopupWindow1x15.gif') repeat-x;
   height: 15px;
   width: 100%;
 }
 
 .UIPopupWindow .BottomRightCornerDecorator {
-  background: url('DefaultSkin/background/BottomRightPopupWindow3x15.gif') no-repeat right ;
+  background: url('background/BottomRightPopupWindow3x15.gif') no-repeat right ;
   padding-right: 3px ;  
 }
 
 /***************************Begin PoupWindow Caledar**********************************/
 .UIPopupWindow .CaledarStyle .TopLeftCornerDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventTL12x25.gif') no-repeat left; 
+	background: url('background/PopupCreatEventTL12x25.gif') no-repeat left; 
 	padding-left: 12px;
 }
 
 .UIPopupWindow .CaledarStyle .TopRightCornerDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventTR3x25.gif') no-repeat right; 
+	background: url('background/PopupCreatEventTR3x25.gif') no-repeat right; 
 	padding-right: 3px;
 }
 
 .UIPopupWindow .CaledarStyle .TopCenterDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventTC1x25.gif') repeat-x ; 
+	background: url('background/PopupCreatEventTC1x25.gif') repeat-x ; 
 	height: 25px;
 }
 
@@ -122,18 +122,18 @@
 
 .UIPopupWindow .CaledarStyle .PopupTitleIcon {
 	width: 16px;	height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/AddNewEventIcon.gif') no-repeat;
+	background: url('/eXoResources/icons/16x16/AddNewEventIcon.gif') no-repeat;
 	float: left;
 	margin: 5px 0px 0px 4px;
 }
 
 .UIPopupWindow .CaledarStyle .MiddleLeftSideDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventML3x1.gif') repeat-y left; 
+	background: url('background/PopupCreatEventML3x1.gif') repeat-y left; 
 	padding-left: 3px;
 }
 
 .UIPopupWindow .CaledarStyle .MiddleRightSideDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventMR3x1.gif') repeat-y right; 
+	background: url('background/PopupCreatEventMR3x1.gif') repeat-y right; 
 	padding-right: 3px;
 }
 
@@ -164,17 +164,17 @@
 }
 
 .UIPopupWindow .CaledarStyle .BottomLeftCornerDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventBL12x12.gif') no-repeat left; 
+	background: url('background/PopupCreatEventBL12x12.gif') no-repeat left; 
 	padding-left: 12px; height: 12px;
 }
 
 .UIPopupWindow .CaledarStyle .BottomRightCornerDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventBR12x12.gif') no-repeat right; 
+	background: url('background/PopupCreatEventBR12x12.gif') no-repeat right; 
 	padding-right: 12px;height: 12px;
 }
 
 .UIPopupWindow .CaledarStyle .BottomCenterDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventBC1x12.gif') repeat-x ; 
+	background: url('background/PopupCreatEventBC1x12.gif') repeat-x ; 
 	height: 12px;
 }
 /***************************End PoupWindow Caledar**********************************/
@@ -192,19 +192,19 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopLeftCornerDecorator {
-	background: url('DefaultSkin/background/TLMessageDecorator4x25.gif') no-repeat left; 
+	background: url('background/TLMessageDecorator4x25.gif') no-repeat left; 
 	padding-left: 4px;
 	height: 25px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopRightCornerDecorator {
-	background: url('DefaultSkin/background/TRMessageDecorator4x25.gif') no-repeat right; 
+	background: url('background/TRMessageDecorator4x25.gif') no-repeat right; 
 	padding-right: 4px;
 	height: 25px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopCenterDecorator {
-	background: url('DefaultSkin/background/TCMessageDecorator1x25.gif') repeat-x ; 
+	background: url('background/TCMessageDecorator1x25.gif') repeat-x ; 
 	height: 25px;
 }
 
@@ -215,18 +215,18 @@
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitleIcon {
 	width: 16px;	height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/Message.gif') no-repeat;
+	background: url('/eXoResources/icons/16x16/Message.gif') no-repeat;
 	float: left;
 	margin: 4px 0px 0px 4px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleLeftSideDecorator {
-	background: url('DefaultSkin/background/MLMessageDecorator4x1.gif') repeat-y left; 
+	background: url('background/MLMessageDecorator4x1.gif') repeat-y left; 
 	padding-left: 4px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleRightSideDecorator {
-	background: url('DefaultSkin/background/MRMessageDecorator4x1.gif') repeat-y right; 
+	background: url('background/MRMessageDecorator4x1.gif') repeat-y right; 
 	padding-right: 4px;
 }
 
@@ -236,7 +236,7 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomLeftCornerDecorator {
-	background: url('DefaultSkin/background/BLMessageDecorator4x4.gif') no-repeat left; 
+	background: url('background/BLMessageDecorator4x4.gif') no-repeat left; 
 	padding-left: 4px; 
 }
 
@@ -252,12 +252,12 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomRightCornerDecorator {
-	background: url('DefaultSkin/background/BRMessageDecorator4x4.gif') no-repeat right; 
+	background: url('background/BRMessageDecorator4x4.gif') no-repeat right; 
 	padding-right: 4px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomCenterDecorator {
-	background: url('DefaultSkin/background/BCMessageDecorator1x4.gif') repeat-x ; 
+	background: url('background/BCMessageDecorator1x4.gif') repeat-x ; 
 	height: 4px;
 }
 

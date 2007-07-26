@@ -17,14 +17,14 @@
 
 .UIWizard .UIWizardContent .WizardStepTitleBar {
   height: 29px;
-  background: url('DefaultSkin/background/StepBarBG1x29.gif') repeat-x;
+  background: url('background/StepBarBG1x29.gif') repeat-x;
   border: solid 1px #aeaeae; border-bottom: none;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {
   float:left;
   width: 25px; height: 28px; 
-  background: url('DefaultSkin/icons/32x32/PageCreation.gif') no-repeat;
+  background: url('icons/32x32/PageCreation.gif') no-repeat;
   margin: 0px 8px 0px 10px;
 }
 
@@ -37,7 +37,7 @@
 .UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
   float: right;
   width: 28px; height: 28px;
-  background:  url('DefaultSkin/icons/24x24/HelpIcon.gif') no-repeat;
+  background:  url('icons/24x24/HelpIcon.gif') no-repeat;
   margin-right: 10px;
   cursor: pointer;
 }
@@ -57,7 +57,7 @@
 .UIWizard .UIWizardContent .WizardControlBar {
   height: 34px;
   border: solid 1px #b7b7b7;
-  background: url('DefaultSkin/background/StepBarBG1x34.gif') repeat-x;
+  background: url('background/StepBarBG1x34.gif') repeat-x;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar {
@@ -118,7 +118,7 @@
 /*========================== Start UIWizard Welcome ==============================*/
 .UIWizard .UIWizardWelcome {
   height: 233px;
-  background: url('DefaultSkin/background/WelcomeImage197x233.png') no-repeat left;
+  background: url('background/WelcomeImage197x233.png') no-repeat left;
   padding: 0px 0px 0px 210px ;
   margin: 0px;
 }
@@ -160,7 +160,7 @@
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
   float: left;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/MiniOrangeBoxPage.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/MiniOrangeBoxPage.gif') no-repeat;
   width: 16px; height: 16px;
   margin: 5px 0px 0px 6px;
 }

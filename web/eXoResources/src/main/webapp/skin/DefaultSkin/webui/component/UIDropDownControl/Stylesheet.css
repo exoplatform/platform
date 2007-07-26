@@ -37,7 +37,7 @@
 }
 .UIDropDownControl .UIDropDownRightIcon {
 	height: 19px ;
-	background: transparent url(DefaultSkin/background/DropDownButton.gif) no-repeat scroll right center ;
+	background: transparent url(background/DropDownButton.gif) no-repeat scroll right center ;
 }
 .UIDropDownControl .UIDropDownMiddleTitle {
 	padding: 3px 3px 3px 10px ;
@@ -46,10 +46,10 @@
 }
 
 .UIDropDownControl .UIOptionItem:link , .UIDropDownControl .UIOptionItem:visited{
-	background: transparent url(/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif) no-repeat scroll 0% ;
+	background: transparent url(/eXoResources/icons/16x16/GrayNextArrow.gif) no-repeat scroll 0% ;
 }
 
 .UIDropDownControl .UIOptionItem:hover {
-	background: #7aafe5 url(/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif) no-repeat scroll 0% ;
+	background: #7aafe5 url(/eXoResources/icons/16x16/GrayNextArrow.gif) no-repeat scroll 0% ;
 	color: white ;
 }

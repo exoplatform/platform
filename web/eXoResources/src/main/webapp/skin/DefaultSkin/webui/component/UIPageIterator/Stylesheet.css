@@ -44,43 +44,43 @@
 */
 .UIPageIterator .LastTopPageIcon {
   vertical-align: middle ;
-  background: url('DefaultSkin/background/ScrollDoubleBackArrows.gif') no-repeat ;
+  background: url('background/ScrollDoubleBackArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .NextTopPageIcon {
-  background: url('DefaultSkin/background/ScrollDoubleNextArrows.gif') no-repeat ;
+  background: url('background/ScrollDoubleNextArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
  .UIPageIterator .LastPageIcon {
-  background: url('DefaultSkin/background/ScrollSingleBackArrow.gif') no-repeat ;
+  background: url('background/ScrollSingleBackArrow.gif') no-repeat ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .NextPageIcon {
-  background: url('DefaultSkin/background/ScrollSingleNextArrow.gif') no-repeat ;
+  background: url('background/ScrollSingleNextArrow.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .DisableLastTopPageIcon {
   vertical-align: middle ;
-  background: url('DefaultSkin/background/DoubleBackArrows.gif') no-repeat ;
+  background: url('background/DoubleBackArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .DisableNextTopPageIcon {
-  background: url('DefaultSkin/background/DoubleNextArrows.gif') no-repeat ;
+  background: url('background/DoubleNextArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
  .UIPageIterator .DisableLastPageIcon {
-  background: url('DefaultSkin/background/SingleBackArrow.gif') no-repeat ;
+  background: url('background/SingleBackArrow.gif') no-repeat ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .DisableNextPageIcon {
-  background: url('DefaultSkin/background/SingleNextArrow.gif') no-repeat ;
+  background: url('background/SingleNextArrow.gif') no-repeat ;
   cursor: pointer ;
 }
 /* End */

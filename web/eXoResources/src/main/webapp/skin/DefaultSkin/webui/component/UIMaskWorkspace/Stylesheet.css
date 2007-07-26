@@ -5,43 +5,43 @@
 }
 
 .UIMaskWorkspace .TopLeftDecorator {
-  background: url('DefaultSkin/background/TopLeftDecorator6x6.gif') left no-repeat;
+  background: url('background/TopLeftDecorator6x6.gif') left no-repeat;
   padding: 0px 0px 0px 4px ;
 }
 
 .UIMaskWorkspace .TopRightDecorator {
-  background: url('DefaultSkin/background/TopRightDecorator6x6.gif') right no-repeat;
+  background: url('background/TopRightDecorator6x6.gif') right no-repeat;
   padding: 0px 4px 0px 0px ;
 }
 
 .UIMaskWorkspace .TopLeftDecorator .TopCenterDecorator {
   height: 4px ;
-  background: url('DefaultSkin/background/TopCenterDecorator1x6.gif') repeat-x;
+  background: url('background/TopCenterDecorator1x6.gif') repeat-x;
 }
 
 .UIMaskWorkspace .MiddleLeftDecorator {
-  background: url('DefaultSkin/background/MiddleLeftDecorator6x1.gif') repeat-y left;
+  background: url('background/MiddleLeftDecorator6x1.gif') repeat-y left;
   padding: 0px 0px 0px 4px ;
 }
 
 .UIMaskWorkspace .MiddleRightDecorator {
-  background: url('DefaultSkin/background/MiddleRightDecorator6x1.gif') repeat-y right;
+  background: url('background/MiddleRightDecorator6x1.gif') repeat-y right;
   padding: 0px 4px 0px 0px ;
 }
 
 .UIMaskWorkspace .BottomLeftDecorator {
-  background: url('DefaultSkin/background/BottomLeftDecorator6x6.gif') left no-repeat;
+  background: url('background/BottomLeftDecorator6x6.gif') left no-repeat;
   padding: 0px 0px 0px 4px ;
 }
 
 .UIMaskWorkspace .BottomRightDecorator {
   padding: 0px 4px 0px 0px ;
-  background: url('DefaultSkin/background/BottomRightDecorator6x6.gif') right no-repeat;
+  background: url('background/BottomRightDecorator6x6.gif') right no-repeat;
 }
 
 .UIMaskWorkspace .BottomLeftDecorator .BottomCenterDecorator {
   height: 4px ;
-  background: url('DefaultSkin/background/BottomCenterDecorator1x6.gif') repeat-x;
+  background: url('background/BottomCenterDecorator1x6.gif') repeat-x;
 }
 
 .UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
@@ -184,7 +184,7 @@
 
 .UIAddApplication .AddButton {
 	width: 20px ; height: 24px ;
-	background: url("DefaultSkin/icons/16x16/AddIcon.gif") no-repeat center;
+	background: url("icons/16x16/AddIcon.gif") no-repeat center;
 	float: right;
 	cursor: pointer ;
 	margin: 0px 3px;
@@ -192,7 +192,7 @@
 
 .UIAddApplication .SelectButton {
 	width: 20px ; height: 24px ;
-	background: url("DefaultSkin/icons/16x16/SelectButton.gif") no-repeat center;
+	background: url("icons/16x16/SelectButton.gif") no-repeat center;
 	float: right;
 	cursor: pointer ;
 	margin: 0px 3px;
@@ -233,7 +233,7 @@
 
 .UIAddApplication .ApplicationItemIcon {
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/DarkBlueNextArrow.gif') no-repeat ;
+	background: url('/eXoResources/icons/16x16/DarkBlueNextArrow.gif') no-repeat ;
 	float: left;
 	margin: 3px 5px 0px 5px;
 }
@@ -286,7 +286,7 @@
 
 .UIGroupSelector .UIBreadcumbs .BCHome16x16Icon {
   width: 16px ; height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGroup.gif') no-repeat left center;
+  background: url('/eXoResources/icons/16x16/SmallGroup.gif') no-repeat left center;
 }
 
 .UIGroupSelector .UIBreadcumbs a.Selected {
@@ -300,7 +300,7 @@
 }
 
 .UIGroupSelector .TitleGroupSelector {
-  background: url("DefaultSkin/background/ThGridRepeatBg1x19.jpg") repeat-x;
+  background: url("background/ThGridRepeatBg1x19.jpg") repeat-x;
   line-height: 19px; height: 19px;
   border: 1px solid #b7b7b7;
   border-bottom: 1px solid #cfcfcf;
