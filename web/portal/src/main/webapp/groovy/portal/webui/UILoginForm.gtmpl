@@ -5,6 +5,7 @@
   
   jsmanager.importJavascript('eXo.portal.UIPortalControl');
   
+  jsmanager.addCustomizedOnLoadScript('document.getElementById("username").focus();') ;
   jsmanager.addJavascript('eXo.portal.UIPortalControl.onKeyPress();') ;
 %>
 
@@ -103,5 +104,4 @@
 	    </div>
 	  </div>
 	</div>
-</div>  
-
+</div>
