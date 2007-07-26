@@ -144,17 +144,20 @@ abstract public class UIComponent {
     org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
     if(event == null) return "??config??";
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
-    try {
-      URLBuilder urlBuilder = context.getURLBuilder();
-      if(urlBuilder == null)  return "??builder??";
-      String confirm = event.getConfirm();
-      if(confirm.length() > 0) confirm = context.getApplicationResourceBundle().getString(confirm);
-      return urlBuilder.createAjaxURL(this, event.getName(), confirm, beanId, params).toString();
-    }catch (Exception e) {
-      e.printStackTrace();
-      return "??exception??";
-    }
+    URLBuilder urlBuilder = context.getURLBuilder();
+    if(urlBuilder == null)  return "??builder??";
+    String confirm = loadConfirmMesssage(event.getConfirm(), context, beanId);
+    return urlBuilder.createAjaxURL(this, event.getName(), confirm, beanId, params).toString();
   } 
+  
+  @SuppressWarnings("unused")
+  protected String loadConfirmMesssage(String confirm, WebuiRequestContext context, String beanId) {
+    if(confirm.length() < 1) return confirm;  
+    try {
+      return context.getApplicationResourceBundle().getString(confirm);
+    }catch (Exception e) {}
+    return confirm;
+  }
   
   public String url(String name) throws Exception { return url(name, null); }  
  

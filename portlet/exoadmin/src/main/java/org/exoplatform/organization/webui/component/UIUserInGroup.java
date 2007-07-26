@@ -6,6 +6,8 @@ package org.exoplatform.organization.webui.component;
 
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -52,6 +54,21 @@ public class UIUserInGroup extends UIContainer {
     uiGrid.getUIPageIterator().setId("UIUserInGroupIterator") ;
     addChild(UIGroupMembershipForm.class, null, null);
   }  
+  
+  @Override
+  protected String loadConfirmMesssage(String confirm, WebuiRequestContext context, String beanId) {
+    if(confirm.length() < 1) return confirm;
+    UIGridUser uiGrid = getChild(UIGridUser.class);
+    try {
+      confirm = context.getApplicationResourceBundle().getString(confirm);
+      MembershipUser membershipUser = uiGrid.searchMembershipUser(beanId);
+      if(membershipUser == null) return confirm;
+      System.out.println("\n\n\n confirm message "+confirm +"\n\n");
+    }catch (Exception e) {
+      
+    }
+    return confirm;
+  }
 
   public Group getSelectedGroup(){
     UIOrganizationPortlet uiOrganizationPortlet = getAncestorOfType(UIOrganizationPortlet.class);
@@ -99,12 +116,14 @@ public class UIUserInGroup extends UIContainer {
 
   static public class UIGridUser extends UIGrid {
     
+    private List<MembershipUser> membershipUsers;
+    
     public UIGridUser() throws Exception {
       super();
+      membershipUsers = new ArrayList<MembershipUser>() ;
     }
     
     public List<?> getBeans() throws Exception {
-      List<MembershipUser> membershipUsers = new ArrayList<MembershipUser>() ;
       List<?> list = super.getBeans() ;
       Iterator<?> itr = list.iterator() ;
       while(itr.hasNext()){
@@ -113,6 +132,13 @@ public class UIUserInGroup extends UIContainer {
         if(mu != null) membershipUsers.add(mu) ;
       }
       return membershipUsers ;
+    }
+    
+    private MembershipUser searchMembershipUser(String beanId) {
+      for(MembershipUser ele : membershipUsers) {
+        if(ele.id.equals(beanId)) return ele;
+      }
+      return null;
     }
     
     private MembershipUser toMembershipUser(Membership membership) throws Exception {
