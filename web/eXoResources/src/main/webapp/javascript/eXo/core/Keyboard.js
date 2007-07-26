@@ -44,7 +44,7 @@ Keyboard.prototype.onKeyDown = function(event) {
     eventHandler = 'onEnter' ;
   } else if(keynum == 9) {
     eventHandler = 'onTab' ;
-  } else if(keynum == 8 || (eXo.core.OS.isMac && keynum == 51)) {
+  } else if(keynum == 8) {
     eventHandler = 'onBackspace' ;
   } else if(keynum == 46) {
     eventHandler = 'onDelete' ;
@@ -71,7 +71,7 @@ Keyboard.prototype.onKeyPress = function(event) {
   var eventHandler = false ;
 
   if (this.controlKeyCodes.contains(keynum)) {
-    return true ;
+    return false ;
   }
  
   if((keynum >= 65 && keynum <= 90) || (keynum >= 97 && keynum <= 122)) {

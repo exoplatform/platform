@@ -25,10 +25,21 @@ public class SkinService {
     availableSkins_ = new HashSet<String>(5) ;
   }
 
+  /**
+   * TODO: should return a collection or list
+   * This method should return the availables  skin in the service
+   * @return
+   */
   public Iterator<String> getAvailableSkins() {
     return  availableSkins_.iterator() ;
   }
 
+  /**
+   * 
+   * @param module
+   * @param skinName
+   * @param cssPath
+   */
   public void addSkin(String module , String skinName, String cssPath) {
     availableSkins_.add(skinName);
     String key = module + "$" + skinName ;

@@ -29,6 +29,7 @@
     </init-params>
   </component>
 
+  <!--
   <component> 
     <key>org.exoplatform.services.database.DatabaseService</key>
     <type>org.exoplatform.services.database.impl.XAPoolTxSupportDatabaseService</type>
@@ -45,6 +46,7 @@
       </properties-param>
     </init-params>
   </component>
+  -->
 
   <external-component-plugins>
     <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
