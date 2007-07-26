@@ -4,9 +4,11 @@
 function Keyboard() {
   this.listeners = [] ;
   this.controlKeyCodes = [8, 9, 13, 35, 36, 37, 38, 39, 40, 46] ;
+  /*
   document.onkeydown = function(e) {
     return eXo.core.Keyboard.onKeyDown(e) ;
   }
+  */
   document.onkeypress = function(e) {    
     return eXo.core.Keyboard.onKeyPress(e) ;
   } ;
@@ -71,7 +73,30 @@ Keyboard.prototype.onKeyPress = function(event) {
   var eventHandler = false ;
 
   if (this.controlKeyCodes.contains(keynum)) {
-    return false ;
+    //return false ;
+  }
+
+
+  if(keynum == 13) {
+    eventHandler = 'onEnter' ;
+  } else if(keynum == 9) {
+    eventHandler = 'onTab' ;
+  } else if(keynum == 8) {
+    eventHandler = 'onBackspace' ;
+  } else if(keynum == 46) {
+    eventHandler = 'onDelete' ;
+  } else if(keynum == 37){
+    eventHandler = 'onLeftArrow' ;
+  } else if(keynum == 39){
+    eventHandler = 'onRightArrow' ;
+  } else if(keynum == 38){
+    eventHandler = 'onUpArrow' ;
+  } else if(keynum == 40){
+    eventHandler = 'onDownArrow' ;
+  } else if(keynum == 36){
+    eventHandler = 'onHome' ;
+  } else if(keynum == 35){
+    eventHandler = 'onEnd' ;
   }
  
   if((keynum >= 65 && keynum <= 90) || (keynum >= 97 && keynum <= 122)) {

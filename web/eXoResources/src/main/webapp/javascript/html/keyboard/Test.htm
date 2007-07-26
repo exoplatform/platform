@@ -45,7 +45,7 @@
       document.onkeypress = function() {
         eXo.core.LogEngine.logWriteLn('keydown fired on document...')
         //window.alert('keydown fired on document...') ;
-        //eXo.core.Keyboard.cancelEvent(event) ;
+        eXo.core.Keyboard.cancelEvent(event) ;
         return false ;
       }
       
