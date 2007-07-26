@@ -31,7 +31,7 @@
   margin-bottom: 5px;
 }
 
-.UIForm .HorizontalLayout .MultiValueContainer a {
+.UIForm .HorizontalLayout .MultiValueContainer .MultiFieldAction{
   margin: 0px 3px;
 }
 
