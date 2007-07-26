@@ -20,6 +20,7 @@ PortalDragDrop.prototype.onLoad = function(e) {
 	  if (controlBar) editButtons.pushAll(controlBar.getElementsByTagName("a"));
 	  for (var i = 0; i < editButtons.length; i++) {
 	  	var url = editButtons[i].href;
+	  	if (url && url.indexOf("javascript:ajaxGet") == -1) continue;
 	  	if (url && url.indexOf("resizeRows") == -1) {
 	  		// if the callback function is not already set
 	  		url = url.substr(0, url.length-1).concat(", eXo.portal.PortalDragDrop.resizeRows)");

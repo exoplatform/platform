@@ -4,7 +4,11 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.portal;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.application.PortalStateManager.PortalApplicationState;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -12,6 +16,7 @@ import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIToolbar;
@@ -56,6 +61,12 @@ public class UIPortalManagementControlBar extends UIToolbar {
     uiPortalApp.setSkin(uiPortal.getSkin());
   }
   
+  @Override
+  public String event(String name) throws Exception {
+    if(name.equals("Finish")) return super.url(name);
+    return super.event(name);
+  }
+
   /*public void abort(Event<UIPortalManagementControlBar> event) throws Exception {
     UIPortal uiPortal = Util.getUIPortal();
     uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
