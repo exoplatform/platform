@@ -29,7 +29,7 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 		var resizeBtn = DOMUtil.findFirstDescendantByClass(popup, "div", "ResizeButton");
 		resizeBtn.style.display = 'block' ;
 		resizeBtn.onmousedown = this.startResizeEvt ;
-		portalApp.onmouseup = this.endResizeEvt ; 
+		portalApp.onmouseup = this.endResizeEvt ;
 	}
 	
 	popup.style.visibility = "visible" ;
@@ -83,11 +83,14 @@ UIPopupWindow.prototype.startResizeEvt = function(evt) {
 	var portalApp = document.getElementById("UIPortalApplication") ;
 	eXo.webui.UIPopupWindow.popupId = eXo.core.DOMUtil.findAncestorByClass(this, "UIPopupWindow").id ;
 	portalApp.onmousemove = eXo.webui.UIPopupWindow.resize;
+	portalApp.onmouseup = eXo.webui.UIPopupWindow.endResizeEvt ;
 }
 
 UIPopupWindow.prototype.endResizeEvt = function(evt) {
 	delete eXo.webui.UIPopupWindow.popupId ;
 	this.onmousemove = null ;
+	var portalApp = document.getElementById("UIPortalApplication") ;
+	portalApp.onmouseup = null;
 	// Added by Philippe
 	// inits all the scroll managers, in case there is one in the popup that needs to be recalculated
 	eXo.portal.UIPortalControl.initAllManagers();

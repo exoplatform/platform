@@ -233,15 +233,15 @@ DOMUtil.prototype.getStyle = function(element, style, intValue) {
 
 /* TODO: review this function: document.onclick */
 DOMUtil.prototype.hideElements = function() {
-	document.onclick = function() {
-		var ln = eXo.core.DOMUtil.hideElementList.length;
-		if (ln > 0) {
-			for (var i = 0; i < ln; i++) {
-				eXo.core.DOMUtil.hideElementList[i].style.display = "none" ;
-			}
-			eXo.core.DOMUtil.hideElementList.clear() ;
-		}
-	}
+//	document.onclick = function() {
+//		var ln = eXo.core.DOMUtil.hideElementList.length;
+//		if (ln > 0) {
+//			for (var i = 0; i < ln; i++) {
+//				eXo.core.DOMUtil.hideElementList[i].style.display = "none" ;
+//			}
+//			eXo.core.DOMUtil.hideElementList.clear() ;
+//		}
+//	}
 } ;
 
 DOMUtil.prototype.listHideElements = function(object) {

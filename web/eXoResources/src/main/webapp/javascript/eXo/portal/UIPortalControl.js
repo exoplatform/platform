@@ -354,12 +354,13 @@ UIPortalControl.prototype.initAllManagers = function() {
 	 * e.g. when the workspace control is opened/closed, when a popup window is resized, etc
 	 * Inits only the scroll managers that manage tabs that appears on the current page
 	 */
+	console.trace();
 	var managers = eXo.portal.UIPortalControl.scrollManagers;
 	for (var i = 0; i < managers.length; i++) {
 		var toInit = false;
 		toInit = (document.getElementById(managers[i].id) !== null);
 		toInit &= (typeof(managers[i].initFunction) == "function");
-		if (toInit) { managers[i].initFunction(); console.log("init scroll for ",managers[i].id); }
+		if (toInit) managers[i].initFunction();
 	}
 };
 
