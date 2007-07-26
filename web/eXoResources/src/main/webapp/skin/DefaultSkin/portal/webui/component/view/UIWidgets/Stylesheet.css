@@ -5,7 +5,7 @@
 .UIWidgets .ItemSelectorContainer .EditIcon {
 	float: left;
 	width: 20px; height: 21px;
-	background: url('DefaultSkin/icons/EditWidgetCategoryButton.gif') no-repeat top;
+	background: url('icons/EditWidgetCategoryButton.gif') no-repeat top;
 	cursor: pointer;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .UIWidgets .UIDropDownItemSelector .ComponentIcon {
-	background: url('DefaultSkin/icons/WidgetIcon.gif') no-repeat center;
+	background: url('icons/WidgetIcon.gif') no-repeat center;
 }
 
 .UIWidgets .WidgetDecorator {
@@ -23,29 +23,29 @@
 }
 
 .UIWidgets .WidgetDecorator .TopLeftWidgetsDecorator {
-	background: url(DefaultSkin/background/TLWidgetDecorator2x2.gif) no-repeat left;
+	background: url(background/TLWidgetDecorator2x2.gif) no-repeat left;
 	padding-left: 2px;
 	height: 2px;
 }
 
 .UIWidgets .WidgetDecorator .TopRightWidgetsDecorator{
-	background: url(DefaultSkin/background/TRWidgetDecorator2x2.gif) no-repeat right;
+	background: url(background/TRWidgetDecorator2x2.gif) no-repeat right;
 	padding-right: 2px;
 	height: 2px;
 }
 
 .UIWidgets .WidgetDecorator .TopCenterWidgetsDecorator{
-	background: url(DefaultSkin/background/TCWidgetDecorator1x2.gif) repeat-x;
+	background: url(background/TCWidgetDecorator1x2.gif) repeat-x;
 	height: 2px;	
 }
 
 .UIWidgets .WidgetDecorator .MiddleLeftWidgetsDecorator{
-	background: url(DefaultSkin/background/MLWidgetDecorator2x1.gif) repeat-y left;
+	background: url(background/MLWidgetDecorator2x1.gif) repeat-y left;
 	padding-left: 2px;
 }
 
 .UIWidgets .WidgetDecorator .MiddleRightWidgetsDecorator{
-	background: url(DefaultSkin/background/MRWidgetDecorator2x1.gif) repeat-y right;
+	background: url(background/MRWidgetDecorator2x1.gif) repeat-y right;
 	padding-right: 2px;
 }
 
@@ -57,19 +57,19 @@
 }
 
 .UIWidgets .WidgetDecorator .BottomLeftWidgetsDecorator{
-	background: url(DefaultSkin/background/BLWidgetDecorator2x2.gif) no-repeat left;
+	background: url(background/BLWidgetDecorator2x2.gif) no-repeat left;
 	padding-left: 2px;
 	height: 2px; 
 }
 
 .UIWidgets .WidgetDecorator .BottomRightWidgetsDecorator{
-	background: url(DefaultSkin/background/BRWidgetDecorator2x2.gif) no-repeat right;
+	background: url(background/BRWidgetDecorator2x2.gif) no-repeat right;
 	padding-right: 2px;
 	height: 2px; 
 }
 
 .UIWidgets .WidgetDecorator .BottomCenterWidgetsDecorator{
-	background: url(DefaultSkin/background/BCWidgetDecorator1x2.gif) repeat-x;
+	background: url(background/BCWidgetDecorator1x2.gif) repeat-x;
 	height: 2px; 
 }
 
@@ -89,19 +89,19 @@
 
 .UIWidgetContainer .LeftWidgetNavBar {
 	height: 25px;
-	background: url('DefaultSkin/background/LeftWidgetNavBar4x25.gif') no-repeat left;
+	background: url('background/LeftWidgetNavBar4x25.gif') no-repeat left;
 	padding-left: 4px;	
 }
 
 .UIWidgetContainer .RightWidgetNavBar {
 	height: 25px;
-	background: url('DefaultSkin/background/RightWidgetNavBar4x25.gif') no-repeat right;
+	background: url('background/RightWidgetNavBar4x25.gif') no-repeat right;
 	padding-right: 4px;	
 }
 
 .UIWidgetContainer .CenterWidgetNavBar {
 	height: 25px;
-	background: url('DefaultSkin/background/CenterWidgetNavBar1x25.gif') repeat-x;
+	background: url('background/CenterWidgetNavBar1x25.gif') repeat-x;
 }
 
 .UIWidgetContainer .WidgetNavigator .Icon{
@@ -113,23 +113,23 @@
 }	
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollDownButton{
-	background: url('/eXoResources/icons/16x16/DefaultSkin/GrayDownArrow.gif') no-repeat center;
+	background: url('/eXoResources/icons/16x16/GrayDownArrow.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollDownButton{
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BlueDownArrow.gif') no-repeat center;
+	background: url('/eXoResources/icons/16x16/BlueDownArrow.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollUpButton{
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BlueUpArrow.gif') no-repeat center;
+	background: url('/eXoResources/icons/16x16/BlueUpArrow.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollUpButton{
-	background: url('/eXoResources/icons/16x16/DefaultSkin/GrayUpArrow.gif') no-repeat center;
+	background: url('/eXoResources/icons/16x16/GrayUpArrow.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .AddWidgetButton{
-	background: url('DefaultSkin/icons/AddWidgetButton.gif') no-repeat center;
+	background: url('icons/AddWidgetButton.gif') no-repeat center;
 }
 
 /***************************************  UIWidget   **************************************/
@@ -150,19 +150,19 @@
 
 .UIWidget .WidgetControl .LeftControlBar{
 	height: 19px;
-	background: url('DefaultSkin/background/LeftWidgetControlBar2x19.gif') no-repeat left;	
+	background: url('background/LeftWidgetControlBar2x19.gif') no-repeat left;	
 	padding-left: 2px;
 }
 
 .UIWidget .WidgetControl .RightControlBar{
 	height: 19px;
-	background: url('DefaultSkin/background/RightWidgetControlBar2x19.gif') no-repeat right;	
+	background: url('background/RightWidgetControlBar2x19.gif') no-repeat right;	
 	padding-right: 2px;
 }
 
 .UIWidget .WidgetControl .CenterControlBar{
 	height: 19px;
-	background: url('DefaultSkin/background/CenterWidgetControlBar1x19.gif') repeat-x;	
+	background: url('background/CenterWidgetControlBar1x19.gif') repeat-x;	
 }
 
 .UIWidget .WidgetControl .WidgetDragHandleArea {
@@ -170,7 +170,7 @@
 	width: 17px; height: 13px;
 	cursor: move;
 	margin: 3px 3px 0px 3px;
-	background: url('DefaultSkin/background/WidgetDragArea2x2.gif');
+	background: url('background/WidgetDragArea2x2.gif');
 }
 
 .UIWorkspacePanel .UIWidget .WidgetControl .WidgetDragHandleArea {
@@ -181,7 +181,7 @@
 	float: left;
 	width: 2px; height: 13px;
 	margin: 3px 3px 0px 3px;
-	background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y;
+	background: url('background/SeparatorLine2x1.gif') repeat-y;
 }
 
 .UIWidget .WidgetControl .EditWidgetIcon {
@@ -189,7 +189,7 @@
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 3px 0px 0px;
-	background: url('DefaultSkin/icons/EditWidgetIcon.gif');	
+	background: url('icons/EditWidgetIcon.gif');	
 }
 
 .UIWidget .WidgetControl .CloseWidgetIcon {
@@ -197,5 +197,5 @@
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 0px 0px 0px;
-	background: url('DefaultSkin/icons/CloseWidgetIcon.gif');	
+	background: url('icons/CloseWidgetIcon.gif');	
 }

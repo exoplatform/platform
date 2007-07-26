@@ -21,18 +21,18 @@
 }
 
 .UIPageDesktop .UIDockBar .DockbarLeft {
-  background: url('DefaultSkin/background/DockbarLeft2x47.gif') no-repeat left bottom ;
+  background: url('background/DockbarLeft2x47.gif') no-repeat left bottom ;
   padding: 0px 0px 0px 2px ;
 }
 
 .UIPageDesktop .UIDockBar .DockbarRight {
-  background: url('DefaultSkin/background/DockbarRight2x47.gif') no-repeat right bottom ;
+  background: url('background/DockbarRight2x47.gif') no-repeat right bottom ;
   padding: 0px 2px 0px 0px ;
 }
 
 .UIPageDesktop .UIDockBar .DockbarCenter {
   height: 47px ;
-  background: url('DefaultSkin/background/DockbarCenterBG1x47.gif') repeat-x bottom ;
+  background: url('background/DockbarCenterBG1x47.gif') repeat-x bottom ;
 }
 
 .UIPageDesktop .UIDockBar .IconContainer {

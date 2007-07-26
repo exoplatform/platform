@@ -84,20 +84,20 @@
 }
 
 .UIPageNodeSelector .OrganizationIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/MiniOrangeBoxPage.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/MiniOrangeBoxPage.gif') no-repeat;
 }
 
 .UIPageNodeSelector .PortalAdminIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/16x16/PortalAdmin.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/16x16/PortalAdmin.gif') no-repeat;
 }
 
 .UIPageNodeSelector .NavigationPortalIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPageIcon.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/DefaultPageIcon.gif') no-repeat;
 }
 
 /*Created by Vu Duy Tu*/
 .UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
-	background: url('/eXoResources/icons/24x24/DefaultSkin/EditNavigation.gif') no-repeat left top;
+	background: url('/eXoResources/icons/24x24/EditNavigation.gif') no-repeat left top;
 	cursor: pointer;
 	float: left; margin-left: -1px;
 	height: 21px; width: 21px;

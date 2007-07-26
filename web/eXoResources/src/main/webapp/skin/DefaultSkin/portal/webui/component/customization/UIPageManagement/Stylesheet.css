@@ -33,32 +33,32 @@
 
 .UIPageManagement .EditContainerIcon {
   width: 27px; height: 23px;
-  background: url('DefaultSkin/icons/EditContainer.gif') no-repeat ;
+  background: url('icons/EditContainer.gif') no-repeat ;
 }
 
 .UIPageManagement .EditPortletIcon {
   width: 27px; height: 23px;
-  background: url('DefaultSkin/icons/EditPortlet.gif') no-repeat ;
+  background: url('icons/EditPortlet.gif') no-repeat ;
 }
 
 .UIPageManagement .EditPageIcon {
   width: 24px; height: 23px;
-  background: url('DefaultSkin/icons/EditPageProperties.gif') no-repeat;
+  background: url('icons/EditPageProperties.gif') no-repeat;
 }
 
 .UIPageManagement .PageLayoutModeIcon {
   width: 27px; height: 23px;
-  background: url('DefaultSkin/icons/PageLayout.gif') no-repeat right;
+  background: url('icons/PageLayout.gif') no-repeat right;
 }
 
 .UIPageManagement .PagePreviewIcon {
   width: 27px; height: 23px;
-  background: url('DefaultSkin/icons/PagePreview.gif') no-repeat right;
+  background: url('icons/PagePreview.gif') no-repeat right;
 }
 
 .UIPageManagement .SavePageIcon {
   width: 25px; height: 23px;
-  background: url('DefaultSkin/icons/SavePage.gif') no-repeat ;
+  background: url('icons/SavePage.gif') no-repeat ;
 }
 
 /*=================================Navigation Control Bar=================================*/
@@ -68,35 +68,35 @@
 
 .UIPageManagement .RollbackIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/RollBackIcon.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/RollBackIcon.gif') no-repeat;
 }
 
 .UIPageManagement .FinishIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/FinishIcon.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/FinishIcon.gif') no-repeat;
 }
 
 .UIPageManagement .SaveNavigationIcon  {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/SaveIcon.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/SaveIcon.gif') no-repeat;
 }
 
 .UIPageManagement .AbortIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/AbortIcon.gif') no-repeat;
+	background: url('/eXoResources/icons/24x24/AbortIcon.gif') no-repeat;
 }
 
 .UIPageManagement .CreateNavigationIcon {
   width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/EditNavigationIcon.gif') no-repeat;
+  background: url('/eXoResources/icons/24x24/EditNavigationIcon.gif') no-repeat;
 }
 
 .UIPageManagement .EditNavigationIcon {
   width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/EditNavigationIcon.gif') no-repeat;
+  background: url('/eXoResources/icons/24x24/EditNavigationIcon.gif') no-repeat;
 }
 
 .UIPageManagement .BackIcon {
   width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/BackIcon.gif') no-repeat;
+  background: url('/eXoResources/icons/24x24/BackIcon.gif') no-repeat;
 }

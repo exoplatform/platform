@@ -21,7 +21,7 @@
   float: left;
   width: 24px; height: 22px;
   margin: 6px 18px 0px 30px;
-  background: url('DefaultSkin/icons/PageLayout.gif') no-repeat ;
+  background: url('icons/PageLayout.gif') no-repeat ;
   cursor: pointer ;
 }
 
@@ -29,25 +29,25 @@
   float: left;
   width: 24px; height: 22px;
   margin: 6px 18px 0px 30px;
-  background: url('DefaultSkin/icons/PagePreview.gif') no-repeat ;
+  background: url('icons/PagePreview.gif') no-repeat ;
 }
 
 .UICreatePage .EditContainerIcon {
   float: left;
   width: 27px; height: 22px;
   margin: 6px 18px 0px 18px;
-  background: url('DefaultSkin/icons/EditContainer.gif') no-repeat ;
+  background: url('icons/EditContainer.gif') no-repeat ;
 }
 
 .UICreatePage .EditPortletIcon {
   float: left;
   width: 27px; height: 22px;
   margin: 6px 0px 0px 24px;
-  background: url('DefaultSkin/icons/EditPortlet.gif') no-repeat ;
+  background: url('icons/EditPortlet.gif') no-repeat ;
 }
 
 .UICreatePage .NavigationPortalIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/MiniOrangeBoxPage.gif') ;
+  background: url('/eXoResources/icons/16x16/MiniOrangeBoxPage.gif') ;
 }
 
 .UICreatePage .UITree {
@@ -135,7 +135,7 @@
 
 .BackNavigationContent .BackNavigationIcon {
 	height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BackIcon.gif') no-repeat;
+	background: url('/eXoResources/icons/16x16/BackIcon.gif') no-repeat;
 	padding-left: 22px;
 	cursor: pointer ;
 }

@@ -7,30 +7,30 @@
 }
 
 .UIPortlet .CONTROL-PORTLET .Content {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/MiscIcons/RSS.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/MiscIcons/RSS.gif') no-repeat center;
 }
 
 .UIPortlet .CONTROL-PORTLET .Account {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/UserAccount.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/UserAccount.gif') no-repeat center;
 }
 
 .UIPortlet .CONTROL-PORTLET .Registry-Portlet {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/RegistryPortlet.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/RegistryPortlet.gif') no-repeat center;
 }
 
 .UIPortlet .CONTROL-PORTLET .Site {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SiteMap.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/SiteMap.gif') no-repeat center;
 }
 
 .UIPortlet .CONTROL-PORTLET .Login {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ToolIcons/Key.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/ToolIcons/Key.gif') no-repeat center;
 }
 
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
   float: left ;
   width: 24px ; height: 15px ;
   margin: 4px 0px 0px 5px ;
-  background: url('DefaultSkin/background/DragBg2x2.gif');
+  background: url('background/DragBg2x2.gif');
   cursor: move ;
 }
 
@@ -42,21 +42,21 @@
   float: left;
   width: 16px; height: 16px; 
   margin: 3px 5px 0px 0px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueBoxLight.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/BlueBoxLight.gif') no-repeat;
   cursor: pointer;
 }
 
 .UIPortlet .EditPortletPropertiesIcon {
 	float: right;
 	width: 24px; height: 16px;
-	background: url('DefaultSkin/background/PencilButton.gif') no-repeat;
+	background: url('background/PencilButton.gif') no-repeat;
   margin: 4px 5px 2px 0px;
 }
 
 .UIPortlet .DeletePortletIcon {
 	float:right;
 	width: 24px; height:16px; 
-  background: url('DefaultSkin/background/CloseButton.gif') no-repeat ;
+  background: url('background/CloseButton.gif') no-repeat ;
   margin: 4px 8px 2px 0px;
 }
 
@@ -108,7 +108,7 @@
 }
 
 .UIPortlet .PortletIcon{
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPortletIcon.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/DefaultPortletIcon.gif') no-repeat;
 }
 
 /*##############################- PortletLayoutDecorator  -################################*/
@@ -118,30 +118,30 @@
 
 .PortletLayoutDecorator .TopLeft {
   height: 6px ;
-  background: url('DefaultSkin/background/LayoutTL7x6.gif') no-repeat left ;
+  background: url('background/LayoutTL7x6.gif') no-repeat left ;
   padding-left: 7px ;
 }
 
 .PortletLayoutDecorator .TopMiddle {
   height: 6px ;
-  background: url('DefaultSkin/background/LayoutTC1x6.gif') repeat-x ;
+  background: url('background/LayoutTC1x6.gif') repeat-x ;
 }
 
 .PortletLayoutDecorator .TopRight {
   height: 6px ;
-  background: url('DefaultSkin/background/LayoutTR7x6.gif') no-repeat right ;
+  background: url('background/LayoutTR7x6.gif') no-repeat right ;
   padding-right: 7px ;
 }
 
 .PortletLayoutDecorator .MiddleLeft {
-  background: url('DefaultSkin/background/LayoutML7x1.gif') repeat-y left;
+  background: url('background/LayoutML7x1.gif') repeat-y left;
   padding: 0px 0px 0px 7px ;
   
   
 }
 
 .PortletLayoutDecorator .MiddleRight {
-  background: url('DefaultSkin/background/LayoutMR7x1.gif') repeat-y right;
+  background: url('background/LayoutMR7x1.gif') repeat-y right;
   padding-right: 7px ;
 }
 
@@ -151,23 +151,23 @@
 
 .PortletLayoutDecorator .GardientBackground {
   height: 64px;
-  background: url('DefaultSkin/background/LayoutCBg1x56.gif') repeat-x bottom;
+  background: url('background/LayoutCBg1x56.gif') repeat-x bottom;
   padding: 6px;
 }
 
 .PortletLayoutDecorator .BottomLeft {
   height: 5px ;
-  background: url('DefaultSkin/background/LayoutBL7x5.gif') no-repeat left ;
+  background: url('background/LayoutBL7x5.gif') no-repeat left ;
   padding-left:7px ;
 }
 
 .PortletLayoutDecorator .BottomMiddle {
   height: 5px ;
-  background: url('DefaultSkin/background/LayoutBC1x5.gif') repeat-x ;
+  background: url('background/LayoutBC1x5.gif') repeat-x ;
 }
 
 .PortletLayoutDecorator .BottomRight {
-  background: url('DefaultSkin/background/LayoutBR7x5.gif') no-repeat right ;
+  background: url('background/LayoutBR7x5.gif') no-repeat right ;
   padding-right: 7px;
 }
 /*############### End Decorator ###################################################*/
@@ -201,7 +201,7 @@
 .UIContainer .CONTROL-CONTAINER .DragControlArea {
   float: left ; 
   width: 24px ; height: 15px ; 
-  background: url('DefaultSkin/background/DragBg2x2.gif');
+  background: url('background/DragBg2x2.gif');
   cursor: move ;
   margin: 4px 0px 0px 5px ;
 }
@@ -214,14 +214,14 @@
 .UIContainer .EditContainerIcon {
 	float: right;
 	width: 24px; height: 16px;
-	background: url('DefaultSkin/background/PencilButton.gif') no-repeat;
+	background: url('background/PencilButton.gif') no-repeat;
   margin: 4px 5px 2px 0px;
 }
 
 .UIContainer .DeleteContainerIcon {
 	float: right;
 	width: 24px; height:16px; 
-  background: url('DefaultSkin/background/CloseButton.gif') no-repeat ;
+  background: url('background/CloseButton.gif') no-repeat ;
   margin: 4px 8px 2px 0px;
 }
 
@@ -229,18 +229,18 @@
 	float: left;
   width: 18px; height: 16px;
   margin: 4px 0px 0px 5px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultContainerIcon.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultContainerIcon.gif') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {
-  background: url('DefaultSkin/background/PortalBackground4x4.gif');
+  background: url('background/PortalBackground4x4.gif');
   padding: 8px ;
   margin: auto;
 }
 
 .DragAndDropPreview {
   width: auto ; height: 80px ;
-	background: url('DefaultSkin/background/DragAndDropPreview4x4.gif');
+	background: url('background/DragAndDropPreview4x4.gif');
   border: 1px solid #c4c4c4;
   margin: 0px 12px 10px 12px;
 }

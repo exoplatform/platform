@@ -2,7 +2,7 @@
   width: 6px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
-  background: url("DefaultSkin/background/ControlWorkspaceBG6x1.gif") repeat-y right;
+  background: url("background/ControlWorkspaceBG6x1.gif") repeat-y right;
 }
 
 .UIControlWorkspace .TopTitleBar{
@@ -16,7 +16,7 @@
 
 .UIControlWorkspace .UserWorkspaceTitle {
   height: 23px ;
-  background: url('DefaultSkin/background/UserWorkspaceTitleBG1x23.gif') repeat-x ;
+  background: url('background/UserWorkspaceTitleBG1x23.gif') repeat-x ;
   color: #434343;
   font-weight: bold ;
   line-height: 22px ; 
@@ -27,7 +27,7 @@
 	float: right ;
 	width: 21px ;	height: 15px ;
 	margin: 3px 5px 0px 0px ;
-	background: url('DefaultSkin/background/CloseControlWorkspace21x15.gif') no-repeat ;
+	background: url('background/CloseControlWorkspace21x15.gif') no-repeat ;
 	cursor: pointer ;
 }
 
@@ -57,13 +57,13 @@
 .UIControlWorkspace .Slidebar {
 	float: right ;
   width: 6px ; height: 100% ;
-  background: url("DefaultSkin/background/SlidebarBackground6x1.gif") repeat-y right;
+  background: url("background/SlidebarBackground6x1.gif") repeat-y right;
   cursor: pointer ;
 }
 
 .UIControlWorkspace .SlidebarButton {
 	height: 100% ;	width: 6px ;
-	background: url("DefaultSkin/background/SlidebarButton6x160.gif") no-repeat center center ;
+	background: url("background/SlidebarButton6x160.gif") no-repeat center center ;
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {

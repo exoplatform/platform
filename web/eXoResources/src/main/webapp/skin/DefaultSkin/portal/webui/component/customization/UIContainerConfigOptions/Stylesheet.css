@@ -48,7 +48,7 @@
 
 .UIContainerConfigOptions .OneRowContainerLayout {
   width:105px ; height:56px ;
-  background:url('DefaultSkin/background/1RowContainerBg105x56.gif') no-repeat;
+  background:url('background/1RowContainerBg105x56.gif') no-repeat;
   margin:auto ; 
   margin-top: 12px ;
   cursor: move ;
@@ -58,61 +58,61 @@
   width:105px;  height:56px;
   margin:auto;  margin-top: 12px;
   cursor: move;
-  background:url('DefaultSkin/background/2RowContainerBg105x56.gif') no-repeat;
+  background:url('background/2RowContainerBg105x56.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .ThreeRowContainerLayout {
   width:105px;  height:56px;
   margin:auto; margin-top: 12px;
   cursor: move;
-  background:url('DefaultSkin/background/3RowContainerBg105x56.gif') no-repeat;
+  background:url('background/3RowContainerBg105x56.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .TwoColumnContainerLayout {
   width:105px;  height:56px;
   margin:auto;  margin-top: 12px;
   cursor: move;
-  background:url('DefaultSkin/background/2ColumnContainerBg105x56.gif') no-repeat;
+  background:url('background/2ColumnContainerBg105x56.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .ThreeColumnContainerLayout {
   width:105px;  height:56px;
   margin:auto;  margin-top: 12px;
   cursor: move;
-  background:url('DefaultSkin/background/3ColumnContainerBg105x56.gif') no-repeat;
+  background:url('background/3ColumnContainerBg105x56.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .TwoTabContainerLayout {
   width:105px;  height:56px;
   margin:auto;  margin-top: 12px;
   cursor: move;
-  background:url('DefaultSkin/background/2TabContainerBg105x56.gif') no-repeat;
+  background:url('background/2TabContainerBg105x56.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .ThreeTabContainerLayout {
   width:105px;  height:56px;
   margin:auto; margin-top: 12px;
   cursor: move;
-  background:url('DefaultSkin/background/3TabContainerBg105x56.gif') no-repeat;
+  background:url('background/3TabContainerBg105x56.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .TwoColumnOneRowContainerLayout {
   width:105px;  height:56px;
   margin:auto; margin-top: 12px;
   cursor: move;
-  background:url('DefaultSkin/background/2Col1RowBg105x56.gif') no-repeat;
+  background:url('background/2Col1RowBg105x56.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .OneRowTwoColumnContainerLayout {
   width: 105px; height: 56px;
   margin:auto; margin-top: 12px;
   cursor: move;
-  background:url('DefaultSkin/background/1Row2ColBg105x56.gif') no-repeat;
+  background:url('background/1Row2ColBg105x56.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .OneRow2Column1RowContainerLayout {
   width:105px; height:56px;
   margin:auto; margin-top: 12px;
   cursor: move;
-  background:url('DefaultSkin/background/1Row2Col1RowBg105x56.gif') no-repeat;
+  background:url('background/1Row2Col1RowBg105x56.gif') no-repeat;
 }
