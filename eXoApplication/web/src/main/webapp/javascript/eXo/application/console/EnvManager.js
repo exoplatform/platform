@@ -20,6 +20,9 @@ EnvManager.prototype.init = function(node) {
  * @param {String} value
  */
 EnvManager.prototype.setVariable = function(key, value) {
+  // Convert to String type
+  key += '' ;
+  value += '' ;
   var envVars = this.getEnvVariables() ;
   var found = false ;
   for (var i=0; i<envVars.length; i++) {

@@ -19,20 +19,12 @@ import org.exoplatform.web.command.Command;
  *          thuy.le@exoplatform.com
  * July 24, 2007
  */
-public class ConsoleUploadHandler extends Command {
+public class HelloJCRHandler extends Command {
   
-  private String uploadId ;
-  
-  public void setUploadId(String uploadId) {
-    this.uploadId = uploadId ;
-  }
-  
-  @SuppressWarnings("unused")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     res.setContentType("text/xml") ;
     PrintWriter out = res.getWriter() ;
-    out.println("Server: Upload node with id=" + this.uploadId) ;
-    System.out.println("Upload node with id=" + this.uploadId);
+    out.println("Hello from server") ;
+    System.out.println("Client request") ;
   }
-  
 }

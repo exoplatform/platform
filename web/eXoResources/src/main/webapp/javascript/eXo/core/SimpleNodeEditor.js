@@ -5,7 +5,7 @@
  * 
  */
 function SimpleNodeEditor() {
-  this.cursor = '<span style="border: solid 1px red; width: 2px; height: 1px;" cursor="1">&nbsp;</span>' ;
+  this.cursor = '<span class="ConsoleCursor" cursor="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>' ;
   this.htmlUtil = eXo.core.HTMLUtil ;
 }
 
@@ -79,7 +79,7 @@ SimpleNodeEditor.prototype.getTextCommand = function() {
 }
 
 SimpleNodeEditor.prototype.preKeyProcess = function() {
-  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
+  eXo.application.console.CommandManager.hideQuickHelp() ;
   this.beforeCursor = this.htmlUtil.entitiesDecode(this.beforeCursor) ;
   this.afterCursor = this.htmlUtil.entitiesDecode(this.afterCursor) ;
 }
@@ -122,7 +122,7 @@ SimpleNodeEditor.prototype.onDelete = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onEnter = function(keynum, keychar) {
-  eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;
+  eXo.application.console.CommandManager.hideQuickHelp() ;
   eXo.application.console.CommandManager.execute(this.getTextCommand()) ;
   this.write('', this.cursor, '') ;
   return false ;

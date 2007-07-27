@@ -21,9 +21,10 @@ ShowNode.prototype.help = function() {
           <br/>  ShowNode firstDivID 3 will show 3 level dowm from firstDivID') ;
 } ;
 
-ShowNode.prototype.execute = function(args, screen) {
+ShowNode.prototype.execute = function(args, consoleScreen) {
   if (!args || args == '') {
-    return {retCode: -1,msg: 'Missing argument'} ;
+    consoleScreen.write('Missing argument') ;
+    return -1;
   }
 
   var leveldepth = -1 ;
@@ -33,12 +34,15 @@ ShowNode.prototype.execute = function(args, screen) {
 
   node = document.getElementById(nodeId) ;
   if (!node) {
-    return {retCode: -1,msg: nodeId + ': Node not found'} ;
+    consoleScreen.write('Node not found')
+    return -1 ;
   }
   
   var treeNode = 'DOM tree: [' + nodeId + ']' ;
   treeNode += this._getNodeInfo(node, leveldepth, 0) ;
-  return {retCode: 0, resultContent: treeNode} ;
+  consoleScreen.write(treeNode) ;
+  
+  return 0 ;
 } ;
 
 ShowNode.prototype._getNodeInfo = function(node, maxLevel, level) {

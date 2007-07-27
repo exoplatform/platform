@@ -1,5 +1,6 @@
 eXo.require('eXo.core.TemplateEngine');
 eXo.require('eXo.application.ApplicationDescriptor');
+eXo.require('eXo.application.console.ConsoleScreen', '/eXoAppWeb/javascript/');
 eXo.require('eXo.application.console.Command', '/eXoAppWeb/javascript/');
 eXo.require('eXo.application.console.EnvManager', '/eXoAppWeb/javascript/');
 eXo.require('eXo.application.console.CommandManager', '/eXoAppWeb/javascript/');
@@ -72,28 +73,3 @@ if(!eXo.application.console) {
 }
 
 eXo.application.console.UIConsoleApplication = new UIConsoleApplication() ;
-
-UIConsoleApplication.prototype.getUIMaskWorkspace = function() {
-  var uiConsoleApplicationNode = document.getElementById("uiConsoleApplication") ;
-  var nodeLst = uiConsoleApplicationNode.getElementsByTagName('DIV') ;
-  for (var node in nodeLst) {
-    if (nodeLst[node].className == 'UIMaskWindowConsole') {
-      return nodeLst[node] ;
-    }
-  }
-  return false ;
-}
-
-UIConsoleApplication.prototype.showMaskWorkspace = function() {
-  var uiMaskWorkspace = this.getUIMaskWorkspace() ;
-  if (uiMaskWorkspace) {
-    uiMaskWorkspace.style.display = 'block' ;
-  }
-};
-
-UIConsoleApplication.prototype.hideMaskWorkspace = function() {
-	var uiMaskWorkspace = this.getUIMaskWorkspace() ;
-  if (uiMaskWorkspace) {
-    uiMaskWorkspace.style.display = 'none' ;
-  }
-};

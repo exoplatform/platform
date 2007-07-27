@@ -1,20 +1,14 @@
-<div class="UIConsoleApplication" id="uiConsoleApplication">
+<div class="UIConsoleApplication">
 	<div class="UIInnerMaskLayer" >
-		<div class="UIApplication">
-			<div class="UIMaskWindowConsole">
-				<div class="ConsoleQuickHelp"></div>
-			</div>
-		  <div class="eXoConsoleResult">
-		    eXo javascript console version 1.0
-		  </div>
-		  <div id="divReference"><span></span></div>
+		<div class="UIMaskWindowConsole">
+			<div class="ConsoleQuickHelp"></div>
 		</div>
+	  <div class="ConsoleResult">
+	    eXo javascript console version 1.0
+	  </div>
 	</div>	
-
-	<div class="eXoConsole">
-		<div class="CommandType" editcontainer="1">
-			<span style="vertical-align: top; line-height: 100%; height: 100%"> exo-console$ </span>
-			<span editable="1" style="color: red;">...</span>
-		</div>
+	<div class="CommandType" editcontainer="1">
+		<span class="Prompt"> exo-console$ </span>
+		<span editable="1">...</span>
 	</div>
 </div>

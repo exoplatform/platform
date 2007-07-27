@@ -1,31 +1,10 @@
 /**
  * @author Nguyen Ba Uoc
  * 
- * This file contain all builtin commands.
  */
-
-// Clear command
-function Clear() {
-  this.commandName = 'clear' ;  
-} ;
-
-Clear.prototype = new eXo.application.console.Command() ;
-
-Clear.prototype.help = function() {
-  return 'Clear console content' ;
-} ;
-
-Clear.prototype.execute = function(args, screen) {
-  screen.innerHTML = '' ;
-  return {retCode:0} ;
-} ;
-
-eXo.application.console.Clear = new Clear() ;
-eXo.application.console.CommandManager.addCommand(eXo.application.console.Clear) ;
-//====================================================
-
 function Env() {
   this.commandName = 'env' ;
+  this.prefix = '' ;
 } ;
 
 Env.prototype = new eXo.application.console.Command() ;
@@ -52,7 +31,7 @@ Env.prototype.help = function() {
  * @param {String} args
  * @param {Element} screen
  */
-Env.prototype.execute = function(args, screen) {
+Env.prototype.execute = function(args, consoleScreen) {
   var envManager = eXo.application.console.EnvManager ;
   var envVars = envManager.getEnvVariables() ;
   // Detect sub command
@@ -60,9 +39,11 @@ Env.prototype.execute = function(args, screen) {
     // Display all posible environment variables
     if (envVars.length > 0) {
       var envStr = this.formatEnvList(envVars) ;
-      return {retCode: 0, resultContent: envStr} ;
+      consoleScreen.write(envStr) ;
+      return 0 ;
     } else {
-      return {retCode: 0, resultContent: 'No environment variables at this time.'} ;
+      consoleScreen.write('No environment variables at this time.') ;
+      return 0 ;
     }
   }
   var firstSpacePos = args.indexOf(' ') ;
@@ -78,9 +59,11 @@ Env.prototype.execute = function(args, screen) {
         value = value.trim() ;
       }
       envManager.setVariable(name, value) ;
-      return {retCode:0, resultContent: (name + '=' + value)} ;
+      consoleScreen.write(name + '=' + value) ;
+      return 0 ;
     } else {
-      return {retCode:-1, msg: (paramStr + ' missing =')} ;
+      consoleScreen.write(paramStr + ' missing =') ;
+      return -1 ;
     }
   } else if (subCmd == 'remove') {
     var value = false ;
@@ -94,9 +77,11 @@ Env.prototype.execute = function(args, screen) {
       }
     }
     if (value) {
-      return {retCode:0, resultContent: ('remove ' + paramStr + '=' + value)} ;
+      consoleScreen.write('remove ' + paramStr + '=' + value) ;
+      return 0 ;
     } else {
-      return {retCode:-1, msg: ('Environment variable ' + paramStr + ' not defined')} ;
+      consoleScreen.write('Environment variable ' + paramStr + ' not defined') ;
+      return -1 ;
     }
   } else if (subCmd == 'display') {
     var envLstTmp = [] ;
@@ -107,12 +92,15 @@ Env.prototype.execute = function(args, screen) {
       }
     }
     if (envLstTmp.length > 0) {
-      return {retCode:0, resultContent: (this.formatEnvList(envLstTmp))} ;
+      consoleScreen.write(this.formatEnvList(envLstTmp)) ;
+      return 0 ;
     } else {
-      return {retCode:-1, msg: (paramStr + ' not defined')} ;
+      consoleScreen.write(paramStr + ' not defined') ;
+      return -1 ;
     }
   }
-  return {retCode:-1, msg: 'Sub command ' + subCmd + ' is not implement'} ;  
+  consoleScreen.write('Sub command ' + subCmd + ' is not implement') ;
+  return -1 ;  
 } ;
 
 /**

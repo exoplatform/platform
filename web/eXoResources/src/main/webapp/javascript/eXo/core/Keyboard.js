@@ -4,11 +4,11 @@
 function Keyboard() {
   this.listeners = [] ;
   this.controlKeyCodes = [8, 9, 13, 35, 36, 37, 38, 39, 40, 46] ;
-  /*
-  document.onkeydown = function(e) {
-    return eXo.core.Keyboard.onKeyDown(e) ;
+  if (eXo.core.Browser.browserType == 'ie') {
+    document.onkeydown = function(e) {
+      return eXo.core.Keyboard.onKeyDown(e) ;
+    }
   }
-  */
   document.onkeypress = function(e) {    
     return eXo.core.Keyboard.onKeyPress(e) ;
   } ;
@@ -69,13 +69,12 @@ Keyboard.prototype.onKeyDown = function(event) {
 
 Keyboard.prototype.onKeyPress = function(event) {
   var keynum = this.getKeynum(event) ; 
-  var keychar = String.fromCharCode(keynum) ;
+  var keychar = '' ;
   var eventHandler = false ;
 
-  if (this.controlKeyCodes.contains(keynum)) {
-    //return false ;
+  if (eXo.core.Browser.browserType == 'ie' && this.controlKeyCodes.contains(keynum)) {
+    return false ;
   }
-
 
   if(keynum == 13) {
     eventHandler = 'onEnter' ;
@@ -98,13 +97,15 @@ Keyboard.prototype.onKeyPress = function(event) {
   } else if(keynum == 35){
     eventHandler = 'onEnd' ;
   }
- 
+  
+  if (!eventHandler) keychar = String.fromCharCode(keynum) ;
   if((keynum >= 65 && keynum <= 90) || (keynum >= 97 && keynum <= 122)) {
     eventHandler = 'onAlphabet' ;
   } else if(keynum >= 48 && keynum <= 57) {
     eventHandler = 'onDigit' ;
-  } else if((keynum >= 32 && keynum <= 47) || (keynum >= 58 && keynum <= 64) || 
-            (keynum >= 91 && keynum <= 96) || (keynum >= 123 && keynum <= 65532)) {
+  } else if((keynum >= 32 && keynum <= 34) || (keynum >= 41 && keynum <= 47) || 
+            (keynum >= 58 && keynum <= 64) || (keynum >= 91 && keynum <= 96) || 
+            (keynum >= 123 && keynum <= 65532)) {
     eventHandler = 'onPunctuation' ;
   }
   
@@ -132,7 +133,7 @@ Keyboard.prototype.listenerCallback = function(eventHandler, event, keynum, keyc
   }
   for(var i=0; i<this.listeners.length; i++) {
     retVal &= eval('this.listeners[' + i + '].' + eventHandler + '(' + keynum + ', "' + keychar + '") ;') ;
-  } 
+  }
   
   if(!retVal) {
     eXo.core.Keyboard.cancelEvent(event) ;

@@ -6,11 +6,13 @@ function CommandManager() {
   this.commands = [] ;
   this.commandNode = false ;
   this.commandTypeNode = false ;
-  this.eXoConsoleResult = false ;
+  this.consoleResultNode = false ;
   this.screenNode = false ;
-  this.uiConsoleApplication = false ;
+  this.uiMaskWindowConsoleNode = false ;
+  this.uiConsoleApplicationNode = false ;
   this.ready = true ;
   this.envManager = eXo.application.console.EnvManager ;
+  this.consoleScreen = eXo.application.console.ConsoleScreen ;
 } ;
 
 CommandManager.prototype.init = function(node) {
@@ -20,51 +22,57 @@ CommandManager.prototype.init = function(node) {
   if (!this.envManager.getVariable('CMD_PREFIX')) {
     this.envManager.setVariable('CMD_PREFIX', 'xhtml') ;
   }
+  this.consoleScreen.init(this.consoleResultNode) ;
 } ;
 
 CommandManager.prototype.onFinish = function() {
   this.commandNode = false ;
   this.commandTypeNode = false ;
-  this.eXoConsoleResult = false ;
+  this.consoleResultNode = false ;
   this.screenNode = false ;
-  this.uiConsoleApplication = false ;
+  this.uiMaskWindowConsoleNode = false ;
+  this.uiConsoleApplicationNode = false ;
 } ;
 
 CommandManager.prototype.initCommon = function() {
-  this.initUIConsoleApplication() ;
+  this.inituiConsoleApplicationNode() ;
   if(!this.ready) {
     return ;
   }
-  var nodeLst = this.uiConsoleApplication.getElementsByTagName('DIV') ;
+  var nodeLst = this.uiConsoleApplicationNode.getElementsByTagName('DIV') ;
   for(var node in nodeLst) {
     if (nodeLst[node].className == 'ConsoleQuickHelp') {
       this.screenNode = nodeLst[node] ;
+      continue ;
+    }
+    if (nodeLst[node].className == 'UIMaskWindowConsole') {
+      this.uiMaskWindowConsoleNode = nodeLst[node] ;
       continue ;
     }
     if (nodeLst[node].className == 'CommandType') {
       this.commandTypeNode = nodeLst[node] ;
       continue ;
     }
-    if (nodeLst[node].className == 'eXoConsoleResult') {
-      this.eXoConsoleResult = nodeLst[node] ;
+    if (nodeLst[node].className == 'ConsoleResult') {
+      this.consoleResultNode = nodeLst[node] ;
       continue ;
     }
   }
-  if (!this.screenNode || !this.commandTypeNode || !this.eXoConsoleResult) {
+  if (!this.screenNode || !this.commandTypeNode || !this.consoleResultNode) {
     this.ready = false ;
   }
 } ;
 
-CommandManager.prototype.initUIConsoleApplication = function() {
-  var uiConsoleApplicationTmp = this.commandNode.parentNode ;
-  while(uiConsoleApplicationTmp && uiConsoleApplicationTmp.className != 'UIConsoleApplication') {
-    if (uiConsoleApplicationTmp.tagName == 'BODY') {
+CommandManager.prototype.inituiConsoleApplicationNode = function() {
+  var uiConsoleApplicationNodeTmp = this.commandNode.parentNode ;
+  while(uiConsoleApplicationNodeTmp && uiConsoleApplicationNodeTmp.className != 'UIConsoleApplication') {
+    if (uiConsoleApplicationNodeTmp.tagName == 'BODY') {
       break ;
     }
-    uiConsoleApplicationTmp = uiConsoleApplicationTmp.parentNode ;
+    uiConsoleApplicationNodeTmp = uiConsoleApplicationNodeTmp.parentNode ;
   }
-  if (uiConsoleApplicationTmp.className == 'UIConsoleApplication') {
-    this.uiConsoleApplication = uiConsoleApplicationTmp ;
+  if (uiConsoleApplicationNodeTmp.className == 'UIConsoleApplication') {
+    this.uiConsoleApplicationNode = uiConsoleApplicationNodeTmp ;
     this.ready = true ;
     return ;
   } else {
@@ -73,9 +81,9 @@ CommandManager.prototype.initUIConsoleApplication = function() {
 } ;
 
 CommandManager.prototype.register = function() {
-  this.registerJSModule('eXo.application.console.jcr.js.core.Builtin') ;
-  this.registerJSModule('eXo.application.console.jcr.js.core.ShowNode') ;
-  this.registerJSModule('eXo.application.console.jcr.js.core.Upload') ;
+  this.registerJSModule('eXo.application.console.EnvCommand') ;
+  this.registerJSModule('eXo.application.console.jcr.HelloJCR') ;
+  this.registerJSModule('eXo.application.console.xhtml.ShowNode') ;
 } ;
 
 /**
@@ -100,18 +108,17 @@ CommandManager.prototype.getFullCmd = function(command) {
  * @param {Array} commandList
  */
 CommandManager.prototype.commandMatch = function(command, commandList) {
-  var command = this.getFullCmd(command) ;
+  var fullInputCommand = this.getFullCmd(command) ;
   for (var cmd in this.commands) {
     if(!this.commands[cmd].commandName) {
       continue ;
     }
     var cmdObj = this.commands[cmd] ;
     var fullCmd = cmdObj.getFullCmd() ;
-    if (command == fullCmd) {
+    if (fullInputCommand == fullCmd) {
       return true ;
     }
-    if(fullCmd.indexOf(command) == 0) {
-//      commandList[commandList.length] = cmdObj.commandName ;
+    if(fullCmd.indexOf(command) == 0 || fullCmd.indexOf(fullInputCommand) == 0) {
       commandList[commandList.length] = fullCmd ;
     }
   }
@@ -129,20 +136,20 @@ CommandManager.prototype.formatHelp = function(str) {
   return str ;
 }
 
+CommandManager.prototype.hideQuickHelp = function() {
+  if (!this.ready) {
+    return ;
+  }
+  this.uiMaskWindowConsoleNode.style.display = 'none' ;
+} ;
+
 CommandManager.prototype.showQuickHelp = function(text) {
-  eXo.application.console.UIConsoleApplication.showMaskWorkspace() ;
   if (!this.ready) {
     return ;
   }
   text = this.formatHelp(text) ;
   this.screenNode.innerHTML = '<div>' + text + '</div>' ;
-} ;
-
-CommandManager.prototype.consoleWrite = function(txt) {
-  var node = document.createElement('DIV') ;
-  node.innerHTML = txt ;
-  this.eXoConsoleResult.appendChild(node) ;
-  node.scrollIntoView(true) ;
+  this.uiMaskWindowConsoleNode.style.display = 'block' ;
 } ;
 
 /**
@@ -159,13 +166,21 @@ CommandManager.prototype.help = function(command) {
   command = command.trim() ;
   var commandState = false ;
   var commandLookup = [] ;
-  commandState = this.commandMatch(command, commandLookup) ;
+  if (command != '') {
+    commandState = this.commandMatch(command, commandLookup) ;
+  } else {
+    for (var cmd in this.commands) {
+      if (this.commands[cmd].commandName) {
+        commandLookup[commandLookup.length] = this.commands[cmd].getFullCmd() ;
+      }
+    }
+  }
 
   var helpTxt = 'No command is found' ;
   
   // Command completed
   if (commandState) {
-    command = command.replace(' ', '') ;
+    command = this.getFullCmd(command) ;
     helpTxt = this.commands[command].help() ;
   } else if(commandLookup.length > 0){
     helpTxt = '<strong>' + commandLookup.join(' ') + '</strong>' ;
@@ -179,35 +194,36 @@ CommandManager.prototype.help = function(command) {
  */
 CommandManager.prototype.execute = function(commandLine) {
   if (commandLine == '') {
-    this.consoleWrite('&nbsp;') ;
+    this.consoleScreen.write('&nbsp;') ;
     return ;
   }
   commandLine = commandLine.trim() ;
   var commandName = false ;
+  var fullCommandName = false ;
   var parameters = false ;
-  // 1. Get command name
+  var retCode = 0 ;
   var firstSpacePos = commandLine.indexOf(' ') ;
   if (firstSpacePos == -1) {
     commandName = commandLine ;
   } else {
     commandName = commandLine.substring(0, firstSpacePos).trim() ;
+    fullCommandName = this.getFullCmd(commandName) ;
     parameters = commandLine.substring(firstSpacePos, commandLine.length).trim() ;
   }
-  
-  // 2. Check command exist
-  if(!this.commands[commandName]) {
-    this.consoleWrite(commandLine + ': command not found') ;
+  if (commandLine == 'clear') {
+    this.consoleScreen.clear() ;
+    retCode = 0 ;
+  } else if(!this.commands[commandName] && !this.commands[fullCommandName]) {
+    this.consoleScreen.write(commandLine + ': command not found') ;
     return ;
+  } else {
+    if (this.commands[commandName]) {
+      retCode = this.commands[commandName].execute(parameters, this.consoleScreen) ;
+    } else if (this.commands[fullCommandName]) {
+      retCode = this.commands[fullCommandName].execute(parameters, this.consoleScreen) ;
+    }
   }
-  var result = this.commands[commandName].execute(parameters, this.eXoConsoleResult) ;
-  if (result.retCode != 0) {
-    this.consoleWrite('Error: ' + result.msg) ;
-    this.consoleWrite('Exit code ' + result.retCode) ;
-    return ;
-  } else if(result.resultContent && result.resultContent != '') {
-    this.consoleWrite(result.resultContent) ;
-    return ;
-  }
+  this.envManager.setVariable('RET_CODE', retCode) ;
 } ;
 
 /**
@@ -219,7 +235,7 @@ CommandManager.prototype.addCommand = function(command) {
     alert('Command ' + command.commandName + ' is already registered') ; 
     return ;
   }
-  this.commands[command.commandName] = command ;
+  this.commands[command.getFullCmd()] = command ;
 } ;
 
 /**

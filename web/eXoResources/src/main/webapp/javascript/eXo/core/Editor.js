@@ -6,6 +6,7 @@ function Editor() {
   this.containerIdentify = 'editcontainer' ;
   this.editableIdentify = 'editable' ;
   this.activeEditClass = 'ActiveEdit';
+  this.autoDetectFire = false ;
 } ;
 
 Editor.prototype.registerEditors = function(node4Reg) {
@@ -17,6 +18,7 @@ Editor.prototype.registerEditors = function(node4Reg) {
     var node = nodeList.item(i) ;
     if (node.nodeType == 1 && node.getAttribute(this.containerIdentify) == 1) {
       this.registerSubEditor(node) ;
+      node.onclick = this.autoDetectSubEditor ;
     }
   }
 } ;
@@ -38,6 +40,22 @@ Editor.prototype.registerSubEditor = function(node) {
         eXo.core.Keyboard.cancelEvent(event) ;
         return eXo.core.Editor.init(this);
       } ;
+    }
+  }
+} ;
+
+/**
+ * 
+ * @param {Event} event
+ */
+Editor.prototype.autoDetectSubEditor = function(event) {
+  var childNodes = this.childNodes ;
+  for(var i=0; i<childNodes.length; i++) {
+    var child = childNodes[i] ;
+    if(child.getAttribute(eXo.core.Editor.editableIdentify) == 1 && child.onclick) {
+      eXo.core.Editor.autoDetectFire = true ;
+      eXo.core.Keyboard.cancelEvent(event) ;
+      return eXo.core.Editor.init(child);
     }
   }
 } ;
@@ -109,9 +127,13 @@ Editor.prototype.clearSelection = function() {
 } ;
 
 Editor.prototype.getClickPosition = function(node) {
+  if (this.autoDetectFire) {
+    this.autoDetectFire = !this.autoDetectFire ;
+    return node.innerHTML.length ;
+  }
   if(window.getSelection) { /* Netscape/Firefox/Opera */
     var selObj = window.getSelection() ;
-    var clickPos = anchorOffset = selObj.anchorOffset ;
+    var clickPos = selObj.anchorOffset ;
     if(selObj.anchorNode && selObj.anchorNode.nodeType == 3) {
       var tmpTextNode = selObj.anchorNode.previousSibling ;
       while(tmpTextNode) {

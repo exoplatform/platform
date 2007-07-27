@@ -12,7 +12,7 @@ Command.prototype = {
    * @return {String} the full command with prefix
    */
   getFullCmd : function() {
-    return (this.prefix + ':' + this.commandName) ;
+    return ((this.prefix != '' ? this.prefix + ':' : '') + this.commandName) ;
   } 
   ,
   
@@ -25,16 +25,34 @@ Command.prototype = {
   ,
   
   /**
-   * @return {Object} return an object with retCode, msg or resultContent properties
-   *   depend state of execute command process.
+   * 
+   * @param {String} args
+   * @param {ConsoleScreen} consoleScreenObj
+   * 
+   * @return {Number} return the return code. 
+   * This value will be automatic set to RET_CODE environment variable by CommandManager object.
    */
-  execute : function(args, screen) {
-    return {retCode:-1, msg: 'Not implement'} ;
+  execute : function(args, consoleScreenObj) {
+    return 0 ;
   },
 
-  callServer(actionHandler, params) {
+  /**
+   * 
+   * @param {String} actionHandler full path of java service to call(full path include package must be used).
+   * @param {Array} params Array include all parameters pass throught to Java  Object
+   * 
+   * @return {String} response text return from server
+   */
+  callServer : function(actionHandler, params) {
+    var queryStr = '' ;
+    for(var param in params) {
+      if (typeof params[param] == 'function') {
+        continue ;
+      }
+      queryStr += '&' + param + '=' + params[param] ;
+    }
     var url = eXo.env.server.context + "/command?" ;
-    url += 'type=org.exoplatform.web.command.handler.ConsoleUploadHandler&action=upload&uploadId=' + nodeId ;
+    url += 'type=' + actionHandler + queryStr ;
     return ajaxAsyncGetRequest(url, false) ;
   }
 } ;
