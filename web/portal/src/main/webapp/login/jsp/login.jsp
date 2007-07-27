@@ -21,8 +21,13 @@
     }
   }
   
-  boolean showForm = false ;  
-  if (userName == null || userName.length() == 0) showForm = true ;
+  boolean showForm = false ;
+  boolean showError = false;
+  if (userName == null || userName.length() == 0) {
+    userName = request.getParameter("j_username");
+    if(userName == null) userName = "";
+    showForm = true ;
+  }  
   if (password == null || password.length() == 0) showForm  = true ;
   if(!showForm) {
     password = URLEncoder.encode(password) ;
@@ -50,9 +55,10 @@
           <div class="RightLoginContent">
             <div class="CenterLoginContent">
               <%/*Begin form*/%>
+              <%if(userName.length() > 0) {%>Sign in failed. Incorrect usernam or password<%}%>
               <form name="loginForm" action="<%=loginAction%>">        
 	              <div class="FieldContainer">
-		              <label>User name:</label><input name="j_username" value=""/>
+		              <label>User name:</label><input name="j_username" value="<%=userName%>"/>
 			          </div>
 		            <div class="FieldContainer" id="UIPortalLoginFormControl">
 		              <label>Password:</label><input type="password" name="j_password" value=""/>
