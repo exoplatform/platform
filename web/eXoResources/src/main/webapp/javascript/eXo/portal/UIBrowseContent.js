@@ -73,34 +73,38 @@ UIBrowseContent.prototype.loadScroll = function() {
 
 UIBrowseContent.prototype.initScroll = function() {
 	var uiBC = eXo.portal.UIBrowseContent;
-	if (uiBC.bcManagers.length >= 1) {
-		// Main Manager initialization
-		var mainBarMgr = uiBC.bcManagers[0];
-		mainBarMgr.init();
-		mainBarMgr.loadElements("UITab", true);
-		var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(mainBarMgr.mainContainer, "div", "HomeTab");
-		if (homeButton) {
-			var maxSpace = mainBarMgr.getElementSpace(mainBarMgr.mainContainer)-mainBarMgr.getElementSpace(mainBarMgr.arrowsContainer)-mainBarMgr.getElementSpace(homeButton);
-		} else {
-			var maxSpace = mainBarMgr.getElementSpace(mainBarMgr.mainContainer)-mainBarMgr.getElementSpace(mainBarMgr.arrowsContainer)-100;
+	var bcPortlet = document.getElementById("UIBrowseContainer");
+	var mainNav = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "UICBMainNavigation");
+	if (mainNav) {
+		if (uiBC.bcManagers.length >= 1) {
+			// Main Manager initialization
+			var mainBarMgr = uiBC.bcManagers[0];
+			mainBarMgr.init();
+			mainBarMgr.loadElements("UITab", true);
+			var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(mainBarMgr.mainContainer, "div", "HomeTab");
+			if (homeButton) {
+				var maxSpace = mainBarMgr.getElementSpace(mainBarMgr.mainContainer)-mainBarMgr.getElementSpace(mainBarMgr.arrowsContainer)-mainBarMgr.getElementSpace(homeButton);
+			} else {
+				var maxSpace = mainBarMgr.getElementSpace(mainBarMgr.mainContainer)-mainBarMgr.getElementSpace(mainBarMgr.arrowsContainer)-100;
+			}
+			mainBarMgr.checkAvailableSpace(maxSpace);
+			mainBarMgr.renderElements();
+			// Sub Manager initialization
+			var subBarMgr = uiBC.bcManagers[1];
+			subBarMgr.init();
+			subBarMgr.loadElements("ChildNodeItem", true);
+			subBarMgr.checkAvailableSpace();
+			subBarMgr.renderElements();
 		}
-		mainBarMgr.checkAvailableSpace(maxSpace);
-		mainBarMgr.renderElements();
-		// Sub Manager initialization
-		var subBarMgr = uiBC.bcManagers[1];
-		subBarMgr.init();
-		subBarMgr.loadElements("ChildNodeItem", true);
-		subBarMgr.checkAvailableSpace();
-		subBarMgr.renderElements();
-	}
-	// Page Managers initialization
-	if (uiBC.bcManagers.length >= 2) {
-		for (var i = 2; i < uiBC.bcManagers.length; i++) {
-			var currMgr = uiBC.bcManagers[i];
-			currMgr.init();
-			currMgr.loadElements("ChildNode", true);
-			currMgr.checkAvailableSpace();
-			currMgr.renderElements();
+		// Page Managers initialization
+		if (uiBC.bcManagers.length >= 2) {
+			for (var i = 2; i < uiBC.bcManagers.length; i++) {
+				var currMgr = uiBC.bcManagers[i];
+				currMgr.init();
+				currMgr.loadElements("ChildNode", true);
+				currMgr.checkAvailableSpace();
+				currMgr.renderElements();
+			}
 		}
 	}
 };

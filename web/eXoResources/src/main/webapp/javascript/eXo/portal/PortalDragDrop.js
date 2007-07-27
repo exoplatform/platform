@@ -11,7 +11,6 @@ PortalDragDrop.prototype.onLoad = function(e) {
 	var wizardEditBar = document.getElementById("WizardPageEditBar");
 	// Check if an EditBar exists on the page
 	var editBar = (portalEditBar != null) ? portalEditBar : ((wizardEditBar != null) ? wizardEditBar : null);
-	//console.dir(editBar);
 	if (editBar) {
 		// editBar exists only in layout mode
 	  var editButtons = new Array();
