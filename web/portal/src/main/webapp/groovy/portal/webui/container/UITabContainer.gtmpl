@@ -5,7 +5,10 @@
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	//jsmanager.addJavascript('eXo.portal.UIPortal.onLoads();');
 	//System.out.println(uicomponent.getParent().getParent()) ;
+	ArrayList children = uicomponent.getChildren();
+	
 %>
+<% if(children != null && children.size > 0) { %>
 <div class="UITabContainer">
 	<div class="UIHorizontalTabs">
 	  <div class="LeftHorizontalTabs">
@@ -80,3 +83,5 @@
 	</div>
 	
 </div>
+
+<% } %>
