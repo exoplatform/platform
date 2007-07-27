@@ -7,23 +7,23 @@
 }
 
 .UIPortlet .CONTROL-PORTLET .Content {
-  background: url('/eXoResources/icons/16x16/MiscIcons/RSS.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/RSS.gif') no-repeat center;
 }
 
 .UIPortlet .CONTROL-PORTLET .Account {
-  background: url('/eXoResources/icons/16x16/UserAccount.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserAccount.gif') no-repeat center;
 }
 
 .UIPortlet .CONTROL-PORTLET .Registry-Portlet {
-  background: url('/eXoResources/icons/16x16/RegistryPortlet.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/RegistryPortlet.gif') no-repeat center;
 }
 
 .UIPortlet .CONTROL-PORTLET .Site {
-  background: url('/eXoResources/icons/16x16/SiteMap.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SiteMap.gif') no-repeat center;
 }
 
 .UIPortlet .CONTROL-PORTLET .Login {
-  background: url('/eXoResources/icons/16x16/ToolIcons/Key.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Key.gif') no-repeat center;
 }
 
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
@@ -42,7 +42,7 @@
   float: left;
   width: 16px; height: 16px; 
   margin: 3px 5px 0px 0px;
-  background: url('/eXoResources/icons/16x16/BlueBoxLight.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueBoxLight.gif') no-repeat;
   cursor: pointer;
 }
 
@@ -74,6 +74,7 @@
   background: url('/eXoResources/icons/16x16/MacSkin/Minimize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
+  border: 1px solid red;
 }
 
 .UIPortlet .ConfigPortletIcon {
@@ -108,7 +109,7 @@
 }
 
 .UIPortlet .PortletIcon{
-  background: url('/eXoResources/icons/16x16/DefaultPortletIcon.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPortletIcon.gif') no-repeat;
 }
 
 /*##############################- PortletLayoutDecorator  -################################*/
@@ -136,8 +137,6 @@
 .PortletLayoutDecorator .MiddleLeft {
   background: url('background/LayoutML7x1.gif') repeat-y left;
   padding: 0px 0px 0px 7px ;
-  
-  
 }
 
 .PortletLayoutDecorator .MiddleRight {
@@ -229,7 +228,7 @@
 	float: left;
   width: 18px; height: 16px;
   margin: 4px 0px 0px 5px;
-  background: url('/eXoResources/icons/16x16/DefaultContainerIcon.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {

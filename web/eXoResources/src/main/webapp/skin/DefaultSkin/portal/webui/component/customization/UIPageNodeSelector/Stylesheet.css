@@ -30,13 +30,6 @@
   margin-left: 10px;
 }
 
-/*
-	minh.js.exo
-	fix bug :  PORTAL-658
-	padding: 0px 0px 10px 0px;
-	}
-*/
-
 .UIPageNodeSelector .UITree {
   padding: 0px 0px 20px 0px;
   background: white;
@@ -84,20 +77,20 @@
 }
 
 .UIPageNodeSelector .OrganizationIcon {
-  background: url('/eXoResources/icons/16x16/MiniOrangeBoxPage.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiniOrangeBoxPage.gif') no-repeat;
 }
 
 .UIPageNodeSelector .PortalAdminIcon {
-  background: url('/eXoResources/icons/16x16/16x16/PortalAdmin.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/PortalAdmin.gif') no-repeat;
 }
 
 .UIPageNodeSelector .NavigationPortalIcon {
-  background: url('/eXoResources/icons/16x16/DefaultPageIcon.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat;
 }
 
 /*Created by Vu Duy Tu*/
 .UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
-	background: url('/eXoResources/icons/24x24/EditNavigation.gif') no-repeat left top;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/EditNavigation.gif') no-repeat left top;
 	cursor: pointer;
 	float: left; margin-left: -1px;
 	height: 21px; width: 21px;

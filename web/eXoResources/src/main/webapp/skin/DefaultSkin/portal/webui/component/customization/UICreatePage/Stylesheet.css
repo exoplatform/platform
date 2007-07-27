@@ -47,7 +47,7 @@
 }
 
 .UICreatePage .NavigationPortalIcon {
-  background: url('/eXoResources/icons/16x16/MiniOrangeBoxPage.gif') ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiniOrangeBoxPage.gif') ;
 }
 
 .UICreatePage .UITree {
@@ -135,7 +135,7 @@
 
 .BackNavigationContent .BackNavigationIcon {
 	height: 16px;
-	background: url('/eXoResources/icons/16x16/BackIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BackIcon.gif') no-repeat;
 	padding-left: 22px;
 	cursor: pointer ;
 }

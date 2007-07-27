@@ -23,7 +23,7 @@
 
 .UIWidgetContainerManagement .CategoryTitleBar {
 	height: 20px;
-	background: url(/eXoResources/background/TitleBar1x20.gif) repeat-x;
+	background: url(/eXoResources/background/DefaultSkin/TitleBar1x20.gif) repeat-x;
 	border-bottom: 1px #b7b7b7 solid;
 }
 
@@ -36,7 +36,7 @@
 .UIWidgetContainerManagement .AddContainerIcon {
 	width: 16px;
 	height: 16px;
-	background: url(/eXoResources/icons/16x16/BlueCirclePlus.gif);
+	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif);
 	float: right;
 	margin: 2px;
 	display: inline;
@@ -45,14 +45,14 @@
 .UIWidgetContainerManagement .EditContainerIcon {
 	width: 16px;
 	height: 16px;
-	background: url(/eXoResources/icons/16x16/EditIcon.gif);
+	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif);
 	float: right;
 	margin: 2px ;
 	display: inline;
 }
 
 .UIWidgetContainerManagement .RemoveContainerIcon{
-	background: url(/eXoResources/icons/16x16/DustBin.gif) no-repeat center;
+	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif) no-repeat center;
 	width: 16px;
 	height: 16px;
 	float: right;
@@ -85,7 +85,7 @@
 	color: #058ee6;
 	text-decoration: none;
 	height: 21px; line-height: 21px;
-	background: #f5f5f5 url(/eXoResources/icons/16x16/BlueCheckerIcon.gif) no-repeat left center;
+	background: #f5f5f5 url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon.gif) no-repeat left center;
 	padding-left: 17px;
 }
 
@@ -125,7 +125,7 @@
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .RemoveContainerAction{
-	background: url(/eXoResources/icons/16x16/DustBin.gif) no-repeat left center;
+	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif) no-repeat left center;
 	padding:0px 55px 0px 23px;
 	height: 22px; line-height: 22px;
 	float: right;

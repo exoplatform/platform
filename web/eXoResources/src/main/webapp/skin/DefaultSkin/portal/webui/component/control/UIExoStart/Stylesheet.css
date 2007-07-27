@@ -132,7 +132,7 @@
 
 .UIExoStart .StartMenuContainer .PageNodeIcon {
   height: 35px ;
-  background: url('/eXoResources/icons/16x16/DefaultPageIcon.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left ;
   padding: 0px 0px 0px 18px ;
   margin: 0px 0px 0px 5px ;
 }
@@ -193,7 +193,7 @@
 
 .UIExoStart .StartMenuContainer .BlackArrowIcon {
   height: 33px ;
-  background: url('/eXoResources/icons/16x16/GrayNextArrow.gif') no-repeat right ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat right ;
   padding: 0px 25px 0px 0px ;
   display: inherit;
   visibility: inherit;

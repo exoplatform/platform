@@ -23,7 +23,6 @@
 }
 	
 .UIRightClickPopupMenu .SelectedMenuItem {
-  clear: both;
   cursor: pointer;
   line-height: 26px;
   background: #dee4f2;
@@ -31,69 +30,53 @@
 
 .UIRightClickPopupMenu .ItemIcon {
   margin: 5px; margin-left: 7px;
-  float: left;
+  padding-left: 20px;
+  line-height: 20px;
 }
 
 .UIRightClickPopupMenu .AddNode16x16Icon{
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif') no-repeat;
+  width: auto;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif') no-repeat left center;
 }
 
 .UIRightClickPopupMenu .EditPageNode16x16Icon{
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditPageNode.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditPageNode.gif') no-repeat left center;
 }
 
 .UIRightClickPopupMenu .EditSelectedNode16x16Icon{
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditNode.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditNode.gif') no-repeat left center;
 }
 
 .UIRightClickPopupMenu .CopyNode16x16Icon{
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/CopyIcon.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/CopyIcon.gif') no-repeat left center;
 }
 
 .UIRightClickPopupMenu .CutNode16x16Icon{
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Cut.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Cut.gif') no-repeat left center;
 }
 
 .UIRightClickPopupMenu .PasteNode16x16Icon{
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/PasteIcon.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/PasteIcon.gif') no-repeat left center;
 }
 
 .UIRightClickPopupMenu .DeleteNode16x16Icon{
-  width: 16px;
-  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat left center;
 }
 
 .UIRightClickPopupMenu .PasteNavigation16x16Icon {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/PasteIcon.gif') no-repeat;
-  width: 16px; height: 16px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/PasteIcon.gif') no-repeat left center;
 }
 
 .UIRightClickPopupMenu .DeleteNavigation16x16Icon {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat;
-  width: 16px; height: 16px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat left center;
 }
 
 .UIRightClickPopupMenu .EditNavigation16x16Icon {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Pencil.gif') no-repeat;
-  width: 16px; height: 16px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Pencil.gif') no-repeat left center;
 }
 
 .UIRightClickPopupMenu .SaveNavigation16x16Icon {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/FloppyDisk.gif') no-repeat center;
-  width: 16px; height: 16px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/FloppyDisk.gif') no-repeat left center;
 }
 
 .UIRightClickPopupMenu a {

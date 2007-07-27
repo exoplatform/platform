@@ -9,15 +9,6 @@
 	margin: 13px 2px 0px 105px; 
 }
 
-
-/*
-	minh.js.exo
-	fix bug :  PORTAL-658
-	.UIPageManagement .UITree .TreeContainer .Node {
-		height: 20px;
-	}
-*/
-
 .UIPageManagement .UITree  {
 	overflow: hidden;
 }
@@ -68,35 +59,35 @@
 
 .UIPageManagement .RollbackIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/RollBackIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/RollBackIcon.gif') no-repeat;
 }
 
 .UIPageManagement .FinishIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/FinishIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/FinishIcon.gif') no-repeat;
 }
 
 .UIPageManagement .SaveNavigationIcon  {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/SaveIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/SaveIcon.gif') no-repeat;
 }
 
 .UIPageManagement .AbortIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/AbortIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/AbortIcon.gif') no-repeat;
 }
 
 .UIPageManagement .CreateNavigationIcon {
   width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/EditNavigationIcon.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/EditNavigationIcon.gif') no-repeat;
 }
 
 .UIPageManagement .EditNavigationIcon {
   width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/EditNavigationIcon.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/EditNavigationIcon.gif') no-repeat;
 }
 
 .UIPageManagement .BackIcon {
   width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/BackIcon.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BackIcon.gif') no-repeat;
 }

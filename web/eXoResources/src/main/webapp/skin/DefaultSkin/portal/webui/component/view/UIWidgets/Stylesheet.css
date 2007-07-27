@@ -113,19 +113,19 @@
 }	
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollDownButton{
-	background: url('/eXoResources/icons/16x16/GrayDownArrow.gif') no-repeat center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollDownButton{
-	background: url('/eXoResources/icons/16x16/BlueDownArrow.gif') no-repeat center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueDownArrow.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollUpButton{
-	background: url('/eXoResources/icons/16x16/BlueUpArrow.gif') no-repeat center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueUpArrow.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollUpButton{
-	background: url('/eXoResources/icons/16x16/GrayUpArrow.gif') no-repeat center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayUpArrow.gif') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .AddWidgetButton{

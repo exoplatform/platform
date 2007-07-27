@@ -240,15 +240,9 @@
   height:100%;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UITab {
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIGrid .ActionContainer {  
   width: 22px; height: 16px;
   margin: auto ;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIGrid th {
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
@@ -298,7 +292,7 @@
 }
 
 .UIOrganizationPortlet .SelectUserIcon {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GreenCheckerIcon.gif') center ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/Check.png') center ;
 }
 
 /*#######################  UIMemberShipManagement #################################*/

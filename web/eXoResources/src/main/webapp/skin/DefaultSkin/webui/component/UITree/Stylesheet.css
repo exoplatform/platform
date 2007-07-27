@@ -20,7 +20,7 @@
 .UITree .TreeLevelContainer .LevelUpArrowIcon {
   float: left;
   width: 26px; line-height: 18px;
-  background: url(/eXoResources/icons/24x24/BlueUpLevelArrow.gif) no-repeat;
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow.gif) no-repeat;
 }
 
 .UITree .TreeContainer .Node {
@@ -77,9 +77,9 @@
 
 /** ################# Icons ###################*/
 .UITree .TreeContainer .GroupAdminIcon {
-  background: url('/eXoResources/icons/24x24/NormalGroup.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/NormalGroup.gif') no-repeat ;
 }
 
 .UITree .TreeContainer .PortalIcon {
-  background: url('/eXoResources/icons/24x24/SelectedGroup.gif') no-repeat ;  
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/SelectedGroup.gif') no-repeat ;  
 }

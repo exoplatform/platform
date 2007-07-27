@@ -46,20 +46,20 @@
 
 .UIPortalManagement .RollbackIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/RollBackIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/RollBackIcon.gif') no-repeat;
 }
 
 .UIPortalManagement .FinishIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/FinishIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/FinishIcon.gif') no-repeat;
 }
 
 .UIPortalManagement .SaveIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/SaveIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/SaveIcon.gif') no-repeat;
 }
 
 .UIPortalManagement .AbortIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/AbortIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/AbortIcon.gif') no-repeat;
 }
