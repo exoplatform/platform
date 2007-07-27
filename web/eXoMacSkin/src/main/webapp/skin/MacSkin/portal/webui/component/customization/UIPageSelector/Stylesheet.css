@@ -64,7 +64,7 @@
   float: left;
   margin: 5px 4px 0px 10px;
   cursor: pointer;
-  background: url('MacSkin/background/PageBrowser.gif') no-repeat;
+  background: url('background/PageBrowser.gif') no-repeat;
 }
 
 .UIPageSelector .UIFormInfo {
@@ -74,11 +74,11 @@
 
 .UIPageSelector .FormInfoIcon {
   padding: 15px 15px 20px 15px;
-  background: url('MacSkin/background/FormInfoIcon80x80.gif') no-repeat center right ;
+  background: url('background/FormInfoIcon80x80.gif') no-repeat center right ;
 }
 
 .UIPageSelector .FormInfoBG {
-  background: url('MacSkin/background/FormInfoBG360x1.gif') repeat-y right ;
+  background: url('background/FormInfoBG360x1.gif') repeat-y right ;
   padding-right: 30px;
   height: 100%;
 }

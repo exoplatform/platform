@@ -39,18 +39,18 @@
 }
 
 .UIInfoBar .BlueRoundedStyle .LeftBar {
-  background: url('MacSkin/background/LeftControlBar11x23.png') no-repeat left ;
+  background: url('background/LeftControlBar11x23.png') no-repeat left ;
   padding: 0px 0px 0px 11px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .RightBar {
-  background: url('MacSkin/background/RightControlBar12x23.png') no-repeat right ;
+  background: url('background/RightControlBar12x23.png') no-repeat right ;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .MiddleBar {
   height: 23px ;
-  background: url('MacSkin/background/MiddleControlBar1x23.png') repeat-x ;
+  background: url('background/MiddleControlBar1x23.png') repeat-x ;
 }
 
 .UIInfoBar .BlueRoundedStyle .Title {
@@ -188,13 +188,13 @@
 }
 
 .UIInfoBar .SmoothStyle .RightBar {
-	background: url('MacSkin/background/RightSmoothStyle1x22.gif') no-repeat right;
+	background: url('background/RightSmoothStyle1x22.gif') no-repeat right;
 	padding: 0px 1px 0px 0px;
 }
 
 .UIInfoBar .SmoothStyle .MiddleBar {
   height: 22px;
-	background: url('MacSkin/background/MiddleSmoothStyle1x22.gif') repeat-x;
+	background: url('background/MiddleSmoothStyle1x22.gif') repeat-x;
 }
 
 /*######################-Smooth Style 26 -######################*/
@@ -203,18 +203,18 @@
 }
 
 .UIInfoBar .SmoothStyle26 .LeftBar {
-	background: url('MacSkin/background/LSmoothStyleBig2x26.gif') no-repeat left;
+	background: url('background/LSmoothStyleBig2x26.gif') no-repeat left;
 	padding: 0px 0px 0px 1px;
 }
 
 .UIInfoBar .SmoothStyle26 .RightBar {
-	background: url('MacSkin/background/RSmoothStyleBig2x26.gif') no-repeat right;
+	background: url('background/RSmoothStyleBig2x26.gif') no-repeat right;
 	padding: 0px 1px 0px 0px ;
 }
 
 .UIInfoBar .SmoothStyle26 .MiddleBar {
   height: 26px;
-	background: url('MacSkin/background/MSmoothStyleBig1x26.gif') repeat-x;
+	background: url('background/MSmoothStyleBig1x26.gif') repeat-x;
 }
 
 /*######################-GrayRoundedStyle-######################*/

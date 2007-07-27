@@ -4,7 +4,7 @@
 }
 
 .UIPortletOptions .PortletOptions {
-  background: url('MacSkin/background/PortletBG.gif');  
+  background: url('background/PortletBG.gif');  
   padding: 3px;
   border: solid 1px #afaeae ;
   padding: 5px ;
@@ -39,7 +39,7 @@
 }
 
 .UIPortletOptions .Title {
-  background: url('MacSkin/background/TitleBG1x25.png') repeat-x;
+  background: url('background/TitleBG1x25.png') repeat-x;
   height: 25px;
 }
 
@@ -82,7 +82,7 @@
 
 .UIPortletOptions .UIDropDownItemSelector .ComponentIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat top;
+	background: url('/eXoResources/icons/16x16/DefaultPortletIcon.png') no-repeat top;
 }
 
 #UIPortletOptions .BackNavigationContent {

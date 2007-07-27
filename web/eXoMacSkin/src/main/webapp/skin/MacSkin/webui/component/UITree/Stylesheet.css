@@ -1,5 +1,5 @@
 .UITree {
-  background: url('MacSkin/background/GrayLinedBG.gif');
+  background: url('background/GrayLinedBG.gif');
   border: solid #b7b7b7 1px ;    
   padding: 1px;
 }
@@ -19,7 +19,7 @@
 .UITree .TreeLevelContainer .LevelUpArrowIcon {
   float: left;
   width: 26px; line-height: 18px;
-  background: url('MacSkin/background/AquaBlueUpLevel.gif') no-repeat;
+  background: url('background/AquaBlueUpLevel.gif') no-repeat;
 }
 
 .UITree .TreeContainer .Node {
@@ -78,9 +78,9 @@
 
 /** ################# Icons ###################*/
 .UITree .TreeContainer .GroupAdminIcon {
-  background: url('/eXoResources/icons/24x24/MacSkin/NormalGroup.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/NormalGroup.gif') no-repeat ;
 }
 
 .UITree .TreeContainer .PortalIcon {
-  background: url('/eXoResources/icons/24x24/MacSkin/SelectedGroup.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/SelectedGroup.gif') no-repeat ;
 }

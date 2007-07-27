@@ -56,7 +56,7 @@
 
 .DeleteFileFrame {
 	float: left;
-	background: url("MacSkin/background/Delete.gif") no-repeat;
+	background: url("background/Delete.gif") no-repeat;
 	cursor: pointer;
 	padding-left: 23px;
 	margin-left: 5px;

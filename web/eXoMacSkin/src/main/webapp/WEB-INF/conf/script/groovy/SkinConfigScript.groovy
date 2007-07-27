@@ -1,4 +1,4 @@
 /***************************BannerPortlet**************************************************/
-SkinService.addSkin("CoreSkin", "Mac", "/eXoResources/skin/webui/component/MacStylesheet.css") ;
+SkinService.addSkin("CoreSkin", "Mac", "/eXoMacSkin/skin/MacSkin/webui/component/Stylesheet.css") ;
 
-SkinService.addSkin("PortalSkin","Mac", "/eXoResources/skin/portal/webui/component/UIPortalApplicationMacSkin.css");
+SkinService.addSkin("PortalSkin","Mac", "/eXoMacSkin/skin/MacSkin/portal/webui/component/UIPortalApplicationSkin.css");

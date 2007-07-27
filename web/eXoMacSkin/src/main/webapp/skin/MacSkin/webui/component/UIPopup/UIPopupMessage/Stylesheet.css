@@ -5,7 +5,7 @@
 
 .UIPopupMessages .UIHorizontalTabs {
 	height: 35px;
-	background: url(MacSkin/background/MessageTabBar1x35.gif) repeat-x top;
+	background: url(background/MessageTabBar1x35.gif) repeat-x top;
 	padding: 1px 4px 0px 4px;
 }
 
@@ -43,15 +43,15 @@
 }
 
 .UIPopupMessages .PopupMessageContainer .InfoMessageIcon {
-	background: url(MacSkin/background/InfoIcon.gif) no-repeat center ;
+	background: url(background/InfoIcon.gif) no-repeat center ;
 }
 
 .UIPopupMessages .PopupMessageContainer .WarningMessageIcon {
-	background: url(MacSkin/background/WarningIcon.gif) no-repeat center;
+	background: url(background/WarningIcon.gif) no-repeat center;
 }
 
 .UIPopupMessages .PopupMessageContainer .ErrorMessageIcon {
-	background: url(MacSkin/background/ErrorIcon.gif) no-repeat center;
+	background: url(background/ErrorIcon.gif) no-repeat center;
 }
 
 .UIPopupMessages .PopupMessageContainer .PopupMessage {
@@ -62,7 +62,7 @@
 }
 
 .UIPopupMessages .MessageActionBar {
-	background: url(MacSkin/background/MessageActionBar1x35.gif) repeat-x;
+	background: url(background/MessageActionBar1x35.gif) repeat-x;
 	height: 35px;
 }
 

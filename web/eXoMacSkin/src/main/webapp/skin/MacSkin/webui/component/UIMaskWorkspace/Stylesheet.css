@@ -118,7 +118,7 @@
   overflow: auto ;
   border: 1px solid #C3C3C3;
   text-transform: capitalize;
-  background: white url('MacSkin/background/ApplicationBackground165x65.gif') no-repeat left bottom;
+  background: white url('background/ApplicationBackground165x65.gif') no-repeat left bottom;
 }
 
 .UIAddApplication .ApplicationContentLabel {
@@ -161,7 +161,7 @@
 .UIAddApplication .AddButton {
 	float: right ; 
 	width: 24px ; height: 24px ;
-	background: url('MacSkin/icons/AddIcon.png') no-repeat center;
+	background: url('icons/AddIcon.png') no-repeat center;
   margin: 2px auto;
 	cursor: pointer ;
 }
@@ -169,14 +169,14 @@
 .UIAddApplication .SelectButton {
 	float: right ; 
 	width: 24px ; height: 24px ;
-	background: url("MacSkin/icons/SelectButton.png") no-repeat center;
+	background: url("icons/SelectButton.png") no-repeat center;
   margin: auto;
 	cursor: pointer ;
 }
 
 .UIAddApplication .ApplicationItemIcon {
 	width: 10px; height: 10px;
-	background: url('MacSkin/icons/ApplicationItemIcon.png') no-repeat ;
+	background: url('icons/ApplicationItemIcon.png') no-repeat ;
 	float: left;
 	margin: 6px 5px 0px 5px;
 }
@@ -225,12 +225,12 @@
 
 .UIGroupSelector .UIBreadcumbs .HomeIcon {
 	float: left;
-  background: url('/eXoResources/icons/16x16/MacSkin/NormalGroup.png') no-repeat;
+  background: url('/eXoResources/icons/16x16/NormalGroup.png') no-repeat;
   margin: 8px 0px 0px 5px;
 }
 
 .UIGroupSelector .TitleGroupSelector{
-  background: url('MacSkin/background/ThGridRepeatBg1x19.gif') repeat-x;
+  background: url('background/ThGridRepeatBg1x19.gif') repeat-x;
   border: 1px #b7b7b7 solid; 
   height: 20px; line-height: 20px; vertical-align: middle;
   padding-left: 15px;

@@ -56,9 +56,9 @@
 }
 
 .LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
-	background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat center;
+	background: url('/eXoResources/icons/16x16/EditIcon.png') no-repeat center;
 }
 
 .LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
-	background: url('/eXoResources/icons/16x16/MacSkin/DisableEditIcon.gif') no-repeat center;
+	background: url('/eXoResources/icons/16x16/DisableEditIcon.gif') no-repeat center;
 }

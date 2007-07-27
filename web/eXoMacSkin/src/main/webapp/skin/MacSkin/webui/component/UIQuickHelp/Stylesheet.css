@@ -7,17 +7,17 @@
 
 .UIQuickHelp .TopBar .TopBarLeft {
   padding-left: 7px;
-  background: url('MacSkin/background/QHBarTLBG7x26.gif') no-repeat left;
+  background: url('background/QHBarTLBG7x26.gif') no-repeat left;
 }
 
 .UIQuickHelp .TopBar .TopBarRight {
   padding-right: 2px;
-  background: url('MacSkin/background/QHBarTRBG2x26.gif') no-repeat right;
+  background: url('background/QHBarTRBG2x26.gif') no-repeat right;
 }
 
 .UIQuickHelp .TopBar .TopBarMiddle {
   height: 26px ;
-  background: url('MacSkin/background/QHBarTRepeatBG1x26.gif') repeat-x;
+  background: url('background/QHBarTRepeatBG1x26.gif') repeat-x;
 }
 
 .UIQuickHelp .TopBar .TopBarMiddle .TitleBar {
@@ -27,18 +27,18 @@
 
 .UIQuickHelp .TopBar .TopBarMiddle .TitleBar .BarLeft {
   padding-left: 1px;
-  background: url('MacSkin/background/QHTitleBarLBG1x26.gif') no-repeat left;
+  background: url('background/QHTitleBarLBG1x26.gif') no-repeat left;
 }
 
 .UIQuickHelp .TopBar .TopBarMiddle .TitleBar .BarRight {
   padding-right: 27px;
-  background: url('MacSkin/background/QHTitleBarRBG27x26.gif') no-repeat right;
+  background: url('background/QHTitleBarRBG27x26.gif') no-repeat right;
 }
 
 .UIQuickHelp .TopBar .TopBarMiddle .TitleBar .BarMiddle {
   height: 26px ;
   line-height: 26px;
-  background: url('MacSkin/background/QHTitleBarLBG1x26.gif') repeat-x;
+  background: url('background/QHTitleBarLBG1x26.gif') repeat-x;
 }
 
 .UIQuickHelp .TopBar .TopBarMiddle .TitleBar .Title {
@@ -51,7 +51,7 @@
   float: left;
   height: 24px ;  width: 24px;
   margin: 1px 7px 0px 3px;
-  background: url('/eXoResources/icons/24x24/MacSkin/HelpBox.gif') no-repeat;
+  background: url('/eXoResources/icons/24x24/HelpBox.gif') no-repeat;
 }
 
 .UIQuickHelp .TopBar .TopBarMiddle .TitleBar .BrownBook16x16Icon {
@@ -84,17 +84,17 @@
 
 .UIQuickHelp .BottomBar .BottomBarLeft {
   padding-left: 2px;
-  background: url('MacSkin/background/QHBarBLBG2x27.gif') no-repeat left;
+  background: url('background/QHBarBLBG2x27.gif') no-repeat left;
 }
 
 .UIQuickHelp .BottomBar .BottomBarRight {
   padding-right: 5px;
-  background: url('MacSkin/background/QHBarBRBG5x27.gif') no-repeat right;
+  background: url('background/QHBarBRBG5x27.gif') no-repeat right;
 }
 
 .UIQuickHelp .BottomBar .BottomBarMiddle {
   height: 27px;
-  background: url('MacSkin/background/QHBarBRepeatBG1x27.gif') repeat-x;
+  background: url('background/QHBarBRepeatBG1x27.gif') repeat-x;
 }
 
 .UIQuickHelp .BottomBar .ButtonBar {
@@ -106,13 +106,13 @@
 .UIQuickHelp .BottomBar .ButtonBar .ButtonBarLeft {
 	height: 20px ;
   padding-left: 23px ;
-  background: url('MacSkin/background/QHButtonBarLBG23x27.gif') no-repeat left;
+  background: url('background/QHButtonBarLBG23x27.gif') no-repeat left;
 }
 
 .UIQuickHelp .BottomBar .ButtonBar .ButtonBarRight {
 	height: 20px ;
   padding-right: 1px ;
-  background: url('MacSkin/background/QHButtonBarMBG1x27.gif') repeat-x;
+  background: url('background/QHButtonBarMBG1x27.gif') repeat-x;
 }
 
 .UIQuickHelp .BottomBar .BackButton {
@@ -132,7 +132,7 @@
 }
 
 .UIQuickHelp .UIQuickHelpContentPage ul {
-   list-style-image: url('MacSkin/background/BlueSquareBg.gif');
+   list-style-image: url('background/BlueSquareBg.gif');
 }
 
 .UIQuickHelp .UIQuickHelpContentPage li {

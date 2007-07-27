@@ -6,7 +6,7 @@
   float: left;
   margin-top: 10px;
   width: 16px; height: 16px;
-  background: url('MacSkin/background/PopupWindowIcon.gif') no-repeat;
+  background: url('background/PopupWindowIcon.gif') no-repeat;
 }
 
 .UIPopupWindow .PopupTitleIconRight {
@@ -29,35 +29,35 @@
   margin-top: 10px;
   cursor: pointer;
   width: 16px; height: 16px;
-  background: url('MacSkin/background/CloseButtonIcon.gif') no-repeat;
+  background: url('background/CloseButtonIcon.gif') no-repeat;
 }
 
 .UIPopupWindow .TopLeftCornerDecorator {
-  background: url('MacSkin/background/PopupWindowTL15x29.png') no-repeat left;
+  background: url('background/PopupWindowTL15x29.png') no-repeat left;
   padding-left: 15px;
 }
 
 .UIPopupWindow .TopCenterDecorator {
-  background: url('MacSkin/background/PopupWindowTC1x29.png') repeat-x;
+  background: url('background/PopupWindowTC1x29.png') repeat-x;
   height: 29px; 
 }
 
 .UIPopupWindow .TopRightCornerDecorator {
-  background: url('MacSkin/background/PopupWindowTR15x29.png') no-repeat right ;
+  background: url('background/PopupWindowTR15x29.png') no-repeat right ;
   padding-right: 15px;
 }
 
 .UIPopupWindow .MiddleLeftSideDecorator {
-  background: url('MacSkin/background/PopupWindowML8x16.png') repeat-y left;
+  background: url('background/PopupWindowML8x16.png') repeat-y left;
   padding-left: 8px ;  
 }
 
 .UIPopupWindow .MiddleCenterDecorator {
-  background: url('MacSkin/background/PopupWindowMC1x16.png');
+  background: url('background/PopupWindowMC1x16.png');
 }
 
 .UIPopupWindow .MiddleRightSideDecorator {
-  background: url('MacSkin/background/PopupWindowMR8x16.png') repeat-y right;
+  background: url('background/PopupWindowMR8x16.png') repeat-y right;
   padding-right: 8px ;  
 }
 
@@ -80,23 +80,23 @@
 .UIPopupWindow .ResizeButton{
   width: 10px; height:10px; 
   float: right;
-  background: url('MacSkin/background/ResizeBG.gif') no-repeat ;
+  background: url('background/ResizeBG.gif') no-repeat ;
   cursor: nw-resize;
   display: none;
 }
 
 .UIPopupWindow .BottomLeftCornerDecorator {
-  background: url('MacSkin/background/LeftBottomPopupWindow10x24.png') no-repeat left ;
+  background: url('background/LeftBottomPopupWindow10x24.png') no-repeat left ;
   padding-left: 10px;
 }
 
 .UIPopupWindow .BottomCenterDecorator {
-  background: url('MacSkin/background/CenterBottomPopupWindow1x24.png') repeat-x;
+  background: url('background/CenterBottomPopupWindow1x24.png') repeat-x;
   height: 24px;
 }
 
 .UIPopupWindow .BottomRightCornerDecorator {
-  background: url('MacSkin/background/RightBottomPopupWindow11x24.png') no-repeat right ;
+  background: url('background/RightBottomPopupWindow11x24.png') no-repeat right ;
   padding-right: 11px ;  
 }
 
@@ -191,19 +191,19 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopLeftCornerDecorator {
-	background: url('MacSkin/background/TLMessageDecorator17x32.png') no-repeat left bottom; 
+	background: url('background/TLMessageDecorator17x32.png') no-repeat left bottom; 
 	padding-left: 17px;
 	height: 31px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopRightCornerDecorator {
-	background: url('MacSkin/background/TRMessageDecorator18x32.png') no-repeat right bottom; 
+	background: url('background/TRMessageDecorator18x32.png') no-repeat right bottom; 
 	padding-right: 18px;
 	height: 31px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopCenterDecorator {
-	background: url('MacSkin/background/TCMessageDecorator1x32.png') repeat-x bottom ; 
+	background: url('background/TCMessageDecorator1x32.png') repeat-x bottom ; 
 	line-height: 31px;
 	height: 31px;
 }
@@ -219,18 +219,18 @@
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitleIcon {
 	width: 25px;	height: 24px;
-	background: url('MacSkin/background/MessageIcon.gif') no-repeat center;
+	background: url('background/MessageIcon.gif') no-repeat center;
 	float: left;
 	margin: 9px 0px 0px 4px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleLeftSideDecorator {
-	background: url('MacSkin/background/MLMessageDecorator10x1.png') repeat-y left; 
+	background: url('background/MLMessageDecorator10x1.png') repeat-y left; 
 	padding-left: 10px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleRightSideDecorator {
-	background: url('MacSkin/background/MRMessageDecorator10x1.png') repeat-y right; 
+	background: url('background/MRMessageDecorator10x1.png') repeat-y right; 
 	padding-right: 10px;
 }
 
@@ -240,7 +240,7 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomLeftCornerDecorator {
-	background: url('MacSkin/background/BLMessageDecorator17x19.png') no-repeat left; 
+	background: url('background/BLMessageDecorator17x19.png') no-repeat left; 
 	padding-left: 17px; 
 }
 
@@ -256,12 +256,12 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomRightCornerDecorator {
-	background: url('MacSkin/background/BRMessageDecorator19x19.png') no-repeat right; 
+	background: url('background/BRMessageDecorator19x19.png') no-repeat right; 
 	padding-right: 19px; 
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomCenterDecorator {
-	background: url('MacSkin/background/BCMessageDecorator1x19.png') repeat-x ; 
+	background: url('background/BCMessageDecorator1x19.png') repeat-x ; 
 	height: 19px;
 }
 

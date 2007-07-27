@@ -23,7 +23,7 @@
 
 .UIWidgetContainerManagement .CategoryTitleBar {
 	height: 20px;
-	background: url(/eXoResources/background/MacSkin/TitleBG1x19.gif) repeat-x bottom;
+	background: url(/eXoResources/background/TitleBG1x19.gif) repeat-x bottom;
 	border-bottom: 1px #b7b7b7 solid;
 }
 
@@ -36,7 +36,7 @@
 .UIWidgetContainerManagement .AddContainerIcon {
 	width: 16px;
 	height: 16px;
-	background: url(/eXoResources/icons/16x16/MacSkin/AddIcon.gif);
+	background: url(/eXoResources/icons/16x16/AddIcon.gif);
 	float: right;
 	margin: 2px 5px;
 	display: inline;
@@ -68,7 +68,7 @@
 	color: #0e3fa8;
 	text-decoration: none;
 	height: 21px; line-height: 21px;
-	background: #f0f0f0 url(/eXoResources/icons/16x16/MacSkin/CheckerIcon.gif) no-repeat left center;
+	background: #f0f0f0 url(/eXoResources/icons/16x16/CheckerIcon.gif) no-repeat left center;
 	padding-left: 17px;
 }
 
@@ -101,14 +101,14 @@
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .ContainerDetail{
-	background: url(/eXoResources/background/MacSkin/Background1x4.png);
+	background: url(/eXoResources/background/Background1x4.png);
 	border: 1px #b7b7b7 solid;
 	padding: 20px 10px;
 	height: 221px;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .RemoveContainerAction{
-	background: url(/eXoResources/icons/16x16/MacSkin/DeleteIcon.gif) no-repeat left center;
+	background: url(/eXoResources/icons/16x16/DeleteIcon.gif) no-repeat left center;
 	padding:0px 55px 0px 23px;
 	height: 22px; line-height: 22px;
 	float: right;

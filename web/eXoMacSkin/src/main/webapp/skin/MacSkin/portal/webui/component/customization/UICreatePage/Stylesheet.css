@@ -3,7 +3,7 @@
 }
 
 .UICreatePage .CreatePageContainer {
-  background: url('MacSkin/background/LightGrayLinedBG1x4.gif');
+  background: url('background/LightGrayLinedBG1x4.gif');
   border: 1px solid #b7b7b7;
   padding-bottom: 8px;
 }
@@ -28,7 +28,7 @@
 .UICreatePage .PageNodeSelectorContainer {
   padding: 5px ;
   border: 1px #cdcdcd solid;
-  background: url('MacSkin/background/GrayLinedBG.gif');
+  background: url('background/GrayLinedBG.gif');
 }
 
 .UICreatePage .PageNodeSelectorContainer .UIVerticalSlideTabs {
@@ -44,33 +44,33 @@
 
 .UICreatePage .PageLayoutModeIcon {
   width: 32px; height: 32px;
-  background: url('MacSkin/background/PageLayout.gif') no-repeat;
+  background: url('background/PageLayout.gif') no-repeat;
 }
 
 .UICreatePage .PagePreviewIcon {
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/PreviesPageButton.png') no-repeat;
+  background: url('/eXoResources/icons/32x32/PreviesPageButton.png') no-repeat;
 }
 
 .UICreatePage .EditContainerIcon {
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/ShowContainerButton.png') no-repeat;
+  background: url('/eXoResources/icons/32x32/ShowContainerButton.png') no-repeat;
 }
 
 .UICreatePage .EditPortletIcon {
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/ShowPortletButton.png') no-repeat;
+  background: url('/eXoResources/icons/32x32/ShowPortletButton.png') no-repeat;
 }
 
 .UICreatePage .TreeSelectorTitle {
   text-align: center; font-size:11px;
   line-height: 20px; vertical-align:middle;
   border: 1px solid #afaeae ; margin-bottom: 6px;
-  background: url('MacSkin/background/TitleBG1x20.gif') repeat-x;
+  background: url('background/TitleBG1x20.gif') repeat-x;
 }
 
 .UICreatePage .NavigationPortalIcon {
-  background: url('/eXoResources/icons/16x16/MacSkin/Portal.gif') ;
+  background: url('/eXoResources/icons/16x16/Portal.gif') ;
 }
 
 .UICreatePage .UITree {
@@ -89,7 +89,7 @@
 }
 
 .UICreatePage .UITree .TreeLevelContainer .LevelUpArrowIcon {
-  background: url('MacSkin/background/AquaBlueUpLevel.gif') no-repeat;
+  background: url('background/AquaBlueUpLevel.gif') no-repeat;
   width: 26px; line-height: 18px;
   margin-left: 8px;
 }

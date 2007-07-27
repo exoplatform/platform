@@ -4,47 +4,47 @@
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalOfficeImage {
   height: 230px;
-  background: url('MacSkin/background/OfficeImage.jpg') no-repeat center;
+  background: url('background/OfficeImage.jpg') no-repeat center;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PortalDefaultImage {
   height: 230px;
-  background: url('MacSkin/background/DefaultImage.jpg') no-repeat center;
+  background: url('background/DefaultImage.jpg') no-repeat center;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .PageDefaultImage {
   height: 230px;
-  background: url('MacSkin/background/DefaultImage.jpg') no-repeat center;
+  background: url('background/DefaultImage.jpg') no-repeat center;
 }
 .UIItemSelector .ItemDetailList .TemplateContainer .PageDesktopImage {
   height: 230px;
-  background: url('MacSkin/background/DesktopImage.jpg') no-repeat center;
+  background: url('background/DesktopImage.jpg') no-repeat center;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .SitePortalImage {
   height: 222px;
-  background: url('MacSkin/background/DefaultImage.jpg') no-repeat center bottom;
+  background: url('background/DefaultImage.jpg') no-repeat center bottom;
 }
 
 .UIItemSelector .ItemDetailList .TemplateContainer .WebOSPortalImage {
   height: 222px;
-  background: url('MacSkin/background/DesktopImage.jpg') no-repeat center bottom;
+  background: url('background/DesktopImage.jpg') no-repeat center bottom;
 }
 
 .UIItemSelector .TemplateContainer .DefaultImage {
   height: 230px;
-  background: url('MacSkin/background/DefaultImage.jpg') no-repeat center;
+  background: url('background/DefaultImage.jpg') no-repeat center;
   margin-top: 3px;
 }
 
 .UIItemSelector .TemplateContainer .DesktopImage {
-  background: url('MacSkin/background/DesktopImage.jpg') no-repeat center;
+  background: url('background/DesktopImage.jpg') no-repeat center;
   height: 230px;
   margin-top: 3px;
 }
 
 .UIItemSelector .ItemDetailList .LayoutHolder .DesktopImage {
-  background: url('MacSkin/background/DesktopLayout.jpg') no-repeat center;
+  background: url('background/DesktopLayout.jpg') no-repeat center;
   width: 275px;
   height: 175px;
   margin: auto;
@@ -107,7 +107,7 @@
 
 .UIItemSelector .RightColumnStyle .ItemListTitle .ArrowS1Down16x16Icon {
   margin: 3px 0px 0px 50px;
-  background: url('/eXoResources/icons/16x16/MacSkin/GrayAquaDownArrow.png') no-repeat;
+  background: url('/eXoResources/icons/16x16/GrayAquaDownArrow.png') no-repeat;
   width: 18px; height: 18px;
 }
 
@@ -128,13 +128,13 @@
 
 .UIItemSelector .RightColumnStyle .ItemListIcon {
 	width: 16px; height: 16px;
-	background: url('MacSkin/icon/16x16/ItemListIcon.png') no-repeat;
+	background: url('icon/16x16/ItemListIcon.png') no-repeat;
 	margin-top: 3px;
 }
 
 .UIItemSelector .RightColumnStyle .ViewListIcon {
 	width: 16px; height: 16px;
-	background: url('MacSkin/icon/16x16/ViewListIcon.png') no-repeat;
+	background: url('icon/16x16/ViewListIcon.png') no-repeat;
 	margin-top: 3px;
 }
 
@@ -146,14 +146,14 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .LeftItem {
-  background: url('MacSkin/background/LeftDefaultItem13x24.gif') no-repeat left;
+  background: url('background/LeftDefaultItem13x24.gif') no-repeat left;
   padding-left: 13px;
   height: 24px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .RightItem {
   height: 24px; line-height: 24px;
-  background: url('MacSkin/background/RightDefaultItem1x24.gif') repeat-x;
+  background: url('background/RightDefaultItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .ItemTitle {
@@ -169,14 +169,14 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .LeftItem {
-  background: url('MacSkin/background/LeftOverItem13x24.gif') no-repeat left;
+  background: url('background/LeftOverItem13x24.gif') no-repeat left;
   padding-left: 13px;
   height: 24px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .RightItem {
   height: 24px; line-height: 24px; 
-  background: url('MacSkin/background/RightOverItem1x24.gif') repeat-x;
+  background: url('background/RightOverItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .ItemTitle {
@@ -193,14 +193,14 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .LeftItem {
-  background: url('MacSkin/background/LeftSelectedItem13x24.gif') no-repeat left;
+  background: url('background/LeftSelectedItem13x24.gif') no-repeat left;
   padding-left: 13px;
   height: 24px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .RightItem {
   height: 24px; line-height: 24px; 
-  background: url('MacSkin/background/RightSelectedItem1x24.gif') repeat-x;
+  background: url('background/RightSelectedItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .ItemTitle {
@@ -222,7 +222,7 @@
 
 .UIItemSelector .RightColumnBigItemStyle .ItemListContainer .ItemList {
   border: 1px #b7b7b7 solid;
-  background: #ffffff url('MacSkin/background/ProfileImage.jpg') no-repeat bottom center;
+  background: #ffffff url('background/ProfileImage.jpg') no-repeat bottom center;
   height: 290px;
 }
 
@@ -240,7 +240,7 @@
   border: solid 1px #b7b7b7;
   font-weight: bold; 
   margin-bottom: 2px;
-  background: url('/eXoResources/background/MacSkin/TitleBG1x19.gif') repeat-x;
+  background: url('/eXoResources/background/TitleBG1x19.gif') repeat-x;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ImageDecorator {
@@ -399,13 +399,13 @@
 
 .UIItemSelector .LeftColumnStyle .ItemListIcon {
 	width: 16px; height: 16px;
-	background: url('MacSkin/icon/16x16/ItemListIcon.png') no-repeat;
+	background: url('icon/16x16/ItemListIcon.png') no-repeat;
 	margin-top: 3px;
 }
 
 .UIItemSelector .LeftColumnStyle .ViewListIcon {
 	width: 16px; height: 16px;
-	background: url('MacSkin/icon/16x16/ViewListIcon.png') no-repeat;
+	background: url('icon/16x16/ViewListIcon.png') no-repeat;
 	margin-top: 3px;
 }
 
@@ -417,14 +417,14 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .LeftItem {
-  background: url('MacSkin/background/LeftDefaultItem13x24.gif') no-repeat left;
+  background: url('background/LeftDefaultItem13x24.gif') no-repeat left;
   padding-left: 13px;
   height: 24px ;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .RightItem {
   height: 24px; line-height: 24px; 
-  background: url('MacSkin/background/RightDefaultItem1x24.gif') repeat-x;
+  background: url('background/RightDefaultItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .ItemTitle {
@@ -440,7 +440,7 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .LeftItem {
-  background: url('MacSkin/background/LeftOverItem13x24.gif') no-repeat left;
+  background: url('background/LeftOverItem13x24.gif') no-repeat left;
   padding-left: 13px;
   height: 24px ;
 }
@@ -448,7 +448,7 @@
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .RightItem {
   height: 24px; line-height: 24px; 
-  background: url('MacSkin/background/RightOverItem1x24.gif') repeat-x;
+  background: url('background/RightOverItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .ItemTitle {
@@ -465,14 +465,14 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .LeftItem {
-  background: url('MacSkin/background/LeftSelectedItem13x24.gif') no-repeat left;
+  background: url('background/LeftSelectedItem13x24.gif') no-repeat left;
   padding-left: 13px;
   height: 24px ;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .RightItem {
   height: 24px; line-height: 24px; 
-  background: url('MacSkin/background/RightSelectedItem1x24.gif') repeat-x;
+  background: url('background/RightSelectedItem1x24.gif') repeat-x;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .ItemTitle {
@@ -486,65 +486,65 @@
 
 .UIItemSelector .DefaultTemplate {
   width: 250px; height: 170px; margin: auto;
-  background: url('MacSkin/background/Default.jpg') no-repeat center;
+  background: url('background/Default.jpg') no-repeat center;
 }  
 
 .UIItemSelector .EmptyLayout {
   width: 270px; height: 170px; margin: auto;
-  background: url('MacSkin/background/EmptyPage.gif') no-repeat;
+  background: url('background/EmptyPage.gif') no-repeat;
 }
 
 .UIItemSelector .DesktopLayout {
   width: 250px; height: 170px; margin: auto;
-  background: url('MacSkin/background/DesktopImage.jpg') no-repeat;
+  background: url('background/DesktopImage.jpg') no-repeat;
 }
 
 .UIItemSelector .TwoColumnsLayout {
   width: 270px; height: 170px; margin: auto;
-  background: url('MacSkin/background/2Columns.gif') no-repeat;
+  background: url('background/2Columns.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeColumnsLayout {
   width: 270px; height: 170px; margin: auto;
-  background: url('MacSkin/background/3Columns.gif') no-repeat;
+  background: url('background/3Columns.gif') no-repeat;
 }
 
 .UIItemSelector .TwoColumnsOneRowLayout {
   width: 270px; height: 170px; margin: auto;
-  background: url('MacSkin/background/2Columns1Row.gif') no-repeat;
+  background: url('background/2Columns1Row.gif') no-repeat;
 }
 
 .UIItemSelector .TwoColumnsTwoRowsLayout {
   width: 270px; height: 170px; margin: auto;
-  background: url('MacSkin/background/2Columns2Rows.gif') no-repeat;
+  background: url('background/2Columns2Rows.gif') no-repeat;
 }
 
 .UIItemSelector .TwoRowsLayout {
   width: 270px; height: 170px; margin: auto;
-  background: url('MacSkin/background/2Rows.gif') no-repeat;
+  background: url('background/2Rows.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeRowsLayout {
   width: 270px; height: 170px; margin: auto;
-  background: url('MacSkin/background/3Rows.gif') no-repeat;
+  background: url('background/3Rows.gif') no-repeat;
 }
 
 .UIItemSelector .OneRowTwoColumnsLayout {
   width: 270px; height: 170px; margin: auto;
-  background: url('MacSkin/background/1Row2Columns.gif') no-repeat;
+  background: url('background/1Row2Columns.gif') no-repeat;
 }
 
 .UIItemSelector .TwoTabsLayout {
   width: 270px; height: 170px; margin: auto;
-  background: url('MacSkin/background/2Tabs.gif') no-repeat;
+  background: url('background/2Tabs.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeTabsLayout {
   width: 270px; height: 170px; margin: auto;
-  background: url('MacSkin/background/3Tabs.gif') no-repeat;
+  background: url('background/3Tabs.gif') no-repeat;
 }
 
 .UIItemSelector .ThreeRowsTwoColumnsLayout {
   width: 270px; height: 170px; margin: auto;
-  background: url('MacSkin/background/2Columns3Rows.gif') no-repeat;
+  background: url('background/2Columns3Rows.gif') no-repeat;
 }

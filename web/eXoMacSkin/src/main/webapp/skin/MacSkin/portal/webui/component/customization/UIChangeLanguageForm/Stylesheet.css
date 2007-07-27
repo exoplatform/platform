@@ -15,7 +15,7 @@
 }
 
 .UIChangeLanguageForm .UIItemSelector .ItemListContainer .ItemList {
-  background: white url('MacSkin/background/ItemListBg157x69.gif') no-repeat right bottom;
+  background: white url('background/ItemListBg157x69.gif') no-repeat right bottom;
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemDetailList {
@@ -68,7 +68,7 @@
 .UIChangeLanguageForm .ItemDetail .SelectedItem .Icon {
 	float: left;
 	height: 24px; width: 24px;
-  background: url('/eXoResources/icons/16x16/MacSkin/CheckerIcon.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/CheckerIcon.gif') no-repeat center;
 }
 
 .UIChangeLanguageForm .ItemDetail .NodeLabel {

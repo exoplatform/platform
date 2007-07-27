@@ -9,7 +9,7 @@
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
   float: left ; 
   width: 24px ; height: 16px ; 
-  background: url('MacSkin/background/DragArea2x2.gif');
+  background: url('background/DragArea2x2.gif');
   cursor: move ;
   margin: 5px 0px 0px 3px ;
 }
@@ -29,21 +29,21 @@
 .UIPortlet .EditPortletPropertiesIcon {
 	float: right;
 	width: 16px; height: 16px;
-	background: url('MacSkin/background/PencilButton.png') no-repeat;
+	background: url('background/PencilButton.png') no-repeat;
   margin: 4px 5px 2px 0px;
 }
 
 .UIPortlet .DeletePortletIcon {
 	float:right;
 	width: 16px; height:16px; 
-	background: url('/eXoResources/icons/16x16/MacSkin/CloseButton.gif') no-repeat;
+	background: url('/eXoResources/icons/16x16/CloseButton.gif') no-repeat;
   margin: 5px 0px 0px 0px;
 }
 
 .UIPortlet .MaximizedPortletIcon {
   float: left;
   width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/Maximize.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/Maximize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
 }
@@ -51,7 +51,7 @@
 .UIPortlet .MinimizedPortletIcon {
   float: left;
   width: 16px; height: 16px;  
-  background: url('/eXoResources/icons/16x16/MacSkin/Minimize.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/Minimize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
 }
@@ -59,14 +59,14 @@
 .UIPortlet .ConfigPortletIcon {
   float: left;
   width: 16px; height: 16px; 
-  background: url('/eXoResources/icons/16x16/MacSkin/Config.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/Config.gif') no-repeat;
   margin: 3px 10px 0px 5px;
 }
 
 .UIPortlet .EditPortletIcon {
   float: left;
   width: 16px; height: 16px;  
-  background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/Pencil.gif') no-repeat;
   margin: 4px 10px 0px 5px;
   cursor: pointer;
 }
@@ -74,7 +74,7 @@
 .UIPortlet .HelpPortletIcon {
   float: left;
   width: 16px; height: 16px;  
-  background: url('/eXoResources/icons/16x16/MacSkin/PortletHelp.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/PortletHelp.gif') no-repeat;
   margin: 4px 10px 0px 0px;
   cursor: pointer;
 }
@@ -82,13 +82,13 @@
 .UIPortlet .NormalPortletIcon {
   float: left ;
   width: 16px ; height: 16px ;  
-  background: url('/eXoResources/icons/16x16/MacSkin/Restore.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/Restore.gif') no-repeat ;
   margin: 3px 10px 0px 0px ;
   cursor: pointer ;
 }
 
 .UIPortlet .PortletIcon{
-  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat;
+  background: url('/eXoResources/icons/16x16/DefaultPortletIcon.png') no-repeat;
 }
 
 /*##############################- PortletLayoutDecorator  -################################*/
@@ -98,28 +98,28 @@
 
 .PortletLayoutDecorator .TopLeft {
   height: 7px ;
-  background: url('MacSkin/background/TopLeftLayout11x7.png') no-repeat left ;
+  background: url('background/TopLeftLayout11x7.png') no-repeat left ;
   padding: 0px 0px 0px 11px ;
 }
 
 .PortletLayoutDecorator .TopMiddle {
   height: 7px ;
-  background: url('MacSkin/background/TopCenterLayout1x7.png') repeat-x ;
+  background: url('background/TopCenterLayout1x7.png') repeat-x ;
 }
 
 .PortletLayoutDecorator .TopRight {
   height: 7px ;
-  background: url('MacSkin/background/TopRightLayout11x7.png') no-repeat right ;
+  background: url('background/TopRightLayout11x7.png') no-repeat right ;
   padding: 0px 11px 0px 0px ;
 }
 
 .PortletLayoutDecorator .MiddleLeft {
-  background: url('MacSkin/background/MiddleLeftLayout11x1.png') repeat-y left;
+  background: url('background/MiddleLeftLayout11x1.png') repeat-y left;
   padding: 0px 0px 0px 11px ;
 }
 
 .PortletLayoutDecorator .MiddleRight {
-  background: url('MacSkin/background/MiddleRightLayout11x1.png') repeat-y right;
+  background: url('background/MiddleRightLayout11x1.png') repeat-y right;
   padding-right: 11px ;
 }
 
@@ -135,17 +135,17 @@
 
 .PortletLayoutDecorator .BottomLeft {
   height: 12px ;
-  background: url('MacSkin/background/BottomLeftLayout11x12.png') no-repeat left ;
+  background: url('background/BottomLeftLayout11x12.png') no-repeat left ;
   padding: 0px 0px 0px 11px ;
 }
 
 .PortletLayoutDecorator .BottomMiddle {
   height: 12px ;
-  background: url('MacSkin/background/BottomCenterLayout1x12.png') repeat-x ;
+  background: url('background/BottomCenterLayout1x12.png') repeat-x ;
 }
 
 .PortletLayoutDecorator .BottomRight {
-  background: url('MacSkin/background/BottomRightLayout11x12.png') no-repeat right ;
+  background: url('background/BottomRightLayout11x12.png') no-repeat right ;
   padding: 0px 11px 0px 0px;
 }
 /*############### End Decorator ###################################################*/
@@ -155,7 +155,7 @@
 
 .UIContainer .LAYOUT-CONTAINER {
   height: 100%;
-  background: url('MacSkin/background/ContainerBackground1x4.gif') repeat;
+  background: url('background/ContainerBackground1x4.gif') repeat;
   border: solid 1px #7b7b7b ; border-bottom: solid 1px #1e1f1f;
   padding: 8px 0px 0px 0px ;
   margin: 0px 8px 7px 8px;
@@ -168,7 +168,7 @@
 .UIContainer .CONTROL-CONTAINER .DragControlArea {
   float: left ; 
   width: 24px ; height: 16px ; 
-  background: url('MacSkin/background/DragArea2x2.gif');
+  background: url('background/DragArea2x2.gif');
   cursor: move ;
   margin: 5px 0px 0px 3px ;
 }
@@ -181,14 +181,14 @@
 .UIContainer .EditContainerIcon {
 	float: right;
 	width: 16px; height: 16px;
-	background: url('MacSkin/background/PencilButton.png') no-repeat;
+	background: url('background/PencilButton.png') no-repeat;
   margin: 4px 5px 2px 0px;
 }
 
 .UIContainer .DeleteContainerIcon {
 	float:right;
 	width: 18px; height:18px; 
-  background: url('/eXoResources/icons/16x16/MacSkin/CloseButton.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/CloseButton.gif') no-repeat;
   margin: 5px 0px 0px 0px;
 }
 
@@ -196,11 +196,11 @@
 	float: left;
   width: 16px; height: 16px;
   margin: 3px 5px 0px 5px;
-  background: url('/eXoResources/icons/16x16/MacSkin/DefaultContainerIcon.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultContainerIcon.gif') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {
-  background: url('MacSkin/background/PortalBackground1x1.png');
+  background: url('background/PortalBackground1x1.png');
   border: solid 1px white ;
   padding: 8px 0px ;
 }

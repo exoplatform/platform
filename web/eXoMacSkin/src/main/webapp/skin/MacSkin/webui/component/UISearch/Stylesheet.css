@@ -23,7 +23,7 @@
 .UISearch .UISearchForm .QuickSet .AdvancedSearchIcon {
   margin: 7px 2px 0px 0px ;
   width: 24px ;  height: 24px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/AdvancedSearch.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/AdvancedSearch.gif') no-repeat ;
   float: left ;
 }
 
@@ -36,7 +36,7 @@
 .UISearch .UISearchForm .QuickSet .SimpleSearchIcon {
   margin: 7px 0px 0px 5px; 
   width: 32px ;  height: 32px ;
-  background: url('/eXoResources/icons/24x24/MacSkin/BlueMagnifier.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/BlueMagnifier.gif') no-repeat ;
   float: left ;
 }
 

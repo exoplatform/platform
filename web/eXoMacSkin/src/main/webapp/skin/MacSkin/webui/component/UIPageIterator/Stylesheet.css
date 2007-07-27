@@ -42,43 +42,43 @@
 */
 .UIPageIterator .LastTopPageIcon {
   vertical-align: middle ;
-  background: url('MacSkin/background/ScrollDoubleBackArrows.gif') no-repeat ;
+  background: url('background/ScrollDoubleBackArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .NextTopPageIcon {
-  background: url('MacSkin/background/ScrollDoubleNextArrows.gif') no-repeat ;
+  background: url('background/ScrollDoubleNextArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
  .UIPageIterator .LastPageIcon {
-  background: url('MacSkin/background/ScrollSingleBackArrow.gif') no-repeat ;
+  background: url('background/ScrollSingleBackArrow.gif') no-repeat ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .NextPageIcon {
-  background: url('MacSkin/background/ScrollSingleNextArrow.gif') no-repeat ;
+  background: url('background/ScrollSingleNextArrow.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .DisableLastTopPageIcon {
   vertical-align: middle ;
-  background: url('MacSkin/background/DoubleBackArrows.gif') no-repeat ;
+  background: url('background/DoubleBackArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIPageIterator .DisableNextTopPageIcon {
-  background: url('MacSkin/background/DoubleNextArrows.gif') no-repeat ;
+  background: url('background/DoubleNextArrows.gif') no-repeat ;
   cursor: pointer ;
 }
 
  .UIPageIterator .DisableLastPageIcon {
-  background: url('MacSkin/background/SingleBackArrow.gif') no-repeat ;
+  background: url('background/SingleBackArrow.gif') no-repeat ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .DisableNextPageIcon {
-  background: url('MacSkin/background/SingleNextArrow.gif') no-repeat ;
+  background: url('background/SingleNextArrow.gif') no-repeat ;
   cursor: pointer ;
 }
 /* End */
@@ -103,7 +103,7 @@
   padding: 0px 5px 1px 5px ;
   color: #333333 ;
   border: 1px solid #dfdfdf;
-  background: url('MacSkin/background/NumberBackground1x15.gif') repeat-x center;
+  background: url('background/NumberBackground1x15.gif') repeat-x center;
 }
 
 .UIPageIterator .Number a:hover {

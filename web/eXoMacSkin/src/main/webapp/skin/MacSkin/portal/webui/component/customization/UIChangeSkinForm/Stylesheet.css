@@ -2,7 +2,7 @@
 }
 
 .UIChangeSkinForm .UITabContent {
-  background: url('/eXoResources/background/MacSkin/Background1x4.png') repeat;
+  background: url('/eXoResources/background/Background1x4.png') repeat;
   border: none;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .UIChangeSkinForm .UIItemSelector .ItemListContainer .ItemList {
-  background: #fafafa url('MacSkin/background/ItemListBg157x103.gif') no-repeat bottom;
+  background: #fafafa url('background/ItemListBg157x103.gif') no-repeat bottom;
 }
 
 .UIChangeSkinForm .UIForm .HorizontalLayout .UIAction {

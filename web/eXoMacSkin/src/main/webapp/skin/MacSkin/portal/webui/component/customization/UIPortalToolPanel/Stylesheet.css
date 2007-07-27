@@ -9,19 +9,19 @@
 .UIPortalToolPanel {}
 
 .UIPortalToolPanel .Banner {
-  background: url('MacSkin/background/EditBannerRepeat1x121.jpg') repeat-x ;
+  background: url('background/EditBannerRepeat1x121.jpg') repeat-x ;
   height: 121px ;
   line-height: 121px ; text-align: center;
 }
 
 .UIPortalToolPanel .BannerLeft {
-  background: url('MacSkin/background/EditLeftBanner242x121.jpg') no-repeat left ;
+  background: url('background/EditLeftBanner242x121.jpg') no-repeat left ;
   float: left ;
   height: 121px ; width: 35%;
 }
 
 .UIPortalToolPanel .BannerMiddle {
-  background: url('MacSkin/background/EditMiddleBanner111x121.jpg') no-repeat center ;
+  background: url('background/EditMiddleBanner111x121.jpg') no-repeat center ;
   float: left ;
   height: 121px ; width: 32%;
 }
@@ -29,7 +29,7 @@
 .UIPortalToolPanel .BannerRight {
   float: right ;
   height: 121px ; width: 220px;
-  background: url('MacSkin/background/EditRightBanner220x121.jpg') no-repeat right ;
+  background: url('background/EditRightBanner220x121.jpg') no-repeat right ;
 }
 
 .UIPortalToolPanel .Body {
@@ -50,7 +50,7 @@
   border-bottom: 1px #d0d0d0 solid;
   border-right: 1px #d0d0d0 solid;
   padding: 10px 7px 10px 7px;
-  background: url('MacSkin/background/LightGrayLinedBG1x4.gif');
+  background: url('background/LightGrayLinedBG1x4.gif');
 }
 
 .UIPortalToolPanel .Footer {
@@ -59,19 +59,19 @@
 }
 
 .UIPortalToolPanel .Footer .LeftFooter {
-  background: url('MacSkin/background/LeftFooter28x32.gif') no-repeat left;
+  background: url('background/LeftFooter28x32.gif') no-repeat left;
   padding-left: 28px;
   height: 32px;
 }
 
 .UIPortalToolPanel .Footer .RightFooter {
-  background: url('MacSkin/background/RightFooter28x32.gif') no-repeat right;
+  background: url('background/RightFooter28x32.gif') no-repeat right;
   padding-right: 28px;
   height: 32px;
 }
 
 .UIPortalToolPanel .Footer .MiddleFooter {
-  background: url('MacSkin/background/FooterRepeat1x32.gif') repeat-x;
+  background: url('background/FooterRepeat1x32.gif') repeat-x;
   height: 32px;
 }
 
@@ -139,5 +139,5 @@
 	line-height: 27px ; 
 	font-weight: bold;
 	margin: 0px 0px 0px 0px;
-	background: url('MacSkin/background/TitleBG1x28.gif') repeat-x ;
+	background: url('background/TitleBG1x28.gif') repeat-x ;
 }

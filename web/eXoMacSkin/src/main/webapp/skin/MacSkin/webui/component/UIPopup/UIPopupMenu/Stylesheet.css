@@ -1,6 +1,6 @@
  .UIPopupMenu {
   display: none;
-  background: url('MacSkin/background/PopupMenuBG1x4.gif') repeat ;
+  background: url('background/PopupMenuBG1x4.gif') repeat ;
   text-align: left ;
   border: 1px solid gray ;
   cursor: default ;

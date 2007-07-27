@@ -14,12 +14,12 @@
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
   width: 32px;  height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/ShowContainerButton.png') no-repeat;
+  background: url('/eXoResources/icons/32x32/ShowContainerButton.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
   width: 32px;  height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/ShowPortletButton.png') no-repeat;
+  background: url('/eXoResources/icons/32x32/ShowPortletButton.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
@@ -27,24 +27,24 @@
   margin: 4px 7px;
   width: 32px;  height: 32px;
   cursor : pointer;
-  background: url('MacSkin/background/LayoutMode.gif') no-repeat center;
+  background: url('background/LayoutMode.gif') no-repeat center;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
   width: 32px;  height: 32px;  
-  background: url('/eXoResources/icons/32x32/MacSkin/PreviesButton.png') no-repeat;
+  background: url('/eXoResources/icons/32x32/PreviesButton.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
   width: 32px;  height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/EditPortalButton.png') no-repeat;
+  background: url('/eXoResources/icons/32x32/EditPortalButton.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .SavePortalIcon {
   float: left;
   width: 25px;  height: 24px;
   margin: 4px 0px 0px 7px;
-  background: url('MacSkin/background/Save.gif') no-repeat;
+  background: url('background/Save.gif') no-repeat;
 }
 
 .UIPortalManagement .UIToolbar .ControlToolbar {
@@ -53,20 +53,20 @@
 
 .UIPortalManagement .RollbackIcon {
 	width: 32px; height: 30px;
-	background: url('/eXoResources/icons/32x32/MacSkin/RollBackButton.png') no-repeat;
+	background: url('/eXoResources/icons/32x32/RollBackButton.png') no-repeat;
 }
 
 .UIPortalManagement .FinishIcon {
 	width: 32px; height: 30px;
-	background: url('/eXoResources/icons/32x32/MacSkin/FinishButton.png') no-repeat;
+	background: url('/eXoResources/icons/32x32/FinishButton.png') no-repeat;
 }
 
 .UIPortalManagement .SaveIcon {
 	width: 32px; height: 30px;
-	background: url('/eXoResources/icons/32x32/MacSkin/SaveButton.png') no-repeat;
+	background: url('/eXoResources/icons/32x32/SaveButton.png') no-repeat;
 }
 
 .UIPortalManagement .AbortIcon {
 	width: 32px; height: 30px;
-	background: url('/eXoResources/icons/32x32/MacSkin/AbortButton.png') no-repeat;
+	background: url('/eXoResources/icons/32x32/AbortButton.png') no-repeat;
 }

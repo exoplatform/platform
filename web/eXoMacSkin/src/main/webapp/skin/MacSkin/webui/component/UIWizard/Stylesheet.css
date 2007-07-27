@@ -6,7 +6,7 @@
 /*========================== Wizard Decorator ==========================*/
 
 .UIWizard .WizardDecorator .WizardMiddleRight {
-  background: url('MacSkin/background/WizardMR7x1.png') repeat-y right;
+  background: url('background/WizardMR7x1.png') repeat-y right;
   padding-right: 7px;  
 }
 
@@ -16,19 +16,19 @@
 
 .UIWizard .WizardDecorator .WizardBottomLeft {
   height: 8px; line-height: 8px;
-  background: url('MacSkin/background/WizardBL6x8.png') no-repeat left;
+  background: url('background/WizardBL6x8.png') no-repeat left;
   padding-left: 6px;
 }
 
 .UIWizard .WizardDecorator .WizardBottomRight {
   height: 8px; line-height: 8px;
-  background: url('MacSkin/background/WizardBR7x8.png') no-repeat right;
+  background: url('background/WizardBR7x8.png') no-repeat right;
   padding-right: 7px;
 }
 
 .UIWizard .WizardDecorator .WizardBottomCenter {
   height: 8px; line-height: 8px;
-  background: url('MacSkin/background/WizardBC1x8.png') repeat-x;
+  background: url('background/WizardBC1x8.png') repeat-x;
 }
 
 /*========================== Wizard Content ==============================*/
@@ -40,14 +40,14 @@
 
 .UIWizard .UIWizardContent .WizardStepTitleBar {
   height: 34px;
-  background: url('MacSkin/background/Background1x4.png');
+  background: url('background/Background1x4.png');
   border: solid 1px #aeaeae; border-bottom: none;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {
   float:left;
   width: 32px; height: 32px; 
-  background: url('MacSkin/icons/32x32/PageCreation.png') no-repeat;
+  background: url('icons/32x32/PageCreation.png') no-repeat;
   margin: 1px 8px 0px 8px;
 }
 
@@ -60,7 +60,7 @@
 .UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
   float: right;
   width: 32px; height: 32px;
-  background:  url('MacSkin/icons/32x32/HelpIcon.png') no-repeat;
+  background:  url('icons/32x32/HelpIcon.png') no-repeat;
   margin: 1px 10px 0px 0px;
   cursor: pointer;
 }
@@ -81,7 +81,7 @@
 .UIWizard .UIWizardContent .WizardControlBar {
   height: 34px;
   border: solid 1px #b7b7b7;
-  background: url('MacSkin/background/Background1x4.png');
+  background: url('background/Background1x4.png');
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar {
@@ -135,7 +135,7 @@
 /*========================== Start UIWizard Welcome ==============================*/
 .UIWizard .UIWizardWelcome {
   height: 233px;
-  background: url('MacSkin/background/WelcomeImage197x233.png') no-repeat left;
+  background: url('background/WelcomeImage197x233.png') no-repeat left;
   padding: 0px 0px 0px 210px ;
   margin: 0px;
 }
@@ -185,7 +185,7 @@
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/PageNode.gif ') no-repeat;
+  background: url('/eXoResources/icons/16x16/PageNode.gif ') no-repeat;
   margin: 5px 0px 0px 5px;
 }
 
@@ -243,7 +243,7 @@
 .UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer .TemplateImage {
   height: 240px; 
   overflow: auto;
-  background: url('MacSkin/background/TemplateImage.jpg') no-repeat bottom;
+  background: url('background/TemplateImage.jpg') no-repeat bottom;
   padding-top: 10px;
 }
 

@@ -3,7 +3,7 @@
 
 .UINodeIconSelector .LeftColumnStyle .ItemListContainer .ItemList {
   height: 240px;
-  background: white url('MacSkin/background/IconImage.gif') no-repeat bottom;
+  background: white url('background/IconImage.gif') no-repeat bottom;
 }
 
 .UINodeIconSelector .LeftColumnStyle .ItemListContainer .ItemDetailList {

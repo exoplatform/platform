@@ -35,19 +35,19 @@
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonLeft {
-  background: url('MacSkin/background/BlueAquaButtonL12x25.png') no-repeat left top;
+  background: url('background/BlueAquaButtonL12x25.png') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonRight {
-  background: url('MacSkin/background/BlueAquaButtonR12x25.png') no-repeat right top;
+  background: url('background/BlueAquaButtonR12x25.png') no-repeat right top;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
   line-height: 25px; 
   text-align: center;
-	background: url('MacSkin/background/BlueAquaButtonM1x25.png') repeat-x top;
+	background: url('background/BlueAquaButtonM1x25.png') repeat-x top;
 }
 
 /*##############################-Disabled ActionButton-################################*/
@@ -55,19 +55,19 @@
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonLeft {
-  background: url('MacSkin/background/GrayAquaButtonL12x25.png') no-repeat left top;
+  background: url('background/GrayAquaButtonL12x25.png') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonRight {
-  background: url('MacSkin/background/GrayAquaButtonR12x25.png') no-repeat right top;
+  background: url('background/GrayAquaButtonR12x25.png') no-repeat right top;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonMiddle {
 	line-height: 25px; 
 	text-align: center; 
-	background: url('MacSkin/background/GrayAquaButtonM1x25.png') repeat-x top;
+	background: url('background/GrayAquaButtonM1x25.png') repeat-x top;
 }
 
 .UIAction .ActionButton .DisabledStyle a {

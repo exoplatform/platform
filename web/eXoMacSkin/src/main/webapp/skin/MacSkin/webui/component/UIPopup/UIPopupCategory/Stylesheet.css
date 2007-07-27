@@ -10,46 +10,46 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
-  background: url('MacSkin/background/PopupCategoryTL5x19.png') no-repeat left;
+  background: url('background/PopupCategoryTL5x19.png') no-repeat left;
   padding-left: 5px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTC {
   height: 19px;
-  background: url('MacSkin/background/PopupCategoryTC1x19.png') repeat-x;
+  background: url('background/PopupCategoryTC1x19.png') repeat-x;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
-  background: url('MacSkin/background/PopupCategoryTR47x19.png') no-repeat right;
+  background: url('background/PopupCategoryTR47x19.png') no-repeat right;
   padding: 0px 47px 0px 0px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryML {
-  background: url('MacSkin/background/PopupCategoryML5x4.png') repeat-y left;
+  background: url('background/PopupCategoryML5x4.png') repeat-y left;
   padding-left: 5px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryMC {
-  background: url('MacSkin/background/PopupCategoryMC1x4.png');
+  background: url('background/PopupCategoryMC1x4.png');
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryMR {
-  background: url('MacSkin/background/PopupCategoryMR5x4.png') repeat-y right;
+  background: url('background/PopupCategoryMR5x4.png') repeat-y right;
   padding-right: 5px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
-  background: url('MacSkin/background/PopupCategoryBL9x9.png') no-repeat left;
+  background: url('background/PopupCategoryBL9x9.png') no-repeat left;
   padding-left: 9px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBC {
   height: 9px;
-  background: url('MacSkin/background/PopupCategoryBC1x9.png') repeat-x;
+  background: url('background/PopupCategoryBC1x9.png') repeat-x;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
-  background: url('MacSkin/background/PopupCategoryBR8x9.png') no-repeat right;
+  background: url('background/PopupCategoryBR8x9.png') no-repeat right;
   padding-right: 8px;
 }
 
@@ -68,6 +68,6 @@
   padding-left: 20px;
   height: 22px;
   line-height: 22px;
-  background: url('MacSkin/background/CategoryItem.png') no-repeat left center ;
+  background: url('background/CategoryItem.png') no-repeat left center ;
   margin-left: 5px;
 }

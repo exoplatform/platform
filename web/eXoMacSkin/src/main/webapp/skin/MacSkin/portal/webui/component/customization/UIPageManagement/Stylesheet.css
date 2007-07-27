@@ -16,21 +16,21 @@
   float: left;
   width: 38px; height: 28px;
   margin: 4px 15px 0px 20px;
-  background: url('MacSkin/background/PageNodeNavigation.gif') no-repeat;  
+  background: url('background/PageNodeNavigation.gif') no-repeat;  
 }
 
 .UIPageManagement .BrowserPageIcon  {
   float: left;
   width: 36px; height: 28px;
   margin: 4px 15px 0px 15px;
-  background: url('MacSkin/background/PageBrowser.gif') no-repeat;
+  background: url('background/PageBrowser.gif') no-repeat;
 }
 
 .UIPageManagement .PageNodeWizardIcon {
   float: left;
   width: 36px; height: 28px;
   margin: 4px 7px 0px 7px;
-  background: url('MacSkin/background/PageCreationWizard.gif') no-repeat;
+  background: url('background/PageCreationWizard.gif') no-repeat;
 }
 
 /*############################- UIPageManagementEditBar Icons -#####################*/
@@ -38,42 +38,42 @@
   float: left;
   width: 19px; height: 19px;
   margin: 7px 3px 0px 3px;
-  background: url('MacSkin/background/AddNodeIcon.gif') no-repeat ;
+  background: url('background/AddNodeIcon.gif') no-repeat ;
 }
 
 .UIPageManagement .EditSelectedNodeIcon {
   float: left;
   width: 24px; height: 21px;
   margin: 6px 3px 0px 3px;
-  background: url('MacSkin/background/EditSelectedNodeIcon.gif') ;
+  background: url('background/EditSelectedNodeIcon.gif') ;
 }
 
 .UIPageManagement .EditPageNodeIcon {
   float: left;
   width: 21px; height: 21px;
   margin: 6px 2px 0px 3px;
-  background: url('MacSkin/background/EditPageNodeIcon.gif') no-repeat ;
+  background: url('background/EditPageNodeIcon.gif') no-repeat ;
 }
 
 .UIPageManagement .CopyNodeIcon {
   float: left;
   width: 21px; height: 21px;
   margin: 6px 3px 0px 3px;
-  background: url('MacSkin/background/CopyNodeIcon.gif') no-repeat ;
+  background: url('background/CopyNodeIcon.gif') no-repeat ;
 }
 
 .UIPageManagement .PasteNodeIcon {
   float: left;
   width: 21px; height: 21px;
   margin: 6px 3px 0px 3px;
-  background: url('MacSkin/background/PasteNodeIcon.gif') no-repeat ;
+  background: url('background/PasteNodeIcon.gif') no-repeat ;
 }
 
 .UIPageManagement .DeleteNodeIcon {
   float: left;
   width: 18px; height: 21px;
   margin: 5px 0px 0px 5px;
-  background: url('MacSkin/background/DeleteNodeIcon.gif') no-repeat ;
+  background: url('background/DeleteNodeIcon.gif') no-repeat ;
 }
 
 /*##########################Edit Page Control Bar#############################*/
@@ -89,42 +89,42 @@
 
 .UIPageManagement .EditContainerIcon {
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/ShowContainerButton.png') no-repeat;
+  background: url('/eXoResources/icons/32x32/ShowContainerButton.png') no-repeat;
 }
 
 .UIPageManagement .EditPortletIcon {
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/ShowPortletButton.png') no-repeat;
+  background: url('/eXoResources/icons/32x32/ShowPortletButton.png') no-repeat;
 }
 
 .UIPageManagement .EditPageIcon{
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/EditPageButton.png') no-repeat;
+  background: url('/eXoResources/icons/32x32/EditPageButton.png') no-repeat;
 }
 
 .UIPageManagement .PageLayoutModeIcon {
   float: left;
   width: 32px; height: 32px;
   margin: 4px 7px 0px 7px;
-  background: url('MacSkin/background/PageLayout.gif') no-repeat center;
+  background: url('background/PageLayout.gif') no-repeat center;
   cursor: pointer ;
 }
 
 .UIPageManagement .PagePreviewIcon {
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/PreviesPageButton.png') no-repeat ;
+  background: url('/eXoResources/icons/32x32/PreviesPageButton.png') no-repeat ;
 }
 
 .UIPageManagement .SavePageIcon {
   width:32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/SavePageButton.png') no-repeat ;
+  background: url('/eXoResources/icons/32x32/SavePageButton.png') no-repeat ;
 }
 
 .UIPageManagement .NavigationConfigIcon{
   float: left;
   width: 35px; height: 28px;
   margin: 5px 7px 0px 8px;
-  background: url('MacSkin/background/NavigationCommunityConfig.gif') no-repeat center;
+  background: url('background/NavigationCommunityConfig.gif') no-repeat center;
   cursor: pointer ;
 }
 
@@ -142,36 +142,36 @@
 
 .UIPageManagement .CreateNavigationIcon {
 	width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/EditNavigation.png') no-repeat ;
+  background: url('/eXoResources/icons/32x32/EditNavigation.png') no-repeat ;
 }
 
 .UIPageManagement .EditNavigationIcon {
 	width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/EditNavigation.png') no-repeat ;
+  background: url('/eXoResources/icons/32x32/EditNavigation.png') no-repeat ;
 }
 
 .UIPageManagement .SaveNavigationIcon {
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/MacSkin/SaveButton.png') no-repeat ;
+  background: url('/eXoResources/icons/32x32/SaveButton.png') no-repeat ;
 }
 
 .UIPageManagement .BackIcon {
-	background: url('/eXoResources/icons/32x32/MacSkin/BackButton.png') no-repeat;
+	background: url('/eXoResources/icons/32x32/BackButton.png') no-repeat;
 }
 
 .UIPageManagement .RollbackIcon {
-	background: url('/eXoResources/icons/32x32/MacSkin/RollBackButton.png') no-repeat;
+	background: url('/eXoResources/icons/32x32/RollBackButton.png') no-repeat;
 }
 
 .UIPageManagement .FinishIcon {
-	background: url('/eXoResources/icons/32x32/MacSkin/FinishButton.png') no-repeat;
+	background: url('/eXoResources/icons/32x32/FinishButton.png') no-repeat;
 }
 
 .UIPageManagement .SaveIcon {
-	background: url('/eXoResources/icons/32x32/MacSkin/SaveButton.png') no-repeat;
+	background: url('/eXoResources/icons/32x32/SaveButton.png') no-repeat;
 }
 
 .UIPageManagement .AbortIcon {
 	width: 32px; height: 32px;
-	background: url('/eXoResources/icons/32x32/MacSkin/AbortButton.png') no-repeat;
+	background: url('/eXoResources/icons/32x32/AbortButton.png') no-repeat;
 }

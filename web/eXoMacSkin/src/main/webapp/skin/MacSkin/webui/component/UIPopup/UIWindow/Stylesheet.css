@@ -24,7 +24,7 @@
 .UIWindow .WindowPortletInfo .PortletIcon {
   float: left ;
   width: 16px ; height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/DefaultPortletIcon.png') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultPortletIcon.png') no-repeat ;
   margin: 4px 6px 0px 5px ;
 }
 
@@ -37,28 +37,28 @@
 
 .UIWindow .WindowPortletControl .ArrowDownIcon {
   width: 21px;
-  background: url('/eXoResources/icons/16x16/MacSkin/ArrowDown.gif') no-repeat center right;
+  background: url('/eXoResources/icons/16x16/ArrowDown.gif') no-repeat center right;
 }
 
 .UIWindow .WindowPortletControl .OverArrowDownIcon {
 	width: 21px;
-  background: url('/eXoResources/icons/16x16/MacSkin/ArrowDownOver.gif') no-repeat center right;
+  background: url('/eXoResources/icons/16x16/ArrowDownOver.gif') no-repeat center right;
 }
 
 .UIWindow .WindowPortletControl .MinimizedIcon {
-  background: url('/eXoResources/icons/16x16/MacSkin/Minimize.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/Minimize.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletControl .OverMinimizedIcon {
-  background: url('/eXoResources/icons/16x16/MacSkin/MinimizeOver.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/MinimizeOver.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletControl .NormalIcon {
-  background: url('MacSkin/icons/16x16/Restore.gif') no-repeat top;
+  background: url('icons/16x16/Restore.gif') no-repeat top;
 }
 
 .UIWindow .WindowPortletControl .OverNormalIcon {
-  background: url('MacSkin/icons/16x16/RestoreOver.gif') no-repeat top;
+  background: url('icons/16x16/RestoreOver.gif') no-repeat top;
 }
 
 .UIWindow .WindowPortletControl .MaxMin {
@@ -67,27 +67,27 @@
 }
 
 .UIWindow .WindowPortletControl .MaximizedIcon {
-  background: url('/eXoResources/icons/16x16/MacSkin/Maximize.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/Maximize.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletControl .OverMaximizedIcon {
-  background: url('/eXoResources/icons/16x16/MacSkin/MaximizeOver.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/MaximizeOver.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletControl .RestoreIcon {
-  background: url('MacSkin/icons/16x16/Restore.gif') no-repeat ;
+  background: url('icons/16x16/Restore.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverRestoreIcon {
-  background: url('MacSkin/icons/16x16/RestoreOver.gif') no-repeat ;
+  background: url('icons/16x16/RestoreOver.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .CloseButtonIcon {
-  background: url('MacSkin/icons/16x16/NormalClose.gif') no-repeat ;
+  background: url('icons/16x16/NormalClose.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverCloseButtonIcon {
-  background: url('MacSkin/icons/16x16/OverClose.gif') no-repeat ;
+  background: url('icons/16x16/OverClose.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .BackgroundIcon {
@@ -102,7 +102,7 @@
   float: right ;
   width: 17px ; height: 15px ;
   cursor: nw-resize ;
-  background: url('MacSkin/background/ResizeArea17x15.png') no-repeat ;
+  background: url('background/ResizeArea17x15.png') no-repeat ;
 }
 
 .UIWindow .Information {
@@ -113,13 +113,13 @@
 }
 /**************************** UIPage Decorator ************************************/
 .UIWindow .MiddleDecoratorLeft {
-  background: url('MacSkin/background/PortletWindowML5x1.png') repeat-y left ;
+  background: url('background/PortletWindowML5x1.png') repeat-y left ;
   padding: 0px 0px 0px 5px ;
 }
 
 .UIWindow .MiddleDecoratorRight {
   padding: 0px 5px 0px 0px ;
-  background: url('MacSkin/background/PortletWindowMR5x1.png') repeat-y right ;
+  background: url('background/PortletWindowMR5x1.png') repeat-y right ;
 }
 
 .UIWindow .MiddleDecoratorCenter {
@@ -127,18 +127,18 @@
 }
 
 .UIWindow .BottomDecoratorLeft {
-  background: url('MacSkin/background/PortletWindowBL5x23.png') no-repeat left ;
+  background: url('background/PortletWindowBL5x23.png') no-repeat left ;
   padding: 0px 0px 0px 5px ;
 }
 
 .UIWindow .BottomDecoratorRight {
   padding: 0px 5px 0px 0px ;
-  background: url('MacSkin/background/PortletWindowBR5x23.png') no-repeat right ;
+  background: url('background/PortletWindowBR5x23.png') no-repeat right ;
 }
 
 .UIWindow .BottomDecoratorCenter {
   height: 23px ; line-height: 23px;
-  background: url('MacSkin/background/PortletWindowBC1x23.png') repeat-x ;
+  background: url('background/PortletWindowBC1x23.png') repeat-x ;
 }
 
 .UIWindow .WindowPortletInfo .Icon {
@@ -155,17 +155,17 @@
 
 .UIWindow .WindowBarLeft {
   padding: 0px 0px 0px 12px ;
-  background: url('MacSkin/background/PortletWindowTL12x23.png') no-repeat left ;
+  background: url('background/PortletWindowTL12x23.png') no-repeat left ;
 }
 
 .UIWindow .WindowBarRight {
   padding: 0px 12px 0px 0px ;
-  background: url('MacSkin/background/PortletWindowTR12x23.png') no-repeat right ;
+  background: url('background/PortletWindowTR12x23.png') no-repeat right ;
 }
 
 .UIWindow .WindowBarCenter {
   height: 23px ;
-  background: url('MacSkin/background/PortletWindowTC1x23.png') repeat-x bottom;
+  background: url('background/PortletWindowTC1x23.png') repeat-x bottom;
 }
 
 .UIWindow .UITestFormPortlet {

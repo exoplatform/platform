@@ -12,7 +12,7 @@
   line-height: 58px;
   vertical-align: middle;
   margin: auto;
-  background: url('MacSkin/background/OverBackground64x58.gif') no-repeat;
+  background: url('background/OverBackground64x58.gif') no-repeat;
 }
 
  .Selected64x58 {
@@ -21,7 +21,7 @@
   line-height: 58px;
   vertical-align: middle;
   margin: auto;
-  background: url('MacSkin/background/SelectedBackground64x58.gif') no-repeat;
+  background: url('background/SelectedBackground64x58.gif') no-repeat;
 }
 
  .NoMouseEvent32x32 {
@@ -38,7 +38,7 @@
   line-height: 32px;
   vertical-align: middle;
   margin: auto;
-  background: url('MacSkin/background/OverBackground32x32.gif') no-repeat;
+  background: url('background/OverBackground32x32.gif') no-repeat;
 }
 
  .Selected32x32 {
@@ -47,7 +47,7 @@
   line-height: 32px;
   vertical-align: middle;
   margin: auto;
-  background: url('MacSkin/background/SelectedBackground32x32.gif') no-repeat;
+  background: url('background/SelectedBackground32x32.gif') no-repeat;
 }
 
  .NoMouseEvent32x28 {
@@ -64,7 +64,7 @@
   line-height: 28px;
   vertical-align: middle;
   margin: auto;
-  background: url('MacSkin/background/OverBackground32x28.gif') no-repeat;
+  background: url('background/OverBackground32x28.gif') no-repeat;
 }
 
  .Selected32x28 {
@@ -73,5 +73,5 @@
   line-height: 28px;
   vertical-align: middle;
   margin: auto;
-  background: url('MacSkin/background/SelectedBackground32x28.gif') no-repeat;
+  background: url('background/SelectedBackground32x28.gif') no-repeat;
 }

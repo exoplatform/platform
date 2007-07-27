@@ -26,18 +26,18 @@
 
 .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
 	float: left;
-  background: url('/eXoResources/icons/16x16/MacSkin/NormalGroup.png') no-repeat;
+  background: url('/eXoResources/icons/16x16/NormalGroup.png') no-repeat;
   margin: 8px 0px 0px 5px;
 }
 
 .UIGroupMembershipSelector .Container {
   padding: 10px;
-  background: url(/eXoResources/background/MacSkin/Background1x4.png) repeat;
+  background: url(/eXoResources/background/Background1x4.png) repeat;
   border: 1px solid #e4e4e4;
 }
 
 .UIGroupMembershipSelector .MembershipTitle{
-  background: url('MacSkin/background/ThGridRepeatBg1x19.gif') repeat-x;
+  background: url('background/ThGridRepeatBg1x19.gif') repeat-x;
   border: 1px #b7b7b7 solid; 
   height: 20px; line-height: 20px; vertical-align: middle;
   padding-left: 15px;

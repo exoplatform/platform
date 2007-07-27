@@ -17,11 +17,11 @@
 	margin-bottom: 1px;
 	line-height: 30px;
 	border: 1px solid #b7b7b7;
-  background: url('MacSkin/background/Style2BarM1x31.gif') repeat-x ;
+  background: url('background/Style2BarM1x31.gif') repeat-x ;
 }
 
 .UIGroupInfoContainer .UIGroupMembershipForm .TitleBar {
 	font-weight: normal;
 	line-height: 19px;
-	background: url(/eXoResources/background/MacSkin/TitleBG1x19.gif) repeat-x;
+	background: url(/eXoResources/background/TitleBG1x19.gif) repeat-x;
 }
