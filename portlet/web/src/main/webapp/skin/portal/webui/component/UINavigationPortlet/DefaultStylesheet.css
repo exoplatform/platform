@@ -24,7 +24,7 @@
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .PageNodeIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPageIcon.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left;
 }
 
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
@@ -118,7 +118,7 @@
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
   height: 24px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DefaultPageIcon.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left ;
   padding: 0px 0px 0px 20px ;
 }
 

@@ -54,19 +54,19 @@
 
 .UIOrganizationPortlet .UserManagementIcon {
   width: 32px; height: 32px; 
-  background: url('/eXoResources/icons/32x32/DefaultSkin/UserManagement.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/32x32/icons/UserManagement.gif') no-repeat center;
   margin: auto;
 }
 
 .UIOrganizationPortlet .GroupManagementIcon {
   width: 32px; height: 32px; 
-  background: url('/eXoResources/icons/32x32/DefaultSkin/GroupManagement.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/32x32/icons/GroupManagement.gif') no-repeat center;
   margin: auto;
 }
 
 .UIOrganizationPortlet .MembershipManagementIcon {
   width: 32px; height: 32px; 
-  background: url('/eXoResources/icons/32x32/DefaultSkin/MembershipManagement.gif') no-repeat center ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/32x32/icons/MembershipManagement.gif') no-repeat center ;
   margin: auto;
 }
 
@@ -136,19 +136,19 @@
 .UIOrganizationPortlet .PersonalInfoIcon {
   float: left ;
   width: 32px ;  height: 32px ;
-  background: url('/eXoResources/icons/32x32/DefaultSkin/PersonalInfo.gif') ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/32x32/icons/PersonalInfo.gif') ;
 }
 
 .UIOrganizationPortlet .HomeInfoIcon {
   float: left ;
   width: 32px ;  height: 32px ;
-  background: url('/eXoResources/icons/32x32/DefaultSkin/HomeInfo.gif') ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/32x32/icons/HomeInfo.gif') ;
 }
 
 .UIOrganizationPortlet .BusinessInfoIcon {
   float: left ;
   width: 32px ;  height: 32px ;
-  background: url('/eXoResources/icons/32x32/DefaultSkin/BusinessInfo.gif') ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/32x32/icons/BusinessInfo.gif') ;
 }
 
 .UIOrganizationPortlet .UIUserManagement .UISearchForm { 
@@ -180,7 +180,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
   height: 16px; width: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SmallGroup.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
@@ -298,7 +298,7 @@
 }
 
 .UIOrganizationPortlet .SelectUserIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/GreenCheckerIcon.gif') center ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GreenCheckerIcon.gif') center ;
 }
 
 /*#######################  UIMemberShipManagement #################################*/

@@ -112,20 +112,12 @@
 	float: left ;
 	margin: 5px 0px 0px 5px ;
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat left;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left;
 }
 
 .UIContentPortlet .ContentItemIcon{
 	margin: 2px 0px 0px 0px;
 }
-/*Tung.Pham modified*/
-/*
-.UIContentPortlet .OpenNewsIcon {
-	background: url('DefaultSkin/icons/OpenNewsIcon.gif') no-repeat;
-	width: 18px; height: 16px;
-	margin-top: 5px;
-}
-*/
 
 .UIContentPortlet .UIBreadcumbs .HomeIcon {
 	background: url('DefaultSkin/icons/OpenNewsIcon.gif') no-repeat;
@@ -162,7 +154,7 @@
 
 .UIContentPortlet .UIBreadcumbs .RightBlackGridArrowIcon {
 	margin-top: 2px ;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BlueNextArrow.gif') no-repeat left ;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow.gif') no-repeat left ;
 }
 .UIContentPortlet .NewsIcon {
 	background: url('DefaultSkin/icons/NewsIcon.gif') no-repeat;
@@ -222,15 +214,6 @@
   margin: 1px 7px 0px 4px;
 }
 
-/*
-.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .PathArrowIcon {
-  float: left ;
-  margin: 2px 3px 0px 0px;
-	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BlueNextArrow.gif') no-repeat left;
-}
-*/
-
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs a.CategoryName {
   float: left;
   color: #058ee6;
@@ -266,7 +249,7 @@
 }
 
 .UIContentPortlet .RefreshBar .LeftRefreshBar{
-	background: url('/eXoResources/icons/16x16/DefaultSkin/RefreshIcon.gif') no-repeat left center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/RefreshIcon.gif') no-repeat left center;
 	height: 22px;
 	padding-left: 25px;
 	float: left;
