@@ -1,5 +1,5 @@
 .UIPortletOptions {
-  background: url('VistaSkin/background/UIPortletOptionsBackground.png') repeat ;
+  background: url('background/UIPortletOptionsBackground.png') repeat ;
   padding: 5px;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .UIPortletOptions .Title {
-  background: url('/eXoResources/background/VistaSkin/IconLabelContentBG1x1.png') repeat;
+  background: url('/eXoResources/background/IconLabelContentBG1x1.png') repeat;
 	padding-left: 8px;
 	border: 1px solid #6c767c;
 	height: 20px;
@@ -65,18 +65,18 @@
 .UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
 	height: 26px ; 
   padding-left: 2px ;
-  background: url('VistaSkin/background/SmoothRoundedLeftBar2x26.png') no-repeat left ; 
+  background: url('background/SmoothRoundedLeftBar2x26.png') no-repeat left ; 
 }
 
 .UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight{
   height: 26px ; width: auto ;
   padding-right: 2px ;
-  background: url('VistaSkin/background/SmoothRoundedRightBar2x26.png') no-repeat right ; 
+  background: url('background/SmoothRoundedRightBar2x26.png') no-repeat right ; 
 }
 
 .UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat{
   height: 26px ;
-  background: url('VistaSkin/background/SmoothRoundedRepeatBar1x26.png') repeat-x ;
+  background: url('background/SmoothRoundedRepeatBar1x26.png') repeat-x ;
 }
   
 /***-SelectedTab VTabSimpleStyle VerticalSlideTabs-***/
@@ -85,24 +85,24 @@
 }
 
 .UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLeft {
-	background: url(VistaSkin/background/SelectedTabLeft2x26.png) no-repeat left;
+	background: url(background/SelectedTabLeft2x26.png) no-repeat left;
 	padding-left: 2px;
 }
 
 .UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRight {
-	background: url(VistaSkin/background/SelectedTabRight2x26.png) no-repeat right;
+	background: url(background/SelectedTabRight2x26.png) no-repeat right;
 	padding-right: 2px;
 }
 
 .UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRepeat {
-	background: url(VistaSkin/background/SelectedTabRepeat1x26.png) repeat-x ;
+	background: url(background/SelectedTabRepeat1x26.png) repeat-x ;
 	height: 26px;
 }
   
   
 .UIPortletOptions .UIDropDownItemSelector .ComponentIcon {
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/VistaSkin/DefaultPortletIcons.png') no-repeat;
+	background: url('/eXoResources/icons/16x16/DefaultPortletIcons.png') no-repeat;
 }
 
 #UIPortletOptions .BackNavigationContent {

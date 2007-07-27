@@ -6,14 +6,14 @@
   float: left;
   width: 26px; height: 26px;
   margin: 3px 8px 0px 28px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/PagePreview.png') no-repeat ;
+  background: url('/eXoResources/icons/24x24/PagePreview.png') no-repeat ;
 }
 
 .UICreatePage .PageLayoutModeIcon {
   float: left;
   width: 24px; height:24px;
   margin: 3px 10px 0px 25px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/PageLayoutMode.gif') no-repeat ;
+  background: url('/eXoResources/icons/24x24/PageLayoutMode.gif') no-repeat ;
   cursor: pointer ;
 }
 
@@ -21,7 +21,7 @@
   float: left;
   width: 24px; height: 24px;
   margin: 3px 5px 0px 8px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/EditPageProperty.png') no-repeat ;
+  background: url('/eXoResources/icons/24x24/EditPageProperty.png') no-repeat ;
  
 }
 
@@ -29,21 +29,21 @@
   float: left;
   width: 34px; height: 26px;
   margin: 3px 8px 0px 26px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/ShowContainerControl.png') no-repeat ;
+  background: url('/eXoResources/icons/24x24/ShowContainerControl.png') no-repeat ;
 }
 
 .UICreatePage .EditPortletIcon {
   float: left;
   width: 28px; height: 24px;
   margin: 3px 8px 0px 25px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/ShowPortletControlIcon.png') no-repeat ;
+  background: url('/eXoResources/icons/24x24/ShowPortletControlIcon.png') no-repeat ;
 }
 
 .UICreatePage .SavePageIcon {
   float: left;
   width: 24px; height: 24px;
   margin: 3px 5px 0px 8px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/BlackFloppyDiskPage.gif') ;
+  background: url('/eXoResources/icons/24x24/BlackFloppyDiskPage.gif') ;
 }
 
 .UICreatePage .TreeSelectorTitle {
@@ -60,7 +60,7 @@
 }
 
 .UICreatePage .NavigationPortalIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/MiniOrangeBoxPage.gif') ;
+  background: url('/eXoResources/icons/16x16/MiniOrangeBoxPage.gif') ;
 }
 
 .UICreatePage .UITree {
@@ -129,18 +129,18 @@
 
 .UICreatePage .CreatePageContainer .CreatePageBarLeft {
 	padding-left: 7px;
-  background: url('VistaSkin/background/PolyBarL7x30.png') no-repeat left;
+  background: url('background/PolyBarL7x30.png') no-repeat left;
   margin: 0px 5px; 
 }
 
 .UICreatePage .CreatePageContainer .CreatePageBarRight {
   padding-right: 8px;
-  background: url('VistaSkin/background/PolyBarR8x30.png') no-repeat right;
+  background: url('background/PolyBarR8x30.png') no-repeat right;
 }
 
 .UICreatePage .CreatePageContainer .CreatePageLabel {
   height: 30px;
-  background: url('VistaSkin/background/PolyBarM1x30.png') repeat-x ;
+  background: url('background/PolyBarM1x30.png') repeat-x ;
 	font-weight: bold;
 	line-height: 30px;
 	text-align: center;

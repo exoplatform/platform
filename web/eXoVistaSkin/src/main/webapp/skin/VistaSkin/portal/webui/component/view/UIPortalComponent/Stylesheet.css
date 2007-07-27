@@ -11,7 +11,7 @@
   height: 20px ; width: 30px;
   float: left ; 
   margin-top: 4px;
-  background: url('VistaSkin/background/DragBG30x20.gif');
+  background: url('background/DragBG30x20.gif');
 }
 
 .UIPortlet .CONTROL-PORTLET .UIInfoBar {
@@ -20,17 +20,17 @@
 
 .UIPortlet .PortletInfoBar .InfoBarLeft {
   padding-left: 10px ;margin: 0px 1px 0px 2px;
-  background: url('VistaSkin/background/InfoBarL10x28.png') no-repeat left ;
+  background: url('background/InfoBarL10x28.png') no-repeat left ;
 }
 
 .UIPortlet .PortletInfoBar .InfoBarRight {
   padding-right: 11px ;
-  background: url('VistaSkin/background/InfoBarR14x28.png') no-repeat right ;
+  background: url('background/InfoBarR14x28.png') no-repeat right ;
 }
 
 .UIPortlet .PortletInfoBar .InfoBarCenter {
   height: 28px ;
-  background: url('VistaSkin/background/InfoBarM1x28.png') repeat-x ;
+  background: url('background/InfoBarM1x28.png') repeat-x ;
 }
 
 .UIPortlet .PortletInfoBar .InfobarAction {
@@ -53,34 +53,34 @@
 }
 
 .UIPortlet .PortletInfoBar .ArrowDownIcon {
-  background: url('VistaSkin/icons/16x16/ArrowDown.png') no-repeat ;
+  background: url('icons/16x16/ArrowDown.png') no-repeat ;
 }
 
 .UIPortlet .PortletInfoBar .OverArrowDownIcon {
-  background: url('VistaSkin/icons/16x16/ArrowDownOver.png') no-repeat ;
+  background: url('icons/16x16/ArrowDownOver.png') no-repeat ;
 }
 
 .UIPortlet .PortletInfoBar .MinimizedIcon {
-  background: url('VistaSkin/icons/16x16/Minimize.png') no-repeat ;
+  background: url('icons/16x16/Minimize.png') no-repeat ;
 }
 
 .UIPortlet .PortletInfoBar .OverMinimizedIcon {
-  background: url('VistaSkin/icons/16x16/MinimizeOver.png') no-repeat ;
+  background: url('icons/16x16/MinimizeOver.png') no-repeat ;
 }
 
 .UIPortlet .PortletInfoBar .MaximizedIcon {
-  background: url('VistaSkin/icons/16x16/Maximize.png') no-repeat ;
+  background: url('icons/16x16/Maximize.png') no-repeat ;
 }
 
 .UIPortlet .PortletInfoBar .OverMaximizedIcon {
-  background: url('VistaSkin/icons/16x16/MaximizeOver.png') no-repeat ;
+  background: url('icons/16x16/MaximizeOver.png') no-repeat ;
 }
 
 .UIPortlet .PortletInfoBar .PortletIcon {
   float: left ;
   margin: 5px;
   width: 16px ;  height: 16px ;
-  background: url('VistaSkin/icons/16x16/PortletIcon.png') no-repeat ;
+  background: url('icons/16x16/PortletIcon.png') no-repeat ;
 }
 
 .UIPortlet .PortletInfoBar .PortletLabel {
@@ -92,7 +92,7 @@
 .UIPortlet .MaximizedPortletIcon {
   float: left;
   height: 16px;  width: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/Maximize.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/Maximize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
 }
@@ -100,7 +100,7 @@
 .UIPortlet .MinimizedPortletIcon {
   float: left;
   height: 16px;  width: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/Minimize.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/Minimize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
 }
@@ -108,14 +108,14 @@
 .UIPortlet .ConfigPortletIcon {
   float: left;
   height: 16px; width: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/Config.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/Config.gif') no-repeat;
   margin: 3px 10px 0px 5px;
 }
 
 .UIPortlet .EditPortletIcon {
   float: left;
   height: 16px;  width: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat;
+  background: url('/eXoResources/icons/16x16/Pencil.png') no-repeat;
   margin: 4px 10px 0px 5px;
   cursor: pointer;
 }
@@ -123,7 +123,7 @@
 .UIPortlet .ViewPortletIcon {
   float: left;
   height: 16px;  width: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/PortletView.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/PortletView.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
 }
@@ -131,13 +131,13 @@
 .UIPortlet .HelpPortletIcon {
   float: left;
   height: 16px;  width: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/PortletHelp.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/PortletHelp.gif') no-repeat;
   margin: 4px 10px 0px 0px;
   cursor: pointer;
 }
 
 .UIPortlet .EditPortletPropertiesIcon {
-	background: url('/eXoResources/icons/16x16/VistaSkin/EditPortletIcon31x18.png') no-repeat ;
+	background: url('/eXoResources/icons/16x16/EditPortletIcon31x18.png') no-repeat ;
 	height: 18px;	width:31px;
 	margin: 3px 0px 0px 0px;
 	float:right;
@@ -146,13 +146,13 @@
 .UIPortlet .NormalPortletIcon {
   float: left ;
   height: 16px ;  width: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/Restore.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/Restore.gif') no-repeat ;
   margin: 3px 10px 0px 0px ;
   cursor: pointer ;
 }
 
 .UIPortlet .DeletePortletIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/DeletePortletIcon29x18.png') ;
+  background: url('/eXoResources/icons/16x16/DeletePortletIcon29x18.png') ;
 	height:18px;	width:29px;
   margin: 3px 0px 0px 0px;
 	float:right;
@@ -169,7 +169,7 @@
 .UIPortlet .PortletIcon {
   margin: auto;
   width: 20px; height:20px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/DefaultPortletIcon.png') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultPortletIcon.png') no-repeat ;
 }
 /*##############################- PortletLayoutDecorator  -################################*/
 .PortletLayoutDecorator {
@@ -177,29 +177,29 @@
 }
 
 .PortletLayoutDecorator .TopLeft {
-  background: url('VistaSkin/background/LayoutTL10x9.png') no-repeat left top;
+  background: url('background/LayoutTL10x9.png') no-repeat left top;
   padding-left: 10px ;
   height: 9px ;
 }
 
 .PortletLayoutDecorator .TopMiddle {
-  background: url('VistaSkin/background/LayoutTM1x9.png') repeat-x top;
+  background: url('background/LayoutTM1x9.png') repeat-x top;
   height: 9px ;
 }
 
 .PortletLayoutDecorator .TopRight {
-  background: url('VistaSkin/background/LayoutTR11x9.png') no-repeat right top;
+  background: url('background/LayoutTR11x9.png') no-repeat right top;
   padding-right: 11px ;
   height: 9px ;
 }
 
 .PortletLayoutDecorator .MiddleLeft {
-  background: url('VistaSkin/background/LayoutML10x1.png') repeat-y left;
+  background: url('background/LayoutML10x1.png') repeat-y left;
   padding-left: 10px;
 }
 
 .PortletLayoutDecorator .MiddleRight {
-  background: url('VistaSkin/background/LayoutMR11x1.png') repeat-y right;
+  background: url('background/LayoutMR11x1.png') repeat-y right;
   padding-right: 11px ;
 }
 
@@ -209,25 +209,25 @@
 }
 
 .PortletLayoutDecorator .GardientBackground {
-  background: url('VistaSkin/background/LayoutBG1x56.png') repeat-x bottom;
+  background: url('background/LayoutBG1x56.png') repeat-x bottom;
   height: 64px;
   border-top: none;
   padding: 8px;
 }
 
 .PortletLayoutDecorator .BottomLeft {
-  background: url('VistaSkin/background/LayoutBL10x14.png') no-repeat left bottom;
+  background: url('background/LayoutBL10x14.png') no-repeat left bottom;
   padding-left: 10px ;
   height: 14px ;
 }
 
 .PortletLayoutDecorator .BottomMiddle {
-  background: url('VistaSkin/background/LayoutBM1x14.png') repeat-x bottom;
+  background: url('background/LayoutBM1x14.png') repeat-x bottom;
   height: 14px ;
 }
 
 .PortletLayoutDecorator .BottomRight {
-  background: url('VistaSkin/background/LayoutBR11x14.png') no-repeat right bottom;
+  background: url('background/LayoutBR11x14.png') no-repeat right bottom;
   padding-right: 11px ;
 }
 /*############### End Decorator ###################################################*/
@@ -237,7 +237,7 @@
 } 
 
 .UIContainer .LAYOUT-CONTAINER {
-  background: url('VistaSkin/background/ContainerBG3x3.png') repeat;
+  background: url('background/ContainerBG3x3.png') repeat;
   border: solid 1px #7c7c7c;
   margin: 1px 14px 10px 14px; 
   padding-top: 5px;
@@ -253,7 +253,7 @@
   height: 20px ;width: 30px;
   float: left ; 
   margin-top: 4px;
-  background: url('VistaSkin/background/DragBG30x20.gif');
+  background: url('background/DragBG30x20.gif');
 }
 
 .UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer {
@@ -262,14 +262,14 @@
 }
 
 .UIContainer .EditContainerIcon {
-	background: url('/eXoResources/icons/16x16/VistaSkin/EditPortletIcon31x18.png') no-repeat ;
+	background: url('/eXoResources/icons/16x16/EditPortletIcon31x18.png') no-repeat ;
 	height: 18px;	width:31px;
 	margin: 3px 0px 0px 0px;
 	float:right;
 }
 
 .UIContainer .DeleteContainerIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/DeletePortletIcon29x18.png') ;
+  background: url('/eXoResources/icons/16x16/DeletePortletIcon29x18.png') ;
 	height:18px;	width:29px;
   margin: 3px 0px 0px 0px;
 	float:right;
@@ -278,12 +278,12 @@
 .UIContainer .ContainerIcon {
   float: left;
   width: 16px; height: 16px; margin: 5px 6px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/DefaultPortletIcons.png') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DefaultPortletIcons.png') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {
   border: solid 1px #696969;
-  background: url('VistaSkin/background/LayoutPortalBG.png') repeat;
+  background: url('background/LayoutPortalBG.png') repeat;
   padding:6px;
   margin: 0px 8px;
 }
@@ -320,14 +320,14 @@
 }
 
 .UIPage .EditPageIcon {
-	background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat left;
+	background: url('/eXoResources/icons/16x16/Pencil.png') no-repeat left;
 	height: 16px;	width: 16px;
   margin: 2px 10px 2px 0px;
 	float: right;
 }
 
 .UIPage .DeletePageIcon {
-  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') ;
+  background: url('/eXoResources/icons/16x16/DustBin.png') ;
 	height: 16px;	width: 16px;
   margin: 2px 10px 2px 0px;
 	float: right;
@@ -335,10 +335,10 @@
 
 .UIPageBody .UIPortlet .PortletInfoBar .PArrowDownIcon {
   height: 20px; width: 33px;margin-top: 3px;
-  background: url('VistaSkin/icons/16x16/PArrowDown.png') no-repeat ;
+  background: url('icons/16x16/PArrowDown.png') no-repeat ;
 }
 
 .UIPageBody .UIPortlet .PortletInfoBar .POverArrowDownIcon {
   height: 20px; width: 33px;margin-top: 3px;
-  background: url('VistaSkin/icons/16x16/PArrowDownOver.png') no-repeat ;
+  background: url('icons/16x16/PArrowDownOver.png') no-repeat ;
 }

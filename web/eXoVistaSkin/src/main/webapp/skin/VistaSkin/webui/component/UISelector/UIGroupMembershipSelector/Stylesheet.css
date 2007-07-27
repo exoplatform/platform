@@ -11,13 +11,13 @@
 .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
 	float: left;
   margin: 4px 2px 5px 2px ;
-  background: url('/eXoResources/icons/24x24/VistaSkin/SelectedGroup.png') no-repeat;
+  background: url('/eXoResources/icons/24x24/SelectedGroup.png') no-repeat;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .RightBlackGridArrow16x16Icon {
 	float: left;
   margin: 5px 2px 5px 1px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/BlueGridRightArrow.gif');
+  background: url('/eXoResources/icons/16x16/BlueGridRightArrow.gif');
 }
 
 .UIGroupMembershipSelector .SelectedGroupPath {
@@ -27,11 +27,11 @@
 .UIGroupMembershipSelector .Container {
   padding: 12px;
   border:1px solid #E4E4E4;
-  background:white url('VistaSkin/background/UIGroupMembershipSelectorBG.gif') repeat-x bottom;
+  background:white url('background/UIGroupMembershipSelectorBG.gif') repeat-x bottom;
 }
 
 .UIGroupMembershipSelector .MembershipTitle{
-  background: url('VistaSkin/background/TitleBG1x22.png') repeat-x;
+  background: url('background/TitleBG1x22.png') repeat-x;
   border: 1px #aeaeae solid; 
   height: 22px; line-height: 22px; vertical-align: middle;
   padding-left: 15px;
@@ -106,5 +106,5 @@
   margin: 5px 5px 0px 7px ;  
   float: left ;
   width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/GrayBorderRightArrow.gif') no-repeat;  
+  background: url('/eXoResources/icons/16x16/GrayBorderRightArrow.gif') no-repeat;  
 }

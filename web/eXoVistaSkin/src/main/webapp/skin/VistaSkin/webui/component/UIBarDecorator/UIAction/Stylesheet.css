@@ -37,18 +37,18 @@
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonLeft {
-  background: url('VistaSkin/background/SelectedActionButtonL12x24.png') no-repeat left;
+  background: url('background/SelectedActionButtonL12x24.png') no-repeat left;
   padding: 0px 0px 0px 12px;
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonRight {
-  background: url('VistaSkin/background/SelectedActionButtonR12x24.png') no-repeat right;
+  background: url('background/SelectedActionButtonR12x24.png') no-repeat right;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .ActionButton .DisabledStyle .ButtonMiddle {
 	line-height: 22px; text-align: center; 
-	background: url('VistaSkin/background/SelectedActionButtonM2x24.png') repeat-x;
+	background: url('background/SelectedActionButtonM2x24.png') repeat-x;
 }
 
 .UIAction .ActionButton .DisabledStyle a {
@@ -65,18 +65,18 @@
 .UIAction .ActionButton .LightBlueStyle {}
 
 .UIAction .ActionButton .LightBlueStyle .ButtonLeft {
-  background: url('VistaSkin/background/LightButtonLeft12x24.png') no-repeat left;
+  background: url('background/LightButtonLeft12x24.png') no-repeat left;
   padding: 0px 0px 0px 12px;
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonRight {
-  background: url('VistaSkin/background/LightButtonRight12x24.png') no-repeat right;
+  background: url('background/LightButtonRight12x24.png') no-repeat right;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
  	line-height: 24px; text-align: center; 
-	background: url('VistaSkin/background/LightButtonMiddle1x24.png') repeat-x;
+	background: url('background/LightButtonMiddle1x24.png') repeat-x;
 }
 
 /*##############################-SimpleStyle ActionButton-################################*/
@@ -84,18 +84,18 @@
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonLeft {
-  background: url('VistaSkin/background/LeftSimpleButton12x24.png') no-repeat left top;
+  background: url('background/LeftSimpleButton12x24.png') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonRight {
-  background: url('VistaSkin/background/RightSimpleButton12x24.png') no-repeat right top;
+  background: url('background/RightSimpleButton12x24.png') no-repeat right top;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonMiddle {
   line-height: 24px;
-	background: url('VistaSkin/background/CenterSimpleButton1x24.png') repeat-x top;
+	background: url('background/CenterSimpleButton1x24.png') repeat-x top;
 	text-align: center;	
 }
 

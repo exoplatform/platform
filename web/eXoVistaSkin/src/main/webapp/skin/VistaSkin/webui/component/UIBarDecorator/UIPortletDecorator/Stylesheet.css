@@ -54,46 +54,46 @@
 .UIPortletDecorator .RoundedTopCornerLinedStyle {}
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .MiddleBackground {
-	background: url('VistaSkin/background/RoundTopCornerLinedBgMC.gif');
+	background: url('background/RoundTopCornerLinedBgMC.gif');
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .TopLeftCorner {
-	background: url('VistaSkin/background/RoundTopCornerLinedBgTL.gif') no-repeat left ;
+	background: url('background/RoundTopCornerLinedBgTL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .TopCenter {
-	background: url('VistaSkin/background/RoundTopCornerLinedBgTC.gif') repeat-x center ;
+	background: url('background/RoundTopCornerLinedBgTC.gif') repeat-x center ;
 	height:10px ; line-height: 10px;
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .TopRightCorner {
-	background: url('VistaSkin/background/RoundTopCornerLinedBgTR.gif') no-repeat right ;
+	background: url('background/RoundTopCornerLinedBgTR.gif') no-repeat right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .MiddleRightSide {
-	background: url('VistaSkin/background/RoundTopCornerLinedBgMR.gif') repeat-y right ;
+	background: url('background/RoundTopCornerLinedBgMR.gif') repeat-y right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .BottomRightCorner {	
-	background: url('VistaSkin/background/RoundTopCornerLinedBgBR.gif') no-repeat right;
+	background: url('background/RoundTopCornerLinedBgBR.gif') no-repeat right;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .BottomCenter {	
-	background: url('VistaSkin/background/RoundTopCornerLinedBgBC.gif') repeat-x center;
+	background: url('background/RoundTopCornerLinedBgBC.gif') repeat-x center;
 	height: 10px ;
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .BottomLeftCorner {
-	background: url('VistaSkin/background/RoundTopCornerLinedBgBL.gif') no-repeat left ;
+	background: url('background/RoundTopCornerLinedBgBL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .RoundedTopCornerLinedStyle .MiddleLeftSide {
-	background: url('VistaSkin/background/RoundTopCornerLinedBgML.gif') repeat-y left ;
+	background: url('background/RoundTopCornerLinedBgML.gif') repeat-y left ;
 	padding-left: 10px ;
 }
 
@@ -105,43 +105,43 @@
 }
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .TopLeftCorner {
-	background: url('VistaSkin/background/CornerLeftTop11x11.gif') no-repeat left ;
+	background: url('background/CornerLeftTop11x11.gif') no-repeat left ;
 	padding-left: 11px ;
 }
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .TopCenter {
-	background: url('VistaSkin/background/CornerTopCenter1x11.gif') repeat-x;
+	background: url('background/CornerTopCenter1x11.gif') repeat-x;
 	height: 11px ;
 }
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .TopRightCorner {
-	background: url('VistaSkin/background/CornerRightTop11x11.gif') no-repeat right ;
+	background: url('background/CornerRightTop11x11.gif') no-repeat right ;
 	padding-right: 11px;
 }
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .MiddleRightSide {
-	background: url('VistaSkin/background/CornerRightMiddle11x1.gif') repeat-y right ;
+	background: url('background/CornerRightMiddle11x1.gif') repeat-y right ;
 	padding-right: 11px ;
 }
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .BottomRightCorner {	
-	background: url('VistaSkin/background/CornerRightBottom11x11.gif') no-repeat right;
+	background: url('background/CornerRightBottom11x11.gif') no-repeat right;
 	padding-right: 11px ;
 }
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .BottomCenter {	
-	background: url('VistaSkin/background/CornerBottomCenter1x11.gif') repeat-x center;
+	background: url('background/CornerBottomCenter1x11.gif') repeat-x center;
 	height: 11px ;
 }
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .BottomLeftCorner {
-	background: url('VistaSkin/background/CornerLeftBottom11x11.gif') no-repeat left ;
+	background: url('background/CornerLeftBottom11x11.gif') no-repeat left ;
 	padding-left: 11px ;
 }
 
 
 .UIPortletDecorator .GrayBorderRoundedCornerStyle .MiddleLeftSide {
-	background: url('VistaSkin/background/CornerLeftMiddle11x1.gif') repeat-y left ;
+	background: url('background/CornerLeftMiddle11x1.gif') repeat-y left ;
 	padding-left: 11px ;
 }
 
@@ -151,46 +151,46 @@
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .MiddleBackground {
-	background: url('VistaSkin/background/BlueCloudBg.gif');
+	background: url('background/BlueCloudBg.gif');
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .TopLeftCorner {
-	background: url('VistaSkin/background/BlueCloudBgTL.gif') no-repeat left ;
+	background: url('background/BlueCloudBgTL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .TopCenter {
-	background: url('VistaSkin/background/BlueCloudBgTC.gif') repeat-x center ;
+	background: url('background/BlueCloudBgTC.gif') repeat-x center ;
 	height: 10px ;
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .TopRightCorner {
-	background: url('VistaSkin/background/BlueCloudBgTR.gif') no-repeat right ;
+	background: url('background/BlueCloudBgTR.gif') no-repeat right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .MiddleRightSide {
-	background: url('VistaSkin/background/BlueCloudBgMR.gif') repeat-y right ;
+	background: url('background/BlueCloudBgMR.gif') repeat-y right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .BottomRightCorner {	
-	background: url('VistaSkin/background/BlueCloudBgBR.gif') no-repeat right;
+	background: url('background/BlueCloudBgBR.gif') no-repeat right;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .BottomCenter {	
-	background: url('VistaSkin/background/BlueCloudBgBC.gif') repeat-x center;
+	background: url('background/BlueCloudBgBC.gif') repeat-x center;
 	height: 10px ;
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .BottomLeftCorner {
-	background: url('VistaSkin/background/BlueCloudBgBL.gif') no-repeat left ;
+	background: url('background/BlueCloudBgBL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .BlueCloudBackgroundStyle .MiddleLeftSide {
-	background: url('VistaSkin/background/BlueCloudBgML.gif') repeat-y left ;
+	background: url('background/BlueCloudBgML.gif') repeat-y left ;
 	padding-left: 10px ;
 }
 
@@ -204,42 +204,42 @@
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .TopLeftCorner {
-	background: url('VistaSkin/background/CuttedShapeCornerTL.gif') no-repeat left ;
+	background: url('background/CuttedShapeCornerTL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .TopCenter {
-	background: url('VistaSkin/background/CuttedShapeCornerTC.gif') repeat-x center ;
+	background: url('background/CuttedShapeCornerTC.gif') repeat-x center ;
 	height: 10px ;
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .TopRightCorner {
-	background: url('VistaSkin/background/CuttedShapeCornerTR.gif') no-repeat right ;
+	background: url('background/CuttedShapeCornerTR.gif') no-repeat right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .MiddleRightSide {
-	background: url('VistaSkin/background/CuttedShapeCornerMR.gif') repeat-y right ;
+	background: url('background/CuttedShapeCornerMR.gif') repeat-y right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .BottomRightCorner {	
-	background: url('VistaSkin/background/CuttedShapeCornerBR.gif') no-repeat right;
+	background: url('background/CuttedShapeCornerBR.gif') no-repeat right;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .BottomCenter {	
-	background: url('VistaSkin/background/CuttedShapeCornerBC.gif') repeat-x center;
+	background: url('background/CuttedShapeCornerBC.gif') repeat-x center;
 	height: 10px ;
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .BottomLeftCorner {
-	background: url('VistaSkin/background/CuttedShapeCornerBL.gif') no-repeat left ;
+	background: url('background/CuttedShapeCornerBL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .CuttedShapeCornerStyle .MiddleLeftSide {
-	background: url('VistaSkin/background/CuttedShapeCornerML.gif') repeat-y left ;
+	background: url('background/CuttedShapeCornerML.gif') repeat-y left ;
 	padding-left: 10px ;
 }
 
@@ -253,42 +253,42 @@
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .TopLeftCorner {
-	background: url('VistaSkin/background/DottedCornerTL.gif') no-repeat left ;
+	background: url('background/DottedCornerTL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .TopCenter {
-	background: url('VistaSkin/background/DottedCornerTC.gif') repeat-x center ;
+	background: url('background/DottedCornerTC.gif') repeat-x center ;
 	height: 10px ;
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .TopRightCorner {
-	background: url('VistaSkin/background/DottedCornerTR.gif') no-repeat right ;
+	background: url('background/DottedCornerTR.gif') no-repeat right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .MiddleRightSide {
-	background: url('VistaSkin/background/DottedCornerMR.gif') repeat-y right ;
+	background: url('background/DottedCornerMR.gif') repeat-y right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .BottomRightCorner {	
-	background: url('VistaSkin/background/DottedCornerBR.gif') no-repeat right;
+	background: url('background/DottedCornerBR.gif') no-repeat right;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .BottomCenter {	
-	background: url('VistaSkin/background/DottedCornerBC.gif') repeat-x center;
+	background: url('background/DottedCornerBC.gif') repeat-x center;
 	height: 10px ;
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .BottomLeftCorner {
-	background: url('VistaSkin/background/DottedCornerBL.gif') no-repeat left ;
+	background: url('background/DottedCornerBL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .DottedShapeCornerStyle .MiddleLeftSide {
-	background: url('VistaSkin/background/DottedCornerML.gif') repeat-y left ;
+	background: url('background/DottedCornerML.gif') repeat-y left ;
 	padding-left: 10px ;
 }
 
@@ -302,42 +302,42 @@
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .TopLeftCorner {
-	background: url('VistaSkin/background/DottedBorderTL.gif') no-repeat left ;
+	background: url('background/DottedBorderTL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .TopCenter {
-	background: url('VistaSkin/background/DottedBorderTC.gif') repeat-x center ;
+	background: url('background/DottedBorderTC.gif') repeat-x center ;
 	height: 10px ;
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .TopRightCorner {
-	background: url('VistaSkin/background/DottedBorderTR.gif') no-repeat right ;
+	background: url('background/DottedBorderTR.gif') no-repeat right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .MiddleRightSide {
-	background: url('VistaSkin/background/DottedBorderMR.gif') repeat-y right ;
+	background: url('background/DottedBorderMR.gif') repeat-y right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .BottomRightCorner {	
-	background: url('VistaSkin/background/DottedBorderBR.gif') no-repeat right;
+	background: url('background/DottedBorderBR.gif') no-repeat right;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .BottomCenter {	
-	background: url('VistaSkin/background/DottedBorderBC.gif') repeat-x center;
+	background: url('background/DottedBorderBC.gif') repeat-x center;
 	height: 10px ;
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .BottomLeftCorner {
-	background: url('VistaSkin/background/DottedBorderBL.gif') no-repeat left ;
+	background: url('background/DottedBorderBL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .LightBrownDoubleDotLineBorderBoxStyle .MiddleLeftSide {
-	background: url('VistaSkin/background/DottedBorderML.gif') repeat-y left ;
+	background: url('background/DottedBorderML.gif') repeat-y left ;
 	padding-left: 10px ;
 }
 
@@ -351,42 +351,42 @@
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .TopLeftCorner {
-	background: url('VistaSkin/background/BlueBorderRoundCornerTL.gif') no-repeat left ;
+	background: url('background/BlueBorderRoundCornerTL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .TopCenter {
-	background: url('VistaSkin/background/BlueBorderRoundCornerTC.gif') repeat-x center ;
+	background: url('background/BlueBorderRoundCornerTC.gif') repeat-x center ;
 	height: 10px ;
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .TopRightCorner {
-	background: url('VistaSkin/background/BlueBorderRoundCornerTR.gif') no-repeat right ;
+	background: url('background/BlueBorderRoundCornerTR.gif') no-repeat right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .MiddleRightSide {
-	background: url('VistaSkin/background/BlueBorderRoundCornerMR.gif') repeat-y right ;
+	background: url('background/BlueBorderRoundCornerMR.gif') repeat-y right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .BottomRightCorner {	
-	background: url('VistaSkin/background/BlueBorderRoundCornerBR.gif') no-repeat right;
+	background: url('background/BlueBorderRoundCornerBR.gif') no-repeat right;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .BottomCenter {	
-	background: url('VistaSkin/background/BlueBorderRoundCornerBC.gif') repeat-x center;
+	background: url('background/BlueBorderRoundCornerBC.gif') repeat-x center;
 	height: 10px ;
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .BottomLeftCorner {
-	background: url('VistaSkin/background/BlueBorderRoundCornerBL.gif') no-repeat left ;
+	background: url('background/BlueBorderRoundCornerBL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .BlueBorderRoundedCornerBoxStyle .MiddleLeftSide {
-	background: url('VistaSkin/background/BlueBorderRoundCornerML.gif') repeat-y left ;
+	background: url('background/BlueBorderRoundCornerML.gif') repeat-y left ;
 	padding-left: 10px ;
 }
 
@@ -400,42 +400,42 @@
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .TopLeftCorner {
-	background: url('VistaSkin/background/RoundCornerInnerGlowTL.gif') no-repeat left ;
+	background: url('background/RoundCornerInnerGlowTL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .TopCenter {
-	background: url('VistaSkin/background/RoundCornerInnerGlowTC.gif') repeat-x center ;
+	background: url('background/RoundCornerInnerGlowTC.gif') repeat-x center ;
 	height: 10px ;
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .TopRightCorner {
-	background: url('VistaSkin/background/RoundCornerInnerGlowTR.gif') no-repeat right ;
+	background: url('background/RoundCornerInnerGlowTR.gif') no-repeat right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .MiddleRightSide {
-	background: url('VistaSkin/background/RoundCornerInnerGlowMR.gif') repeat-y right ;
+	background: url('background/RoundCornerInnerGlowMR.gif') repeat-y right ;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .BottomRightCorner {	
-	background: url('VistaSkin/background/RoundCornerInnerGlowBR.gif') no-repeat right;
+	background: url('background/RoundCornerInnerGlowBR.gif') no-repeat right;
 	padding-right: 10px ;
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .BottomCenter {	
-	background: url('VistaSkin/background/RoundCornerInnerGlowBC.gif') repeat-x center;
+	background: url('background/RoundCornerInnerGlowBC.gif') repeat-x center;
 	height: 10px ;
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .BottomLeftCorner {
-	background: url('VistaSkin/background/RoundCornerInnerGlowBL.gif') no-repeat left ;
+	background: url('background/RoundCornerInnerGlowBL.gif') no-repeat left ;
 	padding-left: 10px ;
 }
 
 .UIPortletDecorator .RoundedCornerInnerGlowBoxStyle .MiddleLeftSide {
-	background: url('VistaSkin/background/RoundCornerInnerGlowML.gif') repeat-y left ;
+	background: url('background/RoundCornerInnerGlowML.gif') repeat-y left ;
 	padding-left: 10px ;
 }
 

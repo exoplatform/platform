@@ -47,7 +47,7 @@
 .UIWindow .WindowPortletInfo .PortletIcon {
   float: left ;
   width: 16px ; height: 16px ;
-  background: url('VistaSkin/icons/16x16/PortletIcon.png') no-repeat ;
+  background: url('icons/16x16/PortletIcon.png') no-repeat ;
   margin: 9px 5px 0px 5px ;
 }
 
@@ -58,51 +58,51 @@
 }
 
 .UIWindow .WindowPortletControl .ArrowDownIcon {
-  background: url('VistaSkin/icons/16x16/ArrowDown.png') no-repeat ;
+  background: url('icons/16x16/ArrowDown.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverArrowDownIcon {
-  background: url('VistaSkin/icons/16x16/ArrowDownOver.png') no-repeat ;
+  background: url('icons/16x16/ArrowDownOver.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .MinimizedIcon {
-  background: url('VistaSkin/icons/16x16/Minimize.png') no-repeat ;
+  background: url('icons/16x16/Minimize.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverMinimizedIcon {
-  background: url('VistaSkin/icons/16x16/MinimizeOver.png') no-repeat ;
+  background: url('icons/16x16/MinimizeOver.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .MaximizedIcon {
-  background: url('VistaSkin/icons/16x16/Maximize.png') no-repeat ;
+  background: url('icons/16x16/Maximize.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverMaximizedIcon {
-  background: url('VistaSkin/icons/16x16/MaximizeOver.png') no-repeat ;
+  background: url('icons/16x16/MaximizeOver.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .RestoreIcon {
-  background: url('VistaSkin/icons/16x16/Restore.png') no-repeat ;
+  background: url('icons/16x16/Restore.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverRestoreIcon {
-  background: url('VistaSkin/icons/16x16/RestoreOver.png') no-repeat ;
+  background: url('icons/16x16/RestoreOver.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .NormalIcon {
-  background: url('VistaSkin/icons/16x16/Restore.png') no-repeat ;
+  background: url('icons/16x16/Restore.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverNormalIcon {
-  background: url('VistaSkin/icons/16x16/RestoreOver.png') no-repeat ;
+  background: url('icons/16x16/RestoreOver.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .CloseButtonIcon {
-  background: url('VistaSkin/icons/16x16/CloseOver.png') no-repeat ;
+  background: url('icons/16x16/CloseOver.png') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverCloseButtonIcon {
-  background: url('VistaSkin/icons/16x16/CloseOver.png') no-repeat ;
+  background: url('icons/16x16/CloseOver.png') no-repeat ;
 }
 
 .UIWindow .Information {
@@ -113,7 +113,7 @@
 }
 
 .UIWindow .MiddleDecoratorCenter {
-  /*background: url('VistaSkin/background/PortletWindowBG1x1.png');*/
+  /*background: url('background/PortletWindowBG1x1.png');*/
   background: #ffffff;
   border: solid 1px #717171;
 }
@@ -122,17 +122,17 @@
   float: right ;
   width: 9px ; height: 12px ;
   cursor: nw-resize ;
-  background: url('VistaSkin/icons/16x16/ResizeBG.gif') no-repeat bottom right;
+  background: url('icons/16x16/ResizeBG.gif') no-repeat bottom right;
 }
 
 .UIWindow .MiddleDecoratorLeft {
   padding-left:12px ;
-  background: url('VistaSkin/background/LeftMiddleDecorator12x1.png') repeat-y left ;
+  background: url('background/LeftMiddleDecorator12x1.png') repeat-y left ;
 }
 
 .UIWindow .MiddleDecoratorRight {
   padding-right: 13px ;
-  background: url('VistaSkin/background/RightMiddleDecorator13x1.png') repeat-y right ;
+  background: url('background/RightMiddleDecorator13x1.png') repeat-y right ;
 }
 
 .UIPageBody .MiddleDecoratorCenter {
@@ -141,17 +141,17 @@
 
 .UIWindow .BottomDecoratorLeft {
   padding-left:12px ;
-  background: url('VistaSkin/background/LeftBottomDecorator12x24.png') no-repeat left ;
+  background: url('background/LeftBottomDecorator12x24.png') no-repeat left ;
 }
 
 .UIWindow .BottomDecoratorRight {
   padding-right: 13px ;
-  background: url('VistaSkin/background/RightBottomDecorator13x24.png') no-repeat right ;
+  background: url('background/RightBottomDecorator13x24.png') no-repeat right ;
 }
 
 .UIWindow .BottomDecoratorCenter {
   height: 24px ;
-  background: url('VistaSkin/background/CenterBottomDecorator1x24.png') repeat-x ;
+  background: url('background/CenterBottomDecorator1x24.png') repeat-x ;
 }
 
 .UIWindow .WindowPortletInfo .PortletName {
@@ -162,17 +162,17 @@
 
 .UIWindow .WindowBarLeft {
   padding-left: 12px ;
-  background: url('VistaSkin/background/LeftTopBar12x29.png') no-repeat left ;
+  background: url('background/LeftTopBar12x29.png') no-repeat left ;
 }
 
 .UIWindow .WindowBarRight {
   padding-right: 16px ;
-  background: url('VistaSkin/background/RightTopBar16x29.png') no-repeat right ;
+  background: url('background/RightTopBar16x29.png') no-repeat right ;
 }
 
 .UIWindow .WindowBarCenter {
   height: 29px ;
-  background: url('VistaSkin/background/CenterTopBar1x29.png') repeat-x ;
+  background: url('background/CenterTopBar1x29.png') repeat-x ;
 }
 
 /**************************** UIPageBody ************************************/
@@ -214,7 +214,7 @@
 }
 
 .UIWindow .WindowPortletInfo .Content {
-  background: url('/eXoResources/icons/16x16/VistaSkin/RSS.gif') no-repeat center;
+  background: url('/eXoResources/icons/16x16/RSS.gif') no-repeat center;
   width: 26px; height:16px;
 }
 

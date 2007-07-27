@@ -17,32 +17,32 @@
 }
 
 .UIWidgets .WidgetDecorator .TopLeftWidgetsDecorator {
-	background: url('VistaSkin/background/TopLeftWidgets3x2.png') no-repeat left bottom;
+	background: url('background/TopLeftWidgets3x2.png') no-repeat left bottom;
 	padding: 0px 0px 0px 3px;
 }
 
 .UIWidgets .WidgetDecorator .TopRightWidgetsDecorator {
-	background: url('VistaSkin/background/TopRightWidgets4x2.png') no-repeat right bottom;
+	background: url('background/TopRightWidgets4x2.png') no-repeat right bottom;
 	padding: 0px 4px 0px 0px;
 }
 
 .UIWidgets .WidgetDecorator .TopCenterWidgetsDecorator {
-	background: url('VistaSkin/background/TopMiddleWidgets1x2.png') repeat-x bottom;
+	background: url('background/TopMiddleWidgets1x2.png') repeat-x bottom;
 	height: 2px;
 }
 
 .UIWidgets .WidgetDecorator .MiddleLeftWidgetsDecorator {
-	background: url('VistaSkin/background/CenterLeftWidgets4x1.png') repeat-y left;
+	background: url('background/CenterLeftWidgets4x1.png') repeat-y left;
 	padding: 0px 0px 0px 4px;
 }
 
 .UIWidgets .WidgetDecorator .MiddleRightWidgetsDecorator {
-	background: url('VistaSkin/background/CenterRightWidgets5x1.png') repeat-y right;
+	background: url('background/CenterRightWidgets5x1.png') repeat-y right;
 	padding: 0px 5px 0px 0px;
 }
 
 .UIWidgets .WidgetDecorator .MiddleCenterWidgetsDecorator {
-	background: url('VistaSkin/background/CenterBGWidgets1x214.png') repeat-x top;
+	background: url('background/CenterBGWidgets1x214.png') repeat-x top;
 }
 
 /******************************* UICaegorySelector  **********************************/
@@ -54,7 +54,7 @@
 }
 
 .UICaegorySelector .IconLabelContent {
-	background: url('/eXoResources/background/VistaSkin/IconLabelContentBG1x1.png') repeat;
+	background: url('/eXoResources/background/IconLabelContentBG1x1.png') repeat;
 	padding-left: 8px;
 	border: 1px solid #6c767c;
 	height: 20px;
@@ -64,7 +64,7 @@
 	float: left;
 	padding: 2px 0px 0px 0px;
 	height: 16px; width: 16px; 
-	background: url('VistaSkin/icon/IconWidget.png') no-repeat center;
+	background: url('icon/IconWidget.png') no-repeat center;
 }
 
 .UICaegorySelector .IconLabelContent .WidgetLabel {
@@ -78,7 +78,7 @@
 .UIWidgets .EditIcon {
 	float: left;
 	width: 19px; height: 22px;
-	background: url('VistaSkin/icons/EditIcon.png') no-repeat center;
+	background: url('icons/EditIcon.png') no-repeat center;
 	cursor: pointer;	
 }
 
@@ -88,7 +88,7 @@
 }
 
 .UIWidgets .UIDropDownItemSelector .ComponentIcon {
-	background: url('VistaSkin/icons/IconWidget.png') no-repeat center;
+	background: url('icons/IconWidget.png') no-repeat center;
 }
 
 /***************************************  UIWidgetContainer   **************************************/
@@ -102,19 +102,19 @@
 
 .UIWidgetContainer .LeftWidgetNavBar {
 	height: 28px;
-	background: url('VistaSkin/background/LeftWidgetNavBar12x28.png') no-repeat left;
+	background: url('background/LeftWidgetNavBar12x28.png') no-repeat left;
 	padding-left: 12px;	
 }
 
 .UIWidgetContainer .RightWidgetNavBar {
 	height: 28px;
-	background: url('VistaSkin/background/RightWidgetNavBar5x28.png') no-repeat right;
+	background: url('background/RightWidgetNavBar5x28.png') no-repeat right;
 	padding-right: 5px;	
 }
 
 .UIWidgetContainer .CenterWidgetNavBar {
 	height: 28px;
-	background: url('VistaSkin/background/CenterWidgetNavBar1x28.png') repeat-x;
+	background: url('background/CenterWidgetNavBar1x28.png') repeat-x;
 }
 
 .UIWidgetContainer .WidgetNavigator .Icon{
@@ -126,39 +126,39 @@
 }	
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollDownButton{
-	background: url('VistaSkin/icons/DownNomalIcon.png') no-repeat center;
+	background: url('icons/DownNomalIcon.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollDownButton{
-	background: url('VistaSkin/icons/DownSelectIcon.png') no-repeat center;
+	background: url('icons/DownSelectIcon.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollUpButton{
-	background: url('VistaSkin/icons/UpSelectIcon.png') no-repeat center;
+	background: url('icons/UpSelectIcon.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollUpButton{
-	background: url('VistaSkin/icons/UpNomalIcon.png') no-repeat center;
+	background: url('icons/UpNomalIcon.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetNavigator .AddWidgetButton{
-	background: url('VistaSkin/icons/AddWidgetButton.png') no-repeat center;
+	background: url('icons/AddWidgetButton.png') no-repeat center;
 }
 
 
 
 .UIWidgets .WidgetDecorator .BottomLeftWidgetsDecorator {
-  background: url('VistaSkin/background/BottomLeftWidgets6x12.png') no-repeat left bottom;
+  background: url('background/BottomLeftWidgets6x12.png') no-repeat left bottom;
 	padding: 0px 0px 0px 6px;
 }
 
 .UIWidgets .WidgetDecorator .BottomRightWidgetsDecorator {
-  background: url('VistaSkin/background/BottomRightWidgets7x12.png') no-repeat right bottom;
+  background: url('background/BottomRightWidgets7x12.png') no-repeat right bottom;
 	padding: 0px 7px 0px 0px;
 }
 
 .UIWidgets .WidgetDecorator .BottomCenterWidgetsDecorator {
-  background: url('VistaSkin/background/BottomMiddleWidgets1x12.png') repeat-x bottom;
+  background: url('background/BottomMiddleWidgets1x12.png') repeat-x bottom;
 	height:12px;
 }
 
@@ -180,7 +180,7 @@
 .UIWidgetContainer .WidgetControlContainer .WidgetControl {
   float: right;
 	width: 57px; height: 21px;
-	background: url('VistaSkin/background/WidgetControl57x21.png') no-repeat center;
+	background: url('background/WidgetControl57x21.png') no-repeat center;
 }
 
 .UIWidgetContainer .WidgetControlContainer .CloseWidgetIcon {
@@ -219,29 +219,29 @@
 }
 
 .UIWidgets .ControlBar .AddIcon {
-	background: url('VistaSkin/icons/AddIcon.png') no-repeat center;
+	background: url('icons/AddIcon.png') no-repeat center;
 	margin: 1px 0px 0px 0px;
 }
 
 .UIWidgets .ControlBar .DownBrownArrowIcon {
-	background: url('VistaSkin/icons/DownNomalIcon.png') no-repeat center;
+	background: url('icons/DownNomalIcon.png') no-repeat center;
 }
 
 .UIWidgets .ControlBar .DownBlueArrowIcon {
-	background: url('VistaSkin/icons/DownSelectIcon.png') no-repeat center;
+	background: url('icons/DownSelectIcon.png') no-repeat center;
 }
 
 .UIWidgets .ControlBar .UpBlueArrowIcon {
-	background: url('VistaSkin/icons/UpSelectIcon.png') no-repeat center;
+	background: url('icons/UpSelectIcon.png') no-repeat center;
 }
 
 .UIWidgets .ControlBar .UpBrownArrowIcon {
-	background: url('VistaSkin/icons/UpNomalIcon.png') no-repeat center;
+	background: url('icons/UpNomalIcon.png') no-repeat center;
 }
 
 .UIWidgets .UIWidgetContainer .ClockWidget {
 	width: 185px; height: 203px;
-	background:url('VistaSkin/background/MarketStock.png') no-repeat center;
+	background:url('background/MarketStock.png') no-repeat center;
 	margin: auto;
 }
 
@@ -263,19 +263,19 @@
 
 .UIWidget .WidgetControl .LeftControlBar{
 	height: 21px;
-	background: url('VistaSkin/background/LeftWidgetControlBar3x21.png') no-repeat left;	
+	background: url('background/LeftWidgetControlBar3x21.png') no-repeat left;	
 	padding-left: 3px;
 }
 
 .UIWidget .WidgetControl .RightControlBar{
 	height: 21px;
-	background: url('VistaSkin/background/RightWidgetControlBar3x21.png') no-repeat right;	
+	background: url('background/RightWidgetControlBar3x21.png') no-repeat right;	
 	padding-right:3px;
 }
 
 .UIWidget .WidgetControl .CenterControlBar{
 	height: 21px;
-	background: url('VistaSkin/background/CenterWidgetControlBar1x21.png') repeat-x;	
+	background: url('background/CenterWidgetControlBar1x21.png') repeat-x;	
 }
 
 .UIWidget .WidgetControl .WidgetDragHandleArea {
@@ -283,7 +283,7 @@
 	width: 17px; height: 13px;
 	cursor: move;
 	margin: 4px 3px 0px 3px;
-	background: url('VistaSkin/background/WidgetDragArea3x2.gif');
+	background: url('background/WidgetDragArea3x2.gif');
 }
 
 .UIWidget .WidgetControl .SeparatorLine {
@@ -299,7 +299,7 @@
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 3px 0px 0px;
-	background: url('VistaSkin/icons/EditWidgetIcon.png');	
+	background: url('icons/EditWidgetIcon.png');	
 }
 
 .UIWidget .WidgetControl .CloseWidgetIcon {
@@ -307,5 +307,5 @@
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 0px 0px 0px;
-	background: url('VistaSkin/icons/CloseWidgetIcon.png');	
+	background: url('icons/CloseWidgetIcon.png');	
 }

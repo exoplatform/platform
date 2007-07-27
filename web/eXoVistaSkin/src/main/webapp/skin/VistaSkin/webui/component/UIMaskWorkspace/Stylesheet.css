@@ -13,52 +13,52 @@
 }
 
 .UIMaskWorkspace .TopLeftDecorator {
-  background: url('VistaSkin/background/TopLeftDecorator12x10.png') left no-repeat;
+  background: url('background/TopLeftDecorator12x10.png') left no-repeat;
   padding: 0px 0px 0px 12px ;
 }
 
 .UIMaskWorkspace .TopRightDecorator {
-  background: url('VistaSkin/background/TopRightDecorator14x10.png') right no-repeat;
+  background: url('background/TopRightDecorator14x10.png') right no-repeat;
   padding: 0px 14px 0px 0px ;
 }
 
 .UIMaskWorkspace .TopLeftDecorator .TopCenterDecorator {
   height: 10px ;
-  background: url('VistaSkin/background/TopCenterDecorator1x10.png') repeat-x;
+  background: url('background/TopCenterDecorator1x10.png') repeat-x;
 }
 
 .UIMaskWorkspace .MiddleLeftDecorator {
-  background: url('VistaSkin/background/MiddleLeftDecorator12x1.png') repeat-y left;
+  background: url('background/MiddleLeftDecorator12x1.png') repeat-y left;
   padding: 0px 0px 0px 12px ;
 }
 
 .UIMaskWorkspace .MiddleRightDecorator {
-  background: url('VistaSkin/background/MiddleRightDecorator14x1.png') repeat-y right;
+  background: url('background/MiddleRightDecorator14x1.png') repeat-y right;
   padding: 0px 14px 0px 0px ;
 }
 
 .UIMaskWorkspace .BottomLeftDecorator {
-  background: url('VistaSkin/background/BottomLeftDecorator12x15.png') left no-repeat;
+  background: url('background/BottomLeftDecorator12x15.png') left no-repeat;
   padding: 0px 0px 0px 12px ;
 }
 
 .UIMaskWorkspace .BottomRightDecorator {
-  background: url('VistaSkin/background/BottomRightDecorator14x15.png') right no-repeat;
+  background: url('background/BottomRightDecorator14x15.png') right no-repeat;
   padding: 0px 14px 0px 0px ;
 }
 
 .UIMaskWorkspace .BottomLeftDecorator .BottomCenterDecorator {
   height: 15px ;
-  background: url('VistaSkin/background/BottomCenterDecorator1x15.png') repeat-x;
+  background: url('background/BottomCenterDecorator1x15.png') repeat-x;
 }
 /***************************************************************************/
 .UIMaskWorkspace .TitleBarContainer .LeftTitleBar {
-  background: url('VistaSkin/background/LeftTitleBar26x33.png') no-repeat left;
+  background: url('background/LeftTitleBar26x33.png') no-repeat left;
   padding: 0px 0px 0px 26px ;
 }
 
 .UIMaskWorkspace .TitleBarContainer .RightTitleBar {
-  background: url('VistaSkin/background/RightTitleBar26x33.png') no-repeat right;
+  background: url('background/RightTitleBar26x33.png') no-repeat right;
   padding: 0px 26px 0px 0px ;
 }
 
@@ -66,7 +66,7 @@
   height: 33px ;
   line-height: 26px ;
   font-weight: bold ; text-align: left ;
-  background: url('VistaSkin/background/CenterTitleBar1x33.png') repeat-x top;
+  background: url('background/CenterTitleBar1x33.png') repeat-x top;
 }
 
 .UIMaskWorkspace .ContentContainerDetail {
@@ -74,7 +74,7 @@
 }
 
 .UIMaskWorkspace .UITabContentContainer {
-  background: url('VistaSkin/background/TabContainerBG1x11.png') repeat-x top;
+  background: url('background/TabContainerBG1x11.png') repeat-x top;
   padding: 1px;
   border: solid 1px gray;
   border-top: solid 1px #bec1c7;  
@@ -178,7 +178,7 @@
   margin: 10px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
 	border-bottom: none;
-	background: white url('VistaSkin/background/AddApplicationrBG1x20.gif') repeat-x bottom;
+	background: white url('background/AddApplicationrBG1x20.gif') repeat-x bottom;
 	padding: 10px;
 }
 
@@ -227,12 +227,12 @@
 }
 
 .UIAddApplication .TitleBarContainer .LeftTitleBar {
-  background: url('VistaSkin/background/LeftTitleBar15x32.png') no-repeat left;
+  background: url('background/LeftTitleBar15x32.png') no-repeat left;
   padding: 0px 0px 0px 15px ;
 }
 
 .UIAddApplication .TitleBarContainer .RightTitleBar {
-  background: url('VistaSkin/background/RightTitleBar10x32.png') no-repeat right;
+  background: url('background/RightTitleBar10x32.png') no-repeat right;
   padding: 0px 10px 0px 0px ;
 }
 
@@ -240,7 +240,7 @@
   height: 32px ;
   line-height: 32px ; vertical-align: middle ;
   font-weight: bold ; font-family: arial; color: #0575CA; font-size: 14px;
-  background: url('VistaSkin/background/CenterTitleBar1x32.png') repeat-x;
+  background: url('background/CenterTitleBar1x32.png') repeat-x;
 }
 
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
@@ -273,7 +273,7 @@
 .UIAddApplication .SelectButton {
 	float: left ; 
 	width: 20px ; height: 20px ;
-	background: url("VistaSkin/icons/16x16/SelectButton.png") no-repeat center;
+	background: url("icons/16x16/SelectButton.png") no-repeat center;
 	margin: 0px 3px ;
 	cursor: pointer ;
 }
@@ -281,7 +281,7 @@
 .UIAddApplication .AddButton {
 	float: left ; 
 	width: 20px ; height: 20px ;
-	background: url("VistaSkin/icons/16x16/Add.png") no-repeat center;
+	background: url("icons/16x16/Add.png") no-repeat center;
 	margin: 0px 3px ;
 	cursor: pointer ;
 }
@@ -363,7 +363,7 @@
 
 
 .UIGroupSelector .TitleGroupSelector {
-  background: url("VistaSkin/background/ThGridRepeatBg1x20.png") repeat-x;
+  background: url("background/ThGridRepeatBg1x20.png") repeat-x;
   line-height: 19px; height: 19px;
   border: 1px solid #b7b7b7;
   border-bottom: 1px solid #cfcfcf;

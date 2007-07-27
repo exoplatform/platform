@@ -31,17 +31,17 @@
 }
 
 .UIPageSelector .SelectPageAction .LeftButton {
-  background: url('VistaSkin/background/LeftSimpleButton20x24.png') no-repeat left; 
+  background: url('background/LeftSimpleButton20x24.png') no-repeat left; 
   padding-left: 20px;
 }
 
 .UIPageSelector .SelectPageAction .RightButton {
-  background: url('VistaSkin/background/RightSimpleButton20x24.png') no-repeat right; 
+  background: url('background/RightSimpleButton20x24.png') no-repeat right; 
   padding-right: 20px;
 } 
 
 .UIPageSelector .SelectPageAction .CenterButton {
-  background: url('VistaSkin/background/CenterSimpleButton3x24.png') repeat-x; 
+  background: url('background/CenterSimpleButton3x24.png') repeat-x; 
   height: 24px; line-height: 24px;
 }
 
@@ -71,18 +71,18 @@
 }
 
 .UIPageSelector .UIFormInfo {
-  background:url(VistaSkin/background/UIFormInfoBG1x21.png) repeat-x scroll center top ;
+  background:url(background/UIFormInfoBG1x21.png) repeat-x scroll center top ;
   border: 1px solid #b7b7b7;
   margin-top: 1px;
 }
 
 .UIPageSelector .FormInfoBG {
-  background: url('VistaSkin/background/FormInfoBG360x1.gif') repeat-y right ;
+  background: url('background/FormInfoBG360x1.gif') repeat-y right ;
   padding-right: 30px;
 }
 
 .UIPageSelector .FormInfoIcon {
-  background: url('VistaSkin/background/FormInfoIcon80x80.gif') no-repeat center right ;
+  background: url('background/FormInfoIcon80x80.gif') no-repeat center right ;
   padding: 15px 15px 20px 15px;
 }
 

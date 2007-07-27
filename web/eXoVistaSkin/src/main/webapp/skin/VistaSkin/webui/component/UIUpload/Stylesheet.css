@@ -10,7 +10,7 @@
 
 .UploadButton {
 	float: right;
-	background: url("VistaSkin/Background/UpArrow16x16.png") no-repeat left;
+	background: url("Background/UpArrow16x16.png") no-repeat left;
 	border:1px red solid;
 	cursor: pointer;
 	padding-left: 16px;

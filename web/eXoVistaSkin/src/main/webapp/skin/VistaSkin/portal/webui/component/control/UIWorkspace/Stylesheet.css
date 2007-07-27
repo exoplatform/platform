@@ -2,7 +2,7 @@
   width: 3px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
-  background: url("VistaSkin/background/SlidebarBackground6x1.png") repeat-y right;
+  background: url("background/SlidebarBackground6x1.png") repeat-y right;
 }
 
 .UIControlWorkspace .TopTitleBar{
@@ -15,7 +15,7 @@
 
 .UIControlWorkspace .UserWorkspaceTitle {
   height: 23px ;
-  background: url('VistaSkin/background/UserWorkspaceTitleBG1x23.png') repeat-x ;
+  background: url('background/UserWorkspaceTitleBG1x23.png') repeat-x ;
   font-weight: bold ;
   line-height: 22px ; 
   margin-right: 2px ; text-align: center;
@@ -25,7 +25,7 @@
 	float: right ;
 	width: 28px ;	height: 22px ;
 	margin: 0px 0px 0px 0px ;
-	background: url('VistaSkin/background/CloseControlWorkspace.png') no-repeat ;
+	background: url('background/CloseControlWorkspace.png') no-repeat ;
 	cursor: pointer ;
 }
 
@@ -50,7 +50,7 @@
   float: left;  
   width: 30px ; height: 25px ;
   margin: 7px 10px 0px 5px; 
-  background: url('VistaSkin/background/PortalManagement.gif') no-repeat ;
+  background: url('background/PortalManagement.gif') no-repeat ;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .ControlPanelExpandContainer {
@@ -61,7 +61,7 @@
   float: left;
   width: 30px ; height: 25px ;
   margin: 6px 10px 0px 5px;
-  background: url('VistaSkin/background/PageManagement.gif') no-repeat center;
+  background: url('background/PageManagement.gif') no-repeat center;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .HideContentVTab {
@@ -88,7 +88,7 @@
 
 .UIControlWorkspace .SlidebarButton {
 	height: 100% ;	width: 6px ;
-	background: url("VistaSkin/background/SlidebarButton6x160.gif") no-repeat center center ;
+	background: url("background/SlidebarButton6x160.gif") no-repeat center center ;
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
@@ -119,7 +119,7 @@
 
 .PreviewMode {
 	width: 172px ;	height: 38px ;
-	background: url("VistaSkin/background/PreviewModeImage172x38.png") no-repeat ;
+	background: url("background/PreviewModeImage172x38.png") no-repeat ;
 	position: absolute ;
 	cursor: pointer ;
 	margin: 36px 0px 0px 0px;

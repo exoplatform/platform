@@ -9,17 +9,17 @@
 
 .UIToolbar .EditToolbar .LeftBar {
   padding-left: 4px;
-  background: url('VistaSkin/background/PolyBarL4x31.png') no-repeat left;
+  background: url('background/PolyBarL4x31.png') no-repeat left;
 }
 
 .UIToolbar .EditToolbar .RightBar {
   padding-right: 5px;
-  background: url('VistaSkin/background/PolyBarR5x31.png') no-repeat right;
+  background: url('background/PolyBarR5x31.png') no-repeat right;
 }
 
 .UIToolbar .EditToolbar .MiddleBar {
   height: 31px;
-  background: url('VistaSkin/background/PolyBarM1x31.png') repeat-x ;
+  background: url('background/PolyBarM1x31.png') repeat-x ;
 }
 
 .UIToolbar .EditToolbar .Icon {
@@ -35,20 +35,20 @@
 .UIToolbar .ControlToolbar .LeftBar {
   height: 28px;
   padding-left: 11px;
-  background: url('VistaSkin/background/LeftControlToolbar11x28.png') no-repeat left;
+  background: url('background/LeftControlToolbar11x28.png') no-repeat left;
 }
 
 .UIToolbar .ControlToolbar .MiddleBar {
   height: 28px;
   line-height: 28px;
-  background: url('VistaSkin/background/MiddleControlToolbar1x28.png') repeat-x ;
+  background: url('background/MiddleControlToolbar1x28.png') repeat-x ;
 }
 
 .UIToolbar .ControlToolbar .SeparateLine{
   width: 2px; height: 19px;
   float: left;
   margin: 4px 2px 0px 3px;
-  background: url('VistaSkin/background/SeparateLine2x19.png') repeat-y ;
+  background: url('background/SeparateLine2x19.png') repeat-y ;
 }
 
 .UIToolbar .ControlToolbar .Icon {
@@ -70,7 +70,7 @@
   float: left ;
   margin-top: 16px ;
   width: 2px; height: 20px ;
-  background: url('VistaSkin/background/GrayLine2x4.png') repeat-y ;
+  background: url('background/GrayLine2x4.png') repeat-y ;
 
 }
 
@@ -83,20 +83,20 @@
 
 .UIToolbar .LargeToolbar .LeftToolbar {
   height: 74px ;
-  background: url('VistaSkin/background/GrayLargeToolbarL10x74.png') no-repeat left top;
+  background: url('background/GrayLargeToolbarL10x74.png') no-repeat left top;
   padding-left: 10px;
 }
 
 .UIToolbar .LargeToolbar .RightToolbar {
   height: 74px;
-  background: url('VistaSkin/background/GrayLargeToolbarR15x74.png') no-repeat right top;
+  background: url('background/GrayLargeToolbarR15x74.png') no-repeat right top;
   padding-right: 87px;
 }
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
   height: 74px; 
   line-height: 74px ; 
-  background: url('VistaSkin/background/GrayLargeToolbarM1x74.png') repeat-x top;
+  background: url('background/GrayLargeToolbarM1x74.png') repeat-x top;
 }
 
 .UIToolbar .LargeToolbar a {
@@ -152,31 +152,31 @@
 .UIOrganizationPortlet .UserManagementIcon {
   width: 32px; height: 30px; 
   margin: auto;
-  background: url('/eXoResources/icons/32x32/VistaSkin/UserManagement.gif') no-repeat center;
+  background: url('/eXoResources/icons/32x32/UserManagement.gif') no-repeat center;
 }
 
 .UIOrganizationPortlet .GroupManagementIcon {
   width: 32px; height: 30px; 
   margin: auto;
-  background: url('/eXoResources/icons/32x32/VistaSkin/GroupManagement.gif') no-repeat center;
+  background: url('/eXoResources/icons/32x32/GroupManagement.gif') no-repeat center;
 }
 
 .UIOrganizationPortlet .MembershipManagementIcon {
   width: 32px; height: 30px; 
   margin: auto;
-  background: url('/eXoResources/icons/32x32/VistaSkin/MembershipManagement.gif') no-repeat center ;
+  background: url('/eXoResources/icons/32x32/MembershipManagement.gif') no-repeat center ;
 }
 
 /*##############################- StandardToolbar style -#########################*/
 .UIToolbar .StandardToolbar {
-  background: url('VistaSkin/background/StandardToolbarRepeatBg1x42.gif') repeat-x ;
+  background: url('background/StandardToolbarRepeatBg1x42.gif') repeat-x ;
   height: 42px ;
   margin-bottom: 5px ;
 }
 
 .UIToolbar .StandardToolbar .LeftToolbar {
   float: left ;
-  background: url('VistaSkin/background/StandardToolbarLBg3x42.gif') no-repeat ;
+  background: url('background/StandardToolbarLBg3x42.gif') no-repeat ;
   background-color: #d6e7ee ;
   width: 3px ; height: 42px ;
 }
@@ -190,7 +190,7 @@
 
 .UIToolbar .StandardToolbar .RightToolbar {
   float: right ;
-  background: url('VistaSkin/background/StandardToolbarRBg3x42.gif') no-repeat ;
+  background: url('background/StandardToolbarRBg3x42.gif') no-repeat ;
   background-color: #d6e7ee ;
   width: 3px ;  height: 42px ;
 }
@@ -211,7 +211,7 @@
 
 /*##############################- SmallToolbar style -#########################*/
 .UIToolbar .SmallToolbar {
-  background: url('VistaSkin/background/SmallToolBarBg1x23.gif') repeat-x ;
+  background: url('background/SmallToolBarBg1x23.gif') repeat-x ;
   height: 23px ;
   border: solid 1px #5e5e5e ;
   padding-left: 20px ; 
@@ -228,7 +228,7 @@
 .UIToolbar .DarkToolbar {
   border: solid 1px #2c4e5e;
   height: 28px;
-  background: url('VistaSkin/background/DarkToolbarRepeatBg1x28.gif') repeat-x ;
+  background: url('background/DarkToolbarRepeatBg1x28.gif') repeat-x ;
   padding-left: 30px ;
 }
 .UIToolbar .DarkToolbar a {
@@ -246,18 +246,18 @@
 
 .UIToolbar .LightToolbar .LeftBar {
   padding-left: 3px;
-  background: url('VistaSkin/background/PolyBarL3x33.gif') no-repeat left;
+  background: url('background/PolyBarL3x33.gif') no-repeat left;
 }
 
 .UIToolbar .LightToolbar .RightBar {
   padding-right: 3px;
-  background: url('VistaSkin/background/PolyBarR3x33.gif') no-repeat right;
+  background: url('background/PolyBarR3x33.gif') no-repeat right;
 }
 
 .UIToolbar .LightToolbar .MiddleBar {
   height: 33px;
   line-height: 33px;
-  background: url('VistaSkin/background/PolyBarM1x33.gif') repeat-x ;
+  background: url('background/PolyBarM1x33.gif') repeat-x ;
 }
 
 /*#################################- LightPolyToolbar -##############################*/
@@ -268,17 +268,17 @@
 
 .UIToolbar .PolyToolbar .LeftBar {
   padding-left: 7px;
-  background: url('VistaSkin/background/Poly2BarL7x37.png') no-repeat left;
+  background: url('background/Poly2BarL7x37.png') no-repeat left;
 }
 
 .UIToolbar .PolyToolbar .RightBar {
   padding-right: 8px;
-  background: url('VistaSkin/background/Poly2BarR8x37.png') no-repeat right;
+  background: url('background/Poly2BarR8x37.png') no-repeat right;
 }
 
 .UIToolbar .PolyToolbar .MiddleBar {
   height: 37px; line-height: 37px;
-  background: url('VistaSkin/background/Poly2BarM1x37.png') repeat-x ;
+  background: url('background/Poly2BarM1x37.png') repeat-x ;
 }
 
 /*#################################- Poly2Toolbar -##############################*/
@@ -289,17 +289,17 @@
 
 .UIToolbar .Poly2Toolbar .LeftBar {
   padding-left: 7px;
-  background: url('VistaSkin/background/Poly2BarL7x37.png') no-repeat left;
+  background: url('background/Poly2BarL7x37.png') no-repeat left;
 }
 
 .UIToolbar .Poly2Toolbar .RightBar {
   padding-right: 8px;
-  background: url('VistaSkin/background/Poly2BarR8x37.png') no-repeat right;
+  background: url('background/Poly2BarR8x37.png') no-repeat right;
 }
 
 .UIToolbar .Poly2Toolbar .MiddleBar {
   height: 37px; line-height: 37px; 
-  background: url('VistaSkin/background/Poly2BarM1x37.png') repeat-x ;
+  background: url('background/Poly2BarM1x37.png') repeat-x ;
 }
 
 /*#################################- IceBlueToolbar -##############################*/
@@ -312,18 +312,18 @@
 
 .UIToolbar .IceBlueToolbar .LeftBar {
   padding-left: 4px;
-  background: url('VistaSkin/background/IceBlueToolBarLBg4x30.gif') no-repeat left;
+  background: url('background/IceBlueToolBarLBg4x30.gif') no-repeat left;
 }
 
 .UIToolbar .IceBlueToolbar .RightBar {
   padding-right: 4px;
-  background: url('VistaSkin/background/IceBlueToolBarRBg4x30.gif') no-repeat right;
+  background: url('background/IceBlueToolBarRBg4x30.gif') no-repeat right;
 }
 
 .UIToolbar .IceBlueToolbar .MiddleBar {
   height: 30px;
   line-height: 30px;
-  background: url('VistaSkin/background/IceBlueToolBarRepeatBg1x30.gif') repeat-x ;
+  background: url('background/IceBlueToolBarRepeatBg1x30.gif') repeat-x ;
 }
 
 /*#################################- GrayBevelRoundedToolbar-##############################*/
@@ -333,18 +333,18 @@
 
 .UIToolbar .GrayBevelRoundedBar35Style .LeftBar {
   padding-left: 15px ;
-  background: url('VistaSkin/background/GrayBevel35Left15x35.gif') no-repeat left ;
+  background: url('background/GrayBevel35Left15x35.gif') no-repeat left ;
 }
 
 .UIToolbar .GrayBevelRoundedBar35Style .RightBar {
   padding-right: 15px ;
-  background: url('VistaSkin/background/GrayBevel35Right15x35.gif') no-repeat right ;
+  background: url('background/GrayBevel35Right15x35.gif') no-repeat right ;
 }
 
 .UIToolbar .GrayBevelRoundedBar35Style .MiddleBar {
   height: 35px ;
   line-height: 35px ;
-  background: url('VistaSkin/background/GrayBevel35Center1x35.gif') repeat-x ;
+  background: url('background/GrayBevel35Center1x35.gif') repeat-x ;
 }
 
 .UIToolbar .GrayBevelRoundedBar35Style .Button {
@@ -365,19 +365,19 @@
 .UIToolbar .Style1Toolbar .LeftBar {
   line-height: 28px;
   padding-left: 8px ;
-  background: url('VistaSkin/background/BlueRoundedToolbarL8x28.gif') no-repeat left ;
+  background: url('background/BlueRoundedToolbarL8x28.gif') no-repeat left ;
 }
 
 .UIToolbar .Style1Toolbar .RightBar {
   line-height: 28px;
   padding-right: 8px ;
-  background: url('VistaSkin/background/BlueRoundedToolbarR8x28.gif') no-repeat right ;
+  background: url('background/BlueRoundedToolbarR8x28.gif') no-repeat right ;
 }
 
 .UIToolbar .Style1Toolbar .MiddleBar {
   height: 28px ;
   line-height: 28px ;
-  background: url('VistaSkin/background/BlueRoundedToolbarM1x28.gif') repeat-x ;
+  background: url('background/BlueRoundedToolbarM1x28.gif') repeat-x ;
 }
 
 /*#################################- Style2Toolbar-##############################*/
@@ -388,19 +388,19 @@
 .UIToolbar .Style2Toolbar .LeftBar {
   height: 29px; line-height: 31px;
   padding-left: 6px ;
-  background: url('VistaSkin/background/Style2BarL6x29.gif') no-repeat left ;
+  background: url('background/Style2BarL6x29.gif') no-repeat left ;
 }
 
 .UIToolbar .Style2Toolbar .RightBar {
   height: 29px; line-height: 29px;
   padding-right: 6px ;
-  background: url('VistaSkin/background/Style2BarR6x29.gif') no-repeat right ;
+  background: url('background/Style2BarR6x29.gif') no-repeat right ;
 }
 
 .UIToolbar .Style2Toolbar .MiddleBar {
   height: 29px ;
   line-height: 29px ;
-  background: url('VistaSkin/background/Style2BarM1x29.gif') repeat-x ;
+  background: url('background/Style2BarM1x29.gif') repeat-x ;
 }
 
 .UIToolbar .Style2Toolbar .Title {
@@ -424,18 +424,18 @@
 
 .UIToolbar .GrayBevelBar .LeftBar {
   padding-left: 9px ;
-  background: url('VistaSkin/background/GrayBevelBarL9x35.gif') no-repeat left ;
+  background: url('background/GrayBevelBarL9x35.gif') no-repeat left ;
 }
 
 .UIToolbar .GrayBevelBar .RightBar {
   padding-right: 9px ;
-  background: url('VistaSkin/background/GrayBevelBarR9x35.gif') no-repeat right ;
+  background: url('background/GrayBevelBarR9x35.gif') no-repeat right ;
 }
 
 .UIToolbar .GrayBevelBar .MiddleBar {
   height: 35px ;
   line-height: 35px ;
-  background: url('VistaSkin/background/GrayBevelBarRepeat1x35.gif') repeat-x ;
+  background: url('background/GrayBevelBarRepeat1x35.gif') repeat-x ;
 }
 
 /*#################################- NavyBluePolyToolbar-##############################*/
@@ -445,18 +445,18 @@
 
 .UIToolbar .NavyBluePoly44 .LeftBar {
   padding-left: 7px ;
-  background: url('VistaSkin/background/NavyBluePolyStyleL7x44.gif') no-repeat left ;
+  background: url('background/NavyBluePolyStyleL7x44.gif') no-repeat left ;
 }
 
 .UIToolbar .NavyBluePoly44 .RightBar {
   padding-right: 7px ;
-  background: url('VistaSkin/background/NavyBluePolyStyleR7x44.gif') no-repeat right ;
+  background: url('background/NavyBluePolyStyleR7x44.gif') no-repeat right ;
 }
 
 .UIToolbar .NavyBluePoly44 .MiddleBar {
   height: 44px ;
   line-height: 44px ;
-  background: url('VistaSkin/background/NavyBluePolyStyleRepeat1x44.gif') repeat-x ;
+  background: url('background/NavyBluePolyStyleRepeat1x44.gif') repeat-x ;
 }
 
 .UIToolbar .NavyBluePoly44 .Button {
@@ -471,20 +471,20 @@
 
 .UIToolbar .RollbackIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/RollbackB.png') no-repeat;
+	background: url('/eXoResources/icons/24x24/RollbackB.png') no-repeat;
 }
 
 .UIToolbar .FinishIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/Finish.png') no-repeat;
+	background: url('/eXoResources/icons/24x24/Finish.png') no-repeat;
 }
 
 .UIToolbar .SaveIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/SaveB.png') no-repeat;
+	background: url('/eXoResources/icons/24x24/SaveB.png') no-repeat;
 }
 
 .UIToolbar .AbortIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/24x24/VistaSkin/AbortB.png') no-repeat;
+	background: url('/eXoResources/icons/24x24/AbortB.png') no-repeat;
 }

@@ -11,7 +11,7 @@
 .UIGrid th {
   height: 22px; line-height: 22px;
   border: 1px solid #a3a3a3;
-  background: url('VistaSkin/background/ThGridRepeatBg1x20.png') repeat-x;
+  background: url('background/ThGridRepeatBg1x20.png') repeat-x;
   font-weight: normal;
   padding: 0px 4px;
 }
@@ -65,45 +65,45 @@
 
 .UIGrid .ViewIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/LightBulbOn.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/LightBulbOn.gif') no-repeat ;
 }
 
 .UIGrid .DeleteIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DustBin.png') no-repeat ;
 }
 
 .UIGrid .EditInfoIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat ;
+  background: url('/eXoResources/icons/16x16/Pencil.png') no-repeat ;
 }
 
 .UIGrid .SelectIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/pen-edit.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/pen-edit.gif') no-repeat ;
 }
 
 .UIGrid .ExcuteIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/PageYellowLight.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/PageYellowLight.gif') no-repeat ;
 }
 
 .UIGrid .AddNewIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/BlueCirclePlus.gif') no-repeat ;
+  background: url('/eXoResources/icons/16x16/BlueCirclePlus.gif') no-repeat ;
 }
 
 /*###################### UIListUsers Icon ######################*/
 
 .UIGrid .DeleteUserIcon {
   width: 19px ; height: 20px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DustBin.png') no-repeat ;
   margin: auto;
 }
 
 .UIGrid .ViewUserInfoIcon {
   width: 21px ;  height: 19px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat ;
+  background: url('/eXoResources/icons/16x16/Pencil.png') no-repeat ;
   margin: auto;
 }
 
@@ -111,13 +111,13 @@
 
 .UIGrid .DeleteMembershipIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') no-repeat ;
+  background: url('/eXoResources/icons/16x16/DustBin.png') no-repeat ;
   margin: auto;  
 }
 
 .UIGrid .EditMembershipIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') no-repeat ;
+  background: url('/eXoResources/icons/16x16/Pencil.png') no-repeat ;
   margin: auto;
 }
 

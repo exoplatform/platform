@@ -8,56 +8,56 @@
 
 .UIPortalToolPanel .WizardDecorator .WizardTopLeft {
   height: 5px;
-  background: url('VistaSkin/background/WizardTL7x5.png') no-repeat left;
+  background: url('background/WizardTL7x5.png') no-repeat left;
   padding-left: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardTopRight{
   height: 5px; 
-  background: url('VistaSkin/background/WizardTR7x5.png') no-repeat right;
+  background: url('background/WizardTR7x5.png') no-repeat right;
   padding-right: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardTopCenter {
   height: 5px; 
-  background: url('VistaSkin/background/WizardTC1x5.png') repeat-x;
+  background: url('background/WizardTC1x5.png') repeat-x;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardMiddleLeft {
-  background: url('VistaSkin/background/WizardML5x1.png') repeat-y left;
+  background: url('background/WizardML5x1.png') repeat-y left;
   padding-left: 5px;  
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardMiddleRight {
-  background: url('VistaSkin/background/WizardMR5x1.png') repeat-y right;
+  background: url('background/WizardMR5x1.png') repeat-y right;
   padding-right: 5px;  
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardMiddleCenter {
   padding: 5px;
   border: solid 1px #545454;
-  background: url('VistaSkin/background/UIWizardContentBG4x4.png') repeat;
+  background: url('background/UIWizardContentBG4x4.png') repeat;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardBottomLeft {
   height: 7px; 
-  background: url('VistaSkin/background/WizardBL7x7.png') no-repeat left;
+  background: url('background/WizardBL7x7.png') no-repeat left;
   padding-left: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardBottomRight{
   height: 7px; 
-  background: url('VistaSkin/background/WizardBR7x7.png') no-repeat right;
+  background: url('background/WizardBR7x7.png') no-repeat right;
   padding-right: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardBottomCenter {
   height: 7px; 
-  background: url('VistaSkin/background/WizardBC1x7.png') repeat-x;
+  background: url('background/WizardBC1x7.png') repeat-x;
 }
 
 .UIPortalToolPanel .Banner {
-  background: url('VistaSkin/background/EditBannerRepeatBg4x92.png') repeat-x ;
+  background: url('background/EditBannerRepeatBg4x92.png') repeat-x ;
   height: 92px ;
   line-height: 92px ; text-align: center ;
 }
@@ -65,19 +65,19 @@
 .UIPortalToolPanel .BannerLeft {
   float: left ;
   height: 92px ; width: 40%;
-  background: url('VistaSkin/background/EditBannerLBg410x92.png') no-repeat left ;
+  background: url('background/EditBannerLBg410x92.png') no-repeat left ;
 }
 
 .UIPortalToolPanel .BannerMiddle {
   float: left ;
   height: 92px ; width:25%;
-  background: url('VistaSkin/background/EditBannerMBg250x92.png') no-repeat center ;
+  background: url('background/EditBannerMBg250x92.png') no-repeat center ;
 }
 
 .UIPortalToolPanel .BannerRight {
   float: right ;
   height: 92px ; width: 26%;
-  background: url('VistaSkin/background/EditBannerRBg260x92.png') no-repeat right ;
+  background: url('background/EditBannerRBg260x92.png') no-repeat right ;
 }
 
 .UIPortalToolPanel .Body {
@@ -86,7 +86,7 @@
 }
 
 .UIPortalToolPanel .Footer {
-  background: url('VistaSkin/background/FooterRepeat1x32.png') repeat-x ;
+  background: url('background/FooterRepeat1x32.png') repeat-x ;
   height: 32px ;
   padding: 4px 0px 0px 0px ;
   line-height:32px ;
@@ -149,5 +149,5 @@
 	line-height: 27px ; 
 	font-weight: bold;
 	margin: 0px 0px 0px 0px;
-	background: url('VistaSkin/background/TitleBG1x28.gif') repeat-x ;
+	background: url('background/TitleBG1x28.gif') repeat-x ;
 }

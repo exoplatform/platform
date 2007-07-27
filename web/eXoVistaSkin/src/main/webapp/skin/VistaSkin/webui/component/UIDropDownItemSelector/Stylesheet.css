@@ -11,7 +11,7 @@
 }
 
 .UIDropDownItemSelector .ItemInfoBar {
-	background: url('/eXoResources/background/VistaSkin/IconLabelContentBG1x1.png') repeat;
+	background: url('/eXoResources/background/IconLabelContentBG1x1.png') repeat;
 	padding-left: 8px;
 	border: 1px solid #959595;
 	border-top: none;
@@ -38,7 +38,7 @@
 .UIDropDownItemSelector .DropDownSelectIcon {
 	float: right; 
 	width: 19px; height: 20px;
-	background: url('VistaSkin/icon/SelectedIcon.png') no-repeat center;
+	background: url('icon/SelectedIcon.png') no-repeat center;
 	cursor: pointer;	
 }
 
@@ -53,13 +53,13 @@
 
 .UIItemList .ItemSelector {
   height: 22px; line-height: 22px;
-  background: url('VistaSkin/background/BGNormalItem1x22.png') repeat-x;
+  background: url('background/BGNormalItem1x22.png') repeat-x;
   border-bottom: 1px #cdcdcd solid;
   cursor: pointer ;
 }
 
 .UIItemList .OverItemSelector {
-	background: url('VistaSkin/background/BGOverItem1x22.png') repeat-x;
+	background: url('background/BGOverItem1x22.png') repeat-x;
 	height: 22px; line-height: 22px;
 	border-bottom: 1px #cdcdcd solid;
 	color: blue;
@@ -88,32 +88,32 @@
   width: 8px; height: 12px;
   float: left;
   margin: 8px 3px 0px 7px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/BlackRightArrow.gif') no-repeat;
+  background: url('/eXoResources/icons/16x16/BlackRightArrow.gif') no-repeat;
 }
 
 /*=================================Popup Category Decorator====================================*/
 .UIItemList .LTItemSelector {
-  background: url('VistaSkin/background/TLItemSelector14x10.png') no-repeat left;
+  background: url('background/TLItemSelector14x10.png') no-repeat left;
   padding-left: 14px;
 }
 
 .UIItemList .TCItemSelector {
   height:10px;
-  background: url('VistaSkin/background/TCItemSelector1x10.png') repeat-x;
+  background: url('background/TCItemSelector1x10.png') repeat-x;
 }
 
 .UIItemList .TRItemSelector {
-  background: url('VistaSkin/background/TRItemSelector18x10.png') no-repeat right;
+  background: url('background/TRItemSelector18x10.png') no-repeat right;
   padding-right:18px;
 }
 
 .UIItemList .MLItemSelector {
-  background: url('VistaSkin/background/MLItemSelector9x1.png') repeat-y left;
+  background: url('background/MLItemSelector9x1.png') repeat-y left;
   padding-left: 9px;
 }
 
 .UIItemList .MRItemSelector {
-  background: url('VistaSkin/background/MRItemSelector12x1.png') repeat-y right;
+  background: url('background/MRItemSelector12x1.png') repeat-y right;
   padding-right:12px;
 }
 
@@ -122,18 +122,18 @@
 }
 
 .UIItemList .BLItemSelector {
-  background: url('VistaSkin/background/BLItemSelector13x14.png') no-repeat left;
+  background: url('background/BLItemSelector13x14.png') no-repeat left;
   padding-left: 13px;
 }
 
 .UIItemList .BRItemSelector {
   padding-right: 17px;
-  background: url('VistaSkin/background/BRItemSelector17x14.png') no-repeat right;
+  background: url('background/BRItemSelector17x14.png') no-repeat right;
 }
 
 .UIItemList .BCItemSelector {
   height: 14px;
-  background: url('VistaSkin/background/BCItemSelector1x14.png') repeat-x;
+  background: url('background/BCItemSelector1x14.png') repeat-x;
   
 }
 

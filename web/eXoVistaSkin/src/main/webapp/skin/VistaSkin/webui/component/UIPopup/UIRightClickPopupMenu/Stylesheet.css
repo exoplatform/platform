@@ -35,51 +35,51 @@
 }
 
 .UIRightClickPopupMenu .Rename16x16Icon{
-   background-image: url('/eXoResources/icons/16x16/VistaSkin/Rename.gif') ;   
+   background-image: url('/eXoResources/icons/16x16/Rename.gif') ;   
 }
 
 .UIRightClickPopupMenu .AddNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/VistaSkin/BlueCirclePlus.png') ;
+  background-image: url('/eXoResources/icons/16x16/BlueCirclePlus.png') ;
 }
 
 .UIRightClickPopupMenu .EditPageNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/VistaSkin/EditPageNode.png') ;
+  background-image: url('/eXoResources/icons/16x16/EditPageNode.png') ;
 }
 
 .UIRightClickPopupMenu .EditSelectedNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/VistaSkin/EditNode.png') ;
+  background-image: url('/eXoResources/icons/16x16/EditNode.png') ;
 }
 
 .UIRightClickPopupMenu .CutNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/VistaSkin/icon-cut.gif') ;
+  background-image: url('/eXoResources/icons/16x16/icon-cut.gif') ;
 }
 
 .UIRightClickPopupMenu .CopyNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/VistaSkin/CopyIcon.png') ;
+  background-image: url('/eXoResources/icons/16x16/CopyIcon.png') ;
 }
 
 .UIRightClickPopupMenu .PasteNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/VistaSkin/PasteIcon.png') ;
+  background-image: url('/eXoResources/icons/16x16/PasteIcon.png') ;
 }
 
 .UIRightClickPopupMenu .DeleteNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') ;
+  background-image: url('/eXoResources/icons/16x16/DustBin.png') ;
 }
 
 .UIRightClickPopupMenu .DeleteNavigation16x16Icon {
-  background-image: url('/eXoResources/icons/16x16/VistaSkin/DustBin.png') ;
+  background-image: url('/eXoResources/icons/16x16/DustBin.png') ;
 }
 
 .UIRightClickPopupMenu .PasteNavigation16x16Icon {
-  background-image: url('/eXoResources/icons/16x16/VistaSkin/PasteIcon.gif') ;
+  background-image: url('/eXoResources/icons/16x16/PasteIcon.gif') ;
 }
 
 .UIRightClickPopupMenu .EditNavigation16x16Icon {
-  background-image: url('/eXoResources/icons/16x16/VistaSkin/Pencil.png') ;
+  background-image: url('/eXoResources/icons/16x16/Pencil.png') ;
 }
 
 .UIRightClickPopupMenu .SaveNavigation16x16Icon {
-  background-image: url('/eXoResources/icons/16x16/VistaSkin/FloppyDisk.gif') ;
+  background-image: url('/eXoResources/icons/16x16/FloppyDisk.gif') ;
 }
 
 .UIRightClickPopupMenu a {
@@ -92,41 +92,41 @@
 }
 
 .UIRightClickPopupMenu .TopLeftRightClickPopupMenu {
-	background: url('VistaSkin/background/TopLeftRightClickPopupMenu16x14.png') no-repeat left;
+	background: url('background/TopLeftRightClickPopupMenu16x14.png') no-repeat left;
 	padding-left: 16px;
 }
 
 .UIRightClickPopupMenu .TopRightRightClickPopupMenu {
-	background: url('VistaSkin/background/TopRightRightClickPopupMenu18x14.png') no-repeat right;
+	background: url('background/TopRightRightClickPopupMenu18x14.png') no-repeat right;
 	padding-right: 18px;
 }
 
 .UIRightClickPopupMenu .TopCenterRightClickPopupMenu {
-	background: url('VistaSkin/background/TopCenterRightClickPopupMenu1x14.png') repeat-x ;
+	background: url('background/TopCenterRightClickPopupMenu1x14.png') repeat-x ;
 	height: 14px;
 }
 
 .UIRightClickPopupMenu .MiddleLeftRightClickPopupMenu {
-	background: url('VistaSkin/background/MiddleLeftRightClickPopupMenu11x1.png') repeat-y left;
+	background: url('background/MiddleLeftRightClickPopupMenu11x1.png') repeat-y left;
 	padding-left: 11px;
 }
 
 .UIRightClickPopupMenu .MiddleRightRightClickPopupMenu {
-	background: url('VistaSkin/background/MiddleRightRightClickPopupMenu13x1.png') repeat-y right;
+	background: url('background/MiddleRightRightClickPopupMenu13x1.png') repeat-y right;
 	padding-right: 13px;
 }
 
 .UIRightClickPopupMenu .BottomLeftRightClickPopupMenu {
-	background: url('VistaSkin/background/BottomLeftRightClickPopupMenu17x19.png') no-repeat left;
+	background: url('background/BottomLeftRightClickPopupMenu17x19.png') no-repeat left;
 	padding-left: 17px;
 }
 
 .UIRightClickPopupMenu .BottomRightRightClickPopupMenu {
-	background: url('VistaSkin/background/BottomRightRightClickPopupMenu18x19.png') no-repeat right;
+	background: url('background/BottomRightRightClickPopupMenu18x19.png') no-repeat right;
 	padding-right: 18px;
 }
 
 .UIRightClickPopupMenu .BottomCenterRightClickPopupMenu {
-	background: url('VistaSkin/background/BottomCenterRightClickPopupMenu1x19.png') repeat-x ;
+	background: url('background/BottomCenterRightClickPopupMenu1x19.png') repeat-x ;
 	height: 19px;
 }

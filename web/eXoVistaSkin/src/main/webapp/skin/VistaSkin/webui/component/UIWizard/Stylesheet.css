@@ -7,19 +7,19 @@
 .UIWizard .UIWizardContent {
   padding: 5px;
   border: solid 1px #7e8284;
-  background: url('VistaSkin/background/LayoutPortalBG.png') repeat;
+  background: url('background/LayoutPortalBG.png') repeat;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar {
   height: 28px;
-  background: url('VistaSkin/background/Background1x28.png')  repeat-x;
+  background: url('background/Background1x28.png')  repeat-x;
   border: solid 1px #aeaeae; border-bottom: none; 
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {
   float:left;
   width: 28px; height: 27px; 
-  background: url('VistaSkin/background/PageCreation28x27.png') no-repeat;
+  background: url('background/PageCreation28x27.png') no-repeat;
   margin: 1px 8px 0px 8px;
 }
 
@@ -32,7 +32,7 @@
 .UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
   float: right;
   width: 30px; height: 30px;
-  background:  url('VistaSkin/icons/32x32/HelpIcon.png') no-repeat;
+  background:  url('icons/32x32/HelpIcon.png') no-repeat;
   margin: 1px 10px 0px 0px;
   cursor: pointer;
 }
@@ -46,7 +46,7 @@
 }
 
 .UIWizard .UIWizardContent .WizardStepContent {
-  background: url('VistaSkin/background/WizardStepContentBG.png') repeat-x bottom;
+  background: url('background/WizardStepContentBG.png') repeat-x bottom;
   background-color: white;  
   border: solid 1px #aeaeae; border-bottom: none;
   height: 100%;
@@ -113,7 +113,7 @@
 /*========================== Start UIWizard Welcome ==============================*/
 .UIWizard .UIWizardWelcome {
   height: 245px;
-  background: url('VistaSkin/background/WelcomeImage197x233.png') no-repeat left;
+  background: url('background/WelcomeImage197x233.png') no-repeat left;
   padding: 0px 0px 0px 210px ;
   margin: 0px;
 }
@@ -155,7 +155,7 @@
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
   float: left;
   width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/VistaSkin/MiniOrangeBoxPage.png') no-repeat;
+  background: url('/eXoResources/icons/24x24/MiniOrangeBoxPage.png') no-repeat;
   margin: 0px 5px 0px 5px;
 }
 
@@ -219,7 +219,7 @@
 .UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer .TemplateImage {
   height: 240px; 
   overflow: auto;
-  background: url('VistaSkin/background/TemplateImage.jpg') no-repeat bottom;
+  background: url('background/TemplateImage.jpg') no-repeat bottom;
   padding-top: 10px;
 }
 
