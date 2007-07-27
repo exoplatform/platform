@@ -88,8 +88,9 @@ public class UserACL {
   public boolean hasViewPermission(String owner, String remoteUser, String[] expPerms) throws Exception {
 //    System.out.println("\n\n\n\n------HasVeiwPermission(3) of owner and User: "  + owner + ":" + remoteUser);
     if(owner != null && owner.equals(remoteUser)) return true;
+    if(expPerms == null || expPerms.length < 1) return true;
     if(superUser_.equals(remoteUser)) return true;
-    if(expPerms == null || expPerms.length < 1) expPerms = new String[] {"*:/guest"};
+//    if(expPerms == null || expPerms.length < 1) expPerms = new String[] {"*:/guest"};
     for(String expPerm : expPerms) {
       if(hasViewPermission(remoteUser, expPerm)) return true;
     }
