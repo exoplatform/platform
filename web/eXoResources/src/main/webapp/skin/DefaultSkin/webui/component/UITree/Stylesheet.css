@@ -34,7 +34,7 @@
   cursor: pointer ;
   margin-top: 3px ;
   float: left ;
-  background: url('/eXoResources/icons/16x16/SmallGrayMinus.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGrayMinus.gif') no-repeat ;
   width: 16px ;  height: 16px ;
 }
   
@@ -42,7 +42,7 @@
   cursor: pointer ;
   margin-top: 3px ;
   float: left ;
-  background: url('/eXoResources/icons/16x16/SmallGrayPlus.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGrayPlus.gif') no-repeat ;
   width: 16px ;  height: 16px ;
 }
 

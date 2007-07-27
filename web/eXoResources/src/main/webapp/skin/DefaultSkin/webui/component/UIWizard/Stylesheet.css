@@ -160,7 +160,7 @@
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
   float: left;
-  background: url('/eXoResources/icons/16x16/MiniOrangeBoxPage.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiniOrangeBoxPage.gif') no-repeat;
   width: 16px; height: 16px;
   margin: 5px 0px 0px 6px;
 }

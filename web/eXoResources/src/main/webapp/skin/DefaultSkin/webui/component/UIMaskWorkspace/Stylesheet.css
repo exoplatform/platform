@@ -233,7 +233,7 @@
 
 .UIAddApplication .ApplicationItemIcon {
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DarkBlueNextArrow.gif') no-repeat ;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DarkBlueNextArrow.gif') no-repeat ;
 	float: left;
 	margin: 3px 5px 0px 5px;
 }
@@ -286,7 +286,7 @@
 
 .UIGroupSelector .UIBreadcumbs .BCHome16x16Icon {
   width: 16px ; height: 16px ;
-  background: url('/eXoResources/icons/16x16/SmallGroup.gif') no-repeat left center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat left center;
 }
 
 .UIGroupSelector .UIBreadcumbs a.Selected {

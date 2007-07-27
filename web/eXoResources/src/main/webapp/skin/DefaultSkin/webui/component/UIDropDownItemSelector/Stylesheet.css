@@ -17,12 +17,12 @@
 
 .UIPageNodeSelector .UIContainerConfigOptions .ComponentIcon {
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/NavigationIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .ComponentIcon {
   width: 16px; height: 16px;
-	background: url(/eXoResources/icons/16x16/DefaultContainerIcon.gif) no-repeat;
+	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif) no-repeat;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .Icon {
@@ -117,7 +117,7 @@
   width: 16px; height: 16px;
   float: left;
   margin: 3px 1px 0px 4px;
-  background: url('/eXoResources/icons/16x16/GrayNextArrow.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat;
 }
 
 /*=================================Popup Category Decorator====================================*/

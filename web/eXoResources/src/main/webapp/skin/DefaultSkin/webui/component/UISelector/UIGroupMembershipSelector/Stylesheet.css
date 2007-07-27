@@ -26,13 +26,13 @@
 
 .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
 	float: left;
-  background: url('/eXoResources/icons/16x16/SmallGroup.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .RightBlackGridArrow16x16Icon {
 	float: left;
   margin: 5px 2px 0px 1px ;
-  background: url('/eXoResources/icons/16x16/GridRightArrow.gif');
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GridRightArrow.gif');
 }
 
 .UIGroupMembershipSelector .Container {
@@ -117,5 +117,5 @@
   margin: 6px 3px 0px 1px ;  
   float: left ;
   width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/GrayNextArrow.gif') no-repeat;  
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat;  
 }
