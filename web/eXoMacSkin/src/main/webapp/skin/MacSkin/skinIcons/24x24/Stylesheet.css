@@ -218,7 +218,7 @@
 
 .DiskArrow24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/DiskArrow.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/DiskArrow.gif') no-repeat ;
   margin: auto;
 }
 
@@ -326,12 +326,12 @@
 
 .DeleteAll24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/DeleteAll.gif') no-repeat ;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/DeleteAll.gif') no-repeat ;
 }
 
 .ImportCategory24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/ImportCategory.gif') no-repeat ;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/ImportCategory.gif') no-repeat ;
 }
 
 .DeleteCategory24x24Icon {
@@ -341,10 +341,10 @@
 
 .UIListPermissionSelector24x24Icon {
   width: 24px ; height: 24px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/IconAccessPermission.gif') no-repeat ;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/IconAccessPermission.gif') no-repeat ;
 }
 
 .UIPermissionSelector24x24Icon {
   width: 24px ; height: 24px ;
-	background: url('/eXoResources/icons/24x24/DefaultSkin/IconEditPermission.gif') no-repeat ;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/IconEditPermission.gif') no-repeat ;
 }

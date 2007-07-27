@@ -89,17 +89,17 @@
 
 .UIPageManagement .EditContainerIcon {
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/ShowContainerButton.png') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/ShowContainerButton.png') no-repeat;
 }
 
 .UIPageManagement .EditPortletIcon {
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/ShowPortletButton.png') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/ShowPortletButton.png') no-repeat;
 }
 
 .UIPageManagement .EditPageIcon{
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/EditPageButton.png') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/EditPageButton.png') no-repeat;
 }
 
 .UIPageManagement .PageLayoutModeIcon {
@@ -112,12 +112,12 @@
 
 .UIPageManagement .PagePreviewIcon {
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/PreviesPageButton.png') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/PreviesPageButton.png') no-repeat ;
 }
 
 .UIPageManagement .SavePageIcon {
   width:32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/SavePageButton.png') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/SavePageButton.png') no-repeat ;
 }
 
 .UIPageManagement .NavigationConfigIcon{
@@ -142,36 +142,36 @@
 
 .UIPageManagement .CreateNavigationIcon {
 	width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/EditNavigation.png') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/EditNavigation.png') no-repeat ;
 }
 
 .UIPageManagement .EditNavigationIcon {
 	width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/EditNavigation.png') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/EditNavigation.png') no-repeat ;
 }
 
 .UIPageManagement .SaveNavigationIcon {
   width: 32px; height: 32px;
-  background: url('/eXoResources/icons/32x32/SaveButton.png') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/SaveButton.png') no-repeat ;
 }
 
 .UIPageManagement .BackIcon {
-	background: url('/eXoResources/icons/32x32/BackButton.png') no-repeat;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/BackButton.png') no-repeat;
 }
 
 .UIPageManagement .RollbackIcon {
-	background: url('/eXoResources/icons/32x32/RollBackButton.png') no-repeat;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/RollBackButton.png') no-repeat;
 }
 
 .UIPageManagement .FinishIcon {
-	background: url('/eXoResources/icons/32x32/FinishButton.png') no-repeat;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/FinishButton.png') no-repeat;
 }
 
 .UIPageManagement .SaveIcon {
-	background: url('/eXoResources/icons/32x32/SaveButton.png') no-repeat;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/SaveButton.png') no-repeat;
 }
 
 .UIPageManagement .AbortIcon {
 	width: 32px; height: 32px;
-	background: url('/eXoResources/icons/32x32/AbortButton.png') no-repeat;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/AbortButton.png') no-repeat;
 }

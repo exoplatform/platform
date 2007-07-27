@@ -68,7 +68,7 @@
 .UIChangeLanguageForm .ItemDetail .SelectedItem .Icon {
 	float: left;
 	height: 24px; width: 24px;
-  background: url('/eXoResources/icons/16x16/CheckerIcon.gif') no-repeat center;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/CheckerIcon.gif') no-repeat center;
 }
 
 .UIChangeLanguageForm .ItemDetail .NodeLabel {

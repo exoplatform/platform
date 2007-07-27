@@ -21,7 +21,7 @@
 .UIPortlet .ViewPortletIcon {
   float: left;
   width: 16px; height: 16px; 
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueBoxLight.gif') no-repeat;
+  background: url('/eXoMac/skin/MacSkin/skinIcons/16x16/icons/BlueBoxLight.gif') no-repeat;
   margin: 3px 5px 0px 0px;
   cursor: pointer;
 }
@@ -36,59 +36,8 @@
 .UIPortlet .DeletePortletIcon {
 	float:right;
 	width: 16px; height:16px; 
-	background: url('/eXoResources/icons/16x16/CloseButton.gif') no-repeat;
+	background: url('/eXoMac/skin/MacSkin/skinIcons/16x16/icons/CloseButton.gif') no-repeat;
   margin: 5px 0px 0px 0px;
-}
-
-.UIPortlet .MaximizedPortletIcon {
-  float: left;
-  width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/Maximize.gif') no-repeat;
-  margin: 3px 10px 0px 0px;
-  cursor: pointer;
-}
-
-.UIPortlet .MinimizedPortletIcon {
-  float: left;
-  width: 16px; height: 16px;  
-  background: url('/eXoResources/icons/16x16/Minimize.gif') no-repeat;
-  margin: 3px 10px 0px 0px;
-  cursor: pointer;
-}
-
-.UIPortlet .ConfigPortletIcon {
-  float: left;
-  width: 16px; height: 16px; 
-  background: url('/eXoResources/icons/16x16/Config.gif') no-repeat;
-  margin: 3px 10px 0px 5px;
-}
-
-.UIPortlet .EditPortletIcon {
-  float: left;
-  width: 16px; height: 16px;  
-  background: url('/eXoResources/icons/16x16/Pencil.gif') no-repeat;
-  margin: 4px 10px 0px 5px;
-  cursor: pointer;
-}
-
-.UIPortlet .HelpPortletIcon {
-  float: left;
-  width: 16px; height: 16px;  
-  background: url('/eXoResources/icons/16x16/PortletHelp.gif') no-repeat;
-  margin: 4px 10px 0px 0px;
-  cursor: pointer;
-}
-
-.UIPortlet .NormalPortletIcon {
-  float: left ;
-  width: 16px ; height: 16px ;  
-  background: url('/eXoResources/icons/16x16/Restore.gif') no-repeat ;
-  margin: 3px 10px 0px 0px ;
-  cursor: pointer ;
-}
-
-.UIPortlet .PortletIcon{
-  background: url('/eXoResources/icons/16x16/DefaultPortletIcon.png') no-repeat;
 }
 
 /*##############################- PortletLayoutDecorator  -################################*/
@@ -188,7 +137,7 @@
 .UIContainer .DeleteContainerIcon {
 	float:right;
 	width: 18px; height:18px; 
-  background: url('/eXoResources/icons/16x16/CloseButton.gif') no-repeat;
+  background: url('/eXoMac/skin/MacSkin/skinIcons/16x16/icons/CloseButton.gif') no-repeat;
   margin: 5px 0px 0px 0px;
 }
 
@@ -196,7 +145,7 @@
 	float: left;
   width: 16px; height: 16px;
   margin: 3px 5px 0px 5px;
-  background: url('/eXoResources/icons/16x16/DefaultContainerIcon.gif') no-repeat ;
+  background: url('/eXoMac/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {

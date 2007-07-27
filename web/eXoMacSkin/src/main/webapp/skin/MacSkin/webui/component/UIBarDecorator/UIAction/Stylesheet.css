@@ -84,18 +84,18 @@
 .UIAction .ActionButton .SimpleStyle {}
 
 .UIAction .ActionButton .SimpleStyle .ButtonLeft {
-  background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left top;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/LeftSimpleButton10x21.gif') no-repeat left top;
   padding: 0px 0px 0px 10px;
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonRight {
-  background: url('DefaultSkin/background/RightSimpleButton10x21.gif') no-repeat right top;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/RightSimpleButton10x21.gif') no-repeat right top;
   padding: 0px 10px 0px 0px ;
 }
 
 .UIAction .ActionButton .SimpleStyle .ButtonMiddle {
   line-height: 21px;
-	background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x top;
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/CenterSimpleButton1x21.gif') repeat-x top;
 	text-align: center;	
 }
 

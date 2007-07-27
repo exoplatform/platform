@@ -76,7 +76,7 @@ a {
   width: 200px; height: 110px;
   background: white;
   padding: 3px;
-  background: url('/eXoResources/background/PortletBG.gif');
+  background: url('/eXoResources/skin/DefaultSkin/background/PortletBG.gif');
   border: 1px solid #66667e;
 }
 
@@ -93,7 +93,7 @@ a {
 
 .AjaxLoadingMask .LoadingProgressBar {
   width: 40px; height: 40px;
-  background: url('/eXoResources/background/DefaultSkin/LoadingProgress.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/background/LoadingProgress.gif') no-repeat center;
   margin: auto;
 }
 

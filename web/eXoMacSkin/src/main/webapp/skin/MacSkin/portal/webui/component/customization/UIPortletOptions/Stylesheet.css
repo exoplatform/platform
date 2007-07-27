@@ -82,7 +82,7 @@
 
 .UIPortletOptions .UIDropDownItemSelector .ComponentIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoResources/icons/16x16/DefaultPortletIcon.png') no-repeat top;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat top;
 }
 
 #UIPortletOptions .BackNavigationContent {

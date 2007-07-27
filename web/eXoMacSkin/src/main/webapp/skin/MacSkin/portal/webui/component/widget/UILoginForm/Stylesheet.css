@@ -32,32 +32,32 @@
 }
 
 .UILoginForm .LoginDecorator .TopRightLoginDecorator {
-  background: url('DefaultSkin/background/WhiteRoundedBoxRightTop13x35.gif') no-repeat right ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxRightTop13x35.gif') no-repeat right ;
   padding: 0px 13px 0px 0px ;
 }
 
 .UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
-  background: url('DefaultSkin/background/WhiteRoundedBoxLeftMiddle136x198.gif') no-repeat left center;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxLeftMiddle136x198.gif') no-repeat left center;
   padding: 0px 0px 0px 136px ;
 }
 
 .UILoginForm .LoginDecorator .MiddleRightLoginDecorator {
-  background: url('DefaultSkin/background/WhiteRoundedBoxRightMiddle6x1.gif') repeat-y right ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxRightMiddle6x1.gif') repeat-y right ;
   padding: 0px 6px 0px 0px ;
 }
 
 .UILoginForm .LoginDecorator .BottomLeftLoginDecorator {
-  background: url('DefaultSkin/background/WhiteRoundedBoxLeftBottom31x13.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxLeftBottom31x13.gif') no-repeat left ;
   padding: 0px 0px 0px 31px ;
 }
 
 .UILoginForm .LoginDecorator .BottomCenterLoginDecorator {
-  background: url('DefaultSkin/background/WhiteRoundedBoxCenterBottom1x13.gif') repeat-x ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxCenterBottom1x13.gif') repeat-x ;
   height: 13px;
 }
 
 .UILoginForm .LoginDecorator .BottomRightLoginDecorator {
-  background: url('DefaultSkin/background/WhiteRoundedBoxRightBottom13x13.gif') no-repeat right ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxRightBottom13x13.gif') no-repeat right ;
   padding: 0px 13px 0px 0px ;
 }
 /* ============================End LoginDecorator============================== */
@@ -78,9 +78,8 @@
 
 .UILoginForm .LoginDetailBox .CheckField {
   height: 20px;
-  width: 200px;
   margin: 0px auto;
-  padding-left: 90px;
+  padding-left: 185px;
 
 }
 
@@ -93,6 +92,7 @@
 .UILoginForm .LoginDetailBox .CheckField .RememberLoginTitle {
   float: left;
   margin-left: 7px;
+  width: 100px;
 }
 
 .UILoginForm .LoginDetailBox label {
@@ -100,14 +100,14 @@
 }
 
 .UILoginForm .LoginDetailBox .UserNameField input {
-  background: url('DefaultSkin/background/UsernameIcon20x20.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/UsernameIcon20x20.gif') no-repeat left ;
   width: 180px; height: 18px;
   border: solid 1px #b7b7b7 ;
   padding: 0px 0px 0px 22px;
 }
 
 .UILoginForm .LoginDetailBox .PasswordField input {
-  background: url('DefaultSkin/background/PasswordIcon20x20.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/PasswordIcon20x20.gif') no-repeat left ;
   width: 180px; height: 18px;
   border: solid 1px #b7b7b7 ;
   padding: 0px 0px 0px 22px;
@@ -118,7 +118,7 @@
   height: 26px; line-height: 26px; text-align: right;
   color: blue ;
   white-space: nowrap;
-  padding: 0px 70px 0px 0px;
+  padding: 0px 40px 0px 0px;
   cursor: pointer;
 }
 
@@ -132,12 +132,12 @@
 }
 
 .UILoginForm .LoginDecorator .LeftSignUpBar {
-  background: url('DefaultSkin/background/SignUpRoundLeft11x24.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/SignUpRoundLeft11x24.gif') no-repeat left ;
   padding: 0px 0px 0px 11px ;
 }
 
 .UILoginForm .LoginDecorator .SignUpBackground {
-  background: url('DefaultSkin/background/SignUpBackground1x24.gif') repeat-x ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/SignUpBackground1x24.gif') repeat-x ;
   height: 24px;
   line-height: 24px;
   text-align: right;
@@ -150,6 +150,10 @@
 }
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {
-  width: 160px;
-  padding-left: 50px;
+  width: 170px;
+  padding: 15px 0px 15px 100px;
+}
+
+.UILoginForm .UIForm .VerticalLayout .UIAction .ActionButton  {
+	margin: 0px 4px;
 }

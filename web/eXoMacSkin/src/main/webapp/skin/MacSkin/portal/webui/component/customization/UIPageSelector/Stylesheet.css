@@ -27,17 +27,17 @@
 }
 
 .UIPageSelector .SelectPageAction .LeftButton {
-  background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIPageSelector/background/LeftSimpleButton10x21.gif') no-repeat left;
   padding-left: 10px;
 }
 
 .UIPageSelector .SelectPageAction .RightButton {
-  background: url('DefaultSkin/background/RightSimpleButton10x21.gif') no-repeat right;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIPageSelector/background/RightSimpleButton10x21.gif') no-repeat right;
   padding-right: 10px;
 }
 
 .UIPageSelector .SelectPageAction .CenterButton {
-  background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIPageSelector/background/CenterSimpleButton1x21.gif') repeat-x;
   height: 21px; line-height: 18px;
   padding: 0px 3px;
 }

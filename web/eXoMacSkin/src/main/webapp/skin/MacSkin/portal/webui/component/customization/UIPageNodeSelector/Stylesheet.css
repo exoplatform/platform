@@ -68,20 +68,20 @@
 }
 
 .UIPageNodeSelector .OrganizationIcon {
-  background: url('/eXoResources/icons/16x16/Organization.gif') no-repeat;  
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/Organization.gif') no-repeat;  
 }
 
 .UIPageNodeSelector .PortalAdminIcon {
-  background: url('/eXoResources/icons/16x16/PortalAdmin.gif') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/PortalAdmin.gif') no-repeat;
 }
 
 .UIPageNodeSelector .NavigationPortalIcon {
-  background: url('/eXoResources/icons/16x16/PageNode.gif') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/PageNode.gif') no-repeat;
 }
 
 /***********************/
 .UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
-	background: url('/eXoResources/icons/24x24/AddNavigationButton.png') no-repeat left top;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/AddNavigationButton.png') no-repeat left top;
 	cursor: pointer;
 	float: left; margin-left: -2px;
 	height: 24px; width: 24px;
