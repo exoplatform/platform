@@ -33,7 +33,7 @@ import org.exoplatform.webui.event.EventListener;
  * 10:07:15 AM
  */
 @ComponentConfigs({
-  @ComponentConfig(events = @EventConfig(listeners = UIUserInGroup.DeleteUserActionListener.class, confirm = "UIUserInGroup.deleteUser")),
+  @ComponentConfig(events = @EventConfig(listeners = UIUserInGroup.DeleteUserActionListener.class, confirm = "UIUserInGroup.confirm.deleteUser")),
   @ComponentConfig(
      type = org.exoplatform.organization.webui.component.UIUserInGroup.UIGridUser.class,
      id = "UIGridUser",
@@ -55,14 +55,22 @@ public class UIUserInGroup extends UIContainer {
   
   @Override
   protected String loadConfirmMesssage(org.exoplatform.webui.config.Event event, WebuiRequestContext context, String beanId) {
+   
     String confirm = event.getConfirm();
+//    System.out.println("\n\n\n--- key: " + confirm + "  eventName: " + event.getName());
     if(confirm.length() < 1) return confirm;
+//    try{ int k = 3/0;
+//    }catch (Exception e) { e.printStackTrace();}
     UIGridUser uiGrid = getChild(UIGridUser.class);
     try {
       confirm = context.getApplicationResourceBundle().getString(confirm);
       MembershipUser membershipUser = uiGrid.searchMembershipUser(beanId);
       if(membershipUser == null) return confirm;
-      System.out.println("\n\n\n confirm message "+confirm +"\n\n");
+      Group selectGroup = getSelectedGroup();
+      if(selectGroup == null) return confirm;
+      confirm = confirm.replaceAll("\\{0\\}", membershipUser.getUserName());
+      confirm = confirm.replaceAll("\\{1\\}", selectGroup.getId().substring(1));
+//      System.out.println("\n\n\n confirm message "+confirm +"\n\n");
     }catch (Exception e) {
       
     }
