@@ -92,7 +92,7 @@
 .UIPortlet .MaximizedPortletIcon {
   float: left;
   height: 16px;  width: 16px;
-  background: url('/eXoResources/icons/16x16/Maximize.gif') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Maximize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
 }
@@ -100,7 +100,7 @@
 .UIPortlet .MinimizedPortletIcon {
   float: left;
   height: 16px;  width: 16px;
-  background: url('/eXoResources/icons/16x16/Minimize.gif') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Minimize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
 }
@@ -108,14 +108,14 @@
 .UIPortlet .ConfigPortletIcon {
   float: left;
   height: 16px; width: 16px;
-  background: url('/eXoResources/icons/16x16/Config.gif') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Config.gif') no-repeat;
   margin: 3px 10px 0px 5px;
 }
 
 .UIPortlet .EditPortletIcon {
   float: left;
   height: 16px;  width: 16px;
-  background: url('/eXoResources/icons/16x16/Pencil.png') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat;
   margin: 4px 10px 0px 5px;
   cursor: pointer;
 }
@@ -123,7 +123,7 @@
 .UIPortlet .ViewPortletIcon {
   float: left;
   height: 16px;  width: 16px;
-  background: url('/eXoResources/icons/16x16/PortletView.gif') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PortletView.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
 }
@@ -131,13 +131,13 @@
 .UIPortlet .HelpPortletIcon {
   float: left;
   height: 16px;  width: 16px;
-  background: url('/eXoResources/icons/16x16/PortletHelp.gif') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PortletHelp.gif') no-repeat;
   margin: 4px 10px 0px 0px;
   cursor: pointer;
 }
 
 .UIPortlet .EditPortletPropertiesIcon {
-	background: url('/eXoResources/icons/16x16/EditPortletIcon31x18.png') no-repeat ;
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18.png') no-repeat ;
 	height: 18px;	width:31px;
 	margin: 3px 0px 0px 0px;
 	float:right;
@@ -146,13 +146,13 @@
 .UIPortlet .NormalPortletIcon {
   float: left ;
   height: 16px ;  width: 16px ;
-  background: url('/eXoResources/icons/16x16/Restore.gif') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Restore.gif') no-repeat ;
   margin: 3px 10px 0px 0px ;
   cursor: pointer ;
 }
 
 .UIPortlet .DeletePortletIcon {
-  background: url('/eXoResources/icons/16x16/DeletePortletIcon29x18.png') ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18.png') ;
 	height:18px;	width:29px;
   margin: 3px 0px 0px 0px;
 	float:right;
@@ -169,7 +169,7 @@
 .UIPortlet .PortletIcon {
   margin: auto;
   width: 20px; height:20px;
-  background: url('/eXoResources/icons/16x16/DefaultPortletIcon.png') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat ;
 }
 /*##############################- PortletLayoutDecorator  -################################*/
 .PortletLayoutDecorator {
@@ -262,14 +262,14 @@
 }
 
 .UIContainer .EditContainerIcon {
-	background: url('/eXoResources/icons/16x16/EditPortletIcon31x18.png') no-repeat ;
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18.png') no-repeat ;
 	height: 18px;	width:31px;
 	margin: 3px 0px 0px 0px;
 	float:right;
 }
 
 .UIContainer .DeleteContainerIcon {
-  background: url('/eXoResources/icons/16x16/DeletePortletIcon29x18.png') ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18.png') ;
 	height:18px;	width:29px;
   margin: 3px 0px 0px 0px;
 	float:right;
@@ -278,7 +278,7 @@
 .UIContainer .ContainerIcon {
   float: left;
   width: 16px; height: 16px; margin: 5px 6px;
-  background: url('/eXoResources/icons/16x16/DefaultPortletIcons.png') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPortletIcons.png') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {
@@ -320,14 +320,14 @@
 }
 
 .UIPage .EditPageIcon {
-	background: url('/eXoResources/icons/16x16/Pencil.png') no-repeat left;
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat left;
 	height: 16px;	width: 16px;
   margin: 2px 10px 2px 0px;
 	float: right;
 }
 
 .UIPage .DeletePageIcon {
-  background: url('/eXoResources/icons/16x16/DustBin.png') ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') ;
 	height: 16px;	width: 16px;
   margin: 2px 10px 2px 0px;
 	float: right;

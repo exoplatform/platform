@@ -155,7 +155,7 @@
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
   float: left;
   width: 24px; height: 24px;
-  background: url('/eXoResources/icons/24x24/MiniOrangeBoxPage.png') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/MiniOrangeBoxPage.png') no-repeat;
   margin: 0px 5px 0px 5px;
 }
 

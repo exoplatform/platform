@@ -38,7 +38,7 @@
 .UIDropDownItemSelector .DropDownSelectIcon {
 	float: right; 
 	width: 19px; height: 20px;
-	background: url('icon/SelectedIcon.png') no-repeat center;
+	background: url('icons/SelectedIcon.png') no-repeat center;
 	cursor: pointer;	
 }
 
@@ -88,7 +88,7 @@
   width: 8px; height: 12px;
   float: left;
   margin: 8px 3px 0px 7px;
-  background: url('/eXoResources/icons/16x16/BlackRightArrow.gif') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/BlackRightArrow.gif') no-repeat;
 }
 
 /*=================================Popup Category Decorator====================================*/

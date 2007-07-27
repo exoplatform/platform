@@ -8,7 +8,7 @@
 }
 
 .UIPermissionSelector .PermissionSelectorTitleBar .PermissionIcon {
-  background: url('/eXoResources/icons/24x24/PermissionIcon.gif') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/PermissionIcon.gif') no-repeat;
   width: 24px; height: 24px;
   margin: 2px 10px 0px 10px;
   float: left;
@@ -115,7 +115,7 @@
   float: left;
   width: 19px; height: 20px; 
   margin: 2px 0px 0px 5px;
-  background: url('/eXoResources/icons/16x16/SelectPermissionIcon.png') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat;
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a{

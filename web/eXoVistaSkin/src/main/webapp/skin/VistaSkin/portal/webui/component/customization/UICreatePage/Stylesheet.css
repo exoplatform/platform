@@ -6,14 +6,14 @@
   float: left;
   width: 26px; height: 26px;
   margin: 3px 8px 0px 28px;
-  background: url('/eXoResources/icons/24x24/PagePreview.png') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/PagePreview.png') no-repeat ;
 }
 
 .UICreatePage .PageLayoutModeIcon {
   float: left;
   width: 24px; height:24px;
   margin: 3px 10px 0px 25px;
-  background: url('/eXoResources/icons/24x24/PageLayoutMode.gif') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/PageLayoutMode.gif') no-repeat ;
   cursor: pointer ;
 }
 
@@ -21,7 +21,7 @@
   float: left;
   width: 24px; height: 24px;
   margin: 3px 5px 0px 8px;
-  background: url('/eXoResources/icons/24x24/EditPageProperty.png') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/EditPageProperty.png') no-repeat ;
  
 }
 
@@ -29,21 +29,21 @@
   float: left;
   width: 34px; height: 26px;
   margin: 3px 8px 0px 26px;
-  background: url('/eXoResources/icons/24x24/ShowContainerControl.png') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/ShowContainerControl.png') no-repeat ;
 }
 
 .UICreatePage .EditPortletIcon {
   float: left;
   width: 28px; height: 24px;
   margin: 3px 8px 0px 25px;
-  background: url('/eXoResources/icons/24x24/ShowPortletControlIcon.png') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/ShowPortletControlIcon.png') no-repeat ;
 }
 
 .UICreatePage .SavePageIcon {
   float: left;
   width: 24px; height: 24px;
   margin: 3px 5px 0px 8px;
-  background: url('/eXoResources/icons/24x24/BlackFloppyDiskPage.gif') ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/BlackFloppyDiskPage.gif') ;
 }
 
 .UICreatePage .TreeSelectorTitle {
@@ -60,7 +60,7 @@
 }
 
 .UICreatePage .NavigationPortalIcon {
-  background: url('/eXoResources/icons/16x16/MiniOrangeBoxPage.gif') ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/MiniOrangeBoxPage.gif') ;
 }
 
 .UICreatePage .UITree {

@@ -27,7 +27,7 @@
   cursor: pointer ;
   margin-top: 3px ;
   float: left ;
-  background: url('/eXoResources/icons/16x16/GreenArrowTree.png') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/GreenArrowTree.png') no-repeat ;
   width: 16px ;  height: 16px ;
  
 }
@@ -36,7 +36,7 @@
   cursor: pointer ;
   margin-top: 3px ;
   float: left ;
-  background: url('/eXoResources/icons/16x16/GreenArrowTree.png') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/GreenArrowTree.png') no-repeat ;
   width: 16px ;  height: 16px ;
 }
 
@@ -71,12 +71,12 @@
 
 /** ################# Icons ###################*/
 .UITree .TreeContainer .GroupAdminIcon {
-  background: url('/eXoResources/icons/24x24/NormalGroup.png') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat ;
  
 }
 
 .UITree .TreeContainer .PortalIcon {
-  background: url('/eXoResources/icons/24x24/SelectedGroup.png') no-repeat ; 
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/SelectedGroup.png') no-repeat ; 
    
 }
 

@@ -9,9 +9,9 @@
 }
 
 .UIPortletForm .SaveIcon {
-  background: url('/eXoResources/icons/16x16/Save.gif') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Save.gif') no-repeat ;
 }
 
 .UIPortletForm .BackIcon {
-  background: url('/eXoResources/icons/16x16/BackArrowBlue.gif') no-repeat ; 
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/BackArrowBlue.gif') no-repeat ; 
 }

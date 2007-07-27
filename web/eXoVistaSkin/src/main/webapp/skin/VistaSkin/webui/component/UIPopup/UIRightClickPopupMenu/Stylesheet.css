@@ -35,51 +35,51 @@
 }
 
 .UIRightClickPopupMenu .Rename16x16Icon{
-   background-image: url('/eXoResources/icons/16x16/Rename.gif') ;   
+   background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Rename.gif') ;   
 }
 
 .UIRightClickPopupMenu .AddNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/BlueCirclePlus.png') ;
+  background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/BlueCirclePlus.png') ;
 }
 
 .UIRightClickPopupMenu .EditPageNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/EditPageNode.png') ;
+  background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/EditPageNode.png') ;
 }
 
 .UIRightClickPopupMenu .EditSelectedNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/EditNode.png') ;
+  background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/EditNode.png') ;
 }
 
 .UIRightClickPopupMenu .CutNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/icon-cut.gif') ;
+  background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/icon-cut.gif') ;
 }
 
 .UIRightClickPopupMenu .CopyNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/CopyIcon.png') ;
+  background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/CopyIcon.png') ;
 }
 
 .UIRightClickPopupMenu .PasteNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/PasteIcon.png') ;
+  background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PasteIcon.png') ;
 }
 
 .UIRightClickPopupMenu .DeleteNode16x16Icon{
-  background-image: url('/eXoResources/icons/16x16/DustBin.png') ;
+  background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') ;
 }
 
 .UIRightClickPopupMenu .DeleteNavigation16x16Icon {
-  background-image: url('/eXoResources/icons/16x16/DustBin.png') ;
+  background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') ;
 }
 
 .UIRightClickPopupMenu .PasteNavigation16x16Icon {
-  background-image: url('/eXoResources/icons/16x16/PasteIcon.gif') ;
+  background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PasteIcon.gif') ;
 }
 
 .UIRightClickPopupMenu .EditNavigation16x16Icon {
-  background-image: url('/eXoResources/icons/16x16/Pencil.png') ;
+  background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') ;
 }
 
 .UIRightClickPopupMenu .SaveNavigation16x16Icon {
-  background-image: url('/eXoResources/icons/16x16/FloppyDisk.gif') ;
+  background-image: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/FloppyDisk.gif') ;
 }
 
 .UIRightClickPopupMenu a {

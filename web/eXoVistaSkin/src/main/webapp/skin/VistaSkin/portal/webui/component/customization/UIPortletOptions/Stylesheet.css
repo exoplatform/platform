@@ -35,7 +35,7 @@
 }
 
 .UIPortletOptions .Title {
-  background: url('/eXoResources/background/IconLabelContentBG1x1.png') repeat;
+  background: url('background/IconLabelContentBG1x1.png') repeat;
 	padding-left: 8px;
 	border: 1px solid #6c767c;
 	height: 20px;
@@ -102,7 +102,7 @@
   
 .UIPortletOptions .UIDropDownItemSelector .ComponentIcon {
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultPortletIcons.png') no-repeat;
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPortletIcons.png') no-repeat;
 }
 
 #UIPortletOptions .BackNavigationContent {

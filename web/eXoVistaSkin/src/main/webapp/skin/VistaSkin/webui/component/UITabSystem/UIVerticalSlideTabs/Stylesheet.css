@@ -76,12 +76,12 @@
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .EditIcon{
   width: 19px;  height: 17px;
-  background: url('/eXoResources/icons/16x16/Pencil.png') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .DeleteIcon{
   width: 20px;  height: 17px;
-  background: url('/eXoResources/icons/16x16/DustBin.png') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {

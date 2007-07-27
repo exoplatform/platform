@@ -50,13 +50,13 @@
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
 	margin: 4px 11px 0px 11px;
   width: 30px;  height: 24px;
-  background: url('/eXoResources/icons/24x24/ShowContainerControlIcon.png') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/ShowContainerControlIcon.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
 	margin: 4px 11px 0px 11px;
   width: 30px;  height: 24px;
-  background: url('/eXoResources/icons/24x24/ShowPortletControlIcon.png') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/ShowPortletControlIcon.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
@@ -64,26 +64,26 @@
   margin: 4px 11px 0px 11px;
   width: 24px;  height: 24px;
   cursor : pointer;
-  background: url('/eXoResources/icons/24x24/LayoutMode.gif') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/LayoutMode.gif') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
   margin: 4px 11px 0px 18px;
   width: 30px;  height: 24px;  
-  background: url('/eXoResources/icons/24x24/Preview.png') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/Preview.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
   margin: 4px 11px 0px 11px;
   width: 30px;  height: 24px;
-  background: url('/eXoResources/icons/24x24/ShowPortalControl.png');
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/ShowPortalControl.png');
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .SavePortalIcon {
   float: left;
   width: 30px;  height: 24px;
   margin: 4px 7px;
-  background: url('/eXoResources/icons/24x24/BlackFloppyDisk.png') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/BlackFloppyDisk.png') no-repeat;
 }
 
 .UIPortalManagement .UIToolbar .PolyToolbar .MiddleBar {
