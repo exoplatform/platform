@@ -1,260 +1,260 @@
 .Save24x24Icon {
-  background: url('/eXoResourcesLambkin/icons/24x24/FloppyDisk.gif') no-repeat ;
+  background: url('icons/24x24/FloppyDisk.gif') no-repeat ;
   width: 24px ; height: 24px ;
 }
 
 .Delete24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/Delete.gif') no-repeat;
+	background: url('icons/24x24/Delete.gif') no-repeat;
 }
 
 .DustBin24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/DustBin.gif') no-repeat;
+	background: url('icons/24x24/DustBin.gif') no-repeat;
 }
 
 .RedDustBin24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/RedDustBin.gif') no-repeat;
+	background: url('icons/24x24/RedDustBin.gif') no-repeat;
 }
 
 .LightBlueFolder24x24Icon {
-  background: url('/eXoResourcesLambkin/icons/24x24/LightBlueFolder.gif') no-repeat ;
+  background: url('icons/24x24/LightBlueFolder.gif') no-repeat ;
   width: 24px ;  height: 24px ;
 }
 
 .VioletFolder24x24Icon {
-  background: url('/eXoResourcesLambkin/icons/24x24/VioletFolder.gif') no-repeat ;
+  background: url('icons/24x24/VioletFolder.gif') no-repeat ;
   width: 24px ;  height: 24px ;
 }
 
 .LightBlueOpenFolder24x24Icon {
-  background: url('/eXoResourcesLambkin/icons/24x24/LightBlueOpenFolder.gif') no-repeat ;
+  background: url('icons/24x24/LightBlueOpenFolder.gif') no-repeat ;
   width: 24px ;  height: 24px ;
 }
 
 .LightBlueFolderHome24x24Icon {
-  background: url('/eXoResourcesLambkin/icons/24x24/LightBlueFolderHome.gif') no-repeat ;
+  background: url('icons/24x24/LightBlueFolderHome.gif') no-repeat ;
   width: 24px ;  height: 24px ;
 }
 
 .Paste24x24Icon {
-  background: url('/eXoResourcesLambkin/icons/24x24/Paste.gif') no-repeat  ;
+  background: url('icons/24x24/Paste.gif') no-repeat  ;
   width: 24px ;  height: 24px ;
 }
 
 .BlackMagnifier24x24Icon {
-  background: url('/eXoResourcesLambkin/icons/24x24/BlackMagnifier.gif') no-repeat ;
+  background: url('icons/24x24/BlackMagnifier.gif') no-repeat ;
   width: 24px ;  height: 24px ;
 }
 
 .BlueFloppyDisk24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResourcesLambkin/icons/24x24/BlueFloppyDisk.gif') no-repeat ;
+  background: url('icons/24x24/BlueFloppyDisk.gif') no-repeat ;
   margin: auto;
 }
 
 .UpLevel24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResourcesLambkin/icons/24x24/BlueUpLevelArrow.gif') no-repeat ;
+  background: url('icons/24x24/BlueUpLevelArrow.gif') no-repeat ;
   margin: auto;
 }
 
 .DiamondCircleRoundedArrows24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResourcesLambkin/icons/24x24/DiamondCircleRoundedArrows.gif') no-repeat ;
+  background: url('icons/24x24/DiamondCircleRoundedArrows.gif') no-repeat ;
   margin: auto;
 }
 
 .NavyBlueRecycleBin24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/NavyBlueRecycleBin.gif') no-repeat ;
+	background: url('icons/24x24/NavyBlueRecycleBin.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 
 }
 
 .DusBinFull24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/DusBinFull.gif') no-repeat ;
+	background: url('icons/24x24/DusBinFull.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 
 }
 
 .BoxBlueArrowDown24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/BoxBlueArrowDown.gif') no-repeat ;
+	background: url('icons/24x24/BoxBlueArrowDown.gif') no-repeat ;
 }
 
 .BlueInfoBox24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/BlueInfoBox.gif') no-repeat ;
+	background: url('icons/24x24/BlueInfoBox.gif') no-repeat ;
 }
 
 .BoxGreenPlus24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/BoxGreenPlus.gif') no-repeat ;
+	background: url('icons/24x24/BoxGreenPlus.gif') no-repeat ;
 }
 
 .BoxPencil24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/BoxPencil.gif') no-repeat ;
+	background: url('icons/24x24/BoxPencil.gif') no-repeat ;
 }
 
 .PointedHandBrownBox24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResourcesLambkin/icons/24x24/PointedHandBrownBox.gif') no-repeat;
+  background: url('icons/24x24/PointedHandBrownBox.gif') no-repeat;
   margin: auto;
 }
 
 .Selected24x24Icon {
 	width: 32px ;	height: 28px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/SelectedBlock.gif') no-repeat center left;
+	background: url('icons/24x24/SelectedBlock.gif') no-repeat center left;
 	margin: auto;
 }
 
 .BlueArrowBox24x24Icon {
   width: 24px ;	height: 24px ;
-  background: url('/eXoResourcesLambkin/icons/24x24/BlueArrowBox.gif') no-repeat ;
+  background: url('icons/24x24/BlueArrowBox.gif') no-repeat ;
   margin: auto;
 }
 
 .DiskArrow24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResourcesLambkin/icons/24x24/DiskArrow.gif') no-repeat ;
+  background: url('icons/24x24/DiskArrow.gif') no-repeat ;
   margin: auto;
 }
 
 .ColorGridSquare24x24Icon {
 	width: 24px ;	height: 24px ;
-  background: url('/eXoResourcesLambkin/icons/24x24/ColorGridSquare.gif') no-repeat ;
+  background: url('icons/24x24/ColorGridSquare.gif') no-repeat ;
   margin: auto;
 }
 
 .OnMouseOver24x24Icon {
 	width: 32px ;	height: 28px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/OnmouseOverBlock.gif') no-repeat center;
+	background: url('icons/24x24/OnmouseOverBlock.gif') no-repeat center;
 	margin: auto;	
 }
 
 .GreenPlusDataBox24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/GreenPlusDataBox.gif') no-repeat ;
+	background: url('icons/24x24/GreenPlusDataBox.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 	
 }
 .GreenPlusBrownBox24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/GreenPlusBrownBox.gif') no-repeat ;
+	background: url('icons/24x24/GreenPlusBrownBox.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 	
 }
 
 .YellowPenBrownBox24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/YellowPenBrownBox.gif') no-repeat ;
+	background: url('icons/24x24/YellowPenBrownBox.gif') no-repeat ;
 	margin: auto;
   cursor: pointer; 
 }
 
 .NavyBlueRecycleBin24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/NavyBlueRecycleBin.gif') no-repeat ;
+	background: url('icons/24x24/NavyBlueRecycleBin.gif') no-repeat ;
 	margin: auto;
   cursor: pointer;
 }
 
 .NavyBlueDocument24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/NavyBlueDocument.gif') no-repeat ;
+	background: url('icons/24x24/NavyBlueDocument.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 
 }
 
 .DataBoxDusBin24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/DataBoxDusBin.gif') no-repeat ;
+	background: url('icons/24x24/DataBoxDusBin.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 
 }
 
 .LevelUpArrowIcon {
   width: 24px ;  height: 24px ;
-  background: url('/eXoResourcesLambkin/icons/24x24/BlueUpLevelArrow.gif') no-repeat ;
+  background: url('icons/24x24/BlueUpLevelArrow.gif') no-repeat ;
 }
 
 .BlueNavigation24x24Icon {
   width: 24px ; height: 24px ;
-  background: url('/eXoResourcesLambkin/icons/24x24/BlueIconNavigation.gif') no-repeat ;
+  background: url('icons/24x24/BlueIconNavigation.gif') no-repeat ;
 }
 
 .BlueSyncArrow24x24Icon {
   width: 24px ;  height: 24px ;
-  background: url('/eXoResourcesLambkin/icons/24x24/BlueSync.gif') no-repeat ;
+  background: url('icons/24x24/BlueSync.gif') no-repeat ;
 }
 
 .SiteMap24x24Icon {
   width: 24px ;  height: 24px ;
-  background: url('/eXoResourcesLambkin/icons/24x24/SiteMap.gif') no-repeat ;
+  background: url('icons/24x24/SiteMap.gif') no-repeat ;
 }
 
 .YellowHammer24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/YellowHammer.gif') no-repeat ;
+	background: url('icons/24x24/YellowHammer.gif') no-repeat ;
 	margin:auto;
   cursor: pointer; 	
 }
 
 .Refresh24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/Refresh.gif') no-repeat ;
+	background: url('icons/24x24/Refresh.gif') no-repeat ;
 }
 
 .AddCategory24x24Icon {
 	width: 24px ;	height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/AddCategory.gif') no-repeat center;
+	background: url('icons/24x24/AddCategory.gif') no-repeat center;
 }
 
 .Catergory24x24Icon {
 	width: 16px ;	height: 16px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/Catergory.gif') no-repeat center;
+	background: url('icons/24x24/Catergory.gif') no-repeat center;
 }
 
 .EditCategory24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/EditCategory.gif') no-repeat center;
+	background: url('icons/24x24/EditCategory.gif') no-repeat center;
 }
 
 .ImportCategory24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/ImportCategory.gif') no-repeat center;
+	background: url('icons/24x24/ImportCategory.gif') no-repeat center;
 }
 
 .DeleteCategory24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/DeleteCategory.gif') no-repeat center;
+	background: url('icons/24x24/DeleteCategory.gif') no-repeat center;
 }
 
 .Delete24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/NavyBlueTrashBin.gif') no-repeat  ;
+	background: url('icons/24x24/NavyBlueTrashBin.gif') no-repeat  ;
 }
 
 .DeleteAll24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/DeleteAll.gif') no-repeat ;
+	background: url('icons/24x24/DeleteAll.gif') no-repeat ;
 }
 
 .Rollback24x24Icon {
 	width: 24px ; height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/BlueBackArrow.gif') no-repeat ;
+	background: url('icons/24x24/BlueBackArrow.gif') no-repeat ;
 }
 
 .UIListPermissionSelector24x24Icon {
   width: 24px ; height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/IconAccessPermission.gif') no-repeat ;
+	background: url('icons/24x24/IconAccessPermission.gif') no-repeat ;
 }
 
 .UIPermissionSelector24x24Icon {
   width: 24px ; height: 24px ;
-	background: url('/eXoResourcesLambkin/icons/24x24/IconEditPermission.gif') no-repeat ;
+	background: url('icons/24x24/IconEditPermission.gif') no-repeat ;
 }
