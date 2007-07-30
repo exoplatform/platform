@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
@@ -147,6 +148,15 @@ public class UIListUsers extends UISearch {
       UIListUsers uiListUser = event.getSource() ;
       String userName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       OrganizationService service = uiListUser.getApplicationComponent(OrganizationService.class) ;
+      //TODO: Tung.Pham added
+      //------------------------------------
+      UserACL userACL = uiListUser.getApplicationComponent(UserACL.class) ;
+      if(userACL.getSuperUser().equals(userName)) {
+        UIApplication uiApp = event.getRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIListUsers.msg.DeleteSuperUser", new String[] {userName},ApplicationMessage.WARNING)) ;
+        return ;
+      }
+      //------------------------------------
       service.getUserHandler().removeUser(userName, true) ;
       uiListUser.search(uiListUser.lastQuery_);
       

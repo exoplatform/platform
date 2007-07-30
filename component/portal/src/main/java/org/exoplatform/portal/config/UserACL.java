@@ -135,6 +135,9 @@ public class UserACL {
     return handler.findMembershipByUserGroupAndType(remoteUser, groupId, membership) != null;
   }
   
+  //TODO: Tung.Pham added
+  public String getSuperUser() { return superUser_ ; }
+  
   static public class Permission {
 
     private String name_ ;
