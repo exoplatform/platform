@@ -14,10 +14,13 @@
 	color: #0098ff ;
 	font-size: 14px;
 	font-weight: normal;
-	padding: 10px;
+	padding: 0px 10px 0px 10px ;
+  overflow: auto ;
+  height: 100% ;
 }
 
 .UIConsoleApplication .CommandType {
+  z-index: 1 ;
   border-top: 4px #dddddd ridge ;
 	height: 69px;	
 	background: #ffffff ;

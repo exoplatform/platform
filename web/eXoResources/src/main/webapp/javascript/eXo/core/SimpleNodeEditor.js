@@ -7,6 +7,7 @@
 function SimpleNodeEditor() {
   this.cursor = '<span class="ConsoleCursor" cursor="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>' ;
   this.htmlUtil = eXo.core.HTMLUtil ;
+  this.cmdManager = eXo.application.console.CommandManager ;
 }
 
 SimpleNodeEditor.prototype = new eXo.core.DefaultKeyboardListener() ;
@@ -23,7 +24,7 @@ SimpleNodeEditor.prototype.init = function(node, beforeCursor, afterCursor) {
   this.currentNode = node ;
   this.beforeCursor = beforeCursor ;
   this.afterCursor = afterCursor ;
-  eXo.application.console.CommandManager.init(node) ;
+  this.cmdManager.init(node) ;
 }
 
 SimpleNodeEditor.prototype.isSameNode = function(node) {
@@ -122,14 +123,15 @@ SimpleNodeEditor.prototype.onDelete = function(keynum, keychar) {
 }
 
 SimpleNodeEditor.prototype.onEnter = function(keynum, keychar) {
-  eXo.application.console.CommandManager.hideQuickHelp() ;
-  eXo.application.console.CommandManager.execute(this.getTextCommand()) ;
+  this.cmdManager.hideQuickHelp() ;
+  this.cmdManager.execute(this.getTextCommand()) ;
+  eXo.application.console.CommandHistory.insert(this.getTextCommand()) ;
   this.write('', this.cursor, '') ;
   return false ;
 }
 
 SimpleNodeEditor.prototype.onTab = function(keynum, keychar) {
-  eXo.application.console.CommandManager.help(this.getTextCommand()) ;
+  this.cmdManager.help(this.getTextCommand()) ;
   return false ;
 }
 
@@ -153,6 +155,26 @@ SimpleNodeEditor.prototype.onEnd = function(keynum, keychar) {
   this.beforeCursor = this.beforeCursor + this.afterCursor ;
   this.afterCursor = '' ;
   this.defaultWrite() ;
+  return false ;
+}
+
+SimpleNodeEditor.prototype.onUpArrow = function(keynum, keychar) {
+  var cmd = this.cmdManager.cmdHistory.getPrevious() ;
+  if (cmd) {
+    this.beforeCursor = cmd ;
+    this.afterCursor = '' ;
+    this.defaultWrite() ;
+  }
+  return false ;
+}
+
+SimpleNodeEditor.prototype.onDownArrow = function(keynum, keychar) {
+  var cmd = this.cmdManager.cmdHistory.getNext() ;
+  if (cmd) {
+    this.beforeCursor = cmd ;
+    this.afterCursor = '' ;
+    this.defaultWrite() ;
+  }
   return false ;
 }
 

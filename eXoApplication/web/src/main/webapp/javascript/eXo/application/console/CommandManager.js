@@ -13,6 +13,7 @@ function CommandManager() {
   this.ready = true ;
   this.envManager = eXo.application.console.EnvManager ;
   this.consoleScreen = eXo.application.console.ConsoleScreen ;
+  this.cmdHistory = eXo.application.console.CommandHistory ;
 } ;
 
 CommandManager.prototype.init = function(node) {
@@ -23,6 +24,7 @@ CommandManager.prototype.init = function(node) {
     this.envManager.setVariable('CMD_PREFIX', 'xhtml') ;
   }
   this.consoleScreen.init(this.consoleResultNode) ;
+  this.cmdHistory.init(this.screenNode) ;
 } ;
 
 CommandManager.prototype.onFinish = function() {
@@ -32,6 +34,7 @@ CommandManager.prototype.onFinish = function() {
   this.screenNode = false ;
   this.uiMaskWindowConsoleNode = false ;
   this.uiConsoleApplicationNode = false ;
+  this.cmdHistory.finish() ;
 } ;
 
 CommandManager.prototype.initCommon = function() {
@@ -115,7 +118,7 @@ CommandManager.prototype.commandMatch = function(command, commandList) {
     }
     var cmdObj = this.commands[cmd] ;
     var fullCmd = cmdObj.getFullCmd() ;
-    if (fullInputCommand == fullCmd) {
+    if (fullInputCommand == fullCmd || command == fullCmd) {
       return true ;
     }
     if(fullCmd.indexOf(command) == 0 || fullCmd.indexOf(fullInputCommand) == 0) {
@@ -180,8 +183,12 @@ CommandManager.prototype.help = function(command) {
   
   // Command completed
   if (commandState) {
-    command = this.getFullCmd(command) ;
-    helpTxt = this.commands[command].help() ;
+    if (this.commands[command]) {
+      helpTxt = this.commands[command].help() ;
+    } else {
+      command = this.getFullCmd(command) ;
+      helpTxt = this.commands[command].help() ;
+    }
   } else if(commandLookup.length > 0){
     helpTxt = '<strong>' + commandLookup.join(' ') + '</strong>' ;
   }
@@ -198,6 +205,7 @@ CommandManager.prototype.execute = function(commandLine) {
     return ;
   }
   commandLine = commandLine.trim() ;
+  this.cmdHistory.insert(commandLine) ;
   var commandName = false ;
   var fullCommandName = false ;
   var parameters = false ;

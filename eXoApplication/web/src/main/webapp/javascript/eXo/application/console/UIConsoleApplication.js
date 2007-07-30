@@ -3,6 +3,7 @@ eXo.require('eXo.application.ApplicationDescriptor');
 eXo.require('eXo.application.console.ConsoleScreen', '/eXoAppWeb/javascript/');
 eXo.require('eXo.application.console.Command', '/eXoAppWeb/javascript/');
 eXo.require('eXo.application.console.EnvManager', '/eXoAppWeb/javascript/');
+eXo.require('eXo.application.console.CommandHistory', '/eXoAppWeb/javascript/');
 eXo.require('eXo.application.console.CommandManager', '/eXoAppWeb/javascript/');
 eXo.require('eXo.core.OS');
 eXo.require('eXo.core.HTMLUtil');
