@@ -23,8 +23,9 @@
 
 .UIWidgetContainerManagement .CategoryTitleBar {
 	height: 20px;
-	background: url(/eXoResources/background/DefaultSkin/TitleBar1x20.gif) repeat-x;
+	background: url('/eXoResources/skin/DefaultSkin/background/TitleBar1x20.gif') repeat-x;
 	border-bottom: 1px #b7b7b7 solid;
+	padding: 0px 5px 0px 0px;
 }
 
 .UIWidgetContainerManagement .CategoryTitleBar .Title {
@@ -33,31 +34,22 @@
 	padding-left: 8px;
 }
 
-.UIWidgetContainerManagement .AddContainerIcon {
-	width: 16px;
-	height: 16px;
-	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif);
+.UIWidgetContainerManagement .Icon {
 	float: right;
-	margin: 2px;
-	display: inline;
+	width: 16px; height: 16px;
+	margin: 2px 3px;;
 }
 
-.UIWidgetContainerManagement .EditContainerIcon {
-	width: 16px;
-	height: 16px;
-	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif);
-	float: right;
-	margin: 2px ;
-	display: inline;
+.UIWidgetContainerManagement .AddContainer {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif');
 }
 
-.UIWidgetContainerManagement .RemoveContainerIcon{
-	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif) no-repeat center;
-	width: 16px;
-	height: 16px;
-	float: right;
-	margin: 2px 5px;
-	display: inline;
+.UIWidgetContainerManagement .EditContainer {
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png');
+}
+
+.UIWidgetContainerManagement .RemoveContainer{
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat center;
 }
 
 .UIWidgetContainerManagement .ContainerList {
@@ -85,7 +77,7 @@
 	color: #058ee6;
 	text-decoration: none;
 	height: 21px; line-height: 21px;
-	background: #f5f5f5 url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon.gif) no-repeat left center;
+	background: #f5f5f5 url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon.gif') no-repeat left center;
 	padding-left: 17px;
 }
 
@@ -96,7 +88,7 @@
 /*===================== Begin the Widget Container Category ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerCategory {
 	float: left;
-	width: 220px;
+	width: 255px;
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail .PortalWidgetContainer{
@@ -114,7 +106,7 @@
 
 /*===================== Begin the Widget Container View ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView {
-	margin-left: 226px;
+	margin-left: 260px;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .WidgetContainerDetail{
@@ -125,7 +117,7 @@
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .RemoveContainerAction{
-	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif) no-repeat left center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat left center;
 	padding:0px 55px 0px 23px;
 	height: 22px; line-height: 22px;
 	float: right;

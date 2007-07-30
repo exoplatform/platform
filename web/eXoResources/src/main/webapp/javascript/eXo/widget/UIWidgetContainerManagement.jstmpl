@@ -22,9 +22,9 @@
 				<div class="PortalWidgetContainer">
 					<div class="CategoryTitleBar">
 						<div class="Title">Portal Widget Containers</div>
-						<a class="RemoveContainerIcon" href="javascript: <%=deleteWidgetContainer%>" title="Remove selected widget container"><span></span></a>
-						<a class="EditContainerIcon" href="javascript: <%=editWidgetContainer%>" title="Add new widget container"><span></span></a>
-						<a class="AddContainerIcon" href="javascript: <%=addWidgetContainer%>" title="Add new widget container"><span></span></a>
+						<a class="RemoveContainer Icon" href="javascript: <%=deleteWidgetContainer%>" title="Remove selected widget container"><span></span></a>
+						<a class="EditContainer Icon" href="javascript: <%=editWidgetContainer%>" title="Add new widget container"><span></span></a>
+						<a class="AddContainer Icon" href="javascript: <%=addWidgetContainer%>" title="Add new widget container"><span></span></a>
 						<div style="clear: both"><span></span></div>
 					</div>
 					<div class="ContainerList">
@@ -34,9 +34,9 @@
 				<div class="UserWidgetContainer">
 					<div class="CategoryTitleBar">
 						<div class="Title">User Widget Containers</div>
-						<a class="RemoveContainerIcon" href="#" title="Remove a widget container"><span></span></a>
-						<a class="EditContainerIcon" href="#" title="Add a widget container"><span></span></a>
-						<a class="AddContainerIcon" href="#" title="Add a widget container"><span></span></a>
+						<a class="RemoveContainer Icon" href="#" title="Remove a widget container"><span></span></a>
+						<a class="EditContainer Icon" href="#" title="Add a widget container"><span></span></a>
+						<a class="AddContainer Icon" href="#" title="Add a widget container"><span></span></a>
 						<div style="clear: both"><span></span></div>
 					</div>
 					<div class="ContainerList">
