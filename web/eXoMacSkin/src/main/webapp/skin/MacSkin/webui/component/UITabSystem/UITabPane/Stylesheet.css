@@ -14,7 +14,7 @@
 
 .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer {
   border: solid 1px #b7b7b7;
-  background: url('/eXoResources/background/Background1x4.png');
+  background: url('/eXoMacSkin/skin/MacSkin/background/Background1x4.png');
 }
 
 .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {

@@ -66,6 +66,7 @@
   background: url('/eXoResources/icons/16x16/MacSkin/Maximize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
+  border: 1px solid red;
 }
 
 .UIPortlet .MinimizedPortletIcon {
@@ -82,6 +83,7 @@
   width: 16px; height: 16px; 
   background: url('/eXoResources/icons/16x16/MacSkin/Config.gif') no-repeat;
   margin: 3px 10px 0px 5px;
+  border: 1px solid red;
 }
 
 .UIPortlet .EditPortletIcon {
@@ -90,6 +92,7 @@
   background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat;
   margin: 4px 10px 0px 5px;
   cursor: pointer;
+  border: 1px solid red;
 }
 
 .UIPortlet .HelpPortletIcon {
@@ -98,6 +101,7 @@
   background: url('/eXoResources/icons/16x16/MacSkin/PortletHelp.gif') no-repeat;
   margin: 4px 10px 0px 0px;
   cursor: pointer;
+  border: 1px solid red;
 }
 
 .UIPortlet .NormalPortletIcon {
@@ -106,6 +110,7 @@
   background: url('/eXoResources/icons/16x16/MacSkin/Restore.gif') no-repeat ;
   margin: 3px 10px 0px 0px ;
   cursor: pointer ;
+  border: 1px solid red;
 }
 
 .UIPortlet .PortletIcon{

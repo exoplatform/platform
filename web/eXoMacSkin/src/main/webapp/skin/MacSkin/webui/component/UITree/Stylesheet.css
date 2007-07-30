@@ -32,7 +32,7 @@
 .UITree .TreeContainer .Node .ExpandIcon {
   float: left ;
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat ;
   cursor: pointer ;
   margin: 4px 0px 0px 0px;
 }
@@ -40,7 +40,7 @@
 .UITree .TreeContainer .Node .ColapseIcon {
   float: left ;
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlackDownArrow.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat ;
   cursor: pointer ;
   margin: 4px 0px 0px 0px ;
 }
@@ -78,9 +78,9 @@
 
 /** ################# Icons ###################*/
 .UITree .TreeContainer .GroupAdminIcon {
-  background: url('/eXoResources/icons/24x24/NormalGroup.gif') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/NormalGroup.gif') no-repeat ;
 }
 
 .UITree .TreeContainer .PortalIcon {
-  background: url('/eXoResources/icons/24x24/SelectedGroup.gif') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/SelectedGroup.gif') no-repeat ;
 }

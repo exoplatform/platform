@@ -7,7 +7,7 @@
 }
 
 .UIPermissionSelector .PermissionSelectorTitleBar .PermissionIcon {
-  background: url('/eXoResources/icons/24x24/PermissionIcon.png') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/PermissionIcon.png') no-repeat;
   width: 24px; height: 22px;
   margin: 0px 10px 0px 10px;
   float: left;
@@ -33,7 +33,7 @@
 .UIPermissionSelector .PermissionTypeBar .SeparateLine {
   float: left;
   width: 2px; height: 20px;
-  background: url('DefaultSkin/background/GrayLine2x2.gif') repeat-y ;
+  background: url('eXoResources/skin/DefaultSkin/webui/UIPermissionSelector/background/GrayLine2x2.gif') repeat-y ;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton {
@@ -83,17 +83,17 @@
 } 
 
 .UIPermissionSelector .SelectPermissionButton  .LeftButton {
-  background: url('DefaultSkin/background/LeftSimpleButton10x21.gif') no-repeat left; 
+  background: url('eXoResources/skin/DefaultSkin/webui/UIPermissionSelector/background/LeftSimpleButton10x21.gif') no-repeat left; 
   padding-left: 10px;
 }
 
 .UIPermissionSelector .SelectPermissionButton  .RightButton {
-  background: url('DefaultSkin/background/RightSimpleButton10x21.gif') no-repeat right; 
+  background: url('eXoResources/skin/DefaultSkin/webui/UIPermissionSelector/background/RightSimpleButton10x21.gif') no-repeat right; 
   padding-right: 10px;
 } 
 
 .UIPermissionSelector .SelectPermissionButton  .CenterButton {
-  background: url('DefaultSkin/background/CenterSimpleButton1x21.gif') repeat-x; 
+  background: url('eXoResources/skin/DefaultSkin/webui/UIPermissionSelector/background/CenterSimpleButton1x21.gif') repeat-x; 
   height: 21px; line-height: 20px;
   padding:0px 5px;
 }
@@ -101,7 +101,7 @@
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
   float: left;
   width: 16px; height: 16px; margin: 2px 0px 0px 0px;
-  background: url('/eXoResources/icons/16x16/SelectPermissionIcon.png') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat;
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a{

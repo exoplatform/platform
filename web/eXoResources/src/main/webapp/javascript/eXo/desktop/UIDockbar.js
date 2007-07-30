@@ -345,7 +345,7 @@ UIDockbar.prototype.resetDesktopShowedStatus = function(uiPageDesktop, uiDockBar
   if(this.showDesktop) {
     var portletsViewer = eXo.core.DOMUtil.findDescendantById(uiDockBar, "PortletsViewer") ;
     var blankImage = portletsViewer.src ;
-    var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/HidePortletsViewer.png" ;
+    var srcMonitoringImage = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/HidePortletsViewer.png" ;
     if(eXo.core.Browser.isIE6()) {
       portletsViewer.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + srcMonitoringImage + "', sizingMethod='scale')" ;
       portletsViewer.src = blankImage ;
@@ -359,7 +359,7 @@ UIDockbar.prototype.resetDesktopShowedStatus = function(uiPageDesktop, uiDockBar
 UIDockbar.prototype.createApplicationIcon = function(iconUrl, iconId) {
   var appIcon = document.createElement("img") ;
   appIcon.className = "Icon" ;
-  appIcon.alt = "/eXoResources/background/DefaultSkin/Blank.gif" ;
+  appIcon.alt = "/eXoResources/skin/sharedImages/Blank.gif" ;
   appIcon.src = iconUrl ;
   appIcon.id = iconId ;
   appIcon.style.marginRight = "4px" ;

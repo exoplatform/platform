@@ -36,7 +36,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .GlassesNavyBlueNewspaper32x32Icon {
 	width: 32px;
 	height: 32px;
-	background: url('/eXoResources/icons/32x32/MacSkin/GlassesNavyBlueNewspaper.gif');
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/GlassesNavyBlueNewspaper.gif');
 	cursor: pointer;
 	margin: auto;
 }
@@ -44,7 +44,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .GrayGearBrownBox32x32Icon {
 	width: 32px;
 	height: 32px;
-	background: url('/eXoResources/icons/32x32/MacSkin/GrayGearBrownBox.gif');
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/GrayGearBrownBox.gif');
 	cursor: pointer;
 	margin: auto;
 }
@@ -52,7 +52,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .GreenDownArrowBlueMonitor32x32Icon {
 	width: 32px;
 	height: 32px;
-	background: url('/eXoResources/icons/32x32/MacSkin/GreenDownArrowBlueMonitor.gif');
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/32x32/icons/GreenDownArrowBlueMonitor.gif');
 	cursor: pointer;
 	margin: auto;	
 }
@@ -60,7 +60,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .GrayGlasses24x24Icon {
 	width: 24px;
 	height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/GrayGlasses.gif');
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/GrayGlasses.gif');
 	margin: auto;
 	cursor: pointer;
 }
@@ -68,7 +68,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .UIListArticles .GreenResizeCollum24x24Icon {
 	width: 24px;
 	height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/GreenResizeCollum.gif');
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/GreenResizeCollum.gif');
 	cursor: pointer;
 	margin: auto;
 }
@@ -76,7 +76,7 @@
 .UICrawlerPortlet .UICrawlerNavigation .UIListArticles .NavyBlueBullet24x24Icon {
 	width: 24px;
 	height: 24px;
-	background: url('/eXoResources/icons/24x24/MacSkin/NavyBlueBullet.gif');
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/NavyBlueBullet.gif');
 	cursor: pointer;
 	margin: auto;
 }
@@ -318,7 +318,7 @@
 
 .UICrawlerPortlet .UIAddCategoryContainer .UIAddCategoryIcon {
   width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/MacSkin/AddNewCategory.gif') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/AddNewCategory.gif') no-repeat;
   float: left;
   margin: 3px 0px 0px 8px;  
 }

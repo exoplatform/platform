@@ -64,7 +64,7 @@
 .UIContentPortlet .UIContentNavigation .NewsCategory .UIVerticalSlideTabs {
   border: 1px solid #ffffff;
   padding: 5px; padding-bottom: 10px;
-  background: url('/eXoResources/background/DefaultSkin/NavigationBG.gif');
+  background: url('eXoResources/skin/DefaultSkin/background/NavigationBG.gif');
 	width: auto;
 }
 

@@ -43,7 +43,7 @@
 
 .ApplicationRegistryControlArea .ApplicationRegistryCategory {
   border: 1px solid #d7d7d7;
-  background: url('/eXoResources/background/MacSkin/BgApplicationRegistryPortle1x4.gif');
+  background: url('/eXoMacSkin/skin/MacSkin/background/MacSkin/BgApplicationRegistryPortle1x4.gif');
   letter-spacing: 0.5px;
 }
 
@@ -132,7 +132,7 @@
 .ApplicationRegistryWorkingArea .ApplicationContainer {
   padding: 0px 5px 5px 5px;
   border:  1px solid white;
-  background: url('/eXoResources/background/MacSkin/BgApplicationRegistryPortle1x4.gif');
+  background: url('/eXoMacSkin/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
 }
 
 .ApplicationRegistryWorkingArea .UIItemSelector .ItemListContainer .ItemList {
@@ -177,12 +177,12 @@
 
 .ApplicationRegistryWorkingArea .DeleteIcon {
   width: 18px ;  height: 18px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/DeleteIcon.png') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat ;
 }
 
 .ApplicationRegistryWorkingArea .EditInfoIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/EditIcon.png') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat ;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContentLabel {

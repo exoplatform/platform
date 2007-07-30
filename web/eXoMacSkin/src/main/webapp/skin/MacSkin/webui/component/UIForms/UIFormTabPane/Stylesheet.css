@@ -3,9 +3,6 @@
   
 }
 
- .UIFormTabPane .FormTabPaneContainer {
-}
-
  .UIFormTabPane .TabPaneContainer {
   border: none;
   padding: 0px;
@@ -22,7 +19,7 @@
 }
 
 .UIFormTabPane .UITabPane .TabPaneContent .UITabContentContainer {
-  background: url('/eXoResources/background/Background1x4.png');
+  background: url('/eXoResources/skin/DefaultSkin/background/Background1x4.png');
   border: 1px solid #c2c2c2; border-top:none;
 }
 

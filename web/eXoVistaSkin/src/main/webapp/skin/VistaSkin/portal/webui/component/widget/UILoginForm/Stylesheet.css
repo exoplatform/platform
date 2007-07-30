@@ -82,14 +82,13 @@
 .UILoginForm .LoginDetailBox .CheckField {
   height: 20px;
   width: 170px;
-  margin: auto 40px 0px auto;
+  margin: auto 50px 0px auto;
   padding-left: 30px;
-  padding-top:4px;
 }
 
 .UILoginForm .LoginDetailBox .CheckField input {
   float: left;
-  width: 20px;
+  width: 16px;
   border: none;
 }
 
@@ -119,7 +118,7 @@
 
 .UILoginForm .LoginDetailBox .Message {
   width: 280px; margin: auto; 
-  height: 26px; line-height: 26px; text-align: right;
+  height: 20px; line-height: 20px; text-align: right;
   color: #2169d4 ;
   white-space: nowrap;
   padding: 0px 10px 0px 0px;
@@ -156,4 +155,5 @@
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {
   width: 190px;
+  padding: 13px 0px 10px 125px;
 }

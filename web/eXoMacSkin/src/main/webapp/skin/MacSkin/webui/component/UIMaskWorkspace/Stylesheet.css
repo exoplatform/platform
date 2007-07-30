@@ -169,7 +169,7 @@
 .UIAddApplication .SelectButton {
 	float: right ; 
 	width: 24px ; height: 24px ;
-	background: url("icons/SelectButton.png") no-repeat center;
+	background: url('icons/SelectButton.png') no-repeat center;
   margin: auto;
 	cursor: pointer ;
 }
@@ -225,7 +225,7 @@
 
 .UIGroupSelector .UIBreadcumbs .HomeIcon {
 	float: left;
-  background: url('/eXoResources/icons/16x16/NormalGroup.png') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/NormalGroup.png') no-repeat;
   margin: 8px 0px 0px 5px;
 }
 

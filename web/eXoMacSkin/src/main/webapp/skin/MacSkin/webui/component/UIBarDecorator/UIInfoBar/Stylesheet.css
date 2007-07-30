@@ -4,18 +4,18 @@
 
 /*######################-Rounded Style-######################*/
 .UIInfoBar .RoundedStyle .LeftBar {
-  background: url('DefaultSkin/background/LRoundedBar6x25.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/LRoundedBar6x25.gif') no-repeat left ;
   padding: 0px 0px 0px 6px ;
 }
 
 .UIInfoBar .RoundedStyle .RightBar {
-  background: url('DefaultSkin/background/RRoundedBar6x25.gif') no-repeat right ;
+  background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/RRoundedBar6x25.gif') no-repeat right ;
   padding: 0px 6px 0px 0px ;
 }
 
 .UIInfoBar .RoundedStyle .MiddleBar {
   height: 25px ;
-  background: url('DefaultSkin/background/MRoundedBar1x25.gif') repeat-x ;
+  background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/MRoundedBar1x25.gif') repeat-x ;
 }
 
 .UIInfoBar .RoundedStyle .MiddleBar .Icon {
@@ -69,7 +69,7 @@
 
 /*######################-Simple Style-######################*/
 .UIInfoBar .SimpleStyle {
-  background: url('DefaultSkin/background/MRoundedStyle1x21.gif') repeat-x ;
+  background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/MRoundedStyle1x21.gif') repeat-x ;
   border-right: solid 1px #5f90ba ; border-left: solid 1px #5f90ba ;
   overflow: hidden ; 
 }
@@ -103,14 +103,14 @@
 
 /*######################-Flat Style-######################*/
 .UIInfoBar .FlatStyle {
-  background: url('DefaultSkin/background/MFlatStyle1x22.gif') repeat-x ;
+  background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/MFlatStyle1x22.gif') repeat-x ;
   margin: 0px 6px 0px 6px;
 }
 
 .UIInfoBar .FlatStyle .LeftBar {
   float: left ;
   width: 10px ; height: 22px ;
-  background: url('DefaultSkin/background/LFlatStyle10x22.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/LFlatStyle10x22.gif') no-repeat ;
 }
 
 .UIInfoBar .FlatStyle .MiddleBar {
@@ -129,7 +129,7 @@
 .UIInfoBar .FlatStyle .RightBar {
   float: right ;
   height: 22px ;
-  background: url('DefaultSkin/background/FlatStyleRControle1x22.gif') repeat-x ;
+  background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/FlatStyleRControle1x22.gif') repeat-x ;
   border-right: solid 1px #4671ae ; 
 }
 
@@ -144,14 +144,14 @@
   float: left ;
   width: 12px ; height: 22px ;
   margin: 0px 10px 0px 0px ;
-  background: url('DefaultSkin/background/FlatStyleExpand12x22.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/FlatStyleExpand12x22.gif') no-repeat ;
   cursor: pointer ;
 }
 
 .UIInfoBar .FlatStyle .CollapseButton {
   float: left ;
   width: 12px ; height: 22px ;
-  background: url('DefaultSkin/background/FlatStyleCollapse12x22.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/FlatStyleCollapse12x22.gif') no-repeat ;
   cursor: pointer ;
   margin: 0px 10px 0px 0px ;
 }
@@ -162,18 +162,18 @@
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .LeftBar {
-	background: url('DefaultSkin/background/LPolygonNavy3x26.gif') no-repeat left;
+	background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/LPolygonNavy3x26.gif') no-repeat left;
 	padding: 0px 0px 0px 3px;
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .RightBar {
-	background: url('DefaultSkin/background/RPolygonNavy3x26.gif') no-repeat right;
+	background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/RPolygonNavy3x26.gif') no-repeat right;
 	padding: 0px 3px 0px 0px ;
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .MiddleBar {
   height: 26px;
-	background: url('DefaultSkin/background/MPolygonNavy1x26.gif') repeat-x;
+	background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/MPolygonNavy1x26.gif') repeat-x;
   padding: 0px 0px 0px 2px;
 }
 
@@ -223,18 +223,18 @@
 }
 
 .UIInfoBar .GrayRoundedStyle .LeftBar {
-	background: url('DefaultSkin/background/LGrayRounded10x27.gif') no-repeat left;
+	background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/LGrayRounded10x27.gif') no-repeat left;
 	padding: 0px 0px 0px 10px;
 }
 
 .UIInfoBar .GrayRoundedStyle .RightBar {
-	background: url('DefaultSkin/background/RGrayRounded10x27.gif') no-repeat right;
+	background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/RGrayRounded10x27.gif') no-repeat right;
 	padding: 0px 10px 0px 0px;
 }
 
 .UIInfoBar .GrayRoundedStyle .MiddleBar {
   margin: auto ; height: 27px;
-	background: url('DefaultSkin/background/MGrayRounded1x27.gif') repeat-x;
+	background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/MGrayRounded1x27.gif') repeat-x;
 }
 
 .UIInfoBar .GrayRoundedStyle .Icon {
@@ -259,18 +259,18 @@
 }
 
 .UIInfoBar .LightBlueBevelStyle .LeftBar {
-	background: url('DefaultSkin/background/LBevelBarBg9x31.gif') no-repeat left;
+	background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/LBevelBarBg9x31.gif') no-repeat left;
 	padding: 0px 0px 0px 9px;
 }
 
 .UIInfoBar .LightBlueBevelStyle .RightBar {
-	background: url('DefaultSkin/background/RBevelBarBg9x31.gif') no-repeat right;
+	background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/RBevelBarBg9x31.gif') no-repeat right;
 	padding: 0px 9px 0px 0px ;
 }
 
 .UIInfoBar .LightBlueBevelStyle .MiddleBar {
   height: 31px;
-	background: url('DefaultSkin/background/MBevelBarBg1x31.gif') repeat-x;
+	background: url('/eXoResources/skin/DefaultSkin/UIInfoBar/background/MBevelBarBg1x31.gif') repeat-x;
   margin: auto ;
 }
 

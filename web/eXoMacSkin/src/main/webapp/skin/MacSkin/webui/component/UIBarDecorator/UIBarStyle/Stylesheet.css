@@ -7,18 +7,18 @@
 }
 
 .UIBarStyle .RoundedBarStyle .LeftBar {
-  background: url('DefaultSkin/background/WhiteRoundedBarL8x25.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/UIBarStyle/background/WhiteRoundedBarL8x25.gif') no-repeat left;
   padding: 0px 0px 0px 8px;
 }
 
 .UIBarStyle .RoundedBarStyle .RightBar {
-  background: url('DefaultSkin/background/WhiteRoundedBarR8x25.gif') no-repeat right;
+  background: url('/eXoResources/skin/DefaultSkin/UIBarStyle/background/WhiteRoundedBarR8x25.gif') no-repeat right;
   padding: 0px 8px 0px 0px ;
 }
 
 .UIBarStyle .RoundedBarStyle .MiddleBar {
   height: 25px; line-height: 25px;
-  background: url('DefaultSkin/background/WhiteRoundedBarM1x25.gif') repeat-x;  
+  background: url('/eXoResources/skin/DefaultSkin/UIBarStyle/background/WhiteRoundedBarM1x25.gif') repeat-x;  
 }
 
 /*###########################-MacStyleBar-###########################*/
@@ -87,18 +87,18 @@
 }
 
 .UIBarStyle .Style3 .LeftBar {
-  background: url('DefaultSkin/background/SmoothRoundedLeftBar3x26.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/UIBarStyle/background/SmoothRoundedLeftBar3x26.gif') no-repeat left ;
   padding: 0px 0px 0px 3px ;
 }
 
 .UIBarStyle .Style3 .RightBar {
-  background: url('DefaultSkin/background/SmoothRoundedRightBar3x26.gif') no-repeat right ;
+  background: url('/eXoResources/skin/DefaultSkin/UIBarStyle/background/SmoothRoundedRightBar3x26.gif') no-repeat right ;
   padding: 0px 3px 0px 0px ;
 }
 
 .UIBarStyle .Style3 .MiddleBar {
   height: 26px ; line-height: 26px ; vertical-align: middle ;
-  background: url('DefaultSkin/background/SmoothRoundedRepeatBar1x26.gif') repeat-x ;
+  background: url('/eXoResources/skin/DefaultSkin/UIBarStyle/background/SmoothRoundedRepeatBar1x26.gif') repeat-x ;
 }
 
 /*###########################-Style4Bar-###########################*/

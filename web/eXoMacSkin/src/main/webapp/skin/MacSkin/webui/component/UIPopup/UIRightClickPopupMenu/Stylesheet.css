@@ -60,13 +60,13 @@
 .UIRightClickPopupMenu .EditNavigation16x16Icon {
   width: 16px;
   height: 16px;
-  background: url(/eXoResources/icons/16x16/EditIcon.png) no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat;
 }
 
 .UIRightClickPopupMenu .CutNode16x16Icon {
   width: 16px;
   height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/Cut.gif') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/Cut.gif') no-repeat;
 }
 
 .UIRightClickPopupMenu .CopyNode16x16Icon {
@@ -84,20 +84,20 @@
 .UIRightClickPopupMenu .DeleteNode16x16Icon {
   width: 17px;
   height: 18px;
-  background: url('/eXoResources/icons/16x16/DeleteIcon.png') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat;
 }
 
 .UIRightClickPopupMenu .DeleteNavigation16x16Icon {
-  background: url('/eXoResources/icons/16x16/Delete.gif') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/Delete.gif') no-repeat;
   width: 17px; height: 17px;
 }
 
 .UIRightClickPopupMenu .PasteNavigation16x16Icon {
-  background: url('/eXoResources/icons/16x16/PasteIcon.gif') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/PasteIcon.gif') no-repeat;
   width: 16px; height: 16px;
 }
 
 .UIRightClickPopupMenu .SaveNavigation16x16Icon {
-  background: url('/eXoResources/icons/16x16/FloppyDisk.gif') no-repeat center;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/FloppyDisk.gif') no-repeat center;
   width: 16px; height: 16px;
 }

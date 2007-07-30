@@ -22,7 +22,7 @@
 	float: left;
 	width: 24px; height: 24px;
   margin: 3px 3px 0px 3px ;
-  background: url('/eXoResources/icons/24x24/BreadcumbsHomeIcon.gif') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/BreadcumbsHomeIcon.gif') no-repeat;
 }
 
 .UIBreadcumbs .Home16x16Icon {
@@ -48,5 +48,5 @@
   float: left;
   width: 16px; height: 16px;
   margin: 10px 2px 0px 2px;
-  background: url('/eXoResources/icons/16x16/OrangeRightArrow.gif') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow.gif') no-repeat;
 }

@@ -19,12 +19,12 @@
 
 .UIPageNodeSelector .UIContainerConfigOptions .ComponentIcon {
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/NavigationIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat;
 }
 
 .UIContainerConfigOptions .ComponentIcon {
   width: 16px; height: 16px;
-	background: url(/eXoResources/icons/16x16/DefaultContainerIcon.gif) no-repeat;
+	background: url('/eXoMacSkin/skinMacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .Icon {
@@ -62,7 +62,7 @@
 
 .UIItemList .ItemSelector .Icon {
   float: left;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat;
   height: 16px; width: 16px;
   margin: 4px 2px 0px 0px;
 }
@@ -77,7 +77,7 @@
 
 .UIItemList .OverItemSelector .Icon {
   float: left;
-  background: url('/eXoResources/icons/16x16/WhiteNextArrow.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/WhiteNextArrow.gif') no-repeat;
   height: 16px; width: 16px;
   margin: 4px 2px 0px 0px;
 }
@@ -140,7 +140,7 @@
 }
 
 .UIItemList .MCItemSelector {
-  background: white url('/eXoResources/background/Background1x4.png') repeat;
+  background: white url('/eXoResources/skin/DefaultSkin/Background1x4.png') repeat;
 }
 
 /*  Supply footnotes to:

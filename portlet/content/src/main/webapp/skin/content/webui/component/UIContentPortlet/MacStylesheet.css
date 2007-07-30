@@ -69,7 +69,7 @@
 .UIContentPortlet .UIContentNavigation .NewsCategory .UIVerticalSlideTabs {
   border: 1px solid #ffffff;
   padding: 5px; padding-bottom: 10px;
-  background: url('/eXoResources/background/MacSkin/Background1x4.png');
+  background: url('/eXoMacSkin/skin/MacSkin/background/Background1x4.png');
 }
 
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .NormalTab{
@@ -116,20 +116,12 @@
 	float: left ;
 	margin: 5px 0px 0px 5px ;
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat left;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultSkin/GrayNextArrow.gif') no-repeat left;
 }
 
 .UIContentPortlet .ContentItemIcon{
 	margin: 2px 0px 0px 0px;
 }
-
-/*
-.UIContentPortlet .OpenNewsIcon {
-	background: url('DefaultSkin/icons/OpenNewsIcon.gif') no-repeat;
-	width: 18px; height: 16px;
-	margin-top: 5px;
-}
-*/
 
 .UIContentPortlet .UIBreadcumbs .HomeIcon {
 	background: url('DefaultSkin/icons/OpenNewsIcon.gif') no-repeat;
@@ -166,7 +158,7 @@
 
 .UIContentPortlet .UIBreadcumbs .RightBlackGridArrowIcon {
 	margin-top: 2px ;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BlackNextArrow.gif') no-repeat left ;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackNextArrow.gif') no-repeat left ;
 }
 
 .UIContentPortlet .NewsIcon {
@@ -226,15 +218,6 @@
   margin: 1px 7px 0px 4px;
 }
 
-/*
-.UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs .PathArrowIcon {
-  float: left ;
-  margin: 2px 3px 0px 0px;
-	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/BlackNextArrow.gif') no-repeat left;
-}
-*/
-
 .UIContentPortlet .UIContentWorkingArea .ContentBreadcumbs a.CategoryName {
   float: left;
   color: #058ee6;
@@ -282,7 +265,7 @@
 .UIContentPortlet .UIContentWorkingArea .NewsDetailContainer {
   padding: 5px 7px;
   border: 1px solid #cdcdcd;
-  background: url('/eXoResources/background/MacSkin/Background1x4.png');
+  background: url('/eXoMacSkin/skin/MacSkin/background/Background1x4.png');
 }
 
 .UIContentPortlet  .UIContentWorkingArea .NewsDetail {

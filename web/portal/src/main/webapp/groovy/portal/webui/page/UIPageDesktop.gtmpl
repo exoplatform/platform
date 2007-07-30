@@ -95,18 +95,18 @@
               <div class="DockbarCenter" id="DockbarCenter">
               	
                 <div class="IconContainer" id="IconContainer" onmouseover="$containerMouseOver">
-                  <img id="FixBug" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/background/Debug1x32.gif" />
+                  <img id="FixBug" src="/eXoResources/skin/sharedImages/Debug1x32.gif" />
                   
                   <%if(rcontext.getRemoteUser() == null) {%>
 		                  <img id="SignInIcon" class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Signin.png"
-		                       alt="/eXoResources/background/DefaultSkin/Blank.gif"  onclick="<%=uicomponent.event("ShowLoginForm", null);%>" />
+		                       alt="/eXoResources/skin/sharedImages/Blank.gif"  onclick="<%=uicomponent.event("ShowLoginForm", null);%>" />
 		                  <%/*Tool Tip*/%>
 		                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignIn")%></span>
 		                  <%/*End Tool Tip*/%>
                   <%}%>
                   
-                  <img class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/AddPortlet.png"
-                       alt="/eXoResources/background/DefaultSkin/Blank.gif"
+                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/AddPortlet.png"
+                       alt="/eXoResources/skin/sharedImages/Blank.gif"
                        id="UIAddApplicationIcon"
                        onclick="eXo.desktop.UIAddApplication.init('<%=uicomponent.id%>', 'UIPageDesktop',[])" />
                   <%/*Tool Tip*/%>
@@ -114,7 +114,7 @@
 	                <span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
                   <%/*End Tool Tip*/%>
                   
-                  <img class="Separator" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/MacSkin/background/Separator2x1.png" />
+                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png" />
                   
                   <%                  
                     def res = rcontext.getApplicationResourceBundle() ;
@@ -125,7 +125,7 @@
                       if(!(uiChild instanceof UIPortlet)) continue; 
                       String portletIcon = uicomponent.getPortletIcon(res, uiChild) ;
                   %>
-                      <img class="Icon" src="$imgLocation/$portletIcon" id="DockItem${uiChild.id}" alt="/eXoResources/background/DefaultSkin/Blank.gif"
+                      <img class="Icon" src="$imgLocation/$portletIcon" id="DockItem${uiChild.id}" alt="/eXoResources/skin/sharedImages/Blank.gif"
                            onclick="eXo.desktop.UIDesktop.showHideWindow('${uiChild.id}', this);" />
                      <%/*Tool Tip*/ %>
                   	 <span class="Tooltip" style="display: none">
@@ -134,15 +134,15 @@
                       <%/*End Tool Tip*/%>
                   <%}%>
 
-                  <img class="Separator" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/MacSkin/background/Separator2x1.png" />
+                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png" />
                   <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/ShowPortletsViewer.png"
-                       alt="/eXoResources/background/DefaultSkin/Blank.gif" />
+                       alt="/eXoResources/skin/sharedImages/Blank.gif" />
                   <%/*Tool Tip*/%>
                   <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowPortletDesktop")%></span>
                   <%/*End Tool Tip*/%>
 
                   <img id="WidgetsViewer" class="Icon" src="/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/HideWidgetsViewer.png"
-                       alt="/eXoResources/background/DefaultSkin/Blank.gif" />
+                       alt="/eXoResources/skin/sharedImages/Blank.gif" />
                   <%/*Tool Tip*/%>
                   <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
                   <%/*End Tool Tip*/%>

@@ -37,20 +37,20 @@
 
 .UIWindow .WindowPortletControl .ArrowDownIcon {
   width: 21px;
-  background: url('/eXoResources/icons/16x16/ArrowDown.gif') no-repeat center right;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/ArrowDown.gif') no-repeat center right;
 }
 
 .UIWindow .WindowPortletControl .OverArrowDownIcon {
 	width: 21px;
-  background: url('/eXoResources/icons/16x16/ArrowDownOver.gif') no-repeat center right;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/ArrowDownOver.gif') no-repeat center right;
 }
 
 .UIWindow .WindowPortletControl .MinimizedIcon {
-  background: url('/eXoResources/icons/16x16/Minimize.gif') no-repeat center;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/Minimize.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletControl .OverMinimizedIcon {
-  background: url('/eXoResources/icons/16x16/MinimizeOver.gif') no-repeat center;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/MinimizeOver.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletControl .NormalIcon {
@@ -67,19 +67,19 @@
 }
 
 .UIWindow .WindowPortletControl .MaximizedIcon {
-  background: url('/eXoResources/icons/16x16/Maximize.gif') no-repeat center;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/Maximize.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletControl .OverMaximizedIcon {
-  background: url('/eXoResources/icons/16x16/MaximizeOver.gif') no-repeat center;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/MaximizeOver.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletControl .RestoreIcon {
-  background: url('icons/16x16/Restore.gif') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/Restore.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/16x16/RestoreOver.gif') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/RestoreOver.gif') no-repeat ;
 }
 
 .UIWindow .WindowPortletControl .CloseButtonIcon {
@@ -213,54 +213,54 @@
 
 /********************* Icon InfoBar ************************************/
 .UIWindow .OrganizationPortletIcon {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/AddNodeIcon.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/AddNodeIcon.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Content {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/MiscIcons/RSS.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/RSS.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Account {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/UserIcons/Contact.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Contact.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Registry-Portlet {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/RegistryPortlet.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/RegistryPortlet.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Site {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/SiteMap.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SiteMap.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Login {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ToolIcons/Key.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Key.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Mail {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/OfficeIcons/Mail.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Mail.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Forum {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ForumIcon.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ForumIcon.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .ECM {
-  background: url('/eXoResources/icons/16x16/DefaultSkin/ECMAdmin.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ECMAdmin.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .JCR{
-  background: url('/eXoResources/icons/16x16/DefaultSkin/JCRExplorer.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/JCRExplorer.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Dialog{
-  background: url('/eXoResources/icons/16x16/DefaultSkin/DialogIcon.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DialogIcon.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Browse{
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BrowseContent.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BrowseContent.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .Workflow{
-  background: url('/eXoResources/icons/16x16/DefaultSkin/WorkflowIcon.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/WorkflowIcon.gif') no-repeat center;
 }
 /********************* End Icon InfoBar ************************************/

@@ -13,7 +13,7 @@
   float: right;
   margin: 5px 3px 0px 0px;
   width: 19px; height: 15px;
-  background: url('DefaultSkin/background/PopupWindowIcon16x16.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupWindowIcon16x16.gif') no-repeat;
 }
 
 .UIPopupWindow .PopupTitle {
@@ -106,17 +106,17 @@
 
 /***************************Begin PoupWindow Caledar**********************************/
 .UIPopupWindow .CaledarStyle .TopLeftCornerDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventTL12x25.gif') no-repeat left; 
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventTL12x25.gif') no-repeat left; 
 	padding-left: 12px;
 }
 
 .UIPopupWindow .CaledarStyle .TopRightCornerDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventTR3x25.gif') no-repeat right; 
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventTR3x25.gif') no-repeat right; 
 	padding-right: 3px;
 }
 
 .UIPopupWindow .CaledarStyle .TopCenterDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventTC1x25.gif') repeat-x ; 
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventTC1x25.gif') repeat-x ; 
 	height: 25px;
 }
 
@@ -126,18 +126,18 @@
 
 .UIPopupWindow .CaledarStyle .PopupTitleIcon {
 	width: 16px;	height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/AddNewEventIcon.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/AddNewEventIcon.gif') no-repeat;
 	float: left;
 	margin: 5px 0px 0px 4px;
 }
 
 .UIPopupWindow .CaledarStyle .MiddleLeftSideDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventML3x1.gif') repeat-y left; 
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventML3x1.gif') repeat-y left; 
 	padding-left: 3px;
 }
 
 .UIPopupWindow .CaledarStyle .MiddleRightSideDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventMR3x1.gif') repeat-y right; 
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventMR3x1.gif') repeat-y right; 
 	padding-right: 3px;
 }
 
@@ -168,17 +168,17 @@
 }
 
 .UIPopupWindow .CaledarStyle .BottomLeftCornerDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventBL12x12.gif') no-repeat left; 
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventBL12x12.gif') no-repeat left; 
 	padding-left: 12px; height: 12px;
 }
 
 .UIPopupWindow .CaledarStyle .BottomRightCornerDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventBR12x12.gif') no-repeat right; 
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventBR12x12.gif') no-repeat right; 
 	padding-right: 12px;height: 12px;
 }
 
 .UIPopupWindow .CaledarStyle .BottomCenterDecorator {
-	background: url('DefaultSkin/background/PopupCreatEventBC1x12.gif') repeat-x ; 
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventBC1x12.gif') repeat-x ; 
 	height: 12px;
 }
 /***************************End PoupWindow Caledar**********************************/

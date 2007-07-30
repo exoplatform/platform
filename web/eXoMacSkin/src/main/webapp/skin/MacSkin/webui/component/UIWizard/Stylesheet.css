@@ -185,7 +185,7 @@
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/PageNode.gif ') no-repeat;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/PageNode.gif ') no-repeat;
   margin: 5px 0px 0px 5px;
 }
 
