@@ -55,7 +55,7 @@
           <div class="RightLoginContent">
             <div class="CenterLoginContent">
               <%/*Begin form*/%>
-              <%if(userName.length() > 0) {%>Sign in failed. Incorrect usernam or password.<%}%>
+              <%if(userName.length() > 0) {%><font color="red">Sign in failed. Wrong username or password.</font><%}%>
               <form name="loginForm" action="<%=loginAction%>">        
 	              <div class="FieldContainer">
 		              <label>User name:</label><input name="j_username" value="<%=userName%>"/>

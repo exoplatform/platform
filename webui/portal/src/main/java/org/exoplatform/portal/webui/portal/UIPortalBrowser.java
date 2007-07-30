@@ -13,6 +13,7 @@ import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
@@ -81,15 +82,19 @@ public class UIPortalBrowser extends UIContainer {
     public void execute(Event<UIPortalBrowser> event) throws Exception {
       String portalName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UserPortalConfigService service = event.getSource().getApplicationComponent(UserPortalConfigService.class);
-      WebuiRequestContext webuiContext = event.getRequestContext();
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       
-      UserPortalConfig config = service.getUserPortalConfig(portalName, webuiContext.getRemoteUser());
+      UserPortalConfig config = service.getUserPortalConfig(portalName, prContext.getRemoteUser());
       if(config != null && config.getPortalConfig().isModifiable()) {
         service.removeUserPortalConfig(portalName);
+      } else if(config != null){
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-deletePermission", new String[]{config.getPortalConfig().getName()})) ;;
+        prContext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+        return;
       }
       
       if(config == null || Util.getUIPortal().getName().equals(portalName)) {
-        PortalRequestContext prContext = Util.getPortalRequestContext();
         HttpServletRequest request = prContext.getRequest() ;
         request.getSession().invalidate() ;
         prContext.setResponseComplete(true) ;
@@ -98,7 +103,6 @@ public class UIPortalBrowser extends UIContainer {
       }
       
       event.getSource().loadPortalConfigs();
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
     }

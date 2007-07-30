@@ -196,6 +196,7 @@ public class UIPageActionListener {
         StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
         windowId.append(":/").append(applicationId).append('/').append(uiWidget.hashCode());
         uiWidget.setApplicationInstanceId(windowId.toString());
+        System.out.println("\n\n\n add application "+windowId+"\n\n");
         
         uiWidget.setApplicationName(application.getApplicationName());
         uiWidget.setApplicationGroup(application.getApplicationGroup());

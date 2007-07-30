@@ -4,7 +4,7 @@
   <locale>en</locale>
   <factory-id>office</factory-id>
   <access-permissions>*:/guest;*:/user</access-permissions>
-  <edit-permission>*:/user</edit-permission>
+  <edit-permission>*:/portal/admin</edit-permission>
   <creator>exoadmin</creator>
   
   <widget-layout>

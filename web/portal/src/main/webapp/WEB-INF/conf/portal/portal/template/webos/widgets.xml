@@ -5,14 +5,12 @@
 	<access-permissions>*:/guest;*:/user</access-permissions>
 	<edit-permission>*:/user</edit-permission>
 	
-	<container id="Information">
-    <application>
-      <instance-id>portal:/exo.widget.web/InfoWidget/InfoWidget1</instance-id>
+	<container id="WebOS">
+		<name>WebOS</name>
+		<description>WebOS Information</description>
+  	<application>
+      <instance-id>portal:/eXoWidgetWeb/InfoWidget/InfoWidget2</instance-id>
       <application-type>eXoWidget</application-type> 
     </application>
-    <application>
-      <instance-id>portal:/exo.widget.web/WelcomeWidget/WelcomeWidget1</instance-id>
-      <application-type>eXoWidget</application-type> 
-    </application>
-	</container>
+  </container>
 </widgets>
