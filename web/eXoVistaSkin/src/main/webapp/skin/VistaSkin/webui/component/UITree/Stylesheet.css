@@ -15,6 +15,13 @@
   padding-left: 7px;
 }
 
+.UITree .TreeLevelContainer .LevelUpArrowIcon {
+  float: left;
+  width: 43px; line-height: 18px;
+  background: url('background/AquaBlueUpLevel.gif') no-repeat;
+  margin: 3px 0px 5px 0px;
+}
+
 .UITree .TreeContainer .Node {
   margin: 3px 0px 0px 0px ;
   overflow: hidden ;
@@ -29,7 +36,6 @@
   float: left ;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/GreenArrowTree.png') no-repeat ;
   width: 16px ;  height: 16px ;
- 
 }
   
 .UITree .TreeContainer .Node .ColapseIcon {
@@ -47,9 +53,9 @@
 }
 
 .UITree .TreeContainer .Node .Icon {
-  width: 24px ;  height: 24px ;
   float: left ;
-  margin-left: 3px;
+  width: 24px ;  height: 24px ;
+  margin: 0px 0px 0px 3px;
 }
 
 .UITree .TreeContainer .Node .NodeLabel a {
@@ -57,7 +63,7 @@
   margin-left: 4px ; margin-top: 5px;
   float: left ;
   height: 16px ;  line-height: 16px ;
-   color: black; 
+  color: black; 
 }
 
 .UITree .TreeContainer .Node .NodeLabel a:hover {

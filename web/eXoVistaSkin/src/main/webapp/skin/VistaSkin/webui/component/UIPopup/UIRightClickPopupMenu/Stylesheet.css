@@ -27,11 +27,9 @@
 }
 
 .UIRightClickPopupMenu .ItemIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 0px 3px;
-	background-repeat: no-repeat;
-	background-position: center;
+  padding-left: 26px;
+  margin: 8px 7px 8px 7px;
+  line-height: 20px;
 }
 
 .UIRightClickPopupMenu .Rename16x16Icon{

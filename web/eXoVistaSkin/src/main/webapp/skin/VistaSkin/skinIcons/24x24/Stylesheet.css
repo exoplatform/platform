@@ -172,16 +172,14 @@
 }
 
 .LevelUpArrowIcon {
-  width: 33px ; height: 24px ;
-  background: url('/eXoResources/icons/32x32/VistaSkin/BlueUpLevelArrow.png') no-repeat center left ;
-  
+  width: 43px ; height: 18px ;
+  background: url('icons/AquaBlueUpLevel.gif') no-repeat  ;
 }
 
 .BlueNavigation24x24Icon {
   width: 24px ; height: 24px ;
   background: url('icons/BlueIconNavigation.gif') no-repeat  ;
 }
-
 
 .BlueSyncArrow24x24Icon {
   width: 24px ; height: 24px ;

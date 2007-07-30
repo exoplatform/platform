@@ -29,9 +29,9 @@
 }
 
 .UIRightClickPopupMenu .ItemIcon {
-  margin: 5px; margin-left: 7px;
+  margin: 8px 7px 8px 7px;
   padding-left: 20px;
-  line-height: 20px;
+  line-height: 18px;
 }
 
 .UIRightClickPopupMenu .AddNode16x16Icon{
