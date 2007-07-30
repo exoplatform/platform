@@ -42,7 +42,12 @@ public class UISkinSelector extends UIContainer {
     List<SelectItemCategory> itemCategories = (List<SelectItemCategory>)param.getMapGroovyObject(context);
     
     UIPortal uiPortal = Util.getUIPortal();
-    String currentSkin = uiPortal.getSkin();
+    //TODO: Tung.Pham modified
+    //-------------------------------------
+    //String currentSkin = uiPortal.getSkin();
+    UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class) ;
+    String currentSkin = uiPortalApp.getSkin() ;
+    //-------------------------------------
     
     if(currentSkin == null ) currentSkin = "Default"; 
     for(SelectItemCategory ele : itemCategories) {
@@ -73,13 +78,16 @@ public class UISkinSelector extends UIContainer {
       if(skin == null || skin.trim().length() < 1) return;       
       if(!uiPortal.isModifiable()) return;
       
-      uiPortal.setSkin(skin);
-      PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);
-      UserPortalConfigService dataService = uiPortal.getApplicationComponent(UserPortalConfigService.class);
-      dataService.update(portalConfig);
+      //TODO: Tung.Pham modified
+      //----------------------------------
+      //uiPortal.setSkin(skin);
+      //PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);
+      //UserPortalConfigService dataService = uiPortal.getApplicationComponent(UserPortalConfigService.class);
+      //dataService.update(portalConfig);
 
       uiApp.setSkin(skin);
-      uiApp.getUserPortalConfig().getPortalConfig().setSkin(skin);
+      //uiApp.getUserPortalConfig().getPortalConfig().setSkin(skin);
+      //----------------------------------
     }
   }
 
