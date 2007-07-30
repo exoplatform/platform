@@ -29,6 +29,7 @@ public class UIGrid extends UIComponent {
   
   public UIGrid() throws Exception {
     uiIterator_ = createUIComponent(UIPageIterator.class, null, null);
+    uiIterator_.setParent(this);
   }
   
   public UIPageIterator  getUIPageIterator() {  return uiIterator_ ; }
