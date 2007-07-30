@@ -83,7 +83,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     //-------------------------------------------
   } 
 
-    @SuppressWarnings("unchecked")
+  @SuppressWarnings("unchecked")
   public void setValue() throws Exception {
       //TODO: Tung.Pham added
       list_.clear() ;
@@ -94,15 +94,15 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       ApplicationRegistryService registeryService = getApplicationComponent(ApplicationRegistryService.class) ;
       while(iter.hasNext()){
         String id = String.valueOf(iter.next());
-        Application portlet = null; 
+        Application application = null; 
         try{
-          portlet = registeryService.getApplication(id);
+          application = registeryService.getApplication(id);
         }catch (Exception exp) {
           exp.printStackTrace();
         }
-        if(portlet == null)  portlet = findPortletInDataRuntime(id);
-        if(portlet == null ) continue;
-        list_.add(portlet);
+        if(application == null)  application = findPortletInDataRuntime(id);
+        if(application == null ) continue;
+        list_.add(application);
       } 
       findExoApplication();
       setup();
@@ -139,17 +139,14 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     WebAppController appController = 
       (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
     List<org.exoplatform.web.application.Application> eXoApplications = 
-      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE) ;
-    List<org.exoplatform.web.application.Application> eXoWidgets = 
-      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE) ;
-    eXoApplications.addAll(eXoWidgets);     
+      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE) ;   
     ApplicationRegistryService registeryService = getApplicationComponent(ApplicationRegistryService.class) ;
     for(org.exoplatform.web.application.Application app: eXoApplications) {
       String temp = app.getApplicationGroup()+ "/" + app.getApplicationName();
       Application portlet = registeryService.getApplication(temp);
-      if(portlet == null) list_.add( cloneApplication(app));
+      if(portlet == null) list_.add(cloneApplication(app));
       else list_.add(portlet);
-     }
+    }
   }
   
   private Application cloneApplication(org.exoplatform.web.application.Application app) {
