@@ -110,7 +110,6 @@ public class UIPageBrowser extends UISearch {
     lastQuery_ = query ;
     DataStorage service = getApplicationComponent(DataStorage.class) ;
     if(lastQuery_ == null) lastQuery_ = new Query<Page>(null, null, null, Page.class) ;
-//    System.out.println("\n\n\n da xay re hien tuong \n\n\n");
 
     PageList pagelist = service.find(lastQuery_) ;
     pagelist.setPageSize(10);

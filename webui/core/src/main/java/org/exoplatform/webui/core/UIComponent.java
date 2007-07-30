@@ -170,8 +170,9 @@ abstract public class UIComponent {
     org.exoplatform.webui.config.Event event = config.getUIComponentEventConfig(name) ;
     if(event == null) return "??config??" ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
+    String confirm = loadConfirmMesssage(event, context, beanId);
     try {
-      return context.getURLBuilder().createURL(this, event.getName(), beanId, params).toString();
+      return context.getURLBuilder().createURL(this, event.getName(), confirm, beanId, params).toString();
     }catch (Exception e) {
       e.printStackTrace();
       return "";

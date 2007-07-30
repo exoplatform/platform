@@ -4,8 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.application;
 
-import java.net.URLEncoder;
-
 import org.exoplatform.web.application.Parameter;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.core.UIComponent;
