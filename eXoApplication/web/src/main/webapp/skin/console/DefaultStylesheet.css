@@ -22,11 +22,9 @@
 .UIConsoleApplication .CommandType {
   z-index: 1 ;
   border-top: 4px #dddddd ridge ;
-	height: 35px;	
 	background: #ffffff ;
   width: 100% ;
-  height: 18% ;
-  min-height: 35px ;
+	height: 35px;	
 }
 
 .UIConsoleApplication .CommandType .Prompt {

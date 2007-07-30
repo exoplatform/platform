@@ -52,6 +52,9 @@ CommandHistory.prototype.getNext = function() {
  */
 CommandHistory.prototype.insert = function(command) {
   if (command && command != '') {
+    if (this.commands.contains(command)) {
+      this.commands.remove(command) ;
+    }
     this.commands[this.commands.length] = command ;
     this.currentIndex = this.commands.length - 1 ;
   }
