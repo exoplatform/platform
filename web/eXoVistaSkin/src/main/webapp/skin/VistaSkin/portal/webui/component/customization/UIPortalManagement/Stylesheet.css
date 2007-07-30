@@ -40,7 +40,7 @@
   float: left;
   width: 30px;  height: 25px;
   margin: 2px 0px 0px 0px;
-  background: url('background/BlueCircleBackArrow.png') no-repeat;
+  background: url('background/CircleBackArrow.png') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar {

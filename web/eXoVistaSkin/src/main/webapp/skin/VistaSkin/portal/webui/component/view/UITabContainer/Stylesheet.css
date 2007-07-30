@@ -23,13 +23,13 @@
 .UITabContainer .SelectedTab .CloseIcon {
 	float: left;
 	width: 16px; height: 20px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedCloseTab.gif') no-repeat bottom;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedCloseTab.gif') no-repeat bottom;
 }
 
 .UITabContainer .NormalTab .CloseIcon {
 	float: left;
 	width: 16px; height: 20px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalCloseTab.gif') no-repeat bottom;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalCloseTab.gif') no-repeat bottom;
 }
 
 .LAYOUT-CONTAINER .UIRowContainer .UITabContainer {
@@ -42,9 +42,9 @@
 }
 
 .LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
-	background: url('/eXoResources/icons/16x16/DefaultSkin/SelectedEditTab.gif') no-repeat center ;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedEditTab.gif') no-repeat center ;
 }
 
 .LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
-	background: url('/eXoResources/icons/16x16/DefaultSkin/NormalEditTab.gif') no-repeat center ;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalEditTab.gif') no-repeat center ;
 }
