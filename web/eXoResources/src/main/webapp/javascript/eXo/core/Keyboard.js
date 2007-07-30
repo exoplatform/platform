@@ -75,7 +75,7 @@ Keyboard.prototype.onKeyPress = function(event) {
   if (eXo.core.Browser.browserType == 'ie' && this.controlKeyCodes.contains(keynum)) {
     return false ;
   }
-
+  
   if(keynum == 13) {
     eventHandler = 'onEnter' ;
   } else if(keynum == 9) {
@@ -103,9 +103,9 @@ Keyboard.prototype.onKeyPress = function(event) {
     eventHandler = 'onAlphabet' ;
   } else if(keynum >= 48 && keynum <= 57) {
     eventHandler = 'onDigit' ;
-  } else if((keynum >= 32 && keynum <= 34) || (keynum >= 41 && keynum <= 47) || 
+  } else if(((keynum >= 32 && keynum <= 34) || (keynum >= 41 && keynum <= 47) || 
             (keynum >= 58 && keynum <= 64) || (keynum >= 91 && keynum <= 96) || 
-            (keynum >= 123 && keynum <= 65532)) {
+            (keynum >= 123 && keynum <= 65532)) && !this.controlKeyCodes.contains(keynum)) {
     eventHandler = 'onPunctuation' ;
   }
   
