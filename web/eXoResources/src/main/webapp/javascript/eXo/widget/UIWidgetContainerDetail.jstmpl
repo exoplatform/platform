@@ -1,0 +1,20 @@
+	<div class="UIForm">
+		<div class="HorizontalLayout">
+			<div class="FormContainer">
+				<% if(context == null) {%>
+					<div class="Empty">No container selected</div>
+				<% } else {%>
+				<table class="UIFormGrid">
+					<tr>
+						<td class="FieldLabel">Container name:</td>
+						<td class="FieldComponent"><%=context.cName%></td>
+					</tr>
+					<tr>
+						<td class="FieldLabel">Description:</td>
+						<td class="FieldComponent"><%=context.cDescription%></td>
+					</tr>
+				</table>
+				<% } %>
+			</div>
+		</div>
+	</div>

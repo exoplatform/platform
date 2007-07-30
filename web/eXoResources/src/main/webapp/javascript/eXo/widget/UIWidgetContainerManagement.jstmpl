@@ -1,5 +1,8 @@
-<% var addWidgetContainer = 'eXo.widget.UIWidgetContainerManagement.showAddPopup();'%>
+<% var addWidgetContainer = 'eXo.widget.UIWidgetContainerManagement.showAddForm();'%>
 <% var closeContainerManagement = 'eXo.widget.UIWidgetContainerManagement.destroy();'%>
+<% var deleteWidgetContainer = 'eXo.widget.UIWidgetContainerManagement.deleteContainer();'%>
+<% var editWidgetContainer = 'eXo.widget.UIWidgetContainerManagement.showEditForm();'%>
+<% var submit = 'eXo.widget.UIWidgetContainerManagement.submit();'%>
 
 
 <div class="UIWidgetContainerManagement" id="UIWidgetContainerManagement">
@@ -19,8 +22,8 @@
 				<div class="PortalWidgetContainer">
 					<div class="CategoryTitleBar">
 						<div class="Title">Portal Widget Containers</div>
-						<a class="RemoveContainerIcon" href="javascript: <%=addWidgetContainer%>" title="Remove selected widget container"><span></span></a>
-						<a class="EditContainerIcon" href="javascript: <%=addWidgetContainer%>" title="Add new widget container"><span></span></a>
+						<a class="RemoveContainerIcon" href="javascript: <%=deleteWidgetContainer%>" title="Remove selected widget container"><span></span></a>
+						<a class="EditContainerIcon" href="javascript: <%=editWidgetContainer%>" title="Add new widget container"><span></span></a>
 						<a class="AddContainerIcon" href="javascript: <%=addWidgetContainer%>" title="Add new widget container"><span></span></a>
 						<div style="clear: both"><span></span></div>
 					</div>
@@ -43,8 +46,8 @@
 				</div>
 			</div>
 			<div class="WidgetContainerView">
-				<div class="HeadTitle">View and Edit Widget Container</div>
-				<div class="WidgetContainerForm">
+				<div class="HeadTitle">View Widget Container</div>
+				<div class="WidgetContainerDetail">
 					<span></span>
 				</div>
 			</div>
@@ -58,7 +61,7 @@
 	        <div class="ButtonLeft">
 	          <div class="ButtonRight">
 	            <div class="ButtonMiddle">
-	  				    <a href="#">Save</a>
+	  				    <a href="javascript: <%=submit%>">Save</a>
 	            </div>
 	          </div>
 	        </div>

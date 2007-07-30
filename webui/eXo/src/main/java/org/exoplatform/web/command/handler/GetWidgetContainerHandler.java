@@ -47,17 +47,16 @@ public class GetWidgetContainerHandler extends Command {
     
     ArrayList<Container> widgetContainers = widgets.getChildren() ;
     
-    value.append("{\n").append("widgetContainer : {\n");
+    value.append("{\n").append("widgetContainer : [\n");
     for(int i = 0; i < widgetContainers.size(); i ++) {
-      value.append("      \"container"+i+"\" : ").append(" {");
-      value.append("\n          \"name\" : \"").append(widgetContainers.get(i).getName()).append("\",") ;
-      value.append("\n          \"description\" : \"").append(widgetContainers.get(i).getDescription()).append("\"\n") ;
+      value.append(" {");
+      value.append("\n          cName : \"").append(widgetContainers.get(i).getName()).append("\",") ;
+      value.append("\n          cDescription : \"").append(widgetContainers.get(i).getDescription()).append("\"\n") ;
       value.append("      }");
       if (i < (widgetContainers.size() - 1)) value.append(",\n") ;
       else value.append("\n") ;
     }
-    value.append("    }\n").append("}\n") ;
-    
+    value.append("    ]\n").append("}\n") ;
     return value ;
   }
   

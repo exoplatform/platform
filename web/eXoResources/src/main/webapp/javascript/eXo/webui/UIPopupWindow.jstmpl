@@ -15,9 +15,7 @@
 		  <div class="MiddleRightSideDecorator">
 		    <div class="MiddleCenterDecorator">
 	        <div class="UIWindowContent">
-	          <div class="Content" style="height: <%=context.popup.height%>">
-	            <%=context.popup.content%>
-	          </div>
+		        <div style="width: 100%;"><div class="PopupContent" style="height: <%=context.popup.height%>"><%=context.popup.content%></div></div>
 	        </div>
 	        <div class="BottomBar">
 	          <div class="ResizeButton"><span></span></div>
