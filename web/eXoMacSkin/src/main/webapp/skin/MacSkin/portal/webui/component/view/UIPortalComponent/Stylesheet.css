@@ -36,7 +36,7 @@
 .UIPortlet .DeletePortletIcon {
 	float:right;
 	width: 16px; height:16px; 
-	background: url('/eXoMac/skin/MacSkin/skinIcons/16x16/icons/CloseButton.gif') no-repeat;
+	background: url('background/CloseButtonIcon.gif') no-repeat;
   margin: 5px 0px 0px 0px;
 }
 
@@ -78,7 +78,7 @@
 
 .PortletLayoutDecorator .GardientBackground {
   height: 64px;
-  background: url('DefaultSkin/background/LayoutCBg1x56.gif') repeat-x bottom;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPortalComponent/background/LayoutCBg1x56.gif') repeat-x bottom;
   padding: 6px;
 }
 
@@ -103,11 +103,15 @@
 }
 
 .UIContainer .LAYOUT-CONTAINER {
-  height: 100%;
+  min-height: 60px;
   background: url('background/ContainerBackground1x4.gif') repeat;
   border: solid 1px #7b7b7b ; border-bottom: solid 1px #1e1f1f;
   padding: 8px 0px 0px 0px ;
   margin: 0px 8px 7px 8px;
+}
+
+* html .UIContainer .LAYOUT-CONTAINER {
+	height: 60px ;
 }
 
 .UIContainer .CONTROL-CONTAINER {
@@ -137,7 +141,7 @@
 .UIContainer .DeleteContainerIcon {
 	float:right;
 	width: 18px; height:18px; 
-  background: url('/eXoMac/skin/MacSkin/skinIcons/16x16/icons/CloseButton.gif') no-repeat;
+  background: url('background/CloseButtonIcon.gif') no-repeat;
   margin: 5px 0px 0px 0px;
 }
 
@@ -145,7 +149,14 @@
 	float: left;
   width: 16px; height: 16px;
   margin: 3px 5px 0px 5px;
-  background: url('/eXoMac/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat ;
+}
+
+.UIContainer .ContentPortletIcon {
+	float: left;
+  width: 16px; height: 16px;
+  margin: 3px 5px 0px 5px;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {

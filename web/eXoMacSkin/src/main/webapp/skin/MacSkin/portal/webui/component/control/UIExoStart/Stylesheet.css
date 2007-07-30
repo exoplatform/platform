@@ -187,7 +187,7 @@
 
 .UIExoStart .StartMenuContainer .HLineSeparator {
   height: 1px ;
-  background: url('background/HLineSeparator165x1.jpg') no-repeat center ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/control/UIExoStart/background/HLineSeparator165x1.jpg') no-repeat center ;
   margin: 3px 0px 5px 0px ;
 }
 

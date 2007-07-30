@@ -212,11 +212,6 @@
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/RefreshIcon.gif') ;
 }
 
-.AddNode16x16Icon {
-  background: url('icons/BluePlusCircle.gif') no-repeat ;
-  width: 16px ;  height: 16px ;
-}
-
 .Organization16x16Icon {
   background: url('icons/Organization.gif') no-repeat ;
   width: 16px ;  height: 16px ;

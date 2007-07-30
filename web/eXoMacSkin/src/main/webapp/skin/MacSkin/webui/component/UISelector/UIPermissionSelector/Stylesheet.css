@@ -33,7 +33,7 @@
 .UIPermissionSelector .PermissionTypeBar .SeparateLine {
   float: left;
   width: 2px; height: 20px;
-  background: url('eXoResources/skin/DefaultSkin/webui/UIPermissionSelector/background/GrayLine2x2.gif') repeat-y ;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UISelector/UIPermissionSelector/background/GrayLine2x2.gif') repeat-y ;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton {
@@ -65,7 +65,7 @@
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Label {
   margin: 8px 0px 5px 40px ;
   float: left ;
-  width: 150px ;
+  width: 100px ;
   font-size: 12px;
 }
 
@@ -83,17 +83,17 @@
 } 
 
 .UIPermissionSelector .SelectPermissionButton  .LeftButton {
-  background: url('eXoResources/skin/DefaultSkin/webui/UIPermissionSelector/background/LeftSimpleButton10x21.gif') no-repeat left; 
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UISelector/UIPermissionSelector/background/LeftSimpleButton10x21.gif') no-repeat left; 
   padding-left: 10px;
 }
 
 .UIPermissionSelector .SelectPermissionButton  .RightButton {
-  background: url('eXoResources/skin/DefaultSkin/webui/UIPermissionSelector/background/RightSimpleButton10x21.gif') no-repeat right; 
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UISelector/UIPermissionSelector/background/RightSimpleButton10x21.gif') no-repeat right; 
   padding-right: 10px;
 } 
 
 .UIPermissionSelector .SelectPermissionButton  .CenterButton {
-  background: url('eXoResources/skin/DefaultSkin/webui/UIPermissionSelector/background/CenterSimpleButton1x21.gif') repeat-x; 
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UISelector/UIPermissionSelector/background/CenterSimpleButton1x21.gif') repeat-x; 
   height: 21px; line-height: 20px;
   padding:0px 5px;
 }

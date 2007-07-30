@@ -30,19 +30,19 @@
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .DefaultImage {
 	margin: auto;
 	width: 316px; height: 191px;
-	background: url('DefaultSkin/background/DefaultImage.jpg') no-repeat center;
+	background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background/DefaultImage.jpg') no-repeat center;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .MacImage {
 	margin: auto;
 	width: 316px; height: 191px;
-	background: url('DefaultSkin/background/MacImage.jpg') no-repeat center;
+	background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background/MacImage.jpg') no-repeat center;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .VistaImage {
 	margin: auto;
 	width: 316px; height: 191px;
-	background: url('DefaultSkin/background/VistaImage.jpg') no-repeat center;
+	background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background/VistaImage.jpg') no-repeat center;
 }
 
 .UIChangeSkinForm .UIItemSelector .ItemListContainer .ItemList {

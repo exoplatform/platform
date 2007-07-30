@@ -2,7 +2,7 @@
   width: 18px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
-  background: url("background/ControlWorkspaceBG18x1.png") repeat-y right;
+  background: url('background/ControlWorkspaceBG18x1.png') repeat-y right;
 }
 
 .UIControlWorkspace .TopTitleBar{
@@ -55,13 +55,13 @@
 .UIControlWorkspace .Slidebar {
 	float: right ;
   width: 8px ; height: 100% ;
-  background: url("background/SlidebarBackground8x1.gif") repeat-y right;
+  background: url('background/SlidebarBackground8x1.gif') repeat-y right;
   cursor: pointer ;
 }
 
 .UIControlWorkspace .SlidebarButton {
 	height: 100% ;	width: 8px ;
-	background: url("background/SlidebarButton8x137.gif") no-repeat center center ;
+	background: url('background/SlidebarButton8x137.gif') no-repeat center center ;
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
@@ -91,7 +91,8 @@
 
 .PreviewMode {
 	width: 146px ;	height: 156px ;
-	background: url("background/PreviewModeImage146x156.png") no-repeat top right;
+	background: url('background/PreviewModeImage146x156.png') no-repeat top right;
 	position: absolute ;
 	cursor: pointer ;
+	top: 0px; right: 0px;
 }

@@ -23,7 +23,7 @@
 }
 
 .UISitemap .TitleBar {
-  background: url('/eXoResources/background/MacSkin/TitleBG1x19.gif') repeat-x;
+  background: url('/eXoMacSkin/skin/MacSkin/background/TitleBG1x19.gif') repeat-x;
   height: 22px; line-height: 22px;
   border: 1px solid #aeaeae;
   border-bottom: none;
@@ -45,7 +45,7 @@
 }
 
 .UISitemap .DefaultPageIcon{
-	background: url(/eXoResources/icons/16x16/MacSkin/DefaultPageIcon.png) no-repeat;
+	background: url(/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png) no-repeat;
 }
 
 .UISitemap .TitleBar .Title {
@@ -61,7 +61,7 @@
 
 .UISitemap .SitemapContainer .SitemapBackground{
   border: 1px solid white;
-  background: url(/eXoResources/background/MacSkin/BgItemSelector1x4.png) repeat;
+  background: url(/eXoMacSkin/skin/MacSkin/background/BgItemSelector1x4.png) repeat;
   padding: 10px 15px 10px 15px;
   overflow: hidden;
   width: auto;
@@ -116,7 +116,7 @@
 .UISitemap .SitemapItemBox .Level1 {
   height: 26px ;
   border: solid 1px #cecece ;
-  background: url(/eXoResources/background/MacSkin/BgItemSelector1x4.png) repeat;
+  background: url(/eXoMacSkin/skin/MacSkin/background/BgItemSelector1x4.png) repeat;
   margin-top: 3px;
 }
 

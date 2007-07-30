@@ -76,12 +76,12 @@
 
 .UIItemSelector .RightColumnStyle .ItemList {
   border: 1px #a4a4a4 solid;
-  background: white url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/ItemListBg165x127.gif') no-repeat right bottom;
+  background: white url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/ItemListBg165x127.gif') no-repeat right bottom;
   height: 240px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemListContainer .ItemListBackground {
-  background: white url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/ItemListBg165x127.gif') no-repeat right bottom;
+  background: white url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/ItemListBg165x127.gif') no-repeat right bottom;
   height: 260px;
 }
 
@@ -257,41 +257,41 @@
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .UserAccountIcon { 
   height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleUserAccountItem.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleUserAccountItem.gif') no-repeat;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .MembershipIcon {  
    height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleMembershipItem.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleMembershipItem.gif') no-repeat;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .UserProfileIcon {  
   height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleProfileItem.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleProfileItem.gif') no-repeat;
   padding-left: 30px;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .UserHomeInfoIcon {    
   height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleUserHomeItem.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleUserHomeItem.gif') no-repeat left;
   padding-left: 30px;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .UserBusinessInfoIcon {
   height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleBusinessItem.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleBusinessItem.gif') no-repeat left;
   padding-left: 30px;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .ItemName {
   height: 32px; line-height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleItemNormalR.gif') no-repeat right;
+  background: url('/eXoResources/src/main/webapp/skin/DefaultSkin/webui/component/UISelector/UIItemSelector/background/BigStyleItemNormalR.gif') no-repeat right;
   padding-right: 15px; color: #526791;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .ItemTitle {
   height: 32px; line-height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleNormalRepeatBG.gif') repeat-x ;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleNormalRepeatBG.gif') repeat-x ;
   color: gray;
   padding-left: 10px;
 }
@@ -306,36 +306,36 @@
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserAccountIcon {
   height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleUserAccountSelected.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleUserAccountSelected.gif') no-repeat left;
   padding-left: 30px;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .MembershipIcon {
   height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleMembershipSelected.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleMembershipSelected.gif') no-repeat left;
   padding-left: 30px;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserProfileIcon {
   height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleProfileSelected.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleProfileSelected.gif') no-repeat left;
   padding-left: 30px;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserHomeInfoIcon {
   height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleUserHomeSelected.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleUserHomeSelected.gif') no-repeat left;
   padding-left: 30px;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserBusinessInfoIcon {
   height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleBusinessSelected.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleBusinessSelected.gif') no-repeat left;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemName {
   height: 32px; line-height: 32px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/UIItemSelector/background/BigStyleItemSelectedR.gif') no-repeat right;
+  background: url('/eXoResources/skin/DefaultSkin/webui/UISelector/UIItemSelector/background/BigStyleItemSelectedR.gif') no-repeat right;
   padding-right: 15px;
   color: black;
 }
