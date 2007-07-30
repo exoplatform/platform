@@ -22,7 +22,7 @@
 	  }
 	  String applicationType = portlet.getApplicationType();
 	  String desription = portlet.getDescription();
-	  String srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/";
+	  String srcBG = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/";
 	%>
 
 	  <div class="Application">

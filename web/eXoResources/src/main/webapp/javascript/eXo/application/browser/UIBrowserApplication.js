@@ -4,7 +4,7 @@ eXo.require('eXo.application.ApplicationDescriptor');
 function UIBrowserApplication() {
 	this.appCategory = "web" ;
 	this.appName = "browser" ;
-	this.appIcon = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png";
+	this.appIcon = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Register.png";
 	this.skin = {
 	  Default: "/eXoResources/skin/browser/DefaultStylesheet.css",
 	  Mac: "/eXoResources/skin/browser/MacStylesheet.css",

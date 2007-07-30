@@ -4,7 +4,7 @@ eXo.require('eXo.application.ApplicationDescriptor');
 function UIBrowserApplication() {
 	this.appCategory = "web" ;
 	this.appName = "browser" ;
-	this.appIcon = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png";
+	this.appIcon = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Register.png";
 	this.skin = {
 	  Default: "/eXoAppWeb/skin/browser/DefaultStylesheet.css",
 	  Mac:     "/eXoAppWeb/skin/browser/MacStylesheet.css",
@@ -22,7 +22,7 @@ UIBrowserApplication.prototype.createApplicationInstance = function(appDescripto
 		cssElementStyle : cssStyle
 	}
 	
- 	appDescriptor.window.content = eXo.core.TemplateEngine.merge("eXo/application/browser/UIBrowserApplication.jstmpl", appDescriptor) ;
+ 	appDescriptor.window.content = eXo.core.TemplateEngine.merge("eXo/application/browser/UIBrowserApplication.jstmpl", appDescriptor, "/eXoAppWeb/javascript/") ;
  	appDescriptor.window.removeApplication = 
  		"eXo.application.browser.UIBrowserApplication.destroyBrowserInstance('" + appDescriptor.appId + "');";
  	

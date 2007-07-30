@@ -14,7 +14,7 @@ eXo.require('eXo.core.Editor');
 function UIConsoleApplication() {
 	this.appCategory = "web" ;
 	this.appName = "console" ;
-	this.appIcon = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/eXoConsole.png";
+	this.appIcon = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/eXoConsole.png";
 	this.skin = {
 	  Default: "/eXoAppWeb/skin/console/DefaultStylesheet.css",
 	  Mac:     "/eXoAppWeb/skin/console/MacStylesheet.css",

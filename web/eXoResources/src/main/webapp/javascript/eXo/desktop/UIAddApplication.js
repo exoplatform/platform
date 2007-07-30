@@ -84,8 +84,8 @@ UIAddApplication.prototype.loadApplications = function(refresh, applicationTypes
 	  	application = applications[id];  	 
 	  	var created = application["owner"];
 	  	if(created == "undefined" || created == null) created = "eXo Platform SAS."
-      var srcBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/" + application["title"]+".png";
-      var srcNormalBG = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/DefaultPortlet.png";
+      var srcBG = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/" + application["title"]+".png";
+      var srcNormalBG = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png";
 			srcBG = getUrl(srcBG);
 			srcNormalBG = getUrl(srcNormalBG);
 	    itemDetails += '<div class="Application">' +

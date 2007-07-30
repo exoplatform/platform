@@ -9,7 +9,7 @@ UIExoWidget.prototype.init = function(appName, appFolder) {
 	this.appName = appName ;
 	this.appFolder = appFolder;
 	var nameWidget = eXo.widget.UIExoWidget.getNameWidget(appName);
-	this.appIcon = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/"+nameWidget+".png" ;
+	this.appIcon = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/"+nameWidget+".png" ;
 	this.skin = {
 	  Default: "/eXoWidgetWeb/skin/"+appFolder+"/DefaultStylesheet.css",
 	  Mac:     "/eXoWidgetWeb/skin/"+appFolder+"/MacStylesheet.css",

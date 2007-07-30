@@ -52,8 +52,8 @@ UIDockbar.prototype.init = function() {
 UIDockbar.prototype.viewPortlets = function() {
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
   var children = eXo.core.DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWindow") ; 
-	var srcMonitoringImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Hide"+this.id+".png" ;
-  var srcPortletsViewerImage = "/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Show"+this.id+".png" ;
+	var srcMonitoringImage = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Hide"+this.id+".png" ;
+  var srcPortletsViewerImage = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Show"+this.id+".png" ;
 	eXo.desktop.UIDockbar.showDesktop = false ;
 	for(var i = 0; i < children.length; i++) {
 		if (children[i].style.display == "block" ) {
