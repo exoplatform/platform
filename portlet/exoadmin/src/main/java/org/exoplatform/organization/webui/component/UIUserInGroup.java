@@ -104,6 +104,10 @@ public class UIUserInGroup extends UIContainer {
 
 
   public void processRender(WebuiRequestContext context) throws Exception {
+    //TODO: Tung.Pham edded
+    //-------------------------
+    refresh() ;
+    //-------------------------
     Writer w =  context.getWriter() ;
     w.write("<div class=\"UIUserInGroup\">");
     renderChildren();
