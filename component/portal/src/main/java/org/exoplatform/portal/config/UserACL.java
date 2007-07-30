@@ -103,7 +103,7 @@ public class UserACL {
     Permission permission = new Permission();
     permission.setPermissionExpression(expPerm);
     String groupId = permission.getGroupId();
-    if("/guest".equals(groupId)) return true ;
+//    if("/guest".equals(groupId)) return true ;
 
     String membership = permission.getMembership() ;
     MembershipHandler handler = orgService_.getMembershipHandler();
