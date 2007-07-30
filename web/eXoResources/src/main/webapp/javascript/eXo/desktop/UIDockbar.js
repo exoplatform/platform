@@ -366,7 +366,7 @@ UIDockbar.prototype.createApplicationIcon = function(iconUrl, iconId) {
   
   if(eXo.core.Browser.isIE6()) {
     appIcon.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+iconUrl+"', sizingMethod='scale')" ;
-    appIcon.src = "/eXoResources/background/DefaultSkin/Blank.gif" ;
+    appIcon.src = "/eXoResources/skin/sharedImages/Blank.gif" ;
     appIcon.alt = "" ;
   }
   

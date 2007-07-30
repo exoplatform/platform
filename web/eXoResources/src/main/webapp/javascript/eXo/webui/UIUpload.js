@@ -36,7 +36,7 @@ UIUpload.prototype.createUploadEntry = function(uploadId) {
   idoc.write("<body style='margin: 0px; border: 0px;'>");
   idoc.write("  <form id='"+uploadId+"' class='UIUploadForm' style='margin: 0px; padding: 0px;' action='"+uploadAction+"' enctype='multipart/form-data' method='post'>");
   idoc.write("    <input type='file' name='file' id='file' value=''/>");
-  idoc.write("    <img class='UploadButton' onclick='eXo.webui.UIUpload.upload(this, "+uploadId+")' src='/eXoResources/background/DefaultSkin/Blank.gif'/>");
+  idoc.write("    <img class='UploadButton' onclick='eXo.webui.UIUpload.upload(this, "+uploadId+")' src='/eXoResources/skin/sharedImages/Blank.gif'/>");
   idoc.write("  </form>");
   idoc.write("</body>");
   idoc.close();
