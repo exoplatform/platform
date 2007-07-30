@@ -90,7 +90,7 @@ function PortalResponse(responseDiv) {
 function AjaxRequest(method, url, queryString) {	
 	var instance = new Object();
 	
-	instance.timeout = 90000;
+	instance.timeout = 60000;
 	instance.aborted = false;
 	
 	if(method != null) instance.method = method; else	instance.method = "GET";
@@ -274,14 +274,16 @@ function HttpResponseHandler(){
 	      instance.updateBlocks(portletResponse.blocksToUpdate, "UIPortlet-"+portletResponse.portletId) ;    
 	      instance.executeScript(portletResponse.script) ;    
 	    }
+	  } 
+	  if(response.blocksToUpdate == undefined) {
+	  	if(confirm("Session timeout. Refresh your browser?")) this.ajaxTimeout(request);
 	  }
 	  //Handle the portal responses
 	  instance.updateBlocks(response.blocksToUpdate) ;    
 	  instance.executeScript(response.script) ;    
-	
 	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
 	  eXo.portal.AjaxRequest.maskLayer = null ;	
-	  eXo.portal.CurrentRequest = null;  
+	  eXo.portal.CurrentRequest = null;
 	} ;
 	
 	instance.ajaxLoading = function(request){
@@ -317,10 +319,10 @@ function doRequest(method, url, queryString, callback) {
   request.onTimeout = handler.ajaxTimeout;
   request.callBack = callback;
  	eXo.portal.CurrentRequest = request;
-  request.process(); 
+  request.process();
 }	;
 
-function ajaxAbort() {
+function ajaxAbort() {	
   eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
   eXo.portal.AjaxRequest.maskLayer = null ;	  
 
