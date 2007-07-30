@@ -250,7 +250,7 @@ ScrollManager.prototype.scroll = function(e) {
 	if (!e) e = window.event;
 	e.cancelBubble = true;
 	var src = eXo.core.Browser.getEventSource(e);
-	if (src.scrollMgr) {
+	if (src.scrollMgr && src.onclick) {
 //		src.scrollMgr.lastDirection = src.scrollMgr.currDirection;
 //		if (src.scrollMgr.otherHiddenIndex != -1) {
 //			src.scrollMgr.elements[src.scrollMgr.otherHiddenIndex].isVisible = true;
@@ -387,7 +387,7 @@ ScrollManager.prototype.renderElements = function() {
 			 incr = -1;
 			 index = this.firstVisibleIndex;
 		}
-		while (delta < 0) {
+		while (delta < 0/* && index > 0 && index < this.elements.length*/) {
 			delta += this.getElementSpace(this.elements[index]);
 			this.elements[index].isVisible = false;
 			this.elements[index].style.display = "none";
@@ -398,7 +398,7 @@ ScrollManager.prototype.renderElements = function() {
 		}
 	}
 	
-	// nables/Disables the arrow buttons depending on the elements to show
+	// Enables/Disables the arrow buttons depending on the elements to show
 	if (this.firstVisibleIndex == 0) this.enableArrow(this.leftArrow, false);
 	else this.enableArrow(this.leftArrow, true);
 	
@@ -418,7 +418,7 @@ UIPortalControl.prototype.initAllManagers = function() {
 	for (var i = 0; i < managers.length; i++) {
 		var toInit = (document.getElementById(managers[i].id) !== null) // if the tabs exist on the page
 							&& (typeof(managers[i].initFunction) == "function"); // if the initFunction is defined
-		if (toInit) { console.log("processing ",managers[i].id); managers[i].initFunction(); }
+		if (toInit) { managers[i].initFunction(); }
 	}
 };
 
