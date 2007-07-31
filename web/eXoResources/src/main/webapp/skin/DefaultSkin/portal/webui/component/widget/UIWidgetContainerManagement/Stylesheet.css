@@ -109,11 +109,15 @@
 	margin-left: 260px;
 }
 
-.UIWidgetContainerManagement .WidgetContainerView .WidgetContainerDetail{
-	background: #ffffff;
+.UIWidgetContainerManagement .WidgetContainerView .ContainerDetail {
 	border: 1px #b7b7b7 solid;
+}
+
+.UIWidgetContainerManagement .WidgetContainerView .Detail {
+	background: #fbfbfb;
+	border: 1px solid white;
 	padding: 20px 10px;
-	height: 217px;
+	height: 215px;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .RemoveContainerAction{
@@ -125,14 +129,26 @@
 	display: block; cursor: pointer;
 }
 
-.UIWidgetContainerManagement .WidgetContainerView .UIForm .HorizontalLayout{
+.UIWidgetContainerManagement .WidgetContainerView .InfoContent {
 	background: #ffffff;
-	border: none;
-	padding: 10px 0px;
+	border: 1px solid #b7b7b7;
+	padding: 30px 0px;
+	width: 360px;
+	margin: auto;
 }
 
-.UIWidgetContainerManagement .WidgetContainerView .UIForm .HorizontalLayout textarea{
-	height: 100px;
+.UIWidgetContainerManagement .WidgetContainerView .InfoContent .Label {
+	width: 110px;
+	text-align: right;
+	line-height: 20px;
+	float: left;
+}
+
+.UIWidgetContainerManagement .WidgetContainerView .InfoContent .FieldComponent {
+	margin-left: 130px;	
+	line-height: 20px;
+	color: #058ee6;
+	font-size: 12px;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .UIAction {

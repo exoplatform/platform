@@ -23,8 +23,9 @@
 
 .UIWidgetContainerManagement .CategoryTitleBar {
 	height: 20px;
-	background: url(/eXoResources/background/TitleBG1x19.gif) repeat-x bottom;
+	background: url('/eXoMacSkin/skin/MacSkin/background/TitleBG1x19.gif') repeat-x bottom;
 	border-bottom: 1px #b7b7b7 solid;
+	padding-right: 10px;
 }
 
 .UIWidgetContainerManagement .CategoryTitleBar .Title {
@@ -76,10 +77,28 @@
 	color: #124ed7;
 }
 
+.UIWidgetContainerManagement .Icon {
+	float: right;
+	width: 18px; height: 18px;
+	margin: 1px 3px 0px 3px;
+}
+
+.UIWidgetContainerManagement .AddContainer {
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/AquaBlueAddSign.gif') no-repeat center;
+}
+
+.UIWidgetContainerManagement .EditContainer {
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat center;
+}
+
+.UIWidgetContainerManagement .RemoveContainer{
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat center;
+}
+
 /*===================== Begin the Widget Container Category ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerCategory {
 	float: left;
-	width: 220px;
+	width: 255px;
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail .PortalWidgetContainer{
@@ -97,18 +116,18 @@
 
 /*===================== Begin the Widget Container View ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView {
-	margin-left: 226px;
+	margin-left: 262px;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .ContainerDetail{
-	background: url(/eXoMac/skin/MacSkin/background/Background1x4.png);
+	background: url('/eXoMacSkin/skin/MacSkin/background/Background1x4.png');
 	border: 1px #b7b7b7 solid;
-	padding: 20px 10px;
-	height: 221px;
+	padding: 30px 0px;
+	height: 201px;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .RemoveContainerAction{
-	background: url(/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.gif) no-repeat left center;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.gif') no-repeat left center;
 	padding:0px 55px 0px 23px;
 	height: 22px; line-height: 22px;
 	float: right;
@@ -116,11 +135,24 @@
 	display: block; cursor: pointer;
 }
 
-.UIWidgetContainerManagement .WidgetContainerView .UIForm .HorizontalLayout{
-	border: none;
-	padding: 10px 0px;
+.UIWidgetContainerManagement .WidgetContainerView .InfoContent {
+	background: white;
+	padding: 30px 0px;
+	width: 360px;
+	margin: auto;
+	border: 1px solid #b7b7b7;
 }
 
-.UIWidgetContainerManagement .WidgetContainerView .UIForm .HorizontalLayout textarea{
-	height: 100px;
+.UIWidgetContainerManagement .WidgetContainerView .InfoContent .Label {
+	width: 110px;
+	text-align: right;
+	line-height: 20px;
+	float: left;
+}
+
+.UIWidgetContainerManagement .WidgetContainerView .InfoContent .FieldComponent {
+	margin-left: 130px;	
+	line-height: 20px;
+	color: #058ee6;
+	font-size: 12px;
 }

@@ -1,9 +1,24 @@
+#UICalendarControlIFrame {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.UICalendarComponent {
+  position:absolute;
+  background-color:#FFF;
+  margin:0;
+  padding:0;
+  display:none;
+  width: 225px;
+}
+
 .UICalendar {
   border: 1px solid #ccced7;
-  background: #e0e5f7 url('CalendarBG.gif') repeat-x top;
+  background: #e0e5f7 url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarBG.gif') repeat-x top;
   padding: 7px 5px;
   font: normal 12px verdana;
-  width: 210px;
 	text-align: center;
 }
 
@@ -130,19 +145,4 @@
   border: 0px;
   width: 15px;
   direction: rtl;
-}
-
-#UICalendarControlIFrame {
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
-
-#UICalendarControl {
-  position:absolute;
-  background-color:#FFF;
-  margin:0;
-  padding:0;
-  display:none;
 }

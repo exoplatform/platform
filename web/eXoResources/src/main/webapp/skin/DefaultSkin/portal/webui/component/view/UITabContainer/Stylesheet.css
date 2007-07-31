@@ -25,18 +25,6 @@
 	width: 16px;
 }
 
-.UITabContainer .SelectedTab .CloseIcon {
-	float: left;
-	width: 16px; height: 20px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedCloseTab.gif') no-repeat bottom;
-}
-
-.UITabContainer .NormalTab .CloseIcon {
-	float: left;
-	width: 16px; height: 20px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalCloseTab.gif') no-repeat bottom;
-}
-
 .LAYOUT-CONTAINER .UIHorizontalTabs .UITab  {
 	height: 24px; 
 }

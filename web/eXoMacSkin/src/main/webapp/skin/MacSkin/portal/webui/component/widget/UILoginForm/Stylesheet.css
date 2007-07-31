@@ -15,12 +15,12 @@
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
-  background: url('DefaultSkin/background/WhiteRoundedBoxLeftTop31x35.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxLeftTop31x35.gif') no-repeat left ;
   padding: 0px 0px 0px 31px ;
 }
 
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator {
-  background: url('DefaultSkin/background/WhiteRoundedBoxCenterTop1x35.gif') repeat-x ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxCenterTop1x35.gif') repeat-x ;
   height: 35px;
 }
 

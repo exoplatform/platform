@@ -29,6 +29,7 @@
 	height: 22px;
 	background: url('/eXoVistaSkin/skin/VistaSkin/background/TitleBar1x22.png') repeat-x;
 	border-bottom: 1px #b7b7b7 solid;
+	padding-right: 6px;
 }
 
 .UIWidgetContainerManagement .CategoryTitleBar .Title {
@@ -79,10 +80,28 @@
 	color: #058ee6;
 }
 
+.UIWidgetContainerManagement .Icon {
+	float: right;
+	width: 18px; height: 18px;
+	margin: 2px 3px 0px 3px;
+}
+
+.UIWidgetContainerManagement .AddContainer {
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/BlueCirclePlus.png') no-repeat center;
+}
+
+.UIWidgetContainerManagement .EditContainer {
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat center;
+}
+
+.UIWidgetContainerManagement .RemoveContainer{
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat center;
+}
+
 /*===================== Begin the Widget Container Category ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerCategory {
 	float: left;
-	width: 220px;
+	width: 255px;
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail .PortalWidgetContainer{
@@ -100,7 +119,7 @@
 
 /*===================== Begin the Widget Container View ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView {
-	margin-left: 226px;
+	margin-left: 261px;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .ContainerDetail{
@@ -119,12 +138,22 @@
 	display: block; cursor: pointer;
 }
 
-.UIWidgetContainerManagement .WidgetContainerView .UIForm .HorizontalLayout{
-	background: #ffffff;
-	border: none;
-	padding: 10px 0px;
+.UIWidgetContainerManagement .WidgetContainerView .InfoContent {
+	padding: 30px 0px;
+	width: 360px;
+	margin: auto;
 }
 
-.UIWidgetContainerManagement .WidgetContainerView .UIForm .HorizontalLayout textarea{
-	height: 100px;
+.UIWidgetContainerManagement .WidgetContainerView .InfoContent .Label {
+	width: 110px;
+	text-align: right;
+	line-height: 20px;
+	float: left;
+}
+
+.UIWidgetContainerManagement .WidgetContainerView .InfoContent .FieldComponent {
+	margin-left: 130px;	
+	line-height: 20px;
+	color: #058ee6;
+	font-size: 12px;
 }

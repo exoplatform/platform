@@ -26,6 +26,10 @@
   cursor: pointer;
 }
 
+.UIPortlet .PortletIcon {
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;	
+}
+
 .UIPortlet .EditPortletPropertiesIcon {
 	float: right;
 	width: 16px; height: 16px;

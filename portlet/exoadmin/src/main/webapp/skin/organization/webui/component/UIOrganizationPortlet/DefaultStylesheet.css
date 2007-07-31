@@ -203,7 +203,7 @@
 .UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
   border: 1px solid #b7b7b7;
   padding-bottom: 10px;  
-  height: 214px;
+  height: 226px;
   overflow: auto;
 }
 
@@ -268,7 +268,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupForm .HorizontalLayout{ 
-	height: 240px;
+	height: 252px;
 	background: white;
 }
 

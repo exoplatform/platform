@@ -15,7 +15,7 @@
 }
 
 .UILoginPortlet .LoginContent .LeftLoginContent {
-  background: url('../skin/images/SigninPaper162x207.jpg') no-repeat left top;
+  background: url('../skin/images/SigninPaper162x207.jpg') repeat-y left top;
   padding-left: 162px;
   overflow: hidden;
 }
