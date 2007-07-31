@@ -64,7 +64,8 @@ public class UIPortalManagement extends UIManagement {
     getChild(UIDescription.class).setRendered(true); 
     
     UIWorkspace uiWorkingWS = Util.updateUIApplication(event);
-    UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);   
+    UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
+    uiToolPanel.setShowMaskLayer(false);
     UIPortalBrowser uiPortalBrowser = uiToolPanel.createUIComponent(UIPortalBrowser.class, null, null);
     uiToolPanel.setUIComponent(uiPortalBrowser);
     uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
