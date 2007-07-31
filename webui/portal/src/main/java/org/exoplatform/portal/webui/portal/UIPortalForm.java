@@ -83,6 +83,7 @@ public class UIPortalForm extends UIFormTabPane {
   private List<SelectItemOption<String>> languages = new ArrayList<SelectItemOption<String>>() ;
   
   private static String DEFAULT_FACTORY_ID = "default";
+  private static String OFFICE_FACTORY_ID = "office";
   
   @SuppressWarnings("unchecked")
   public UIPortalForm(InitParams initParams) throws Exception {
@@ -150,7 +151,13 @@ public class UIPortalForm extends UIFormTabPane {
     uiPermissionSetting.addChild(uiEditPermission);
         
     UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
+    UIPortal uiPortal = Util.getUIPortal();
+    String factoryId = uiPortal.getFactoryId();
     uiFactoryId.setItemCategories(itemCategories);
+    if(factoryId == null || factoryId.length() < 1){
+     factoryId = UIPortalForm.DEFAULT_FACTORY_ID;
+    }
+    uiFactoryId.setValue(factoryId);
     uiFactoryId.setRendered(false);
     addUIFormInput(uiFactoryId);
     
@@ -200,7 +207,6 @@ public class UIPortalForm extends UIFormTabPane {
       
       UIPortal uiPortal = Util.getUIPortal();
       uiForm.invokeSetBindingBean(uiPortal);
-      
       if(uiPortal.getFactoryId().equals(UIPortalForm.DEFAULT_FACTORY_ID)) uiPortal.setFactoryId(null);      
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
       uiApp.setLocale(localeConfig.getLocale());
