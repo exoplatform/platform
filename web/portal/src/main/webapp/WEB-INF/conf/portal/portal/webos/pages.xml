@@ -28,8 +28,8 @@
 		<owner-id>webos</owner-id>  	
     <name>desktop</name>		
     <factory-id>Desktop</factory-id>
-    <show-max-window>true</show-max-window>
     <edit-permission>*:/portal/admin</edit-permission>
+    <show-max-window>true</show-max-window>
 
     <application>
       <instance-id>portal#webos:/web/SiteMapPortlet/SitemapPortlet</instance-id>    
