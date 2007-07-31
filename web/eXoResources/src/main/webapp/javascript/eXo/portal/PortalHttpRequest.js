@@ -276,7 +276,7 @@ function HttpResponseHandler(){
 	    }
 	  } 
 	  if(response.blocksToUpdate == undefined) {
-	  	if(confirm("Session timeout. Refresh your browser?")) this.ajaxTimeout(request);
+	  	if(confirm("Session timeout. Refresh your browser?")) instance.ajaxTimeout(request);
 	  }
 	  //Handle the portal responses
 	  instance.updateBlocks(response.blocksToUpdate) ;    

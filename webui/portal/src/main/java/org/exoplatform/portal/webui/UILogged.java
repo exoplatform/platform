@@ -46,13 +46,12 @@ public class UILogged extends UIContainer {
       public void execute(Event event) throws Exception {
         PortalRequestContext prContext = Util.getPortalRequestContext();
         HttpServletRequest request = prContext.getRequest() ;
-        request.getSession().invalidate() ;
-        prContext.setResponseComplete(true) ;
-        //String redirect = request.getContextPath() ;
         UIPortal currentPortal = Util.getUIPortal() ;
         String portalName = currentPortal.getName() ;
         String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
         prContext.getResponse().sendRedirect(redirect) ;
+//        request.getSession().invalidate() ;
+//        prContext.setResponseComplete(true) ;
       }
     }    
 }
