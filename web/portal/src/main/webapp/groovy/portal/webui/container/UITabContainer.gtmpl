@@ -35,7 +35,7 @@
 				              		%>
 					              	    <a href="<%=uicomponent.event("EditContainer", "$uiChild.id")%>">
 					              	<%}%>  
-					              	    <img class="$editCss" src="/eXoResources/background/DefaultSkin/Blank.gif">
+					              	    <img class="$editCss" src="/eXoResources/skin/DefaultSkin/background/Blank.gif">
 					              	<%if(uiChild.isShowEditControl()){%>
 					              	    </a>
 					              	<%}%>  
