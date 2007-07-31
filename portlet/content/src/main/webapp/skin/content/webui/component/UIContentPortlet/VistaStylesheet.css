@@ -254,7 +254,7 @@
 }
 
 .UIContentPortlet .RefreshBar .LeftRefreshBar{
-	background: url('/eXoResources/icons/16x16/VistaSkin/RefreshIcon.png') no-repeat left center;
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Refresh.png') no-repeat left center;
 	height: 22px;
 	padding-left: 25px;
 	float: left;

@@ -11,17 +11,17 @@
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .TopLeftCornerBoxDecorator {
-  background: url('background/WhiteRoundedBoxLeftTop10x14.png') no-repeat left ;
+  background: url('background/RoundedBoxLeftTop10x14.png') no-repeat left ;
   padding: 0px 0px 0px 10px ;
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .TopCenterBoxDecorator {
   height: 14px ;
-  background: url('background/WhiteRoundedBoxMiddle1x14.png') repeat-x ;
+  background: url('background/RoundedBoxMiddle1x14.png') repeat-x ;
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .TopRightCornerBoxDecorator {
-  background: url('background/WhiteRoundedBoxRightTop10x14.png') no-repeat right ;
+  background: url('background/RoundedBoxRightTop10x14.png') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
 
@@ -41,17 +41,17 @@
 }
  
 .DecoratorBox .WhiteRoundedBoxStyle .BottomLeftCornerBoxDecorator {
-  background: url('background/WhiteRoundedBoxLeftBottom10x12.png') no-repeat left ;
+  background: url('background/RoundedBoxLeftBottom10x12.png') no-repeat left ;
   padding: 0px 0px 0px 10px ;
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .BottomCenterBoxDecorator {
   height: 12px ;
-  background: url('background/WhiteRoundedBoxBottomMiddle1x12.png') repeat-x ;
+  background: url('background/RoundedBoxBottomMiddle1x12.png') repeat-x ;
 }
 
 .DecoratorBox .WhiteRoundedBoxStyle .BottomRightCornerBoxDecorator {
-  background: url('background/WhiteRoundedBoxRightBottom10x12.png') no-repeat right ;
+  background: url('background/RoundedBoxRightBottom10x12.png') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
 
@@ -168,43 +168,43 @@
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .TopLeftCornerNested {
-  background: url('background/LightBlueTL.gif') no-repeat left ;
+  background: url('background/LightTL.gif') no-repeat left ;
   padding: 0px 0px 0px 10px;
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .TopCenterNested {
   height: 10px ;
-  background: url('background/LightBlueTC.gif') repeat-x ;
+  background: url('background/LightTC.gif') repeat-x ;
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .TopRightCornerNested {
-  background: url('background/LightBlueTR.gif') no-repeat right ;
+  background: url('background/LightTR.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ; 
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .MiddleLeftSideNested {
-  background: url('background/LightBlueML.gif') repeat-y ;
+  background: url('background/LightML.gif') repeat-y ;
   padding: 0px 0px 0px 10px ;
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .MiddleRightSideNested {
-  background: url('background/LightBlueMR.gif') repeat-y right;
+  background: url('background/LightMR.gif') repeat-y right;
   padding: 0px 10px 0px 0px ;
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .BottomLeftCornerNested {
   width: auto;  
-  background: url('background/LightBlueBL.gif') no-repeat left ;
+  background: url('background/LightBL.gif') no-repeat left ;
   padding: 0px 0px 0px 10px ;
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .BottomCenterNested {
   height: 10px ;
-  background: url('background/LightBlueBC.gif') repeat-x ;
+  background: url('background/LightBC.gif') repeat-x ;
 }
 
 .DecoratorBoxNested .LightBlueBoxNested  .BottomRightCornerNested {
-  background: url('background/LightBlueBR.gif') no-repeat right ;
+  background: url('background/LightBR.gif') no-repeat right ;
   padding: 0px 10px 0px 0px ;
 }
 

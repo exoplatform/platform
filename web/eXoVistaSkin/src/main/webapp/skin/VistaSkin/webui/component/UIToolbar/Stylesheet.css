@@ -83,20 +83,20 @@
 
 .UIToolbar .LargeToolbar .LeftToolbar {
   height: 74px ;
-  background: url('background/GrayLargeToolbarL10x74.png') no-repeat left top;
+  background: url('background/LargeToolbarL10x74.png') no-repeat left top;
   padding-left: 10px;
 }
 
 .UIToolbar .LargeToolbar .RightToolbar {
   height: 74px;
-  background: url('background/GrayLargeToolbarR15x74.png') no-repeat right top;
+  background: url('background/LargeToolbarR15x74.png') no-repeat right top;
   padding-right: 87px;
 }
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
   height: 74px; 
   line-height: 74px ; 
-  background: url('background/GrayLargeToolbarM1x74.png') repeat-x top;
+  background: url('background/LargeToolbarM1x74.png') repeat-x top;
 }
 
 .UIToolbar .LargeToolbar a {
@@ -312,18 +312,18 @@
 
 .UIToolbar .IceBlueToolbar .LeftBar {
   padding-left: 4px;
-  background: url('background/IceBlueToolBarLBg4x30.gif') no-repeat left;
+  background: url('background/IceToolBarLBg4x30.gif') no-repeat left;
 }
 
 .UIToolbar .IceBlueToolbar .RightBar {
   padding-right: 4px;
-  background: url('background/IceBlueToolBarRBg4x30.gif') no-repeat right;
+  background: url('background/IceToolBarRBg4x30.gif') no-repeat right;
 }
 
 .UIToolbar .IceBlueToolbar .MiddleBar {
   height: 30px;
   line-height: 30px;
-  background: url('background/IceBlueToolBarRepeatBg1x30.gif') repeat-x ;
+  background: url('background/IceToolBarRepeatBg1x30.gif') repeat-x ;
 }
 
 /*#################################- GrayBevelRoundedToolbar-##############################*/
@@ -365,19 +365,19 @@
 .UIToolbar .Style1Toolbar .LeftBar {
   line-height: 28px;
   padding-left: 8px ;
-  background: url('background/BlueRoundedToolbarL8x28.gif') no-repeat left ;
+  background: url('background/RoundedToolbarL8x28.gif') no-repeat left ;
 }
 
 .UIToolbar .Style1Toolbar .RightBar {
   line-height: 28px;
   padding-right: 8px ;
-  background: url('background/BlueRoundedToolbarR8x28.gif') no-repeat right ;
+  background: url('background/RoundedToolbarR8x28.gif') no-repeat right ;
 }
 
 .UIToolbar .Style1Toolbar .MiddleBar {
   height: 28px ;
   line-height: 28px ;
-  background: url('background/BlueRoundedToolbarM1x28.gif') repeat-x ;
+  background: url('background/RoundedToolbarM1x28.gif') repeat-x ;
 }
 
 /*#################################- Style2Toolbar-##############################*/
@@ -445,18 +445,18 @@
 
 .UIToolbar .NavyBluePoly44 .LeftBar {
   padding-left: 7px ;
-  background: url('background/NavyBluePolyStyleL7x44.gif') no-repeat left ;
+  background: url('background/PolyStyleL7x44.gif') no-repeat left ;
 }
 
 .UIToolbar .NavyBluePoly44 .RightBar {
   padding-right: 7px ;
-  background: url('background/NavyBluePolyStyleR7x44.gif') no-repeat right ;
+  background: url('background/PolyStyleR7x44.gif') no-repeat right ;
 }
 
 .UIToolbar .NavyBluePoly44 .MiddleBar {
   height: 44px ;
   line-height: 44px ;
-  background: url('background/NavyBluePolyStyleRepeat1x44.gif') repeat-x ;
+  background: url('background/PolyStyleRepeat1x44.gif') repeat-x ;
 }
 
 .UIToolbar .NavyBluePoly44 .Button {

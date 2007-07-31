@@ -42,13 +42,13 @@
 }
 
 .UIInfoBar .GrayRounded .RightBar {
-  background: url('background/GrayRoundedR9x23.gif') no-repeat right ;
+  background: url('background/RoundedR9x23.gif') no-repeat right ;
   padding-right: 9px ;
 }
 
 .UIInfoBar .GrayRounded .MiddleBar {
   height: 23px ;
-  background: url('background/GrayRoundedM1x23.gif') repeat-x ;
+  background: url('background/RoundedM1x23.gif') repeat-x ;
 }
 
 .UIInfoBar .GrayRounded .TitleBar {
@@ -183,18 +183,18 @@
 
 .UIInfoBar .PolygonNavyBlueStyle .LeftBar {
 	padding-left: 3px;
-	background: url('background/PolygonNavyBlueL3x26.gif') no-repeat left;
+	background: url('background/PolygonNavyL3x26.gif') no-repeat left;
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .RightBar {
 	padding-right: 3px;
-	background: url('background/PolygonNavyBlueR3x26.gif') no-repeat right;
+	background: url('background/PolygonNavyR3x26.gif') no-repeat right;
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .MiddleBar {
   padding-left: 2px;
   height: 26px;
-	background: url('background/PolygonNavyBlueRP1x26.gif') repeat-x;
+	background: url('background/PolygonNavyRP1x26.gif') repeat-x;
 }
 
 /*######################-Smooth Style-######################*/
@@ -244,18 +244,18 @@
 
 .UIInfoBar .GrayRoundedStyle .LeftBar {
 	padding-left: 10px;
-	background: url('background/GrayRoundedL10x27.gif') no-repeat left;
+	background: url('background/RoundedL10x27.gif') no-repeat left;
 }
 
 .UIInfoBar .GrayRoundedStyle .RightBar {
 	padding-right: 10px;
-	background: url('background/GrayRoundedR10x27.gif') no-repeat right;
+	background: url('background/RoundedR10x27.gif') no-repeat right;
 }
 
 .UIInfoBar .GrayRoundedStyle .MiddleBar {
   margin: auto ;
   height: 27px;
-	background: url('background/GrayRoundedRP1x27.gif') repeat-x;
+	background: url('background/RoundedRP1x27.gif') repeat-x;
 }
 
 .UIInfoBar .GrayRoundedStyle .Icon {
@@ -281,18 +281,18 @@
 
 .UIInfoBar .LightBlueBevelStyle .LeftBar {
 	padding-left: 15px;
-	background: url('background/GrayBarL15x23.gif') no-repeat left;
+	background: url('background/BarL15x23.gif') no-repeat left;
 }
 
 .UIInfoBar .LightBlueBevelStyle .RightBar {
 	padding-right: 15px;
-	background: url('background/GrayBarR15x23.gif') no-repeat right;
+	background: url('background/BarR15x23.gif') no-repeat right;
 }
 
 .UIInfoBar .LightBlueBevelStyle .MiddleBar {
   margin: auto ;
   height: 23px;
-	background: url('background/GrayBarM1x23.gif') repeat-x;
+	background: url('background/BarM1x23.gif') repeat-x;
 }
 
 .UIInfoBar .LightBlueBevelStyle .Icon {

@@ -7,19 +7,19 @@
 }
 
 .UIBarStyle .RoundedBarStyle .LeftBar {
-  background: url('background/WhiteRoundedBarL8x25.gif') no-repeat left;
+  background: url('background/Rounded3BarL8x25.gif') no-repeat left;
   padding: 0px 0px 0px 8px;
 }
 
 .UIBarStyle .RoundedBarStyle .RightBar {
-  background: url('background/WhiteRoundedBarR8x25.gif') no-repeat right;
+  background: url('background/Rounded3BarR8x25.gif') no-repeat right;
   padding: 0px 8px 0px 0px ;
 }
 
 .UIBarStyle .RoundedBarStyle .MiddleBar {
   height: 25px;
   line-height: 25px;
-  background: url('background/WhiteRoundedBarM1x25.gif') repeat-x;  
+  background: url('background/Rounded3BarM1x25.gif') repeat-x;  
 }
 
 /*###########################-MacStyleBar-###########################*/
@@ -49,19 +49,19 @@
 }
 
 .UIBarStyle .GrayRoundedBarStyle .LeftBar {
-  background: url('background/GrayRoundedBarLeft12x26.gif') no-repeat left;
+  background: url('background/Rounded2BarLeft12x26.gif') no-repeat left;
   padding: 0px 0px 0px 12px;
 }
 
 .UIBarStyle .GrayRoundedBarStyle .RightBar {
-  background: url('background/GrayRoundedBarRight12x26.gif') no-repeat right;
+  background: url('background/Rounded2BarRight12x26.gif') no-repeat right;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIBarStyle .GrayRoundedBarStyle .MiddleBar {
   height: 26px;
   line-height: 26px;
-  background: url('background/GrayRoundedBarCenter1x26.gif') repeat-x;  
+  background: url('background/Rounded2BarCenter1x26.gif') repeat-x;  
 }
 
 /*###########################-BarStyle2-###########################*/
@@ -175,12 +175,12 @@
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .LeftBar {
-  background: url('background/WhiteRoundedBarLeft12x26.gif') no-repeat left;
+  background: url('background/Rounded3BarLeft12x26.gif') no-repeat left;
   padding: 0px 0px 0px 12px;
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .RightBar {
-  background: url('background/WhiteRoundedBarRight12x26.gif') no-repeat right;
+  background: url('background/Rounded3BarRight12x26.gif') no-repeat right;
   padding: 0px 12px 0px 0px ;
 }
 
@@ -198,19 +198,19 @@
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .LeftBar {
-  background: url('background/GrayPolygonBigBarLeft4x36.gif') no-repeat left;
+  background: url('background/Polygon2BigBarLeft4x36.gif') no-repeat left;
   padding: 0px 0px 0px 4px;
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .RightBar {
-  background: url('background/GrayPolygonBigBarRight4x36.gif') no-repeat right;
+  background: url('background/Polygon2BigBarRight4x36.gif') no-repeat right;
   padding: 0px 4px 0px 0px ;
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .MiddleBar {
   height: 36px;
   line-height: 36px;
-  background: url('background/GrayPolygonBigBarCenter1x36.gif') repeat-x;
+  background: url('background/Polygon2BigBarCenter1x36.gif') repeat-x;
 }
 
 /*###########################-BluePolygonBigBarStyle-###########################*/
@@ -219,19 +219,19 @@
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .LeftBar {
-  background: url('background/BluePolygonBigBarLeft4x36.gif') no-repeat left;
+  background: url('background/Polygon1BigBarLeft4x36.gif') no-repeat left;
   padding: 0px 0px 0px 4px;
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .RightBar {
-  background: url('background/BluePolygonBigBarRight4x36.gif') no-repeat right;
+  background: url('background/Polygon1BigBarRight4x36.gif') no-repeat right;
   padding: 0px 4px 0px 0px ;
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .MiddleBar {
   height: 36px;
   line-height: 36px;
-  background: url('background/BluePolygonBigBarCenter1x36.gif') repeat-x;
+  background: url('background/Polygon1BigBarCenter1x36.gif') repeat-x;
 }
 
 /*###########################-BluePolygonBarStyle-###########################*/
@@ -281,12 +281,12 @@
 }
 
 .UIBarStyle .GrayRoundedFlatBarStyle .LeftBar {
-  background: url('background/GrayRoundedFlatLeft16x35.gif') no-repeat left;
+  background: url('background/RoundedFlat2Left16x35.gif') no-repeat left;
   padding: 0px 0px 0px 16px;
 }
 
 .UIBarStyle .GrayRoundedFlatBarStyle .RightBar {
-  background: url('background/GrayRoundedFlatRight16x35.gif') no-repeat right;
+  background: url('background/RoundedFlat2Right16x35.gif') no-repeat right;
   padding: 0px 16px 0px 0px ;
 }
 
@@ -401,19 +401,19 @@
 }
 
 .UIBarStyle .GrayBevelRoundBar40 .LeftBar {
-  background: url('background/GrayLinedBarL8x48.gif') no-repeat left ;
+  background: url('background/LinedBarL8x48.gif') no-repeat left ;
   padding: 0px 0px 0px 8px ;
 }
 
 .UIBarStyle .GrayBevelRoundBar40 .RightBar {
-  background: url('background/GrayLinedBarR8x48.gif') no-repeat right ;
+  background: url('background/LinedBarR8x48.gif') no-repeat right ;
   padding: 0px 8px 0px 0px ;
 }
 
 .UIBarStyle .GrayBevelRoundBar40 .MiddleBar {
   height: 48px ;  line-height: 48px ;
   vertical-align: middle ;
-  background: url('background/GrayLinedBarM1x48.gif') repeat-x ;
+  background: url('background/LinedBarM1x48.gif') repeat-x ;
 }
 
 /*###########################-GrayBevelRoundBar36-###########################*/

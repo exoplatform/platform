@@ -35,14 +35,14 @@
   width: 14px; height: 24px;
   margin-right: 1px;
   cursor : pointer;
-  background: url('background/YellowLastTabButton14x24.gif') no-repeat;
+  background: url('background/LastTabButton14x24.gif') no-repeat;
 }
 
 .UIHorizontalTabs .NextTabButton  {
   float: left;
   width: 14px; height: 24px;
   cursor : pointer;
-  background: url('background/YellowNextTabButton14x24.gif') no-repeat;
+  background: url('background/NextTabButton14x24.gif') no-repeat;
 }
 
 /*###########################--NavigationTabTab--############################*/
@@ -289,21 +289,21 @@
 
 }
 
-.UIHorizontalTabs .UITab .NormalStyle1 .LeftTab {
+.UIHorizontalTabs .UITab .NormalStyle1 .LeftTab { 
   line-height: 27px ;
   padding-left: 2px ;
-  background: url('background/GrayRectangleL2x27.gif') no-repeat left;
+  background: url('background/RectangleL2x27.gif') no-repeat left;
 }
 
 .UIHorizontalTabs .UITab .NormalStyle1 .RightTab {
   line-height: 27px;
   padding-right: 1px;
-  background: url('background/GrayRectangleR1x27.gif') no-repeat right;
+  background: url('background/RectangleR1x27.gif') no-repeat right;
 }
 
 .UIHorizontalTabs .UITab .NormalStyle1 .MiddleTab {
   line-height: 27px;
-  background: url('background/GrayRectangleBg1x27.gif') repeat-x;
+  background: url('background/RectangleBg1x27.gif') repeat-x;
 }
 
 /*###########################--NavyBlueRectangle27Style--############################*/
@@ -540,5 +540,5 @@
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .WarningIcon {
-  background: url('background/YellowWarningSign.png') no-repeat;
+  background: url('background/WarningSign.png') no-repeat;
 }
