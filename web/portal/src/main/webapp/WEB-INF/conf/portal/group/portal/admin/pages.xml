@@ -4,7 +4,6 @@
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
     <name>web</name>
-    <access-permissions>*:/guest</access-permissions>        
     
     <application>
       <instance-id>group#portal/admin:/content/ContentPortlet/contentportlet</instance-id>
@@ -19,7 +18,7 @@
     <owner-id>portal/admin</owner-id>  	
     <name>administration</name>
     <factory-id>Desktop</factory-id>
-    <access-permissions>*:/guest</access-permissions>  
+      
     <show-max-window>true</show-max-window>
     
     <application location-x="100" location-y="150">
@@ -64,7 +63,6 @@
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
     <name>portletregistry</name>
-    <access-permissions>*:/guest</access-permissions>  
     
     <application>
       <instance-id>group#portal/admin:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
@@ -77,7 +75,6 @@
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
     <name>ecmadmin</name>
-    <access-permissions>*:/guest</access-permissions>  
     
     <application>
       <instance-id>group#portal/admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>
@@ -91,7 +88,6 @@
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
     <name>jcrexplorer</name>
-    <access-permissions>*:/guest</access-permissions>     
     
     <application>
       <instance-id>group#portal/admin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
@@ -106,7 +102,6 @@
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
     <name>fastcontentcreator</name>
-    <access-permissions>*:/guest</access-permissions>     
     
     <application>
       <instance-id>group#portal/admin:/ecm/FastContentCreatorPortlet/fastcontentcreator</instance-id>
@@ -121,7 +116,6 @@
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
     <name>browsecontent</name>
-    <access-permissions>*:/guest</access-permissions>          
     
     <application>
       <instance-id>group#portal/admin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
@@ -136,8 +130,7 @@
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
     <name>workflowcontroller</name>
-    <access-permissions>*:/guest</access-permissions>          
-    
+              
     <application>
       <instance-id>group#portal/admin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>    
       <title>Workflow Controller Portlet</title>
@@ -151,7 +144,6 @@
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
     <name>workflowadministration</name>
-    <access-permissions>*:/guest</access-permissions>          
     
     <application>
       <instance-id>group#portal/admin:/workflow/WorkflowAdministrationPortlet/workflowadministration</instance-id>    
@@ -166,7 +158,6 @@
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
     <name>forum</name>
-    <access-permissions>*:/guest</access-permissions>          
     
     <application>
       <instance-id>group#portal/admin:/forum/ForumPortlet/forum</instance-id>    
@@ -180,7 +171,6 @@
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
     <name>mail</name>
-    <access-permissions>*:/guest</access-permissions>          
     
     <application>
       <instance-id>group#portal/admin:/mail/MailPortlet/mail</instance-id>    
@@ -195,7 +185,7 @@
     <owner-id>portal/admin</owner-id>
     <name>ecmdesktop</name>    
     <factory-id>Desktop</factory-id>
-    <access-permissions>*:/guest</access-permissions>          
+              
     <show-max-window>true</show-max-window>
 
     <application>
@@ -246,7 +236,6 @@
     <owner-id>portal/admin</owner-id>
     <name>groupwaredesktop</name>
     <factory-id>Desktop</factory-id>
-    <access-permissions>*:/guest</access-permissions>          
     <show-max-window>true</show-max-window>
 
     <application>
