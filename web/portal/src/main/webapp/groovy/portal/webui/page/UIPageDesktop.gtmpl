@@ -86,9 +86,7 @@
         <%  x += 10; y += 20 ;%>
         <%}%>
 
-        <%
-          String containerMouseOver = "eXo.desktop.UIDockbar.containerMouseOver();" ;
-        %>
+        <%String containerMouseOver = "eXo.desktop.UIDockbar.containerMouseOver();" ;%>
         <div class="UIDockBar" id="UIDockBar">
           <div class="DockbarLeft">
             <div class="DockbarRight">
@@ -104,18 +102,18 @@
 		                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignIn")%></span>
 		                  <%/*End Tool Tip*/%>
                   <%}%>
-                  
-                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/AddPortlet.png"
-                       alt="/eXoResources/skin/sharedImages/Blank.gif"
-                       id="UIAddApplicationIcon"
-                       onclick="eXo.desktop.UIAddApplication.init('<%=uicomponent.id%>', 'UIPageDesktop',[])" />
-                  <%/*Tool Tip*/%>
-                  
-	                <span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
-                  <%/*End Tool Tip*/%>
-                  
-                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png" />
-                  
+                  <%if(uicomponent.isModifiable()) {%>
+		                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/AddPortlet.png"
+		                       alt="/eXoResources/skin/sharedImages/Blank.gif"
+		                       id="UIAddApplicationIcon"
+		                       onclick="eXo.desktop.UIAddApplication.init('<%=uicomponent.id%>', 'UIPageDesktop',[])" />
+		                  <%/*Tool Tip*/%>
+		                  
+			                <span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
+		                  <%/*End Tool Tip*/%>
+		                  
+		                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png" />
+                  <%}%>
                   <%                  
                     def res = rcontext.getApplicationResourceBundle() ;
                     String skin = rcontext.getUIApplication().getSkin() ;
