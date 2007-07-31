@@ -94,8 +94,15 @@ public class UIPortalApplication extends UIApplication {
     
     UIWorkspace uiWorkingWS =  getChildById(UI_WORKING_WS_ID ) ;
     UIPortal uiPortal =  uiWorkingWS.getChild(UIPortal.class) ;
+    UIPortalToolPanel toolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
+    
     uiPortal.findComponentOfType(uiportlets, UIPortlet.class) ;
     SkinService skinService = getApplicationComponent(SkinService.class);
+   
+    if(toolPanel != null && toolPanel.isRendered()){
+      toolPanel.findComponentOfType(uiportlets, UIPortlet.class);
+    }
+    
     for(UIPortlet uiPortlet : uiportlets) {
       String module = uiPortlet.getExoWindowID().getPortletApplicationName() + "/" + uiPortlet.getExoWindowID().getPortletName() ;
       SkinConfig skinConfig = skinService.getSkin(module, skin_) ;
