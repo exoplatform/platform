@@ -47,6 +47,7 @@ import org.exoplatform.webui.core.model.SelectItemOption ;
     tabs.addSelectItemOption(new SelectItemOption("twoTabs",
         "<container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\">" +
           "<container template=\"system:/groovy/portal/webui/container/UITabContainer.gtmpl\">" +
+          "  <factory-id>TabContainer</factory-id>" +
           "  <container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
           "  <container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
           "</container>" +
@@ -55,6 +56,7 @@ import org.exoplatform.webui.core.model.SelectItemOption ;
     tabs.addSelectItemOption(new SelectItemOption("threeTabs",
         "<container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\">" +
           "<container template=\"system:/groovy/portal/webui/container/UITabContainer.gtmpl\">" +
+          "  <factory-id>TabContainer</factory-id>" +
           "  <container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
           "  <container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
           "  <container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +

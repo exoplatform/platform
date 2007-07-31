@@ -21,6 +21,7 @@ abstract public class UIFormInputContainer<T> extends UIContainer implements UIF
   public String bindingField ;
   private List<Validator>  validators ;
   protected T value_;
+  private String label;
   
   protected UIFormInputContainer() {
   }
@@ -67,5 +68,9 @@ abstract public class UIFormInputContainer<T> extends UIContainer implements UIF
   public List<Validator>  getValidators() { return validators ; }
   
   public void reset() {}
+  
+  public String getLabel() { return label; }
+
+  public void setLabel(String label) { this.label = label; }
   
 }

@@ -104,6 +104,7 @@ public class UIFormInputSet extends  UIContainer {
       String label ;
       try {
         label = uiForm.getLabel(res, inputEntry.getId());
+        if(inputEntry instanceof UIFormInputBase) ((UIFormInputBase)inputEntry).setLabel(label);
       } catch(MissingResourceException ex){
         label = "&nbsp;" ;
         System.err.println("\n "+uiForm.getId()+".label." + inputEntry.getId()+" not found value");

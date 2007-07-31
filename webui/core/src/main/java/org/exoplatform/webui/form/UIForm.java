@@ -15,7 +15,6 @@ import org.exoplatform.webui.config.Event;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 
-import com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException;
 /**
  * Created by The eXo Platform SARL
  * Author : Dang Van Minh

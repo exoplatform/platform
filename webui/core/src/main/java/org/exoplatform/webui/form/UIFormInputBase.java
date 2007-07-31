@@ -23,6 +23,7 @@ abstract public class UIFormInputBase<T> extends UIContainer implements UIFormIn
   final static public boolean  ENABLE = true, DISABLE = false;
   
   protected String name ;
+  private String label;
   protected String bindingField ;
   
   protected List<Validator>  validators ;
@@ -92,5 +93,9 @@ abstract public class UIFormInputBase<T> extends UIContainer implements UIFormIn
   
   @SuppressWarnings("unused")
   public void decodeFromMultipartFields(WebuiRequestContext context, UIComponent component, List items) {}
+
+  public String getLabel() { return label; }
+
+  public void setLabel(String label) { this.label = label; }
  
 }

@@ -92,7 +92,7 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
 
     UIForm uiForm = getAncestorOfType(UIForm.class) ;
     int size = getChildren().size() ;
-    ResourceBundle res = context.getApplicationResourceBundle() ;
+//    ResourceBundle res = context.getApplicationResourceBundle() ;
 
     for(int i = 0; i < size; i++) {
       UIFormInputBase uiInput = getChild(i) ;
@@ -121,7 +121,7 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
     addChild(inputBase);
     return inputBase;    
   }
-
+  
   static  public class AddActionListener extends EventListener<UIFormMultiValueInputSet> {
     public void execute(Event<UIFormMultiValueInputSet> event) throws Exception {
       UIFormMultiValueInputSet uiSet = event.getSource();

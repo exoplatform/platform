@@ -24,7 +24,7 @@ import org.exoplatform.webui.event.Event.Phase;
     template = "system:/groovy/webui/core/UIPageIterator.gtmpl",
     events = @EventConfig(listeners = UIFormPageIterator.ShowPageActionListener.class, phase = Phase.DECODE)    
 )
-public class UIFormPageIterator extends UIPageIterator  implements UIFormInput<Object> {
+public class UIFormPageIterator extends UIPageIterator implements UIFormInput<Object> {
   
   public void processDecode(WebuiRequestContext context) throws Exception {   
     UIForm uiForm  = getAncestorOfType(UIForm.class);
@@ -62,6 +62,8 @@ public class UIFormPageIterator extends UIPageIterator  implements UIFormInput<O
   public Object getValue() throws Exception { return null; }
 
   public void reset() {}
+  
+  public String getLabel() { return getName(); }
   
   public Class getTypeValue() { return null; }
 

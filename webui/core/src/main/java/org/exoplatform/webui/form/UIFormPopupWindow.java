@@ -50,11 +50,11 @@ public class UIFormPopupWindow extends UIPopupWindow implements UIFormInput<Obje
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
     }
   }
+  
+  public String getLabel() { return getName(); }
 
   @SuppressWarnings("unused")
-  public UIFormInput addValidator(Class clazz) throws Exception {
-    return null;
-  }
+  public UIFormInput addValidator(Class clazz) throws Exception { return null; }
 
   public String getBindingField() { return null; }
   

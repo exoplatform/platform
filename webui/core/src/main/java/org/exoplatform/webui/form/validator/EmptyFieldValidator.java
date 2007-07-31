@@ -20,7 +20,9 @@ public class EmptyFieldValidator implements Validator {
     if((uiInput.getValue() != null) && ((String)uiInput.getValue()).trim().length() > 0) {
       return ;
     }
-    Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
+    String label = uiInput.getLabel().trim();
+    if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
+    Object[]  args = { label, uiInput.getBindingField() } ;
     throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args)) ;
   }
 }

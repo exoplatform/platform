@@ -18,6 +18,8 @@ public interface UIFormInput<E> {
   
   public String getName()  ;
   public String getBindingField()  ;
+  
+  public String getLabel();
 
   public UIFormInput addValidator(Class clazz) throws Exception ;
   public List<Validator>  getValidators()  ;

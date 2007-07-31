@@ -10,14 +10,25 @@ import java.util.List;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * May 7, 2006
  */
-@ComponentConfig(lifecycle = UIContainerLifecycle.class )
+@ComponentConfigs({
+  @ComponentConfig(lifecycle = UIContainerLifecycle.class),
+  @ComponentConfig(
+      id = "TabContainer", 
+      lifecycle = UIContainerLifecycle.class,
+      events = @EventConfig(listeners = UIContainer.SelectTabActionListener.class)
+  )
+})
 public class UIContainer extends UIComponent {
   
   private List<UIComponent> children ;
@@ -225,4 +236,9 @@ public class UIContainer extends UIComponent {
     }
   }
   
+  static  public class SelectTabActionListener extends EventListener<UIContainer> {    
+    public void execute(Event<UIContainer> event) throws Exception {
+      System.out.println("\n\n ==  > select tab \n\n");
+    }
+  }
 }
