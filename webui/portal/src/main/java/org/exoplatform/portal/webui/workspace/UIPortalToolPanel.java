@@ -5,6 +5,7 @@
 package org.exoplatform.portal.webui.workspace;
 
 import org.exoplatform.portal.webui.page.UIPage;
+import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
@@ -20,7 +21,8 @@ import org.exoplatform.webui.core.UIComponentDecorator;
     template = "system:/groovy/portal/webui/workspace/UIPortalToolPanel.gtmpl"
 )
 public class UIPortalToolPanel extends UIComponentDecorator {
-  
+  private boolean showMaskLayer = false;
+
   public UIPortalToolPanel() throws Exception {    
   }
   
@@ -34,15 +36,29 @@ public class UIPortalToolPanel extends UIComponentDecorator {
   }
   
   public void processRender(WebuiRequestContext context) throws Exception {
+    JavascriptManager jsmanager = context.getJavascriptManager(); 
+    String init = "eXo.core.UIMaskLayer.createMask('UIPortalToolPanel', null, 10) ;";
     UIComponent uiComponent = getUIComponent();
     if(uiComponent instanceof UIPage){
       UIPage uiPage = (UIPage) uiComponent;
       if(uiPage.isShowMaxWindow()){
         uiComponent.processRender(context);
+        if(showMaskLayer ){
+          init = "eXo.core.UIMaskLayer.createMask('UIPage', null, 10) ;";
+          jsmanager.importJavascript("eXo.core.UIMaskLayer");
+          jsmanager.addCustomizedOnLoadScript(init);
+        }
         return;
       }
     }
+    
     super.processRender(context);
+    if(showMaskLayer){
+      jsmanager.importJavascript("eXo.core.UIMaskLayer");
+      jsmanager.addCustomizedOnLoadScript(init);
+    }
   }
   
+  public boolean isShowMaskLayer() { return showMaskLayer; }
+  public void setShowMaskLayer(boolean showMaskLayer) { this.showMaskLayer = showMaskLayer; }
 }
