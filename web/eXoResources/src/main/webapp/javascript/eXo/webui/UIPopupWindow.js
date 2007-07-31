@@ -20,10 +20,10 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	
 	if(isShow == false) this.superClass.hide(popup) ; 
 	
-	if(showCloseButton == true) {
-		var popupCloseButton = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'CloseButton') ;
-		popupCloseButton.onmouseup = this.closePopupEvt ;
-	}
+//	if(showCloseButton == true) {
+//		var popupCloseButton = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'CloseButton') ;
+//		popupCloseButton.onmouseup = this.closePopupEvt ;
+//	}
 	
 	if(isResizable) {
 		var resizeBtn = DOMUtil.findFirstDescendantByClass(popup, "div", "ResizeButton");
