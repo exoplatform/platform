@@ -91,6 +91,7 @@ public class UIPageManagement extends UIManagement {
     getChild(UIDescription.class).setRendered(true);
     
     UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
+    uiToolPanel.setShowMaskLayer(false);
     UIPageBrowser uiPageBrowser = uiToolPanel.createUIComponent(UIPageBrowser.class, null, null);
     uiToolPanel.setUIComponent(uiPageBrowser);
     uiPageBrowser.setShowAddNewPage(true);    
