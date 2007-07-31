@@ -135,6 +135,14 @@ SimpleNodeEditor.prototype.onTab = function(keynum, keychar) {
   return false ;
 }
 
+SimpleNodeEditor.prototype.onEscapse = function(keynum, keychar) {
+  this.cmdManager.hideQuickHelp() ;
+  this.beforeCursor = '' ;
+  this.afterCursor = '' ;
+  this.defaultWrite() ;
+  return false ;
+}
+
 // Navigate keys
 SimpleNodeEditor.prototype.onHome = function(keynum, keychar) {
   eXo.application.console.UIConsoleApplication.hideMaskWorkspace() ;

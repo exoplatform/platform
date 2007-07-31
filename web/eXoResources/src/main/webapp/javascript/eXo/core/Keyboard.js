@@ -3,7 +3,7 @@
  */
 function Keyboard() {
   this.listeners = [] ;
-  this.controlKeyCodes = [8, 9, 13, 35, 36, 37, 38, 39, 40, 46] ;
+  this.controlKeyCodes = [8, 9, 13, 27, 35, 36, 37, 38, 39, 40, 46] ;
   if (eXo.core.Browser.browserType == 'ie') {
     document.onkeydown = function(e) {
       return eXo.core.Keyboard.onKeyDown(e) ;
@@ -48,6 +48,8 @@ Keyboard.prototype.onKeyDown = function(event) {
     eventHandler = 'onTab' ;
   } else if(keynum == 8) {
     eventHandler = 'onBackspace' ;
+  } else if(keynum == 27) {
+    eventHandler = 'onEscapse' ;
   } else if(keynum == 46) {
     eventHandler = 'onDelete' ;
   } else if(keynum == 37){
@@ -82,6 +84,8 @@ Keyboard.prototype.onKeyPress = function(event) {
     eventHandler = 'onTab' ;
   } else if(keynum == 8) {
     eventHandler = 'onBackspace' ;
+  } else if(keynum == 27) {
+    eventHandler = 'onEscapse' ;
   } else if(keynum == 46) {
     eventHandler = 'onDelete' ;
   } else if(keynum == 37){

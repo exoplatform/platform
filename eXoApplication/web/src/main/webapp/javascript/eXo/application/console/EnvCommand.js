@@ -7,7 +7,7 @@ function Env() {
   this.prefix = '' ;
 } ;
 
-Env.prototype = new eXo.application.console.Command() ;
+Env.prototype = eXo.application.console.Command.createInstance() ;
 
 Env.prototype.help = function() {
   return 'The syntax of this command is:\
@@ -32,11 +32,10 @@ Env.prototype.help = function() {
  * @param {Element} screen
  */
 Env.prototype.execute = function(args, consoleScreen) {
+  this.parametersParser(args) ;
   var envManager = eXo.application.console.EnvManager ;
   var envVars = envManager.getEnvVariables() ;
-  // Detect sub command
-  if (!args || args.trim() == 'display' || args.trim() == '') {
-    // Display all posible environment variables
+  if (!this.subCmd && this.subCmd != '') {
     if (envVars.length > 0) {
       var envStr = this.formatEnvList(envVars) ;
       consoleScreen.write(envStr) ;
@@ -46,30 +45,34 @@ Env.prototype.execute = function(args, consoleScreen) {
       return 0 ;
     }
   }
-  var firstSpacePos = args.indexOf(' ') ;
-  var subCmd = args.substring(0, firstSpacePos) ;
-  var paramStr = args.substring(firstSpacePos, args.length).trim() ;
   
-  if (subCmd == 'set') {
-    var equalSignPos = paramStr.indexOf('=') ;
-    if (equalSignPos != -1) {
-      var name = paramStr.substring(0, equalSignPos) ;
-      var value = paramStr.substring(equalSignPos + 1, paramStr.length) ;
-      if (value) {
-        value = value.trim() ;
+  var name = false ;
+  var value = false ;
+  
+  if (this.params) {
+    for (var param in this.params) {
+      if (typeof this.params[param] == 'function') {
+        continue ;
       }
+      name = param ;
+      value = this.params[param] ;
+      break ;
+    }
+  }
+  
+  if (this.subCmd == 'set') {
+    if (name && value) {
       envManager.setVariable(name, value) ;
       consoleScreen.write(name + '=' + value) ;
       return 0 ;
     } else {
-      consoleScreen.write(paramStr + ' missing =') ;
+      consoleScreen.write('missing =') ;
       return -1 ;
     }
-  } else if (subCmd == 'remove') {
-    var value = false ;
+  } else if (this.subCmd == 'remove') {
     for (var i=0; i<envVars.length; i++) {
       var v = envVars[i] ;
-      if (v[0] == paramStr) {
+      if (v[0] == name) {
         value = v[1] ;
         v[1] = false ;
         envManager.updateEnvVariables(envVars, screen) ;
@@ -77,17 +80,17 @@ Env.prototype.execute = function(args, consoleScreen) {
       }
     }
     if (value) {
-      consoleScreen.write('remove ' + paramStr + '=' + value) ;
+      consoleScreen.write('remove ' + name + '=' + value) ;
       return 0 ;
     } else {
-      consoleScreen.write('Environment variable ' + paramStr + ' not defined') ;
+      consoleScreen.write('Environment variable ' + name + ' not defined') ;
       return -1 ;
     }
-  } else if (subCmd == 'display') {
+  } else if (this.subCmd == 'display') {
     var envLstTmp = [] ;
     for (var i=0; i<envVars.length; i++) {
       var v = envVars[i] ;
-      if (v[0].indexOf(paramStr) == 0) {
+      if (v[0].indexOf(name) == 0) {
         envLstTmp[envLstTmp.length] = v ;
       }
     }
@@ -95,11 +98,11 @@ Env.prototype.execute = function(args, consoleScreen) {
       consoleScreen.write(this.formatEnvList(envLstTmp)) ;
       return 0 ;
     } else {
-      consoleScreen.write(paramStr + ' not defined') ;
+      consoleScreen.write(name + ' not defined') ;
       return -1 ;
     }
   }
-  consoleScreen.write('Sub command ' + subCmd + ' is not implement') ;
+  consoleScreen.write('Sub command ' + this.subCmd + ' is not implement') ;
   return -1 ;  
 } ;
 

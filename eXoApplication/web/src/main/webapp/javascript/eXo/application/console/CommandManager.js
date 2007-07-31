@@ -85,6 +85,7 @@ CommandManager.prototype.inituiConsoleApplicationNode = function() {
 
 CommandManager.prototype.register = function() {
   this.registerJSModule('eXo.application.console.EnvCommand') ;
+  this.registerJSModule('eXo.application.console.builtin.History') ;
   this.registerJSModule('eXo.application.console.jcr.HelloJCR') ;
   this.registerJSModule('eXo.application.console.xhtml.ShowNode') ;
 } ;

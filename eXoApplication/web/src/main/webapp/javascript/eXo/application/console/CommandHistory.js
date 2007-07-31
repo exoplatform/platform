@@ -28,20 +28,18 @@ CommandHistory.prototype.finish = function() {
 
 CommandHistory.prototype.getPrevious = function() {
   if (this.commands.length <= 0) return false ; 
+    this.currentIndex -- ;
   if (this.currentIndex < 0) {
     this.currentIndex = this.commands.length - 1 ;
-  } else {
-    this.currentIndex -- ;
   }
   return this.commands[this.currentIndex] ;
 } ;
 
 CommandHistory.prototype.getNext = function() {
   if (this.commands.length <= 0) return false ;
+  this.currentIndex ++ ;
   if (this.currentIndex >= this.commands.length) {
     this.currentIndex = 0 ;
-  } else {
-    this.currentIndex ++ ;
   }
   return this.commands[this.currentIndex] ;
 } ;
@@ -65,7 +63,7 @@ CommandHistory.prototype.remove = function(index) {
 } ;
 
 CommandHistory.prototype.clear = function() {
-  this.commands = [] ;
+  this.commands.clear() ;
 } ;
 
 eXo.application.console.CommandHistory = new CommandHistory() ;

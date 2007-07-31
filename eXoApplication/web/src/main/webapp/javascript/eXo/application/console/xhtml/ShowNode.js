@@ -6,7 +6,7 @@ function ShowNode() {
   this.commandName = 'shownode' ;
 } ;
 
-ShowNode.prototype = new eXo.application.console.Command() ;
+ShowNode.prototype = eXo.application.console.Command.createInstance() ;
 
 ShowNode.prototype.help = function() {
   return ('Usage: ShowNode [OPTION]... NodeID\
@@ -22,7 +22,8 @@ ShowNode.prototype.help = function() {
 } ;
 
 ShowNode.prototype.execute = function(args, consoleScreen) {
-  if (!args || args == '') {
+  this.parametersParser(args) ;
+  if (!this.params) {
     consoleScreen.write('Missing argument') ;
     return -1;
   }

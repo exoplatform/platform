@@ -17,6 +17,35 @@ Command.prototype = {
   ,
   
   /**
+   * 
+   * @param {String} cmdQuery
+   * 
+   * @return {Array}
+   */
+  parametersParser : function(cmdQuery) {
+    if (!cmdQuery || cmdQuery.trim() == '') {
+      return ;
+    }
+    cmdQuery = cmdQuery.trim() ;
+    var subCmdPattern = /^[^-\s]*/ ;
+    if (subCmdPattern.test(cmdQuery)) {
+      this.subCmd = subCmdPattern.exec(cmdQuery)[0].trim() ;
+      cmdQuery = cmdQuery.replace(this.subCmd, '').trim() ;
+    }
+    var spliter = /(^-{1,2}[^-]*)|(^.*=.*\s?)/ ;
+    var params = [] ;
+    var param = false ;
+    while((param = spliter.exec(cmdQuery))) {
+      var tmp = param[0].trim().split('=') ;
+      tmp[1] = tmp[1] ? tmp[1] : false ;
+      params[tmp[0]] = tmp[1] ;
+      cmdQuery = cmdQuery.replace(param[0], '').trim() ;
+    }
+    this.params = params ;
+  }
+  ,
+  
+  /**
    * @return {String} command help for tab complete
    */
   help : function() {
@@ -57,5 +86,9 @@ Command.prototype = {
   }
 } ;
 
+Command.prototype.createInstance = function() {
+  return new Command() ;
+} ;
+
 if (!eXo.application.console)  eXo.application.console = {} ;
-eXo.application.console.Command =  Command ;
+eXo.application.console.Command =  new Command() ;

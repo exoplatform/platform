@@ -75,6 +75,14 @@ DefaultKeyboardListener.prototype = {
   onTab : function(keynum, keychar) { return true ;}
   ,
   
+  /**
+   * 
+   * @param {Number} keynum
+   * @param {Char} keychar
+   */
+  onEscapse : function(keynum, keychar) { return true ;}
+  ,
+  
   // Navigate keys
   /**
    * 

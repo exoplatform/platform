@@ -6,7 +6,7 @@ function HelloJCR() {
   this.prefix = 'jcr' ;
 } ;
 
-HelloJCR.prototype = new eXo.application.console.Command() ;
+HelloJCR.prototype = eXo.application.console.Command.createInstance() ;
 
 HelloJCR.prototype.help = function() {
   return 'Usage: HelloJCR nodeid\
