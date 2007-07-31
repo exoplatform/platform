@@ -7,14 +7,14 @@
   float: left;
   margin-top: 9px; margin-left: 3px;
   width: 16px; height: 16px;
-  background: url('DefaultSkin/background/PopupWindowIcon16x16.gif') no-repeat;
+  background: url('background/PopupWindowIcon16x16.gif') no-repeat;
 }
 
 .UIPopupWindow .PopupTitleIconRight {
   float: right;
   margin: 9px 3px 0px 0px;
   width: 16px; height: 16px;
-  background: url('DefaultSkin/background/PopupWindowIcon16x16.gif') no-repeat;
+  background: url('background/PopupWindowIcon16x16.gif') no-repeat;
 }
 
 .UIPopupWindow .PopupTitle {
@@ -219,7 +219,7 @@
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitleIcon {
 	width: 16px;	height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/Message.png') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Message.gif') no-repeat;
 	float: left;
 	margin: 4px 0px 0px 4px;
 }

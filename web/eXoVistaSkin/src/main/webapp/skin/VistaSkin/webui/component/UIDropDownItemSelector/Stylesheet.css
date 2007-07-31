@@ -11,7 +11,7 @@
 }
 
 .UIDropDownItemSelector .ItemInfoBar {
-	background: url('/eXoResources/background/IconLabelContentBG1x1.png') repeat;
+	background: url('/eXoVistaSkin/skin/VistaSkin/background/IconLabelContentBG1x1.png') repeat;
 	padding-left: 8px;
 	border: 1px solid #959595;
 	border-top: none;
@@ -20,7 +20,7 @@
 
 .ComponentIcon {
   width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/ImagesList.gif') no-repeat;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ImagesList.gi') no-repeat;
 }
 
 .UIDropDownItemSelector .ItemInfoBar .Icon {

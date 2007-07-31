@@ -199,6 +199,7 @@
 
 .UIAddApplication .ApplicationButton {
   float: right;
+  width: 100px;
 }
 
 .UIAddApplication .ApplicationContentLabel {
@@ -271,7 +272,7 @@
 }
 
 .UIAddApplication .SelectButton {
-	float: left ; 
+	float: right ; 
 	width: 20px ; height: 20px ;
 	background: url("icons/16x16/SelectButton.png") no-repeat center;
 	margin: 0px 3px ;
@@ -279,7 +280,7 @@
 }
 
 .UIAddApplication .AddButton {
-	float: left ; 
+	float: right ; 
 	width: 20px ; height: 20px ;
 	background: url("icons/16x16/Add.png") no-repeat center;
 	margin: 0px 3px ;
@@ -343,7 +344,7 @@
 
 .UIGroupSelector .UIBreadcumbs .BCHome16x16Icon {
   width: 19px ; height: 19px ;
-  background: url('/eXoResources/icons/16x16/MacSkin/NormalGroup.png') no-repeat left center;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat left center;
   margin-top: 4px;
 }
 

@@ -205,17 +205,17 @@
 
 .AddCategory24x24Icon {
   width: 24px ; height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/AddCatergory.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/AddCategory.gif') no-repeat ;
 }
 
 .EditCategory24x24Icon {
   width: 24px ; height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/EditCatergory.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/EditCatergory.gif') no-repeat ;
 }
 
 .ImportCategory24x24Icon {
   width: 24px ; height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/ImportCategory.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/ImportCategory.gif') no-repeat ;
 }
 
 .DeleteCategory24x24Icon {
@@ -225,7 +225,7 @@
 
 .Delete24x24Icon {
   width: 24px ; height: 24px ;
-  background: url('/eXoResources/icons/24x24/DefaultSkin/NavyBlueTrashBin.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/NavyBlueTrashBin.gif') no-repeat ;
 }
 
 .DeleteAll24x24Icon {

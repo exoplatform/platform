@@ -3,7 +3,7 @@
 
 .UIPopupMessages .UIHorizontalTabs {
 	height: 50px;
-	background: url(Vistaskin/background/MessageTabBar1x50.png) repeat-x top;
+	background: url('background/MessageTabBar1x50.png') repeat-x top;
 	padding: 8px 4px 0px 4px;
 }
 
@@ -41,15 +41,15 @@
 }
 
 .UIPopupMessages .PopupMessageContainer .InfoMessageIcon {
-	background: url(/eXoResources/icons/16x16/DefaultSkin/Info.gif) no-repeat top;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Info.gif') no-repeat top;
 }
 
 .UIPopupMessages .PopupMessageContainer .WarningMessageIcon {
-	background: url(/eXoResources/icons/16x16/DefaultSkin/Warning.gif) no-repeat top;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Warning.gif') no-repeat top;
 }
 
 .UIPopupMessages .PopupMessageContainer .ErrorMessageIcon {
-	background: url(/eXoResources/icons/16x16/DefaultSkin/Error.gif) no-repeat top;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Error.gif') no-repeat top;
 }
 
 .UIPopupMessages .PopupMessageContainer .PopupMessage {

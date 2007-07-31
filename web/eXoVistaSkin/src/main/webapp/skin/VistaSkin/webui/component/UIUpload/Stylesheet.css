@@ -38,7 +38,7 @@
 
 .BlueProgressBar {
 	width: 0%; height: 14px;
-	background: url("DefaultSkin/Background/BlueBg1x14.gif") repeat-x;
+	background: url("Background/BlueBg1x14.gif") repeat-x;
 	position: relative;
 }
 
@@ -54,7 +54,7 @@
 
 .DeleteFileFrame {
 	float: left;
-	background: url("DefaultSkin/Background/Round18x18.gif") no-repeat;
+	background: url("Background/Round18x18.gif") no-repeat;
 	cursor: pointer;
 	padding-left: 23px;
 	margin-left: 5px;

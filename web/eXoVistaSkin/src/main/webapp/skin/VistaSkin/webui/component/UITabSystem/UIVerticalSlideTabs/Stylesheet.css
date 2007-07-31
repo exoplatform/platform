@@ -117,7 +117,7 @@
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .LeftIcon {
   float: left ;
   width: 16px;  height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueNextArrow.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow.gif') no-repeat;
   margin: 6px 5px 0px 5px;
 }
 
@@ -129,7 +129,7 @@
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueNextArrow.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow.gif') no-repeat ;
   margin: 6px 3px 0px 0px ;
   cursor: pointer ;
 }
@@ -165,7 +165,7 @@
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .LeftIcon {
   float: left ;
   width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueDownArrow.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueDownArrow.gif') no-repeat ;
   margin: 6px 5px 0px 5px;
 }
 
@@ -178,7 +178,7 @@
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
-  background: url('/eXoResources/icons/16x16/DefaultSkin/BlueDownArrow.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueDownArrow.gif') no-repeat ;
   margin: 6px 3px 0px 0px ;
 }
 

@@ -417,7 +417,7 @@
 .UIHorizontalTabs .MessageTabDialog .NormalTab .RightTab {
   line-height: 27px;
   padding-right: 7px;
-  background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y right;
+  background: url('background/SeparatorLine2x1.gif') repeat-y right;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .MiddleTab {
@@ -438,15 +438,15 @@
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .InfoIcon {
-  background: url('DefaultSkin/background/BlueInfoSign.gif') no-repeat;
+  background: url('eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabs/background/BlueInfoSign.gif') no-repeat;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .ErrorIcon {
-  background: url('DefaultSkin/background/RedErrorSign.gif') no-repeat;
+  background: url('eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabs/background/RedErrorSign.gif') no-repeat;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .WarningIcon {
-  background: url('DefaultSkin/background/YellowWarningSign.gif') no-repeat;
+  background: url('eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabs/background/YellowWarningSign.gif') no-repeat;
 }
 
 
