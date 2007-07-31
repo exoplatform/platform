@@ -295,6 +295,7 @@ public class UIPageNodeSelector extends UIContainer {
       
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
+      uiToolPanel.setShowMaskLayer(true);
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
       
