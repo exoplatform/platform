@@ -5,6 +5,7 @@
     <owner-id>portal/community</owner-id>
 	  <name>home</name>
     <factory-id>Desktop</factory-id>
+    <access-permissions>*:/guest</access-permissions>
     <show-max-window>true</show-max-window>
     
     <application>

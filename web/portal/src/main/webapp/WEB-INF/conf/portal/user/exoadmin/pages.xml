@@ -19,7 +19,6 @@
     <owner-id>exoadmin</owner-id>
     <name>testform</name>
     <title>Site Map</title>
-    <access-permissions>owner:/portal/exoadmin</access-permissions>
     <application>
       <instance-id>user#exoadmin:/test/TestForm/testformportlet</instance-id>
       <title>Test Form Portlet</title>
@@ -34,7 +33,7 @@
     <owner-id>exoadmin</owner-id>
     <name>hello</name>
     <title>Hello</title>
-    <access-permissions>owner:/portal/exoadmin</access-permissions>
+    
     <application>
       <instance-id>user#exoadmin:/test/HelloPortlet/hello</instance-id>
       <title>Hello portlet</title>

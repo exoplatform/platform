@@ -5,6 +5,7 @@
     <owner-id>@owner@</owner-id>
     <name>content</name>
     <title>Content</title>
+    <access-permissions>*:/guest</access-permissions>
     
     <application>
       <instance-id>portal#@owner@:/content/ContentPortlet/contentportlet</instance-id>

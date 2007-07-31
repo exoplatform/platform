@@ -3,23 +3,9 @@
   <portal-name>@owner@</portal-name>
   <locale>en</locale>
   <factory-id>office</factory-id>
+  <access-permissions>*:/guest</access-permissions>
   <edit-permission>*:/portal/admin</edit-permission>
   <creator>exoadmin</creator>
-  
-  <widget-layout>
-    <container>
-      <application>
-        <instance-id>admin:/exo.widget.web/InfoWidget/InfoWidget</instance-id>
-        <application-type>eXoWidget</application-type>
-        <title>Info Widget</title>
-      </application>
-      <application>
-        <instance-id>admin:/exo.widget.web/WelcomeWidget/WelcomeWidget</instance-id>
-        <application-type>eXoWidget</application-type>
-        <title>Welcome Widget</title>
-      </application>
-    </container>
-  </widget-layout>
   
  	<portal-layout> 		
 		<application>

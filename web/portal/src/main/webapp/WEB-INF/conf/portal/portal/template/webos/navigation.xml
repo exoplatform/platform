@@ -2,6 +2,7 @@
 <node-navigation>
 	<owner-type>portal</owner-type>
   <owner-id>@owner@</owner-id>
+  <access-permissions>*:/guest</access-permissions>
   
   <page-nodes>
     <node>

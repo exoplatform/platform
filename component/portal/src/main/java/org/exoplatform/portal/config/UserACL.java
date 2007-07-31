@@ -88,9 +88,8 @@ public class UserACL {
   public boolean hasViewPermission(String owner, String remoteUser, String[] expPerms) throws Exception {
 //    System.out.println("\n\n\n\n------HasVeiwPermission(3) of owner and User: "  + owner + ":" + remoteUser);
     if(owner != null && owner.equals(remoteUser)) return true;
-    if(expPerms == null || expPerms.length < 1) return true;
+    if(expPerms == null || expPerms.length < 1) expPerms = new String[]{"*:/user"};
     if(superUser_.equals(remoteUser)) return true;
-//    if(expPerms == null || expPerms.length < 1) expPerms = new String[] {"*:/guest"};
     for(String expPerm : expPerms) {
       if(hasViewPermission(remoteUser, expPerm)) return true;
     }
@@ -103,7 +102,7 @@ public class UserACL {
     Permission permission = new Permission();
     permission.setPermissionExpression(expPerm);
     String groupId = permission.getGroupId();
-//    if("/guest".equals(groupId)) return true ;
+    if("/guest".equals(groupId)) return true ;
 
     String membership = permission.getMembership() ;
     MembershipHandler handler = orgService_.getMembershipHandler();
@@ -120,10 +119,11 @@ public class UserACL {
 //    if(remoteUser==null) return false;
     if(owner != null && owner.equals(remoteUser)) return true;
     if(superUser_.equals(remoteUser)) return true;
-    if(expPerm == null) return false ;
+    if(expPerm == null) return false;
     Permission permission = new Permission();    
     permission.setPermissionExpression(expPerm);
     String groupId = permission.getGroupId();
+    if("/guest".equals(groupId)) return true ;
 
     String membership = permission.getMembership() ;
     MembershipHandler handler = orgService_.getMembershipHandler();

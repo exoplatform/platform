@@ -2,6 +2,4 @@
 <widgets>
 	<owner-type>user</owner-type>
 	<owner-id>exoadmin</owner-id>
-	<access-permissions>*:/portal/exoadmin</access-permissions>
-	<edit-permission>owner:/portal/exoadmin</edit-permission>
 </widgets>
