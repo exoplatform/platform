@@ -4,10 +4,13 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.portal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.UILoginForm;
 import org.exoplatform.portal.webui.application.UIPortlet;
@@ -56,9 +59,14 @@ public class UIPortalComponentActionListener {
     public void execute(Event<UIPortalComponent> event) throws Exception {
      UIPortal uiPortal = Util.getUIPortal();
      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-     UIPage page = uiApp.findFirstComponentOfType(UIPage.class);
+     UIPage uiPage = uiApp.findFirstComponentOfType(UIPage.class);
      String id  = event.getRequestContext().getRequestParameter("jsInstanceId"); 
-     page.removeChildById(id);
+     uiPage.removeChildById(id);
+     
+     Page page = PortalDataMapper.toPageModel(uiPage); 
+     UserPortalConfigService configService = uiPortal.getApplicationComponent(UserPortalConfigService.class);     
+     if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+     configService.update(page);
     }
   }
   
