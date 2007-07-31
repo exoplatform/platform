@@ -86,7 +86,7 @@
 		          		<div style="float: left ; margin-left: 10px">
 	          				<%=_ctx.appRes("UILoginForm.label.NotMember")%>
 	          			</div>
-	          			<a href="<%=uicomponent.url("SignUp");%>">
+	          			<a href="<%=uicomponent.event("Signup");%>">
 										<%=_ctx.appRes("UILoginForm.label.ForAccount")%>
 									</a>
 									<div style="clear: left"><span></span></div>

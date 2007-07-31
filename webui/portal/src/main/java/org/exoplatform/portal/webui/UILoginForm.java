@@ -8,9 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -35,6 +38,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
   template = "system:/groovy/portal/webui/UILoginForm.gtmpl" ,
   events = {
     @EventConfig(listeners = UILoginForm.SigninActionListener.class),
+    @EventConfig(phase = Phase.DECODE, listeners = UILoginForm.SignupActionListener.class),
     @EventConfig(phase = Phase.DECODE, listeners = UIMaskWorkspace.CloseActionListener.class)
   }
 )
@@ -129,45 +133,24 @@ public class UILoginForm extends UIForm {
     }*/
   }
   
-//  static public class SignUpActionListener  extends EventListener<UILoginForm> {
-//    public void execute(Event<UILoginForm> event) throws Exception {
-//      System.out.println("\n\n\n\n^^^^^^^^^^^^^^##############################################");
-//      UIPortal uiPortal = Util.getUIPortal();
-//      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);   
-//      UIComponent uicom = event.getSource().getParent();
-//      UIComponent superParen = uicom.getParent();
-//      UIAccountPortlet accountPortlet = event.getSource().getAncestorOfType(UIAccountPortlet.class);//uiApp.findFirstComponentOfType(UIAccountPortlet.class);
-//      System.out.println("\n>>>>>>>>>>>AccountPortlet: " + superParen);
-//      UIAccountForm accountForm = uiApp.findFirstComponentOfType(UIAccountForm.class);
-//      System.out.println("\n>>>>>>>>>>>AccountForm: " + accountForm);
-//      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
+  static public class SignupActionListener  extends EventListener<UILoginForm> {
+    public void execute(Event<UILoginForm> event) throws Exception {
+      UIPortal uiPortal  = Util.getUIPortal() ;
+      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);          
+      uiPageBody.setPage("portal::site::register", uiPortal);
       
-//      UIAccountPortlet uiAccountPortlet = uiMaskWS.createUIComponent(UIAccountPortlet.class, null, null);    
-//      uiMaskWS.setUIComponent(uiAccountPortlet);
-//      uiMaskWS.setWindowSize(640, 400);
-//      uiMaskWS.setShow(true);
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-//      Util.updateUIApplication(event);  
-  
-      // TODO BUG! exception in phase 'parsing' in source unit 'Script1.groovy' null
-      // Ko hieu cach su dung Param nhu ben duoi thi co gi sai.
-     /* System.out.println("\n\n\n\n^^^^^^^^^^^^^^##############################################");
-
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      Param param = new Param();
-      param.setName("AccountTemplateConfigOption");
-      param.setValue("app:/WEB-INF/conf/uiconf/account/webui/component/model/AccountTemplateConfigOption.groovy");
-      ArrayList<Param> params = new ArrayList<Param>();
-      InitParams initParam = new InitParams();
-      initParam.setParams(params);
-      params.add(param);
-      UIAccountForm accountForm = new UIAccountForm(initParam);
-      uiMaskWS.setUIComponent(accountForm);
-      uiMaskWS.setWindowSize(630, -1);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      */
-//    }
-//  }
+      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      PortalRequestContext pcontext = Util.getPortalRequestContext();     
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
+      uiPortal.setRenderSibbling(UIPortal.class);
+      pcontext.setFullRender(true);
+      
+      UIMaskWorkspace  uiMaskWorkspace = event.getSource().getAncestorOfType(UIMaskWorkspace.class);
+      if(uiMaskWorkspace == null || !uiMaskWorkspace.isShow()) return;
+      uiMaskWorkspace.setUIComponent(null);
+      uiMaskWorkspace.setShow(false);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
+    }
+  }
 }
