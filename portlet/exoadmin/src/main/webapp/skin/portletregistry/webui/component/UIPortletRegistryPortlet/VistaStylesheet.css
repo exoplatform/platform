@@ -193,11 +193,11 @@
 }
 
 .ApplicationRegistryWorkingArea .UIPermissionForm .HorizontalLayout .UIAction {
-  width: 80px;
+  width: 100px;
 }
 
 .ApplicationRegistryWorkingArea .UIPermissionForm .HorizontalLayout .UIFormGrid .UIAction {
-  width: 230px;
+  width: 160px;
 }
 
 .ApplicationRegistryWorkingArea .UIInfoPortletForm {

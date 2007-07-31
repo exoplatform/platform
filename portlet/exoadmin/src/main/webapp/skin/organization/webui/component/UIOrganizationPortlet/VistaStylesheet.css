@@ -99,7 +99,6 @@
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
   background: url('/eXoResources/icons/24x24/VistaSkin/NormalGroup.png') no-repeat;
   height: 24px; width: 24px;
-
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
@@ -166,11 +165,11 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TopDecorator {
-	border:  solid  1px #526d82;	border-bottom: 0px;	
+	border: solid 1px #526d82;	border-bottom: 0px;	
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .BottomDecorator {
-	border:solid 1px #526d82;	border-top: 0px;
+	border: solid 1px #526d82;	border-top: 0px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
@@ -276,10 +275,6 @@
 .UIOrganizationPortlet .UIGrid .ActionContainer {  
   margin: auto ;
   width: 54px;
-}
-
-.UIOrganizationPortlet .ManagementTabContent .UIMembershipTypeForm .UIAction {
-	width: 200px;
 }
 
 .UIOrganizationPortlet .UIMembershipTypeForm .FormContainer {

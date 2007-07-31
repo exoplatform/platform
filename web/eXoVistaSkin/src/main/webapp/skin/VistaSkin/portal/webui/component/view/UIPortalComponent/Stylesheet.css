@@ -241,7 +241,11 @@
   border: solid 1px #7c7c7c;
   margin: 1px 14px 10px 14px; 
   padding-top: 5px;
-  height: 100%;
+  min-height: 60px;
+}
+
+*html .UIContainer .LAYOUT-CONTAINER {
+	height: 60px;
 }
 
 .UIContainer .CONTROL-CONTAINER {

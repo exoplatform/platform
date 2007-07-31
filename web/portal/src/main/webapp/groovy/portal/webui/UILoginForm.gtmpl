@@ -34,7 +34,7 @@
 		            </div> 
 		            
 		            <div style="display:block"> 
-				          <div class="Message">
+				          <div class="Message" style="display: none;">
 				            <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
 				              <%=_ctx.appRes("UILoginForm.label.forgot")%>
 				            </div>

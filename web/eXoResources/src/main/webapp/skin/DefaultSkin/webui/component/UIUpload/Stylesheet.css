@@ -11,7 +11,7 @@
 .UploadButton {
   width: 20px; height: 20px; 
 	cursor: pointer; vertical-align: bottom;
-	background: url("Background/UpArrow16x16.gif") no-repeat left;
+	background: url('background/UpArrow16x16.gif') no-repeat left;
 }
 
 .ProgressBarFrame {
@@ -30,7 +30,7 @@
 
 .BlueProgressBar {
 	width: 0%; height: 14px;
-	background: url("Background/BlueBg1x14.gif") repeat-x;
+	background: url('background/BlueBg1x14.gif') repeat-x;
 	position: relative;
 }
 
@@ -46,7 +46,7 @@
 
 .DeleteFileFrame {
 	float: left;
-	background: url("Background/Round18x18.gif") no-repeat;
+	background: url('background/Round18x18.gif') no-repeat;
 	cursor: pointer;
 	padding-left: 23px;
 	margin-left: 5px;

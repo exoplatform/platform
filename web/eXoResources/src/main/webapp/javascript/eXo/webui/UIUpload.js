@@ -30,7 +30,7 @@ UIUpload.prototype.createUploadEntry = function(uploadId) {
 //  var uploadAction = eXo.env.server.context + "/upload?uploadId=" + uploadId+"&action=upload" ;
   idoc.open();
   idoc.write("<head>");
-  idoc.write("<link rel='stylesheet' type='text/css' href= '/eXoResources/skin/webui/component/UIUpload/DefaultStylesheet.css' />");
+  idoc.write("<link rel='stylesheet' type='text/css' href= '/eXoResources/skin/DefaultSkin/webui/component/UIUpload/Stylesheet.css' />");
   idoc.write("<script type='text/javascript'>var eXo = parent.eXo</script>");
   idoc.write("</head>");
   idoc.write("<body style='margin: 0px; border: 0px;'>");
