@@ -90,16 +90,7 @@ public class UIContentForm extends UIForm {
       
       if(contentNode == null) contentNode= new ContentNode();
       uiForm.invokeSetBindingBean(contentNode);
-      
-      if(contentNode != uiForm.getContentNode()) {
-        ContentNode existNode = uiNav.findNode(contentNode.getId()) ;
-        if(existNode != null) {
-          UIApplication uiApp = event.getRequestContext().getUIApplication() ;
-          uiApp.addMessage(new ApplicationMessage("UIContentForm.msg.SameNode", null, ApplicationMessage.WARNING)) ;
-          return ;
-        }  
-      }
-      
+
       if(contentNode.getId() == null || contentNode.getId().length() == 0){
         contentNode.setId(contentNode.getLabel());
       }
@@ -110,8 +101,21 @@ public class UIContentForm extends UIForm {
           return ;  
         }
       }
-
-      uiNav.save(contentNode);
+      
+      if(contentNode != uiForm.getContentNode()) {
+        ContentNode existingNode = uiNav.findNode(contentNode.getId()) ;
+        if(existingNode != null) {
+          UIApplication uiApp = event.getRequestContext().getUIApplication() ;
+          uiApp.addMessage(new ApplicationMessage("UIContentForm.msg.SameNode", null, ApplicationMessage.WARNING)) ;
+          return ;
+        }
+        uiNav.save(contentNode);
+      } else {
+        uiNav.save(contentNode);
+        UIDetailContent uiDetail = uiPortlet.findFirstComponentOfType(UIDetailContent.class) ;
+        uiDetail.refresh(true) ;
+      }
+      
       //-----------------------------
       
 //      UIContentForm uiForm = event.getSource() ;
