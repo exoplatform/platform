@@ -242,6 +242,7 @@ public class UIExoStart extends UIComponent {
 
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
       UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class) ;
+      uiToolPanel.setShowMaskLayer(false);
       uiToolPanel.setWorkingComponent(UIPageCreationWizard.class, null) ;
 
       uiExoStart.setUIControlWSWorkingComponent(UIWelcomeComponent.class) ;      
@@ -261,6 +262,7 @@ public class UIExoStart extends UIComponent {
       UIWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
       UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class) ;
+      uiToolPanel.setShowMaskLayer(false);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiExoStart.getParent()) ;
       
