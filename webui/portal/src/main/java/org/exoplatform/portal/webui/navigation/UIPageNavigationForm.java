@@ -57,7 +57,13 @@ import org.exoplatform.webui.organization.UIPermissionSelector;
       type = UIFormInputSet.class,
       id = "PermissionSetting",
       template = "system:/groovy/webui/core/UITabSelector.gtmpl"
+  ),
+  @ComponentConfig(
+      type = UIFormInputSet.class,
+      id = "PageNavigationSetting",
+      template = "system:/groovy/portal/webui/navigation/UIPageNavigationSetting.gtmpl"
   )
+  
 })
 public class UIPageNavigationForm extends UIFormTabPane {
 
@@ -88,7 +94,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
       priorties.add(new SelectItemOption<String>(String.valueOf(i), String.valueOf(i)));
     }
 
-    UIFormInputSet uiSettingSet = new UIFormInputSet("PageNavigationSetting") ;    
+    UIFormInputSet uiSettingSet = createUIComponent(UIFormInputSet.class, "PageNavigationSetting", "PageNavigationSetting") ;    
     uiSettingSet.addUIFormInput(uiSelectBoxOwnerType).
                  addUIFormInput(uiOwnerId).
                  addUIFormInput(new UIFormStringInput("creator", "creator",null).setEditable(false)).
