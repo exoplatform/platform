@@ -320,6 +320,7 @@ public class DataStorageImpl implements DataStorage {
       String  xml = node.getProperty("data").getValue().getString() ;
       list.add(mapper_.fromXML(xml, cq.getClassType())) ;
     }
+    session.logout();
     return new ObjectPageList(list, 20);
   }
   
