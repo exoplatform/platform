@@ -81,6 +81,8 @@
 .RemoveFile {
 	float: left;
 	height: 18px; line-height: 18px;
+	background: url('eXoResources/skin/DefaultSkin/webui/UIUpload/background/Delete18x18.gif') repeat-x;
 	cursor: pointer;
 	margin-left: 10px;
+	width: 18px;
 }

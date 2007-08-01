@@ -70,6 +70,8 @@
 .RemoveFile {
 	float: left;
 	height: 18px; line-height: 18px;
+	background: url('background/Delete18x18.gif') no-repeat;
 	cursor: pointer;
 	margin-left: 10px;
+	width: 18px;
 }

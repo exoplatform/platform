@@ -9,13 +9,9 @@
 }
 
 .UploadButton {
-	float: right;
+  width: 27px; height: 21px; 
+	cursor: pointer; vertical-align: bottom;
 	background: url('background/UpArrow16x16.png') no-repeat left;
-	border:1px red solid;
-	cursor: pointer;
-	padding-left: 16px;
-	color: #058ee6;
-	font-weight: bold;
 }
 
 .ProgressBarFrame {
@@ -59,10 +55,12 @@
 	padding-left: 23px;
 	margin-left: 5px;
 }
+
 .DeleteFileLable {
 	font-family: verdana;
 	line-height: 18px;
 }
+
 .FileName {
 	float: left;
 }
@@ -75,7 +73,9 @@
 
 .RemoveFile {
 	float: left;
-	height: 18px; line-height: 18px;
+	height: 21px; line-height: 21px;
+	width: 24px;
+	background: url('background/RemoveIcon.png') no-repeat;
 	cursor: pointer;
 	margin-left: 10px;
 	color: blue;
