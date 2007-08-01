@@ -1,0 +1,24 @@
+<div class="UIFormInputSet">
+	<table class="UIFormGrid">
+		<tbody>
+		  <% 
+		  ArrayList children = uicomponent.getChildren(); 
+		  for(child in children) {
+		  %>
+			<tr>
+				<td class="FieldLabel"><%=_ctx.appRes("UIPageNavigationSetting.label." + child.getId())%></td>
+				<td class="FieldComponent">
+					<% uicomponent.renderUIComponent(child); %>
+				</td>
+				<% if(child.getId().equals("ownerId")){ %>
+				  <% if(uicomponent.getChildById("ownerType").getValue().equals("group")) {%>
+				    <td>
+				        <% String event = uicomponent.getParent().event("ChangeOwnerType");%>
+				        <a href="<%=event%>"> Select other group </a>
+				    </td>
+				  <% }} %>
+			</tr>
+			<% } %>
+		</tbody>
+	</table>
+</div>
