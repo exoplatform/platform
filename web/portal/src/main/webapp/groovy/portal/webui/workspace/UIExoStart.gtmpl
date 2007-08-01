@@ -253,8 +253,6 @@
                   """ ; 
                 }
                 renderNavigations() ;
-                 print """ 
-                  """ ; 
                 if(uicomponent.isLogged()) {
                   renderLoginAction("Logout", "LogoutIcon", "Logout") ;
                 } else {

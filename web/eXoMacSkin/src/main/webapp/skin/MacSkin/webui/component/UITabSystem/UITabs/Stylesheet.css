@@ -68,7 +68,7 @@
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
   line-height: 24px;
-  padding: 0px 0px 0px 20px;
+  padding: 0px 0px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
@@ -108,7 +108,7 @@
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
-  padding: 0px 0px 0px 20px;
+  padding: 0px 0px 0px 0px;
   line-height: 24px;
 }
 
@@ -151,7 +151,7 @@
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
   color: white;
   line-height: 24px;
-  padding: 0px 0px 0px 20px;
+  padding: 0px 0px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab a {

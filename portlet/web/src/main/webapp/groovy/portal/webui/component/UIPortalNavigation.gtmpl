@@ -117,14 +117,14 @@
 		             <div class="LeftTab">
 		               <div class="RightTab">
 		                 <div class="MiddleTab">
-		                   <div class="TabIcon $icon">
+		                   <div class="TabIcon">
 		                   <%
 		                   	String arrowIcon = "";
 							           if (node.getChildren() != null && node.getChildren().size() > 0) {
 							           	 arrowIcon = "DropDownArrowIcon";
 										     }
 						           %>
-		                   	<div class="$arrowIcon"><a href="$actionLink">$node.label</a></div><!--  onclick="return false;" -->
+		                   	<div class="$arrowIcon"><a class="TabLabel" href="$actionLink">$node.label</a></div><!--  onclick="return false;" -->
 		                   </div>
 		                 </div>
 		               </div>

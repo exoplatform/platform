@@ -70,7 +70,12 @@
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
   height: 24px ;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
-  padding: 0px 0px 0px 20px ;
+  
+}
+
+.UINavigationPortlet .MiddleTab .TabLabel{
+	padding: 3px 0px 3px 20px ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem a {

@@ -87,7 +87,7 @@
   color: white;
   width: auto; 
   line-height: 24px;
-  padding-left: 16px;
+  
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
@@ -134,7 +134,6 @@
   color: white;
   width: auto;
   line-height: 24px;
-  padding-left: 16px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
@@ -182,7 +181,6 @@
   color: white;
   width: auto; 
   line-height: 24px;
-  padding-left: 16px;
 }
 .UIHorizontalTabs .UITab .SelectedNavigationTab a {
   color: black;
