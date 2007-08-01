@@ -57,10 +57,7 @@ public class UIUserInGroup extends UIContainer {
   protected String loadConfirmMesssage(org.exoplatform.webui.config.Event event, WebuiRequestContext context, String beanId) {
    
     String confirm = event.getConfirm();
-//    System.out.println("\n\n\n--- key: " + confirm + "  eventName: " + event.getName());
     if(confirm.length() < 1) return confirm;
-//    try{ int k = 3/0;
-//    }catch (Exception e) { e.printStackTrace();}
     UIGridUser uiGrid = getChild(UIGridUser.class);
     try {
       confirm = context.getApplicationResourceBundle().getString(confirm);
@@ -70,7 +67,6 @@ public class UIUserInGroup extends UIContainer {
       if(selectGroup == null) return confirm;
       confirm = confirm.replaceAll("\\{0\\}", membershipUser.getUserName());
       confirm = confirm.replaceAll("\\{1\\}", selectGroup.getId().substring(1));
-//      System.out.println("\n\n\n confirm message "+confirm +"\n\n");
     }catch (Exception e) {
       
     }

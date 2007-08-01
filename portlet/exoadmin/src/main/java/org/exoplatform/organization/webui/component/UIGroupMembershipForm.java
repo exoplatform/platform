@@ -60,9 +60,9 @@ public class UIGroupMembershipForm extends UIForm {
     UIListUsers listUsers = createUIComponent(UIListUsers.class, null, "ListUserForSearch");
     searchUserPopup.setUIComponent(listUsers);
     UIGrid grid = listUsers.findFirstComponentOfType(UIGrid.class);
-    grid.setId("NewGrid");
+    grid.setId("SearchUserGrid");
     grid.configure(grid.getBeanIdField(), grid.getBeanFields(), new String[]{"SelectUser"});
-    grid.getUIPageIterator().setId("NewPageIterator");
+    grid.getUIPageIterator().setId("SearchUserPageIterator");
     
     listUsers.getChild(UISearchForm.class).setId("SearchUserForm");
     loadData();

@@ -68,6 +68,7 @@ public class UIListUsers extends UISearch {
     //TODO: Tung.Pham added
     //--------------------------------------------
 		grid_.getUIPageIterator().setId("UIListUsersIterator") ;
+		grid_.getUIPageIterator().setParent(this);
     //--------------------------------------------
 		search(new Query()) ;
 	}
@@ -88,7 +89,7 @@ public class UIListUsers extends UISearch {
     //------------------------------------------------------------------
     //uiGrid.getUIPageIterator().setPageList(service.getUserHandler().findUsers(query)) ;
     PageList pageList = service.getUserHandler().findUsers(query) ;
-    pageList.setPageSize(10) ;
+    pageList.setPageSize(3) ;
     grid_.getUIPageIterator().setPageList(pageList) ;
     //------------------------------------------------------------------    
     UIPageIterator pageIterator = grid_.getUIPageIterator();
