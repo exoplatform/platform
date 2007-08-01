@@ -7,12 +7,11 @@
   <import>war:/conf/portal-configuration.xml</import>   
   
   <!--if organization service is database, import hibernate-organization-configuration.xml-->
-  
+  <!-- 
   <import>war:/conf/hibernate-organization-configuration.xml</import>
-  
-  <!--
-  <import>war:/conf/jdbc-organization-configuration.xml</import> 
-  -->
+   -->
+   
+  <import>war:/conf/jdbc-organization-configuration.xml</import>
   
   <!--for organization service used active directory which is user lookup server -->
   <!--

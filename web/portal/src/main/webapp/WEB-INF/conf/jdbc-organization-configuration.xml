@@ -29,6 +29,12 @@
         </component-plugin>
         
         <component-plugin>
+      <name>organization.user.preDelete</name>
+          <set-method>addListener</set-method>
+      <type>org.exoplatform.portal.config.RemoveUserPortalConfigListener</type>
+        </component-plugin>
+
+        <component-plugin>
       <name>organization.membershipType.preDelete</name>
           <set-method>addListener</set-method>
       <type>org.exoplatform.services.organization.jdbc.listeners.RemoveMembershipListener</type>
@@ -39,6 +45,12 @@
           <set-method>addListener</set-method>
       <type>org.exoplatform.services.organization.jdbc.listeners.RemoveMembershipListener</type>
         </component-plugin>
+        
+        <component-plugin>
+      <name>organization.group.preDelete</name>
+          <set-method>addListener</set-method>
+      <type>org.exoplatform.portal.config.RemoveGroupPortalConfigListener</type>
+        </component-plugin>        
         
         <component-plugin>
       <name>organization.group.preDelete</name>
