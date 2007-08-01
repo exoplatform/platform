@@ -76,7 +76,7 @@ UICalendar.prototype.renderCalendar = function() {
   var startDayOfWeek = this.getDayOfWeek(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, dayOfMonth) ;
   var daysInMonth = this.getDaysInMonth(this.currentDate.getFullYear(), this.currentDate.getMonth()) ;
   var clazz = null;
-										
+console.log("daysInMonth ",daysInMonth);
 	var table =	'<div class="UICalendar" onmousedown="event.cancelBubble = true">' ;
 	table += 		'	<table class="MonthYearBox">' ;
 	table += 		'	  <tr>' ;
@@ -171,7 +171,7 @@ UICalendar.prototype.getDayOfWeek = function(year, month, day) {
 }
 
 UICalendar.prototype.getDaysInMonth = function(year, month) {
-	return [31, ((!(year % 4 ) && ( (year % 100 ) || !( year % 400 ) ))? 29:28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month-1];
+	return [31, ((!(year % 4 ) && ( (year % 100 ) || !( year % 400 ) ))? 29:28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
 }
 
 UICalendar.prototype.getChangedTime = function(input, type) {
