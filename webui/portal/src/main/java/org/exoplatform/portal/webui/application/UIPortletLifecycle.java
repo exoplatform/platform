@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import javax.portlet.WindowState;
+
 import org.exoplatform.commons.utils.ExceptionUtil;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -92,15 +94,17 @@ public class UIPortletLifecycle extends Lifecycle {
     input.setWindowID(uiPortlet.getExoWindowID());
     input.setRenderParameters(getRenderParameterMap(uiPortlet, prcontext)) ;
     RenderOutput output = null;
-    StringBuilder portletContent = new StringBuilder("EXO-ERROR: Portlet container throw an exception\n") ;
+    StringBuilder portletContent = new StringBuilder() ;
     String  portletTitle = null ;
     try {        
-      output = portletContainer.render(prcontext.getRequest(),  prcontext.getResponse(), input);
-      if(output.getContent() == null) {
-        portletContent.append(uiPortlet.getId()).append(" has error");
-      } else {
-        portletContent.setLength(0);
-        portletContent.append(output.getContent()) ;
+      if(uiPortlet.getCurrentWindowState() != WindowState.MINIMIZED) {
+        output = portletContainer.render(prcontext.getRequest(),  prcontext.getResponse(), input);
+        if(output.getContent() == null) {
+          portletContent.append("EXO-ERROR: Portlet container throw an exception\n").append(uiPortlet.getId()).append(" has error");
+        } else {
+          portletContent.setLength(0);
+          portletContent.append(output.getContent()) ;
+        }
       }
     } catch (Throwable ex) {
       ex = ExceptionUtil.getRootCause(ex) ;
