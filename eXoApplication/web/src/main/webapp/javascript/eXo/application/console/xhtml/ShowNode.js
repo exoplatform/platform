@@ -18,19 +18,27 @@ ShowNode.prototype.help = function() {
           <br>\
           <br/>Examples:\
           <br/>  ShowNode firstDivID will show all child node from firstDivID(unlimit level)\
-          <br/>  ShowNode firstDivID 3 will show 3 level dowm from firstDivID') ;
+          <br/>  ShowNode firstDivID -ld=3 will show 3 level dowm from firstDivID') ;
 } ;
 
 ShowNode.prototype.execute = function(args, consoleScreen) {
   this.parametersParser(args) ;
-  if (!this.params) {
+  if (!this.subCmd) {
     consoleScreen.write('Missing argument') ;
     return -1;
   }
 
-  var leveldepth = -1 ;
+  var leveldepth = 2 ;
+  
+  if (this.params['ld']) {
+    leveldepth = this.params['ld'] ;
+  }
+  
+  if (this.params['leveldepth']) {
+    leveldepth = this.params['leveldepth'] ;
+  }
 
-  var nodeId = args.trim() ;
+  var nodeId = this.subCmd ;
   var node = false ;
 
   node = document.getElementById(nodeId) ;

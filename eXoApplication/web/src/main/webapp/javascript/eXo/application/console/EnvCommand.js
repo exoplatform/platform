@@ -35,7 +35,7 @@ Env.prototype.execute = function(args, consoleScreen) {
   this.parametersParser(args) ;
   var envManager = eXo.application.console.EnvManager ;
   var envVars = envManager.getEnvVariables() ;
-  if (!this.subCmd && this.subCmd != '') {
+  if (!args || args == '') {
     if (envVars.length > 0) {
       var envStr = this.formatEnvList(envVars) ;
       consoleScreen.write(envStr) ;
@@ -60,6 +60,10 @@ Env.prototype.execute = function(args, consoleScreen) {
     }
   }
   
+  if (!name && this.params) {
+    name = this.params[this.params.length - 1] ;
+  }
+  
   if (this.subCmd == 'set') {
     if (name && value) {
       envManager.setVariable(name, value) ;
@@ -70,6 +74,10 @@ Env.prototype.execute = function(args, consoleScreen) {
       return -1 ;
     }
   } else if (this.subCmd == 'remove') {
+    if (!name) {
+      consoleScreen.write('Missing name of variable.') ;
+      return -1 ;
+    }
     for (var i=0; i<envVars.length; i++) {
       var v = envVars[i] ;
       if (v[0] == name) {

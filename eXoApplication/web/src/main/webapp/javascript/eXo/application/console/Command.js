@@ -17,6 +17,7 @@ Command.prototype = {
   ,
   
   /**
+   * This method should parse and create and set value to all argument found in cmdQuery
    * 
    * @param {String} cmdQuery
    * 
@@ -32,7 +33,7 @@ Command.prototype = {
       this.subCmd = subCmdPattern.exec(cmdQuery)[0].trim() ;
       cmdQuery = cmdQuery.replace(this.subCmd, '').trim() ;
     }
-    var spliter = /(^-{1,2}[^-]*)|(^.*=.*\s?)/ ;
+    var spliter = /(^-{1,2}[^-]*)|(^.*=.*\s*)/ ;
     var params = [] ;
     var param = false ;
     while((param = spliter.exec(cmdQuery))) {
@@ -41,6 +42,7 @@ Command.prototype = {
       params[tmp[0]] = tmp[1] ;
       cmdQuery = cmdQuery.replace(param[0], '').trim() ;
     }
+    params[params.length] = cmdQuery ;
     this.params = params ;
   }
   ,
