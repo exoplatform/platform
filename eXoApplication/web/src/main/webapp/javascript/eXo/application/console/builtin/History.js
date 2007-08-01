@@ -15,8 +15,8 @@ History.prototype.help = function() {
 
 History.prototype.execute = function(args, consoleScreen) {
   var cmdHistory = eXo.application.console.CommandManager.cmdHistory ;
-  args = args.trim() ;
   if (args && args != '') {
+    args = args.trim() ;
     if (args == 'clear') {
       cmdHistory.clear() ;
       return 0 ;

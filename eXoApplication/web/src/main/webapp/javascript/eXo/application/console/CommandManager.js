@@ -214,6 +214,7 @@ CommandManager.prototype.execute = function(commandLine) {
   var firstSpacePos = commandLine.indexOf(' ') ;
   if (firstSpacePos == -1) {
     commandName = commandLine ;
+    fullCommandName = this.getFullCmd(commandName) ;
   } else {
     commandName = commandLine.substring(0, firstSpacePos).trim() ;
     fullCommandName = this.getFullCmd(commandName) ;
