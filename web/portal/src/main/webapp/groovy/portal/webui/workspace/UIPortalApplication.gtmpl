@@ -44,7 +44,7 @@
     <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/WebUI.js"></script>
     <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIForm.js"></script>
     <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIPopup.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIDebugWindow.js"></script>
+    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/MouseEventManager.js"></script>
     <!--
     	When debugging is finished, put the firebug script tag in this comment block
     	<script language="javascript" type="text/javascript" src="/eXoResources/javascript/eXo/firebug/firebug.js"></script>

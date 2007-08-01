@@ -1,27 +1,15 @@
 function MouseEventManager () {
-	this.onMouseDownHandlers = new eXo.core.HashMap() ;
-	this.onMouseUpHandlers = new eXo.core.HashMap() ;
-	document.onmousedown = this.docMouseDownEvt ;
-	document.onmouseup = this.docMouseUpEvt ;
 } ;
 
 MouseEventManager.prototype.docMouseDownEvt = function(evt) {
-	if(!evt) evt = window.event ;
-	eXo.core.MouseEventManager.preOnMouseDown(evt) ;
-	eXo.core.MouseEventManager.postOnMouseDown(evt) ;
+	alert(eXo.core.MouseEventManager.onMouseUpHandlers) ;
+	eXo.core.MouseEventManager.onMouseUpHandlers(evt) ;
+	document.onmousedown = null ;
 } ;
 
-MouseEventManager.prototype.preOnMouseDown = function(evt) {
-	evt.cancelBubble = true ;
-	var mouseDownHandlers = eXo.core.MouseEventManager.onMouseDownHandlers ;
-  for(var name in mouseDownHandlers.properties) {
-    var method = mouseDownHandlers.get(name) ;
-    method() ;
-  }
-} ;
-
-MouseEventManager.prototype.postOnMouseDown = function(evt) {
-	
+MouseEventManager.prototype.addMouseDownHandler = function(method) {
+	document.onmousedown = this.docMouseDownEvt ;
+	this.onMouseDownHandlers = method ;
 } ;
 
 MouseEventManager.prototype.docMouseUpEvt = function() {
@@ -29,20 +17,20 @@ MouseEventManager.prototype.docMouseUpEvt = function() {
 	
 } ;
 
-MouseEventManager.prototype.preOnMouseUp = function() {
-	
+MouseEventManager.prototype.addMouseUpHandler = function(method) {
+	document.onmouseup = this.docMouseUpEvt ;
+	this.onMouseUpHandlers = method ;
 } ;
 
-MouseEventManager.prototype.postOnMouseUp = function() {
-	
+MouseEventManager.prototype.docMouseClickEvt = function(evt) {
+	if(typeof(eXo.core.MouseEventManager.onMouseClickHandlers) == "string") eval(eXo.core.MouseEventManager.onMouseClickHandlers) ;
+	else eXo.core.MouseEventManager.onMouseClickHandlers(evt) ;
+	document.onclick = null ;
 } ;
 
-MouseEventManager.prototype.addMouseDownHandler = function(id, method) {
-	this.onMouseDownHandlers.put(id, method) ;
-} ;
-
-MouseEventManager.prototype.addMouseUpHandler = function(id, method) {
-	this.onMouseUpHandlers.put(id, method) ;
+MouseEventManager.prototype.addMouseClickHandler = function(method) {
+	document.onclick = this.docMouseClickEvt ;
+	this.onMouseClickHandlers = method ;
 } ;
 
 eXo.core.MouseEventManager = new MouseEventManager() ;

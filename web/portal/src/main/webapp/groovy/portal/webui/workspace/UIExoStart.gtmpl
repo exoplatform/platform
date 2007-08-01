@@ -9,8 +9,8 @@
   
   jsmanager.importJavascript('eXo.portal.UIExoStartMenu') ;
   jsmanager.addOnLoadJavascript('eXo.portal.UIExoStartMenu.onLoad');
-  jsmanager.addOnResizeJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
-  jsmanager.addOnScrollJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
+//  jsmanager.addOnResizeJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
+//  jsmanager.addOnScrollJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
   String docBase =  rcontext.getRequestContextPath() ;
   String onclick = "eXo.portal.UIExoStartMenu.showStartMenu(event);" ;
   
@@ -216,7 +216,7 @@
     print """
       <div class="LoginContainer">
         <div class="LabelItem">
-          <div class="$icon" onclick = "location.href='$href'; event.cancelBubble= true ;">
+          <div class="$icon" onclick = "location.href='$href';">
             <div class="LabelText"><a href="$href">$name</a></div>
           </div>
         </div>

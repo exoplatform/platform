@@ -23,7 +23,7 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 	maskLayer.style.zIndex = maskLayer.maxZIndex ;
 	maskLayer.style.top = "0px" ;
 	maskLayer.style.left = "0px" ;
-	maskLayer.style.right = "0px" ;
+//	maskLayer.style.right = "0px" ;
 
 	if(opacity) {
     Browser.setOpacity(maskLayer, opacity) ;
