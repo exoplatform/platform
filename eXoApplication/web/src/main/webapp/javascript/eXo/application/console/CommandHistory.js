@@ -28,7 +28,7 @@ CommandHistory.prototype.finish = function() {
 
 CommandHistory.prototype.getPrevious = function() {
   if (this.commands.length <= 0) return false ; 
-    this.currentIndex -- ;
+  this.currentIndex -- ;
   if (this.currentIndex < 0) {
     this.currentIndex = this.commands.length - 1 ;
   }

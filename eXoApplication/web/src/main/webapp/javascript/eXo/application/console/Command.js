@@ -27,23 +27,36 @@ Command.prototype = {
     if (!cmdQuery || cmdQuery.trim() == '') {
       return ;
     }
+    window.alert(cmdQuery) ;
     cmdQuery = cmdQuery.trim() ;
-    var subCmdPattern = /^[^-\s]*/ ;
-    if (subCmdPattern.test(cmdQuery)) {
-      this.subCmd = subCmdPattern.exec(cmdQuery)[0].trim() ;
-      cmdQuery = cmdQuery.replace(this.subCmd, '').trim() ;
-    }
-    var spliter = /(^-{1,2}[^-]*)|(^.*=.*\s*)/ ;
+    var subCmdPattern = /^[^-=\s]*/ ;
+    var paramPattern = /^[^=\s]*=[^=\s]*/ ;
     var params = [] ;
     var param = false ;
-    while((param = spliter.exec(cmdQuery))) {
-      var tmp = param[0].trim().split('=') ;
-      tmp[1] = tmp[1] ? tmp[1] : false ;
-      params[tmp[0]] = tmp[1] ;
-      cmdQuery = cmdQuery.replace(param[0], '').trim() ;
+    var subCmds = [] ;
+    var subCmd = false ;
+    var hasParam = false ;
+    var hasSubCmd = false ;
+    while(cmdQuery != '') {
+      param = paramPattern.exec(cmdQuery) ;
+      subCmd = subCmdPattern.exec(cmdQuery) ;
+      if (subCmd) {
+        subCmds[subCmds.length] = subCmd[0].trim() ;
+        cmdQuery = cmdQuery.replace(subCmd, '').trim() ;
+        hasSubCmd = true ;
+      }
+      if (param) {
+        var tmp = param[0].trim().split('=') ;
+        tmp[1] = tmp[1] ? tmp[1] : false ;
+        params[tmp[0]] = tmp[1] ;
+        cmdQuery = cmdQuery.replace(param[0], '').trim() ;
+        hasParam = true ;
+      }
+      param = false ;
+      subCmd = false ;
     }
-    params[params.length] = cmdQuery ;
-    this.params = params ;
+    if (hasParam) this.params = params ;
+    if (hasSubCmd) this.subCmds = subCmds ;
   }
   ,
   

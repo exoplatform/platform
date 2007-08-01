@@ -22,7 +22,9 @@ EnvManager.prototype.init = function(node) {
 EnvManager.prototype.setVariable = function(key, value) {
   // Convert to String type
   key += '' ;
-  value += '' ;
+  if (value !== false) {
+    value += '' ;
+  }
   var envVars = this.getEnvVariables() ;
   var found = false ;
   for (var i=0; i<envVars.length; i++) {

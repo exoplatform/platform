@@ -9,7 +9,7 @@ function ShowNode() {
 ShowNode.prototype = eXo.application.console.Command.createInstance() ;
 
 ShowNode.prototype.help = function() {
-  return ('Usage: ShowNode [OPTION]... NodeID\
+  return ('Usage: ShowNode NodeID [OPTION]... \
           <br>\
           <br/>Show human readable DOM Node structor\
           <br/>Mandatory arguments to long options are mandatory for short options too.\
@@ -23,22 +23,27 @@ ShowNode.prototype.help = function() {
 
 ShowNode.prototype.execute = function(args, consoleScreen) {
   this.parametersParser(args) ;
-  if (!this.subCmd) {
+  if (!this.subCmds) {
     consoleScreen.write('Missing argument') ;
     return -1;
   }
 
-  var leveldepth = 2 ;
+  var leveldepth = -1 ;
   
-  if (this.params['ld']) {
-    leveldepth = this.params['ld'] ;
+  if (this.params) {
+    if (this.params['-ld']) {
+      leveldepth = this.params['-ld'] ;
+    }
+    
+    if (this.params['--leveldepth']) {
+      leveldepth = this.params['--leveldepth'] ;
+    }
   }
-  
-  if (this.params['leveldepth']) {
-    leveldepth = this.params['leveldepth'] ;
+  if (isNaN(leveldepth)) {
+    leveldepth = -1 ;
   }
 
-  var nodeId = this.subCmd ;
+  var nodeId = this.subCmds[0] ;
   var node = false ;
 
   node = document.getElementById(nodeId) ;

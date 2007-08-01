@@ -14,14 +14,14 @@ History.prototype.help = function() {
 } ;
 
 History.prototype.execute = function(args, consoleScreen) {
-  this.parametersParser(args) ;
   var cmdHistory = eXo.application.console.CommandManager.cmdHistory ;
-  if (this.subCmd) {
-    if (this.subCmd == 'clear') {
+  args = args.trim() ;
+  if (args && args != '') {
+    if (args == 'clear') {
       cmdHistory.clear() ;
       return 0 ;
     } else {
-      consoleScreen.write(this.subCmd + ' is not valid') ;
+      consoleScreen.write(args + ' is not valid') ;
       return -1 ;
     }
   }

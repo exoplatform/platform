@@ -64,37 +64,33 @@ Env.prototype.execute = function(args, consoleScreen) {
     name = this.params[this.params.length - 1] ;
   }
   
-  if (this.subCmd == 'set') {
-    if (name && value) {
+  if (this.subCmds[0] == 'set') {
+    if (name) {
       envManager.setVariable(name, value) ;
-      consoleScreen.write(name + '=' + value) ;
+      if (value) {
+        consoleScreen.write(name + '=' + value) ;
+      } else {
+        consoleScreen.write('set ' + name + ' to null') ;
+      }
       return 0 ;
     } else {
-      consoleScreen.write('missing =') ;
+      consoleScreen.write('missing name of variable.') ;
       return -1 ;
     }
-  } else if (this.subCmd == 'remove') {
+  } else if (this.subCmds[0] == 'remove') {
     if (!name) {
       consoleScreen.write('Missing name of variable.') ;
       return -1 ;
     }
-    for (var i=0; i<envVars.length; i++) {
-      var v = envVars[i] ;
-      if (v[0] == name) {
-        value = v[1] ;
-        v[1] = false ;
-        envManager.updateEnvVariables(envVars, screen) ;
-        break ;
-      }
-    }
-    if (value) {
+    if (value = envManager.getVariable(name)) {
       consoleScreen.write('remove ' + name + '=' + value) ;
+      envManager.setVariable(name, false) ;
       return 0 ;
     } else {
       consoleScreen.write('Environment variable ' + name + ' not defined') ;
       return -1 ;
     }
-  } else if (this.subCmd == 'display') {
+  } else if (this.subCmds[0] == 'display') {
     var envLstTmp = [] ;
     for (var i=0; i<envVars.length; i++) {
       var v = envVars[i] ;
