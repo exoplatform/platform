@@ -58,7 +58,6 @@ UIExoStartMenu.prototype.startButtonOut = function() {
 };
 
 UIExoStartMenu.prototype.showStartMenu = function(evt) {
-	alert('showStartMenu') ;
   if (!evt) evt = window.event ;
   evt.cancelBubble = true ;
 
@@ -86,7 +85,6 @@ UIExoStartMenu.prototype.showStartMenu = function(evt) {
 };
 
 UIExoStartMenu.prototype.hideUIStartMenu = function() {
-	alert('hideUIStartMenu') ;
   var uiStartContainer = document.getElementById("StartMenuContainer") ;
   eXo.webui.UIPopupMenu.hide(uiStartContainer);
   eXo.portal.UIExoStartMenu.buttonClicked = false ;
