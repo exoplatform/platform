@@ -238,6 +238,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
       if(uiGroupSelector.getSelectedGroup() == null) {
         UIFormSelectBox uiSelectBox = uiPageNavigationForm.getUIFormSelectBox("ownerType");
         uiSelectBox.setValue(PortalConfig.USER_TYPE);
+        uiPageNavigationForm.removeChildById("PermissionSetting") ;
         PortalRequestContext prContext = Util.getPortalRequestContext();
         uiOwnerId.setValue(prContext.getRemoteUser());
         return;
