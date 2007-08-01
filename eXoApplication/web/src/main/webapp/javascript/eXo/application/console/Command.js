@@ -27,7 +27,6 @@ Command.prototype = {
     if (!cmdQuery || cmdQuery.trim() == '') {
       return ;
     }
-    window.alert(cmdQuery) ;
     cmdQuery = cmdQuery.trim() ;
     var subCmdPattern = /^[^-=\s]*/ ;
     var paramPattern = /^[^=\s]*=[^=\s]*/ ;
