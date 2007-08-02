@@ -119,17 +119,19 @@ function ScrollManager() {
 };
 
 ScrollManager.prototype.initArrowButton = function(arrow, dir, normalClass, overClass, disabledClass) {
-	arrow.direction = dir; // "left" or "right" (up or down)
-	arrow.overClass = overClass;
-	arrow.disabledClass = disabledClass;
-	arrow.styleClass = normalClass;
-	arrow.scrollMgr = this;
-	arrow.onmouseover = this.mouseOverArrow;
-	arrow.onmouseout = this.mouseOutArrow;
-	arrow.arrowClick = this.scroll;
-	arrow.onclick = arrow.arrowClick;
-	if (dir == "left") this.leftArrow = arrow;
-	else if (dir == "right") this.rightArrow = arrow;
+	if (arrow) {
+		arrow.direction = dir; // "left" or "right" (up or down)
+		arrow.overClass = overClass;
+		arrow.disabledClass = disabledClass;
+		arrow.styleClass = normalClass;
+		arrow.scrollMgr = this;
+		arrow.onmouseover = this.mouseOverArrow;
+		arrow.onmouseout = this.mouseOutArrow;
+		arrow.arrowClick = this.scroll;
+		arrow.onclick = arrow.arrowClick;
+		if (dir == "left") this.leftArrow = arrow;
+		else if (dir == "right") this.rightArrow = arrow;
+	}
 };
 
 ScrollManager.prototype.enableArrow = function(arrow, enabled) {
