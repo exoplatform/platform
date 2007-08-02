@@ -6,6 +6,7 @@
 	//jsmanager.addJavascript('eXo.portal.UIPortal.onLoads();');
 	//System.out.println(uicomponent.getParent().getParent()) ;
 	ArrayList children = uicomponent.getChildren();
+	String id = uicomponent.getId();
 	
 %>
 <% if(children != null && children.size > 0) { %>
@@ -20,6 +21,7 @@
 				  	  int counter = 1;
 				  		for(uiChild in uicomponent.getChildren()) {
 				  			String title = uiChild.getTitle();
+				  			String tabId = uiChild.getId();
 				  			if(title == null || title.trim().length() < 1 ) title = "Tab" +String.valueOf(counter);
 				  	%>
 				  		 	<div class="UITab NormalTabStyle">
@@ -27,7 +29,7 @@
 				          	<div class="LeftTab">
 				            	<div class="RightTab">
 				              	<div class="MiddleTab"> 
-				              		<a class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=title%></a>
+				              		<a class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' )"><%=title%></a>
 				              		<%
 				              		  String editCss = "";
 				              		  if(uiChild.isShowEditControl()){
