@@ -3,26 +3,26 @@
 		<div class="ButtonContainer" id="ButtonContainerBrowserToolbar">
 			<div class="Separators"><span></span></div>
 			<div class="ToolbarButton">
-				<div class="BackButton"><span></span></div>
+				<div class="BackButton" title="Back"><span></span></div>
 			</div>
 			<div class="ToolbarButton">
-				<div class="FowardButton"><span></span></div>
+				<div class="FowardButton" title="Forward"><span></span></div>
 			</div>
 			<div class="Separators"><span></span></div>
 			<div class="ToolbarButton">
-				<div class="RefreshButton" onclick="eXo.application.browser.UIBrowserApplication.refreshIFrame()"><span></span></div>
+				<div class="RefreshButton" title="Refresh" onclick="eXo.application.browser.UIBrowserApplication.refreshIFrame()"><span></span></div>
 			</div>
 			<div class="ToolbarButton">
-				<div class="StopButton"><span></span></div>
+				<div class="StopButton" title="Stop"><span></span></div>
 			</div>
 			<div class="ToolbarButton">
-				<div class="HomeButton"><span></span></div>
+				<div class="HomeButton" title="Home"><span></span></div>
 			</div>
 			<div style="clear: left;"><span></span></div>
 		</div>
 		<div class="RightAddressBarContainer">
 			<div class="StatusButton"><span></span></div>
-			<a class="GoButton" href="javascript: eXo.application.browser.UIBrowserApplication.getUrl();">Go</a>
+			<a class="GoButton" href="javascript: eXo.application.browser.UIBrowserApplication.getUrl();" title="Go to the address in the Address Bar">Go</a>
 			<div class="AddressBarContainer">
 				<div class="ArrowDownButton"><span></span></div>
 				<div class="TextBox">
@@ -51,7 +51,7 @@
 				<div class="Separator"><span></span></div>
 				<div class="NewTabButton" onclick="eXo.application.browser.UIBrowserApplication.createNewTab(this);"
 						 onmouseover="eXo.application.browser.UIBrowserApplication.onMouseOver(this, 'NewTabButton', 'NewTabButtonOver', true);"
-						 onmouseout="eXo.application.browser.UIBrowserApplication.onMouseOver(this, 'NewTabButton', 'NewTabButtonOver', false);">
+						 onmouseout="eXo.application.browser.UIBrowserApplication.onMouseOver(this, 'NewTabButton', 'NewTabButtonOver', false);" title="New tab">
 					<div class="RightNewTab">
 						<div class="MiddleNewTab"><span></span></div>
 					</div>
