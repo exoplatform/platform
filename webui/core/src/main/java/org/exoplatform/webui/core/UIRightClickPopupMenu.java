@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.core;
 
+import java.net.URLEncoder;
 import java.util.List;
 
 import org.exoplatform.webui.config.Event;
@@ -38,6 +39,11 @@ public class UIRightClickPopupMenu extends UIComponent {
     if(objId != null) {
       objId = objId.replaceAll("'", "\\'") ;
       objId = objId.replaceAll("\"", "\\\"") ;
+      try {
+        objId = URLEncoder.encode(objId, "utf-8");
+      }catch (Exception e) {
+        System.err.println(e.toString());
+      }
       jsOnclick.append(",'").append(objId).append("'") ;
     }
     if(actions != null) jsOnclick.append(",'").append(actions).append("'") ;
