@@ -79,6 +79,7 @@ config = "<page>" +
 				 "	<name>UIPage</name>" +
 				 "	<container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\">" +
          "		<container template=\"system:/groovy/portal/webui/container/UITabContainer.gtmpl\">" +
+         "      <factory-id>TabContainer</factory-id>" +
          "  		<container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
          "  		<container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
          "		</container>" +
@@ -92,6 +93,7 @@ config = "<page>" +
 				 "	<name>UIPage</name>" +
          "	<container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\">" +
          "		<container template=\"system:/groovy/portal/webui/container/UITabContainer.gtmpl\">" +
+         "      <factory-id>TabContainer</factory-id>" +
          "  		<container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
          "  		<container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
          "  		<container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
