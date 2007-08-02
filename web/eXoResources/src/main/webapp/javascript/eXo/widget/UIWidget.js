@@ -12,7 +12,7 @@ UIWidget.prototype.init = function(uiWidget, inDesktop) {
 		uiWidget.style.width = appDescriptor.application.width ;
 		uiWidget.style.height = appDescriptor.application.height ;
 		uiWidget.style.position = "absolute" ;
-		
+
 		var posX = appDescriptor.widget.positionX ;
 		var posY = appDescriptor.widget.positionY ;
 		var zIndex = appDescriptor.widget.zIndex ;
@@ -48,12 +48,18 @@ UIWidget.prototype.deleteWidget = function(selectedElement) {
 
 	ajaxGet(eXo.env.server.createPortalURL(containerBlockId, "DeleteWidget", true, params)) ;
 };
+/*
+	minh.js.exo
+*/
 
-UIWidget.prototype.showWidgetControl = function() {
+UIWidget.prototype.showWidgetControl = function(e) {
+	if (!e) e = window.event ;
+  e.cancelBubble = true ;
 	var DOMUtil = eXo.core.DOMUtil;
 	var uiWidget = this ;
 	var widgetControl = DOMUtil.findFirstDescendantByClass(uiWidget, "div", "WidgetControl");
 	widgetControl.style.display = "block" ;
+
 	var uiPageDesktop = DOMUtil.findAncestorByClass(uiWidget, "UIPageDesktop");
 	if(uiPageDesktop) {
 		var dragHandleArea = DOMUtil.findFirstDescendantByClass(widgetControl, "div", "WidgetDragHandleArea");
@@ -62,7 +68,10 @@ UIWidget.prototype.showWidgetControl = function() {
 	}
 };
 
-UIWidget.prototype.hideWidgetControl = function() {
+
+UIWidget.prototype.hideWidgetControl = function(e) {
+	if (!e) e = window.event ;
+  e.cancelBubble = true ;
 	var uiWidget = this ;
 	var widgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiWidget, "div", "WidgetControl");
 	widgetControl.style.display = "none" ;
