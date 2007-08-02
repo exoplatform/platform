@@ -1,4 +1,3 @@
-@import url(/eXoResources/skin/webui/component/UIToolbar/VistaStylesheet.css) ;
 
 .UIWindow .UIOrganizationPortlet {
   overflow: auto ;
@@ -11,7 +10,7 @@
 .UIPageBody .UIOrganizationPortlet {
 	border: solid 1px #424345 ;
   padding: 8px;
-  background:url('VistaSkin/background/UIOrganizationPortletBG.png') repeat ;
+  background:url('background/UIOrganizationPortletBG.png') repeat ;
 }
 
 .UIOrganizationPortlet .ManagementTabContent {
@@ -75,20 +74,20 @@
 .UIOrganizationPortlet .PersonalInfoIcon {
   width: 32px ;  height: 32px ;
   float: left ;
-  background: url('/eXoResources/icons/32x32/VistaSkin/PersonalInfo.gif') ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/32x32/icons/PersonalInfo.gif') ;
 }
 
 .UIOrganizationPortlet .HomeInfoIcon {
   width: 32px ;  height: 32px ;
   float: left ;
-  background: url('/eXoResources/icons/32x32/VistaSkin/HomeInfo.gif') ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/32x32/icons/HomeInfo.gif') ;
 
 }
 
 .UIOrganizationPortlet .BusinessInfoIcon {
   width: 32px ;  height: 32px ;
   float: left ;
-  background: url('/eXoResources/icons/32x32/VistaSkin/BusinessInfo.gif') ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/32x32/icons/BusinessInfo.gif') ;
 }
 
 /*#######################  UIGroupManagement #################################*/
@@ -97,7 +96,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
-  background: url('/eXoResources/icons/24x24/VistaSkin/NormalGroup.png') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat;
   height: 24px; width: 24px;
 }
 
@@ -112,7 +111,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITree {
- background: url('VistaSkin/background/UITreeBG.png') repeat;
+ background: url('background/UITreeBG.png') repeat;
  padding: 4px;
 }
 
@@ -139,23 +138,24 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon  {
 	width: 28px; height: 22px;
-	background: url("VistaSkin/background/RemoveGroup.png") no-repeat;
+	background: url('VistaSkin/background/RemoveGroup.png') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon  {
 	width: 28px; height: 22px;
-	background: url("VistaSkin/background/AddGroup.png") no-repeat;
+	background: url('VistaSkin/background/AddGroup.png') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon  {
 	width: 28px; height: 22px;
-	background: url("VistaSkin/background/EditGroup.png") no-repeat;
+	background: url('VistaSkin/background/EditGroup.png') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
   margin-left: 220px ;
   width: auto;
 }
+
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UITabPane {
   height: auto;
 }
@@ -254,7 +254,7 @@
 
 .UIOrganizationPortlet .SelectUserIcon {
 	width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/SelectIcon.gif') center ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/SelectIcon.gif') center ;
 }
 
 /*#######################  UIMemberShipManagement #################################*/

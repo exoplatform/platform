@@ -15,6 +15,7 @@ table {
 
 th, td {
 	padding: 0px ; margin: 0px ;
+	vertical-align: top;
 }
 
 img {

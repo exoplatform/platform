@@ -65,7 +65,3 @@
 .UIPageDesktop .UIWindow .UIFormInputSet {
 	width: 100%;
 }
-
-.UIPageDesktop .UIApplication {
-  overflow: auto ;
-}

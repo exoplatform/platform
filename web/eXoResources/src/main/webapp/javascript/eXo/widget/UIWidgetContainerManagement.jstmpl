@@ -18,26 +18,24 @@
 	<div class="ContainerManagementBlock">
 		<div class="ContainerManagementDetail">
 			<div class="WidgetContainerCategory">
-				<div class="HeadTitle">Categories</div>
+				<div class="CategoryTitleBar">
+					<div class="Title">Categories</div>
+					<a class="RemoveContainer Icon" href="javascript: <%=deleteWidgetContainer%>" title="Remove selected widget container"><span></span></a>
+					<a class="EditContainer Icon" href="javascript: <%=editWidgetContainer%>" title="Add new widget container"><span></span></a>
+					<a class="AddContainer Icon" href="javascript: <%=addWidgetContainer%>" title="Add new widget container"><span></span></a>
+					<div style="clear: both"><span></span></div>
+				</div>
 				<div class="PortalWidgetContainer">
-					<div class="CategoryTitleBar">
-						<div class="Title">Portal Widget Containers</div>
-						<a class="RemoveContainer Icon" href="javascript: <%=deleteWidgetContainer%>" title="Remove selected widget container"><span></span></a>
-						<a class="EditContainer Icon" href="javascript: <%=editWidgetContainer%>" title="Add new widget container"><span></span></a>
-						<a class="AddContainer Icon" href="javascript: <%=addWidgetContainer%>" title="Add new widget container"><span></span></a>
-						<div style="clear: both"><span></span></div>
+					<div class="CategoryTitle">
+						Portal Widget Containers
 					</div>
 					<div class="ContainerList">
 						<span></span>
 					</div>
 				</div>
 				<div class="UserWidgetContainer">
-					<div class="CategoryTitleBar">
-						<div class="Title">User Widget Containers</div>
-						<a class="RemoveContainer Icon" href="#" title="Remove a widget container"><span></span></a>
-						<a class="EditContainer Icon" href="#" title="Add a widget container"><span></span></a>
-						<a class="AddContainer Icon" href="#" title="Add a widget container"><span></span></a>
-						<div style="clear: both"><span></span></div>
+					<div class="CategoryTitle">
+						User Widget Containers
 					</div>
 					<div class="ContainerList">
 						<%/* In case, This category is empty, the below message will appear */%>
@@ -46,7 +44,6 @@
 				</div>
 			</div>
 			<div class="WidgetContainerView">
-				<div class="HeadTitle">View Widget Container</div>
 				<div class="WidgetContainerDetail">
 					<span></span>
 				</div>

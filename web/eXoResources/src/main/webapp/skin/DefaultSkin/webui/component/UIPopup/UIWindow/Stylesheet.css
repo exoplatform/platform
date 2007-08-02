@@ -7,6 +7,10 @@
   height: 350px ;
 }
 
+.UIWindow .UIApplication {
+	overflow: auto;
+}
+
 /*##########################################################*/
 .UIWindow .InactiveWindowPortletControl {
   display: none ;
@@ -177,7 +181,6 @@
 
 .UIPageBody .UIWindow .UIApplication {
   height: auto ;
-  overflow: hidden;
 }
 
 .UIPageBody .UIWindow .ResizeArea {
@@ -223,7 +226,6 @@
 .UIWindow .WindowPortletInfo .Forum {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ForumIcon.gif') no-repeat center;
 }
-
 
 .UIWindow .WindowPortletInfo .ECM {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ECMAdmin.gif') no-repeat center;

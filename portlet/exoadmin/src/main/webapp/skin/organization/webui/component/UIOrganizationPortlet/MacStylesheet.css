@@ -1,5 +1,3 @@
-@import url(/eXoMacSkin/skin/webui/component/UIToolbar/Stylesheet.css) ;
-
 
 .UIWindow .UIOrganizationPortlet {
   overflow: auto ;
@@ -173,19 +171,19 @@
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon  {
 	width: 30px;
 	height: 20px;
-	background: url("MacSkin/background/RemoveGroup.gif") no-repeat;
+	background: url('MacSkin/background/RemoveGroup.gif') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon  {
 	width: 30px;
 	height: 20px;
-	background: url("MacSkin/background/AddGroup.gif") no-repeat;
+	background: url('MacSkin/background/AddGroup.gif') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon  {
 	width: 30px;
 	height: 20px;
-	background: url("MacSkin/background/EditGroup.gif") no-repeat;
+	background: url('MacSkin/background/EditGroup.gif') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
@@ -241,7 +239,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
-	background: url(/eXoMacSkin/skin/MacSkin/background/Background1x4.png) repeat;
+	background: url('/eXoMacSkin/skin/MacSkin/background/Background1x4.png') repeat;
 	border: none;
 }
 
@@ -275,7 +273,7 @@
 }
 
 .UIOrganizationPortlet .SelectUserIcon {
-  background: url('/eXoResources/icons/16x16/MacSkin/CheckerIcon.gif') center ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/SelectIcon.png') no-repeat center ;
 }
 
 /*#######################  UIMemberShipManagement #################################*/
@@ -289,7 +287,6 @@
 	width: 99.7%; 
 	margin: 10px auto 0px auto ; 
 }
-
 
 .UIOrganizationPortlet .UIGrid .ActionContainer {  
   margin: auto ;

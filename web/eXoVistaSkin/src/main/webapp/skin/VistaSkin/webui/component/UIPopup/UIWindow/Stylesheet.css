@@ -12,6 +12,9 @@
   height: 360px ;
 }
 
+.UIWindow .UIApplication {
+	overflow: auto;
+}
 /*##########################################################*/
 .UIWindow .WindowPortletControl {
   float: right ;
@@ -188,7 +191,6 @@
 
 .UIPageBody .UIWindow .UIApplication {
   height: auto ;
-  overflow: hidden;
 }
 
 .UIPageBody .UIApplicationRegistryPortlet {
