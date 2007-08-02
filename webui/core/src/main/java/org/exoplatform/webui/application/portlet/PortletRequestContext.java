@@ -40,7 +40,7 @@ public class PortletRequestContext extends WebuiRequestContext {
     urlBuilder = new PortletURLBuilder();
   }
   
-  public void init(Writer writer,  PortletRequest req, PortletResponse res) {
+  public void init(Writer writer, PortletRequest req, PortletResponse res) {
     request_ = req ;
     response_ =  res ;
     writer_ = new HtmlValidator(writer) ;

@@ -197,9 +197,10 @@ function AjaxRequest(method, url, queryString) {
 	instance.process = function() {
 		if (instance.request == null) return;
 		instance.request.open(instance.method, instance.url, true);		
-		
 		if (instance.method == "POST") {
 			instance.request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+		} else {
+			instance.request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
 		}
 		
 		if (instance.timeout > 0) setTimeout(instance.onTimeoutInternal, instance.timeout);

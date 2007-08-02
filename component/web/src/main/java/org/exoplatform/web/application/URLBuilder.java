@@ -4,6 +4,9 @@
  **************************************************************************/
 package org.exoplatform.web.application;
 
+import java.net.URLEncoder;
+
+
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
@@ -49,7 +52,14 @@ abstract public class URLBuilder<T> {
     if(confirm != null && confirm.length() > 0) {
       builder.append("if(confirm('").append(confirm).append("'))");
     }
-    builder.append("ajaxGet('");
+    builder.append("ajaxGet('");  
+    if(targetBeanId != null) {
+      try {
+        targetBeanId = URLEncoder.encode(targetBeanId, "utf-8");
+      }catch (Exception e) {
+        System.err.println(e.toString());
+      }
+    }
     createURL(builder, targetComponent, action, targetBeanId, params);
     builder.append("&amp;ajaxRequest=true')") ;
     return builder.toString();    
@@ -61,6 +71,13 @@ abstract public class URLBuilder<T> {
     if(hasConfirm) {
       builder.append("javascript:if(confirm('").append(confirm).append("'))");
       builder.append("window.location=\'");
+    }   
+    if(targetBeanId != null) {
+      try {
+        targetBeanId = URLEncoder.encode(targetBeanId, "utf-8");
+      }catch (Exception e) {
+        System.err.println(e.toString());
+      }
     }
     createURL(builder, targetComponent, action, targetBeanId, params);
     if(hasConfirm) builder.append("\';");

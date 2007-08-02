@@ -83,7 +83,7 @@ public class PortletApplication extends WebuiApplication {
       UIApplication uiApp = getStateManager().restoreUIRootComponent(context) ;
       context.setUIApplication(uiApp) ;
       processDecode(uiApp, context) ;
-      req.setCharacterEncoding("UTF-8");
+//      req.setCharacterEncoding("UTF-8");
       if(!context.isResponseComplete() && !context.getProcessRender()) {
         processAction(uiApp, context) ;
       }

@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portal.application;
 
+import java.net.URLEncoder;
+
 import org.exoplatform.web.application.Parameter;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.core.UIComponent;
@@ -38,21 +40,16 @@ public class PortalURLBuilder extends URLBuilder<UIComponent> {
     }
     
     if(targetBeanId != null && targetBeanId.trim().length() > 0) {
-     /* try {
-        targetBeanId = URLEncoder.encode(targetBeanId, "utf-8");
-      }catch (Exception e) {
-        System.err.println(e.toString());
-      }*/
       builder.append("&amp;").append(UIComponent.OBJECTID).append('=').append(targetBeanId) ;
     }
     
     if(params == null || params.length < 1)  return;
     for(Parameter param : params) {
-      /*try {
+      try {
         param.setValue(URLEncoder.encode(param.getValue(), "utf-8"));
       }catch (Exception e) {
         System.err.println(e.toString());
-      }*/
+      }
       builder.append("&amp;").append(param.getName()).append('=').append(param.getValue()) ;
     }
     
