@@ -1,5 +1,5 @@
 .UIRightClickPopupMenu {
-  width: 150px;
+  width: 170px;
   display: none;
   position: absolute;
   background: #c4c4c4;
@@ -12,20 +12,9 @@
   background: #f6f6f6;
 }
 
-.UIRightClickPopupMenu a.MenuItem {
-  padding: 5px;
-  display: block;
+.UIRightClickPopupMenu .MenuItem {
+  clear: both;
   cursor: pointer;
-  color: black;
-}
-
-.UIRightClickPopupMenu a.MenuItem:hover {
-  color: orange;
-  background-color: #dee4f2;
-}
-
-.UIRightClickPopupMenu .ItemIcon {
-  padding-left: 20px;
   line-height: 16px;
 }
 
@@ -34,8 +23,25 @@
 }
 	
 .UIRightClickPopupMenu .SelectedMenuItem {
+  clear: both;
   cursor: pointer;
-  line-height: 26px;
+  line-height: 16px;
+  background: #dee4f2;
+}
+
+.UIRightClickPopupMenu .ItemIcon {
+  margin: 0px 7px;
+  padding: 5px 0px 5px 26px;
+  line-height: 16px;
+}
+
+.UIRightClickPopupMenu a {
+  color: black;
+  text-decoration: none;
+}
+
+.UIRightClickPopupMenu a:hover {
+  color: orange;
   background: #dee4f2;
 }
 
@@ -83,3 +89,4 @@
 .UIRightClickPopupMenu .SaveNavigation16x16Icon {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/FloppyDisk.gif') no-repeat left center;
 }
+

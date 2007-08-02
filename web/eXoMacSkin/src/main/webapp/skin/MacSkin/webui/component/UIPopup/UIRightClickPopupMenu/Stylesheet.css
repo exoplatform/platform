@@ -11,34 +11,37 @@
   background: white url('background/BgItemSelector1x4.png') repeat;
 }
 
-.UIRightClickPopupMenu .UIRightPopupMenuContainer a{
-  color: black;
-}
-
-.UIRightClickPopupMenu .UIRightPopupMenuContainer a:hover{
-  color:#EF5604;
-}
-
 .UIRightClickPopupMenu .MenuItem {
   clear: both;
   cursor: pointer;
-  line-height: 26px;
+  line-height: 16px;
 }
 
+.UIRightClickPopupMenu .RightClickCustomItem {
+	display: none;
+}
+	
 .UIRightClickPopupMenu .SelectedMenuItem {
   clear: both;
   cursor: pointer;
-  line-height: 26px;
+  line-height: 16px;
   background: #dee4f2;
 }
 
 .UIRightClickPopupMenu .ItemIcon {
-  margin: 5px 7px 0px 7px;
-  height: 20px; line-height: 20px;
-  padding-left: 20px;
+  margin: 0px 7px;
+  padding: 5px 0px 5px 26px;
+  line-height: 16px;
 }
 
-.UIRightClickPopupMenu .ItemLabel {
+.UIRightClickPopupMenu a {
+  color: black;
+  text-decoration: none;
+}
+
+.UIRightClickPopupMenu a:hover {
+  color: orange;
+  background: #dee4f2;
 }
 
 .UIRightClickPopupMenu .AddNode16x16Icon {

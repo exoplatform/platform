@@ -27,8 +27,8 @@
 }
 
 .UIRightClickPopupMenu .ItemIcon {
-  padding-left: 26px;
-  margin: 8px 7px 8px 7px;
+  margin: 0px 7px;
+  padding: 2px 0px 2px 26px;
   line-height: 20px;
 }
 
@@ -88,6 +88,7 @@
 
 .UIRightClickPopupMenu a:hover {
   color: orange;
+  background: #dee4f2;
 }
 
 .UIRightClickPopupMenu .TopLeftRightClickPopupMenu {
