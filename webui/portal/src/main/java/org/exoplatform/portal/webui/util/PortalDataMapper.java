@@ -87,6 +87,7 @@ public class PortalDataMapper {
     model.setHeight(uiContainer.getHeight());
     model.setWidth(uiContainer.getWidth());
     model.setTemplate(uiContainer.getTemplate());
+    model.setFactoryId(uiContainer.getFactoryId());
     
     List<UIComponent> uiChildren = uiContainer.getChildren();
     if(uiChildren == null)  return ;
