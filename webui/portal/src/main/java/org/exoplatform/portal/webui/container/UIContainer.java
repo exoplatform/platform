@@ -13,6 +13,9 @@ import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.Delet
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 
 /**
  * Author : Nhu Dinh Thuan
@@ -34,6 +37,11 @@ import org.exoplatform.webui.config.annotation.EventConfig;
           @EventConfig(listeners = AddApplicationActionListener.class),
           @EventConfig(listeners = AddWidgetContainerActionListener.class)
       }
+  ),
+  @ComponentConfig(
+      id = "TabContainer", 
+      template = "system:/groovy/portal/webui/container/UITabContainer.gtmpl",
+      events = @EventConfig(listeners = UIContainer.SelectTabActionListener.class)
   )
 })
 public class UIContainer extends  UIPortalComponent {
@@ -51,5 +59,11 @@ public class UIContainer extends  UIPortalComponent {
   
   public String getIcon() { return icon ; }
   public void   setIcon(String s) { icon = s ; }
+  
+  static  public class SelectTabActionListener extends EventListener<UIContainer> {    
+    public void execute(Event<UIContainer> event) throws Exception {
+      System.out.println("\n\n ==  > select tab ne \n\n");
+    }
+  }
   
 }
