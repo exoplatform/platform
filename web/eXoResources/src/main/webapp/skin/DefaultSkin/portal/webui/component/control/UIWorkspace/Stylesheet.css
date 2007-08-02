@@ -57,13 +57,13 @@
 .UIControlWorkspace .Slidebar {
 	float: right ;
   width: 6px ; height: 100% ;
-  background: url("background/SlidebarBackground6x1.gif") repeat-y right;
+  background: url('background/SlidebarBackground6x1.gif') repeat-y right;
   cursor: pointer ;
 }
 
 .UIControlWorkspace .SlidebarButton {
 	height: 100% ;	width: 6px ;
-	background: url("background/SlidebarButton6x160.gif") no-repeat center center ;
+	background: url('background/SlidebarButton6x160.gif') no-repeat center center ;
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {

@@ -118,7 +118,7 @@
 	float: left ;
 	margin: 5px 0px 0px 5px ;
 	width: 16px; height: 16px;
-	background: url('/eXoResources/icons/16x16/DefaultSkin/GrayNextArrow.gif') no-repeat left;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left;
 }
 
 .UIContentPortlet .ContentItemIcon{

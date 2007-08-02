@@ -1,6 +1,7 @@
 .UILoginForm {
   margin: auto;
   padding: 30px 17px 30px 10px ;
+  background: #f5f5f5;
 }
 
 /*##############################- LoginBox Style-################################*/
@@ -79,7 +80,7 @@
 .UILoginForm .LoginDetailBox .CheckField {
   height: 20px;
   margin: 4px auto;
-  padding-left: 185px;
+  padding-left: 144px;
 
 }
 

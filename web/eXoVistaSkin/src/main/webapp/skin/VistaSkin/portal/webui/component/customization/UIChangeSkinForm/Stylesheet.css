@@ -35,21 +35,21 @@
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .DefaultImage {
 	margin: auto;
 	width: 329px; height:204px;
-	background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background/DefaultImage.jpg') no-repeat center;
+	background: url('background/DefaultImage.jpg') no-repeat center;
 	cursor: pointer ;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .MacImage {
 	margin: auto;
 	width: 329px; height: 204px;
-	background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background/MacImage.jpg') no-repeat center;
+	background: url('background/MacImage.jpg') no-repeat center;
 	cursor: pointer ;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .VistaImage {
 	margin: auto;
 	width: 329px; height: 204px;
-	background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background/VistaImage.jpg') no-repeat center;
+	background: url('background/VistaImage.jpg') no-repeat center;
 	cursor: pointer ;
 }
 

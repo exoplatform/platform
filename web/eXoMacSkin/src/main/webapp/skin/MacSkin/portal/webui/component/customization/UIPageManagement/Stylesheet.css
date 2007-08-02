@@ -8,8 +8,8 @@
   padding: 0px 7px;
 }
 
-.UIPageManagement .UITree .TreeContainer .Node {
-	height: 20px;
+.UIPageManagement .UITree {
+	overflow: hidden;
 }
 /*############################- UIPageManagementControlBar Icons -#####################*/
 .UIPageManagement .EditNavigationControlIcon {
