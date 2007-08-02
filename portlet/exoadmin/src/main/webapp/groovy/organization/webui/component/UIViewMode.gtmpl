@@ -1,8 +1,3 @@
-<% 
-	def rcontext = _ctx.getRequestContext() ;
-	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIOrganization');
-	rcontext.getJavascriptManager().addOnLoadJavascript('eXo.webui.UIOrganization.loadScroll()');
-%>
 <div class="OrganizationPortletContainer">
   <%/*Begin UIToolbar*/%>
   <div class="UIToolbar">
@@ -27,11 +22,6 @@
                   <div class="ButtonLabel"><%=_ctx.appRes("UIOrganizationPortlet.label.membershipManagement")%></div>
                 </a>
                 <div class="HorizontalSeparator"><span></span></div>
-                <div class="ScrollButtons">
-				      		<div class="ScrollLeftButton" title="Previous">
-				      			<div class="ScrollRightButton" title="Next"><span></span></div>
-				      		</div>
-				      	</div>
                 <div style="clear: both"><span></span></div>
               </div>
             </div>
