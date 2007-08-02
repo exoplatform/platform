@@ -22,12 +22,7 @@ import org.exoplatform.webui.event.EventListener;
  * May 7, 2006
  */
 @ComponentConfigs({
-  @ComponentConfig(lifecycle = UIContainerLifecycle.class),
-  @ComponentConfig(
-      id = "TabContainer", 
-      lifecycle = UIContainerLifecycle.class,
-      events = @EventConfig(listeners = UIContainer.SelectTabActionListener.class)
-  )
+  @ComponentConfig(lifecycle = UIContainerLifecycle.class)
 })
 public class UIContainer extends UIComponent {
   
