@@ -34,17 +34,8 @@ public class RSSContentPlugin extends ContentPlugin {
   @SuppressWarnings("unchecked")
   public PageList loadContentMeta(ContentNode node) throws Exception {
     URL uri = new URL(node.getUrl()); 
-    //TODO: Tung.Pham modified
-    //--------------------------
-    //RSSDocument<DefaultRSSChannel, RSSItem> document = 
-    //  service_.createDocument(uri, "utf-8", DefaultRSSChannel.class, RSSItem.class);
-    RSSDocument<DefaultRSSChannel, RSSItem> document = null ;
-    try {
-      document = service_.createDocument(uri, "utf-8", DefaultRSSChannel.class, RSSItem.class);
-    }catch (Exception e) {
-      throw new Exception("Content not found") ;
-    }
-    //--------------------------
+    RSSDocument<DefaultRSSChannel, RSSItem> document = 
+      service_.createDocument(uri, "utf-8", DefaultRSSChannel.class, RSSItem.class);
     List<RSSItem> list = document.getItems();     
     return new ContentPageList(list);
   } 
