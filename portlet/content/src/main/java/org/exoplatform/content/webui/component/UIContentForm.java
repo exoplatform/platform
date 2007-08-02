@@ -113,7 +113,7 @@ public class UIContentForm extends UIForm {
       } else {
         uiNav.save(contentNode);
         UIDetailContent uiDetail = uiPortlet.findFirstComponentOfType(UIDetailContent.class) ;
-        uiDetail.refresh(true) ;
+        if(uiDetail.getListItems().size() > 0) uiDetail.refresh(true) ;
       }
       
       //-----------------------------

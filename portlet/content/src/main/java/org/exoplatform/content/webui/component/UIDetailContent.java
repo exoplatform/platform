@@ -67,10 +67,11 @@ public class UIDetailContent extends UIContainer {
       uiIterator_.setPageList(pageList);
     }catch (Exception e) {
       UIApplication uiApp = getAncestorOfType(UIApplication.class);
-      uiApp.addMessage(new ApplicationMessage(e.getMessage(), null, ApplicationMessage.ERROR));
-      //TODO: Tung.Pham added
+      //TODO: Tung.Pham modified
       //-----------------
-      uiIterator_.setPageList(new ObjectPageList((List)new ArrayList(), 10)) ;
+      //uiApp.addMessage(new ApplicationMessage(e.getMessage(), null, ApplicationMessage.ERROR));
+      uiApp.addMessage(new ApplicationMessage("UIDetailContent.msg.NotFound", null, ApplicationMessage.ERROR));
+      uiIterator_.setPageList(new ObjectPageList(new ArrayList(), 10)) ;
       //-----------------
     }
   }
