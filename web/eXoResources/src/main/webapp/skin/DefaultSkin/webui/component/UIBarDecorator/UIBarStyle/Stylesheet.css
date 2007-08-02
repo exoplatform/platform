@@ -7,20 +7,20 @@
 }
 
 .UIBarStyle .RoundedBarStyle .LeftBar {
-  background: url('background/WhiteRoundedBarL8x25.gif') no-repeat left;
+  background: url('background/Rounded3BarL8x25.gif') no-repeat left;
   padding: 0px 0px 0px 8px;
   border: solid 1px blue;
 }
 
 .UIBarStyle .RoundedBarStyle .RightBar {
-  background: url('background/WhiteRoundedBarR8x25.gif') no-repeat right;
+  background: url('background/Rounded3BarR8x25.gif') no-repeat right;
   padding: 0px 8px 0px 0px ;
 }
 
 .UIBarStyle .RoundedBarStyle .MiddleBar {
   height: 25px;
   line-height: 25px;
-  background: url('background/WhiteRoundedBarM1x25.gif') repeat-x;  
+  background: url('background/Rounded3BarM1x25.gif') repeat-x;  
 }
 
 /*###########################-GrayRoundedBarStyle-###########################*/
@@ -29,19 +29,19 @@
 }
 
 .UIBarStyle .GrayRoundedBarStyle .LeftBar {
-  background: url('background/GrayRoundedBarLeft12x26.gif') no-repeat left;
+  background: url('background/Rounded2BarLeft12x26.gif') no-repeat left;
   padding: 0px 0px 0px 12px;
 }
 
 .UIBarStyle .GrayRoundedBarStyle .RightBar {
-  background: url('background/GrayRoundedBarRight12x26.gif') no-repeat right;
+  background: url('background/Rounded2BarRight12x26.gif') no-repeat right;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIBarStyle .GrayRoundedBarStyle .MiddleBar {
   height: 26px;
   line-height: 26px;
-  background: url('background/GrayRoundedBarCenter1x26.gif') repeat-x;  
+  background: url('background/Rounded2BarCenter1x26.gif') repeat-x;  
 }
 
 /*###########################-WhiteRoundedBarStyle-###########################*/
@@ -73,19 +73,19 @@
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .LeftBar {
-  background: url('background/GrayPolygonBigBarLeft4x36.gif') no-repeat left;
+  background: url('background/Polygon2BigBarLeft4x36.gif') no-repeat left;
   padding: 0px 0px 0px 4px;
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .RightBar {
-  background: url('background/GrayPolygonBigBarRight4x36.gif') no-repeat right;
+  background: url('background/Polygon2BigBarRight4x36.gif') no-repeat right;
   padding: 0px 4px 0px 0px;
 }
 
 .UIBarStyle .GrayPolygonBigBarStyle .MiddleBar {
   height: 36px;
   line-height: 36px;
-  background: url('background/GrayPolygonBigBarCenter1x36.gif') repeat-x;
+  background: url('background/Polygon2BigBarCenter1x36.gif') repeat-x;
 }
 
 /*###########################-BluePolygonBigBarStyle-###########################*/
@@ -94,19 +94,19 @@
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .LeftBar {
-  background: url('background/BluePolygonBigBarLeft4x36.gif') no-repeat left;
+  background: url('background/Polygon1BigBarLeft4x36.gif') no-repeat left;
   padding: 0px 0px 0px 4px;
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .RightBar {
-  background: url('background/BluePolygonBigBarRight4x36.gif') no-repeat right;
+  background: url('background/Polygon1BigBarRight4x36.gif') no-repeat right;
   padding: 0px 4px 0px 0px ;
 }
 
 .UIBarStyle .BluePolygonBigBarStyle .MiddleBar {
   height: 36px;
   line-height: 36px;
-  background: url('background/BluePolygonBigBarCenter1x36.gif') repeat-x;
+  background: url('background/Polygon1BigBarCenter1x36.gif') repeat-x;
 }
 
 /*###########################-BluePolygonBarStyle-###########################*/
@@ -335,12 +335,12 @@
 }
 
 .UIBarStyle .GrayBevelRoundedBar35Style .LeftBar {
-  background: url('background/GrayBevel35Left15x35.gif') no-repeat left ;
+  background: url('background/Bevel4Left15x35.gif') no-repeat left ;
   padding: 0px 0px 0px 15px ;
 }
 
 .UIBarStyle .GrayBevelRoundedBar35Style .RightBar {
-  background: url('background/GrayBevel35Right15x35.gif') no-repeat right ;
+  background: url('background/Bevel4Right15x35.gif') no-repeat right ;
   padding: 0px 15px 0px 0px ;
 }
 
@@ -348,7 +348,7 @@
   height: 35px ;
   line-height: 35px ;
   vertical-align: middle ;
-  background: url('background/GrayBevel35Center1x35.gif') repeat-x ;
+  background: url('background/Bevel4Center1x35.gif') repeat-x ;
 }
 
 .UIBarStyle .GrayBevelRoundedBar35Style .Button {
@@ -371,12 +371,12 @@
 }
 
 .UIBarStyle .GrayBevelRoundBar40 .LeftBar {
-  background: url('background/GrayBevelBarL9x40.gif') no-repeat left ;
+  background: url('background/Bevel3BarL9x40.gif') no-repeat left ;
   padding: 0px 0px 0px 9px ;
 }
 
 .UIBarStyle .GrayBevelRoundBar40 .RightBar {
-  background: url('background/GrayBevelBarR9x40.gif') no-repeat right ;
+  background: url('background/Bevel3BarR9x40.gif') no-repeat right ;
   padding: 0px 9px 0px 0px ;
 }
 
@@ -384,7 +384,7 @@
   height: 40px ;
   line-height: 40px ;
   vertical-align: middle ;
-  background: url('background/GrayBevelBarRepeat1x40.gif') repeat-x ;
+  background: url('background/Bevel3BarRepeat1x40.gif') repeat-x ;
 }
 
 /*###########################-GrayBevelRoundBar36-###########################*/
@@ -393,12 +393,12 @@
 }
 
 .UIBarStyle .GrayBevelRoundBar36 .LeftBar {
-  background: url('background/GrayBevelBarL9x36.gif') no-repeat left ;
+  background: url('background/Bevel2BarL9x36.gif') no-repeat left ;
   padding: 0px 0px 0px 9px ;
 }
 
 .UIBarStyle .GrayBevelRoundBar36 .RightBar {
-  background: url('background/GrayBevelBarR9x36.gif') no-repeat right ;
+  background: url('background/Bevel2BarR9x36.gif') no-repeat right ;
   padding: 0px 9px 0px 0px ;
 }
 
@@ -406,7 +406,7 @@
   height: 36px ;
   line-height: 36px ;
   vertical-align: middle ;
-  background: url('background/GrayBevelBarRepeat1x36.gif') repeat-x ;
+  background: url('background/Bevel2BarRepeat1x36.gif') repeat-x ;
 }
 
 /*###########################-BlueBevelRoundBar36-###########################*/
@@ -415,12 +415,12 @@
 }
 
 .UIBarStyle .BlueBevelRoundBar36 .LeftBar {
-  background: url('background/BlueBevelBarL9x36.gif') no-repeat left ;
+  background: url('background/Bevel1BarL9x36.gif') no-repeat left ;
   padding: 0px 0px 0px 9px ;
 }
 
 .UIBarStyle .BlueBevelRoundBar36 .RightBar {
-  background: url('background/BlueBevelBarR9x36.gif') no-repeat right ;
+  background: url('background/Bevel1BarR9x36.gif') no-repeat right ;
   padding: 0px 9px 0px 0px ;
 }
 
@@ -428,7 +428,7 @@
   height: 36px ;
   line-height: 36px ;
   vertical-align: middle ;
-  background: url('background/BlueBevelBarRepeat1x36.gif') repeat-x ;
+  background: url('background/Bevel1BarRepeat1x36.gif') repeat-x ;
 }
 
 /*###########################-ControlBar-###########################*/

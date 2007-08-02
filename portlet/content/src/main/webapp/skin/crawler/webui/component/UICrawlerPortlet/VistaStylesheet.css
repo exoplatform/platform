@@ -320,7 +320,7 @@
 
 .UICrawlerPortlet .UIAddCategoryContainer .UIAddCategoryIcon {
   width: 16px; height: 16px;
-  background: url('/eXoResources/icons/16x16/VistaSkin/AddNewCategory.gif') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/AddNewCategory.gif') no-repeat;
   float: left;
   margin: 3px 0px 0px 8px;  
 }

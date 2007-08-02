@@ -8,8 +8,12 @@
   background: url('icons/Home.gif') ;
 }
 
-.BlueDownArrowIcon {
+.DownArrow1Icon {
 	background: url('icons/BlueDownArrow.gif') no-repeat right;
+}
+
+.NextArrow1Icon {
+	background: url('icons/BlueNextArrow.gif') no-repeat right;
 }
 
 .RightBlackGridArrow16x16Icon {

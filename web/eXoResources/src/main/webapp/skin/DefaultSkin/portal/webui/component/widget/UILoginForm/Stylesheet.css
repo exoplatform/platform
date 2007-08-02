@@ -15,12 +15,12 @@
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
-  background: url('background/WhiteRoundedBoxLeftTop31x35.gif') no-repeat left ;
+  background: url('background/RoundedBoxLeftTop31x35.gif') no-repeat left ;
   padding: 0px 0px 0px 31px ;
 }
 
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator {
-  background: url('background/WhiteRoundedBoxCenterTop1x35.gif') repeat-x ;
+  background: url('background/RoundedBoxCenterTop1x35.gif') repeat-x ;
   height: 35px;
 }
 
@@ -32,32 +32,32 @@
 }
 
 .UILoginForm .LoginDecorator .TopRightLoginDecorator {
-  background: url('background/WhiteRoundedBoxRightTop13x35.gif') no-repeat right ;
+  background: url('background/RoundedBoxRightTop13x35.gif') no-repeat right ;
   padding: 0px 13px 0px 0px ;
 }
 
 .UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
-  background: url('background/WhiteRoundedBoxLeftMiddle136x198.gif') no-repeat left center;
+  background: url('background/RoundedBoxLeftMiddle136x198.gif') no-repeat left center;
   padding: 0px 0px 0px 136px ;
 }
 
 .UILoginForm .LoginDecorator .MiddleRightLoginDecorator {
-  background: url('background/WhiteRoundedBoxRightMiddle6x1.gif') repeat-y right ;
+  background: url('background/RoundedBoxRightMiddle6x1.gif') repeat-y right ;
   padding: 0px 6px 0px 0px ;
 }
 
 .UILoginForm .LoginDecorator .BottomLeftLoginDecorator {
-  background: url('background/WhiteRoundedBoxLeftBottom31x13.gif') no-repeat left ;
+  background: url('background/RoundedBoxLeftBottom31x13.gif') no-repeat left ;
   padding: 0px 0px 0px 31px ;
 }
 
 .UILoginForm .LoginDecorator .BottomCenterLoginDecorator {
-  background: url('background/WhiteRoundedBoxCenterBottom1x13.gif') repeat-x ;
+  background: url('background/RoundedBoxCenterBottom1x13.gif') repeat-x ;
   height: 13px;
 }
 
 .UILoginForm .LoginDecorator .BottomRightLoginDecorator {
-  background: url('background/WhiteRoundedBoxRightBottom13x13.gif') no-repeat right ;
+  background: url('background/RoundedBoxRightBottom13x13.gif') no-repeat right ;
   padding: 0px 13px 0px 0px ;
 }
 /* ============================End LoginDecorator============================== */

@@ -84,7 +84,7 @@
 .UIToolbar .LargeToolbar .LeftToolbar {
   height: 74px ;
   background: url('background/LargeToolbarL10x74.png') no-repeat left top;
-  padding-left: 10px;
+  padding-left: 10px; 
 }
 
 .UIToolbar .LargeToolbar .RightToolbar {
