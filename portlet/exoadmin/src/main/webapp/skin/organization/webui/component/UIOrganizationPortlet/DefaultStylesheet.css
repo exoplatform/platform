@@ -80,6 +80,71 @@
   height:auto;
 }
 
+/*###########################- Scroll Buttons -#################################*/
+
+.UIOrganizationPortlet .ScrollButtons {
+	float: right;
+	padding: 5px 0px;
+	display: none;
+}
+
+.UIOrganizationPortlet .ScrollLeftButton {
+	cursor: pointer;
+  background: url('DefaultSkin/background/ScrollLeft13x15.gif') no-repeat left;
+  width: 13px;
+  height: 15px;
+  padding-left: 13px;
+  margin: 0px 2px;
+  float: left;
+}
+
+.UIOrganizationPortlet .ScrollRightButton {
+	cursor: pointer;
+	background: url('DefaultSkin/background/ScrollRight13x15.gif') no-repeat right;
+  width: 13px;
+  height: 15px;
+  margin: 0px 2px;
+  float: left;
+}
+
+.UIOrganizationPortlet .DisableScrollLeftButton {
+  cursor: pointer;
+	background: url('DefaultSkin/background/DisableScrollLeft13x15.gif') no-repeat left;
+  width: 13px;
+  height: 15px;
+  padding-left: 13px;
+  margin: 0px 2px;
+  float: left;
+}
+
+.UIOrganizationPortlet .DisableScrollRightButton { 
+	cursor: pointer;
+	background: url('DefaultSkin/background/DisableScrollRight13x15.gif') no-repeat right;
+  width: 13px;
+  height: 15px;
+  margin: 0px 2px;
+  float: left;
+}
+
+.UIOrganizationPortlet .HighlightScrollLeftButton {
+  cursor: pointer;
+	background: url('DefaultSkin/background/HighlightScrollLeft13x15.gif') no-repeat left;
+  width: 13px;
+  height: 15px;
+  padding-left: 13px;
+  margin: 0px 2px;
+  float: left;
+}
+
+.UIOrganizationPortlet .HighlightScrollRightButton {
+	cursor: pointer;
+	background: url('DefaultSkin/background/HighlightScrollRight13x15.gif') no-repeat;
+  width: 13px;
+  height: 15px;
+  margin: 0px 2px;
+  float: left;
+}
+
 /*##############################- UIUserManagement -###########################*/
 
 .UIOrganizationPortlet .GrayRoundedFillBoxStyle .CenterBoxDecorator {

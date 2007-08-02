@@ -51,13 +51,14 @@
      String height  = uicomponent.getHeight();
      if(width != null) style += "width:"+width+";";
      if(height != null) style += "height:"+height+";";
+     int tdWidth = 100/uicomponent.getChildren().size();
   %>
   <div class="VIEW-CONTAINER" >
     <div id="$uicomponent.id">    
       <table class="UITableColumnContainer" style="$style">
         <tr class="TRContainer">
           <% for(uiChild in uicomponent.getChildren()) { %>
-            <td class="${uiChild.id}TDContainer"><% uicomponent.renderUIComponent(uiChild) %></td>
+            <td class="${uiChild.id}TDContainer" style="width:$tdWidth%;"><% uicomponent.renderUIComponent(uiChild) %></td>
           <% } %>
        </tr>
       </table>

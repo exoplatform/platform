@@ -387,7 +387,7 @@ ScrollManager.prototype.renderElements = function() {
 			 incr = -1;
 			 index = this.firstVisibleIndex;
 		}
-		while (delta < 0/* && index > 0 && index < this.elements.length*/) {
+		while (delta < 0 && index > 0 && index < this.elements.length) {
 			delta += this.getElementSpace(this.elements[index]);
 			this.elements[index].isVisible = false;
 			this.elements[index].style.display = "none";
