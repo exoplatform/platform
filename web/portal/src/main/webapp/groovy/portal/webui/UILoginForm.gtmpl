@@ -5,7 +5,7 @@
   
   jsmanager.importJavascript('eXo.portal.UIPortalControl');
   
-  jsmanager.addCustomizedOnLoadScript('document.getElementById("username").focus();') ;
+  jsmanager.addCustomizedOnLoadScript('document.getElementById("UIPortalComponentLogin").username.focus();') ;
   jsmanager.addJavascript('eXo.portal.UIPortalControl.onKeyPress();') ;
 %>
 
