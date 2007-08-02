@@ -10,14 +10,6 @@
 	    <type>desc</type>
 	    
 	    <content-node>
-	      <id>google</id>
-	      <url>http://news.google.com/?output=rss</url>
-	      <label>Google News</label>
-	      <description></description>
-	      <type>rss</type>      
-	    </content-node>
-	    
-	    <content-node>
 	      <id>cnn</id>
 	      <url>http://rss.cnn.com/rss/cnn_topstories.rss</url>
 	      <label>CNN</label>
