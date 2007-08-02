@@ -64,7 +64,6 @@
 		              <label>Password:</label><input type="password" name="j_password" value=""/>
 		            </div>
 			            
-		            <a class="TextHelp" href="#">Forgot Your User Name/Password?</a>
 			          <div class="OverflowContainer">  
 			            <input type="checkbox"/>
 			            <div class="ForgotMessage">Remember my login on this computer</div>

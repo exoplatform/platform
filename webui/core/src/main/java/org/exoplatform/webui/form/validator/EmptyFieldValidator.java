@@ -19,10 +19,12 @@ public class EmptyFieldValidator implements Validator {
   public void validate(UIFormInput uiInput) throws Exception {
     if((uiInput.getValue() != null) && ((String)uiInput.getValue()).trim().length() > 0) {
       return ;
-    }
-    String label = uiInput.getLabel().trim();
+    }    
+    String label = uiInput.getLabel();
+    if(label == null) label = uiInput.getName();
+    label = label.trim();
     if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
-    Object[]  args = { label, uiInput.getBindingField() } ;
+    Object[]  args = {label, uiInput.getBindingField() } ;
     throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args)) ;
   }
 }
