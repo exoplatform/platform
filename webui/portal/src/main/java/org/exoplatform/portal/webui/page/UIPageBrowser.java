@@ -44,6 +44,7 @@ import org.exoplatform.webui.form.UIFormInputItemSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UISearchForm;
 
 @ComponentConfigs({
   @ComponentConfig(
@@ -97,6 +98,7 @@ public class UIPageBrowser extends UISearch {
 
   public UIPageBrowser() throws Exception {
     super(OPTIONS);
+    getChild(UISearchForm.class).setId("UIPageSearch");
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("pageId", BEAN_FIELD, ACTIONS) ;
     addChild(uiGrid.getUIPageIterator());
