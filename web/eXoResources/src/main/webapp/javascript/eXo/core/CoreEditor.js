@@ -3,10 +3,31 @@
  */
 
 function CoreEditor() {
-  this.containerIdentify = 'editcontainer' ;
-  this.editableIdentify = 'editable' ;
-  this.activeEditClass = 'ActiveEdit';
   this.autoDetectFire = false ;
+} ;
+
+/**
+ * 
+ * @param {Element} node
+ */
+CoreEditor.prototype.isContainerNode = function(node) {
+  if (node.getAttribute && 
+      node.getAttribute('editcontainer') == 1) {
+    return true ;
+  }
+  return false ;
+} ;
+
+/**
+ * 
+ * @param {Element} node
+ */
+CoreEditor.prototype.isEditableNode = function(node) {
+  if (node.getAttribute && 
+      node.getAttribute('editable') == 1) {
+    return true ;
+  }
+  return false ;
 } ;
 
 CoreEditor.prototype.registerCoreEditors = function(node4Reg) {
@@ -16,7 +37,7 @@ CoreEditor.prototype.registerCoreEditors = function(node4Reg) {
   var nodeList = node4Reg.getElementsByTagName('DIV') ;
   for(var i=0; i<nodeList.length; i++) {
     var node = nodeList.item(i) ;
-    if (node.nodeType == 1 && node.getAttribute(this.containerIdentify) == 1 &&
+    if (node.nodeType == 1 && this.isContainerNode(node) &&
         node.getAttribute('handler')) {
       this.registerSubCoreEditor(node) ;
       node.onclick = this.autoDetectSubCoreEditor ;
@@ -37,7 +58,7 @@ CoreEditor.prototype.registerSubCoreEditor = function(node) {
     if (child.nodeType != 1) {
       continue ;
     }
-    if(child.getAttribute(this.editableIdentify) == 1) {
+    if(this.isEditableNode(child) == 1) {
       child.onclick = function(event) {
         eXo.core.Keyboard.cancelEvent(event) ;
         return eXo.core.CoreEditor.init(this);
@@ -54,7 +75,7 @@ CoreEditor.prototype.autoDetectSubCoreEditor = function(event) {
   var childNodes = this.childNodes ;
   for(var i=0; i<childNodes.length; i++) {
     var child = childNodes[i] ;
-    if(child.getAttribute(eXo.core.CoreEditor.editableIdentify) == 1 && child.onclick) {
+    if(eXo.core.CoreEditor.isEditableNode(child) && child.onclick) {
       eXo.core.CoreEditor.autoDetectFire = true ;
       eXo.core.Keyboard.cancelEvent(event) ;
       return eXo.core.CoreEditor.init(child);
@@ -110,7 +131,7 @@ CoreEditor.prototype.autoDetectHandler = function(node) {
   for (var nodeIter = node;; nodeIter = nodeIter.parentNode) {
     if (nodeIter.nodeType == 1) {
       if (nodeIter.className == 'UIConsoleApplication') break ;
-      if (nodeIter.getAttribute(this.containerIdentify)) {
+      if (this.isContainerNode(nodeIter)) {
         handler = nodeIter.getAttribute('handler') ;
         break ;
       }

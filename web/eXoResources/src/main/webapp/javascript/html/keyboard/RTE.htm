@@ -13,7 +13,7 @@
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/OS.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/Browser.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/DefaultKeyboardListener.js"></script>
-      <script language="JavaScript" type="text/javascript" src="../../eXo/core/SimpleNodeEditor.js"></script>
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/text/RichTextEditor.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/Keyboard.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/Editor.js"></script>
       <script language="JavaScript" type="text/javascript" src="LogEngine.js"></script>
@@ -30,30 +30,13 @@
 	</head>
 	<body>
     <div class="Space"></div>
-    <div class="Editor" id="line1" editcontainer="1">
+    <div class="Editor" id="line1" editcontainer="1" handler="eXo.core.text.RichTextEditor">
       Test something <span class="RedText" editable="1">with red text...</span><span class="BlueText" editable="1"> and this is blue text</span>
     </div>
-    <hr>
-    <div class="Editor" id="line2" editcontainer="1">Aptana Web ide</div>
-    <hr>
-    <div class="Editor" id="line3" editcontainer="1">Lighweight Editor</div>
-    <input type="text" style="background: black; color: white; width: 250px; height: 120px;" onkeypress="keyHandler(event)">
+    
     <script language="JavaScript" type="text/javascript">
       eXo.core.Editor.registerEditors(document.body) ;
       eXo.core.LogEngine.createLogPanel() ;
-      
-      document.onkeypress = function() {
-        eXo.core.LogEngine.logWriteLn('keydown fired on document...')
-        //window.alert('keydown fired on document...') ;
-        eXo.core.Keyboard.cancelEvent(event) ;
-        return false ;
-      }
-      
-      function keyHandler(event) {
-        eXo.core.LogEngine.logWriteLn('keydown fired in element') ;
-        eXo.core.Keyboard.cancelEvent(event) ;
-        return true ;
-      }
     </script>
 	</body>
 </html>

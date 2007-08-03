@@ -181,6 +181,9 @@ DefaultKeyboardListener.prototype = {
   onLeftArrow : function(keynum, keychar) {
     this.preKeyProcess() ;
     if(this.beforeCursor.length == '') {
+      if (this.onNavGetStart) {
+        this.onNavGetStart(keynum, keychar) ;
+      }
       return false ;
     }
     if(this.beforeCursor.length == 1) {
