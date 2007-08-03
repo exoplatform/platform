@@ -75,7 +75,8 @@ public class UIGroupForm extends UIForm {
       UIGroupForm uiGroupForm = event.getSource() ;
       UIGroupDetail uiGroupDetail = uiGroupForm.getParent() ;
       UIGroupManagement uiGroupManagement = uiGroupDetail.getParent() ;
-      OrganizationService service = uiGroupForm.getApplicationComponent(OrganizationService.class) ;     
+      OrganizationService service = uiGroupForm.getApplicationComponent(OrganizationService.class) ;
+      UIGroupExplorer uiGroupExplorer = uiGroupManagement.getChild(UIGroupExplorer.class) ;
       
       Group currentGroup =  uiGroupForm.getGroup();
       if(currentGroup != null) {
@@ -86,11 +87,12 @@ public class UIGroupForm extends UIForm {
         service.getGroupHandler().saveGroup(currentGroup, false);
         uiGroupForm.reset();
         uiGroupForm.setGroup(null);
+        uiGroupExplorer.changeGroup(currentGroup.getId()) ;
         uiGroupForm.setRenderSibbling(UIGroupInfo.class) ;
         return ;
       }    
       
-      UIGroupExplorer uiGroupExplorer = uiGroupManagement.getChild(UIGroupExplorer.class) ;      
+      //UIGroupExplorer uiGroupExplorer = uiGroupManagement.getChild(UIGroupExplorer.class) ;      
       String currentGroupId = null ;
       currentGroup =  uiGroupExplorer.getCurrentGroup() ;
       if(currentGroup != null) currentGroupId = currentGroup.getId() ;

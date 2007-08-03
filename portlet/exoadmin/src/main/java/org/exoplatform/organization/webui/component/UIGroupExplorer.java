@@ -45,7 +45,8 @@ public class UIGroupExplorer extends UIContainer {
     tree.setIcon("Icon GroupAdminIcon");
     tree.setSelectedIcon("Icon PortalIcon");
     tree.setBeanIdField("id");
-    tree.setBeanLabelField("groupName");
+    //tree.setBeanLabelField("groupName");
+    tree.setBeanLabelField("label");
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -102,7 +103,8 @@ public class UIGroupExplorer extends UIContainer {
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     Group group = service.getGroupHandler().findGroupById(id);
     if(group == null) return list;
-    list.add(0, new LocalPath(group.getId(), group.getGroupName())); 
+    //list.add(0, new LocalPath(group.getId(), group.getGroupName())); 
+    list.add(0, new LocalPath(group.getId(), group.getLabel()));
 		getPath(list, group.getParentId());
 		return list ;
 	}
