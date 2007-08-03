@@ -63,7 +63,7 @@
 				    displayName =category.getDisplayName();
 				    description = category.getDescription();
 				    if(displayName == null || displayName.length() < 1 ) displayName = cName;
-				    if(description == null || description.length() < 1) description = cName;
+				    if(description == null || description.length() < 1) description = "";
 				    if(selectedCategory != null && cName == selectedCategory.getName()) {
 				      cTab = "SelectedTab" ;
 				      display = "display: block";

@@ -85,11 +85,14 @@ public class ApplicationRegistryControlArea extends UIContainer {
         }
       }
     }
-    if(selectedCategory == null) return;
-    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
-    portlets = service.getApplications(selectedCategory) ;
     UIPortletRegistryPortlet parent = getParent();
     ApplicationRegistryWorkingArea workingArea = parent.getChild(ApplicationRegistryWorkingArea.class);
+    if(selectedCategory == null){
+      if(workingArea != null)  workingArea.setPortlets(portlets);
+      return;
+    }
+    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
+    portlets = service.getApplications(selectedCategory) ;
     if(workingArea != null)  workingArea.setPortlets(portlets);
   }
   
