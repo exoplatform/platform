@@ -65,8 +65,9 @@
   width: 20px;
 }
 
-.UICalendar .MonthYearBox .MonthButton a {
+.UIForm .UICalendar .MonthYearBox .MonthButton a {
   background-color: #e1dfdf;
+  margin: 0px;
 }
 
 .UICalendar .MonthYearBox .MonthButton a:hover {
