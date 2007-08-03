@@ -86,23 +86,22 @@
 	cursor: pointer;
 }
 
-.UIVerticalSlideTabs .VTabStyle3 .NormalTab  .TabLeft {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
   padding: 0px 0px 0px 4px ;
   background: url('background/LeftSmoothRoundedBarS4x27.gif') no-repeat left ;
 }
 
-.UIVerticalSlideTabs .VTabStyle3 .NormalTab  .TabRight {
-  width: auto ;
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight {
   background: url('background/RightSmoothRoundedBarS4x27.gif') no-repeat right ;
   padding: 0px 4px 0px 0px ;
 }
 
-.UIVerticalSlideTabs .VTabStyle3 .NormalTab  .TabRepeat {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat {
   height: 27px ;
   background: url('background/MiddleSmoothRoundedBarS1x27.gif') repeat-x ;
 }
 
-.UIVerticalSlideTabs .VTabStyle3 .NormalTab  .LeftIcon {
+.UIVerticalSlideTabs .VTabStyle3 .NormalTab .LeftIcon {
   float: left ;
   width: 16px;  height: 16px;
   background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/BlackNextArrow.gif') no-repeat;

@@ -78,12 +78,11 @@
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
-  padding-left: 4px ; width: 99%;
+  padding-left: 4px ;
   background: url('background/LeftSmoothRoundedBarS4x26.gif') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight {
-  width: auto ;
   padding-right: 4px ;
   background: url('background/RightSmoothRoundedBarS4x26.gif') no-repeat right ;
 }
@@ -126,12 +125,11 @@
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLeft {
-  padding-left: 3px ; width: 99%;
+  padding-left: 3px ;
   background: url('background/LeftSmoothRoundedBar4x26.gif') no-repeat left ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRight {
-  width: auto ;
   padding-right: 3px ;
   background: url('background/RightSmoothRoundedBar4x26.gif') no-repeat right ;
 }
