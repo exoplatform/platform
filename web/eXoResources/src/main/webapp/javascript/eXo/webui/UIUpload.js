@@ -20,9 +20,9 @@ UIUpload.prototype.initUploadEntry = function(uploadId) {
 	} 
 } 
 
-//TODO: Try to use the javascript template here
 UIUpload.prototype.createUploadEntry = function(uploadId) {
   var iframe = document.getElementById(uploadId+'uploadFrame');
+  //TODO DungHM: review solution that fixed "lack of background" bug ;
 	var horizontalLayout = eXo.core.DOMUtil.findAncestorByClass(iframe.parentNode, "HorizontalLayout") ;
 	var background = (horizontalLayout.currentStyle) ? horizontalLayout.currentStyle["backgroundColor"]:"" ;
   var idoc = iframe.contentWindow.document ;
@@ -35,7 +35,7 @@ UIUpload.prototype.createUploadEntry = function(uploadId) {
   idoc.write("<link rel='stylesheet' type='text/css' href= '/eXoResources/skin/DefaultSkin/webui/component/UIUpload/Stylesheet.css' />");
   idoc.write("<script type='text/javascript'>var eXo = parent.eXo</script>");
   idoc.write("</head>");
-  idoc.write("<body style='margin: 0px; border: 0px; background-color:"+background+"' class='UIUploadDocument'>");
+  idoc.write("<body style='margin: 0px; border: 0px; background-color:"+background+"'>");
   idoc.write("  <form id='"+uploadId+"' class='UIUploadForm' style='margin: 0px; padding: 0px' action='"+uploadAction+"' enctype='multipart/form-data' method='post'>");
   idoc.write("    <input type='file' name='file' id='file' value=''/>");
   idoc.write("    <img class='UploadButton' onclick='eXo.webui.UIUpload.upload(this, "+uploadId+")' src='/eXoResources/skin/sharedImages/Blank.gif'/>");
