@@ -11,7 +11,6 @@ config = "<page>" +
          "  <owner-type></owner-type>" +
          "  <owner-id></owner-id>" +
          "  <name>UIPage</name>"+         
-         "  <container template='system:/groovy/portal/webui/container/UIContainer.gtmpl'></container>" +
          "</page>";
 normalPageConfigs.addSelectItemOption(new SelectItemOption("Empty Layout", config, "EmptyLayout"));
 
