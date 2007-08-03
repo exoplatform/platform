@@ -1,16 +1,16 @@
 eXo.require('eXo.core.TemplateEngine');
 eXo.require('eXo.application.ApplicationDescriptor');
+eXo.require('eXo.core.OS');
+eXo.require('eXo.core.HTMLUtil');
+eXo.require('eXo.core.DefaultKeyboardListener');
+eXo.require('eXo.core.Keyboard');
+eXo.require('eXo.core.CoreEditor');
 eXo.require('eXo.application.console.ConsoleScreen', '/eXoAppWeb/javascript/');
 eXo.require('eXo.application.console.Command', '/eXoAppWeb/javascript/');
 eXo.require('eXo.application.console.EnvManager', '/eXoAppWeb/javascript/');
 eXo.require('eXo.application.console.CommandHistory', '/eXoAppWeb/javascript/');
 eXo.require('eXo.application.console.CommandManager', '/eXoAppWeb/javascript/');
-eXo.require('eXo.core.OS');
-eXo.require('eXo.core.HTMLUtil');
-eXo.require('eXo.core.DefaultKeyboardListener');
-eXo.require('eXo.core.SimpleNodeEditor');
-eXo.require('eXo.core.Keyboard');
-eXo.require('eXo.core.Editor');
+eXo.require('eXo.application.console.ConsoleInputManager', '/eXoAppWeb/javascript/');
 
 function UIConsoleApplication() {
 	this.appCategory = "web" ;
@@ -50,7 +50,7 @@ UIConsoleApplication.prototype.initApplication = function(applicationId, instanc
 
 	var appInstance = appDescriptor.createApplication();
 	eXo.desktop.UIDesktop.addJSApplication(appInstance);
-  eXo.core.Editor.registerEditors(appInstance) ;
+  eXo.core.CoreEditor.registerCoreEditors(appInstance) ;
 };
 
 UIConsoleApplication.prototype.destroyApplicationInstance = function(appDescriptor) {

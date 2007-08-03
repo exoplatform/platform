@@ -7,7 +7,7 @@
 	    eXo javascript console version 1.0
 	  </div>
 	</div>	
-	<div class="CommandType" editcontainer="1">
+	<div class="CommandType" editcontainer="1" handler="eXo.application.console.ConsoleInputManager">
 		<span class="Prompt"> exo-console$ </span>
 		<span editable="1">...</span>
 	</div>

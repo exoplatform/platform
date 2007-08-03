@@ -5,19 +5,92 @@
  * 
  */
 function DefaultKeyboardListener() {
+  this.cursor = '<span class="ConsoleCursor" cursor="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>' ;
+  this.htmlUtil = eXo.core.HTMLUtil ;
 }
 
 DefaultKeyboardListener.prototype = {
-  init : function() {}
+  init : function() {
+    if(!this.isSameNode(node)) {
+      this.onFinish() ;
+    }
+    this.currentNode = node ;
+    this.beforeCursor = beforeCursor ;
+    this.afterCursor = afterCursor ;
+  }
   ,
   
-  onFinish : function() {}
+  onFinish : function() {
+    this.removeCursor() ;
+    this.currentNode = null ;
+    this.beforeCursor = null ;
+    this.afterCursor = null ;
+  }
   ,
   
-  write : function() {}
+  removeCursor : function() {
+    this.write(this.beforeCursor, '', this.afterCursor) ;
+  }
+  ,
+  
+  defaultWrite : function() {
+    this.beforeCursor = this.htmlUtil.entitiesEncode(this.beforeCursor) ;
+    this.afterCursor = this.htmlUtil.entitiesEncode(this.afterCursor) ;
+    this.write(this.beforeCursor, this.cursor, this.afterCursor) ;
+  }
+  ,
+  
+  /**
+   * 
+   * @param {String} beforeCursor
+   * @param {String} cursor
+   * @param {String} afterCursor
+   */
+  write : function(beforeCursor, cursor, afterCursor) {
+    if(this.currentNode) {
+      this.currentNode.innerHTML = beforeCursor + cursor + afterCursor ;
+      this.beforeCursor = beforeCursor ;
+      this.afterCursor = afterCursor ;
+    }
+  }
+  ,
+  
+  isSameNode : function(node) {
+    if(this.currentNode === node) {
+      return true ;
+    }
+    return false ;
+  }
+  ,
+  
+  /**
+   * @return {String}
+   */
+  getEditContent : function() {
+    var editContent = this.beforeCursor + this.afterCursor ;
+    editContent = this.htmlUtil.entitiesDecode(editContent) ;
+    return editContent ;
+  }
+  ,
+  
+  preKeyProcess : function() {
+    if (this['onBeforePreKeyProcess']) {
+      this.onBeforePreKeyProcess() ;
+    }
+    this.beforeCursor = this.htmlUtil.entitiesDecode(this.beforeCursor) ;
+    this.afterCursor = this.htmlUtil.entitiesDecode(this.afterCursor) ;
+  }
   ,
   
   // Printable keys
+  onDefault : function(keynum, keychar) {
+    this.preKeyProcess() ;
+    this.beforeCursor += keychar ;
+    this.defaultWrite() ;
+    return false ;
+  }
+  ,
+  
   /**
    * 
    * @param {Number} keynum
@@ -39,7 +112,13 @@ DefaultKeyboardListener.prototype = {
    * @param {Number} keynum
    * @param {Char} keychar
    */
-  onPunctuation : function(keynum, keychar) { return true ;}
+  onPunctuation : function(keynum, keychar) {
+    this.preKeyProcess() ;
+    keychar = this.htmlUtil.entitiesEncode(keychar) ;
+    this.beforeCursor += keychar ;
+    this.defaultWrite() ;
+    return false ;
+  }
   ,
   
   // Control keys
@@ -48,7 +127,12 @@ DefaultKeyboardListener.prototype = {
    * @param {Number} keynum
    * @param {Char} keychar
    */
-  onBackspace : function(keynum, keychar) { return true ;}
+  onBackspace : function(keynum, keychar) {
+    this.preKeyProcess() ;
+    this.beforeCursor = this.beforeCursor.substr(0, (this.beforeCursor.length - 1)) ;
+    this.defaultWrite() ;  
+    return false ;
+  }
   ,
   
   /**
@@ -56,7 +140,12 @@ DefaultKeyboardListener.prototype = {
    * @param {Number} keynum
    * @param {Char} keychar
    */
-  onDelete : function(keynum, keychar) { return true ;}
+  onDelete : function(keynum, keychar) {
+    this.preKeyProcess() ;
+    this.afterCursor = this.afterCursor.substr(1, (this.afterCursor.length - 1)) ;
+    this.defaultWrite() ;
+    return false ;
+  }
   ,
   
   /**
@@ -89,7 +178,22 @@ DefaultKeyboardListener.prototype = {
    * @param {Number} keynum
    * @param {Char} keychar
    */
-  onLeftArrow : function(keynum, keychar) { return true ;}
+  onLeftArrow : function(keynum, keychar) {
+    this.preKeyProcess() ;
+    if(this.beforeCursor.length == '') {
+      return false ;
+    }
+    if(this.beforeCursor.length == 1) {
+      this.afterCursor = this.beforeCursor + this.afterCursor ;
+      this.beforeCursor = '' ;
+    } else {
+      this.afterCursor = this.beforeCursor.substr((this.beforeCursor.length - 2), 
+                                                    (this.beforeCursor.length - 1)) + this.afterCursor ;
+      this.beforeCursor = this.beforeCursor.substr(0, (this.beforeCursor.length - 2)) ;
+    }
+    this.defaultWrite() ;
+    return false ;
+  }
   ,
   
   /**
@@ -97,7 +201,16 @@ DefaultKeyboardListener.prototype = {
    * @param {Number} keynum
    * @param {Char} keychar
    */
-  onRightArrow : function(keynum, keychar) { return true ;}
+  onRightArrow : function(keynum, keychar) {
+    this.preKeyProcess() ;
+    if(this.afterCursor.length == '') {
+      return false ;
+    }
+    this.beforeCursor += this.afterCursor.substr(0, 1) ;
+    this.afterCursor = this.afterCursor.substr(1, (this.afterCursor.length - 1)) ;
+    this.defaultWrite() ;
+    return false ;
+  }
   ,
   
   /**
@@ -121,7 +234,15 @@ DefaultKeyboardListener.prototype = {
    * @param {Number} keynum
    * @param {Char} keychar
    */
-  onHome : function(keynum, keychar) { return true ;}
+  onHome : function(keynum, keychar) {
+    if(this.beforeCursor.length == '') {
+      return false ;
+    }
+    this.afterCursor = this.beforeCursor + this.afterCursor ;
+    this.beforeCursor = '' ;
+    this.defaultWrite() ;
+    return false ;
+  }
   ,
   
   /**
@@ -129,8 +250,16 @@ DefaultKeyboardListener.prototype = {
    * @param {Number} keynum
    * @param {Char} keychar
    */
-  onEnd : function(keynum, keychar) { return true ;}  
+  onEnd : function(keynum, keychar) {
+    this.cmdManager.hideQuickHelp() ;
+    if(this.afterCursor.length == '') {
+      return false ;
+    }
+    this.beforeCursor = this.beforeCursor + this.afterCursor ;
+    this.afterCursor = '' ;
+    this.defaultWrite() ;
+    return false ;
+  }  
 } ;
-
 
 eXo.core.DefaultKeyboardListener = DefaultKeyboardListener ;

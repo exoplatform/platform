@@ -10,7 +10,9 @@ function History() {
 History.prototype = eXo.application.console.Command.createInstance() ;
 
 History.prototype.help = function() {
-  return 'Manage command history' ;
+  return 'Manage command history\
+          <br/> Posible sub command:\
+          <br/>   clear  clear history' ;
 } ;
 
 History.prototype.execute = function(args, consoleScreen) {
@@ -26,7 +28,7 @@ History.prototype.execute = function(args, consoleScreen) {
     }
   }
   consoleScreen.write(cmdHistory.commands.join('<br />')) ;
-  return 0 ;  
+  return 0 ;
 } ;
 
 eXo.application.console.History = new History() ;

@@ -9,7 +9,7 @@ function Keyboard() {
       return eXo.core.Keyboard.onKeyDown(e) ;
     }
   }
-  document.onkeypress = function(e) {    
+  document.onkeypress = function(e) {
     return eXo.core.Keyboard.onKeyPress(e) ;
   } ;
 }
