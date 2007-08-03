@@ -13,7 +13,6 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
-import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.NameValidator;
 @ComponentConfig(
   lifecycle = UIFormLifecycle.class,
@@ -33,7 +32,7 @@ public class UIMembershipTypeForm extends UIForm {
   public UIMembershipTypeForm() throws Exception {
     addUIFormInput(new UIFormStringInput(MEMBERSHIP_TYPE_NAME, MEMBERSHIP_TYPE_NAME, null).
                    setEditable(UIFormStringInput.ENABLE).
-                   addValidator(EmptyFieldValidator.class).
+                   //addValidator(EmptyFieldValidator.class).
                    addValidator(NameValidator.class)) ;
    
     addUIFormInput(new UIFormTextAreaInput(DESCRIPTION, DESCRIPTION, null)) ;    
