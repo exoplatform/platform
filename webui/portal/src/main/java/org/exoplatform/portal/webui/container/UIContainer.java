@@ -62,7 +62,7 @@ public class UIContainer extends  UIPortalComponent {
   
   static  public class SelectTabActionListener extends EventListener<UIContainer> {    
     public void execute(Event<UIContainer> event) throws Exception {
-      System.out.println("\n\n ==  > select tab ne \n\n");
+//      System.out.println("\n\n ==  > select tab ne \n\n");
     }
   }
   
