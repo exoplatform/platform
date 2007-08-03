@@ -57,6 +57,7 @@ public class UIPortalManagement extends UIManagement {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       uiPortalApp.addMessage(new ApplicationMessage("UIPortalManagement.msg.Invalid-editPermission", new String[]{uiPortal.getName()})) ;;
       pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+     
       return;
     } 
     getChild(UIPortalManagementEditBar.class).setRendered(false);
