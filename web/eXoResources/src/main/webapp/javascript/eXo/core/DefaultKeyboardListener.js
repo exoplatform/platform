@@ -10,7 +10,7 @@ function DefaultKeyboardListener() {
 }
 
 DefaultKeyboardListener.prototype = {
-  init : function() {
+  init : function(node, beforeCursor, afterCursor) {
     if(!this.isSameNode(node)) {
       this.onFinish() ;
     }
@@ -180,20 +180,14 @@ DefaultKeyboardListener.prototype = {
    */
   onLeftArrow : function(keynum, keychar) {
     this.preKeyProcess() ;
-    if(this.beforeCursor.length == '') {
-      if (this.onNavGetStart) {
-        this.onNavGetStart(keynum, keychar) ;
+    if((this.beforeCursor.length + '')== 0) {
+      if (this.onNavGetBegin) {
+        this.onNavGetBegin(keynum, keychar) ;
       }
       return false ;
     }
-    if(this.beforeCursor.length == 1) {
-      this.afterCursor = this.beforeCursor + this.afterCursor ;
-      this.beforeCursor = '' ;
-    } else {
-      this.afterCursor = this.beforeCursor.substr((this.beforeCursor.length - 2), 
-                                                    (this.beforeCursor.length - 1)) + this.afterCursor ;
-      this.beforeCursor = this.beforeCursor.substr(0, (this.beforeCursor.length - 2)) ;
-    }
+    this.afterCursor = this.beforeCursor.charAt(this.beforeCursor.length - 1) + this.afterCursor ;
+    this.beforeCursor = this.beforeCursor.substr(0, (this.beforeCursor.length - 1)) ;
     this.defaultWrite() ;
     return false ;
   }
@@ -206,10 +200,13 @@ DefaultKeyboardListener.prototype = {
    */
   onRightArrow : function(keynum, keychar) {
     this.preKeyProcess() ;
-    if(this.afterCursor.length == '') {
+    if((this.afterCursor + '').length == 0) {
+      if (this.onNavGetEnd) {
+        this.onNavGetEnd(keynum, keychar) ;
+      }
       return false ;
     }
-    this.beforeCursor += this.afterCursor.substr(0, 1) ;
+    this.beforeCursor += this.afterCursor.charAt(0) ;
     this.afterCursor = this.afterCursor.substr(1, (this.afterCursor.length - 1)) ;
     this.defaultWrite() ;
     return false ;
@@ -241,6 +238,7 @@ DefaultKeyboardListener.prototype = {
     if(this.beforeCursor.length == '') {
       return false ;
     }
+    this.preKeyProcess() ;
     this.afterCursor = this.beforeCursor + this.afterCursor ;
     this.beforeCursor = '' ;
     this.defaultWrite() ;
@@ -254,10 +252,10 @@ DefaultKeyboardListener.prototype = {
    * @param {Char} keychar
    */
   onEnd : function(keynum, keychar) {
-    this.cmdManager.hideQuickHelp() ;
     if(this.afterCursor.length == '') {
       return false ;
     }
+    this.preKeyProcess() ;
     this.beforeCursor = this.beforeCursor + this.afterCursor ;
     this.afterCursor = '' ;
     this.defaultWrite() ;

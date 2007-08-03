@@ -15,7 +15,7 @@
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/DefaultKeyboardListener.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/text/RichTextEditor.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/Keyboard.js"></script>
-      <script language="JavaScript" type="text/javascript" src="../../eXo/core/Editor.js"></script>
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/CoreEditor.js"></script>
       <script language="JavaScript" type="text/javascript" src="LogEngine.js"></script>
       <link rel="stylesheet" type="text/css" href="LogEngineStyle.css">
       <style type="text/css">
@@ -26,17 +26,34 @@
         .BlueText {
           color: #0000ff;
         }
+        .ConsoleCursor {
+          height: 2px ;
+          width: 5px ;
+          border: solid 1px blue ;
+          font-size: 2px ;
+        }
       </style>
 	</head>
 	<body>
     <div class="Space"></div>
     <div class="Editor" id="line1" editcontainer="1" handler="eXo.core.text.RichTextEditor">
-      Test something <span class="RedText" editable="1">with red text...</span><span class="BlueText" editable="1"> and this is blue text</span>
+      Test something 
+      <span class="RedText" editable="1">with red text...</span>
+      <span class="BlueText" editable="1"> and this is blue text</span>
+    </div>
+    <hr>
+    <div class="Editor" editcontainer="1" handler="eXo.core.text.RichTextEditor">
+      <span class="RedText" editable="1">Editable</span>
+      <span>can not change this node</span>
+      <span class="BlueText" editable="1">edit me</span>
+      <span>(static content) - </span>
+      [static content in text node]
+      <span class="BlueText" editable="1">nice to meet u</span>
     </div>
     
     <script language="JavaScript" type="text/javascript">
-      eXo.core.Editor.registerEditors(document.body) ;
-      eXo.core.LogEngine.createLogPanel() ;
+      eXo.core.CoreEditor.registerCoreEditors(document.body) ;
+//      eXo.core.LogEngine.createLogPanel() ;
     </script>
 	</body>
 </html>
