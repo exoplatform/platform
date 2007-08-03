@@ -12,6 +12,12 @@
 	    </component-plugin>  
     </component-plugins> 
     <init-params>           
+      <value-param>
+        <name>ldap.userDN.key</name>
+        <description>The key used to compose user DN</description>
+        <value>cn</value>
+      </value-param>
+      
       <object-param>
         <name>ldap.attribute.mapping</name>
         <description>ldap attribute mapping</description>
@@ -28,7 +34,6 @@
           <field  name="userURL"><string>ou=users,ou=portal,dc=exoplatform,dc=org</string></field>
           <field  name="profileURL"><string>ou=profiles,ou=portal,dc=exoplatform,dc=org</string></field>
           
-          <field  name="userAuthenticationAttr"><string>uid</string></field>
           <field  name="userUsernameAttr"><string>uid</string></field>
           <field  name="userPassword"><string>userPassword</string></field>
           <field  name="userFirstNameAttr"><string>givenName</string></field>
@@ -53,11 +58,11 @@
           <field  name="ldapModifiedTimeStampAttr"><string>modifiedTimeStamp</string></field>
           <field  name="ldapDescriptionAttr"><string>description</string></field>
         </object>
-      </object-param>        
+      </object-param>
     </init-params>     
   </component>  
   
-  <!--external-component-plugins>
+  <external-component-plugins>
     <target-component>org.exoplatform.services.database.HibernateService</target-component>
     <component-plugin> 
       <name>add.hibernate.mapping</name>
@@ -70,7 +75,25 @@
         </values-param>
       </init-params>
     </component-plugin>
-   </external-component-plugins-->
-   
-   <import>classpath:/conf/portal/organization-configuration.xml</import>   
+   </external-component-plugins>
+
+  <!-- for ldap clean database 
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.ldap.LDAPService</target-component>
+    <component-plugin> 
+      <name>delete.object</name>
+      <set-method>addDeleteObject</set-method>
+      <type>org.exoplatform.services.ldap.DeleteObjectCommand</type>
+      <init-params>
+        <values-param>
+          <name>objects.to.delete</name>
+          <value>cn=demo,ou=users,ou=portal,dc=exoplatform,dc=org</value>
+          <value>cn=test,ou=users,ou=portal,dc=exoplatform,dc=org</value>
+          <value>cn=Benj,ou=users,ou=portal,dc=exoplatform,dc=org</value>
+          <value>cn=tuan,ou=users,ou=portal,dc=exoplatform,dc=org</value>
+        </values-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+  -->
 </configuration>
