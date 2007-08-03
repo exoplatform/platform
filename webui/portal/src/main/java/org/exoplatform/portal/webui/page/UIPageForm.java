@@ -193,6 +193,7 @@ public class UIPageForm extends UIFormTabPane {
   @SuppressWarnings("unchecked")
   static public class SaveActionListener  extends EventListener<UIPageForm> {
     public void execute(Event<UIPageForm> event) throws Exception {
+      
       UIPageForm uiPageForm = event.getSource();   
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       PortalRequestContext pcontext = Util.getPortalRequestContext();
@@ -205,7 +206,8 @@ public class UIPageForm extends UIFormTabPane {
       uiMaskWS.setUIComponent(null);
       uiMaskWS.setShow(false);
       pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
-
+      System.out.println("\n\n--------asdf-> UIpage " + uiPage +" - title: " + page.getTitle());
+      
       if(uiPage == null)  return;
       
       page.setOwnerType(uiPage.getOwnerType());
@@ -240,7 +242,7 @@ public class UIPageForm extends UIFormTabPane {
         return;
       }
 
-      if(!Page.DESKTOP_PAGE.equals(uiPage.getFactoryId()) && Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
+      if( Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
         uiPage.getChildren().clear();         
         page.setChildren(applications);         
 
@@ -265,12 +267,18 @@ public class UIPageForm extends UIFormTabPane {
         pcontext.setFullRender(true);
         UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
         pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-
+        UserPortalConfigService service = uiEditBar.getApplicationComponent(UserPortalConfigService.class);
+        service.update(page);
         return;
       } 
-
+      
       List<UIComponent> uiChildren = uiPage.getChildren();
-      if(uiChildren == null)  return ;
+      if(uiChildren == null)  {
+        System.out.println("\n\n---children null");
+        PortalDataMapper.toUIPage(uiPage, page);
+        return ;
+      }
+      System.out.println("\n\n---> ko null roi");
       ArrayList<Object>  children = new ArrayList<Object>();
       for(UIComponent child : uiChildren){ 
         Object component = PortalDataMapper.buildChild(child);
