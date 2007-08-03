@@ -51,7 +51,8 @@
      String height  = uicomponent.getHeight();
      if(width != null) style += "width:"+width+";";
      if(height != null) style += "height:"+height+";";
-     int tdWidth = 100/uicomponent.getChildren().size();
+     int tdWidth = 0;
+     if(uicomponent.getChildren().size() > 0) tdWidth = 100/uicomponent.getChildren().size();
   %>
   <div class="VIEW-CONTAINER" >
     <div id="$uicomponent.id">    
