@@ -43,11 +43,17 @@ DragDrop.prototype.init = function(dropableTargets, clickObject, dragObject, evt
   var dndEvent = this.dndEvent = new DragDropEvent(clickObject, dragObject) ;
 	document.onmousemove	= this.onMouseMove ;
 	document.onmouseup		= this.onDrop ;
+	document.onkeypress = this.onKeyPressEvt ;
 	
   if(this.initCallback != null) {
     this.initCallback(dndEvent) ;
   }
 } ;
+
+DragDrop.prototype.onKeyPressEvt = function(evt) {
+	if(!evt) evt = window.event ;
+	if(evt.keyCode == 27) eXo.core.DragDrop.onDrop(evt) ;
+}
 
 DragDrop.prototype.onMouseMove = function(evt) {
   eXo.core.Mouse.update(evt) ;
@@ -73,7 +79,6 @@ DragDrop.prototype.onMouseMove = function(evt) {
 
 DragDrop.prototype.onDrop = function(evt) {
   /* should not remove this or move this line to  destroy since the onMouseMove method keep calling */
-	document.onmousemove	= null ;
   if(eXo.core.DragDrop.dropCallback != null) {
     var dndEvent = eXo.core.DragDrop.dndEvent ;
     var dragObject = dndEvent.dragObject ;
@@ -92,7 +97,9 @@ DragDrop.prototype.destroy = function() {
     this.destroyCallback(this.dndEvent) ;
   }
 
+	document.onmousemove	= null ;
   document.onmouseup = null ;
+  document.onkeypress = null ;
 
   this.dndEvent = null ;
   this.dropableTargets = null ;

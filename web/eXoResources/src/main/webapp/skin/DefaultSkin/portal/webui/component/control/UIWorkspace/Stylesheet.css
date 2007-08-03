@@ -1,8 +1,8 @@
 .UIControlWorkspace {
+	background: #9ed0f3 url('/eXoResources/skin/DefaultSkin/background/eXoBodyBG.jpg') no-repeat fixed ;
   width: 6px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
-  background: url("background/ControlWorkspaceBG6x1.gif") repeat-y right;
 }
 
 .UIControlWorkspace .TopTitleBar{
@@ -67,7 +67,7 @@
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
-	float: left ;
+  background: url("background/ControlWorkspaceBG6x1.gif") repeat-y right;
 	height: 100%;
 }
 

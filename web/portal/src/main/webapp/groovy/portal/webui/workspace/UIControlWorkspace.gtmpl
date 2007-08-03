@@ -52,7 +52,6 @@
     <div class="SlidebarButton"><span></span></div>
   </div>
   <%/*End Slidebar*/%>
-  <div style="clear: both"><span></span></div>
 </div>
 <%
   jsmanager.addJavascript("eXo.portal.UIControlWorkspace.onResizeDefault();") ;

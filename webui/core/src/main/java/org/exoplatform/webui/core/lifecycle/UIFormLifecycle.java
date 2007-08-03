@@ -79,12 +79,13 @@ public class UIFormLifecycle  extends Lifecycle {
       }
     }*/
     
+    //TODO TrongTT: I think don't need to check whether it's instanceof UIPortletApplication
     if(context.getProcessRender()) {
-      if(uiApp instanceof UIPortletApplication){
-        context.addUIComponentToUpdateByAjax(uiApp);
-      }else{
+//      if(uiApp instanceof UIPortletApplication){
+//        context.addUIComponentToUpdateByAjax(uiApp);
+//      }else{
         context.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
-      }
+//      }
       return ;     
     }
     event.broadcast()  ;

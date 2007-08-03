@@ -13,18 +13,15 @@ UIRightClickPopupMenu.prototype.init = function(contextMenuId) {
 	}
 
 	var parentNode = contextMenu.parentNode ;
-	parentNode.contextMenu = contextMenu ;
-	parentNode.onmousedown = function() {
-		this.contextMenu.style.display = 'none' ;
-	}
-//	
-//	var items = eXo.core.DOMUtil.findDescendantsByClass(contextMenu, "div", "MenuItem");
-//	for(var i = 0; i < items.length; i++) {
-//		items[i].onmouseout = new Function("this.className = 'MenuItem'") ;
-//		items[i].onmouseover = new Function("this.className = 'SelectedMenuItem'") ;
+//	parentNode.contextMenu = contextMenu ;
+//	parentNode.onclick = function() {
+//		this.contextMenu.style.display = 'none' ;
 //	}
-	
 	this.disableContextMenu(parentNode) ;
+}
+
+UIRightClickPopupMenu.prototype.hideContextMenu = function(contextId) {
+	document.getElementById(contextId).style.display = 'none' ;
 }
 
 UIRightClickPopupMenu.prototype.disableContextMenu = function(comp) {
@@ -43,24 +40,17 @@ UIRightClickPopupMenu.prototype.prepareObjectId = function(elemt) {
 			contextMenu.style.dispay = "none" ;
 	var str = elemt.getAttribute('href') ;
 	elemt.setAttribute('href',str.replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'"))) ;
-			
 }
 
-//UIRightClickPopupMenu.prototype.prepareObjectId = function(elemt) {
-//	var aTag = elemt.getElementsByTagName('a') ;
-//	var str = aTag[0].getAttribute('href') ;
-//	var contextMenu = eXo.core.DOMUtil.findAncestorByClass(elemt, "UIRightClickPopupMenu");
-//	aTag[0].setAttribute('href',str.replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'"))) ;
-//}
-
 UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId, objId, params) {
-	event.cancelBubble = true;
+	eXo.core.MouseEventManager.docMouseDownEvt(event) ;
 	var contextMenu = document.getElementById(menuId) ;
 	contextMenu.objId = objId ;
 	if(!(((event.which) && (event.which == 2 || event.which == 3)) || ((event.button) && (event.button == 2))))	{
 		contextMenu.style.display = 'none' ;
 		return;
 	}
+	eXo.core.MouseEventManager.addMouseDownHandler("eXo.webui.UIRightClickPopupMenu.hideContextMenu('" + menuId + "');")
 
 	if(params) {
 		params = "," + params + "," ;

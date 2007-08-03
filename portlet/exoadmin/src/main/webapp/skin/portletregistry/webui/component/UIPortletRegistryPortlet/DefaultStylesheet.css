@@ -4,13 +4,6 @@
  * May 8, 2007
  * version: $Id$
  */
- 
-.UIWindow .UIApplicationRegistryPortlet {
-  overflow: auto ;
-  border: none;
-  margin: 0px;
-}
- 
 .UIApplicationRegistryPortlet {
 	background: white;
 	border: 1px solid #b7b7b7;
