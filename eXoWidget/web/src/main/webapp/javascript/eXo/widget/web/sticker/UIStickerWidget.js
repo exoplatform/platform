@@ -16,7 +16,7 @@ UIStickerWidget.prototype.createAppDescriptor = function(appDescriptor, appEleme
 		uiWidget : {
 			temporaty : appElement,
 			appId : appElement.getAttribute('applicationId'),
-			stickerContent : appElement.getAttribute('stickerContent')
+			stickerContent : (appElement.getAttribute('stickerContent'))?appElement.getAttribute('stickerContent'):""
 		}
 	};
 }
