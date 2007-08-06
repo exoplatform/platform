@@ -22,7 +22,7 @@ UIUpload.prototype.initUploadEntry = function(uploadId) {
 
 UIUpload.prototype.createUploadEntry = function(uploadId) {
   var iframe = document.getElementById(uploadId+'uploadFrame');
-  //TODO DungHM: review solution that fixed "lack of background" bug ;
+  //  TODO DungHM: review solution that fixed "lack of background" bug ;
 	var horizontalLayout = eXo.core.DOMUtil.findAncestorByClass(iframe.parentNode, "HorizontalLayout") ;
 	var background = (horizontalLayout.currentStyle) ? horizontalLayout.currentStyle["backgroundColor"]:"" ;
   var idoc = iframe.contentWindow.document ;
