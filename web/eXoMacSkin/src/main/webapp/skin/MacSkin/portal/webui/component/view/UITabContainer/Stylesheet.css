@@ -38,15 +38,17 @@
 }
 
 .UITabContainer .EditIcon {
-  padding: 0px 6px 0px 0px;
-	height: 24px;	width: 16px;
 	overflow: hidden;
 }
 
 .LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
+  padding: 0px 6px 0px 0px;
+	height: 24px;	width: 16px;
 	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat center;
 }
 
 .LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
+  padding: 0px 6px 0px 0px;
+	height: 24px;	width: 16px;
 	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DisableEditIcon.gif') no-repeat center;
 }

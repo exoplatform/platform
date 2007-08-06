@@ -36,14 +36,15 @@
 }
 
 .UITabContainer .EditIcon {
-	height: 26px;	width: 16px;
 	overflow: hidden;
 }
 
 .LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
+	height: 26px;	width: 16px;
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedEditTab.gif') no-repeat center ;
 }
 
 .LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
+	height: 26px;	width: 16px;
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalEditTab.gif') no-repeat center ;
 }
