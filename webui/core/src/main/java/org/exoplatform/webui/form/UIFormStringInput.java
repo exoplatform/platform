@@ -44,13 +44,13 @@ public class UIFormStringInput extends UIFormInputBase<String> {
   public void processRender(WebuiRequestContext context) throws Exception {
   	Writer w =  context.getWriter() ;
   	w.write("<input name='") ; w.write(getName()); w.write('\''); 
-  	if (type_ == PASSWORD_TYPE) 
-      w.write(" type='password'");
-    else
-      w.write(" type='text'");    
+  	if (type_ == PASSWORD_TYPE) w.write(" type='password'");
+  	else w.write(" type='text'");    
     w.write(" id='") ; w.write(getId()); w.write('\'');
   	if(value_ != null && value_.length() > 0) {      
       w.write(" value='"); w.write(encodeValue(value_).toString()); w.write('\'');
+      //TODO TrongTT: The temporary solution for ajax updating problem in IE6 & IE7
+      if(type_ == PASSWORD_TYPE) context.getJavascriptManager().addCustomizedOnLoadScript("document.getElementById('" + getId() + "').value = '" + encodeValue(value_).toString() + "';") ;
     }
   	if (readonly_) w.write(" readonly ");  	
   	w.write("/>") ;
