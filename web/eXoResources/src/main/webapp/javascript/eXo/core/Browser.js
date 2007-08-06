@@ -76,10 +76,7 @@ Browser.prototype.initIE = function() {
     event = "on" + event ;
     object.attachEvent(event, operation) ;
   }
-//alert("Time : "+ new Date().getTime());
   this.setOpacity = function(component, value) {component.style.filter = "alpha(opacity=" + value + ")" ;}
-//alert("Time : "+ new Date().getTime());
-//minh.js.exo
   this.getEventSource = function(e) { return window.event.srcElement ; }
 } ;
 

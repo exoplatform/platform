@@ -99,7 +99,6 @@ ImplodeExplode.prototype.doImplode = function(containerId) {
 	win.animation.style.height = H0 + "px" ;
 
 	win.step++;
-//	alert("break 10h44 27/06/2007");
 	if(W0 > win.iconW) {
 		setTimeout("eXo.animation.ImplodeExplode.doImplode('" + containerId + "');", 0) ;
 	}	else {

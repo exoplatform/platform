@@ -91,10 +91,14 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
   	this.object.isShowed = true ;
     var uiDockBar = document.getElementById("UIDockBar") ;
     eXo.desktop.UIDockbar.resetDesktopShowedStatus(uiPageDesktop, uiDockBar) ;
- //   alert("break 10h44 27/06/2007");
     eXo.animation.ImplodeExplode.explode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
- //   bug : don't apply style css in IE6
     eXo.desktop.UIWindow.saveWindowProperties(this.object, "SHOW");
+
+//fix bug : don't apply style css in IE6 
+
+  	if(eXo.core.Browser.isIE6()){
+			eXo.core.Browser.setOpacity(this.object, 100) ;
+  	}
   }
   eXo.desktop.UIDockbar.containerMouseOver() ;
 };
