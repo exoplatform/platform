@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.page;
 
-import java.io.Writer;
 import java.util.ResourceBundle;
 
 import org.exoplatform.container.ExoContainer;
@@ -12,7 +11,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
@@ -83,7 +81,7 @@ public class UIPageBody extends UIComponentDecorator {
       }   
     } 
     
-    uicomponent_ = uiPage;
+   setUIComponent(uiPage);
   }
   
   public void renderChildren() throws Exception {
