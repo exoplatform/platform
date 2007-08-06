@@ -14,6 +14,7 @@ import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.validator.Validator;
 
 /**
  * Author : Nhu Dinh Thuan
@@ -54,7 +55,9 @@ public class UIFormPopupWindow extends UIPopupWindow implements UIFormInput<Obje
   public String getLabel() { return getName(); }
 
   @SuppressWarnings("unused")
-  public UIFormInput addValidator(Class clazz) throws Exception { return null; }
+  public <E extends Validator> UIFormInput addValidator(Class<E> clazz, Object...params) throws Exception { 
+    return this;
+  }
 
   public String getBindingField() { return null; }
   

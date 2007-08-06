@@ -21,7 +21,7 @@ public interface UIFormInput<E> {
   
   public String getLabel();
 
-  public UIFormInput addValidator(Class clazz) throws Exception ;
+  public <E extends Validator> UIFormInput addValidator(Class<E> clazz, Object...params) throws Exception ;
   public List<Validator>  getValidators()  ;
   
   public E getValue() throws Exception ;

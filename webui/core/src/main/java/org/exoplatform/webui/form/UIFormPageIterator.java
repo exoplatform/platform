@@ -19,6 +19,7 @@ import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.validator.Validator;
 
 @ComponentConfig(
     template = "system:/groovy/webui/core/UIPageIterator.gtmpl",
@@ -51,8 +52,8 @@ public class UIFormPageIterator extends UIPageIterator implements UIFormInput<Ob
   }
   
   @SuppressWarnings("unused")
-  public UIFormInput<Object> addValidator(Class clazz) throws Exception {
-    return null;
+  public <E extends Validator> UIFormInput addValidator(Class<E> clazz, Object...params) throws Exception { 
+    return this;
   }
 
   public String getBindingField() { return null; }

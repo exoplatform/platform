@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.webui.form;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,9 +75,18 @@ abstract public class UIFormInputBase<T> extends UIContainer implements UIFormIn
     return this;
   }
   
-  public UIFormInputBase<T> addValidator(Class clazz) throws Exception {
+  public <E extends Validator> UIFormInputBase<T> addValidator(Class<E> clazz, Object...params) throws Exception {
     if(validators == null)  validators = new ArrayList<Validator>(3) ;
-    validators.add((Validator)clazz.newInstance()) ;
+    if(params.length > 0) {
+      Class<?> [] classes = new Class[params.length];
+      for(int i=0; i<params.length; i++) {
+        classes[i] = params[i].getClass();
+      }
+      Constructor<E> constructor = clazz.getConstructor(classes);
+      validators.add(constructor.newInstance(params)) ;
+      return this;
+    } 
+    validators.add(clazz.newInstance()) ;
     return this ;
   } 
   

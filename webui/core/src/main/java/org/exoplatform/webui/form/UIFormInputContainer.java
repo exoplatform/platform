@@ -44,9 +44,9 @@ abstract public class UIFormInputContainer<T> extends UIContainer implements UIF
   public String getBindingField() { return bindingField ; }
   public void setBindingField(String s) {  this.bindingField = s ; }
 
-  public UIFormInputContainer addValidator(Class clazz) throws Exception {
+  public <E extends Validator> UIFormInput addValidator(Class<E> clazz, Object...params) throws Exception { 
     if(validators == null)  validators = new ArrayList<Validator>(3) ;
-    validators.add((Validator)clazz.newInstance()) ;
+    validators.add(clazz.newInstance()) ;
     return this ;
   }
   
