@@ -4,6 +4,9 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.page;
 
+import java.io.Writer;
+import java.util.ResourceBundle;
+
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
@@ -60,7 +63,7 @@ public class UIPageBody extends UIComponentDecorator {
       (UserPortalConfigService)appContainer.getComponentInstanceOfType(UserPortalConfigService.class);
     Page page  = null;
     UIPage uiPage = null;
-    if(pageId!= null){
+    if(pageId != null){
       try {
         page  = userPortalConfigService.getPage(pageId, context.getRemoteUser());
       }catch (Exception e) {
@@ -73,30 +76,32 @@ public class UIPageBody extends UIComponentDecorator {
       if(Page.DEFAULT_PAGE.equals(page.getFactoryId())) page.setFactoryId(null);
       uiPage = createUIComponent(context, UIPage.class, page.getFactoryId(), null);
       PortalDataMapper.toUIPage(uiPage, page);
-    } else {
-      uiPage = createUIComponent(context, UIPage.class, null, null);
-      uiPage.setOwnerId(context.getRemoteUser());
-      uiPage.setOwnerType(PortalConfig.USER_TYPE);
-    }
-  
-    setUIComponent(uiPage);
+      if(uiPage.isShowMaxWindow()) {
+        uiPortal.setMaximizedUIComponent(uiPage);
+      } else {     
+        uiPortal.setMaximizedUIComponent(null);
+      }   
+    } 
     
-    if(uiPage.isShowMaxWindow()) {
-      uiPortal.setMaximizedUIComponent(uiPage);
-    } else {     
-      uiPortal.setMaximizedUIComponent(null);
-    }   
+    uicomponent_ = uiPage;
   }
   
   public void renderChildren() throws Exception {
-    if(maximizedUIComponent == null) {
-      if(getUIComponent() == null) {
-        setPageBody(Util.getUIPortal().getSelectedNode(), Util.getUIPortal());
-      }
-      super.renderChildren();
-    } else {
-      maximizedUIComponent.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;
+    if(maximizedUIComponent != null) {
+      maximizedUIComponent.processRender((WebuiRequestContext) WebuiRequestContext.getCurrentInstance()) ;
+      return;
     }
+    if(uicomponent_ == null) {
+      setPageBody(Util.getUIPortal().getSelectedNode(), Util.getUIPortal());
+    }
+    if(uicomponent_ != null) {
+      uicomponent_.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;
+      return ;
+    }
+    WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance();
+    ResourceBundle res = rcontext.getApplicationResourceBundle() ;
+    rcontext.getWriter().append(res.getString("UIPageBody.msg.pageNotFound"));
+
   }
 
   public UIPortalComponent getMaximizedUIComponent() { return maximizedUIComponent; }
