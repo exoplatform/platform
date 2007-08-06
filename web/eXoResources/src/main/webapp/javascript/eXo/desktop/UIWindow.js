@@ -39,7 +39,7 @@ UIWindow.prototype.mousedownOnPopup = function(evt) {
 	if(!isMaxZIndex)	eXo.desktop.UIDesktop.resetZIndex(this) ;
 } ;
 
-UIWindow.prototype.maximizeWindowEvt =function(evt) {
+UIWindow.prototype.maximizeWindowEvt = function(evt) {
 	var domUtil = eXo.core.DOMUtil ;
 	var portletWindow = domUtil.findAncestorByClass(this, "UIResizeObject") ;
 	

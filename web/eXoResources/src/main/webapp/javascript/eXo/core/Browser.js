@@ -122,6 +122,15 @@ Browser.prototype.isIE6 = function() {
   }
 } ;
 
+Browser.prototype.isIE7 = function() {
+  var agent = navigator.userAgent ;
+  if(agent.indexOf("MSIE 7") >=0 ) {
+    return true ;
+  } else {
+  	return false ;
+  }
+} ;
+
 Browser.prototype.findMouseXInClient = function(e) {
   if (!e) e = window.event ;
   return e.clientX ;
@@ -179,7 +188,9 @@ Browser.prototype.getBrowserType = function() {
 
 Browser.prototype.findPosX = function(obj) {
   var curleft = 0;
+  var str = "" ;
   while (obj) {
+//  	str += obj.className + " : " + obj.offsetLeft + "\n"; //TODO Lambkin
     curleft += obj.offsetLeft ;
     obj = obj.offsetParent ;
   }
