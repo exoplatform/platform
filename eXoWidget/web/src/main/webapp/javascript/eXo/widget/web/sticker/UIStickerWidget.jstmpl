@@ -1,6 +1,6 @@
 <div class="UIStickerWidget">
 	<div class="UIStickerWidgetTitle"></div>
 	<div class="UIStickerWidgetContent">
-		<textarea class="UIStickerWidgetContentArea" onblur = "javascript:eXo.widget.web.sticker.UIStickerWidget.sendContent(this);" ></textarea>
+		<textarea class="UIStickerWidgetContentArea" onblur = "javascript:eXo.widget.web.sticker.UIStickerWidget.sendContent(this);" ><%=context.widget.uiWidget.stickerContent %></textarea>
 	</div>
 </div>

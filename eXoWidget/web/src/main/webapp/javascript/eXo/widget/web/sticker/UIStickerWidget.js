@@ -7,6 +7,20 @@ function UIStickerWidget() {
 	this.init("UIStickerWidget", "sticker");
 }
 
+UIStickerWidget.prototype.createAppDescriptor = function(appDescriptor, appElement) {
+	appDescriptor.widget = {
+		positionX : appElement.getAttribute('posX'),
+		positionY : appElement.getAttribute('posY'),
+		zIndex : appElement.getAttribute('zIndex'),
+		
+		uiWidget : {
+			temporaty : appElement,
+			appId : appElement.getAttribute('applicationId'),
+			stickerContent : appElement.getAttribute('stickerContent')
+		}
+	};
+}
+
 UIStickerWidget.prototype.sendContent = function(object) {	
 	if (object.value == "")	return ;
 	var DOMUtil = eXo.core.DOMUtil ;
