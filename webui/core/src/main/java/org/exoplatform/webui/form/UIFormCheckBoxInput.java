@@ -60,7 +60,9 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
     w.write("' ");
     if(onchange_ != null) {
       UIForm uiForm = getAncestorOfType(UIForm.class) ;
-      w.append(" onchange=\"").append(renderOnChangeEvent(uiForm)).append("\"");
+      //TODO TrongTT: The onchange don't affect in IE. 
+//      w.append(" onchange=\"").append(renderOnChangeEvent(uiForm)).append("\"");
+      w.append(" onclick=\"").append(renderOnChangeEvent(uiForm)).append("\"");
     }
     if(checked) w.write(" checked ") ;
     if (!enable_)  w.write(" disabled ");    
