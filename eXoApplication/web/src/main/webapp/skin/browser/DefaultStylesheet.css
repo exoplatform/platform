@@ -99,7 +99,7 @@
 	padding: 0px 2px 0px 17px;
 	margin: 5px 80px 0px 0px;
 	border: inset 1px gray;
-
+	overflow-y:hidden ;
 }
 
 .eXoBrowser .ArrowDownButton {
