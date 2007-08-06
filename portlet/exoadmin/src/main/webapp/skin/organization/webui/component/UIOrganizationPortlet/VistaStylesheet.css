@@ -117,7 +117,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
 	border: 1px solid #b7b7b7;
-  height: 255px;
+  height: 235px;
   overflow-y: auto;
   overflow-x: hidden;
   width: 197px;
@@ -199,6 +199,7 @@
 .UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
   border: none;
   margin: auto;
+  padding: 0px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .UIForm .UIFormGrid {
@@ -224,8 +225,8 @@
 	width: auto;
 }
 
-.UIOrganizationPortlet .UIGroupForm .HorizontalLayout{ 
-	height: 244px;
+.UIOrganizationPortlet .UIGroupForm .HorizontalLayout { 
+	height: 225px;
 	padding: 35px 0px 0px 0px;
 }
 

@@ -10,7 +10,7 @@
   cursor: move ;
   height: 20px ; width: 30px;
   float: left ; 
-  margin-top: 4px;
+  margin-top: 2px;
   background: url('background/DragBG30x20.gif');
 }
 

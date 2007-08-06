@@ -8,6 +8,20 @@
   margin-bottom: 3px; 
 }
 
+.UIGroupMembershipSelector .UIBreadcumbs .LeftBreadcumbsBar {
+	background: none;
+	border: 1px solid #b7b7b7;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs .RightBreadcumbsBar {
+	background: none;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs .BreadcumbsInfoBar {
+	background: none;
+	height: 30px;
+}
+
 .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
 	float: left;
   margin: 4px 2px 5px 2px ;

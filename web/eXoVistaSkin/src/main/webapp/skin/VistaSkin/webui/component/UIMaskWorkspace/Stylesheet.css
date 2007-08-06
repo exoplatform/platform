@@ -121,6 +121,12 @@
   height: auto;
 }
 
+/********************************** UIPageNavigationForm *************************************/
+
+.UIMaskWorkspace #UIPageNavigationForm .UIFormGrid {
+
+
+
 /**********************************UITabSelector*****************************************/
 
 .UIMaskWorkspace .UITabPane .TabPaneContent .CSSContent .UITabContent {

@@ -1,6 +1,11 @@
+.UIPageBody .UIApplicationRegistryPortlet {
+	background: white;	
+} 
+
 .UIApplicationRegistryPortlet {
-	background: #ffffff;
 	border: 1px solid #b7b7b7;
+	height: auto;
+	margin: 5px;
 }
 
 .UIApplicationRegistryPortlet .Title {
@@ -97,7 +102,6 @@
 /*################################Application Registry Working################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryWorkingArea {
 	margin-left: 245px;
-	height: 100%;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationWorkingAreaContainer {
@@ -113,7 +117,7 @@
 .ApplicationRegistryWorkingArea .Application {
   margin: 10px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
-	padding: 10px;
+	padding: 10px; 
 	background: url('VistaSkin/background/BGApplication1x24.png') repeat-x bottom;
 }
 
@@ -126,7 +130,7 @@
 .ApplicationRegistryWorkingArea .TitleBarApplication {
 	background: none;
 	border-bottom: 1px solid #dfdfdf;
-	width: 98%;
+	width: 92.30%;
 	padding: 0px 1px;
 	margin: 0px auto 5px auto;
 }
@@ -158,6 +162,8 @@
 
 .ApplicationRegistryWorkingArea .ApplicationContentLabel {
   line-height: 16px;
+  width: 92.30%;
+  margin: auto;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContentLabel .RightLabel {
