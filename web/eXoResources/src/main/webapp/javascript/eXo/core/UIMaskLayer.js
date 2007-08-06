@@ -51,6 +51,10 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 	var maskLayerHeight = (document.body.offsetHeight > Browser.getBrowserHeight()) ? document.body.offsetHeight : eXo.core.Browser.getBrowserHeight() ;
 	maskLayer.style.width = blockContainer.offsetWidth + "px" ;
 	maskLayer.style.height = document.documentElement.scrollTop + maskLayerHeight + "px";
+	/* fix bug FF: lose cursor in form login 
+	 * minh.js.exo
+	 */ 
+	object.style.overflow = "auto";
 	return maskLayer ;
 } ;
 
