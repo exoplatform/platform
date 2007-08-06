@@ -15,7 +15,6 @@
 }
 
 .UITabContainer .TabLabel {
-	float: left;
 	padding: 0px 10px 0px 2px;
 	height: 26px; line-height: 26px;
 }
@@ -37,8 +36,8 @@
 }
 
 .UITabContainer .EditIcon {
-	height: 26px; line-height: 26px;
-	width: 16px;
+	height: 26px;	width: 16px;
+	overflow: hidden;
 }
 
 .LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {

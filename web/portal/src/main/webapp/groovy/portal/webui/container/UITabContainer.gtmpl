@@ -29,19 +29,17 @@
 				          	<div class="LeftTab">
 				            	<div class="RightTab">
 				              	<div class="MiddleTab"> 
-				              		<a class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' )"><%=title%></a>
-				              		<%
-				              		  String editCss = "";
+				           				<%
 				              		  if(uiChild.isShowEditControl()){
-				              		    editCss = "EditIcon";
+				              		  	String actionLink = uicomponent.event("EditContainer", "$uiChild.id") - "javascript:";
 				              		%>
-					              	    <a href="<%=uicomponent.event("EditContainer", "$uiChild.id")%>">
-					              	<%}%>  
-					              	    <img class="$editCss" src="/eXoResources/skin/DefaultSkin/background/Blank.gif">
-					              	<%if(uiChild.isShowEditControl()){%>
-					              	    </a>
-					              	<%}%>  
-					                <a style="display: none" class="CloseIcon" href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>"><span></span></a> 
+						           				<div class="TabLabel" style="float:left;" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' )"><%=title%></div>
+					              	    <div class="EditIcon" onclick="<%=actionLink%>"></div>
+					              	    <!-- <a href="<%=uicomponent.event("EditContainer", "$uiChild.id")%>"></a> -->
+					              	    <div style="clear: left"><span></span></div>
+					              	<%} else {%>
+						           				<a class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' )"><%=title%></a>
+						           		<%} %>
 					              </div>
 				            	</div>
 				          	</div>

@@ -15,14 +15,14 @@
 
 .UITabContainer a.TabLabel {
 	padding: 0px 10px 0px 2px;
-	line-height: 24px; height: 24px;
-	float: left;
+	line-height: 22px; 
+
 }
 
 .UITabContainer .EditIcon {
-	padding: 0px 10px 0px 2px;
-	height: 24px; line-height: 24px;
-	width: 16px;
+	padding: 0px 8px 0px 2px;
+	width: 16px; height: 24px;
+	overflow: hidden;
 }
 
 .LAYOUT-CONTAINER .UIHorizontalTabs .UITab  {
@@ -30,9 +30,9 @@
 }
 
 .LAYOUT-CONTAINER .UITabContainer .SelectedTab .EditIcon {
-	background:transparent url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedEditTab.gif') no-repeat center ;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedEditTab.gif') no-repeat center ;
 }
 
 .LAYOUT-CONTAINER .UITabContainer .NormalTab .EditIcon  {
-	background:transparent url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalEditTab.gif') no-repeat center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalEditTab.gif') no-repeat center;
 } 
