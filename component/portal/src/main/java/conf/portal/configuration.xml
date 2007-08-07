@@ -10,6 +10,11 @@
     <type>org.exoplatform.portal.config.jcr.DataStorageImpl</type>     
   </component>
   
+   <component>
+    <key>org.exoplatform.portal.widget.jcr.UserWidgetDataService</key>
+    <type>org.exoplatform.portal.widget.jcr.UserWidgetDataService</type>
+  </component> 
+  
   <component>
     <key>org.exoplatform.portal.content.ContentDAO</key>
     <type>org.exoplatform.portal.content.jcr.ContentDAOImpl</type>     
