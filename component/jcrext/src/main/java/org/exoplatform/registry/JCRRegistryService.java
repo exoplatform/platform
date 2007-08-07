@@ -62,14 +62,14 @@ public class JCRRegistryService  {
    * @param desc
    * @throws Exception
    */
-  public void createServiceRegistry(ServiceRegistry desc, boolean overwrite) throws Exception {
+  public Node createServiceRegistry(ServiceRegistry desc, boolean overwrite) throws Exception {
     desc.preAction(this) ;
     Session session = getSession();
     Node servicesNode = session.getRootNode().getNode("exo:registry/exo:services");
     if( servicesNode.hasNode(desc.getName())){
       if(!overwrite){
         session.logout();
-        return;
+        return servicesNode.getNode(desc.getName());
       }
       servicesNode.getNode(desc.getName()).remove();
       servicesNode.save();
@@ -79,6 +79,7 @@ public class JCRRegistryService  {
     desc.postAction(this, node) ;
     session.save();
     session.logout();
+    return node;
   }
   
   /**
@@ -92,13 +93,13 @@ public class JCRRegistryService  {
    * @param app
    * @throws Exception
    */
-  public void createApplicationRegistry(ApplicationRegistry app, boolean overwrite) throws Exception {
+  public Node createApplicationRegistry(ApplicationRegistry app, boolean overwrite) throws Exception {
     Session session = getSession();
     Node appNode = session.getRootNode().getNode("exo:registry/exo:applications");
     if(appNode.hasNode(app.getName())) {
       if(!overwrite) {
         session.logout();
-        return;
+        return appNode.getNode(app.getName());
       }
       appNode.getNode(app.getName()).remove();
       appNode.save();
@@ -109,6 +110,7 @@ public class JCRRegistryService  {
     app.postAction(this, node) ;
     session.save();
     session.logout();
+    return node;
   }
   
   public Node getUserNode(Session session, String userName) throws Exception{
@@ -144,14 +146,14 @@ public class JCRRegistryService  {
    * @param desc
    * @throws Exception
    */
-  public void createUserHome(String username, boolean overwrite) throws Exception {
+  public Node createUserHome(String username, boolean overwrite) throws Exception {
     Session session = getSession();
     Node usersNode = session.getRootNode().getNode("users");
     Node userNode = null;
     if(usersNode.hasNode(username)){
       if(!overwrite){
         session.logout();
-        return;
+        return usersNode.getNode(username);
       }
       usersNode.getNode(username).remove();
       usersNode.save();
@@ -164,6 +166,7 @@ public class JCRRegistryService  {
     usersNode.save();
     session.save();
     session.logout();
+    return userNode;
   }
   
   /**
@@ -178,14 +181,14 @@ public class JCRRegistryService  {
    * @param desc
    * @throws Exception
    */
-  public void createServiceRegistry(String username, ServiceRegistry desc, boolean overwrite) throws Exception {
+  public Node createServiceRegistry(String username, ServiceRegistry desc, boolean overwrite) throws Exception {
     desc.preAction(this) ;
     Session session = getSession();
     Node servicesNode = session.getRootNode().getNode("users/" +username +"/exo:registry/exo:services");
     if(servicesNode.hasNode(desc.getName())){
       if(!overwrite){
         session.logout();
-        return;
+        return servicesNode.getNode(desc.getName());
       }
       servicesNode.getNode(desc.getName()).remove();
       servicesNode.save();
@@ -195,6 +198,7 @@ public class JCRRegistryService  {
     desc.postAction(this, node) ;
     session.save();
     session.logout();
+    return node;
   }
   
   /**
@@ -209,14 +213,14 @@ public class JCRRegistryService  {
    * @param desc
    * @throws Exception
    */
-  public void createApplicationRegistry(String username, ApplicationRegistry desc, boolean overwrite) throws Exception {
+  public Node createApplicationRegistry(String username, ApplicationRegistry desc, boolean overwrite) throws Exception {
     desc.preAction(null) ;
     Session session = repositoryService_.getDefaultRepository().getSystemSession(WORKSPACE);
     Node appsNode = session.getRootNode().getNode("users/" +username +"/exo:registry/exo:applications");
     if( appsNode.hasNode(desc.getName())){
       if(!overwrite){
         session.logout();
-        return;
+        return appsNode.getNode(desc.getName());
       }
       appsNode.getNode(desc.getName()).remove();
       appsNode.save();
@@ -226,6 +230,7 @@ public class JCRRegistryService  {
     desc.postAction(this, node) ;
     session.save();
     session.logout();
+    return node;
   }
   
   public Node getServiceRegistryNode(Session session,  String appName) throws Exception {
