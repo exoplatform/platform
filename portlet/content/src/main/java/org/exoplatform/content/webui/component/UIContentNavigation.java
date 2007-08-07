@@ -285,6 +285,7 @@ public class UIContentNavigation extends UIContainer {
       children.remove(uiNav.getSelectedNode());
       if(children.size() < 1) children = uiNav.getContentNavigation().getNodes();
       if(children.size() > 0) uiNav.setSelectedNode(children.get(0).getId());
+      else uiNav.setSelectedNode(null) ;
       ContentDAO service = uiNav.getApplicationComponent(ContentDAO.class) ; 
       service.save(uiNav.getContentNavigation());
     }

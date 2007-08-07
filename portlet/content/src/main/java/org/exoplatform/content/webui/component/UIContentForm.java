@@ -14,6 +14,7 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIDescription;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -145,7 +146,12 @@ public class UIContentForm extends UIForm {
       UIContentForm uiForm = event.getSource() ;
       UIContentPortlet uiParent = uiForm.getAncestorOfType(UIContentPortlet.class) ;
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class) ;
-      uiWorkingArea.setRenderedChild(UIDetailContent.class) ;
+      //TODO: Tung.Pham added
+      //----------------------------
+      UIContentNavigation uiNavi = uiParent.getChild(UIContentNavigation.class) ;
+      if(uiNavi.getSelectedNode() == null) uiWorkingArea.setRenderedChild(UIDescription.class) ;
+      else uiWorkingArea.setRenderedChild(UIDetailContent.class) ; 
+      //----------------------------
     }
   }
   
