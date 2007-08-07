@@ -45,8 +45,8 @@ abstract public class UIWizard  extends UIContainer {
         children.get(i).setRendered(false);
       }
     }
-    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;   
-    context.addUIComponentToUpdateByAjax(this) ;
+//    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;   
+//    context.addUIComponentToUpdateByAjax(this) ;
   }
 
   public int getCurrentStep() { return currentStep; }
