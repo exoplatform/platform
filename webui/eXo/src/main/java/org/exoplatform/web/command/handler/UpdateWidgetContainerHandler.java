@@ -29,8 +29,15 @@ public class UpdateWidgetContainerHandler extends Command {
     try {
       PortalContainer portalContainer = PortalContainer.getInstance() ;
       UserPortalConfigService configService = (UserPortalConfigService)portalContainer.getComponentInstanceOfType(UserPortalConfigService.class) ;
-      String portalWidgetsId = PortalConfig.PORTAL_TYPE + "::site" ;
-      Widgets widgets = configService.getWidgets(portalWidgetsId) ;
+      String widgetsId = "" ; 
+      String owner = req.getParameter("owner") ;
+      if(owner.equals(PortalConfig.PORTAL_TYPE)) {
+        widgetsId = PortalConfig.PORTAL_TYPE + "::site" ;
+      } else {
+        widgetsId = PortalConfig.USER_TYPE + "::" + req.getRemoteUser() ;
+      }
+      
+      Widgets widgets = configService.getWidgets(widgetsId) ;
       if(widgets == null) return ;
 
       deleteContainer(widgets, req) ;
@@ -55,23 +62,25 @@ public class UpdateWidgetContainerHandler extends Command {
   
   private void saveContainer(Widgets widgets, HttpServletRequest req) {
     List<Container> existingContainers = widgets.getChildren() ;
+    String[] cIds = req.getParameterValues("id") ;
     String[] cNames = req.getParameterValues("name") ;
     String[] cDesc = req.getParameterValues("desc") ;
-    if(cNames == null || cDesc == null) return ;
-    for(int i =0; i < cNames.length; i++) {
-      Container foundContainer = getContainer(existingContainers, cNames[i]) ;
+    if(cIds == null || cDesc == null) return ;
+    for(int i = 0; i < cIds.length; i++) {
+      Container foundContainer = getContainer(existingContainers, cIds[i]) ;
       if(foundContainer != null) {
+        foundContainer.setName(cNames[i]) ;
         foundContainer.setDescription(cDesc[i]) ;
         continue ;
       }
-      Container newContainer = createContainer(cNames[i], cDesc[i]) ;
+      Container newContainer = createContainer(cIds[i], cDesc[i]) ;
       existingContainers.add(newContainer) ;
     }
   }
   
-  private Container getContainer(List<Container> list, String name) {
+  private Container getContainer(List<Container> list, String id) {
     for(Container ele : list) {
-      if (ele.getName().equals(name)) return ele ;
+      if (ele.getId().equals(id)) return ele ;
     }
     
     return null ;

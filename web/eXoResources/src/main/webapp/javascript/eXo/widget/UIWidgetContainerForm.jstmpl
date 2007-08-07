@@ -2,22 +2,55 @@
   <div class="HorizontalLayout" style="border: 0px; padding: 10px 0px">
     <div class="FormContainer">
       <table class="UIFormGrid">
+
 		  	<tr>
-		      <td class="FieldLabel">Container name:</td>
+		      <td class="FieldLabel">Container id:</td>
 		      <td class="FieldComponent">
-	      	<% if(context.isEdit == true) {%>
-		      	<input type="text" name="ContainerName" readonly="readonly" value="<%= context.container.cName %>"/>
+	      	<% if(context.isEdit) {%>
+		      	<input type="text" id="id" name="id" readonly="readonly" value="<%= context.container.cId %>"/>
 	      	<% } else {%>
-		      	<input type="text" name="ContainerName" value="<%= context.container.cName %>"/>	      		
+		      	<input type="text" id="id" name="id" value="<%= context.container.cId %>"/>	      		
 	      	<% } %>
 		      </td>
 		    </tr>
+
+		    <tr>
+		      <td class="FieldLabel">Owner Type:</td>
+		      <td class="FieldComponent">
+		      	<select id="owner" name="owner"
+		      		<%if(context.isEdit){%>
+		      	 		disabled="disabled" 
+		      	 	<%}%>
+		      	>
+		      		<%var values = context.selectInput.values ;%>
+		      		<%var labels = context.selectInput.labels ;%>
+		      		<%for(var i = 0; i < values.length; i++) {%>
+		      				<option value="<%=values[i]%>"
+		      				<%if(values[i] == context.selectInput.selected) {%>
+		      					selected="selected"
+		      				<%}%>
+		      				>
+		      					<%=labels[i]%>
+		      				</option>
+		      		<%}%>
+		      	</select>
+		      </td>
+		    </tr>
+		    
+		    <tr>
+		      <td class="FieldLabel">Container name:</td>
+		      <td class="FieldComponent">
+		      	<input type="text" id="name" name="name" value="<%= context.container.cName %>"/>	      		
+		      </td>
+		    </tr>
+
 		    <tr>
 		      <td class="FieldLabel">Description:</td>
 		      <td class="FieldComponent">
-		      	<textarea class="textarea" name="description"><%= context.container.cDescription %></textarea>
+		      	<textarea class="textarea" id="description" name="description"><%= context.container.cDescription %></textarea>
 		      </td>
 		    </tr>
+
       </table>
     </div>
   </div>

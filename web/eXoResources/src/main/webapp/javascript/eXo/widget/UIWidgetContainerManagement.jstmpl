@@ -38,8 +38,7 @@
 						User Widget Containers
 					</div>
 					<div class="ContainerList">
-						<%/* In case, This category is empty, the below message will appear */%>
-						<div class="EmptyListMessage">There is no container in this category.</div>
+						<span></span>
 					</div>
 				</div>
 			</div>

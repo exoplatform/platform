@@ -36,28 +36,60 @@ public class GetWidgetContainerHandler extends Command {
     }
   }
   
-  private StringBuilder getWidgetContainers(String remoteUser) throws Exception {
+  private StringBuilder getWidgetContainers(String remoteUser) throws Exception {    
+/*   
+                         |-------portalWidgetContainer|----name
+                         |                            |
+    widgetContainers-----|                            |----containers|---con1
+                         |                                           |---con2
+                         |
+                         |
+                         |-------userWidgetContainer|----name
+                                                    |      
+                                                    |----containers|---con1
+                                                                   |---con2
+                                                                                                                                      
+*/                                                                
     PortalContainer container = PortalContainer.getInstance();
     DataStorage dataService = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
     /*Anh Thuan cho dung hashcode : site , co loi gi kien anh Thuan!!!  :D */
-    String portalWidgetId = PortalConfig.PORTAL_TYPE + "::site" ;
-    Widgets widgets = dataService.getWidgets(portalWidgetId) ;
-    
     StringBuilder value = new StringBuilder();
-    
-    ArrayList<Container> widgetContainers = widgets.getChildren() ;
-    
-    value.append("{\n").append("widgetContainer : [\n");
-    for(int i = 0; i < widgetContainers.size(); i ++) {
-      value.append(" {");
-      value.append("\n          cName : \"").append(widgetContainers.get(i).getName()).append("\",") ;
-      value.append("\n          cDescription : \"").append(widgetContainers.get(i).getDescription()).append("\"\n") ;
-      value.append("      }");
-      if (i < (widgetContainers.size() - 1)) value.append(",\n") ;
-      else value.append("\n") ;
+    value.append("{\"widgetContainers\": {\n") ;
+    String[] widgetIds = {PortalConfig.PORTAL_TYPE + "::site", PortalConfig.USER_TYPE + "::" + remoteUser} ;
+    for(int k = 0; k < widgetIds.length; k++) {
+      Widgets widgets = dataService.getWidgets(widgetIds[k]) ;
+      ArrayList<Container> widgetContainers = widgets.getChildren() ;
+      String owner = widgets.getOwnerType() ;
+      
+      value.append("\"").append(owner).append("WidgetContainer\": {")
+           .append("\"name\": \"").append(getName(owner)).append("\",\n")
+           .append("\"containers\": [") ;
+      for(int i = 0; i < widgetContainers.size(); i ++) {
+        value.append(" {");
+        value.append("\n          \"cId\": \"").append(widgetContainers.get(i).getId()).append("\",") ;
+        value.append("\n          \"cOwner\": \"").append(owner).append("\",") ;
+        value.append("\n          \"cName\": \"").append(widgetContainers.get(i).getName()).append("\",") ;
+        value.append("\n          \"cDescription\": \"").append(widgetContainers.get(i).getDescription()).append("\"\n") ;
+        value.append("      }");
+        if (i < (widgetContainers.size() - 1)) value.append(",\n") ;
+        else value.append("\n") ;
+      }
+      value.append("    ]}\n") ;
+      if(k <(widgetIds.length - 1)) value.append(",\n") ;
+      else value.append("\n") ;   
     }
-    value.append("    ]\n").append("}\n") ;
+    
+    value.append("}}") ;
     return value ;
+  }
+  
+  private String getName(String key) {
+    String title = "" ;
+    if(key.equals(PortalConfig.PORTAL_TYPE)) {
+      title = "PortalWidgetContainer" ;
+    } else title = "UserWidgetContainer" ;
+
+    return title ;
   }
   
 }
