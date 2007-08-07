@@ -25,6 +25,7 @@ public class EmptyFieldValidator implements Validator {
     label = label.trim();
     if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
     Object[]  args = {label, uiInput.getBindingField() } ;
-    throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args)) ;
+    throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args, 
+                                                      ApplicationMessage.WARNING)) ;
   }
 }
