@@ -29,14 +29,14 @@ public class GetWidgetContainerHandler extends Command {
   public void execute(WebAppController controller, HttpServletRequest req, HttpServletResponse res) throws Exception {
     Writer writer = res.getWriter();
     try {
-      writer.append(getWidgetContainers(req.getRemoteUser()));
+      writer.append(getWidgetContainers(req));
     } catch (Exception e) {
       e.printStackTrace() ;
       throw new IOException(e.getMessage());
     }
   }
   
-  private StringBuilder getWidgetContainers(String remoteUser) throws Exception {    
+  private StringBuilder getWidgetContainers(HttpServletRequest req) throws Exception {    
 /*   
                          |-------portalWidgetContainer|----name
                          |                            |
@@ -52,10 +52,12 @@ public class GetWidgetContainerHandler extends Command {
 */                                                                
     PortalContainer container = PortalContainer.getInstance();
     DataStorage dataService = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
-    /*Anh Thuan cho dung hashcode : site , co loi gi kien anh Thuan!!!  :D */
+    String portal = req.getParameter("portal") ;
+    String user = req.getRemoteUser() ;
+    String[] widgetIds = {PortalConfig.PORTAL_TYPE + "::" + portal, PortalConfig.USER_TYPE + "::" + user} ;
+
     StringBuilder value = new StringBuilder();
     value.append("{\"widgetContainers\": {\n") ;
-    String[] widgetIds = {PortalConfig.PORTAL_TYPE + "::site", PortalConfig.USER_TYPE + "::" + remoteUser} ;
     for(int k = 0; k < widgetIds.length; k++) {
       Widgets widgets = dataService.getWidgets(widgetIds[k]) ;
       ArrayList<Container> widgetContainers = widgets.getChildren() ;

@@ -31,9 +31,10 @@ UIWidgetContainerManagement.prototype.destroy = function() {
 
 UIWidgetContainerManagement.prototype.loadWidgetContainer = function(refresh) {
 	var DOMUtil = eXo.core.DOMUtil ;
-	
+	var portalName = eXo.env.server.portalBaseURL.split("/")[3] ;
 	var url = eXo.env.server.context + "/command?";
-	url += "type=org.exoplatform.web.command.handler.GetWidgetContainerHandler";
+	url += "type=org.exoplatform.web.command.handler.GetWidgetContainerHandler" ;
+	url += "&portal=" + portalName ;
 	if(refresh == null || refresh == undefined) refresh = false;
 	var containers = eXo.core.CacheJSonService.getData(url, refresh);
 	if(containers == null || containers == undefined) return ;
@@ -58,6 +59,8 @@ UIWidgetContainerManagement.prototype.renderCategory = function(categoryName, co
 		if(eXo.widget.UIWidgetContainerManagement.selectedContainer == null ) eXo.widget.UIWidgetContainerManagement.selectedContainer = containers[0] ;
 		var selectedContainer = eXo.widget.UIWidgetContainerManagement.selectedContainer ;
 		for(var i =0; i < containers.length; i++) {
+			if(containers[i].cName == "" || containers[i].cName == "null") containers[i].cName = containers[i].cId ;
+			if(containers[i].cDescription == "" || containers[i].cDescription == "null") containers[i].cDescription = containers[i].cId ;
 			if((containers[i].cOwner + containers[i].cId)  == (selectedContainer.cOwner + selectedContainer.cId)) {
 				cssClass = "SelectedItem" ;
 			} else cssClass = "NormalItem" ;
@@ -248,7 +251,8 @@ UIWidgetContainerManagement.prototype.submit = function() {
 	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement") ;
 	var portalWidgetContainer = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "PortalWidgetContainer");
 	var containerLists = DOMUtil.findDescendantsByClass(uiWidgetContainerManagement, "div", "ContainerList");
-
+	var portalName = eXo.env.server.portalBaseURL.split("/")[3] ;
+	
 	for(var k = 0; k < containerLists.length; k++) {
 		var containers = DOMUtil.findChildrenByClass(containerLists[k], "div", "Item") ;
 		var categoryName = containerLists[k].parentNode.className ;
@@ -266,6 +270,7 @@ UIWidgetContainerManagement.prototype.submit = function() {
 		
 		var url = eXo.env.server.context
 						+ "/command?type=org.exoplatform.web.command.handler.UpdateWidgetContainerHandler"
+						+ "&portal=" + portalName
 						+ "&owner=" + owner
 						+ updatedParams 
 						+ deletedParams ;	

@@ -32,9 +32,11 @@ public class UpdateWidgetContainerHandler extends Command {
       String widgetsId = "" ; 
       String owner = req.getParameter("owner") ;
       if(owner.equals(PortalConfig.PORTAL_TYPE)) {
-        widgetsId = PortalConfig.PORTAL_TYPE + "::site" ;
+        String portal = req.getParameter("portal") ;
+        widgetsId = PortalConfig.PORTAL_TYPE + "::" + portal;
       } else {
-        widgetsId = PortalConfig.USER_TYPE + "::" + req.getRemoteUser() ;
+        String user = req.getRemoteUser() ;
+        widgetsId = PortalConfig.USER_TYPE + "::" + user ; 
       }
       
       Widgets widgets = configService.getWidgets(widgetsId) ;
