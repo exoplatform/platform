@@ -6,6 +6,7 @@ function UIMaskLayer() {
 } ;
 
 UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, position) {
+	try {
 	var Browser = eXo.core.Browser ;
 	var blockContainer = document.getElementById(blockContainerId) ;
 	var maskLayer = document.createElement("div") ;
@@ -28,6 +29,7 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 	if(opacity) {
     Browser.setOpacity(maskLayer, opacity) ;
 	}	
+	
 	if(object != null){
 		if(object.nextSibling) {
 		  maskLayer.nextSiblingOfObject = object.nextSibling ;
@@ -54,7 +56,10 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 	/* fix bug FF: lose cursor in form login 
 	 * minh.js.exo
 	 */ 
-	object.style.overflow = "auto";
+	if(object != null) object.style.overflow = "auto";
+	}catch(err) {
+		alert(err);
+	}
 	return maskLayer ;
 } ;
 

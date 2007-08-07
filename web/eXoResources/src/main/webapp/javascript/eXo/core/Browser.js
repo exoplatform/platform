@@ -173,10 +173,12 @@ Browser.prototype.addOnScrollCallback = function(id, method) {
 
 Browser.prototype.onScroll = function(event) {
   var callback = eXo.core.Browser.onScrollCallback ;
-  for(var name in callback.properties) {
+	for(var name in callback.properties) {
     var method = callback.get(name) ;
-    if (typeof(method) == "function") method(event) ;
-  }
+    try {
+    	if (typeof(method) == "function") method(event) ;
+    }catch(err){}
+	}
 } ;
 /************************************TO BROWSER PAGE CLASS************************************************/
 Browser.prototype.getBrowserType = function() {  
