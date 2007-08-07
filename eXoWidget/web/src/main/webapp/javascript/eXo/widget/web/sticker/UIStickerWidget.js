@@ -15,11 +15,7 @@ UIStickerWidget.prototype.sendContent = function(object) {
 	var uiWidget = DOMUtil.findAncestorByClass(object, "UIWidget" );
 	containerBlockId = uiWidgetContainer.id;
 	var parent = uiWidgetContainer.parentNode ;
-	var params = [
-  	{name: "objectId", value : uiWidget.id} ,
-  	{name: "content", value : object.value}
-  ] ;
-  alert("---------1-------" + uiWidget.id);
+	
   var url = eXo.env.server.context + "/command?" ;
   url += "type=org.exoplatform.web.command.handler.StickerWidgetHandler&action=saveContent&objectId="+uiWidget.id+"&content="+object.value ;
   ajaxAsyncGetRequest(url, false);
