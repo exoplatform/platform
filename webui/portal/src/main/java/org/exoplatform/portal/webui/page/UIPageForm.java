@@ -206,7 +206,6 @@ public class UIPageForm extends UIFormTabPane {
       uiMaskWS.setUIComponent(null);
       uiMaskWS.setShow(false);
       pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
-      System.out.println("\n\n--------asdf-> UIpage " + uiPage +" - title: " + page.getTitle());
       
       if(uiPage == null)  return;
       
@@ -274,11 +273,9 @@ public class UIPageForm extends UIFormTabPane {
       
       List<UIComponent> uiChildren = uiPage.getChildren();
       if(uiChildren == null)  {
-        System.out.println("\n\n---children null");
         PortalDataMapper.toUIPage(uiPage, page);
         return ;
       }
-      System.out.println("\n\n---> ko null roi");
       ArrayList<Object>  children = new ArrayList<Object>();
       for(UIComponent child : uiChildren){ 
         Object component = PortalDataMapper.buildChild(child);
