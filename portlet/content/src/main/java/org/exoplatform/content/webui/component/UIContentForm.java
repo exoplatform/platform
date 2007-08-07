@@ -27,6 +27,7 @@ import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 import org.exoplatform.webui.form.validator.Validator;
 
 @ComponentConfig(
@@ -59,7 +60,8 @@ public class UIContentForm extends UIForm {
     addUIFormInput(new UIFormStringInput(FIELD_URL, FIELD_URL, null).
                    addValidator(URLValidator.class));
     addUIFormInput(new UIFormStringInput(FIELD_LABEL, FIELD_LABEL, null).
-                   addValidator(EmptyFieldValidator.class));
+                   addValidator(EmptyFieldValidator.class).
+                   addValidator(StringLengthValidator.class, 20));
     addUIFormInput(new UIFormTextAreaInput(FIELD_DESCRIPTION, FIELD_DESCRIPTION, null)).
     addUIFormInput(new UIFormSelectBox(FIELD_TYPE, FIELD_TYPE, option_).
                    addValidator(EmptyFieldValidator.class));
