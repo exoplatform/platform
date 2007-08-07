@@ -38,10 +38,13 @@ public class UIWelcomeComponent extends UIContainer {
     UIPortalApplication uiPortalApplication = (UIPortalApplication)prContext.getUIApplication();
     UserPortalConfig userPortalConfig = uiPortalApplication.getUserPortalConfig();
     if(userPortalConfig == null) return;
+    //TODO: Tung.Pham modified
+    UIWidgets uiWidgets = addChild(UIWidgets.class, null, null) ;
+    //----------------------------------------------------------
     List<Widgets> list = userPortalConfig.getWidgets();
     for(Widgets widgets : list) {
       if(widgets.getChildren() == null || widgets.getChildren().size() < 1) continue;
-      UIWidgets uiWidgets = addChild(UIWidgets.class, null, null) ;
+      //UIWidgets uiWidgets = addChild(UIWidgets.class, null, null) ;
       PortalDataMapper.toUIWidgets(uiWidgets, widgets);
     }
   }  
