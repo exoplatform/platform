@@ -88,7 +88,7 @@ public class UIPortalBrowser extends UIContainer {
       if(config != null && config.getPortalConfig().isModifiable()) {
         service.removeUserPortalConfig(portalName);
       } else if(config != null){
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-deletePermission", new String[]{config.getPortalConfig().getName()})) ;;
+        uiPortalApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-deletePermission", new String[]{config.getPortalConfig().getName()})) ;;
         prContext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return;
       }
