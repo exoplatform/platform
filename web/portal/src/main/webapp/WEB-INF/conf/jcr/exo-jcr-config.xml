@@ -44,6 +44,14 @@
             <property name="indexDir" value="../temp/jcrlucenedb/index"/>
           </properties>
          </query-handler>
+         <lock-manager>
+			    <time-out>900000</time-out><!-- 15min -->
+			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+			       <properties>
+			         <property name="path" value="../temp/lock"/>
+			       </properties>
+			     </persister>
+			   </lock-manager>
        </workspace>
        <workspace name="draft" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
@@ -78,6 +86,14 @@
             <property name="indexDir" value="../temp/jcrlucenedb/index"/>
           </properties>
          </query-handler>
+         <lock-manager>
+			    <time-out>900000</time-out><!-- 15min -->
+			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+			       <properties>
+			         <property name="path" value="../temp/lock"/>
+			       </properties>
+			     </persister>
+			   </lock-manager>
        </workspace>
        <workspace name="backup" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
@@ -112,6 +128,14 @@
             <property name="indexDir" value="../temp/jcrlucenedb/index"/>
           </properties>
          </query-handler>
+         <lock-manager>
+			    <time-out>900000</time-out><!-- 15min -->
+			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+			       <properties>
+			         <property name="path" value="../temp/lock"/>
+			       </properties>
+			     </persister>
+			   </lock-manager>
        </workspace>
        <workspace name="digital-assets" auto-init-root-nodetype="nt:folder" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
@@ -146,6 +170,14 @@
             <property name="indexDir" value="../temp/jcrlucenedb/index"/>
           </properties>
          </query-handler>
+         <lock-manager>
+			    <time-out>900000</time-out><!-- 15min -->
+			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+			       <properties>
+			         <property name="path" value="../temp/lock"/>
+			       </properties>
+			     </persister>
+			   </lock-manager>
         </workspace>
      </workspaces>
     </repository>
