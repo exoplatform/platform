@@ -27,7 +27,7 @@
 	height: 35px;	
 }
 
-.UIConsoleApplication .CommandType .Prompt {
+.UIConsoleApplication .CommandType .CommandNameSpace {
   vertical-align: top;
   line-height: 100%;
   height: 100% ;

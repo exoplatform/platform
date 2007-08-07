@@ -6,6 +6,7 @@ function CommandManager() {
   this.commands = [] ;
   this.commandNode = false ;
   this.commandTypeNode = false ;
+  this.commandNameSpaceNode = false
   this.consoleResultNode = false ;
   this.screenNode = false ;
   this.uiMaskWindowConsoleNode = false ;
@@ -30,6 +31,7 @@ CommandManager.prototype.init = function(node) {
 CommandManager.prototype.onFinish = function() {
   this.commandNode = false ;
   this.commandTypeNode = false ;
+  this.commandNameSpaceNode = false ;
   this.consoleResultNode = false ;
   this.screenNode = false ;
   this.uiMaskWindowConsoleNode = false ;
@@ -42,7 +44,7 @@ CommandManager.prototype.initCommon = function() {
   if(!this.ready) {
     return ;
   }
-  var nodeLst = this.uiConsoleApplicationNode.getElementsByTagName('DIV') ;
+  var nodeLst = this.uiConsoleApplicationNode.getElementsByTagName('*') ;
   for(var node in nodeLst) {
     if (nodeLst[node].className == 'ConsoleQuickHelp') {
       this.screenNode = nodeLst[node] ;
@@ -54,6 +56,10 @@ CommandManager.prototype.initCommon = function() {
     }
     if (nodeLst[node].className == 'CommandType') {
       this.commandTypeNode = nodeLst[node] ;
+      continue ;
+    }
+    if (nodeLst[node].className == 'CommandNameSpace') {
+      this.commandNameSpaceNode = nodeLst[node] ;
       continue ;
     }
     if (nodeLst[node].className == 'ConsoleResult') {
@@ -154,6 +160,12 @@ CommandManager.prototype.showQuickHelp = function(text) {
   text = this.formatHelp(text) ;
   this.screenNode.innerHTML = '<div>' + text + '</div>' ;
   this.uiMaskWindowConsoleNode.style.display = 'block' ;
+} ;
+
+CommandManager.prototype.updateCmdNameSpace = function(nameSpace) {
+  if (this.commandNameSpaceNode) {
+    this.commandNameSpaceNode.innerHTML = nameSpace + '$' ;
+  }
 } ;
 
 /**

@@ -97,6 +97,9 @@ EnvManager.prototype.updateEnvVariables = function(envVars) {
   for (var i=0; i<envVars.length; i++) {
     var v = envVars[i] ;
     if (v && v[1] && v[1] != '') {
+      if (v[0] == 'CMD_PREFIX') {
+        eXo.application.console.CommandManager.updateCmdNameSpace(v[1]) ;
+      }
       envStr += v[0] + '=' + v[1] + ':' ;
     }
   }

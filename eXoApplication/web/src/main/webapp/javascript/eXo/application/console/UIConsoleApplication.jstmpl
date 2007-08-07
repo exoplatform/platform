@@ -8,7 +8,7 @@
 	  </div>
 	</div>	
 	<div class="CommandType" editcontainer="1" handler="eXo.application.console.ConsoleInputManager">
-		<span class="Prompt"> exo-console$ </span>
+		<span class="CommandNameSpace"> exo-console$ </span>
 		<span editable="1">...</span>
 	</div>
 </div>
