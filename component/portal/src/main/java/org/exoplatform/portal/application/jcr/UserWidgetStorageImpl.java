@@ -32,17 +32,19 @@ public class UserWidgetStorageImpl implements UserWidgetStorage {
     jcrRegService_ = jcrRegService;
   }
 
-  private Node createWidgetAppNode(String userName, String widgetType, String instantId) throws Exception{
+  private Node createWidgetAppNode(Session session, String userName, String widgetType, String instantId) throws Exception{
     jcrRegService_.createUserHome(userName, false);
-    Node appsNode = jcrRegService_.createApplicationRegistry(userName, new ApplicationRegistry(WIDGETS_REGETSTRY_NODE), false);
-    Node widgetsTypeNode = getNode(appsNode, widgetType, null);
-    Node node = getNode(widgetsTypeNode, instantId, WIDGET_NODE_TYPE);
+    jcrRegService_.createApplicationRegistry(userName, new ApplicationRegistry(WIDGETS_REGETSTRY_NODE), false);
+    Node appsNode = jcrRegService_.getApplicationRegistryNode(session, userName, WIDGETS_REGETSTRY_NODE);
+    Node widgetsTypeNode = getNode(session,appsNode, widgetType, null);
+    Node node = getNode(session, widgetsTypeNode, instantId, WIDGET_NODE_TYPE);
     appsNode.save();
     return node;
   }
 
   public void save(String userName, String widgetType, String instantId, Object data) throws Exception{
-    Node widgetNode = createWidgetAppNode(userName, widgetType, instantId);
+    Session session = jcrRegService_.getSession();
+    Node widgetNode = createWidgetAppNode(session, userName, widgetType, instantId);
     InputStream  inputStream;
     if(data instanceof byte[]) {
       inputStream  = new ByteArrayInputStream((byte[])data);
@@ -53,38 +55,37 @@ public class UserWidgetStorageImpl implements UserWidgetStorage {
     }
     widgetNode.setProperty(DATA, inputStream);
     widgetNode.save();
-    Session session = jcrRegService_.getSession();
     session.save();
     session.logout();
   }
   
   public Object get(String userName, String widgetType, String instantId) throws Exception {
-    Node widgetNode = getWidgetNode(userName, widgetType, instantId);
-    if(widgetNode == null ) return null;
+    Session session = jcrRegService_.getSession();
+    Node widgetNode = getWidgetNode(session, userName, widgetType, instantId);
+    if(widgetNode == null ) {
+      session.logout();
+      return null;
+    }
     byte[] bytes =  IOUtil.getStreamContentAsBytes(widgetNode.getProperty(DATA).getStream());
+    session.logout();
     return bytes;
   }
 
   public void delete(String userName, String widgetType, String instantId) throws Exception {
-    Node widgetNode = getWidgetNode(userName, widgetType, instantId);
-    if(widgetNode == null ) return;
+    Session session = jcrRegService_.getSession();
+    Node widgetNode = getWidgetNode(session, userName, widgetType, instantId);
+    if(widgetNode == null ) {
+      session.logout();
+      return;
+    }
     Node parentNode = widgetNode.getParent();
     parentNode.save();
-    Session session = jcrRegService_.getSession();
     session.save();
     session.logout();
   }
 
-//  public String getWidgetData(String userName, String widgetType, String instantId)throws Exception{
-//    Node widgetNode = getWidgetNode(userName, widgetType, instantId); 
-//    if(widgetNode == null) return null;
-//    return widgetNode.getProperty(DATA).getString();
-//  }
-
-  private Node getNode(Node appsNode, String name, String nodeType) throws Exception {
-    Session session = jcrRegService_.getSession();
+  private Node getNode(Session session ,Node appsNode, String name, String nodeType) throws Exception {
     if(appsNode.hasNode(name)){
-      session.logout();
       return appsNode.getNode(name);
     }
     Node node = null;
@@ -92,13 +93,12 @@ public class UserWidgetStorageImpl implements UserWidgetStorage {
     else node = appsNode.addNode(name, nodeType);
     appsNode.save();
     session.save();
-    session.logout();
     return node;
   }
 
-  public Node getWidgetNode(String userName, String widgetType, String instantId) throws Exception {
-    if( jcrRegService_.getUserNode(jcrRegService_.getSession(), userName) == null) return null;
-    Node appsNode = jcrRegService_.createApplicationRegistry(userName, new ApplicationRegistry(WIDGETS_REGETSTRY_NODE), false);
+  private Node getWidgetNode(Session session, String userName, String widgetType, String instantId) throws Exception {
+    if( jcrRegService_.getUserNode(session, userName) == null) return null;
+    Node appsNode = jcrRegService_.getApplicationRegistryNode(session, userName, WIDGETS_REGETSTRY_NODE);
     if(appsNode == null ) return null;
     if(appsNode.hasNode(widgetType + "/" + instantId)) {
       return appsNode.getNode(widgetType + "/" + instantId);
