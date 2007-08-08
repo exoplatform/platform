@@ -70,7 +70,7 @@ public class PortalStateManager extends StateManager {
         UserPortalConfig config = getUserPortalConfig(pcontext) ;
         if(config == null) {
           HttpServletResponse response = pcontext.getResponse();
-          response.sendRedirect(pcontext.getRequestContextPath());
+          response.sendRedirect("/portal/portal-warning.html");
           pcontext.setResponseComplete(true);
           return null;
         }
