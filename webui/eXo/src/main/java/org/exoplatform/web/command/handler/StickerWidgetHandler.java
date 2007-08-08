@@ -21,26 +21,25 @@ import org.exoplatform.web.command.Command;
  * Dec 9, 2006  
  */
 public class StickerWidgetHandler extends Command {
-  
-  private String componentId ;
-  
+
+  private String objectId ;
+  private String content;
+
   @SuppressWarnings("unused")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     try{ 
-    PortalContainer container  = PortalContainer.getInstance();
-    UserWidgetStorageImpl service = 
-      (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
-
-//    System.out.println("\n\n\n-------------------->service " + service.getClass().getName());
-    String value = req.getParameter("content");
-    String objectId = req.getParameter("objectId");
-    String[] split = objectId.split("/");
-    String instantId = split[3];
-    String widgetType = split[2];
-    String userName = req.getRemoteUser();
-    service.save(userName, widgetType, instantId, value );
-    String hehe = service.getWidgetData(userName, widgetType, instantId);
-//    System.out.println("\n\n\n\n------d-----> " + instantId +  " - " + hehe +  " - " +userName);
+      PortalContainer container  = PortalContainer.getInstance();
+      UserWidgetStorageImpl service = 
+        (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
+      System.out.println("\n\n\n-------------------->service " + service.getClass().getName());
+      String[] split = objectId.split("/");
+      String instantId = split[3];
+      String widgetType = split[2];
+      String userName = req.getRemoteUser();
+      service.save(userName, widgetType, instantId, content);
+      System.out.println("\n\n\n ==  yahoo > "+content +"\n\n");
+//      String hehe = service.getWidgetData(userName, widgetType, instantId);
+//      System.out.println("\n\n\n\n------d-----> "  + instantId +  " - " + hehe +  " - " +userName);
     } catch (Exception e) {
       e.printStackTrace();
     } catch (Throwable  e) {e.printStackTrace();
