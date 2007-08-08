@@ -65,12 +65,17 @@ import org.exoplatform.webui.organization.UIPermissionSelector;
       type = UIFormInputSet.class,
       id = "PermissionSetting",
       template = "system:/groovy/webui/core/UITabSelector.gtmpl"
+  ),
+  @ComponentConfig(
+      type = UIFormInputSet.class,
+      id = "PageSetting",
+      template = "system:/groovy/portal/webui/navigation/UIPageNavigationSetting.gtmpl"
   )
 })
 public class UIPageForm extends UIFormTabPane {
   
   private UIPage uiPage_ ;
-  
+  private UIFormInputSet uiPermissionSetting;
   @SuppressWarnings("unchecked")
   public UIPageForm(InitParams initParams) throws Exception  {
     super("UIPageForm");
@@ -82,7 +87,7 @@ public class UIPageForm extends UIFormTabPane {
     UIFormSelectBox uiSelectBoxOwnerType = new UIFormSelectBox("ownerType","ownerType" , ownerTypes) ;
     uiSelectBoxOwnerType.setOnChange("ChangeOwnerType");
     
-    UIFormInputSet uiSettingSet = new UIFormInputSet("PageSetting") ;
+    UIFormInputSet uiSettingSet = createUIComponent(UIFormInputSet.class, "PageSetting", "PageSetting");
     uiSettingSet.addUIFormInput(new UIFormStringInput("pageId", null, null).setEditable(false)).
                  addUIFormInput(uiSelectBoxOwnerType).
                  addUIFormInput(new UIFormStringInput("ownerId", "ownerId", null).setEditable(false)).
@@ -92,7 +97,7 @@ public class UIPageForm extends UIFormTabPane {
                  addUIFormInput(new UIFormCheckBoxInput("showMaxWindow", "showMaxWindow", false));
     addUIFormInput(uiSettingSet) ;
     
-    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
+    uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
     uiPermissionSetting.setRendered(false);
     addUIComponentInput(uiPermissionSetting);
     
@@ -115,6 +120,7 @@ public class UIPageForm extends UIFormTabPane {
     addUIFormInput(uiTemplate);
     
     UIFormPopupWindow uiPopupGroupSelector = addChild(UIFormPopupWindow.class, null, "UIPopupGroupSelector");
+    uiPopupGroupSelector.setShowCloseButton(false);
     uiPopupGroupSelector.setWindowSize(540, 0);
     UIGroupSelector uiGroupSelector = createUIComponent(UIGroupSelector.class, null, null) ;
     uiPopupGroupSelector.setUIComponent(uiGroupSelector);
@@ -139,7 +145,11 @@ public class UIPageForm extends UIFormTabPane {
     uiPage_ = uiPage;
     Page page = PortalDataMapper.toPageModel(uiPage) ;
     invokeGetBindingBean(page) ;
-    
+    if(uiPage.getOwnerType().equals(PortalConfig.USER_TYPE)) {
+      removeChildById("PermissionSetting") ;  
+    } else if(getChildById("PermissionSetting") == null) {
+      addUIComponentInput(uiPermissionSetting);
+    }
     getUIStringInput("name").setEditable(false) ;
     getUIStringInput("pageId").setValue(uiPage.getPageId());
     getUIFormCheckBoxInput("showMaxWindow").setValue(uiPage.isShowMaxWindow());
@@ -309,11 +319,17 @@ public class UIPageForm extends UIFormTabPane {
       
       if(PortalConfig.USER_TYPE.equals(ownerType)){
         uiOwnerId.setValue(prContext.getRemoteUser());
-      } else if(PortalConfig.PORTAL_TYPE.equals(ownerType)){
-        uiOwnerId.setValue(Util.getUIPortal().getName());
+        uiForm.removeChildById("PermissionSetting") ;  
       } else {
-        String script = "eXo.webui.UIPopupWindow.show('UIPopupGroupSelector');";
-        prContext.getJavascriptManager().addCustomizedOnLoadScript(script);
+        if(uiForm.getChildById("PermissionSetting") == null) {
+          uiForm.addUIComponentInput(uiForm.uiPermissionSetting);
+        }
+        if(PortalConfig.PORTAL_TYPE.equals(ownerType)){
+          uiOwnerId.setValue(Util.getUIPortal().getName());
+        } else {
+          String script = "eXo.webui.UIPopupWindow.show('UIPopupGroupSelector');";
+          prContext.getJavascriptManager().addCustomizedOnLoadScript(script);
+        }
       }
       prContext.addUIComponentToUpdateByAjax(uiForm.getParent());
     }
