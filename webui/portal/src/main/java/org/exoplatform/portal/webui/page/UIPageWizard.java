@@ -87,6 +87,11 @@ public abstract class UIPageWizard extends UIWizard {
     UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);
     uiExoStart.setUIControlWSWorkingComponent(UIPageCreateDescription.class);
     UIPageCreateDescription uiPageDescription = uiExoStart.getUIControlWSWorkingComponent();
+    if(this.getClass() == UIPageEditWizard.class){
+      uiPageDescription.setTitle("Page Edit Wizard");
+      uiPageDescription.addChild(UIDescription.class, null, "pageEditWizard");
+      return;
+    }
     uiPageDescription.setTitle("Page Creation Wizard");
     uiPageDescription.addChild(UIDescription.class, null, "pageWizard");
   }
