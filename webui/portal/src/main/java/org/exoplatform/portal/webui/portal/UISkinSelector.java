@@ -76,7 +76,6 @@ public class UISkinSelector extends UIContainer {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiApp) ;
       
       if(skin == null || skin.trim().length() < 1) return;       
-      if(!uiPortal.isModifiable()) return;
       
       //TODO: Tung.Pham modified
       //----------------------------------
