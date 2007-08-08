@@ -78,7 +78,7 @@ public class UserWidgetStorageImpl implements UserWidgetStorage {
 
   private Node getNode(Node appsNode, String name, String nodeType) throws Exception {
     Session session = jcrRegService_.getSession();
-    if( appsNode.hasNode(name)){
+    if(appsNode.hasNode(name)){
       session.logout();
       return appsNode.getNode(name);
     }
