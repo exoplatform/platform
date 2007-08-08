@@ -3,30 +3,34 @@
 	
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  jsmanager.importJavascript('eXo.core.MouseEventManager') ;
-	jsmanager.importJavascript('eXo.webui.UIDropDownControl') ;
-	jsmanager.addJavascript('eXo.webui.UIDropDownControl.init(\'UIDropDownControl\');') ;
-	
+	jsmanager.importJavascript("eXo.webui.UIDropDownControl") ;
+	jsmanager.addJavascript("eXo.webui.UIDropDownControl.init('$uicomponent.id');") ;
+  def options = uicomponent.getOptions() ;
+  options.clear();
+	uicomponent.addItem("tran the trong");
+	uicomponent.addItem("hoang kim thanh");
+	uicomponent.addItem("nguyen duc thuy");
+	uicomponent.setAction("eXo.webui.UIDropDownControl.init") ;
 %>
-<div style="background: white; padding: 10px; width: 200px;">
-	<div class="UIDropDownControl" id="UIDropDownControl">	
-		<div class="UIDropDownTitle" onclick="eXo.webui.UIDropDownControl.show(this, event);">
-			<div class="UIDropDownLeftIcon">
-				<div class="UIDropDownRightIcon">
-					<div class="UIDropDownMiddleTitle"><span>DropDown Control</span></div>
+<div class="UIDropDownControl" id="$uicomponent.id">	
+	<div class="UIDropDownTitle" onclick="eXo.webui.UIDropDownControl.show(this, event);">
+		<div class="UIDropDownLeftIcon">
+			<div class="UIDropDownRightIcon">
+				<div class="UIDropDownMiddleTitle"><span>DropDown Control</span></div>
+			</div>
+		</div>
+	</div>
+	<div class="UIDropDownAnchor" style="position: relative ; display: none ;">
+		<div class="UIOptionContainer">
+			<div class="UIItemListContainer">
+				<div class="UIItemList">
+				  <%
+				    for(option in options) {
+				  %>
+					    <a class="UIOptionItem" href="<%=uicomponent.event(option.getValue())%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)">$option.label</a>
+					<%}%>
 				</div>
 			</div>
 		</div>
-		<div class="UIDropDownAnchor" style="position: relative ; display: none ;">
-			<div class="UIOptionContainer">
-				<div class="UIItemListContainer">
-					<div class="UIItemList">
-						<a href="javascript:void(0);" class="UIOptionItem" value="1" title="abc" onclick="eXo.webui.UIDropDownControl.selectItem(this,'eXo.webui.UIDropDownControl.test()');">Infomation</a>
-						<a href="javascript:void(0);" class="UIOptionItem" value="2" title="abc" onclick="eXo.webui.UIDropDownControl.selectItem(this);">Calendar</a>
-						<a href="javascript:void(0);" class="UIOptionItem" value="3" title="abc" onclick="eXo.webui.UIDropDownControl.selectItem(this,'this.test()');">Calculator</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>	
+	</div>
 </div>

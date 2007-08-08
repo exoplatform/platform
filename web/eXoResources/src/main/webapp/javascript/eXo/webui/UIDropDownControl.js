@@ -1,18 +1,11 @@
-function UIDropDownControl() {
-	
-} ;
+function UIDropDownControl() {} ;
 
 UIDropDownControl.prototype.init = function(id) {
-//	var MEM = eXo.core.MouseEventManager ;
-//	MEM.addMouseDownHandler(id,eXo.webui.UIDropDownControl.test) ;
+	alert("param : " + id) ;
 };
 
-UIDropDownControl.prototype.add = function() {
-		
-} ;
-
-UIDropDownControl.prototype.remove = function() {
-		
+UIDropDownControl.prototype.selectItem = function(clickedElemt, method, param) {
+	if(method) method(param) ;
 } ;
 
 UIDropDownControl.prototype.show = function(obj, evt) {
@@ -23,7 +16,6 @@ UIDropDownControl.prototype.show = function(obj, evt) {
 		if (itemContainer.style.display == "none") itemContainer.style.display = "block" ;
 		else itemContainer.style.display = "none" ;
 	}
-	DOMUtil.listHideElements(itemContainer) ;
 } ;
 
 UIDropDownControl.prototype.hide = function(obj) {
@@ -31,20 +23,13 @@ UIDropDownControl.prototype.hide = function(obj) {
 	obj.style.display = "none" ;		
 } ;
 
-UIDropDownControl.prototype.selectItem = function(obj,callback) {
+UIDropDownControl.prototype.onclickEvt = function(obj) {
 	var DOMUtil = eXo.core.DOMUtil ;
-	var uiDropDownAnchor = DOMUtil.findAncestorByClass(obj, 'UIDropDownAnchor') ;
 	var uiDropDownAnchor = DOMUtil.findAncestorByClass(obj, 'UIDropDownAnchor') ;
 	var uiDropDownTitle = DOMUtil.findPreviousElementByTagName(uiDropDownAnchor, 'div') ;
 	var uiDropDownMiddleTitle = DOMUtil.findFirstDescendantByClass(uiDropDownTitle,'div','UIDropDownMiddleTitle') ;
-	uiDropDownMiddleTitle.firstChild.innerHTML = obj.innerHTML ;	
-	if (callback){		
-		eval(callback) ;
-	}
-	DOMUtil.listHideElements(uiDropDownAnchor) ;
+	uiDropDownMiddleTitle.firstChild.innerHTML = obj.innerHTML ;
+	uiDropDownAnchor.style.display = 'none' ;
 } ;
-UIDropDownControl.prototype.test = function() {
-	
-}
 
 eXo.webui.UIDropDownControl = new UIDropDownControl() ;

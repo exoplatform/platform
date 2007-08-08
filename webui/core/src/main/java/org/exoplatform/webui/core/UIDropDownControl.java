@@ -3,15 +3,40 @@
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.webui.core;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.model.SelectItemOption;
 
 /**
  * Created by The eXo Platform SARL
- * Author : Hoang Manh Dung
- *          dunghm@gmail.com
+ * Author : Tran The Trong
+ *          trongtt@gmail.com
  * July 12, 2007  
  */
 @ComponentConfig(template = "system:/groovy/webui/core/UIDropDownControl.gtmpl")
 public class UIDropDownControl extends UIComponent {
 
+  private String action_ ;
+  private List<SelectItemOption<String>> options_ ;
+  private int selectedItemIndex_ ;
+ 
+  public UIDropDownControl() throws Exception {
+    options_ = new ArrayList<SelectItemOption<String>>() ;
+  }
+  
+  public void setAction(String act) { action_ = act ; }
+  public List<SelectItemOption<String>> getOptions() { return options_ ; }
+
+  public void addItem(String value) {
+    options_.add(new SelectItemOption<String>(value)) ;
+  }
+  
+  public String event(String param) throws Exception {
+    if(action_ == null) return super.event(config.getEvents().get(0).getName(), param);
+    StringBuilder evt = new StringBuilder("javascript:eXo.webui.UIDropDownControl.selectItem(this,") ;
+    evt.append(action_).append(",'").append(param).append("')") ;
+    return evt.toString() ;
+  }
 }

@@ -8,7 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIDropDownControl;
+import org.exoplatform.webui.core.UIDropDownItemSelector;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -17,27 +20,34 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormDateTimeInput;
 import org.exoplatform.webui.form.UIFormMultiValueInputSet;
 import org.exoplatform.webui.form.UIFormSelectBox;
-import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormUploadInput;
-import org.exoplatform.webui.form.validator.NumberFormatValidator;
-import org.exoplatform.webui.form.validator.PositiveNumberFormatValidator;
 /**
  * Created by The eXo Platform SARL
  * Author : lxchiati  
  *          lebienthuy@gmail.com
  * Nov 23, 2006  
  */
-@ComponentConfig(
-    lifecycle = UIFormLifecycle.class,
-    template =  "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
-    events = {
-      @EventConfig(listeners = UITestForm.SaveActionListener.class),
-      @EventConfig(listeners = UITestForm.ResetActionListener.class),
-      @EventConfig(listeners = UITestForm.CancelActionListener.class),
-      @EventConfig(listeners = UITestForm.OnchangeActionListener.class),
-      @EventConfig(listeners = UITestForm.Onchange1ActionListener.class)
-    }
-)
+@ComponentConfigs({
+  @ComponentConfig(
+      lifecycle = UIFormLifecycle.class,
+      template =  "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
+      events = {
+        @EventConfig(listeners = UITestForm.SaveActionListener.class),
+        @EventConfig(listeners = UITestForm.ResetActionListener.class),
+        @EventConfig(listeners = UITestForm.CancelActionListener.class),
+        @EventConfig(listeners = UITestForm.TestLambkinActionListener.class),
+        @EventConfig(listeners = UITestForm.Onchange1ActionListener.class)
+      }
+  ),
+  @ComponentConfig(
+      type = UIDropDownControl.class,
+      id = "lambkin",
+      template = "system:/groovy/webui/core/UIDropDownControl.gtmpl",
+      events = {
+        @EventConfig(listeners = UITestForm.TestLambkinActionListener.class)
+      }
+  )
+})
 public class UITestForm extends UIForm { 
 
   public static final String FIELD_SELECT_BOX = "selectBox" ;
@@ -58,6 +68,21 @@ public class UITestForm extends UIForm {
     test.setType(UIFormDateTimeInput.class);
     addChild(upload);
     addChild(test);
+    UIDropDownItemSelector uiDropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
+    uiDropDownItemSelector.setTitle("SelectContainer") ;
+    uiDropDownItemSelector.setOnServer(true);
+    uiDropDownItemSelector.setOnChange("ChangeOption");
+    uiDropDownItemSelector.addItem("Tran the trong") ;
+    uiDropDownItemSelector.addItem("Tran the tro'ng1") ;
+    uiDropDownItemSelector.addItem("Tran the trong2") ;
+    uiDropDownItemSelector.addItem("Tran the tro\"ng3") ;
+    uiDropDownItemSelector.addItem("Tran the trong4") ;
+    uiDropDownItemSelector.addItem("Tran the trong5") ;
+    uiDropDownItemSelector.addItem("Tran the trong6") ;
+    uiDropDownItemSelector.addItem("Tran the trong7") ;
+    uiDropDownItemSelector.addItem("Tran the trong8") ;
+    
+    UIDropDownControl test1 = addChild(UIDropDownControl.class, null, null);
     
 //    UIFormStringInput newtest = new UIFormStringInput(INTER_NUMBER_VALUE, INTER_NUMBER_VALUE, null);
 //    newtest.addValidator(NumberFormatValidator.class);
@@ -114,7 +139,7 @@ public class UITestForm extends UIForm {
   }
   
   @SuppressWarnings("unused")
-  static  public class OnchangeActionListener extends EventListener<UITestForm> {
+  static  public class TestLambkinActionListener extends EventListener<UITestForm> {
     public void execute(Event<UITestForm> event) throws Exception {
       System.out.println("\n\n\n\n\n == > onchange action : " + event.getSource().getId() + "\n\n");
 //      UIFormSelectBox uiSelectBox = event.getSource().getChild(UIFormSelectBox.class);
