@@ -76,6 +76,11 @@ import org.exoplatform.webui.form.UISearchForm;
       type = UIFormInputSet.class,
       id = "PermissionSetting",
       template = "system:/groovy/webui/core/UITabSelector.gtmpl"
+  ),
+  @ComponentConfig(
+      type = UIFormInputSet.class,
+      id = "PageSetting",
+      template = "system:/groovy/portal/webui/navigation/UIPageNavigationSetting.gtmpl"
   )
 })
 public class UIPageBrowser extends UISearch {
@@ -294,7 +299,8 @@ public class UIPageBrowser extends UISearch {
       uiMaskWS.setShow(true);
 
       uiPageForm.getUIStringInput("ownerType").setValue(PortalConfig.USER_TYPE);
-      uiPageForm.getUIStringInput("ownerId").setValue(prContext.getRemoteUser());      
+      uiPageForm.getUIStringInput("ownerId").setValue(prContext.getRemoteUser()); 
+      uiPageForm.removeChildById("PermissionSetting");
       uiPageForm.removeChild(UIFormInputItemSelector.class);
 
       UIPageTemplateOptions uiTemplateConfig = uiPageForm.createUIComponent(UIPageTemplateOptions.class, null, null);    
