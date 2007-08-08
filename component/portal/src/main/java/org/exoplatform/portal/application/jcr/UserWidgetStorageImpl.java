@@ -10,6 +10,7 @@ import java.io.InputStream;
 import javax.jcr.Node;
 import javax.jcr.Session;
 
+import org.exoplatform.commons.utils.IOUtil;
 import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
@@ -32,6 +33,7 @@ public class UserWidgetStorageImpl implements UserWidgetStorage {
   }
 
   private Node createWidgetAppNode(String userName, String widgetType, String instantId) throws Exception{
+    jcrRegService_.createUserHome(userName, false);
     Node appsNode = jcrRegService_.createApplicationRegistry(userName, new ApplicationRegistry(WIDGETS_REGETSTRY_NODE), false);
     Node widgetsTypeNode = getNode(appsNode, widgetType, null);
     Node node = getNode(widgetsTypeNode, instantId, WIDGET_NODE_TYPE);
@@ -57,7 +59,10 @@ public class UserWidgetStorageImpl implements UserWidgetStorage {
   }
   
   public Object get(String userName, String widgetType, String instantId) throws Exception {
-      return null;
+    Node widgetNode = getWidgetNode(userName, widgetType, instantId);
+    if(widgetNode == null ) return null;
+    byte[] bytes =  IOUtil.getStreamContentAsBytes(widgetNode.getProperty(DATA).getStream());
+    return bytes;
   }
 
   public void delete(String userName, String widgetType, String instantId) throws Exception {
@@ -70,11 +75,11 @@ public class UserWidgetStorageImpl implements UserWidgetStorage {
     session.logout();
   }
 
-  public String getWidgetData(String userName, String widgetType, String instantId)throws Exception{
-    Node widgetNode = getWidgetNode(userName, widgetType, instantId); 
-    if(widgetNode == null) return null;
-    return widgetNode.getProperty(DATA).getString();
-  }
+//  public String getWidgetData(String userName, String widgetType, String instantId)throws Exception{
+//    Node widgetNode = getWidgetNode(userName, widgetType, instantId); 
+//    if(widgetNode == null) return null;
+//    return widgetNode.getProperty(DATA).getString();
+//  }
 
   private Node getNode(Node appsNode, String name, String nodeType) throws Exception {
     Session session = jcrRegService_.getSession();
@@ -92,7 +97,9 @@ public class UserWidgetStorageImpl implements UserWidgetStorage {
   }
 
   public Node getWidgetNode(String userName, String widgetType, String instantId) throws Exception {
+    if( jcrRegService_.getUserNode(jcrRegService_.getSession(), userName) == null) return null;
     Node appsNode = jcrRegService_.createApplicationRegistry(userName, new ApplicationRegistry(WIDGETS_REGETSTRY_NODE), false);
+    if(appsNode == null ) return null;
     if(appsNode.hasNode(widgetType + "/" + instantId)) {
       return appsNode.getNode(widgetType + "/" + instantId);
     } 

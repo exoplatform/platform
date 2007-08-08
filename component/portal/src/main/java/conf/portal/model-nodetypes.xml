@@ -41,12 +41,14 @@
  	
  	<nodeType name="exo:widget" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
     <supertypes>
-      <supertype>nt:file</supertype>
+      <supertype>nt:base</supertype>
     </supertypes>
     <propertyDefinitions>
         <propertyDefinition name="data" requiredType="Binary" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
             <valueConstraints/>
       </propertyDefinition>
     </propertyDefinitions>
+    
     </nodeType>	
+    
 </nodeTypes>    
