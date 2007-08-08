@@ -13,7 +13,6 @@ import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.Delet
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -41,7 +40,11 @@ import org.exoplatform.webui.event.EventListener;
   @ComponentConfig(
       id = "TabContainer", 
       template = "system:/groovy/portal/webui/container/UITabContainer.gtmpl",
-      events = @EventConfig(listeners = UIContainer.SelectTabActionListener.class)
+      events = {
+          @EventConfig(listeners = EditContainerActionListener.class),
+          @EventConfig(listeners = DeleteComponentActionListener.class, confirm = "UIContainer.deleteContainer"),
+          @EventConfig(listeners = UIContainer.SelectTabActionListener.class)
+      }
   )
 })
 public class UIContainer extends  UIPortalComponent {
