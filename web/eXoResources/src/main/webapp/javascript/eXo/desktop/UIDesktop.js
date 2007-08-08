@@ -94,7 +94,7 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
     eXo.animation.ImplodeExplode.explode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
     eXo.desktop.UIWindow.saveWindowProperties(this.object, "SHOW");
 
-//  fix bug : don't apply style css in IE6 
+  	//TODO MinhJS: fix bug for don't apply style css in IE6 in first time.
   	if(eXo.core.Browser.isIE6()) {
   		this.object.style.filter =  "" ;
   	}
