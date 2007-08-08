@@ -19,6 +19,7 @@ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponentDecorator;
 
 /**
@@ -94,12 +95,7 @@ public class UIPageBody extends UIComponentDecorator {
     }
     if(uicomponent_ != null) {
       uicomponent_.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;
-      return ;
     }
-    WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance();
-    ResourceBundle res = rcontext.getApplicationResourceBundle() ;
-    rcontext.getWriter().append(res.getString("UIPageBody.msg.pageNotFound"));
-
   }
 
   public UIPortalComponent getMaximizedUIComponent() { return maximizedUIComponent; }
