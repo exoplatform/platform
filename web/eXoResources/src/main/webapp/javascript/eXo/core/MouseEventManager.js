@@ -1,7 +1,12 @@
 function MouseEventManager () {} ;
 
+/*
+ * minh.js.exo
+ */
 MouseEventManager.prototype.docMouseDownEvt = function(evt) {
+	if(!evt) evt = window.event ;
 	evt.cancelBubble = true ;
+
 	if(eXo.core.MouseEventManager.onMouseDownHandlers == null) return;
 	if(typeof(eXo.core.MouseEventManager.onMouseDownHandlers) == "string") eval(eXo.core.MouseEventManager.onMouseDownHandlers) ;
 	else eXo.core.MouseEventManager.onMouseDownHandlers(evt) ;
@@ -24,7 +29,9 @@ MouseEventManager.prototype.addMouseUpHandler = function(method) {
 } ;
 
 MouseEventManager.prototype.docMouseClickEvt = function(evt) {
+	if(!evt) evt = window.event ;
 	evt.cancelBubble = true ;
+	
 	if(typeof(eXo.core.MouseEventManager.onMouseClickHandlers) == "string") eval(eXo.core.MouseEventManager.onMouseClickHandlers) ;
 	else eXo.core.MouseEventManager.onMouseClickHandlers(evt) ;
 	document.onclick = null ;

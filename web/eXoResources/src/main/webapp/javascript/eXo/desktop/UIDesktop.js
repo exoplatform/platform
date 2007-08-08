@@ -94,16 +94,10 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
     eXo.animation.ImplodeExplode.explode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
     eXo.desktop.UIWindow.saveWindowProperties(this.object, "SHOW");
 
-//fix bug : don't apply style css in IE6 
-<<<<<<< .mine
-  	if(eXo.core.Browser.isIE6()){
+//  fix bug : don't apply style css in IE6 
+  	if(eXo.core.Browser.isIE6()) {
   		this.object.style.filter =  "" ;
   	}
-=======
-//  	if(eXo.core.Browser.isIE6()){
-//			eXo.core.Browser.setOpacity(this.object, 100) ;
-//  	}
->>>>>>> .r18715
   }
   eXo.desktop.UIDockbar.containerMouseOver() ;
 };
