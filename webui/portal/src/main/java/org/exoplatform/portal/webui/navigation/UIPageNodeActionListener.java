@@ -18,7 +18,6 @@ import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.page.UIPageForm;
 import org.exoplatform.portal.webui.page.UIPageTemplateOptions;
-import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
@@ -89,6 +88,7 @@ public class UIPageNodeActionListener {
       PageNode selectNode = PageNavigationUtils.searchPageNodeByUri(currentNav, uri);
       UserPortalConfigService portalConfigService = uiPopupMenu.getApplicationComponent(UserPortalConfigService.class);
       Page page  = portalConfigService.getPage(selectNode.getPageReference(), pcontext.getRemoteUser());
+      
       uiPageNodeSelector.selectPageNodeByUri(uri);
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
       UIPageManagement uiManagement = uiPageNodeSelector.getParent();
@@ -100,11 +100,18 @@ public class UIPageNodeActionListener {
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;   
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
       pcontext.setFullRender(true);
-     
+      if(page == null ) {
+        System.out.println("\n\n\n------------------------>> ac ac");
+        return;
+      }
       UIPage uiPage = Util.toUIPage(page, uiToolPanel);
       uiApp.findFirstComponentOfType(UIPageBody.class).setUIComponent(null);
       uiToolPanel.setUIComponent(uiPage);
-      if(page != null && !Page.DESKTOP_PAGE.equals(page.getFactoryId()))      return;
+      if(page != null && !Page.DESKTOP_PAGE.equals(page.getFactoryId()))  {
+        Class<?> [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        return;
+      }
 
       //      PageNode node = uiPageNodeSelector.getSelectedPageNode();
 //      if(node == null) {
