@@ -145,6 +145,7 @@ ScrollManager.prototype.enableArrow = function(arrow, enabled) {
 };
 
 ScrollManager.prototype.mouseOverArrow = function(e) {
+	console.log("mouse over");
 	var arrow = this;
 	if (arrow.onclick && arrow.className == arrow.styleClass) {
 		// mouse over

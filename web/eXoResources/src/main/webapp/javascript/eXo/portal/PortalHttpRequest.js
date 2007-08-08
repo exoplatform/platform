@@ -243,13 +243,17 @@ function HttpResponseHandler(){
 	  for(var i = 0; i < blocksToUpdate.length; i++) {
 	    var blockToUpdate =  blocksToUpdate[i] ;	
 	    var target = null;   	
-	    if(parentBlock != null) {    
+	    if(parentBlock != null) {
 	    	target = eXo.core.DOMUtil.findDescendantById(parentBlock, blockToUpdate.blockId) ;
 	    } else {
 	    	target = document.getElementById(blockToUpdate.blockId) ;
 	    }
 	    if(target == null) alert("target  BlockToUpdate.blockId " + blockToUpdate.blockId);
+//	    console.group("blockToUpdate.data");
+//	    	console.dir(blockToUpdate.data);
+//	    	console.groupEnd();
 	    var newData =  eXo.core.DOMUtil.findDescendantById(blockToUpdate.data, blockToUpdate.blockId) ;
+	   	//var newData =  blockToUpdate.data.getElementById(blockToUpdate.blockId) ;
 	    if(newData == null) alert("block to update Id" + blockToUpdate.blockId);
 	    target.innerHTML = newData.innerHTML ;   
 	  }  

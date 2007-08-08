@@ -21,7 +21,9 @@ var eXo  = {
   
   application : { 
   	browser : { }
-  }  
+  },
+  
+  mail : { }  
 } ;
 
 eXo.require = function(module, jsLocation) {
