@@ -102,12 +102,12 @@
   
   
   <mapping name="portlet-preferences-set"
-          class="org.exoplatform.portal.portlet.PortletPreferences$PortletPreferencesSet">
+          class="org.exoplatform.portal.application.PortletPreferences$PortletPreferencesSet">
     <collection field="portlets" 
-                item-type="org.exoplatform.portal.portlet.PortletPreferences"/>
+                item-type="org.exoplatform.portal.application.PortletPreferences"/>
   </mapping>  
   
-  <mapping class="org.exoplatform.portal.portlet.Preference"  name="preference" label="preference">
+  <mapping class="org.exoplatform.portal.application.Preference"  name="preference" label="preference">
     <value name="name"  field="name" usage="optional"/>
     <collection field="values" item-type="java.lang.String">
       <value name="value" style="element"/>
@@ -115,13 +115,13 @@
     <value name="read-only" field="readOnly" usage="optional"/>
   </mapping>
 
-  <mapping class="org.exoplatform.portal.portlet.PortletPreferences" 
+  <mapping class="org.exoplatform.portal.application.PortletPreferences" 
            name="portlet-preferences" label="portlet-preferences">
     <value name="owner-type" field="ownerType"/>
     <value name="owner-id" field="ownerId"/>       
     <value name="window-id" field="windowId"/>
     <collection field="preferences" 
-                item-type="org.exoplatform.portal.portlet.Preference"/>    
+                item-type="org.exoplatform.portal.application.Preference"/>    
     <value name="preferences-validator" field="preferencesValidator" usage="optional"/>
   </mapping>
   

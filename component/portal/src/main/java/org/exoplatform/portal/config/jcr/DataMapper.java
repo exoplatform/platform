@@ -9,11 +9,11 @@ import java.io.ByteArrayOutputStream;
 
 import javax.jcr.Node;
 
+import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
-import org.exoplatform.portal.portlet.PortletPreferences;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IMarshallingContext;

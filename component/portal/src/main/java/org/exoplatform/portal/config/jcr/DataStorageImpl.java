@@ -15,12 +15,12 @@ import javax.jcr.query.QueryResult;
 
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
-import org.exoplatform.portal.portlet.PortletPreferences;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;

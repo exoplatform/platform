@@ -2,11 +2,11 @@
  * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.portal.portlet.jcr;
+package org.exoplatform.portal.application.jcr;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.DataStorage;
-import org.exoplatform.portal.portlet.PortletPreferences;
 import org.exoplatform.services.log.LogService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.WindowID;

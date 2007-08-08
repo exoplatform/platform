@@ -2,7 +2,7 @@
 <configuration>
   <component>
    <key>org.exoplatform.services.portletcontainer.persistence.PortletPreferencesPersister</key>
-   <type>org.exoplatform.portal.portlet.jcr.PortletPreferencesPersisterImpl</type>
+   <type>org.exoplatform.portal.application.jcr.PortletPreferencesPersisterImpl</type>
   </component>  
   
   <component>
@@ -11,8 +11,8 @@
   </component>
   
    <component>
-    <key>org.exoplatform.portal.widget.jcr.UserWidgetDataService</key>
-    <type>org.exoplatform.portal.widget.jcr.UserWidgetDataService</type>
+    <key>org.exoplatform.portal.application.UserWidgetStorage</key>
+    <type>org.exoplatform.portal.application.jcr.UserWidgetStorageImpl</type>
   </component> 
   
   <component>
@@ -34,7 +34,7 @@
   
   <component>
    <key>org.exoplatform.services.portletcontainer.bundle.ResourceBundleDelegate</key>
-   <type>org.exoplatform.portal.portlet.ResourceBundleDelegateImpl</type>
+   <type>org.exoplatform.portal.application.ResourceBundleDelegateImpl</type>
   </component>   
 
   <component>

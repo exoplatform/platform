@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.portal.widget.jcr.UserWidgetDataService;
+import org.exoplatform.portal.application.jcr.UserWidgetStorageImpl;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.command.Command;
 //import org.exoplatform.widget.service.UserWidgetDataService;
@@ -28,8 +28,8 @@ public class StickerWidgetHandler extends Command {
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     try{ 
     PortalContainer container  = PortalContainer.getInstance();
-    UserWidgetDataService service = 
-      (UserWidgetDataService)container.getComponentInstanceOfType(UserWidgetDataService.class) ;    
+    UserWidgetStorageImpl service = 
+      (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
 
 //    System.out.println("\n\n\n-------------------->service " + service.getClass().getName());
     String value = req.getParameter("content");

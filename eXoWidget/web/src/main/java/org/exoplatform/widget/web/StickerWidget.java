@@ -8,9 +8,9 @@ import java.io.Writer;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.application.jcr.UserWidgetStorageImpl;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.widget.jcr.UserWidgetDataService;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.web.application.widget.WidgetApplication;
 //import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -53,8 +53,8 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
 //    }catch (Exception e) { e.printStackTrace();}
 //    
     PortalContainer container  = PortalContainer.getInstance();
-    UserWidgetDataService service = 
-      (UserWidgetDataService)container.getComponentInstanceOfType(UserWidgetDataService.class) ;    
+    UserWidgetStorageImpl service = 
+      (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
 
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;

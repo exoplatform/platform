@@ -5,11 +5,11 @@
 package org.exoplatform.portal.config;
 
 import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
-import org.exoplatform.portal.portlet.PortletPreferences;
 import org.exoplatform.services.portletcontainer.pci.WindowID;
 
 /**

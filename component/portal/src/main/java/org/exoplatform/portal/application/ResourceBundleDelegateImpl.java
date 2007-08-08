@@ -3,7 +3,7 @@
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 
-package org.exoplatform.portal.portlet ;
+package org.exoplatform.portal.application ;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
