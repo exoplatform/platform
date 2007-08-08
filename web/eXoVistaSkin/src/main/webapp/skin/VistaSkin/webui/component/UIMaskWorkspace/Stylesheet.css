@@ -123,7 +123,6 @@
 
 /********************************** UIPageNavigationForm *************************************/
 
-.UIMaskWorkspace #UIPageNavigationForm .UIFormGrid {
 
 
 
@@ -136,6 +135,7 @@
 }
 
 /**************************** UIAddApplication ******************************************/
+
 .UIAddApplication .UITabContentContainer {
   border: 1px solid #999999;
   border-top: none;

@@ -50,7 +50,7 @@
 	cursor: pointer ;
 	color: #000000;
 	text-decoration: none;
-	height: 21px; line-height: 21px;
+	line-height: 21px;
 	padding-left: 27px;
 }
 
@@ -59,7 +59,7 @@
 	display: block;
 	color: #0e3fa8;
 	text-decoration: none;
-	height: 21px; line-height: 21px;
+	line-height: 21px;
 	background: #f0f0f0 url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/CheckerIcon.gif') no-repeat 10px 4px;
 	padding-left: 27px;
 }

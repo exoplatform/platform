@@ -276,6 +276,11 @@
   background: url('icons/BlueCirclePlus.gif') ;
 }
 
+.EditIcon {
+  width: 16px ; height: 16px ;
+  background: url('icons/BlueCirclePlus.gif') ;
+}
+
 .Organization16x16Icon {
   width: 16px ; height: 16px ;
   background: url('icons/Organization.gif') ;

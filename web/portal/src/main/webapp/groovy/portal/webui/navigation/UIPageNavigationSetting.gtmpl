@@ -13,9 +13,9 @@
 				<% if(child.getId().equals("ownerId")){ %>
 				  <% if(uicomponent.getChildById("ownerType").getValue().equals("group")) {%>
 				    <% if(uicomponent.getChildById("ownerType").isEnable()) { %>
-					    <td>
+					    <td style="vertical-align: middle;">
 					        <% String event = uicomponent.getParent().event("ChangeOwnerType");%>
-					        <a href="<%=event%>"> Select other group </a>
+					        <a href="<%=event%>" class="SelectGroup"> Select other group </a>
 					    </td>
 				  <% }}} %>
 			</tr>

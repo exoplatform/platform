@@ -90,6 +90,17 @@
 	padding: 50px 0px;
 }
 
+.UIMaskWorkspace .UIFormInputSet .UIFormGrid .SelectGroup {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat left top;
+	padding-left: 20px;
+}
+
+.UIMaskWorkspace .UIFormInputSet .UIFormGrid a.SelectGroup {
+	color: #058ee6;
+	line-height: 22px;
+}
+
+
 /**********************************UITabSelector*****************************************/
 .UIMaskWorkspace .UITabPane .TabPaneContent .WorkingArea .CSSContent {
   border: 1px solid #d5d5d5;

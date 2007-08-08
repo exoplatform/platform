@@ -64,7 +64,7 @@
 	cursor: pointer ;
 	color: #000000;
 	text-decoration: none;
-	height: 21px; line-height: 21px;
+	line-height: 21px;
 	padding-left: 27px;
 }
 
@@ -72,7 +72,7 @@
 	cursor: pointer ;
 	color: #058ee6;
 	text-decoration: none;
-	height: 21px; line-height: 21px;
+	line-height: 21px;
 	background: #f5f5f5 url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon.gif') no-repeat 10px 4px;
 	padding-left: 27px;
 }
@@ -94,13 +94,21 @@
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView {
 	margin-left: 260px;
 	border: 1px #b7b7b7 solid;
-	height: 267px;
 	padding: 4px;
 	background: #fbfbfb;
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail .ContainerDetail {
 	background: #ffffff;
+	height: 267px;
+	padding: 0px 10px 0px 0px;
+}
+
+.UIWidgetContainerManagement .ContainerManagementDetail .Empty {
+	color: #797979;
+	width: 110px;
+	line-height: 50px;
+	margin: auto;	
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail .HeadTitle {
