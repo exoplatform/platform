@@ -57,6 +57,16 @@
   padding: 10px;
 }
 
+.UIMaskWorkspace .UIFormInputSet .UIFormGrid .SelectGroup {
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/NormalGroup.png') no-repeat left top;
+	padding: 3px 0px 0px 20px;
+}
+
+.UIMaskWorkspace .UIFormInputSet .UIFormGrid a:hover.SelectGroup {
+	color: #ff9000;
+	text-decoration: underline;
+}
+
 /**********************************UITabSelector*****************************************/
 .UIMaskWorkspace .UITabPane .TabPaneContent .WorkingArea .CSSContent {
   border: 1px solid #d5d5d5;
