@@ -38,6 +38,7 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -95,7 +96,10 @@ public class UIWizardPageSetInfo extends UIForm {
   
   public UIWizardPageSetInfo() throws Exception {
     UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, "WizardPageNodeSelector", null);    
-    addUIFormInput(new UIFormStringInput(PAGE_NAME, "name", null).addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class));
+    addUIFormInput(new UIFormStringInput(PAGE_NAME, "name", null).
+                       addValidator(EmptyFieldValidator.class).
+                       addValidator(IdentifierValidator.class).
+                       addValidator(StringLengthValidator.class, 3, 10));
     addUIFormInput(new UIFormStringInput(PAGE_DISPLAY_NAME, "label", null));
     
     UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
