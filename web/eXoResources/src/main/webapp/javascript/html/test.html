@@ -1,88 +1,43 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
-<html>
-  <head>
-    <style type="text/css">
-      .dragable {
-        border:solid 1px yellow;
-        padding:10px;
-        background-color:#eeeff3;
-        cursor:pointer;
-        height:30px;
-        z-index:99;
-      }
-      
-      .customizable-block {
-        position:relative;
-        padding: 0px ;  
-        margin: 10px;
-        border:  1px  solid black;
-        width: 200px ;
-        background:yellow;
-      }
-    </style>
-    <script language="javascript" src="../eXo.js"/></script>
-    <script language="javascript" src="../eXo/browser/Browser.js"/></script>
-    <script language="javascript" src="../eXo/dnd/DragDrop.js"/></script>
-    <script language="javascript" src="../eXo/portal/PortalDragDrop.js"/></script>
-    <script language="javascript" src="../eXo/util/Util.js"/></script>
-  </head>
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+					 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title></title>
+<style type="text/css">
+html, body {
+	padding: 0px; margin: 0px;
+}
 
-  <body>
-    <!--  test drag and drop -->
-    <div>
-      <div id="root" style="border:solid 1px red">
-        <div style="overflow:hidden; width:100%">
-          <div style="float:left">
-            <div id="source1" class="customizable-block">
-              <div class="dragable">Tab Layout</div>
-            </div>
-            <div id="overflow" style="width: auto ; overflow: visible; padding: 30px; border: 1px solid black;">
-              <div id="source2" class="customizable-block">
-                <div class="dragable">Row Layout</div>
-              </div>
-            </div>
-          </div>
-          <div style="float:right">
-            <div id="container1" class="customizable-block" style="width:300px; height:150px">
-              <div class="dragable">Container title</div>
-              <div class="dropable">This is container 1</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <script language="javascript">        
-        var dragBlock = document.getElementById('source1') ;
-        dragBlock.onmousedown = eXo.portal.PortalDragDrop.initTest ;
-        dragBlock = document.getElementById('source2') ;
-        dragBlock.onmousedown = eXo.portal.PortalDragDrop.initTest ;
-      </script>
-    </div>
-    <!--  test  eXo.core.Array -->
-    <div>
-      Test eXo.core.Array :
-      <script language="javascript">
-        var array = new eXo.core.Array();
-        array[0] = "test 1" ;
-        array[1] = "test 2" ;
-        document.write(array.join()) ;
-        array =  new eXo.core.Array() ;
-        array[0] = "  ,new eXo.core.Array()" ;
-        document.write(array.join()) ;
-      </script>
-    </div>
+.abc {
+	position: relative;
+	margin-left: 220px;
+	border: 2px solid blue;
+}
 
-    <div>
-      Test eXo.core.HashMap :
-      <script language="javascript">
-        var map  = new eXo.core.HashMap();
-        map.put("test-1", "test-1")
-        map.put("test-2", "test-2")
-        document.write(map.get('test-1')) ;
-        document.write(',  remove: test-1 and  get value: ') ;
-        map.remove('test-1') ;
-        if(map.get('test-1') != null) document.write(map.get('test-1')) ;
-        else document.write('null') ;
-      </script>
-    </div>
-  </body>
+</style>
+</head>
+<body>
+	<div style="height: 20px;" class="abc" onclick="reference(event, this)">
+		<div>sdg asdg asdg asdg asdgasd hasdh</div>
+		<div style="border: solid 1px red; left: 20px; position: absolute;" onclick="reference(event, this)">left: 20px</div>
+	</div>
+</body>
+<script type="text/javascript">
+
+	function reference(event, element) {
+		event = event ? event : window.event;
+		event.cancelBubble = true;
+		var cs = new String();
+		
+		cs += "offsetTop : "+element.offsetTop+"\n";
+		cs += "offsetLeft : "+element.offsetLeft+"\n";
+	
+		alert(cs);
+	}
+	
+</script>
+
 </html>

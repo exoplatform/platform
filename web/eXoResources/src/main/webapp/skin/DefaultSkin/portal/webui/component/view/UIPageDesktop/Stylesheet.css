@@ -1,4 +1,7 @@
+
 .UIPageDesktop {
+	position: relative ;
+  overflow: hidden ;
 }
 
 .UIPageDesktop .UIDockBar {

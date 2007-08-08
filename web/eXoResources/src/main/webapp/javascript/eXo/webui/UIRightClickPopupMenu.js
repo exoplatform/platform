@@ -76,18 +76,9 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 			
 	eXo.core.Mouse.update(event) ;
 	eXo.webui.UIPopup.show(contextMenu);
-	
-	/* fix position rightClickMenu in ie7 */
-	/* minh.js.exo */
-	var positionInIE7 = 0;
-	if(eXo.core.Browser.isIE7()) {
-		var UIWorkspaceContainer = document.getElementById("UIWorkspaceContainer");
-		if(UIWorkspaceContainer.style.display != "none") {
-			 positionInIE7 = UIWorkspaceContainer.offsetWidth;
-		}
-	}
+
 	var intTop = eXo.core.Mouse.mouseyInPage - (eXo.core.Browser.findPosY(contextMenu) - contextMenu.offsetTop);
-	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(contextMenu) - contextMenu.offsetLeft - positionInIE7);
+	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(contextMenu) - contextMenu.offsetLeft);
 
  
 	if((eXo.core.Mouse.mouseyInClient + contextMenu.offsetHeight) > eXo.core.Browser.getBrowserHeight()) {
