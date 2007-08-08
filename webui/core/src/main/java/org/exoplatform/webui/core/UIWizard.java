@@ -6,7 +6,6 @@ package org.exoplatform.webui.core;
 
 import java.util.List;
 
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.form.UIForm;
 
 /**
