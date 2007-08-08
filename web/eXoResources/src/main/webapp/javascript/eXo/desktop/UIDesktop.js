@@ -96,9 +96,9 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
 
 //fix bug : don't apply style css in IE6 
 
-  	if(eXo.core.Browser.isIE6()){
-			eXo.core.Browser.setOpacity(this.object, 100) ;
-  	}
+//  	if(eXo.core.Browser.isIE6()){
+//			eXo.core.Browser.setOpacity(this.object, 100) ;
+//  	}
   }
   eXo.desktop.UIDockbar.containerMouseOver() ;
 };
