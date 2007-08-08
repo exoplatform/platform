@@ -78,6 +78,8 @@ public class UICategoryForm extends UIForm {
       ApplicationCategory category = uiForm.getCategory() ;
       if(category == null) category = new ApplicationCategory();
       uiForm.invokeSetBindingBean(category) ;
+      String displayName = uiForm.getUIStringInput(FIELD_DISPLAY_NAME).getValue();
+      if(displayName == null || displayName.length() < 1 ) category.setDisplayName(category.getName());
       if(category == uiForm.getCategory()) {
         category.setModifiedDate(new Date()) ;
       }else {
