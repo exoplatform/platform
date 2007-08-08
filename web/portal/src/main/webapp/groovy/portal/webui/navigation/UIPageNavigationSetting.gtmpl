@@ -12,11 +12,12 @@
 				</td>
 				<% if(child.getId().equals("ownerId")){ %>
 				  <% if(uicomponent.getChildById("ownerType").getValue().equals("group")) {%>
-				    <td>
-				        <% String event = uicomponent.getParent().event("ChangeOwnerType");%>
-				        <a href="<%=event%>"> Select other group </a>
-				    </td>
-				  <% }} %>
+				    <% if(uicomponent.getChildById("ownerType").isEnable()) { %>
+					    <td>
+					        <% String event = uicomponent.getParent().event("ChangeOwnerType");%>
+					        <a href="<%=event%>"> Select other group </a>
+					    </td>
+				  <% }}} %>
 			</tr>
 			<% } %>
 		</tbody>
