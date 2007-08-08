@@ -8,8 +8,14 @@ UIDropDownControl.prototype.selectItem = function(clickedElemt, method, param) {
 	if(method) method(param) ;
 } ;
 
+/*
+ * minh.js.exo
+ */
+
 UIDropDownControl.prototype.show = function(obj, evt) {
+	if(!evt) evt = window.event ;
 	evt.cancelBubble = true ;
+	
 	var DOMUtil = eXo.core.DOMUtil ;
 	var itemContainer = DOMUtil.findNextElementByTagName(obj, 'div') ;
 	if (itemContainer) {
