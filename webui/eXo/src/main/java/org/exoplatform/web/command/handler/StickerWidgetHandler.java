@@ -31,15 +31,11 @@ public class StickerWidgetHandler extends Command {
       PortalContainer container  = PortalContainer.getInstance();
       UserWidgetStorageImpl service = 
         (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
-      System.out.println("\n\n\n-------------------->service " + service.getClass().getName());
       String[] split = objectId.split("/");
       String instantId = split[3];
       String widgetType = split[2];
       String userName = req.getRemoteUser();
       service.save(userName, widgetType, instantId, content);
-      System.out.println("\n\n\n ==  yahoo > "+content +"\n\n");
-//      String hehe = service.getWidgetData(userName, widgetType, instantId);
-//      System.out.println("\n\n\n\n------d-----> "  + instantId +  " - " + hehe +  " - " +userName);
     } catch (Exception e) {
       e.printStackTrace();
     } catch (Throwable  e) {e.printStackTrace();
