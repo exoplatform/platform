@@ -189,18 +189,24 @@ public class UIPageNavigationForm extends UIFormTabPane {
       UIPortalApplication uiPortalApp = uiForm.getAncestorOfType(UIPortalApplication.class);
       UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
       
-      DataStorage storage = uiForm.getApplicationComponent(DataStorage.class);
-      if(storage.getPageNavigation(pageNav.getId()) != null) {
+      //TODO: Tung.Pham modified
+      //----------------------------
+//    DataStorage storage = uiForm.getApplicationComponent(DataStorage.class);
+//    if(storage.getPageNavigation(pageNav.getId()) != null) {
+//    uiPortalApp.addMessage(new ApplicationMessage("UIPageNavigationForm.msg.existPageNavigation", new String[]{pageNav.getOwnerId()})) ;;
+//    pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+//    return ;
+//    }
+      PageNavigation existingNavi = uiPageNodeSelector.getPageNavigation(pageNav.getId()) ; 
+      if(existingNavi != null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageNavigationForm.msg.existPageNavigation", new String[]{pageNav.getOwnerId()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-        return ;
+        return ;        
       }
-      
-      if(uiPageNodeSelector != null) {
-        uiPageNodeSelector.addPageNavigation(pageNav) ;  
-        uiPageNodeSelector.selectNavigation(pageNav.getId()) ;
-        pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
-      }
+      //----------------------------
+      uiPageNodeSelector.addPageNavigation(pageNav) ;  
+      uiPageNodeSelector.selectNavigation(pageNav.getId()) ;
+      pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
       
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       uiMaskWS.setUIComponent(null);

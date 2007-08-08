@@ -245,7 +245,7 @@ public class UIPageNodeSelector extends UIContainer {
     updateUI() ;
   }
 
-  private PageNavigation getPageNavigation(String id) {
+  public PageNavigation getPageNavigation(String id) {
     for(PageNavigation ele : getPageNavigations()) {
       if(ele.getId().equals(id)) return ele ;
     }
