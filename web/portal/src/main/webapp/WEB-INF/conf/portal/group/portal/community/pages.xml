@@ -25,9 +25,9 @@
     </application>
 
     <application>
-      <instance-id>admin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
+      <instance-id>admin:/ecm/ContentBrowser/contentbrowser</instance-id>
 	    <application-type>portlet</application-type>
-	    <title>Browse portlet</title>
+	    <title>Content Browser</title>
       <show-info-bar>true</show-info-bar>
     </application>
 

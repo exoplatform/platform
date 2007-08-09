@@ -81,7 +81,7 @@
     
     <application>
       <instance-id>group#portal/admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>
-      <title>ECM Admin Portlet</title>
+      <title>ECMAdmin</title>
       <show-info-bar>true</show-info-bar>
       <show-application-mode>true</show-application-mode>
     </application>  
@@ -90,12 +90,12 @@
   <page>
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
-    <name>jcrexplorer</name>
+    <name>fileexplorer</name>
     <access-permissions>*:/guest</access-permissions>
     
     <application>
-      <instance-id>group#portal/admin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
-      <title>JCR Explorer Portlet</title>
+      <instance-id>group#portal/admin:/ecm/FileExplorerPortlet/fileexplorer</instance-id>
+      <title>File Explorer</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
@@ -110,7 +110,7 @@
     
     <application>
       <instance-id>group#portal/admin:/ecm/FastContentCreatorPortlet/fastcontentcreator</instance-id>
-      <title>Fast Content Creator Portlet</title>
+      <title>Fast Content Creator</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
@@ -120,12 +120,12 @@
   <page>
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
-    <name>browsecontent</name>
+    <name>contentbrowser</name>
     <access-permissions>*:/guest</access-permissions>
     
     <application>
-      <instance-id>group#portal/admin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
-      <title>Browse Content Portlet</title>
+      <instance-id>group#portal/admin:/ecm/ContentBrowserPortlet/contentbrowser</instance-id>
+      <title>Content Browser</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
@@ -140,7 +140,7 @@
               
     <application>
       <instance-id>group#portal/admin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>    
-      <title>Workflow Controller Portlet</title>
+      <title>Workflow Controller</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
@@ -155,7 +155,7 @@
     
     <application>
       <instance-id>group#portal/admin:/workflow/WorkflowAdministrationPortlet/workflowadministration</instance-id>    
-      <title>Workflow Administration Portlet</title>
+      <title>Workflow Administration</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
@@ -229,42 +229,42 @@
 
     <application>
       <instance-id>group#portal/admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>    
-      <title>ECM Admin Portlet</title>
+      <title>ECMAdmin</title>
       <show-info-bar>true</show-info-bar>
       <show-application-mode>true</show-application-mode>
     </application>  
 
     <application>
-      <instance-id>group#portal/admin:/ecm/JCRExplorerPortlet/jcrexplorer</instance-id>
-      <title>JCR Explorer Portlet</title>
+      <instance-id>group#portal/admin:/ecm/FileExplorerPortlet/fileexplorer</instance-id>
+      <title>File Explorer</title>
       <show-info-bar>true</show-info-bar>
       <show-application-mode>true</show-application-mode>
     </application>   
     
     <application>
       <instance-id>group#portal/admin:/ecm/FastContentCreatorPortlet/fastcontentcreator</instance-id>
-      <title>Fast Content Creator Portlet</title>
+      <title>Fast Content Creator</title>
       <show-info-bar>true</show-info-bar>
       <show-application-mode>true</show-application-mode>
     </application>  
   
     <application>
-      <instance-id>group#portal/admin:/ecm/BrowseContentPortlet/browsecontent</instance-id>
-      <title>Browse Content Portlet</title>
+      <instance-id>group#portal/admin:/ecm/ContentBrowserPortlet/contentbrowser</instance-id>
+      <title>Content Browser</title>
       <show-info-bar>true</show-info-bar>
       <show-application-mode>true</show-application-mode>
     </application>
         
     <application>
       <instance-id>group#portal/admin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>
-      <title>Workflow Control Portlet</title>
+      <title>Workflow Controller</title>
       <show-info-bar>true</show-info-bar>
       <show-application-mode>true</show-application-mode>
     </application>    
 
     <application>
       <instance-id>group#portal/admin:/workflow/WorkflowAdministrationPortlet/workflowadministration</instance-id>    
-      <title>Workflow Administration Portlet</title>
+      <title>Workflow Administration</title>
       <show-info-bar>true</show-info-bar>
       <show-application-mode>true</show-application-mode>
     </application>    

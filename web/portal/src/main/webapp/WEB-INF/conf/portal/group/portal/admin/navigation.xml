@@ -34,10 +34,10 @@
       </node>
 
       <node>
-        <uri>ecm/jcrexplorer</uri>
-        <name>jcrExplorer</name>
-        <label>JCRExplorer</label>
-        <page-reference>group::portal/admin::jcrexplorer</page-reference>
+        <uri>ecm/fileexplorer</uri>
+        <name>fileExplorer</name>
+        <label>File Explorer</label>
+        <page-reference>group::portal/admin::fileexplorer</page-reference>
       </node>
       
       <node>
@@ -49,9 +49,9 @@
       
       <node>
         <uri>ecm/browsecontent</uri>
-        <name>browseContent</name>
-        <label>Browse Content</label>
-        <page-reference>group::portal/admin::browsecontent</page-reference>
+        <name>contentbrowser</name>
+        <label>Content Browser</label>
+        <page-reference>group::portal/admin::contentbrowser</page-reference>
       </node>
       
       <node>
