@@ -359,8 +359,8 @@ UIPortalControl.prototype.initAllManagers = function() {
 	var managers = eXo.portal.UIPortalControl.scrollManagers;
 	for (var i = 0; i < managers.length; i++) {
 		var toInit = (document.getElementById(managers[i].id) !== null) // if the tabs exist on the page
-							&& (typeof(managers[i].initFunction) == "function"   // if the initFunction is defined
-							&& managers[i].arrowsContainer.style.display == "block"); // if the manager is activated
+							&& (typeof(managers[i].initFunction) == "function");   // if the initFunction is defined
+//							&& managers[i].arrowsContainer.style.display == "block"); // if the manager is activated
 		if (toInit) { managers[i].initFunction(); }
 	}
 };
