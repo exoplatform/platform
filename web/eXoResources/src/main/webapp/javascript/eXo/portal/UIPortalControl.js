@@ -104,11 +104,9 @@ function ScrollManager() {
 	this.elements = new Array();
 	this.firstVisibleIndex = 0;
 	this.lastVisibleIndex = -1;
-//	this.otherHiddenIndex = -1; // the index in elements of an element hidden because of a lack of space
 	this.otherHiddenElements = new Array(); // an array containing the elements hidden
 	this.axis = 0; // horizontal scroll : 0 , vertical scroll : 1
-//	this.lastDirection = null; // the direction of the last scroll. left or up scroll : 0, right or down scroll : 1
-	this.currDirection = null; // the direction of the current scroll
+	this.currDirection = null; // the direction of the current scroll; left or up scroll : 0, right or down scroll : 1
 	this.callback = null; // callback function when a scroll is done
 	this.initFunction = null; // the init function in the files that use this class
 	this.leftArrow = null;
@@ -254,17 +252,12 @@ ScrollManager.prototype.scroll = function(e) {
 	e.cancelBubble = true;
 	var src = eXo.core.Browser.getEventSource(e);
 	if (src.scrollMgr && src.onclick) {
-//		src.scrollMgr.lastDirection = src.scrollMgr.currDirection;
-//		if (src.scrollMgr.otherHiddenIndex != -1) {
-//			src.scrollMgr.elements[src.scrollMgr.otherHiddenIndex].isVisible = true;
-//			if (src.scrollMgr.lastDirection == 1) src.scrollMgr.firstVisibleIndex--;
-//			else if (src.scrollMgr.lastDirection == 0) src.scrollMgr.lastVisibleIndex++;
-//			src.scrollMgr.otherHiddenIndex = -1;
-//		}
 		if (src.scrollMgr.otherHiddenElements.length > 0) {
 			for (var i = 0; i < src.scrollMgr.otherHiddenElements.length; i++) {
 				src.scrollMgr.otherHiddenElements[i].isVisible = true;
 				src.scrollMgr.otherHiddenElements[i].style.display = "block";
+				if (src.scrollMgr.currDirection == 1) src.scrollMgr.firstVisibleIndex--;
+				else if (src.scrollMgr.currDirection == 0) src.scrollMgr.lastVisibleIndex++;
 			}
 			src.scrollMgr.otherHiddenElements.clear();
 		}
@@ -303,77 +296,23 @@ ScrollManager.prototype.scrollRight = function() { // Same for scrollDown
 ScrollManager.prototype.scrollDown = function() {
 	if (this.scrollMgr) this.scrollMgr.scrollRight();
 };
-
-//ScrollManager.prototype.renderElements = function() {
-//	/*
-//	 * Called by a scroll function. Renders the visible elements depending on the elements array
-//	 * If the new visible elements are too big, hides an additional element and keep its index in otherHiddenIndex
-//	 */
-//	/*
-//	 * Each time a scroll event occurs, at least one element is hidden, and one is shown. These elements can have
-//	 * a different width, hence the total width of the tabs changes. This is why we have to check if the
-//	 * new width is short enough so the arrows buttons are still well rendered. To do that, we add the elements
-//	 * width to each other, and we compare this width (elementsSpace) to the container width (maxSpace). If the
-//	 * total width is too large (with a margin), we have to hide another tab.
-//	 * PS: for vertical tabs, replace width by height.
-//	 */
-//	var elementsSpace = 0;
-//	var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.margin;
-//	// Displays the elements
-//	for (var i = 0; i < this.elements.length; i++) {
-//		if (this.elements[i].isVisible) { // if the element should be rendered...
-//			elementsSpace += this.getElementSpace(this.elements[i]);
-//			if (elementsSpace >= maxSpace && (this.currDirection == this.lastDirection || this.lastDirection === null)) {
-//				if (this.currDirection == 1 && this.firstVisibleIndex < this.elements.length-1) {
-//					// If we are scrolling right or down, we hide the lefter or upper element 
-//					this.otherHiddenIndex = this.firstVisibleIndex;
-//					this.elements[this.firstVisibleIndex].isVisible = false;
-//					this.elements[this.firstVisibleIndex++].style.display = "none";
-//				} else if (this.lastVisibleIndex > 0) {
-//					// If we are scrolling left or up, we hide the righter or downer element
-//					this.otherHiddenIndex = this.lastVisibleIndex;
-//					this.elements[this.lastVisibleIndex].isVisible = false;
-//					this.elements[this.lastVisibleIndex--].style.display = "none";
-//				}
-//				if (this.otherHiddenIndex != -1) elementsSpace -= this.getElementSpace(this.elements[this.otherHiddenIndex]);
-//			}
-//			this.elements[i].style.display = "block";
-//		} else { // if the element must not be rendered...
-//			this.elements[i].style.display = "none";
-//			this.arrowsContainer.style.display = "block";
-//		}
-//	}
-//	// Enables/Disables the arrow buttons depending on the elements to show
-//	if (this.firstVisibleIndex == 0) this.enableArrow(this.leftArrow, false);
-//	else this.enableArrow(this.leftArrow, true);
-//	
-//	if (this.lastVisibleIndex == this.elements.length-1) this.enableArrow(this.rightArrow, false);
-//	else this.enableArrow(this.rightArrow, true);
-//	
-//	if (typeof(this.callback) == "function") this.callback();
-//};
-
+	/*
+	 * Called by a scroll function. Renders the visible elements depending on the elements array
+	 * If the new visible elements are too big, hides an additional element and keep its index in otherHiddenIndex
+	 *
+	 * Each time a scroll event occurs, at least one element is hidden, and one is shown. These elements can have
+	 * a different width, hence the total width of the tabs changes. This is why we have to check if the
+	 * new width is short enough so the arrows buttons are still well rendered. To do that, we add the elements
+	 * width to each other, and we compare this width (elementsSpace) to the container width (maxSpace). If the
+	 * total width is too large (with a margin), we have to hide another tab.
+	 * PS: for vertical tabs, replace width by height.
+	 */
 ScrollManager.prototype.renderElements = function() {
 	var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.margin;
 	var delta = maxSpace;
 	// Displays the elements
 	for (var i = 0; i < this.elements.length; i++) {
 		if (this.elements[i].isVisible) { // if the element should be rendered...
-//			elementsSpace += this.getElementSpace(this.elements[i]);
-//			if (elementsSpace >= maxSpace && (this.currDirection == this.lastDirection || this.lastDirection === null)) {
-//				if (this.currDirection == 1 && this.firstVisibleIndex < this.elements.length-1) {
-//					// If we are scrolling right or down, we hide the lefter or upper element 
-//					this.otherHiddenIndex = this.firstVisibleIndex;
-//					this.elements[this.firstVisibleIndex].isVisible = false;
-//					this.elements[this.firstVisibleIndex++].style.display = "none";
-//				} else if (this.lastVisibleIndex > 0) {
-//					// If we are scrolling left or up, we hide the righter or downer element
-//					this.otherHiddenIndex = this.lastVisibleIndex;
-//					this.elements[this.lastVisibleIndex].isVisible = false;
-//					this.elements[this.lastVisibleIndex--].style.display = "none";
-//				}
-//				if (this.otherHiddenIndex != -1) elementsSpace -= this.getElementSpace(this.elements[this.otherHiddenIndex]);
-//			}
 			this.elements[i].style.display = "block";
 			delta -= this.getElementSpace(this.elements[i]);
 		} else { // if the element must not be rendered...
@@ -384,19 +323,19 @@ ScrollManager.prototype.renderElements = function() {
 	
 	if (delta < 0) { // if there are too many elements visible in the available space
 		// by default, we scroll left/up
-		var incr = 1;
+		var incr = -1;
 		var index = this.lastVisibleIndex;
 		if (this.currDirection == 1) { // if we scroll right/down
-			 incr = -1;
+			 incr = 1;
 			 index = this.firstVisibleIndex;
 		}
-		while (delta < 0 && index > 0 && index < this.elements.length) {
+		while (delta < 0 && index >= 0 && index < this.elements.length) {
 			delta += this.getElementSpace(this.elements[index]);
 			this.elements[index].isVisible = false;
 			this.elements[index].style.display = "none";
 			this.otherHiddenElements.push(this.elements[index]);
-//			if (this.currDirection == 1) this.firstVisibleIndex++;
-//			else this.lastVisibleIndex--;
+			if (this.currDirection == 1) this.firstVisibleIndex++;
+			else this.lastVisibleIndex--;
 			index += incr;
 		}
 	}
@@ -420,7 +359,8 @@ UIPortalControl.prototype.initAllManagers = function() {
 	var managers = eXo.portal.UIPortalControl.scrollManagers;
 	for (var i = 0; i < managers.length; i++) {
 		var toInit = (document.getElementById(managers[i].id) !== null) // if the tabs exist on the page
-							&& (typeof(managers[i].initFunction) == "function"); // if the initFunction is defined
+							&& (typeof(managers[i].initFunction) == "function"   // if the initFunction is defined
+							&& managers[i].arrowsContainer.style.display == "block"); // if the manager is activated
 		if (toInit) { managers[i].initFunction(); }
 	}
 };
