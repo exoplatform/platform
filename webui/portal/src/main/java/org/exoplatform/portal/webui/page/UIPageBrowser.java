@@ -216,7 +216,7 @@ public class UIPageBrowser extends UISearch {
       Page page = dao.getPage(id, pcontext.getRemoteUser()) ;
 
       if(page == null) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.null", new String[]{})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return;
       }
