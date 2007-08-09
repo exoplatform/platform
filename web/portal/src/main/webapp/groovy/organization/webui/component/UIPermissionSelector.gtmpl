@@ -2,9 +2,10 @@
   //Fixed by Phuong 12/08/2006  
   import org.exoplatform.webui.organization.UIGroupMembershipSelector;
   import org.exoplatform.webui.core.UIPopupWindow; 
-
-	def permission =  uicomponent.getPermission();
+	import org.exoplatform.webui.form.UIForm;
 	
+	def uiForm = uicomponent.getAncestorOfType(UIForm.class) ;
+	def permission =  uicomponent.getPermission();
 	def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');
@@ -29,6 +30,14 @@
 	        <div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.membershipMember")%> :</div>
 	        <div class="Info"><%=permission.getMembership()%></div>
 	      </div>
+	      
+	      <%if(permission.getExpression() != null && permission.getExpression().length() > 0) {
+	      		String deletePermissionEvent = uiForm.event("DeletePermission", uicomponent.getId(), "null") ;
+	      %>
+			      <div class="OverflowContainer">
+			        <a href="<%=deletePermissionEvent%>" class="Info">Delete Permission</a>
+			      </div>
+	      <%}%>	      
 	    </div>	    
 	    <%/*Click on this action button will pop up the permission selector*/%>
 	    <div class="SelectPermissionButton">

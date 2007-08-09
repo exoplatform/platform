@@ -9,11 +9,17 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIBreadcumbs;
 import org.exoplatform.webui.core.UITree;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormPopupWindow;
 @ComponentConfig(
   template = "system:/groovy/organization/webui/component/UIPermissionSelector.gtmpl",
-  events = @EventConfig (phase = Phase.DECODE, listeners = UIPermissionSelector.SelectMembershipActionListener.class)
+  events = {
+      @EventConfig (phase = Phase.DECODE, listeners = UIPermissionSelector.SelectMembershipActionListener.class),
+      @EventConfig (phase = Phase.DECODE, listeners = UIPermissionSelector.DeletePermissionActionListener.class)
+  }
 )
 public class UIPermissionSelector extends UISelector<String> {
   
@@ -40,7 +46,12 @@ public class UIPermissionSelector extends UISelector<String> {
   } 
   
   public UIPermissionSelector setValue(String exp){
+    //TODO: Tung.Pham modified
+    //---------------------
+    //permission_.setPermissionExpression(exp);
+    permission_ = new Permission() ;
     permission_.setPermissionExpression(exp);
+    //---------------------
     return this;
   }
   
@@ -58,4 +69,13 @@ public class UIPermissionSelector extends UISelector<String> {
     permission_.setExpression(membershipType+":"+groupId);
   }
   
+  //TODO: Tung.Pham added
+  static public class DeletePermissionActionListener extends EventListener<UIPermissionSelector> {
+    public void execute(Event<UIPermissionSelector> event) throws Exception {
+      UIPermissionSelector uiPermissionSelector = event.getSource() ;
+      uiPermissionSelector.setValue(null) ;
+      UIForm uiForm = uiPermissionSelector.getAncestorOfType(UIForm.class) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()) ;
+    }
+  }
 }
