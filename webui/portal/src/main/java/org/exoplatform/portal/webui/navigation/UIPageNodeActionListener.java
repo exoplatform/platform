@@ -80,7 +80,6 @@ public class UIPageNodeActionListener {
   static public class EditPageNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      
       PortalRequestContext pcontext  = (PortalRequestContext)event.getRequestContext();
       UIRightClickPopupMenu uiPopupMenu = event.getSource();
       UIPageNodeSelector uiPageNodeSelector = uiPopupMenu.<UIComponent>getParent().getParent();
@@ -99,15 +98,33 @@ public class UIPageNodeActionListener {
       UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;   
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
+      uiToolPanel.setShowMaskLayer(true) ;
       pcontext.setFullRender(true);
       if(page == null ) {
-        System.out.println("\n\n\n------------------------>> ac ac");
+        //TODO: Tung.Pham added
+        Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        uiToolPanel.setUIComponent(null) ;
+        //--------------------------------------
         return;
       }
       UIPage uiPage = Util.toUIPage(page, uiToolPanel);
       uiApp.findFirstComponentOfType(UIPageBody.class).setUIComponent(null);
-      uiToolPanel.setUIComponent(uiPage);
-      if(page != null && !Page.DESKTOP_PAGE.equals(page.getFactoryId()))  {
+      
+      if(!page.isModifiable()){
+        uiToolPanel.setUIComponent(uiPage) ;
+        Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
+        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
+        return;
+      }
+      
+      UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
+      uiPageEditBar.setUIPage(uiPage); 
+      uiPageEditBar.showUIPage();
+
+      if(!Page.DESKTOP_PAGE.equals(page.getFactoryId()))  {
         Class<?> [] childrenToRender = {UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
         return;
@@ -131,13 +148,6 @@ public class UIPageNodeActionListener {
 //        return;
 //      } 
       
-      if(!page.isModifiable()){
-        Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
-        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
-        return;
-      }
       
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;      
       UIPageForm uiPageForm =  uiMaskWS.createUIComponent(UIPageForm.class);
@@ -149,9 +159,6 @@ public class UIPageNodeActionListener {
       pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
       Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-      UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
-      uiPageEditBar.setUIPage(uiPage); 
-      uiPageEditBar.showUIPage();
     }
   }
 
