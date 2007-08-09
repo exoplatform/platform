@@ -110,16 +110,24 @@ UIMaskLayer.prototype.removeMask = function(maskLayer) {
 	}
 } ;
 
+/*
+ * minh.js.exo
+ */
 UIMaskLayer.prototype.resizeMaskLayer = function() {
 	var maskLayer = document.getElementById("MaskLayer") ;
 	if (maskLayer) {
 	  var UIInnerMaskLayer = eXo.core.DOMUtil.findAncestorByClass(maskLayer, "UIInnerMaskLayer") ;
 	  if (UIInnerMaskLayer) return ;
 	  else if (maskLayer.style.display == "block") {
-    	var ojectHeight = document.getElementById("UIPortalApplication") ;
-    	  maskLayer.style.width = "100%" ;
-    	var maskLayerHeight = (document.body.offsetHeight > ojectHeight.offsetHeight) ? document.body.offsetHeight : ojectHeight.offsetHeight ;
-  	    maskLayer.style.height = maskLayerHeight + "px" ;
+    	maskLayer.style.width = "100%" ;
+    	maskLayer.style.height = "100%" ;
+    	var maskLayerHeight = (document.body.clientHeight > maskLayer.clientHeight) ? document.body.clientHeight : maskLayer.clientHeight ;
+  	  maskLayer.style.height = maskLayerHeight + "px" ;
+    	
+//    	var ojectHeight = document.getElementById("UIPortalApplication") ;
+//    	  maskLayer.style.width = "100%" ;
+//    	var maskLayerHeight = (document.body.offsetHeight > ojectHeight.offsetHeight) ? document.body.offsetHeight : ojectHeight.offsetHeight ;
+//  	    maskLayer.style.height = maskLayerHeight + "px" ;
 	  }
 	}
 } ;
