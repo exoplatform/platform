@@ -138,6 +138,7 @@ public class UIPageEditBar extends UIToolbar {
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       UIPageEditBar uiEditBar = event.getSource();
+      if(uiEditBar.getUIPage() == null) return;
       uiEditBar.showUIPage();
       UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, null, null);
       uiPageForm.setValues(uiEditBar.getUIPage());
