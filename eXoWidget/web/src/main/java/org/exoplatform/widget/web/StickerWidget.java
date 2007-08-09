@@ -63,10 +63,9 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
     int posX = uiWidget.getProperties().getIntValue("locationX") ;
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
     int zIndex = uiWidget.getProperties().getIntValue("zIndex") ;
-    byte [] data = (byte[])service.get(pContext.getRemoteUser(), getApplicationName(), uiWidget.getApplicationInstanceUniqueId());
+    byte[] bytes = (byte[]) service.get(pContext.getRemoteUser(), getApplicationName(), uiWidget.getApplicationInstanceUniqueId());
     String content = "";
-    if(data != null) content = new String(data);
-    if(content == null ) content = "";
+    if(bytes != null ) content = new String(bytes);
     
     w.append("<div id = 'UIStickerWidget' applicationId = '").
       append(instanceId).
