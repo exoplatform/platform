@@ -1,6 +1,7 @@
 <%  
   import  org.exoplatform.webui.form.UIForm; 
   import org.exoplatform.webui.core.UIDropDownItemSelector; 
+  import org.exoplatform.webui.core.model.SelectItemOption;
 
 	def rcontext = _ctx.getRequestContext() ;
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory') ;
@@ -10,10 +11,13 @@
   UIForm form = uicomponent.getParent() ;
   
   String selectCategory = "eXo.webui.UIItemSelector.selectCategory(this); " ;
+  SelectItemOption selectedItem = uicomponent.getSelectedItemOption(); 
+  String selectedValue = "";
+  if(selectedItem != null) selectedValue = selectedItem.getLabel();
 %>
 <div class="UIItemSelector">
   <div class="RightColumnStyle" style="width: 99.5%;">
-    <input type="hidden" name="<%=uicomponent.getName();%>" value="">
+    <input type="hidden" name="<%=uicomponent.getName();%>" value="$selectedValue">
     <%/*Begin ItemList*/ %>
     <div class="ItemListContainer ItemSelectorAncestor">
     	<div class="PageConfigOptionList">
@@ -22,11 +26,10 @@
       %>
      </div>
 	    <% 
-	      for(category in categories){
-        templates = category.getSelectItemOptions();
-        String display = "none";  
-        if(category.isSelected()) display = "block" ;
-        else templates.get(0).setSelected(true) ;
+	      for(category in categories) {
+	        templates = category.getSelectItemOptions();
+	        String display = "none";  
+	        if(category.isSelected()) display = "block" ; else templates.get(0).setSelected(true) ;
 	    %>
 			    <div class="ItemList ItemListBackground"  style="display: $display; height: 240px">
 						<%
@@ -51,8 +54,7 @@
 	          <%}%>
 	          
 		      </div>
-		  <%}
-		  %>
+		  <%}%>
 		</div>
 	  <%/*End ItemList*/%>
     	    
@@ -60,8 +62,7 @@
     <%        
 		  for(category in categories) {
 		    String display = "none";
-		    if(category.isSelected()) display = "block" ;
-		    else display = "none";
+		    if(category.isSelected()) display = "block" ; else display = "none";
         templates = category.getSelectItemOptions();
 		%>
 		    <div class="ItemDetailList" style="display: $display;">

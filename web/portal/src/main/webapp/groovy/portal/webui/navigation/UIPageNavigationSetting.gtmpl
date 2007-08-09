@@ -1,25 +1,25 @@
 <div class="UIFormInputSet">
 	<table class="UIFormGrid">
 		<tbody>
-		  <% 
+		<% 
 		  ArrayList children = uicomponent.getChildren(); 
 		  for(child in children) {
-		  %>
+		%>
 			<tr>
-				<td class="FieldLabel"><%=_ctx.appRes("UIPageNavigationSetting.label." + child.getId())%></td>
-				<td class="FieldComponent">
-					<% uicomponent.renderUIComponent(child); %>
-				</td>
-				<% if(child.getId().equals("ownerId")){ %>
-				  <% if(uicomponent.getChildById("ownerType").getValue().equals("group")) {%>
-				    <% if(uicomponent.getChildById("ownerType").isEnable()) { %>
+				<td class="FieldLabel"><%=_ctx.appRes(uicomponent.getId()+".label." + child.getId())%></td>
+				<td class="FieldComponent"><%uicomponent.renderUIComponent(child);%></td>
+				<%if(child.getId().equals("ownerId")){ %>
+				  <%if(uicomponent.getChildById("ownerType").getValue().equals("group")) {%>
+				    <%if(uicomponent.getChildById("ownerType").isEnable()) {%>
 					    <td style="vertical-align: middle;">
-					        <% String event = uicomponent.getParent().event("ChangeOwnerType");%>
-					        <a href="<%=event%>" class="SelectGroup" title="Select other group"><span></span></a>
+				        <%String event = uicomponent.getParent().event("ChangeOwnerType");%>
+				        <a href="<%=event%>" class="SelectGroup" title="Select other group"><span></span></a>
 					    </td>
-				  <% }}} %>
+				    <%}%>
+				  <%}%>  
+				<%}%>  
 			</tr>
-			<% } %>
+		<%}%>
 		</tbody>
 	</table>
 </div>

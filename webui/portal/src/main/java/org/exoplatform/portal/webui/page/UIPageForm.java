@@ -82,8 +82,13 @@ public class UIPageForm extends UIFormTabPane {
     
     List<SelectItemOption<String>> ownerTypes = new ArrayList<SelectItemOption<String>>() ;
     ownerTypes.add(new SelectItemOption<String>("User", PortalConfig.USER_TYPE)) ;
-    ownerTypes.add(new SelectItemOption<String>("Portal", PortalConfig.PORTAL_TYPE)) ;
-    ownerTypes.add(new SelectItemOption<String>("Group", PortalConfig.GROUP_TYPE)) ;
+    if(Util.getUIPortal().isModifiable()) {
+      ownerTypes.add(new SelectItemOption<String>("Portal", PortalConfig.PORTAL_TYPE)) ;
+    }
+    PortalRequestContext pcontext = Util.getPortalRequestContext();
+    if(pcontext.isUserInRole("admin")) {
+      ownerTypes.add(new SelectItemOption<String>("Group", PortalConfig.GROUP_TYPE)) ;
+    }
     UIFormSelectBox uiSelectBoxOwnerType = new UIFormSelectBox("ownerType","ownerType" , ownerTypes) ;
     uiSelectBoxOwnerType.setOnChange("ChangeOwnerType");
     

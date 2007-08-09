@@ -398,8 +398,6 @@ public class UIPageBrowser extends UISearch {
 
       //create new page
       if(uiPage == null) {
-//        System.out.println("\n\n\n == > current page template is "+
-//             page.getFactoryId() + " : uipage "+uiPage.getFactoryId()+"\n\n");
         DataStorage dataStorage = uiPageForm.getApplicationComponent(DataStorage.class) ;
         Page existPage = dataStorage.getPage(page.getPageId()) ;
         if (existPage != null) {
