@@ -5,9 +5,10 @@ eXo.require('eXo.widget.UIAddWidget');
 function UIExoWidget() {
 }
 
-UIExoWidget.prototype.init = function(appName, appFolder) {
+UIExoWidget.prototype.init = function(appName, appFolder, attrsWidget) {
   this.appCategory = "eXoWidgetWeb" ;
 	this.appName = appName ;
+	this.attrsWidget = attrsWidget;
 	this.appFolder = appFolder;
 	var nameWidget = eXo.widget.UIExoWidget.getNameWidget(appName);
 	this.appIcon = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/"+nameWidget+".png" ;
@@ -21,11 +22,34 @@ UIExoWidget.prototype.init = function(appName, appFolder) {
 };
 
 UIExoWidget.prototype.createApplicationInstance = function(appDescriptor) {
+	var instance = new Object();
 	var DOMUtil = eXo.core.DOMUtil ;	
 	var appElement = document.getElementById(this.appName);
 	if(appElement == null) return;
-	this.createAppDescriptor(appDescriptor, appElement);
 	
+	appDescriptor.widget = {
+		positionX : appElement.getAttribute('posX'),
+		positionY : appElement.getAttribute('posY'),
+		zIndex : appElement.getAttribute('zIndex'),
+		
+		uiWidget : {		
+		}		
+	};
+	
+	var setWidgetData = 'appDescriptor.widget.uiWidget = { ' + 
+												 'temporaty : appElement, ' +
+												 'appId : appElement.getAttribute(\'applicationId\') ' ;
+	if(this.attrsWidget != null && this.attrsWidget.length > 0) {											 
+		setWidgetData += ',';										 
+  	for(var i = 0; i < this.attrsWidget.length; i++) {
+  		var attrWidget =   this.attrsWidget[i];
+  		setWidgetData +=   attrWidget + ': appElement.getAttribute(\''+attrWidget+'\')};';  	 
+  	}												 
+	} else {
+		setWidgetData += '};';
+	}
+  eval(setWidgetData);
+												
  	appDescriptor.widget.content = 
     eXo.core.TemplateEngine.merge("eXo/widget/web/"+this.appFolder+"/"+this.appName+".jstmpl", appDescriptor, "/eXoWidgetWeb/javascript/") ;
     
@@ -38,18 +62,6 @@ UIExoWidget.prototype.createApplicationInstance = function(appDescriptor) {
  	return applicationNode ;
 };
 
-UIExoWidget.prototype.createAppDescriptor = function(appDescriptor, appElement) {
-	appDescriptor.widget = {
-		positionX : appElement.getAttribute('posX'),
-		positionY : appElement.getAttribute('posY'),
-		zIndex : appElement.getAttribute('zIndex'),
-		
-		uiWidget : {
-			temporaty : appElement,
-			appId : appElement.getAttribute('applicationId')
-		}
-	};
-}
 
 UIExoWidget.prototype.initApplication = function(applicationId, instanceId) {	
 //	alert("INIT UISTICKER WIDGET");

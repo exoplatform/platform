@@ -4,7 +4,8 @@ UIStickerWidget.prototype = eXo.widget.UIExoWidget;
 UIStickerWidget.prototype.constructor = UIStickerWidget;
 
 function UIStickerWidget() {
-	this.init("UIStickerWidget", "sticker");
+	var attrs = new Array("content");
+	this.init("UIStickerWidget", "sticker", attrs);
 }
 
 
@@ -20,20 +21,6 @@ UIStickerWidget.prototype.sendContent = function(object) {
   url += "type=org.exoplatform.web.command.handler.StickerWidgetHandler&action=saveContent&objectId="+uiWidget.id+"&content="+object.value ;
   ajaxAsyncGetRequest(url, false);
 } ;
-
-UIStickerWidget.prototype.createAppDescriptor = function(appDescriptor, appElement) {
-    appDescriptor.widget = {
-        positionX : appElement.getAttribute('posX'),
-        positionY : appElement.getAttribute('posY'),
-        zIndex : appElement.getAttribute('zIndex'),
-        
-        uiWidget : {
-            temporaty : appElement,
-            appId : appElement.getAttribute('applicationId'),
-            content : appElement.getAttribute('content')
-        }
-    };
-}
 
 if(eXo.widget.web == null) eXo.widget.web = {} ;
 if(eXo.widget.web.sticker == null) eXo.widget.web.sticker = {};
