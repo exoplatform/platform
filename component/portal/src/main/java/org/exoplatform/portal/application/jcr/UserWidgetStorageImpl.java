@@ -105,5 +105,4 @@ public class UserWidgetStorageImpl implements UserWidgetStorage {
     } 
     return null;
   }
-
 }
