@@ -30,6 +30,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.NullFieldValidator;
 /**
  * Author : Dang Van Minh, Pham Tuan
  *          minhdv81@yahoo.com
@@ -102,15 +103,10 @@ public class UIPageNodeForm extends UIFormTabPane {
   static public class SaveActionListener extends EventListener<UIPageNodeForm> {
     public void execute(Event<UIPageNodeForm> event) throws Exception {
       UIPageNodeForm uiPageNodeForm = event.getSource();
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      PortalRequestContext pcontext = Util.getPortalRequestContext();      
-      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
-      
-      PageNode pageNode = uiPageNodeForm.getPageNode();
-      if(pageNode == null) pageNode  = new PageNode();
-      uiPageNodeForm.invokeSetBindingBean(pageNode) ;
       UIPageSelector pageSelector = uiPageNodeForm.getChild(UIPageSelector.class);
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+     
       if(pageSelector.getPage() == null) {
         //UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.selectPage", null)) ;
@@ -119,6 +115,15 @@ public class UIPageNodeForm extends UIFormTabPane {
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
         return;
       }
+      
+      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
+      
+      PageNode pageNode = uiPageNodeForm.getPageNode();
+      if(pageNode == null) pageNode  = new PageNode();
+      uiPageNodeForm.invokeSetBindingBean(pageNode) ;
+     
+      
 
       String remoteUser = Util.getPortalRequestContext().getRemoteUser();
       UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);

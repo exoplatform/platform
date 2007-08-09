@@ -72,4 +72,15 @@ public class PageNavigationUtils {
     return null;
   }
   
+  public static Object searchParentNode(PageNavigation nav, String uri){
+    if(nav.getNodes() == null) return null;
+    int last = uri.lastIndexOf("/");
+    String parentUri = "";
+    if (last > -1) parentUri = uri.substring(0, uri.lastIndexOf("/"));
+    for(PageNode ele : nav.getNodes()) {
+      if( ele.getUri().equals(uri)) return nav;
+    }
+    if(parentUri.equals("")) return null;
+    return searchPageNodeByUri(nav, parentUri);
+  }
 }
