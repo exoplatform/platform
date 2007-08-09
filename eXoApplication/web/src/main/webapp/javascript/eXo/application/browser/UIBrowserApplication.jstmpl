@@ -1,19 +1,19 @@
-<div class="eXoBrowser" id="eXoBrowser">
+<div class="eXoBrowser">
 	<div class="UIToolbar">
-		<div class="ButtonContainer" id="ButtonContainerBrowserToolbar">
+		<div class="ButtonContainer">
 			<div class="Separators"><span></span></div>
 			<div class="ToolbarButton">
-				<div class="BackButton" title="Back"><span></span></div>
+				<div class="BackButton" title="Back" onclick="eXo.application.browser.UIBrowserApplication.goBack(this)"><span></span></div>
 			</div>
 			<div class="ToolbarButton">
-				<div class="FowardButton" title="Forward"><span></span></div>
+				<div class="FowardButton" title="Forward" onclick="eXo.application.browser.UIBrowserApplication.goForward(this)"><span></span></div>
 			</div>
 			<div class="Separators"><span></span></div>
 			<div class="ToolbarButton">
-				<div class="RefreshButton" title="Refresh" onclick="eXo.application.browser.UIBrowserApplication.refreshIFrame()"><span></span></div>
+				<div class="RefreshButton" title="Refresh" onclick="eXo.application.browser.UIBrowserApplication.refreshIFrame(this)"><span></span></div>
 			</div>
 			<div class="ToolbarButton">
-				<div class="StopButton" title="Stop"><span></span></div>
+				<div class="StopButton" title="Stop" onclick="eXo.application.browser.UIBrowserApplication.stopLoad()"><span></span></div>
 			</div>
 			<div class="ToolbarButton">
 				<div class="HomeButton" title="Home"><span></span></div>
@@ -22,11 +22,11 @@
 		</div>
 		<div class="RightAddressBarContainer">
 			<div class="StatusButton"><span></span></div>
-			<a class="GoButton" href="javascript: eXo.application.browser.UIBrowserApplication.getUrl();" title="Go to the address in the Address Bar">Go</a>
+			<a class="GoButton" href="javascript:void(0);" onclick="javascript:eXo.application.browser.UIBrowserApplication.getUrl(this);" title="Go to the address in the Address Bar">Go</a>
 			<div class="AddressBarContainer">
 				<div class="ArrowDownButton"><span></span></div>
 				<div class="TextBox">
-					<input type="text" id="txtAddress" name="txtAddress" style="width: 98%; border:0px;" value="" />
+					<input type="text" name="txtAddress" class="txtAddress" style="width: 98%; border:0px;" value="" />
 				</div>
 				<div style="clear: right;"><span></span></div>
 			</div>
@@ -34,14 +34,14 @@
 		</div>
 		<div style="clear: left;"><span></span></div>
 	</div>
-	<div class="BrowserContent">
+	<div class="BrowserContent UIResizableBlock">
 		<div class="TabBackground">
 			<div class="ClipTabIcon"><span></span></div>
 			<div class="TabContainer">
 				<div class="Separator"><span></span></div>
-				<div class="ActiveTabDetailBackground">
+				<div class="ActiveTabDetailBackground TabMenuItem">
 					<div class="ActiveTabDetail">
-						<div class="CloseButton" style="display: none;"
+						<div class="CloseButton" style="display: none"
 								 onmouseover="eXo.application.browser.UIBrowserApplication.onMouseOver(this, 'CloseButton', 'ActiveCloseButton', true);" 
 								 onmouseout="eXo.application.browser.UIBrowserApplication.onMouseOver(this, 'CloseButton', 'ActiveCloseButton', false);"><span></span></div>
 						<div class="TabLabel">(Untitled)</div>
@@ -60,7 +60,7 @@
 			</div>
 			<div style="clear: right;"><span></span></div>
 		</div>
-		<div class="TabContent UIApplication">
+		<div class="TabContent UIResizableBlock">
 			<iframe class="IFrame" name="iframe" frameBorder="0"></iframe>
 		</div>
 	</div>
