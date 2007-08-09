@@ -10,13 +10,13 @@
   background: white;
   border: 1px solid #b7b7b7;
   margin: 0px 5px 7px 5px;
-  padding: 10px 0px;
+  padding: 10px 30px;
 }
 
 .UIAccountPortlet .UIFormTabPane{
-  width: 700px;
   margin: auto;
   padding: 0px;
+  width: 700px;
 }
 
 .UIAccountPortlet .UIFormTabPane .UITabPaneTitle {

@@ -56,7 +56,7 @@
   %>
   <div class="VIEW-CONTAINER" >
     <div id="$uicomponent.id">    
-      <table class="UITableColumnContainer" style="$style">
+      <table class="UITableColumnContainer" style="table-layout: fixed; $style">
         <tr class="TRContainer">
           <% for(uiChild in uicomponent.getChildren()) { %>
             <td class="${uiChild.id}TDContainer" style="width:$tdWidth%;"><% uicomponent.renderUIComponent(uiChild) %></td>
