@@ -193,6 +193,34 @@
   <page>
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
+    <name>calendar</name>
+    <access-permissions>*:/guest</access-permissions>
+    
+    <application>
+      <instance-id>group#portal/admin:/calendar/CalendarPortlet/calendar</instance-id>    
+      <title>Calendar Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </application>  
+  </page>
+  
+  <page>
+  	<owner-type>group</owner-type>
+    <owner-id>portal/admin</owner-id>
+    <name>contact</name>
+    <access-permissions>*:/guest</access-permissions>
+    
+    <application>
+      <instance-id>group#portal/admin:/contact/ContactPortlet/contact</instance-id>    
+      <title>Contact Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </application>  
+  </page>
+  
+  <page>
+  	<owner-type>group</owner-type>
+    <owner-id>portal/admin</owner-id>
     <name>ecmdesktop</name>    
     <factory-id>Desktop</factory-id>
     <access-permissions>*:/guest</access-permissions>
@@ -259,6 +287,18 @@
     <application>
       <instance-id>group#portal/admin:/mail/MailPortlet/mail</instance-id>
       <title>Mail Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>
+    
+    <application>
+      <instance-id>group#portal/admin:/calendar/CalendarPortlet/calendar</instance-id>
+      <title>Calendar Portlet</title>
+      <show-info-bar>true</show-info-bar>
+    </application>
+    
+    <application>
+      <instance-id>group#portal/admin:/contact/ContactPortlet/contact</instance-id>
+      <title>Contact Portlet</title>
       <show-info-bar>true</show-info-bar>
     </application>
    </page>

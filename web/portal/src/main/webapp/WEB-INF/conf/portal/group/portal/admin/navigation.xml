@@ -88,6 +88,20 @@
         <label>Mail</label>
         <page-reference>group::portal/admin::mail</page-reference>
       </node>
+      
+      <node>
+        <uri>groupware/calendar</uri>
+        <name>calendar</name>
+        <label>Calendar</label>
+        <page-reference>group::portal/admin::calendar</page-reference>
+      </node>
+      
+      <node>
+        <uri>groupware/contact</uri>
+        <name>contact</name>
+        <label>Contact</label>
+        <page-reference>group::portal/admin::contact</page-reference>
+      </node>
     </node>
     
   </page-nodes>
