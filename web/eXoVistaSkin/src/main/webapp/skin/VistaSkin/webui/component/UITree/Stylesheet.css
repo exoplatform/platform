@@ -17,8 +17,8 @@
 
 .UITree .TreeLevelContainer .LevelUpArrowIcon {
   float: left;
-  width: 29px; line-height: 18px;
-  background: url('background/AquaBlueUpLevelIcon.gif') no-repeat;
+  width: 33px; height: 23px;
+  background: url('background/AquaBlueUpLevel.png') no-repeat;
   margin: 3px 0px 5px 0px;
 }
 

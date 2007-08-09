@@ -16,12 +16,12 @@
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
-  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxLeftTop31x35.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/RoundedBoxLeftTop31x35.gif') no-repeat left ;
   padding: 0px 0px 0px 31px ;
 }
 
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator {
-  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxCenterTop1x35.gif') repeat-x ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/RoundedBoxCenterTop1x35.gif') repeat-x ;
   height: 35px;
 }
 
@@ -33,32 +33,32 @@
 }
 
 .UILoginForm .LoginDecorator .TopRightLoginDecorator {
-  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxRightTop13x35.gif') no-repeat right ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/RoundedBoxRightTop13x35.gif') no-repeat right ;
   padding: 0px 13px 0px 0px ;
 }
 
 .UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
-  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxLeftMiddle136x198.gif') no-repeat left center;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/RoundedBoxLeftMiddle136x198.gif') no-repeat left center;
   padding: 0px 0px 0px 136px ;
 }
 
 .UILoginForm .LoginDecorator .MiddleRightLoginDecorator {
-  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxRightMiddle6x1.gif') repeat-y right ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/RoundedBoxRightMiddle6x1.gif') repeat-y right ;
   padding: 0px 6px 0px 0px ;
 }
 
 .UILoginForm .LoginDecorator .BottomLeftLoginDecorator {
-  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxLeftBottom31x13.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/RoundedBoxLeftBottom31x13.gif') no-repeat left ;
   padding: 0px 0px 0px 31px ;
 }
 
 .UILoginForm .LoginDecorator .BottomCenterLoginDecorator {
-  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxCenterBottom1x13.gif') repeat-x ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/RoundedBoxCenterBottom1x13.gif') repeat-x ;
   height: 13px;
 }
 
 .UILoginForm .LoginDecorator .BottomRightLoginDecorator {
-  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/WhiteRoundedBoxRightBottom13x13.gif') no-repeat right ;
+  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/RoundedBoxRightBottom13x13.gif') no-repeat right ;
   padding: 0px 13px 0px 0px ;
 }
 /* ============================End LoginDecorator============================== */

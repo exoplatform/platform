@@ -202,6 +202,20 @@
 	margin-bottom: 10px;
 }
 
+.UIPageBody .EmptyContent {
+	border: 1px solid #b7b7b7;
+	background: white;
+	width: 400px;
+	margin: 8px auto 10px auto;
+	padding: 30px 50px;
+}
+
+.UIPageBody .EmptyContent .Empty {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow.gif') no-repeat left center;
+  padding-left: 23px;
+  line-height: 20px;
+}
+
 .UIPortal .VIEW-PORTLET .UIWindow {
   width: 99%; height: auto;
   padding: 5px 0px; 

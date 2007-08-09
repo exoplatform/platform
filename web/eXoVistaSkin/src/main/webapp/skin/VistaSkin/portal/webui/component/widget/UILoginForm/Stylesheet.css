@@ -82,7 +82,7 @@
 .UILoginForm .LoginDetailBox .CheckField {
   height: 20px;
   width: 170px;
-  margin: 4px 50px 4px 0px;
+  margin: 4px 00px 4px 110px;
   padding-left: 30px;
 }
 
@@ -103,14 +103,14 @@
 }
 
 .UILoginForm .LoginDetailBox .UserNameField input {
-  background: white url('DefaultSkin/background/UsernameIcon20x20.gif') no-repeat left ;
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/UsernameIcon20x20.gif') no-repeat left ;
   width: 180px; height: 20px;
   border: solid 1px #c4c4c4 ;
   padding: 0px 0px 0px 22px;
 }
 
 .UILoginForm .LoginDetailBox .PasswordField input {
-  background: white url('DefaultSkin/background/PasswordIcon20x20.gif') no-repeat left ;
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/PasswordIcon20x20.gif') no-repeat left ;
   width: 180px; height: 20px;
   border: solid 1px #c4c4c4 ;
   padding: 0px 0px 0px 22px;
