@@ -21,7 +21,6 @@ UIBrowserApplication.prototype.createApplicationInstance = function(appDescripto
 	appDescriptor.window = {
 		cssElementStyle : cssStyle
 	}
-	
  	appDescriptor.window.content = eXo.core.TemplateEngine.merge("eXo/application/browser/UIBrowserApplication.jstmpl", appDescriptor, "/eXoAppWeb/javascript/") ;
  	appDescriptor.window.removeApplication = 
  		"eXo.application.browser.UIBrowserApplication.destroyBrowserInstance('" + appDescriptor.appId + "');";
@@ -41,19 +40,13 @@ UIBrowserApplication.prototype.destroyApplicationInstance = function(appDescript
 /*##############################################################################################*/
 // phuong thuc nay duoc trieu goi 2 lan
 UIBrowserApplication.prototype.initApplication = function(applicationId, instanceId) {
-//	if(instanceId == null) {
-//	  instanceId = eXo.core.DOMUtil.generateId(applicationId);
-//	  var application = "eXo.application.browser.UIBrowserApplication";
-//	  eXo.desktop.UIDesktop.saveJSApplication(application, applicationId, instanceId);
-//  }
-//	alert(applicationId);
-//  start debug
+
 	var appDescriptor = 
 	  new eXo.application.ApplicationDescriptor(instanceId, eXo.application.browser.UIBrowserApplication);
 	  
 	var appInstance = appDescriptor.createApplication();
 	eXo.desktop.UIDesktop.addJSApplication(appInstance);
-	eXo.application.browser.UIBrowserApplication.init();
+	eXo.application.browser.UIBrowserApplication.init(instanceId);
 };
 
 UIBrowserApplication.prototype.destroyBrowserInstance = function(instanceId) {
@@ -66,14 +59,15 @@ UIBrowserApplication.prototype.destroyBrowserInstance = function(instanceId) {
   }	
 };
 
-UIBrowserApplication.prototype.init = function() {
+UIBrowserApplication.prototype.init = function(instanceId) {
 	var DOMUtil = eXo.core.DOMUtil ;
   this.NumberOfTab = 1 ;
   this.maxWidth = 150 ;
-  
+  var uiWindow = document.getElementById(instanceId) ; 
+  var eXoBrowser = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "eXoBrowser");
 	/*##############-Register Event for ToolbarButton-###############*/
 	
-	var buttonContainer = document.getElementById("ButtonContainerBrowserToolbar") ;
+	var buttonContainer = DOMUtil.findFirstDescendantByClass(eXoBrowser, "div","ButtonContainer") ;
 	var buttonBackground = DOMUtil.findChildrenByClass(buttonContainer, "div", "ToolbarButton") ;
 	for(var i = 0; i < buttonBackground.length; i++) {
 		var button = DOMUtil.getChildrenByTagName(buttonBackground[i], "div")[0] ;
@@ -81,18 +75,16 @@ UIBrowserApplication.prototype.init = function() {
 			eXo.application.browser.UIBrowserApplication.onMouseOver(this.parentNode, 'ToolbarButton', 'ToolbarButtonOver', true) ;
 		}
 		
-		button.onmouseout = function() {
+		button.onmouseout = function() {			
 			eXo.application.browser.UIBrowserApplication.onMouseOver(this.parentNode, 'ToolbarButton', 'ToolbarButtonOver', false) ;
 		}
 	}
 	
 	/*###############################################################*/
-	var txtAddress = document.getElementById("txtAddress") ;
+	var txtAddress = DOMUtil.findFirstDescendantByClass(eXoBrowser, "input", "txtAddress") ;
 	txtAddress.onkeypress = eXo.application.browser.UIBrowserApplication.onKeyPress ;
-	
-	var eXoBrowser = document.getElementById("eXoBrowser");
+
 	var firstCloseButton = DOMUtil.findFirstDescendantByClass(eXoBrowser, "div", "CloseButton") ;
-	
 	firstCloseButton.onclick = function() {
 		eXo.application.browser.UIBrowserApplication.removeTabDetail(this) ;
 	};
@@ -109,9 +101,19 @@ UIBrowserApplication.prototype.init = function() {
 } ;
 
 UIBrowserApplication.prototype.onKeyPress = function(e) {
-	var _e = e || window.event ;
+	var _e = null ;
+	var srcElement = null ;
+	if (window.event) {
+		_e = window.event ;
+		srcElement = _e.srcElement ;
+	} else {
+		_e = e ;
+		srcElement = _e.target ;
+	}	
 	if(_e.keyCode == 13) {
-		eXo.application.browser.UIBrowserApplication.getUrl() ;
+		var addressBarContainer = eXo.core.DOMUtil.findAncestorByClass(srcElement, "AddressBarContainer") ;
+		var obj = eXo.core.DOMUtil.findPreviousElementByTagName(addressBarContainer, "a") ;
+		eXo.application.browser.UIBrowserApplication.getUrl(obj) ;
 	}
 } ;
 
@@ -129,18 +131,23 @@ UIBrowserApplication.prototype.convertURL = function(url) {
 	return content ;
 } ;
 
-UIBrowserApplication.prototype.getUrl = function() {
+UIBrowserApplication.prototype.getUrl = function(obj) {
 	var DOMUtil = eXo.core.DOMUtil ;
-	var eXoBrowser = document.getElementById("eXoBrowser");
-	var txtAddress = document.getElementById("txtAddress") ;
+	var	addressBarContainer = DOMUtil.findNextElementByTagName(obj, "div") ; 
+	var eXoBrowser = DOMUtil.findAncestorByClass(obj,"eXoBrowser") ;
+	var txtAddress = DOMUtil.findFirstDescendantByClass(addressBarContainer, "input", "txtAddress") ;	
 	var iframes = DOMUtil.findDescendantsByClass(eXoBrowser, "iframe", "IFrame") ;
 	var tabContainer = DOMUtil.findFirstDescendantByClass(eXoBrowser, "div", "TabContainer") ;
 	var tabLabels = DOMUtil.findDescendantsByClass(tabContainer, "div", "TabLabel") ;
-	
+	var src = txtAddress.value ;
   for(var i = 0; i < iframes.length; i++) {
-  	if(iframes[i].style.display == "block") {
-			iframes[i].src = txtAddress.value ;
-			tabLabels[i].innerHTML = this.convertURL(txtAddress.value) ;
+  	if(iframes[i].style.display != "none") {
+  		if (src.indexOf("http") < 0){
+  			src = "http://"+ src ;
+  			txtAddress.value = src ;
+  		}
+			iframes[i].src = src ;			
+			tabLabels[i].innerHTML = this.convertURL(src) ;
 		}
   }
   
@@ -156,19 +163,21 @@ UIBrowserApplication.prototype.onMouseOver = function(object, normalClass, activ
 
 UIBrowserApplication.prototype.createNewTab = function(clickedElement) {
 	var DOMUtil = eXo.core.DOMUtil;
+	var ancestorNode = DOMUtil.findAncestorByClass(clickedElement, "BrowserContent") ;
+	var uiToolbar = DOMUtil.findPreviousElementByTagName(ancestorNode, "div") ;
+  var txtAddress = DOMUtil.findFirstDescendantByClass(uiToolbar, 'input', "txtAddress") ;
   this.NumberOfTab++ ;
-  var txtAddress = document.getElementById("txtAddress") ;
-  txtAddress.value = "" ;
-  var ancestorNode = DOMUtil.findAncestorByClass(clickedElement, "BrowserContent") ;
+  txtAddress.value = "http://" ;
+  
   
   var tabParent = clickedElement.parentNode ;
   
   var activeTabList = DOMUtil.findChildrenByClass(tabParent, "div", "ActiveTabDetailBackground") ;
   for(var i = 0; i < activeTabList.length; i++) {
-  	activeTabList[i].className = "TabDetailBackground" ;
+  	activeTabList[i].className = "TabDetailBackground TabMenuItem" ;
   }
   var cloneActiveTab = activeTabList[i-1].cloneNode(true) ;
-  cloneActiveTab.className = "ActiveTabDetailBackground" ;
+  cloneActiveTab.className = "ActiveTabDetailBackground TabMenuItem" ;
   cloneActiveTab.index = this.NumberOfTab - 1 ;
   cloneActiveTab.maxWidth = this.maxWidth ;
   var tabLabel = DOMUtil.findFirstDescendantByClass(cloneActiveTab, "div", "TabLabel") ;
@@ -210,20 +219,26 @@ UIBrowserApplication.prototype.createNewTab = function(clickedElement) {
 } ;
 
 UIBrowserApplication.prototype.activateTabDetail = function(selectedElement, ancestor) {
-	var selectedTabIndex = selectedElement.index ;
-	var tabContainer = eXo.core.DOMUtil.findFirstDescendantByClass(ancestor, "div", "TabContainer") ;
-	var activeTab = eXo.core.DOMUtil.findFirstDescendantByClass(tabContainer, "div", "ActiveTabDetailBackground") ;
-	activeTab.className = "TabDetailBackground" ;
-	selectedElement.className = "ActiveTabDetailBackground" ;
-	
-	var iframes = eXo.core.DOMUtil.findDescendantsByClass(ancestor, "iframe", "IFrame") ;
+	var DOMUtil = eXo.core.DOMUtil ;
+	var tabContainer = DOMUtil.findFirstDescendantByClass(ancestor, "div", "TabContainer") ;
+	var tabMenuItems = DOMUtil.findChildrenByClass(tabContainer, "div", "TabMenuItem") ;
+
+	var activeTab = DOMUtil.findFirstDescendantByClass(tabContainer, "div", "ActiveTabDetailBackground") ;
+	activeTab.className = "TabDetailBackground TabMenuItem" ;
+	selectedElement.className = "ActiveTabDetailBackground TabMenuItem" ;
+	var txtAddress = null ;
+
+	if (ancestor.className == "BrowserContent") {
+		var uiToolbar = DOMUtil.findPreviousElementByTagName(ancestor, "div") ;
+		txtAddress = DOMUtil.findFirstDescendantByClass(uiToolbar, "input", "txtAddress") ;		
+	} else {
+		txtAddress = DOMUtil.findFirstDescendantByClass(ancestor, "input", "txtAddress") ;
+	}
+	var iframes = DOMUtil.findDescendantsByClass(ancestor, "iframe", "IFrame") ;
 	for(var j = 0; j < iframes.length; j++) {
-		if(iframes[j] == iframes[selectedTabIndex]) {
-			if(iframes[j].style.display == "none") {
-				iframes[j].style.display = "block" ;
-			}
-			var txtAddress = document.getElementById("txtAddress") ;
-			txtAddress.value = iframes[j].src ;
+		if (tabMenuItems[j] == selectedElement) {
+			iframes[j].style.display = "block" ;
+			txtAddress.value = (iframes[j].src !="")?iframes[j].src : "http://" ;
 		} else {
 	  	iframes[j].style.display = "none" ;
 		}
@@ -231,21 +246,23 @@ UIBrowserApplication.prototype.activateTabDetail = function(selectedElement, anc
 } ;
 
 UIBrowserApplication.prototype.removeTabDetail = function(clickedElement) {
+	var DOMUtil = eXo.core.DOMUtil ;
 	if(this.NumberOfTab > 1) {
 		this.NumberOfTab-- ;
-		var eXoBrowser = document.getElementById("eXoBrowser");
-		var txtAddress = document.getElementById("txtAddress") ;
+		
+		var eXoBrowser = DOMUtil.findAncestorByClass(clickedElement, "eXoBrowser") ;
+		var txtAddress = DOMUtil.findFirstDescendantByClass(eXoBrowser, "input", "txtAddress") ;
 		var tabDetail = (clickedElement.parentNode).parentNode ;
 		var tabIndex ;
 		tabIndex = tabDetail.index ;
 		var tabContainer = tabDetail.parentNode ;
-		var separator = eXo.core.DOMUtil.findDescendantsByClass(tabContainer, "div", "Separator") ;
+		var separator = DOMUtil.findDescendantsByClass(tabContainer, "div", "Separator") ;
 		
-		var tabContent = eXo.core.DOMUtil.findFirstDescendantByClass(eXoBrowser, "div", "TabContent") ;
-		var iframes = eXo.core.DOMUtil.findDescendantsByClass(tabContent, "iframe", "IFrame") ;
+		var tabContent = DOMUtil.findFirstDescendantByClass(eXoBrowser, "div", "TabContent") ;
+		var iframes = DOMUtil.findDescendantsByClass(tabContent, "iframe", "IFrame") ;
 
 		if(tabDetail.className == "ActiveTabDetailBackground") {
-			var tabDetailList = eXo.core.DOMUtil.findDescendantsByClass(tabContainer, "div", "TabDetailBackground") ;
+			var tabDetailList = DOMUtil.findDescendantsByClass(tabContainer, "div", "TabDetailBackground") ;
 			var index ;
 			if(tabIndex - 1 >= 0) {
 				index = tabIndex - 1 ;
@@ -267,7 +284,7 @@ UIBrowserApplication.prototype.removeTabDetail = function(clickedElement) {
 		
 		eXo.application.browser.UIBrowserApplication.resetIndex(eXoBrowser) ;
 		if(this.NumberOfTab <= 1) {
-			var firstCloseButton = eXo.core.DOMUtil.findFirstDescendantByClass(tabContainer, "div", "CloseButton") ;
+			var firstCloseButton = DOMUtil.findFirstDescendantByClass(tabContainer, "div", "CloseButton") ;
 			firstCloseButton.style.display = "none" ;
 		}
 	} else {
@@ -287,16 +304,38 @@ UIBrowserApplication.prototype.resetIndex = function(eXoBrowser) {
 	}
 } ;
 
-UIBrowserApplication.prototype.refreshIFrame = function() {
-	var eXoBrowser = document.getElementById("eXoBrowser");
+UIBrowserApplication.prototype.refreshIFrame = function(obj) {
+	var eXoBrowser = eXo.core.DOMUtil.findAncestorByClass(obj, "eXoBrowser");
 	var iframes = eXo.core.DOMUtil.findDescendantsByClass(eXoBrowser, "iframe", "IFrame") ;
 	
 	for(var i = 0; i < iframes.length; i++) {
-  	if(iframes[i].style.display == "block") {
+  	if(iframes[i].style.display == "block") {  		
 			iframes[i].src = iframes[i].src ;
 		}
   }
 } ;
+UIBrowserApplication.prototype.goBack = function(obj) {
+
+	var eXoBrowser = eXo.core.DOMUtil.findAncestorByClass(obj, "eXoBrowser");
+	var iframes = eXo.core.DOMUtil.findDescendantsByClass(eXoBrowser, "iframe", "IFrame") ;
+	
+	for(var i = 0; i < iframes.length; i++) {
+  	if(iframes[i].style.display == "block") {
+			iframes[i].contentWindow.history.back() ;
+		}
+  }
+}
+
+UIBrowserApplication.prototype.goForward = function(obj) {
+	var eXoBrowser = eXo.core.DOMUtil.findAncestorByClass(obj, "eXoBrowser");
+	var iframes = eXo.core.DOMUtil.findDescendantsByClass(eXoBrowser, "iframe", "IFrame") ;
+	
+	for(var i = 0; i < iframes.length; i++) {
+  	if(iframes[i].style.display == "block") {
+			iframes[i].contentWindow.history.forward() ;
+		}
+  }
+}
 
 UIBrowserApplication.prototype.resizeTabDetail = function(tabContainer) {
 	var DOMUtil = eXo.core.DOMUtil ;
@@ -346,6 +385,15 @@ UIBrowserApplication.prototype.resizeTabDetail = function(tabContainer) {
 		for(var i = 0 ; i < tabLabel.length; i++) {
 			tabLabel[i].style.width = labelWidth + "px" ;
 		}
+	}
+} ;
+
+UIBrowserApplication.prototype.stopLoad = function() {
+	var detect = navigator.userAgent.toLowerCase() ;
+	if (detect.indexOf("msie") > -1) {
+		document.execCommand('Stop') ;
+	} else {
+		window.stop() ;
 	}
 } ;
 
