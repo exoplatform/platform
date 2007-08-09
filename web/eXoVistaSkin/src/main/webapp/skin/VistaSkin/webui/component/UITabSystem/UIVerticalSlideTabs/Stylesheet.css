@@ -100,18 +100,18 @@
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
   padding-left: 3px ;
-  background: url('background/SmoothRoundLeftBar3x27.gif') no-repeat left ;
+  background: url('background/SmoothRoundedLeftBar3x27.png') no-repeat left ;
   margin: 4px 0px 0px 0px;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight {
   padding-right: 3px ;
-  background: url('background/SmoothRoundRightBar3x27.gif') no-repeat right ;
+  background: url('background/SmoothRoundedRightBar3x27.png') no-repeat right ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat {
   height: 27px ;
-  background: url('background/SmoothRoundRepeatBar1x27.gif') repeat-x ;
+  background: url('background/SmoothRoundedRepeatBar1x27.png') repeat-x ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .LeftIcon {
