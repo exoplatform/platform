@@ -35,7 +35,7 @@ UIItemSelector.prototype.onClick = function(clickedElement) {
 };
 
 UIItemSelector.prototype.onChangeItemDetail = function(itemSelected, mouseOver) {
-  if(this.allItems.length <= 0) return;
+  if(!this.allItems || this.allItems.length <= 0 ) return;
   if(mouseOver) {
     for(var i = 0; i < this.allItems.length; i++) {
       if(this.allItems[i] == itemSelected) {
