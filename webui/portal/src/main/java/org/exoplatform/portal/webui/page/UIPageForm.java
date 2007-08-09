@@ -251,7 +251,7 @@ public class UIPageForm extends UIFormTabPane {
         return;
       }
 
-      if( Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
+      if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
         uiPage.getChildren().clear();         
         page.setChildren(applications);         
 

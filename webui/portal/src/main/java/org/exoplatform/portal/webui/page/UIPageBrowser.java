@@ -1,6 +1,7 @@
 package org.exoplatform.portal.webui.page;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
@@ -118,7 +119,13 @@ public class UIPageBrowser extends UISearch {
     DataStorage service = getApplicationComponent(DataStorage.class) ;
     if(lastQuery_ == null) lastQuery_ = new Query<Page>(null, null, null, Page.class) ;
 
-    PageList pagelist = service.find(lastQuery_) ;
+    PageList pagelist = service.find(lastQuery_, new Comparator<Object>() {
+      public int compare(Object obj1, Object obj2) {
+        Page page1 = (Page)obj1;
+        Page page2 = (Page)obj2;
+        return page1.getName().compareTo(page2.getName());
+      }
+    }) ;
     pagelist.setPageSize(10);
 
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
@@ -303,7 +310,7 @@ public class UIPageBrowser extends UISearch {
       uiPageForm.removeChildById("PermissionSetting");
       uiPageForm.removeChild(UIFormInputItemSelector.class);
 
-      UIPageTemplateOptions uiTemplateConfig = uiPageForm.createUIComponent(UIPageTemplateOptions.class, null, null);    
+      UIPageTemplateOptions uiTemplateConfig = uiPageForm.createUIComponent(UIPageTemplateOptions.class, null, null);
       uiTemplateConfig.setRendered(false) ;
       uiPageForm.addUIFormInput(uiTemplateConfig) ;
 
@@ -391,6 +398,8 @@ public class UIPageBrowser extends UISearch {
 
       //create new page
       if(uiPage == null) {
+//        System.out.println("\n\n\n == > current page template is "+
+//             page.getFactoryId() + " : uipage "+uiPage.getFactoryId()+"\n\n");
         DataStorage dataStorage = uiPageForm.getApplicationComponent(DataStorage.class) ;
         Page existPage = dataStorage.getPage(page.getPageId()) ;
         if (existPage != null) {

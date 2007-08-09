@@ -5,6 +5,8 @@
 package org.exoplatform.portal.config.jcr;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -304,6 +306,11 @@ public class DataStorageImpl implements DataStorage {
   
   @SuppressWarnings("unchecked")
   public  PageList find(org.exoplatform.portal.config.Query cq) throws Exception {
+    return find(cq, null);
+  }
+  
+  @SuppressWarnings("unchecked")
+  public  PageList find(org.exoplatform.portal.config.Query cq, Comparator sortComparator) throws Exception {
     StringBuilder  builder = new StringBuilder("select * from "+NT_FOLDER_TYPE);
     generateScript(builder, "dataType", cq.getClassType().getSimpleName());
     generateScript(builder, "name", cq.getName());
@@ -321,6 +328,7 @@ public class DataStorageImpl implements DataStorage {
       list.add(mapper_.fromXML(xml, cq.getClassType())) ;
     }
     session.logout();
+    if(sortComparator != null) Collections.sort(list, sortComparator);
     return new ObjectPageList(list, 20);
   }
   

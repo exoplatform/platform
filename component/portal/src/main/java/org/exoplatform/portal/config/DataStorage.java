@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portal.config;
 
+import java.util.Comparator;
+
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Page;
@@ -118,6 +120,8 @@ public interface DataStorage {
   public void remove(PortletPreferences portletPreferences) throws Exception ;
   
   public  PageList find(Query<?> q) throws Exception ;
+  
+  public  PageList find(Query<?> q, Comparator<?> sortComparator) throws Exception ;
   
   public void create(Widgets widgets)  throws Exception ;
   

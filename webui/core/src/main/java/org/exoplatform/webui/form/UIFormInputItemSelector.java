@@ -104,7 +104,8 @@ public class UIFormInputItemSelector extends UIFormInputBase<Object> {
   }
 
   @SuppressWarnings("unused")
-  public void decode(Object input, WebuiRequestContext context) throws Exception {   
+  public void decode(Object input, WebuiRequestContext context) throws Exception { 
+//    System.out.println("\n\n\n == > current input value is "+input+"\n\n");
     if(input == null || String.valueOf(input).length() < 1) return;    
     setValue(input) ;   
   }
