@@ -81,7 +81,8 @@
     <Connector port="9000" maxHttpHeaderSize="8192"
                maxThreads="150" minSpareThreads="25" maxSpareThreads="75"
                enableLookups="false" redirectPort="9043" acceptCount="100"
-               connectionTimeout="20000" disableUploadTimeout="true" />
+               connectionTimeout="20000" disableUploadTimeout="true" 
+               URIEncoding="UTF-8"/>
     <!-- Note : To disable connection timeouts, set connectionTimeout value
      to 0 -->
 
