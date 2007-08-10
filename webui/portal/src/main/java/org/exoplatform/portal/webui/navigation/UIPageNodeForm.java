@@ -10,11 +10,13 @@ import java.util.List;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageSelector;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -118,7 +120,10 @@ public class UIPageNodeForm extends UIFormTabPane {
       
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
-      
+      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
+      UIPage uiPage = Util.toUIPage(pageSelector.getPage(),uiToolPanel);
+      uiToolPanel.setUIComponent(uiPage);
+      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
       PageNode pageNode = uiPageNodeForm.getPageNode();
       if(pageNode == null) pageNode  = new PageNode();
       uiPageNodeForm.invokeSetBindingBean(pageNode) ;
@@ -178,7 +183,8 @@ public class UIPageNodeForm extends UIFormTabPane {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
       pcontext.addUIComponentToUpdateByAjax(uiManagement);   
-      
+      pcontext.addUIComponentToUpdateByAjax(uiToolPanel);
+      pcontext.setFullRender(true);
       //uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri());
     }
   }
