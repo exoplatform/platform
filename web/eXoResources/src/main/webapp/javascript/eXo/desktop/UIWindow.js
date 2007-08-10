@@ -33,6 +33,16 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY) {
 //  eXo.desktop.UIWindow.windowMinHeight = popup.offsetHeight ;
 } ;
 
+UIWindow.prototype.fixHeight = function(portletId) {
+	var portlet =document.getElementById(portletId) ;
+	var delta = portlet.parentNode.offsetHeight - portlet.offsetHeight ;
+	var resizeObj = eXo.core.DOMUtil.findDescendantsByClass(portlet, 'div', 'UIResizableBlock') ;
+	for(var i = 0; i < resizeObj.length; i++) {
+		var nHeight = parseInt(resizeObj[i].offsetHeight) + delta;
+		if (nHeight < 0 ) nHeight = "0px" ;
+		resizeObj[i].style.height = nHeight + 'px' ;
+	}
+} ;
 
 UIWindow.prototype.mousedownOnPopup = function(evt) {
 	var isMaxZIndex = eXo.desktop.UIDesktop.isMaxZIndex(this) ;
