@@ -1,5 +1,6 @@
 <%	eXo.require('eXo.widget.UIWidget')	%>
 <%	var deleteWidget = 'eXo.widget.UIWidget.deleteWidget(this);' %>
+<%	var editWidget = 'eXo.widget.UIWidget.editWidget(this);' %>
 
 <div class="UIWidget UIDragObject">
   <div class="WidgetControlBar">
@@ -9,7 +10,7 @@
     			<div class="CenterControlBar">
 			    	<div class="WidgetDragHandleArea"><span></span></div>
 			    	<div class="SeparatorLine"><span></span></div>
-				    <div class="EditWidgetIcon" title="Edit this Widget"><span></span></div>
+				    <div class="EditWidgetIcon" title="Edit this Widget" onclick="<%=editWidget%>" ><span></span></div>
 				  	<div class="CloseWidgetIcon" onclick="<%=deleteWidget%>" title="Delete This Widget"><span></span></div>
 				  	<div style="clear: left"><span></span></div>
 				  </div>
