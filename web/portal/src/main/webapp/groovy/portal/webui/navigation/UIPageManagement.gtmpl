@@ -5,6 +5,7 @@
   import  org.exoplatform.portal.webui.application.UIPortletOptions;
   import  org.exoplatform.portal.webui.navigation.UIPageNavigationControlBar;
   import  org.exoplatform.portal.webui.page.UIPageBrowser;
+  import org.exoplatform.portal.webui.page.UIPageBrowseControlBar;
   import org.exoplatform.webui.core.UIDescription;
   
 %>
@@ -53,9 +54,9 @@
 	  	<%uicomponent.renderChild(UIPageNavigationControlBar.class);%>
 		</div> 
   <%}%>
-	<%if(uicomponent.getChild(UIPageBrowser.UIPageBrowseControlBar.class).isRendered()) {%>
+	<%if(uicomponent.getChild(UIPageBrowseControlBar.class).isRendered()) {%>
 	  <div class="ControlArea" >
-	  	<%uicomponent.renderChild(UIPageBrowser.UIPageBrowseControlBar.class);%>
+	  	<%uicomponent.renderChild(UIPageBrowseControlBar.class);%>
 	  </div> 	
 	<%}%>	
 </div>
