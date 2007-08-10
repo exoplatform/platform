@@ -100,7 +100,6 @@
 
 .UIContentPortlet .UIContentNavigation .UIVerticalSlideTabs .SubItem {
 	border: 1px #e4e4e4 solid; border-top: none;
-	margin: 0px 3px 0px 3px;
 	background: white;
 }
 
@@ -118,7 +117,7 @@
 	float: left ;
 	margin: 5px 0px 0px 5px ;
 	width: 16px; height: 16px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left;
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/GreenNextArrowSub.png') no-repeat left;
 }
 
 .UIContentPortlet .ContentItemIcon{
