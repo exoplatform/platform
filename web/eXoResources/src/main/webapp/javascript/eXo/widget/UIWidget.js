@@ -26,7 +26,22 @@ UIWidget.prototype.init = function(uiWidget, inDesktop) {
 		uiWidget.style.zIndex = zIndex ;
 	}
 };
-
+UIWidget.prototype.editWidget = function(selectedElement) {
+	var DOMUtil = eXo.core.DOMUtil ;
+	var uiWidget = DOMUtil.findAncestorByClass(selectedElement,"UIWidget") ;
+	var editMode = DOMUtil.findFirstDescendantByClass(uiWidget, "div", "EditMode") ;
+	if (editMode) {		
+		viewMode = DOMUtil.findPreviousElementByTagName(editMode, "div") ;
+		if (editMode.style.display == "none") {
+			editMode.style.display = "block" ;
+			viewMode.style.display = "none" ;
+		} else {
+			editMode.style.display = "none" ;
+			viewMode.style.display = "block" ;
+		}	
+		
+	}
+} ;
 UIWidget.prototype.deleteWidget = function(selectedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiWidgetContainer = DOMUtil.findAncestorByClass(selectedElement, "UIWidgetContainer") ;
