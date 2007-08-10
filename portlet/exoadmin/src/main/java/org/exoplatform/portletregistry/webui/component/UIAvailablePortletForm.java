@@ -233,7 +233,6 @@ public class UIAvailablePortletForm extends UIFormTabPane {
         Application portlet = event.getSource().getListApplication().get(uiCheckBox.getValue());
         if(Collections.binarySearch(oldPortlets, portlet, portletComparator) > -1) continue;
         Application newPortlet = clonePortlet(portlet);
-        System.out.println("\n\n\n--------------> AvaiablePortlet : " + portlet.getId());
         service.save(selectedCategory, newPortlet);
         
       }
