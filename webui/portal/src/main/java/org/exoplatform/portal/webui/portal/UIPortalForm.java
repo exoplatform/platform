@@ -88,7 +88,6 @@ public class UIPortalForm extends UIFormTabPane {
   @SuppressWarnings("unchecked")
   public UIPortalForm(InitParams initParams) throws Exception {
     super("UIPortalForm");
-    
     UIFormInputItemSelector uiTemplateInput = new  UIFormInputItemSelector("PortalTemplate", null);
     uiTemplateInput.setRendered(true) ;
     addUIFormInput(uiTemplateInput) ;
@@ -113,7 +112,6 @@ public class UIPortalForm extends UIFormTabPane {
     }
   }
 
-  
   public UIPortalForm() throws Exception {
     super("UIPortalForm");
     createDefaultItem();
@@ -137,19 +135,6 @@ public class UIPortalForm extends UIFormTabPane {
       items.add(item);
     } 
     
-    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
-    uiPermissionSetting.setRendered(false);
-    addUIComponentInput(uiPermissionSetting);
-    
-    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
-    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-    uiPermissionSetting.addChild(uiListPermissionSelector);
-    
-    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
-    uiEditPermission.setRendered(false) ;
-    uiEditPermission.configure("UIPermissionSelector", "editPermission");
-    uiPermissionSetting.addChild(uiEditPermission);
-        
     UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
     UIPortal uiPortal = Util.getUIPortal();
     String factoryId = uiPortal.getFactoryId();
@@ -195,6 +180,19 @@ public class UIPortalForm extends UIFormTabPane {
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);
     uiSettingSet.setRendered(false);
+    
+    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
+    uiPermissionSetting.setRendered(false);
+    addUIComponentInput(uiPermissionSetting);
+    
+    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+    uiPermissionSetting.addChild(uiListPermissionSelector);
+    
+    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+    uiEditPermission.setRendered(false) ;
+    uiEditPermission.configure("UIPermissionSelector", "editPermission");
+    uiPermissionSetting.addChild(uiEditPermission);
   }
   
   static public class SaveActionListener  extends EventListener<UIPortalForm> {
