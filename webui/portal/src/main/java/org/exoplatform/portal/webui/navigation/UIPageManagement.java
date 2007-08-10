@@ -11,6 +11,7 @@ import org.exoplatform.portal.webui.UIManagement;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
 import org.exoplatform.portal.webui.page.UIPage;
+import org.exoplatform.portal.webui.page.UIPageBrowseControlBar;
 import org.exoplatform.portal.webui.page.UIPageBrowser;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.util.Util;
@@ -34,7 +35,7 @@ public class UIPageManagement extends UIManagement {
     addChild(UIDescription.class, null, "pageManagement").setRendered(false);
     addChild(UIContainerConfigOptions.class, null, null).setRendered(false);
     addChild(UIPortletOptions.class, null, null).setRendered(false);
-    addChild(UIPageBrowser.UIPageBrowseControlBar.class, null, null).setRendered(false);
+    addChild(UIPageBrowseControlBar.class, null, null).setRendered(false);
     addChild(UIPageNavigationControlBar.class, null, null);
     update();
   }

@@ -15,7 +15,7 @@ import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
 import org.exoplatform.portal.webui.navigation.UIPageManagement;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationControlBar;
-import org.exoplatform.portal.webui.page.UIPageBrowser.UIPageBrowseControlBar;
+import org.exoplatform.portal.webui.page.UIPageBrowseControlBar;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;

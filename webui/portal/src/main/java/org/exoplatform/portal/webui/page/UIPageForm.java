@@ -12,7 +12,7 @@ import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.navigation.UIPageManagement;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationControlBar;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
-import org.exoplatform.portal.webui.page.UIPageBrowser.UIPageBrowseControlBar;
+import org.exoplatform.portal.webui.page.UIPageBrowseControlBar;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
