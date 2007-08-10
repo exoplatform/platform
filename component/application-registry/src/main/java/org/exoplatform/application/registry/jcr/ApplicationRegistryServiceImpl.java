@@ -154,7 +154,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
 
   public void save(ApplicationCategory category, Application application) throws Exception {
     Session session = jcrRegService_.getSession();
-    application.setId(category.getName() + "/" + application.getApplicationName().replace(' ', '_'));
+//    application.setId(category.getName() + "/" + application.getApplicationName().replace(' ', '_'));
     application.setCategoryName(category.getName());
     
     Node rootNode = jcrRegService_.getApplicationRegistryNode(session, APPLICATION_NAME);
@@ -284,9 +284,11 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       app.setDisplayName(portletName) ;
       app.setApplicationName(portletName);
       app.setApplicationGroup(categoryName);
+      app.setCategoryName(categoryName);
       app.setApplicationType("jsr168-portlet");
       app.setDescription("jsr168 portlet application");
       app.setDisplayName(portletName);
+      app.setId(categoryName + "/" + portletName);
       save(category, app);
     }
     session.logout();
@@ -311,7 +313,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
         category.setDescription(app.getApplicationGroup()) ;
         save(category) ;
       }
-      //TODO: mapping should be done in the DataMapper class
       Node appNode = getApplicationNode(session, category.getName(), app.getApplicationName()) ;
       if (appNode == null) save(category, convertApplication(app)) ;
     }
@@ -346,7 +347,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     return null;
   }
 
-  //TODO: Tung.Pham modified
   public void clearAllRegistries() throws Exception {    
     Session session = jcrRegService_.getSession();
     Node homeNode = jcrRegService_.getApplicationRegistryNode(session, APPLICATION_NAME);
