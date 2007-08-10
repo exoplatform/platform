@@ -97,6 +97,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
         Application application = null; 
         try{
           application = registeryService.getApplication(id);
+//          System.out.println();
         }catch (Exception exp) {
           exp.printStackTrace();
         }
@@ -183,6 +184,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
         app.setDisplayName(portletName) ;
         app.setApplicationName(portletName);
         app.setApplicationGroup(categoryName);
+        app.setCategoryName(categoryName);
         app.setApplicationType("jsr168-portlet");
         app.setDescription("jsr168 portlet application");
         app.setAccessPermissions(new String[]{});
@@ -228,9 +230,10 @@ public class UIAvailablePortletForm extends UIFormTabPane {
         UIFormInputSet uiFormInputSetItem = (UIFormInputSet) itr.next();
         UIFormCheckBoxInput<Integer> uiCheckBox = uiFormInputSetItem.getChild(UIFormCheckBoxInput.class) ;
         if(!uiCheckBox.isChecked())continue;    
-        Application portlet = event.getSource().getListApplication().get(uiCheckBox.getValue());    
+        Application portlet = event.getSource().getListApplication().get(uiCheckBox.getValue());
         if(Collections.binarySearch(oldPortlets, portlet, portletComparator) > -1) continue;
         Application newPortlet = clonePortlet(portlet);
+        System.out.println("\n\n\n--------------> AvaiablePortlet : " + portlet.getId());
         service.save(selectedCategory, newPortlet);
         
       }
@@ -271,6 +274,7 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     
     private Application clonePortlet(Application portlet){
       Application newPortlet = new Application();
+      newPortlet.setId(portlet.getId());
       newPortlet.setAccessPermissions(portlet.getAccessPermissions()) ;
       newPortlet.setApplicationGroup(portlet.getApplicationGroup());
       newPortlet.setApplicationType(portlet.getApplicationType());
@@ -288,7 +292,4 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       parent.setShow(false);
     }
   }
-
- 
 }
-

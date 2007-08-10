@@ -11,6 +11,7 @@
   <%
   if(portlets != null && portlets.size() > 0 ) {
 	  for (portlet in portlets)  {
+	    if(portlet!= null) {
 			String name = portlet.getApplicationName(); 
 		  String displayName = portlet.getDisplayName();
 		  //String creator = portlet.getOwner();
@@ -66,7 +67,7 @@
 	  		</div>
 			</div>
 	  </div>
-  <% } } else {%>
+  <% }} } else {%>
   <div style="padding: 20px 0px; text-align: center; color: #FF5604 ;"><%=_ctx.appRes("ApplicationRegistryWorkingArea.title")%></div>
   <% } %>
   <div class="UIAction" > 
