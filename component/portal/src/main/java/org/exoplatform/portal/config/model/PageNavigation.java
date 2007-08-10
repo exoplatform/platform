@@ -28,7 +28,7 @@ public class PageNavigation {
   private  String     modifier ;
 
   private ArrayList<PageNode>	pageNodes = new ArrayList<PageNode>();
-  private int         priority = 0 ;
+  private int         priority = 5 ;
   
   
   public String getOwnerId() { return ownerId; }
