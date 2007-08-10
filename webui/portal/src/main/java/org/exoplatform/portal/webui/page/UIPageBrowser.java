@@ -193,13 +193,13 @@ public class UIPageBrowser extends UISearch {
 
       UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
       if(page == null) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.null", new String[]{})) ;;
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.delete.null", new String[]{})) ;;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
 
       if(!page.isModifiable()){
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-deletePermission", new String[]{page.getName()})) ;;
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.delete.null", new String[]{page.getName()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return;
       }
@@ -227,7 +227,7 @@ public class UIPageBrowser extends UISearch {
       }
 
       if(!page.isModifiable()) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-editPermission", new String[]{page.getName()})) ;;
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.null", new String[]{page.getName()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return ;
       }
