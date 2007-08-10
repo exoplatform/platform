@@ -89,7 +89,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
     uiOwnerId.setEditable(false);
     
     List<SelectItemOption<String>> priorties = new ArrayList<SelectItemOption<String>>();
-    for(int i = 0; i < 10; i++){
+    for(int i = 1; i < 11; i++){
       priorties.add(new SelectItemOption<String>(String.valueOf(i), String.valueOf(i)));
     }
 
