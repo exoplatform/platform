@@ -9,6 +9,7 @@ import java.util.List;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
@@ -73,6 +74,16 @@ public class UIPageNavigationActionListener {
       PageNavigation selectedNavigation = uiPageNodeSelector.getSelectedNavigation();
       
       uiPageNodeSelector.deletePageNavigation(selectedNavigation) ;
+      //TODO: Tung.Pham added
+      //------------------------------------
+      if(uiPageNodeSelector.getPageNavigations().size() < 1) {
+        UIPageManagement uiManagement = uiPageNodeSelector.getParent() ;
+        Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
+        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+        return;
+      }
+      //------------------------------------
       UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
       uiTree.createEvent("ChangeNode", event.getExecutionPhase(), pcontext).broadcast();
     }
