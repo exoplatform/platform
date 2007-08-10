@@ -77,6 +77,7 @@ public class UIGroupExplorer extends UIContainer {
     } else {
       selectedGroup_ = null;
     }
+    
     String parentGroupId = null ;
     if(selectedGroup_ != null) parentGroupId = selectedGroup_.getParentId(); 
 	  Group parentGroup = null ;

@@ -89,7 +89,7 @@ public class UIPageForm extends UIFormTabPane {
     if(pcontext.isUserInRole("admin")) {
       ownerTypes.add(new SelectItemOption<String>("Group", PortalConfig.GROUP_TYPE)) ;
     }
-    UIFormSelectBox uiSelectBoxOwnerType = new UIFormSelectBox("ownerType","ownerType" , ownerTypes) ;
+    UIFormSelectBox uiSelectBoxOwnerType = new UIFormSelectBox("ownerType", "ownerType" , ownerTypes) ;
     uiSelectBoxOwnerType.setOnChange("ChangeOwnerType");
     
     UIFormInputSet uiSettingSet = createUIComponent(UIFormInputSet.class, "PageSetting", "PageSetting");

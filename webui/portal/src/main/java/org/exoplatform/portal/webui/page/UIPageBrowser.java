@@ -29,12 +29,10 @@ import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIComponentDecorator;
-import org.exoplatform.webui.core.UIDescription;
 import org.exoplatform.webui.core.UIGrid;
 import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UISearch;
-import org.exoplatform.webui.core.UIToolbar;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -177,7 +175,7 @@ public class UIPageBrowser extends UISearch {
   public void advancedSearch(UIFormInputSet advancedSearchInput) throws Exception {
   }  
   
-  private void reset() throws Exception {
+  void reset() throws Exception {
     UIPageIterator uiPageIterator = getChild(UIPageIterator.class);
     int currentPage = uiPageIterator.getCurrentPage();
     defaultValue(lastQuery_) ;
@@ -315,68 +313,6 @@ public class UIPageBrowser extends UISearch {
       uiPageForm.addUIFormInput(uiTemplateConfig) ;
 
       prContext.addUIComponentToUpdateByAjax(uiMaskWS);
-    }
-  }
-
-  @ComponentConfig(
-      template = "system:/groovy/webui/core/UIToolbar.gtmpl",
-      events = { 
-          @EventConfig(listeners = UIPageBrowseControlBar.BackActionListener.class),
-          @EventConfig(listeners = UIPageBrowseControlBar.FinishActionListener.class)
-      }
-  )
-  static public class UIPageBrowseControlBar extends UIToolbar {
-
-    private UIComponent uiBackComponent ;
-
-    public UIComponent getBackComponent() { return uiBackComponent ; }
-    public void setBackComponent(UIComponent uiComp) { uiBackComponent = uiComp ; }
-
-    public boolean hasBackEvent(){ return uiBackComponent != null; }
-
-
-    public UIPageBrowseControlBar() throws Exception { setToolbarStyle("ControlToolbar") ; }
-
-    static public class BackActionListener extends EventListener<UIPageBrowseControlBar> {
-      public void execute(Event<UIPageBrowseControlBar> event) throws Exception {
-        UIPageBrowseControlBar uiBrowseControlBar = event.getSource();
-
-        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel(); 
-        uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
-        UIPageBrowser uiPageBrowser = (UIPageBrowser) uiBrowseControlBar.getBackComponent() ;
-        uiPageBrowser.reset();
-        uiToolPanel.setUIComponent(uiPageBrowser) ;
-
-        UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-        UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
-
-        UIPageManagement uiManagement = uiBrowseControlBar.getParent();
-        uiManagement.setRenderedChild(UIDescription.class);
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
-      }
-    }
-
-    static public class FinishActionListener extends EventListener<UIPageBrowseControlBar> {
-      public void execute(Event<UIPageBrowseControlBar> event) throws Exception {
-        UIPageBrowseControlBar uiBrowseControlBar = event.getSource();
-        UIPageManagement pageManagement = uiBrowseControlBar.getParent();
-        UIPageEditBar uiEditBar = pageManagement.getChild(UIPageEditBar.class);
-        uiEditBar.savePage();
-
-        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();      
-        UIPageBrowser uiPageBrowser = (UIPageBrowser) uiBrowseControlBar.getBackComponent() ;
-        uiPageBrowser.reset();
-        uiToolPanel.setUIComponent(uiPageBrowser) ;
-
-        UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-        UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
-
-        UIPageManagement uiManagement = uiBrowseControlBar.getParent();
-        uiManagement.setRenderedChild(UIDescription.class);
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
-      }
     }
   }
 

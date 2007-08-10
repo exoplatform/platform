@@ -29,7 +29,6 @@ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
-import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -49,10 +48,8 @@ public class UIPageActionListener {
     private List<PageNode> selectedPaths_;
     
     public void execute(Event event) throws Exception {
-//      try{int i = 0; i = 3/i; } catch (Exception e) { e.printStackTrace(); }
       PageNodeEvent<?> pnevent = (PageNodeEvent<?>) event ;
       uiPortal = (UIPortal) event.getSource();
-//      System.out.println("\n\n\n----------->ChangePageNodeActionListener: uri =" + pnevent.getTargetNodeUri());
       
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
