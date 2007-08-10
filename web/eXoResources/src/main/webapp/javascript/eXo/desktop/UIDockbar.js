@@ -216,7 +216,8 @@ UIDockbar.prototype.animation = function(selectedIcon, e) {
   fixBugImageElement.style.height = uiDockbar.defaultIconSize + (uiDockbar.defaultIconSize*(weight - 1)) + "px" ;
   
 	uiDockbar.style.bottom = "0px" ;  
-  uiDockbar.style.height = "auto" ;
+  uiDockbar.style.height = "auto";
+  
   dockbarCenter.style.height = uiDockbar.originalBGDockbarHeight + (uiDockbar.defaultIconSize*(weight - 1)) + "px" ;
   for(var i = 0; i < icons.length; i++) {
     var deltaCurve = Math.abs(selectedIconIndex - i) ;
@@ -237,6 +238,7 @@ UIDockbar.prototype.animation = function(selectedIcon, e) {
   }
   
   UIDockbar.resizeDockBar() ;
+
 } ;
 
 UIDockbar.prototype.findIndex = function(object) {

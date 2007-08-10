@@ -72,9 +72,13 @@
 }
 
 /*########################### End Slidebar ###########################*/
+
 .UIWorkingWorkspace {
 	margin: 0px;
-	height: 100%;
+/*
+ * minh.js.exo
+ * bug : right click with IE7 in ECM
+ */
 }
 
 .MaskLayer {
