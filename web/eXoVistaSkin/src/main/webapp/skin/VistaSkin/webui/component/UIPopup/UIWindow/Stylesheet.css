@@ -259,11 +259,11 @@
 }
 
 
-.UIWindow .WindowPortletInfo .ECM {
+.UIWindow .WindowPortletInfo .ECMAdminIcon {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ECMAdmin.gif') no-repeat center;
 }
 
-.UIWindow .WindowPortletInfo .JCR{
+.UIWindow .WindowPortletInfo .ExplorerIcon{
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/JCRExplorer.gif') no-repeat center;
 }
 
