@@ -120,6 +120,8 @@ public class GetApplicationHandler extends Command {
       appendIndentation(builder, indentLevel+1);
       builder.append("'des' : ").append("'").append(application.getDescription()).append("',\n");
       appendIndentation(builder, indentLevel+1);
+      builder.append("'id' : ").append("'").append(application.getId()).append("',\n");
+      appendIndentation(builder, indentLevel+1);
       builder.append("'type' : ").append("'").append(application.getApplicationType()).append("'\n");
       appendIndentation(builder, indentLevel);
       builder.append("}\n");
