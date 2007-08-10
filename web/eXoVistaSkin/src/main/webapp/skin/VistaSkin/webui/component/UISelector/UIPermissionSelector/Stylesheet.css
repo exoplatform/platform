@@ -41,13 +41,6 @@
   border-right: solid 1px #ffffff;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton {
-  color: black; text-align: center;
-  float: left ;
-  cursor: pointer ;
-  width: 140px;
-}
-
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo {
   border: solid 1px #b1b5c0 ;
   background:url(background/SelectedPermissionInfo1x21.png) repeat-x scroll center top ;
@@ -91,39 +84,66 @@
   float: none;
 } 
 
-.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
-  width: 200px; 
-  margin: 8px auto 0px auto; 
+.UIPermissionSelector .PermissionInfoContainer .PermissionButton {
+	margin: auto;
+  width: 250px;
 }
 
-.UIPermissionSelector .SelectPermissionButton .LeftButton {
+.UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden {
+	filter:alpha(opacity=40); -moz-opacity:.40; opacity:.40;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden a {
+	cursor: default;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .PermissionButton .FloatBlockHidden a:hover {
+	color: black;
+}
+
+.UIPermissionSelector .PermissionInfoContainer .DeletePermissionButton  {
+  width: 110px; 
+  margin: 8px 2px 0px 2px; 
+}
+
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
+  width: 110px; 
+  margin: 8px 2px 0px 2px; 
+}
+
+.UIPermissionSelector .PermissionButton .LeftButton {
   background: url('background/LeftSimpleButton20x24.png') no-repeat left; 
   padding-left: 20px;
 }
 
-.UIPermissionSelector .SelectPermissionButton .RightButton {
+.UIPermissionSelector .PermissionButton .RightButton {
   background: url('background/RightSimpleButton20x24.png') no-repeat right; 
   padding-right: 20px;
 } 
 
-.UIPermissionSelector .SelectPermissionButton .CenterButton {
+.UIPermissionSelector .PermissionButton .CenterButton {
   background: url('background/CenterSimpleButton3x24.png') repeat-x; 
   height: 24px; line-height: 24px;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
-  float: left;
-  width: 19px; height: 20px; 
+.UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
+	line-height: 24px; height: 24px;
+	padding-left: 25px;
   margin: 2px 0px 0px 5px;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat left center;
 } 
 
-.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a{
+.UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
+	line-height: 24px; height: 24px;
+	padding-left: 25px;
+  margin: 2px 0px 0px 5px;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center;
+} 
+
+.UIPermissionSelector .PermissionInfoContainer .PermissionButton  a{
   font-weight: bold; color: black;
-  float: left;
-  padding-left: 6px;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  a:hover{
+.UIPermissionSelector .PermissionInfoContainer .PermissionButton  a:hover{
   color: #0a80d2;
 }
