@@ -197,10 +197,14 @@
 
 .UIPageBody .EmptyContent {
 	border: 1px solid #b7b7b7;
-	background: white;
 	width: 400px;
 	margin: 0px auto 10px auto;
 	padding: 30px 50px;
+}
+
+.UIPageBody .EmptyContent .Content {
+	background: ;
+	border: white;
 }
 
 .UIPageBody .EmptyContent .Empty {

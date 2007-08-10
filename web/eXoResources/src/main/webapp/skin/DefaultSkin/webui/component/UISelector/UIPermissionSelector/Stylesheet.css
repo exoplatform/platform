@@ -84,9 +84,13 @@
   float: none;
 } 
 
+.UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden {
+	filter:alpha(opacity=30);-moz-opacity:.30;opacity:.30;
+}
+
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
-  width: 185px; 
-  margin: 8px auto 0px auto; 
+  width: 95px; 
+  margin: 8px 2px 0px 2px; 
 }
 
 .UIPermissionSelector .SelectPermissionButton .LeftButton {

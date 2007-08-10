@@ -8,8 +8,11 @@
      <%uicomponent.renderChildren()%>
      <% if(uicomponent.getUIComponent() == null){ %>
      	 <div class="EmptyContent">
-         <div class="Empty"><%=_ctx.appRes("UIPageBody.msg.pageNotFoundLine1")%></div>
-         <div class="Empty"><%=_ctx.appRes("UIPageBody.msg.pageNotFoundLine2")%></div>
+     	   <div class="Content">
+	         <div class="Empty"><%=_ctx.appRes("UIPageBody.msg.pageNotFoundLine1")%></div>
+	         <div class="Empty"><%=_ctx.appRes("UIPageBody.msg.pageNotFoundLine2")%></div>
+	         <div class="Empty"><%=_ctx.appRes("UIPageBody.msg.pageNotFoundLine3")%></div>
+	       </div>
        </div>
      <% } %>
   </div>
