@@ -129,9 +129,10 @@
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow.gif') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/GreenNextArrow.png') no-repeat ;
   margin: 6px 3px 0px 0px ;
   cursor: pointer ;
+
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .UIVTabContent {
@@ -178,7 +179,7 @@
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueDownArrow.gif') no-repeat ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/GreenDownArrow.png') no-repeat ;
   margin: 6px 3px 0px 0px ;
 }
 
