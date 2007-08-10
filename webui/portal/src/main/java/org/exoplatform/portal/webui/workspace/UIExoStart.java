@@ -5,10 +5,14 @@
 package org.exoplatform.portal.webui.workspace;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.portlet.WindowState;
 
+import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.webui.UILogged;
@@ -91,7 +95,19 @@ public class UIExoStart extends UIComponent {
   public List<List<MenuItemContainer>>  getMenus() {  return menus ; }
 
   public List<PageNavigation> getNavigations() throws Exception {
-    return org.exoplatform.portal.webui.util.Util.getUIPortal().getNavigations() ;
+    List<PageNavigation> allNav =Util.getUIPortal().getNavigations() ;
+    List<PageNavigation> result = new ArrayList<PageNavigation>();
+    for(PageNavigation nav: allNav){
+      result.add(nav.clone());
+    }
+    Collections.sort(result, new PageNavPriorityComparator());
+    return result;
+  }
+  
+  static class PageNavPriorityComparator implements Comparator<PageNavigation> {
+    public int compare(PageNavigation cat1, PageNavigation cat2) {
+      return cat1.getPriority()- cat2.getPriority() ;
+    }
   }
 
   static public class MenuItem {
