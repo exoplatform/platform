@@ -13,6 +13,7 @@ import org.exoplatform.portal.webui.page.UIPageActionListener.AddApplicationActi
 import org.exoplatform.portal.webui.page.UIPageActionListener.DeleteWidgetActionListener;
 import org.exoplatform.portal.webui.page.UIPageActionListener.EditPageActionListener;
 import org.exoplatform.portal.webui.page.UIPageActionListener.RemoveChildActionListener;
+import org.exoplatform.portal.webui.page.UIPageActionListener.SaveToDatabaseActionListener;
 import org.exoplatform.portal.webui.page.UIPageActionListener.SaveWidgetPropertiesActionListener;
 import org.exoplatform.portal.webui.page.UIPageActionListener.SaveWindowPropertiesActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.MoveChildActionListener;
@@ -40,6 +41,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
       template = "system:/groovy/portal/webui/page/UIPageDesktop.gtmpl",
       events = {
         @EventConfig(listeners = EditPageActionListener.class ),
+        @EventConfig(listeners = SaveToDatabaseActionListener.class ),
         @EventConfig(listeners = MoveChildActionListener.class),
         @EventConfig(listeners = RemoveChildActionListener.class),
         @EventConfig(listeners = ShowLoginFormActionListener.class),
