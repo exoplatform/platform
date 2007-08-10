@@ -1,5 +1,5 @@
 <div class="UIWelcomeWidget">
-	<div class="LoggedDecorator">
+	<div class="LoggedDecorator ViewMode">
     <div class="LeftTopLoggedDecorator">
       <div class="RightTopLoggedDecorator">
         <div class="CenterTopLoggedDecorator"><span></span></div>
@@ -40,4 +40,9 @@
 	    </div>
 	  </div>
   </div>
+  <div class="EditMode" style="display:none ; border: solid 1px #333333 ; padding: 3px ; background:#ece9d8; height: 100px;">
+		<div>Upload avatar : </div>
+		<input type="file" name="uploadfile" style="font-size: 11px ;"/>
+		<div><input type="button" value="Upload"  style="font-size: 11px ;"/></div>
+	</div>
 </div>
