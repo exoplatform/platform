@@ -18,6 +18,7 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
@@ -277,7 +278,8 @@ public class UIPageForm extends UIFormTabPane {
         }
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
         pcontext.addUIComponentToUpdateByAjax(uiManagement);
-
+        UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel();
+        toolPanel.setShowMaskLayer(true);
         pcontext.setFullRender(true);
         UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
         pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
