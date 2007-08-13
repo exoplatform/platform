@@ -124,7 +124,7 @@ UICalendar.prototype.renderCalendar = function() {
 	table += 		'	</div>' ;
 	table += 		'	<div class="CalendarTimeBox">' ;
 	table += 		'		<div class="CalendarTimeBoxR">' ;
-	table += 		'			<div class="CalendarTimeBoxM"><span><input size="2" maxlength="2" value="' + this.currentDate.getHours() + '" onblur="eXo.webui.UICalendar.getChangedTime(this,\'h\') ;">:<input size="2" maxlength="2" value="' + this.currentDate.getMinutes() + '" onblur="eXo.webui.UICalendar.getChangedTime(this,\'m\') ;">:<input size="2" maxlength="2" value="' + this.currentDate.getSeconds() + '" onblur="eXo.webui.UICalendar.getChangedTime(this,\'s\') ;"></span></div>' ;
+	table += 		'			<div class="CalendarTimeBoxM"><span><input readonly="yes" size="2" maxlength="2" value="' + this.currentDate.getHours() + '">:<input readonly="yes" size="2" maxlength="2" value="' + this.currentDate.getMinutes() + '">:<input readonly="yes" size="2" maxlength="2" value="' + this.currentDate.getSeconds() + '"></span></div>' ;
 	table += 		'		</div>' ;
 	table += 		'	</div>' ;
 	table += 		'</div>' ;
@@ -173,11 +173,14 @@ UICalendar.prototype.getDaysInMonth = function(year, month) {
 	return [31, ((!(year % 4 ) && ( (year % 100 ) || !( year % 400 ) ))? 29:28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
 }
 
-UICalendar.prototype.getChangedTime = function(input, type) {
-	var time = input.value ;
-	if (type == 'h') this.currentHours = time ;
-	else if (type == 'm') this.currentMinutes = time ;
-	else if (type == 's') this.currentSeconds = time ;
-}
+//UICalendar.prototype.getChangedTime = function(input, type) {
+//	var time = input.value ;
+//	if (isNaN(time)) {
+//		return ; 
+//	}
+//	if (type == 'h') this.currentHours = time ;
+//	else if (type == 'm') this.currentMinutes = time ;
+//	else if (type == 's') this.currentSeconds = time ;
+//}
 
 eXo.webui.UICalendar = new UICalendar('UICalendarControl') ;
