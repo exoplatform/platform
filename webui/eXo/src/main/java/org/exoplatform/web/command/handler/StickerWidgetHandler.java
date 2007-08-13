@@ -35,6 +35,7 @@ public class StickerWidgetHandler extends Command {
       String instantId = split[3];
       String widgetType = split[2];
       String userName = req.getRemoteUser();
+      if(content == null || content.length() < 1 ) content = " ";
       service.save(userName, widgetType, instantId, content);
     } catch (Exception e) {
       e.printStackTrace();
