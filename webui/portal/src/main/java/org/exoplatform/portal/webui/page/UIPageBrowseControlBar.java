@@ -41,7 +41,7 @@ public class UIPageBrowseControlBar extends UIToolbar {
       UIPageBrowser uiPageBrowser = (UIPageBrowser) uiBrowseControlBar.getBackComponent() ;
       uiPageBrowser.reset();
       uiToolPanel.setUIComponent(uiPageBrowser) ;
-
+      uiToolPanel.setShowMaskLayer(false);
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
@@ -60,6 +60,7 @@ public class UIPageBrowseControlBar extends UIToolbar {
       uiEditBar.savePage();
 
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();      
+      uiToolPanel.setShowMaskLayer(false);
       UIPageBrowser uiPageBrowser = (UIPageBrowser) uiBrowseControlBar.getBackComponent() ;
       uiPageBrowser.reset();
       uiToolPanel.setUIComponent(uiPageBrowser) ;
