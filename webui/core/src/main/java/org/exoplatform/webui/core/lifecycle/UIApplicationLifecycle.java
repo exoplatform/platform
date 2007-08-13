@@ -40,7 +40,8 @@ public class UIApplicationLifecycle  extends Lifecycle {
       return ;
     }
     UIPortletApplication uiApp = (UIPortletApplication) uicomponent;
-    context.getWriter().append("<div id=\"").append(uicomponent.getId()).append("\" class=\"").append(uicomponent.getId()).
+    context.getWriter().append("<div id=\"").append(uicomponent.getId()).append("\"").
+                        append(" style=\"min-width:").append(String.valueOf(uiApp.getMinWidth())).append("px\" class=\"").append(uicomponent.getId()).
                         append("\" exo:minWidth=\"").append(String.valueOf(uiApp.getMinWidth())).
                         append("\" exo:minHeight=\"").append(String.valueOf(uiApp.getMinHeight())).append("\">");
     uiApp.renderChildren();
