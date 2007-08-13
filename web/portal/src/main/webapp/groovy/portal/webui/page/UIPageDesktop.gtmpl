@@ -97,7 +97,7 @@
                   <img id="FixBug" src="/eXoResources/skin/sharedImages/Debug1x32.gif" />
                   
                   <%if(rcontext.getRemoteUser() == null) {%>
-		                  <img id="SignInIcon" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Signin.png"
+		                  <img id="SignInIcon" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Signin.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
 		                         onclick="<%=uicomponent.event("ShowLoginForm", null);%>" />
 		                  <%/*Tool Tip*/%>
 		                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignIn")%></span>
@@ -105,7 +105,7 @@
                   <%}%>
 
                   <%if(modifiable) {%>
-		                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/AddPortlet.png"
+		                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/AddPortlet.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
 
 		                       id="UIAddApplicationIcon"
 		                       onclick="eXo.desktop.UIAddApplication.init('<%=uicomponent.id%>', 'UIPageDesktop',[])" />
@@ -125,7 +125,7 @@
                       if(!(uiChild instanceof UIPortlet)) continue; 
                       String portletIcon = uicomponent.getPortletIcon(res, uiChild) ;
                   %>
-                      <img class="Icon" src="$imgLocation/$portletIcon" id="DockItem${uiChild.id}"
+                      <img class="Icon" src="$imgLocation/$portletIcon" id="DockItem${uiChild.id}"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
                            onclick="eXo.desktop.UIDesktop.showHideWindow('${uiChild.id}', this);" />
                      <%/*Tool Tip*/ %>
                   	 <span class="Tooltip" style="display: none">
@@ -135,13 +135,13 @@
                   <%}%>
 
                   <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png" />
-                  <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/ShowPortletsViewer.png"
+                  <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/ShowPortletsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
                     />
                   <%/*Tool Tip*/%>
                   <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowPortletDesktop")%></span>
                   <%/*End Tool Tip*/%>
 
-                  <img id="WidgetsViewer" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/HideWidgetsViewer.png"
+                  <img id="WidgetsViewer" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/HideWidgetsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
                        />
                   <%/*Tool Tip*/%>
                   <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
