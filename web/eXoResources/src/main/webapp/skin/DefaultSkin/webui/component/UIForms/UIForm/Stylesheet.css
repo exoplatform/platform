@@ -59,8 +59,13 @@
 }
 
 .UIForm .HorizontalLayout input {
-  width: 228px ;
+  width: 235px ;
   font-size: 11px;
+}
+
+.UIForm .FieldComponent .FieldComponent input {
+  /* TODO MinhJS: Fix bug in IE6*/
+  width: 200px;
 }
 
 .UIForm .HorizontalLayout input.checkbox {
