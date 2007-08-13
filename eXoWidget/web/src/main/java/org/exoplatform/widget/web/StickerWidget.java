@@ -67,6 +67,7 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
     String content = "";
     if(bytes != null ) content = new String(bytes);
     if(content == null ) content = "";
+    content = content.trim();
     w.append("<div id = 'UIStickerWidget' applicationId = '").
       append(instanceId).
       append("' posX = '").append(String.valueOf(posX)). 
