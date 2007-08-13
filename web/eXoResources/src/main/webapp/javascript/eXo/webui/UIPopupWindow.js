@@ -9,7 +9,9 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	var portalApp = document.getElementById("UIPortalApplication") ;
 	if(popup == null) return;
 	popup.style.visibility = "hidden" ;
-	this.superClass.init(popup) ;
+	
+	//TODO Lambkin: this statement create a bug in select box component in Firefox
+	//this.superClass.init(popup) ;
 	var contentBlock = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'PopupContent');
 	if((eXo.core.Browser.getBrowserHeight() - 100 ) < contentBlock.offsetHeight) {
 		contentBlock.style.height = (eXo.core.Browser.getBrowserHeight() - 100) + "px";

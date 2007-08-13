@@ -35,7 +35,8 @@ body {
 	margin: 0px ; padding: 0px;
 	font-family: Tahoma,Verdana, Arial, Helvetica, sans-serif ;
 	font-size: 11px;
-	overflow-x: hidden; 
+	overflow-x: hidden;
+	height: 100%;
 }
 
 html {
