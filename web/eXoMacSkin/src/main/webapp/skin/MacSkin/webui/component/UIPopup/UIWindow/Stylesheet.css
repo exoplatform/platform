@@ -241,9 +241,8 @@
 }
 
 .UIPageBody .UIPortalWarning .LeftMiddleWarning {
-  background: url('/eXoResources/skin/sharedImages/LeftMiddleWarning7x1.gif') repeat-y left;	
+  background: white url('/eXoResources/skin/sharedImages/LeftMiddleWarning7x1.gif') repeat-y left;	
   padding-left: 7px; 
-  background: white;
 }
 
 .UIPageBody .UIPortalWarning .RightMiddleWarning {

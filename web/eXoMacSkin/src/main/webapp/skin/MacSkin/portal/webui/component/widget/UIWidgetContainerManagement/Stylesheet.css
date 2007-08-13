@@ -95,7 +95,7 @@
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerCategory {
 	float: left;
 	width: 255px; height: 275px;
-	background: white;
+	background: white; overflow: auto;
 	border: 1px solid #b7b7b7;
 }
 
@@ -132,6 +132,13 @@
 
 .UIWidgetContainerManagement .WidgetContainerView .InfoContent {
 	padding: 20px 0px;
+}
+
+.UIWidgetContainerManagement .ContainerManagementDetail .Empty {
+	color: #797979;
+	width: 110px;
+	line-height: 50px;
+	margin: auto;	
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .InfoContent .Label {

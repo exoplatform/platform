@@ -74,7 +74,6 @@
 	margin-left: 8px;
 }
 
-
 .UIWidgets .EditIcon {
 	float: left;
 	width: 19px; height: 22px;
@@ -144,8 +143,6 @@
 .UIWidgetContainer .WidgetNavigator .AddWidgetButton{
 	background: url('icons/AddWidgetButton.png') no-repeat center;
 }
-
-
 
 .UIWidgets .WidgetDecorator .BottomLeftWidgetsDecorator {
   background: url('background/BottomLeftWidgets6x12.png') no-repeat left bottom;
@@ -291,7 +288,6 @@
 	width: 2px; height: 13px;
 	margin: 3px 2px 0px 2px;
 	background: url('DefaultSkin/background/SeparatorLine2x1.gif') repeat-y;
-	
 }
 
 .UIWidget .WidgetControl .EditWidgetIcon {

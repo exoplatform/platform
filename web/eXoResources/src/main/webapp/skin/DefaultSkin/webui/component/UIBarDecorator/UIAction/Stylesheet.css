@@ -36,18 +36,18 @@
 }
 
 .UIAction .ActionButton .NormalStyle .ButtonLeft {
-  background: url('background/LeftNormalStyleButton3x22.gif') no-repeat left;
+  background: url('background/LeftNormalStyleButton3x22.gif') no-repeat left center;
   padding: 0px 0px 0px 3px;
 }
 
 .UIAction .ActionButton .NormalStyle .ButtonRight {
-  background: url('background/RightNormalStyleButton3x22.gif') no-repeat right;
+  background: url('background/RightNormalStyleButton3x22.gif') no-repeat right center;
   padding: 0px 3px 0px 0px ;
 }
 
 .UIAction .ActionButton .NormalStyle .ButtonMiddle {
   line-height: 22px;
-	background: url('background/MiddleNormalStyleButton1x22.gif') repeat-x;
+	background: url('background/MiddleNormalStyleButton1x22.gif') repeat-x center;
 }
 
 /*##############################-Disabled ActionButton-################################*/

@@ -99,7 +99,7 @@
 	width: 255px;
 	background: #ffffff;
 	border: 1px #b7b7b7 solid;
-	height: 275px;
+	height: 275px; overflow: auto;
 }
 
 /*===================== Begin the Widget Container View ==========================*/
@@ -127,6 +127,13 @@
 	float: right;
 	color: #000000;
 	display: block; cursor: pointer;
+}
+
+.UIWidgetContainerManagement .ContainerManagementDetail .Empty {
+	color: #797979;
+	width: 110px;
+	line-height: 50px;
+	margin: auto;	
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .InfoContent {
