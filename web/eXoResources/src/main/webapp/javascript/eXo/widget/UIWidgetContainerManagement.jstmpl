@@ -30,7 +30,7 @@
 						Portal Widget Containers
 					</div>
 					<div class="ContainerList">
-						<span></span>
+						<div class="EmptyListMessage">There is no container in this category.</div>
 					</div>
 				</div>
 				<div class="UserWidgetContainer">
@@ -38,7 +38,7 @@
 						User Widget Containers
 					</div>
 					<div class="ContainerList">
-						<span></span>
+						<div class="EmptyListMessage">There is no container in this category.</div>
 					</div>
 				</div>
 			</div>

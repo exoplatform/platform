@@ -60,6 +60,7 @@ public class GetWidgetContainerHandler extends Command {
     value.append("{\"widgetContainers\": {\n") ;
     for(int k = 0; k < widgetIds.length; k++) {
       Widgets widgets = dataService.getWidgets(widgetIds[k]) ;
+      if(widgets == null) continue ;
       ArrayList<Container> widgetContainers = widgets.getChildren() ;
       String owner = widgets.getOwnerType() ;
       

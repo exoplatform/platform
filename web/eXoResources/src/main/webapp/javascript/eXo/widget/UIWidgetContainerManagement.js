@@ -135,7 +135,7 @@ UIWidgetContainerManagement.prototype.addWidgetContainer = function() {
 	var category = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", categoryName) ;
 	var containerList = DOMUtil.findFirstDescendantByClass(category, "div", "ContainerList");
 	if(idField.value == '' || idField.value == null) {
-		alert("The field 'Container Name' is required");
+		alert("The field 'Container Id' is required");
 		idField.focus();
 		return ;
 	}
