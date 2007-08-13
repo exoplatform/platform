@@ -34,6 +34,7 @@ public class GetApplicationHandler extends Command {
   
   @SuppressWarnings("unused")
   public void execute(WebAppController controller, HttpServletRequest req, HttpServletResponse res) throws Exception {
+    res.setHeader("Cache-Control", "no-cache") ;
     Writer writer = res.getWriter();
     try{
       writer.append(getApplications(req.getRemoteUser()));
