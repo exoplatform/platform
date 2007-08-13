@@ -82,8 +82,8 @@ public class UIPortalForm extends UIFormTabPane {
   private static final String SKIN = "skin";
   private List<SelectItemOption<String>> languages = new ArrayList<SelectItemOption<String>>() ;
   
-  private static String DEFAULT_FACTORY_ID = "default";
-  private static String OFFICE_FACTORY_ID = "office";
+//  private static String DEFAULT_FACTORY_ID = "default";
+//  private static String OFFICE_FACTORY_ID = "office";
   
   @SuppressWarnings("unchecked")
   public UIPortalForm(InitParams initParams) throws Exception {
@@ -116,36 +116,38 @@ public class UIPortalForm extends UIFormTabPane {
     super("UIPortalForm");
     createDefaultItem();
     
-    WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
-    WebuiApplication app = (WebuiApplication)currReqContext.getApplication() ;
-    List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);
-    List<SelectItemCategory>  itemCategories = new ArrayList<SelectItemCategory>();
-    for(Component ele : configs) {
-      String id =  ele.getId();
-      if(id == null) id = DEFAULT_FACTORY_ID;
-      StringBuilder builder = new StringBuilder(id);
-      builder.setCharAt(0, Character.toUpperCase(builder.charAt(0)));
-      String upId = builder.toString();
-      
-      SelectItemCategory category = new SelectItemCategory(upId);
-      itemCategories.add(category);
-      List<SelectItemOption<String>> items = new ArrayList<SelectItemOption<String>>();
-      category.setSelectItemOptions(items);
-      SelectItemOption<String> item = new SelectItemOption<String>(id, id, "Portal"+upId);
-      items.add(item);
-    } 
-    
-    UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
-    UIPortal uiPortal = Util.getUIPortal();
-    String factoryId = uiPortal.getFactoryId();
-    uiFactoryId.setItemCategories(itemCategories);
-    if(factoryId == null || factoryId.length() < 1){
-     factoryId = UIPortalForm.DEFAULT_FACTORY_ID;
-    }
-    uiFactoryId.setValue(factoryId);
-    uiFactoryId.setRendered(false);
-    addUIFormInput(uiFactoryId);
-    
+    //TODO: Tung.Pham disabled
+    //----------------------------------------------------------------------------------
+//    WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
+//    WebuiApplication app = (WebuiApplication)currReqContext.getApplication() ;
+//    List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);
+//    List<SelectItemCategory>  itemCategories = new ArrayList<SelectItemCategory>();
+//    for(Component ele : configs) {
+//      String id =  ele.getId();
+//      if(id == null) id = DEFAULT_FACTORY_ID;
+//      StringBuilder builder = new StringBuilder(id);
+//      builder.setCharAt(0, Character.toUpperCase(builder.charAt(0)));
+//      String upId = builder.toString();
+//      
+//      SelectItemCategory category = new SelectItemCategory(upId);
+//      itemCategories.add(category);
+//      List<SelectItemOption<String>> items = new ArrayList<SelectItemOption<String>>();
+//      category.setSelectItemOptions(items);
+//      SelectItemOption<String> item = new SelectItemOption<String>(id, id, "Portal"+upId);
+//      items.add(item);
+//    } 
+//    
+//    UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
+//    UIPortal uiPortal = Util.getUIPortal();
+//    String factoryId = uiPortal.getFactoryId();
+//    uiFactoryId.setItemCategories(itemCategories);
+//    if(factoryId == null || factoryId.length() < 1){
+//     factoryId = UIPortalForm.DEFAULT_FACTORY_ID;
+//    }
+//    uiFactoryId.setValue(factoryId);
+//    uiFactoryId.setRendered(false);
+//    addUIFormInput(uiFactoryId);
+    //----------------------------------------------------------------------------------    
     this.<UIFormInputSet>getChildById("PortalSetting").setRendered(true);
     invokeGetBindingBean(Util.getUIPortal()) ;
   }
@@ -205,7 +207,7 @@ public class UIPortalForm extends UIFormTabPane {
       
       UIPortal uiPortal = Util.getUIPortal();
       uiForm.invokeSetBindingBean(uiPortal);
-      if(uiPortal.getFactoryId().equals(UIPortalForm.DEFAULT_FACTORY_ID)) uiPortal.setFactoryId(null);      
+      //if(uiPortal.getFactoryId().equals(UIPortalForm.DEFAULT_FACTORY_ID)) uiPortal.setFactoryId(null);      
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
       uiApp.setLocale(localeConfig.getLocale());
       
