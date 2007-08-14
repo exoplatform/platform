@@ -25,7 +25,7 @@ UIDesktop.prototype.fixDesktop = function() {
   
   eXo.desktop.UIDockbar.init() ;
 };
-
+//TODO DungHM
 UIDesktop.prototype.resetZIndex = function(windowObject) {
   var windowsInDesktop = eXo.core.DOMUtil.getChildrenByTagName(windowObject.parentNode, "div") ;
   var uiDockbar = document.getElementById("UIDockBar") ;
@@ -46,8 +46,10 @@ UIDesktop.prototype.resetZIndex = function(windowObject) {
 	    
 	    if(parseInt(windowsInDesktop[i].style.zIndex) >= parseInt(windowObject.style.zIndex)) {
 	      windowsInDesktop[i].style.zIndex = parseInt(windowsInDesktop[i].style.zIndex) - 1 ;
+	      
 	    }
   	}
+  	if (windowsInDesktop[i].style.zIndex < 0) windowsInDesktop[i].style.zIndex = 1 ;
   }
 	
   windowObject.style.zIndex = maxZIndex ;
@@ -59,8 +61,8 @@ UIDesktop.prototype.resetZIndex = function(windowObject) {
 UIDesktop.prototype.isMaxZIndex = function(object) {
 	var isMax = false ;
 	var DOMUtil = eXo.core.DOMUtil ;
-	var uiPageDesktop = document.getElementById("UIPageDesktop");
-	var uiDockbar = document.getElementById("UIDockBar");
+	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+	var uiDockbar = document.getElementById("UIDockBar") ;
 	var desktopApps = DOMUtil.getChildrenByTagName(uiPageDesktop, "div") ;
 	
 	var maxZIndex = parseInt(object.style.zIndex) ;
