@@ -198,38 +198,4 @@ ImplodeExplode.prototype.doExplode = function(containerId ) {
 			
 };
 
-
-
-
-
-//ImplodeExplode.prototype.doExplode = function(containerId) {
-//		var container = document.getElementById(containerId) ;
-//		var win = this.object;
-//
-//		var X0 = win.originalX + (win.step*(win.iconX - win.originalX))/win.loop ;
-//		var Y0 = win.originalY + ((X0 - win.originalX)*(win.iconY - win.originalY))/(win.iconX - win.originalX) ;
-//		var W0 = ((win.originalW - win.iconW)*(win.loop - win.step))/win.loop + win.iconW ;
-//		var H0 = ((win.originalH - win.iconH)*(win.loop - win.step))/win.loop + win.iconH ;
-//		
-//		win.animation.style.top = X0 + "px" ;
-//		
-//		win.animation.style.left = Y0 + "px" ;
-//		win.animation.style.width = W0 + "px" ;
-//		win.animation.style.height = H0 + "px" ;
-//		
-//		win.step--;
-//		
-//		if(W0 < win.originalW) {
-//			setTimeout("eXo.animation.ImplodeExplode.doExplode('" + containerId + "');", 0) ;
-//		} else {
-//			win.style.top = X0 + "px" ;
-//			win.style.left = Y0 + "px" ;
-//			win.style.width = W0 + "px" ;
-//			win.style.height = H0 + "px" ;
-//			win.style.display = "block" ;
-//			container.removeChild(win.animation) ;
-//			win.animation = null ;
-//	}	
-//};
-
 eXo.animation.ImplodeExplode = new ImplodeExplode() ;
