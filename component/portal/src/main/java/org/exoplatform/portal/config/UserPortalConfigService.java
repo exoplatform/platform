@@ -6,6 +6,8 @@ package org.exoplatform.portal.config;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -112,6 +114,12 @@ public class UserPortalConfigService {
     
     widgetsItem = getWidgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
     if(widgetsItem != null) widgets.add(widgetsItem);
+    
+    Collections.sort(navigations, new Comparator<PageNavigation>() {
+      public int compare(PageNavigation nav1, PageNavigation nav2) {
+        return nav1.getPriority()- nav2.getPriority() ;
+      }
+    });
     
     return new UserPortalConfig(portal, navigations, widgets) ;
   }

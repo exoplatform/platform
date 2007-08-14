@@ -2,6 +2,7 @@
 <node-navigation>
 	<owner-type>group</owner-type>
   <owner-id>portal/community</owner-id>
+  <priority>2</priority>
   <access-permissions>*:/portal/community</access-permissions>  
   <edit-permission>owner:/portal/community</edit-permission>
   

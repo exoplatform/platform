@@ -2,6 +2,7 @@
 <node-navigation>
   <owner-type>user</owner-type>  
 	<owner-id>exoadmin</owner-id>
+	<priority>3</priority>
   <description>description for node navigation </description>
   
   <page-nodes>  
