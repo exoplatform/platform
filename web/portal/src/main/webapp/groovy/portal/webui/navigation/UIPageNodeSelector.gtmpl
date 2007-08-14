@@ -25,7 +25,7 @@
   	
   	JavascriptManager jsmanager = rcontext.getJavascriptManager();
   	jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
-    if( uicomponent.getCopyNode()!= null) {
+    if(uicomponent.getCopyNode()!= null) {
       popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode,EditNavigation,SaveNavigation,DeleteNavigation");
     } else {
       popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,EditNavigation,SaveNavigation,DeleteNavigation");

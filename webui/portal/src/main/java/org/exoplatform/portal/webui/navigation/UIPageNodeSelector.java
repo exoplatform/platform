@@ -173,14 +173,14 @@ public class UIPageNodeSelector extends UIContainer {
       if(!navigations.get(i).getId().equals(id)) continue ;
       selectedNode = new SelectedNode(navigations.get(i), null, null);
       selectPageNodeByUri(null) ;
-      UITree tree = getChild(UITree.class);
-      tree.setSibbling(navigations.get(i).getNodes());      
+      UITree uiTree = getChild(UITree.class);
+      uiTree.setSibbling(navigations.get(i).getNodes());      
       UIDropDownItemSelector uiDopDownSelector = getChild(UIDropDownItemSelector.class);
       uiDopDownSelector.setSelected(i);
     }
   }
   
-  public void selectPageNodeByUri(String uri){    
+  public void selectPageNodeByUri(String uri){   
     if(selectedNode == null) return ;
     UITree tree = getChild(UITree.class);
     List<?> sibbling = tree.getSibbling();
@@ -282,13 +282,14 @@ public class UIPageNodeSelector extends UIContainer {
       UIPageEditBar uiEditBar = uiParent.getChild(UIPageEditBar.class);   
       if(uiPageNodeSelector.getSelectedNode() == null) return;
       PageNode node  = uiPageNodeSelector.getSelectedNode().getNode();
-      //TODO: Tung.Pham added
+      
+     //TODO: Tung.Pham added
       //-------------------------------------------------------------
       if(node == null) {
-        UIPortal uiPortal = Util.getUIPortal();
-        uiPageNodeSelector.selectNavigation(uiPortal.getSelectedNavigation().getId());
-        uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri());
-        node = uiPageNodeSelector.getSelectedPageNode();
+//        UIPortal uiPortal = Util.getUIPortal();
+        uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation().getId());
+//        uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri());
+//        node = uiPageNodeSelector.getSelectedPageNode();
       }
       //-------------------------------------------------------------
       if(node == null) return;  
