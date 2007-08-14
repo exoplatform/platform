@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.application;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.webui.container.UIContainer;
@@ -84,9 +85,19 @@ public class UIWidgets extends UIContainer {
     UIDropDownItemSelector uiDropDownItemSelector = getChild(UIDropDownItemSelector.class);
     uiDropDownItemSelector.cleanItem();
     List<UIComponent> uiChildren = getChildren();
+    //TODO: Tung.Pham modified
+    //---------------------------------------
+    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>() ;
     for(int i = 1; i < uiChildren.size(); i++) {
-      uiDropDownItemSelector.addItem(uiChildren.get(i).getId());
+      //uiDropDownItemSelector.addItem(uiChildren.get(i).getId());
+      String containerId = uiChildren.get(i).getId() ;
+      String containerName = uiChildren.get(i).getName() ;
+      if(containerName == null) containerName = containerId.split("/")[1] ;
+      String label =  containerId.split("::")[0] + ":" + containerName ;
+      options.add(new SelectItemOption<String>(label, containerId)) ;
     }
+    uiDropDownItemSelector.setOptions(options) ;
+    //---------------------------------------
   }
   
   static  public class ChangeOptionActionListener extends EventListener<UIWidgets> {

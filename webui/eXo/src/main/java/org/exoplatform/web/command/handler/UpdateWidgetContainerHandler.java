@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.web.command.handler;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +41,13 @@ public class UpdateWidgetContainerHandler extends Command {
       }
       
       Widgets widgets = configService.getWidgets(widgetsId) ;
-      if(widgets == null) return ;
+      if(widgets == null) {
+        widgets = new Widgets() ;
+        widgets.setOwnerType(widgetsId.split("::")[0]) ;
+        widgets.setOwnerId(widgetsId.split("::")[1]) ;
+        widgets.setChildren(new ArrayList<Container>()) ;
+        configService.create(widgets) ;
+      }
 
       deleteContainer(widgets, req) ;
       saveContainer(widgets, req) ;
@@ -67,7 +74,7 @@ public class UpdateWidgetContainerHandler extends Command {
     String[] cIds = req.getParameterValues("id") ;
     String[] cNames = req.getParameterValues("name") ;
     String[] cDesc = req.getParameterValues("desc") ;
-    if(cIds == null || cDesc == null) return ;
+    if(cIds == null) return ;
     for(int i = 0; i < cIds.length; i++) {
       Container foundContainer = getContainer(existingContainers, cIds[i]) ;
       if(foundContainer != null) {
@@ -75,7 +82,7 @@ public class UpdateWidgetContainerHandler extends Command {
         foundContainer.setDescription(cDesc[i]) ;
         continue ;
       }
-      Container newContainer = createContainer(cIds[i], cDesc[i]) ;
+      Container newContainer = createContainer(cIds[i], cNames[i], cDesc[i]) ;
       existingContainers.add(newContainer) ;
     }
   }
@@ -88,10 +95,10 @@ public class UpdateWidgetContainerHandler extends Command {
     return null ;
   }
   
-  private Container createContainer(String id, String desc) {
+  private Container createContainer(String id, String name, String desc) {
     Container container = new Container() ;
     container.setId(id) ;
-    container.setName(id) ;
+    container.setName(name) ;
     container.setDescription(desc) ;
     
     return container ;

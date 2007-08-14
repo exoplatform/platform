@@ -10,6 +10,7 @@ import java.util.List;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
@@ -74,11 +75,38 @@ public class UIContainerActionListener {
       UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);
       
-      UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
-      Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
+      //TODO: Tung.Pham modified
+      //----------------------------
+//      UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
+//      Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
+//      UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
+//      configService.update(widgets);
+      String widgetId = uiWidgetContainer.getId().split("/")[0] ;
+      String containerId = uiWidgetContainer.getId().split("/")[1] ;
       UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
-      configService.update(widgets);
+      Widgets widgets = configService.getWidgets(widgetId) ;
+      Container container = getContainer(widgets.getChildren(), containerId) ;
+      Iterator<?> itr = container.getChildren().iterator() ;
+      while(itr.hasNext()) {
+        org.exoplatform.portal.config.model.Application app = (org.exoplatform.portal.config.model.Application)itr.next() ;
+        if(app.getInstanceId().equals(id)) {
+          itr.remove() ;
+          break ;
+        }
+      }
+      configService.update(widgets) ;
+      //----------------------------
     }
+    
+    private Container getContainer(List<Container> list, String containerId) {
+      for(Container con : list) {
+        if(con.getId().equals(containerId)) {
+          return con ;
+        }
+      }
+      return null ;
+    }
+    
   }
   
   static public class AddApplicationActionListener  extends EventListener<UIContainer> {
@@ -107,10 +135,29 @@ public class UIContainerActionListener {
 
       String save = event.getRequestContext().getRequestParameter("save");
       if(save == null || !Boolean.valueOf(save).booleanValue()) return;
-      UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
-      Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
+      //TODO: Tung.Pham modified
+      //-----------------------------
+//      UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
+//      Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
+//      UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
+//      configService.update(widgets);
+      String widgetId = uiWidgetContainer.getId().split("/")[0] ;
+      String containerId = uiWidgetContainer.getId().split("/")[1] ;
       UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
-      configService.update(widgets);
+      Widgets widgets = configService.getWidgets(widgetId) ;
+      Container container = getContainer(widgets.getChildren(), containerId) ;
+      container.getChildren().add(PortalDataMapper.toWidget(uiWidget)) ;
+      configService.update(widgets) ;
+      //-----------------------------
+    }
+    
+    private Container getContainer(List<Container> list, String containerId) {
+      for(Container con : list) {
+        if(con.getId().equals(containerId)) {
+          return con ;
+        }
+      }
+      return null ;
     }
   }
   
