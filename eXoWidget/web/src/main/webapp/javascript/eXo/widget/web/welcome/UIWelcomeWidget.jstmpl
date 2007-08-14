@@ -21,13 +21,22 @@
 		        </div>        
 	          
 	          <div class="WelcomeBox">
+	          <%
+	          	var userName = context.widget.uiWidget.userName ;
+	          	if(userName != null && userName != 'null') {
+	          %>
 							<div class="UserWelcomeBox">
 							  <div class="StateMessage">Hello</div>
-							  <div class="LoggedUserName"><%=context.widget.uiWidget.userName%></div>
+							  <div class="LoggedUserName"><%=userName%></div>
 							</div>
 							<div class="LabelSignout" title="Sign Out" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
-								Logout
+								Sign Out 
 							</div>
+						<%} else {%>
+							<div class="LabelSignout" title="Sign In" onclick="javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;">
+								Sign In
+							</div>							
+						<%}%>	
 						</div>
 						<div style="clear: left"><span></span></div>
 		    	</div>
