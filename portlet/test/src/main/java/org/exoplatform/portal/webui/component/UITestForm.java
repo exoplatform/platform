@@ -68,21 +68,21 @@ public class UITestForm extends UIForm {
     test.setType(UIFormDateTimeInput.class);
     addChild(upload);
     addChild(test);
-    UIDropDownItemSelector uiDropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
-    uiDropDownItemSelector.setTitle("SelectContainer") ;
-    uiDropDownItemSelector.setOnServer(true);
-    uiDropDownItemSelector.setOnChange("ChangeOption");
-    uiDropDownItemSelector.addItem("Tran the trong") ;
-    uiDropDownItemSelector.addItem("Tran the tro'ng1") ;
-    uiDropDownItemSelector.addItem("Tran the trong2") ;
-    uiDropDownItemSelector.addItem("Tran the tro\"ng3") ;
-    uiDropDownItemSelector.addItem("Tran the trong4") ;
-    uiDropDownItemSelector.addItem("Tran the trong5") ;
-    uiDropDownItemSelector.addItem("Tran the trong6") ;
-    uiDropDownItemSelector.addItem("Tran the trong7") ;
-    uiDropDownItemSelector.addItem("Tran the trong8") ;
-    
-    UIDropDownControl test1 = addChild(UIDropDownControl.class, null, null);
+//    UIDropDownItemSelector uiDropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
+//    uiDropDownItemSelector.setTitle("SelectContainer") ;
+//    uiDropDownItemSelector.setOnServer(true);
+//    uiDropDownItemSelector.setOnChange("ChangeOption");
+//    uiDropDownItemSelector.addItem("Tran the trong") ;
+//    uiDropDownItemSelector.addItem("Tran the tro'ng1") ;
+//    uiDropDownItemSelector.addItem("Tran the trong2") ;
+//    uiDropDownItemSelector.addItem("Tran the tro\"ng3") ;
+//    uiDropDownItemSelector.addItem("Tran the trong4") ;
+//    uiDropDownItemSelector.addItem("Tran the trong5") ;
+//    uiDropDownItemSelector.addItem("Tran the trong6") ;
+//    uiDropDownItemSelector.addItem("Tran the trong7") ;
+//    uiDropDownItemSelector.addItem("Tran the trong8") ;
+//    
+//    UIDropDownControl test1 = addChild(UIDropDownControl.class, null, null);
     
 //    UIFormStringInput newtest = new UIFormStringInput(INTER_NUMBER_VALUE, INTER_NUMBER_VALUE, null);
 //    newtest.addValidator(NumberFormatValidator.class);
@@ -94,7 +94,7 @@ public class UITestForm extends UIForm {
     
     List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
     for(int i = 0; i < 40; i++) {
-      ls.add(new SelectItemOption<String>("Select Box Item "+i+"", "select")) ;
+      ls.add(new SelectItemOption<String>("Select Box Item "+i+"", "select"+i)) ;
     }
     ls.get(0).setSelected(true);
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;

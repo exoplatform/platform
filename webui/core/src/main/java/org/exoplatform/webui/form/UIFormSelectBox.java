@@ -9,13 +9,14 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.model.SelectItemOption;
 
-public class UIFormSelectBox extends UIFormStringInput {
+public class UIFormSelectBox extends UIFormInputBase<String> {
   
   private int size_ = 1 ;
   
   private List<SelectItemOption<String>> options_ ;
   private String onchange_;
   private boolean multiple_ = false;
+  private String [] values_;
   
 	public UIFormSelectBox(String name, String bindingExpression, List<SelectItemOption<String>> options) {
     super(name, bindingExpression, null);
@@ -48,6 +49,14 @@ public class UIFormSelectBox extends UIFormStringInput {
     return this;
   }
   
+  @SuppressWarnings("unused")
+  public void decode(Object input, WebuiRequestContext context) throws Exception {
+    value_ = (String)input;
+    if(!multiple_) return ;
+    values_ =  value_.split(";");
+    value_ = values_[0];
+  }
+  
 //  protected String renderOnChangeAction(UIForm uiform) throws Exception {
 //    StringBuilder builder = new StringBuilder();
 //    builder.append(" onchange=\"javascript:eXo.webui.UIForm.submitForm('").
@@ -58,6 +67,11 @@ public class UIFormSelectBox extends UIFormStringInput {
   protected String renderOnChangeEvent(UIForm uiForm) throws Exception {
     return uiForm.event(onchange_, (String)null);
   }
+  
+  public String[] getValues() { return values_; }
+
+  public void setValues(String[] values) { this.values_ = values; }
+
   
   public void processRender(WebuiRequestContext context) throws Exception {
     ResourceBundle res = context.getApplicationResourceBundle() ;
@@ -87,7 +101,7 @@ public class UIFormSelectBox extends UIFormStringInput {
         label = res.getString(formId + ".label.option." + options_.get(i)) ;
       } catch(MissingResourceException ex) { }
       
-      if (getValue() != null && options_.get(i).getValue().equals(getValue())) {
+      if (isSelectedValue(options_.get(i).getValue())) {
         w.write("<option selected=\"selected\" value=\""); w.write(options_.get(i).getValue()); w.write("\">"); 
       }  else {
         w.write("<option value=\""); w.write(options_.get(i).getValue()); w.write("\">"); 
@@ -96,6 +110,15 @@ public class UIFormSelectBox extends UIFormStringInput {
     }
     
     w.write("</select>\n") ;
+  }
+  
+  private boolean isSelectedValue(String value) {
+    if(!multiple_) return value.equals(value_);
+    if(values_ == null) return false;
+    for(String ele : values_) {
+      if(ele.equals(value)) return true;
+    }
+    return false;
   }
 
 }

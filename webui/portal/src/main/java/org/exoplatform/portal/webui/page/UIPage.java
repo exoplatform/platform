@@ -34,7 +34,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
         @EventConfig(listeners = EditPageActionListener.class ),
         @EventConfig(listeners = MoveChildActionListener.class)
       }
-  ),
+  ), //save desktop setting
   @ComponentConfig(
       id = "Desktop",
       lifecycle = UIPageLifecycle.class,
