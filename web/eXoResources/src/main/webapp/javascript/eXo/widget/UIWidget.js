@@ -183,6 +183,7 @@ UIWidget.prototype.resizeContainer = function() {
 	var workspacePanel = document.getElementById("UIWorkspacePanel") ;
 	if(workspacePanel.style.display == "none") return;
 	var uiWidgetContainer = DOMUtil.findFirstDescendantByClass(widgets, "div", "UIWidgetContainer");
+	if(uiWidgetContainer == null) return ;
 	var widgetNavigator = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetNavigator") ;	
 	var widgetContainerScrollArea = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetContainerScrollArea") ;
 	var itemSelectorContainer = DOMUtil.findFirstChildByClass(widgets, "div", "ItemSelectorContainer") ;

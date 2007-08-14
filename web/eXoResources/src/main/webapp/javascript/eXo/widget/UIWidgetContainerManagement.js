@@ -1,4 +1,5 @@
 eXo.require('eXo.core.TemplateEngine');
+eXo.require('eXo.core.CacheJSonService');
 
 function UIWidgetContainerManagement() {
 	this.selectedContainer = null ;
