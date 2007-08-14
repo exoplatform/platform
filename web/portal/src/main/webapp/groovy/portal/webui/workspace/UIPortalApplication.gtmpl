@@ -16,7 +16,7 @@
   <head id="head">
     <title>eXo Portal</title>
     <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
-    <link rel="icon" type="image/png" href="/portal/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
     <link id="PortalSkin" rel="stylesheet" type="text/css" href="$portalSkin.CSSPath" />
     <link id="CoreSkin" rel="stylesheet" type="text/css" href="$coreSkin.CSSPath"/>
     

@@ -43,6 +43,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title>Login</title>
+    <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
     <link rel='stylesheet' type='text/css' href='<%=contextPath%>/login/skin/Stylesheet.css'/>
     <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
     <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIPortalControl.js"></script>
