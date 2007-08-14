@@ -1,5 +1,5 @@
 	<div class="ContainerDetail">
-		<div class="HeadTitle">Selected Widget Container Infos:</div>
+		<div class="HeadTitle">Selected Widget Container Info:</div>
 		<div class="Detail">
 			<% if(context == null) {%>
 				<div class="Empty">No container selected</div>
