@@ -228,12 +228,8 @@ UIBrowserApplication.prototype.activateTabDetail = function(selectedElement, anc
 	selectedElement.className = "ActiveTabDetailBackground TabMenuItem" ;
 	var txtAddress = null ;
 
-	if (ancestor.className == "BrowserContent") {
-		var uiToolbar = DOMUtil.findPreviousElementByTagName(ancestor, "div") ;
-		txtAddress = DOMUtil.findFirstDescendantByClass(uiToolbar, "input", "txtAddress") ;		
-	} else {
-		txtAddress = DOMUtil.findFirstDescendantByClass(ancestor, "input", "txtAddress") ;
-	}
+  var uiToolbar = DOMUtil.findPreviousElementByTagName(DOMUtil.findAncestorByClass(selectedElement, 'BrowserContent'), 'div') ;
+	txtAddress = DOMUtil.findFirstDescendantByClass(uiToolbar, "input", "txtAddress") ;
 	var iframes = DOMUtil.findDescendantsByClass(ancestor, "iframe", "IFrame") ;
 	for(var j = 0; j < iframes.length; j++) {
 		if (tabMenuItems[j] == selectedElement) {
