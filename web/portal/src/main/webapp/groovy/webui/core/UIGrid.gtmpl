@@ -12,94 +12,95 @@
   
   DateFormat dateFormat = null;
 %>
-
-<table class="UIGrid" id="$uicomponent.id" cellspacing="0" borderspacing="0">
-  <thead>
-  	<tr>
-      <%if(name != null) {%>
-	      <%for(field in beanFields) { %>
-	          <th><%=_ctx.appRes(name+".header."+field)%></th>
+<div id="$uicomponent.id">
+	<table class="UIGrid" cellspacing="0" borderspacing="0">
+	  <thead>
+	  	<tr>
+	      <%if(name != null) {%>
+		      <%for(field in beanFields) { %>
+		          <th><%=_ctx.appRes(name+".header."+field)%></th>
+		      <%}%>
+		      <%if(beanActions != null) { %>
+		          <th><%=_ctx.appRes(name+".header.action")%></th>
+		      <%}%>
 	      <%}%>
-	      <%if(beanActions != null) { %>
-	          <th><%=_ctx.appRes(name+".header.action")%></th>
-	      <%}%>
-      <%}%>
-      <%if(name == null) {%>
-      	<%for(field in beanFields) { %>
-	          <th><%=_ctx.appRes(uiParent.getName()+".header."+field)%></th>
-	      <%}%>
-	      <%if(beanActions != null && beanActions.length > 0) { %>
-	          <th><%=_ctx.appRes(uiParent.getName()+".header.action")%></th>
-	      <%}%>
-	    <%}%>
-    </tr>
-  </thead>
-  <tbody>
-  <%if(uicomponent.getUIPageIterator().getAvailable() < 1) {%>
-    <tr>
-      <td align="center" style="font-style:italic; color: #FF5604" colspan="<%=beanFields.length+1%>">
-        <%=_ctx.appRes("UIGrid.msg.empty")%>
-      </td>
-    </tr>  
-  <%} else { 
-	    def rowClass = null ;
-	    boolean even = true ;
-	    for (bean in uicomponent.getBeans())  {
-	      if(even) rowClass = "EvenRow" ;  
-	      else rowClass =  "OddRow" ; 
-	      even = !even ;
-  %>
-	      <tr class="$rowClass">
-  <%
-		    for(field in beanFields) { 
-		      def fieldValue = uicomponent.getFieldValue(bean, field) ;
-		      def cssClass = "" ;
-		      if(fieldValue != null) {
-		        def fieldClass = fieldValue.getClass() ;
-		        if(fieldClass == Integer.class)  cssClass = "number" ;
-		        else if(java.util.Date.class.isAssignableFrom(fieldClass)) {
-		          if(dateFormat == null) dateFormat = new SimpleDateFormat("HH:mm:ss yyyy-MM-dd");
-		          cssClass = "Datetime" ;
-		          fieldValue = dateFormat.format(fieldValue);
-		        } 
-		        else cssClass = "text" ;
-		      } else {
-		      	fieldValue = "";
-		      }
-		      println "<td class=\""+cssClass+"\">"+fieldValue+"</td>";
-	    
-	      }  
-        if(beanActions != null && beanActions.length > 0) { 
-  %>
-			  <td>         
-	        <div class="ActionContainer" style="margin: 0px auto;">
-	          <div class="OverflowContainer" style="margin: auto;">          
-	          <%	          
-	            def beanIdField = uicomponent.getBeanIdField() ;           
-	            for(action in beanActions) { 
-	              def beanId = uicomponent.getFieldValue(bean, beanIdField)  ;
-		            if(action == null) continue;           
-	              String title = _ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action);
-	              String actionLink = "";
-	              if(uiForm != null){
-	                actionLink = uiForm.event(action, uicomponent.getParent().getId(), beanId);
-	              } else {
-	                actionLink = uiParent.event(action, beanId);
-	              }
-		        %>	           
-		            <a class="${action}Icon" href="$actionLink" title="$title"><span></span></a>		          
-	          <%}%>                 
-	          </div>
-	        </div>
+	      <%if(name == null) {%>
+	      	<%for(field in beanFields) { %>
+		          <th><%=_ctx.appRes(uiParent.getName()+".header."+field)%></th>
+		      <%}%>
+		      <%if(beanActions != null && beanActions.length > 0) { %>
+		          <th><%=_ctx.appRes(uiParent.getName()+".header.action")%></th>
+		      <%}%>
+		    <%}%>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  <%if(uicomponent.getUIPageIterator().getAvailable() < 1) {%>
+	    <tr>
+	      <td align="center" style="font-style:italic; color: #FF5604" colspan="<%=beanFields.length+1%>">
+	        <%=_ctx.appRes("UIGrid.msg.empty")%>
 	      </td>
-  <%
-        }
-  %>  
-		    </tr>
-	<%
-	    }
-	  }
-	%> 
-  </tbody>
-</table> <!--End UIGrid-->
-<%_ctx.renderUIComponent(uicomponent.getUIPageIterator())%>
+	    </tr>  
+	  <%} else { 
+		    def rowClass = null ;
+		    boolean even = true ;
+		    for (bean in uicomponent.getBeans())  {
+		      if(even) rowClass = "EvenRow" ;  
+		      else rowClass =  "OddRow" ; 
+		      even = !even ;
+	  %>
+		      <tr class="$rowClass">
+	  <%
+			    for(field in beanFields) { 
+			      def fieldValue = uicomponent.getFieldValue(bean, field) ;
+			      def cssClass = "" ;
+			      if(fieldValue != null) {
+			        def fieldClass = fieldValue.getClass() ;
+			        if(fieldClass == Integer.class)  cssClass = "number" ;
+			        else if(java.util.Date.class.isAssignableFrom(fieldClass)) {
+			          if(dateFormat == null) dateFormat = new SimpleDateFormat("HH:mm:ss yyyy-MM-dd");
+			          cssClass = "Datetime" ;
+			          fieldValue = dateFormat.format(fieldValue);
+			        } 
+			        else cssClass = "text" ;
+			      } else {
+			      	fieldValue = "";
+			      }
+			      println "<td class=\""+cssClass+"\">"+fieldValue+"</td>";
+		    
+		      }  
+	        if(beanActions != null && beanActions.length > 0) { 
+	  %>
+				  <td>         
+		        <div class="ActionContainer" style="margin: 0px auto;">
+		          <div class="OverflowContainer" style="margin: auto;">          
+		          <%	          
+		            def beanIdField = uicomponent.getBeanIdField() ;           
+		            for(action in beanActions) { 
+		              def beanId = uicomponent.getFieldValue(bean, beanIdField)  ;
+			            if(action == null) continue;           
+		              String title = _ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action);
+		              String actionLink = "";
+		              if(uiForm != null){
+		                actionLink = uiForm.event(action, uicomponent.getParent().getId(), beanId);
+		              } else {
+		                actionLink = uiParent.event(action, beanId);
+		              }
+			        %>	           
+			            <a class="${action}Icon" href="$actionLink" title="$title"><span></span></a>		          
+		          <%}%>                 
+		          </div>
+		        </div>
+		      </td>
+	  <%
+	        }
+	  %>  
+			    </tr>
+		<%
+		    }
+		  }
+		%> 
+	  </tbody>
+	</table> <!--End UIGrid-->
+	<%_ctx.renderUIComponent(uicomponent.getUIPageIterator())%>
+</div>
