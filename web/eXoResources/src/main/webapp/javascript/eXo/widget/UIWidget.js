@@ -31,13 +31,13 @@ UIWidget.prototype.editWidget = function(selectedElement) {
 	var uiWidget = DOMUtil.findAncestorByClass(selectedElement,"UIWidget") ;
 	var editMode = DOMUtil.findFirstDescendantByClass(uiWidget, "div", "EditMode") ;
 	if (editMode) {		
-		viewMode = DOMUtil.findPreviousElementByTagName(editMode, "div") ;
+		viewMode = DOMUtil.findNextElementByTagName(editMode, "div") ;
 		if (editMode.style.display == "none") {
+			editMode.style.position = "absolute" ;
 			editMode.style.display = "block" ;
-			viewMode.style.display = "none" ;
+			editMode.style.left = viewMode.offsetWidth + "px" ;			
 		} else {
 			editMode.style.display = "none" ;
-			viewMode.style.display = "block" ;
 		}	
 		
 	}
