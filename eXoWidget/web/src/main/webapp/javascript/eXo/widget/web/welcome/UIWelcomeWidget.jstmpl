@@ -33,7 +33,7 @@
 								Sign Out 
 							</div>
 						<%} else {%>
-							<div class="LabelSignout" title="Sign In" onclick="javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;">
+							<div class="LabelSignin" title="Sign In" onclick="javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;">
 								Sign In
 							</div>							
 						<%}%>	

@@ -96,6 +96,15 @@
 	width: 65px;
 }
 
+.UIWelcomeWidget .StyleContent .LabelSignin {
+	color: #feb000;	
+	font-weight: bold; text-decoration: underline;
+	cursor: pointer;
+	margin: auto;
+	width: 65px;
+	padding: 40px 0px;
+}
+
 .UIWelcomeWidget .StyleContent {
 	height: 100px;
 }
