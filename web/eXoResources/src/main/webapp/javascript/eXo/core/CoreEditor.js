@@ -4,7 +4,6 @@
 
 function CoreEditor() {
   this.autoDetectFire = false ;
-  this.preSplitNodes = false ;
   this.HTMLUtil = eXo.core.HTMLUtil ;
 } ;
 
@@ -13,6 +12,7 @@ function CoreEditor() {
  * @param {Element} node
  */
 CoreEditor.prototype.isContainerNode = function(node) {
+  if (!node) return ;
   if (node.getAttribute && 
       node.getAttribute('editcontainer') == 1) {
     return true ;
@@ -25,8 +25,9 @@ CoreEditor.prototype.isContainerNode = function(node) {
  * @param {Element} node
  */
 CoreEditor.prototype.isEditableNode = function(node) {
+  if (!node) return ;
   if (node.getAttribute && 
-      node.getAttribute('editable') == 1) {
+      node.getAttribute('editable') == '1') {
     return true ;
   }
   return false ;
@@ -83,16 +84,11 @@ CoreEditor.prototype.autoDetectSubCoreEditor = function(event) {
 CoreEditor.prototype.init = function(node) {
   if(node == null) return ;
   if(this.isMultiSelection()) {
-    if (this.isProcessMultiSelect(node)) this.initMultiSelect() ;
     return ;
   }
   if (!this.autoDetectHandler(node)) {
     throw (new Error('Missing keyboard handler!')) ;
   }
-  return this.initSingleSelect(node) ;  
-} ;
-
-CoreEditor.prototype.initSingleSelect = function(node) {
   var clickPosition =  this.getClickPosition(node) ;
   this.clearSelection() ;
   var text = this.HTMLUtil.entitiesDecode(node.innerHTML) ;
@@ -116,65 +112,16 @@ CoreEditor.prototype.initSingleSelect = function(node) {
 } ;
 
 /**
- * This method should use for split selected DOM nodes
- * 
- * @param {Element} node
- */
-CoreEditor.prototype.initMultiSelect = function(node) {
-  window.alert('get here') ;
-  if(window.getSelection) { // Netscape/Firefox/Opera
-    var selObj = window.getSelection() ;
-    var anchorNode = selObj.anchorNode ;
-    var anchorOffset = selObj.anchorOffset ;
-    var focusNode = selObj.focusNode ;
-    var focusOffset = selObj.focusOffset ;
-    if (focusNode === anchorNode) {
-      var nodeValue = this.HTMLUtil.entitiesDecode(node.innerHTML) ;
-      this.preSplitNodes[0] = this.createEditableNode(nodeValue.substr(0, anchorOffset)) ;
-      this.preSplitNodes[1] = this.createEditableNode(nodeValue.substr(anchorOffset, focusOffset)) ;
-      this.preSplitNodes[2] = this.createEditableNode(nodeValue.substr(focusOffset, nodeValue.length - 1)) ;
-    } else {
-      // We will break out selected node content from anchor node, then all next node until we get node who before focus node
-      // and we need a final node contain remain value of focus node.
-      var firstNodeContent = this.HTMLUtil.entitiesDecode(anchorNode.innerHTML) ;
-      this.preSplitNodes[0] = this.createEditableNode(firstNodeContent.substr(0, anchorNode)) ;
-      
-      // get second selected content in mutilple node.
-      var secondNodeContent = firstNodeContent.substr(anchorOffset, firstNodeContent.length - 1) ;
-      while ((iNode = anchorNode.nextSibling) && iNode !== focusNode) {
-        
-      }
-    }
-  }
-  else if(document.selection && document.selection.createRange) { // IE Only
-    if(document.selection.createRange().text.length > 0) {
-      return true ;
-    } else {
-      return false ;
-    }
-  }
-} ;
-
-
-// Create editable node wrapper for text node.
-CoreEditor.prototype.createEditableNode = function(nodeContent, tagName) {
-  if (!tagName) tagName = 'SPAN' ;
-  var editableNode = document.createElement(tagName) ;
-  editableNode.setAttribute('editable', '1') ;
-  editableNode.innerHTML = nodeContent ;
-  return editableNode ;
-} ;
-
-/**
  * @param {Element} node
  * 
  * @return {DefaultKeyboardListener}
  */
 CoreEditor.prototype.autoDetectHandler = function(node) {
+  if (!node) return ;
   var handler = false ;
   for (var nodeIter = node;; nodeIter = nodeIter.parentNode) {
     if (nodeIter.nodeType == 1) {
-      if (nodeIter.className == 'UIConsoleApplication') break ;
+      if (nodeIter.className == 'UIWindow') break ;
       if (this.isContainerNode(nodeIter)) {
         handler = nodeIter.getAttribute('handler') ;
         break ;
@@ -197,6 +144,10 @@ CoreEditor.prototype.autoDetectHandler = function(node) {
  */
 CoreEditor.prototype.isProcessMultiSelect = function(node) {
   if (!node) return ;
+  while((node = node.parentNode) && 
+        node.className != 'UIWindow') {
+    if (!this.isContainerNode(node)) break ;      
+  }
   if (node.getAttribute && node.getAttribute('multiselect') == '1') {
     return true ;
   }

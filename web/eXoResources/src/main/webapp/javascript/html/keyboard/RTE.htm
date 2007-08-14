@@ -6,6 +6,37 @@
       <script type="text/javascript" language="JavaScript">
         var eXo = function() {} ;
         eXo.core = function() {} ;
+        
+        /**
+         * 
+         * @param {Object} obj
+         * @param {Boolean} returnVal
+         */
+        function objectInjection(obj, returnVal) {
+          /**
+           * @type {String}
+           */
+          var objStatistic = '' ;
+          /**
+           * @type {Number}
+           */
+          var cnt = 1 ;
+          for (var iter in obj) {
+            objStatistic += '\n' + cnt + '.' + iter + ': ' + typeof obj[iter] ;
+            if (typeof obj[iter] == 'string') {
+              try {
+                objStatistic += '->' + obj[iter] ;
+              } catch (e) {window.alert('error occured! ' + e) ;}
+            }
+            cnt ++ ;
+          }
+          if (!returnVal) {
+            window.alert(objStatistic) ;
+          } else {
+            return objStatistic ;
+          }
+        } ;
+        
       </script>  
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/html/HTMLEntities.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/HTMLUtil.js"></script>
@@ -14,8 +45,9 @@
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/Browser.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/DefaultKeyboardListener.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/text/RichTextEditor.js"></script>
-      <script language="JavaScript" type="text/javascript" src="../../eXo/core/Keyboard.js"></script>
       <script language="JavaScript" type="text/javascript" src="../../eXo/core/CoreEditor.js"></script>
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/text/RTEManager.js"></script>
+      <script language="JavaScript" type="text/javascript" src="../../eXo/core/Keyboard.js"></script>
       <script language="JavaScript" type="text/javascript" src="LogEngine.js"></script>
       <link rel="stylesheet" type="text/css" href="LogEngineStyle.css">
       <style type="text/css">
@@ -26,20 +58,51 @@
         .BlueText {
           color: #0000ff;
         }
+        
         .ConsoleCursor {
           height: 2px ;
           width: 5px ;
           border: solid 1px blue ;
           font-size: 2px ;
         }
+        
+        .ControlPanel {
+          border: solid 1px green ;
+          margin: 10px ;
+          padding: 5px ;
+        }
+        
+        .Button {
+          padding: 2px ;
+          cursor: pointer ;
+          border-left: solid 2px red ;
+          border-top: solid 1px red ;
+          border-bottom: solid 1px red ;
+          border-color: #000000 ;
+          color: #00aa00 ;
+          background-color: #dddddd ;
+        }
+        
+        .Button:hover {
+          cursor: pointer ;
+          border-left: none ;
+          border-right: solid 2px green ;
+          border-top: solid 1px green ;
+          border-bottom: solid 1px green ;
+          border-color: red ;
+        }
       </style>
 	</head>
 	<body>
-	  <div style="font-weight: bold">
+	  <div style="font-weight: bold" id="firstNode">
 	    Rich Text Editor offline test version.
 	  </div>
-    <div class="Space"></div>
-    <div class="Editor" id="line1" editcontainer="1" handler="eXo.core.text.RichTextEditor">
+    <div class="ControlPanel">
+      <a class="Button" onmousedown="eXo.core.text.RTEManager.init(); return false ;">Prepare change style</a>
+      <a class="Button" onmousedown="return false ;">Bold</a>
+      <a class="Button" onmousedown="return false ;">Italic</a>
+    </div>
+    <div class="Editor" id="line1" editcontainer="1" handler="eXo.core.text.RichTextEditor" multiselect="1">
       Test something 
       <span class="RedText" editable="1">with red text...</span>
       <span class="BlueText" editable="1"> and this is blue text</span>
@@ -57,6 +120,10 @@
     <script language="JavaScript" type="text/javascript">
       eXo.core.CoreEditor.registerCoreEditors(document.body) ;
 //      eXo.core.LogEngine.createLogPanel() ;
+//      document.onmouseup = function() {
+//        var selObj = window.getSelection() ;
+//        window.alert(selObj.anchorNode.nodeValue) ;
+//      } ;
     </script>
 	</body>
 </html>
