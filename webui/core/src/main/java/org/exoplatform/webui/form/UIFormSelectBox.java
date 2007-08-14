@@ -15,6 +15,7 @@ public class UIFormSelectBox extends UIFormStringInput {
   
   private List<SelectItemOption<String>> options_ ;
   private String onchange_;
+  private boolean multiple_ = false;
   
 	public UIFormSelectBox(String name, String bindingExpression, List<SelectItemOption<String>> options) {
     super(name, bindingExpression, null);
@@ -25,6 +26,10 @@ public class UIFormSelectBox extends UIFormStringInput {
     size_ = i ; 
     return this ;
   }
+  
+  public boolean isMultiple() { return multiple_; }
+
+  public void setMultiple(boolean value) { this.multiple_ = value; }  
   
   final public List<SelectItemOption<String>> getOptions() { return options_ ; }
   
@@ -67,6 +72,8 @@ public class UIFormSelectBox extends UIFormStringInput {
       w.append(" onchange=\"").append(renderOnChangeEvent(uiForm)).append("\"");
     }
     
+    if(multiple_)  w.write(" multiple ");
+    
 //    if(size_ > 1)  w.write(" multiple=\"true\" size=\"" + size_ + "\"");    if need control multiple values then can add variable "multiple" to implement 
     if(size_ > 1)  w.write(" size=\"" + size_ + "\"");
     
@@ -89,6 +96,6 @@ public class UIFormSelectBox extends UIFormStringInput {
     }
     
     w.write("</select>\n") ;
-  }  
-  
+  }
+
 }
