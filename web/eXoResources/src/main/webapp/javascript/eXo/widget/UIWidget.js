@@ -188,9 +188,10 @@ UIWidget.prototype.resizeContainer = function() {
 	var itemSelectorContainer = DOMUtil.findFirstChildByClass(widgets, "div", "ItemSelectorContainer") ;
 	
 	var availableHeight = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + 40) ;
-	if(eXo.core.Browser.isIE6()) {
-		var html = document.getElementsByTagName("html")[0];
-		var fixHeight = html.offsetHeight - 153;
+	if(eXo.core.Browser.isIE6() || workspacePanel.offsetHeight < 1) {
+		//var html = document.getElementsByTagName("html")[0];
+		var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
+		var fixHeight = uiControlWorkspace.offsetHeight - 153;
 		/* 153 is total value (UserWorkspaceTitleHeight + UIExoStartHeight + WidgetNavigatorHeight + 40)
 		 * 40 is distance between UIWidgets and UIExoStart 
 		 * */
