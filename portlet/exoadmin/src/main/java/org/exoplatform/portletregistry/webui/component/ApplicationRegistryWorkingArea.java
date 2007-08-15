@@ -130,8 +130,6 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
       if(selectedPortlet == null) return ;
 
       ApplicationRegistryService service = workingArea.getApplicationComponent(ApplicationRegistryService.class) ;
-      String portletSelectedId = selectedPortlet.getId() ;
-      Application portlet = service.getApplication(portletSelectedId);
       //TODO: Tung.Pham added
       //-------------------------------------
       UIPopupWindow uiPopup = workingArea.getChild(UIPopupWindow.class) ;
@@ -139,7 +137,7 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
       if(uiComponent != null && uiComponent instanceof UIInfoPortletForm) {
         UIInfoPortletForm uiInfoForm = (UIInfoPortletForm)uiComponent ;
         Application existingApp = uiInfoForm.getPortlet() ;
-        if(existingApp != null && existingApp.getId().equals(portlet.getId())) {
+        if(existingApp != null && existingApp.getId().equals(selectedPortlet.getId())) {
           UIApplication uiApp = event.getRequestContext().getUIApplication() ;
           uiApp.addMessage(new ApplicationMessage("ApplicationRegistryWorkingArea.msg.AppExist", new String[]{existingApp.getApplicationName()})) ;
           return ;
@@ -147,7 +145,7 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
       }
         
       //-------------------------------------
-      service.remove(portlet) ;  
+      service.remove(selectedPortlet) ;  
       workingArea.getPortlets().remove(selectedPortlet) ;
       workingArea.setSeletcApplication((Application)null);
     }
