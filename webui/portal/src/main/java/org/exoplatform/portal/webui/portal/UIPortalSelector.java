@@ -40,7 +40,8 @@ import org.exoplatform.webui.core.UIGrid;
 
 public class UIPortalSelector extends UIContainer {
   
-  public static String[] BEAN_FEILD = {"creator", "name", "skin", "factoryId"} ;
+  //public static String[] BEAN_FEILD = {"creator", "name", "skin", "factoryId"} ;
+  public static String[] BEAN_FEILD = {"creator", "name", "skin"} ;
   public static String[] SELECT_ACTIONS = {"SelectPortal"} ;
   
   public UIPortalSelector() throws Exception {

@@ -35,7 +35,8 @@ import org.exoplatform.webui.event.EventListener;
 )
 public class UIPortalBrowser extends UIContainer {
 
-  public static String[] BEAN_FIELD = {"creator", "name", "skin", "factoryId"} ;  
+  //public static String[] BEAN_FIELD = {"creator", "name", "skin", "factoryId"} ;  
+  public static String[] BEAN_FIELD = {"creator", "name", "skin"} ;
   public static String[] SELECT_ACTIONS = {"DeletePortal"} ; 
   
   public UIPortalBrowser() throws Exception {

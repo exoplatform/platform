@@ -112,6 +112,21 @@ public class UIPortalForm extends UIFormTabPane {
   public UIPortalForm() throws Exception {
     super("UIPortalForm");
     createDefaultItem();
+    //TODO: Tung.Pham added
+    //------------------------------
+    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
+    uiPermissionSetting.setRendered(false);
+    addUIComponentInput(uiPermissionSetting);
+    
+    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+    uiPermissionSetting.addChild(uiListPermissionSelector);
+    
+    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+    uiEditPermission.setRendered(false) ;
+    uiEditPermission.configure("UIPermissionSelector", "editPermission");
+    uiPermissionSetting.addChild(uiEditPermission);
+    //------------------------------
     
     //TODO: Tung.Pham disabled
     //----------------------------------------------------------------------------------
@@ -179,19 +194,22 @@ public class UIPortalForm extends UIFormTabPane {
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);
     uiSettingSet.setRendered(false);
-    
-    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
-    uiPermissionSetting.setRendered(false);
-    addUIComponentInput(uiPermissionSetting);
-    
-    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
-    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-    uiPermissionSetting.addChild(uiListPermissionSelector);
-    
-    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
-    uiEditPermission.setRendered(false) ;
-    uiEditPermission.configure("UIPermissionSelector", "editPermission");
-    uiPermissionSetting.addChild(uiEditPermission);
+
+    //TODO: Tung.Pham disabled
+    //---------------------------------------
+//    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
+//    uiPermissionSetting.setRendered(false);
+//    addUIComponentInput(uiPermissionSetting);
+//    
+//    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+//    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+//    uiPermissionSetting.addChild(uiListPermissionSelector);
+//    
+//    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+//    uiEditPermission.setRendered(false) ;
+//    uiEditPermission.configure("UIPermissionSelector", "editPermission");
+//    uiPermissionSetting.addChild(uiEditPermission);
+    //-----------------------------------------
   }
   
   static public class SaveActionListener  extends EventListener<UIPortalForm> {
