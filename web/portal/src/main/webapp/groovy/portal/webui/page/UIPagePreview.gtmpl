@@ -4,7 +4,7 @@
 			uicomponent.renderChildren() ;
 		} else {
 	%>
-	<div>This page content is empty. You can click on Edit Page to add content</div>
+	<div style="font-style:italic; color: #FF5604; text-align: center; height: 30px; line-height: 30px;"><%=_ctx.appRes("UIPagePreview.msg.empty")%></div>
 	<%}%>
 </div>
 <%if(uicomponent.hasBackEvent()) {%>
