@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.container;
 
+import java.util.List;
+
 import org.exoplatform.portal.webui.container.UIContainerActionListener.AddApplicationActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.AddWidgetContainerActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.DeleteWidgetActionListener;
@@ -13,6 +15,7 @@ import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.Delet
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -65,7 +68,18 @@ public class UIContainer extends  UIPortalComponent {
   
   static  public class SelectTabActionListener extends EventListener<UIContainer> {    
     public void execute(Event<UIContainer> event) throws Exception {
-//      System.out.println("\n\n ==  > select tab ne \n\n");
+      String objectId = event.getRequestContext().getRequestParameter(OBJECTID);
+      UIContainer container = event.getSource();
+      UIComponent goal = container.findComponentById(objectId);
+      UIContainer parent = goal.getParent();
+      List<UIComponent> children = parent.getChildren();
+      for(UIComponent child: children){
+        if(child.getId().equals(objectId)){
+          child.setRendered(true); 
+          continue;
+        }
+        child.setRendered(false);
+      }
     }
   }
   
