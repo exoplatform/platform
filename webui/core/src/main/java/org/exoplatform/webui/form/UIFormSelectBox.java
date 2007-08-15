@@ -9,7 +9,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.model.SelectItemOption;
 
-public class UIFormSelectBox extends UIFormInputBase<String> {
+public class UIFormSelectBox extends UIFormStringInput {
   
   private int size_ = 1 ;
   

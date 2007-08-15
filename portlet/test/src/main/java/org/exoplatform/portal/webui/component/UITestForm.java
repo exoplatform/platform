@@ -11,7 +11,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIDropDownControl;
-import org.exoplatform.webui.core.UIDropDownItemSelector;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -98,7 +97,7 @@ public class UITestForm extends UIForm {
     }
     ls.get(0).setSelected(true);
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
-    uiSelectBox.setMultiple(true);
+//    uiSelectBox.setMultiple(true);
     uiSelectBox.setSize(3);
 //    uiSelectBox.setOnChange("Onchange");
 //    UIFormSelectBox uiSelectBox1 = new UIFormSelectBox(FIELD_SELECT_BOX + "1", FIELD_SELECT_BOX + "1", ls) ;

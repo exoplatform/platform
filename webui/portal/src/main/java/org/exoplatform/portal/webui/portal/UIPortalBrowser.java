@@ -1,5 +1,6 @@
 package org.exoplatform.portal.webui.portal;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -58,7 +59,11 @@ public class UIPortalBrowser extends UIContainer {
     UserACL userACL = getApplicationComponent(UserACL.class) ;
     String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
     Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, PortalConfig.class) ;
-    PageList pageList = service.find(query) ;
+    PageList pageList = service.find(query, new Comparator<PortalConfig>(){
+      public int compare(PortalConfig pconfig1, PortalConfig pconfig2) {
+        return pconfig1.getName().compareTo(pconfig2.getName());
+      }
+    }) ;
     pageList.setPageSize(10) ;
     int i = 1 ;
     while(i <= pageList.getAvailablePage()) {
