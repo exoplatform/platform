@@ -1,4 +1,12 @@
-<div><% uicomponent.renderChildren() %></div>
+<div>
+	<%
+		if(uicomponent.getUIComponent().getChildren().size() > 0) {
+			uicomponent.renderChildren() ;
+		} else {
+	%>
+	<div>This page content is empty. You can click on Edit Page to add content</div>
+	<%}%>
+</div>
 <%if(uicomponent.hasBackEvent()) {%>
 	<div class="HorizontalLayout">
 		<div class="UIAction" style="width: 100px;">
