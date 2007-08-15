@@ -15,9 +15,6 @@
 			<div class="ToolbarButton">
 				<div class="StopButton" title="Stop" onclick="eXo.application.browser.UIBrowserApplication.stopLoad()"><span></span></div>
 			</div>
-			<div class="ToolbarButton">
-				<div class="HomeButton" title="Home"><span></span></div>
-			</div>
 			<div style="clear: left;"><span></span></div>
 		</div>
 		<div class="RightAddressBarContainer">
