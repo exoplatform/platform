@@ -24,6 +24,7 @@ public interface ApplicationRegistryService {
   public List<Application> getApplications(ApplicationCategory category, String...appTypes) throws Exception;
   public List<Application> getAllApplications() throws Exception;
   public Application getApplication(String id) throws Exception;
+  public Application getApplication(String category, String name) throws Exception;
   public void save(ApplicationCategory category, Application application) throws Exception;
   public void update(Application application) throws Exception;
   public void remove(Application app) throws Exception;

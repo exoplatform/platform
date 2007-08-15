@@ -207,7 +207,16 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     session.logout();
   }
   
-  
+  public Application getApplication(String category, String name) throws Exception {
+    Session session = jcrRegService_.getSession();
+    Node node = getApplicationNode(session, category, name);
+    if(node == null) {
+      session.logout();
+      return  null;
+    }
+    return mapper.nodeToApplication(node);
+  } 
+ 
   @SuppressWarnings("unchecked")
   public List<ApplicationCategory> getApplicationCategories(String accessUser, String...appTypes) throws Exception {
     List<ApplicationCategory> categories = getApplicationCategories();
@@ -254,7 +263,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     } 
     return handler.findMembershipByUserGroupAndType(remoteUser, groupId, membership) != null;
   }
-
+  
   public void importJSR168Portlets() throws Exception {
     Session session = jcrRegService_.getSession();
     PortalContainer manager  = PortalContainer.getInstance();
@@ -358,5 +367,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     parentNode.save();
     session.save();
     session.logout();
-  } 
+  }
+
+ 
 }
