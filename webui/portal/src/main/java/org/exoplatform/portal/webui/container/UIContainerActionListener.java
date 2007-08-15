@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -95,6 +96,12 @@ public class UIContainerActionListener {
         }
       }
       configService.update(widgets) ;
+      
+      String accessUser = event.getRequestContext().getRemoteUser() ;
+      String portalName = Util.getUIPortal().getOwner() ;
+      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, accessUser) ;
+      UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
+      uiPortalApp.setUserPortalConfig(userPortalConfig) ;
       //----------------------------
     }
     
@@ -148,6 +155,12 @@ public class UIContainerActionListener {
       Container container = getContainer(widgets.getChildren(), containerId) ;
       container.getChildren().add(PortalDataMapper.toWidget(uiWidget)) ;
       configService.update(widgets) ;
+      
+      String accessUser = event.getRequestContext().getRemoteUser() ;
+      String portalName = Util.getUIPortal().getOwner() ;
+      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(portalName, accessUser) ;
+      UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
+      uiPortalApp.setUserPortalConfig(userPortalConfig) ;
       //-----------------------------
     }
     

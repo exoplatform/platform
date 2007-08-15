@@ -21,7 +21,7 @@
 				<div class="CategoryTitleBar">
 					<div class="Title">Categories</div>
 					<a class="RemoveContainer Icon" href="javascript: <%=deleteWidgetContainer%>" title="Remove selected widget container"><span></span></a>
-					<a class="EditContainer Icon" href="javascript: <%=editWidgetContainer%>" title="Add new widget container"><span></span></a>
+					<a class="EditContainer Icon" href="javascript: <%=editWidgetContainer%>" title="Edit selected widget container"><span></span></a>
 					<a class="AddContainer Icon" href="javascript: <%=addWidgetContainer%>" title="Add new widget container"><span></span></a>
 					<div style="clear: both"><span></span></div>
 				</div>

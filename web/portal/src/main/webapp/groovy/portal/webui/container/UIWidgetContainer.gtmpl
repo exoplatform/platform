@@ -26,7 +26,7 @@
 			<div class="RightWidgetNavBar">
 				<div class="CenterWidgetNavBar">
 					<div class="Icon AddWidgetButton" onclick="$addWidgetAction" title="Add Widget"><span></span></div>
-					<div class="Icon ScrollDownButton" onclick="$scrollDownAction" title="Scroll down"><span></span></div>
+					<div class="Icon DisableScrollDownButton" onclick="$scrollDownAction" title="Scroll down"><span></span></div>
   				<div class="Icon DisableScrollUpButton" onclick="$scrollUpAction" title="Scroll up"><span></span></div>
    				<div style="clear: left"><span></span></div> 									
   			</div>
