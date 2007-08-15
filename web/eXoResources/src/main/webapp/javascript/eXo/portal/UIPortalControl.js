@@ -143,7 +143,6 @@ ScrollManager.prototype.enableArrow = function(arrow, enabled) {
 };
 
 ScrollManager.prototype.mouseOverArrow = function(e) {
-	console.log("mouse over");
 	var arrow = this;
 	if (arrow.onclick && arrow.className == arrow.styleClass) {
 		// mouse over
@@ -209,7 +208,7 @@ ScrollManager.prototype.getElementsSpace = function(indexStart, indexEnd) {
 };
 
 ScrollManager.prototype.getElementSpace = function(element) {
-	if (element && element.space) return element.space;
+	if (element && element.space) { return element.space; }
 	var elementSpace = 0;
 	var wasHidden = false;
 	if (element) {
@@ -320,34 +319,42 @@ ScrollManager.prototype.renderElements = function() {
 			this.arrowsContainer.style.display = "block";
 		}
 	}
-	
 	if (delta < 0) { // if there are too many elements visible in the available space
-		// by default, we scroll left/up
-		var incr = -1;
-		var index = this.lastVisibleIndex;
-		if (this.currDirection == 1) { // if we scroll right/down
-			 incr = 1;
-			 index = this.firstVisibleIndex;
-		}
-		while (delta < 0 && index >= 0 && index < this.elements.length) {
-			delta += this.getElementSpace(this.elements[index]);
-			this.elements[index].isVisible = false;
-			this.elements[index].style.display = "none";
-			this.otherHiddenElements.push(this.elements[index]);
-			if (this.currDirection == 1) this.firstVisibleIndex++;
-			else this.lastVisibleIndex--;
-			index += incr;
-		}
+		this.hideElements(delta);
+	}
+	if (this.arrowsContainer.style.display == "block") {
+		this.renderArrows();
 	}
 	
+	if (typeof(this.callback) == "function") this.callback();
+};
+
+ScrollManager.prototype.hideElements = function(delta) {
+	// by default, we scroll left/up
+	var incr = -1;
+	var index = this.lastVisibleIndex;
+	if (this.currDirection == 1) { // if we scroll right/down
+		 incr = 1;
+		 index = this.firstVisibleIndex;
+	}
+	while (delta < 0 && index >= 0 && index < this.elements.length) {
+		delta += this.getElementSpace(this.elements[index]);
+		this.elements[index].isVisible = false;
+		this.elements[index].style.display = "none";
+		this.otherHiddenElements.push(this.elements[index]);
+		if (this.currDirection == 1) this.firstVisibleIndex++;
+		else this.lastVisibleIndex--;
+		index += incr;
+	}
+};
+
+ScrollManager.prototype.renderArrows = function() {
 	// Enables/Disables the arrow buttons depending on the elements to show
 	if (this.firstVisibleIndex == 0) this.enableArrow(this.leftArrow, false);
 	else this.enableArrow(this.leftArrow, true);
 	
 	if (this.lastVisibleIndex == this.elements.length-1) this.enableArrow(this.rightArrow, false);
 	else this.enableArrow(this.rightArrow, true);
-	
-	if (typeof(this.callback) == "function") this.callback();
 };
 
 UIPortalControl.prototype.initAllManagers = function() {
@@ -358,9 +365,11 @@ UIPortalControl.prototype.initAllManagers = function() {
 	 */
 	var managers = eXo.portal.UIPortalControl.scrollManagers;
 	for (var i = 0; i < managers.length; i++) {
-		var toInit = (document.getElementById(managers[i].id) !== null) // if the tabs exist on the page
-							&& (typeof(managers[i].initFunction) == "function");   // if the initFunction is defined
-//							&& managers[i].arrowsContainer.style.display == "block"); // if the manager is activated
+		var mgrContainer = document.getElementById(managers[i].id);
+		var mgrParent = eXo.core.DOMUtil.findAncestorByClass(mgrContainer, "UIWindow");
+		var toInit = (mgrContainer !== null) 														// if the tabs exist on the page
+							&& (mgrParent === null || (mgrParent !== null && mgrParent.style.display == "block"))
+							&& (typeof(managers[i].initFunction) == "function");  // if the initFunction is defined
 		if (toInit) { managers[i].initFunction(); }
 	}
 };

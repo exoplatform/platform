@@ -249,14 +249,11 @@ function HttpResponseHandler(){
 	    	target = document.getElementById(blockToUpdate.blockId) ;
 	    }
 	    if(target == null) alert("target  BlockToUpdate.blockId " + blockToUpdate.blockId);
-//	    console.group("blockToUpdate.data");
-//	    	console.dir(blockToUpdate.data);
-//	    	console.groupEnd();
 	    var newData =  eXo.core.DOMUtil.findDescendantById(blockToUpdate.data, blockToUpdate.blockId) ;
 	   	//var newData =  blockToUpdate.data.getElementById(blockToUpdate.blockId) ;
 	    if(newData == null) alert("block to update Id" + blockToUpdate.blockId);
-	    target.innerHTML = newData.innerHTML ;   
-	  }  
+	    target.innerHTML = newData.innerHTML ;
+	  }
 	} ;
 	
 	instance.ajaxTimeout = function(request){
@@ -277,17 +274,17 @@ function HttpResponseHandler(){
 	    for(var i = 0; i < portletResponses.length; i++) {
 	      var portletResponse = portletResponses[i] ;
 	      instance.updateBlocks(portletResponse.blocksToUpdate, "UIPortlet-"+portletResponse.portletId) ;    
-	      instance.executeScript(portletResponse.script) ;    
+	      instance.executeScript(portletResponse.script) ;
 	    }
-	  } 
+	  }
 	  if(response.blocksToUpdate == undefined) {
 	  	if(confirm("Session timeout. Refresh your browser?")) instance.ajaxTimeout(request);
 	  }
 	  //Handle the portal responses
-	  instance.updateBlocks(response.blocksToUpdate) ;    
-	  instance.executeScript(response.script) ;    
+	  instance.updateBlocks(response.blocksToUpdate) ;
+	  instance.executeScript(response.script) ;
 	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
-	  eXo.portal.AjaxRequest.maskLayer = null ;	
+	  eXo.portal.AjaxRequest.maskLayer = null ;
 	  eXo.portal.CurrentRequest = null;
 	} ;
 	

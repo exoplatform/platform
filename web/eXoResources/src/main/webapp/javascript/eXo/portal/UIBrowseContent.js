@@ -18,6 +18,7 @@ UIBrowseContent.prototype.loadScroll = function() {
 		// Main Navigation Configuration
 		var mainNav = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "UICBMainNavigation");
 		var mainBarMgr = eXo.portal.UIPortalControl.newScrollManager("UIBrowseContainer");
+		//mainBarMgr.margin = 0;
 		mainBarMgr.mainContainer = mainNav;
 		mainBarMgr.arrowsContainer = eXo.core.DOMUtil.findFirstDescendantByClass(mainNav, "div", "NavigationButtonContainer");
 		mainBarMgr.loadElements("UITab", true);
@@ -82,10 +83,9 @@ UIBrowseContent.prototype.initScroll = function() {
 			mainBarMgr.init();
 			mainBarMgr.loadElements("UITab", true);
 			var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(mainBarMgr.mainContainer, "div", "HomeTab");
+			var maxSpace = mainBarMgr.getElementSpace(mainBarMgr.mainContainer)-mainBarMgr.getElementSpace(mainBarMgr.arrowsContainer)-mainBarMgr.margin-100;
 			if (homeButton) {
-				var maxSpace = mainBarMgr.getElementSpace(mainBarMgr.mainContainer)-mainBarMgr.getElementSpace(mainBarMgr.arrowsContainer)-mainBarMgr.getElementSpace(homeButton);
-			} else {
-				var maxSpace = mainBarMgr.getElementSpace(mainBarMgr.mainContainer)-mainBarMgr.getElementSpace(mainBarMgr.arrowsContainer)-100;
+				maxSpace = maxSpace+100-mainBarMgr.getElementSpace(homeButton);
 			}
 			mainBarMgr.checkAvailableSpace(maxSpace);
 			mainBarMgr.renderElements();
@@ -110,34 +110,36 @@ UIBrowseContent.prototype.initScroll = function() {
 };
 
 UIBrowseContent.prototype.mainMenuScrollCallback = function() {
-	var uiBC = eXo.portal.UIBrowseContent;
 	var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(this.mainContainer, "div", "HomeTab");
+	if (eXo.core.Browser.isIE7()) this.cleanElements();
+	var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.margin-100;
 	if (homeButton) {
-		var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.getElementSpace(homeButton);
-	} else {
-		var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-100;
+		maxSpace = maxSpace+100-this.getElementSpace(homeButton);
 	}
 	var elementsSpace = this.getElementsSpace(this.firstVisibleIndex, this.lastVisibleIndex);
-	while (this.elements.length > 0 && elementsSpace >= maxSpace) { //while
-		if (this.lastDirection == 1) {
-			if (this.firstVisibleIndex < this.elements.length-1) {
-				this.otherHiddenIndex = this.firstVisibleIndex;
-				this.elements[this.firstVisibleIndex].isVisible = false;
-				this.elements[this.firstVisibleIndex++].style.display = "none";
-			}
-		} else {
-			if (this.lastVisibleIndex > 0) {
-				this.otherHiddenIndex = this.lastVisibleIndex;
-				this.elements[this.lastVisibleIndex].isVisible = false;
-				this.elements[this.lastVisibleIndex--].style.display = "none";
-			}
-		}
-		elementsSpace -= this.getElementSpace(this.elements[this.otherHiddenIndex]);
+	var delta = maxSpace - elementsSpace;
+	if (delta < 0) {
+		this.hideElements(delta);
 	}
+//	while (this.elements.length > 0 && elementsSpace >= maxSpace) { //while
+//		if (this.lastDirection == 1) {
+//			if (this.firstVisibleIndex < this.elements.length-1) {
+//				this.otherHiddenIndex = this.firstVisibleIndex;
+//				this.elements[this.firstVisibleIndex].isVisible = false;
+//				this.elements[this.firstVisibleIndex++].style.display = "none";
+//			}
+//		} else {
+//			if (this.lastVisibleIndex > 0) {
+//				this.otherHiddenIndex = this.lastVisibleIndex;
+//				this.elements[this.lastVisibleIndex].isVisible = false;
+//				this.elements[this.lastVisibleIndex--].style.display = "none";
+//			}
+//		}
+//		elementsSpace -= this.getElementSpace(this.elements[this.otherHiddenIndex]);
+//	}
 };
 
 UIBrowseContent.prototype.subMenuScrollCallback = function() {
-	var uiBC = eXo.portal.UIBrowseContent;
 	for (var i = 0; i < this.elements.length; i++) {
 		if (!this.elements[i].isVisible) {
 			this.elements[i].decorator.style.display = "none";

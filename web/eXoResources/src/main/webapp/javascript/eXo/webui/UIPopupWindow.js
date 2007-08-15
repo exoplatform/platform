@@ -98,7 +98,7 @@ UIPopupWindow.prototype.endResizeEvt = function(evt) {
 	eXo.portal.UIPortalControl.initAllManagers();
 	// other solutions :
 	// - add a callback property that points to the init function of the concerned scroll manager. call it here
-	// - add a boolean to each scroll manager that specifies if i's in a popup. re init only those that have this property true
+	// - add a boolean to each scroll manager that specifies if it's in a popup. re init only those that have this property true
 }
 
 UIPopupWindow.prototype.initDND = function(evt) {

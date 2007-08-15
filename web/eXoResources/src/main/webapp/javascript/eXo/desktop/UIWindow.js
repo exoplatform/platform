@@ -135,10 +135,10 @@ UIWindow.prototype.resizeWindowEvt = function(evt) {
 	for(var i = 0; i < eXo.desktop.UIWindow.resizableObject.length; i++) {
 		eXo.desktop.UIWindow.resizableObject[i].style.height = Math.max(10,(eXo.desktop.UIWindow.resizableObject[i].originalHeight + deltaY)) + "px" ;
 	}
-//	eXo.portal.UIPortalControl.initAllManagers() ;
 } ;
 
 UIWindow.prototype.endResizeWindowEvt = function(evt) {
+	eXo.portal.UIPortalControl.initAllManagers() ;
 	eXo.desktop.UIWindow.portletWindow = null ;
 	eXo.desktop.UIWindow.minWidth = null;
 	eXo.desktop.UIWindow.minHeight = null;
