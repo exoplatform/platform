@@ -15,8 +15,6 @@ public class UIFormSelectBox extends UIFormInputBase<String> {
   
   private List<SelectItemOption<String>> options_ ;
   private String onchange_;
-  private boolean multiple_ = false;
-  private String [] values_;
   
 	public UIFormSelectBox(String name, String bindingExpression, List<SelectItemOption<String>> options) {
     super(name, bindingExpression, null);
@@ -27,10 +25,6 @@ public class UIFormSelectBox extends UIFormInputBase<String> {
     size_ = i ; 
     return this ;
   }
-  
-  public boolean isMultiple() { return multiple_; }
-
-  public void setMultiple(boolean value) { this.multiple_ = value; }  
   
   final public List<SelectItemOption<String>> getOptions() { return options_ ; }
   
@@ -52,9 +46,6 @@ public class UIFormSelectBox extends UIFormInputBase<String> {
   @SuppressWarnings("unused")
   public void decode(Object input, WebuiRequestContext context) throws Exception {
     value_ = (String)input;
-    if(!multiple_) return ;
-    values_ =  value_.split(";");
-    value_ = values_[0];
   }
   
 //  protected String renderOnChangeAction(UIForm uiform) throws Exception {
@@ -67,11 +58,6 @@ public class UIFormSelectBox extends UIFormInputBase<String> {
   protected String renderOnChangeEvent(UIForm uiForm) throws Exception {
     return uiForm.event(onchange_, (String)null);
   }
-  
-  public String[] getValues() { return values_; }
-
-  public void setValues(String[] values) { this.values_ = values; }
-
   
   public void processRender(WebuiRequestContext context) throws Exception {
     ResourceBundle res = context.getApplicationResourceBundle() ;
@@ -86,8 +72,6 @@ public class UIFormSelectBox extends UIFormInputBase<String> {
       w.append(" onchange=\"").append(renderOnChangeEvent(uiForm)).append("\"");
     }
     
-    if(multiple_)  w.write(" multiple ");
-    
 //    if(size_ > 1)  w.write(" multiple=\"true\" size=\"" + size_ + "\"");    if need control multiple values then can add variable "multiple" to implement 
     if(size_ > 1)  w.write(" size=\"" + size_ + "\"");
     
@@ -101,7 +85,7 @@ public class UIFormSelectBox extends UIFormInputBase<String> {
         label = res.getString(formId + ".label.option." + options_.get(i)) ;
       } catch(MissingResourceException ex) { }
       
-      if (isSelectedValue(options_.get(i).getValue())) {
+      if (value_ != null && value_.equals(options_.get(i).getValue())) {
         w.write("<option selected=\"selected\" value=\""); w.write(options_.get(i).getValue()); w.write("\">"); 
       }  else {
         w.write("<option value=\""); w.write(options_.get(i).getValue()); w.write("\">"); 
@@ -110,15 +94,6 @@ public class UIFormSelectBox extends UIFormInputBase<String> {
     }
     
     w.write("</select>\n") ;
-  }
-  
-  private boolean isSelectedValue(String value) {
-    if(!multiple_) return value.equals(value_);
-    if(values_ == null) return false;
-    for(String ele : values_) {
-      if(ele.equals(value)) return true;
-    }
-    return false;
   }
 
 }
