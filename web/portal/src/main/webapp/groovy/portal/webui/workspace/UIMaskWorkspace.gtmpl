@@ -19,10 +19,10 @@
 	String id = uicomponent.getId();
 	
 	String init = "eXo.portal.UIMaskWorkspace.init('"+id+"', "+isShow+", "+width+", "+height+");";
-	rcontext.getJavascriptManager().addCustomizedOnLoadScript(init);
-
+	String resize = "eXo.portal.UIMaskWorkspace.resetPosition('"+id+"');";
+	rcontext.getJavascriptManager().addCustomizedOnLoadScript(init) ;
+	rcontext.getJavascriptManager().addOnResizeJavascript("eXo.portal.UIMaskWorkspace.resetPosition") ;
 %>
-
 <div class="UIMaskWorkspace" id="$maskId" style="display: none;">
   <div class="TopLeftDecorator" >
     <div class="TopRightDecorator">
