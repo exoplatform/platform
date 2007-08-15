@@ -121,7 +121,6 @@ public class UIForm extends UIContainer  {
       append("<form class=\"UIForm\" name=\"").append(getId()).
       append("\" id=\"").append(getId()).append("\" action=\"").
       append(b).append('\"') ;
-    System.out.println("submit action : "+submitAction_);
       if(submitAction_ != null) writer.append(" onsubmit=\"").append(submitAction_).append("\"");
     if(multipart_) {
       writer.append(" enctype=\"multipart/form-data\"") ;

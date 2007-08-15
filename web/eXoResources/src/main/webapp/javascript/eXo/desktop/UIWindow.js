@@ -80,7 +80,7 @@ UIWindow.prototype.maximizeWindowEvt = function(evt) {
     portletWindow.maximized = true ;
     this.className = "ControlIcon RestoreIcon" ;
   }
-//	eXo.portal.UIPortalControl.initAllManagers() ;
+	eXo.portal.UIPortalControl.initAllManagers() ;
 } ;
 
 UIWindow.prototype.minimizeWindowEvt =	function(evt) {
