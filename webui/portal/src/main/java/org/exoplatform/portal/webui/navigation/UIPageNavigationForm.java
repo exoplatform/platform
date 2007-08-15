@@ -76,7 +76,7 @@ public class UIPageNavigationForm extends UIFormTabPane {
     super("UIPageNavigationForm") ;
     
     List<SelectItemOption<String>> ownerTypes = new ArrayList<SelectItemOption<String>>() ;
-    ownerTypes.add(new SelectItemOption<String>("User", PortalConfig.USER_TYPE)) ;
+    ownerTypes.add(new SelectItemOption<String>(PortalConfig.USER_TYPE)) ;
     
     UserPortalConfigService dataService = getApplicationComponent(UserPortalConfigService.class);
     PortalRequestContext pContext = PortalRequestContext.getCurrentInstance();
@@ -86,11 +86,11 @@ public class UIPageNavigationForm extends UIFormTabPane {
     PageNavigation portalNavigation = dataService.getPageNavigation("portal::" + portalName, remoteUser);
 //    System.out.println("\n\n\n-------------------? name? =" + portalNavigation);
     if(portalNavigation != null && userService.hasEditPermission(portalNavigation.getOwnerId(), remoteUser, portalNavigation.getEditPermission()) ) {
-      ownerTypes.add(new SelectItemOption<String>("Portal", PortalConfig.PORTAL_TYPE)) ;
+      ownerTypes.add(new SelectItemOption<String>(PortalConfig.PORTAL_TYPE)) ;
     }
     PortalRequestContext pcontext = Util.getPortalRequestContext();
     if(pcontext.isUserInRole("admin")) {
-      ownerTypes.add(new SelectItemOption<String>("Group", PortalConfig.GROUP_TYPE)) ;
+      ownerTypes.add(new SelectItemOption<String>(PortalConfig.GROUP_TYPE)) ;
     }
     UIFormSelectBox uiSelectBoxOwnerType = new UIFormSelectBox("ownerType","ownerType" , ownerTypes) ;
     uiSelectBoxOwnerType.setOnChange("ChangeOwnerType");

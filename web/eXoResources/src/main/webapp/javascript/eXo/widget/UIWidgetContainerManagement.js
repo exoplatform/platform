@@ -110,7 +110,6 @@ UIWidgetContainerManagement.prototype.showAddForm = function() {
 		id : "UIWidgetContainerForm",
 		selectInput : {
 			values : ["user", "portal"],
-			labels : ["User", "Portal"],
 			selected : "user"
 		},
 		container : {
@@ -181,7 +180,6 @@ UIWidgetContainerManagement.prototype.showEditForm = function() {
 		isEdit : true,
 		selectInput : {
 			values : ["user", "portal"],
-			labels : ["User", "Portal"],
 			selected : container.cOwner
 		},
 		container : {
