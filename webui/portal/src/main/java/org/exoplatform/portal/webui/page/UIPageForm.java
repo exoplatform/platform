@@ -196,7 +196,7 @@ public class UIPageForm extends UIFormTabPane {
     if(selectedPage == null) return ;
     page.setChildren(selectedPage.getChildren());
     page.setFactoryId(selectedPage.getFactoryId());
-    page.setShowMaxWindow(Page.DESKTOP_PAGE.equals(page.getFactoryId()));
+    if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) page.setShowMaxWindow(true);
   }
 
   public void processRender(WebuiRequestContext context) throws Exception {
