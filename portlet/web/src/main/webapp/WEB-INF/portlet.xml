@@ -294,5 +294,38 @@
       <keywords>portlet,add</keywords>
     </portlet-info>     
   </portlet> -->
+  
+  <portlet>
+    <description xml:lang="EN">IFrame Portlet</description>
+    <portlet-name>IFramePortlet</portlet-name>
+    <display-name xml:lang="EN">IFrame Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/web/IFramePortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>edit</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    <resource-bundle>locale.portlet.web.GroovyPortlet</resource-bundle>
+    <portlet-info>
+      <title>Footer Portlet</title>
+      <short-title>Footer Portlet</short-title>
+      <keywords>footer</keywords>
+    </portlet-info>    
+    
+    <portlet-preferences>
+      <preference>
+        <name>url</name>
+        <value>http://exoplatform.com</value>
+        <read-only>false</read-only>
+      </preference>
+    </portlet-preferences>
+  </portlet>
 
 </portlet-app>
