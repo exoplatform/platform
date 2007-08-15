@@ -11,11 +11,17 @@
 	  boolean hasRenderedChild = false; 
 		for(uiChild in children) {
 		  if(uiChild.isRendered()) {
+	      if(hasRenderedChild == true){
+			    hasRenderedChild = false;
+			    break;
+		    }
 		    hasRenderedChild = true;
-		    break;
 		  }
 		}
 		if(hasRenderedChild == false) {
+		  for(uiChild in children) {
+		      uiChild.setRendered(false);
+		  }
 		  uicomponent.getChild(0).setRendered(true);
 		}
 	}
