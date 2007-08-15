@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.util.Util;
@@ -75,7 +77,15 @@ public class UIPageNavigationForm extends UIFormTabPane {
     
     List<SelectItemOption<String>> ownerTypes = new ArrayList<SelectItemOption<String>>() ;
     ownerTypes.add(new SelectItemOption<String>("User", PortalConfig.USER_TYPE)) ;
-    if(Util.getUIPortal().isModifiable()) {
+    
+    UserPortalConfigService dataService = getApplicationComponent(UserPortalConfigService.class);
+    PortalRequestContext pContext = PortalRequestContext.getCurrentInstance();
+    String remoteUser  = pContext.getRemoteUser();
+    UserACL userService = getApplicationComponent(UserACL.class);
+    String portalName = Util.getUIPortal().getName();
+    PageNavigation portalNavigation = dataService.getPageNavigation("portal::" + portalName, remoteUser);
+//    System.out.println("\n\n\n-------------------? name? =" + portalNavigation);
+    if(portalNavigation != null && userService.hasEditPermission(portalNavigation.getOwnerId(), remoteUser, portalNavigation.getEditPermission()) ) {
       ownerTypes.add(new SelectItemOption<String>("Portal", PortalConfig.PORTAL_TYPE)) ;
     }
     PortalRequestContext pcontext = Util.getPortalRequestContext();
