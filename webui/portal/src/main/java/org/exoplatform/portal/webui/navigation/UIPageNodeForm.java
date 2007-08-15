@@ -110,10 +110,7 @@ public class UIPageNodeForm extends UIFormTabPane {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
      
       if(pageSelector.getPage() == null) {
-        //UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.selectPage", null)) ;
-        
-        //Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
         return;
       }
@@ -122,13 +119,12 @@ public class UIPageNodeForm extends UIFormTabPane {
       UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
       UIPage uiPage = Util.toUIPage(pageSelector.getPage(),uiToolPanel);
+      uiToolPanel.setShowMaskLayer(true);
       uiToolPanel.setUIComponent(uiPage);
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
       PageNode pageNode = uiPageNodeForm.getPageNode();
       if(pageNode == null) pageNode  = new PageNode();
       uiPageNodeForm.invokeSetBindingBean(pageNode) ;
-     
-      
 
       String remoteUser = Util.getPortalRequestContext().getRemoteUser();
       UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);
@@ -161,7 +157,6 @@ public class UIPageNodeForm extends UIFormTabPane {
           children = new ArrayList<PageNode>();
           parentNode.setChildren((ArrayList<PageNode>)children);
         }
-        //if(!children.contains(pageNode)) children.add(pageNode);
         pageNode.setUri(parentNode.getUri()+"/"+pageNode.getName());
         if(!children.contains(pageNode)) {
           if(uiPageNodeSelector.searchPageNodeByUri(pageNav, pageNode.getUri()) != null) {
@@ -182,8 +177,10 @@ public class UIPageNodeForm extends UIFormTabPane {
       uiMaskWS.setUIComponent(null);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
+      UIPageNodeSelector pageNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
+      pageNodeSelector.selectPageNodeByUri(pageNode.getUri());
       pcontext.addUIComponentToUpdateByAjax(uiManagement);   
-      pcontext.addUIComponentToUpdateByAjax(uiToolPanel);
+      pcontext.addUIComponentToUpdateByAjax(uiToolPanel.getParent());
       pcontext.setFullRender(true);
       //uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri());
     }
