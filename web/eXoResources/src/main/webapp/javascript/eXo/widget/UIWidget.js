@@ -193,6 +193,7 @@ UIWidget.prototype.resizeContainer = function() {
 		//var html = document.getElementsByTagName("html")[0];
 		var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
 		var fixHeight = uiControlWorkspace.offsetHeight - 153;
+    fixHeight = (fixHeight < 0) ? 0 : fixHeight ;
 		/* 153 is total value (UserWorkspaceTitleHeight + UIExoStartHeight + WidgetNavigatorHeight + 40)
 		 * 40 is distance between UIWidgets and UIExoStart 
 		 * */
