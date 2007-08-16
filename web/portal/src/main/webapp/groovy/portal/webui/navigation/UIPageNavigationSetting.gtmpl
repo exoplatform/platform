@@ -11,9 +11,9 @@
 				<%if(child.getId().equals("ownerId")){ %>
 				  <%if(uicomponent.getChildById("ownerType").getValue().equals("group")) {%>
 				    <%if(uicomponent.getChildById("ownerType").isEnable()) {%>
-					    <td style="vertical-align: middle;">
+					    <td style="width: 25px; vertical-align: middle;">
 				        <%String event = uicomponent.getParent().event("ChangeOwnerType");%>
-				        <a href="<%=event%>" class="SelectGroup" title="Select other group"><span></span></a>
+				        <a href="<%=event%>" class="SelectGroup" title="Select other group">Select</a>
 					    </td>
 				    <%}%>
 				  <%}%>  

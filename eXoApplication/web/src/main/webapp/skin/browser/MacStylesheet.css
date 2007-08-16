@@ -97,7 +97,7 @@
   height: 18px;
 	background: url("DefaultSkin/icons/16x16/ActiveGlobal.gif") white no-repeat left;
 	padding: 0px 2px 0px 17px;
-	margin: 5px 80px 0px 0px;
+	margin: 5px 0px 0px 0px;
 	border: inset 1px gray;
 	overflow-y:hidden ;
 }

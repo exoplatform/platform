@@ -16,7 +16,7 @@
   		  uicomponent.renderChild(UIDropDownItemSelector.class);
   		}
  		%>
- 		<div class="EditIcon" onclick="$showWCM" title="Widgets Container Management"><span></span></div>
+ 		<div class="EditIcon" onclick="$showWCM" title="Widget Containers Management"><span></span></div>
 		<div style="clear: left"><span></span></div>
 	</div>
 	

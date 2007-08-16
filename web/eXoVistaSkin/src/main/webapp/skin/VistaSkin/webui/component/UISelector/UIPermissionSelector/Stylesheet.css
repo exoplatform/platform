@@ -86,7 +86,7 @@
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton {
 	margin: auto;
-  width: 250px;
+  width: 370px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden {
@@ -102,12 +102,11 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionButton  {
-  width: 110px; 
   margin: 8px 2px 0px 2px; 
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
-  width: 110px; 
+  width: 170px; 
   margin: 8px 2px 0px 2px; 
 }
 
@@ -123,18 +122,18 @@
 
 .UIPermissionSelector .PermissionButton .CenterButton {
   background: url('background/CenterSimpleButton3x24.png') repeat-x; 
-  height: 24px; line-height: 24px;
+  line-height: 24px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
-	line-height: 24px; height: 24px;
+	line-height: 24px; height: auto; width: auto;
 	padding-left: 25px;
   margin: 2px 0px 0px 5px;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat left center;
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
-	line-height: 24px; height: 24px;
+	line-height: 24px; height: auto; width: auto;
 	padding-left: 25px;
   margin: 2px 0px 0px 5px;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center;

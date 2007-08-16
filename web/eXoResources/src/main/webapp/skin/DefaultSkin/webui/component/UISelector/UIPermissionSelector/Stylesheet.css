@@ -79,7 +79,7 @@
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton {
   color: black;
-  width: 200px; margin: auto;
+  width: 350px; margin: auto;
   padding: 8px 0px 2px 0px;
 }
 
@@ -96,7 +96,7 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
-  width: 95px; 
+  width: 155px; 
   margin: 0px 2px 0px 5px; 
 }
 
@@ -112,22 +112,21 @@
 
 .UIPermissionSelector .PermissionButton .CenterButton {
   background: url('background/CenterSimpleButton1x21.gif') repeat-x; 
-  height: 21px; line-height: 20px;
+  line-height: 21px;
   padding: 0px 5px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat left center;
   padding-left: 22px;
-  line-height: 20px;
-  height: 20px;
+  line-height: 21px;
 }
  
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectPermission.gif') no-repeat left center;
   padding-left: 22px;
-  line-height: 20px;
-  height: 20px;
+  line-height: 21px;
+  height: auto; width: auto;
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton  a{

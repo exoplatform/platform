@@ -71,7 +71,7 @@
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton {
   color: black;
-  width: 200px;
+  width: 350px;
   margin: auto;
 }
 
@@ -88,12 +88,11 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionButton  {
-  width: 95px;
   margin: 8px 2px 0px 2px; 
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
-  width: 95px;
+  width: 155px;
   margin: 8px 2px 0px 2px; 
 } 
 
@@ -109,22 +108,25 @@
 
 .UIPermissionSelector .PermissionButton  .CenterButton {
   background: url('/eXoResources/skin/DefaultSkin/webui/component/UISelector/UIPermissionSelector/background/CenterSimpleButton1x21.gif') repeat-x; 
-  height: 21px; line-height: 20px;
+  line-height: 21px;
   padding: 0px 5px;
+  
 }
 
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
   margin: 2px 0px 0px 0px;
   background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.gif') no-repeat left center;
-  height: 20px;
+  line-height: 21px;
   padding-left: 25px;
+  height: auto; width: auto;
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
   margin: 2px 0px 0px 0px;
   background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center;
-  height: 20px;
+  line-height: 21px;
   padding-left: 25px;
+  height: auto; width: auto;
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton  a{
