@@ -79,7 +79,7 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 	 */
 	var fixWidthForIE7 = 0 ;
 	var 	uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
-	if (uiWorkspaceContainer.style.display == "block" && event.clientX > 250 && eXo.core.Browser.isIE7() ) {
+	if ((uiWorkspaceContainer.style.display != "none") && (event.clientX > uiWorkspaceContainer.clientWidth) && eXo.core.Browser.isIE7() ) {
 		fixWidthForIE7 = uiWorkspaceContainer.clientWidth ;
 	}
 
