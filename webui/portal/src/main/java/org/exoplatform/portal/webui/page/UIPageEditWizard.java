@@ -163,9 +163,8 @@ public class UIPageEditWizard extends UIPageWizard {
       Page templatePage = uiPageTemplateOptions.getSelectedOption();
       DataStorage configService = uiWizard.getApplicationComponent(DataStorage.class);
       page = configService.getPage(pageNode.getPageReference());
-      
       boolean isDesktopPage = false;
-      if(templatePage != null) {
+      if(templatePage != null && templatePage.getChildren().size() > 0 ) {
         templatePage.setName(page.getName());
         templatePage.setOwnerType(page.getOwnerType());
         templatePage.setOwnerId(page.getOwnerId());
