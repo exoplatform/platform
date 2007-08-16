@@ -71,7 +71,8 @@ public class UIPageNavigationForm extends UIFormTabPane {
   public PageNavigation pageNav_;
   
   private UIFormInputSet uiPermissionSetting;
-
+  private SelectItemOption<String> groupOption = null ;
+  
   public UIPageNavigationForm() throws Exception {
     super("UIPageNavigationForm") ;
     
@@ -88,10 +89,14 @@ public class UIPageNavigationForm extends UIFormTabPane {
     if(portalNavigation != null && userService.hasEditPermission(portalNavigation.getOwnerId(), remoteUser, portalNavigation.getEditPermission()) ) {
       ownerTypes.add(new SelectItemOption<String>(PortalConfig.PORTAL_TYPE)) ;
     }
+    //TODO: Tung.Pham modified
+    //---------------------------------------------
     PortalRequestContext pcontext = Util.getPortalRequestContext();
     if(pcontext.isUserInRole("admin")) {
-      ownerTypes.add(new SelectItemOption<String>(PortalConfig.GROUP_TYPE)) ;
+      groupOption = new SelectItemOption<String>(PortalConfig.GROUP_TYPE) ;
+      ownerTypes.add(groupOption) ;
     }
+    //---------------------------------------------
     UIFormSelectBox uiSelectBoxOwnerType = new UIFormSelectBox("ownerType","ownerType" , ownerTypes) ;
     uiSelectBoxOwnerType.setOnChange("ChangeOwnerType");
     
@@ -161,6 +166,14 @@ public class UIPageNavigationForm extends UIFormTabPane {
     } else if(getChildById("PermissionSetting") == null) {
       addUIComponentInput(uiPermissionSetting);
     }
+    //TODO: Tung.Pham added
+    //------------------------------
+    if(pageNavigation.getOwnerType().equals(PortalConfig.GROUP_TYPE) && groupOption == null) {
+      groupOption = new SelectItemOption<String>(PortalConfig.GROUP_TYPE) ;
+      List<SelectItemOption<String>> ownerTypes = getUIFormSelectBox("ownerType" ).getOptions() ;
+      ownerTypes.add(groupOption) ;
+    }
+    //------------------------------
     invokeGetBindingBean(pageNavigation) ;
     
     getUIFormSelectBox("ownerType").setEnable(false);
