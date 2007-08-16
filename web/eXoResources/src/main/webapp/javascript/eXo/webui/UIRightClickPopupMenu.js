@@ -43,6 +43,7 @@ UIRightClickPopupMenu.prototype.prepareObjectId = function(elemt) {
 }
 
 UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId, objId, params) {
+	if (!event) event = window.event;
 	eXo.core.MouseEventManager.docMouseDownEvt(event) ;
 	var contextMenu = document.getElementById(menuId) ;
 	contextMenu.objId = objId ;
@@ -71,14 +72,22 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 	} else {
 		tmpCustomItem.style.display = "none" ;
 	}
-
 	
-			
+	/*
+	 * fix bug right click in IE7 in ECM.
+	 * 
+	 */
+	var fixWidthForIE7 = 0 ;
+	var 	uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
+	if (uiWorkspaceContainer.style.display == "block" && event.clientX > 250 && eXo.core.Browser.isIE7() ) {
+		fixWidthForIE7 = uiWorkspaceContainer.clientWidth ;
+	}
+
 	eXo.core.Mouse.update(event) ;
 	eXo.webui.UIPopup.show(contextMenu);
 
 	var intTop = eXo.core.Mouse.mouseyInPage - (eXo.core.Browser.findPosY(contextMenu) - contextMenu.offsetTop);
-	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(contextMenu) - contextMenu.offsetLeft);
+	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(contextMenu) - contextMenu.offsetLeft) + fixWidthForIE7;
 
  
 	if((eXo.core.Mouse.mouseyInClient + contextMenu.offsetHeight) > eXo.core.Browser.getBrowserHeight()) {
