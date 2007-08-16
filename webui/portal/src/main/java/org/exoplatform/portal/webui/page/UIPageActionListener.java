@@ -334,12 +334,12 @@ public class UIPageActionListener {
     public void execute(Event<UIPage> event) throws Exception {
      
       UIPage uiPage = event.getSource();
-      String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      int objectId  = Integer.parseInt(event.getRequestContext().getRequestParameter(UIComponent.OBJECTID));
       List<UIWidget> uiWidgets = new ArrayList<UIWidget>();
       uiPage.findComponentOfType(uiWidgets, UIWidget.class);
       UIWidget uiWidget = null;
       for(UIWidget ele : uiWidgets) {
-        if(ele.getApplicationInstanceId().equals(objectId)) {
+        if(ele.getApplicationInstanceId().hashCode() == objectId) {
           uiWidget = ele;
           break;
         }

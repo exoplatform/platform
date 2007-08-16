@@ -13,7 +13,7 @@
   String popupId = uicomponent.getId() ;
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
-  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', $uicomponent.show, $uicomponent.resizable, $showCloseButton);") ;
+  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', $uicomponent.show, $uicomponent.resizable, true);") ;
     
   String title = popupId ;
   if(component != null)  title = component.getId() ;
@@ -35,7 +35,7 @@
 	      <div class="TopCenterDecorator">
 	        <div class="OverflowContainer">
 		        <div class="PopupTitleIcon"><span></span></div>
-		        <%if( uicomponent.isShowCloseButton()) {%>
+		        <%if( true) {%>
 		          <div class="CloseButton" title="Close Window" onclick="<%=uicomponent.event("ClosePopup")%>"><span></span></div>
 		        <% } else { %>
 		          <div class="PopupTitleIconRight"><span></span></div>

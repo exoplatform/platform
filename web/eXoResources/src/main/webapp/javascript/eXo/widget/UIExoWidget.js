@@ -65,6 +65,7 @@ UIExoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 
 UIExoWidget.prototype.initApplication = function(applicationId, instanceId) {	
 //	alert("INIT UISTICKER WIDGET");
+//	alert(applicationId + "\n" + instanceId) ;
 	var DOMUtil = eXo.core.DOMUtil;	
 	var appDescriptor =  new eXo.application.ApplicationDescriptor(instanceId, this);
 	var appInstance = appDescriptor.createApplication();

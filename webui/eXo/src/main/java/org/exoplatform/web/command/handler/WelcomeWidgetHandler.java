@@ -22,7 +22,7 @@ import org.exoplatform.web.command.Command;
  */
 public class WelcomeWidgetHandler extends Command {
 
-  private String fileName ;
+  private String uploadId ;
 
   @SuppressWarnings("unused")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
@@ -36,7 +36,6 @@ public class WelcomeWidgetHandler extends Command {
       String widgetType = "WelcomeWidget";
       String userName = req.getRemoteUser();
       service.save(userName, widgetType, instantId, "aaa");
-      System.out.println("\n\n\n-------------------->" + fileName);
     } catch (Exception e) {
       e.printStackTrace();
     } catch (Throwable  e) {e.printStackTrace();

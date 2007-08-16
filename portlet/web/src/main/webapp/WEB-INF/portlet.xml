@@ -322,7 +322,7 @@
     <portlet-preferences>
       <preference>
         <name>url</name>
-        <value>http://exoplatform.com</value>
+        <value>http://www.exoplatform.com</value>
         <read-only>false</read-only>
       </preference>
     </portlet-preferences>

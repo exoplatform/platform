@@ -62,6 +62,9 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 } ;
 
 UIMaskLayer.prototype.setPosition = function() {
+	var maskLayer = document.getElementById("MaskLayer") ;
+	maskLayer.style.top = document.documentElement.scrollTop + "px";
+
 	var UIMaskLayer = eXo.core.UIMaskLayer ;
 	var Browser = eXo.core.Browser ;
 	var object = UIMaskLayer.object ;

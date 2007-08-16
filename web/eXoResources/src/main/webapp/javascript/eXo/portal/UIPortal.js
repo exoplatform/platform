@@ -404,6 +404,7 @@ UIPortal.prototype.createJSApplication = function(application, applicationId, in
 //	alert(createApplication);
 //  error: double load;
 //  minh.js.exo
+//	  alert(applicationId + "\n" + instanceId + "\n" + createApplication) ;
 	  eval(createApplication);
 	}
 } ;
