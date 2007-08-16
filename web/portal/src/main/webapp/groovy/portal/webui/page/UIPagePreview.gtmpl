@@ -1,13 +1,16 @@
-<div>
-	<%
-		if(uicomponent.getUIComponent().getChildren().size() > 0) {
-			uicomponent.renderChildren() ;
-		} else {
-	%>
-	<div style="font-style:italic; color: #FF5604; text-align: center; height: 30px; line-height: 30px;"><%=_ctx.appRes("UIPagePreview.msg.empty")%></div>
+<% 
+import org.exoplatform.portal.webui.application.UIApplication ;
+import org.exoplatform.portal.webui.page.UIPageBrowser ;
+%>
+<div><%uicomponent.renderChildren() ;%></div>
+<%
+	if(uicomponent.hasBackEvent()) {
+		UIApplication existingApp = uicomponent.getUIComponent().findFirstComponentOfType(UIApplication.class) ;
+		if(uicomponent.getBackComponent() instanceof UIPageBrowser && existingApp == null) {
+%>
+			<div style="font-style:italic; color: #FF5604; text-align: center; height: 30px; line-height: 30px;"><%=_ctx.appRes("UIPagePreview.msg.empty")%></div>
 	<%}%>
-</div>
-<%if(uicomponent.hasBackEvent()) {%>
+
 	<div class="HorizontalLayout">
 		<div class="UIAction" style="width: 100px;">
 			<div class="ActionContainer">
