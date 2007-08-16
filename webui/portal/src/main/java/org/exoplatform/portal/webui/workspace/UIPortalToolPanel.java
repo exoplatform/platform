@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.workspace;
 
+import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -41,7 +42,8 @@ public class UIPortalToolPanel extends UIComponentDecorator {
     UIComponent uiComponent = getUIComponent();
     if(uiComponent instanceof UIPage){
       UIPage uiPage = (UIPage) uiComponent;
-      if(uiPage.isShowMaxWindow()){
+      //if(uiPage.isShowMaxWindow()){
+      if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId())){
         uiComponent.processRender(context);
         if(showMaskLayer ){
           init = "eXo.core.UIMaskLayer.createMask('UIPage', null, 10) ;";
