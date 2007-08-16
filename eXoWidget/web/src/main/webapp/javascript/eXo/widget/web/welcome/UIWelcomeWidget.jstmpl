@@ -1,8 +1,33 @@
 <div class="UIWelcomeWidget">
   <div class="EditMode" style="display:none ;border: solid 1px #333333 ; padding: 3px ; background:#ece9d8; height: 300px; width: 300px ;">
-		<div>Upload avatar : </div>
-		<input type="file" name="uploadfile" style="font-size: 11px ;"/>
-		<div><input type="button" value="Upload"  style="font-size: 11px ;"/></div>
+		<div class="UIFormUploadInput" id="<%=context.appId%>">
+		  <input type="hidden" id="input<%=context.appId%>" name="<%=context.appId%>" value="false"/>
+		  <div id="<%=context.appId%>UploadIframe" class="UploadIframe">
+		    <iframe height="23" class="TestIframe" scrolling="no" frameborder="0" framespacing="0" id="<%=context.appId%>uploadFrame"></iframe>
+		  </div>
+		  <div id="<%=context.appId%>ProgressIframe" class="ProgressIframe" style="display: none;"></div>      
+		  <div class="ProgressBarFrame" style="display: none;">
+				<div class="ProgressBar">
+					<div class="ProgressBarLeft">
+						<div class="ProgressBarMiddle">
+							<div class="BlueProgressBar">
+								<div class="ProgressBarLabel">0%</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="DeleteFileFrame">
+					<div class="DeleteFileLable" onclick="eXo.webui.UIUpload.abortUpload(<%=context.appId%>);">Cancel</div>
+				</div>
+			</div>
+			<div class="SelectFileFrame" style="display: none;">
+				<div class="FileName">
+					<div class="FileNameLabel"></div>
+				</div>
+				<div class="RemoveFile" title="Remove Uploaded" onclick="eXo.webui.UIUpload.deleteUpload(<%=context.appId%>);"></div>
+			</div>
+		</div>
+    <input type="button" name="upload" value="submit" onclick="eXo.widget.web.welcome.UIWelcomeWidget.upload('<%=context.appId%>')">
 	</div>
 	<div class="LoggedDecorator ViewMode">
     <div class="LeftTopLoggedDecorator">

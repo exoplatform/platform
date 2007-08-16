@@ -30,7 +30,7 @@ public class InfoWidget extends WidgetApplication<UIWidget> {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     
-    String instanceId = uiWidget.getApplicationInstanceId() ;
+    int instanceId = uiWidget.getApplicationInstanceId().hashCode() ;
     
     int posX = uiWidget.getProperties().getIntValue("locationX") ;
     int posY = uiWidget.getProperties().getIntValue("locationY") ;

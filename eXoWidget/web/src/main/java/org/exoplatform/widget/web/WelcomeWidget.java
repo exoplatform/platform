@@ -29,7 +29,7 @@ public class WelcomeWidget extends WidgetApplication<UIWidget> {
   public void processRender(UIWidget uiWidget, Writer w) throws Exception {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
-    String instanceId = uiWidget.getApplicationInstanceId() ;
+    int instanceId = uiWidget.getApplicationInstanceId().hashCode() ;
     String userName = pContext.getRemoteUser() ;
     int posX = uiWidget.getProperties().getIntValue("locationX") ;
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
@@ -39,5 +39,7 @@ public class WelcomeWidget extends WidgetApplication<UIWidget> {
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','"+instanceId+"','/eXoWidgetWeb/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
+    appReqContext.getJavascriptManager().importJavascript("eXo.webui.UIUpload") ;
+    appReqContext.getJavascriptManager().addCustomizedOnLoadScript("eXo.webui.UIUpload.initUploadEntry('"+instanceId+"');") ;
   }
 }

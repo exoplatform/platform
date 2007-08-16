@@ -58,7 +58,7 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
 
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
-    String instanceId = uiWidget.getApplicationInstanceId() ;
+    int instanceId = uiWidget.getApplicationInstanceId().hashCode() ;
 //    System.out.println("\n\n\n-------------Idne = " + uiWidget.getApplicationInstanceUniqueId());
     int posX = uiWidget.getProperties().getIntValue("locationX") ;
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
@@ -68,8 +68,7 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
     if(bytes != null ) content = new String(bytes);
     if(content == null ) content = "";
     content = content.trim();
-    w.append("<div id = 'UIStickerWidget' applicationId = '").
-      append(instanceId).
+    w.append("<div id = 'UIStickerWidget' applicationId = '" + instanceId).
       append("' posX = '").append(String.valueOf(posX)). 
       append("' posY = '").append(String.valueOf(posY)).
       append("' zIndex = '").append(String.valueOf(zIndex)).
