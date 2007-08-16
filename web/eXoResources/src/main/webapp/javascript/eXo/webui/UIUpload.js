@@ -23,9 +23,9 @@ UIUpload.prototype.initUploadEntry = function(uploadId) {
 UIUpload.prototype.createUploadEntry = function(uploadId) {
   var iframe = document.getElementById(uploadId+'uploadFrame');
   //  TODO DungHM: review solution that fixed "lack of background" bug ;
-	var horizontalLayout = eXo.core.DOMUtil.findAncestorByClass(iframe.parentNode, "HorizontalLayout") ;
-	var backgroundColor = (horizontalLayout.currentStyle) ? horizontalLayout.currentStyle["backgroundColor"]:"" ;
-	var backgroundImage = (horizontalLayout.currentStyle) ? horizontalLayout.currentStyle["backgroundImage"]:"" ;
+//	var horizontalLayout = eXo.core.DOMUtil.findAncestorByClass(iframe.parentNode, "HorizontalLayout") ;
+	var backgroundColor = "";//(horizontalLayout.currentStyle) ? horizontalLayout.currentStyle["backgroundColor"]:"" ;
+	var backgroundImage = "" ;//(horizontalLayout.currentStyle) ? horizontalLayout.currentStyle["backgroundImage"]:"" ;
   var idoc = iframe.contentWindow.document ;
   var uploadAction = eXo.env.server.context + "/command?" ;
   uploadAction += "type=org.exoplatform.web.command.handler.UploadHandler";
@@ -175,6 +175,7 @@ UIUpload.prototype.deleteUpload = function(id) {
 
 
 UIUpload.prototype.upload = function(clickEle, id) {
+	alert(id) ;
 	var DOMUtil = eXo.core.DOMUtil;  
   var container = parent.document.getElementById(id);  
   var uploadFrame = parent.document.getElementById(id+"uploadFrame");
