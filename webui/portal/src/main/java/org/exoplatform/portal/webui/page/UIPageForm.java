@@ -350,6 +350,8 @@ public class UIPageForm extends UIFormTabPane {
       if(uiGroupSelector.getSelectedGroup() == null) {
         UIFormSelectBox uiSelectBox = uiPageForm.getUIFormSelectBox("ownerType");
         uiSelectBox.setValue(PortalConfig.USER_TYPE);
+        UIFormStringInput ownerIdSelectBox = uiPageForm.getUIStringInput("ownerId");
+        ownerIdSelectBox.setValue(Util.getPortalRequestContext().getRemoteUser());
         if(uiPageForm.getChildById("PermissionSetting") != null) uiPageForm.removeChildById("PermissionSetting") ;
       } else {
         uiOwnerId.setValue(uiGroupSelector.getSelectedGroup().getId());
