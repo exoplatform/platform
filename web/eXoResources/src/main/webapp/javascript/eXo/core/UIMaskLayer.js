@@ -53,8 +53,9 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 		 //(document.body.offsetHeight > Browser.getBrowserHeight()) ? document.body.offsetHeight : eXo.core.Browser.getBrowserHeight() ;
 		maskLayer.style.height = "100%"; //document.documentElement.scrollTop + maskLayerHeight + "px";
 		maskLayer.style.width = "100%"; //blockContainer.offsetWidth + "px" ;
-		eXo.core.UIMaskLayer.OnScroll();
-		
+
+		eXo.core.UIMaskLayer.doScroll();
+
 		}catch(err) {
 			alert(err);
 	}
@@ -62,19 +63,13 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 };
 
 
-/*
- * minh.js.exo
- */
- 
-UIMaskLayer.prototype.OnScroll = function() {
-	var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
-	if(document.getElementById("MaskLayer") && uiControlWorkspace.style.display != "none") {
+UIMaskLayer.prototype.doScroll = function() {
+	if(document.getElementById("MaskLayer")) {
 		var maskLayer = document.getElementById("MaskLayer") ;
-		maskLayer.style.top = uiControlWorkspace.style.top ;
-		setTimeout("eXo.core.UIMaskLayer.OnScroll()", 1) ;
+		maskLayer.style.top = document.documentElement.scrollTop + "px" ;
+		setTimeout("eXo.core.UIMaskLayer.doScroll()", 1) ;
 	}
 };
-
 
 
 UIMaskLayer.prototype.setPosition = function() {
