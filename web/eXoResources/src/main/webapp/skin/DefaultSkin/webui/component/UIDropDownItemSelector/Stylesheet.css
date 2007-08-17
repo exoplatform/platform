@@ -1,11 +1,11 @@
 /******************************* UIDropDownItemSelector  **********************************/
 .UIDropDownItemSelector {
-	margin-bottom: 3px;
+	margin: 2px 0px 1px 0px;
 }
 
 .UIDropDownItemSelector .ItemSelectorContainer {
 	border-right: none;
-	height: 19px;
+	height: 21px;
 }
 
 .UIDropDownItemSelector .ItemInfoBar {

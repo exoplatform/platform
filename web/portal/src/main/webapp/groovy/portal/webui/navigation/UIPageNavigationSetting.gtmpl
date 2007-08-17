@@ -7,17 +7,18 @@
 		%>
 			<tr>
 				<td class="FieldLabel"><%=_ctx.appRes(uicomponent.getId()+".label." + child.getId())%></td>
-				<td class="FieldComponent"><%uicomponent.renderUIComponent(child);%></td>
+				<td class="FieldComponent"><%uicomponent.renderUIComponent(child);%>
 				<%if(child.getId().equals("ownerId")){ %>
 				  <%if(uicomponent.getChildById("ownerType").getValue().equals("group")) {%>
 				    <%if(uicomponent.getChildById("ownerType").isEnable()) {%>
-					    <td style="width: 25px; vertical-align: middle;">
+					   
 				        <%String event = uicomponent.getParent().event("ChangeOwnerType");%>
-				        <a href="<%=event%>" class="SelectGroup" title="Select other group">Select</a>
-					    </td>
+				        <a href="<%=event%>" title="Select other group"><img src="/eXoResources/skin/sharedImages/Blank.gif" class="SelectGroup" ></a>
+					   
 				    <%}%>
 				  <%}%>  
 				<%}%>  
+				</td>
 			</tr>
 		<%}%>
 		</tbody>

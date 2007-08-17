@@ -11,9 +11,9 @@
 
 .UIPopupWindow .PopupTitleIconRight {
   float: right;
-  margin: 5px 3px 0px 0px;
-  width: 19px; height: 15px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupWindowIcon16x16.gif') no-repeat;
+  margin: 10px 0px 0px 0px;
+  width: 16px; height: 15px;
+  background: url('background/PopupWindowIcon.gif') no-repeat;
 }
 
 .UIPopupWindow .PopupTitle {

@@ -95,10 +95,9 @@
 }
 
 .UIMaskWorkspace .UIFormInputSet .UIFormGrid .SelectGroup {
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat left bottom;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat center;
 	height: 22px;
-	padding: 5px 0px 3px 18px;	
-	color: #F7F7F7;
+	width: 22px;
 }
 
 /**********************************UITabSelector*****************************************/
@@ -348,6 +347,7 @@
   height: 170px; 
   color: #058ee6;
   padding: 10px;
+  background: white;
 }
 
 .UIGroupSelector .RightGroupSelector .Content div {
@@ -356,6 +356,11 @@
 
 .UIGroupSelector .RightGroupSelector .Content span {
   color: #2c2c2c;
+}
+
+.UIGroupSelector .UIAction {
+	width: 90px;
+	padding: 8px 0px;
 }
 
 /**************************************Container Form*************************************/
