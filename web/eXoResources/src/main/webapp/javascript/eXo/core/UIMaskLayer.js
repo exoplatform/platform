@@ -7,64 +7,77 @@ function UIMaskLayer() {
 
 UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, position) {
 	try {
-	var Browser = eXo.core.Browser ;
-	var blockContainer = document.getElementById(blockContainerId) ;
-	var maskLayer = document.createElement("div") ;
-	
-	this.object = object ;
-	this.blockContainer = blockContainer ;
-	this.position = position ;
-	
-	blockContainer.appendChild(maskLayer) ;
-	
-	maskLayer.className = "MaskLayer" ;
-	maskLayer.id = "MaskLayer" ;
-	maskLayer.style.display = "block" ;
-	maskLayer.maxZIndex = 2 ;
-	maskLayer.style.zIndex = maskLayer.maxZIndex ;
-	maskLayer.style.top = "0px" ;
-	maskLayer.style.left = "0px" ;
-//	maskLayer.style.right = "0px" ;
-
-	if(opacity) {
-    Browser.setOpacity(maskLayer, opacity) ;
-	}	
-	
-	if(object != null){
-		if(object.nextSibling) {
-		  maskLayer.nextSiblingOfObject = object.nextSibling ;
-		  maskLayer.parentOfObject = null ;
-		} else {
-		  maskLayer.nextSiblingOfObject = null ;
-		  maskLayer.parentOfObject = object.parentNode ;
-		}
+		var Browser = eXo.core.Browser ;
+		var blockContainer = document.getElementById(blockContainerId) ;
+		var maskLayer = document.createElement("div") ;
 		
-		object.style.zIndex = maskLayer.maxZIndex + 1 ;
-		object.style.display = "block" ;
+		this.object = object ;
+		this.blockContainer = blockContainer ;
+		this.position = position ;
 		
-		blockContainer.appendChild(object) ;
+		blockContainer.appendChild(maskLayer) ;
+		
+		maskLayer.className = "MaskLayer" ;
+		maskLayer.id = "MaskLayer" ;
+		maskLayer.style.display = "block" ;
+		maskLayer.maxZIndex = 2 ;
+		maskLayer.style.zIndex = maskLayer.maxZIndex ;
+		maskLayer.style.top = "0px" ;
+		maskLayer.style.left = "0px" ;
+	//	maskLayer.style.right = "0px" ;
 	
-		eXo.core.UIMaskLayer.setPosition() ;
+		if(opacity) {
+	    Browser.setOpacity(maskLayer, opacity) ;
+		}	
 		
-		if((blockContainer.offsetWidth > object.offsetLeft + object.offsetWidth) && (position == "TOP-RIGHT") || (position == "BOTTOM-RIGHT")) {
-	    object.style.left = blockContainer.offsetWidth - object.offsetWidth + "px" ;
-		}
-  }
-	var maskLayerHeight = (document.body.offsetHeight > Browser.getBrowserHeight()) ? document.body.offsetHeight : eXo.core.Browser.getBrowserHeight() ;
-	maskLayer.style.width = "100%"; //blockContainer.offsetWidth + "px" ;
-	maskLayer.style.height = "100%"; //document.documentElement.scrollTop + maskLayerHeight + "px";
-
-
-	}catch(err) {
-		alert(err);
+		if(object != null){
+			if(object.nextSibling) {
+			  maskLayer.nextSiblingOfObject = object.nextSibling ;
+			  maskLayer.parentOfObject = null ;
+			} else {
+			  maskLayer.nextSiblingOfObject = null ;
+			  maskLayer.parentOfObject = object.parentNode ;
+			}
+			
+			object.style.zIndex = maskLayer.maxZIndex + 1 ;
+			object.style.display = "block" ;
+			
+			blockContainer.appendChild(object) ;
+		
+			eXo.core.UIMaskLayer.setPosition() ;
+			
+			if((blockContainer.offsetWidth > object.offsetLeft + object.offsetWidth) && (position == "TOP-RIGHT") || (position == "BOTTOM-RIGHT")) {
+		    object.style.left = blockContainer.offsetWidth - object.offsetWidth + "px" ;
+			}
+	  }
+		 //(document.body.offsetHeight > Browser.getBrowserHeight()) ? document.body.offsetHeight : eXo.core.Browser.getBrowserHeight() ;
+		maskLayer.style.height = "100%"; //document.documentElement.scrollTop + maskLayerHeight + "px";
+		maskLayer.style.width = "100%"; //blockContainer.offsetWidth + "px" ;
+		eXo.core.UIMaskLayer.OnScroll();
+		
+		}catch(err) {
+			alert(err);
 	}
 	return maskLayer ;
-} ;
+};
+
+
+/*
+ * minh.js.exo
+ */
+ 
+UIMaskLayer.prototype.OnScroll = function() {
+	var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
+	if(document.getElementById("MaskLayer") && uiControlWorkspace.style.display != "none") {
+		var maskLayer = document.getElementById("MaskLayer") ;
+		maskLayer.style.top = uiControlWorkspace.style.top ;
+		setTimeout("eXo.core.UIMaskLayer.OnScroll()", 1) ;
+	}
+};
+
+
 
 UIMaskLayer.prototype.setPosition = function() {
-	var maskLayer = document.getElementById("MaskLayer") ;
-	maskLayer.style.top = document.documentElement.scrollTop + "px";
-
 	var UIMaskLayer = eXo.core.UIMaskLayer ;
 	var Browser = eXo.core.Browser ;
 	var object = UIMaskLayer.object ;
