@@ -23,6 +23,8 @@ var eXo  = {
   	browser : { }
   },
   
+  forum : { },
+  
   mail : { }  
 } ;
 
