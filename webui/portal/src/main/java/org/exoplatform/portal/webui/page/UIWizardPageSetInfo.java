@@ -99,7 +99,7 @@ public class UIWizardPageSetInfo extends UIForm {
     addUIFormInput(new UIFormStringInput(PAGE_NAME, "name", null).
                        addValidator(EmptyFieldValidator.class).
                        addValidator(IdentifierValidator.class).
-                       addValidator(StringLengthValidator.class, 3, 20));
+                       addValidator(StringLengthValidator.class, 3, 30));
     addUIFormInput(new UIFormStringInput(PAGE_DISPLAY_NAME, "label", null));
     
     UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
