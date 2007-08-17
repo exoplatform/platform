@@ -6,7 +6,9 @@ package org.exoplatform.widget.web;
 
 import java.io.Writer;
 
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.application.jcr.UserWidgetStorageImpl;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
@@ -35,6 +37,14 @@ public class WelcomeWidget extends WidgetApplication<UIWidget> {
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
     int zIndex = uiWidget.getProperties().getIntValue("zIndex") ;
     
+    PortalContainer container  = PortalContainer.getInstance();
+    UserWidgetStorageImpl service = 
+      (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
+    byte[] bytes = (byte[]) service.get(pContext.getRemoteUser(), "WelcomeWidget", "avatar");
+    if(bytes != null) {
+      System.out.println("\n\n\n-----------IN WELCOME: " + new String(bytes));
+      
+    }
     w.write("<div id = 'UIWelcomeWidget' userName = '"+userName+"' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"' zIndex = '"+zIndex+"'><span></span></div>") ;
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','"+instanceId+"','/eXoWidgetWeb/javascript/');";

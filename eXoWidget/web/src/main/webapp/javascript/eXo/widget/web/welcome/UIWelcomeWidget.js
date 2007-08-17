@@ -14,6 +14,7 @@ UIWelcomeWidget.prototype.upload = function(uploadId) {
   url += "type=org.exoplatform.web.command.handler.WelcomeWidgetHandler&uploadId=" + uploadId ;
   alert(url) ;
   var test = ajaxAsyncGetRequest(url, false);
+  
 } ;
 
 
