@@ -1,3 +1,10 @@
+<% 
+    System.out.println("\n\n-----------ddd--->con0 " + uicomponent.getChild(0).isRendered());
+    System.out.println("\n\n-------------->con1 " + uicomponent.getChild(1));
+    System.out.println("\n\n-------------->con2 " + uicomponent.getChild(2));
+    String style = "SelectButtonLabel";
+ %>
+
 <div class="OrganizationPortletContainer">
   <%/*Begin UIToolbar*/%>
   <div class="UIToolbar">
@@ -6,24 +13,38 @@
         <div class="LeftToolbar">
           <div class="RightToolbar">
             <div class="MiddleToolbar">
+             
               <div class="ManagementIconContainer">
+               <%
+                 style = "ButtonLabel"; 
+                 if(uicomponent.getChild(0).isRendered()){ style = "SelectButtonLabel"; }
+               %>
                 <a class="UserButton" href="<%=uicomponent.event("ViewChild", "UIUserManagement")%>">
                   <div class="UserManagementIcon"><span></span></div>
-                  <div class="ButtonLabel"><%=_ctx.appRes("UIOrganizationPortlet.label.userManagement")%></div>
+                  <div class="$style"><%=_ctx.appRes("UIOrganizationPortlet.label.userManagement")%></div>
                 </a>
                 <div class="HorizontalSeparator"><span></span></div>
+                <%
+                  style = "ButtonLabel"; 
+                  if(uicomponent.getChild(1).isRendered()){ style = "SelectButtonLabel"; }
+                %>
                 <a class="GroupButton" href="<%=uicomponent.event("ViewChild", "UIGroupManagement")%>">
                   <div class="GroupManagementIcon"><span></span></div>
-                  <div class="ButtonLabel"><%=_ctx.appRes("UIOrganizationPortlet.label.groupManagement")%></div>
+                  <div class="$style"><%=_ctx.appRes("UIOrganizationPortlet.label.groupManagement")%></div>
                 </a>
                 <div class="HorizontalSeparator"><span></span></div>
+                <%
+                 style = "ButtonLabel"; 
+                 if(uicomponent.getChild(2).isRendered()){ style = "SelectButtonLabel"; }
+                %>
                 <a class="MembershipButton" href="<%=uicomponent.event("ViewChild", "UIMembershipManagement")%>">
                   <div class="MembershipManagementIcon"><span></span></div>
-                  <div class="ButtonLabel"><%=_ctx.appRes("UIOrganizationPortlet.label.membershipManagement")%></div>
+                  <div class="$style"><%=_ctx.appRes("UIOrganizationPortlet.label.membershipManagement")%></div>
                 </a>
                 <div class="HorizontalSeparator"><span></span></div>
                 <div style="clear: both"><span></span></div>
               </div>
+         
             </div>
           </div>
         </div>
