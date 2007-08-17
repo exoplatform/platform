@@ -37,43 +37,10 @@
 	            %>
 	            <div class="UITabContent" id="UITabContent" style="display: $selectorDisplay;">	                
 								<div class="UIItemSelector">  
-								  <div class="RightColumnStyle">
-								      <%/*Begin ItemList*/%>
-											<div class="ItemListContainer">
-								        <div class="ItemListTitle">
-								  	    	<div class="TitleIcon ItemListIcon"><span></span></div>
-								  	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
-								  	    	<div style="clear: left;"><span></span></div>
-								  	    </div>
-								        <div class="ItemList">
-								        <% 
-								        	for (category in categories) {
-									        	String itemSelected = "Item";
-									        	if (category.isSelected()) itemSelected = "SelectedItem Item";
-									        	String onClick = "eXo.webui.UIItemSelector.onClick(this)";
-								        %>
-														<div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick">
-							                <div class="LeftItem">
-							                  <div class="RightItem">  
-							                    <div class="ItemTitle"><%=_ctx.appRes(category.getName() + ".label")%></div>
-							                  </div>
-							                </div>
-						              	</div>
-					              <%}%>								
-								        </div>
-								      </div>
-								      <%/*End ItemList*/%>
-								            
-								      <%/*Begin ItemDetailList*/%>
-								      <div class="ItemDetailList">
-								      
-								        <div class="ItemDetailTitle">
-								          <div class="TitleIcon ViewListIcon"><span></span></div>
-								  	    	<div class="Title"><%=_ctx.appRes(selector.getName() + ".left.title")%></div>
-								  	    	<div style="clear: left;"><span></span></div>
-								        </div>
-								        
-								        <div class="ItemDetailContainer">
+								  <div class="RightColumnStyle">								            
+								      <%/*Begin ItemDetailList:*/%>
+								      <div class="ItemDetailList" style="margin:0px 0px 0px 0px">								      								        								        
+								        <div class="ItemDetailContainer" style="border:none">
 								        <% 
 								        	for(category in categories) {
 								        		String itemDetailDisplay = "none";
@@ -90,14 +57,13 @@
 									        	<div class="$itemSelected" onclick="$onclickOption">
 									        	  <div class="Icon"><span></span></div>
 									        	  <a class="NodeLabel"><%=opt.getLabel()%></a>
-									        	  <div class="PercentLabel"><%=opt.getValue()%></div>
+									        	  <div class="PercentLabel"><%=opt.getDescription()%></div>
 									        	  <div style="clear: left;"><span></span></div>
 									        	</div>
 									        <%}%>	
 									        </div>
 								       <%}%>
-								        </div>
-								
+								        </div>								
 								      </div>  
 								      <%/*End ItemDetailList*/%>      
 								  </div>
