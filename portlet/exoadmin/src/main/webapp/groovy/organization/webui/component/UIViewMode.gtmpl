@@ -1,7 +1,4 @@
 <% 
-    System.out.println("\n\n-----------ddd--->con0 " + uicomponent.getChild(0).isRendered());
-    System.out.println("\n\n-------------->con1 " + uicomponent.getChild(1));
-    System.out.println("\n\n-------------->con2 " + uicomponent.getChild(2));
     String style = "SelectButtonLabel";
  %>
 
