@@ -13,6 +13,8 @@ import org.exoplatform.webui.form.UIFormInput;
  * Author : Dang Van Minh
  *          minhdv81@yahoo.com
  * Jun 7, 2006
+ * 
+ * Validates whether the value is composed of letters, numbers or '_'
  */
 public class IdentifierValidator implements Validator {
     

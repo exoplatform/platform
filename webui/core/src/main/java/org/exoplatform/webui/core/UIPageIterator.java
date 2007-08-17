@@ -7,13 +7,18 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-
+/**
+ * A component that allows pagination, with an iterator to change pages
+ *
+ */
 @ComponentConfig(
     template = "system:/groovy/webui/core/UIPageIterator.gtmpl",
     events = @EventConfig(listeners = UIPageIterator.ShowPageActionListener.class )    
 )
 public class UIPageIterator extends UIComponent {
-  
+  /**
+   * The list of pages
+   */
 	private PageList pageList_ = PageList.EMPTY_LIST ;
 	
 	public UIPageIterator() {

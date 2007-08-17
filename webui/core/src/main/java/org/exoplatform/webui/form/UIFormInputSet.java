@@ -19,6 +19,8 @@ import org.exoplatform.webui.core.UIContainer;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * Jun 8, 2006
+ * 
+ * Represents table containing several input fields
  */
 public class UIFormInputSet extends  UIContainer {
   

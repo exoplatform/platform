@@ -3,11 +3,19 @@ package org.exoplatform.webui.form;
 import java.io.Writer;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
-
+/**
+ * Represents a checkbox field.
+ * @param <T> The type of value that is expected
+ */
 @SuppressWarnings("hiding")
 public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
-  
+  /**
+   * Whether this checkbox is checked
+   */
   private boolean checked = false;
+  /**
+   * A javascript expression that will be fired when the value changes (JS onChange event)
+   */
   private String onchange_;
 
   @SuppressWarnings("unchecked")
@@ -56,7 +64,7 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
     Writer w =  context.getWriter() ;    
     w.write("<input type='checkbox' name='"); w.write(name); w.write("'") ;
     w.write(" value='"); 
-    if(value_ != null)  w.write(String.valueOf(value_));    
+    if(value_ != null)  w.write(String.valueOf(value_));
     w.write("' ");
     if(onchange_ != null) {
       UIForm uiForm = getAncestorOfType(UIForm.class) ;

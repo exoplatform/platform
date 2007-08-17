@@ -18,23 +18,48 @@ import org.exoplatform.webui.form.validator.Validator;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * Jun 6, 2006
+ * 
+ * The base class to create form elements.
+ * Extend it to create your own elements.
  */
 abstract public class UIFormInputBase<T> extends UIContainer implements UIFormInput<T> {
   
   final static public boolean  ENABLE = true, DISABLE = false;
-  
+  /**
+   * The HTML 'name' attribute of this element
+   */
   protected String name ;
+  /**
+   * The HTML 'label' field of this element
+   */
   private String label;
+  /**
+   * 
+   */
   protected String bindingField ;
-  
+  /**
+   * The list of validators for this form element
+   */
   protected List<Validator>  validators ;
-  
-  protected T defaultValue_; 
+  /**
+   * A default value for this field
+   */
+  protected T defaultValue_;
+  /**
+   * The current value of this field
+   */
   protected T value_;
-  
+  /**
+   * The type of value that is expected
+   */
   protected Class<T> typeValue_ ;
-  
-  protected boolean enable_ = true;  
+  /**
+   * Whether this field is enabled
+   */
+  protected boolean enable_ = true;
+  /**
+   * Whether this field is in read only mode
+   */
   protected boolean readonly_ = false;
   
   public UIFormInputBase(String name, String bindingField,Class<T> typeValue) {
@@ -42,7 +67,7 @@ abstract public class UIFormInputBase<T> extends UIContainer implements UIFormIn
     this.bindingField =  bindingField ;
     this.typeValue_ = typeValue;
     setId(name);
-  }  
+  }
   
   public String getName()  { return name ; }
   public void   setName(String name) { this.name = name ; }

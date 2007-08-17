@@ -14,14 +14,27 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * May 7, 2006
+ * 
+ * A grid element (represented by an HTML table) that can be paginated with a UIPageIterator
+ * @see UIPageIterator
  */
 @ComponentConfig(template = "system:/groovy/webui/core/UIGrid.gtmpl")
 public class UIGrid extends UIComponent {
-  
+  /**
+   * The page iterator
+   */
   protected UIPageIterator uiIterator_ ;
-  
+  /**
+   * The bean field that holds the id of this bean
+   */
   protected  String beanIdField_ ;
+  /**
+   * An array of String representing the fields in each bean
+   */
   protected  String[] beanField_ ;
+  /**
+   * An array of String representing the actions on each bean
+   */
   protected  String[] action_ ;
   protected  String classname_;
   protected  String label_ ;

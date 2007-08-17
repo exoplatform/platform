@@ -6,13 +6,21 @@ import java.util.List;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.model.SelectItemOption;
-
+/**
+ * Represents a radio box element
+ * The selected box value is stored in the value_ property of UIFormInputBase
+ */
 public class UIFormRadioBoxInput extends UIFormInputBase<String>  {
   
   public static int VERTICAL_ALIGN = 1 ;
   public static int HORIZONTAL_ALIGN = 2 ;
+  /**
+   * The list of radio boxes
+   */
   private List<SelectItemOption<String>> options_;
-  
+  /**
+   * Alignment of the element (vertical or horizontal)
+   */
   private int align_ ;
   private int topRender_ = 0;
   

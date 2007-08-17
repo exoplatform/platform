@@ -11,12 +11,22 @@ import java.util.List;
  * Author : Dang Van Minh
  *          minhdv@exoplatform.com
  * Aug 31, 2006  
+ * 
+ * A component that represents a toolbar
  */
 
 public abstract class UIToolbar extends UIComponent {
-  
+  /**
+   * The css style
+   */
   private String toolbarStyle_ = "LightToolbar" ;
+  /**
+   * A javascript expression
+   */
   private String strJavascript_ = "" ;
+  /**
+   * A javascript event name
+   */
   private String eventName_ = "" ;
   
   public UIToolbar() throws Exception {

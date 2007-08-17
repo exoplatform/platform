@@ -18,28 +18,60 @@ import org.exoplatform.webui.form.UIForm;
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
  * Jul 7, 2006
+ * 
+ * A component that represents a tree.
+ * Can contain a UIRightClickPopupMenu
+ * @see UIRightClickPopupMenu
  */
 @ComponentConfig(
   template = "system:/groovy/webui/core/UITree.gtmpl" , 
   events = @EventConfig(listeners = UITree.ChangeNodeActionListener.class)
 )
 public class UITree extends UIComponent {
-  
+  /**
+   * The css class name to show the expand icon
+   */
   private String expandIcon = "ExpandIcon";
+  /**
+   * The css class name to show the collapse icon
+   */
   private String colapseIcon = "ColapseIcon";
-  
+  /**
+   * The css class name to show the selected icon
+   */
   private String selectedIcon ;
   private String icon;
-  
+  /**
+   * The bean field that holds the id of the bean
+   */
   private String beanIdField_ ;
+  /**
+   * The bean field that holds the label of the bean
+   */
   private String beanLabelField_ ;
+  /**
+   * The bean field that holds the icon of the bean
+   */
   private String beanIconField_ = "";
-  
+  /**
+   * A list of sibling nodes
+   */
   private List<?> sibbling;
+  /**
+   * A list of children nodes
+   */
   private List<?> children;
+  /**
+   * The selected node
+   */
   private Object selected;
+  /**
+   * The parent node of the selected node
+   */
   private Object parentSelected ;
-  
+  /**
+   * A right click popup menu
+   */
   private UIRightClickPopupMenu uiPopupMenu_;
   
   public Object getFieldValue(Object bean, String field) throws Exception {

@@ -16,9 +16,17 @@ import org.exoplatform.webui.form.UIFormInput;
  * Author : Dang Van Minh
  *          minhdv81@yahoo.com
  * Jun 7, 2006
+ * 
+ * Validates whether this value has a length between min and max
  */
 public class StringLengthValidator implements Validator {
+  /**
+   * The minimum number of characters in this String
+   */
   private Integer min_ = 0;
+  /**
+   * The maximum number of characters in this String
+   */
   private Integer max_ = 0;
   
   public StringLengthValidator(Integer max) {

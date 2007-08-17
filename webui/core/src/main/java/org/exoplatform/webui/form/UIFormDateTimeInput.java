@@ -19,9 +19,17 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  * Author : Tran The Trong
  *          trongtt@gmail.com
  * Jul 14, 2006  
+ * 
+ * A date picker element
  */
 public class UIFormDateTimeInput extends UIFormInputBase<String> {
+  /**
+   * The DateFormat
+   */
   private DateFormat dateFormat_ ;
+  /**
+   * Whether to display the full time (with hours, minutes and seconds), not only the date
+   */
   private boolean isDisplayTime_ ;
   
   public UIFormDateTimeInput(String name, String bindField, Date date, boolean isDisplayTime) {
@@ -33,11 +41,16 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
   public UIFormDateTimeInput(String name, String bindField, Date date) {
     this(name, bindField, date, true) ;
   }
-  
+  /**
+   * By default, creates a date of format Month/Day/Year
+   * If isDisplayTime is true, adds the time of format Hours:Minutes:Seconds
+   * TODO : Display time depending on the locale of the client.
+   * @param isDisplayTime
+   */
   public void setDisplayTime(boolean isDisplayTime) {
     isDisplayTime_ = isDisplayTime;
     if(isDisplayTime_) dateFormat_ = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-    else dateFormat_ = new SimpleDateFormat("MM/dd/yyyy");    
+    else dateFormat_ = new SimpleDateFormat("MM/dd/yyyy");
   }
   
   public void setCalendar(Calendar date) { value_ = dateFormat_.format(date.getTime()) ; }

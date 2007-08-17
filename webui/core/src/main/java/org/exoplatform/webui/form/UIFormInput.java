@@ -13,6 +13,10 @@ import org.exoplatform.webui.form.validator.Validator;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * Jun 6, 2006
+ * 
+ * The base interface to create form elements.
+ * This interface is implemented by UIFormInputBase, extend it instead of implementing this interface.
+ * @see UIFormInputBase
  */
 public interface UIFormInput<E> {
   

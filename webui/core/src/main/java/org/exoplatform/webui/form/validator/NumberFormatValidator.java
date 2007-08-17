@@ -13,6 +13,8 @@ import org.exoplatform.webui.form.UIFormInput;
  * Author : Dang Van Minh
  *          minhdv81@yahoo.com
  * Jun 7, 2006
+ * 
+ * Validates whether this number is in a correct format
  */
 public class NumberFormatValidator implements Validator {
     

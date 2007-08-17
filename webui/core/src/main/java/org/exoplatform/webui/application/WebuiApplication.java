@@ -21,11 +21,13 @@ import org.exoplatform.webui.event.EventListener;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * May 7, 2006
+ * 
+ * The main class to create an application.
  */
 abstract public class WebuiApplication extends Application {
   
   private ConfigurationManager configManager_ ;
-  private StateManager stateManager_ ;  
+  private StateManager stateManager_ ;
   
   public void onInit() throws Exception {        
     String configPath = getApplicationInitParam("webui.configuration") ;

@@ -16,6 +16,8 @@ import org.exoplatform.webui.form.UIFormInput;
  * Author : Tran The Trong
  *          trongtt@gmail.com
  * May 15, 2007
+ * 
+ * Validates whether a date is in a correct format
  */
 
 public class DateTimeValidator implements Validator {

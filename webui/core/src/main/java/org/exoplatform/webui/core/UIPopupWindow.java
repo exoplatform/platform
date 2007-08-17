@@ -16,17 +16,33 @@ import org.exoplatform.webui.event.EventListener;
  *          trong.tran@exoplatform.com
  * @version: $Id$
  * Aug 11, 2006  
+ * 
+ * A component that creates an empty popup window
  */
 @ComponentConfig(  
   template =  "system:/groovy/webui/core/UIPopupWindow.gtmpl",
   events = @EventConfig(listeners = UIPopupWindow.CloseActionListener.class, name = "ClosePopup")  
 )
 public class UIPopupWindow extends UIComponentDecorator {  
-  
+  /**
+   * The width of the window
+   */
   private int width_  = -1 ;
+  /**
+   * The height of the window
+   */
   private int height_ =  -1 ;
+  /**
+   * Whether to show the close button at the bottom of the window
+   */
   private boolean showCloseButton = true;
+  /**
+   * The visibility status of the window
+   */
   private boolean isShow = false ;
+  /**
+   * Whether this window is resizable
+   */
   private boolean isResizable = false ;
   
   public int getWindowWidth() { return width_ ; }

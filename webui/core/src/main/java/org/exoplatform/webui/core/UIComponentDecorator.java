@@ -14,10 +14,14 @@ import org.exoplatform.webui.core.lifecycle.Lifecycle;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * May 7, 2006
+ * 
+ * The decorator of a component 
  */
 @ComponentConfig( lifecycle = UIComponentDecorator.UIComponentDecoratorLifecycle.class )
 public class UIComponentDecorator extends UIComponent {
-  
+  /**
+   * The component being decorated
+   */
   protected  UIComponent uicomponent_ ;
   
   public UIComponent getUIComponent()  { return uicomponent_ ; }

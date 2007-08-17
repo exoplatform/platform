@@ -14,12 +14,22 @@ import org.exoplatform.webui.core.model.SelectItemOption;
  * Author : Tran The Trong
  *          trongtt@gmail.com
  * July 12, 2007  
+ * 
+ * A drop down selector
  */
 @ComponentConfig(template = "system:/groovy/webui/core/UIDropDownControl.gtmpl")
 public class UIDropDownControl extends UIComponent {
-
+  /**
+   * The action to perform when an item is selected
+   */
   private String action_ ;
+  /**
+   * The list of items
+   */
   private List<SelectItemOption<String>> options_ ;
+  /**
+   * The index in the list of the selected item
+   */
   private int selectedItemIndex_ ;
  
   public UIDropDownControl() throws Exception {

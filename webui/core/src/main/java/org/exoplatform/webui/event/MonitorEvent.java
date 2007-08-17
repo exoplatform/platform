@@ -10,14 +10,19 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * Jun 10, 2006
+ * 
+ * An event object used to monitor the lifecycle of a component
  */
 public class MonitorEvent<T> extends Event<T> {
-  
+
   final static public String PORTAL_APPLICATION_LIFECYCLE_EVENT = "portal.application.lifecycle.event" ;
+
   final static public String PORTAL_EXECUTION_LIFECYCLE_EVENT   = "portal.execution.lifecycle.event" ;
-  
+
   final static public String PORTLET_APPLICATION_LIFECYCLE_EVENT = "portlet.application.lifecycle.event" ;
+
   final static public String PORTLET_ACTION_LIFECYCLE_EVENT = "portlet.action.lifecycle.event" ;
+
   final static public String PORTLET_RENDER_LIFECYCLE_EVENT = "portlet.render.lifecycle.event" ;
   
   final static public String UICOMPONENT_LIFECYCLE_MONITOR_EVENT = "uicomponent.lifecycle.monitor.event" ;

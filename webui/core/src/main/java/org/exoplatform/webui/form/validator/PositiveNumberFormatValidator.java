@@ -13,6 +13,8 @@ import org.exoplatform.webui.form.UIFormInput;
  * Author : Vu Duy Tu
  *          duytucntt@gmail.com
  * Jun 22, 2007
+ * 
+ * Validates whether this number is positive or 0
  */
 
 public class PositiveNumberFormatValidator implements Validator {

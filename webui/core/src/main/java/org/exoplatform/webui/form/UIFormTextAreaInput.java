@@ -3,10 +3,18 @@ package org.exoplatform.webui.form;
 import java.io.Writer;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
-
+/**
+ * Represents a textarea element
+ * The value is stored in UIFormInputBase
+ */
 public class UIFormTextAreaInput extends UIFormStringInput {
-  
+  /**
+   * number of rows
+   */
   private int rows = -1;
+  /**
+   * number of columns
+   */
   private int columns = -1;
   
   public UIFormTextAreaInput(String name, String bindingExpression, String value) {

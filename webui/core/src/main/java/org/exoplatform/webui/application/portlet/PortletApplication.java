@@ -31,10 +31,17 @@ import org.exoplatform.webui.core.UIPortletApplication;
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com
  * May 26, 2006
+ * 
+ * A portlet application
  */
 public class PortletApplication extends WebuiApplication {
-  
+  /**
+   * The configuration parameter of this portlet
+   */
   private PortletConfig portletConfig_ ;
+  /**
+   * The id of this portlet
+   */
   private String applicationId_ ;
 
   public PortletApplication(PortletConfig config) throws Exception {

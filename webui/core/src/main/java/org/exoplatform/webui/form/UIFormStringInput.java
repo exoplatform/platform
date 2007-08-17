@@ -13,12 +13,22 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * Jun 6, 2006
+ * 
+ * Represents a input string field
+ * The value is stored in UIFormInputBase
  */
 public class UIFormStringInput extends UIFormInputBase<String> {
-  
+  /**
+   * type : text
+   */
   final  static public short TEXT_TYPE = 0 ;
+  /**
+   * type : password
+   */
   final  static public short PASSWORD_TYPE = 1 ;
-  
+  /**
+   * type of the text field
+   */
   private short type_ = TEXT_TYPE ;
     
   public UIFormStringInput(String name, String bindingExpression, String value) {

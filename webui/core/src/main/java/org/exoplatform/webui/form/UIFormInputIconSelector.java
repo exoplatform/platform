@@ -23,6 +23,8 @@ import org.exoplatform.webui.event.Event.Phase;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * Jun 26, 2006
+ * 
+ * Represents an icon selector
  */
 @ComponentConfig(
     template = "system:/groovy/webui/form/UIFormInputIconSelector.gtmpl",

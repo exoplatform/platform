@@ -4,9 +4,13 @@ import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.ApplicationLifecycle;
 import org.exoplatform.webui.event.MonitorEvent;
 
-
+/**
+ * Monitors the lifecycle of an application.
+ * Uses MonitorEvent to do the monitoring.
+ * @see MonitorEvent
+ */
 public class MonitorApplicationLifecycle implements  ApplicationLifecycle<WebuiRequestContext> {
-
+  
   public void onInit(Application app) throws Exception {
     WebuiApplication webuiapp = (WebuiApplication) app ;
     MonitorEvent<WebuiApplication> event = 

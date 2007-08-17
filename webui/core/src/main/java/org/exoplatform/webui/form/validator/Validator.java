@@ -10,6 +10,8 @@ import org.exoplatform.webui.form.UIFormInput;
  * Author : Dang Van Minh
  *          minhdv81@yahoo.com
  * Jun 7, 2006
+ * 
+ * The base interface to create a validator
  */
 public interface Validator {
   public void validate(UIFormInput uiInput) throws Exception ;

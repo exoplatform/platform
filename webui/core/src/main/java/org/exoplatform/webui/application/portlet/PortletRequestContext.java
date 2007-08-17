@@ -12,16 +12,38 @@ import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.HtmlValidator;
-
+/**
+ * The reques context of a portlet
+ *
+ */
 public class PortletRequestContext extends WebuiRequestContext {
-  
+  /**
+   * Portlet mode view
+   */
   static public int VIEW_MODE =  0 ;
+  /**
+   * Portlet mode edit
+   */
   static public int EDIT_MODE =  1 ;
+  /**
+   * Portlet mode help
+   */
   static public int HELP_MODE =  2 ;
+  /**
+   * Portlet mode config
+   */
   static public int CONFIG_MODE = 3 ;
-  
+  /**
+   * The portlet mode
+   */
   private int applicationMode_ ;
+  /**
+   * The request
+   */
   private PortletRequest request_; 
+  /**
+   * The response
+   */
   private PortletResponse response_ ;
   private Writer writer_ ;
   private boolean hasProcessAction_ = false ;

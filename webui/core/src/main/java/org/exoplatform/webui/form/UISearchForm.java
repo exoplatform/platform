@@ -20,6 +20,8 @@ import org.exoplatform.webui.form.UISearchForm.*;
  *          chung.nguyen@exoplatform.com
  * Jun 22, 2006
  * @version: $Id$
+ * 
+ * Represents a search form
  */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
@@ -27,8 +29,13 @@ import org.exoplatform.webui.form.UISearchForm.*;
     events = @EventConfig(listeners = QuickSearchActionListener.class)
 )
 public class UISearchForm extends UIForm {
-
+  /**
+   * The name of the quick search set
+   */
   final static  public String QUICK_SEARCH_SET = "QuickSearchSet" ;
+  /**
+   * The name of the advanced search set
+   */
   final static  public String ADVANCED_SEARCH_SET = "AdvancedSearchSet" ;
 
   public UISearchForm() throws Exception{

@@ -17,11 +17,15 @@ import org.exoplatform.webui.core.model.SelectItemOption;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * Jun 26, 2006
+ * 
+ * Represents any item selector, of a given type
  */
 @ComponentConfig(template = "system:/groovy/webui/form/UIFormInputItemSelector.gtmpl" )
 
 public class UIFormInputItemSelector extends UIFormInputBase<Object> {
-
+  /**
+   * The type of item selectable
+   */
   private Class type_;
 
   protected List<SelectItemCategory> categories_ = new ArrayList<SelectItemCategory>() ;

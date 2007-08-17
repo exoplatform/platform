@@ -16,6 +16,9 @@ import org.exoplatform.webui.form.UISearchForm;
  *          chung.nguyen@exoplatform.com
  * Jun 22, 2006
  * @version: $Id$
+ * 
+ * A container that holds a UISearchForm
+ * @see UISearchForm
  */
 @ComponentConfig()
 abstract public class UISearch extends UIContainer {

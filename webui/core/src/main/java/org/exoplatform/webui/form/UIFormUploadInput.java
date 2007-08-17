@@ -13,17 +13,26 @@ import java.nio.channels.FileChannel;
 import org.exoplatform.upload.UploadResource;
 import org.exoplatform.upload.UploadService;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.config.annotation.ComponentConfig;
+
 /**
  * Created by The eXo Platform SARL
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * Jun 6, 2006
+ * 
+ * Represents an upload form
  */
-import org.exoplatform.webui.config.annotation.ComponentConfig;
+
 @ComponentConfig(template = "system:/groovy/webui/form/UIFormUploadInput.gtmpl")    
 public class UIFormUploadInput extends UIFormInputBase<String> {
-  
+  /**
+   * The current upload id
+   */
   private String uploadId_ ;
+  /**
+   * The resource to upload
+   */
   private UploadResource uploadResource_ ;
   
   public UIFormUploadInput(String name, String bindingExpression) {

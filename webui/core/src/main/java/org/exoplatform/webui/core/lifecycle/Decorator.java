@@ -11,6 +11,8 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  * Author : Tuan Nguyen
  *          tuan.nguyen@exoplatform.com
  * Aug 23, 2006  
+ * 
+ * Writes a decorator template with the given css class style
  */
 public class Decorator {
   //<%decorator.start(.., ..)%>

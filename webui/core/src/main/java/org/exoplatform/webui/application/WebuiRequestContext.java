@@ -20,6 +20,8 @@ import org.exoplatform.webui.core.UIComponent;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * May 7, 2006
+ * 
+ * The main class to manage the request context in a webui environment
  */
 abstract public class WebuiRequestContext extends RequestContext {
   

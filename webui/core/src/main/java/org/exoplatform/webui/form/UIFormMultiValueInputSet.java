@@ -23,6 +23,8 @@ import org.exoplatform.webui.form.validator.Validator;
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
  * Sep 14, 2006
+ * 
+ * Represents a multi value selector
  */
 @ComponentConfig(
   events = {
@@ -31,9 +33,13 @@ import org.exoplatform.webui.form.validator.Validator;
   }
 )
 public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
-
+  /**
+   * A list of validators
+   */
   protected List<Validator>  validators ;
-
+  /**
+   * The type of items in the selector
+   */
   private Class<? extends UIFormInput> clazz_;  
   private Constructor constructor_ = null;
 
@@ -55,7 +61,9 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
   }  
   
   public Class<? extends UIFormInput> getUIFormInputBase() { return clazz_; }
-
+  /**
+   * @return the selected items in the selector
+   */
   public List<?> getValue(){
     List<Object> values = new ArrayList<Object>();
     for (UIComponent child : getChildren()) {

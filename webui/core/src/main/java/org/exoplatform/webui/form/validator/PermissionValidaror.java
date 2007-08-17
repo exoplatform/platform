@@ -16,7 +16,9 @@ import org.exoplatform.webui.exception.MessageException;
  * Created by The eXo Platform SARL
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
- * Apr 12, 2007  
+ * Apr 12, 2007
+ * 
+ * Validates whether the current user is allowed to perform the current operation
  */
 public class PermissionValidaror {
   

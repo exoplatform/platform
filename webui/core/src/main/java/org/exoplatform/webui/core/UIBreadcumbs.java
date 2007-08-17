@@ -9,15 +9,26 @@ import org.exoplatform.webui.core.UIBreadcumbs.*;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
-
+/**
+ * Represents a breadcrumbs component.
+ *
+ */
 @ComponentConfig(   
   template = "system:/groovy/webui/core/UIBreadcumbs.gtmpl",
   events = @EventConfig(listeners = SelectPathActionListener.class)
 )
 public class UIBreadcumbs extends UIComponent {  
-  
+  /**
+   * The list that contains the different local paths, representing the total hierarchy
+   */
   private List<LocalPath>  path_ = new ArrayList<LocalPath>();
+  /**
+   * The selected path
+   */
   private LocalPath selectedLocalPath_ ;
+  /**
+   * The css style
+   */
   private String styleBread = "default" ;
   
   public List<LocalPath> getPath(){ return path_;  }  

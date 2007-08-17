@@ -14,6 +14,8 @@ import org.exoplatform.webui.form.validator.Validator;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * Jun 6, 2006
+ * 
+ * Represents an abstract container of elements, inside a form
  */
 abstract public class UIFormInputContainer<T> extends UIContainer implements UIFormInput<T> {
 

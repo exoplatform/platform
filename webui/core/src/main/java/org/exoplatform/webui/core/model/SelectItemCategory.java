@@ -12,12 +12,27 @@ import java.util.List;
  * Author : Nguyen Thi Hoa
  *          hoa.nguyen@exoplatform.com
  * Aug 10, 2006  
+ * 
+ * Represents a group of SelectItemOption, held in a UIFormInputItemSelector
+ * @see UIFormInputItemSelector
+ * @see SelectItemOption
  */
 public class SelectItemCategory {
-  
+  /**
+   * The name of the category
+   */
   private String name_ ;
+  /**
+   * The label of the category
+   */
   private String label_;
+  /**
+   * The list of SelectItemOption that this category contains
+   */
   private List<SelectItemOption> options_ ;
+  /**
+   * Whether this category is selected
+   */
   protected boolean selected_ =  false ;
   
   public SelectItemCategory(String name){

@@ -14,10 +14,14 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * Author : Tran The Trong
  *          trongtt@gmail.com
  * January 18, 2007
+ * 
+ * A component that creates a popup menu that appears when a right click event fires
  */
 @ComponentConfig()
 public class UIRightClickPopupMenu extends UIComponent {
-  
+  /**
+   * The list of actions available in the popup menu
+   */
   private String[] actions_ ;
   public UIRightClickPopupMenu() throws Exception {}
 

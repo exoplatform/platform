@@ -8,12 +8,22 @@ import java.util.ResourceBundle;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.model.SelectItemOption;
-
+/**
+ * Represents a select element
+ * 
+ */
 public class UIFormSelectBox extends UIFormStringInput {
-  
+  /**
+   * The size of the list (number of select options)
+   */
   private int size_ = 1 ;
-  
+  /**
+   * The list of options
+   */
   private List<SelectItemOption<String>> options_ ;
+  /**
+   * The javascript expression executed when an onChange event fires
+   */
   private String onchange_;
   
 	public UIFormSelectBox(String name, String bindingExpression, List<SelectItemOption<String>> options) {

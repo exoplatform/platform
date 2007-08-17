@@ -14,7 +14,9 @@ import org.exoplatform.webui.form.UIForm;
  * Created by The eXo Platform SARL
  * Author : Le Bien Thuy
  *          lebienthuy@gmail.com
- * Mar 28, 2007  
+ * Mar 28, 2007 
+ * 
+ * Represents a drop down list
  */
 @ComponentConfig(template = "system:/groovy/webui/core/UIDropDownItemSelector.gtmpl")
 public class UIDropDownItemSelector extends UIComponent {
@@ -25,10 +27,17 @@ public class UIDropDownItemSelector extends UIComponent {
   private boolean isEnable;
   private boolean onServer;
   private int maxShow = 5;
-  
+  /**
+   * The selected item
+   */
   private SelectItemOption<String> selected_;
-  
+  /**
+   * The list of items
+   */
   private List<SelectItemOption<String>> options_ ;
+  /**
+   * A javascript expression that is executed when an onChange event fires
+   */
   private String onchange_;
   
   public UIDropDownItemSelector(){

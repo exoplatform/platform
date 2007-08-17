@@ -13,6 +13,8 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  * Author : lxchiati  
  *          lebienthuyt@gmail.com 
  * Jun 6, 2006
+ * 
+ * Repesents a hidden input field
  */
 public class UIFormHiddenInput extends UIFormInputBase<String> {
   

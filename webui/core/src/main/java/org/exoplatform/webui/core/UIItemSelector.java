@@ -15,11 +15,18 @@ import org.exoplatform.webui.core.model.SelectItemOption;
  * Created by The eXo Platform SARL
  * Author : Pham Thanh Tung
  * Apr 16, 2007  
+ * 
+ * An item selectorn represented by a normal list
  */
 @ComponentConfig(template = "system:/groovy/webui/core/UIItemSelector.gtmpl")
 public class UIItemSelector extends UIComponent {
-
+  /**
+   * The name of this selector
+   */
   private String name_;
+  /**
+   * The item categories, each category contains items
+   */
   private List<SelectItemCategory> categories_ ;
 
   public UIItemSelector(String name) {

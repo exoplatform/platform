@@ -33,12 +33,22 @@ import org.jibx.runtime.IUnmarshallingContext;
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com
  * May 10, 2006
+ * 
+ * Manages the ComponentConfig of a list of components.
+ * @see ComponentConfig
  */
 public class ConfigurationManager {
-
+  /**
+   * The components of which we manage the configuration
+   */
   private Map<String, Component> configs_ = new HashMap<String, Component>() ;
   private org.exoplatform.webui.config.Application application_ ;
-
+  /**
+   * 
+   * @param inputStream A stream that links the configuration file
+   * @param app The Application to configure
+   * @throws Exception
+   */
   @SuppressWarnings("unused")
   public ConfigurationManager(InputStream inputStream, WebuiApplication app) throws Exception {   
     IBindingFactory bfact = BindingDirectory.getFactory(WebuiConfiguration.class);
@@ -51,7 +61,7 @@ public class ConfigurationManager {
         Component[] components = annotationToComponents(cl, annotationClass) ;
         setComponentConfigs(components);
       }
-    }    
+    }
     if(config.getComponents() != null){
       for(Component component :  config.getComponents()) {
         String key = component.getType() ;
@@ -62,7 +72,10 @@ public class ConfigurationManager {
 
     application_ = config.getApplication() ;
   }
-
+  /**
+   * Adds components to the list
+   * @param configs An array of Component
+   */
   void setComponentConfigs(Component [] configs){
     for(Component component : configs){
       String key = component.getType() ;
@@ -70,7 +83,11 @@ public class ConfigurationManager {
       configs_.put(key, component) ;
     }
   }
-  
+  /**
+   * Gets the components of a given class
+   * @param clazz The class of the components
+   * @return the list of components
+   */
   public List<Component> getComponentConfig(Class<?> clazz) {
     List<Component> configs = new ArrayList<Component>();
     Collection<Component> values = configs_.values();
@@ -80,9 +97,14 @@ public class ConfigurationManager {
     }
     return configs;
   }
-
+  /**
+   * Gets a component of a given class and identified by id
+   * @param type The class of the component
+   * @param id The id of the component
+   * @return The component
+   */
   public Component getComponentConfig(Class<?> type, String id) {
-    String key =  type.getName() ;   
+    String key =  type.getName() ;
     if(id != null )  key = key + ":" + id  ;    
     Component config = configs_.get(key) ;
     if(config != null) return config;    
@@ -96,12 +118,23 @@ public class ConfigurationManager {
   }
 
   public org.exoplatform.webui.config.Application getApplication() { return application_ ; }
-
+  /**
+   * Gets an array of Component from a ComponentConfig annotation
+   * @param cl the classloader to create the annotation
+   * @param annClass the annotation class
+   * @return The array of Component
+   * @throws Exception
+   */
   Component [] annotationToComponents(ClassLoader cl, String annClass) throws Exception {
     Class<?> clazz = cl.loadClass(annClass) ;
     return annotationToComponents(clazz);
   }   
-
+  /**
+   * Gets an array of Component from a ComponentConfig annotation
+   * @param clazz The annotation class from which to get the ComponentConfig
+   * @return The array of Component
+   * @throws Exception
+   */
   Component [] annotationToComponents(Class<?> clazz) throws Exception {
     ComponentConfig annotation = clazz.getAnnotation(ComponentConfig.class);
     if(annotation != null){
@@ -116,10 +149,10 @@ public class ConfigurationManager {
         componentConfigs[i] = toComponentConfig(listAnnotations[i], clazz);
       }
       return componentConfigs;
-    }   
+    }
 
-    return new Component [] {};   
-  }  
+    return new Component [] {};
+  }
 
   private Component toComponentConfig(ComponentConfig annotation, Class<?> clazz) throws Exception {
     Component config = new Component();    

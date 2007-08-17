@@ -71,14 +71,14 @@
 		      }  
 	        if(beanActions != null && beanActions.length > 0) { 
 	  %>
-				  <td>         
+				  <td>
 		        <div class="ActionContainer" style="margin: 0px auto;">
 		          <div class="OverflowContainer" style="margin: auto;">          
-		          <%	          
+		          <%
 		            def beanIdField = uicomponent.getBeanIdField() ;           
 		            for(action in beanActions) { 
 		              def beanId = uicomponent.getFieldValue(bean, beanIdField)  ;
-			            if(action == null) continue;           
+			            if(action == null) continue;
 		              String title = _ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action);
 		              String actionLink = "";
 		              if(uiForm != null){

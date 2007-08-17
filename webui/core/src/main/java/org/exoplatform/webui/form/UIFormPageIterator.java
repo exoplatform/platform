@@ -8,6 +8,8 @@ package org.exoplatform.webui.form;
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
  * Jul 9, 2007  
+ * 
+ * Represents a multi page iterator
  */
 import java.util.List;
 

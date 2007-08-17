@@ -14,6 +14,8 @@ import org.exoplatform.webui.core.model.SelectItemOption;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * Jun 26, 2006
+ * 
+ * Represents a selector of decorators for drop down menus
  */
 @ComponentConfig(
   type = UIFormInputDecoratorSelector.class,  

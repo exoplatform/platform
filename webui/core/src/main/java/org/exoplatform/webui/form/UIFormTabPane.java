@@ -2,14 +2,29 @@ package org.exoplatform.webui.form;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
-
+/**
+ * Represents a tabbed pane
+ * 
+ */
 abstract public class UIFormTabPane extends UIForm {
-	
+	/**
+   * name of this element 
+	 */
 	public String name_ ;
+
   private boolean withRenderTab = true;
+  /**
+   * Whether to represent an info bar
+   */
   private boolean withInfoBar = true;
   private boolean withRenderTabName = true ;
+  /**
+   * The tab to render
+   */
   private String renderTabId = "";
+  /**
+   * The tab to render by default (DECODE phase)
+   */
   public static String RENDER_TAB = "currentSelectedTab";
 	
 	public UIFormTabPane(String name) throws Exception {

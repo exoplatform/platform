@@ -12,10 +12,17 @@ import org.exoplatform.webui.form.UIForm;
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
  * Jun 29, 2006
+ * 
+ * A component that represents a wizard
  */
 abstract public class UIWizard  extends UIContainer { 
-  
+  /**
+   * The current step in the wizard process
+   */
   private int currentStep  = 1;
+  /**
+   * The selected step
+   */
   private int selectedStep = 1 ;
   
 	public UIWizard() throws Exception {

@@ -8,13 +8,32 @@ package org.exoplatform.webui.core.model;
  * Author : Tuan Nguyen
  *          tuan08@users.sourceforge.net
  * Jun 26, 2006
+ * 
+ * An item in a UIFormInputItemSelector
+ * Each item is actually held in a SelectItemCategory, which is held by the UIFormInputItemSelector
+ * @see SelectItemCategory
+ * @see UIFormInputItemSelector
  */
 public class SelectItemOption <T extends Object> {
-  
+  /**
+   * The label of the item
+   */
   protected String label_ ;
+  /**
+   * THe value of the item
+   */
   protected  T value_ ;
+  /**
+   * The icon url of the item
+   */
   protected  String icon_;
+  /**
+   * Whether this item is selected
+   */
   protected boolean selected_ =  false ;
+  /**
+   * A description of the item
+   */
   protected String description_ ;
   
   public SelectItemOption(String label, T value, String icon) {

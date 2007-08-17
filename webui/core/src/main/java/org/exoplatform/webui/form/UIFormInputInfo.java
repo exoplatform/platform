@@ -3,7 +3,10 @@ package org.exoplatform.webui.form;
 import java.io.Writer;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
-
+/**
+ * Represents a info text element
+ *
+ */
 public class UIFormInputInfo extends UIFormInputBase<String> {
   
   public UIFormInputInfo(String name, String bindingExpression, String value) {
