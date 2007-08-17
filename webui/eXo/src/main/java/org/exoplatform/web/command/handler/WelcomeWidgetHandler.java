@@ -5,11 +5,18 @@
 package org.exoplatform.web.command.handler;
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.jcr.UserWidgetStorageImpl;
+import org.exoplatform.upload.UploadResource;
+import org.exoplatform.upload.UploadService;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.command.Command;
 //import org.exoplatform.widget.service.UserWidgetDataService;
@@ -26,16 +33,33 @@ public class WelcomeWidgetHandler extends Command {
 
   @SuppressWarnings("unused")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
-    try{ 
+    try{
       PortalContainer container  = PortalContainer.getInstance();
-      UserWidgetStorageImpl service = 
-        (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
-
+      
+      UploadService uploadService = (UploadService)container.getComponentInstanceOfType(UploadService.class) ;
+      UploadResource upResource = uploadService.getUploadResource(uploadId);
+      if(upResource == null) return ;
       
       String instantId = "avatar";
       String widgetType = "WelcomeWidget";
       String userName = req.getRemoteUser();
-      service.save(userName, widgetType, instantId, "aaa");
+      System.out.println("========> upRsource: " + upResource);
+      UserWidgetStorageImpl service = 
+        (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;
+      File file = new File(upResource.getStoreLocation());
+      FileInputStream inputStream =  new FileInputStream(file);
+      FileChannel fchan = inputStream.getChannel();
+      long fsize = fchan.size();       
+      ByteBuffer buff = ByteBuffer.allocate((int)fsize);        
+      fchan.read(buff);
+      buff.rewind();      
+      byte[] data = buff.array();
+      service.save(userName, widgetType, instantId, data);
+      System.out.println("\n\n-------------------DATA: \n" + new String(data));
+      buff.clear();      
+      fchan.close();        
+      inputStream.close();  
+     
     } catch (Exception e) {
       e.printStackTrace();
     } catch (Throwable  e) {e.printStackTrace();
