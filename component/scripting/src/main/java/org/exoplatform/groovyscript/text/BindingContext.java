@@ -10,9 +10,7 @@ import java.util.HashMap;
 import org.exoplatform.resolver.ResourceResolver;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * May 8, 2006
  */
 @SuppressWarnings("serial")

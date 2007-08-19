@@ -23,12 +23,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 
-/**
- * Date: Aug 11, 2003
- * @author: Tuan Nguyen
- * @email:   tuan08@users.sourceforge.net
- * @version: $Id: UIBasicComponent.java,v 1.10 2004/09/26 02:25:46 tuan08 Exp $
- */
 @ComponentConfig(
     lifecycle = UIPortalLifecycle.class,
     template = "system:/groovy/portal/webui/portal/UIPortal.gtmpl",

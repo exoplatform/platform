@@ -30,9 +30,7 @@ import org.exoplatform.services.portletcontainer.pci.model.Supports;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 /**
- * Created by The eXo Platform SARL
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
+ * Created by The eXo Platform SAS
  * May 4, 2007  
  * 
  * TODO: Rename this to PortalDataModelMapper

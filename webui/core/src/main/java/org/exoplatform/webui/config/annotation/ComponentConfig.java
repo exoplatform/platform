@@ -10,8 +10,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
  * Jul 4, 2006
  */
 @Retention(RetentionPolicy.RUNTIME)

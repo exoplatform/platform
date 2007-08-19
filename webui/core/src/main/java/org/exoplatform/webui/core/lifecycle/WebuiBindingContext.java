@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.groovyscript.text.BindingContext;
 import org.exoplatform.resolver.ResourceResolver;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIComponentDecorator;
@@ -14,6 +16,8 @@ import org.exoplatform.webui.core.UIContainer;
 
 @SuppressWarnings("serial")
 public class WebuiBindingContext extends BindingContext {
+  
+  protected static Log log = ExoLogger.getLogger("portal:WebuiBindingContext");
   
   private UIComponent uicomponent_ ;
   private WebuiRequestContext rcontext_ ;
@@ -43,8 +47,7 @@ public class WebuiBindingContext extends BindingContext {
       ResourceBundle res = rcontext_.getApplicationResourceBundle() ;
       value = res.getString(mesgKey) ;
     } catch(MissingResourceException ex) {      
-      //TODO review logic
-      System.err.println("\nkey : "+mesgKey+"\n");
+      log.error("key : "+mesgKey, ex);
       value = mesgKey.substring(mesgKey.lastIndexOf('.') + 1) ;
     }
     return value ;

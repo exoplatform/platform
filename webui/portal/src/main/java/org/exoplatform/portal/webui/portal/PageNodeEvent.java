@@ -7,8 +7,6 @@ package org.exoplatform.portal.webui.portal;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@yahoo.com
  * Jun 5, 2006
  */
 public class  PageNodeEvent<T extends UIComponent> extends Event<T> {

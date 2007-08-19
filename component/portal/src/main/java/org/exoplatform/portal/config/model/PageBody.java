@@ -5,9 +5,7 @@
 package org.exoplatform.portal.config.model;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
+ * Created by The eXo Platform SAS
  * Apr 25, 2007  
  */
 public class PageBody {

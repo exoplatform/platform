@@ -28,8 +28,6 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@yahoo.com
  * May 29, 2006
  */
 public class UIPortletActionListener   {

@@ -6,14 +6,23 @@ import java.io.Writer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.lifecycle.HtmlValidator;
 
+/**
+ * This class extends the abstract WebuiRequestContext which itself extends the RequestContext one
+ * 
+ * It mainly implements the abstract methods and overide some.
+ */
 public class PortalRequestContext extends WebuiRequestContext {
-   
+  
+  protected static Log log = ExoLogger.getLogger("portal:PortalRequestContext");  
+  
   final  static public int PUBLIC_ACCESS  =   0 ;
   final  static public int PRIVATE_ACCESS =   1 ;
   
@@ -53,11 +62,12 @@ public class PortalRequestContext extends WebuiRequestContext {
     if(nodeURI_.indexOf("/public/") >= 0) accessPath =  PUBLIC_ACCESS ;
     else if(nodeURI_.indexOf("/private/") >= 0) accessPath =  PRIVATE_ACCESS ;
     
+    //TODO use the encoding from the locale-config.xml file
     response_.setContentType("text/html; charset=UTF-8");
     try {
       request_.setCharacterEncoding("UTF-8");
     }catch (UnsupportedEncodingException e) {
-      System.err.println(e.toString());
+      log.error("Encoding not supported", e);
     }
     
     writer_ = new HtmlValidator(res.getWriter()) ;

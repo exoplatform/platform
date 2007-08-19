@@ -8,12 +8,6 @@ import java.util.List;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 
-/**
- * Wed, Dec 22, 2003 @ 22:50 
- * @author: Tuan Nguyen
- * @email:   tuan08@users.sourceforge.net
- * @version: $Id: ExoActionEvent.java,v 1.9 2004/09/24 03:10:19 tuan08 Exp $
- */
 public class Event<T>  {
   
   private String name_ ;

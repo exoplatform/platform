@@ -12,8 +12,6 @@ import java.lang.annotation.Target;
 import org.exoplatform.webui.event.Event.Phase;
 
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
  * Jul 4, 2006
  */
 

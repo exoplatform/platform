@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
+ * Copyright 2001-2007 The eXo Platform SAS         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.portal.webui.workspace;
@@ -35,9 +35,9 @@ import org.exoplatform.webui.event.Event;
  * The UIPortalApplication is responsible to build its subtree according to some configuration parameters. 
  * If all components are displayed it is composed of 3 UI components:
 
- *  UIControlWorkSpace : the left expandable column that can contains widgets containers and the start menu
- *  UIWorkingWorkSpace: the right part that can display the normal or webos portal layouts
- *  UIPopupWindow: a popup window that display or not
+ *  - UIControlWorkSpace : the left expandable column that can contains widgets containers and the start menu
+ *  - UIWorkingWorkSpace: the right part that can display the normal or webos portal layouts
+ *  - UIPopupWindow: a popup window that display or not
  * 
  */
 @ComponentConfigs({
@@ -194,6 +194,16 @@ public class UIPortalApplication extends UIApplication {
     addChild(UIMaskWorkspace.class, UIPortalApplication.UI_MASK_WS_ID, null) ;
   }
   
+  
+  /**
+   * The processDecode() method is doing 3 actions:
+   * 1) if the nodePath is null (case of the first request) a call to super.processDecode(context) 
+   *    is made and we end the method here
+   * 2) if the nodePath exist but is equals to the current one then we also call super and stops here
+   * 3) if the requested nodePath is not equals to the current one , then an event of type 
+   *    PageNodeEvent.CHANGE_PAGE_NODE is sent to the asociated EventListener; a call to super is then
+   *    done
+   */
   public void  processDecode(WebuiRequestContext context) throws Exception {
     PortalRequestContext pcontext = (PortalRequestContext) context;
     String nodePath = pcontext.getNodePath();
@@ -216,6 +226,29 @@ public class UIPortalApplication extends UIApplication {
     super.processDecode(context);
   }
   
+  /**
+   * The processrender() method handles the creation of the returned HTML either for a full
+   * page render or in the case of an AJAX call
+   * 
+   * The first request, Ajax is not enabled (means no ajaxRequest parameter in the request) and 
+   * hence the super.processRender() method is called. This will hence call the processrender() of 
+   * the Lifecycle object as this method is not overidden in UIPortalApplicationLifecycle. There we 
+   * simply render the bounded template (groovy usually). Note that bounded template are also defined
+   * in component annotations, so for the current class it is UIPortalApplication.gtmpl
+   * 
+   * On second calls, request have the "ajaxRequest" parameter set to true in the URL. In that case 
+   * the algorithm is a bit more complex:
+   * 
+   *    a) The list of components that should be updated is extracted using the 
+   *       context.getUIComponentToUpdateByAjax() method. That list was setup during the process action
+   *       phase
+   *    b) Portlets and other UI components to update are split in 2 different lists
+   *    c) Portlets full content are returned and set with the tag <div class="PortalResponse">
+   *    d) Block to updates (which are UI components) are set within 
+   *       the <div class="PortalResponseData"> tag
+   *    e) Then the scripts and the skins to reload are set in the <div class="PortalResponseScript">
+   * 
+   */
   public void  processRender(WebuiRequestContext context) throws Exception {
     Writer w =  context.getWriter() ;
     if(!context.useAjax()) {
@@ -254,12 +287,6 @@ public class UIPortalApplication extends UIApplication {
       w.  write("</div>") ;
       w.write("</div>") ;
     }
-    
-//    if(w instanceof HtmlValidator) {
-//      HtmlValidator validator = (HtmlValidator) w ;
-//      validator.finish() ;
-//      validator.flush();
-//    }
   }
 
   private String getAddSkinScript(List<UIComponent> updateComponents) {

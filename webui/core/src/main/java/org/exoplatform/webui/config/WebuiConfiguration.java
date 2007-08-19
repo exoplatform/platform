@@ -6,9 +6,7 @@ package org.exoplatform.webui.config;
 
 import java.util.ArrayList;
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * May 4, 2006
  */
 public class WebuiConfiguration {

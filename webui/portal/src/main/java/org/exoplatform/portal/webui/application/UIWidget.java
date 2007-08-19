@@ -9,9 +9,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Pham Dung Ha
- *          ha.pham@exoplatform.com
+ * Created by The eXo Platform SAS
  * May 16, 2007  
  */
 @ComponentConfig(lifecycle = UIWidgetLifecycle.class)

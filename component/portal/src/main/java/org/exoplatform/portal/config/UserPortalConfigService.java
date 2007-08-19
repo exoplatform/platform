@@ -24,9 +24,7 @@ import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.OrganizationService;
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan.nguyen@exoplatform.com
+ * Created by The eXo Platform SAS
  * Apr 19, 2007
  * 
  * This service is used to load the PortalConfig, Page config  and  Navigation config for a given 

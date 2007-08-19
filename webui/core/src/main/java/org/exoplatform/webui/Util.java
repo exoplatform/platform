@@ -7,9 +7,7 @@ package org.exoplatform.webui;
 import org.exoplatform.webui.config.InitParams;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * May 10, 2006
  * 
  * A utility class that provides static methods to create new objects, of a given type

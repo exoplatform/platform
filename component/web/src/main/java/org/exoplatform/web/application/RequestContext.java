@@ -10,10 +10,17 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * May 7, 2006
+ * 
+ * This abstract class is a wrapper on top of the request information such as the Locale in use,
+ * the application (for instance PortalApplication, PortletApplication...), an access to the JavascriptManager
+ * as well as a reference to the URLBuilder in use.
+ * 
+ * It also contains a ThreadLocal object for an easy access.
+ * 
+ *  Context can be nested and hence a getParentAppRequestContext() is also available
+ * 
  */
 abstract public class RequestContext {
   

@@ -22,8 +22,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@yahoo.com
  * May 19, 2006
  */
 @ComponentConfigs({

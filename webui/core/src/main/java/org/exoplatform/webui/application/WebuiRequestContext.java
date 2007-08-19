@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
+ * Copyright 2001-2007 The eXo Platform SAS         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.webui.application;
@@ -16,12 +16,18 @@ import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * May 7, 2006
  * 
  * The main class to manage the request context in a webui environment
+ * 
+ * It adds:
+ * - some access to the root UI component (UIApplication)
+ * - access to the request and response objects
+ * - information about the current state of the request
+ * - the list of object to be updated in an AJAX way
+ * - an access to the ResourceResolver bound to an uri scheme
+ * - the reference on the StateManager object
  */
 abstract public class WebuiRequestContext extends RequestContext {
   

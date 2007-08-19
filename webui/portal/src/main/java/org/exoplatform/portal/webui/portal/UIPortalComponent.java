@@ -6,8 +6,6 @@ package org.exoplatform.portal.webui.portal;
 
 import org.exoplatform.webui.core.UIContainer;
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@yahoo.com
  * May 19, 2006
  */
 public class UIPortalComponent extends UIContainer {

@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
+ * Copyright 2001-2007 The eXo Platform SAS         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.resolver ;
@@ -12,13 +12,16 @@ import java.util.List;
 
 import javax.portlet.PortletContext;
 
+import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.ExoLogger;
+
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * Mar 15, 2006
  */
 public class PortletResourceResolver extends ResourceResolver {
+  
+  protected static Log log = ExoLogger.getLogger("portlet:PortletResourceResolver"); 
   
   private PortletContext pcontext_ ;
   private String scheme_ ;
@@ -57,7 +60,8 @@ public class PortletResourceResolver extends ResourceResolver {
   
   public boolean isModified(String url, long lastAccess) {
     File file = new File(getRealPath(url)) ;
-    //System.out.println(url + ": " + file.lastModified() + " " + lastAccess) ;
+    if(log.isDebugEnabled())
+      log.debug(url + ": " + file.lastModified() + " " + lastAccess);
     if(file.exists() && file.lastModified() > lastAccess) {
       return true ;
     }    

@@ -6,9 +6,7 @@ package org.exoplatform.webui.event;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * Jun 10, 2006
  * 
  * An event object used to monitor the lifecycle of a component

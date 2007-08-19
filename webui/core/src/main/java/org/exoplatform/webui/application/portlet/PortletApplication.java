@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
+ * Copyright 2001-2007 The eXo Platform SAS         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.webui.application.portlet;
@@ -18,32 +18,42 @@ import javax.portlet.PortletResponse;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.PortletResourceResolver;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.application.ApplicationLifecycle;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIPortletApplication;
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@yahoo.com
  * May 26, 2006
  * 
  * A portlet application
  */
 public class PortletApplication extends WebuiApplication {
+  
+  protected static Log log = ExoLogger.getLogger("portlet:PortletApplication"); 
+  
   /**
    * The configuration parameter of this portlet
    */
   private PortletConfig portletConfig_ ;
+  
   /**
    * The id of this portlet
    */
   private String applicationId_ ;
 
+  
+  /**
+   *  This constructor has 2 purposes:
+   *     1) recreate the application id
+   *     2) configure the resource resolver to look in different UIR scheme (here app: and par:)
+   */
   public PortletApplication(PortletConfig config) throws Exception {
     portletConfig_ = config ;
     PortletContext pcontext = config.getPortletContext();
@@ -78,6 +88,7 @@ public class PortletApplication extends WebuiApplication {
   public String getApplicationInitParam(String name) { return  portletConfig_.getInitParameter(name); }
   
   public ExoContainer getApplicationServiceContainer() { return PortalContainer.getInstance() ; }
+  
   
   public void processAction(ActionRequest req, ActionResponse res) throws Exception {
     WebuiRequestContext parentAppRequestContext =  WebuiRequestContext.getCurrentInstance() ;
@@ -123,7 +134,8 @@ public class PortletApplication extends WebuiApplication {
           lifecycle.onEndRequest(this, context) ;
         }
       } catch (Exception exception){
-        exception.printStackTrace() ;
+    	log.error("Error while trying to call onEndRequest of the portlet ApplicationLifecycle", 
+    		exception);
       }
       WebuiRequestContext.setCurrentInstance(parentAppRequestContext) ;
     }

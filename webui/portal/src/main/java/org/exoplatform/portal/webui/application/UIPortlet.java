@@ -11,12 +11,14 @@ import java.util.Map;
 import javax.portlet.PortletMode;
 import javax.portlet.WindowState;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ChangePortletModeActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ChangeWindowStateActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.EditPortletActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ProcessActionActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.RenderActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.DeleteComponentActionListener;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
@@ -26,8 +28,6 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event.Phase;
 
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@yahoo.com
  * May 19, 2006
  */
 @ComponentConfig(
@@ -43,6 +43,8 @@ import org.exoplatform.webui.event.Event.Phase;
     }    
 )
 public class UIPortlet extends UIApplication { 
+  
+  protected static Log log = ExoLogger.getLogger("portal:UIApplication"); 
   
   private String windowId ;
   private String portletStyle ;

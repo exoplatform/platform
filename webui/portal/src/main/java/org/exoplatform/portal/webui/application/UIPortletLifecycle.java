@@ -10,12 +10,14 @@ import java.util.Map;
 
 import javax.portlet.WindowState;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.commons.utils.ExceptionUtil;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.resolver.ApplicationResourceResolver;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
@@ -28,12 +30,13 @@ import org.exoplatform.webui.core.lifecycle.Lifecycle;
 import org.exoplatform.webui.core.lifecycle.WebuiBindingContext;
 import org.exoplatform.webui.event.Event;
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * May 8, 2006
  */
 public class UIPortletLifecycle extends Lifecycle {
+  
+  protected static Log log = ExoLogger.getLogger("portal:UIPortletLifecycle"); 
+  
   
   public void processAction(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
     String action =  context.getRequestParameter(PortalRequestContext.UI_COMPONENT_ACTION) ;
@@ -108,8 +111,8 @@ public class UIPortletLifecycle extends Lifecycle {
       }
     } catch (Throwable ex) {
       ex = ExceptionUtil.getRootCause(ex) ;
-      portletContent.append(ExceptionUtil.getStackTrace(ex, 100));      
-      //TODO  Need to  find a way to use the log service
+      portletContent.append(ExceptionUtil.getStackTrace(ex, 100));     
+      log.error("Exception print in the portlet content", ex);
     }
     if(output != null ) portletTitle = output.getTitle() ;
     if(portletTitle == null ) portletTitle = "Portlet" ;
@@ -129,8 +132,7 @@ public class UIPortletLifecycle extends Lifecycle {
       } catch (Throwable ex) {
         ex = ExceptionUtil.getRootCause(ex) ;
         portletContent.append(ExceptionUtil.getStackTrace(ex, 100));      
-        ex.printStackTrace();
-        //TODO  Need to  find a way to use the log service
+        log.error("Exception print in the portlet content", ex);
       }
     }
     try { 
@@ -138,8 +140,7 @@ public class UIPortletLifecycle extends Lifecycle {
     } catch (Throwable ex) {
       ex = ExceptionUtil.getRootCause(ex) ;
       portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
-      ex.printStackTrace();
-      //TODO  Need to  find a way to use the log service
+      log.error("Exception print in the portlet content", ex);
     }
   }
   

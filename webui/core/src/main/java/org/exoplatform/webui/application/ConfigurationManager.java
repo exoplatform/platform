@@ -30,8 +30,6 @@ import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IUnmarshallingContext;
 
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@yahoo.com
  * May 10, 2006
  * 
  * Manages the ComponentConfig of a list of components.

@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
+ * Copyright 2001-2007 The eXo Platform SAS         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.webui.core;
@@ -7,17 +7,19 @@ package org.exoplatform.webui.core;
 import java.io.Writer;
 import java.util.Locale;
 
+import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.exception.MessageException;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * May 8, 2006
  */
 abstract public class UIApplication  extends  UIContainer {
+  
+  protected static Log log = ExoLogger.getLogger("portal:UIApplication"); 
 
   private String owner ;
   private Locale locale_ = Locale.ENGLISH  ;
@@ -71,7 +73,7 @@ abstract public class UIApplication  extends  UIContainer {
       ApplicationMessage msg = 
         new ApplicationMessage("UIApplication.msg.unknown-error", args, ApplicationMessage.ERROR) ;
       uiPopupMessages_.addMessage(msg) ;
-      t.printStackTrace();
+      log.error("Error during the processAction phase", t);
     }
   }
   
