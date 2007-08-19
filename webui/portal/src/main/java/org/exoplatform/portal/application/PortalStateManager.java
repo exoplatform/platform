@@ -7,11 +7,13 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.webui.application.ConfigurationManager;
 import org.exoplatform.webui.application.StateManager;
 import org.exoplatform.webui.application.WebuiApplication;
@@ -20,13 +22,28 @@ import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.core.UIApplication;
 
 public class PortalStateManager extends StateManager {
+
+  protected static Log log = ExoLogger.getLogger("portal:PortalStateManager");  
   
   private Map<String, PortalApplicationState> uiApplications = new HashMap<String, PortalApplicationState>(); 
   
+  /**
+   * This method is used to restore the UI component tree either the current request targets a portlet 
+   * or the portal. 
+   * 
+   * In both cases, if the tree is not stored already it is created and then stored in a local Map 
+   * 
+   */
   @SuppressWarnings("unchecked")
   public UIApplication restoreUIRootComponent(WebuiRequestContext context) throws Exception {
     context.setStateManager(this) ;
     WebuiApplication app  = (WebuiApplication)context.getApplication() ;
+    
+    /*
+     * If the request context is of type PortletRequestContext, we extract the parent context which will
+     * allow to get access to the PortalApplicationState object thanks to the session id used as the key for the
+     * syncronised Map uiApplications
+     */
     if(context instanceof PortletRequestContext) {
       WebuiRequestContext preqContext = (WebuiRequestContext) context.getParentAppRequestContext() ;
       PortalApplicationState state = uiApplications.get(preqContext.getSessionId()) ;
@@ -94,7 +111,7 @@ public class PortalStateManager extends StateManager {
   public void expire(String sessionId, WebuiApplication app) {
     PortalApplicationState state = uiApplications.remove(sessionId) ;
     if(state != null){
-      System.out.println("SESSION EXPIRE, REMOVE APPLICATION STATE: " + state.getUIPortalApplication());
+      log.warn("Session expires, remove application: " + state.getUIPortalApplication());
     }
     PortalContainer pcontainer =  (PortalContainer) app.getApplicationServiceContainer() ;
     pcontainer.removeSessionContainer(sessionId) ;

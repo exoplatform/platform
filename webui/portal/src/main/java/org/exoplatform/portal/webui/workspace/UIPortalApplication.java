@@ -8,6 +8,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.webui.application.UIPortlet;
@@ -16,6 +17,7 @@ import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.skin.SkinConfig;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -25,11 +27,18 @@ import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
+
 /**
- * UIPortalApplication 
- *   - UIControlWorkSpace 
- *   - UIWorkingWorkSpace
- *   - UIPopupWindow
+ * This extends the UIApplication and hence is a sibling of UIPortletApplication 
+ * (used by any eXo Portlets as the Parent class to build the portlet component tree).
+ * 
+ * The UIPortalApplication is responsible to build its subtree according to some configuration parameters. 
+ * If all components are displayed it is composed of 3 UI components:
+
+ *  UIControlWorkSpace : the left expandable column that can contains widgets containers and the start menu
+ *  UIWorkingWorkSpace: the right part that can display the normal or webos portal layouts
+ *  UIPopupWindow: a popup window that display or not
+ * 
  */
 @ComponentConfigs({
   @ComponentConfig (
@@ -45,6 +54,8 @@ import org.exoplatform.webui.event.Event;
   )
 })
 public class UIPortalApplication extends UIApplication {
+  
+  protected static Log log = ExoLogger.getLogger("portal:UIPortalApplication"); 
   
   public static boolean DEVELOPING = false;
   
@@ -62,6 +73,21 @@ public class UIPortalApplication extends UIApplication {
   
   private UserPortalConfig userPortalConfig_;
   
+  /**
+   * The constructor of this class is used to build the tree of UI components that will be aggregated
+   * in the portal page. 
+   * 
+   * 1) The component is stored in the current PortalRequestContext ThreadLocal 
+   * 2) The configuration for the portal associated with the current user request is extracted from the 
+   *    PortalRequestContext
+   * 3) Then according to the context path, either a public or private portal is initiated. Usually a public
+   *    portal does not contain the left column and only the private one has it.
+   * 4) The skin to use is setup
+   * 5) Finally, the current component is associated with the current portal owner      
+   * 
+   * @param initParams
+   * @throws Exception
+   */
   @SuppressWarnings("hiding")
   public  UIPortalApplication(InitParams initParams) throws Exception { 
     PortalRequestContext  context = PortalRequestContext.getCurrentInstance() ;
@@ -69,8 +95,12 @@ public class UIPortalApplication extends UIApplication {
     userPortalConfig_ = (UserPortalConfig)context.getAttribute(UserPortalConfig.class);
     if(userPortalConfig_ == null) throw new Exception("Can't load user portal config");
     if(context.getAccessPath() == PortalRequestContext.PUBLIC_ACCESS) {
+      if(log.isDebugEnabled())
+        log.debug("Build a public portal");
       initPublicPortal(context, initParams) ;
     } else {
+      if(log.isDebugEnabled())
+        log.debug("Build a private portal");      
       initPrivatePortal(context) ;
     }
     
@@ -114,6 +144,13 @@ public class UIPortalApplication extends UIApplication {
     return skins ;
   }
   
+  /**
+   * According to the init parameters, the left the left column is shown or not.
+   * 
+   * @param context
+   * @param initParams
+   * @throws Exception
+   */
   @SuppressWarnings("hiding")
   private  void  initPublicPortal(PortalRequestContext context, InitParams initParams) throws Exception {
     if("true".equals(initParams.getParam("public.showControlWorkspace").getValue())) {
@@ -122,12 +159,29 @@ public class UIPortalApplication extends UIApplication {
     addWorkingWorkspace(context) ;
   }
   
+  /**
+   * A private portal always get the left column and the main area in the center.
+   * 
+   * @param context
+   * @throws Exception
+   */
   @SuppressWarnings("hiding")
   private  void  initPrivatePortal(PortalRequestContext context) throws Exception {
     addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
     addWorkingWorkspace(context) ;
   }
   
+  /**
+   * The central area is called the WorkingWorkspace. It is composed of:
+   * 
+   * 1) A UIPortal child which is filled with portal data using the PortalDataMapper helper tool
+   * 2) A UIPortalToolPanel which is not rendered by default
+   * 
+   * A UIMaskWorkspace is also added to provide powerfull focus only popups
+   * 
+   * @param context
+   * @throws Exception
+   */
   @SuppressWarnings({"hiding","unused"})
   private void addWorkingWorkspace(PortalRequestContext context) throws Exception {
     UIWorkspace uiWorkingWorkspace = 

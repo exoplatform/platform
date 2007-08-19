@@ -11,9 +11,7 @@ import java.net.URL;
 import java.util.List;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * Mar 15, 2006
  */
 abstract public class ResourceResolver {

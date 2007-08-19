@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
+ * Copyright 2001-2007 The eXo Platform SAS         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.webui.application;
@@ -16,19 +16,34 @@ import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+
+
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ *Created by The eXo Platform SAS
  * May 7, 2006
  * 
- * The main class to create an application.
+ * This abstract class defines several methods to abstract the differnt type of web application the
+ * eXo web framework can provide such as portal or portlet.
  */
 abstract public class WebuiApplication extends Application {
   
   private ConfigurationManager configManager_ ;
   private StateManager stateManager_ ;
   
+  /**
+   * This initialisation goals is to first extract and parse the webui configuration XML file 
+   * defined inside the web.xml of the web application.
+   * 
+   * The ConfigurationManager class is responsible of the parsing and then wrap all the information 
+   * about the UI configuration.
+   * 
+   * One of the information is the real implementation of the StateManager object. That object is 
+   * extracted from the configuration and stored as a field in that class.
+   * 
+   * Lifecycle phases are also extracted from the XML file, referenced in this WebuiApplication class
+   * and initialized at the same time.
+   * 
+   */
   public void onInit() throws Exception {        
     String configPath = getApplicationInitParam("webui.configuration") ;
     InputStream is = getResourceResolver().getInputStream(configPath) ;

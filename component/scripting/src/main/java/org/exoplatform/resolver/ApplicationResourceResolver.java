@@ -10,16 +10,29 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.ExoLogger;
+
 
 /**
- * Created by The eXo Platform SARL
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
+ * This class is an aggregation of ResourceResolver object and extends itself the ResourceResover class.
+ * 
+ * Hence every call to this ResourceResolver will in fact be delegated to one of the resolver it aggregates.
+ * 
+ * Created by The eXo Platform SAS
  * Oct 24, 2006
  */
 public class ApplicationResourceResolver extends ResourceResolver {
+  
+  protected static Log log = ExoLogger.getLogger("portal:ApplicationResourceResolver");  
+  
   private Map<String, ResourceResolver>  resolvers_ = new  HashMap<String, ResourceResolver>();
   
+  /**
+   * There are by default 2 resolvers already aggregated: 
+   *  1) FileResourceResolver
+   *  2) ClasspathResourceResolver
+   */
   public ApplicationResourceResolver() {
     addResourceResolver(new FileResourceResolver()) ;
     addResourceResolver(new ClasspathResourceResolver()) ;
@@ -29,15 +42,18 @@ public class ApplicationResourceResolver extends ResourceResolver {
     return  resolvers_.get(scheme) ;
   }
   
-  public ResourceResolver  getResourceResolver(String url) {
+  public ResourceResolver getResourceResolver(String url) {
     String scheme = "app:" ;
     int index  = url.indexOf(":") ;
     if(index > 0) scheme = url.substring(0, index + 1) ;
-    //System.out.println("===>> GET" + url);
+    if(log.isDebugEnabled())
+      log.debug("Try to extract resource resolver for the url: " + url);	
     return resolvers_.get(scheme) ; 
   }
   
   public  void addResourceResolver(ResourceResolver resolver) {
+    if(log.isDebugEnabled())
+      log.debug("Add a resource resolver for the scheme: " + resolver.getResourceScheme());
     resolvers_.put(resolver.getResourceScheme(), resolver) ;
   }
   

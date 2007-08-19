@@ -5,20 +5,41 @@ import java.util.ResourceBundle;
 
 import javax.servlet.ServletConfig;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.ServletResourceResolver;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.resources.ResourceBundleService;
 import org.exoplatform.webui.application.WebuiApplication;
 
+/**
+ * The PortalApplication class is an implementation of the WebuiApplication abstract class
+ * which defines the type of application that can be deployed in our framework (that includes 
+ * portal, portlets, widgets...)
+ * 
+ * This class is a wrapper of all portal information such as ResourceBundle for i18n, the current 
+ * ExoContainer in use as well as the init parameters defined along with the servlet web.xml
+ */
 public class PortalApplication extends WebuiApplication {
+  
+  protected static Log log = ExoLogger.getLogger("portal:PortalApplication");  
   
   final static public String PORTAL_APPLICATION_ID = "PortalApplication" ;
   
   private ServletConfig sconfig_ ;
   private String[] applicationResourceBundleNames_ ;
   
+  /**
+   * The constructor references resource resolvers that allows the ApplicationResourceResolver to
+   * extract files from different locations such as the current war or external one such as the resource 
+   * one where several static files are shared among all portal instances.
+   * 
+   * 
+   * @param config, the servlet config that contains init params such as the path location of
+   * the XML configuration file for the WebUI framework
+   */
   public PortalApplication(ServletConfig config) throws Exception {
     sconfig_ = config ;
     ApplicationResourceResolver resolver = new ApplicationResourceResolver() ;
@@ -29,6 +50,14 @@ public class PortalApplication extends WebuiApplication {
     setResourceResolver(resolver) ;
   }
   
+  
+  /**
+   * This method first calls the super.onInit() of the WebuiApplication. That super method parse the XML
+   * file and stores its content in the ConfigurationManager object. It also set up he StateManager and 
+   * init the application lifecycle phases.
+   * 
+   * Then we get all the properties file that will be used to create ResourceBundles
+   */
   public void onInit() throws Exception {
     super.onInit() ;
     applicationResourceBundleNames_ =
@@ -49,7 +78,10 @@ public class PortalApplication extends WebuiApplication {
 
   public String getApplicationType() { return EXO_PORTAL_TYPE ; }
 
-
+  /**
+   * extract ResourceBundle from the ResourceBundleService using the bundle defined in the configuration XML
+   * file for the UI application 
+   */
   public ResourceBundle getResourceBundle(Locale locale) throws Exception {
     ExoContainer  appContainer = getApplicationServiceContainer() ;
     ResourceBundleService service = 
@@ -58,6 +90,9 @@ public class PortalApplication extends WebuiApplication {
     return res;
   }
 
+  /**
+   * extract the ResourceBundle associated with the current user from the ResourceBundleService
+   */
   public ResourceBundle getOwnerResourceBundle(String username, Locale locale) throws Exception {
     ExoContainer  appContainer = getApplicationServiceContainer() ;
     ResourceBundleService service = 

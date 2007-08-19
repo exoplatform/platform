@@ -11,24 +11,38 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentRequestLifecycle;
 import org.exoplatform.services.listener.ListenerService;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.portletcontainer.helper.WindowInfosContainer;
 import org.exoplatform.web.application.Application;
 import org.exoplatform.web.command.CommandHandler;
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan.nguyen@exoplatform.com
+ * Created by The eXo Platform SAS
  * Mar 21, 2007  
+ * 
+ * The WebAppController is the entry point of the eXo web framework
+ * 
+ * It also stores WebRequestHandlers, Attributes and deployed Applications
+ * 
  */
 public class WebAppController {
+  
+  protected static Log log = ExoLogger.getLogger("portal:WebAppController");  
   
   private HashMap<String, Object>  attributes_ ;
   private HashMap<String, Application>  applications_ ;
   private HashMap<String, WebRequestHandler> handlers_ ;
   
+  /**
+   * The WebAppControler along with the PortalRequestHandler defined in the init() method of the
+   * PortalController servlet (controller.register(new PortalRequestHandler())) also add the
+   * CommandHandler object that will listen for the incoming /command path in the URL
+   * 
+   * @throws Exception
+   */
   public WebAppController() throws Exception {
     applications_ = new HashMap<String, Application>() ;
     attributes_ = new HashMap<String, Object>() ;
@@ -68,10 +82,23 @@ public class WebAppController {
     for(String path :  paths) handlers_.remove(path) ;
   }
   
+  /**
+   * This is the first method - in the eXo web framework - reached by incoming HTTP request, it acts like a
+   * servlet service() method
+   * 
+   * According to the servlet path used the correct handler is selected and then executed.
+   * 
+   * The event "exo.application.portal.start-http-request" and "exo.application.portal.end-http-request" are also sent 
+   * through the ListenerService and several listeners may listen to it.
+   * 
+   * Finally a WindowsInfosContainer object using a ThreadLocal (from the portlet-container product) is created 
+   */
   public void service(HttpServletRequest req, HttpServletResponse res) throws Exception {
-//    System.out.println("\n\n ==> Servlet Path " +  req.getServletPath());
     WebRequestHandler handler = handlers_.get(req.getServletPath()) ;
-//    System.out.println("\n\n ==> Handler " +  handler);
+	if(log.isDebugEnabled()) {
+	  log.debug("Servlet Path: " + req.getServletPath());    
+	  log.debug("Handler used for this path: " + handler);
+	}
     if(handler != null) {
       PortalContainer portalContainer = PortalContainer.getInstance() ;
       List<ComponentRequestLifecycle> components = 

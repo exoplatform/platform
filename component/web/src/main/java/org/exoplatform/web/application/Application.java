@@ -14,9 +14,7 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.BaseComponentPlugin;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * May 7, 2006
  */
 abstract public class Application extends BaseComponentPlugin {

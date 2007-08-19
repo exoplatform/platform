@@ -19,9 +19,7 @@ import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.WebRequestHandler;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan.nguyen@exoplatform.com
+ * Created by The eXo Platform SAS
  * Mar 21, 2007  
  */
 public class CommandHandler extends WebRequestHandler {

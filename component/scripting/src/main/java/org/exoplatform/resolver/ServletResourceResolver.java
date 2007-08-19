@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
+ * Copyright 2001-2007 The eXo Platform SAS         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.resolver ;
@@ -13,9 +13,7 @@ import java.util.List;
 import javax.servlet.ServletContext;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * Mar 15, 2006
  */
 public class ServletResourceResolver extends ResourceResolver {
