@@ -29,6 +29,7 @@ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -314,15 +315,19 @@ public class UIPageActionListener {
     public void execute(Event<UIPage> event) throws Exception {
       UIPage uiPage = event.getSource();
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      uiPage.removeChildById(id);  
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       if(uiPage.isModifiable()) {
+        uiPage.removeChildById(id);
         Page page = PortalDataMapper.toPageModel(uiPage); 
         UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
         configService.update(page);
+      } else{
+        org.exoplatform.webui.core.UIApplication uiApp = pcontext.getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIPage.msg.EditPermission.null", null)) ;
+
+        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
       }
-      
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();      
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
