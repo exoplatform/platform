@@ -139,11 +139,6 @@
   cursor: pointer;
 }
 
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
-  height: 18px; line-height: 18px; 
-  padding-left: 10px;
-}
-
 .UIOrganizationPortlet .ManagementIconContainer {
   margin-left: 5px;
   padding-top: 6px;

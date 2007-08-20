@@ -45,10 +45,11 @@
   height: 18px; line-height: 18px;
   padding-left: 10px;
 }
+
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .SelectButtonLabel {
   height: 18px; line-height: 18px;
   padding-left: 10px;
-  color: red;
+  color: orange;
 }
 
 .UIOrganizationPortlet .ManagementIconContainer {

@@ -92,7 +92,7 @@
 .UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/EditNavigation.gif') no-repeat left top;
 	cursor: pointer;
-	float: left; margin-left: -1px;
+	float: left; margin: 2px 0px 2px -1px;
 	height: 21px; width: 21px;
 	display: block;
 }

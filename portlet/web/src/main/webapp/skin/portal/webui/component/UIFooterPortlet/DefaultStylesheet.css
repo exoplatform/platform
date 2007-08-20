@@ -1,6 +1,7 @@
 .UIFooterPortlet {
   height: 25px ;
   background: url('DefaultSkin/background/BgFooter1x25.gif') repeat-x ;
+  margin-bottom: 10px;
 }
 
 .UIFooterPortlet .RepeatFooter {
