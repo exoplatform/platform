@@ -110,6 +110,10 @@ UIPopupWindow.prototype.initDND = function(evt) {
 		dragObject.uiWindowContent = DOMUtil.findFirstDescendantByClass(dragObject, "div", "PopupContent") ;
 		if(eXo.core.Browser.browserType == "mozilla") {
 			dragObject.uiWindowContent.style.overflow = "hidden" ;
+			var elements = eXo.core.DOMUtil.findDescendantsByClass(dragObject.uiWindowContent,  "div" ,"PopupMessageBox") ;
+  		for(var i = 0; i < elements.length; i++) {
+     	  elements[i].style.overflow  = "hidden" ;
+			}
 		}
   }
 
@@ -120,6 +124,10 @@ UIPopupWindow.prototype.initDND = function(evt) {
   	var dragObject = dndEvent.dragObject ;
 		if(eXo.core.Browser.browserType == "mozilla") {
   		dragObject.uiWindowContent.style.overflow = "auto" ;
+   		var elements = eXo.core.DOMUtil.findDescendantsByClass(dragObject.uiWindowContent,  "div" ,"PopupMessageBox") ;
+  		for(var i = 0; i < elements.length; i++) {
+     	  elements[i].style.overflow  = "auto" ;
+			}
 		}
   	
   	var DOMUtil = eXo.core.DOMUtil ;
