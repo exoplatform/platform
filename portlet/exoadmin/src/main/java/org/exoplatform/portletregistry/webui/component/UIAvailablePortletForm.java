@@ -24,7 +24,6 @@ import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIPopupWindow;
@@ -32,12 +31,13 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormInputInfo;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormPageIterator;
-import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.UIFormTableInputSet;
+import org.exoplatform.webui.form.UIFormTableIteratorInputSet;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
@@ -45,49 +45,30 @@ import org.exoplatform.webui.form.UIFormTableInputSet;
  * Jul 7, 2006
  * 11:43:12 AM 
  */
-@ComponentConfigs({
-    @ComponentConfig(
-        lifecycle = UIFormLifecycle.class,
-        template = "system:/groovy/webui/form/UIForm.gtmpl",
-        events = {
-          @EventConfig(listeners = UIAvailablePortletForm.SaveActionListener.class),
-          @EventConfig(listeners = UIAvailablePortletForm.BackActionListener.class, phase = Phase.DECODE)
-        }
-      ),
-    //TODO: Tung.Pham added
-    @ComponentConfig(
-        type = UIFormTableInputSet.class,
-        id = "PortletFormTableInputSet",
-        template = "system:/groovy/webui/form/UIFormTablePageIteratorInputSet.gtmpl"
-    )
-
-})
-public class UIAvailablePortletForm extends UIFormTabPane {   
+@ComponentConfig(
+    lifecycle = UIFormLifecycle.class,
+    template = "system:/groovy/webui/form/UIForm.gtmpl",
+    events = {
+      @EventConfig(listeners = UIAvailablePortletForm.SaveActionListener.class),
+      @EventConfig(listeners = UIAvailablePortletForm.BackActionListener.class, phase = Phase.DECODE)
+    }
+)
+public class UIAvailablePortletForm extends UIForm {   
 
   final static String [] TABLE_COLUMNS = {"label", "description", "input"};
   List<Application> list_ = new ArrayList<Application>();
   
   public UIAvailablePortletForm() throws Exception {
-    super("UIFormAvailablePortlet", false);
-    setInfoBar(false);
-    setRenderResourceTabName(false) ;
-    //TODO: Tung Pham added
-    //-------------------------------------------
     String tableName = getClass().getSimpleName();    
-    UIFormTableInputSet uiTableInputSet = createUIComponent(UIFormTableInputSet.class, "PortletFormTableInputSet", null) ;
+    UIFormTableIteratorInputSet uiTableInputSet = createUIComponent(UIFormTableIteratorInputSet.class, null, null) ;
     uiTableInputSet.setName(tableName);
     uiTableInputSet.setColumns(TABLE_COLUMNS);
-    UIFormPageIterator uiIterator = createUIComponent(UIFormPageIterator.class, null, null) ;
-    uiTableInputSet.addChild(uiIterator) ;
     addChild(uiTableInputSet);
-    //-------------------------------------------
   } 
 
   @SuppressWarnings("unchecked")
   public void setValue() throws Exception {
-      //TODO: Tung.Pham added
       list_.clear() ;
-      //---------------------
       PortletContainerService containerService = getApplicationComponent(PortletContainerService.class);
       Map map = containerService.getAllPortletMetaData();
       Iterator iter = map.keySet().iterator();
@@ -127,12 +108,9 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       uiTableInputSet.addChild(uiInputSet);
       uiInputSetList.add(uiInputSet) ;
     }
-    //TODO: Tun.Pham added
     UIFormPageIterator uiIterator = uiTableInputSet.getChild(UIFormPageIterator.class) ;
     PageList pageList = new ObjectPageList(uiInputSetList, 10) ;
-    uiIterator.setPageList(pageList) ;
-    //--------------------------------
-    
+    uiIterator.setPageList(pageList) ;    
   }
 
   private  void findExoApplication() throws Exception {
@@ -195,20 +173,32 @@ public class UIAvailablePortletForm extends UIFormTabPane {
     }
 
   public void processDecode(WebuiRequestContext context) throws Exception {
-    super.processDecode(context);
-    for(UIComponent child : getChildren())  {
-      child.processDecode(context) ;
+    setSubmitAction(context.getRequestParameter(UIForm.ACTION)) ;
+    List<UIComponent>  children = getChildren() ;
+    for(UIComponent uiChild :  children) {
+      uiChild.processDecode(context) ;     
     }
+    String action =  getSubmitAction();
+    String subComponentId = context.getRequestParameter(UIForm.SUBCOMPONENT_ID);
+    if(subComponentId == null || subComponentId.trim().length() < 1) {
+      Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;
+      if(event != null) event.broadcast() ;
+      return;
+    }
+    UIComponent uiSubComponent = findComponentById(subComponentId);
+    Event<UIComponent> event = uiSubComponent.createEvent(action, Event.Phase.DECODE, context) ;
+    if(event != null)  event.broadcast() ;
   }
 
   @SuppressWarnings("unchecked")
   static public class SaveActionListener  extends EventListener<UIAvailablePortletForm> {
     public void execute(Event<UIAvailablePortletForm> event) throws Exception {
-      //TODO: Tung.Pham replaced
-      //------------------------------------------
       UIAvailablePortletForm uiForm = event.getSource() ;
       UIPopupWindow parent = uiForm.getParent();
       parent.setShow(false);
+      
+      List<UIFormCheckBoxInput> listCheckbox =  new ArrayList<UIFormCheckBoxInput>();
+      uiForm.findComponentOfType(listCheckbox, UIFormCheckBoxInput.class);
      
       UIPortletRegistryPortlet uiRegistryPortlet = event.getSource().getAncestorOfType(UIPortletRegistryPortlet.class);
       ApplicationRegistryControlArea uiRegistryCategory =  uiRegistryPortlet.getChild(ApplicationRegistryControlArea.class);
@@ -224,51 +214,15 @@ public class UIAvailablePortletForm extends UIFormTabPane {
       List<Application> oldPortlets = uiRegistryCategory.getPortlets();      
       Collections.sort(oldPortlets, portletComparator);
       
-      UIFormPageIterator uiIterator = uiForm.findFirstComponentOfType(UIFormPageIterator.class) ;
-      Iterator<?> itr = uiIterator.getCurrentPageData().iterator() ;
-      while(itr.hasNext()) {
-        UIFormInputSet uiFormInputSetItem = (UIFormInputSet) itr.next();
-        UIFormCheckBoxInput<Integer> uiCheckBox = uiFormInputSetItem.getChild(UIFormCheckBoxInput.class) ;
-        if(!uiCheckBox.isChecked())continue;    
-        Application portlet = event.getSource().getListApplication().get(uiCheckBox.getValue());
+      for(UIFormCheckBoxInput<Integer> ele : listCheckbox){
+        if(!ele.isChecked())continue;    
+        Application portlet = uiForm.getListApplication().get(ele.getValue());    
         if(Collections.binarySearch(oldPortlets, portlet, portletComparator) > -1) continue;
         Application newPortlet = clonePortlet(portlet);
         service.save(selectedCategory, newPortlet);
-        
-      }
+      }      
       uiRegistryCategory.initApplicationCategories() ;
       uiRegistryCategory.setSelectedCategory(selectedCategory);
-      //------------------------------------------
-
-//      UIAvailablePortletForm uiForm = event.getSource() ;
-//      UIPopupWindow parent = uiForm.getParent();
-//      parent.setShow(false);
-//      List<UIFormCheckBoxInput> listCheckbox =  new ArrayList<UIFormCheckBoxInput>();
-//      event.getSource().findComponentOfType(listCheckbox, UIFormCheckBoxInput.class);
-//     
-//      UIPortletRegistryPortlet uiRegistryPortlet = event.getSource().getAncestorOfType(UIPortletRegistryPortlet.class);
-//      ApplicationRegistryControlArea uiRegistryCategory =  uiRegistryPortlet.getChild(ApplicationRegistryControlArea.class);
-//      ApplicationCategory selectedCategory = uiRegistryCategory.getSelectedPortletCategory();      
-//      ApplicationRegistryService service = event.getSource().getApplicationComponent(ApplicationRegistryService.class);
-//      
-//      Comparator portletComparator = new Comparator<Application>(){
-//        public int compare(Application portlet1, Application portlet2){  
-//          return portlet1.getId().compareTo(portlet2.getId());
-//        }
-//      };     
-//      
-//      List<Application> oldPortlets = uiRegistryCategory.getPortlets();      
-//      Collections.sort(oldPortlets, portletComparator);
-//      
-//      for(UIFormCheckBoxInput<Integer> ele : listCheckbox){
-//        if(!ele.isChecked())continue;    
-//        Application portlet = event.getSource().getListApplication().get(ele.getValue());    
-//        if(Collections.binarySearch(oldPortlets, portlet, portletComparator) > -1) continue;
-//        Application newPortlet = clonePortlet(portlet);
-//        service.save(selectedCategory, newPortlet);
-//      }      
-//      uiRegistryCategory.initApplicationCategories() ;
-//      uiRegistryCategory.setSelectedCategory(selectedCategory);
     }  
     
     private Application clonePortlet(Application portlet){

@@ -1,14 +1,10 @@
 <%
-/*
-	Created by The eXo Platform SARL
-	Authors: Tung.Pham
-*/
-%>
-<%import org.exoplatform.webui.core.UIComponent ;
+	import org.exoplatform.webui.core.UIComponent ;
 	import org.exoplatform.webui.form.UIFormPageIterator ;
-	UIFormPageIterator uiIterator = uicomponent.getChild(UIFormPageIterator.class) ;
+	UIFormPageIterator uiIterator = uicomponent.getUIFormPageIterator() ;
+	
 %>
-<div class="UIFormTableInputSet">
+<div class="UIFormTableIterator">
 	<table  class="UIGrid" cellspacing="0" borderspacing="0">
 	  <thead>
 	    <tr>
@@ -42,4 +38,4 @@
 	  </tbody>
 	</table> 
 </div>
-<%_ctx.renderUIComponent(uiIterator) ;%>
+<div><%_ctx.renderUIComponent(uiIterator) ;%></div>
