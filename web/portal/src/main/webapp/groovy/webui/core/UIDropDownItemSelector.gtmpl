@@ -38,7 +38,7 @@
 		  			  String title = (selected == null) ? uicomponent.getTitle() : selected.getLabel();
 		  			%>
 		  			<div class="SelectedItemLabel">
-			  			<%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + title)%>
+			  			<%=title%>
 		  			</div>
 		  			<div class="DropDownSelectIcon"><span></span></div>
 		  			<div style="clear: both;"><span></span></div>
@@ -78,9 +78,7 @@
 								<%if(action != null) {%>
 		              <div class="ItemSelectorLabel"><%=label%></div>
 		            <%} else {%>
-		              <div class="ItemSelectorLabel">
-		                <%=_ctx.appRes(uicomponent.getParent().getName() + ".UIDropDown.label." + label)%>
-		              </div>
+		              <div class="ItemSelectorLabel"> <%=label%>s</div>
 		            <%}%>
 		            <div style="clear: left"><span></span></div>
 							</div>
