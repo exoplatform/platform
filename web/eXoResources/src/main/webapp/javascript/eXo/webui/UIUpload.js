@@ -175,7 +175,6 @@ UIUpload.prototype.deleteUpload = function(id) {
 
 
 UIUpload.prototype.upload = function(clickEle, id) {
-	alert(id) ;
 	var DOMUtil = eXo.core.DOMUtil;  
   var container = parent.document.getElementById(id);  
   var uploadFrame = parent.document.getElementById(id+"uploadFrame");
