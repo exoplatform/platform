@@ -34,6 +34,7 @@ import org.exoplatform.webui.event.EventListener;
     @EventConfig(listeners = UIGroupManagement.AddGroupActionListener.class),
     @EventConfig(listeners = UIGroupManagement.DeleteGroupActionListener.class, confirm = "UIGroupManagement.deleteGroup"),
     @EventConfig(listeners = UIGroupManagement.SelectPathActionListener.class),
+    @EventConfig(listeners = UIGroupManagement.SelectGroupMessageActionListener.class),
     @EventConfig(listeners = UIGroupManagement.EditGroupActionListener.class)
     
   }
@@ -56,6 +57,15 @@ public class UIGroupManagement extends UIContainer {
     }
   }
     
+  static  public class SelectGroupMessageActionListener extends EventListener<UIGroupManagement> {
+    public void execute(Event<UIGroupManagement> event) throws Exception {
+      UIGroupManagement uiGroupManagement = event.getSource() ;
+      WebuiRequestContext context = event.getRequestContext() ;
+      UIApplication uiApp = context.getUIApplication() ;
+      uiApp.addMessage(new ApplicationMessage("UIGroupManagement.msg.Edit", null)) ;
+    }
+  }
+  
   static  public class AddGroupActionListener extends EventListener<UIGroupManagement> {
     public void execute(Event<UIGroupManagement> event) throws Exception {
       UIGroupManagement uiGroupManagement = event.getSource() ;

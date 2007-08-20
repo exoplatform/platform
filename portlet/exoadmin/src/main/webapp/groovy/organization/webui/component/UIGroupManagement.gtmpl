@@ -21,6 +21,8 @@
                 <% String actionLink = "#";
                     if(uicomponent.getChild(UIGroupExplorer.class).getCurrentGroup()!= null) {
                       actionLink = uicomponent.event("DeleteGroup","delete"); 
+                    } else {
+                        actionLink = uicomponent.event("SelectGroupMessage","SelectGroup");
                     }
                 %>
 				      	<a class="TreeActionIcon RemoveGroupIcon" href="$actionLink" title="Delete Selected Group"><span></span></a>
