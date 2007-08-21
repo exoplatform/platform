@@ -24,6 +24,11 @@ import org.exoplatform.web.WebAppController;
 /**
  * Created by The eXo Platform SAS
  * May 8, 2006
+ * 
+ * This class is just the main entry point and act as an adapter on eXo web framework.
+ * 
+ * Hence every call is delegated to the PortletApplication which extends the WebuiApplication
+ * 
  */
 public class PortletApplicationController extends GenericPortlet {
   

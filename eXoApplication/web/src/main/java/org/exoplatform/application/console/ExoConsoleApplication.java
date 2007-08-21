@@ -11,9 +11,7 @@ import org.exoplatform.web.application.mvc.MVCApplication;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan.nguyen@exoplatform.com
+ * Created by The eXo Platform SAS
  * Apr 23, 2007  
  */
 public class ExoConsoleApplication extends MVCApplication {

@@ -25,6 +25,21 @@ abstract public class UIPortletApplication extends  UIApplication {
   public int getMinHeight() { return minHeight ; }
   public void setMinHeight(int minHeight) { this.minHeight = minHeight ; }
   
+  /**
+   * The default processRender for an UIPortletApplication handles two cases:
+   * 
+   *   A. Ajax is used 
+   *   ---------------
+   *     If Ajax is used and that the entire portal should not be re rendered, then an AJAX fragment is 
+   *     generated with information such as the portlet id, the portlet title, the portlet modes, the window 
+   *     states as well as the HTML for the block to render
+   *   
+   *   B. A full render is made
+   *   ------------------------
+   *      a simple call to the method super.processRender(context) which will delegate the call to all the 
+   *      Lifecycle components
+   *   
+   */
   public void  processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
     WebuiRequestContext pContext = (WebuiRequestContext)context.getParentAppRequestContext();
     ExoPortletRequest renderRequest = (ExoPortletRequest) context.getRequest();

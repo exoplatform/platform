@@ -32,7 +32,8 @@ import org.exoplatform.webui.core.UIPortletApplication;
 /**
  * May 26, 2006
  * 
- * A portlet application
+ * A portlet application. Every call made to a portlet deployed in eXo PC - and using eXo web framework - 
+ * is going through this class
  */
 public class PortletApplication extends WebuiApplication {
   
@@ -90,6 +91,25 @@ public class PortletApplication extends WebuiApplication {
   public ExoContainer getApplicationServiceContainer() { return PortalContainer.getInstance() ; }
   
   
+  /**
+   * The processAction() method is the one modelled according to the Portlet API specification
+   * 
+   * The process is quite simple and here are te different steps done in the method:
+   * 
+   * 1) The current instance of the WebuiRequestContext (stored in a ThreadLocal in the class) is referenced
+   * 2) A new request context of type PortletRequestContext (which extends the class WebuiRequestContext) is
+   *    created as a child of the current context instance
+   * 3) The new context is place inside the ThreadLocal and hence overides its parent one there, 
+   *    only for the portlet request lifeciclye
+   * 4) The method onStartRequest() is called in all the ApplicationLifecycle objects referenced in the webui 
+   *    configuration XML file
+   * 5) The StateManager object (in case of portlet it is an object of type ParentAppStateManager) is used to get the RootComponent
+   *    also referenced in the XML configuration file
+   * 6) The methods processDecode(UIApplication, WebuiRequestContext) and processAction(UIApplication, WebuiRequestContext) 
+   *     are then called 
+   * 7) Finally, a flag, to tell that the processAction phase was done, in the context is set to true and the parent
+   *    context is restored in the Threadlocal
+   */
   public void processAction(ActionRequest req, ActionResponse res) throws Exception {
     WebuiRequestContext parentAppRequestContext =  WebuiRequestContext.getCurrentInstance() ;
     PortletRequestContext context = createRequestContext(req, res, parentAppRequestContext)  ;
@@ -101,7 +121,6 @@ public class PortletApplication extends WebuiApplication {
       UIApplication uiApp = getStateManager().restoreUIRootComponent(context) ;
       context.setUIApplication(uiApp) ;
       processDecode(uiApp, context) ;
-//      req.setCharacterEncoding("UTF-8");
       if(!context.isResponseComplete() && !context.getProcessRender()) {
         processAction(uiApp, context) ;
       }
@@ -111,6 +130,21 @@ public class PortletApplication extends WebuiApplication {
     }
   }
   
+  /**
+   * The render method business logic is quite similar to the processAction() one.
+   * 
+   * 1) A PortletRequestContext object is created (or extracted from the cache if it already exists) 
+   *    and initialized
+   * 2) The PortletRequestContext replaces the parent one in the WebuiRequestContext ThreadLocal object
+   * 3) If the portal has already called the portlet processAction() then the call to all onStartRequest of
+   *    the ApplicationLifecycle has already been made, otherwise we call them
+   * 4) The ParentStateManager is also used to get the UIApplication, as we have seen it delegates the call 
+   *    to the PortalStateManager which caches the UI component root associated with the current application
+   * 5) the processRender() method of the UIPortletApplucaton is called
+   * 6) Finally, the method onEndRequest() is called on every ApplicationLifecycle referenced in the portlet
+   *    configuration XML file and the parent WebuiRequestContext is restored
+   *    
+   */
   public  void render(RenderRequest req,  RenderResponse res) throws Exception {    
     WebuiRequestContext parentAppRequestContext =  WebuiRequestContext.getCurrentInstance() ;
     PortletRequestContext context = createRequestContext(req, res, parentAppRequestContext)  ;
@@ -141,6 +175,17 @@ public class PortletApplication extends WebuiApplication {
     }
   }
   
+  
+  /**
+   * In this method we try to get the PortletRequestContext object from the attribute map of the parent 
+   * WebuiRequestContext. 
+   * 
+   * If it is not cached then we create a new instance, if it is cached then we init it with the correct
+   * writer, request and response objects
+   * 
+   * We finally cache it in the parent attribute map
+   * 
+   */
   private PortletRequestContext createRequestContext(PortletRequest req, PortletResponse res,
                                                     WebuiRequestContext parentAppRequestContext) throws IOException {
     String attributeName = getApplicationId() + "$PortletRequest" ;

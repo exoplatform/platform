@@ -6,6 +6,10 @@ import org.exoplatform.webui.application.StateManager;
 import org.exoplatform.webui.core.UIApplication;
 
 public class ParentAppStateManager extends StateManager {
+  
+  /**
+   * This method simply delegate the call to the same method of the parent WebuiRequestContext
+   */
   @SuppressWarnings("unchecked")
   public UIApplication restoreUIRootComponent(WebuiRequestContext context) throws Exception {
     WebuiRequestContext pcontext = (WebuiRequestContext)  context.getParentAppRequestContext() ;

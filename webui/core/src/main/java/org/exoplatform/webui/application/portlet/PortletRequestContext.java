@@ -66,7 +66,6 @@ public class PortletRequestContext extends WebuiRequestContext {
     request_ = req ;
     response_ =  res ;
     writer_ = new HtmlValidator(writer) ;
-//    writer_ =  writer ;
   }
 
   public void  setUIApplication(UIApplication uiApplication) throws Exception { 
@@ -93,8 +92,6 @@ public class PortletRequestContext extends WebuiRequestContext {
   public String getRemoteUser() { return parentAppRequestContext_.getRemoteUser() ; }
   
   final public boolean isUserInRole(String roleUser){ return request_.isUserInRole(roleUser); }
-  
-//  final public boolean isLogon() { return getParentAppRequestContext().isLogon(); }
   
   public int getApplicationMode() { return applicationMode_ ; }
   

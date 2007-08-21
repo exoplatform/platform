@@ -8,9 +8,7 @@ import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.web.application.URLBuilder;
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan.nguyen@exoplatform.com
+ * Created by The eXo Platform SAS
  * Apr 23, 2007
  */
 public class MVCRequestContext extends RequestContext {

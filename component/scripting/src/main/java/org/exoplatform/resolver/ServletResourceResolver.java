@@ -12,11 +12,16 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 
+import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.ExoLogger;
+
 /**
  * Created by The eXo Platform SAS
  * Mar 15, 2006
  */
 public class ServletResourceResolver extends ResourceResolver {
+  
+  protected static Log log = ExoLogger.getLogger("portal:ServletResourceResolver");
   
   private ServletContext scontext_ ;
   private String scheme_  ;
@@ -55,7 +60,8 @@ public class ServletResourceResolver extends ResourceResolver {
   
   public boolean isModified(String url, long lastAccess) {
     File file = new File(getRealPath(url)) ;
-    //System.out.println(url + ": " + file.lastModified() + " " + lastAccess) ;
+    if(log.isDebugEnabled())
+      log.debug(url + ": " + file.lastModified() + " " + lastAccess) ;
     if(file.exists() && file.lastModified() > lastAccess) {
       return true ;
     }    
@@ -63,7 +69,8 @@ public class ServletResourceResolver extends ResourceResolver {
   }
   
   public String getWebAccessPath(String url) {
-    System.out.println("GET WEB ACCESS " +  url);
+    if(log.isDebugEnabled())
+      log.debug("GET WEB ACCESS " +  url);
     return "/" + scontext_.getServletContextName() + removeScheme(url) ; 
   }
   

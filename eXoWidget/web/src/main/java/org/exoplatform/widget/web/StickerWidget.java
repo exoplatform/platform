@@ -19,7 +19,7 @@ import org.exoplatform.web.application.widget.WidgetApplication;
 //import org.exoplatform.webui.event.EventListener;
 
 /**
- * Created by The eXo Platform SARL
+ * Created by The eXo Platform SAS
  * Author : Vu Duy Tu
  *          duytucntt@gmail.com
  * June 13, 2007  

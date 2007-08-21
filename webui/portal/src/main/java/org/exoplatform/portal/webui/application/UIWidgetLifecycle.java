@@ -21,6 +21,12 @@ public class UIWidgetLifecycle extends Lifecycle {
     
   }
   
+  /**
+   * The processRender method of the UIWidget component is implemented in its bound Lifecycle object.
+   * 
+   * The Lifecycle itself simply delegates the call to the WidgetApplication stored in the IoC WebAppController
+   * component
+   */
   @SuppressWarnings("unchecked")
   public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     UIWidget uiWidget = (UIWidget)  uicomponent ;

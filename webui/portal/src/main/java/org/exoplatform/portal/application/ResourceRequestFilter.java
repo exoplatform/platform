@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
+ * Copyright 2001-2007 The eXo Platform SAS         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.portal.application;
@@ -14,21 +14,20 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-/**
- * Fri, May 30, 2003 @
- * @author: Tuan Nguyen
- * @email:   tuan08@users.sourceforge.net
- * @version: $Id: PublicRequestFilter.java,v 1.28 2004/11/03 01:19:46 tuan08 Exp $
- */
+
+import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.ExoLogger;
+
 public class ResourceRequestFilter implements Filter  {
+  
+  protected static Log log = ExoLogger.getLogger("portal:ResourceRequestFilter");
  
   private boolean cacheResource_ = false ;
   
   @SuppressWarnings("unused")
   public void init(FilterConfig filterConfig) {
     cacheResource_ =  !"true".equals(System.getProperty("exo.product.developing")) ;
-    System.out.println("===> CACHE EXO RESOURCE AT CLIENT = " + cacheResource_ ) ;
- 
+    log.info("Cache eXo Resource at client: " + cacheResource_);
   }
   
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -42,7 +41,8 @@ public class ResourceRequestFilter implements Filter  {
         HttpServletResponse httpResponse = (HttpServletResponse)  response ;
         httpResponse.setHeader("Cache-Control", "no-cache");
       }
-      //System.out.println(" Load Resource: " + uri);
+      if(log.isDebugEnabled())
+        log.debug(" Load Resource: " + uri);
     }
     chain.doFilter(request, response) ;
   }

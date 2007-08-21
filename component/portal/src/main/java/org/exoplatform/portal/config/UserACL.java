@@ -1,5 +1,5 @@
 /***************************************************************************
- * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
+ * Copyright 2001-2007 The eXo Platform SAS         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
 package org.exoplatform.portal.config;
@@ -10,20 +10,22 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
  * Jun 27, 2006
  */
 public class UserACL {
 
+  protected static Log log = ExoLogger.getLogger("organization:UserACL");
+  
   private OrganizationService orgService_ ;
   
   private String superUser_;
@@ -86,7 +88,8 @@ public class UserACL {
   }
   
   public boolean hasViewPermission(String owner, String remoteUser, String[] expPerms) throws Exception {
-//    System.out.println("\n\n\n\n------HasVeiwPermission(3) of owner and User: "  + owner + ":" + remoteUser);
+    if(log.isDebugEnabled())
+	  log.debug("------HasViewPermission(3) of owner and User: "  + owner + ":" + remoteUser);
     if(owner != null && owner.equals(remoteUser)) return true;
     if(expPerms == null || expPerms.length < 1) expPerms = new String[]{"*:/user"};
     if(superUser_.equals(remoteUser)) return true;
@@ -97,7 +100,8 @@ public class UserACL {
   }
   
   public boolean hasViewPermission(String remoteUser, String expPerm) throws Exception {
-//    System.out.println("\n\n\n\n------HasVeiwPermission(2) of User "  + remoteUser );
+    if(log.isDebugEnabled())
+	  log.debug("------HasVeiwPermission(2) of User "  + remoteUser );
     if(expPerm == null) return false ;
     Permission permission = new Permission();
     permission.setPermissionExpression(expPerm);
@@ -115,8 +119,8 @@ public class UserACL {
   }
   
   public boolean hasEditPermission(String owner, String remoteUser, String expPerm) throws Exception {
-//  System.out.println("\n\n\n\n------HasEditPermission(3) of owner and user "  + owner + ":" + remoteUser);
-//    if(remoteUser==null) return false;
+    if(log.isDebugEnabled())
+	  log.debug("------HasEditPermission(3) of owner and user "  + owner + ":" + remoteUser);
     if(owner != null && owner.equals(remoteUser)) return true;
     if(superUser_.equals(remoteUser)) return true;
     if(expPerm == null) return false;

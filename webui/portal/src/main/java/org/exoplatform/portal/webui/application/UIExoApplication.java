@@ -10,9 +10,7 @@ import org.exoplatform.web.application.mvc.MVCApplication;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 /**
- * Created by The eXo Platform SARL
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
+ * Created by The eXo Platform SAS
  * Feb 9, 2007
  */
 @ComponentConfig(
