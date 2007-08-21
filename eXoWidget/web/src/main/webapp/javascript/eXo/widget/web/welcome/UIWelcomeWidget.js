@@ -12,7 +12,6 @@ function UIWelcomeWidget() {
 UIWelcomeWidget.prototype.upload = function(uploadId) {  
 	var url = eXo.env.server.context + "/command?" ;
   url += "type=org.exoplatform.web.command.handler.WelcomeWidgetHandler&uploadId=" + uploadId ;
-  alert(url) ;
   var test = ajaxAsyncGetRequest(url, false);
   
 } ;

@@ -9,7 +9,7 @@ import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 
 abstract public class UIPortletApplication extends  UIApplication {
-  private int minWidth = 400 ;
+  private int minWidth = 300 ;
   private int minHeight = 300 ;
   
   static public String VIEW_MODE = "ViewMode" ;

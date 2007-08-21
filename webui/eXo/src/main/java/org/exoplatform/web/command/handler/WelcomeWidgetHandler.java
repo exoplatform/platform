@@ -55,7 +55,6 @@ public class WelcomeWidgetHandler extends Command {
       buff.rewind();      
       byte[] data = buff.array();
       service.save(userName, widgetType, instantId, data);
-      System.out.println("\n\n-------------------DATA: \n" + new String(data));
       buff.clear();      
       fchan.close();        
       inputStream.close();  

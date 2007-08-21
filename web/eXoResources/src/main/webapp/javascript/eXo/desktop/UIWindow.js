@@ -111,8 +111,6 @@ UIWindow.prototype.startResizeWindowEvt = function(evt) {
 	if(hasResizableClass) uiApplication.style.overflow = "hidden" ;
 
 	var portlet = eXo.core.DOMUtil.getChildrenByTagName(uiApplication, "div")[0] ;
-	uiWindow.minWidth = portlet.getAttribute("exo:minWidth") || 400 ;
-	uiWindow.minHeight = portlet.getAttribute("exo:minHeight") || 300 ;
 	uiWindow.resizableObject = eXo.core.DOMUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
 	uiWindow.initMouseX = evt.clientX ;
 	uiWindow.initMouseY = evt.clientY ;
@@ -131,7 +129,7 @@ UIWindow.prototype.resizeWindowEvt = function(evt) {
 	var deltaY = evt.clientY - eXo.desktop.UIWindow.initMouseY ;
 	var uiApplication = eXo.core.DOMUtil.findFirstDescendantByClass(eXo.desktop.UIWindow.portletWindow, "div", "UIApplication") ;
 	
-	eXo.desktop.UIWindow.portletWindow.style.width = Math.max(eXo.desktop.UIWindow.minWidth,(eXo.desktop.UIWindow.originalWidth + deltaX)) + "px" ;
+	eXo.desktop.UIWindow.portletWindow.style.width = Math.max(10, (eXo.desktop.UIWindow.originalWidth + deltaX)) + "px" ;
 	for(var i = 0; i < eXo.desktop.UIWindow.resizableObject.length; i++) {
 		eXo.desktop.UIWindow.resizableObject[i].style.height = Math.max(10,(eXo.desktop.UIWindow.resizableObject[i].originalHeight + deltaY)) + "px" ;
 	}
@@ -140,8 +138,6 @@ UIWindow.prototype.resizeWindowEvt = function(evt) {
 UIWindow.prototype.endResizeWindowEvt = function(evt) {
 	eXo.portal.UIPortalControl.initAllManagers() ;
 	eXo.desktop.UIWindow.portletWindow = null ;
-	eXo.desktop.UIWindow.minWidth = null;
-	eXo.desktop.UIWindow.minHeight = null;
 	eXo.desktop.UIWindow.resizableObject = null;
   this.onmousemove = null ;
   this.onmouseup = null ;
