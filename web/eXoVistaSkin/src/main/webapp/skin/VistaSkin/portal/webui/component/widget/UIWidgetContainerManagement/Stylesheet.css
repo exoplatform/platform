@@ -104,7 +104,7 @@
 
 /*===================== Begin the Widget Container View ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView {
-	margin-left: 255px;
+	margin-left: 261px;
 	height: 275px;
 	background: #ffffff;
 	border: 1px #b7b7b7 solid;
@@ -138,7 +138,7 @@
 
 .UIWidgetContainerManagement .WidgetContainerView .InfoContent {
 	padding: 30px 0px;
-	width: 360px;
+	width: 300px;
 	margin: auto;
 }
 
