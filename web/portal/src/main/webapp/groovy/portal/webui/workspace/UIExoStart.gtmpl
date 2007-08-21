@@ -213,11 +213,12 @@
   
   void renderLoginAction(String name, String icon, String action) {
     String  href = uicomponent.url(action, name) ;
+    String label = _ctx.appRes(uicomponent.getId() + ".item."+name) ;
     print """
       <div class="LoginContainer">
         <div class="LabelItem">
           <div class="$icon" onclick = "location.href='$href';">
-            <div class="LabelText"><a href="$href">$name</a></div>
+            <div class="LabelText"><a href="$href">$label</a></div>
           </div>
         </div>
       </div>
