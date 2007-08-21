@@ -68,7 +68,7 @@
 			</div>
 	  </div>
   <% }} } else {%>
-  <div style="padding: 20px 0px; text-align: center; color: #FF5604 ;"><%=_ctx.appRes("ApplicationRegistryWorkingArea.title")%></div>
+  <div style="padding: 20px 0px; text-align: center; color: #FF5604 ;"><%=_ctx.appRes("ApplicationRegistryWorkingArea.noApplication")%></div>
   <% } %>
   <div class="UIAction" > 
     <div class="ActionContainer">

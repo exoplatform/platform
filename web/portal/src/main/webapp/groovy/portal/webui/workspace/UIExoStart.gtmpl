@@ -92,12 +92,13 @@
   }
   
   void renderNavigations() {
+    String label = _ctx.appRes(uicomponent.getId() + ".item.PageNavigation") ;
     print """
       <div class="MenuItem">
         <div class="LabelItem">
           <div class="NavigationBackground">
             <div class="NavigationArrowIcon">
-              <div class="LabelText">Page Navigations</div>
+              <div class="LabelText">$label</div>
             </div>
           </div>
         </div>
