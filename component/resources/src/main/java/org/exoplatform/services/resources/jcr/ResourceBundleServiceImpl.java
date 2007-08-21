@@ -140,7 +140,10 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
   protected ResourceBundle getResourceBundleFromDb(String id, ResourceBundle parent, Locale locale) throws Exception {
     Session session  = jcrRegService_.getSession();
     Node rootNode = jcrRegService_.getServiceRegistryNode(session, APPLLICATION_NAME);
-    if(!rootNode.hasNode(id)) return null;
+    if(!rootNode.hasNode(id)) {
+      session.logout();
+      return null;
+    }
     Node node = rootNode.getNode(id);
     ResourceBundleData data = mapper_.nodeToResourceBundleData(node);
     ResourceBundle res = new ExoResourceBundle(data.getData(), parent);
