@@ -104,11 +104,13 @@
 }
 
 .ApplicationRegistryControlArea .UICategoryForm {
-  padding: 10px;
+	border: 1px solid #b7b7b7;
 }
 
 .ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout{
   padding: 10px 10px 10px 40px;
+  background: url('/eXoMacSkin/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
+  border: 1px solid white;
 }
 
 .ApplicationRegistryControlArea .UICategoryForm .UIAction {
@@ -217,6 +219,8 @@
 
 .ApplicationRegistryWorkingArea .UIAvailablePortletForm {
   padding: 10px;
+  background: url('/eXoMacSkin/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
+  border: 1px solid #b7b7b7;
 }
 
 .UIApplicationRegistryPortlet .UIAvailablePortletForm td.text{
@@ -243,11 +247,13 @@
 }
 
 .ApplicationRegistryWorkingArea .UIInfoPortletForm {
-  padding-left: 25px;
+  border: 1px solid #b7b7b7;
 }
 
 .ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout{
   padding: 10px 10px 10px 40px;
+  background: url('/eXoMacSkin/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif') repeat;
+  border: 1px solid white;
 }
 
 .ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout .UIFormGrid {

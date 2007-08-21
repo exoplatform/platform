@@ -7,6 +7,7 @@
 	border: 1px solid #b7b7b7;
 	border-top: none;
 	background: #ffffff;
+	padding: 0px 8px;
 }
 
 .UITabContainer .HorizontalLayout .UITabContentContainer .UITabContent{

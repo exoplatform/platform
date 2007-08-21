@@ -4,17 +4,17 @@
 }
 
 .UINavigationPortlet .UINavigationBar {
-  height: 34px;
+  height: 36px;
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
-  height: 34px;
+  height: 36px;
   position: expression('relative');
   
 }
 
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
-  line-height: 34px;
+  line-height: 36px;
   background: url('VistaSkin/background/BgNomalNavTop1x34.png') repeat-x top;
  
 }

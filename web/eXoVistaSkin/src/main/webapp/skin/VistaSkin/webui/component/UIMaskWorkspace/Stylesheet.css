@@ -153,7 +153,6 @@
 }
 
 .UIAddApplication .LeftColumnStyle .ItemListContainer {
-  width: 180px;
 }
 
 .UIAddApplication .LeftColumnStyle .ItemListContainer .ItemListTitle {
@@ -268,7 +267,6 @@
 .UIAddApplication .UIItemSelector .ItemDetailList {
   background: none;
   border: none;
-  margin-left: 185px;
 }
 
 .UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {
