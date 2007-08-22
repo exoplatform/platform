@@ -1,7 +1,12 @@
 function UIBrowseContent() {
 	this.bcManagers = new Array();
 };
-
+/**
+ * A workaround function that waits for the page to be completely loaded to
+ * effectively load the scroll managers
+ * Compares the size of 2 elements that should be on the same line with different width
+ * and that are on two different lines and have the same width before the page finishes loading
+ */
 UIBrowseContent.prototype.waitForLoadComplete = function() {
 	var bcPortlet = document.getElementById("UIBrowseContainer");
 	var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "HomeTab");
@@ -9,7 +14,10 @@ UIBrowseContent.prototype.waitForLoadComplete = function() {
 	if (homeButton && tabs && homeButton.offsetWidth == tabs.offsetWidth) window.setTimeout(eXo.portal.UIBrowseContent.waitForLoadComplete, 100);
 	else eXo.portal.UIBrowseContent.loadScroll();
 };
-
+/**
+ * Creates the managers on the BrowseContent portlet
+ * Adds the base parameters to them
+ */
 UIBrowseContent.prototype.loadScroll = function() {
 	var uiBC = eXo.portal.UIBrowseContent;
 	uiBC.bcManagers.clear();
@@ -71,7 +79,13 @@ UIBrowseContent.prototype.loadScroll = function() {
 		uiBC.initScroll();
 	}
 };
-
+/**
+ * Inits (and re inits) the scroll managers, to hide or show tabs after the page changes,
+ * the window is resized, etc
+ * Basically, just calculates the free space again and hides the elements that should be
+ * This portlet contains a lot (not a static number) of scroll managers, so this function
+ * reloads the elements in each manager
+ */
 UIBrowseContent.prototype.initScroll = function() {
 	var uiBC = eXo.portal.UIBrowseContent;
 	var bcPortlet = document.getElementById("UIBrowseContainer");
@@ -108,7 +122,12 @@ UIBrowseContent.prototype.initScroll = function() {
 		}
 	}
 };
-
+/**
+ * The scroll back function of the main scroll manager
+ * Makes sure the homeButton always appears and is removed from the maxSpace value
+ * There was a bug in IE7, one element had a stored size of 0px which causes the calcul to be wrong
+ * Here, the stored sizes (element.space) are cleaned (cleanElements) so they are calculated again
+ */
 UIBrowseContent.prototype.mainMenuScrollCallback = function() {
 	var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(this.mainContainer, "div", "HomeTab");
 	if (eXo.core.Browser.isIE7()) this.cleanElements();
@@ -138,7 +157,10 @@ UIBrowseContent.prototype.mainMenuScrollCallback = function() {
 //		elementsSpace -= this.getElementSpace(this.elements[this.otherHiddenIndex]);
 //	}
 };
-
+/**
+ * Sub menu scroll callback function
+ * Hides the decorator (small vertical bar) for the elements that are hidden
+ */
 UIBrowseContent.prototype.subMenuScrollCallback = function() {
 	for (var i = 0; i < this.elements.length; i++) {
 		if (!this.elements[i].isVisible) {

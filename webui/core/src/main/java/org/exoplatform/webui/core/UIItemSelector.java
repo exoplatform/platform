@@ -16,7 +16,7 @@ import org.exoplatform.webui.core.model.SelectItemOption;
  * Author : Pham Thanh Tung
  * Apr 16, 2007  
  * 
- * An item selectorn represented by a normal list
+ * An item selector represented by a normal list
  */
 @ComponentConfig(template = "system:/groovy/webui/core/UIItemSelector.gtmpl")
 public class UIItemSelector extends UIComponent {

@@ -115,7 +115,11 @@ function ScrollManager() {
 	this.arrowsContainer = null // The HTML DOM element that contains the arrows
 	this.margin = 3;	//	a number of pixels to adapt to your tabs, used to calculate the max space available
 };
-
+/**
+ * Initializes the arrows with :
+ *  . mouse listeners
+ *  . css class and other parameters
+ */
 ScrollManager.prototype.initArrowButton = function(arrow, dir, normalClass, overClass, disabledClass) {
 	if (arrow) {
 		arrow.direction = dir; // "left" or "right" (up or down)
@@ -131,7 +135,9 @@ ScrollManager.prototype.initArrowButton = function(arrow, dir, normalClass, over
 		else if (dir == "right") this.rightArrow = arrow;
 	}
 };
-
+/**
+ * Disables or enables the arrow
+ */
 ScrollManager.prototype.enableArrow = function(arrow, enabled) {
 	if (arrow && !enabled) { // disables the arrow
 		arrow.className = arrow.disabledClass;
@@ -169,7 +175,10 @@ ScrollManager.prototype.init = function() {
 		this.mainContainer.space = null;
 	}
 };
-
+/**
+ * Loads the tabs in the scroll manager, depending on their css class
+ * Is clean is true, calls cleanElements to remove the space property of each elements
+ */
 ScrollManager.prototype.loadElements = function(elementClass, clean) {
 	if (clean) this.cleanElements();
 	this.elements.clear();

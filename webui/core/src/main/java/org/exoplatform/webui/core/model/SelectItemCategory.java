@@ -14,7 +14,7 @@ import java.util.List;
  * Aug 10, 2006  
  * 
  * Represents a group of SelectItemOption, held in a UIFormInputItemSelector
- * @see UIFormInputItemSelector
+ * @see org.exoplatform.webui.form.UIFormInputItemSelector
  * @see SelectItemOption
  */
 public class SelectItemCategory {

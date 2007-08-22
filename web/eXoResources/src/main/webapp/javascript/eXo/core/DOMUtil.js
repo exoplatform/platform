@@ -14,6 +14,7 @@ DOMUtil.prototype.addClass = function(elemt, className) {
 
 DOMUtil.prototype.replaceClass = function(elemt, oldClazz, newClazz) {} ;
 
+
 DOMUtil.prototype.getChildrenByTagName = function(element, tagName) {
 	var ln = 0 ;
 	var list = [] ;
@@ -61,7 +62,9 @@ DOMUtil.prototype.findFirstChildByClass = function(root,  elementName, cssClass)
   }
   return null;
 } ;
-
+/**
+ * Returns the first ancestor node of element that has the css class clazz
+ */
 DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
   if(element == null) return null ;
   var parent = element.parentNode ;
@@ -171,7 +174,9 @@ DOMUtil.prototype.hasDescendantClass = function(root, clazz) {
   }
   return false ;
 } ;
-
+/**
+ * Finds the first next sibling element of type tagName
+ */
 DOMUtil.prototype.findNextElementByTagName = function(element, tagName) {
 	var nextElement = element.nextSibling ;
 	while (nextElement != null) {
@@ -182,7 +187,9 @@ DOMUtil.prototype.findNextElementByTagName = function(element, tagName) {
 	}
 	return null ;
 } ;
-
+/**
+ * Finds the first previous sibling element of type tagName
+ */
 DOMUtil.prototype.findPreviousElementByTagName = function(element, tagName) {
 	var previousElement = element.previousSibling ;
 	while (previousElement != null) {
@@ -193,14 +200,19 @@ DOMUtil.prototype.findPreviousElementByTagName = function(element, tagName) {
 	}
 	return null ;
 } ;
-
+/**
+ * Creates an element tagName with innerHTML content
+ * Returns the first node div in this element
+ */
 DOMUtil.prototype.createElementNode = function(innerHTML, tagName) {
 	var temporaryContainer = document.createElement(tagName) ;
 	temporaryContainer.innerHTML = innerHTML ;
 	var applicationNode = this.getChildrenByTagName(temporaryContainer, "div")[0] ;
 	return applicationNode ;
 } ;
-
+/**
+ * Generates an id based on the current time
+ */
 DOMUtil.prototype.generateId = function(objectId) {
 	var dateTime = new Date() ;
 	var time = dateTime.getTime() ;
@@ -211,7 +223,13 @@ DOMUtil.prototype.swapPosition = function(e1, e2) {
   if (e1.parentNode != e2.parentNode) alert("Report  bug to the admin, cannot swap element position") ; 
   var tmpSwap = document.createElement("div") ;
 } ;
-
+/**
+ * Gets the style of an element, in several steps
+ *  . the style as defined in the css
+ * or if it doesn't exist
+ *  . the computed style
+ * if intValue is true, a numeric value will be returned as a number, as a string otherwise
+ */
 DOMUtil.prototype.getStyle = function(element, style, intValue) {
 	var result = null ;
 	if (element.style[style]) {
@@ -236,6 +254,11 @@ DOMUtil.prototype.getStyle = function(element, style, intValue) {
  * user for method eXo.webui.UIPopupSelectCategory.show();
  * reference file : UIPopupSelectCategory.js
  */
+ /**
+  * Hides the elements in the hideElementList array
+  * This function is called when a click appear on the page,
+  * and that all opened popup menu should be hidden
+  */
 DOMUtil.prototype.hideElements = function() {
 	document.onclick = function() {
 		var ln = eXo.core.DOMUtil.hideElementList.length;
@@ -247,7 +270,10 @@ DOMUtil.prototype.hideElements = function() {
 		}
 	}
 } ;
-
+/**
+ * Adds an element to the hideElementList array
+ * Should only contain elements from a popup menu
+ */
 DOMUtil.prototype.listHideElements = function(object) {
 	if (!eXo.core.DOMUtil.hideElementList.contains(object)) {
 		eXo.core.DOMUtil.hideElementList.push(object) ;

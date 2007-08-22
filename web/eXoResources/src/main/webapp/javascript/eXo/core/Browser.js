@@ -44,7 +44,10 @@ MouseObject.prototype.update = function(mouseEvent) {
 } ;
 
 /************************************************************************************/
-
+/**
+ * This class defines some useful functions to work on the browser,
+ * and some browser specific functions, that accomplish the same goal
+ */
 function Browser() {
   this.onLoadCallback = new eXo.core.HashMap() ;
   this.onResizeCallback = new eXo.core.HashMap() ;
@@ -112,20 +115,22 @@ Browser.prototype.initOpera = function() {
 
 Browser.prototype.isIE6 = function() {
   var agent = navigator.userAgent ;
-  if(agent.indexOf("MSIE 6") >=0 ) {
-    return true ;
-  } else {
-  	return false ;
-  }
+  return (agent.indexOf("MSIE 6") >=0);
+//  if(agent.indexOf("MSIE 6") >=0 ) {
+//    return true ;
+//  } else {
+//  	return false ;
+//  }
 } ;
 
 Browser.prototype.isIE7 = function() {
   var agent = navigator.userAgent ;
-  if(agent.indexOf("MSIE 7") >=0 ) {
-    return true ;
-  } else {
-  	return false ;
-  }
+  return (agent.indexOf("MSIE 7") >=0);
+//  if(agent.indexOf("MSIE 7") >=0 ) {
+//    return true ;
+//  } else {
+//  	return false ;
+//  }
 } ;
 
 Browser.prototype.findMouseXInClient = function(e) {
@@ -137,11 +142,16 @@ Browser.prototype.findMouseYInClient = function(e) {
   if (!e) e = window.event ;
   return e.clientY ;
 } ;
-
+/**
+ * Adds a function to the list of functions to call on load
+ */
 Browser.prototype.addOnLoadCallback = function(id, method) {
   this.onLoadCallback.put(id, method) ;
 } ;
-
+/**
+ * Calls the functions in the onLoadCallback array, if they exist
+ * and clean the array
+ */
 Browser.prototype.onLoad = function() {
 	try {
   	var callback = eXo.core.Browser.onLoadCallback ;
@@ -154,11 +164,15 @@ Browser.prototype.onLoad = function() {
 	}
   this.onLoadCallback = new eXo.core.HashMap();
 } ;
-
+/**
+ * Adds a function to the list of functions to call when the window is resized
+ */
 Browser.prototype.addOnResizeCallback = function(id, method) {
   this.onResizeCallback.put(id, method) ;
 } ;
-
+/**
+ * Calls the functions in the onResizeCallback array, if they exist
+ */
 Browser.prototype.onResize = function(event) {
   var callback = eXo.core.Browser.onResizeCallback ;
   for(var name in callback.properties) {
@@ -166,11 +180,15 @@ Browser.prototype.onResize = function(event) {
     if (typeof(method) == "function") method(event) ;
   }
 } ;
-
+/**
+ * Adds a function to the list of functions to call when the user scrolls
+ */
 Browser.prototype.addOnScrollCallback = function(id, method) {
   this.onScrollCallback.put(id, method) ;
 } ;
-
+/**
+ * Calls the functions in the onScrollCallback array, if they exist
+ */
 Browser.prototype.onScroll = function(event) {
   var callback = eXo.core.Browser.onScrollCallback ;
 	for(var name in callback.properties) {
@@ -184,7 +202,9 @@ Browser.prototype.onScroll = function(event) {
 Browser.prototype.getBrowserType = function() {  
   return this.browserType ;
 } ;
-
+/**
+ * Returns the horizontal position of an object relative to the window
+ */
 Browser.prototype.findPosX = function(obj) {
   var curleft = 0;
   var str = "" ;
@@ -195,7 +215,9 @@ Browser.prototype.findPosX = function(obj) {
   }
   return curleft ;
 } ;
-
+/**
+ * Returns the vertical position of an object relative to the window
+ */
 Browser.prototype.findPosY = function(obj) {
   var curtop = 0 ;
   while (obj) {
@@ -204,20 +226,26 @@ Browser.prototype.findPosY = function(obj) {
   }
   return curtop ;
 } ;
-
+/**
+ * Returns the horizontal position of an object relative to its container
+ */
 Browser.prototype.findPosXInContainer = function(obj, container) {
   var objX = eXo.core.Browser.findPosX(obj) ;
   var containerX = eXo.core.Browser.findPosX(container) ;  
   return (objX - containerX) ;
 } ;
-
+/**
+ * Returns the vertical position of an object relative to its container
+ */
 Browser.prototype.findPosYInContainer = function(obj, container) {
   var objY = eXo.core.Browser.findPosY(obj) ;
   var containerY = eXo.core.Browser.findPosY(container) ;
   return (objY - containerY) ;
 } ;
 
-//find the x position of the mouse in the page
+/**
+ * find the x position of the mouse in the page
+ */
 Browser.prototype.findMouseXInPage = function(e) {
   var posx = -1 ;
   if (!e) e = window.event ;
@@ -228,7 +256,9 @@ Browser.prototype.findMouseXInPage = function(e) {
   }
   return posx ;
 } ;
-
+/**
+ * find the y position of the mouse in the page
+ */
 Browser.prototype.findMouseYInPage = function(e) {
   var posy = -1 ;
   if (!e) e = window.event ;
@@ -244,7 +274,9 @@ Browser.prototype.findMouseYInPage = function(e) {
   }
   return  posy ;
 } ;
-
+/**
+ * find the x position of the mouse relative to object
+ */
 Browser.prototype.findMouseRelativeX = function(object, e) {
   var posx = -1 ;
   var posXObject = eXo.core.Browser.findPosX(object) ;
@@ -266,7 +298,9 @@ Browser.prototype.findMouseRelativeX = function(object, e) {
   }
   return posx ;
 } ;
-
+/**
+ * find the y position of the mouse relative to object
+ */
 Browser.prototype.findMouseRelativeY = function(object, e) {
   var posy = -1 ;
   var posYObject = eXo.core.Browser.findPosY(object) ;

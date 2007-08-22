@@ -80,6 +80,7 @@ UIWindow.prototype.maximizeWindowEvt = function(evt) {
     portletWindow.maximized = true ;
     this.className = "ControlIcon RestoreIcon" ;
   }
+  // Re initializes the scroll tabs managers on the page
 	eXo.portal.UIPortalControl.initAllManagers() ;
 } ;
 
@@ -136,6 +137,7 @@ UIWindow.prototype.resizeWindowEvt = function(evt) {
 } ;
 
 UIWindow.prototype.endResizeWindowEvt = function(evt) {
+	// Re initializes the scroll tabs managers on the page
 	eXo.portal.UIPortalControl.initAllManagers() ;
 	eXo.desktop.UIWindow.portletWindow = null ;
 	eXo.desktop.UIWindow.resizableObject = null;

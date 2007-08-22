@@ -1,8 +1,11 @@
 eXo.require('eXo.webui.UIPopup');
-
+/**
+ * Manages a popup menu
+ */
 function UIPopupMenu() {
-	// Used when timeout is finished and submenus must be hidden
+	// Elements that must be hidden
 	this.elementsToHide = new Array();
+	// Elements that must be kept visible
 	this.currentVisibleContainers = new Array();
 	this.currentElement = null;
 } ;
@@ -31,12 +34,20 @@ UIPopupMenu.prototype.popVisibleContainer = function() {
 UIPopupMenu.prototype.pushHiddenContainer = function(containerId) {
 	eXo.webui.UIPopupMenu.elementsToHide.push(containerId);
 };
-
+/**
+ * Function called when an element (or more) must be hidden
+ * Sets a timeout to time (or 100ms by default) after which
+ * the elements in elementsToHide will be hidden
+ */
 UIPopupMenu.prototype.setCloseTimeout = function(time) {
 	if (!time) time = 100;
 	setTimeout("eXo.webui.UIPopupMenu.doOnMenuItemOut()", time) ;
 };
-
+/**
+ * Adds an onCLick event to link elements
+ * If they are http links, changes the url in the browser
+ * If they are javascript links, executes the javascript
+ */
 UIPopupMenu.prototype.createLink = function(menuItem, link) {
 	if (link && link.href) {
 		menuItem.onclick = function(e) {
@@ -50,8 +61,9 @@ UIPopupMenu.prototype.createLink = function(menuItem, link) {
 	}
 };
 
-/* The callback function called when timeout is finished
- * Hides the submenus that are no longer pointed
+/**
+ * The callback function called when timeout is finished
+ * Hides the submenus that are no longer pointed at
  */
 UIPopupMenu.prototype.doOnMenuItemOut = function() {
 	while (eXo.webui.UIPopupMenu.elementsToHide.length > 0) {

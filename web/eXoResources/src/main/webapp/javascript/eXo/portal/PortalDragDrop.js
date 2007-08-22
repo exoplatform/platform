@@ -1,10 +1,18 @@
 eXo.require('eXo.core.DragDrop');
 eXo.require('eXo.portal.UIPortal');
-
+/**
+ * This class manages the drag and drop of components on the page.
+ * It uses a DradDrop object to manage the events, sets some callback functions
+ * and some parameters to initialize the DragDrop object.
+ */
 function PortalDragDrop() { 
 	this.count = 0 ;
 } ;
-
+/**
+ * This function is called when a page containing draggable objects loads.
+ * It contains a workaround that adds a callback call to some links, in order to
+ * avoid some bugs in the page creation interface, definition of the page template.
+ */
 PortalDragDrop.prototype.onLoad = function(e) {
 	// Sets the ajaxGet callback function to resizeRows
 	var portalEditBar = document.getElementById("UIPortalManagementEditBar");
@@ -17,23 +25,30 @@ PortalDragDrop.prototype.onLoad = function(e) {
 	  editButtons.pushAll(editBar.getElementsByTagName("a"));
 	  var controlBar = document.getElementById("UIPortalManagementControlBar");
 	  if (controlBar) editButtons.pushAll(controlBar.getElementsByTagName("a"));
+	  // once we got all the links to modify...
 	  for (var i = 0; i < editButtons.length; i++) {
 	  	var url = editButtons[i].href;
+	  	// check if the link calls the correct js function
 	  	if (url && url.indexOf("javascript:ajaxGet") == -1) continue;
+	  	// if the callback function is not already set
 	  	if (url && url.indexOf("resizeRows") == -1) {
-	  		// if the callback function is not already set
 	  		url = url.substr(0, url.length-1).concat(", eXo.portal.PortalDragDrop.resizeRows)");
 	  		editButtons[i].href = url;
 	  	}
 	  }
 	}
 };
-
+/**
+ * This function inits the PortalDragDrop object
+ * It initializes a DragDrop object that will manage the drag events
+ */
 PortalDragDrop.prototype.init = function(e) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var Browser = eXo.core.Browser ;
   var DragDrop = eXo.core.DragDrop ;
-
+	/**
+	 * This function is called after the DragDrop object is initialized
+	 */
   DragDrop.initCallback = function (dndEvent) {
   	var PortalDragDrop = eXo.portal.PortalDragDrop ;
     this.origDragObjectStyle = new eXo.core.HashMap() ;

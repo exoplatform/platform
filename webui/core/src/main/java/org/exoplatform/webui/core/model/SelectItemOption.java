@@ -12,7 +12,7 @@ package org.exoplatform.webui.core.model;
  * An item in a UIFormInputItemSelector
  * Each item is actually held in a SelectItemCategory, which is held by the UIFormInputItemSelector
  * @see SelectItemCategory
- * @see UIFormInputItemSelector
+ * @see org.exoplatform.webui.form.UIFormInputItemSelector
  */
 public class SelectItemOption <T extends Object> {
   /**
