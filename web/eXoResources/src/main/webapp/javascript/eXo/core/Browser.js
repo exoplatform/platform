@@ -44,10 +44,17 @@ MouseObject.prototype.update = function(mouseEvent) {
 } ;
 
 /************************************************************************************/
-/**
- * This class defines some useful functions to work on the browser,
- * and some browser specific functions, that accomplish the same goal
- */
+
+/*
+* This function aims is to configure the javascript environment according to the browser in use
+*
+* Common configuration are made first, then we detect the current browser and according to the one 
+* in use, we call delegated methods such as this.initIE() which will add some new configuration or
+* overide the existing ones
+*
+* In all cases the method createHttpRequest is acting as the usual XMLHttpRequest in use in all AJAX
+* calls
+*/
 function Browser() {
   this.onLoadCallback = new eXo.core.HashMap() ;
   this.onResizeCallback = new eXo.core.HashMap() ;

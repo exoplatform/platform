@@ -5,6 +5,15 @@ eXo.require('eXo.widget.UIAddWidget');
 function UIExoWidget() {
 }
 
+/*
+* This method is used by any user widget to init itself
+*
+* - The widget name is is extracted from the full class name
+* - A widget can have an icon to be then used in several locations like the application registry
+* - A widget must have a width of maximum 220px to fit in the left column of eXo Portal
+* - A widget can provide different skins but only a default is mandatory
+* 
+*/
 UIExoWidget.prototype.init = function(appName, appFolder, attrsWidget) {
   this.appCategory = "eXoWidgetWeb" ;
 	this.appName = appName ;
@@ -63,9 +72,13 @@ UIExoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 };
 
 
+/*
+* 
+*
+*
+*
+*/
 UIExoWidget.prototype.initApplication = function(applicationId, instanceId) {	
-//	alert("INIT UISTICKER WIDGET");
-//	alert(applicationId + "\n" + instanceId) ;
 	var DOMUtil = eXo.core.DOMUtil;	
 	var appDescriptor =  new eXo.application.ApplicationDescriptor(instanceId, this);
 	var appInstance = appDescriptor.createApplication();
@@ -98,6 +111,9 @@ UIExoWidget.prototype.destroyInstance = function(instanceId) {
   eXo.desktop.UIDesktop.removeJSApplication(removeAppInstance);
 };
 
+/*
+* This method allows to extract the widget name from the full class name
+*/
 UIExoWidget.prototype.getNameWidget = function(nameWidget) {
 	var strlabel = nameWidget.charAt(2); 
 	for(var i = 3; i < nameWidget.length; i ++) {

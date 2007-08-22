@@ -28,6 +28,17 @@ var eXo  = {
   mail : { }  
 } ;
 
+
+/*
+* This method will : 
+*   1) dynamically load a javascript module from the server (if no root location is set 
+*      then use '/eXoResources/javascript/', aka files
+*      located in the eXoResources WAR in the application server). 
+*      The method used underneath is a XMLHttpRequest
+*   2) Evaluate the returned script
+*   3) Cache the script on the client
+*
+*/
 eXo.require = function(module, jsLocation) {
   try {
     if(eval(module + ' != null'))  return ;

@@ -397,14 +397,23 @@ UIPortal.prototype.popupButton = function(url, action) {
 //	}
 //} ;
 
+/*
+* This method will start the creation of a new javascript application such as a widget
+*
+* - The application parameter is the full javascript class for the application (for example "eXo.widget.web.info.UIInfoWidget")
+* - The application id is an id shared among all the application instance
+* - The instance id is unique among all the javascript application deployed in the layout
+* - The appLocation is the root path location of the jstmpl file on the server (for example /eXoWidgetWeb/javascript/)
+*
+*  If the application class name is not null, the associated .js file on the server is loaded using the eXo.require() method
+*
+*  Once loaded the initApplication() method is called; in other words, the application is lazy instantiated and initialized
+*  on the client browser
+*/
 UIPortal.prototype.createJSApplication = function(application, applicationId, instanceId, appLocation) {
 	if(application) {
-		eXo.require(application, appLocation);
-		var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
-//	alert(createApplication);
-//  error: double load;
-//  minh.js.exo
-//	  alert(applicationId + "\n" + instanceId + "\n" + createApplication) ;
+	  eXo.require(application, appLocation);
+	  var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
 	  eval(createApplication);
 	}
 } ;
