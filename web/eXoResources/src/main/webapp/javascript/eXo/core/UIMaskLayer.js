@@ -26,7 +26,8 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 		maskLayer.style.zIndex = maskLayer.maxZIndex ;
 		maskLayer.style.top = "0px" ;
 		maskLayer.style.left = "0px" ;
-
+	//	maskLayer.style.right = "0px" ;
+	
 		if(opacity) {
 	    Browser.setOpacity(maskLayer, opacity) ;
 		}	
@@ -51,10 +52,11 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 		    object.style.left = blockContainer.offsetWidth - object.offsetWidth + "px" ;
 			}
 	  }
-		maskLayer.style.height = "100%" ; 
-		maskLayer.style.width = "100%" ; 
+		 //(document.body.offsetHeight > Browser.getBrowserHeight()) ? document.body.offsetHeight : eXo.core.Browser.getBrowserHeight() ;
+		maskLayer.style.height = "100%"; //document.documentElement.scrollTop + maskLayerHeight + "px";
+		maskLayer.style.width = "100%"; //blockContainer.offsetWidth + "px" ;
 
-		eXo.core.UIMaskLayer.doScroll() ;
+		eXo.core.UIMaskLayer.doScroll();
 
 		}catch(err) {
 			alert(err) ;
@@ -114,8 +116,16 @@ UIMaskLayer.prototype.removeMask = function(maskLayer) {
 	  	maskLayer.parentOfObject.appendChild(maskLayer.nextSibling) ;
 	  	maskLayer.parentOfObject = null ;
 	  }
+
   	parentNode.removeChild(maskLayer) ;
+  	
 	}
+} ;
+
+
+UIMaskLayer.prototype.resizeMaskLayer = function() {
+	//TODO Lambkin: Don't need this method.
+	return ;
 } ;
 
 eXo.core.UIMaskLayer = new UIMaskLayer() ;
