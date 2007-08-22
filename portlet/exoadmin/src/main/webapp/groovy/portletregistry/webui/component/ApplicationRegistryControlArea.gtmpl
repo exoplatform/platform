@@ -84,8 +84,8 @@
 									      <div class="LeftIcon"><span></span></div>
 							            <a class="TabLabel" href="javascript: void(0);"><%=displayName%></a>
 								          <div class="ControlContainer" style ="$display">
-								            <a class="ControlIcon EditIcon" title="Edit Category" href="<%=uicomponent.event("EditCategory", cName)%>"><span></span></a>
-								            <a class="ControlIcon DeleteIcon" title="Delete Category" href="<%=uicomponent.event("DeleteCategory", cName)%>"><span></span></a>
+								            <a class="ControlIcon EditIcon" title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.EditCategory")%>" href="<%=uicomponent.event("EditCategory", cName)%>"><span></span></a>
+								            <a class="ControlIcon DeleteIcon" title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.DeleteCategory")%>" href="<%=uicomponent.event("DeleteCategory", cName)%>"><span></span></a>
 								            <div style="clear: left"><span></span></div>
 								          </div>
 							          <div style="clear: both"><span></span></div>

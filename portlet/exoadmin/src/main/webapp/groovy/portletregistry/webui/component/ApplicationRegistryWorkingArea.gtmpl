@@ -40,15 +40,15 @@
 	  		  <div class="TitleBarApplication">
 	  		    <label><%=displayName%></label>
 	  		    <div class="ApplicationButton">
-				  		<a class="Icon DeleteIcon" href="<%=uicomponent.event("DeletePortlet", name)%>" title="Delete this Application"><span></span></a>
-				  		<a class="Icon EditInfoIcon" href="<%=uicomponent.event("EditPortlet", name)%>" title="Edit this Application"><span></span></a>
-				  		<a class="Icon PermissionSettingIcon" href="<%=uicomponent.event("EditPermission", name)%>" title=" Select Permission"><span></span></a>
+				  		<a class="Icon DeleteIcon" href="<%=uicomponent.event("DeletePortlet", name)%>" title="<%=_ctx.appRes("ApplicationRegistryWorkingArea.label.DeleteApplication")%>"><span></span></a>
+				  		<a class="Icon EditInfoIcon" href="<%=uicomponent.event("EditPortlet", name)%>" title="<%=_ctx.appRes("ApplicationRegistryWorkingArea.label.EditApplication")%>"><span></span></a>
+				  		<a class="Icon PermissionSettingIcon" href="<%=uicomponent.event("EditPermission", name)%>" title="<%=_ctx.appRes("ApplicationRegistryWorkingArea.label.SelectPermission")%>"><span></span></a>
 				  	  <div style="clear: right;"><span></span></div>
 				  	</div>
 	  		  </div>
 	  		  <div class="ApplicationContentLabel">
 	  		    <div class="ContentLabel">
-	  		      <span class="LeftLabel">Type:</span>
+	  		      <span class="LeftLabel"><%=_ctx.appRes("ApplicationRegistryWorkingArea.label.TypeApplication")%></span>
 	  		      <span class="RightLabel"><%=applicationType%></span>
 	  		    </div>
 	  		    <!--<div class="ContentLabel">
@@ -56,11 +56,11 @@
 	  		      <span class="RightLabel">=creator</span>
 	  		    </div>-->
 	  		    <div class="ContentLabel">
-							<span class="LeftLabel">Description:</span>
+							<span class="LeftLabel"><%=_ctx.appRes("ApplicationRegistryWorkingArea.label.DescriptionApplication")%></span>
 							<span class="RightLabel"><%=desription%></span>
 	          </div>
 		        <div class="ContentLabel">
-							<span class="LeftLabel">Access Permissions:</span>
+							<span class="LeftLabel"><%=_ctx.appRes("ApplicationRegistryWorkingArea.label.AccessPermissions")%></span>
 							<span class="RightLabel"><%=accessPermission%> </span>
 		        </div>
 	  		  </div>
@@ -77,7 +77,7 @@
 	        <div class="ButtonLeft">
 	          <div class="ButtonRight">
 	            <div class="ButtonMiddle">
-	              <a href="<%=uicomponent.event("AddPortlet", "")%>"> Add Application</a>
+	              <a href="<%=uicomponent.event("AddPortlet", "")%>"><%=_ctx.appRes("ApplicationRegistryWorkingArea.action.AddApplication")%></a>
 	            </div>
 	          </div>
 	        </div>
