@@ -25,11 +25,11 @@
                         actionLink = uicomponent.event("SelectGroupMessage","SelectGroup");
                     }
                 %>
-				      	<a class="TreeActionIcon RemoveGroupIcon" href="$actionLink" title="Delete Selected Group"><span></span></a>
+				      	<a class="TreeActionIcon RemoveGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.DeleteGroup")%>"><span></span></a>
 				      	<% actionLink = uicomponent.event("EditGroup","Edit"); %>
-				      	<a class="TreeActionIcon EditGroupIcon" href="$actionLink" title="Edit Selected "><span></span></a>
+				      	<a class="TreeActionIcon EditGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.EditGroup")%>"><span></span></a>
 				      	<% actionLink = uicomponent.event("AddGroup","add"); %>
-				      	<a class="TreeActionIcon AddGroupIcon" href="$actionLink" title="Add New Group"><span></span></a>
+				      	<a class="TreeActionIcon AddGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.AddGroup")%>"><span></span></a>
               </div>
             </div>
           </div>

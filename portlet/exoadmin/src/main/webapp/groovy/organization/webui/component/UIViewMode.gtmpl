@@ -1,6 +1,6 @@
 <% 
     String style = "SelectButtonLabel";
- %>
+%>
 
 <div class="OrganizationPortletContainer">
   <%/*Begin UIToolbar*/%>

@@ -20,17 +20,17 @@
             
          %>
           <tr>
-  	        <td class="FieldLabel">User Name </td>
+  	        <td class="FieldLabel"><%=_ctx.appRes(uicomponent.getName() + ".label.username")%></td>
   	        <td class="FieldComponent">
   	        	<% uiform.renderField(name) %>
- 	            <a class="Icon Search" href="<%=uicomponent.event("SearchUser")%>" title="Search User"><span></span></a>
+ 	            <a class="Icon Search" href="<%=uicomponent.event("SearchUser")%>" title="<%=_ctx.appRes(uicomponent.getName() + ".label.SearchUser")%>"><span></span></a>
   	        </td>
           </tr>
           <tr>
-            <td class="FieldLabel">Membership </td>
+            <td class="FieldLabel"><%=_ctx.appRes(uicomponent.getName() + ".label.membership")%></td>
             <td class="FieldComponent">
             	<% uiform.renderField(membership) %>
-              <a class="Icon Refresh16x16Icon" href="<%=uicomponent.event("Refresh")%>" title="Refresh"><span></span></a>
+              <a class="Icon Refresh16x16Icon" href="<%=uicomponent.event("Refresh")%>" title="<%=_ctx.appRes(uicomponent.getName() + ".label.Refresh")%>"><span></span></a>
             </td>
           </tr>
       </table>
