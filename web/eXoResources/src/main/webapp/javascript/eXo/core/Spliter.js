@@ -2,10 +2,8 @@ function Spliter() {
 } ;
 Spliter.prototype.exeRowSplit = function(e , markerobj) {
 	_e = (window.event) ? window.event : e ;
-	this.posY = e.clientY; 
+	this.posY = _e.clientY; 
 	var marker = (typeof(markerobj) == "string")? document.getElementById(markerobj):markerobj ;
-	var container = eXo.core.DOMUtil.findAncestorByClass(marker, "SpliterContainer") ;
-	var resizableAreas = eXo.core.DOMUtil.findChildrenByClass(container, "div", "SpliterResizableArea") ;
 	this.beforeArea = eXo.core.DOMUtil.findPreviousElementByTagName(marker, "div") ;
 	this.afterArea = eXo.core.DOMUtil.findNextElementByTagName(marker, "div") ;	
 	this.beforeArea.style.height = this.beforeArea.offsetHeight + "px" ;
