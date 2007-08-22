@@ -10,10 +10,11 @@ UIItemSelector.prototype.onOver = function(selectedElement, mouseOver) {
   if(mouseOver) {
     this.backupClass = selectedElement.className;
     selectedElement.className = "OverItem Item";
-    this.onChangeItemDetail(selectedElement, true);
+//    minh.js.exo
+//    this.onChangeItemDetail(selectedElement, true);
   } else {
     selectedElement.className = this.backupClass;
-    this.onChangeItemDetail(selectedElement, false);
+//    this.onChangeItemDetail(selectedElement, false);
   }
 };
 
