@@ -11,6 +11,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.page.UIPage;
+import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.page.UIPageSelector;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
@@ -179,10 +180,11 @@ public class UIPageNodeForm extends UIFormTabPane {
       UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
       UIPageNodeSelector pageNodeSelector = uiManagement.getChild(UIPageNodeSelector.class);
       pageNodeSelector.selectPageNodeByUri(pageNode.getUri());
+      UIPageEditBar editBar = uiManagement.getChild(UIPageEditBar.class);
+      editBar.setUIPage(uiPage);
       pcontext.addUIComponentToUpdateByAjax(uiManagement);   
       pcontext.addUIComponentToUpdateByAjax(uiToolPanel.getParent());
       pcontext.setFullRender(true);
-      //uiPageNodeSelector.selectPageNodeByUri(pageNode.getUri());
     }
   }
 
