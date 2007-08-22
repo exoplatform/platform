@@ -72,14 +72,15 @@ public abstract class UIPageWizard extends UIWizard {
   
   void updateWizardComponent(){
     UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class) ;
-    UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class) ;
     PortalRequestContext pcontext = Util.getPortalRequestContext();
 
     UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
     pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);    
+
+    UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID) ;
+    pcontext.addUIComponentToUpdateByAjax(uiControl) ;
     
-    UIComponentDecorator uiWorkingArea = uiExoStart.<UIContainer>getParent().findComponentById(UIControlWorkspace.WORKING_AREA_ID);
-    pcontext.addUIComponentToUpdateByAjax(uiWorkingArea);      
+    pcontext.setFullRender(true) ;
   }
   
   public void setDescriptionWizard() throws Exception {

@@ -196,13 +196,13 @@ public class UIPageEditWizard extends UIPageWizard {
         uiWizard.updateUIPortal(uiPortalApp, event);
         return;
       }
-      uiWizard.updateWizardComponent();
-      
+
       Class<?> [] childrenToRender = {UIPageEditBar.class, UIPortletOptions.class}; 
       uiParent.setRenderedChildrenOfTypes(childrenToRender);
       
       uiPageEditBar.setUIPage(uiPage);      
       uiPageTemplateOptions.setSelectedOption(null);
+      uiWizard.updateWizardComponent();
     }
   }
 

@@ -6,6 +6,7 @@ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIDescription;
@@ -13,13 +14,20 @@ import org.exoplatform.webui.core.UIToolbar;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
-@ComponentConfig(
-    template = "system:/groovy/webui/core/UIToolbar.gtmpl",
-    events = { 
-        @EventConfig(listeners = UIPageBrowseControlBar.BackActionListener.class),
-        @EventConfig(listeners = UIPageBrowseControlBar.FinishActionListener.class)
-    }
-)
+@ComponentConfigs({
+  @ComponentConfig(
+      template = "system:/groovy/webui/core/UIToolbar.gtmpl",
+      events = { 
+          @EventConfig(listeners = UIPageBrowseControlBar.BackActionListener.class),
+          @EventConfig(listeners = UIPageBrowseControlBar.FinishActionListener.class)
+      }
+  ),
+  @ComponentConfig(
+      id = "PagePreviewControlBar",
+      template = "system:/groovy/webui/core/UIToolbar.gtmpl",
+      events = @EventConfig(listeners = UIPageBrowseControlBar.BackActionListener.class)   
+  )
+})
 public class UIPageBrowseControlBar extends UIToolbar {
 
   private UIComponent uiBackComponent ;

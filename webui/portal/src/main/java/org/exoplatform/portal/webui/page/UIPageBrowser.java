@@ -20,6 +20,7 @@ import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -278,9 +279,26 @@ public class UIPageBrowser extends UISearch {
       UIPage uiPage =  uiPageBrowser.createUIComponent(event.getRequestContext(), UIPage.class,null,null) ;
       PortalDataMapper.toUIPage(uiPage, page);
 
-      UIPagePreview uiPagePreview =  Util.showComponentOnWorking(uiPageBrowser, UIPagePreview.class);      
+      //TODO: Tung.Pham modified
+      //----------------------------
+      //UIPagePreview uiPagePreview =  Util.showComponentOnWorking(uiPageBrowser, UIPagePreview.class);
+      //uiPagePreview.setBackComponent(uiPageBrowser) ;
+      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
+      UIPagePreview uiPagePreview = uiToolPanel.createUIComponent(UIPagePreview.class, "UIPagePreviewWithMessage", null) ;
       uiPagePreview.setUIComponent(uiPage) ;
-      uiPagePreview.setBackComponent(uiPageBrowser) ;
+      uiToolPanel.setUIComponent(uiPagePreview) ;
+      uiToolPanel.setShowMaskLayer(true) ;
+      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
+      
+      UIControlWorkspace uiControl = uiPortalApp.findFirstComponentOfType(UIControlWorkspace.class) ;
+      UIControlWSWorkingArea uiControlWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID) ;
+      UIPageManagement uiManagement = uiControlWorking.findFirstComponentOfType(UIPageManagement.class) ;
+      UIPageBrowseControlBar uiBrowseControlBar = uiManagement.getChild(UIPageBrowseControlBar.class) ;
+      uiBrowseControlBar.setComponentConfig(UIPageBrowseControlBar.class, "PagePreviewControlBar") ;
+      uiBrowseControlBar.setBackComponent(uiPageBrowser) ;
+      uiManagement.setRenderedChild(UIPageBrowseControlBar.class) ;
+      pcontext.addUIComponentToUpdateByAjax(uiControl) ;
+      //----------------------------
 
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
