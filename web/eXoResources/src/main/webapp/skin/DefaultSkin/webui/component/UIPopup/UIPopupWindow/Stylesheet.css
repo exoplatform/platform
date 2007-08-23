@@ -55,7 +55,7 @@
 
 .UIPopupWindow .MiddleCenterDecorator {
   background: #bcc6f7;
-  padding: 3px 5px 1px 5px;
+  padding: 1px 1px 0px 1px;
 }
 
 .UIPopupWindow .MiddleRightSideDecorator {
@@ -77,26 +77,25 @@
 
 .UIPopupWindow .ResizeButton {
 	display: none;
-  width: 8px; height:8px; 
+  width: 18px; height:3px; 
   float: right;
   margin-right: 2px;
-  background: url('background/ResizeBG.gif') no-repeat ;
   cursor: nw-resize;
 }
 
 .UIPopupWindow .BottomLeftCornerDecorator {
-  background: url('background/BottomLeftPopupWindow3x15.gif') no-repeat left ;
+  background: url('background/BottomLeftPopupWindow3x15.gif') no-repeat left bottom;
   padding-left: 3px;
 }
 
 .UIPopupWindow .BottomCenterDecorator {
-  background: url('background/BottomCenterPopupWindow1x15.gif') repeat-x;
-  height: 15px;
+  background: url('background/BottomCenterPopupWindow1x15.gif') repeat-x bottom;
+  height: 4px;
   width: 100%;
 }
 
 .UIPopupWindow .BottomRightCornerDecorator {
-  background: url('background/BottomRightPopupWindow3x15.gif') no-repeat right ;
+  background: url('background/BottomRightPopupWindow3x15.gif') no-repeat right bottom;
   padding-right: 3px ;  
 }
 

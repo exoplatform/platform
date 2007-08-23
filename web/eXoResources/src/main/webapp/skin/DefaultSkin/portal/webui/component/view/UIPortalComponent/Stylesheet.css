@@ -48,16 +48,16 @@
 
 .UIPortlet .EditPortletPropertiesIcon {
 	float: right;
-	width: 24px; height: 16px;
+	width: 22px; height: 16px;
 	background: url('background/PencilButton.gif') no-repeat;
-  margin: 4px 5px 2px 0px;
+  margin: 5px 3px 2px 0px;
 }
 
 .UIPortlet .DeletePortletIcon {
 	float:right;
-	width: 24px; height:16px; 
+	width: 22px; height:16px; 
   background: url('background/CloseButton.gif') no-repeat ;
-  margin: 4px 8px 2px 0px;
+  margin: 5px 4px 2px 0px;
 }
 
 .UIPortlet .MaximizedPortletIcon {
@@ -66,7 +66,6 @@
   background: url('/eXoResources/icons/16x16/MacSkin/Maximize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
-  border: 1px solid red;
 }
 
 .UIPortlet .MinimizedPortletIcon {
@@ -75,7 +74,6 @@
   background: url('/eXoResources/icons/16x16/MacSkin/Minimize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
-  border: 1px solid red;
 }
 
 .UIPortlet .ConfigPortletIcon {
@@ -83,7 +81,6 @@
   width: 16px; height: 16px; 
   background: url('/eXoResources/icons/16x16/MacSkin/Config.gif') no-repeat;
   margin: 3px 10px 0px 5px;
-  border: 1px solid red;
 }
 
 .UIPortlet .EditPortletIcon {
@@ -92,7 +89,6 @@
   background: url('/eXoResources/icons/16x16/MacSkin/Pencil.gif') no-repeat;
   margin: 4px 10px 0px 5px;
   cursor: pointer;
-  border: 1px solid red;
 }
 
 .UIPortlet .HelpPortletIcon {
@@ -101,7 +97,6 @@
   background: url('/eXoResources/icons/16x16/MacSkin/PortletHelp.gif') no-repeat;
   margin: 4px 10px 0px 0px;
   cursor: pointer;
-  border: 1px solid red;
 }
 
 .UIPortlet .NormalPortletIcon {
@@ -110,7 +105,6 @@
   background: url('/eXoResources/icons/16x16/MacSkin/Restore.gif') no-repeat ;
   margin: 3px 10px 0px 0px ;
   cursor: pointer ;
-  border: 1px solid red;
 }
 
 .UIPortlet .PortletIcon{
@@ -217,16 +211,16 @@
 
 .UIContainer .EditContainerIcon {
 	float: right;
-	width: 24px; height: 16px;
+	width: 22px; height: 16px;
 	background: url('background/PencilButton.gif') no-repeat;
-  margin: 4px 5px 2px 0px;
+  margin: 5px 2px 2px 0px;
 }
 
 .UIContainer .DeleteContainerIcon {
 	float: right;
-	width: 24px; height:16px; 
+	width: 22px; height:16px; 
   background: url('background/CloseButton.gif') no-repeat ;
-  margin: 4px 8px 2px 0px;
+  margin: 5px 4px 2px 0px;
 }
 
 .UIContainer .ContainerIcon {

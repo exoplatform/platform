@@ -25,9 +25,9 @@
 }
 
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator .SigninTitle {
-  color: blue ;
-  font-size: 16px; font-family: arial; font-weight: bold;
-	line-height: 30px;
+  color: #1273df;
+  font-size: 16px;
+	line-height: 28px;
 	padding: 4px 0px 0px 20px;
 }
 
@@ -67,7 +67,6 @@
  * fix bug : hidden cursor in form login
  */
 .UILoginForm .LoginDetailBox  {
-	overflow: auto;
 }
 
 .UILoginForm .LoginDetailBox .UserNameField {
@@ -122,20 +121,6 @@
   padding: 0px 0px 0px 22px;
 }
 
-.UILoginForm .LoginDetailBox .Message {
-  width: 300px; margin: auto; 
-  height: 26px; line-height: 26px; text-align: right;
-  color: blue ;
-  white-space: nowrap;
-  padding: 0px 70px 0px 0px;
-  cursor: pointer;
-}
-
-.UILoginForm .LoginDetailBox .Message a:hover{
-  cursor: pointer;
-  color: orange;
-}
-
 .UILoginForm .LoginDecorator .SignUpBar {
 	padding: 5px 0px 2px 70px ;
 }
@@ -158,9 +143,13 @@
 	cursor: pointer;
 }
 
+.UILoginForm .LoginDecorator .SignUpBackground a:hover {
+	color: #1273df;
+}
+
 .UILoginForm .UIForm .VerticalLayout .UIAction {
   width: 170px;
-  padding: 15px 0px 15px 90px;
+  padding: 15px 0px 15px 105px;
 }
 
 .UILoginForm .UIForm .VerticalLayout .UIAction .ActionButton  {
