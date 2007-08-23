@@ -85,7 +85,7 @@ import org.exoplatform.webui.form.UISearchForm;
 })
 public class UIPageBrowser extends UISearch {
 
-  public static String[] BEAN_FIELD = {"pageId", "name", "accessPermissions", "editPermission"} ;  
+  public static String[] BEAN_FIELD = {"ownerType", "ownerId", "name", "accessPermissions", "editPermission"} ;  
   public static String[] ACTIONS = {"Preview", "EditInfo", "Delete"} ; 
 
   private boolean showAddNewPage = false;
