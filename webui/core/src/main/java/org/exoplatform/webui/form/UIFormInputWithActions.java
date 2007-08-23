@@ -39,11 +39,12 @@ public class UIFormInputWithActions extends UIFormInputSet {
       super.processRender(context) ;
       return ;
     }
+    UIForm uiForm = getAncestorOfType(UIForm.class);
     Writer w = context.getWriter() ;
-    w.write("<div class=\"UIFormInputSet\">") ;
+    w.write("<div class=\"UIFormInputSet " + uiForm.getId() + "\">") ;
     w.write("<table class=\"UIFormGrid\">") ;
     ResourceBundle res = context.getApplicationResourceBundle() ;
-    UIForm uiForm = getAncestorOfType(UIForm.class);
+    
     for(UIComponent inputEntry :  getChildren()) {     
       String label ;
       try {

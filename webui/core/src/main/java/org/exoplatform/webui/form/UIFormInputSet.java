@@ -93,8 +93,10 @@ public class UIFormInputSet extends  UIContainer {
 	}
   
   public void processRender(WebuiRequestContext context) throws Exception {
-    
-    System.out.println(" ====== > processRender") ;
+    if(getComponentConfig() != null) {
+      super.processRender(context) ;
+      return ;
+    }
     Writer w = context.getWriter() ;
     w.write("<div class=\"UIFormInputSet\">") ;
     w.write("<table class=\"UIFormGrid\">") ;
