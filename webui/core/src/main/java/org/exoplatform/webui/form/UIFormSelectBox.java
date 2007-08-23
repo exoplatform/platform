@@ -91,9 +91,12 @@ public class UIFormSelectBox extends UIFormStringInput {
     
     for(int i=0; i < options_.size(); i++) {
       String label = options_.get(i).getLabel() ;
+      String key = formId + ".label.option." + options_.get(i).getValue();
       try {
-        label = res.getString(formId + ".label.option." + options_.get(i).getValue().toString()) ;
-      } catch(Exception ex) { }
+        label = res.getString(key) ;
+      } catch(Exception ex) { 
+        System.err.println("\n key: " + key);
+      }
       
       if (value_ != null && value_.equals(options_.get(i).getValue())) {
         w.write("<option selected=\"selected\" value=\""); w.write(options_.get(i).getValue()); w.write("\">"); 
