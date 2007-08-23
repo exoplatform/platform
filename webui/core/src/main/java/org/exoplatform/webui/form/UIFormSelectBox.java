@@ -95,7 +95,7 @@ public class UIFormSelectBox extends UIFormStringInput {
       try {
         label = res.getString(key) ;
       } catch(Exception ex) { 
-        System.err.println("\n key: " + key);
+        System.err.println("\n key: " + key + " \n");
       }
       
       if (value_ != null && value_.equals(options_.get(i).getValue())) {
