@@ -94,6 +94,7 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
   
   public Page getSelectedOption() throws Exception {
     if(selectedItemOption_ == null) return null; 
+    if( selectedItemOption_.getValue() == null) return null;
     return toPage(selectedItemOption_.getValue().toString()); 
   }
   

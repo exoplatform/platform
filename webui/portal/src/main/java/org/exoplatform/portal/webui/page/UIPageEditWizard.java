@@ -13,20 +13,27 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIExoStart;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIComponentDecorator;
+import org.exoplatform.webui.core.model.SelectItemCategory;
+import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 /**
@@ -49,10 +56,17 @@ public class UIPageEditWizard extends UIPageWizard {
   
   public UIPageEditWizard() throws Exception {
     addChild(UIWizardPageSetInfo.class, null, "EditWizard") ;
-    addChild(UIWizardPageSelectLayoutForm.class, null, null).setRendered(false);
+    UIWizardPageSelectLayoutForm layoutForm = addChild(UIWizardPageSelectLayoutForm.class, null, null).setRendered(false);
     addChild(UIPagePreview.class, null, null).setRendered(false); 
     setNumberSteps(3);
     setShowWelcomeComponent(false);
+    UIPageTemplateOptions templateOption = layoutForm.getChild(UIPageTemplateOptions.class);
+    List<SelectItemCategory> categorys = templateOption.getItemCategories();
+    SelectItemCategory category = categorys.get(0);
+    List<SelectItemOption<?>> options = category.getSelectItemOptions();
+    SelectItemOption<Object> curent = new SelectItemOption<Object>("Curent Layout", null);
+    if(options.get(0).getValue() != null)  options.add(0, curent);
+    templateOption.setSelectOptionItem("Curent Layout");
   }
   
   private void saveData() throws Exception {
@@ -164,7 +178,7 @@ public class UIPageEditWizard extends UIPageWizard {
       DataStorage configService = uiWizard.getApplicationComponent(DataStorage.class);
       page = configService.getPage(pageNode.getPageReference());
       boolean isDesktopPage = false;
-      if(templatePage != null && templatePage.getChildren().size() > 0 ) {
+      if(templatePage != null ) {
         templatePage.setName(page.getName());
         templatePage.setOwnerType(page.getOwnerType());
         templatePage.setOwnerId(page.getOwnerId());
@@ -219,7 +233,21 @@ public class UIPageEditWizard extends UIPageWizard {
     public void execute(Event<UIPageEditWizard> event) throws Exception {
       UIPageEditWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      uiWizard.updateUIPortal(uiPortalApp, event);    
+//      uiWizard.updateUIPortal(uiPortalApp, event);    
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+
+      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
+      uiWorkingArea.setUIComponent(uiWorkingArea.createUIComponent(UIWelcomeComponent.class, null, null)) ;
+      pcontext.addUIComponentToUpdateByAjax(uiControl);  
+
+      UIPortal uiPortal = Util.getUIPortal();
+      uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
+      uiPortal.setRenderSibbling(UIPortal.class) ;    
+      pcontext.setFullRender(true);
+      
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
     }
   }
 

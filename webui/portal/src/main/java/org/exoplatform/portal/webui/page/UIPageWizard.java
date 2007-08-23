@@ -101,7 +101,21 @@ public abstract class UIPageWizard extends UIWizard {
     public void execute(Event<UIPageWizard> event) throws Exception {
       UIPageWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      uiWizard.updateUIPortal(uiPortalApp, event);
+      //uiWizard.updateUIPortal(uiPortalApp, event);
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+
+      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
+      uiWorkingArea.setUIComponent(uiWorkingArea.createUIComponent(UIWelcomeComponent.class, null, null)) ;
+      pcontext.addUIComponentToUpdateByAjax(uiControl);  
+
+      UIPortal uiPortal = Util.getUIPortal();
+      uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
+      uiPortal.setRenderSibbling(UIPortal.class) ;    
+      pcontext.setFullRender(true);
+      
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
     }
   }
   
