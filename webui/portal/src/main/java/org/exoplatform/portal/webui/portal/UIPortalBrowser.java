@@ -45,6 +45,7 @@ public class UIPortalBrowser extends UIContainer {
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("name", BEAN_FIELD, SELECT_ACTIONS) ;
     addChild(uiGrid.getUIPageIterator()) ;
+    uiGrid.getUIPageIterator().setId("UIPortalBrowserPageInterator");
     uiGrid.getUIPageIterator().setRendered(false) ;
     
     loadPortalConfigs();

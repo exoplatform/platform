@@ -48,7 +48,9 @@ public class UIPortalSelector extends UIContainer {
     setName("UIChangePortal") ;
     UIGrid uiGrid = addChild(UIGrid.class, "PortalSelector", null) ;
     uiGrid.configure("name", BEAN_FEILD, SELECT_ACTIONS) ;
-  
+    uiGrid.getUIPageIterator().setId("ChangePortalPageInterator");
+    addChild(uiGrid.getUIPageIterator()) ;
+    uiGrid.getUIPageIterator().setRendered(false) ;
     DataStorage dataService = getApplicationComponent(DataStorage.class) ;
     UserACL userACL = getApplicationComponent(UserACL.class) ;
     String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
