@@ -44,10 +44,6 @@
   background: url('background/BottomCenterDecorator1x6.gif') repeat-x;
 }
 
-.UIMaskWorkspace .UIAddApplication .UIItemSelector .LeftColumnStyle .Title {
-	float: none;
-}
-
 .UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
   margin-right: 0px; 
   height: auto;
