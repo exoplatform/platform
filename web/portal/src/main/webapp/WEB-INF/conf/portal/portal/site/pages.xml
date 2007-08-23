@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <page-set>  
-  <page>    
+<!--  
+	<page>    
 		<owner-type>portal</owner-type>
     <owner-id>site</owner-id>
     <name>content</name>
@@ -15,6 +16,21 @@
       <show-application-mode>true</show-application-mode>
     </application>
   </page>    
+-->
+  <page>
+    <owner-type>portal</owner-type>
+    <owner-id>site</owner-id>
+    <name>sitemap</name>
+    <title>Site Map</title>
+    <access-permissions>*:/guest</access-permissions>
+    <application>
+      <instance-id>portal#site:/web/SiteMapPortlet/sitemapportlet</instance-id>
+      <title>Site Map portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>
+  </page>
   
   <page>
     <owner-type>portal</owner-type>

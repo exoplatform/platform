@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <page-set>  
+<!--  
   <page>    
 		<owner-type>portal</owner-type>
     <owner-id>@owner@</owner-id>
@@ -8,11 +9,28 @@
     <access-permissions>*:/guest</access-permissions>
     
     <application>
-      <instance-id>portal#@owner@:/content/ContentPortlet/contentportlet</instance-id>
-      <title>Content Portlet</title>
+      <instance-id>portal#@owner@:/content/RSSPortlet/RSSPortlet</instance-id>
+      <title>RSS Reader Portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
     </application>
   </page>    
+  
+-->
+  <page>
+    <owner-type>portal</owner-type>
+    <owner-id>@owner@</owner-id>
+    <name>sitemap</name>
+    <title>Site Map</title>
+    <access-permissions>*:/guest</access-permissions>
+    <application>
+      <instance-id>portal#@owner@:/web/SiteMapPortlet/sitemapportlet</instance-id>
+      <title>Site Map portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>
+  </page>
+  
 </page-set>

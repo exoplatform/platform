@@ -87,37 +87,5 @@
       <role-name>admin</role-name>
       <role-link>admin</role-link>
     </security-role-ref>
-  </portlet>  
-  
-  <portlet>
-    <description xml:lang="EN">JMX Portlet</description>
-    <portlet-name>JMXPortlet</portlet-name>
-    <display-name xml:lang="EN">JMX Portlet</display-name>
-    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
-    
-    <init-param>
-      <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/exoadmin/JMXPortlet/webui/configuration.xml</value>
-    </init-param>    
-
-    <expiration-cache>0</expiration-cache>
-    <supports>
-      <mime-type>text/html</mime-type>
-      <portlet-mode>help</portlet-mode>
-    </supports>
-    <supported-locale>en</supported-locale>
-    <resource-bundle>locale.portlet.exoadmin.JMXPortlet</resource-bundle>
-    
-    <portlet-info>
-      <title>JMX Portlet</title>
-      <short-title>JMX Portlet</short-title>
-      <keywords>jmx</keywords>     
-    </portlet-info>    
-    
-    <security-role-ref>
-      <role-name>admin</role-name>
-      <role-link>admin</role-link>
-    </security-role-ref> 
-  </portlet>  
-  
+  </portlet>    
 </portlet-app>

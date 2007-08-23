@@ -15,7 +15,7 @@
 	  </application>
     
     <application>
-      <instance-id>portal#@owner@:/content/ContentPortlet/contentportlet</instance-id>
+      <instance-id>portal#@owner@:/content/RSSPortlet/RSSPortlet</instance-id>
     </application>
 
     <application>

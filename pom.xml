@@ -18,7 +18,6 @@
     <module>eXoApplication/web</module>
 
     <module>eXoWidget/web</module>
-    <module>sample/framework</module>
 
     <module>webui/core</module>
     <module>webui/eXo</module>
@@ -28,7 +27,6 @@
     <module>portlet/exoadmin</module>
     <module>portlet/site</module>
     <module>portlet/web</module>
-    <module>portlet/test</module>
 
     <module>web/eXoResources</module>
     <module>web/eXoMacSkin</module>

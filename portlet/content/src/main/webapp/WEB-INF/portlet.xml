@@ -3,14 +3,14 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"> 
   <portlet>
-    <description xml:lang="EN">Content Portlet</description>
-    <portlet-name>ContentPortlet</portlet-name>
-    <display-name xml:lang="EN">Content Portlet</display-name>
+    <description xml:lang="EN">RSS Reader Portlet</description>
+    <portlet-name>RSSPortlet</portlet-name>
+    <display-name xml:lang="EN">RSS Reader Portlet</display-name>
     <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
     
     <init-param>
       <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/content/ContentPortlet/webui/configuration.xml</value>
+      <value>/WEB-INF/conf/portlet/content/RSSPortlet/webui/configuration.xml</value>
     </init-param>    
 
     <expiration-cache>0</expiration-cache>
@@ -19,11 +19,11 @@
       <portlet-mode>help</portlet-mode>
     </supports>
     <supported-locale>en</supported-locale>
-    <resource-bundle>locale.portlet.content.ContentPortlet</resource-bundle>
+    <resource-bundle>locale.portlet.rss.RSSPortlet</resource-bundle>
     <portlet-info>
-      <title>Content Portlet</title>
-      <short-title>Content Portlet</short-title>
-      <keywords>content</keywords>
+      <title>RSS Reader Portlet</title>
+      <short-title>RSS Reader Portlet</short-title>
+      <keywords>rss</keywords>
     </portlet-info>
   </portlet>  
   

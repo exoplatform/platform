@@ -7,7 +7,7 @@
     <access-permissions>*:/guest</access-permissions>
     
     <application>
-      <instance-id>group#portal/admin:/content/ContentPortlet/contentportlet</instance-id>
+      <instance-id>portal#@owner@:/content/RSSPortlet/RSSPortlet</instance-id>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
@@ -59,6 +59,15 @@
       <application-type>eXoApplication</application-type>
       <title>eXo Console</title>
     </application>
+    
+    <application>
+      <instance-id>group#portal/admin:/web/BrowserPortlet/BrowserPortlet</instance-id>
+      <title>Browser Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>  
+    
   </page> 
   
   <page>

@@ -1,0 +1,99 @@
+<%
+  import org.exoplatform.webui.form.UIForm;
+  import org.exoplatform.webui.core.UIPopupWindow; 
+  navigations = uicomponent.getSibbingNodes();
+  def selectedNode = uicomponent.getSelectedNode() ;
+  def rcontext = _ctx.getRequestContext() ;
+  show =false;
+  resize=false;
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');
+%>
+
+<%/*The class UIRSSNavigationContainer for fix bug */%>
+<div class="UIRSSNavigationContainer">
+	<div class="CategoryControlBar">
+		<div class="LeftBar">
+			<div class="RightBar">
+				<div class="MiddleBar">
+					<div class="RSSReaderHeader">eXo RSS Feed Reader</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="NewsCategory">
+    <div class="UIVerticalSlideTabs">
+      <div class="UpArrowBar" title="Up Level">
+        <%
+          String upLevelLink = "#" ;
+          if(selectedNode != null) upLevelLink = uicomponent.event("UpLevel") ;                
+        %>
+        <a href="<%=upLevelLink%>">
+          <div class="NavigationUpArrowIcon"><span></span></div>
+        </a>
+      </div>
+      
+      <div class="ActionBar">
+				<%
+       String removeLink = uicomponent.event("RemoveNode") ;
+       String editLink = uicomponent.event("EditNode") ;
+        %>
+        <%if(uicomponent.isLogon()) { %>
+    	
+	        <a href="<%=uicomponent.event("AddNode")%>" class="NavigationControlIcon AddCategory24x24Icon" title="Add a Category"><span></span></a>
+	        <a href="<%=editLink%>" class="NavigationControlIcon EditCategory24x24Icon" title="Edit Selected Category"><span></span></a>
+	        <a href="<%=removeLink%>" class="NavigationControlIcon DeleteCategory24x24Icon" title="Remove Selected Category"><span></span></a>
+	    	<% }%>
+	    	<div style="clear: left"><span></span></div>
+	    </div>
+	    <div style="clear: both"><span></span></div>
+      <div class="UIVTab VTabStyle3">
+        <%
+          for(node in navigations) {
+            String cTab = "NormalTab" ; 
+            String cButton = "SwitchButton" ;
+            String cIcon = "CategoryIcon NewsIcon" ;
+            String cLabel = "TabLabel" ;
+            if(uicomponent.isSelectedNode(node) || uicomponent.isParentNode(node)) {   
+              cTab = "SelectedTab" ;
+              cButton = "SwitchButton" ;
+              cIcon = "CategoryIcon OpenNewsIcon" ;
+              cLabel = "SelectedTabLabel" ; 
+            }
+            String actionLink = uicomponent.event("ChangeNode", node.getId()) - "javascript:";
+        %>            
+            <div class="$cTab">
+              <div class="TabLeft">
+                <div class="TabRight">
+                  <div class="TabRepeat" onclick="<%=actionLink%>">
+                    <div class="<%=cIcon%>"><span></span></div>
+                    <a class="<%=cLabel%>" href="#"><%=node.getLabel()%></a>
+                    <div class="<%=cButton%>"><span></span></div>
+                    <div style="clear: both"><span></span></div>
+                  </div>
+                </div>
+              </div>              
+              <%
+                if(node.getChildren() == null || 
+                   (!uicomponent.isSelectedNode(node) && !uicomponent.isParentNode(node))){
+              %>
+            </div>
+              <%     
+                  continue ;
+                }
+                 for(child in node.getChildren()) {
+                  String actionChildLink = uicomponent.event("ChangeNode", child.id) ;
+                  String labelClass = "ItemLabel" ;                      
+                  if(uicomponent.isSelectedNode(child)) labelClass = "ItemLabel" ;                
+              %>                  
+                  <div class="SubItem">
+                      <div class="ItemIcon"><span></span></div>
+                      <a href="<%=actionChildLink%>" class="<%=labelClass%>"><%=child.getLabel()%></a>
+											<div style="clear: left"><span></span></div>                      
+                  </div>
+              <%}%>
+            </div>
+        <%}%>
+      </div>
+    </div>
+  </div>    
+</div>
