@@ -68,14 +68,16 @@ UIPopupMenu.prototype.createLink = function(menuItem, link) {
 UIPopupMenu.prototype.doOnMenuItemOut = function() {
 	while (eXo.webui.UIPopupMenu.elementsToHide.length > 0) {
 		var container = document.getElementById(eXo.webui.UIPopupMenu.elementsToHide.shift());
-		/* It can happen that a submenu appears in both the "to-hide" list and the "keep-visible" list
-		 * This happens because when the mouse moves from the border of an item to the content of this item,
-		 * a mouseOut Event is fired and the item submenu is added to the "to-hide" list while it remains in the 
-		 * "keep-visible" list.
-		 * Here, we check that the item submenu doesn't appear in the "keep-visible" list before we hide it
-		 */
-		if (!eXo.webui.UIPopupMenu.currentVisibleContainers.contains(container.id)) {
-			eXo.webui.UIPopupMenu.hide(container);
+		if (container) {
+			/* It can happen that a submenu appears in both the "to-hide" list and the "keep-visible" list
+			 * This happens because when the mouse moves from the border of an item to the content of this item,
+			 * a mouseOut Event is fired and the item submenu is added to the "to-hide" list while it remains in the 
+			 * "keep-visible" list.
+			 * Here, we check that the item submenu doesn't appear in the "keep-visible" list before we hide it
+			 */
+			if (!eXo.webui.UIPopupMenu.currentVisibleContainers.contains(container.id)) {
+				eXo.webui.UIPopupMenu.hide(container);
+			}
 		}
 	}
 } ;

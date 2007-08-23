@@ -59,8 +59,9 @@ UIItemSelector.prototype.onChangeItemDetail = function(itemSelected, mouseOver) 
 /* Pham Thanh Tung added */
 UIItemSelector.prototype.onClickCategory = function(clickedElement, form, component, option) {
   eXo.webui.UIItemSelector.onClick(clickedElement);
-  if (eXo.webui.UIItemSelector.SelectedItem == null)  
+  if (eXo.webui.UIItemSelector.SelectedItem == null) {
     eXo.webui.UIItemSelector.SelectedItem = new Object();
+  }
   eXo.webui.UIItemSelector.SelectedItem.component = component;
   eXo.webui.UIItemSelector.SelectedItem.option = option;  
 };

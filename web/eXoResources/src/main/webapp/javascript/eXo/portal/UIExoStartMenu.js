@@ -46,17 +46,24 @@ UIExoStartMenu.prototype.onLoad = function() {
  */
 UIExoStartMenu.prototype.buildMenu = function(popupMenu) {
   var menuItems = eXo.core.DOMUtil.findDescendantsByClass(popupMenu, "div", this.itemStyleClass) ;
-  for(var i = 0; i<menuItems.length; i++) {
+  for(var i = 0; i< menuItems.length; i++) {
     menuItems[i].onmouseover = eXo.portal.UIExoStartMenu.onMenuItemOver ;
     menuItems[i].onmouseout = eXo.portal.UIExoStartMenu.onMenuItemOut ;
     var labelItem = eXo.core.DOMUtil.findFirstDescendantByClass(menuItems[i], "div", "LabelItem") ;
     // If the pointed menu item contains a link, sets the item clickable
     var link = eXo.core.DOMUtil.findDescendantsByTagName(labelItem, "a")[0];
     this.superClass.createLink(menuItems[i], link);
-    // Set an id to each container for future reference
-    var cont = eXo.core.DOMUtil.findAncestorByClass(menuItems[i], this.containerStyleClass) ;
-    if (!cont.id) cont.id = "StartMenuContainer-"+i;
-    cont.resized = false;
+//    var cont = eXo.core.DOMUtil.findAncestorByClass(menuItems[i], this.containerStyleClass) ;
+//    if (!cont.id) cont.id = "StartMenuContainer-"+i;
+//    cont.resized = false;
+  }
+  /*
+   * minh.js.exo
+   */
+  var blockMenuItems = eXo.core.DOMUtil.findDescendantsByClass(popupMenu, "div", this.containerStyleClass) ;
+  for (i=0; i < blockMenuItems.length; i++) {
+    if (!blockMenuItems[i].id) blockMenuItems[i].id = "StartMenuContainer-"+i;
+    blockMenuItems[i].resized = false;
   }
 };
 
@@ -123,9 +130,11 @@ UIExoStartMenu.prototype.clearStartMenu = function() {
  */
 UIExoStartMenu.prototype.onMenuItemOver = function(e) {
   var menuItem = this;
+
   menuItem.className = eXo.portal.UIExoStartMenu.itemOverStyleClass ;
   // If the pointed menu item contains a submenu, resizes it
   var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIExoStartMenu.containerStyleClass) ;
+
   if (menuItemContainer) {
     eXo.portal.UIExoStartMenu.showMenuItemContainer(menuItem, menuItemContainer) ;
     eXo.portal.UIExoStartMenu.superClass.pushVisibleContainer(menuItemContainer.id);
@@ -134,6 +143,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(e) {
       eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
     }
   }
+  
 };
 /**
  * Shows the submenu (menuItemContainer) of the pointed button (menuItem)
