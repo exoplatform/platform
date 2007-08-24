@@ -51,7 +51,7 @@ public class UIFormInputWithActions extends UIFormInputSet {
         label = uiForm.getLabel(res, inputEntry.getId());
         if(inputEntry instanceof UIFormInputBase) ((UIFormInputBase)inputEntry).setLabel(label);
       } catch(MissingResourceException ex){
-        label = "&nbsp;" ;
+        label = inputEntry.getId() ;
         System.err.println("\n "+uiForm.getId()+".label." + inputEntry.getId()+" not found value");
       }
       w.write("<tr>") ;
