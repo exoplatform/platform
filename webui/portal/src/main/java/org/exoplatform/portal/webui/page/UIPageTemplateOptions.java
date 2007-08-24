@@ -45,9 +45,11 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
     if(initParams == null) return ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("PageLayout");          
-    categories_ = param.getMapGroovyObject(context) ;   
+    categories_ = param.getFreshObject(context) ;   
+    System.out.println("\n\n Categorys: " + categories_.hashCode());
     
     SelectItemCategory category = getSelectedCategory();
+    System.out.println("\n\n---------------- category " + category.hashCode() + " size: " + category.getSelectItemOptions().size());
     if(category == null) return ;
     SelectItemOption<?> itemOption = category.getSelectedItemOption();
     if(itemOption == null) return ;
