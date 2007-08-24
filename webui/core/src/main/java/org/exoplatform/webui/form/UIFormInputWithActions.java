@@ -67,7 +67,12 @@ public class UIFormInputWithActions extends UIFormInputSet {
             actionLabel = action.getActionName() ;
             System.out.println("\n Key: '"+uiForm.getId()+".label.action." + action.getActionName() + "' not found");
           }
-          String actionLink = ((UIComponent)getParent()).event(action.getActionListener()) ;
+          String actionLink ;
+          if(action.getActionParameter() != null) {
+            actionLink = ((UIComponent)getParent()).event(action.getActionListener(), action.getActionParameter()) ;
+          }else {
+            actionLink = ((UIComponent)getParent()).event(action.getActionListener()) ;
+          }
           w.write("<a title=\"" + actionLabel + "\" href=\"" + actionLink +"\">") ;
           if(action.getActionType() == ActionData.TYPE_ICON) {
             w.write("<img src=\"/eXoResources/skin/DefaultSkin/background/Blank.gif\" class=\"" + action.getCssIconClass()+"\"/>") ;
@@ -76,6 +81,7 @@ public class UIFormInputWithActions extends UIFormInputSet {
             w.write(actionLabel) ;
           }
           w.write("</a>") ; w.write("&nbsp;") ; 
+          if(action.isBreakLine()) w.write("<br/>") ; 
         }
       }
       w.write("</td>") ;
@@ -92,8 +98,11 @@ public class UIFormInputWithActions extends UIFormInputSet {
     private int actionType = 0 ;
     private String actionName ;
     private String actionListener ;
+    private String actionParameter = null ;
     private String cssIconClass = "AddNewNodeIcon" ;
     private boolean isShowLabel = false ;
+    private boolean isBreakLine = false ;
+    
     
     public void setActionType(int actionType) { this.actionType = actionType ; }
     public int getActionType() { return actionType; }
@@ -104,10 +113,16 @@ public class UIFormInputWithActions extends UIFormInputSet {
     public void setActionListener(String actionListener) { this.actionListener = actionListener; }
     public String getActionListener() { return actionListener; }
     
+    public void setActionParameter(String actionParameter) { this.actionParameter = actionParameter ; }
+    public String getActionParameter() { return actionParameter ; }
+    
     public void setCssIconClass(String cssIconClass) { this.cssIconClass = cssIconClass; }
     public String getCssIconClass() { return cssIconClass; }
     
     public void setShowLabel(boolean isShowLabel) { this.isShowLabel = isShowLabel ; }
     public boolean isShowLabel() { return isShowLabel ; }
+    
+    public void setBreakLine(boolean isBreakLine) { this.isBreakLine = isBreakLine ; }
+    public boolean isBreakLine() { return isBreakLine ; }
   }
 }
