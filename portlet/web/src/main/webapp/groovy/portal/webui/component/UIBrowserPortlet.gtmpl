@@ -1,4 +1,4 @@
-<div class="eXoBrowser">
+<div class="UIBrowserPortlet" id="$uicomponent.id">
 	<div class="UIToolbar">
 		<div class="ButtonContainer">
 			<div class="Separators"><span></span></div>
