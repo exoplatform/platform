@@ -79,12 +79,3 @@
 .UITestFormPortlet .UIFormWithTitle .HorizontalLayout .FormContainer {
 	background: #cccccc;
 }
-
-iframe {
-	background: red;
-}
-
-.TestIframe {
-	background: red;
-	border: 1px solid black;
-}
