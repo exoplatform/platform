@@ -47,4 +47,20 @@ public class Param {
       throw ex;
     }
   }
+  
+  public <T> T getFreshObject(WebuiRequestContext context) throws Exception{
+    try{
+      ResourceResolver resolver = context.getResourceResolver(value) ;
+      InputStream is = resolver.getInputStream(value) ;
+      Binding binding = new Binding();
+      GroovyShell shell = new GroovyShell(Thread.currentThread().getContextClassLoader(), binding);
+      object = shell.evaluate(is);
+      is.close() ;
+      return (T)object ;
+    }catch (Exception ex) {
+      System.out.println("A  problem in the groovy script : " + value) ;
+      ex.printStackTrace();
+      throw ex;
+    }
+  }
 }
