@@ -5,14 +5,7 @@
   <priority>1</priority>
   <access-permissions>*:/guest</access-permissions>
   <page-nodes>
-<!--
-    <node>
-      <uri>home</uri>
-      <name>home</name>
-      <label>Home</label>
-      <page-reference>portal::site::content</page-reference>
-    </node> 
--->
+
 	  <node>
 	    <uri>home</uri>
 	    <name>home</name>
