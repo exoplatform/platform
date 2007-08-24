@@ -171,34 +171,42 @@ UIPortal.prototype.showUIComponentControl = function(uicomponent, flag) {
 };
 
 UIPortal.prototype.showViewLayoutModeForPage = function() {
-  var container = this.getUIContainers() ;
+	/*
+	 * minh.js.exo;
+	 */
   var layoutMode = -1;
-  for(var i = 0; i < container.length; i++) {
-  	var viewBlock = container[i].getViewBlock() ;  
-    if(viewBlock.style.display == 'block') {
-    	this.switchViewModeToLayoutMode(container[i], true) ;
-      this.showUIComponentControl(container[i], this.component == 'UIContainer') ;
-    	if(layoutMode == -1) layoutMode = 1;
-    } else if(viewBlock.style.display == 'none') {
-    	this.switchLayoutModeToViewMode(container[i], true) ;
-    	this.showUIComponentControl(container[i], false) ;
-    	if(layoutMode == -1) layoutMode = 0;
-    }
-  }
-
+  var container = this.getUIContainers() ;
   var portlet = this.getUIPortletsInUIPage() ;
-  for(var i = 0; i < portlet.length; i++) {
-  	var viewBlock = portlet[i].getViewBlock() ;
-    if(viewBlock.style.display == 'block') {
-    	this.switchViewModeToLayoutMode(portlet[i], false) ;
-    	this.showUIComponentControl(portlet[i], this.component == 'UIPortlet') ;
-    	if(layoutMode == -1) layoutMode = 1;
-    } else if(viewBlock.style.display == 'none') {
-    	this.switchLayoutModeToViewMode(portlet[i], false) ;
-    	this.showUIComponentControl(portlet[i], false) ;
-    	if(layoutMode == -1) layoutMode = 0;
-    }    
-  }
+  
+  if(portlet.length > 0 && container.length >= 0) {
+	
+	  for(var i = 0; i < container.length; i++) {
+	  	var viewBlock = container[i].getViewBlock() ;  
+	    if(viewBlock.style.display == 'block') {
+	    	this.switchViewModeToLayoutMode(container[i], true) ;
+	      this.showUIComponentControl(container[i], this.component == 'UIContainer') ;
+	    	if(layoutMode == -1) layoutMode = 1;
+	    } else if(viewBlock.style.display == 'none') {
+	    	this.switchLayoutModeToViewMode(container[i], true) ;
+	    	this.showUIComponentControl(container[i], false) ;
+	    	if(layoutMode == -1) layoutMode = 0;
+	    }
+	  }
+	  for(var i = 0; i < portlet.length; i++) {
+	  	var viewBlock = portlet[i].getViewBlock() ;
+	    if(viewBlock.style.display == 'block') {
+	    	this.switchViewModeToLayoutMode(portlet[i], false) ;
+	    	this.showUIComponentControl(portlet[i], this.component == 'UIPortlet') ;
+	    	if(layoutMode == -1) layoutMode = 1;
+	    } else if(viewBlock.style.display == 'none') {
+	    	this.switchLayoutModeToViewMode(portlet[i], false) ;
+	    	this.showUIComponentControl(portlet[i], false) ;
+	    	if(layoutMode == -1) layoutMode = 0;
+	    }    
+	  }
+	
+	} 
+	
   return layoutMode;
 };
 
