@@ -31,7 +31,7 @@ import org.exoplatform.webui.event.EventListener;
  * Jul 6, 2006  
  */
 @ComponentConfig(
-  template =  "app:/groovy/content/webui/component/UIDetailContent.gtmpl",
+  template =  "app:/groovy/rssreader/webui/component/UIDetailContent.gtmpl",
   events = {
       @EventConfig(listeners = UIDetailContent.RefreshActionListener.class ),
       @EventConfig(listeners = UIDetailContent.SelectPathActionListener.class )
@@ -94,7 +94,7 @@ public class UIDetailContent extends UIContainer {
   static  public class SelectPathActionListener extends EventListener<UIBreadcumbs> {
     public void execute(Event<UIBreadcumbs> event) throws Exception {
       UIBreadcumbs uiBreadcumbs = event.getSource();
-      UIContentPortlet uiContentPortlet = uiBreadcumbs.getAncestorOfType(UIContentPortlet.class) ;
+      UIRSSReaderPortlet uiContentPortlet = uiBreadcumbs.getAncestorOfType(UIRSSReaderPortlet.class) ;
       UIContentNavigation uiNavigation = uiContentPortlet.getChild(UIContentNavigation.class) ;
       LocalPath localPath = uiBreadcumbs.getSelectLocalPath() ;
       if(localPath != null) {

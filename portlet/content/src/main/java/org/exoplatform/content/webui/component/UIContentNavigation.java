@@ -32,7 +32,7 @@ import org.exoplatform.webui.event.EventListener;
  */
 
 @ComponentConfig(
-    template =  "app:/groovy/content/webui/component/UIContentNavigation.gtmpl",
+    template =  "app:/groovy/rssreader/webui/component/UIContentNavigation.gtmpl",
     events = {
         @EventConfig(listeners = UIContentNavigation.ChangeNodeActionListener.class),
         @EventConfig(listeners = UIContentNavigation.UpLevelActionListener.class),
@@ -100,7 +100,7 @@ public class UIContentNavigation extends UIContainer {
     grandNode_ = null ;
     selectedNode_ = findNode(id) ;   
 
-    UIContentPortlet uiParent = getParent() ;
+    UIRSSReaderPortlet uiParent = getParent() ;
     UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
     if(selectedNode_ == null){
       uiWorkingArea.setRenderedChild(UIDescription.class) ;
@@ -223,7 +223,7 @@ public class UIContentNavigation extends UIContainer {
 //      Util.updateUIApplication(event);
       
       UIContentNavigation uiNav = event.getSource();
-      UIContentPortlet uiParent = uiNav.getParent() ;
+      UIRSSReaderPortlet uiParent = uiNav.getParent() ;
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
       UIContentForm uiForm = uiWorkingArea.getChild(UIContentForm.class) ;
       uiForm.setContentNode(null);
@@ -251,7 +251,7 @@ public class UIContentNavigation extends UIContainer {
 //      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
 //      Util.updateUIApplication(event);
       UIContentNavigation uiNav = event.getSource();
-      UIContentPortlet uiParent = uiNav.getParent() ;
+      UIRSSReaderPortlet uiParent = uiNav.getParent() ;
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
       UIContentForm uiForm = uiWorkingArea.getChild(UIContentForm.class) ;
       ContentNode selectedNode = uiNav.getSelectedNode() ;
@@ -293,7 +293,7 @@ public class UIContentNavigation extends UIContainer {
 
   static  public class GetNodeInfoActionListener extends EventListener<UIContentNavigation> {
     public void execute(Event<UIContentNavigation> event) throws Exception {
-      UIContentPortlet uiParent = event.getSource().getParent() ;
+      UIRSSReaderPortlet uiParent = event.getSource().getParent() ;
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class);
       uiWorkingArea.setRenderedChild(UIDescription.class) ;
     }

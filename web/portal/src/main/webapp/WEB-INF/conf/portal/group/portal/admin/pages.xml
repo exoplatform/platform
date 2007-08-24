@@ -7,7 +7,7 @@
     <access-permissions>*:/guest</access-permissions>
     
     <application>
-      <instance-id>portal#@owner@:/content/RSSPortlet/RSSPortlet</instance-id>
+      <instance-id>portal#@owner@:/content/RSSReaderPortlet/RSSReaderPortlet</instance-id>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>

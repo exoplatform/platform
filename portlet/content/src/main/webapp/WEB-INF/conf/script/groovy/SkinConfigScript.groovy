@@ -18,19 +18,19 @@ SkinService.addSkin(
 ) ;
 
 SkinService.addSkin(
-    "content/RSSPortlet",
+    "content/RSSReaderPortlet",
     "Default",
-    "/content/skin/rss/webui/component/UIRSSPortlet/DefaultStylesheet.css"
+    "/content/skin/rssreader/webui/component/UIRSSReaderPortlet/DefaultStylesheet.css"
 ) ;
 
 SkinService.addSkin(
-    "content/RSSPortlet",
+    "content/RSSReaderPortlet",
     "Mac",
-    "/content/skin/rss/webui/component/UIRSSPortlet/MacStylesheet.css"
+    "/content/skin/rssreader/webui/component/UIRSSReaderPortlet/MacStylesheet.css"
 ) ;
 
 SkinService.addSkin(
-    "content/RSSPortlet",
+    "content/RSSReaderPortlet",
     "Vista",
-    "/content/skin/rss/webui/component/UIRSSPortlet/VistaStylesheet.css"
+    "/content/skin/rssreader/webui/component/UIRSSReaderPortlet/VistaStylesheet.css"
 ) ;

@@ -87,7 +87,7 @@ public class UIContentForm extends UIForm {
       //-----------------------------
       UIContentForm uiForm = event.getSource() ;
       ContentNode contentNode = uiForm.getContentNode();         
-      UIContentPortlet uiPortlet = uiForm.getAncestorOfType(UIContentPortlet.class) ;
+      UIRSSReaderPortlet uiPortlet = uiForm.getAncestorOfType(UIRSSReaderPortlet.class) ;
       UIContentNavigation uiNav = uiPortlet.getChild(UIContentNavigation.class);
       
       if(contentNode == null) contentNode= new ContentNode();
@@ -145,7 +145,7 @@ public class UIContentForm extends UIForm {
   static public class CancelActionListener extends EventListener<UIContentForm> {
     public void execute(Event<UIContentForm> event) throws Exception {
       UIContentForm uiForm = event.getSource() ;
-      UIContentPortlet uiParent = uiForm.getAncestorOfType(UIContentPortlet.class) ;
+      UIRSSReaderPortlet uiParent = uiForm.getAncestorOfType(UIRSSReaderPortlet.class) ;
       UIContentWorkingArea uiWorkingArea = uiParent.getChild(UIContentWorkingArea.class) ;
       //TODO: Tung.Pham added
       //----------------------------
