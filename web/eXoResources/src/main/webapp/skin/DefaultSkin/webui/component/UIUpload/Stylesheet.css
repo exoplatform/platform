@@ -75,3 +75,16 @@
 	margin-left: 10px;
 	width: 18px;
 }
+
+.UITestFormPortlet .UIFormWithTitle .HorizontalLayout .FormContainer {
+	background: #cccccc;
+}
+
+iframe {
+	background: red;
+}
+
+.TestIframe {
+	background: red;
+	border: 1px solid black;
+}
