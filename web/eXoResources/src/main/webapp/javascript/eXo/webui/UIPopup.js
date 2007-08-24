@@ -4,21 +4,32 @@ eXo.require('eXo.core.DragDrop') ;
 //var zIndex = 2 ;
 
 var popupArr = new Array() ;
-
+/**
+ * Main class to manage popups
+ */
 function UIPopup() {
 	this.zIndex = 3 ;
 } ;
-
+/**
+ * Inits the popup
+ *  . calls changezIndex when the users presses the popup
+ */
 UIPopup.prototype.init = function(popup, containerId) {
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 	if(containerId) popup.containerId = containerId ;
 	popup.onmousedown = this.changezIndex ;
 } ;
-
+/**
+ * Increments the current zIndex value and sets this popup's zIndex property to this value
+ */
 UIPopup.prototype.changezIndex = function() {
 	this.style.zIndex = ++eXo.webui.UIPopup.zIndex;
 } ;
-
+/**
+ * Creates and returns a div element with the following style properties
+ *  . position: relative
+ *  . display: none
+ */
 UIPopup.prototype.create = function() {	
 	var popup = document.createElement("div") ;
 	with(popup.style) {
@@ -27,12 +38,16 @@ UIPopup.prototype.create = function() {
 	}
 	return popup ;
 } ;
-
+/**
+ * Sets the size of the popup with the given width and height parameters
+ */
 UIPopup.prototype.setSize = function(popup, w, h) {
 	popup.style.width = w + "px" ;
 	popup.style.height = h + "px" ;
 } ;
-
+/**
+ * Shows (display: block) the popup
+ */
 UIPopup.prototype.show = function(popup) {
 	if(typeof(popup) == "string") {	
 		popup = document.getElementById(popup) ;
@@ -40,7 +55,9 @@ UIPopup.prototype.show = function(popup) {
 	popup.style.zIndex = ++eXo.webui.UIPopup.zIndex ;
 	popup.style.display = "block" ;
 } ;
-
+/**
+ * Shows (display: none) the popup
+ */
 UIPopup.prototype.hide = function(popup) {
 	if(typeof(popup) == "string") {
 		popup = document.getElementById(popup) ;
@@ -48,7 +65,13 @@ UIPopup.prototype.hide = function(popup) {
 	
 	popup.style.display = "none" ;
 } ;
-
+/**
+ * Sets the position of the popup to x and y values
+ * changes the style properties :
+ *  . position: absolute
+ *  . top and left to y and x respectively
+ * if the popup has a container, set its position: relative too
+ */
 UIPopup.prototype.setPosition = function(popup, x, y) {
 	if(popup.containerId) {
 		var container = document.getElementById(popup.containerId) ;
@@ -58,7 +81,14 @@ UIPopup.prototype.setPosition = function(popup, x, y) {
 	popup.style.top = y + "px" ;
 	popup.style.left = x + "px" ;
 } ;
-
+/**
+ * Aligns the popup according to the following values :
+ *  1 : top left
+ *  2 : top right
+ *  3 : bottom left
+ *  4 : bottom right
+ *  other : center
+ */
 UIPopup.prototype.setAlign = function(popup, pos) {
 	if ( typeof(popup) == 'string') popup = document.getElementById(popup) ;
 	var intTop = 0 ;
@@ -88,7 +118,9 @@ UIPopup.prototype.setAlign = function(popup, pos) {
 	
 	this.setPosition(popup, intLeft, intTop) ;
 } ;
-
+/**
+ * Inits the DragDrop class with empty values
+ */
 UIPopup.prototype.initDND = function(evt) {
   var DragDrop = eXo.core.DragDrop ;
 
@@ -103,7 +135,10 @@ UIPopup.prototype.initDND = function(evt) {
   DragDrop.init(null, clickBlock, dragBlock, evt) ;
 } ;
 
-
+/**
+ * Browses the popups on the page and closes them all
+ * Clears the popupArr array (that contains the popups dom objects)
+ */
 UIPopup.prototype.closeAll = function() {
 	var len = popupArr.length ;
 	for(var i = 0 ; i < len ; i++) {

@@ -1,10 +1,26 @@
 eXo.require('eXo.core.Browser') ;
-
+/**
+ * Manages the mask layer component
+ */
 function UIMaskLayer() {
 // TODO: This variable seem to be used
 //	this.count = 0 ;
 } ;
-
+/**
+ * Creates and returns the dom element that contains the mask layer, with these parameters
+ *  . the mask layer is a child of blockContainerId
+ *  . object
+ *  . the opacity in %
+ *  . the position between : TOP-LEFT, TOP-RIGHT, BOTTOM-LEFT, BOTTOM-RIGHT, other value will position to center
+ * The returned element has the following html attributes :
+ *  . className = "MaskLayer" ;
+ *	. id = "MaskLayer" ;
+ *	.	style.display = "block" ;
+ *	. maxZIndex = 2 ;
+ *	.	style.zIndex = maskLayer.maxZIndex ;
+ *	.	style.top = "0px" ;
+ *	.	style.left = "0px" ;
+ */
 UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, position) {
 	try {
 		var Browser = eXo.core.Browser ;
@@ -30,7 +46,7 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 	
 		if(opacity) {
 	    Browser.setOpacity(maskLayer, opacity) ;
-		}	
+		}
 		
 		if(object != null){
 			if(object.nextSibling) {
@@ -64,7 +80,9 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 	return maskLayer ;
 };
 
-
+/**
+ * Moves the position of the mask layer to follow a scroll
+ */
 UIMaskLayer.prototype.doScroll = function() {
 	if(document.getElementById("MaskLayer")) {
 		var maskLayer =	this.maskLayer;
@@ -73,7 +91,10 @@ UIMaskLayer.prototype.doScroll = function() {
 	}
 };
 
-
+/**
+ * Set the position of the mask layer, depending on the position attribute of UIMaskLayer
+ * position is between : TOP-LEFT, TOP-RIGHT, BOTTOM-LEFT, BOTTOM-RIGHT, other value will position to center
+ */
 UIMaskLayer.prototype.setPosition = function() {
 	var UIMaskLayer = eXo.core.UIMaskLayer ;
 	var Browser = eXo.core.Browser ;
@@ -103,7 +124,9 @@ UIMaskLayer.prototype.setPosition = function() {
 	object.style.left = left + "px" ;
 	object.style.top = top + "px" ;
 } ;
-
+/**
+ * Removes the mask layer from the DOM
+ */
 UIMaskLayer.prototype.removeMask = function(maskLayer) {
 	if (maskLayer) {
 	  var parentNode = maskLayer.parentNode ;

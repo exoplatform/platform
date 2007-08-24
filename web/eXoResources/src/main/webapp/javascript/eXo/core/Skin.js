@@ -1,7 +1,10 @@
 function Skin() {
 
 } ;
-
+/**
+ * Adds a css file, idnetified by url, to the page
+ * componentId identifies the component to which the style applies
+ */
 Skin.prototype.addSkin = function(componentId, url) {
   var skin = document.getElementById(componentId) ;
   if(skin != null) return ;

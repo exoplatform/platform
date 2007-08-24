@@ -1,7 +1,15 @@
 eXo.require('eXo.webui.UIPopup') ;
-
+/**
+ * A class that manages a popup window
+ */
 function UIPopupWindow() {} ;
-
+/**
+ * Inits a popup window, with these parameters :
+ *  . sets the superClass as eXo.webui.UIPopup
+ *  . sets the popup hidden
+ *  . inits the drag and drop
+ *  . inits the resize area if the window is resizable
+ */
 UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseButton) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	this.superClass = eXo.webui.UIPopup ;
@@ -40,6 +48,14 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 } ;
 
 //TODO: manage zIndex properties
+/**
+ * Shows the popup window passed in parameter
+ * gets the highest z-index property of the elements in the page :
+ *  . gets the z-index of the maskLayer
+ *  . gets all the other popup windows
+ *  . gets the highest z-index from these, if it's still at 0, set an arbitrary value of 2000
+ * sets the position of the popup on the page (top and left properties)
+ */
 UIPopupWindow.prototype.show = function(popup) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
@@ -76,18 +92,45 @@ UIPopupWindow.prototype.show = function(popup) {
 	if (eXo.core.Browser.findPosY(popup) < 0) popup.style.top = scrollY + "px" ;
 	popup.style.visibility = "visible" ;
 } ;
-
+/**
+ * Hides (display: none) the popup window when the close button is clicked
+ */
 UIPopupWindow.prototype.closePopupEvt = function(evt) {
 	eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject").style.display = "none" ;
 }
-
+/**
+ * Called when the window starts being resized
+ * sets the onmousemove and onmouseup events on the portal application (not the popup)
+ * associates these events with UIPopupWindow.resize and UIPopupWindow.endResizeEvt respectively
+ */
 UIPopupWindow.prototype.startResizeEvt = function(evt) {
 	var portalApp = document.getElementById("UIPortalApplication") ;
 	eXo.webui.UIPopupWindow.popupId = eXo.core.DOMUtil.findAncestorByClass(this, "UIPopupWindow").id ;
 	portalApp.onmousemove = eXo.webui.UIPopupWindow.resize;
 	portalApp.onmouseup = eXo.webui.UIPopupWindow.endResizeEvt ;
 }
-
+/**
+ * Function called when the window is being resized
+ *  . gets the position of the mouse
+ *  . calculates the height and the width of the window from this position
+ *  . sets these values to the window
+ */
+UIPopupWindow.prototype.resize = function(evt) {
+	var targetPopup = document.getElementById(eXo.webui.UIPopupWindow.popupId) ;
+	var content = eXo.core.DOMUtil.findFirstDescendantByClass(targetPopup, "div", "PopupContent") ;
+	var pointerX = eXo.core.Browser.findMouseRelativeX(targetPopup, evt) ;
+	var pointerY = eXo.core.Browser.findMouseRelativeY(targetPopup, evt) ;
+	var delta = eXo.core.Browser.findPosYInContainer(content,targetPopup) +
+							content.style.borderWidth + content.style.padding + content.style.margin ;
+	if((1*pointerY-delta) > 0) content.style.height = (1*pointerY-delta)+"px" ;
+	targetPopup.style.height = "auto";
+	if(pointerX > 200) targetPopup.style.width = (pointerX+5) + "px" ;
+} ;
+/**
+ * Called when the window stops being resized
+ * cancels the mouse events on the portal app
+ * inits the scroll managers active on this page (in case there is one in the popup)
+ */
 UIPopupWindow.prototype.endResizeEvt = function(evt) {
 	delete eXo.webui.UIPopupWindow.popupId ;
 	this.onmousemove = null ;
@@ -100,7 +143,13 @@ UIPopupWindow.prototype.endResizeEvt = function(evt) {
 	// - add a callback property that points to the init function of the concerned scroll manager. call it here
 	// - add a boolean to each scroll manager that specifies if it's in a popup. re init only those that have this property true
 }
-
+/**
+ * Inits the drag and drop
+ * configures the DragDrop callback functions
+ *  . initCallback : sets overflow: hidden to elements in the popup if browser is mozilla
+ *  . dragCallback : empty
+ *  . dropCallback : sets overflow: auto to elements in the popup if browser is mozilla
+ */
 UIPopupWindow.prototype.initDND = function(evt) {
   var DragDrop = eXo.core.DragDrop ;
   var DOMUtil = eXo.core.DOMUtil ;
@@ -136,7 +185,7 @@ UIPopupWindow.prototype.initDND = function(evt) {
   		if (eXo.core.Browser.findPosY(dragObject) < 0)  dragObject.style.top = (0 - offsetParent.offsetTop) + "px" ;
   	} else {
   		dragObject.style.top = "0px" ;
-  	} 		
+  	}
 //		try {
 //			var uiWindows = DOMUtil.findAncestorsByClass(dragObject, "UIWindow") ;
 //			var len = uiWindows.length ;
@@ -167,18 +216,6 @@ UIPopupWindow.prototype.initDND = function(evt) {
   var clickBlock = this ;
   var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
   DragDrop.init(null, clickBlock, dragBlock, evt) ;
-} ;
-
-UIPopupWindow.prototype.resize = function(evt) {
-	var targetPopup = document.getElementById(eXo.webui.UIPopupWindow.popupId) ;
-	var content = eXo.core.DOMUtil.findFirstDescendantByClass(targetPopup, "div", "PopupContent") ;
-	var pointerX = eXo.core.Browser.findMouseRelativeX(targetPopup, evt) ;
-	var pointerY = eXo.core.Browser.findMouseRelativeY(targetPopup, evt) ;
-	var delta = eXo.core.Browser.findPosYInContainer(content,targetPopup) +
-							content.style.borderWidth + content.style.padding + content.style.margin ;
-	if((1*pointerY-delta) > 0) content.style.height = (1*pointerY-delta)+"px" ;
-	targetPopup.style.height = "auto";
-	if(pointerX > 200) targetPopup.style.width = (pointerX+5) + "px" ;
 } ;
 
 eXo.webui.UIPopupWindow = new UIPopupWindow();

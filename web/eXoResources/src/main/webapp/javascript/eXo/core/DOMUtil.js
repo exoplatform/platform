@@ -1,20 +1,34 @@
+/**
+ * Some utility functions to use the DOM
+ */
 function DOMUtil() {
 	this.hideElementList = new Array() ;
 } ;
-
+/**
+ * Returns true if elemt has the css class className
+ * Uses a regular expression to search more quickly
+ */
 DOMUtil.prototype.hasClass = function(elemt, className) {
 	var reg = new RegExp('(^|\\s+)' + className + '(\\s+|$)') ;
 	return reg.test(elemt['className']) ;
 } ;
-
+/**
+ * Adds the css class className to elemt, unless it already has it
+ */
 DOMUtil.prototype.addClass = function(elemt, className) {
   if (this.hasClass(elemt, className)) return ;
 	elemt['className'] = [elemt['className'], className].join(' ');
 } ;
-
+/**
+ * Replaces oldClazz by newClazz in elemt
+ * TODO : implement this function
+ */
 DOMUtil.prototype.replaceClass = function(elemt, oldClazz, newClazz) {} ;
 
-
+/**
+ * Gets the children of element that are tagName elements
+ * Returns an empty array if no element is found
+ */
 DOMUtil.prototype.getChildrenByTagName = function(element, tagName) {
 	var ln = 0 ;
 	var list = [] ;
@@ -24,7 +38,10 @@ DOMUtil.prototype.getChildrenByTagName = function(element, tagName) {
 	}
 	return list ;
 } ;
-
+/**
+ * Gets the children of root, of type elementName and with css class cssClass
+ * Returns an empty array if no element is found
+ */
 DOMUtil.prototype.findChildrenByClass = function(root, elementName, cssClass) {
   if (elementName) elementName = elementName.toUpperCase() ;
   var elements = root.childNodes ;
@@ -37,7 +54,10 @@ DOMUtil.prototype.findChildrenByClass = function(root, elementName, cssClass) {
   }
   return list ;
 } ;
-
+/**
+ * Gets the children of root, of type elementName and with the attribute attrName that has the value attrValue
+ * Returns an empty array if no element is found
+ */
 DOMUtil.prototype.findChildrenByAttribute = function(root,  elementName, attrName, attrValue) {
   if (elementName) elementName = elementName.toUpperCase() ;
   var elements = root.childNodes ;
@@ -51,7 +71,10 @@ DOMUtil.prototype.findChildrenByAttribute = function(root,  elementName, attrNam
   }
   return list ;
 } ;
-
+/**
+ * Gets the first child of root, of type elementName and with the css class cssClass
+ * Returns null if no element is found
+ */
 DOMUtil.prototype.findFirstChildByClass = function(root,  elementName, cssClass) {
   if(elementName != null)  elementName = elementName.toUpperCase() ;
   var elements = root.childNodes ;
@@ -64,6 +87,7 @@ DOMUtil.prototype.findFirstChildByClass = function(root,  elementName, cssClass)
 } ;
 /**
  * Returns the first ancestor node of element that has the css class clazz
+ * Returns null if no element is found
  */
 DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
   if(element == null) return null ;
@@ -74,7 +98,10 @@ DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
   }
   return null ;
 } ;
-
+/**
+ * Gets the ancestors of element with the css class clazz
+ * Returns an empty array if no element is found
+ */
 DOMUtil.prototype.findAncestorsByClass = function(element, clazz) {
 	var list = [] ;
   var parent = element.parentNode ;
@@ -84,7 +111,10 @@ DOMUtil.prototype.findAncestorsByClass = function(element, clazz) {
   }
   return list ;
 } ;
-
+/**
+ * Gets the ancestor of element identified by id
+ * Returns null if no element is found
+ */
 DOMUtil.prototype.findAncestorById = function(element,  id) {
   var parent = element.parentNode ;
   while (parent != null) {
@@ -93,7 +123,10 @@ DOMUtil.prototype.findAncestorById = function(element,  id) {
   }
   return null ;
 } ;
-
+/**
+ * Gets the first ancestor of element of type tagName
+ * Returns null if no element is found
+ */
 DOMUtil.prototype.findAncestorByTagName = function(element, tagName) {
   var parent = element.parentNode ;
   while(parent != null) {
@@ -102,7 +135,10 @@ DOMUtil.prototype.findAncestorByTagName = function(element, tagName) {
   }
   return null ;
 } ;
-
+/**
+ * Gets descendants of root, of type tagName, in the list list
+ * Returns the same list if no element is found
+ */
 DOMUtil.prototype.findDescendantsByTag = function(root, tagName, list) {
   var children = root.childNodes ;
   var ln = children.length ;
@@ -119,13 +155,19 @@ DOMUtil.prototype.findDescendantsByTag = function(root, tagName, list) {
     this.findDescendantsByTag(child, tagName, list) ;
   }
 } ;
-
+/**
+ * Gets descendants of root, of type tagName
+ * Returns an empty array if no element is found
+ */
 DOMUtil.prototype.findDescendantsByTagName = function(root, tagName) {
   var list = [] ;
   this.findDescendantsByTag(root, tagName, list) ;
   return list ;
 } ;
-
+/**
+ * Gets the descendants of root, of type elementName and with css class clazz
+ * Returns an empty array if no element is found
+ */
 DOMUtil.prototype.findDescendantsByClass = function(root, elementName, clazz) {
   var elements = root.getElementsByTagName(elementName) ;
   var ln = elements.length ;
@@ -136,7 +178,10 @@ DOMUtil.prototype.findDescendantsByClass = function(root, elementName, clazz) {
   }
   return list ;
 } ;
-
+/**
+ * Gets the first descendant of root, of type elementName, and with css class clazz
+ * Returns null if no element is found
+ */
 DOMUtil.prototype.findFirstDescendantByClass = function(root, elementName, clazz) {
   var elements = root.getElementsByTagName(elementName);
   var ln = elements.length ;	
@@ -145,7 +190,10 @@ DOMUtil.prototype.findFirstDescendantByClass = function(root, elementName, clazz
   }
   return null;
 } ;
-
+/**
+ * Gets the descendant of root identified by id
+ * Returns null if no element is found
+ */
 DOMUtil.prototype.findDescendantById = function(root, id) {
   var elements = root.getElementsByTagName('*') ;
   var ln = elements.length ;
@@ -156,7 +204,9 @@ DOMUtil.prototype.findDescendantById = function(root, id) {
   }
   return null ;
 } ;
-
+/**
+ * Returns true if root has obj as a descendant
+ */
 DOMUtil.prototype.hasDescendant= function(root, obj) {
   var elements =  root.getElementsByTagName("*") ;
   var ln = elements.length ;
@@ -165,7 +215,9 @@ DOMUtil.prototype.hasDescendant= function(root, obj) {
   }
   return false ;
 } ;
-
+/**
+ * Returns true if root has a descendant with css class clazz
+ */
 DOMUtil.prototype.hasDescendantClass = function(root, clazz) {
   var elements =  root.getElementsByTagName("*") ;
   var ln = elements.length ;
@@ -218,7 +270,10 @@ DOMUtil.prototype.generateId = function(objectId) {
 	var time = dateTime.getTime() ;
 	return (objectId + "-" + time) ;
 } ;
-
+/**
+ * Swaps the position of the sibling elements e1 and e2
+ * TODO : needs to be implemented
+ */
 DOMUtil.prototype.swapPosition = function(e1, e2) {
   if (e1.parentNode != e2.parentNode) alert("Report  bug to the admin, cannot swap element position") ; 
   var tmpSwap = document.createElement("div") ;
@@ -279,7 +334,9 @@ DOMUtil.prototype.listHideElements = function(object) {
 		eXo.core.DOMUtil.hideElementList.push(object) ;
 	}
 } ;
-
+/**
+ * Removes element node from the DOM tree
+ */
 DOMUtil.prototype.removeTemporaryElement = function(element) {
 	var parentElement = element.parentNode ;
 	parentElement.removeChild(element) ;

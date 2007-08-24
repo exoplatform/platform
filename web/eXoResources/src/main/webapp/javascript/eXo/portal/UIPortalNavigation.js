@@ -1,11 +1,18 @@
 eXo.require('eXo.webui.UIPopupMenu');
-
+/**
+ * Manages the main navigation menu on the portal
+ */
 function UIPortalNavigation() {
 	this.currentOpenedMenu = null;
 	this.scrollMgr = null;
 	this.scrollManagerLoaded = false;
 };
-
+/**
+ * Sets some parameters :
+ *  . the superClass to eXo.webui.UIPopupMenu
+ *  . the css style classes
+ * and calls the buildMenu function
+ */
 UIPortalNavigation.prototype.init = function(popupMenu, container, x, y) {
 	//var uiNav = eXo.portal.UIPortalNavigation;
 	this.superClass = eXo.webui.UIPopupMenu;
@@ -19,13 +26,26 @@ UIPortalNavigation.prototype.init = function(popupMenu, container, x, y) {
 	
 	this.buildMenu(popupMenu);
 };
-
+/**
+ * Calls the init function when the page loads
+ */
 UIPortalNavigation.prototype.onLoad = function() {
 	var uiNavPortlet = document.getElementById("UINavigationPortlet");
 	var mainContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiNavPortlet, "div", "TabsContainer");
 	eXo.portal.UIPortalNavigation.init(uiNavPortlet, mainContainer, 0, 0);
 };
-
+/**
+ * Builds the menu and the submenus
+ * Configures each menu item :
+ *  . sets onmouseover and onmouseout to call setTabStyle
+ *  . sets the width of the item
+ * Checks if a submenu exists, if yes, set some parameters :
+ *  . sets onclick on the item to call toggleSubMenu
+ *  . sets the width and min-width of the sub menu container
+ * For each sub menu item :
+ *  . set onmouseover to onMenuItemOver and onmouseout to onMenuItemOut
+ *  . adds onclick event if the item contains a link, so a click on this item will call the link
+ */
 UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 	var DOMUtil = eXo.core.DOMUtil;
 	var topContainer = DOMUtil.findFirstDescendantByClass(popupMenu, "div", "TabsContainer");
@@ -71,7 +91,10 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 		cont.resized = false;
 	}
 };
-
+/**
+ * Sets the tab style on mouse over and mouse out
+ * If the mouse goes out of the item but stays on its sub menu, the item remains highlighted
+ */
 UIPortalNavigation.prototype.setTabStyle = function() {
 	var tab = this;
 	var tabChildren = eXo.core.DOMUtil.getChildrenByTagName(tab, "div") ;
@@ -85,7 +108,13 @@ UIPortalNavigation.prototype.setTabStyle = function() {
 		}
 	}
 }
-
+/**
+ * Shows or hides a submenu
+ * Calls hideMenuContainer to hide a submenu.
+ * Hides any other visible sub menu before showing the new one
+ * Sets the width of the submenu (the first time it is shown) to fix a bug in IE
+ * Sets the currentOpenedMenu to the menu being opened
+ */
 UIPortalNavigation.prototype.toggleSubMenu = function(e) {
 	if (!e) e = window.event;
 	e.cancelBubble = true;
@@ -132,7 +161,12 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e) {
 		}
 	}
 };
-
+/**
+ * Adds the currentOpenedMenu to the list of containers to hide
+ * and sets a time out to close them effectively
+ * Sets currentOpenedMenu to null (no menu is opened)
+ * Uses the methods from the superClass (eXo.webui.UIPopupMenu) to perform these operations
+ */
 UIPortalNavigation.prototype.hideMenuContainer = function() {
 	var menuItemContainer = document.getElementById(eXo.portal.UIPortalNavigation.currentOpenedMenu);
 	if (menuItemContainer) {
@@ -143,7 +177,9 @@ UIPortalNavigation.prototype.hideMenuContainer = function() {
 		eXo.portal.UIPortalNavigation.currentOpenedMenu = null;
 	}
 };
-
+/**
+ * Changes the style of the parent button when a submenu has to be hidden
+ */
 UIPortalNavigation.prototype.hideMenu = function() {
 	if (eXo.portal.UIPortalNavigation.currentOpenedMenu) {
 		var currentItemContainer = document.getElementById(eXo.portal.UIPortalNavigation.currentOpenedMenu);
@@ -152,7 +188,11 @@ UIPortalNavigation.prototype.hideMenu = function() {
 	}
 	eXo.portal.UIPortalNavigation.hideMenuContainer();
 };
-
+/**
+ * When the mouse goes over a menu item (in the main nav menu)
+ * Check if this menu item has a sub menu, if yes, opens it
+ * Changes the style of the button
+ */
 UIPortalNavigation.prototype.onMenuItemOver = function(e) {
 	var menuItem = this;
 	var DOMUtil = eXo.core.DOMUtil;
@@ -166,14 +206,19 @@ UIPortalNavigation.prototype.onMenuItemOver = function(e) {
 		eXo.portal.UIPortalNavigation.showMenuItemContainer(menuItem, subContainer) ;
 	}
 };
-
+/**
+ * Shows a sub menu, uses the methods from superClass (eXo.webui.UIPopupMenu)
+ */
 UIPortalNavigation.prototype.showMenuItemContainer = function(menuItem, menuItemContainer) {
 	var x = menuItem.offsetWidth;
 	var y = menuItem.offsetTop;
 	this.superClass.setPosition(menuItemContainer, x, y);
 	this.superClass.show(menuItemContainer);
 };
-
+/**
+ * When the mouse goes out a menu item from the main nav menu
+ * Checks if this item has a sub menu, if yes calls methods from superClass to hide it
+ */
 UIPortalNavigation.prototype.onMenuItemOut = function(e) {
 	var menuItem = this;
 	var item = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.itemOverStyleClass);
@@ -187,6 +232,13 @@ UIPortalNavigation.prototype.onMenuItemOut = function(e) {
 };
 
 /***** Scroll Management *****/
+/**
+ * Function called to load the scroll manager that will manage the tabs in the main nav menu
+ *  . Creates the scroll manager with id PortalNavigationTopContainer
+ *  . Adds the tabs to the scroll manager
+ *  . Configures the arrows
+ *  . Calls the initScroll function
+ */
 UIPortalNavigation.prototype.loadScroll = function(e) {
 	var uiNav = eXo.portal.UIPortalNavigation;
 	var portalNav = document.getElementById("PortalNavigationTopContainer");
@@ -211,7 +263,12 @@ UIPortalNavigation.prototype.loadScroll = function(e) {
 		uiNav.initScroll();
 	}
 };
-
+/**
+ * Init function for the scroll manager
+ *  . Calls the init function of the scroll manager
+ *  . Calculates the available space to render the tabs
+ *  . Renders the tabs
+ */
 UIPortalNavigation.prototype.initScroll = function(e) {
 	if (!eXo.portal.UIPortalNavigation.scrollManagerLoaded) eXo.portal.UIPortalNavigation.loadScroll();
 	var scrollMgr = eXo.portal.UIPortalNavigation.scrollMgr;
@@ -220,7 +277,10 @@ UIPortalNavigation.prototype.initScroll = function(e) {
 	scrollMgr.checkAvailableSpace();
 	scrollMgr.renderElements();
 };
-
+/**
+ * A callback function to call after a scroll event occurs (and the elements are rendered)
+ * Is empty so far.
+ */
 UIPortalNavigation.prototype.scrollCallback = function() {
 };
 /***** Scroll Management *****/

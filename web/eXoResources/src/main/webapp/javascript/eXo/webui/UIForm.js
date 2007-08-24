@@ -1,5 +1,7 @@
 eXo.require('eXo.webui.UIItemSelector');
-
+/**
+ * Manages a form component
+ */
 function UIForm() {
 };
 
@@ -27,6 +29,10 @@ UIForm.prototype.onFixSize = function() {
 */
 
 /*ie bug  you cannot have more than one button tag*/
+/**
+ * A function that submits the form identified by formId, with the specified action
+ * If useAjax is true, calls the ajaxPost function from PortalHttpRequest, with the given callback function
+ */
 UIForm.prototype.submitForm = function(formId, action, useAjax, callback) {
 	if (!callback) callback = null;
   var form = document.getElementById(formId) ;
@@ -36,6 +42,10 @@ UIForm.prototype.submitForm = function(formId, action, useAjax, callback) {
 } ;
 
 /*ie bug  you cannot have more than one button tag*/
+/**
+ * Submits a form by Ajax, with the given action and the given parameters
+ * Calls ajaxPost of PortalHttpRequest
+ */
 UIForm.prototype.submitEvent = function(formId, action, params) {
   var form = document.getElementById(formId) ;
   form.elements['formOp'].value = action ; 
@@ -52,7 +62,9 @@ UIForm.prototype.selectBoxOnChange = function(formId, elemt) {
 	}
 	tabs[elemt.selectedIndex].style.display = "block";
 } ;
-
+/**
+ * Sets the value (hiddenValue) of a hidden field (typeId) in the form (formId)
+ */
 UIForm.prototype.setHiddenValue = function(formId, typeId, hiddenValue) {
   var form = document.getElementById(formId) ;
   if(form == null){
@@ -61,7 +73,16 @@ UIForm.prototype.setHiddenValue = function(formId, typeId, hiddenValue) {
   }
   form.elements[typeId].value = hiddenValue;  
 } ;
-
+/**
+ * Returns a string that contains all the values of the elements of a form (formElement) in this format
+ *  . fieldName=value
+ * The result is a string like this : abc=def&ghi=jkl...
+ * The values are encoded to be used in an URL
+ * Only serializes the elements of type :
+ *  . text, hidden, password, textarea
+ *  . checkbox and radio if they are checked
+ *  . select-one if one option is selected
+ */
 UIForm.prototype.serializeForm = function (formElement) {
 	//TODO: TrongTT -> Solve the temporary problem about WYSIWYG Editor
 	try{eXo.ecm.ExoEditor.saveHandler();} catch(err) {}

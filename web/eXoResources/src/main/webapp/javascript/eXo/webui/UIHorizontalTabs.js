@@ -1,3 +1,7 @@
+/**
+ * A class to manage horizontal tabs
+ * TODO : could be a good thing to implement a scroll manager directly in this class
+ */
 function UIHorizontalTabs() {
   this.backupNavigationTabStyle;
   this.backupItemStyle ;
@@ -5,7 +9,12 @@ function UIHorizontalTabs() {
 
 UIHorizontalTabs.prototype.init = function() {
 } ;
-
+/**
+ * Changes the style of a tab, depending on the over value (true or false)
+ * Gives the defaut css style class names
+ *  . UITab when tab is NOT highlighted
+ *  . HighlightNavigationTab when tab is highlighted
+ */
 UIHorizontalTabs.prototype.changeTabNavigationStyle = function(clickedEle, over) {
 	if(clickedEle == null) return;
 	if (clickedEle.className != "UITab") clickedEle = eXo.core.DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
@@ -18,7 +27,11 @@ UIHorizontalTabs.prototype.changeTabNavigationStyle = function(clickedEle, over)
 		tabStyle.className = this.backupNavigationTabStyle ;
 	}
 }
-
+/**
+ * Changes the css style of an item on mouse over / out with the values :
+ *  . MenuItem when item is NOT highlighted
+ *  . MenuItemSelected when item is highlighted
+ */
 UIHorizontalTabs.prototype.itemOver = function(selectedElement, over) {
 	if(over) {
 		this.backupItemStyle = selectedElement.className ;
@@ -31,11 +44,18 @@ UIHorizontalTabs.prototype.itemOver = function(selectedElement, over) {
 		selectedElement.className = this.backupItemStyle ;
 	}
 };
-
+/**
+ * Calls changeTabForUITabPane to display tab content
+ */
 UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
 	this.changeTabForUITabPane(clickedEle, null, null) ;
 };
-
+/**
+ * Gets the tab element and the tab content associated and displays them
+ *  . changes the style of the tab
+ *  . displays the tab content of the selected tab (display: block)
+ * if paneId and tabId are provided, can get the tab content by Ajax
+ */
 UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, tabId) {
     var DOMUtil = eXo.core.DOMUtil;
   var uiSelectTab = DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
@@ -67,7 +87,9 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, 
 
 };
 
-
+/**
+ * 
+ */
 UIHorizontalTabs.prototype.changeTabForUIFormTabpane = function(clickedElemt, formId, hiddenValue) {
 	this.displayTabContent(clickedElemt) ;
 	eXo.webui.UIForm.setHiddenValue(formId, 'currentSelectedTab', hiddenValue) ;

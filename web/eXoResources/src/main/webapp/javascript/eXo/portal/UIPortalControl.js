@@ -101,16 +101,16 @@ UIPortalControl.prototype.onEnterPress = function(e) {
  */
 function ScrollManager() {
 	this.id = null;
-	this.elements = new Array();
-	this.firstVisibleIndex = 0;
-	this.lastVisibleIndex = -1;
+	this.elements = new Array(); // the array containing the elements
+	this.firstVisibleIndex = 0; // the index in the array of the first visible element
+	this.lastVisibleIndex = -1; // the index in the array of the last visible element
 	this.otherHiddenElements = new Array(); // an array containing the elements hidden
 	this.axis = 0; // horizontal scroll : 0 , vertical scroll : 1
 	this.currDirection = null; // the direction of the current scroll; left or up scroll : 0, right or down scroll : 1
 	this.callback = null; // callback function when a scroll is done
 	this.initFunction = null; // the init function in the files that use this class
-	this.leftArrow = null;
-	this.rightArrow = null;
+	this.leftArrow = null; // the left arrow dom node
+	this.rightArrow = null; // the right arrow dom node
 	this.mainContainer = null; // The HTML DOM element that contains the tabs, the arrows, etc
 	this.arrowsContainer = null // The HTML DOM element that contains the arrows
 	this.margin = 3;	//	a number of pixels to adapt to your tabs, used to calculate the max space available
@@ -123,14 +123,15 @@ function ScrollManager() {
 ScrollManager.prototype.initArrowButton = function(arrow, dir, normalClass, overClass, disabledClass) {
 	if (arrow) {
 		arrow.direction = dir; // "left" or "right" (up or down)
-		arrow.overClass = overClass;
-		arrow.disabledClass = disabledClass;
-		arrow.styleClass = normalClass;
-		arrow.scrollMgr = this;
+		arrow.overClass = overClass; // the css class for mouse over event
+		arrow.disabledClass = disabledClass; // the css class for a disabled arrow
+		arrow.styleClass = normalClass; // the css class for an enabled arrow, in the normal state
+		arrow.scrollMgr = this; // an easy access to the scroll manager
 		arrow.onmouseover = this.mouseOverArrow;
 		arrow.onmouseout = this.mouseOutArrow;
-		arrow.arrowClick = this.scroll;
-		arrow.onclick = arrow.arrowClick;
+//		arrow.arrowClick = this.scroll;
+//		arrow.onclick = arrow.arrowClick;
+		arrow.onclick = this.scroll;
 		if (dir == "left") this.leftArrow = arrow;
 		else if (dir == "right") this.rightArrow = arrow;
 	}
@@ -144,10 +145,14 @@ ScrollManager.prototype.enableArrow = function(arrow, enabled) {
 		arrow.onclick = null;
 	} else if (arrow && enabled) { // enables the arrow
 		arrow.className = arrow.styleClass;
-		arrow.onclick = arrow.arrowClick;
+//		arrow.onclick = arrow.arrowClick;
+		arrow.onclick = this.scroll;
 	}
 };
-
+/**
+ * Sets the mouse over css style of the arrow (this)
+ * only if it is enabled
+ */
 ScrollManager.prototype.mouseOverArrow = function(e) {
 	var arrow = this;
 	if (arrow.onclick && arrow.className == arrow.styleClass) {
@@ -156,7 +161,10 @@ ScrollManager.prototype.mouseOverArrow = function(e) {
 		if (arrow == eXo.core.Browser.getEventSource(e)) arrow.className = arrow.overClass;
 	}
 };
-
+/**
+ * Sets the mouse out css style of the arrow (this)
+ * only if it is enabled
+ */
 ScrollManager.prototype.mouseOutArrow = function(e) {
 	var arrow = this;
 	if (arrow.onclick && arrow.className == arrow.overClass) {
@@ -164,7 +172,9 @@ ScrollManager.prototype.mouseOutArrow = function(e) {
 		arrow.className = arrow.styleClass;
 	}
 };
-
+/**
+ * Initializes the scroll manager, with some default parameters
+ */
 ScrollManager.prototype.init = function() {
 	this.firstVisibleIndex = 0;
 	this.lastVisibleIndex = -1;
@@ -177,18 +187,23 @@ ScrollManager.prototype.init = function() {
 };
 /**
  * Loads the tabs in the scroll manager, depending on their css class
- * Is clean is true, calls cleanElements to remove the space property of each elements
+ * If clean is true, calls cleanElements to remove the space property of each element
  */
 ScrollManager.prototype.loadElements = function(elementClass, clean) {
 	if (clean) this.cleanElements();
 	this.elements.clear();
 	this.elements.pushAll(eXo.core.DOMUtil.findDescendantsByClass(this.mainContainer, "div", elementClass));
 };
-
+/**
+ * Calculates the available space for the elements, and inits the elements array like this :
+ *  . maxSpace = space of mainContainer - space of arrowsContainer - a margin
+ *  . browses the elements and add their space to elementsSpace, for each element compares elementsSpace with maxSpace
+ *  . if elementsSpace le maxSpace : the current element is set visible, and its index becomes the lastVisibleIndex
+ *  . if elementsSpace gt maxSpace : the current element is set hidden (isVisible = false)
+ * At the end, each visible element has an isVisible property set to true, the other elements are set to false,
+ * the firstVisibleIndex is 0, the lastVisibleIndex is the last element with isVisible to true
+ */
 ScrollManager.prototype.checkAvailableSpace = function(maxSpace) { // in pixels
- /*
-  * Calculates the available space for the elements, and inits the elements array
-  */
 	if (!maxSpace) maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.margin;
 	var elementsSpace = 0;
 	for (var i = 0; i < this.elements.length; i++) {
@@ -201,7 +216,11 @@ ScrollManager.prototype.checkAvailableSpace = function(maxSpace) { // in pixels
 		}
 	}
 };
-
+/**
+ * Calculates the space of the elements between indexStart and indexEnd
+ * If these parameters are null, calculates the space for all the elements of the array
+ * Uses the getElementSpace function
+ */
 ScrollManager.prototype.getElementsSpace = function(indexStart, indexEnd) {
 	if (indexStart == null && indexEnd == null) {
 		indexStart = 0 ;
@@ -215,7 +234,17 @@ ScrollManager.prototype.getElementsSpace = function(indexStart, indexEnd) {
 	}
 	return elementsSpace;
 };
-
+/**
+ * Calculates the space of the element passed in parameter
+ * The calcul uses : (horizontal tabs | vertical tabs)
+ *  . offsetWidth | offsetHeight
+ *  . marginLeft and marginRight | marginTop and marginBottom
+ *  . the space of the decorator associated with this element, if any
+ * If the element is not rendered (display none), renders it, makes the calcul, and hides it again
+ * The value of the space is stored in a property space of the element. In the function is called on
+ * the same element again, this value is returned directly to avoid another calcul
+ * To remove this value, use the cleanElements function, or set space to null manually
+ */
 ScrollManager.prototype.getElementSpace = function(element) {
 	if (element && element.space) { return element.space; }
 	var elementSpace = 0;
@@ -243,19 +272,24 @@ ScrollManager.prototype.getElementSpace = function(element) {
 	}
 	return elementSpace;
 };
-
+/**
+ * Clean the elements of the array : set the space property to null
+ */
 ScrollManager.prototype.cleanElements = function() {
 	for (var i = 0; i < this.elements.length; i++) {
 		this.elements[i].space = null;
 		if (this.elements[i].decorator) this.elements[i].decorator.space = null;
 	}
 };
-
+/**
+ * Function called when an arrow is clicked. Shows an additionnal element and calls the 
+ * appropriate scroll function (left or right). Works like this :
+ *  . shows the otherHiddenElements again
+ *  . moves the firstVisibleIndex or lastVisibleIndex to the new index
+ *  . clear the otherHiddenElements array
+ *  . calls the appropriate scroll function (left or right)
+ */
 ScrollManager.prototype.scroll = function(e) {
-	/*
-	 * Function called when an arrow is clicked. Shows an additionnal element and calls the 
-	 * appropriate scroll function (left or right)
-	 */
 	if (!e) e = window.event;
 	e.cancelBubble = true;
 	var src = eXo.core.Browser.getEventSource(e);
@@ -274,7 +308,14 @@ ScrollManager.prototype.scroll = function(e) {
 	}
 	return false;
 };
-
+/**
+ * Scrolls left (or up) :
+ *  . sets the current last visible element hidden
+ *  . decrements lastVisibleIndex
+ *  . decrements firstVisibleIndex
+ *  . set the new first visible element to visible
+ * Simulates a move to the left of the tabs
+ */
 ScrollManager.prototype.scrollLeft = function() { // Same for scrollUp
 	if (this.firstVisibleIndex > 0) {
 		this.currDirection = 0;
@@ -289,7 +330,14 @@ ScrollManager.prototype.scrollLeft = function() { // Same for scrollUp
 ScrollManager.prototype.scrollUp = function() {
 	if (this.scrollMgr) this.scrollMgr.scrollLeft();
 };
-
+/**
+ * Scrolls right (or down) :
+ *  . sets the current first visible element hidden
+ *  . increments firstVisibleIndex
+ *  . increments lastVisibleIndex
+ *  . set the new last visible element to visible
+ * Simulates a move to the right of the tabs
+ */
 ScrollManager.prototype.scrollRight = function() { // Same for scrollDown
 	if (this.lastVisibleIndex < this.elements.length-1) {
 		this.currDirection = 1;
@@ -304,20 +352,18 @@ ScrollManager.prototype.scrollRight = function() { // Same for scrollDown
 ScrollManager.prototype.scrollDown = function() {
 	if (this.scrollMgr) this.scrollMgr.scrollRight();
 };
-	/*
-	 * Called by a scroll function. Renders the visible elements depending on the elements array
-	 * If the new visible elements are too big, hides an additional element and keep its index in otherHiddenIndex
-	 *
-	 * Each time a scroll event occurs, at least one element is hidden, and one is shown. These elements can have
-	 * a different width, hence the total width of the tabs changes. This is why we have to check if the
-	 * new width is short enough so the arrows buttons are still well rendered. To do that, we add the elements
-	 * width to each other, and we compare this width (elementsSpace) to the container width (maxSpace). If the
-	 * total width is too large (with a margin), we have to hide another tab.
-	 * PS: for vertical tabs, replace width by height.
-	 */
+/**
+ * Called by a scroll function. Renders the visible elements depending on the elements array
+ * If the new visible element is too big, hides additional element(s) and keep its(their) index(es) in otherHiddenElements
+ *
+ * Each time a scroll event occurs, at least one element is hidden, and one is shown. These elements can have
+ * a different width, hence the total width of the tabs changes. This is why we have to check if the
+ * new width is short enough so the arrows buttons are still well rendered. To do that, we remove each element
+ * width to the total width (delta). If the delta is negative, we have to hide the following visible tabs (hideElements).
+ * PS: for vertical tabs, replace width by height above.
+ */
 ScrollManager.prototype.renderElements = function() {
-	var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.margin;
-	var delta = maxSpace;
+	var delta = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.margin;
 	// Displays the elements
 	for (var i = 0; i < this.elements.length; i++) {
 		if (this.elements[i].isVisible) { // if the element should be rendered...
@@ -337,7 +383,16 @@ ScrollManager.prototype.renderElements = function() {
 	
 	if (typeof(this.callback) == "function") this.callback();
 };
-
+/**
+ * Called if the delta is negative, during a scroll event
+ * Depending on the current scroll direction, hides the opposite visible elements so the other tabs
+ * and the arrows are well rendered.
+ * e.g. a scroll right event occurs :
+ *  . a tab on the left is hidden, a tab on the right is show
+ *  . the new tab is too large and doesn't fit in the available space (delta is negative)
+ *  . elements (one or more) on the left are hidden until the new tab has enough space to be well rendered
+ *  . these elements are stored in otherHiddenElements array to be shown again on the next scroll event
+ */
 ScrollManager.prototype.hideElements = function(delta) {
 	// by default, we scroll left/up
 	var incr = -1;
@@ -356,7 +411,9 @@ ScrollManager.prototype.hideElements = function(delta) {
 		index += incr;
 	}
 };
-
+/**
+ * Renders the arrows. If we reach the end of the tabs, this end arrow is disabled
+ */
 ScrollManager.prototype.renderArrows = function() {
 	// Enables/Disables the arrow buttons depending on the elements to show
 	if (this.firstVisibleIndex == 0) this.enableArrow(this.leftArrow, false);
@@ -365,24 +422,29 @@ ScrollManager.prototype.renderArrows = function() {
 	if (this.lastVisibleIndex == this.elements.length-1) this.enableArrow(this.rightArrow, false);
 	else this.enableArrow(this.rightArrow, true);
 };
-
+/**
+ * Called whenever the scroll managers present on the current page need to be re-calculated
+ * e.g. when the workspace control is opened/closed, when a popup window is resized, etc
+ * Inits only the scroll managers that manage tabs that appears on the current page
+ */
 UIPortalControl.prototype.initAllManagers = function() {
-	/*
-	 * Called whenever the scroll managers present on the current page need to be re-calculated
-	 * e.g. when the workspace control is opened/closed, when a popup window is resized, etc
-	 * Inits only the scroll managers that manage tabs that appears on the current page
-	 */
 	var managers = eXo.portal.UIPortalControl.scrollManagers;
 	for (var i = 0; i < managers.length; i++) {
 		var mgrContainer = document.getElementById(managers[i].id);
 		var mgrParent = eXo.core.DOMUtil.findAncestorByClass(mgrContainer, "UIWindow");
 		var toInit = (mgrContainer !== null) 														// if the tabs exist on the page
+							// in desktop mode, checks that the UIWindow containing the tabs is visible (display block)
 							&& (mgrParent === null || (mgrParent !== null && mgrParent.style.display == "block"))
 							&& (typeof(managers[i].initFunction) == "function");  // if the initFunction is defined
 		if (toInit) { managers[i].initFunction(); }
 	}
 };
-
+/**
+ * Creates a new scroll manager with the given id (id is mandatory)
+ * At the creation of the first scroll manager, sets the initAllManagers to be called onResize
+ * The id must be the one of the portlet, because it is used by initAllManagers to find the scroll
+ * managers that exists on the page
+ */
 UIPortalControl.prototype.newScrollManager = function(id_) {
 	if (eXo.portal.UIPortalControl.scrollManagers.length == 0) {
 		eXo.core.Browser.addOnResizeCallback("initAllManagers", eXo.portal.UIPortalControl.initAllManagers);
@@ -393,7 +455,7 @@ UIPortalControl.prototype.newScrollManager = function(id_) {
 		eXo.portal.UIPortalControl.scrollManagers.push(tmpMgr);
 		return tmpMgr;
 	} else {
-		alert('id needed !!');
+		alert('You must set an id to the new scroll manager !!');
 		return null;
 	}
 };

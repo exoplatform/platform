@@ -45,7 +45,7 @@ MouseObject.prototype.update = function(mouseEvent) {
 
 /************************************************************************************/
 
-/*
+/**
 * This function aims is to configure the javascript environment according to the browser in use
 *
 * Common configuration are made first, then we detect the current browser and according to the one 
