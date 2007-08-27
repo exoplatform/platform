@@ -18,25 +18,22 @@ UIUpload.prototype.initUploadEntry = function(uploadId) {
 	} else if(response.upload[uploadId].percent == 100)  {
 		this.showUploaded(uploadId, response.upload[uploadId].fileName);
 	} 
-} 
+};
 
 UIUpload.prototype.createUploadEntry = function(uploadId) {
   var iframe = document.getElementById(uploadId+'uploadFrame');
-  //  TODO DungHM: review solution that fixed "lack of background" bug ;
-//	var horizontalLayout = eXo.core.DOMUtil.findAncestorByClass(iframe.parentNode, "HorizontalLayout") ;
-	var backgroundColor = "";//(horizontalLayout.currentStyle) ? horizontalLayout.currentStyle["backgroundColor"]:"" ;
-	var backgroundImage = "" ;//(horizontalLayout.currentStyle) ? horizontalLayout.currentStyle["backgroundImage"]:"" ;
   var idoc = iframe.contentWindow.document ;
   var uploadAction = eXo.env.server.context + "/command?" ;
   uploadAction += "type=org.exoplatform.web.command.handler.UploadHandler";
   uploadAction += "&uploadId=" + uploadId+"&action=upload" ;
-//  var uploadAction = eXo.env.server.context + "/upload?uploadId=" + uploadId+"&action=upload" ;
   idoc.open();
+	idoc.write("<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>");
+  idoc.write("<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>");
   idoc.write("<head>");
   idoc.write("<link rel='stylesheet' type='text/css' href= '/eXoResources/skin/DefaultSkin/webui/component/UIUpload/Stylesheet.css' />");
   idoc.write("<script type='text/javascript'>var eXo = parent.eXo</script>");
   idoc.write("</head>");
-  idoc.write("<body style='margin: 0px; border: 0px; background: none; background-image:"+backgroundImage+"'>");
+  idoc.write("<body style='margin: 0px; border: 0px;'>");
   idoc.write("  <form id='"+uploadId+"' class='UIUploadForm' style='margin: 0px; padding: 0px' action='"+uploadAction+"' enctype='multipart/form-data' method='post'>");
   idoc.write("    <input type='file' name='file' id='file' value=''/>");
   idoc.write("    <img class='UploadButton' onclick='eXo.webui.UIUpload.upload(this, "+uploadId+")' src='/eXoResources/skin/sharedImages/Blank.gif'/>");
@@ -44,6 +41,7 @@ UIUpload.prototype.createUploadEntry = function(uploadId) {
   idoc.write("</body>");
   idoc.close();
 };
+
 
 UIUpload.prototype.refeshProgress = function(elementId) {
   var list =  eXo.webui.UIUpload.listUpload;
