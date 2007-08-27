@@ -22,9 +22,7 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
+ * Created by The eXo Platform SAS
  * Mar 21, 2007  
  */
 public abstract class UIPageWizard extends UIWizard {

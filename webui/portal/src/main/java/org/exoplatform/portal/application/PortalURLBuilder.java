@@ -11,9 +11,7 @@ import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.core.UIComponent;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
+ * Created by The eXo Platform SAS
  * Apr 3, 2007  
  */
 public class PortalURLBuilder extends URLBuilder<UIComponent> {

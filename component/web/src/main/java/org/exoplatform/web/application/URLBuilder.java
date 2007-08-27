@@ -8,9 +8,7 @@ import java.net.URLEncoder;
 
 
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan.nguyen@exoplatform.com
+ * Created by The eXo Platform SAS
  * Mar 29, 2007  
  */
 abstract public class URLBuilder<T> {

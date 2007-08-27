@@ -1,6 +1,8 @@
 package org.exoplatform.webui.application.portlet;
 
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.portlet.PortletMode;
 import javax.portlet.PortletRequest;
@@ -11,9 +13,10 @@ import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.lifecycle.HtmlValidator;
 /**
- * The reques context of a portlet
+ * The request context of a portlet
  *
  */
 public class PortletRequestContext extends WebuiRequestContext {
@@ -116,6 +119,21 @@ public class PortletRequestContext extends WebuiRequestContext {
     urlBuilder.setBaseURL(renderRes.createActionURL().toString());
     return urlBuilder ;
   }
+  
+  /**
+   * Puts the component to update inside the parent request context
+   * 
+   * Here it will be the PortalRequestHandler and hence it will be responsible of
+   * making the distinction between 3rd parties portlets (that need a full portlet fragment refresh)
+   *  and our portlets that also allow some UIComponent within the portlet to be refreshed
+   */
+//  public void addUIComponentToUpdateByAjax(UIComponent uicomponent) {   
+//	((WebuiRequestContext)getParentAppRequestContext()).addUIComponentToUpdateByAjax(uicomponent);
+//  }  
+//  
+//  public List<UIComponent>  getUIComponentToUpdateByAjax() {  
+//	return ((WebuiRequestContext)getParentAppRequestContext()).getUIComponentToUpdateByAjax() ;
+//  }
   
   public String getWindowId() {
     return windowId_;

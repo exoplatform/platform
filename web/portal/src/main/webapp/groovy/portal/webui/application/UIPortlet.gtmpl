@@ -20,6 +20,8 @@
   WindowState windowState = uicomponent.getCurrentWindowState();  
   boolean isWindow = "Window".equals(uicomponent.getPortletStyle());  
   
+  
+  
   if(!isWindow) {
   
 %>

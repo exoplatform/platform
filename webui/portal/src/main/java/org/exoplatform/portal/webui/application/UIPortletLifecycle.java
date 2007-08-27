@@ -37,7 +37,21 @@ public class UIPortletLifecycle extends Lifecycle {
   
   protected static Log log = ExoLogger.getLogger("portal:UIPortletLifecycle"); 
   
-  
+  /**
+   *  This processAction method associated with the portlet UI component does the following
+   *  work:
+   *  
+   *  1) If the current request is one that target the portal than an event targeting a Portal level
+   *     ActionListener is sent. This case happen when the incoming request contains the parameter
+   *     PortalRequestContext.UI_COMPONENT_ACTION (portal:action). When the event is broadcasted
+   *     the methods is over
+   *  2) In other cases, the request targets the portlet either to
+   *       a) change the portlet mode
+   *       b) change the window state
+   *       c) make a processAction() or render() call to the portlet container (Portlet API methods here)   
+   *     In those 3 cases, dedicated events are created and broadcasted and the portlet is added in the 
+   *     list of components to update within the AJAX call  
+   */
   public void processAction(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
     String action =  context.getRequestParameter(PortalRequestContext.UI_COMPONENT_ACTION) ;
     if(action != null) {
@@ -60,6 +74,12 @@ public class UIPortletLifecycle extends Lifecycle {
       addUpdateComponent = true ;
     }
     
+    /*
+     * Check the type of the incoming request, can be either an ActionURL or a RenderURL one
+     * 
+     * In case of a RenderURL, the parameter state map must be invalidated and ths is done
+     * in the associated ActionListener
+     */
     String portletActionType = context.getRequestParameter("portal:type");
     if (portletActionType != null ) {
       if (portletActionType.equals("action")) {
@@ -74,6 +94,16 @@ public class UIPortletLifecycle extends Lifecycle {
     if(addUpdateComponent) context.addUIComponentToUpdateByAjax(uicomponent) ;
   }
   
+  /**
+   * This methods of the Lifecycle writes into the output writer the content of the portlet
+   * 
+   * 1) Create a RenderInput object and fill it with all the Request information
+   * 2) Call the portletContainer.render() method of the Portlet Container to get the 
+   *    HTML generated fragment
+   * 3) Then if the current request is an AJAX one, just write in the buffer the content returned
+   *    by the portlet container 
+   * 4) If not AJAX, then merge the content with the UIPortlet.gtmpl
+   */
   public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {    
     UIPortlet  uiPortlet =  (UIPortlet)  uicomponent ;
     PortalRequestContext prcontext = (PortalRequestContext) context ;
@@ -118,6 +148,7 @@ public class UIPortletLifecycle extends Lifecycle {
     if(portletTitle == null ) portletTitle = "Portlet" ;
     
     if(context.useAjax() && !uiPortlet.isShowEditControl() && !prcontext.getFullRender()) {
+      //TODO wrap that in a block to update??
       context.getWriter().write(portletContent.toString()) ;
     } else {
       WebuiApplication app = (WebuiApplication)context.getApplication() ;

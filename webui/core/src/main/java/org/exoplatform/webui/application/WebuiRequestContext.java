@@ -71,8 +71,6 @@ abstract public class WebuiRequestContext extends RequestContext {
   
   public Throwable  getExecutionError()  { return executionError_ ; }
   
-  public List<UIComponent>  getUIComponentToUpdateByAjax() {  return uicomponentToUpdateByAjax ; }
-  
   public boolean isResponseComplete() { return responseComplete_ ;}
   
   public void    setResponseComplete(boolean b) { responseComplete_ = b ; }
@@ -80,6 +78,8 @@ abstract public class WebuiRequestContext extends RequestContext {
   public boolean getProcessRender() { return processRender_ ;}
   
   public void    setProcessRender(boolean b) { processRender_ = b; }
+
+  public List<UIComponent>  getUIComponentToUpdateByAjax() {  return uicomponentToUpdateByAjax ; }
   
   public void addUIComponentToUpdateByAjax(UIComponent uicomponent) {   
     if(uicomponentToUpdateByAjax == null) {

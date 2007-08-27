@@ -182,6 +182,9 @@ DOMUtil.prototype.findDescendantsByClass = function(root, elementName, clazz) {
  * Gets the first descendant of root, of type elementName, and with css class clazz
  * Returns null if no element is found
  */
+/*
+* This methods returns the first DOM element which has the clazz type 
+*/
 DOMUtil.prototype.findFirstDescendantByClass = function(root, elementName, clazz) {
   var elements = root.getElementsByTagName(elementName);
   var ln = elements.length ;	

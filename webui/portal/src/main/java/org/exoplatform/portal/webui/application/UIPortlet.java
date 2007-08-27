@@ -5,27 +5,43 @@
 package org.exoplatform.portal.webui.application;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.portlet.PortletMode;
 import javax.portlet.WindowState;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.namespace.QName;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.Constants;
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ChangePortletModeActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ChangeWindowStateActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.EditPortletActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ProcessActionActionListener;
+import org.exoplatform.portal.webui.application.UIPortletActionListener.ProcessEventsActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.RenderActionListener;
+import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.DeleteComponentActionListener;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
+import org.exoplatform.services.portletcontainer.pci.EventInput;
+import org.exoplatform.services.portletcontainer.pci.EventOutput;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.services.portletcontainer.pci.model.Supports;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.services.portletcontainer.plugins.pc.event.EventImpl;
 
 /**
  * May 19, 2006
@@ -39,12 +55,13 @@ import org.exoplatform.webui.event.Event.Phase;
       @EventConfig(listeners = ChangeWindowStateActionListener.class),
       @EventConfig(listeners = DeleteComponentActionListener.class, confirm = "UIPortlet.deletePortlet"),
       @EventConfig(listeners = EditPortletActionListener.class),
-      @EventConfig(phase = Phase.PROCESS, listeners = ProcessActionActionListener.class)
+      @EventConfig(phase = Phase.PROCESS, listeners = ProcessActionActionListener.class),
+      @EventConfig(phase = Phase.PROCESS, listeners = ProcessEventsActionListener.class)      
     }    
 )
 public class UIPortlet extends UIApplication { 
   
-  protected static Log log = ExoLogger.getLogger("portal:UIApplication"); 
+  protected static Log log = ExoLogger.getLogger("portal:UIPortlet"); 
   
   private String windowId ;
   private String portletStyle ;
@@ -57,6 +74,8 @@ public class UIPortlet extends UIApplication {
   private WindowState currentWindowState_ = WindowState.NORMAL;  
   
   private List<String> supportModes_ ;
+
+  private List supportedProcessingEvents_;
   
   public String getId()  { return exoWindowId_.getUniqueID() ; }
   
@@ -86,7 +105,7 @@ public class UIPortlet extends UIApplication {
   public  List<String> getSupportModes() { 
     if (supportModes_ != null) return supportModes_;
     PortletContainerService portletContainer =  getApplicationComponent(PortletContainerService.class);
-    String  portletId = exoWindowId_.getPortletApplicationName() + "/" + exoWindowId_.getPortletName();   
+    String  portletId = exoWindowId_.getPortletApplicationName() + Constants.PORTLET_META_DATA_ENCODER + exoWindowId_.getPortletName();   
     PortletData portletData = (PortletData) portletContainer.getAllPortletMetaData().get(portletId);
     if(portletData == null) return null;
     List supportsList = portletData.getSupports() ;
@@ -115,5 +134,70 @@ public class UIPortlet extends UIApplication {
     return supportModes;
   }
   public void setSupportModes(List<String> supportModes) { supportModes_ = supportModes; }
+
+  
+  /**
+   * Tells, according to the info located in portlet.xml, wether this portlet can handle
+   * a portlet event with the QName given as the method argument
+   */
+  public boolean supportsProcessingEvent(QName name) {
+	if(supportedProcessingEvents_ == null) {
+      PortletContainerService portletContainer =  getApplicationComponent(PortletContainerService.class);
+      String  portletId = exoWindowId_.getPortletApplicationName() + Constants.PORTLET_META_DATA_ENCODER + exoWindowId_.getPortletName();   
+      PortletData portletData = (PortletData) portletContainer.getAllPortletMetaData().get(portletId);
+      supportedProcessingEvents_ = portletData.getSupportedProcessingEvent();
+	}
+	if(supportedProcessingEvents_ == null) return false;
+	for (Iterator iter = supportedProcessingEvents_.iterator(); iter.hasNext();) {
+	  QName eventName = (QName) iter.next();
+	  if(eventName.equals(name)) {
+		log.info("The Portlet " + windowId + " supports the event : " + name);
+		return true;
+	  }
+	}
+	return false;
+  }
+  
+  public void setSupportedProcessingEvents(List supportedProcessingEvents) {
+	supportedProcessingEvents_ = supportedProcessingEvents;
+  }
+  public List getSupportedProcessingEvents() {
+	return supportedProcessingEvents_;
+  }
+
+  /**
+   * This method is called when the javax.portlet.Event is supported by the current portlet
+   * stored in the Portlet Caontainer
+   * 
+   * The processEvent() method can also generates IPC events and hence the portal itself will
+   * call the ProcessEventsActionListener once again
+   */
+  public Map processEvent(QName eventName, Object eventValue) {
+	log.info("Process Event: " + eventName + " for portlet: " + windowId);
+    try {
+  	  PortletContainerService service =  getApplicationComponent(PortletContainerService.class);
+   	  PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
+      EventInput input = new EventInput();
+      String baseUrl = new StringBuilder(context.getNodeURI()).append("?" + PortalRequestContext.UI_COMPONENT_ID).append(
+      	"=").append(this.getId()).toString()  ;
+      input.setBaseURL(baseUrl);  
+      UIPortal uiPortal = Util.getUIPortal();
+      OrganizationService organizationService = getApplicationComponent(OrganizationService.class);
+      UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(uiPortal.getOwner()) ;    
+      if(userProfile != null) input.setUserAttributes(userProfile.getUserInfoMap()) ;
+      else input.setUserAttributes(new HashMap());
+      input.setPortletMode(getCurrentPortletMode());
+      input.setWindowState(getCurrentWindowState());
+      input.setWindowID(getExoWindowID());    
+      input.setMarkup("text/html");
+      input.setEvent(new EventImpl(eventName, eventValue));  
+	  EventOutput output = service.processEvent((HttpServletRequest)context.getRequest(), 
+		  (HttpServletResponse) context.getResponse(), input);
+	  return output.getEvents();
+	} catch (Exception e) {
+	  log.error("Problem while processesing event for the portlet: " + windowId, e);
+	}
+	return null;
+  }
   
 }

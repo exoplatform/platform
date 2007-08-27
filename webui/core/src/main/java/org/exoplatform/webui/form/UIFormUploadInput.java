@@ -16,9 +16,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan08@users.sourceforge.net
+ * Created by The eXo Platform SAS
  * Jun 6, 2006
  * 
  * Represents an upload form

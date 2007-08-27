@@ -9,10 +9,6 @@ import java.util.List;
 import org.exoplatform.webui.form.UIForm;
 
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
- * Jun 29, 2006
- * 
  * A component that represents a wizard
  */
 abstract public class UIWizard  extends UIContainer { 

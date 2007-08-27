@@ -268,19 +268,42 @@ public class UIPortalApplication extends UIApplication {
       w.write("<div class=\"PortalResponse\">") ;
       if(!context.getFullRender()) {
         for(UIPortlet uiPortlet : uiPortlets) {
+          log.info("AJAX call: Need to refresh the Portlet " + uiPortlet.getWindowId());
+          
+//          w.write("<div class=\"PortletResponse\" style=\"display: none\">") ;
+//          w.  append("<div class=\"PortletResponsePortletId\">" + uiPortlet.getExoWindowID().getUniqueID()+"</div>") ;
+//          w.  append("<div class=\"PortletResponsePortletTitle\"></div>") ;
+//          w.  append("<div class=\"PortletResponsePortletMode\"></div>") ;
+//          w.  append("<div class=\"PortletResponsePortletState\"></div>") ;
+//          w.  append("<div class=\"PortletResponseData\">") ;
+//          
+//          
+//          renderBlockToUpdate(uiPortlet, context, w) ;
+//          
+//          w.write("<div class=\"BlockToUpdate\">") ;
+//          w.  append("<div class=\"BlockToUpdateId\">").append(uiPortlet.getId()).append("</div>");
+//          w.  write("<div class=\"BlockToUpdateData\">") ;
           uiPortlet.processRender(context) ;
+//          w.  write("</div>");
+//          w.write("</div>") ;          
+          
+          w.  append("</div>") ;
+          w.  append("<div class=\"PortletResponseScript\"></div>") ;
+          w.write("</div>") ;
         }
       }
       w.  write("<div class=\"PortalResponseData\">");
       for(UIComponent uicomponent : uiDataComponents) {
-        renderBlockToUpdate(uicomponent, context, w) ;
+        log.info("AJAX call: Need to refresh the UI component " + uicomponent.getName());
+    	renderBlockToUpdate(uicomponent, context, w) ;
       }
-      String skin  = getAddSkinScript(list);
+      
       w.  write("</div>");
       w.  write("<div class=\"PortalResponseScript\">"); 
       w.    write(pcontext.getJavascriptManager().getJavascript());
       w.    write("eXo.core.Browser.onLoad();\n"); 
       w.    write(pcontext.getJavascriptManager().getCustomizedOnLoadScript()) ;
+      String skin  = getAddSkinScript(list);
       if(skin != null){
         w.  write(skin) ;
       }

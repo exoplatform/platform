@@ -83,17 +83,22 @@ UIForm.prototype.setHiddenValue = function(formId, typeId, hiddenValue) {
  *  . checkbox and radio if they are checked
  *  . select-one if one option is selected
  */
+/*
+* This method goes through the form element passed as an argument and 
+* generates a string output in a GET request way.
+* It also encodes the the form parameter values
+*/
 UIForm.prototype.serializeForm = function (formElement) {
-	//TODO: TrongTT -> Solve the temporary problem about WYSIWYG Editor
-	try{eXo.ecm.ExoEditor.saveHandler();} catch(err) {}
+  //TODO: TrongTT -> Solve the temporary problem about WYSIWYG Editor
+  try{eXo.ecm.ExoEditor.saveHandler();} catch(err) {}
 	
-	var queryString = "";
+  var queryString = "";
   var element ;
   var elements = formElement.elements;
   
   this.addField = function(name, value) { 
-	  if (queryString.length > 0) queryString += "&";
-	  queryString += name + "=" + encodeURIComponent(value);
+    if (queryString.length > 0) queryString += "&";
+    queryString += name + "=" + encodeURIComponent(value);
   };
   
   for(var i = 0; i < elements.length; i++) {
