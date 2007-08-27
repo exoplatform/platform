@@ -3,7 +3,7 @@
 		<div class="UIFormUploadInput" id="<%=context.appId%>">
 		  <input type="hidden" id="input<%=context.appId%>" name="<%=context.appId%>" value="false"/>
 		  <div id="<%=context.appId%>UploadIframe" class="UploadIframe">
-		    <iframe height="23" class="TestIframe" scrolling="no" frameborder="0" framespacing="0" id="<%=context.appId%>uploadFrame"></iframe>
+		    <iframe height="23px" allowTransparency="true" class="TestIframe" scrolling="no" frameborder="0" framespacing="0" id="<%=context.appId%>uploadFrame"></iframe>
 		  </div>
 		  <div id="<%=context.appId%>ProgressIframe" class="ProgressIframe" style="display: none;"></div>      
 		  <div class="ProgressBarFrame" style="display: none;">
