@@ -4,12 +4,14 @@
  **************************************************************************/
 package org.exoplatform.portal.config;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.collections.iterators.ArrayListIterator;
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
@@ -29,13 +31,34 @@ public class UserACL {
   private OrganizationService orgService_ ;
   
   private String superUser_;
+  private List<String> portalCreatorGroups_;
+  private String navigationCreatorMembershipType_;
 
   public UserACL(InitParams params, OrganizationService orgService) throws Exception {
     this.orgService_ = orgService;
     
-    ValueParam valueParam = params.getValueParam("super.user");
-    if(valueParam != null) superUser_ = valueParam.getValue();
+    ValueParam superUserParam = params.getValueParam("super.user");
+    if(superUserParam != null) superUser_ = superUserParam.getValue();
     if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "exoadmin";
+    
+    ValueParam navCretorParam = params.getValueParam("navigation.cretor.membership.type");
+    if(navCretorParam != null) navigationCreatorMembershipType_ = navCretorParam.getValue();
+    if(navigationCreatorMembershipType_ == null || 
+       navigationCreatorMembershipType_.trim().length() == 0) navigationCreatorMembershipType_= "owner";
+    
+    String allGroups = "";
+    ValueParam portalCretorGroupsParam = params.getValueParam("portal.cretor.groups");
+    if(portalCretorGroupsParam != null) allGroups = portalCretorGroupsParam.getValue();
+    
+    portalCreatorGroups_ = new ArrayList<String>();
+    if(allGroups.contains(",")){
+      String[] groups = allGroups.split(",");
+      for(String group: groups){
+        portalCreatorGroups_.add(group);
+      }
+    } else {
+      portalCreatorGroups_.add(allGroups);
+    }
   }
   
   void computeNavigation(List<PageNavigation> navs, String remoteUser) throws Exception {
@@ -139,8 +162,6 @@ public class UserACL {
     return handler.findMembershipByUserGroupAndType(remoteUser, groupId, membership) != null;
   }
   
-  //TODO: Tung.Pham added
-  public String getSuperUser() { return superUser_ ; }
   
   static public class Permission {
 
@@ -181,5 +202,14 @@ public class UserACL {
     public String getExpression() { return expression; }
     public void setExpression(String expression) { this.expression = expression; }
   }
+
+ 
+  public String getNavigationCreatorMembershipType() { return navigationCreatorMembershipType_; }
+
+
+  
+  public List getPortalCreatorGroups() { return portalCreatorGroups_;  }
+  
+  public String getSuperUser() { return superUser_ ; }
 
 }
