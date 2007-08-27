@@ -7,7 +7,7 @@
 <div class="UIFormUploadInput" id="$uploadId">
   <input type="hidden" id="input$uploadId" name="<%=uicomponent.getName();%>" value="false"/>
   <div id="<%=uploadId;%>UploadIframe" class="UploadIframe">
-    <iframe height="23" class="TestIframe" scrolling="no" frameborder="0" framespacing="0" id="<%=uploadId;%>uploadFrame"></iframe>
+    <iframe height="23px" class="TestIframe" allowTransparency="true" scrolling="no" frameborder="0" framespacing="0" id="<%=uploadId;%>uploadFrame"></iframe>
   </div>
   <div id="<%=uploadId;%>ProgressIframe" class="ProgressIframe" style="display: none;"></div>      
   <div class="ProgressBarFrame" style="display: none;">
