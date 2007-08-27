@@ -117,6 +117,12 @@ UIForm.prototype.serializeForm = function (formElement) {
         	this.addField(element.name, element.options[element.selectedIndex].value);  
         }
         break;
+      case "select-multiple":
+        while (element.selectedIndex != -1) {
+        	this.addField(element.name, element.options[element.selectedIndex].value);
+        	element.options[element.selectedIndex].selected = false; 
+        }
+        break;
     } // switch
    } // for   
    return queryString;

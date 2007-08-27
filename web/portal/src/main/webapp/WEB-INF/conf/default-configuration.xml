@@ -50,14 +50,14 @@
       <values-param>
         <name>init.resources</name>
         <description>Store the following resources into the db for  the first launch </description>
-        <value>locale.portal.expression</value>
-        <value>locale.portal.services</value>
-        <value>locale.portal.webui</value>
-        <value>locale.portal.custom</value>
-        <value>locale.users.exoadmin</value>
-        <value>locale.users.default</value>
-        <value>locale.users.exo</value>
-        <value>locale.users.community</value>
+        <value>locale.portal.expression_en</value>
+        <value>locale.portal.services_en</value>
+        <value>locale.portal.webui_en</value>
+        <value>locale.portal.custom_en</value>
+        <value>locale.users.exoadmin_en</value>
+        <value>locale.users.default_en</value>
+        <value>locale.users.exo_en</value>
+        <value>locale.users.community_en</value>
       </values-param>
 
       <!-- This should be removed -->
@@ -65,10 +65,10 @@
         <name>portal.resource.names</name>
         <description>The properties files of  the portal ,  those file will be merged 
           into one ResoruceBundle properties </description>
-        <value>locale.portal.expression</value>
-        <value>locale.portal.services</value>
-        <value>locale.portal.webui</value>
-        <value>locale.portal.custom</value>
+        <value>locale.portal.expression_en</value>
+        <value>locale.portal.services_en</value>
+        <value>locale.portal.webui_en</value>
+        <value>locale.portal.custom_en</value>
       </values-param>
     </init-params>
   </component>

@@ -3,7 +3,7 @@
     <init-params>
       <param>
         <name>application.resource.bundle</name>
-        <value>locale.portal.expression, locale.portal.services, locale.portal.webui</value>
+        <value>locale.portal.expression_en, locale.portal.services_en, locale.portal.webui_en</value>
       </param>
     </init-params>
 
