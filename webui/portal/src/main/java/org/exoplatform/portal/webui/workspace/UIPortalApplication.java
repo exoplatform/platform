@@ -287,9 +287,9 @@ public class UIPortalApplication extends UIApplication {
 //          w.  write("</div>");
 //          w.write("</div>") ;          
           
-          w.  append("</div>") ;
-          w.  append("<div class=\"PortletResponseScript\"></div>") ;
-          w.write("</div>") ;
+//          w.  append("</div>") ;
+//          w.  append("<div class=\"PortletResponseScript\"></div>") ;
+//          w.write("</div>") ;
         }
       }
       w.  write("<div class=\"PortalResponseData\">");
