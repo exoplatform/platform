@@ -51,13 +51,13 @@ public class UserACL {
     if(portalCretorGroupsParam != null) allGroups = portalCretorGroupsParam.getValue();
     
     portalCreatorGroups_ = new ArrayList<String>();
-    if(allGroups != null && allGroups.contains(",")){
-      String[] groups = allGroups.split(",");
-      for(String group: groups){
-        portalCreatorGroups_.add(group);
+    if(allGroups !=null ) {
+      if(allGroups.contains(",")){
+        String[] groups = allGroups.split(",");
+        for(String group: groups)  portalCreatorGroups_.add(group.trim());
+      } else {
+        portalCreatorGroups_.add(allGroups);
       }
-    } else {
-      portalCreatorGroups_.add(allGroups);
     }
   }
   
