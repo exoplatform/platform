@@ -45,6 +45,7 @@ public class UIIFrameEditMode extends UIForm {
       PortletPreferences pref = pcontext.getRequest().getPreferences();
       pref.setValue("url", event.getSource().getUIStringInput(FIELD_URL).getValue()) ;
       pref.store() ;
+      pcontext.setApplicationMode(PortletRequestContext.VIEW_MODE) ;
     }
   }
 }

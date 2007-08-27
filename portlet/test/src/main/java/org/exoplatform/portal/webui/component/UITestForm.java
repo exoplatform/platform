@@ -65,8 +65,8 @@ public class UITestForm extends UIForm {
     UIFormUploadInput upload = new UIFormUploadInput("TestUpload", null); 
     UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
     test.setType(UIFormDateTimeInput.class);
-    addChild(upload);
-    addChild(test);
+//    addChild(upload);
+//    addChild(test);
 //    UIDropDownItemSelector uiDropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
 //    uiDropDownItemSelector.setTitle("SelectContainer") ;
 //    uiDropDownItemSelector.setOnServer(true);
@@ -97,13 +97,13 @@ public class UITestForm extends UIForm {
     }
     ls.get(0).setSelected(true);
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
-//    uiSelectBox.setMultiple(true);
+    uiSelectBox.setMultiple(true);
     uiSelectBox.setSize(3);
 //    uiSelectBox.setOnChange("Onchange");
 //    UIFormSelectBox uiSelectBox1 = new UIFormSelectBox(FIELD_SELECT_BOX + "1", FIELD_SELECT_BOX + "1", ls) ;
 //    uiSelectBox1.setOnChange("Onchange");
     addUIFormInput(uiSelectBox) ;
-//    addUIFormInput(uiSelectBox1) ;
+//    addUIFormInput(new UIFormSelectBox("test", "test", ls).setSize(3)) ;
 //    
 //    UIFormRadioBoxInput radioBoxInput = new UIFormRadioBoxInput(FIELD_RADIO_BOX, FIELD_RADIO_BOX, ls);
 //    UIFormCheckBoxInput aaaa = new UIFormCheckBoxInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, ls);
