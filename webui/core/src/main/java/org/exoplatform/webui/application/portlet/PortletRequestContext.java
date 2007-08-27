@@ -38,6 +38,10 @@ public class PortletRequestContext extends WebuiRequestContext {
    */
   private int applicationMode_ ;
   /**
+   * Portlet Window ID
+   */
+  private String windowId_;
+  /**
    * The request
    */
   private PortletRequest request_; 
@@ -53,11 +57,6 @@ public class PortletRequestContext extends WebuiRequestContext {
     super(app) ;
     init(writer, req, res) ;
     setSessionId(req.getPortletSession(true).getId()) ;
-    PortletMode mode = req.getPortletMode() ;
-    if(mode.equals(PortletMode.VIEW))  applicationMode_ = VIEW_MODE ;
-    else if(mode.equals(PortletMode.EDIT))  applicationMode_ = EDIT_MODE ;
-    else if(mode.equals(PortletMode.HELP))  applicationMode_ = HELP_MODE ;
-    else  applicationMode_ = VIEW_MODE ;
     
     urlBuilder = new PortletURLBuilder();
   }
@@ -66,6 +65,13 @@ public class PortletRequestContext extends WebuiRequestContext {
     request_ = req ;
     response_ =  res ;
     writer_ = new HtmlValidator(writer) ;
+    windowId_ = req.getWindowId();
+
+    PortletMode mode = req.getPortletMode() ;
+    if(mode.equals(PortletMode.VIEW))  applicationMode_ = VIEW_MODE ;
+    else if(mode.equals(PortletMode.EDIT))  applicationMode_ = EDIT_MODE ;
+    else if(mode.equals(PortletMode.HELP))  applicationMode_ = HELP_MODE ;
+    else  applicationMode_ = VIEW_MODE ;
   }
 
   public void  setUIApplication(UIApplication uiApplication) throws Exception { 
@@ -111,4 +117,7 @@ public class PortletRequestContext extends WebuiRequestContext {
     return urlBuilder ;
   }
   
+  public String getWindowId() {
+    return windowId_;
+  }
 }

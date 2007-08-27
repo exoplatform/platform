@@ -72,7 +72,7 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>2.0.2</version>
         <configuration>
-	  <warSourceExcludes>WEB-INF/lib/*.jar</warSourceExcludes>
+	      <warSourceExcludes>WEB-INF/lib/*.jar</warSourceExcludes>
         </configuration>
       </plugin>
       <plugin>
@@ -117,6 +117,29 @@
             </property>
           </systemProperties>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <phase>compile</phase>
+            <configuration>
+              <tasks>
+		            <copy failonerror="false" todir="${basedir}/target/${project.build.finalName}/WEB-INF/classes">
+		              <fileset dir="${basedir}/src/main/webapp/WEB-INF/classes">
+		                <include name="**/*_en.properties"/>
+		              </fileset>
+		              <globmapper from="*_en.properties" to="*.properties"/>
+		            </copy>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

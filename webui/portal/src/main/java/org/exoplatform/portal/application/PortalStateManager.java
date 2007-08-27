@@ -48,7 +48,7 @@ public class PortalStateManager extends StateManager {
       WebuiRequestContext preqContext = (WebuiRequestContext) context.getParentAppRequestContext() ;
       PortalApplicationState state = uiApplications.get(preqContext.getSessionId()) ;
       PortletRequestContext pcontext = (PortletRequestContext) context ;
-      String key =  pcontext.getApplication().getApplicationId() ;
+      String key =  pcontext.getApplication().getApplicationId() + "/" + pcontext.getWindowId();
       UIApplication uiApplication =  state.get(key) ;
       if(uiApplication != null)  return uiApplication;
       synchronized(uiApplications) {

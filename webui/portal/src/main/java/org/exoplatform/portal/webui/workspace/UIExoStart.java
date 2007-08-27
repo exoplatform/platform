@@ -45,11 +45,11 @@ import org.exoplatform.webui.event.EventListener;
         @ParamConfig(
             name = "UIExoStartPersonnalizationMenu",
             value = "system:/WEB-INF/conf/uiconf/portal/webui/workspace/UIExoStartPersonnalizationMenu.groovy"
-        ),
-        @ParamConfig(
-            name = "UIExoStartSystemMenu",
-            value = "system:/WEB-INF/conf/uiconf/portal/webui/workspace/UIExoStartSystemMenu.groovy"
         )
+//        @ParamConfig(
+//            name = "UIExoStartSystemMenu",
+//            value = "system:/WEB-INF/conf/uiconf/portal/webui/workspace/UIExoStartSystemMenu.groovy"
+//        )
     },
     events = {
         @EventConfig(listeners = UIExoStart.BasicCustomizationActionListener.class),
@@ -60,7 +60,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIExoStart.BrowsePageActionListener.class),
         @EventConfig(listeners = UIExoStart.EditPortalActionListener.class),
         @EventConfig(listeners = UIExoStart.BrowsePortalActionListener.class),
-        @EventConfig(listeners = UIExoStart.RefreshActionListener.class),
+//        @EventConfig(listeners = UIExoStart.RefreshActionListener.class),
         @EventConfig(listeners = UIExoStart.ChangePageActionListener.class),
         @EventConfig(listeners = UIExoStart.LoginActionListener.class),
         @EventConfig(listeners = UILogged.LogoutActionListener.class),
@@ -82,8 +82,9 @@ public class UIExoStart extends UIComponent {
       menu = initParams.getParam("UIExoStartPersonnalizationMenu").getMapGroovyObject(context); 
       menus.add(menu) ;     
     }
-    menu = initParams.getParam("UIExoStartSystemMenu").getMapGroovyObject(context); 
-    menus.add(menu) ;    
+    //TODO TrongTT: Remove "System" menu item in the Start menu ( Improvement PORTAL-982 )
+//    menu = initParams.getParam("UIExoStartSystemMenu").getMapGroovyObject(context); 
+//    menus.add(menu) ;    
   }
 
   public boolean isLogged() { return logged ; }
@@ -311,11 +312,11 @@ public class UIExoStart extends UIComponent {
     }
   }
 
-  static  public class RefreshActionListener extends EventListener<UIExoStart> {
-    @SuppressWarnings("unused")
-    public void execute(Event<UIExoStart> event) throws Exception {
-    }
-  }
+//  static  public class RefreshActionListener extends EventListener<UIExoStart> {
+//    @SuppressWarnings("unused")
+//    public void execute(Event<UIExoStart> event) throws Exception {
+//    }
+//  }
 
   static  public class ChangePageActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {
