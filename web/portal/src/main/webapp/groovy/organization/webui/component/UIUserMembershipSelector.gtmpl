@@ -9,7 +9,9 @@
 %>
 <div class="UIMembership" id="UIUserMembershipSelector" >
 	<%//Begin Membership List%>
-	<div class="MembershipList">   
+	<div class="MembershipList">
+	<%uicomponent.renderChild(UIGrid.class)%>
+<!--	   
 	  <table class="UIGrid" cellspacing="0" borderspacing="0" style="width: 99%">
 	    <thead>
 	     <tr>                    
@@ -46,7 +48,8 @@
 	          </tr>
 	      <%}%>
 	    </tbody>
-	  </table>  
+	  </table>
+-->	    
 	</div>
 	<%//End Membership List%>
 	<% if(uicomponent.isAdminRole()) { %>
