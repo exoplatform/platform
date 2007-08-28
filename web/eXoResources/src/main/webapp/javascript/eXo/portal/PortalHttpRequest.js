@@ -384,7 +384,8 @@ function HttpResponseHandler(){
 	  if(portletResponses != null) {
 	    for(var i = 0; i < portletResponses.length; i++) {
 	      var portletResponse = portletResponses[i] ;
-	      instance.updateBlocks(portletResponse.blocksToUpdate, "UIPortlet-"+portletResponse.portletId) ;    
+//	      instance.updateBlocks(portletResponse.blocksToUpdate, "UIPortlet-"+portletResponse.portletId) ;
+	      instance.updateBlocks(portletResponse.blocksToUpdate, portletResponse.portletId) ;
 	      instance.executeScript(portletResponse.script) ;
 	    }
 	  }
