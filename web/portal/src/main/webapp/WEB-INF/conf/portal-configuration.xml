@@ -71,6 +71,7 @@
                 <value><string>portal/admin</string></value>
                 <value><string>portal/community</string></value>
                 <value><string>portal/company</string></value>
+                <value><string>test</string></value>
               </collection>
             </field>
             <field  name="ownerType"><string>group</string></field>
