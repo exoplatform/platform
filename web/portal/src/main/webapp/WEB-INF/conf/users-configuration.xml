@@ -28,6 +28,7 @@
                 <value><string>exoadmin</string></value>
                 <value><string>company</string></value>
                 <value><string>community</string></value>
+								<value><string>test</string></value>                
               </collection>
             </field>
           </object>
@@ -189,7 +190,24 @@
                       </string>
                     </field>
                   </object>
+                </value>
+                
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+                    <field  name="userName"><string>test</string></field>
+                    <field  name="password"><string>exo</string></field>
+                    <field  name="firstName"><string>test</string></field>
+                    <field  name="lastName"><string>test</string></field>
+                    <field  name="email"><string>test@localhost</string></field>
+                    <field  name="groups">
+                      <string>
+                        member:/admin,member:/user,owner:/portal/admin,
+                        member:/portal/company/hr,member:/portal/company/management
+                      </string>
+                    </field>
+                  </object>
                 </value>    
+                    
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
                     <field  name="userName"><string>exo</string></field>

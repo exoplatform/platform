@@ -84,6 +84,7 @@
             <field  name="predefinedOwner">
               <collection type="java.util.HashSet">                
                 <value><string>exoadmin</string></value>
+                <value><string>test</string></value>
               </collection>
             </field>
             <field  name="ownerType"><string>user</string></field>
