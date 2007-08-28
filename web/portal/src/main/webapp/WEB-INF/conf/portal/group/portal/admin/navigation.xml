@@ -2,7 +2,7 @@
 <node-navigation>
 	<owner-type>group</owner-type>
   <owner-id>portal/admin</owner-id>
-  <priority>1</priority>
+  <priority>2</priority>
   <access-permissions>*:/portal/admin</access-permissions>
   <edit-permission>owner:/portal/admin</edit-permission>
   
@@ -11,15 +11,16 @@
       <uri>administration</uri>
       <name>Administration</name>
       <label>Administration</label>     
-      <page-reference>group::portal/admin::administration</page-reference>
-      
-      <node>
+      <page-reference>group::portal/admin::administration</page-reference>      
+    </node> 
+    
+    <node>
         <uri>administration/portletregistry</uri>
         <name>portletRegistry</name>
         <label>Portlet Registry</label>
         <page-reference>group::portal/admin::portletregistry</page-reference>
-      </node>
-    </node> 
+    </node>
+    
 
     <node>
       <uri>ecm</uri>
