@@ -22,6 +22,7 @@ var eXo  = {
   application : { 
   	browser : { }
   },
+  calendar : { },
   
   forum : { },
   
