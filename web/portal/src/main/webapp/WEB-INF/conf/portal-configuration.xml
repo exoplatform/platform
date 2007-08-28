@@ -13,6 +13,18 @@
         <name>super.user</name>
         <description>administrator</description>
         <value>exoadmin</value>	    
+      </value-param>
+      
+      <value-param>
+        <name>portal.cretor.groups</name>
+        <description>groups with membership type have permission to manage portal</description>
+        <value>owner:/admin,member:/portal/admin,owner:/portal/admin</value>	    
+      </value-param>
+      
+      <value-param>
+        <name>navigation.cretor.membership.type</name>
+        <description>specific membership type have full permission with group navigation</description>
+        <value>owner</value>	    
       </value-param>    
 	  </init-params>   
   </component>
