@@ -60,6 +60,10 @@ public class UserACL {
     }
   }
   
+  public String getNavigationCreatorMembershipType() { return navigationCreatorMembershipType_; }
+  public List getPortalCreatorGroups() { return portalCreatorGroups_;  }
+  public String getSuperUser() { return superUser_ ; }
+  
   void computeNavigation(List<PageNavigation> navs, String remoteUser) throws Exception {
     Iterator<PageNavigation> iterator = navs.iterator();
     while(iterator.hasNext()){
@@ -161,6 +165,25 @@ public class UserACL {
     return handler.findMembershipByUserGroupAndType(remoteUser, groupId, membership) != null;
   }
   
+  public boolean hasCreatePortalPermission(String remoteUser) {
+    return false;
+  }
+  
+  public boolean hasEditPermission(PortalConfig pconfig, String remoteUser)  {
+    return false;
+  }
+  
+  public boolean hasViewPermission(PortalConfig pconfig, String remoteUser){
+    return false;
+  }
+
+  public boolean hasEditPermission(Page page, String remoteUser)  {
+    return false;
+  }
+  
+  public boolean hasViewPermission(Page page, String remoteUser){
+    return false;
+  }
   
   static public class Permission {
 
@@ -203,12 +226,6 @@ public class UserACL {
   }
 
  
-  public String getNavigationCreatorMembershipType() { return navigationCreatorMembershipType_; }
-
-
-  
-  public List getPortalCreatorGroups() { return portalCreatorGroups_;  }
-  
-  public String getSuperUser() { return superUser_ ; }
+ 
 
 }
