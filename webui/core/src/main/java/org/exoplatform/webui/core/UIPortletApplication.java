@@ -46,20 +46,24 @@ abstract public class UIPortletApplication extends  UIApplication {
     WindowID windowID = renderRequest.getWindowID();
     if(context.useAjax() && !pContext.getFullRender()) {
       Writer w =  context.getWriter() ;
-      w.write("<div class=\"PortletResponse\" style=\"display: none\">") ;
-      w.  append("<div class=\"PortletResponsePortletId\">"+windowID.getUniqueID()+"</div>") ;
-      w.  append("<div class=\"PortletResponsePortletTitle\"></div>") ;
-      w.  append("<div class=\"PortletResponsePortletMode\"></div>") ;
-      w.  append("<div class=\"PortletResponsePortletState\"></div>") ;
-      w.  append("<div class=\"PortletResponseData\">") ;
+//      w.write("<div class=\"PortletResponse\" style=\"display: none\">") ;
+//      w.  append("<div class=\"PortletResponsePortletId\">"+windowID.getUniqueID()+"</div>") ;
+//      w.  append("<div class=\"PortletResponsePortletTitle\"></div>") ;
+//      w.  append("<div class=\"PortletResponsePortletMode\"></div>") ;
+//      w.  append("<div class=\"PortletResponsePortletState\"></div>") ;
+//      w.  append("<div class=\"PortletResponseData\">") ;
       List<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
       if(list == null) list = app.getDefaultUIComponentToUpdateByAjax(context) ;      
       for(UIComponent uicomponent : list) {
         renderBlockToUpdate(uicomponent, context, w) ;
       }
-      w.  append("</div>") ;
-      w.  append("<div class=\"PortletResponseScript\"></div>") ;
-      w.write("</div>") ;
+//      w.  append("</div>") ;
+//      w.  append("<div class=\"PortletResponseScript\"></div>") ;
+//      w.write("</div>") ;
+      
+      UIApplication uiApplication = context.getUIApplication();
+      uiApplication.processRender(context);
+      
     }  else {
       super.processRender(context) ;
     }

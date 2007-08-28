@@ -111,9 +111,9 @@
 <% 
   }
 	if(uicomponent.getShowInfoBar()) { 
-    String  popupId = uicomponent.getId() ;
-  	String title = uicomponent.getTitle() ;
-    if(title == null || title.trim().length() < 1) title = popupId;
+      String  popupId = uicomponent.getId() ;
+  	  String title = uicomponent.getTitle() ;
+      if(title == null || title.trim().length() < 1) title = popupId;
 %>
 	    <%/*Begin Window Portlet Bar*/ %>
 	    <%
@@ -123,7 +123,7 @@
 	      String windowWidth = "" ;
 	      String windowHeight = "" ;
 	      
-	      if(isWindow) {
+	    if(isWindow) {
 	      	appDisplay = "";
 	      	visibility = "hidden" ;
 	      	
@@ -261,7 +261,9 @@
 		            <div style="width: 100%;">
 		              <div class="UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight">
 					          <%if(windowState != WindowState.MINIMIZED){%>
-					              $portletContent
+					             <div id="PORTLET-FRAGMENT">
+					               $portletContent
+					             </div>
 					          <%}%>
 				          </div>    
 		            </div>
