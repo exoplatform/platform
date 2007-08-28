@@ -32,14 +32,16 @@ import org.exoplatform.portal.webui.util.Util;
 )
 public class UIBreadcumbsPortlet extends UIPortletApplication {
   
-  transient private  UIPortal uiPortal ; 
+  //TODO: Tung.Pham modified
+  //transient private  UIPortal uiPortal ; 
   
   public UIBreadcumbsPortlet() throws Exception {
     addChild(UIBreadcumbs.class, null, null);
   }
   
   public void loadSelectedPath() {   
-    List<PageNode> nodes = getPortal().getSelectedPaths() ;
+    //List<PageNode> nodes = getPortal().getSelectedPaths() ;
+    List<PageNode> nodes = Util.getUIPortal().getSelectedPaths() ;
     List<LocalPath> paths = new ArrayList<LocalPath>();
     for(PageNode node : nodes){
       paths.add(new LocalPath(node.getUri(), node.getLabel()));
@@ -53,17 +55,18 @@ public class UIBreadcumbsPortlet extends UIPortletApplication {
     super.renderChildren();
   }
  
-  public UIPortal getPortal(){
-    if(uiPortal == null) uiPortal = Util.getUIPortal() ;
-    return uiPortal;
-  }
+//  public UIPortal getPortal(){
+//    if(uiPortal == null) uiPortal = Util.getUIPortal() ;
+//    return uiPortal;
+//  }
   
   static  public class SelectPathActionListener extends EventListener<UIBreadcumbs> {
     public void execute(Event<UIBreadcumbs> event) throws Exception {
-      UIBreadcumbs breadcumbs = event.getSource() ;
-      UIBreadcumbsPortlet breadcumbsPortlet = (UIBreadcumbsPortlet) breadcumbs.getParent() ;
+      //UIBreadcumbs breadcumbs = event.getSource() ;
+      //UIBreadcumbsPortlet breadcumbsPortlet = (UIBreadcumbsPortlet) breadcumbs.getParent() ;
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIPortal uiPortal = breadcumbsPortlet.getPortal() ;
+      //UIPortal uiPortal = breadcumbsPortlet.getPortal() ;
+      UIPortal uiPortal = Util.getUIPortal() ;
       PageNodeEvent<UIPortal> pnevent = 
         new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
