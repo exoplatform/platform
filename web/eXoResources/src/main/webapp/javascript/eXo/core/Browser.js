@@ -123,21 +123,11 @@ Browser.prototype.initOpera = function() {
 Browser.prototype.isIE6 = function() {
   var agent = navigator.userAgent ;
   return (agent.indexOf("MSIE 6") >=0);
-//  if(agent.indexOf("MSIE 6") >=0 ) {
-//    return true ;
-//  } else {
-//  	return false ;
-//  }
 } ;
 
 Browser.prototype.isIE7 = function() {
   var agent = navigator.userAgent ;
   return (agent.indexOf("MSIE 7") >=0);
-//  if(agent.indexOf("MSIE 7") >=0 ) {
-//    return true ;
-//  } else {
-//  	return false ;
-//  }
 } ;
 
 Browser.prototype.findMouseXInClient = function(e) {
@@ -166,9 +156,7 @@ Browser.prototype.onLoad = function() {
 	    var method = callback.get(name) ;
 	    if (typeof(method) == "function") method() ;
 	  }
-	} catch(e) {
-		//alert(e.message) ;
-	}
+	} catch(e) {}
   this.onLoadCallback = new eXo.core.HashMap();
 } ;
 /**
@@ -216,7 +204,6 @@ Browser.prototype.findPosX = function(obj) {
   var curleft = 0;
   var str = "" ;
   while (obj) {
-//  	str += obj.className + " : " + obj.offsetLeft + "\n"; //TODO Lambkin
     curleft += obj.offsetLeft ;
     obj = obj.offsetParent ;
   }
@@ -325,8 +312,9 @@ Browser.prototype.findMouseRelativeY = function(object, e) {
   return  posy ;
 } ;
 
-// Set Position for a Component in a container
-// Created on 1h45' 27/01/2007
+/* 
+ * Set Position for a Component in a container
+ */
 Browser.prototype.setPositionInContainer = function(container, component, posX, posY) {
 	var offsetX = component.offsetLeft ;
 	var offsetY = component.offsetTop ;

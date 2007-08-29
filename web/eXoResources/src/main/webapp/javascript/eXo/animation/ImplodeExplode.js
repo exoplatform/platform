@@ -1,56 +1,7 @@
 ImplodeExplode = function() {
 } ;
 
-
-var discoverEXO = function(object) {
-	/*
-	 * minh.js.exo
-	 */
-	removeInfoDiv();
-	var infoDiv =	document.createElement("div") ;
-			infoDiv.setAttribute("id" , "Show.EX0.0bject") ;
-			infoDiv.style.background = "#848484" ;
-			infoDiv.style.border = "4px double green" ;
-			infoDiv.style.bottom = "0px" ;
-			infoDiv.style.color = "white" ;
-			infoDiv.style.height = "300px" ;
-			infoDiv.style.margin = "auto" ;
-			infoDiv.style.overflow = "auto" ;
-			infoDiv.style.padding = "10px" ;
-			infoDiv.style.position = "absolute" ;
-			infoDiv.style.width = "400px" ;
-			infoDiv.style.zIndex = "999" ;
-	var closeButton = document.createElement("div") ;
-			closeButton.setAttribute("id" , "Remove.Information.0bject") ;
-			closeButton.style.textAlign = "right" ;
-			closeButton.innerHTML = "<span style='color: red; font-weight: bold; cursor: pointer;'>[ X ]</span>" ;
-	var csHTML = new String() ;
-	for (var exo in object) {
-		csHTML +=  exo + " : " + object[exo] + "<br />" ;
-	}
-
-	document.body.appendChild(infoDiv) ;
-	infoDiv.appendChild(closeButton) ;
-	infoDiv.innerHTML += csHTML ;
-	
-	closeButton = document.getElementById("Remove.Information.0bject") ;
-	closeButton.onclick = removeInfoDiv ;
-	
-	function removeInfoDiv() {
-	 if (document.getElementById("Show.EX0.0bject")) {
-		var infoDiv = document.getElementById("Show.EX0.0bject") ;
-		document.body.removeChild(infoDiv) ;
-		}
-	}
-} ;
-
-
-
-
 /*TODO: it has a confusion posX and posY */
-/*
- * minh.js.exo
- */
 ImplodeExplode.prototype.doInit = function(uiWindow, clickedElement, containerId, numberOfFrame) {
 	
 	var container = document.getElementById(containerId) ;
@@ -105,7 +56,6 @@ ImplodeExplode.prototype.doCenterInit = function(uiWindow, clickedElement, conta
  * reference -> variable this.busy in method ...doExplode ...doImplode
  */
 ImplodeExplode.prototype.explode = function(uiWindow, clickedElement, containerId, numberOfFrame, type) {
-//alert("Object: " + uiWindow.className + "\nIcon: " + clickedElement.className + "\n Container: " + containerId);
 	if (!this.busy) {
 		if(type) {
 			eXo.animation.ImplodeExplode.doCenterInit(uiWindow, clickedElement, containerId, numberOfFrame) ;
@@ -163,7 +113,6 @@ ImplodeExplode.prototype.doImplode = function(containerId) {
 	}
 
 } ;
-
 
 ImplodeExplode.prototype.doExplode = function(containerId ) {
 			this.busy = true ;
