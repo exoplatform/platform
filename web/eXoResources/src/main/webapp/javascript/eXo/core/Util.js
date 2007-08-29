@@ -115,7 +115,6 @@ HashMap.prototype.clear = function() {
 } ;
 
 /*************************************************************************/
-//eXo.core.Array = Array.prototype.constructor ;
 eXo.core.HashMap = HashMap.prototype.constructor ;
 /*************************************************************************/
 
@@ -212,7 +211,6 @@ eXo.core.ExoDateTime = new ExoDateTime() ;
  * String util
  */
 
-// Strip leading and trailing white-space
 String.prototype.trim = function () {
     return this.replace(/^\s*|\s*$/, '');
 }

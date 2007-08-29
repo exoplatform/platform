@@ -7,10 +7,6 @@ TemplateEngine.prototype.merge = function(template, context, jsLocation) {
   if(jsLocation == null) jsLocation = '/eXoResources/javascript/' ;
   var path = jsLocation  + template ;
   var cacheDirective = "max-age=864000" ;
-  /*if(eXo.env.developing)  {
-    cacheDirective = "no-store" ;
-    this.cacheTemplates.put(path, null) ;
-  }*/
   var script = this.cacheTemplates.get(path) ;
   if(script == null) {
     window.status = "Loading Javascript Template " + path ;
