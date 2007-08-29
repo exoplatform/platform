@@ -157,7 +157,7 @@ public class UIPortletActionListener   {
 		  UIPortlet uiPortletInPage = (UIPortlet) iterator.next();
 		  if(uiPortletInPage.supportsProcessingEvent(eventName) && !eventsWrapper.isInvokedTooManyTimes(
 			  uiPortletInPage.getWindowId())) {
-			Map newEvents = uiPortletInPage.processEvent(eventName, events.get(eventName));
+			Map newEvents = uiPortletInPage.processEvent((javax.portlet.Event)events.get(eventName));
 			eventsWrapper.increaseCounter(uiPortletInPage.getWindowId());
 			if(context.useAjax()) {
 			  log.info("Events where generated inside the scope of an AJAX call, hence will only refresh the targeted portlets");

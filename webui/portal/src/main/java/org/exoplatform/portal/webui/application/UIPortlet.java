@@ -41,7 +41,6 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event.Phase;
-import org.exoplatform.services.portletcontainer.plugins.pc.event.EventImpl;
 
 /**
  * May 19, 2006
@@ -172,8 +171,8 @@ public class UIPortlet extends UIApplication {
    * The processEvent() method can also generates IPC events and hence the portal itself will
    * call the ProcessEventsActionListener once again
    */
-  public Map processEvent(QName eventName, Object eventValue) {
-	log.info("Process Event: " + eventName + " for portlet: " + windowId);
+  public Map processEvent(javax.portlet.Event event) {
+	log.info("Process Event: " + event.getName() + " for portlet: " + windowId);
     try {
   	  PortletContainerService service =  getApplicationComponent(PortletContainerService.class);
    	  PortalRequestContext context = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
@@ -190,7 +189,7 @@ public class UIPortlet extends UIApplication {
       input.setWindowState(getCurrentWindowState());
       input.setWindowID(getExoWindowID());    
       input.setMarkup("text/html");
-      input.setEvent(new EventImpl(eventName, eventValue));  
+      input.setEvent(event);  
 	  EventOutput output = service.processEvent((HttpServletRequest)context.getRequest(), 
 		  (HttpServletResponse) context.getResponse(), input);
 	  return output.getEvents();
