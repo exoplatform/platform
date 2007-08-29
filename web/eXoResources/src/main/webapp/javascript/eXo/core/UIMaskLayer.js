@@ -27,9 +27,16 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 		
 		this.object = object ;
 		this.blockContainer = blockContainer ;
-		this.maskLayer = maskLayer;
-		
 		this.position = position ;
+		
+		if (document.getElementById("MaskLayer")) {
+			/*
+			 * minh.js.exo
+			 * fix for double id : MaskLayer
+			 * reference with method eXo.core.UIMaskLayer.doScroll()
+			 */
+			document.getElementById("MaskLayer").id = "subMaskLayer";
+		}
 		
 		blockContainer.appendChild(maskLayer) ;
 		
@@ -78,11 +85,16 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 /**
  * Moves the position of the mask layer to follow a scroll
  */
+ 
 UIMaskLayer.prototype.doScroll = function() {
 	if(document.getElementById("MaskLayer")) {
-		var maskLayer =	this.maskLayer;
+		var maskLayer = document.getElementById("MaskLayer") ;
 		maskLayer.style.top = document.documentElement.scrollTop + "px" ;
 		setTimeout("eXo.core.UIMaskLayer.doScroll()", 1) ;
+	} else if (document.getElementById("subMaskLayer")) {
+		var subMaskLayer = document.getElementById("subMaskLayer") ;
+		subMaskLayer.id = "MaskLayer" ;
+		eXo.core.UIMaskLayer.doScroll() ;
 	}
 };
 
