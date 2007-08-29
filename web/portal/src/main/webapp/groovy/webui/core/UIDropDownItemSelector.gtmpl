@@ -78,7 +78,7 @@
 								<%if(action != null) {%>
 		              <div class="ItemSelectorLabel"><%=label%></div>
 		            <%} else {%>
-		              <div class="ItemSelectorLabel"> <%=label%>s</div>
+		              <div class="ItemSelectorLabel"><%=label%></div>
 		            <%}%>
 		            <div style="clear: left"><span></span></div>
 							</div>
