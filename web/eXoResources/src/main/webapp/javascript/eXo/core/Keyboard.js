@@ -4,6 +4,9 @@
 function Keyboard() {
   this.listeners = [] ;
   this.controlKeyCodes = [8, 9, 13, 27, 35, 36, 37, 38, 39, 40, 46] ;
+}
+
+Keyboard.prototype.init = function() {
   if (eXo.core.Browser.browserType == 'ie') {
     document.onkeydown = function(e) {
       return eXo.core.Keyboard.onKeyDown(e) ;
@@ -12,14 +15,18 @@ function Keyboard() {
   document.onkeypress = function(e) {
     return eXo.core.Keyboard.onKeyPress(e) ;
   } ;
-}
+} ;
+
+Keyboard.prototype.finish = function() {
+  if (eXo.core.Browser.browserType == 'ie') {
+    document.onkeydown = null ;
+  }
+  document.onkeypress = null ;
+  this.listeners = [] ;
+} ;
 
 Keyboard.prototype.register = function(listener) {
   this.listeners[this.listeners.length] = listener ;
-}
-
-Keyboard.prototype.clearListeners = function() {
-  this.listeners = [] ;
 }
 
 Keyboard.prototype.getKeynum = function(event) {

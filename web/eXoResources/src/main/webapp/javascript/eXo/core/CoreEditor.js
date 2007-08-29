@@ -105,7 +105,8 @@ CoreEditor.prototype.init = function(node) {
   afterCursor = this.HTMLUtil.entitiesEncode(afterCursor) ;
   this.handler.init(node, beforeCursor, afterCursor) ;
   this.handler.defaultWrite() ;
-  eXo.core.Keyboard.clearListeners() ;
+  eXo.core.Keyboard.finish() ;
+  eXo.core.Keyboard.init() ;
   eXo.core.Keyboard.register(this.handler) ;
   document.onclick = eXo.core.CoreEditor.onFinish ;
   return false ;
@@ -155,7 +156,7 @@ CoreEditor.prototype.isProcessMultiSelect = function(node) {
 } ;
 
 CoreEditor.prototype.onFinish = function(event) {
-  eXo.core.Keyboard.clearListeners() ;
+  eXo.core.Keyboard.finish() ;
   if (eXo.core.CoreEditor.handler) {
     var containerNode = eXo.core.CoreEditor.handler.currentNode ;
     while (containerNode && 

@@ -70,7 +70,6 @@
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
   height: 24px ;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
-  
 }
 
 .UINavigationPortlet .MiddleTab .TabLabel{
@@ -130,7 +129,7 @@
 
 .UINavigationPortlet .MenuItemDecorator .CenterBottomMenuDecorator {
   background: url('VistaSkin/background/CenterBottomMenuDecorator1x13.png') repeat-x;
-  height: 13px;
+  height: 13px;  
 }
 /***********************/
 /*** Scroll Buttons ***/
