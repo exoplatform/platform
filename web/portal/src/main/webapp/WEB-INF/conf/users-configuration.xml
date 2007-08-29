@@ -210,7 +210,7 @@
                     <field  name="email"><string>test@localhost</string></field>
                     <field  name="groups">
                       <string>
-                        member:/admin,member:/user,owner:/portal/admin,
+                        member:/admin,member:/user,owner:/portal/admin,member:/test,
                         member:/portal/company/hr,member:/portal/company/management
                       </string>
                     </field>
