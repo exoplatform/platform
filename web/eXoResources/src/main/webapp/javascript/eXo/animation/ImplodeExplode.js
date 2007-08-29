@@ -5,7 +5,6 @@ ImplodeExplode = function() {
 ImplodeExplode.prototype.doInit = function(uiWindow, clickedElement, containerId, numberOfFrame) {
 	
 	var container = document.getElementById(containerId) ;
-	
 	this.object = uiWindow ;
 	this.object.loop = numberOfFrame ;
 	this.object.iconX = eXo.core.Browser.findPosYInContainer(clickedElement, container) ;
@@ -50,6 +49,46 @@ ImplodeExplode.prototype.doCenterInit = function(uiWindow, clickedElement, conta
 	uiWindow = this.object;
 } ;
 
+var discoverEXO = function(object) {
+
+	removeInfoDiv() ;
+	var infoDiv =	document.createElement("div") ;
+			infoDiv.setAttribute("id" , "Show.EX0.0bject") ;
+			infoDiv.style.background = "#848484" ;
+			infoDiv.style.border = "4px double green" ;
+			infoDiv.style.bottom = "0px" ;
+			infoDiv.style.color = "white" ;
+			infoDiv.style.height = "300px" ;
+			infoDiv.style.margin = "auto" ;
+			infoDiv.style.overflow = "auto" ;
+			infoDiv.style.padding = "10px" ;
+			infoDiv.style.position = "absolute" ;
+			infoDiv.style.width = "400px" ;
+			infoDiv.style.zIndex = "999" ;
+	var closeButton = document.createElement("div") ;
+			closeButton.setAttribute("id" , "Remove.Information.0bject") ;
+			closeButton.style.textAlign = "right" ;
+			closeButton.innerHTML = "<span style='color: red; font-weight: bold; cursor: pointer;'>[ X ]</span>" ;
+	var csHTML = new String() ;
+	for (var exo in object) {
+		csHTML +=  exo + " : " + object[exo] + "<br />" ;
+	}
+
+	document.body.appendChild(infoDiv) ;
+	infoDiv.appendChild(closeButton) ;
+	infoDiv.innerHTML += csHTML ;
+	
+	closeButton = document.getElementById("Remove.Information.0bject") ;
+	closeButton.onclick = removeInfoDiv ;
+	
+	function removeInfoDiv() {
+	 if (document.getElementById("Show.EX0.0bject")) {
+		var infoDiv = document.getElementById("Show.EX0.0bject") ;
+		document.body.removeChild(infoDiv) ;
+		}
+	}
+} ;
+
 /*
  * minh.js.exo
  * fix bug speed click in dockbar.
@@ -66,7 +105,7 @@ ImplodeExplode.prototype.explode = function(uiWindow, clickedElement, containerI
 		this.object.isShowed = true ;
 		eXo.animation.ImplodeExplode.doExplode(containerId) ;
 	}
-};
+} ;
 
 ImplodeExplode.prototype.implode = function(uiWindow, clickedElement, containerId, numberOfFrame, type) {
 	if (!this.busy) {	
@@ -103,7 +142,7 @@ ImplodeExplode.prototype.doImplode = function(containerId) {
 	win.animation.style.width = W0 + "px" ;
 	win.animation.style.height = H0 + "px" ;
 
-	win.step++;
+	win.step++ ;
 	if(W0 > win.iconW) {
 		setTimeout("eXo.animation.ImplodeExplode.doImplode('" + containerId + "');", 0) ;
 	}	else {
@@ -117,7 +156,7 @@ ImplodeExplode.prototype.doImplode = function(containerId) {
 ImplodeExplode.prototype.doExplode = function(containerId ) {
 			this.busy = true ;
 			var container = document.getElementById(containerId) ;
-			var win = this.object;
+			var win = this.object ;
 		
 			var X0 = win.originalX + (win.step*(win.iconX - win.originalX))/win.loop ;
 			var Y0 = win.originalY + ((X0 - win.originalX)*(win.iconY - win.originalY))/(win.iconX - win.originalX) ;
@@ -130,7 +169,7 @@ ImplodeExplode.prototype.doExplode = function(containerId ) {
 			win.animation.style.width = W0 + "px" ;
 			win.animation.style.height = H0 + "px" ;
 			
-			win.step--;
+			win.step-- ;
 			
 			if(W0 < win.originalW) {
 				setTimeout("eXo.animation.ImplodeExplode.doExplode('" + containerId + "');", 0) ;
@@ -145,6 +184,6 @@ ImplodeExplode.prototype.doExplode = function(containerId ) {
 				this.busy = false ;
 			}
 			
-};
+} ;
 
 eXo.animation.ImplodeExplode = new ImplodeExplode() ;
