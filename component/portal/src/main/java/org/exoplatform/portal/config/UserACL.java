@@ -48,16 +48,20 @@ public class UserACL {
     String allGroups = "";
     ValueParam portalCretorGroupsParam = params.getValueParam("portal.cretor.groups");
     if(portalCretorGroupsParam != null) allGroups = portalCretorGroupsParam.getValue();
-    
-    portalCreatorGroups_ = new ArrayList<String>();
-    if(allGroups !=null ) {
-      if(allGroups.contains(",")){
-        String[] groups = allGroups.split(",");
-        for(String group: groups)  portalCreatorGroups_.add(group.trim());
+    portalCreatorGroups_ = defragmentPermission(allGroups);
+  }
+  
+  private List<String> defragmentPermission(String permission) {
+    List<String> result = new ArrayList<String>();
+    if(permission !=null ) {
+      if(permission.contains(",")){
+        String[] groups = permission.split(",");
+        for(String group: groups) {  result.add(group.trim());  }
       } else {
-        portalCreatorGroups_.add(allGroups);
+        result.add(permission);
       }
     }
+    return result;
   }
   
   public String getNavigationCreatorMembershipType() { return navigationCreatorMembershipType_; }
@@ -165,25 +169,84 @@ public class UserACL {
     return handler.findMembershipByUserGroupAndType(remoteUser, groupId, membership) != null;
   }
   
-  public boolean hasCreatePortalPermission(String remoteUser) {
-    return false;
-  }
-  
-  public boolean hasEditPermission(PortalConfig pconfig, String remoteUser)  {
-    return false;
-  }
-  
-  public boolean hasViewPermission(PortalConfig pconfig, String remoteUser){
-    return false;
-  }
+  private boolean hasPermission(String remoteUser, String expPerm) throws Exception {
+    if(log.isDebugEnabled())
+    log.debug("------CheckPermission of User "  + remoteUser + " with membership " + expPerm);
+    if(superUser_.equals(remoteUser)) return true;
+    if(expPerm == null) return false ;
+    Permission permission = new Permission();
+    permission.setPermissionExpression(expPerm);
+    String groupId = permission.getGroupId();
+    if("/guest".equals(groupId)) return true ;
 
-  public boolean hasEditPermission(Page page, String remoteUser)  {
+    String membership = permission.getMembership() ;
+    MembershipHandler handler = orgService_.getMembershipHandler();
+    if(membership == null || "*".equals(membership)) {
+      Collection<?> c = handler.findMembershipsByUserAndGroup(remoteUser, groupId) ;
+      if(c == null) return false ;
+      return c.size() > 0 ;
+    } 
+    return handler.findMembershipByUserGroupAndType(remoteUser, groupId, membership) != null;
+  }
+  
+  public boolean hasCreatePortalPermission(String remoteUser) throws Exception {
+    if(superUser_.equals(remoteUser)) return true;
+    if( portalCreatorGroups_ == null || portalCreatorGroups_.size() < 1) return false;
+    for(String ele: portalCreatorGroups_){
+      if(hasPermission(remoteUser, ele)) return true;
+    }
     return false;
   }
   
-  public boolean hasViewPermission(Page page, String remoteUser){
+  public boolean hasEditPermission(PortalConfig pconfig, String remoteUser) throws Exception {
+    if(superUser_.equals(remoteUser)) return true;
+    return hasPermission(remoteUser, pconfig.getEditPermission());
+  }
+  
+  public boolean hasViewPermission(PortalConfig pconfig, String remoteUser) throws Exception{
+    if( hasEditPermission(pconfig, remoteUser) == true) return true;
+    String[] accessPerms = (pconfig.getAccessPermissions());
+    for(String per: accessPerms){
+      if(hasPermission(remoteUser, per)) return true;
+    }
     return false;
   }
+  
+  public boolean hasEditPermission(PageNavigation pconfig, String remoteUser) throws Exception {
+    if(superUser_.equals(remoteUser)) return true;
+    String ownerType= pconfig.getOwnerType();
+    if(PortalConfig.PORTAL_TYPE.equals(ownerType)){
+      
+    } else if( PortalConfig.GROUP_TYPE.equals(ownerType)) {
+      String expPerm = navigationCreatorMembershipType_+ ":" + pconfig.getOwnerId();
+      return hasPermission(remoteUser, expPerm);
+    } else{
+      return remoteUser.equals(pconfig.getOwnerId());
+    }
+    return false;
+  }
+ 
+  public boolean hasEditPermission(Page page, String remoteUser)  throws Exception {
+    if(superUser_.equals(remoteUser)) return true;
+    if(PortalConfig.USER_TYPE.equals(page.getOwnerType())){
+      return remoteUser.equals(page.getOwnerId());
+    }
+    return hasPermission(remoteUser, page.getEditPermission());
+  }
+  
+  public boolean hasViewPermission(Page page, String remoteUser)throws Exception {
+    if(superUser_.equals(remoteUser)) return true;
+    if(PortalConfig.USER_TYPE.equals(page.getOwnerType())){
+      return remoteUser.equals(page.getOwnerId());
+    }
+    if(hasEditPermission(page, remoteUser)) return true;
+    String[] accessPerms = page.getAccessPermissions();    
+    for(String per: accessPerms){
+      if(hasPermission(remoteUser, per)) return true;
+    }
+    return false;
+  }
+  
   
   static public class Permission {
 

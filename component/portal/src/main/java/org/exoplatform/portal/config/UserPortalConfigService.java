@@ -122,6 +122,66 @@ public class UserPortalConfigService {
     return new UserPortalConfig(portal, navigations, widgets) ;
   }
 
+//  
+//  public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
+//    PortalConfig portal = (PortalConfig) portalConfigCache_.get(portalName) ;
+//    System.out.println("\n\n\n\n----------------------------- Get User Portal Config" + portalName);
+//    if(portal == null) {
+//      portal = storage_.getPortalConfig(portalName) ;
+//      if(portal != null) portalConfigCache_.put(portalName, portal);
+//    }
+//    if(portal == null || !userACL_.hasPermission(portal, accessUser)) return null ;
+//
+//    List<PageNavigation> navigations = new ArrayList<PageNavigation>();
+//    PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName, accessUser) ;
+//    if (navigation != null) navigations.add(navigation);    
+//    
+//    navigation = getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser, accessUser) ;
+//    if (navigation != null) navigations.add(navigation) ;
+//
+//    Collection<?> memberships = orgService_.getGroupHandler().findGroupsOfUser(accessUser);
+//    if(memberships != null) {
+//      Iterator<?> iterator = memberships.iterator() ;
+//      
+//      while(iterator.hasNext()) {
+//        Group m = (Group) iterator.next() ;   
+//        String groupId = m.getId().trim();
+////        if(groupId.charAt(0) == '/') groupId = groupId.substring(1);
+//        navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+groupId, accessUser) ;
+//        if(navigation == null) continue;
+//        boolean add = true;
+//        for(PageNavigation nav : navigations) {
+//          if(nav.getId().equals(navigation.getId())) {
+//            add = false;
+//            break;
+//          }
+//        }
+//        
+//        if(add) {
+//          if(userACL_.hasEditPermission(navigation, accessUser)) navigation.setModifiable(true);
+//          else navigation.setModifiable(false);
+//          navigations.add(navigation) ;
+//        }
+//      }
+//    }
+//   // userACL_.computeNavigation(navigations, accessUser);
+//    
+//    ArrayList<Widgets> widgets = new ArrayList<Widgets>();
+//    Widgets widgetsItem = getWidgets(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
+//    if(widgetsItem != null) widgets.add(widgetsItem);
+//    
+//    widgetsItem = getWidgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
+//    if(widgetsItem != null) widgets.add(widgetsItem);
+//    
+//    Collections.sort(navigations, new Comparator<PageNavigation>() {
+//      public int compare(PageNavigation nav1, PageNavigation nav2) {
+//        return nav1.getPriority()- nav2.getPriority() ;
+//      }
+//    });
+//    
+//    return new UserPortalConfig(portal, navigations, widgets) ;
+//  }
+
   /**
    * This method  should create a  the portal  config, pages and navigation according to the template 
    * name
