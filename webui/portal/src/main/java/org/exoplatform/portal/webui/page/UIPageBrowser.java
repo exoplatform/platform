@@ -103,11 +103,14 @@ public class UIPageBrowser extends UISearch {
 
   public UIPageBrowser() throws Exception {
     super(OPTIONS);
-    getChild(UISearchForm.class).setId("UIPageSearch");
+    //getChild(UISearchForm.class).setId("UIPageSearch");
+    getChild(UISearchForm.class).setId("UIPageSearch" + hashCode());
     UIGrid uiGrid = addChild(UIGrid.class, null, null) ;
     uiGrid.configure("pageId", BEAN_FIELD, ACTIONS) ;
-    addChild(uiGrid.getUIPageIterator());
-    uiGrid.getUIPageIterator().setRendered(false);
+    UIPageIterator uiIterator = uiGrid.getUIPageIterator() ; 
+    addChild(uiIterator);
+    uiIterator.setId("UIBrowserIterator" + hashCode()) ;
+    uiIterator.setRendered(false);
     defaultValue(null) ;
   }
 
