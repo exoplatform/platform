@@ -69,10 +69,7 @@ function Portal(kernel, core, pc, jcr, version) {
     addDependency(pc.services.jsr168) ;
 
   this.portlet = {};
-  this.portlet.content =  
-    new Project("org.exoplatform.portal", "exo.portal.portlet.content", "exo-portlet", version).
-    addDependency(this.component.xmlParser) ;
-
+  
   portal.portlet.exoadmin = 
     new Project("org.exoplatform.portal", "exo.portal.portlet.exoadmin", "exo-portlet", version);
     
@@ -148,7 +145,7 @@ function eXoPortalProduct() {
 
   
   product.addDependencies(portal.web.portal) ;
-  product.addDependencies(portal.portlet.content) ;
+  /*product.addDependencies(portal.portlet.content) ;*/
   product.addDependencies(portal.portlet.exoadmin) ;
   product.addDependencies(portal.portlet.web) ;
   product.addDependencies(portal.portlet.site) ;

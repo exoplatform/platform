@@ -15,10 +15,10 @@
     <type>org.exoplatform.portal.application.jcr.UserWidgetStorageImpl</type>
   </component> 
   
-  <component>
+  <!-- component>
     <key>org.exoplatform.portal.content.ContentDAO</key>
     <type>org.exoplatform.portal.content.jcr.ContentDAOImpl</type>     
-  </component>
+  </component-->
   
   <component>
     <key>org.exoplatform.portal.config.UserACL</key>
@@ -68,7 +68,7 @@
     </component-plugin>
   </external-component-plugins>  
   
-  <external-component-plugins>  
+  <!-- external-component-plugins>  
     <target-component>org.exoplatform.portal.content.ContentDAO</target-component>      
     
     <component-plugin>
@@ -84,7 +84,7 @@
       <type>org.exoplatform.portal.content.DescriptionPlugin</type>
       <description>Description plugin</description>     
     </component-plugin>
-  </external-component-plugins>  
+  </external-component-plugins-->  
   
   <external-component-plugins>
     <target-component>org.exoplatform.services.organization.OrganizationService</target-component>
@@ -101,17 +101,17 @@
       <type>org.exoplatform.portal.config.GroupPortalConfigListener</type>
     </component-plugin>
     
-    <component-plugin> 
+    <!-- component-plugin> 
       <name>user.content.nav.listener</name>
       <set-method>addListenerPlugin</set-method>
       <type>org.exoplatform.portal.content.UserContentNavListener</type>
-    </component-plugin>    
+    </component-plugin-->    
     
-    <component-plugin> 
+    <!-- component-plugin> 
       <name>group.content.nav.listener</name>
       <set-method>addListenerPlugin</set-method>
       <type>org.exoplatform.portal.content.GroupContentNavListener</type>
-    </component-plugin>    
+    </component-plugin-->    
   </external-component-plugins>  
 </configuration>
 

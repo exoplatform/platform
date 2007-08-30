@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
   <external-component-plugins>  
-    <target-component>org.exoplatform.portal.content.ContentDAO</target-component>      
+    <target-component>org.exoplatform.content.service.ContentDAO</target-component>      
     <component-plugin>
       <name>content.new.user.listener</name>
       <set-method>initListener</set-method>
-      <type>org.exoplatform.portal.content.NewContentNavListener</type>
+      <type>org.exoplatform.content.service.NewContentNavListener</type>
       <description>this listener create the content navigation configuration for the new user</description>
       <init-params>
         <value-param>

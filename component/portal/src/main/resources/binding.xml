@@ -134,23 +134,4 @@
       <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
     </collection>
   </mapping>
-  
-  <mapping name="content-navigation" class="org.exoplatform.portal.content.model.ContentNavigation">
-    <value name="owner" field="owner"/>
-    <value name="description" field="description" usage="optional"/>
-    <collection name="content-nodes" field="contentNodes" usage="optional"
-                    item-type="org.exoplatform.portal.content.model.ContentNode"/>
-  </mapping>
-  
-  <mapping name="content-node" label="content-node"
-           class="org.exoplatform.portal.content.model.ContentNode">
-    <value name="id" field="id"/>
-    <value name="url" field="url" usage="optional"/>
-    <value name="label" field="label" usage="optional"/>
-    <value name="icon" field="icon" usage="optional"/>
-    <value name="description" field="description" usage="optional"/>
-    <value name="type" field="type" usage="optional"/>
-    <collection field="children" usage="optional" item-type="org.exoplatform.portal.content.model.ContentNode"/>
-  </mapping>
-  
 </binding>

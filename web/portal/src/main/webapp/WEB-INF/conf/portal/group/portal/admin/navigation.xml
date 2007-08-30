@@ -102,6 +102,13 @@
         <label>Contact</label>
         <page-reference>group::portal/admin::contact</page-reference>
       </node>
+      
+      <node>
+        <uri>groupware/content</uri>
+        <name>content</name>
+        <label>RSS Reader</label>
+        <page-reference>group::portal/admin::content</page-reference>
+      </node>
     </node>
     
   </page-nodes>
