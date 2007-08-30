@@ -94,20 +94,18 @@
 /*========================== End Wizard Content ==============================*/
 
 /*========================== Start ActionBar ==============================*/
-
 .UIWizard .UIWizardContent .WizardControlBar .ActionBar {
-  float: right;
-  padding-right: 10px;
+	width: 50%;
+	float: right;
+	padding-right: 7px;
 }
 
-.UIWizard .WizardControlBar .UIAction {
-  float: left;
-  padding: 4px;
-  width: 74px;
+.UIWizard .WizardControlBar .UIAction .ActionButton{
+	float: right;
 }
 
-.UIWizard .WizardControlBar .UIAction .ActionButton {
-  margin: 0px;
+.UIWizard .WizardControlBar .UIAction .ActionContainer{
+	width: 100%;
 }
 
 /*========================== Start UIWizard Welcome ==============================*/

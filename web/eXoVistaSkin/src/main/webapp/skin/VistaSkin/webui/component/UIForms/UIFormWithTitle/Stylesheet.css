@@ -25,12 +25,3 @@
   float: left; width: 120px;
   text-align: right;
 }
-
-.UIFormWithTitle .UIForm .UIAction {  
-  width: 180px;
-}
-
-.UITestForm .UIAction {
-	height: 30px;
-	width: 300px;
-}

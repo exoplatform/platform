@@ -96,12 +96,6 @@ a {
   margin: auto ;
 }
 
-.AjaxLoadingMask .UIAction .ActionContainer{
-  float: none;
-}
-
 .AjaxLoadingMask .UIAction .ActionButton{
-  width: 90px;
-  margin: auto;
   float: none;
 }

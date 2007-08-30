@@ -123,9 +123,6 @@
 }
 
 /*####################- UIPermissionForm -#################*/
-.UIPermissionForm .UIAccessGroup .UIAction {
-  width: 200px;
-}
 
 .UIPermissionForm .UIGroupSelector .RightGroupSelector .Content {
   height: 160px;

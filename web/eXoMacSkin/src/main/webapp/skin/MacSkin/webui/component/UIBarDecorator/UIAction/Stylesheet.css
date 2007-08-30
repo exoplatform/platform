@@ -1,110 +1,116 @@
 .UIAction{
-  margin: auto;
-  height: 25px;
   padding: 9px 0px;
 }
 
 .UIAction .ActionContainer {
-  float: left;
-}
+	width: auto;
+	margin: auto;
+}	
 
 .UIAction .ActionButton {
+	display: block;
 	float: left;
-	margin: 0px 1px 0px 1px ;
+	margin: 0px 3px;
 }
 
-.UIAction .ActionButton  a {
-  line-height: 24px ; vertical-align: top;
-  text-decoration: none ; text-align: center;
+.UIAction .ActionContainer  a {
+  line-height: 24px ; 
   color: black;
-  margin: 0px 11px 0px 11px; 
-  cursor: pointer;
 }
 
-.UIAction .ActionButton  a:hover {
+.UIAction .ActionContainer  a:hover {
   color: white;
 }
 
-.UIAction .ActionButton .Icon {
-	float: left;
+.UIAction .ActionContainer .Icon {
+	padding-left: 20px;
+	height: auto;
+	width: auto;
+	background-position: left center;
 } 
 
 /*##############################-LightBlueStyle ActionButton-################################*/
-.UIAction .ActionButton .LightBlueStyle {
+.UIAction .LightBlueStyle {
   line-height: 28px;
 }
 
-.UIAction .ActionButton .LightBlueStyle .ButtonLeft {
+.UIAction .LightBlueStyle .ButtonLeft {
   background: url('background/BlueAquaButtonL12x25.png') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
-.UIAction .ActionButton .LightBlueStyle .ButtonRight {
+.UIAction .LightBlueStyle .ButtonRight {
   background: url('background/BlueAquaButtonR12x25.png') no-repeat right top;
   padding: 0px 12px 0px 0px ;
 }
 
-.UIAction .ActionButton .LightBlueStyle .ButtonMiddle {
+.UIAction .LightBlueStyle .ButtonMiddle {
   line-height: 25px; 
   text-align: center;
 	background: url('background/BlueAquaButtonM1x25.png') repeat-x top;
+	display: table-cell;
+	padding: 0px 12px;
 }
 
 /*##############################-Disabled ActionButton-################################*/
-.UIAction .ActionButton .DisabledStyle {
+.UIAction .DisabledStyle {
 }
 
-.UIAction .ActionButton .DisabledStyle .ButtonLeft {
+.UIAction .DisabledStyle .ButtonLeft {
   background: url('background/GrayAquaButtonL12x25.png') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
-.UIAction .ActionButton .DisabledStyle .ButtonRight {
+.UIAction .DisabledStyle .ButtonRight {
   background: url('background/GrayAquaButtonR12x25.png') no-repeat right top;
   padding: 0px 12px 0px 0px ;
 }
 
-.UIAction .ActionButton .DisabledStyle .ButtonMiddle {
+.UIAction .DisabledStyle .ButtonMiddle {
 	line-height: 25px; 
 	text-align: center; 
 	background: url('background/GrayAquaButtonM1x25.png') repeat-x top;
+	display: table-cell;
+	padding: 0px 12px;
 }
 
-.UIAction .ActionButton .DisabledStyle a {
+.UIAction .DisabledStyle a {
 	color: gray;
 	cursor: default;
 }
 
-.UIAction .ActionButton .DisabledStyle a:hover {
+.UIAction .DisabledStyle a:hover {
 	color: gray;
 	cursor: default;
 }
 
 /*##############################-SimpleStyle ActionButton-################################*/
-.UIAction .ActionButton .SimpleStyle {}
+.UIAction .SimpleStyle {}
 
-.UIAction .ActionButton .SimpleStyle .ButtonLeft {
+.UIAction .SimpleStyle .ButtonLeft {
   background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/LeftSimpleButton10x21.gif') no-repeat left top;
   padding: 0px 0px 0px 10px;
 }
 
-.UIAction .ActionButton .SimpleStyle .ButtonRight {
+.UIAction .SimpleStyle .ButtonRight {
   background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/RightSimpleButton10x21.gif') no-repeat right top;
   padding: 0px 10px 0px 0px ;
 }
 
-.UIAction .ActionButton .SimpleStyle .ButtonMiddle {
+.UIAction .SimpleStyle .ButtonMiddle {
   line-height: 21px;
 	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/CenterSimpleButton1x21.gif') repeat-x top;
 	text-align: center;	
+	display: table-cell;
+	padding: 0px 12px;
 }
 
-.UIAction .ActionButton .SimpleStyle a {
+.UIAction a.SimpleStyle {
   color: #058ee6; font-weight: bold; 
   margin: 0px 6px;white-space: nowrap;
   line-height: 21px; height: 21px;
 }
 
-.UIAction .ActionButton .SimpleStyle a:hover {
+.UIAction a:hover.SimpleStyle {
   color: #1273df;
 }

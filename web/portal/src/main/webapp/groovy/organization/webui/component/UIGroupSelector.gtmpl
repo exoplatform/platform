@@ -33,20 +33,20 @@
 	  <div style="clear: left"><span></span></div>
   </div>
   
-  <div class="UIAction">
-    <div class="ActionContainer">
-      <div class="ActionButton">
-        <div class="LightBlueStyle">
-          <div class="ButtonLeft">
-            <div class="ButtonRight">
-              <div class="ButtonMiddle">
-                <a href="<%=uicomponent.event("SelectGroup");%>"> Done </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>     
-    </div>
-  </div>
+  <div class="UIAction"> 
+    <table class="ActionContainer" align="center">
+	    <tr>
+	    	<td align="center">
+		      <a href="<%=uicomponent.event("SelectGroup");%>" class="ActionButton LightBlueStyle">
+		        <div class="ButtonLeft">
+		          <div class="ButtonRight">
+		            <div class="ButtonMiddle">Done</div>
+		          </div>
+		        </div>
+		      </a>
+		    </td>
+      </tr>
+ 	  </table>
+	</div>
 
 </div> 		

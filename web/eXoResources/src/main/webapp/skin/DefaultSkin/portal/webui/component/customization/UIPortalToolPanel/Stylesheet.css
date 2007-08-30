@@ -27,11 +27,6 @@
 .UIPortalToolPanel .Body .UIPage {
 }
 
-.UIPortalToolPanel .UIAction {
-  width: 190px;
-  margin-bottom: 0px;
-}
-
 .UIPortalToolPanel .UIItemSelector .NormalStyle {
   height: 100% ;
 }

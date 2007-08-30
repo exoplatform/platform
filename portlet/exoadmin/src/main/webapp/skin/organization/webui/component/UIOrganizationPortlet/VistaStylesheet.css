@@ -13,13 +13,6 @@
   background:url('background/UIOrganizationPortletBG.png') repeat ;
 }
 
-.UIOrganizationPortlet .ManagementTabContent {
-}
-
-.UIOrganizationPortlet .UIMembership .UIAction  {
-  width: 165px;
-} 
-
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
 	height:18px;
 	line-height:18px;
@@ -200,15 +193,6 @@
   width: 22px; height: 16px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormWithTitle .UIAction {
-  width: 190px;
-  padding-left: 30px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIUserInGroup .UIFormWithTitle .UIAction {  
-  width: 80px;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
   border: none;
   margin: auto;
@@ -218,10 +202,6 @@
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .UIForm .UIFormGrid {
 	width: 350px;
 	margin: auto;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIAction {
-	width: 45px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup {

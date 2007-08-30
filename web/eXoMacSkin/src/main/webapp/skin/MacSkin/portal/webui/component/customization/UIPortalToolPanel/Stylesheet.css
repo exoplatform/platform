@@ -107,10 +107,6 @@
   background: white;
 }
 
-.UIPortalToolPanel .UIAction{
-  width: 175px;
-}
-
 /**################################ ItemDetailList ######################*/
 .UIPortalToolPanel .UIItemSelector .ItemDetailList .ItemDetail {
   height: 250px ;

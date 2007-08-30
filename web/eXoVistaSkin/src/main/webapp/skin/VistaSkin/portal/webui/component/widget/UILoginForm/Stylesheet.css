@@ -154,6 +154,5 @@
 }
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {
-  width: 190px;
-  padding: 13px 0px 10px 125px;
+  padding: 13px 0px 10px 0px;
 }

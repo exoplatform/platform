@@ -1,20 +1,22 @@
 <div class="UIPortalBrowser" id="<%=uicomponent.getId();%>">
 	<%uicomponent.renderChildren() %>	
-	<div class="UIAction">
-	  <div class="ActionContainer">
-	    <div class="ActionButton">
-	      <div class="LightBlueStyle">
-	        <div class="ButtonLeft">
-	          <div class="ButtonRight">
-	            <div class="ButtonMiddle">
-	              <a class="ActionText" href="<%=uicomponent.event("AddNewPortal")%>">
-	                <%=_ctx.appRes(uicomponent.getId() + ".action.addNewPortal")%>
-	              </a>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	</div>			    
+	
+	<div class="UIAction"> 
+    <table class="ActionContainer" align="center">
+	    <tr>
+	    	<td align="center">
+		      <a href="<%=uicomponent.event("AddNewPortal")%>" class="ActionButton LightBlueStyle">
+		        <div class="ButtonLeft">
+		          <div class="ButtonRight">
+		            <div class="ButtonMiddle">
+		              <%=_ctx.appRes(uicomponent.getId() + ".action.addNewPortal")%>
+		            </div>
+		          </div>
+		        </div>
+		      </a>
+		    </td>
+      </tr>
+ 	  </table>
+	</div>
+				    
 </div>

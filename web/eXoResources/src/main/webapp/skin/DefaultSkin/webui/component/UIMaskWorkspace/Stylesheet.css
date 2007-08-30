@@ -79,11 +79,6 @@
 	margin: 3px 5px 0px 5px ;
 }
 
-.UIMaskWorkspace .UIAction {
-  width: 160px;
-  padding-left: 35px;
-}
-
 .UIMaskWorkspace .UIFormWithTitle {
   width: 550px;
 	margin: auto;
@@ -255,15 +250,7 @@
   width: 0px;
 }
 
-.UIMaskWorkspace .UIAddApplication .UIAction {
-	width: 80px;
-}
-
 /************************************ Select Permission *******************************/
-
-.UIMaskWorkspace .UIAccessGroup .UIAction {
-  width: 200px;
-}
 
 .UIGroupSelector {
   padding: 10px;
@@ -354,12 +341,4 @@
   color: #2c2c2c;
 }
 
-.UIGroupSelector .UIAction {
-	width: 90px;
-	padding: 8px 0px;
-}
-
 /**************************************Container Form*************************************/
-.UIMaskWorkspace .UIContainerForm .UIForm .UIAction  {
-  width: 150px;
-}

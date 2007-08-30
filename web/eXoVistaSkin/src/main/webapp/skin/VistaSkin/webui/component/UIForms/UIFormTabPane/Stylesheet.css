@@ -34,9 +34,4 @@
 
 .UIFormTabPane .UIBoxDecorator .DecoratorBox {
 	width: 400px ;  height: 220px ;	
-	
-}
-
-.UIFormTabPane .TabPaneContent .UIAction  {
-  width: 200px;
 }

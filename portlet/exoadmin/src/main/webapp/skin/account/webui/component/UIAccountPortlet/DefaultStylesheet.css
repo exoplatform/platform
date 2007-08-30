@@ -25,16 +25,6 @@
   border: 1px solid red;
 }
 
-.UIAccountPortlet .UIAction  {
-  width: 150px;
-  padding-left: 25px;
-}
-
-.UIAccountPortlet .UIMembership .UIAction  {
-  width: 160px;
-  padding-left: 15px;
-} 
-
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
   height: 295px; width: 400px;
   padding-top: 15px;

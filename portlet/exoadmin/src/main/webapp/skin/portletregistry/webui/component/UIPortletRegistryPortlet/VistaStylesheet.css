@@ -23,10 +23,6 @@
   padding: 0px 10px;
 }
 
-.ApplicationRegistryWorkingArea .UIFormWithTitle .UIForm .UIAction {
-  width: 150px;
-}
-
 /*################################Application Registry Control################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
 	float: left;
@@ -185,23 +181,7 @@
 	padding: 0px;
 }
 
-.ApplicationRegistryWorkingArea .UIAction  {
-  width: 145px;
-}
-
-.ApplicationRegistryWorkingArea .UIForm .HorizontalLayout .UIAction {
-  width: 170px;
-}
-
-.ApplicationRegistryWorkingArea .UIPermissionForm .HorizontalLayout .UIAction {
-  width: 100px;
-}
-
-.ApplicationRegistryWorkingArea .UIPermissionForm .HorizontalLayout .UIFormGrid .UIAction {
-  width: 160px;
-}
-
-.ApplicationRegistryWorkingArea .UIInfoPortletForm {
+s.ApplicationRegistryWorkingArea .UIInfoPortletForm {
 	width: 400px;
 	margin: auto;
 }

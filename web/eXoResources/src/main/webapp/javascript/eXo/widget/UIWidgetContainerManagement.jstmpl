@@ -50,30 +50,28 @@
 			<div style="clear: left"><span></span></div>
 		</div>
 	</div>
+	
 	<div class="UIAction">
-	  <div class="ActionContainer">
-	    <div class="ActionButton">
-	      <div class="LightBlueStyle">
-	        <div class="ButtonLeft">
-	          <div class="ButtonRight">
-	            <div class="ButtonMiddle">
-	  				    <a href="javascript: <%=submit%>">Save</a>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-	    <div class="ActionButton">
-	      <div class="LightBlueStyle">
-	        <div class="ButtonLeft">
-	          <div class="ButtonRight">
-	            <div class="ButtonMiddle">
-	  				    <a href="javascript: <%=closeContainerManagement%>">Cancel</a>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
+		<table class="ActionContainer" align="center">
+			<tr>
+				<td align="center">
+					<a class="ActionButton LightBlueStyle" "javascript: <%=submit%>" >
+						<div class="ButtonLeft">
+							<div class="ButtonRight">
+								<div class="ButtonMiddle">Save</div>
+							</div>
+						</div>
+					</a>
+					<a class="ActionButton LightBlueStyle" href="javascript: <%=closeContainerManagement%>">
+						<div class="ButtonLeft">
+							<div class="ButtonRight">
+								<div class="ButtonMiddle">Cancel</div>
+							</div>
+						</div>
+					</a>
+				</td>
+			</tr>
+		</table>
 	</div>
+	
 </div>

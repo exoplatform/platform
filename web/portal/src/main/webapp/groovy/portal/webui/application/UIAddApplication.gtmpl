@@ -190,20 +190,20 @@
 	  </div>
 	</div>
 	
-	<div class="UIAction">
-	  <div class="ActionContainer">
-	    <div class="ActionButton">
-	      <div class="LightBlueStyle">
-	        <div class="ButtonLeft">
-	          <div class="ButtonRight">
-	            <div class="ButtonMiddle">
-	  				    <a href="javascript:eXo.desktop.UIAddApplication.removeAddApplication() ;">Close</a>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
+	<div class="UIAction"> 
+    <table class="ActionContainer" align="center">
+	    <tr>
+	    	<td align="center">
+		      <a href="javascript:eXo.desktop.UIAddApplication.removeAddApplication() ;" class="ActionButton LightBlueStyle">
+		        <div class="ButtonLeft">
+		          <div class="ButtonRight">
+		            <div class="ButtonMiddle">Close</div>
+		          </div>
+		        </div>
+		      </a>
+		    </td>
+      </tr>
+ 	  </table>
 	</div>
 	
 </div>

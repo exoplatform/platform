@@ -79,8 +79,6 @@
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .UIAction .ActionButton {
-  width: 165px;
-  margin: auto;
   float: none;
 } 
 

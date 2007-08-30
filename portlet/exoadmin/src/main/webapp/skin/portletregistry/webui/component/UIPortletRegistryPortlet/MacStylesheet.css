@@ -113,10 +113,6 @@
   border: 1px solid white;
 }
 
-.ApplicationRegistryControlArea .UICategoryForm .UIAction {
-  width: 170px;
-}
-
 /*################################Application Registry Working################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryWorkingArea {
 	margin-left: 245px;
@@ -201,16 +197,8 @@
 	margin-top: 2px;
 }
 
-.ApplicationRegistryWorkingArea .UIAction {
-  width: 160px;
-}
-
 .ApplicationRegistryWorkingArea .eXoBrowserIcon {
   background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png) no-repeat;
-}
-
-.ApplicationRegistryWorkingArea .UIAccessGroup .UIAction {
-  width: 180px;
 }
 
 .ApplicationRegistryWorkingArea .UIForm .HorizontalLayout {
@@ -234,16 +222,6 @@
 
 .ApplicationRegistryWorkingArea .UIPermissionForm .UIAccessGroup .UIGrid td.text{
   padding-left: 8px;
-}
-
-.ApplicationRegistryWorkingArea .UIPermissionForm .UIAction{
-  width: 80px;
-  padding-bottom: 10px;
-}
-
-.ApplicationRegistryWorkingArea .UIPermissionForm .UIAccessGroup .UIAction{
-  width: 180px;
-  padding: 0px 0px 0px 20px;
 }
 
 .ApplicationRegistryWorkingArea .UIInfoPortletForm {

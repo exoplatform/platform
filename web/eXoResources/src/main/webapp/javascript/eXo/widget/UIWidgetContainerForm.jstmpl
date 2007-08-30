@@ -54,18 +54,20 @@
     </div>
   </div>
   
-  <div class="UIAction" style="width: 80px">
-		<div class="ActionContainer">
-			<div class="ActionButton">
-				<div class="LightBlueStyle">
-					<div class="ButtonLeft">
-						<div class="ButtonRight">
-							<div class="ButtonMiddle" style="width: 70px; cursor: pointer" onclick="<%= context.action.event %>"><%= context.action.actionLabel %></div>
+  <div class="UIAction">
+		<table class="ActionContainer" align="center">
+			<tr>
+				<td align="center">
+					<a class="ActionButton LightBlueStyle" href="<%= context.action.event %>">
+						<div class="ButtonLeft">
+							<div class="ButtonRight">
+								<div class="ButtonMiddle"><%= context.action.actionLabel %></div>
+							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+					</a>
+				</td>
+			</tr>
+		</table>
 	</div>
 	
 </div>

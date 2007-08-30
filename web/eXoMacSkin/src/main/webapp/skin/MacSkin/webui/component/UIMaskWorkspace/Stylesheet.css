@@ -32,14 +32,6 @@
 	margin: 3px 5px 0px 5px ;
 }
 
-.UIMaskWorkspace .UIAction {
-  width: 170px ;
-}
-
-.UIMaskWorkspace .UIFormWithTitle .UIAction {
-  width: 160px ;
-}
-
 .UIMaskWorkspace .UIFormTabPane {
 	padding: 10px 10px 5px 10px ;
 }
@@ -194,10 +186,6 @@
 .UIAddApplication .LeftColumnStyle .ViewListIcon {
   background: none;
   width: 0px;
-}
-
-.UIAddApplication .UIAction {
-	width: 90px;
 }
 
 /**********************************************************************************/

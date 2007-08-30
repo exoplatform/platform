@@ -99,10 +99,6 @@
 .UIForm .VerticalLayout {
 }
 
-.UIForm .VerticalLayout .UIAction {
-  width: 100px;
-}
-
 .UIForm .VerticalLayout  label {
 	text-align: left ;
   font-weight: bold ;

@@ -305,7 +305,6 @@
 }
 
 .UIAddApplication .UIAction {
-  width: 90px;
 }
 
 /********************************  UIAddApplication.80x80Icon **********************************/
@@ -314,7 +313,6 @@
 }
 
 .UIAccessGroup .UIAction {
-  width: 200px;
 }
 
 .UIAccessGroup .UIAction .SimpleStyle .Icon {
@@ -369,9 +367,7 @@
 }
 
 .UIGroupSelector .UIAction {
-  width: 80px;
 }
-
 
 .UIGroupSelector .TitleGroupSelector {
   background: url("background/ThGridRepeatBg1x20.png") repeat-x;

@@ -68,12 +68,6 @@
 	padding: 8px 0px 0px 0px;
 }
 
-.UIPopupMessages .UIAction .ActionContainer{
-	float: none;
-}
-
 .UIPopupMessages .UIAction .ActionContainer .ActionButton{
-	width: 70px;
-	margin:auto;
 	float: none;
 }

@@ -97,15 +97,6 @@
 /*####################- VerticalLayout -#################*/
 .UIForm .VerticalLayout {}
 
-.UIForm .VerticalLayout .UIAction {
-  padding: 15px 0px 15px 15px ;
-  margin-left: auto ;
-  margin-right: auto ;
-}
-
-.UIForm .VerticalLayout .UIAction .ActionContainer .Button {
-  float: none;
-}
 
 .UIForm .VerticalLayout  label {
 	text-align: left ;

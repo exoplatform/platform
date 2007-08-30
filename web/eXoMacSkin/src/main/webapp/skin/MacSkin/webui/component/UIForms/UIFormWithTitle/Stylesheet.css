@@ -29,12 +29,3 @@
 .UIFormWithTitle .HorizontalLayout .FieldContainer .FieldComponent {
   margin-left: 130px;
 }
-
-.UIFormWithTitle .UIForm .UIAction {  
-  width: 180px;
-  padding-top: 15px;
-}
-
-.UITestForm .UIForm .UIAction {
- 	width: 240px;
-}

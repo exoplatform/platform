@@ -1,10 +1,6 @@
 .UIWidgetContainerManagement {
 }
 
-.UIWidgetContainerManagement .UIAction{
-	width: 165px;
-}
-
 .UIWidgetContainerManagement .ContainerManagementBlock {
 	border: 1px solid #999999;
   border-top: none;

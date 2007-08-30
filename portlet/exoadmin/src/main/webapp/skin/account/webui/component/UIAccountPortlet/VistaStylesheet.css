@@ -19,14 +19,6 @@
   margin: 5px;
 }
 
-.UIAccountPortlet .UIFormTabPane .TabPaneContent .UIAction  {
-  width: 180px;
-}
-
-.UIAccountPortlet .UIFormTabPane .TabPaneContent .UIMembership .UIAction  {
-  width: 170px;
-}
-
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
 	height: 300px; width: 400px;
 	padding-top: 10px;

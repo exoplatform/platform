@@ -53,22 +53,24 @@
 	</div>
 	<%//End Membership List%>
 	<% if(uicomponent.isAdminRole()) { %>
-	<div class="UIAction">
-	  <div class="ActionContainer">
-	    <div class="ActionButton">
-	      <div class="LightBlueStyle">
-	        <div class="ButtonLeft">
-	          <div class="ButtonRight">
-	            <div class="ButtonMiddle">
-	              <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
-	                <%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%>
-	              </a>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	</div>   
+	
+	<div class="UIAction"> 
+    <table class="ActionContainer" align="center">
+	    <tr>
+	    	<td align="center">
+		      <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');" class="ActionButton LightBlueStyle">
+		        <div class="ButtonLeft">
+		          <div class="ButtonRight">
+		            <div class="ButtonMiddle">
+		            	<%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%>
+		            </div>
+		          </div>
+		        </div>
+		      </a>
+		    </td>
+      </tr>
+ 	  </table>
+	</div>
+	  
 	<% }%>	
 </div>
