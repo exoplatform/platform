@@ -5,6 +5,12 @@
 	margin: auto;
 }
 
+* html .UIStickerWidget  {
+	background: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/portaleXoWidgetWeb/skin/sticker/DefaultSkin/background/Sticker.png", sizingMethod="crop");
+	zoom: 1;
+}
+
 .UIStickerWidgetTitle {
 	height: 30px ;
 }
