@@ -13,6 +13,7 @@ UIUpload.prototype.initUploadEntry = function(uploadId) {
   }catch(err){
     return;  
   }
+
 	if(response.upload[uploadId] == undefined || response.upload[uploadId].percent == undefined) {
 		this.createUploadEntry(uploadId);
 	} else if(response.upload[uploadId].percent == 100)  {
@@ -30,7 +31,10 @@ UIUpload.prototype.createUploadEntry = function(uploadId) {
 	idoc.write("<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>");
   idoc.write("<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>");
   idoc.write("<head>");
-  idoc.write("<link rel='stylesheet' type='text/css' href= '/eXoResources/skin/DefaultSkin/webui/component/UIUpload/Stylesheet.css' />");
+  idoc.write("<style type='text/css'>");
+  idoc.write(".UploadButton {width: 20px; height: 20px; cursor: pointer; vertical-align: bottom;");
+  idoc.write(" background: url('/eXoResources/skin/DefaultSkin/webui/component/UIUpload/background/UpArrow16x16.gif') no-repeat left; }");
+  idoc.write("</style>");
   idoc.write("<script type='text/javascript'>var eXo = parent.eXo</script>");
   idoc.write("</head>");
   idoc.write("<body style='margin: 0px; border: 0px;'>");
@@ -39,6 +43,7 @@ UIUpload.prototype.createUploadEntry = function(uploadId) {
   idoc.write("    <img class='UploadButton' onclick='eXo.webui.UIUpload.upload(this, "+uploadId+")' src='/eXoResources/skin/sharedImages/Blank.gif'/>");
   idoc.write("  </form>");
   idoc.write("</body>");
+  idoc.write("</html>");
   idoc.close();
 };
 
@@ -52,10 +57,6 @@ UIUpload.prototype.refeshProgress = function(elementId) {
   for(var i = 0; i < list.length; i++){
     url = url + "&uploadId=" + list[i];
   }
-//  var request =  eXo.core.Browser.createHttpRequest();
-//  request.open('GET', url, false);
-//  request.setRequestHeader("Cache-Control", "max-age=86400");
-//  request.send(null);
 
   var responseText = ajaxAsyncGetRequest(url, false);
   
