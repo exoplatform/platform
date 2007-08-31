@@ -43,10 +43,6 @@ Skin.prototype.addApplicationSkin = function(componentId, url) {
   }
 } ;
 
-//if(eXo.core.Skin == undefined){
-//  eXo.core.Skin = new Skin() ;
-//} ;
-// undefined : undefined variable 
 if(!eXo.core.Skin){
   eXo.core.Skin = new Skin() ;
 } ;
