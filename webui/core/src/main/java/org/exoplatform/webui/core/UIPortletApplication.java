@@ -42,25 +42,13 @@ abstract public class UIPortletApplication extends  UIApplication {
    */
   public void  processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
     WebuiRequestContext pContext = (WebuiRequestContext)context.getParentAppRequestContext();
-    ExoPortletRequest renderRequest = (ExoPortletRequest) context.getRequest();
-    WindowID windowID = renderRequest.getWindowID();
     if(context.useAjax() && !pContext.getFullRender()) {
       Writer w =  context.getWriter() ;
-//      w.write("<div class=\"PortletResponse\" style=\"display: none\">") ;
-//      w.  append("<div class=\"PortletResponsePortletId\">"+windowID.getUniqueID()+"</div>") ;
-//      w.  append("<div class=\"PortletResponsePortletTitle\"></div>") ;
-//      w.  append("<div class=\"PortletResponsePortletMode\"></div>") ;
-//      w.  append("<div class=\"PortletResponsePortletState\"></div>") ;
-//      w.  append("<div class=\"PortletResponseData\">") ;
       List<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
       if(list == null) list = app.getDefaultUIComponentToUpdateByAjax(context) ;      
       for(UIComponent uicomponent : list) {
         renderBlockToUpdate(uicomponent, context, w) ;
       }
-//      w.  append("</div>") ;
-//      w.  append("<div class=\"PortletResponseScript\"></div>") ;
-//      w.write("</div>") ;
-      
       UIApplication uiApplication = context.getUIApplication();
       uiApplication.processRender(context);
       

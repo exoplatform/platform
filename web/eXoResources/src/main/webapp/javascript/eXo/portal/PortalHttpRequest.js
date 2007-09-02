@@ -389,6 +389,9 @@ function HttpResponseHandler(){
             * This means that the entire portlet fragment is included in the portletResponse.portletData
             * and that it does not contain any finer block to update. Hence replace the innerHTML inside the
             * id="PORTLET-FRAGMENT" block
+            *
+            * TODO: handle the inner <script> tags to dynamically evauate the embeded new script when the 
+            *       third party portlet does not use our own JavaScriptManager on the serverside
             */
             var parentBlock =  document.getElementById(portletResponse.portletId) ;
             var target = eXo.core.DOMUtil.findDescendantById(parentBlock, "PORTLET-FRAGMENT") ;

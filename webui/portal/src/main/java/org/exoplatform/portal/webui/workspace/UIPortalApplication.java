@@ -276,31 +276,24 @@ public class UIPortalApplication extends UIApplication {
           w.  append("<div class=\"PortletResponsePortletMode\"></div>") ;
           w.  append("<div class=\"PortletResponsePortletState\"></div>") ;
           w.  append("<div class=\"PortletResponseData\">") ;
-//          
-//          
-//          renderBlockToUpdate(uiPortlet, context, w) ;
-//          
-//          w.write("<div class=\"BlockToUpdate\">") ;
-//          w.  append("<div class=\"BlockToUpdateId\">").append(uiPortlet.getId()).append("</div>");
-//          w.  write("<div class=\"BlockToUpdateData\">") ;
+          
           /*
            * If the portlet is using our UI framework or supports it then it will return a set of block
            * to updates. If there is not block to update the javascript client will see that as a full 
            * refresh of the content part
            */
-           uiPortlet.processRender(context) ;
-//          w.  write("</div>");
-//          w.write("</div>") ;          
+           uiPortlet.processRender(context) ;       
           
           w.  append("</div>") ;
-          w.  append("<div class=\"PortletResponseScript\"></div>") ;
+          w.  append("<div class=\"PortletResponseScript\">" + context.getJavascriptManager().getJavascript() +  "</div>") ;
           w.write("</div>") ;
         }
       }
       w.  write("<div class=\"PortalResponseData\">");
       for(UIComponent uicomponent : uiDataComponents) {
-        log.info("AJAX call: Need to refresh the UI component " + uicomponent.getName());
-    	renderBlockToUpdate(uicomponent, context, w) ;
+        if(log.isDebugEnabled())
+          log.debug("AJAX call: Need to refresh the UI component " + uicomponent.getName());
+    	  renderBlockToUpdate(uicomponent, context, w) ;
       }
       
       w.  write("</div>");

@@ -5,7 +5,9 @@
 package org.exoplatform.portal.webui.portal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -50,6 +52,8 @@ public class UIPortal extends UIContainer {
   private PageNode selectedNode_;
   private PageNavigation selectedNavigation_;
 
+  private Map<String, String> publicParameters_ = new HashMap<String, String>();
+  
   private UIComponent maximizedUIComponent ;
 
   public String getOwner() { return owner ; }
@@ -66,6 +70,11 @@ public class UIPortal extends UIContainer {
 
   public String getSkin() { return skin; }
   public void setSkin(String s ) { skin = s; }
+  
+  public Map<String, String> getPublicParameters() { return publicParameters_; } 
+  public void setPublicParameters(Map<String, String> publicParams) {
+	publicParameters_ = publicParams;
+  }
 
   public List<PageNavigation> getNavigations() { return navigations ; }
   public void setNavigation(List<PageNavigation> navs) throws Exception {

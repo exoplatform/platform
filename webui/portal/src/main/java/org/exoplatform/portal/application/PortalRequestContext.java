@@ -70,7 +70,6 @@ public class PortalRequestContext extends WebuiRequestContext {
       log.error("Encoding not supported", e);
     }
     
-    writer_ = new HtmlValidator(res.getWriter()) ;
     urlBuilder = new PortalURLBuilder(nodeURI_);
   }
   
@@ -99,7 +98,12 @@ public class PortalRequestContext extends WebuiRequestContext {
   final public String getRemoteUser() { return request_.getRemoteUser() ; }
   final public boolean isUserInRole(String roleUser){ return request_.isUserInRole(roleUser); }
   
-  final public Writer getWriter() throws Exception { return writer_ ; }
+  final public Writer getWriter() throws Exception { 
+	if(writer_ == null) {
+	    writer_ = new HtmlValidator(response_.getWriter()) ;
+	}
+	return writer_ ; 
+  }
   
   final public  boolean useAjax() {  return ajaxRequest_; }
   
