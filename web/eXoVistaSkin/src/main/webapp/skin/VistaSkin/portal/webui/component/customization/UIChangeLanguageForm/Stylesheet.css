@@ -84,6 +84,10 @@
 	background: #f2f8fb;
 }
 
+.UIChangeLanguageForm .ItemDetail .SelectedItem {
+	color: #f27e01;
+}
+
 .UIChangeLanguageForm .ItemDetail .NormalItem .Icon {
 	float: left;
 	height: 24px; width: 24px;
@@ -92,7 +96,7 @@
 .UIChangeLanguageForm .ItemDetail .SelectedItem .Icon {
 	float: left;
 	height: 24px; width: 24px;
-  background: url('DefaultSkin/background/PickIcon.gif') no-repeat center;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/BlueCheckerIcon.png') no-repeat center;
 }
 
 .UIChangeLanguageForm .ItemDetail .NodeLabel {

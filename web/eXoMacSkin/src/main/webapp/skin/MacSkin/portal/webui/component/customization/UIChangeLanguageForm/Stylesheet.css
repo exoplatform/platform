@@ -60,6 +60,10 @@
 	border-bottom: solid 1px #e9e7e7;
 }
 
+.UIChangeLanguageForm .ItemDetail .SelectedItem a {
+	color: #f27e01;
+}
+
 .UIChangeLanguageForm .ItemDetail .NormalItem .Icon {
 	float: left;
 	height: 24px; width: 24px;

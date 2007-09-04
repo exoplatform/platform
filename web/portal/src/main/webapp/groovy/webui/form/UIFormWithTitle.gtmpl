@@ -31,15 +31,14 @@
       <%// start render action%>
       <div class="UIAction"> 
         <table class="ActionContainer" align="center">
-          <tr><td align="center">
-          <% for(action in uicomponent.getActions()) { 
-                        String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) 
-                        String link = uicomponent.event(action) ;
-          
-          %>
-
-					<a href="$link" class="ActionButton LightBlueStyle">
-
+          <tr>
+          	<td align="center">
+	          <% for(action in uicomponent.getActions()) { 
+			           String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) 
+			           String link = uicomponent.event(action) ;
+	          
+	          %>
+							<a href="$link" class="ActionButton LightBlueStyle">
                 <div class="ButtonLeft">
                   <div class="ButtonRight">
                     <div class="ButtonMiddle">
@@ -47,9 +46,10 @@
                     </div>
                   </div>
                 </div>
-					</a>
+							</a>
           <%}%>
-          </td></tr>          
+          	</td>
+          </tr>          
         </table>
       </div>
       <%// end render action%>
