@@ -1,8 +1,8 @@
 package org.exoplatform.webui.form;
 
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -30,6 +30,14 @@ public class UIFormSelectBox extends UIFormStringInput {
     super(name, bindingExpression, null);
     setOptions(options);
 	}
+	
+	 final public UIFormSelectBox setOptions(String[] values) { 
+    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
+    for(String op: values){
+      options.add(new SelectItemOption<String>(op));
+    }
+    return setOptions(options);
+  }
   
   final public UIFormSelectBox setSize(int i) { 
     size_ = i ; 
