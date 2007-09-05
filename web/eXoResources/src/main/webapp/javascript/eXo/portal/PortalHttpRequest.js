@@ -395,7 +395,6 @@ function HttpResponseHandler(){
           * TODO: handle the inner <script> tags to dynamically evauate the embeded new script when the 
           *       third party portlet does not use our own JavaScriptManager on the serverside
           */
-          alert("This condition (portletResponse.blocksToUpdate == null) be done !") ;
           var parentBlock =  document.getElementById(portletResponse.portletId) ;
           var target = eXo.core.DOMUtil.findDescendantById(parentBlock, "PORTLET-FRAGMENT") ;
           target.innerHTML = portletResponse.portletData;
