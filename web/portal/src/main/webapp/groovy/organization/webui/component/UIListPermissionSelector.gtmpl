@@ -6,8 +6,26 @@
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
 %>
 <div id="<%=uicomponent.getId();%>" class="UIAccessGroup">
-  <%uicomponent.renderChildren();%>  
-
+  <%//uicomponent.renderChildren();%>  
+  <table class = "UIFormgrid">
+  <%
+	  for(field in uicomponent.getChildren()){
+	  	if(!field.isRendered()) continue ;
+  		String fieldName = uicomponent.getLabel(field.getId()) ;
+  		if(fieldName != null && fieldName.length() > 0) {
+  %>
+		  	<tr>
+		  		<td class="FieldLabel"><%=fieldName%></td>
+		  		<td class="FieldComponent"><%uicomponent.renderUIComponent(field)%></td>
+		  	</tr>
+		  <%}else {%>	
+		  	<tr>
+			  	<td class="FieldComponent" colspan="2"><%uicomponent.renderUIComponent(field)%></td>
+			  </tr>
+			<%}%>  	
+  <%}%>
+  </table>
+	<%if(!uicomponent.isPublicMode()) {%>
   <div class="UIAction"> 
     <table class="ActionContainer" align="center">
 	    <tr>
@@ -25,5 +43,5 @@
       </tr>
  	  </table>
 	</div>
-  
+  <%}%>
 </div>

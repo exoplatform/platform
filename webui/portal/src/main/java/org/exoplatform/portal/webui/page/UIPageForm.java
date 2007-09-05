@@ -20,6 +20,7 @@ import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
@@ -27,25 +28,35 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.exception.MessageException;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
+import org.exoplatform.webui.form.UIFormGrid;
+import org.exoplatform.webui.form.UIFormInput;
+import org.exoplatform.webui.form.UIFormInputContainer;
 import org.exoplatform.webui.form.UIFormInputItemSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormPageIterator;
 import org.exoplatform.webui.form.UIFormPopupWindow;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.Validator;
 import org.exoplatform.webui.organization.UIGroupSelector;
 import org.exoplatform.webui.organization.UIListPermissionSelector;
 import org.exoplatform.webui.organization.UIPermissionSelector;
+import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIteratorValidator;
 
 @ComponentConfigs({
   @ComponentConfig(
@@ -55,7 +66,8 @@ import org.exoplatform.webui.organization.UIPermissionSelector;
       @EventConfig(listeners = UIPageForm.SaveActionListener.class),
       @EventConfig(listeners = UIPageForm.ChangeOwnerTypeActionListener.class, phase = Phase.DECODE),
       @EventConfig(listeners = UIPageForm.SelectGroupActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIPageForm.ChangePublicModeActionListener.class, phase = Phase.DECODE)
     },
     initParams = @ParamConfig(
       name = "PageTemplate",
@@ -109,11 +121,13 @@ public class UIPageForm extends UIFormTabPane {
     
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+    uiListPermissionSelector.addValidator(EmptyIteratorValidator.class) ;
     uiPermissionSetting.addChild(uiListPermissionSelector);
     
     UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
     uiEditPermission.setRendered(false) ;
     uiEditPermission.configure("UIPermissionSelector", "editPermission");
+    uiEditPermission.addValidator(org.exoplatform.webui.organization.UIPermissionSelector.EmptyFieldValidator.class) ;
     uiPermissionSetting.addChild(uiEditPermission);
 
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
@@ -359,5 +373,17 @@ public class UIPageForm extends UIFormTabPane {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm.getParent());
     }
   }
-
+  
+  static public class ChangePublicModeActionListener extends EventListener<UIPageForm> {
+    public void execute(Event<UIPageForm> event) throws Exception {
+      UIPageForm uiForm = event.getSource() ;
+      UIFormInputSet uiPermissionsetting = uiForm.getChildById("PermissionSetting") ;
+      UIListPermissionSelector uiListPermissionSelector = uiPermissionsetting.getChild(UIListPermissionSelector.class) ;
+      UIFormCheckBoxInput<Boolean> uiPublicModeInput = uiListPermissionSelector.getChildById("publicMode") ;
+      uiListPermissionSelector.setPublicMode(uiPublicModeInput.isChecked()) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()) ;
+    }
+    
+  }
+  
 }

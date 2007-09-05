@@ -5,6 +5,7 @@
 package org.exoplatform.webui.organization;
 
 import org.exoplatform.portal.config.UserACL.Permission;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIBreadcumbs;
@@ -12,8 +13,13 @@ import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormInput;
+import org.exoplatform.webui.form.UIFormInputContainer;
+import org.exoplatform.webui.form.UIFormPageIterator;
 import org.exoplatform.webui.form.UIFormPopupWindow;
+import org.exoplatform.webui.form.validator.Validator;
 @ComponentConfig(
   template = "system:/groovy/organization/webui/component/UIPermissionSelector.gtmpl",
   events = {
@@ -78,4 +84,18 @@ public class UIPermissionSelector extends UISelector<String> {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()) ;
     }
   }
+  //TODO: Tung.Pham added
+  static public class EmptyFieldValidator implements Validator {
+
+    public void validate(UIFormInput uiInput) throws Exception {
+      UIFormInputContainer uiInputContainer = (UIFormInputContainer) uiInput ;
+      String value = (String)uiInputContainer.getValue() ; 
+      if(value == null || value.trim().length() < 1) {
+        String[] args =  {uiInputContainer.getBindingField()} ;
+        throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty", args, ApplicationMessage.INFO)) ;
+      }
+    }
+    
+  }
+
 }

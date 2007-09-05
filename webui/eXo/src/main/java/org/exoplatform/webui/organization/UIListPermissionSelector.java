@@ -6,9 +6,13 @@ package org.exoplatform.webui.organization;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
 
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.portal.config.UserACL.Permission;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIBreadcumbs;
@@ -20,9 +24,16 @@ import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormGrid;
+import org.exoplatform.webui.form.UIFormInput;
+import org.exoplatform.webui.form.UIFormInputContainer;
+import org.exoplatform.webui.form.UIFormPageIterator;
 import org.exoplatform.webui.form.UIFormPopupWindow;
+import org.exoplatform.webui.form.UIFormSelectBox;
+import org.exoplatform.webui.form.validator.Validator;
 
 /**
  * Created by The eXo Platform SARL
@@ -39,16 +50,21 @@ import org.exoplatform.webui.form.UIFormPopupWindow;
   }
 )
 public class UIListPermissionSelector extends UISelector<String[]> { 
+  
+  private boolean publicMode_ = false ;
 
   public UIListPermissionSelector() throws Exception {
+    //-----------------------------
+    UIFormCheckBoxInput<Boolean> uiPublicMode = new UIFormCheckBoxInput<Boolean>("publicMode", null, false) ;
+    uiPublicMode.setOnChange("ChangePublicMode") ;
+    addChild(uiPublicMode) ;
+    //-----------------------------
     UIFormGrid uiGrid = addChild(UIFormGrid.class, null, "PermissionGrid") ;
     uiGrid.configure("expression", new String[]{"groupId", "membership"}, new String[]{"Delete"});
-    uiGrid.getUIPageIterator().setPageList(new ObjectPageList(new ArrayList<Permission>(), 10));
-    //TODO: Tung.Pham added
-    //-------------------------------------------
-    addChild(uiGrid.getUIPageIterator()) ;
-    uiGrid.getUIPageIterator().setRendered(false) ;
-    //-------------------------------------------
+    UIFormPageIterator uiIterator = (UIFormPageIterator)uiGrid.getUIPageIterator() ;
+    uiIterator.setPageList(new ObjectPageList(new ArrayList<Permission>(), 10));
+    addChild(uiIterator) ;
+    uiIterator.setRendered(false) ;
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "UIGroupMembershipSelector");
     uiPopup.setWindowSize(540, 0);
     
@@ -100,6 +116,15 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       permission.setPermissionExpression(exp);
       if(existsPermission(list, permission)) continue;
       list.add(permission);
+      //-------------------------------
+      if(exp.equals("*:/guest")) {
+        UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
+        uiGrid.setRendered(false) ;
+        publicMode_ = true ;
+        UIFormCheckBoxInput<Boolean> uiPublicMode = getChildById("publicMode") ;
+        uiPublicMode.setChecked(true) ;
+      }
+      //-------------------------------
     }
     uiIterator.setPageList(new ObjectPageList(list, 10));
     return this;
@@ -136,7 +161,37 @@ public class UIListPermissionSelector extends UISelector<String[]> {
   }
   
   public Class<String[]> getTypeValue() { return String[].class; }
+  
+  public String getLabel(String id) throws Exception {
+    String label = null ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+    ResourceBundle res = context.getApplicationResourceBundle() ;
+    String key = getId() + ".label." + id ;
+    try{
+      label = res.getString(key) ; 
+    } catch(MissingResourceException e) {
+      System.err.println("\nkey: " + key);
+    }
     
+    return label ;
+  }
+  
+  public boolean isPublicMode() {
+    return publicMode_ ;
+  }
+
+  public void setPublicMode(boolean mode) throws Exception {
+    publicMode_ = mode ;
+    UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
+    uiGrid.setRendered(!publicMode_) ;
+    if(publicMode_) {
+      setMembership("/guest", "*") ;
+    }else {
+      removePermission("*:/guest") ;
+    }
+    
+  }
+      
   static  public class DeleteActionListener extends EventListener<UIListPermissionSelector> {   
     public void execute(Event<UIListPermissionSelector> event) throws Exception {
       String permission  = event.getRequestContext().getRequestParameter(OBJECTID) ;
@@ -154,6 +209,19 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       UIPopupWindow uiPopupWindow = event.getSource();
       System.out.println("\n\n\n+++++++++++++++++++>>>>>>>>>>>>>>>>>> HUN");
     }
+  }
+  //TODO: Tung.Pham added
+  static public class EmptyIteratorValidator implements Validator {
+
+    public void validate(UIFormInput uiInput) throws Exception {
+      UIFormInputContainer uiInputContainer = (UIFormInputContainer) uiInput ;
+      UIFormPageIterator uiInputIterator = uiInputContainer.findFirstComponentOfType(UIFormPageIterator.class) ;
+      if(uiInputIterator.getAvailable() < 1) {
+        String[] args =  {uiInputContainer.getBindingField()} ;
+        throw new MessageException(new ApplicationMessage("EmptyIteratorValidator.msg.empty", args, ApplicationMessage.INFO)) ;
+      }
+    }
+    
   }
 
 }
