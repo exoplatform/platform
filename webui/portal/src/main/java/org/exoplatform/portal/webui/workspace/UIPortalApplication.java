@@ -285,7 +285,7 @@ public class UIPortalApplication extends UIApplication {
            uiPortlet.processRender(context) ;       
           
           w.  append("</div>") ;
-          w.  append("<div class=\"PortletResponseScript\">" + context.getJavascriptManager().getJavascript() +  "</div>") ;
+          w.  append("<div class=\"PortletResponseScript\"></div>") ;
           w.write("</div>") ;
         }
       }

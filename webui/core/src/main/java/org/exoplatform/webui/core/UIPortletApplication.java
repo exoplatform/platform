@@ -49,10 +49,7 @@ abstract public class UIPortletApplication extends  UIApplication {
       for(UIComponent uicomponent : list) {
         renderBlockToUpdate(uicomponent, context, w) ;
       }
-      UIApplication uiApplication = context.getUIApplication();
-      uiApplication.processRender(context);
-      
-    }  else {
+    } else {
       super.processRender(context) ;
     }
     

@@ -329,12 +329,14 @@ function HttpResponseHandler(){
 	* for each block and the HTML is then dynamically replaced by the new one
 	*/
 	instance.updateBlocks = function(blocksToUpdate, parentId) {
+//		alert("updateBlocks : " + blocksToUpdate.length)
 	  if(blocksToUpdate == null) return ;
 	  var parentBlock = null ;
 	  if(parentId != null && parentId != "") parentBlock =  document.getElementById(parentId) ;
 	  
 	  for(var i = 0; i < blocksToUpdate.length; i++) {
-	    var blockToUpdate =  blocksToUpdate[i] ;	
+	    var blockToUpdate =  blocksToUpdate[i] ;
+//	    alert(blockToUpdate.blockId) ;	
 	    var target = null ;   	
 	    if(parentBlock != null) {
 	    	target = eXo.core.DOMUtil.findDescendantById(parentBlock, blockToUpdate.blockId) ;
@@ -384,24 +386,25 @@ function HttpResponseHandler(){
 	  if(portletResponses != null) {
 	    for(var i = 0; i < portletResponses.length; i++) {
 	      var portletResponse = portletResponses[i] ;
-          if(portletResponse.blocksToUpdate == null) {
-            /*
-            * This means that the entire portlet fragment is included in the portletResponse.portletData
-            * and that it does not contain any finer block to update. Hence replace the innerHTML inside the
-            * id="PORTLET-FRAGMENT" block
-            *
-            * TODO: handle the inner <script> tags to dynamically evauate the embeded new script when the 
-            *       third party portlet does not use our own JavaScriptManager on the serverside
-            */
-            var parentBlock =  document.getElementById(portletResponse.portletId) ;
-            var target = eXo.core.DOMUtil.findDescendantById(parentBlock, "PORTLET-FRAGMENT") ;
-            target.innerHTML = portletResponse.portletData;
-          } else {
-            /*
-            * Else updates each block with the portlet
-            */
-            instance.updateBlocks(portletResponse.blocksToUpdate, portletResponse.portletId) ;
-          }
+        if(portletResponse.blocksToUpdate == null) {
+          /*
+          * This means that the entire portlet fragment is included in the portletResponse.portletData
+          * and that it does not contain any finer block to update. Hence replace the innerHTML inside the
+          * id="PORTLET-FRAGMENT" block
+          *
+          * TODO: handle the inner <script> tags to dynamically evauate the embeded new script when the 
+          *       third party portlet does not use our own JavaScriptManager on the serverside
+          */
+          alert("This condition (portletResponse.blocksToUpdate == null) be done !") ;
+          var parentBlock =  document.getElementById(portletResponse.portletId) ;
+          var target = eXo.core.DOMUtil.findDescendantById(parentBlock, "PORTLET-FRAGMENT") ;
+          target.innerHTML = portletResponse.portletData;
+        } else {
+          /*
+          * Else updates each block with the portlet
+          */
+          instance.updateBlocks(portletResponse.blocksToUpdate, portletResponse.portletId) ;
+        }
 	      instance.executeScript(portletResponse.script) ;
 	    }
 	  }
