@@ -274,6 +274,9 @@ public class UIPageNodeSelector extends UIContainer {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID) ;
       pcontext.addUIComponentToUpdateByAjax(uiControl) ;
+      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
+      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
+      uiToolPanel.setShowMaskLayer(true);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
       pcontext.setFullRender(true);
@@ -283,20 +286,11 @@ public class UIPageNodeSelector extends UIContainer {
       if(uiPageNodeSelector.getSelectedNode() == null) return;
       PageNode node  = uiPageNodeSelector.getSelectedNode().getNode();
       
-     //TODO: Tung.Pham added
-      //-------------------------------------------------------------
       if(node == null) {
-//        UIPortal uiPortal = Util.getUIPortal();
         uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation().getId());
-//        uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri());
-//        node = uiPageNodeSelector.getSelectedPageNode();
       }
-      //-------------------------------------------------------------
       if(node == null) return;  
       
-      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
-      uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
-      uiToolPanel.setShowMaskLayer(true);
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
       
