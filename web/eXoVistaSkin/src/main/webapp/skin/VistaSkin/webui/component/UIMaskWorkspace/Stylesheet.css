@@ -312,14 +312,6 @@
   width: 20px;
 }
 
-.UIAccessGroup .UIAction {
-}
-
-.UIAccessGroup .UIAction .SimpleStyle .Icon {
-  float: left;
-  margin: 3px 0px;
-}
-
 .UIGroupSelector {
   padding: 10px;
 }

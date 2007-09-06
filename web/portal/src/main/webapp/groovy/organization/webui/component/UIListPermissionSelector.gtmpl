@@ -11,7 +11,7 @@
   <table class = "UIFormGrid">
 		<tr>
 			<td class="FieldLabel"><%=uicomponent.getLabel(uiPublicMode.getId())%></td>
-		  <td class="FieldComponent"><%uicomponent.renderChild(UIFormCheckBoxInput.class)%></td>
+			<td class="FieldComponent"><%uicomponent.renderChild(UIFormCheckBoxInput.class)%></td>
 		</tr>
   </table>
 
