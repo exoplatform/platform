@@ -8,12 +8,11 @@ UIExoStart.MenuItemContainer menu = new UIExoStart.MenuItemContainer("Administra
       add(new UIExoStart.MenuItemAction("EditCurrentPage","EditCurrentPageIcon","EditCurrentPage", true))).
       
   add(new UIExoStart.MenuItemContainer("Advanced").
-      add(new UIExoStart.MenuItemContainer("Portal").
-          add(new UIExoStart.MenuItemAction("Edit", "EditCurrentPortalIcon", "EditPortal", true)).
-          add(new UIExoStart.MenuItemAction("BrowsePortal", "BrowsePortalsIcon", "BrowsePortal", true))).
-      add(new UIExoStart.MenuItemContainer("Page").
-          add(new UIExoStart.MenuItemAction("Edit","EditNavigationIcon", "EditPage", true)).
-          add(new UIExoStart.MenuItemAction("BrowsePage", "BrowsePagesIcon", "BrowsePage", true)))).  
+      add(new UIExoStart.MenuItemAction("EditPage","EditNavigationIcon", "EditPage", true)).
+      add(new UIExoStart.MenuItemAction("EditPortal", "EditCurrentPortalIcon", "EditPortal", true)).
+      add(new UIExoStart.MenuItemAction("BrowsePage", "BrowsePagesIcon", "BrowsePage", true)).
+      add(new UIExoStart.MenuItemAction("BrowsePortal", "BrowsePortalsIcon", "BrowsePortal", true))).  
+      
   add(new UIExoStart.MenuItemAction("SkinSettings", "SkinSettingIcon", "SkinSettings", true)).
   add(new UIExoStart.MenuItemAction("LanguageSettings", "LanguageSettingIcon", "LanguageSettings", true)).
   add(new UIExoStart.MenuItemAction("ChangePortal", "ChangePortalIcon", "ChangePortal", true));
