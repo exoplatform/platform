@@ -25,7 +25,6 @@
     
     <!--module>portlet/content</module-->
     <module>portlet/exoadmin</module>
-    <module>portlet/site</module>
     <module>portlet/web</module>
 
     <module>web/eXoResources</module>
