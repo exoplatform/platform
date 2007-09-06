@@ -1,31 +1,24 @@
 <%
   import org.exoplatform.webui.form.UIFormPopupWindow;
-  import org.exoplatform.webui.core.UIGrid;
+  import org.exoplatform.webui.form.UIFormGrid;
+  import org.exoplatform.webui.form.UIFormCheckBoxInput;
   
   def rcontext = _ctx.getRequestContext() ;
+ 	def uiPublicMode = uicomponent.getChildById("publicMode") ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
 %>
 <div id="<%=uicomponent.getId();%>" class="UIAccessGroup">
-  <%//uicomponent.renderChildren();%>  
-  <table class = "UIFormgrid">
-  <%
-	  for(field in uicomponent.getChildren()){
-	  	if(!field.isRendered()) continue ;
-  		String fieldName = uicomponent.getLabel(field.getId()) ;
-  		if(fieldName != null && fieldName.length() > 0) {
-  %>
-		  	<tr>
-		  		<td class="FieldLabel"><%=fieldName%></td>
-		  		<td class="FieldComponent"><%uicomponent.renderUIComponent(field)%></td>
-		  	</tr>
-		  <%}else {%>	
-		  	<tr>
-			  	<td class="FieldComponent" colspan="2"><%uicomponent.renderUIComponent(field)%></td>
-			  </tr>
-			<%}%>  	
-  <%}%>
+  <table class = "UIFormGrid">
+		<tr>
+			<td class="FieldLabel"><%=uicomponent.getLabel(uiPublicMode.getId())%></td>
+		  <td class="FieldComponent"><%uicomponent.renderChild(UIFormCheckBoxInput.class)%></td>
+		</tr>
   </table>
-	<%if(!uicomponent.isPublicMode()) {%>
+
+	<%
+	if(!uicomponent.isPublicMode()) {
+		uicomponent.renderChild(UIFormGrid.class);
+	%>
   <div class="UIAction"> 
     <table class="ActionContainer" align="center">
 	    <tr>
