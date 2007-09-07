@@ -42,11 +42,13 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 		
 		maskLayer.className = "MaskLayer" ;
 		maskLayer.id = "MaskLayer" ;
-		maskLayer.style.display = "block" ;
-		maskLayer.maxZIndex = 2 ;
-		maskLayer.style.zIndex = maskLayer.maxZIndex ;
+		maskLayer.maxZIndex = 99 ;
+		maskLayer.style.width = "100%" ;
+		maskLayer.style.height = "100%" ;
 		maskLayer.style.top = "0px" ;
 		maskLayer.style.left = "0px" ;
+		maskLayer.style.zIndex = maskLayer.maxZIndex ;
+		eXo.core.UIMaskLayer.doScroll() ;
 	
 		if(opacity) {
 	    Browser.setOpacity(maskLayer, opacity) ;
@@ -72,9 +74,7 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 		    object.style.left = blockContainer.offsetWidth - object.offsetWidth + "px" ;
 			}
 	  }
-		maskLayer.style.height = "100%" ; 
-		maskLayer.style.width = "100%" ; 
-		eXo.core.UIMaskLayer.doScroll() ;
+		
 
 		}catch(err) {
 			alert(err) ;
