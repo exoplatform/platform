@@ -63,7 +63,7 @@
   height: 16px;
   float: left;
   margin: 3px 3px 0px 7px;
-  background: transparent url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackRightArrow1.gif') no-repeat;
+  background: transparent url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat;
 }
 
 .UIPopupCategory .CategoryItem .ModifiedIcon {
@@ -71,21 +71,21 @@
 }
 
 .UIPopupCategory .CategoryItem {
-  color: black;
-  background: url('background/NormalItemBG1x22.png') repeat-x;
+  color: #333;
+  background: #efefef;
   border-bottom: 1px #cdcdcd solid;
   cursor: pointer;
   display: block;
 }
 
 .UIPopupCategory .CategoryItem:hover {
-	background: url('background/OverItemBG1x22.png') repeat-x;
-  color: blue;
+	background: #cbcff2;
+  color: #2569dc;
 }
 
 .UIPopupCategory .CategoryItem .CategoryItemLabel {
-  padding-left: 20px;
+  padding-left: 18px;
   height: 22px;
   line-height: 22px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackRightArrow1.gif') no-repeat left center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;
 }

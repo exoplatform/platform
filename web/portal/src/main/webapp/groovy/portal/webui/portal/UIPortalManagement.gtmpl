@@ -7,19 +7,29 @@
 
 %>
 <div class="UIPortalManagement" id="UIPortalManagement">
-  <div class="TopTitleBar">
-    <div class="UIBarStyle">
-      <div class="Style4">
-        <div class="LeftBar">
-          <div class="RightBar">
-            <div class="MiddleBar">
-              <%= _ctx.appRes(uicomponent.getId() + ".title."+ uicomponent.getMode())%>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="TopTitleBar">
+	  <div class="DecoratorBox">
+	    <div class="BarDecorator">
+	      <div class="TopLeftBar">
+	        <div class="TopRightBar">
+	          <div class="TopCenterBar"><span></span></div>
+	        </div>
+	      </div>
+	      <div class="MiddleLeftBar">
+	        <div class="MiddleRightBar">
+	          <div class="MiddleCenterBar">
+	          	<%= _ctx.appRes(uicomponent.getId() + ".title."+ uicomponent.getMode())%>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="BottomLeftBar">
+	        <div class="BottomRightBar">
+	          <div class="BottomCenterBar"><span></span></div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
   <div class="ControlArea">   
    <%uicomponent.renderChild(UIPortalManagementEditBar.class)%>
   </div> 

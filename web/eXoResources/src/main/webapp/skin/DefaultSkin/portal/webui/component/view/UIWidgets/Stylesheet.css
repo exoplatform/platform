@@ -5,7 +5,7 @@
 .UIWidgets .ItemSelectorContainer .EditIcon {
 	float: left;
 	width: 20px; height: 21px;
-	background: url('icons/EditWidgetCategoryButton.gif') no-repeat top;
+	background: url('icons/ManageButton.gif') no-repeat top;
 	cursor: pointer;
 	margin: 2px 0px;
 }

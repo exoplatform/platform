@@ -96,32 +96,3 @@
   color: #058ee6;
 }
 
-/************************************ List Permission Selector *******************************/
-.UIAccessGroup {
-  padding: 10px;
-}
-
-.UIAccessGroup .UIGrid {
-  width: 530px;
-  margin: auto;
-}
-
-.UIAccessGroup .UIGrid .ActionContainer {
-  width: 30px;
-}
-
-.UIAccessGroup .UIPageIterator {
-	width: 90%;
-}
-
-.UIAccessGroup .UIFormGrid {
-	margin: 0px 0px 5px 0px;
-}
-
-.UIAccessGroup .UIFormGrid td.FieldLabel {
-	width: 310px;
-}
-
-.UIForm .HorizontalLayout .UIAccessGroup input.checkbox {
-	margin: 2px;
-}

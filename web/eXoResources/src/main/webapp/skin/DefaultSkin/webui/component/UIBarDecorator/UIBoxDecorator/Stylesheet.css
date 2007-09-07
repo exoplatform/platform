@@ -208,3 +208,33 @@
   padding: 0px 8px 0px 0px ;
 }
 
+/*##############################- Bar Decorator-################################*/
+
+.DecoratorBox .BarDecorator .TopRightBar {
+  background: url('background/TRBarDecorator.gif') no-repeat right;
+  padding-right: 3px;
+  height: 3px;
+}
+
+.DecoratorBox .BarDecorator .TopCenterBar {
+  background: url('background/TLBarDecorator.gif') repeat-x top;
+  height: 3px;
+}
+
+.DecoratorBox .BarDecorator .MiddleCenterBar {
+  background: #a0bbdf url('background/MRBarDecorator.gif') repeat-y right; 
+  padding: 2px 5px 2px 5px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.DecoratorBox .BarDecorator .BottomCenterBar {
+  background: url('background/BLBarDecorator.gif') repeat-x bottom;
+  height: 3px;
+}
+
+.DecoratorBox .BarDecorator .BottomRightBar {
+  background: url('background/BRBarDecorator.gif') no-repeat right;
+  padding-right: 3px;
+  height: 3px;
+}

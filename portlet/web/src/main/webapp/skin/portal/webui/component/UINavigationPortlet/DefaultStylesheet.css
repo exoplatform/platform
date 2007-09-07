@@ -35,7 +35,7 @@
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
   line-height: 28px;
   background: url('DefaultSkin/background/MiddleNavTopBg1x28.gif') repeat-x top;
-  padding-left: 4px;
+  padding-left: 3px;
 }
 
 .UINavigationPortlet .UINavigationBar .RightNavigationBar {
@@ -124,7 +124,7 @@
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
   height: 24px ;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left ;
-  padding: 0px 0px 0px 20px ;
+  padding: 0px 0px 0px 19px ;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem a {

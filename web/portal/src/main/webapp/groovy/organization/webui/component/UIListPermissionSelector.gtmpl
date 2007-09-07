@@ -8,12 +8,14 @@
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
 %>
 <div id="<%=uicomponent.getId();%>" class="UIAccessGroup">
-  <table class = "UIFormGrid">
-		<tr>
-			<td class="FieldLabel"><%=uicomponent.getLabel(uiPublicMode.getId())%></td>
-			<td class="FieldComponent"><%uicomponent.renderChild(UIFormCheckBoxInput.class)%></td>
-		</tr>
-  </table>
+	<div class="PublicCheck">
+	  <table class="UIFormGrid">
+			<tr>
+				<td class="FieldLabel"><%=uicomponent.getLabel(uiPublicMode.getId())%></td>
+				<td class="FieldComponent"><%uicomponent.renderChild(UIFormCheckBoxInput.class)%></td>
+			</tr>
+	  </table>
+	</div>
 
 	<%
 	if(!uicomponent.isPublicMode()) {

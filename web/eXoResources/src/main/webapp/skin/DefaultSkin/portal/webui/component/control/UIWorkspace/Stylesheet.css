@@ -6,7 +6,9 @@
 }
 
 .UIControlWorkspace .TopTitleBar{
-  padding: 15px 0px ;
+  padding: 12px 0px 6px 0px ;
+  text-align: center;
+  width: 180px;
 }
 
 .UIControlWorkspace .UIVerticalSlideTabs {
@@ -27,7 +29,7 @@
 	float: right ;
 	width: 21px ;	height: 15px ;
 	margin: 3px 5px 0px 0px ;
-	background: url('background/CloseControlWorkspace21x15.gif') no-repeat ;
+	background: url('background/CloseCPButton.gif') no-repeat ;
 	cursor: pointer ;
 }
 

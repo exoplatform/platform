@@ -63,10 +63,9 @@
 
 .UIBannerPortlet .LoginContent .LogoutIcon {
   float: left;
-  width: 24px; height: 24px;
+  width: 20px; height: 24px;
   background: url('DefaultSkin/background/SignoutButton.gif') no-repeat top;
   cursor: pointer;
-  margin-right: 2px;
 }
 
 .UIBannerPortlet .LoginContent .LoginIcon {

@@ -89,11 +89,11 @@
 }
 
 .UIExoStart .StartMenuContainer .BrowsePortalsIcon {
-  background: url('icons/32x32/BrowsePortal.gif') no-repeat left ;
+  background: url('icons/32x32/ManagePortal.gif') no-repeat left ;
 }
 
 .UIExoStart .StartMenuContainer .BrowsePagesIcon {
-  background: url('icons/32x32/BrowsePage.gif') no-repeat left ;
+  background: url('icons/32x32/ManagePage.gif') no-repeat left ;
 }
 
 .UIExoStart .StartMenuContainer .PageIcon {
@@ -192,7 +192,7 @@
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {
-	background: #cbdaf4;
+	background: #cbd3f2;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemContainer {

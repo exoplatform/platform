@@ -127,3 +127,43 @@
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton  a:hover{
   color: #0a80d2;
 }
+
+/************************************ List Permission Selector *******************************/
+.UIAccessGroup {
+  padding: 10px;
+}
+
+.UIAccessGroup .UIGrid {
+  width: 555px;
+  margin: auto;
+}
+
+.UIAccessGroup .UIGrid .ActionContainer {
+  width: 30px;
+}
+
+.UIAccessGroup .UIPageIterator {
+	width: 90%;
+}
+
+.UIAccessGroup .PublicCheck {
+	margin: 5px 0px 20px 0px;
+	width: 555px;
+	height: 30px;
+  margin: auto;
+  text-align: left;
+  border: 1px red solid;
+}
+
+.UIAccessGroup .UIFormGrid {
+	padding-bottom: 10px;
+}
+
+.UIAccessGroup .UIFormGrid td.FieldLabel {
+	text-align: left;
+	
+}
+
+.UIForm .HorizontalLayout .UIAccessGroup input.checkbox {
+	margin: 2px;
+}
