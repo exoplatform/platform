@@ -48,6 +48,7 @@
 
 .UIDropDownItemSelector .UIItemList .ItemSelectorLabel {
 	text-transform: capitalize; 
+	white-space: nowrap;
 }
 
 /********************************   UIItemList   ****************************************/

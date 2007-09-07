@@ -6,7 +6,7 @@
 
 .UIPageDesktop .UIWindow .UIApplication {
   height: 350px ;
-}
+ }
 
 .UIWindow .UIApplication {
 	overflow: auto;
