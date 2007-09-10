@@ -32,14 +32,12 @@
 		<%}%>
 		  <div class="LeftItemInfoBar">
 		  	<div class="RightItemInfoBar">
-		  		<div class="MiddleItemInfoBar" title="Show List" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
+		  	  <% 
+          String title = (selected == null) ? uicomponent.getTitle() : selected.getLabel();
+          %>
+		  		<div class="MiddleItemInfoBar" title="<%=title%>" onclick="eXo.webui.UIDropDownItemSelector.showList(this, event);">
 		  			<div class="Icon ComponentIcon"><span></span></div>
-		  			<% 
-		  			  String title = (selected == null) ? uicomponent.getTitle() : selected.getLabel();
-		  			%>
-		  			<div class="SelectedItemLabel">
-			  			<%=title%>
-		  			</div>
+		  			<div class="SelectedItemLabel"><%=title%> </div>
 		  			<div class="DropDownSelectIcon"><span></span></div>
 		  			<div style="clear: both;"><span></span></div>
 				  </div>
