@@ -81,7 +81,6 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, 
   uiTabContent[index].style.display = "block" ;
  
   if(paneId !=null && tabId !=null){
-  alert("aaa")
     var params = [ {name: "objectId", value : tabId} ] ;
     ajaxAsyncGetRequest(eXo.env.server.createPortalURL(paneId, "SelectTab", true, params), false) ;
   }
