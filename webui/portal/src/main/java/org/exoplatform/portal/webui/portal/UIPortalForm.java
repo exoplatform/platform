@@ -14,6 +14,7 @@ import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -123,7 +124,6 @@ public class UIPortalForm extends UIFormTabPane {
       LocaleConfig localeConfig = (LocaleConfig) iterator.next() ;
       languages.add(new SelectItemOption<String>(localeConfig.getLocale().getDisplayName(), localeConfig.getLanguage())) ;
     }
-
     UIFormInputSet uiSettingSet = new UIFormInputSet("PortalSetting") ;
     uiSettingSet.addUIFormInput(new UIFormStringInput("name", "name", null).
                                 addValidator(EmptyFieldValidator.class).
@@ -132,11 +132,15 @@ public class UIPortalForm extends UIFormTabPane {
                  addUIFormInput(new UIFormSelectBox("locale", "locale", languages).
                                 addValidator(EmptyFieldValidator.class));
     
-    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-    ls.add(new SelectItemOption<String>("Default", "Default")) ;
-    ls.add(new SelectItemOption<String>("Mac", "Mac")) ;
-    ls.add(new SelectItemOption<String>("Vista", "Vista")) ;
-    UIFormSelectBox uiSelectBox = new UIFormSelectBox(SKIN, SKIN, ls) ;
+    List<SelectItemOption<String>> listSkin = new ArrayList<SelectItemOption<String>>() ;
+    SkinService skinService = getApplicationComponent(SkinService.class);
+    Iterator<String> skinIterator = skinService.getAvailableSkins();
+    while(skinIterator.hasNext()){
+      String skin = skinIterator.next();
+      SelectItemOption<String> skinOption = new SelectItemOption<String>(skin, skin);
+      listSkin.add(skinOption);
+    }
+    UIFormSelectBox uiSelectBox = new UIFormSelectBox(SKIN, SKIN, listSkin) ;
     UIPortal uiPortal = Util.getUIPortal();
     uiPortal.getLocale();
     uiSelectBox.setValue(uiPortal.getSkin());
