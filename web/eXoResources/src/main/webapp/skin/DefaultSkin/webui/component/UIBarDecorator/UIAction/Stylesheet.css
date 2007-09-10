@@ -1,11 +1,13 @@
 .UIAction {
-	padding: 8px 0px;
+  padding: 8px 0px;
 }
 
 .UIAction .ActionContainer {
 	width: auto;
 	margin: auto;
 }	
+
+
 
 .UIAction .ActionButton {
 	display: block;
@@ -20,6 +22,7 @@
 .UIAction a:hover {
 	color: #058ee6;
 }
+
 
 .UIAction .ActionButton .Icon {
 	padding-left: 20px;
