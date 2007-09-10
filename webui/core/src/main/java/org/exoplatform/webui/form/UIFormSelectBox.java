@@ -3,6 +3,7 @@ package org.exoplatform.webui.form;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -13,37 +14,69 @@ import org.exoplatform.webui.core.model.SelectItemOption;
  * 
  */
 public class UIFormSelectBox extends UIFormStringInput {
+  
+  /**
+   * It make SelectBox's ability to select multiple values
+   */
+  private boolean isMultiple_ = false ;
+  
   /**
    * The size of the list (number of select options)
    */
   private int size_ = 1 ;
+
   /**
    * The list of options
    */
   private List<SelectItemOption<String>> options_ ;
+  
   /**
    * The javascript expression executed when an onChange event fires
    */
   private String onchange_;
   
-	public UIFormSelectBox(String name, String bindingExpression, List<SelectItemOption<String>> options) {
+  public UIFormSelectBox(String name, String bindingExpression, List<SelectItemOption<String>> options) {
     super(name, bindingExpression, null);
     setOptions(options);
-	}
-	
-	 final public UIFormSelectBox setOptions(String[] values) { 
-    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
-    for(String op: values){
-      options.add(new SelectItemOption<String>(op));
-    }
-    return setOptions(options);
+  }
+  
+  final public UIFormSelectBox setMultiple(boolean bl) {
+    isMultiple_ = bl ; return this ;
   }
   
   final public UIFormSelectBox setSize(int i) { 
-    size_ = i ; 
+    size_ = i ; return this ;
+  }
+
+  public UIFormSelectBox setValue(String value) {
+    if(isMultiple_) value_ = "" ;
+    else value_ = value ;
     return this ;
   }
   
+  //Tung.Pham added
+  public String getValue() {
+    if(!isMultiple_) {
+      for(SelectItemOption<String> item : options_) {
+        if(item.isSelected()) return item.getValue() ;
+      }
+    }
+    return "" ;
+  }
+
+  //Tung.Pham added
+  public String[] getSelectedValues() {
+    if(isMultiple_) {
+      List<String> selectedValues = new ArrayList<String>() ;
+      for(int i = 0; i < options_.size(); i ++) {
+        SelectItemOption<String> item = options_.get(i) ; 
+        if(item.isSelected()) selectedValues.add(item.getValue()); 
+      }
+      return selectedValues.toArray(new String[0]) ;
+    }
+    return new String[]{} ;
+  }
+    
   final public List<SelectItemOption<String>> getOptions() { return options_ ; }
   
   final public UIFormSelectBox setOptions(List<SelectItemOption<String>> options) { 
@@ -63,9 +96,23 @@ public class UIFormSelectBox extends UIFormStringInput {
   
   @SuppressWarnings("unused")
   public void decode(Object input, WebuiRequestContext context) throws Exception {
-    value_ = (String)input;
+    String[] values = context.getRequestParameterValues(getId()) ;
+    if(values == null || values.length < 1) {
+      for(SelectItemOption<String> item : options_) {
+        item.setSelected(false) ;
+      }
+      return ;
+    }
+    
+    int i = 0;
+    for(SelectItemOption<String> item: options_) {
+      if (i > -1 && item.getValue().equals(values[i])) {
+        item.setSelected(true) ;
+        if(values.length == ++i) i = -1 ;
+      } else item.setSelected(false) ;
+    }
   }
-  
+    
 //  protected String renderOnChangeAction(UIForm uiform) throws Exception {
 //    StringBuilder builder = new StringBuilder();
 //    builder.append(" onchange=\"javascript:eXo.webui.UIForm.submitForm('").
@@ -90,26 +137,23 @@ public class UIFormSelectBox extends UIFormStringInput {
       w.append(" onchange=\"").append(renderOnChangeEvent(uiForm)).append("\"");
     }
     
-//    if(size_ > 1)  w.write(" multiple=\"true\" size=\"" + size_ + "\"");    if need control multiple values then can add variable "multiple" to implement 
+    if(isMultiple_)  w.write(" multiple=\"true\""); 
     if(size_ > 1)  w.write(" size=\"" + size_ + "\"");
     
     if (!enable_)  w.write(" disabled ");
     
     w.write(">\n") ;
     
-    for(int i=0; i < options_.size(); i++) {
-      String label = options_.get(i).getLabel() ;
-      String key = formId + ".label.option." + options_.get(i).getValue();
+    for(SelectItemOption<String> item : options_) {
+      String label = item.getLabel() ;
       try {
-        label = res.getString(key) ;
-      } catch(Exception ex) { 
-        System.err.println("\n key: " + key + " \n");
-      }
+        label = res.getString(formId + ".label.option." + item.getValue()) ;
+      } catch(MissingResourceException ex) {}
       
-      if (value_ != null && value_.equals(options_.get(i).getValue())) {
-        w.write("<option selected=\"selected\" value=\""); w.write(options_.get(i).getValue()); w.write("\">"); 
-      }  else {
-        w.write("<option value=\""); w.write(options_.get(i).getValue()); w.write("\">"); 
+      if(item.isSelected()) {
+        w.write("<option selected=\"selected\" value=\""); w.write(item.getValue()); w.write("\">"); 
+      } else {
+        w.write("<option value=\""); w.write(item.getValue()); w.write("\">"); 
       }
       w.write(label); w.write("</option>\n");
     }
