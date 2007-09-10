@@ -90,8 +90,6 @@
   padding-left: 22px;
   line-height: 21px;
   height: auto; width: auto;
-<<<<<<< .mine
-} =======
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton  a{
@@ -127,7 +125,6 @@
 	height: 30px;
   margin: auto;
   text-align: left;
-  border: 1px red solid;
 }
 
 .UIAccessGroup .UIFormGrid {
@@ -136,9 +133,8 @@
 
 .UIAccessGroup .UIFormGrid td.FieldLabel {
 	text-align: left;
-	
 }
 
 .UIForm .HorizontalLayout .UIAccessGroup input.checkbox {
 	margin: 2px;
-}>>>>>>> .r19707
+}
