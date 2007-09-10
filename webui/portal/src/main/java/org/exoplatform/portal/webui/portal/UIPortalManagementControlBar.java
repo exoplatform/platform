@@ -63,7 +63,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
   
   @Override
   public String event(String name) throws Exception {
-    if(name.equals("Finish")) return super.url(name);
+    if(name.equals("Finish") || name.equals("Abort")) return super.url(name);
     return super.event(name);
   }
 
@@ -143,10 +143,10 @@ public class UIPortalManagementControlBar extends UIToolbar {
       uiWorkingWS.setBackupUIPortal(oldUIPortal);
       uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
       uiWorkingWS.setRenderedChild(UIPortal.class) ;  
-      
       PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
            PageNodeEvent.CHANGE_PAGE_NODE, null, uiPortal.getSelectedNode().getUri()) ;
-      uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;    
+      uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;  
+      
     }
   }
 }
