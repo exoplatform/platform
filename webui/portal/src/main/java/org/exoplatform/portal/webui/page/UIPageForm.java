@@ -151,7 +151,7 @@ public class UIPageForm extends UIFormTabPane {
     getUIStringInput("name").setEditable(false) ;
     getUIStringInput("pageId").setValue(uiPage.getPageId());
     getUIFormCheckBoxInput("showMaxWindow").setValue(uiPage.isShowMaxWindow());
-    getUIFormSelectBox(OWNER_TYPE).setEnable(false);
+    getUIFormSelectBox(OWNER_TYPE).setEnable(false).setValue(uiPage.getOwnerType());
     removeChild(UIPageTemplateOptions.class);
     
     UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
