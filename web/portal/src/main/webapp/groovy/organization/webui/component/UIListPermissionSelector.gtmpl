@@ -20,6 +20,7 @@
 	<%
 	if(!uicomponent.isPublicMode()) {
 		uicomponent.renderChild(UIFormGrid.class);
+		uicomponent.renderChild(UIFormPopupWindow.class);
 	%>
   <div class="UIAction"> 
     <table class="ActionContainer" align="center">
