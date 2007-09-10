@@ -47,7 +47,17 @@ public class UIFormSelectBox extends UIFormStringInput {
   final public UIFormSelectBox setSize(int i) { 
     size_ = i ; return this ;
   }
-
+  
+  //Tung.Pham added
+  public UIFormSelectBox setValue(String value) {
+    value_ = value ;
+    for(SelectItemOption<String> option : options_) {
+      if(value_.equals(option.getValue())) option.setSelected(true) ;
+      else option.setSelected(false) ;
+    }
+    
+    return this ;
+  }
   //Tung.Pham added
   public String[] getSelectedValues() {
     if(isMultiple_) {
