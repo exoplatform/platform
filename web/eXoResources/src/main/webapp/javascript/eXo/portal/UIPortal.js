@@ -365,7 +365,8 @@ UIPortal.prototype.changeLanguage = function(url) {
   	language = eXo.webui.UIItemSelector.SelectedItem.option;
 	}
 	if(language == undefined) language = '';  
-  window.location = url + '&language='+language;
+  ajaxAsyncGetRequest(url + '&language='+language, false);
+  window.location.reload() ;
 } ;
 
 UIPortal.prototype.changePortal = function(accessPath, portal) {
