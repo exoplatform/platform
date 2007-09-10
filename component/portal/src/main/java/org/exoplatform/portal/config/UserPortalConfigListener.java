@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.config;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.organization.User;
@@ -60,8 +62,22 @@ public class UserPortalConfigListener extends UserEventListener {
 
     Widgets widgets = dataStorage.getWidgets(id) ;
     if (widgets != null) portalConfigService.remove(widgets);
-    
-    
   }
-
+  
+  public void preSave(User user, boolean isNew) throws Exception {
+    PortalContainer container  = PortalContainer.getInstance() ;
+    UserPortalConfigService portalConfigService = 
+      (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
+    DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
+    String userName = user.getUserName() ;
+    String id = PortalConfig.USER_TYPE + "::" + userName ;
+    PageNavigation navigation = dataStorage.getPageNavigation(id) ;
+    if (navigation != null) return;
+    PageNavigation pageNav = new PageNavigation();
+    pageNav.setOwnerType(PortalConfig.USER_TYPE);
+    pageNav.setOwnerId(userName);
+    pageNav.setPriority(5);
+    pageNav.setNodes(new ArrayList<PageNode>());
+    portalConfigService.create(pageNav);
+  }
 }

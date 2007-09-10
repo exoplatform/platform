@@ -9,13 +9,14 @@ import java.util.List;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.webui.page.UIPageEditBar;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
@@ -23,18 +24,25 @@ import org.exoplatform.webui.event.EventListener;
 
 /**
  * Created by The eXo Platform SARL
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
- * Jun 1, 2007  
+ * Author : Le Bien Thuy
+ *          thuy.le@exoplatform.com
+ * Sep 4, 2007  
  */
 public class UIPageNavigationActionListener {
   
   static public class CreateNavigationActionListener extends EventListener<UIPageNodeSelector> {
     public void execute(Event<UIPageNodeSelector> event) throws Exception { 
       UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);  
+      UserPortalConfigService service = uiPortal.getApplicationComponent(UserPortalConfigService.class);
+      if(service.getMakableNavigations(event.getRequestContext().getRemoteUser()).size() < 1) {
+        uiApp.addMessage(new ApplicationMessage("UIPageNavigation.msg.noMakablePageNavigation", new String[]{})) ;;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
+        return ;
+      }
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
-
+      
       UIPageNavigationForm uiNavigationForm = uiMaskWS.createUIComponent(UIPageNavigationForm.class, null, null);
       uiMaskWS.setUIComponent(uiNavigationForm);      
       uiMaskWS.setShow(true);
@@ -62,7 +70,7 @@ public class UIPageNavigationActionListener {
       uiMaskWS.setUIComponent(uiNavigationForm);      
       uiMaskWS.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);     
     }
   }
   
@@ -72,10 +80,14 @@ public class UIPageNavigationActionListener {
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       UIPageNodeSelector uiPageNodeSelector = uiPopup.getAncestorOfType(UIPageNodeSelector.class);
       PageNavigation selectedNavigation = uiPageNodeSelector.getSelectedNavigation();
-      
+      if(!selectedNavigation.getOwnerType().equals(PortalConfig.GROUP_TYPE)){
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.deleteNav", null ,ApplicationMessage.ERROR)) ;
+
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return;
+      }
       uiPageNodeSelector.deletePageNavigation(selectedNavigation) ;
-      //TODO: Tung.Pham added
-      //------------------------------------
       if(uiPageNodeSelector.getPageNavigations().size() < 1) {
         UIPageManagement uiManagement = uiPageNodeSelector.getParent() ;
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
@@ -83,7 +95,6 @@ public class UIPageNavigationActionListener {
         event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
         return;
       }
-      //------------------------------------
       UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
       uiTree.createEvent("ChangeNode", event.getExecutionPhase(), pcontext).broadcast();
     }
@@ -107,8 +118,7 @@ public class UIPageNavigationActionListener {
       PageNavigation navigation = uiNodeSelector.getSelectedNavigation();
       if(navigation == null) return;
       UserPortalConfigService dataService = uiManagement.getApplicationComponent(UserPortalConfigService.class);
-      String remoteUser = rcontext.getRemoteUser();
-      PageNavigation oldNavigation = dataService.getPageNavigation(navigation.getId(), remoteUser);
+      PageNavigation oldNavigation = dataService.getPageNavigation(navigation.getId());
       if(oldNavigation == null) dataService.create(navigation); else dataService.update(navigation);
       rcontext.addUIComponentToUpdateByAjax(uiManagement);   
       List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();

@@ -63,8 +63,7 @@ public class UIPortalSelector extends UIContainer {
       Iterator<?> itr = list.iterator() ;
       while(itr.hasNext()) {
         PortalConfig pConfig = (PortalConfig)itr.next() ;
-        String [] permission = pConfig.getAccessPermissions();
-        if(!userACL.hasViewPermission(pConfig.getCreator(), accessUser, permission)) itr.remove() ;
+        if(!userACL.hasPermission(pConfig, accessUser) )itr.remove() ;
       }
       i++ ;
     }

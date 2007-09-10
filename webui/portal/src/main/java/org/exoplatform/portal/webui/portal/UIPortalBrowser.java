@@ -36,7 +36,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIPortalBrowser extends UIContainer {
 
   //public static String[] BEAN_FIELD = {"creator", "name", "skin", "factoryId"} ;  
-  public static String[] BEAN_FIELD = {"creator", "name", "skin", "locale"} ;
+  public static String[] BEAN_FIELD = {"creator", "name", "skin"} ;
   public static String[] SELECT_ACTIONS = {"DeletePortal"} ; 
   
   public UIPortalBrowser() throws Exception {
@@ -58,8 +58,8 @@ public class UIPortalBrowser extends UIContainer {
 
   public void loadPortalConfigs() throws Exception {    
     DataStorage service = getApplicationComponent(DataStorage.class) ;
-    UserACL userACL = getApplicationComponent(UserACL.class) ;
-    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
+//    UserACL userACL = getApplicationComponent(UserACL.class) ;
+//    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
     Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, PortalConfig.class) ;
     PageList pageList = service.find(query, new Comparator<PortalConfig>(){
       public int compare(PortalConfig pconfig1, PortalConfig pconfig2) {
@@ -67,18 +67,17 @@ public class UIPortalBrowser extends UIContainer {
       }
     }) ;
     pageList.setPageSize(10) ;
-    int i = 1 ;
-    while(i <= pageList.getAvailablePage()) {
-      List<?> list = pageList.getPage(i) ;
-      Iterator<?> itr = list.iterator() ;
-      while(itr.hasNext()) {
-        PortalConfig portalConfig = (PortalConfig)itr.next() ;
-        String creator = portalConfig.getCreator();
-        String [] accessPerm = portalConfig.getAccessPermissions();
-        if(!userACL.hasViewPermission(creator, accessUser, accessPerm)) itr.remove() ;
-      }
-      i++ ;
-    }
+//    int i = 1 ;
+//    System.out.println("\n\n++++++++> PortalBrowse: " + pageList.getAvailable());
+//    while(i <= pageList.getAvailablePage()) {
+//      List<?> list = pageList.getPage(i) ;
+//      Iterator<?> itr = list.iterator() ;
+//      while(itr.hasNext()) {
+//        PortalConfig portalConfig = (PortalConfig)itr.next() ;
+//        if(!userACL.hasPermission(portalConfig,accessUser) )itr.remove() ;
+//      }
+//      i++ ;
+//    }
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     uiGrid.setUseAjax(false);
     uiGrid.getUIPageIterator().setPageList(pageList);
@@ -117,7 +116,13 @@ public class UIPortalBrowser extends UIContainer {
   static public class AddNewPortalActionListener extends EventListener<UIPortalBrowser> {
     public void execute(Event<UIPortalBrowser> event) throws Exception {
       PortalRequestContext prContext = Util.getPortalRequestContext();
-      UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);      
+      UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);  
+      UserACL userACL = uiApp.getApplicationComponent(UserACL.class) ;
+      if(!userACL.hasCreatePortalPermission(prContext.getRemoteUser())){
+        uiApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-createPermission", null)) ;;
+        prContext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());  
+        return;
+      }
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       UIPortalForm uiNewPortal = uiMaskWS.createUIComponent(UIPortalForm.class, "CreatePortal", "UIPortalForm");
       uiMaskWS.setUIComponent(uiNewPortal);

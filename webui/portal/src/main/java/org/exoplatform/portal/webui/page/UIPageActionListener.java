@@ -51,7 +51,6 @@ public class UIPageActionListener {
     public void execute(Event event) throws Exception {
       PageNodeEvent<?> pnevent = (PageNodeEvent<?>) event ;
       uiPortal = (UIPortal) event.getSource();
-      
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
@@ -87,7 +86,6 @@ public class UIPageActionListener {
         uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
         return;
       }
-      
       if(uri.charAt(0) == '/') uri = uri.substring(1);
 
       int idx = uri.lastIndexOf("::");
@@ -110,7 +108,6 @@ public class UIPageActionListener {
         uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
         return;
       }
-      
       String navId = uri.substring(0, idx);
       uri = uri.substring(idx+2, uri.length());
       PageNavigation nav = null;

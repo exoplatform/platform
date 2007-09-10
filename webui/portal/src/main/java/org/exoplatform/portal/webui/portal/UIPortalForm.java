@@ -45,6 +45,7 @@ import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.NameValidator;
 import org.exoplatform.webui.organization.UIListPermissionSelector;
 import org.exoplatform.webui.organization.UIPermissionSelector;
+import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIteratorValidator;
 @ComponentConfigs({
   @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
@@ -79,9 +80,6 @@ public class UIPortalForm extends UIFormTabPane {
   private static final String SKIN = "skin";
   private List<SelectItemOption<String>> languages = new ArrayList<SelectItemOption<String>>() ;
   
-//  private static String DEFAULT_FACTORY_ID = "default";
-//  private static String OFFICE_FACTORY_ID = "office";
-  
   @SuppressWarnings("unchecked")
   public UIPortalForm(InitParams initParams) throws Exception {
     super("UIPortalForm");
@@ -112,54 +110,6 @@ public class UIPortalForm extends UIFormTabPane {
   public UIPortalForm() throws Exception {
     super("UIPortalForm");
     createDefaultItem();
-    //TODO: Tung.Pham added
-    //------------------------------
-    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
-    uiPermissionSetting.setRendered(false);
-    addUIComponentInput(uiPermissionSetting);
-    
-    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
-    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-    uiPermissionSetting.addChild(uiListPermissionSelector);
-    
-    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
-    uiEditPermission.setRendered(false) ;
-    uiEditPermission.configure("UIPermissionSelector", "editPermission");
-    uiPermissionSetting.addChild(uiEditPermission);
-    //------------------------------
-    
-    //TODO: Tung.Pham disabled
-    //----------------------------------------------------------------------------------
-//    WebuiRequestContext currReqContext = RequestContext.getCurrentInstance() ;
-//    WebuiApplication app = (WebuiApplication)currReqContext.getApplication() ;
-//    List<Component> configs = app.getConfigurationManager().getComponentConfig(UIPortalApplication.class);
-//    List<SelectItemCategory>  itemCategories = new ArrayList<SelectItemCategory>();
-//    for(Component ele : configs) {
-//      String id =  ele.getId();
-//      if(id == null) id = DEFAULT_FACTORY_ID;
-//      StringBuilder builder = new StringBuilder(id);
-//      builder.setCharAt(0, Character.toUpperCase(builder.charAt(0)));
-//      String upId = builder.toString();
-//      
-//      SelectItemCategory category = new SelectItemCategory(upId);
-//      itemCategories.add(category);
-//      List<SelectItemOption<String>> items = new ArrayList<SelectItemOption<String>>();
-//      category.setSelectItemOptions(items);
-//      SelectItemOption<String> item = new SelectItemOption<String>(id, id, "Portal"+upId);
-//      items.add(item);
-//    } 
-//    
-//    UIFormInputItemSelector uiFactoryId = new UIFormInputItemSelector("FactoryId", "factoryId");
-//    UIPortal uiPortal = Util.getUIPortal();
-//    String factoryId = uiPortal.getFactoryId();
-//    uiFactoryId.setItemCategories(itemCategories);
-//    if(factoryId == null || factoryId.length() < 1){
-//     factoryId = UIPortalForm.DEFAULT_FACTORY_ID;
-//    }
-//    uiFactoryId.setValue(factoryId);
-//    uiFactoryId.setRendered(false);
-//    addUIFormInput(uiFactoryId);
-    //----------------------------------------------------------------------------------    
     this.<UIFormInputSet>getChildById("PortalSetting").setRendered(true);
     invokeGetBindingBean(Util.getUIPortal()) ;
   }
@@ -171,7 +121,7 @@ public class UIPortalForm extends UIFormTabPane {
     Iterator<?> iterator = listLocaleConfig.iterator() ;
     while(iterator.hasNext()) {
       LocaleConfig localeConfig = (LocaleConfig) iterator.next() ;
-      languages.add(new SelectItemOption<String>(localeConfig.getLanguage(), localeConfig.getLanguage())) ;
+      languages.add(new SelectItemOption<String>(localeConfig.getLocale().getDisplayName(), localeConfig.getLanguage())) ;
     }
 
     UIFormInputSet uiSettingSet = new UIFormInputSet("PortalSetting") ;
@@ -194,22 +144,23 @@ public class UIPortalForm extends UIFormTabPane {
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);
     uiSettingSet.setRendered(false);
+    
+    
+    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
+    uiPermissionSetting.setRendered(false);
+    addUIComponentInput(uiPermissionSetting);
+    
+    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+    uiListPermissionSelector.addValidator(EmptyIteratorValidator.class);
+    uiPermissionSetting.addChild(uiListPermissionSelector);
 
-    //TODO: Tung.Pham disabled
-    //---------------------------------------
-//    UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
-//    uiPermissionSetting.setRendered(false);
-//    addUIComponentInput(uiPermissionSetting);
-//    
-//    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
-//    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-//    uiPermissionSetting.addChild(uiListPermissionSelector);
-//    
-//    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
-//    uiEditPermission.setRendered(false) ;
-//    uiEditPermission.configure("UIPermissionSelector", "editPermission");
-//    uiPermissionSetting.addChild(uiEditPermission);
-    //-----------------------------------------
+
+    UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
+    uiEditPermission.setRendered(false) ;
+    uiEditPermission.addValidator(org.exoplatform.webui.organization.UIPermissionSelector.EmptyFieldValidator.class);
+    uiEditPermission.configure("UIPermissionSelector", "editPermission");
+    uiPermissionSetting.addChild(uiEditPermission);
   }
   
   static public class SaveActionListener  extends EventListener<UIPortalForm> {

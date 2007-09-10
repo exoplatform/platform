@@ -3,6 +3,7 @@ package org.exoplatform.webui.form;
 import java.io.Writer;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.core.UIComponent;
 /**
  * Represents a checkbox field.
  * @param <T> The type of value that is expected
@@ -17,6 +18,7 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
    * A javascript expression that will be fired when the value changes (JS onChange event)
    */
   private String onchange_;
+  private String componentEvent_ = null;
 
   @SuppressWarnings("unchecked")
   public UIFormCheckBoxInput(String name, String bindingExpression, T value) {
@@ -39,10 +41,18 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
     return super.setValue(value);
   }
   
-  public void setOnChange(String onchange){ onchange_ = onchange; }    
+  public void setOnChange(String onchange){ onchange_ = onchange; }  
+ 
+  public void setComponentEvent(String com){ componentEvent_ = com; }
   
-  protected String renderOnChangeEvent(UIForm uiForm) throws Exception {
-    return uiForm.event(onchange_, null);
+  public void setOnChange(String event, String com){
+    this.onchange_ = event; 
+    this.componentEvent_ = com;
+  } 
+  
+  public String renderOnChangeEvent(UIForm uiForm) throws Exception {
+    if(componentEvent_ == null)  return uiForm.event(onchange_, null);
+    return  uiForm.event(onchange_, componentEvent_ , (String)null);
   }
 
   final public boolean isChecked() { return checked; }  

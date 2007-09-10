@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -12,7 +13,6 @@ import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.navigation.UIPageManagement;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationControlBar;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
-import org.exoplatform.portal.webui.page.UIPageBrowseControlBar;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
@@ -20,7 +20,6 @@ import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
-import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
@@ -28,35 +27,23 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
-import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
-import org.exoplatform.webui.exception.MessageException;
-import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
-import org.exoplatform.webui.form.UIFormGrid;
-import org.exoplatform.webui.form.UIFormInput;
-import org.exoplatform.webui.form.UIFormInputContainer;
 import org.exoplatform.webui.form.UIFormInputItemSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
-import org.exoplatform.webui.form.UIFormPageIterator;
-import org.exoplatform.webui.form.UIFormPopupWindow;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
-import org.exoplatform.webui.form.validator.Validator;
-import org.exoplatform.webui.organization.UIGroupSelector;
 import org.exoplatform.webui.organization.UIListPermissionSelector;
 import org.exoplatform.webui.organization.UIPermissionSelector;
-import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIteratorValidator;
 
 @ComponentConfigs({
   @ComponentConfig(
@@ -65,9 +52,8 @@ import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIterator
     events = {
       @EventConfig(listeners = UIPageForm.SaveActionListener.class),
       @EventConfig(listeners = UIPageForm.ChangeOwnerTypeActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UIPageForm.SelectGroupActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UIPageForm.ChangePublicModeActionListener.class, phase = Phase.DECODE)
+      @EventConfig(listeners = UIPageForm.ChangeOwnerIdActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
     },
     initParams = @ParamConfig(
       name = "PageTemplate",
@@ -78,37 +64,38 @@ import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIterator
       type = UIFormInputSet.class,
       id = "PermissionSetting",
       template = "system:/groovy/webui/core/UITabSelector.gtmpl"
-  ),
-  @ComponentConfig(
-      type = UIFormInputSet.class,
-      id = "PageSetting",
-      template = "system:/groovy/portal/webui/navigation/UIPageNavigationSetting.gtmpl"
   )
 })
 public class UIPageForm extends UIFormTabPane {
   
   private UIPage uiPage_ ;
-  private UIFormInputSet uiPermissionSetting;
+  protected UIFormInputSet uiPermissionSetting;
+  protected UIFormSelectBox groupIdSelectBox = null;
+  protected UIFormStringInput ownerIdInput = null;
+  
+  
+  public static final String OWNER_TYPE = "ownerType";
+  public static final String OWNER_ID = "ownerId";
   @SuppressWarnings("unchecked")
   public UIPageForm(InitParams initParams) throws Exception  {
     super("UIPageForm");
-    
+    PortalRequestContext pcontext = Util.getPortalRequestContext();
+    UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);
     List<SelectItemOption<String>> ownerTypes = new ArrayList<SelectItemOption<String>>() ;
     ownerTypes.add(new SelectItemOption<String>(PortalConfig.USER_TYPE)) ;
     if(Util.getUIPortal().isModifiable()) {
       ownerTypes.add(new SelectItemOption<String>(PortalConfig.PORTAL_TYPE)) ;
     }
-    PortalRequestContext pcontext = Util.getPortalRequestContext();
-    if(pcontext.isUserInRole("admin")) {
-      ownerTypes.add(new SelectItemOption<String>(PortalConfig.GROUP_TYPE)) ;
-    }
-    UIFormSelectBox uiSelectBoxOwnerType = new UIFormSelectBox("ownerType", "ownerType" , ownerTypes) ;
+    ownerIdInput = new UIFormStringInput(OWNER_ID, OWNER_ID, null);
+    ownerIdInput.setEditable(false).setValue(pcontext.getRemoteUser());
+    
+    UIFormSelectBox uiSelectBoxOwnerType = new UIFormSelectBox(OWNER_TYPE, OWNER_TYPE , ownerTypes) ;
     uiSelectBoxOwnerType.setOnChange("ChangeOwnerType");
     
-    UIFormInputSet uiSettingSet = createUIComponent(UIFormInputSet.class, "PageSetting", "PageSetting");
+    UIFormInputSet uiSettingSet = new UIFormInputSet("PageSetting");
     uiSettingSet.addUIFormInput(new UIFormStringInput("pageId", null, null).setEditable(false)).
                  addUIFormInput(uiSelectBoxOwnerType).
-                 addUIFormInput(new UIFormStringInput("ownerId", "ownerId", null).setEditable(false)).
+                 addUIFormInput(ownerIdInput).
                  addUIFormInput(new UIFormStringInput("name", "name", null).
                                 addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)).
                  addUIFormInput(new UIFormStringInput("title", "title", null)).
@@ -117,17 +104,13 @@ public class UIPageForm extends UIFormTabPane {
     
     uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
     uiPermissionSetting.setRendered(false);
-    addUIComponentInput(uiPermissionSetting);
-    
+
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
-    uiListPermissionSelector.addValidator(EmptyIteratorValidator.class) ;
     uiPermissionSetting.addChild(uiListPermissionSelector);
-    
     UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
     uiEditPermission.setRendered(false) ;
     uiEditPermission.configure("UIPermissionSelector", "editPermission");
-    uiEditPermission.addValidator(org.exoplatform.webui.organization.UIPermissionSelector.EmptyFieldValidator.class) ;
     uiPermissionSetting.addChild(uiEditPermission);
 
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
@@ -139,43 +122,37 @@ public class UIPageForm extends UIFormTabPane {
     uiTemplate.setRendered(false);
     addUIFormInput(uiTemplate);
     
-    UIFormPopupWindow uiPopupGroupSelector = addChild(UIFormPopupWindow.class, null, "UIPopupGroupSelector");
-    uiPopupGroupSelector.setShowCloseButton(false);
-    uiPopupGroupSelector.setWindowSize(540, 0);
-    UIGroupSelector uiGroupSelector = createUIComponent(UIGroupSelector.class, null, null) ;
-    uiPopupGroupSelector.setUIComponent(uiGroupSelector);
-    
+    List<String> groups = configService.getMakableNavigations(pcontext.getRemoteUser());
+    if(groups.size() > 0){
+      ownerTypes.add(new SelectItemOption<String>(PortalConfig.GROUP_TYPE)) ;
+      List<SelectItemOption<String>> groupsItem = new ArrayList<SelectItemOption<String>>() ;
+      for(String group: groups){
+        groupsItem.add(new SelectItemOption<String>(group));
+      }
+      groupIdSelectBox = new UIFormSelectBox(OWNER_ID, OWNER_ID, groupsItem);
+      groupIdSelectBox.setOnChange("ChangeOwnerId");
+      groupIdSelectBox.setParent(uiSettingSet);
+    }
     setActions(new String[]{"Save", "Close" });
   }
   
   public UIPage getUIPage() { return uiPage_ ; }
   
-  public List<UIComponent> getChildren() {
-    List<UIComponent> list = new ArrayList<UIComponent>();
-    List<UIComponent> children = super.getChildren();
-    for(UIComponent uiComp : children) {
-      if(uiComp.getId().equals("UIPopupGroupSelector")) continue;
-      list.add(uiComp);
-    }
-    return list;
-  }
-
   @SuppressWarnings("unchecked")
   public void setValues(UIPage uiPage) throws Exception {
     uiPage_ = uiPage;
     Page page = PortalDataMapper.toPageModel(uiPage) ;
-    invokeGetBindingBean(page) ;
     if(uiPage.getOwnerType().equals(PortalConfig.USER_TYPE)) {
       removeChildById("PermissionSetting") ;  
     } else if(getChildById("PermissionSetting") == null) {
       addUIComponentInput(uiPermissionSetting);
     }
+    invokeGetBindingBean(page) ;
     getUIStringInput("name").setEditable(false) ;
     getUIStringInput("pageId").setValue(uiPage.getPageId());
     getUIFormCheckBoxInput("showMaxWindow").setValue(uiPage.isShowMaxWindow());
-    getUIFormSelectBox("ownerType").setEnable(false);
+    getUIFormSelectBox(OWNER_TYPE).setEnable(false);
     removeChild(UIPageTemplateOptions.class);
-    removeChildById("UIPopupGroupSelector");
     
     UIFormInputItemSelector uiTemplate = getChild(UIFormInputItemSelector.class);
     if(uiTemplate == null)  return;
@@ -211,13 +188,6 @@ public class UIPageForm extends UIFormTabPane {
     page.setChildren(selectedPage.getChildren());
     page.setFactoryId(selectedPage.getFactoryId());
     if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) page.setShowMaxWindow(true);
-  }
-
-  public void processRender(WebuiRequestContext context) throws Exception {
-    super.processRender(context);
-    
-    UIFormPopupWindow uiPopupGroupSelector = getChildById("UIPopupGroupSelector");
-    if(uiPopupGroupSelector != null) uiPopupGroupSelector.processRender(context);
   }
 
   @SuppressWarnings("unchecked")
@@ -333,57 +303,50 @@ public class UIPageForm extends UIFormTabPane {
   static public class ChangeOwnerTypeActionListener  extends EventListener<UIPageForm> {
     public void execute(Event<UIPageForm> event) throws Exception {
       UIPageForm uiForm = event.getSource();
-      UIFormSelectBox uiSelectBox = uiForm.getUIFormSelectBox("ownerType");
+      UIFormSelectBox uiSelectBox = uiForm.getUIFormSelectBox(OWNER_TYPE);
       String ownerType = uiSelectBox.getValue();
       PortalRequestContext prContext = Util.getPortalRequestContext();
-      UIFormStringInput uiOwnerId = uiForm.getUIStringInput("ownerId");
-      
+      UIFormInputSet uiSettingSet = uiForm.getChildById("PageSetting");
+      List<UIComponent> list = uiSettingSet.getChildren();
       if(PortalConfig.USER_TYPE.equals(ownerType)){
-        uiOwnerId.setValue(prContext.getRemoteUser());
-        uiForm.removeChildById("PermissionSetting") ;  
+        uiForm.removeChildById("PermissionSetting") ; 
+        list.remove(2);
+        list.add(2, uiForm.ownerIdInput);
+        uiForm.ownerIdInput.setValue(prContext.getRemoteUser());
       } else {
         if(uiForm.getChildById("PermissionSetting") == null) {
           uiForm.addUIComponentInput(uiForm.uiPermissionSetting);
+          
         }
         if(PortalConfig.PORTAL_TYPE.equals(ownerType)){
-          uiOwnerId.setValue(Util.getUIPortal().getName());
+          list.remove(2);
+          list.add(2, uiForm.ownerIdInput);
+          uiForm.ownerIdInput.setValue(Util.getUIPortal().getName());
+          uiForm.findFirstComponentOfType(UIListPermissionSelector.class).setValue(Util.getUIPortal().getAccessPermissions());
+          uiForm.findFirstComponentOfType(UIPermissionSelector.class).setValue(Util.getUIPortal().getEditPermission());
         } else {
-          String script = "eXo.webui.UIPopupWindow.show('UIPopupGroupSelector');";
-          prContext.getJavascriptManager().addCustomizedOnLoadScript(script);
+          list.remove(2);
+          list.add(2, uiForm.groupIdSelectBox);
+          String permission = "*:/" + uiForm.groupIdSelectBox.getValue();
+          uiForm.findFirstComponentOfType(UIListPermissionSelector.class).setValue(new String[]{permission});
+          UserACL userACL = uiForm.getApplicationComponent(UserACL.class); 
+          permission = userACL.getMakableMT() + ":/" + uiForm.groupIdSelectBox.getValue();
+          uiForm.findFirstComponentOfType(UIPermissionSelector.class).setValue(permission);
         }
       }
       prContext.addUIComponentToUpdateByAjax(uiForm.getParent());
     }
   }
-  
-  static public class SelectGroupActionListener  extends EventListener<UIGroupSelector> {
-    public void execute(Event<UIGroupSelector> event) throws Exception {
-      UIGroupSelector uiGroupSelector = event.getSource();
-      UIPageForm uiPageForm = uiGroupSelector.getAncestorOfType(UIPageForm.class);
-      UIFormStringInput uiOwnerId = uiPageForm.getUIStringInput("ownerId");
-      if(uiGroupSelector.getSelectedGroup() == null) {
-        UIFormSelectBox uiSelectBox = uiPageForm.getUIFormSelectBox("ownerType");
-        uiSelectBox.setValue(PortalConfig.USER_TYPE);
-        UIFormStringInput ownerIdSelectBox = uiPageForm.getUIStringInput("ownerId");
-        ownerIdSelectBox.setValue(Util.getPortalRequestContext().getRemoteUser());
-        if(uiPageForm.getChildById("PermissionSetting") != null) uiPageForm.removeChildById("PermissionSetting") ;
-      } else {
-        uiOwnerId.setValue(uiGroupSelector.getSelectedGroup().getId());
-      }
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageForm.getParent());
-    }
-  }
-  
-  static public class ChangePublicModeActionListener extends EventListener<UIPageForm> {
+
+  static  public class ChangeOwnerIdActionListener extends EventListener<UIPageForm> {    
     public void execute(Event<UIPageForm> event) throws Exception {
-      UIPageForm uiForm = event.getSource() ;
-      UIFormInputSet uiPermissionsetting = uiForm.getChildById("PermissionSetting") ;
-      UIListPermissionSelector uiListPermissionSelector = uiPermissionsetting.getChild(UIListPermissionSelector.class) ;
-      UIFormCheckBoxInput<Boolean> uiPublicModeInput = uiListPermissionSelector.getChildById("publicMode") ;
-      uiListPermissionSelector.setPublicMode(uiPublicModeInput.isChecked()) ;
+      UIPageForm uiForm = event.getSource();
+      String permission = "*:/" + uiForm.groupIdSelectBox.getValue();
+      uiForm.findFirstComponentOfType(UIListPermissionSelector.class).setValue(new String[]{permission});
+      UserACL userACL = uiForm.getApplicationComponent(UserACL.class); 
+      permission = userACL.getMakableMT() + ":/" + uiForm.groupIdSelectBox.getValue();
+      uiForm.findFirstComponentOfType(UIPermissionSelector.class).setValue(permission);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()) ;
     }
-    
   }
-  
 }

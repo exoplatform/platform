@@ -21,7 +21,7 @@ import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
-import org.exoplatform.services.organization.Membership;
+import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 /**
  * Created by The eXo Platform SAS
@@ -69,42 +69,43 @@ public class UserPortalConfigService {
    * @param userName
    * @return a UserPortalConfig object that contain the PortalConfig  and a list of the PageNavigation objects
    */
+  
   public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
-    PortalConfig portal = (PortalConfig) portalConfigCache_.get(portalName) ;  
+    PortalConfig portal = (PortalConfig) portalConfigCache_.get(portalName) ;
     if(portal == null) {
       portal = storage_.getPortalConfig(portalName) ;
       if(portal != null) portalConfigCache_.put(portalName, portal);
     }
     if(portal == null || !userACL_.hasPermission(portal, accessUser)) return null ;
-
-    List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-    PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName, accessUser) ;
-    if (navigation != null) navigations.add(navigation);    
     
-    navigation = getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser, accessUser) ;
-    if (navigation != null) navigations.add(navigation) ;
-
-    Collection<?> memberships = orgService_.getMembershipHandler().findMembershipsByUser(accessUser);
-    if(memberships != null) {
-      Iterator<?> iterator = memberships.iterator() ;
-      
+    List<PageNavigation> navigations = new ArrayList<PageNavigation>();
+    PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
+    if (navigation != null) { 
+      navigation.setModifiable(false);
+      if(userACL_.hasEditPermission(portal, accessUser)) navigation.setModifiable(true);
+      navigations.add(navigation) ;
+    }
+    navigation = getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser) ;
+   
+    if (navigation != null) {
+      navigation.setModifiable(true);
+      navigations.add(navigation);  
+    }
+    Collection<?> groups = null;
+    if(userACL_.getSuperUser().equals(accessUser)) groups = orgService_.getGroupHandler().getAllGroups();
+    else  groups = orgService_.getGroupHandler().findGroupsOfUser(accessUser);
+    if(groups != null) {
+      Iterator<?> iterator = groups.iterator() ;
       while(iterator.hasNext()) {
-        Membership m = (Membership) iterator.next() ;   
-        String groupId = m.getGroupId().trim();
-        if(groupId.charAt(0) == '/') groupId = groupId.substring(1);
-        navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+groupId, accessUser) ;
+        Group m = (Group) iterator.next() ;   
+        String groupId = m.getId().trim();
+        navigation  = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+groupId) ;
         if(navigation == null) continue;
-        boolean add = true;
-        for(PageNavigation nav : navigations) {
-          if(nav.getId().equals(navigation.getId())) {
-            add = false;
-            break;
-          }
-        }
-        if(add) navigations.add(navigation) ;
+        if(userACL_.hasEditPermission(navigation, accessUser)) navigation.setModifiable(true);
+        else navigation.setModifiable(false);
+        navigations.add(navigation) ;
       }
     }
-    userACL_.computeNavigation(navigations, accessUser);
     
     ArrayList<Widgets> widgets = new ArrayList<Widgets>();
     Widgets widgetsItem = getWidgets(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
@@ -121,67 +122,25 @@ public class UserPortalConfigService {
     
     return new UserPortalConfig(portal, navigations, widgets) ;
   }
-
-//  
-//  public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
-//    PortalConfig portal = (PortalConfig) portalConfigCache_.get(portalName) ;
-//    System.out.println("\n\n\n\n----------------------------- Get User Portal Config" + portalName);
-//    if(portal == null) {
-//      portal = storage_.getPortalConfig(portalName) ;
-//      if(portal != null) portalConfigCache_.put(portalName, portal);
-//    }
-//    if(portal == null || !userACL_.hasPermission(portal, accessUser)) return null ;
-//
-//    List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-//    PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName, accessUser) ;
-//    if (navigation != null) navigations.add(navigation);    
-//    
-//    navigation = getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser, accessUser) ;
-//    if (navigation != null) navigations.add(navigation) ;
-//
-//    Collection<?> memberships = orgService_.getGroupHandler().findGroupsOfUser(accessUser);
-//    if(memberships != null) {
-//      Iterator<?> iterator = memberships.iterator() ;
-//      
-//      while(iterator.hasNext()) {
-//        Group m = (Group) iterator.next() ;   
-//        String groupId = m.getId().trim();
-////        if(groupId.charAt(0) == '/') groupId = groupId.substring(1);
-//        navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+groupId, accessUser) ;
-//        if(navigation == null) continue;
-//        boolean add = true;
-//        for(PageNavigation nav : navigations) {
-//          if(nav.getId().equals(navigation.getId())) {
-//            add = false;
-//            break;
-//          }
-//        }
-//        
-//        if(add) {
-//          if(userACL_.hasEditPermission(navigation, accessUser)) navigation.setModifiable(true);
-//          else navigation.setModifiable(false);
-//          navigations.add(navigation) ;
-//        }
-//      }
-//    }
-//   // userACL_.computeNavigation(navigations, accessUser);
-//    
-//    ArrayList<Widgets> widgets = new ArrayList<Widgets>();
-//    Widgets widgetsItem = getWidgets(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
-//    if(widgetsItem != null) widgets.add(widgetsItem);
-//    
-//    widgetsItem = getWidgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
-//    if(widgetsItem != null) widgets.add(widgetsItem);
-//    
-//    Collections.sort(navigations, new Comparator<PageNavigation>() {
-//      public int compare(PageNavigation nav1, PageNavigation nav2) {
-//        return nav1.getPriority()- nav2.getPriority() ;
-//      }
-//    });
-//    
-//    return new UserPortalConfig(portal, navigations, widgets) ;
-//  }
-
+ 
+  public List<String> getMakableNavigations(String remoteUser)throws Exception {
+    List<String> list = new ArrayList<String>();
+    Collection<?> groups = null;
+    if(remoteUser.equals(userACL_.getSuperUser()))
+      groups = orgService_.getGroupHandler().getAllGroups();
+    else   groups = orgService_.getGroupHandler().findGroupByMembership(remoteUser, userACL_.getMakableMT());
+    if(groups != null) {
+      Iterator<?> iterator = groups.iterator() ;
+      while(iterator.hasNext()) {
+        Group m = (Group)  iterator.next() ;   
+        String groupId = m.getId().trim();
+        if(groupId.charAt(0) == '/') groupId = groupId.substring(1);
+        list.add(groupId);
+      }
+    }
+    return list;
+  }
+  
   /**
    * This method  should create a  the portal  config, pages and navigation according to the template 
    * name
@@ -334,14 +293,12 @@ public class UserPortalConfigService {
     pageNavigationCache_.remove(navigation.getId());
   }
   
-  public PageNavigation getPageNavigation(String id, String accessUser) throws Exception {
-    PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(id) ;
+  public PageNavigation getPageNavigation(String id) throws Exception{
+    PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(id);
     if(navigation == null) navigation  = storage_.getPageNavigation(id) ;
-    if(navigation == null || !userACL_.hasPermission(navigation, accessUser)) return null;
-    pageNavigationCache_.put(id, navigation);
-    return navigation ;   
+    return navigation;
   }
-  
+
   /**
    * This method should create the widgets object in the database
    * @param widgets
@@ -394,5 +351,4 @@ public class UserPortalConfigService {
   }
   
   public String getDefaultPortal() { return newPortalConfigListener_.getDefaultPortal(); }
-  
 }

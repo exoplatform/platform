@@ -143,7 +143,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
       List<PageNavigation> navigations = uiNodeSelector.getPageNavigations();
       String accessUser = event.getRequestContext().getRemoteUser();
       for(PageNavigation nav : navigations) {       
-        if(dataService.getPageNavigation(nav.getId(), accessUser) != null) {
+        if(dataService.getPageNavigation(nav.getId()) != null) {
           dataService.update(nav) ;
           continue;
         }

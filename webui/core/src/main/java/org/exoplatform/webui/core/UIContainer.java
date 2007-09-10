@@ -7,6 +7,7 @@ package org.exoplatform.webui.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -230,7 +231,17 @@ public class UIContainer extends UIComponent {
   
   static  public class SelectTabActionListener extends EventListener<UIContainer> {    
     public void execute(Event<UIContainer> event) throws Exception {
-      System.out.println("\n\n ==  > select tab \n\n");
+      WebuiRequestContext context = event.getRequestContext();
+      UIContainer uiContainer = event.getSource();
+      String renderTab = context.getRequestParameter(UIComponent.OBJECTID) ;
+      if(renderTab == null) return;
+      UIComponent uiComp = uiContainer.findComponentById(renderTab);  
+      if(uiComp != null) {
+        for(UIComponent child : uiContainer.getChildren()){
+          child.setRendered(false);
+        }
+        uiComp.setRendered(true);
+      }
     }
   }
 }

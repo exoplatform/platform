@@ -26,7 +26,6 @@ import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.PasteNod
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
-import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -150,7 +149,7 @@ public class UIPageNodeSelector extends UIContainer {
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     for(PageNavigation navigation: navigations) {
       String label = navigation.getOwnerId() + "'s Nav";
-      options.add(new SelectItemOption<String>(label, navigation.getId()));
+      options.add(new SelectItemOption<String>(navigation.getOwnerType() + ":" + label, navigation.getId()));
     }
     UIDropDownItemSelector uiNavigationSelector = getChild(UIDropDownItemSelector.class);
     uiNavigationSelector.setOptions(options);

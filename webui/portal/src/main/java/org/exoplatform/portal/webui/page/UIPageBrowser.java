@@ -64,7 +64,7 @@ import org.exoplatform.webui.form.UISearchForm;
       events = {
         @EventConfig(listeners = UIPageBrowser.SavePageActionListener.class, name = "Save"),
         @EventConfig(listeners = UIPageForm.ChangeOwnerTypeActionListener.class, phase = Phase.DECODE),
-        @EventConfig(listeners = UIPageForm.SelectGroupActionListener.class, phase = Phase.DECODE),
+        @EventConfig(listeners = UIPageForm.ChangeOwnerIdActionListener.class, phase = Phase.DECODE),
         @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
       },
       initParams = @ParamConfig(
@@ -76,11 +76,6 @@ import org.exoplatform.webui.form.UISearchForm;
       type = UIFormInputSet.class,
       id = "PermissionSetting",
       template = "system:/groovy/webui/core/UITabSelector.gtmpl"
-  ),
-  @ComponentConfig(
-      type = UIFormInputSet.class,
-      id = "PageSetting",
-      template = "system:/groovy/portal/webui/navigation/UIPageNavigationSetting.gtmpl"
   )
 })
 public class UIPageBrowser extends UISearch {
@@ -317,7 +312,7 @@ public class UIPageBrowser extends UISearch {
       UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class, "UIBrowserPageForm", "UIPageForm");
       uiMaskWS.setUIComponent(uiPageForm);
       uiMaskWS.setShow(true);
-
+      
       uiPageForm.getUIStringInput("ownerType").setValue(PortalConfig.USER_TYPE);
       uiPageForm.getUIStringInput("ownerId").setValue(prContext.getRemoteUser()); 
       uiPageForm.removeChildById("PermissionSetting");
@@ -326,7 +321,7 @@ public class UIPageBrowser extends UISearch {
       UIPageTemplateOptions uiTemplateConfig = uiPageForm.createUIComponent(UIPageTemplateOptions.class, null, null);
       uiTemplateConfig.setRendered(false) ;
       uiPageForm.addUIFormInput(uiTemplateConfig) ;
-
+//
       prContext.addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
@@ -356,7 +351,6 @@ public class UIPageBrowser extends UISearch {
           pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
           return ;
         }
-        
         page.setCreator(pcontext.getRemoteUser());
         page.setModifiable(true);
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
@@ -420,7 +414,5 @@ public class UIPageBrowser extends UISearch {
         pcontext.addUIComponentToUpdateByAjax(uiBrowser) ;
       }
     }
-
   }
-
 }

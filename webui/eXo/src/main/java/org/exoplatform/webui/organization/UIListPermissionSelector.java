@@ -32,7 +32,6 @@ import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormInputContainer;
 import org.exoplatform.webui.form.UIFormPageIterator;
 import org.exoplatform.webui.form.UIFormPopupWindow;
-import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.validator.Validator;
 
 /**
@@ -44,9 +43,10 @@ import org.exoplatform.webui.form.validator.Validator;
 @ComponentConfig(
   template = "system:/groovy/organization/webui/component/UIListPermissionSelector.gtmpl",
   events = {
-      @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.CloseActionListener.class),
+    @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.CloseActionListener.class),
     @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.DeleteActionListener.class, confirm = "UIAccessGroup.deleteAccessGroup"),
-    @EventConfig(phase = Phase.DECODE, listeners = UIPermissionSelector.SelectMembershipActionListener.class)
+    @EventConfig(phase = Phase.DECODE, listeners = UIPermissionSelector.SelectMembershipActionListener.class),
+    @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.ChangePublicModeActionListener.class)
   }
 )
 public class UIListPermissionSelector extends UISelector<String[]> { 
@@ -54,11 +54,9 @@ public class UIListPermissionSelector extends UISelector<String[]> {
   private boolean publicMode_ = false ;
 
   public UIListPermissionSelector() throws Exception {
-    //-----------------------------
     UIFormCheckBoxInput<Boolean> uiPublicMode = new UIFormCheckBoxInput<Boolean>("publicMode", null, false) ;
-    uiPublicMode.setOnChange("ChangePublicMode") ;
+    uiPublicMode.setOnChange("ChangePublicMode", "UIListPermissionSelector") ;
     addChild(uiPublicMode) ;
-    //-----------------------------
     UIFormGrid uiGrid = addChild(UIFormGrid.class, null, "PermissionGrid") ;
     uiGrid.configure("expression", new String[]{"groupId", "membership"}, new String[]{"Delete"});
     UIFormPageIterator uiIterator = (UIFormPageIterator)uiGrid.getUIPageIterator() ;
@@ -109,6 +107,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
   
   public UIListPermissionSelector setValue(String [] permissions) throws Exception {
     List<Object> list = new ArrayList<Object>();
+    publicMode_ = false;
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
     for(String exp : permissions) {
       if(exp.trim().length() < 1) continue;
@@ -116,7 +115,6 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       permission.setPermissionExpression(exp);
       if(existsPermission(list, permission)) continue;
       list.add(permission);
-      //-------------------------------
       if(exp.equals("*:/guest")) {
         UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
         uiGrid.setRendered(false) ;
@@ -124,7 +122,6 @@ public class UIListPermissionSelector extends UISelector<String[]> {
         UIFormCheckBoxInput<Boolean> uiPublicMode = getChildById("publicMode") ;
         uiPublicMode.setChecked(true) ;
       }
-      //-------------------------------
     }
     uiIterator.setPageList(new ObjectPageList(list, 10));
     return this;
@@ -172,7 +169,6 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     } catch(MissingResourceException e) {
       System.err.println("\nkey: " + key);
     }
-    
     return label ;
   }
   
@@ -206,9 +202,20 @@ public class UIListPermissionSelector extends UISelector<String[]> {
   
   static  public class CloseActionListener extends EventListener<UIPopupWindow> {
     public void execute(Event<UIPopupWindow> event) throws Exception {
-      UIPopupWindow uiPopupWindow = event.getSource();
+    //  UIPopupWindow uiPopupWindow = event.getSource();
       System.out.println("\n\n\n+++++++++++++++++++>>>>>>>>>>>>>>>>>> HUN");
     }
+  }
+  
+  static public class ChangePublicModeActionListener extends EventListener<UIListPermissionSelector> {
+    public void execute(Event<UIListPermissionSelector> event) throws Exception {
+      UIListPermissionSelector uicom = event.getSource();
+      UIFormCheckBoxInput<Boolean> uiPublicModeInput = uicom.getChildById("publicMode") ;
+      uicom.setPublicMode(uiPublicModeInput.isChecked()) ;
+      UIForm uiForm = uicom.getAncestorOfType(UIForm.class);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()) ;
+    }
+    
   }
   //TODO: Tung.Pham added
   static public class EmptyIteratorValidator implements Validator {

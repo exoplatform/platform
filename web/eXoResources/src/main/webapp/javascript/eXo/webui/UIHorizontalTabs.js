@@ -79,8 +79,9 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, 
     uiTabContent[i].style.display = "none" ;
   }
   uiTabContent[index].style.display = "block" ;
-  
+ 
   if(paneId !=null && tabId !=null){
+  alert("aaa")
     var params = [ {name: "objectId", value : tabId} ] ;
     ajaxAsyncGetRequest(eXo.env.server.createPortalURL(paneId, "SelectTab", true, params), false) ;
   }
@@ -91,7 +92,7 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, 
  * 
  */
 UIHorizontalTabs.prototype.changeTabForUIFormTabpane = function(clickedElemt, formId, hiddenValue) {
-	this.displayTabContent(clickedElemt) ;
+	this.displayTabContent(clickedElemt, formId, hiddenValue) ;
 	eXo.webui.UIForm.setHiddenValue(formId, 'currentSelectedTab', hiddenValue) ;
 };
 
