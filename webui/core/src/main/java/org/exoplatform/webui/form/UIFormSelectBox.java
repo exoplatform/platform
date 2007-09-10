@@ -48,22 +48,6 @@ public class UIFormSelectBox extends UIFormStringInput {
     size_ = i ; return this ;
   }
 
-  public UIFormSelectBox setValue(String value) {
-    if(isMultiple_) value_ = "" ;
-    else value_ = value ;
-    return this ;
-  }
-  
-  //Tung.Pham added
-  public String getValue() {
-    if(!isMultiple_) {
-      for(SelectItemOption<String> item : options_) {
-        if(item.isSelected()) return item.getValue() ;
-      }
-    }
-    return "" ;
-  }
-
   //Tung.Pham added
   public String[] getSelectedValues() {
     if(isMultiple_) {
@@ -74,7 +58,22 @@ public class UIFormSelectBox extends UIFormStringInput {
       }
       return selectedValues.toArray(new String[0]) ;
     }
-    return new String[]{} ;
+    return new String[]{value_} ;
+  }
+  
+  //Tung.Pham added
+  public UIFormSelectBox setSelectedValues(String [] values) {
+    for(SelectItemOption<String> option : options_) {
+      option.setSelected(false) ;
+      for(String value : values) {
+        if(value.equals(option.getValue())) {
+          option.setSelected(true) ;
+          break ;
+        }
+      }
+    }
+    
+    return this ;
   }
     
   final public List<SelectItemOption<String>> getOptions() { return options_ ; }
@@ -97,14 +96,16 @@ public class UIFormSelectBox extends UIFormStringInput {
   @SuppressWarnings("unused")
   public void decode(Object input, WebuiRequestContext context) throws Exception {
     String[] values = context.getRequestParameterValues(getId()) ;
-    if(values == null || values.length < 1) {
+    if(values == null) {
+      value_ = null ;
       for(SelectItemOption<String> item : options_) {
         item.setSelected(false) ;
       }
       return ;
     }
     
-    int i = 0;
+    int i = 0 ;
+    value_ = values[0] ;
     for(SelectItemOption<String> item: options_) {
       if (i > -1 && item.getValue().equals(values[i])) {
         item.setSelected(true) ;
