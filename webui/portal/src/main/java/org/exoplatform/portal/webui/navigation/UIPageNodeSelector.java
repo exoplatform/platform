@@ -282,9 +282,12 @@ public class UIPageNodeSelector extends UIContainer {
       
       UIContainer uiParent = uiPageNodeSelector.getParent();
       UIPageEditBar uiEditBar = uiParent.getChild(UIPageEditBar.class);   
-      if(uiPageNodeSelector.getSelectedNode() == null) return;
-      PageNode node  = uiPageNodeSelector.getSelectedNode().getNode();
-      
+      PageNode node = null;
+      if(uiPageNodeSelector.getSelectedNode() == null) {
+        node = Util.getUIPortal().getSelectedNode();
+      } else {
+      node  = uiPageNodeSelector.getSelectedNode().getNode();
+      }
       if(node == null) {
         uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation().getId());
       }
